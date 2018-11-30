@@ -5,6 +5,9 @@
   "description": "find and remove unused variables",
   "homepage": "http://github.com/coderaiser/putout",
   "main": "lib/putout.js",
+  "bin": {
+    "putout": "bin/putout.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/coderaiser/putout.git"
