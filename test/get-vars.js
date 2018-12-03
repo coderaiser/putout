@@ -16,6 +16,8 @@ const fixture = {
     noVars: readFixture('no-vars'),
     rootVars: readFixture('root-vars'),
     fnVars: readFixture('fn-vars'),
+    fnArgsVars: readFixture('fn-args-vars'),
+    arrowVars: readFixture('arrow-vars'),
     scopeVars: readFixture('scope-vars'),
     shorthandVars: readFixture('shorthand-vars'),
 };
@@ -56,6 +58,18 @@ test('get-vars: root vars', (t) => {
     t.end();
 });
 
+test('get-vars: root vars: returnPath', (t) => {
+    const ast = parse(fixture.rootVars);
+    const result = getVars(ast, {
+        returnPath: true,
+    });
+    
+    const {str} = result.pop();
+    
+    t.ok(str.path, 'should path be');
+    t.end();
+});
+
 test('get-vars: fn vars', (t) => {
     const ast = parse(fixture.fnVars);
     const result = getVars(ast, {
@@ -75,6 +89,59 @@ test('get-vars: fn vars', (t) => {
             loc: {
                 line: 2,
                 column: 0
+            }
+        }
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: fn args vars', (t) => {
+    const ast = parse(fixture.fnArgsVars);
+    const result = getVars(ast, {
+        returnPath: false,
+    });
+    
+    const expected = [{
+        one: {
+            count: 1,
+            loc: {
+                line: 2,
+                column: 11,
+            }
+        },
+        f: {
+            count: 1,
+            loc: {
+                line: 2,
+                column: 6,
+            }
+        }
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+test('get-vars: arrow vars', (t) => {
+    const ast = parse(fixture.arrowVars);
+    const result = getVars(ast, {
+        returnPath: false,
+    });
+    
+    const expected = [{
+        one: {
+            count: 2,
+            loc: {
+                line: 1,
+                column: 6,
+            }
+        },
+        f: {
+            count: 1,
+            loc: {
+                line: 2,
+                column: 6,
             }
         }
     }];
