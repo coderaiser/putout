@@ -17,6 +17,7 @@ const fixture = {
     rootVars: readFixture('root-vars'),
     fnVars: readFixture('fn-vars'),
     scopeVars: readFixture('scope-vars'),
+    shorthandVars: readFixture('shorthand-vars'),
 };
 
 test('get-vars: no', (t) => {
@@ -109,3 +110,31 @@ test('get-vars: scope vars', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
+
+test('get-vars: shorthand vars', (t) => {
+    const ast = parse(fixture.shorthandVars);
+    const result = getVars(ast, {
+        returnPath: false,
+    });
+    
+    const expected = [{
+        name: {
+            count: 2,
+            loc: {
+                line: 1,
+                column: 6
+            }
+        },
+        t: {
+            count: 1,
+            loc: {
+                line: 2,
+                column: 6
+            }
+        }
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
