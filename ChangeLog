@@ -1,3 +1,9 @@
+2018.12.04, v1.1.1
+
+fix:
+- (get-vars) first use of a function
+
+
 2018.12.03, v1.1.0
 
 feature:
