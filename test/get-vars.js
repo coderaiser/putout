@@ -157,20 +157,21 @@ test('get-vars: fn args vars', (t) => {
     });
     
     const expected = [{
-        one: {
-            count: 1,
-            loc: {
-                line: 2,
-                column: 11,
-            }
-        },
         f: {
             count: 1,
             loc: {
-                line: 2,
+                line: 1,
                 column: 6,
             }
         }
+    }, {
+        one: {
+            count: 1,
+            loc: {
+                line: 1,
+                column: 11,
+            }
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -307,3 +308,4 @@ test('get-vars: for of vars', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
+
