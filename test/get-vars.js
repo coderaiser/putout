@@ -24,6 +24,7 @@ const fixture = {
     scopeVars: readFixture('scope-vars'),
     shorthandVars: readFixture('shorthand-vars'),
     forOfVars: readFixture('for-of-vars'),
+    objProp: readFixture('obj-prop'),
 };
 
 test('get-vars: no', (t) => {
@@ -309,3 +310,14 @@ test('get-vars: for of vars', (t) => {
     t.end();
 });
 
+test('get-vars: obj prop', (t) => {
+    const ast = parse(fixture.objProp);
+    const result = getVars(ast, {
+        returnPath: false,
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
