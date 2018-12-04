@@ -17,8 +17,9 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
 
 const {
     fix,
-    vars,
+    raw,
 } = argv;
+
 const files = argv._;
 
 const putout = require('..');
@@ -29,13 +30,8 @@ files.forEach(processFiles);
 function processFiles(name) {
     const input = readFileSync(name, 'utf8');
     
-    if (vars) {
-        const result = getVars(putout.parse(input), {
-            returnPath: false,
-        });
-        console.log(JSON.stringify(result, null, 4));
-        return;
-    }
+    if (raw)
+        return showRaw(input);
     
     const {code, unused} = putout(input);
     
@@ -50,3 +46,10 @@ function processFiles(name) {
     }
 }
 
+function showRaw() {
+    const result = getVars(putout.parse(input), {
+        returnPath: false,
+    });
+    
+    console.log(JSON.stringify(result, null, 4));
+}
