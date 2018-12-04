@@ -6,7 +6,7 @@ const {readFileSync} = require('fs');
 const test = require('tape');
 const {
     parse,
-} = require('recast');
+} = require('..');
 
 const getVars = require('../lib/get-vars');
 
@@ -23,6 +23,7 @@ const fixture = {
     arrowVars: readFixture('arrow-vars'),
     scopeVars: readFixture('scope-vars'),
     shorthandVars: readFixture('shorthand-vars'),
+    spreadVars: readFixture('spread-vars'),
     forOfVars: readFixture('for-of-vars'),
     objProp: readFixture('obj-prop'),
 };
@@ -321,3 +322,38 @@ test('get-vars: obj prop', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
+
+test('get-vars: spread vars', (t) => {
+    const ast = parse(fixture.spreadVars);
+    const result = getVars(ast, {
+        returnPath: false,
+    });
+    
+    const expected = [{
+        msg: {
+            count: 2,
+            loc: {
+                line: 1,
+                column: 6,
+            }
+        },
+        obj: {
+            count: 2,
+            loc: {
+                line: 3,
+                column: 6,
+            }
+        },
+        spread: {
+            count: 1,
+            loc: {
+                line: 7,
+                column: 6,
+            }
+        }
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
