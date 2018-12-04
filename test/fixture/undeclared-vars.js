@@ -1,3 +1,1 @@
-const module = {};
 module.exports = () => {};
-

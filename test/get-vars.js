@@ -26,6 +26,7 @@ const fixture = {
     spreadVars: readFixture('spread-vars'),
     forOfVars: readFixture('for-of-vars'),
     objProp: readFixture('obj-prop'),
+    undeclaredVars: readFixture('undeclared-vars'),
 };
 
 test('get-vars: no', (t) => {
@@ -85,7 +86,6 @@ test('get-vars: fn call', (t) => {
     const expected = [{
         require: {
             count: 1,
-            called: true,
             loc: {
                 line: 1,
                 column: 0,
@@ -113,7 +113,6 @@ test('get-vars: fn call: vars', (t) => {
         },
         require: {
             count: 1,
-            called: true,
             loc: {
                 line: 2,
                 column: 0,
@@ -188,7 +187,6 @@ test('get-vars: fn hoisted vars', (t) => {
     
     const expected = [{
         log: {
-            called: true,
             count: 2,
             loc: {
                 line: 1,
@@ -317,7 +315,15 @@ test('get-vars: obj prop', (t) => {
         returnPath: false,
     });
     
-    const expected = [];
+    const expected = [{
+        module: {
+            count: 2,
+            loc: {
+                line: 1,
+                column: 6,
+            }
+        }
+    }];
     
     t.deepEqual(result, expected, 'should equal');
     t.end();
@@ -357,3 +363,14 @@ test('get-vars: spread vars', (t) => {
     t.end();
 });
 
+test('get-vars: undeclared vars', (t) => {
+    const ast = parse(fixture.undeclaredVars);
+    const result = getVars(ast, {
+        returnPath: false,
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
