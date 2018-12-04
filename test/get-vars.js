@@ -15,6 +15,8 @@ const readFixture = (name) => readFileSync(join(dirFixture, `${name}.js`), 'utf8
 const fixture = {
     noVars: readFixture('no-vars'),
     rootVars: readFixture('root-vars'),
+    fnCall: readFixture('fn-call'),
+    fnCallVars: readFixture('fn-call-vars'),
     fnVars: readFixture('fn-vars'),
     fnArgsVars: readFixture('fn-args-vars'),
     arrowVars: readFixture('arrow-vars'),
@@ -67,6 +69,38 @@ test('get-vars: root vars: returnPath', (t) => {
     const {str} = result.pop();
     
     t.ok(str.path, 'should path be');
+    t.end();
+});
+
+test('get-vars: fn call', (t) => {
+    const ast = parse(fixture.fnCall);
+    const result = getVars(ast, {
+        returnPath: false,
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: fn call: vars', (t) => {
+    const ast = parse(fixture.fnCallVars);
+    const result = getVars(ast, {
+        returnPath: false,
+    });
+    
+    const expected = [{
+        t: {
+            count: 1,
+            loc: {
+                line: 1,
+                column: 6
+            }
+        }
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
     t.end();
 });
 
