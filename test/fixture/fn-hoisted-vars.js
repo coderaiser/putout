@@ -1,0 +1,4 @@
+log();
+
+function log() {
+}

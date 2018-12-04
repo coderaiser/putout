@@ -19,6 +19,7 @@ const fixture = {
     fnCallVars: readFixture('fn-call-vars'),
     fnVars: readFixture('fn-vars'),
     fnArgsVars: readFixture('fn-args-vars'),
+    fnHoistedVars: readFixture('fn-hoisted-vars'),
     arrowVars: readFixture('arrow-vars'),
     scopeVars: readFixture('scope-vars'),
     shorthandVars: readFixture('shorthand-vars'),
@@ -78,7 +79,16 @@ test('get-vars: fn call', (t) => {
         returnPath: false,
     });
     
-    const expected = [];
+    const expected = [{
+        require: {
+            count: 1,
+            called: true,
+            loc: {
+                line: 1,
+                column: 0,
+            },
+        }
+    }];
     
     t.deepEqual(result, expected, 'should equal');
     t.end();
@@ -97,7 +107,15 @@ test('get-vars: fn call: vars', (t) => {
                 line: 1,
                 column: 6
             }
-        }
+        },
+        require: {
+            count: 1,
+            called: true,
+            loc: {
+                line: 2,
+                column: 0,
+            },
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -122,7 +140,7 @@ test('get-vars: fn vars', (t) => {
             count: 1,
             loc: {
                 line: 2,
-                column: 0
+                column: 9,
             }
         }
     }];
@@ -157,6 +175,28 @@ test('get-vars: fn args vars', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
+
+test('get-vars: fn hoisted vars', (t) => {
+    const ast = parse(fixture.fnHoistedVars);
+    const result = getVars(ast, {
+        returnPath: false,
+    });
+    
+    const expected = [{
+        log: {
+            called: true,
+            count: 2,
+            loc: {
+                line: 1,
+                column: 0,
+            }
+        }
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
 test('get-vars: arrow vars', (t) => {
     const ast = parse(fixture.arrowVars);
     const result = getVars(ast, {
