@@ -10,19 +10,33 @@ const {
 const chalk = require('chalk');
 const argv = require('yargs-parser')(process.argv.slice(2), {
     boolean: [
-        'fix'
+        'fix',
+        'vars',
     ]
 });
 
-const fix = argv.fix;
+const {
+    fix,
+    vars,
+} = argv;
 const files = argv._;
 
-const putout = require('../lib/putout');
+const putout = require('..');
+const getVars = require('../lib/get-vars');
 
 files.forEach(processFiles);
 
 function processFiles(name) {
     const input = readFileSync(name, 'utf8');
+    
+    if (vars) {
+        const result = getVars(putout.parse(input), {
+            returnPath: false,
+        });
+        console.log(JSON.stringify(result, null, 4));
+        return;
+    }
+    
     const {code, unused} = putout(input);
     
     if (fix)
