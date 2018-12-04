@@ -1,3 +1,9 @@
+2018.12.04, v1.2.0
+
+feature:
+- (package) add support of called but not defined functions
+
+
 2018.12.04, v1.1.1
 
 fix:
