@@ -1,18 +1,16 @@
 'use strict';
 
-const {readFileSync} = require('fs');
-const {join} = require('path');
-
 const test = require('tape');
 
 const putout = require('..');
+const {readFixtures} = require('./fixture');
 
-const dirFixture = join(__dirname, 'fixture');
-const readFixture = (name) => readFileSync(join(dirFixture, `${name}.js`), 'utf8');
-const fixture = {
-    noVars: readFixture('no-vars'),
-    rootVars: readFixture('root-vars'),
-};
+const fixture = readFixtures([
+    'no-vars',
+    'root-vars',
+    'aligned',
+    'not-aligned',
+]);
 
 test('putout: no vars', (t) => {
     const result = putout(fixture.noVars);
@@ -30,6 +28,13 @@ test('putout: root vars', (t) => {
     const expected = 'const str = \'hello\';\n';
     
     t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: align', (t) => {
+    const {code} = putout(fixture.notAligned);
+    
+    t.deepEqual(code, fixture.aligned, 'should equal');
     t.end();
 });
 

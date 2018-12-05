@@ -1,23 +1,18 @@
 'use strict';
 
-const {join} = require('path');
-const {readFileSync} = require('fs');
-
 const test = require('tape');
-const camelCase = require('just-camel-case');
 
 const {
     parse,
 } = require('..');
 
 const getVars = require('../lib/get-vars');
-
-const dirFixture = join(__dirname, 'fixture');
-const readFixture = (name) => readFileSync(join(dirFixture, `${name}.js`), 'utf8');
+const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
     'no-vars',
     'root-vars',
+    'no-root-vars',
     'fn-call',
     'fn-call-vars',
     'fn-vars',
@@ -64,6 +59,26 @@ test('get-vars: root vars', (t) => {
                 column: 6
             }
         }
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: no root vars', (t) => {
+    const ast = parse(fixture.noRootVars);
+    const result = getVars(ast, {
+        returnPath: false,
+    });
+    
+    const expected = [{
+        m: {
+            count: 1,
+            loc: {
+                line: 4,
+                column: 10,
+            }
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -435,15 +450,4 @@ test('get-vars: undeclared vars', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
-
-function readFixtures(names) {
-    const result = {};
-    
-    for (const name of names) {
-        const prop = camelCase(name);
-        result[prop] = readFixture(name);
-    }
-    
-    return result;
-}
 
