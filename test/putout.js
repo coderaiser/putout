@@ -12,7 +12,6 @@ const readFixture = (name) => readFileSync(join(dirFixture, `${name}.js`), 'utf8
 const fixture = {
     noVars: readFixture('no-vars'),
     rootVars: readFixture('root-vars'),
-    fnVars: readFixture('fn-vars'),
 };
 
 test('putout: no vars', (t) => {

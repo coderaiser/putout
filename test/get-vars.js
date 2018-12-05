@@ -4,6 +4,8 @@ const {join} = require('path');
 const {readFileSync} = require('fs');
 
 const test = require('tape');
+const camelCase = require('just-camel-case');
+
 const {
     parse,
 } = require('..');
@@ -12,22 +14,23 @@ const getVars = require('../lib/get-vars');
 
 const dirFixture = join(__dirname, 'fixture');
 const readFixture = (name) => readFileSync(join(dirFixture, `${name}.js`), 'utf8');
-const fixture = {
-    noVars: readFixture('no-vars'),
-    rootVars: readFixture('root-vars'),
-    fnCall: readFixture('fn-call'),
-    fnCallVars: readFixture('fn-call-vars'),
-    fnVars: readFixture('fn-vars'),
-    fnArgsVars: readFixture('fn-args-vars'),
-    fnHoistedVars: readFixture('fn-hoisted-vars'),
-    arrowVars: readFixture('arrow-vars'),
-    scopeVars: readFixture('scope-vars'),
-    shorthandVars: readFixture('shorthand-vars'),
-    spreadVars: readFixture('spread-vars'),
-    forOfVars: readFixture('for-of-vars'),
-    objProp: readFixture('obj-prop'),
-    undeclaredVars: readFixture('undeclared-vars'),
-};
+
+const fixture = readFixtures([
+    'no-vars',
+    'root-vars',
+    'fn-call',
+    'fn-call-vars',
+    'fn-vars',
+    'fn-args-vars',
+    'fn-hoisted-vars',
+    'arrow-vars',
+    'scope-vars',
+    'shorthand-vars',
+    'spread-vars',
+    'for-of-vars',
+    'obj-prop',
+    'undeclared-vars',
+]);
 
 test('get-vars: no', (t) => {
     const ast = parse(fixture.noVars);
@@ -374,3 +377,15 @@ test('get-vars: undeclared vars', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
+
+function readFixtures(names) {
+    const result = {};
+    
+    for (const name of names) {
+        const prop = camelCase(name);
+        result[prop] = readFixture(name);
+    }
+    
+    return result;
+}
+
