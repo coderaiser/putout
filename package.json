@@ -23,6 +23,7 @@
   "dependencies": {
     "@babel/traverse": "^7.1.6",
     "@babel/types": "^7.2.0",
+    "align-spaces": "^1.0.0",
     "chalk": "^2.4.1",
     "espree": "^4.1.0",
     "recast": "^0.16.1"
