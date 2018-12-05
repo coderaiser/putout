@@ -46,7 +46,7 @@ function processFiles(name) {
     }
 }
 
-function showRaw() {
+function showRaw(input) {
     const result = getVars(putout.parse(input), {
         returnPath: false,
     });
