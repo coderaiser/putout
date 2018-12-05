@@ -1,4 +1,5 @@
 const one = 1;
-function f() {
-    return one;
-}
+
+module.exports = () => {
+    const one = 2;
+};
