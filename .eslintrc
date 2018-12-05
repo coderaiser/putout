@@ -10,7 +10,11 @@
         "indent": ["error", 4],
         "semi": "error",
         "no-use-before-define": ["error", "nofunc"],
-        "no-console": 0
+        "no-console": 0,
+        "no-multiple-empty-lines": [
+            "error", {
+                "max": 1
+            }]
     },
     "extends": [
         "eslint:recommended",
