@@ -22,6 +22,7 @@ const fixture = readFixtures([
     'fn-call-vars',
     'fn-vars',
     'fn-args-vars',
+    'fn-destr-args-vars',
     'fn-hoisted-vars',
     'arrow-vars',
     'scope-vars',
@@ -176,6 +177,34 @@ test('get-vars: fn args vars', (t) => {
                 column: 11,
             }
         },
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: fn destr args vars', (t) => {
+    const ast = parse(fixture.fnDestrArgsVars);
+    const result = getVars(ast, {
+        returnPath: false,
+    });
+    
+    const expected = [{
+        arrow: {
+            count: 1,
+            loc: {
+                line: 1,
+                column: 6,
+            }
+        }
+    }, {
+        one: {
+            count: 1,
+            loc: {
+                line: 1,
+                column: 15,
+            }
+        }
     }];
     
     t.deepEqual(result, expected, 'should equal');
