@@ -12,6 +12,7 @@ const {readFixtures} = require('./fixture');
 const fixture = readFixtures([
     'no-vars',
     'root-vars',
+    'destr-vars',
     'no-root-vars',
     'fn-call',
     'fn-call-vars',
@@ -57,6 +58,40 @@ test('get-vars: root vars', (t) => {
             loc: {
                 line: 2,
                 column: 6
+            }
+        }
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: destr vars', (t) => {
+    const ast = parse(fixture.destrVars);
+    const result = getVars(ast, {
+        returnPath: false,
+    });
+    
+    const expected = [{
+        obj: {
+            count: 2,
+            loc: {
+                line: 1,
+                column: 6
+            }
+        },
+        a: {
+            count: 1,
+            loc: {
+                line: 6,
+                column: 6,
+            }
+        },
+        b: {
+            count: 1,
+            loc: {
+                line: 6,
+                column: 6,
             }
         }
     }];
