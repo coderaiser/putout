@@ -28,6 +28,7 @@ const putout = require('..');
 const getVars = require('../lib/get-vars');
 const transform = require('../lib/transform');
 const getUnused = require('../lib/get-unused');
+const cutShebang = require('../lib/cut-shebang');
 
 files.forEach(processFiles);
 
@@ -51,7 +52,9 @@ function processFiles(name) {
 }
 
 function showRaw(input) {
-    const vars = getVars(putout.parse(input), {
+    const [source] = cutShebang(input);
+    
+    const vars = getVars(putout.parse(source), {
         returnPath: false,
     });
     
