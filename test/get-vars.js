@@ -13,6 +13,7 @@ const fixture = readFixtures([
     'no-vars',
     'root-vars',
     'destr-vars',
+    'destr-fn-vars',
     'no-root-vars',
     'fn-call',
     'fn-call-vars',
@@ -41,25 +42,21 @@ test('get-vars: no', (t) => {
 
 test('get-vars: root vars', (t) => {
     const ast = parse(fixture.rootVars);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         str: {
-            count: 2,
-            loc: {
-                line: 1,
-                column: 6,
-            }
+            declared: true,
+            used: true,
         },
         str2: {
-            count: 1,
-            loc: {
-                line: 2,
-                column: 6
-            }
-        }
+            declared: true,
+            used: false,
+        },
+        str3: {
+            declared: true,
+            used: false,
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -68,32 +65,44 @@ test('get-vars: root vars', (t) => {
 
 test('get-vars: destr vars', (t) => {
     const ast = parse(fixture.destrVars);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         obj: {
-            count: 2,
-            loc: {
-                line: 1,
-                column: 6
-            }
+            declared: true,
+            used: true,
         },
         a: {
-            count: 1,
-            loc: {
-                line: 6,
-                column: 6,
-            }
+            declared: true,
+            used: false,
         },
         b: {
-            count: 1,
-            loc: {
-                line: 6,
-                column: 6,
-            }
+            declared: true,
+            used: false,
         }
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: destr fn vars', (t) => {
+    const ast = parse(fixture.destrFnVars);
+    const result = getVars(ast);
+    
+    const expected = [{
+        readFileSync: {
+            declared: true,
+            used: true
+        },
+        require: {
+            declared: false,
+            used: true,
+        },
+        m: {
+            declared: true,
+            used: false,
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -102,28 +111,28 @@ test('get-vars: destr vars', (t) => {
 
 test('get-vars: no root vars', (t) => {
     const ast = parse(fixture.noRootVars);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
+        module: {
+            declared: false,
+            used: true,
+        }
+    }, {
         m: {
-            count: 1,
-            loc: {
-                line: 4,
-                column: 10,
-            }
-        },
+            declared: true,
+            used: false,
+        }
     }];
     
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
 
-test('get-vars: root vars: returnPath', (t) => {
+test('get-vars: root vars: setPath', (t) => {
     const ast = parse(fixture.rootVars);
     const result = getVars(ast, {
-        returnPath: true,
+        setPath: true,
     });
     
     const {str} = result.pop();
@@ -134,17 +143,12 @@ test('get-vars: root vars: returnPath', (t) => {
 
 test('get-vars: fn call', (t) => {
     const ast = parse(fixture.fnCall);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         require: {
-            count: 1,
-            loc: {
-                line: 1,
-                column: 0,
-            },
+            declared: false,
+            used: true,
         }
     }];
     
@@ -155,23 +159,21 @@ test('get-vars: fn call', (t) => {
 test('get-vars: fn call: vars', (t) => {
     const ast = parse(fixture.fnCallVars);
     const result = getVars(ast, {
-        returnPath: false,
+        setLoc: true,
     });
     
     const expected = [{
         t: {
-            count: 1,
+            declared: true,
+            used: false,
             loc: {
                 line: 1,
                 column: 6
             }
         },
         require: {
-            count: 1,
-            loc: {
-                line: 2,
-                column: 0,
-            },
+            declared: false,
+            used: true,
         },
     }];
     
@@ -181,25 +183,21 @@ test('get-vars: fn call: vars', (t) => {
 
 test('get-vars: fn vars', (t) => {
     const ast = parse(fixture.fnVars);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         one: {
-            count: 1,
-            loc: {
-                line: 1,
-                column: 6,
-            }
+            declared: true,
+            used: false,
         },
+        module: {
+            declared: false,
+            used: true,
+        }
     }, {
         one: {
-            count: 1,
-            loc: {
-                line: 4,
-                column: 10,
-            }
+            declared: true,
+            used: false,
         }
     }];
     
@@ -209,24 +207,16 @@ test('get-vars: fn vars', (t) => {
 
 test('get-vars: fn closure vars', (t) => {
     const ast = parse(fixture.fnClosureVars);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         one: {
-            count: 2,
-            loc: {
-                line: 1,
-                column: 6,
-            }
+            declared: true,
+            used: true,
         },
         f: {
-            count: 1,
-            loc: {
-                line: 2,
-                column: 9,
-            }
+            declared: true,
+            used: false,
         }
     }];
     
@@ -236,25 +226,17 @@ test('get-vars: fn closure vars', (t) => {
 
 test('get-vars: fn args vars', (t) => {
     const ast = parse(fixture.fnArgsVars);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         f: {
-            count: 1,
-            loc: {
-                line: 1,
-                column: 6,
-            }
+            declared: true,
+            used: false,
         }
     }, {
         one: {
-            count: 1,
-            loc: {
-                line: 1,
-                column: 11,
-            }
+            declared: true,
+            used: false,
         },
     }];
     
@@ -264,26 +246,18 @@ test('get-vars: fn args vars', (t) => {
 
 test('get-vars: fn destr args vars', (t) => {
     const ast = parse(fixture.fnDestrArgsVars);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         arrow: {
-            count: 1,
-            loc: {
-                line: 1,
-                column: 6,
-            }
+            declared: true,
+            used: false,
         }
     }, {
         one: {
-            count: 1,
-            loc: {
-                line: 1,
-                column: 15,
-            }
-        }
+            declared: true,
+            used: false,
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -292,17 +266,12 @@ test('get-vars: fn destr args vars', (t) => {
 
 test('get-vars: fn hoisted vars', (t) => {
     const ast = parse(fixture.fnHoistedVars);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         log: {
-            count: 2,
-            loc: {
-                line: 1,
-                column: 0,
-            }
+            declared: true,
+            used: true,
         }
     }];
     
@@ -312,24 +281,16 @@ test('get-vars: fn hoisted vars', (t) => {
 
 test('get-vars: arrow vars', (t) => {
     const ast = parse(fixture.arrowVars);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         one: {
-            count: 2,
-            loc: {
-                line: 1,
-                column: 6,
-            }
+            declared: true,
+            used: true,
         },
         f: {
-            count: 1,
-            loc: {
-                line: 2,
-                column: 6,
-            }
+            declared: true,
+            used: false,
         }
     }];
     
@@ -339,25 +300,17 @@ test('get-vars: arrow vars', (t) => {
 
 test('get-vars: scope vars', (t) => {
     const ast = parse(fixture.scopeVars);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         f: {
-            count: 1,
-            loc: {
-                line: 1,
-                column: 6,
-            }
+            declared: true,
+            used: false,
         },
     }, {
         m: {
-            count: 1,
-            loc: {
-                line: 2,
-                column: 10
-            }
+            declared: true,
+            used: false,
         }
     }];
     
@@ -367,24 +320,16 @@ test('get-vars: scope vars', (t) => {
 
 test('get-vars: shorthand vars', (t) => {
     const ast = parse(fixture.shorthandVars);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         name: {
-            count: 2,
-            loc: {
-                line: 1,
-                column: 6
-            }
+            declared: true,
+            used: true,
         },
         t: {
-            count: 1,
-            loc: {
-                line: 2,
-                column: 6
-            }
+            declared: true,
+            used: false,
         }
     }];
     
@@ -394,25 +339,17 @@ test('get-vars: shorthand vars', (t) => {
 
 test('get-vars: for of vars', (t) => {
     const ast = parse(fixture.forOfVars);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         array: {
-            count: 2,
-            loc: {
-                line: 1,
-                column: 6,
-            }
+            declared: true,
+            used: true,
         }
     }, {
         item: {
-            count: 1,
-            loc: {
-                line: 2,
-                column: 11,
-            }
+            declared: true,
+            used: false,
         }
     }];
     
@@ -422,17 +359,12 @@ test('get-vars: for of vars', (t) => {
 
 test('get-vars: obj prop', (t) => {
     const ast = parse(fixture.objProp);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         module: {
-            count: 2,
-            loc: {
-                line: 1,
-                column: 6,
-            }
+            declared: true,
+            used: true,
         }
     }];
     
@@ -442,31 +374,20 @@ test('get-vars: obj prop', (t) => {
 
 test('get-vars: spread vars', (t) => {
     const ast = parse(fixture.spreadVars);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         msg: {
-            count: 2,
-            loc: {
-                line: 1,
-                column: 6,
-            }
+            declared: true,
+            used: true,
         },
         obj: {
-            count: 2,
-            loc: {
-                line: 3,
-                column: 6,
-            }
+            declared: true,
+            used: true,
         },
         spread: {
-            count: 1,
-            loc: {
-                line: 7,
-                column: 6,
-            }
+            declared: true,
+            used: false,
         }
     }];
     
@@ -476,11 +397,14 @@ test('get-vars: spread vars', (t) => {
 
 test('get-vars: undeclared vars', (t) => {
     const ast = parse(fixture.undeclaredVars);
-    const result = getVars(ast, {
-        returnPath: false,
-    });
+    const result = getVars(ast);
     
-    const expected = [];
+    const expected = [{
+        module: {
+            declared: false,
+            used: true,
+        }
+    }];
     
     t.deepEqual(result, expected, 'should equal');
     t.end();

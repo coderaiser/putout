@@ -5,13 +5,19 @@ const getUnused = require('../lib/get-unused');
 
 test('get-unused', (t) => {
     const result = getUnused([{
-        count: 2,
+        name: 'a',
+        declared: true,
+        used: false,
     }, {
-        count: 1
+        name: 'b',
+        declared: true,
+        used: true,
     }]);
     
     const expected = [{
-        count: 1,
+        name: 'a',
+        declared: true,
+        used: false,
     }];
     
     t.deepEqual(result, expected, 'should equal');

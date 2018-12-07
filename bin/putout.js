@@ -54,9 +54,7 @@ function processFiles(name) {
 function showRaw(input) {
     const [source] = cutShebang(input);
     
-    const vars = getVars(putout.parse(source), {
-        returnPath: false,
-    });
+    const vars = getVars(putout.parse(source));
     
     if (rawFull)
         return logObj(vars);
