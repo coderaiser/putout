@@ -1,2 +1,4 @@
 const t = 'hi';
-require('hello');
+const i = 0;
+
+require(t);

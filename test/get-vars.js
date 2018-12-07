@@ -165,10 +165,18 @@ test('get-vars: fn call: vars', (t) => {
     const expected = [{
         t: {
             declared: true,
-            used: false,
+            used: true,
             loc: {
                 line: 1,
                 column: 6
+            }
+        },
+        i: {
+            declared: true,
+            used: false,
+            loc: {
+                line: 2,
+                column: 6,
             }
         },
         require: {
