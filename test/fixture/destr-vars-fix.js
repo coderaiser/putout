@@ -3,6 +3,8 @@ const obj = {
     b: 2,
 };
 
-const {a, b} = obj;
+const {
+    b,
+} = obj;
 
 console.log(b);

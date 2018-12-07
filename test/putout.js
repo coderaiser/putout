@@ -11,6 +11,8 @@ const fixture = readFixtures([
     'aligned',
     'not-aligned',
     'shebang',
+    'destr-vars',
+    'destr-vars-fix',
 ]);
 
 test('putout: no vars', (t) => {
@@ -42,6 +44,14 @@ test('putout: align', (t) => {
 test('putout: shebang', (t) => {
     const {code} = putout(fixture.shebang);
     const expected = '#!/usr/bin/env node\n\n\n\n';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: destr-vars', (t) => {
+    const {code} = putout(fixture.destrVars);
+    const expected = fixture.destrVarsFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

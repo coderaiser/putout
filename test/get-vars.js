@@ -78,8 +78,12 @@ test('get-vars: destr vars', (t) => {
         },
         b: {
             declared: true,
-            used: false,
-        }
+            used: true,
+        },
+        console: {
+            declared: false,
+            used: true,
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
