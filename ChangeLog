@@ -1,3 +1,15 @@
+2018.12.07, v2.0.0
+
+fix:
+- (putout) remove unused destructured variables
+
+feature:
+- (putout) add support of fn-call-vars
+- (package) espree -> @babel/parser
+- (putout) count -> declared, used
+- (package) espree v5.0.0
+
+
 2018.12.06, v1.6.0
 
 feature:
