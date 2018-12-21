@@ -1,3 +1,14 @@
+2018.12.21, v2.1.0
+
+fix:
+- test(putout) fn vars 
+- test(putout) arrow-vars-
+
+feature:
+- (putout) add support of destructuring nested object
+- (putout) get-vars: remove declaration when destructured value not used
+
+
 2018.12.07, v2.0.0
 
 fix:
