@@ -11,6 +11,8 @@ const fixture = readFixtures([
     'no-vars',
     'root-vars',
     'aligned',
+    'fn-vars',
+    'fn-vars-fix',
     'not-aligned',
     'shebang',
     'destr-vars',
@@ -67,3 +69,10 @@ test('putout: destr-vars', (t) => {
     t.end();
 });
 
+test('putout: fn-vars', (t) => {
+    const {code} = putout(fixture.fnVars);
+    const expected = fixture.fnVarsFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
