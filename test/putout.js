@@ -23,6 +23,8 @@ const fixture = readFixtures([
     'shebang',
     'destr-vars',
     'destr-vars-fix',
+    'destr-nested-vars',
+    'destr-nested-vars-fix',
 ]);
 
 test('putout: no vars', (t) => {
@@ -70,6 +72,14 @@ test('putout: arrow-vars', (t) => {
 test('putout: destr-vars', (t) => {
     const {code} = putout(fixture.destrVars);
     const expected = fixture.destrVarsFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: destr nested vars', (t) => {
+    const {code} = putout(fixture.destrNestedVars);
+    const expected = fixture.destrNestedVarsFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

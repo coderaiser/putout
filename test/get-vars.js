@@ -13,6 +13,7 @@ const fixture = readFixtures([
     'no-vars',
     'root-vars',
     'destr-vars',
+    'destr-nested-vars',
     'destr-fn-vars',
     'no-root-vars',
     'fn-call',
@@ -87,6 +88,25 @@ test('get-vars: destr vars', (t) => {
         console: {
             declared: false,
             used: true,
+        },
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: destr nested vars', (t) => {
+    const ast = parse(fixture.destrNestedVars);
+    const result = getVars(ast);
+    
+    const expected = [{
+        obj: {
+            declared: true,
+            used: true,
+        },
+        world: {
+            declared: true,
+            used: false,
         },
     }];
     
