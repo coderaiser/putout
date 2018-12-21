@@ -61,7 +61,7 @@ test('putout: shebang', (t) => {
     t.end();
 });
 
-test('putout: arrow-vars', (t) => {
+test('putout: arrow vars', (t) => {
     const {code} = putout(fixture.arrowVars);
     const expected = fixture.arrowVarsFix;
     
@@ -69,7 +69,7 @@ test('putout: arrow-vars', (t) => {
     t.end();
 });
 
-test('putout: destr-vars', (t) => {
+test('putout: destr vars', (t) => {
     const {code} = putout(fixture.destrVars);
     const expected = fixture.destrVarsFix;
     
@@ -85,7 +85,7 @@ test('putout: destr nested vars', (t) => {
     t.end();
 });
 
-test('putout: fn-vars', (t) => {
+test('putout: fn vars', (t) => {
     const {code} = putout(fixture.fnVars);
     const expected = fixture.fnVarsFix;
     
@@ -93,7 +93,7 @@ test('putout: fn-vars', (t) => {
     t.end();
 });
 
-test('putout: fn-call', (t) => {
+test('putout: fn call', (t) => {
     const {code} = putout(fixture.fnCall);
     const expected = fixture.fnCall;
     
@@ -101,7 +101,7 @@ test('putout: fn-call', (t) => {
     t.end();
 });
 
-test('putout: fn-call-vars', (t) => {
+test('putout: fn call vars', (t) => {
     const {code} = putout(fixture.fnCallVars);
     const expected = fixture.fnCallVarsFix;
     
@@ -109,7 +109,7 @@ test('putout: fn-call-vars', (t) => {
     t.end();
 });
 
-test('putout: fn-destr-args-vars', (t) => {
+test('putout: fn destr args vars', (t) => {
     const {code} = putout(fixture.fnDestrArgsVars);
     const expected = '\n';
     
@@ -117,7 +117,7 @@ test('putout: fn-destr-args-vars', (t) => {
     t.end();
 });
 
-test('putout: fn-closure-vars', (t) => {
+test('putout: fn closure vars', (t) => {
     const {code} = putout(fixture.fnClosureVars);
     const expected = fixture.fnClosureVarsFix;
     
