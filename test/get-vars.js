@@ -80,6 +80,10 @@ test('get-vars: destr vars', (t) => {
             declared: true,
             used: true,
         },
+        c: {
+            declared: true,
+            used: false,
+        },
         console: {
             declared: false,
             used: true,
