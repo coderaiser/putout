@@ -12,6 +12,7 @@ const {readFixtures} = require('./fixture');
 const fixture = readFixtures([
     'no-vars',
     'root-vars',
+    'condition-vars',
     'destr-vars',
     'destr-nested-vars',
     'destr-fn-vars',
@@ -57,6 +58,29 @@ test('get-vars: root vars', (t) => {
         str3: {
             declared: true,
             used: false,
+        },
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: condition vars', (t) => {
+    const ast = parse(fixture.conditionVars);
+    const result = getVars(ast);
+    
+    const expected = [{
+        msg: {
+            declared: true,
+            used: true,
+        },
+        x: {
+            declared: true,
+            used: true,
+        },
+        console: {
+            declared: false,
+            used: true,
         },
     }];
     
