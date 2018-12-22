@@ -1,3 +1,12 @@
+2018.12.22, v2.3.0
+
+fix:
+- (get-vars) VariableDeclarator: path.traverse -> id.traverse
+
+feature:
+- (get-vars) add support of TemplateLiteral
+
+
 2018.12.22, v2.2.0
 
 feature:
