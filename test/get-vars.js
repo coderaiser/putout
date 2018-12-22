@@ -30,6 +30,7 @@ const fixture = readFixtures([
     'spread-vars',
     'for-of-vars',
     'obj-prop',
+    'template-vars',
     'undeclared-vars',
 ]);
 
@@ -449,6 +450,37 @@ test('get-vars: spread vars', (t) => {
             declared: true,
             used: false,
         }
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: template vars', (t) => {
+    const ast = parse(fixture.templateVars);
+    const result = getVars(ast);
+    
+    const expected = [{
+        x: {
+            declared: true,
+            used: true,
+        },
+        y: {
+            declared: true,
+            used: true,
+        },
+        z: {
+            declared: true,
+            used: true,
+        },
+        msg: {
+            declared: true,
+            used: false,
+        },
+        console: {
+            declared: false,
+            used: true,
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
