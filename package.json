@@ -14,6 +14,7 @@
   },
   "scripts": {
     "test": "tape 'test/*.js'",
+    "test:diff": "npm test | tap-diff",
     "watch:test": "nodemon -w lib -w test -x \"npm test\"",
     "watch:example": "nodemon -w lib -w test -x \"node remove-unused\"",
     "lint": "eslint lib test --ignore-pattern test/fixture",
@@ -42,6 +43,7 @@
     "nodemon": "^1.14.12",
     "nyc": "^13.0.1",
     "redrun": "^7.0.2",
+    "tap-diff": "^0.1.1",
     "tape": "^4.8.0",
     "try-catch": "^2.0.0"
   },
