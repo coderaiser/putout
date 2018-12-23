@@ -1,5 +1,6 @@
 const one = 1;
 const two = 2;
+const three = 3;
 
 function f1() {
     return one;
@@ -7,5 +8,11 @@ function f1() {
 
 function f2() {
     return `${two}`
+}
+
+function f3() {
+    return {
+        msg: `${2}${three}`,
+    }
 }
 

@@ -299,11 +299,19 @@ test('get-vars: fn closure vars', (t) => {
             declared: true,
             used: true,
         },
+        three: {
+            declared: true,
+            used: true,
+        },
         f1: {
             declared: true,
             used: false,
         },
         f2: {
+            declared: true,
+            used: false,
+        },
+        f3: {
             declared: true,
             used: false,
         },
