@@ -19,6 +19,7 @@ const fixture = readFixtures([
     'no-root-vars',
     'fn-call',
     'fn-call-vars',
+    'fn-call-shorthand-vars',
     'fn-vars',
     'fn-closure-vars',
     'fn-args-vars',
@@ -203,6 +204,25 @@ test('get-vars: fn call', (t) => {
             declared: false,
             used: true,
         }
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: fn call shorthand vars', (t) => {
+    const ast = parse(fixture.fnCallShorthandVars);
+    const result = getVars(ast);
+    
+    const expected = [{
+        msg: {
+            declared: true,
+            used: true,
+        },
+        console: {
+            declared: false,
+            used: true,
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
