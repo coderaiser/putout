@@ -1,3 +1,12 @@
+2018.12.23, v2.4.0
+
+feature:
+- (get-vars) add support of ObjectExpression in ReturnStatement
+- (get-vars) add support of TemplateLiteral in ReturnStatement
+- (get-vars) fn calls horthand vars
+- (package) test:diff
+
+
 2018.12.22, v2.3.0
 
 fix:
