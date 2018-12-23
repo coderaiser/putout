@@ -295,10 +295,18 @@ test('get-vars: fn closure vars', (t) => {
             declared: true,
             used: true,
         },
-        f: {
+        two: {
+            declared: true,
+            used: true,
+        },
+        f1: {
             declared: true,
             used: false,
-        }
+        },
+        f2: {
+            declared: true,
+            used: false,
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');

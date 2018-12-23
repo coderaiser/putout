@@ -1,4 +1,11 @@
 const one = 1;
-function f() {
+const two = 2;
+
+function f1() {
     return one;
 }
+
+function f2() {
+    return `${two}`
+}
+
