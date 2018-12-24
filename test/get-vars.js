@@ -38,6 +38,7 @@ const fixture = readFixtures([
     'template-vars',
     'undeclared-vars',
     'unary-expression',
+    'variable-declarator',
 ]);
 
 const du = 'du';
@@ -610,6 +611,19 @@ test('get-vars: undeclared vars', (t) => {
             declared: false,
             used: true,
         }
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: variable declarator', (t) => {
+    const ast = parse(fixture.variableDeclarator);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        a: du,
+        b: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');
