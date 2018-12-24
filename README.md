@@ -16,7 +16,6 @@ Find and remove unused variables.
 
 Because [eslint does not remove unused variables](https://eslint.org/docs/rules/no-unused-vars).
 
-
 ## Install
 
 ```
