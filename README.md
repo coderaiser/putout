@@ -27,7 +27,7 @@ npm i putout -g
 To see unused variables use:
 
 ```
-putout your-js-file.js
+putout lib test
 ```
 
 To remove `unused variables` use:
