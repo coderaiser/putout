@@ -2,7 +2,10 @@
 
 'use strict';
 
-const {extname} = require('path');
+const {
+    extname,
+    resolve,
+} = require('path');
 
 const {
     readFileSync,
@@ -13,6 +16,10 @@ const {
 const chalk = require('chalk');
 const glob = require('glob');
 const tryCatch = require('try-catch');
+const {
+    table,
+    getBorderCharacters,
+} = require('table');
 
 const putout = require('..');
 const getVars = require('../lib/get-vars');
@@ -56,12 +63,27 @@ function processFiles(name) {
     if (fix)
         return writeFileSync(name, code);
     
+    const data = [];
+    //    chalk.grey.underline('location'),
+    //    chalk.underline(resolve(name)),
+    //]];
+    
     for (const item of unused) {
         const {loc, name} = item;
         const {line, column} = loc;
         
-        console.log(` ${line}:${column} ${chalk.red('error')}  "${name}" is defined but never used`);
+        //console.log(` ${line}:${column} ${chalk.red('error')}  "${name}" is defined but never used`);
+        data.push([
+            chalk.grey(`${line}:${column}`),
+            `${chalk.red('error')}   "${name}" is defined but never used`,
+        ]);
     }
+    
+    console.log(chalk.underline(resolve(name)));
+    process.stdout.write(table(data, {
+        border: getBorderCharacters('void'),
+        drawHorizontalLine: () => false,
+    }));
 }
 
 function showRaw(input) {
