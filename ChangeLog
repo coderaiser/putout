@@ -1,3 +1,12 @@
+2018.12.24, v2.6.0
+
+feature:
+- (putout) add support of globs
+- (putout) add support of array-expression
+- (putout) add support of unary-expression
+- (package) add eslint-plugin-tape
+
+
 2018.12.24, v2.5.0
 
 feature:
