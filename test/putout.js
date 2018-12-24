@@ -25,6 +25,8 @@ const fixture = readFixtures([
     'destr-vars-fix',
     'destr-nested-vars',
     'destr-nested-vars-fix',
+    'strict-mode',
+    'strict-mode-fix',
 ]);
 
 test('putout: no vars', (t) => {
@@ -120,6 +122,14 @@ test('putout: fn destr args vars', (t) => {
 test('putout: fn closure vars', (t) => {
     const {code} = putout(fixture.fnClosureVars);
     const expected = fixture.fnClosureVarsFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: use strict', (t) => {
+    const {code} = putout(fixture.strictMode);
+    const expected = fixture.strictModeFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();
