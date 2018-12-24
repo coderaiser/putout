@@ -1,3 +1,10 @@
+2018.12.24, v2.5.0
+
+feature:
+- (get-vars) add support of logical-expression
+- (putout) add support of member expression properties
+
+
 2018.12.23, v2.4.0
 
 feature:
