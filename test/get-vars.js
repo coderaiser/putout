@@ -35,6 +35,7 @@ const fixture = readFixtures([
     'obj-prop',
     'template-vars',
     'undeclared-vars',
+    'unary-expression',
 ]);
 
 const du = 'du';
@@ -78,6 +79,7 @@ test('get-vars: logical expression', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
+
 test('get-vars: member expression', (t) => {
     const ast = parse(fixture.memberExpression);
     const result = getVars(ast).map(dutify);
@@ -85,6 +87,21 @@ test('get-vars: member expression', (t) => {
     const expected = [{
         msg: du,
         obj: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: unary expression', (t) => {
+    const ast = parse(fixture.unaryExpression);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        is: d_,
+    }, {
+        a: du,
+        b: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
