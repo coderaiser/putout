@@ -35,6 +35,25 @@ const fixture = readFixtures([
     'undeclared-vars',
 ]);
 
+const du = 'du';
+const d_ = 'd_';
+const _u = '_u';
+const dutify = (obj) => {
+    const result = {};
+    const entries = Object.entries(obj);
+    
+    for (const [name, {declared, used}] of entries) {
+        const str = [
+            declared ? 'd' : '_',
+            used ? 'u' : '_',
+        ].join('');
+        
+        result[name] = str;
+    }
+    
+    return result;
+};
+
 test('get-vars: no', (t) => {
     const ast = parse(fixture.noVars);
     const result = getVars(ast);
@@ -92,29 +111,14 @@ test('get-vars: condition vars', (t) => {
 
 test('get-vars: destr vars', (t) => {
     const ast = parse(fixture.destrVars);
-    const result = getVars(ast);
+    const result = getVars(ast).map(dutify);
     
     const expected = [{
-        obj: {
-            declared: true,
-            used: true,
-        },
-        a: {
-            declared: true,
-            used: false,
-        },
-        b: {
-            declared: true,
-            used: true,
-        },
-        c: {
-            declared: true,
-            used: false,
-        },
-        console: {
-            declared: false,
-            used: true,
-        },
+        obj: du,
+        a: d_,
+        b: du,
+        c: d_,
+        console: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');
