@@ -1,3 +1,9 @@
+2018.12.24, v2.8.0
+
+feature:
+- (putout) add support of SpreadElement in CallExpression
+
+
 2018.12.24, v2.7.1
 
 fix:
