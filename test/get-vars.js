@@ -26,6 +26,7 @@ const fixture = readFixtures([
     'fn-destr-args-vars',
     'fn-hoisted-vars',
     'arrow-vars',
+    'logical-expression',
     'member-expression',
     'scope-vars',
     'shorthand-vars',
@@ -64,6 +65,19 @@ test('get-vars: no', (t) => {
     t.end();
 });
 
+test('get-vars: logical expression', (t) => {
+    const ast = parse(fixture.logicalExpression);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        isOne: du,
+        x: du,
+        y: d_,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
 test('get-vars: member expression', (t) => {
     const ast = parse(fixture.memberExpression);
     const result = getVars(ast).map(dutify);
