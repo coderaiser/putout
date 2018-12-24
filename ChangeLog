@@ -1,3 +1,12 @@
+2018.12.24, v2.7.0
+
+fix:
+- (putout) dependencies
+
+feature:
+- (putout) show file name
+
+
 2018.12.24, v2.6.1
 
 fix:
