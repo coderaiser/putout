@@ -63,16 +63,15 @@ function processFiles(name) {
     if (fix)
         return writeFileSync(name, code);
     
+    if (!unused.length)
+        return;
+    
     const data = [];
-    //    chalk.grey.underline('location'),
-    //    chalk.underline(resolve(name)),
-    //]];
     
     for (const item of unused) {
         const {loc, name} = item;
         const {line, column} = loc;
         
-        //console.log(` ${line}:${column} ${chalk.red('error')}  "${name}" is defined but never used`);
         data.push([
             chalk.grey(`${line}:${column}`),
             `${chalk.red('error')}   "${name}" is defined but never used`,
