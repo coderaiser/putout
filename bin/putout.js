@@ -113,7 +113,7 @@ function addExt(a) {
         return `${a}/**/*.js`;
     
     return a;
-};
+}
 
 function getFiles(args) {
     const files = args
