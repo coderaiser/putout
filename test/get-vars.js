@@ -11,6 +11,7 @@ const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
     'array-expression',
+    'assignment-expression',
     'call-expression',
     'no-vars',
     'root-vars',
@@ -91,6 +92,21 @@ test('get-vars: array expression', (t) => {
         a: du,
         b: du,
         result: d_,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: assignment expression', (t) => {
+    const ast = parse(fixture.assignmentExpression);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        a: du,
+        b: du,
+        c: du,
+        obj: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
