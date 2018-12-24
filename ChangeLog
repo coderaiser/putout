@@ -1,3 +1,9 @@
+2018.12.24, v2.9.0
+
+feature:
+- (putout) add support of Identifier in init of VariableDeclarator
+
+
 2018.12.24, v2.8.0
 
 feature:
