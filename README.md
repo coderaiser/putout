@@ -33,7 +33,7 @@ putout lib test
 To remove `unused variables` use:
 
 ```
-putout --fix your-js-file.js
+putout lib test --fix
 ```
 
 ## API
