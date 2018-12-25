@@ -13,6 +13,8 @@ const fixture = readFixtures([
     'aligned',
     'fn-vars',
     'fn-vars-fix',
+    'fn-args-vars',
+    'fn-args-vars-fix',
     'fn-call',
     'fn-call-vars',
     'fn-call-vars-fix',
@@ -106,6 +108,14 @@ test('putout: fn call', (t) => {
 test('putout: fn call vars', (t) => {
     const {code} = putout(fixture.fnCallVars);
     const expected = fixture.fnCallVarsFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: fn args vars', (t) => {
+    const {code} = putout(fixture.fnArgsVars);
+    const expected = fixture.fnArgsVarsFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();
