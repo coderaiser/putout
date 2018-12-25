@@ -13,7 +13,14 @@ const {
     statSync,
 } = require('fs');
 
-const chalk = require('chalk');
+const {
+    underline,
+    red,
+    grey,
+    redBright,
+    bold,
+} = require('chalk');
+
 const glob = require('glob');
 const tryCatch = require('try-catch');
 const {
@@ -50,7 +57,19 @@ if (e) {
     process.exit(1);
 }
 
-files.map(processFiles);
+let unusedCount = 0;
+let filesCount = 0;
+
+const output = files
+    .map(processFiles)
+    .filter(Boolean);
+
+if (output.length) {
+    process.stdout.write('\n');
+    output.map(one(console.log));
+    console.log(bold(redBright(`✖ ${unusedCount} unused variables in ${filesCount} files`)));
+    console.log(bold(redBright('  fixable with the `--fix` option')));
+}
 
 function processFiles(name) {
     const input = readFileSync(name, 'utf8');
@@ -67,22 +86,27 @@ function processFiles(name) {
         return;
     
     const data = [];
+    ++filesCount;
     
     for (const item of unused) {
         const {loc, name} = item;
         const {line, column} = loc;
         
+        ++unusedCount;
+        
         data.push([
-            chalk.grey(`${line}:${column}`),
-            `${chalk.red('error')}   "${name}" is defined but never used`,
+            grey(`${line}:${column}`),
+            `${red('error')}   "${name}" is defined but never used`,
         ]);
     }
     
-    console.log(chalk.underline(resolve(name)));
-    process.stdout.write(table(data, {
-        border: getBorderCharacters('void'),
-        drawHorizontalLine: () => false,
-    }));
+    return [
+        underline(resolve(name)),
+        table(data, {
+            border: getBorderCharacters('void'),
+            drawHorizontalLine: () => false,
+        })
+    ].join('\n');
 }
 
 function showRaw(input) {
