@@ -51,18 +51,17 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
 });
 
 const {
-    version,
     fix,
     raw,
     rawFull,
 } = argv;
 
-if (version) {
+if (argv.version) {
     console.log(require('../package.json').version);
     process.exit();
 }
 
-if (help) {
+if (argv.help) {
     help();
     process.exit();
 }
