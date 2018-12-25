@@ -589,29 +589,17 @@ test('get-vars: spread vars', (t) => {
 
 test('get-vars: template vars', (t) => {
     const ast = parse(fixture.templateVars);
-    const result = getVars(ast);
+    const result = getVars(ast).map(dutify);
     
     const expected = [{
-        x: {
-            declared: true,
-            used: true,
-        },
-        y: {
-            declared: true,
-            used: true,
-        },
-        z: {
-            declared: true,
-            used: true,
-        },
-        msg: {
-            declared: true,
-            used: false,
-        },
-        console: {
-            declared: false,
-            used: true,
-        },
+        x: du,
+        y: du,
+        z: du,
+        msg: d_,
+        console: _u,
+        f: d_,
+    }, {
+        a: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
