@@ -1,3 +1,9 @@
+2018.12.25, v2.10.1
+
+fix:
+- (putout) add "\n" in output
+
+
 2018.12.24, v2.10.0
 
 feature:
