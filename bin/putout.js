@@ -38,17 +38,34 @@ const one = (f) => (a) => f(a);
 
 const argv = require('yargs-parser')(process.argv.slice(2), {
     boolean: [
+        'version',
+        'help',
         'fix',
         'raw',
         'raw-full',
-    ]
+    ],
+    alias: {
+        'v': 'version',
+        'h': 'help',
+    },
 });
 
 const {
+    version,
     fix,
     raw,
     rawFull,
 } = argv;
+
+if (version) {
+    console.log(require('../package.json').version);
+    process.exit();
+}
+
+if (help) {
+    help();
+    process.exit();
+}
 
 const [e, files] = tryCatch(getFiles, argv._);
 
@@ -144,5 +161,17 @@ function getFiles(args) {
         .map(one(glob.sync));
     
     return [].concat(...files);
+}
+
+function help() {
+    const bin = require('../help');
+    const usage = 'Usage: putout [options]';
+    
+    console.log(usage);
+    console.log('Options:');
+    
+    Object.keys(bin).forEach((name) => {
+        console.log('  %s %s', name, bin[name]);
+    });
 }
 
