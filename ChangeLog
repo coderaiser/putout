@@ -1,3 +1,15 @@
+2018.12.25, v2.13.0
+
+fix:
+- (putout) strict mode
+- (putout) some variable names on same scope level
+
+feature:
+- (putout) add support of destructuring in params of ArrowFunctionExpression
+- (get-vars) add support of destructuring in params
+- (putout) add ability to ignore params before last used
+
+
 2018.12.25, v2.12.0
 
 feature:
