@@ -423,10 +423,14 @@ test('get-vars: fn args vars', (t) => {
     const expected = [{
         f1: d_,
         f2: d_,
+        f3: d_,
     }, {
         one: d_,
     }, {
         one: du,
+        two: du,
+    }, {
+        one: d_,
         two: du,
     }];
     
