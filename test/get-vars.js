@@ -418,18 +418,16 @@ test('get-vars: fn closure vars', (t) => {
 
 test('get-vars: fn args vars', (t) => {
     const ast = parse(fixture.fnArgsVars);
-    const result = getVars(ast);
+    const result = getVars(ast).map(dutify);
     
     const expected = [{
-        f: {
-            declared: true,
-            used: false,
-        }
+        f1: d_,
+        f2: d_,
     }, {
-        one: {
-            declared: true,
-            used: false,
-        },
+        one: d_,
+    }, {
+        one: d_,
+        two: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
