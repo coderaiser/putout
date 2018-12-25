@@ -426,7 +426,7 @@ test('get-vars: fn args vars', (t) => {
     }, {
         one: d_,
     }, {
-        one: d_,
+        one: du,
         two: du,
     }];
     
