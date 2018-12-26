@@ -424,14 +424,20 @@ test('get-vars: fn args vars', (t) => {
         f1: d_,
         f2: d_,
         f3: du,
+        fs: _u,
     }, {
-        one: d_,
+        a: d_,
+        b: d_,
     }, {
         one: du,
         two: du,
     }, {
         one: d_,
         two: du,
+        hi: d_,
+    }, {
+        name: du,
+        fn: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
