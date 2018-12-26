@@ -636,6 +636,9 @@ test('get-vars: variable declarator', (t) => {
     const expected = [{
         a: du,
         b: d_,
+        x: d_,
+        y: du,
+        z: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');
