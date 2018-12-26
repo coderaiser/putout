@@ -1,3 +1,9 @@
+2018.12.26, v2.14.0
+
+feature:
+- (putout) add support of ArrayPattern in VariableDeclarator
+
+
 2018.12.26, v2.13.1
 
 fix:
