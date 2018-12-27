@@ -26,5 +26,5 @@ const handler = {
         
         return obj[prop];
     }
-}
+};
 
