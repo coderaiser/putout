@@ -554,7 +554,7 @@ test('get-vars: shorthand vars', (t) => {
     t.end();
 });
 
-test('get-vars: for of statement', (t) => {
+test('get-vars: for-of-statement', (t) => {
     const ast = parse(fixture.forOfStatement);
     const result = getVars(ast).map(dutify);
     

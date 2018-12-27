@@ -1,8 +1,7 @@
 const array = [];
 let el;
 
-for (el of []) {
-}
+for (el of []) true;
 
 for (const empty of array) {
 }

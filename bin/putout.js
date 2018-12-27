@@ -181,7 +181,8 @@ function help() {
 }
 
 function exit(e) {
-    console.error(red(e.message));
+    //console.error(red(e));
+    console.error(e);
     process.exit(1);
 }
 
