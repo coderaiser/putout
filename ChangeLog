@@ -1,3 +1,11 @@
+2018.12.27, v2.17.0
+
+feature:
+- (get-vars) rm isVariableDeclaration(left) check from ForOfStatement
+- (get-vars) ArrowFunctionExpression: rm isObjectPattern condition
+- (putout) add support of empty body in ForOfStatement
+
+
 2018.12.27, v2.16.0
 
 feature:
