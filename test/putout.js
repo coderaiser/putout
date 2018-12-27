@@ -32,6 +32,8 @@ const fixture = readFixtures([
     'destr-nested-vars-fix',
     'strict-mode',
     'strict-mode-fix',
+    'variable-declarator',
+    'variable-declarator-fix',
 ]);
 
 test('putout: no vars', (t) => {
@@ -143,6 +145,14 @@ test('putout: fn closure vars', (t) => {
 test('putout: for of statement', (t) => {
     const {code} = putout(fixture.forOfStatement);
     const expected = fixture.forOfStatementFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: variable-declarator', (t) => {
+    const {code} = putout(fixture.variableDeclarator);
+    const expected = fixture.variableDeclaratorFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

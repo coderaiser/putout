@@ -628,16 +628,19 @@ test('get-vars: undeclared vars', (t) => {
     t.end();
 });
 
-test('get-vars: variable declarator', (t) => {
+test('get-vars: variable-declarator', (t) => {
     const ast = parse(fixture.variableDeclarator);
     const result = getVars(ast).map(dutify);
     
     const expected = [{
         a: du,
-        b: d_,
+        b: du,
         x: d_,
         y: du,
         z: _u,
+        log: du,
+    }, {
+        msg: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');

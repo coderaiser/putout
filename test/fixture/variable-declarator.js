@@ -1,5 +1,13 @@
+'use strict';
+
 const a = 0;
 const b = a;
-const [x, y] = z;
-y = 5;
+let [x, y] = z;
+y = b;
+
+log();
+
+function log() {
+    const msg = 'hello';
+}
 
