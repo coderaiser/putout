@@ -1,6 +1,7 @@
 const one = 1;
 const two = 2;
 const three = 3;
+const four = 4;
 
 function f1() {
     return one;
@@ -16,3 +17,8 @@ function f3() {
     }
 }
 
+function f4() {
+    return [
+        four,
+    ];
+}
