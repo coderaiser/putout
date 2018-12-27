@@ -16,6 +16,15 @@ module.exports.readFixtures = (names) => {
         result[prop] = readFixture(name);
     }
     
-    return result;
+    return new Proxy(result, handler);
 };
+
+const handler = {
+    get(obj, prop) {
+        if (obj[prop] === undefined)
+            throw Error(`"${prop}" not found!`);
+        
+        return obj[prop];
+    }
+}
 

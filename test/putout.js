@@ -1,6 +1,7 @@
 'use strict';
 
-const test = require('tape');
+const tryTo = require('try-to-tape');
+const test = tryTo(require('tape'));
 
 const putout = require('..');
 const {readFixtures} = require('./fixture');
@@ -21,6 +22,8 @@ const fixture = readFixtures([
     'fn-closure-vars',
     'fn-closure-vars-fix',
     'fn-destr-args-vars',
+    'for-of-statement',
+    'for-of-statement-fix',
     'not-aligned',
     'shebang',
     'destr-vars',
@@ -132,6 +135,14 @@ test('putout: fn destr args vars', (t) => {
 test('putout: fn closure vars', (t) => {
     const {code} = putout(fixture.fnClosureVars);
     const expected = fixture.fnClosureVarsFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: for of statement', (t) => {
+    const {code} = putout(fixture.forOfStatement);
+    const expected = fixture.forOfStatementFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

@@ -1,6 +1,7 @@
 'use strict';
 
-const test = require('tape');
+const tryTo = require('try-to-tape');
+const test = tryTo(require('tape'));
 
 const {
     parse,
@@ -34,7 +35,7 @@ const fixture = readFixtures([
     'scope-vars',
     'shorthand-vars',
     'spread-vars',
-    'for-of-vars',
+    'for-of-statement',
     'obj-prop',
     'template-vars',
     'undeclared-vars',
@@ -537,20 +538,18 @@ test('get-vars: shorthand vars', (t) => {
     t.end();
 });
 
-test('get-vars: for of vars', (t) => {
-    const ast = parse(fixture.forOfVars);
-    const result = getVars(ast);
+test('get-vars: for of statement', (t) => {
+    const ast = parse(fixture.forOfStatement);
+    const result = getVars(ast).map(dutify);
     
     const expected = [{
-        array: {
-            declared: true,
-            used: true,
-        }
+        array: du,
+        console: _u,
+        el: du,
     }, {
-        item: {
-            declared: true,
-            used: false,
-        }
+        empty: d_,
+    }, {
+        item: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

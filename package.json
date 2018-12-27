@@ -51,7 +51,8 @@
     "nyc": "^13.0.1",
     "redrun": "^7.0.2",
     "tap-diff": "^0.1.1",
-    "tape": "^4.8.0"
+    "tape": "^4.8.0",
+    "try-to-tape": "^1.1.0"
   },
   "license": "MIT",
   "engines": {
