@@ -68,10 +68,8 @@ if (argv.help) {
 
 const [e, files] = tryCatch(getFiles, argv._);
 
-if (e) {
-    console.error(e);
-    process.exit(1);
-}
+if (e)
+    exit(e);
 
 let unusedCount = 0;
 let filesCount = 0;
@@ -83,6 +81,7 @@ const output = files
 if (output.length) {
     process.stdout.write('\n');
     output.map(one(console.log));
+    
     console.log(bold(redBright(`✖ ${unusedCount} unused variables in ${filesCount} files`)));
     console.log(bold(redBright('  fixable with the `--fix` option')));
 }
@@ -93,7 +92,14 @@ function processFiles(name) {
     if (raw || rawFull)
         return showRaw(input);
     
-    const {code, unused} = putout(input);
+    const [e, result] = tryCatch(putout, input);
+    
+    if (e) {
+        console.error(underline(resolve(name)));
+        exit(e);
+    }
+    
+    const {code, unused} = result;
     
     if (fix)
         return writeFileSync(name, code);
@@ -173,4 +179,10 @@ function help() {
         console.log('  %s %s', name, bin[name]);
     });
 }
+
+function exit(e) {
+    console.error(red(e.message));
+    process.exit(1);
+}
+
 
