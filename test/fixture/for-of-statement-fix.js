@@ -1,7 +1,7 @@
 const array = [];
 let el;
 
-for (el of array) {
+for (el of []) {
 }
 
 for (const item of array) {
