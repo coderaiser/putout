@@ -1,3 +1,12 @@
+2018.12.27, v2.15.0
+
+fix:
+- (putout) error message
+
+feature:
+- (putout) add support of ForOfStatement with empty body
+
+
 2018.12.26, v2.14.0
 
 feature:
