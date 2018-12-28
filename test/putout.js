@@ -19,8 +19,6 @@ const fixture = readFixtures([
     'fn-call',
     'fn-call-vars',
     'fn-call-vars-fix',
-    'fn-closure-vars',
-    'fn-closure-vars-fix',
     'fn-destr-args-vars',
     'for-of-statement',
     'for-of-statement-fix',
@@ -32,6 +30,8 @@ const fixture = readFixtures([
     'destr-nested-vars-fix',
     'strict-mode',
     'strict-mode-fix',
+    'return-statement',
+    'return-statement-fix',
     'variable-declarator',
     'variable-declarator-fix',
 ]);
@@ -134,9 +134,9 @@ test('putout: fn destr args vars', (t) => {
     t.end();
 });
 
-test('putout: fn closure vars', (t) => {
-    const {code} = putout(fixture.fnClosureVars);
-    const expected = fixture.fnClosureVarsFix;
+test('putout: return-statement', (t) => {
+    const {code} = putout(fixture.returnStatement);
+    const expected = fixture.returnStatementFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

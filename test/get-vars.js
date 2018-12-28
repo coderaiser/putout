@@ -25,7 +25,6 @@ const fixture = readFixtures([
     'fn-call-vars',
     'fn-call-shorthand-vars',
     'fn-vars',
-    'fn-closure-vars',
     'fn-args-vars',
     'fn-destr-args-vars',
     'fn-hoisted-vars',
@@ -38,6 +37,7 @@ const fixture = readFixtures([
     'spread-vars',
     'for-of-statement',
     'obj-prop',
+    'return-statement',
     'template-vars',
     'undeclared-vars',
     'unary-expression',
@@ -398,8 +398,8 @@ test('get-vars: fn vars', (t) => {
     t.end();
 });
 
-test('get-vars: fn-closure-vars', (t) => {
-    const ast = parse(fixture.fnClosureVars);
+test('get-vars: return-statement', (t) => {
+    const ast = parse(fixture.returnStatement);
     const result = getVars(ast).map(dutify);
     
     const expected = [{
