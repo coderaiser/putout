@@ -547,7 +547,7 @@ test('get-vars: for-of-statement', (t) => {
         console: _u,
         el: du,
     }, {
-        empty: d_,
+        empty: du,
     }, {
         item: du,
     }];
