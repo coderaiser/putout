@@ -5,7 +5,7 @@ const obj = {
 };
 
 const {
-    b,
+    b
 } = obj;
 
 console.log(b);
