@@ -7,6 +7,6 @@ const obj = {
 const {
     hello: {
         world,
-    }
+    },
 } = obj;
 
