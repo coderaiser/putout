@@ -32,6 +32,7 @@ const fixture = readFixtures([
     'logical-expression',
     'member-expression',
     'new-expression',
+    'object-expression',
     'scope-vars',
     'shorthand-vars',
     'spread-vars',
@@ -150,6 +151,21 @@ test('get-vars: new-expression', (t) => {
         handler: du,
         Proxy: _u,
         a: _u,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: object-expression', (t) => {
+    const ast = parse(fixture.objectExpression);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        parser: d_,
+        cherow: _u,
+    }, {
+        source: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');
