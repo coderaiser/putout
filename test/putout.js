@@ -7,6 +7,8 @@ const putout = require('..');
 const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
+    'array-pattern',
+    'array-pattern-fix',
     'arrow-vars',
     'arrow-vars-fix',
     'no-vars',
@@ -65,6 +67,14 @@ test('putout: align', (t) => {
 test('putout: shebang', (t) => {
     const {code} = putout(fixture.shebang);
     const expected = '#!/usr/bin/env node\n\n\n\n';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: array pattern', (t) => {
+    const {code} = putout(fixture.arrayPattern);
+    const expected = fixture.arrayPatternFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

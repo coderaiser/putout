@@ -2,7 +2,7 @@
 
 const a = 0;
 const b = a;
-let [y] = z;
+let [, y] = z;
 y = b;
 
 log();
