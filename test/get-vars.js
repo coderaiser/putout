@@ -15,6 +15,7 @@ const fixture = readFixtures([
     'array-pattern',
     'assignment-expression',
     'call-expression',
+    'conditional-expression',
     'no-vars',
     'root-vars',
     'condition-vars',
@@ -141,6 +142,20 @@ test('get-vars: call expression', (t) => {
     const expected = [{
         items: du,
         console:_u,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: conditional expression', (t) => {
+    const ast = parse(fixture.conditionalExpression);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        a: du,
+        b: du,
+        c: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');
