@@ -1,6 +1,6 @@
 {
   "name": "putout",
-  "version": "2.18.5",
+  "version": "2.18.6",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "find and remove unused variables",
   "homepage": "http://github.com/coderaiser/putout",
