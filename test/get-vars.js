@@ -190,13 +190,14 @@ test('get-vars: new-expression', (t) => {
     t.end();
 });
 
-test('get-vars: object-expression', (t) => {
+test('get-vars: object expression', (t) => {
     const ast = parse(fixture.objectExpression);
     const result = getVars(ast).map(dutify);
     
     const expected = [{
-        parser: d_,
+        parser: du,
         cherow: _u,
+        module: _u,
     }, {
         source: _u,
     }];
