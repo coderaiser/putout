@@ -1,3 +1,9 @@
+2018.12.31, v2.18.4
+
+feature:
+- (putout) ConditionalExpression: add support of consequent, alternate
+
+
 2018.12.31, v2.18.3
 
 fix:
