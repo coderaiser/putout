@@ -9,6 +9,8 @@ const {readFixtures} = require('./fixture');
 const fixture = readFixtures([
     'array-pattern',
     'array-pattern-fix',
+    'arrow-function-expression',
+    'arrow-function-expression-fix',
     'arrow-vars',
     'arrow-vars-fix',
     'no-vars',
@@ -163,6 +165,14 @@ test('putout: for of statement', (t) => {
 test('putout: variable-declarator', (t) => {
     const {code} = putout(fixture.variableDeclarator);
     const expected = fixture.variableDeclaratorFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: arrow function expression', (t) => {
+    const {code} = putout(fixture.arrowFunctionExpression);
+    const expected = fixture.arrowFunctionExpressionFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

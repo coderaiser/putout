@@ -13,8 +13,10 @@ const {readFixtures} = require('./fixture');
 const fixture = readFixtures([
     'array-expression',
     'array-pattern',
+    'arrow-function-expression',
     'assignment-expression',
     'call-expression',
+    'function-declaration',
     'conditional-expression',
     'no-vars',
     'root-vars',
@@ -116,6 +118,63 @@ test('get-vars: array pattern', (t) => {
         z: d_,
         array: _u,
         console: _u,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: arrow function expression', (t) => {
+    const ast = parse(fixture.arrowFunctionExpression);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        module: _u,
+        DOM: _u,
+    }, {
+        panel: d_,
+    }, {
+        link: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: function declaration', (t) => {
+    const ast = parse(fixture.functionDeclaration);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        getDOM: d_,
+        link: d_,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: call expression', (t) => {
+    const ast = parse(fixture.callExpression);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        items: du,
+        console:_u,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: conditional expression', (t) => {
+    const ast = parse(fixture.conditionalExpression);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        a: du,
+        b: du,
+        c: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');
