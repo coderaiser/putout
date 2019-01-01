@@ -200,8 +200,12 @@ test('get-vars: object expression', (t) => {
         parser: du,
         cherow: _u,
         module: _u,
+        spreadExample: d_,
     }, {
         source: _u,
+    }, {
+        module: du,
+        spread: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
