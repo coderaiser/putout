@@ -112,6 +112,7 @@ test('get-vars: array pattern', (t) => {
         b: du,
         c: du,
         d: d_,
+        z: d_,
         array: _u,
         console: _u,
     }];

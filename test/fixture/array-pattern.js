@@ -4,3 +4,5 @@ console.log(b);
 const [c, d] = array;
 console.log(c);
 
+const [z] = array;
+
