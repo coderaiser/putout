@@ -89,13 +89,19 @@ if (output.length) {
 function processFiles(name) {
     const input = readFileSync(name, 'utf8');
     
-    if (raw || rawFull)
-        return showRaw(input);
-    
     const [e, result] = tryCatch(putout, input);
+    
+    if (raw || rawFull)
+        showRaw(input);
     
     if (e) {
         console.error(underline(resolve(name)));
+        const {
+            line,
+            column,
+        } = e.loc;
+        
+        e.message = `${grey(`${line}:${column}`)} ${red(e.message)}}`;
         exit(e);
     }
     
@@ -146,6 +152,9 @@ function showRaw(input) {
 }
 
 function logObj(obj) {
+    if (!obj.length)
+        return;
+    
     const str = JSON.stringify(obj, null, 4);
     console.log(str);
 }
@@ -181,7 +190,11 @@ function help() {
 }
 
 function exit(e) {
-    console.error(red(e));
+    if (raw)
+        console.error(e);
+    else
+        console.error(red(e.message));
+    
     process.exit(1);
 }
 
