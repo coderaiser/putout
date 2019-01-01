@@ -37,6 +37,7 @@ const fixture = readFixtures([
     'object-expression',
     'scope-vars',
     'shorthand-vars',
+    'switch-statement',
     'spread-vars',
     'for-of-statement',
     'obj-prop',
@@ -449,7 +450,7 @@ test('get-vars: fn vars', (t) => {
     t.end();
 });
 
-test('get-vars: return-statement', (t) => {
+test('get-vars: return statement', (t) => {
     const ast = parse(fixture.returnStatement);
     const result = getVars(ast).map(dutify);
     
@@ -462,6 +463,19 @@ test('get-vars: return-statement', (t) => {
         f2: d_,
         f3: d_,
         f4: d_,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: switch statement', (t) => {
+    const ast = parse(fixture.switchStatement);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        name: du,
+        console: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');
