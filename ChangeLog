@@ -1,3 +1,9 @@
+2019.01.01, v2.18.7
+
+feature:
+- (get-vars) add support of one unused variable in ArrayPattern id of VariableDeclarator
+
+
 2018.12.31, v2.18.6
 
 feature:
