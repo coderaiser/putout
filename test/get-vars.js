@@ -146,7 +146,9 @@ test('get-vars: function declaration', (t) => {
     const result = getVars(ast).map(dutify);
     
     const expected = [{
-        getDOM: d_,
+        getDOM: du,
+        DOM: d_,
+    }, {
         link: d_,
     }];
     
@@ -666,7 +668,7 @@ test('get-vars: shorthand vars', (t) => {
     t.end();
 });
 
-test('get-vars: for-of-statement', (t) => {
+test('get-vars: for of statement', (t) => {
     const ast = parse(fixture.forOfStatement);
     const result = getVars(ast).map(dutify);
     

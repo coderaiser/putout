@@ -1,5 +1,7 @@
 function getDOM({
-    link = {},
+    link = 'hello',
 } = {}) {
-};
+}
+
+const DOM = getDOM();
 

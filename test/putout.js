@@ -24,6 +24,8 @@ const fixture = readFixtures([
     'fn-call-vars',
     'fn-call-vars-fix',
     'fn-destr-args-vars',
+    'function-declaration',
+    'function-declaration-fix',
     'for-of-statement',
     'for-of-statement-fix',
     'not-aligned',
@@ -146,7 +148,7 @@ test('putout: fn destr args vars', (t) => {
     t.end();
 });
 
-test('putout: return-statement', (t) => {
+test('putout: return statement', (t) => {
     const {code} = putout(fixture.returnStatement);
     const expected = fixture.returnStatementFix;
     
@@ -173,6 +175,14 @@ test('putout: variable-declarator', (t) => {
 test('putout: arrow function expression', (t) => {
     const {code} = putout(fixture.arrowFunctionExpression);
     const expected = fixture.arrowFunctionExpressionFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: function declaration', (t) => {
+    const {code} = putout(fixture.functionDeclaration);
+    const expected = fixture.functionDeclarationFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();
