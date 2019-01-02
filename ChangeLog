@@ -1,3 +1,9 @@
+2019.01.02, v2.21.0
+
+feature:
+- (putout) FunctionDeclaration: add support of AssignmentPattern in params
+
+
 2019.01.01, v2.20.0
 
 feature:
