@@ -44,7 +44,7 @@ const fixture = readFixtures([
     'for-of-statement',
     'obj-prop',
     'return-statement',
-    'template-vars',
+    'template-literal',
     'undeclared-vars',
     'unary-expression',
     'update-expression',
@@ -737,8 +737,8 @@ test('get-vars: spread vars', (t) => {
     t.end();
 });
 
-test('get-vars: template vars', (t) => {
-    const ast = parse(fixture.templateVars);
+test('get-vars: template literal', (t) => {
+    const ast = parse(fixture.templateLiteral);
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -748,8 +748,13 @@ test('get-vars: template vars', (t) => {
         msg: d_,
         console: _u,
         f: d_,
+        module:_u,
+        assign: d_
     }, {
         a: du,
+    }, {
+        name: du,
+        password: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

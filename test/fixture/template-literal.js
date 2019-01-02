@@ -7,3 +7,8 @@ const msg = `${x}`;
 console.log(`${z}${y + 1}`);
 
 const f = (a) => `${1 + 2} ${a}`;
+
+function assign(name, password) {
+    module.exports = `${name}${password}`;
+}
+
