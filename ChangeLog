@@ -1,3 +1,10 @@
+2019.01.02, v2.22.0
+
+feature:
+- (putout) AssignmentExpressions: add support of TemplateLiteral
+- (putout) add support of UpdateExpression
+
+
 2019.01.02, v2.21.0
 
 feature:
