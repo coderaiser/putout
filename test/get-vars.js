@@ -160,8 +160,12 @@ test('get-vars: function declaration', (t) => {
     const expected = [{
         getDOM: du,
         DOM: d_,
+        fillTemplate: d_,
     }, {
         link: d_,
+    }, {
+        error: du,
+        template: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

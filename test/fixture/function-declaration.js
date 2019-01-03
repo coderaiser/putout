@@ -5,3 +5,7 @@ function getDOM({
 
 const DOM = getDOM();
 
+function fillTemplate(error, template) {
+    return template;
+}
+
