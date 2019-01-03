@@ -133,10 +133,14 @@ test('get-vars: arrow function expression', (t) => {
     const expected = [{
         module: _u,
         DOM: _u,
+        terminal: _u,
     }, {
         panel: d_,
     }, {
         link: du,
+    }, {
+        char: du,
+        key: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

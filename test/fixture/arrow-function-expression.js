@@ -9,3 +9,8 @@ module.exports = ({
     };
 };
 
+terminal.on('key', (char, {keyCode: key}) => {
+    if (key === 27)
+        return;
+});
+
