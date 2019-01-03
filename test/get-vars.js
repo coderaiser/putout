@@ -109,6 +109,8 @@ test('get-vars: array expression', (t) => {
         a: du,
         b: du,
         result: d_,
+        spread: d_,
+        spreaded: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

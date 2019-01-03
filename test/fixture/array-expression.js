@@ -7,3 +7,7 @@ const result = [
     b,
 ];
 
+const spreaded = [];
+const spread = [
+    ...spreaded,
+];
