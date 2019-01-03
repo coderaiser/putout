@@ -1,3 +1,12 @@
+2019.01.03, v2.24.0
+
+feature:
+- (putout) useParamsBeforeLastUsed: add support of AssignmentPattern in
+- (puttou) add support of SpreadElement in ArrayExpression
+- (putout) add support of ThrowStatement
+- (putout) add ability to use nested properties in ObjectExpression
+
+
 2019.01.03, v2.23.0
 
 fix:
