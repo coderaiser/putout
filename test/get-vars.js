@@ -143,6 +143,7 @@ test('get-vars: arrow function expression', (t) => {
         module: _u,
         DOM: _u,
         terminal: _u,
+        assignment: d_,
     }, {
         panel: d_,
     }, {
@@ -150,6 +151,10 @@ test('get-vars: arrow function expression', (t) => {
     }, {
         char: du,
         key: du,
+    }, {
+        callback: du,
+        query: du,
+        url: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

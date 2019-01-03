@@ -14,3 +14,8 @@ terminal.on('key', (char, {keyCode: key}) => {
         return;
 });
 
+const assignment = (callback, query = '') => {
+    const url = '';
+    DOM.RESTful.write(url + query);
+};
+
