@@ -45,6 +45,7 @@ const fixture = readFixtures([
     'obj-prop',
     'return-statement',
     'template-literal',
+    'tagged-template-expression',
     'undeclared-vars',
     'unary-expression',
     'update-expression',
@@ -755,6 +756,23 @@ test('get-vars: template literal', (t) => {
     }, {
         name: du,
         password: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: tagged template expression', (t) => {
+    const ast = parse(fixture.taggedTemplateExpression);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        codegen: du,
+        date: d_,
+        require: _u,
+        console: _u,
+    }, {
+        a: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
