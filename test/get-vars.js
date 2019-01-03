@@ -88,6 +88,12 @@ test('get-vars: logical expression', (t) => {
         isOne: du,
         x: du,
         y: d_,
+        tmpl: d_,
+        location: _u,
+    }, {
+        host: du,
+        origin: du,
+        protocol: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
