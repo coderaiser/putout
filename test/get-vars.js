@@ -46,6 +46,7 @@ const fixture = readFixtures([
     'return-statement',
     'template-literal',
     'tagged-template-expression',
+    'throw-statement',
     'undeclared-vars',
     'unary-expression',
     'update-expression',
@@ -572,6 +573,19 @@ test('get-vars: switch statement', (t) => {
     const expected = [{
         name: du,
         console: _u,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('get-vars: throw statement', (t) => {
+    const ast = parse(fixture.throwStatement);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        e: du,
+        Error: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');
