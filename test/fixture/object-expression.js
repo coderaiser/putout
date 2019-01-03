@@ -21,3 +21,14 @@ function spreadExample() {
         ...spread
     };
 };
+
+function nestedProperty() {
+    const nested = () => {};
+    
+    return {
+        Operation:  {
+            nested,
+        }
+    };
+};
+

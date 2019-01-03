@@ -278,11 +278,14 @@ test('get-vars: object expression', (t) => {
         cherow: _u,
         module: _u,
         spreadExample: d_,
+        nestedProperty:d_,
     }, {
         source: _u,
     }, {
         module: du,
         spread: du,
+    }, {
+        nested: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
