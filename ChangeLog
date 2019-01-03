@@ -1,3 +1,15 @@
+2019.01.03, v2.23.0
+
+fix:
+- chore(get-vars) fixture: alphabet order
+
+feature:
+- (putout) FunctionDeclaration: add support of useParamsBeforeLastUsed
+- (putout) add support of TemplateLiteral in LogicalExpression
+- (putout) useParamsBeforeLastUsed: add support of ObjectPattern
+- (putout) add support of TaggedTemplateExpression
+
+
 2019.01.02, v2.22.0
 
 feature:
