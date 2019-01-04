@@ -3,7 +3,7 @@
 const test = require('tape');
 const tryCatch = require('try-catch');
 
-const removeUnused = require('../lib/remove-unused');
+const removeUnused = require('../lib/rm-unused-vars/remove-unused');
 
 test('remove-unused: error', (t) => {
     const remove = () => {

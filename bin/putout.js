@@ -29,11 +29,6 @@ const {
 } = require('table');
 
 const putout = require('..');
-const getVars = require('../lib/get-vars');
-const transform = require('../lib/transform');
-const getUnused = require('../lib/get-unused');
-const cutShebang = require('../lib/cut-shebang');
-
 const one = (f) => (a) => f(a);
 
 const argv = require('yargs-parser')(process.argv.slice(2), {
@@ -42,7 +37,6 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
         'help',
         'fix',
         'raw',
-        'raw-full',
     ],
     alias: {
         'v': 'version',
@@ -53,7 +47,6 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
 const {
     fix,
     raw,
-    rawFull,
 } = argv;
 
 if (argv.version) {
@@ -89,10 +82,9 @@ if (output.length) {
 function processFiles(name) {
     const input = readFileSync(name, 'utf8');
     
-    const [e, result] = tryCatch(putout, input);
-    
-    if (raw || rawFull)
-        showRaw(input);
+    const [e, result] = tryCatch(putout, input, {
+        fix,
+    });
     
     if (e) {
         console.error(underline(resolve(name)));
@@ -135,28 +127,6 @@ function processFiles(name) {
             drawHorizontalLine: () => false,
         })
     ].join('\n');
-}
-
-function showRaw(input) {
-    const [source] = cutShebang(input);
-    
-    const vars = getVars(putout.parse(source));
-    
-    if (rawFull)
-        return logObj(vars);
-    
-    const transformed = transform(vars);
-    const unused = getUnused(transformed);
-    
-    logObj(unused);
-}
-
-function logObj(obj) {
-    if (!obj.length)
-        return;
-    
-    const str = JSON.stringify(obj, null, 4);
-    console.log(str);
 }
 
 function addExt(a) {
