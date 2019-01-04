@@ -102,6 +102,7 @@ test('get-vars: logical expression', (t) => {
 });
 
 test('get-vars: array expression', (t) => {
+    debugger;
     const ast = parse(fixture.arrayExpression);
     const result = getVars(ast).map(dutify);
     
@@ -111,6 +112,8 @@ test('get-vars: array expression', (t) => {
         result: d_,
         spread: d_,
         spreaded: du,
+        templated: du,
+        template: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');

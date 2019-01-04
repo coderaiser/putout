@@ -11,3 +11,9 @@ const spreaded = [];
 const spread = [
     ...spreaded,
 ];
+
+const templated = 'hi';
+const template = [
+    `${templated}`
+];
+
