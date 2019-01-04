@@ -1,3 +1,13 @@
+2019.01.04, v2.25.0
+
+fix:
+- (putout) shebang, strict mode
+
+feature:
+- (putout) add support of TemplateLiteral in ArrayExpression
+- (putout) move out message from bin
+
+
 2019.01.04, v2.24.1
 
 fix:
