@@ -70,7 +70,7 @@ test('putout: align', (t) => {
 
 test('putout: shebang', (t) => {
     const {code} = putout(fixture.shebang);
-    const expected = '#!/usr/bin/env node\n\n\n\n';
+    const expected = '#!/usr/bin/env node\n\n\n';
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

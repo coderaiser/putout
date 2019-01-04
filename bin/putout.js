@@ -82,9 +82,7 @@ if (output.length) {
 function processFiles(name) {
     const input = readFileSync(name, 'utf8');
     
-    const [e, result] = tryCatch(putout, input, {
-        fix,
-    });
+    const [e, result] = tryCatch(putout, input);
     
     if (e) {
         console.error(underline(resolve(name)));
