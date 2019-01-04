@@ -3,6 +3,7 @@
 'use strict';
 
 const {
+    join,
     extname,
     resolve,
 } = require('path');
@@ -21,6 +22,7 @@ const {
     bold,
 } = require('chalk');
 
+const rendy = require('rendy');
 const glob = require('glob');
 const tryCatch = require('try-catch');
 const {
@@ -64,7 +66,7 @@ const [e, files] = tryCatch(getFiles, argv._);
 if (e)
     exit(e);
 
-let unusedCount = 0;
+let errorsCount = 0;
 let filesCount = 0;
 
 const output = files
@@ -75,7 +77,7 @@ if (output.length) {
     process.stdout.write('\n');
     output.map(one(console.log));
     
-    console.log(bold(redBright(`✖ ${unusedCount} unused variables in ${filesCount} files`)));
+    console.log(bold(redBright(`✖ ${errorsCount} unused variables in ${filesCount} files`)));
     console.log(bold(redBright('  fixable with the `--fix` option')));
 }
 
@@ -86,6 +88,7 @@ function processFiles(name) {
     
     if (e) {
         console.error(underline(resolve(name)));
+        console.error(e);
         const {
             line,
             column,
@@ -95,26 +98,34 @@ function processFiles(name) {
         exit(e);
     }
     
-    const {code, unused} = result;
+    const {code, places} = result;
+    
+    if (!places.length)
+        return;
     
     if (fix)
         return writeFileSync(name, code);
     
-    if (!unused.length)
-        return;
-    
     const data = [];
     ++filesCount;
     
-    for (const item of unused) {
-        const {loc, name} = item;
-        const {line, column} = loc;
+    for (const place of places) {
+        const {
+            loc,
+            message,
+        } = place;
         
-        ++unusedCount;
+        const {
+            line,
+            column,
+        } = loc;
         
+        ++errorsCount;
+        
+        const msg = rendy(message, place);
         data.push([
             grey(`${line}:${column}`),
-            `${red('error')}   "${name}" is defined but never used`,
+            `${red('error')}   ${msg}`,
         ]);
     }
     
