@@ -4,8 +4,7 @@
 
 const t = {};
 const {
-    a,
-    b,
+    a
 } = t;
 
 console.log(a);

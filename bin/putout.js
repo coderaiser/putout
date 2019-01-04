@@ -3,9 +3,8 @@
 'use strict';
 
 const {
-    join,
     extname,
-    resolve,
+    resolve
 } = require('path');
 
 const {
