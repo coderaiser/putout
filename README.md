@@ -10,7 +10,9 @@
 [CoverageURL]:              https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]:           https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
-Find and remove unused variables.
+Find and remove unused variables, and also:
+
+- find and remove `debugger` statement;
 
 ## Why?
 

@@ -7,15 +7,17 @@ const putout = require('..');
 const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
+    'aligned',
     'array-pattern',
     'array-pattern-fix',
     'arrow-function-expression',
     'arrow-function-expression-fix',
     'arrow-vars',
     'arrow-vars-fix',
+    'debugger-statement',
+    'debugger-statement-fix',
     'no-vars',
     'root-vars',
-    'aligned',
     'fn-vars',
     'fn-vars-fix',
     'fn-args-vars',
@@ -152,6 +154,14 @@ test('putout: fn destr args vars', (t) => {
 test('putout: return statement', (t) => {
     const {code} = putout(fixture.returnStatement);
     const expected = fixture.returnStatementFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: debugger statement', (t) => {
+    const {code} = putout(fixture.debuggerStatement);
+    const expected = fixture.debuggerStatementFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

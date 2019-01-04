@@ -1,6 +1,7 @@
 {
     "plugins": [
-        "rm-unused-vars"
+        "rm-unused-vars",
+        "rm-debugger"
     ]
 }
 
