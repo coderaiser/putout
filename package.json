@@ -64,7 +64,7 @@
   },
   "putout": {
     "rules": {
-      "rm-debugger": false
+      "rm-debugger": true
     }
   },
   "publishConfig": {
