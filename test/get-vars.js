@@ -1,5 +1,7 @@
 'use strict';
 
+const m = 'ss';
+
 const tryTo = require('try-to-tape');
 const test = tryTo(require('tape'));
 
@@ -102,7 +104,6 @@ test('get-vars: logical expression', (t) => {
 });
 
 test('get-vars: array expression', (t) => {
-    debugger;
     const ast = parse(fixture.arrayExpression);
     const result = getVars(ast).map(dutify);
     
@@ -502,26 +503,16 @@ test('get-vars: fn call shorthand vars', (t) => {
 
 test('get-vars: fn call: vars', (t) => {
     const ast = parse(fixture.fnCallVars);
-    const result = getVars(ast, {
-        setLoc: true,
-    });
+    const result = getVars(ast);
     
     const expected = [{
         t: {
             declared: true,
             used: true,
-            loc: {
-                line: 1,
-                column: 6
-            }
         },
         i: {
             declared: true,
             used: false,
-            loc: {
-                line: 2,
-                column: 6,
-            }
         },
         require: {
             declared: false,
@@ -532,7 +523,6 @@ test('get-vars: fn call: vars', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
-
 test('get-vars: fn vars', (t) => {
     const ast = parse(fixture.fnVars);
     const result = getVars(ast);

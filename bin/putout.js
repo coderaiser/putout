@@ -117,7 +117,7 @@ function processFiles(name) {
         const {
             line,
             column,
-        } = loc;
+        } = getPosition(loc);
         
         ++errorsCount;
         
@@ -175,4 +175,16 @@ function exit(e) {
     
     process.exit(1);
 }
+
+function getPosition(loc) {
+    const {
+        line,
+        column,
+    } = loc.start;
+    
+    return {
+        line,
+        column,
+    };
+};
 
