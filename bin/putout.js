@@ -83,7 +83,7 @@ if (output.length) {
 function processFiles(name) {
     const input = readFileSync(name, 'utf8');
     
-    const [e, result] = tryCatch(putout, input);
+    const [e, result] = tryCatch(putout, input, getOptions());
     
     if (e) {
         console.error(underline(resolve(name)));
@@ -186,5 +186,18 @@ function getPosition(loc) {
         line,
         column,
     };
+}
+
+function getOptions() {
+    const readUp = require('find-up');
+    
+    const putoutPath = readUp.sync('.putout.json');
+    if (putoutPath)
+        return require(putoutPath);
+    
+    const infoPath = readUp.sync('package.json');
+    if (infoPath)
+        return require(infoPath).putout;
+
 }
 
