@@ -1,4 +1,9 @@
 {
+    "rules": {
+        "rm-unused-vars": true,
+        "rm-debugger": true,
+        "rm-only": true
+    },
     "plugins": [
         "rm-unused-vars",
         "rm-debugger",
