@@ -186,5 +186,5 @@ function getPosition(loc) {
         line,
         column,
     };
-};
+}
 

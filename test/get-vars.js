@@ -1,7 +1,5 @@
 'use strict';
 
-const m = 'ss';
-
 const tryTo = require('try-to-tape');
 const test = tryTo(require('tape'));
 
