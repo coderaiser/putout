@@ -37,6 +37,8 @@ const fixture = readFixtures([
     'destr-vars-fix',
     'destr-nested-vars',
     'destr-nested-vars-fix',
+    'only',
+    'only-fix',
     'strict-mode',
     'strict-mode-fix',
     'return-statement',
@@ -202,6 +204,14 @@ test('putout: function declaration', (t) => {
 test('putout: use strict', (t) => {
     const {code} = putout(fixture.strictMode);
     const expected = fixture.strictModeFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: only', (t) => {
+    const {code} = putout(fixture.only);
+    const expected = fixture.onlyFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

@@ -1,7 +1,8 @@
 {
     "plugins": [
         "rm-unused-vars",
-        "rm-debugger"
+        "rm-debugger",
+        "rm-only"
     ]
 }
 
