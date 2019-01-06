@@ -209,6 +209,17 @@ test('putout: use strict', (t) => {
     t.end();
 });
 
+test('putout: use strict: no fix', (t) => {
+    const {code} = putout(fixture.strictMode, {
+        fix: false,
+    });
+    
+    const expected = fixture.strictMode;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
 test('putout: only', (t) => {
     const {code} = putout(fixture.only);
     const expected = fixture.onlyFix;

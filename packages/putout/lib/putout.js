@@ -9,6 +9,8 @@ const cutShebang = require('./cut-shebang');
 const getPlugins = require('./get-plugins');
 const fix = require('./fix');
 
+const isUndefined = (a) => typeof a === 'undefined';
+
 const parser = {
     parse(source) {
         return toBabel(cherow.parse(source, {
@@ -17,10 +19,18 @@ const parser = {
     },
 };
 
+const defaultOpts = (opts = {}) => {
+    if (isUndefined(opts.fix))
+        return {
+            ...opts,
+            fix: true
+        };
+    
+    return opts;
+};
+
 module.exports = (source, opts) => {
-    opts = opts || {
-        fix: true,
-    };
+    opts = defaultOpts(opts);
     
     const [clearSource, shebang] = cutShebang(source);
     

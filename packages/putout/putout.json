@@ -7,7 +7,8 @@
     "plugins": [
         "rm-unused-vars",
         "rm-debugger",
-        "rm-only"
+        "rm-only",
+        "rm-process-exit"
     ]
 }
 

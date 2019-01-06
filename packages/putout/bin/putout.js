@@ -93,9 +93,12 @@ function processFiles(name) {
         const {
             line,
             column,
-        } = e.position;
+        } = e.position || {
+            line: 'x',
+            column: 'x',
+        };
         
-        e.message = `${grey(`${line}:${column}`)} ${red(e.message)}}`;
+        e.message = `${grey(`${line}:${column}`)} ${red(e.message)}`;
         exit(e);
     }
     
