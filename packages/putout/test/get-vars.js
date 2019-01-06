@@ -7,7 +7,7 @@ const {
     parse,
 } = require('..');
 
-const getVars = require('../lib/rm-unused-vars/get-vars');
+const getVars = require('../lib/remove-unused-variables/get-vars');
 const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([

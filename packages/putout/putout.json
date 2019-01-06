@@ -1,14 +1,15 @@
 {
     "rules": {
-        "rm-unused-vars": true,
-        "rm-debugger": true,
-        "rm-only": true
+        "remove-unused-variables": true,
+        "remove-debugger": true,
+        "remove-only": true,
+        "remove-process-exit": true
     },
     "plugins": [
-        "rm-unused-vars",
-        "rm-debugger",
-        "rm-only",
-        "rm-process-exit"
+        "remove-unused-variables",
+        "remove-debugger",
+        "remove-only",
+        "remove-process-exit"
     ]
 }
 

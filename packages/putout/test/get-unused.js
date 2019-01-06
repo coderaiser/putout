@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tape');
-const getUnused = require('../lib/rm-unused-vars/get-unused');
+const getUnused = require('../lib/remove-unused-variables/get-unused');
 
 test('get-unused', (t) => {
     const result = getUnused([{

@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tape');
-const transform = require('../lib/rm-unused-vars/transform');
+const transform = require('../lib/remove-unused-variables/transform');
 
 test('transform: empty', (t) => {
     const result = transform([]);

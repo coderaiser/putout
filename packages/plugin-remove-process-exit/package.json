@@ -1,10 +1,10 @@
 {
-  "name": "@putout/plugin-rm-process-exit",
+  "name": "@putout/plugin-remove-process-exit",
   "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin for removing process.exit",
+  "description": "putout plugin adds ability to find and remove process.exit",
   "homepage": "http://github.com/coderaiser/putout",
-  "main": "lib/rm-process-exit.js",
+  "main": "lib/remove-process-exit.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/coderaiser/putout.git"
@@ -14,11 +14,8 @@
     "test:diff": "npm test | tap-diff",
     "watch:test": "nodemon -w lib -w test -x \"npm test\"",
     "watch:example": "nodemon -w lib -w test -x \"node remove-unused\"",
-    "lint:lib": "eslint lib test --ignore-pattern test/fixture",
-    "lint:bin": "eslint bin -c .eslintrc.bin",
-    "lint": "redrun lint:*",
-    "coverage": "nyc npm test",
-    "report": "nyc report --reporter=text-lcov | coveralls"
+    "lint": "eslint lib test --ignore-pattern test/fixture",
+    "coverage": "nyc npm test"
   },
   "dependencies": {
     "@babel/traverse": "^7.1.6",
