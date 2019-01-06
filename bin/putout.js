@@ -83,15 +83,17 @@ if (output.length) {
 function processFiles(name) {
     const input = readFileSync(name, 'utf8');
     
-    const [e, result] = tryCatch(putout, input, getOptions());
+    const [e, result] = tryCatch(putout, input, {
+        fix,
+        ...getOptions()
+    });
     
     if (e) {
         console.error(underline(resolve(name)));
-        console.error(e);
         const {
             line,
             column,
-        } = e.loc;
+        } = e.position;
         
         e.message = `${grey(`${line}:${column}`)} ${red(e.message)}}`;
         exit(e);
@@ -110,14 +112,14 @@ function processFiles(name) {
     
     for (const place of places) {
         const {
-            loc,
             message,
+            position,
         } = place;
         
         const {
             line,
             column,
-        } = getPosition(loc);
+        } = position;
         
         ++errorsCount;
         
@@ -174,18 +176,6 @@ function exit(e) {
         console.error(red(e.message));
     
     process.exit(1);
-}
-
-function getPosition(loc) {
-    const {
-        line,
-        column,
-    } = loc.start;
-    
-    return {
-        line,
-        column,
-    };
 }
 
 function getOptions() {
