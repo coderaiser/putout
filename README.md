@@ -32,6 +32,14 @@ The main difference of `putout` is saving code transformation results directly i
 npm i putout -g
 ```
 
+## Plugins
+
+The `putout` repo is comprised of many npm packages. It is a [lerna](https://github.com/lerna/lerna) monorepo similar to [babel](https://github.com/babel/babel).
+
+| Package | Version | Dependencies |
+|--------|-------|------------|
+| [`@putout/plugin-remove-process-exit`](/packages/plugin-remove-process-exit) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-process-exit.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-process-exit) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-process-exit)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-process-exit) |
+
 ## Usage
 
 To see unused variables use:
