@@ -5,6 +5,9 @@
   "description": "putout plugin adds ability to find and remove process.exit",
   "homepage": "http://github.com/coderaiser/putout",
   "main": "lib/remove-process-exit.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
   "repository": {
     "type": "git",
     "url": "git://github.com/coderaiser/putout.git"
