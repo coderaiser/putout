@@ -31,7 +31,8 @@ module.exports.find = (ast) => {
                 object,
             } = callee;
             
-            if (!isIdentifierName(object, 'process'))
+            const name = 'process';
+            if (!isIdentifier(object, {name}))
                 return;
             
             traverseProperty('exit', path, property, push);
@@ -42,18 +43,10 @@ module.exports.find = (ast) => {
 };
 
 function traverseProperty(name, path, node, fn) {
-    if (isIdentifierName(node, name))
+    if (isIdentifier(node, {name}))
         return fn(path);
     
-    if (isStringLiteralValue(node, name))
+    if (isStringLiteral(node, {value: name}))
         return fn(path);
-}
-
-function isIdentifierName(node, name) {
-    return isIdentifier(node) && node.name === name;
-}
-
-function isStringLiteralValue(node, name) {
-    return isStringLiteral(node) && node.value === name;
 }
 
