@@ -2,8 +2,8 @@
     "rules": {
         "remove-unused-variables": true,
         "remove-debugger": true,
-        "remove-only": true,
-        "remove-process-exit": true
+        "remove-only": false,
+        "remove-process-exit": false
     },
     "plugins": [
         "remove-unused-variables",
