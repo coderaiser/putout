@@ -34,6 +34,15 @@ npm i putout -g
 
 ## Usage
 
+```
+Usage: putout [options] [path]
+Options:
+  -h, --help              display this help and exit
+  -v, --version           output version information and exit
+  -c, --config            config path
+  --fix                   remove unused variables
+```
+
 To see unused variables use:
 
 ```

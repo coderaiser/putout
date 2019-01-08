@@ -1,0 +1,7 @@
+{
+    "rules": {
+        "remove-only": true,
+        "remove-process-exit": true
+    }
+}
+

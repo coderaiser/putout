@@ -29,6 +29,8 @@ const {
     getBorderCharacters,
 } = require('table');
 
+const {cwd} = process;
+
 const putout = require('..');
 const one = (f) => (a) => f(a);
 
@@ -39,15 +41,20 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
         'fix',
         'raw',
     ],
+    string: [
+        'config',
+    ],
     alias: {
         'v': 'version',
         'h': 'help',
+        'c': 'config',
     },
 });
 
 const {
     fix,
     raw,
+    config,
 } = argv;
 
 if (argv.version) {
@@ -85,7 +92,7 @@ function processFiles(name) {
     
     const [e, result] = tryCatch(putout, input, {
         fix,
-        ...getOptions()
+        ...mergeOptions(getOptions()),
     });
     
     if (e) {
@@ -162,7 +169,7 @@ function getFiles(args) {
 
 function help() {
     const bin = require('../help');
-    const usage = 'Usage: putout [options]';
+    const usage = 'Usage: putout [options] [path]';
     
     console.log(usage);
     console.log('Options:');
@@ -181,6 +188,20 @@ function exit(e) {
     process.exit(1);
 }
 
+function mergeOptions(baseOptions = {}) {
+    if (!config)
+        return baseOptions;
+    
+    const deepmerge = require('deepmerge');
+    const arrayMerge = (destinationArray, sourceArray) => sourceArray;
+    
+    const customOptions = require(`${cwd()}/${config}`);
+    
+    return deepmerge(baseOptions, customOptions, {
+        arrayMerge,
+    });
+}
+
 function getOptions() {
     const readUp = require('find-up');
     
@@ -191,6 +212,5 @@ function getOptions() {
     const infoPath = readUp.sync('package.json');
     if (infoPath)
         return require(infoPath).putout;
-
 }
 
