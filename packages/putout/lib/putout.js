@@ -40,7 +40,7 @@ module.exports = (source, opts) => {
     const plugins = getPlugins(opts);
     const places = [];
     
-    for (const plugin of plugins) {
+    for (const [rule, plugin] of plugins) {
         const {message} = plugin;
         const items = plugin.find(ast);
         
@@ -52,6 +52,7 @@ module.exports = (source, opts) => {
             const position = getPosition(path);
             
             places.push({
+                rule,
                 message,
                 position,
                 ...item,

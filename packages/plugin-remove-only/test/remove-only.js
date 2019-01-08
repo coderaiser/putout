@@ -14,9 +14,9 @@ const fixture = readFixtures([
 
 test('plugin-remove-only', (t) => {
     const {code} = putout(fixture.only, {
-        plugins: [
-            removeOnly,
-        ]
+        plugins: [{
+            'remove-only': removeOnly,
+        }]
     });
     const expected = fixture.onlyFix;
     

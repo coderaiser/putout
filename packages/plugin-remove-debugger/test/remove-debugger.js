@@ -8,9 +8,9 @@ const removeDebugger = require('..');
 
 test('remove debugger', (t) => {
     const {code} = putout('debugger', {
-        plugins: [
-            removeDebugger,
-        ]
+        plugins: [{
+            'remove-debugger': removeDebugger,
+        }]
     });
     const expected = '';
     

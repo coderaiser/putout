@@ -124,6 +124,7 @@ function processFiles(name) {
         const {
             message,
             position,
+            rule,
         } = place;
         
         const {
@@ -137,6 +138,7 @@ function processFiles(name) {
         data.push([
             grey(`${line}:${column}`),
             `${red('error')}   ${msg}`,
+            grey(rule),
         ]);
     }
     

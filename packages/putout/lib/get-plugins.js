@@ -8,6 +8,7 @@ const tryCatch = require('try-catch');
 const defaultOptions = require('../putout.json');
 
 const {cwd} = process;
+const {entries} = Object;
 
 const isDisabled = (a) => !a && typeof a === 'boolean';
 const arrayMerge = (destinationArray, sourceArray) => sourceArray;
@@ -23,24 +24,29 @@ module.exports = (options = {}) => {
     
     const result = [];
     for (const name of plugins)
-        if (!isDisabled(rules[name])) {
+        if (!isDisabled(rules[name]))
             result.push(requirePlugin(name));
-        }
     
     return result;
 };
 
 function requirePlugin(name) {
     if (isObj(name))
-        return name;
+        return entries(name).pop();
     
     const [, npmPlugin] = tryCatch(require, getModulePath(`@putout/plugin-${name}`));
     if (npmPlugin)
-        return npmPlugin;
+        return [
+            name,
+            npmPlugin,
+        ];
      
     const [, userPlugin] = tryCatch(require, getModulePath(`putout-plugin-${name}`));
     if (userPlugin)
-        return userPlugin;
+        return [
+            name,
+            userPlugin,
+        ];
     
     throw Error(`Plugin "putout-plugin-${name} could not be found!`);
 }

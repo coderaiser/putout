@@ -10,9 +10,9 @@ const removeUnusedVariables = require('..');
 
 const putout = (code) => {
     return _putout(code, {
-        plugins: [
-            removeUnusedVariables,
-        ]
+        plugins: [{
+            'remove-unused-variables': removeUnusedVariables,
+        }]
     });
 };
 

@@ -14,9 +14,9 @@ const fixture = readFixtures([
 
 test('rm-process.exit', (t) => {
     const {code} = putout(fixture.processExit, {
-        plugins: [
-            rmProcessExit,
-        ]
+        plugins: [{
+            'remove-process-exit': rmProcessExit,
+        }]
     });
     const expected = fixture.processExitFix;
     
