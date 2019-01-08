@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-only
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-only
 
-`putout` plugin adds ability to find and remove `process.exit` calls.
+`putout` plugin adds ability to find and remove `test.only` calls.
 
 ## Install
 
