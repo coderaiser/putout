@@ -1,7 +1,6 @@
 'use strict';
 
 const Module = require('module');
-const {join} = require('path');
 
 const deepmerge = require('deepmerge');
 const tryCatch = require('try-catch');
@@ -10,7 +9,6 @@ const defaultOptions = require('../putout.json');
 
 const {cwd} = process;
 
-const addDir = (a) => join(__dirname, '..', 'lib', a);
 const isDisabled = (a) => !a && typeof a === 'boolean';
 const arrayMerge = (destinationArray, sourceArray) => sourceArray;
 const isObj = (a) => typeof a === 'object';

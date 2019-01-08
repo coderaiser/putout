@@ -2,7 +2,7 @@
 
 const recast = require('recast');
 const alignSpaces = require('align-spaces');
-const cherow = require('cherow');
+const espree = require('espree');
 const toBabel = require('estree-to-babel');
 
 const cutShebang = require('./cut-shebang');
@@ -13,8 +13,10 @@ const isUndefined = (a) => typeof a === 'undefined';
 
 const parser = {
     parse(source) {
-        return toBabel(cherow.parse(source, {
+        return toBabel(espree.parse(source, {
             loc: true,
+            comment: true,
+            ecmaVersion: 2019,
         }));
     },
 };
