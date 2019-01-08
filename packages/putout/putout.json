@@ -3,12 +3,14 @@
         "remove-unused-variables": true,
         "remove-debugger": true,
         "remove-only": false,
+        "remove-skip": false,
         "remove-process-exit": false
     },
     "plugins": [
         "remove-unused-variables",
         "remove-debugger",
         "remove-only",
+        "remove-skip",
         "remove-process-exit"
     ]
 }
