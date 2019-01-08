@@ -5,7 +5,10 @@ node_js:
     - 8
 
 before_install:
-    npm i redrun -g
+    - npm i redrun -g
+    - npm i eslint -g
+    - npm i nyc -g
+    - npm i coveralls -g
 
 script:
   - npm run lint
