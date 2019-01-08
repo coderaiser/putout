@@ -5,9 +5,9 @@ const test = tryTo(require('tape'));
 
 const {
     parse,
-} = require('..');
+} = require('putout');
 
-const getVars = require('../lib/remove-unused-variables/get-vars');
+const getVars = require('../lib/get-vars');
 const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
@@ -72,7 +72,7 @@ const dutify = (obj) => {
     return result;
 };
 
-test('get-vars: no', (t) => {
+test('remove-unused-variables: get-vars: no', (t) => {
     const ast = parse(fixture.noVars);
     const result = getVars(ast);
     const expected = [];
@@ -81,7 +81,7 @@ test('get-vars: no', (t) => {
     t.end();
 });
 
-test('get-vars: logical expression', (t) => {
+test('remove-unused-variables: get-vars: logical expression', (t) => {
     const ast = parse(fixture.logicalExpression);
     const result = getVars(ast).map(dutify);
     
@@ -101,7 +101,7 @@ test('get-vars: logical expression', (t) => {
     t.end();
 });
 
-test('get-vars: array expression', (t) => {
+test('remove-unused-variables: get-vars: array expression', (t) => {
     const ast = parse(fixture.arrayExpression);
     const result = getVars(ast).map(dutify);
     
@@ -119,7 +119,7 @@ test('get-vars: array expression', (t) => {
     t.end();
 });
 
-test('get-vars: array pattern', (t) => {
+test('remove-unused-variables: get-vars: array pattern', (t) => {
     const ast = parse(fixture.arrayPattern);
     const result = getVars(ast).map(dutify);
     
@@ -137,7 +137,7 @@ test('get-vars: array pattern', (t) => {
     t.end();
 });
 
-test('get-vars: arrow function expression', (t) => {
+test('remove-unused-variables: get-vars: arrow function expression', (t) => {
     const ast = parse(fixture.arrowFunctionExpression);
     const result = getVars(ast).map(dutify);
     
@@ -163,7 +163,7 @@ test('get-vars: arrow function expression', (t) => {
     t.end();
 });
 
-test('get-vars: function declaration', (t) => {
+test('remove-unused-variables: get-vars: function declaration', (t) => {
     const ast = parse(fixture.functionDeclaration);
     const result = getVars(ast).map(dutify);
     
@@ -182,7 +182,7 @@ test('get-vars: function declaration', (t) => {
     t.end();
 });
 
-test('get-vars: call expression', (t) => {
+test('remove-unused-variables: get-vars: call expression', (t) => {
     const ast = parse(fixture.callExpression);
     const result = getVars(ast).map(dutify);
     
@@ -195,7 +195,7 @@ test('get-vars: call expression', (t) => {
     t.end();
 });
 
-test('get-vars: conditional expression', (t) => {
+test('remove-unused-variables: get-vars: conditional expression', (t) => {
     const ast = parse(fixture.conditionalExpression);
     const result = getVars(ast).map(dutify);
     
@@ -209,7 +209,7 @@ test('get-vars: conditional expression', (t) => {
     t.end();
 });
 
-test('get-vars: assignment expression', (t) => {
+test('remove-unused-variables: get-vars: assignment expression', (t) => {
     const ast = parse(fixture.assignmentExpression);
     const result = getVars(ast).map(dutify);
     
@@ -224,7 +224,7 @@ test('get-vars: assignment expression', (t) => {
     t.end();
 });
 
-test('get-vars: call expression', (t) => {
+test('remove-unused-variables: get-vars: call expression', (t) => {
     const ast = parse(fixture.callExpression);
     const result = getVars(ast).map(dutify);
     
@@ -237,7 +237,7 @@ test('get-vars: call expression', (t) => {
     t.end();
 });
 
-test('get-vars: conditional expression', (t) => {
+test('remove-unused-variables: get-vars: conditional expression', (t) => {
     const ast = parse(fixture.conditionalExpression);
     const result = getVars(ast).map(dutify);
     
@@ -251,7 +251,7 @@ test('get-vars: conditional expression', (t) => {
     t.end();
 });
 
-test('get-vars: member expression', (t) => {
+test('remove-unused-variables: get-vars: member expression', (t) => {
     const ast = parse(fixture.memberExpression);
     const result = getVars(ast).map(dutify);
     
@@ -264,7 +264,7 @@ test('get-vars: member expression', (t) => {
     t.end();
 });
 
-test('get-vars: new-expression', (t) => {
+test('remove-unused-variables: get-vars: new-expression', (t) => {
     const ast = parse(fixture.newExpression);
     const result = getVars(ast).map(dutify);
     
@@ -279,7 +279,7 @@ test('get-vars: new-expression', (t) => {
     t.end();
 });
 
-test('get-vars: object expression', (t) => {
+test('remove-unused-variables: get-vars: object expression', (t) => {
     const ast = parse(fixture.objectExpression);
     const result = getVars(ast).map(dutify);
     
@@ -302,7 +302,7 @@ test('get-vars: object expression', (t) => {
     t.end();
 });
 
-test('get-vars: unary expression', (t) => {
+test('remove-unused-variables: get-vars: unary expression', (t) => {
     const ast = parse(fixture.unaryExpression);
     const result = getVars(ast).map(dutify);
     
@@ -317,7 +317,7 @@ test('get-vars: unary expression', (t) => {
     t.end();
 });
 
-test('get-vars: update expression', (t) => {
+test('remove-unused-variables: get-vars: update expression', (t) => {
     const ast = parse(fixture.updateExpression);
     const result = getVars(ast).map(dutify);
     
@@ -329,7 +329,7 @@ test('get-vars: update expression', (t) => {
     t.end();
 });
 
-test('get-vars: root vars', (t) => {
+test('remove-unused-variables: get-vars: root vars', (t) => {
     const ast = parse(fixture.rootVars);
     const result = getVars(ast);
     
@@ -352,7 +352,7 @@ test('get-vars: root vars', (t) => {
     t.end();
 });
 
-test('get-vars: condition vars', (t) => {
+test('remove-unused-variables: get-vars: condition vars', (t) => {
     const ast = parse(fixture.conditionVars);
     const result = getVars(ast);
     
@@ -375,7 +375,7 @@ test('get-vars: condition vars', (t) => {
     t.end();
 });
 
-test('get-vars: destr vars', (t) => {
+test('remove-unused-variables: get-vars: destr vars', (t) => {
     const ast = parse(fixture.destrVars);
     const result = getVars(ast).map(dutify);
     
@@ -391,7 +391,7 @@ test('get-vars: destr vars', (t) => {
     t.end();
 });
 
-test('get-vars: destr nested vars', (t) => {
+test('remove-unused-variables: get-vars: destr nested vars', (t) => {
     const ast = parse(fixture.destrNestedVars);
     const result = getVars(ast);
     
@@ -410,7 +410,7 @@ test('get-vars: destr nested vars', (t) => {
     t.end();
 });
 
-test('get-vars: destr fn vars', (t) => {
+test('remove-unused-variables: get-vars: destr fn vars', (t) => {
     const ast = parse(fixture.destrFnVars);
     const result = getVars(ast);
     
@@ -433,7 +433,7 @@ test('get-vars: destr fn vars', (t) => {
     t.end();
 });
 
-test('get-vars: no root vars', (t) => {
+test('remove-unused-variables: get-vars: no root vars', (t) => {
     const ast = parse(fixture.noRootVars);
     const result = getVars(ast);
     
@@ -453,7 +453,7 @@ test('get-vars: no root vars', (t) => {
     t.end();
 });
 
-test('get-vars: root vars: setPath', (t) => {
+test('remove-unused-variables: get-vars: root vars: setPath', (t) => {
     const ast = parse(fixture.rootVars);
     const result = getVars(ast, {
         setPath: true,
@@ -465,7 +465,7 @@ test('get-vars: root vars: setPath', (t) => {
     t.end();
 });
 
-test('get-vars: fn call', (t) => {
+test('remove-unused-variables: get-vars: fn call', (t) => {
     const ast = parse(fixture.fnCall);
     const result = getVars(ast);
     
@@ -480,7 +480,7 @@ test('get-vars: fn call', (t) => {
     t.end();
 });
 
-test('get-vars: fn call shorthand vars', (t) => {
+test('remove-unused-variables: get-vars: fn call shorthand vars', (t) => {
     const ast = parse(fixture.fnCallShorthandVars);
     const result = getVars(ast);
     
@@ -499,7 +499,7 @@ test('get-vars: fn call shorthand vars', (t) => {
     t.end();
 });
 
-test('get-vars: fn call: vars', (t) => {
+test('remove-unused-variables: get-vars: fn call: vars', (t) => {
     const ast = parse(fixture.fnCallVars);
     const result = getVars(ast);
     
@@ -521,7 +521,7 @@ test('get-vars: fn call: vars', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
-test('get-vars: fn vars', (t) => {
+test('remove-unused-variables: get-vars: fn vars', (t) => {
     const ast = parse(fixture.fnVars);
     const result = getVars(ast);
     
@@ -545,7 +545,7 @@ test('get-vars: fn vars', (t) => {
     t.end();
 });
 
-test('get-vars: return statement', (t) => {
+test('remove-unused-variables: get-vars: return statement', (t) => {
     const ast = parse(fixture.returnStatement);
     const result = getVars(ast).map(dutify);
     
@@ -564,7 +564,7 @@ test('get-vars: return statement', (t) => {
     t.end();
 });
 
-test('get-vars: switch statement', (t) => {
+test('remove-unused-variables: get-vars: switch statement', (t) => {
     const ast = parse(fixture.switchStatement);
     const result = getVars(ast).map(dutify);
     
@@ -577,7 +577,7 @@ test('get-vars: switch statement', (t) => {
     t.end();
 });
 
-test('get-vars: throw statement', (t) => {
+test('remove-unused-variables: get-vars: throw statement', (t) => {
     const ast = parse(fixture.throwStatement);
     const result = getVars(ast).map(dutify);
     
@@ -590,7 +590,7 @@ test('get-vars: throw statement', (t) => {
     t.end();
 });
 
-test('get-vars: fn args vars', (t) => {
+test('remove-unused-variables: get-vars: fn args vars', (t) => {
     const ast = parse(fixture.fnArgsVars);
     const result = getVars(ast).map(dutify);
     
@@ -618,7 +618,7 @@ test('get-vars: fn args vars', (t) => {
     t.end();
 });
 
-test('get-vars: fn destr args vars', (t) => {
+test('remove-unused-variables: get-vars: fn destr args vars', (t) => {
     const ast = parse(fixture.fnDestrArgsVars);
     const result = getVars(ast);
     
@@ -638,7 +638,7 @@ test('get-vars: fn destr args vars', (t) => {
     t.end();
 });
 
-test('get-vars: fn hoisted vars', (t) => {
+test('remove-unused-variables: get-vars: fn hoisted vars', (t) => {
     const ast = parse(fixture.fnHoistedVars);
     const result = getVars(ast);
     
@@ -653,7 +653,7 @@ test('get-vars: fn hoisted vars', (t) => {
     t.end();
 });
 
-test('get-vars: arrow vars', (t) => {
+test('remove-unused-variables: get-vars: arrow vars', (t) => {
     const ast = parse(fixture.arrowVars);
     const result = getVars(ast);
     
@@ -672,7 +672,7 @@ test('get-vars: arrow vars', (t) => {
     t.end();
 });
 
-test('get-vars: scope vars', (t) => {
+test('remove-unused-variables: get-vars: scope vars', (t) => {
     const ast = parse(fixture.scopeVars);
     const result = getVars(ast);
     
@@ -692,7 +692,7 @@ test('get-vars: scope vars', (t) => {
     t.end();
 });
 
-test('get-vars: shorthand vars', (t) => {
+test('remove-unused-variables: get-vars: shorthand vars', (t) => {
     const ast = parse(fixture.shorthandVars);
     const result = getVars(ast);
     
@@ -711,7 +711,7 @@ test('get-vars: shorthand vars', (t) => {
     t.end();
 });
 
-test('get-vars: for of statement', (t) => {
+test('remove-unused-variables: get-vars: for of statement', (t) => {
     const ast = parse(fixture.forOfStatement);
     const result = getVars(ast).map(dutify);
     
@@ -729,7 +729,7 @@ test('get-vars: for of statement', (t) => {
     t.end();
 });
 
-test('get-vars: obj prop', (t) => {
+test('remove-unused-variables: get-vars: obj prop', (t) => {
     const ast = parse(fixture.objProp);
     const result = getVars(ast);
     
@@ -744,7 +744,7 @@ test('get-vars: obj prop', (t) => {
     t.end();
 });
 
-test('get-vars: spread vars', (t) => {
+test('remove-unused-variables: get-vars: spread vars', (t) => {
     const ast = parse(fixture.spreadVars);
     const result = getVars(ast);
     
@@ -767,7 +767,7 @@ test('get-vars: spread vars', (t) => {
     t.end();
 });
 
-test('get-vars: template literal', (t) => {
+test('remove-unused-variables: get-vars: template literal', (t) => {
     const ast = parse(fixture.templateLiteral);
     const result = getVars(ast).map(dutify);
     
@@ -791,7 +791,7 @@ test('get-vars: template literal', (t) => {
     t.end();
 });
 
-test('get-vars: tagged template expression', (t) => {
+test('remove-unused-variables: get-vars: tagged template expression', (t) => {
     const ast = parse(fixture.taggedTemplateExpression);
     const result = getVars(ast).map(dutify);
     
@@ -808,7 +808,7 @@ test('get-vars: tagged template expression', (t) => {
     t.end();
 });
 
-test('get-vars: undeclared vars', (t) => {
+test('remove-unused-variables: get-vars: undeclared vars', (t) => {
     const ast = parse(fixture.undeclaredVars);
     const result = getVars(ast);
     
@@ -823,7 +823,7 @@ test('get-vars: undeclared vars', (t) => {
     t.end();
 });
 
-test('get-vars: variable-declarator', (t) => {
+test('remove-unused-variables: get-vars: variable-declarator', (t) => {
     const ast = parse(fixture.variableDeclarator);
     const result = getVars(ast).map(dutify);
     

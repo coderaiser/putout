@@ -36,12 +36,6 @@ function requirePlugin(name) {
     if (isObj(name))
         return name;
     
-    const full = addDir(name);
-    const [, localPlugin] = tryCatch(require, full);
-    
-    if (localPlugin)
-        return localPlugin;
-    
     const [, npmPlugin] = tryCatch(require, getModulePath(`@putout/plugin-${name}`));
     if (npmPlugin)
         return npmPlugin;
@@ -49,6 +43,8 @@ function requirePlugin(name) {
     const [, userPlugin] = tryCatch(require, getModulePath(`putout-plugin-${name}`));
     if (userPlugin)
         return userPlugin;
+    
+    throw Error(`Plugin "putout-plugin-${name} could not be found!`);
 }
 
 // Module._findPath is an internal method to Node.js, then one they use to

@@ -1,9 +1,9 @@
 'use strict';
 
 const test = require('tape');
-const getUnused = require('../lib/remove-unused-variables/get-unused');
+const getUnused = require('../lib/get-unused');
 
-test('get-unused', (t) => {
+test('remove-unused-variables: get-unused', (t) => {
     const result = getUnused([{
         name: 'a',
         declared: true,
@@ -23,3 +23,4 @@ test('get-unused', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
+

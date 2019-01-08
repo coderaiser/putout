@@ -1,9 +1,9 @@
 'use strict';
 
 const test = require('tape');
-const transform = require('../lib/remove-unused-variables/transform');
+const transform = require('../lib/transform');
 
-test('transform: empty', (t) => {
+test('remove-unused-variables: transform: empty', (t) => {
     const result = transform([]);
     const expected = [];
     
@@ -11,7 +11,7 @@ test('transform: empty', (t) => {
     t.end();
 });
 
-test('transform: 1', (t) => {
+test('remove-unused-variables: transform: 1', (t) => {
     const result = transform([{
         str: {
             count: 1,
@@ -54,3 +54,4 @@ test('transform: couple', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
+

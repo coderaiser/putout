@@ -29,6 +29,7 @@
     "@putout/plugin-remove-process-exit": "^1.0.0",
     "@putout/plugin-remove-debugger": "^1.0.0",
     "@putout/plugin-remove-only": "^1.0.0",
+    "@putout/plugin-remove-unused-variables": "^1.0.0",
     "align-spaces": "^1.0.0",
     "chalk": "^2.4.1",
     "cherow": "^1.6.9",
