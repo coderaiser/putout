@@ -5,7 +5,8 @@
     "test": "lerna run test",
     "coverage": "lerna run coverage",
     "report": "lerna run report",
-    "lint": "lerna run lint"
+    "lint": "lerna run lint",
+    "bootstrap": "lerna bootstrap"
   },
   "devDependencies": {
     "lerna": "^3.8.5"
