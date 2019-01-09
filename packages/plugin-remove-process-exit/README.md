@@ -14,7 +14,19 @@
 npm i @putout/plugin-remove-process-exit
 ```
 
-## Usage
+## Rule
+
+Rule `remove-process-exit` is disabled by default, to enable add to `.putout.json`:
+
+```json
+{
+    "rules": {
+        "remove-process-exit": true
+    }
+}
+```
+
+## Code Example
 
 ```js
 const {readFileSync} = require('fs');

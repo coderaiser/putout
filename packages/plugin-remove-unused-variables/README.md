@@ -14,7 +14,19 @@
 npm i @putout/plugin-remove-unused-variables
 ```
 
-## Usage
+## Rule
+
+Rule `remove-unused-variables` is enabled by default, to disable add to `.putout.json`:
+
+```json
+{
+    "rules": {
+        "remove-unused-variables": false
+    }
+}
+```
+
+## Code Example
 
 ```js
 const {readFileSync} = require('fs');

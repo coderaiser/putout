@@ -14,7 +14,19 @@
 npm i @putout/plugin-remove-debugger
 ```
 
-## Usage
+## Rule
+
+Rule `remove-debugger` is enabled by default, to disable add to `.putout.json`:
+
+```json
+{
+    "rules": {
+        "remove-debugger": false
+    }
+}
+```
+
+## Code Example
 
 ```js
 const {readFileSync} = require('fs');

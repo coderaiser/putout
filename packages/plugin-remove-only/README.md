@@ -14,7 +14,19 @@
 npm i @putout/plugin-remove-only
 ```
 
-## Usage
+## Rule
+
+Rule `remove-only` is enabled by default, to disable add to `.putout.json`:
+
+```json
+{
+    "rules": {
+        "remove-only": false
+    }
+}
+```
+
+## Code Example
 
 ```js
 const {readFileSync} = require('fs');

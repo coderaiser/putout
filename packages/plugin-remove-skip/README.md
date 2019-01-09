@@ -14,14 +14,14 @@
 npm i @putout/plugin-remove-skip -D
 ```
 
-## Config
+## Rule
 
-Rule `remove-skip` disabled by default, to enable add to `.putout.json`:
+Rule `remove-skip` enabled by default, to disable add to `.putout.json`:
 
 ```json
 {
     "rules": {
-        "remove-skip": true
+        "remove-skip": false
     }
 }
 ```
