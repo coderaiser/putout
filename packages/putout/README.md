@@ -15,7 +15,64 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - find and remove unused variables;
 - find and remove `debugger` statement;
 - find and replace `test.only` to `test` calls;
+- find and replace `test.skip` to `test` calls;
 - find and remove `process.exit` call;
+
+## Configuration
+
+To configure `putout` add section `putout` to your `package.json` file or create `.putout.json` file and override any option:
+
+```js
+{
+    "rules": {
+        "remove-unused-variables": true,
+        "remove-debugger": true,
+        "remove-only": true,
+        "remove-skip": true,
+        "remove-process-exit": false
+    }
+}
+```
+
+### Match
+
+When you need to match paths to rules you can use `match` section for this purpose in `.putout.json`:
+
+```
+{
+    "match": {
+        "server": {
+            "remove-process-exit": true
+        }
+    }
+}
+```
+
+### Ignore
+
+When you need to ignore some routes no metter what, you can use `ignore` section in `.putout.json`:
+
+```json
+{
+    "ignore": [
+        "test/fixture"
+    ]
+}
+```
+
+## Plugins
+
+`Putout` supports `plugins`, there is to types: with prefix official `@putout/plugin-` and user plugins with prefix `putout-plugin-`. To use your plugin create plugin as `npm` package with keywords `putout`, `putout-plugin` and add it to `.putout.json`.
+
+For example if you need to `remove-something` create `putout` plugin with name `putout-plugin-remove-something` and it to `.putout.json`:
+
+```
+{
+    "plugins": [
+        "remove-something"
+    ]
+}
+```
 
 ## Why?
 

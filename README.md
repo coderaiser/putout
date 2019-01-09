@@ -17,19 +17,18 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - find and replace `test.only` to `test` calls;
 - find and remove `process.exit` call;
 
-## Why?
+## Usage
 
-- because [eslint](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
-- because [babel](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139);
-- because [pretier](https://github.com/prettier/prettier) it is a formatter;
-- because [jscodeshift](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
-
-The main difference of `putout` is saving code transformation results directly in a source code in a day-to-day baisis.
-
-## Install
+To find `errors` use:
 
 ```
-npm i putout -g
+putout lib test
+```
+
+To `fix` it use:
+
+```
+putout lib test --fix
 ```
 
 ## Plugins
@@ -44,18 +43,76 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-remove-only`](/packages/plugin-remove-only) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-only.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-only) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-only)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-only) |
 | [`@putout/plugin-remove-skip`](/packages/plugin-remove-skip) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-skip.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-skip) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-skip)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-skip) |
 
-## Usage
 
-To find `errors` use:
+## Configuration
+
+To configure `putout` add section `putout` to your `package.json` file or create `.putout.json` file and override any option:
+
+```js
+{
+    "rules": {
+        "remove-unused-variables": true,
+        "remove-debugger": true,
+        "remove-only": true,
+        "remove-skip": true,
+        "remove-process-exit": false
+    }
+}
+```
+
+### Match
+
+When you need to match paths to rules you can use `match` section for this purpose in `.putout.json`:
 
 ```
-putout lib test
+{
+    "match": {
+        "server": {
+            "remove-process-exit": true
+        }
+    }
+}
 ```
 
-To `fix` it use:
+### Ignore
+
+When you need to ignore some routes no metter what, you can use `ignore` section in `.putout.json`:
+
+```json
+{
+    "ignore": [
+        "test/fixture"
+    ]
+}
+```
+
+### Plugins
+
+`Putout` supports `plugins`, there is to types: with prefix official `@putout/plugin-` and user plugins with prefix `putout-plugin-`. To use your plugin create plugin as `npm` package with keywords `putout`, `putout-plugin` and add it to `.putout.json`.
+
+For example if you need to `remove-something` create `putout` plugin with name `putout-plugin-remove-something` and it to `.putout.json`:
 
 ```
-putout lib test --fix
+{
+    "plugins": [
+        "remove-something"
+    ]
+}
+```
+
+## Why?
+
+- because [eslint](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
+- because [babel](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139);
+- because [pretier](https://github.com/prettier/prettier) it is a formatter;
+- because [jscodeshift](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
+
+The main difference of `putout` is saving code transformation results directly in a source code in a day-to-day baisis.
+
+## Install
+
+```
+npm i putout -g
 ```
 
 ## API
