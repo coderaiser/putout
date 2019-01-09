@@ -31,7 +31,7 @@ const {
 } = require('table');
 
 const {cwd} = process;
-const {entries} = Object;
+const {keys} = Object;
 
 const putout = require('..');
 const one = (f) => (a) => f(a);
@@ -237,9 +237,9 @@ function parseMatch(match, name) {
     if (!match)
         return {};
     
-    const items = entries(match);
+    const items = keys(match);
     
-    for (const [pattern, config] of items)
+    for (const pattern of items)
         if (RegExp(`^${pattern}`).test(name)) {
             const rules = match[pattern];
             
