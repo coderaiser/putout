@@ -3,9 +3,11 @@
 const Module = require('module');
 const test = require('tape');
 const stub = require('@cloudcmd/stub');
-const mockRequire = require('mock-require');
 const tryCatch = require('try-catch');
+const mockRequire = require('mock-require');
 const {reRequire} = mockRequire;
+
+const putout = require('..');
 
 test('get-plugins: user plugin', (t) => {
     const {_findPath} = Module;
@@ -40,16 +42,21 @@ test('get-plugins: user plugin', (t) => {
 });
 
 test('get-plugins: can not find', (t) => {
+    const {_findPath} = Module;
     const rmVars = 'remove-unused-variables';
     
-    mockRequire(`@putout/plugin-${rmVars}`, null);
-    reRequire('../lib/get-plugins');
-    
-    const putout = reRequire('..');
+    Module._findPath = stub((name, paths) => {
+        if (!name.indexOf(`@putout/plugin-${rmVars}`))
+            return false;
+        
+        return _findPath(name, paths);
+    });
     
     const [e] = tryCatch(putout, `const t = 'hello'`);
     
     mockRequire.stopAll();
+    
+    Module._findPath = _findPath;
     
     const expected = 'Plugin "putout-plugin-remove-unused-variables could not be found!';
     
