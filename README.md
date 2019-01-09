@@ -48,7 +48,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 
 To configure `putout` add section `putout` to your `package.json` file or create `.putout.json` file and override any option:
 
-```js
+```json
 {
     "rules": {
         "remove-unused-variables": true,
@@ -64,7 +64,7 @@ To configure `putout` add section `putout` to your `package.json` file or create
 
 When you need to match paths to rules you can use `match` section for this purpose in `.putout.json`:
 
-```
+```json
 {
     "match": {
         "server": {
@@ -92,7 +92,7 @@ When you need to ignore some routes no metter what, you can use `ignore` section
 
 For example if you need to `remove-something` create `putout` plugin with name `putout-plugin-remove-something` and it to `.putout.json`:
 
-```
+```json
 {
     "plugins": [
         "remove-something"
