@@ -24,12 +24,14 @@ const {
 const rendy = require('rendy');
 const glob = require('glob');
 const tryCatch = require('try-catch');
+const deepmerge = require('deepmerge');
 const {
     table,
     getBorderCharacters,
 } = require('table');
 
 const {cwd} = process;
+const {entries} = Object;
 
 const putout = require('..');
 const one = (f) => (a) => f(a);
@@ -75,6 +77,12 @@ if (e)
 let errorsCount = 0;
 let filesCount = 0;
 
+const options = mergeOptions(getOptions());
+const ignore = require('ignore')();
+
+if (options.ignore)
+    ignore.add(options.ignore);
+
 const output = files
     .map(processFiles)
     .filter(Boolean);
@@ -88,11 +96,18 @@ if (output.length) {
 }
 
 function processFiles(name) {
+    const {
+        match,
+    } = options;
+    
+    if (ignore.ignores(name))
+        return;
+    
     const input = readFileSync(name, 'utf8');
     
     const [e, result] = tryCatch(putout, input, {
         fix,
-        ...mergeOptions(getOptions()),
+        ...merge(options, parseMatch(match, name)),
     });
     
     if (e) {
@@ -190,18 +205,20 @@ function exit(e) {
     process.exit(1);
 }
 
+function merge(base, custom) {
+    const arrayMerge = (destinationArray, sourceArray) => sourceArray;
+    return deepmerge(base, custom, {
+        arrayMerge,
+    });
+}
+
 function mergeOptions(baseOptions = {}) {
     if (!config)
         return baseOptions;
     
-    const deepmerge = require('deepmerge');
-    const arrayMerge = (destinationArray, sourceArray) => sourceArray;
-    
     const customOptions = require(`${cwd()}/${config}`);
     
-    return deepmerge(baseOptions, customOptions, {
-        arrayMerge,
-    });
+    return merge(baseOptions, customOptions);
 }
 
 function getOptions() {
@@ -214,5 +231,23 @@ function getOptions() {
     const infoPath = readUp.sync('package.json');
     if (infoPath)
         return require(infoPath).putout;
+}
+
+function parseMatch(match, name) {
+    if (!match)
+        return {};
+    
+    const items = entries(match);
+    
+    for (const [pattern, config] of items)
+        if (RegExp(`^${pattern}`).test(name)) {
+            const rules = match[pattern];
+            
+            return {
+                rules,
+            };
+        }
+    
+    return {};
 }
 
