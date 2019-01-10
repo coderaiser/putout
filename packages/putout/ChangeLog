@@ -1,3 +1,34 @@
+2019.01.10, v3.0.0
+
+fix:
+- (plugin-remove-only) description
+- feature(putout) change plugin structure: find, 
+
+feature:
+- (parse-match) move out from bin/putout.js
+- (putout) add support of match/ignore
+- (putout) add plugin name in erros output
+- (plugin-remove-skip) add
+- (putout) add ability to set config path
+- (putout) cherow -> espree: comments support
+- (putout) disable by default rules: remove-only, remove-process-exit
+- (plugin-remove-unused-variables) move out from putout
+- (plugin-remove-only) move out from putout
+- (remove-process-exit) isStringLiteralValue -> isStringLiteral
+- (putout) add support of plugins load
+- (plugin-remove-debugger) move out from putout
+- (putout) full plugin names
+- (rm-process-exit) add
+- (putout) convert repo to monorepo
+- (putout) change plugin structure: find, fix
+- (putout) add ability to load plugins
+- (putout) add ability to load config file .putout.json
+- (get-plugins) add support of rules
+- (putout) .putout.json -> putout.json
+- (putout) add support of only
+- (get-vars) rm setLoc
+
+
 2019.01.04, v2.26.0
 
 feature:
