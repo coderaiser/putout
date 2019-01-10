@@ -1,0 +1,54 @@
+{
+  "name": "@putout/plugin-split-variable-declarations",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin adds ability to find and remove process.exit",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/split-variable-declarations.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "tape 'test/*.js'",
+    "test:diff": "npm test | tap-diff",
+    "watch:test": "nodemon -w lib -w test -x \"npm test\"",
+    "watch:example": "nodemon -w lib -w test -x \"node remove-unused\"",
+    "lint": "eslint lib test --ignore-pattern test/fixture",
+    "coverage": "nyc npm test"
+  },
+  "dependencies": {
+    "@babel/traverse": "^7.1.6",
+    "@babel/types": "^7.2.2"
+  },
+  "keywords": [
+    "putout",
+    "plugin",
+    "debugger"
+  ],
+  "devDependencies": {
+    "coveralls": "^3.0.0",
+    "eslint": "^5.6.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-tape": "^1.1.0",
+    "just-camel-case": "^4.0.2",
+    "lerna": "^3.8.5",
+    "nodemon": "^1.14.12",
+    "nyc": "^13.0.1",
+    "putout": "^3.0.0",
+    "redrun": "^7.0.2",
+    "tap-diff": "^0.1.1",
+    "tape": "^4.8.0",
+    "try-to-tape": "^1.1.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

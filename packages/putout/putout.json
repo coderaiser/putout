@@ -4,14 +4,16 @@
         "remove-debugger": true,
         "remove-only": true,
         "remove-skip": true,
-        "remove-process-exit": false
+        "remove-process-exit": false,
+        "split-variable-declarations": true
     },
     "plugins": [
         "remove-unused-variables",
         "remove-debugger",
         "remove-only",
         "remove-skip",
-        "remove-process-exit"
+        "remove-process-exit",
+        "split-variable-declarations"
     ]
 }
 
