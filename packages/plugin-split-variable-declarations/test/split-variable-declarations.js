@@ -12,6 +12,8 @@ const fixture = readFixtures([
     'split-variable-declarations-fix',
     'for-statement',
     'for-statement-fix',
+    'null-literal',
+    'null-literal-fix',
 ]);
 
 test('plugin-split-variable-declarations', (t) => {
@@ -40,3 +42,15 @@ test('plugin-split-variable-declarations: for-statement', (t) => {
     t.end();
 });
 
+test('plugin-split-variable-declarations: null literal', (t) => {
+    const {code} = putout(fixture.nullLiteral, {
+        plugins: [{
+            'split-variable-declarations': splitVariableDeclarations,
+        }]
+    });
+    
+    const expected = fixture.nullLiteralFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});

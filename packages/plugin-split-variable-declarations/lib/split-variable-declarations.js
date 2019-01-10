@@ -5,10 +5,16 @@ const traverse = require('@babel/traverse').default;
 const {
     isForStatement,
     variableDeclaration,
-    variableDeclarator
+    variableDeclarator,
 } = require('@babel/types');
 
 module.exports.message = 'variables should be declard separately';
+
+module.exports.fix = (path) => {
+    const varNodes = getVarNodes(path.node);
+    
+    path.replaceWithMultiple(varNodes);
+};
 
 module.exports.find = (ast) => {
     const places = [];
@@ -32,17 +38,6 @@ module.exports.find = (ast) => {
     return places;
 };
 
-module.exports.fix = (path) => {
-    const {node, parent} = path;
-    
-    const {body} = parent;
-    const index = body.indexOf(node);
-    
-    const varNodes = getVarNodes(node);
-    
-    body.splice(index, 1, ...varNodes);
-};
-
 function getVarNodes(node) {
     const {declarations} = node;
     const result = [];
@@ -51,8 +46,8 @@ function getVarNodes(node) {
         result.push(
             variableDeclaration(node.kind, [
                 variableDeclarator(declaration.id, declaration.init)
-            ]
-            ));
+            ])
+        );
     }
     
     return result;
