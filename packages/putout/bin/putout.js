@@ -31,9 +31,10 @@ const {
 } = require('table');
 
 const {cwd} = process;
-const {keys} = Object;
 
 const putout = require('..');
+const parseMatch = require('../lib/parse-match');
+
 const one = (f) => (a) => f(a);
 
 const argv = require('yargs-parser')(process.argv.slice(2), {
@@ -231,23 +232,5 @@ function getOptions() {
     const infoPath = readUp.sync('package.json');
     if (infoPath)
         return require(infoPath).putout;
-}
-
-function parseMatch(match, name) {
-    if (!match)
-        return {};
-    
-    const items = keys(match);
-    
-    for (const pattern of items)
-        if (RegExp(`^${pattern}`).test(name)) {
-            const rules = match[pattern];
-            
-            return {
-                rules,
-            };
-        }
-    
-    return {};
 }
 
