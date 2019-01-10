@@ -34,7 +34,7 @@
     "eslint-plugin-tape": "^1.1.0",
     "just-camel-case": "^4.0.2",
     "nyc": "^13.0.1",
-    "putout": "^2.26.0",
+    "putout": "^3.1.0",
     "redrun": "^7.0.2",
     "tape": "^4.8.0",
     "try-to-tape": "^1.1.0"
