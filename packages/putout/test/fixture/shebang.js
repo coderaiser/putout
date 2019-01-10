@@ -8,5 +8,5 @@ const {
     b,
 } = t;
 
-console.log(a);
+logger.log(a);
 

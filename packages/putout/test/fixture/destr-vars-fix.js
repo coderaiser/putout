@@ -10,5 +10,5 @@ const {
     b
 } = obj;
 
-console.log(b);
+logger.log(b);
 

@@ -1,0 +1,2 @@
+console['error']('hello');
+

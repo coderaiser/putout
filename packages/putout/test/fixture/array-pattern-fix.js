@@ -1,6 +1,6 @@
 const [, b] = array;
-console.log(b);
+hello.log(b);
 
 const [c] = array;
-console.log(c);
+hello.log(c);
 

@@ -1,8 +1,8 @@
 const [a, b] = array;
-console.log(b);
+hello.log(b);
 
 const [c, d] = array;
-console.log(c);
+hello.log(c);
 
 const [z] = array;
 

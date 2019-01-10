@@ -7,5 +7,5 @@ const {
     a
 } = t;
 
-console.log(a);
+logger.log(a);
 

@@ -9,5 +9,5 @@ const obj = {
 const {a, b} = obj;
 const {c} = obj;
 
-console.log(b);
+logger.log(b);
 

@@ -5,6 +5,7 @@
         "remove-only": true,
         "remove-skip": true,
         "remove-process-exit": false,
+        "remove-console": true,
         "split-variable-declarations": true
     },
     "plugins": [
@@ -13,6 +14,7 @@
         "remove-only",
         "remove-skip",
         "remove-process-exit",
+        "remove-console",
         "split-variable-declarations"
     ]
 }
