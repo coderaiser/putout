@@ -13,7 +13,7 @@ test('get-plugins: user plugin', (t) => {
     const {_findPath} = Module;
     const rmVars = 'remove-unused-variables';
     
-    const rmUnusedVars = require(`@putout/plugin-${rmVars}`);;
+    const rmUnusedVars = require(`@putout/plugin-${rmVars}`);
     
     mockRequire(`@putout/plugin-${rmVars}`, null);
     mockRequire(`putout-plugin-${rmVars}`, rmUnusedVars);
@@ -66,7 +66,7 @@ test('get-plugins: can not find', (t) => {
 
 test('get-plugins: function', (t) => {
     const rmVars = 'remove-unused-variables';
-    const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);;
+    const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
     mockRequire(`@putout/plugin-${rmVars}`, null);
     
