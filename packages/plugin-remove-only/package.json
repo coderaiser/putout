@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-only",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove test.only calls",
   "homepage": "http://github.com/coderaiser/putout",
@@ -17,8 +17,7 @@
     "lint": "eslint lib test --ignore-pattern test/fixture",
     "coverage": "nyc npm test"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "keywords": [
     "putout",
     "putout-plugin",
