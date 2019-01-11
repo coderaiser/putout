@@ -2,7 +2,7 @@
 
 const traverse = require('@babel/traverse').default;
 
-module.exports.message = 'Unexpected "debugger" statement';
+module.exports.getMessage = () => 'Unexpected "debugger" statement';
 
 module.exports.find = (ast) => {
     const places = [];

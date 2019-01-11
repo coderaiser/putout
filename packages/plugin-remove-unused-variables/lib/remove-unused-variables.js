@@ -4,7 +4,7 @@ const getVars = require('./get-vars');
 const transform = require('./transform');
 const getUnused = require('./get-unused');
 
-module.exports.message = '"{{ name }}" is defined but never used';
+module.exports.getMessage = ({name}) => `"${name}" is defined but never used`;
 
 module.exports.fix = (path) => {
     path.remove();

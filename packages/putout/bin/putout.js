@@ -21,7 +21,6 @@ const {
     bold,
 } = require('chalk');
 
-const rendy = require('rendy');
 const glob = require('glob');
 const tryCatch = require('try-catch');
 const deepmerge = require('deepmerge');
@@ -150,10 +149,9 @@ function processFiles(name) {
         
         ++errorsCount;
         
-        const msg = rendy(message, place);
         data.push([
             grey(`${line}:${column}`),
-            `${red('error')}   ${msg}`,
+            `${red('error')}   ${message}`,
             grey(rule),
         ]);
     }
