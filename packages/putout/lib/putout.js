@@ -15,8 +15,10 @@ const isUndefined = (a) => typeof a === 'undefined';
 
 const parser = {
     parse(source) {
+        const preventUsingEsprima = true;
         return toBabel(espree.parse(source, {
             loc: true,
+            tokens: preventUsingEsprima,
             comment: true,
             ecmaVersion: 2019,
             sourceType: 'module',
@@ -91,7 +93,6 @@ module.exports.parse = parse;
 function parse(source) {
     const ast = recast.parse(source, {
         parser,
-        tokens: false,
     });
     
     return ast;
