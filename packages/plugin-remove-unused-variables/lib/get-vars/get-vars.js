@@ -332,6 +332,13 @@ module.exports = ({
                 use(path, declaration.id.name);
         },
         
+        ExportNamedDeclaration(path) {
+            const {declaration} = path.node;
+            
+            if (isFunctionDeclaration(declaration))
+                use(path, declaration.id.name);
+        },
+        
         FunctionDeclaration(path) {
             const {
                 node,

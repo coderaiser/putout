@@ -132,9 +132,6 @@ const useVariable = ({vars}) => (path, name) => {
 };
 
 const getLocLine = ({loc}) => {
-    if (!loc)
-        debugger;
-    
     const {
         start,
         end,

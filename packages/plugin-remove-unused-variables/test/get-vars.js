@@ -23,6 +23,7 @@ const fixture = readFixtures([
     'destr-nested-vars',
     'destr-fn-vars',
     'export-default-declaration',
+    'export-named-declaration',
     'fn-call',
     'fn-call-vars',
     'fn-call-shorthand-vars',
@@ -440,6 +441,21 @@ test('remove-unused-variables: get-vars: export default declaration', (t) => {
     
     const expected = [{
         addCommands: {
+            declared: true,
+            used: true
+        },
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: export named declaration', (t) => {
+    const ast = parse(fixture.exportNamedDeclaration);
+    const result = getVars(ast);
+    
+    const expected = [{
+        copyToClipboard: {
             declared: true,
             used: true
         },
