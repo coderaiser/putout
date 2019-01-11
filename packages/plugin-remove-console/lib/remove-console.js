@@ -32,13 +32,13 @@ module.exports.find = (ast) => {
                 'log',
                 'error',
                 'warn',
-            ])
+            ]);
             
             const isPropertyLiteral = isOneOfLiterals(property, [
                 'log',
                 'error',
                 'warn',
-            ])
+            ]);
             
             if (!isPropertyIdentifier && !isPropertyLiteral)
                 return;
@@ -47,7 +47,7 @@ module.exports.find = (ast) => {
                 return;
             
             places.push(path);
-          }
+        }
     });
     
     return places;
@@ -59,7 +59,7 @@ function isOneOfIdentifiers(node, array) {
             return true;
     
     return false;
-};
+}
 
 function isOneOfLiterals(node, array) {
     for (const value of array)
@@ -67,5 +67,5 @@ function isOneOfLiterals(node, array) {
             return true;
     
     return false;
-};
+}
 
