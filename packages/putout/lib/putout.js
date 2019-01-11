@@ -19,6 +19,7 @@ const parser = {
             loc: true,
             comment: true,
             ecmaVersion: 2019,
+            sourceType: 'module',
         }));
     },
 };
