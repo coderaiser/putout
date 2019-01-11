@@ -22,6 +22,7 @@ const fixture = readFixtures([
     'destr-vars',
     'destr-nested-vars',
     'destr-fn-vars',
+    'export-default-declaration',
     'fn-call',
     'fn-call-vars',
     'fn-call-shorthand-vars',
@@ -426,6 +427,21 @@ test('remove-unused-variables: get-vars: destr fn vars', (t) => {
         m: {
             declared: true,
             used: false,
+        },
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: export default declaration', (t) => {
+    const ast = parse(fixture.exportDefaultDeclaration);
+    const result = getVars(ast);
+    
+    const expected = [{
+        addCommands: {
+            declared: true,
+            used: true
         },
     }];
     

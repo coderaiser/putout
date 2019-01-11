@@ -8,6 +8,7 @@ const {
     isObjectExpression,
     isObjectPattern,
     isTemplateLiteral,
+    isFunctionDeclaration,
 } = require('@babel/types');
 
 const {assign} = Object;
@@ -322,6 +323,13 @@ module.exports = ({
             
             if (isIdentifier(right))
                 use(path, right.name);
+        },
+        
+        ExportDefaultDeclaration(path) {
+            const {declaration} = path.node;
+            
+            if (isFunctionDeclaration(declaration))
+                use(path, declaration.id.name);
         },
         
         FunctionDeclaration(path) {
