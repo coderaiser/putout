@@ -9,6 +9,7 @@ const {
     isObjectPattern,
     isTemplateLiteral,
     isFunctionDeclaration,
+    isArrayExpression,
 } = require('@babel/types');
 
 const {assign} = Object;
@@ -25,16 +26,18 @@ module.exports = ({
     const declareAssign = traverseAssignmentExpression(declare);
     
     const traverseTmpl = traverseTemplateLiteral(use);
+    const traverseArray = traverseArrayExpression(use);
     
     return {
         VariableDeclarator(path) {
             const {node} = path;
             const {init} = node;
+            const idPath = path.get('id');
             
             if (isIdentifier(node.id)) {
                 declare(path, node.id.name);
             } else if (isObjectPattern(node.id)) {
-                path.get('id').traverse({
+                idPath.traverse({
                     ObjectProperty(propPath) {
                         if (!isIdentifier(propPath.node.value))
                             return;
@@ -47,7 +50,7 @@ module.exports = ({
                     }
                 });
             } else if (isArrayPattern(node.id)) {
-                path.get('id').traverse({
+                idPath.traverse({
                     Identifier(elPath) {
                         const {elements} = node.id;
                         
@@ -71,6 +74,8 @@ module.exports = ({
                 traverseObj(initPath.get('properties'));
             else if (isTemplateLiteral(init))
                 traverseTmpl(path, init.expressions);
+            else if (isArrayExpression(init))
+                traverseArray(initPath.get('elements'));
         },
         
         AssignmentExpression(path) {
@@ -419,10 +424,24 @@ const traverseObjectExpression = (use) => {
     };
 };
 
+const traverseArrayExpression = (use) => {
+    const traverseObjExpression = traverseObjectExpression(use);
+    
+    return (elementsPaths) => {
+        for (const elementPath of elementsPaths) {
+            const {node} = elementPath; 
+            
+            if (isObjectExpression(node))
+                traverseObjExpression(elementPath.get('properties'));
+        }
+    };
+};
+
 const traverseAssignmentExpression = (use) => {
     const traverseObjPattern = traverseObjectPattern(use);
     const traverseObjExpression = traverseObjectExpression(use);
     const traverseTmpl = traverseTemplateLiteral(use);
+    const traverseArray = traverseArrayExpression(use);
     
     return (path) => {
         const {node} = path;
@@ -442,6 +461,8 @@ const traverseAssignmentExpression = (use) => {
             traverseObjExpression(path.get('right.properties'));
         else if (isTemplateLiteral(right))
             traverseTmpl(path, right.expressions);
+        else if (isArrayExpression(right))
+            traverseArray(path.get('right.elements'));
     };
 };
 

@@ -291,6 +291,8 @@ test('remove-unused-variables: get-vars: object expression', (t) => {
         module: _u,
         spreadExample: d_,
         nestedProperty:d_,
+        arrayExample: d_,
+        assignArrayExample: d_,
     }, {
         source: _u,
     }, {
@@ -298,6 +300,11 @@ test('remove-unused-variables: get-vars: object expression', (t) => {
         spread: du,
     }, {
         nested: du,
+    }, {
+        array: d_,
+        propertyValue: du,
+    }, {
+        assignProperty: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

@@ -32,3 +32,19 @@ function nestedProperty() {
     };
 };
 
+function arrayExample() {
+    const propertyValue = 1;
+    
+    const array = [{
+        run: propertyValue,
+    }];
+}
+
+function assignArrayExample() {
+    const assignProperty = 1;
+    
+    module.exports = [{
+        run: assignProperty,
+    }];
+}
+
