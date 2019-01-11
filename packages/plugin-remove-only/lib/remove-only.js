@@ -1,7 +1,5 @@
 'use strict';
 
-const traverse = require('@babel/traverse').default;
-
 const {
     isIdentifier,
     isMemberExpression,
@@ -10,12 +8,11 @@ const {
 
 module.exports.getMessage = () => '"test.only" should not be used';
 
-module.exports.fix = (path) => {
-    const {node} = path;
+module.exports.fix = ({node}) => {
     node.callee = node.callee.object;
 };
 
-module.exports.find = (ast) => {
+module.exports.find = (ast, {traverse}) => {
     const places = [];
     const push = places.push.bind(places);
     

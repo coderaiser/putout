@@ -1,7 +1,5 @@
 'use strict';
 
-const traverse = require('@babel/traverse').default;
-
 const {
     isIdentifier,
     isMemberExpression,
@@ -15,7 +13,7 @@ module.exports.fix = (path) => {
     node.callee = node.callee.object;
 };
 
-module.exports.find = (ast) => {
+module.exports.find = (ast, {traverse}) => {
     const places = [];
     const push = places.push.bind(places);
     

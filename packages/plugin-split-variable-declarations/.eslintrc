@@ -11,6 +11,7 @@
         "semi": "error",
         "no-console": 0,
         "no-use-before-define": 0,
+        "node/no-extraneous-require": 0,
         "tape/max-asserts": ["error", 1],
         "no-multiple-empty-lines": [
             "error", {

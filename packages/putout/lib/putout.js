@@ -4,6 +4,8 @@ const recast = require('recast');
 const alignSpaces = require('align-spaces');
 const espree = require('espree');
 const toBabel = require('estree-to-babel');
+const traverse = require('@babel/traverse').default;
+const types = require('@babel/types');
 
 const cutShebang = require('./cut-shebang');
 const getPlugins = require('./get-plugins');
@@ -42,7 +44,10 @@ module.exports = (source, opts) => {
     
     for (const [rule, plugin] of plugins) {
         const {getMessage} = plugin;
-        const items = plugin.find(ast);
+        const items = plugin.find(ast, {
+            traverse,
+            types,
+        });
         
         if (!items.length)
             continue;

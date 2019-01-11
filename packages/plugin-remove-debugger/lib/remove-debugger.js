@@ -1,10 +1,8 @@
 'use strict';
 
-const traverse = require('@babel/traverse').default;
-
 module.exports.getMessage = () => 'Unexpected "debugger" statement';
 
-module.exports.find = (ast) => {
+module.exports.find = (ast, {traverse}) => {
     const places = [];
     
     traverse(ast, {

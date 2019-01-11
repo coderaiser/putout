@@ -1,7 +1,5 @@
 'use strict';
 
-const traverse = require('@babel/traverse').default;
-
 const {
     isForStatement,
     variableDeclaration,
@@ -12,11 +10,10 @@ module.exports.getMessage = () => 'variables should be declard separately';
 
 module.exports.fix = (path) => {
     const varNodes = getVarNodes(path.node);
-    
     path.replaceWithMultiple(varNodes);
 };
 
-module.exports.find = (ast) => {
+module.exports.find = (ast, {traverse}) => {
     const places = [];
     
     traverse(ast, {

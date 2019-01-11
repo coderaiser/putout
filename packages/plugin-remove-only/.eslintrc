@@ -12,6 +12,7 @@
         "no-console": 0,
         "no-use-before-define": 0,
         "tape/max-asserts": ["error", 1],
+        "node/no-extraneous-require": 0,
         "no-multiple-empty-lines": [
             "error", {
                 "max": 1

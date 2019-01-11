@@ -9,6 +9,7 @@
     "bootstrap": "lerna bootstrap"
   },
   "devDependencies": {
-    "lerna": "^3.8.5"
+    "lerna": "^3.8.5",
+    "putout": "^3.2.0"
   }
 }
