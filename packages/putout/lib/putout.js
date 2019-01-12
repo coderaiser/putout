@@ -13,6 +13,10 @@ const fix = require('./fix');
 
 const isUndefined = (a) => typeof a === 'undefined';
 
+const printOptions = {
+    quote: 'single',
+};
+
 const parser = {
     parse(source) {
         const preventUsingEsprima = true;
@@ -74,7 +78,10 @@ module.exports = (source, opts) => {
         }
     }
     
-    const printed = recast.print(ast).code;
+    const {
+        code: printed,
+    } = recast.print(ast, printOptions);
+    
     const aligned = alignSpaces(printed);
     const code = fixStrictMode(`${shebang}${aligned}`);
     
