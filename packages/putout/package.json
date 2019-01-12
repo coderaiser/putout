@@ -44,7 +44,6 @@
     "glob": "^7.1.3",
     "ignore": "^5.0.4",
     "recast": "^0.17.1",
-    "rendy": "^2.0.0",
     "table": "^5.1.1",
     "try-catch": "^2.0.0",
     "yargs-parser": "^11.1.0"
