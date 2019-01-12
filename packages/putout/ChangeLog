@@ -1,3 +1,15 @@
+2019.01.12, v3.3.2
+
+fix:
+- (putout) unused variables -> errors
+
+feature:
+- (package) rm unused rendy
+- (plugin-remove-console) simplified tests
+- (putout) add support of ArrayExpression in AssignmentPattern
+- (plugin-remove-unused-variabled) add support of ExportNamedDeclaration
+
+
 2019.01.11, v3.3.1
 
 fix:
