@@ -10,6 +10,16 @@ test('test: message', (t) => {
     t.end();
 });
 
+test('test: message', (t) => {
+    t.messages('property-identifier', [
+        'Unexpected "console" call',
+        'Unexpected "console" call',
+        'Unexpected "console" call',
+    ]);
+    
+    t.end();
+});
+
 test('test: property identifier', (t) => {
     t.transforms('property-identifier');
     t.end();

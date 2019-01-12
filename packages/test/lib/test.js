@@ -7,6 +7,7 @@ const tape = require('supertape');
 const putout = require('putout');
 
 const isString = (a) => typeof a === 'string';
+const {isArray} = Array;
 
 const wrap = (dir, plugin, test) => (str, fn) => {
     test(str, (t) => {
@@ -41,6 +42,8 @@ const transforms = (t, dir, plugin) => (name, transformed) => {
     t.equal(code, expected, 'should equal');
 };
 
+const getMessage = ({message}) => message;
+
 const messages = (t, dir, plugin) => (name, message) => {
     const full = join(dir, name);
     const source = readFileSync(`${full}.js`, 'utf8');
@@ -50,8 +53,13 @@ const messages = (t, dir, plugin) => (name, message) => {
     ];
     
     const {places} = putout(source, {plugins});
-    const result = places[0].message;
+    const resultMessages = places.map(getMessage);
     
-    t.equal(result, message, 'should equal');
+    if (isArray(message)) {
+        t.deepEqual(resultMessages, message, 'should equal');
+        return;
+    }
+    
+    t.equal(resultMessages[0], message, 'should equal');
 };
 
