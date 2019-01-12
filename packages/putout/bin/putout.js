@@ -91,7 +91,7 @@ if (output.length) {
     process.stdout.write('\n');
     output.map(one(console.log));
     
-    console.log(bold(redBright(`✖ ${errorsCount} unused variables in ${filesCount} files`)));
+    console.log(bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)));
     console.log(bold(redBright('  fixable with the `--fix` option')));
 }
 
