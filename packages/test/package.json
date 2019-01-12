@@ -1,0 +1,52 @@
+{
+  "name": "@putout/test",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "test runner for putout plugins ",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/test.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "tape 'test/*.js'",
+    "test:diff": "npm test | tap-diff",
+    "watch:test": "nodemon -w lib -w test -x \"npm test\"",
+    "lint": "eslint lib test --ignore-pattern test/fixture",
+    "coverage": "nyc npm test"
+  },
+  "dependencies": {
+    "putout": "^3.3.2",
+    "supertape": "^1.0.0"
+  },
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "test",
+    "runner"
+  ],
+  "devDependencies": {
+    "coveralls": "^3.0.0",
+    "eslint": "^5.6.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-tape": "^1.1.0",
+    "lerna": "^3.8.5",
+    "nodemon": "^1.14.12",
+    "nyc": "^13.0.1",
+    "redrun": "^7.0.2",
+    "tape": "^4.8.0",
+    "try-to-tape": "^1.1.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
