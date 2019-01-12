@@ -3,7 +3,7 @@
 const {join} = require('path');
 const {readFileSync} = require('fs');
 
-const tape = require('./supertape');
+const tape = require('supertape');
 const putout = require('putout');
 
 const isString = (a) => typeof a === 'string';
