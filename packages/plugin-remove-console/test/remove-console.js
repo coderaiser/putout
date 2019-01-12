@@ -1,7 +1,7 @@
 'use strict';
 
 const removeConsole = require('..');
-const test = require('./test')(__dirname, {
+const test = require('@putout/test')(__dirname, {
     'remove-console': removeConsole
 });
 
