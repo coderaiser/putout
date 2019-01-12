@@ -1,3 +1,15 @@
+2019.01.13, v3.3.3
+
+fix:
+- (putout) add print options: single quotes
+
+feature:
+- (test) messages: add support of array
+- (package) add @putout/test
+- (@putout/test) add
+- (package) add supertape from npm
+
+
 2019.01.12, v3.3.2
 
 fix:
