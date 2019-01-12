@@ -1,0 +1,49 @@
+{
+  "name": "@putout/plugin-convert-tape-to-supertape",
+  "version": "1.0.0",
+  "private": true,
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin for converting tape to supertape",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/convert-tape-to-supertape.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "tape 'test/*.js'",
+    "watch:test": "nodemon -w lib -w test -x \"npm test\"",
+    "lint": "eslint lib test --ignore-pattern test/fixture",
+    "coverage": "nyc npm test"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "tape",
+    "supertape",
+    "convert"
+  ],
+  "devDependencies": {
+    "@putout/test": "^1.0.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^5.6.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-tape": "^1.1.0",
+    "lerna": "^3.8.5",
+    "nodemon": "^1.14.12",
+    "nyc": "^13.0.1",
+    "redrun": "^7.0.2"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
