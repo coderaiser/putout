@@ -1,3 +1,14 @@
+2019.01.13, v3.3.4
+
+fix:
+- (putout) getMessage -> report
+- (@putout/test) message -> report
+
+feature:
+- (@putout/test) add support of reportCode
+- (@putout/test) add support of transformCode
+
+
 2019.01.13, v3.3.3
 
 fix:
