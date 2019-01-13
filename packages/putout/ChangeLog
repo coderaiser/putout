@@ -1,3 +1,12 @@
+2019.01.13, v3.4.2
+
+fix:
+- (package) add once
+
+feature:
+- (plugin-convert-tape-to-supertape) add support of tryToTape
+
+
 2019.01.13, v3.4.1
 
 fix:
