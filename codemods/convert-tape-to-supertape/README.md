@@ -20,6 +20,12 @@ And then use `putout` as usual:
 putout test
 ```
 
+**Caution** *Do not forget to install `supertape` and remove `tape` with:*
+
+```sh
+npm r tape -D && npm i supertape -D
+```
+
 ## Code Example
 
 ```js
