@@ -6,7 +6,7 @@ const {
     variableDeclarator,
 } = require('@babel/types');
 
-module.exports.getMessage = () => 'variables should be declard separately';
+module.exports.report = () => 'variables should be declared separately';
 
 module.exports.fix = (path) => {
     const varNodes = getVarNodes(path.node);

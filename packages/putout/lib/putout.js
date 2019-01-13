@@ -50,8 +50,12 @@ module.exports = (source, opts) => {
     const places = [];
     
     for (const [rule, plugin] of plugins) {
-        const {getMessage} = plugin;
-        const items = plugin.find(ast, {
+        const {
+            report,
+            find,
+        } = plugin;
+        
+        const items = find(ast, {
             traverse,
             types,
         });
@@ -61,7 +65,7 @@ module.exports = (source, opts) => {
         
         for (const item of items) {
             const path = getPath(item);
-            const message = getMessage(item);
+            const message = report(item);
             const position = getPosition(path);
             
             places.push({

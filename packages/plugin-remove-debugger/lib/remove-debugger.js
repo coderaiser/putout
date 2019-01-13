@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.getMessage = () => 'Unexpected "debugger" statement';
+module.exports.report = () => 'Unexpected "debugger" statement';
 
 module.exports.find = (ast, {traverse}) => {
     const places = [];

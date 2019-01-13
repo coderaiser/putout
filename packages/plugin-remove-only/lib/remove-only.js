@@ -6,7 +6,7 @@ const {
     isStringLiteral,
 } = require('@babel/types');
 
-module.exports.getMessage = () => '"test.only" should not be used';
+module.exports.report = () => '"test.only" should not be used';
 
 module.exports.fix = ({node}) => {
     node.callee = node.callee.object;

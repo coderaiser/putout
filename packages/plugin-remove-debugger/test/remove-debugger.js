@@ -1,20 +1,22 @@
 'use strict';
 
-const tryTo = require('try-to-tape');
-const test = tryTo(require('tape'));
-const putout = require('putout');
-
 const removeDebugger = require('..');
+const test = require('@putout/test')(__dirname, {
+    'remove-debugger': removeDebugger,
+});
 
-test('remove debugger', (t) => {
-    const {code} = putout('debugger', {
-        plugins: [{
-            'remove-debugger': removeDebugger,
-        }]
-    });
-    const expected = '';
-    
-    t.deepEqual(code, expected, 'should equal');
+test('remove debugger: report', (t) => {
+    t.reportCode('debugger', 'Unexpected "debugger" statement');
+    t.end();
+});
+
+test('remove debugger: transformCode', (t) => {
+    t.transformCode('debugger', '');
+    t.end();
+});
+
+test('remove debugger: transform', (t) => {
+    t.transformCode('debugger', '');
     t.end();
 });
 

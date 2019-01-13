@@ -14,9 +14,7 @@
   },
   "scripts": {
     "test": "tape 'test/*.js'",
-    "test:diff": "npm test | tap-diff",
     "watch:test": "nodemon -w lib -w test -x \"npm test\"",
-    "watch:example": "nodemon -w lib -w test -x \"node remove-unused\"",
     "lint": "eslint lib test --ignore-pattern test/fixture",
     "coverage": "nyc npm test"
   },
@@ -28,18 +26,16 @@
     "debugger"
   ],
   "devDependencies": {
+    "@putout/test": "^1.1.1",
     "coveralls": "^3.0.0",
     "eslint": "^5.6.0",
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-tape": "^1.1.0",
-    "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
     "nodemon": "^1.14.12",
     "nyc": "^13.0.1",
     "redrun": "^7.0.2",
-    "tap-diff": "^0.1.1",
-    "tape": "^4.8.0",
-    "try-to-tape": "^1.1.0"
+    "tape": "^4.8.0"
   },
   "license": "MIT",
   "engines": {

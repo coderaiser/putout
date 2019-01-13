@@ -6,7 +6,7 @@ const {
     isStringLiteral,
 } = require('@babel/types');
 
-module.exports.getMessage = () => '"process.exit" should not be used';
+module.exports.report = () => '"process.exit" should not be used';
 
 module.exports.fix = (path) => {
     path.remove();

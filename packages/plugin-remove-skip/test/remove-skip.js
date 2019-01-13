@@ -1,26 +1,17 @@
 'use strict';
 
-const tryTo = require('try-to-tape');
-const test = tryTo(require('tape'));
-const putout = require('putout');
-
 const removeSkip = require('..');
-const {readFixtures} = require('./fixture');
+const test = require('@putout/test')(__dirname, {
+    'remove-skip':  removeSkip,
+});
 
-const fixture = readFixtures([
-    'skip',
-    'skip-fix',
-]);
+test('plugin-remove-skip: report', (t) => {
+    t.report('skip', '"test.skip" should not be used');
+    t.end();
+});
 
-test('plugin-remove-skip', (t) => {
-    const {code} = putout(fixture.skip, {
-        plugins: [{
-            'remove-skip': removeSkip,
-        }]
-    });
-    const expected = fixture.skipFix;
-    
-    t.deepEqual(code, expected, 'should equal');
+test('plugin-remove-skip: transform', (t) => {
+    t.transform('skip');
     t.end();
 });
 

@@ -6,7 +6,7 @@ const {
     isStringLiteral,
 } = require('@babel/types');
 
-module.exports.getMessage = () => '"test.skip" should not be used';
+module.exports.report = () => '"test.skip" should not be used';
 
 module.exports.fix = (path) => {
     const {node} = path;
