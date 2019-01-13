@@ -10,6 +10,7 @@ Test runner for `putout plugins`. Basically it is [supercharged](https://github.
 
 - `report(filename, message)` - checks error message of a plugin
 - `transform(filename [, output]) - check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory.
+- `transformCode(input, output) - check transform of `input` -> `output`
 
 ## Install
 
@@ -33,6 +34,11 @@ const test = require('@putout/test')(__dirname, {
 
 test('remove-console: report', (t) => {
     t.report('property-identifier', 'Unexpected "console" call');
+    t.end();
+});
+
+test('remove-console: property identifier: code', (t) => {
+    t.transformCode('console.log()', '');
     t.end();
 });
 

@@ -20,6 +20,11 @@ test('test: message', (t) => {
     t.end();
 });
 
+test('test: transformCode', (t) => {
+    t.transformCode('console.log()', '');
+    t.end();
+});
+
 test('test: property identifier', (t) => {
     t.transform('property-identifier');
     t.end();

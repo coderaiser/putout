@@ -12,6 +12,7 @@ const {isArray} = Array;
 const wrap = (dir, plugin, test) => (str, fn) => {
     test(str, (t) => {
         t.transform = transform(t, dir, plugin);
+        t.transformCode = transformCode(t, plugin);
         t.report = report(t, dir, plugin);
         
         fn(t);
@@ -40,6 +41,16 @@ const transform = (t, dir, plugin) => (name, transformed) => {
     const {code} = putout(fromFile, {plugins});
     
     t.equal(code, expected, 'should equal');
+};
+
+const transformCode = (t, plugin) => (input, output) => {
+    const plugins = [
+        plugin,
+    ];
+    
+    const {code} = putout(input, {plugins});
+    
+    t.equal(code, output, 'should equal');
 };
 
 const getMessage = ({message}) => message;
