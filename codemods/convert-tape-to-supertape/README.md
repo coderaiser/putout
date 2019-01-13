@@ -8,7 +8,16 @@ Replace `tape` with `supertape`.
 ## Install
 
 ```
-npm i @putout/plugin-convert-tape-to-supertape
+npm i putout -g
+git clone https://github.com/coderaiser/putout
+mkdir ~/.putout
+ln -s ~/putout/codemods/convert-tape-to-supertape ~/.putout/convert-tape-to-supertape
+```
+
+And then use `putout` as usual:
+
+```
+putout test
 ```
 
 ## Code Example
