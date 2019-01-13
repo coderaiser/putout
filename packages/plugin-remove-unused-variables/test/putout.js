@@ -1,7 +1,6 @@
 'use strict';
 
-const tryTo = require('try-to-tape');
-const test = tryTo(require('tape'));
+const test = require('supertape');
 
 const _putout = require('putout');
 const {readFixtures} = require('./fixture');

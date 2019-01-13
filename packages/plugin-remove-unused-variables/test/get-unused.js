@@ -1,6 +1,6 @@
 'use strict';
 
-const test = require('tape');
+const test = require('supertape');
 const getUnused = require('../lib/get-unused');
 
 test('remove-unused-variables: get-unused', (t) => {

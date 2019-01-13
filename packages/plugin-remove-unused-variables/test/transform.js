@@ -1,6 +1,6 @@
 'use strict';
 
-const test = require('tape');
+const test = require('supertape');
 const transform = require('../lib/transform');
 
 test('remove-unused-variables: transform: empty', (t) => {
