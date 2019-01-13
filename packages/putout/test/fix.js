@@ -1,8 +1,8 @@
 'use strict';
 
-const test = require('tape');
-const tryCatch = require('try-catch');
+const test = require('supertape');
 const stub = require('@cloudcmd/stub');
+const tryCatch = require('try-catch');
 
 const fix = require('../lib/fix');
 

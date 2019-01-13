@@ -1,7 +1,6 @@
 'use strict';
 
-const tryTo = require('try-to-tape');
-const test = tryTo(require('tape'));
+const test = require('supertape');
 
 const putout = require('..');
 const {readFixtures} = require('./fixture');
@@ -16,6 +15,8 @@ const fixture = readFixtures([
     'arrow-vars-fix',
     'debugger-statement',
     'debugger-statement-fix',
+    'export-default-declaration',
+    'export-default-declaration-fix',
     'no-vars',
     'root-vars',
     'fn-vars',
@@ -164,6 +165,14 @@ test('putout: return statement', (t) => {
 test('putout: debugger statement', (t) => {
     const {code} = putout(fixture.debuggerStatement);
     const expected = fixture.debuggerStatementFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: export default declaration', (t) => {
+    const {code} = putout(fixture.exportDefaultDeclaration);
+    const expected = fixture.exportDefaultDeclarationFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();
