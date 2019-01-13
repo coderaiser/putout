@@ -10,6 +10,7 @@ const {
 const {
     readFileSync,
     writeFileSync,
+    readdirSync,
     statSync,
 } = require('fs');
 
@@ -21,6 +22,7 @@ const {
     bold,
 } = require('chalk');
 
+const once = require('once');
 const glob = require('glob');
 const tryCatch = require('try-catch');
 const deepmerge = require('deepmerge');
@@ -33,6 +35,7 @@ const {cwd} = process;
 
 const putout = require('..');
 const parseMatch = require('../lib/parse-match');
+const readCodeMods = once(_readCodeMods);
 
 const one = (f) => (a) => f(a);
 
@@ -107,7 +110,7 @@ function processFiles(name) {
     
     const [e, result] = tryCatch(putout, input, {
         fix,
-        ...merge(options, parseMatch(match, name)),
+        ...merge(readCodeMods(), options, parseMatch(match, name)),
     });
     
     if (e) {
@@ -204,9 +207,9 @@ function exit(e) {
     process.exit(1);
 }
 
-function merge(base, custom) {
+function merge(...args) {
     const arrayMerge = (destinationArray, sourceArray) => sourceArray;
-    return deepmerge(base, custom, {
+    return deepmerge.all(args, {
         arrayMerge,
     });
 }
@@ -230,5 +233,34 @@ function getOptions() {
     const infoPath = readUp.sync('package.json');
     if (infoPath)
         return require(infoPath).putout;
+}
+
+function _readCodeMods() {
+    const {join} = require('path');
+    const {homedir} = require('os');
+    
+    const dir = join(homedir(), '.putout');
+    const [e, names] = tryCatch(readdirSync, dir);
+    
+    if (e)
+        return {};
+    
+    const plugins = [];
+    
+    console.log(names);
+    
+    for (const name of names) {
+        const full = join(dir, name);
+        const plugin = require(full);
+        const shortName = name.replace('putout-plugin-');
+        
+        plugins.push({
+            [shortName]: plugin
+        });
+    }
+    
+    return {
+        plugins,
+    }
 }
 
