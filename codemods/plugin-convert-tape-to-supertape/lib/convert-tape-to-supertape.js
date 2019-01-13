@@ -15,11 +15,19 @@ module.exports.report = (path) => {
         callee,
     } = node;
     
+    debugger;
+    
     if (isTryTo(id))
         return '"tryTo" should not be declared'
     
+    if (isTryToTape(id))
+        return '"tryToTape" should not be declared'
+    
     if (isCallExpression(node) && isTryTo(callee))
         return "tryTo should not be called";
+    
+    if (isCallExpression(node) && isTryToTape(callee))
+        return "tryToTape should not be called";
     
     const [arg] = node.arguments;
     if (isRequire(callee) && isTape(arg))
@@ -33,10 +41,21 @@ module.exports.fix = (path) => {
         callee,
     } = node;
     
+    debugger;
+    
     if (isVariableDeclarator(node) && isTryTo(id))
         return path.remove();
     
+    if (isVariableDeclarator(node) && isTryToTape(id))
+        return path.remove();
+    
     if (isCallExpression(node) && isTryTo(callee)) {
+        const [argument] = node.arguments;
+        path.replaceWith(argument);
+        return;
+    }
+    
+    if (isCallExpression(node) && isTryToTape(callee)) {
         const [argument] = node.arguments;
         path.replaceWith(argument);
         return;
@@ -51,14 +70,22 @@ module.exports.fix = (path) => {
 
 module.exports.find = (ast, {traverse}) => {
     const places = [];
+    debugger;
     
     traverse(ast, {
         VariableDeclarator(path) {
             const {node} = path;
             const {id} = node;
             
-            if (isTryTo(id))
+            if (isTryTo(id)) {
                 places.push(path);
+                return;
+            }
+            
+            if (isTryToTape(id)) {
+                places.push(path);
+                return;
+            }
         },
         
         CallExpression(path) {
@@ -68,6 +95,11 @@ module.exports.find = (ast, {traverse}) => {
             } = node;
             
             if (isTryTo(callee)) {
+                places.push(path);
+                return;
+            }
+            
+            if (isTryToTape(callee)) {
                 places.push(path);
                 return;
             }
@@ -86,6 +118,12 @@ module.exports.find = (ast, {traverse}) => {
 function isTryTo(node) {
     return isIdentifier(node, {
         name: 'tryTo'
+    });
+}
+
+function isTryToTape(node) {
+    return isIdentifier(node, {
+        name: 'tryToTape'
     });
 }
 
