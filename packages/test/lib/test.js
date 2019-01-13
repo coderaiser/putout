@@ -11,8 +11,8 @@ const {isArray} = Array;
 
 const wrap = (dir, plugin, test) => (str, fn) => {
     test(str, (t) => {
-        t.transforms = transforms(t, dir, plugin);
-        t.messages = messages(t, dir, plugin);
+        t.transform = transform(t, dir, plugin);
+        t.report = report(t, dir, plugin);
         
         fn(t);
     });
@@ -28,7 +28,7 @@ module.exports = (dir, plugin) => {
     return newTape;
 };
 
-const transforms = (t, dir, plugin) => (name, transformed) => {
+const transform = (t, dir, plugin) => (name, transformed) => {
     const full = join(dir, name);
     const fromFile = readFileSync(`${full}.js`, 'utf8');
     const expected = isString(transformed) ? transformed : readFileSync(`${full}-fix.js`, 'utf8');
@@ -44,7 +44,7 @@ const transforms = (t, dir, plugin) => (name, transformed) => {
 
 const getMessage = ({message}) => message;
 
-const messages = (t, dir, plugin) => (name, message) => {
+const report = (t, dir, plugin) => (name, message) => {
     const full = join(dir, name);
     const source = readFileSync(`${full}.js`, 'utf8');
     

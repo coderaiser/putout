@@ -8,8 +8,8 @@
 
 Test runner for `putout plugins`. Basically it is [supercharged](https://github.com/coderaiser/supertape) `tape` with aditional asseritions:
 
-- `messages(filename, message)` - checks error message of a plugin
-- `transforms(filename [, output]) - check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory.
+- `report(filename, message)` - checks error message of a plugin
+- `transform(filename [, output]) - check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory.
 
 ## Install
 
@@ -31,23 +31,23 @@ const test = require('@putout/test')(__dirname, {
     'remove-console': removeConsole
 });
 
-test('remove-console: message', (t) => {
-    t.messages('property-identifier', 'Unexpected "console" call');
+test('remove-console: report', (t) => {
+    t.report('property-identifier', 'Unexpected "console" call');
     t.end();
 });
 
 test('remove-console: property identifier', (t) => {
-    t.transforms('property-identifier');
+    t.transform('property-identifier');
     t.end();
 });
 
 test('remove-console: property literal', (t) => {
-    t.transforms('property-literal', '\n\n');
+    t.transform('property-literal', '\n\n');
     t.end();
 });
 
 test('test: declared', (t) => {
-    t.transforms('declared');
+    t.transform('declared');
     t.end();
 });
 ```

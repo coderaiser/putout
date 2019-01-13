@@ -6,12 +6,12 @@ const test = require('..')(__dirname, {
 });
 
 test('test: message', (t) => {
-    t.messages('property-identifier', 'Unexpected "console" call');
+    t.report('property-identifier', 'Unexpected "console" call');
     t.end();
 });
 
 test('test: message', (t) => {
-    t.messages('property-identifier', [
+    t.report('property-identifier', [
         'Unexpected "console" call',
         'Unexpected "console" call',
         'Unexpected "console" call',
@@ -21,17 +21,17 @@ test('test: message', (t) => {
 });
 
 test('test: property identifier', (t) => {
-    t.transforms('property-identifier');
+    t.transform('property-identifier');
     t.end();
 });
 
 test('test: property literal', (t) => {
-    t.transforms('property-literal', '\n\n');
+    t.transform('property-literal', '\n\n');
     t.end();
 });
 
 test('test: declared', (t) => {
-    t.transforms('declared');
+    t.transform('declared');
     t.end();
 });
 
