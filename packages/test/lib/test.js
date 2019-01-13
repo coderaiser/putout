@@ -12,8 +12,9 @@ const {isArray} = Array;
 const wrap = (dir, plugin, test) => (str, fn) => {
     test(str, (t) => {
         t.transform = transform(t, dir, plugin);
-        t.transformCode = transformCode(t, plugin);
         t.report = report(t, dir, plugin);
+        t.transformCode = transformCode(t, plugin);
+        t.reportCode = reportCode(t, plugin);
         
         fn(t);
     });
@@ -59,6 +60,22 @@ const report = (t, dir, plugin) => (name, message) => {
     const full = join(dir, name);
     const source = readFileSync(`${full}.js`, 'utf8');
     
+    const plugins = [
+        plugin,
+    ];
+    
+    const {places} = putout(source, {plugins});
+    const resultMessages = places.map(getMessage);
+    
+    if (isArray(message)) {
+        t.deepEqual(resultMessages, message, 'should equal');
+        return;
+    }
+    
+    t.equal(resultMessages[0], message, 'should equal');
+};
+
+const reportCode = (t, plugin) => (source, message) => {
     const plugins = [
         plugin,
     ];

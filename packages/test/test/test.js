@@ -20,6 +20,11 @@ test('test: message', (t) => {
     t.end();
 });
 
+test('test: reportCode', (t) => {
+    t.reportCode('console.log()', 'Unexpected "console" call');
+    t.end();
+});
+
 test('test: transformCode', (t) => {
     t.transformCode('console.log()', '');
     t.end();
