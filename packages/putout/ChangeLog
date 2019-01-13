@@ -1,3 +1,12 @@
+2019.01.13, v3.3.5
+
+fix:
+- (putout) ExportDefaultDeclaration (benjamn/recast/pull/561)
+
+feature:
+- (@putout/test) no report messages
+
+
 2019.01.13, v3.3.4
 
 fix:
