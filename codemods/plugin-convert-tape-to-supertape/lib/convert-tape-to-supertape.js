@@ -8,7 +8,7 @@ const {
     stringLiteral,
 } = require('@babel/types');
 
-module.exports.getMessage = (path) => {
+module.exports.report = (path) => {
     const {node} = path;
     const {
         id,
