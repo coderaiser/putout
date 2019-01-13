@@ -22,33 +22,24 @@ const wrap = (dir, plugin, test) => (str, fn) => {
 
 module.exports = (dir, plugin) => {
     const dirFixture = join(dir, 'fixture');
-    const newTape = wrap(dirFixture, plugin, tape);
+    const plugins = getPlugins(plugin);
     
-    newTape.only = wrap(dirFixture, plugin, tape.only);
-    newTape.skip = wrap(dirFixture, plugin, tape.skip);
+    const newTape = wrap(dirFixture, plugins, tape);
+    newTape.only = wrap(dirFixture, plugins, tape.only);
+    newTape.skip = wrap(dirFixture, plugins, tape.skip);
     
     return newTape;
 };
 
-const transform = (t, dir, plugin) => (name, transformed) => {
+const transform = (t, dir, plugins) => (name, transformed) => {
     const full = join(dir, name);
-    const fromFile = readFileSync(`${full}.js`, 'utf8');
-    const expected = isString(transformed) ? transformed : readFileSync(`${full}-fix.js`, 'utf8');
+    const input = readFileSync(`${full}.js`, 'utf8');
+    const output = isString(transformed) ? transformed : readFileSync(`${full}-fix.js`, 'utf8');
     
-    const plugins = [
-        plugin,
-    ];
-    
-    const {code} = putout(fromFile, {plugins});
-    
-    t.equal(code, expected, 'should equal');
+    transformCode(t, plugins)(input, output);
 };
 
-const transformCode = (t, plugin) => (input, output) => {
-    const plugins = [
-        plugin,
-    ];
-    
+const transformCode = (t, plugins) => (input, output) => {
     const {code} = putout(input, {plugins});
     
     t.equal(code, output, 'should equal');
@@ -56,14 +47,14 @@ const transformCode = (t, plugin) => (input, output) => {
 
 const getMessage = ({message}) => message;
 
-const report = (t, dir, plugin) => (name, message) => {
+const report = (t, dir, plugins) => (name, message) => {
     const full = join(dir, name);
     const source = readFileSync(`${full}.js`, 'utf8');
     
-    const plugins = [
-        plugin,
-    ];
-    
+    reportCode(t, plugins)(source, message);
+};
+
+const reportCode = (t, plugins) => (source, message) => {
     const {places} = putout(source, {plugins});
     const resultMessages = places.map(getMessage);
     
@@ -75,19 +66,9 @@ const report = (t, dir, plugin) => (name, message) => {
     t.equal(resultMessages[0], message, 'should equal');
 };
 
-const reportCode = (t, plugin) => (source, message) => {
-    const plugins = [
+function getPlugins(plugin) {
+    return [
         plugin,
-    ];
-    
-    const {places} = putout(source, {plugins});
-    const resultMessages = places.map(getMessage);
-    
-    if (isArray(message)) {
-        t.deepEqual(resultMessages, message, 'should equal');
-        return;
-    }
-    
-    t.equal(resultMessages[0], message, 'should equal');
-};
+    ].filter(Boolean);
+}
 
