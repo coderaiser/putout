@@ -247,8 +247,6 @@ function _readCodeMods() {
     
     const plugins = [];
     
-    console.log(names);
-    
     for (const name of names) {
         const full = join(dir, name);
         const plugin = require(full);
