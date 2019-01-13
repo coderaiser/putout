@@ -259,6 +259,6 @@ function _readCodeMods() {
     
     return {
         plugins,
-    }
+    };
 }
 

@@ -10,12 +10,12 @@ module.exports.saveExportDefaultDeclarationLoc = (ast) => {
     traverse(ast, {
         ExportDefaultDeclaration(path) {
             const {declaration} = path.node;
-            declaration.__putoutLoc = declaration.loc
+            declaration.__putoutLoc = declaration.loc;
         }
     });
     
     return ast;
-}
+};
 
 module.exports.restoreExportDefaultDeclarationLoc = (ast) => {
     traverse(ast, {
@@ -27,5 +27,5 @@ module.exports.restoreExportDefaultDeclarationLoc = (ast) => {
     });
     
     return ast;
-}
+};
 
