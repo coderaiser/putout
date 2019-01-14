@@ -78,7 +78,7 @@ if (argv.help) {
     process.exit();
 }
 
-const [e, files] = tryCatch(getFiles, argv._);
+const [e, files] = tryCatch(getFiles, argv._.map(String));
 
 if (e)
     exit(e);
