@@ -48,3 +48,11 @@ function assignArrayExample() {
     }];
 }
 
+function computedExample(computedValue) {
+    const computedKey = 'hello';
+    
+   return {
+      [computedKey]: computedValue
+    };
+}
+

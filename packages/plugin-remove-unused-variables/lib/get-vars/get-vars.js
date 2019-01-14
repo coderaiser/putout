@@ -397,8 +397,14 @@ const traverseObjectExpression = (use) => {
             const {node} = path;
             
             const {
-                value
-            } = path.node;
+                key,
+                value,
+                computed,
+            } = node;
+            
+            if (computed && isIdentifier(key)) {
+                use(path, key.name);
+            }
             
             if (isIdentifier(value)) {
                 use(path, value.name);

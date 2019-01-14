@@ -280,7 +280,7 @@ test('remove-unused-variables: get-vars: new-expression', (t) => {
     t.end();
 });
 
-test('remove-unused-variables: get-vars: object expression', (t) => {
+test.only('remove-unused-variables: get-vars: object expression', (t) => {
     const ast = parse(fixture.objectExpression);
     const result = getVars(ast).map(dutify);
     
@@ -292,6 +292,7 @@ test('remove-unused-variables: get-vars: object expression', (t) => {
         nestedProperty:d_,
         arrayExample: d_,
         assignArrayExample: d_,
+        computedExample: d_,
     }, {
         source: _u,
     }, {
@@ -304,6 +305,9 @@ test('remove-unused-variables: get-vars: object expression', (t) => {
         propertyValue: du,
     }, {
         assignProperty: du,
+    }, {
+        computedValue: du,
+        computedKey: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
