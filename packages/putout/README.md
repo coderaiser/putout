@@ -18,6 +18,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - find and replace `test.skip` to `test` calls;
 - find and remove `process.exit` call;
 - find and split variable declarations;
+- find and remove `empty block statements`;
 
 ## Configuration
 
