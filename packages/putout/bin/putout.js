@@ -54,6 +54,9 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
         'h': 'help',
         'c': 'config',
     },
+    default: {
+        fix: false,
+    }
 });
 
 const {
