@@ -5,23 +5,23 @@ const test = require('@putout/test')(__dirname, {
     'remove-console': removeConsole
 });
 
-test('plugin-remove-console: message', (t) => {
-    t.messages('property-identifier', 'Unexpected "console" call');
+test('plugin-remove-console: report', (t) => {
+    t.report('property-identifier', 'Unexpected "console" call');
     t.end();
 });
 
 test('plugin-remove-console: property identifier', (t) => {
-    t.transforms('property-identifier');
+    t.transform('property-identifier');
     t.end();
 });
 
 test('plugin-remove-console: property literal', (t) => {
-    t.transforms('property-literal', '\n\n');
+    t.transform('property-literal', '\n\n');
     t.end();
 });
 
 test('plugin-remove-console: declared', (t) => {
-    t.transforms('declared');
+    t.transform('declared');
     t.end();
 });
 
