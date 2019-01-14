@@ -32,7 +32,11 @@ test('get-plugins: user plugin', (t) => {
         return _findPath(name, paths);
     });
     
-    const {code} = putout(`const t = 'hello'`);
+    const {code} = putout(`const t = 'hello'`, {
+        plugins: [
+            rmVars,
+        ]
+    });
     
     mockRequire.stopAll();
     Module._findPath = _findPath;
@@ -52,7 +56,11 @@ test('get-plugins: can not find', (t) => {
         return _findPath(name, paths);
     });
     
-    const [e] = tryCatch(putout, `const t = 'hello'`);
+    const [e] = tryCatch(putout, `const t = 'hello'`, {
+        plugins: [
+            'remove-unused-variables'
+        ]
+    });
     
     mockRequire.stopAll();
     
@@ -69,9 +77,6 @@ test('get-plugins: function', (t) => {
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
     mockRequire(`@putout/plugin-${rmVars}`, null);
-    mockRequire('../putout.json', {
-        rules: {},
-    });
     
     reRequire('../lib/get-plugins');
     const putout = reRequire('..');

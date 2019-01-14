@@ -1,2 +1,0 @@
-const one = 1;
-

@@ -26,12 +26,15 @@ const once = require('once');
 const glob = require('glob');
 const tryCatch = require('try-catch');
 const deepmerge = require('deepmerge');
+const arrayUnion = require('array-union');
 const {
     table,
     getBorderCharacters,
 } = require('table');
 
 const {cwd} = process;
+
+const defaultOptions = require('../putout.json');
 
 const putout = require('..');
 const parseMatch = require('../lib/parse-match');
@@ -113,7 +116,12 @@ function processFiles(name) {
     
     const [e, result] = tryCatch(putout, input, {
         fix,
-        ...merge(readCodeMods(), options, parseMatch(match, name)),
+        ...merge(
+            defaultOptions,
+            readCodeMods(),
+            options,
+            parseMatch(match, name)
+        ),
     });
     
     if (e) {
@@ -211,7 +219,8 @@ function exit(e) {
 }
 
 function merge(...args) {
-    const arrayMerge = (destinationArray, sourceArray) => sourceArray;
+//    const arrayMerge = (destinationArray, sourceArray) => sourceArray;
+    const arrayMerge = (a, b) => arrayUnion(a, b);
     return deepmerge.all(args, {
         arrayMerge,
     });
