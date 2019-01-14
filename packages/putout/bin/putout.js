@@ -27,6 +27,7 @@ const glob = require('glob');
 const tryCatch = require('try-catch');
 const deepmerge = require('deepmerge');
 const arrayUnion = require('array-union');
+const isRelative = require('is-relative');
 const {
     table,
     getBorderCharacters,
@@ -109,7 +110,7 @@ function processFiles(name) {
         match,
     } = options;
     
-    if (ignore.ignores(name))
+    if (isRelative(name) && ignore.ignores(name))
         return;
     
     const input = readFileSync(name, 'utf8');
