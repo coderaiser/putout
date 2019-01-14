@@ -32,6 +32,7 @@
     "@putout/plugin-remove-only": "^1.0.0",
     "@putout/plugin-remove-process-exit": "^1.0.0",
     "@putout/plugin-remove-skip": "^1.0.0",
+    "@putout/plugin-remove-empty": "^1.0.0",
     "@putout/plugin-remove-unused-variables": "^1.0.0",
     "@putout/plugin-split-variable-declarations": "^1.0.0",
     "align-spaces": "^1.0.0",

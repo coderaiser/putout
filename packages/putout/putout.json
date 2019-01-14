@@ -6,7 +6,8 @@
         "remove-skip": true,
         "remove-process-exit": false,
         "remove-console": true,
-        "split-variable-declarations": true
+        "split-variable-declarations": true,
+        "remove-empty": true
     },
     "plugins": [
         "remove-unused-variables",
@@ -15,7 +16,8 @@
         "remove-skip",
         "remove-process-exit",
         "remove-console",
-        "split-variable-declarations"
+        "split-variable-declarations",
+        "remove-empty"
     ]
 }
 
