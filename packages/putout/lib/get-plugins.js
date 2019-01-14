@@ -4,6 +4,7 @@ const Module = require('module');
 
 const deepmerge = require('deepmerge');
 const tryCatch = require('try-catch');
+const arrayUnion = require('array-union');
 
 const defaultOptions = require('../putout.json');
 
@@ -11,7 +12,7 @@ const {cwd} = process;
 const {entries} = Object;
 
 const isDisabled = (a) => !a && typeof a === 'boolean';
-const arrayMerge = (destinationArray, sourceArray) => sourceArray;
+const arrayMerge = (a, b) => arrayUnion(a, b);
 const isObj = (a) => typeof a === 'object';
 
 module.exports = (options) => {

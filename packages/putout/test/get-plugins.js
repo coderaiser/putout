@@ -69,6 +69,9 @@ test('get-plugins: function', (t) => {
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
     mockRequire(`@putout/plugin-${rmVars}`, null);
+    mockRequire('../putout.json', {
+        rules: {},
+    });
     
     reRequire('../lib/get-plugins');
     const putout = reRequire('..');
