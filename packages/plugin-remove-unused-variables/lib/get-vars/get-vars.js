@@ -12,6 +12,13 @@ const {
     isArrayExpression,
 } = require('@babel/types');
 
+const {
+    traverseObjectExpression,
+    traverseArrayExpression,
+    traverseAssignmentExpression,
+    traverseTemplateLiteral
+} = require('./traverse');
+
 const {assign} = Object;
 
 module.exports = ({
@@ -374,109 +381,6 @@ module.exports = ({
             });
         },
     };
-};
-
-const traverseObjectPattern = (use) => (propertiesPaths) => {
-    for (const path of propertiesPaths) {
-        const {
-            key,
-        } = path.node;
-        
-        if (isIdentifier(key)) {
-            use(path, key.name);
-            continue;
-        }
-    }
-};
-
-const traverseObjectExpression = (use) => {
-    const traverseTmpl = traverseTemplateLiteral(use);
-    
-    return (propertiesPaths) => {
-        for (const path of propertiesPaths) {
-            const {node} = path;
-            
-            const {
-                key,
-                value,
-                computed,
-            } = node;
-            
-            if (computed && isIdentifier(key)) {
-                use(path, key.name);
-            }
-            
-            if (isIdentifier(value)) {
-                use(path, value.name);
-                continue;
-            }
-            
-            if (isTemplateLiteral(value)) {
-                traverseTmpl(path, value.expressions);
-                continue;
-            }
-            
-            if (isSpreadElement(node)) {
-                use(path, node.argument.name);
-                continue;
-            }
-            
-            if (isObjectExpression(value)) {
-                const traverseObj = traverseObjectExpression(use);
-                traverseObj(path.get('value.properties'));
-                continue;
-            }
-        }
-    };
-};
-
-const traverseArrayExpression = (use) => {
-    const traverseObjExpression = traverseObjectExpression(use);
-    
-    return (elementsPaths) => {
-        for (const elementPath of elementsPaths) {
-            const {node} = elementPath; 
-            
-            if (isObjectExpression(node))
-                traverseObjExpression(elementPath.get('properties'));
-        }
-    };
-};
-
-const traverseAssignmentExpression = (use) => {
-    const traverseObjPattern = traverseObjectPattern(use);
-    const traverseObjExpression = traverseObjectExpression(use);
-    const traverseTmpl = traverseTemplateLiteral(use);
-    const traverseArray = traverseArrayExpression(use);
-    
-    return (path) => {
-        const {node} = path;
-        const {
-            left,
-            right,
-        } = node;
-        
-        if (isIdentifier(left))
-            use(path, left.name);
-        else if (isObjectPattern(left))
-            traverseObjPattern(path.get('left.properties'));
-        
-        if (isIdentifier(right))
-            use(path, right.name);
-        else if (isObjectExpression(right))
-            traverseObjExpression(path.get('right.properties'));
-        else if (isTemplateLiteral(right))
-            traverseTmpl(path, right.expressions);
-        else if (isArrayExpression(right))
-            traverseArray(path.get('right.elements'));
-    };
-};
-
-const traverseTemplateLiteral = (use) => (path, expressions) => {
-    for (const exp of expressions) {
-        if (isIdentifier(exp))
-            use(path, exp.name);
-    }
 };
 
 const removeArrayPatternElement = (elPath) => {

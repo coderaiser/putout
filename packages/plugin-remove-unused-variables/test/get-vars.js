@@ -280,7 +280,7 @@ test('remove-unused-variables: get-vars: new-expression', (t) => {
     t.end();
 });
 
-test.only('remove-unused-variables: get-vars: object expression', (t) => {
+test('remove-unused-variables: get-vars: object expression', (t) => {
     const ast = parse(fixture.objectExpression);
     const result = getVars(ast).map(dutify);
     
