@@ -67,6 +67,34 @@ test('putout: shebang', (t) => {
     t.end();
 });
 
+test('putout: shebang: message', (t) => {
+    const {places} = putout(fixture.shebang, {
+        plugins: [
+            'remove-unused-variables',
+        ]
+    });
+    
+    const {position} = places[0];
+    const expected = {
+        line: 8,
+        column: 4,
+    };
+    
+    t.deepEqual(position, expected, 'should equal');
+    t.end();
+});
+test('putout: shebang', (t) => {
+    const {code} = putout(fixture.shebang, {
+        plugins: [
+            'remove-unused-variables',
+        ]
+    });
+    const expected = fixture.shebangFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
 test('putout: export default declaration', (t) => {
     const {code} = putout(fixture.exportDefaultDeclaration, {
         plugins: [

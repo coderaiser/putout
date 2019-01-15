@@ -72,7 +72,7 @@ module.exports = (source, opts) => {
         for (const item of items) {
             const path = getPath(item);
             const message = report(item);
-            const position = getPosition(path);
+            const position = getPosition(path, shebang);
             
             places.push({
                 rule,
@@ -119,7 +119,7 @@ function getPath(item) {
     return item.path || item;
 }
 
-function getPosition(path) {
+function getPosition(path, shebang) {
     const {node} = path;
     
     const {
@@ -128,7 +128,7 @@ function getPosition(path) {
     } = node.loc.start;
     
     return {
-        line,
+        line: shebang ? line + 1 : line,
         column,
     };
 }
