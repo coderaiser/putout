@@ -32,7 +32,8 @@
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-tape": "^1.1.0",
     "nyc": "^13.0.1",
-    "redrun": "^7.0.2"
+    "redrun": "^7.0.2",
+    "supertape": "^1.0.3"
   },
   "license": "MIT",
   "engines": {
