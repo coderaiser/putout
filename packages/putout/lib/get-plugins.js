@@ -5,10 +5,8 @@ const Module = require('module');
 const tryCatch = require('try-catch');
 
 const {cwd} = process;
-const {entries} = Object;
 
 const isDisabled = (a) => !a && typeof a === 'boolean';
-const isObj = (a) => typeof a === 'object';
 const isStr = (a) => typeof a === 'string';
 
 const parsePluginNames = (plugins) => {
@@ -16,11 +14,11 @@ const parsePluginNames = (plugins) => {
     
     for (const name of plugins) {
         if (isStr(name)) {
-            result.push(name);
+            result.push([name]);
             continue;
         }
         
-        const keys = Object.keys(name);
+        const keys = Object.entries(name);
         result.push(...keys);
     }
     
@@ -36,14 +34,24 @@ module.exports = (options = {}) => {
     const names = parsePluginNames(plugins);
     const result = [];
     
-    for (const name of names)
-        if (!isDisabled(rules[name]))
-            result.push(requirePlugin(name));
+    for (const [name, fn] of names) {
+        if (isDisabled(rules[name]))
+            continue;
+        
+        const plugin = requirePlugin(name, fn);
+        result.push(plugin);
+    }
     
     return result;
 };
 
-function requirePlugin(name) {
+function requirePlugin(name, fn) {
+    if (fn)
+        return [
+            name,
+            fn,
+        ];
+    
     const [, npmPlugin] = tryCatch(require, getModulePath(`@putout/plugin-${name}`));
     if (npmPlugin)
         return [

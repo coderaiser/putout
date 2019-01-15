@@ -96,3 +96,26 @@ test('get-plugins: function', (t) => {
     t.end();
 });
 
+test('get-plugins: disabled rule', (t) => {
+    const rmVars = 'remove-unused-variables';
+    const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
+    
+    mockRequire(`@putout/plugin-${rmVars}`, null);
+    
+    reRequire('../lib/get-plugins');
+    const putout = reRequire('..');
+    
+    const {code} = putout(`const t = 'hello'`, {
+        rules: {
+            [rmVars]: false,
+        },
+        plugins: [{
+            [rmVars]: rmVarsPlugin
+        }]
+    });
+    
+    stopAll();
+    
+    t.equal(code, `const t = 'hello'`, 'should equal');
+    t.end();
+});
