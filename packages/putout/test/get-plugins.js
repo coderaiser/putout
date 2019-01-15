@@ -5,7 +5,10 @@ const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const tryCatch = require('try-catch');
 const mockRequire = require('mock-require');
-const {reRequire} = mockRequire;
+const {
+    reRequire,
+    stopAll,
+} = mockRequire;
 
 const putout = require('..');
 
@@ -87,7 +90,7 @@ test('get-plugins: function', (t) => {
         }]
     });
     
-    mockRequire.stopAll();
+    stopAll();
     
     t.equal(code, '', 'should equal');
     t.end();

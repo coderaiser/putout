@@ -9,6 +9,23 @@ const {entries} = Object;
 
 const isDisabled = (a) => !a && typeof a === 'boolean';
 const isObj = (a) => typeof a === 'object';
+const isStr = (a) => typeof a === 'string';
+
+const parsePluginNames = (plugins) => {
+    const result = [];
+    
+    for (const name of plugins) {
+        if (isStr(name)) {
+            result.push(name);
+            continue;
+        }
+        
+        const keys = Object.keys(name);
+        result.push(...keys);
+    }
+    
+    return result;
+};
 
 module.exports = (options = {}) => {
     const {
@@ -16,8 +33,10 @@ module.exports = (options = {}) => {
         rules = [],
     } = options;
     
+    const names = parsePluginNames(plugins);
     const result = [];
-    for (const name of plugins)
+    
+    for (const name of names)
         if (!isDisabled(rules[name]))
             result.push(requirePlugin(name));
     
@@ -25,9 +44,6 @@ module.exports = (options = {}) => {
 };
 
 function requirePlugin(name) {
-    if (isObj(name))
-        return entries(name).pop();
-    
     const [, npmPlugin] = tryCatch(require, getModulePath(`@putout/plugin-${name}`));
     if (npmPlugin)
         return [
