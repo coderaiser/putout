@@ -386,6 +386,11 @@ module.exports = ({
                     declareAssign(paramPath);
                     continue;
                 }
+                
+                if (isObjectPattern(node)) {
+                    traverseObj(paramPath.get('properties'));
+                    continue;
+                }
             }
             
             addParams({

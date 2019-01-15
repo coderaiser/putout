@@ -6,20 +6,21 @@ const {
     isObjectExpression,
     isObjectPattern,
     isTemplateLiteral,
-    isArrayExpression
+    isArrayExpression,
+    isAssignmentPattern
 } = require('@babel/types');
 
-const traverseObjectPattern = (use) => (propertiesPaths) => {
-    for (const path of propertiesPaths) {
-        const {
-            key,
-        } = path.node;
-        
-        if (isIdentifier(key)) {
-            use(path, key.name);
-            continue;
+const traverseObjectPattern = (use) => {
+    return (propertiesPaths) => {
+        for (const path of propertiesPaths) {
+            const {
+                key
+            } = path.node;
+            
+            if (isIdentifier(key))
+                use(path, key.name);
         }
-    }
+    };
 };
 
 module.exports.traverseObjectPattern = traverseObjectPattern;
@@ -59,6 +60,12 @@ const traverseObjectExpression = (use) => {
             if (isObjectExpression(value)) {
                 const traverseObj = traverseObjectExpression(use);
                 traverseObj(path.get('value.properties'));
+                continue;
+            }
+            
+            if (isAssignmentPattern(value)) {
+                const traverse = traverseAssignmentPattern(use);
+                traverse(path.get('value'));
                 continue;
             }
         }
@@ -121,4 +128,23 @@ const traverseTemplateLiteral = (use) => (path, expressions) => {
 };
 
 module.exports.traverseTemplateLiteral = traverseTemplateLiteral;
+
+const traverseAssignmentPattern = (use) => {
+    return (path) => {
+        const {node} = path;
+        const {
+            right
+        } = node;
+        
+        /*
+        if (isIdentifier(left))
+            declare(path, left.name);
+            */
+        
+        if (isIdentifier(right))
+            use(path, right.name);
+    };
+};
+
+module.exports.traverseAssignmentPattern = traverseAssignmentPattern;
 

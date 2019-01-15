@@ -173,6 +173,8 @@ test('remove-unused-variables: get-vars: function declaration', (t) => {
         getDOM: du,
         DOM: d_,
         fillTemplate: d_,
+        objectPatternExample: d_,
+        assignment: du,
     }, {
         link: d_,
     }, {
