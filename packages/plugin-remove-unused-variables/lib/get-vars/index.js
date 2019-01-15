@@ -5,6 +5,7 @@ const traverse = require('@babel/traverse').default;
 const {
     isAssignmentPattern,
     isIdentifier,
+    isClassDeclaration,
     isFunctionDeclaration,
     isObjectPattern,
 } = require('@babel/types');
@@ -88,10 +89,13 @@ function getScope(path) {
         scope,
     } = path;
     
-    if (!isFunctionDeclaration(node))
-        return scope;
+    if (isFunctionDeclaration(node))
+        return path.parentPath.scope;
     
-    return path.parentPath.scope;
+    if (isClassDeclaration(node))
+        return path.parentPath.scope;
+    
+    return scope;
 }
 
 const declareVariable = ({vars, setPath}) => (path, name) => {

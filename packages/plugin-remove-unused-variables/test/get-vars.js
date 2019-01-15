@@ -891,9 +891,7 @@ test('remove-unused-variables: get-vars: class declarator', (t) => {
     
     const expected = [{
         B: _u,
-    }, {
         A: d_,
-    }, {
         C: d_,
     }];
     
