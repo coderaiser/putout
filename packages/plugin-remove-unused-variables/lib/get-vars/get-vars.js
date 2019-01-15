@@ -85,6 +85,19 @@ module.exports = ({
                 traverseArray(initPath.get('elements'));
         },
         
+        ClassDeclaration(path) {
+            const {node} = path;
+            const {
+                id,
+                superClass,
+            } = node;
+          
+            if (superClass)
+                use(path, superClass.name);
+            
+            declare(path, id.name);
+        },
+        
         AssignmentExpression(path) {
             traverseAssign(path);
         },
