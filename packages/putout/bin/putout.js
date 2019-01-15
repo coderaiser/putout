@@ -4,7 +4,8 @@
 
 const {
     extname,
-    resolve
+    resolve,
+    dirname,
 } = require('path');
 
 const {
@@ -27,7 +28,6 @@ const glob = require('glob');
 const tryCatch = require('try-catch');
 const deepmerge = require('deepmerge');
 const arrayUnion = require('array-union');
-const isRelative = require('is-relative');
 const {
     table,
     getBorderCharacters,
@@ -39,6 +39,7 @@ const defaultOptions = require('../putout.json');
 
 const putout = require('..');
 const parseMatch = require('../lib/parse-match');
+const getRelativePath = require('../lib/get-relative-path');
 const readCodeMods = once(_readCodeMods);
 
 const one = (f) => (a) => f(a);
@@ -79,6 +80,8 @@ if (argv.help) {
     process.exit();
 }
 
+const readUp = require('find-up');
+
 const [e, files] = tryCatch(getFiles, argv._.map(String));
 
 if (e)
@@ -87,11 +90,7 @@ if (e)
 let errorsCount = 0;
 let filesCount = 0;
 
-const options = mergeOptions(getOptions());
-const ignore = require('ignore')();
-
-if (options.ignore)
-    ignore.add(options.ignore);
+const ignore = require('ignore');
 
 const output = files
     .map(processFiles)
@@ -106,11 +105,20 @@ if (output.length) {
 }
 
 function processFiles(name) {
+    const dir = dirname(name);
+    const [dirOpt, currOpt] = getOptions(dir);
+    const options = mergeOptions(currOpt);
     const {
         match,
     } = options;
     
-    if (isRelative(name) && ignore.ignores(name))
+    const ignorer = ignore();
+    if (options.ignore)
+        ignorer.add(options.ignore);
+    
+    const relativeName = getRelativePath(name, dirOpt);
+    
+    if (dirOpt && ignorer.ignores(relativeName))
         return;
     
     const input = readFileSync(name, 'utf8');
@@ -121,7 +129,7 @@ function processFiles(name) {
             defaultOptions,
             readCodeMods(),
             options,
-            parseMatch(match, name)
+            parseMatch(match, relativeName),
         ),
     });
     
@@ -235,16 +243,28 @@ function mergeOptions(baseOptions = {}) {
     return merge(baseOptions, customOptions);
 }
 
-function getOptions() {
-    const readUp = require('find-up');
+function getOptions(cwd) {
+    const putoutPath = readUp.sync('.putout.json', {
+        cwd,
+    });
     
-    const putoutPath = readUp.sync('.putout.json');
     if (putoutPath)
-        return require(putoutPath);
+        return [
+            dirname(putoutPath),
+            require(putoutPath),
+        ];
     
-    const infoPath = readUp.sync('package.json');
+    const infoPath = readUp.sync('package.json', {
+        cwd,
+    });
+    
     if (infoPath)
-        return require(infoPath).putout;
+        return [
+            dirname(infoPath),
+            require(infoPath).putout,
+        ];
+    
+    return [''];
 }
 
 function _readCodeMods() {
