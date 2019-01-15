@@ -277,6 +277,8 @@ test('remove-unused-variables: get-vars: new-expression', (t) => {
         handler: du,
         Proxy: _u,
         a: _u,
+        accessToken: du,
+        DropBox: _u
     }];
     
     t.deepEqual(result, expected, 'should equal');

@@ -174,9 +174,20 @@ module.exports = ({
             if (isIdentifier(node.callee))
                 use(path, node.callee.name);
             
-            for (const arg of node.arguments) {
-                if (isIdentifier(arg))
-                    use(path, arg.name);
+            const argPaths = path.get('arguments');
+            
+            for (const argPath of argPaths) {
+                const {node} = argPath;
+                
+                if (isIdentifier(node)) {
+                    use(path, node.name);
+                    continue;
+                }
+                
+                if (isObjectExpression(node)) {
+                    traverseObj(argPath.get('properties'));
+                    continue;
+                }
             }
         },
         
