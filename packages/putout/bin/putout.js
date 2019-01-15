@@ -144,7 +144,8 @@ function processFiles(name) {
         };
         
         e.message = `${grey(`${line}:${column}`)} ${red(e.message)}`;
-        exit(e);
+        console.log(raw ? e : e.message);
+        return;
     }
     
     const {code, places} = result;
