@@ -53,6 +53,7 @@ const fixture = readFixtures([
     'unary-expression',
     'update-expression',
     'variable-declarator',
+    'jsx-opening-element',
 ]);
 
 const du = 'du';
@@ -897,6 +898,23 @@ test('remove-unused-variables: get-vars: class declarator', (t) => {
         B: _u,
         A: d_,
         C: d_,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: jsx opening element', (t) => {
+    const ast = parse(fixture.jsxOpeningElement);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        App: du,
+        Main: du,
+        require: _u,
+        React: du,
+    }, {
+        str: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

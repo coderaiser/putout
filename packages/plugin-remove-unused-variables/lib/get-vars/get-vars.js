@@ -409,6 +409,22 @@ module.exports = ({
                 params,
             });
         },
+        
+        JSXOpeningElement(path) {
+            const {node} = path;
+            const {name} = node;
+            
+            use(path, name.name);
+            use(path, 'React');
+        },
+        
+        JSXExpressionContainer(path) {
+            const {node} = path;
+            const {expression} = node;
+            
+            if (isIdentifier(expression))
+                use(path, expression.name);
+        },
     };
 };
 

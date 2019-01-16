@@ -54,7 +54,7 @@ module.exports = (source, opts) => {
     
     const [clearSource, shebang] = cutShebang(source);
     
-    const ast = restoreExportDefaultDeclarationLoc(parse(clearSource));
+    const ast = parse(clearSource);
     const plugins = getPlugins(opts);
     const places = [];
     
@@ -111,9 +111,9 @@ const fixStrictMode = (a) => {
 
 module.exports.parse = parse;
 function parse(source) {
-    const ast = recast.parse(source, {
+    const ast = restoreExportDefaultDeclarationLoc(recast.parse(source, {
         parser,
-    });
+    }));
     
     return ast;
 }
