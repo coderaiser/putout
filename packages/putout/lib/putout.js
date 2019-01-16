@@ -30,6 +30,9 @@ const parser = {
             comment: true,
             ecmaVersion: 2019,
             sourceType: 'module',
+            ecmaFeatures: {
+                jsx: true
+            }
         }));
         
         return saveExportDefaultDeclarationLoc(parsed);
