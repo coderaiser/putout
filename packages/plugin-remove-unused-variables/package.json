@@ -36,7 +36,8 @@
     "just-camel-case": "^4.0.2",
     "nodemon": "^1.18.9",
     "nyc": "^13.0.1",
-    "redrun": "^7.0.2"
+    "redrun": "^7.0.2",
+    "supertape": "^1.2.0"
   },
   "license": "MIT",
   "engines": {
