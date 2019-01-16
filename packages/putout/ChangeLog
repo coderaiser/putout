@@ -1,3 +1,17 @@
+2019.01.16, v3.8.0
+
+fix:
+- (plugin-remove-unused-variables) ClassDeclaration: add support of bubling
+- (putout) exit on parse error -> log on proceed
+
+feature:
+- (plugin-remove-unused-variables) add support of jsx
+- (putout) add support of jsx
+- (plugin-remove-unused-variables) add support of ObjectExpression in arguments of NewExpression
+- (plugin-remove-unused-varaibles) add support of AssignmentPattern in ObjectExpression
+- (plugin-remove-unused-variables) add support of ClassDeclaration
+
+
 2019.01.15, v3.7.2
 
 fix:
