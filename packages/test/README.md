@@ -10,7 +10,7 @@ Test runner for `putout plugins`. Basically it is [supercharged](https://github.
 
 - `report(filename, message)` - checks error message of a plugin
 - `reportCode(input, message)` - checks error message of a plugin from `input` code
-- `transform(filename [, output]) - check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory.
+- `transform(filename [, output, plugins]) - check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory.
 - `transformCode(input, output) - check transform of `input` -> `output` code
 
 ## Install
