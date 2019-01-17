@@ -28,6 +28,7 @@
     "eslint-config"
   ],
   "devDependencies": {
+    "eslint": "^5.12.0",
     "redrun": "^7.0.2"
   },
   "license": "MIT",
