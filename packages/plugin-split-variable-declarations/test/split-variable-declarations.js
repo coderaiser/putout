@@ -1,6 +1,8 @@
 'use strict';
 
 const splitVariableDeclarations = require('..');
+const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
+
 const test = require('@putout/test')(__dirname, {
     'split-variable-declarations': splitVariableDeclarations,
 });
@@ -20,7 +22,11 @@ test('plugin-split-variable-declarations: transform: for-statement', (t) => {
     t.end();
 });
 
-test('plugin-split-variable-declarations: null literal', (t) => {
-    t.transform('null-literal');
+test('plugin-split-variable-declarations: null literal: loc', (t) => {
+    t.transform('null-literal', '\n\n', {
+        'remove-unused-variables': removeUnusedVariables,
+    });
+    
     t.end();
 });
+
