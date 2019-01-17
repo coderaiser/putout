@@ -62,6 +62,7 @@
     "@putout/eslint-config": "^1.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^5.6.0",
+    "eslint-plugin-node": "^8.0.1",
     "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
     "mock-require": "^3.0.2",
