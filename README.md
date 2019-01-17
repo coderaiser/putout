@@ -61,7 +61,10 @@ To configure `putout` add section `putout` to your `package.json` file or create
         "remove-debugger": true,
         "remove-only": true,
         "remove-skip": true,
-        "remove-process-exit": false
+        "remove-process-exit": false,
+        "remove-console": true,
+        "split-variable-declarations": true,
+        "remove-empty": true
     }
 }
 ```

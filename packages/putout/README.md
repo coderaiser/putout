@@ -18,6 +18,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - find and replace `test.skip` to `test` calls;
 - find and remove `process.exit` call;
 - find and split variable declarations;
+- find and remove `console.log` calls;
 - find and remove `empty block statements`;
 
 ## Configuration
@@ -32,7 +33,9 @@ To configure `putout` add section `putout` to your `package.json` file or create
         "remove-only": true,
         "remove-skip": true,
         "remove-process-exit": false,
-        "split-variable-declarations": true
+        "remove-console": true,
+        "split-variable-declarations": true,
+        "remove-empty": true
     }
 }
 ```
