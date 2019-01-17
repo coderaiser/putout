@@ -23,8 +23,8 @@ while(a > 3) {
 
 class Hello {
     m() {
-    var a;
-    var b;
-}
+        var a;
+        var b;
+    }
 }
 
