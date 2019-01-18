@@ -118,6 +118,9 @@ function parse(source) {
     return ast;
 }
 
+module.exports.traverse = traverse;
+module.exports.types = types;
+
 function getPath(item) {
     return item.path || item;
 }
