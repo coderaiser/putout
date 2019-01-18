@@ -28,13 +28,16 @@
     "skip"
   ],
   "devDependencies": {
+    "@putout/eslint-config": "^1.0.2",
     "coveralls": "^3.0.0",
     "eslint": "^5.6.0",
     "eslint-plugin-node": "^8.0.0",
-    "eslint-plugin-tape": "^1.1.0",
     "nyc": "^13.0.1",
     "redrun": "^7.0.2",
     "supertape": "^1.1.1"
+  },
+  "peerDependencies": {
+    "putout": "^3.9.0"
   },
   "license": "MIT",
   "engines": {

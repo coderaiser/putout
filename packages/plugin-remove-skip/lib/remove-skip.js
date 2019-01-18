@@ -4,7 +4,7 @@ const {
     isIdentifier,
     isMemberExpression,
     isStringLiteral,
-} = require('@babel/types');
+} = require('putout').types;
 
 module.exports.report = () => '"test.skip" should not be used';
 
