@@ -8,6 +8,7 @@ const putout = require('putout');
 
 const isString = (a) => typeof a === 'string';
 const {isArray} = Array;
+const {entries} = Object;
 
 const wrap = (dir, plugin, test) => (str, fn) => {
     test(str, (t) => {
@@ -27,6 +28,8 @@ module.exports = (dir, plugin) => {
     const newTape = wrap(dirFixture, plugins, tape);
     newTape.only = wrap(dirFixture, plugins, tape.only);
     newTape.skip = wrap(dirFixture, plugins, tape.skip);
+    
+    preTest(tape, plugin);
     
     return newTape;
 };
@@ -74,5 +77,31 @@ function getPlugins(plugin) {
     return [
         plugin,
     ].filter(Boolean);
+}
+
+function preTest(test, plugin) {
+    if (!plugin)
+        return;
+    
+    const [name, {
+        report,
+        find,
+        fix,
+    }] = entries(plugin).pop();
+    
+    test(`${name}: report: is function`, (t) => {
+        t.equal(typeof report, 'function', 'should export "report" function');
+        t.end();
+    });
+    
+    test(`${name}: find: is function`, (t) => {
+        t.equal(typeof find, 'function', 'should export "find" function');
+        t.end();
+    });
+    
+    test(`${name}: fix: is function`, (t) => {
+        t.equal(typeof fix, 'function', 'should export "fix" function');
+        t.end();
+    });
 }
 
