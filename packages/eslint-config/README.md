@@ -1,58 +1,52 @@
-# putout-plugin-remove-skip [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# putout-eslint-config [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-skip.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-skip"npm"
+[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/eslint-config.svg?style=flat&longCache=true
+[NPMURL]:                   https://npmjs.org/package/@putout/eslint-config "npm"
 
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-skip
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-skip
+[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/eslint-config
+[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/eslint-config
 
-`putout` plugin adds ability to find and remove `test.skip` calls.
+`putout` config for `eslint`. If `putout` brokes fromatting `eslint` will fix it 😉.
 
 ## Install
 
 ```
-npm i @putout/plugin-remove-skip -D
-```
-
-## Rule
-
-Rule `remove-skip` enabled by default, to disable add to `.putout.json`:
-
-```json
-{
-    "rules": {
-        "remove-skip": false
-    }
-}
+npm i @putout/eslint-config eslint redrun -D
 ```
 
 ## Usage
 
-```js
-const {readFileSync} = require('fs');
-const source = readFileSync('./1.js', 'utf8');
+Create file `.eslintrc.json` in root of your project with content:
 
-const putout = require('putout');
-
-console.log(source);
-// outputs
-`
-test.skip('some test', (t) => {
-    t.end();
-});
-`
-
-const result = putout(source, {
-    plugins: [
-        'remove-skip'
+```json
+{
+    "extends": [
+        "@putout"
     ]
-});
-// returns
-`
-test('some test', (t) => {
-    t.end();
-});
-`
+}
+```
+
+Add `scripts` section to `package.json`:
+
+```json
+{
+    "scripts": {
+        "lint": "redrun putout eslint",
+        "lint:fix": "redrun putout:fix eslint:fix",
+        "eslint": "eslint lib",
+        "putout": "putout lib",
+        "eslint:fix": "eslint lib --fix"
+        "putout:fix": "putout lib --fix"
+    }
+}
+```
+
+Run scripts using [redrun](https://github.com/coderaiser/redrun):
+
+```sh
+$ redrun lint
+$ redrun lint:fix
+
 ```
 
 ## License
