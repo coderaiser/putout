@@ -1,3 +1,17 @@
+2019.01.18, v3.9.0
+
+fix:
+- (eslintrc) .eslintrc.js -> .eslintrc.json
+- chore(split-variable-declaration-) add " "
+
+feature:
+- (putout) add traverse, types to exports
+- (package) eslint -> jsonlint
+- (plugin-split-variable-declarations) set loc to work good with @putout/plugin-remove-unused-variables
+- (@putout/test) transform: add support of plugins
+- (package) add @putout/eslint-config
+
+
 2019.01.16, v3.8.0
 
 fix:
