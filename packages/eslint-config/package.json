@@ -2,7 +2,7 @@
   "name": "@putout/eslint-config",
   "version": "1.0.1",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout eslint config",
+  "description": "putout config for eslint",
   "homepage": "http://github.com/coderaiser/putout",
   "main": ".eslintrc.json",
   "release": false,
@@ -13,11 +13,9 @@
     "url": "git://github.com/coderaiser/putout.git"
   },
   "scripts": {
-    "lint": "eslint .eslintrc.js --ignore-pattern !.eslintrc.js"
+    "lint": "jsonlint -q .eslintrc.json"
   },
-  "dependencies": {
-    "eslint-plugin-node": "^8.0.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "eslint": "^5.6.0"
   },
@@ -28,8 +26,7 @@
     "eslint-config"
   ],
   "devDependencies": {
-    "eslint": "^5.12.0",
-    "redrun": "^7.0.2"
+    "jsonlint": "^1.6.3"
   },
   "license": "MIT",
   "engines": {
