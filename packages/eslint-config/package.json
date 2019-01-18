@@ -4,7 +4,7 @@
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout eslint config",
   "homepage": "http://github.com/coderaiser/putout",
-  "main": ".eslintrc.js",
+  "main": ".eslintrc.json",
   "release": false,
   "tag": false,
   "changelog": false,
