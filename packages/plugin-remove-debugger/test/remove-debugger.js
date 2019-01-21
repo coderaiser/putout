@@ -15,8 +15,3 @@ test('remove debugger: transformCode', (t) => {
     t.end();
 });
 
-test('remove debugger: transform', (t) => {
-    t.transformCode('debugger', '');
-    t.end();
-});
-
