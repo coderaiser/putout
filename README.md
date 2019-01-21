@@ -177,6 +177,32 @@ To see more sophisticated example look at [@putout/remove-console](https://githu
 
 `putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/master/codemods/plugin-convert-tape-to-supertape) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
 
+
+## Eslint Support
+
+If you see that `putout` brokes formatting of your code, use eslint config [@putout/eslint-config](https://github.com/coderaiser/putout/tree/master/packages/eslint-config).
+
+Install `@putout/eslint-config` with:
+```
+npm i eslint @putout/eslint-config -D
+```
+
+Then create `eslintrc.json`:
+
+```json
+{
+    "extends": [
+        "@putout"
+    ]
+}
+```
+
+And use with `putout` this way:
+
+```sh
+putout --fix lib; eslint --fix lib
+```
+
 ## Why?
 
 - because [eslint](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
