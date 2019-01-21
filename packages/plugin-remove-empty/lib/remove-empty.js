@@ -7,7 +7,7 @@ const {
     isObjectMethod,
     isClassMethod,
     isIfStatement,
-} = require('@babel/types');
+} = require('putout').types;
 
 module.exports.report = () => 'Empty block statement';
 
