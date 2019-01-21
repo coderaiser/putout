@@ -1,3 +1,18 @@
+2019.01.21, v3.10.0
+
+fix:
+- feature(@putout/test) add ability to check that report, find and  functions exists
+
+feature:
+- (plugin-remove-empty-pattern) add
+- (plugin-remove-empty) @babel/types -> putout.types
+- (eslintrc) implicit-error-line-break
+- (eslintrc) add arrow-spacing
+- (@putout/test) add ability to check that report, find and fix functions exists
+- (plugin-remove-skip) @babel/types -> putout
+- (plugin-remove-only) @babel/types -> putout.types
+
+
 2019.01.18, v3.9.0
 
 fix:
