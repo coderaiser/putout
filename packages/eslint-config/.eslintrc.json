@@ -7,6 +7,7 @@
         "ecmaVersion": 2019
     },
     "rules": {
+        "arrow-spacing": "error",
         "indent": ["error", 4],
         "quotes": ["error", "single", {
             "allowTemplateLiterals": true
