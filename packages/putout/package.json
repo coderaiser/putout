@@ -30,6 +30,7 @@
     "@putout/plugin-remove-console": "^1.0.0",
     "@putout/plugin-remove-debugger": "^1.0.0",
     "@putout/plugin-remove-empty": "^1.0.0",
+    "@putout/plugin-remove-empty-pattern": "^1.0.0",
     "@putout/plugin-remove-only": "^1.0.0",
     "@putout/plugin-remove-process-exit": "^1.0.0",
     "@putout/plugin-remove-skip": "^1.0.0",
