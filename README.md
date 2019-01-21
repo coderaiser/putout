@@ -101,7 +101,7 @@ When you need to ignore some routes no metter what, you can use `ignore` section
 
 `Putout` supports `plugins`, there is to types: with prefix official `@putout/plugin-` and user plugins with prefix `putout-plugin-`. To use your plugin create plugin as `npm` package with keywords `putout`, `putout-plugin` and add it to `.putout.json`.
 
-For example if you need to `remove-something` create `putout` plugin with name `putout-plugin-remove-something` and it to `.putout.json`:
+For example if you need to `remove-something` create `putout` plugin with name `putout-plugin-remove-something` and add it to `.putout.json`:
 
 ```json
 {
@@ -110,6 +110,67 @@ For example if you need to `remove-something` create `putout` plugin with name `
     ]
 }
 ```
+
+#### Plugins API
+
+Every `putout` plugin should contain 3 functions:
+
+- `report(path)` - report error message to `putout` cli;
+- `find(ast, context)` - find errors using `ast-traversing` and return `places` array;
+- `fix(path)` - fixes paths using `places` array received using `find` function.
+
+#### Example
+
+Let's consider simplest possible plugin for removing `debugger statements [@putout/plugin-remove-debugger](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-debugger):
+
+```js
+// this is a message to show in putout cli
+module.exports.report = () => 'Unexpected "debugger" statement';
+
+// lets find all "debugger" statements
+module.exports.find = (ast, {traverse}) => {
+    const places = [];
+    
+    traverse(ast, {
+        DebuggerStatement(path) {
+            places.push(path);
+        }
+    });
+    
+    // we should return array of places which was found using traverse
+    return places;
+};
+
+// when user calls "putout --fix" node will be removed with
+module.exports.fix = (path) => {
+    path.remove();
+};
+```
+
+#### Testing
+
+That was the simplest module to remove `debugger` statements in your code. Let's look how to test it using [@putout/test](https://github.com/coderaiser/putout/tree/master/packages/test):
+
+```js
+const removeDebugger = require('..');
+const test = require('@putout/test')(__dirname, {
+    'remove-debugger': removeDebugger,
+});
+
+// this is how we test that messages is correct
+test('remove debugger: report', (t) => {
+    t.reportCode('debugger', 'Unexpected "debugger" statement');
+    t.end();
+});
+
+// stetement should be removed so result is empty
+test('remove debugger: transformCode', (t) => {
+    t.transformCode('debugger', '');
+    t.end();
+});
+```
+
+As you see test runner it is little bit modifed [tape](https://github.com/substack/tape).
 
 ## Codemods
 
