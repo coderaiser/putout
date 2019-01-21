@@ -111,13 +111,24 @@ For example if you need to `remove-something` create `putout` plugin with name `
 }
 ```
 
+Add `putout` as a `peerDependency` to your `packages.json` and set keywords: `putout`, `putout-plugin` so other users can find it 🙂.
+
 #### Plugins API
 
 Every `putout` plugin should contain 3 functions:
 
 - `report(path)` - report error message to `putout` cli;
 - `find(ast, context)` - find errors using `ast-traversing` and return `places` array;
-- `fix(path)` - fixes paths using `places` array received using `find` function.
+- `fix(path)` - fixes paths using `places` array received using `find` function;
+
+`context` of `find` function contains [@babel/traverse](https://babeljs.io/docs/en/next/babel-traverse.html) and [@babel/types](https://babeljs.io/docs/en/next/babel-types.html). Which can be accessed using `putout`:
+
+```js
+const {
+    traverse,
+    types,
+} = require('putout');
+```
 
 #### Example
 
