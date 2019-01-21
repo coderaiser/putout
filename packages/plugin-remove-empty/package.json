@@ -32,7 +32,6 @@
     "coveralls": "^3.0.0",
     "eslint": "^5.6.0",
     "eslint-plugin-node": "^8.0.0",
-    "eslint-plugin-tape": "^1.1.0",
     "lerna": "^3.8.5",
     "nodemon": "^1.14.12",
     "nyc": "^13.0.1",
