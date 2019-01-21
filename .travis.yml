@@ -2,6 +2,8 @@ language: node_js
 node_js:
     - 11
 
+install: travis_retry npm i && lerna bootstrap
+
 script:
   - npm run bootstrap
   - npm run lint
