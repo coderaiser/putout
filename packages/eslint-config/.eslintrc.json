@@ -9,6 +9,7 @@
     "rules": {
         "arrow-spacing": "error",
         "indent": ["error", 4],
+        "implicit-arrow-linebreak": "error",
         "quotes": ["error", "single", {
             "allowTemplateLiterals": true
         }],
