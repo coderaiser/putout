@@ -35,7 +35,7 @@ Add `scripts` section to `package.json`:
         "lint:fix": "redrun putout:fix eslint:fix",
         "eslint": "eslint lib",
         "putout": "putout lib",
-        "eslint:fix": "eslint lib --fix"
+        "eslint:fix": "eslint lib --fix",
         "putout:fix": "putout lib --fix"
     }
 }
