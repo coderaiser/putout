@@ -22,7 +22,7 @@
     "putout": "bin/putout.js bin lib test",
     "putout:fix": "bin/putout.js --fix bin lib test",
     "coverage": "nyc npm test",
-    "report": "nyc report --reporter=text-lcov | coveralls"
+    "report": "nyc report --reporter=text-lcov | coveralls || true"
   },
   "dependencies": {
     "@babel/traverse": "^7.1.6",
