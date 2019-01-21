@@ -6,7 +6,7 @@
     "coverage": "lerna run coverage",
     "report": "lerna run report",
     "lint": "lerna run lint",
-    "bootstrap": "lerna bootstrap"
+    "bootstrap": "lerna bootstrap --concurrency=1"
   },
   "devDependencies": {
     "lerna": "^3.8.5"
