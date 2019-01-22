@@ -10,10 +10,6 @@ const types = require('@babel/types');
 const cutShebang = require('./cut-shebang');
 const getPlugins = require('./get-plugins');
 const fix = require('./fix');
-const {
-    saveExportDefaultDeclarationLoc,
-    restoreExportDefaultDeclarationLoc,
-} = require('./recast-fix');
 
 const isUndefined = (a) => typeof a === 'undefined';
 
@@ -24,7 +20,7 @@ const printOptions = {
 const parser = {
     parse(source) {
         const preventUsingEsprima = true;
-        const parsed = toBabel(espree.parse(source, {
+        return toBabel(espree.parse(source, {
             loc: true,
             tokens: preventUsingEsprima,
             comment: true,
@@ -34,8 +30,6 @@ const parser = {
                 jsx: true
             }
         }));
-        
-        return saveExportDefaultDeclarationLoc(parsed);
     },
 };
 
@@ -111,9 +105,9 @@ const fixStrictMode = (a) => {
 
 module.exports.parse = parse;
 function parse(source) {
-    const ast = restoreExportDefaultDeclarationLoc(recast.parse(source, {
+    const ast = recast.parse(source, {
         parser,
-    }));
+    });
     
     return ast;
 }
