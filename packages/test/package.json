@@ -16,7 +16,12 @@
     "test": "tape 'test/*.js'",
     "test:diff": "npm test | tap-diff",
     "watch:test": "nodemon -w lib -w test -x \"npm test\"",
-    "lint": "eslint lib test --ignore-pattern test/fixture",
+    "lint:eslint": "eslint lib test --ignore-pattern test/fixture",
+    "lint:eslint:fix": "redrun lint:eslint -- --fix",
+    "lint": "redrun transform lint:eslint",
+    "lint:fix": "redrun transform:fix lint:eslint:fix",
+    "transform": "putout lib test",
+    "transform:fix": "redrun transform -- --fix",
     "coverage": "nyc npm test"
   },
   "dependencies": {
