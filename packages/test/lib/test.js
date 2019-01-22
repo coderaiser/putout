@@ -34,10 +34,15 @@ module.exports = (dir, plugin) => {
     return newTape;
 };
 
-const transform = (t, dir, plugins) => (name, transformed, addons = {}) => {
+const transform = (t, dir, plugins) => (name, transformed, addons) => {
     const full = join(dir, name);
     const input = readFileSync(`${full}.js`, 'utf8');
-    const output = isString(transformed) ? transformed : readFileSync(`${full}-fix.js`, 'utf8');
+    const isStr = isString(transformed);
+    
+    const output = isStr ? transformed : readFileSync(`${full}-fix.js`, 'utf8');
+    
+    addons = isString(transformed) ? addons : transformed;
+    addons = addons || {};
     
     plugins[0] = {
         ...plugins[0],
