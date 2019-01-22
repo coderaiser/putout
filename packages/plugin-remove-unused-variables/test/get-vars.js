@@ -1,6 +1,7 @@
 'use strict';
 
 const test = require('supertape');
+const template = require('@babel/template').default;
 
 const {
     parse,
@@ -915,6 +916,29 @@ test('remove-unused-variables: get-vars: jsx opening element', (t) => {
         React: du,
     }, {
         str: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: template: no loc', (t) => {
+    const ast = parse(fixture.noVars);
+    const buildRequire = template(`
+        function fn() {
+            var hello;
+        }
+    `);
+    
+    const variable = buildRequire();
+    ast.program.body.push(variable);
+    
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        fn: d_,
+    }, {
+        hello: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');

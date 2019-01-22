@@ -12,6 +12,13 @@ const {
 
 const getVars = require('./get-vars');
 
+const generator = () => {
+    let i = 0;
+    return () => --i;
+};
+
+const generate = generator();
+
 module.exports = (ast, opts = {}) => {
     const vars = {};
     const allParams = [];
@@ -135,7 +142,12 @@ const useVariable = ({vars}) => (path, name) => {
         };
 };
 
-const getLocLine = ({loc}) => {
+const getLocLine = (block) => {
+    const {loc} = block;
+    
+    if (!loc)
+        return generate();
+    
     const {
         start,
         end,
