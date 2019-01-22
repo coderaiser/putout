@@ -1,3 +1,15 @@
+2019.01.22, v3.11.0
+
+fix:
+- feature(putout) remove recast-
+- (plugin-remove-skip) @putout/test: dependencies -> devDependencies
+
+feature:
+- (putout) remove recast-fix
+- (@putout/plugin-remove-unused-variables) add ability to not relate on loc while searching and removing variables
+- (@putout/test) add support of plugins as second argument of transform
+
+
 2019.01.21, v3.10.0
 
 fix:
