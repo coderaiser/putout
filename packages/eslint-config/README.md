@@ -31,12 +31,12 @@ Add `scripts` section to `package.json`:
 ```json
 {
     "scripts": {
-        "lint": "redrun putout eslint",
-        "lint:fix": "redrun putout:fix eslint:fix",
-        "eslint": "eslint lib",
-        "putout": "putout lib",
-        "eslint:fix": "eslint lib --fix",
-        "putout:fix": "putout lib --fix"
+        "lint": "redrun transform lint:eslint",
+        "lint:fix": "redrun transform:fix lint:eslint:fix",
+        "lint:eslint": "eslint lib",
+        "lint:eslint:fix": "redrun lint -- --fix",
+        "transform": "putout lib",
+        "transform:fix": "putout lib --fix"
     }
 }
 ```
