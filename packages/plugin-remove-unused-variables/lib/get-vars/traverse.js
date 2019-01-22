@@ -8,7 +8,7 @@ const {
     isTemplateLiteral,
     isArrayExpression,
     isAssignmentPattern
-} = require('@babel/types');
+} = require('putout').types;
 
 const traverseObjectPattern = (use) => {
     return (propertiesPaths) => {

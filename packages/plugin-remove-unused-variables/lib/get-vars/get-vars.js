@@ -10,7 +10,7 @@ const {
     isTemplateLiteral,
     isFunctionDeclaration,
     isArrayExpression,
-} = require('@babel/types');
+} = require('putout').types;
 
 const {
     traverseObjectExpression,

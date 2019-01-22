@@ -1,6 +1,9 @@
 'use strict';
 
-const traverse = require('@babel/traverse').default;
+const {
+    traverse,
+    types,
+} = require('putout');
 
 const {
     isAssignmentPattern,
@@ -8,7 +11,7 @@ const {
     isClassDeclaration,
     isFunctionDeclaration,
     isObjectPattern,
-} = require('@babel/types');
+} = types;
 
 const getVars = require('./get-vars');
 

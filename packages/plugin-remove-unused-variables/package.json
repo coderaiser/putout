@@ -33,6 +33,7 @@
     "variables"
   ],
   "devDependencies": {
+    "@babel/template": "^7.2.2",
     "@putout/eslint-config": "^1.1.0",
     "@putout/test": "^1.3.0",
     "coveralls": "^3.0.0",
