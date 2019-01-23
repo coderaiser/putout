@@ -1,3 +1,9 @@
+2019.01.23, v3.13.1
+
+fix:
+- (custom-parser) @babel/parser: jsx
+
+
 2019.01.23, v3.13.0
 
 feature:
