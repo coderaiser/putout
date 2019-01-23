@@ -120,6 +120,13 @@ function getPath(item) {
 
 function getPosition(path, shebang) {
     const {node} = path;
+    const {loc} = node;
+    
+    if (!loc)
+        return {
+            line: 'x',
+            column: 'x',
+        };
     
     const {
         line,

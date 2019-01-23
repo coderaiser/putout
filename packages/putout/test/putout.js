@@ -132,3 +132,40 @@ test('putout: use strict: no fix', (t) => {
     t.end();
 });
 
+test('putout: no loc', (t) => {
+    const addVar = {
+        report: () => '',
+        fix: () => {},
+        find: (ast, {traverse}) => {
+            const places = [];
+            
+            traverse(ast, {
+                Program(path) {
+                    path.node.loc = null;
+                    places.push(path);
+                }
+            });
+            
+            return places;
+        },
+    };
+    
+    const {places} = putout('', {
+        plugins: [{
+            'add-variable': addVar,
+        }]
+    });
+    
+    const expected = [{
+        rule: 'add-variable',
+        message: '',
+        position: {
+            line: 'x',
+            column: 'x',
+        }
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
