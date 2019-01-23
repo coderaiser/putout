@@ -2,7 +2,6 @@
 
 const recast = require('recast');
 const alignSpaces = require('align-spaces');
-const espree = require('espree');
 const toBabel = require('estree-to-babel');
 const traverse = require('@babel/traverse').default;
 const types = require('@babel/types');
@@ -10,6 +9,7 @@ const types = require('@babel/types');
 const cutShebang = require('./cut-shebang');
 const getPlugins = require('./get-plugins');
 const fix = require('./fix');
+const customParser = require('./custom-parser');
 
 const isUndefined = (a) => typeof a === 'undefined';
 
@@ -19,17 +19,7 @@ const printOptions = {
 
 const parser = {
     parse(source) {
-        const preventUsingEsprima = true;
-        return toBabel(espree.parse(source, {
-            loc: true,
-            tokens: preventUsingEsprima,
-            comment: true,
-            ecmaVersion: 2019,
-            sourceType: 'module',
-            ecmaFeatures: {
-                jsx: true
-            }
-        }));
+        return toBabel(customParser(source));
     },
 };
 
