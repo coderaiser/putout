@@ -16,6 +16,7 @@ function babelParse(source) {
         tokens: true,
         plugins: [
             'estree',
+            'jsx',
         ],
     });
 }
