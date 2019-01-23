@@ -1,3 +1,10 @@
+2019.01.23, v3.13.0
+
+feature:
+- (putout) add support of @babel/parser
+- (putout) move out espree to custom-parser
+
+
 2019.01.23, v3.12.0
 
 feature:
