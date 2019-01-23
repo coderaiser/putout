@@ -75,7 +75,6 @@ module.exports = (source, opts) => {
                 rule,
                 message,
                 position,
-                ...item,
             });
             
             fix(opts.fix, plugin.fix, {
