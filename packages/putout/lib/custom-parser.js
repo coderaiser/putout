@@ -1,8 +1,26 @@
 'use strict';
 
 const espree = require('espree');
+const babel = require('@babel/parser');
 
-module.exports = (source) => {
+module.exports = (source, parser = 'babel') => {
+    if (parser === 'babel')
+        return babelParse(source);
+    
+    return espreeParse(source);
+};
+
+function babelParse(source) {
+    return babel.parse(source, {
+        sourceType: 'module',
+        tokens: true,
+        plugins: [
+            'estree',
+        ],
+    });
+}
+
+function espreeParse(source) {
     const preventUsingEsprima = true;
     
     return espree.parse(source, {
@@ -15,5 +33,5 @@ module.exports = (source) => {
             jsx: true
         }
     });
-};
+}
 
