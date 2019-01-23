@@ -42,9 +42,12 @@
     "just-camel-case": "^4.0.2",
     "nodemon": "^1.18.9",
     "nyc": "^13.0.1",
-    "putout": "^3.8.0",
+    "putout": "^3.11.0",
     "redrun": "^7.0.2",
     "supertape": "^1.2.0"
+  },
+  "peerDependencies": {
+    "putout": "^3.11.0"
   },
   "license": "MIT",
   "engines": {

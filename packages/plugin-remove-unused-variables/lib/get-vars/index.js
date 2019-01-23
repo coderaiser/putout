@@ -24,6 +24,7 @@ const generate = generator();
 
 module.exports = (ast, opts = {}) => {
     const vars = {};
+    const scopeBlocks = new Map();
     const allParams = [];
     const {
         setPath,
@@ -31,15 +32,18 @@ module.exports = (ast, opts = {}) => {
     
     const use = useVariable({
         vars,
+        scopeBlocks,
     });
     
     const declare = declareVariable({
         vars,
+        scopeBlocks,
         setPath,
     });
     
     const isUsed = isUsedVariable({
         vars,
+        scopeBlocks,
     });
     
     const addParams = addParamsVariable(allParams);
@@ -55,6 +59,8 @@ module.exports = (ast, opts = {}) => {
         isUsed,
     }));
     
+    scopeBlocks.clear();
+    
     return Object.values(vars);
 };
 
@@ -65,27 +71,31 @@ const addParamsVariable = (allParams) => ({path, params}) => {
     });
 };
 
-function getScopeNumber(name, scope) {
+function getScopeNumber({name, scope, scopeBlocks}) {
     let done = false;
     
     if (scope.hasOwnBinding(name)) {
         done = true;
-        return getLocLine(scope.block);
+        return getBlockId(scope.block, scopeBlocks);
     }
     
     while (scope.parent) {
         scope = scope.parent;
         
         if (!done && scope.hasOwnBinding(name))
-            return getLocLine(scope.block);
+            return getBlockId(scope.block, scopeBlocks);
     }
     
-    return getLocLine(scope.block);
+    return getBlockId(scope.block, scopeBlocks);
 }
 
-const isUsedVariable = ({vars}) => (path, name) => {
+const isUsedVariable = ({vars, scopeBlocks}) => (path, name) => {
     const {scope} = path;
-    const scopeNumber = getScopeNumber(name, scope);
+    const scopeNumber = getScopeNumber({
+        name,
+        scope,
+        scopeBlocks,
+    });
     
     const current = vars[scopeNumber];
     const {used} = current[name];
@@ -108,9 +118,13 @@ function getScope(path) {
     return scope;
 }
 
-const declareVariable = ({vars, setPath}) => (path, name) => {
+const declareVariable = ({vars, setPath, scopeBlocks}) => (path, name) => {
     const scope = getScope(path);
-    const scopeNumber = getScopeNumber(name, scope);
+    const scopeNumber = getScopeNumber({
+        name,
+        scope,
+        scopeBlocks,
+    });
     
     if (!vars[scopeNumber])
         vars[scopeNumber] = {};
@@ -128,9 +142,13 @@ const declareVariable = ({vars, setPath}) => (path, name) => {
         current[name].path = path;
 };
 
-const useVariable = ({vars}) => (path, name) => {
+const useVariable = ({vars, scopeBlocks}) => (path, name) => {
     const {scope} = path;
-    const scopeNumber = getScopeNumber(name, scope);
+    const scopeNumber = getScopeNumber({
+        name,
+        scope,
+        scopeBlocks,
+    });
     
     if (!vars[scopeNumber])
         vars[scopeNumber] = {};
@@ -145,21 +163,15 @@ const useVariable = ({vars}) => (path, name) => {
         };
 };
 
-const getLocLine = (block) => {
-    const {loc} = block;
+const getBlockId = (block, scopeBlocks) => {
+    if (scopeBlocks.has(block))
+        return scopeBlocks.get(block);
     
-    if (!loc)
-        return generate();
+    const id = generate();
     
-    const {
-        start,
-        end,
-    } = loc;
+    scopeBlocks.set(block, id);
     
-    const startLine = `${start.line}:${start.column}`;
-    const endLine = `${end.line}:${end.column}`;
-    
-    return `${startLine}-${endLine}`;
+    return id;
 };
 
 const useParamsBeforeLastUsed = ({use, isUsed}) => ({path, params}) => {
