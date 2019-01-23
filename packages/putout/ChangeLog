@@ -1,3 +1,12 @@
+2019.01.23, v3.12.0
+
+feature:
+- (putout) add support of a no loc nodes
+- (putout) decrease leak of a path
+- (plugin-remove-unused-variables) use Map instead of Loc
+- (@putout/plugin-remove-unused-variables) @babel -> putout
+
+
 2019.01.22, v3.11.0
 
 fix:
