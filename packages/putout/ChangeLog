@@ -1,3 +1,9 @@
+2019.01.24, v3.13.2
+
+fix:
+- (putout) dependencies: @babel/parser
+
+
 2019.01.23, v3.13.1
 
 fix:
