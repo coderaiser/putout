@@ -28,6 +28,7 @@
     "report": "nyc report --reporter=text-lcov | coveralls || true"
   },
   "dependencies": {
+    "@babel/parser": "^7.3.1",
     "@babel/traverse": "^7.1.6",
     "@babel/types": "^7.2.0",
     "@putout/plugin-remove-console": "^1.0.0",
