@@ -1,7 +1,6 @@
 'use strict';
 
 const Module = require('module');
-
 const tryCatch = require('try-catch');
 
 const {cwd} = process;
