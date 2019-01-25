@@ -13,19 +13,14 @@
     "url": "git://github.com/coderaiser/putout.git"
   },
   "scripts": {
-    "test": "tape 'test/*.js'",
-    "watch:test": "nodemon -w lib -w test -x \"npm test\"",
-    "watch:example": "nodemon -w lib -w test -x \"node remove-unused\"",
-    "lint:lib": "eslint lib test --ignore-pattern test/fixture",
-    "lint:lib:fix": "redrun lint:lib -- --fix",
-    "lint:bin": "eslint --rule 'no-console:0' bin -c .eslintrc.bin",
-    "lint:bin:fix": "redrun lint:bin -- --fix",
-    "lint": "redrun putout lint:lib lint:bin",
-    "lint:fix": "redrun putout:fix lint:lib:fix lint:bin:fix",
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "lint:fix": "madrun lint:fix",
     "putout": "bin/putout.js bin lib test",
     "putout:fix": "bin/putout.js --fix bin lib test",
-    "coverage": "nyc npm test",
-    "report": "nyc report --reporter=text-lcov | coveralls || true"
+    "coverage": "madrun coverage",
+    "report": "madrun report"
   },
   "dependencies": {
     "@babel/parser": "^7.3.1",
@@ -70,10 +65,10 @@
     "eslint-plugin-node": "^8.0.1",
     "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
+    "madrun": "^1.0.1",
     "mock-require": "^3.0.2",
     "nodemon": "^1.14.12",
     "nyc": "^13.0.1",
-    "redrun": "^7.0.2",
     "supertape": "^1.0.3"
   },
   "license": "MIT",
