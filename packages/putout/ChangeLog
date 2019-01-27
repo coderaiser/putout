@@ -1,3 +1,15 @@
+2019.01.27, v3.14.0
+
+fix:
+- (plugin-remove-empty) package: description
+
+feature:
+- (putout) add @babel/template
+- (plugin-remove-unused-variables) redrun -> madrun
+- (plugin-remove-unused-variables) BinaryExpression: add support of TemplateLiteral
+- (putout) add support of madrun
+
+
 2019.01.24, v3.13.2
 
 fix:
