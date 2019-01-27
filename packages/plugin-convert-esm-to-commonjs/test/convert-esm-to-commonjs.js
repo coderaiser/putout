@@ -30,6 +30,11 @@ test('plugin-convert-esm-to-commonjs: transform: export default', (t) => {
     t.end();
 });
 
+test('plugin-convert-esm-to-commonjs: transform: export call', (t) => {
+    t.transform('export-call');
+    t.end();
+});
+
 test('plugin-convert-esm-to-commonjs: transform: import default', (t) => {
     t.transform('import-default');
     t.end();
@@ -44,3 +49,4 @@ test('plugin-convert-esm-to-commonjs: transform: import specifier', (t) => {
     t.transform('import-specifier');
     t.end();
 });
+

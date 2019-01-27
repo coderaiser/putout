@@ -63,6 +63,8 @@ function getDeclaration(node) {
     
     if (isClassDeclaration(node))
         return convertClassDeclarationToExpression(node);
+    
+    return node;
 }
 
 function convertFnDeclarationToExpression(node) {
