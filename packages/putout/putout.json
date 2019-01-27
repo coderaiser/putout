@@ -8,7 +8,8 @@
         "remove-console": true,
         "split-variable-declarations": true,
         "remove-empty": true,
-        "remove-empty-pattern": true
+        "remove-empty-pattern": true,
+        "convert-esm-to-commonjs": false
     },
     "plugins": [
         "remove-unused-variables",
@@ -19,7 +20,8 @@
         "remove-console",
         "split-variable-declarations",
         "remove-empty",
-        "remove-empty-pattern"
+        "remove-empty-pattern",
+        "convert-esm-to-commonjs"
     ]
 }
 

@@ -1,0 +1,2 @@
+import hi from './hi';
+
