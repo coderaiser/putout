@@ -19,8 +19,7 @@
     "lint:fix": "madrun lint:fix",
     "putout": "bin/putout.js bin lib test",
     "putout:fix": "bin/putout.js --fix bin lib test",
-    "coverage": "madrun coverage",
-    "report": "madrun report"
+    "coverage": "madrun coverage"
   },
   "dependencies": {},
   "keywords": [
