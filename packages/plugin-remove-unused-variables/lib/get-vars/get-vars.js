@@ -356,9 +356,13 @@ module.exports = ({
             
             if (isIdentifier(left))
                 use(path, left.name);
+            else if (isTemplateLiteral(left))
+                traverseTmpl(path, left.expressions);
             
             if (isIdentifier(right))
                 use(path, right.name);
+            else if (isTemplateLiteral(right))
+                traverseTmpl(path, right.expressions);
         },
         
         ExportDefaultDeclaration(path) {

@@ -16,6 +16,7 @@ const fixture = readFixtures([
     'arrow-function-expression',
     'arrow-vars',
     'assignment-expression',
+    'binary-expression',
     'call-expression',
     'conditional-expression',
     'condition-vars',
@@ -224,6 +225,19 @@ test('remove-unused-variables: get-vars: assignment expression', (t) => {
         b: du,
         c: du,
         obj: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: binary expression', (t) => {
+    const ast = parse(fixture.binaryExpression);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        name: du,
+        result: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');
