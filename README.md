@@ -122,12 +122,13 @@ Every `putout` plugin should contain 3 functions:
 - `find(ast, context)` - find errors using `ast-traversing` and return `places` array;
 - `fix(path)` - fixes paths using `places` array received using `find` function;
 
-`context` of `find` function contains [@babel/traverse](https://babeljs.io/docs/en/next/babel-traverse.html) and [@babel/types](https://babeljs.io/docs/en/next/babel-types.html). Which can be accessed using `putout`:
+`context` of `find` function contains [@babel/traverse](https://babeljs.io/docs/en/next/babel-traverse.html) and [@babel/types](https://babeljs.io/docs/en/next/babel-types.html). Also there is [template](https://babeljs.io/docs/en/next/babel-template.html). All of this can be get from `putout`:
 
 ```js
 const {
     traverse,
     types,
+    template,
 } = require('putout');
 ```
 

@@ -4,6 +4,7 @@ const recast = require('recast');
 const alignSpaces = require('align-spaces');
 const toBabel = require('estree-to-babel');
 const traverse = require('@babel/traverse').default;
+const template = require('@babel/template').default;
 const types = require('@babel/types');
 
 const cutShebang = require('./cut-shebang');
@@ -103,6 +104,7 @@ function parse(source) {
 
 module.exports.traverse = traverse;
 module.exports.types = types;
+module.exports.template = template;
 
 function getPath(item) {
     return item.path || item;
