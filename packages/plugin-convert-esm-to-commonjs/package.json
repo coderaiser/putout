@@ -17,8 +17,8 @@
     "watch:test": "madrun watch:test",
     "lint": "madrun lint",
     "fix:lint": "madrun fix:lint",
-    "putout": "bin/putout.js bin lib test",
-    "putout:fix": "bin/putout.js --fix bin lib test",
+    "putout": "putout lib test",
+    "putout:fix": "putout --fix lib test",
     "coverage": "madrun coverage"
   },
   "dependencies": {},
