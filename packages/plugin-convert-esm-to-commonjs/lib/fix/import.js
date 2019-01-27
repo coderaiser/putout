@@ -35,7 +35,7 @@ module.exports.convertImport = (path) => {
     }
     
     path.replaceWithMultiple(vars);
-}
+};
 
 function getImportDefaultVar(name, node) {
     const convert = template(`

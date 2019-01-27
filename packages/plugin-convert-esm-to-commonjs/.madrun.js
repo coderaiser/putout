@@ -12,7 +12,7 @@ module.exports = {
     'lint:lib': () => `eslint lib test --ignore-pattern test/fixture`,
     'lint': () => parallel('lint:*'),
     'fix:lint': () => series(['putout', 'lint'], '--fix'),
-    'putout': () => `bin/putout.js bin lib test`,
+    'putout': () => `putout lib test`,
     'coverage': () => `nyc ${run('test')}`,
     'report': () => `nyc report --reporter=text-lcov | coveralls || true`,
 };

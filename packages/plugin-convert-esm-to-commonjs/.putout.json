@@ -1,0 +1,11 @@
+{
+    "ignore": [
+        "test/fixture"
+    ],
+    "match": {
+        "(test|lib)": {
+            "remove-process-exit": true
+        }
+    }
+}
+

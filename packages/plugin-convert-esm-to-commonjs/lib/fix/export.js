@@ -21,14 +21,14 @@ module.exports.convertNamedExport = (path) => {
         module.exports.NAME = DECLARATION;
     `);
     
-    const DECLARATION = getDeclaration(declaration)
+    const DECLARATION = getDeclaration(declaration);
     const NAME = getName(declaration);
     
     path.replaceWith(convert({
         NAME,
         DECLARATION,
     }));
-}
+};
 
 module.exports.convertDefaultExport = (path) => {
     const {declaration} = path.node;
@@ -36,12 +36,12 @@ module.exports.convertDefaultExport = (path) => {
         module.exports = DECLARATION;
     `);
     
-    const DECLARATION = getDeclaration(declaration)
+    const DECLARATION = getDeclaration(declaration);
     
     path.replaceWith(convert({
         DECLARATION,
     }));
-}
+};
 
 function getName(node) {
     if (isFunctionDeclaration(node))
@@ -59,7 +59,7 @@ function getDeclaration(node) {
         return convertFnDeclarationToExpression(node);
     
     if (isVariableDeclaration(node))
-        return getVarValue(node.declarations)
+        return getVarValue(node.declarations);
     
     if (isClassDeclaration(node))
         return convertClassDeclarationToExpression(node);
