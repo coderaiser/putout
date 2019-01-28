@@ -1,3 +1,13 @@
+2019.01.28, v3.15.2
+
+fix:
+- (putout) call plugin.: with place -> with item
+
+feature:
+- (convert-esm-to-commonjs) add support of same name of imported and local
+- (plugin-convert-esm-to-commonjs) add support of CallExpression in ExportDefaultDeclaration
+
+
 2019.01.27, v3.15.1
 
 fix:
