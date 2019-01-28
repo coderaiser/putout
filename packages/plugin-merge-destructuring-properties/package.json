@@ -22,8 +22,7 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "@babel/generator": "^7.3.0",
-    "recast": "^0.16.2"
+    "@babel/generator": "^7.3.0"
   },
   "keywords": [
     "putout",
