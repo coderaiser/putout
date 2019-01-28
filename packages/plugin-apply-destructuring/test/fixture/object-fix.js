@@ -1,0 +1,4 @@
+const {
+  value
+} = object;
+

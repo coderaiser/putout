@@ -27,6 +27,7 @@
     "@babel/template": "^7.2.2",
     "@babel/traverse": "^7.1.6",
     "@babel/types": "^7.2.0",
+    "@putout/plugin-apply-destructuring": "^1.0.0",
     "@putout/plugin-convert-esm-to-commonjs": "^1.0.0",
     "@putout/plugin-merge-destructuring-properties": "^1.0.0",
     "@putout/plugin-remove-console": "^1.0.0",
