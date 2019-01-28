@@ -106,7 +106,7 @@ function parse(source) {
 module.exports.traverse = traverse;
 module.exports.types = types;
 module.exports.template = template;
-module.exports.template = generate;
+module.exports.generate = generate;
 
 function getPath(item) {
     return item.path || item;
