@@ -1,3 +1,13 @@
+2019.01.28, v3.16.0
+
+fix:
+- (merge-destructuring-properties) rm recast
+
+feature:
+- (plugin-apply-destructuring) add
+- (plugin-merge-destructuring-properties) add
+
+
 2019.01.28, v3.15.2
 
 fix:
