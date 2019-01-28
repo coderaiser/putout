@@ -22,7 +22,6 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "@babel/generator": "^7.3.0"
   },
   "keywords": [
     "putout",

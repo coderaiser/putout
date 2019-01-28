@@ -1,10 +1,9 @@
 'use strict';
 
 const {
-    types
+    types,
+    generate,
 } = require('putout');
-
-const generate = require('@babel/generator').default;
 
 const {
     isObjectPattern
