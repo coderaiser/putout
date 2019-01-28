@@ -10,6 +10,7 @@
         "remove-empty": true,
         "remove-empty-pattern": true,
         "convert-esm-to-commonjs": false
+        "merge-destructuring-properties": true
     },
     "plugins": [
         "remove-unused-variables",
@@ -21,7 +22,8 @@
         "split-variable-declarations",
         "remove-empty",
         "remove-empty-pattern",
-        "convert-esm-to-commonjs"
+        "convert-esm-to-commonjs",
+        "merge-destructuring-properties"
     ]
 }
 

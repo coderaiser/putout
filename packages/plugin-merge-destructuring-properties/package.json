@@ -1,0 +1,57 @@
+{
+  "name": "@putout/plugin-merge-destructuring-properties",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin adds ability to merge destructuring properties",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/merge-destructuring-properties.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "putout": "putout lib test",
+    "putout:fix": "putout --fix lib test",
+    "coverage": "madrun coverage"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.3.0",
+    "recast": "^0.16.2"
+  },
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "destructuring"
+  ],
+  "devDependencies": {
+    "@putout/eslint-config": "^1.0.1",
+    "@putout/test": "^1.0.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^5.6.0",
+    "eslint-plugin-node": "^8.0.0",
+    "lerna": "^3.8.5",
+    "madrun": "^1.0.1",
+    "nodemon": "^1.14.12",
+    "nyc": "^13.0.1",
+    "putout": "^3.9.0",
+    "supertape": "^1.0.3"
+  },
+  "peerDependencies": {
+    "putout": ">3.15"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
