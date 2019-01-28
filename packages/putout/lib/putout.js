@@ -69,7 +69,7 @@ module.exports = (source, opts) => {
             });
             
             fix(opts.fix, plugin.fix, {
-                path,
+                path: item,
                 position,
             });
         }
