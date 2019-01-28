@@ -15,7 +15,7 @@ npm i @putout/plugin-convert-esm-to-commonjs
 
 ## Rule
 
-Rule `convert-esm-to-commonjs` is disabled by default, to disable add to `.putout.json`:
+Rule `convert-esm-to-commonjs` is disabled by default, to enable add to `.putout.json`:
 
 ```json
 {
