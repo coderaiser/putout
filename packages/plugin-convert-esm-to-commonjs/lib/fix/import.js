@@ -8,7 +8,23 @@ const {
 
 const {template} = require('putout');
 
-const getName= ({source}) => source.raw;
+const getName = ({source}) => source.raw;
+
+const convert = template(`
+    const DECLARATION = require(NAME);
+`);
+
+const convertDestructureRename = template(`
+    const {
+          IMPORTED: LOCAL,
+    } = require(NAME);
+`);
+
+const convertDestructure = template(`
+    const {
+          IMPORTED,
+    } = require(NAME);
+`);
 
 module.exports.convertImport = (path) => {
     const {node} = path;
@@ -38,10 +54,6 @@ module.exports.convertImport = (path) => {
 };
 
 function getImportDefaultVar(name, node) {
-    const convert = template(`
-        const DECLARATION = require(NAME);
-    `);
-    
     const DECLARATION = node.local;
     const NAME = name;
     
@@ -52,17 +64,17 @@ function getImportDefaultVar(name, node) {
 }
 
 function getImportVar(name, node) {
-    const convert = template(`
-        const {
-              IMPORTED: LOCAL,
-        } = require(NAME);
-    `);
-    
     const IMPORTED = node.imported;
     const LOCAL = node.local;
     const NAME = name;
     
-    return convert({
+    if (IMPORTED.name === LOCAL.name)
+        return convertDestructure({
+            IMPORTED,
+            NAME,
+        });
+    
+    return convertDestructureRename({
         IMPORTED,
         LOCAL,
         NAME,

@@ -3,6 +3,6 @@ const {
 } = require('./hi');
 
 const {
-  set: set
+  set
 } = require('./hi');
 
