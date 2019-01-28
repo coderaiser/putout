@@ -7,8 +7,7 @@ const {
 const generate = require('@babel/generator').default;
 
 const {
-    isIdentifier,
-    isObjectPattern,
+    isObjectPattern
 } = types;
 
 const notEmptyPlaces = (a) => a.places.length;
@@ -29,10 +28,7 @@ module.exports= (ast, {traverse}) => {
             if (!isObjectPattern(id))
                 return;
             
-            for (const {value} of id.properties) {
-                if (isIdentifier(value))
-                    add(path, init);
-            }
+            add(path, init);
         }
     });
     

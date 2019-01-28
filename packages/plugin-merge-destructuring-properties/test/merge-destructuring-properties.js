@@ -15,3 +15,7 @@ test('plugin-merge-destructuring-properties: transform: object', (t) => {
     t.end();
 });
 
+test('plugin-merge-destructuring-properties: transform: properties', (t) => {
+    t.transform('properties');
+    t.end();
+});
