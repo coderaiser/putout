@@ -22,7 +22,6 @@ module.exports = (path) => {
             PROPERTY
         } = OBJECT;
     `);
-
     
     const resultNode = convert({
         PROPERTY,
