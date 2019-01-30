@@ -15,8 +15,6 @@ module.exports.report = (path) => {
         callee,
     } = node;
     
-    debugger;
-    
     if (isTryTo(id))
         return '"tryTo" should not be declared'
     
@@ -40,8 +38,6 @@ module.exports.fix = (path) => {
         id,
         callee,
     } = node;
-    
-    debugger;
     
     if (isVariableDeclarator(node) && isTryTo(id))
         return path.remove();
@@ -70,7 +66,6 @@ module.exports.fix = (path) => {
 
 module.exports.find = (ast, {traverse}) => {
     const places = [];
-    debugger;
     
     traverse(ast, {
         VariableDeclarator(path) {
@@ -103,7 +98,7 @@ module.exports.find = (ast, {traverse}) => {
                 places.push(path);
                 return;
             }
-             
+            
             const [argument] = node.arguments;
             if (isRequire(callee) && isTape(argument)) {
                 places.push(path);
