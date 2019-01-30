@@ -2,26 +2,33 @@
 
 const {template} = require('putout');
 
-const convert = template(`
-    const {
-        PROPERTY
-    } = OBJECT;
-`);
-
 module.exports = (path) => {
+    const {
+        node,
+        parentPath,
+    } = path;
+    
     const {
         id,
         init,
-    } = path.node;
+    } = node;
     
     const PROPERTY = id;
     const OBJECT = init.object;
+    const {kind} = parentPath.node;
+    
+    const convert = template(`
+        ${kind} {
+            PROPERTY
+        } = OBJECT;
+    `);
+
     
     const resultNode = convert({
         PROPERTY,
         OBJECT,
     });
     
-    path.parentPath.replaceWith(resultNode);
+    parentPath.replaceWith(resultNode);
 };
 

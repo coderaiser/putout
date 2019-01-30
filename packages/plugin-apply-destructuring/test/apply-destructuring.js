@@ -29,6 +29,11 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
     t.end();
 });
 
+test('plugin-apply-destructuring: transform: vars', (t) => {
+    t.transform('vars');
+    t.end();
+});
+
 test('plugin-apply-destructuring: transform: multiple', (t) => {
     t.transform('multiple', {
         'merge-destructuring-properties': merge
