@@ -2,6 +2,7 @@
 
 const {
     isMemberExpression,
+    isIdentifier,
 } = require('putout').types;
 
 module.exports.fix = require('./fix');
@@ -31,6 +32,14 @@ function isSameName(id, init) {
     if (!isMemberExpression(init))
         return false;
     
-    return id.name === init.property.name;
+    if (!isIdentifier(id))
+        return false;
+    
+    const {name} = id;
+    
+    if (!isIdentifier(init.property, {name}))
+        return false;
+    
+    return true;
 }
 

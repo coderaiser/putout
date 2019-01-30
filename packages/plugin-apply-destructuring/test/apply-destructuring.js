@@ -17,6 +17,19 @@ test('plugin-apply-destructuring: transform: object', (t) => {
     t.end();
 });
 
+test('plugin-apply-destructuring: transform: array', (t) => {
+    const code = 'const name = array[0]';
+    t.transformCode(code, code);
+    t.end();
+});
+
+test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
+    const code = 'const {name} = array[0]';
+    t.transformCode(code, code);
+    t.end();
+});
+
+
 test('plugin-apply-destructuring: transform: multiple', (t) => {
     t.transform('multiple', {
         'merge-destructuring-properties': merge
