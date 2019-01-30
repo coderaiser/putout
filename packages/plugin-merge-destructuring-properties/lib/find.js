@@ -42,7 +42,7 @@ const addVariable = ({vars}) => (path, node) => {
     
     const id = `${uid}-${code}`;
     
-    if (vars[id])
+    if (vars[id] && sameKind(vars[id].path, path))
         return vars[id].places.push(path);
     
     vars[id] = {
@@ -50,4 +50,11 @@ const addVariable = ({vars}) => (path, node) => {
         places: [],
     };
 };
+
+function sameKind(path1, path2) {
+    const kind1 = path1.parentPath.node.kind;
+    const kind2 = path2.parentPath.node.kind;
+    
+    return kind1 === kind2;
+}
 
