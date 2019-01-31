@@ -1,0 +1,42 @@
+{
+  "name": "eslint-plugin-putout",
+  "version": "1.0.0",
+  "description": "eslint plagin for putout",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "coderaiser",
+  "main": "index.js",
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "putout:fix": "bin/putout.js --fix bin lib test",
+    "coverage": "madrun coverage"
+  },
+  "dependencies": {
+    "@putout/eslint-config": "^1.2.0"
+    },
+  "devDependencies": {
+    "eslint": "^5.0.0",
+    "eslint-plugin-node": "^8.0.1",
+    "madrun": "^1.0.1",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "putout": "^3.17.1"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "peerDependencies": {
+    "eslint": ">=5"
+  },
+  "license": "MIT"
+}
