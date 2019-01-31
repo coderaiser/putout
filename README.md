@@ -73,7 +73,10 @@ To configure `putout` add section `putout` to your `package.json` file or create
         "remove-console": true,
         "split-variable-declarations": true,
         "remove-empty": true,
-        "remove-empty-pattern": true
+        "remove-empty-pattern": true,
+        "convert-esm-to-commonjs": false,
+        "apply-destructuring": true,
+        "merge-destructuring-properties": true
     }
 }
 ```
