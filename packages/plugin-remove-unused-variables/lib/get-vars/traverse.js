@@ -79,7 +79,7 @@ const traverseArrayExpression = (use) => {
     
     return (elementsPaths) => {
         for (const elementPath of elementsPaths) {
-            const {node} = elementPath; 
+            const {node} = elementPath;
             
             if (isObjectExpression(node))
                 traverseObjExpression(elementPath.get('properties'));

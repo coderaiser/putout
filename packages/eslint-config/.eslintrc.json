@@ -7,6 +7,9 @@
         "ecmaVersion": 2019
     },
     "rules": {
+        "no-trailing-spaces": ["error", {
+            "skipBlankLines": true
+        }],
         "comma-dangle": ["error", "always-multiline"],
         "prefer-const": "error",
         "no-var": "error",

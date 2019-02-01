@@ -12,7 +12,7 @@ module.exports = {
             category: 'destructuring',
             recommended: true,
         },
-        fixable: 'whitespace', 
+        fixable: 'whitespace',
     },
     
     create(context) {
