@@ -43,7 +43,7 @@
     "supertape": "^1.0.3"
   },
   "peerDependencies": {
-    "putout": ">3.15"
+    "putout": ">=3.15"
   },
   "license": "MIT",
   "engines": {

@@ -38,6 +38,9 @@
     "redrun": "^7.0.2",
     "supertape": "^1.0.3"
   },
+  "peerDependencies": {
+    "putout": ">=3"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=8.3.0"

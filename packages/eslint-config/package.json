@@ -17,7 +17,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "eslint": "^5.6.0"
+    "eslint": ">=5.6.0"
   },
   "keywords": [
     "putout",
