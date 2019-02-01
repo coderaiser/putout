@@ -5,7 +5,7 @@ const {
     isVariableDeclaration,
     isClassDeclaration,
     functionExpression,
-    classExpression
+    classExpression,
 } = require('putout').types;
 
 const {template} = require('putout');

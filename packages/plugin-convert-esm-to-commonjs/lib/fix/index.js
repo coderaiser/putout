@@ -3,7 +3,7 @@
 const {
     isExportNamedDeclaration,
     isExportDefaultDeclaration,
-    isImportDeclaration
+    isImportDeclaration,
 } = require('putout').types;
 
 const {

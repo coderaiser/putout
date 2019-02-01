@@ -4,7 +4,7 @@ const applyDestructuring = require('..');
 const merge = require('@putout/plugin-merge-destructuring-properties');
 
 const test = require('@putout/test')(__dirname, {
-    'apply-destructuring': applyDestructuring 
+    'apply-destructuring': applyDestructuring, 
 });
 
 test('plugin-apply-destructuring: transform: report', (t) => {
@@ -36,7 +36,7 @@ test('plugin-apply-destructuring: transform: vars', (t) => {
 
 test('plugin-apply-destructuring: transform: multiple', (t) => {
     t.transform('multiple', {
-        'merge-destructuring-properties': merge
+        'merge-destructuring-properties': merge,
     });
     
     t.end();

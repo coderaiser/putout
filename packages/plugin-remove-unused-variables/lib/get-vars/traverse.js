@@ -7,14 +7,14 @@ const {
     isObjectPattern,
     isTemplateLiteral,
     isArrayExpression,
-    isAssignmentPattern
+    isAssignmentPattern,
 } = require('putout').types;
 
 const traverseObjectPattern = (use) => {
     return (propertiesPaths) => {
         for (const path of propertiesPaths) {
             const {
-                key
+                key,
             } = path.node;
             
             if (isIdentifier(key))
@@ -133,7 +133,7 @@ const traverseAssignmentPattern = (use) => {
     return (path) => {
         const {node} = path;
         const {
-            right
+            right,
         } = node;
         
         /*

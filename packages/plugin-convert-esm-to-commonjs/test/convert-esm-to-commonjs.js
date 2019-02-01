@@ -2,7 +2,7 @@
 
 const convert = require('..');
 const test = require('@putout/test')(__dirname, {
-    'convert-esm-to-commonjs': convert 
+    'convert-esm-to-commonjs': convert, 
 });
 
 test('plugin-convert-esm-to-commonjs: transform: report', (t) => {

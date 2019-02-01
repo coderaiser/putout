@@ -10,7 +10,7 @@ const {RuleTester} = require('eslint');
 const ruleTester = new RuleTester({
     parserOptions: {
         ecmaVersion: 2019,
-    }
+    },
 });
 
 ruleTester.run('one-line-destructuring', rule, {
@@ -18,7 +18,7 @@ ruleTester.run('one-line-destructuring', rule, {
         `const {hello} = world;`,
         `const {hello} = get({
         });
-        `
+        `,
     ],
     
     invalid: [{
@@ -29,9 +29,8 @@ ruleTester.run('one-line-destructuring', rule, {
             `,
         errors: [{
             message: 'Keep curly braces on one line when you have one destructuring property',
-            type: 'VariableDeclarator'
-        }]
-    }
-    ]
+            type: 'VariableDeclarator',
+        }],
+    }],
 });
 

@@ -16,7 +16,7 @@ module.exports.find = (ast, {traverse}) => {
         },
         ImportDeclaration(path) {
             places.push(path);
-        }
+        },
     });
     
     return places;

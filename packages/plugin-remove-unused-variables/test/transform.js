@@ -15,7 +15,7 @@ test('remove-unused-variables: transform: 1', (t) => {
     const result = transform([{
         str: {
             count: 1,
-        }
+        },
     }]);
     
     const expected = [{
@@ -33,12 +33,12 @@ test('transform: couple', (t) => {
             count: 1,
         },
         str2: {
-            count: 2
+            count: 2,
         },
     }, {
         str2: {
-            count: 3
-        }
+            count: 3,
+        },
     }]);
     
     const expected = [{

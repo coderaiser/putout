@@ -25,6 +25,6 @@ const handler = {
             throw Error(`"${prop}" not found!`);
         
         return obj[prop];
-    }
+    },
 };
 

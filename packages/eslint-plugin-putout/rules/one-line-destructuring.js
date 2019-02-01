@@ -10,7 +10,7 @@ module.exports = {
         docs: {
             description: 'Keep curly braces on one line when you have one destructuring property',
             category: 'destructuring',
-            recommended: true
+            recommended: true,
         },
         fixable: 'whitespace', 
     },
@@ -47,12 +47,12 @@ module.exports = {
                         const name = key === value ? key.name : `${key.name}: ${value.name}`;
                         
                         return [
-                            fixer.replaceText(id, `{${name}}`)
+                            fixer.replaceText(id, `{${name}}`),
                         ];
-                    }
+                    },
                 });
-            }
+            },
         };
-    }
+    },
 };
 

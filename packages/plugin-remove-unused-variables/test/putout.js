@@ -11,7 +11,7 @@ const putout = (code) => {
     return _putout(code, {
         plugins: [{
             'remove-unused-variables': removeUnusedVariables,
-        }]
+        }],
     });
 };
 

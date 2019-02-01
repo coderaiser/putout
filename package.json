@@ -6,6 +6,7 @@
     "coverage": "lerna run coverage",
     "report": "lerna run report",
     "lint": "lerna run lint",
+    "fix:lint": "lerna run fix:lint",
     "bootstrap": "lerna bootstrap --no-ci"
   },
   "devDependencies": {

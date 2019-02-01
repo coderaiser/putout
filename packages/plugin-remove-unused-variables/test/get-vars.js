@@ -294,7 +294,7 @@ test('remove-unused-variables: get-vars: new-expression', (t) => {
         Proxy: _u,
         a: _u,
         accessToken: du,
-        DropBox: _u
+        DropBox: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -450,7 +450,7 @@ test('remove-unused-variables: get-vars: destr fn vars', (t) => {
     const expected = [{
         readFileSync: {
             declared: true,
-            used: true
+            used: true,
         },
         require: {
             declared: false,
@@ -473,7 +473,7 @@ test('remove-unused-variables: get-vars: export default declaration', (t) => {
     const expected = [{
         addCommands: {
             declared: true,
-            used: true
+            used: true,
         },
     }];
     
@@ -488,7 +488,7 @@ test('remove-unused-variables: get-vars: export named declaration', (t) => {
     const expected = [{
         copyToClipboard: {
             declared: true,
-            used: true
+            used: true,
         },
     }];
     
@@ -504,12 +504,12 @@ test('remove-unused-variables: get-vars: no root vars', (t) => {
         module: {
             declared: false,
             used: true,
-        }
+        },
     }, {
         m: {
             declared: true,
             used: false,
-        }
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -536,7 +536,7 @@ test('remove-unused-variables: get-vars: fn call', (t) => {
         require: {
             declared: false,
             used: true,
-        }
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -596,12 +596,12 @@ test('remove-unused-variables: get-vars: fn vars', (t) => {
         module: {
             declared: false,
             used: true,
-        }
+        },
     }, {
         one: {
             declared: true,
             used: false,
-        }
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -689,7 +689,7 @@ test('remove-unused-variables: get-vars: fn destr args vars', (t) => {
         arrow: {
             declared: true,
             used: false,
-        }
+        },
     }, {
         one: {
             declared: true,
@@ -709,7 +709,7 @@ test('remove-unused-variables: get-vars: fn hoisted vars', (t) => {
         log: {
             declared: true,
             used: true,
-        }
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -728,7 +728,7 @@ test('remove-unused-variables: get-vars: arrow vars', (t) => {
         f: {
             declared: true,
             used: false,
-        }
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -748,7 +748,7 @@ test('remove-unused-variables: get-vars: scope vars', (t) => {
         m: {
             declared: true,
             used: false,
-        }
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -767,7 +767,7 @@ test('remove-unused-variables: get-vars: shorthand vars', (t) => {
         t: {
             declared: true,
             used: false,
-        }
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -800,7 +800,7 @@ test('remove-unused-variables: get-vars: obj prop', (t) => {
         module: {
             declared: true,
             used: true,
-        }
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -823,7 +823,7 @@ test('remove-unused-variables: get-vars: spread vars', (t) => {
         spread: {
             declared: true,
             used: false,
-        }
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -842,7 +842,7 @@ test('remove-unused-variables: get-vars: template literal', (t) => {
         console: _u,
         f: d_,
         module:_u,
-        assign: d_
+        assign: d_,
     }, {
         a: du,
     }, {
@@ -879,7 +879,7 @@ test('remove-unused-variables: get-vars: undeclared vars', (t) => {
         module: {
             declared: false,
             used: true,
-        }
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');

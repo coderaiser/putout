@@ -16,7 +16,7 @@ const {
     traverseObjectExpression,
     traverseArrayExpression,
     traverseAssignmentExpression,
-    traverseTemplateLiteral
+    traverseTemplateLiteral,
 } = require('./traverse');
 
 const {assign} = Object;
@@ -54,7 +54,7 @@ module.exports = ({
                         const nodePath = isOne ? path : propPath;
                         
                         declare(nodePath, propPath.node.value.name);
-                    }
+                    },
                 });
             } else if (isArrayPattern(node.id)) {
                 idPath.traverse({
@@ -69,7 +69,7 @@ module.exports = ({
                         });
                         
                         declare(elPath, elPath.node.name);
-                    }
+                    },
                 });
             }
             
@@ -229,7 +229,7 @@ module.exports = ({
             path.get('test').traverse({
                 Identifier(path) {
                     use(path, path.node.name);
-                }
+                },
             });
         },
         
@@ -249,13 +249,13 @@ module.exports = ({
                 path.get('left').traverse({
                     Identifier(leftPath) {
                         declare(path, leftPath.node.name);
-                    }
+                    },
                 });
             
             path.get('left').traverse({
                 Identifier(path) {
                     use(path, path.node.name);
-                }
+                },
             });
         },
         
@@ -347,7 +347,7 @@ module.exports = ({
                 Identifier(path) {
                     if (node.arguments.includes(path.node))
                         use(path, path.node.name);
-                }
+                },
             });
         },
         

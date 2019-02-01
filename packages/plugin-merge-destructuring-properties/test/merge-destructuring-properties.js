@@ -2,7 +2,7 @@
 
 const preferDestructuring = require('..');
 const test = require('@putout/test')(__dirname, {
-    'merge-destructuring-properties': preferDestructuring 
+    'merge-destructuring-properties': preferDestructuring, 
 });
 
 test('plugin-merge-destructuring-properties: transform: report', (t) => {

@@ -6,7 +6,7 @@ const {
 } = require('putout');
 
 const {
-    isObjectPattern
+    isObjectPattern,
 } = types;
 
 const notEmptyPlaces = (a) => a.places.length;
@@ -28,7 +28,7 @@ module.exports= (ast, {traverse}) => {
                 return;
             
             add(path, init);
-        }
+        },
     });
     
     return Object
