@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@putout/eslint-config": "^1.2.0"
-    },
+  },
   "devDependencies": {
     "eslint": "^5.0.0",
     "eslint-plugin-node": "^8.0.1",
@@ -38,5 +38,8 @@
   "peerDependencies": {
     "eslint": ">=5"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }
