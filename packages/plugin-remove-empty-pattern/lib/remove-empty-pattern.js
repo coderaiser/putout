@@ -35,7 +35,7 @@ module.exports.find = (ast, {traverse}) => {
                 places.push(path);
                 return;
             }
-        }
+        },
     });
     
     return places;

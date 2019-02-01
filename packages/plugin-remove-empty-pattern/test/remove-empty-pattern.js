@@ -2,7 +2,7 @@
 
 const removeConsole = require('..');
 const test = require('@putout/test')(__dirname, {
-    'remove-empty-pattern': removeConsole
+    'remove-empty-pattern': removeConsole,
 });
 
 test('plugin-remove-empty-pattern: report: object', (t) => {
