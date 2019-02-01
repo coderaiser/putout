@@ -2,6 +2,9 @@
   "name": "eslint-plugin-putout",
   "version": "1.0.1",
   "description": "eslint plagin for putout",
+  "release": false,
+  "tag": false,
+  "changelog": false,
   "repository": {
     "type": "git",
     "url": "git://github.com/coderaiser/putout.git"
