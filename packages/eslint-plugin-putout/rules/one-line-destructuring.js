@@ -28,9 +28,9 @@ module.exports = {
                 
                 const text = context
                     .getSourceCode()
-                    .getText(node);
+                    .getText(node.parent);
                 
-                if (!text.includes('{\n'))
+                if (!/(const|let|var) \{\n/.test(text))
                     return;
                 
                 context.report({
