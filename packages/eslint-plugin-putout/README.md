@@ -1,19 +1,11 @@
 # eslint-plugin-putout
 
-eslint plagin for putout
+[ESLint](https://eslint.org) plagin for putout.
 
 ## Installation
 
-You'll first need to install [ESLint](http://eslint.org):
-
 ```
-$ npm i eslint --save-dev
-```
-
-Next, install `eslint-plugin-putout`:
-
-```
-$ npm install eslint-plugin-putout --save-dev
+$ npm i eslint eslint-plugin-putout -D
 ```
 
 **Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-putout` globally.
@@ -30,22 +22,17 @@ Add `putout` to the plugins section of your `.eslintrc` configuration file. You 
 }
 ```
 
-
 Then configure the rules you want to use under the rules section.
 
 ```json
 {
     "rules": {
-        "putout/rule-name": 2
+        "putout/one-line-destructuring": "error"
     }
 }
 ```
 
 ## Supported Rules
 
-* Fill in provided rules here
-
-
-
-
+- [One line destructuring](docs/rules/one-line-destructuring.md)
 
