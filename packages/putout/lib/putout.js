@@ -76,9 +76,7 @@ module.exports = (source, opts) => {
         }
     }
     
-    const {
-        code: printed,
-    } = recast.print(ast, printOptions);
+    const {code: printed} = recast.print(ast, printOptions);
     
     const aligned = alignSpaces(printed);
     const code = fixStrictMode(`${shebang}${aligned}`);
