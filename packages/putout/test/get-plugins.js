@@ -38,7 +38,7 @@ test('get-plugins: user plugin', (t) => {
     const {code} = putout(`const t = 'hello'`, {
         plugins: [
             rmVars,
-        ]
+        ],
     });
     
     mockRequire.stopAll();
@@ -61,8 +61,8 @@ test('get-plugins: can not find', (t) => {
     
     const [e] = tryCatch(putout, `const t = 'hello'`, {
         plugins: [
-            'remove-unused-variables'
-        ]
+            'remove-unused-variables',
+        ],
     });
     
     mockRequire.stopAll();
@@ -86,8 +86,8 @@ test('get-plugins: function', (t) => {
     
     const {code} = putout(`const t = 'hello'`, {
         plugins: [{
-            [rmVars]: rmVarsPlugin
-        }]
+            [rmVars]: rmVarsPlugin,
+        }],
     });
     
     stopAll();
@@ -110,8 +110,8 @@ test('get-plugins: disabled rule', (t) => {
             [rmVars]: false,
         },
         plugins: [{
-            [rmVars]: rmVarsPlugin
-        }]
+            [rmVars]: rmVarsPlugin,
+        }],
     });
     
     stopAll();

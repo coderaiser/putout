@@ -29,7 +29,7 @@ const defaultOpts = (opts = {}) => {
     if (isUndefined(opts.fix))
         return {
             ...opts,
-            fix: true
+            fix: true,
         };
     
     return opts;

@@ -61,7 +61,7 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
     },
     default: {
         fix: false,
-    }
+    },
 });
 
 const {
@@ -183,7 +183,7 @@ function processFiles(name) {
         table(data, {
             border: getBorderCharacters('void'),
             drawHorizontalLine: () => false,
-        })
+        }),
     ].join('\n');
 }
 
@@ -284,7 +284,7 @@ function _readCodeMods() {
         const shortName = name.replace('putout-plugin-');
         
         plugins.push({
-            [shortName]: plugin
+            [shortName]: plugin,
         });
     }
     

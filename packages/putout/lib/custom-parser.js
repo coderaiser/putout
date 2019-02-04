@@ -31,8 +31,8 @@ function espreeParse(source) {
         ecmaVersion: 2019,
         sourceType: 'module',
         ecmaFeatures: {
-            jsx: true
-        }
+            jsx: true,
+        },
     });
 }
 

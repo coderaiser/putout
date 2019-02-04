@@ -32,8 +32,8 @@ test('putout: no vars', (t) => {
 test('putout: root vars', (t) => {
     const result = putout(fixture.rootVars, {
         plugins: [
-            'remove-unused-variables'
-        ]
+            'remove-unused-variables',
+        ],
     });
     const expected = {
         code: fixture.rootVars,
@@ -48,7 +48,7 @@ test('putout: align', (t) => {
     const {code} = putout(fixture.notAligned, {
         plugins: [
             'remove-unused-variables',
-        ]
+        ],
     });
     
     t.deepEqual(code, fixture.aligned, 'should equal');
@@ -59,7 +59,7 @@ test('putout: shebang', (t) => {
     const {code} = putout(fixture.shebang, {
         plugins: [
             'remove-unused-variables',
-        ]
+        ],
     });
     const expected = fixture.shebangFix;
     
@@ -71,7 +71,7 @@ test('putout: shebang: message', (t) => {
     const {places} = putout(fixture.shebang, {
         plugins: [
             'remove-unused-variables',
-        ]
+        ],
     });
     
     const {position} = places[0];
@@ -87,7 +87,7 @@ test('putout: shebang', (t) => {
     const {code} = putout(fixture.shebang, {
         plugins: [
             'remove-unused-variables',
-        ]
+        ],
     });
     const expected = fixture.shebangFix;
     
@@ -99,7 +99,7 @@ test('putout: export default declaration', (t) => {
     const {code} = putout(fixture.exportDefaultDeclaration, {
         plugins: [
             'remove-unused-variables',
-        ]
+        ],
     });
     
     const expected = fixture.exportDefaultDeclarationFix;
@@ -112,7 +112,7 @@ test('putout: use strict', (t) => {
     const {code} = putout(fixture.strictMode, {
         plugins: [
             'remove-unused-variables',
-        ]
+        ],
     });
     
     const expected = fixture.strictModeFix;
@@ -143,7 +143,7 @@ test('putout: no loc', (t) => {
                 Program(path) {
                     path.node.loc = null;
                     places.push(path);
-                }
+                },
             });
             
             return places;
@@ -153,7 +153,7 @@ test('putout: no loc', (t) => {
     const {places} = putout('', {
         plugins: [{
             'add-variable': addVar,
-        }]
+        }],
     });
     
     const expected = [{
@@ -162,7 +162,7 @@ test('putout: no loc', (t) => {
         position: {
             line: 'x',
             column: 'x',
-        }
+        },
     }];
     
     t.deepEqual(places, expected, 'should equal');

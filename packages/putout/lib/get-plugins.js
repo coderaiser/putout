@@ -76,7 +76,7 @@ function requirePlugin(name, fn) {
 const getModulePath = (name) => {
     return Module._findPath(name, [
         `${cwd()}/node_modules`,
-        ...module.paths
+        ...module.paths,
     ]);
 };
 
