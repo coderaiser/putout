@@ -17,14 +17,8 @@ module.exports = {
     
     create(context) {
         return {
-            VariableDeclarator(node) {
+            'VariableDeclarator[id.type="ObjectPattern"][id.properties.length=1]': (node) => {
                 const {id} = node;
-                
-                if (id.type !== 'ObjectPattern')
-                    return;
-                
-                if (id.properties.length !== 1)
-                    return;
                 
                 const text = context
                     .getSourceCode()
