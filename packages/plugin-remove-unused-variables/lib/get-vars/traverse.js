@@ -65,7 +65,7 @@ const traverseObjectExpression = (use) => {
             
             if (isAssignmentPattern(value)) {
                 const traverse = traverseAssignmentPattern(use);
-                traverse(path.get('value'));
+                traverse(path.get('value.right'));
                 continue;
             }
         }
@@ -97,24 +97,17 @@ const traverseAssignmentExpression = (use) => {
     
     return (path) => {
         const {node} = path;
-        const {
-            left,
-            right,
-        } = node;
         
-        if (isIdentifier(left))
-            use(path, left.name);
-        else if (isObjectPattern(left))
-            traverseObjPattern(path.get('left.properties'));
-        
-        if (isIdentifier(right))
-            use(path, right.name);
-        else if (isObjectExpression(right))
-            traverseObjExpression(path.get('right.properties'));
-        else if (isTemplateLiteral(right))
-            traverseTmpl(path, right.expressions);
-        else if (isArrayExpression(right))
-            traverseArray(path.get('right.elements'));
+        if (isIdentifier(node))
+            use(path.parentPath, node.name);
+        else if (isObjectExpression(node))
+            traverseObjExpression(path.get('properties'));
+        else if (isTemplateLiteral(node))
+            traverseTmpl(path, node.expressions);
+        else if (isArrayExpression(node))
+            traverseArray(path.get('elements'));
+        else if (isObjectPattern(node))
+            traverseObjPattern(path.get('properties'));
     };
 };
 
@@ -130,19 +123,13 @@ const traverseTemplateLiteral = (use) => (path, expressions) => {
 module.exports.traverseTemplateLiteral = traverseTemplateLiteral;
 
 const traverseAssignmentPattern = (use) => {
+    const traverseObjExpression = traverseObjectExpression(use);
+    
     return (path) => {
         const {node} = path;
-        const {
-            right,
-        } = node;
         
-        /*
-        if (isIdentifier(left))
-            declare(path, left.name);
-            */
-        
-        if (isIdentifier(right))
-            use(path, right.name);
+        if (isIdentifier(node))
+            use(path.parentPath, node.name);
     };
 };
 

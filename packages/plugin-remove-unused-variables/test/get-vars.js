@@ -16,6 +16,7 @@ const fixture = readFixtures([
     'arrow-function-expression',
     'arrow-vars',
     'assignment-expression',
+    'assignment-pattern',
     'binary-expression',
     'call-expression',
     'conditional-expression',
@@ -225,6 +226,21 @@ test('remove-unused-variables: get-vars: assignment expression', (t) => {
         b: du,
         c: du,
         obj: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: assignment pattern', (t) => {
+    const ast = parse(fixture.assignmentPattern);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        noop: du,
+        fn: d_,
+    }, {
+        f: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -886,7 +902,7 @@ test('remove-unused-variables: get-vars: undeclared vars', (t) => {
     t.end();
 });
 
-test('remove-unused-variables: get-vars: variable-declarator', (t) => {
+test('remove-unused-variables: get-vars: variable declarator', (t) => {
     const ast = parse(fixture.variableDeclarator);
     const result = getVars(ast).map(dutify);
     

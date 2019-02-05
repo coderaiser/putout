@@ -91,7 +91,7 @@ module.exports = ({
                 id,
                 superClass,
             } = node;
-          
+            
             if (superClass)
                 use(path, superClass.name);
             
@@ -99,7 +99,8 @@ module.exports = ({
         },
         
         AssignmentExpression(path) {
-            traverseAssign(path);
+            traverseAssign(path.get('left'));
+            traverseAssign(path.get('right'));
         },
         
         ArrayExpression(path) {
@@ -300,7 +301,8 @@ module.exports = ({
                 }
                 
                 if (isAssignmentPattern(node)) {
-                    declareAssign(paramPath);
+                    declareAssign(paramPath.get('left'));
+                    traverseAssign(paramPath.get('right'));
                     continue;
                 }
             }
@@ -324,7 +326,7 @@ module.exports = ({
             
             if (isIdentifier(callee))
                 use(path, node.callee.name);
-             
+            
             path.traverse({
                 TemplateLiteral(path) {
                     const {node} = path;
@@ -398,7 +400,8 @@ module.exports = ({
                 }
                 
                 if (isAssignmentPattern(node)) {
-                    declareAssign(paramPath);
+                    declareAssign(paramPath.get('left'));
+                    traverseAssign(paramPath.get('right'));
                     continue;
                 }
                 
