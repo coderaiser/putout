@@ -50,6 +50,9 @@ module.exports = (source, opts) => {
             find,
         } = plugin;
         
+        for (var i = 1; i < 10000000; i++) {
+        }
+        
         const items = find(ast, {
             traverse,
             types,

@@ -2,6 +2,8 @@
 
 'use strict';
 
+const {promisify} = require('util');
+
 const {
     extname,
     resolve,
@@ -9,11 +11,16 @@ const {
 } = require('path');
 
 const {
+    readFile,
+    writeFile,
     readFileSync,
     writeFileSync,
     readdirSync,
     statSync,
 } = require('fs');
+
+const read = promisify(readFile);
+const write = promisify(writeFile);
 
 const {
     underline,
@@ -38,6 +45,7 @@ const {cwd} = process;
 const defaultOptions = require('../putout.json');
 
 const putout = require('..');
+const batch = require('../lib/batch');
 const parseMatch = require('../lib/parse-match');
 const getRelativePath = require('../lib/get-relative-path');
 const readCodeMods = once(_readCodeMods);
@@ -92,19 +100,28 @@ let filesCount = 0;
 
 const ignore = require('ignore');
 
+/*
 const output = files
     .map(processFiles)
     .filter(Boolean);
+*/
 
-if (output.length) {
-    process.stdout.write('\n');
-    output.map(one(console.log));
+main();
+
+async function main() {
+    const batchResult = await batch(processFiles, 200, files)
+    const output = batchResult.filter(Boolean);
     
-    console.log(bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)));
-    console.log(bold(redBright('  fixable with the `--fix` option')));
+    if (output.length) {
+        process.stdout.write('\n');
+        output.map(one(console.log));
+        
+        console.log(bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)));
+        console.log(bold(redBright('  fixable with the `--fix` option')));
+    }
 }
 
-function processFiles(name) {
+async function processFiles(name) {
     const dir = dirname(name);
     const [dirOpt, currOpt] = getOptions(dir);
     const options = mergeOptions(currOpt);
