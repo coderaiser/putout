@@ -123,8 +123,6 @@ const traverseTemplateLiteral = (use) => (path, expressions) => {
 module.exports.traverseTemplateLiteral = traverseTemplateLiteral;
 
 const traverseAssignmentPattern = (use) => {
-    const traverseObjExpression = traverseObjectExpression(use);
-    
     return (path) => {
         const {node} = path;
         
