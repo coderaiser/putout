@@ -108,6 +108,20 @@ test('putout: export default declaration', (t) => {
     t.end();
 });
 
+test('putout: export default declaration: espree', (t) => {
+    const {code} = putout(fixture.exportDefaultDeclaration, {
+        parser: 'espree',
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = fixture.exportDefaultDeclarationFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
 test('putout: use strict', (t) => {
     const {code} = putout(fixture.strictMode, {
         plugins: [

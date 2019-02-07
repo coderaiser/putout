@@ -19,11 +19,11 @@ const printOptions = {
     quote: 'single',
 };
 
-const parser = {
+const getParser = (parser) => ({
     parse(source) {
-        return toBabel(customParser(source));
+        return toBabel(customParser(source, parser));
     },
-};
+});
 
 const defaultOpts = (opts = {}) => {
     if (isUndefined(opts.fix))
@@ -37,10 +37,11 @@ const defaultOpts = (opts = {}) => {
 
 module.exports = (source, opts) => {
     opts = defaultOpts(opts);
+    const {parser} = opts;
     
     const [clearSource, shebang] = cutShebang(source);
     
-    const ast = parse(clearSource);
+    const ast = parse(clearSource, parser);
     const plugins = getPlugins(opts);
     const places = [];
     
@@ -93,9 +94,9 @@ const fixStrictMode = (a) => {
 };
 
 module.exports.parse = parse;
-function parse(source) {
+function parse(source, parser = 'babel') {
     const ast = recast.parse(source, {
-        parser,
+        parser: getParser(parser),
     });
     
     return ast;

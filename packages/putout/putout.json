@@ -1,4 +1,5 @@
 {
+    "parser": "babel",
     "rules": {
         "remove-unused-variables": true,
         "remove-debugger": true,
