@@ -11,7 +11,7 @@
 ## Install
 
 ```
-npm i @putout/eslint-config eslint redrun -D
+npm i @putout/eslint-config eslint madrun -D
 ```
 
 ## Usage
@@ -31,21 +31,28 @@ Add `scripts` section to `package.json`:
 ```json
 {
     "scripts": {
-        "lint": "redrun transform lint:eslint",
-        "lint:fix": "redrun transform:fix lint:eslint:fix",
-        "lint:eslint": "eslint lib",
-        "lint:eslint:fix": "redrun lint -- --fix",
-        "transform": "putout lib",
-        "transform:fix": "putout lib --fix"
+        "lint": "madrun lint,
+        "fix:lint": "madrun fix:lint"
     }
 }
 ```
 
-Run scripts using [redrun](https://github.com/coderaiser/redrun):
+And create file [madrun file](https://github.com/coderaiser/madrun) `.madrun.js`:
+
+```js
+const {series} = require('madrun');
+
+module.exports = {
+    'eslint': () => `eslint lib test`,
+    'putout': () => `putout lib test`,
+    'lint': () => series(['putout', 'eslint'),
+    'fix:lint': () => series(['putout', 'eslint'], '--fix'),
+};
+```
 
 ```sh
-$ redrun lint
-$ redrun lint:fix
+$ npm run lint
+$ npm run lint:fix
 
 ```
 
