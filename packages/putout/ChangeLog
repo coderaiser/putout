@@ -1,3 +1,11 @@
+2019.02.07, v3.18.0
+
+feature:
+- (putout) add support of parser
+- (plugin-remove-unused-variables) split AssingmentExpression and assignmentPattrn
+- (eslint-plugin-putout) one-line-destructuring: condition -> selector
+
+
 2019.02.04, v3.17.3
 
 feature:
