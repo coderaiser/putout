@@ -21,6 +21,7 @@ function babelParse(source) {
 }
 
 function espreeParse(source) {
+    /* eslint node/no-unpublished-require: 0 */
     const {parse} = require('espree');
     const preventUsingEsprima = true;
    
