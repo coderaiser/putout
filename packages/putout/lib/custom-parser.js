@@ -4,7 +4,10 @@ module.exports = (source, parser) => {
     if (parser === 'babel')
         return babelParse(source);
     
-    return espreeParse(source);
+    if (parser === 'espree')
+        return espreeParse(source);
+    
+    return require(parser).parse(source);
 };
 
 function babelParse(source) {

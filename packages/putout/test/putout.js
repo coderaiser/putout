@@ -1,6 +1,7 @@
 'use strict';
 
 const test = require('supertape');
+const tryCatch = require('try-catch');
 
 const putout = require('..');
 const {readFixtures} = require('./fixture');
@@ -119,6 +120,19 @@ test('putout: export default declaration: espree', (t) => {
     const expected = fixture.exportDefaultDeclarationFix;
     
     t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: export default declaration: custom parser', (t) => {
+    const [e] = tryCatch(putout, fixture.exportDefaultDeclaration, {
+        parser: 'custom',
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = `Cannot find module 'custom'`;
+    t.deepEqual(e.message, expected, 'should equal');
     t.end();
 });
 
