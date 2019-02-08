@@ -33,7 +33,7 @@ module.exports.find = (ast, {traverse}) => {
                 return;
             
             traverseProperty('only', path, property, push);
-        }
+        },
     });
     
     return places;
