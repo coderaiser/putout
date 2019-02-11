@@ -13,16 +13,11 @@
     "url": "git://github.com/coderaiser/putout.git"
   },
   "scripts": {
-    "test": "tape 'test/*.js'",
-    "test:diff": "npm test | tap-diff",
-    "watch:test": "nodemon -w lib -w test -x \"npm test\"",
-    "lint:eslint": "eslint lib test --ignore-pattern test/fixture",
-    "lint:eslint:fix": "redrun lint:eslint -- --fix",
-    "lint": "redrun transform lint:eslint",
-    "lint:fix": "redrun transform:fix lint:eslint:fix",
-    "transform": "putout lib test",
-    "transform:fix": "redrun transform -- --fix",
-    "coverage": "nyc npm test"
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage"
   },
   "dependencies": {
     "putout": "^3.3.2",
@@ -42,9 +37,9 @@
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-tape": "^1.1.0",
     "lerna": "^3.8.5",
+    "madrun": "^1.1.1",
     "nodemon": "^1.14.12",
     "nyc": "^13.0.1",
-    "redrun": "^7.0.2",
     "try-to-tape": "^1.1.0"
   },
   "license": "MIT",
