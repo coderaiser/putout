@@ -1,3 +1,13 @@
+2019.02.11, v3.20.1
+
+fix:
+- (putout) get-plugin: node_modules search
+- (@putout/test) rm rules
+
+feature:
+- (@putout/test) add support of rules property of plugin
+
+
 2019.02.11, v3.20.0
 
 feature:
