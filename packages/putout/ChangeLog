@@ -1,3 +1,10 @@
+2019.02.11, v3.20.0
+
+feature:
+- (get-plugins) add support of rules
+- (plugin-remove-only) redrun -> madrun
+
+
 2019.02.08, v3.19.0
 
 feature:
