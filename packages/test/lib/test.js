@@ -92,7 +92,24 @@ function preTest(test, plugin) {
         report,
         find,
         fix,
+        rules,
     }] = entries(plugin).pop();
+    
+    if (rules) {
+        test(`${name}: rules is an object`, (t) => {
+            t.equal(typeof rules, 'object', 'should export "rules" object');
+            t.end();
+        });
+        
+        const entries = Object.entries(rules);
+        for (const [entryName, plugin] of entries) {
+            preTest(test, {
+                [`${name}/${entryName}`]: plugin,
+            });
+        }
+        
+        return;
+    }
     
     test(`${name}: report: is function`, (t) => {
         t.equal(typeof report, 'function', 'should export "report" function');
