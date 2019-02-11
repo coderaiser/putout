@@ -96,6 +96,73 @@ test('get-plugins: function', (t) => {
     t.end();
 });
 
+test('get-plugins: function: rules', (t) => {
+    const rmVars = 'remove-unused-variables';
+    const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
+    
+    mockRequire(`@putout/plugin-${rmVars}`, null);
+    
+    reRequire('../lib/get-plugins');
+    const putout = reRequire('..');
+    
+    const {code} = putout(`const t = 'hello'`, {
+        plugins: [{
+            'brand-new-rule': {
+                rules: {
+                    [rmVars]: rmVarsPlugin,
+                },
+            },
+        }],
+    });
+    
+    stopAll();
+    
+    t.equal(code, '', 'should equal');
+    t.end();
+});
+
+test('get-plugins: function', (t) => {
+    const rmVars = 'remove-unused-variables';
+    const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
+    
+    mockRequire(`@putout/plugin-${rmVars}`, null);
+    
+    reRequire('../lib/get-plugins');
+    const putout = reRequire('..');
+    
+    const {code} = putout(`const t = 'hello'`, {
+        plugins: [{
+            [rmVars]: rmVarsPlugin,
+        }],
+    });
+    
+    stopAll();
+    
+    t.equal(code, '', 'should equal');
+    t.end();
+});
+
+test('get-plugins: function', (t) => {
+    const rmVars = 'remove-unused-variables';
+    const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
+    
+    mockRequire(`@putout/plugin-${rmVars}`, null);
+    
+    reRequire('../lib/get-plugins');
+    const putout = reRequire('..');
+    
+    const {code} = putout(`const t = 'hello'`, {
+        plugins: [{
+            [rmVars]: rmVarsPlugin,
+        }],
+    });
+    
+    stopAll();
+    
+    t.equal(code, '', 'should equal');
+    t.end();
+});
+
 test('get-plugins: disabled rule', (t) => {
     const rmVars = 'remove-unused-variables';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);

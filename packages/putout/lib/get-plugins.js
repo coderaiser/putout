@@ -30,19 +30,57 @@ module.exports = (options = {}) => {
         rules = [],
     } = options;
     
-    const names = parsePluginNames(plugins);
     const result = [];
+    const names = parsePluginNames(plugins);
+    const pluginItems = loadPlugins(names);
     
-    for (const [name, fn] of names) {
+    for (const [name, fn] of pluginItems) {
         if (isDisabled(rules[name]))
             continue;
         
-        const plugin = requirePlugin(name, fn);
-        result.push(plugin);
+        result.push([
+            name,
+            fn,
+        ]);
     }
     
     return result;
 };
+
+function loadPlugins(items) {
+    const plugins = [];
+    
+    for (const [name, fn] of items) {
+        const [rule, plugin] = requirePlugin(name, fn);
+        const {rules} = plugin;
+        
+        if (rules) {
+            plugins.push(...extendRules(rule, rules));
+            continue;
+        }
+        
+        plugins.push([
+            rule,
+            plugin,
+        ]);
+    }
+    
+    return plugins;
+}
+
+function extendRules(rule, plugin) {
+    const result = [];
+    const entries = Object.entries(plugin);
+    
+    for (const [name, fn] of entries) {
+        result.push([
+            `${rule}/${name}`,
+            fn,
+        ]);
+    }
+    
+    return result;
+}
 
 function requirePlugin(name, fn) {
     if (fn)
@@ -57,7 +95,7 @@ function requirePlugin(name, fn) {
             name,
             npmPlugin,
         ];
-     
+    
     const [, userPlugin] = tryCatch(require, getModulePath(`putout-plugin-${name}`));
     if (userPlugin)
         return [
