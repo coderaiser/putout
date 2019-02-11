@@ -3,6 +3,8 @@
 const Module = require('module');
 const tryCatch = require('try-catch');
 
+const buildPaths = require('./build-paths');
+
 const {cwd} = process;
 
 const isDisabled = (a) => !a && typeof a === 'boolean';
@@ -46,6 +48,8 @@ module.exports = (options = {}) => {
     
     return result;
 };
+
+module.exports._buildPaths = buildPaths;
 
 function loadPlugins(items) {
     const plugins = [];
@@ -113,7 +117,7 @@ function requirePlugin(name, fn) {
 // https://github.com/eslint/eslint/blob/v5.12.0/lib/util/module-resolver.js#L69
 const getModulePath = (name) => {
     return Module._findPath(name, [
-        `${cwd()}/node_modules`,
+        ...buildPaths(cwd()),
         ...module.paths,
     ]);
 };
