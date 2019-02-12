@@ -372,6 +372,8 @@ module.exports = ({
             
             if (isFunctionDeclaration(declaration))
                 use(path, declaration.id.name);
+            else if (isIdentifier(declaration))
+                use(path, declaration.name);
         },
         
         ExportNamedDeclaration(path) {
