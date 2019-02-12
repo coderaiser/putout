@@ -17,12 +17,12 @@ module.exports.find = (ast, {push, traverse}) => {
             const propertyPath = parentPath.get('property');
             
             if (!propertyPath.isIdentifier())
-              return;
+                return;
             
             const {name} = propertyPath.node;
             push({
                 name,
-                path: parentPath
+                path: parentPath,
             });
         },
     });

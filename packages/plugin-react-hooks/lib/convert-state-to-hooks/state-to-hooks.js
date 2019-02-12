@@ -1,6 +1,6 @@
 'use strict';
 
-const template = require('@babel/template').default;
+const {template} = require('putout');
 
 const buildHooks = template(`
     const [NAME, SETTER] = useState(VALUE);
