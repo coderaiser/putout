@@ -14,6 +14,16 @@
 npm i putout @putout/plugin-react-hooks -D
 ```
 
+Add `.putout.json` with:
+
+```json
+{
+    "plugins": [
+        "react-hooks"
+    ]
+}
+```
+
 ## Rules
 
 All Rules of `react-hooks` is enabled by default, to disable any of them modify `.putout.json`:
@@ -28,9 +38,6 @@ All Rules of `react-hooks` is enabled by default, to disable any of them modify 
         "react-hooks/convert-class-to-function": true,
         "react-hooks/convert-component-to-use-state": true,
         "react-hooks/convert-import-component-to-use-state": true
-    },
-    "plugins": {
-        "react-hooks"
     }
 }
 ```
