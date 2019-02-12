@@ -84,7 +84,7 @@ function Button() {
     const toggle = _toogle;
     
     function toogle() {
-        setEnabled(!enabled);
+        setEnabled(false);
     }
     
     return (
