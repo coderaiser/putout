@@ -197,3 +197,36 @@ test('putout: no loc', (t) => {
     t.end();
 });
 
+test('putout: plugin: find: no return', (t) => {
+    const addVar = {
+        report: () => '',
+        fix: () => {},
+        find: (ast, {push, traverse}) => {
+            traverse(ast, {
+                Program(path) {
+                    path.node.loc = null;
+                    push(path);
+                },
+            });
+        },
+    };
+    
+    const {places} = putout('', {
+        plugins: [{
+            'add-variable': addVar,
+        }],
+    });
+    
+    const expected = [{
+        rule: 'add-variable',
+        message: '',
+        position: {
+            line: 'x',
+            column: 'x',
+        },
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+

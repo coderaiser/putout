@@ -12,10 +12,7 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.find = (ast, {traverse}) => {
-    const places = [];
-    const push = places.push.bind(places);
-    
+module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
         CallExpression(path) {
             const {node} = path;
@@ -36,8 +33,6 @@ module.exports.find = (ast, {traverse}) => {
             traverseProperty('exit', path, property, push);
         }
     });
-    
-    return places;
 };
 
 function traverseProperty(name, path, node, fn) {

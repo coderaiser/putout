@@ -51,10 +51,7 @@ module.exports = (source, opts) => {
             find,
         } = plugin;
         
-        const items = find(ast, {
-            traverse,
-            types,
-        });
+        const items = superFind(find, ast);
         
         if (!items.length)
             continue;
@@ -92,6 +89,21 @@ const fixStrictMode = (a) => {
     return a
         .replace(`\n\n\n'use strict'`, `\n\n'use strict'`);
 };
+
+function superFind(find, ast) {
+    const pushItems = [];
+    const push = pushItems.push.bind(pushItems);
+    const returnItems = find(ast, {
+        traverse,
+        types,
+        push,
+    });
+    
+    return [
+        ...pushItems,
+        ...(returnItems || []),
+    ];
+}
 
 module.exports.parse = parse;
 function parse(source, parser = 'babel') {
