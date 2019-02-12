@@ -1,4 +1,6 @@
 .*
 test
+*.spec.js
+fixture
 yarn-error.log
 
