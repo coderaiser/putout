@@ -1,0 +1,17 @@
+'use strict';
+
+/* eslint node/no-unpublished-require:0 */
+const test = require('@putout/test')(__dirname, {
+    'convert-state-to-hooks': require('.'),
+});
+
+test('plugin-react-hooks: report', (t) => {
+    t.report('react-hooks', 'hooks should be used instead of this.state');
+    t.end();
+});
+
+test('plugin-react-hooks: transform', (t) => {
+    t.transform('react-hooks');
+    t.end();
+});
+

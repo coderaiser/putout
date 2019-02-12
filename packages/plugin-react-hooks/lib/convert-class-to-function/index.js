@@ -1,0 +1,34 @@
+'use strict';
+
+const classToFunction = require('./class-to-function');
+const {
+    findClass,
+} = require('../common');
+
+module.exports.report = ({name}) => {
+    return `class ${name} should be a function`;
+};
+
+module.exports.fix = ({path}) => {
+    classToFunction(path);
+};
+
+module.exports.find = (ast, {push, traverse}) => {
+    findClass(traverse, ast, {
+        Identifier(path) {
+            const {name} = path.node;
+            const {parentPath} = path;
+            
+            if (!parentPath.isClassDeclaration())
+                return;
+            
+            push({
+                path: parentPath,
+                name,
+            });
+            
+            path.stop();
+        },
+    });
+};
+
