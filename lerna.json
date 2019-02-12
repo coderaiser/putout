@@ -1,4 +1,5 @@
 {
+  "loglevel": "error",
   "packages": [
     "packages/*"
   ],
