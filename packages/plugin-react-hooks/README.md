@@ -26,8 +26,8 @@ All Rules of `react-hooks` is enabled by default, to disable any of them modify 
         "react-hooks/convert-state-to-hooks": true,
         "remove-this": true,
         "react-hooks/convert-class-to-function": true,
-        "react-hooks/convert-component-to-use-state: true,
-        "react-hooks/convert-import-component-to-use-state: true
+        "react-hooks/convert-component-to-use-state": true,
+        "react-hooks/convert-import-component-to-use-state": true
     },
     "plugins": {
         "react-hooks"
