@@ -227,7 +227,7 @@ function exit(e) {
 }
 
 function merge(...args) {
-    const arrayMerge = (a, b) => arrayUnion(a, b);
+    const arrayMerge = (a, b) => arrayUnion(b, a);
     return deepmerge.all(args, {
         arrayMerge,
     });
