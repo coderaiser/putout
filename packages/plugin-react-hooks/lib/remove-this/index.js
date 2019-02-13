@@ -1,7 +1,7 @@
 'use strict';
 
 const {
-    findClass,
+    traverseClass,
 } = require('../common');
 
 module.exports.report = ({name}) => `should be used "${name}" instead of "this.${name}"`;
@@ -10,8 +10,8 @@ module.exports.fix = ({path}) => {
     path.replaceWith(path.get('property'));
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    findClass(traverse, ast, {
+module.exports.find = (ast, {push}) => {
+    traverseClass(ast, {
         ThisExpression(path) {
             const {parentPath} = path;
             const propertyPath = parentPath.get('property');

@@ -1,7 +1,7 @@
 'use strict';
 
 const {
-    findClass,
+    traverseClass,
 } = require('../common');
 
 module.exports.report = ({node}) => {
@@ -14,8 +14,8 @@ module.exports.fix = ({node}) => {
     node.name = name.replace(/^_/, '');
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    findClass(traverse, ast, {
+module.exports.find = (ast, {push}) => {
+    traverseClass(ast, {
         ClassMethod(path) {
             const keyPath = path.get('key');
             const {name} = keyPath.node;

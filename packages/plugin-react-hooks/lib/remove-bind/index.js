@@ -1,7 +1,7 @@
 'use strict';
 
 const {
-    findClass,
+    traverseClass,
 } = require('../common');
 
 module.exports.report = () => 'bind should not be used';
@@ -10,8 +10,8 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    findClass(traverse, ast, {
+module.exports.find = (ast, {push}) => {
+    traverseClass(ast, {
         CallExpression(path) {
             const isBind = path
                 .get('callee.property')

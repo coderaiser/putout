@@ -2,7 +2,7 @@
 
 const classToFunction = require('./class-to-function');
 const {
-    findClass,
+    traverseClass,
 } = require('../common');
 
 module.exports.report = ({name}) => {
@@ -13,8 +13,8 @@ module.exports.fix = ({path}) => {
     classToFunction(path);
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    findClass(traverse, ast, {
+module.exports.find = (ast, {push}) => {
+    traverseClass(ast, {
         Identifier(path) {
             const {name} = path.node;
             const {parentPath} = path;

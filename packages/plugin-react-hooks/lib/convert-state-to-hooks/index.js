@@ -9,7 +9,7 @@ const {
 } = require('putout').types;
 
 const {
-    findClass,
+    traverseClass,
 } = require('../common');
 const stateToHooks = require('./state-to-hooks');
 const setStateToHooks = require('./set-state-to-hooks');
@@ -36,8 +36,8 @@ module.exports.fix = (path) => {
         return setStateToHooks(path);
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    findClass(traverse, ast, {
+module.exports.find = (ast, {push}) => {
+    traverseClass(ast, {
         AssignmentExpression: AssignmentExpression(push),
         VariableDeclarator: VariableDeclarator(push),
         CallExpression: CallExpression(push),
