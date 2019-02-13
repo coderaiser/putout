@@ -19,6 +19,9 @@ function babelParse(source) {
         plugins: [
             'estree',
             'jsx',
+            'classPrivateProperties',
+            'classPrivateMethods',
+            'classProperties',
         ],
     });
 }

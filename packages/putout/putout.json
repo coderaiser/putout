@@ -1,18 +1,8 @@
 {
     "parser": "babel",
     "rules": {
-        "remove-unused-variables": true,
-        "remove-debugger": true,
-        "remove-only": true,
-        "remove-skip": true,
         "remove-process-exit": false,
-        "remove-console": true,
-        "split-variable-declarations": true,
-        "remove-empty": true,
-        "remove-empty-pattern": true,
-        "convert-esm-to-commonjs": false,
-        "apply-destructuring": true,
-        "merge-destructuring-properties": true
+        "convert-esm-to-commonjs": false
     },
     "plugins": [
         "remove-unused-variables",
@@ -26,7 +16,8 @@
         "remove-empty-pattern",
         "convert-esm-to-commonjs",
         "apply-destructuring",
-        "merge-destructuring-properties"
+        "merge-destructuring-properties",
+        "remove-unused-private-fields"
     ]
 }
 
