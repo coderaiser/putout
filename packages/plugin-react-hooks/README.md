@@ -47,6 +47,7 @@ All Rules of `react-hooks` is enabled by default, to disable any of them modify 
 Consider example using `class`:
 
 ```js
+import React, {Component} from 'react';
 export default Button;
 
 class Button extends Component {
@@ -83,7 +84,6 @@ After `putout --fix` transform, you will receive:
 
 ```js
 import React, {useState} from 'react';
-
 export default Button;
 
 function Button() {
