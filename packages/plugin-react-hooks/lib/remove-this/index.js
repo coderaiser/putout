@@ -1,8 +1,6 @@
 'use strict';
 
-const {
-    traverseClass,
-} = require('../common');
+const {traverseClass} = require('../common');
 
 module.exports.report = ({name}) => `should be used "${name}" instead of "this.${name}"`;
 

@@ -1,8 +1,6 @@
 'use strict';
 
-const {
-    traverseClass,
-} = require('../common');
+const {traverseClass} = require('../common');
 
 module.exports.report = ({node}) => {
     const {name} = node;

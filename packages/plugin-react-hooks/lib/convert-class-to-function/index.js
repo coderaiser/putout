@@ -1,9 +1,7 @@
 'use strict';
 
 const classToFunction = require('./class-to-function');
-const {
-    traverseClass,
-} = require('../common');
+const {traverseClass} = require('../common');
 
 module.exports.report = ({name}) => {
     return `class ${name} should be a function`;

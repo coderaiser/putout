@@ -1,8 +1,6 @@
 'use strict';
 
-const {
-    isImportSpecifier,
-} = require('putout').types;
+const {isImportSpecifier} = require('putout').types;
 
 module.exports.report = () => 'useState should be used instead of Component';
 

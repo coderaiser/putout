@@ -8,9 +8,7 @@ const {
     isAssignmentExpression,
 } = require('putout').types;
 
-const {
-    traverseClass,
-} = require('../common');
+const {traverseClass} = require('../common');
 const stateToHooks = require('./state-to-hooks');
 const setStateToHooks = require('./set-state-to-hooks');
 
