@@ -207,13 +207,13 @@ To see more sophisticated example look at [@putout/remove-console](https://githu
 `putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/master/codemods/plugin-convert-tape-to-supertape) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
 
 
-## Eslint Support
+## ESLint Support
 
-If you see that `putout` brokes formatting of your code, use eslint config [@putout/eslint-config](https://github.com/coderaiser/putout/tree/master/packages/eslint-config).
+If you see that `putout` brokes formatting of your code, use eslint plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout).
 
-Install `@putout/eslint-config` with:
+Install `eslint-plugin-putout` with:
 ```
-npm i eslint @putout/eslint-config -D
+npm i eslint eslint-plugin-putout -D
 ```
 
 Then create `eslintrc.json`:
@@ -221,7 +221,10 @@ Then create `eslintrc.json`:
 ```json
 {
     "extends": [
-        "@putout"
+        "plugin:putout/recommended"
+    ],
+    "plugins": [
+        "putout"
     ]
 }
 ```
