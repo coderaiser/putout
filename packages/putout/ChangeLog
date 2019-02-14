@@ -1,3 +1,17 @@
+2019.02.14, v3.22.0
+
+fix:
+- (@putout/plugin-react-hooks) convert-state-to-hooks: @babel/template -> putout
+- (npmignore) add fixture
+- (putout) merge plugins: core, userland -> userland, core
+
+feature:
+- (@putout/plugin-remove-unused-private-fields) add
+- (react-hooks) findClass -> traverseClass
+- (@putout/plugin-react-hooks) add
+- (plugin-remove-unused-variables) add support of Identifier in ExportDefault declaration
+
+
 2019.02.12, v3.21.0
 
 feature:
