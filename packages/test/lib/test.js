@@ -67,7 +67,8 @@ const report = (t, dir, plugins) => (name, message) => {
 };
 
 const reportCode = (t, plugins) => (source, message) => {
-    const {places} = putout(source, {plugins});
+    const fix = false;
+    const {places} = putout(source, {fix, plugins});
     const resultMessages = places.map(getMessage);
     
     if (isArray(message)) {
