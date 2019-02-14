@@ -31,10 +31,10 @@ All Rules of `react-hooks` is enabled by default, to disable any of them modify 
 ```json
 {
     "rules": {
-        "remove-bind": true,
-        "rename-method-under-score": true,
+        "react-hooks/remove-bind": true,
+        "react-hooks/rename-method-under-score": true,
         "react-hooks/convert-state-to-hooks": true,
-        "remove-this": true,
+        "react-hooks/remove-this": true,
         "react-hooks/convert-class-to-function": true,
         "react-hooks/convert-component-to-use-state": true,
         "react-hooks/convert-import-component-to-use-state": true
