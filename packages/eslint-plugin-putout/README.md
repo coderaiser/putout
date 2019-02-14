@@ -1,6 +1,6 @@
 # eslint-plugin-putout
 
-[ESLint](https://eslint.org) plagin for putout.
+[ESLint](https://eslint.org) plagin for putout with built-in rules from [@putout/eslint-config](https://github.com/coderaiser/putout/tree/master/packages/eslint-config).
 
 ## Installation
 
