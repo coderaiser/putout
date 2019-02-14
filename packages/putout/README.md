@@ -13,6 +13,7 @@
 Putout is a tool for identifying, reporting and fixing patterns found in JavaScript code. It can:
 
 - find and remove unused variables;
+- find and remove unused private fields;
 - find and remove `debugger` statement;
 - find and replace `test.only` to `test` calls;
 - find and replace `test.skip` to `test` calls;
@@ -33,6 +34,7 @@ To configure `putout` add section `putout` to your `package.json` file or create
 {
     "rules": {
         "remove-unused-variables": true,
+        "remove-unused-private-fields": true,
         "remove-debugger": true,
         "remove-only": true,
         "remove-skip": true,
