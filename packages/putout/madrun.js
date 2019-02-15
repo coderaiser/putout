@@ -3,7 +3,6 @@
 const {
     run,
     series,
-    parallel,
 } = require('madrun');
 
 const lintScripts = [
@@ -12,13 +11,14 @@ const lintScripts = [
 ];
 
 module.exports = {
-    'test': () => `tape 'test/*.js'`,
+    'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w lib -w test -x ${run('test')}`,
-    'lint:lib': () => `eslint lib test --ignore-pattern test/fixture`,
+    'lint:lib': () => `eslint lib`,
+    'lint:test': () => `eslint madrun.js test --ignore-pattern test/fixture`,
     'lint:bin': () => `eslint --rule 'no-console:0' bin -c .eslintrc.bin`,
     'lint': () => series(lintScripts),
     'fix:lint': () => series(lintScripts, '--fix'),
-    'putout': () => `bin/putout.js bin lib test`,
+    'putout': () => `bin/putout.js bin lib test madrun.js`,
     'coverage': () => `nyc ${run('test')}`,
     'report': () => `nyc report --reporter=text-lcov | coveralls || true`,
 };

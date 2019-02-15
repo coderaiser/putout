@@ -104,7 +104,7 @@ function processFiles(name) {
     const resolvedName = resolve(name);
     const dir = dirname(name);
     const [dirOpt, currOpt] = getOptions(dir);
-    const options = mergeOptions(currOpt);
+    const options = mergeOptions(config, defaultOptions, currOpt);
     const {match} = options;
     
     const ignorer = ignore();
@@ -203,9 +203,9 @@ function merge(...args) {
     });
 }
 
-function mergeOptions(baseOptions = {}) {
+function mergeOptions(config, baseOptions = {}, defaultOptions = {}) {
     if (!config)
-        return baseOptions;
+        return merge(baseOptions, defaultOptions);
     
     const customOptions = require(`${cwd()}/${config}`);
     

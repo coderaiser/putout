@@ -4,10 +4,10 @@ const Module = require('module');
 const tryCatch = require('try-catch');
 
 const buildPaths = require('./build-paths');
+const isEnabled = require('./is-enabled');
 
 const {cwd} = process;
 
-const isDisabled = (a) => !a && typeof a === 'boolean';
 const isStr = (a) => typeof a === 'string';
 
 const parsePluginNames = (plugins) => {
@@ -37,7 +37,7 @@ module.exports = (options = {}) => {
     const pluginItems = loadPlugins(names);
     
     for (const [name, fn] of pluginItems) {
-        if (isDisabled(rules[name]))
+        if (!isEnabled(name, rules))
             continue;
         
         result.push([

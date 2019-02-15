@@ -1,6 +1,12 @@
 {
     "parser": "babel",
+    "match": {
+        "madrun.js": {
+            "madrun/*": true
+        }
+    },
     "rules": {
+        "madrun/*": false,
         "remove-process-exit": false,
         "convert-esm-to-commonjs": false
     },
@@ -17,7 +23,8 @@
         "convert-esm-to-commonjs",
         "apply-destructuring",
         "merge-destructuring-properties",
-        "remove-unused-private-fields"
+        "remove-unused-private-fields",
+        "madrun"
     ]
 }
 
