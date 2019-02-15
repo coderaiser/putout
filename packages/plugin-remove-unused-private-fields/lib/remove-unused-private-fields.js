@@ -1,18 +1,12 @@
 'use strict';
 
 const {
-    types,
     traverse,
 } = require('putout');
 
-const {
-    isObjectPattern,
-} = types;
-
 module.exports.report = ({name}) => `private field "#${name}" declared by not used`;
 
-module.exports.find = (ast)  => {
-    const places = [];
+module.exports.find = (ast) => {
     const vars = [];
     const addVar = addVariable(vars);
     const rmVar = removeVariable(vars);
@@ -80,7 +74,7 @@ function traverseClass(ast, visitor) {
     traverse(ast, {
         ClassDeclaration(path) {
             path.traverse(visitor);
-        }
+        },
     });
 }
 
