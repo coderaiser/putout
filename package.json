@@ -10,6 +10,7 @@
     "bootstrap": "lerna bootstrap --no-ci"
   },
   "devDependencies": {
+    "eslint-plugin-putout": "^1.0.3",
     "lerna": "^3.8.5"
   }
 }
