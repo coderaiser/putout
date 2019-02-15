@@ -1,0 +1,52 @@
+{
+  "name": "@putout/plugin-madrun",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin adds ability to find and remove process.exit",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/madrun.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "madrun"
+  ],
+  "devDependencies": {
+    "@putout/test": "^1.1.1",
+    "coveralls": "^3.0.0",
+    "eslint": "^5.6.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-putout": "^1.0.3",
+    "lerna": "^3.8.5",
+    "nodemon": "^1.14.12",
+    "nyc": "^13.0.1",
+    "putout": "^3.22.0",
+    "redrun": "^7.0.2",
+    "tape": "^4.8.0"
+  },
+  "peerDependencies": {
+    "putout": ">=3"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
