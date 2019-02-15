@@ -28,10 +28,6 @@ const glob = require('glob');
 const tryCatch = require('try-catch');
 const deepmerge = require('deepmerge');
 const arrayUnion = require('array-union');
-const {
-    table,
-    getBorderCharacters,
-} = require('table');
 
 const {cwd} = process;
 
@@ -105,6 +101,7 @@ if (output.length) {
 }
 
 function processFiles(name) {
+    const resolvedName = resolve(name);
     const dir = dirname(name);
     const [dirOpt, currOpt] = getOptions(dir);
     const options = mergeOptions(currOpt);
@@ -132,7 +129,7 @@ function processFiles(name) {
     });
     
     if (e) {
-        console.error(underline(resolve(name)));
+        console.error(underline(resolvedName));
         const {
             line,
             column,
@@ -154,37 +151,10 @@ function processFiles(name) {
     if (fix)
         return writeFileSync(name, code);
     
-    const data = [];
     ++filesCount;
+    errorsCount += places.length;
     
-    for (const place of places) {
-        const {
-            message,
-            position,
-            rule,
-        } = place;
-        
-        const {
-            line,
-            column,
-        } = position;
-        
-        ++errorsCount;
-        
-        data.push([
-            grey(`${line}:${column}`),
-            `${red('error')}   ${message}`,
-            grey(rule),
-        ]);
-    }
-    
-    return [
-        underline(resolve(name)),
-        table(data, {
-            border: getBorderCharacters('void'),
-            drawHorizontalLine: () => false,
-        }),
-    ].join('\n');
+    return putout.prettify(resolvedName, places);
 }
 
 function addExt(a) {

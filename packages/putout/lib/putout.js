@@ -118,6 +118,7 @@ module.exports.traverse = traverse;
 module.exports.types = types;
 module.exports.template = template;
 module.exports.generate = generate;
+module.exports.prettify = require('./prettify');
 
 function getPath(item) {
     return item.path || item;
