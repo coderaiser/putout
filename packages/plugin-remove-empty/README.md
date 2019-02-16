@@ -6,7 +6,9 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-empty
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-empty
 
-`putout` plugin adds ability to find and remove `empty block statements`.
+`putout` plugin adds ability to find and remove:
+- `empty block statements`;
+- `empty patterns`;
 
 ## Install
 
@@ -16,12 +18,13 @@ npm i @putout/plugin-remove-empty
 
 ## Rule
 
-Rule `remove-empty` is enabled by default, to disable add to `.putout.json`:
+Rules `remove-empty` is enabled by default, to disable add to `.putout.json`:
 
 ```json
 {
     "rules": {
-        "remove-empty": false
+        "remove-empty/block": false
+        "remove-empty/pattern": false
     }
 }
 ```

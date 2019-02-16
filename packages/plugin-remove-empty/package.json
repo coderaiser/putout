@@ -19,7 +19,9 @@
     "fix:lint": "madrun fix:lint",
     "coverage": "madrun coverage"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@putout/plugin-remove-empty-pattern": "^1.0.1"
+  },
   "keywords": [
     "putout",
     "putout-plugin",
