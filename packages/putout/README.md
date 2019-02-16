@@ -28,7 +28,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 
 ## Configuration
 
-To configure `putout` add section `putout` to your `package.json` file or create `.putout.json` file and override any option:
+To configure create `.putout.json` file and override any option:
 
 ```json
 {

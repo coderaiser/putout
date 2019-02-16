@@ -207,23 +207,13 @@ function getOptions(cwd) {
         cwd,
     });
     
-    if (putoutPath)
-        return [
-            dirname(putoutPath),
-            require(putoutPath),
-        ];
-    
-    const infoPath = readUp.sync('package.json', {
-        cwd,
-    });
-    
-    if (infoPath)
-        return [
-            dirname(infoPath),
-            require(infoPath).putout,
-        ];
-    
-    return [''];
+    if (!putoutPath)
+        return [''];
+   
+    return [
+        dirname(putoutPath),
+        require(putoutPath),
+    ];
 }
 
 function _readCodeMods() {
