@@ -2,6 +2,7 @@
 
 const test = require('supertape');
 const {prettify} = require('..');
+const chalk = require('chalk');
 
 test('putout: prettify: no places', (t) => {
     const places = [];
@@ -20,6 +21,9 @@ test('putout: prettify', (t) => {
         column,
     };
     
+    const {enabled} = chalk;
+    chalk.enabled = false;
+    
     const message = 'hello';
     const rule = 'remove-hello';
     
@@ -29,7 +33,9 @@ test('putout: prettify', (t) => {
         rule,
     }];
     const result = prettify('hello', places);
-    const expected = '\x1b[4mhello\x1b[24m\n \x1b[90m1:1\x1b[39m  \x1b[31merror\x1b[39m   hello  \x1b[90mremove-hello\x1b[39m \n';
+    const expected = 'hello\n 1:1  error   hello  remove-hello \n';
+    
+    chalk.enabled = enabled;
     
     t.equal(result, expected, 'should equal');
     t.end();
