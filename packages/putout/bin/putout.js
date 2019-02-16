@@ -29,8 +29,6 @@ const tryCatch = require('try-catch');
 const deepmerge = require('deepmerge');
 const arrayUnion = require('array-union');
 
-const {cwd} = process;
-
 const defaultOptions = require('../putout.json');
 
 const putout = require('..');
@@ -209,7 +207,7 @@ function getOptions(cwd) {
     
     if (!putoutPath)
         return ['', {}];
-   
+    
     return [
         dirname(putoutPath),
         require(putoutPath),
