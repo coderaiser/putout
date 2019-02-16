@@ -226,14 +226,6 @@ module.exports = ({
             
             if (isIdentifier(test))
                 return use(path, test.name);
-            
-            /*
-            path.get('test').traverse({
-                Identifier(path) {
-                    use(path, path.node.name);
-                },
-            });
-            */
         },
         
         ForOfStatement(path) {
