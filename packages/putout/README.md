@@ -32,6 +32,12 @@ To configure create `.putout.json` file and override any option:
 
 ```json
 {
+    "match": {
+        "bin": {
+            "remove-process-exit": false,
+            "remove-console": false
+        }
+    },
     "rules": {
         "remove-unused-variables": true,
         "remove-unused-private-fields": true,
@@ -41,10 +47,11 @@ To configure create `.putout.json` file and override any option:
         "remove-process-exit": false,
         "remove-console": true,
         "split-variable-declarations": true,
-        "remove-empty": true,
-        "remove-empty-pattern": true,
+        "remove-empty/block": true,
+        "remove-empty/pattern": true,
         "convert-esm-to-commonjs": false,
-        "apply-destructuring": true,
+        "apply-destructuring/object": true,
+        "apply-destructuring/array": true,
         "merge-destructuring-properties": true
     }
 }

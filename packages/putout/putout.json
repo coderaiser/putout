@@ -3,11 +3,15 @@
     "match": {
         "madrun.js": {
             "madrun/*": true
+        },
+        "bin": {
+            "remove-process-exit": false,
+            "remove-console": false
         }
     },
     "rules": {
         "madrun/*": false,
-        "remove-process-exit": false,
+        "remove-process-exit": true,
         "convert-esm-to-commonjs": false
     },
     "plugins": [

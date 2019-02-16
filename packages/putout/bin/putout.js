@@ -208,7 +208,7 @@ function getOptions(cwd) {
     });
     
     if (!putoutPath)
-        return [''];
+        return ['', {}];
    
     return [
         dirname(putoutPath),
