@@ -13,6 +13,7 @@
         }],
         "comma-dangle": ["error", "always-multiline"],
         "prefer-const": "error",
+        "prefer-destructuring": "error",
         "no-var": "error",
         "arrow-spacing": "error",
         "indent": ["error", 4],
