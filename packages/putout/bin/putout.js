@@ -63,7 +63,6 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
 const {
     fix,
     raw,
-    config,
 } = argv;
 
 if (argv.version) {
@@ -104,7 +103,7 @@ function processFiles(name) {
     const resolvedName = resolve(name);
     const dir = dirname(name);
     const [dirOpt, currOpt] = getOptions(dir);
-    const options = mergeOptions(config, defaultOptions, currOpt);
+    const options = merge(defaultOptions, currOpt);
     const {match} = options;
     
     const ignorer = ignore();
@@ -201,15 +200,6 @@ function merge(...args) {
     return deepmerge.all(args, {
         arrayMerge,
     });
-}
-
-function mergeOptions(config, baseOptions = {}, defaultOptions = {}) {
-    if (!config)
-        return merge(baseOptions, defaultOptions);
-    
-    const customOptions = require(`${cwd()}/${config}`);
-    
-    return merge(baseOptions, customOptions);
 }
 
 function getOptions(cwd) {
