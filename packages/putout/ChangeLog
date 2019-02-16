@@ -1,3 +1,19 @@
+2019.02.16, v4.0.0
+
+fix:
+- (@putout/plugin-remove-unused-variables) Identifiers in IfStatement
+
+feature:
+- (@putout/plugin-apply-destructuring) add support of array destructuring
+- (@putout/plugin-remove-empty) join with @putout/plugin-remove-empty-pattern
+- (putout) set defaults for bin
+- (putout) remove support of putout section of package.json
+- (putout) rm --config
+- (eslint-config) prefer-destructuring: AssignmentExpression: disable ojbect
+- (eslint-config) prefer-destructuring
+- (putout) madrun v2.0.0
+
+
 2019.02.15, v3.24.0
 
 feature:
