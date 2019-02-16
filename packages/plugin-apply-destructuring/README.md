@@ -20,7 +20,8 @@ Rule `apply-destructuring` is enabled by default, to disable add to `.putout.jso
 ```json
 {
     "rules": {
-        "apply-destructuring": false
+        "apply-destructuring/object": false,
+        "apply-destructuring/array": false
     }
 }
 ```
@@ -37,6 +38,7 @@ console.log(source);
 // outputs
 `
 const hello = world.hello;
+const a = b[0];
 `
 
 const result = putout(source, {
@@ -47,6 +49,7 @@ const result = putout(source, {
 // returns
 `
 const {hello} = world;
+const [a] = b;
 `
 ```
 

@@ -14,11 +14,8 @@
   },
   "scripts": {
     "test": "madrun test",
-    "watch:test": "madrun watch:test",
     "lint": "madrun lint",
     "fix:lint": "madrun fix:lint",
-    "putout": "putout lib test",
-    "putout:fix": "putout --fix lib test",
     "coverage": "madrun coverage"
   },
   "dependencies": {},

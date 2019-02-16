@@ -80,7 +80,8 @@ To configure `putout` add section `putout` to your `package.json` file or create
         "remove-empty/block": true,
         "remove-empty/pattern": true,
         "convert-esm-to-commonjs": false,
-        "apply-destructuring": true,
+        "apply-destructuring/object": true,
+        "apply-destructuring/array": true,
         "merge-destructuring-properties": true
     }
 }
