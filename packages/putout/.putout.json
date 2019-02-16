@@ -1,14 +1,6 @@
 {
     "ignore": [
         "test/fixture"
-    ],
-    "match": {
-        "bin": {
-            "remove-console": false
-        },
-        "(test|lib)": {
-            "remove-process-exit": true
-        }
-    }
+    ]
 }
 
