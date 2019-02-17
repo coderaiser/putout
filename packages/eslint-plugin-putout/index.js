@@ -1,8 +1,13 @@
 'use strict';
 
+const getRule = (a) => ({
+    [a]: require(`./rules/${a}`)
+});
+
 module.exports.rules = {
-    'one-line-destructuring': require('./rules/one-line-destructuring'),
-    'destructuring-as-function-argument': require('./rules/destructuring-as-function-argument'),
+    ...getRule('one-line-destructuring'),
+    ...getRule('destructuring-as-function-argument'),
+    ...getRule('align-spaces'),
 };
 
 const config = require('@putout/eslint-config');
@@ -15,6 +20,7 @@ module.exports.configs = {
             ...rules,
             'putout/one-line-destructuring': 'error',
             'putout/destructuring-as-function-argument': 'error',
+            'putout/align-spaces': 'error',
         }
     }
 };

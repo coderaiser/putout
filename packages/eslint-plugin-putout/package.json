@@ -25,7 +25,8 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "@putout/eslint-config": "^1.2.0"
+    "@putout/eslint-config": "^1.2.0",
+    "align-spaces": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^5.0.0",

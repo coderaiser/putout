@@ -1,7 +1,3 @@
-/**
- * @fileoverview keep curly bracesin in one line when property is single
- * @author coderaiser
- */
 'use strict';
 
 module.exports = {
@@ -21,21 +17,21 @@ module.exports = {
                 const text = context
                     .getSourceCode()
                     .getText(node);
-            
+                
                 if (!/\n/.test(text))
                     return;
-            
+                
                 context.report({
                     node,
                     message: 'Keep curly braces on one line when you use destructuring as function argument',
-                
+                    
                     fix(fixer) {
                         const fixed =text
                             .replace(/\n/g, '')
                             .replace(/ /g, '')
                             .replace(/,/g, ', ')
                             .replace(', }', '}');
-                    
+                        
                         return [
                             fixer.replaceText(node, fixed),
                         ];

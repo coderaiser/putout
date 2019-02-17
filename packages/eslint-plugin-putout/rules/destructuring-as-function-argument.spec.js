@@ -9,7 +9,7 @@ const ruleTester = new RuleTester({
     },
 });
 
-ruleTester.run('one-line-destructuring', rule, {
+ruleTester.run('destructuring-as-function-argument', rule, {
     valid: [
         `function set({user, password}) {}`,
     ],
