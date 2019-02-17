@@ -41,7 +41,6 @@
     "@putout/plugin-remove-unused-private-fields": "^1.0.0",
     "@putout/plugin-remove-unused-variables": "^1.0.0",
     "@putout/plugin-split-variable-declarations": "^1.0.0",
-    "align-spaces": "^1.0.0",
     "array-union": "^1.0.2",
     "chalk": "^2.4.1",
     "deepmerge": "^3.0.0",

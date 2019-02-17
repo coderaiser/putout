@@ -1,7 +1,6 @@
 'use strict';
 
 const recast = require('recast');
-const alignSpaces = require('align-spaces');
 const toBabel = require('estree-to-babel');
 const traverse = require('@babel/traverse').default;
 const template = require('@babel/template').default;
@@ -75,9 +74,7 @@ module.exports = (source, opts) => {
     }
     
     const {code: printed} = recast.print(ast, printOptions);
-    
-    const aligned = alignSpaces(printed);
-    const code = fixStrictMode(`${shebang}${aligned}`);
+    const code = fixStrictMode(`${shebang}${printed}`);
     
     return {
         code,
