@@ -1,4 +1,5 @@
 .*
 *.spec.js
 madrun.js
+yarn-error.log
 
