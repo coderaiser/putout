@@ -7,11 +7,17 @@
         "bin": {
             "remove-process-exit": false,
             "remove-console": false
+        },
+        "test|.spec.js": {
+            "remove-only": true,
+            "remove-skip": true
         }
     },
     "rules": {
         "madrun/*": false,
-        "convert-esm-to-commonjs": false
+        "convert-esm-to-commonjs": false,
+        "remove-only": false,
+        "remove-skip": false
     },
     "plugins": [
         "remove-unused-variables",

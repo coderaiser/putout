@@ -33,17 +33,24 @@ To configure create `.putout.json` file and override any option:
 ```json
 {
     "match": {
+        "madrun.js": {
+            "madrun/*": true
+        },
         "bin": {
             "remove-process-exit": false,
             "remove-console": false
+        },
+        "test|.spec.js": {
+            "remove-only": true,
+            "remove-skip": true
         }
     },
     "rules": {
         "remove-unused-variables": true,
         "remove-unused-private-fields": true,
         "remove-debugger": true,
-        "remove-only": true,
-        "remove-skip": true,
+        "remove-only": false,
+        "remove-skip": false,
         "remove-process-exit": false,
         "remove-console": true,
         "split-variable-declarations": true,
