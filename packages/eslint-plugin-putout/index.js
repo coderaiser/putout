@@ -2,6 +2,7 @@
 
 module.exports.rules = {
     'one-line-destructuring': require('./rules/one-line-destructuring'),
+    'destructuring-as-function-argument': require('./rules/destructuring-as-function-argument'),
 };
 
 const config = require('@putout/eslint-config');
@@ -13,6 +14,7 @@ module.exports.configs = {
         rules: {
             ...rules,
             'putout/one-line-destructuring': 'error',
+            'putout/destructuring-as-function-argument': 'error',
         }
     }
 };

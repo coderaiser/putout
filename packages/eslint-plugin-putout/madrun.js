@@ -7,7 +7,7 @@ const {
 } = require('madrun');
 
 module.exports = {
-    'test': () => `mocha 'rules/*.spec.js'`,
+    'test': () => `mocha 'rules/**/*.spec.js'`,
     'watch:test': () => `nodemon -w rules -x ${run('test')}`,
     'lint:lib': () => `eslint rules --rulesdir rules`,
     'lint': () => series(['putout', 'lint:*']),

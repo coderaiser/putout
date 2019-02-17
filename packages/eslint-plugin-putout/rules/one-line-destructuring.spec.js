@@ -1,7 +1,3 @@
-/**
- * @fileoverview keep curly bracesin in one line when property is single
- * @author coderaiser
- */
 'use strict';
 
 const rule = require('./one-line-destructuring');

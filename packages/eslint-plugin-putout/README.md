@@ -37,5 +37,6 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-- [One line destructuring](docs/rules/one-line-destructuring.md)
+- [One line destructuring](rules/one-line-destructuring.md)
+- [Destructuring as function argument](rules/destructuring-as-function-argument.md)
 
