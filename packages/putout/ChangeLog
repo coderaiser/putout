@@ -1,3 +1,9 @@
+2019.02.17, v4.0.2
+
+fix:
+- (putout) remove-only, remove-skip: enabled only for test, .spec.js
+
+
 2019.02.16, v4.0.1
 
 fix:
