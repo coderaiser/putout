@@ -17,17 +17,17 @@ module.exports.find = (ast, {traverse}) => {
     traverse(ast, {
         ImportDeclaration(path) {
             const {source} = path.node;
-        
+            
             if (source.value !== 'react')
                 return;
-        
+            
             const specifiersPaths = path.get('specifiers');
             for (const specPath of specifiersPaths) {
                 const {node} = specPath;
-          
+                
                 if (!isImportSpecifier(node))
                     continue;
-          
+                
                 places.push(specPath);
             }
         },

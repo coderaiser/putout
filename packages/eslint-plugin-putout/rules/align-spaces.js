@@ -20,9 +20,9 @@ module.exports = {
                     .getSourceCode()
                     .getText(node);
                 
-               const aligned = alignSpaces(text);
-               
-               if (text === aligned)
+                const aligned = alignSpaces(text);
+                
+                if (text === aligned)
                     return;
                 
                 context.report({
