@@ -101,7 +101,7 @@ function processFiles(name) {
     const resolvedName = resolve(name);
     const dir = dirname(name);
     const [dirOpt, currOpt] = getOptions(dir);
-    const options = merge(defaultOptions, currOpt);
+    const options = merge(currOpt, defaultOptions);
     const {match} = options;
     
     const ignorer = ignore();
