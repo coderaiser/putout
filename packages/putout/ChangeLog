@@ -1,3 +1,14 @@
+2019.02.17, v4.0.3
+
+fix:
+- (npmignore) yarn-error.log
+- (putout) merge match: user match first
+
+feature:
+- (eslint-plugin-putout) add align-spaces
+- (eslint-plugin-putout) add destructuring-as-function-argument
+
+
 2019.02.17, v4.0.2
 
 fix:
