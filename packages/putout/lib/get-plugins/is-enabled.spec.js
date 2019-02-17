@@ -12,7 +12,7 @@ test('putout: get-plugins: is-enabled', (t) => {
     };
     
     const result = isEnabled(name, rules);
-   
+    
     t.notOk(result, 'should be disaabled');
     t.end();
 });
@@ -24,7 +24,7 @@ test('putout: get-plugins: is-enabled: not found', (t) => {
     };
     
     const result = isEnabled(name, rules);
-   
+    
     t.notOk(result, 'should be disaabled');
     t.end();
 });
