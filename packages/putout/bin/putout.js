@@ -95,6 +95,7 @@ if (output.length) {
     
     console.log(bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)));
     console.log(bold(redBright('  fixable with the `--fix` option')));
+    process.exit(1);
 }
 
 function processFiles(name) {
