@@ -7,12 +7,10 @@ const putout = require('..');
 const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
-    'aligned',
     'no-vars',
     'root-vars',
     'export-default-declaration',
     'export-default-declaration-fix',
-    'not-aligned',
     'shebang',
     'shebang-fix',
     'strict-mode',
@@ -42,17 +40,6 @@ test('putout: root vars', (t) => {
     };
     
     t.deepEqual(result, expected, 'should equal');
-    t.end();
-});
-
-test('putout: align', (t) => {
-    const {code} = putout(fixture.notAligned, {
-        plugins: [
-            'remove-unused-variables',
-        ],
-    });
-    
-    t.deepEqual(code, fixture.aligned, 'should equal');
     t.end();
 });
 
