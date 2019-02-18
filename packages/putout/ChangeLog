@@ -1,3 +1,16 @@
+2019.02.18, v4.1.0
+
+fix:
+- (@putout/plugin-strict-mode) npmignore: .spec.js
+- (@putout/plugin-strict-mode) npmignore: fixture
+- (putout) when find error - exit 1
+- (putout) remove align-spaces
+
+feature:
+- (@putout/plugin-strict-mode) add
+- (eslint-config) add lines-around-directives
+
+
 2019.02.17, v4.0.3
 
 fix:
