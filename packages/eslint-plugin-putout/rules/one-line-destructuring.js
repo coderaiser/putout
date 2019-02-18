@@ -23,6 +23,11 @@ module.exports = {
                 if (!/(const|let|var) \{\n/.test(text))
                     return;
                 
+                const assignRegExp = /\{\n?.*=.*\n?.*}/;
+                
+                if (assignRegExp.test(text))
+                    return;
+                
                 context.report({
                     node,
                     message: 'Keep curly braces on one line when you have one destructuring property',

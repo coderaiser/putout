@@ -12,9 +12,10 @@ const ruleTester = new RuleTester({
 ruleTester.run('one-line-destructuring', rule, {
     valid: [
         `const {hello} = world;`,
-        `const {hello} = get({
-        });
-        `,
+        `const {hello} = get({});`,
+        `const {
+            hello = true
+        } = world;`,
     ],
     
     invalid: [{
