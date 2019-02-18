@@ -33,7 +33,8 @@
         "apply-destructuring",
         "merge-destructuring-properties",
         "remove-unused-private-fields",
-        "madrun"
+        "madrun",
+        "strict-mode"
     ]
 }
 

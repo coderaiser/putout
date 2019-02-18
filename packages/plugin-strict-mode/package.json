@@ -1,0 +1,53 @@
+{
+  "name": "@putout/plugin-strict-mode",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin adds ability to find and remove console.log calls",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/strict-mode.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage"
+  },
+  "dependencies": {
+    "fullstore": "^1.1.0"
+  },
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "strict-mode"
+  ],
+  "devDependencies": {
+    "@putout/test": "^1.0.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^5.6.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-putout": "^1.2.1",
+    "lerna": "^3.8.5",
+    "nodemon": "^1.14.12",
+    "nyc": "^13.0.1",
+    "redrun": "^7.0.2",
+    "supertape": "^1.0.3"
+  },
+  "peerDependencies": {
+    "putout": ">=4"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
