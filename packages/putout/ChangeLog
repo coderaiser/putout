@@ -1,3 +1,13 @@
+2019.02.19, v4.1.1
+
+fix:
+- (putout) putout .
+- (eslint-plugin-putout) one-line-destructuring: exclude default assignment of property
+
+feature:
+- (@putout/plugin-remove-console) add support of console.time, console.timeEnd
+
+
 2019.02.18, v4.1.0
 
 fix:
