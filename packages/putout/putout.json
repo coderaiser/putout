@@ -28,7 +28,6 @@
         "remove-console",
         "split-variable-declarations",
         "remove-empty",
-        "remove-empty-pattern",
         "convert-esm-to-commonjs",
         "apply-destructuring",
         "merge-destructuring-properties",
