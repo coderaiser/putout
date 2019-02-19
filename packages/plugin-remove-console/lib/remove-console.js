@@ -31,12 +31,16 @@ module.exports.find = (ast, {traverse}) => {
                 'log',
                 'error',
                 'warn',
+                'time',
+                'timeEnd',
             ]);
             
             const isPropertyLiteral = isOneOfLiterals(property, [
                 'log',
                 'error',
                 'warn',
+                'time',
+                'timeEnd',
             ]);
             
             if (!isPropertyIdentifier && !isPropertyLiteral)
