@@ -9,6 +9,10 @@ const isEnabled = require('./is-enabled');
 const {cwd} = process;
 
 const isStr = (a) => typeof a === 'string';
+const paths = [
+    ...buildPaths(cwd()),
+    ...module.paths,
+];
 
 const parsePluginNames = (plugins) => {
     const result = [];
@@ -116,9 +120,6 @@ function requirePlugin(name, fn) {
 //
 // https://github.com/eslint/eslint/blob/v5.12.0/lib/util/module-resolver.js#L69
 const getModulePath = (name) => {
-    return Module._findPath(name, [
-        ...buildPaths(cwd()),
-        ...module.paths,
-    ]);
+    return Module._findPath(name, paths);
 };
 
