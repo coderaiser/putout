@@ -23,6 +23,8 @@ const {
     bold,
 } = require('chalk');
 
+const cwd = process.cwd();
+
 const once = require('once');
 const glob = require('glob');
 const tryCatch = require('try-catch');
@@ -99,8 +101,11 @@ if (output.length) {
 }
 
 function processFiles(name) {
-    const resolvedName = resolve(name);
-    const dir = dirname(name);
+    const resolvedName = resolve(name)
+        .replace(/^\./, cwd);
+    
+    const dir = dirname(resolvedName);
+    
     const [dirOpt, currOpt] = getOptions(dir);
     const options = merge(currOpt, defaultOptions);
     const {match} = options;
@@ -109,7 +114,7 @@ function processFiles(name) {
     if (options.ignore)
         ignorer.add(options.ignore);
     
-    const relativeName = getRelativePath(name, dirOpt);
+    const relativeName = getRelativePath(resolvedName, dirOpt);
     
     if (dirOpt && ignorer.ignores(relativeName))
         return;
