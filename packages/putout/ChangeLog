@@ -1,3 +1,12 @@
+2019.02.19, v4.1.2
+
+fix:
+- (putout) remove plugin remove-empty-pattern
+
+feature:
+- (get-plugins) optimize: paths
+
+
 2019.02.19, v4.1.1
 
 fix:
