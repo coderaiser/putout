@@ -16,6 +16,7 @@ function babelParse(source) {
     return parse(source, {
         sourceType: 'module',
         tokens: true,
+        allowReturnOutsideFunction: true,
         plugins: [
             'estree',
             'jsx',
