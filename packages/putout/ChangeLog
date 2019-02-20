@@ -1,3 +1,13 @@
+2019.02.20, v4.2.0
+
+feature:
+- (putout) babel: enable allowReturnOutsideFunction
+- (@putout/plugin-madrun) convert-redrun-to-series -> call-series: add npm
+- (@putout/plugin-madrun) add support of redrun args
+- (eslint-config) add linebreak-style
+- (@putout/plugin-madrun) add convert-redrun-to-series
+
+
 2019.02.19, v4.1.2
 
 fix:
