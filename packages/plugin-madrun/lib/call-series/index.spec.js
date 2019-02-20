@@ -2,7 +2,7 @@
 
 /* eslint node/no-unpublished-require:0 */
 const test = require('@putout/test')(__dirname, {
-    'call-series': require('.')
+    'call-series': require('.'),
 });
 
 test('madrun: call series: report', (t) => {

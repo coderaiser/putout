@@ -2,8 +2,6 @@
 
 const {
     isStringLiteral,
-    
-    arrowFunctionExpression,
     stringLiteral,
     identifier,
     callExpression,
@@ -54,9 +52,9 @@ function getSeriesArgs(strs, arg) {
             arrayExpression(strs),
         ];
     
-   return [
-    arrayExpression(strs),
-    stringLiteral(arg),
+    return [
+        arrayExpression(strs),
+        stringLiteral(arg),
     ];
 }
 
