@@ -31,7 +31,8 @@ All Rules of `madrun` is enabled by default, to disable any of them modify `.put
 ```json
 {
     "rules": {
-        "madrun/add-function": true
+        "madrun/add-function": false,
+        "madrun/convert-redrun-to-series": false,
     }
 }
 ```
