@@ -6,6 +6,6 @@ const getRule = (a) => ({
 
 module.exports.rules = {
     ...getRule('add-function'),
-    ...getRule('convert-redrun-to-series'),
+    ...getRule('call-series'),
 };
 

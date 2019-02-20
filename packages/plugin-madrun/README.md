@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-madrun
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-madrun
 
-`putout` plugin adds ability to convert class components to [react hooks](https://reactjs.org/docs/hooks-intro.html).
+`putout` plugin adds ability to fix issues with [madrun](https://github.com/coderaiser/madrun) config file.
 
 ## Install
 
@@ -32,7 +32,7 @@ All Rules of `madrun` is enabled by default, to disable any of them modify `.put
 {
     "rules": {
         "madrun/add-function": false,
-        "madrun/convert-redrun-to-series": false,
+        "madrun/call-series": false,
     }
 }
 ```
