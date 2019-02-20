@@ -27,23 +27,36 @@ module.exports.find = (ast, {push, traverse}) => {
             
             push({
                 path,
+                value,
                 name: path.parent.key.value,
-                scripts: value.split(' ').slice(1),
             });
         },
     });
 };
 
-module.exports.fix = ({path, scripts}) => {
+module.exports.fix = ({path, value}) => {
+    const [line, arg] = value.split(' -- ');
+    const scripts = line.split(' ').slice(1);
+    
     const strs = [];
     for (const script of scripts) {
         strs.push(stringLiteral(script));
     }
     
-    path.replaceWith(callExpression(identifier('series'), [
-        arrayExpression(strs),
-    ]));
+    const seriesArgs = getSeriesArgs(strs, arg);
     
-    path.replaceWith(arrowFunctionExpression([], path.node));
+    path.node.body = callExpression(identifier('series'), seriesArgs);
 };
+
+function getSeriesArgs(strs, arg) {
+    if (!arg)
+        return [
+            arrayExpression(strs),
+        ];
+    
+   return [
+    arrayExpression(strs),
+    stringLiteral(arg),
+    ];
+}
 

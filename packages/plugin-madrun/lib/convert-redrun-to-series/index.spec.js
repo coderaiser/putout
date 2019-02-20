@@ -11,8 +11,12 @@ test('madrun: add function: report', (t) => {
     t.end();
 });
 
-test('madrun: add function: transform: string', (t) => {
+test('madrun: add function: transform: redrun', (t) => {
     t.transform('redrun');
     t.end();
 });
 
+test('madrun: add function: transform: redrun: args', (t) => {
+    t.transform('redrun-args');
+    t.end();
+});
