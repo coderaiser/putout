@@ -32,6 +32,7 @@
         "no-useless-rename": "error",
         "no-use-before-define": 0,
         "lines-around-directive": "error",
+        "linebreak-style": ["error", "unix"],
         "no-multiple-empty-lines": [
             "error", {
                 "max": 1
