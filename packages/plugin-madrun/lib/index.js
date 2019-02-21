@@ -6,6 +6,6 @@ const getRule = (a) => ({
 
 module.exports.rules = {
     ...getRule('add-function'),
-    ...getRule('call-series'),
+    ...getRule('call-run'),
 };
 

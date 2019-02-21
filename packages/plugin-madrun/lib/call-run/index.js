@@ -9,7 +9,7 @@ const {
 } = require('putout').types;
 
 module.exports.report = ({name}) => {
-    return `"series" should be called in script: "${name}"`;
+    return `"run" should be called in script: "${name}"`;
 };
 
 module.exports.find = (ast, {push, traverse}) => {
@@ -41,12 +41,12 @@ module.exports.fix = ({path, value}) => {
         strs.push(stringLiteral(script));
     }
     
-    const seriesArgs = getSeriesArgs(strs, arg);
+    const runArgs = getRunArgs(strs, arg);
     
-    path.node.body = callExpression(identifier('series'), seriesArgs);
+    path.node.body = callExpression(identifier('run'), runArgs);
 };
 
-function getSeriesArgs(strs, arg) {
+function getRunArgs(strs, arg) {
     if (!arg)
         return [
             arrayExpression(strs),

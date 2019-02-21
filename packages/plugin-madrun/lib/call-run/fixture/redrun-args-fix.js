@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    'fix:lint': () => series(['lint:*'], '--fix'),
+    'fix:lint': () => run(['lint:*'], '--fix'),
     'test': () => 'tape test',
     'big': () => {
         return 'tape test';
