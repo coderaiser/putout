@@ -19,6 +19,12 @@
     "fix:lint": "madrun fix:lint",
     "coverage": "madrun coverage"
   },
+  "nyc": {
+    "exclude": [
+      "*/**/*.spec.js",
+      "test"
+    ]
+  },
   "dependencies": {},
   "keywords": [
     "putout",
