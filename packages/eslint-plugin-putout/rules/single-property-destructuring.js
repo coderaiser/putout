@@ -34,15 +34,10 @@ module.exports = {
                     
                     fix(fixer) {
                         const [property] = id.properties;
-                        const {
-                            key,
-                            value,
-                        } = property;
-                        
-                        const name = key === value ? key.name : `${key.name}: ${value.name}`;
+                        const {key} = property;
                         
                         return [
-                            fixer.replaceText(id, `{${name}}`),
+                            fixer.replaceText(id, `{${key.name}}`),
                         ];
                     },
                 });

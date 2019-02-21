@@ -5,7 +5,8 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
-    ...getRule('one-line-destructuring'),
+    ...getRule('single-property-destructuring'),
+    ...getRule('multiple-properties-destructuring'),
     ...getRule('destructuring-as-function-argument'),
     ...getRule('align-spaces'),
 };
@@ -18,7 +19,8 @@ module.exports.configs = {
         ...config,
         rules: {
             ...rules,
-            'putout/one-line-destructuring': 'error',
+            'putout/single-property-destructuring': 'error',
+            'putout/multiple-properties-destructuring': 'error',
             'putout/destructuring-as-function-argument': 'error',
             'putout/align-spaces': 'error',
         }

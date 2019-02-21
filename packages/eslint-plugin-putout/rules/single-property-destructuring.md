@@ -1,4 +1,4 @@
-# keep curly bracesin in one line when property is single (one-line-destructuring)
+# keep curly bracesin in one line when property is single (single-property-destructuring)
 
 When `putout` removes unused variables declared as destructured properties, it keeps one property to take 3 lines, instead of 1.
 

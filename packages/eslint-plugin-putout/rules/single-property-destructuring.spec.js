@@ -1,6 +1,6 @@
 'use strict';
 
-const rule = require('./one-line-destructuring');
+const rule = require('./single-property-destructuring');
 const {RuleTester} = require('eslint');
 
 const ruleTester = new RuleTester({
@@ -9,7 +9,7 @@ const ruleTester = new RuleTester({
     },
 });
 
-ruleTester.run('one-line-destructuring', rule, {
+ruleTester.run('single-property-destructuring', rule, {
     valid: [
         `const {hello} = world;`,
         `const {hello} = get({});`,
@@ -19,11 +19,8 @@ ruleTester.run('one-line-destructuring', rule, {
     ],
     
     invalid: [{
-        code: `
-                const {
-                    hello
-                } = world;
-            `,
+        code: `const {\n    hello\n} = world`,
+        output: 'const {hello} = world',
         errors: [{
             message: 'Keep curly braces on one line when you have one destructuring property',
             type: 'VariableDeclarator',
