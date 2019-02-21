@@ -216,7 +216,7 @@ function getOptions(cwd) {
             dirname(putoutPath),
             require(putoutPath),
         ];
-        
+    
     const packagePath = readUp.sync('package.json', {
         cwd,
     });

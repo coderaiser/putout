@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    run,
-    series,
-} = require('madrun');
+const {run} = require('madrun');
 
 const lintScripts = [
     'putout',
@@ -16,8 +13,8 @@ module.exports = {
     'lint:lib': () => `eslint lib`,
     'lint:test': () => `eslint madrun.js test --ignore-pattern test/fixture`,
     'lint:bin': () => `eslint --rule 'no-console:0' bin -c .eslintrc.bin`,
-    'lint': () => series(lintScripts),
-    'fix:lint': () => series(lintScripts, '--fix'),
+    'lint': () => run(lintScripts),
+    'fix:lint': () => run(lintScripts, '--fix'),
     'putout': () => `bin/putout.js bin lib test madrun.js`,
     'coverage': () => `nyc ${run('test')}`,
     'report': () => `nyc report --reporter=text-lcov | coveralls || true`,
