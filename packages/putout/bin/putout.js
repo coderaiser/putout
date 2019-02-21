@@ -211,12 +211,25 @@ function getOptions(cwd) {
         cwd,
     });
     
-    if (!putoutPath)
-        return ['', {}];
+    if (putoutPath)
+        return [
+            dirname(putoutPath),
+            require(putoutPath),
+        ];
+        
+    const packagePath = readUp.sync('package.json', {
+        cwd,
+    });
+    
+    if (packagePath)
+        return [
+            dirname(packagePath),
+            require(packagePath).putout || {},
+        ];
     
     return [
-        dirname(putoutPath),
-        require(putoutPath),
+        '',
+        {},
     ];
 }
 
