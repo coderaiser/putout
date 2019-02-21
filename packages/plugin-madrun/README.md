@@ -33,6 +33,7 @@ All Rules of `madrun` is enabled by default, to disable any of them modify `.put
     "rules": {
         "madrun/add-function": false,
         "madrun/call-run": false,
+        "madrun/rename-series-to-run": false,
     }
 }
 ```
