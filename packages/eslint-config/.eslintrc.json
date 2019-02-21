@@ -28,6 +28,7 @@
         }],
         "semi": "error",
         "object-shorthand": "error",
+        "object-property-newline": "error",
         "prefer-arrow-callback": "error",
         "no-useless-rename": "error",
         "no-use-before-define": 0,
