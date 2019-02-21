@@ -14,12 +14,13 @@ ruleTester.run('multiple-properties-destructuring', rule, {
         `const {
             a,
             b,
+            c,
         } = world;`,
     ],
     
     invalid: [{
-        code: `const {a, b} = world;`,
-        output: `const {\na,\n b\n} = world;`,
+        code: `const {a, b, c} = world;`,
+        output: `const {\na,\n b,\n c\n} = world;`,
         errors: [{
             message: 'Keep each property on separate lines when using multiple destructuring properties',
             type: 'VariableDeclarator',

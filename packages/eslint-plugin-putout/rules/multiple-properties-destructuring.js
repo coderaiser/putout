@@ -15,7 +15,7 @@ module.exports = {
     
     create(context) {
         return {
-            'VariableDeclarator[id.type="ObjectPattern"][id.properties.length>1]': (node) => {
+            'VariableDeclarator[id.type="ObjectPattern"][id.properties.length>2]': (node) => {
                 const {id} = node;
                 const {properties} = id;
                 const {line} = node.loc.start;
