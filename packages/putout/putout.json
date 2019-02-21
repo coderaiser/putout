@@ -20,6 +20,7 @@
         "remove-skip": false
     },
     "plugins": [
+        "madrun",
         "remove-unused-variables",
         "remove-debugger",
         "remove-only",
@@ -32,7 +33,6 @@
         "apply-destructuring",
         "merge-destructuring-properties",
         "remove-unused-private-fields",
-        "madrun",
         "strict-mode"
     ]
 }
