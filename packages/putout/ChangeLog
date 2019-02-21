@@ -1,3 +1,16 @@
+2019.02.21, v4.2.1
+
+fix:
+- ((putout) read package.json if .putout.json not found: default match doesn't work without package.json dirname
+- (eslint-plugin-putout) multiple-properties-destructuring: more then 1 -> more then 2 properties
+- (@putout/eslint-config) rm object-property-newline
+
+feature:
+- (plugin-madrun) call-series -> call-run
+- (eslint-plugin-putout) add suppport of multiple-properties-destructuring
+- (eslint-config) add object-property-newline
+
+
 2019.02.20, v4.2.0
 
 feature:
