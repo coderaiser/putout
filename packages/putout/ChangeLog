@@ -1,3 +1,12 @@
+2019.02.22, v4.3.0
+
+fix:
+- feature(putout) add support of ---count
+
+feature:
+- (putout) add support of --fix-count
+
+
 2019.02.21, v4.2.2
 
 fix:
