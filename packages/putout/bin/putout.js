@@ -154,11 +154,11 @@ function processFiles(name) {
     
     const {code, places} = result;
     
-    if (!places.length)
-        return;
-    
     if (fix)
         return writeFileSync(name, code);
+    
+    if (!places.length)
+        return;
     
     ++filesCount;
     errorsCount += places.length;
