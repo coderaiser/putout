@@ -22,6 +22,12 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
+  "nyc": {
+    "exclude": [
+      "*/**/*.spec.js",
+      "test"
+    ]
+  },
   "dependencies": {
     "@babel/generator": "^7.3.0",
     "@babel/parser": "^7.3.1",

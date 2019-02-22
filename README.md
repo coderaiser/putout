@@ -30,13 +30,22 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 
 ## Usage
 
-To find `errors` use:
+```
+Usage: putout [options] [path]
+Options:
+  -h, --help              display this help and exit
+  -v, --version           output version information and exit
+  --fix                   aply found fixes of errors to code
+  --fix-count             count of fixes rounds (defaults to 10)
+```
+
+To see unused variables use:
 
 ```
 putout lib test
 ```
 
-To `fix` it use:
+To remove `unused variables` use:
 
 ```
 putout lib test --fix

@@ -47,6 +47,9 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
         'fix',
         'raw',
     ],
+    number: [
+        'fixCount',
+    ],
     string: [
         'config',
     ],
@@ -57,12 +60,14 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
     },
     default: {
         fix: false,
+        fixCount: 10,
     },
 });
 
 const {
     fix,
     raw,
+    fixCount,
 } = argv;
 
 if (argv.version) {
@@ -123,6 +128,7 @@ function processFiles(name) {
     
     const [e, result] = tryCatch(putout, input, {
         fix,
+        fixCount,
         ...merge(
             defaultOptions,
             readCodeMods(),

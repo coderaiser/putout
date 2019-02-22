@@ -134,7 +134,8 @@ Usage: putout [options] [path]
 Options:
   -h, --help              display this help and exit
   -v, --version           output version information and exit
-  --fix                   remove unused variables
+  --fix                   aply found fixes of errors to code
+  --fix-count             count of fixes rounds (defaults to 10)
 ```
 
 To see unused variables use:

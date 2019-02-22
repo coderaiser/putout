@@ -15,6 +15,7 @@ const fixture = readFixtures([
     'shebang-fix',
     'strict-mode',
     'strict-mode-fix',
+    'strict-mode-fix-count',
 ]);
 
 test('putout: no vars', (t) => {
@@ -131,6 +132,20 @@ test('putout: use strict', (t) => {
     });
     
     const expected = fixture.strictModeFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: use strict: fixCount', (t) => {
+    const {code} = putout(fixture.strictMode, {
+        fixCount: 10,
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = fixture.strictModeFixCount;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

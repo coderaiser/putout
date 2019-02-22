@@ -9,10 +9,11 @@ const types = require('@babel/types');
 
 const cutShebang = require('./cut-shebang');
 const getPlugins = require('./get-plugins');
-const fix = require('./fix');
 const customParser = require('./custom-parser');
+const runPlugins = require('./run-plugins');
 
 const isUndefined = (a) => typeof a === 'undefined';
+const {assign} = Object;
 
 const printOptions = {
     quote: 'single',
@@ -25,53 +26,42 @@ const getParser = (parser) => ({
 });
 
 const defaultOpts = (opts = {}) => {
-    if (isUndefined(opts.fix))
-        return {
-            ...opts,
-            fix: true,
-        };
+    const newOpts = {
+        ...opts,
+    };
     
-    return opts;
+    if (isUndefined(opts.fix))
+        assign(newOpts, {
+            fix: true,
+        });
+    
+    if (isUndefined(opts.fixCount))
+        assign(newOpts, {
+            fixCount: 1,
+        });
+    
+    return newOpts;
 };
 
 module.exports = (source, opts) => {
     opts = defaultOpts(opts);
-    const {parser} = opts;
+    const {
+        parser,
+        fixCount,
+        fix,
+    } = opts;
     
     const [clearSource, shebang] = cutShebang(source);
     
     const ast = parse(clearSource, parser);
     const plugins = getPlugins(opts);
-    const places = [];
-    
-    for (const [rule, plugin] of plugins) {
-        const {
-            report,
-            find,
-        } = plugin;
-        
-        const items = superFind(find, ast);
-        
-        if (!items.length)
-            continue;
-        
-        for (const item of items) {
-            const path = getPath(item);
-            const message = report(item);
-            const position = getPosition(path, shebang);
-            
-            places.push({
-                rule,
-                message,
-                position,
-            });
-            
-            fix(opts.fix, plugin.fix, {
-                path: item,
-                position,
-            });
-        }
-    }
+    const places = runPlugins({
+        ast,
+        shebang,
+        fix,
+        fixCount,
+        plugins,
+    });
     
     const {code: printed} = recast.print(ast, printOptions);
     const code = fixStrictMode(`${shebang}${printed}`);
@@ -87,21 +77,6 @@ const fixStrictMode = (a) => {
         .replace(`\n\n\n'use strict'`, `\n\n'use strict'`);
 };
 
-function superFind(find, ast) {
-    const pushItems = [];
-    const push = pushItems.push.bind(pushItems);
-    const returnItems = find(ast, {
-        traverse,
-        types,
-        push,
-    });
-    
-    return [
-        ...pushItems,
-        ...(returnItems || []),
-    ];
-}
-
 module.exports.parse = parse;
 function parse(source, parser = 'babel') {
     const ast = recast.parse(source, {
@@ -116,29 +91,4 @@ module.exports.types = types;
 module.exports.template = template;
 module.exports.generate = generate;
 module.exports.prettify = require('./prettify');
-
-function getPath(item) {
-    return item.path || item;
-}
-
-function getPosition(path, shebang) {
-    const {node} = path;
-    const {loc} = node;
-    
-    if (!loc)
-        return {
-            line: 'x',
-            column: 'x',
-        };
-    
-    const {
-        line,
-        column,
-    } = node.loc.start;
-    
-    return {
-        line: shebang ? line + 1 : line,
-        column,
-    };
-}
 
