@@ -1,3 +1,10 @@
+2019.02.22, v4.3.1
+
+fix:
+- (run-plugins) add early return when no need to apply changes
+- docs(changelog) rm 
+
+
 2019.02.22, v4.3.0
 
 feature:
