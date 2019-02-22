@@ -17,7 +17,7 @@ module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
             plugins,
         });
         
-        if (!places.length)
+        if (!fix || !places.length)
             return places;
     }
     
