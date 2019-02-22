@@ -666,6 +666,7 @@ test('remove-unused-variables: get-vars: switch statement', (t) => {
     const expected = [{
         name: du,
         console: _u,
+        hello: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

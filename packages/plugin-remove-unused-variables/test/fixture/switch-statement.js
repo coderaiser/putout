@@ -5,6 +5,10 @@ default:
     console.log('hello');
 };
 
+const hello = true;
+
 switch(true) {
+case hello:
+    break;
 };
 

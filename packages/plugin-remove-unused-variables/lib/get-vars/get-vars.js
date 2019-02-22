@@ -259,6 +259,11 @@ module.exports = ({
             
             if (isIdentifier(node.discriminant))
                 use(path, node.discriminant.name);
+            
+            for (const {test} of node.cases) {
+                if (isIdentifier(test))
+                    use(path, test.name);
+            }
         },
         
         ReturnStatement(path) {
