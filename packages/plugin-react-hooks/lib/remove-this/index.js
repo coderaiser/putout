@@ -14,9 +14,6 @@ module.exports.find = (ast, {push}) => {
             const {parentPath} = path;
             const propertyPath = parentPath.get('property');
             
-            if (!propertyPath.isIdentifier())
-                return;
-            
             const {name} = propertyPath.node;
             push({
                 name,
