@@ -107,7 +107,7 @@ To configure `putout` add section `putout` to your `package.json` file or create
         "convert-esm-to-commonjs": false,
         "apply-destructuring/object": true,
         "apply-destructuring/array": true,
-        "merge-destructuring-properties": true
+        "merge-destructuring-properties": true,
         "strict-mode/add": true,
         "strict-mode/remove": true
     }
