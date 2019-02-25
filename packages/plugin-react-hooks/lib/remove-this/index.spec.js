@@ -15,3 +15,25 @@ test('plugin-react-hooks: remove-this: transform', (t) => {
     t.end();
 });
 
+test('plugin-react-hooks: remove-this: transform', (t) => {
+    const from = `
+        class Hello extends Component {
+            render() {
+                return (
+                    <button onClick={this.setEnabled}/>
+                );
+            }
+        }
+    `;
+    
+    const to = `
+        class Hello extends Component {
+            render() {
+                return <button onClick={setEnabled}/>;
+            }
+        }
+    `;
+    t.transformCode(from, to);
+    t.end();
+});
+
