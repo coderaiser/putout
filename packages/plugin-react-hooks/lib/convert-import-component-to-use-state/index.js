@@ -14,11 +14,10 @@ module.exports.find = (ast, {push, traverse}) => {
         ImportDeclaration(path) {
             const {source} = path.node;
             
-            // если не react, нет смысла продолжать
             if (source.value !== 'react')
                 return;
             
-            const name = 'Component;
+            const name = 'Component';
             const specifiersPaths = path.get('specifiers');
             for (const specPath of specifiersPaths) {
                 if (!specPath.isImportSpecifier())
