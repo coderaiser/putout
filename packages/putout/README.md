@@ -27,6 +27,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `esm` to `commonjs`;
 - apply destructuring;
 - merge destructuring properties;
+- convert `Math.pow` to `exponentiation operator`;
 
 ## Configuration
 
@@ -63,7 +64,8 @@ To configure create `.putout.json` file and override any option:
         "apply-destructuring/array": true,
         "merge-destructuring-properties": true,
         "strict-mode/add": true,
-        "strict-mode/remove": true
+        "strict-mode/remove": true,
+        "convert-math-pow": true
     }
 }
 ```

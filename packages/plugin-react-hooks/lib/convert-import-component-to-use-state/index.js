@@ -1,7 +1,5 @@
 'use strict';
 
-const {isImportSpecifier} = require('putout').types;
-
 module.exports.report = () => 'useState should be used instead of Component';
 
 module.exports.fix = (path) => {
@@ -11,28 +9,26 @@ module.exports.fix = (path) => {
     node.local.name = 'useState';
 };
 
-module.exports.find = (ast, {traverse}) => {
-    const places = [];
-    
+module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
         ImportDeclaration(path) {
             const {source} = path.node;
             
+            // если не react, нет смысла продолжать
             if (source.value !== 'react')
                 return;
             
+            const name = 'Component;
             const specifiersPaths = path.get('specifiers');
             for (const specPath of specifiersPaths) {
-                const {node} = specPath;
-                
-                if (!isImportSpecifier(node))
+                if (!specPath.isImportSpecifier())
                     continue;
                 
-                places.push(specPath);
+                if (!specPath.get('imported').isIdentifier({name}))
+                    continue;
+                
+                push(specPath);
             }
         },
     });
-    
-    return places;
 };
-

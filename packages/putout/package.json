@@ -36,6 +36,7 @@
     "@babel/types": "^7.2.0",
     "@putout/plugin-apply-destructuring": "^2.0.0",
     "@putout/plugin-convert-esm-to-commonjs": "^1.0.0",
+    "@putout/plugin-convert-math-pow": "^1.0.0",
     "@putout/plugin-madrun": "^1.0.1",
     "@putout/plugin-merge-destructuring-properties": "^1.0.0",
     "@putout/plugin-remove-console": "^1.0.0",

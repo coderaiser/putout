@@ -1,2 +1,3 @@
-import React, {Component} from 'react';
+import {curry} from 'ramda';
+import React, {Some, Component} from 'react';
 

@@ -33,7 +33,8 @@
         "apply-destructuring",
         "merge-destructuring-properties",
         "remove-unused-private-fields",
-        "strict-mode"
+        "strict-mode",
+        "convert-math-pow"
     ]
 }
 
