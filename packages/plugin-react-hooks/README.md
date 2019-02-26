@@ -26,7 +26,7 @@ Add `.putout.json` with:
 
 ## Rules
 
-All Rules of `react-hooks` is enabled by default, to disable any of them modify `.putout.json`:
+Here is list of rules:
 
 ```json
 {
@@ -73,7 +73,7 @@ class Button extends Component {
         return (
             <button
                 enabled={enabled}
-                onClick={this.setEnabled}
+                onClick={this.toggle}
             />
         );
     }
