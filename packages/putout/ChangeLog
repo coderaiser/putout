@@ -1,3 +1,11 @@
+2019.02.26, v4.4.0
+
+feature:
+- (@putout/plugin-convert-math-pow) add
+- (@putout/plugin-react-hooks) remove-this: rm addition check
+- (@putout/plugin-remove-unused-variables) add support of identifiers in SwitchCase test
+
+
 2019.02.22, v4.3.2
 
 fix:
