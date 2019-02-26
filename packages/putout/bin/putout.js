@@ -71,7 +71,7 @@ const {
 } = argv;
 
 if (argv.version) {
-    console.log(require('../package.json').version);
+    console.log(`v${require('../package.json').version}`);
     process.exit();
 }
 
