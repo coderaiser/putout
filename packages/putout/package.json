@@ -35,6 +35,7 @@
     "@babel/traverse": "^7.1.6",
     "@babel/types": "^7.2.0",
     "@putout/plugin-apply-destructuring": "^2.0.0",
+    "@putout/plugin-convert-apply-to-spread": "^1.0.0",
     "@putout/plugin-convert-esm-to-commonjs": "^1.0.0",
     "@putout/plugin-convert-math-pow": "^1.0.0",
     "@putout/plugin-madrun": "^1.0.1",

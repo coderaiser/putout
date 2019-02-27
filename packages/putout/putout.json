@@ -27,14 +27,15 @@
         "remove-skip",
         "remove-process-exit",
         "remove-console",
-        "split-variable-declarations",
         "remove-empty",
+        "remove-unused-private-fields",
+        "split-variable-declarations",
         "convert-esm-to-commonjs",
+        "convert-apply-to-spread",
+        "convert-math-pow",
         "apply-destructuring",
         "merge-destructuring-properties",
-        "remove-unused-private-fields",
-        "strict-mode",
-        "convert-math-pow"
+        "strict-mode"
     ]
 }
 

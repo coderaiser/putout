@@ -28,6 +28,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - apply destructuring;
 - merge destructuring properties;
 - convert `Math.pow` to `exponentiation operator`;
+- convert `apply` to `spread`;
 
 ## Configuration
 
@@ -49,24 +50,29 @@ To configure create `.putout.json` file and override any option:
         }
     },
     "rules": {
-        "remove-unused-variables": true,
-        "remove-unused-private-fields": true,
-        "remove-debugger": true,
-        "remove-only": false,
-        "remove-skip": false,
-        "remove-process-exit": false,
-        "remove-console": true,
-        "split-variable-declarations": true,
-        "remove-empty/block": true,
-        "remove-empty/pattern": true,
+        "madrun/*": false,
         "convert-esm-to-commonjs": false,
-        "apply-destructuring/object": true,
-        "apply-destructuring/array": true,
-        "merge-destructuring-properties": true,
-        "strict-mode/add": true,
-        "strict-mode/remove": true,
-        "convert-math-pow": true
-    }
+        "remove-only": false,
+        "remove-skip": false
+    },
+    "plugins": [
+        "madrun",
+        "remove-unused-variables",
+        "remove-debugger",
+        "remove-only",
+        "remove-skip",
+        "remove-process-exit",
+        "remove-console",
+        "remove-empty",
+        "remove-unused-private-fields",
+        "split-variable-declarations",
+        "convert-esm-to-commonjs",
+        "convert-apply-to-spread",
+        "convert-math-pow",
+        "apply-destructuring",
+        "merge-destructuring-properties",
+        "strict-mode"
+    ]
 }
 ```
 
