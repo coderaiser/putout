@@ -10,7 +10,7 @@
 ## Install
 
 ```
-npm i @putout/plugin-convert-math-pow-to-exponentiation-operator -D
+npm i @putout/plugin-convert-math-pow -D
 ```
 
 ## Rule
