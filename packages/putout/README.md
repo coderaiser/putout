@@ -50,6 +50,9 @@ To configure create `.putout.json` file and override any option:
             "remove-skip": true
         }
     },
+    "ignore": [
+        "node_modules"
+    ],
     "rules": {
         "madrun/*": false,
         "convert-esm-to-commonjs": false,

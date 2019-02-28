@@ -99,6 +99,9 @@ To configure `putout` add section `putout` to your `package.json` file or create
             "remove-skip": true
         }
     },
+    "ignore": [
+        "node_modules"
+    ],
     "rules": {
         "madrun/*": false,
         "convert-esm-to-commonjs": false,
