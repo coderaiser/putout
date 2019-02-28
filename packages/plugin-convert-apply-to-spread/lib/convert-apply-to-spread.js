@@ -1,6 +1,9 @@
 'use strict';
 
-const {spreadElement, isIdentifier} = require('putout').types;
+const {
+    spreadElement,
+    isIdentifier,
+} = require('putout').types;
 
 module.exports.report = () => '"spread" should be used instead of "apply"';
 

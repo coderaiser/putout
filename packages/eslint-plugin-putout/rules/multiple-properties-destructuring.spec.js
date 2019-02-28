@@ -9,6 +9,8 @@ const ruleTester = new RuleTester({
     },
 });
 
+const message = 'Keep each property on separate lines when using multiple destructuring properties';
+
 ruleTester.run('multiple-properties-destructuring', rule, {
     valid: [
         `const {
@@ -22,7 +24,7 @@ ruleTester.run('multiple-properties-destructuring', rule, {
         code: `const {a, b, c} = world;`,
         output: `const {\na,\n b,\n c\n} = world;`,
         errors: [{
-            message: 'Keep each property on separate lines when using multiple destructuring properties',
+            message,
             type: 'VariableDeclarator',
         }],
     }],

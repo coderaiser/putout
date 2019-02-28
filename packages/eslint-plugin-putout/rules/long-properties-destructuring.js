@@ -2,7 +2,7 @@
 
 const {isCorrectLoc} = require('./common');
 
-const description = 'Keep each property on separate lines when using multiple destructuring properties';
+const description = 'Keep each property on separate lines when destructuring long properties';
 
 module.exports = {
     meta: {
@@ -17,13 +17,14 @@ module.exports = {
     
     create(context) {
         return {
-            'VariableDeclarator[id.type="ObjectPattern"][id.properties.length>2]': (node) => {
+            'VariableDeclarator[id.type="ObjectPattern"][id.properties.length>=2]': (node) => {
                 const {id} = node;
                 const {properties} = id;
                 const {line} = node.loc.start;
                 const isLoc = isCorrectLoc(line, properties);
+                const isLength = isCorrectLength(properties);
                 
-                if (isLoc)
+                if (isLoc || isLength)
                     return;
                 
                 const text = context
@@ -49,4 +50,14 @@ module.exports = {
         };
     },
 };
+
+function isCorrectLength(properties) {
+    for (const prop of properties) {
+        const {name} = prop.key;
+        if (name.length >= 10)
+            return false;
+    }
+    
+    return true;
+}
 
