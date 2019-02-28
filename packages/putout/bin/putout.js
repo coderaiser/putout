@@ -109,9 +109,7 @@ function processFiles(name) {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
-    const dir = dirname(resolvedName);
-    
-    const [dirOpt, currOpt] = getOptions(dir);
+    const [dirOpt, currOpt] = getOptions(cwd);
     const options = merge(currOpt, defaultOptions);
     const {match} = options;
     
