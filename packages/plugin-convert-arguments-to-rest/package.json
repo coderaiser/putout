@@ -1,10 +1,10 @@
 {
-  "name": "@putout/plugin-convert-arguments-to-spread",
-  "version": "1.0.1",
+  "name": "@putout/plugin-convert-arguments-to-rest",
+  "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to convert arguments to spread",
+  "description": "putout plugin adds ability to convert arguments to rest",
   "homepage": "http://github.com/coderaiser/putout",
-  "main": "lib/convert-arguments-to-spread.js",
+  "main": "lib/convert-arguments-to-rest.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -25,7 +25,7 @@
     "plugin",
     "convert",
     "arguments",
-    "spread"
+    "rest"
   ],
   "devDependencies": {
     "@putout/eslint-config": "^1.0.2",

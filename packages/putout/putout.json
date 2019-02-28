@@ -35,7 +35,7 @@
         "split-variable-declarations",
         "convert-esm-to-commonjs",
         "convert-apply-to-spread",
-        "convert-arguments-to-spread",
+        "convert-arguments-to-rest",
         "convert-math-pow",
         "apply-destructuring",
         "merge-destructuring-properties",

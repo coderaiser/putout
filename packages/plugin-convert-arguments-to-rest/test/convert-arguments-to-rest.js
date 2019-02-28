@@ -1,0 +1,26 @@
+'use strict';
+
+const test = require('@putout/test')(__dirname, {
+    'convert-arguments-to-rest': require('..'),
+});
+
+test('plugin-convert-arguments-to-rest: report', (t) => {
+    t.report('arguments', '"rest" should be used instead of "arguments"');
+    t.end();
+});
+
+test('plugin-convert-arguments-to-rest: transform', (t) => {
+    t.transform('arguments');
+    t.end();
+});
+
+test('plugin-convert-arguments-to-rest: transform: args exists', (t) => {
+    t.transform('args');
+    t.end();
+});
+
+test('plugin-convert-arguments-to-rest: transform: params', (t) => {
+    t.transform('params');
+    t.end();
+});
+
