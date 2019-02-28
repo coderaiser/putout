@@ -1,18 +1,16 @@
-# putout-plugin-convert-arguments-to-spread [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# putout-plugin-convert-arguments-to-rest [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-convert-arguments-to-spread.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-convert-arguments-to-spread "npm"
+[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-convert-arguments-to-rest.svg?style=flat&longCache=true
+[NPMURL]:                   https://npmjs.org/package/@putout/plugin-convert-arguments-to-rest "npm"
 
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-arguments-to-spread
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-arguments-to-spread
+[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-arguments-to-rest
+[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-arguments-to-rest
 
-**Renamed to [@putout/convert-arguments-to-rest](https://www.npmjs.com/package/@putout/plugin-convert-arguments-to-rest)**.
-
-`putout` plugin adds ability to convert `arguments` to `spread`.
+`putout` plugin adds ability to convert `arguments` to `rest`.
 ## Install
 
 ```
-npm i @putout/plugin-convert-arguments-to-spread -D
+npm i @putout/plugin-convert-arguments-to-rest -D
 ```
 
 ## Rule
@@ -20,7 +18,7 @@ npm i @putout/plugin-convert-arguments-to-spread -D
 ```json
 {
     "rules": {
-        "convert-arguments-to-spread": true
+        "convert-arguments-to-rest": true
     }
 }
 ```
