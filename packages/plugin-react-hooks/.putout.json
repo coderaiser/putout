@@ -1,7 +1,4 @@
 {
-    "rules": {
-        "remove-unused-variables": false
-    },
     "ignore": [
         "fixture"
     ]
