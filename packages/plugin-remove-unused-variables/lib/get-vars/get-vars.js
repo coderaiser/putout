@@ -10,6 +10,7 @@ const {
     isTemplateLiteral,
     isFunctionDeclaration,
     isArrayExpression,
+    isVariableDeclaration,
 } = require('putout').types;
 
 const {
@@ -377,9 +378,18 @@ module.exports = ({
         
         ExportNamedDeclaration(path) {
             const {declaration} = path.node;
-            
+        
             if (isFunctionDeclaration(declaration))
-                use(path, declaration.id.name);
+                return use(path, declaration.id.name);
+        
+            if (isVariableDeclaration(declaration)) {
+                const {declarations} = declaration;
+            
+                for (const {id} of declarations) {
+                    if (isIdentifier(id))
+                        use(path, id.name);
+                }
+            }
         },
         
         FunctionDeclaration(path) {

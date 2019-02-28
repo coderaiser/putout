@@ -522,6 +522,10 @@ test('remove-unused-variables: get-vars: export named declaration', (t) => {
             declared: true,
             used: true,
         },
+        arrow: {
+            declared: true,
+            used: true,
+        },
     }];
     
     t.deepEqual(result, expected, 'should equal');
