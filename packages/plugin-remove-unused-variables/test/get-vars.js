@@ -58,6 +58,7 @@ const fixture = readFixtures([
     'update-expression',
     'variable-declarator',
     'jsx-opening-element',
+    'jsx-spread-attribute',
 ]);
 
 const du = 'du';
@@ -967,6 +968,22 @@ test('remove-unused-variables: get-vars: jsx opening element', (t) => {
         React: du,
     }, {
         str: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: jsx spread attribute', (t) => {
+    const ast = parse(fixture.jsxSpreadAttribute);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        fn: d_,
+        require: _u,
+        React: du,
+    }, {
+        spread: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

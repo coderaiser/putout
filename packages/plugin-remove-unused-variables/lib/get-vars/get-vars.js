@@ -432,8 +432,17 @@ module.exports = ({
             const {node} = path;
             const {name} = node;
             
-            use(path, name.name);
+            if (/^[A-Z]/.test(name.name))
+                use(path, name.name);
+            
             use(path, 'React');
+        },
+        
+        JSXSpreadAttribute(path) {
+            const argPath = path.get('argument');
+            
+            if (argPath.isObjectExpression())
+                traverseObj(argPath.get('properties'));
         },
         
         JSXExpressionContainer(path) {
