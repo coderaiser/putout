@@ -6,6 +6,8 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-arguments-to-spread
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-arguments-to-spread
 
+**Renamed to [@putout/convert-arguments-to-rest](https://www.npmjs.com/package/@putout/plugin-convert-arguments-to-rest)**.
+
 `putout` plugin adds ability to convert `arguments` to `spread`.
 ## Install
 
