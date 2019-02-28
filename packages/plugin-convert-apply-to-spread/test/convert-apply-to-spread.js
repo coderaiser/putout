@@ -28,3 +28,10 @@ test('plugin-convert-apply-to-spread: transform: call', (t) => {
     t.end();
 });
 
+test('plugin-convert-apply-to-spread: transform: context', (t) => {
+    const code = 'a.apply(b, c)';
+    
+    t.transformCode(code, code);
+    t.end();
+});
+

@@ -1,6 +1,6 @@
 'use strict';
 
-const {spreadElement} = require('putout').types;
+const {spreadElement, isIdentifier} = require('putout').types;
 
 module.exports.report = () => '"spread" should be used instead of "apply"';
 
@@ -20,6 +20,12 @@ module.exports.find = (ast, {push, traverse}) => {
             const calleePath = path.get('callee');
             
             if (!calleePath.isMemberExpression())
+                return;
+            
+            const {name} = calleePath.get('object').node;
+            const [context] = path.node.arguments;
+            
+            if (!isIdentifier(context, {name}))
                 return;
             
             const isApply = calleePath
