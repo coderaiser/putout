@@ -1,3 +1,16 @@
+2019.02.28, v4.7.0
+
+fix:
+- (putout) get config from bottom directory -> get config from current directory
+- (npmignore) add *.md
+
+feature:
+- (putout) ignore: add node_modules
+- (@putout/plugin-remove-unused-variables) add support of VariableDeclaration in ExportNamedDeclaration
+- (eslint-plugin-putout) add long-properties-destructuring
+- (@putout/plugin-convert-apply-to-spread) add support of context switch in apply
+
+
 2019.02.28, v4.6.0
 
 feature:
