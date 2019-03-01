@@ -6,7 +6,33 @@ const {
     isAssignmentPattern,
     isIdentifier,
     isObjectPattern,
+    isRestElement,
 } = types;
+
+module.exports.usePropertiesBeforeRest = ({use}) => ({path, params}) => {
+    for (const param of params) {
+        if (!isObjectPattern(param))
+            continue;
+        
+        traverseProperties(use, path, param.properties);
+    }
+};
+
+function traverseProperties(use, path, properties) {
+    const {length} = properties;
+    const last = properties[length - 1];
+    
+    if (!isRestElement(last))
+        return;
+    
+    for (let i = 0; i < length - 1; i++) {
+        const prop = properties[i];
+        const {value} = prop;
+        
+        if (isIdentifier(value))
+            use(path, value.name);
+    }
+}
 
 module.exports.useParamsBeforeLastUsed = ({use, isUsed}) => ({path, params}) => {
     let i = params.length;
@@ -24,6 +50,11 @@ module.exports.useParamsBeforeLastUsed = ({use, isUsed}) => ({path, params}) => 
         
         use(path, params[i].name);
     }
+    
+    return {
+        path,
+        params,
+    };
 };
 
 const traverseIsUsed = (isUsed, path, node) => {

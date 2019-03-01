@@ -724,7 +724,7 @@ test('remove-unused-variables: get-vars: fn destr args vars', (t) => {
     }, {
         one: d_,
     }, {
-        restOne: d_,
+        restOne: du,
         restVar: d_,
     }];
     
