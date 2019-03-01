@@ -14,9 +14,7 @@ const {
 const traverseObjectPattern = (use) => {
     return (propertiesPaths) => {
         for (const path of propertiesPaths) {
-            const {
-                key,
-            } = path.node;
+            const {key} = path.node;
             
             if (isIdentifier(key))
                 use(path, key.name);

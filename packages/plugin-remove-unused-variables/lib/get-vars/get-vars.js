@@ -22,11 +22,7 @@ const {
 
 const {assign} = Object;
 
-module.exports = ({
-    use,
-    declare,
-    addParams,
-}) => {
+module.exports = ({use, declare, addParams}) => {
     const traverseObj = traverseObjectExpression(use);
     const declareObj = traverseObjectExpression(declare);
     
@@ -169,9 +165,7 @@ module.exports = ({
         },
         
         NewExpression(path) {
-            const {
-                node,
-            } = path;
+            const {node} = path;
             
             if (isIdentifier(node.callee))
                 use(path, node.callee.name);
@@ -377,7 +371,10 @@ module.exports = ({
         },
         
         ExportNamedDeclaration(path) {
-            const {declaration} = path.node;
+            const {
+                declaration,
+                specifiers,
+            } = path.node;
             
             if (isFunctionDeclaration(declaration))
                 return use(path, declaration.id.name);
@@ -389,13 +386,18 @@ module.exports = ({
                     if (isIdentifier(id))
                         use(path, id.name);
                 }
+                
+                return;
+            }
+            
+            for (const {local} of specifiers) {
+                if (isIdentifier(local))
+                    use(path, local.name);
             }
         },
         
         FunctionDeclaration(path) {
-            const {
-                node,
-            } = path;
+            const {node} = path;
             
             const {params} = node;
             const paramsPaths = path.get('params');
@@ -431,10 +433,10 @@ module.exports = ({
         JSXOpeningElement(path) {
             const {node} = path;
             const {name} = node;
-        
+            
             if (/^[A-Z]/.test(name.name))
                 use(path, name.name);
-        
+            
             use(path, 'React');
         },
         

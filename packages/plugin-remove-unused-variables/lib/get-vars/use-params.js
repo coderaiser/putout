@@ -1,8 +1,6 @@
 'use strict';
 
-const {
-    types,
-} = require('putout');
+const {types} = require('putout');
 
 const {
     isAssignmentPattern,

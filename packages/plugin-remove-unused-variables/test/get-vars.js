@@ -3,9 +3,7 @@
 const test = require('supertape');
 const template = require('@babel/template').default;
 
-const {
-    parse,
-} = require('putout');
+const {parse} = require('putout');
 
 const getVars = require('../lib/get-vars');
 const {readFixtures} = require('./fixture');
@@ -517,17 +515,13 @@ test('remove-unused-variables: get-vars: export default class', (t) => {
 
 test('remove-unused-variables: get-vars: export named declaration', (t) => {
     const ast = parse(fixture.exportNamedDeclaration);
-    const result = getVars(ast);
+    const result = getVars(ast).map(dutify);
     
     const expected = [{
-        copyToClipboard: {
-            declared: true,
-            used: true,
-        },
-        arrow: {
-            declared: true,
-            used: true,
-        },
+        copyToClipboard: du,
+        arrow: du,
+        a: du,
+        b: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

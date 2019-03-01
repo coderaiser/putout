@@ -11,16 +11,12 @@ const {
 } = types;
 
 const getVars = require('./get-vars');
-const {
-    useParamsBeforeLastUsed,
-} = require('./use-params');
+const {useParamsBeforeLastUsed} = require('./use-params');
 
 module.exports = (ast, opts = {}) => {
     const vars = {};
     const allParams = [];
-    const {
-        setPath,
-    } = opts;
+    const {setPath} = opts;
     
     const use = useVariable({
         vars,
