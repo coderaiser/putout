@@ -58,6 +58,7 @@ const fixture = readFixtures([
     'update-expression',
     'variable-declarator',
     'jsx-opening-element',
+    'jsx-template',
     'jsx-spread-attribute',
 ]);
 
@@ -966,6 +967,22 @@ test('remove-unused-variables: get-vars: jsx opening element', (t) => {
         React: du,
     }, {
         str: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: jsx template', (t) => {
+    const ast = parse(fixture.jsxTemplate);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        React: du,
+        module: _u,
+        require: _u,
+    }, {
+        isOpen: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

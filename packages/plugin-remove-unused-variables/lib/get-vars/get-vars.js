@@ -378,13 +378,13 @@ module.exports = ({
         
         ExportNamedDeclaration(path) {
             const {declaration} = path.node;
-        
+            
             if (isFunctionDeclaration(declaration))
                 return use(path, declaration.id.name);
-        
+            
             if (isVariableDeclaration(declaration)) {
                 const {declarations} = declaration;
-            
+                
                 for (const {id} of declarations) {
                     if (isIdentifier(id))
                         use(path, id.name);
@@ -431,10 +431,10 @@ module.exports = ({
         JSXOpeningElement(path) {
             const {node} = path;
             const {name} = node;
-            
+        
             if (/^[A-Z]/.test(name.name))
                 use(path, name.name);
-            
+        
             use(path, 'React');
         },
         
@@ -451,6 +451,8 @@ module.exports = ({
             
             if (isIdentifier(expression))
                 use(path, expression.name);
+            else if (isTemplateLiteral(expression))
+                traverseTmpl(path, expression.expressions);
         },
     };
 };
