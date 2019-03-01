@@ -3,6 +3,7 @@
 const {
     isIdentifier,
     isSpreadElement,
+    isRestElement,
     isObjectExpression,
     isObjectPattern,
     isTemplateLiteral,
@@ -53,6 +54,11 @@ const traverseObjectExpression = (use) => {
             }
             
             if (isSpreadElement(node)) {
+                use(path, node.argument.name);
+                continue;
+            }
+            
+            if (isRestElement(node)) {
                 use(path, node.argument.name);
                 continue;
             }

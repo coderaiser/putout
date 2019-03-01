@@ -721,18 +721,16 @@ test('remove-unused-variables: get-vars: fn args vars', (t) => {
 
 test('remove-unused-variables: get-vars: fn destr args vars', (t) => {
     const ast = parse(fixture.fnDestrArgsVars);
-    const result = getVars(ast);
+    const result = getVars(ast).map(dutify);
     
     const expected = [{
-        arrow: {
-            declared: true,
-            used: false,
-        },
+        arrow: d_,
+        restFn: d_,
     }, {
-        one: {
-            declared: true,
-            used: false,
-        },
+        one: d_,
+    }, {
+        restOne: d_,
+        restVar: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');
