@@ -443,8 +443,11 @@ module.exports = ({use, declare, addParams}) => {
         JSXSpreadAttribute(path) {
             const argPath = path.get('argument');
             
+            if (argPath.isIdentifier())
+                return use(path, argPath.node.name);
+            
             if (argPath.isObjectExpression())
-                traverseObj(argPath.get('properties'));
+                return traverseObj(argPath.get('properties'));
         },
         
         JSXExpressionContainer(path) {

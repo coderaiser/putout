@@ -11,3 +11,6 @@ const fn = () => {
       />
     );
 }
+
+const simple = (props) => (<div {...props}/>);
+

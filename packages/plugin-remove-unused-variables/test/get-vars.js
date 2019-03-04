@@ -989,10 +989,13 @@ test('remove-unused-variables: get-vars: jsx spread attribute', (t) => {
     
     const expected = [{
         fn: d_,
+        simple: d_,
         require: _u,
         React: du,
     }, {
         spread: du,
+    }, {
+        props: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
