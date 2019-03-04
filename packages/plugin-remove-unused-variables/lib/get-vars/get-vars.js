@@ -133,9 +133,13 @@ module.exports = ({use, declare, addParams}) => {
             
             if (isIdentifier(consequent))
                 use(path, consequent.name);
+            else if (isTemplateLiteral(consequent))
+                traverseTmpl(path, consequent.expressions);
             
             if (isIdentifier(alternate))
                 use(path, alternate.name);
+            else if (isTemplateLiteral(alternate))
+                traverseTmpl(path, alternate.expressions);
         },
         
         LogicalExpression(path) {

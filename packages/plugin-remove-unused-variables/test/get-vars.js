@@ -212,6 +212,12 @@ test('remove-unused-variables: get-vars: conditional expression', (t) => {
         a: du,
         b: du,
         c: d_,
+        tmpl1: d_,
+        tmpl2: d_,
+        tmpl_a: du,
+        tmpl_b: du,
+        tmpl_c: du,
+        tmpl_d: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -268,20 +274,6 @@ test('remove-unused-variables: get-vars: call expression', (t) => {
     const expected = [{
         items: du,
         console:_u,
-    }];
-    
-    t.deepEqual(result, expected, 'should equal');
-    t.end();
-});
-
-test('remove-unused-variables: get-vars: conditional expression', (t) => {
-    const ast = parse(fixture.conditionalExpression);
-    const result = getVars(ast).map(dutify);
-    
-    const expected = [{
-        a: du,
-        b: du,
-        c: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');
