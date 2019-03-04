@@ -7,7 +7,6 @@ const {
     isSpreadElement,
     isObjectExpression,
     isObjectPattern,
-    isTemplateLiteral,
     isFunctionDeclaration,
     isArrayExpression,
     isVariableDeclaration,
@@ -76,8 +75,6 @@ module.exports = ({use, declare, addParams}) => {
                 use(path, init.name);
             else if (isObjectExpression(init))
                 traverseObj(initPath.get('properties'));
-            else if (isTemplateLiteral(init))
-                traverseTmpl(path, init.expressions);
             else if (isArrayExpression(init))
                 traverseArray(initPath.get('elements'));
         },
@@ -113,11 +110,6 @@ module.exports = ({use, declare, addParams}) => {
                     use(path, el.argument.name);
                     continue;
                 }
-                
-                if (isTemplateLiteral(el)) {
-                    traverseTmpl(path, el.expressions);
-                    continue;
-                }
             }
         },
         
@@ -133,13 +125,13 @@ module.exports = ({use, declare, addParams}) => {
             
             if (isIdentifier(consequent))
                 use(path, consequent.name);
-            else if (isTemplateLiteral(consequent))
-                traverseTmpl(path, consequent.expressions);
             
             if (isIdentifier(alternate))
                 use(path, alternate.name);
-            else if (isTemplateLiteral(alternate))
-                traverseTmpl(path, alternate.expressions);
+        },
+        
+        TemplateLiteral(path) {
+            traverseTmpl(path, path.node.expressions);
         },
         
         LogicalExpression(path) {
@@ -150,8 +142,6 @@ module.exports = ({use, declare, addParams}) => {
             
             if (isIdentifier(right))
                 use(path, right.name);
-            else if (isTemplateLiteral(right))
-                traverseTmpl(path, right.expressions);
         },
         
         MemberExpression(path) {
@@ -274,9 +264,6 @@ module.exports = ({use, declare, addParams}) => {
             
             if (isObjectExpression(argument))
                 return traverseObj(path.get('argument.properties'));
-            
-            if (isTemplateLiteral(argument))
-                return traverseTmpl(path, argument.expressions);
         },
         
         ArrowFunctionExpression(path) {
@@ -305,9 +292,7 @@ module.exports = ({use, declare, addParams}) => {
                 }
             }
             
-            if (isTemplateLiteral(body))
-                traverseTmpl(path, body.expressions);
-            else if (isIdentifier(body))
+            if (isIdentifier(body))
                 use(path, body.name);
             else if (isObjectExpression(body))
                 traverseObj(path.get('body.properties'));
@@ -326,15 +311,6 @@ module.exports = ({use, declare, addParams}) => {
                 use(path, node.callee.name);
             
             path.traverse({
-                TemplateLiteral(path) {
-                    const {node} = path;
-                    const {expressions} = node;
-                    
-                    for (const exp of expressions) {
-                        if (isIdentifier(exp))
-                            use(path, exp.name);
-                    }
-                },
                 ObjectExpression(path) {
                     traverseObj(path.get('properties'));
                 },
@@ -356,13 +332,9 @@ module.exports = ({use, declare, addParams}) => {
             
             if (isIdentifier(left))
                 use(path, left.name);
-            else if (isTemplateLiteral(left))
-                traverseTmpl(path, left.expressions);
             
             if (isIdentifier(right))
                 use(path, right.name);
-            else if (isTemplateLiteral(right))
-                traverseTmpl(path, right.expressions);
         },
         
         ExportDefaultDeclaration(path) {
@@ -460,8 +432,6 @@ module.exports = ({use, declare, addParams}) => {
             
             if (isIdentifier(expression))
                 use(path, expression.name);
-            else if (isTemplateLiteral(expression))
-                traverseTmpl(path, expression.expressions);
         },
     };
 };
