@@ -7,6 +7,7 @@ const {
     isIdentifier,
     isSpreadElement,
     isObjectPattern,
+    isObjectExpression,
     isFunctionDeclaration,
     isArrayExpression,
     isVariableDeclaration,
@@ -326,6 +327,7 @@ module.exports = ({use, declare, addParams}) => {
         },
         
         ExportDefaultDeclaration(path) {
+            const declarationPath = path.get('declaration');
             const {declaration} = path.node;
             
             if (isFunctionDeclaration(declaration))
@@ -334,6 +336,8 @@ module.exports = ({use, declare, addParams}) => {
                 use(path, declaration.name);
             else if (isClassDeclaration(declaration))
                 use(path, declaration.id.name);
+            else if (isObjectExpression(declaration))
+                traverseObj(declarationPath.get('properties'));
         },
         
         ExportNamedDeclaration(path) {
