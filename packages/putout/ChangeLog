@@ -1,3 +1,19 @@
+2019.03.05, v4.8.0
+
+feature:
+- (@putout/plugin-remove-unused-expressions) add
+- (@putotu/plugin-remove-unused-variables) add support of ObjectExpression in ExportDefaultDeclaration
+- (@putout/plugin-remove-unused-variables) add support of ClassDeclaration in ExportDefaultDeclaration
+- (@putotu/plugin-remove-unused-variables) condition isObjectExpression -> traverse ObjectExpression
+- (putout) isTemplateLiteral checks -> TemplateLiteral key
+- (putout) add support of TemplateLiteral in ConditionalExpresssion
+- (@putout/plugin-remove-unused-variables) add support of Identifier in JSXSpreadAttribute
+- (@putout/plugin-remove-unused-variables) add support of marking as used elements before RestElement when destructuring used as a function param
+- (@putout/plugin-remove-unused-variables) add support of specifiers in ExportNamedDeclaration
+- (@putout/plugin-remove-unused-variables) add support of TemplateLiteral in JSXExpressionContainer
+- (@putout/plugin-remove-unused-variables) add support of JSXSpreadAttribute
+
+
 2019.02.28, v4.7.1
 
 fix:
