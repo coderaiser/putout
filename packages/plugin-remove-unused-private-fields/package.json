@@ -41,11 +41,10 @@
     "madrun": "^2.0.0",
     "nodemon": "^1.14.12",
     "nyc": "^13.0.1",
-    "putout": "^3.9.0",
     "supertape": "^1.0.3"
   },
   "peerDependencies": {
-    "putout": ">=3"
+    "putout": ">=4"
   },
   "license": "MIT",
   "engines": {
