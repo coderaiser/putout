@@ -5,7 +5,6 @@ const {
     isAssignmentPattern,
     isIdentifier,
     isSpreadElement,
-    isObjectExpression,
     isObjectPattern,
     isFunctionDeclaration,
     isArrayExpression,
@@ -32,6 +31,9 @@ module.exports = ({use, declare, addParams}) => {
     const traverseArray = traverseArrayExpression(use);
     
     return {
+        ObjectExpression(path) {
+            traverseObj(path.get('properties'));
+        },
         VariableDeclarator(path) {
             const {node} = path;
             const {init} = node;
@@ -73,8 +75,6 @@ module.exports = ({use, declare, addParams}) => {
             
             if (isIdentifier(init))
                 use(path, init.name);
-            else if (isObjectExpression(init))
-                traverseObj(initPath.get('properties'));
             else if (isArrayExpression(init))
                 traverseArray(initPath.get('elements'));
         },
@@ -173,11 +173,6 @@ module.exports = ({use, declare, addParams}) => {
                     use(path, node.name);
                     continue;
                 }
-                
-                if (isObjectExpression(node)) {
-                    traverseObj(argPath.get('properties'));
-                    continue;
-                }
             }
         },
         
@@ -261,9 +256,6 @@ module.exports = ({use, declare, addParams}) => {
             
             if (isIdentifier(argument))
                 return use(path, argument.name);
-            
-            if (isObjectExpression(argument))
-                return traverseObj(path.get('argument.properties'));
         },
         
         ArrowFunctionExpression(path) {
@@ -294,8 +286,6 @@ module.exports = ({use, declare, addParams}) => {
             
             if (isIdentifier(body))
                 use(path, body.name);
-            else if (isObjectExpression(body))
-                traverseObj(path.get('body.properties'));
             
             addParams({
                 path,
@@ -311,9 +301,6 @@ module.exports = ({use, declare, addParams}) => {
                 use(path, node.callee.name);
             
             path.traverse({
-                ObjectExpression(path) {
-                    traverseObj(path.get('properties'));
-                },
                 SpreadElement(path) {
                     const {argument} = path.node;
                     
@@ -421,9 +408,6 @@ module.exports = ({use, declare, addParams}) => {
             
             if (argPath.isIdentifier())
                 return use(path, argPath.node.name);
-            
-            if (argPath.isObjectExpression())
-                return traverseObj(argPath.get('properties'));
         },
         
         JSXExpressionContainer(path) {
