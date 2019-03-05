@@ -3,6 +3,7 @@
 const {
     isArrayPattern,
     isAssignmentPattern,
+    isClassDeclaration,
     isIdentifier,
     isSpreadElement,
     isObjectPattern,
@@ -331,6 +332,8 @@ module.exports = ({use, declare, addParams}) => {
                 use(path, declaration.id.name);
             else if (isIdentifier(declaration))
                 use(path, declaration.name);
+            else if (isClassDeclaration(declaration))
+                use(path, declaration.id.name);
         },
         
         ExportNamedDeclaration(path) {

@@ -1,4 +1,2 @@
-export default Hello;
-
-class Hello {};
+export default class Hello {};
 
