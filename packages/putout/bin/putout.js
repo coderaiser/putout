@@ -166,7 +166,12 @@ function processFiles(name) {
 
 function addExt(a) {
     const ext = extname(a);
-    const isDir = statSync(a).isDirectory();
+    const [e, file] = tryCatch(statSync, a);
+    
+    if (e)
+        return a;
+    
+    const isDir = file.isDirectory();
     
     if (isDir && ext !== '.js')
         return `${a}/**/*.js`;
