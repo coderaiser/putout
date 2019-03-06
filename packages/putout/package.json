@@ -50,6 +50,7 @@
     "@putout/plugin-remove-unused-expressions": "^1.0.0",
     "@putout/plugin-remove-unused-private-fields": "^1.0.0",
     "@putout/plugin-remove-unused-variables": "^1.0.0",
+    "@putout/plugin-remove-useless-variables": "^1.0.0",
     "@putout/plugin-split-variable-declarations": "^1.0.0",
     "@putout/plugin-strict-mode": "^1.0.0",
     "array-union": "^1.0.2",

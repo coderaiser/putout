@@ -33,6 +33,7 @@
         "remove-unused-variables",
         "remove-unused-private-fields",
         "remove-unused-expressions",
+        "remove-useless-variables",
         "split-variable-declarations",
         "convert-esm-to-commonjs",
         "convert-apply-to-spread",
