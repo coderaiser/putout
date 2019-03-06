@@ -9,7 +9,7 @@ module.exports.find = (ast, {push, traverse}) => {
             if (expressionPath.isIdentifier()) {
                 push(expressionPath);
             }
-        }
+        },
     });
 };
 
