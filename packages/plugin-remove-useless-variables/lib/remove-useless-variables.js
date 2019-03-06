@@ -13,7 +13,6 @@ module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
         VariableDeclarator(path) {
             const {id, init} = path.node;
-            const {name} = init;
             
             if (!isIdentifier(init))
                 return;
@@ -21,6 +20,7 @@ module.exports.find = (ast, {push, traverse}) => {
             if (!isIdentifier(id))
                 return;
             
+            const {name} = init;
             const binding = path.scope.bindings[name];
             
             if (!binding)
