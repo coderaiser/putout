@@ -1,0 +1,4 @@
+var t = (error) => {
+  error;
+};
+

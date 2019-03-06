@@ -46,6 +46,7 @@ const fixture = readFixtures([
     'root-vars',
     'scope-vars',
     'shorthand-vars',
+    'expression-statement',
     'switch-statement',
     'spread-vars',
     'obj-prop',
@@ -691,6 +692,20 @@ test('remove-unused-variables: get-vars: switch statement', (t) => {
         name: du,
         console: _u,
         hello: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: expression statement', (t) => {
+    const ast = parse(fixture.expressionStatement);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        t: d_,
+    }, {
+        error: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

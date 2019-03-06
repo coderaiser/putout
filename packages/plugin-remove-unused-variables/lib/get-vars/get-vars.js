@@ -240,6 +240,13 @@ module.exports = ({use, declare, addParams}) => {
             });
         },
         
+        ExpressionStatement(path) {
+            const {node} = path;
+            
+            if (isIdentifier(node.expression))
+                use(path, node.expression.name);
+        },
+        
         SwitchStatement(path) {
             const {node} = path;
             
