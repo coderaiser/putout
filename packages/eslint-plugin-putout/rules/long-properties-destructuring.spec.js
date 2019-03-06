@@ -17,11 +17,23 @@ ruleTester.run('long-properties-destructuring', rule, {
             isIdentifier,
         } = world;`,
         `const {a} = world`,
+        `
+        const {
+            ...a
+        } = b
+        `,
     ],
     
     invalid: [{
         code: `const {isIdentifier, a} = world;`,
         output: `const {\nisIdentifier,\n a\n} = world;`,
+        errors: [{
+            message,
+            type: 'VariableDeclarator',
+        }],
+    }, {
+        code: `const {a, ...isIdentifier} = b;`,
+        output: `const {\na,\n ...isIdentifier\n} = b;`,
         errors: [{
             message,
             type: 'VariableDeclarator',

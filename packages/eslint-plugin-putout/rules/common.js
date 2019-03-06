@@ -1,4 +1,4 @@
-'use stirct';
+'use strict';
 
 module.exports.isCorrectLoc = (line, properties) => {
     const n = properties.length;

@@ -16,6 +16,12 @@
   ],
   "author": "coderaiser",
   "main": "index.js",
+  "nyc": {
+    "exclude": [
+      "*/**/*.spec.js",
+      "test"
+    ]
+  },
   "scripts": {
     "test": "madrun test",
     "watch:test": "madrun watch:test",
@@ -25,6 +31,7 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
+    "@babel/types": "^7.3.4",
     "@putout/eslint-config": "^1.2.0",
     "align-spaces": "^1.0.0"
   },
@@ -34,7 +41,7 @@
     "madrun": "^2.0.0",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",
-    "putout": "^3.17.1"
+    "putout": "*"
   },
   "engines": {
     "node": ">=8"

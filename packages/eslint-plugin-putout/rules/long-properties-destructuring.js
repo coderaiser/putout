@@ -53,7 +53,8 @@ module.exports = {
 
 function isCorrectLength(properties) {
     for (const prop of properties) {
-        const {name} = prop.key;
+        const {name} = prop.key || prop.argument;
+        
         if (name.length >= 10)
             return false;
     }
