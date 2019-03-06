@@ -21,6 +21,10 @@ module.exports.find = (ast, {push, traverse}) => {
                 return;
             
             const {name} = init;
+            
+            if (id.name.length < name.length)
+                return;
+            
             const binding = path.scope.bindings[name];
             
             if (!binding)

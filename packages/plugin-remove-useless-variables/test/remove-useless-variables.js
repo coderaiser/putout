@@ -24,3 +24,7 @@ test('remove usless variables: transform: destructure', (t) => {
     t.end();
 });
 
+test('remove usless variables: transform: shorthand', (t) => {
+    t.transform('shorthand');
+    t.end();
+});
