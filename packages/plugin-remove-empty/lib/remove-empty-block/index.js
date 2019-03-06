@@ -6,7 +6,9 @@ const {
     isFunctionDeclaration,
     isObjectMethod,
     isClassMethod,
+    isCatchClause,
     isIfStatement,
+    isTryStatement,
 } = require('putout').types;
 
 module.exports.report = () => 'Empty block statement';
@@ -15,9 +17,7 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.find = (ast, {traverse}) => {
-    const places = [];
-    
+module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
         BlockStatement(path) {
             const {
@@ -35,21 +35,25 @@ module.exports.find = (ast, {traverse}) => {
             if (isFunction(parentNode))
                 return;
             
+            if (isCatchClause(parentNode))
+                return;
+            
+            if (isTryStatement(parentNode))
+                push(parentPath);
+            
             if (blockIsBody(node, parentNode)) {
-                places.push(parentPath);
+                push(parentPath);
                 return;
             }
             
             if (blockIsConsequent(node, parentNode)) {
-                places.push(parentPath);
+                push(parentPath);
                 return;
             }
             
-            places.push(path);
+            push(path);
         },
     });
-    
-    return places;
 };
 
 function isFunction(node) {

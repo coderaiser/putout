@@ -7,7 +7,7 @@ const {
 } = require('madrun');
 
 module.exports = {
-    'test': () => `tape 'test/*.js'`,
+    'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w lib -w test -x ${run('test')}`,
     'lint:lib': () => `eslint lib test --ignore-pattern fixture`,
     'lint': () => series(['putout', 'lint:*']),

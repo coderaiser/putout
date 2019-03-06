@@ -21,3 +21,13 @@ test('plugin-remove-empty: block: not function', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: block: try-catch', (t) => {
+    t.transform('try-catch');
+    t.end();
+});
+
+test('plugin-remove-empty: block: try', (t) => {
+    t.transform('try', '\n');
+    t.end();
+});
+
