@@ -14,3 +14,13 @@ test('remove usless variables: transform', (t) => {
     t.end();
 });
 
+test('remove usless variables: transform: global', (t) => {
+    t.transform('global');
+    t.end();
+});
+
+test('remove usless variables: transform: destructure', (t) => {
+    t.transform('destructure');
+    t.end();
+});
+

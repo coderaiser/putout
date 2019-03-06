@@ -15,7 +15,15 @@ module.exports.find = (ast, {push, traverse}) => {
             const {id, init} = path.node;
             const {name} = init;
             
-            if (!isIdentifier(path.node.init))
+            if (!isIdentifier(init))
+                return;
+            
+            if (!isIdentifier(id))
+                return;
+            
+            const binding = path.scope.bindings[name];
+            
+            if (!binding)
                 return;
             
             const bindingPath = path.scope.bindings[name].path;
