@@ -38,8 +38,10 @@ module.exports.find = (ast, {push, traverse}) => {
             if (isCatchClause(parentNode))
                 return;
             
-            if (isTryStatement(parentNode))
+            if (isTryStatement(parentNode)) {
                 push(parentPath);
+                return;
+            }
             
             if (blockIsBody(node, parentNode)) {
                 push(parentPath);
