@@ -1,3 +1,16 @@
+2019.03.06, v4.9.0
+
+fix:
+- (eslint-plugin-putout) long-properties-destructuring: add support of RestElement
+- (@putout/plugin-convert-arguments-to-rest) "rest" -> rest parameters
+- (@putout/plugin-remove-empty) block: missing return when tryStatement used
+
+feature:
+- (@putout/plugin-remove-useless-variables) add
+- (@putout/plugin-remove-empty) block: add support of try catch
+- (@putout/plugin-remove-unused-variables) add support of ExpressionStatement
+
+
 2019.03.06, v4.8.1
 
 fix:
