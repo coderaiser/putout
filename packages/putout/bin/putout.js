@@ -19,8 +19,6 @@ const {
     underline,
     red,
     grey,
-    redBright,
-    bold,
 } = require('chalk');
 
 const cwd = process.cwd();
@@ -36,6 +34,7 @@ const defaultOptions = require('../putout.json');
 const putout = require('..');
 const parseMatch = require('../lib/parse-match');
 const getRelativePath = require('../lib/get-relative-path');
+const report = require('../lib/report-end');
 const readCodeMods = once(_readCodeMods);
 
 const one = (f) => (a) => f(a);
@@ -87,25 +86,19 @@ const [e, files] = tryCatch(getFiles, argv._.map(String));
 if (e)
     exit(e);
 
+const ignore = require('ignore');
+
 let errorsCount = 0;
 let filesCount = 0;
-
-const ignore = require('ignore');
 
 const output = files
     .map(processFiles)
     .filter(Boolean);
 
-if (output.length) {
-    process.stdout.write('\n');
-    output.map(one(console.log));
-    
-    console.log(bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)));
-    console.log(bold(redBright('  fixable with the `--fix` option')));
+if (output.length)
     process.exit(1);
-}
 
-function processFiles(name) {
+function processFiles(name, index, {length}) {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
@@ -155,13 +148,26 @@ function processFiles(name) {
     if (fix)
         return writeFileSync(name, code);
     
-    if (!places.length)
-        return;
-    
-    ++filesCount;
+    if (places.length)
+        ++filesCount;
     errorsCount += places.length;
     
-    return putout.prettify(resolvedName, places);
+    if (!filesCount)
+        return;
+    
+    if (!places.length && index !== length - 1)
+        return;
+    
+    const line = report({
+        name: resolvedName,
+        places,
+        index,
+        count: length,
+        filesCount,
+        errorsCount,
+    });
+    
+    process.stdout.write(line || '');
 }
 
 function addExt(a) {
