@@ -32,6 +32,9 @@ module.exports.find = (ast, {push, traverse}) => {
             
             const bindingPath = path.scope.bindings[name].path;
             
+            if (bindingPath.isVariableDeclarator() && bindingPath.get('id').isObjectPattern())
+                return;
+            
             push({
                 path,
                 bindingPath,
@@ -41,3 +44,4 @@ module.exports.find = (ast, {push, traverse}) => {
         },
     });
 };
+

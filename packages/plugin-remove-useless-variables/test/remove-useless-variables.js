@@ -28,3 +28,9 @@ test('remove usless variables: transform: shorthand', (t) => {
     t.transform('shorthand');
     t.end();
 });
+
+test('remove usless variables: transform: property', (t) => {
+    t.transform('property');
+    t.end();
+});
+
