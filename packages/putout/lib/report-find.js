@@ -13,10 +13,9 @@ const {
     redBright,
 } = require('chalk');
 
-const output = [];
-
 module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
     const data = [];
+    const output = [];
     
     for (const place of places) {
         const {
@@ -47,12 +46,13 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
         ].join('\n'));
     
     if (index === count - 1) {
-        output.push(bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)));
-        output.push(bold(redBright('  fixable with the `--fix` option')));
+        const result = [
+            bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)),
+            bold(redBright('  fixable with the `--fix` option')),
+        ];
         
-        return output.join('\n') + '\n';
+        return result.join('\n') + '\n';
     }
     
-    return '';
+    return output.join('\n') + '\n';
 };
-

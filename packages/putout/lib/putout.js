@@ -91,4 +91,3 @@ module.exports.types = types;
 module.exports.template = template;
 module.exports.generate = generate;
 module.exports.prettify = require('./report-end');
-

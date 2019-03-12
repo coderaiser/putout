@@ -150,6 +150,7 @@ function processFiles(name, index, {length}) {
     
     if (places.length)
         ++filesCount;
+    
     errorsCount += places.length;
     
     if (!filesCount)
@@ -189,6 +190,9 @@ function getFiles(args) {
     const files = args
         .map(addExt)
         .map(one(glob.sync));
+    
+    if (args.length && !files[0].length)
+        throw Error(`No files matching the pattern "${args[0]}" were found`);
     
     return [].concat(...files);
 }
