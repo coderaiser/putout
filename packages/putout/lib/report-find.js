@@ -47,12 +47,14 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
     
     if (index === count - 1) {
         const result = [
+            count === 1 ? output : '',
             bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)),
             bold(redBright('  fixable with the `--fix` option')),
-        ];
+        ].filter(Boolean);
         
         return result.join('\n') + '\n';
     }
     
     return output.join('\n') + '\n';
 };
+

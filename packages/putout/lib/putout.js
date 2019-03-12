@@ -90,4 +90,28 @@ module.exports.traverse = traverse;
 module.exports.types = types;
 module.exports.template = template;
 module.exports.generate = generate;
-module.exports.prettify = require('./report-end');
+module.exports.report = (reporter, options) => {
+    if (!options) {
+        options = reporter;
+        reporter = require('./report-end');
+    }
+    
+    const {
+        name,
+        places,
+        index = 0,
+        count = 1,
+        filesCount = 1,
+        errorsCount = places.length,
+    } = options;
+    
+    return reporter({
+        name,
+        places,
+        index,
+        count,
+        filesCount,
+        errorsCount,
+    });
+};
+

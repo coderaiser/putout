@@ -13,7 +13,7 @@ const {
     redBright,
 } = require('chalk');
 
-const output = [];
+let output = [];
 
 module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
     const data = [];
@@ -50,7 +50,10 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
         output.push(bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)));
         output.push(bold(redBright('  fixable with the `--fix` option')));
         
-        return output.join('\n') + '\n';
+        const result = output.join('\n') + '\n';
+        output = [];
+        
+        return result;
     }
     
     return '';
