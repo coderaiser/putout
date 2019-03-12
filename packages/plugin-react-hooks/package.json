@@ -44,9 +44,7 @@
     "eslint-plugin-putout": "^1.0.3",
     "eslint-plugin-tape": "^1.1.0",
     "madrun": "^2.0.0",
-    "nyc": "^13.0.1",
-    "putout": "^3.21.0",
-    "supertape": "^1.0.3"
+    "nyc": "^13.0.1"
   },
   "license": "MIT",
   "engines": {
