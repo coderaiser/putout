@@ -41,7 +41,7 @@ test('test: property literal', (t) => {
 });
 
 test('test: declared', (t) => {
-    t.transform('declared');
+    t.noTransform('declared');
     t.end();
 });
 

@@ -53,8 +53,9 @@ test('remove-console: property literal', (t) => {
     t.end();
 });
 
+// when file should not be transformed
 test('test: declared', (t) => {
-    t.transform('declared');
+    t.noTransform('declared');
     t.end();
 });
 ```

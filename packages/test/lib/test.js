@@ -13,6 +13,7 @@ const {entries} = Object;
 const wrap = (dir, plugin, test) => (str, fn) => {
     test(str, (t) => {
         t.transform = transform(t, dir, plugin);
+        t.noTransform = noTransform(t, dir, plugin);
         t.report = report(t, dir, plugin);
         t.transformCode = transformCode(t, plugin);
         t.reportCode = reportCode(t, plugin);
@@ -49,6 +50,11 @@ const transform = (t, dir, plugins) => (name, transformed, addons) => {
         ...addons,
     };
     transformCode(t, plugins)(input, output);
+};
+
+const noTransform = (t, dir, plugins) => (name, transformed, addons) => {
+    const full = join(dir, name);
+    transform(t, dir, plugins)(name, readFileSync(`${full}.js`, 'utf8'), addons);
 };
 
 const transformCode = (t, plugins) => (input, output) => {
