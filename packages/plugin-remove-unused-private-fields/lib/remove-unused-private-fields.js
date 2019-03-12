@@ -1,8 +1,6 @@
 'use strict';
 
-const {
-    traverse,
-} = require('putout');
+const {traverse} = require('putout');
 
 module.exports.report = ({name}) => `private field "#${name}" declared by not used`;
 
@@ -41,13 +39,11 @@ module.exports.fix = ({path}) => {
 };
 
 function findClassName(path) {
-    let nextPath = path;
-    
-    while(!nextPath.isClassDeclaration()) {
-        nextPath = nextPath.parentPath;
+    while(!path.isClassDeclaration()) {
+        path = path.parentPath;
     }
     
-    return nextPath.node.id.name;
+    return path.node.id.name;
 }
 
 const addVariable = (vars) => (path, name) => {
