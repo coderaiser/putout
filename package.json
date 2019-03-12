@@ -11,5 +11,10 @@
   },
   "devDependencies": {
     "lerna": "^3.8.5"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
   }
 }

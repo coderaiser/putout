@@ -5,6 +5,9 @@
   "description": "test runner for putout plugins ",
   "homepage": "http://github.com/coderaiser/putout",
   "main": "lib/test.js",
+  "bin": {
+    "tape": "bin/test.js"
+  },
   "release": false,
   "tag": false,
   "changelog": false,
