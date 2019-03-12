@@ -34,3 +34,13 @@ test('remove usless variables: transform: property', (t) => {
     t.end();
 });
 
+test('remove usless variables: transform: upper case', (t) => {
+    t.transform('uppercase');
+    t.end();
+});
+
+test('remove usless variables: transform: not declared', (t) => {
+    t.transform('not-declared');
+    t.end();
+});
+

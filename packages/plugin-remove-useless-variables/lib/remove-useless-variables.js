@@ -25,6 +25,9 @@ module.exports.find = (ast, {push, traverse}) => {
             if (id.name.length < name.length)
                 return;
             
+            if (id.name === name.toUpperCase())
+                return;
+            
             const binding = path.scope.bindings[name];
             
             if (!binding)
