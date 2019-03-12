@@ -1,3 +1,21 @@
+2019.03.12, v4.10.0
+
+fix:
+- chore(object-) rm " "
+- (@putout/plugin-remove-useless-variables) name
+- (@putout/plugin-remove-useless-variables) handle id, init not identifiers
+
+feature:
+- (putout) pretify -> report
+- (putout) add report-find
+- (putout) add report-end
+- (@putout/remove-useless-variables) add support of uppercase
+- (remove-useless-variables) add support of destructuring
+- (package) putout v4.9.0
+- (@putout/plugin-convert-apply-to-spread) add support of this and nested MemberExpressions
+- (@putout/plugin-remove-useless-variables) exclude shorthand variables
+
+
 2019.03.06, v4.9.0
 
 fix:
