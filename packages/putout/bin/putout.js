@@ -148,7 +148,7 @@ function processFiles(name, index, {length}) {
     if (fix)
         return writeFileSync(name, code);
     
-    const format = getReport(argv.format || formatter);
+    const format = getFormatter(argv.format || formatter);
     
     if (index !== length - 1)
         return;
@@ -271,7 +271,7 @@ function _readCodeMods() {
     };
 }
 
-function getReport(name) {
+function getFormatter(name) {
     let e;
     let reporter;
     
