@@ -38,7 +38,8 @@ module.exports = {
                         const fixed = text
                             .replace(/,/g, ',\n')
                             .replace('{', '{\n')
-                            .replace('}', '\n}');
+                            .replace('}', '\n}')
+                            .replace(/\n(\s*)?\n/g, '\n');
                         
                         return [
                             fixer.replaceText(node, fixed),

@@ -27,6 +27,30 @@ ruleTester.run('multiple-properties-destructuring', rule, {
             message,
             type: 'VariableDeclarator',
         }],
+    }, {
+        code: `
+            const {
+                _filename, _story,
+                getValue,
+                setValue,
+                getCursor,
+                moveCursorTo,
+                sha
+            } = this;
+        `,
+        output:`
+            const {
+                _filename,\n _story,
+                getValue,
+                setValue,
+                getCursor,
+                moveCursorTo,
+                sha\n} = this;
+        `,
+        errors: [{
+            message,
+            type: 'VariableDeclarator',
+        }],
     }],
 });
 
