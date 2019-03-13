@@ -150,9 +150,6 @@ function processFiles(name, index, {length}) {
     
     const format = getFormatter(argv.format || formatter);
     
-    if (index !== length - 1)
-        return;
-    
     const line = report(format, {
         name: resolvedName,
         places,

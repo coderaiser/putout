@@ -12,9 +12,7 @@ module.exports = () => {
             count = 1,
         } = options;
         
-        if (!places.length)
-            return;
-        else
+        if (places.length)
             ++filesCount;
         
         errorsCount += places.length;

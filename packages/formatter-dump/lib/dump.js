@@ -37,13 +37,14 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
         ]);
     }
     
-    output.push([
-        underline(name),
-        table(data, {
-            border: getBorderCharacters('void'),
-            drawHorizontalLine: () => false,
-        }),
-    ].join('\n'));
+    if (data.length)
+        output.push([
+            underline(name),
+            table(data, {
+                border: getBorderCharacters('void'),
+                drawHorizontalLine: () => false,
+            }),
+        ].join('\n'));
     
     if (index === count - 1) {
         output.push(bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)));

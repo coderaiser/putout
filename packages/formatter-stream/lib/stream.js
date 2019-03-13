@@ -36,13 +36,14 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
         ]);
     }
     
-    output.push([
-        underline(name),
-        table(data, {
-            border: getBorderCharacters('void'),
-            drawHorizontalLine: () => false,
-        }),
-    ].join('\n'));
+    if (data.length)
+        output.push([
+            underline(name),
+            table(data, {
+                border: getBorderCharacters('void'),
+                drawHorizontalLine: () => false,
+            }),
+        ].join('\n'));
     
     if (index === count - 1) {
         const result = [
@@ -53,6 +54,9 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
         
         return result.join('\n') + '\n';
     }
+    
+    if (!output.length)
+        return '';
     
     return output.join('\n') + '\n';
 };
