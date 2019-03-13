@@ -15,7 +15,16 @@ test('putout: report: no places', (t) => {
         places: [],
     });
     
-    t.notOk(reporter.called, 'should call reporter');
+    const expected = {
+        count: 1,
+        errorsCount: 0,
+        filesCount: 0,
+        index: 0,
+        name: "hello",
+        places: [],
+    };
+    
+    t.ok(reporter.calledWith(expected), 'should call reporter');
     t.end();
 });
 
