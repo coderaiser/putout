@@ -87,12 +87,13 @@ const formatMany = (t, dir, plugins) => (formatter, names) => {
     const fullNames = names.map(joinTwo(dir));
     
     let result = '';
-    const count = names.length;
     
+    const count = names.length;
     const report = putout.initReport();
     for (let index = 0; index < count; index++) {
-        const name = fullNames[index];
-        const input = readFileSync(`${name}.js`, 'utf8');
+        const name = names[index];
+        const full = fullNames[index];
+        const input = readFileSync(`${full}.js`, 'utf8');
         
         const {places} = putout(input, {plugins});
         
