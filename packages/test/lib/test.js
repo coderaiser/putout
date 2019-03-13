@@ -1,7 +1,11 @@
 'use strict';
 
 const {join} = require('path');
-const {readFileSync} = require('fs');
+const {
+    readFileSync,
+    writeFileSync,
+    existsSync,
+} = require('fs');
 
 const tape = require('supertape');
 const putout = require('putout');
@@ -13,10 +17,17 @@ const {entries} = Object;
 const wrap = (dir, plugin, test) => (str, fn) => {
     test(str, (t) => {
         t.transform = transform(t, dir, plugin);
-        t.noTransform = noTransform(t, dir, plugin);
-        t.report = report(t, dir, plugin);
         t.transformCode = transformCode(t, plugin);
+        t.noTransform = noTransform(t, dir, plugin);
+        
+        t.report = report(t, dir, plugin);
         t.reportCode = reportCode(t, plugin);
+        
+        t.format = format(t, dir, plugin);
+        t.formatMany = formatMany(t, dir, plugin);
+        t.formatManySave = formatManySave(t, dir, plugin);
+        t.formatSave = formatSave(t, dir, plugin);
+        t.noFormat = noFormat(t, dir, plugin);
         
         fn(t);
     });
@@ -35,6 +46,96 @@ module.exports = (dir, plugin) => {
     return newTape;
 };
 
+const format = (t, dir, plugins) => (formatter, name) => {
+    const full = join(dir, name);
+    const outputName = `${full}-format.js`;
+    const input = readFileSync(`${full}.js`, 'utf8');
+    const expected = readFileSync(outputName, 'utf8');
+    
+    const {places} = putout(input, {plugins});
+    
+    const report = putout.initReport();
+    const result = report(formatter, {
+        name,
+        places,
+    });
+    
+    t.equal(expected, result);
+    
+    return result;
+};
+
+const noFormat = (t, dir, plugins) => (formatter, name) => {
+    const full = join(dir, name);
+    const input = readFileSync(`${full}.js`, 'utf8');
+    
+    const {places} = putout(input, {plugins});
+    
+    const report = putout.initReport();
+    const result = report(formatter, {
+        name,
+        places,
+    });
+    
+    t.notOk(result, 'should not format');
+    
+    return result;
+};
+
+const formatMany = (t, dir, plugins) => (formatter, names) => {
+    const joinTwo = (a) => (b) => join(a, b);
+    const fullNames = names.map(joinTwo(dir));
+    
+    let result = '';
+    const count = names.length;
+    
+    const report = putout.initReport();
+    for (let index = 0; index < count; index++) {
+        const name = fullNames[index];
+        const input = readFileSync(`${name}.js`, 'utf8');
+        
+        const {places} = putout(input, {plugins});
+        
+        result += report(formatter, {
+            name,
+            places,
+            index,
+            count,
+        });
+    }
+    
+    const outputName = join(dir, `${names.join('-')}-format.js`);
+    const expected = readFileSync(outputName, 'utf8');
+    
+    t.equal(expected, result);
+    
+    return result;
+};
+
+const formatManySave = (t, dir, plugins) => (formatter, names) => {
+    const name = `${names.join('-')}-format.js`;
+    const outputName = join(dir, name);
+    
+    if (!existsSync(outputName))
+        writeFileSync(outputName, '');
+    
+    const result = formatMany(t, dir, plugins)(formatter, names);
+    
+    writeFileSync(outputName, result);
+};
+
+const formatSave = (t, dir, plugins) => (formatter, name) => {
+    const full = join(dir, name);
+    const outputName = `${full}-format.js`;
+    
+    if (!existsSync(outputName))
+        writeFileSync(outputName, '');
+    
+    const result = format(t, dir, plugins)(formatter, name);
+    
+    writeFileSync(outputName, result);
+};
+
 const transform = (t, dir, plugins) => (name, transformed, addons) => {
     const full = join(dir, name);
     const input = readFileSync(`${full}.js`, 'utf8');
@@ -49,6 +150,7 @@ const transform = (t, dir, plugins) => (name, transformed, addons) => {
         ...plugins[0],
         ...addons,
     };
+    
     transformCode(t, plugins)(input, output);
 };
 

@@ -34,7 +34,8 @@ const defaultOptions = require('../putout.json');
 const putout = require('..');
 const parseMatch = require('../lib/parse-match');
 const getRelativePath = require('../lib/get-relative-path');
-const report = require('../lib/report-end');
+const report = require('../lib/report')();
+
 const readCodeMods = once(_readCodeMods);
 
 const one = (f) => (a) => f(a);
@@ -51,11 +52,13 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
     ],
     string: [
         'config',
+        'format',
     ],
     alias: {
         'v': 'version',
         'h': 'help',
         'c': 'config',
+        'f': 'format',
     },
     default: {
         fix: false,
@@ -88,9 +91,6 @@ if (e)
 
 const ignore = require('ignore');
 
-let errorsCount = 0;
-let filesCount = 0;
-
 const output = files
     .map(processFiles)
     .filter(Boolean);
@@ -104,7 +104,7 @@ function processFiles(name, index, {length}) {
     
     const [dirOpt, currOpt] = getOptions(cwd);
     const options = merge(currOpt, defaultOptions);
-    const {match} = options;
+    const {match, formatter} = options;
     
     const ignorer = ignore();
     if (options.ignore)
@@ -148,24 +148,16 @@ function processFiles(name, index, {length}) {
     if (fix)
         return writeFileSync(name, code);
     
-    if (places.length)
-        ++filesCount;
+    const format = getReport(argv.format || formatter);
     
-    errorsCount += places.length;
-    
-    if (!filesCount)
+    if (index !== length - 1)
         return;
     
-    if (!places.length && index !== length - 1)
-        return;
-    
-    const line = report({
+    const line = report(format, {
         name: resolvedName,
         places,
         index,
         count: length,
-        filesCount,
-        errorsCount,
     });
     
     process.stdout.write(line || '');
@@ -277,5 +269,22 @@ function _readCodeMods() {
     return {
         plugins,
     };
+}
+
+function getReport(name) {
+    let e;
+    let reporter;
+    
+    [e, reporter] = tryCatch(require, `@putout/formatter-${name}`);
+    
+    if (!e)
+        return reporter;
+    
+    [e, reporter] = tryCatch(require, `putout-formatter-${name}`);
+    
+    if (e)
+        exit(e);
+    
+    return reporter;
 }
 

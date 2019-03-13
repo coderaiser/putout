@@ -4,9 +4,9 @@ const removeConsole = require('./fixture/remove-console');
 const test = require('..')(__dirname, {
     'react-hooks': {
         rules: {
-            'remove-console': removeConsole
-        }
-    }
+            'remove-console': removeConsole,
+        },
+    },
 });
 
 test('test: rules: reportCode', (t) => {

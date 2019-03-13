@@ -2,7 +2,7 @@
 
 const removeConsole = require('./fixture/remove-console');
 const test = require('..')(__dirname, {
-    'remove-console': removeConsole
+    'remove-console': removeConsole,
 });
 
 test('test: message', (t) => {

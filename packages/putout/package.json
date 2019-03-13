@@ -34,6 +34,8 @@
     "@babel/template": "^7.2.2",
     "@babel/traverse": "^7.1.6",
     "@babel/types": "^7.2.0",
+    "@putout/formatter-dump": "^1.0.0",
+    "@putout/formatter-stream": "^1.0.0",
     "@putout/plugin-apply-destructuring": "^2.0.0",
     "@putout/plugin-convert-apply-to-spread": "^1.0.0",
     "@putout/plugin-convert-arguments-to-rest": "^1.0.0",
@@ -63,7 +65,6 @@
     "is-relative": "^1.0.0",
     "once": "^1.4.0",
     "recast": "^0.17.1",
-    "table": "^5.1.1",
     "try-catch": "^2.0.0",
     "yargs-parser": "^13.0.0"
   },

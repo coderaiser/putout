@@ -1,13 +1,10 @@
 {
-  "name": "@putout/test",
-  "version": "1.9.0",
+  "name": "@putout/formatter-stream",
+  "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "test runner for putout plugins ",
+  "description": "putout formatter streams output",
   "homepage": "http://github.com/coderaiser/putout",
-  "main": "lib/test.js",
-  "bin": {
-    "tape": "bin/test.js"
-  },
+  "main": "lib/stream.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -17,35 +14,33 @@
   },
   "scripts": {
     "test": "madrun test",
-    "watch:test": "madrun watch:test",
     "lint": "madrun lint",
     "fix:lint": "madrun fix:lint",
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "eslint-plugin-putout": "^1.4.2",
-    "putout": "^4.9.0",
-    "supertape": "^1.0.0"
+    "chalk": "^2.4.2",
+    "table": "^5.2.3"
   },
   "keywords": [
     "putout",
-    "putout-plugin",
-    "plugin",
-    "test",
-    "runner"
+    "putout-formatter",
+    "formatter",
+    "stream"
   ],
   "devDependencies": {
-    "@putout/plugin-remove-unused-variables": "^1.11.0",
-    "@putout/formatter-dump": "^1.0.0",
+    "@putout/plugin-remove-unused-variables": "^1.25.0",
+    "@putout/test": "^1.3.0",
     "coveralls": "^3.0.0",
     "eslint": "^5.6.0",
-    "eslint-plugin-node": "^8.0.0",
-    "eslint-plugin-tape": "^1.1.0",
-    "lerna": "^3.8.5",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-putout": "^1.3.1",
     "madrun": "^2.0.0",
-    "nodemon": "^1.14.12",
     "nyc": "^13.0.1",
-    "try-to-tape": "^1.1.0"
+    "putout": "^4.3.2"
+  },
+  "peerDependencies": {
+    "putout": ">=4.3.2"
   },
   "license": "MIT",
   "engines": {
