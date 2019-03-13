@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "test": "FORCE_COLOR=1 lerna run test",
-    "coverage": "lerna run coverage",
+    "coverage": "FORCE_COLOR=1 lerna run coverage",
     "report": "lerna run report",
     "lint": "lerna run lint",
     "fix:lint": "lerna run fix:lint",
