@@ -46,6 +46,9 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
             }),
         ].join('\n'));
     
+    if (!output.length)
+        return '';
+    
     if (index === count - 1) {
         output.push(bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)));
         output.push(bold(redBright('  fixable with the `--fix` option')));

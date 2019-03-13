@@ -45,6 +45,9 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
             }),
         ].join('\n'));
     
+    if (!output.length)
+        return '';
+    
     if (index === count - 1) {
         const result = [
             count === 1 ? output : '',
@@ -54,9 +57,6 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
         
         return result.join('\n') + '\n';
     }
-    
-    if (!output.length)
-        return '';
     
     return output.join('\n') + '\n';
 };
