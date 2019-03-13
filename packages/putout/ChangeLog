@@ -1,3 +1,11 @@
+2019.03.13, v4.11.0
+
+feature:
+- (putout) add support of custom formatters: dump, stream
+- (@putout/test) add support of noTransform
+- (eslint-config) add support of globalReturn
+
+
 2019.03.12, v4.10.0
 
 fix:
