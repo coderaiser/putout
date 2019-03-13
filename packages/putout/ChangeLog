@@ -1,3 +1,11 @@
+2019.03.13, v4.11.1
+
+fix:
+- (putout) report: places check
+- (@putout/test) format: name
+- (multiple-properties-destructuring) two properties on a same line
+
+
 2019.03.13, v4.11.0
 
 feature:
