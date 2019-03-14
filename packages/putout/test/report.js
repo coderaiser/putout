@@ -20,7 +20,7 @@ test('putout: report: no places', (t) => {
         errorsCount: 0,
         filesCount: 0,
         index: 0,
-        name: "hello",
+        name: 'hello',
         places: [],
     };
     
