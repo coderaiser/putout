@@ -1,8 +1,6 @@
 'use strict';
 
 const dump = require('@putout/formatter-dump');
-const {columns} = process.stdout;
-const barLength = 10;
 
 module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
     const str = `\r${progress(index, count)}%`;
