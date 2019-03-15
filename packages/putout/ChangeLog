@@ -1,3 +1,12 @@
+2019.03.15, v4.13.0
+
+fix:
+- (@putout/formatter-progress) dependencies: add @putout/formatter-dump
+
+feature:
+- (putout) add support of acorn
+
+
 2019.03.14, v4.12.0
 
 feature:
