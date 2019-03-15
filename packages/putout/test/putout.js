@@ -111,6 +111,20 @@ test('putout: export default declaration: espree', (t) => {
     t.end();
 });
 
+test('putout: export default declaration: acorn', (t) => {
+    const {code} = putout(fixture.exportDefaultDeclaration, {
+        parser: 'acorn',
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = fixture.exportDefaultDeclarationFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
 test('putout: export default declaration: custom parser', (t) => {
     const [e] = tryCatch(putout, fixture.exportDefaultDeclaration, {
         parser: 'custom',
