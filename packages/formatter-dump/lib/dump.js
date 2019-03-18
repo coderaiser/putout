@@ -13,9 +13,42 @@ const {
     redBright,
 } = require('chalk');
 
-let output = [];
+const jsonFormatter = require('@putout/formatter-json');
+
+const output = [];
 
 module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
+    const jsonStr = jsonFormatter({
+        name, places, index, count, filesCount, errorsCount,
+    });
+    
+    if (!jsonStr)
+        return '';
+    
+    const json = JSON.parse(jsonStr);
+    
+    if (!json.errors.length)
+        return;
+    
+    for (const {name, places} of json.errors) {
+        const line = buildLine(places);
+        
+        output.push([
+            underline(name),
+            table(line, {
+                border: getBorderCharacters('void'),
+                drawHorizontalLine: () => false,
+            }),
+        ].join('\n'));
+    }
+    
+    output.push(bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)));
+    output.push(bold(redBright('  fixable with the `--fix` option')));
+    
+    return output.join('\n') + '\n';
+};
+
+function buildLine(places) {
     const data = [];
     
     for (const place of places) {
@@ -37,28 +70,6 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
         ]);
     }
     
-    if (data.length)
-        output.push([
-            underline(name),
-            table(data, {
-                border: getBorderCharacters('void'),
-                drawHorizontalLine: () => false,
-            }),
-        ].join('\n'));
-    
-    if (!output.length)
-        return '';
-    
-    if (index === count - 1) {
-        output.push(bold(redBright(`✖ ${errorsCount} errors in ${filesCount} files`)));
-        output.push(bold(redBright('  fixable with the `--fix` option')));
-        
-        const result = output.join('\n') + '\n';
-        output = [];
-        
-        return result;
-    }
-    
-    return '';
-};
+    return data;
+}
 

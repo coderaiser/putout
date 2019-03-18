@@ -14,6 +14,8 @@ const isString = (a) => typeof a === 'string';
 const {isArray} = Array;
 const {entries} = Object;
 
+const {UPDATE} = process.env;
+
 const wrap = (dir, plugin, test) => (str, fn) => {
     test(str, (t) => {
         t.transform = transform(t, dir, plugin);
@@ -23,10 +25,10 @@ const wrap = (dir, plugin, test) => (str, fn) => {
         t.report = report(t, dir, plugin);
         t.reportCode = reportCode(t, plugin);
         
-        t.format = format(t, dir, plugin);
-        t.formatMany = formatMany(t, dir, plugin);
-        t.formatManySave = formatManySave(t, dir, plugin);
         t.formatSave = formatSave(t, dir, plugin);
+        t.format = UPDATE ? t.formatSave : format(t, dir, plugin);
+        t.formatManySave = formatManySave(t, dir, plugin);
+        t.formatMany = UPDATE ? t.formatManySave : formatMany(t, dir, plugin);
         t.noFormat = noFormat(t, dir, plugin);
         
         fn(t);
@@ -60,7 +62,7 @@ const format = (t, dir, plugins) => (formatter, name) => {
         places,
     });
     
-    t.equal(expected, result);
+    t.equal(result, expected);
     
     return result;
 };
@@ -108,7 +110,7 @@ const formatMany = (t, dir, plugins) => (formatter, names) => {
     const outputName = join(dir, `${names.join('-')}-format.js`);
     const expected = readFileSync(outputName, 'utf8');
     
-    t.equal(expected, result);
+    t.equal(result, expected);
     
     return result;
 };

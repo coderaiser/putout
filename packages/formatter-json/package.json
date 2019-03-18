@@ -1,10 +1,10 @@
 {
-  "name": "@putout/formatter-dump",
-  "version": "1.0.2",
+  "name": "@putout/formatter-json",
+  "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout formatter stores output and dump it on end",
+  "description": "putout formatter output json on end",
   "homepage": "http://github.com/coderaiser/putout",
-  "main": "lib/dump.js",
+  "main": "lib/json.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -19,15 +19,12 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "@putout/formatter-json": "^1.0.0",
-    "chalk": "^2.4.2",
-    "table": "^5.2.3"
   },
   "keywords": [
     "putout",
     "putout-formatter",
     "formatter",
-    "dump"
+    "json"
   ],
   "devDependencies": {
     "@putout/test": "^1.3.0",

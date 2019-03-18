@@ -22,12 +22,3 @@ test('test: formatMany', (t) => {
     t.end();
 });
 
-test('test: formatSave', (t) => {
-    t.formatSave(formatter, 'var');
-    t.end();
-});
-
-test('test: formatManySave', (t) => {
-    t.formatManySave(formatter, ['var', 'var']);
-    t.end();
-});

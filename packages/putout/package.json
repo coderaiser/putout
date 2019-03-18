@@ -35,6 +35,7 @@
     "@babel/traverse": "^7.1.6",
     "@babel/types": "^7.2.0",
     "@putout/formatter-dump": "^1.0.0",
+    "@putout/formatter-json": "^1.0.0",
     "@putout/formatter-progress": "^1.0.0",
     "@putout/formatter-stream": "^1.0.0",
     "@putout/plugin-apply-destructuring": "^2.0.0",
