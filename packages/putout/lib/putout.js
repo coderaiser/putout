@@ -1,7 +1,5 @@
 'use strict';
 
-debugger;
-
 const recast = require('recast');
 const toBabel = require('estree-to-babel');
 const traverse = require('@babel/traverse').default;
