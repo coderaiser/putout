@@ -6,14 +6,13 @@ const runFix = require('./run-fix');
 const traverse = require('@babel/traverse').default;
 const types = require('@babel/types');
 
-module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
+module.exports = ({ast, fix, fixCount, plugins}) => {
     let places = [];
     
     for (let i = 0; i < fixCount; i++) {
         places = run({
             ast,
             fix,
-            shebang,
             plugins,
         });
         
@@ -24,7 +23,7 @@ module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
     return places;
 };
 
-function run({ast, fix, shebang, plugins}) {
+function run({ast, fix, plugins}) {
     const places = [];
     
     for (const [rule, plugin] of plugins) {
@@ -41,7 +40,7 @@ function run({ast, fix, shebang, plugins}) {
         for (const item of items) {
             const path = getPath(item);
             const message = report(item);
-            const position = getPosition(path, shebang);
+            const position = getPosition(path);
             
             places.push({
                 rule,
@@ -59,7 +58,7 @@ function run({ast, fix, shebang, plugins}) {
     return places;
 }
 
-function getPosition(path, shebang) {
+function getPosition(path) {
     const {node} = path;
     const {loc} = node;
     
@@ -75,7 +74,7 @@ function getPosition(path, shebang) {
     } = node.loc.start;
     
     return {
-        line: shebang ? line + 1 : line,
+        line,
         column,
     };
 }

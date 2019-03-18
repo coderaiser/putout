@@ -51,20 +51,17 @@ module.exports = (source, opts) => {
         fix,
     } = opts;
     
-    const [clearSource, shebang] = cutShebang(source);
-    
-    const ast = parse(clearSource, parser);
+    const ast = parse(source, parser);
     const plugins = getPlugins(opts);
     const places = runPlugins({
         ast,
-        shebang,
         fix,
         fixCount,
         plugins,
     });
     
     const {code: printed} = recast.print(ast, printOptions);
-    const code = fixStrictMode(`${shebang}${printed}`);
+    const code = fixStrictMode(printed);
     
     return {
         code,
