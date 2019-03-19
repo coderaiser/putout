@@ -19,3 +19,10 @@ const assignment = (callback, query = '') => {
     DOM.RESTful.write(url + query);
 };
 
+const getParser = (parser, hello) => ({
+    parse(source) {
+        return parser(source);
+    }
+});
+
+getParser();

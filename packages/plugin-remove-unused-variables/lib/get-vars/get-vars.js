@@ -302,6 +302,18 @@ module.exports = ({use, declare, addParams}) => {
             });
         },
         
+        ObjectMethod(path) {
+            const paramsPaths = path.get('params');
+            
+            for (const paramPath of paramsPaths) {
+                const {node} = paramPath;
+                if (isIdentifier(node)) {
+                    declare(paramPath, node.name);
+                    continue;
+                }
+            }
+        },
+        
         CallExpression(path) {
             const {node} = path;
             const {callee} = node;

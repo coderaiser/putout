@@ -156,6 +156,7 @@ test('remove-unused-variables: get-vars: arrow function expression', (t) => {
         DOM: _u,
         terminal: _u,
         assignment: d_,
+        getParser: du,
     }, {
         panel: d_,
     }, {
@@ -167,6 +168,11 @@ test('remove-unused-variables: get-vars: arrow function expression', (t) => {
         callback: du,
         query: du,
         url: du,
+    }, {
+        hello: d_,
+        parser: du,
+    }, {
+        source: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -327,7 +333,7 @@ test('remove-unused-variables: get-vars: object expression', (t) => {
         assignArrayExample: d_,
         computedExample: d_,
     }, {
-        source: _u,
+        source: du,
     }, {
         module: du,
         spread: du,
