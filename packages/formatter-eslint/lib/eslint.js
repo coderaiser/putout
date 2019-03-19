@@ -2,9 +2,9 @@
 
 const {jsonFormatter} = require('@putout/formatter-json');
 
-module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
+module.exports = ({name, source, places, index, count, filesCount, errorsCount}) => {
     const json = jsonFormatter({
-        name, places, index, count, filesCount, errorsCount,
+        name, source, places, index, count, filesCount, errorsCount,
     });
     
     if (!json)
@@ -19,6 +19,7 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
         
         output.push({
             filePath: name,
+            source,
             messages,
             errorCount: places.length,
             warningCount: 0,

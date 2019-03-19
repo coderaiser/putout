@@ -1,6 +1,7 @@
 [
     {
         "filePath": "var",
+        "source": "const t = 'hello';\n\n",
         "messages": [
             {
                 "ruleId": "remove-unused-variables",

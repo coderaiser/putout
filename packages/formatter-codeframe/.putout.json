@@ -1,0 +1,5 @@
+{
+    "ignore": [
+        "test/fixture"
+    ]
+}

@@ -155,9 +155,12 @@ function processFiles(name, index, {length}) {
         places,
         index,
         count: length,
+        source: input,
     });
     
     process.stdout.write(line || '');
+    
+    return line;
 }
 
 function addExt(a) {
@@ -199,6 +202,9 @@ function help() {
 }
 
 function exit(e) {
+    if (!e)
+        process.exit(1);
+    
     if (raw)
         console.error(e);
     else

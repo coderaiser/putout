@@ -2,9 +2,10 @@
 
 let errors = [];
 
-module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
+module.exports = ({name, source, places, index, count, filesCount, errorsCount}) => {
     const result = jsonFormatter({
         name,
+        source, 
         places,
         index,
         count,
@@ -22,10 +23,11 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
 
 module.exports.jsonFormatter = jsonFormatter;
 
-function jsonFormatter({name, places, index, count, filesCount, errorsCount}) {
+function jsonFormatter({name, source, places, index, count, filesCount, errorsCount}) {
     if (places.length)
         errors.push({
             name,
+            source,
             places,
         });
     

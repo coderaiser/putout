@@ -7,6 +7,7 @@ module.exports = () => {
     return (formatter, options) => {
         const {
             name,
+            source,
             places,
             index = 0,
             count = 1,
@@ -19,6 +20,7 @@ module.exports = () => {
         
         return formatter({
             name,
+            source,
             places,
             index,
             count,

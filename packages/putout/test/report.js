@@ -13,6 +13,7 @@ test('putout: report: no places', (t) => {
     report(reporter, {
         name: 'hello',
         places: [],
+        source: '',
     });
     
     const expected = {
@@ -22,6 +23,7 @@ test('putout: report: no places', (t) => {
         index: 0,
         name: 'hello',
         places: [],
+        source: '',
     };
     
     t.ok(reporter.calledWith(expected), 'should call reporter');

@@ -1,0 +1,54 @@
+{
+  "name": "@putout/formatter-codeframe",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout formatter shows code frame with an error",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/codeframe.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage"
+  },
+  "dependencies": {
+    "@babel/code-frame": "^7.0.0",
+    "@putout/formatter-json": "^1.0.0",
+    "chalk": "^2.4.2",
+    "table": "^5.2.3"
+  },
+  "keywords": [
+    "putout",
+    "putout-formatter",
+    "formatter",
+    "codeframe"
+  ],
+  "devDependencies": {
+    "@putout/plugin-remove-unused-variables": "^1.25.0",
+    "@putout/test": "^1.3.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^5.6.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-putout": "^1.3.1",
+    "madrun": "^2.0.0",
+    "nyc": "^13.0.1",
+    "putout": "^4.3.2"
+  },
+  "peerDependencies": {
+    "putout": ">=4.3.2"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

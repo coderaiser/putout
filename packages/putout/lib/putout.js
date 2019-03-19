@@ -17,6 +17,7 @@ const {assign} = Object;
 
 const printOptions = {
     quote: 'single',
+    arrowParensAlways: true,
 };
 
 const getParser = (parser) => ({

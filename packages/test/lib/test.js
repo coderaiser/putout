@@ -59,6 +59,7 @@ const format = (t, dir, plugins) => (formatter, name) => {
     const report = putout.initReport();
     const result = report(formatter, {
         name,
+        source: input,
         places,
     });
     
@@ -101,6 +102,7 @@ const formatMany = (t, dir, plugins) => (formatter, names) => {
         
         result += report(formatter, {
             name,
+            source: input,
             places,
             index,
             count,
