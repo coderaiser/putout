@@ -15,8 +15,6 @@ const {
 
 const {jsonFormatter} = require('@putout/formatter-json');
 
-const output = [];
-
 module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
     const json = jsonFormatter({
         name, places, index, count, filesCount, errorsCount,
@@ -28,6 +26,7 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
     if (!json.errors.length)
         return;
     
+    const output = [];
     for (const {name, places} of json.errors) {
         const line = buildLine(places);
         
