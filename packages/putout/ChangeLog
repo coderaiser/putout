@@ -1,3 +1,16 @@
+2019.03.19, v4.15.0
+
+fix:
+- (@putout/plugin-remove-unused-variables) ObjectMethod
+- (eslint-plugin-putout) multiple-properties-destructuring: exclude ForOfStatement
+- (@putout/formatter-dump) duplicate output
+
+feature:
+- (@putout/formatter-codeframe) add
+- (@putout/formatter-eslint) add
+- (@putout/formatter-json) export jsonFormatter
+
+
 2019.03.18, v4.14.0
 
 feature:
