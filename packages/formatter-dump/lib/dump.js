@@ -13,19 +13,17 @@ const {
     redBright,
 } = require('chalk');
 
-const jsonFormatter = require('@putout/formatter-json');
+const {jsonFormatter} = require('@putout/formatter-json');
 
 const output = [];
 
 module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
-    const jsonStr = jsonFormatter({
+    const json = jsonFormatter({
         name, places, index, count, filesCount, errorsCount,
     });
     
-    if (!jsonStr)
+    if (!json)
         return '';
-    
-    const json = JSON.parse(jsonStr);
     
     if (!json.errors.length)
         return;
