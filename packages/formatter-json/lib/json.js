@@ -5,7 +5,7 @@ let errors = [];
 module.exports = ({name, source, places, index, count, filesCount, errorsCount}) => {
     const result = jsonFormatter({
         name,
-        source, 
+        source,
         places,
         index,
         count,
