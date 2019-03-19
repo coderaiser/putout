@@ -18,6 +18,8 @@ ruleTester.run('multiple-properties-destructuring', rule, {
             b,
             c,
         } = world;`,
+        `for (const {a, b, c, d} of items) {
+        }`
     ],
     
     invalid: [{

@@ -18,6 +18,9 @@ module.exports = {
     create(context) {
         return {
             'VariableDeclarator[id.type="ObjectPattern"][id.properties.length>2]': (node) => {
+                if (node.parent.parent.type === 'ForOfStatement')
+                    return;
+                
                 const {id} = node;
                 const {properties} = id;
                 const {line} = node.loc.start;
