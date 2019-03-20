@@ -1,3 +1,14 @@
+2019.03.20, v4.16.0
+
+fix:
+- test(@putout/formatter-codeframe) fixture
+- test(@putout/plugin-remove-unused-variables) fixture
+- test(@putout/formatter-json) fixture
+
+feature:
+- (@putout/plugin-remove-constant-condition) add
+
+
 2019.03.19, v4.15.1
 
 feature:
