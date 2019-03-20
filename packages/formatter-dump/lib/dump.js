@@ -24,7 +24,7 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
         return '';
     
     if (!json.errors.length)
-        return;
+        return '';
     
     const output = [];
     for (const {name, places} of json.errors) {
