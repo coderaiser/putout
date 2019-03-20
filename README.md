@@ -97,6 +97,7 @@ The built-in formatter options are:
 - `stream`
 - `json`
 - `codeframe`
+- `progress`
 
 | Package | Version | Dependencies |
 |---------|---------|--------------|
