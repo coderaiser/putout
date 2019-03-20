@@ -23,7 +23,7 @@ Rules `remove-empty` is enabled by default, to disable add to `.putout.json`:
 ```json
 {
     "rules": {
-        "remove-empty/block": false
+        "remove-empty/block": false,
         "remove-empty/pattern": false
     }
 }
