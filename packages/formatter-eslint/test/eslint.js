@@ -12,7 +12,7 @@ test('formatter: eslint', (t) => {
 });
 
 test('formatter: eslint: eslint-formatter', (t) => {
-    process.env.ESLINT_FORMATTER = 'pretty';
+    process.env.ESLINT_FORMATTER = 'compassion';
     
     t.format(eslint, 'eslint-formatter');
     delete process.env.ESLINT_FORMATTER;
