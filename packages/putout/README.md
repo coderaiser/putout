@@ -74,6 +74,7 @@ To configure create `.putout.json` file and override any option:
         "remove-unused-private-fields",
         "remove-unused-expressions",
         "remove-useless-variables",
+        "remove-constant-conditions",
         "split-variable-declarations",
         "convert-esm-to-commonjs",
         "convert-apply-to-spread",
@@ -152,6 +153,7 @@ Usage: putout [options] [path]
 Options:
   -h, --help              display this help and exit
   -v, --version           output version information and exit
+  -f, --format            use a specific output format - default: dump
   --fix                   aply found fixes of errors to code
   --fix-count             count of fixes rounds (defaults to 10)
 ```
