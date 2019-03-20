@@ -25,6 +25,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - find and remove `empty block statements`;
 - find and remove `empty patterns`;
 - find and remove `strict mode` directive from `esm`;
+- find and remove `constant conditions`;
 - if absent `strict mode` directive in `commonjs` add it;
 - convert `esm` to `commonjs`;
 - apply destructuring;

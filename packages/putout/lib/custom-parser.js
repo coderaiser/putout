@@ -40,6 +40,7 @@ function babelParse(source) {
         plugins: [
             'estree',
             'jsx',
+            'bigInt',
             'classPrivateProperties',
             'classPrivateMethods',
             'classProperties',

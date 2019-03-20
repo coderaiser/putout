@@ -4,6 +4,7 @@ const getPath = (item) => item.path || item;
 const runFix = require('./run-fix');
 
 const traverse = require('@babel/traverse').default;
+const generate = require('@babel/generator').default;
 const types = require('@babel/types');
 
 module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
@@ -85,6 +86,7 @@ function superFind(find, ast) {
     const push = pushItems.push.bind(pushItems);
     const returnItems = find(ast, {
         traverse,
+        generate,
         types,
         push,
     });
