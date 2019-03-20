@@ -2,6 +2,7 @@
     "errors": [
         {
             "name": "var",
+            "source": "const t = 'hello';\n\n",
             "places": [
                 {
                     "rule": "remove-unused-variables",
