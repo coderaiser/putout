@@ -28,7 +28,7 @@ npm i @putout/plugin-remove-constant-conditions -D
 
 ```js
 function hi(a) {
-    if (2 > 3) {
+    if (2 < 3) {
         console.log('hello');
         console.log('world');
     }
