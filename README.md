@@ -343,7 +343,7 @@ Then create `eslintrc.json`:
 And use with `putout` this way:
 
 ```sh
-putout --fix lib; eslint --fix lib
+putout --fix lib && eslint --fix lib
 ```
 
 ## Why?
