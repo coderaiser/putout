@@ -24,7 +24,7 @@ putout --format eslint lib
 
 Result example:
 
-```eslint
+```json
 {
     "errors": [
         {
