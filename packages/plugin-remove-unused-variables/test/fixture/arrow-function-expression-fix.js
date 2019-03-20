@@ -14,7 +14,7 @@ terminal.on('key', (char, {keyCode: key}) => {
         return;
 });
 
-const getParser = (parser) => ({
+const getParser = parser => ({
     parse(source) {
         return parser(source);
     }
