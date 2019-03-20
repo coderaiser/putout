@@ -24,3 +24,7 @@ test('plugin-remove-constant-conditions: transform: identifier', (t) => {
     t.end();
 });
 
+test('plugin-remove-constant-conditions: transform: else', (t) => {
+    t.noTransform('else');
+    t.end();
+});

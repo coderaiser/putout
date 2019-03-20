@@ -14,6 +14,9 @@ module.exports.fix = ({path, consequentPath, result}) => {
 module.exports.find = (ast, {push, generate, traverse}) => {
     traverse(ast, {
         IfStatement(path) {
+            if (path.node.alternate)
+                return;
+            
             const testPath = path.get('test');
             const consequentPath = path.get('consequent');
             
