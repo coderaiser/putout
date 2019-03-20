@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/formatter-codeframe
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/formatter-codeframe
 
-`putout` formatter stores output and codeframe it on end.
+`putout` formatter shows codeframe of file with an errors.
 
 ## Install
 
