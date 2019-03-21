@@ -25,6 +25,12 @@ test('plugin-remove-constant-conditions: transform: identifier', (t) => {
 });
 
 test('plugin-remove-constant-conditions: transform: else', (t) => {
-    t.noTransform('else');
+    t.transform('else');
     t.end();
 });
+
+test('plugin-remove-constant-conditions: transform: else if', (t) => {
+    t.transform('else-if');
+    t.end();
+});
+

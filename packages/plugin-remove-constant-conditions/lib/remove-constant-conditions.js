@@ -5,18 +5,20 @@ const {runInNewContext} = require('vm');
 module.exports.report = () => 'constant conditions should not be used';
 
 module.exports.fix = ({path, consequentPath, result}) => {
-    if (!result)
+    const {alternate} = path.node;
+    
+    if (result)
+        return path.replaceWithMultiple(consequentPath.node.body);
+    
+    if (!alternate)
         return path.remove();
     
-    path.replaceWithMultiple(consequentPath.node.body);
+    path.replaceWith(alternate);
 };
 
 module.exports.find = (ast, {push, generate, traverse}) => {
     traverse(ast, {
         IfStatement(path) {
-            if (path.node.alternate)
-                return;
-            
             const testPath = path.get('test');
             const consequentPath = path.get('consequent');
             
