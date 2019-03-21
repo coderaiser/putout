@@ -36,6 +36,7 @@ module.exports = ({use, declare, addParams}) => {
         ObjectExpression(path) {
             traverseObj(path.get('properties'));
         },
+        
         VariableDeclarator(path) {
             const {node} = path;
             const {init} = node;
@@ -46,6 +47,12 @@ module.exports = ({use, declare, addParams}) => {
             } else if (isObjectPattern(node.id)) {
                 idPath.traverse({
                     ObjectProperty(propPath) {
+                        if (isAssignmentPattern(propPath.node.value)) {
+                            traverseAssign(propPath.get('value.right'));
+                            declareAssign(propPath.get('value.left'));
+                            return;
+                        }
+                        
                         if (!isIdentifier(propPath.node.value))
                             return;
                         
