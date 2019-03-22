@@ -33,6 +33,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `Math.pow` to `exponentiation operator`;
 - convert `apply` to `spread`;
 - convert `arguments` to `rest`;
+- convert `Object.assign` to `merge spread`;
 
 ## Usage
 
@@ -86,6 +87,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-convert-math-pow`](/packages/plugin-convert-math-pow) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-math-pow.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-math-pow) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-math-pow)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-math-pow) |
 | [`@putout/plugin-convert-apply-to-spread`](/packages/plugin-convert-apply-to-spread) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-apply-to-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-apply-to-spread) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-apply-to-spread)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-apply-to-spread) |
 | [`@putout/plugin-convert-arguments-to-rest`](/packages/plugin-convert-arguments-to-rest) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-arguments-to-rest.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-arguments-to-rest) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-arguments-to-rest)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-arguments-to-rest) |
+| [`@putout/plugin-convert-object-assign-to-merge-spread`](/packages/plugin-convert-object-assign-to-merge-spread) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-object-assign-to-merge-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-object-assign-to-merge-spread) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-object-assign-to-merge-spread)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-object-assign-to-merge-spread) |
 
 ## Formatters
 
@@ -150,6 +152,7 @@ To configure `putout` add section `putout` to your `package.json` file or create
 
 ```json
 {
+    "formatter": "dump",
     "match": {
         "madrun.js": {
             "madrun/*": true
@@ -189,6 +192,7 @@ To configure `putout` add section `putout` to your `package.json` file or create
         "convert-esm-to-commonjs",
         "convert-apply-to-spread",
         "convert-arguments-to-rest",
+        "convert-object-assign-to-merge-spread",
         "convert-math-pow",
         "apply-destructuring",
         "merge-destructuring-properties",

@@ -33,6 +33,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `Math.pow` to `exponentiation operator`;
 - convert `apply` to `spread`;
 - convert `arguments` to `rest`;
+- convert `Object.assign` to `merge spread`;
 
 ## Configuration
 
@@ -40,6 +41,7 @@ To configure create `.putout.json` file and override any option:
 
 ```json
 {
+    "formatter": "dump",
     "match": {
         "madrun.js": {
             "madrun/*": true
@@ -79,6 +81,7 @@ To configure create `.putout.json` file and override any option:
         "convert-esm-to-commonjs",
         "convert-apply-to-spread",
         "convert-arguments-to-rest",
+        "convert-object-assign-to-merge-spread",
         "convert-math-pow",
         "apply-destructuring",
         "merge-destructuring-properties",
