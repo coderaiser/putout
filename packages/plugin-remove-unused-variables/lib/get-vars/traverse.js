@@ -2,8 +2,6 @@
 
 const {
     isIdentifier,
-    isSpreadElement,
-    isRestElement,
     isObjectExpression,
     isObjectPattern,
     isTemplateLiteral,
