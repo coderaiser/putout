@@ -1,3 +1,10 @@
+2019.03.22, v4.17.0
+
+feature:
+- (@putout/plugin-convert-object-assign-to-merge-spread) add
+- (traverse) move out RestElement, SpreadElement to get-vars
+
+
 2019.03.22, v4.16.2
 
 fix:
