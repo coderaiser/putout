@@ -51,16 +51,6 @@ const traverseObjectExpression = (use) => {
                 continue;
             }
             
-            if (isSpreadElement(node)) {
-                use(path, node.argument.name);
-                continue;
-            }
-            
-            if (isRestElement(node)) {
-                use(path, node.argument.name);
-                continue;
-            }
-            
             if (isObjectExpression(value)) {
                 const traverseObj = traverseObjectExpression(use);
                 traverseObj(path.get('value.properties'));

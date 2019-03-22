@@ -37,6 +37,20 @@ module.exports = ({use, declare, addParams}) => {
             traverseObj(path.get('properties'));
         },
         
+       SpreadElement(path) {
+           const {argument} = path.node;
+           
+            if (isIdentifier(argument))
+                use(path, argument.name);
+       },
+            
+        RestElement(path) {
+           const {argument} = path.node;
+           
+            if (isIdentifier(argument))
+                declare(path, argument.name);
+        },
+        
         VariableDeclarator(path) {
             const {node} = path;
             const {init} = node;
