@@ -1,3 +1,15 @@
+2019.03.22, v4.16.2
+
+fix:
+- (@putout/formatter-dump) return
+- (@putout/plugin-remove-constant-conditions) exclude else
+
+feature:
+- (package) array-union v2.0.0
+- (@putout/plugin-remove-unused-variables) add support of AssignmentPattern in Destructuring
+- (@putout/plugin-remove-constant-condition) add support of else if
+
+
 2019.03.20, v4.16.1
 
 fix:
