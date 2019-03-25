@@ -41,7 +41,7 @@ function merge(a) {
     return {
         ...a,
         hello: 'world'
-    });
+    };
 };
 ```
 
