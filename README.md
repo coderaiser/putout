@@ -10,30 +10,22 @@
 [CoverageURL]:              https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]:           https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
-Putout is a tool for identifying, reporting and fixing patterns found in JavaScript code. It can:
+Putout is a pluggable and configurable code transformer.
 
-- find and remove unused variables;
-- find and remove unused private fields;
-- find and remove unused expressions;
-- find and remove useless variables;
-- find and remove `debugger` statement;
-- find and replace `test.only` to `test` calls;
-- find and replace `test.skip` to `test` calls;
-- find and remove `process.exit` call;
-- find and split variable declarations;
-- find and remove `console.log` calls;
-- find and remove `empty block statements`;
-- find and remove `empty patterns`;
-- find and remove `strict mode` directive from `esm`;
-- find and remove `constant conditions`;
-- if absent `strict mode` directive in `commonjs` add it;
-- convert `esm` to `commonjs`;
-- apply destructuring;
-- merge destructuring properties;
-- convert `Math.pow` to `exponentiation operator`;
-- convert `apply` to `spread`;
-- convert `arguments` to `rest`;
-- convert `Object.assign` to `merge spread`;
+## Why?
+
+- because [eslint](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
+- because [babel](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139);
+- because [pretier](https://github.com/prettier/prettier) it is a formatter;
+- because [jscodeshift](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
+
+The main difference of `putout` is saving code transformation results directly in a source code in a day-to-day baisis.
+
+## Install
+
+```
+npm i putout -g
+```
 
 ## Usage
 
@@ -47,17 +39,239 @@ Options:
   --fix-count             count of fixes rounds (defaults to 10)
 ```
 
-To see unused variables use:
+To find possible transform places:
 
 ```
 putout lib test
 ```
 
-To remove `unused variables` use:
+To apply transforms:
 
 ```
 putout lib test --fix
 ```
+
+## Built-in transforms
+
+<details><summary>remove unused variables</summary>
+
+```diff
+  function show() {
+-     const message = 'hello';
+      console.log('hello world');
+  }
+```
+</details>
+
+<details><summary>remove unused private fields</summary>
+
+```diff
+  class Hello {
+    #a = 5;
+-   #b = 3;
+    get() {
+        return this.#a;
+    };
+}
+```
+</details>
+
+<details><summary>remove unused expressions</summary>
+
+```diff
+  function show(error) {
+-     showError;
+  }
+```
+</details>
+
+<details><summary>remove useless variables</summary>
+
+```diff
+-   function hi(a) {
+-       const b = a;
+    };
++   function hi(b) {
+    };
+```
+</details>
+
+<details><summary>remove <code>debugger</code> statement</summary>
+
+```diff
+- debugger;
+```
+</details>
+
+<details><summary>replace <code>test.only</code> to <code>test</code> calls</summary>
+
+```diff
+-test.only('some test here', (t) => {
++test('some test here', (t) => {
+    t.end();
+});
+```
+</details>
+
+<details><summary>replace <code>test.skip</code> to <code>test</code> calls</summary>
+
+```diff
+-test.skip('some test here', (t) => {
++test('some test here', (t) => {
+    t.end();
+});
+```
+</details>
+
+<details><summary>remove <code>process.exit</code> call</summary>
+
+```diff
+-process.exit();
+```
+</details>
+
+<details><summary>split variable declarations</summary>
+
+```diff
+-let a, b;
++let a;
++let b;
+```
+</details>
+
+<details><summary>remove <code>console.log</code> calls</summary>
+
+```diff
+-console.log('hello');
+```
+</details>
+
+<details><summary>remove empty block statements</summary>
+
+```diff
+-if (x > 0) {
+-}
+```
+</details>
+
+<details><summary>remove empty patterns</summary>
+
+```diff
+-const {} = process;
+```
+</details>
+
+<details><summary>remove strict mode directive from esm</summary>
+
+```diff
+-'use strict';
+-
+import * from fs;
+```
+</details>
+
+<details><summary>if absent <code>strict mode</code> directive in <code>commonjs</code> add it</summary>
+
+```diff
++'use strict';
++
+const fs = require('fs');
+```
+</details>
+
+<details><summary>remove <code>constant conditions</code></summary>
+
+```diff
+function hi(a) {
+-   if (2 < 3) {
+-       console.log('hello');
+-       console.log('world');
+-   }
++   console.log('hello');
++   console.log('world');
+};
+
+function world(a) {
+-   if (false) {
+-       console.log('hello');
+-       console.log('world');
+-   }
+};
+```
+</details>
+
+<details><summary>convert <code>esm</code> to <code>commonjs</code></summary>
+
+```diff
+-import hello from 'world';
++const hello = require('world');
+```
+</details>
+
+<details><summary>apply destructuring</summary>
+
+```diff
+-const hello = world.hello;
+-const a = b[0];
++const {hello} = world; 
++const [a] = b;
+```
+</details>
+
+<details><summary>merge destructuring properties</summary>
+
+```diff
+-const {one} = require('numbers'):
+-const {two} = require('numbers');
++ const {
++   one,
++   two
++} = require('numbers');
+```
+</details>
+
+<details><summary>convert <code>Math.pow</code> to <code>exponentiation operator</code></summary>
+
+```diff
+-Math.pow(2, 4);
++2 ** 4;
+```
+
+</details>
+
+<details><summary>convert <code>apply</code> to <code>spread</code></summary>
+
+```diff
+-console.log.apply(console, arguments);
++console.log(...arguments);
+```
+</details>
+
+<details><summary>convert <code>arguments</code> to <code>rest</code></summary>
+
+```diff
+-function hello() {
+-    console.log(arguments);
++function hello(...args) {
++    console.log(args);
+}
+```
+</details>
+
+<details><summary>convert <code>Object.assign</code> to <code>merge spread</code></summary>
+
+```diff
+function merge(a) {
+-   return Object.assign({}, a, {
+-       hello: 'world'
+-   });
++   return {
++       ...a,
++       hello: 'world'
++   };
+};
+```
+</details>
 
 ## Plugins
 
@@ -349,21 +563,6 @@ And use with `putout` this way:
 
 ```sh
 putout --fix lib && eslint --fix lib
-```
-
-## Why?
-
-- because [eslint](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
-- because [babel](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139);
-- because [pretier](https://github.com/prettier/prettier) it is a formatter;
-- because [jscodeshift](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
-
-The main difference of `putout` is saving code transformation results directly in a source code in a day-to-day baisis.
-
-## Install
-
-```
-npm i putout -g
 ```
 
 ## API
