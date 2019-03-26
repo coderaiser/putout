@@ -13,7 +13,7 @@
 Putout is a pluggable and configurable code transformer. It work's in a similar but more powerfull then `eslint` way.
 While `eslint` can tell you about `unused variable`, `debugger` statement or redundant `console.log`, it fixes mostly whitespaces. `Putout` can fix all this things and [much more](#built-in-transforms).
 
-![Putout](casts/putout.gif "Putout")
+[![putout](https://asciinema.org/a/236695.svg)](https://asciinema.org/a/236695)
 
 ## Why?
 
