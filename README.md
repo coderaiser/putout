@@ -10,7 +10,7 @@
 [CoverageURL]:              https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]:           https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
-Putout is a pluggable and configurable code transformer. It work's in a similar but more powerfull then `eslint` way.
+Putout is a pluggable and configurable code transformer. It work's in a similar but more powerful then `eslint` way.
 While `eslint` can tell you about `unused variable`, `debugger` statement or redundant `console.log`, it fixes mostly whitespaces. `Putout` can fix all this things and [much more](#built-in-transforms).
 
 [![putout](https://asciinema.org/a/236695.svg)](https://asciinema.org/a/236695)
