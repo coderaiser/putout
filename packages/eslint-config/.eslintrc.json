@@ -12,6 +12,13 @@
         }
     },
     "rules": {
+        "keyword-spacing": ["error", {
+            "overrides": {
+                "switch": {
+                    "after": false
+                }
+            }
+        }],
         "arrow-parens": ["error", "always"],
         "no-multi-spaces": "error",
         "no-trailing-spaces": ["error", {
