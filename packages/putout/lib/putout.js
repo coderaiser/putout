@@ -17,6 +17,7 @@ const {assign} = Object;
 
 const printOptions = {
     quote: 'single',
+    objectCurlySpacing: false,
 };
 
 const getParser = (parser) => ({
