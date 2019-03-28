@@ -9,6 +9,7 @@
 `putout` plugin adds ability to find and remove:
 - `empty block statements`;
 - `empty patterns`;
+- `empty imports`;
 
 ## Install
 
@@ -25,6 +26,7 @@ Rules `remove-empty` is enabled by default, to disable add to `.putout.json`:
     "rules": {
         "remove-empty/block": false,
         "remove-empty/pattern": false
+        "remove-empty/import": false
     }
 }
 ```
