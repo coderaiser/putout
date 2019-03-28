@@ -38,6 +38,7 @@ const fixture = readFixtures([
     'fn-hoisted-vars',
     'for-of-statement',
     'function-declaration',
+    'import',
     'no-vars',
     'no-root-vars',
     'logical-expression',
@@ -493,6 +494,19 @@ test('remove-unused-variables: get-vars: destr fn vars', (t) => {
             declared: true,
             used: false,
         },
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: import', (t) => {
+    const ast = parse(fixture.import);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        readFileSync: d_,
+        writeFileSync: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');

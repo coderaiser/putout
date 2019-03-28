@@ -366,6 +366,17 @@ module.exports = ({use, declare, addParams}) => {
                 use(path, right.name);
         },
         
+        ImportDeclaration(path) {
+            const {specifiers} = path.node;
+            
+            for (const spec of specifiers) {
+                const {local} = spec;
+                
+                if (isIdentifier(local))
+                    declare(path, local.name);
+            }
+        },
+        
         ExportDefaultDeclaration(path) {
             const declarationPath = path.get('declaration');
             const {declaration} = path.node;
