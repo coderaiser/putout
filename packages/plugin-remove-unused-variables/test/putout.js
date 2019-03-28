@@ -40,6 +40,8 @@ const fixture = readFixtures([
     'destr-vars-fix',
     'destr-nested-vars',
     'destr-nested-vars-fix',
+    'import',
+    'import-fix',
     'return-statement',
     'return-statement-fix',
     'variable-declarator',
@@ -172,6 +174,14 @@ test('putout: arrow function expression', (t) => {
 test('putout: function declaration', (t) => {
     const {code} = putout(fixture.functionDeclaration);
     const expected = fixture.functionDeclarationFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: import', (t) => {
+    const {code} = putout(fixture.import);
+    const expected = fixture.importFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

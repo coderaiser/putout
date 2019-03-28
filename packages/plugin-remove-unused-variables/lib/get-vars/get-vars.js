@@ -367,13 +367,13 @@ module.exports = ({use, declare, addParams}) => {
         },
         
         ImportDeclaration(path) {
-            const {specifiers} = path.node;
+            const specifierPaths = path.get('specifiers');
             
-            for (const spec of specifiers) {
-                const {local} = spec;
+            for (const specPath of specifierPaths) {
+                const {local} = specPath.node;
                 
                 if (isIdentifier(local))
-                    declare(path, local.name);
+                    declare(specPath, local.name);
             }
         },
         

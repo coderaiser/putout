@@ -505,7 +505,7 @@ test('remove-unused-variables: get-vars: import', (t) => {
     const result = getVars(ast).map(dutify);
     
     const expected = [{
-        readFileSync: d_,
+        readFileSync: du,
         writeFileSync: d_,
     }];
     
