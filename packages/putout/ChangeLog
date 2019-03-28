@@ -1,3 +1,15 @@
+2019.03.28, v4.18.1
+
+fix:
+- (putout) printOptions: disable objectCurlySpacing
+- (@putout/plugin-remove-unused-variables) remove ImportDeclaration -> remove specifier of ImportDeclaration
+
+feature:
+- (@putout/plugin-remove-empty) add support of imports
+- (@putout/plugin-remove-unused-variables) add support of ImportDeclaration
+- (eslint-config) add keyword-spacing
+
+
 2019.03.27, v4.18.0
 
 feature:
