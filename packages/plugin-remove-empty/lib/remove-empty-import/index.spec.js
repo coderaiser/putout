@@ -16,7 +16,11 @@ test('plugin-remove-empty: import', (t) => {
 });
 
 test('plugin-remove-empty: import: not empty', (t) => {
-    t.noTransform('not-empty-import', '\n\n');
+    t.noTransform('not-empty-import');
     t.end();
 });
 
+test('plugin-remove-empty: import: css', (t) => {
+    t.noTransform('import-css');
+    t.end();
+});
