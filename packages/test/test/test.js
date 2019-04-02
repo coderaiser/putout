@@ -30,6 +30,11 @@ test('test: transformCode', (t) => {
     t.end();
 });
 
+test('test: noTransformCode', (t) => {
+    t.noTransformCode('alert()');
+    t.end();
+});
+
 test('test: property identifier', (t) => {
     t.transform('property-identifier');
     t.end();

@@ -19,8 +19,9 @@ const {UPDATE} = process.env;
 const wrap = (dir, plugin, test) => (str, fn) => {
     test(str, (t) => {
         t.transform = transform(t, dir, plugin);
-        t.transformCode = transformCode(t, plugin);
         t.noTransform = noTransform(t, dir, plugin);
+        t.transformCode = transformCode(t, plugin);
+        t.noTransformCode = noTransformCode(t, plugin);
         
         t.report = report(t, dir, plugin);
         t.reportCode = reportCode(t, plugin);
@@ -168,6 +169,12 @@ const transformCode = (t, plugins) => (input, output) => {
     const {code} = putout(input, {plugins});
     
     t.equal(code, output, 'should equal');
+};
+
+const noTransformCode = (t, plugins) => (input) => {
+    const {code} = putout(input, {plugins});
+    
+    t.equal(code, input, 'should equal');
 };
 
 const getMessage = ({message}) => message;
