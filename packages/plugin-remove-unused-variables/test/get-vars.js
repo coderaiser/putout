@@ -45,6 +45,7 @@ const fixture = readFixtures([
     'member-expression',
     'new-expression',
     'object-expression',
+    'object-method',
     'root-vars',
     'scope-vars',
     'shorthand-vars',
@@ -349,6 +350,22 @@ test('remove-unused-variables: get-vars: object expression', (t) => {
     }, {
         computedValue: du,
         computedKey: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: object method', (t) => {
+    const ast = parse(fixture.objectMethod);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        Proxy: _u,
+        console: _u,
+    }, {
+        target: du,
+        property: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

@@ -325,6 +325,7 @@ module.exports = ({use, declare, addParams}) => {
         },
         
         ObjectMethod(path) {
+            const {params} = path.node;
             const paramsPaths = path.get('params');
             
             for (const paramPath of paramsPaths) {
@@ -335,6 +336,11 @@ module.exports = ({use, declare, addParams}) => {
                     continue;
                 }
             }
+            
+            addParams({
+                path,
+                params,
+            });
         },
         
         CallExpression(path) {
