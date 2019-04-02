@@ -305,6 +305,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-convert-apply-to-spread`](/packages/plugin-convert-apply-to-spread) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-apply-to-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-apply-to-spread) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-apply-to-spread)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-apply-to-spread) |
 | [`@putout/plugin-convert-arguments-to-rest`](/packages/plugin-convert-arguments-to-rest) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-arguments-to-rest.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-arguments-to-rest) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-arguments-to-rest)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-arguments-to-rest) |
 | [`@putout/plugin-convert-object-assign-to-merge-spread`](/packages/plugin-convert-object-assign-to-merge-spread) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-object-assign-to-merge-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-object-assign-to-merge-spread) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-object-assign-to-merge-spread)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-object-assign-to-merge-spread) |
+| [`@putout/plugin-putout`](/packages/plugin-putout) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-putout)](https://david-dm.org/coderaiser/putout?path=packages/plugin-putout) |
 
 ## Formatters
 
@@ -380,7 +381,8 @@ To configure `putout` add section `putout` to your `package.json` file or create
         },
         "test|.spec.js": {
             "remove-only": true,
-            "remove-skip": true
+            "remove-skip": true,
+            "putout": true
         }
     },
     "ignore": [
@@ -413,7 +415,8 @@ To configure `putout` add section `putout` to your `package.json` file or create
         "convert-math-pow",
         "apply-destructuring",
         "merge-destructuring-properties",
-        "strict-mode"
+        "strict-mode",
+        "putout"
     ]
 }
 ```

@@ -16,7 +16,7 @@ test('remove unused expression: transformCode', (t) => {
 
 test('remove unused expression: transformCode: used', (t) => {
     const code = 'fn()';
-    t.transformCode(code, code);
+    t.noTransformCode(code);
     t.end();
 });
 

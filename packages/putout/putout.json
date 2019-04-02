@@ -11,7 +11,8 @@
         },
         "test|.spec.js": {
             "remove-only": true,
-            "remove-skip": true
+            "remove-skip": true,
+            "putout": true
         }
     },
     "ignore": [
@@ -21,7 +22,8 @@
         "madrun/*": false,
         "convert-esm-to-commonjs": false,
         "remove-only": false,
-        "remove-skip": false
+        "remove-skip": false,
+        "putout": false
     },
     "plugins": [
         "madrun",
@@ -44,7 +46,8 @@
         "convert-math-pow",
         "apply-destructuring",
         "merge-destructuring-properties",
-        "strict-mode"
+        "strict-mode",
+        "putout"
     ]
 }
 

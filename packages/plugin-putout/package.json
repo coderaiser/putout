@@ -1,0 +1,56 @@
+{
+  "name": "@putout/plugin-putout",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin helps with plugins development",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/index.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage"
+  },
+  "nyc": {
+    "exclude": [
+      "*/**/*.spec.js",
+      "test"
+    ]
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "putout"
+  ],
+  "devDependencies": {
+    "@putout/test": "^1.1.1",
+    "coveralls": "^3.0.0",
+    "eslint": "^5.6.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-putout": "^1.0.3",
+    "lerna": "^3.8.5",
+    "madrun": "^2.1.0",
+    "nodemon": "^1.14.12",
+    "nyc": "^13.0.1"
+  },
+  "peerDependencies": {
+    "putout": ">=4"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
