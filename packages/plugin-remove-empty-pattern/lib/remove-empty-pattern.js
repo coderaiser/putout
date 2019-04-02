@@ -19,25 +19,36 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.find = (ast, {traverse}) => {
-    const places = [];
-    
+module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
-        VariableDeclarator(path) {
-            const {id} = path.node;
+        ObjectPattern(path) {
+            const {node, parentPath} = path;
+            const {properties} = node;
             
-            if (isObjectPattern(id) && !id.properties.length) {
-                places.push(path);
+            if (properties.length)
+                return;
+            
+            if (parentPath.isVariableDeclarator()) {
+                push(parentPath);
                 return;
             }
             
-            if (isArrayPattern(id) && !id.elements.length) {
-                places.push(path);
+            push(path);
+        },
+        ArrayPattern(path) {
+            const {node, parentPath} = path;
+            const {elements} = node;
+            
+            if (elements.length)
+                return;
+            
+            if (parentPath.isVariableDeclarator()) {
+                push(parentPath);
                 return;
             }
+            
+            push(path);
         },
     });
-    
-    return places;
 };
 

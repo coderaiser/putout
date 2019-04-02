@@ -25,3 +25,22 @@ test('plugin-remove-empty-pattern: array', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty-pattern: argument: object destructuring', (t) => {
+    t.transformCode('({}) => alert()', '() => alert()');
+    t.end();
+});
+
+test('plugin-remove-empty-pattern: argument: array destructuring', (t) => {
+    t.transformCode('([]) => alert()', '() => alert()');
+    t.end();
+});
+
+test('plugin-remove-empty-pattern: argument: object destructuring: not empty', (t) => {
+    t.noTransformCode('({a}) => alert()');
+    t.end();
+});
+
+test('plugin-remove-empty-pattern: argument: array destructuring: not empty', (t) => {
+    t.noTransformCode('([a]) => alert()');
+    t.end();
+});
