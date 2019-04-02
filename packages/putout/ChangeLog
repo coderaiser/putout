@@ -1,3 +1,15 @@
+2019.04.02, v4.19.0
+
+fix:
+- (@putout/plugin-remove-empty-pattern) report
+
+feature:
+- (@putout/plugin-putout) add
+- (@putout/eslint-config) padding-line-beetween-statements: add empty line before if condition
+- (@putout/plugin-remove-empty-pattern) add support of function argument
+- (@putout/plugin-remove-empty) add support of css
+
+
 2019.03.28, v4.18.1
 
 fix:
