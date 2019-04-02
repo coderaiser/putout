@@ -39,7 +39,7 @@ module.exports.fix = ({path}) => {
 };
 
 function findClassName(path) {
-    while(!path.isClassDeclaration()) {
+    while (!path.isClassDeclaration()) {
         path = path.parentPath;
     }
     

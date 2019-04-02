@@ -16,10 +16,12 @@ module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
         ArrowFunctionExpression(path) {
             const {body} = path.node;
+            
             if (!isStringLiteral(body))
                 return;
             
             const {value} = body;
+            
             if (!/^(redrun|npm run)/.test(value))
                 return;
             

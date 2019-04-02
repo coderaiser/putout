@@ -35,6 +35,7 @@ module.exports.find = (ast, {push, traverse}) => {
                 return;
             
             const [first] = node.arguments;
+            
             if (isObjectExpression(first) && !first.properties.length)
                 push(path);
         },

@@ -31,6 +31,7 @@ module.exports.find = (ast, {push, traverse}) => {
                 const {directives} = node;
                 
                 const [first] = node.body;
+                
                 if (isExpressionStatement(first) && first.expression.value === 'use strict')
                     return;
                 

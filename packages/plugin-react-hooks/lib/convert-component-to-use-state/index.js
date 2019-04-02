@@ -22,6 +22,7 @@ module.exports.find = (ast, {traverse}) => {
             const {id, init} = path.node;
             
             const name = 'React';
+            
             if (!isObjectPattern(id) || !isIdentifier(init, {name}))
                 return;
             

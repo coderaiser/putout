@@ -297,6 +297,7 @@ module.exports = ({use, declare, addParams}) => {
             
             for (const paramPath of paramsPaths) {
                 const {node} = paramPath;
+                
                 if (isIdentifier(node)) {
                     declare(paramPath, node.name);
                     continue;
@@ -328,6 +329,7 @@ module.exports = ({use, declare, addParams}) => {
             
             for (const paramPath of paramsPaths) {
                 const {node} = paramPath;
+                
                 if (isIdentifier(node)) {
                     declare(paramPath, node.name);
                     continue;

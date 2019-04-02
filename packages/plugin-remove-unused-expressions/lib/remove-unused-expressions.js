@@ -6,6 +6,7 @@ module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
         ExpressionStatement(path) {
             const expressionPath = path.get('expression');
+            
             if (expressionPath.isIdentifier()) {
                 push(expressionPath);
             }

@@ -98,6 +98,7 @@ function requirePlugin(name, fn) {
         ];
     
     const [, npmPlugin] = tryCatch(require, getModulePath(`@putout/plugin-${name}`));
+    
     if (npmPlugin)
         return [
             name,
@@ -105,6 +106,7 @@ function requirePlugin(name, fn) {
         ];
     
     const [, userPlugin] = tryCatch(require, getModulePath(`putout-plugin-${name}`));
+    
     if (userPlugin)
         return [
             name,

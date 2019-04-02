@@ -107,6 +107,7 @@ function processFiles(name, index, {length}) {
     const {match, formatter} = options;
     
     const ignorer = ignore();
+    
     if (options.ignore)
         ignorer.add(options.ignore);
     

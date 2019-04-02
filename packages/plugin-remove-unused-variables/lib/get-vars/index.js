@@ -118,6 +118,7 @@ const declareVariable = ({vars, setPath}) => (path, name) => {
         vars[uid] = {};
     
     const current = vars[uid];
+    
     if (current[name])
         current[name].declared = true;
     else
@@ -141,6 +142,7 @@ const useVariable = ({vars}) => (path, name) => {
         vars[uid] = {};
     
     const current = vars[uid];
+    
     if (current[name])
         current[name].used = true;
     else

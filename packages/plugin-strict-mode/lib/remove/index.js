@@ -17,6 +17,7 @@ module.exports.find = (ast, {push, traverse}) => {
         Program: {
             exit(path) {
                 const strictPath = path.get('body.0');
+                
                 if (isModule() && strictPath.isExpressionStatement() && strictPath.node.expression.value === 'use strict')
                     push(strictPath);
                 

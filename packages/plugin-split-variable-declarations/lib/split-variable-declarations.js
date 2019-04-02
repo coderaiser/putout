@@ -27,6 +27,7 @@ module.exports.find = (ast, {traverse}) => {
                 return;
             
             const init = node;
+
             if (isForStatement(parent, {init}))
                 return;
             
