@@ -1,9 +1,10 @@
 'use strict';
 
-const getPath = (item) => item.path || item;
-const runFix = require('./run-fix');
+const getPath = (item) => item.chunk || item.path || item;
 
-const traverse = require('@babel/traverse').default;
+const runFix = require('./run-fix');
+const traverse = require('./traverse');
+
 const generate = require('@babel/generator').default;
 const types = require('@babel/types');
 

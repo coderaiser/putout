@@ -33,73 +33,69 @@ module.exports = ({use, declare, addParams}) => {
     const traverseArray = traverseArrayExpression(use);
     
     return {
-        ObjectExpression(path) {
-            traverseObj(path.get('properties'));
+        ObjectExpression({properties}) {
+            traverseObj(properties);
         },
         
         SpreadElement(path) {
-            const {argument} = path.node;
+            const {argument} = path;
             
             if (isIdentifier(argument))
                 use(path, argument.name);
         },
         
         RestElement(path) {
-            const {argument} = path.node;
+            const {argument} = path;
             
             if (isIdentifier(argument))
                 declare(path, argument.name);
         },
         
         VariableDeclarator(path) {
-            const {node} = path;
-            const {init} = node;
-            const idPath = path.get('id');
+            const {id, init} = path;
             
-            if (isIdentifier(node.id)) {
-                declare(path, node.id.name);
-            } else if (isObjectPattern(node.id)) {
-                idPath.traverse({
-                    ObjectProperty(propPath) {
-                        if (isAssignmentPattern(propPath.node.value)) {
-                            traverseAssign(propPath.get('value.right'));
-                            declareAssign(propPath.get('value.left'));
+            if (isIdentifier(id)) {
+                declare(path, id.name);
+            } else if (isObjectPattern(id)) {
+                id.traverse({
+                    ObjectProperty(prop) {
+                        if (isAssignmentPattern(prop.value)) {
+                            traverseAssign(prop.value.right);
+                            declareAssign(prop.value.left);
                             return;
                         }
                         
-                        if (!isIdentifier(propPath.node.value))
+                        if (!isIdentifier(prop.value))
                             return;
                         
-                        const {properties} = node.id;
+                        const {properties} = id;
                         const isOne = properties.length === 1;
-                        const nodePath = isOne ? path : propPath;
+                        const nodePath = isOne ? path : prop;
                         
-                        declare(nodePath, propPath.node.value.name);
+                        declare(nodePath, prop.node.value.name);
                     },
                 });
-            } else if (isArrayPattern(node.id)) {
-                idPath.traverse({
-                    Identifier(elPath) {
-                        const {elements} = node.id;
+            } else if (isArrayPattern(id)) {
+                id.traverse({
+                    Identifier(el) {
+                        const {elements} = id;
                         
                         if (elements.length === 1)
-                            return declare(path, elPath.node.name);
+                            return declare(path, el.name);
                         
-                        assign(elPath, {
-                            remove: removeArrayPatternElement(elPath),
+                        assign(el, {
+                            remove: removeArrayPatternElement(el),
                         });
                         
-                        declare(elPath, elPath.node.name);
+                        declare(el, el.name);
                     },
                 });
             }
             
-            const initPath = path.get('init');
-            
             if (isIdentifier(init))
                 use(path, init.name);
             else if (isArrayExpression(init))
-                traverseArray(initPath.get('elements'));
+                traverseArray(init.elements);
         },
         
         ClassDeclaration(path) {

@@ -8,15 +8,14 @@ const {
 
 module.exports.report = () => '"test.only" should not be used';
 
-module.exports.fix = ({node}) => {
-    node.callee = node.callee.object;
+module.exports.fix = (chunk) => {
+    chunk.callee = chunk.callee.object;
 };
 
 module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
-        CallExpression(path) {
-            const {node} = path;
-            const {callee} = node;
+        CallExpression(chunk) {
+            const {callee} = chunk;
             
             if (!isMemberExpression(callee))
                 return;
@@ -29,16 +28,16 @@ module.exports.find = (ast, {push, traverse}) => {
             if (!isIdentifier(object))
                 return;
             
-            traverseProperty('only', path, property, push);
+            traverseProperty('only', chunk, property, push);
         },
     });
 };
 
-function traverseProperty(name, path, node, fn) {
+function traverseProperty(name, chunk, node, fn) {
     if (isIdentifier(node, {name}))
-        return fn(path);
+        return fn(chunk);
     
     if (isStringLiteral(node, {value: name}))
-        return fn(path);
+        return fn(chunk);
 }
 

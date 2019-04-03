@@ -10,24 +10,22 @@ module.exports.report = ({name}) => `function should be used instead of string i
 
 module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
-        AssignmentExpression(path) {
-            const {right} = path.node;
+        AssignmentExpression(chunk) {
+            const {right} = chunk;
             
-            if (!isModuleExports(path))
+            if (!isModuleExports(chunk))
                 return;
             
             if (!isObjectExpression(right))
                 return;
             
-            const propertiesPaths = path.get('right.properties');
+            const {properties} = right;
             
-            for (const propPath of propertiesPaths) {
-                const {node} = propPath;
-                
-                if (isLiteral(node.value)) {
+            for (const prop of properties) {
+                if (isLiteral(prop.value)) {
                     push({
-                        name: node.key.value,
-                        path: propPath.get('value'),
+                        name: prop.key.value,
+                        chunk: prop.value,
                     });
                 }
             }
@@ -35,16 +33,18 @@ module.exports.find = (ast, {push, traverse}) => {
     });
 };
 
-module.exports.fix = ({path}) => {
-    path.replaceWith(arrowFunctionExpression([], path.node));
+module.exports.fix = ({chunk}) => {
+    chunk.replaceWith(arrowFunctionExpression([], chunk));
 };
 
-function isModuleExports(path) {
-    const isModule = path.get('left.object').isIdentifier({
+function isModuleExports(chunk) {
+    const {object, property} = chunk.left;
+    
+    const isModule = object.isIdentifier({
         name: 'module',
     });
     
-    const isExports = path.get('left.property').isIdentifier({
+    const isExports = property.isIdentifier({
         name: 'exports',
     });
     

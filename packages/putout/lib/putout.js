@@ -2,7 +2,6 @@
 
 const recast = require('recast');
 const toBabel = require('estree-to-babel');
-const traverse = require('@babel/traverse').default;
 const template = require('@babel/template').default;
 const generate = require('@babel/generator').default;
 const types = require('@babel/types');
@@ -11,6 +10,7 @@ const cutShebang = require('./cut-shebang');
 const getPlugins = require('./get-plugins');
 const customParser = require('./custom-parser');
 const runPlugins = require('./run-plugins');
+const traverse = require('./traverse');
 
 const isUndefined = (a) => typeof a === 'undefined';
 const {assign} = Object;

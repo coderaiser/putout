@@ -14,8 +14,8 @@ module.exports.report = ({name}) => {
 
 module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
-        ArrowFunctionExpression(path) {
-            const {body} = path.node;
+        ArrowFunctionExpression(chunk) {
+            const {body} = chunk;
             
             if (!isStringLiteral(body))
                 return;
@@ -26,15 +26,15 @@ module.exports.find = (ast, {push, traverse}) => {
                 return;
             
             push({
-                path,
+                chunk,
                 value,
-                name: path.parent.key.value,
+                name: chunk.parent.key.value,
             });
         },
     });
 };
 
-module.exports.fix = ({path, value}) => {
+module.exports.fix = ({chunk, value}) => {
     const [line, arg] = value.split(' -- ');
     const scripts = getScripts(line);
     
@@ -45,7 +45,7 @@ module.exports.fix = ({path, value}) => {
     
     const runArgs = getRunArgs(strs, arg);
     
-    path.node.body = callExpression(identifier('run'), runArgs);
+    chunk.body = callExpression(identifier('run'), runArgs);
 };
 
 function getRunArgs(strs, arg) {

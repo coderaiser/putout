@@ -11,18 +11,18 @@ module.exports.report = () => {
 
 module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
-        CallExpression(path) {
-            const calleePath = path.get('callee');
+        CallExpression(chunk) {
+            const {callee} = chunk;
             
-            if (!calleePath.isMemberExpression())
+            if (!callee.isMemberExpression())
                 return;
             
-            const {object, property} = calleePath.node;
+            const {object, property} = callee;
             
             if (object.name !== 't' || property.name !== 'transformCode')
                 return;
             
-            const [a, b] = path.node.arguments;
+            const [a, b] = chunk.arguments;
             
             if (!isIdentifier(a) || !isIdentifier(b))
                 return;
@@ -31,15 +31,17 @@ module.exports.find = (ast, {push, traverse}) => {
                 return;
             
             push({
-                path,
-                calleePath,
+                chunk,
+                callee,
             });
         },
     });
 };
 
-module.exports.fix = ({path, calleePath}) => {
-    calleePath.node.property = Identifier('noTransformCode');
-    path.node.arguments.pop();
+module.exports.fix = ({chunk, callee}) => {
+    callee.property = Identifier('noTransformCode');
+    
+    const [arg] = chunk.arguments;
+    chunk.arguments = [arg];
 };
 

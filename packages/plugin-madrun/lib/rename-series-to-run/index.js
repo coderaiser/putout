@@ -6,16 +6,16 @@ module.exports.report = () => `"run" should be called instead of "series"`;
 
 module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
-        CallExpression(path) {
-            if (!isIdentifier(path.node.callee, {name: 'series'}))
+        CallExpression(chunk) {
+            if (!isIdentifier(chunk.callee, {name: 'series'}))
                 return;
             
-            push(path);
+            push(chunk);
         },
     });
 };
 
-module.exports.fix = (path) => {
-    path.node.callee.name = 'run';
+module.exports.fix = ({callee}) => {
+    callee.name = 'run';
 };
 
