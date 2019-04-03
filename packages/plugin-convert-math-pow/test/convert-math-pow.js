@@ -14,3 +14,8 @@ test('plugin-convert-math-pow: transform', (t) => {
     t.end();
 });
 
+test('plugin-convert-math-pow: transform: identifier', (t) => {
+    t.transform('identifier');
+    t.end();
+});
+
