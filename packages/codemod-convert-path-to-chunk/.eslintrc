@@ -1,0 +1,13 @@
+{
+    "rules": {
+        "node/no-missing-require": 0
+    },
+    "extends": [
+        "plugin:putout/recommended",
+        "plugin:node/recommended",
+    ],
+    "plugins": [
+        "node",
+        "putout",
+    ]
+}

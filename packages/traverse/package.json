@@ -1,6 +1,6 @@
 {
-  "name": "@putout/plugin-remove-only",
-  "version": "1.2.0",
+  "name": "@putout/traverse",
+  "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove test.only calls",
   "homepage": "http://github.com/coderaiser/putout",
@@ -19,6 +19,8 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
+    "@babel/traverse": "^7.4.3",
+    "@putout/plugin-convert-math-pow": "^1.0.0"
   },
   "keywords": [
     "putout",
@@ -28,17 +30,16 @@
     "only"
   ],
   "devDependencies": {
-    "@putout/test": "^1.3.0",
     "coveralls": "^3.0.0",
     "eslint": "^5.6.0",
     "eslint-plugin-node": "^8.0.0",
-    "eslint-plugin-putout": "^1.4.4",
     "madrun": "^2.0.0",
     "nyc": "^13.0.1",
+    "putout": "^4.10.0",
     "supertape": "^1.0.3"
   },
   "peerDependencies": {
-    "putout": ">=3.9.0"
+    "putout": ">=4"
   },
   "license": "MIT",
   "engines": {

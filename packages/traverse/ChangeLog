@@ -1,0 +1,1188 @@
+2019.04.02, v4.19.0
+
+fix:
+- (@putout/plugin-remove-empty-pattern) report
+
+feature:
+- (@putout/plugin-putout) add
+- (@putout/eslint-config) padding-line-beetween-statements: add empty line before if condition
+- (@putout/plugin-remove-empty-pattern) add support of function argument
+- (@putout/plugin-remove-empty) add support of css
+
+
+2019.03.28, v4.18.1
+
+fix:
+- (putout) printOptions: disable objectCurlySpacing
+- (@putout/plugin-remove-unused-variables) remove ImportDeclaration -> remove specifier of ImportDeclaration
+
+feature:
+- (@putout/plugin-remove-empty) add support of imports
+- (@putout/plugin-remove-unused-variables) add support of ImportDeclaration
+- (eslint-config) add keyword-spacing
+
+
+2019.03.27, v4.18.0
+
+feature:
+- (putout) add support of dynamicImport
+
+
+2019.03.22, v4.17.0
+
+feature:
+- (@putout/plugin-convert-object-assign-to-merge-spread) add
+- (traverse) move out RestElement, SpreadElement to get-vars
+
+
+2019.03.22, v4.16.2
+
+fix:
+- (@putout/formatter-dump) return
+- (@putout/plugin-remove-constant-conditions) exclude else
+
+feature:
+- (package) array-union v2.0.0
+- (@putout/plugin-remove-unused-variables) add support of AssignmentPattern in Destructuring
+- (@putout/plugin-remove-constant-condition) add support of else if
+
+
+2019.03.20, v4.16.1
+
+fix:
+- (putout) add -f, --format
+
+
+2019.03.20, v4.16.0
+
+fix:
+- test(@putout/formatter-codeframe) fixture
+- test(@putout/plugin-remove-unused-variables) fixture
+- test(@putout/formatter-json) fixture
+
+feature:
+- (@putout/plugin-remove-constant-condition) add
+
+
+2019.03.19, v4.15.1
+
+feature:
+- (eslint-config) add arrow-parens
+
+
+2019.03.19, v4.15.0
+
+fix:
+- (@putout/plugin-remove-unused-variables) ObjectMethod
+- (eslint-plugin-putout) multiple-properties-destructuring: exclude ForOfStatement
+- (@putout/formatter-dump) duplicate output
+
+feature:
+- (@putout/formatter-codeframe) add
+- (@putout/formatter-eslint) add
+- (@putout/formatter-json) export jsonFormatter
+
+
+2019.03.18, v4.14.0
+
+feature:
+- (@putout/formatter-json) add
+
+
+2019.03.15, v4.13.0
+
+fix:
+- (@putout/formatter-progress) dependencies: add @putout/formatter-dump
+
+feature:
+- (putout) add support of acorn
+
+
+2019.03.14, v4.12.0
+
+feature:
+- (putout) add formatter progress
+
+
+2019.03.13, v4.11.2
+
+fix:
+- (putout) absent dependency
+- (formatter) dump/stream: output check
+
+
+2019.03.13, v4.11.1
+
+fix:
+- (putout) report: places check
+- (@putout/test) format: name
+- (multiple-properties-destructuring) two properties on a same line
+
+
+2019.03.13, v4.11.0
+
+feature:
+- (putout) add support of custom formatters: dump, stream
+- (@putout/test) add support of noTransform
+- (eslint-config) add support of globalReturn
+
+
+2019.03.12, v4.10.0
+
+fix:
+- (@putout/plugin-remove-useless-variables) name
+- (@putout/plugin-remove-useless-variables) handle id, init not identifiers
+
+feature:
+- (putout) pretify -> report
+- (putout) add report-find
+- (putout) add report-end
+- (@putout/remove-useless-variables) add support of uppercase
+- (@putout/remove-useless-variables) add support of destructuring
+- (@putout/plugin-convert-apply-to-spread) add support of this and nested MemberExpressions
+- (@putout/plugin-remove-useless-variables) exclude shorthand variables
+
+
+2019.03.06, v4.9.0
+
+fix:
+- (eslint-plugin-putout) long-properties-destructuring: add support of RestElement
+- (@putout/plugin-convert-arguments-to-rest) "rest" -> rest parameters
+- (@putout/plugin-remove-empty) block: missing return when tryStatement used
+
+feature:
+- (@putout/plugin-remove-useless-variables) add
+- (@putout/plugin-remove-empty) block: add support of try catch
+- (@putout/plugin-remove-unused-variables) add support of ExpressionStatement
+
+
+2019.03.06, v4.8.1
+
+fix:
+- (putout) support of "*.*"
+
+
+2019.03.05, v4.8.0
+
+feature:
+- (@putout/plugin-remove-unused-expressions) add
+- (@putotu/plugin-remove-unused-variables) add support of ObjectExpression in ExportDefaultDeclaration
+- (@putout/plugin-remove-unused-variables) add support of ClassDeclaration in ExportDefaultDeclaration
+- (@putotu/plugin-remove-unused-variables) condition isObjectExpression -> traverse ObjectExpression
+- (putout) isTemplateLiteral checks -> TemplateLiteral key
+- (putout) add support of TemplateLiteral in ConditionalExpresssion
+- (@putout/plugin-remove-unused-variables) add support of Identifier in JSXSpreadAttribute
+- (@putout/plugin-remove-unused-variables) add support of marking as used elements before RestElement when destructuring used as a function param
+- (@putout/plugin-remove-unused-variables) add support of specifiers in ExportNamedDeclaration
+- (@putout/plugin-remove-unused-variables) add support of TemplateLiteral in JSXExpressionContainer
+- (@putout/plugin-remove-unused-variables) add support of JSXSpreadAttribute
+
+
+2019.02.28, v4.7.1
+
+fix:
+- (putout) renamed: convert-arguments-to-spread -> convert-arguments-to-rest
+
+
+2019.02.28, v4.7.0
+
+fix:
+- (putout) get config from bottom directory -> get config from current directory
+- (npmignore) add *.md
+
+feature:
+- (putout) ignore: add node_modules
+- (@putout/plugin-remove-unused-variables) add support of VariableDeclaration in ExportNamedDeclaration
+- (eslint-plugin-putout) add long-properties-destructuring
+- (@putout/plugin-convert-apply-to-spread) add support of context switch in apply
+
+
+2019.02.28, v4.6.0
+
+feature:
+- (@putout/plugin-convert-arguments-to-spread) add
+
+
+2019.02.27, v4.5.0
+
+fix:
+- (eslint-plugin-putout) JSX support
+
+feature:
+- (@putout/plugin-convert-apply-to-spread) add
+- (eslintrc) add sourceType, ecmaFeatures
+
+
+2019.02.26, v4.4.1
+
+fix:
+- (putout) version
+- (@putout/plugin-react-hooks) convert-import-component-to-use-state: Component
+
+
+2019.02.26, v4.4.0
+
+feature:
+- (@putout/plugin-convert-math-pow) add
+- (@putout/plugin-react-hooks) remove-this: rm addition check
+- (@putout/plugin-remove-unused-variables) add support of identifiers in SwitchCase test
+
+
+2019.02.22, v4.3.2
+
+fix:
+- (putout) apply changes
+
+
+2019.02.22, v4.3.1
+
+fix:
+- (run-plugins) add early return when no need to apply changes
+- docs(changelog) rm 
+
+
+2019.02.22, v4.3.0
+
+feature:
+- (putout) add support of --fix-count
+
+
+2019.02.21, v4.2.2
+
+fix:
+- (putout) move madrun on top of plugins
+
+feature:
+- (@putout/plugin-madrun) rename-series-to-run
+
+
+2019.02.21, v4.2.1
+
+fix:
+- ((putout) read package.json if .putout.json not found: default match doesn't work without package.json dirname
+- (eslint-plugin-putout) multiple-properties-destructuring: more then 1 -> more then 2 properties
+- (@putout/eslint-config) rm object-property-newline
+
+feature:
+- (plugin-madrun) call-series -> call-run
+- (eslint-plugin-putout) add suppport of multiple-properties-destructuring
+- (eslint-config) add object-property-newline
+
+
+2019.02.20, v4.2.0
+
+feature:
+- (putout) babel: enable allowReturnOutsideFunction
+- (@putout/plugin-madrun) convert-redrun-to-series -> call-series: add npm
+- (@putout/plugin-madrun) add support of redrun args
+- (eslint-config) add linebreak-style
+- (@putout/plugin-madrun) add convert-redrun-to-series
+
+
+2019.02.19, v4.1.2
+
+fix:
+- (putout) remove plugin remove-empty-pattern
+
+feature:
+- (get-plugins) optimize: paths
+
+
+2019.02.19, v4.1.1
+
+fix:
+- (putout) putout .
+- (eslint-plugin-putout) one-line-destructuring: exclude default assignment of property
+
+feature:
+- (@putout/plugin-remove-console) add support of console.time, console.timeEnd
+
+
+2019.02.18, v4.1.0
+
+fix:
+- (@putout/plugin-strict-mode) npmignore: .spec.js
+- (@putout/plugin-strict-mode) npmignore: fixture
+- (putout) when find error - exit 1
+- (putout) remove align-spaces
+
+feature:
+- (@putout/plugin-strict-mode) add
+- (eslint-config) add lines-around-directives
+
+
+2019.02.17, v4.0.3
+
+fix:
+- (npmignore) yarn-error.log
+- (putout) merge match: user match first
+
+feature:
+- (eslint-plugin-putout) add align-spaces
+- (eslint-plugin-putout) add destructuring-as-function-argument
+
+
+2019.02.17, v4.0.2
+
+fix:
+- (putout) remove-only, remove-skip: enabled only for test, .spec.js
+
+
+2019.02.16, v4.0.1
+
+fix:
+- (package) dependencies: @putout/plugin-madrun
+
+
+2019.02.16, v4.0.0
+
+fix:
+- (@putout/plugin-remove-unused-variables) Identifiers in IfStatement
+
+feature:
+- (@putout/plugin-apply-destructuring) add support of array destructuring
+- (@putout/plugin-remove-empty) join with @putout/plugin-remove-empty-pattern
+- (putout) set defaults for bin
+- (putout) remove support of putout section of package.json
+- (putout) rm --config
+- (eslint-config) prefer-destructuring: AssignmentExpression: disable ojbect
+- (eslint-config) prefer-destructuring
+- (putout) madrun v2.0.0
+
+
+2019.02.15, v3.24.0
+
+feature:
+- (package) madrun v2.0.0
+- (putout) add @putout/plugin-madrun
+
+
+2019.02.15, v3.23.0
+
+fix:
+- (@putout/plugin-madrun) add .spec.js to ignore
+- (@putout/test) report/reportCode: disable 
+
+feature:
+- (@putout/plugin-madrun) add
+- (putout) move out prettify from bin
+
+
+2019.02.14, v3.22.0
+
+fix:
+- (@putout/plugin-react-hooks) convert-state-to-hooks: @babel/template -> putout
+- (npmignore) add fixture
+- (putout) merge plugins: core, userland -> userland, core
+
+feature:
+- (@putout/plugin-remove-unused-private-fields) add
+- (react-hooks) findClass -> traverseClass
+- (@putout/plugin-react-hooks) add
+- (plugin-remove-unused-variables) add support of Identifier in ExportDefault declaration
+
+
+2019.02.12, v3.21.0
+
+feature:
+- (putout) add ability to call push, instead of return places
+
+
+2019.02.11, v3.20.1
+
+fix:
+- (putout) get-plugin: node_modules search
+- (@putout/test) rm rules
+
+feature:
+- (@putout/test) add support of rules property of plugin
+
+
+2019.02.11, v3.20.0
+
+feature:
+- (get-plugins) add support of rules
+- (plugin-remove-only) redrun -> madrun
+
+
+2019.02.08, v3.19.0
+
+feature:
+- (putout) add support of custom parser
+- (eslint-config) add no-multi-spaces
+
+
+2019.02.07, v3.18.0
+
+feature:
+- (putout) add support of parser
+- (plugin-remove-unused-variables) split AssingmentExpression and assignmentPattrn
+- (eslint-plugin-putout) one-line-destructuring: condition -> selector
+
+
+2019.02.04, v3.17.3
+
+feature:
+- (get-vars) scopeBlocks -> scope.uid
+- (package) yargs-parser v13.0.0
+- (plugin-remove-empty) @putout/eslint-config -> eslint-plugin-putout
+- (plugin-remove-empty) redrun -> madrun
+- (plugin-remove-empty-pattern) redrun -> madrun
+
+
+2019.02.01, v3.17.2
+
+fix:
+- (eslint-plugin-putout) recommended
+- (eslint-plugin-putout) one-line-destructuring: false positive
+- chore() rm "\n"
+- (apply-destructuring) ObjectPattern as id, Literal as property
+
+feature:
+- (package) yargs-parser v12.0.0
+- (eslint-config) no-trailing-space
+- (eslint-config) add comma-dangle
+- (putout) add eslint-plugin-node
+- (eslint-plugin-putout) add
+- (eslintrc) add no-var, prefer-const
+- (plugin-apply-destructuring) add support of VariableDeclaration kinds different then const (var, let)
+- (plugin-merge-destructuring) do not merge variables with different kinds
+
+
+2019.01.28, v3.17.1
+
+fix:
+- (putout) template -> generate
+
+
+2019.01.28, v3.17.0
+
+fix:
+- (plugin-merge-destructuring-properties) overwrite property
+
+feature:
+- (putout) add @babel/generator
+
+
+2019.01.28, v3.16.0
+
+fix:
+- (merge-destructuring-properties) rm recast
+
+feature:
+- (plugin-apply-destructuring) add
+- (plugin-merge-destructuring-properties) add
+
+
+2019.01.28, v3.15.2
+
+fix:
+- (putout) call plugin.: with place -> with item
+
+feature:
+- (convert-esm-to-commonjs) add support of same name of imported and local
+- (plugin-convert-esm-to-commonjs) add support of CallExpression in ExportDefaultDeclaration
+
+
+2019.01.27, v3.15.1
+
+fix:
+- (package) dependencies: add @putout/plugin-convert-esm-to-commonjs
+
+
+2019.01.27, v3.15.0
+
+feature:
+- (plugin-convert-esm-to-commonjs) add
+- (eslint-config) add no-useless-rename
+
+
+2019.01.27, v3.14.0
+
+fix:
+- (plugin-remove-empty) package: description
+
+feature:
+- (putout) add @babel/template
+- (plugin-remove-unused-variables) redrun -> madrun
+- (plugin-remove-unused-variables) BinaryExpression: add support of TemplateLiteral
+- (putout) add support of madrun
+
+
+2019.01.24, v3.13.2
+
+fix:
+- (putout) dependencies: @babel/parser
+
+
+2019.01.23, v3.13.1
+
+fix:
+- (custom-parser) @babel/parser: jsx
+
+
+2019.01.23, v3.13.0
+
+feature:
+- (putout) add support of @babel/parser
+- (putout) move out espree to custom-parser
+
+
+2019.01.23, v3.12.0
+
+feature:
+- (putout) add support of a no loc nodes
+- (putout) decrease leak of a path
+- (plugin-remove-unused-variables) use Map instead of Loc
+- (@putout/plugin-remove-unused-variables) @babel -> putout
+
+
+2019.01.22, v3.11.0
+
+fix:
+- feature(putout) remove recast-
+- (plugin-remove-skip) @putout/test: dependencies -> devDependencies
+
+feature:
+- (putout) remove recast-fix
+- (@putout/plugin-remove-unused-variables) add ability to not relate on loc while searching and removing variables
+- (@putout/test) add support of plugins as second argument of transform
+
+
+2019.01.21, v3.10.0
+
+fix:
+- feature(@putout/test) add ability to check that report, find and  functions exists
+
+feature:
+- (plugin-remove-empty-pattern) add
+- (plugin-remove-empty) @babel/types -> putout.types
+- (eslintrc) implicit-error-line-break
+- (eslintrc) add arrow-spacing
+- (@putout/test) add ability to check that report, find and fix functions exists
+- (plugin-remove-skip) @babel/types -> putout
+- (plugin-remove-only) @babel/types -> putout.types
+
+
+2019.01.18, v3.9.0
+
+fix:
+- (eslintrc) .eslintrc.js -> .eslintrc.json
+- chore(split-variable-declaration-) add " "
+
+feature:
+- (putout) add traverse, types to exports
+- (package) eslint -> jsonlint
+- (plugin-split-variable-declarations) set loc to work good with @putout/plugin-remove-unused-variables
+- (@putout/test) transform: add support of plugins
+- (package) add @putout/eslint-config
+
+
+2019.01.16, v3.8.0
+
+fix:
+- (plugin-remove-unused-variables) ClassDeclaration: add support of bubling
+- (putout) exit on parse error -> log on proceed
+
+feature:
+- (plugin-remove-unused-variables) add support of jsx
+- (putout) add support of jsx
+- (plugin-remove-unused-variables) add support of ObjectExpression in arguments of NewExpression
+- (plugin-remove-unused-varaibles) add support of AssignmentPattern in ObjectExpression
+- (plugin-remove-unused-variables) add support of ClassDeclaration
+
+
+2019.01.15, v3.7.2
+
+fix:
+- (get-plugins) plugins load
+
+
+2019.01.15, v3.7.1
+
+fix:
+- (get-plugins) disable codemod
+
+
+2019.01.15, v3.7.0
+
+feature:
+- (putout) read config not directory containg file not cwd
+
+
+2019.01.15, v3.6.3
+
+fix:
+- (putout) position in files with shebang
+
+
+2019.01.14, v3.6.2
+
+fix:
+- (putout) relative path
+
+
+2019.01.14, v3.6.1
+
+fix:
+- (putout) argv: number
+
+feature:
+- (plugin-remove-unused-variables) add traverse
+- (plugin-remove-unused-variables) ObjectExpression add support of computed key
+
+
+2019.01.14, v3.6.0
+
+feature:
+- (putout) move plugins init to bin
+
+
+2019.01.14, v3.5.1
+
+fix:
+- (get-plugins) plugins merge
+- (putout) : false by default
+
+
+2019.01.14, v3.5.0
+
+feature:
+- (putout) add @putout/plugin-remove-empty
+
+
+2019.01.13, v3.4.2
+
+fix:
+- (package) add once
+
+feature:
+- (plugin-convert-tape-to-supertape) add support of tryToTape
+
+
+2019.01.13, v3.4.1
+
+fix:
+- (putout) rm console.log
+
+
+2019.01.13, v3.4.0
+
+feature:
+- (putout) add support of codemods
+
+
+2019.01.13, v3.3.5
+
+fix:
+- (putout) ExportDefaultDeclaration (benjamn/recast/pull/561)
+
+feature:
+- (@putout/test) no report messages
+
+
+2019.01.13, v3.3.4
+
+fix:
+- (putout) getMessage -> report
+- (@putout/test) message -> report
+
+feature:
+- (@putout/test) add support of reportCode
+- (@putout/test) add support of transformCode
+
+
+2019.01.13, v3.3.3
+
+fix:
+- (putout) add print options: single quotes
+
+feature:
+- (test) messages: add support of array
+- (package) add @putout/test
+- (@putout/test) add
+- (package) add supertape from npm
+
+
+2019.01.12, v3.3.2
+
+fix:
+- (putout) unused variables -> errors
+
+feature:
+- (package) rm unused rendy
+- (plugin-remove-console) simplified tests
+- (putout) add support of ArrayExpression in AssignmentPattern
+- (plugin-remove-unused-variabled) add support of ExportNamedDeclaration
+
+
+2019.01.11, v3.3.1
+
+fix:
+- (putout) preventUsingEsprima
+
+feature:
+- (package) recast v0.17.1
+- (plugin-remove-unused-variables) add support of ExportDefaultDeclaration
+- (putout) add sourceType: "module"
+
+
+2019.01.11, v3.3.0
+
+fix:
+- (split-variable-declaration) add null-literal support
+
+feature:
+- (putout) plugin: find(ast) -> find(ast, {traverse, types})
+- (putout) plugin: message -> getMessage
+
+
+2019.01.10, v3.2.0
+
+feature:
+- (plugin-remove-console) add
+
+
+2019.01.10, v3.1.0
+
+feature:
+- (plugin-split-variable-declarations) add
+
+
+2019.01.10, v3.0.0
+
+fix:
+- (plugin-remove-only) description
+- feature(putout) change plugin structure: find, 
+
+feature:
+- (parse-match) move out from bin/putout.js
+- (putout) add support of match/ignore
+- (putout) add plugin name in erros output
+- (plugin-remove-skip) add
+- (putout) add ability to set config path
+- (putout) cherow -> espree: comments support
+- (putout) disable by default rules: remove-only, remove-process-exit
+- (plugin-remove-unused-variables) move out from putout
+- (plugin-remove-only) move out from putout
+- (remove-process-exit) isStringLiteralValue -> isStringLiteral
+- (putout) add support of plugins load
+- (plugin-remove-debugger) move out from putout
+- (putout) full plugin names
+- (rm-process-exit) add
+- (putout) convert repo to monorepo
+- (putout) change plugin structure: find, fix
+- (putout) add ability to load plugins
+- (putout) add ability to load config file .putout.json
+- (get-plugins) add support of rules
+- (putout) .putout.json -> putout.json
+- (putout) add support of only
+- (get-vars) rm setLoc
+
+
+2019.01.04, v2.26.0
+
+feature:
+- (putout) add ability to remove debugger statement
+
+
+2019.01.04, v2.25.0
+
+fix:
+- (putout) shebang, strict mode
+
+feature:
+- (putout) add support of TemplateLiteral in ArrayExpression
+- (putout) move out message from bin
+
+
+2019.01.04, v2.24.1
+
+fix:
+- (cut-shebang) additional new line
+
+
+2019.01.03, v2.24.0
+
+feature:
+- (putout) useParamsBeforeLastUsed: add support of AssignmentPattern in
+- (puttou) add support of SpreadElement in ArrayExpression
+- (putout) add support of ThrowStatement
+- (putout) add ability to use nested properties in ObjectExpression
+
+
+2019.01.03, v2.23.0
+
+fix:
+- chore(get-vars) fixture: alphabet order
+
+feature:
+- (putout) FunctionDeclaration: add support of useParamsBeforeLastUsed
+- (putout) add support of TemplateLiteral in LogicalExpression
+- (putout) useParamsBeforeLastUsed: add support of ObjectPattern
+- (putout) add support of TaggedTemplateExpression
+
+
+2019.01.02, v2.22.0
+
+feature:
+- (putout) AssignmentExpressions: add support of TemplateLiteral
+- (putout) add support of UpdateExpression
+
+
+2019.01.02, v2.21.0
+
+feature:
+- (putout) FunctionDeclaration: add support of AssignmentPattern in params
+
+
+2019.01.01, v2.20.0
+
+feature:
+- (get-vars) add ability to use traverse ObjectExpression with ObjectPattern
+- (remove-unused) add loc when error
+
+
+2019.01.01, v2.19.0
+
+feature:
+- (putout) AssignExpression: add support of ObjectExpression in the right
+- (putout) add support of SwitchStatement
+
+
+2019.01.01, v2.18.7
+
+feature:
+- (get-vars) add support of one unused variable in ArrayPattern id of VariableDeclarator
+
+
+2018.12.31, v2.18.6
+
+feature:
+- (get-vars) add support of ObjectExpression in body of ArrowFunctionExpression
+
+
+2018.12.31, v2.18.5
+
+fix:
+- (putout) exit
+
+
+2018.12.31, v2.18.4
+
+feature:
+- (putout) ConditionalExpression: add support of consequent, alternate
+
+
+2018.12.31, v2.18.3
+
+fix:
+- (putout) removing an element from ArrayPattern
+
+
+2018.12.29, v2.18.2
+
+feature:
+- (package) add estree-to-babel
+
+
+2018.12.29, v2.18.1
+
+fix:
+- (putout) add @babel/parser back
+
+
+2018.12.29, v2.18.0
+
+feature:
+- (putout) @babel/parser -> cherow
+
+
+2018.12.28, v2.17.2
+
+fix:
+- (putout) do not try to remove empty for-of statement
+- chore(putout) add comment to fixStrictMode
+
+
+2018.12.27, v2.17.1
+
+fix:
+- (putout) strict mode
+
+
+2018.12.27, v2.17.0
+
+feature:
+- (get-vars) rm isVariableDeclaration(left) check from ForOfStatement
+- (get-vars) ArrowFunctionExpression: rm isObjectPattern condition
+- (putout) add support of empty body in ForOfStatement
+
+
+2018.12.27, v2.16.0
+
+feature:
+- (putout) add support of NewExpression
+
+
+2018.12.27, v2.15.0
+
+fix:
+- (putout) error message
+
+feature:
+- (putout) add support of ForOfStatement with empty body
+
+
+2018.12.26, v2.14.0
+
+feature:
+- (putout) add support of ArrayPattern in VariableDeclarator
+
+
+2018.12.26, v2.13.1
+
+fix:
+- (putout) crash on removing unused ArrowFunctionExpression param
+
+
+2018.12.25, v2.13.0
+
+fix:
+- (putout) strict mode
+- (putout) some variable names on same scope level
+
+feature:
+- (putout) add support of destructuring in params of ArrowFunctionExpression
+- (get-vars) add support of destructuring in params
+- (putout) add ability to ignore params before last used
+
+
+2018.12.25, v2.12.0
+
+feature:
+- (putout) add support of TemplateLiteral in ArrowFunctionExpression
+
+
+2018.12.25, v2.11.1
+
+fix:
+- (putout) --help
+
+
+2018.12.25, v2.11.0
+
+fix:
+- docs(readme) --
+
+feature:
+- (putout) add --help, --version
+
+
+2018.12.25, v2.10.1
+
+fix:
+- (putout) add "\n" in output
+
+
+2018.12.24, v2.10.0
+
+feature:
+- (putout) add support of assignment expression
+
+
+2018.12.24, v2.9.0
+
+feature:
+- (putout) add support of Identifier in init of VariableDeclarator
+
+
+2018.12.24, v2.8.0
+
+feature:
+- (putout) add support of SpreadElement in CallExpression
+
+
+2018.12.24, v2.7.1
+
+fix:
+- (putout) crash when no unused
+
+
+2018.12.24, v2.7.0
+
+fix:
+- (putout) dependencies
+
+feature:
+- (putout) show file name
+
+
+2018.12.24, v2.6.1
+
+fix:
+- (putout) double semicoln in strict mode
+
+
+2018.12.24, v2.6.0
+
+feature:
+- (putout) add support of globs
+- (putout) add support of array-expression
+- (putout) add support of unary-expression
+- (package) add eslint-plugin-tape
+
+
+2018.12.24, v2.5.0
+
+feature:
+- (get-vars) add support of logical-expression
+- (putout) add support of member expression properties
+
+
+2018.12.23, v2.4.0
+
+feature:
+- (get-vars) add support of ObjectExpression in ReturnStatement
+- (get-vars) add support of TemplateLiteral in ReturnStatement
+- (get-vars) fn calls horthand vars
+- (package) test:diff
+
+
+2018.12.22, v2.3.0
+
+fix:
+- (get-vars) VariableDeclarator: path.traverse -> id.traverse
+
+feature:
+- (get-vars) add support of TemplateLiteral
+
+
+2018.12.22, v2.2.0
+
+feature:
+- (get-vars) add support of IfStatement
+
+
+2018.12.21, v2.1.1
+
+feature:
+- (putout) disabled return an array of .tokens on the root AST node
+
+
+2018.12.21, v2.1.0
+
+fix:
+- test(putout) fn vars 
+- test(putout) arrow-vars-
+
+feature:
+- (putout) add support of destructuring nested object
+- (putout) get-vars: remove declaration when destructured value not used
+
+
+2018.12.07, v2.0.0
+
+fix:
+- (putout) remove unused destructured variables
+
+feature:
+- (putout) add support of fn-call-vars
+- (package) espree -> @babel/parser
+- (putout) count -> declared, used
+- (package) espree v5.0.0
+
+
+2018.12.06, v1.6.0
+
+feature:
+- (putout) add support of desctrucuring variable declaration
+- (putout) add ability to process bin files
+
+
+2018.12.05, v1.5.0
+
+fix:
+- (putout) no root vars
+- (putout) variables with same name in different scopes
+
+feature:
+- (putout) add ability to align spaces
+- (putout) add raw-full
+
+
+2018.12.05, v1.4.0
+
+fix:
+- (putout) showRaw: input
+
+feature:
+- (putout) add support of argument destructurisation
+
+
+2018.12.04, v1.3.3
+
+fix:
+- (putout) vars -> raw
+
+
+2018.12.04, v1.3.2
+
+fix:
+- (putout) undeclared-vars
+
+
+2018.12.04, v1.3.1
+
+fix:
+- (get-unused) called
+
+
+2018.12.04, v1.3.0
+
+feature:
+- (putout) add support of object spread
+
+
+2018.12.04, v1.2.2
+
+feature:
+- (putout) add support of object properties
+
+
+2018.12.04, v1.2.1
+
+fix:
+- (putout) fn-args-vars
+
+feature:
+- (putout) add for-of support
+
+
+2018.12.04, v1.2.0
+
+feature:
+- (package) add support of called but not defined functions
+
+
+2018.12.04, v1.1.1
+
+fix:
+- (get-vars) first use of a function
+
+
+2018.12.03, v1.1.0
+
+feature:
+- (putout) add support of unused arguments
+- (puttout) add support of shorthand properties
+
+
+2018.11.30, v1.0.1
+
+fix:
+- (package) bin
+
+feature:
+- (putout) add
+

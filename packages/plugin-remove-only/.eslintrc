@@ -1,9 +1,0 @@
-{
-    "extends": [
-        "@putout",
-        "plugin:node/recommended",
-    ],
-    "plugins": [
-        "node",
-    ]
-}
