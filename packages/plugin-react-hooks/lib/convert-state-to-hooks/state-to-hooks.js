@@ -6,8 +6,8 @@ const buildHooks = template(`
     const [NAME, SETTER] = useState(VALUE);
 `);
 
-module.exports = (path) => {
-    const {right} = path.node;
+module.exports = (chunk) => {
+    const {right} = chunk.node;
     const nodes = [];
     
     for (const {key, value} of right.properties) {
@@ -23,7 +23,7 @@ module.exports = (path) => {
         }));
     }
     
-    path.replaceWithMultiple(nodes);
+    chunk.replaceWithMultiple(nodes);
 };
 
 function getSetter(name) {

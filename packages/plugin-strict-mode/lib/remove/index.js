@@ -4,24 +4,24 @@ const store = require('fullstore');
 
 module.exports.report = () => '"use strict" is redundant is esm';
 
-module.exports.fix = (path) => path.remove();
+module.exports.fix = (chunk) => chunk.remove();
 
 module.exports.find = (ast, {push, traverse}) => {
     const isModule = store();
     
     traverse(ast, {
-        'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration'(path) {
+        'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration'(chunk) {
             isModule(true);
-            path.stop();
+            chunk.stop();
         },
         Program: {
-            exit(path) {
-                const strictPath = path.get('body.0');
+            exit(chunk) {
+                const [strictPath] = chunk.body;
                 
                 if (isModule() && strictPath.isExpressionStatement() && strictPath.node.expression.value === 'use strict')
                     push(strictPath);
                 
-                path.stop();
+                chunk.stop();
             },
         },
     });

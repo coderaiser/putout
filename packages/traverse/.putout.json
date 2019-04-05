@@ -1,4 +1,7 @@
 {
+    "rules": {
+        "convert-path-to-chunk": false
+    },
     "ignore": [
         "test/fixture"
     ]

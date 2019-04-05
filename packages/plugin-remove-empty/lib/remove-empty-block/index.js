@@ -13,17 +13,17 @@ const {
 
 module.exports.report = () => 'Empty block statement';
 
-module.exports.fix = (path) => {
-    path.remove();
+module.exports.fix = (chunk) => {
+    chunk.remove();
 };
 
 module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
-        BlockStatement(path) {
+        BlockStatement(chunk) {
             const {
                 node,
                 parentPath,
-            } = path;
+            } = chunk;
             
             const {body} = node;
             
@@ -53,7 +53,7 @@ module.exports.find = (ast, {push, traverse}) => {
                 return;
             }
             
-            push(path);
+            push(chunk);
         },
     });
 };

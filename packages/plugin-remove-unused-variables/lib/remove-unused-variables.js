@@ -6,8 +6,8 @@ const getUnused = require('./get-unused');
 
 module.exports.report = ({name}) => `"${name}" is defined but never used`;
 
-module.exports.fix = ({path}) => {
-    path.remove();
+module.exports.fix = ({chunk}) => {
+    chunk.remove();
 };
 
 module.exports.find = (ast) => {

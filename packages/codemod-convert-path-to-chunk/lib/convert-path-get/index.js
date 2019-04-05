@@ -11,16 +11,16 @@ module.exports.report = () => {
 
 module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
-        CallExpression(path) {
-            if (!isMemberExpression(path.node.callee))
+        CallExpression(chunk) {
+            if (!isMemberExpression(chunk.callee))
                 return;
             
-            const {object, property} = path.node.callee;
+            const {property} = chunk.callee;
             
-            if (object.name !== 'path' && property !== 'get')
+            if (property.name !== 'get')
                 return;
             
-            push(path);
+            push(chunk);
         },
     });
 };
@@ -28,6 +28,6 @@ module.exports.find = (ast, {push, traverse}) => {
 module.exports.fix = (path) => {
     const id = Identifier(path.node.arguments[0].value);
     path.replaceWith(path.node.callee);
-    path.get('property').replaceWith(id);
+    path.property.replaceWith(id);
 };
 

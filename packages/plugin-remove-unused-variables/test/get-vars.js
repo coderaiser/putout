@@ -633,7 +633,7 @@ test('remove-unused-variables: get-vars: root vars: setPath', (t) => {
     
     const {str} = result.pop();
     
-    t.ok(str.path, 'should path be');
+    t.ok(str.chunk, 'should path be');
     t.end();
 });
 

@@ -54,9 +54,9 @@ module.exports = (ast, opts = {}) => {
     return Object.values(vars);
 };
 
-const addParamsVariable = (allParams) => ({path, params}) => {
+const addParamsVariable = (allParams) => ({chunk, params}) => {
     allParams.push({
-        path,
+        chunk,
         params,
     });
 };
@@ -79,8 +79,9 @@ function getScopeUID({name, scope}) {
     return scope.uid;
 }
 
-const isUsedVariable = ({vars}) => (path, name) => {
-    const {scope} = path;
+const isUsedVariable = ({vars}) => (chunk, name) => {
+    debugger;
+    const {scope} = chunk;
     const uid = getScopeUID({
         name,
         scope,
@@ -92,23 +93,23 @@ const isUsedVariable = ({vars}) => (path, name) => {
     return used;
 };
 
-function getScope(path) {
+function getScope(chunk) {
     const {
         node,
         scope,
-    } = path;
+    } = chunk;
     
     if (isFunctionDeclaration(node))
-        return path.parentPath.scope;
+        return chunk.parentPath.scope;
     
     if (isClassDeclaration(node))
-        return path.parentPath.scope;
+        return chunk.parentPath.scope;
     
     return scope;
 }
 
-const declareVariable = ({vars, setPath}) => (path, name) => {
-    const scope = getScope(path);
+const declareVariable = ({vars, setPath}) => (chunk, name) => {
+    const scope = getScope(chunk);
     const uid = getScopeUID({
         name,
         scope,
@@ -128,11 +129,11 @@ const declareVariable = ({vars, setPath}) => (path, name) => {
         };
     
     if (setPath)
-        current[name].path = path;
+        current[name].chunk = chunk;
 };
 
-const useVariable = ({vars}) => (path, name) => {
-    const {scope} = path;
+const useVariable = ({vars}) => (chunk, name) => {
+    const {scope} = chunk;
     const uid = getScopeUID({
         name,
         scope,

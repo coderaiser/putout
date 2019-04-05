@@ -19,8 +19,8 @@ module.exports.fix = ({path, consequentPath, result}) => {
 module.exports.find = (ast, {push, generate, traverse}) => {
     traverse(ast, {
         IfStatement(path) {
-            const testPath = path.get('test');
-            const consequentPath = path.get('consequent');
+            const testPath = path.test;
+            const consequentPath = path.consequent;
             
             if (containsIdentifiers(testPath))
                 return;

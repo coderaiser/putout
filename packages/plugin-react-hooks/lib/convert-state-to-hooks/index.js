@@ -12,26 +12,26 @@ const {traverseClass} = require('../common');
 const stateToHooks = require('./state-to-hooks');
 const setStateToHooks = require('./set-state-to-hooks');
 
-module.exports.report = (path) => {
-    if (isAssignmentExpression(path))
+module.exports.report = (chunk) => {
+    if (isAssignmentExpression(chunk))
         return 'hooks should be used instead of this.state';
     
-    if (isVarFromState(path))
+    if (isVarFromState(chunk))
         return 'hooks should be used instead of this.state';
     
-    if (isThisSetState(path))
+    if (isThisSetState(chunk))
         return 'hooks should be used instead of this.setState';
 };
 
-module.exports.fix = (path) => {
-    if (isAssignmentExpression(path))
-        return stateToHooks(path);
+module.exports.fix = (chunk) => {
+    if (isAssignmentExpression(chunk))
+        return stateToHooks(chunk);
     
-    if (isVarFromState(path))
-        return path.remove();
+    if (isVarFromState(chunk))
+        return chunk.remove();
     
-    if (isThisSetState(path))
-        return setStateToHooks(path);
+    if (isThisSetState(chunk))
+        return setStateToHooks(chunk);
 };
 
 module.exports.find = (ast, {push}) => {
@@ -43,34 +43,34 @@ module.exports.find = (ast, {push}) => {
 };
 
 function VariableDeclarator(push) {
-    return (path) => {
-        if (!isVarFromState(path))
+    return (chunk) => {
+        if (!isVarFromState(chunk))
             return;
         
-        push(path);
+        push(chunk);
     };
 }
 
 function AssignmentExpression(push) {
-    return (path) => {
-        if (!isInitState(path))
+    return (chunk) => {
+        if (!isInitState(chunk))
             return;
         
-        push(path);
+        push(chunk);
     };
 }
 
 function CallExpression(push) {
-    return (path) => {
-        if (!isThisSetState(path))
+    return (chunk) => {
+        if (!isThisSetState(chunk))
             return;
         
-        push(path);
+        push(chunk);
     };
 }
 
-function isInitState(path) {
-    const {node} = path;
+function isInitState(chunk) {
+    const {node} = chunk;
     const {
         left,
         right,
@@ -88,8 +88,8 @@ function isInitState(path) {
     return true;
 }
 
-function isVarFromState(path) {
-    const {init} = path.node;
+function isVarFromState(chunk) {
+    const {init} = chunk.node;
     
     if (!init)
         return false;
@@ -107,8 +107,8 @@ function isThisState(init) {
     return isThis(init, 'state');
 }
 
-function isThisSetState(path) {
-    const {node} = path;
+function isThisSetState(chunk) {
+    const {node} = chunk;
     return isThis(node.callee, 'setState');
 }
 

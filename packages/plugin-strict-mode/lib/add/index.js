@@ -21,13 +21,13 @@ module.exports.find = (ast, {push, traverse}) => {
     const isModule = store();
     
     traverse(ast, {
-        'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration'(path) {
+        'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration'(chunk) {
             isModule(true);
-            path.stop();
+            chunk.stop();
         },
         Program: {
-            exit(path) {
-                const {node} = path;
+            exit(chunk) {
+                const {node} = chunk;
                 const {directives} = node;
                 
                 const [first] = node.body;
@@ -36,9 +36,9 @@ module.exports.find = (ast, {push, traverse}) => {
                     return;
                 
                 if (!isModule() && (!directives || !directives.length))
-                    push(path);
+                    push(chunk);
                 
-                path.stop();
+                chunk.stop();
             },
         },
     });

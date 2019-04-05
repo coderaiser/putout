@@ -9,16 +9,16 @@ const {
     isRestElement,
 } = types;
 
-module.exports.usePropertiesBeforeRest = ({use}) => ({path, params}) => {
+module.exports.usePropertiesBeforeRest = ({use}) => ({chunk, params}) => {
     for (const param of params) {
         if (!isObjectPattern(param))
             continue;
         
-        traverseProperties(use, path, param.properties);
+        traverseProperties(use, chunk, param.properties);
     }
 };
 
-function traverseProperties(use, path, properties) {
+function traverseProperties(use, chunk, properties) {
     const {length} = properties;
     const last = properties[length - 1];
     
@@ -30,17 +30,17 @@ function traverseProperties(use, path, properties) {
         const {value} = prop;
         
         if (isIdentifier(value))
-            use(path, value.name);
+            use(chunk, value.name);
     }
 }
 
-module.exports.useParamsBeforeLastUsed = ({use, isUsed}) => ({path, params}) => {
+module.exports.useParamsBeforeLastUsed = ({use, isUsed}) => ({chunk, params}) => {
     let i = params.length;
     
     while (--i > 0) {
         const param = params[i];
         
-        if (traverseIsUsed(isUsed, path, param))
+        if (traverseIsUsed(isUsed, chunk, param))
             break;
     }
     
@@ -48,39 +48,39 @@ module.exports.useParamsBeforeLastUsed = ({use, isUsed}) => ({path, params}) => 
         if (!isIdentifier(params[i]))
             continue;
         
-        use(path, params[i].name);
+        use(chunk, params[i].name);
     }
     
     return {
-        path,
+        chunk,
         params,
     };
 };
 
-const traverseIsUsed = (isUsed, path, node) => {
+const traverseIsUsed = (isUsed, chunk, node) => {
     if (isIdentifier(node))
-        return isUsed(path, node.name);
+        return isUsed(chunk, node.name);
     
     if (isObjectPattern(node))
-        return isUsedObjectPattern(isUsed, path, node);
+        return isUsedObjectPattern(isUsed, chunk, node);
     
     if (isAssignmentPattern(node))
-        return isUsedAssignmentPattern(isUsed, path, node);
+        return isUsedAssignmentPattern(isUsed, chunk, node);
 };
 
-const isUsedAssignmentPattern = (isUsed, path, node) => {
+const isUsedAssignmentPattern = (isUsed, chunk, node) => {
     const {left} = node;
     
     if (isIdentifier(left))
-        return isUsed(path, left.name);
+        return isUsed(chunk, left.name);
 };
 
-const isUsedObjectPattern = (isUsed, path, node) => {
+const isUsedObjectPattern = (isUsed, chunk, node) => {
     for (const prop of node.properties) {
         const {value} = prop;
         
         if (isIdentifier(value)) {
-            if (isUsed(path, value.name))
+            if (isUsed(chunk, value.name))
                 return true;
             
             continue;

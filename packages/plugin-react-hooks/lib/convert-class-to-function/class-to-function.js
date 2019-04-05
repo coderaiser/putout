@@ -7,8 +7,8 @@ const {
     functionDeclaration,
 } = require('putout').types;
 
-module.exports = (path) => {
-    const {node} = path;
+module.exports = (chunk) => {
+    const {node} = chunk;
     const {body} = node;
     
     const allBody = [];
@@ -17,9 +17,9 @@ module.exports = (path) => {
     
     for (const item of body.body) {
         if (isIdentifier(item.key, {name: 'constructor'})) {
-            path.traverse({
-                Super(path) {
-                    path.parentPath.remove();
+            chunk.traverse({
+                Super(chunk) {
+                    chunk.parentPath.remove();
                 },
             });
             
@@ -38,10 +38,10 @@ module.exports = (path) => {
             funcs.push(createFunction(item.key, item.params, item.body));
     }
     
-    path.replaceWith(render);
+    chunk.replaceWith(render);
     
     for (const fn of funcs) {
-        path.node.body.body.splice(-1, 0, fn);
+        chunk.node.body.body.splice(-1, 0, fn);
     }
 };
 

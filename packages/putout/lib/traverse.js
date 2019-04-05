@@ -1,4 +1,4 @@
-'use strict';
+'/use strict';
 
 const traverse = require('@babel/traverse').default;
 
@@ -27,6 +27,37 @@ function initNodes(nodes) {
 }
 
 const wrapNode = (fn) => (path) => fn(createProxy(path));
+//const wrapNode = (fn) => (path) => fn(createNode(path));
+
+/*
+function createNode(path) {
+    return Object.assign(path.node, {
+        remove: remove(path),
+    });
+}
+*/
+
+function createNode(path) {
+    const node = Object.assign(path.node, {
+        //remove: remove(path),
+    });
+    
+    return new Proxy(node, {
+        get(target, prop) {
+            console.log(prop);
+            
+            if (/^is|^remove$/.test(prop)) {
+                console.log("🎉");
+                return path[prop].bind(path);
+            }
+                
+            if (prop in node)
+                return node[prop];
+        }
+    });
+}
+
+const remove = (path) => (...a) => path.remove(...a);
 
 function createProxy(path) {
     const {node} = path;
@@ -62,6 +93,9 @@ function createProxy(path) {
             
             if (/raw|length|lines|loc/.test(name))
                 return (node || {})[name];
+            
+            if (typeof name === 'function')
+               return path[name].bind(path);
             
             const result = path.get(name);
             return createProxy(result);

@@ -26,14 +26,14 @@ function isExtendComponent(superClass) {
 
 module.exports.traverseClass = (ast, visitor) => {
     traverse(ast, {
-        ClassDeclaration(path) {
-            const {node} = path;
+        ClassDeclaration(chunk) {
+            const {node} = chunk;
             const {superClass} = node;
             
             if (!isExtendComponent(superClass))
                 return;
             
-            path.traverse(visitor);
+            chunk.traverse(visitor);
         },
     });
 };

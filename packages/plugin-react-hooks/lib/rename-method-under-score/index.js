@@ -14,8 +14,8 @@ module.exports.fix = ({node}) => {
 
 module.exports.find = (ast, {push}) => {
     traverseClass(ast, {
-        ClassMethod(path) {
-            const keyPath = path.get('key');
+        ClassMethod(chunk) {
+            const keyPath = chunk.key;
             const {name} = keyPath.node;
             
             if (!name.indexOf('_'))

@@ -21,6 +21,7 @@ const {
 } = require('./traverse');
 
 const {assign} = Object;
+const getName = (a) => a.name;
 
 module.exports = ({use, declare, addParams}) => {
     const traverseObj = traverseObjectExpression(use);
@@ -37,25 +38,25 @@ module.exports = ({use, declare, addParams}) => {
             traverseObj(properties);
         },
         
-        SpreadElement(path) {
-            const {argument} = path;
+        SpreadElement(chunk) {
+            const {argument} = chunk;
             
             if (isIdentifier(argument))
-                use(path, argument.name);
+                use(chunk, argument.name);
         },
         
-        RestElement(path) {
-            const {argument} = path;
+        RestElement(chunk) {
+            const {argument} = chunk;
             
             if (isIdentifier(argument))
-                declare(path, argument.name);
+                declare(chunk, argument.name);
         },
         
-        VariableDeclarator(path) {
-            const {id, init} = path;
+        VariableDeclarator(chunk) {
+            const {id, init} = chunk;
             
             if (isIdentifier(id)) {
-                declare(path, id.name);
+                declare(chunk, id.name);
             } else if (isObjectPattern(id)) {
                 id.traverse({
                     ObjectProperty(prop) {
@@ -70,7 +71,7 @@ module.exports = ({use, declare, addParams}) => {
                         
                         const {properties} = id;
                         const isOne = properties.length === 1;
-                        const nodePath = isOne ? path : prop;
+                        const nodePath = isOne ? chunk : prop;
                         
                         declare(nodePath, prop.node.value.name);
                     },
@@ -81,7 +82,7 @@ module.exports = ({use, declare, addParams}) => {
                         const {elements} = id;
                         
                         if (elements.length === 1)
-                            return declare(path, el.name);
+                            return declare(chunk, el.name);
                         
                         assign(el, {
                             remove: removeArrayPatternElement(el),
@@ -93,203 +94,203 @@ module.exports = ({use, declare, addParams}) => {
             }
             
             if (isIdentifier(init))
-                use(path, init.name);
+                use(chunk, init.name);
             else if (isArrayExpression(init))
                 traverseArray(init.elements);
         },
         
-        ClassDeclaration(path) {
-            const {node} = path;
+        ClassDeclaration(chunk) {
+            const {node} = chunk;
             const {
                 id,
                 superClass,
             } = node;
             
             if (superClass)
-                use(path, superClass.name);
+                use(chunk, superClass.name);
             
-            declare(path, id.name);
+            declare(chunk, id.name);
         },
         
-        AssignmentExpression(path) {
-            traverseAssign(path.get('left'));
-            traverseAssign(path.get('right'));
+        AssignmentExpression(chunk) {
+            traverseAssign(chunk.get('left'));
+            traverseAssign(chunk.get('right'));
         },
         
-        ArrayExpression(path) {
-            const {elements} = path.node;
+        ArrayExpression(chunk) {
+            const {elements} = chunk.node;
             
             for (const el of elements) {
                 if (isIdentifier(el)) {
-                    use(path, el.name);
+                    use(chunk, el.name);
                     continue;
                 }
                 
                 if (isSpreadElement(el)) {
-                    use(path, el.argument.name);
+                    use(chunk, el.argument.name);
                     continue;
                 }
             }
         },
         
-        ConditionalExpression(path) {
+        ConditionalExpression(chunk) {
             const {
                 test,
                 consequent,
                 alternate,
-            } = path.node;
+            } = chunk.node;
             
             if (isIdentifier(test))
-                use(path, test.name);
+                use(chunk, test.name);
             
             if (isIdentifier(consequent))
-                use(path, consequent.name);
+                use(chunk, consequent.name);
             
             if (isIdentifier(alternate))
-                use(path, alternate.name);
+                use(chunk, alternate.name);
         },
         
-        TemplateLiteral(path) {
-            traverseTmpl(path, path.node.expressions);
+        TemplateLiteral(chunk) {
+            traverseTmpl(chunk, chunk.node.expressions);
         },
         
-        LogicalExpression(path) {
-            const {left, right} = path.node;
+        LogicalExpression(chunk) {
+            const {left, right} = chunk.node;
             
             if (isIdentifier(left))
-                use(path, left.name);
+                use(chunk, left.name);
             
             if (isIdentifier(right))
-                use(path, right.name);
+                use(chunk, right.name);
         },
         
-        MemberExpression(path) {
+        MemberExpression(chunk) {
             const {
                 property,
                 object,
                 computed,
-            } = path.node;
+            } = chunk.node;
             
             if (isIdentifier(object))
-                use(path, object.name);
+                use(chunk, object.name);
             
             if (computed && isIdentifier(property))
-                use(path, property.name);
+                use(chunk, property.name);
         },
         
-        NewExpression(path) {
-            const {node} = path;
+        NewExpression(chunk) {
+            const {node} = chunk;
             
             if (isIdentifier(node.callee))
-                use(path, node.callee.name);
+                use(chunk, node.callee.name);
             
-            const argPaths = path.get('arguments');
+            const argPaths = chunk.get('arguments');
             
             for (const argPath of argPaths) {
                 const {node} = argPath;
                 
                 if (isIdentifier(node)) {
-                    use(path, node.name);
+                    use(chunk, node.name);
                     continue;
                 }
             }
         },
         
-        TaggedTemplateExpression(path) {
-            const {tag} = path.node;
+        TaggedTemplateExpression(chunk) {
+            const {tag} = chunk.node;
             
             if (isIdentifier(tag))
-                use(path, tag.name);
+                use(chunk, tag.name);
         },
         
-        UnaryExpression(path) {
-            const {argument} = path.node;
+        UnaryExpression(chunk) {
+            const {argument} = chunk.node;
             
             if (isIdentifier(argument))
-                use(path, argument.name);
+                use(chunk, argument.name);
         },
         
-        UpdateExpression(path) {
-            const {argument} = path.node;
+        UpdateExpression(chunk) {
+            const {argument} = chunk.node;
             
             if (isIdentifier(argument))
-                use(path, argument.name);
+                use(chunk, argument.name);
         },
         
-        ThrowStatement(path) {
-            const {argument} = path.node;
+        ThrowStatement(chunk) {
+            const {argument} = chunk.node;
             
             if (isIdentifier(argument))
-                use(path, argument.name);
+                use(chunk, argument.name);
         },
         
-        IfStatement(path) {
-            const {node} = path;
+        IfStatement(chunk) {
+            const {node} = chunk;
             const {test} = node;
             
             if (isIdentifier(test))
-                return use(path, test.name);
+                return use(chunk, test.name);
         },
         
-        ForOfStatement(path) {
-            const {node} = path;
+        ForOfStatement(chunk) {
+            const {node} = chunk;
             const {
                 left,
                 right,
             } = node;
             
             if (isIdentifier(right))
-                use(path, right.name);
+                use(chunk, right.name);
             
             if (isIdentifier(left))
-                use(path, left.name);
+                use(chunk, left.name);
             else
-                path.get('left').traverse({
+                chunk.get('left').traverse({
                     Identifier(leftPath) {
-                        declare(path, leftPath.node.name);
+                        declare(chunk, leftPath.node.name);
                     },
                 });
             
-            path.get('left').traverse({
-                Identifier(path) {
-                    use(path, path.node.name);
+            chunk.get('left').traverse({
+                Identifier(chunk) {
+                    use(chunk, chunk.node.name);
                 },
             });
         },
         
-        ExpressionStatement(path) {
-            const {node} = path;
+        ExpressionStatement(chunk) {
+            const {node} = chunk;
             
             if (isIdentifier(node.expression))
-                use(path, node.expression.name);
+                use(chunk, node.expression.name);
         },
         
-        SwitchStatement(path) {
-            const {node} = path;
+        SwitchStatement(chunk) {
+            const {node} = chunk;
             
             if (isIdentifier(node.discriminant))
-                use(path, node.discriminant.name);
+                use(chunk, node.discriminant.name);
             
             for (const {test} of node.cases) {
                 if (isIdentifier(test))
-                    use(path, test.name);
+                    use(chunk, test.name);
             }
         },
         
-        ReturnStatement(path) {
-            const {node} = path;
+        ReturnStatement(chunk) {
+            const {node} = chunk;
             const {argument} = node;
             
             if (isIdentifier(argument))
-                return use(path, argument.name);
+                return use(chunk, argument.name);
         },
         
-        ArrowFunctionExpression(path) {
-            const paramsPaths = path.get('params');
+        ArrowFunctionExpression(chunk) {
+            const paramsPaths = chunk.get('params');
             const {
                 body,
                 params,
-            } = path.node;
+            } = chunk.node;
             
             for (const paramPath of paramsPaths) {
                 const {node} = paramPath;
@@ -312,17 +313,17 @@ module.exports = ({use, declare, addParams}) => {
             }
             
             if (isIdentifier(body))
-                use(path, body.name);
+                use(chunk, body.name);
             
             addParams({
-                path,
+                chunk,
                 params,
             });
         },
         
-        ObjectMethod(path) {
-            const {params} = path.node;
-            const paramsPaths = path.get('params');
+        ObjectMethod(chunk) {
+            const {params} = chunk.node;
+            const paramsPaths = chunk.get('params');
             
             for (const paramPath of paramsPaths) {
                 const {node} = paramPath;
@@ -334,44 +335,45 @@ module.exports = ({use, declare, addParams}) => {
             }
             
             addParams({
-                path,
+                chunk,
                 params,
             });
         },
         
-        CallExpression(path) {
-            const {node} = path;
+        CallExpression(chunk) {
+            const {node} = chunk;
             const {callee} = node;
             
             if (isIdentifier(callee))
-                use(path, node.callee.name);
+                use(chunk, node.callee.name);
             
-            path.traverse({
-                SpreadElement(path) {
-                    const {argument} = path.node;
+            const names = node.arguments.map(getName);
+            chunk.traverse({
+                SpreadElement(chunk) {
+                    const {argument} = chunk.node;
                     
                     if (isIdentifier(argument))
-                        use(path, argument.name);
+                        use(chunk, argument.name);
                 },
-                Identifier(path) {
-                    if (node.arguments.includes(path.node))
-                        use(path, path.node.name);
+                Identifier(chunk) {
+                    if (names.includes(chunk.node.name))
+                        use(chunk, chunk.node.name);
                 },
             });
         },
         
-        BinaryExpression(path) {
-            const {left, right} = path.node;
+        BinaryExpression(chunk) {
+            const {left, right} = chunk.node;
             
             if (isIdentifier(left))
-                use(path, left.name);
+                use(chunk, left.name);
             
             if (isIdentifier(right))
-                use(path, right.name);
+                use(chunk, right.name);
         },
         
-        ImportDeclaration(path) {
-            const specifierPaths = path.get('specifiers');
+        ImportDeclaration(chunk) {
+            const specifierPaths = chunk.get('specifiers');
             
             for (const specPath of specifierPaths) {
                 const {local} = specPath.node;
@@ -381,35 +383,35 @@ module.exports = ({use, declare, addParams}) => {
             }
         },
         
-        ExportDefaultDeclaration(path) {
-            const declarationPath = path.get('declaration');
-            const {declaration} = path.node;
+        ExportDefaultDeclaration(chunk) {
+            const declarationPath = chunk.get('declaration');
+            const {declaration} = chunk.node;
             
             if (isFunctionDeclaration(declaration))
-                use(path, declaration.id.name);
+                use(chunk, declaration.id.name);
             else if (isIdentifier(declaration))
-                use(path, declaration.name);
+                use(chunk, declaration.name);
             else if (isClassDeclaration(declaration))
-                use(path, declaration.id.name);
+                use(chunk, declaration.id.name);
             else if (isObjectExpression(declaration))
                 traverseObj(declarationPath.get('properties'));
         },
         
-        ExportNamedDeclaration(path) {
+        ExportNamedDeclaration(chunk) {
             const {
                 declaration,
                 specifiers,
-            } = path.node;
+            } = chunk.node;
             
             if (isFunctionDeclaration(declaration))
-                return use(path, declaration.id.name);
+                return use(chunk, declaration.id.name);
             
             if (isVariableDeclaration(declaration)) {
                 const {declarations} = declaration;
                 
                 for (const {id} of declarations) {
                     if (isIdentifier(id))
-                        use(path, id.name);
+                        use(chunk, id.name);
                 }
                 
                 return;
@@ -417,17 +419,17 @@ module.exports = ({use, declare, addParams}) => {
             
             for (const {local} of specifiers) {
                 if (isIdentifier(local))
-                    use(path, local.name);
+                    use(chunk, local.name);
             }
         },
         
-        FunctionDeclaration(path) {
-            const {node} = path;
+        FunctionDeclaration(chunk) {
+            const {node} = chunk;
             
             const {params} = node;
-            const paramsPaths = path.get('params');
+            const paramsPaths = chunk.get('params');
             
-            declare(path, node.id.name);
+            declare(chunk, node.id.name);
             
             for (const paramPath of paramsPaths) {
                 const {node} = paramPath;
@@ -450,34 +452,34 @@ module.exports = ({use, declare, addParams}) => {
             }
             
             addParams({
-                path,
+                chunk,
                 params,
             });
         },
         
-        JSXOpeningElement(path) {
-            const {node} = path;
+        JSXOpeningElement(chunk) {
+            const {node} = chunk;
             const {name} = node;
             
             if (/^[A-Z]/.test(name.name))
-                use(path, name.name);
+                use(chunk, name.name);
             
-            use(path, 'React');
+            use(chunk, 'React');
         },
         
-        JSXSpreadAttribute(path) {
-            const argPath = path.get('argument');
+        JSXSpreadAttribute(chunk) {
+            const argPath = chunk.get('argument');
             
             if (argPath.isIdentifier())
-                return use(path, argPath.node.name);
+                return use(chunk, argPath.node.name);
         },
         
-        JSXExpressionContainer(path) {
-            const {node} = path;
+        JSXExpressionContainer(chunk) {
+            const {node} = chunk;
             const {expression} = node;
             
             if (isIdentifier(expression))
-                use(path, expression.name);
+                use(chunk, expression.name);
         },
     };
 };
@@ -491,7 +493,8 @@ const removeArrayPatternElement = (elPath) => {
         const {elements} = arrayPattern;
         
         const n = elements.length - 1;
-        const i = elements.indexOf(el);
+        const names = elements.map(getName);
+        const i = names.indexOf(el.name);
         
         if (i === n)
             return remove.call(elPath);

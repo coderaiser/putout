@@ -10,57 +10,58 @@ module.exports.find = (ast) => {
     const rmVar = removeVariable(vars);
     
     traverseClass(ast, {
-        ClassPrivateProperty(path) {
-            const keyPath = path.get('key');
-            addVar(path, keyPath.node.id.name);
+        ClassPrivateProperty(chunk) {
+            const keyPath = chunk.key;
+            addVar(chunk, keyPath.node.id.name);
         },
         
-        ClassPrivateMethod(path) {
-            const keyPath = path.get('key');
-            addVar(path, keyPath.node.id.name);
+        ClassPrivateMethod(chunk) {
+            const keyPath = chunk.key;
+            addVar(chunk, keyPath.node.id.name);
         },
         
-        ThisExpression(path) {
-            const {parentPath} = path;
-            const propertyPath = parentPath.get('property');
+        ThisExpression(chunk) {
+            debugger;
+            const {parentPath} = chunk;
+            const propertyPath = parentPath.property;
             
             if (!propertyPath.isPrivateName())
                 return;
             
-            rmVar(path, propertyPath.node.id.name);
+            rmVar(chunk, propertyPath.node.id.name);
         },
     });
     
     return Object.values(vars);
 };
 
-module.exports.fix = ({path}) => {
-    path.remove();
+module.exports.fix = ({chunk}) => {
+    chunk.remove();
 };
 
-function findClassName(path) {
-    while (!path.isClassDeclaration()) {
-        path = path.parentPath;
+function findClassName(chunk) {
+    while (!chunk.isClassDeclaration()) {
+        chunk = chunk.parentPath;
     }
     
-    return path.node.id.name;
+    return chunk.node.id.name;
 }
 
-const addVariable = (vars) => (path, name) => {
-    const {uid} = findClassName(path);
+const addVariable = (vars) => (chunk, name) => {
+    const {uid} = findClassName(chunk);
     const id = `${uid}-${name}`;
     
     if (!vars[id])
         vars[id] = {};
     
     vars[id] = {
-        path,
+        chunk,
         name,
     };
 };
 
-const removeVariable = (vars) => (path, name) => {
-    const {uid} = findClassName(path);
+const removeVariable = (vars) => (chunk, name) => {
+    const {uid} = findClassName(chunk);
     const id = `${uid}-${name}`;
     
     delete vars[id];
@@ -68,8 +69,8 @@ const removeVariable = (vars) => (path, name) => {
 
 function traverseClass(ast, visitor) {
     traverse(ast, {
-        ClassDeclaration(path) {
-            path.traverse(visitor);
+        ClassDeclaration(chunk) {
+            chunk.traverse(visitor);
         },
     });
 }

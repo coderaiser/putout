@@ -10,7 +10,7 @@ const cutShebang = require('./cut-shebang');
 const getPlugins = require('./get-plugins');
 const customParser = require('./custom-parser');
 const runPlugins = require('./run-plugins');
-const traverse = require('./traverse');
+const traverse = require('../../traverse');
 
 const isUndefined = (a) => typeof a === 'undefined';
 const {assign} = Object;

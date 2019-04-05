@@ -10,9 +10,9 @@ const {spreadElement} = types;
 module.exports.report = () => '"spread" should be used instead of "apply"';
 
 module.exports.fix = (path) => {
-    const calleePath = path.get('callee');
-    calleePath.replaceWith(calleePath.get('object'));
-    const [, argumentsPath] = path.get('arguments');
+    const calleePath = path.callee;
+    calleePath.replaceWith(calleePath.object);
+    const [, argumentsPath] = path.arguments;
     
     path.node.arguments = [
         spreadElement(argumentsPath.node),
@@ -22,21 +22,20 @@ module.exports.fix = (path) => {
 module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
         CallExpression(path) {
-            const calleePath = path.get('callee');
+            const calleePath = path.callee;
             
             if (!calleePath.isMemberExpression())
                 return;
             
             const [context] = path.node.arguments;
-            const {node} = calleePath.get('object');
+            const {node} = calleePath.object;
             
             const is = compare(node, context);
             
             if (!is)
                 return;
             
-            const isApply = calleePath
-                .get('property')
+            const isApply = calleePath.property
                 .isIdentifier({
                     name: 'apply',
                 });

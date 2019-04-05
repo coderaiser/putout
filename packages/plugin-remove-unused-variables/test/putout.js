@@ -67,7 +67,7 @@ test('putout: root vars', (t) => {
     t.end();
 });
 
-test('putout: array pattern', (t) => {
+test.only('putout: array pattern', (t) => {
     const {code} = putout(fixture.arrayPattern);
     const expected = fixture.arrayPatternFix;
     

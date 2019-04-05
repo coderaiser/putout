@@ -6,8 +6,8 @@ const buildHooks = template(`
     SETTER(VALUE);
 `);
 
-module.exports = (path) => {
-    const {properties} = path.node.arguments[0];
+module.exports = (chunk) => {
+    const {properties} = chunk.node.arguments[0];
     const nodes = [];
     
     for (const {key, value} of properties) {
@@ -21,7 +21,7 @@ module.exports = (path) => {
         }));
     }
     
-    path.replaceWithMultiple(nodes);
+    chunk.replaceWithMultiple(nodes);
 };
 
 function getSetter(name) {

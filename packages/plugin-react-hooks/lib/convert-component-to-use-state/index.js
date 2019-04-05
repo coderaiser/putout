@@ -7,8 +7,8 @@ const {
 
 module.exports.report = () => 'useState should be used instead of Component';
 
-module.exports.fix = (path) => {
-    const {node} = path;
+module.exports.fix = (chunk) => {
+    const {node} = chunk;
     
     node.key.name ='useState';
     node.value.name ='useState';
@@ -18,15 +18,15 @@ module.exports.find = (ast, {traverse}) => {
     const places = [];
     
     traverse(ast, {
-        VariableDeclarator(path) {
-            const {id, init} = path.node;
+        VariableDeclarator(chunk) {
+            const {id, init} = chunk.node;
             
             const name = 'React';
             
             if (!isObjectPattern(id) || !isIdentifier(init, {name}))
                 return;
             
-            const propertiesPaths = path.get('id.properties');
+            const propertiesPaths = chunk.id.properties;
             
             for (const propPath of propertiesPaths) {
                 const {node} = propPath;

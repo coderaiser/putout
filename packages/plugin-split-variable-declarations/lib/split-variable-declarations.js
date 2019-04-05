@@ -10,17 +10,17 @@ const {assign} = Object;
 
 module.exports.report = () => 'variables should be declared separately';
 
-module.exports.fix = (path) => {
-    const varNodes = getVarNodes(path.node);
-    path.replaceWithMultiple(varNodes);
+module.exports.fix = (chunk) => {
+    const varNodes = getVarNodes(chunk.node);
+    chunk.replaceWithMultiple(varNodes);
 };
 
 module.exports.find = (ast, {traverse}) => {
     const places = [];
     
     traverse(ast, {
-        VariableDeclaration(path) {
-            const {node, parent} = path;
+        VariableDeclaration(chunk) {
+            const {node, parent} = chunk;
             const {declarations} = node;
             
             if (declarations.length === 1)
@@ -31,7 +31,7 @@ module.exports.find = (ast, {traverse}) => {
             if (isForStatement(parent, {init}))
                 return;
             
-            places.push(path);
+            places.push(chunk);
         },
     });
     

@@ -2,8 +2,8 @@
 
 module.exports.report = () => 'useState should be used instead of Component';
 
-module.exports.fix = (path) => {
-    const {node} = path;
+module.exports.fix = (chunk) => {
+    const {node} = chunk;
     
     node.imported.name = 'useState';
     node.local.name = 'useState';
@@ -11,19 +11,19 @@ module.exports.fix = (path) => {
 
 module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
-        ImportDeclaration(path) {
-            const {source} = path.node;
+        ImportDeclaration(chunk) {
+            const {source} = chunk.node;
             
             if (source.value !== 'react')
                 return;
             
             const name = 'Component';
-            const specifiersPaths = path.get('specifiers');
+            const specifiersPaths = chunk.specifiers;
             for (const specPath of specifiersPaths) {
                 if (!specPath.isImportSpecifier())
                     continue;
                 
-                if (!specPath.get('imported').isIdentifier({name}))
+                if (!specPath.imported.isIdentifier({name}))
                     continue;
                 
                 push(specPath);

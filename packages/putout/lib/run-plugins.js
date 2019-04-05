@@ -3,7 +3,7 @@
 const getPath = (item) => item.chunk || item.path || item;
 
 const runFix = require('./run-fix');
-const traverse = require('./traverse');
+const traverse = require('../../traverse');
 
 const generate = require('@babel/generator').default;
 const types = require('@babel/types');
@@ -61,9 +61,9 @@ function run({ast, fix, shebang, plugins}) {
     return places;
 }
 
-function getPosition(path, shebang) {
-    const {node} = path;
-    const {loc} = node;
+function getPosition({loc}, shebang) {
+    //const {node} = path;
+    //const {loc} = node;
     
     if (!loc)
         return {
@@ -74,7 +74,8 @@ function getPosition(path, shebang) {
     const {
         line,
         column,
-    } = node.loc.start;
+    //} = node.loc.start;
+    } = loc.start;
     
     return {
         line: shebang ? line + 1 : line,
