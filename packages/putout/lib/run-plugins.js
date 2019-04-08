@@ -83,7 +83,10 @@ function getPosition(path, shebang) {
 
 function superFind(find, ast) {
     const pushItems = [];
-    const push = pushItems.push.bind(pushItems);
+    const push = (a) => {
+        pushItems.push(a);
+    };
+    
     const returnItems = find(ast, {
         traverse,
         generate,
