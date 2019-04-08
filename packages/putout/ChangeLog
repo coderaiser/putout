@@ -1,3 +1,11 @@
+2019.04.08, v4.20.0
+
+feature:
+- (putout) add ability to use return push in traverse
+- (@putout/plugin-remove-constant-conditions) add support of same identificators
+- (@putout/plugin-remove-unused-variables) add support of ObjectMethod params
+
+
 2019.04.02, v4.19.0
 
 fix:
