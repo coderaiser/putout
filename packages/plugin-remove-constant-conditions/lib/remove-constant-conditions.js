@@ -1,14 +1,19 @@
 'use strict';
 
+const {isIdentifier} = require('putout').types;
+
 const {runInNewContext} = require('vm');
 
 module.exports.report = () => 'constant conditions should not be used';
 
-module.exports.fix = ({path, consequentPath, result}) => {
-    const {alternate} = path.node;
+module.exports.fix = ({path, result}) => {
+    const {
+        alternate,
+        consequent,
+    } = path.node;
     
     if (result)
-        return path.replaceWithMultiple(consequentPath.node.body);
+        return path.replaceWithMultiple(consequent.body);
     
     if (!alternate)
         return path.remove();
@@ -20,20 +25,28 @@ module.exports.find = (ast, {push, generate, traverse}) => {
     traverse(ast, {
         IfStatement(path) {
             const testPath = path.get('test');
-            const consequentPath = path.get('consequent');
+            const {
+                left,
+                right,
+                operator,
+            } = testPath.node;
             
-            if (containsIdentifiers(testPath))
-                return;
+            if (!containsIdentifiers(testPath)) {
+                const {node} = testPath;
+                const {code} = generate(node);
+                const result = runInNewContext(code);
+                
+                return push({
+                    path,
+                    result,
+                });
+            }
             
-            const {node} = testPath;
-            const {code} = generate(node);
-            const result = runInNewContext(code);
-            
-            push({
-                path,
-                result,
-                consequentPath,
-            });
+            if (isIdentifier(left) && isIdentifier(right) && left.name === right.name)
+                return push({
+                    path,
+                    result: /^===?$/.test(operator),
+                });
         },
     });
 };

@@ -34,3 +34,8 @@ test('plugin-remove-constant-conditions: transform: else if', (t) => {
     t.end();
 });
 
+test('plugin-remove-constant-conditions: transform: same', (t) => {
+    t.transform('same');
+    t.end();
+});
+
