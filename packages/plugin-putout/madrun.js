@@ -1,13 +1,11 @@
 'use strict';
 
-const {
-    run
-} = require('madrun');
+const {run} = require('madrun');
 
 module.exports = {
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w lib -x ${run('test')}`,
-    'lint:lib': () => `eslint lib test --ignore-pattern fixture`,
+    'lint:lib': () => `eslint lib test madrun.js --ignore-pattern fixture`,
     'lint': () => run(['putout', 'lint:*']),
     'fix:lint': () => run(['putout', 'lint:*'], '--fix'),
     'putout': () => `putout lib test madrun.js`,
