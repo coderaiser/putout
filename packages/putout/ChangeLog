@@ -1,3 +1,9 @@
+2019.04.11, v4.21.0
+
+feature:
+- (@putout/plugin-convert-binary-expression-to-boolean) add
+
+
 2019.04.08, v4.20.0
 
 feature:
