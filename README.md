@@ -276,6 +276,14 @@ function merge(a) {
 ```
 </details>
 
+<details><summary>convert <code>binary expression</code> to <code>boolean</code></summary>
+
+```diff
+-   const a = b === b;
++   const a = true;
+```
+</details>
+
 ## Plugins
 
 The `putout` repo is comprised of many npm packages. It is a [lerna](https://github.com/lerna/lerna) monorepo similar to [babel](https://github.com/babel/babel).

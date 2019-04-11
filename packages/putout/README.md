@@ -34,6 +34,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `apply` to `spread`;
 - convert `arguments` to `rest`;
 - convert `Object.assign` to `merge spread`;
+- convert `binary expression` to `boolean`;
 
 ## Configuration
 
