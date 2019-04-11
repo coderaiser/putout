@@ -49,6 +49,7 @@
     "@putout/plugin-madrun": "^1.0.1",
     "@putout/plugin-merge-destructuring-properties": "^1.0.0",
     "@putout/plugin-putout": "^1.0.0",
+    "@putout/plugin-remove-boolean-from-logical-expressions": "^1.0.0",
     "@putout/plugin-remove-console": "^1.0.0",
     "@putout/plugin-remove-constant-conditions": "^1.0.0",
     "@putout/plugin-remove-debugger": "^1.0.0",

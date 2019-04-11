@@ -38,6 +38,7 @@
         "remove-unused-expressions",
         "remove-useless-variables",
         "remove-constant-conditions",
+        "remove-boolean-from-logical-expressions",
         "split-variable-declarations",
         "convert-esm-to-commonjs",
         "convert-apply-to-spread",

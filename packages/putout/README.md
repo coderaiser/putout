@@ -26,6 +26,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - find and remove `empty patterns`;
 - find and remove `strict mode` directive from `esm`;
 - find and remove `constant conditions`;
+- find and remove `boolean` from `logical expressions`;
 - if absent `strict mode` directive in `commonjs` add it;
 - convert `esm` to `commonjs`;
 - apply destructuring;
@@ -78,12 +79,14 @@ To configure create `.putout.json` file and override any option:
         "remove-unused-expressions",
         "remove-useless-variables",
         "remove-constant-conditions",
+        "remove-boolean-from-logical-expressions",
         "split-variable-declarations",
         "convert-esm-to-commonjs",
         "convert-apply-to-spread",
         "convert-arguments-to-rest",
         "convert-object-assign-to-merge-spread",
         "convert-math-pow",
+        "convert-binary-expression-to-boolean",
         "apply-destructuring",
         "merge-destructuring-properties",
         "strict-mode"
