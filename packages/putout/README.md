@@ -122,9 +122,9 @@ When you need to ignore some routes no metter what, you can use `ignore` section
 
 ## Plugins
 
-`Putout` supports `plugins`, there is to types: with prefix official `@putout/plugin-` and user plugins with prefix `putout-plugin-`. To use your plugin create plugin as `npm` package with keywords `putout`, `putout-plugin` and add it to `.putout.json`.
+`Putout` supports `plugins`, there is two types: with prefix official `@putout/plugin-` and user plugins with prefix `putout-plugin-`. To use your plugin create plugin as `npm` package with keywords `putout`, `putout-plugin` and add it to `.putout.json`.
 
-For example if you need to `remove-something` create `putout` plugin with name `putout-plugin-remove-something` and it to `.putout.json`:
+For example if you need to `remove-something` create `putout` plugin with name `putout-plugin-remove-something` and it to `package.json`:
 
 ```json
 {
