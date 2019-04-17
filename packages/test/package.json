@@ -35,8 +35,8 @@
     "runner"
   ],
   "devDependencies": {
-    "@putout/plugin-remove-unused-variables": "^1.11.0",
     "@putout/formatter-dump": "^1.0.0",
+    "@putout/plugin-remove-unused-variables": "^1.11.0",
     "coveralls": "^3.0.0",
     "eslint": "^5.6.0",
     "eslint-plugin-node": "^8.0.0",
@@ -44,7 +44,7 @@
     "lerna": "^3.8.5",
     "madrun": "^2.0.0",
     "nodemon": "^1.14.12",
-    "nyc": "^13.0.1",
+    "nyc": "^14.0.0",
     "try-to-tape": "^1.1.0"
   },
   "license": "MIT",

@@ -38,7 +38,7 @@
     "just-camel-case": "^4.0.2",
     "madrun": "^2.0.0",
     "nodemon": "^1.18.9",
-    "nyc": "^13.0.1",
+    "nyc": "^14.0.0",
     "supertape": "^1.2.0"
   },
   "peerDependencies": {
