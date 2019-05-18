@@ -82,7 +82,7 @@ if (argv.help) {
     process.exit();
 }
 
-const readUp = require('find-up');
+const findUp = require('find-up');
 
 const [e, files] = tryCatch(getFiles, argv._.map(String));
 
@@ -222,7 +222,7 @@ function merge(...args) {
 }
 
 function getOptions(cwd) {
-    const putoutPath = readUp.sync('.putout.json', {
+    const putoutPath = findUp.sync('.putout.json', {
         cwd,
     });
     
@@ -232,7 +232,7 @@ function getOptions(cwd) {
             require(putoutPath),
         ];
     
-    const packagePath = readUp.sync('package.json', {
+    const packagePath = findUp.sync('package.json', {
         cwd,
     });
     
