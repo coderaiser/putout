@@ -1,3 +1,9 @@
+2019.05.18, v4.23.2
+
+fix:
+- (putout) --: write all files -> write only fixed files
+
+
 2019.05.14, v4.23.1
 
 feature:
