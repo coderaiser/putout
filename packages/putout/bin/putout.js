@@ -146,7 +146,7 @@ function processFiles(name, index, {length}) {
     
     const {code, places} = result;
     
-    if (fix)
+    if (fix && places.length)
         return writeFileSync(name, code);
     
     const format = getFormatter(argv.format || formatter);
