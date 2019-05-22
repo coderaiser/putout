@@ -22,6 +22,7 @@ const fixture = readFixtures([
     'class-declaration',
     'destr-vars',
     'destr-assignment',
+    'destr-assignment-array',
     'destr-nested-vars',
     'destr-fn-vars',
     'export-default-function',
@@ -469,6 +470,20 @@ test('remove-unused-variables: get-vars: destr assignment', (t) => {
         noop: du,
         beforeShow: d_,
         options: _u,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: destr assignment: array', (t) => {
+    const ast = parse(fixture.destrAssignmentArray);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        noop: du,
+        beforeShow: d_,
+        get: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');

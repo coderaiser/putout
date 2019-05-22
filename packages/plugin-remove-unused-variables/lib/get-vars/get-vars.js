@@ -1,7 +1,6 @@
 'use strict';
 
 const {
-    isArrayPattern,
     isAssignmentPattern,
     isClassDeclaration,
     isIdentifier,
@@ -77,21 +76,29 @@ module.exports = ({use, declare, addParams}) => {
                         declare(nodePath, propPath.node.value.name);
                     },
                 });
-            } else if (isArrayPattern(node.id)) {
-                idPath.traverse({
-                    Identifier(elPath) {
-                        const {elements} = node.id;
+            } else if (idPath.isArrayPattern()) {
+                const elements = idPath.get('elements');
+                for (const elPath of elements) {
+                    if (elPath.isAssignmentPattern()) {
+                        const leftPath = elPath.get('left');
+                        const rightPath = elPath.get('right');
                         
-                        if (elements.length === 1)
-                            return declare(path, elPath.node.name);
+                        declare(leftPath, elPath.node.left.name);
+                        use(rightPath, elPath.node.right.name);
                         
+                        assign(leftPath, {
+                            remove: removeArrayPatternElement(elPath),
+                        });
+                    }
+                    
+                    if (elPath.isIdentifier()) {
                         assign(elPath, {
                             remove: removeArrayPatternElement(elPath),
                         });
                         
                         declare(elPath, elPath.node.name);
-                    },
-                });
+                    }
+                }
             }
             
             const initPath = path.get('init');
