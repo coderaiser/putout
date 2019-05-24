@@ -23,6 +23,14 @@ ruleTester.run('multiple-properties-destructuring', rule, {
     ],
     
     invalid: [{
+        code: `const {x, y} = screen;`,
+        output: `const {\nx,\n y\n} = screen;`,
+        options: [{minProperties: 1}],
+        errors: [{
+            message,
+            type: 'VariableDeclarator',
+        }],
+    }, {
         code: `const {a, b, c} = world;`,
         output: `const {\na,\n b,\n c\n} = world;`,
         errors: [{

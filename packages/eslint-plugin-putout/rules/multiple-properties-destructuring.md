@@ -14,6 +14,10 @@ const {username, password} = user;
 
 Examples of **correct** code for this rule:
 
+## Options
+
+`minProperties` - minimum properties count to work with.
+
 ```js
 const {
     username,

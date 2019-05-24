@@ -16,8 +16,10 @@ module.exports = {
     },
     
     create(context) {
+        const {minProperties = 2} = (context.options[0] || {});
+        
         return {
-            'VariableDeclarator[id.type="ObjectPattern"][id.properties.length>2]': (node) => {
+            [`VariableDeclarator[id.type="ObjectPattern"][id.properties.length>${minProperties}]`]: (node) => {
                 if (node.parent.parent.type === 'ForOfStatement')
                     return;
                 
