@@ -13,3 +13,9 @@ const assignment = 1;
 function objectPatternExample({a = assignment}) {
 }
 
+function objectPattern2({a, b}) {
+    return b;
+}
+
+objectPattern2({b: 1});
+

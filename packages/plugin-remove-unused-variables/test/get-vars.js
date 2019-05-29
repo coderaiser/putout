@@ -192,12 +192,18 @@ test('remove-unused-variables: get-vars: function declaration', (t) => {
         DOM: d_,
         fillTemplate: d_,
         objectPatternExample: d_,
+        objectPattern2: du,
         assignment: du,
     }, {
         link: d_,
     }, {
         error: du,
         template: du,
+    }, {
+        a: d_,
+    }, {
+        a: d_,
+        b: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

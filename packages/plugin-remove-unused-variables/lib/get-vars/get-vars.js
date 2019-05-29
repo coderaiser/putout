@@ -14,6 +14,7 @@ const {
 
 const {
     traverseObjectExpression,
+    processObjectPattern,
     traverseArrayExpression,
     traverseAssignmentExpression,
     traverseTemplateLiteral,
@@ -23,7 +24,7 @@ const {assign} = Object;
 
 module.exports = ({use, declare, addParams}) => {
     const traverseObj = traverseObjectExpression(use);
-    const declareObj = traverseObjectExpression(declare);
+    const processObj = processObjectPattern({use, declare});
     
     const traverseAssign = traverseAssignmentExpression(use);
     const declareAssign = traverseAssignmentExpression(declare);
@@ -297,10 +298,7 @@ module.exports = ({use, declare, addParams}) => {
         
         ArrowFunctionExpression(path) {
             const paramsPaths = path.get('params');
-            const {
-                body,
-                params,
-            } = path.node;
+            const {body, params} = path.node;
             
             for (const paramPath of paramsPaths) {
                 const {node} = paramPath;
@@ -311,7 +309,7 @@ module.exports = ({use, declare, addParams}) => {
                 }
                 
                 if (isObjectPattern(node)) {
-                    declareObj(paramPath.get('properties'));
+                    processObj(paramPath.get('properties'));
                     continue;
                 }
                 
@@ -434,7 +432,6 @@ module.exports = ({use, declare, addParams}) => {
         
         FunctionDeclaration(path) {
             const {node} = path;
-            
             const {params} = node;
             const paramsPaths = path.get('params');
             
@@ -455,7 +452,7 @@ module.exports = ({use, declare, addParams}) => {
                 }
                 
                 if (isObjectPattern(node)) {
-                    traverseObj(paramPath.get('properties'));
+                    processObj(paramPath.get('properties'));
                     continue;
                 }
             }

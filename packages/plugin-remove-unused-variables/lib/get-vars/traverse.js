@@ -22,6 +22,31 @@ const traverseObjectPattern = (use) => {
 
 module.exports.traverseObjectPattern = traverseObjectPattern;
 
+const processObjectPattern = ({use, declare}) => {
+    return (propertiesPaths) => {
+        for (const path of propertiesPaths) {
+            const {key, value} = path.node;
+            
+            if (isIdentifier(value)) {
+                declare(path, value.name);
+                continue;
+            }
+            
+            if (isIdentifier(key)) {
+                declare(path, key.name);
+            }
+            
+            if (isAssignmentPattern(value)) {
+                const traverse = traverseAssignmentPattern(use);
+                traverse(path.get('value.right'));
+                continue;
+            }
+        }
+    };
+};
+
+module.exports.processObjectPattern = processObjectPattern;
+
 const traverseObjectExpression = (use) => {
     const traverseTmpl = traverseTemplateLiteral(use);
     
@@ -52,12 +77,6 @@ const traverseObjectExpression = (use) => {
             if (isObjectExpression(value)) {
                 const traverseObj = traverseObjectExpression(use);
                 traverseObj(path.get('value.properties'));
-                continue;
-            }
-            
-            if (isAssignmentPattern(value)) {
-                const traverse = traverseAssignmentPattern(use);
-                traverse(path.get('value.right'));
                 continue;
             }
         }
