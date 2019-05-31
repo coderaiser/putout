@@ -18,6 +18,8 @@ const putout = (code) => {
 const fixture = readFixtures([
     'array-pattern',
     'array-pattern-fix',
+    'assignment-pattern',
+    'assignment-pattern-fix',
     'arrow-function-expression',
     'arrow-function-expression-fix',
     'arrow-vars',
@@ -72,6 +74,14 @@ test('putout: array pattern', (t) => {
     const expected = fixture.arrayPatternFix;
     
     t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: assignment pattern', (t) => {
+    const {code} = putout(fixture.assignmentPattern);
+    const expected = fixture.assignmentPatternFix;
+    
+    t.deepEqual(expected, code, 'should equal');
     t.end();
 });
 

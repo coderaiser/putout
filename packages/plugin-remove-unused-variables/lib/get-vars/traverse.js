@@ -109,9 +109,18 @@ const traverseAssignmentExpression = (use) => {
     return (path) => {
         const {node} = path;
         
-        if (isIdentifier(node))
-            use(path.parentPath, node.name);
-        else if (isObjectExpression(node))
+        if (path.isIdentifier()) {
+            const {parentPath} = path;
+            
+            if (parentPath.parentPath.isObjectProperty())
+                use(parentPath.parentPath, node.name);
+            else
+                use(parentPath, node.name);
+            
+            return;
+        }
+        
+        if (isObjectExpression(node))
             traverseObjExpression(path.get('properties'));
         else if (isTemplateLiteral(node))
             traverseTmpl(path, node.expressions);
