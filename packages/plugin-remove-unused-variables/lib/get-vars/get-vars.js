@@ -393,8 +393,9 @@ module.exports = ({use, declare, addParams}) => {
         ExportDefaultDeclaration(path) {
             const declarationPath = path.get('declaration');
             const {declaration} = path.node;
+            const {id} = declaration;
             
-            if (isFunctionDeclaration(declaration))
+            if (id && isFunctionDeclaration(declaration))
                 use(path, declaration.id.name);
             else if (isIdentifier(declaration))
                 use(path, declaration.name);
@@ -432,10 +433,14 @@ module.exports = ({use, declare, addParams}) => {
         
         FunctionDeclaration(path) {
             const {node} = path;
-            const {params} = node;
+            const {
+                id,
+                params,
+            } = node;
             const paramsPaths = path.get('params');
             
-            declare(path, node.id.name);
+            if (id)
+                declare(path, node.id.name);
             
             for (const paramPath of paramsPaths) {
                 const {node} = paramPath;

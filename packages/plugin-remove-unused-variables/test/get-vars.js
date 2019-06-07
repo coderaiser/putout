@@ -26,6 +26,7 @@ const fixture = readFixtures([
     'destr-nested-vars',
     'destr-fn-vars',
     'export-default-function',
+    'export-default-anonymous-function',
     'export-default-class',
     'export-default-identifier',
     'export-default-object-expression',
@@ -563,6 +564,16 @@ test('remove-unused-variables: get-vars: export default function', (t) => {
             used: true,
         },
     }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: export default anonymous function', (t) => {
+    const ast = parse(fixture.exportDefaultAnonymousFunction);
+    const result = getVars(ast);
+    
+    const expected = [];
     
     t.deepEqual(result, expected, 'should equal');
     t.end();
