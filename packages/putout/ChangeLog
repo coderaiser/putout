@@ -1,3 +1,15 @@
+2019.06.07, v4.23.5
+
+fix:
+- (@putout/plugin-remove-unused-variables) unused variable on the left of AssignmentPattern in ObjectProperty
+
+feature:
+- (custom-parser) babel: add importMeta
+- (convert-pascal-to-camel) add
+- (@putout/plugin-remove-unused-variables) improve support of Property of ObjectPattern in FunctionDeclaration/ArrowFunctionExpression
+- (eslint-plugin-putout) multiple-properties-destructuring: add option minProperties (#3)
+
+
 2019.05.18, v4.23.4
 
 fix:
