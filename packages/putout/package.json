@@ -88,7 +88,7 @@
     "acorn-jsx": "^5.0.1",
     "acorn-stage3": "^2.0.0",
     "coveralls": "^3.0.0",
-    "eslint": "^5.6.0",
+    "eslint": "^6.0.0-rc.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-putout": "^1.0.0",
     "espree": "^6.0.0-alpha",
