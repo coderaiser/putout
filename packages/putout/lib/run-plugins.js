@@ -96,7 +96,7 @@ function superFind(find, ast) {
     
     return [
         ...pushItems,
-        ...(returnItems || []),
+        ...returnItems || [],
     ];
 }
 

@@ -20,6 +20,7 @@
             }
         }],
         "arrow-parens": ["error", "always"],
+        "no-extra-parens": "error",
         "no-multi-spaces": "error",
         "no-trailing-spaces": ["error", {
             "skipBlankLines": true

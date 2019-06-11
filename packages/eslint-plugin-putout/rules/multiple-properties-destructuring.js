@@ -16,7 +16,7 @@ module.exports = {
     },
     
     create(context) {
-        const {minProperties = 2} = (context.options[0] || {});
+        const {minProperties = 2} = context.options[0] || {};
         
         return {
             [`VariableDeclarator[id.type="ObjectPattern"][id.properties.length>${minProperties}]`]: (node) => {
