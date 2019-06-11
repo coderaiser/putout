@@ -1,0 +1,2 @@
+const hello = require('world');
+

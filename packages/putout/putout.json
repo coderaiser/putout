@@ -21,6 +21,7 @@
     "rules": {
         "madrun/*": false,
         "convert-esm-to-commonjs": false,
+        "convert-commonjs-to-esm": false,
         "remove-only": false,
         "remove-skip": false,
         "putout": false
@@ -41,6 +42,7 @@
         "remove-boolean-from-logical-expressions",
         "split-variable-declarations",
         "convert-esm-to-commonjs",
+        "convert-commonjs-to-esm",
         "convert-apply-to-spread",
         "convert-arguments-to-rest",
         "convert-object-assign-to-merge-spread",

@@ -1,0 +1,56 @@
+{
+  "name": "@putout/plugin-convert-commonjs-to-esm",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin adds ability to convert commonjs to ecma script module",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/convert-commonjs-to-esm.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "putout": "putout lib test",
+    "putout:fix": "putout --fix lib test",
+    "coverage": "madrun coverage"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "esm",
+    "commonjs"
+  ],
+  "devDependencies": {
+    "@babel/template": "^7.2.2",
+    "@putout/eslint-config": "^1.0.1",
+    "@putout/test": "^1.0.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^6.0.0-rc.0",
+    "eslint-plugin-node": "^8.0.0",
+    "lerna": "^3.8.5",
+    "madrun": "^2.0.0",
+    "nodemon": "^1.14.12",
+    "nyc": "^14.0.0",
+    "putout": "^3.9.0",
+    "supertape": "^1.0.3"
+  },
+  "peerDependencies": {
+    "putout": ">=4"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

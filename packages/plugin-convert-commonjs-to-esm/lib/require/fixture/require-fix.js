@@ -1,0 +1,2 @@
+import hello from 'world';
+

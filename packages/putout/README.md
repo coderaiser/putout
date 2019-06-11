@@ -29,6 +29,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - find and remove `boolean` from `logical expressions`;
 - if absent `strict mode` directive in `commonjs` add it;
 - convert `esm` to `commonjs`;
+- convert `commonjs` to `esm`;
 - apply destructuring;
 - merge destructuring properties;
 - convert `Math.pow` to `exponentiation operator`;
@@ -63,6 +64,7 @@ To configure create `.putout.json` file and override any option:
     "rules": {
         "madrun/*": false,
         "convert-esm-to-commonjs": false,
+        "convert-commonjs-to-esm": false,
         "remove-only": false,
         "remove-skip": false
     },
@@ -82,6 +84,7 @@ To configure create `.putout.json` file and override any option:
         "remove-boolean-from-logical-expressions",
         "split-variable-declarations",
         "convert-esm-to-commonjs",
+        "convert-commonjs-to-esm",
         "convert-apply-to-spread",
         "convert-arguments-to-rest",
         "convert-object-assign-to-merge-spread",
