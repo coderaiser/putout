@@ -1,3 +1,12 @@
+2019.06.12, v4.24.0
+
+feature:
+- (@putout/convert-commonjs-to-esm) add
+- (eslint-config) add no-extra-parens
+- (package) eslint 6.0.0-rc
+- (@putout/plugin-remove-unused-variables) add support of export default anonymous function
+
+
 2019.06.07, v4.23.5
 
 fix:
