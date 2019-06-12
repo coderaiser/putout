@@ -31,11 +31,11 @@
   ],
   "devDependencies": {
     "@babel/template": "^7.2.2",
-    "@putout/eslint-config": "^1.0.1",
     "@putout/test": "^1.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.0.0-rc.0",
     "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-putout": "^1.5.0",
     "lerna": "^3.8.5",
     "madrun": "^2.0.0",
     "nodemon": "^1.14.12",
