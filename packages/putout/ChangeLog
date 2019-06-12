@@ -1,3 +1,12 @@
+2019.06.12, v4.26.0
+
+fix:
+- (@putout/plugin-extract-sequence-expressions) remove redundant binaryExpression
+
+feature:
+- (putout) add operate
+
+
 2019.06.12, v4.25.0
 
 fix:
