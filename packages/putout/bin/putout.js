@@ -103,7 +103,7 @@ function processFiles(name, index, {length}) {
         .replace(/^\./, cwd);
     
     const [dirOpt, currOpt] = getOptions(cwd);
-    const options = merge(currOpt, defaultOptions);
+    const options = merge(defaultOptions, currOpt);
     const {match, formatter} = options;
     
     const ignorer = ignore();
