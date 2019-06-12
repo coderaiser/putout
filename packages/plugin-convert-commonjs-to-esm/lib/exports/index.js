@@ -8,6 +8,8 @@ const {
     Identifier,
 } = require('putout').types;
 
+const {replaceWith} = require('putout').operate;
+
 module.exports.report = () => 'ESM should be used insted of Commonjs';
 
 module.exports.fix = ({name, path, rightPath}) => {
@@ -22,7 +24,7 @@ module.exports.fix = ({name, path, rightPath}) => {
         VariableDeclarator(Identifier(name), node),
     ]);
     
-    parentPath.replaceWith(ExportNamedDeclaration(declarator, specifiers));
+    replaceWith(parentPath, ExportNamedDeclaration(declarator, specifiers));
 };
 
 const isObject = (path) => path.isIdentifier({

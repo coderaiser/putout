@@ -1,8 +1,10 @@
 'use strict';
 
+/* hello */
 export const remove = () => {
 };
 
+// hi
 export const removeMatch = () => {
 };
 

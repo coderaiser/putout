@@ -92,4 +92,5 @@ module.exports.types = types;
 module.exports.template = template;
 module.exports.generate = generate;
 module.exports.initReport = require('./report');
+module.exports.operate = require('./operate');
 

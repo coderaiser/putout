@@ -7,6 +7,8 @@ const putout = require('..');
 const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
+    'comment',
+    'comment-fix',
     'no-vars',
     'root-vars',
     'export-default-declaration',
@@ -37,10 +39,22 @@ test('putout: root vars', (t) => {
     });
     const expected = {
         code: fixture.rootVars,
-        places: [],
     };
     
     t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test.only('putout: comment', (t) => {
+    const result = putout(fixture.comment, {
+        plugins: [
+            'convert-commonjs-to-esm',
+        ],
+    });
+    
+    const expected = fixture.commentFix;
+    
+    t.deepEqual(result.code, expected, 'should equal');
     t.end();
 });
 
