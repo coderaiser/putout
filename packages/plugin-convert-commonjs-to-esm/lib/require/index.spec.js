@@ -21,6 +21,11 @@ test('plugin-convert-esm-to-commonjs: require: transform: destructuring', (t) =>
     t.end();
 });
 
+test('plugin-convert-esm-to-commonjs: require: transform: comment', (t) => {
+    t.transform('comment');
+    t.end();
+});
+
 test('plugin-convert-esm-to-commonjs: require: transform: no require', (t) => {
     t.noTransform('no-require');
     t.end();

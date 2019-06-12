@@ -39,13 +39,14 @@ test('putout: root vars', (t) => {
     });
     const expected = {
         code: fixture.rootVars,
+        places: [],
     };
     
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
 
-test.only('putout: comment', (t) => {
+test('putout: comment', (t) => {
     const result = putout(fixture.comment, {
         plugins: [
             'convert-commonjs-to-esm',

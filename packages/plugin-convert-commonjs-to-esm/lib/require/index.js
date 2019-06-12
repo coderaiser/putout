@@ -1,30 +1,37 @@
 'use strict';
 
 const {
+    types,
+    operate,
+} = require('putout');
+
+const {
     importDeclaration,
     importSpecifier,
     importDefaultSpecifier,
     isStringLiteral,
 
-} = require('putout').types;
+} = types;
+
+const {
+    replaceWith,
+} = operate;
 
 module.exports.report = () => 'ESM should be used insted of Commonjs';
 
 module.exports.fix = ({path, source, local, properties, isDefault}) => {
     const {parentPath} = path;
     
-    if (isDefault)
-        return parentPath.replaceWith(
-            importDeclaration([importDefaultSpecifier(local)], source)
-        );
+    if (isDefault) {
+        const declaration = importDeclaration([importDefaultSpecifier(local)], source);
+        return replaceWith(parentPath, declaration);
+    }
     
     const specifiers = [];
     for (const {key, value} of properties)
         specifiers.push(importSpecifier(key, value));
     
-    parentPath.replaceWith(
-        importDeclaration(specifiers, source)
-    );
+    replaceWith(parentPath, importDeclaration(specifiers, source));
 };
 
 module.exports.find = (ast, {push, traverse}) => {

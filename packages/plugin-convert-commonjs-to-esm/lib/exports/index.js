@@ -17,7 +17,7 @@ module.exports.fix = ({name, path, rightPath}) => {
     const {node} = rightPath;
     
     if (!name)
-        return parentPath.replaceWith(ExportDefaultDeclaration(node));
+        return replaceWith(parentPath, ExportDefaultDeclaration(node));
     
     const specifiers = [];
     const declarator = VariableDeclaration('const', [
