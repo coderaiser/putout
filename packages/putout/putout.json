@@ -27,6 +27,7 @@
         "putout": false
     },
     "plugins": [
+        "apply-destructuring",
         "madrun",
         "remove-debugger",
         "remove-only",
@@ -48,7 +49,7 @@
         "convert-object-assign-to-merge-spread",
         "convert-binary-expression-to-boolean",
         "convert-math-pow",
-        "apply-destructuring",
+        "extract-sequence-expressions",
         "merge-destructuring-properties",
         "strict-mode",
         "putout"
