@@ -1,7 +1,5 @@
 'use strict';
 
-const {binaryExpression} = require('putout').types;
-
 module.exports.report = () => 'sequence expressions should not be used';
 
 module.exports.fix = (path) => {
