@@ -13,15 +13,15 @@ module.exports.report = () => 'ESM should be used insted of Commonjs';
 module.exports.fix = ({name, path, rightPath}) => {
     const {parentPath} = path;
     const {node} = rightPath;
-
+    
     if (!name)
         return parentPath.replaceWith(ExportDefaultDeclaration(node));
-
+    
     const specifiers = [];
     const declarator = VariableDeclaration('const', [
         VariableDeclarator(Identifier(name), node),
     ]);
-
+    
     parentPath.replaceWith(ExportNamedDeclaration(declarator, specifiers));
 };
 
@@ -36,6 +36,11 @@ const isExports = (path) => path.isIdentifier({
 module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
         AssignmentExpression(path) {
+            const {parentPath} = path;
+            
+            if (parentPath.isSequenceExpression())
+                return;
+            
             const leftPath = path.get('left');
             const rightPath = path.get('right');
             

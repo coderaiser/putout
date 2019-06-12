@@ -26,6 +26,11 @@ test('plugin-convert-esm-to-commonjs: exports: transform: named', (t) => {
     t.end();
 });
 
+test('plugin-convert-esm-to-commonjs: exports: transform: multi', (t) => {
+    t.transform('multi');
+    t.end();
+});
+
 test('plugin-convert-esm-to-commonjs: exports: transform: no member expression', (t) => {
     t.noTransform('no-member-expression');
     t.end();
@@ -33,6 +38,11 @@ test('plugin-convert-esm-to-commonjs: exports: transform: no member expression',
 
 test('plugin-convert-esm-to-commonjs: exports: transform: no exports', (t) => {
     t.noTransform('no-exports');
+    t.end();
+});
+
+test('plugin-convert-esm-to-commonjs: exports: transform: sequance', (t) => {
+    t.noTransform('sequence');
     t.end();
 });
 
