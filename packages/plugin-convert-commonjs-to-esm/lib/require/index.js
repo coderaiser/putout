@@ -4,6 +4,7 @@ const {
     importDeclaration,
     importSpecifier,
     importDefaultSpecifier,
+    isStringLiteral,
 
 } = require('putout').types;
 
@@ -36,9 +37,13 @@ module.exports.find = (ast, {push, traverse}) => {
                 return;
             
             const calleePath = initPath.get('callee');
-            const [source] = initPath.node.arguments;
             
             if (!calleePath.isIdentifier({name: 'require'}))
+                return;
+            
+            const [source] = initPath.node.arguments;
+            
+            if (!isStringLiteral(source))
                 return;
             
             if (idPath.isIdentifier())
