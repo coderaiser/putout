@@ -1,3 +1,14 @@
+2019.06.12, v4.25.0
+
+fix:
+- (@putout/plugin-convert-commonjs-to-esm) rm console.log
+
+feature:
+- (@putout/plugin-extract-sequence-expressions) add
+- (@putout/plugin-convert-commonjs-to-esm) exclude sequence expressions
+- (@putout/plugin-convert-commonjs-to-esm) add support of named exports
+
+
 2019.06.12, v4.24.1
 
 fix:
