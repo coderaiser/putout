@@ -1,14 +1,30 @@
 'use strict';
 
-const {ExportDefaultDeclaration} = require('putout').types;
+const {
+    ExportDefaultDeclaration,
+    ExportNamedDeclaration,
+    VariableDeclaration,
+    VariableDeclarator,
+    Identifier,
+} = require('putout').types;
 
 module.exports.report = () => 'ESM should be used insted of Commonjs';
 
-module.exports.fix = ({path, rightPath}) => {
+module.exports.fix = ({name, path, rightPath}) => {
     const {parentPath} = path;
     const {node} = rightPath;
     
-    parentPath.replaceWith(ExportDefaultDeclaration(node));
+    console.log('name', name);
+    
+    if (!name)
+        return parentPath.replaceWith(ExportDefaultDeclaration(node));
+    
+    const specifiers = [];
+    const declarator = VariableDeclaration('const', [
+        VariableDeclarator(Identifier(name), node),
+    ]);
+    
+    parentPath.replaceWith(ExportNamedDeclaration(declarator, specifiers));
 };
 
 const isObject = (path) => path.isIdentifier({
@@ -32,13 +48,25 @@ module.exports.find = (ast, {push, traverse}) => {
             const objectPath = leftPath.get('object');
             const propertyPath = leftPath.get('property');
             
-            if (!isObject(objectPath) || !isExports(propertyPath))
+            if (isObject(objectPath) && isExports(propertyPath))
+                return push({
+                    path,
+                    rightPath,
+                });
+            
+            if (!objectPath.isMemberExpression())
                 return;
             
-            push({
-                path,
-                rightPath,
-            });
+            const nestedObjectPath = objectPath.get('object');
+            const nestedPropertyPath = objectPath.get('property');
+            const {name} = propertyPath.node;
+            
+            if (isObject(nestedObjectPath) && isExports(nestedPropertyPath))
+                return push({
+                    name,
+                    path,
+                    rightPath,
+                });
         },
     });
 };

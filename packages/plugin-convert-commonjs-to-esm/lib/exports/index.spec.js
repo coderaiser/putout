@@ -21,6 +21,11 @@ test('plugin-convert-esm-to-commonjs: exports: transform: string', (t) => {
     t.end();
 });
 
+test('plugin-convert-esm-to-commonjs: exports: transform: named', (t) => {
+    t.transform('named');
+    t.end();
+});
+
 test('plugin-convert-esm-to-commonjs: exports: transform: no member expression', (t) => {
     t.noTransform('no-member-expression');
     t.end();
