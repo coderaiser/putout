@@ -12,7 +12,8 @@
         "test|.spec.js": {
             "remove-only": true,
             "remove-skip": true,
-            "putout": true
+            "putout/convert-to-no-transfrom-code": true,
+            "putout/convert-replace-with": false
         }
     },
     "ignore": [
