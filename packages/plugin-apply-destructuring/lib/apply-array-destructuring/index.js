@@ -1,8 +1,12 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
+const {
+    types,
+    operate,
+} = require('putout');
 
-const {arrayPattern} = require('putout').types;
+const {replaceWith} = operate;
+const {arrayPattern} = types;
 
 module.exports.fix = ({path, initPath}) => {
     replaceWith(initPath, initPath.node.object);

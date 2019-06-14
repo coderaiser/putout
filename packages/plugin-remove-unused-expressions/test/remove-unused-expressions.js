@@ -20,3 +20,11 @@ test('remove unused expression: transformCode: used', (t) => {
     t.end();
 });
 
+test('remove unused expression: transformCode: used', (t) => {
+    const from = `"use strict"; "use strict";`;
+    const to = '"use strict";';
+    
+    t.transformCode(from, to);
+    t.end();
+});
+

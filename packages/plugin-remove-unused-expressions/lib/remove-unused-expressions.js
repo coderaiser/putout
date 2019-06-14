@@ -7,8 +7,16 @@ module.exports.find = (ast, {push, traverse}) => {
         ExpressionStatement(path) {
             const expressionPath = path.get('expression');
             
-            if (expressionPath.isIdentifier()) {
-                push(expressionPath);
+            if (expressionPath.isIdentifier())
+                return push(expressionPath);
+            
+            if (expressionPath.isLiteral()) {
+                const {body} = expressionPath.parentPath.parentPath.node;
+                
+                if (!body.indexOf(expressionPath.parentPath.node))
+                    return;
+                
+                return push(expressionPath);
             }
         },
     });
