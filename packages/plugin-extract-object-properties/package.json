@@ -1,0 +1,54 @@
+{
+  "name": "@putout/plugin-extract-object-properties",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin adds ability to extract object properties into variable",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/extract-object-properties.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint:lib": "madrun lint:lib",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "putout": "madrun putout",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "remove",
+    "only"
+  ],
+  "devDependencies": {
+    "@putout/test": "^1.3.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^6.0.0-rc",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-putout": "^1.5.0",
+    "madrun": "^2.0.0",
+    "nyc": "^14.0.0",
+    "putout": "^4.3.2",
+    "supertape": "^1.0.3"
+  },
+  "peerDependencies": {
+    "putout": ">=4.28"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

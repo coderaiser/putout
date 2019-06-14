@@ -38,6 +38,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `Object.assign` to `merge spread`;
 - convert `binary expression` to `boolean`;
 - extract sequence expressions;
+- extract object properties;
 
 ## Configuration
 
@@ -70,6 +71,8 @@ To configure create `.putout.json` file and override any option:
         "remove-skip": false
     },
     "plugins": [
+        "extract-sequence-expressions",
+        "extract-object-properties",
         "madrun",
         "remove-debugger",
         "remove-only",
