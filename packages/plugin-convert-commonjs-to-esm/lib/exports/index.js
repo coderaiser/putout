@@ -2,7 +2,7 @@
 
 const {
     operate,
-    types
+    types,
 } = require('putout');
 
 const {
