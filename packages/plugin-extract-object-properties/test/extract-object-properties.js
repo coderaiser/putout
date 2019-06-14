@@ -19,6 +19,11 @@ test('plugin-extract-object-properties: transform: function', (t) => {
     t.end();
 });
 
+test('plugin-extract-object-properties: transform: function', (t) => {
+    t.noTransform('fn-args');
+    t.end();
+});
+
 test('plugin-extract-object-properties: transform: no var', (t) => {
     t.noTransform('not-var');
     t.end();

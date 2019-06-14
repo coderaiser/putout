@@ -2,7 +2,7 @@
 
 const {replaceWith} = require('putout').operate;
 
-const {template} = require('putout');
+const {template, generate} = require('putout');
 
 module.exports.report = () => `object properties should be extracted into variables`;
 
@@ -42,14 +42,14 @@ module.exports.find = (ast, {traverse}) => {
             
             if (objectPath.isIdentifier())
                 return add({
-                    name: object.name,
+                    name: generate(object, {comments: false}).code,
                     items,
                     path,
                 });
             
             if (objectPath.isCallExpression())
                 return add({
-                    name: object.callee.name,
+                    name: generate(objectPath.node, {comments: false}).code,
                     items,
                     path,
                 });
