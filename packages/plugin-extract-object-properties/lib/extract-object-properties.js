@@ -37,6 +37,9 @@ module.exports.find = (ast, {traverse}) => {
             if (path.node.property.name === 'default')
                 return;
             
+            if (!path.parentPath.get('id').isObjectPattern())
+                return;
+            
             const objectPath = path.get('object');
             const object = objectPath.node;
             
