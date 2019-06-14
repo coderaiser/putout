@@ -1,13 +1,18 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
+const {
+    types,
+    operate,
+} = require('putout');
+
+const {replaceWith} = operate;
 
 const {
     ObjectExpression,
     SpreadElement,
     isObjectExpression,
     isIdentifier,
-} = require('putout').types;
+} = types;
 
 module.exports.report = () => 'Merge spread should be used instead of Object.assign';
 

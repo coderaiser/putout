@@ -1,8 +1,13 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
+const {
+    types,
+    operate,
+} = require('putout');
 
-const {binaryExpression} = require('putout').types;
+const {replaceWith} = operate;
+
+const {binaryExpression} = types;
 
 module.exports.report = () => 'operator "**" should be used instead of Math.pow';
 

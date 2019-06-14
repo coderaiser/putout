@@ -1,11 +1,16 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
+const {
+    types,
+    operate,
+} = require('putout');
+
+const {replaceWith} = operate;
 
 const {
     isIdentifier,
     BooleanLiteral,
-} = require('putout').types;
+} = types;
 
 const {runInNewContext} = require('vm');
 

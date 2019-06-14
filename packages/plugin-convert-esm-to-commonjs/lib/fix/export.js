@@ -1,8 +1,14 @@
 'use strict';
 
 const {
+    types,
+    operate,
+    template
+} = require('putout');
+
+const {
     replaceWith,
-} = require('putout').operate;
+} = operate;
 
 const {
     isFunctionDeclaration,
@@ -10,9 +16,7 @@ const {
     isClassDeclaration,
     functionExpression,
     classExpression,
-} = require('putout').types;
-
-const {template} = require('putout');
+} = types;
 
 const {assign} = Object;
 

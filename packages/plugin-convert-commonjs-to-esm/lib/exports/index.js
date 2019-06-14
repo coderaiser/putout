@@ -1,14 +1,19 @@
 'use strict';
 
 const {
+    operate,
+    types
+} = require('putout');
+
+const {
     ExportDefaultDeclaration,
     ExportNamedDeclaration,
     VariableDeclaration,
     VariableDeclarator,
     Identifier,
-} = require('putout').types;
+} = types;
 
-const {replaceWith} = require('putout').operate;
+const {replaceWith} = operate;
 
 module.exports.report = () => 'ESM should be used insted of Commonjs';
 

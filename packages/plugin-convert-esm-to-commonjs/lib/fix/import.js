@@ -64,16 +64,21 @@ function getImportDefaultVar(name, node) {
 }
 
 function getImportVar(name, node) {
-    const IMPORTED = node.imported;
-    const LOCAL = node.local;
+    const {
+        local,
+        imported
+    } = node;
+
+    const IMPORTED = imported;
+    const LOCAL = local;
     const NAME = name;
-    
+
     if (IMPORTED.name === LOCAL.name)
         return convertDestructure({
             IMPORTED,
             NAME,
         });
-    
+
     return convertDestructureRename({
         IMPORTED,
         LOCAL,

@@ -1,8 +1,13 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
+const {
+    types,
+    operate,
+} = require('putout');
 
-const {isIdentifier} = require('putout').types;
+const {replaceWith} = operate;
+
+const {isIdentifier} = types;
 
 const {runInNewContext} = require('vm');
 

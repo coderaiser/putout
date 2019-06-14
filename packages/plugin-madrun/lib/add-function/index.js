@@ -1,12 +1,17 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
+const {
+    types,
+    operate,
+} = require('putout');
+
+const {replaceWith} = operate;
 
 const {
     isLiteral,
     isObjectExpression,
     arrowFunctionExpression,
-} = require('putout').types;
+} = types;
 
 module.exports.report = ({name}) => `function should be used instead of string in script "${name}`;
 

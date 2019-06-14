@@ -1,13 +1,18 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
+const {
+    types,
+    operate,
+} = require('putout');
+
+const {replaceWith} = operate;
 
 const {
     isIdentifier,
     isClassMethod,
     identifier,
     functionDeclaration,
-} = require('putout').types;
+} = types;
 
 module.exports = (path) => {
     const {node} = path;
