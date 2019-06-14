@@ -6,7 +6,7 @@ const {
     isCallExpression,
     isLiteral,
     stringLiteral,
-} = require('@babel/types');
+} = require('putout').types;
 
 module.exports.report = (path) => {
     const {node} = path;
@@ -16,18 +16,19 @@ module.exports.report = (path) => {
     } = node;
     
     if (isTryTo(id))
-        return '"tryTo" should not be declared'
+        return '"tryTo" should not be declared';
     
     if (isTryToTape(id))
-        return '"tryToTape" should not be declared'
+        return '"tryToTape" should not be declared';
     
     if (isCallExpression(node) && isTryTo(callee))
-        return "tryTo should not be called";
+        return 'tryTo should not be called';
     
     if (isCallExpression(node) && isTryToTape(callee))
-        return "tryToTape should not be called";
+        return 'tryToTape should not be called';
     
     const [arg] = node.arguments;
+    
     if (isRequire(callee) && isTape(arg))
         return '"supertape" should be used instead of "tape"';
 };
@@ -58,6 +59,7 @@ module.exports.fix = (path) => {
     }
     
     const [argPath]= path.get('arguments');
+    
     if (isRequire(callee) && isTape(argPath.node)) {
         argPath.replaceWith(stringLiteral('supertape'));
         return;
@@ -85,9 +87,7 @@ module.exports.find = (ast, {traverse}) => {
         
         CallExpression(path) {
             const {node} = path;
-            const {
-                callee,
-            } = node;
+            const {callee} = node;
             
             if (isTryTo(callee)) {
                 places.push(path);
@@ -100,37 +100,38 @@ module.exports.find = (ast, {traverse}) => {
             }
             
             const [argument] = node.arguments;
+            
             if (isRequire(callee) && isTape(argument)) {
                 places.push(path);
                 return;
             }
-        }
+        },
     });
     
     return places;
-}
+};
 
 function isTryTo(node) {
     return isIdentifier(node, {
-        name: 'tryTo'
+        name: 'tryTo',
     });
 }
 
 function isTryToTape(node) {
     return isIdentifier(node, {
-        name: 'tryToTape'
+        name: 'tryToTape',
     });
 }
 
 function isRequire(node) {
     return isIdentifier(node, {
-        name: 'require'
+        name: 'require',
     });
 }
 
 function isTape(node) {
     return isLiteral(node, {
-        value: 'tape'
+        value: 'tape',
     });
 }
 
