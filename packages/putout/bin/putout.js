@@ -105,6 +105,7 @@ function processFiles(name, index, {length}) {
     const [dirOpt, currOpt] = getOptions(cwd);
     const options = merge(defaultOptions, currOpt);
     const {match, formatter} = options;
+    const format = getFormatter(argv.format || formatter);
     
     const ignorer = ignore();
     
@@ -113,8 +114,18 @@ function processFiles(name, index, {length}) {
     
     const relativeName = getRelativePath(resolvedName, dirOpt);
     
-    if (dirOpt && ignorer.ignores(relativeName))
-        return;
+    if (dirOpt && ignorer.ignores(relativeName)) {
+        const line = report(format, {
+            name: resolvedName,
+            places: [],
+            index,
+            count: length,
+            source: '',
+        });
+        
+        process.stdout.write(line || '');
+        return line;
+    }
     
     const input = readFileSync(name, 'utf8');
     
@@ -148,8 +159,6 @@ function processFiles(name, index, {length}) {
     
     if (fix && input !== code)
         return writeFileSync(name, code);
-    
-    const format = getFormatter(argv.format || formatter);
     
     const line = report(format, {
         name: resolvedName,
