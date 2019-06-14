@@ -27,11 +27,12 @@ module.exports.find = (ast, {push, traverse}) => {
             } = callee;
             
             const name = 'process';
+            
             if (!isIdentifier(object, {name}))
                 return;
             
             traverseProperty('exit', path, property, push);
-        }
+        },
     });
 };
 
