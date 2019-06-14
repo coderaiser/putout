@@ -20,6 +20,8 @@ npm i @putout/plugin-putout -D
 {
     "rules": {
         "putout/convert-to-no-transform-code": true
+        "putout/convert-replace-with": true
+        "putout/convert-babel-types": true
     }
 }
 ```
@@ -46,6 +48,70 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
     t.noTransformCode(code);
     t.end();
 });
+```
+
+## convert-replace-with
+
+### ❌ Incorrect code example
+
+```js
+module.exports.fix = (path) => {
+    path.replaceWith(Identifier('hello'));
+};
+```
+
+### ✅ Correct code Example
+
+```js
+const {replaceWith} = require('putout').operate;
+
+module.exports.fix = (path) => {
+    replaceWith(path, Identifier('hello'));
+};
+```
+
+## convert-replace-with
+
+### ❌ Incorrect code example
+
+```js
+module.exports.fix = (path) => {
+    path.replaceWith(Identifier('hello'));
+};
+```
+
+### ✅ Correct code Example
+
+```js
+const {replaceWith} = require('putout').operate;
+
+module.exports.fix = (path) => {
+    replaceWith(path, Identifier('hello'));
+};
+```
+
+## convert-babel-types
+
+### ❌ Incorrect code example
+
+```js
+const {
+    ObjectExpression,
+    SpreadElement,
+    isObjectExpression,
+    isIdentifier,
+} = require('@babel/types');
+```
+
+### ✅ Correct code Example
+
+```js
+const {
+    ObjectExpression,
+    SpreadElement,
+    isObjectExpression,
+    isIdentifier,
+} = require('putout').types;
 ```
 
 ## License

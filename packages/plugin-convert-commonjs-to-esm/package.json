@@ -30,7 +30,6 @@
     "commonjs"
   ],
   "devDependencies": {
-    "@babel/template": "^7.2.2",
     "@putout/test": "^1.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.0.0-rc.0",

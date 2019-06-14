@@ -1,9 +1,8 @@
 'use strict';
 
 const test = require('supertape');
-const template = require('@babel/template').default;
 
-const {parse} = require('putout');
+const {parse, template} = require('putout');
 
 const getVars = require('../lib/get-vars');
 const {readFixtures} = require('./fixture');

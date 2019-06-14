@@ -4,7 +4,7 @@ const {
     isForStatement,
     variableDeclaration,
     variableDeclarator,
-} = require('@babel/types');
+} = require('putout').types;
 
 const {assign} = Object;
 

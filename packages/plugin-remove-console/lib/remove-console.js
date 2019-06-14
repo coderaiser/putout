@@ -4,7 +4,7 @@ const {
     isIdentifier,
     isLiteral,
     isMemberExpression,
-} = require('@babel/types');
+} = require('putout').types;
 
 module.exports.report = () => 'Unexpected "console" call';
 
@@ -18,6 +18,7 @@ module.exports.find = (ast, {traverse}) => {
     traverse(ast, {
         CallExpression(path) {
             const {callee} = path.node;
+            
             if (!isMemberExpression(callee))
                 return;
             
@@ -50,7 +51,7 @@ module.exports.find = (ast, {traverse}) => {
                 return;
             
             places.push(path);
-        }
+        },
     });
     
     return places;

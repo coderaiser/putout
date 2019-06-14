@@ -9,9 +9,6 @@
             "remove-process-exit": false,
             "remove-console": false
         },
-        "lib": {
-            "putout/convert-replace-with": true
-        },
         "test|.spec.js": {
             "remove-only": true,
             "remove-skip": true

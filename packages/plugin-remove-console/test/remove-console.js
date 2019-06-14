@@ -2,7 +2,7 @@
 
 const removeConsole = require('..');
 const test = require('@putout/test')(__dirname, {
-    'remove-console': removeConsole
+    'remove-console': removeConsole,
 });
 
 test('plugin-remove-console: report', (t) => {
