@@ -81,3 +81,50 @@ test('putout: operate: insertAfter: comments', (t) => {
     t.end();
 });
 
+test('putout: operate: replaceWithMultiple', (t) => {
+    const node = {};
+    const comments = [];
+    
+    const replaceWithMultiple = stub().returns([{
+        node,
+    }]);
+    const parentPath = {
+        node: {
+            comments,
+        },
+    };
+    
+    const path = {
+        parentPath,
+        replaceWithMultiple,
+    };
+    
+    operate.replaceWithMultiple(path, node);
+    
+    t.ok(replaceWithMultiple.calledWith(node), 'should call reporter');
+    t.end();
+});
+
+test('putout: operate: replaceWithMultiple: comments', (t) => {
+    const node = {};
+    const replaceWithMultiple = stub().returns([{
+        node,
+    }]);
+    const comments = [];
+    const parentPath = {
+        node: {
+            comments,
+        },
+    };
+    
+    const path = {
+        parentPath,
+        replaceWithMultiple,
+    };
+    
+    const newPath = operate.replaceWithMultiple(path, node);
+    
+    t.deepEqual(newPath[0].node.comments, comments, 'should call reporter');
+    t.end();
+});
+

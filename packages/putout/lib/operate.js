@@ -7,6 +7,15 @@ module.exports.replaceWith = (path, node) => {
     path.node.comments = comments;
 };
 
+module.exports.replaceWithMultiple = (path, nodes) => {
+    const {comments} = path.parentPath.node;
+    
+    const newPath = path.replaceWithMultiple(nodes);
+    newPath[0].node.comments = comments;
+    
+    return newPath;
+};
+
 module.exports.insertAfter = (path, node) => {
     const {comments} = path.node;
     
