@@ -1,6 +1,10 @@
 'use strict';
 
 const {
+    replaceWith,
+} = require('putout').operate;
+
+const {
     isFunctionDeclaration,
     isVariableDeclaration,
     isClassDeclaration,
@@ -24,7 +28,7 @@ module.exports.convertNamedExport = (path) => {
     const DECLARATION = getDeclaration(declaration);
     const NAME = getName(declaration);
     
-    path.replaceWith(convert({
+    replaceWith(path, convert({
         NAME,
         DECLARATION,
     }));
@@ -38,7 +42,7 @@ module.exports.convertDefaultExport = (path) => {
     
     const DECLARATION = getDeclaration(declaration);
     
-    path.replaceWith(convert({
+    replaceWith(path, convert({
         DECLARATION,
     }));
 };

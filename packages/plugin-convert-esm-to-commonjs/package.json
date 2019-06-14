@@ -21,7 +21,9 @@
     "putout:fix": "putout --fix lib test",
     "coverage": "madrun coverage"
   },
-  "dependencies": {},
+  "dependencies": {
+    "eslint-plugin-putout": "^1.5.0"
+  },
   "keywords": [
     "putout",
     "putout-plugin",
@@ -30,8 +32,6 @@
     "commonjs"
   ],
   "devDependencies": {
-    "@babel/template": "^7.2.2",
-    "@putout/eslint-config": "^1.0.1",
     "@putout/test": "^1.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^5.6.0",

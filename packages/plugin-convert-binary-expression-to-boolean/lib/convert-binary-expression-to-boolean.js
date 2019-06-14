@@ -1,5 +1,7 @@
 'use strict';
 
+const {replaceWith} = require('putout').operate;
+
 const {
     isIdentifier,
     BooleanLiteral,
@@ -10,7 +12,7 @@ const {runInNewContext} = require('vm');
 module.exports.report = () => 'constant conditions should be avoided';
 
 module.exports.fix = ({path, boolean}) => {
-    path.replaceWith(BooleanLiteral(boolean));
+    replaceWith(path, BooleanLiteral(boolean));
 };
 
 module.exports.find = (ast, {push, generate, traverse}) => {

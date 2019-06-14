@@ -9,15 +9,17 @@
             "remove-process-exit": false,
             "remove-console": false
         },
+        "lib": {
+            "putout/convert-replace-with": true
+        },
         "test|.spec.js": {
             "remove-only": true,
-            "remove-skip": true,
-            "putout/convert-to-no-transfrom-code": true,
-            "putout/convert-replace-with": false
+            "remove-skip": true
         }
     },
     "ignore": [
-        "node_modules"
+        "node_modules",
+        "fixture"
     ],
     "rules": {
         "madrun/*": false,

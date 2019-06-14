@@ -1,11 +1,13 @@
 'use strict';
 
+const {replaceWith} = require('putout').operate;
+
 const {binaryExpression} = require('putout').types;
 
 module.exports.report = () => 'operator "**" should be used instead of Math.pow';
 
 module.exports.fix = ({path, left, right}) => {
-    path.replaceWith(binaryExpression('**', left, right));
+    replaceWith(path, binaryExpression('**', left, right));
 };
 
 module.exports.find = (ast, {push, traverse}) => {

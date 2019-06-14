@@ -1,5 +1,7 @@
 'use strict';
 
+const {replaceWith} = require('putout').operate;
+
 const {
     isIdentifier,
     isClassMethod,
@@ -38,7 +40,7 @@ module.exports = (path) => {
             funcs.push(createFunction(item.key, item.params, item.body));
     }
     
-    path.replaceWith(render);
+    replaceWith(path, render);
     
     for (const fn of funcs) {
         path.node.body.body.splice(-1, 0, fn);

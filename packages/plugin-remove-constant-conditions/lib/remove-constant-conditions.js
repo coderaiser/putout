@@ -1,5 +1,7 @@
 'use strict';
 
+const {replaceWith} = require('putout').operate;
+
 const {isIdentifier} = require('putout').types;
 
 const {runInNewContext} = require('vm');
@@ -18,7 +20,7 @@ module.exports.fix = ({path, result}) => {
     if (!alternate)
         return path.remove();
     
-    path.replaceWith(alternate);
+    replaceWith(path, alternate);
 };
 
 module.exports.find = (ast, {push, generate, traverse}) => {

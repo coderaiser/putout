@@ -13,9 +13,7 @@ const {
 
 } = types;
 
-const {
-    replaceWith,
-} = operate;
+const {replaceWith} = operate;
 
 module.exports.report = () => 'ESM should be used insted of Commonjs';
 

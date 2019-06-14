@@ -1,5 +1,7 @@
 'use strict';
 
+const {replaceWith} = require('putout').operate;
+
 const {
     ObjectExpression,
     SpreadElement,
@@ -23,7 +25,7 @@ module.exports.fix = (path) => {
     
     }
     
-    path.replaceWith(ObjectExpression(properties));
+    replaceWith(path, ObjectExpression(properties));
 };
 
 module.exports.find = (ast, {push, traverse}) => {

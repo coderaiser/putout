@@ -1,5 +1,7 @@
 'use strict';
 
+const {replaceWith} = require('putout').operate;
+
 const {
     generate,
     types,
@@ -11,12 +13,11 @@ module.exports.report = () => '"spread" should be used instead of "apply"';
 
 module.exports.fix = (path) => {
     const calleePath = path.get('callee');
-    calleePath.replaceWith(calleePath.get('object'));
+    replaceWith(calleePath, calleePath.get('object'));
     const [, argumentsPath] = path.get('arguments');
     
-    path.node.arguments = [
-        spreadElement(argumentsPath.node),
-    ];
+    replaceWith(path.get('arguments.0'), spreadElement(argumentsPath.node));
+    argumentsPath.remove();
 };
 
 module.exports.find = (ast, {push, traverse}) => {
@@ -50,8 +51,9 @@ module.exports.find = (ast, {push, traverse}) => {
 };
 
 function compare(object, context) {
-    const objectCode = generate(object).code;
-    const contextCode = generate(context).code;
+    const comments = false;
+    const objectCode = generate(object, {comments}).code;
+    const contextCode = generate(context, {comments}).code;
     
     return !objectCode.indexOf(contextCode);
 }

@@ -1,13 +1,13 @@
 'use strict';
 
-const {
-    arrayPattern,
-} = require('putout').types;
+const {replaceWith} = require('putout').operate;
+
+const {arrayPattern} = require('putout').types;
 
 module.exports.fix = ({path, initPath}) => {
-    initPath.replaceWith(initPath.node.object);
+    replaceWith(initPath, initPath.node.object);
     
-    path.replaceWith(arrayPattern([
+    replaceWith(path, arrayPattern([
         path.node,
     ]));
 };

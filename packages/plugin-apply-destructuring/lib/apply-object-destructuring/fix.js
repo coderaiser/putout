@@ -1,5 +1,7 @@
 'use strict';
 
+const {replaceWith} = require('putout').operate;
+
 const {template} = require('putout');
 
 module.exports = (path) => {
@@ -28,6 +30,6 @@ module.exports = (path) => {
         OBJECT,
     });
     
-    parentPath.replaceWith(resultNode);
+    replaceWith(parentPath, resultNode);
 };
 

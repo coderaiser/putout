@@ -1,11 +1,13 @@
 'use strict';
 
+const {replaceWith} = require('putout').operate;
+
 const {traverseClass} = require('../common');
 
 module.exports.report = ({name}) => `should be used "${name}" instead of "this.${name}"`;
 
 module.exports.fix = ({path}) => {
-    path.replaceWith(path.get('property'));
+    replaceWith(path, path.get('property'));
 };
 
 module.exports.find = (ast, {push}) => {

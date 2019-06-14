@@ -1,4 +1,9 @@
 {
+    "match": {
+        "lib/operate.js": {
+            "putout/convert-replace-with": false
+        }
+    },
     "ignore": [
         "test/fixture"
     ]

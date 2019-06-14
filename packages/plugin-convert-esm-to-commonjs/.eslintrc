@@ -4,7 +4,7 @@
         "plugin:node/recommended"
     ],
     "plugins": [
+        "putout",
         "node",
-        "putout"
     ]
 }

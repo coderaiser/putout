@@ -1,5 +1,7 @@
 'use strict';
 
+const {replaceWith} = require('putout').operate;
+
 const {
     isLiteral,
     isObjectExpression,
@@ -36,7 +38,7 @@ module.exports.find = (ast, {push, traverse}) => {
 };
 
 module.exports.fix = ({path}) => {
-    path.replaceWith(arrowFunctionExpression([], path.node));
+    replaceWith(path, arrowFunctionExpression([], path.node));
 };
 
 function isModuleExports(path) {
