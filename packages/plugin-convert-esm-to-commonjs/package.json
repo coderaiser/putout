@@ -22,7 +22,6 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "eslint-plugin-putout": "^1.5.0"
   },
   "keywords": [
     "putout",
@@ -32,6 +31,7 @@
     "commonjs"
   ],
   "devDependencies": {
+    "eslint-plugin-putout": "^1.5.0",
     "@putout/test": "^1.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^5.6.0",
