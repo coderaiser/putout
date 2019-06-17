@@ -3,7 +3,7 @@
 const {
     types,
     operate,
-    template
+    template,
 } = require('putout');
 
 const {

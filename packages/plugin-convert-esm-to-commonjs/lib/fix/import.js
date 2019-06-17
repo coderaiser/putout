@@ -66,7 +66,7 @@ function getImportDefaultVar(name, node) {
 function getImportVar(name, node) {
     const {
         local,
-        imported
+        imported,
     } = node;
 
     const IMPORTED = imported;
