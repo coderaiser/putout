@@ -102,7 +102,7 @@
     "codegen.macro": "^3.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.0.0-rc.0",
-    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-putout": "^1.0.0",
     "espree": "^6.0.0-alpha",
     "just-camel-case": "^4.0.2",
