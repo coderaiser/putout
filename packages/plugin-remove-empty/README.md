@@ -25,7 +25,7 @@ Rules `remove-empty` is enabled by default, to disable add to `.putout.json`:
 {
     "rules": {
         "remove-empty/block": false,
-        "remove-empty/pattern": false
+        "remove-empty/pattern": false,
         "remove-empty/import": false
     }
 }
