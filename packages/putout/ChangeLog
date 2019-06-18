@@ -1,3 +1,19 @@
+2019.06.18, v4.30.0
+
+fix:
+- (@putout/plugin-convert-commonjs-to-esm) npmignore
+- (@putout/plugin-convert-esm-to-commonjs) npmignore
+- (@putout/plugin-remove-process-exit) eslint-plugin-putout: dependency -> devDependency
+- (@putout/plugin-remove-console) eslint-plugin-putout: dependency -> devDependency
+- (@putout/plugin-convert-esm-to-commonjs) eslint-plugin-putout: dependency -> devDependency
+- (@putout/plugin-extract-object-properties) add support of no destructuring
+- (@putout/plugin-extract-object-properties) different function arguments
+
+feature:
+- (putout) add bundle dist/putout.js
+- (@putout/plugin-remove-unused-expressions) add support of Literal
+
+
 2019.06.14, v4.29.0
 
 feature:
