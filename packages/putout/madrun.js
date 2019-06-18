@@ -8,7 +8,7 @@ const lintScripts = [
 ];
 
 module.exports = {
-    "prepublishOnly": () => run('build'),
+    'prepublishOnly': () => run('build'),
     'build:base': () => 'webpack --config ./.webpack/webpack.config.js',
     'build': () => run('build:base', '--mode production'),
     'build:dev': () => run('build:base', '--mode development'),
