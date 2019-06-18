@@ -625,10 +625,14 @@ putout --fix lib && eslint --fix lib
 
 ## API
 
+*To use in the browser use require("putout/dist/putout.js")*
+
 ### putout(source)
 
 ```js
 const {readFileSync} = require('fs');
+const putout = require('putout');
+
 const source = readFileSync('./1.js', 'utf8');
 console.log(source);
 // outputs
