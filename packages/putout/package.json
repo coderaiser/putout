@@ -13,12 +13,18 @@
     "url": "git://github.com/coderaiser/putout.git"
   },
   "scripts": {
+    "prepublishOnly": "madrun prepublishOnly",
+    "build:base": "madrun build:base",
+    "build": "madrun build",
+    "build:dev": "madrun build:dev",
     "test": "madrun test",
     "watch:test": "madrun watch:test",
+    "lint:lib": "madrun lint:lib",
+    "lint:test": "madrun lint:test",
+    "lint:bin": "madrun lint:bin",
     "lint": "madrun lint",
     "fix:lint": "madrun fix:lint",
-    "putout": "bin/putout.js bin lib test",
-    "putout:fix": "bin/putout.js --fix bin lib test",
+    "putout": "madrun putout",
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
@@ -86,10 +92,14 @@
     "unused"
   ],
   "devDependencies": {
+    "@babel/core": "^7.4.5",
     "@cloudcmd/stub": "^2.3.1",
     "acorn": "^6.1.1",
     "acorn-jsx": "^5.0.1",
     "acorn-stage3": "^2.0.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-macros": "^2.6.1",
+    "codegen.macro": "^3.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.0.0-rc.0",
     "eslint-plugin-node": "^8.0.1",
@@ -101,7 +111,9 @@
     "mock-require": "^3.0.2",
     "nodemon": "^1.14.12",
     "nyc": "^14.0.0",
-    "supertape": "^1.0.3"
+    "supertape": "^1.0.3",
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4"
   },
   "license": "MIT",
   "engines": {

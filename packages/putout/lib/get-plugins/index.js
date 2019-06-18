@@ -113,6 +113,12 @@ function requirePlugin(name, fn) {
             userPlugin,
         ];
     
+    if (Module.plugins && Module.plugins[name])
+        return [
+            name,
+            Module.plugins[name],
+        ];
+    
     throw Error(`Plugin "putout-plugin-${name} could not be found!`);
 }
 

@@ -8,6 +8,10 @@ const lintScripts = [
 ];
 
 module.exports = {
+    "prepublishOnly": () => run('build'),
+    'build:base': () => 'webpack --config ./.webpack/webpack.config.js',
+    'build': () => run('build:base', '--mode production'),
+    'build:dev': () => run('build:base', '--mode development'),
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w lib -w test -x ${run('test')}`,
     'lint:lib': () => `eslint lib`,
