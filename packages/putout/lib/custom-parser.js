@@ -43,6 +43,7 @@ function babelParse(source) {
             'classPrivateProperties',
             'classPrivateMethods',
             'classProperties',
+            'numericSeparator',
         ],
     });
 }
