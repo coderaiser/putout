@@ -1,3 +1,15 @@
+2019.06.19, v4.31.0
+
+fix:
+- feature(@putout/eslint-config) add function-paren-newline, space-infix-ops
+- (pascal-to-camel) isBig
+
+feature:
+- (putout) speed up: add ability to merge visitors
+- (@putout/eslint-config) add function-paren-newline, space-infix-ops
+- (package) eslint-plugin-node v9.1.0
+
+
 2019.06.18, v4.30.0
 
 fix:
