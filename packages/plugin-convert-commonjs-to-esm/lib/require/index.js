@@ -19,6 +19,7 @@ module.exports.report = () => 'ESM should be used insted of Commonjs';
 
 module.exports.fix = ({path, source, local, properties, isDefault}) => {
     const {parentPath} = path;
+    source.value = addExtToRelative(source.value);
     
     if (isDefault) {
         const declaration = importDeclaration([importDefaultSpecifier(local)], source);
@@ -72,4 +73,11 @@ module.exports.traverse = ({push}) => {
         },
     };
 };
+
+function addExtToRelative(str) {
+    if (str.indexOf('./'))
+        return str;
+    
+    return `${str}.js`;
+}
 

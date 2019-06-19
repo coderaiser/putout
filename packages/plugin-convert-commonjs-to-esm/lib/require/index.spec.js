@@ -26,6 +26,11 @@ test('plugin-convert-esm-to-commonjs: require: transform: comment', (t) => {
     t.end();
 });
 
+test('plugin-convert-esm-to-commonjs: require: transform: relative', (t) => {
+    t.transform('relative');
+    t.end();
+});
+
 test('plugin-convert-esm-to-commonjs: require: transform: no require', (t) => {
     t.noTransform('no-require');
     t.end();
