@@ -15,13 +15,13 @@ module.exports.fix = ({path, fnPath}) => {
     path.node.name = 'args';
 };
 
-module.exports.find = (ast, {push, traverse}) => {
+module.exports.traverse = ({push}) => {
     const traverseFn = traverseFunction(push);
     
-    traverse(ast, {
+    return {
         FunctionExpression: traverseFn,
         FunctionDeclaration: traverseFn,
-    });
+    };
 };
 
 const traverseFunction = (push) => (fnPath) => {

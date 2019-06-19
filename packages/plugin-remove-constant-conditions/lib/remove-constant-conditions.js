@@ -28,8 +28,8 @@ module.exports.fix = ({path, result}) => {
     replaceWith(path, alternate);
 };
 
-module.exports.find = (ast, {push, generate, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push, generate}) => {
+    return {
         IfStatement(path) {
             const testPath = path.get('test');
             const {
@@ -55,7 +55,7 @@ module.exports.find = (ast, {push, generate, traverse}) => {
                     result: /^===?$/.test(operator),
                 });
         },
-    });
+    };
 };
 
 function containsIdentifiers(testPath) {

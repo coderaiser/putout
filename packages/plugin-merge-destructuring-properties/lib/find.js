@@ -11,7 +11,7 @@ const {
 
 const notEmptyPlaces = (a) => a.places.length;
 
-module.exports= (ast, {traverse}) => {
+module.exports = (ast, {traverse}) => {
     const vars = [];
     const add = addVariable({
         vars,

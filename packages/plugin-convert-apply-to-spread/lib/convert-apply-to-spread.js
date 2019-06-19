@@ -20,8 +20,8 @@ module.exports.fix = (path) => {
     argumentsPath.remove();
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         CallExpression(path) {
             const calleePath = path.get('callee');
             
@@ -47,7 +47,7 @@ module.exports.find = (ast, {push, traverse}) => {
             
             push(path);
         },
-    });
+    };
 };
 
 function compare(object, context) {

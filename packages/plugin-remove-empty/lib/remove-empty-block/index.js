@@ -17,8 +17,8 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         BlockStatement(path) {
             const {
                 node,
@@ -55,7 +55,7 @@ module.exports.find = (ast, {push, traverse}) => {
             
             push(path);
         },
-    });
+    };
 };
 
 function isFunction(node) {

@@ -9,8 +9,8 @@ module.exports.report = () => {
     return `"noTransformCode" should be called instead of using same arguments twice in "transformCode"`;
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         CallExpression(path) {
             const calleePath = path.get('callee');
             
@@ -35,7 +35,7 @@ module.exports.find = (ast, {push, traverse}) => {
                 calleePath,
             });
         },
-    });
+    };
 };
 
 module.exports.fix = ({path, calleePath}) => {

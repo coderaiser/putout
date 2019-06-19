@@ -525,14 +525,13 @@ Add `putout` as a `peerDependency` to your `packages.json` and set keywords: `pu
 Every `putout` plugin should contain 3 functions:
 
 - `report(path)` - report error message to `putout` cli;
-- `find(ast, {push, traverse})` - find errors using `traverse` and `push` it
+- `traverse({push})` - find errors and `push` them;
 - `fix(path)` - fixes paths using `places` array received using `find` function;
 
 `context` of `find` function contains [@babel/traverse](https://babeljs.io/docs/en/next/babel-traverse.html) and [@babel/types](https://babeljs.io/docs/en/next/babel-types.html). Also there is [template](https://babeljs.io/docs/en/next/babel-template.html). All of this can be get from `putout`:
 
 ```js
 const {
-    traverse,
     types,
     template,
 } = require('putout');
@@ -550,12 +549,12 @@ Let's consider simplest possible plugin for removing `debugger statements [@puto
 module.exports.report = () => 'Unexpected "debugger" statement';
 
 // lets find all "debugger" statements
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         DebuggerStatement(path) {
             push(path);
         }
-    });
+    }
 };
 
 // when user calls "putout --fix" node will be removed with

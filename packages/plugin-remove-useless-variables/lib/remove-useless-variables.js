@@ -9,8 +9,8 @@ module.exports.fix = ({path, bindingPath, initName, idName}) => {
     path.remove();
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         VariableDeclarator(path) {
             const {id, init} = path.node;
             
@@ -45,6 +45,6 @@ module.exports.find = (ast, {push, traverse}) => {
                 idName: id.name,
             });
         },
-    });
+    };
 };
 

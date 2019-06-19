@@ -15,10 +15,8 @@ module.exports.fix = (path) => {
     path.replaceWithMultiple(varNodes);
 };
 
-module.exports.find = (ast, {traverse}) => {
-    const places = [];
-    
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         VariableDeclaration(path) {
             const {node, parent} = path;
             const {declarations} = node;
@@ -27,15 +25,13 @@ module.exports.find = (ast, {traverse}) => {
                 return;
             
             const init = node;
-
+            
             if (isForStatement(parent, {init}))
                 return;
             
-            places.push(path);
+            push(path);
         },
-    });
-    
-    return places;
+    };
 };
 
 function getVarNodes(node) {
@@ -76,9 +72,7 @@ function getVarNodes(node) {
 function getDeclarationLoc({node, declaration, declarations}) {
     const i = declarations.indexOf(declaration);
     const {loc} = node;
-    const {
-        start,
-    } = loc;
+    const {start} = loc;
     
     const line = start.line + i;
     

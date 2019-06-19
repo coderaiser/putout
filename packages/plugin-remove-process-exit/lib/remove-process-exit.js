@@ -12,8 +12,8 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         CallExpression(path) {
             const {node} = path;
             const {callee} = node;
@@ -33,7 +33,7 @@ module.exports.find = (ast, {push, traverse}) => {
             
             traverseProperty('exit', path, property, push);
         },
-    });
+    };
 };
 
 function traverseProperty(name, path, node, fn) {

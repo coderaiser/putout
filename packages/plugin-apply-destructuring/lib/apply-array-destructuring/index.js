@@ -21,15 +21,15 @@ module.exports.report = ({path}) => {
     return `Array destructuring should be used for "${name}"`;
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         AssignmentExpression(path) {
             destructure(push, path.get('left'), path.get('right'));
         },
         VariableDeclarator(path) {
             destructure(push, path.get('id'), path.get('init'));
         },
-    });
+    };
 };
 
 function destructure(push, path, initPath) {

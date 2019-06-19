@@ -9,10 +9,8 @@ module.exports.fix = require('./fix');
 
 module.exports.report = () => 'Object destructuring should be used';
 
-module.exports.find = (ast, {traverse}) => {
-    const places = [];
-    
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         VariableDeclarator(path) {
             const {node} = path;
             const {
@@ -21,11 +19,9 @@ module.exports.find = (ast, {traverse}) => {
             } = node;
             
             if (isSameName(id, init))
-                places.push(path);
+                push(path);
         },
-    });
-    
-    return places;
+    };
 };
 
 function isSameName(id, init) {

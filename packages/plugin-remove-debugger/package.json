@@ -38,7 +38,7 @@
     "tape": "^4.8.0"
   },
   "peerDependencies": {
-    "putout": ">=3"
+    "putout": ">=4.31"
   },
   "license": "MIT",
   "engines": {

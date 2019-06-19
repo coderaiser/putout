@@ -2,8 +2,8 @@
 
 module.exports.report = () => 'Unused expression statement';
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         ExpressionStatement(path) {
             const expressionPath = path.get('expression');
             
@@ -19,7 +19,7 @@ module.exports.find = (ast, {push, traverse}) => {
                 return push(expressionPath);
             }
         },
-    });
+    };
 };
 
 module.exports.fix = (path) => {

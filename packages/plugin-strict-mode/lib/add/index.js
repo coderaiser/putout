@@ -17,13 +17,12 @@ module.exports.fix = ({node}) => {
     body.unshift(useStrict);
 };
 
-module.exports.find = (ast, {push, traverse}) => {
+module.exports.traverse = ({push}) => {
     const isModule = store();
     
-    traverse(ast, {
-        'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration'(path) {
+    return {
+        'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration'() {
             isModule(true);
-            path.stop();
         },
         Program: {
             exit(path) {
@@ -41,6 +40,6 @@ module.exports.find = (ast, {push, traverse}) => {
                 path.stop();
             },
         },
-    });
+    };
 };
 

@@ -2,19 +2,15 @@
 
 module.exports.report = () => 'Unexpected "debugger" statement';
 
-module.exports.find = (ast, {traverse}) => {
-    const places = [];
-    
-    traverse(ast, {
-        DebuggerStatement(path) {
-            places.push(path);
-        }
-    });
-    
-    return places;
-};
-
 module.exports.fix = (path) => {
     path.remove();
+}
+
+module.exports.traverse = ({push}) => {
+    return {
+        DebuggerStatement(path) {
+            push(path);
+        }
+    };
 };
 

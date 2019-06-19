@@ -32,8 +32,8 @@ module.exports.fix = ({path, source, local, properties, isDefault}) => {
     replaceWith(parentPath, importDeclaration(specifiers, source));
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         VariableDeclarator(path) {
             const idPath = path.get('id');
             const initPath = path.get('init');
@@ -70,6 +70,6 @@ module.exports.find = (ast, {push, traverse}) => {
                 });
             }
         },
-    });
+    };
 };
 

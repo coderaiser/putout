@@ -15,8 +15,8 @@ module.exports.fix = ({path, left, right}) => {
     replaceWith(path, binaryExpression('**', left, right));
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         CallExpression(path) {
             const calleePath = path.get('callee');
             
@@ -41,6 +41,6 @@ module.exports.find = (ast, {push, traverse}) => {
                 right,
             });
         },
-    });
+    };
 };
 

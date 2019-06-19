@@ -9,8 +9,8 @@ module.exports.fix = (path) => {
     node.local.name = 'useState';
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         ImportDeclaration(path) {
             const {source} = path.node;
             
@@ -29,5 +29,5 @@ module.exports.find = (ast, {push, traverse}) => {
                 push(specPath);
             }
         },
-    });
+    };
 };

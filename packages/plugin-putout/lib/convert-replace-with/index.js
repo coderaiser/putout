@@ -30,10 +30,10 @@ module.exports.fix = ({path, object, program, isInserted}) => {
     }
 };
 
-module.exports.find = (ast, {push, traverse}) => {
+module.exports.traverse = ({push}) => {
     const isInserted = fullstore();
     
-    traverse(ast, {
+    return {
         CallExpression(path) {
             const calleePath = path.get('callee');
             
@@ -57,6 +57,6 @@ module.exports.find = (ast, {push, traverse}) => {
                 calleePath,
             });
         },
-    });
+    };
 };
 

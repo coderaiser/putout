@@ -40,8 +40,8 @@ const isExports = (path) => path.isIdentifier({
     name: 'exports',
 });
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         AssignmentExpression(path) {
             const {parentPath} = path;
             
@@ -78,6 +78,6 @@ module.exports.find = (ast, {push, traverse}) => {
                     rightPath,
                 });
         },
-    });
+    };
 };
 

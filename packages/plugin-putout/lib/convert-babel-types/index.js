@@ -27,8 +27,8 @@ function isBabelTypes(path) {
         .isStringLiteral({value: '@babel/types'});
 }
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         CallExpression(path) {
             if (!isRequire(path))
                 return;
@@ -38,7 +38,7 @@ module.exports.find = (ast, {push, traverse}) => {
             
             push(path);
         },
-    });
+    };
 };
 
 module.exports.fix = (path) => {

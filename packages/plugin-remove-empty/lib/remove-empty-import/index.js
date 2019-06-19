@@ -8,8 +8,8 @@ module.exports.fix = (path) => {
 
 const isCSS = (a) => /\.css/.test(a);
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         ImportDeclaration(path) {
             const {
                 specifiers,
@@ -20,6 +20,6 @@ module.exports.find = (ast, {push, traverse}) => {
             if (!specifiers.length && !isCSS(value))
                 push(path);
         },
-    });
+    };
 };
 

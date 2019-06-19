@@ -10,8 +10,8 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         LogicalExpression(path) {
             const left = path.get('left');
             const right = path.get('right');
@@ -26,6 +26,6 @@ module.exports.find = (ast, {push, traverse}) => {
             if (isTrue(right))
                 push(right);
         },
-    });
+    };
 };
 

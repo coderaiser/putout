@@ -4,6 +4,7 @@ const getPath = (item) => item.path || item;
 const runFix = require('./run-fix');
 
 const traverse = require('@babel/traverse').default;
+const {merge} = traverse.visitors;
 const generate = require('@babel/generator').default;
 const types = require('@babel/types');
 
@@ -26,9 +27,65 @@ module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
 };
 
 function run({ast, fix, shebang, plugins}) {
-    const places = [];
+    return [
+        ...runWithMerge({ast, fix, shebang, plugins}),
+        ...runWithoutMerge({ast, fix, shebang, plugins}),
+    ];
+}
+
+function runWithMerge({ast, fix, shebang, plugins}) {
+    const pluginsToMerge = plugins.filter(([, a]) => a.traverse);
     
-    for (const [rule, plugin] of plugins) {
+    const mergeItems = [];
+    const pushed = {};
+    
+    for (const [rule, plugin] of pluginsToMerge) {
+        pushed[rule] = {
+            items: [],
+            plugin,
+        };
+        const push = (a) => {
+            pushed[rule].items.push(a);
+        };
+        
+        mergeItems.push(plugin.traverse({
+            push,
+            generate,
+        }));
+    }
+    
+    traverse(ast, merge(mergeItems));
+    
+    const places = [];
+    const entries = Object.entries(pushed);
+    
+    for (const [rule, {items, plugin}] of entries) {
+        for (const item of items) {
+            const path = getPath(item);
+            const message = plugin.report(item);
+            const position = getPosition(path, shebang);
+            
+            places.push({
+                rule,
+                message,
+                position,
+            });
+            
+            runFix(fix, plugin.fix, {
+                path: item,
+                position,
+            });
+        }
+    }
+    
+    return places;
+}
+
+function runWithoutMerge({ast, fix, shebang, plugins}) {
+    const places = [];
+    const pluginsNotToMerge = plugins.filter(([, a]) => a.find);
+    
+    for (const [rule, plugin] of pluginsNotToMerge) {
         const {
             report,
             find,

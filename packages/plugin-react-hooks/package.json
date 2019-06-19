@@ -33,7 +33,7 @@
     "react-hooks"
   ],
   "peerDependencies": {
-    "putout": ">=3"
+    "putout": ">=4.31"
   },
   "devDependencies": {
     "@putout/plugin-remove-unused-variables": "^1.14.0",

@@ -212,6 +212,7 @@ function preTest(test, plugin) {
     const [name, {
         report,
         find,
+        traverse,
         fix,
         rules,
     }] = entries(plugin).pop();
@@ -237,8 +238,11 @@ function preTest(test, plugin) {
         t.end();
     });
     
-    test(`${name}: find: is function`, (t) => {
-        t.equal(typeof find, 'function', 'should export "find" function');
+    test(`${name}: find or traverse: is function`, (t) => {
+        const typeofFind = typeof find === 'function';
+        const typeofTraverse = typeof traverse === 'function';
+        
+        t.ok(typeofFind || typeofTraverse, 'should export "find" or "traverse" function');
         t.end();
     });
     

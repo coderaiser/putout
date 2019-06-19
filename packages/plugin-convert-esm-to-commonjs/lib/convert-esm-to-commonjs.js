@@ -4,21 +4,19 @@ module.exports.report = () => 'Commonjs should be used insted of ESM';
 
 module.exports.fix = require('./fix');
 
-module.exports.find = (ast, {traverse}) => {
-    const places = [];
-    
-    traverse(ast, {
+module.exports.traverse = ({
+    push,
+}) => {
+    return {
         ExportNamedDeclaration(path) {
-            places.push(path);
+            push(path);
         },
         ExportDefaultDeclaration(path) {
-            places.push(path);
+            push(path);
         },
         ImportDeclaration(path) {
-            places.push(path);
+            push(path);
         },
-    });
-    
-    return places;
+    };
 };
 

@@ -12,10 +12,8 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.find = (ast, {traverse}) => {
-    const places = [];
-    
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         CallExpression(path) {
             const {callee} = path.node;
             
@@ -50,11 +48,9 @@ module.exports.find = (ast, {traverse}) => {
             if (path.scope.hasBinding('console'))
                 return;
             
-            places.push(path);
+            push(path);
         },
-    });
-    
-    return places;
+    };
 };
 
 function isOneOfIdentifiers(node, array) {

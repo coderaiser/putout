@@ -15,8 +15,8 @@ const {
 
 module.exports.report = ({name}) => `function should be used instead of string in script "${name}`;
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         AssignmentExpression(path) {
             const {right} = path.node;
             
@@ -39,7 +39,7 @@ module.exports.find = (ast, {push, traverse}) => {
                 }
             }
         },
-    });
+    };
 };
 
 module.exports.fix = ({path}) => {

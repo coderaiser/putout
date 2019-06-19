@@ -33,8 +33,8 @@ module.exports.fix = (path) => {
     replaceWith(path, ObjectExpression(properties));
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         CallExpression(path) {
             const {node} = path;
             
@@ -46,7 +46,7 @@ module.exports.find = (ast, {push, traverse}) => {
             if (isObjectExpression(first) && !first.properties.length)
                 push(path);
         },
-    });
+    };
 };
 
 function isObjectAssign(node) {

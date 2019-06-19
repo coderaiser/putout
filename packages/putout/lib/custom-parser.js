@@ -11,10 +11,7 @@ const initAcorn = once(() => {
     const jsx = require('acorn-jsx');
     const stage3 = require('acorn-stage3');
     
-    return Parser.extend(
-        stage3,
-        jsx(),
-    );
+    return Parser.extend(stage3, jsx());
 });
 
 module.exports = (source, parser) => {

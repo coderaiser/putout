@@ -10,11 +10,11 @@ module.exports.fix = (path) => {
     replaceWithMultiple(path, expressions);
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         SequenceExpression(path) {
             push(path);
         },
-    });
+    };
 };
 

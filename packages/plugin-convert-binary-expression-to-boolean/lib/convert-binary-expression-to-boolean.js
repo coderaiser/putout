@@ -20,8 +20,8 @@ module.exports.fix = ({path, boolean}) => {
     replaceWith(path, BooleanLiteral(boolean));
 };
 
-module.exports.find = (ast, {push, generate, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push, generate}) => {
+    return {
         BinaryExpression(path) {
             const {node} = path;
             const {
@@ -49,7 +49,7 @@ module.exports.find = (ast, {push, generate, traverse}) => {
                     boolean: /^===?$/.test(operator),
                 });
         },
-    });
+    };
 };
 
 function sameIdentifiers(left, right) {

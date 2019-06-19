@@ -10,8 +10,8 @@ module.exports.report = () => 'useState should be used instead of Component';
 module.exports.fix = (path) => {
     const {node} = path;
     
-    node.key.name ='useState';
-    node.value.name ='useState';
+    node.key.name = 'useState';
+    node.value.name = 'useState';
 };
 
 module.exports.find = (ast, {traverse}) => {

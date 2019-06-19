@@ -12,8 +12,8 @@ module.exports.report = ({name}) => {
     return `"run" should be called in script: "${name}"`;
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
+module.exports.traverse = ({push}) => {
+    return {
         ArrowFunctionExpression(path) {
             const {body} = path.node;
             
@@ -31,7 +31,7 @@ module.exports.find = (ast, {push, traverse}) => {
                 name: path.parent.key.value,
             });
         },
-    });
+    };
 };
 
 module.exports.fix = ({path, value}) => {

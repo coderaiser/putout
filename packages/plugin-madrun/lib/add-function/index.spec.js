@@ -1,7 +1,7 @@
 'use strict';
 
 /* eslint node/no-unpublished-require:0 */
-const addFunction= require('.');
+const addFunction = require('.');
 const test = require('@putout/test')(__dirname, {
     'add-function': addFunction,
 });
