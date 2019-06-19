@@ -13,10 +13,14 @@
     "url": "git://github.com/coderaiser/putout.git"
   },
   "scripts": {
-    "test": "tape 'test/*.js'",
-    "watch:test": "nodemon -w lib -w test -x \"npm test\"",
-    "lint": "eslint lib test --ignore-pattern test/fixture",
-    "coverage": "nyc npm test"
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint:lib": "madrun lint:lib",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "putout": "madrun putout",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
   },
   "dependencies": {},
   "keywords": [
