@@ -20,8 +20,10 @@
             }
         }],
         "arrow-parens": ["error", "always"],
+        "function-paren-newline": ["error", "never"],
         "no-extra-parens": "error",
         "no-multi-spaces": "error",
+        "space-infix-ops": ["error", {"int32Hint": false}],
         "no-trailing-spaces": ["error", {
             "skipBlankLines": true
         }],
