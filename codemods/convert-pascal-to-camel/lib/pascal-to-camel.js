@@ -85,11 +85,10 @@ function toCamel(name) {
 
 function isBig(path) {
     const {node} = path;
-    debugger;
     
     if (!node)
         return false;
     
-    return /[A-Z]/.test(node.name);
+    return /[A-Z]/.test(node.name[0]);
 };
 
