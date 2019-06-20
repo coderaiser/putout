@@ -110,7 +110,7 @@ module.exports = ({use, declare, addParams}) => {
                 traverseArray(initPath.get('elements'));
         },
         
-        ClassDeclaration(path) {
+        'ClassDeclaration|ClassExpression'(path) {
             const {node} = path;
             const {
                 id,
