@@ -10,7 +10,7 @@ const {
 const {replaceWith} = operate;
 const {isIdentifier} = types;
 
-module.exports.report = () => `object properties should be extracted into variables`;
+module.exports.report = () => `Object properties should be extracted into variables`;
 
 const buildAst = template(`
     const {PROPERTY} = OBJECT;
