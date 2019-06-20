@@ -120,7 +120,8 @@ module.exports = ({use, declare, addParams}) => {
             if (superClass)
                 use(path, superClass.name);
             
-            declare(path, id.name);
+            if (id)
+                declare(path, id.name);
         },
         
         AssignmentExpression(path) {
@@ -399,7 +400,7 @@ module.exports = ({use, declare, addParams}) => {
                 use(path, declaration.id.name);
             else if (isIdentifier(declaration))
                 use(path, declaration.name);
-            else if (isClassDeclaration(declaration))
+            else if (id && isClassDeclaration(declaration))
                 use(path, declaration.id.name);
             else if (isObjectExpression(declaration))
                 traverseObj(declarationPath.get('properties'));
