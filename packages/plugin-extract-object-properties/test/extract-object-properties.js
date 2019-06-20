@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-extract-object-properties: report', (t) => {
-    t.report('fn', 'object properties should be extracted into variables');
+    t.report('fn', 'Object properties should be extracted into variables');
     t.end();
 });
 
