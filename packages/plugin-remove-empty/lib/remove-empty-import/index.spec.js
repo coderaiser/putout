@@ -24,3 +24,9 @@ test('plugin-remove-empty: import: css', (t) => {
     t.noTransform('import-css');
     t.end();
 });
+
+test('plugin-remove-empty: import: min', (t) => {
+    t.noTransform('import-min');
+    t.end();
+});
+

@@ -7,6 +7,7 @@ module.exports.fix = (path) => {
 };
 
 const isCSS = (a) => /\.css/.test(a);
+const isMin = (a) => /\.min\./.test(a);
 
 module.exports.traverse = ({push}) => {
     return {
@@ -17,8 +18,16 @@ module.exports.traverse = ({push}) => {
             } = path.node;
             const {value} = source;
             
-            if (!specifiers.length && !isCSS(value))
-                push(path);
+            if (specifiers.length)
+                return;
+            
+            if (isCSS(value))
+                return;
+            
+            if (isMin(value))
+                return;
+            
+            push(path);
         },
     };
 };
