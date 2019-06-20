@@ -297,39 +297,6 @@ module.exports = ({use, declare, addParams}) => {
                 return use(path, argument.name);
         },
         
-        ArrowFunctionExpression(path) {
-            const paramsPaths = path.get('params');
-            const {body, params} = path.node;
-            
-            for (const paramPath of paramsPaths) {
-                const {node} = paramPath;
-                
-                if (isIdentifier(node)) {
-                    declare(paramPath, node.name);
-                    continue;
-                }
-                
-                if (isObjectPattern(node)) {
-                    processObj(paramPath.get('properties'));
-                    continue;
-                }
-                
-                if (isAssignmentPattern(node)) {
-                    declareAssign(paramPath.get('left'));
-                    traverseAssign(paramPath.get('right'));
-                    continue;
-                }
-            }
-            
-            if (isIdentifier(body))
-                use(path, body.name);
-            
-            addParams({
-                path,
-                params,
-            });
-        },
-        
         ObjectMethod(path) {
             const {params} = path.node;
             const paramsPaths = path.get('params');
@@ -432,12 +399,14 @@ module.exports = ({use, declare, addParams}) => {
             }
         },
         
-        FunctionDeclaration(path) {
+        Function(path) {
             const {node} = path;
             const {
                 id,
+                body,
                 params,
             } = node;
+            
             const paramsPaths = path.get('params');
             
             if (id)
@@ -462,6 +431,10 @@ module.exports = ({use, declare, addParams}) => {
                     continue;
                 }
             }
+            
+            // ArrowFunction only
+            if (isIdentifier(body))
+                use(path, body.name);
             
             addParams({
                 path,
