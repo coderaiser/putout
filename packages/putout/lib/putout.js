@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
 const recast = require('recast');
 const toBabel = require('estree-to-babel');
 const traverse = require('@babel/traverse').default;
@@ -26,7 +28,16 @@ const getParser = (parser) => ({
     },
 });
 
-const defaultOpts = (opts = {}) => {
+var config = path.resolve(fs.realpathSync(process.cwd()), '.putout.json')
+try {
+    config = require(config)
+} catch (e) {
+    if (e.code == "MODULE_NOT_FOUND") {
+        config = {}
+    }
+}
+
+const defaultOpts = (opts = config) => {
     const newOpts = {
         ...opts,
     };
