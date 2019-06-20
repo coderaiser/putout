@@ -8,6 +8,7 @@ const getVars = require('../lib/get-vars');
 const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
+    'arguments-nested',
     'array-expression',
     'array-pattern',
     'arrow-function-expression',
@@ -109,6 +110,22 @@ test('remove-unused-variables: get-vars: logical expression', (t) => {
         host: du,
         origin: du,
         protocol: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: arguments nested', (t) => {
+    const ast = parse(fixture.argumentsNested);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        add: d_,
+    }, {
+        state: d_,
+        a: du,
+        b: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

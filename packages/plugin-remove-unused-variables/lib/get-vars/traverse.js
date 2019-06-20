@@ -25,20 +25,28 @@ module.exports.traverseObjectPattern = traverseObjectPattern;
 const processObjectPattern = ({use, declare}) => {
     return (propertiesPaths) => {
         for (const path of propertiesPaths) {
-            const {key, value} = path.node;
+            const {value} = path.node;
             
             if (isIdentifier(value)) {
                 declare(path, value.name);
                 continue;
             }
             
-            if (isIdentifier(key)) {
-                declare(path, key.name);
+            if (isObjectPattern(value)) {
+                const process = processObjectPattern({use, declare});
+                process(path.get('value.properties'));
+                continue;
             }
             
             if (isAssignmentPattern(value)) {
-                const traverse = traverseAssignmentPattern(use);
-                traverse(path.get('value.right'));
+                const useAssignment = traverseAssignmentPattern(use);
+                useAssignment(path.get('value.right'));
+                
+                const leftPath = path.get('value.left');
+                
+                if (leftPath.isIdentifier())
+                    declare(path, leftPath.node.name);
+                
                 continue;
             }
         }
