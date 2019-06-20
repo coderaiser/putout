@@ -31,3 +31,8 @@ test('plugin-remove-empty: block: try', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: block: if-else', (t) => {
+    t.transform('if-else', '\n');
+    t.end();
+});
+

@@ -38,22 +38,17 @@ module.exports.traverse = ({push}) => {
             if (isCatchClause(parentNode))
                 return;
             
-            if (isTryStatement(parentNode)) {
-                push(parentPath);
-                return;
-            }
+            if (isTryStatement(parentNode))
+                return push(parentPath);
             
-            if (blockIsBody(node, parentNode)) {
-                push(parentPath);
-                return;
-            }
+            if (blockIsConsequent(node, parentNode))
+                return push(parentPath);
             
-            if (blockIsConsequent(node, parentNode)) {
-                push(parentPath);
-                return;
-            }
+            if (blockIsBody(node, parentNode))
+                return push(parentPath);
             
-            push(path);
+            if (blockIsIndependentBody(node, parentNode))
+                return push(path);
         },
     };
 };
@@ -67,13 +62,27 @@ function isFunction(node) {
 }
 
 function blockIsBody(node, parentNode) {
-    return parentNode.body === node;
+    const {body} = parentNode;
+    
+    if (!body)
+        return false;
+    
+    return body === node;
+}
+
+function blockIsIndependentBody(node, parentNode) {
+    const {body} = parentNode;
+    
+    if (!body)
+        return false;
+    
+    return body[0] === node;
 }
 
 function blockIsConsequent(node, parentNode) {
     if (!isIfStatement(parentNode))
         return;
     
-    return parentNode.body === node.consequent;
+    return parentNode.consequent === node;
 }
 
