@@ -1,8 +1,14 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
+const {
+    template,
+    generate,
+    types,
+    operate,
+} = require('putout');
 
-const {template, generate} = require('putout');
+const {replaceWith} = operate;
+const {isIdentifier} = types;
 
 module.exports.report = () => `object properties should be extracted into variables`;
 
@@ -11,18 +17,24 @@ const buildAst = template(`
 `);
 
 module.exports.fix = ({items}) => {
+    const names = [];
+    
     for (const item of items) {
-        if (item.isMemberExpression()) {
-            const {object, property} = item.node;
-            
-            const body = item.scope.block.body.body || item.scope.block.body;
-            body.unshift(buildAst({
-                PROPERTY: property,
-                OBJECT: object,
-            }));
-            
-            replaceWith(item, item.node.property);
+        const {object, property} = item.node;
+        
+        if (isIdentifier(property)) {
+            if (!names.includes(property.name)) {
+                names.push(property.name);
+                
+                const body = item.scope.block.body.body || item.scope.block.body;
+                body.unshift(buildAst({
+                    PROPERTY: property,
+                    OBJECT: object,
+                }));
+            }
         }
+        
+        replaceWith(item, item.node.property);
     }
 };
 
@@ -77,6 +89,7 @@ function filter(all) {
         
         for (const item of items) {
             const name = getName(item);
+            
             isBind = item.scope.bindings[name];
             
             if (isBind)

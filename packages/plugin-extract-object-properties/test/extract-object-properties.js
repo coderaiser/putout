@@ -48,3 +48,9 @@ test('plugin-extract-object-properties: transform: no destructuring', (t) => {
     t.noTransform('no-destr');
     t.end();
 });
+
+test('plugin-extract-object-properties: transform: same', (t) => {
+    t.transform('same');
+    t.end();
+});
+
