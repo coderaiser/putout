@@ -70,6 +70,8 @@ const fixture = readFixtures([
     'jsx-opening-element',
     'jsx-template',
     'jsx-spread-attribute',
+    'yield',
+    'await',
 ]);
 
 const du = 'du';
@@ -1203,6 +1205,34 @@ test('remove-unused-variables: get-vars: jsx spread attribute', (t) => {
         spread: du,
     }, {
         props: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: await', (t) => {
+    const ast = parse(fixture.await);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        hello: d_,
+    }, {
+        world: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: yield', (t) => {
+    const ast = parse(fixture.yield);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        hello: d_,
+    }, {
+        world: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

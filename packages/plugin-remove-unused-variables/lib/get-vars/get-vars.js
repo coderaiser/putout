@@ -37,7 +37,7 @@ module.exports = ({use, declare, addParams}) => {
             traverseObj(path.get('properties'));
         },
         
-        SpreadElement(path) {
+        'AwaitExpression|YieldExpression|SpreadElement'(path) {
             const {argument} = path.node;
             
             if (isIdentifier(argument))
