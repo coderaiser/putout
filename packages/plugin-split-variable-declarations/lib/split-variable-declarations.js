@@ -8,7 +8,7 @@ const {
 
 const {assign} = Object;
 
-module.exports.report = () => 'variables should be declared separately';
+module.exports.report = () => 'Variables should be declared separately';
 
 module.exports.fix = (path) => {
     const varNodes = getVarNodes(path.node);

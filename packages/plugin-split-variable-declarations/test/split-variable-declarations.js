@@ -8,7 +8,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-split-variable-declarations: report', (t) => {
-    t.report('split-variable-declarations', 'variables should be declared separately');
+    t.report('split-variable-declarations', 'Variables should be declared separately');
     t.end();
 });
 
