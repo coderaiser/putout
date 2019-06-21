@@ -11,3 +11,4 @@ function log() {
     const msg = 'hello';
 }
 
+const fn = function Hello() {};

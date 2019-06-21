@@ -404,8 +404,7 @@ module.exports = ({use, declare, addParams}) => {
                 node,
                 parentPath,
             } = path;
-            const parentNode = parentPath.node;
-            const isParentCall = parentPath.isCallExpression();
+            
             const {
                 id,
                 body,
@@ -417,7 +416,7 @@ module.exports = ({use, declare, addParams}) => {
             if (id) {
                 declare(path, node.id.name);
                 
-                if (isParentCall && parentNode.arguments.includes(node))
+                if (/CallExpression|AssignmentExpression|VariableDeclarator/.test(parentPath.type))
                     use(path, node.id.name);
             }
             

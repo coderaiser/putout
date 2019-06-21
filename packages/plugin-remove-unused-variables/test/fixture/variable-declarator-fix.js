@@ -8,4 +8,3 @@ y = b;
 log();
 
 function log() {}
-
