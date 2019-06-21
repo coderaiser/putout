@@ -29,7 +29,7 @@ const getParser = (parser) => ({
 });
 
 var config = {}
-if (typeof window == 'undefined' && typeof window.document == 'undefined') {
+if (typeof window === 'undefined') {
     config = path.resolve(fs.realpathSync(process.cwd()), '.putout.json')
     try {
         config = require(config)
