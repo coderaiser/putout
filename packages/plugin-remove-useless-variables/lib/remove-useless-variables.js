@@ -38,6 +38,9 @@ module.exports.traverse = ({push}) => {
             if (bindingPath.isVariableDeclarator() && bindingPath.get('id').isObjectPattern())
                 return;
             
+            if (bindingPath.isObjectPattern())
+                return;
+            
             push({
                 path,
                 bindingPath,

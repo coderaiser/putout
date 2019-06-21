@@ -44,3 +44,8 @@ test('remove usless variables: transform: not declared', (t) => {
     t.end();
 });
 
+test('remove usless variables: transform: argument', (t) => {
+    t.noTransform('argument');
+    t.end();
+});
+
