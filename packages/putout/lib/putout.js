@@ -28,12 +28,15 @@ const getParser = (parser) => ({
     },
 });
 
-var config = path.resolve(fs.realpathSync(process.cwd()), '.putout.json')
-try {
-    config = require(config)
-} catch (e) {
-    if (e.code == "MODULE_NOT_FOUND") {
-        config = {}
+var config = {}
+if (typeof window == 'undefined' && typeof window.document == 'undefined') {
+    config = path.resolve(fs.realpathSync(process.cwd()), '.putout.json')
+    try {
+        config = require(config)
+    } catch (e) {
+        if (e.code !== "MODULE_NOT_FOUND") {
+            throw e
+        }
     }
 }
 
