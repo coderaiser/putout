@@ -122,6 +122,9 @@ module.exports = ({use, declare, addParams}) => {
             
             if (id)
                 declare(path, id.name);
+            
+            if (id && path.isClassExpression())
+                use(path, id.name);
         },
         
         AssignmentExpression(path) {

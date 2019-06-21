@@ -22,6 +22,7 @@ const fixture = readFixtures([
     'condition-vars',
     'class-declaration',
     'class-import',
+    'class-return',
     'destr-vars',
     'destr-assignment',
     'destr-assignment-array',
@@ -1132,6 +1133,24 @@ test('remove-unused-variables: get-vars: class import', (t) => {
     const expected = [{
         Component: du,
         wrap: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: class return', (t) => {
+    const ast = parse(fixture.classReturn);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        PureComponent: _u,
+        React: _u,
+        wrap: du,
+    }, {
+        HelloComponent: du,
+    }, {
+        Hello: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
