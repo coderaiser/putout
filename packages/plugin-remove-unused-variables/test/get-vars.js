@@ -41,6 +41,7 @@ const fixture = readFixtures([
     'fn-hoisted-vars',
     'for-of-statement',
     'function-declaration',
+    'function-as-argument',
     'import',
     'no-vars',
     'no-root-vars',
@@ -222,6 +223,20 @@ test('remove-unused-variables: get-vars: function declaration', (t) => {
     }, {
         a: d_,
         b: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: function as argument', (t) => {
+    const ast = parse(fixture.functionAsArgument);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        co: _u,
+    }, {
+        Hello: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

@@ -1,0 +1,3 @@
+co(function* Hello() {
+});
+

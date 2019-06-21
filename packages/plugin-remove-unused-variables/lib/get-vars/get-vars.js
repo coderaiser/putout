@@ -400,7 +400,12 @@ module.exports = ({use, declare, addParams}) => {
         },
         
         Function(path) {
-            const {node} = path;
+            const {
+                node,
+                parentPath,
+            } = path;
+            const parentNode = parentPath.node;
+            const isParentCall = parentPath.isCallExpression();
             const {
                 id,
                 body,
@@ -409,8 +414,12 @@ module.exports = ({use, declare, addParams}) => {
             
             const paramsPaths = path.get('params');
             
-            if (id)
+            if (id) {
                 declare(path, node.id.name);
+                
+                if (isParentCall && parentNode.arguments.includes(node))
+                    use(path, node.id.name);
+            }
             
             for (const paramPath of paramsPaths) {
                 const {node} = paramPath;
