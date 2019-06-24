@@ -1,0 +1,1 @@
+isClose && close() || open();
