@@ -23,7 +23,6 @@ const fixture = readFixtures([
     'arrow-function-expression',
     'arrow-function-expression-fix',
     'arrow-vars',
-    'arrow-vars-fix',
     'no-vars',
     'root-vars',
     'fn-vars',
@@ -41,16 +40,14 @@ const fixture = readFixtures([
     'destr-vars',
     'destr-vars-fix',
     'destr-nested-vars',
-    'destr-nested-vars-fix',
     'import',
     'import-fix',
     'return-statement',
-    'return-statement-fix',
     'variable-declarator',
     'variable-declarator-fix',
 ]);
 
-test('putout: no vars', (t) => {
+test('remove-unused-variables: putout: no vars', (t) => {
     const result = putout(fixture.noVars);
     const expected = {
         code: '',
@@ -61,15 +58,15 @@ test('putout: no vars', (t) => {
     t.end();
 });
 
-test('putout: root vars', (t) => {
+test('remove-unused-variables: putout: root vars', (t) => {
     const {code} = putout(fixture.rootVars);
-    const expected = 'const str = \'hello\';\n';
+    const expected = '\n';
     
     t.deepEqual(code, expected, 'should equal');
     t.end();
 });
 
-test('putout: array pattern', (t) => {
+test('remove-unused-variables: putout: array pattern', (t) => {
     const {code} = putout(fixture.arrayPattern);
     const expected = fixture.arrayPatternFix;
     
@@ -77,7 +74,7 @@ test('putout: array pattern', (t) => {
     t.end();
 });
 
-test('putout: assignment pattern', (t) => {
+test('remove-unused-variables: putout: assignment pattern', (t) => {
     const {code} = putout(fixture.assignmentPattern);
     const expected = fixture.assignmentPatternFix;
     
@@ -85,15 +82,15 @@ test('putout: assignment pattern', (t) => {
     t.end();
 });
 
-test('putout: arrow vars', (t) => {
+test('remove-unused-variables: putout: arrow vars', (t) => {
     const {code} = putout(fixture.arrowVars);
-    const expected = fixture.arrowVarsFix;
+    const expected = '\n\n';
     
     t.deepEqual(code, expected, 'should equal');
     t.end();
 });
 
-test('putout: destr vars', (t) => {
+test('remove-unused-variables: putout: destr vars', (t) => {
     const {code} = putout(fixture.destrVars);
     const expected = fixture.destrVarsFix;
     
@@ -101,15 +98,15 @@ test('putout: destr vars', (t) => {
     t.end();
 });
 
-test('putout: destr nested vars', (t) => {
+test('remove-unused-variables: putout: destr nested vars', (t) => {
     const {code} = putout(fixture.destrNestedVars);
-    const expected = fixture.destrNestedVarsFix;
+    const expected = '\n\n';
     
     t.deepEqual(code, expected, 'should equal');
     t.end();
 });
 
-test('putout: fn vars', (t) => {
+test('remove-unused-variables: putout: fn vars', (t) => {
     const {code} = putout(fixture.fnVars);
     const expected = fixture.fnVarsFix;
     
@@ -117,7 +114,7 @@ test('putout: fn vars', (t) => {
     t.end();
 });
 
-test('putout: fn call', (t) => {
+test('remove-unused-variables: putout: fn call', (t) => {
     const {code} = putout(fixture.fnCall);
     const expected = fixture.fnCall;
     
@@ -125,7 +122,7 @@ test('putout: fn call', (t) => {
     t.end();
 });
 
-test('putout: fn call vars', (t) => {
+test('remove-unused-variables: putout: fn call vars', (t) => {
     const {code} = putout(fixture.fnCallVars);
     const expected = fixture.fnCallVarsFix;
     
@@ -133,7 +130,7 @@ test('putout: fn call vars', (t) => {
     t.end();
 });
 
-test('putout: fn args vars', (t) => {
+test('remove-unused-variables: putout: fn args vars', (t) => {
     const {code} = putout(fixture.fnArgsVars);
     const expected = fixture.fnArgsVarsFix;
     
@@ -141,7 +138,7 @@ test('putout: fn args vars', (t) => {
     t.end();
 });
 
-test('putout: fn destr args vars', (t) => {
+test('remove-unused-variables: putout: fn destr args vars', (t) => {
     const {code} = putout(fixture.fnDestrArgsVars);
     const expected = '\n';
     
@@ -149,15 +146,15 @@ test('putout: fn destr args vars', (t) => {
     t.end();
 });
 
-test('putout: return statement', (t) => {
+test('remove-unused-variables: putout: return statement', (t) => {
     const {code} = putout(fixture.returnStatement);
-    const expected = fixture.returnStatementFix;
+    const expected = '\n';
     
     t.deepEqual(code, expected, 'should equal');
     t.end();
 });
 
-test('putout: for of statement', (t) => {
+test('remove-unused-variables: putout: for of statement', (t) => {
     const {code} = putout(fixture.forOfStatement);
     const expected = fixture.forOfStatementFix;
     
@@ -165,7 +162,7 @@ test('putout: for of statement', (t) => {
     t.end();
 });
 
-test('putout: variable-declarator', (t) => {
+test('remove-unused-variables: putout: variable-declarator', (t) => {
     const {code} = putout(fixture.variableDeclarator);
     const expected = fixture.variableDeclaratorFix;
     
@@ -173,7 +170,7 @@ test('putout: variable-declarator', (t) => {
     t.end();
 });
 
-test('putout: arrow function expression', (t) => {
+test('remove-unused-variables: putout: arrow function expression', (t) => {
     const {code} = putout(fixture.arrowFunctionExpression);
     const expected = fixture.arrowFunctionExpressionFix;
     
@@ -181,7 +178,7 @@ test('putout: arrow function expression', (t) => {
     t.end();
 });
 
-test('putout: function declaration', (t) => {
+test('remove-unused-variables: putout: function declaration', (t) => {
     const {code} = putout(fixture.functionDeclaration);
     const expected = fixture.functionDeclarationFix;
     
@@ -189,7 +186,7 @@ test('putout: function declaration', (t) => {
     t.end();
 });
 
-test('putout: import', (t) => {
+test('remove-unused-variables: putout: import', (t) => {
     const {code} = putout(fixture.import);
     const expected = fixture.importFix;
     

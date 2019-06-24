@@ -55,7 +55,7 @@ const format = (t, dir, plugins) => (formatter, name) => {
     const input = readFileSync(`${full}.js`, 'utf8');
     const expected = readFileSync(outputName, 'utf8');
     
-    const {places} = putout(input, {plugins});
+    const {places} = putout(input, {fixCount: 1, plugins});
     
     const report = putout.initReport();
     const result = report(formatter, {
@@ -99,7 +99,7 @@ const formatMany = (t, dir, plugins) => (formatter, names) => {
         const full = fullNames[index];
         const input = readFileSync(`${full}.js`, 'utf8');
         
-        const {places} = putout(input, {plugins});
+        const {places} = putout(input, {fixCount: 1, plugins});
         
         result += report(formatter, {
             name,

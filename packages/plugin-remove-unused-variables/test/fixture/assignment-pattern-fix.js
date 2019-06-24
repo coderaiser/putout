@@ -1,4 +1,2 @@
-const noop = () => {};
-
 const {} = {};
 

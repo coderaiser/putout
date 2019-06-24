@@ -13,13 +13,6 @@ test('plugin-react-hooks: transform', (t) => {
     t.end();
 });
 
-test('plugin-react-hooks: transform: esm', (t) => {
-    t.transform('react-hooks-esm', {
-        'remove-unused-variables': rmUnused,
-    });
-    t.end();
-});
-
 test('plugin-react-hooks: transform: React.Component', (t) => {
     t.transform('react-component');
     t.end();

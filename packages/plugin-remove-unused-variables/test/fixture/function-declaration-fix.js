@@ -1,8 +1,3 @@
-function getDOM({} = {}) {
-}
-
-const assignment = 1;
-
 function objectPattern2({
     b
 }) {

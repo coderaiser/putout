@@ -19,6 +19,8 @@ const fixture = readFixtures([
     'strict-mode',
     'strict-mode-fix',
     'strict-mode-fix-count',
+    'destructuring',
+    'destructuring-fix',
 ]);
 
 test('putout: no vars', (t) => {
@@ -48,7 +50,7 @@ test('putout: root vars', (t) => {
     t.end();
 });
 
-test('putout: import', (t) => {
+test('putout: run plugins', (t) => {
     const result = putout(fixture.import, {
         plugins: [
             'remove-unused-variables',
@@ -59,6 +61,18 @@ test('putout: import', (t) => {
     const expected = '\n';
     
     t.deepEqual(result.code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: fix count', (t) => {
+    const result = putout(fixture.destructuring, {
+        plugins: [
+            'apply-destructuring',
+            'merge-destructuring-properties',
+        ],
+    });
+    
+    t.deepEqual(result.code, fixture.destructuringFix, 'should equal');
     t.end();
 });
 
@@ -89,6 +103,7 @@ test('putout: shebang', (t) => {
 
 test('putout: shebang: message', (t) => {
     const {places} = putout(fixture.shebang, {
+        fixCount: 1,
         plugins: [
             'remove-unused-variables',
         ],
@@ -171,6 +186,7 @@ test('putout: export default declaration: custom parser', (t) => {
 
 test('putout: use strict', (t) => {
     const {code} = putout(fixture.strictMode, {
+        fixCount: 1,
         plugins: [
             'remove-unused-variables',
         ],

@@ -38,7 +38,7 @@ const defaultOpts = (opts = {}) => {
     
     if (isUndefined(opts.fixCount))
         assign(newOpts, {
-            fixCount: 1,
+            fixCount: 2,
         });
     
     return newOpts;
