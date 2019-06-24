@@ -1,3 +1,14 @@
+2019.06.24, v4.32.2
+
+fix:
+- feature(putout) increase fixCount to 2 in library version
+
+feature:
+- (putout) increase fixCount to 2 in library version
+- (@putout/eslint-config) add nonblock-statement-body-position
+- (@putout/eslint-config) add no-else-return
+
+
 2019.06.24, v4.32.1
 
 fix:
