@@ -28,8 +28,8 @@ module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
 
 function run({ast, fix, shebang, plugins}) {
     return [
-        ...runWithMerge({ast, fix, shebang, plugins}),
         ...runWithoutMerge({ast, fix, shebang, plugins}),
+        ...runWithMerge({ast, fix, shebang, plugins}),
     ];
 }
 

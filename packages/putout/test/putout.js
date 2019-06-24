@@ -11,6 +11,7 @@ const fixture = readFixtures([
     'comment-fix',
     'no-vars',
     'root-vars',
+    'import',
     'export-default-declaration',
     'export-default-declaration-fix',
     'shebang',
@@ -37,12 +38,27 @@ test('putout: root vars', (t) => {
             'remove-unused-variables',
         ],
     });
+    
     const expected = {
         code: fixture.rootVars,
         places: [],
     };
     
     t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('putout: import', (t) => {
+    const result = putout(fixture.import, {
+        plugins: [
+            'remove-unused-variables',
+            'remove-empty',
+        ],
+    });
+    
+    const expected = '\n';
+    
+    t.deepEqual(result.code, expected, 'should equal');
     t.end();
 });
 
