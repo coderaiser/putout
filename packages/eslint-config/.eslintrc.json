@@ -53,6 +53,7 @@
         "no-multiple-empty-lines": ["error", {
             "max": 1
         }],
+        "nonblock-statement-body-position": ["error", "below"],
         "padding-line-between-statements": ["error", {
             "blankLine": "always",
             "prev": "*",
