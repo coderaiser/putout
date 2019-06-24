@@ -1,3 +1,32 @@
+2019.06.24, v4.32.1
+
+fix:
+- (putout) remove empty imports (#5)
+- (@putout/plugin-split-variable-declaration) variables -> Variables
+- (@putout/plugin-remove-unused-variables) improve support of ClassExpression
+- (@putout/plugin-remove-useless-variables) exclude ObjectPattern argument
+- (@putout/plugin-extract-object-properties) report: object -> Object
+- (@putout/plugin-extract-object-properties) duplicate property name
+- (@putout/plugin-remove-empty) remove-empty-block: add same path twice
+
+feature:
+- (@putout/plugin-remove-unused-variables) add support of YieldExpression, AwaitExpression
+- (package) eslint-plugin-node v9.1.0
+- (@putout/plugin-remove-unused-variables) add support of Function in VariableDeclarator, AssignmentExpression
+- (package) eslint-plugin-node v9.1.0
+- (@putout/plugin-remove-unused-variables) add support of Function as argument of CallExpression
+- (@putout/plugin-remove-unused-variables) get-vars: ArrowFunctionExpression, FunctionDeclaration -> Function
+- (package) eslint-plugin-node v9.1.0
+- (package) eslint-plugin-node v9.1.0
+- (@putout/plugin-remove-unused-variables) add support of ClassExpression
+- (@putout/plugin-remove-unused-variables) add support of nested arguments
+- (@putout/plugin-remove-empty) add support of .min in empty import
+- (package) eslint-plugin-node v9.1.0
+- (@putout/plugin-remove-unused-variables) add support of export anonymous class
+- (package) eslint-plugin-node v9.1.0
+- (@putout/plugin-convert-commonjs-to-esm) add support of relative paths
+
+
 2019.06.19, v4.32.0
 
 fix:
