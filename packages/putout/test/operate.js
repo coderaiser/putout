@@ -128,3 +128,23 @@ test('putout: operate: replaceWithMultiple: comments', (t) => {
     t.end();
 });
 
+test('putout: operate: replaceWithMultiple: empty array', (t) => {
+    const replaceWithMultiple = stub().returns([]);
+    const comments = [];
+    const parentPath = {
+        node: {
+            comments,
+        },
+    };
+    
+    const path = {
+        parentPath,
+        replaceWithMultiple,
+    };
+    
+    const newPath = operate.replaceWithMultiple(path, []);
+    
+    t.deepEqual(newPath, [], 'should equal');
+    t.end();
+});
+
