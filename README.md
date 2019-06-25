@@ -654,29 +654,27 @@ putout --fix lib && eslint --fix lib
 
 *To use in the browser use require("putout/dist/putout.js")*
 
-### putout(source)
+### putout(source, options)
 
 ```js
-const {readFileSync} = require('fs');
 const putout = require('putout');
 
-const source = readFileSync('./1.js', 'utf8');
-console.log(source);
-// outputs
-`
+const source = `
 const t = 'hello';
 const m = t + '!';
-`
+console.log(t);
+`;
 
-const result = putout(source);
+const result = putout(source, {
+    plugins: [
+        'remove-unused-variables',
+    ]
+});
 // returns
 `
 const t = 'hello';
+console.log(t);
 `
-
-const result2 = putout(result);
-// returns
-``
 ```
 
 ## License

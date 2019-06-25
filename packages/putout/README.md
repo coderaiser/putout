@@ -190,26 +190,27 @@ putout lib test --fix
 
 ## API
 
-### putout(source)
+### putout(source, options)
 
 ```js
-const {readFileSync} = require('fs');
-const source = readFileSync('./1.js', 'utf8');
-console.log(source);
-// outputs
-`
+const putout = require('putout');
+
+const source = `
 const t = 'hello';
 const m = t + '!';
-`
+console.log(t);
+`;
 
-const result = putout(source);
+const result = putout(source, {
+    plugins: [
+        'remove-unused-variables',
+    ]
+});
 // returns
 `
 const t = 'hello';
+console.log(t);
 `
-
-const result2 = putout(result);
-// returns
 ``
 ```
 
