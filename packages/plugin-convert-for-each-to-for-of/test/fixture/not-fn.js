@@ -1,0 +1,1 @@
+panels.forEach(Listeners.setOnPanel);

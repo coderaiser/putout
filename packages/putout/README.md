@@ -34,6 +34,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - apply destructuring;
 - merge destructuring properties;
 - convert `Math.pow` to `exponentiation operator`;
+- convert `forEach` to `for-of`;
 - convert `apply` to `spread`;
 - convert `arguments` to `rest`;
 - convert `Object.assign` to `merge spread`;
@@ -95,6 +96,7 @@ To configure create `.putout.json` file and override any option:
         "convert-arguments-to-rest",
         "convert-object-assign-to-merge-spread",
         "convert-math-pow",
+        "convert-for-each-to-for-of",
         "convert-binary-expression-to-boolean",
         "apply-destructuring",
         "merge-destructuring-properties",

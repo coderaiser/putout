@@ -52,6 +52,7 @@
         "convert-object-assign-to-merge-spread",
         "convert-binary-expression-to-boolean",
         "convert-math-pow",
+        "convert-for-each-to-for-of",
         "merge-destructuring-properties",
         "strict-mode",
         "putout"
