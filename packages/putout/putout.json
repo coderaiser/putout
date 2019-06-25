@@ -43,6 +43,7 @@
         "remove-useless-variables",
         "remove-constant-conditions",
         "remove-boolean-from-logical-expressions",
+        "remove-nested-blocks",
         "split-variable-declarations",
         "convert-esm-to-commonjs",
         "convert-commonjs-to-esm",

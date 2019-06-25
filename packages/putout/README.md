@@ -17,6 +17,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - find and remove unused expressions;
 - find and remove useless variables;
 - find and remove `debugger` statement;
+- find and remove nested blocks;
 - find and replace `test.only` to `test` calls;
 - find and replace `test.skip` to `test` calls;
 - find and remove `process.exit` call;
@@ -86,6 +87,7 @@ To configure create `.putout.json` file and override any option:
         "remove-useless-variables",
         "remove-constant-conditions",
         "remove-boolean-from-logical-expressions",
+        "remove-nested-blocks",
         "split-variable-declarations",
         "convert-esm-to-commonjs",
         "convert-commonjs-to-esm",
