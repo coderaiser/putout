@@ -272,7 +272,7 @@ function world(a) {
 <details><summary>convert <code>forEach</code> to <code>for-of</code></summary>
 
 ```diff
-Object.keys(json).forEach((name) => {
+-Object.keys(json).forEach((name) => {
 +for (const name of Object.keys(json)) {
     manage(name, json[name]);
 -});
