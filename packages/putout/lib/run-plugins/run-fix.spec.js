@@ -4,7 +4,7 @@ const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const tryCatch = require('try-catch');
 
-const fix = require('../lib/run-fix');
+const fix = require('./run-fix');
 
 test('fix: error', (t) => {
     const remove = () => {

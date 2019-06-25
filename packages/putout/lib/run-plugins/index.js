@@ -1,22 +1,26 @@
 'use strict';
 
-const getPath = (item) => item.path || item;
-const runFix = require('./run-fix');
-
 const traverse = require('@babel/traverse').default;
-const {merge} = traverse.visitors;
 const generate = require('@babel/generator').default;
 const types = require('@babel/types');
+const once = require('once');
+
+const runFix = require('./run-fix');
+const mergeVisitors = require('./merge-visitors');
+
+const getPath = (item) => item.path || item;
 
 module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
     let places = [];
     
+    const merge = once(mergeVisitors);
     for (let i = 0; i < fixCount; i++) {
         places = run({
             ast,
             fix,
             shebang,
             plugins,
+            merge,
         });
         
         if (!fix || !places.length)
@@ -26,40 +30,22 @@ module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
     return places;
 };
 
-function run({ast, fix, shebang, plugins}) {
+function run({ast, fix, shebang, plugins, merge}) {
     return [
         ...runWithoutMerge({ast, fix, shebang, plugins}),
-        ...runWithMerge({ast, fix, shebang, plugins}),
+        ...runWithMerge({ast, fix, shebang, plugins, merge}),
     ];
 }
 
-function runWithMerge({ast, fix, shebang, plugins}) {
+function runWithMerge({ast, fix, shebang, plugins, merge}) {
     const pluginsToMerge = plugins.filter(([, a]) => a.traverse);
+    const {entries, visitor} = merge(pluginsToMerge);
     
-    const mergeItems = [];
-    const pushed = {};
-    
-    for (const [rule, plugin] of pluginsToMerge) {
-        pushed[rule] = {
-            items: [],
-            plugin,
-        };
-        const push = (a) => {
-            pushed[rule].items.push(a);
-        };
-        
-        mergeItems.push(plugin.traverse({
-            push,
-            generate,
-        }));
-    }
-    
-    traverse(ast, merge(mergeItems));
+    traverse(ast, visitor);
     
     const places = [];
-    const entries = Object.entries(pushed);
-    
-    for (const [rule, {items, plugin}] of entries) {
+    for (const [rule, {pull, plugin}] of entries) {
+        const items = pull();
         for (const item of items) {
             const path = getPath(item);
             const message = plugin.report(item);
