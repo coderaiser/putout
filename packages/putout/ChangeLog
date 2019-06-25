@@ -1,3 +1,12 @@
+2019.06.25, v4.33.0
+
+fix:
+- (putout) operate: replaceWithMultiple: handle empty array case
+
+feature:
+- (@putout/plugin-remove-nested-blocks) add
+
+
 2019.06.25, v4.32.3
 
 feature:
