@@ -10,6 +10,7 @@ module.exports.rules = {
     ...getRule('long-properties-destructuring'),
     ...getRule('destructuring-as-function-argument'),
     ...getRule('align-spaces'),
+    ...getRule('new-line-function-call-arguments'),
 };
 
 const config = require('@putout/eslint-config');
@@ -25,6 +26,7 @@ module.exports.configs = {
             'putout/long-properties-destructuring': 'error',
             'putout/destructuring-as-function-argument': 'error',
             'putout/align-spaces': 'error',
+            'putout/new-line-function-call-arguments': 'error',
         }
     }
 };

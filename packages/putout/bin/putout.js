@@ -132,10 +132,12 @@ function processFiles(name, index, {length}) {
     const [e, result] = tryCatch(putout, input, {
         fix,
         fixCount,
-        ...merge(defaultOptions,
+        ...merge(
+            defaultOptions,
             readCodeMods(),
             options,
-            parseMatch(match, relativeName)),
+            parseMatch(match, relativeName)
+        ),
     });
     
     if (e) {

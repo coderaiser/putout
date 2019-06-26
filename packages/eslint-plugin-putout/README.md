@@ -46,4 +46,5 @@ Then configure the rules you want to use under the rules section.
 - [Long properties destructuring](rules/long-properties-destructuring.md)
 - [Destructuring as function argument](rules/destructuring-as-function-argument.md)
 - [Align spaces](rules/align-spaces.md)
+- [New line function call arguments](rules/new-line-function-call-arguments.md)
 
