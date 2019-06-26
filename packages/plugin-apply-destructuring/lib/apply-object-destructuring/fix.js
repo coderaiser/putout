@@ -1,35 +1,35 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
+const putout = require('putout');
 
-const {template} = require('putout');
+const {
+    operate,
+    types,
+} = putout;
+
+const {replaceWith} = operate;
+const {
+    VariableDeclarator,
+    ObjectPattern,
+    ObjectProperty,
+} = types;
 
 module.exports = (path) => {
-    const {
-        node,
-        parentPath,
-    } = path;
+    const {node} = path;
     
     const {
         id,
         init,
     } = node;
     
-    const PROPERTY = id;
-    const OBJECT = init.object;
-    const {kind} = parentPath.node;
+    const computed = false;
+    const shorthand = true;
     
-    const convert = template(`
-        ${kind} {
-            PROPERTY
-        } = OBJECT;
-    `);
+    const property = ObjectProperty(id, id, computed, shorthand);
+    const pattern = ObjectPattern([
+        property,
+    ]);
     
-    const resultNode = convert({
-        PROPERTY,
-        OBJECT,
-    });
-    
-    replaceWith(parentPath, resultNode);
+    replaceWith(path, VariableDeclarator(pattern, init.object));
 };
 
