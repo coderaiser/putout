@@ -48,7 +48,7 @@ test('putout: operate: replaceWith: loc', (t) => {
     const replaceWith = stub();
     
     const node = {
-        loc
+        loc,
     };
     
     const newNode = {
