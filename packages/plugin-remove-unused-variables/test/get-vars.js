@@ -192,6 +192,9 @@ test('remove-unused-variables: get-vars: arrow function expression', (t) => {
         char: du,
         key: du,
     }, {
+        char: du,
+        absent: du,
+    }, {
         callback: du,
         query: du,
         url: du,

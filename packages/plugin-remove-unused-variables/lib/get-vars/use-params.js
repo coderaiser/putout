@@ -73,6 +73,9 @@ const isUsedAssignmentPattern = (isUsed, path, node) => {
     
     if (isIdentifier(left))
         return isUsed(path, left.name);
+    
+    if (isObjectPattern(left))
+        return isUsedObjectPattern(isUsed, path, left);
 };
 
 const isUsedObjectPattern = (isUsed, path, node) => {

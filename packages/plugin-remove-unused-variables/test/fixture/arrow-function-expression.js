@@ -14,6 +14,10 @@ terminal.on('key', (char, {keyCode: key}) => {
         return;
 });
 
+terminal.on('key', (char, {absent} = {}) => {
+    return absent;
+});
+
 const assignment = (callback, query = '') => {
     const url = '';
     DOM.RESTful.write(url + query);
