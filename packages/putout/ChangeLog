@@ -1,3 +1,18 @@
+2019.06.26, v4.35.0
+
+fix:
+- (eslint-config) get back function-parent-newline
+- (eslint-config) rm function-paren-newline
+
+feature:
+- (putout) operate: replaceWith: add ability to preserve loc
+- (@putout/plugin-apply-destructuring) add support of multiplevariables
+- (@putout/plugin-remove-unused-variables) add support of AssignmentPattern in function arguments
+- (@putout/plugin-remove-useless-variables) add support of ExportNamedDeclaration
+- (@putout/plugin-remove-unused-variables) add support of FunctionExpression in NewExpression
+- (eslint-plugin-putout) add new-line-function-call-arguments
+
+
 2019.06.25, v4.34.0
 
 feature:
