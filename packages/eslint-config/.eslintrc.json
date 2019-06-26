@@ -22,6 +22,7 @@
         "arrow-parens": ["error", "always"],
         "arrow-spacing": "error",
         "comma-dangle": ["error", "always-multiline"],
+        "function-paren-newline": "error",
         "space-infix-ops": ["error", {"int32Hint": false}],
         "prefer-arrow-callback": "error",
         "prefer-const": "error",
