@@ -365,7 +365,7 @@ test('remove-unused-variables: get-vars: member expression', (t) => {
     t.end();
 });
 
-test('remove-unused-variables: get-vars: new-expression', (t) => {
+test('remove-unused-variables: get-vars: new expression', (t) => {
     const ast = parse(fixture.newExpression);
     const result = getVars(ast).map(dutify);
     
@@ -376,6 +376,9 @@ test('remove-unused-variables: get-vars: new-expression', (t) => {
         a: _u,
         accessToken: du,
         DropBox: _u,
+        t: d_,
+    }, {
+        Hello: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

@@ -194,10 +194,14 @@ module.exports = ({use, declare, addParams}) => {
         },
         
         NewExpression(path) {
+            const calleePath = path.get('callee');
             const {node} = path;
             
-            if (isIdentifier(node.callee))
+            if (calleePath.isIdentifier())
                 use(path, node.callee.name);
+            else if (calleePath.isFunction()) {
+                use(calleePath, calleePath.node.id.name);
+            }
             
             const argPaths = path.get('arguments');
             

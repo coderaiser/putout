@@ -8,3 +8,7 @@ const accessToken = 'hello';
 new DropBox({
     accessToken,
 });
+
+const t = new (function Hello() {
+  this.world = '';
+})();
