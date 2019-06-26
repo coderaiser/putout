@@ -49,3 +49,8 @@ test('remove usless variables: transform: argument', (t) => {
     t.end();
 });
 
+test('remove usless variables: transform: export', (t) => {
+    t.noTransform('export');
+    t.end();
+});
+

@@ -12,7 +12,14 @@ module.exports.fix = ({path, bindingPath, initName, idName}) => {
 module.exports.traverse = ({push}) => {
     return {
         VariableDeclarator(path) {
-            const {id, init} = path.node;
+            const {
+                node,
+                parentPath,
+            } = path;
+            const {id, init} = node;
+            
+            if (parentPath.parentPath.isExportNamedDeclaration())
+                return;
             
             if (!isIdentifier(init))
                 return;
