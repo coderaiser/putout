@@ -43,6 +43,28 @@ test('putout: operate: replaceWith: comments', (t) => {
     t.end();
 });
 
+test('putout: operate: replaceWith: loc', (t) => {
+    const loc = {};
+    const replaceWith = stub();
+    
+    const node = {
+        loc
+    };
+    
+    const newNode = {
+    };
+    
+    const path = {
+        node,
+        replaceWith,
+    };
+    
+    operate.replaceWith(path, newNode);
+    
+    t.equal(path.node.loc, loc, 'should equal');
+    t.end();
+});
+
 test('putout: operate: insertAfter', (t) => {
     const node = {
     };

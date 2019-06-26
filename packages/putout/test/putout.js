@@ -19,8 +19,8 @@ const fixture = readFixtures([
     'strict-mode',
     'strict-mode-fix',
     'strict-mode-fix-count',
-    'destructuring',
-    'destructuring-fix',
+    'fix-count',
+    'fix-count-fix',
 ]);
 
 test('putout: no vars', (t) => {
@@ -65,14 +65,14 @@ test('putout: run plugins', (t) => {
 });
 
 test('putout: fix count', (t) => {
-    const result = putout(fixture.destructuring, {
+    const result = putout(fixture.fixCount, {
         plugins: [
             'apply-destructuring',
             'merge-destructuring-properties',
         ],
     });
     
-    t.deepEqual(result.code, fixture.destructuringFix, 'should equal');
+    t.deepEqual(result.code, fixture.fixCountFix, 'should equal');
     t.end();
 });
 
