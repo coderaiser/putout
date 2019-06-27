@@ -1,3 +1,10 @@
+2019.06.27, v4.36.0
+
+feature:
+- (@putout/plugin-apply-destructuring) add support of logical expressions
+- (putout) add fork of recast, while merged benjamn/recast#609
+
+
 2019.06.26, v4.35.0
 
 fix:
