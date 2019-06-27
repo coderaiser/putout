@@ -15,7 +15,7 @@ test('remove usless variables: transform', (t) => {
 });
 
 test('remove usless variables: transform: global', (t) => {
-    t.transform('global');
+    t.noTransform('global');
     t.end();
 });
 
@@ -40,7 +40,7 @@ test('remove usless variables: transform: upper case', (t) => {
 });
 
 test('remove usless variables: transform: not declared', (t) => {
-    t.transform('not-declared');
+    t.noTransform('not-declared');
     t.end();
 });
 
@@ -51,6 +51,11 @@ test('remove usless variables: transform: argument', (t) => {
 
 test('remove usless variables: transform: export', (t) => {
     t.noTransform('export');
+    t.end();
+});
+
+test('remove usless variables: transform: export', (t) => {
+    t.noTransform('var');
     t.end();
 });
 

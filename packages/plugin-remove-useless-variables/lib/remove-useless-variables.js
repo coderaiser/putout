@@ -16,6 +16,8 @@ module.exports.traverse = ({push}) => {
                 node,
                 parentPath,
             } = path;
+            
+            const {kind} = parentPath.node;
             const {id, init} = node;
             
             if (parentPath.parentPath.isExportNamedDeclaration())
@@ -40,7 +42,10 @@ module.exports.traverse = ({push}) => {
             if (!binding)
                 return;
             
-            const bindingPath = path.scope.bindings[name].path;
+            if (kind !== 'const' && binding.referencePaths.length > 1)
+                return;
+            
+            const bindingPath = binding.path;
             
             if (bindingPath.isVariableDeclarator() && bindingPath.get('id').isObjectPattern())
                 return;
