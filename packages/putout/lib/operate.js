@@ -14,13 +14,14 @@ module.exports.replaceWith = (path, node) => {
 };
 
 module.exports.replaceWithMultiple = (path, nodes) => {
-    const {comments} = path.parentPath.node;
+    const parentComments = path.parentPath.node.comments;
+    const {comments} = path.node;
     const newPath = path.replaceWithMultiple(nodes);
     
     if (!newPath.length)
         return newPath;
     
-    newPath[0].node.comments = comments;
+    newPath[0].node.comments = comments || parentComments;
     
     return newPath;
 };

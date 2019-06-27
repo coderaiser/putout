@@ -104,8 +104,10 @@ test('putout: operate: insertAfter: comments', (t) => {
 });
 
 test('putout: operate: replaceWithMultiple', (t) => {
-    const node = {};
     const comments = [];
+    const node = {
+        comments,
+    };
     
     const replaceWithMultiple = stub().returns([{
         node,
@@ -117,6 +119,7 @@ test('putout: operate: replaceWithMultiple', (t) => {
     };
     
     const path = {
+        node,
         parentPath,
         replaceWithMultiple,
     };
@@ -128,11 +131,40 @@ test('putout: operate: replaceWithMultiple', (t) => {
 });
 
 test('putout: operate: replaceWithMultiple: comments', (t) => {
-    const node = {};
+    const comments = [];
+    const node = {
+        comments
+    };
     const replaceWithMultiple = stub().returns([{
         node,
     }]);
+    const parentPath = {
+        node: {
+        },
+    };
+    
+    const path = {
+        node,
+        parentPath,
+        replaceWithMultiple,
+    };
+    
+    const newPath = operate.replaceWithMultiple(path, node);
+    
+    t.deepEqual(newPath[0].node.comments, comments, 'should call reporter');
+    t.end();
+});
+
+test('putout: operate: replaceWithMultiple: comments: parent', (t) => {
     const comments = [];
+    const node = {
+        comments: null,
+    };
+    
+    const replaceWithMultiple = stub().returns([{
+        node,
+    }]);
+    
     const parentPath = {
         node: {
             comments,
@@ -140,6 +172,7 @@ test('putout: operate: replaceWithMultiple: comments', (t) => {
     };
     
     const path = {
+        node,
         parentPath,
         replaceWithMultiple,
     };
@@ -153,6 +186,9 @@ test('putout: operate: replaceWithMultiple: comments', (t) => {
 test('putout: operate: replaceWithMultiple: empty array', (t) => {
     const replaceWithMultiple = stub().returns([]);
     const comments = [];
+    const node = {
+        comments,
+    };
     const parentPath = {
         node: {
             comments,
@@ -160,6 +196,7 @@ test('putout: operate: replaceWithMultiple: empty array', (t) => {
     };
     
     const path = {
+        node,
         parentPath,
         replaceWithMultiple,
     };
