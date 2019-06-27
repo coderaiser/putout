@@ -1,3 +1,12 @@
+2019.06.27, v4.37.1
+
+fix:
+- (@putout/plugin-split-variable-declarations) comments
+
+feature:
+- (putout) operate: replaceWithMultiple: add support of current node comments
+
+
 2019.06.27, v4.37.0
 
 feature:
