@@ -72,6 +72,7 @@ const fixture = readFixtures([
     'jsx-spread-attribute',
     'yield',
     'await',
+    'flow',
 ]);
 
 const du = 'du';
@@ -1262,6 +1263,19 @@ test('remove-unused-variables: get-vars: template: no loc', (t) => {
         fn: d_,
     }, {
         hello: d_,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: flow', (t) => {
+    const ast = parse(fixture.flow);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        SourceType: du,
+        NodeBase: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');

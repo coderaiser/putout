@@ -22,6 +22,9 @@ const {
 
 const {assign} = Object;
 
+const jsx = require('./jsx');
+const flow = require('./flow');
+
 module.exports = ({use, declare, addParams}) => {
     const traverseObj = traverseObjectExpression(use);
     const processObj = processObjectPattern({use, declare});
@@ -456,31 +459,8 @@ module.exports = ({use, declare, addParams}) => {
                 params,
             });
         },
-        
-        JSXOpeningElement(path) {
-            const {node} = path;
-            const {name} = node;
-            
-            if (/^[A-Z]/.test(name.name))
-                use(path, name.name);
-            
-            use(path, 'React');
-        },
-        
-        JSXSpreadAttribute(path) {
-            const argPath = path.get('argument');
-            
-            if (argPath.isIdentifier())
-                return use(path, argPath.node.name);
-        },
-        
-        JSXExpressionContainer(path) {
-            const {node} = path;
-            const {expression} = node;
-            
-            if (isIdentifier(expression))
-                use(path, expression.name);
-        },
+        ...jsx(use),
+        ...flow(use),
     };
 };
 
