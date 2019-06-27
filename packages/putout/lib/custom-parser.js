@@ -36,7 +36,6 @@ function babelParse(source) {
         allowReturnOutsideFunction: true,
         plugins: [
             'estree',
-            'jsx',
             'importMeta',
             'dynamicImport',
             'bigInt',
@@ -44,6 +43,7 @@ function babelParse(source) {
             'classPrivateMethods',
             'classProperties',
             'numericSeparator',
+            ...getBabelLangExts(source),
         ],
     });
 }
@@ -85,4 +85,21 @@ function acornParse(source) {
         tokens: tokensToAvoidEsprima,
     };
 }
+
+function getBabelLangExts(source) {
+    const isFlow = !source.indexOf('// @flow');
+    const langs = [
+        'jsx',
+    ];
+    
+    if (!isFlow)
+        return langs.concat([
+            'typescript'
+        ]);
+    
+    return langs.concat([
+        'flow',
+        'flowComments',
+    ]);
+};
 

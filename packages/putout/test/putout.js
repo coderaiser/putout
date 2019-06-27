@@ -23,6 +23,7 @@ const fixture = readFixtures([
     'fix-count-fix',
     'recast-destructuring-assign',
     'recast-destructuring-assign-fix',
+    'flow',
 ]);
 
 test('putout: no vars', (t) => {
@@ -100,6 +101,19 @@ test('putout: shebang', (t) => {
     const expected = fixture.shebangFix;
     
     t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: flow', (t) => {
+    const {places} = putout(fixture.flow, {
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected, 'should equal');
     t.end();
 });
 

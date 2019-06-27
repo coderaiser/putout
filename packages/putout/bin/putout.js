@@ -181,7 +181,7 @@ function addExt(a) {
     const isDir = file.isDirectory();
     
     if (isDir)
-        return `${a}/**/*.{js,jsx}`;
+        return `${a}/**/*.{js,jsx,ts}`;
     
     return a;
 }
