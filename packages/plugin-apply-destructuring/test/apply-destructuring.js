@@ -27,12 +27,22 @@ test('plugin-apply-destructuring: transform: array', (t) => {
 
 test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
     const code = 'const {name} = array[0]';
-    t.transformCode(code, code);
+    t.noTransformCode(code);
     t.end();
 });
 
 test('plugin-apply-destructuring: transform: vars', (t) => {
     t.transform('vars');
+    t.end();
+});
+
+test('plugin-apply-destructuring: transform: logical', (t) => {
+    t.transform('logical');
+    t.end();
+});
+
+test('plugin-apply-destructuring: transform: logical: and', (t) => {
+    t.noTransform('logical-and');
     t.end();
 });
 

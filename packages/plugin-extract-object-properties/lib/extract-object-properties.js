@@ -26,7 +26,9 @@ module.exports.fix = ({items}) => {
             if (!names.includes(property.name)) {
                 names.push(property.name);
                 
-                const body = item.scope.block.body.body || item.scope.block.body;
+                const {
+                    body = item.scope.block.body,
+                } = item.scope.block.body;
                 body.unshift(buildAst({
                     PROPERTY: property,
                     OBJECT: object,
