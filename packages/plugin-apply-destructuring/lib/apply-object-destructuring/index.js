@@ -34,6 +34,7 @@ module.exports.traverse = ({push}) => {
                 return push(path);
             
             const operator = '||';
+            
             if (isLogicalExpression(init, {operator}) && isSameName(id, init.left))
                 return push(path);
         },
