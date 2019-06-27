@@ -3,7 +3,6 @@
 'use strict';
 
 const {
-    extname,
     resolve,
     dirname,
 } = require('path');
@@ -174,7 +173,6 @@ function processFiles(name, index, {length}) {
 }
 
 function addExt(a) {
-    const ext = extname(a);
     const [e, file] = tryCatch(statSync, a);
     
     if (e)
@@ -182,8 +180,8 @@ function addExt(a) {
     
     const isDir = file.isDirectory();
     
-    if (isDir && ext !== '.js')
-        return `${a}/**/*.js`;
+    if (isDir)
+        return `${a}/**/*.{js,jsx}`;
     
     return a;
 }
