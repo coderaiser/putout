@@ -1,10 +1,17 @@
 'use strict';
 
 const {
+    types,
+    operate,
+} = require('putout');
+
+const {
     isForStatement,
     variableDeclaration,
     variableDeclarator,
-} = require('putout').types;
+} = types;
+
+const {replaceWithMultiple} = operate;
 
 const {assign} = Object;
 
@@ -12,7 +19,7 @@ module.exports.report = () => 'Variables should be declared separately';
 
 module.exports.fix = (path) => {
     const varNodes = getVarNodes(path.node);
-    path.replaceWithMultiple(varNodes);
+    replaceWithMultiple(path, varNodes);
 };
 
 module.exports.traverse = ({push}) => {

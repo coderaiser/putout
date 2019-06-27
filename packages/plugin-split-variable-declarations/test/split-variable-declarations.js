@@ -22,6 +22,11 @@ test('plugin-split-variable-declarations: transform: for-statement', (t) => {
     t.end();
 });
 
+test('plugin-split-variable-declarations: transform: comment', (t) => {
+    t.transform('comment');
+    t.end();
+});
+
 test('plugin-split-variable-declarations: null literal: loc', (t) => {
     t.transform('null-literal', '\n\n', {
         'remove-unused-variables': removeUnusedVariables,
