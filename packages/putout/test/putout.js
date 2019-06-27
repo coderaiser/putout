@@ -21,6 +21,8 @@ const fixture = readFixtures([
     'strict-mode-fix-count',
     'fix-count',
     'fix-count-fix',
+    'recast-destructuring-assign',
+    'recast-destructuring-assign-fix',
 ]);
 
 test('putout: no vars', (t) => {
@@ -323,6 +325,17 @@ test('putout: plugin: return push in traverse', (t) => {
     }];
     
     t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: recast destructuring assign', (t) => {
+    const result = putout(fixture.recastDestructuringAssign, {
+        plugins: [
+            'apply-destructuring',
+        ],
+    });
+    
+    t.deepEqual(result.code, fixture.recastDestructuringAssignFix, 'should equal');
     t.end();
 });
 
