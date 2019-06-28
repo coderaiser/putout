@@ -94,12 +94,12 @@ function getBabelLangExts(source) {
     
     if (!isFlow)
         return langs.concat([
-            'typescript'
+            'typescript',
         ]);
     
     return langs.concat([
         'flow',
         'flowComments',
     ]);
-};
+}
 

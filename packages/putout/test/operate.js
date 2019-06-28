@@ -133,7 +133,7 @@ test('putout: operate: replaceWithMultiple', (t) => {
 test('putout: operate: replaceWithMultiple: comments', (t) => {
     const comments = [];
     const node = {
-        comments
+        comments,
     };
     const replaceWithMultiple = stub().returns([{
         node,
