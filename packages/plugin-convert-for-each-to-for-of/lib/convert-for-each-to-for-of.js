@@ -1,13 +1,15 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
+const {
+    template,
+    operate,
+} = require('putout');
 
-const {template} = require('putout');
+const {replaceWith} = operate;
 
 const forOfTemplate = template(`
-  for (const %%item%% of %%items%%) {
+  for (const %%item%% of %%items%%)
     %%body%%
-  }
 `);
 
 module.exports.report = () => `for-of should be used instead of forEach`;
