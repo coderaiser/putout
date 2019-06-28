@@ -24,6 +24,7 @@ const {assign} = Object;
 
 const jsx = require('./jsx');
 const flow = require('./flow');
+const typescript = require('./typescript');
 
 module.exports = ({use, declare, addParams}) => {
     const traverseObj = traverseObjectExpression(use);
@@ -461,6 +462,7 @@ module.exports = ({use, declare, addParams}) => {
         },
         ...jsx(use),
         ...flow(use),
+        ...typescript(use),
     };
 };
 

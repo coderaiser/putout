@@ -73,6 +73,7 @@ const fixture = readFixtures([
     'yield',
     'await',
     'flow',
+    'typescript',
 ]);
 
 const du = 'du';
@@ -1276,6 +1277,21 @@ test('remove-unused-variables: get-vars: flow', (t) => {
     const expected = [{
         SourceType: du,
         NodeBase: _u,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: typescript', (t) => {
+    const ast = parse(fixture.typescript);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        Lines: d_,
+        Options: du,
+    }, {
+        options: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');
