@@ -29,6 +29,7 @@ module.exports.traverse = ({push}) => {
         MemberExpression(path) {
             const {parentPath} = path;
             const propertyPath = path.get('property');
+            const objectPath = path.get('object');
             
             if (!propertyPath.isIdentifier({name: 'forEach'}))
                 return;
@@ -38,7 +39,24 @@ module.exports.traverse = ({push}) => {
             if (!argPath.isFunction())
                 return;
             
+            if (!argPath.get('params').length)
+                return;
+            
+            if (isParentContainsFunctionArgument(objectPath))
+                return;
+            
             push(path);
         },
     };
 };
+
+function isParentContainsFunctionArgument(objectPath) {
+    if (!objectPath.isCallExpression())
+        return false;
+    
+    for (const argPath of objectPath.get('arguments')) {
+        if (argPath.isFunction())
+            return true;
+    }
+}
+

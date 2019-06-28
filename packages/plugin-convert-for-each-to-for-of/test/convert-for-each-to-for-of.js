@@ -18,3 +18,14 @@ test('plugin-convert-for-each-to-for-of: transform: not function', (t) => {
     t.noTransform('not-fn');
     t.end();
 });
+
+test('plugin-convert-for-each-to-for-of: transform: empty function', (t) => {
+    t.noTransform('empty-fn');
+    t.end();
+});
+
+test('plugin-convert-for-each-to-for-of: transform: parent function argument', (t) => {
+    t.noTransform('parent-fn-arg');
+    t.end();
+});
+
