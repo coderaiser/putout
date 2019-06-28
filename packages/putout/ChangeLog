@@ -1,3 +1,12 @@
+2019.06.28, v4.38.0
+
+fix:
+- (@putout/plugin-putout) replace-with: exists
+
+feature:
+- (@putout/plugin-putout) add ability to convert replaceWithMultiple
+
+
 2019.06.27, v4.37.1
 
 fix:
