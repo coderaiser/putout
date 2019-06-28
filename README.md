@@ -586,7 +586,7 @@ module.exports.fix = (path) => {
     path.replaceWith(ast);
     
     // correct
-    replaceWith(ast);
+    replaceWith(path, ast);
 }
 ```
 
