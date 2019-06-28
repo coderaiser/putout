@@ -1290,6 +1290,7 @@ test('remove-unused-variables: get-vars: typescript', (t) => {
     const expected = [{
         Lines: d_,
         Options: du,
+        namedTypes: du,
     }, {
         options: d_,
     }];

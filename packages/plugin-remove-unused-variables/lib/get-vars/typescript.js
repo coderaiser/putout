@@ -11,5 +11,13 @@ module.exports = (use) => ({
         if (isIdentifier(typeName))
             use(path, typeName.name);
     },
+    
+    TSQualifiedName(path) {
+        const {node} = path;
+        const {left} = node;
+        
+        if (isIdentifier(left))
+            use(path, left.name);
+    },
 });
 
