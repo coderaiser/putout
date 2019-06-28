@@ -20,13 +20,14 @@ const replaceWithAST = template.ast(`
 `);
 
 module.exports.fix = ({path, object, program, isInserted}) => {
-    const strictNodePath = program.get('body.0');
+    const strictModePath = program.get('body.0');
+    const {replaceWith} = strictModePath.scope.bindings;
     
     path.node.arguments.unshift(object);
     
-    if (!isInserted()) {
+    if (!replaceWith && !isInserted()) {
         isInserted(true);
-        insertAfter(strictNodePath, replaceWithAST);
+        insertAfter(strictModePath, replaceWithAST);
     }
 };
 

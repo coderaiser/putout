@@ -14,3 +14,8 @@ test('plugin-putout: transform', (t) => {
     t.end();
 });
 
+test('plugin-putout: transform', (t) => {
+    t.transform('replace-with-exists');
+    t.end();
+});
+
