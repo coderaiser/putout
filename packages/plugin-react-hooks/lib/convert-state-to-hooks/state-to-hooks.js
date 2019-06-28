@@ -1,5 +1,7 @@
 'use strict';
 
+const {replaceWithMultiple} = require('putout').operate;
+
 const {template} = require('putout');
 
 const buildHooks = template(`
@@ -23,7 +25,7 @@ module.exports = (path) => {
         }));
     }
     
-    path.replaceWithMultiple(nodes);
+    replaceWithMultiple(path, nodes);
 };
 
 function getSetter(name) {

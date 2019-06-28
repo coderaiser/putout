@@ -1,9 +1,11 @@
 'use strict';
 
+const {replaceWithMultiple} = require('putout').operate;
+
 module.exports.report = () => 'Nested blocks should not be used';
 
 module.exports.fix = (path) => {
-    path.replaceWithMultiple(path.node.body);
+    replaceWithMultiple(path, path.node.body);
 };
 
 module.exports.traverse = ({push}) => {

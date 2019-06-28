@@ -5,7 +5,10 @@ const {
     operate,
 } = require('putout');
 
-const {replaceWith} = operate;
+const {
+    replaceWith,
+    replaceWithMultiple,
+} = operate;
 
 const {isIdentifier} = types;
 
@@ -20,7 +23,7 @@ module.exports.fix = ({path, result}) => {
     } = path.node;
     
     if (result)
-        return path.replaceWithMultiple(consequent.body);
+        return replaceWithMultiple(path, consequent.body);
     
     if (!alternate)
         return path.remove();

@@ -1,12 +1,20 @@
 'use strict';
 
 const {
+    types,
+    operate,
+    template,
+} = require('putout');
+
+const {
+    replaceWithMultiple,
+} = operate;
+
+const {
     isImportSpecifier,
     isImportDefaultSpecifier,
     isImportNamespaceSpecifier,
-} = require('putout').types;
-
-const {template} = require('putout');
+} = types;
 
 const getName = ({source}) => source.raw;
 
@@ -50,7 +58,7 @@ module.exports.convertImport = (path) => {
         }
     }
     
-    path.replaceWithMultiple(vars);
+    replaceWithMultiple(path, vars);
 };
 
 function getImportDefaultVar(name, node) {
