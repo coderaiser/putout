@@ -575,7 +575,7 @@ When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, ple
 
 ```js
 const {template, operate} = require('putout');
-const {replaceWith} = require('operate');
+const {replaceWith} = operate;
 
 const ast = template.ast(`
   const str = 'hello';
