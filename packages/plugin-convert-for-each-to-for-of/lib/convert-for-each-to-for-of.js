@@ -15,7 +15,7 @@ module.exports.report = () => `for-of should be used instead of forEach`;
 module.exports.fix = (path) => {
     const {parentPath} = path;
     const {params, body} = parentPath.node.arguments[0];
-    const [item] = params;
+    const item = getItem(params);
     
     replaceWith(parentPath.parentPath, forOfTemplate({
         item,
@@ -45,6 +45,9 @@ module.exports.traverse = ({push}) => {
             if (isParentContainsFunctionArgument(objectPath))
                 return;
             
+            if (parentPath.node.arguments.length === 2 && !parentPath.get('arguments.1').isThisExpression())
+                return;
+            
             push(path);
         },
     };
@@ -58,5 +61,14 @@ function isParentContainsFunctionArgument(objectPath) {
         if (argPath.isFunction())
             return true;
     }
+}
+
+function getItem(params) {
+    const [thisItem, item] = params;
+    
+    if (params[0].name === 'this')
+        return item;
+    
+    return thisItem;
 }
 

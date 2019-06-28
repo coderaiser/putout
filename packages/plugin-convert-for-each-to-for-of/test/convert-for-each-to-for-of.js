@@ -14,6 +14,11 @@ test('plugin-convert-for-each-to-for-of: transform', (t) => {
     t.end();
 });
 
+test('plugin-convert-for-each-to-for-of: transform: this', (t) => {
+    t.transform('this');
+    t.end();
+});
+
 test('plugin-convert-for-each-to-for-of: transform: not function', (t) => {
     t.noTransform('not-fn');
     t.end();
@@ -26,6 +31,11 @@ test('plugin-convert-for-each-to-for-of: transform: empty function', (t) => {
 
 test('plugin-convert-for-each-to-for-of: transform: parent function argument', (t) => {
     t.noTransform('parent-fn-arg');
+    t.end();
+});
+
+test('plugin-convert-for-each-to-for-of: transform: not this', (t) => {
+    t.noTransform('not-this');
     t.end();
 });
 
