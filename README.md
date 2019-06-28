@@ -556,17 +556,57 @@ Every `putout` plugin should contain 3 functions:
 - `traverse({push})` - find errors and `push` them;
 - `fix(path)` - fixes paths using `places` array received using `find` function;
 
-`context` of `find` function contains [@babel/traverse](https://babeljs.io/docs/en/next/babel-traverse.html) and [@babel/types](https://babeljs.io/docs/en/next/babel-types.html). Also there is [template](https://babeljs.io/docs/en/next/babel-template.html). All of this can be get from `putout`:
+`context` of `find` function contains [@babel/traverse](https://babeljs.io/docs/en/next/babel-traverse.html) and [@babel/types](https://babeljs.io/docs/en/next/babel-types.html). Also there is [template](https://babeljs.io/docs/en/next/babel-template.html) and even [generate](https://babeljs.io/docs/en/babel-generator). All of this can be get from `putout`:
 
 ```js
 const {
     types,
     template,
+    generate,
 } = require('putout');
 ```
 
 Most information you can find in [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md) is relevant to `putout` plugins.
 To understand how things works from the inside take a look at [Super Tiny Compiler](https://github.com/jamiebuilds/the-super-tiny-compiler).
+
+##### Operate
+
+When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, please use `operate` insted of `path`-methods.
+
+```js
+const {template, operate} = require('putout');
+const {replaceWith} = require('operate');
+
+const ast = template.ast(`
+  const str = 'hello';
+`);
+
+module.exports.fix = (path) => {
+    // wrong
+    path.replaceWith(ast);
+    
+    // correct
+    replaceWith(ast);
+}
+```
+
+This should be done to preserve `loc` and `comments` information, which is different in `babel` and `recast`. `putout` will handle this case for you :),
+just use methods of `operate`.
+
+
+#### Putout Plugin
+
+When you work on a `plugin` or `codemod` please add rule `putout` into `.putout.json`:
+
+```
+{
+    "rules": {
+        "putout": true
+    }
+}
+```
+
+[@putout/plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/plugin-putout) will handle plugin-specific cases for you :).
 
 #### Example
 
