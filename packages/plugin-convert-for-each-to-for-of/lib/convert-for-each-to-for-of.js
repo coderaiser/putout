@@ -12,6 +12,10 @@ const forOfTemplate = template(`
     %%body%%
 `);
 
+const {keys} = Object;
+
+const isRoot = (path) => path.isFunction() || path.isProgram();
+
 module.exports.report = () => `for-of should be used instead of forEach`;
 
 module.exports.fix = (path) => {
@@ -36,12 +40,12 @@ module.exports.traverse = ({push}) => {
             if (!propertyPath.isIdentifier({name: 'forEach'}))
                 return;
             
-            const argPath = parentPath.get('arguments.0');
+            const fnPath = parentPath.get('arguments.0');
             
-            if (!argPath.isFunction())
+            if (!fnPath.isFunction())
                 return;
             
-            if (!argPath.get('params').length)
+            if (!fnPath.get('params').length)
                 return;
             
             if (isParentContainsFunctionArgument(objectPath))
@@ -50,10 +54,22 @@ module.exports.traverse = ({push}) => {
             if (parentPath.node.arguments.length === 2 && !parentPath.get('arguments.1').isThisExpression())
                 return;
             
+            const rootPath = path.findParent(isRoot);
+            
+            if (isBoundVars(rootPath, fnPath))
+                return;
+            
             push(path);
         },
     };
 };
+
+function isBoundVars(parentPath, path) {
+    const currentBindings = keys(parentPath.scope.bindings);
+    const fnBindings = keys(path.scope.bindings);
+    
+    return compare(currentBindings, fnBindings);
+}
 
 function isParentContainsFunctionArgument(objectPath) {
     if (!objectPath.isCallExpression())
@@ -72,5 +88,14 @@ function getItem(params) {
         return item;
     
     return thisItem;
+}
+
+function compare(a, b) {
+    for (const el of a) {
+        if (b.includes(el))
+            return true;
+    }
+    
+    return false;
 }
 
