@@ -14,7 +14,7 @@
 npm i @putout/plugin-putout -D
 ```
 
-## Rule
+## Rules
 
 ```json
 {
