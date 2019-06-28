@@ -610,7 +610,7 @@ When you work on a `plugin` or `codemod` please add rule `putout` into `.putout.
 
 #### Example
 
-Let's consider simplest possible plugin for removing `debugger statements [@putout/plugin-remove-debugger](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-debugger):
+Let's consider simplest possible plugin for removing `debugger statements` [@putout/plugin-remove-debugger](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-debugger):
 
 ```js
 // this is a message to show in putout cli
