@@ -19,9 +19,10 @@ npm i @putout/plugin-putout -D
 ```json
 {
     "rules": {
-        "putout/convert-to-no-transform-code": true
-        "putout/convert-replace-with": true
-        "putout/convert-babel-types": true
+        "putout/convert-to-no-transform-code": true,
+        "putout/convert-replace-with": true,
+        "putout/convert-replace-with-multiple": true,
+        "putout/convert-babel-types": true,
     }
 }
 ```
@@ -70,23 +71,23 @@ module.exports.fix = (path) => {
 };
 ```
 
-## convert-replace-with
+## convert-replace-with-multiple
 
 ### ❌ Incorrect code example
 
 ```js
 module.exports.fix = (path) => {
-    path.replaceWith(Identifier('hello'));
+    path.replaceWithMultiple([Identifier('hello')]);
 };
 ```
 
 ### ✅ Correct code Example
 
 ```js
-const {replaceWith} = require('putout').operate;
+const {replaceWithMultiple} = require('putout').operate;
 
 module.exports.fix = (path) => {
-    replaceWith(path, Identifier('hello'));
+    replaceWithMultiple(path, [Identifier('hello')]);
 };
 ```
 
