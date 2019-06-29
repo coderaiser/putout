@@ -127,10 +127,12 @@ function processFiles(name, index, {length}) {
     }
     
     const input = readFileSync(name, 'utf8');
+    const isTS = /\.ts$/.test(name);
     
     const [e, result] = tryCatch(putout, input, {
         fix,
         fixCount,
+        isTS,
         ...merge(
             defaultOptions,
             readCodeMods(),

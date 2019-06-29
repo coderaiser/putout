@@ -16,14 +16,18 @@ const {isArray} = Array;
 const {entries} = Object;
 
 const {UPDATE} = process.env;
+const TS = {
+    ENABLED: true,
+    DISABLED: false,
+}
 
 const readFixture = (name) => {
     const [e, data] = tryCatch(readFileSync, `${name}.ts`, 'utf8');
     
     if (!e)
-        return data;
+        return [data, TS.ENABLED];
     
-    return readFileSync(`${name}.js`, 'utf8');
+    return [readFileSync(`${name}.js`, 'utf8'), TS.DISABLED];
 };
 
 const wrap = (dir, plugin, test) => (str, fn) => {
@@ -62,10 +66,10 @@ module.exports = (dir, plugin) => {
 const format = (t, dir, plugins) => (formatter, name) => {
     const full = join(dir, name);
     const outputName = `${full}-format`;
-    const input = readFixture(full);
-    const expected = readFixture(outputName);
+    const [input, isTS] = readFixture(full);
+    const [expected] = readFixture(outputName);
     
-    const {places} = putout(input, {fixCount: 1, plugins});
+    const {places} = putout(input, {fixCount: 1, isTS, plugins});
     
     const report = putout.initReport();
     const result = report(formatter, {
@@ -81,7 +85,7 @@ const format = (t, dir, plugins) => (formatter, name) => {
 
 const noFormat = (t, dir, plugins) => (formatter, name) => {
     const full = join(dir, name);
-    const input = readFixture(full);
+    const [input] = readFixture(full);
     
     const {places} = putout(input, {plugins});
     
@@ -107,7 +111,7 @@ const formatMany = (t, dir, plugins) => (formatter, names) => {
     for (let index = 0; index < count; index++) {
         const name = names[index];
         const full = fullNames[index];
-        const input = readFixture(full);
+        const [input] = readFixture(full);
         
         const {places} = putout(input, {fixCount: 1, plugins});
         
@@ -121,7 +125,7 @@ const formatMany = (t, dir, plugins) => (formatter, names) => {
     }
     
     const outputName = join(dir, `${names.join('-')}-format`);
-    const expected = readFixture(outputName);
+    const [expected] = readFixture(outputName);
     
     t.equal(result, expected);
     
@@ -154,10 +158,10 @@ const formatSave = (t, dir, plugins) => (formatter, name) => {
 
 const transform = (t, dir, plugins) => (name, transformed, addons) => {
     const full = join(dir, name);
-    const input = readFixture(full);
+    const [input, isTS] = readFixture(full);
     const isStr = isString(transformed);
     
-    const output = isStr ? transformed : readFixture(`${full}-fix`);
+    const [output]  = isStr ? [transformed] : readFixture(`${full}-fix`);
     
     addons = isString(transformed) ? addons : transformed;
     addons = addons || {};
@@ -167,16 +171,18 @@ const transform = (t, dir, plugins) => (name, transformed, addons) => {
         ...addons,
     };
     
-    transformCode(t, plugins)(input, output);
+    transformCode(t, plugins)(input, output, isTS);
 };
 
 const noTransform = (t, dir, plugins) => (name, transformed, addons) => {
     const full = join(dir, name);
-    transform(t, dir, plugins)(name, readFixture(full), addons);
+    const [fixture] = readFixture(full);
+    
+    transform(t, dir, plugins)(name, fixture, addons);
 };
 
-const transformCode = (t, plugins) => (input, output) => {
-    const {code} = putout(input, {plugins});
+const transformCode = (t, plugins) => (input, output, isTS) => {
+    const {code} = putout(input, {isTS, plugins});
     
     t.equal(code, output, 'should equal');
 };
@@ -191,7 +197,7 @@ const getMessage = ({message}) => message;
 
 const report = (t, dir, plugins) => (name, message) => {
     const full = join(dir, name);
-    const source = readFixture(full);
+    const [source] = readFixture(full);
     
     reportCode(t, plugins)(source, message);
 };

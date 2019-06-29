@@ -14,9 +14,9 @@ const initAcorn = once(() => {
     return Parser.extend(stage3, jsx());
 });
 
-module.exports = (source, parser) => {
+module.exports = ({source, parser, isTS}) => {
     if (parser === 'babel')
-        return babelParse(source);
+        return babelParse(source, isTS);
     
     if (parser === 'espree')
         return espreeParse(source);
@@ -27,15 +27,17 @@ module.exports = (source, parser) => {
     return require(parser).parse(source);
 };
 
-function babelParse(source) {
+const clean = (a) => a.filter(Boolean);
+
+function babelParse(source, isTS) {
     const {parse} = initBabel();
     
     return parse(source, {
         sourceType: 'module',
         tokens: true,
         allowReturnOutsideFunction: true,
-        plugins: [
-            'estree',
+        plugins: clean([
+            !isTS && 'estree',
             'importMeta',
             'dynamicImport',
             'bigInt',
@@ -43,8 +45,9 @@ function babelParse(source) {
             'classPrivateMethods',
             'classProperties',
             'numericSeparator',
-            ...getBabelLangExts(source),
-        ],
+            'exportDefaultFrom',
+            ...getBabelLangExts({isTS, source}),
+        ]),
     });
 }
 
@@ -86,20 +89,23 @@ function acornParse(source) {
     };
 }
 
-function getBabelLangExts(source) {
+function getBabelLangExts({isTS, source}) {
     const isFlow = !source.indexOf('// @flow');
     const langs = [
         'jsx',
     ];
     
-    if (!isFlow)
+    if (isTS)
         return langs.concat([
             'typescript',
         ]);
     
-    return langs.concat([
-        'flow',
-        'flowComments',
-    ]);
+    if (isFlow)
+        return langs.concat([
+            'flow',
+            'flowComments',
+        ]);
+    
+    return langs;
 }
 

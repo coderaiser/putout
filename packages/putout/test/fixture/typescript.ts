@@ -1,0 +1,3 @@
+class Mapping {
+    sourceLines: Lines;
+}

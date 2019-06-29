@@ -24,6 +24,7 @@ const fixture = readFixtures([
     'recast-destructuring-assign',
     'recast-destructuring-assign-fix',
     'flow',
+    'typescript',
 ]);
 
 test('putout: no vars', (t) => {
@@ -114,6 +115,18 @@ test('putout: flow', (t) => {
     const expected = [];
     
     t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: typescript', (t) => {
+    const {code} = putout(fixture.typescript, {
+        isTS: true,
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    t.deepEqual(code, '\n', 'should equal');
     t.end();
 });
 

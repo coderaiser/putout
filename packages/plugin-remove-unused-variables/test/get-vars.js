@@ -1284,7 +1284,7 @@ test('remove-unused-variables: get-vars: flow', (t) => {
 });
 
 test('remove-unused-variables: get-vars: typescript', (t) => {
-    const ast = parse(fixture.typescript);
+    const ast = parse(fixture.typescript, {isTS: true});
     const result = getVars(ast).map(dutify);
     
     const expected = [{

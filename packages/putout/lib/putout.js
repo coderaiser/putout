@@ -20,9 +20,9 @@ const printOptions = {
     objectCurlySpacing: false,
 };
 
-const getParser = (parser) => ({
+const getParser = ({parser, isTS}) => ({
     parse(source) {
-        return toBabel(customParser(source, parser));
+        return toBabel(customParser({source, parser, isTS}));
     },
 });
 
@@ -50,11 +50,12 @@ module.exports = (source, opts) => {
         parser,
         fixCount,
         fix,
+        isTS,
     } = opts;
     
     const [clearSource, shebang] = cutShebang(source);
     
-    const ast = parse(clearSource, parser);
+    const ast = parse(clearSource, {parser, isTS});
     const plugins = getPlugins(opts);
     const places = runPlugins({
         ast,
@@ -79,9 +80,9 @@ const fixStrictMode = (a) => {
 };
 
 module.exports.parse = parse;
-function parse(source, parser = 'babel') {
+function parse(source, {parser = 'babel', isTS} = {}) {
     const ast = recast.parse(source, {
-        parser: getParser(parser),
+        parser: getParser({parser, isTS}),
     });
     
     return ast;
