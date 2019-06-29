@@ -39,7 +39,7 @@
     "@putout/formatter-dump": "^1.0.0",
     "@putout/plugin-remove-unused-variables": "^1.11.0",
     "coveralls": "^3.0.0",
-    "eslint": "^5.6.0",
+    "eslint": "^6.0.1",
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-tape": "^1.1.0",
     "lerna": "^3.8.5",
