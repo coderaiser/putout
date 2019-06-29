@@ -1,6 +1,14 @@
 'use strict';
 
 const {
+    types,
+    operate,
+} = require('putout');
+
+const {replaceWith} = operate;
+
+const {
+    UnaryExpression,
     isArrowFunctionExpression,
     isFunctionExpression,
     isFunctionDeclaration,
@@ -9,12 +17,31 @@ const {
     isCatchClause,
     isIfStatement,
     isTryStatement,
-} = require('putout').types;
+} = types;
 
 module.exports.report = () => 'Empty block statement';
 
 module.exports.fix = (path) => {
-    path.remove();
+    const {alternate} = path.node;
+    
+    if (!path.isIfStatement() || !alternate)
+        return path.remove();
+    
+    if (!alternate.body.length)
+        return path.remove();
+    
+    path.node.consequent = path.node.alternate;
+    path.node.alternate = null;
+    
+    const testPath = path.get('test');
+    const {operator} = testPath.node;
+    
+    if (operator && operator !== '=' && /[<>=]/.test(testPath.node.operator)) {
+        testPath.node.operator = reverse(testPath.node.operator);
+        return;
+    }
+    
+    replaceWith(testPath, UnaryExpression('!', testPath.node));
 };
 
 module.exports.traverse = ({push}) => {
@@ -84,5 +111,24 @@ function blockIsConsequent(node, parentNode) {
         return;
     
     return parentNode.consequent === node;
+}
+
+function reverse(a) {
+    switch(a) {
+    case '>':
+        return '<=';
+    
+    case '<':
+        return '>=';
+    
+    case '<=':
+        return '>';
+    
+    case '>=':
+        return '<';
+    
+    default:
+        return `!${a}`.replace('=', '');
+    }
 }
 

@@ -36,3 +36,13 @@ test('plugin-remove-empty: block: if-else', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: block: empty if', (t) => {
+    t.transform('empty-if');
+    t.end();
+});
+
+test('plugin-remove-empty: block: empty if: not binary expression', (t) => {
+    t.transform('empty-if-not-binary');
+    t.end();
+});
+
