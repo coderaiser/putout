@@ -8,3 +8,7 @@ export class Lines {
   }
 }
 
+interface FastPathType {
+  call(callback: any, ...names: any[]): any;
+}
+

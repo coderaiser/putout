@@ -462,7 +462,7 @@ module.exports = ({use, declare, addParams}) => {
         },
         ...jsx(use),
         ...flow(use),
-        ...typescript(use),
+        ...typescript({use, declare}),
     };
 };
 

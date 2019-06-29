@@ -1291,6 +1291,9 @@ test('remove-unused-variables: get-vars: typescript', (t) => {
         Lines: d_,
         Options: du,
         namedTypes: du,
+        FastPathType: d_,
+        callback: du,
+        names: du,
     }, {
         options: d_,
     }];

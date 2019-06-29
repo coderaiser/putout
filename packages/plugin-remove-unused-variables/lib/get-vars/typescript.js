@@ -3,7 +3,7 @@
 const {types} = require('putout');
 const {isIdentifier} = types;
 
-module.exports = (use) => ({
+module.exports = ({use, declare}) => ({
     TSTypeReference(path) {
         const {node} = path;
         const {typeName} = node;
@@ -18,6 +18,27 @@ module.exports = (use) => ({
         
         if (isIdentifier(left))
             use(path, left.name);
+    },
+    
+    TSInterfaceDeclaration(path) {
+        declare(path, path.node.id.name);
+    },
+    
+    TSMethodSignature(path) {
+        const parametersPath = path.get('parameters');
+        
+        for (const paramPath of parametersPath) {
+            if (paramPath.isIdentifier()) {
+                declare(paramPath, paramPath.node.name);
+                use(paramPath, paramPath.node.name);
+                continue;
+            }
+            
+            if (paramPath.isRestElement()) {
+                use(paramPath, paramPath.node.argument.name);
+                continue;
+            }
+        }
     },
 });
 
