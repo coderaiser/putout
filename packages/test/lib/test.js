@@ -7,6 +7,7 @@ const {
     existsSync,
 } = require('fs');
 
+const tryCatch = require('try-catch');
 const tape = require('supertape');
 const putout = require('putout');
 
@@ -15,6 +16,15 @@ const {isArray} = Array;
 const {entries} = Object;
 
 const {UPDATE} = process.env;
+
+const readFixture = (name) => {
+    const [e, data] = tryCatch(readFileSync, `${name}.ts`, 'utf8');
+    
+    if (!e)
+        return data;
+    
+    return readFileSync(`${name}.js`, 'utf8');
+};
 
 const wrap = (dir, plugin, test) => (str, fn) => {
     test(str, (t) => {
@@ -51,9 +61,9 @@ module.exports = (dir, plugin) => {
 
 const format = (t, dir, plugins) => (formatter, name) => {
     const full = join(dir, name);
-    const outputName = `${full}-format.js`;
-    const input = readFileSync(`${full}.js`, 'utf8');
-    const expected = readFileSync(outputName, 'utf8');
+    const outputName = `${full}-format`;
+    const input = readFixture(full);
+    const expected = readFixture(outputName);
     
     const {places} = putout(input, {fixCount: 1, plugins});
     
@@ -71,7 +81,7 @@ const format = (t, dir, plugins) => (formatter, name) => {
 
 const noFormat = (t, dir, plugins) => (formatter, name) => {
     const full = join(dir, name);
-    const input = readFileSync(`${full}.js`, 'utf8');
+    const input = readFixture(full);
     
     const {places} = putout(input, {plugins});
     
@@ -97,7 +107,7 @@ const formatMany = (t, dir, plugins) => (formatter, names) => {
     for (let index = 0; index < count; index++) {
         const name = names[index];
         const full = fullNames[index];
-        const input = readFileSync(`${full}.js`, 'utf8');
+        const input = readFixture(full);
         
         const {places} = putout(input, {fixCount: 1, plugins});
         
@@ -110,8 +120,8 @@ const formatMany = (t, dir, plugins) => (formatter, names) => {
         });
     }
     
-    const outputName = join(dir, `${names.join('-')}-format.js`);
-    const expected = readFileSync(outputName, 'utf8');
+    const outputName = join(dir, `${names.join('-')}-format`);
+    const expected = readFixture(outputName);
     
     t.equal(result, expected);
     
@@ -144,10 +154,10 @@ const formatSave = (t, dir, plugins) => (formatter, name) => {
 
 const transform = (t, dir, plugins) => (name, transformed, addons) => {
     const full = join(dir, name);
-    const input = readFileSync(`${full}.js`, 'utf8');
+    const input = readFixture(full);
     const isStr = isString(transformed);
     
-    const output = isStr ? transformed : readFileSync(`${full}-fix.js`, 'utf8');
+    const output = isStr ? transformed : readFixture(`${full}-fix`);
     
     addons = isString(transformed) ? addons : transformed;
     addons = addons || {};
@@ -162,7 +172,7 @@ const transform = (t, dir, plugins) => (name, transformed, addons) => {
 
 const noTransform = (t, dir, plugins) => (name, transformed, addons) => {
     const full = join(dir, name);
-    transform(t, dir, plugins)(name, readFileSync(`${full}.js`, 'utf8'), addons);
+    transform(t, dir, plugins)(name, readFixture(full), addons);
 };
 
 const transformCode = (t, plugins) => (input, output) => {
@@ -181,7 +191,7 @@ const getMessage = ({message}) => message;
 
 const report = (t, dir, plugins) => (name, message) => {
     const full = join(dir, name);
-    const source = readFileSync(`${full}.js`, 'utf8');
+    const source = readFixture(full);
     
     reportCode(t, plugins)(source, message);
 };

@@ -50,3 +50,8 @@ test('test: declared', (t) => {
     t.end();
 });
 
+test('test: transform: typescript', (t) => {
+    t.transform('typescript', '\n');
+    t.end();
+});
+

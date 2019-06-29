@@ -25,7 +25,8 @@
   "dependencies": {
     "eslint-plugin-putout": "^1.4.2",
     "putout": "^4.9.0",
-    "supertape": "^1.0.0"
+    "supertape": "^1.0.0",
+    "try-catch": "^2.0.0"
   },
   "keywords": [
     "putout",
