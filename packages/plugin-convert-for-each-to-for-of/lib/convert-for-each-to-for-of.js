@@ -22,6 +22,7 @@ module.exports.fix = (path) => {
     const {parentPath} = path;
     const {params, body} = parentPath.node.arguments[0];
     const item = getItem(params);
+    delete item.typeAnnotation;
     
     replaceWith(parentPath.parentPath, forOfTemplate({
         item,
