@@ -40,6 +40,11 @@ test('plugin-convert-esm-to-commonjs: transform: import default', (t) => {
     t.end();
 });
 
+test('plugin-convert-esm-to-commonjs: transform: import empty', (t) => {
+    t.transform('import-empty');
+    t.end();
+});
+
 test('plugin-convert-esm-to-commonjs: transform: import namespace', (t) => {
     t.transform('import-namespace');
     t.end();
