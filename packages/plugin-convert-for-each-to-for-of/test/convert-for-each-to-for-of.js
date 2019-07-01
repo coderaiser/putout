@@ -53,3 +53,9 @@ test('plugin-convert-for-each-to-for-of: transform: var is bound in a function',
     t.noTransform('var-fn');
     t.end();
 });
+
+test('plugin-convert-for-each-to-for-of: transform: i', (t) => {
+    t.noTransform('i');
+    t.end();
+});
+

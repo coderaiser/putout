@@ -42,20 +42,6 @@ module.exports.fix = (path) => {
     fixReturn(newPath);
 };
 
-function fixReturn(path) {
-    const {body} = path.node;
-    
-    path.traverse({
-        ReturnStatement(path) {
-            if (path.scope.block !== body)
-                return;
-            
-            const exp = ExpressionStatement(path.node.argument);
-            replaceWithMultiple(path, [exp, ContinueStatement()]);
-        },
-    });
-}
-
 module.exports.traverse = ({push}) => {
     return {
         MemberExpression(path) {
@@ -71,13 +57,20 @@ module.exports.traverse = ({push}) => {
             if (!fnPath.isFunction())
                 return;
             
-            if (!fnPath.get('params').length)
+            const params = fnPath.get('params');
+            
+            if (!params.length)
                 return;
             
             if (isParentContainsFunctionArgument(objectPath))
                 return;
             
             if (parentPath.node.arguments.length === 2 && !parentPath.get('arguments.1').isThisExpression())
+                return;
+            
+            // that's right, when we have two arguments, and first is this
+            // we actually one argument + typescript typings
+            if (params.length > 1 && !params[0].isIdentifier({name: 'this'}))
                 return;
             
             const rootPath = path.findParent(isRoot);
@@ -89,6 +82,20 @@ module.exports.traverse = ({push}) => {
         },
     };
 };
+
+function fixReturn(path) {
+    const {body} = path.node;
+    
+    path.traverse({
+        ReturnStatement(path) {
+            if (path.scope.block !== body)
+                return;
+            
+            const exp = ExpressionStatement(path.node.argument);
+            replaceWithMultiple(path, [exp, ContinueStatement()]);
+        },
+    });
+}
 
 function isBoundVars(parentPath, path) {
     const currentBindings = keys(parentPath.scope.bindings);
