@@ -4,13 +4,14 @@ const {assign} = Object;
 
 module.exports.replaceWith = (path, node) => {
     const {comments, loc} = path.node;
-    
-    path.replaceWith(node);
+    const newPath = path.replaceWith(node);
     
     assign(path.node, {
         comments,
         loc,
     });
+    
+    return newPath;
 };
 
 module.exports.replaceWithMultiple = (path, nodes) => {

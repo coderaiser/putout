@@ -21,6 +21,22 @@ test('putout: operate: replaceWith', (t) => {
     t.end();
 });
 
+test('putout: operate: replaceWith', (t) => {
+    const node = {};
+    const newPath = {};
+    const replaceWith = stub().returns(newPath);
+    
+    const path = {
+        node,
+        replaceWith,
+    };
+    
+    const result = operate.replaceWith(path, node);
+    
+    t.equal(result, newPath, 'should call reporter');
+    t.end();
+});
+
 test('putout: operate: replaceWith: comments', (t) => {
     const comments = [];
     const replaceWith = stub();
