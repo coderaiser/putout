@@ -57,6 +57,9 @@ function runWithMerge({ast, fix, shebang, plugins, merge}) {
                 position,
             });
             
+            if (!path.node)
+                continue;
+            
             runFix(fix, plugin.fix, {
                 path: item,
                 position,
@@ -105,6 +108,13 @@ function runWithoutMerge({ast, fix, shebang, plugins}) {
 
 function getPosition(path, shebang) {
     const {node} = path;
+    
+    if (!node)
+        return {
+            line: 'x',
+            column: 'x',
+        };
+    
     const {loc} = node;
     
     if (!loc)
