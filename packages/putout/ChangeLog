@@ -1,3 +1,11 @@
+2019.07.01, v4.41.0
+
+feature:
+- (@putout/convert-for-each-to-for-of) add support of empty return
+- (@putout/operate) add
+- (@putout/plugin-convert-for-each-to-for-of) add support of indexes
+
+
 2019.07.01, v4.40.0
 
 feature:
