@@ -17,8 +17,8 @@ const forOfTemplate = template(`
 `);
 
 const {
-    ExpressionStatement,
     ContinueStatement,
+    ExpressionStatement,
 } = types;
 
 const {keys} = Object;
@@ -91,10 +91,19 @@ function fixReturn(path) {
             if (path.scope.block !== body)
                 return;
             
-            const exp = ExpressionStatement(path.node.argument);
-            replaceWithMultiple(path, [exp, ContinueStatement()]);
+            replaceWithMultiple(path, [
+                wrapExpressionStatement(path.node.argument),
+                ContinueStatement(),
+            ]);
         },
     });
+}
+
+function wrapExpressionStatement(a) {
+    if (!a)
+        return;
+    
+    return ExpressionStatement(a);
 }
 
 function isBoundVars(parentPath, path) {
