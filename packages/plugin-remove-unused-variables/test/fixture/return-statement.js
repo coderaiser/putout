@@ -22,3 +22,9 @@ function f4() {
         four,
     ];
 }
+
+function f5() {
+    return function hello() {
+    }
+}
+

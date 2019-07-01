@@ -822,6 +822,9 @@ test('remove-unused-variables: get-vars: return statement', (t) => {
         f2: d_,
         f3: d_,
         f4: d_,
+        f5: d_,
+    }, {
+        hello: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
