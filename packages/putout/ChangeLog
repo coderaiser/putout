@@ -1,3 +1,10 @@
+2019.07.01, v4.40.0
+
+feature:
+- (putout) operate: add ability to return result from operate.replaceWith
+- (@putout/plugin-convert-for-each-to-for-of) add support of ReturnStatement
+
+
 2019.06.29, v4.39.0
 
 fix:
