@@ -1,0 +1,56 @@
+{
+  "name": "@putout/operate",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "operate on ast",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/operate.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint:lib": "madrun lint:lib",
+    "lint:test": "madrun lint:test",
+    "lint:bin": "madrun lint:bin",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "putout": "madrun putout",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": [
+    "ast",
+    "lint",
+    "variable",
+    "unused"
+  ],
+  "devDependencies": {
+    "@cloudcmd/stub": "^2.3.1",
+    "coveralls": "^3.0.0",
+    "eslint": "^6.0.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-putout": "^1.0.0",
+    "just-camel-case": "^4.0.2",
+    "lerna": "^3.8.5",
+    "madrun": "^2.0.0",
+    "nodemon": "^1.14.12",
+    "nyc": "^14.0.0",
+    "putout": "^4.40.0",
+    "supertape": "^1.0.3",
+    "try-catch": "^2.0.0"
+  },
+  "peerDependencies": {
+    "putout": ">=4.40"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
