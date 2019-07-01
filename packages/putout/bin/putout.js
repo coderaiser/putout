@@ -36,6 +36,7 @@ const getRelativePath = require('../lib/get-relative-path');
 const report = require('../lib/report')();
 
 const readCodeMods = once(_readCodeMods);
+const {parse, stringify} = JSON;
 
 const one = (f) => (a) => f(a);
 
@@ -45,6 +46,8 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
         'help',
         'fix',
         'raw',
+        'enable-all',
+        'disable-all',
     ],
     number: [
         'fixCount',
@@ -52,6 +55,8 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
     string: [
         'config',
         'format',
+        'disable',
+        'enable',
     ],
     alias: {
         'v': 'version',
@@ -90,11 +95,18 @@ if (e)
 
 const ignore = require('ignore');
 
-const output = files
+const places = files
     .map(processFiles)
     .filter(Boolean);
 
-if (output.length)
+const isRuler = (a) => a.disable || a.enable || a.disableAll || a.enableAll;
+const mergedPlaces = Array.from(merge(...places));
+
+if (isRuler(argv)) {
+    return rulerProcessor(argv, mergedPlaces);
+}
+
+if (mergedPlaces.length)
     process.exit(1);
 
 function processFiles(name, index, {length}) {
@@ -123,7 +135,7 @@ function processFiles(name, index, {length}) {
         });
         
         process.stdout.write(line || '');
-        return line;
+        return null;
     }
     
     const input = readFileSync(name, 'utf8');
@@ -153,10 +165,13 @@ function processFiles(name, index, {length}) {
         
         e.message = `${grey(`${line}:${column}`)} ${red(e.message)}`;
         console.log(raw ? e : e.message);
-        return;
+        return null;
     }
     
     const {code, places} = result;
+    
+    if (argv.disable || argv.enable || argv.disableAll || argv.enableAll)
+        return places;
     
     if (fix && input !== code)
         return writeFileSync(name, code);
@@ -171,7 +186,7 @@ function processFiles(name, index, {length}) {
     
     process.stdout.write(line || '');
     
-    return line;
+    return places;
 }
 
 function addExt(a) {
@@ -299,5 +314,25 @@ function getFormatter(name) {
         exit(e);
     
     return reporter;
+}
+
+function rulerProcessor({disable, disableAll, enable, enableAll}, mergedPlaces) {
+    const name = `${cwd}/.putout.json`;
+    const [, data = {}] = tryCatch(readFileSync, name, 'utf8');
+    const ruler = require('../lib/ruler');
+    const object = parse(data);
+    
+    let updated;
+    
+    if (enable)
+        updated = ruler.enable(object, enable);
+    else if (disable)
+        updated = ruler.disable(object, disable);
+    else if (enableAll)
+        updated = ruler.enableAll(object, mergedPlaces);
+    else if (disableAll)
+        updated = ruler.disableAll(object, mergedPlaces);
+    
+    writeFileSync(name, stringify(updated, null, 4));
 }
 
