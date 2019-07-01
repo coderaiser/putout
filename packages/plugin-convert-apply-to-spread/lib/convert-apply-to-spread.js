@@ -9,7 +9,7 @@ const {
 
 const {spreadElement} = types;
 
-module.exports.report = () => '"spread" should be used instead of "apply"';
+module.exports.report = () => 'spread should be used instead of "apply"';
 
 module.exports.fix = (path) => {
     const calleePath = path.get('callee');

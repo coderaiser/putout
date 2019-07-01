@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-convert-apply-to-spread: report', (t) => {
-    t.reportCode('a.apply(a, b)', '"spread" should be used instead of "apply"');
+    t.reportCode('a.apply(a, b)', 'spread should be used instead of "apply"');
     t.end();
 });
 
