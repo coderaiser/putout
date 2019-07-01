@@ -34,13 +34,20 @@ const convertDestructure = template(`
     } = require(NAME);
 `);
 
+const convertEmpty = template(`
+    require(NAME);
+`);
+
 module.exports.convertImport = (path) => {
     const {node} = path;
     const {specifiers} = node;
     
     const name = getName(node);
     const vars = [];
-    
+
+    if (specifiers.length == 0)
+        vars.push(getImportName(name));
+
     for (const spec of specifiers) {
         if (isImportDefaultSpecifier(spec)) {
             vars.push(getImportDefaultVar(name, spec));
@@ -60,6 +67,14 @@ module.exports.convertImport = (path) => {
     
     replaceWithMultiple(path, vars);
 };
+
+function getImportName(name) {
+    const NAME = name;
+
+    return convertEmpty({
+        NAME,
+    });
+}
 
 function getImportDefaultVar(name, node) {
     const DECLARATION = node.local;
