@@ -303,9 +303,13 @@ module.exports = ({use, declare, addParams}) => {
         ReturnStatement(path) {
             const {node} = path;
             const {argument} = node;
+            const argumentPath = path.get('argument');
             
-            if (isIdentifier(argument))
+            if (argumentPath.isIdentifier())
                 return use(path, argument.name);
+            
+            if (argumentPath.isFunction() && argument.id)
+                return use(argumentPath, argument.id.name);
         },
         
         ObjectMethod(path) {

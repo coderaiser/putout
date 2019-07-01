@@ -19,6 +19,16 @@ test('plugin-convert-for-each-to-for-of: transform: this', (t) => {
     t.end();
 });
 
+test('plugin-convert-for-each-to-for-of: transform: return', (t) => {
+    t.transform('return');
+    t.end();
+});
+
+test('plugin-convert-for-each-to-for-of: transform: empty return', (t) => {
+    t.transform('empty-return');
+    t.end();
+});
+
 test('plugin-convert-for-each-to-for-of: transform: not function', (t) => {
     t.noTransform('not-fn');
     t.end();
@@ -48,3 +58,9 @@ test('plugin-convert-for-each-to-for-of: transform: var is bound in a function',
     t.noTransform('var-fn');
     t.end();
 });
+
+test('plugin-convert-for-each-to-for-of: transform: i', (t) => {
+    t.noTransform('i');
+    t.end();
+});
+

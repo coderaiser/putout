@@ -2,21 +2,31 @@
 
 const {assign} = Object;
 
-module.exports.replaceWith = (path, node) => {
+module.exports.replaceWith = replaceWith;
+
+function replaceWith(path, node) {
     const {comments, loc} = path.node;
-    
-    path.replaceWith(node);
+    const newPath = path.replaceWith(node);
     
     assign(path.node, {
         comments,
         loc,
     });
-};
+    
+    return newPath;
+}
 
 module.exports.replaceWithMultiple = (path, nodes) => {
     const parentComments = path.parentPath.node.comments;
     const {comments} = path.node;
-    const newPath = path.replaceWithMultiple(nodes);
+    
+    const newNodes = nodes
+        .filter(Boolean);
+    
+    if (newNodes.length === 1)
+        return replaceWith(path, newNodes[0]);
+    
+    const newPath = path.replaceWithMultiple(newNodes);
     
     if (!newPath.length)
         return newPath;

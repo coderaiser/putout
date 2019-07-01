@@ -42,6 +42,49 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - extract sequence expressions;
 - extract object properties;
 
+## Why?
+
+- because [eslint](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
+- because [babel](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139);
+- because [pretier](https://github.com/prettier/prettier) it is a formatter;
+- because [jscodeshift](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
+
+The main difference of `putout` is saving code transformation results directly in a source code in a day-to-day baisis.
+
+## Install
+
+```
+npm i putout -g
+```
+
+## Usage
+
+```
+Usage: putout [options] [path]
+Options:
+  -h, --help              display this help and exit
+  -v, --version           output version information and exit
+  -f, --format            use a specific output format - default: dump
+  --fix                   aply found fixes of errors to code
+  --fix-count             count of fixes rounds (defaults to 10)
+  --enable                enable rule by name in .putout.json
+  --disable               disable rule by name in .putout.json
+  --enable-all            enable all rules in .putout.json
+  --disable-all           disable all rules in .putout.json
+```
+
+To find erros:
+
+```
+putout lib test
+```
+
+To fix errors:
+
+```
+putout lib test --fix
+```
+
 ## Configuration
 
 To configure create `.putout.json` file and override any option:
@@ -148,45 +191,6 @@ For example if you need to `remove-something` create `putout` plugin with name `
 ## Codemods
 
 `putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/master/codemods/plugin-convert-tape-to-supertape) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
-
-## Why?
-
-- because [eslint](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
-- because [babel](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139);
-- because [pretier](https://github.com/prettier/prettier) it is a formatter;
-- because [jscodeshift](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
-
-The main difference of `putout` is saving code transformation results directly in a source code in a day-to-day baisis.
-
-## Install
-
-```
-npm i putout -g
-```
-
-## Usage
-
-```
-Usage: putout [options] [path]
-Options:
-  -h, --help              display this help and exit
-  -v, --version           output version information and exit
-  -f, --format            use a specific output format - default: dump
-  --fix                   aply found fixes of errors to code
-  --fix-count             count of fixes rounds (defaults to 10)
-```
-
-To see unused variables use:
-
-```
-putout lib test
-```
-
-To remove `unused variables` use:
-
-```
-putout lib test --fix
-```
 
 ## API
 

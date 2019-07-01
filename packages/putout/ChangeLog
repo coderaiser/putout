@@ -1,3 +1,36 @@
+2019.07.01, v4.43.0
+
+feature:
+- (putout) add ability to enable, disable, enable-all and disable-all rules from cli
+
+
+2019.07.01, v4.42.0
+
+fix:
+- (@putout/plugin-convert-apply-to-spread) rm quotes
+
+feature:
+- (putout) add ability to handle overlaped plugins: missing node
+- (@putout/plugin-remove-unused-variables) add support of named FunctionExpression in ReturnStatement
+- (package) eslint-plugin-node v9.1.0
+- (package) eslint v6.0.1
+
+
+2019.07.01, v4.41.0
+
+feature:
+- (@putout/convert-for-each-to-for-of) add support of empty return
+- (@putout/operate) add
+- (@putout/plugin-convert-for-each-to-for-of) add support of indexes
+
+
+2019.07.01, v4.40.0
+
+feature:
+- (putout) operate: add ability to return result from operate.replaceWith
+- (@putout/plugin-convert-for-each-to-for-of) add support of ReturnStatement
+
+
 2019.06.29, v4.39.0
 
 fix:

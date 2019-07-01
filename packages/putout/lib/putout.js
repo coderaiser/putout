@@ -15,11 +15,6 @@ const runPlugins = require('./run-plugins');
 const isUndefined = (a) => typeof a === 'undefined';
 const {assign} = Object;
 
-const printOptions = {
-    quote: 'single',
-    objectCurlySpacing: false,
-};
-
 const getParser = ({parser, isTS}) => ({
     parse(source) {
         return toBabel(customParser({source, parser, isTS}));
@@ -65,7 +60,7 @@ module.exports = (source, opts) => {
         plugins,
     });
     
-    const {code: printed} = recast.print(ast, printOptions);
+    const printed = print(ast);
     const code = fixStrictMode(`${shebang}${printed}`);
     
     return {
@@ -88,10 +83,22 @@ function parse(source, {parser = 'babel', isTS} = {}) {
     return ast;
 }
 
+module.exports.print = print;
+function print(ast) {
+    const printOptions = {
+        quote: 'single',
+        objectCurlySpacing: false,
+    };
+    
+    return recast
+        .print(ast, printOptions)
+        .code;
+}
+
 module.exports.traverse = traverse;
 module.exports.types = types;
 module.exports.template = template;
 module.exports.generate = generate;
 module.exports.initReport = require('./report');
-module.exports.operate = require('./operate');
+module.exports.operate = require('@putout/operate');
 

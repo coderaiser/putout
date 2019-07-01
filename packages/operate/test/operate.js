@@ -2,8 +2,25 @@
 
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
+const putout = require('putout');
 
-const {operate} = require('..');
+const {
+    traverse,
+    parse,
+    types,
+    print,
+} = putout;
+
+const operate = require('..');
+
+const {readFixtures} = require('./fixture');
+
+const fixture = readFixtures();
+
+const {
+    ContinueStatement,
+    ExpressionStatement,
+} = types;
 
 test('putout: operate: replaceWith', (t) => {
     const node = {
@@ -18,6 +35,22 @@ test('putout: operate: replaceWith', (t) => {
     operate.replaceWith(path, node);
     
     t.ok(replaceWith.calledWith(node), 'should call reporter');
+    t.end();
+});
+
+test('putout: operate: replaceWith', (t) => {
+    const node = {};
+    const newPath = {};
+    const replaceWith = stub().returns(newPath);
+    
+    const path = {
+        node,
+        replaceWith,
+    };
+    
+    const result = operate.replaceWith(path, node);
+    
+    t.equal(result, newPath, 'should call reporter');
     t.end();
 });
 
@@ -104,66 +137,11 @@ test('putout: operate: insertAfter: comments', (t) => {
 });
 
 test('putout: operate: replaceWithMultiple', (t) => {
+    const nodes = [];
     const comments = [];
-    const node = {
-        comments,
-    };
     
-    const replaceWithMultiple = stub().returns([{
-        node,
-    }]);
-    const parentPath = {
-        node: {
-            comments,
-        },
-    };
-    
-    const path = {
-        node,
-        parentPath,
-        replaceWithMultiple,
-    };
-    
-    operate.replaceWithMultiple(path, node);
-    
-    t.ok(replaceWithMultiple.calledWith(node), 'should call reporter');
-    t.end();
-});
-
-test('putout: operate: replaceWithMultiple: comments', (t) => {
-    const comments = [];
-    const node = {
-        comments,
-    };
-    const replaceWithMultiple = stub().returns([{
-        node,
-    }]);
-    const parentPath = {
-        node: {
-        },
-    };
-    
-    const path = {
-        node,
-        parentPath,
-        replaceWithMultiple,
-    };
-    
-    const newPath = operate.replaceWithMultiple(path, node);
-    
-    t.deepEqual(newPath[0].node.comments, comments, 'should call reporter');
-    t.end();
-});
-
-test('putout: operate: replaceWithMultiple: comments: parent', (t) => {
-    const comments = [];
-    const node = {
-        comments: null,
-    };
-    
-    const replaceWithMultiple = stub().returns([{
-        node,
-    }]);
+    const replaceWithMultiple = stub().returns({
+    });
     
     const parentPath = {
         node: {
@@ -171,15 +149,78 @@ test('putout: operate: replaceWithMultiple: comments: parent', (t) => {
         },
     };
     
+    const node = {};
     const path = {
         node,
         parentPath,
         replaceWithMultiple,
     };
     
-    const newPath = operate.replaceWithMultiple(path, node);
+    operate.replaceWithMultiple(path, nodes);
     
-    t.deepEqual(newPath[0].node.comments, comments, 'should call reporter');
+    t.ok(replaceWithMultiple.calledWith(nodes), 'should call reporter');
+    t.end();
+});
+
+test('putout: operate: replaceWithMultiple: for-of-return', (t) => {
+    const ast = parse(fixture.forOfReturn);
+    
+    traverse(ast, {
+        ReturnStatement(path) {
+            operate.replaceWithMultiple(path, [
+                ExpressionStatement(path.node.argument),
+                ContinueStatement(),
+            ]);
+        },
+    });
+    
+    const result = print(ast);
+    const expected = fixture.forOfReturnFix;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operate: replaceWithMultiple: for-of: empty return', (t) => {
+    const ast = parse(fixture.forOfEmptyReturn);
+    
+    traverse(ast, {
+        ReturnStatement(path) {
+            operate.replaceWithMultiple(path, [
+                path.node.argument,
+                ContinueStatement(),
+            ]);
+        },
+    });
+    
+    const result = print(ast);
+    const expected = fixture.forOfEmptyReturnFix;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: operate: replaceWithMultiple: parent comment', (t) => {
+    const {code} = putout(fixture.parentComment, {
+        plugins: [
+            'split-variable-declarations',
+        ],
+    });
+    const expected = fixture.parentCommentFix;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: operate: replaceWithMultiple: current comment', (t) => {
+    const {code} = putout(fixture.currentComment, {
+        plugins: [
+            'extract-sequence-expressions',
+        ],
+    });
+    const expected = fixture.currentCommentFix;
+    
+    t.equal(code, expected);
     t.end();
 });
 

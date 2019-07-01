@@ -1,6 +1,6 @@
 {
   "name": "putout",
-  "version": "4.39.0",
+  "version": "4.43.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "the pluggable code transformer",
   "homepage": "http://github.com/coderaiser/putout",
@@ -45,6 +45,7 @@
     "@putout/formatter-json": "^1.0.0",
     "@putout/formatter-progress": "^1.0.0",
     "@putout/formatter-stream": "^1.0.0",
+    "@putout/operate": "^1.0.0",
     "@putout/plugin-apply-destructuring": "^2.0.0",
     "@putout/plugin-convert-apply-to-spread": "^1.0.0",
     "@putout/plugin-convert-arguments-to-rest": "^1.0.0",

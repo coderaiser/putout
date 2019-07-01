@@ -148,7 +148,7 @@ test('remove-unused-variables: putout: fn destr args vars', (t) => {
 
 test('remove-unused-variables: putout: return statement', (t) => {
     const {code} = putout(fixture.returnStatement);
-    const expected = '\n';
+    const expected = '\n\n';
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

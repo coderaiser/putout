@@ -25,6 +25,8 @@ const fixture = readFixtures([
     'recast-destructuring-assign-fix',
     'flow',
     'typescript',
+    'overlap',
+    'overlap-fix',
 ]);
 
 test('putout: no vars', (t) => {
@@ -363,6 +365,18 @@ test('putout: recast destructuring assign', (t) => {
     });
     
     t.deepEqual(result.code, fixture.recastDestructuringAssignFix, 'should equal');
+    t.end();
+});
+
+test('putout: overlap', (t) => {
+    const result = putout(fixture.overlap, {
+        plugins: [
+            'convert-apply-to-spread',
+            'convert-arguments-to-rest',
+        ],
+    });
+    
+    t.deepEqual(result.code, fixture.overlapFix, 'should equal');
     t.end();
 });
 

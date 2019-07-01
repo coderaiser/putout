@@ -3,14 +3,23 @@
 const {
     template,
     operate,
+    types,
 } = require('putout');
 
-const {replaceWith} = operate;
+const {
+    replaceWith,
+    replaceWithMultiple,
+} = operate;
 
 const forOfTemplate = template(`
   for (const %%item%% of %%items%%)
     %%body%%
 `);
+
+const {
+    ContinueStatement,
+    ExpressionStatement,
+} = types;
 
 const {keys} = Object;
 
@@ -24,11 +33,13 @@ module.exports.fix = (path) => {
     const item = getItem(params);
     delete item.typeAnnotation;
     
-    replaceWith(parentPath.parentPath, forOfTemplate({
+    const [newPath] = replaceWith(parentPath.parentPath, forOfTemplate({
         item,
         items: path.node.object,
         body,
     }));
+    
+    fixReturn(newPath);
 };
 
 module.exports.traverse = ({push}) => {
@@ -46,13 +57,20 @@ module.exports.traverse = ({push}) => {
             if (!fnPath.isFunction())
                 return;
             
-            if (!fnPath.get('params').length)
+            const params = fnPath.get('params');
+            
+            if (!params.length)
                 return;
             
             if (isParentContainsFunctionArgument(objectPath))
                 return;
             
             if (parentPath.node.arguments.length === 2 && !parentPath.get('arguments.1').isThisExpression())
+                return;
+            
+            // that's right, when we have two arguments, and first is this
+            // we actually one argument + typescript typings
+            if (params.length > 1 && !params[0].isIdentifier({name: 'this'}))
                 return;
             
             const rootPath = path.findParent(isRoot);
@@ -64,6 +82,29 @@ module.exports.traverse = ({push}) => {
         },
     };
 };
+
+function fixReturn(path) {
+    const {body} = path.node;
+    
+    path.traverse({
+        ReturnStatement(path) {
+            if (path.scope.block !== body)
+                return;
+            
+            replaceWithMultiple(path, [
+                wrapExpressionStatement(path.node.argument),
+                ContinueStatement(),
+            ]);
+        },
+    });
+}
+
+function wrapExpressionStatement(a) {
+    if (!a)
+        return;
+    
+    return ExpressionStatement(a);
+}
 
 function isBoundVars(parentPath, path) {
     const currentBindings = keys(parentPath.scope.bindings);
