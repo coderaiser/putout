@@ -3,14 +3,23 @@
 const {
     template,
     operate,
+    types,
 } = require('putout');
 
-const {replaceWith} = operate;
+const {
+    replaceWith,
+    replaceWithMultiple,
+} = operate;
 
 const forOfTemplate = template(`
   for (const %%item%% of %%items%%)
     %%body%%
 `);
+
+const {
+    ExpressionStatement,
+    ContinueStatement,
+} = types;
 
 const {keys} = Object;
 
@@ -24,12 +33,28 @@ module.exports.fix = (path) => {
     const item = getItem(params);
     delete item.typeAnnotation;
     
-    replaceWith(parentPath.parentPath, forOfTemplate({
+    const [newPath] = replaceWith(parentPath.parentPath, forOfTemplate({
         item,
         items: path.node.object,
         body,
     }));
+    
+    fixReturn(newPath);
 };
+
+function fixReturn(path) {
+    const {body} = path.node;
+    
+    path.traverse({
+        ReturnStatement(path) {
+            if (path.scope.block !== body)
+                return;
+            
+            const exp = ExpressionStatement(path.node.argument);
+            replaceWithMultiple(path, [exp, ContinueStatement()]);
+        },
+    });
+}
 
 module.exports.traverse = ({push}) => {
     return {

@@ -19,6 +19,11 @@ test('plugin-convert-for-each-to-for-of: transform: this', (t) => {
     t.end();
 });
 
+test('plugin-convert-for-each-to-for-of: transform: return', (t) => {
+    t.transform('return');
+    t.end();
+});
+
 test('plugin-convert-for-each-to-for-of: transform: not function', (t) => {
     t.noTransform('not-fn');
     t.end();
