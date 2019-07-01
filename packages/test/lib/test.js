@@ -19,7 +19,7 @@ const {UPDATE} = process.env;
 const TS = {
     ENABLED: true,
     DISABLED: false,
-}
+};
 
 const readFixture = (name) => {
     const [e, data] = tryCatch(readFileSync, `${name}.ts`, 'utf8');
@@ -161,7 +161,7 @@ const transform = (t, dir, plugins) => (name, transformed, addons) => {
     const [input, isTS] = readFixture(full);
     const isStr = isString(transformed);
     
-    const [output]  = isStr ? [transformed] : readFixture(`${full}-fix`);
+    const [output] = isStr ? [transformed] : readFixture(`${full}-fix`);
     
     addons = isString(transformed) ? addons : transformed;
     addons = addons || {};
