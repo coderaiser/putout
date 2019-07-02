@@ -1,3 +1,16 @@
+2019.07.02, v4.44.0
+
+fix:
+- (convert-esm-to-commonjs): add empty imports
+- (@putout/operate) when replaceWithMultiple used do not use replaceWith
+- (@putout/plugin-convert-for-each-to-for-of) replaceWithMultiple: condition
+
+feature:
+- (putout) disable "strict-mode/add" for typescript
+- (package) eslint-plugin-node v9.1.0
+- (package) eslint v6.0.1
+
+
 2019.07.01, v4.43.0
 
 feature:
