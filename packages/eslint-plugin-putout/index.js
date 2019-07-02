@@ -1,7 +1,7 @@
 'use strict';
 
 const getRule = (a) => ({
-    [a]: require(`./rules/${a}`)
+    [a]: require(`./rules/${a}`),
 });
 
 module.exports.rules = {
@@ -27,7 +27,7 @@ module.exports.configs = {
             'putout/destructuring-as-function-argument': 'error',
             'putout/align-spaces': 'error',
             'putout/new-line-function-call-arguments': 'error',
-        }
-    }
+        },
+    },
 };
 
