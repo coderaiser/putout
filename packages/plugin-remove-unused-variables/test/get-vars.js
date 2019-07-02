@@ -1280,6 +1280,9 @@ test('remove-unused-variables: get-vars: flow', (t) => {
     const expected = [{
         SourceType: du,
         NodeBase: _u,
+        Array: _u,
+        N: du,
+        State: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

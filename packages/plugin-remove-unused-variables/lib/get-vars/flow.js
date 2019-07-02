@@ -11,5 +11,11 @@ module.exports = (use) => ({
         if (isIdentifier(id))
             use(path, id.name);
     },
+    QualifiedTypeIdentifier(path) {
+        const {qualification} = path.node;
+        
+        if (isIdentifier(qualification))
+            use(path, qualification.name);
+    },
 });
 
