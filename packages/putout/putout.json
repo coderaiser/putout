@@ -12,6 +12,9 @@
         "test|.spec.js": {
             "remove-only": true,
             "remove-skip": true
+        },
+        ".ts": {
+            "strict-mode/add": false
         }
     },
     "ignore": [
