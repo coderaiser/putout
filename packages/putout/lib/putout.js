@@ -15,9 +15,14 @@ const runPlugins = require('./run-plugins');
 const isUndefined = (a) => typeof a === 'undefined';
 const {assign} = Object;
 
-const getParser = ({parser, isTS}) => ({
+const getParser = ({parser, isTS, isFlow, isJSX}) => ({
     parse(source) {
-        return toBabel(customParser({source, parser, isTS}));
+        return toBabel(customParser(source, {
+            parser,
+            isTS,
+            isFlow,
+            isJSX,
+        }));
     },
 });
 
@@ -46,11 +51,18 @@ module.exports = (source, opts) => {
         fixCount,
         fix,
         isTS,
+        isFlow,
+        isJSX,
     } = opts;
     
     const [clearSource, shebang] = cutShebang(source);
     
-    const ast = parse(clearSource, {parser, isTS});
+    const ast = parse(clearSource, {
+        parser,
+        isTS,
+        isFlow,
+        isJSX,
+    });
     const plugins = getPlugins(opts);
     const places = runPlugins({
         ast,
@@ -75,9 +87,14 @@ const fixStrictMode = (a) => {
 };
 
 module.exports.parse = parse;
-function parse(source, {parser = 'babel', isTS} = {}) {
+function parse(source, {parser = 'babel', isTS, isFlow, isJSX} = {}) {
     const ast = recast.parse(source, {
-        parser: getParser({parser, isTS}),
+        parser: getParser({
+            parser,
+            isTS,
+            isFlow,
+            isJSX,
+        }),
     });
     
     return ast;

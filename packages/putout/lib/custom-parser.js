@@ -14,9 +14,13 @@ const initAcorn = once(() => {
     return Parser.extend(stage3, jsx());
 });
 
-module.exports = ({source, parser, isTS}) => {
+module.exports = (source, {parser, isTS, isFlow, isJSX}) => {
     if (parser === 'babel')
-        return babelParse(source, isTS);
+        return babelParse(source, {
+            isTS,
+            isFlow,
+            isJSX,
+        });
     
     if (parser === 'espree')
         return espreeParse(source);
@@ -28,8 +32,9 @@ module.exports = ({source, parser, isTS}) => {
 };
 
 const clean = (a) => a.filter(Boolean);
+const getFlow = (a) => !a.indexOf('// @flow');
 
-function babelParse(source, isTS) {
+function babelParse(source, {isTS, isFlow = getFlow(source), isJSX}) {
     const {parse} = initBabel();
     
     return parse(source, {
@@ -46,7 +51,7 @@ function babelParse(source, isTS) {
             'classProperties',
             'numericSeparator',
             'exportDefaultFrom',
-            ...getBabelLangExts({isTS, source}),
+            ...getBabelLangExts({isTS, isFlow, isJSX, source}),
         ]),
     });
 }
@@ -89,10 +94,9 @@ function acornParse(source) {
     };
 }
 
-function getBabelLangExts({isTS, source}) {
-    const isFlow = !source.indexOf('// @flow');
+function getBabelLangExts({isTS, isFlow, isJSX = true}) {
     const langs = [
-        'jsx',
+        isJSX && 'jsx',
     ];
     
     if (isTS)

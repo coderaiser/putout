@@ -48,6 +48,8 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
         'raw',
         'enable-all',
         'disable-all',
+        'jsx',
+        'flow',
     ],
     number: [
         'fixCount',
@@ -140,11 +142,15 @@ function processFiles(name, index, {length}) {
     
     const input = readFileSync(name, 'utf8');
     const isTS = /\.ts$/.test(name);
+    const isFlow = argv.flow;
+    const isJSX = argv.jsx;
     
     const [e, result] = tryCatch(putout, input, {
         fix,
         fixCount,
         isTS,
+        isFlow,
+        isJSX,
         ...merge(
             defaultOptions,
             readCodeMods(),

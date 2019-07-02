@@ -10,8 +10,7 @@
 [CoverageURL]:              https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]:           https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
-Putout is a tool for identifying, reporting and fixing patterns found in JavaScript code. It can:
-
+Putout is a tool for identifying, reporting and fixing patterns found in JavaScript/JSX/Typescript/Flow code. It can:
 - find and remove unused variables;
 - find and remove unused private fields;
 - find and remove unused expressions;
@@ -71,6 +70,10 @@ Options:
   --disable               disable rule by name in .putout.json
   --enable-all            enable all rules in .putout.json
   --disable-all           disable all rules in .putout.json
+  --jsx                   enable jsx (default)
+  --flow                  enable flow
+  --no-jsx                disable jsx
+  --no-flow               disable flow (default)
 ```
 
 To find erros:
