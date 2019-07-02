@@ -5,6 +5,9 @@
   "description": "operate on ast",
   "homepage": "http://github.com/coderaiser/putout",
   "main": "lib/operate.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
   "repository": {
     "type": "git",
     "url": "git://github.com/coderaiser/putout.git"
