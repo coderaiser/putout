@@ -11,9 +11,7 @@ const {
     convertDefaultExport,
 } = require('./export');
 
-const {
-    convertImport,
-} = require('./import');
+const {convertImport} = require('./import');
 
 module.exports = (path) => {
     const {node} = path;

@@ -6,9 +6,7 @@ const {
     template,
 } = require('putout');
 
-const {
-    replaceWithMultiple,
-} = operate;
+const {replaceWithMultiple} = operate;
 
 const {
     isImportSpecifier,
@@ -44,10 +42,10 @@ module.exports.convertImport = (path) => {
     
     const name = getName(node);
     const vars = [];
-
+    
     if (specifiers.length == 0)
         vars.push(getImportName(name));
-
+    
     for (const spec of specifiers) {
         if (isImportDefaultSpecifier(spec)) {
             vars.push(getImportDefaultVar(name, spec));
@@ -70,7 +68,7 @@ module.exports.convertImport = (path) => {
 
 function getImportName(name) {
     const NAME = name;
-
+    
     return convertEmpty({
         NAME,
     });
@@ -91,17 +89,17 @@ function getImportVar(name, node) {
         local,
         imported,
     } = node;
-
+    
     const IMPORTED = imported;
     const LOCAL = local;
     const NAME = name;
-
+    
     if (IMPORTED.name === LOCAL.name)
         return convertDestructure({
             IMPORTED,
             NAME,
         });
-
+    
     return convertDestructureRename({
         IMPORTED,
         LOCAL,

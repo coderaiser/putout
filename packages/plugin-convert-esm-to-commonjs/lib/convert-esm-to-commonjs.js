@@ -4,9 +4,7 @@ module.exports.report = () => 'Commonjs should be used insted of ESM';
 
 module.exports.fix = require('./fix');
 
-module.exports.traverse = ({
-    push,
-}) => {
+module.exports.traverse = ({push}) => {
     return {
         ExportNamedDeclaration(path) {
             push(path);

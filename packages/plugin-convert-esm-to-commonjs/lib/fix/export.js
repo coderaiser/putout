@@ -6,9 +6,7 @@ const {
     template,
 } = require('putout');
 
-const {
-    replaceWith,
-} = operate;
+const {replaceWith} = operate;
 
 const {
     isFunctionDeclaration,
