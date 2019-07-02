@@ -23,9 +23,6 @@ module.exports.replaceWithMultiple = (path, nodes) => {
     const newNodes = nodes
         .filter(Boolean);
     
-    if (newNodes.length === 1)
-        return replaceWith(path, newNodes[0]);
-    
     const newPath = path.replaceWithMultiple(newNodes);
     
     if (!newPath.length)
