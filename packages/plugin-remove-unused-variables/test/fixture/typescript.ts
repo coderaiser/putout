@@ -12,3 +12,5 @@ interface FastPathType {
   call(callback: any, ...names: any[]): any;
 }
 
+export class Viewport implements IViewport {
+}

@@ -4,6 +4,12 @@ const {types} = require('putout');
 const {isIdentifier} = types;
 
 module.exports = ({use, declare}) => ({
+    TSExpressionWithTypeArguments(path) {
+        const {expression} = path.node;
+        
+        if (isIdentifier(expression))
+            use(path, expression.name);
+    },
     TSTypeReference(path) {
         const {node} = path;
         const {typeName} = node;

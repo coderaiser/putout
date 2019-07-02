@@ -1300,6 +1300,8 @@ test('remove-unused-variables: get-vars: typescript', (t) => {
         FastPathType: d_,
         callback: du,
         names: du,
+        Viewport: d_,
+        IViewport: _u,
     }, {
         options: d_,
     }];
