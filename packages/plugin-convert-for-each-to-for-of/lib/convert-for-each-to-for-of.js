@@ -91,8 +91,15 @@ function fixReturn(path) {
             if (path.scope.block !== body)
                 return;
             
+            const {argument} = path.node;
+            
+            if (!argument) {
+                replaceWith(path, ContinueStatement());
+                return;
+            }
+            
             replaceWithMultiple(path, [
-                wrapExpressionStatement(path.node.argument),
+                ExpressionStatement(argument),
                 ContinueStatement(),
             ]);
         },
