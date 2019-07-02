@@ -1,6 +1,8 @@
 export function copyToClipboard() {
 }
 
+export class Hello {}
+
 export const arrow = () => {
 };
 

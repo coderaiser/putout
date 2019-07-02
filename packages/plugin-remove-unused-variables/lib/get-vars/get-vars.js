@@ -397,6 +397,9 @@ module.exports = ({use, declare, addParams}) => {
             if (isFunctionDeclaration(declaration))
                 return use(path, declaration.id.name);
             
+            if (isClassDeclaration(declaration))
+                return use(path, declaration.id.name);
+            
             if (isVariableDeclaration(declaration)) {
                 const {declarations} = declaration;
                 

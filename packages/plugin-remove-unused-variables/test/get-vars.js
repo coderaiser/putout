@@ -691,6 +691,7 @@ test('remove-unused-variables: get-vars: export named declaration', (t) => {
         arrow: du,
         a: du,
         b: du,
+        Hello: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -1294,13 +1295,13 @@ test('remove-unused-variables: get-vars: typescript', (t) => {
     const result = getVars(ast).map(dutify);
     
     const expected = [{
-        Lines: d_,
+        Lines: du,
         Options: du,
         namedTypes: du,
         FastPathType: d_,
         callback: du,
         names: du,
-        Viewport: d_,
+        Viewport: du,
         IViewport: _u,
     }, {
         options: d_,
