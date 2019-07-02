@@ -1,0 +1,527 @@
+2019.07.02, v1.0.1
+
+fix:
+- (@putout/operate) when replaceWithMultiple used do not use replaceWith
+- (@putout/plugin-convert-for-each-to-for-of) replaceWithMultiple: condition
+- (@putout/plugin-convert-apply-to-spread) rm quotes
+- (@putout/plugin-convert-for-each-to-for-of) ts: for-of does not support typeAnnotation
+- feature(@putout/test) add support of .ts files as fixtures
+- (@putout/plugin-putout) replace-with: exists
+- (@putout/plugin-split-variable-declarations) comments
+- (putout) recast: repo -> tar
+- (eslint-config) get back function-parent-newline
+- (eslint-config) rm function-paren-newline
+- (putout) operate: replaceWithMultiple: handle empty array case
+- feature(putout) increase fixCount to 2 in library version
+- (putout) remove empty imports (#5)
+- (@putout/plugin-split-variable-declaration) variables -> Variables
+- (@putout/plugin-remove-unused-variables) improve support of ClassExpression
+- (@putout/plugin-remove-useless-variables) exclude ObjectPattern argument
+- (@putout/plugin-extract-object-properties) report: object -> Object
+- (@putout/plugin-extract-object-properties) duplicate property name
+- (@putout/plugin-remove-empty) remove-empty-block: add same path twice
+- (@putout/plugin-apply-destructuring) npmignore: add fixture, *.spec.js
+- feature(@putout/eslint-config) add function-paren-newline, space-infix-ops
+- (pascal-to-camel) isBig
+- (@putout/plugin-convert-commonjs-to-esm) npmignore
+- (@putout/plugin-convert-esm-to-commonjs) npmignore
+- (@putout/plugin-remove-process-exit) eslint-plugin-putout: dependency -> devDependency
+- (@putout/plugin-remove-console) eslint-plugin-putout: dependency -> devDependency
+- (@putout/plugin-convert-esm-to-commonjs) eslint-plugin-putout: dependency -> devDependency
+- (@putout/plugin-extract-object-properties) add support of no destructuring
+- (@putout/plugin-extract-object-properties) different function arguments
+- (putout) formatter
+- (@putout/plugin-convert-commonjs-to-esm) preserve comments
+- (@putout/plugin-extract-sequence-expressions) remove redundant binaryExpression
+- (@putout/plugin-convert-commonjs-to-esm) rm console.log
+- (putout) merge config
+- (@putout/plugin-remove-unused-variables) unused variable on the left of AssignmentPattern in ObjectProperty
+- (putout) places check -> input/output check
+- (putout) --: write all files -> write only fixed files
+- (@putout/plugin-remove-empty-pattern) report
+- (putout) printOptions: disable objectCurlySpacing
+- (@putout/plugin-remove-unused-variables) remove ImportDeclaration -> remove specifier of ImportDeclaration
+- (@putout/formatter-dump) return
+- (@putout/plugin-remove-constant-conditions) exclude else
+- (putout) add -f, --format
+- test(@putout/formatter-codeframe) fixture
+- test(@putout/plugin-remove-unused-variables) fixture
+- test(@putout/formatter-json) fixture
+- (@putout/plugin-remove-unused-variables) ObjectMethod
+- (eslint-plugin-putout) multiple-properties-destructuring: exclude ForOfStatement
+- (@putout/formatter-dump) duplicate output
+- (@putout/formatter-progress) dependencies: add @putout/formatter-dump
+- (putout) absent dependency
+- (formatter) dump/stream: output check
+- (putout) report: places check
+- (@putout/test) format: name
+- (multiple-properties-destructuring) two properties on a same line
+- chore(object-) rm " "
+- (@putout/plugin-remove-useless-variables) name
+- (@putout/plugin-remove-useless-variables) handle id, init not identifiers
+- (eslint-plugin-putout) long-properties-destructuring: add support of RestElement
+- (@putout/plugin-convert-arguments-to-rest) "rest" -> rest parameters
+- (@putout/plugin-remove-empty) block: missing return when tryStatement used
+- (putout) support of "*.*"
+- (putout) renamed: convert-arguments-to-spread -> convert-arguments-to-rest
+- (putout) get config from bottom directory -> get config from current directory
+- (npmignore) add *.md
+- (eslint-plugin-putout) JSX support
+- (putout) version
+- (@putout/plugin-react-hooks) convert-import-component-to-use-state: Component
+- (putout) apply changes
+- (run-plugins) add early return when no need to apply changes
+- docs(changelog) rm 
+- feature(putout) add support of ---count
+- (putout) move madrun on top of plugins
+- ((putout) read package.json if .putout.json not found: default match doesn't work without package.json dirname
+- (eslint-plugin-putout) multiple-properties-destructuring: more then 1 -> more then 2 properties
+- (@putout/eslint-config) rm object-property-newline
+- (putout) remove plugin remove-empty-pattern
+- (putout) putout .
+- (eslint-plugin-putout) one-line-destructuring: exclude default assignment of property
+- (@putout/plugin-strict-mode) npmignore: .spec.js
+- (@putout/plugin-strict-mode) npmignore: fixture
+- (putout) when find error - exit 1
+- (putout) remove align-spaces
+- (npmignore) yarn-error.log
+- (putout) merge match: user match first
+- (putout) remove-only, remove-skip: enabled only for test, .spec.js
+- (package) dependencies: @putout/plugin-madrun
+- (@putout/plugin-remove-unused-variables) Identifiers in IfStatement
+- (@putout/plugin-madrun) add .spec.js to ignore
+- (@putout/test) report/reportCode: disable 
+- (@putout/plugin-react-hooks) convert-state-to-hooks: @babel/template -> putout
+- (npmignore) add fixture
+- (putout) merge plugins: core, userland -> userland, core
+- (putout) get-plugin: node_modules search
+- (@putout/test) rm rules
+- (eslint-plugin-putout) recommended
+- (eslint-plugin-putout) one-line-destructuring: false positive
+- chore() rm "\n"
+- (apply-destructuring) ObjectPattern as id, Literal as property
+- (putout) template -> generate
+- (plugin-merge-destructuring-properties) overwrite property
+- (merge-destructuring-properties) rm recast
+- (putout) call plugin.: with place -> with item
+- (package) dependencies: add @putout/plugin-convert-esm-to-commonjs
+- (plugin-remove-empty) package: description
+- (putout) dependencies: @babel/parser
+- (custom-parser) @babel/parser: jsx
+- feature(putout) remove recast-
+- (plugin-remove-skip) @putout/test: dependencies -> devDependencies
+- feature(@putout/test) add ability to check that report, find and  functions exists
+- (eslintrc) .eslintrc.js -> .eslintrc.json
+- chore(split-variable-declaration-) add " "
+- (plugin-remove-unused-variables) ClassDeclaration: add support of bubling
+- (putout) exit on parse error -> log on proceed
+- (get-plugins) plugins load
+- (get-plugins) disable codemod
+- (putout) position in files with shebang
+- (putout) relative path
+- (putout) argv: number
+- (get-plugins) plugins merge
+- (putout) : false by default
+- (package) add once
+- (putout) rm console.log
+- (putout) ExportDefaultDeclaration (benjamn/recast/pull/561)
+- (putout) getMessage -> report
+- (@putout/test) message -> report
+- (putout) add print options: single quotes
+- (putout) unused variables -> errors
+- (putout) preventUsingEsprima
+- (split-variable-declaration) add null-literal support
+- (plugin-remove-only) description
+- feature(putout) change plugin structure: find, 
+- (putout) shebang, strict mode
+- (cut-shebang) additional new line
+- chore(get-vars) fixture: alphabet order
+- (putout) exit
+- (putout) removing an element from ArrayPattern
+- (putout) add @babel/parser back
+- (putout) do not try to remove empty for-of statement
+- chore(putout) add comment to fixStrictMode
+- (putout) strict mode
+- (putout) error message
+- (putout) crash on removing unused ArrowFunctionExpression param
+- (putout) strict mode
+- (putout) some variable names on same scope level
+- (putout) --help
+- docs(readme) --
+- (putout) add "\n" in output
+- (putout) crash when no unused
+- (putout) dependencies
+- (putout) double semicoln in strict mode
+- (get-vars) VariableDeclarator: path.traverse -> id.traverse
+- test(putout) fn vars 
+- test(putout) arrow-vars-
+- (putout) remove unused destructured variables
+- (putout) no root vars
+- (putout) variables with same name in different scopes
+- (putout) showRaw: input
+- (putout) vars -> raw
+- (putout) undeclared-vars
+- (get-unused) called
+- (putout) fn-args-vars
+- (get-vars) first use of a function
+- (package) bin
+
+feature:
+- (putout) add ability to enable, disable, enable-all and disable-all rules from cli
+- (putout) add ability to handle overlaped plugins: missing node
+- (@putout/plugin-remove-unused-variables) add support of named FunctionExpression in ReturnStatement
+- (package) eslint-plugin-node v9.1.0
+- (package) eslint v6.0.1
+- (@putout/convert-for-each-to-for-of) add support of empty return
+- (@putout/operate) add
+- (@putout/plugin-convert-for-each-to-for-of) add support of indexes
+- (putout) operate: add ability to return result from operate.replaceWith
+- (@putout/plugin-convert-for-each-to-for-of) add support of ReturnStatement
+- (putout) enable typescript only for .ts files
+- (package) eslint v6.0.1
+- (@putout/plugin-remove-empty) add support of empty consquent block, and not empty alternate block if IfStatement
+- (@putout/plugin-remove-unused-variables) add support of TSInterfaceDeclaration, TSMethodSignature
+- (package) eslint-plugin-node v9.1.0
+- (package) eslint v6.0.1
+- (package) eslint-plugin-node v9.1.0
+- (package) eslint v6.0.1
+- (@putout/test) add support of .ts files as fixtures
+- (@putout/plugin-convert-for-each-to-for-of) exclude var variables with bound names
+- (@putout/plugin-convert-for-each-to-for-of) remove nested block
+- (@putout/plugin-convert-for-each-to-for-of) add support of context argument
+- (@putout/plugin-convert-for-each-to-for-of) exclude map chaining
+- (@putout/plugin-remove-unused-variables) add support of TSQualifiedName
+- (@putout/plugin-remove-unused-variables) add support of TSTypeReference
+- (@putout/plugin-putout) add ability to convert replaceWithMultiple
+- (putout) operate: replaceWithMultiple: add support of current node comments
+- (@putout/plugin-remove-unused-variables) add support of GenericTypeAnnotation
+- (putout) add support of flow, typescript
+- (putout) add support of jsx
+- (@putout/plugin-remove-useless-variables) add support of not const assignments
+- (@putout/plugin-apply-destructuring) add support of logical expressions
+- (putout) add fork of recast, while merged benjamn/recast#609
+- (putout) operate: replaceWith: add ability to preserve loc
+- (@putout/plugin-apply-destructuring) add support of multiplevariables
+- (@putout/plugin-remove-unused-variables) add support of AssignmentPattern in function arguments
+- (@putout/plugin-remove-useless-variables) add support of ExportNamedDeclaration
+- (@putout/plugin-remove-unused-variables) add support of FunctionExpression in NewExpression
+- (eslint-plugin-putout) add new-line-function-call-arguments
+- (@putout/plugin-convert-for-each-to-for-of) add
+- (@putout/plugin-remove-nested-blocks) add
+- (putout) speed up vistors merge
+- (putout) increase fixCount to 2 in library version
+- (@putout/eslint-config) add nonblock-statement-body-position
+- (@putout/eslint-config) add no-else-return
+- (@putout/plugin-remove-unused-variables) add support of YieldExpression, AwaitExpression
+- (package) eslint-plugin-node v9.1.0
+- (@putout/plugin-remove-unused-variables) add support of Function in VariableDeclarator, AssignmentExpression
+- (package) eslint-plugin-node v9.1.0
+- (@putout/plugin-remove-unused-variables) add support of Function as argument of CallExpression
+- (@putout/plugin-remove-unused-variables) get-vars: ArrowFunctionExpression, FunctionDeclaration -> Function
+- (package) eslint-plugin-node v9.1.0
+- (package) eslint-plugin-node v9.1.0
+- (@putout/plugin-remove-unused-variables) add support of ClassExpression
+- (@putout/plugin-remove-unused-variables) add support of nested arguments
+- (@putout/plugin-remove-empty) add support of .min in empty import
+- (package) eslint-plugin-node v9.1.0
+- (@putout/plugin-remove-unused-variables) add support of export anonymous class
+- (package) eslint-plugin-node v9.1.0
+- (@putout/plugin-convert-commonjs-to-esm) add support of relative paths
+- (putout) add support of numericSeparator
+- (putout) speed up: add ability to merge visitors
+- (@putout/eslint-config) add function-paren-newline, space-infix-ops
+- (package) eslint-plugin-node v9.1.0
+- (putout) add bundle dist/putout.js
+- (@putout/plugin-remove-unused-expressions) add support of Literal
+- (@putout/plugin-extract-object-properties) add
+- (@putout/plugin-putout) add convert-babel-types
+- (@putout/plugin-extract-sequance-expressions) add ability to keep comments
+- (@putout/plugin-putout) covert-replace-with
+- (putout) operate: insertAfter
+- (putout) add operate
+- (@putout/plugin-extract-sequence-expressions) add
+- (@putout/plugin-convert-commonjs-to-esm) exclude sequence expressions
+- (@putout/plugin-convert-commonjs-to-esm) add support of named exports
+- (@putout/plugin-convert-commonjs-to-esm) exclude non-literal require arguments
+- (@putout/convert-commonjs-to-esm) add
+- (eslint-config) add no-extra-parens
+- (package) eslint 6.0.0-rc
+- (@putout/plugin-remove-unused-variables) add support of export default anonymous function
+- (custom-parser) babel: add importMeta
+- (convert-pascal-to-camel) add
+- (@putout/plugin-remove-unused-variables) improve support of Property of ObjectPattern in FunctionDeclaration/ArrowFunctionExpression
+- (eslint-plugin-putout) multiple-properties-destructuring: add option minProperties (#3)
+- (package) find-up v4.0.0
+- (package) recast v0.18.0
+- (package) espree v6
+- (parse-match) add ability to merge much rules
+- (package) nyc v14.0.0
+- (@putout/plugin-remove-boolean-from-logical-expressions) add
+- (@putout/plugin-convert-binary-expression-to-boolean) add
+- (putout) add ability to use return push in traverse
+- (@putout/plugin-remove-constant-conditions) add support of same identificators
+- (@putout/plugin-remove-unused-variables) add support of ObjectMethod params
+- (@putout/plugin-putout) add
+- (@putout/eslint-config) padding-line-beetween-statements: add empty line before if condition
+- (@putout/plugin-remove-empty-pattern) add support of function argument
+- (@putout/plugin-remove-empty) add support of css
+- (@putout/plugin-remove-empty) add support of imports
+- (@putout/plugin-remove-unused-variables) add support of ImportDeclaration
+- (eslint-config) add keyword-spacing
+- (putout) add support of dynamicImport
+- (@putout/plugin-convert-object-assign-to-merge-spread) add
+- (traverse) move out RestElement, SpreadElement to get-vars
+- (package) array-union v2.0.0
+- (@putout/plugin-remove-unused-variables) add support of AssignmentPattern in Destructuring
+- (@putout/plugin-remove-constant-condition) add support of else if
+- (@putout/plugin-remove-constant-condition) add
+- (eslint-config) add arrow-parens
+- (@putout/formatter-codeframe) add
+- (@putout/formatter-eslint) add
+- (@putout/formatter-json) export jsonFormatter
+- (@putout/formatter-json) add
+- (putout) add support of acorn
+- (putout) add formatter progress
+- (putout) add support of custom formatters: dump, stream
+- (@putout/test) add support of noTransform
+- (eslint-config) add support of globalReturn
+- (putout) pretify -> report
+- (putout) add report-find
+- (putout) add report-end
+- (@putout/remove-useless-variables) add support of uppercase
+- (remove-useless-variables) add support of destructuring
+- (package) putout v4.9.0
+- (@putout/plugin-convert-apply-to-spread) add support of this and nested MemberExpressions
+- (@putout/plugin-remove-useless-variables) exclude shorthand variables
+- (@putout/plugin-remove-useless-variables) add
+- (@putout/plugin-remove-empty) block: add support of try catch
+- (@putout/plugin-remove-unused-variables) add support of ExpressionStatement
+- (@putout/plugin-remove-unused-expressions) add
+- (@putotu/plugin-remove-unused-variables) add support of ObjectExpression in ExportDefaultDeclaration
+- (@putout/plugin-remove-unused-variables) add support of ClassDeclaration in ExportDefaultDeclaration
+- (@putotu/plugin-remove-unused-variables) condition isObjectExpression -> traverse ObjectExpression
+- (putout) isTemplateLiteral checks -> TemplateLiteral key
+- (putout) add support of TemplateLiteral in ConditionalExpresssion
+- (@putout/plugin-remove-unused-variables) add support of Identifier in JSXSpreadAttribute
+- (@putout/plugin-remove-unused-variables) add support of marking as used elements before RestElement when destructuring used as a function param
+- (@putout/plugin-remove-unused-variables) add support of specifiers in ExportNamedDeclaration
+- (@putout/plugin-remove-unused-variables) add support of TemplateLiteral in JSXExpressionContainer
+- (@putout/plugin-remove-unused-variables) add support of JSXSpreadAttribute
+- (putout) ignore: add node_modules
+- (@putout/plugin-remove-unused-variables) add support of VariableDeclaration in ExportNamedDeclaration
+- (eslint-plugin-putout) add long-properties-destructuring
+- (@putout/plugin-convert-apply-to-spread) add support of context switch in apply
+- (@putout/plugin-convert-arguments-to-spread) add
+- (@putout/plugin-convert-apply-to-spread) add
+- (eslintrc) add sourceType, ecmaFeatures
+- (@putout/plugin-convert-math-pow) add
+- (@putout/plugin-react-hooks) remove-this: rm addition check
+- (@putout/plugin-remove-unused-variables) add support of identifiers in SwitchCase test
+- (putout) add support of --fix-count
+- (@putout/plugin-madrun) rename-series-to-run
+- (plugin-madrun) call-series -> call-run
+- (eslint-plugin-putout) add suppport of multiple-properties-destructuring
+- (eslint-config) add object-property-newline
+- (putout) babel: enable allowReturnOutsideFunction
+- (@putout/plugin-madrun) convert-redrun-to-series -> call-series: add npm
+- (@putout/plugin-madrun) add support of redrun args
+- (eslint-config) add linebreak-style
+- (@putout/plugin-madrun) add convert-redrun-to-series
+- (get-plugins) optimize: paths
+- (@putout/plugin-remove-console) add support of console.time, console.timeEnd
+- (@putout/plugin-strict-mode) add
+- (eslint-config) add lines-around-directives
+- (eslint-plugin-putout) add align-spaces
+- (eslint-plugin-putout) add destructuring-as-function-argument
+- (@putout/plugin-apply-destructuring) add support of array destructuring
+- (@putout/plugin-remove-empty) join with @putout/plugin-remove-empty-pattern
+- (putout) set defaults for bin
+- (putout) remove support of putout section of package.json
+- (putout) rm --config
+- (eslint-config) prefer-destructuring: AssignmentExpression: disable ojbect
+- (eslint-config) prefer-destructuring
+- (putout) madrun v2.0.0
+- (package) madrun v2.0.0
+- (putout) add @putout/plugin-madrun
+- (@putout/plugin-madrun) add
+- (putout) move out prettify from bin
+- (@putout/plugin-remove-unused-private-fields) add
+- (react-hooks) findClass -> traverseClass
+- (@putout/plugin-react-hooks) add
+- (plugin-remove-unused-variables) add support of Identifier in ExportDefault declaration
+- (putout) add ability to call push, instead of return places
+- (@putout/test) add support of rules property of plugin
+- (get-plugins) add support of rules
+- (plugin-remove-only) redrun -> madrun
+- (putout) add support of custom parser
+- (eslint-config) add no-multi-spaces
+- (putout) add support of parser
+- (plugin-remove-unused-variables) split AssingmentExpression and assignmentPattrn
+- (eslint-plugin-putout) one-line-destructuring: condition -> selector
+- (get-vars) scopeBlocks -> scope.uid
+- (package) yargs-parser v13.0.0
+- (plugin-remove-empty) @putout/eslint-config -> eslint-plugin-putout
+- (plugin-remove-empty) redrun -> madrun
+- (plugin-remove-empty-pattern) redrun -> madrun
+- (package) yargs-parser v12.0.0
+- (eslint-config) no-trailing-space
+- (eslint-config) add comma-dangle
+- (putout) add eslint-plugin-node
+- (eslint-plugin-putout) add
+- (eslintrc) add no-var, prefer-const
+- (plugin-apply-destructuring) add support of VariableDeclaration kinds different then const (var, let)
+- (plugin-merge-destructuring) do not merge variables with different kinds
+- (putout) add @babel/generator
+- (plugin-apply-destructuring) add
+- (plugin-merge-destructuring-properties) add
+- (convert-esm-to-commonjs) add support of same name of imported and local
+- (plugin-convert-esm-to-commonjs) add support of CallExpression in ExportDefaultDeclaration
+- (plugin-convert-esm-to-commonjs) add
+- (eslint-config) add no-useless-rename
+- (putout) add @babel/template
+- (plugin-remove-unused-variables) redrun -> madrun
+- (plugin-remove-unused-variables) BinaryExpression: add support of TemplateLiteral
+- (putout) add support of madrun
+- (putout) add support of @babel/parser
+- (putout) move out espree to custom-parser
+- (putout) add support of a no loc nodes
+- (putout) decrease leak of a path
+- (plugin-remove-unused-variables) use Map instead of Loc
+- (@putout/plugin-remove-unused-variables) @babel -> putout
+- (putout) remove recast-fix
+- (@putout/plugin-remove-unused-variables) add ability to not relate on loc while searching and removing variables
+- (@putout/test) add support of plugins as second argument of transform
+- (plugin-remove-empty-pattern) add
+- (plugin-remove-empty) @babel/types -> putout.types
+- (eslintrc) implicit-error-line-break
+- (eslintrc) add arrow-spacing
+- (@putout/test) add ability to check that report, find and fix functions exists
+- (plugin-remove-skip) @babel/types -> putout
+- (plugin-remove-only) @babel/types -> putout.types
+- (putout) add traverse, types to exports
+- (package) eslint -> jsonlint
+- (plugin-split-variable-declarations) set loc to work good with @putout/plugin-remove-unused-variables
+- (@putout/test) transform: add support of plugins
+- (package) add @putout/eslint-config
+- (plugin-remove-unused-variables) add support of jsx
+- (putout) add support of jsx
+- (plugin-remove-unused-variables) add support of ObjectExpression in arguments of NewExpression
+- (plugin-remove-unused-varaibles) add support of AssignmentPattern in ObjectExpression
+- (plugin-remove-unused-variables) add support of ClassDeclaration
+- (putout) read config not directory containg file not cwd
+- (plugin-remove-unused-variables) add traverse
+- (plugin-remove-unused-variables) ObjectExpression add support of computed key
+- (putout) move plugins init to bin
+- (putout) add @putout/plugin-remove-empty
+- (plugin-convert-tape-to-supertape) add support of tryToTape
+- (putout) add support of codemods
+- (@putout/test) no report messages
+- (@putout/test) add support of reportCode
+- (@putout/test) add support of transformCode
+- (test) messages: add support of array
+- (package) add @putout/test
+- (@putout/test) add
+- (package) add supertape from npm
+- (package) rm unused rendy
+- (plugin-remove-console) simplified tests
+- (putout) add support of ArrayExpression in AssignmentPattern
+- (plugin-remove-unused-variabled) add support of ExportNamedDeclaration
+- (package) recast v0.17.1
+- (plugin-remove-unused-variables) add support of ExportDefaultDeclaration
+- (putout) add sourceType: "module"
+- (putout) plugin: find(ast) -> find(ast, {traverse, types})
+- (putout) plugin: message -> getMessage
+- (plugin-remove-console) add
+- (plugin-split-variable-declarations) add
+- (parse-match) move out from bin/putout.js
+- (putout) add support of match/ignore
+- (putout) add plugin name in erros output
+- (plugin-remove-skip) add
+- (putout) add ability to set config path
+- (putout) cherow -> espree: comments support
+- (putout) disable by default rules: remove-only, remove-process-exit
+- (plugin-remove-unused-variables) move out from putout
+- (plugin-remove-only) move out from putout
+- (remove-process-exit) isStringLiteralValue -> isStringLiteral
+- (putout) add support of plugins load
+- (plugin-remove-debugger) move out from putout
+- (putout) full plugin names
+- (rm-process-exit) add
+- (putout) convert repo to monorepo
+- (putout) change plugin structure: find, fix
+- (putout) add ability to load plugins
+- (putout) add ability to load config file .putout.json
+- (get-plugins) add support of rules
+- (putout) .putout.json -> putout.json
+- (putout) add support of only
+- (get-vars) rm setLoc
+- (putout) add ability to remove debugger statement
+- (putout) add support of TemplateLiteral in ArrayExpression
+- (putout) move out message from bin
+- (putout) useParamsBeforeLastUsed: add support of AssignmentPattern in
+- (puttou) add support of SpreadElement in ArrayExpression
+- (putout) add support of ThrowStatement
+- (putout) add ability to use nested properties in ObjectExpression
+- (putout) FunctionDeclaration: add support of useParamsBeforeLastUsed
+- (putout) add support of TemplateLiteral in LogicalExpression
+- (putout) useParamsBeforeLastUsed: add support of ObjectPattern
+- (putout) add support of TaggedTemplateExpression
+- (putout) AssignmentExpressions: add support of TemplateLiteral
+- (putout) add support of UpdateExpression
+- (putout) FunctionDeclaration: add support of AssignmentPattern in params
+- (get-vars) add ability to use traverse ObjectExpression with ObjectPattern
+- (remove-unused) add loc when error
+- (putout) AssignExpression: add support of ObjectExpression in the right
+- (putout) add support of SwitchStatement
+- (get-vars) add support of one unused variable in ArrayPattern id of VariableDeclarator
+- (get-vars) add support of ObjectExpression in body of ArrowFunctionExpression
+- (putout) ConditionalExpression: add support of consequent, alternate
+- (package) add estree-to-babel
+- (putout) @babel/parser -> cherow
+- (get-vars) rm isVariableDeclaration(left) check from ForOfStatement
+- (get-vars) ArrowFunctionExpression: rm isObjectPattern condition
+- (putout) add support of empty body in ForOfStatement
+- (putout) add support of NewExpression
+- (putout) add support of ForOfStatement with empty body
+- (putout) add support of ArrayPattern in VariableDeclarator
+- (putout) add support of destructuring in params of ArrowFunctionExpression
+- (get-vars) add support of destructuring in params
+- (putout) add ability to ignore params before last used
+- (putout) add support of TemplateLiteral in ArrowFunctionExpression
+- (putout) add --help, --version
+- (putout) add support of assignment expression
+- (putout) add support of Identifier in init of VariableDeclarator
+- (putout) add support of SpreadElement in CallExpression
+- (putout) show file name
+- (putout) add support of globs
+- (putout) add support of array-expression
+- (putout) add support of unary-expression
+- (package) add eslint-plugin-tape
+- (get-vars) add support of logical-expression
+- (putout) add support of member expression properties
+- (get-vars) add support of ObjectExpression in ReturnStatement
+- (get-vars) add support of TemplateLiteral in ReturnStatement
+- (get-vars) fn calls horthand vars
+- (package) test:diff
+- (get-vars) add support of TemplateLiteral
+- (get-vars) add support of IfStatement
+- (putout) disabled return an array of .tokens on the root AST node
+- (putout) add support of destructuring nested object
+- (putout) get-vars: remove declaration when destructured value not used
+- (putout) add support of fn-call-vars
+- (package) espree -> @babel/parser
+- (putout) count -> declared, used
+- (package) espree v5.0.0
+- (putout) add support of desctrucuring variable declaration
+- (putout) add ability to process bin files
+- (putout) add ability to align spaces
+- (putout) add raw-full
+- (putout) add support of argument destructurisation
+- (putout) add support of object spread
+- (putout) add support of object properties
+- (putout) add for-of support
+- (package) add support of called but not defined functions
+- (putout) add support of unused arguments
+- (puttout) add support of shorthand properties
+- (putout) add
+
