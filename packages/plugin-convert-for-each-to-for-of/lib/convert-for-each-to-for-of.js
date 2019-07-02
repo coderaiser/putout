@@ -106,13 +106,6 @@ function fixReturn(path) {
     });
 }
 
-function wrapExpressionStatement(a) {
-    if (!a)
-        return;
-    
-    return ExpressionStatement(a);
-}
-
 function isBoundVars(parentPath, path) {
     const currentBindings = keys(parentPath.scope.bindings);
     const fnBindings = keys(path.scope.bindings);
