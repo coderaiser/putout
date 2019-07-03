@@ -2,7 +2,11 @@
 
 const {types, operate} = require('putout');
 const {replaceWith} = operate;
-const {ReturnStatement} = types;
+const {
+    ReturnStatement,
+    isCallExpression,
+    isIdentifier,
+} = types;
 
 module.exports.report = () => '"traverse" should be used instead of "find"';
 
@@ -37,6 +41,9 @@ module.exports.traverse = ({push}) => {
             if (!rightPath.isFunction())
                 return;
             
+            if (!isTraverseLastExpression(rightPath.node.body.body))
+                return;
+            
             if (isReturn(rightPath))
                 return;
             
@@ -53,6 +60,20 @@ module.exports.traverse = ({push}) => {
         },
     };
 };
+
+function isTraverseLastExpression(body) {
+    const n = body.length - 1;
+    const {expression} = body[n];
+    
+    if (!isCallExpression(expression))
+        return false;
+    
+    const {callee} = expression;
+    
+    return isIdentifier(callee, {
+        name: 'traverse',
+    });
+}
 
 function isModuleExports(path) {
     if (!path.node)

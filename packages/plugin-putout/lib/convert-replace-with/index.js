@@ -1,15 +1,16 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
-
-const fullstore = require('fullstore');
-
 const {
     operate,
     template,
 } = require('putout');
 
-const {insertAfter} = operate;
+const {
+    replaceWith,
+    insertAfter,
+} = operate;
+
+const fullstore = require('fullstore');
 
 module.exports.report = () => {
     return `"operate.replaceWith" should be called instead of "path.replaceWith"`;

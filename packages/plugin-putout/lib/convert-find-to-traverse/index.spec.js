@@ -23,3 +23,8 @@ test('plugin-putout: convert find to traverse: transform: return', (t) => {
     t.noTransform('return');
     t.end();
 });
+
+test('plugin-putout: convert find to traverse: transform: for-of', (t) => {
+    t.noTransform('for-of');
+    t.end();
+});
