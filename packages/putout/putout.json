@@ -5,7 +5,7 @@
         "madrun.js": {
             "madrun/*": true
         },
-        "bin": {
+        "bin/": {
             "remove-process-exit": false,
             "remove-console": false
         },
