@@ -1285,6 +1285,7 @@ test('remove-unused-variables: get-vars: flow', (t) => {
         Array: _u,
         N: du,
         State: du,
+        IInputHandlingTerminal: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -1304,6 +1305,7 @@ test('remove-unused-variables: get-vars: typescript', (t) => {
         names: du,
         Viewport: du,
         IViewport: _u,
+        IInputHandlingTerminal: du,
     }, {
         options: d_,
     }];

@@ -3,7 +3,7 @@
 const {types} = require('putout');
 const {isIdentifier} = types;
 
-module.exports = (use) => ({
+module.exports = ({use, declare}) => ({
     GenericTypeAnnotation(path) {
         const {node} = path;
         const {id} = node;
@@ -16,6 +16,10 @@ module.exports = (use) => ({
         
         if (isIdentifier(qualification))
             use(path, qualification.name);
+    },
+    
+    InterfaceDeclaration(path) {
+        declare(path, path.node.id.name);
     },
 });
 

@@ -389,16 +389,27 @@ module.exports = ({use, declare, addParams}) => {
         },
         
         ExportNamedDeclaration(path) {
+            const declarationPath = path.get('declaration');
             const {
                 declaration,
                 specifiers,
             } = path.node;
             
-            if (isFunctionDeclaration(declaration))
+            if (declarationPath.isFunctionDeclaration())
                 return use(path, declaration.id.name);
             
-            if (isClassDeclaration(declaration))
+            if (declarationPath.isClassDeclaration())
                 return use(path, declaration.id.name);
+            
+            // typescript
+            if (declarationPath.isTSInterfaceDeclaration()) {
+                return use(path, declaration.id.name);
+            }
+            
+            // flow
+            if (declarationPath.isInterfaceDeclaration()) {
+                return use(path, declaration.id.name);
+            }
             
             if (isVariableDeclaration(declaration)) {
                 const {declarations} = declaration;
@@ -468,7 +479,7 @@ module.exports = ({use, declare, addParams}) => {
             });
         },
         ...jsx(use),
-        ...flow(use),
+        ...flow({use, declare}),
         ...typescript({use, declare}),
     };
 };
