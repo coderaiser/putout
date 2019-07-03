@@ -22,12 +22,13 @@ const {
 module.exports.report = () => 'Empty block statement';
 
 module.exports.fix = (path) => {
+    const alternatePath = path.get('alternate');
     const {alternate} = path.node;
     
     if (!path.isIfStatement() || !alternate)
         return path.remove();
     
-    if (!alternate.body.length)
+    if (alternatePath.isBlock() && !alternate.body.length)
         return path.remove();
     
     path.node.consequent = path.node.alternate;
