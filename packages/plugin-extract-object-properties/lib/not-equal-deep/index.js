@@ -16,7 +16,6 @@ module.exports.fix = ({path, expandPath, property}) => {
 
 module.exports.traverse = ({push}) => {
     const members = [];
-    const initPaths = [];
     
     return {
         VariableDeclarator(path) {
@@ -43,7 +42,6 @@ module.exports.traverse = ({push}) => {
                 return;
             
             const {code} = generate(initPath.node.object);
-            initPaths.push([code, initPath, property]);
             
             for (const [currentCode, expandPath] of members) {
                 const {name} = property;
