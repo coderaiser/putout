@@ -33,6 +33,9 @@ module.exports.traverse = ({push, generate}) => {
             if (!/<|>|===?|!===?/.test(operator))
                 return;
             
+            if (operator === '<<' || operator === '>>')
+                return;
+            
             if (!containsIdentifiers(path)) {
                 const {code} = generate(node);
                 const boolean = runInNewContext(code);

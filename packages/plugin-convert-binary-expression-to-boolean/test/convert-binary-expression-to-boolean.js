@@ -34,7 +34,13 @@ test('plugin-convert-binary-expression-to-boolean: no transform: literal right',
     t.end();
 });
 
-test('plugin-convert-binary-expression-to-boolean: no transform: same', (t) => {
+test('plugin-convert-binary-expression-to-boolean: transform: same', (t) => {
     t.transform('same');
     t.end();
 });
+
+test('plugin-convert-binary-expression-to-boolean: no transform: bitwise', (t) => {
+    t.noTransform('bitwise');
+    t.end();
+});
+
