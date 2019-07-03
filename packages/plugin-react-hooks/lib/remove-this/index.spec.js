@@ -15,8 +15,10 @@ test('plugin-react-hooks: remove-this: transform', (t) => {
     t.end();
 });
 
-test('plugin-react-hooks: remove-this: transform', (t) => {
+test('plugin-react-hooks: remove-this: transform: code', (t) => {
     const from = `
+        const {Component} = require('react');
+        
         class Hello extends Component {
             render() {
                 return (
@@ -27,6 +29,8 @@ test('plugin-react-hooks: remove-this: transform', (t) => {
     `;
     
     const to = `
+        const {Component} = require('react');
+        
         class Hello extends Component {
             render() {
                 return <button onClick={setEnabled}/>;

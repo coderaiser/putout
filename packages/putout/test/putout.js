@@ -28,6 +28,7 @@ const fixture = readFixtures([
     'overlap',
     'overlap-fix',
     'jsx',
+    'not-jsx',
 ]);
 
 test('putout: no vars', (t) => {
@@ -381,12 +382,28 @@ test('putout: overlap', (t) => {
     t.end();
 });
 
+test('putout: isJSX', (t) => {
+    const [e] = tryCatch(putout, fixture.jsx);
+    
+    t.notOk(e, 'should not be an error');
+    t.end();
+});
+
 test('putout: isJSX: false', (t) => {
     const [e] = tryCatch(putout, fixture.jsx, {
         isJSX: false,
     });
     
     t.equal(e.message, 'Unexpected token (7:8)', 'should equal');
+    t.end();
+});
+
+test('putout: typescript: not jsx', (t) => {
+    const [e] = tryCatch(putout, fixture.notJsx, {
+        isTS: true,
+    });
+    
+    t.notOk(e, 'should not be an error');
     t.end();
 });
 

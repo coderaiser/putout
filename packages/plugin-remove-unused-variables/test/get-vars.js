@@ -1158,9 +1158,10 @@ test('remove-unused-variables: get-vars: class return', (t) => {
     const result = getVars(ast).map(dutify);
     
     const expected = [{
-        PureComponent: _u,
+        PureComponent: du,
         React: _u,
         wrap: du,
+        require: _u,
     }, {
         HelloComponent: du,
     }, {

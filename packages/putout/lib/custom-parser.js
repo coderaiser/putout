@@ -33,8 +33,9 @@ module.exports = (source, {parser, isTS, isFlow, isJSX}) => {
 
 const clean = (a) => a.filter(Boolean);
 const getFlow = (a) => !a.indexOf('// @flow');
+const getJSX = (a) => a.includes('react');
 
-function babelParse(source, {isTS, isFlow = getFlow(source), isJSX}) {
+function babelParse(source, {isTS, isFlow = getFlow(source), isJSX = getJSX(source)}) {
     const {parse} = initBabel();
     
     return parse(source, {
@@ -51,7 +52,11 @@ function babelParse(source, {isTS, isFlow = getFlow(source), isJSX}) {
             'classProperties',
             'numericSeparator',
             'exportDefaultFrom',
-            ...getBabelLangExts({isTS, isFlow, isJSX, source}),
+            ...getBabelLangExts({
+                isTS,
+                isFlow,
+                isJSX,
+            }),
         ]),
     });
 }
@@ -94,7 +99,7 @@ function acornParse(source) {
     };
 }
 
-function getBabelLangExts({isTS, isFlow, isJSX = true}) {
+function getBabelLangExts({isTS, isFlow, isJSX}) {
     const langs = [
         isJSX && 'jsx',
     ];
