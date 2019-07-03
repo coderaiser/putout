@@ -1,17 +1,17 @@
-# putout-plugin-extract-sequence-expressions [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# putout-plugin-extract-object-properties [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-extract-sequence-expressions.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-extract-sequence-expressions"npm"
+[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-extract-object-properties.svg?style=flat&longCache=true
+[NPMURL]:                   https://npmjs.org/package/@putout/plugin-extract-object-properties"npm"
 
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-extract-sequence-expressions
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-extract-sequence-expressions
+[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-extract-object-properties
+[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-extract-object-properties
 
 `putout` plugin adds ability to convert Commonjs to ESM.
 
 ## Install
 
 ```
-npm i @putout/plugin-extract-sequence-expressions -D
+npm i @putout/plugin-extract-object-properties -D
 ```
 
 ## Rule
@@ -19,7 +19,7 @@ npm i @putout/plugin-extract-sequence-expressions -D
 ```json
 {
     "rules": {
-        "extract-sequence-expressions": true
+        "extract-object-properties": true
     }
 }
 ```
@@ -27,15 +27,20 @@ npm i @putout/plugin-extract-sequence-expressions -D
 ## ❌ Incorrect code example
 
 ```js
-module.exports.x = 1,
-module.exports.y = 2;
+const {replaceWith} = a.operate;
+const {isIdentifier} = a.types;
 ```
 
 ## ✅ Correct code Example
 
 ```js
-module.exports.x = 1;
-module.exports.y = 2;
+const {
+    operate,
+    types
+} = a;
+
+const {replaceWith} = operate;
+const {isIdentifier} = types;
 ```
 
 ## License
