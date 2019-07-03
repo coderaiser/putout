@@ -1,3 +1,15 @@
+2019.07.03, v4.46.2
+
+fix:
+- (@putout/plugin-remove-empty) remove-empty-block: else if
+- (putout) enable/disable: parse
+- (@putout/plugin-extract-object-properties) rm unused
+- (@putout/plugin-putout) convert-find-to-traverse: traverse not last expression in function
+
+feature:
+- (@putout/plugin-extract-object-properties) add support of different deep
+
+
 2019.07.03, v4.46.1
 
 fix:
