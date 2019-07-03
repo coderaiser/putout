@@ -19,19 +19,22 @@ npm i @putout/plugin-extract-object-properties -D
 ```json
 {
     "rules": {
-        "extract-object-properties": true
+        "extract-object-properties/equal-deep": true
+        "extract-object-properties/not-equal-deep": true
     }
 }
 ```
 
-## ❌ Incorrect code example
+## Equal Deep
+
+### ❌ Incorrect code example
 
 ```js
 const {replaceWith} = a.operate;
 const {isIdentifier} = a.types;
 ```
 
-## ✅ Correct code Example
+### ✅ Correct code Example
 
 ```js
 const {
@@ -40,6 +43,27 @@ const {
 } = a;
 
 const {replaceWith} = operate;
+const {isIdentifier} = types;
+```
+
+## Not Equal Deep
+
+### ❌ Incorrect code example
+
+```js
+const {replaceWith} = a;
+const {isIdentifier} = a.types;
+```
+
+### ✅ Correct code Example
+
+```js
+const {
+    operate,
+    types
+} = a;
+
+const {replaceWith, types} = a;
 const {isIdentifier} = types;
 ```
 
