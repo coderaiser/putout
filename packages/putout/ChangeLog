@@ -1,3 +1,12 @@
+2019.07.04, v4.48.0
+
+feature:
+- (@putout/plugin-remove-double-negations) add
+- (@putout/plugin-remove-empty) remove-empty-block: add support of negation
+- (@putout/plugin-merge-if-statements) add support of inner else
+- (@putout/plugin-merge-if-statements) add support of an emtpy block
+
+
 2019.07.04, v4.47.0
 
 fix:
