@@ -29,7 +29,7 @@
     "destructuring"
   ],
   "devDependencies": {
-    "@putout/eslint-config": "^1.0.1",
+    "eslint-plugin-putout": "^1.6.0",
     "@putout/test": "^1.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.0.1",
@@ -38,7 +38,7 @@
     "madrun": "^2.0.0",
     "nodemon": "^1.14.12",
     "nyc": "^14.0.0",
-    "putout": "^3.9.0",
+    "putout": "^4.31.0",
     "supertape": "^1.0.3"
   },
   "peerDependencies": {
