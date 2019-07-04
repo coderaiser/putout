@@ -22,18 +22,16 @@ module.exports.fix = ({items}) => {
     for (const item of items) {
         const {object, property} = item.node;
         
-        if (isIdentifier(property)) {
-            if (!names.includes(property.name)) {
-                names.push(property.name);
-                
-                const {
-                    body = item.scope.block.body,
-                } = item.scope.block.body;
-                body.unshift(buildAst({
-                    PROPERTY: property,
-                    OBJECT: object,
-                }));
-            }
+        if (isIdentifier(property) && !names.includes(property.name)) {
+            names.push(property.name);
+            
+            const {
+                body = item.scope.block.body,
+            } = item.scope.block.body;
+            body.unshift(buildAst({
+                PROPERTY: property,
+                OBJECT: object,
+            }));
         }
         
         replaceWith(item, item.node.property);
