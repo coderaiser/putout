@@ -32,6 +32,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `commonjs` to `esm`;
 - apply destructuring;
 - merge destructuring properties;
+- merge `if` statements;
 - convert `Math.pow` to `exponentiation operator`;
 - convert `forEach` to `for-of`;
 - convert `apply` to `spread`;
@@ -146,6 +147,7 @@ To configure create `.putout.json` file and override any option:
         "convert-binary-expression-to-boolean",
         "apply-destructuring",
         "merge-destructuring-properties",
+        "merge-if-statements",
         "strict-mode"
     ]
 }

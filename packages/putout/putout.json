@@ -57,6 +57,7 @@
         "convert-math-pow",
         "convert-for-each-to-for-of",
         "merge-destructuring-properties",
+        "merge-if-statements",
         "strict-mode",
         "putout"
     ]
