@@ -52,6 +52,9 @@ module.exports.traverse = ({push}) => {
             if (path.node.alternate)
                 return;
             
+            if (consequentPath.node.alternate)
+                return;
+            
             push({
                 path,
                 consequentPath,

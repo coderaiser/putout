@@ -20,6 +20,11 @@ test('plugin-merge-destructuring-properties: transform: else', (t) => {
 });
 
 test('plugin-merge-destructuring-properties: transform: else', (t) => {
+    t.noTransform('inner-else');
+    t.end();
+});
+
+test('plugin-merge-destructuring-properties: transform: else', (t) => {
     t.transform('empty');
     t.end();
 });
