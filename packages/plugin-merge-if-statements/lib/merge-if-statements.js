@@ -33,8 +33,9 @@ const getConsequent = (path) => {
         return;
     
     const resultPath = consequentPath.get('body.0');
+    const {body} = consequentPath.node;
     
-    if (resultPath.isIfStatement())
+    if (body.length && resultPath.isIfStatement())
         return resultPath;
     
     return null;

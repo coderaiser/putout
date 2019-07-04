@@ -18,3 +18,8 @@ test('plugin-merge-destructuring-properties: transform: else', (t) => {
     t.noTransform('else');
     t.end();
 });
+
+test('plugin-merge-destructuring-properties: transform: else', (t) => {
+    t.transform('empty');
+    t.end();
+});
