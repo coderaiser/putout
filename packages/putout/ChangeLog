@@ -1,3 +1,14 @@
+2019.07.04, v4.47.0
+
+fix:
+- (putout) match .ts -> .ts$
+
+feature:
+- (@putout/plugin-merge-if-statements) add
+- (package) eslint-plugin-node v9.1.0
+- (package) eslint v6.0.1
+
+
 2019.07.03, v4.46.2
 
 fix:
