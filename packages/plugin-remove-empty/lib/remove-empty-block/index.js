@@ -37,7 +37,7 @@ module.exports.fix = (path) => {
     const testPath = path.get('test');
     const {operator} = testPath.node;
     
-    if (operator && operator !== '=' && /[<>=]/.test(testPath.node.operator)) {
+    if (operator && operator !== '=' && /[<>=!]/.test(testPath.node.operator)) {
         testPath.node.operator = reverse(testPath.node.operator);
         return;
     }
@@ -127,6 +127,15 @@ function reverse(a) {
     
     case '>=':
         return '<';
+    
+    case '!':
+        return '';
+    
+    case '!=':
+        return '==';
+    
+    case '!==':
+        return '===';
     
     default:
         return `!${a}`.replace('=', '');
