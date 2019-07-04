@@ -27,6 +27,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - find and remove `strict mode` directive from `esm`;
 - find and remove `constant conditions`;
 - find and remove `boolean` from `logical expressions`;
+- find and remove `double negations`;
 - if absent `strict mode` directive in `commonjs` add it;
 - convert `esm` to `commonjs`;
 - convert `commonjs` to `esm`;
@@ -136,6 +137,7 @@ To configure create `.putout.json` file and override any option:
         "remove-constant-conditions",
         "remove-boolean-from-logical-expressions",
         "remove-nested-blocks",
+        "remove-double-negations",
         "split-variable-declarations",
         "convert-esm-to-commonjs",
         "convert-commonjs-to-esm",
