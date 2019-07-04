@@ -28,3 +28,8 @@ test('plugin-extract-object-properties: not-equal-deep: no transform: not destru
     t.noTransform('not-destr');
     t.end();
 });
+
+test('plugin-extract-object-properties: not-equal-deep: no transform: var exists', (t) => {
+    t.noTransform('var-exists');
+    t.end();
+});

@@ -46,7 +46,7 @@ module.exports.traverse = ({push}) => {
             for (const [currentCode, expandPath] of members) {
                 const {name} = property;
                 
-                if (path.scope.bindings[name])
+                if (path.scope.getAllBindings()[name])
                     continue;
                 
                 if (currentCode === code) {

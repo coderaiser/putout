@@ -1,4 +1,16 @@
-const operate = {};
-const {generate} = require('putout');
-const {replaceWith} = require('putout').operate;
+let options = {};
 
+if (a > b) {
+    const {
+      buffer,
+      charset,
+      cols,
+      wraparoundMode,
+      insertMode
+    } = this._terminal;
+
+    const {
+      screenReaderMode
+    } = this._terminal.options;
+
+}
