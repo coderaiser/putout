@@ -9,7 +9,7 @@ const isDev = env.NODE_ENV === 'development';
 
 const dist = path.resolve(__dirname, '..', 'dist');
 const distDev = path.resolve(__dirname, '..', 'dist-dev');
-const devtool = isDev ? 'eval' : 'source-map';
+const devtool = false;
 
 const babelDev = {
     plugins: [
