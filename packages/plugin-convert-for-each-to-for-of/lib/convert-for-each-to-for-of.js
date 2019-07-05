@@ -52,6 +52,9 @@ module.exports.traverse = ({push}) => {
             if (!propertyPath.isIdentifier({name: 'forEach'}))
                 return;
             
+            if (!parentPath.isCallExpression())
+                return;
+            
             const fnPath = parentPath.get('arguments.0');
             
             if (!fnPath.isFunction())
