@@ -42,6 +42,7 @@ const fixture = readFixtures([
     'fn-destr-args-vars',
     'fn-hoisted-vars',
     'for-of-statement',
+    'for-in',
     'function-declaration',
     'function-as-argument',
     'import',
@@ -1004,6 +1005,20 @@ test('remove-unused-variables: get-vars: for of statement', (t) => {
         empty: du,
     }, {
         item: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: for in', (t) => {
+    const ast = parse(fixture.forIn);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        key: du,
+        key2: _u,
+        jqCache: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');

@@ -59,9 +59,11 @@ module.exports = ({use, declare, addParams}) => {
             const {node} = path;
             const {init} = node;
             const idPath = path.get('id');
+            const isForIn = path.parentPath.parentPath.isForInStatement();
             
             if (isIdentifier(node.id)) {
                 declare(path, node.id.name);
+                isForIn && use(path, node.id.name);
             } else if (isObjectPattern(node.id)) {
                 idPath.traverse({
                     ObjectProperty(propPath) {
@@ -253,6 +255,17 @@ module.exports = ({use, declare, addParams}) => {
             
             if (isIdentifier(test))
                 return use(path, test.name);
+        },
+        
+        ForInStatement(path) {
+            const {node} = path;
+            const {left, right} = node;
+            
+            if (isIdentifier(left))
+                use(path, left.name);
+            
+            if (isIdentifier(right))
+                use(path, right.name);
         },
         
         ForOfStatement(path) {
