@@ -161,6 +161,9 @@ module.exports = ({use, declare, addParams}) => {
                 alternate,
             } = path.node;
             
+            const alternatePath = path.get('alternate');
+            const consequentPath = path.get('consequent');
+            
             if (isIdentifier(test))
                 use(path, test.name);
             
@@ -169,6 +172,12 @@ module.exports = ({use, declare, addParams}) => {
             
             if (isIdentifier(alternate))
                 use(path, alternate.name);
+            
+            if (alternatePath.isFunction() && alternate.id)
+                use(alternatePath, alternate.id.name);
+            
+            if (consequentPath.isFunction() && consequent.id)
+                use(consequentPath, consequent.id.name);
         },
         
         TemplateLiteral(path) {

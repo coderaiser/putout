@@ -280,6 +280,11 @@ test('remove-unused-variables: get-vars: conditional expression', (t) => {
         tmpl_b: du,
         tmpl_c: du,
         tmpl_d: du,
+        fn: d_,
+    }, {
+        sub: du,
+    }, {
+        add: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
