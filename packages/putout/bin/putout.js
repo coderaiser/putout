@@ -101,7 +101,9 @@ const places = files
     .map(processFiles)
     .filter(Boolean);
 
-const isRuler = (a) => a.disable || a.enable || a.disableAll || a.enableAll;
+const isString = (a) => typeof a === 'string';
+const isStringAll = (...a) => a.filter(isString).length;
+const isRuler = (a) => a.disableAll || a.enableAll || isStringAll(a.disable, a.enable);
 const mergedPlaces = Array.from(merge(...places));
 
 if (isRuler(argv)) {
@@ -324,7 +326,7 @@ function getFormatter(name) {
 
 function rulerProcessor({disable, disableAll, enable, enableAll}, mergedPlaces) {
     const name = `${cwd}/.putout.json`;
-    const [, data = '{}'] = tryCatch(readFileSync, name, 'utf8');
+    const [, data = '{rules: {}}'] = tryCatch(readFileSync, name, 'utf8');
     const ruler = require('../lib/ruler');
     const object = parse(data);
     
@@ -338,6 +340,16 @@ function rulerProcessor({disable, disableAll, enable, enableAll}, mergedPlaces) 
         updated = ruler.enableAll(object, mergedPlaces);
     else if (disableAll)
         updated = ruler.disableAll(object, mergedPlaces);
+    
+    if (isString(disable) && !disable) {
+        console.log(object.rules);
+        return;
+    }
+    
+    if (isString(enable) && !enable) {
+        console.log(object.rules);
+        return;
+    }
     
     writeFileSync(name, stringify(updated, null, 4));
 }
