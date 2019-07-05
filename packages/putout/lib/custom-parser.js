@@ -43,7 +43,7 @@ function babelParse(source, {isTS, isFlow = getFlow(source), isJSX = getJSX(sour
         tokens: true,
         allowReturnOutsideFunction: true,
         plugins: clean([
-            !isTS && 'estree',
+            !isTS && !isFlow && 'estree',
             'importMeta',
             'dynamicImport',
             'bigInt',
