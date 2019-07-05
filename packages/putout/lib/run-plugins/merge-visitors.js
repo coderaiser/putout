@@ -4,17 +4,22 @@ const generate = require('@babel/generator').default;
 const traverse = require('@babel/traverse').default;
 const {merge} = traverse.visitors;
 
-module.exports = (pluginsToMerge) => {
+const runFix = require('./run-fix');
+const getPosition = require('./get-position');
+
+const shouldSkip = (a) => !a.parent;
+
+module.exports = (pluginsToMerge, {fix, shebang}) => {
     const mergeItems = [];
     const pushed = {};
     
     for (const [rule, plugin] of pluginsToMerge) {
-        const {push, pull} = getStore();
+        const {push, pull} = getStore(plugin, {
+            fix,
+            shebang,
+        });
         
-        pushed[rule] = {
-            pull,
-            plugin,
-        };
+        pushed[rule] = pull;
         
         mergeItems.push(plugin.traverse({
             push,
@@ -23,7 +28,10 @@ module.exports = (pluginsToMerge) => {
     }
     
     const entries = Object.entries(pushed);
-    const visitor = merge(mergeItems);
+    const visitor = {
+        shouldSkip,
+        ...merge(mergeItems),
+    };
     
     return {
         entries,
@@ -31,11 +39,22 @@ module.exports = (pluginsToMerge) => {
     };
 };
 
-function getStore() {
+function getStore(plugin, {fix, shebang}) {
     let value = [];
     
-    const push = (a) => {
-        value.push(a);
+    const push = (path) => {
+        const position = getPosition(path, shebang);
+        const message = plugin.report(path);
+        
+        value.push({
+            message,
+            position,
+        });
+        
+        runFix(fix, plugin.fix, {
+            path,
+            position,
+        });
     };
     
     const pull = () => {

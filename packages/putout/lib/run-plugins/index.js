@@ -7,8 +7,7 @@ const once = require('once');
 
 const runFix = require('./run-fix');
 const mergeVisitors = require('./merge-visitors');
-
-const getPath = (item) => item.path || item;
+const getPosition = require('./get-position');
 
 module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
     let places = [];
@@ -30,6 +29,8 @@ module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
     return places;
 };
 
+module.exports.getPosition = getPosition;
+
 function run({ast, fix, shebang, plugins, merge}) {
     return [
         ...runWithoutMerge({ast, fix, shebang, plugins}),
@@ -39,29 +40,20 @@ function run({ast, fix, shebang, plugins, merge}) {
 
 function runWithMerge({ast, fix, shebang, plugins, merge}) {
     const pluginsToMerge = plugins.filter(([, a]) => a.traverse);
-    const {entries, visitor} = merge(pluginsToMerge);
+    const {entries, visitor} = merge(pluginsToMerge, {
+        fix,
+        shebang,
+    });
     
     traverse(ast, visitor);
     
     const places = [];
-    for (const [rule, {pull, plugin}] of entries) {
+    for (const [rule, pull] of entries) {
         const items = pull();
-        for (const item of items) {
-            const path = getPath(item);
-            const message = plugin.report(item);
-            const position = getPosition(path, shebang);
-            
+        for (const {message, position} of items) {
             places.push({
                 rule,
                 message,
-                position,
-            });
-            
-            if (!path.node)
-                continue;
-            
-            runFix(fix, plugin.fix, {
-                path: item,
                 position,
             });
         }
@@ -86,9 +78,8 @@ function runWithoutMerge({ast, fix, shebang, plugins}) {
             continue;
         
         for (const item of items) {
-            const path = getPath(item);
             const message = report(item);
-            const position = getPosition(path, shebang);
+            const position = getPosition(item, shebang);
             
             places.push({
                 rule,
@@ -104,34 +95,6 @@ function runWithoutMerge({ast, fix, shebang, plugins}) {
     }
     
     return places;
-}
-
-function getPosition(path, shebang) {
-    const {node} = path;
-    
-    if (!node)
-        return {
-            line: 'x',
-            column: 'x',
-        };
-    
-    const {loc} = node;
-    
-    if (!loc)
-        return {
-            line: 'x',
-            column: 'x',
-        };
-    
-    const {
-        line,
-        column,
-    } = node.loc.start;
-    
-    return {
-        line: shebang ? line + 1 : line,
-        column,
-    };
 }
 
 function superFind(find, ast) {

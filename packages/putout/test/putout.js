@@ -372,6 +372,7 @@ test('putout: recast destructuring assign', (t) => {
 
 test('putout: overlap', (t) => {
     const result = putout(fixture.overlap, {
+        fixCount: 1,
         plugins: [
             'convert-apply-to-spread',
             'convert-arguments-to-rest',

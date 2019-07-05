@@ -31,6 +31,9 @@ module.exports.fix = (path) => {
     if (alternatePath.isBlock() && !alternate.body.length)
         return path.remove();
     
+    if (alternatePath.isIfStatement())
+        return replaceWith(path, alternatePath);
+    
     path.node.consequent = path.node.alternate;
     path.node.alternate = null;
     
@@ -91,19 +94,11 @@ function isFunction(node) {
 
 function blockIsBody(node, parentNode) {
     const {body} = parentNode;
-    
-    if (!body)
-        return false;
-    
     return body === node;
 }
 
 function blockIsIndependentBody(node, parentNode) {
     const {body} = parentNode;
-    
-    if (!body)
-        return false;
-    
     return body[0] === node;
 }
 
