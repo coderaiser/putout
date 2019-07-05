@@ -1,3 +1,12 @@
+2019.07.05, v4.49.0
+
+fix:
+- feature(putout) improve solidity, decrease fixes count: run fixes while traversing merged visitors, when in -- mode'
+
+feature:
+- (putout) improve solidity, decrease fixes count: run fixes while traversing merged visitors, when in --fix mode'
+
+
 2019.07.05, v4.48.2
 
 fix:
