@@ -27,6 +27,11 @@ test('plugin-split-variable-declarations: transform: comment', (t) => {
     t.end();
 });
 
+test('plugin-split-variable-declarations: transform: export', (t) => {
+    t.noTransform('export');
+    t.end();
+});
+
 test('plugin-split-variable-declarations: null literal: loc', (t) => {
     t.transform('null-literal', '\n\n', {
         'remove-unused-variables': removeUnusedVariables,

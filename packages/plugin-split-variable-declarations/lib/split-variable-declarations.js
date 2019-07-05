@@ -8,25 +8,32 @@ const {
 const {
     isForStatement,
     variableDeclaration,
-    variableDeclarator,
 } = types;
 
 const {replaceWithMultiple} = operate;
 
-const {assign} = Object;
-
 module.exports.report = () => 'Variables should be declared separately';
 
 module.exports.fix = (path) => {
-    const varNodes = getVarNodes(path.node);
+    const {node} = path;
+    
+    const varNodes = getVarNodes(node);
+    
     replaceWithMultiple(path, varNodes);
 };
 
 module.exports.traverse = ({push}) => {
     return {
         VariableDeclaration(path) {
-            const {node, parent} = path;
+            const {
+                node,
+                parent,
+                parentPath,
+            } = path;
             const {declarations} = node;
+            
+            if (parentPath.isExportDeclaration())
+                return;
             
             if (declarations.length === 1)
                 return;
@@ -49,67 +56,17 @@ function getVarNodes(node) {
     
     const result = [];
     
-    for (const {id, loc, init} of declarations) {
-        const declaration = createVariableDeclarator({
-            id,
-            loc,
-            init,
-        });
-        
+    for (const declaration of declarations) {
         const declarations = [
             declaration,
         ];
         
-        const declarationLoc = getDeclarationLoc({
-            node,
-            declaration,
-            declarations,
-        });
-        
-        result.push(createVariableDeclaration({
-            loc: declarationLoc,
+        result.push(variableDeclaration(
             kind,
             declarations,
-        }));
+        ));
     }
     
     return result;
-}
-
-function getDeclarationLoc({node, declaration, declarations}) {
-    const i = declarations.indexOf(declaration);
-    const {loc} = node;
-    const {start} = loc;
-    
-    const line = start.line + i;
-    
-    const newStart = {
-        line,
-        column: start.column,
-    };
-    
-    const newEnd = {
-        line,
-        column: declaration.loc.end.column,
-    };
-    
-    return {
-        start: newStart,
-        end: newEnd,
-    };
-}
-
-function createVariableDeclarator({id, loc, init}) {
-    const declaration = variableDeclarator(id, init);
-    return assign(declaration, {
-        loc,
-    });
-}
-
-function createVariableDeclaration({kind, loc, declarations}) {
-    const declaration = variableDeclaration(kind, declarations);
-    return assign(declaration, {
-        loc,
-    });
 }
 
