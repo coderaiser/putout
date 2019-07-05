@@ -7,7 +7,13 @@ const once = require('once');
 
 const runFix = require('./run-fix');
 const mergeVisitors = require('./merge-visitors');
-const getPosition = require('./get-position');
+
+const {
+    getPath,
+    getPosition,
+} = require('./get-position');
+
+const isRemoved = (a) => a && a.removed;
 
 module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
     let places = [];
@@ -79,6 +85,8 @@ function runWithoutMerge({ast, fix, shebang, plugins}) {
         
         for (const item of items) {
             const message = report(item);
+            const path = getPath(item);
+            const {parentPath} = path;
             const position = getPosition(item, shebang);
             
             places.push({
@@ -86,6 +94,9 @@ function runWithoutMerge({ast, fix, shebang, plugins}) {
                 message,
                 position,
             });
+            
+            if (isRemoved(parentPath))
+                continue;
             
             runFix(fix, plugin.fix, {
                 path: item,

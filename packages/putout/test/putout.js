@@ -10,6 +10,7 @@ const fixture = readFixtures([
     'comment',
     'comment-fix',
     'no-vars',
+    'no-parent',
     'root-vars',
     'import',
     'export-default-declaration',
@@ -51,6 +52,22 @@ test('putout: root vars', (t) => {
     
     const expected = {
         code: fixture.rootVars,
+        places: [],
+    };
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('putout: root vars: no parent', (t) => {
+    const result = putout(fixture.noParent, {
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = {
+        code: '\n',
         places: [],
     };
     

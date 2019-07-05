@@ -2,7 +2,8 @@
 
 const getPath = (item) => item.path || item;
 
-module.exports = (path, shebang) => {
+module.exports.getPath = getPath;
+module.exports.getPosition = (path, shebang) => {
     const {node} = getPath(path);
     const {loc} = node;
     

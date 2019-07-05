@@ -5,7 +5,7 @@ const traverse = require('@babel/traverse').default;
 const {merge} = traverse.visitors;
 
 const runFix = require('./run-fix');
-const getPosition = require('./get-position');
+const {getPosition} = require('./get-position');
 
 const shouldSkip = (a) => !a.parent;
 
