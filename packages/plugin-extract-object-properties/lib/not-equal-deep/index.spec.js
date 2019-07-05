@@ -33,3 +33,8 @@ test('plugin-extract-object-properties: not-equal-deep: no transform: property n
     t.noTransform('not-identifier');
     t.end();
 });
+
+test('plugin-extract-object-properties: not-equal-deep: no transform: different scopes', (t) => {
+    t.noTransform('different-scopes');
+    t.end();
+});

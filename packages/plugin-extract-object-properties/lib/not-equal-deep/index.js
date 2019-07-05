@@ -49,6 +49,9 @@ module.exports.traverse = ({push}) => {
                 if (expandPath.scope.bindings[name])
                     continue;
                 
+                if (expandPath.scope.uid !== initPath.scope.uid)
+                    continue;
+                
                 if (currentCode === code) {
                     push({
                         expandPath,
