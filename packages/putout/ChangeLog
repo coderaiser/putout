@@ -1,3 +1,9 @@
+2019.07.05, v4.50.0
+
+feature:
+- (putout) custom-parser: babel: disable estree when flow used
+
+
 2019.07.05, v4.49.0
 
 feature:
