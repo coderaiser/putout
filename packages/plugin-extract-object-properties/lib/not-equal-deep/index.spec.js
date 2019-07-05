@@ -29,7 +29,7 @@ test('plugin-extract-object-properties: not-equal-deep: no transform: not destru
     t.end();
 });
 
-test('plugin-extract-object-properties: not-equal-deep: no transform: var exists', (t) => {
-    t.noTransform('var-exists');
+test('plugin-extract-object-properties: not-equal-deep: no transform: property not identifier', (t) => {
+    t.noTransform('not-identifier');
     t.end();
 });

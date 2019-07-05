@@ -1,8 +1,6 @@
-let options = {};
-
 const {
   screenReaderMode
-} = this._terminal.options;
+} = this._terminal[getName()];
 
 if (a > b) {
     const {
