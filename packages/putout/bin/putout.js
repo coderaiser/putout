@@ -326,7 +326,11 @@ function getFormatter(name) {
 
 function rulerProcessor({disable, disableAll, enable, enableAll}, mergedPlaces) {
     const name = `${cwd}/.putout.json`;
-    const [, data = '{rules: {}}'] = tryCatch(readFileSync, name, 'utf8');
+    const defaultData = stringify({
+        rules: {},
+    });
+    
+    const [, data = defaultData] = tryCatch(readFileSync, name, 'utf8');
     const ruler = require('../lib/ruler');
     const object = parse(data);
     
