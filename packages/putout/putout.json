@@ -48,6 +48,7 @@
         "remove-boolean-from-logical-expressions",
         "remove-nested-blocks",
         "remove-double-negations",
+        "remove-unreachable-code",
         "split-variable-declarations",
         "convert-esm-to-commonjs",
         "convert-commonjs-to-esm",
