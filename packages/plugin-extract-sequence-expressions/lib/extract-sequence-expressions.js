@@ -1,13 +1,30 @@
 'use strict';
 
-const {replaceWithMultiple} = require('putout').operate;
+const {
+    types,
+    operate,
+} = require('putout');
+
+const {replaceWithMultiple} = operate;
+
+const {
+    ExpressionStatement,
+    ReturnStatement,
+    BlockStatement,
+    isExpression,
+    toStatement,
+} = types;
 
 module.exports.report = () => 'sequence expressions should not be used';
 
 module.exports.fix = (path) => {
-    const {expressions} = path.node;
+    const {parentPath} = path;
     
-    replaceWithMultiple(path, expressions);
+    if (!parentPath.isArrowFunctionExpression())
+        return replaceWithMultiple(path, path.node.expressions);
+    
+    const {expressions} = parentPath.node.body;
+    parentPath.node.body = createBlockStatement(expressions);
 };
 
 module.exports.traverse = ({push}) => {
@@ -17,4 +34,27 @@ module.exports.traverse = ({push}) => {
         },
     };
 };
+
+function createBlockStatement(expressions) {
+    const n = expressions.length;
+    let i = 0;
+    
+    const list = [];
+    for (; i < n - 1; i++) {
+        const el = expressions[i];
+        
+        console.log(el.type);
+        if (/identifier/i.test(el.type)) {
+            list.push(ExpressionStatement(el));
+            continue;
+        }
+        
+        list.push(toStatement(el));
+    }
+    
+    const last = expressions[i];
+    list.push(ReturnStatement(last));
+    
+    return BlockStatement(list);
+}
 

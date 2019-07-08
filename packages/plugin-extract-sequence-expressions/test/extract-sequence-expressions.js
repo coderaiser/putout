@@ -14,3 +14,8 @@ test('plugin-extract-sequence-expressions: transform', (t) => {
     t.end();
 });
 
+test('plugin-extract-sequence-expressions: transform arrow function', (t) => {
+    t.transform('arrow');
+    t.end();
+});
+
