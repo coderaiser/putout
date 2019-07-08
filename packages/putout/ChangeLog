@@ -1,3 +1,12 @@
+2019.07.08, v4.52.0
+
+fix:
+- (@putout/plugin-split-variable-declarations) exclude ExportNamedDeclaration
+
+feature:
+- (@putout/plugin-remove-unreachable-code) add
+
+
 2019.07.05, v4.51.0
 
 fix:
