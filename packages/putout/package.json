@@ -80,7 +80,7 @@
     "@putout/plugin-strict-mode": "^1.0.0",
     "array-union": "^2.0.0",
     "chalk": "^2.4.1",
-    "deepmerge": "^3.0.0",
+    "deepmerge": "^4.0.0",
     "estree-to-babel": "^1.0.1",
     "find-up": "^4.0.0",
     "glob": "^7.1.3",
