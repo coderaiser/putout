@@ -11,7 +11,6 @@ const {
     ExpressionStatement,
     ReturnStatement,
     BlockStatement,
-    isExpression,
     toStatement,
 } = types;
 
@@ -43,7 +42,6 @@ function createBlockStatement(expressions) {
     for (; i < n - 1; i++) {
         const el = expressions[i];
         
-        console.log(el.type);
         if (/identifier/i.test(el.type)) {
             list.push(ExpressionStatement(el));
             continue;
