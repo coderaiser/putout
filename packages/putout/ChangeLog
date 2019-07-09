@@ -1,3 +1,11 @@
+2019.07.09, v4.52.2
+
+feature:
+- (package) deepmerge v4.0.0
+- (@putout/plugin-remove-empty) remove-empty-block: add support of CallExpression in IfStatement test
+- (@putout/plugin-extract-sequence-expressions) add support of ArrowFunctionExpressions with SequenceExpression body
+
+
 2019.07.08, v4.52.1
 
 fix:
