@@ -51,3 +51,7 @@ test('plugin-remove-empty: block: else if', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: block: if test call', (t) => {
+    t.transform('if-test-call');
+    t.end();
+});

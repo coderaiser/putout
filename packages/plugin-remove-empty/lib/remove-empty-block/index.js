@@ -23,10 +23,18 @@ module.exports.report = () => 'Empty block statement';
 
 module.exports.fix = (path) => {
     const alternatePath = path.get('alternate');
+    const testPath = path.get('test');
     const {alternate} = path.node;
     
-    if (!path.isIfStatement() || !alternate)
+    if (!path.isIfStatement())
         return path.remove();
+    
+    if (!alternate) {
+        if (!testPath.isBinaryExpression() && !testPath.isLiteral())
+            return replaceWith(path, testPath);
+        
+        return path.remove();
+    }
     
     if (alternatePath.isBlock() && !alternate.body.length)
         return path.remove();
@@ -37,7 +45,6 @@ module.exports.fix = (path) => {
     path.node.consequent = path.node.alternate;
     path.node.alternate = null;
     
-    const testPath = path.get('test');
     const {operator} = testPath.node;
     
     if (operator && operator !== '=' && /[<>=!]/.test(testPath.node.operator)) {
