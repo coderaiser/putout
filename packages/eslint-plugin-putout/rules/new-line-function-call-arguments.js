@@ -48,6 +48,7 @@ module.exports = {
                     fix(fixer) {
                         const fixed = name + text
                             .replace('(', '(\n')
+                            .replace(/,\s?/g, ',\n')
                             .replace(/\)$/, '\n)');
                         
                         return [

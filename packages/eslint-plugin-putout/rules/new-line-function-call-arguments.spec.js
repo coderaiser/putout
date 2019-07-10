@@ -12,24 +12,21 @@ const ruleTester = new RuleTester({
 ruleTester.run('new-line-function-call-arguments', rule, {
     valid: [
         `console.log('a', 'b', 'c');`,
+        `const onConnectError = squad(
+            superFn('connect_error'),
+            logWraped(isLog, importStr),
+            addUrl(colorUrl),
+            getDescription,
+        );`,
         `
-    const onConnectError = squad(
-        superFn('connect_error'),
-        logWraped(isLog, importStr),
-        addUrl(colorUrl),
-        getDescription,
-    );
-    `,
-        `
-    test('should be some test', (t) => {
-        t.equal();
-        t.equal();
-        t.equal();
-        t.equal();
-        t.equal();
-        t.end();
-    });
-    `,
+        test('should be some test', (t) => {
+            t.equal();
+            t.equal();
+            t.equal();
+            t.equal();
+            t.equal();
+            t.end();
+        });`,
         `
     report(formatter, {
         name,
@@ -74,9 +71,24 @@ ruleTester.run('new-line-function-call-arguments', rule, {
         `,
         output:
         '\n        const onConnectError = squad(\n' +
-        'superFn(\'connect_error\'),\n        logWraped(isLog, ' +
+        'superFn(\'connect_error\'),\n        logWraped(isLog,\n' +
         'importStr),\n        addUrl(colorUrl),\n        ' +
         'getDescription\n);\n        ',
+        errors: [{
+            message: 'Add new line before and after arguments in a function call',
+            type: 'CallExpression',
+        }],
+    }, {
+        code: `const f = () => {
+                return {
+                    ...pick(state, 'showTransformPanel', 'parserSettings', 'parserPerCategory')
+                }
+            };`,
+        output:`const f = () => {
+                return {
+                    ...pick(\nstate,\n'showTransformPanel',\n'parserSettings',\n'parserPerCategory'\n)
+                }
+            };`,
         errors: [{
             message: 'Add new line before and after arguments in a function call',
             type: 'CallExpression',
