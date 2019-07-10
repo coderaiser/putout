@@ -31,7 +31,6 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "@babel/types": "^7.3.4",
     "@putout/eslint-config": "^1.2.0",
     "align-spaces": "^1.0.0"
   },
