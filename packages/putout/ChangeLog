@@ -1,3 +1,10 @@
+2019.07.10, v4.52.3
+
+fix:
+- (putout) default options: madrun/* -> madrun
+- (@putout/plugin-extract-sequence-expressions) rm unused
+
+
 2019.07.09, v4.52.2
 
 feature:
