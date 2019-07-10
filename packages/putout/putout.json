@@ -3,7 +3,7 @@
     "formatter": "dump",
     "match": {
         "madrun.js": {
-            "madrun/*": true
+            "madrun": true
         },
         "bin/": {
             "remove-process-exit": false,
@@ -22,7 +22,7 @@
         "fixture"
     ],
     "rules": {
-        "madrun/*": false,
+        "madrun": false,
         "convert-esm-to-commonjs": false,
         "convert-commonjs-to-esm": false,
         "remove-only": false,
