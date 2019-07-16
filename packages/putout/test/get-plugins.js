@@ -11,7 +11,6 @@ const {
 } = mockRequire;
 
 const putout = require('..');
-const getPlugins = require('../lib/get-plugins');
 
 test('get-plugins: user plugin', (t) => {
     const {_findPath} = Module;
@@ -46,6 +45,24 @@ test('get-plugins: user plugin', (t) => {
     Module._findPath = _findPath;
     
     t.equal(code, '', 'should equal');
+    t.end();
+});
+
+test('get-plugins: browser build with bundled plugins', (t) => {
+    const {plugins} = Module;
+    Module.plugins = {
+        'abc': stub(),
+    };
+    
+    const [e] = tryCatch(putout, `const t = 'hello'`, {
+        plugins: [
+            'abc',
+        ],
+    });
+    
+    Module.plugins = plugins;
+    
+    t.notOk(e, 'should find plugin in Module.plugins');
     t.end();
 });
 
@@ -185,20 +202,6 @@ test('get-plugins: disabled rule', (t) => {
     stopAll();
     
     t.equal(code, `const t = 'hello'`, 'should equal');
-    t.end();
-});
-
-test('get-plugins: build-paths', (t) => {
-    const {_buildPaths} = getPlugins;
-    
-    const result = _buildPaths('/hello/world');
-    const expected = [
-        '/node_modules',
-        '/hello/node_modules',
-        '/hello/world/node_modules',
-    ];
-    
-    t.deepEqual(result, expected);
     t.end();
 });
 

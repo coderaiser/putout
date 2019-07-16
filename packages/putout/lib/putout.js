@@ -9,8 +9,10 @@ const types = require('@babel/types');
 
 const cutShebang = require('./cut-shebang');
 const getPlugins = require('./get-plugins');
+
 const customParser = require('./custom-parser');
 const runPlugins = require('./run-plugins');
+const runBabelPlugins = require('./run-babel-plugins');
 
 const isUndefined = (a) => typeof a === 'undefined';
 const {assign} = Object;
@@ -53,6 +55,9 @@ module.exports = (source, opts) => {
         isTS,
         isFlow,
         isJSX,
+        plugins = [],
+        rules,
+        babelPlugins = [],
     } = opts;
     
     const [clearSource, shebang] = cutShebang(source);
@@ -63,14 +68,27 @@ module.exports = (source, opts) => {
         isFlow,
         isJSX,
     });
-    const plugins = getPlugins(opts);
-    const places = runPlugins({
-        ast,
-        shebang,
-        fix,
-        fixCount,
+    
+    const loadedPlugins = getPlugins({
+        rules,
         plugins,
     });
+    
+    const places = [
+        ...runBabelPlugins({
+            ast,
+            fix,
+            source,
+            babelPlugins,
+        }),
+        ...runPlugins({
+            ast,
+            shebang,
+            fix,
+            fixCount,
+            plugins: loadedPlugins,
+        }),
+    ];
     
     const printed = print(ast);
     const code = fixStrictMode(`${shebang}${printed}`);
@@ -82,8 +100,7 @@ module.exports = (source, opts) => {
 };
 
 const fixStrictMode = (a) => {
-    return a
-        .replace(`\n\n\n'use strict'`, `\n\n'use strict'`);
+    return a.replace(`\n\n\n'use strict'`, `\n\n'use strict'`);
 };
 
 module.exports.parse = parse;
@@ -107,9 +124,7 @@ function print(ast) {
         objectCurlySpacing: false,
     };
     
-    return recast
-        .print(ast, printOptions)
-        .code;
+    return recast.print(ast, printOptions).code;
 }
 
 module.exports.traverse = traverse;
@@ -118,4 +133,3 @@ module.exports.template = template;
 module.exports.generate = generate;
 module.exports.initReport = require('./report');
 module.exports.operate = require('@putout/operate');
-

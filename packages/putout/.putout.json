@@ -1,6 +1,10 @@
 {
     "rules": {
-        "putout": false
-    }
+        "putout": false,
+        "remove-unused-variables": false,
+        "strict-mode": false
+    },
+    "babelPlugins": [
+        "transform-inline-consecutive-adds"
+    ]
 }
-

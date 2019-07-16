@@ -30,6 +30,8 @@ const fixture = readFixtures([
     'overlap-fix',
     'jsx',
     'not-jsx',
+    'babel-plugins',
+    'babel-plugins-fix',
 ]);
 
 test('putout: no vars', (t) => {
@@ -422,6 +424,17 @@ test('putout: typescript: not jsx', (t) => {
     });
     
     t.notOk(e, 'should not be an error');
+    t.end();
+});
+
+test('putout: babelPlugins', (t) => {
+    const {code} = putout(fixture.babelPlugins, {
+        babelPlugins: [
+            "transform-inline-consecutive-adds"
+        ],
+    });
+    
+    t.deepEqual(code, fixture.babelPluginsFix);
     t.end();
 });
 

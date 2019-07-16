@@ -570,9 +570,12 @@ When you need to ignore some routes no metter what, you can use `ignore` section
 
 ### Plugins
 
-`Putout` supports `plugins`, there is to types: with prefix official `@putout/plugin-` and user plugins with prefix `putout-plugin-`. To use your plugin create plugin as `npm` package with keywords `putout`, `putout-plugin` and add it to `.putout.json`.
+There is two types of plugins supported by `putout`, their names in npm started with prefix:
+- `@putout/plugin-` for official plugins
+- `putout-plugin-` for user plugins
 
-For example if you need to `remove-something` create `putout` plugin with name `putout-plugin-remove-something` and add it to `.putout.json`:
+*Example*
+If you need to `remove-something` create `putout` plugin with a name `putout-plugin-remove-something` and add it to `.putout.json`:
 
 ```json
 {
@@ -582,7 +585,9 @@ For example if you need to `remove-something` create `putout` plugin with name `
 }
 ```
 
-Add `putout` as a `peerDependency` to your `packages.json` and set keywords: `putout`, `putout-plugin` so other users can find it 🙂.
+Add `putout` as a `peerDependency` to your `packages.json`.
+
+*Always add keywords `putout`, `putout-plugin` when publish putout plugin to `npm` so others can easily find it.*
 
 #### Plugins API
 
@@ -693,10 +698,85 @@ test('remove debugger: transformCode', (t) => {
 As you see test runner it is little bit modifed [tape](https://github.com/substack/tape).
 To see more sophisticated example look at [@putout/remove-console](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-console).
 
+### Babel Plugins
+
+You can add `babel` `plugins` to `babelPlugins` section of `.putout.json.
+
+*Example*
+Let's add `babel-plugin-transform-inline-consecutive-adds` to `.putout.json`:
+
+```json
+{
+    "babelPlugins": [
+        "transform-inline-consecutive-adds"
+    ]
+}
+```
+
+Then create a file and process it with help of `babel plugin`.
+
+```sh
+coderaiser@cloudcmd:~$  cat > in.js
+const t = [];
+t.push(1);
+t.push(2);
+
+$ putout in.js
+coderaiser@cloudcmd:~$ putout out.js
+/home/coderaiser/putout/packages/putout/out.js
+ 4:0  error   transform inline consecutive adds  babel: transform-inline-consecutive-adds
+
+✖ 1 errors in 1 files
+  fixable with the `--fix` option
+coderaiser@cloudcmd:~$ putout out.js -f codeframe
+/home/coderaiser/putout/packages/putout/1.js:4:0
+  2 | t.push(1);
+  3 | t.push(2);
+> 4 |
+    | ^ transform inline consecutive adds
+
+✖ 1 errors in 1 files
+  fixable with the `--fix` option
+coderaiser@cloudcmd:~$ putout --fix out.js
+coderaiser@cloudcmd:~$ cat 1.js
+const t = [1, 2];
+```
+
+Using `putout` as a runner for `babel` `plugins` you can not only change file content,
+but also see what exactly will be changed. You can use your already written
+`babel` `plugins` or reuse work in progress plugins made for `babel`, but remember that `putout` `plugins` gave more accurate information about changing places, and works faster (no need to find infromation about changes in transformed file).
+
+#### Babel plugins list
+
+Here you can find `babel plugins` which feets the most main purpose of `putout` and adviced to use:
+
+<details><summary><a href="https://babeljs.io/docs/en/babel-plugin-transform-inline-consecutive-adds">transform-inline-consecutive-adds</a></summary>
+
+```diff
+-const foo = {};
+-foo.a = 42;
+-foo.b = ["hi"];
+-foo.c = bar();
+-foo.d = "str";
++const foo = {
++  a: 42,
++  b: ["hi"],
++  c: bar(),
++  d: "str"
++};
+
+-const bar = [];
+-bar.push(1);
+-bar.push(2);
++const bar = [1, 2];
+```
+</details>
+
+Please send pull requests with `babel plugins` which can be used as codemods, or simplify, fix, makes code more readable.
+
 ## Codemods
 
 `putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/master/codemods/plugin-convert-tape-to-supertape) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
-
 
 ## ESLint Support
 
