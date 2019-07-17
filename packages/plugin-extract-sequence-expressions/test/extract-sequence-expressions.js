@@ -19,3 +19,8 @@ test('plugin-extract-sequence-expressions: transform arrow function', (t) => {
     t.end();
 });
 
+test('plugin-extract-sequence-expressions: transform call expression', (t) => {
+    t.transform('call');
+    t.end();
+});
+

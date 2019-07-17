@@ -19,11 +19,22 @@ module.exports.report = () => 'sequence expressions should not be used';
 module.exports.fix = (path) => {
     const {parentPath} = path;
     
-    if (!parentPath.isArrowFunctionExpression())
-        return replaceWithMultiple(path, path.node.expressions);
+    if (parentPath.isArrowFunctionExpression()) {
+        const {expressions} = parentPath.node.body;
+        parentPath.node.body = createBlockStatement(expressions);
+        return;
+    }
     
-    const {expressions} = parentPath.node.body;
-    parentPath.node.body = createBlockStatement(expressions);
+    if (parentPath.isCallExpression() && parentPath.get('callee') === path) {
+        const {expressions} = path.node;
+        const {length} = expressions;
+        const last = expressions[length - 1];
+        
+        parentPath.node.callee = last;
+        return;
+    }
+    
+    return replaceWithMultiple(path, path.node.expressions);
 };
 
 module.exports.traverse = ({push}) => {
