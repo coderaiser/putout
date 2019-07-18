@@ -806,6 +806,23 @@ And use with `putout` this way:
 putout --fix lib && eslint --fix lib
 ```
 
+## Babel support
+
+`Putout` can be used as [babel plugin](/packages/babel-plugin-putout).
+Just create `.babelrc` file with configuration you need.
+
+```json
+{
+  "plugins": [
+      ["putout", {
+          rules: [
+              "remove-unused-variables": false
+          ]
+      }]
+  ]
+}
+```
+
 ## API
 
 *To use in the browser use require("putout/dist/putout.js")*

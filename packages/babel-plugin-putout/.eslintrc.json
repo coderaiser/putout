@@ -1,0 +1,17 @@
+{
+    "env": {
+        "mocha": true
+    },
+    "rules": {
+        "node/no-unsupported-features/es-syntax": "off"
+    },
+    "extends": [
+        "plugin:putout/recommended",
+        "plugin:node/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node",
+         "@babel/development"
+    ]
+}
