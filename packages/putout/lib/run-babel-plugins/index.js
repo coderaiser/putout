@@ -1,7 +1,6 @@
 'use strict';
 
 const recast = require('recast');
-const traverse = require('@babel/traverse').default;
 
 const {transformFromAstSync} = require('@babel/core');
 
@@ -62,27 +61,27 @@ function print(ast) {
 // https://babeljs.io/docs/en/next/babel-core.html#transformfromastsync
 function transform(ast, code, name) {
     transformFromAstSync(ast, code, {
-         ast: true,
-         // remove setAST plugin, when deepCopy flag will be supported
-         // deepCopy: false,
-         plugins: [
-             name,
-             [setAst, {
-                 ast
-             }],
-         ]
+        ast: true,
+        // remove setAST plugin, when deepCopy flag will be supported
+        // deepCopy: false,
+        plugins: [
+            name,
+            [setAst, {
+                ast,
+            }],
+        ],
     });
     
     return ast;
 }
 
 function setAst(babel, {ast}) {
-  return {
-    visitor: {
-      Program(path) {
-        path.replaceWith(ast.program);
-      }
-    }
-  };
+    return {
+        visitor: {
+            Program(path) {
+                path.replaceWith(ast.program);
+            },
+        },
+    };
 }
 

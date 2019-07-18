@@ -430,11 +430,27 @@ test('putout: typescript: not jsx', (t) => {
 test('putout: babelPlugins', (t) => {
     const {code} = putout(fixture.babelPlugins, {
         babelPlugins: [
-            "transform-inline-consecutive-adds"
+            'transform-inline-consecutive-adds',
         ],
     });
     
     t.deepEqual(code, fixture.babelPluginsFix);
+    t.end();
+});
+
+test('putout: transform', (t) => {
+    const ast = putout.parse(fixture.comment);
+    
+    putout.transform(ast, fixture.comment, {
+        plugins: [
+            'convert-commonjs-to-esm',
+        ],
+    });
+    
+    const result = putout.print(ast);
+    const expected = fixture.commentFix;
+    
+    t.deepEqual(result, expected, 'should equal');
     t.end();
 });
 

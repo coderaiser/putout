@@ -5,7 +5,6 @@ const mockRequire = require('mock-require');
 const {reRequire, stopAll} = mockRequire;
 
 test('get-plugins', (t) => {
-    
     mockRequire('module', {
         _findPath: () => {},
         plugins: {
@@ -15,7 +14,7 @@ test('get-plugins', (t) => {
     
     const getPlugins = reRequire('.');
     const result = getPlugins({
-        plugins: [
+        pluginNames: [
             'remove-unused-variables',
         ],
     });

@@ -50,18 +50,12 @@ module.exports = (source, opts) => {
     opts = defaultOpts(opts);
     const {
         parser,
-        fixCount,
-        fix,
         isTS,
         isFlow,
         isJSX,
-        plugins = [],
-        rules,
-        babelPlugins = [],
     } = opts;
     
     const [clearSource, shebang] = cutShebang(source);
-    
     const ast = parse(clearSource, {
         parser,
         isTS,
@@ -69,9 +63,32 @@ module.exports = (source, opts) => {
         isJSX,
     });
     
-    const loadedPlugins = getPlugins({
+    const places = transform(ast, source, opts);
+    const printed = print(ast);
+    const code = fixStrictMode(`${shebang}${printed}`);
+    
+    return {
+        code,
+        places,
+    };
+};
+
+module.exports.transform = transform;
+function transform(ast, source, opts) {
+    opts = defaultOpts(opts);
+    
+    const {
+        plugins: pluginNames,
+        babelPlugins = [],
         rules,
-        plugins,
+        fix,
+        fixCount,
+    } = opts;
+    
+    const [, shebang] = cutShebang(source);
+    const plugins = getPlugins({
+        pluginNames,
+        rules,
     });
     
     const places = [
@@ -86,18 +103,12 @@ module.exports = (source, opts) => {
             shebang,
             fix,
             fixCount,
-            plugins: loadedPlugins,
+            plugins,
         }),
     ];
     
-    const printed = print(ast);
-    const code = fixStrictMode(`${shebang}${printed}`);
-    
-    return {
-        code,
-        places,
-    };
-};
+    return places;
+}
 
 const fixStrictMode = (a) => {
     return a.replace(`\n\n\n'use strict'`, `\n\n'use strict'`);

@@ -52,6 +52,7 @@ function babelParse(source, {isTS, isFlow = getFlow(source), isJSX = getJSX(sour
             'classProperties',
             'numericSeparator',
             'exportDefaultFrom',
+            'nullishCoalescingOperator',
             ...getBabelLangExts({
                 isTS,
                 isFlow,

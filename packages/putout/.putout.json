@@ -1,8 +1,6 @@
 {
     "rules": {
-        "putout": false,
-        "remove-unused-variables": false,
-        "strict-mode": false
+        "putout": false
     },
     "babelPlugins": [
         "transform-inline-consecutive-adds"

@@ -4,17 +4,17 @@ const isEnabled = require('./is-enabled');
 const loadPlugin = require('./load-plugin');
 const parsePluginNames = require('./parse-plugin-names');
 
-module.exports = (options) => {
+module.exports = (options = {}) => {
     const {
-        plugins = [],
+        pluginNames = [],
         rules = [],
     } = options;
     
     const result = [];
-    const names = parsePluginNames(plugins);
-    const pluginItems = loadPlugins(names);
+    const names = parsePluginNames(pluginNames);
+    const plugins = loadPlugins(names);
     
-    for (const [name, fn] of pluginItems) {
+    for (const [name, fn] of plugins) {
         if (!isEnabled(name, rules))
             continue;
         
