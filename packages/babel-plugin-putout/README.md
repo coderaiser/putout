@@ -33,9 +33,9 @@ $ npm install babel-plugin-putout
 {
   "plugins": [
       ["putout", {
-          rules: [
+          "rules": {
               "remove-unused-variables": false
-          ]
+          }
       }]
   ]
 }

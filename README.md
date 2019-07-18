@@ -778,7 +778,7 @@ Please send pull requests with `babel plugins` which can be used as codemods, or
 
 `putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/master/codemods/plugin-convert-tape-to-supertape) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
 
-## ESLint Support
+## ESLint
 
 If you see that `putout` brokes formatting of your code, use eslint plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout).
 
@@ -806,7 +806,7 @@ And use with `putout` this way:
 putout --fix lib && eslint --fix lib
 ```
 
-## Babel support
+## Babel
 
 `Putout` can be used as [babel plugin](/packages/babel-plugin-putout).
 Just create `.babelrc` file with configuration you need.
@@ -815,9 +815,9 @@ Just create `.babelrc` file with configuration you need.
 {
   "plugins": [
       ["putout", {
-          rules: [
+          "rules": {
               "remove-unused-variables": false
-          ]
+          }
       }]
   ]
 }
