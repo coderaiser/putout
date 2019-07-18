@@ -42,7 +42,7 @@
     "build": "madrun build",
     "test": "madrun test",
     "test:watch": "madrun test:watch",
-    "prepublish": "madrun prepublish",
+    "prepare": "madrun prepare",
     "watch:test": "madrun watch:test",
     "lint:src": "madrun lint:src",
     "lint": "madrun lint",
