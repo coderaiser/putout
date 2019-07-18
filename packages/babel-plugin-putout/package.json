@@ -1,10 +1,13 @@
 {
   "name": "babel-plugin-putout",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "babel plugin for putout",
   "repository": "coderaiser/babel-plugin-putout",
   "author": "Coderaiser <coderaiser@cloudcmd.io>",
   "main": "lib/index.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
@@ -55,5 +58,8 @@
   ],
   "dependencies": {
     "putout": "^4.52.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
