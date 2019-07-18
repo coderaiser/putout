@@ -65,7 +65,7 @@ module.exports = (source, opts) => {
     
     const places = transform(ast, source, opts);
     const printed = print(ast);
-    const code = fixStrictMode(`${shebang}${printed}`);
+    const code = `${shebang}${printed}`;
     
     return {
         code,
@@ -135,7 +135,10 @@ function print(ast) {
         objectCurlySpacing: false,
     };
     
-    return recast.print(ast, printOptions).code;
+    const printed = recast.print(ast, printOptions).code;
+    const code = fixStrictMode(printed);
+    
+    return code;
 }
 
 module.exports.traverse = traverse;
@@ -143,4 +146,6 @@ module.exports.types = types;
 module.exports.template = template;
 module.exports.generate = generate;
 module.exports.initReport = require('./report');
+module.exports.merge = require('./merge');
 module.exports.operate = require('@putout/operate');
+

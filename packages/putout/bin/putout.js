@@ -25,12 +25,11 @@ const cwd = process.cwd();
 const once = require('once');
 const glob = require('glob');
 const tryCatch = require('try-catch');
-const deepmerge = require('deepmerge');
-const arrayUnion = require('array-union');
 
 const defaultOptions = require('../putout.json');
 
 const putout = require('..');
+const {merge} = putout;
 const parseMatch = require('../lib/parse-match');
 const getRelativePath = require('../lib/get-relative-path');
 const report = require('../lib/report')();
@@ -244,13 +243,6 @@ function exit(e) {
         console.error(red(e.message));
     
     process.exit(1);
-}
-
-function merge(...args) {
-    const arrayMerge = (a, b) => arrayUnion(b, a);
-    return deepmerge.all(args, {
-        arrayMerge,
-    });
 }
 
 function getOptions(cwd) {
