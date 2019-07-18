@@ -1,3 +1,14 @@
+2019.07.18, v4.53.0
+
+fix:
+- (@putout/plugin-extract-sequence-expressions) add support of CallExpressions callee
+- (eslint-plugin-putout) rm unused @babel/types
+
+feature:
+- (putout) add support of babel plugins (babel/babel#10231)
+- (eslint-plugin-putout) new-line-function-call-arguments: relay less on function-paren-newline
+
+
 2019.07.10, v4.52.3
 
 fix:
