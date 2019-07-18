@@ -3,16 +3,19 @@ import defaultOptions from 'putout/putout.json';
 
 export default function() {
     let code = '';
-    let ast;
     
     return {
         name: 'putout',
         visitor: {
             Program(path, {opts}) {
-                transform(path.container, code, merge(
-                    defaultOptions,
-                    opts,
-                ));
+                transform(
+                    path.container,
+                    code,
+                    merge(
+                        defaultOptions,
+                        opts,
+                    )
+                );
             },
         },
         

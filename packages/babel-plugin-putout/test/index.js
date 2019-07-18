@@ -21,8 +21,8 @@ describe('babel plugin for putout', () => {
                     'transform-inline-consecutive-adds',
                     createConfigItem([plugin, {
                         rules: {
-                            'strict-mode': true
-                        }
+                            'strict-mode': true,
+                        },
                     }]),
                 ],
             }).code;
