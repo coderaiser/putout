@@ -1,3 +1,16 @@
+2019.07.18, v4.54.0
+
+fix:
+- (@putout/plugin-strict-mode) add: literal -> directive
+- (putout) client build: disable babelPlugins for client side
+
+feature:
+- (putout) add merge
+- (babel-plugin-putout) add
+- (package) eslint-plugin-node v9.1.0
+- (putout) add transform
+
+
 2019.07.18, v4.53.0
 
 fix:
