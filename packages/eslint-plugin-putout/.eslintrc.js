@@ -1,19 +1,17 @@
 'use strict';
 
-
-const {recommended} = require('.').configs
-
+const {recommended} = require('.').configs;
 const rules = cut(recommended.rules);
 
 module.exports = {
-    "rules": rules,
-    "extends": [
-        "plugin:node/recommended",
-        "@putout",
+    rules,
+    extends: [
+        'plugin:node/recommended',
+        '@putout',
     ],
-    "plugins": [
-        "node"
-    ]
+    plugins: [
+        'node',
+    ],
 };
 
 function cut(obj) {

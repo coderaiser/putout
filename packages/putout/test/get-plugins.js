@@ -51,7 +51,7 @@ test('get-plugins: user plugin', (t) => {
 test('get-plugins: browser build with bundled plugins', (t) => {
     const {plugins} = Module;
     Module.plugins = {
-        'abc': stub(),
+        abc: stub(),
     };
     
     const [e] = tryCatch(putout, `const t = 'hello'`, {

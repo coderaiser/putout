@@ -73,6 +73,13 @@ module.exports = (source, opts) => {
     };
 };
 
+module.exports.findPlaces = (ast, source, opts) => {
+    return transform(ast, source, {
+        ...opts,
+        fix: false,
+    });
+};
+
 module.exports.transform = transform;
 function transform(ast, source, opts) {
     opts = defaultOpts(opts);
@@ -146,6 +153,9 @@ module.exports.types = types;
 module.exports.template = template;
 module.exports.generate = generate;
 module.exports.initReport = require('./report');
-module.exports.merge = require('./merge');
 module.exports.operate = require('@putout/operate');
+
+module.exports.merge = require('./merge');
+module.exports.ignores = require('./ignores');
+module.exports.parseMatch = require('./parse-match');
 
