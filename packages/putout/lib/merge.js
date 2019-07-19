@@ -9,5 +9,5 @@ module.exports = (...args) => {
     return deepmerge.all(args, {
         arrayMerge,
     });
-}
+};
 
