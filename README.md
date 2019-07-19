@@ -716,20 +716,13 @@ Let's add `babel-plugin-transform-inline-consecutive-adds` to `.putout.json`:
 Then create a file and process it with help of `babel plugin`.
 
 ```sh
-coderaiser@cloudcmd:~$  cat > in.js
+coderaiser@cloudcmd:~$ cat > a.js
 const t = [];
 t.push(1);
 t.push(2);
 
-$ putout in.js
-coderaiser@cloudcmd:~$ putout out.js
-/home/coderaiser/putout/packages/putout/out.js
- 4:0  error   transform inline consecutive adds  babel: transform-inline-consecutive-adds
-
-✖ 1 errors in 1 files
-  fixable with the `--fix` option
-coderaiser@cloudcmd:~$ putout out.js -f codeframe
-/home/coderaiser/putout/packages/putout/1.js:4:0
+coderaiser@cloudcmd:~$ putout a.js -f codeframe
+/home/coderaiser/a.js:4:0
   2 | t.push(1);
   3 | t.push(2);
 > 4 |
@@ -737,8 +730,8 @@ coderaiser@cloudcmd:~$ putout out.js -f codeframe
 
 ✖ 1 errors in 1 files
   fixable with the `--fix` option
-coderaiser@cloudcmd:~$ putout --fix out.js
-coderaiser@cloudcmd:~$ cat 1.js
+coderaiser@cloudcmd:~$ putout --fix a.js
+coderaiser@cloudcmd:~$ cat a.js
 const t = [1, 2];
 ```
 
