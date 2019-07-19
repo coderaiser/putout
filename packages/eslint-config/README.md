@@ -31,7 +31,7 @@ Add `scripts` section to `package.json`:
 ```json
 {
     "scripts": {
-        "lint": "madrun lint,
+        "lint": "madrun lint",
         "fix:lint": "madrun fix:lint"
     }
 }
