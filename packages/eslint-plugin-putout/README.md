@@ -30,18 +30,20 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
+        "putout/putout": "error",
         "putout/single-property-destructuring": "error",
         "putout/multiple-properties-destructuring": "error",
         "putout/long-properties-destructuring": "error",
         "putout/destructuring-as-function-argument": "error",
         "putout/align-spaces": "error",
-        "new-line-function-call-arguments": "error"
+        "putout/new-line-function-call-arguments": "error"
     }
 }
 ```
 
 ## Supported Rules
 
+- [putout](rules/putout.md)
 - [Single property destructuring](rules/single-property-destructuring.md)
 - [Multiple properties destructuring](rules/multiple-properties-destructuring.md)
 - [Long properties destructuring](rules/long-properties-destructuring.md)

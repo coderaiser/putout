@@ -32,15 +32,15 @@
   },
   "dependencies": {
     "@putout/eslint-config": "^1.2.0",
-    "align-spaces": "^1.0.0"
+    "align-spaces": "^1.0.0",
+    "putout": "^4.55.0"
   },
   "devDependencies": {
     "eslint": "^6.0.0-alpha",
     "eslint-plugin-node": "^8.0.1",
     "madrun": "^2.0.0",
     "mocha": "^5.2.0",
-    "nyc": "^14.0.0",
-    "putout": "*"
+    "nyc": "^14.0.0"
   },
   "engines": {
     "node": ">=8.3"

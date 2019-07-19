@@ -29,9 +29,11 @@ const tryCatch = require('try-catch');
 const defaultOptions = require('../putout.json');
 
 const putout = require('..');
-const {merge} = putout;
-const parseMatch = require('../lib/parse-match');
-const getRelativePath = require('../lib/get-relative-path');
+const {
+    merge,
+    ignores,
+    parseMatch,
+} = putout;
 const report = require('../lib/report')();
 
 const readCodeMods = once(_readCodeMods);
@@ -60,10 +62,10 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
         'enable',
     ],
     alias: {
-        'v': 'version',
-        'h': 'help',
-        'c': 'config',
-        'f': 'format',
+        v: 'version',
+        h: 'help',
+        c: 'config',
+        f: 'format',
     },
     default: {
         fix: false,
@@ -94,8 +96,6 @@ const [e, files] = tryCatch(getFiles, argv._.map(String));
 if (e)
     exit(e);
 
-const ignore = require('ignore');
-
 const places = files
     .map(processFiles)
     .filter(Boolean);
@@ -121,14 +121,7 @@ function processFiles(name, index, {length}) {
     const {match, formatter} = options;
     const format = getFormatter(argv.format || formatter);
     
-    const ignorer = ignore();
-    
-    if (options.ignore)
-        ignorer.add(options.ignore);
-    
-    const relativeName = getRelativePath(resolvedName, dirOpt);
-    
-    if (dirOpt && ignorer.ignores(relativeName)) {
+    if (ignores(dirOpt, resolvedName, options)) {
         const line = report(format, {
             name: resolvedName,
             places: [],
@@ -156,7 +149,7 @@ function processFiles(name, index, {length}) {
             defaultOptions,
             readCodeMods(),
             options,
-            parseMatch(match, relativeName)
+            parseMatch(match, resolvedName)
         ),
     });
     
