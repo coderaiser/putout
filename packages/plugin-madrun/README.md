@@ -26,34 +26,50 @@ Add `.putout.json` with:
 
 ## Rules
 
-All Rules of `madrun` is enabled by default, to disable any of them modify `.putout.json`:
-
 ```json
 {
     "rules": {
-        "madrun/add-function": false,
-        "madrun/call-run": false,
-        "madrun/rename-series-to-run": false,
+        "madrun/add-function": true,
+        "madrun/call-run": true,
+        "madrun/convert-run-argument": true,
+        "madrun/rename-series-to-run": true,
     }
 }
 ```
 
-## Example
+# add-function
 
-Consider example of `.madrun.js`:
+## ❌ Incorrect code example
 
 ```js
 module.exports = {
     'hello': 'world'
 };
-
 ```
 
-After `putout --fix` transform, you will receive:
+## ✅ Correct code Example
 
 ```js
 module.exports = {
     'hello': () => 'world'
+};
+```
+
+# convert-run-argument
+
+## ❌ Incorrect code example
+
+```js
+module.exports = {
+    'hello': () => run(['a']),
+};
+```
+
+## ✅ Correct code Example
+
+```js
+module.exports = {
+    'hello': () => run('a'),
 };
 ```
 
