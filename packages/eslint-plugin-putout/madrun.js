@@ -2,18 +2,24 @@
 
 const {
     run,
-    series,
-    parallel,
+    predefined,
 } = require('madrun');
+
+const {eslint} = predefined;
 
 module.exports = {
     'test': () => `mocha 'rules/**/*.spec.js'`,
     'watch:test': () => `nodemon -w rules -x ${run('test')}`,
     'lint:lib': () => {
-        const files = `rules index.js .eslintrc.js`;
-        const ignore = `--ignore-pattern='!.eslintrc.js'`;
+        const rulesdir = 'rules';
+        const names = [
+            'rules',
+            'index.js',
+            '.eslintrc.js',
+            'madrun.js',
+        ];
         
-        return `eslint ${files} --rulesdir rules ${ignore}`;
+        return eslint({names, rulesdir});
     },
     'lint': () => run('lint:*'),
     'fix:lint': () => run('lint:*', '--fix'),

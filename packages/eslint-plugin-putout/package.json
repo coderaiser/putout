@@ -38,8 +38,8 @@
   "devDependencies": {
     "eslint": "^6.0.0-alpha",
     "eslint-plugin-eslint-plugin": "^2.1.0",
-    "eslint-plugin-node": "^8.0.1",
-    "madrun": "^2.0.0",
+    "eslint-plugin-node": "^9.0.0",
+    "madrun": "^2.3.0",
     "mocha": "^5.2.0",
     "nyc": "^14.0.0"
   },
