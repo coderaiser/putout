@@ -1,3 +1,12 @@
+2019.07.21, v4.56.0
+
+feature:
+- (putout) getOptions
+- (package) eslint v6.1.0
+- (@putout/plugin-madrun) add convert-run-argument
+- (eslint-plugin-putout) add ability to use putout as eslint plugin
+
+
 2019.07.21, v4.55.0
 
 fix:
