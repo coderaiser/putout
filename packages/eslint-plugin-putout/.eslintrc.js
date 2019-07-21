@@ -7,10 +7,12 @@ module.exports = {
     rules,
     extends: [
         'plugin:node/recommended',
+        'plugin:eslint-plugin/recommended',
         '@putout',
     ],
     plugins: [
         'node',
+        'eslint-plugin',
     ],
 };
 
