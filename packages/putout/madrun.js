@@ -1,6 +1,10 @@
 'use strict';
 
-const {run} = require('madrun');
+const {
+    run,
+    predefined,
+} = require('madrun');
+const {eslint} = predefined;
 
 module.exports = {
     'prepublishOnly': () => run('build:dev'),
@@ -10,16 +14,23 @@ module.exports = {
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w lib -w test -x ${run('test')}`,
     'lint': () => {
-        const ignore = `--ignore-pattern test/fixture --ignore-pattern !.eslintrc.js`;
+        const ignore = [
+            'test/fixture',
+        ];
+        
         const names = [
             'bin',
             'lib',
             'madrun.js',
             '.eslintrc.js',
             'test',
-        ].join(' ');
+            '.webpack',
+        ];
         
-        return `eslint ${names} ${ignore}`;
+        return eslint({
+            names,
+            ignore,
+        });
     },
     'fix:lint': () => run('lint', '--fix'),
     'putout': () => `bin/putout.js bin lib test madrun.js`,

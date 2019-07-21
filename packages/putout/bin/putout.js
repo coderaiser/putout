@@ -2,10 +2,7 @@
 
 'use strict';
 
-const {
-    resolve,
-    dirname,
-} = require('path');
+const {resolve} = require('path');
 
 const {
     readFileSync,
@@ -34,7 +31,9 @@ const {
     ignores,
     parseMatch,
 } = putout;
+
 const report = require('../lib/report')();
+const getOptions = require('../lib/get-options');
 
 const readCodeMods = once(_readCodeMods);
 const {parse, stringify} = JSON;
@@ -88,8 +87,6 @@ if (argv.help) {
     help();
     process.exit();
 }
-
-const findUp = require('find-up');
 
 const [e, files] = tryCatch(getFiles, argv._.map(String));
 
@@ -236,33 +233,6 @@ function exit(e) {
         console.error(red(e.message));
     
     process.exit(1);
-}
-
-function getOptions(cwd) {
-    const putoutPath = findUp.sync('.putout.json', {
-        cwd,
-    });
-    
-    if (putoutPath)
-        return [
-            dirname(putoutPath),
-            require(putoutPath),
-        ];
-    
-    const packagePath = findUp.sync('package.json', {
-        cwd,
-    });
-    
-    if (packagePath)
-        return [
-            dirname(packagePath),
-            require(packagePath).putout || {},
-        ];
-    
-    return [
-        '',
-        {},
-    ];
 }
 
 function _readCodeMods() {

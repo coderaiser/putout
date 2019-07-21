@@ -6,13 +6,13 @@ module.exports = () => {
     const result = plugins
         .map((a) => `plugins['${a}'] = require('@putout/plugin-${a}');`)
         .join('\n');
-   
-   return `
+    
+    return `
        const plugins = {};
        
        ${result};
        
        return plugins;
-`
+`;
 };
 

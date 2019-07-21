@@ -158,4 +158,5 @@ module.exports.operate = require('@putout/operate');
 module.exports.merge = require('./merge');
 module.exports.ignores = require('./ignores');
 module.exports.parseMatch = require('./parse-match');
+module.exports.getOptions = require('./get-options');
 

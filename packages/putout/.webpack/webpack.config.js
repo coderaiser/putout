@@ -2,7 +2,6 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const dir = './lib';
 
 const {env} = process;
 const isDev = env.NODE_ENV === 'development';
@@ -39,9 +38,9 @@ module.exports = {
     },
     plugins: [
         new webpack.IgnorePlugin({
-           checkResource(context) {
-            return /^esprima|fixture|^acorn|espree|tape|@putout\/test/.test(context);
-          },
+            checkResource(context) {
+                return /^esprima|fixture|^acorn|espree|tape|@putout\/test/.test(context);
+            },
         }),
     ],
     module: {
@@ -51,7 +50,8 @@ module.exports = {
         alias: {
             'module': path.resolve(__dirname, 'module.js'),
             './run-babel-plugins': path.resolve(__dirname, 'run-babel-plugins.js'),
-        }
+            './get-options': path.resolve(__dirname, 'get-options.js'),
+        },
     },
     performance: {
         maxEntrypointSize: 1024000,

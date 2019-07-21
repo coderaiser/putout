@@ -2,16 +2,32 @@
 
 const {
     run,
-    series,
-    parallel,
+    predefined,
 } = require('madrun');
+
+const {eslint} = predefined;
 
 module.exports = {
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w lib -x ${run('test')}`,
-    'lint:lib': () => `eslint lib test --ignore-pattern fixture`,
-    'lint': () => series(['putout', 'lint:*']),
-    'fix:lint': () => series(['putout', 'lint:*'], '--fix'),
+    'lint': () => {
+        const ignore = [
+            'fixture',
+        ];
+        
+        const names = [
+            'lib',
+            'test',
+            'madrun.js',
+            '.eslintrc.js',
+        ];
+        
+        return eslint({
+            names,
+            ignore,
+        });
+    },
+    'fix:lint': () => run('lint', '--fix'),
     'putout': () => `putout lib test`,
     'coverage': () => `nyc ${run('test')}`,
     'report': () => `nyc report --reporter=text-lcov | coveralls || true`,
