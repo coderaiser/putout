@@ -37,6 +37,7 @@
         "quotes": ["error", "single", {
             "allowTemplateLiterals": true
         }],
+        "quote-props": ["error", "consistent-as-needed"],
         "semi": "error",
         "object-shorthand": "error",
         "no-useless-rename": "error",
