@@ -1,3 +1,14 @@
+2019.07.21, v4.55.0
+
+fix:
+- (babel-plugin-putout) unused variable
+
+feature:
+- (eslint-plugin-putout) add ability to use putout as eslint plugin
+- (@putout/eslint-config) add quote-props
+- (eslint-config) add no-unneeded-ternary
+
+
 2019.07.18, v4.54.0
 
 fix:
