@@ -3,6 +3,10 @@
 const rule = require('./putout');
 const {RuleTester} = require('eslint');
 
+const putout = require('putout');
+const options = putout.getOptions();
+const {rules} = options;
+
 const ruleTester = new RuleTester({
     parserOptions: {
         ecmaVersion: 2019,
@@ -12,7 +16,9 @@ const ruleTester = new RuleTester({
 ruleTester.run('putout', rule, {
     valid: [{
         options: [{
+            ...options,
             rules: {
+                ...rules,
                 'remove-unused-variables': false,
                 'strict-mode': false,
             },
@@ -21,7 +27,9 @@ ruleTester.run('putout', rule, {
     }],
     invalid: [{
         options: [{
+            ...options,
             rules: {
+                ...rules,
                 'strict-mode': false,
             },
         }],

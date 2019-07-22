@@ -1,15 +1,13 @@
 'use strict';
 
 const {homedir} = require('os');
-const {dirname, resolve} = require('path');
-const {join} = require('path');
+const {dirname, join} = require('path');
 const {readdirSync} = require('fs');
 
 const findUp = require('find-up');
 const once = require('once');
 const tryCatch = require('try-catch');
 
-const parseMatch = require('./parse-match');
 const merge = require('./merge');
 const defaultOptions = require('../putout.json');
 
@@ -19,18 +17,18 @@ const readRules = once(_readRules);
 const cwd = process.cwd();
 
 module.exports = ({rulesdir} = {}) => {
-    const [dirOpt, options] = getOptions(cwd);
+    const [dir, options] = getOptions(cwd);
     const resultOptions = merge(
         defaultOptions,
         readCodeMods(),
-        readRules(dirOpt, rulesdir),
+        readRules(dir, rulesdir),
         options,
     );
     
-    return [
-        dirOpt,
-        resultOptions,
-    ];
+    return {
+        ...resultOptions,
+        dir,
+    };
 };
 
 function getOptions(cwd) {
@@ -58,7 +56,7 @@ function getOptions(cwd) {
         '',
         {},
     ];
-};
+}
 
 function _readRules(dirOpt, rulesDir) {
     if (!rulesDir)

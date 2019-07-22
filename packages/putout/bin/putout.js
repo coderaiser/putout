@@ -7,7 +7,6 @@ const {resolve} = require('path');
 const {
     readFileSync,
     writeFileSync,
-    readdirSync,
     statSync,
 } = require('fs');
 
@@ -19,11 +18,8 @@ const {
 
 const cwd = process.cwd();
 
-const once = require('once');
 const glob = require('glob');
 const tryCatch = require('try-catch');
-
-const defaultOptions = require('../putout.json');
 
 const putout = require('..');
 const {
@@ -114,14 +110,18 @@ function processFiles(name, index, {length}) {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
-    const [dirOpt, options] = getOptions({
+    const options = getOptions({
         rulesdir,
     });
     
-    const {match, formatter} = options;
+    const {
+        dir,
+        match,
+        formatter,
+    } = options;
     const format = getFormatter(argv.format || formatter);
     
-    if (ignores(dirOpt, resolvedName, options)) {
+    if (ignores(dir, resolvedName, options)) {
         const line = report(format, {
             name: resolvedName,
             places: [],

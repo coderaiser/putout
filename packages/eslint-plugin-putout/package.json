@@ -25,10 +25,12 @@
   "scripts": {
     "test": "madrun test",
     "watch:test": "madrun watch:test",
+    "lint:lib": "madrun lint:lib",
     "lint": "madrun lint",
     "fix:lint": "madrun fix:lint",
-    "putout:fix": "bin/putout.js --fix bin lib test",
-    "coverage": "madrun coverage"
+    "putout": "madrun putout",
+    "coverage": "madrun coverage",
+    "debug": "madrun debug"
   },
   "dependencies": {
     "@putout/eslint-config": "^1.2.0",

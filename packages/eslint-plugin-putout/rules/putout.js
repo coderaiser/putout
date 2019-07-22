@@ -1,9 +1,8 @@
 'use strict';
 
 const {resolve} = require('path');
-
 const putout = require('putout');
-const defaultOptions = require('putout/putout.json');
+const putoutOptions = putout.getOptions();
 
 const {
     merge,
@@ -17,8 +16,8 @@ const {
 
 const {isArray} = Array;
 const cwd = process.cwd();
-const getOptions = ({options}) => {
-    const [allContextOptions] = options;
+const getContextOptions = ({options}) => {
+    const [allContextOptions = {}] = options;
     
     if (!isArray(allContextOptions))
         return allContextOptions;
@@ -47,12 +46,7 @@ module.exports = {
                     .replace(/^\./, cwd);
                 
                 debugger;
-                const contextOptions = getOptions(context);
-                const options = merge(
-                    defaultOptions,
-                    contextOptions,
-                );
-                
+                const options = getContextOptions(context);
                 const match = parseMatch(options.match, resolvedName);
                 
                 if (ignores(cwd, resolvedName, options))
@@ -62,7 +56,7 @@ module.exports = {
                     .getSourceCode()
                     .getText(node);
                 
-                const resultOptions = merge(options, match);
+                const resultOptions = merge(putoutOptions, options, match);
                 
                 const ast = parse(text);
                 const places = findPlaces(ast, text, resultOptions);
