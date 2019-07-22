@@ -1,3 +1,14 @@
+2019.07.22, v4.57.0
+
+fix:
+- (eslint-plugin-putout) putout: options
+
+feature:
+- (eslint-plugin-putout) simplify putout.getOptions
+- (putout) add --rulesdir
+- (eslint-plugin-putout) eslint
+
+
 2019.07.21, v4.56.0
 
 feature:
