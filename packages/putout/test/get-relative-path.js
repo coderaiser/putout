@@ -10,6 +10,13 @@ test('putout: get-relative-path', (t) => {
     t.end();
 });
 
+test('putout: get-relative-path: no name', (t) => {
+    const name = getRelativePath();
+    
+    t.equal(name, '');
+    t.end();
+});
+
 test('putout: get-relative-path: root', (t) => {
     const name = getRelativePath('/cloudcmd/test', '/');
     

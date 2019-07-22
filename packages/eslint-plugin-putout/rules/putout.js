@@ -1,17 +1,14 @@
 'use strict';
 
-const {resolve} = require('path');
 const putout = require('putout');
-const putoutOptions = putout.getOptions();
 
 const {
-    merge,
-    parseMatch,
     ignores,
     findPlaces,
     transform,
     print,
     parse,
+    parseOptions,
 } = putout;
 
 const {isArray} = Array;
@@ -41,22 +38,19 @@ module.exports = {
     create(context) {
         return {
             Program(node) {
-                const file = context.getFilename();
-                const resolvedName = resolve(file)
-                    .replace(/^\./, cwd);
-                
-                debugger;
+                const name = context.getFilename();
                 const options = getContextOptions(context);
-                const match = parseMatch(options.match, resolvedName);
+                const resultOptions = parseOptions({
+                    name,
+                    options,
+                });
                 
-                if (ignores(cwd, resolvedName, options))
+                if (ignores(cwd, name, resultOptions))
                     return;
                 
                 const text = context
                     .getSourceCode()
                     .getText(node);
-                
-                const resultOptions = merge(putoutOptions, options, match);
                 
                 const ast = parse(text);
                 const places = findPlaces(ast, text, resultOptions);

@@ -1,5 +1,10 @@
-import {parse, print, transform, merge} from 'putout';
-import defaultOptions from 'putout/putout.json';
+import {
+    parse,
+    print,
+    transform,
+    merge,
+    parseOptions,
+} from 'putout';
 
 export default function() {
     let code = '';
@@ -7,14 +12,16 @@ export default function() {
     return {
         name: 'putout',
         visitor: {
-            Program(path, {opts}) {
+            Program(path, {filename, opts}) {
+                const options = parseOptions({
+                    filename,
+                    options: opts,
+                });
+                
                 transform(
                     path.container,
                     code,
-                    merge(
-                        defaultOptions,
-                        opts,
-                    )
+                    options,
                 );
             },
         },

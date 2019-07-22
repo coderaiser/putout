@@ -17,7 +17,7 @@ test('putout: parse-match: find', (t) => {
         'test/fixtures': rules,
     };
     
-    const result = parseMatch(match, 'test/fixtures/1.js');
+    const result = parseMatch('test/fixtures/1.js', match);
     const expected = {
         rules,
     };
@@ -32,7 +32,7 @@ test('putout: parse-match: not found', (t) => {
         'test/fixtures': rules,
     };
     
-    const result = parseMatch(match, 'lib/putout.js');
+    const result = parseMatch('lib/putout.js', match);
     const expected = {
         rules,
     };
@@ -62,7 +62,7 @@ test('putout: parse-match: merge', (t) => {
         },
     };
     
-    const result = parseMatch(match, 'lib/putout.spec.js');
+    const result = parseMatch('lib/putout.spec.js', match);
     
     t.deepEqual(result, expected, 'should equal');
     t.end();

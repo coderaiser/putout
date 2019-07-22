@@ -1,18 +1,16 @@
 'use strict';
 
-const getRelativePath = require('../lib/get-relative-path');
 const {keys, assign} = Object;
 
-module.exports = (match, name) => {
-    if (!match)
+module.exports = (name, match) => {
+    if (!match || !name)
         return {};
     
     const rules = {};
     const items = keys(match);
-    const relativeName = getRelativePath(name);
     
     for (const pattern of items)
-        if (RegExp(`${pattern}`).test(relativeName))
+        if (RegExp(`${pattern}`).test(name))
             assign(rules, match[pattern]);
     
     return {

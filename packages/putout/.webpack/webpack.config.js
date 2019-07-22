@@ -50,7 +50,7 @@ module.exports = {
         alias: {
             'module': path.resolve(__dirname, 'module.js'),
             './run-babel-plugins': path.resolve(__dirname, 'run-babel-plugins.js'),
-            './get-options': path.resolve(__dirname, 'get-options.js'),
+            './parse-options': path.resolve(__dirname, 'parse-options.js'),
         },
     },
     performance: {

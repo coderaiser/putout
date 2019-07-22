@@ -9,20 +9,26 @@ const once = require('once');
 const tryCatch = require('try-catch');
 
 const merge = require('./merge');
+const parseMatch = require('./parse-match');
 const defaultOptions = require('../putout.json');
+const getRelativePath = require('../lib/get-relative-path');
 
 const readCodeMods = once(_readCodeMods);
 const readRules = once(_readRules);
 
 const cwd = process.cwd();
 
-module.exports = ({rulesdir} = {}) => {
-    const [dir, options] = getOptions(cwd);
+module.exports = ({rulesdir, name, options = {}} = {}) => {
+    const [dir, customOptions] = getOptions(cwd);
+    const mergedOptions = merge(options, defaultOptions, customOptions);
+    const {match} = mergedOptions;
+    const relativeName = getRelativePath(name, dir);
+    
     const resultOptions = merge(
-        defaultOptions,
         readCodeMods(),
         readRules(dir, rulesdir),
-        options,
+        parseMatch(relativeName, match),
+        mergedOptions,
     );
     
     return {

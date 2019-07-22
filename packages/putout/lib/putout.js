@@ -155,8 +155,6 @@ module.exports.generate = generate;
 module.exports.initReport = require('./report');
 module.exports.operate = require('@putout/operate');
 
-module.exports.merge = require('./merge');
 module.exports.ignores = require('./ignores');
-module.exports.parseMatch = require('./parse-match');
-module.exports.getOptions = require('./get-options');
+module.exports.parseOptions = require('./parse-options');
 
