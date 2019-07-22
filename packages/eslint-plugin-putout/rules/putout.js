@@ -14,7 +14,19 @@ const {
     print,
     parse,
 } = putout;
+
+const {isArray} = Array;
 const cwd = process.cwd();
+const getOptions = ({options}) => {
+    const [allContextOptions] = options;
+    
+    if (!isArray(allContextOptions))
+        return allContextOptions;
+    
+    const [, contextOptions = {}] = allContextOptions;
+    
+    return contextOptions;
+};
 
 module.exports = {
     meta: {
@@ -34,7 +46,8 @@ module.exports = {
                 const resolvedName = resolve(file)
                     .replace(/^\./, cwd);
                 
-                const [contextOptions = {}] = context.options;
+                debugger;
+                const contextOptions = getOptions(context);
                 const options = merge(
                     defaultOptions,
                     contextOptions,
