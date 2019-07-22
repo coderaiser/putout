@@ -1,3 +1,13 @@
+2019.07.22, v4.58.1
+
+fix:
+- (putout) parseMatch
+- (@putout/plugin-convert-for-each-to-for-of) same name
+
+feature:
+- (putout) simplify parseOptions
+
+
 2019.07.22, v4.58.0
 
 feature:
