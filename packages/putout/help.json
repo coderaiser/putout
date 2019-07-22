@@ -8,6 +8,7 @@
     "--disable              ": "disable rule by name in .putout.json",
     "--enable-all           ": "enable all rules in .putout.json",
     "--disable-all          ": "disable all rules in .putout.json",
+    "--rulesdir             ": "load plugins from a directory",
     " --jsx                 ": "enable jsx (try to determine by default)",
     " --flow                ": "enable flow",
     " --no-jsx              ": "disable jsx",

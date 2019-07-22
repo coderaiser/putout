@@ -1,9 +1,39 @@
 'use strict';
 
-const {dirname} = require('path');
-const findUp = require('find-up');
+const {homedir} = require('os');
+const {dirname, resolve} = require('path');
+const {join} = require('path');
+const {readdirSync} = require('fs');
 
-module.exports = function getOptions(cwd) {
+const findUp = require('find-up');
+const once = require('once');
+const tryCatch = require('try-catch');
+
+const parseMatch = require('./parse-match');
+const merge = require('./merge');
+const defaultOptions = require('../putout.json');
+
+const readCodeMods = once(_readCodeMods);
+const readRules = once(_readRules);
+
+const cwd = process.cwd();
+
+module.exports = ({rulesdir} = {}) => {
+    const [dirOpt, options] = getOptions(cwd);
+    const resultOptions = merge(
+        defaultOptions,
+        readCodeMods(),
+        readRules(dirOpt, rulesdir),
+        options,
+    );
+    
+    return [
+        dirOpt,
+        resultOptions,
+    ];
+};
+
+function getOptions(cwd) {
     const putoutPath = findUp.sync('.putout.json', {
         cwd,
     });
@@ -30,3 +60,53 @@ module.exports = function getOptions(cwd) {
     ];
 };
 
+function _readRules(dirOpt, rulesDir) {
+    if (!rulesDir)
+        return {};
+    
+    const dir = join(dirOpt, rulesDir);
+    const [e, names] = tryCatch(readdirSync, dir);
+    
+    if (e)
+        return {};
+    
+    const plugins = [];
+    
+    for (const name of names) {
+        const full = join(dir, name);
+        const plugin = require(full);
+        const shortName = name.replace('putout-plugin-');
+        
+        plugins.push({
+            [shortName]: plugin,
+        });
+    }
+    
+    return {
+        plugins,
+    };
+}
+
+function _readCodeMods() {
+    const dir = join(homedir(), '.putout');
+    const [e, names] = tryCatch(readdirSync, dir);
+    
+    if (e)
+        return {};
+    
+    const plugins = [];
+    
+    for (const name of names) {
+        const full = join(dir, name);
+        const plugin = require(full);
+        const shortName = name.replace('putout-plugin-');
+        
+        plugins.push({
+            [shortName]: plugin,
+        });
+    }
+    
+    return {
+        plugins,
+    };
+}

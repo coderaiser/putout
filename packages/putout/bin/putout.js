@@ -35,7 +35,6 @@ const {
 const report = require('../lib/report')();
 const getOptions = require('../lib/get-options');
 
-const readCodeMods = once(_readCodeMods);
 const {parse, stringify} = JSON;
 
 const one = (f) => (a) => f(a);
@@ -59,6 +58,7 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
         'format',
         'disable',
         'enable',
+        'rulesdir',
     ],
     alias: {
         v: 'version',
@@ -76,6 +76,7 @@ const {
     fix,
     raw,
     fixCount,
+    rulesdir,
 } = argv;
 
 if (argv.version) {
@@ -113,8 +114,10 @@ function processFiles(name, index, {length}) {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
-    const [dirOpt, currOpt] = getOptions(cwd);
-    const options = merge(defaultOptions, currOpt);
+    const [dirOpt, options] = getOptions({
+        rulesdir,
+    });
+    
     const {match, formatter} = options;
     const format = getFormatter(argv.format || formatter);
     
@@ -143,8 +146,6 @@ function processFiles(name, index, {length}) {
         isFlow,
         isJSX,
         ...merge(
-            defaultOptions,
-            readCodeMods(),
             options,
             parseMatch(match, resolvedName)
         ),
@@ -233,33 +234,6 @@ function exit(e) {
         console.error(red(e.message));
     
     process.exit(1);
-}
-
-function _readCodeMods() {
-    const {join} = require('path');
-    const {homedir} = require('os');
-    
-    const dir = join(homedir(), '.putout');
-    const [e, names] = tryCatch(readdirSync, dir);
-    
-    if (e)
-        return {};
-    
-    const plugins = [];
-    
-    for (const name of names) {
-        const full = join(dir, name);
-        const plugin = require(full);
-        const shortName = name.replace('putout-plugin-');
-        
-        plugins.push({
-            [shortName]: plugin,
-        });
-    }
-    
-    return {
-        plugins,
-    };
 }
 
 function getFormatter(name) {
