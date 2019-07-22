@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-putout",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "babel plugin for putout",
   "repository": "coderaiser/babel-plugin-putout",
   "author": "Coderaiser <coderaiser@cloudcmd.io>",
