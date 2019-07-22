@@ -29,43 +29,47 @@ test('plugin-convert-for-each-to-for-of: transform: empty return', (t) => {
     t.end();
 });
 
-test('plugin-convert-for-each-to-for-of: transform: not function', (t) => {
+test('plugin-convert-for-each-to-for-of: no transform: not function', (t) => {
     t.noTransform('not-fn');
     t.end();
 });
 
-test('plugin-convert-for-each-to-for-of: transform: empty function', (t) => {
+test('plugin-convert-for-each-to-for-of: no transform: empty function', (t) => {
     t.noTransform('empty-fn');
     t.end();
 });
 
-test('plugin-convert-for-each-to-for-of: transform: parent function argument', (t) => {
+test('plugin-convert-for-each-to-for-of: no transform: parent function argument', (t) => {
     t.noTransform('parent-fn-arg');
     t.end();
 });
 
-test('plugin-convert-for-each-to-for-of: transform: not this', (t) => {
+test('plugin-convert-for-each-to-for-of: no transform: not this', (t) => {
     t.noTransform('not-this');
     t.end();
 });
 
-test('plugin-convert-for-each-to-for-of: transform: var is bound', (t) => {
+test('plugin-convert-for-each-to-for-of: no transform: var is bound', (t) => {
     t.noTransform('var');
     t.end();
 });
 
-test('plugin-convert-for-each-to-for-of: transform: var is bound in a function', (t) => {
+test('plugin-convert-for-each-to-for-of: no transform: var is bound in a function', (t) => {
     t.noTransform('var-fn');
     t.end();
 });
 
-test('plugin-convert-for-each-to-for-of: transform: if', (t) => {
+test('plugin-convert-for-each-to-for-of: no transform: if', (t) => {
     t.noTransform('if');
     t.end();
 });
 
-test('plugin-convert-for-each-to-for-of: transform: i', (t) => {
+test('plugin-convert-for-each-to-for-of: no transform: i', (t) => {
     t.noTransform('i');
     t.end();
 });
 
+test('plugin-convert-for-each-to-for-of: no transform: same name', (t) => {
+    t.noTransform('same-name');
+    t.end();
+});

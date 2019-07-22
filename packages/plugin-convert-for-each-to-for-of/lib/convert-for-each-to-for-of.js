@@ -76,6 +76,11 @@ module.exports.traverse = ({push}) => {
             if (params.length > 1 && !params[0].isIdentifier({name: 'this'}))
                 return;
             
+            const [paramPath] = params;
+            
+            if (isSameNames(paramPath, objectPath))
+                return;
+            
             const rootPath = path.findParent(isRoot);
             
             if (isBoundVars(rootPath, fnPath))
@@ -85,6 +90,11 @@ module.exports.traverse = ({push}) => {
         },
     };
 };
+
+function isSameNames(paramPath, objectPath) {
+    const {name} = paramPath.node;
+    return objectPath.isIdentifier({name});
+}
 
 function fixReturn(path) {
     const {body} = path.node;

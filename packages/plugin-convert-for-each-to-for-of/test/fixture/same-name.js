@@ -1,0 +1,1 @@
+eventName.forEach((eventName) => {});
