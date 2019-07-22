@@ -27,8 +27,8 @@ module.exports = ({rulesdir, name, options = {}} = {}) => {
     const resultOptions = merge(
         readCodeMods(),
         readRules(dir, rulesdir),
-        parseMatch(relativeName, match),
         mergedOptions,
+        parseMatch(relativeName, match),
     );
     
     return {
