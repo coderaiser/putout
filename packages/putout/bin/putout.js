@@ -22,14 +22,11 @@ const glob = require('glob');
 const tryCatch = require('try-catch');
 
 const putout = require('..');
-const {
-    merge,
-    ignores,
-    parseMatch,
-} = putout;
+const {ignores} = putout;
 
 const report = require('../lib/report')();
-const getOptions = require('../lib/get-options');
+const parseOptions = require('../lib/parse-options');
+const merge = require('../lib/merge');
 
 const {parse, stringify} = JSON;
 
@@ -110,13 +107,13 @@ function processFiles(name, index, {length}) {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
-    const options = getOptions({
+    const options = parseOptions({
+        name: resolvedName,
         rulesdir,
     });
     
     const {
         dir,
-        match,
         formatter,
     } = options;
     const format = getFormatter(argv.format || formatter);
@@ -145,10 +142,7 @@ function processFiles(name, index, {length}) {
         isTS,
         isFlow,
         isJSX,
-        ...merge(
-            options,
-            parseMatch(match, resolvedName)
-        ),
+        ...options,
     });
     
     if (e) {

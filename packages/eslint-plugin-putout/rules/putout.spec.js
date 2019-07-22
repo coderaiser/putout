@@ -4,7 +4,7 @@ const rule = require('./putout');
 const {RuleTester} = require('eslint');
 
 const putout = require('putout');
-const options = putout.getOptions();
+const options = putout.parseOptions();
 const {rules} = options;
 
 const ruleTester = new RuleTester({

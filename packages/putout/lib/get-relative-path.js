@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (name, dir) => {
+module.exports = (name = '', dir) => {
     if (!dir)
         return name;
     
