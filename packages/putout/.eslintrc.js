@@ -1,7 +1,5 @@
 'use strict';
 
-const putout = require('.');
-
 module.exports = {
     extends: [
         'plugin:putout/recommended',
@@ -11,9 +9,6 @@ module.exports = {
         'node',
         'putout',
     ],
-    rules: {
-        'putout/putout': ['error', putout.getOptions()],
-    },
     overrides: [{
         files: ['bin/**/*.js'],
         rules: {
