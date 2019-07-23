@@ -9,5 +9,6 @@ module.exports.rules = {
     ...getRule('call-run'),
     ...getRule('rename-series-to-run'),
     ...getRule('convert-run-argument'),
+    ...getRule('convert-lint-lib'),
 };
 

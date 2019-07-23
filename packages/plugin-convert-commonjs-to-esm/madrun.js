@@ -1,19 +1,16 @@
 'use strict';
 
 const {
-    run,
-    series,
-    parallel,
+    run
 } = require('madrun');
 
 module.exports = {
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w lib -w test -x ${run('test')}`,
-    'lint:lib': () => `eslint lib test --ignore-pattern fixture`,
-    'lint': () => parallel(['putout', 'lint:*']),
-    'fix:lint': () => series(['putout', 'lint'], '--fix'),
+    'lint': () => `eslint lib test --ignore-pattern fixture`,
+    'fix:lint': () => run('lint', '--fix'),
     'putout': () => `putout lib test`,
     'coverage': () => `nyc ${run('test')}`,
-    'report': () => `nyc report --reporter=text-lcov | coveralls || true`,
+    'report': () => `nyc report --reporter=text-lcov | coveralls || true`
 };
 

@@ -2,9 +2,7 @@
 
 const {
     run,
-    series,
-    parallel,
-    predefined,
+    predefined
 } = require('madrun');
 
 const {eslint} = predefined;
@@ -19,7 +17,7 @@ module.exports = {
             'test',
         ],
     }),
-    'fix:lint': () => series(['lint'], '--fix'),
+    'fix:lint': () => run('lint', '--fix'),
     'putout': () => `putout lib test`,
     'coverage': () => `nyc ${run('test')}`,
     'report': () => `nyc report --reporter=text-lcov | coveralls || true`,
