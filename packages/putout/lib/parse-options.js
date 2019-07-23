@@ -16,8 +16,6 @@ const getRelativePath = require('../lib/get-relative-path');
 const readCodeMods = once(_readCodeMods);
 const readRules = once(_readRules);
 
-const cwd = process.cwd();
-
 module.exports = ({rulesdir, name = '', options = {}} = {}) => {
     const [dir, customOptions] = getOptions(dirname(name));
     const mergedOptions = merge(options, defaultOptions, customOptions);

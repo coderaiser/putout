@@ -6,6 +6,7 @@ const getRule = (a) => ({
 
 module.exports.rules = {
     ...getRule('add-function'),
+    ...getRule('add-madrun-to-lint'),
     ...getRule('call-run'),
     ...getRule('rename-series-to-run'),
     ...getRule('convert-run-argument'),

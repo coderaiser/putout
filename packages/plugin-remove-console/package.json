@@ -31,13 +31,14 @@
     "console"
   ],
   "devDependencies": {
-    "eslint-plugin-putout": "^1.5.0",
     "@putout/test": "^1.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.0.0-rc.0",
     "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-putout": "^1.5.0",
     "eslint-plugin-tape": "^1.1.0",
     "lerna": "^3.8.5",
+    "madrun": "^2.3.1",
     "nodemon": "^1.14.12",
     "nyc": "^14.0.0",
     "redrun": "^7.0.2",

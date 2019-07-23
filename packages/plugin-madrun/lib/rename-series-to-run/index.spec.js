@@ -2,7 +2,7 @@
 
 /* eslint node/no-unpublished-require:0 */
 const test = require('@putout/test')(__dirname, {
-    'rename-series-to-run': require('.'),
+    'madrun/rename-series-to-run': require('.'),
 });
 
 test('madrun: rename-series-to-run: report', (t) => {

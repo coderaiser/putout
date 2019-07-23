@@ -1,8 +1,7 @@
 'use strict';
 
-/* eslint node/no-unpublished-require:0 */
 const test = require('@putout/test')(__dirname, {
-    'convert-run-argument': require('.'),
+    'madrun/convert-run-argument': require('.'),
 });
 
 test('madrun: convert run argument: report', (t) => {

@@ -2,7 +2,6 @@ import {
     parse,
     print,
     transform,
-    merge,
     parseOptions,
 } from 'putout';
 
