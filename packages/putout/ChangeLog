@@ -1,3 +1,10 @@
+2019.07.23, v4.59.1
+
+fix:
+- (putout) parse-options: get options from: cwd -> dirname
+- (@putout/plugin-putout) mv out replaceWith from traverse
+
+
 2019.07.23, v4.59.0
 
 feature:
