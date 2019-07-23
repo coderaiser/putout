@@ -7,6 +7,7 @@ const putout = require('..');
 const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
+    'await-outside-func',
     'comment',
     'comment-fix',
     'no-vars',
@@ -63,6 +64,22 @@ test('putout: root vars', (t) => {
 
 test('putout: root vars: no parent', (t) => {
     const result = putout(fixture.noParent, {
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = {
+        code: '\n',
+        places: [],
+    };
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('putout: await outside funciton', (t) => {
+    const result = putout(fixture.awaitOutsideFunc, {
         plugins: [
             'remove-unused-variables',
         ],

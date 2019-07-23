@@ -42,6 +42,7 @@ function babelParse(source, {isTS, isFlow = getFlow(source), isJSX = getJSX(sour
         sourceType: 'module',
         tokens: true,
         allowReturnOutsideFunction: true,
+        allowAwaitOutsideFunction: true,
         plugins: clean([
             !isTS && !isFlow && 'estree',
             'importMeta',
