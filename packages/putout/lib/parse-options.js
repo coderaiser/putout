@@ -19,7 +19,7 @@ const readRules = once(_readRules);
 const cwd = process.cwd();
 
 module.exports = ({rulesdir, name, options = {}} = {}) => {
-    const [dir, customOptions] = getOptions(cwd);
+    const [dir, customOptions] = getOptions(dirname(name));
     const mergedOptions = merge(options, defaultOptions, customOptions);
     const {match} = mergedOptions;
     const relativeName = getRelativePath(name, dir);
