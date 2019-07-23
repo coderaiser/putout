@@ -20,13 +20,14 @@ const replaceWithAST = template.ast(`
     const {replaceWith} = require('putout').operate;
 `);
 
-module.exports.fix = ({path, object, program, isInserted}) => {
+module.exports.fix = ({path, calleePath, property, object, program, isInserted}) => {
+    replaceWith(calleePath, property);
     const strictModePath = program.get('body.0');
-    const {replaceWith} = strictModePath.scope.bindings;
+    const {bindings} = strictModePath.scope;
     
     path.node.arguments.unshift(object);
     
-    if (!replaceWith && !isInserted()) {
+    if (!bindings.replaceWith && !isInserted()) {
         isInserted(true);
         insertAfter(strictModePath, replaceWithAST);
     }
@@ -48,7 +49,6 @@ module.exports.traverse = ({push}) => {
             if (property.name !== 'replaceWith')
                 return;
             
-            replaceWith(calleePath, property);
             const program = path.findParent((path) => path.isProgram());
             
             push({
@@ -56,6 +56,7 @@ module.exports.traverse = ({push}) => {
                 path,
                 object,
                 program,
+                property,
                 calleePath,
             });
         },
