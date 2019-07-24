@@ -54,7 +54,9 @@
         "no-multiple-empty-lines": ["error", {
             "max": 1
         }],
-        "no-unneeded-ternary": "error",
+        "no-unneeded-ternary": ["error", {
+            "default-assignment": false
+        }],
         "nonblock-statement-body-position": ["error", "below"],
         "lines-around-directive": "error",
         "linebreak-style": ["error", "unix"],
