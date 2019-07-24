@@ -1,6 +1,6 @@
 # Putout (putout)
 
-`Putout` used as eslint plugin.
+[Putout](https://github.com/coderaiser/putout) used as eslint plugin.
 
 ## Rule Details
 
