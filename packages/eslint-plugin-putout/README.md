@@ -44,10 +44,10 @@ Then configure the rules you want to use under the rules section.
 ## Supported Rules
 
 - [putout](rules/putout.md)
-- [Single property destructuring](rules/single-property-destructuring.md)
-- [Multiple properties destructuring](rules/multiple-properties-destructuring.md)
-- [Long properties destructuring](rules/long-properties-destructuring.md)
-- [Destructuring as function argument](rules/destructuring-as-function-argument.md)
-- [Align spaces](rules/align-spaces.md)
-- [New line function call arguments](rules/new-line-function-call-arguments.md)
+- [Single property destructuring](/packages/eslint-plugin-putout/rules/single-property-destructuring.md)
+- [Multiple properties destructuring](/packages/eslint-plugin-putout/rules/multiple-properties-destructuring.md)
+- [Long properties destructuring](/packages/eslint-plugin-putout/rules/long-properties-destructuring.md)
+- [Destructuring as function argument](/packages/eslint-plugin-putout/rules/destructuring-as-function-argument.md)
+- [Align spaces](/packages/eslint-plugin-putout/rules/align-spaces.md)
+- [New line function call arguments](/packages/eslint-plugin-putout/rules/new-line-function-call-arguments.md)
 
