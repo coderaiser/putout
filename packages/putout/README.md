@@ -119,7 +119,8 @@ To configure create `.putout.json` file and override any option:
         "convert-esm-to-commonjs": false,
         "convert-commonjs-to-esm": false,
         "remove-only": false,
-        "remove-skip": false
+        "remove-skip": false,
+        "putout": false
     },
     "plugins": [
         "extract-sequence-expressions",

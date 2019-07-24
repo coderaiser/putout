@@ -503,7 +503,8 @@ To configure `putout` add section `putout` to your `package.json` file or create
         "convert-esm-to-commonjs": false,
         "convert-commonjs-to-esm": false,
         "remove-only": false,
-        "remove-skip": false
+        "remove-skip": false,
+        "putout": false
     },
     "plugins": [
         "apply-destructuring",
