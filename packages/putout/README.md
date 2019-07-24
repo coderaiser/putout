@@ -29,6 +29,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - find and replace `test.only` to `test` calls;
 - find and replace `test.skip` to `test` calls;
 - find and split variable declarations;
+- find and simplify ternary;
 - if absent `strict mode` directive in `commonjs` add it;
 - convert `esm` to `commonjs`;
 - convert `commonjs` to `esm`;
@@ -142,6 +143,7 @@ To configure create `.putout.json` file and override any option:
         "remove-double-negations",
         "remove-unreachable-code",
         "split-variable-declarations",
+        "simplify-ternary",
         "convert-esm-to-commonjs",
         "convert-commonjs-to-esm",
         "convert-apply-to-spread",

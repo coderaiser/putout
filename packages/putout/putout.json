@@ -50,6 +50,7 @@
         "remove-double-negations",
         "remove-unreachable-code",
         "split-variable-declarations",
+        "simplify-ternary",
         "convert-esm-to-commonjs",
         "convert-commonjs-to-esm",
         "convert-apply-to-spread",

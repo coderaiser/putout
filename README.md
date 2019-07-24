@@ -181,6 +181,14 @@ function hi() {
 ```
 </details>
 
+<details><summary>simplify ternary</summary>
+
+```diff
+-module.exports = fs.copyFileSync ? fs.copyFileSync : copyFileSync;
++module.exports = fs.copyFileSync || copyFileSync;
+```
+</details>
+
 <details><summary>remove <code>console.log</code> calls</summary>
 
 ```diff
@@ -415,6 +423,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-convert-arguments-to-rest`](/packages/plugin-convert-arguments-to-rest) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-arguments-to-rest.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-arguments-to-rest) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-arguments-to-rest)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-arguments-to-rest) |
 | [`@putout/plugin-convert-object-assign-to-merge-spread`](/packages/plugin-convert-object-assign-to-merge-spread) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-object-assign-to-merge-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-object-assign-to-merge-spread) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-object-assign-to-merge-spread)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-object-assign-to-merge-spread) |
 | [`@putout/plugin-convert-binary-expression-to-boolean`](/packages/plugin-convert-binary-expression-to-boolean) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-binary-expression-to-boolean.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-binary-expression-to-boolean) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-binary-expression-to-boolean)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-binary-expression-to-boolean) |
+| [`@putout/plugin-simplify-ternary`](/packages/plugin-simplify-ternary) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-ternary) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-simplify-ternary)](https://david-dm.org/coderaiser/putout?path=packages/plugin-simplify-ternary) |
 | [`@putout/plugin-putout`](/packages/plugin-putout) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-putout)](https://david-dm.org/coderaiser/putout?path=packages/plugin-putout) |
 
 ## Formatters
@@ -525,6 +534,7 @@ To configure `putout` add section `putout` to your `package.json` file or create
         "remove-double-negations",
         "remove-unreachable-code",
         "split-variable-declarations",
+        "simplify-ternary',
         "convert-esm-to-commonjs",
         "convert-commonjs-to-esm",
         "convert-apply-to-spread",
