@@ -25,7 +25,9 @@
         "function-paren-newline": "error",
         "space-infix-ops": ["error", {"int32Hint": false}],
         "prefer-arrow-callback": "error",
-        "prefer-const": "error",
+        "prefer-const": ["error", {
+            "destructuring": "all"
+        }],
         "prefer-destructuring": ["error", {
              "AssignmentExpression": {
                  "array": true,
