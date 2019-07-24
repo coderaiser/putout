@@ -24,3 +24,7 @@ test('plugin-extract-sequence-expressions: transform call expression', (t) => {
     t.end();
 });
 
+test('plugin-extract-sequence-expressions: no transform for', (t) => {
+    t.noTransform('for');
+    t.end();
+});

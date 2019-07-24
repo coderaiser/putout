@@ -40,6 +40,9 @@ module.exports.fix = (path) => {
 module.exports.traverse = ({push}) => {
     return {
         SequenceExpression(path) {
+            if (path.parentPath.isForStatement())
+                return;
+            
             push(path);
         },
     };
