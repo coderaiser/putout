@@ -800,6 +800,14 @@ And use with `putout` this way:
 putout --fix lib && eslint --fix lib
 ```
 
+You can even use only `eslint`, because `putout` bundled to `eslint-plugin-putout` with:
+
+```js
+eslint --fix lib
+```
+
+Will uses putout transformations for you :).
+
 ## Babel
 
 `Putout` can be used as [babel plugin](/packages/babel-plugin-putout).
