@@ -55,7 +55,7 @@
             "max": 1
         }],
         "no-unneeded-ternary": ["error", {
-            "default-assignment": false
+            "defaultAssignment": false
         }],
         "nonblock-statement-body-position": ["error", "below"],
         "lines-around-directive": "error",
