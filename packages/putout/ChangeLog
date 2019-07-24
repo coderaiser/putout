@@ -1,3 +1,16 @@
+2019.07.24, v4.60.0
+
+fix:
+- (eslint-config) prefer-const: destructuring-all
+
+feature:
+- (@putout/plugin-simplify-ternary) add
+- (@putotu/plugin-extract-sequence-expressions) add support of for
+- (package) eslint-plugin-putout v1.9.1
+- (package) eslint-plugin-node v9.1.0
+- (package) eslint v6.1.0
+
+
 2019.07.23, v4.59.2
 
 fix:
