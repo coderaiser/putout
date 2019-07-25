@@ -43,7 +43,7 @@
         "semi": "error",
         "object-shorthand": "error",
         "no-useless-rename": "error",
-        "no-use-before-define": 0,
+        "no-use-before-define": "off",
         "no-var": "error",
         "no-extra-parens": "error",
         "no-multi-spaces": "error",
@@ -66,6 +66,13 @@
             "next": "if"
         }]
     },
+    "overrides": [{
+        "files": ["bin/**"],
+        "rules": {
+            "no-console": "off",
+            "no-process-exit": "off"
+        }
+    }],
     "extends": [
         "eslint:recommended"
     ]
