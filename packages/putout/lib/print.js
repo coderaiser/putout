@@ -2,8 +2,7 @@
 
 const {print} = require('recast');
 
-const addNewLine = ([char, ...line]) => `${char}\n\n${line.join('')}`;
-const fixStrictMode = (a) => a.replace(/[a-z]'use strict'/, addNewLine);
+const fixStrictMode = (a) => a.replace(`\n\n\n'use strict'`, `\n\n'use strict'`);
 
 module.exports = (ast) => {
     const printOptions = {

@@ -494,6 +494,33 @@ test('putout: babelPlugins', (t) => {
     t.end();
 });
 
+test('putout: babelPlugins: espree', (t) => {
+    const {code} = putout(fixture.babelPlugins, {
+        parser: 'espree',
+        babelPlugins: [
+            'transform-inline-consecutive-adds',
+        ],
+    });
+    
+    t.deepEqual(code, fixture.babelPluginsFix);
+    t.end();
+});
+
+test('putout: babelPlugins: espree: shebang', (t) => {
+    const {code} = putout(fixture.shebang, {
+        parser: 'espree',
+        plugins: [
+            'remove-unused-variables',
+        ],
+        babelPlugins: [
+            'transform-inline-consecutive-adds',
+        ],
+    });
+    
+    t.deepEqual(code, fixture.shebangFix);
+    t.end();
+});
+
 test('putout: babelPlugins: position: shebang', (t) => {
     const {places} = putout(fixture.babelPlugins, {
         fix: false,
