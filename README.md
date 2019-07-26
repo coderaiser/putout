@@ -384,7 +384,8 @@ function merge(a) {
 ```
 </details>
 
-<details><summary>convert <code>top-level return</code> into <code>process.exit/code></code></summary>
+<details><summary>convert <code>top-level return</code> into <code>process.exit()</code> (<a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Bad_return_or_yield#What_went_wrong>why it's important</a>)</summary>
+
 
 ```diff
 -   return;
