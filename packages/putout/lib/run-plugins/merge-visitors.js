@@ -9,14 +9,14 @@ const {getPosition} = require('./get-position');
 
 const shouldSkip = (a) => !a.parent;
 
-module.exports = (pluginsToMerge, {fix, shebang}) => {
+module.exports = (pluginsToMerge, {fix, parser}) => {
     const mergeItems = [];
     const pushed = {};
     
     for (const [rule, plugin] of pluginsToMerge) {
         const {push, pull} = getStore(plugin, {
             fix,
-            shebang,
+            parser,
         });
         
         pushed[rule] = pull;
@@ -39,11 +39,11 @@ module.exports = (pluginsToMerge, {fix, shebang}) => {
     };
 };
 
-function getStore(plugin, {fix, shebang}) {
+function getStore(plugin, {fix, parser}) {
     let value = [];
     
     const push = (path) => {
-        const position = getPosition(path, shebang);
+        const position = getPosition(path, parser);
         const message = plugin.report(path);
         
         value.push({

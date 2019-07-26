@@ -3,7 +3,7 @@
 const getPath = (item) => item.path || item;
 
 module.exports.getPath = getPath;
-module.exports.getPosition = (path) => {
+module.exports.getPosition = (path, parser = 'babel') => {
     const {node} = getPath(path);
     const {loc} = node;
     
@@ -19,8 +19,15 @@ module.exports.getPosition = (path) => {
     } = node.loc.start;
     
     return {
-        line,
+        line: incIfNotBabel(line, parser),
         column,
     };
 };
+
+function incIfNotBabel(line, parser) {
+    if (parser === 'babel')
+        return line;
+    
+    return line + 1;
+}
 

@@ -26,12 +26,32 @@ module.exports = (source, {parser, isTS, isFlow, isJSX}) => {
     return strictMode(getParser(parser), source);
 };
 
+function getInterpreterDirective(directive) {
+    return {
+        type: 'InterpreterDirective',
+        start: 0,
+        end: 12,
+        loc: {
+            start: {
+                line: 1,
+                column: 0,
+            },
+            end: {
+                line: 1,
+                column: 12,
+            },
+        },
+        value: directive
+            .replace('#!', ''),
+    };
+}
+
 function strictMode(parse, source) {
-    const [clearSource] = cutShebang(source);
+    const [clearSource, shebang] = cutShebang(source);
     const ast = parse(clearSource);
     
-    //if (shebang)
-    //    ast.interpreter = getInterpreterDirective(shebang);
+    if (shebang)
+        ast.interpreter = getInterpreterDirective(shebang);
     
     return ast;
 }

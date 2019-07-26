@@ -33,6 +33,11 @@ const defaultOpts = (opts = {}) => {
         ...opts,
     };
     
+    if (isUndefined(opts.parser))
+        assign(newOpts, {
+            parser: 'babel',
+        });
+    
     if (isUndefined(opts.fix))
         assign(newOpts, {
             fix: true,
@@ -88,6 +93,7 @@ function transform(ast, source, opts) {
         rules,
         fix,
         fixCount,
+        parser,
     } = opts;
     
     const plugins = getPlugins({
@@ -107,6 +113,7 @@ function transform(ast, source, opts) {
             fix,
             fixCount,
             plugins,
+            parser,
         }),
     ];
     

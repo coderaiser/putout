@@ -1,5 +1,6 @@
 {
   "plugins": [
     "module:babel-plugin-macros",
+    "transform-inline-consecutive-adds"
   ]
 }

@@ -228,6 +228,28 @@ test('putout: export default declaration: espree', (t) => {
     t.end();
 });
 
+test('putout: export default declaration: espree: places: shebang', (t) => {
+    const {places} = putout(fixture.shebang, {
+        parser: 'espree',
+        fix: false,
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = [{
+        rule: 'remove-unused-variables',
+        message: '"b" is defined but never used',
+        position: {
+            line: 8,
+            column: 4,
+        },
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
 test('putout: export default declaration: acorn', (t) => {
     const {code} = putout(fixture.exportDefaultDeclaration, {
         parser: 'acorn',
