@@ -1,1 +1,1 @@
-return 2;
+return;

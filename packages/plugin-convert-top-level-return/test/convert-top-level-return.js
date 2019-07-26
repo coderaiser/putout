@@ -18,3 +18,13 @@ test('plugin-convert-top-level-return: transform: if', (t) => {
     t.transform('if');
     t.end();
 });
+
+test('plugin-convert-top-level-return: transform: return arg', (t) => {
+    t.transform('return-arg');
+    t.end();
+});
+
+test('plugin-convert-top-level-return: no transform: function', (t) => {
+    t.noTransform('fn');
+    t.end();
+});

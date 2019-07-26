@@ -5,24 +5,35 @@ const {
     operate,
 } = require('putout');
 
-const {replaceWith} = operate;
+const {replaceWithMultiple} = operate;
 
 const {
     CallExpression,
     MemberExpression,
     Identifier,
+    ExpressionStatement,
 } = types;
 
 module.exports.report = () => `"process.exit" should be used instead of top-level return`;
 
+const expr = (a) => a && ExpressionStatement(a);
+
 module.exports.fix = (path) => {
-    replaceWith(path, CallExpression(
+    const {argument} = path.node;
+    const params = [];
+    const call = CallExpression(
         MemberExpression(
             Identifier('process'),
             Identifier('exit')
-        ),
-        []
-    ));
+        ), params);
+   
+    if (!argument)
+        path.replaceWith(call);
+    
+    replaceWithMultiple(path, [
+        expr(argument),
+        expr(call),
+    ]);
 };
 
 const isRoot = (path) => path.isFunction();
