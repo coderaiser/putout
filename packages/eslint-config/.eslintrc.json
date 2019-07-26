@@ -66,13 +66,6 @@
             "next": "if"
         }]
     },
-    "overrides": [{
-        "files": ["bin/**"],
-        "rules": {
-            "no-console": "off",
-            "no-process-exit": "off"
-        }
-    }],
     "extends": [
         "eslint:recommended"
     ]
