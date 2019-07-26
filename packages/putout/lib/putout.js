@@ -55,8 +55,9 @@ module.exports = (source, opts) => {
         isJSX,
     } = opts;
     
-    const [clearSource, shebang] = cutShebang(source);
-    const ast = parse(clearSource, {
+    //const [clearSource, shebang] = cutShebang(source);
+    const shebang = '';
+    const ast = parse(source, {
         parser,
         isTS,
         isFlow,
@@ -117,9 +118,8 @@ function transform(ast, source, opts) {
     return places;
 }
 
-const fixStrictMode = (a) => {
-    return a.replace(`\n\n\n'use strict'`, `\n\n'use strict'`);
-};
+const addNewLine = ([char, ...line]) => `${char}\n\n${line.join('')}`;
+const fixStrictMode = (a) => a.replace(/[a-z]'use strict'/, addNewLine);
 
 module.exports.parse = parse;
 function parse(source, {parser = 'babel', isTS, isFlow, isJSX} = {}) {

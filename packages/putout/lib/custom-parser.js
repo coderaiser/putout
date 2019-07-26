@@ -1,6 +1,7 @@
 'use strict';
 
 const once = require('once');
+const cutShebang = require('./cut-shebang');
 
 /* eslint node/no-unpublished-require: 0 */
 const initBabel = once(() => require('@babel/parser'));
@@ -22,14 +23,28 @@ module.exports = (source, {parser, isTS, isFlow, isJSX}) => {
             isJSX,
         });
     
+    return strictMode(getParser(parser), source);
+};
+
+function strictMode(parse, source) {
+    const [clearSource] = cutShebang(source);
+    const ast = parse(clearSource);
+    
+    //if (shebang)
+    //    ast.interpreter = getInterpreterDirective(shebang);
+    
+    return ast;
+}
+
+function getParser(parser) {
     if (parser === 'espree')
-        return espreeParse(source);
+        return espreeParse;
     
     if (parser === 'acorn')
-        return acornParse(source);
+        return acornParse;
     
-    return require(parser).parse(source);
-};
+    return require(parser).parse;
+}
 
 const clean = (a) => a.filter(Boolean);
 const getFlow = (a) => !a.indexOf('// @flow');

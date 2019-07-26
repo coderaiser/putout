@@ -10,6 +10,8 @@ const fixture = readFixtures([
     'await-outside-func',
     'comment',
     'comment-fix',
+    'debugger',
+    'debugger-fix',
     'no-vars',
     'no-parent',
     'root-vars',
@@ -180,7 +182,7 @@ test('putout: shebang: message', (t) => {
     
     const {position} = places[0];
     const expected = {
-        line: 8,
+        line: 9,
         column: 4,
     };
     
@@ -262,6 +264,21 @@ test('putout: use strict', (t) => {
     });
     
     const expected = fixture.strictModeFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: use strict: parser: espree: debugger', (t) => {
+    const {code} = putout(fixture.debugger, {
+        parser: 'espree',
+        fixCount: 1,
+        plugins: [
+            'remove-debugger',
+        ],
+    });
+    
+    const expected = fixture.debuggerFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

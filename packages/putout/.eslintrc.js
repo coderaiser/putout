@@ -1,6 +1,9 @@
 'use strict';
 
 module.exports = {
+    parserOptions: {
+        sourceType: 'module',
+    },
     extends: [
         'plugin:putout/recommended',
         'plugin:node/recommended',

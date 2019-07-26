@@ -97,7 +97,8 @@ const isRuler = (a) => a.disableAll || a.enableAll || isStringAll(a.disable, a.e
 const mergedPlaces = Array.from(merge(...places));
 
 if (isRuler(argv)) {
-    return rulerProcessor(argv, mergedPlaces);
+    rulerProcessor(argv, mergedPlaces);
+    process.exit();
 }
 
 if (mergedPlaces.length)
