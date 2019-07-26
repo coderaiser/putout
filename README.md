@@ -494,7 +494,7 @@ ESLINT_FORMATTER=pretty putout -f eslint lib
 
 ## Configuration
 
-To configure `putout` add section `putout` to your `package.json` file or create `.putout.json` file and override any of (default options)[/packages/putout/putout.json].
+To configure `putout` add section `putout` to your `package.json` file or create `.putout.json` file and override any of [default options](/packages/putout/putout.json).
 
 ### Match
 

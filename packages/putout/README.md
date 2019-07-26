@@ -95,7 +95,7 @@ putout lib test --fix
 
 ## Configuration
 
-To configure create `.putout.json` file and override any of (default options)[/packages/putout/putout.json].
+To configure create `.putout.json` file and override any of [default options](/packages/putout/putout.json).
 
 ### Match
 
