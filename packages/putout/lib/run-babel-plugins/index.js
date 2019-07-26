@@ -11,6 +11,10 @@ const getMessage = (a) => a
 
 module.exports = ({fix, ast, source, babelPlugins}) => {
     const places = [];
+    
+    if (!babelPlugins)
+        return places;
+    
     const oldCode = print(ast);
     
     for (const plugin of babelPlugins) {
