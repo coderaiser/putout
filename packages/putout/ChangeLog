@@ -1,3 +1,19 @@
+2019.07.26, v4.61.0
+
+fix:
+- (putout) babel plugins: position
+- (eslintrc) overrides does not supported by eslint
+- (@putout/plugin-extract-sequence-epxressions) add support of WhileStatement
+- (@putout/eslint-config) rm overrides: does not supported by eslint
+- (@putout/eslint-config) no-unneded-ternary: default-assignment: defaultAssignment
+
+feature:
+- (putout) rm shebang check
+- (putout) improve directives support
+- (@putout/eslint-config) overrids "bin": disable rules: no-console, no-process-exit
+- (@putout/eslint-config) no-unneded-ternary: default-assignment: false
+
+
 2019.07.24, v4.60.0
 
 fix:
