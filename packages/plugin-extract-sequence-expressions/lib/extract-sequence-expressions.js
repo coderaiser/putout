@@ -14,59 +14,58 @@ const {
     toStatement,
 } = types;
 
+function wrap(el) {
+    if (/identifier|literal/i.test(el.type))
+        return ExpressionStatement(el);
+    
+    return toStatement(el);
+}
+
 module.exports.report = () => 'sequence expressions should not be used';
 
 module.exports.fix = (path) => {
     const {parentPath} = path;
     
-    if (parentPath.isArrowFunctionExpression()) {
-        const {expressions} = parentPath.node.body;
-        parentPath.node.body = createBlockStatement(expressions);
+    if (isFn(path)) {
+        const expressions = parentPath.node.body.expressions.map(wrap);
+        const n = expressions.length - 1;
+        const {expression} = expressions[n];
+        
+        expressions[n] = ReturnStatement(expression);
+        parentPath.node.body = BlockStatement(expressions);
         return;
     }
     
-    if (parentPath.isCallExpression() && parentPath.get('callee') === path) {
-        const {expressions} = path.node;
-        const {length} = expressions;
-        const last = expressions[length - 1];
+    if (isCallee(path)) {
+        const expressions = path.node.expressions.map(wrap);
+        const {expression} = expressions.pop();
         
-        parentPath.node.callee = last;
+        parentPath.insertBefore(expressions);
+        parentPath.node.callee = expression;
         return;
     }
     
     return replaceWithMultiple(path, path.node.expressions);
 };
 
+const isBlock = ({parentPath}) => parentPath.isBlockStatement();
+const isFn = ({parentPath}) => parentPath.isArrowFunctionExpression();
+const isExpr = ({parentPath}) => parentPath.isExpressionStatement();
+
 module.exports.traverse = ({push}) => {
     return {
         SequenceExpression(path) {
-            if (path.parentPath.isForStatement())
-                return;
-            
-            push(path);
+            if (isBlock(path) || isFn(path) || isExpr(path) || isCallee(path))
+                push(path);
         },
     };
 };
 
-function createBlockStatement(expressions) {
-    const n = expressions.length;
-    let i = 0;
+function isCallee(path) {
+    const {parentPath} = path;
+    const isCall = parentPath.isCallExpression();
+    const isSame = parentPath.get('callee') === path;
     
-    const list = [];
-    for (; i < n - 1; i++) {
-        const el = expressions[i];
-        
-        if (/identifier/i.test(el.type)) {
-            list.push(ExpressionStatement(el));
-            continue;
-        }
-        
-        list.push(toStatement(el));
-    }
-    
-    const last = expressions[i];
-    list.push(ReturnStatement(last));
-    
-    return BlockStatement(list);
+    return isCall && isSame;
 }
 
