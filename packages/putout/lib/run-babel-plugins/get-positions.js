@@ -37,7 +37,7 @@ function getChangedLines(lines) {
         }
         
         if (state === REMOVED) {
-            i += line.split('\n').length;
+            i += line.split('\n').length - 1;
         }
         
         if (prevState !== NOT_CHANGED) {

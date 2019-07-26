@@ -1,9 +1,8 @@
 'use strict';
 
-const recast = require('recast');
-
 const {transformFromAstSync} = require('@babel/core');
 
+const print = require('../print');
 const getPositions = require('./get-positions');
 
 const getMessage = (a) => a
@@ -36,15 +35,6 @@ module.exports = ({fix, ast, source, babelPlugins}) => {
     
     return places;
 };
-
-function print(ast) {
-    const printOptions = {
-        quote: 'single',
-        objectCurlySpacing: false,
-    };
-    
-    return recast.print(ast, printOptions).code;
-}
 
 // transformFromAstSync makes a deep copy of AST in a bad for recast way
 // (recast makes broken source code from this AST-copy, because keeps source information

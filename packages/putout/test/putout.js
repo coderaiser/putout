@@ -182,7 +182,7 @@ test('putout: shebang: message', (t) => {
     
     const {position} = places[0];
     const expected = {
-        line: 9,
+        line: 8,
         column: 4,
     };
     
@@ -469,6 +469,38 @@ test('putout: babelPlugins', (t) => {
     });
     
     t.deepEqual(code, fixture.babelPluginsFix);
+    t.end();
+});
+
+test('putout: babelPlugins: position: shebang', (t) => {
+    const {places} = putout(fixture.babelPlugins, {
+        fix: false,
+        babelPlugins: [
+            'transform-inline-consecutive-adds',
+        ],
+    });
+    
+    const expected = [{
+        rule: 'babel: transform-inline-consecutive-adds',
+        message: 'transform inline consecutive adds',
+        position: {
+            line: 4,
+            column: 0,
+        },
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
+test('putout: babelPlugins: shebang', (t) => {
+    const {code} = putout(fixture.shebang, {
+        babelPlugins: [
+            'transform-inline-consecutive-adds',
+        ],
+    });
+    
+    t.deepEqual(code, fixture.shebang);
     t.end();
 });
 
