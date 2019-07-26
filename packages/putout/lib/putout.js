@@ -7,6 +7,7 @@ const template = require('@babel/template').default;
 const generate = require('@babel/generator').default;
 const types = require('@babel/types');
 
+const cutShebang = require('./cut-shebang');
 const getPlugins = require('./get-plugins');
 
 const customParser = require('./custom-parser');
@@ -60,7 +61,8 @@ module.exports = (source, opts) => {
         isJSX,
     } = opts;
     
-    const ast = parse(source, {
+    const [clearSource, shebang] = cutShebang(source);
+    const ast = parse(clearSource, {
         parser,
         isTS,
         isFlow,
@@ -68,7 +70,8 @@ module.exports = (source, opts) => {
     });
     
     const places = transform(ast, source, opts);
-    const code = print(ast);
+    const printed = print(ast);
+    const code = `${shebang}${printed}`;
     
     return {
         code,
@@ -96,6 +99,7 @@ function transform(ast, source, opts) {
         parser,
     } = opts;
     
+    const [, shebang] = cutShebang(source);
     const plugins = getPlugins({
         pluginNames,
         rules,
@@ -103,13 +107,14 @@ function transform(ast, source, opts) {
     
     const places = [
         ...runBabelPlugins({
-            source,
             ast,
             fix,
+            source,
             babelPlugins,
         }),
         ...runPlugins({
             ast,
+            shebang,
             fix,
             fixCount,
             plugins,
@@ -134,7 +139,7 @@ function parse(source, {parser = 'babel', isTS, isFlow, isJSX} = {}) {
     return ast;
 }
 
-module.exports.print = require('./print');
+module.exports.print = print;
 module.exports.traverse = traverse;
 module.exports.types = types;
 module.exports.template = template;
