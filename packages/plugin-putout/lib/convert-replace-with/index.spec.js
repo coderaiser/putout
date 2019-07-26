@@ -14,8 +14,12 @@ test('plugin-putout: transform', (t) => {
     t.end();
 });
 
-test('plugin-putout: transform', (t) => {
+test('plugin-putout: transform: replaceWith exists', (t) => {
     t.transform('replace-with-exists');
     t.end();
 });
 
+test('plugin-putout: transform: replaceWith multiple exists', (t) => {
+    t.transform('replace-with-multiple-exists');
+    t.end();
+});

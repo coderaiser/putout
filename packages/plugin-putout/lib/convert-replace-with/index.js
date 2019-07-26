@@ -3,12 +3,18 @@
 const {
     operate,
     template,
+    types,
 } = require('putout');
 
 const {
     replaceWith,
     insertAfter,
 } = operate;
+
+const {
+    Identifier,
+    ObjectProperty,
+} = types;
 
 const fullstore = require('fullstore');
 
@@ -27,11 +33,34 @@ module.exports.fix = ({path, calleePath, property, object, program, isInserted})
     
     path.node.arguments.unshift(object);
     
-    if (!bindings.replaceWith && !isInserted()) {
+    if (bindings.replaceWith || isInserted())
+        return;
+    
+    if (!bindings.replaceWithMultiple && !bindings.insertAfter && !isInserted()) {
         isInserted(true);
         insertAfter(strictModePath, replaceWithAST);
+        return;
     }
+    
+    const id = Identifier('replaceWith');
+    const varPath = getVarPath(bindings);
+    
+    varPath.node.id.properties
+        .unshift(ObjectProperty(id, id, false, true));
 };
+
+function getVarPath(bindings) {
+    const {
+        replaceWithMultiple,
+        insertAfter,
+    } = bindings;
+    
+    if (replaceWithMultiple)
+        return replaceWithMultiple.path;
+    
+    if (insertAfter)
+        return insertAfter.path;
+}
 
 module.exports.traverse = ({push}) => {
     const isInserted = fullstore();
