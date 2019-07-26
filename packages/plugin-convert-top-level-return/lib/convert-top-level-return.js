@@ -5,7 +5,10 @@ const {
     operate,
 } = require('putout');
 
-const {replaceWithMultiple} = operate;
+const {
+    replaceWith,
+    replaceWithMultiple,
+} = operate;
 
 const {
     CallExpression,
@@ -21,14 +24,13 @@ const expr = (a) => a && ExpressionStatement(a);
 module.exports.fix = (path) => {
     const {argument} = path.node;
     const params = [];
-    const call = CallExpression(
-        MemberExpression(
-            Identifier('process'),
-            Identifier('exit')
-        ), params);
-   
+    const call = CallExpression(MemberExpression(
+        Identifier('process'),
+        Identifier('exit')
+    ), params);
+    
     if (!argument)
-        path.replaceWith(call);
+        replaceWith(path, call);
     
     replaceWithMultiple(path, [
         expr(argument),
