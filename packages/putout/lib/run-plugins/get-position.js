@@ -3,7 +3,7 @@
 const getPath = (item) => item.path || item;
 
 module.exports.getPath = getPath;
-module.exports.getPosition = (path, shebang) => {
+module.exports.getPosition = (path) => {
     const {node} = getPath(path);
     const {loc} = node;
     
@@ -19,7 +19,7 @@ module.exports.getPosition = (path, shebang) => {
     } = node.loc.start;
     
     return {
-        line: shebang ? line + 1 : line,
+        line,
         column,
     };
 };

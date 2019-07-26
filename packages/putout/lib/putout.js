@@ -7,12 +7,12 @@ const template = require('@babel/template').default;
 const generate = require('@babel/generator').default;
 const types = require('@babel/types');
 
-const cutShebang = require('./cut-shebang');
 const getPlugins = require('./get-plugins');
 
 const customParser = require('./custom-parser');
 const runPlugins = require('./run-plugins');
 const runBabelPlugins = require('./run-babel-plugins');
+const print = require('./print');
 
 const isUndefined = (a) => typeof a === 'undefined';
 const {assign} = Object;
@@ -55,8 +55,6 @@ module.exports = (source, opts) => {
         isJSX,
     } = opts;
     
-    //const [clearSource, shebang] = cutShebang(source);
-    const shebang = '';
     const ast = parse(source, {
         parser,
         isTS,
@@ -65,8 +63,7 @@ module.exports = (source, opts) => {
     });
     
     const places = transform(ast, source, opts);
-    const printed = print(ast);
-    const code = `${shebang}${printed}`;
+    const code = print(ast);
     
     return {
         code,
@@ -93,7 +90,6 @@ function transform(ast, source, opts) {
         fixCount,
     } = opts;
     
-    const [, shebang] = cutShebang(source);
     const plugins = getPlugins({
         pluginNames,
         rules,
@@ -101,14 +97,13 @@ function transform(ast, source, opts) {
     
     const places = [
         ...runBabelPlugins({
+            source,
             ast,
             fix,
-            source,
             babelPlugins,
         }),
         ...runPlugins({
             ast,
-            shebang,
             fix,
             fixCount,
             plugins,
@@ -117,9 +112,6 @@ function transform(ast, source, opts) {
     
     return places;
 }
-
-const addNewLine = ([char, ...line]) => `${char}\n\n${line.join('')}`;
-const fixStrictMode = (a) => a.replace(/[a-z]'use strict'/, addNewLine);
 
 module.exports.parse = parse;
 function parse(source, {parser = 'babel', isTS, isFlow, isJSX} = {}) {
@@ -135,19 +127,7 @@ function parse(source, {parser = 'babel', isTS, isFlow, isJSX} = {}) {
     return ast;
 }
 
-module.exports.print = print;
-function print(ast) {
-    const printOptions = {
-        quote: 'single',
-        objectCurlySpacing: false,
-    };
-    
-    const printed = recast.print(ast, printOptions).code;
-    const code = fixStrictMode(printed);
-    
-    return code;
-}
-
+module.exports.print = require('./print');
 module.exports.traverse = traverse;
 module.exports.types = types;
 module.exports.template = template;
@@ -157,4 +137,5 @@ module.exports.operate = require('@putout/operate');
 
 module.exports.ignores = require('./ignores');
 module.exports.parseOptions = require('./parse-options');
+debugger;
 

@@ -15,7 +15,7 @@ const {
 
 const isRemoved = (a) => a && a.removed;
 
-module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
+module.exports = ({ast, fix, fixCount, plugins}) => {
     let places = [];
     
     const merge = once(mergeVisitors);
@@ -23,7 +23,6 @@ module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
         places = run({
             ast,
             fix,
-            shebang,
             plugins,
             merge,
         });
@@ -37,18 +36,17 @@ module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
 
 module.exports.getPosition = getPosition;
 
-function run({ast, fix, shebang, plugins, merge}) {
+function run({ast, fix, plugins, merge}) {
     return [
-        ...runWithoutMerge({ast, fix, shebang, plugins}),
-        ...runWithMerge({ast, fix, shebang, plugins, merge}),
+        ...runWithoutMerge({ast, fix, plugins}),
+        ...runWithMerge({ast, fix, plugins, merge}),
     ];
 }
 
-function runWithMerge({ast, fix, shebang, plugins, merge}) {
+function runWithMerge({ast, fix, plugins, merge}) {
     const pluginsToMerge = plugins.filter(([, a]) => a.traverse);
     const {entries, visitor} = merge(pluginsToMerge, {
         fix,
-        shebang,
     });
     
     traverse(ast, visitor);
@@ -68,7 +66,7 @@ function runWithMerge({ast, fix, shebang, plugins, merge}) {
     return places;
 }
 
-function runWithoutMerge({ast, fix, shebang, plugins}) {
+function runWithoutMerge({ast, fix, plugins}) {
     const places = [];
     const pluginsNotToMerge = plugins.filter(([, a]) => a.find);
     
@@ -87,7 +85,7 @@ function runWithoutMerge({ast, fix, shebang, plugins}) {
             const message = report(item);
             const path = getPath(item);
             const {parentPath} = path;
-            const position = getPosition(item, shebang);
+            const position = getPosition(item);
             
             places.push({
                 rule,
