@@ -56,6 +56,7 @@
     "@putout/plugin-convert-for-each-to-for-of": "^1.0.0",
     "@putout/plugin-convert-math-pow": "^1.0.0",
     "@putout/plugin-convert-object-assign-to-merge-spread": "^1.0.0",
+    "@putout/plugin-convert-top-level-return": "^1.0.0",
     "@putout/plugin-extract-object-properties": "^1.0.0",
     "@putout/plugin-extract-sequence-expressions": "^1.0.0",
     "@putout/plugin-madrun": "^1.0.1",

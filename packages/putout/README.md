@@ -42,6 +42,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `arguments` to `rest`;
 - convert `Object.assign` to `merge spread`;
 - convert `binary expression` to `boolean`;
+- convert `top-level return` into `process.exit()`;
 - extract sequence expressions;
 - extract object properties;
 
@@ -94,71 +95,7 @@ putout lib test --fix
 
 ## Configuration
 
-To configure create `.putout.json` file and override any option:
-
-```json
-{
-    "formatter": "dump",
-    "match": {
-        "madrun.js": {
-            "madrun/*": true
-        },
-        "bin": {
-            "remove-process-exit": false,
-            "remove-console": false
-        },
-        "test|.spec.js": {
-            "remove-only": true,
-            "remove-skip": true
-        }
-    },
-    "ignore": [
-        "node_modules"
-    ],
-    "rules": {
-        "madrun/*": false,
-        "convert-esm-to-commonjs": false,
-        "convert-commonjs-to-esm": false,
-        "remove-only": false,
-        "remove-skip": false,
-        "putout": false
-    },
-    "plugins": [
-        "extract-sequence-expressions",
-        "extract-object-properties",
-        "madrun",
-        "remove-debugger",
-        "remove-only",
-        "remove-skip",
-        "remove-process-exit",
-        "remove-console",
-        "remove-empty",
-        "remove-unused-variables",
-        "remove-unused-private-fields",
-        "remove-unused-expressions",
-        "remove-useless-variables",
-        "remove-constant-conditions",
-        "remove-boolean-from-logical-expressions",
-        "remove-nested-blocks",
-        "remove-double-negations",
-        "remove-unreachable-code",
-        "split-variable-declarations",
-        "simplify-ternary",
-        "convert-esm-to-commonjs",
-        "convert-commonjs-to-esm",
-        "convert-apply-to-spread",
-        "convert-arguments-to-rest",
-        "convert-object-assign-to-merge-spread",
-        "convert-math-pow",
-        "convert-for-each-to-for-of",
-        "convert-binary-expression-to-boolean",
-        "apply-destructuring",
-        "merge-destructuring-properties",
-        "merge-if-statements",
-        "strict-mode"
-    ]
-}
-```
+To configure create `.putout.json` file and override any of (default options)[/packages/putout/putout.json].
 
 ### Match
 

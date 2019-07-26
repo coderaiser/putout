@@ -384,6 +384,14 @@ function merge(a) {
 ```
 </details>
 
+<details><summary>convert <code>top-level return</code> into <code>process.exit/code></code></summary>
+
+```diff
+-   return;
++   process.exit();
+```
+</details>
+
 ## Plugins
 
 The `putout` repo is comprised of many npm packages. It is a [lerna](https://github.com/lerna/lerna) monorepo similar to [babel](https://github.com/babel/babel).
@@ -423,6 +431,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-convert-arguments-to-rest`](/packages/plugin-convert-arguments-to-rest) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-arguments-to-rest.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-arguments-to-rest) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-arguments-to-rest)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-arguments-to-rest) |
 | [`@putout/plugin-convert-object-assign-to-merge-spread`](/packages/plugin-convert-object-assign-to-merge-spread) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-object-assign-to-merge-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-object-assign-to-merge-spread) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-object-assign-to-merge-spread)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-object-assign-to-merge-spread) |
 | [`@putout/plugin-convert-binary-expression-to-boolean`](/packages/plugin-convert-binary-expression-to-boolean) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-binary-expression-to-boolean.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-binary-expression-to-boolean) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-binary-expression-to-boolean)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-binary-expression-to-boolean) |
+| [`@putout/plugin-convert-top-level-return`](/packages/plugin-convert-top-level-return) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-top-level-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-top-level-return) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-top-level-return)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-top-level-return) |
 | [`@putout/plugin-simplify-ternary`](/packages/plugin-simplify-ternary) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-ternary) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-simplify-ternary)](https://david-dm.org/coderaiser/putout?path=packages/plugin-simplify-ternary) |
 | [`@putout/plugin-putout`](/packages/plugin-putout) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-putout)](https://david-dm.org/coderaiser/putout?path=packages/plugin-putout) |
 
@@ -485,73 +494,7 @@ ESLINT_FORMATTER=pretty putout -f eslint lib
 
 ## Configuration
 
-To configure `putout` add section `putout` to your `package.json` file or create `.putout.json` file and override any option:
-
-```json
-{
-    "formatter": "dump",
-    "match": {
-        "madrun.js": {
-            "madrun/*": true
-        },
-        "bin": {
-            "remove-process-exit": false,
-            "remove-console": false
-        },
-        "test|.spec.js": {
-            "remove-only": true,
-            "remove-skip": true,
-            "putout": true
-        }
-    },
-    "ignore": [
-        "node_modules"
-    ],
-    "rules": {
-        "madrun/*": false,
-        "convert-esm-to-commonjs": false,
-        "convert-commonjs-to-esm": false,
-        "remove-only": false,
-        "remove-skip": false,
-        "putout": false
-    },
-    "plugins": [
-        "apply-destructuring",
-        "madrun",
-        "remove-debugger",
-        "remove-only",
-        "remove-skip",
-        "remove-process-exit",
-        "remove-console",
-        "remove-empty",
-        "remove-unused-variables",
-        "remove-unused-private-fields",
-        "remove-unused-expressions",
-        "remove-useless-variables",
-        "remove-constant-conditions",
-        "remove-boolean-from-logical-expressions",
-        "remove-nested-blocks",
-        "remove-double-negations",
-        "remove-unreachable-code",
-        "split-variable-declarations",
-        "simplify-ternary',
-        "convert-esm-to-commonjs",
-        "convert-commonjs-to-esm",
-        "convert-apply-to-spread",
-        "convert-arguments-to-rest",
-        "convert-object-assign-to-merge-spread",
-        "convert-math-pow",
-        "convert-for-each-to-for-of",
-        "convert-binary-expression-to-boolean",
-        "extract-sequence-expressions",
-        "extract-object-properties",
-        "merge-destructuring-properties",
-        "merge-if-statements",
-        "strict-mode",
-        "putout"
-    ]
-}
-```
+To configure `putout` add section `putout` to your `package.json` file or create `.putout.json` file and override any of (default options)[/packages/putout/putout.json].
 
 ### Match
 
