@@ -70,6 +70,13 @@ module.exports = (source, opts) => {
     });
     
     const places = transform(ast, source, opts);
+    
+    if (!opts.fix)
+        return {
+            code: source,
+            places,
+        };
+    
     const printed = print(ast);
     const code = `${shebang}${printed}`;
     
