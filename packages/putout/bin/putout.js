@@ -27,6 +27,7 @@ const {ignores} = putout;
 const report = require('../lib/report')();
 const parseOptions = require('../lib/parse-options');
 const merge = require('../lib/merge');
+const eslint = require('../lib/eslint');
 
 const {parse, stringify} = JSON;
 
@@ -117,6 +118,7 @@ function processFiles(name, index, {length}) {
         dir,
         formatter,
     } = options;
+    
     const format = getFormatter(argv.format || formatter);
     
     if (ignores(dir, resolvedName, options)) {
@@ -163,15 +165,27 @@ function processFiles(name, index, {length}) {
     
     const {code, places} = result;
     
+    const rawOrFixed = fix ? code : input;
+    const [newCode, newPlaces] = eslint({
+        name,
+        code: rawOrFixed,
+        fix,
+    });
+    
     if (argv.disable || argv.enable || argv.disableAll || argv.enableAll)
         return places;
     
-    if (fix && input !== code)
-        return writeFileSync(name, code);
+    if (fix && input !== newCode)
+        return writeFileSync(name, newCode);
+    
+    const allPlaces = [
+        ...places,
+        ...newPlaces,
+    ];
     
     const line = report(format, {
         name: resolvedName,
-        places,
+        places: allPlaces,
         index,
         count: length,
         source: input,
@@ -179,7 +193,7 @@ function processFiles(name, index, {length}) {
     
     process.stdout.write(line || '');
     
-    return places;
+    return allPlaces;
 }
 
 function addExt(a) {
