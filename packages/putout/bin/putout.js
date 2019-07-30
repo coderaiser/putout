@@ -164,7 +164,6 @@ function processFiles(name, index, {length}) {
     }
     
     const {code, places} = result;
-    
     const rawOrFixed = fix ? code : input;
     const [newCode, newPlaces] = eslint({
         name,
