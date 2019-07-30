@@ -37,8 +37,7 @@
     "lerna": "^3.8.5",
     "nodemon": "^1.14.12",
     "nyc": "^14.0.0",
-    "redrun": "^7.0.2",
-    "tape": "^4.8.0"
+    "redrun": "^7.0.2"
   },
   "peerDependencies": {
     "putout": ">=4.31"
