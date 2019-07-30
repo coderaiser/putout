@@ -10,7 +10,7 @@ module.exports.traverse = ({push}) => {
     return {
         DebuggerStatement(path) {
             push(path);
-        }
+        },
     };
 };
 
