@@ -20,6 +20,7 @@ const cwd = process.cwd();
 
 const glob = require('glob');
 const tryCatch = require('try-catch');
+const once = require('once');
 
 const putout = require('..');
 const {ignores} = putout;
@@ -32,6 +33,7 @@ const eslint = require('../lib/eslint');
 const {parse, stringify} = JSON;
 
 const one = (f) => (a) => f(a);
+const getFormatter = once(_getFormatter);
 
 const argv = require('yargs-parser')(process.argv.slice(2), {
     boolean: [
@@ -83,6 +85,12 @@ if (argv.help) {
     process.exit();
 }
 
+const isString = (a) => typeof a === 'string';
+const isStringAll = (...a) => a.filter(isString).length;
+const isRuler = (a) => a.disableAll || a.enableAll || isStringAll(a.disable, a.enable);
+
+const mergeArrays = (a) => [].concat(...a);
+
 const [e, files] = tryCatch(getFiles, argv._.map(String));
 
 if (e)
@@ -92,10 +100,7 @@ const places = files
     .map(processFiles)
     .filter(Boolean);
 
-const isString = (a) => typeof a === 'string';
-const isStringAll = (...a) => a.filter(isString).length;
-const isRuler = (a) => a.disableAll || a.enableAll || isStringAll(a.disable, a.enable);
-const mergedPlaces = Array.from(merge(...places));
+const mergedPlaces = merge(...places);
 
 if (isRuler(argv)) {
     rulerProcessor(argv, mergedPlaces);
@@ -217,7 +222,7 @@ function getFiles(args) {
     if (args.length && !files[0].length)
         throw Error(`No files matching the pattern "${args[0]}" were found`);
     
-    return [].concat(...files);
+    return mergeArrays(files);
 }
 
 function help() {
@@ -244,7 +249,7 @@ function exit(e) {
     process.exit(1);
 }
 
-function getFormatter(name) {
+function _getFormatter(name) {
     let e;
     let reporter;
     
