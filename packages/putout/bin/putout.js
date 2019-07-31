@@ -77,12 +77,12 @@ const {
 
 if (argv.version) {
     console.log(`v${require('../package.json').version}`);
-    process.exit();
+    exit();
 }
 
 if (argv.help) {
     help();
-    process.exit();
+    exit();
 }
 
 const isString = (a) => typeof a === 'string';
@@ -104,11 +104,11 @@ const mergedPlaces = merge(...places);
 
 if (isRuler(argv)) {
     rulerProcessor(argv, mergedPlaces);
-    process.exit();
+    exit();
 }
 
 if (mergedPlaces.length)
-    process.exit(1);
+    exit(1);
 
 function processFiles(name, index, {length}) {
     const resolvedName = resolve(name)
@@ -239,7 +239,7 @@ function help() {
 
 function exit(e) {
     if (!e)
-        process.exit(1);
+        process.exit(0);
     
     if (raw)
         console.error(e);
