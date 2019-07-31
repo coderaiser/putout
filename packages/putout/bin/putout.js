@@ -287,15 +287,11 @@ function rulerProcessor({disable, disableAll, enable, enableAll}, mergedPlaces) 
     else if (disableAll)
         updated = ruler.disableAll(object, mergedPlaces);
     
-    if (isString(disable) && !disable) {
-        console.log(object.rules);
-        return;
-    }
+    if (isString(disable) && !disable)
+        return console.log(object.rules);
     
-    if (isString(enable) && !enable) {
-        console.log(object.rules);
-        return;
-    }
+    if (isString(enable) && !enable)
+        return console.log(object.rules);
     
     writeFileSync(name, stringify(updated, null, 4));
 }
