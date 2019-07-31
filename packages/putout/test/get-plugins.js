@@ -67,27 +67,13 @@ test('get-plugins: browser build with bundled plugins', (t) => {
 });
 
 test('get-plugins: can not find', (t) => {
-    const {_findPath} = Module;
-    const rmVars = 'remove-unused-variables';
-    
-    Module._findPath = stub((name, paths) => {
-        if (!name.indexOf(`@putout/plugin-${rmVars}`))
-            return false;
-        
-        return _findPath(name, paths);
-    });
-    
     const [e] = tryCatch(putout, `const t = 'hello'`, {
         plugins: [
-            'remove-unused-variables',
+            'xxx',
         ],
     });
     
-    mockRequire.stopAll();
-    
-    Module._findPath = _findPath;
-    
-    const expected = 'Plugin "putout-plugin-remove-unused-variables could not be found!';
+    const expected = 'Plugin "putout-plugin-xxx could not be found!';
     
     t.equal(e.message, expected, 'should equal');
     t.end();

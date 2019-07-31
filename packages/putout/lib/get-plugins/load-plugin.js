@@ -4,8 +4,23 @@ const Module = require('module');
 const tryCatch = require('try-catch');
 
 const getModulePath = require('./get-module-path');
+const cache = {};
 
-module.exports = function requirePlugin({name, load = require, namespace, fn}) {
+module.exports = ({name, load, namespace, fn}) => {
+    if (cache[name])
+        return cache[name];
+    
+    cache[name] = requirePlugin({
+        name,
+        load,
+        namespace,
+        fn,
+    });
+    
+    return cache[name];
+};
+
+function requirePlugin({name, load = require, namespace, fn}) {
     if (fn)
         return [
             name,
@@ -35,5 +50,5 @@ module.exports = function requirePlugin({name, load = require, namespace, fn}) {
         ];
     
     throw Error(`Plugin "${namespace}-plugin-${name} could not be found!`);
-};
+}
 
