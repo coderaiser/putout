@@ -56,6 +56,7 @@ module.exports = ({fix, ast, source, babelPlugins}) => {
 function transform(ast, code, name) {
     transformFromAstSync(ast, code, {
         ast: true,
+        code: false,
         // remove setAST plugin, when deepCopy flag will be supported
         // deepCopy: false,
         plugins: [
