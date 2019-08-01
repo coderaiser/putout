@@ -530,7 +530,7 @@ test('putout: babelPlugins: position: shebang', (t) => {
     });
     
     const expected = [{
-        rule: 'babel: transform-inline-consecutive-adds',
+        rule: 'babel/transform-inline-consecutive-adds',
         message: 'transform inline consecutive adds',
         position: {
             line: 4,

@@ -25,7 +25,7 @@ module.exports = ({fix, ast, babelPlugins}) => {
         
         if (!fix && newCode !== oldCode) {
             const positions = getPositions(oldCode, newCode);
-            const rule = `babel: ${plugin}`;
+            const rule = `babel/${plugin}`;
             const message = getMessage(plugin);
             
             for (const position of positions)
