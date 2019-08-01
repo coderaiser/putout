@@ -9,7 +9,7 @@ const getMessage = (a) => a
     .replace(/@babel\/plugin-|babel-plugin-/, '')
     .replace(/-/g, ' ');
 
-module.exports = ({fix, ast, source, babelPlugins}) => {
+module.exports = ({fix, ast, babelPlugins}) => {
     const places = [];
     
     if (!babelPlugins)
@@ -18,7 +18,7 @@ module.exports = ({fix, ast, source, babelPlugins}) => {
     const oldCode = print(ast);
     
     for (const plugin of babelPlugins) {
-        transform(ast, source, plugin);
+        transform(ast, '', plugin);
         
         // that's right, transform changes AST
         const newCode = print(ast);

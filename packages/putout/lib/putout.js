@@ -116,7 +116,6 @@ function transform(ast, source, opts) {
         ...runBabelPlugins({
             ast,
             fix,
-            source,
             babelPlugins,
         }),
         ...runPlugins({
