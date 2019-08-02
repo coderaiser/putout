@@ -19,12 +19,15 @@ npm i @putout/plugin-remove-useless-variables -D
 ```json
 {
     "rules": {
-        "remove-useless-variables": true
+        "remove-useless-variables/rename": true,
+        "remove-useless-variables/remove": true
     }
 }
 ```
 
-## ❌ Incorrect code example
+## Rename
+
+### ❌ Incorrect code example
 
 ```js
 function hi(a) {
@@ -32,11 +35,32 @@ function hi(a) {
 };
 ```
 
-## ✅ Correct code Example
+### ✅ Correct code Example
 
 ```js
 function hi(b) {
 };
+```
+
+## Remove
+
+### ❌ Incorrect code example
+
+```js
+const child_process = require('child_process');
+const {
+    exec,
+    spawn,
+} = child_process;
+```
+
+### ✅ Correct code Example
+
+```js
+const {
+    exec,
+    spawn,
+} = require('child_process');
 ```
 
 ## License
