@@ -64,7 +64,8 @@
             "blankLine": "always",
             "prev": "*",
             "next": "if"
-        }]
+        }],
+        "require-atomic-updates": "off"
     },
     "extends": [
         "eslint:recommended"
