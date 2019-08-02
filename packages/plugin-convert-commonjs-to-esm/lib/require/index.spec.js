@@ -1,9 +1,8 @@
 'use strict';
 
-/* eslint node/no-unpublished-require:0 */
 const convert = require('.');
 const test = require('@putout/test')(__dirname, {
-    'convert-commonjs-to-esm/exports': convert,
+    'convert-commonjs-to-esm/require': convert,
 });
 
 test('plugin-convert-esm-to-commonjs: require: transform: report', (t) => {

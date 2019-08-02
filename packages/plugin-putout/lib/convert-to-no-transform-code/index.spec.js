@@ -1,20 +1,20 @@
 'use strict';
 
 const test = require('@putout/test')(__dirname, {
-    test: require('.'),
+    'putout/convert-to-no-transform-code': require('.'),
 });
 
-test('plugin-madrun: transform', (t) => {
+test('plugin-putout: convert-to-no-transform-code: transform', (t) => {
     t.transform('no-transform-code');
     t.end();
 });
 
-test('plugin-madrun: transform: not same', (t) => {
+test('plugin-putout: convert-to-no-transform-code: transform: not same', (t) => {
     t.noTransform('not-same');
     t.end();
 });
 
-test('plugin-madrun: no transform: literal', (t) => {
+test('plugin-putout: convert-to-no-transform-code: no transform: literal', (t) => {
     t.noTransform('literal');
     t.end();
 });

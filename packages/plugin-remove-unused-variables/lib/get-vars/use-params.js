@@ -26,8 +26,7 @@ function traverseProperties(use, path, properties) {
         return;
     
     for (let i = 0; i < length - 1; i++) {
-        const prop = properties[i];
-        const {value} = prop;
+        const {value} = properties[i];
         
         if (isIdentifier(value))
             use(path, value.name);

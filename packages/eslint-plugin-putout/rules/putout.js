@@ -1,7 +1,5 @@
 'use strict';
 
-const putout = require('putout');
-
 const {
     ignores,
     findPlaces,
@@ -9,7 +7,7 @@ const {
     print,
     parse,
     parseOptions,
-} = putout;
+} = require('putout');
 
 const {isArray} = Array;
 const cwd = process.cwd();

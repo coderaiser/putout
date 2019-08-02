@@ -511,8 +511,7 @@ const removeArrayPatternElement = (elPath) => {
     
     return () => {
         const el = elPath.node;
-        const arrayPattern = elPath.parentPath.node;
-        const {elements} = arrayPattern;
+        const {elements} = elPath.parentPath.node;
         
         const n = elements.length - 1;
         const i = elements.indexOf(el);

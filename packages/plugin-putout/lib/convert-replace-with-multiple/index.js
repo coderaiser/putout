@@ -74,8 +74,7 @@ module.exports.traverse = ({push}) => {
             if (!calleePath.isMemberExpression())
                 return;
             
-            const callee = calleePath.node;
-            const {object, property} = callee;
+            const {object, property} = calleePath.node;
             
             if (property.name !== 'replaceWithMultiple')
                 return;

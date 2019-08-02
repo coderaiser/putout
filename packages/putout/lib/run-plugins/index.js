@@ -85,8 +85,7 @@ function runWithoutMerge({ast, fix, shebang, plugins}) {
         
         for (const item of items) {
             const message = report(item);
-            const path = getPath(item);
-            const {parentPath} = path;
+            const {parentPath} = getPath(item);
             const position = getPosition(item, shebang);
             
             places.push({

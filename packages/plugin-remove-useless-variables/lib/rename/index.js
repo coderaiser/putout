@@ -17,7 +17,6 @@ module.exports.traverse = ({push}) => {
                 parentPath,
             } = path;
             
-            const {kind} = parentPath.node;
             const {id, init} = node;
             
             if (parentPath.parentPath.isExportNamedDeclaration())
@@ -42,7 +41,7 @@ module.exports.traverse = ({push}) => {
             if (!binding)
                 return;
             
-            if (kind !== 'const' && binding.referencePaths.length > 1)
+            if (binding.referencePaths.length > 1)
                 return;
             
             const bindingPath = binding.path;

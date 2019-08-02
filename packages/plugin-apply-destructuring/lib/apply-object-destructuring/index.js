@@ -1,11 +1,9 @@
 'use strict';
 
-const putout = require('putout');
-
 const {
     operate,
     types,
-} = putout;
+} = require('putout');
 
 const {replaceWith} = operate;
 

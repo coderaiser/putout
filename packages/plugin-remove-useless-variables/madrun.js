@@ -3,9 +3,9 @@
 const {run} = require('madrun');
 
 module.exports = {
-    'test': () => `tape 'test/*.js'`,
+    'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w lib -w test -x ${run('test')}`,
-    'lint': () => `eslint lib test madrun.js --ignore-pattern test/fixture`,
+    'lint': () => `putout lib test madrun.js`,
     'fix:lint': () => run('lint', '--fix'),
     'putout': () => `putout lib test`,
     'coverage': () => `nyc ${run('test')}`,
