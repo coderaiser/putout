@@ -1,3 +1,15 @@
+2019.08.02, v4.66.0
+
+fix:
+- feature(@putout/eslint-config) disable require-atomic-updates: false positives most part of time, non fixeble
+
+feature:
+- (putout) add ability to always read config from home directory if it exists
+- (codemods) add cut-legacy
+- (@putout/plugin-remove-useless-variables) add: remove
+- (@putout/eslint-config) disable require-atomic-updates: false positives most part of time, non fixeble
+
+
 2019.08.02, v4.65.2
 
 fix:
