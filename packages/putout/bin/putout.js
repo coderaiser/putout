@@ -241,6 +241,9 @@ function exit(e) {
     if (!e)
         process.exit(0);
     
+    if (typeof e === 'number')
+        return process.exit(e);
+    
     if (raw)
         console.error(e);
     else
