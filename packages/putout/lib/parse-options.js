@@ -13,12 +13,16 @@ const parseMatch = require('./parse-match');
 const defaultOptions = require('../putout.json');
 const getRelativePath = require('../lib/get-relative-path');
 
+const home = homedir();
+
+const readHomeOptions = once(_readHomeOptions);
 const readCodeMods = once(_readCodeMods);
 const readRules = once(_readRules);
 
 module.exports = ({rulesdir, name = '', options = {}} = {}) => {
     const [dir, customOptions] = getOptions(dirname(name));
-    const mergedOptions = merge(options, defaultOptions, customOptions);
+    const homeOptions = readHomeOptions();
+    const mergedOptions = merge(options, defaultOptions, homeOptions, customOptions);
     const {match} = mergedOptions;
     const relativeName = getRelativePath(name, dir);
     
@@ -89,8 +93,15 @@ function _readRules(dirOpt, rulesDir) {
     };
 }
 
+function _readHomeOptions() {
+    const name = join(home, '.putout.json');
+    const [, data = {}] = tryCatch(require, name);
+    
+    return data;
+}
+
 function _readCodeMods() {
-    const dir = join(homedir(), '.putout');
+    const dir = join(home, '.putout');
     const [e, names] = tryCatch(readdirSync, dir);
     
     if (e)
