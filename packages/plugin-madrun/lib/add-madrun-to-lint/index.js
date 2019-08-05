@@ -55,7 +55,7 @@ module.exports.traverse = ({push}) => {
             
             const {body} = value.node;
             
-            if (isStringLiteral(body))
+            if (isStringLiteral(body) && /madrun/.test(body.value))
                 return push({
                     path: rightPath,
                     lint,
@@ -69,9 +69,6 @@ module.exports.traverse = ({push}) => {
                 return;
             
             const [line] = body.quasis;
-            
-            if (line.value.raw !== line.value.cooked)
-                return;
             
             if (line.value.raw.includes('madrun'))
                 return;

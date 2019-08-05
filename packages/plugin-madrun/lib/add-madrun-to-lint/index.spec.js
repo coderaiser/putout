@@ -25,3 +25,7 @@ test('madrun: add madrun to lint: no transform: array', (t) => {
     t.end();
 });
 
+test('madrun: add madrun to lint: no transform: exist', (t) => {
+    t.noTransform('exist');
+    t.end();
+});
