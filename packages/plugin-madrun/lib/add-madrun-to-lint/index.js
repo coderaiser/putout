@@ -59,7 +59,7 @@ module.exports.traverse = ({push}) => {
                 return push({
                     path: rightPath,
                     lint,
-                    line: body
+                    line: body,
                 });
             
             if (!isTemplateLiteral(body))
