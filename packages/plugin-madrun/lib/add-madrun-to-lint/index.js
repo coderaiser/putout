@@ -21,10 +21,7 @@ module.exports.traverse = ({push}) => {
         MemberExpression(path) {
             const {object, property} = path.node;
             
-            if (!isIdentifier(object, {name: 'module'}))
-                return;
-            
-            if (!isIdentifier(property, {name: 'exports'}))
+            if (!isModuleExports(object, property))
                 return;
             
             const {parentPath} = path;
@@ -37,7 +34,7 @@ module.exports.traverse = ({push}) => {
             if (!rightPath.isObjectExpression())
                 return;
             
-            const lint = parseObject(rightPath);
+            const lint = findKey('lint', rightPath);
             
             if (!lint)
                 return;
@@ -50,6 +47,9 @@ module.exports.traverse = ({push}) => {
             const {body} = value.node;
             
             if (!isTemplateLiteral(body))
+                return;
+            
+            if (body.expressions.length)
                 return;
             
             const [line] = body.quasis;
@@ -69,15 +69,33 @@ module.exports.traverse = ({push}) => {
     };
 };
 
-function parseObject(path) {
+function isModuleExports(object, property) {
+    const isModule = isIdentifier(object, {name: 'module'});
+    const isExports = isIdentifier(property, {name: 'exports'});
+    
+    return isModule && isExports;
+}
+
+function findKey(name, path) {
     const properties = path.get('properties');
+    
     for (const property of properties) {
         const key = property.get('key');
+        const is = isKey(name, key);
         
-        if (key.isStringLiteral({value: 'lint'})) {
+        if (is)
             return key;
-        }
     }
     
     return null;
 }
+
+function isKey(name, key) {
+    const isId = key.isIdentifier({name});
+    const isStr = key.isStringLiteral({
+        value: name,
+    });
+    
+    return isStr || isId;
+}
+

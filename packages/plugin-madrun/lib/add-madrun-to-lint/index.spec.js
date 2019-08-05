@@ -15,3 +15,7 @@ test('madrun: add madrun to lint: transform', (t) => {
     t.end();
 });
 
+test('madrun: add madrun to lint: no transform: array', (t) => {
+    t.noTransform('array');
+    t.end();
+});
