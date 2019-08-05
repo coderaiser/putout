@@ -1,3 +1,13 @@
+2019.08.05, v4.68.2
+
+feature:
+- (putout) get-plugins: speed up
+- (@putout/plugin-madrun) rename-eslint-to-putout: exclude calls with rulesdir
+- (@putout/plugin-madrun) add rename-eslint-to-putout
+- (package) eslint-plugin-node v9.1.0
+- (@putout/plugin-madrun) add-madrun-to-lint: add support of TemplateLiteral with expression
+
+
 2019.08.05, v4.68.1
 
 fix:
