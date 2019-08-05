@@ -39,7 +39,7 @@ module.exports = {
     plugins: [
         new webpack.IgnorePlugin({
             checkResource(context) {
-                return /^esprima|fixture|^acorn|espree|tape|@putout\/test/.test(context);
+                return /^esprima|fixture|tape|@putout\/test/.test(context);
             },
         }),
     ],
