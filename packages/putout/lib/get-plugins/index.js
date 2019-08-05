@@ -7,13 +7,13 @@ const parsePluginNames = require('./parse-plugin-names');
 module.exports = (options = {}) => {
     const {
         pluginNames = [],
-        pluginCache = true,
+        cache = true,
         rules = [],
     } = options;
     
     const result = [];
     const items = parsePluginNames(pluginNames);
-    const plugins = loadPlugins({pluginCache, items});
+    const plugins = loadPlugins({items, cache});
     
     for (const [name, fn] of plugins) {
         if (!isEnabled(name, rules))
@@ -28,7 +28,7 @@ module.exports = (options = {}) => {
     return result;
 };
 
-function loadPlugins({items, pluginCache}) {
+function loadPlugins({items, cache}) {
     const plugins = [];
     const namespace = 'putout';
     
@@ -37,7 +37,7 @@ function loadPlugins({items, pluginCache}) {
             name,
             fn,
             namespace,
-            pluginCache,
+            pluginCache: cache,
         });
         
         const {rules} = plugin;

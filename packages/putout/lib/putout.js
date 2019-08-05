@@ -99,7 +99,7 @@ function transform(ast, source, opts) {
     
     const {
         plugins: pluginNames,
-        pluginCache,
+        cache,
         babelPlugins = [],
         rules,
         fix,
@@ -110,7 +110,7 @@ function transform(ast, source, opts) {
     const [, shebang] = cutShebang(source);
     const plugins = getPlugins({
         pluginNames,
-        pluginCache,
+        cache,
         rules,
     });
     
