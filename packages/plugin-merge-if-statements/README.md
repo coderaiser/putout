@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-merge-if-statements
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-merge-if-statements
 
-`putout` plugin adds ability to merge destructuring properties.
+`putout` plugin adds ability to merge if statements.
 
 ## Install
 
