@@ -4,12 +4,21 @@ const {types} = require('putout');
 
 const {
     isIdentifier,
+    isStringLiteral,
     isTemplateLiteral,
 } = types;
 
 module.exports.report = () => '"lint" should check "madrun.js"';
 
 module.exports.fix = ({line}) => {
+    if (isStringLiteral(line)) {
+        const result = line.value.replace('test', 'test madrun.js');
+        
+        line.value = result;
+        line.raw = result;
+        return;
+    }
+    
     const result = line.value.raw.replace('test', 'test madrun.js');
     
     line.value.raw = result;
@@ -45,6 +54,13 @@ module.exports.traverse = ({push}) => {
                 return;
             
             const {body} = value.node;
+            
+            if (isStringLiteral(body))
+                return push({
+                    path: rightPath,
+                    lint,
+                    line: body
+                });
             
             if (!isTemplateLiteral(body))
                 return;
