@@ -4,7 +4,7 @@ const Module = require('module');
 const tryCatch = require('try-catch');
 
 const getModulePath = require('./get-module-path');
-const cache = {};
+const cache = Object.create(null);
 
 module.exports = ({name, load, namespace, pluginCache = true, fn}) => {
     if (!pluginCache)
