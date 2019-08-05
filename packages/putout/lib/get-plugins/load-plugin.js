@@ -6,7 +6,15 @@ const tryCatch = require('try-catch');
 const getModulePath = require('./get-module-path');
 const cache = {};
 
-module.exports = ({name, load, namespace, fn}) => {
+module.exports = ({name, load, namespace, pluginCache = true, fn}) => {
+    if (!pluginCache)
+        return requirePlugin({
+            name,
+            load,
+            namespace,
+            fn,
+        });
+    
     if (cache[name])
         return cache[name];
     
