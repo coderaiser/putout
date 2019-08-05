@@ -1,6 +1,6 @@
 'use strict';
 
-const {types} = require('putout');
+const {types: t} = require('putout');
 
 module.exports.report = () => `"putout" should be used instead of "eslint"`;
 
