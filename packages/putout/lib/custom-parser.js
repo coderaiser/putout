@@ -3,6 +3,7 @@
 const once = require('once');
 
 /* eslint node/no-unpublished-require: 0 */
+const initEsprima = once(() => require('esprima'));
 const initBabel = once(() => require('@babel/parser'));
 const initEspree = once(() => require('espree'));
 const initAcorn = once(() => {
@@ -27,6 +28,9 @@ module.exports = (source, {parser, isTS, isFlow, isJSX}) => {
     
     if (parser === 'acorn')
         return acornParse(source);
+    
+    if (parser === 'esprima')
+        return esprimaParse(source);
     
     return require(parser).parse(source);
 
@@ -77,6 +81,18 @@ function espreeParse(source) {
         ecmaFeatures: {
             jsx: true,
         },
+    });
+}
+
+function esprimaParse(source) {
+    const {parse} = initEsprima();
+    
+    return parse(source, {
+        loc: true,
+        tokens: true,
+        comment: true,
+        sourceType: 'module',
+        jsx: true,
     });
 }
 
