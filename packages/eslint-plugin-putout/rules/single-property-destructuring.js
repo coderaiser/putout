@@ -23,6 +23,7 @@ module.exports = {
                 if (!/(const|let|var) \{\n/.test(text))
                     return;
                 
+                debugger;
                 const assignRegExp = /\{\n?.*=.*\n?.*}/;
                 
                 if (assignRegExp.test(text))
@@ -34,10 +35,15 @@ module.exports = {
                     
                     fix(fixer) {
                         const [property] = id.properties;
-                        const {key} = property;
+                        const {key, value} = property;
+                        
+                        if (key.name === value.name)
+                            return [
+                                fixer.replaceText(id, `{${key.name}}`),
+                            ];
                         
                         return [
-                            fixer.replaceText(id, `{${key.name}}`),
+                            fixer.replaceText(id, `{${key.name}: ${value.name}}`),
                         ];
                     },
                 });
