@@ -20,7 +20,8 @@ npm i @putout/plugin-remove-useless-variables -D
 {
     "rules": {
         "remove-useless-variables/rename": true,
-        "remove-useless-variables/remove": true
+        "remove-useless-variables/remove": true,
+        "remove-useless-variables/await": true
     }
 }
 ```
@@ -61,6 +62,40 @@ const {
     exec,
     spawn,
 } = require('child_process');
+```
+
+## await
+
+### ❌ Incorrect code example
+
+```js
+async () => {
+    const result = transformer.transform(
+        realTransformer,
+        transformCode,
+        code,
+        parser,
+    );
+    
+    let result2 = await Promise.resolve(result);
+    
+    return result2;
+}
+```
+
+### ✅ Correct code Example
+
+```js
+async () => {
+    const result = transformer.transform(
+        realTransformer,
+        transformCode,
+        code,
+        parser,
+    );
+    
+    return result;
+}
 ```
 
 ## License

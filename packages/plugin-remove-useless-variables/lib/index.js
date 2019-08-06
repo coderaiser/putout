@@ -7,5 +7,6 @@ const getRule = (a) => ({
 module.exports.rules = {
     ...getRule('rename'),
     ...getRule('remove'),
+    ...getRule('await'),
 };
 
