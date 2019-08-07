@@ -28,12 +28,36 @@ module.exports = (options = {}) => {
     return result;
 };
 
+function parseRule(rule) {
+    const name = rule
+        .replace('babel/', '')
+        .replace('jscodeshift/', '');
+    
+    if (/^babel/.test(rule))
+        return [
+            name,
+            'babel',
+        ];
+    
+    if (/^jscodeshift/.test(rule))
+        return [
+            name,
+            'jscodeshift',
+        ];
+    
+    return [
+        name,
+        'putout',
+    ];
+}
+
 function loadPlugins({items, cache}) {
     const plugins = [];
-    const namespace = 'putout';
     
-    for (const [name, fn] of items) {
-        const [rule, plugin] = loadPlugin({
+    for (const [rule, fn] of items) {
+        const [name, namespace] = parseRule(rule);
+        
+        const plugin = loadPlugin({
             name,
             fn,
             namespace,

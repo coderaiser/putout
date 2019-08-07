@@ -2,10 +2,8 @@
     "rules": {
         "putout": false
     },
-    "babelPlugins": [
-        "transform-inline-consecutive-adds"
-    ],
-    "jscodeshiftPlugins": [
-        ["async-await-codemod/async-await", "async-await should be used instead of Promises"]
+    "plugins": [
+        "babel/transform-inline-consecutive-adds",
+        "jscodeshift/async-await-codemod/async-await"
     ]
 }

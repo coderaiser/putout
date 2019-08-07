@@ -503,8 +503,8 @@ test('putout: typescript: not jsx', (t) => {
 
 test('putout: babelPlugins', (t) => {
     const {code} = putout(fixture.babelPlugins, {
-        babelPlugins: [
-            'transform-inline-consecutive-adds',
+        plugins: [
+            'babel/transform-inline-consecutive-adds',
         ],
     });
     
@@ -515,8 +515,8 @@ test('putout: babelPlugins', (t) => {
 test('putout: babelPlugins: espree', (t) => {
     const {code} = putout(fixture.babelPlugins, {
         parser: 'espree',
-        babelPlugins: [
-            'transform-inline-consecutive-adds',
+        plugins: [
+            'babel/transform-inline-consecutive-adds',
         ],
     });
     
@@ -529,9 +529,7 @@ test('putout: babelPlugins: espree: shebang', (t) => {
         parser: 'espree',
         plugins: [
             'remove-unused-variables',
-        ],
-        babelPlugins: [
-            'transform-inline-consecutive-adds',
+            'babel/transform-inline-consecutive-adds',
         ],
     });
     
@@ -542,8 +540,8 @@ test('putout: babelPlugins: espree: shebang', (t) => {
 test('putout: babelPlugins: position: shebang', (t) => {
     const {places} = putout(fixture.babelPlugins, {
         fix: false,
-        babelPlugins: [
-            'transform-inline-consecutive-adds',
+        plugins: [
+            'babel/transform-inline-consecutive-adds',
         ],
     });
     
@@ -562,8 +560,8 @@ test('putout: babelPlugins: position: shebang', (t) => {
 
 test('putout: babelPlugins: shebang', (t) => {
     const {code} = putout(fixture.shebang, {
-        babelPlugins: [
-            'transform-inline-consecutive-adds',
+        plugins: [
+            'babel/transform-inline-consecutive-adds',
         ],
     });
     
@@ -621,8 +619,8 @@ test('putout: plugin: find: push', (t) => {
 
 test('putout: jscodeshift', (t) => {
     const {code} = putout(fixture.jscodeshift, {
-        jscodeshiftPlugins: [
-            'async-await-codemod/async-await',
+        plugins: [
+            'jscodeshift/async-await-codemod/async-await',
         ],
     });
     
@@ -630,29 +628,16 @@ test('putout: jscodeshift', (t) => {
     t.end();
 });
 
-test('putout: jscodeshift: options', (t) => {
-    const {code} = putout(fixture.jscodeshiftOptions, {
-        jscodeshiftPlugins: [
-            ['jest-codemods/dist/transformers/tape.js', '', {
-                skipImportDetection: true,
-            }],
-        ],
-    });
-    
-    t.deepEqual(code, fixture.jscodeshiftOptionsFix);
-    t.end();
-});
-
 test('putout: jscodeshift: messsage', (t) => {
     const {places} = putout(fixture.jscodeshift, {
         fix: false,
-        jscodeshiftPlugins: [
-            ['async-await-codemod/async-await', 'async-await should be used instead of Promises'],
+        plugins: [
+            'jscodeshift/async-await-codemod/async-await',
         ],
     });
     
     const expected = [{
-        message: 'async-await should be used instead of Promises',
+        message: 'async await codemod/async await',
         position: {
             column: 0,
             line: 2,

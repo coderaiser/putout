@@ -2,46 +2,6 @@
 
 const {transformFromAstSync} = require('@babel/core');
 
-const print = require('../print');
-const getPositions = require('../get-positions-by-diff');
-
-const getMessage = (a) => a
-    .replace(/@babel\/plugin-|babel-plugin-/, '')
-    .replace(/-/g, ' ');
-
-module.exports = ({fix, ast, babelPlugins}) => {
-    const places = [];
-    
-    if (!babelPlugins.length)
-        return places;
-    
-    let oldCode = print(ast);
-    
-    for (const plugin of babelPlugins) {
-        transform(ast, '', plugin);
-        
-        // that's right, transform changes AST
-        const newCode = print(ast);
-        
-        if (!fix && newCode !== oldCode) {
-            const positions = getPositions(oldCode, newCode);
-            const rule = `babel/${plugin}`;
-            const message = getMessage(plugin);
-            
-            oldCode = newCode;
-            
-            for (const position of positions)
-                places.push({
-                    rule,
-                    message,
-                    position,
-                });
-        }
-    }
-    
-    return places;
-};
-
 // transformFromAstSync makes a deep copy of AST in a bad for recast way
 // (recast makes broken source code from this AST-copy, because keeps source information
 // in object prototypes).
@@ -55,7 +15,7 @@ module.exports = ({fix, ast, babelPlugins}) => {
 
 // https://github.com/babel/babel/issues/10231
 // https://babeljs.io/docs/en/next/babel-core.html#transformfromastsync
-function transform(ast, code, name) {
+module.exports = (ast, code, name) => {
     transformFromAstSync(ast, code, {
         ast: true,
         code: false,
@@ -70,7 +30,7 @@ function transform(ast, code, name) {
     });
     
     return ast;
-}
+};
 
 function setAst(babel, {ast}) {
     return {

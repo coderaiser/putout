@@ -9,8 +9,6 @@ const cutShebang = require('./cut-shebang');
 const getPlugins = require('./get-plugins');
 
 const runPlugins = require('./run-plugins');
-const runBabelPlugins = require('./run-babel-plugins');
-const runJSCodeshiftPlugins = require('./run-jscodeshift-plugins');
 const print = require('./print');
 const parse = require('./parse');
 
@@ -88,8 +86,6 @@ function transform(ast, source, opts) {
     const {
         plugins: pluginNames,
         cache,
-        babelPlugins = [],
-        jscodeshiftPlugins = [],
         rules,
         fix,
         fixCount,
@@ -104,11 +100,6 @@ function transform(ast, source, opts) {
     });
     
     const places = [
-        ...runBabelPlugins({
-            ast,
-            fix,
-            babelPlugins,
-        }),
         ...runPlugins({
             ast,
             shebang,
@@ -116,11 +107,6 @@ function transform(ast, source, opts) {
             fixCount,
             plugins,
             parser,
-        }),
-        ...runJSCodeshiftPlugins({
-            ast,
-            fix,
-            jscodeshiftPlugins,
         }),
     ];
     

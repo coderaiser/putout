@@ -655,15 +655,17 @@ To see more sophisticated example look at [@putout/remove-console](https://githu
 
 ### Babel Plugins
 
-You can add `babel` `plugins` to `babelPlugins` section of `.putout.json.
+You can add `babel` to `plugins` section of `.putout.json` with `babel/` prefix.
+
+*You can disable rule, or use match in a similar, way*
 
 *Example*
 Let's add `babel-plugin-transform-inline-consecutive-adds` to `.putout.json`:
 
 ```json
 {
-    "babelPlugins": [
-        "transform-inline-consecutive-adds"
+    "plugins": [
+        "babel/transform-inline-consecutive-adds"
     ]
 }
 ```
@@ -690,8 +692,7 @@ coderaiser@cloudcmd:~$ cat a.js
 const t = [1, 2];
 ```
 
-Using `putout` as a runner for `babel` `plugins` you can not only change file content,
-but also see what exactly will be changed. You can use your already written
+Using `putout` as a runner for `babel` `plugins` you can not only change file content, but also see what exactly will be changed. You can use your already written
 `babel` `plugins` or reuse work in progress plugins made for `babel`, but remember that `putout` `plugins` gave more accurate information about changing places, and works faster (no need to find infromation about changes in transformed file).
 
 #### Babel plugins list
@@ -724,7 +725,17 @@ Please send pull requests with `babel plugins` which can be used as codemods, or
 
 ### JSCodeshift
 
-`jscodeshift` codemods can be added to `jscodeshiftPlugins` section of `.putout.json` and used in a similar to `plugins` way.
+`jscodeshift` codemods can be added to `plugins` section of `.putout.json` with prefix `jscodeshift/`. This way:
+
+*Example*
+
+```json
+{
+    "plugins": [
+        "jscodeshift/async-await-codemod"
+    ]
+}
+```
 
 #### JSCodeshift codemods list
 
