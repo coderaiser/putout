@@ -722,6 +722,32 @@ Here you can find `babel plugins` which feets the most main purpose of `putout` 
 
 Please send pull requests with `babel plugins` which can be used as codemods, or simplify, fix, makes code more readable.
 
+### JSCodeshift
+
+`jscodeshift` codemods can be added to `jscodeshiftPlugins` section of `.putout.json` and used in a similar to `plugins` way.
+
+#### JSCodeshift codemods list
+
+Here you can find `jscodeshift codemods` which feets the most main purpose of `putout` and adviced to use:
+
+<details><summary><a href="https://github.com/sgilroy/async-await-codemod">async-await-codemod</a></summary>
+
+```diff
+-function makeRequest() {
+-  return getJSON().then(data => {
+-    console.log(data);
+-    return 'done';
+-  });
++ async function makeRequest() {
++  const data = await getJSON();
++  console.log(data);
++  return 'done';
+}
+```
+</details>
+
+Please send pull requests with `jscodeshift codemods` which can be used to simplify, fix or makes code more readable.
+
 ## Codemods
 
 `putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/master/codemods/plugin-convert-tape-to-supertape) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
