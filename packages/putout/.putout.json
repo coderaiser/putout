@@ -4,5 +4,9 @@
     },
     "babelPlugins": [
         "transform-inline-consecutive-adds"
+    ],
+    "jscodeshiftPlugins": [
+        ["async-await-codemod/async-await", "async-await should be used instead of Promises"],
+        ["async-await-codemod/await-promise-chain", "async-await should be used instead of Promise chain"]
     ]
 }

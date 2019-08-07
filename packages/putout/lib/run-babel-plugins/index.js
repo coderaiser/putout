@@ -3,7 +3,7 @@
 const {transformFromAstSync} = require('@babel/core');
 
 const print = require('../print');
-const getPositions = require('./get-positions');
+const getPositions = require('../get-positions-by-diff');
 
 const getMessage = (a) => a
     .replace(/@babel\/plugin-|babel-plugin-/, '')
@@ -12,10 +12,10 @@ const getMessage = (a) => a
 module.exports = ({fix, ast, babelPlugins}) => {
     const places = [];
     
-    if (!babelPlugins)
+    if (!babelPlugins.length)
         return places;
     
-    const oldCode = print(ast);
+    let oldCode = print(ast);
     
     for (const plugin of babelPlugins) {
         transform(ast, '', plugin);
@@ -27,6 +27,8 @@ module.exports = ({fix, ast, babelPlugins}) => {
             const positions = getPositions(oldCode, newCode);
             const rule = `babel/${plugin}`;
             const message = getMessage(plugin);
+            
+            oldCode = newCode;
             
             for (const position of positions)
                 places.push({
