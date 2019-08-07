@@ -119,6 +119,7 @@
     "eslint-plugin-putout": "^1.0.0",
     "espree": "^6.0.0",
     "esprima": "^4.0.1",
+    "jest-codemods": "^0.20.0",
     "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
     "madrun": "^2.0.0",
