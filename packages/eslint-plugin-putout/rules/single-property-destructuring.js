@@ -23,7 +23,6 @@ module.exports = {
                 if (!/(const|let|var) \{\n/.test(text))
                     return;
                 
-                debugger;
                 const assignRegExp = /\{\n?.*=.*\n?.*}/;
                 
                 if (assignRegExp.test(text))

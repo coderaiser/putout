@@ -24,7 +24,7 @@ ruleTester.run('single-property-destructuring', rule, {
         errors: [{
             message: 'Keep curly braces on one line when you have one destructuring property',
             type: 'VariableDeclarator',
-        }]
+        }],
     }, {
         code: `const {\n    hello: h\n} = world`,
         output: 'const {hello: h} = world',
@@ -32,6 +32,6 @@ ruleTester.run('single-property-destructuring', rule, {
             message: 'Keep curly braces on one line when you have one destructuring property',
             type: 'VariableDeclarator',
         }],
-    }]
+    }],
 });
 
