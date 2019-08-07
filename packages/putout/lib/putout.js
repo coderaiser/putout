@@ -1,7 +1,5 @@
 'use strict';
 
-const recast = require('recast');
-const toBabel = require('estree-to-babel');
 const traverse = require('@babel/traverse').default;
 const template = require('@babel/template').default;
 const generate = require('@babel/generator').default;
@@ -10,25 +8,14 @@ const types = require('@babel/types');
 const cutShebang = require('./cut-shebang');
 const getPlugins = require('./get-plugins');
 
-const customParser = require('./custom-parser');
 const runPlugins = require('./run-plugins');
 const runBabelPlugins = require('./run-babel-plugins');
 const runJSCodeshiftPlugins = require('./run-jscodeshift-plugins');
 const print = require('./print');
+const parse = require('./parse');
 
 const isUndefined = (a) => typeof a === 'undefined';
 const {assign} = Object;
-
-const getParser = ({parser, isTS, isFlow, isJSX}) => ({
-    parse(source) {
-        return toBabel(customParser(source, {
-            parser,
-            isTS,
-            isFlow,
-            isJSX,
-        }));
-    },
-});
 
 const defaultOpts = (opts = {}) => {
     const newOpts = {
@@ -141,19 +128,6 @@ function transform(ast, source, opts) {
 }
 
 module.exports.parse = parse;
-function parse(source, {parser = 'babel', isTS, isFlow, isJSX} = {}) {
-    const ast = recast.parse(source, {
-        parser: getParser({
-            parser,
-            isTS,
-            isFlow,
-            isJSX,
-        }),
-    });
-    
-    return ast;
-}
-
 module.exports.print = print;
 module.exports.traverse = traverse;
 module.exports.types = types;
