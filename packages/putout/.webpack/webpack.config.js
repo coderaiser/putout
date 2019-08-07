@@ -39,7 +39,7 @@ module.exports = {
     plugins: [
         new webpack.IgnorePlugin({
             checkResource(context) {
-                return /fixture|tape|@putout\/test/.test(context);
+                return /fixture|jscodeshift|tape|@putout\/test/.test(context);
             },
         }),
     ],
