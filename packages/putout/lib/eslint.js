@@ -15,6 +15,15 @@ const getCli = once(() => {
     };
 });
 
+const loadPlugin = (name, require) => {
+    if (name.includes('@')) {
+        name = name.replace('/', '/eslint-plugin-');
+        return require(name);
+    }
+    
+    return require(`eslint-plugin-${name}`);
+};
+
 const getPluginsStore = once(() => {
     const cache = {};
     
@@ -22,7 +31,7 @@ const getPluginsStore = once(() => {
         if (cache[name])
             return cache[name];
         
-        const {rules} = require(`eslint-plugin-${name}`);
+        const {rules} = loadPlugin(name, require);
         
         cache[name] = {};
         for (const [rule, fn] of entries(rules)) {
@@ -83,6 +92,8 @@ module.exports = ({name, code, fix}) => {
         places,
     ];
 };
+
+module.exports._loadPlugin = loadPlugin;
 
 function convertToPlace({ruleId, message, line, column}) {
     return {
