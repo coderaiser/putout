@@ -43,7 +43,12 @@ const wrapCodeShift = (ast) => {
         toSource() {},
     };
     
-    const fixedJscodeshift = () => {
+    let isCalled = false;
+    const fixedJscodeshift = (a) => {
+        if (isCalled)
+            return j(a);
+        
+        isCalled = true;
         return assign(j(ast), avoidPrint);
     };
     
@@ -56,11 +61,10 @@ module.exports = ({fix, ast, jscodeshiftPlugins}) => {
     if (!jscodeshiftPlugins)
         return places;
     
-    const jscodeshift = wrapCodeShift(ast);
-    
     let source = print(ast);
     for (const plugin of jscodeshiftPlugins) {
         const [pluginName, message, options] = parsePlugin(plugin);
+        const jscodeshift = wrapCodeShift(ast);
         const fn = getFn(require(pluginName));
         
         fn({source}, {jscodeshift}, options);

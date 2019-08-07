@@ -37,6 +37,8 @@ const fixture = readFixtures([
     'babel-plugins-fix',
     'jscodeshift',
     'jscodeshift-fix',
+    'jscodeshift-options',
+    'jscodeshift-options-fix',
 ]);
 
 test('putout: no vars', (t) => {
@@ -625,6 +627,19 @@ test('putout: jscodeshift', (t) => {
     });
     
     t.deepEqual(code, fixture.jscodeshiftFix);
+    t.end();
+});
+
+test('putout: jscodeshift: options', (t) => {
+    const {code} = putout(fixture.jscodeshiftOptions, {
+        jscodeshiftPlugins: [
+            ['jest-codemods/dist/transformers/tape.js', '', {
+                skipImportDetection: true,
+            }],
+        ],
+    });
+    
+    t.deepEqual(code, fixture.jscodeshiftOptionsFix);
     t.end();
 });
 
