@@ -1,3 +1,9 @@
+2019.08.07, v4.71.0
+
+feature:
+- (putout) add support of jscodeshift codemods
+
+
 2019.08.07, v4.70.0
 
 fix:
