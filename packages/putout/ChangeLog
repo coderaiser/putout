@@ -1,3 +1,15 @@
+2019.08.07, v4.70.0
+
+fix:
+- (@putout/plugin-madrun) add-madrun-to-lint: str check
+- (@putotu/plugin-remove-useless-variables) npmignore: fixture
+- (eslint-plugin-putout) single-property-destructuring: rename
+
+feature:
+- (putout) eslint: add support of namespaced plugins
+- (@putout/plugin-remove-useless-variables) add support of await Promise.resolve
+
+
 2019.08.06, v4.69.1
 
 fix:
