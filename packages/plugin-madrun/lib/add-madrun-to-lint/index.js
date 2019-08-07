@@ -55,7 +55,7 @@ module.exports.traverse = ({push}) => {
             
             const {body} = value.node;
             
-            if (isStringLiteral(body) && /madrun/.test(body.value))
+            if (isStringLiteral(body) && !/madrun/.test(body.value))
                 return push({
                     path: rightPath,
                     lint,

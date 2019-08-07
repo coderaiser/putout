@@ -1,3 +1,3 @@
 module.exports = {
-    'lint': () => `putout test`
+    'lint': () => 'putout test'
 }
