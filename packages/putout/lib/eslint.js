@@ -55,16 +55,16 @@ const getLinter = (plugins) => {
 };
 
 module.exports = ({name, code, fix}) => {
-    const same = [
+    const noChanges = [
         code,
         [],
     ];
     
     const cli = getCli();
-    const [e, config] = tryCatch(cli.getConfigForFile, name);
+    const [noConfig, config] = tryCatch(cli.getConfigForFile, name);
     
-    if (e)
-        return same;
+    if (noConfig)
+        return noChanges;
     
     disablePutout(config);
     
@@ -82,7 +82,7 @@ module.exports = ({name, code, fix}) => {
     const {results} = cli.executeOnText(code, name);
     
     if (!results.length)
-        return same;
+        return noChanges;
     
     const [report] = results;
     const places = report.messages.map(convertToPlace);
