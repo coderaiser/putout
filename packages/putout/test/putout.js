@@ -583,3 +583,34 @@ test('putout: transform', (t) => {
     t.end();
 });
 
+test('putout: plugin: find: push', (t) => {
+    const ast = putout.parse('var id = 5');
+    const plugin = {
+        report: () => 'Identifier found',
+        find(ast, {push, traverse}) {
+            traverse(ast, {
+                Identifier(path) {
+                    push(path);
+                },
+            });
+        },
+    };
+    
+    const places = putout.findPlaces(ast, fixture.comment, {
+        plugins: [{
+            'find/push': plugin,
+        }],
+    });
+    
+    const expected = [{
+        message: 'Identifier found',
+        position: {
+            column: 4,
+            line: 1,
+        },
+        rule: 'find/push',
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});

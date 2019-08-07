@@ -31,7 +31,8 @@
   "nyc": {
     "exclude": [
       "*/**/*.spec.js",
-      "test"
+      "test",
+      ".*"
     ]
   },
   "dependencies": {
