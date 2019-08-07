@@ -8,7 +8,7 @@ module.exports = {
     'build': () => run('build:base', '--mode production'),
     'build:dev': () => run('build:base', '--mode development'),
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
-    'watch:test': () => `nodemon -w lib -w test -x ${run('test')}`,
+    'watch:test': () => `nodemon -w lib -w test -x "${run('test')}"`,
     'lint': () => {
         const names = [
             'bin',
