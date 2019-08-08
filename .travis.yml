@@ -4,8 +4,7 @@ node_js:
     - 10
     - 8
 
-cache:
-  npm: false
+cache: false
 
 script:
   - npm run bootstrap --hoist
