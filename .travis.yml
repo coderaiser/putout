@@ -7,7 +7,7 @@ node_js:
 cache: false
 
 script:
-  - npm run bootstrap --hoist
+  - npm run bootstrap
   - npm run lint
   - npm run coverage && npm run report
 
