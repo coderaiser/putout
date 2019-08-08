@@ -1,10 +1,10 @@
 'use strict';
 
+const {relative} = require('path');
 const ignore = require('ignore');
-const getRelativePath = require('../lib/get-relative-path');
 
 module.exports = (dirOpt, resolvedName, options) => {
-    const relativeName = getRelativePath(resolvedName, dirOpt);
+    const relativeName = relative(dirOpt, resolvedName);
     const ignorer = ignore();
     
     if (options.ignore)

@@ -1,7 +1,11 @@
 'use strict';
 
 const {homedir} = require('os');
-const {dirname, join} = require('path');
+const {
+    dirname,
+    join,
+    relative,
+} = require('path');
 const {readdirSync} = require('fs');
 
 const findUp = require('find-up');
@@ -11,9 +15,9 @@ const tryCatch = require('try-catch');
 const merge = require('./merge');
 const parseMatch = require('./parse-match');
 const defaultOptions = require('../putout.json');
-const getRelativePath = require('../lib/get-relative-path');
 
 const home = homedir();
+const cwd = process.cwd();
 
 const readHomeOptions = once(_readHomeOptions);
 const readCodeMods = once(_readCodeMods);
@@ -24,7 +28,7 @@ module.exports = ({rulesdir, name = '', options = {}} = {}) => {
     const homeOptions = readHomeOptions();
     const mergedOptions = merge(options, defaultOptions, homeOptions, customOptions);
     const {match} = mergedOptions;
-    const relativeName = getRelativePath(name, dir);
+    const relativeName = relative(cwd, name);
     
     const resultOptions = merge(
         readCodeMods(),
