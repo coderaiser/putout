@@ -1,3 +1,9 @@
+2019.08.08, v5.0.0
+
+feature:
+- (putout) move babel, codeshift into plugins section
+
+
 2019.08.07, v4.72.1
 
 fix:
