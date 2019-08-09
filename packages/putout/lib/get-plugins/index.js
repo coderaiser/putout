@@ -11,21 +11,13 @@ module.exports = (options = {}) => {
         rules = [],
     } = options;
     
-    const result = [];
-    const items = parsePluginNames(pluginNames);
-    const plugins = loadPlugins({items, cache});
+    const items = parsePluginNames(pluginNames)
+        .filter(isEnabled(rules));
     
-    for (const [name, fn] of plugins) {
-        if (!isEnabled(name, rules))
-            continue;
-        
-        result.push([
-            name,
-            fn,
-        ]);
-    }
-    
-    return result;
+    return loadPlugins({
+        items,
+        cache,
+    });
 };
 
 function parseRule(rule) {

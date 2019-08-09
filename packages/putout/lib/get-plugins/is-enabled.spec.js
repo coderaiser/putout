@@ -1,6 +1,5 @@
 'use strict';
 
-/* eslint node/no-unpublished-require:0 */
 const test = require('supertape');
 const isEnabled = require('./is-enabled');
 
@@ -11,7 +10,7 @@ test('putout: get-plugins: is-enabled', (t) => {
         'madrun/*': false,
     };
     
-    const result = isEnabled(name, rules);
+    const result = isEnabled(rules)(name);
     
     t.notOk(result, 'should be disaabled');
     t.end();
@@ -23,7 +22,7 @@ test('putout: get-plugins: is-enabled: not found', (t) => {
         'madrun/add-function': false,
     };
     
-    const result = isEnabled(name, rules);
+    const result = isEnabled(rules)(name);
     
     t.notOk(result, 'should be disaabled');
     t.end();
