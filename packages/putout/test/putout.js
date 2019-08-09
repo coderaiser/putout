@@ -558,6 +558,32 @@ test('putout: babelPlugins: position: shebang', (t) => {
     t.end();
 });
 
+test('putout: babelPlugins: custom message', (t) => {
+    const message = 'hello world';
+    const enabled = true;
+    const {places} = putout(fixture.babelPlugins, {
+        fix: false,
+        rules: {
+            'babel/transform-inline-consecutive-adds': [enabled, message],
+        },
+        plugins: [
+            'babel/transform-inline-consecutive-adds',
+        ],
+    });
+    
+    const expected = [{
+        rule: 'babel/transform-inline-consecutive-adds',
+        message,
+        position: {
+            line: 4,
+            column: 0,
+        },
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
 test('putout: babelPlugins: shebang', (t) => {
     const {code} = putout(fixture.shebang, {
         plugins: [
@@ -639,9 +665,9 @@ test('putout: plugin: options', (t) => {
                 ignore: true,
             }],
         },
-        plugins: [{
-            'find/push': plugin,
-        }],
+        plugins: [
+            ['find/push', plugin],
+        ],
     });
     
     const expected = [];
