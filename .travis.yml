@@ -4,10 +4,7 @@ node_js:
     - 10
     - 8
 
-cache: false
-
 script:
-  - npm i yarn -g
   - npm run bootstrap
   - npm run lint
   - npm run coverage && npm run report

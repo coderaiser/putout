@@ -7,7 +7,7 @@
     "report": "lerna run report",
     "lint": "lerna run lint",
     "fix:lint": "lerna run fix:lint",
-    "bootstrap": "lerna bootstrap --no-ci"
+    "bootstrap": "lerna bootstrap"
   },
   "devDependencies": {
     "lerna": "^3.8.5"
