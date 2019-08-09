@@ -1,3 +1,10 @@
+2019.08.09, v5.2.0
+
+feature:
+- (putout) add ability to enable/disable rules using on/off
+- (putout) parse-plugin-names: add ability to pass an array
+
+
 2019.08.09, v5.1.0
 
 feature:
