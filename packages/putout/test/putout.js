@@ -585,7 +585,7 @@ test('putout: transform', (t) => {
     t.end();
 });
 
-test('putout: plugin: find: push', (t) => {
+test('putout: plugin: no options (find, push)', (t) => {
     const ast = putout.parse('var id = 5');
     const plugin = {
         report: () => 'Identifier found',
@@ -612,6 +612,39 @@ test('putout: plugin: find: push', (t) => {
         },
         rule: 'find/push',
     }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: plugin: options', (t) => {
+    const ast = putout.parse('var id = 5');
+    const plugin = {
+        report: () => 'Identifier found',
+        find(ast, {push, traverse, options}) {
+            traverse(ast, {
+                Identifier(path) {
+                    if (options.ignore)
+                        return;
+                    
+                    push(path);
+                },
+            });
+        },
+    };
+    
+    const places = putout.findPlaces(ast, fixture.comment, {
+        rules: {
+            'find/push': [true, {
+                ignore: true,
+            }],
+        },
+        plugins: [{
+            'find/push': plugin,
+        }],
+    });
+    
+    const expected = [];
     
     t.deepEqual(places, expected, 'should equal');
     t.end();

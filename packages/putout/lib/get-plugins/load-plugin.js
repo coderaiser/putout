@@ -7,13 +7,11 @@ const wrapPlugin = require('./wrap-plugin');
 const getModulePath = require('./get-module-path');
 const cache = Object.create(null);
 
-module.exports = ({name, load, namespace, pluginCache = true, fn}) => {
+module.exports = ({name, namespace, pluginCache = true}) => {
     if (!pluginCache)
         return requirePlugin({
             name,
-            load,
             namespace,
-            fn,
         });
     
     if (cache[name])
@@ -21,27 +19,22 @@ module.exports = ({name, load, namespace, pluginCache = true, fn}) => {
     
     cache[name] = requirePlugin({
         name,
-        load,
         namespace,
-        fn,
     });
     
     return cache[name];
 };
 
-function requirePlugin({name, load = require, namespace, fn}) {
-    if (fn)
-        return fn;
-    
+function requirePlugin({name, namespace}) {
     if (namespace !== 'putout')
         return wrapPlugin(name, namespace);
     
-    const [, npmPlugin] = tryCatch(load, getModulePath(`@${namespace}/plugin-${name}`));
+    const [, npmPlugin] = tryCatch(require, getModulePath(`@${namespace}/plugin-${name}`));
     
     if (npmPlugin)
         return npmPlugin;
     
-    const [, userPlugin] = tryCatch(load, getModulePath(`${namespace}-plugin-${name}`));
+    const [, userPlugin] = tryCatch(require, getModulePath(`${namespace}-plugin-${name}`));
     
     if (userPlugin)
         return userPlugin;

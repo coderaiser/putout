@@ -44,8 +44,11 @@ function run({ast, fix, shebang, plugins, merge}) {
     ];
 }
 
+const isFind = ({plugin}) => plugin.find;
+const isTraverse = ({plugin}) => plugin.traverse;
+
 function runWithMerge({ast, fix, shebang, plugins, merge}) {
-    const pluginsToMerge = plugins.filter(([, a]) => a.traverse);
+    const pluginsToMerge = plugins.filter(isTraverse);
     const {entries, visitor} = merge(pluginsToMerge, {
         fix,
         shebang,
@@ -70,21 +73,25 @@ function runWithMerge({ast, fix, shebang, plugins, merge}) {
 
 function runWithoutMerge({ast, fix, shebang, plugins}) {
     const places = [];
-    const pluginsNotToMerge = plugins.filter(([, a]) => a.find);
+    const pluginsNotToMerge = plugins.filter(isFind);
     
-    for (const [rule, plugin] of pluginsNotToMerge) {
+    for (const {rule, plugin, msg, options} of pluginsNotToMerge) {
         const {
             report,
             find,
         } = plugin;
         
-        const items = superFind(find, ast);
+        const items = superFind({
+            find,
+            ast,
+            options,
+        });
         
         if (!items.length)
             continue;
         
         for (const item of items) {
-            const message = report(item);
+            const message = msg || report(item);
             const {parentPath} = getPath(item);
             const position = getPosition(item, shebang);
             
@@ -107,7 +114,7 @@ function runWithoutMerge({ast, fix, shebang, plugins}) {
     return places;
 }
 
-function superFind(find, ast) {
+function superFind({find, ast, options}) {
     const pushItems = [];
     const push = (a) => {
         pushItems.push(a);
@@ -118,6 +125,7 @@ function superFind(find, ast) {
         generate,
         types,
         push,
+        options,
     });
     
     return [

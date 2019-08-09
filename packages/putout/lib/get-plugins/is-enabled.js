@@ -1,19 +1,16 @@
 'use strict';
 
-module.exports = (rules) => {
-    return (name) => {
-        const value = rules[name];
-        
-        if (typeof value === 'boolean')
-            return value;
-        
-        const entries = Object.entries(rules);
-        for (const [key, value] of entries) {
-            if (RegExp(key).test(name))
-                return value;
-        }
-        
-        return true;
-    };
+module.exports = (name, rules) => {
+    const value = rules[name];
+    
+    if (typeof value === 'boolean')
+        return value;
+    
+    for (const {rule, state} of rules) {
+        if (RegExp(rule).test(name))
+            return state;
+    }
+    
+    return true;
 };
 

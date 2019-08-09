@@ -13,10 +13,11 @@ module.exports = (pluginsToMerge, {fix, parser}) => {
     const mergeItems = [];
     const pushed = {};
     
-    for (const [rule, plugin] of pluginsToMerge) {
+    for (const {rule, plugin, msg, options} of pluginsToMerge) {
         const {push, pull} = getStore(plugin, {
             fix,
             parser,
+            msg,
         });
         
         pushed[rule] = pull;
@@ -24,6 +25,7 @@ module.exports = (pluginsToMerge, {fix, parser}) => {
         mergeItems.push(plugin.traverse({
             push,
             generate,
+            options,
         }));
     }
     
@@ -39,12 +41,12 @@ module.exports = (pluginsToMerge, {fix, parser}) => {
     };
 };
 
-function getStore(plugin, {fix, parser}) {
+function getStore(plugin, {fix, parser, msg}) {
     let value = [];
     
     const push = (path) => {
         const position = getPosition(path, parser);
-        const message = plugin.report(path);
+        const message = msg || plugin.report(path);
         
         value.push({
             message,

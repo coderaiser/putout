@@ -3,24 +3,63 @@
 const isEnabled = require('./is-enabled');
 const loadPlugin = require('./load-plugin');
 const parsePluginNames = require('./parse-plugin-names');
+const parseRules = require('./parse-rules');
+
+const defaultOptions = () => Object.create(null);
+const mergeRules = ([rule, plugin], rules) => {
+    for (const currentRule of rules) {
+        if (currentRule.rule !== rule)
+            continue;
+        
+        const {
+            msg,
+            options,
+        } = currentRule;
+        
+        return {
+            rule,
+            plugin,
+            msg,
+            options,
+        };
+    }
+    
+    return {
+        rule,
+        plugin,
+        msg: '',
+        options: defaultOptions(),
+    };
+};
 
 module.exports = (options = {}) => {
     const {
         pluginNames = [],
         cache = true,
-        rules = [],
+        rules = {},
     } = options;
     
-    const items = parsePluginNames(pluginNames)
-        .filter(isEnabled(rules));
+    const cookedRules = parseRules(rules);
     
-    return loadPlugins({
+    const items = parsePluginNames(pluginNames);
+    const plugins = loadPlugins({
         items,
         cache,
     });
+    
+    const result = [];
+    
+    for (const plugin of plugins) {
+        if (!isEnabled(plugin, cookedRules))
+            continue;
+        
+        result.push(mergeRules(plugin, cookedRules));
+    }
+    
+    return result;
 };
 
-function parseRule(rule) {
+function splitRule(rule) {
     const name = rule
         .replace('babel/', '')
         .replace('jscodeshift/', '');
@@ -46,12 +85,11 @@ function parseRule(rule) {
 function loadPlugins({items, cache}) {
     const plugins = [];
     
-    for (const [rule, fn] of items) {
-        const [name, namespace] = parseRule(rule);
+    for (const [rule, itemPlugin] of items) {
+        const [name, namespace] = splitRule(rule);
         
-        const plugin = loadPlugin({
+        const plugin = itemPlugin || loadPlugin({
             name,
-            fn,
             namespace,
             pluginCache: cache,
         });
@@ -76,10 +114,10 @@ function extendRules(rule, plugin) {
     const result = [];
     const entries = Object.entries(plugin);
     
-    for (const [name, fn] of entries) {
+    for (const [name, plugin] of entries) {
         result.push([
             `${rule}/${name}`,
-            fn,
+            plugin,
         ]);
     }
     
