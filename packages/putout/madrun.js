@@ -22,6 +22,7 @@ module.exports = {
         return `bin/putout.js ${names}`;
     },
     'fix:lint': () => run('lint', '--fix'),
+    'lint:progress': () => run('lint', '--fix --f progress'),
     'putout': () => `bin/putout.js bin lib test madrun.js`,
     'coverage': () => `nyc ${run('test')}`,
     'report': () => `nyc report --reporter=text-lcov | coveralls || true`,
