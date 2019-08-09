@@ -49,6 +49,11 @@ module.exports = (options = {}) => {
     
     const result = [];
     
+    // Would be greate to have ability to filter
+    // disabled plugins and prevent them from loading
+    // but we can't because of a way multi-rule plugins
+    // works. We can't determine count and names of all
+    // rules of a plugin before load.
     for (const plugin of plugins) {
         if (!isEnabled(plugin, cookedRules))
             continue;
