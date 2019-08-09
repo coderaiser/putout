@@ -1,6 +1,8 @@
 {
     "rules": {
-        "putout": false
+        "putout": false,
+        "babel/transform-inline-consecutive-adds": false,
+        "jscodeshift/async-await-codemod/async-await": false
     },
     "plugins": [
         "babel/transform-inline-consecutive-adds",
