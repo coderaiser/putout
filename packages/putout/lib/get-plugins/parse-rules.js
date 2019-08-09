@@ -96,6 +96,9 @@ function parseArray(rule, args) {
 }
 
 function validateState(a) {
+    if (isBool(a))
+        return true;
+    
     if (/^(on|off)$/.test(a))
         return true;
     
