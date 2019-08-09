@@ -7,6 +7,7 @@ const {entries} = Object;
 
 const notSupportedError = (a) => Error(`Rule format not supported ${a}: ${typeof a}`);
 const defaultOptions = () => Object.create(null);
+const parseState = (a) => validateState(a) && a === 'on' || a !== 'off';
 
 module.exports = (rules) => {
     const result = [];
@@ -15,6 +16,17 @@ module.exports = (rules) => {
     const msg = '';
     
     for (const [rule, value] of entries(rules)) {
+        if (isStr(value)) {
+            result.push({
+                rule,
+                state: parseState(value),
+                plugin,
+                msg,
+                options: defaultOptions(),
+            });
+            continue;
+        }
+        
         if (isBool(value)) {
             result.push({
                 rule,
@@ -42,9 +54,12 @@ module.exports = (rules) => {
 
 function parseArray(rule, args) {
     const plugin = null;
+    const [rawState] = args;
+    
+    const state = parseState(rawState);
     
     if (args.length === 3) {
-        const [state, msg, options] = args;
+        const [, msg, options] = args;
         
         return {
             rule,
@@ -56,7 +71,7 @@ function parseArray(rule, args) {
     }
     
     const [
-        state,
+        ,
         msg = '',
         options = defaultOptions(),
     ] = args;
@@ -78,5 +93,12 @@ function parseArray(rule, args) {
         msg,
         options,
     };
+}
+
+function validateState(a) {
+    if (/^(on|off)$/.test(a))
+        return true;
+    
+    throw Error(`state option can be "on" or "off" only, when used as string, received: ${a}`);
 }
 

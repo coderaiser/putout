@@ -3,19 +3,19 @@
     "formatter": "dump",
     "match": {
         "madrun.js": {
-            "madrun": true
+            "madrun": "on"
         },
         "bin/": {
-            "remove-process-exit": false,
-            "remove-console": false,
-            "convert-top-level-return": true
+            "remove-process-exit": "off",
+            "remove-console": "off",
+            "convert-top-level-return": "on"
         },
         "test|.spec.js": {
-            "remove-only": true,
-            "remove-skip": true
+            "remove-only": "on",
+            "remove-skip": "on"
         },
         ".ts$": {
-            "strict-mode/add": false
+            "strict-mode/add": "off"
         }
     },
     "ignore": [
@@ -23,13 +23,13 @@
         "fixture"
     ],
     "rules": {
-        "madrun": false,
-        "convert-esm-to-commonjs": false,
-        "convert-commonjs-to-esm": false,
-        "convert-top-level-return": false,
-        "remove-only": false,
-        "remove-skip": false,
-        "putout": false
+        "madrun": "off",
+        "convert-esm-to-commonjs": "off",
+        "convert-commonjs-to-esm": "off",
+        "convert-top-level-return": "off",
+        "remove-only": "off",
+        "remove-skip": "off",
+        "putout": "off"
     },
     "plugins": [
         "apply-destructuring",

@@ -114,6 +114,24 @@ test('putout: run plugins', (t) => {
     t.end();
 });
 
+test('putout: run plugins: disable, using "off"', (t) => {
+    const result = putout(fixture.import, {
+        rules: {
+            'remove-unused-variables': 'off',
+            'remove-empty': 'off',
+        },
+        plugins: [
+            'remove-unused-variables',
+            'remove-empty',
+        ],
+    });
+    
+    const expected = fixture.import;
+    
+    t.deepEqual(result.code, expected, 'should equal');
+    t.end();
+});
+
 test('putout: fix count', (t) => {
     const result = putout(fixture.fixCount, {
         plugins: [
@@ -663,6 +681,38 @@ test('putout: plugin: options', (t) => {
         rules: {
             'find/push': [true, {
                 ignore: true,
+            }],
+        },
+        plugins: [
+            ['find/push', plugin],
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: plugin: options: off', (t) => {
+    const ast = putout.parse('var id = 5');
+    const plugin = {
+        report: () => 'Identifier found',
+        find(ast, {push, traverse, options}) {
+            traverse(ast, {
+                Identifier(path) {
+                    if (options.ignore)
+                        return;
+                    
+                    push(path);
+                },
+            });
+        },
+    };
+    
+    const places = putout.findPlaces(ast, fixture.comment, {
+        rules: {
+            'find/push': ['off', {
             }],
         },
         plugins: [
