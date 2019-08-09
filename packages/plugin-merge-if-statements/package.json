@@ -40,7 +40,6 @@
     "madrun": "^2.0.0",
     "nodemon": "^1.14.12",
     "nyc": "^14.0.0",
-    "putout": "^3.9.0",
     "supertape": "^1.0.3"
   },
   "peerDependencies": {

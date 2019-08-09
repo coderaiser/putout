@@ -7,6 +7,7 @@ node_js:
 cache: false
 
 script:
+  - npm i yarn -g
   - npm run bootstrap
   - npm run lint
   - npm run coverage && npm run report
