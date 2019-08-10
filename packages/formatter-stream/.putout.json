@@ -1,0 +1,9 @@
+{
+    "formatter": "stream",
+    "rules": {
+        "babel/transform-inline-consecutive-adds": ["on", "Consecutive adds should be avoided"]
+    },
+    "plugins": [
+        "babel/transform-inline-consecutive-adds"
+    ]
+}
