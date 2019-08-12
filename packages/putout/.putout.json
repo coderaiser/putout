@@ -2,7 +2,8 @@
     "rules": {
         "putout": "off",
         "babel/transform-inline-consecutive-adds": "off",
-        "jscodeshift/async-await-codemod/async-await": "off"
+        "jscodeshift/async-await-codemod/async-await": "off",
+        "remove-console": false
     },
     "plugins": [
         "babel/transform-inline-consecutive-adds",

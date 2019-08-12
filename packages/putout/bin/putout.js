@@ -2,38 +2,25 @@
 
 'use strict';
 
-const {resolve} = require('path');
-
 const {
     readFileSync,
     writeFileSync,
     statSync,
 } = require('fs');
 
-const {
-    underline,
-    red,
-    grey,
-} = require('chalk');
+const {red} = require('chalk');
 
 const cwd = process.cwd();
 
 const glob = require('glob');
 const tryCatch = require('try-catch');
-const once = require('once');
-
-const putout = require('..');
-const {ignores} = putout;
-
-const report = require('../lib/report')();
-const parseOptions = require('../lib/parse-options');
+const tryToCatch = require('try-to-catch');
 const merge = require('../lib/merge');
-const eslint = require('../lib/eslint');
+const processFile = require('../lib/process-file');
 
 const {parse, stringify} = JSON;
 
 const one = (f) => (a) => f(a);
-const getFormatter = once(_getFormatter);
 
 const argv = require('yargs-parser')(process.argv.slice(2), {
     boolean: [
@@ -70,9 +57,12 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
 
 const {
     fix,
-    raw,
     fixCount,
+    raw,
     rulesdir,
+    format,
+    flow: isFlow,
+    jsx: isJSX,
 } = argv;
 
 if (argv.version) {
@@ -96,109 +86,41 @@ const [e, files] = tryCatch(getFiles, argv._.map(String));
 if (e)
     exit(e);
 
-const places = files
-    .map(processFiles)
-    .filter(Boolean);
-
-const mergedPlaces = merge(...places);
-
-if (isRuler(argv)) {
-    rulerProcessor(argv, mergedPlaces);
-    exit();
-}
-
-if (mergedPlaces.length)
-    exit(1);
-
-function processFiles(name, index, {length}) {
-    const resolvedName = resolve(name)
-        .replace(/^\./, cwd);
+(async () => {
+    const [workerThreadError] = tryCatch(require, 'worker_threads');
     
-    const options = parseOptions({
-        name: resolvedName,
-        rulesdir,
-    });
-    
-    const {
-        dir,
-        formatter,
-    } = options;
-    
-    const format = getFormatter(argv.format || formatter);
-    
-    if (ignores(dir, resolvedName, options)) {
-        const line = report(format, {
-            name: resolvedName,
-            places: [],
-            index,
-            count: length,
-            source: '',
-        });
-        
-        process.stdout.write(line || '');
-        return null;
-    }
-    
-    const input = readFileSync(name, 'utf8');
-    const isTS = /\.ts$/.test(name);
-    const isFlow = argv.flow;
-    const isJSX = argv.jsx;
-    
-    const [e, result] = tryCatch(putout, input, {
+    let places = [];
+    const options = {
         fix,
-        fixCount,
-        isTS,
+        rulesdir,
+        format,
         isFlow,
         isJSX,
-        ...options,
-    });
+        fixCount,
+    };
     
-    if (e) {
-        console.error(underline(resolvedName));
-        const {
-            line,
-            column,
-        } = e.position || {
-            line: 'x',
-            column: 'x',
-        };
-        
-        e.message = `${grey(`${line}:${column}`)} ${red(e.message)}`;
-        console.log(raw ? e : e.message);
-        return null;
+    if (workerThreadError) {
+        places = files
+            .map(processFile(options))
+            .filter(Boolean);
+    } else {
+        const worker = require('../lib/worker');
+        let workerError;
+        [workerError, places] = await tryToCatch(worker, files, options);
+        console.log('????', workerError);
+        workerError && exit(workerError);
     }
     
-    const {code, places} = result;
-    const rawOrFixed = fix ? code : input;
-    const [newCode, newPlaces] = eslint({
-        name,
-        code: rawOrFixed,
-        fix,
-    });
+    const mergedPlaces = merge(...places);
     
-    if (argv.disable || argv.enable || argv.disableAll || argv.enableAll)
-        return places;
+    if (isRuler(argv)) {
+        rulerProcessor(argv, mergedPlaces);
+        exit();
+    }
     
-    if (fix && input !== newCode)
-        return writeFileSync(name, newCode);
-    
-    const allPlaces = [
-        ...places,
-        ...newPlaces,
-    ];
-    
-    const line = report(format, {
-        name: resolvedName,
-        places: allPlaces,
-        index,
-        count: length,
-        source: input,
-    });
-    
-    process.stdout.write(line || '');
-    
-    return allPlaces;
-}
+    if (mergedPlaces.length)
+        exit(1);
+})();
 
 function addExt(a) {
     const [e, file] = tryCatch(statSync, a);
@@ -250,23 +172,6 @@ function exit(e) {
         console.error(red(e.message));
     
     process.exit(1);
-}
-
-function _getFormatter(name) {
-    let e;
-    let reporter;
-    
-    [e, reporter] = tryCatch(require, `@putout/formatter-${name}`);
-    
-    if (!e)
-        return reporter;
-    
-    [e, reporter] = tryCatch(require, `putout-formatter-${name}`);
-    
-    if (e)
-        exit(e);
-    
-    return reporter;
 }
 
 function rulerProcessor({disable, disableAll, enable, enableAll}, mergedPlaces) {
