@@ -34,7 +34,6 @@
     "eslint-plugin-putout": "^1.9.1",
     "madrun": "^2.0.0",
     "nyc": "^14.0.0",
-    "putout": "^3.10.0",
     "supertape": "^1.1.1"
   },
   "peerDependencies": {

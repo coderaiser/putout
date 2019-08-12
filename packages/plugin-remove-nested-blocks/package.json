@@ -37,8 +37,7 @@
     "lerna": "^3.8.5",
     "madrun": "^2.0.0",
     "nodemon": "^1.14.12",
-    "nyc": "^14.0.0",
-    "putout": "^4.31.0"
+    "nyc": "^14.0.0"
   },
   "peerDependencies": {
     "putout": ">=4.31"
