@@ -13,7 +13,7 @@ module.exports = {
     'fix:lint': () => run('lint', '--fix'),
     'putout': () => `putout src test madrun.js`,
     'coverage': () => `nyc ${run('test')}`,
-    'report': () => `nyc report --reporter=text-lcov | coveralls`,
+    'report': () => `nyc report --reporter=text-lcov | coveralls || true`,
     'debug': () => 'mocha --inspect-brk --inspect=0.0.0.0 -r @babel/register test/index.js',
 };
 
