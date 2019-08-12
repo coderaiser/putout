@@ -1,3 +1,10 @@
+2019.08.12, v5.3.0
+
+feature:
+- (putout) ruler: add ability to set on/off, when disable/enable
+- (putout) recast v0.18.2
+
+
 2019.08.09, v5.2.1
 
 fix:
