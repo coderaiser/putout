@@ -22,7 +22,7 @@ module.exports.enable = enable;
 
 function enable(config, rule) {
     initRules(config);
-    config.rules[rule] = true;
+    config.rules[rule] = 'on';
     
     return config;
 }
@@ -30,7 +30,7 @@ function enable(config, rule) {
 module.exports.disable = disable;
 function disable(config, rule) {
     initRules(config);
-    config.rules[rule] = false;
+    config.rules[rule] = 'off';
     
     return config;
 }

@@ -12,7 +12,7 @@ test('putout: ruler: enable', (t) => {
     const config = enable({}, 'remove-unused-variables');
     const expected = {
         rules: {
-            'remove-unused-variables': true,
+            'remove-unused-variables': 'on',
         },
     };
     
@@ -24,7 +24,7 @@ test('putout: ruler: enable: exists', (t) => {
     const config = enable({rules: {}}, 'remove-unused-variables');
     const expected = {
         rules: {
-            'remove-unused-variables': true,
+            'remove-unused-variables': 'on',
         },
     };
     
@@ -36,7 +36,7 @@ test('putout: ruler: disable', (t) => {
     const config = disable({}, 'remove-unused-variables');
     const expected = {
         rules: {
-            'remove-unused-variables': false,
+            'remove-unused-variables': 'off',
         },
     };
     
@@ -48,7 +48,7 @@ test('putout: ruler: disable: exists', (t) => {
     const config = disable({}, 'remove-unused-variables');
     const expected = {
         rules: {
-            'remove-unused-variables': false,
+            'remove-unused-variables': 'off',
         },
     };
     
@@ -64,7 +64,7 @@ test('putout: ruler: disableAll', (t) => {
     const config = disableAll({}, places);
     const expected = {
         rules: {
-            'remove-unused-variables': false,
+            'remove-unused-variables': 'off',
         },
     };
     
@@ -86,7 +86,7 @@ test('putout: ruler: disable: exists', (t) => {
     const config = disableAll(data, places);
     const expected = {
         rules: {
-            'remove-unused-variables': false,
+            'remove-unused-variables': 'off',
         },
     };
     
@@ -101,7 +101,7 @@ test('putout: ruler: enableAll', (t) => {
     const config = enableAll({}, places);
     const expected = {
         rules: {
-            'remove-unused-variables': true,
+            'remove-unused-variables': 'on',
         },
     };
     
@@ -121,7 +121,7 @@ test('putout: ruler: enableAll: exists', (t) => {
     const config = enableAll(data, places);
     const expected = {
         rules: {
-            'remove-unused-variables': true,
+            'remove-unused-variables': 'on',
         },
     };
     
