@@ -31,7 +31,7 @@ module.exports = (name, namespace) => {
 const getPlugin = ({name, transform, message}) => {
     return {
         report: () => message,
-        fix: ({ast}) => transform(ast, '', name),
+        fix: () => {},
         find(ast, {push}) {
             const oldCode = print(ast);
             transform(ast, oldCode, name);
@@ -52,10 +52,7 @@ const getPlugin = ({name, transform, message}) => {
                     node,
                 };
                 
-                push({
-                    path,
-                    ast,
-                });
+                push(path);
             }
         },
     };
