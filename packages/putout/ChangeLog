@@ -1,3 +1,15 @@
+2019.08.13, v5.3.1
+
+fix:
+- feature(putout) wrap plugin: speed up: no need to transform in , traverse already transformed
+
+feature:
+- (putout) wrap plugin: speed up: no need to transform in fix, traverse already transformed
+- (eslint-plugin-putout) add for-of-multiple-properties-destructuring
+- (@putout/plugin-remove-useless-variables) add support of for-of
+- (package) putout v5.3.0
+
+
 2019.08.12, v5.3.0
 
 feature:
