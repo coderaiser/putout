@@ -98,6 +98,25 @@ async () => {
 }
 ```
 
+## For-of
+
+### ❌ Incorrect code example
+
+```js
+for (const a of b) {
+    const {
+        c
+    } = a;
+}
+```
+
+### ✅ Correct code Example
+
+```js
+for (const {c} of b) {
+}
+```
+
 ## License
 
 MIT

@@ -64,9 +64,7 @@ function isRulesdir({eslint}) {
     
     const {referencePaths} = eslint;
     
-    for (const ref of referencePaths) {
-        const {parentPath} = ref;
-        
+    for (const {parentPath} of referencePaths) {
         if (!parentPath.isCallExpression())
             continue;
         

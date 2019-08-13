@@ -220,9 +220,7 @@ module.exports = ({use, declare, addParams}) => {
             
             const argPaths = path.get('arguments');
             
-            for (const argPath of argPaths) {
-                const {node} = argPath;
-                
+            for (const {node} of argPaths) {
                 if (isIdentifier(node)) {
                     use(path, node.name);
                     continue;

@@ -78,9 +78,7 @@ const isUsedAssignmentPattern = (isUsed, path, node) => {
 };
 
 const isUsedObjectPattern = (isUsed, path, node) => {
-    for (const prop of node.properties) {
-        const {value} = prop;
-        
+    for (const {value} of node.properties) {
         if (isIdentifier(value)) {
             if (isUsed(path, value.name))
                 return true;
