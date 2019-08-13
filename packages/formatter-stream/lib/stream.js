@@ -17,11 +17,7 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
     const data = [];
     const output = [];
     
-    for (const {
-        message,
-        position,
-        rule,
-    } of places) {
+    for (const {message, position, rule} of places) {
         const {
             line,
             column,

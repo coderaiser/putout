@@ -46,6 +46,7 @@ Then configure the rules you want to use under the rules section.
 - [putout](rules/putout.md)
 - [Single property destructuring](/packages/eslint-plugin-putout/rules/single-property-destructuring.md)
 - [Multiple properties destructuring](/packages/eslint-plugin-putout/rules/multiple-properties-destructuring.md)
+- [For-of multiple properties destructuring](/packages/eslint-plugin-putout/rules/for-of-multiple-properties-destructuring.md)
 - [Long properties destructuring](/packages/eslint-plugin-putout/rules/long-properties-destructuring.md)
 - [Destructuring as function argument](/packages/eslint-plugin-putout/rules/destructuring-as-function-argument.md)
 - [Align spaces](/packages/eslint-plugin-putout/rules/align-spaces.md)

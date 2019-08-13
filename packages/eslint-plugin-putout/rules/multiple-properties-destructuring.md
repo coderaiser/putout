@@ -4,7 +4,7 @@ In the same way as eslint [object-property-newline](https://eslint.org/docs/rule
 
 ## Rule Details
 
-This rule aims to shorten destricturing of one property.
+This rule aims to shorten destructuring of one property.
 
 Examples of **incorrect** code for this rule:
 

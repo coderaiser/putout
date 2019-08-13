@@ -7,6 +7,7 @@ const getRule = (a) => ({
 module.exports.rules = {
     ...getRule('single-property-destructuring'),
     ...getRule('multiple-properties-destructuring'),
+    ...getRule('for-of-multiple-properties-destructuring'),
     ...getRule('long-properties-destructuring'),
     ...getRule('destructuring-as-function-argument'),
     ...getRule('align-spaces'),
@@ -26,6 +27,7 @@ module.exports.configs = {
             'no-unused-vars': 'off',
             'putout/single-property-destructuring': 'error',
             'putout/multiple-properties-destructuring': 'error',
+            'putout/for-of-multiple-properties-destructuring': 'error',
             'putout/long-properties-destructuring': 'error',
             'putout/destructuring-as-function-argument': 'error',
             'putout/align-spaces': 'error',

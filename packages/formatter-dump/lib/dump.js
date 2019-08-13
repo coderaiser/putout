@@ -48,11 +48,7 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
 function buildLine(places) {
     const data = [];
     
-    for (const {
-        message,
-        position,
-        rule
-    } of places) {
+    for (const {message, position, rule} of places) {
         const {
             line,
             column,
