@@ -39,7 +39,7 @@ module.exports = {
     plugins: [
         new webpack.IgnorePlugin({
             checkResource(context) {
-                return /fixture|jscodeshift|wrap-plugin|@babel\/core|tape|@putout\/test/.test(context);
+                return /fixture|jscodeshift|@babel\/core|tape|@putout\/test/.test(context);
             },
         }),
     ],
@@ -51,6 +51,7 @@ module.exports = {
             'module': path.resolve(__dirname, 'module.js'),
             './run-babel-plugins': path.resolve(__dirname, 'run-babel-plugins.js'),
             './parse-options': path.resolve(__dirname, 'parse-options.js'),
+            './wrap-plugin': path.resolve(__dirname, 'wrap-plugin.js'),
         },
     },
     performance: {
