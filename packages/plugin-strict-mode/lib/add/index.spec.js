@@ -27,3 +27,8 @@ test('plugin-strict-mode: add: import', (t) => {
     t.end();
 });
 
+test('plugin-strict-mode: add: no transform: flow', (t) => {
+    t.noTransform('flow');
+    t.end();
+});
+
