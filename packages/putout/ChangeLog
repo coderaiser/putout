@@ -1,3 +1,13 @@
+2019.08.14, v5.3.2
+
+fix:
+- (package) dependencies -> devDependencies: babel-plugin-transform-inline-consecutive-adds
+
+feature:
+- (package) eslint v6.1.0
+- (package) acorn v7.0.0
+
+
 2019.08.13, v5.3.1
 
 fix:
