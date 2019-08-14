@@ -7,7 +7,7 @@ const initEsprima = once(() => require('esprima'));
 const initBabel = once(() => require('@babel/parser'));
 const initEspree = once(() => require('espree'));
 const initAcorn = once(() => {
-    const acorn  = require('acorn');
+    const acorn = require('acorn');
     
     // fix acorn plugins
     // https://github.com/acornjs/acorn/issues/862
