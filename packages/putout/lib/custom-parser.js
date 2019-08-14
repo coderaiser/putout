@@ -7,8 +7,13 @@ const initEsprima = once(() => require('esprima'));
 const initBabel = once(() => require('@babel/parser'));
 const initEspree = once(() => require('espree'));
 const initAcorn = once(() => {
-    /* eslint node/no-unpublished-require: 0 */
-    const {Parser} = require('acorn');
+    const acorn  = require('acorn');
+    
+    // fix acorn plugins
+    // https://github.com/acornjs/acorn/issues/862
+    acorn.version = '6.3.0';
+    
+    const {Parser} = acorn;
     const jsx = require('acorn-jsx');
     const stage3 = require('acorn-stage3');
     
@@ -103,6 +108,9 @@ function acornParse(source) {
         comment: true,
         ecmaVersion: 2019,
         sourceType: 'module',
+        allowAwaitOutsideFunction: true,
+        allowReturnOutsideFunction: true,
+        allowImportExportEverywhere: true,
     };
     
     const tokensData = parser.tokenizer(source, options);
