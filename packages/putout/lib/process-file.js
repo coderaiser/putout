@@ -13,13 +13,13 @@ const {
     underline,
 } = require('chalk');
 
-const cwd = process.cwd();
-
 const tryCatch = require('try-catch');
 const once = require('once');
 
 const putout = require('..');
 const {ignores} = putout;
+
+const cwd = process.cwd();
 
 const report = require('../lib/report')();
 const parseOptions = require('../lib/parse-options');
@@ -56,10 +56,10 @@ module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX, ruler, consol
         return null;
     }
     
-    const input = readFileSync(name, 'utf8');
+    const source = readFileSync(name, 'utf8');
     const isTS = /\.ts$/.test(name);
     
-    const [e, result] = tryCatch(putout, input, {
+    const [e, result] = tryCatch(putout, source, {
         fix,
         fixCount,
         isTS,
@@ -69,18 +69,14 @@ module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX, ruler, consol
     });
     
     if (e) {
-        console.error(underline(resolvedName));
+        showError({
+            e,
+            raw,
+            source,
+            resolvedName,
+            console,
+        });
         
-        const {
-            line,
-            column,
-        } = e.position || {
-            line: 'x',
-            column: 'x',
-        };
-        
-        e.message = `${grey(`${line}:${column}`)} ${red(e.message)}`;
-        console.log(raw ? e : e.message);
         return null;
     }
     
@@ -89,14 +85,14 @@ module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX, ruler, consol
     if (ruler.disable || ruler.enable || ruler.disableAll || ruler.enableAll)
         return places;
     
-    const rawOrFixed = fix ? code : input;
+    const rawOrFixed = fix ? code : source;
     const [newCode, newPlaces] = eslint({
         name,
         code: rawOrFixed,
         fix,
     });
     
-    if (fix && input !== newCode)
+    if (fix && source !== newCode)
         return writeFileSync(name, newCode);
     
     const allPlaces = [
@@ -109,7 +105,7 @@ module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX, ruler, consol
         places: allPlaces,
         index,
         count: length,
-        source: input,
+        source,
     });
     
     process.stdout.write(line || '');
@@ -132,5 +128,34 @@ function _getFormatter(name, exit) {
         exit(e);
     
     return reporter;
+}
+
+function showError({e, raw, source, resolvedName, console}) {
+    console.error(underline(resolvedName));
+    
+    const {
+        line,
+        column,
+    } = e.loc;
+    
+    const {message} = e;
+    
+    if (!raw)
+        return console.log(`${grey(`${line}:${column}`)} ${red(e.message)}`);
+    
+    const {codeFrameColumns} = require('@babel/code-frame');
+    const location = {
+        start: {
+            line,
+            column,
+        },
+    };
+    
+    const result = codeFrameColumns(source, location, {
+        highlightCode: true,
+        message,
+    });
+    
+    console.log(result, '\n\n', e);
 }
 
