@@ -8,7 +8,7 @@ const tryToFix = (fix, {path, position}) => {
     if (!e)
         return;
     
-    e.position = position;
+    e.loc = e.loc || position;
     
     throw e;
 };

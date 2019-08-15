@@ -124,4 +124,5 @@ module.exports.operate = require('@putout/operate');
 
 module.exports.ignores = require('./ignores');
 module.exports.parseOptions = require('./parse-options');
+module.exports.codeframe = require('./codeframe');
 

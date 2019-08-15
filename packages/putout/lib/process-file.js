@@ -17,7 +17,7 @@ const tryCatch = require('try-catch');
 const once = require('once');
 
 const putout = require('..');
-const {ignores} = putout;
+const {ignores, codeframe} = putout;
 
 const cwd = process.cwd();
 
@@ -136,26 +136,26 @@ function showError({e, raw, source, resolvedName, console}) {
     const {
         line,
         column,
-    } = e.loc;
+    } = e.loc || {
+        line: 'x',
+        column: 'x',
+    };
     
     const {message} = e;
     
+    console.log(`${grey(`${line}:${column}`)} ${red(message)}`);
+    
     if (!raw)
-        return console.log(`${grey(`${line}:${column}`)} ${red(e.message)}`);
+        return;
     
-    const {codeFrameColumns} = require('@babel/code-frame');
-    const location = {
-        start: {
-            line,
-            column,
-        },
-    };
+    if (line === 'x')
+        return console.log('\n', e);
     
-    const result = codeFrameColumns(source, location, {
-        highlightCode: true,
-        message,
+    const frame = codeframe({
+        source,
+        error: e,
     });
     
-    console.log(result, '\n\n', e);
+    console.log(frame, '\n\n', e);
 }
 
