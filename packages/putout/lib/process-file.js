@@ -10,6 +10,7 @@ const {
 const {
     red,
     grey,
+    underline,
 } = require('chalk');
 
 const cwd = process.cwd();
@@ -26,7 +27,7 @@ const eslint = require('../lib/eslint');
 
 const getFormatter = once(_getFormatter);
 
-module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX}) => (name, index, {length}) => {
+module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX, ruler, console, raw, exit}) => (name, index, {length}) => {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
@@ -40,7 +41,7 @@ module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX}) => (name, in
         formatter,
     } = options;
     
-    const currentFormat = getFormatter(format || formatter);
+    const currentFormat = getFormatter(format || formatter, exit);
     
     if (ignores(dir, resolvedName, options)) {
         const line = report(currentFormat, {
@@ -68,6 +69,8 @@ module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX}) => (name, in
     });
     
     if (e) {
+        console.error(underline(resolvedName));
+        
         const {
             line,
             column,
@@ -77,19 +80,21 @@ module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX}) => (name, in
         };
         
         e.message = `${grey(`${line}:${column}`)} ${red(e.message)}`;
+        console.log(raw ? e : e.message);
         return null;
     }
     
     const {code, places} = result;
+    
+    if (ruler.disable || ruler.enable || ruler.disableAll || ruler.enableAll)
+        return places;
+    
     const rawOrFixed = fix ? code : input;
     const [newCode, newPlaces] = eslint({
         name,
         code: rawOrFixed,
         fix,
     });
-    
-    //if (argv.disable || argv.enable || argv.disableAll || argv.enableAll)
-    //    return places;
     
     if (fix && input !== newCode)
         return writeFileSync(name, newCode);
@@ -112,14 +117,7 @@ module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX}) => (name, in
     return allPlaces;
 };
 
-function exit(e) {
-    !e;
-    
-    if (typeof e === 'number')
-        return;
-}
-
-function _getFormatter(name) {
+function _getFormatter(name, exit) {
     let e;
     let reporter;
     

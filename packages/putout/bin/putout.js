@@ -62,6 +62,10 @@ const {
     format,
     flow: isFlow,
     jsx: isJSX,
+    disable,
+    disableAll,
+    enable,
+    enableAll,
 } = argv;
 
 if (argv.version) {
@@ -92,6 +96,16 @@ const options = {
     isFlow,
     isJSX,
     fixCount,
+    raw,
+    ruler: {
+        disable,
+        disableAll,
+        enable,
+        enableAll,
+    },
+    
+    exit,
+    console,
 };
 
 const places = files
