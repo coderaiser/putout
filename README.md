@@ -384,7 +384,7 @@ function merge(a) {
 ```
 </details>
 
-<details><summary>convert <code>top-level return</code> into <code>process.exit()</code> (<a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Bad_return_or_yield#What_went_wrong>because EcmaScript Modules doesn't support top level return</a>)</summary>
+<details><summary>convert <code>top-level return</code> into <code>process.exit()</code>(because EcmaScript Modules doesn't support top level return)</summary>
 
 
 ```diff
