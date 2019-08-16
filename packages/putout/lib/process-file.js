@@ -7,17 +7,11 @@ const {
     writeFileSync,
 } = require('fs');
 
-const {
-    red,
-    grey,
-    underline,
-} = require('chalk');
-
 const tryCatch = require('try-catch');
 const once = require('once');
 
 const putout = require('..');
-const {ignores, codeframe} = putout;
+const {ignores} = putout;
 
 const cwd = process.cwd();
 
@@ -68,37 +62,29 @@ module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX, ruler, consol
         ...options,
     });
     
-    if (e) {
-        showError({
-            e,
-            raw,
-            source,
-            resolvedName,
-            console,
+    const allPlaces = [
+        ...parseError(e),
+    ];
+    
+    if (!e) {
+        const {code, places} = result;
+        allPlaces.push(...places);
+        
+        if (ruler.disable || ruler.enable || ruler.disableAll || ruler.enableAll)
+            return places;
+        
+        const rawOrFixed = fix ? code : source;
+        const [newCode, newPlaces] = eslint({
+            name,
+            code: rawOrFixed,
+            fix,
         });
         
-        return null;
+        allPlaces.push(...newPlaces);
+        
+        if (fix && source !== newCode)
+            return writeFileSync(name, newCode);
     }
-    
-    const {code, places} = result;
-    
-    if (ruler.disable || ruler.enable || ruler.disableAll || ruler.enableAll)
-        return places;
-    
-    const rawOrFixed = fix ? code : source;
-    const [newCode, newPlaces] = eslint({
-        name,
-        code: rawOrFixed,
-        fix,
-    });
-    
-    if (fix && source !== newCode)
-        return writeFileSync(name, newCode);
-    
-    const allPlaces = [
-        ...places,
-        ...newPlaces,
-    ];
     
     const line = report(currentFormat, {
         name: resolvedName,
@@ -109,6 +95,8 @@ module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX, ruler, consol
     });
     
     process.stdout.write(line || '');
+    
+    e && raw && console.error(e);
     
     return allPlaces;
 };
@@ -130,8 +118,9 @@ function _getFormatter(name, exit) {
     return reporter;
 }
 
-function showError({e, raw, source, resolvedName, console}) {
-    console.error(underline(resolvedName));
+function parseError(e) {
+    if (!e)
+        return [];
     
     const {
         line,
@@ -143,19 +132,13 @@ function showError({e, raw, source, resolvedName, console}) {
     
     const {message} = e;
     
-    console.log(`${grey(`${line}:${column}`)} ${red(message)}`);
-    
-    if (!raw)
-        return;
-    
-    if (line === 'x')
-        return console.log('\n', e);
-    
-    const frame = codeframe({
-        source,
-        error: e,
-    });
-    
-    console.log(frame, '\n\n', e);
+    return [{
+        message,
+        rule: 'parser',
+        position: {
+            line,
+            column,
+        },
+    }];
 }
 
