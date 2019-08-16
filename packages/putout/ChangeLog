@@ -1,3 +1,10 @@
+2019.08.16, v5.7.0
+
+feature:
+- (putout) run-plugins: move cache one level up
+- (putout) process-file: add ability to cut brackets from parser errors
+
+
 2019.08.16, v5.6.0
 
 fix:
