@@ -1,3 +1,12 @@
+2019.08.16, v5.6.0
+
+fix:
+- test(putout) run-
+
+feature:
+- (putout) show parser errors as rules errors
+
+
 2019.08.15, v5.5.0
 
 feature:
