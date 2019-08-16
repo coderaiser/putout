@@ -32,7 +32,19 @@ const mergeRules = ([rule, plugin], rules) => {
     };
 };
 
+const cache = new Map();
+
 module.exports = (options = {}) => {
+    if (cache.has(options))
+        return cache.get(options);
+    
+    const result = load(options);
+    cache.set(options, result);
+    
+    return result;
+};
+
+function load(options) {
     const {
         pluginNames = [],
         cache = true,
@@ -62,7 +74,7 @@ module.exports = (options = {}) => {
     }
     
     return result;
-};
+}
 
 function splitRule(rule) {
     const name = rule

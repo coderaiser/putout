@@ -5,25 +5,8 @@ const tryCatch = require('try-catch');
 
 const wrapPlugin = require('./wrap-plugin');
 const getModulePath = require('./get-module-path');
-const cache = Object.create(null);
 
-module.exports = ({name, namespace, pluginCache = true}) => {
-    if (!pluginCache)
-        return requirePlugin({
-            name,
-            namespace,
-        });
-    
-    if (cache[name])
-        return cache[name];
-    
-    cache[name] = requirePlugin({
-        name,
-        namespace,
-    });
-    
-    return cache[name];
-};
+module.exports = requirePlugin;
 
 function requirePlugin({name, namespace}) {
     if (namespace !== 'putout')
