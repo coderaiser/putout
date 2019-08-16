@@ -118,6 +118,8 @@ function _getFormatter(name, exit) {
     return reporter;
 }
 
+const cutBrackets = (a) => a.slice(0, a.lastIndexOf('('));
+
 function parseError(e) {
     if (!e)
         return [];
@@ -133,7 +135,7 @@ function parseError(e) {
     const {message} = e;
     
     return [{
-        message,
+        message: cutBrackets(message),
         rule: 'parser',
         position: {
             line,
@@ -141,4 +143,3 @@ function parseError(e) {
         },
     }];
 }
-
