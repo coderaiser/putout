@@ -33,7 +33,7 @@
     "debug": "madrun debug"
   },
   "dependencies": {
-    "@putout/eslint-config": "^1.2.0",
+    "@putout/eslint-config": "^2.0.0",
     "align-spaces": "^1.0.0",
     "putout": "^5.3.0"
   },
@@ -49,7 +49,7 @@
     "node": ">=8.3"
   },
   "peerDependencies": {
-    "eslint": ">=5"
+    "eslint": ">=6"
   },
   "license": "MIT",
   "publishConfig": {
