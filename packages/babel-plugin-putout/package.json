@@ -31,7 +31,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.4.4",
     "babel-plugin-transform-inline-consecutive-adds": "^0.4.3",
-    "eslint": "^6.0.1",
+    "eslint": "^6.2.0",
     "eslint-plugin-putout": "^2.0.0",
     "madrun": "^2.1.4",
     "mocha": "^6.1.4",

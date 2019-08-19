@@ -31,7 +31,7 @@
     "@putout/plugin-remove-unused-variables": "^1.25.0",
     "@putout/test": "^1.3.0",
     "coveralls": "^3.0.0",
-    "eslint": "^6.1.0",
+    "eslint": "^6.2.0",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-putout": "^2.0.0",
     "madrun": "^2.0.0",
