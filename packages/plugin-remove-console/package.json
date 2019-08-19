@@ -34,7 +34,7 @@
     "@putout/test": "^1.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.0.0-rc.0",
-    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-putout": "^2.0.0",
     "eslint-plugin-tape": "^1.1.0",
     "lerna": "^3.8.5",
