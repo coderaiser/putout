@@ -19,12 +19,18 @@ module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
     let places = [];
     
     const merge = once(mergeVisitors);
+    const {
+        pluginsFind,
+        pluginsTraverse,
+    } = splitPlugins(plugins);
+    
     for (let i = 0; i < fixCount; i++) {
         places = run({
             ast,
             fix,
             shebang,
-            plugins,
+            pluginsFind,
+            pluginsTraverse,
             merge,
         });
         
@@ -37,19 +43,15 @@ module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
 
 module.exports.getPosition = getPosition;
 
-function run({ast, fix, shebang, plugins, merge}) {
+function run({ast, fix, shebang, pluginsFind, pluginsTraverse, merge}) {
     return [
-        ...runWithoutMerge({ast, fix, shebang, plugins}),
-        ...runWithMerge({ast, fix, shebang, plugins, merge}),
+        ...runWithoutMerge({ast, fix, shebang, pluginsFind}),
+        ...runWithMerge({ast, fix, shebang, pluginsTraverse, merge}),
     ];
 }
 
-const isFind = ({plugin}) => plugin.find;
-const isTraverse = ({plugin}) => plugin.traverse;
-
-function runWithMerge({ast, fix, shebang, plugins, merge}) {
-    const pluginsToMerge = plugins.filter(isTraverse);
-    const {entries, visitor} = merge(pluginsToMerge, {
+function runWithMerge({ast, fix, shebang, pluginsTraverse, merge}) {
+    const {entries, visitor} = merge(pluginsTraverse, {
         fix,
         shebang,
     });
@@ -71,11 +73,10 @@ function runWithMerge({ast, fix, shebang, plugins, merge}) {
     return places;
 }
 
-function runWithoutMerge({ast, fix, shebang, plugins}) {
+function runWithoutMerge({ast, fix, shebang, pluginsFind}) {
     const places = [];
-    const pluginsNotToMerge = plugins.filter(isFind);
     
-    for (const {rule, plugin, msg, options} of pluginsNotToMerge) {
+    for (const {rule, plugin, msg, options} of pluginsFind) {
         const {
             report,
             find,
@@ -132,5 +133,25 @@ function superFind({find, ast, options}) {
         ...pushItems,
         ...returnItems || [],
     ];
+}
+
+function splitPlugins(plugins) {
+    const pluginsFind = [];
+    const pluginsTraverse = [];
+    
+    for (const item of plugins) {
+        const {plugin} = item;
+        
+        if (plugin.find)
+            pluginsFind.push(item);
+        
+        if (plugin.traverse)
+            pluginsTraverse.push(item);
+    }
+    
+    return {
+        pluginsFind,
+        pluginsTraverse,
+    };
 }
 
