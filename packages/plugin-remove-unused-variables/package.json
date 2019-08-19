@@ -33,7 +33,7 @@
     "coveralls": "^3.0.0",
     "eslint": "^6.1.0",
     "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-putout": "^1.4.1",
+    "eslint-plugin-putout": "^2.0.0",
     "just-camel-case": "^4.0.2",
     "madrun": "^2.0.0",
     "nodemon": "^1.18.9",

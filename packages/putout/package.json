@@ -115,7 +115,7 @@
     "codegen.macro": "^3.0.0",
     "coveralls": "^3.0.0",
     "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-putout": "^1.0.0",
+    "eslint-plugin-putout": "^2.0.0",
     "espree": "^6.0.0",
     "esprima": "^4.0.1",
     "jest-codemods": "^0.20.0",

@@ -23,7 +23,7 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "eslint-plugin-putout": "^1.4.2",
+    "eslint-plugin-putout": "^2.0.0",
     "putout": "^4.9.0",
     "supertape": "^1.0.0",
     "try-catch": "^2.0.0"
