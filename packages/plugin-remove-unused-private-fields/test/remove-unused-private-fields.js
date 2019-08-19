@@ -15,6 +15,11 @@ test('plugin-remove-unused-private-fields: transform: class', (t) => {
     t.end();
 });
 
+test('plugin-remove-unused-private-fields: transform: class expression', (t) => {
+    t.transform('class-expression');
+    t.end();
+});
+
 test('plugin-remove-unused-private-fields: transform: private method', (t) => {
     t.transform('private-method');
     t.end();

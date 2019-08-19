@@ -39,7 +39,7 @@ module.exports.fix = ({path}) => {
 };
 
 function findClassName(path) {
-    while (!path.isClassDeclaration()) {
+    while (!path.isClass()) {
         path = path.parentPath;
     }
     
@@ -68,7 +68,7 @@ const removeVariable = (vars) => (path, name) => {
 
 function traverseClass(ast, visitor) {
     traverse(ast, {
-        ClassDeclaration(path) {
+        'ClassDeclaration|ClassExpression'(path) {
             path.traverse(visitor);
         },
     });
