@@ -43,7 +43,7 @@ function findClassName(path) {
         path = path.parentPath;
     }
     
-    return path.node.id.name;
+    return path.scope;
 }
 
 const addVariable = (vars) => (path, name) => {
