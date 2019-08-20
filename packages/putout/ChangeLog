@@ -1,3 +1,20 @@
+2019.08.20, v5.7.1
+
+fix:
+- feature(run-plugins) complexity on multiple  rounds: quadratic -> linear
+
+feature:
+- (packages) eslint v6.2.0
+- (package) eslint v6.2.0
+- (@putout/plugin-remove-unused-private-fields) add support of anynomous class expression
+- (@putout/plugin-remove-unused-private-fields) add support of ClassExpression
+- (run-plugins) complexity on multiple fix rounds: quadratic -> linear
+- (package) eslint-plugin-putout v9.1.0
+- (package) eslint-plugin-putout v2.0.0
+- (package) @putout/eslint-config v2.0.0
+- (@putout/eslint-config) add support of ES2020
+
+
 2019.08.16, v5.7.0
 
 feature:
