@@ -81,7 +81,7 @@ function espreeParse(source) {
         loc: true,
         tokens: preventUsingEsprima,
         comment: true,
-        ecmaVersion: 2019,
+        ecmaVersion: 2020,
         sourceType: 'module',
         ecmaFeatures: {
             jsx: true,
@@ -106,7 +106,7 @@ function acornParse(source) {
     const options = {
         locations: true,
         comment: true,
-        ecmaVersion: 2019,
+        ecmaVersion: 2020,
         sourceType: 'module',
         allowAwaitOutsideFunction: true,
         allowReturnOutsideFunction: true,
