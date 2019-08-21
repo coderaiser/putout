@@ -5,6 +5,6 @@
     ],
     "plugins": [
         "putout",
-        "node",
+        "node"
     ]
 }
