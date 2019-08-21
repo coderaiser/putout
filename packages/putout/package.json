@@ -85,6 +85,7 @@
     "chalk": "^2.4.1",
     "deepmerge": "^4.0.0",
     "diff-match-patch": "^1.0.4",
+    "error-stack-parser": "^2.0.3",
     "eslint": "^6.2.0",
     "estree-to-babel": "^2.0.0",
     "find-up": "^4.0.0",

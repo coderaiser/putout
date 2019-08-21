@@ -4,6 +4,8 @@ const traverse = require('@babel/traverse').default;
 const generate = require('@babel/generator').default;
 const types = require('@babel/types');
 const once = require('once');
+const errorStackParser = require('error-stack-parser');
+const tryCatch = require('try-catch');
 
 const runFix = require('./run-fix');
 const mergeVisitors = require('./merge-visitors');
@@ -24,7 +26,9 @@ module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
         pluginsTraverse,
     } = splitPlugins(plugins);
     
+    debugger;
     for (let i = 0; i < fixCount; i++) {
+        console.log('::::', fix);
         places = run({
             ast,
             fix,
@@ -82,7 +86,7 @@ function runWithoutMerge({ast, fix, shebang, pluginsFind}) {
             find,
         } = plugin;
         
-        const items = superFind({
+        const [error, items] = superFind({
             find,
             ast,
             options,
@@ -92,7 +96,7 @@ function runWithoutMerge({ast, fix, shebang, pluginsFind}) {
             continue;
         
         for (const item of items) {
-            const message = msg || report(item);
+            const message = error || msg || report(item);
             const {parentPath} = getPath(item);
             const position = getPosition(item, shebang);
             
@@ -101,6 +105,9 @@ function runWithoutMerge({ast, fix, shebang, pluginsFind}) {
                 message,
                 position,
             });
+            
+            if (error)
+                continue;
             
             if (isRemoved(parentPath))
                 continue;
@@ -121,7 +128,7 @@ function superFind({find, ast, options}) {
         pushItems.push(a);
     };
     
-    const returnItems = find(ast, {
+    const [e, returnItems] = tryCatch(find, ast, {
         traverse,
         generate,
         types,
@@ -129,9 +136,43 @@ function superFind({find, ast, options}) {
         options,
     });
     
-    return [
+    if (e)
+        return [e.message, [convertErrorToPath(e)]];
+    
+    const items = [
         ...pushItems,
         ...returnItems || [],
+    ];
+    
+    return [null, items];
+}
+
+function convertErrorToPath(e) {
+    const [line, column] = parseError(e);
+    const start = {
+        line,
+        column,
+    };
+    
+    const loc = {
+        start,
+    };
+    
+    const node = {
+        loc,
+    };
+    
+    return {
+        node,
+    };
+}
+
+function parseError(error) {
+    const [frame] = errorStackParser.parse(error);
+    
+    return [
+        frame.lineNumber,
+        frame.columnNumber,
     ];
 }
 

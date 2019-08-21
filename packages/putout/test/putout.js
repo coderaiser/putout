@@ -726,6 +726,35 @@ test('putout: plugin: options: off', (t) => {
     t.end();
 });
 
+test('putout: plugin: find: crash', (t) => {
+    const ast = putout.parse('var id = 5');
+    const plugin = {
+        report: () => 'Identifier found',
+        find() {
+            const fn = () => fn();
+            fn();
+        },
+    };
+    
+    const places = putout.findPlaces(ast, fixture.comment, {
+        plugins: [{
+            crash: plugin,
+        }],
+    });
+    
+    const expected = [{
+        message: 'Maximum call stack size exceeded',
+        position: {
+            column: 24,
+            line: 734,
+        },
+        rule: 'crash',
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
 test('putout: jscodeshift', (t) => {
     const {code} = putout(fixture.jscodeshift, {
         plugins: [
