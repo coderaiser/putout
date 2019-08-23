@@ -1,3 +1,13 @@
+2019.08.23, v5.8.0
+
+fix:
+- (@putout/formatter-progress) max: 99% -> 100%
+- (eslint) add support of eslint parsing error
+
+feature:
+- (putout) improve eslint errors handling
+
+
 2019.08.20, v5.7.1
 
 fix:
