@@ -6,6 +6,8 @@ const tryCatch = require('try-catch');
 
 const {entries} = Object;
 
+const noConfigFound = (a) => a && a.messageTemplate === 'no-config-found';
+
 const getCli = once(() => {
     const cli = new CLIEngine();
     
@@ -61,10 +63,17 @@ module.exports = ({name, code, fix}) => {
     ];
     
     const cli = getCli();
-    const [noConfig, config] = tryCatch(cli.getConfigForFile, name);
+    const [configError, config] = tryCatch(cli.getConfigForFile, name);
     
-    if (noConfig)
+    if (noConfigFound(configError))
         return noChanges;
+    
+    if (configError) {
+        return [
+            code,
+            [convertToPlace(parseError(configError))],
+        ];
+    }
     
     disablePutout(config);
     
@@ -111,5 +120,25 @@ function disablePutout(config) {
         return;
     
     config.rules['putout/putout'] = 'off';
+}
+
+function parseError(e) {
+    if (!e)
+        return false;
+    
+    const {
+        messageTemplate,
+        messageData,
+        message,
+    } = e;
+    
+    if (messageTemplate !== 'plugin-missing')
+        return {
+            message,
+        };
+    
+    return {
+        message: `Plugin missing: ${messageData.pluginName}`,
+    };
 }
 
