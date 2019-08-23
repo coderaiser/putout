@@ -1,4 +1,4 @@
-0%50%[4mvar[24m
+50%100%[4mvar[24m
  [90m1:6[39m  [31merror[39m   "t" is defined but never used  [90mremove-unused-variables[39m 
 
 [4mvar[24m

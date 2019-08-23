@@ -3,7 +3,8 @@
 const dump = require('@putout/formatter-dump');
 
 module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
-    const str = `\r${progress(index, count)}%`;
+    const naturalIndex = index + 1;
+    const str = `\r${progress(naturalIndex, count)}%`;
     const result = dump({
         name,
         places,
@@ -13,7 +14,7 @@ module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
         errorsCount,
     });
     
-    if (index + 1 === count)
+    if (naturalIndex === count)
         return `${str}\r${result}`;
     
     return str;
