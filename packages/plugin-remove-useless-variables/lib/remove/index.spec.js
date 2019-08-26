@@ -14,3 +14,7 @@ test('remove usless variables: remove: transform', (t) => {
     t.end();
 });
 
+test('remove usless variables: remove: no transform: react', (t) => {
+    t.noTransform('react');
+    t.end();
+});

@@ -17,6 +17,10 @@ module.exports.traverse = ({push}) => {
                 return;
             
             const {name} = initPath.node;
+            
+            if (name === 'React')
+                return;
+            
             const binding = initPath.scope.bindings[name];
             
             if (!binding)
