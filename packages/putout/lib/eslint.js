@@ -46,9 +46,12 @@ const getPluginsStore = once(() => {
     };
 });
 
-const getLinter = (plugins) => {
+const getLinter = (plugins, parser) => {
     const linter = new Linter();
     const pluginsStore = getPluginsStore();
+    
+    if (parser)
+        linter.defineParser(parser, require(parser));
     
     for (const name of plugins)
         linter.defineRules(pluginsStore(name));
@@ -78,8 +81,8 @@ module.exports = ({name, code, fix}) => {
     disablePutout(config);
     
     if (fix) {
-        const {plugins} = config;
-        const {output, messages} = getLinter(plugins)
+        const {plugins, parser} = config;
+        const {output, messages} = getLinter(plugins, parser)
             .verifyAndFix(code, config);
         
         return [
