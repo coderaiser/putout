@@ -37,6 +37,7 @@ const fixture = readFixtures([
     'fn-call',
     'fn-call-vars',
     'fn-call-shorthand-vars',
+    'fn-as-element',
     'fn-vars',
     'fn-args-vars',
     'fn-destr-args-vars',
@@ -743,6 +744,21 @@ test('remove-unused-variables: get-vars: fn call', (t) => {
     const expected = [{
         require: {
             declared: false,
+            used: true,
+        },
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: fn as element', (t) => {
+    const ast = parse(fixture.fnAsElement);
+    const result = getVars(ast);
+    
+    const expected = [{
+        x: {
+            declared: true,
             used: true,
         },
     }];

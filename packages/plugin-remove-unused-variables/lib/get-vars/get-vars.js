@@ -465,7 +465,7 @@ module.exports = ({use, declare, addParams}) => {
             if (id) {
                 declare(path, node.id.name);
                 
-                if (/CallExpression|AssignmentExpression|VariableDeclarator/.test(parentPath.type))
+                if (!parentPath.isBlock() && !parentPath.isProgram())
                     use(path, node.id.name);
             }
             
