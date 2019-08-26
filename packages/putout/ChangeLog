@@ -1,3 +1,11 @@
+2019.08.26, v5.9.0
+
+feature:
+- (eslint) add support of custom parsers
+- (@putout/plugin-remove-unused-variables) add support of Function declared and used as an array item
+- (@putout/plugin-remove-useless-variables) exclude React from useless variables list
+
+
 2019.08.23, v5.8.0
 
 fix:
