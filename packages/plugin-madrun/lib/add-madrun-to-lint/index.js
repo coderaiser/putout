@@ -12,14 +12,14 @@ module.exports.report = () => '"lint" should check "madrun.js"';
 
 module.exports.fix = ({line}) => {
     if (isStringLiteral(line)) {
-        const result = line.value.replace('test', 'test madrun.js');
+        const result = addMadrun(line.value);
         
         line.value = result;
         line.raw = result;
         return;
     }
     
-    const result = line.value.raw.replace('test', 'test madrun.js');
+    const result = addMadrun(line.value.raw);
     
     line.value.raw = result;
     line.value.cooked = result;
@@ -110,5 +110,12 @@ function isKey(name, key) {
     });
     
     return isStr || isId;
+}
+
+function addMadrun(a) {
+    if (a.includes('test'))
+        return a.replace('test', 'test madrun.js');
+    
+    return `${a} madrun.js`;
 }
 

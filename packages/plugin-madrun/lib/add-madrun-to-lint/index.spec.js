@@ -20,6 +20,11 @@ test('madrun: add madrun to lint: transform: str', (t) => {
     t.end();
 });
 
+test('madrun: add madrun to lint: transform: lib', (t) => {
+    t.transform('lib');
+    t.end();
+});
+
 test('madrun: add madrun to lint: no transform: array', (t) => {
     t.noTransform('array');
     t.end();
