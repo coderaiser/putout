@@ -10,7 +10,7 @@ module.exports = merge([
         plugins: [
             new IgnorePlugin({
                 checkResource(context) {
-                    return /fixture|acorn|esprima|espree|jscodeshift|@babel\/core|tape|@putout\/test/.test(context);
+                    return /fixture|acorn|espree|jscodeshift|@babel\/core|tape|@putout\/test/.test(context);
                 },
             }),
         ],
