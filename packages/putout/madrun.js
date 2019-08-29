@@ -1,15 +1,15 @@
 'use strict';
 
-const {run} = require('madrun');
+const {run, parallel} = require('madrun');
 
 module.exports = {
     'prepublishOnly': () => run('build:dev'),
     'build:way:full': () => 'webpack --config ./.webpack/full/webpack.config.js',
     'build:way:slim': () => 'webpack --config ./.webpack/slim/webpack.config.js',
-    'build': () => run('build:way:*', '--mode production', {
+    'build': () => parallel('build:way:*', '--mode production', {
         NODE_ENV: 'production',
     }),
-    'build:dev': () => run('build:way:*', '--mode development', {
+    'build:dev': () => parallel('build:way:*', '--mode development', {
         NODE_ENV: 'development',
     }),
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
