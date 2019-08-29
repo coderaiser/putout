@@ -35,7 +35,7 @@
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-putout": "^2.0.0",
     "just-camel-case": "^4.0.2",
-    "madrun": "^2.0.0",
+    "madrun": "^3.0.0",
     "nodemon": "^1.18.9",
     "nyc": "^14.0.0",
     "supertape": "^1.2.0",

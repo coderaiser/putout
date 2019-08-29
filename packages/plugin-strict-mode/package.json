@@ -35,7 +35,7 @@
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-putout": "^2.0.0",
     "lerna": "^3.8.5",
-    "madrun": "^2.1.4",
+    "madrun": "^3.0.0",
     "nodemon": "^1.14.12",
     "nyc": "^14.0.0",
     "redrun": "^7.0.2",
