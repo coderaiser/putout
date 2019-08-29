@@ -1,3 +1,11 @@
+2019.08.29, v5.10.0
+
+feature:
+- (putout) add slim builds
+- (package) madrun v3.0.0
+- (@putout/plugin-madrun) add support of lib only lint
+
+
 2019.08.26, v5.9.0
 
 feature:
