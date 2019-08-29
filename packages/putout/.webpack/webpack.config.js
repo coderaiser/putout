@@ -1,13 +1,16 @@
 'use strict';
 
-const path = require('path');
+const {
+    sep,
+    join,
+    resolve,
+} = require('path');
 const webpack = require('webpack');
 
 const {env} = process;
 const isDev = env.NODE_ENV === 'development';
 
-const dist = path.resolve(__dirname, '..', 'dist');
-const distDev = path.resolve(__dirname, '..', 'dist-dev');
+const slim = resolve(__dirname, '..', 'slim');
 const devtool = false;
 
 const babelDev = {
@@ -26,12 +29,12 @@ const rules = [{
 module.exports = {
     devtool,
     entry: {
-        putout: path.join(__dirname, `./index.js`),
+        putout: join(__dirname, '../lib/putout.js'),
     },
     output: {
         library: 'putout',
         filename: '[name].js',
-        path: isDev ? distDev : dist,
+        path: slim,
         pathinfo: isDev,
         libraryTarget: 'umd',
         devtoolModuleFilenameTemplate,
@@ -48,10 +51,10 @@ module.exports = {
     },
     resolve: {
         alias: {
-            'module': path.resolve(__dirname, 'module.js'),
-            './run-babel-plugins': path.resolve(__dirname, 'run-babel-plugins.js'),
-            './parse-options': path.resolve(__dirname, 'parse-options.js'),
-            './wrap-plugin': path.resolve(__dirname, 'wrap-plugin.js'),
+            './run-babel-plugins': resolve(__dirname, 'run-babel-plugins.js'),
+            './parse-options': resolve(__dirname, 'parse-options.js'),
+            './wrap-plugin': resolve(__dirname, 'wrap-plugin.js'),
+            'module': resolve(__dirname, 'module.js'),
         },
     },
     performance: {
@@ -61,7 +64,7 @@ module.exports = {
 };
 
 function devtoolModuleFilenameTemplate(info) {
-    const resource = info.absoluteResourcePath.replace(__dirname + path.sep, '');
+    const resource = info.absoluteResourcePath.replace(__dirname + sep, '');
     return `file://putout/${resource}`;
 }
 

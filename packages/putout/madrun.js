@@ -4,9 +4,14 @@ const {run} = require('madrun');
 
 module.exports = {
     'prepublishOnly': () => run('build:dev'),
-    'build:base': () => 'webpack --config ./.webpack/webpack.config.js',
-    'build': () => run('build:base', '--mode production'),
-    'build:dev': () => run('build:base', '--mode development'),
+    'build:way:full': () => 'webpack --config ./.webpack/full/webpack.config.js',
+    'build:way:slim': () => 'webpack --config ./.webpack/slim/webpack.config.js',
+    'build': () => run('build:way:*', '--mode production', {
+        NODE_ENV: 'production',
+    }),
+    'build:dev': () => run('build:way:*', '--mode development', {
+        NODE_ENV: 'development',
+    }),
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w lib -w test -x "${run('test')}"`,
     'lint': () => {

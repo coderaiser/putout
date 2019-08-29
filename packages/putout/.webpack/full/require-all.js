@@ -1,6 +1,6 @@
 'use strict';
 
-const {plugins} = require('../putout.json');
+const {plugins} = require('../../putout.json');
 
 module.exports = () => {
     const result = plugins

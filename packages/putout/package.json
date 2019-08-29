@@ -14,7 +14,8 @@
   },
   "scripts": {
     "prepublishOnly": "madrun prepublishOnly",
-    "build:base": "madrun build:base",
+    "build:way:full": "madrun build:way:full",
+    "build:way:slim": "madrun build:way:slim",
     "build": "madrun build",
     "build:dev": "madrun build:dev",
     "test": "madrun test",
@@ -127,7 +128,8 @@
     "nyc": "^14.0.0",
     "supertape": "^1.0.3",
     "webpack": "^4.34.0",
-    "webpack-cli": "^3.3.4"
+    "webpack-cli": "^3.3.4",
+    "webpack-merge": "^4.2.2"
   },
   "license": "MIT",
   "engines": {

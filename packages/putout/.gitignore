@@ -1,1 +1,4 @@
 dist
+dist-dev
+slim
+slim-dev
