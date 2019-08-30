@@ -11,7 +11,8 @@ const initAcorn = once(() => {
     
     // fix acorn plugins
     // https://github.com/acornjs/acorn/issues/862
-    acorn.version = '6.3.0';
+    if (acorn.version !== '6.3.0')
+        acorn.version = '6.3.0';
     
     const {Parser} = acorn;
     const jsx = require('acorn-jsx');
