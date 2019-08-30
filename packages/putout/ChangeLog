@@ -1,3 +1,12 @@
+2019.08.30, v5.10.3
+
+fix:
+- (putout) acorn plugins (#acornjs/acorn/issues/862)
+
+feature:
+- (@putout/plugin-convert-object-assign-to-merge-spread) add support of not empty objects as first argument
+
+
 2019.08.30, v5.10.2
 
 fix:
