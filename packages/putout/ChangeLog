@@ -1,3 +1,9 @@
+2019.08.30, v5.10.2
+
+fix:
+- (webpack) slim: acorn, espree
+
+
 2019.08.29, v5.10.1
 
 fix:
