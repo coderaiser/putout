@@ -14,6 +14,11 @@ test('plugin-convert-object-assign-to-merge-spread: transform', (t) => {
     t.end();
 });
 
+test('plugin-convert-object-assign-to-merge-spread: transform: create', (t) => {
+    t.transform('create');
+    t.end();
+});
+
 test('plugin-convert-object-assign-to-merge-spread: transform: call', (t) => {
     t.noTransform('call');
     t.end();

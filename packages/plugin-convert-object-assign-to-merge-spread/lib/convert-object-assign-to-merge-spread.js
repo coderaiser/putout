@@ -18,9 +18,8 @@ module.exports.report = () => 'Merge spread should be used instead of Object.ass
 
 module.exports.fix = (path) => {
     let properties = [];
-    const args = path.node.arguments.slice(1);
+    const args = path.node.arguments;
     for (const arg of args) {
-        
         if (isObjectExpression(arg)) {
             properties = properties.concat(arg.properties);
             continue;
@@ -43,7 +42,7 @@ module.exports.traverse = ({push}) => {
             
             const [first] = node.arguments;
             
-            if (isObjectExpression(first) && !first.properties.length)
+            if (isObjectExpression(first))
                 push(path);
         },
     };
