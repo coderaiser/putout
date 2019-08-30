@@ -6,10 +6,13 @@ module.exports = {
     'prepublishOnly': () => run('build:dev'),
     'build:way:full': () => 'webpack --config ./.webpack/full/webpack.config.js',
     'build:way:slim': () => 'webpack --config ./.webpack/slim/webpack.config.js',
+    'build:dev': () => run('build:way:full', '--mode development', {
+        NODE_ENV: 'development',
+    }),
     'build': () => parallel('build:way:*', '--mode production', {
         NODE_ENV: 'production',
     }),
-    'build:dev': () => parallel('build:way:*', '--mode development', {
+    'build:dev:all': () => parallel('build:way:*', '--mode development', {
         NODE_ENV: 'development',
     }),
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
