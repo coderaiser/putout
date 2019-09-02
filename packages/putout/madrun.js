@@ -15,6 +15,9 @@ module.exports = {
     'build:dev:all': () => parallel('build:way:*', '--mode development', {
         NODE_ENV: 'development',
     }),
+    'build:dev:slim': () => parallel('build:way:slim', '--mode development', {
+        NODE_ENV: 'development',
+    }),
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w lib -w test -x "${run('test')}"`,
     'lint': () => {

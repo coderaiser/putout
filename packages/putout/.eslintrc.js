@@ -18,6 +18,11 @@ module.exports = {
             'no-process-exit': 0,
             'no-console': 0,
         },
+    }, {
+        files: ['lib/parsers/**'],
+        rules: {
+            'node/no-unpublished-require': 'off',
+        },
     }],
 };
 
