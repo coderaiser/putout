@@ -9,6 +9,7 @@ const {replaceWith} = operate;
 
 const {
     isLiteral,
+    isCallExpression,
     isObjectExpression,
     arrowFunctionExpression,
 } = types;
@@ -31,7 +32,7 @@ module.exports.traverse = ({push}) => {
             for (const propPath of propertiesPaths) {
                 const {node} = propPath;
                 
-                if (isLiteral(node.value)) {
+                if (isLiteral(node.value) || isCallExpression(node.value)) {
                     push({
                         name: node.key.value,
                         path: propPath.get('value'),

@@ -21,6 +21,11 @@ test('madrun: add function: transform: exports', (t) => {
     t.end();
 });
 
+test('madrun: add function: transform: call', (t) => {
+    t.transform('call');
+    t.end();
+});
+
 test('madrun: add function: transform: no exports', (t) => {
     t.transform('no-exports');
     t.end();
