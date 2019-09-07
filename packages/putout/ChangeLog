@@ -1,3 +1,15 @@
+2019.09.07, v5.12.0
+
+fix:
+- feature(@putout/plugin-madrun) add add--lint
+
+feature:
+- (putout) traverse: add template
+- (package) putout v5.11.2
+- (@putout/operate) add isModuleExports
+- (@putout/plugin-madrun) add add-fix-lint
+
+
 2019.09.07, v5.11.2
 
 feature:
