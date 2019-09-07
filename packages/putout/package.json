@@ -63,7 +63,7 @@
     "@putout/plugin-convert-top-level-return": "^1.0.0",
     "@putout/plugin-extract-object-properties": "^1.0.0",
     "@putout/plugin-extract-sequence-expressions": "^1.0.0",
-    "@putout/plugin-madrun": "^1.0.1",
+    "@putout/plugin-madrun": "^2.0.0",
     "@putout/plugin-merge-destructuring-properties": "^1.0.0",
     "@putout/plugin-merge-if-statements": "^1.0.0",
     "@putout/plugin-putout": "^1.0.0",
