@@ -1,13 +1,11 @@
 'use strict';
 
-const {types, operate} = require('putout');
+const {types} = require('putout');
 
 const {
     isStringLiteral,
     isTemplateLiteral,
 } = types;
-
-const {isModuleExports} = operate;
 
 module.exports.report = () => '"lint" should check "madrun.js"';
 
@@ -28,20 +26,8 @@ module.exports.fix = ({line}) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        MemberExpression(path) {
-            if (!isModuleExports(path))
-                return;
-            
-            const {parentPath} = path;
-            
-            if (!parentPath.isAssignmentExpression())
-                return;
-            
-            const rightPath = parentPath.get('right');
-            
-            if (!rightPath.isObjectExpression())
-                return;
-            
+        'module.exports = {}'(path) {
+            const rightPath = path.get('right');
             const lint = findKey('lint', rightPath);
             
             if (!lint)

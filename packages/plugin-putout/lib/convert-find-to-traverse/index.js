@@ -1,10 +1,8 @@
 'use strict';
 
 const {types, operate} = require('putout');
-const {
-    replaceWith,
-    isModuleExports,
-} = operate;
+const {replaceWith} = operate;
+
 const {
     ReturnStatement,
     isCallExpression,
@@ -28,13 +26,9 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        AssignmentExpression(path) {
+        'module.exports = {}'(path) {
             const leftPath = path.get('left');
-            const objectPath = leftPath.get('object');
             const propertyPath = leftPath.get('property');
-            
-            if (!isModuleExports(objectPath))
-                return;
             
             if (!propertyPath.isIdentifier({name: 'find'}))
                 return;

@@ -6,16 +6,12 @@ const {
     template,
 } = require('putout');
 
-const {
-    replaceWithMultiple,
-    isModuleExports,
-} = operate;
+const {replaceWithMultiple} = operate;
 
 const {
     isIdentifier,
     isLiteral,
     isStringLiteral,
-    isObjectExpression,
     ObjectProperty,
     StringLiteral,
 } = types;
@@ -35,16 +31,7 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        AssignmentExpression(path) {
-            const {right} = path.node;
-            const leftPath = path.get('left');
-            
-            if (!isModuleExports(leftPath))
-                return;
-            
-            if (!isObjectExpression(right))
-                return;
-            
+        'module.exports = {}'(path) {
             const propertiesPaths = path.get('right.properties');
             const {lint, fixLint} = getLintProperties(propertiesPaths);
             
