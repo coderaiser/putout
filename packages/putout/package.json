@@ -98,7 +98,7 @@
     "once": "^1.4.0",
     "recast": "https://github.com/coderaiser/recast/archive/v0.18.2-fix.tar.gz",
     "try-catch": "^2.0.0",
-    "yargs-parser": "^13.0.0"
+    "yargs-parser": "^14.0.0"
   },
   "keywords": [
     "ast",
