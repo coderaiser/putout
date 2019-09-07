@@ -30,6 +30,7 @@ Add `.putout.json` with:
 {
     "rules": {
         "madrun/add-function": true,
+        "madrun/add-fix-lint": true,
         "madrun/call-run": true,
         "madrun/convert-run-argument": true,
         "madrun/rename-series-to-run": true,
@@ -52,6 +53,28 @@ module.exports = {
 ```js
 module.exports = {
     'hello': () => 'world'
+};
+```
+# add-fix-lint-
+
+## ❌ Incorrect code example
+
+```js
+const {run} = require('madrun');
+
+module.exports = {
+    'lint': 'putout lib test',
+};
+```
+
+## ✅ Correct code Example
+
+```js
+const {run} = require('madrun');
+
+module.exports = {
+    'lint': 'putout lib test',
+    'fix:lint': run('lint', '--fix'),
 };
 ```
 
