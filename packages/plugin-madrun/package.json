@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-madrun",
-  "version": "1.15.1",
+  "version": "2.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove process.exit",
   "homepage": "http://github.com/coderaiser/putout",
@@ -44,7 +44,7 @@
     "nyc": "^14.0.0"
   },
   "peerDependencies": {
-    "putout": ">=4.41"
+    "putout": ">=5.12"
   },
   "license": "MIT",
   "engines": {
