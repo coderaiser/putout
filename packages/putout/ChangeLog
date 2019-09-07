@@ -1,3 +1,11 @@
+2019.09.07, v5.11.2
+
+feature:
+- (package) yargs-parser v14.0.0
+- (putout) eslint-plugin-node v10.0.0
+- (madrun) add-function: add support of CallExpression
+
+
 2019.09.02, v5.11.1
 
 fix:
