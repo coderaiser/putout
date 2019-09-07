@@ -470,6 +470,89 @@ test('putout: plugin: return push in traverse', (t) => {
     t.end();
 });
 
+test('putout: plugin: traverse: template', (t) => {
+    const exp = {
+        report: () => '',
+        fix: () => {},
+        traverse: ({push}) => ({
+            'module.exports = {}'(path) {
+                push(path);
+            },
+        }),
+    };
+    
+    const {places} = putout('module.exports = {a: 1}', {
+        plugins: [{
+            exp,
+        }],
+    });
+    
+    const expected = [{
+        rule: 'exp',
+        message: '',
+        position: {
+            line: 1,
+            column: 0,
+        },
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: plugin: traverse: template: __', (t) => {
+    const exp = {
+        report: () => '',
+        fix: () => {},
+        traverse: ({push}) => ({
+            'module.exports = __'(path) {
+                push(path);
+            },
+        }),
+    };
+    
+    const {places} = putout('module.exports = {a: 1}', {
+        plugins: [{
+            exp,
+        }],
+    });
+    
+    const expected = [{
+        rule: 'exp',
+        message: '',
+        position: {
+            line: 1,
+            column: 0,
+        },
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: plugin: traverse: template: different', (t) => {
+    const exp = {
+        report: () => '',
+        fix: () => {},
+        traverse: ({push}) => ({
+            'module.exports = {}'(path) {
+                push(path);
+            },
+        }),
+    };
+    
+    const {places} = putout('module.exports = 1', {
+        plugins: [{
+            exp,
+        }],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
 test('putout: recast destructuring assign', (t) => {
     const result = putout(fixture.recastDestructuringAssign, {
         plugins: [

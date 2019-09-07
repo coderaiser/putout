@@ -34,6 +34,7 @@ module.exports = {
     },
     'fix:lint': () => run('lint', '--fix'),
     'lint:progress': () => run('lint', '--fix --f progress'),
+    'lint:p': () => run('lint:progress'),
     'putout': () => `bin/putout.js bin lib test madrun.js`,
     'coverage': () => `nyc ${run('test')}`,
     'report': () => `nyc report --reporter=text-lcov | coveralls || true`,

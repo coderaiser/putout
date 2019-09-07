@@ -25,6 +25,7 @@
     "lint": "madrun lint",
     "fix:lint": "madrun fix:lint",
     "lint:progress": "madrun lint:progress",
+    "lint:p": "madrun lint:p",
     "putout": "madrun putout",
     "coverage": "madrun coverage",
     "report": "madrun report"

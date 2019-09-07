@@ -2,10 +2,12 @@
 
 const generate = require('@babel/generator').default;
 const traverse = require('@babel/traverse').default;
+
 const {merge} = traverse.visitors;
 
 const runFix = require('./run-fix');
 const {getPosition} = require('./get-position');
+const template = require('./template');
 
 const shouldSkip = (a) => !a.parent;
 
@@ -22,11 +24,13 @@ module.exports = (pluginsToMerge, {fix, parser}) => {
         
         pushed[rule] = pull;
         
-        mergeItems.push(plugin.traverse({
+        const visitor = plugin.traverse({
             push,
             generate,
             options,
-        }));
+        });
+        
+        mergeItems.push(template(visitor));
     }
     
     const entries = Object.entries(pushed);
