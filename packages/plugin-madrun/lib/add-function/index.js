@@ -5,7 +5,10 @@ const {
     operate,
 } = require('putout');
 
-const {replaceWith} = operate;
+const {
+    replaceWith,
+    isModuleExports,
+} = operate;
 
 const {
     isLiteral,
@@ -19,9 +22,9 @@ module.exports.report = ({name}) => `function should be used instead of string i
 module.exports.traverse = ({push}) => {
     return {
         AssignmentExpression(path) {
-            const {right} = path.node;
+            const {left, right} = path.node;
             
-            if (!isModuleExports(path))
+            if (!isModuleExports(left))
                 return;
             
             if (!isObjectExpression(right))
@@ -46,16 +49,4 @@ module.exports.traverse = ({push}) => {
 module.exports.fix = ({path}) => {
     replaceWith(path, arrowFunctionExpression([], path.node));
 };
-
-function isModuleExports(path) {
-    const isModule = path.get('left.object').isIdentifier({
-        name: 'module',
-    });
-    
-    const isExports = path.get('left.property').isIdentifier({
-        name: 'exports',
-    });
-    
-    return isModule && isExports;
-}
 

@@ -12,7 +12,6 @@ const {
 } = putout;
 
 const operate = require('..');
-
 const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures();
@@ -23,8 +22,7 @@ const {
 } = types;
 
 test('putout: operate: replaceWith', (t) => {
-    const node = {
-    };
+    const node = {};
     const replaceWith = stub();
     
     const path = {
@@ -248,3 +246,63 @@ test('putout: operate: replaceWithMultiple: empty array', (t) => {
     t.end();
 });
 
+test('putout: operate: isModuleExports: path', (t) => {
+    const ast = parse(`module.exports = 'hello'`);
+    let is;
+    
+    traverse(ast, {
+        AssignmentExpression(path) {
+            const obj = path.get('left');
+            is = operate.isModuleExports(obj);
+            path.stop();
+        },
+    });
+    
+    t.ok(is, 'module.exports exists');
+    t.end();
+});
+
+test('putout: operate: isModuleExports: node', (t) => {
+    const ast = parse(`module.exports = 'hello'`);
+    let is;
+    
+    traverse(ast, {
+        AssignmentExpression(path) {
+            is = operate.isModuleExports(path.node.left);
+            path.stop();
+        },
+    });
+    
+    t.ok(is, 'module.exports exists');
+    t.end();
+});
+
+test('putout: operate: isModuleExports: no module', (t) => {
+    const ast = parse(`a.exports = 'hello'`);
+    let is;
+    
+    traverse(ast, {
+        AssignmentExpression(path) {
+            is = operate.isModuleExports(path.node.left);
+            path.stop();
+        },
+    });
+    
+    t.notOk(is, 'module.exports exists');
+    t.end();
+});
+
+test('putout: operate: isModuleExports: no exports', (t) => {
+    const ast = parse(`module.b = 'hello'`);
+    let is;
+    
+    traverse(ast, {
+        AssignmentExpression(path) {
+            is = operate.isModuleExports(path.node.left);
+            path.stop();
+        },
+    });
+    
+    t.notOk(is, 'module.exports exists');
+    t.end();
+});

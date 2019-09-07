@@ -1,7 +1,10 @@
 'use strict';
 
 const {types, operate} = require('putout');
-const {replaceWith} = operate;
+const {
+    replaceWith,
+    isModuleExports,
+} = operate;
 const {
     ReturnStatement,
     isCallExpression,
@@ -73,16 +76,6 @@ function isTraverseLastExpression(body) {
     return isIdentifier(callee, {
         name: 'traverse',
     });
-}
-
-function isModuleExports(path) {
-    if (!path.node)
-        return;
-    
-    const isModule = path.get('object').isIdentifier({name: 'module'});
-    const isExports = path.get('property').isIdentifier({name: 'exports'});
-    
-    return isModule && isExports;
 }
 
 function isReturn(path) {

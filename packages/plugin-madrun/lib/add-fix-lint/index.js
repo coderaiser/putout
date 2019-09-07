@@ -6,7 +6,10 @@ const {
     template,
 } = require('putout');
 
-const {replaceWithMultiple} = operate;
+const {
+    replaceWithMultiple,
+    isModuleExports,
+} = operate;
 
 const {
     isIdentifier,
@@ -74,22 +77,5 @@ function getLintProperties(propertiesPaths) {
     }
     
     return result;
-}
-
-function isModuleExports(path) {
-    const {
-        node = path,
-    } = path;
-    const {object, property} = node;
-    
-    const isModule = isIdentifier(object, {
-        name: 'module',
-    });
-    
-    const isExports = isIdentifier(property, {
-        name: 'exports',
-    });
-    
-    return isModule && isExports;
 }
 

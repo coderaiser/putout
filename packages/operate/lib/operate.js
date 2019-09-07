@@ -1,5 +1,8 @@
 'use strict';
 
+const {types} = require('putout');
+const {isIdentifier} = types;
+
 const {assign} = Object;
 
 module.exports.replaceWith = replaceWith;
@@ -38,5 +41,18 @@ module.exports.insertAfter = (path, node) => {
     
     path.insertAfter(node);
     path.node.comments = comments;
+};
+
+module.exports.isModuleExports = (path) => {
+    const {
+        node = path,
+    } = path;
+    
+    const {object, property} = node;
+    
+    const isModule = isIdentifier(object, {name: 'module'});
+    const isExports = isIdentifier(property, {name: 'exports'});
+    
+    return isModule && isExports;
 };
 
