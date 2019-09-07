@@ -40,6 +40,10 @@ replaceWith(path, [
 ]);
 ```
 
+### isModuleExports(path)
+
+Check if currentPath is `module.exports` expression.
+
 ## License
 
 MIT
