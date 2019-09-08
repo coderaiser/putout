@@ -4,7 +4,7 @@ const template = require('@babel/template').default;
 const {isIdentifier} = require('@babel/types');
 
 const isObject = (a) => typeof a === 'object';
-const isTemplate = (a) => /[(;={]/.test(a);
+const isTemplate = (a) => /[(;={]/.test(a) || !/[A-Z]/.test(a);
 
 module.exports = (visitor) => {
     const entries = Object.entries(visitor);
@@ -16,7 +16,8 @@ module.exports = (visitor) => {
             continue;
         }
         
-        const node = template.ast(tmpl).expression;
+        const result = template.ast(tmpl);
+        const node = result.expression || result;
         const {type} = node;
         
         const visit = wrapWithCheck(node, fn);

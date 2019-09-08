@@ -500,6 +500,36 @@ test('putout: plugin: traverse: template', (t) => {
     t.end();
 });
 
+test('putout: plugin: traverse: template: word', (t) => {
+    const exp = {
+        report: () => '',
+        fix: () => {},
+        traverse: ({push}) => ({
+            'debugger'(path) {
+                push(path);
+            },
+        }),
+    };
+    
+    const {places} = putout('debugger; module.exports = {a: 1}', {
+        plugins: [{
+            exp,
+        }],
+    });
+    
+    const expected = [{
+        rule: 'exp',
+        message: '',
+        position: {
+            line: 1,
+            column: 0,
+        },
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
 test('putout: plugin: traverse: template: __', (t) => {
     const exp = {
         report: () => '',
