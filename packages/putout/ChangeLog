@@ -1,3 +1,10 @@
+2019.09.08, v5.13.0
+
+feature:
+- (package) @putout/plugin-convert-math-pow v2.0.0
+- (@putout/plugin-convert-math-pow) traverse: template
+
+
 2019.09.07, v5.12.1
 
 feature:
