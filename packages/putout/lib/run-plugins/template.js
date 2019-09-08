@@ -1,7 +1,10 @@
 'use strict';
 
 const template = require('@babel/template').default;
-const {isIdentifier} = require('@babel/types');
+const {
+    isIdentifier,
+    isLiteral,
+} = require('@babel/types');
 
 const isObject = (a) => typeof a === 'object';
 const isTemplate = (a) => /[(;={]/.test(a) || !/[A-Z]/.test(a);
@@ -54,6 +57,9 @@ function compare(baseNode, pathNode) {
             continue;
         
         if (isIdentifier(value, {name: '__'}))
+            continue;
+        
+        if (isLiteral(value, {value: '__'}))
             continue;
         
         if (value && isObject(value) && compare(value, pathValue))
