@@ -29,24 +29,8 @@ module.exports.fix = ({lintLib, fixLint, lint}) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        MemberExpression(path) {
-            const {object, property} = path.node;
-            
-            if (!isIdentifier(object, {name: 'module'}))
-                return;
-            
-            if (!isIdentifier(property, {name: 'exports'}))
-                return;
-            
-            const {parentPath} = path;
-            
-            if (!parentPath.isAssignmentExpression())
-                return;
-            
-            const rightPath = parentPath.get('right');
-            
-            if (!rightPath.isObjectExpression())
-                return;
+        'module.exports = {}'(path){
+            const rightPath = path.get('right');
             
             const {
                 isLintMore,
