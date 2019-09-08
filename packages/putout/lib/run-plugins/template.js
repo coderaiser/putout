@@ -50,7 +50,7 @@ function compare(baseNode, pathNode) {
         if (value === pathValue)
             continue;
         
-        if (isObject(value) && compare(value, pathValue))
+        if (value && isObject(value) && compare(value, pathValue))
             continue;
         
         return false;
