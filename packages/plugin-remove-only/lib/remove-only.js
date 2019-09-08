@@ -12,9 +12,7 @@ module.exports.fix = ({node}) => {
     node.callee = node.callee.object;
 };
 
-module.exports.traverse = ({
-    push,
-}) => {
+module.exports.traverse = ({push}) => {
     return {
         CallExpression(path) {
             const {node} = path;
