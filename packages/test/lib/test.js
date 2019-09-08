@@ -30,46 +30,46 @@ const readFixture = (name) => {
     return [readFileSync(`${name}.js`, 'utf8'), TS.DISABLED];
 };
 
-const wrap = (dir, plugin, test) => (str, fn) => {
+const wrap = (dir, plugin, rules, test) => (str, fn) => {
     test(str, (t) => {
-        t.transform = transform(t, dir, plugin);
-        t.noTransform = noTransform(t, dir, plugin);
-        t.transformCode = transformCode(t, plugin);
-        t.noTransformCode = noTransformCode(t, plugin);
+        t.transform = transform(t, dir, plugin, rules);
+        t.noTransform = noTransform(t, dir, plugin, rules);
+        t.transformCode = transformCode(t, plugin, rules);
+        t.noTransformCode = noTransformCode(t, plugin, rules);
         
-        t.report = report(t, dir, plugin);
-        t.reportCode = reportCode(t, plugin);
+        t.report = report(t, dir, plugin, rules);
+        t.reportCode = reportCode(t, plugin, rules);
         
-        t.formatSave = formatSave(t, dir, plugin);
-        t.format = UPDATE ? t.formatSave : format(t, dir, plugin);
-        t.formatManySave = formatManySave(t, dir, plugin);
-        t.formatMany = UPDATE ? t.formatManySave : formatMany(t, dir, plugin);
-        t.noFormat = noFormat(t, dir, plugin);
+        t.formatSave = formatSave(t, dir, plugin, rules);
+        t.format = UPDATE ? t.formatSave : format(t, dir, plugin, rules);
+        t.formatManySave = formatManySave(t, dir, plugin, rules);
+        t.formatMany = UPDATE ? t.formatManySave : formatMany(t, dir, plugin, rules);
+        t.noFormat = noFormat(t, dir, plugin, rules);
         
         fn(t);
     });
 };
 
-module.exports = (dir, plugin) => {
+module.exports = (dir, plugin, rules) => {
     const dirFixture = join(dir, 'fixture');
     const plugins = getPlugins(plugin);
     
-    const newTape = wrap(dirFixture, plugins, tape);
-    newTape.only = wrap(dirFixture, plugins, tape.only);
-    newTape.skip = wrap(dirFixture, plugins, tape.skip);
+    const newTape = wrap(dirFixture, plugins, rules, tape);
+    newTape.only = wrap(dirFixture, plugins, rules, tape.only);
+    newTape.skip = wrap(dirFixture, plugins, rules, tape.skip);
     
     preTest(tape, plugin);
     
     return newTape;
 };
 
-const format = (t, dir, plugins) => (formatter, name) => {
+const format = (t, dir, plugins, rules) => (formatter, name) => {
     const full = join(dir, name);
     const outputName = `${full}-format`;
     const [input, isTS] = readFixture(full);
     const [expected] = readFixture(outputName);
     
-    const {places} = putout(input, {fixCount: 1, isTS, plugins});
+    const {places} = putout(input, {fixCount: 1, isTS, plugins, rules});
     
     const report = putout.initReport();
     const result = report(formatter, {
@@ -83,11 +83,11 @@ const format = (t, dir, plugins) => (formatter, name) => {
     return result;
 };
 
-const noFormat = (t, dir, plugins) => (formatter, name) => {
+const noFormat = (t, dir, plugins, rules) => (formatter, name) => {
     const full = join(dir, name);
     const [input] = readFixture(full);
     
-    const {places} = putout(input, {plugins});
+    const {places} = putout(input, {plugins, rules});
     
     const report = putout.initReport();
     const result = report(formatter, {
@@ -100,7 +100,7 @@ const noFormat = (t, dir, plugins) => (formatter, name) => {
     return result;
 };
 
-const formatMany = (t, dir, plugins) => (formatter, names) => {
+const formatMany = (t, dir, plugins, rules) => (formatter, names) => {
     const joinTwo = (a) => (b) => join(a, b);
     const fullNames = names.map(joinTwo(dir));
     
@@ -113,7 +113,7 @@ const formatMany = (t, dir, plugins) => (formatter, names) => {
         const full = fullNames[index];
         const [input] = readFixture(full);
         
-        const {places} = putout(input, {fixCount: 1, plugins});
+        const {places} = putout(input, {fixCount: 1, plugins, rules});
         
         result += report(formatter, {
             name,
@@ -132,31 +132,31 @@ const formatMany = (t, dir, plugins) => (formatter, names) => {
     return result;
 };
 
-const formatManySave = (t, dir, plugins) => (formatter, names) => {
+const formatManySave = (t, dir, plugins, rules) => (formatter, names) => {
     const name = `${names.join('-')}-format.js`;
     const outputName = join(dir, name);
     
     if (!existsSync(outputName))
         writeFileSync(outputName, '');
     
-    const result = formatMany(t, dir, plugins)(formatter, names);
+    const result = formatMany(t, dir, plugins, rules)(formatter, names);
     
     writeFileSync(outputName, result);
 };
 
-const formatSave = (t, dir, plugins) => (formatter, name) => {
+const formatSave = (t, dir, plugins, rules) => (formatter, name) => {
     const full = join(dir, name);
     const outputName = `${full}-format.js`;
     
     if (!existsSync(outputName))
         writeFileSync(outputName, '');
     
-    const result = format(t, dir, plugins)(formatter, name);
+    const result = format(t, dir, plugins, rules)(formatter, name);
     
     writeFileSync(outputName, result);
 };
 
-const transform = (t, dir, plugins) => (name, transformed, addons) => {
+const transform = (t, dir, plugins, rules) => (name, transformed, addons) => {
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
     const isStr = isString(transformed);
@@ -171,40 +171,40 @@ const transform = (t, dir, plugins) => (name, transformed, addons) => {
         ...addons,
     };
     
-    transformCode(t, plugins)(input, output, isTS);
+    transformCode(t, plugins, rules)(input, output, isTS);
 };
 
-const noTransform = (t, dir, plugins) => (name, transformed, addons) => {
+const noTransform = (t, dir, plugins, rules) => (name, transformed, addons) => {
     const full = join(dir, name);
     const [fixture] = readFixture(full);
     
-    transform(t, dir, plugins)(name, fixture, addons);
+    transform(t, dir, plugins, rules)(name, fixture, addons);
 };
 
-const transformCode = (t, plugins) => (input, output, isTS) => {
-    const {code} = putout(input, {isTS, plugins});
+const transformCode = (t, plugins, rules) => (input, output, isTS) => {
+    const {code} = putout(input, {isTS, plugins, rules});
     
     t.equal(code, output, 'should equal');
 };
 
-const noTransformCode = (t, plugins) => (input) => {
-    const {code} = putout(input, {plugins});
+const noTransformCode = (t, plugins, rules) => (input) => {
+    const {code} = putout(input, {plugins, rules});
     
     t.equal(code, input, 'should equal');
 };
 
 const getMessage = ({message}) => message;
 
-const report = (t, dir, plugins) => (name, message) => {
+const report = (t, dir, plugins, rules) => (name, message) => {
     const full = join(dir, name);
     const [source] = readFixture(full);
     
-    reportCode(t, plugins)(source, message);
+    reportCode(t, plugins, rules)(source, message);
 };
 
-const reportCode = (t, plugins) => (source, message) => {
+const reportCode = (t, plugins, rules) => (source, message) => {
     const fix = false;
-    const {places} = putout(source, {fix, plugins});
+    const {places} = putout(source, {fix, plugins, rules});
     const resultMessages = places.map(getMessage);
     
     if (isArray(message)) {
