@@ -32,51 +32,36 @@ module.exports.fix = ({name, path, rightPath}) => {
     replaceWith(parentPath, ExportNamedDeclaration(declarator, specifiers));
 };
 
-const isObject = (path) => path.isIdentifier({
-    name:'module',
-});
-
-const isExports = (path) => path.isIdentifier({
-    name: 'exports',
-});
-
 module.exports.traverse = ({push}) => {
     return {
-        AssignmentExpression(path) {
+        'module.exports = __'(path) {
             const {parentPath} = path;
             
             if (parentPath.isSequenceExpression())
                 return;
             
-            const leftPath = path.get('left');
             const rightPath = path.get('right');
             
-            if (!leftPath.isMemberExpression()) {
-                return;
-            }
+            push({
+                path,
+                rightPath,
+            });
+        },
+        'module.exports.__ = __'(path) {
+            const {parentPath} = path;
             
-            const objectPath = leftPath.get('object');
-            const propertyPath = leftPath.get('property');
-            
-            if (isObject(objectPath) && isExports(propertyPath))
-                return push({
-                    path,
-                    rightPath,
-                });
-            
-            if (!objectPath.isMemberExpression())
+            if (parentPath.isSequenceExpression())
                 return;
             
-            const nestedObjectPath = objectPath.get('object');
-            const nestedPropertyPath = objectPath.get('property');
+            const rightPath = path.get('right');
+            const propertyPath = path.get('left.property');
             const {name} = propertyPath.node;
             
-            if (isObject(nestedObjectPath) && isExports(nestedPropertyPath))
-                return push({
-                    name,
-                    path,
-                    rightPath,
-                });
+            return push({
+                name,
+                path,
+                rightPath,
+            });
         },
     };
 };
