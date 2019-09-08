@@ -14,7 +14,7 @@ module.exports = merge([
                         return false;
                     }
                     
-                    return /fixture|acorn-?|@babel\/parser|espree|esprima|jscodeshift|@babel\/core|tape|@putout\/test/.test(context);
+                    return /fixture|acorn-?|espree|esprima|jscodeshift|@babel\/core|tape|@putout\/test/.test(context);
                 },
             }),
         ],
