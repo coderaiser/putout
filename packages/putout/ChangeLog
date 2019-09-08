@@ -1,3 +1,13 @@
+2019.09.08, v5.15.0
+
+fix:
+- (@putout/plugin-putout) convert-find-to-traverse: template
+
+feature:
+- (package) @putout/plugin-remove-console v2.0.0: templates
+- (putout) template: add support of literal "__"
+
+
 2019.09.08, v5.14.1
 
 fix:
