@@ -42,7 +42,7 @@
     "redrun": "^7.0.2"
   },
   "peerDependencies": {
-    "putout": ">=4.31"
+    "putout": ">=5.13"
   },
   "license": "MIT",
   "engines": {

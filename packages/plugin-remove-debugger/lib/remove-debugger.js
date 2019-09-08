@@ -8,7 +8,7 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        DebuggerStatement(path) {
+        'debugger'(path) {
             push(path);
         },
     };
