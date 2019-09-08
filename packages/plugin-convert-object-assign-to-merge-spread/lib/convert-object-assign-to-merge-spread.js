@@ -11,7 +11,6 @@ const {
     ObjectExpression,
     SpreadElement,
     isObjectExpression,
-    isIdentifier,
 } = types;
 
 module.exports.report = () => 'Merge spread should be used instead of Object.assign';
@@ -34,25 +33,8 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        CallExpression(path) {
-            const {node} = path;
-            
-            if (!isObjectAssign(node))
-                return;
-            
-            const [first] = node.arguments;
-            
-            if (isObjectExpression(first))
-                push(path);
+        'Object.assign({})'(path) {
+            push(path);
         },
     };
 };
-
-function isObjectAssign(node) {
-    const {callee} = node;
-    const isObject = isIdentifier(callee.object, {name: 'Object'});
-    const isAssign = isIdentifier(callee.property, {name: 'assign'});
-    
-    return isObject && isAssign;
-}
-
