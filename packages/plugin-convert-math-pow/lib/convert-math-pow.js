@@ -6,7 +6,6 @@ const {
 } = require('putout');
 
 const {replaceWith} = operate;
-
 const {binaryExpression} = types;
 
 module.exports.report = () => 'operator "**" should be used instead of Math.pow';
@@ -17,24 +16,9 @@ module.exports.fix = ({path, left, right}) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        CallExpression(path) {
-            const calleePath = path.get('callee');
-            
-            if (!calleePath.isMemberExpression())
-                return;
-            
-            const isMath = calleePath
-                .get('object')
-                .isIdentifier({name: 'Math'});
-            
-            const isPow = calleePath
-                .get('property')
-                .isIdentifier({name: 'pow'});
-            
-            if (!isMath || !isPow)
-                return;
-            
+        'Math.pow(__)'(path) {
             const [left, right] = path.node.arguments;
+            
             push({
                 path,
                 left,
