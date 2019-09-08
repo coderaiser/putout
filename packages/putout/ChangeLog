@@ -1,3 +1,10 @@
+2019.09.08, v5.13.1
+
+feature:
+- (package) @putout/plugin-remove-debugger v2.0.0
+- (@putout/plugin-remove-debugger) template
+
+
 2019.09.08, v5.13.0
 
 feature:
