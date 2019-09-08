@@ -26,7 +26,7 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        'module.exports = {}'(path) {
+        'module.exports.find = () => {}'(path) {
             const leftPath = path.get('left');
             const propertyPath = leftPath.get('property');
             
