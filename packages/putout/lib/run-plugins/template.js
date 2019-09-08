@@ -6,22 +6,28 @@ const {isIdentifier} = require('@babel/types');
 const isObject = (a) => typeof a === 'object';
 const isTemplate = (a) => /[(;={]/.test(a) || !/[A-Z]/.test(a);
 
+const generate = templater();
+
 module.exports = (visitor) => {
     const entries = Object.entries(visitor);
-    const parsed = {};
+    const parsed = [];
     
     for (const [tmpl, fn] of entries) {
         if (!isTemplate(tmpl)) {
-            parsed[tmpl] = fn;
+            parsed.push({
+                [tmpl]: fn,
+            });
             continue;
         }
         
-        const result = template.ast(tmpl);
+        const result = generate(tmpl);
         const node = result.expression || result;
         const {type} = node;
         
         const visit = wrapWithCheck(node, fn);
-        parsed[type] = visit;
+        parsed.push({
+            [type]: visit,
+        });
     }
     
     return parsed;
@@ -44,10 +50,10 @@ function compare(baseNode, pathNode) {
         const value = baseNode[key];
         const pathValue = pathNode[key];
         
-        if (isIdentifier(value, {name: '__'}))
+        if (value === pathValue)
             continue;
         
-        if (value === pathValue)
+        if (isIdentifier(value, {name: '__'}))
             continue;
         
         if (value && isObject(value) && compare(value, pathValue))
@@ -57,5 +63,18 @@ function compare(baseNode, pathNode) {
     }
     
     return true;
+}
+
+function templater() {
+    const cache = {};
+    
+    return (value) => {
+        if (cache[value])
+            return cache[value];
+        
+        cache[value] = template.ast(value);
+        
+        return cache[value];
+    };
 }
 
