@@ -8,7 +8,6 @@ const {
 const {replaceWith} = operate;
 
 const {
-    isIdentifier,
     isCallExpression,
     StringLiteral,
 } = types;

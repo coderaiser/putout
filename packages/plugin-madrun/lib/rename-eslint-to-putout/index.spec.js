@@ -14,8 +14,13 @@ test('madrun: convert run argument: transform: eslint', (t) => {
     t.end();
 });
 
+test('madrun: convert run argument: transform: template', (t) => {
+    t.transform('template');
+    t.end();
+});
+
 test('madrun: convert run argument: no transform: putout', (t) => {
-    t.noTransform('putout');
+    t.noTransform('eslint-fix');
     t.end();
 });
 

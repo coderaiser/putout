@@ -34,6 +34,7 @@ Add `.putout.json` with:
         "madrun/call-run": true,
         "madrun/convert-run-argument": true,
         "madrun/rename-series-to-run": true,
+        "madrun/rename-eslint-to-putout": true,
     }
 }
 ```
@@ -111,6 +112,24 @@ module.exports = {
 ```js
 module.exports = {
     'hello': () => run('a'),
+};
+```
+
+# rename-eslint-to-putout
+
+## ❌ Incorrect code example
+
+```js
+module.exports = {
+    'lint': 'eslint lib test --ignore test/fixture',
+};
+```
+
+## ✅ Correct code Example
+
+```js
+module.exports = {
+    'lint': 'putout lib test',
 };
 ```
 

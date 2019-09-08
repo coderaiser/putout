@@ -1,14 +1,3 @@
-const {eslint} = predefined;
-
 module.exports = {
-    'lint': () => {
-        const names = [
-            'bin',
-            'lib',
-            'test',
-            'madrun.js',
-        ];
-
-        return eslint({names});
-    },
+    'lint': () => 'eslint bin lib test --ignore test/fixture'
 }

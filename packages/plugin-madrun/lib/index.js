@@ -12,6 +12,7 @@ module.exports.rules = {
     ...getRule('rename-series-to-run'),
     ...getRule('convert-run-argument'),
     ...getRule('convert-lint-lib'),
+    ...getRule('rename-predefined-eslint-to-putout'),
     ...getRule('rename-eslint-to-putout'),
 };
 

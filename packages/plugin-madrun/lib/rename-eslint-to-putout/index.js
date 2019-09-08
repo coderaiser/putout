@@ -1,83 +1,44 @@
 'use strict';
 
-const {types: t} = require('putout');
+const {types} = require('putout');
+const {isStringLiteral} = types;
+
+const replace = (a) => a
+    .replace('eslint', 'putout')
+    .replace(/\s--ignore.*/, '');
 
 module.exports.report = () => `"putout" should be used instead of "eslint"`;
 
-module.exports.fix = ({eslint}) => {
-    eslint.scope.rename('eslint', 'putout');
+module.exports.fix = (path) => {
+    const {value} = path.node;
+    
+    if (path.isStringLiteral())
+        return path.node.value = replace(value);
+    
+    if (path.isTemplateElement())
+        return path.node.value.raw = replace(value.raw);
 };
 
 module.exports.traverse = ({push}) => {
     return {
-        VariableDeclarator(path) {
-            if (!isPredefined(path.get('init')))
-                return;
+        'module.exports = {}'(path) {
+            const properties = path.get('right.properties');
             
-            const idPath = path.get('id');
-            
-            if (!idPath.isObjectPattern())
-                return;
-            
-            const properties = idPath.get('properties');
-            const {eslint, putout} = getPredefined(properties);
-            
-            if (!eslint || putout)
-                return;
-            
-            if (isRulesdir(eslint.scope.bindings))
-                return;
-            
-            push({
-                eslint,
-                path,
-            });
+            for (const prop of properties) {
+                const {key} = prop.node;
+                
+                if (!isStringLiteral(key))
+                    continue;
+                
+                const body = prop.get('value.body');
+                
+                if (body.isStringLiteral() && body.node.value.includes('eslint'))
+                    return push(body);
+                
+                if (body.isTemplateLiteral() && body.node.quasis[0].value.raw.includes('eslint'))
+                    return push(body.get('quasis.0'));
+            }
         },
+    
     };
 };
-
-function isPredefined(path) {
-    return path.isIdentifier({
-        name: 'predefined',
-    });
-}
-
-function getPredefined(properties) {
-    const result = {};
-    
-    for (const property of properties) {
-        const key = property.get('key');
-        
-        if (key.isIdentifier({name: 'eslint'}))
-            result.eslint = key;
-        
-        if (key.isIdentifier({name: 'putout'}))
-            result.putout = key;
-    }
-    
-    return result;
-}
-
-function isRulesdir({eslint}) {
-    if (!eslint)
-        return false;
-    
-    const {referencePaths} = eslint;
-    
-    for (const {parentPath} of referencePaths) {
-        if (!parentPath.isCallExpression())
-            continue;
-        
-        const argumentsPath = parentPath.get('arguments.0');
-        
-        if (!argumentsPath.isObjectExpression())
-            continue;
-        
-        for (const {key} of argumentsPath.node.properties) {
-            if (t.isIdentifier(key, {name: 'rulesdir'}))
-                return true;
-        }
-    }
-    
-    return false;
-}
