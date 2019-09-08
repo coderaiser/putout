@@ -42,7 +42,7 @@ const isRoot = (path) => path.isFunction();
 
 module.exports.traverse = ({push}) => {
     return {
-        ReturnStatement(path) {
+        'return __'(path) {
             const fnPath = path.findParent(isRoot);
             
             if (!fnPath)
