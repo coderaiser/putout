@@ -11,8 +11,9 @@ module.exports.fix = ({path, varPath}) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        ForOfStatement(path) {
-            const varPath = path.get('left.declarations.0.id');
+        'for (const __ of __) {}'(path) {
+            const leftPath = path.get('left');
+            const varPath = leftPath.get('declarations.0.id');
             
             if (!varPath.isIdentifier())
                 return;
