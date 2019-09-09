@@ -1,3 +1,12 @@
+2019.09.09, v5.15.1
+
+feature:
+- (package) @putout/plugin-remove-useless-variables v2.0.0
+- (@putout/plugin-remove-useless-variables) template
+- (@putout/test) add ability to pass rules
+- (madrun) convert-lint-lib: template
+
+
 2019.09.08, v5.15.0
 
 fix:
