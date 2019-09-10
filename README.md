@@ -501,7 +501,7 @@ To configure `putout` add section `putout` to your `package.json` file or create
 
 You can disable rules and pass options using `rules` section:
 
-```
+```json
 {
     "rules": {
         "remove-unused-variables": ["on", {
