@@ -1,7 +1,10 @@
 'use strict';
 
 const template = require('@babel/template').default;
-const compare = require('./compare');
+const {
+    compare,
+    compareAny,
+} = require('./compare');
 
 const isTemplate = (a) => /[(;={]/.test(a) || !/[A-Z]/.test(a);
 
@@ -11,21 +14,29 @@ const generateNode = ({exclude}) => {
     if (!exclude)
         return null;
     
-    if (!isTemplate(exclude))
-        return exclude;
+    const result = [];
     
-    return generate(exclude);
+    for (const tmpl of exclude) {
+        if (!isTemplate(tmpl)) {
+            result.push(tmpl);
+            continue;
+        }
+        
+        result.push(generate(tmpl));
+    }
+    
+    return result;
 };
 
-const exclude = ({tmpl, fn, nodeExclude}) => {
-    if (!nodeExclude)
+const exclude = ({tmpl, fn, nodesExclude}) => {
+    if (!nodesExclude)
         return {
             [tmpl]: fn,
         };
     
     const visit = wrapWithCheck({
         fn,
-        nodeExclude,
+        nodesExclude,
     });
     
     return {
@@ -36,14 +47,14 @@ const exclude = ({tmpl, fn, nodeExclude}) => {
 module.exports = (visitor, options) => {
     const parsed = [];
     const entries = Object.entries(visitor);
-    const nodeExclude = generateNode(options);
+    const nodesExclude = generateNode(options);
     
     for (const [tmpl, fn] of entries) {
         if (!isTemplate(tmpl)) {
             parsed.push(exclude({
                 tmpl,
                 fn,
-                nodeExclude,
+                nodesExclude,
             }));
             continue;
         }
@@ -53,7 +64,7 @@ module.exports = (visitor, options) => {
         
         const visit = wrapWithCheck({
             nodeInclude,
-            nodeExclude,
+            nodesExclude,
             fn,
         });
         
@@ -65,9 +76,9 @@ module.exports = (visitor, options) => {
     return parsed;
 };
 
-function wrapWithCheck({nodeInclude, nodeExclude, fn}) {
+function wrapWithCheck({nodeInclude, nodesExclude, fn}) {
     return (path) => {
-        if (nodeExclude && compare(path, nodeExclude, path.node))
+        if (nodesExclude && compareAny(path, nodesExclude, path.node))
             return path.skip();
         
         if (nodeInclude && !compare(path, nodeInclude, path.node))

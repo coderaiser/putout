@@ -6,6 +6,7 @@ const {
 } = require('@babel/types');
 
 const isObject = (a) => typeof a === 'object';
+const isUndefined = (a) => typeof a === 'undefined';
 const compareType = (type) => (path) => path.type === type;
 const findParent = (path, type) => {
     const newPathNode = path.findParent(compareType(type));
@@ -16,18 +17,29 @@ const findParent = (path, type) => {
     return newPathNode.node;
 };
 
-module.exports = (path, baseNode, pathNode) => {
+module.exports.compare = compare;
+
+function compare(path, baseNode, pathNode) {
     const {type} = baseNode;
     
     if (pathNode.type !== type) {
         const newPathNode = findParent(path, type);
-        return compare(baseNode, newPathNode);
+        return superCompare(baseNode, newPathNode);
     }
     
-    return compare(baseNode, pathNode);
+    return superCompare(baseNode, pathNode);
+}
+
+module.exports.compareAny = (path, baseNodes, pathNode) => {
+    for (const base of baseNodes) {
+        if (compare(path, base, pathNode))
+            return true;
+    }
+    
+    return false;
 };
 
-function compare(baseNode, pathNode) {
+function superCompare(baseNode, pathNode) {
     if (!baseNode || !pathNode)
         return;
     
@@ -38,6 +50,9 @@ function compare(baseNode, pathNode) {
         const value = baseNode[key];
         const pathValue = pathNode[key];
         
+        if (isUndefined(pathValue))
+            continue;
+        
         if (value === pathValue)
             continue;
         
@@ -47,7 +62,7 @@ function compare(baseNode, pathNode) {
         if (isLiteral(value, {value: '__'}))
             continue;
         
-        if (value && isObject(value) && compare(value, pathValue))
+        if (value && isObject(value) && superCompare(value, pathValue))
             continue;
         
         return false;
