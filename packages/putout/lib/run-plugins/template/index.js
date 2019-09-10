@@ -6,7 +6,9 @@ const {
     compareAny,
 } = require('./compare');
 
+const {isArray} = Array;
 const isTemplate = (a) => /[(;={]/.test(a) || !/[A-Z]/.test(a);
+const toArray = (a) => isArray(a) ? a : [a];
 
 const generate = templater();
 
@@ -14,7 +16,7 @@ const generateNode = ({exclude}) => {
     if (!exclude)
         return null;
     
-    return exclude.map(generate);
+    return toArray(exclude).map(generate);
 };
 
 const exclude = ({tmpl, fn, nodesExclude}) => {

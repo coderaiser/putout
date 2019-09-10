@@ -497,6 +497,23 @@ ESLINT_FORMATTER=pretty putout -f eslint lib
 
 To configure `putout` add section `putout` to your `package.json` file or create `.putout.json` file and override any of [default options](/packages/putout/putout.json).
 
+### Rules
+
+You can disable rules and pass options using `rules` section:
+
+```
+{
+    "rules": {
+        "remove-unused-variables": ["on", {
+            "exclude": "const global = __"
+        }]
+    }
+}
+```
+
+With help of `exclude` you can set code pattern to exclude using current rule.
+Pass an array when you have a couple templates to exclude.
+
 ### Match
 
 When you need to match paths to rules you can use `match` section for this purpose in `.putout.json`:

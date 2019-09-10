@@ -287,9 +287,7 @@ test('putout: plugin: traverse: template: exclude', (t) => {
     const {places} = putout('module.exports = {a: 1}', {
         rules: {
             exp: ['on', {
-                exclude: [
-                    'module.exports = __',
-                ],
+                exclude: 'module.exports = __',
             }],
         },
         plugins: [{
