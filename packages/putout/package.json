@@ -65,7 +65,7 @@
     "@putout/plugin-extract-sequence-expressions": "^1.0.0",
     "@putout/plugin-madrun": "^2.0.0",
     "@putout/plugin-merge-destructuring-properties": "^1.0.0",
-    "@putout/plugin-merge-if-statements": "^1.0.0",
+    "@putout/plugin-merge-if-statements": "^2.0.0",
     "@putout/plugin-putout": "^2.0.0",
     "@putout/plugin-remove-boolean-from-logical-expressions": "^1.0.0",
     "@putout/plugin-remove-console": "^2.0.0",
