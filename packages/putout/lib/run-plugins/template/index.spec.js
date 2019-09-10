@@ -354,7 +354,7 @@ test('putout: plugin: traverse: template: exclude: multiple', (t) => {
 });
 
 test('putout: plugin: traverse: template: exclude: fn', (t) => {
-    const {places} = putout(`const t = () => {}`, {
+    const {places} = putout(`const t = () => {a()}`, {
         fix: false,
         rules: {
             'remove-unused-variables': ['on', {
@@ -369,6 +369,34 @@ test('putout: plugin: traverse: template: exclude: fn', (t) => {
     });
     
     const expected = [];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: plugin: traverse: template: exclude: fn', (t) => {
+    const {places} = putout(`const t = __`, {
+        fix: false,
+        rules: {
+            'remove-unused-variables': ['on', {
+                exclude: [
+                    'function __() {}',
+                ],
+            }],
+        },
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = [{
+        message: '"t" is defined but never used',
+        position: {
+            column: 6,
+            line: 1,
+        },
+        rule: 'remove-unused-variables',
+    }];
     
     t.deepEqual(places, expected, 'should equal');
     t.end();

@@ -6,7 +6,6 @@ const {
 } = require('@babel/types');
 
 const isObject = (a) => typeof a === 'object';
-const isUndefined = (a) => typeof a === 'undefined';
 const compareType = (type) => (path) => path.type === type;
 const findParent = (path, type) => {
     const newPathNode = path.findParent(compareType(type));
@@ -44,14 +43,12 @@ function superCompare(baseNode, pathNode) {
         return;
     
     for (const key of Object.keys(baseNode)) {
-        if (key === 'loc')
+        // @babel/template creates empty array directives
+        if (/loc|directives/.test(key))
             continue;
         
         const value = baseNode[key];
         const pathValue = pathNode[key];
-        
-        if (isUndefined(pathValue))
-            continue;
         
         if (value === pathValue)
             continue;
