@@ -27,7 +27,7 @@ The main difference of `putout` is saving code transformation results directly i
 ## Install
 
 ```
-npm i putout -g
+npm i putout
 ```
 
 ## Usage
@@ -625,6 +625,23 @@ module.exports.traverse = ({push}) => {
 module.exports.fix = (path) => {
     path.remove();
 };
+```
+
+`Visitor` used in `traverse function` can be code template as well. So when you need to find `module.exports = <something>`, you
+can use:
+
+```
+module.exports.traverse = ({push}) => {
+    return {
+        'module.exports = __'(path) {
+            push(path);
+        }
+    }
+};
+
+Where `__` is a placeholder for anything.
+
+*Remember: template key should be valid JavaScript, or Type name like in previous example.*
 ```
 
 #### Testing
