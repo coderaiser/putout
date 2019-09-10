@@ -8,8 +8,8 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.find = (ast, {push}) => {
-    traverseClass(ast, {
+module.exports.find = (ast, {traverse, push}) => {
+    traverseClass(traverse, ast, {
         CallExpression(path) {
             const isBind = path
                 .get('callee.property')

@@ -10,9 +10,10 @@ module.exports.fix = ({path}) => {
     path.remove();
 };
 
-module.exports.find = (ast) => {
+module.exports.find = (ast, {traverse}) => {
     const vars = getVars(ast, {
         setPath: true,
+        traverse,
     });
     
     const transformed = transform(vars);

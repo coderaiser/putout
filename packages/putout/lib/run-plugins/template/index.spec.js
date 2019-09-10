@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('supertape');
-const putout = require('../putout');
+const putout = require('../../putout');
 
 test('putout: plugin: traverse: template', (t) => {
     const exp = {
@@ -302,3 +302,32 @@ test('putout: plugin: traverse: template: exclude', (t) => {
     t.deepEqual(places, expected, 'should equal');
     t.end();
 });
+
+test('putout: plugin: traverse: template: exclude', (t) => {
+    const {places} = putout(`const t = 'hi'; const m = 1`, {
+        fix: false,
+        rules: {
+            'remove-unused-variables': ['on', {
+                exclude: [
+                    'const t = __',
+                ],
+            }],
+        },
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = [{
+        message: '"m" is defined but never used',
+        position: {
+            column: 22,
+            line: 1,
+        },
+        rule: 'remove-unused-variables',
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+

@@ -34,8 +34,8 @@ module.exports.fix = (path) => {
         return setStateToHooks(path);
 };
 
-module.exports.find = (ast, {push}) => {
-    traverseClass(ast, {
+module.exports.find = (ast, {push, traverse}) => {
+    traverseClass(traverse, ast, {
         AssignmentExpression: AssignmentExpression(push),
         VariableDeclarator: VariableDeclarator(push),
         CallExpression: CallExpression(push),

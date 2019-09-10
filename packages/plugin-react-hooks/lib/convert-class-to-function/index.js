@@ -11,8 +11,8 @@ module.exports.fix = ({path}) => {
     classToFunction(path);
 };
 
-module.exports.find = (ast, {push}) => {
-    traverseClass(ast, {
+module.exports.find = (ast, {push, traverse}) => {
+    traverseClass(traverse, ast, {
         Identifier(path) {
             const {name} = path.node;
             const {parentPath} = path;

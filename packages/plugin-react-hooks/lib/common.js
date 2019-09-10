@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    types,
-    traverse,
-} = require('putout');
+const {types} = require('putout');
 
 const {
     isIdentifier,
@@ -24,7 +21,7 @@ function isExtendComponent(superClass) {
     return false;
 }
 
-module.exports.traverseClass = (ast, visitor) => {
+module.exports.traverseClass = (traverse, ast, visitor) => {
     traverse(ast, {
         ClassDeclaration(path) {
             const {node} = path;

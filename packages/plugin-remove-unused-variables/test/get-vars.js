@@ -1,10 +1,13 @@
 'use strict';
 
 const test = require('supertape');
+const {
+    parse,
+    traverse,
+    template,
+} = require('putout');
 
-const {parse, template} = require('putout');
-
-const getVars = require('../lib/get-vars');
+const getVarsOriginal = require('../lib/get-vars');
 const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
@@ -77,6 +80,13 @@ const fixture = readFixtures([
     'flow',
     'typescript',
 ]);
+
+const getVars = (a, b) => {
+    return getVarsOriginal(a, {
+        ...b,
+        traverse,
+    });
+};
 
 const du = 'du';
 const d_ = 'd_';

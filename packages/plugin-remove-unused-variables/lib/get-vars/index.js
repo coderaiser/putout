@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    traverse,
-    types,
-} = require('putout');
+const {types} = require('putout');
 
 const {
     isClassDeclaration,
@@ -19,7 +16,7 @@ const {
 module.exports = (ast, opts = {}) => {
     const vars = {};
     const allParams = [];
-    const {setPath} = opts;
+    const {setPath, traverse} = opts;
     
     const use = useVariable({
         vars,
