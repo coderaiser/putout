@@ -1,3 +1,10 @@
+2019.09.10, v5.22.0
+
+feature:
+- (package) @putout/plugin-remove-only v2.0.0
+- (@putout/plugin-remove-only) include
+
+
 2019.09.10, v5.21.0
 
 feature:
