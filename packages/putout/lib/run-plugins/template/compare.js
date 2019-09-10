@@ -7,6 +7,8 @@ const {
 } = require('@babel/types');
 
 const isObject = (a) => typeof a === 'object';
+
+const log = require('./log');
 const compareType = (type) => (path) => path.type === type;
 const findParent = (path, type) => {
     const newPathNode = path.findParent(compareType(type));
@@ -54,6 +56,8 @@ function superCompare(baseNode, pathNode) {
         const value = base[key];
         const pathValue = node[key];
         
+        log (value, pathValue);
+        
         if (value === pathValue)
             continue;
         
@@ -62,7 +66,7 @@ function superCompare(baseNode, pathNode) {
         if (isIdentifier(id, {name: '__'}))
             continue;
         
-        if (isLiteral(value, {value: '__'}))
+        if (isLiteral(value, {value: '__'}) && value.type === pathValue.type)
             continue;
         
         if (value && isObject(value) && superCompare(value, pathValue))

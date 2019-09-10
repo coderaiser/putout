@@ -14,3 +14,7 @@ test('codemod-cut-legacy: transform', (t) => {
     t.end();
 });
 
+test('codemod-cut-legacy: no transform: id', (t) => {
+    t.noTransform('id');
+    t.end();
+});

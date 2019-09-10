@@ -1,0 +1,36 @@
+'use strict';
+
+const debug = require('debug')('putout:template:compare');
+
+const {isArray} = Array;
+const isObject = (a) => typeof a === 'object';
+
+module.exports = (a, b) => {
+    if (!debug.enabled)
+        return;
+    
+    const parsedValue = parseValue(a);
+    const parsedPathValue = parseValue(b);
+    
+    return debug(`${parsedValue} = ${parsedPathValue}`);
+};
+
+function parseValue(a) {
+    if (isArray(a)) {
+        const [{type, name, value}] = a;
+        return `${type}: ["${name || value}"]`;
+    }
+    
+    if (isObject(a)) {
+        const {
+            type,
+            name,
+            value,
+        } = a;
+        
+        return `${type}: "${name || value}"`;
+    }
+    
+    return `${typeof a}: "${a}"`;
+}
+

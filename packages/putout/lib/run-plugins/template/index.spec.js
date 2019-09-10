@@ -436,3 +436,4 @@ test('putout: plugin: traverse: template: exclude: fn', (t) => {
     t.deepEqual(places, expected, 'should equal');
     t.end();
 });
+

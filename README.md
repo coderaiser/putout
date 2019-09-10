@@ -675,6 +675,14 @@ Where `__` is a placeholder for anything.
 *Remember: template key should be valid JavaScript, or Type name like in previous example.*
 ```
 
+#### Template
+
+There is predefined placeholders:
+
+- `__` - any code;
+- `"__"` - any string literal;
+- ``__`` - any template string literal;
+
 #### Testing
 
 That was the simplest module to remove `debugger` statements in your code. Let's look how to test it using [@putout/test](https://github.com/coderaiser/putout/tree/master/packages/test):
