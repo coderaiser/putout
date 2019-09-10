@@ -14,18 +14,7 @@ const generateNode = ({exclude}) => {
     if (!exclude)
         return null;
     
-    const result = [];
-    
-    for (const tmpl of exclude) {
-        if (!isTemplate(tmpl)) {
-            result.push(tmpl);
-            continue;
-        }
-        
-        result.push(generate(tmpl));
-    }
-    
-    return result;
+    return exclude.map(generate);
 };
 
 const exclude = ({tmpl, fn, nodesExclude}) => {

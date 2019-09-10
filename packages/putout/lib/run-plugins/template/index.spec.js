@@ -352,3 +352,24 @@ test('putout: plugin: traverse: template: exclude: multiple', (t) => {
     t.deepEqual(places, expected, 'should equal');
     t.end();
 });
+
+test('putout: plugin: traverse: template: exclude: fn', (t) => {
+    const {places} = putout(`const t = () => {}`, {
+        fix: false,
+        rules: {
+            'remove-unused-variables': ['on', {
+                exclude: [
+                    'const __ = () => {}',
+                ],
+            }],
+        },
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
