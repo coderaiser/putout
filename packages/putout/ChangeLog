@@ -1,3 +1,12 @@
+2019.09.10, v5.20.0
+
+feature:
+- (putout) template: "__": string literals only
+- (package) eslint-plugin-putout v2.0.0
+- (package) madrun v3.0.2
+- (package) putout v5.19.0
+
+
 2019.09.10, v5.19.0
 
 feature:
