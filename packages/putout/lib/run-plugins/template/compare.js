@@ -59,7 +59,8 @@ function superCompare(baseNode, pathNode) {
     
     for (const key of Object.keys(baseNode)) {
         // @babel/template creates empty array directives
-        if (/loc|directives/.test(key))
+        // extra duplicate value
+        if (/loc|directives|extra/.test(key))
             continue;
         
         const value = base[key];

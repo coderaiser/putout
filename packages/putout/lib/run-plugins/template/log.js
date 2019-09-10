@@ -16,7 +16,7 @@ module.exports = (a, b) => {
 };
 
 function parseValue(a) {
-    if (isArray(a)) {
+    if (isArray(a) && a[0]) {
         const [{type, name, value}] = a;
         return `${type}: ["${name || value}"]`;
     }

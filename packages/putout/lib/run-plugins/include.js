@@ -1,18 +1,5 @@
 'use strict';
 
-const pushVisitor = (name) => ({push}) => {
-    return {
-        [name](path) {
-            push(path);
-        },
-    };
-};
-
-const merge = () => (a, b) => ({
-    ...a,
-    ...b,
-});
-
 module.exports = ({rule, plugin, msg, options}) => {
     const {
         fix,
@@ -37,11 +24,23 @@ module.exports = ({rule, plugin, msg, options}) => {
     };
 };
 
+const oneTraverse = ({push}) => ({
+    enter: push,
+});
+
+const manyTraverse = (include) => ({push}) => {
+    const result = {};
+    
+    for (const str of include)
+        result[str] = push;
+    
+    return result;
+};
+
 function getTraverse(include) {
     if (!include.length)
-        return pushVisitor('enter');
+        return oneTraverse;
     
-    const fns = include.map(pushVisitor);
-    return fns.reduce(merge);
+    return manyTraverse(include);
 }
 

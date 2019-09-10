@@ -24,6 +24,7 @@ module.exports = (pluginsToMerge, {fix, parser}) => {
         
         pushed[rule] = pull;
         
+        debugger;
         const visitor = plugin.traverse({
             push,
             generate,

@@ -262,6 +262,8 @@ function preTest(test, plugin) {
         const typeofTraverse = typeof traverse === 'function';
         const typeofFind = typeof find === 'function';
         
+        console.log(typeofInclude);
+        
         t.ok(typeofFind || typeofTraverse || typeofInclude || typeofExclude, 'should export "find" or "traverse" function');
         t.end();
     });

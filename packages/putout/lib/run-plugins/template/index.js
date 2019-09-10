@@ -60,14 +60,14 @@ module.exports = (visitor, options) => {
             continue;
         }
         
-        const nodeInclude = generate(tmpl);
-        const {type} = nodeInclude;
+        const node = generate(tmpl);
+        const {type} = node;
         
         const visit = wrapWithCheck({
             fn,
             nodesExclude,
             nodesInclude: [
-                nodeInclude,
+                node,
                 ...nodesInclude,
             ],
         });
