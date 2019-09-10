@@ -3,8 +3,8 @@
 const template = require('@babel/template').default;
 const babelGenerate = require('@babel/generator').default;
 const {
-    compare,
     compareAny,
+    compareAll,
 } = require('./compare');
 
 const {isArray} = Array;
@@ -20,15 +20,15 @@ const generateCode = (a) => babelGenerate(a).code;
 
 const generate = templater();
 
-const generateNode = ({exclude}) => {
-    if (!exclude)
-        return null;
+const generateNode = (list) => {
+    if (!list)
+        return [];
     
-    return toArray(exclude).map(generate);
+    return toArray(list).map(generate);
 };
 
 const exclude = ({tmpl, fn, nodesExclude}) => {
-    if (!nodesExclude)
+    if (!nodesExclude.length)
         return {
             [tmpl]: fn,
         };
@@ -46,7 +46,8 @@ const exclude = ({tmpl, fn, nodesExclude}) => {
 module.exports = (visitor, options) => {
     const parsed = [];
     const entries = Object.entries(visitor);
-    const nodesExclude = generateNode(options);
+    const nodesExclude = generateNode(options.exclude);
+    const nodesInclude = generateNode(options.include);
     
     for (const [tmpl, fn] of entries) {
         if (!isTemplate(tmpl)) {
@@ -54,6 +55,7 @@ module.exports = (visitor, options) => {
                 tmpl,
                 fn,
                 nodesExclude,
+                nodesInclude,
             }));
             continue;
         }
@@ -62,9 +64,12 @@ module.exports = (visitor, options) => {
         const {type} = nodeInclude;
         
         const visit = wrapWithCheck({
-            nodeInclude,
-            nodesExclude,
             fn,
+            nodesExclude,
+            nodesInclude: [
+                nodeInclude,
+                ...nodesInclude,
+            ],
         });
         
         parsed.push({
@@ -75,14 +80,14 @@ module.exports = (visitor, options) => {
     return parsed;
 };
 
-function wrapWithCheck({nodeInclude, nodesExclude, fn}) {
+function wrapWithCheck({nodesInclude, nodesExclude, fn}) {
     return (path) => {
         log(generateCode, path.node);
         
         if (nodesExclude && compareAny(path, nodesExclude, path.node))
             return path.skip();
         
-        if (nodeInclude && !compare(path, nodeInclude, path.node))
+        if (nodesInclude && !compareAll(path, nodesInclude, path.node))
             return;
         
         fn(path);

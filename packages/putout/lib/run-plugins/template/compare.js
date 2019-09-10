@@ -6,9 +6,9 @@ const {
     isExpressionStatement,
 } = require('@babel/types');
 
-const isObject = (a) => typeof a === 'object';
-
 const log = require('./log');
+
+const isObject = (a) => typeof a === 'object';
 const compareType = (type) => (path) => path.type === type;
 const findParent = (path, type) => {
     const newPathNode = path.findParent(compareType(type));
@@ -39,6 +39,15 @@ module.exports.compareAny = (path, baseNodes, pathNode) => {
     }
     
     return false;
+};
+
+module.exports.compareAll = (path, baseNodes, pathNode) => {
+    for (const base of baseNodes) {
+        if (!compare(path, base, pathNode))
+            return false;
+    }
+    
+    return true;
 };
 
 function superCompare(baseNode, pathNode) {

@@ -229,6 +229,8 @@ function preTest(test, plugin) {
         report,
         find,
         traverse,
+        include,
+        exclude,
         fix,
         rules,
     }] = entries(plugin).pop();
@@ -254,11 +256,13 @@ function preTest(test, plugin) {
         t.end();
     });
     
-    test(`${name}: find or traverse: is function`, (t) => {
-        const typeofFind = typeof find === 'function';
+    test(`${name}: include, exclude: an array or traverse, find: is function`, (t) => {
+        const typeofInclude = isArray(include);
+        const typeofExclude = isArray(exclude);
         const typeofTraverse = typeof traverse === 'function';
+        const typeofFind = typeof find === 'function';
         
-        t.ok(typeofFind || typeofTraverse, 'should export "find" or "traverse" function');
+        t.ok(typeofFind || typeofTraverse || typeofInclude || typeofExclude, 'should export "find" or "traverse" function');
         t.end();
     });
     

@@ -758,3 +758,89 @@ test('putout: jscodeshift: messsage', (t) => {
     t.end();
 });
 
+test('putout: plugin: include', (t) => {
+    const plugin = {
+        report: () => 'debugger found',
+        fix: () => {},
+        include: [
+            'debugger',
+        ],
+    };
+    
+    const {places} = putout('debugger', {
+        plugins: [{
+            include: plugin,
+        }],
+    });
+    
+    const expected = [{
+        message: 'debugger found',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'include',
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: plugin: include: fix', (t) => {
+    const plugin = {
+        report: () => 'debugger found',
+        fix: (path) => path.remove(),
+        include: [
+            'debugger',
+        ],
+    };
+    
+    const {places} = putout('debugger', {
+        plugins: [{
+            include: plugin,
+        }],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: plugin: include: empty: fix', (t) => {
+    const plugin = {
+        report: () => 'debugger found',
+        fix: (path) => path.remove(),
+        include: [],
+    };
+    
+    const {places} = putout('debugger', {
+        plugins: [{
+            include: plugin,
+        }],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: plugin: exclude', (t) => {
+    const plugin = {
+        report: () => 'debugger found',
+        fix: () => {},
+        exclude: ['debugger'],
+    };
+    
+    const {places} = putout('debugger', {
+        plugins: [{
+            include: plugin,
+        }],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});

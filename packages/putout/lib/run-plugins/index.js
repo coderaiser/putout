@@ -6,6 +6,7 @@ const once = require('once');
 const runFix = require('./run-fix');
 const mergeVisitors = require('./merge-visitors');
 const superFind = require('./super-find');
+const include = require('./include');
 
 const {
     getPath,
@@ -126,6 +127,9 @@ function splitPlugins(plugins) {
         
         if (plugin.traverse)
             pluginsTraverse.push(item);
+        
+        if (plugin.include)
+            pluginsTraverse.push(include(item));
     }
     
     return {
