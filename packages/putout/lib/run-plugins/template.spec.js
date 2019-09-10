@@ -241,3 +241,64 @@ test('putout: plugin: traverse: template: different', (t) => {
     t.end();
 });
 
+test('putout: plugin: find: template: exclude', (t) => {
+    const exp = {
+        report: () => '',
+        fix: () => {},
+        find: (ast, {traverse, push}) => {
+            traverse(ast, {
+                'module.exports = __'(path) {
+                    push(path);
+                },
+            });
+        },
+    };
+    
+    const {places} = putout('module.exports = {a: 1}', {
+        rules: {
+            exp: ['on', {
+                exclude: [
+                    'module.exports = __',
+                ],
+            }],
+        },
+        plugins: [{
+            exp,
+        }],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: plugin: traverse: template: exclude', (t) => {
+    const exp = {
+        report: () => '',
+        fix: () => {},
+        traverse: ({push}) => ({
+            'module.exports = __'(path) {
+                push(path);
+            },
+        }),
+    };
+    
+    const {places} = putout('module.exports = {a: 1}', {
+        rules: {
+            exp: ['on', {
+                exclude: [
+                    'module.exports = __',
+                ],
+            }],
+        },
+        plugins: [{
+            exp,
+        }],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});

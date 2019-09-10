@@ -6,6 +6,11 @@ const types = require('@babel/types');
 
 const template = require('./template');
 
+const merge = (a, b) => ({
+    ...a,
+    ...b,
+});
+
 module.exports = function superFind({find, ast, options}) {
     const pushItems = [];
     const push = (a) => {
@@ -13,7 +18,7 @@ module.exports = function superFind({find, ast, options}) {
     };
     
     const returnItems = find(ast, {
-        traverse,
+        traverse: traverse(options),
         generate,
         types,
         push,
@@ -26,17 +31,11 @@ module.exports = function superFind({find, ast, options}) {
     ];
 };
 
-function traverse(ast, visitor) {
-    const templateVisitors = template(visitor)
-        .reduce(merge);
-    
-    return babelTraverse(ast, templateVisitors);
-}
-
-function merge(a, b) {
-    return {
-        ...a,
-        ...b,
+function traverse(options) {
+    return (ast, visitor) => {
+        const templateVisitors = template(visitor, options)
+            .reduce(merge);
+        
+        return babelTraverse(ast, templateVisitors);
     };
 }
-

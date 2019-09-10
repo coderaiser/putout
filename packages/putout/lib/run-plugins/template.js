@@ -11,9 +11,17 @@ const isTemplate = (a) => /[(;={]/.test(a) || !/[A-Z]/.test(a);
 
 const generate = templater();
 
-module.exports = (visitor) => {
-    const entries = Object.entries(visitor);
+const generateNode = ({exclude}) => {
+    if (!exclude)
+        return null;
+    
+    return generate(exclude);
+};
+
+module.exports = (visitor, options) => {
     const parsed = [];
+    const entries = Object.entries(visitor);
+    const nodeExclude = generateNode(options);
     
     for (const [tmpl, fn] of entries) {
         if (!isTemplate(tmpl)) {
@@ -23,11 +31,15 @@ module.exports = (visitor) => {
             continue;
         }
         
-        const result = generate(tmpl);
-        const node = result.expression || result;
-        const {type} = node;
+        const nodeInclude = generate(tmpl);
+        const {type} = nodeInclude;
         
-        const visit = wrapWithCheck(node, fn);
+        const visit = wrapWithCheck({
+            nodeInclude,
+            nodeExclude,
+            fn,
+        });
+        
         parsed.push({
             [type]: visit,
         });
@@ -36,9 +48,12 @@ module.exports = (visitor) => {
     return parsed;
 };
 
-function wrapWithCheck(node, fn) {
+function wrapWithCheck({nodeInclude, nodeExclude, fn}) {
     return (path) => {
-        if (!compare(node, path.node))
+        if (compare(nodeExclude, path.node))
+            return path.skip();
+        
+        if (!compare(nodeInclude, path.node))
             return;
         
         fn(path);
@@ -46,6 +61,9 @@ function wrapWithCheck(node, fn) {
 }
 
 function compare(baseNode, pathNode) {
+    if (!baseNode)
+        return;
+    
     for (const key of Object.keys(baseNode)) {
         if (key === 'loc')
             continue;
@@ -78,7 +96,8 @@ function templater() {
         if (cache[value])
             return cache[value];
         
-        cache[value] = template.ast(value);
+        const result = template.ast(value);
+        cache[value] = result.expression || result;
         
         return cache[value];
     };

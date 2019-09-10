@@ -30,7 +30,7 @@ module.exports = (pluginsToMerge, {fix, parser}) => {
             options,
         });
         
-        mergeItems.push(...template(visitor));
+        mergeItems.push(...template(visitor, options));
     }
     
     const entries = Object.entries(pushed);
