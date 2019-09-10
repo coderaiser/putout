@@ -499,7 +499,18 @@ To configure `putout` add section `putout` to your `package.json` file or create
 
 ### Rules
 
-You can disable rules and pass options using `rules` section:
+By default all rules located in `plugins` section (and default rules) are enabled by default.
+You can disable rules using "off", or enable them (in `match` section) using "on".
+
+```json
+{
+    "rules": {
+        "remove-unused-variables": "off"
+    }
+}
+```
+
+Or pass options using `rules` section:
 
 ```json
 {
@@ -513,6 +524,9 @@ You can disable rules and pass options using `rules` section:
 
 With help of `exclude` you can set code pattern to exclude using current rule.
 Pass an array when you have a couple templates to exclude.
+
+`exclude` is cross-plugins function supported by core, when develop your plugin, please use other name
+to keep users ability to customize all plugins in a way the need to.
 
 ### Match
 
