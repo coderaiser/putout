@@ -1,12 +1,11 @@
 'use strict';
 
 const traverse = require('@babel/traverse').default;
-const generate = require('@babel/generator').default;
-const types = require('@babel/types');
 const once = require('once');
 
 const runFix = require('./run-fix');
 const mergeVisitors = require('./merge-visitors');
+const superFind = require('./super-find');
 
 const {
     getPath,
@@ -113,26 +112,6 @@ function runWithoutMerge({ast, fix, shebang, pluginsFind}) {
     }
     
     return places;
-}
-
-function superFind({find, ast, options}) {
-    const pushItems = [];
-    const push = (a) => {
-        pushItems.push(a);
-    };
-    
-    const returnItems = find(ast, {
-        traverse,
-        generate,
-        types,
-        push,
-        options,
-    });
-    
-    return [
-        ...pushItems,
-        ...returnItems || [],
-    ];
 }
 
 function splitPlugins(plugins) {

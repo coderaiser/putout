@@ -186,6 +186,38 @@ test('putout: plugin: traverse: template: __', (t) => {
     t.end();
 });
 
+test('putout: plugin: find: template: __', (t) => {
+    const exp = {
+        report: () => '',
+        fix: () => {},
+        find: (ast, {traverse, push}) => {
+            traverse(ast, {
+                'module.exports = __'(path) {
+                    push(path);
+                },
+            });
+        },
+    };
+    
+    const {places} = putout('module.exports = {a: 1}', {
+        plugins: [{
+            exp,
+        }],
+    });
+    
+    const expected = [{
+        rule: 'exp',
+        message: '',
+        position: {
+            line: 1,
+            column: 0,
+        },
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
 test('putout: plugin: traverse: template: different', (t) => {
     const exp = {
         report: () => '',
