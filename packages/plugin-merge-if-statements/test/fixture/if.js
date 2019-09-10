@@ -5,7 +5,7 @@ if (a > b) {
 }
 
 if (a > b)
-  if (2 < 3) {
+  if (4 > 3) {
     console.log('hi');
   }
 

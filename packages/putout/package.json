@@ -87,6 +87,7 @@
     "@putout/plugin-strict-mode": "^1.0.0",
     "array-union": "^2.0.0",
     "chalk": "^2.4.1",
+    "debug": "^4.1.1",
     "deepmerge": "^4.0.0",
     "diff-match-patch": "^1.0.4",
     "eslint": "^6.2.0",

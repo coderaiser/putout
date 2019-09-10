@@ -3,6 +3,7 @@
 const {
     isIdentifier,
     isLiteral,
+    isExpressionStatement,
 } = require('@babel/types');
 
 const isObject = (a) => typeof a === 'object';
@@ -42,18 +43,23 @@ function superCompare(baseNode, pathNode) {
     if (!baseNode || !pathNode)
         return;
     
+    const base = baseNode;
+    const node = pathNode;
+    
     for (const key of Object.keys(baseNode)) {
         // @babel/template creates empty array directives
         if (/loc|directives/.test(key))
             continue;
         
-        const value = baseNode[key];
-        const pathValue = pathNode[key];
+        const value = base[key];
+        const pathValue = node[key];
         
         if (value === pathValue)
             continue;
         
-        if (isIdentifier(value, {name: '__'}))
+        const id = isExpressionStatement(value) ? value.expression : value;
+        
+        if (isIdentifier(id, {name: '__'}))
             continue;
         
         if (isLiteral(value, {value: '__'}))

@@ -41,25 +41,24 @@ const getConsequent = (path) => {
     return null;
 };
 
-module.exports.traverse = ({push}) => {
+module.exports.traverse = ({push, generate}) => {
     return {
-        IfStatement(path) {
-            const consequentPath = getConsequent(path);
-            
-            if (!consequentPath)
-                return;
-            
-            if (path.node.alternate)
-                return;
-            
-            if (consequentPath.node.alternate)
-                return;
-            
-            push({
-                path,
-                consequentPath,
-            });
-        },
+        'if (__) __': onIfStatement({push, generate}),
     };
+};
+
+const onIfStatement = ({push}) => (path) => {
+    const consequentPath = getConsequent(path);
+    
+    if (!consequentPath)
+        return;
+    
+    if (consequentPath.node.alternate)
+        return;
+    
+    push({
+        path,
+        consequentPath,
+    });
 };
 

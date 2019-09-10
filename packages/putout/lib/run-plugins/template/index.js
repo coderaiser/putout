@@ -1,6 +1,7 @@
 'use strict';
 
 const template = require('@babel/template').default;
+const babelGenerate = require('@babel/generator').default;
 const {
     compare,
     compareAny,
@@ -9,6 +10,13 @@ const {
 const {isArray} = Array;
 const isTemplate = (a) => /[(;={]/.test(a) || !/[A-Z]/.test(a);
 const toArray = (a) => isArray(a) ? a : [a];
+const debug = require('debug')('putout:template');
+const log = () => {
+    if (!debug.enabled)
+        return;
+};
+
+const generateCode = (a) => babelGenerate(a).code;
 
 const generate = templater();
 
@@ -69,6 +77,8 @@ module.exports = (visitor, options) => {
 
 function wrapWithCheck({nodeInclude, nodesExclude, fn}) {
     return (path) => {
+        log(generateCode, path.node);
+        
         if (nodesExclude && compareAny(path, nodesExclude, path.node))
             return path.skip();
         

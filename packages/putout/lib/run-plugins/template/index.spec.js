@@ -33,6 +33,43 @@ test('putout: plugin: traverse: template', (t) => {
     t.end();
 });
 
+test('putout: plugin: traverse: template: expression', (t) => {
+    const exp = {
+        report: () => 'find',
+        fix: () => {},
+        traverse: ({push}) => ({
+            'if (__) __'(path) {
+                push(path);
+            },
+        }),
+    };
+    
+    const {places} = putout('if (a > b) if (4 > 3) {}', {
+        plugins: [{
+            exp,
+        }],
+    });
+    
+    const expected = [{
+        rule: 'exp',
+        message: 'find',
+        position: {
+            line: 1,
+            column: 0,
+        },
+    }, {
+        rule: 'exp',
+        message: 'find',
+        position: {
+            line: 1,
+            column: 11,
+        },
+    }];
+    
+    t.deepEqual(expected, places, 'should equal');
+    t.end();
+});
+
 test('putout: plugin: traverse: template: literal', (t) => {
     const exp = {
         report: () => '',
