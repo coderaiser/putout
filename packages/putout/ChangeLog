@@ -1,3 +1,9 @@
+2019.09.10, v5.18.2
+
+feature:
+- (putout) rules: exclude: add ability to pass string or array
+
+
 2019.09.10, v5.18.1
 
 fix:
