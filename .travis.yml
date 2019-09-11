@@ -10,7 +10,7 @@ script:
   - npm run bootstrap
   - npm run lint
   - npm run coverage
-  - cp packages/putout && npm run report
+  - cd packages/putout && npm run report
 
 notifications:
     email:
