@@ -1,3 +1,10 @@
+2019.09.11, v5.26.0
+
+feature:
+- (package) @putout/plugin-convert-for-each-to-for-of v2.0.0
+- (@putout/plugin-convert-for-each-to-for-of) include
+
+
 2019.09.11, v5.25.0
 
 feature:
