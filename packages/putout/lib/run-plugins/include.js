@@ -1,6 +1,7 @@
 'use strict';
 
 const stub = () => [];
+const filterStub = () => true;
 
 module.exports = ({rule, plugin, msg, options}) => {
     const {
@@ -8,9 +9,10 @@ module.exports = ({rule, plugin, msg, options}) => {
         report,
         include = stub,
         exclude = stub,
+        filter = filterStub,
     } = plugin;
     
-    const traverse = getTraverse(include());
+    const traverse = getTraverse(include(), filter);
     
     return {
         rule,
@@ -18,7 +20,7 @@ module.exports = ({rule, plugin, msg, options}) => {
         options: {
             ...options,
             exclude: [
-                exclude(),
+                ...exclude(),
                 ...options.exclude || [],
             ],
         },
@@ -30,23 +32,37 @@ module.exports = ({rule, plugin, msg, options}) => {
     };
 };
 
-const oneTraverse = ({push}) => ({
-    enter: push,
+const prePush = ({filter, push}) => (path) => {
+    if (!filter(path))
+        return;
+    
+    push(path);
+};
+
+const oneTraverse = (filter) => ({push}) => ({
+    enter: prePush({
+        filter,
+        push,
+    })
 });
 
-const manyTraverse = (include) => ({push}) => {
+const manyTraverse = (include, filter) => ({push}) => {
     const result = {};
+    const visitor = prePush({
+        filter,
+        push,
+    });
     
     for (const str of include)
-        result[str] = push;
+        result[str] = visitor;
     
     return result;
 };
 
-function getTraverse(include) {
+function getTraverse(include, filter) {
     if (!include.length)
-        return oneTraverse;
+        return oneTraverse(filter);
     
-    return manyTraverse(include);
+    return manyTraverse(include, filter);
 }
 

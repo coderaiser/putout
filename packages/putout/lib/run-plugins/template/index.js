@@ -36,6 +36,7 @@ const exclude = ({tmpl, fn, nodesExclude}) => {
     const visit = wrapWithCheck({
         fn,
         nodesExclude,
+        nodesInclude: [],
     });
     
     return {
@@ -84,10 +85,10 @@ function wrapWithCheck({nodesInclude, nodesExclude, fn}) {
     return (path) => {
         log(generateCode, path.node);
         
-        if (nodesExclude && compareAny(path, nodesExclude, path.node))
+        if (nodesExclude.length && compareAny(path, nodesExclude, path.node))
             return path.skip();
         
-        if (nodesInclude && !compareAll(path, nodesInclude, path.node))
+        if (nodesInclude.length && !compareAll(path, nodesInclude, path.node))
             return;
         
         fn(path);
