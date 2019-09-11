@@ -1,3 +1,10 @@
+2019.09.11, v5.25.0
+
+feature:
+- (package) @putout/plugin-convert-math-pow v3.0.0
+- (@putout/plugin-convert-math-pow) include
+
+
 2019.09.11, v5.24.0
 
 feature:
