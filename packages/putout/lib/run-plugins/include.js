@@ -43,7 +43,7 @@ const oneTraverse = (filter) => ({push}) => ({
     enter: prePush({
         filter,
         push,
-    })
+    }),
 });
 
 const manyTraverse = (include, filter) => ({push}) => {
