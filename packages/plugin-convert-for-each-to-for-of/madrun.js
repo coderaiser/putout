@@ -2,19 +2,19 @@
 
 const {
     run,
-    predefined
+    predefined,
 } = require('madrun');
 
-const {eslint} = predefined;
+const {putout} = predefined;
 
 module.exports = {
     'test': () => `tape 'test/*.js'`,
     'watch:test': () => `nodemon -w lib -w test -x ${run('test')}`,
-    'lint': () => eslint({
-        ignore: ['test/fixture'],
+    'lint': () => putout({
         names: [
             'lib',
             'test',
+            'madrun.js',
         ],
     }),
     'fix:lint': () => run('lint', '--fix'),
