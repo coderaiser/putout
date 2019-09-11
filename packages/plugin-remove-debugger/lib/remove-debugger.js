@@ -6,7 +6,7 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.include = [
+module.exports.include = () => [
     'debugger',
 ];
 

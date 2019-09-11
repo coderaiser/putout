@@ -762,7 +762,7 @@ test('putout: plugin: include', (t) => {
     const plugin = {
         report: () => 'debugger found',
         fix: () => {},
-        include: [
+        include: () => [
             'debugger',
         ],
     };
@@ -790,7 +790,7 @@ test('putout: plugin: include: fix', (t) => {
     const plugin = {
         report: () => 'debugger found',
         fix: (path) => path.remove(),
-        include: [
+        include: () => [
             'debugger',
         ],
     };
@@ -811,7 +811,7 @@ test('putout: plugin: include: empty: fix', (t) => {
     const plugin = {
         report: () => 'debugger found',
         fix: (path) => path.remove(),
-        include: [],
+        include: () => [],
     };
     
     const {places} = putout('debugger', {
@@ -830,7 +830,7 @@ test('putout: plugin: exclude', (t) => {
     const plugin = {
         report: () => 'debugger found',
         fix: () => {},
-        exclude: ['debugger'],
+        exclude: () => ['debugger'],
     };
     
     const {places} = putout('debugger', {
@@ -844,3 +844,4 @@ test('putout: plugin: exclude', (t) => {
     t.deepEqual(places, expected, 'should equal');
     t.end();
 });
+

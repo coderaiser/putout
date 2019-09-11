@@ -6,14 +6,8 @@ module.exports.fix = ({node}) => {
     node.callee = node.callee.object;
 };
 
-module.exports.include = [
+module.exports.include = () => [
     '__.only(__)',
     '__["only"](__)',
-];
-
-module.exports.exclude = [
-    '__.pass(__)',
-    '__.end(__)',
-    'test()',
 ];
 

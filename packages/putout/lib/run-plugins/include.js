@@ -1,20 +1,26 @@
 'use strict';
 
+const stub = () => [];
+
 module.exports = ({rule, plugin, msg, options}) => {
     const {
         fix,
         report,
-        include,
-        exclude = [],
+        include = stub,
+        exclude = stub,
     } = plugin;
-    const traverse = getTraverse(include);
+    
+    const traverse = getTraverse(include());
     
     return {
         rule,
         msg,
         options: {
-            exclude,
             ...options,
+            exclude: [
+                exclude(),
+                ...options.exclude || [],
+            ],
         },
         plugin: {
             report,

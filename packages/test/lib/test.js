@@ -11,6 +11,7 @@ const tryCatch = require('try-catch');
 const tape = require('supertape');
 const putout = require('putout');
 
+const isFn = (a) => typeof a === 'function';
 const isString = (a) => typeof a === 'string';
 const {isArray} = Array;
 const {entries} = Object;
@@ -256,15 +257,13 @@ function preTest(test, plugin) {
         t.end();
     });
     
-    test(`${name}: include, exclude: an array or traverse, find: is function`, (t) => {
-        const typeofInclude = isArray(include);
-        const typeofExclude = isArray(exclude);
-        const typeofTraverse = typeof traverse === 'function';
-        const typeofFind = typeof find === 'function';
+    test(`${name}: include, exclude, traverse, find: is function`, (t) => {
+        const typeofInclude = isFn(include);
+        const typeofExclude = isFn(exclude);
+        const typeofTraverse = isFn(traverse);
+        const typeofFind = isFn(find);
         
-        console.log(typeofInclude);
-        
-        t.ok(typeofFind || typeofTraverse || typeofInclude || typeofExclude, 'should export "find" or "traverse" function');
+        t.ok(typeofFind || typeofTraverse || typeofInclude || typeofExclude, 'should export "find", "traverse", "include" or "exclude" function');
         t.end();
     });
     
