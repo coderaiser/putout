@@ -1,3 +1,10 @@
+2019.09.11, v5.23.0
+
+feature:
+- (package) @putout/plugin-remove-skip v2.0.0
+- (@putout/plugin-remove-skip) include
+
+
 2019.09.11, v5.22.1
 
 fix:
