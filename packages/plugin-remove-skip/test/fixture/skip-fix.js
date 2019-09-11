@@ -8,7 +8,7 @@ test('should pass', (t) => {
     t.end();
 });
 
-test.skip.skip('should pass', (t) => {
+test('should pass', (t) => {
     t.pass('ok');
     t.end();
 });
