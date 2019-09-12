@@ -2,6 +2,7 @@
 
 const test = require('supertape');
 const tryCatch = require('try-catch');
+const stub = require('@cloudcmd/stub');
 
 const putout = require('..');
 const {readFixtures} = require('./fixture');
@@ -364,6 +365,39 @@ test('putout: use strict: no fix', (t) => {
     const expected = fixture.strictMode;
     
     t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test.only('putout: traverse: shebang', (t) => {
+    const addVar = {
+        report: () => '',
+        fix: stub,
+        include: () => [
+            'debugger'
+        ],
+    };
+    
+    const code = [
+        '#!/usr/bin/env node',
+        'debugger;',
+    ].join('\n');
+    
+    const {places} = putout(code, {
+        plugins: [{
+            'add-variable': addVar,
+        }],
+    });
+    
+    const expected = [{
+        rule: 'add-variable',
+        message: '',
+        position: {
+            line: 2,
+            column: 0,
+        },
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
     t.end();
 });
 

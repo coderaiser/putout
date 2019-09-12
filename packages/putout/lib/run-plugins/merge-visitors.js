@@ -11,14 +11,14 @@ const template = require('./template');
 
 const shouldSkip = (a) => !a.parent;
 
-module.exports = (pluginsToMerge, {fix, parser}) => {
+module.exports = (pluginsToMerge, {fix, shebang}) => {
     const mergeItems = [];
     const pushed = {};
     
     for (const {rule, plugin, msg, options} of pluginsToMerge) {
         const {push, pull} = getStore(plugin, {
             fix,
-            parser,
+            shebang,
             msg,
         });
         
@@ -45,11 +45,11 @@ module.exports = (pluginsToMerge, {fix, parser}) => {
     };
 };
 
-function getStore(plugin, {fix, parser, msg}) {
+function getStore(plugin, {fix, shebang, msg}) {
     let value = [];
     
     const push = (path) => {
-        const position = getPosition(path, parser);
+        const position = getPosition(path, shebang);
         const message = msg || plugin.report(path);
         
         value.push({
