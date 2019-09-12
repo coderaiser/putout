@@ -86,6 +86,8 @@ function runWithoutMerge({ast, fix, shebang, pluginsFind}) {
             find,
             ast,
             options,
+            fix,
+            shebang,
         });
         
         if (!items.length)

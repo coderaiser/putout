@@ -368,12 +368,12 @@ test('putout: use strict: no fix', (t) => {
     t.end();
 });
 
-test.only('putout: traverse: shebang', (t) => {
+test('putout: traverse: shebang', (t) => {
     const addVar = {
         report: () => '',
         fix: stub,
         include: () => [
-            'debugger'
+            'debugger',
         ],
     };
     
@@ -874,6 +874,38 @@ test('putout: plugin: exclude', (t) => {
     });
     
     const expected = [];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: find: template', (t) => {
+    const plugin = {
+        report: () => '',
+        fix: () => {},
+        find: (ast, {push, traverse}) => {
+            return traverse(ast, {
+                'class __ extends React.Component {}': push,
+                'class __ extends Component {}': push,
+            });
+        },
+    };
+    
+    const {places} = putout('class Hello extends React.Component {}', {
+        plugins: [{
+            include: plugin,
+        }],
+    });
+    
+    const expected = [{
+        message: '',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'include',
+    },
+    ];
     
     t.deepEqual(places, expected, 'should equal');
     t.end();
