@@ -1,3 +1,10 @@
+2019.09.12, v5.27.0
+
+feature:
+- (package) @putout/plugin-remove-process-exit v2.0.0
+- (@putout/plugin-remove-process-exit) template
+
+
 2019.09.11, v5.26.0
 
 feature:
