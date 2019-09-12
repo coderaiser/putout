@@ -17,6 +17,8 @@ const {
     ExpressionStatement,
 } = types;
 
+const isRoot = (path) => path.isFunction();
+
 module.exports.report = () => `"process.exit" should be used instead of top-level return`;
 
 const expr = (a) => a && ExpressionStatement(a);
@@ -38,16 +40,16 @@ module.exports.fix = (path) => {
     ]);
 };
 
-const isRoot = (path) => path.isFunction();
+module.exports.include = () => [
+    'return __',
+];
 
-module.exports.traverse = ({push}) => {
-    return {
-        'return __'(path) {
-            const fnPath = path.findParent(isRoot);
-            
-            if (!fnPath)
-                return push(path);
-        },
-    };
+module.exports.filter = (path) => {
+    const fnPath = path.findParent(isRoot);
+    
+    if (!fnPath)
+        return true;
+    
+    return false;
 };
 
