@@ -16,6 +16,9 @@
             "overrides": {
                 "switch": {
                     "after": false
+                },
+                "catch": {
+                    "after": false
                 }
             }
         }],
