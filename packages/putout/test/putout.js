@@ -911,3 +911,26 @@ test('putout: find: template', (t) => {
     t.end();
 });
 
+test('putout: filter', (t) => {
+    const plugin = {
+        report: () => '',
+        fix: () => {},
+        filter: () => false,
+        include: () => [
+            'class __ extends React.Component {}',
+            'class __ extends Component {}',
+        ],
+    };
+    
+    const {places} = putout('class Hello extends React.Component {}', {
+        plugins: [{
+            include: plugin,
+        }],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+

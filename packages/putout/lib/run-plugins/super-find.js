@@ -28,7 +28,7 @@ module.exports = function superFind({find, ast, options, fix, shebang}) {
     ];
 };
 
-function traverse({fix, shebang, options}) {
+function traverse({options}) {
     return (ast, visitor) => {
         const templateVisitors = merge(template(visitor, options));
         return babelTraverse(ast, templateVisitors);

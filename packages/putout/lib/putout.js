@@ -39,7 +39,6 @@ const defaultOpts = (opts = {}) => {
 };
 
 module.exports = (source, opts) => {
-    debugger;
     opts = defaultOpts(opts);
     const {
         parser,
