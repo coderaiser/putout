@@ -2,7 +2,7 @@
 
 const once = require('once');
 
-const print = require('../../print');
+const {print} = require('@putout/engine-parser');
 const {assign} = Object;
 
 const isFn = (a) => typeof a === 'function';

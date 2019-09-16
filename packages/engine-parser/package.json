@@ -1,0 +1,53 @@
+{
+  "name": "@putout/engine-parser",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout parser",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/parser.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint:lib": "madrun lint:lib",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "putout": "madrun putout",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {
+    "recast": "https://github.com/coderaiser/recast/archive/v0.18.2-fix.tar.gz"
+  },
+  "keywords": [
+    "putout",
+    "putout-engine"
+  ],
+  "devDependencies": {
+    "@putout/test": "^1.1.1",
+    "coveralls": "^3.0.0",
+    "eslint": "^6.2.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-putout": "^2.0.0",
+    "lerna": "^3.8.5",
+    "madrun": "^3.0.0",
+    "nodemon": "^1.14.12",
+    "nyc": "^14.0.0",
+    "putout": "*",
+    "redrun": "^7.0.2",
+    "try-catch": "^2.0.1"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

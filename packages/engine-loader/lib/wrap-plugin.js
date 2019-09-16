@@ -1,7 +1,7 @@
 'use strict';
 
-const print = require('../print');
-const getPositions = require('../get-positions-by-diff');
+const {print} = require('@putout/engine-parser');
+const getPositions = require('./get-positions-by-diff');
 
 const babelTransform = require('./transforms/babel');
 const jscodeshiftTransform = require('./transforms/jscodeshift');

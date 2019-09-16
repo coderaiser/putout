@@ -12,7 +12,6 @@ const fixture = readFixtures([
     'comment',
     'comment-fix',
     'debugger',
-    'debugger-fix',
     'no-vars',
     'no-parent',
     'root-vars',
@@ -273,47 +272,6 @@ test('putout: export default declaration: espree: places: shebang', (t) => {
     t.end();
 });
 
-test('putout: export default declaration: acorn', (t) => {
-    const {code} = putout(fixture.exportDefaultDeclaration, {
-        parser: 'acorn',
-        plugins: [
-            'remove-unused-variables',
-        ],
-    });
-    
-    const expected = fixture.exportDefaultDeclarationFix;
-    
-    t.deepEqual(code, expected, 'should equal');
-    t.end();
-});
-
-test('putout: export default declaration: esprima', (t) => {
-    const {code} = putout(fixture.exportDefaultDeclaration, {
-        parser: 'esprima',
-        plugins: [
-            'remove-unused-variables',
-        ],
-    });
-    
-    const expected = fixture.exportDefaultDeclarationFix;
-    
-    t.deepEqual(code, expected, 'should equal');
-    t.end();
-});
-
-test('putout: export default declaration: custom parser', (t) => {
-    const [e] = tryCatch(putout, fixture.exportDefaultDeclaration, {
-        parser: 'custom',
-        plugins: [
-            'remove-unused-variables',
-        ],
-    });
-    
-    const expected = `Cannot find module 'custom'`;
-    t.ok(e.message.includes(expected), 'should equal');
-    t.end();
-});
-
 test('putout: use strict', (t) => {
     const {code} = putout(fixture.strictMode, {
         fixCount: 1,
@@ -323,21 +281,6 @@ test('putout: use strict', (t) => {
     });
     
     const expected = fixture.strictModeFix;
-    
-    t.deepEqual(code, expected, 'should equal');
-    t.end();
-});
-
-test('putout: use strict: parser: espree: debugger', (t) => {
-    const {code} = putout(fixture.debugger, {
-        parser: 'espree',
-        fixCount: 1,
-        plugins: [
-            'remove-debugger',
-        ],
-    });
-    
-    const expected = fixture.debuggerFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

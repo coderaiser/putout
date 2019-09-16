@@ -5,37 +5,30 @@ const template = require('@babel/template').default;
 const generate = require('@babel/generator').default;
 const types = require('@babel/types');
 
-const cutShebang = require('./cut-shebang');
-const getPlugins = require('./get-plugins');
+const {print, parse} = require('@putout/engine-parser');
+const loader = require('@putout/engine-loader');
 
+const cutShebang = require('./cut-shebang');
 const runPlugins = require('./run-plugins');
-const print = require('./print');
-const parse = require('./parse');
 
 const isUndefined = (a) => typeof a === 'undefined';
 const {assign} = Object;
 
 const defaultOpts = (opts = {}) => {
-    const newOpts = {
+    const {
+        parser = 'babel',
+        fix = true,
+        fixCount = 2,
+        loadPlugins = loader.loadPlugins,
+    } = opts;
+    
+    return {
         ...opts,
-    };
-    
-    if (isUndefined(opts.parser))
-        assign(newOpts, {
-            parser: 'babel',
-        });
-    
-    if (isUndefined(opts.fix))
-        assign(newOpts, {
-            fix: true,
-        });
-    
-    if (isUndefined(opts.fixCount))
-        assign(newOpts, {
-            fixCount: 2,
-        });
-    
-    return newOpts;
+        parser,
+        fix,
+        fixCount,
+        loadPlugins,
+    }
 };
 
 module.exports = (source, opts) => {
@@ -90,10 +83,11 @@ function transform(ast, source, opts) {
         fix,
         fixCount,
         parser,
+        loadPlugins,
     } = opts;
     
     const [, shebang] = cutShebang(source);
-    const plugins = getPlugins({
+    const plugins = loadPlugins({
         pluginNames,
         cache,
         rules,

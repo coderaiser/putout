@@ -4,7 +4,7 @@ const test = require('supertape');
 const mockRequire = require('mock-require');
 const {reRequire, stopAll} = mockRequire;
 
-test('get-plugins', (t) => {
+test('load-plugins', (t) => {
     mockRequire('module', {
         _findPath: () => {},
         plugins: {
@@ -12,8 +12,8 @@ test('get-plugins', (t) => {
         },
     });
     
-    const getPlugins = reRequire('.');
-    const result = getPlugins({
+    const {loadPlugins} = reRequire('.');
+    const result = loadPlugins({
         pluginNames: [
             'remove-unused-variables',
         ],

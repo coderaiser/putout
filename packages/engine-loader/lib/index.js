@@ -34,7 +34,7 @@ const mergeRules = ([rule, plugin], rules) => {
 
 const cache = new Map();
 
-module.exports = (options = {}) => {
+module.exports.loadPlugins = (options = {}) => {
     if (cache.has(options))
         return cache.get(options);
     
