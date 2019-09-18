@@ -52,6 +52,7 @@
     "@putout/formatter-stream": "^1.0.0",
     "@putout/engine-loader": "^1.0.0",
     "@putout/engine-parser": "^1.0.0",
+    "@putout/engine-runner": "^1.0.0",
     "@putout/operate": "^1.0.0",
     "@putout/plugin-apply-destructuring": "^2.0.0",
     "@putout/plugin-convert-apply-to-spread": "^1.0.0",

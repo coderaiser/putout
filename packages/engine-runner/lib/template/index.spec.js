@@ -1,7 +1,8 @@
 'use strict';
 
 const test = require('supertape');
-const putout = require('../../putout');
+const putout = require('putout');
+const {runPlugins} = require('..');
 
 test('putout: plugin: traverse: template', (t) => {
     const exp = {
@@ -15,6 +16,7 @@ test('putout: plugin: traverse: template', (t) => {
     };
     
     const {places} = putout('module.exports = {a: 1}', {
+        runPlugins,
         plugins: [{
             exp,
         }],
@@ -45,6 +47,7 @@ test('putout: plugin: traverse: template: expression', (t) => {
     };
     
     const {places} = putout('if (a > b) if (4 > 3) {}', {
+        runPlugins,
         plugins: [{
             exp,
         }],
@@ -82,6 +85,7 @@ test('putout: plugin: traverse: template: literal', (t) => {
     };
     
     const {places} = putout('console["log"]()', {
+        runPlugins,
         plugins: [{
             exp,
         }],
@@ -115,6 +119,7 @@ test('putout: plugin: traverse: similar', (t) => {
     };
     
     const {places} = putout('module.exports = {a: 1}', {
+        runPlugins,
         plugins: [{
             exp,
         }],
@@ -145,6 +150,7 @@ test('putout: plugin: traverse: template: null', (t) => {
     };
     
     const {places} = putout('return null', {
+        runPlugins,
         plugins: [{
             ret,
         }],
@@ -175,6 +181,7 @@ test('putout: plugin: traverse: template: word', (t) => {
     };
     
     const {places} = putout('debugger; module.exports = {a: 1}', {
+        runPlugins,
         plugins: [{
             exp,
         }],
@@ -205,6 +212,7 @@ test('putout: plugin: traverse: template: __', (t) => {
     };
     
     const {places} = putout('module.exports = {a: 1}', {
+        runPlugins,
         plugins: [{
             exp,
         }],
@@ -237,6 +245,7 @@ test('putout: plugin: find: template: __', (t) => {
     };
     
     const {places} = putout('module.exports = {a: 1}', {
+        runPlugins,
         plugins: [{
             exp,
         }],
@@ -267,6 +276,7 @@ test('putout: plugin: traverse: template: different', (t) => {
     };
     
     const {places} = putout('module.exports = 1', {
+        runPlugins,
         plugins: [{
             exp,
         }],
@@ -292,6 +302,7 @@ test('putout: plugin: find: template: exclude', (t) => {
     };
     
     const {places} = putout('module.exports = {a: 1}', {
+        runPlugins,
         rules: {
             exp: ['on', {
                 exclude: [
@@ -322,6 +333,7 @@ test('putout: plugin: traverse: template: exclude', (t) => {
     };
     
     const {places} = putout('module.exports = {a: 1}', {
+        runPlugins,
         rules: {
             exp: ['on', {
                 exclude: 'module.exports = __',
@@ -340,6 +352,7 @@ test('putout: plugin: traverse: template: exclude', (t) => {
 
 test('putout: plugin: traverse: template: exclude', (t) => {
     const {places} = putout(`const t = 'hi'; const m = 1`, {
+        runPlugins,
         fix: false,
         rules: {
             'remove-unused-variables': ['on', {
@@ -368,6 +381,7 @@ test('putout: plugin: traverse: template: exclude', (t) => {
 
 test('putout: plugin: traverse: template: exclude: multiple', (t) => {
     const {places} = putout(`const t = 'hi'; const m = 1`, {
+        runPlugins,
         fix: false,
         rules: {
             'remove-unused-variables': ['on', {
@@ -390,6 +404,7 @@ test('putout: plugin: traverse: template: exclude: multiple', (t) => {
 
 test('putout: plugin: traverse: template: exclude: fn', (t) => {
     const {places} = putout(`const t = () => {a()}`, {
+        runPlugins,
         fix: false,
         rules: {
             'remove-unused-variables': ['on', {
@@ -411,6 +426,7 @@ test('putout: plugin: traverse: template: exclude: fn', (t) => {
 
 test('putout: plugin: traverse: template: exclude: fn', (t) => {
     const {places} = putout(`const t = __`, {
+        runPlugins,
         fix: false,
         rules: {
             'remove-unused-variables': ['on', {

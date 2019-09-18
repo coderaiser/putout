@@ -15,7 +15,7 @@ const {
 
 const isRemoved = (a) => a && a.removed;
 
-module.exports = ({ast, shebang, fix, fixCount, plugins}) => {
+module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins}) => {
     let places = [];
     
     const merge = once(mergeVisitors);

@@ -7,12 +7,9 @@ const types = require('@babel/types');
 
 const {print, parse} = require('@putout/engine-parser');
 const loader = require('@putout/engine-loader');
+const runner = require('@putout/engine-runner');
 
 const cutShebang = require('./cut-shebang');
-const runPlugins = require('./run-plugins');
-
-const isUndefined = (a) => typeof a === 'undefined';
-const {assign} = Object;
 
 const defaultOpts = (opts = {}) => {
     const {
@@ -20,6 +17,7 @@ const defaultOpts = (opts = {}) => {
         fix = true,
         fixCount = 2,
         loadPlugins = loader.loadPlugins,
+        runPlugins = runner.runPlugins,
     } = opts;
     
     return {
@@ -28,7 +26,8 @@ const defaultOpts = (opts = {}) => {
         fix,
         fixCount,
         loadPlugins,
-    }
+        runPlugins,
+    };
 };
 
 module.exports = (source, opts) => {
@@ -84,6 +83,7 @@ function transform(ast, source, opts) {
         fixCount,
         parser,
         loadPlugins,
+        runPlugins,
     } = opts;
     
     const [, shebang] = cutShebang(source);

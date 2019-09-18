@@ -2,7 +2,7 @@
 
 const babelTraverse = require('@babel/traverse').default;
 const generate = require('@babel/generator').default;
-const types = require('@babel/types');
+const {types} = require('putout');
 
 const template = require('./template');
 

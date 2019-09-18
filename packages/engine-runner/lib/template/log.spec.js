@@ -2,7 +2,7 @@
 
 const test = require('supertape');
 const mockRequire = require('mock-require');
-const {Identifier} = require('@babel/types');
+const {Identifier} = require('putout').types;
 
 const {reRequire} = mockRequire;
 const stub = require('@cloudcmd/stub');
