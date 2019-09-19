@@ -1,12 +1,19 @@
 'use strict';
 
 const {
+    types,
+    operate,
+} = require('putout');
+
+const {replaceWith} = operate;
+
+const {
     isIdentifier,
     isVariableDeclarator,
     isCallExpression,
     isLiteral,
     stringLiteral,
-} = require('putout').types;
+} = types;
 
 module.exports.report = (path) => {
     const {node} = path;
@@ -48,20 +55,20 @@ module.exports.fix = (path) => {
     
     if (isCallExpression(node) && isTryTo(callee)) {
         const [argument] = node.arguments;
-        path.replaceWith(argument);
+        replaceWith(path, argument);
         return;
     }
     
     if (isCallExpression(node) && isTryToTape(callee)) {
         const [argument] = node.arguments;
-        path.replaceWith(argument);
+        replaceWith(path, argument);
         return;
     }
     
-    const [argPath]= path.get('arguments');
+    const [argPath] = path.get('arguments');
     
     if (isRequire(callee) && isTape(argPath.node)) {
-        argPath.replaceWith(stringLiteral('supertape'));
+        replaceWith(argPath, stringLiteral('supertape'));
         return;
     }
 };
