@@ -2,6 +2,7 @@
 
 const template = require('@babel/template').default;
 const babelGenerate = require('@babel/generator').default;
+
 const {
     compareAny,
     compareAll,
@@ -11,14 +12,15 @@ const {isArray} = Array;
 const isTemplate = (a) => /[(;={]/.test(a) || !/[A-Z]/.test(a);
 const toArray = (a) => isArray(a) ? a : [a];
 const debug = require('debug')('putout:template');
-const log = () => {
-    if (!debug.enabled)
-        return;
-};
-
+const generate = templater();
 const generateCode = (a) => babelGenerate(a).code;
 
-const generate = templater();
+const log = (a) => {
+    if (!debug.enabled)
+        return;
+    
+    debug(generateCode(a));
+};
 
 const generateNode = (list) => {
     if (!list)
@@ -83,7 +85,7 @@ module.exports = (visitor, options) => {
 
 function wrapWithCheck({nodesInclude, nodesExclude, fn}) {
     return (path) => {
-        log(generateCode, path.node);
+        log(path.node);
         
         if (nodesExclude.length && compareAny(path, nodesExclude, path.node))
             return path.skip();
