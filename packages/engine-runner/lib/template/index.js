@@ -104,7 +104,10 @@ function templater() {
         if (cache[value])
             return cache[value];
         
-        const result = template.ast(value);
+        const result = template.ast(value, {
+            'allowAwaitOutsideFunction': true
+        });
+        
         cache[value] = result.expression || result;
         
         return cache[value];
