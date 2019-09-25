@@ -584,11 +584,16 @@ Add `putout` as a `peerDependency` to your `packages.json`.
 
 #### Plugins API
 
-Every `putout` plugin should contain 3 functions:
+Every `putout` plugin should contain next 2 functions:
 
 - `report(path)` - report error message to `putout` cli;
-- `traverse({push})` - find errors and `push` them;
 - `fix(path)` - fixes paths using `places` array received using `find` function;
+
+and one or more of this:
+- `traverse({push})` - find errors and `push` them;
+- `filter(path)` - filter path, should return `true`, or `false`.
+- `include` - returns array of templates, or node names to include
+- `exclude` - returns array of templates, or node names to exclude
 
 `context` of `find` function contains [@babel/traverse](https://babeljs.io/docs/en/next/babel-traverse.html) and [@babel/types](https://babeljs.io/docs/en/next/babel-types.html). Also there is [template](https://babeljs.io/docs/en/next/babel-template.html) and even [generate](https://babeljs.io/docs/en/babel-generator). All of this can be get from `putout`:
 
@@ -676,10 +681,30 @@ module.exports.traverse = ({push}) => {
         }
     }
 };
+```
 
 Where `__` is a placeholder for anything.
 
 *Remember: template key should be valid JavaScript, or Type name like in previous example.*
+
+You can aslo use `include` and/or `exclude` insead of `traverse` and `filter` ([more sophisticated example](https://github.com/coderaiser/putout/blob/master/packages/plugin-add-return-await/lib/add-return-await.js)):
+
+```js
+// should be always used include/or exclude, when traverse not used
+module.exports.include = () => [
+    'debugger',
+];
+
+// optional
+module.exports.exclude = () => [
+    'console.log'
+];
+
+// optional
+module.exports.filter = (path) => {
+    // do some checks
+    return true;
+}
 ```
 
 #### Template
