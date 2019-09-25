@@ -1,3 +1,15 @@
+2019.09.25, v6.3.0
+
+fix:
+- (package) dependencies
+
+feature:
+- (putout) add @putout/add-return-await
+- (@putout/engine-runner) template: add support of awaitOutsideFunction
+- (package) putout v6.2.0
+- (@putout/plugin-madrun) add-madrun-to-lint: exclude "putout -um"
+
+
 2019.09.25, v6.2.0
 
 feature:
