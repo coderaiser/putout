@@ -31,7 +31,7 @@ module.exports.filter = (path) => {
     } = argumentPath;
     
     if (!scope.block.async)
-        return null;
+        return false;
     
     const calleePath = argumentPath.get('callee');
     const {name} = node.callee;
@@ -42,14 +42,14 @@ module.exports.filter = (path) => {
             continue;
         
         if (!ref.scope.block.async)
-            return null;
+            return false;
         
         const {id} = ref.scope.block;
         
         if (name === id.name)
-            return argumentPath;
+            return true;
     }
     
-    return null;
+    return false;
 };
 
