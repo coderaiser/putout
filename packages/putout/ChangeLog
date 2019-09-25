@@ -1,3 +1,18 @@
+2019.09.25, v6.2.0
+
+feature:
+- (putout) add ability to work with modified, untracked git files
+- (codemods) add convert-fs-to-promises
+- (@putout/engine-runner) logs
+- (package) eslint-plugin-putout v2.0.0
+- (package) eslint-plugin-node v10.0.0
+- (package) eslint v6.4.0
+- (package) nyc v14.1.1
+- (package) madrun v3.0.5
+- (package) eslint-plugin-node v10.0.0
+- (package) eslint v6.4.0
+
+
 2019.09.18, v6.1.0
 
 feature:
