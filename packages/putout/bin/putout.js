@@ -8,6 +8,9 @@ const {
     statSync,
 } = require('fs');
 
+const {join} = require('path');
+const {spawnSync} = require('child_process');
+
 const {red} = require('chalk');
 
 const cwd = process.cwd();
@@ -20,6 +23,8 @@ const processFile = require('../lib/process-file');
 const {parse, stringify} = JSON;
 
 const one = (f) => (a) => f(a);
+const joinDir = (a) => (b) => join(a, b);
+const isJS = (a) => /\.(jsx?|ts)$/.test(a);
 
 const argv = require('yargs-parser')(process.argv.slice(2), {
     boolean: [
@@ -31,6 +36,9 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
         'disable-all',
         'jsx',
         'flow',
+        'added',
+        'modified',
+        'untracked',
     ],
     number: [
         'fixCount',
@@ -47,6 +55,9 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
         h: 'help',
         c: 'config',
         f: 'format',
+        a: 'added',
+        m: 'modified',
+        u: 'untracked',
     },
     default: {
         fix: false,
@@ -66,7 +77,15 @@ const {
     disableAll,
     enable,
     enableAll,
+    added,
+    modified,
+    untracked,
 } = argv;
+
+let gitNames = [];
+
+if (untracked || added || modified)
+    gitNames = getGitNames();
 
 if (argv.version) {
     console.log(`v${require('../package.json').version}`);
@@ -122,6 +141,9 @@ if (isRuler(argv)) {
 if (mergedPlaces.length)
     exit(1);
 
+if (added)
+    tryCatch(spawnSync('git', ['add', ...gitNames]));
+
 function addExt(a) {
     const [e, file] = tryCatch(statSync, a);
     
@@ -144,7 +166,29 @@ function getFiles(args) {
     if (args.length && !files[0].length)
         throw Error(`No files matching the pattern "${args[0]}" were found`);
     
-    return mergeArrays(files);
+    return mergeArrays(files).concat(gitNames);
+}
+
+function getGitNames() {
+    const porcelaine = require('@putout/git-status-porcelain');
+    const findUp = require('find-up');
+    
+    const gitDir = findUp.sync('.git', {
+        type: 'directory',
+    }).replace(/\.git$/, '');
+    
+    if (!gitDir)
+        return [];
+    
+    const names = porcelaine({
+        untracked,
+        added,
+        modified,
+    });
+    
+    return names
+        .filter(isJS)
+        .map(joinDir(gitDir));
 }
 
 function help() {
