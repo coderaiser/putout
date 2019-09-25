@@ -22,12 +22,10 @@ module.exports.exclude = () => [
 ];
 
 module.exports.filter = (path) => {
-    const argumentPath = path.get('argument');
-    
     const {
         node,
         scope,
-    } = argumentPath;
+    } = path.get('argument');
     
     if (!scope.block.async)
         return false;
