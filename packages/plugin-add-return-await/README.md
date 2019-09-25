@@ -29,7 +29,7 @@ npm i @putout/plugin-add-return-await
 ```js
 async function hello() {}
 async function world() {
-    return world();
+    return hello();
 }
 ```
 
@@ -38,7 +38,7 @@ async function world() {
 ```js
 async function hello() {}
 async function world() {
-    return await world();
+    return await hello();
 }
 ```
 
