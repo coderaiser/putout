@@ -33,6 +33,7 @@
     },
     "plugins": [
         "apply-destructuring",
+        "add-return-await",
         "extract-object-properties",
         "extract-sequence-expressions",
         "madrun",

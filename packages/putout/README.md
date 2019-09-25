@@ -45,6 +45,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `top-level return` into `process.exit()`;
 - extract sequence expressions;
 - extract object properties;
+- add `return await`;
 
 ## Why?
 

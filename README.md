@@ -385,11 +385,18 @@ function merge(a) {
 </details>
 
 <details><summary>convert <code>top-level return</code> into <code>process.exit()</code>(because EcmaScript Modules doesn't support top level return)</summary>
-
-
 ```diff
 -   return;
 +   process.exit();
+```
+</details>
+
+<details><summary>add <code>await</code> to <code>return promise()</code> statements ([because it's faster, produces call stack and more readable](https://v8.dev/blog/fast-async))</summary>
+```diff
+async run () {
+-   return promise();
++   return await promise();
+}
 ```
 </details>
 
@@ -435,7 +442,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-convert-top-level-return`](/packages/plugin-convert-top-level-return) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-top-level-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-top-level-return) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-top-level-return)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-top-level-return) |
 | [`@putout/plugin-simplify-ternary`](/packages/plugin-simplify-ternary) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-ternary) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-simplify-ternary)](https://david-dm.org/coderaiser/putout?path=packages/plugin-simplify-ternary) |
 | [`@putout/plugin-putout`](/packages/plugin-putout) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-putout)](https://david-dm.org/coderaiser/putout?path=packages/plugin-putout) |
-
+| [`@putout/plugin-add-return-await`](/packages/plugin-add-return-await) | [![npm](https://img.shields.io/npm/v/@putout/plugin-add-return-await.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-add-return-await) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-add-return-await)](https://david-dm.org/coderaiser/putout?path=packages/plugin-add-return-await) |
 ## Formatters
 
 `putout` use formatters similar to [eslint's formatters](https://eslint.org/docs/user-guide/formatters/).
