@@ -34,3 +34,13 @@ test('madrun: add madrun to lint: no transform: exist', (t) => {
     t.noTransform('exist');
     t.end();
 });
+
+test('madrun: add madrun to lint: no transform: um', (t) => {
+    t.noTransform('um');
+    t.end();
+});
+
+test('madrun: add madrun to lint: no transform: um: template', (t) => {
+    t.noTransform('um-template');
+    t.end();
+});

@@ -7,6 +7,8 @@ const {
     isTemplateLiteral,
 } = types;
 
+const isUM = (a) => a.includes(' -um');
+
 module.exports.report = () => '"lint" should check "madrun.js"';
 
 module.exports.fix = ({line}) => {
@@ -35,12 +37,9 @@ module.exports.traverse = ({push}) => {
             
             const value = lint.parentPath.get('value');
             
-            if (!value.isFunction())
-                return;
-            
             const {body} = value.node;
             
-            if (isStringLiteral(body) && !/madrun/.test(body.value))
+            if (isStringLiteral(body) && !isUM(body.value) && !/madrun/.test(body.value))
                 return push({
                     path: rightPath,
                     lint,
@@ -55,7 +54,7 @@ module.exports.traverse = ({push}) => {
             
             const [line] = body.quasis;
             
-            if (line.value.raw.includes('madrun'))
+            if (isUM(line.value.raw) || line.value.raw.includes('madrun'))
                 return;
             
             push({
