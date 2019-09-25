@@ -13,11 +13,15 @@
     "url": "git://github.com/coderaiser/putout.git"
   },
   "scripts": {
+    "prepublishOnly": "madrun prepublishOnly",
     "test": "madrun test",
     "watch:test": "madrun watch:test",
     "lint": "madrun lint",
+    "lint:all": "madrun lint:all",
     "fix:lint": "madrun fix:lint",
-    "coverage": "madrun coverage"
+    "putout": "madrun putout",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
   },
   "nyc": {
     "exclude": [

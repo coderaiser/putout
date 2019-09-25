@@ -8,9 +8,11 @@ const {
 const {putout} = predefined;
 
 module.exports = {
+    'prepublishOnly': () => run(['lint:all', 'test']),
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w lib -x ${run('test')}`,
-    'lint': () => putout([
+    'lint': () => 'putout -um',
+    'lint:all': () => putout([
         'lib',
         'test',
         'madrun.js',
