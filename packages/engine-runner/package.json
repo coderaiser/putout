@@ -31,25 +31,31 @@
   "dependencies": {
     "@babel/generator": "^7.6.2",
     "@babel/template": "^7.6.0",
+    "@babel/traverse": "^7.6.2",
     "@babel/types": "^7.6.1",
-    "debug": "^4.1.1"
+    "debug": "^4.1.1",
+    "once": "^1.4.0",
+    "try-catch": "^2.0.1"
   },
   "keywords": [
     "putout",
     "putout-engine"
   ],
   "devDependencies": {
+    "@cloudcmd/stub": "^2.3.2",
     "@putout/test": "^1.1.1",
     "coveralls": "^3.0.0",
     "eslint": "^6.2.0",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-putout": "^2.0.0",
+    "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
     "madrun": "^3.0.0",
     "nodemon": "^1.14.12",
     "nyc": "^14.0.0",
     "putout": "*",
-    "redrun": "^7.0.2"
+    "redrun": "^7.0.2",
+    "supertape": "^1.2.3"
   },
   "license": "MIT",
   "engines": {
