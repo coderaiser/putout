@@ -29,7 +29,10 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@babel/types": "^7.6.1"
+    "@babel/generator": "^7.6.2",
+    "@babel/template": "^7.6.0",
+    "@babel/types": "^7.6.1",
+    "debug": "^4.1.1"
   },
   "keywords": [
     "putout",
