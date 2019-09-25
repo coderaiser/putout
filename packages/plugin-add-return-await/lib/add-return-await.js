@@ -25,7 +25,6 @@ module.exports.filter = (path) => {
     const argumentPath = path.get('argument');
     
     const {
-        state,
         node,
         scope,
     } = argumentPath;
@@ -33,22 +32,16 @@ module.exports.filter = (path) => {
     if (!scope.block.async)
         return false;
     
-    const calleePath = argumentPath.get('callee');
     const {name} = node.callee;
-    const {references} = state;
+    const referencedPath = path.findParent((path) => path.scope.bindings[name]);
     
-    for (const ref of references) {
-        if (ref === calleePath)
-            continue;
-        
-        if (!ref.scope.block.async)
-            return false;
-        
-        const {id} = ref.scope.block;
-        
-        if (name === id.name)
-            return true;
-    }
+    if (!referencedPath)
+        return;
+    
+    const bindings = referencedPath.scope.bindings[name];
+    
+    if (bindings.path.node.async)
+        return true;
     
     return false;
 };

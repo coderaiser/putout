@@ -28,3 +28,4 @@ test('plugin-add-return-await: no transform: not promise', (t) => {
     t.noTransform('not-promise');
     t.end();
 });
+
