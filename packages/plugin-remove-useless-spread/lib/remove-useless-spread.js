@@ -13,6 +13,11 @@ module.exports.include = () => [
     '[...__]',
 ];
 
+module.exports.exclude= () => [
+    '[...__].__()',
+    'return [...__]',
+];
+
 module.exports.filter = (path) => {
     const {elements} = path.node;
     

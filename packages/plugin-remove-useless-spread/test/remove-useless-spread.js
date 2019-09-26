@@ -19,3 +19,12 @@ test('plugin-remove-useless-spread: no transform: elements', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-spread: no transform: call', (t) => {
+    t.noTransform('call');
+    t.end();
+});
+
+test('plugin-remove-useless-spread: no transform: return', (t) => {
+    t.noTransform('return');
+    t.end();
+});
