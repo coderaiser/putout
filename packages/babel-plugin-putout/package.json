@@ -57,7 +57,7 @@
     "babel-plugin"
   ],
   "dependencies": {
-    "putout": "^5.3.0"
+    "putout": "^6.5.1"
   },
   "publishConfig": {
     "access": "public"
