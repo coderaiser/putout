@@ -9,7 +9,6 @@ os:
     - osx
 
 script:
-  - npm i yarn -g
   - npm run bootstrap
   - npm run lint
   - npm run coverage
