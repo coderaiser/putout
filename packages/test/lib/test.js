@@ -39,6 +39,7 @@ const wrap = (dir, plugin, rules, test) => (str, fn) => {
         t.noTransformCode = noTransformCode(t, plugin, rules);
         
         t.report = report(t, dir, plugin, rules);
+        t.noReport = report(t, dir, plugin, rules);
         t.reportCode = reportCode(t, plugin, rules);
         
         t.formatSave = formatSave(t, dir, plugin, rules);
