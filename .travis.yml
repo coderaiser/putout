@@ -4,7 +4,9 @@ node_js:
     - 10
     - 8
 
-cache: false
+os:
+    - linux
+    - osx
 
 script:
   - npm i yarn -g
@@ -19,4 +21,5 @@ notifications:
         on_failure: change
 
 sudo: false
+cache: false
 
