@@ -104,7 +104,6 @@
     "ignore": "^5.0.4",
     "is-relative": "^1.0.0",
     "once": "^1.4.0",
-    "recast": "https://github.com/coderaiser/recast/archive/v0.18.2-fix.tar.gz",
     "try-catch": "^2.0.0",
     "yargs-parser": "^14.0.0"
   },
