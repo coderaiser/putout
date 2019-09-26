@@ -1,4 +1,11 @@
 {
+    "overrides": [{
+        "files": ["lib/**/*.spec.js", "test/**"],
+        "rules": {
+            "node/no-unpublished-require": "off",
+            "node/no-extraneous-require": "off"
+        }
+    }],
     "extends": [
         "plugin:putout/recommended",
         "plugin:node/recommended"

@@ -23,24 +23,34 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/engine-parser": "^1.0.0"
+    "@babel/core": "^7.6.2",
+    "@putout/engine-parser": "^1.0.0",
+    "@putout/plugin-remove-unused-variables": "^1.51.1",
+    "diff-match-patch": "^1.0.4",
+    "jscodeshift": "^0.6.4",
+    "once": "^1.4.0",
+    "try-catch": "^2.0.1"
   },
   "keywords": [
     "putout",
     "putout-engine"
   ],
   "devDependencies": {
+    "@cloudcmd/stub": "^2.3.2",
     "@putout/test": "^1.1.1",
     "coveralls": "^3.0.0",
     "eslint": "^6.2.0",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-putout": "^2.0.0",
+    "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
     "madrun": "^3.0.0",
+    "mock-require": "^3.0.3",
     "nodemon": "^1.14.12",
     "nyc": "^14.0.0",
     "putout": "*",
-    "redrun": "^7.0.2"
+    "redrun": "^7.0.2",
+    "supertape": "^1.2.3"
   },
   "license": "MIT",
   "engines": {
