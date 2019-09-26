@@ -1,4 +1,11 @@
 {
+    "match": {
+        "test/putout.js": {
+            "apply-shorthand-properties": ["on", {
+                "ignore": "plugin"
+            }]
+        }
+    },
     "rules": {
         "putout": "off",
         "babel/transform-inline-consecutive-adds": "off",
