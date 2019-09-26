@@ -19,7 +19,9 @@ npm i @putout/plugin-apply-shorthand-properties
 ```json
 {
     "rules": {
-        "apply-shorthand-properties": true
+        "apply-shorthand-properties": ["on", {
+            "ignore": []
+        }]
     }
 }
 ```

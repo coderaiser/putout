@@ -19,6 +19,16 @@ test('plugin-apply-shorthand-properties: transform', (t) => {
     t.end();
 });
 
+test('plugin-apply-shorthand-properties: transform: options', (t) => {
+    t.noTransformWithOptions('options', {
+        ignore: [
+            'plugin',
+        ],
+    });
+    
+    t.end();
+});
+
 test('plugin-apply-shorthand-properties: no transform: references', (t) => {
     t.noTransform('references');
     t.end();

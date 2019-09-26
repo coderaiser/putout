@@ -7,7 +7,7 @@ module.exports.fix = ({path, from, to}) => {
     path.node.shorthand = true;
 };
 
-module.exports.traverse = ({push}) => {
+module.exports.traverse = ({push, options}) => {
     return {
         '({__:__})'(path) {
             for (const propPath of path.get('properties')) {
@@ -19,10 +19,15 @@ module.exports.traverse = ({push}) => {
                 const valuePath = propPath.get('value');
                 const keyPath = propPath.get('key');
                 
+                const {ignore = []} = options;
+                
                 const from = getName(valuePath);
                 const to = getName(keyPath);
                 
                 if (!to)
+                    continue;
+                
+                if (ignore.includes(from))
                     continue;
                 
                 const bindingPath = getBinding(propPath, from);
