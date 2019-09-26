@@ -1,3 +1,17 @@
+2019.09.26, v6.5.1
+
+fix:
+- (@putout/engine-runner) npmignore: add *.spec.js
+
+feature:
+- (@putout/plugin-apply-shorthand-properties) add options
+- (package) @putout/plugin-remove-empty v3.0.0
+- (@putout/plugin-remove-empty) import: add ability to pass options
+- (@putout/engine-runner) add ability to pass options to filter
+- (@putout/test) add transformWithOptions, noTransformWithOptions
+- (@putout/plugin-apply-shorthand-properties) exclude ImportSpecifier
+
+
 2019.09.26, v6.5.0
 
 fix:
