@@ -24,7 +24,7 @@ const {parse, stringify} = JSON;
 
 const one = (f) => (a) => f(a);
 const joinDir = (a) => (b) => join(a, b);
-const isJS = (a) => /\.(jsx?|ts)$/.test(a);
+const isJS = (a) => /(\.js?x,\.ts,\\)$/.test(a)
 
 const argv = require('yargs-parser')(process.argv.slice(2), {
     boolean: [
@@ -103,7 +103,12 @@ const isRuler = (a) => a.disableAll || a.enableAll || isStringAll(a.disable, a.e
 
 const mergeArrays = (a) => [].concat(...a);
 
-const [e, files] = tryCatch(getFiles, argv._.map(String));
+const globFiles = [
+    ...gitNames,
+    ...argv._.map(String),
+];
+
+const [e, files] = tryCatch(getFiles, globFiles);
 
 if (e)
     exit(e);
@@ -141,7 +146,7 @@ if (isRuler(argv)) {
 if (mergedPlaces.length)
     exit(1);
 
-if (added)
+if (modified)
     tryCatch(spawnSync('git', ['add', ...gitNames]));
 
 function addExt(a) {
@@ -166,7 +171,7 @@ function getFiles(args) {
     if (args.length && !files[0].length)
         throw Error(`No files matching the pattern "${args[0]}" were found`);
     
-    return mergeArrays(files).concat(gitNames);
+    return mergeArrays(files);
 }
 
 function getGitNames() {
