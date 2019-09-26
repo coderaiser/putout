@@ -105,7 +105,7 @@ test('putout: filter: options: no filter call', (t) => {
         }],
         rules: {
             'add-variable': ['on', {
-                ok: false
+                ok: false,
             }],
         },
     });

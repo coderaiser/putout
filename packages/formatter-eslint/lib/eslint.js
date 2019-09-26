@@ -40,14 +40,14 @@ function format(results) {
     return JSON.stringify(results, null, 4);
 }
 
-const SEVERITY_ERROR = 2;
+const severity = 2;
 
 function convertPlace({rule, message, position}) {
     const {line, column} = position;
     
     return {
         ruleId: rule,
-        severity: SEVERITY_ERROR,
+        severity,
         message,
         line,
         column,

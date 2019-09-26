@@ -22,13 +22,6 @@ const TS = {
     DISABLED: false,
 };
 
-const getInc = () => {
-    let i;
-    return () => ++i;
-};
-
-const inc = getInc();
-
 const readFixture = (name) => {
     const [e, data] = tryCatch(readFileSync, `${name}.ts`, 'utf8');
     

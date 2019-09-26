@@ -1,6 +1,6 @@
 'use strict';
 
-const removeEmpty = require('@putout/plugin-remove-empty')
+const removeEmpty = require('@putout/plugin-remove-empty');
 
 const test = require('..')(__dirname, {
     'remove-empty/import': removeEmpty.rules.import,
@@ -9,8 +9,8 @@ const test = require('..')(__dirname, {
 test('test: options', (t) => {
     t.transformWithOptions('transform-options', {
         ignore: [
-            "hello"
-        ]
+            'hello',
+        ],
     });
     t.end();
 });
@@ -18,9 +18,9 @@ test('test: options', (t) => {
 test('test: options: no transform', (t) => {
     t.noTransformWithOptions('transform-options', {
         ignore: [
-            "hello",
+            'hello',
             'world',
-        ]
+        ],
     });
     
     t.end();
