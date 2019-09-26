@@ -48,7 +48,7 @@ test('putout: run plugins: disable, using "off"', (t) => {
 test('putout: traverse: shebang', (t) => {
     const addVar = {
         report: () => '',
-        fix: stub,
+        fix: stub(),
         include: () => [
             'debugger',
         ],
