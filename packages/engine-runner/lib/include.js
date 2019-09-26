@@ -32,25 +32,19 @@ module.exports = ({rule, plugin, msg, options}) => {
     };
 };
 
-const prePush = ({filter, push}) => (path) => {
-    if (!filter(path))
+const prePush = ({filter, push, options}) => (path) => {
+    if (!filter(path, {options}))
         return;
     
     push(path);
 };
 
-const oneTraverse = (filter) => ({push}) => ({
-    enter: prePush({
-        filter,
-        push,
-    }),
-});
-
-const manyTraverse = (include, filter) => ({push}) => {
+const getTraverse = (include, filter) => ({push, options}) => {
     const result = {};
     const visitor = prePush({
         filter,
         push,
+        options,
     });
     
     for (const str of include)
@@ -58,11 +52,4 @@ const manyTraverse = (include, filter) => ({push}) => {
     
     return result;
 };
-
-function getTraverse(include, filter) {
-    if (!include.length)
-        return oneTraverse(filter);
-    
-    return manyTraverse(include, filter);
-}
 

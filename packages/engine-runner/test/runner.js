@@ -45,35 +45,72 @@ test('putout: run plugins: disable, using "off"', (t) => {
     t.end();
 });
 
-test('putout: traverse: shebang', (t) => {
+test('putout: filter: options', (t) => {
     const addVar = {
         report: () => '',
         fix: stub(),
         include: () => [
             'debugger',
         ],
+        filter: (path, {options}) => {
+            return options.ok;
+        },
     };
     
-    const code = [
-        '#!/usr/bin/env node',
-        'debugger;',
-    ].join('\n');
+    const code = 'debugger';
     
     const {places} = putout(code, {
         runPlugins,
         plugins: [{
             'add-variable': addVar,
         }],
+        rules: {
+            'add-variable': ['on', {
+                ok: true,
+            }],
+        },
     });
     
     const expected = [{
         rule: 'add-variable',
         message: '',
         position: {
-            line: 2,
+            line: 1,
             column: 0,
         },
     }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: filter: options: no filter call', (t) => {
+    const addVar = {
+        report: () => '',
+        fix: stub(),
+        include: () => [
+            'debugger',
+        ],
+        filter: (path, {options}) => {
+            return options.ok;
+        },
+    };
+    
+    const code = 'debugger';
+    
+    const {places} = putout(code, {
+        runPlugins,
+        plugins: [{
+            'add-variable': addVar,
+        }],
+        rules: {
+            'add-variable': ['on', {
+                ok: false
+            }],
+        },
+    });
+    
+    const expected = [];
     
     t.deepEqual(places, expected, 'should equal');
     t.end();

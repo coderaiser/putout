@@ -9,7 +9,12 @@ const {
 } = require('./compare');
 
 const {isArray} = Array;
-const isTemplate = (a) => /[(;={]/.test(a) || !/[A-Z]/.test(a);
+const isTemplate = (a) => {
+    if (a === 'enter')
+        return false;
+    
+    return /[(;={]/.test(a) || !/[A-Z]/.test(a);
+};
 const toArray = (a) => isArray(a) ? a : [a];
 const debug = require('debug')('putout:template');
 const generate = templater();
