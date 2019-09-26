@@ -11,7 +11,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "putout -m"
+      "pre-commit": "putout -a"
     }
   },
   "devDependencies": {
