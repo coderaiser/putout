@@ -1,3 +1,14 @@
+2019.09.26, v6.5.0
+
+fix:
+- (@putout/engine-loader) dependencies
+- (@putout/engine-parser) dependencies
+- (@putout/plugin-apply-shorthand-properties) avoid destructuring
+
+feature:
+- (@putout/remove-useless-spread) add
+
+
 2019.09.26, v6.4.0
 
 feature:
