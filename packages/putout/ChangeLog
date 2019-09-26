@@ -1,3 +1,10 @@
+2019.09.26, v6.4.0
+
+feature:
+- (@putout/test) add noReport
+- (@putout/plugin-apply-shorthand-properties) add
+
+
 2019.09.26, v6.3.1
 
 fix:
