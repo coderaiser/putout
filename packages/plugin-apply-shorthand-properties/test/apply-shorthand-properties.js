@@ -48,3 +48,8 @@ test('plugin-apply-shorthand-properties: no transform: destructuring', (t) => {
     t.noTransform('import');
     t.end();
 });
+
+test('plugin-apply-shorthand-properties: no transform: name exists', (t) => {
+    t.noTransform('name-exists');
+    t.end();
+});

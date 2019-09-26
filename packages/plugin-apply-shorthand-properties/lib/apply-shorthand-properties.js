@@ -35,10 +35,15 @@ module.exports.traverse = ({push, options}) => {
                 if (!bindingPath)
                     continue;
                 
+                const {bindings} = bindingPath.scope;
+                
+                if (bindings[to])
+                    continue;
+                
                 const {
                     references,
                     path,
-                } = bindingPath.scope.bindings[from];
+                } = bindings[from];
                 
                 if (path.isImportSpecifier() || path.isObjectPattern() || path.get('id').isObjectPattern())
                     continue;
