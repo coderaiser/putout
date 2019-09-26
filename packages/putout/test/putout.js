@@ -314,7 +314,7 @@ test('putout: use strict: no fix', (t) => {
 test('putout: traverse: shebang', (t) => {
     const addVar = {
         report: () => '',
-        fix: stub,
+        fix: stub(),
         include: () => [
             'debugger',
         ],

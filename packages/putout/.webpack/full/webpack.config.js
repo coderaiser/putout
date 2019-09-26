@@ -5,7 +5,7 @@ const {resolve, join} = require('path');
 const merge = require('webpack-merge');
 const common = require('../webpack.config.js');
 
-const dist = resolve(__dirname, '..', '..', 'dist');
+const path = resolve(__dirname, '..', '..', 'dist');
 
 module.exports = merge([
     common, {
@@ -13,7 +13,7 @@ module.exports = merge([
             putout: join(__dirname, `./index.js`),
         },
         output: {
-            path: dist,
+            path,
         },
         
         resolve: {

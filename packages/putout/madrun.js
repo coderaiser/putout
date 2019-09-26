@@ -34,7 +34,7 @@ module.exports = {
         return `bin/putout.js ${names}`;
     },
     'fix:lint': () => run('lint', '--fix -a'),
-    'fix:lint:all': () => run('lint', '--fix'),
+    'fix:lint:all': () => run('lint:all', '--fix'),
     'lint:progress': () => run('lint', '--fix --f progress'),
     'lint:p': () => run('lint:progress'),
     'putout': () => `bin/putout.js bin lib test madrun.js`,

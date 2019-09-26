@@ -8,12 +8,12 @@ const {
 const webpack = require('webpack');
 
 const {env} = process;
-const isDev = env.NODE_ENV === 'development';
+const pathinfo = env.NODE_ENV === 'development';
 
-const slim = resolve(__dirname, '..', 'slim');
+const path = resolve(__dirname, '..', 'slim');
 const devtool = false;
 
-const babelDev = {
+const options = {
     plugins: [
         'module:babel-plugin-macros',
     ],
@@ -23,7 +23,7 @@ const rules = [{
     test: /\.js$/,
     exclude: /node_modules/,
     loader: 'babel-loader',
-    options: babelDev,
+    options,
 }];
 
 module.exports = {
@@ -34,8 +34,8 @@ module.exports = {
     output: {
         library: 'putout',
         filename: '[name].js',
-        path: slim,
-        pathinfo: isDev,
+        path,
+        pathinfo,
         libraryTarget: 'umd',
         devtoolModuleFilenameTemplate,
     },
