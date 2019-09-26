@@ -34,6 +34,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `esm` to `commonjs`;
 - convert `commonjs` to `esm`;
 - apply destructuring;
+- apply shorthand properties;
 - merge destructuring properties;
 - merge `if` statements;
 - convert `Math.pow` to `exponentiation operator`;

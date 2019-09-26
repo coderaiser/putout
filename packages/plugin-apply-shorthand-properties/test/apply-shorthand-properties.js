@@ -1,0 +1,31 @@
+'use strict';
+
+const test = require('@putout/test')(__dirname, {
+    'apply-shorthand-properties': require('..'),
+});
+
+test('plugin-apply-shorthand-properties: report', (t) => {
+    t.report('object', 'Shorthand properties should be used');
+    t.end();
+});
+
+test('plugin-apply-shorthand-properties: no transform: shorthand', (t) => {
+    t.noReport('shorthand');
+    t.end();
+});
+
+test('plugin-apply-shorthand-properties: transform', (t) => {
+    t.transform('object');
+    t.end();
+});
+
+test('plugin-apply-shorthand-properties: no transform: references', (t) => {
+    t.noTransform('references');
+    t.end();
+});
+
+test('plugin-apply-shorthand-properties: no transform: not-valid', (t) => {
+    t.noTransform('not-valid');
+    t.end();
+});
+

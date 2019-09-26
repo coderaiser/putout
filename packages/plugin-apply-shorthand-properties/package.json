@@ -1,0 +1,55 @@
+{
+  "name": "@putout/plugin-apply-shorthand-properties",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin adds ability to apply shorthand properties",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/apply-shorthand-properties.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "publishOnly": "madrun publishOnly",
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "lint:all": "madrun lint:all",
+    "fix:lint": "madrun fix:lint",
+    "fix:lint:all": "madrun fix:lint:all",
+    "putout": "madrun putout",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "remove",
+    "only"
+  ],
+  "devDependencies": {
+    "@putout/eslint-config": "^1.0.2",
+    "@putout/test": "^1.16.1",
+    "coveralls": "^3.0.0",
+    "eslint": "^6.2.0",
+    "eslint-plugin-node": "^10.0.0",
+    "madrun": "^3.0.0",
+    "nyc": "^14.0.0",
+    "supertape": "^1.0.3"
+  },
+  "peerDependencies": {
+    "putout": ">=6.2"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

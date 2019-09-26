@@ -33,6 +33,7 @@
     },
     "plugins": [
         "apply-destructuring",
+        "apply-shorthand-properties",
         "add-return-await",
         "extract-object-properties",
         "extract-sequence-expressions",

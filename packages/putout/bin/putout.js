@@ -9,8 +9,6 @@ const {
 } = require('fs');
 
 const {join} = require('path');
-const {spawnSync} = require('child_process');
-
 const {red} = require('chalk');
 
 const cwd = process.cwd();
@@ -24,7 +22,7 @@ const {parse, stringify} = JSON;
 
 const one = (f) => (a) => f(a);
 const joinDir = (a) => (b) => join(a, b);
-const isJS = (a) => /(\.js?x,\.ts,\\)$/.test(a)
+const isJS = (a) => /(\.jsx?|\.ts|\/)$/.test(a);
 
 const argv = require('yargs-parser')(process.argv.slice(2), {
     boolean: [
@@ -145,9 +143,6 @@ if (isRuler(argv)) {
 
 if (mergedPlaces.length)
     exit(1);
-
-if (modified)
-    tryCatch(spawnSync('git', ['add', ...gitNames]));
 
 function addExt(a) {
     const [e, file] = tryCatch(statSync, a);
