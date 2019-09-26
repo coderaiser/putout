@@ -35,7 +35,7 @@ module.exports.traverse = ({push}) => {
                     path,
                 } = bindingPath.scope.bindings[from];
                 
-                if (path.isObjectPattern() || path.get('id').isObjectPattern())
+                if (path.isImportSpecifier() || path.isObjectPattern() || path.get('id').isObjectPattern())
                     continue;
                 
                 if (references > 1)
