@@ -14,13 +14,20 @@ const putout = require('putout');
 const isFn = (a) => typeof a === 'function';
 const isString = (a) => typeof a === 'string';
 const {isArray} = Array;
-const {entries} = Object;
+const {keys, entries} = Object;
 
 const {UPDATE} = process.env;
 const TS = {
     ENABLED: true,
     DISABLED: false,
 };
+
+const getInc = () => {
+    let i;
+    return () => ++i;
+};
+
+const inc = getInc();
 
 const readFixture = (name) => {
     const [e, data] = tryCatch(readFileSync, `${name}.ts`, 'utf8');
@@ -37,6 +44,9 @@ const wrap = (dir, plugin, rules, test) => (str, fn) => {
         t.noTransform = noTransform(t, dir, plugin, rules);
         t.transformCode = transformCode(t, plugin, rules);
         t.noTransformCode = noTransformCode(t, plugin, rules);
+        
+        t.transformWithOptions = transformWithOptions(t, dir, plugin);
+        t.noTransformWithOptions = noTransformWithOptions(t, dir, plugin);
         
         t.report = report(t, dir, plugin, rules);
         t.noReport = report(t, dir, plugin, rules);
@@ -174,6 +184,39 @@ const transform = (t, dir, plugins, rules) => (name, transformed, addons) => {
     };
     
     transformCode(t, plugins, rules)(input, output, isTS);
+};
+
+const transformWithOptions = (t, dir, plugins) => (name, options) => {
+    const full = join(dir, name);
+    const [input, isTS] = readFixture(full);
+    
+    const [output] = readFixture(`${full}-fix`);
+    const [plugin] = plugins;
+    const [rule] = keys(plugin);
+    
+    const rules = {
+        [rule]: ['on', options],
+    };
+    
+    const {code} = putout(input, {isTS, plugins, rules});
+    
+    t.equal(code, output, 'should equal');
+};
+
+const noTransformWithOptions = (t, dir, plugins) => (name, options) => {
+    const full = join(dir, name);
+    const [input, isTS] = readFixture(full);
+    
+    const [plugin] = plugins;
+    const [rule] = keys(plugin);
+    
+    const rules = {
+        [rule]: ['on', options],
+    };
+    
+    const {code} = putout(input, {isTS, plugins, rules});
+    
+    t.equal(code, input, 'should equal');
 };
 
 const noTransform = (t, dir, plugins, rules) => (name, transformed, addons) => {

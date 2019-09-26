@@ -13,6 +13,9 @@ Test runner for `putout plugins`. Basically it is [supercharged](https://github.
 - `transform(filename [, output, plugins])` - check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory
 - `transformCode(input, output)` - check transform of `input` -> `output` code
 
+- `transformWithOptions(filename, options)` - check transform of `filename.js` with `options`
+- `noTransformWithOptions(filename, options)` - check transform of `filename.js` with `options`
+
 - `noReport(filename)` - checks error message of a plugin not produces
 - `noTransform(filename)` - check transform of `filename.js` produce nothing
 
