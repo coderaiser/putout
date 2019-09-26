@@ -1,0 +1,11 @@
+{
+    "match": {
+        "espree.js": {
+            "apply-shorthand-properties": ["on", {
+                "exclude": [
+                    "({loc: true, tokens: preventUsingEsprima})"
+                ]
+            }]
+        }
+    }
+}
