@@ -17,42 +17,36 @@
 npm i @putout/plugin-remove-empty
 ```
 
-## Rule
-
-Rules `remove-empty` is enabled by default, to disable add to `.putout.json`:
+## Rules
 
 ```json
 {
     "rules": {
-        "remove-empty/block": false,
-        "remove-empty/pattern": false,
-        "remove-empty/import": false
+        "remove-empty/block": "on",
+        "remove-empty/pattern": "on",
+        "remove-empty/import": ["on", {
+            "ignore": []
+        }]
     }
 }
 ```
 
-## Code Example
+## ❌ Incorrect code example
 
 ```js
-const {readFileSync} = require('fs');
-const source = readFileSync('./1.js', 'utf8');
+import "hello";
 
-const putout = require('putout');
+if (2 > 3) {}
+```
 
-console.log(source);
-// outputs
-`
+## ✅ Correct code Example
+
+```js
+import hello from "hello";
+
 if (2 > 3) {
+    hello();
 }
-`
-
-const result = putout(source, {
-    plugins: [
-        'remove-empty'
-    ]
-});
-// returns
-''
 ```
 
 ## License

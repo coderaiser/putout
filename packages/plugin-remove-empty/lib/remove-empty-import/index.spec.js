@@ -30,3 +30,13 @@ test('plugin-remove-empty: import: min', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: import: options', (t) => {
+    t.noTransformWithOptions('options', {
+        ignore: [
+            'firebase',
+        ],
+    });
+    
+    t.end();
+});
+

@@ -9,26 +9,31 @@ module.exports.fix = (path) => {
 const isCSS = (a) => /\.css/.test(a);
 const isMin = (a) => /\.min\./.test(a);
 
-module.exports.traverse = ({push}) => {
-    return {
-        ImportDeclaration(path) {
-            const {
-                specifiers,
-                source,
-            } = path.node;
-            const {value} = source;
-            
-            if (specifiers.length)
-                return;
-            
-            if (isCSS(value))
-                return;
-            
-            if (isMin(value))
-                return;
-            
-            push(path);
-        },
-    };
+module.exports.include = () => [
+    'import "__"',
+];
+
+module.exports.filter = (path, {options}) => {
+    const {
+        specifiers,
+        source,
+    } = path.node;
+    
+    const {ignore = []} = options;
+    const {value} = source;
+    
+    if (ignore.includes(value))
+        return false;
+    
+    if (specifiers.length)
+        return false;
+    
+    if (isCSS(value))
+        return false;
+    
+    if (isMin(value))
+        return false;
+    
+    return true;
 };
 
