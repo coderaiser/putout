@@ -90,6 +90,7 @@
     "@putout/plugin-remove-unused-private-fields": "^1.0.0",
     "@putout/plugin-remove-unused-variables": "^1.0.0",
     "@putout/plugin-remove-useless-variables": "^2.0.0",
+    "@putout/plugin-remove-useless-spread": "^1.0.0",
     "@putout/plugin-simplify-ternary": "^1.0.0",
     "@putout/plugin-split-variable-declarations": "^1.0.0",
     "@putout/plugin-strict-mode": "^1.0.0",

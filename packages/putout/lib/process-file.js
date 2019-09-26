@@ -62,9 +62,7 @@ module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX, ruler, consol
         ...options,
     });
     
-    const allPlaces = [
-        ...parseError(e),
-    ];
+    const allPlaces = parseError(e);
     
     if (!e) {
         const {code, places} = result;

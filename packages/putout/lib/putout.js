@@ -93,16 +93,14 @@ function transform(ast, source, opts) {
         rules,
     });
     
-    const places = [
-        ...runPlugins({
-            ast,
-            shebang,
-            fix,
-            fixCount,
-            plugins,
-            parser,
-        }),
-    ];
+    const places = runPlugins({
+        ast,
+        shebang,
+        fix,
+        fixCount,
+        plugins,
+        parser,
+    });
     
     return places;
 }
