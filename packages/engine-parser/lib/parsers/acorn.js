@@ -29,11 +29,7 @@ module.exports.parse = function acornParse(source) {
         allowImportExportEverywhere: true,
     };
     
-    const tokensData = parser.tokenizer(source, options);
-    const tokensToAvoidEsprima = [
-        ...tokensData,
-    ];
-    
+    const tokensToAvoidEsprima = Array.from(parser.tokenizer(source, options));
     const result = parser.parse(source, options);
     
     return {
