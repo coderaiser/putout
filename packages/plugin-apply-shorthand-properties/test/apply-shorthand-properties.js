@@ -29,3 +29,7 @@ test('plugin-apply-shorthand-properties: no transform: not-valid', (t) => {
     t.end();
 });
 
+test('plugin-apply-shorthand-properties: no transform: destructuring', (t) => {
+    t.noTransform('destr');
+    t.end();
+});

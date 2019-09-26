@@ -25,12 +25,18 @@ module.exports.traverse = ({push}) => {
                 if (!to)
                     continue;
                 
-                const bindingPath = getBinding(path, from);
+                const bindingPath = getBinding(propPath, from);
                 
                 if (!bindingPath)
                     continue;
                 
-                const {references} = bindingPath.scope.bindings[from];
+                const {
+                    references,
+                    path,
+                } = bindingPath.scope.bindings[from];
+                
+                if (path.isObjectPattern() || path.get('id').isObjectPattern())
+                    continue;
                 
                 if (references > 1)
                     continue;
