@@ -23,7 +23,6 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "eslint-plugin-putout": "^2.0.0",
     "putout": "^6.2.0",
     "supertape": "^1.0.0",
     "try-catch": "^2.0.0"
@@ -38,6 +37,8 @@
   "devDependencies": {
     "@putout/formatter-dump": "^1.0.0",
     "@putout/plugin-remove-unused-variables": "^1.11.0",
+    "@putout/plugin-remove-empty": "^3.0.0",
+    "eslint-plugin-putout": "^2.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.2.0",
     "eslint-plugin-node": "^10.0.0",
