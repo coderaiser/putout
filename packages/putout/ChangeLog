@@ -1,3 +1,14 @@
+2019.09.26, v6.3.1
+
+fix:
+- (putout) -um: expand glob
+- (@putout/plugin-add-return-await) references -> bindings
+- (@putout/plugin-add-return-await) filter: path -> boolean
+
+feature:
+- (@putout/engine-runner) add debug
+
+
 2019.09.25, v6.3.0
 
 fix:
