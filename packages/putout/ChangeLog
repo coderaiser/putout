@@ -1,3 +1,10 @@
+2019.09.28, v6.7.0
+
+feature:
+- (@putout/plugin-remove-useless-array-from) add
+- (@putout/engine-loader) add ability to pass options without enabled flag
+
+
 2019.09.28, v6.6.1
 
 feature:
