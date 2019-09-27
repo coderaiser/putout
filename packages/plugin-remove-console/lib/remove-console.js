@@ -8,19 +8,17 @@ module.exports.fix = (path) => {
 
 module.exports.filter = ({scope}) => !scope.hasBinding('console');
 
-module.exports.include = () => {
-    return [
-        `console.log()`,
-        `console.error()`,
-        `console.warn()`,
-        `console.time()`,
-        `console.timeEnd()`,
-        
-        `console["log"]()`,
-        `console["error"]()`,
-        `console["warn"]()`,
-        `console["time"]()`,
-        `console["timeEnd"]()`,
-    ];
-};
+module.exports.include = () => [
+    `console.log()`,
+    `console.error()`,
+    `console.warn()`,
+    `console.time()`,
+    `console.timeEnd()`,
+    
+    `console["log"]()`,
+    `console["error"]()`,
+    `console["warn"]()`,
+    `console["time"]()`,
+    `console["timeEnd"]()`,
+];
 
