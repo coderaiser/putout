@@ -58,11 +58,6 @@ const {isIdentifier} = a.types;
 ### ✅ Correct code Example
 
 ```js
-const {
-    operate,
-    types
-} = a;
-
 const {replaceWith, types} = a;
 const {isIdentifier} = types;
 ```
