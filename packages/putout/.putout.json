@@ -1,7 +1,7 @@
 {
     "match": {
         "test/putout.js": {
-            "apply-shorthand-properties": ["on", {
+            "apply-shorthand-properties": [{
                 "ignore": "plugin"
             }]
         }

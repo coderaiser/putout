@@ -3,6 +3,7 @@
 const {isArray} = Array;
 const isBool = (a) => typeof a === 'boolean';
 const isStr = (a) => typeof a === 'string';
+const isObj = (a) => typeof a === 'object';
 const {entries} = Object;
 
 const notSupportedError = (a) => Error(`Rule format not supported ${a}: ${typeof a}`);
@@ -86,6 +87,16 @@ function parseArray(rule, args) {
         };
     }
     
+    if (args.length === 1 && isObj(rawState)) {
+        return {
+            rule,
+            state,
+            plugin,
+            msg,
+            options: rawState,
+        };
+    }
+    
     return {
         rule,
         state,
@@ -100,6 +111,12 @@ function validateState(a) {
         return true;
     
     if (/^(on|off)$/.test(a))
+        return true;
+    
+    if (isObj(a))
+        return true;
+    
+    if (typeof a === 'string')
         return true;
     
     throw Error(`state option can be "on" or "off" only, when used as string, received: ${a}`);
