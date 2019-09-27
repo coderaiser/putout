@@ -7,6 +7,7 @@
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-react-hooks
 
 `putout` plugin adds ability to convert class components to [react hooks](https://reactjs.org/docs/hooks-intro.html).
+*Not installed with putout by default*.
 
 ## Install
 
