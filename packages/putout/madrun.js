@@ -3,7 +3,7 @@
 const {run, parallel} = require('madrun');
 
 module.exports = {
-    'prepublishOnly': () => run(['lint:all', 'test', 'build:dev:all']),
+    'prepublishOnly': () => run(['lint', 'test', 'build:dev:all']),
     'build:way:full': () => 'webpack --config ./.webpack/full/webpack.config.js',
     'build:way:slim': () => 'webpack --config ./.webpack/slim/webpack.config.js',
     'build:dev': () => run('build:way:full', '--mode development', {
@@ -20,8 +20,7 @@ module.exports = {
     }),
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w lib -w test -x "${run('test')}"`,
-    'lint': () => 'bin/putout.js -um',
-    'lint:all': () => {
+    'lint': () => {
         const names = [
             'bin',
             'lib',
@@ -33,8 +32,7 @@ module.exports = {
         
         return `bin/putout.js ${names}`;
     },
-    'fix:lint': () => run('lint', '--fix -a'),
-    'fix:lint:all': () => run('lint:all', '--fix'),
+    'fix:lint': () => run('lint', '--fix'),
     'lint:progress': () => run('lint', '--fix --f progress'),
     'lint:p': () => run('lint:progress'),
     'putout': () => `bin/putout.js bin lib test madrun.js`,
