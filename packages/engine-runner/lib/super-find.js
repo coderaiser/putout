@@ -1,10 +1,10 @@
 'use strict';
 
 const babelTraverse = require('@babel/traverse').default;
-const generate = require('@babel/generator').default;
 const {types} = require('@babel/types');
 
 const template = require('./template');
+const generate = require('./generate');
 
 const {merge} = babelTraverse.visitors;
 

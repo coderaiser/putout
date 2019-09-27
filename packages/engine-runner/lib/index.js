@@ -8,6 +8,7 @@ const runFix = require('./run-fix');
 const mergeVisitors = require('./merge-visitors');
 const superFind = require('./super-find');
 const include = require('./include');
+const generate = require('./generate');
 
 const {
     getPath,
@@ -16,6 +17,7 @@ const {
 
 const isRemoved = (a) => a && a.removed;
 
+module.exports.generate = generate;
 module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins}) => {
     let places = [];
     
