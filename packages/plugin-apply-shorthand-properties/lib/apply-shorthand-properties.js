@@ -35,10 +35,12 @@ module.exports.traverse = ({push, options}) => {
                 if (!bindingPath)
                     continue;
                 
-                const {bindings} = bindingPath.scope;
+                const toBindings = getBinding(propPath, to);
                 
-                if (bindings[to])
+                if (toBindings)
                     continue;
+                
+                const {bindings} = bindingPath.scope;
                 
                 const {
                     references,
