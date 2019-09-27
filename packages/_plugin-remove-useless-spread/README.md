@@ -7,6 +7,7 @@
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-spread
 
 `putout` plugin adds ability to apply shorthand properties.
+*Not installed with putout by default*.
 
 ## Install
 
