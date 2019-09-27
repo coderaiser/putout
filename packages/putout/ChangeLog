@@ -1,3 +1,16 @@
+2019.09.28, v6.6.0
+
+fix:
+- chore(@putout/plugin-react-hooks) add prefix _
+
+feature:
+- (@putout/plugin-remove-useless-spread) mv out from default install
+- (@putout/plugin-convert-spread-to-array-from) add
+- (@putout/plugin-apply-shorthand-properties) add support names overlap handling
+- (@putout/plugin-remove-useless-spread) exclude: call, return
+- (package) putout v6.5.1
+
+
 2019.09.26, v6.5.1
 
 fix:
