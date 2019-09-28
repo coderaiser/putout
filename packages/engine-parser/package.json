@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@babel/parser": "^7.6.2",
-    "recast": "https://github.com/coderaiser/recast/archive/v1.0.2-fix.tar.gz",
+    "@putout/recast": "^1.0.0",
     "estree-to-babel": "^2.1.0",
     "once": "^1.4.0"
   },
