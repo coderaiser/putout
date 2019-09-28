@@ -17,7 +17,6 @@
     "test": "madrun test",
     "watch:test": "madrun watch:test",
     "lint": "madrun lint",
-    "lint:all": "madrun lint:all",
     "fix:lint": "madrun fix:lint",
     "putout": "madrun putout",
     "coverage": "madrun coverage",
