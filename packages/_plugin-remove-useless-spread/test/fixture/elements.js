@@ -1,4 +1,0 @@
-const places = [
-    ...a,
-    ...b
-];

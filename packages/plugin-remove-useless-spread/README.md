@@ -7,7 +7,6 @@
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-spread
 
 `putout` plugin adds ability to apply shorthand properties.
-*Not installed with putout by default*.
 
 ## Install
 
@@ -28,15 +27,13 @@ npm i @putout/plugin-remove-useless-spread
 ## ❌ Incorrect code example
 
 ```js
-const places = [
-    ...runPlugins(),
-];
+for (const a of [...b]) {}
 ```
 
 ## ✅ Correct code Example
 
 ```js
-const places = runPlugins();
+for (const a of b) {}
 ```
 
 ## License
