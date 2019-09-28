@@ -1,18 +1,11 @@
 'use strict';
 
 const generate = require('@babel/generator').default;
-const store = new Map();
+const mem = require('mem');
 
-module.exports = (node) => {
-    if (store.has(node))
-        return store.get(node);
-    
-    const str = generate(node, {
+module.exports = mem((node) => {
+    return generate(node, {
         comments: false,
     });
-    
-    store.set(node, str);
-    
-    return str;
-};
+});
 

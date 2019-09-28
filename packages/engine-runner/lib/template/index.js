@@ -2,6 +2,7 @@
 
 const template = require('@babel/template').default;
 const babelGenerate = require('@babel/generator').default;
+const mem = require('mem');
 
 const {
     compareAny,
@@ -17,7 +18,6 @@ const isTemplate = (a) => {
 };
 const toArray = (a) => isArray(a) ? a : [a];
 const debug = require('debug')('putout:template');
-const generate = templater();
 const generateCode = (a) => babelGenerate(a).code;
 
 const log = (a) => {
@@ -26,6 +26,14 @@ const log = (a) => {
     
     debug(generateCode(a));
 };
+
+const generate = mem((value) => {
+    const result = template.ast(value, {
+        allowAwaitOutsideFunction: true,
+    });
+    
+    return result.expression || result;
+});
 
 const generateNode = (list) => {
     if (!list)
@@ -99,23 +107,6 @@ function wrapWithCheck({nodesInclude, nodesExclude, fn}) {
             return;
         
         fn(path);
-    };
-}
-
-function templater() {
-    const cache = {};
-    
-    return (value) => {
-        if (cache[value])
-            return cache[value];
-        
-        const result = template.ast(value, {
-            allowAwaitOutsideFunction: true,
-        });
-        
-        cache[value] = result.expression || result;
-        
-        return cache[value];
     };
 }
 
