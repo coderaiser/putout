@@ -6,7 +6,6 @@ node_js:
 
 os:
     - linux
-    - osx
 
 script:
   - npm run bootstrap
