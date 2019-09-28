@@ -7,7 +7,7 @@ const buildArrayFrom = template(`
   Array.from(%%argument%%);
 `);
 
-module.exports.report = () => `Useless spread should be avoided`;
+module.exports.report = () => `Array.from should be used instead of array spread`;
 
 module.exports.fix = (path) => {
     const [element] = path.node.elements;

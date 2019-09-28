@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-remove-useless-spread: report', (t) => {
-    t.report('spread', 'Useless spread should be avoided');
+    t.report('spread', `Array.from should be used instead of array spread`);
     t.end();
 });
 
