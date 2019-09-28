@@ -1,5 +1,7 @@
 'use strict';
 
+const memo = require('micro-memoize');
+const template = require('@babel/template').default;
 const {
     isIdentifier,
     isLiteral,
@@ -18,6 +20,14 @@ const findParent = (path, type) => {
     
     return newPathNode.node;
 };
+
+module.exports.generate = memo((value) => {
+    const result = template.ast(value, {
+        allowAwaitOutsideFunction: true,
+    });
+    
+    return result.expression || result;
+});
 
 module.exports.compare = compare;
 

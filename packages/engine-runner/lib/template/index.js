@@ -1,12 +1,11 @@
 'use strict';
 
-const template = require('@babel/template').default;
 const babelGenerate = require('@babel/generator').default;
-const mem = require('mem');
 
 const {
     compareAny,
     compareAll,
+    generate,
 } = require('./compare');
 
 const {isArray} = Array;
@@ -26,14 +25,6 @@ const log = (a) => {
     
     debug(generateCode(a));
 };
-
-const generate = mem((value) => {
-    const result = template.ast(value, {
-        allowAwaitOutsideFunction: true,
-    });
-    
-    return result.expression || result;
-});
 
 const generateNode = (list) => {
     if (!list)

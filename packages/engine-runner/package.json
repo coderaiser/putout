@@ -34,7 +34,7 @@
     "@babel/traverse": "^7.6.2",
     "@babel/types": "^7.6.1",
     "debug": "^4.1.1",
-    "mem": "^5.1.1",
+    "micro-memoize": "^4.0.8",
     "once": "^1.4.0",
     "try-catch": "^2.0.1"
   },

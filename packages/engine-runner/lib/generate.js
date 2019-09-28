@@ -1,9 +1,9 @@
 'use strict';
 
 const generate = require('@babel/generator').default;
-const mem = require('mem');
+const memo = require('micro-memoize');
 
-module.exports = mem((node) => {
+module.exports = memo((node) => {
     return generate(node, {
         comments: false,
     });
