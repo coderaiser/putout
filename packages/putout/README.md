@@ -50,6 +50,8 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - extract sequence expressions;
 - extract object properties;
 - add `return await`;
+- remove useless `Promise.resolve`;
+- convert `Promise.reject` to `throw`;
 
 ## Why?
 

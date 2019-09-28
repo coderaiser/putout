@@ -1,0 +1,1 @@
+return Promise.reject(x);
