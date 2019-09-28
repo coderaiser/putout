@@ -1,3 +1,10 @@
+2019.09.28, v6.7.1
+
+feature:
+- (@putout/plugin-remove-useless-spread) for-of
+- (@putout/apply-shorthand-properties) add support of names overlap
+
+
 2019.09.28, v6.7.0
 
 feature:
