@@ -1,3 +1,17 @@
+2019.09.28, v6.8.0
+
+fix:
+- (@putout/engine-parser) recast -> @putout/recast
+- (@putout/engine-parser) recast source
+- (@putout/engine-parser) acorn
+- (@putout/plugin-convert-spread-to-array) report
+
+feature:
+- (@putout/plugin-promises) add
+- (@putout/engine-parser) acorn v7.1.0
+- (@putout/engine-parser) add recast from npm
+
+
 2019.09.28, v6.7.1
 
 feature:
