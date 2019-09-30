@@ -57,14 +57,14 @@ module.exports.find = (ast, {traverse}) => {
             
             if (objectPath.isIdentifier())
                 return add({
-                    name: generate(object, {comments: false}).code,
+                    name: generate(object).code,
                     items,
                     path,
                 });
             
             if (objectPath.isCallExpression())
                 return add({
-                    name: generate(objectPath.node, {comments: false}).code,
+                    name: generate(objectPath.node).code,
                     items,
                     path,
                 });

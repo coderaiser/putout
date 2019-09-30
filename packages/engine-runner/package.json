@@ -33,6 +33,8 @@
     "@babel/template": "^7.6.0",
     "@babel/traverse": "^7.6.2",
     "@babel/types": "^7.6.1",
+    "@putout/compare": "^1.0.0",
+    "@putout/engine-parser": "^1.1.4",
     "debug": "^4.1.1",
     "micro-memoize": "^4.0.8",
     "once": "^1.4.0",

@@ -35,6 +35,7 @@ module.exports.traverse = ({push, generate}) => {
                     alternate,
                 });
             
+            debugger;
             const testCode = generate(test).code;
             const consequentCode = generate(consequent).code;
             

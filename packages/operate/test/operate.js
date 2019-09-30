@@ -306,3 +306,11 @@ test('putout: operate: isModuleExports: no exports', (t) => {
     t.notOk(is, 'module.exports exists');
     t.end();
 });
+
+test('operate: compare', (t) => {
+    const result = operate.compare('const a = {}', 'const __ = {}');
+    
+    t.ok(result, 'should equal');
+    t.end();
+});
+

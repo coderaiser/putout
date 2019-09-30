@@ -1,11 +1,11 @@
 'use strict';
 
-const {
-    generate,
-    operate,
-} = require('putout');
+const {operate} = require('putout');
 
-const {replaceWith} = operate;
+const {
+    replaceWith,
+    compare,
+} = operate;
 
 module.exports.report = () => `Object properties should be extracted into variables`;
 
@@ -28,7 +28,7 @@ module.exports.traverse = ({push}) => {
             if (!initPath.isMemberExpression() && !initPath.isCallExpression())
                 return;
             
-            members.push([generate(initPath.node).code, idPath]);
+            members.push([initPath.node, idPath]);
             
             const objectPath = initPath.get('object');
             
@@ -41,9 +41,9 @@ module.exports.traverse = ({push}) => {
             if (!propertyPath.isIdentifier())
                 return;
             
-            const {code} = generate(initPath.node.object);
+            const {object} = initPath.node;
             
-            for (const [currentCode, expandPath] of members) {
+            for (const [current, expandPath] of members) {
                 const {name} = property;
                 
                 if (expandPath.scope.bindings[name])
@@ -52,7 +52,7 @@ module.exports.traverse = ({push}) => {
                 if (expandPath.scope.uid !== initPath.scope.uid)
                     continue;
                 
-                if (currentCode === code) {
+                if (compare(object, current)) {
                     push({
                         expandPath,
                         path: initPath,

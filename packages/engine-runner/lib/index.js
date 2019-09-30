@@ -8,7 +8,6 @@ const runFix = require('./run-fix');
 const mergeVisitors = require('./merge-visitors');
 const superFind = require('./super-find');
 const include = require('./include');
-const generate = require('./generate');
 
 const {
     getPath,
@@ -17,8 +16,7 @@ const {
 
 const isRemoved = (a) => a && a.removed;
 
-module.exports.generate = generate;
-module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins}) => {
+module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, template = require('./template')}) => {
     let places = [];
     
     const merge = once(mergeVisitors);
@@ -35,6 +33,7 @@ module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins}) => {
             pluginsFind,
             pluginsTraverse,
             merge,
+            template,
         });
         
         if (!fix || !places.length)
@@ -46,17 +45,18 @@ module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins}) => {
 
 module.exports.getPosition = getPosition;
 
-function run({ast, fix, shebang, pluginsFind, pluginsTraverse, merge}) {
+function run({ast, fix, shebang, pluginsFind, pluginsTraverse, template, merge}) {
     return [
-        ...runWithoutMerge({ast, fix, shebang, pluginsFind}),
-        ...runWithMerge({ast, fix, shebang, pluginsTraverse, merge}),
+        ...runWithoutMerge({ast, fix, shebang, template, pluginsFind}),
+        ...runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge}),
     ];
 }
 
-function runWithMerge({ast, fix, shebang, pluginsTraverse, merge}) {
+function runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge}) {
     const {entries, visitor} = merge(pluginsTraverse, {
         fix,
         shebang,
+        template,
     });
     
     traverse(ast, visitor);
@@ -76,7 +76,7 @@ function runWithMerge({ast, fix, shebang, pluginsTraverse, merge}) {
     return places;
 }
 
-function runWithoutMerge({ast, fix, shebang, pluginsFind}) {
+function runWithoutMerge({ast, fix, shebang, template, pluginsFind}) {
     const places = [];
     
     for (const {rule, plugin, msg, options} of pluginsFind) {
@@ -87,11 +87,13 @@ function runWithoutMerge({ast, fix, shebang, pluginsFind}) {
         } = plugin;
         
         const items = superFind({
+            rule,
             find,
             ast,
             options,
             fix,
             shebang,
+            template,
         });
         
         if (!items.length)

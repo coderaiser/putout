@@ -4,7 +4,12 @@ const traverse = require('@babel/traverse').default;
 const template = require('@babel/template').default;
 const types = require('@babel/types');
 
-const {print, parse} = require('@putout/engine-parser');
+const {
+    parse,
+    print,
+    generate,
+} = require('@putout/engine-parser');
+//const generate = require('@babel/generator').default;
 const loader = require('@putout/engine-loader');
 const runner = require('@putout/engine-runner');
 
@@ -109,7 +114,7 @@ module.exports.print = print;
 module.exports.traverse = traverse;
 module.exports.types = types;
 module.exports.template = template;
-module.exports.generate = runner.generate;
+module.exports.generate = generate;
 module.exports.initReport = require('./report');
 module.exports.operate = require('@putout/operate');
 

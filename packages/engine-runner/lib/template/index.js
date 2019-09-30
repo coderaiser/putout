@@ -5,41 +5,33 @@ const babelGenerate = require('@babel/generator').default;
 const {
     compareAny,
     compareAll,
-    generate,
-} = require('./compare');
+} = require('@putout/compare');
 
-const {isArray} = Array;
 const isTemplate = (a) => {
     if (a === 'enter')
         return false;
     
     return /[(;={]/.test(a) || !/[A-Z]/.test(a);
 };
-const toArray = (a) => isArray(a) ? a : [a];
 const debug = require('debug')('putout:template');
+const {template} = require('@putout/engine-parser');
 const generateCode = (a) => babelGenerate(a).code;
 
-const log = (a) => {
+const log = (rule, a) => {
     if (!debug.enabled)
         return;
     
-    debug(generateCode(a));
+    debug(rule, generateCode(a));
 };
 
-const generateNode = (list) => {
-    if (!list)
-        return [];
-    
-    return toArray(list).map(generate);
-};
-
-const exclude = ({tmpl, fn, nodesExclude}) => {
+const exclude = ({rule, tmpl, fn, nodesExclude}) => {
     if (!nodesExclude.length)
         return {
             [tmpl]: fn,
         };
     
     const visit = wrapWithCheck({
+        rule,
         fn,
         nodesExclude,
         nodesInclude: [],
@@ -50,15 +42,24 @@ const exclude = ({tmpl, fn, nodesExclude}) => {
     };
 };
 
-module.exports = (visitor, options) => {
+const {isArray} = Array;
+const maybeArray = (a) => {
+    if (!a)
+        return [];
+    
+    return isArray(a) ? a : [a];
+};
+
+module.exports = ({rule, visitor, options}) => {
     const parsed = [];
     const entries = Object.entries(visitor);
-    const nodesExclude = generateNode(options.exclude);
-    const nodesInclude = generateNode(options.include);
+    const nodesExclude = maybeArray(options.exclude);
+    const nodesInclude = maybeArray(options.include);
     
     for (const [tmpl, fn] of entries) {
         if (!isTemplate(tmpl)) {
             parsed.push(exclude({
+                rule,
                 tmpl,
                 fn,
                 nodesExclude,
@@ -67,10 +68,11 @@ module.exports = (visitor, options) => {
             continue;
         }
         
-        const node = generate(tmpl);
+        const node = template.ast(tmpl);
         const {type} = node;
         
         const visit = wrapWithCheck({
+            rule,
             fn,
             nodesExclude,
             nodesInclude: [
@@ -87,14 +89,18 @@ module.exports = (visitor, options) => {
     return parsed;
 };
 
-function wrapWithCheck({nodesInclude, nodesExclude, fn}) {
+function wrapWithCheck({rule, nodesInclude, nodesExclude, fn}) {
     return (path) => {
-        log(path.node);
+        '__.only(__)';
         
-        if (nodesExclude.length && compareAny(path, nodesExclude, path.node))
+        generateCode(path.node).includes('only');
+        
+        log(rule, path.node);
+        
+        if (nodesExclude.length && compareAny(path, nodesExclude))
             return path.skip();
         
-        if (nodesInclude.length && !compareAll(path, nodesInclude, path.node))
+        if (nodesInclude.length && !compareAll(path, nodesInclude))
             return;
         
         fn(path);

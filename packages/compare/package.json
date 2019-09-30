@@ -1,16 +1,22 @@
 {
-  "name": "@putout/engine-parser",
-  "version": "1.1.4",
+  "name": "@putout/compare",
+  "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout parser",
+  "description": "compare ast-nodes",
   "homepage": "http://github.com/coderaiser/putout",
-  "main": "lib/parser.js",
+  "main": "lib/compare.js",
   "release": false,
   "tag": false,
   "changelog": false,
   "repository": {
     "type": "git",
     "url": "git://github.com/coderaiser/putout.git"
+  },
+  "nyc": {
+    "exclude": [
+      "**/*.spec.js",
+      "test"
+    ]
   },
   "scripts": {
     "test": "madrun test",
@@ -23,30 +29,24 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@babel/generator": "^7.6.2",
-    "@babel/parser": "^7.6.2",
-    "@putout/recast": "^1.0.0",
-    "@babel/template": "^7.6.0",
-    "estree-to-babel": "^2.1.0",
+    "@babel/types": "^7.6.1",
+    "@putout/engine-parser": "^1.1.4",
+    "debug": "^4.1.1",
     "micro-memoize": "^4.0.8",
-    "once": "^1.4.0",
-    "recast": "https://github.com/coderaiser/recast/archive/v1.0.2-fix.tar.gz"
+    "try-catch": "^2.0.1"
   },
   "keywords": [
     "putout",
     "putout-engine"
   ],
   "devDependencies": {
+    "@babel/template": "^7.6.0",
+    "@cloudcmd/stub": "^2.3.2",
     "@putout/test": "^1.1.1",
-    "acorn": "https://github.com/coderaiser/acorn/archive/7.1.0.tar.gz",
-    "acorn-jsx": "^5.0.2",
-    "acorn-stage3": "^2.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.2.0",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-putout": "^2.0.0",
-    "espree": "^6.1.1",
-    "esprima": "^4.0.1",
     "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
     "madrun": "^3.0.0",
@@ -54,8 +54,7 @@
     "nyc": "^14.0.0",
     "putout": "*",
     "redrun": "^7.0.2",
-    "supertape": "^1.2.3",
-    "try-catch": "^2.0.1"
+    "supertape": "^1.2.3"
   },
   "license": "MIT",
   "engines": {

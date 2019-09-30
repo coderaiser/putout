@@ -4,14 +4,13 @@ const traverse = require('@babel/traverse').default;
 
 const {merge} = traverse.visitors;
 
-const generate = require('./generate');
+const {generate} = require('@putout/engine-parser');
 const runFix = require('./run-fix');
 const {getPosition} = require('./get-position');
-const template = require('./template');
 
 const shouldSkip = (a) => !a.parent;
 
-module.exports = (pluginsToMerge, {fix, shebang}) => {
+module.exports = (pluginsToMerge, {fix, shebang, template}) => {
     const mergeItems = [];
     const pushed = {};
     
@@ -30,7 +29,11 @@ module.exports = (pluginsToMerge, {fix, shebang}) => {
             options,
         });
         
-        mergeItems.push(...template(visitor, options));
+        mergeItems.push(...template({
+            rule,
+            visitor,
+            options,
+        }));
     }
     
     const entries = Object.entries(pushed);

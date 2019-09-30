@@ -5,6 +5,8 @@ const {isIdentifier} = types;
 
 const {assign} = Object;
 
+const {compare} = require('@putout/compare');
+module.exports.compare = compare;
 module.exports.replaceWith = replaceWith;
 
 function replaceWith(path, node) {
