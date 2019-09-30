@@ -5,8 +5,10 @@ const {
     operate,
 } = require('putout');
 
-const {replaceWith} = operate;
-
+const {
+    replaceWith,
+    compare,
+} = operate;
 const {LogicalExpression} = types;
 
 module.exports.report = () => 'Unnecessary use of conditional expression for default assignment';
@@ -15,7 +17,7 @@ module.exports.fix = ({path, consequent, alternate}) => {
     replaceWith(path, LogicalExpression('||', consequent, alternate));
 };
 
-module.exports.traverse = ({push, generate}) => {
+module.exports.traverse = ({push}) => {
     return {
         ConditionalExpression(path) {
             const consequentPath = path.get('consequent');
@@ -35,11 +37,7 @@ module.exports.traverse = ({push, generate}) => {
                     alternate,
                 });
             
-            debugger;
-            const testCode = generate(test).code;
-            const consequentCode = generate(consequent).code;
-            
-            if (testCode === consequentCode)
+            if (compare(test, consequent))
                 return push({
                     path,
                     consequent,
