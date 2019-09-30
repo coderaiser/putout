@@ -1,3 +1,14 @@
+2019.09.30, v6.9.0
+
+feature:
+- (package) @putout/plugin-extract-object-properties v2.0.0
+- (@putout/plugins-simplify-ternary) generate -> compare
+- (package) @putout/engine-parser v1.2.0
+- (@putout/compare) add
+- (@putout/engine-runner) add micro-memoize
+- (@putout/engine-runner) add mem
+
+
 2019.09.28, v6.8.0
 
 fix:
