@@ -314,3 +314,20 @@ test('operate: compare', (t) => {
     t.end();
 });
 
+test('operate: compareAll', (t) => {
+    const result = operate.compareAll('const a = {}', ['const __ = {}']);
+    
+    t.ok(result, 'should equal');
+    t.end();
+});
+
+test('operate: compare: any', (t) => {
+    const result = operate.compareAny('const a = {}', [
+        'const __ = {}',
+        'abc',
+    ]);
+    
+    t.ok(result, 'should equal');
+    t.end();
+});
+
