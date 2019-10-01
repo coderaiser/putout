@@ -331,3 +331,33 @@ test('operate: compare: any', (t) => {
     t.end();
 });
 
+test('operate: findBindings: not found', (t) => {
+    const ast = parse('const t = "hello"');
+    let result;
+    
+    traverse(ast, {
+        VariableDeclarator(path) {
+            result = operate.findBinding(path, 'hello')
+            path.stop();
+        }
+    });
+    
+    t.notOk(result, 'should equal');
+    t.end();
+});
+
+test('operate: findBindings: found', (t) => {
+    const ast = parse('const t = "hello"');
+    let result;
+    
+    traverse(ast, {
+        VariableDeclarator(path) {
+            result = operate.findBinding(path, 't')
+            path.stop();
+        }
+    });
+    
+    t.ok(result, 'should equal');
+    t.end();
+});
+

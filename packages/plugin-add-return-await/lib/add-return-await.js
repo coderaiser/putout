@@ -1,7 +1,10 @@
 'use strict';
 
 const {types, operate} = require('putout');
-const {replaceWith} = operate;
+const {
+    replaceWith,
+    findBinding,
+} = operate;
 const {AwaitExpression} = types;
 
 module.exports.report = () => `"return await promise()" should be used instead of "return promise()"`;
@@ -31,16 +34,12 @@ module.exports.filter = (path) => {
         return false;
     
     const {name} = node.callee;
-    const referencedPath = path.findParent((path) => path.scope.bindings[name]);
+    const bindings = findBinding(path, name);
     
-    if (!referencedPath)
-        return;
+    if (!bindings)
+        return false;
     
-    const bindings = referencedPath.scope.bindings[name];
-    
-    if (bindings.path.node.async)
-        return true;
-    
-    return false;
+    const {async} = bindings.path.node;
+    return async;
 };
 

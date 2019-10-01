@@ -1,5 +1,8 @@
 'use strict';
 
+const {operate} = require('putout');
+const {findBinding} = operate;
+
 module.exports.report = () => `Shorthand properties should be used`;
 
 module.exports.fix = ({path, from, to}) => {
@@ -30,22 +33,16 @@ module.exports.traverse = ({push, options}) => {
                 if (ignore.includes(from))
                     continue;
                 
-                const bindingPath = getBinding(propPath, from);
+                const bindingFrom = findBinding(propPath, from);
+                const bindingTo = findBinding(propPath, to);
                 
-                if (!bindingPath)
+                if (bindingTo || !bindingFrom)
                     continue;
-                
-                const toBindings = getBinding(propPath, to);
-                
-                if (toBindings)
-                    continue;
-                
-                const {bindings} = bindingPath.scope;
                 
                 const {
                     references,
                     path,
-                } = bindings[from];
+                } = bindingFrom;
                 
                 if (path.isImportSpecifier() || path.isObjectPattern() || path.get('id').isObjectPattern())
                     continue;
@@ -62,11 +59,6 @@ module.exports.traverse = ({push, options}) => {
         },
     };
 };
-
-const checkName = (name) => (path) => path.scope.bindings[name];
-function getBinding(path, name) {
-    return path.findParent(checkName(name));
-}
 
 function getName(path) {
     const {node} = path;

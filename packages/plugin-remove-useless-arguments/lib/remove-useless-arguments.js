@@ -6,9 +6,11 @@ const {
 } = require('putout');
 
 const {isIdentifier} = types;
-const {compareAny} = operate;
+const {
+    compareAny,
+    findBinding,
+} = operate;
 
-const isBind = (name) => (path) => path.scope.bindings[name];
 const getKey = ({key}) => key;
 
 module.exports.report = ({path, name}) => {
@@ -33,7 +35,7 @@ module.exports.traverse = ({push}) => {
             const [argument] = path.get('arguments');
             const argProps = argument.get('properties');
             
-            const refPath = path.findParent(isBind(name));
+            const refPath = findBinding(path, name);
             
             if (!refPath)
                 return;

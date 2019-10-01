@@ -65,3 +65,13 @@ module.exports.isModuleExports = (path) => {
     return isModule && isExports;
 };
 
+const isBinding = (name) => (path) => path.scope.bindings[name];
+module.exports.findBinding = (path, name) => {
+    const referencePath = path.findParent(isBinding(name));
+    
+    if (!referencePath)
+        return null;
+    
+    return referencePath.scope.bindings[name];
+};
+
