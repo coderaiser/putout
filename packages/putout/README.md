@@ -174,7 +174,6 @@ const result = putout(source, {
 const t = 'hello';
 console.log(t);
 `
-``
 ```
 
 ## License
