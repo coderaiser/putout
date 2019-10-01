@@ -10,11 +10,10 @@ const {compareAny} = operate;
 
 const isBind = (name) => (path) => path.scope.bindings[name];
 const getKey = ({key}) => key;
-const getKeyName = (a) => a.node.key.name;
 
 module.exports.report = ({path, name}) => {
     const {key} = path.node;
-    const message = `"${key.name}\" is useless argument of a function "${name}"`;
+    const message = `"${key.name}" is useless argument of a function "${name}"`;
     
     return message;
 };
@@ -58,7 +57,6 @@ module.exports.traverse = ({push}) => {
             }
             
             const propKeys = properties.map(getKey);
-            const propsToRemove = [];
             for (const propPath of argProps) {
                 const {key} = propPath.node;
                 const is = compareAny(key, propKeys);

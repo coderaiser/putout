@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-remove-useless-arguments: report', (t) => {
-    t.report('call', 'onIfStatement passes useless argument props: generate, abc');
+    t.report('call', '"generate" is useless argument of a function "onIfStatement"');
     t.end();
 });
 
