@@ -19,6 +19,13 @@ test('compare: base is string', (t) => {
     t.end();
 });
 
+test('compare: false property', (t) => {
+    const result = compare('async () => {}', '() => {}');
+    
+    t.notOk(result, 'should equal');
+    t.end();
+});
+
 test('compare: base is string: path', (t) => {
     const node = template.ast('const a = "hello"');
     const b = template.ast('const a = "__"');

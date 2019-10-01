@@ -83,9 +83,6 @@ function superCompare(pathNode, baseNode) {
         const value = base[key];
         const pathValue = node[key];
         
-        if (!value || !pathValue)
-            continue;
-        
         log (value, pathValue);
         
         if (value === pathValue)
