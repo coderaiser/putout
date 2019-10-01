@@ -1,3 +1,13 @@
+2019.10.01, v6.9.1
+
+fix:
+- (@putout/engine-runner) rm redundant compare
+- (@putout/compare) false properties
+
+feature:
+- (operate) add support of compareAll, compareAny
+
+
 2019.09.30, v6.9.0
 
 feature:
