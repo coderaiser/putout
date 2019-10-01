@@ -63,7 +63,6 @@ module.exports = ({rule, visitor, options}) => {
                 tmpl,
                 fn,
                 nodesExclude,
-                nodesInclude,
             }));
             continue;
         }
@@ -91,8 +90,6 @@ module.exports = ({rule, visitor, options}) => {
 
 function wrapWithCheck({rule, nodesInclude, nodesExclude, fn}) {
     return (path) => {
-        '__.only(__)';
-        
         generateCode(path.node).includes('only');
         
         log(rule, path.node);
