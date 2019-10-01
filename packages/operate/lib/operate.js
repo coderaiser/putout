@@ -5,7 +5,11 @@ const {isIdentifier} = types;
 
 const {assign} = Object;
 
-const {compare, compareAll, compareAny} = require('@putout/compare');
+const {
+    compare,
+    compareAll,
+    compareAny,
+} = require('@putout/compare');
 
 module.exports.compare = compare;
 module.exports.compareAll = compareAll;
