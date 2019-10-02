@@ -1,3 +1,14 @@
+2019.10.02, v6.10.1
+
+fix:
+- (@putout/remove-useless-arguments) rm unused
+
+feature:
+- (package) @putout/plugin-convert-apply-to-spread v2.0.0
+- (@putout/plugin-convert-apply-to-spread) add support of null
+- (@putout/operate) add findBinding
+
+
 2019.10.01, v6.10.0
 
 feature:
