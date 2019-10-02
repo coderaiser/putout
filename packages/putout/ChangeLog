@@ -1,3 +1,9 @@
+2019.10.02, v6.10.2
+
+feature:
+- (@putout/plugin-extract-sequence-expressions) add support of ReturnStatement (#11)
+
+
 2019.10.02, v6.10.1
 
 fix:
