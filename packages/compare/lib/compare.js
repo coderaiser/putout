@@ -85,6 +85,9 @@ function superCompare(pathNode, baseNode) {
         
         log (value, pathValue);
         
+        if (value == '__')
+            continue;
+        
         if (value === pathValue)
             continue;
         

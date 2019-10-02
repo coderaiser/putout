@@ -22,7 +22,21 @@ test('compare: base is string', (t) => {
 test('compare: false property', (t) => {
     const result = compare('async () => {}', '() => {}');
     
-    t.notOk(result, 'should equal');
+    t.notOk(result, 'should not equal');
+    t.end();
+});
+
+test('compare: identifier', (t) => {
+    const result = compare('hello', '__');
+    
+    t.ok(result, 'should equal');
+    t.end();
+});
+
+test('compare: literal', (t) => {
+    const result = compare('"hi"', '"__"');
+    
+    t.ok(result, 'should equal');
     t.end();
 });
 
