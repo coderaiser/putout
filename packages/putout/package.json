@@ -58,7 +58,7 @@
     "@putout/operate": "^1.0.0",
     "@putout/plugin-apply-destructuring": "^2.0.0",
     "@putout/plugin-apply-shorthand-properties": "^1.0.0",
-    "@putout/plugin-convert-apply-to-spread": "^1.0.0",
+    "@putout/plugin-convert-apply-to-spread": "^2.0.0",
     "@putout/plugin-convert-arguments-to-rest": "^1.0.0",
     "@putout/plugin-convert-binary-expression-to-boolean": "^1.0.0",
     "@putout/plugin-convert-commonjs-to-esm": "^2.0.0",
