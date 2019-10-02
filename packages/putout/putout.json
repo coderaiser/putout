@@ -49,6 +49,7 @@
         "remove-useless-variables",
         "remove-useless-array-from",
         "remove-useless-arguments",
+        "remove-useless-escape",
         "remove-constant-conditions",
         "remove-boolean-from-logical-expressions",
         "remove-nested-blocks",
