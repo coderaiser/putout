@@ -15,7 +15,7 @@ const {
 } = types;
 
 function wrap(el) {
-    if (/identifier|literal/i.test(el.type))
+    if (/identifier|literal|sequence/i.test(el.type))
         return ExpressionStatement(el);
     
     return toStatement(el);

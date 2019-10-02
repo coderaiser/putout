@@ -29,6 +29,11 @@ test('plugin-extract-sequence-expressions: transform return', (t) => {
     t.end();
 });
 
+test('plugin-extract-sequence-expressions: transform layers', (t) => {
+    t.transform('layers');
+    t.end();
+});
+
 test('plugin-extract-sequence-expressions: no transform: for', (t) => {
     t.noTransform('for');
     t.end();
