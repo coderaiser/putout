@@ -337,9 +337,9 @@ test('operate: findBindings: not found', (t) => {
     
     traverse(ast, {
         VariableDeclarator(path) {
-            result = operate.findBinding(path, 'hello')
+            result = operate.findBinding(path, 'hello');
             path.stop();
-        }
+        },
     });
     
     t.notOk(result, 'should equal');
@@ -352,9 +352,9 @@ test('operate: findBindings: found', (t) => {
     
     traverse(ast, {
         VariableDeclarator(path) {
-            result = operate.findBinding(path, 't')
+            result = operate.findBinding(path, 't');
             path.stop();
-        }
+        },
     });
     
     t.ok(result, 'should equal');
