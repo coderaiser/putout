@@ -45,17 +45,29 @@ module.exports.fix = (path) => {
         return;
     }
     
+    if (isRet(path)) {
+        const {expressions} = path.node;
+        const argument = expressions.pop();
+        
+        replaceWithMultiple(parentPath, [
+            ...expressions.map(wrap),
+            ReturnStatement(argument),
+        ]);
+        return;
+    }
+    
     return replaceWithMultiple(path, path.node.expressions);
 };
 
 const isBlock = ({parentPath}) => parentPath.isBlockStatement();
 const isFn = ({parentPath}) => parentPath.isArrowFunctionExpression();
 const isExpr = ({parentPath}) => parentPath.isExpressionStatement();
+const isRet = ({parentPath}) => parentPath.isReturnStatement();
 
 module.exports.traverse = ({push}) => {
     return {
         SequenceExpression(path) {
-            if (isBlock(path) || isFn(path) || isExpr(path) || isCallee(path))
+            if (isBlock(path) || isFn(path) || isExpr(path) || isCallee(path) || isRet(path))
                 push(path);
         },
     };
