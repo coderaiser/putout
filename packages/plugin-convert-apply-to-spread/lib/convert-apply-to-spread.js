@@ -7,7 +7,10 @@ const {
     types,
 } = require('putout');
 
-const {spreadElement} = types;
+const {
+    spreadElement,
+    isNullLiteral,
+} = types;
 
 module.exports.report = () => 'spread should be used instead of "apply"';
 
@@ -20,34 +23,31 @@ module.exports.fix = (path) => {
     argumentsPath.remove();
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        CallExpression(path) {
-            const calleePath = path.get('callee');
-            
-            if (!calleePath.isMemberExpression())
-                return;
-            
-            const [context] = path.node.arguments;
-            const {node} = calleePath.get('object');
-            
-            const is = compare(node, context);
-            
-            if (!is)
-                return;
-            
-            const isApply = calleePath
-                .get('property')
-                .isIdentifier({
-                    name: 'apply',
-                });
-            
-            if (!isApply)
-                return;
-            
-            push(path);
-        },
-    };
+module.exports.include = () => [
+    '__.__()',
+];
+
+module.exports.filter = (path) => {
+    const calleePath = path.get('callee');
+    
+    const [context] = path.node.arguments;
+    const {node} = calleePath.get('object');
+    
+    const is = isNullLiteral(context) || compare(node, context);
+    
+    if (!is)
+        return false;
+    
+    const isApply = calleePath
+        .get('property')
+        .isIdentifier({
+            name: 'apply',
+        });
+    
+    if (!isApply)
+        return false;
+    
+    return true;
 };
 
 function compare(object, context) {

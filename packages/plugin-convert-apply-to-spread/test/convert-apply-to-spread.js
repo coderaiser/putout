@@ -45,3 +45,8 @@ test('plugin-convert-apply-to-spread: transform: member expression', (t) => {
     t.end();
 });
 
+test('plugin-convert-apply-to-spread: transform: null', (t) => {
+    t.transform('null');
+    t.end();
+});
+
