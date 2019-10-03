@@ -476,7 +476,7 @@ function merge(a) {
 ```
 </details>
 
-<details><summary>add <code>await</code> to <code>return promise()</code> statements ([because it's faster, produces call stack and more readable](https://v8.dev/blog/fast-async))</summary>
+<details><summary>add <code>await</code> to <code>return promise()</code> statements (<a href=https://v8.dev/blog/fast-async>because it's faster, produces call stack and more readable</a>)</summary>
 
 ```diff
 async run () {
