@@ -469,6 +469,7 @@ function merge(a) {
 </details>
 
 <details><summary>convert <code>top-level return</code> into <code>process.exit()</code>(because EcmaScript Modules doesn't support top level return)</summary>
+
 ```diff
 -   return;
 +   process.exit();
@@ -476,6 +477,7 @@ function merge(a) {
 </details>
 
 <details><summary>add <code>await</code> to <code>return promise()</code> statements ([because it's faster, produces call stack and more readable](https://v8.dev/blog/fast-async))</summary>
+
 ```diff
 async run () {
 -   return promise();
