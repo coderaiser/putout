@@ -23,6 +23,8 @@ const {
     StringLiteral,
     SequenceExpression,
     CallExpression,
+    ObjectExpression,
+    ObjectProperty,
 } = types;
 
 test('putout: operate: replaceWith', (t) => {
@@ -375,6 +377,7 @@ test('operate: replaceWithMultiple: to expressions', (t) => {
                 StringLiteral('world'),
                 SequenceExpression([Identifier('a'), Identifier('b')]),
                 CallExpression(Identifier('hello'), []),
+                ObjectExpression([ObjectProperty(StringLiteral('a'), StringLiteral('b'))]),
             ]);
         },
     });
@@ -385,9 +388,39 @@ test('operate: replaceWithMultiple: to expressions', (t) => {
         `'world';`,
         `a, b;`,
         `hello();`,
+        ``,
+        `({`,
+        `  'a': 'b'`,
+        `});`,
     ].join('\n');
     
-    t.equal(expected, result);
+    t.equal(result, expected);
+    t.end();
+});
+
+test('operate: replaceWithMultiple: to expressions: ignore', (t) => {
+    const ast = parse(`const t = {hello: 'world'}`);
+    
+    traverse(ast, {
+        ObjectProperty(path) {
+            operate.replaceWithMultiple(path, [
+                ObjectProperty(StringLiteral('a'), StringLiteral('b')),
+                ObjectProperty(StringLiteral('c'), StringLiteral('d')),
+            ]);
+            
+            path.stop();
+        },
+    });
+    
+    const result = print(ast);
+    const expected = [
+        `const t = {`,
+        `  'a': 'b',`,
+        `  'c': 'd'`,
+        `}`,
+    ].join('\n');
+    
+    t.equal(result, expected);
     t.end();
 });
 
