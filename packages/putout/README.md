@@ -62,7 +62,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - because [pretier](https://github.com/prettier/prettier) it is a formatter;
 - because [jscodeshift](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
 
-The main difference of `putout` is saving code transformation results directly in a source code in a day-to-day baisis.
+The main difference of `putout` is saving code transformation results directly into source code in a day-to-day baisis.
 
 ## Install
 
