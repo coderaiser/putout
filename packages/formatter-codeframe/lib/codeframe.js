@@ -5,6 +5,7 @@ const {codeFrameColumns} = require('@babel/code-frame');
 
 const {
     bold,
+    gray,
     redBright,
 } = require('chalk');
 
@@ -23,7 +24,7 @@ module.exports = ({name, source, places, index, count, filesCount, errorsCount})
     
     const output = [];
     for (const {name, places, source} of json.errors) {
-        for (const {position, message} of places) {
+        for (const {rule, position, message} of places) {
             const {line, column} = position;
             const location = {
                 start: {
@@ -34,7 +35,7 @@ module.exports = ({name, source, places, index, count, filesCount, errorsCount})
             
             const result = codeFrameColumns(source, location, {
                 highlightCode: true,
-                message,
+                message: `${message} ${gray('(' + rule + ')')}`,
             });
             
             output.push(`${name}:${line}:${column}\n${result}\n`);
