@@ -44,6 +44,14 @@ replaceWith(path, [
 
 Check if currentPath is `module.exports` expression.
 
+### compare(node|str, baseNode|baseStr)
+
+Compare two `ast-nodes` using [@putout/compare](https://github.com/coderaiser/putout/tree/master/packages/compare).
+
+### toExpression(node)
+
+Can be used to convert node to `expression` when building new nodes.
+
 ## License
 
 MIT

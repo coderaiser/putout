@@ -1,7 +1,11 @@
 'use strict';
 
 const {types} = require('putout');
-const {isIdentifier} = types;
+const {
+    isIdentifier,
+    ExpressionStatement,
+    toStatement,
+} = types;
 
 const {assign} = Object;
 
@@ -15,6 +19,23 @@ module.exports.compare = compare;
 module.exports.compareAll = compareAll;
 module.exports.compareAny = compareAny;
 module.exports.replaceWith = replaceWith;
+
+const compareTypes = (a) => (b) => a.includes(b);
+module.exports.toExpression = toExpression;
+function toExpression(el) {
+    const {type} = el;
+    const expressions = [
+        'Identifier',
+        'Literal',
+        'SequenceExpression',
+        'CallExpression',
+    ];
+    
+    if (expressions.find(compareTypes(type)))
+        return ExpressionStatement(el);
+    
+    return toStatement(el);
+}
 
 function replaceWith(path, node) {
     const {comments, loc} = path.node;
@@ -33,7 +54,8 @@ module.exports.replaceWithMultiple = (path, nodes) => {
     const {comments} = path.node;
     
     const newNodes = nodes
-        .filter(Boolean);
+        .filter(Boolean)
+        .map(toExpression);
     
     const newPath = path.replaceWithMultiple(newNodes);
     
@@ -74,4 +96,3 @@ module.exports.findBinding = (path, name) => {
     
     return referencePath.scope.bindings[name];
 };
-

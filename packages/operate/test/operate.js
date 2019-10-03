@@ -19,6 +19,10 @@ const fixture = readFixtures();
 const {
     ContinueStatement,
     ExpressionStatement,
+    Identifier,
+    StringLiteral,
+    SequenceExpression,
+    CallExpression,
 } = types;
 
 test('putout: operate: replaceWith', (t) => {
@@ -358,6 +362,32 @@ test('operate: findBindings: found', (t) => {
     });
     
     t.ok(result, 'should equal');
+    t.end();
+});
+
+test('operate: replaceWithMultiple: to expressions', (t) => {
+    const ast = parse('const t = "hello"');
+    
+    traverse(ast, {
+        VariableDeclaration(path) {
+            operate.replaceWithMultiple(path, [
+                Identifier('hello'),
+                StringLiteral('world'),
+                SequenceExpression([Identifier('a'), Identifier('b')]),
+                CallExpression(Identifier('hello'), []),
+            ]);
+        },
+    });
+    
+    const result = print(ast);
+    const expected = [
+        `hello;`,
+        `'world';`,
+        `a, b;`,
+        `hello();`,
+    ].join('\n');
+    
+    t.equal(expected, result);
     t.end();
 });
 

@@ -14,14 +14,11 @@ const {
     CallExpression,
     MemberExpression,
     Identifier,
-    ExpressionStatement,
 } = types;
 
 const isRoot = (path) => path.isFunction();
 
 module.exports.report = () => `"process.exit" should be used instead of top-level return`;
-
-const expr = (a) => a && ExpressionStatement(a);
 
 module.exports.fix = (path) => {
     const {argument} = path.node;
@@ -35,8 +32,8 @@ module.exports.fix = (path) => {
         replaceWith(path, call);
     
     replaceWithMultiple(path, [
-        expr(argument),
-        expr(call),
+        argument,
+        call,
     ]);
 };
 

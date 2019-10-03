@@ -16,10 +16,7 @@ const forOfTemplate = template(`
     %%body%%
 `);
 
-const {
-    ContinueStatement,
-    ExpressionStatement,
-} = types;
+const {ContinueStatement} = types;
 
 const {keys} = Object;
 
@@ -104,7 +101,7 @@ function fixReturn(path) {
             }
             
             replaceWithMultiple(path, [
-                ExpressionStatement(argument),
+                argument,
                 ContinueStatement(),
             ]);
         },

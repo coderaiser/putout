@@ -5,21 +5,15 @@ const {
     operate,
 } = require('putout');
 
-const {replaceWithMultiple} = operate;
+const {
+    replaceWithMultiple,
+    toExpression,
+} = operate;
 
 const {
-    ExpressionStatement,
     ReturnStatement,
     BlockStatement,
-    toStatement,
 } = types;
-
-function wrap(el) {
-    if (/identifier|literal|sequence/i.test(el.type))
-        return ExpressionStatement(el);
-    
-    return toStatement(el);
-}
 
 module.exports.report = () => 'sequence expressions should not be used';
 
@@ -27,7 +21,7 @@ module.exports.fix = (path) => {
     const {parentPath} = path;
     
     if (isFn(path)) {
-        const expressions = parentPath.node.body.expressions.map(wrap);
+        const expressions = parentPath.node.body.expressions.map(toExpression);
         const n = expressions.length - 1;
         const {expression} = expressions[n];
         
@@ -37,7 +31,7 @@ module.exports.fix = (path) => {
     }
     
     if (isCallee(path)) {
-        const expressions = path.node.expressions.map(wrap);
+        const expressions = path.node.expressions.map(toExpression);
         const {expression} = expressions.pop();
         
         parentPath.insertBefore(expressions);
@@ -50,7 +44,7 @@ module.exports.fix = (path) => {
         const argument = expressions.pop();
         
         replaceWithMultiple(parentPath, [
-            ...expressions.map(wrap),
+            ...expressions,
             ReturnStatement(argument),
         ]);
         return;
