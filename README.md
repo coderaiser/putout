@@ -104,8 +104,8 @@ putout lib test --fix
 ```diff
 onIfStatement({
     push,
--    generate,
--    abc,
+-   generate,
+-   abc,
 })
 
 function onIfStatement({push}) {
