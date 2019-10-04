@@ -36,8 +36,13 @@ module.exports.fix = (path) => {
         return path.remove();
     }
     
-    if (alternatePath.isBlock() && !alternate.body.length)
-        return path.remove();
+    if (alternatePath.isBlock() && !alternate.body.length) {
+        if (alternate.comments)
+            return;
+        
+        path.node.alternate = null;
+        return;
+    }
     
     if (alternatePath.isIfStatement())
         return replaceWith(path, alternatePath);
@@ -82,6 +87,9 @@ module.exports.traverse = ({push}) => {
             if (blockIsConsequent(node, parentNode))
                 return push(parentPath);
             
+            if (blockIsAlternate(node, parentNode))
+                return push(parentPath);
+            
             if (blockIsBody(node, parentNode))
                 return push(parentPath);
             
@@ -114,6 +122,13 @@ function blockIsConsequent(node, parentNode) {
         return;
     
     return parentNode.consequent === node;
+}
+
+function blockIsAlternate(node, parentNode) {
+    if (!isIfStatement(parentNode))
+        return;
+    
+    return parentNode.alternate === node;
 }
 
 function reverse(a) {
