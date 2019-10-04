@@ -179,6 +179,12 @@ module.exports = ({use, declare, addParams}) => {
             if (consequentPath.isFunction() && consequent.id)
                 use(consequentPath, consequent.id.name);
         },
+        DoWhileStatement(path) {
+            const testPath = path.get('test');
+            
+            if (testPath.isIdentifier())
+                use(testPath, testPath.node.name);
+        },
         
         TemplateLiteral(path) {
             traverseTmpl(path, path.node.expressions);

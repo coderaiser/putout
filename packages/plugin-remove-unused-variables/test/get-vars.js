@@ -31,6 +31,7 @@ const fixture = readFixtures([
     'destr-assignment-array',
     'destr-nested-vars',
     'destr-fn-vars',
+    'do-while',
     'export-default-function',
     'export-default-anonymous-function',
     'export-default-class',
@@ -613,6 +614,21 @@ test('remove-unused-variables: get-vars: destr fn vars', (t) => {
     }];
     
     t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: do while', (t) => {
+    const ast = parse(fixture.doWhile);
+    const result = getVars(ast);
+    
+    const expected = [{
+        a: {
+            declared: true,
+            used: true,
+        },
+    }];
+    
+    t.deepEqual(result, expected);
     t.end();
 });
 
