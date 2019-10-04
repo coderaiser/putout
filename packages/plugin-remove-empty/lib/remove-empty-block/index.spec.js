@@ -11,6 +11,11 @@ test('plugin-remove-empty: block: report', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: no report: block: else', (t) => {
+    t.noReport('else-comment');
+    t.end();
+});
+
 test('plugin-remove-empty: block: function', (t) => {
     t.transform('function');
     t.end();

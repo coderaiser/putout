@@ -37,9 +37,6 @@ module.exports.fix = (path) => {
     }
     
     if (alternatePath.isBlock() && !alternate.body.length) {
-        if (alternate.comments)
-            return;
-        
         path.node.alternate = null;
         return;
     }
@@ -114,6 +111,10 @@ function blockIsBody(node, parentNode) {
 
 function blockIsIndependentBody(node, parentNode) {
     const {body} = parentNode;
+    
+    if (!body)
+        return false;
+    
     return body[0] === node;
 }
 
@@ -125,10 +126,15 @@ function blockIsConsequent(node, parentNode) {
 }
 
 function blockIsAlternate(node, parentNode) {
+    const {alternate} = parentNode;
+    
     if (!isIfStatement(parentNode))
         return;
     
-    return parentNode.alternate === node;
+    if (alternate.comments)
+        return false;
+    
+    return alternate === node;
 }
 
 function reverse(a) {
