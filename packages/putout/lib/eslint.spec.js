@@ -5,6 +5,8 @@ const stub = require('@cloudcmd/stub');
 
 const eslint = require('./eslint');
 
+const {assign} = Object;
+
 test('putout: eslint: places', (t) => {
     const [, result] = eslint({
         name: 'hello.js',
@@ -67,7 +69,10 @@ test('putout: eslint: fix: cache', (t) => {
 test('putout: eslint: loadPlugin: namespace', (t) => {
     const {_loadPlugin} = eslint;
     
-    const require = stub();
+    const resolve = stub().returns('@babel/eslint-plugin-development');
+    const require = assign(stub(), {
+        resolve,
+    });
     
     _loadPlugin('@babel/development', require);
     
@@ -78,7 +83,10 @@ test('putout: eslint: loadPlugin: namespace', (t) => {
 test('putout: eslint: loadPlugin', (t) => {
     const {_loadPlugin} = eslint;
     
-    const require = stub();
+    const resolve = stub().returns('eslint-plugin-putout');
+    const require = assign(stub(), {
+        resolve,
+    });
     
     _loadPlugin('putout', require);
     

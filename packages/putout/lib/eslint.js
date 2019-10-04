@@ -26,7 +26,7 @@ const loadPlugin = (name, require) => {
     const path = require.resolve(`eslint-plugin-${name}`, {
         paths: [
             cwd,
-        ]
+        ],
     });
     
     return require(path);
