@@ -1,3 +1,18 @@
+2019.10.04, v6.12.0
+
+fix:
+- (@putout/plugin-remove-empty) report
+
+feature:
+- (putout) add ability to resolve eslint plugins (#9)
+- (@putout/plugin-remove-unused-variables) add support of DoWhileStatement
+- (@putout/plugin-remove-empty) remove-empty-block: add support of empty alternate of IfConditionStatement
+- (@putout/operate) toExpression: add support of ObjectProperty
+- (@putout/formatt-codeframe) add ability to show rule
+- (@putout/operate) add toExpression
+- (@putout/plugin-extract-sequance) add support of multiple layers (#11)
+
+
 2019.10.02, v6.11.0
 
 feature:
