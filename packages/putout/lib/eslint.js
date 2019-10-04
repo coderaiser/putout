@@ -5,6 +5,7 @@ const once = require('once');
 const tryCatch = require('try-catch');
 
 const {entries} = Object;
+const cwd = process.cwd();
 
 const noConfigFound = (a) => a && a.messageTemplate === 'no-config-found';
 
@@ -20,10 +21,15 @@ const getCli = once(() => {
 const loadPlugin = (name, require) => {
     if (name.includes('@')) {
         name = name.replace('/', '/eslint-plugin-');
-        return require(name);
     }
     
-    return require(`eslint-plugin-${name}`);
+    const path = require.resolve(`eslint-plugin-${name}`, {
+        paths: [
+            cwd,
+        ]
+    });
+    
+    return require(path);
 };
 
 const getPluginsStore = once(() => {
