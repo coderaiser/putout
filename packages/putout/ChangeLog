@@ -1,3 +1,9 @@
+2019.10.07, v6.12.1
+
+feature:
+- (package) yargs-parser v15.0.0
+
+
 2019.10.04, v6.12.0
 
 fix:
