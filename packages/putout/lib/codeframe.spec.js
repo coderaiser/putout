@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('supertape');
-const codeframe = require('../lib/codeframe');
+const codeframe = require('./codeframe');
 
 test('putout: codeframe: undefined', (t) => {
     const result = codeframe({
