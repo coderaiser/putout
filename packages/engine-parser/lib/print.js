@@ -1,6 +1,6 @@
 'use strict';
 
-const {print} = require('@putout/recast');
+const {print} = require('recast');
 
 const fixStrictMode = (a) => a.replace(`\n\n\n'use strict'`, `\n\n'use strict'`);
 
