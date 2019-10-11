@@ -1,3 +1,9 @@
+2019.10.12, v6.14.1
+
+feature:
+- (package) @putout/plugin-apply-top-level-await v1.0.1
+
+
 2019.10.12, v6.14.0
 
 fix:
