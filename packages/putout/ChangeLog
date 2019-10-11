@@ -1,3 +1,13 @@
+2019.10.12, v6.14.0
+
+fix:
+- (@putout/plugin-remove-double-negations) rm eslint
+
+feature:
+- (@putout/apply-top-level-await) add
+- (package) putout v6.13.0
+
+
 2019.10.11, v6.13.0
 
 fix:
