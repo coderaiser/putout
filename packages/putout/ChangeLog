@@ -1,3 +1,15 @@
+2019.10.11, v6.13.0
+
+fix:
+- (@putout/plugin-remove-useless-escape) no raw
+- (@putout/test) noTransform: second arg
+
+feature:
+- (@putout/convert-to-arrow-function) add
+- (@putout/test) transform: simplify
+- (@putout/engine-parser) @putout/recast -> recast
+
+
 2019.10.07, v6.12.1
 
 feature:
