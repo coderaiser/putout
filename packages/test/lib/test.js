@@ -212,7 +212,7 @@ const noTransformWithOptions = (t, dir, plugins) => (name, options) => {
     t.equal(code, input, 'should equal');
 };
 
-const noTransform = (t, dir, plugins, rules) => (name, transformed, addons) => {
+const noTransform = (t, dir, plugins, rules) => (name, addons) => {
     const full = join(dir, name);
     const [fixture] = readFixture(full);
     
