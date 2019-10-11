@@ -24,6 +24,9 @@ module.exports.traverse = ({push}) => {
         '"__"'(path) {
             const {raw} = path.node;
             
+            if (!raw)
+                return;
+            
             if (!raw.indexOf(`'`) && /^((?!\\).)*\\"/.test(raw))
                 push(path);
         },

@@ -1,5 +1,8 @@
 'use strict';
 
+const madrun = require('@putout/plugin-madrun');
+const addFixLint = madrun.rules['add-fix-lint'];
+
 const test = require('@putout/test')(__dirname, {
     'remove-useless-escape': require('..'),
 });
@@ -23,3 +26,12 @@ test('plugin-remove-useless-escape: no transform: slash', (t) => {
     t.noTransform('slash');
     t.end();
 });
+
+test('plugin-remove-useless-escape: no transform: no raw', (t) => {
+    t.transform('no-raw', {
+        addFixLint,
+    });
+    
+    t.end();
+});
+
