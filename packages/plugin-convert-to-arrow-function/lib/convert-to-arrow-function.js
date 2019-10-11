@@ -1,0 +1,30 @@
+'use strict';
+
+module.exports.report = () => 'Arrow functions should be used';
+module.exports.fix = (path) => {
+    const right = path.get('right');
+    right.node.type = 'ArrowFunctionExpression';
+};
+
+module.exports.include = () => [
+    '__ = function __(){}',
+];
+
+module.exports.filter = (path) => {
+    const right = path.get('right');
+    const {id} = right.node;
+    
+    if (id)
+        return false;
+    
+    let isThis = false;
+    
+    path.traverse({
+        ThisExpression() {
+            isThis = true;
+        },
+    });
+    
+    return !isThis;
+};
+

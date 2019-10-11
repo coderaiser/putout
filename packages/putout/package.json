@@ -67,6 +67,7 @@
     "@putout/plugin-convert-math-pow": "^3.0.0",
     "@putout/plugin-convert-object-assign-to-merge-spread": "^2.0.0",
     "@putout/plugin-convert-spread-to-array-from": "^1.0.0",
+    "@putout/plugin-convert-to-arrow-function": "^1.0.0",
     "@putout/plugin-convert-top-level-return": "^2.0.0",
     "@putout/plugin-extract-object-properties": "^2.0.0",
     "@putout/plugin-extract-sequence-expressions": "^1.0.0",
