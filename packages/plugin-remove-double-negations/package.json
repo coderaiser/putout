@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-double-negations",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to remove double negations",
   "homepage": "http://github.com/coderaiser/putout",
@@ -21,8 +21,7 @@
     "putout:fix": "putout --fix lib test",
     "coverage": "madrun coverage"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "keywords": [
     "putout",
     "putout-plugin",
