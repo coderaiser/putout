@@ -168,7 +168,7 @@ const transform = (t, dir, plugins, rules) => (name, transformed, addons) => {
     
     const [output] = isStr ? [transformed] : readFixture(`${full}-fix`);
     
-    addons = isString(transformed) ? addons : transformed;
+    addons = isStr ? addons : transformed;
     addons = addons || {};
     
     plugins[0] = {
