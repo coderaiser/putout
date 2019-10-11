@@ -22,7 +22,6 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "eslint-plugin-putout": "^2.0.0"
   },
   "keywords": [
     "putout",
