@@ -51,8 +51,8 @@ function load(options) {
         rules = {},
     } = options;
     
-    const parsedRules = parseRules(rules);
-    const [loadedRules, cookedRules] = splitNestedRules(parsedRules);
+    const cookedRules = parseRules(rules);
+    const loadedRules = getLoadedRules(cookedRules);
     
     const items = parsePluginNames(pluginNames);
     const plugins = loadPlugins({
@@ -78,24 +78,18 @@ function load(options) {
     return result;
 }
 
-function splitNestedRules(rules) {
+function getLoadedRules(rules) {
     const loadedRules = [];
-    const cookedRules = [];
     
     for (const item of rules) {
         const {rule} = item;
         
-        if (rule.includes('/')) {
-            cookedRules.push(item);
+        if (rule.includes('/'))
             continue;
-        }
         
         loadedRules.push(item);
     }
-    return [
-        loadedRules,
-        cookedRules,
-    ];
+    return loadedRules;
 }
 
 function splitRule(rule) {
