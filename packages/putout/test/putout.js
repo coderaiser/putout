@@ -736,7 +736,7 @@ test('putout: jscodeshift: messsage', (t) => {
 });
 
 test('putout: plugin: include', (t) => {
-    const plugin = {
+    const include = {
         report: () => 'debugger found',
         fix: () => {},
         include: () => [
@@ -746,7 +746,7 @@ test('putout: plugin: include', (t) => {
     
     const {places} = putout('debugger', {
         plugins: [{
-            include: plugin,
+            include,
         }],
     });
     
@@ -764,7 +764,7 @@ test('putout: plugin: include', (t) => {
 });
 
 test('putout: plugin: include: fix', (t) => {
-    const plugin = {
+    const include = {
         report: () => 'debugger found',
         fix: (path) => path.remove(),
         include: () => [
@@ -774,7 +774,7 @@ test('putout: plugin: include: fix', (t) => {
     
     const {places} = putout('debugger', {
         plugins: [{
-            include: plugin,
+            include,
         }],
     });
     
@@ -785,7 +785,7 @@ test('putout: plugin: include: fix', (t) => {
 });
 
 test('putout: plugin: include: empty: fix', (t) => {
-    const plugin = {
+    const include = {
         report: () => 'debugger found',
         fix: (path) => path.remove(),
         include: () => [],
@@ -793,7 +793,7 @@ test('putout: plugin: include: empty: fix', (t) => {
     
     const {places} = putout('debugger', {
         plugins: [{
-            include: plugin,
+            include,
         }],
     });
     
@@ -804,7 +804,7 @@ test('putout: plugin: include: empty: fix', (t) => {
 });
 
 test('putout: plugin: exclude', (t) => {
-    const plugin = {
+    const include = {
         report: () => 'debugger found',
         fix: () => {},
         exclude: () => ['debugger'],
@@ -812,7 +812,7 @@ test('putout: plugin: exclude', (t) => {
     
     const {places} = putout('debugger', {
         plugins: [{
-            include: plugin,
+            include,
         }],
     });
     
@@ -823,7 +823,7 @@ test('putout: plugin: exclude', (t) => {
 });
 
 test('putout: find: template', (t) => {
-    const plugin = {
+    const include = {
         report: () => '',
         fix: () => {},
         find: (ast, {push, traverse}) => {
@@ -836,7 +836,7 @@ test('putout: find: template', (t) => {
     
     const {places} = putout('class Hello extends React.Component {}', {
         plugins: [{
-            include: plugin,
+            include,
         }],
     });
     
@@ -855,7 +855,7 @@ test('putout: find: template', (t) => {
 });
 
 test('putout: filter', (t) => {
-    const plugin = {
+    const include = {
         report: () => '',
         fix: () => {},
         filter: () => false,
@@ -867,7 +867,7 @@ test('putout: filter', (t) => {
     
     const {places} = putout('class Hello extends React.Component {}', {
         plugins: [{
-            include: plugin,
+            include,
         }],
     });
     
