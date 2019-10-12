@@ -9,7 +9,6 @@ const {
     print,
     generate,
 } = require('@putout/engine-parser');
-//const generate = require('@babel/generator').default;
 const loader = require('@putout/engine-loader');
 const runner = require('@putout/engine-runner');
 

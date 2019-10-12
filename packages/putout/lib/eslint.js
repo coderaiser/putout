@@ -19,11 +19,12 @@ const getCli = once(() => {
 });
 
 const loadPlugin = (name, require) => {
-    if (name.includes('@')) {
+    if (name.includes('@'))
         name = name.replace('/', '/eslint-plugin-');
-    }
+    else
+        name = `eslint-plugin-${name}`;
     
-    const path = require.resolve(`eslint-plugin-${name}`, {
+    const path = require.resolve(name, {
         paths: [
             cwd,
         ],
