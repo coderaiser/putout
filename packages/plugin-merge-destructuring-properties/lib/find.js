@@ -2,8 +2,10 @@
 
 const {
     types,
-    generate,
+    operate,
 } = require('putout');
+
+const {compare} = operate;
 
 const {
     isObjectPattern,
@@ -31,30 +33,36 @@ module.exports = (ast, {traverse}) => {
         },
     });
     
-    return Object
-        .values(vars)
+    return vars
         .filter(notEmptyPlaces);
 };
 
 const addVariable = ({vars}) => (path, node) => {
-    const {uid} = path.scope;
-    const {code} = generate(node);
+    let is = false;
+    for (let i = 0; i < vars.length; i++) {
+        const {uid} = vars[i];
+        
+        if (uid !== path.scope.uid)
+            continue;
+        
+        const currentPath = vars[i].path;
+        is = compare(currentPath.node.init, node);
+        
+        if (is && sameKind(path, currentPath) && uid === path.scope.uid)
+            vars[i].places.push(path);
+    }
     
-    const id = `${uid}-${code}`;
-    
-    if (vars[id] && sameKind(vars[id].path, path))
-        return vars[id].places.push(path);
-    
-    vars[id] = {
-        path,
-        places: [],
-    };
+    if (!is)
+        vars.push({
+            path,
+            uid: path.scope.uid,
+            places: [],
+        });
 };
 
 function sameKind(path1, path2) {
     const kind1 = path1.parentPath.node.kind;
     const kind2 = path2.parentPath.node.kind;
-    
+
     return kind1 === kind2;
 }
-
