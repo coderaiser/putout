@@ -2,8 +2,8 @@
 
 const {
     isExpressionStatement,
-    Directive,
-    DirectiveLiteral,
+    StringLiteral,
+    ExpressionStatement,
 } = require('putout').types;
 
 const store = require('fullstore');
@@ -11,7 +11,7 @@ const store = require('fullstore');
 module.exports.report = () => '"use strict" directive should be on top of commonjs file';
 
 module.exports.fix = ({node}) => {
-    node.directives.unshift(Directive(DirectiveLiteral('use strict')));
+    node.body.unshift(ExpressionStatement(StringLiteral('use strict')));
 };
 
 module.exports.traverse = ({push}) => {
@@ -23,18 +23,15 @@ module.exports.traverse = ({push}) => {
         },
         Program: {
             exit(path) {
-                const {node} = path;
-                const {directives} = node;
-                
-                const [first] = node.body;
+                const [first] = path.node.body;
                 
                 if (isExpressionStatement(first) && first.expression.value === 'use strict')
                     return;
                 
-                if (!isModule() && (!directives || !directives.length))
-                    push(path);
+                if (isModule())
+                    return;
                 
-                path.stop();
+                push(path);
             },
         },
     };

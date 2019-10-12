@@ -1,6 +1,6 @@
 const {
     run
-} = require('putout');
+} = require('madrun');
 
 module.exports = {
     'fix:lint': () => run('lint', '--fix'),

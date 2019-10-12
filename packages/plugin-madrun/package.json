@@ -36,6 +36,8 @@
     "madrun"
   ],
   "devDependencies": {
+    "@putout/plugin-remove-unused-expressions": "^1.2.1",
+    "@putout/plugin-strict-mode": "^1.2.1",
     "@putout/test": "^1.1.1",
     "coveralls": "^3.0.0",
     "eslint": "^6.2.0",
