@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('supertape');
-const {template} = require('@putout/engine-parser');
+const {template, parse} = require('@putout/engine-parser');
 
 const {
     compare,
@@ -28,6 +28,16 @@ test('compare: false property', (t) => {
 
 test('compare: identifier', (t) => {
     const result = compare('hello', '__');
+    
+    t.ok(result, 'should equal');
+    t.end();
+});
+
+test('compare: string literal: raw', (t) => {
+    const ast1 = parse(`'madrun'`);
+    const ast2 = parse(`"madrun"`);
+    
+    const result = compare(ast1, ast2);
     
     t.ok(result, 'should equal');
     t.end();
