@@ -23,6 +23,11 @@ test('madrun: add run: transform: exists', (t) => {
     t.end();
 });
 
+test('madrun: add run: transform: no run used', (t) => {
+    t.noTransform('no-run-used');
+    t.end();
+});
+
 test('madrun: add run: transform: strict', (t) => {
     t.transform('strict', {
         add,
