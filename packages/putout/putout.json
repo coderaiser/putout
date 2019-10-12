@@ -23,6 +23,7 @@
         "fixture"
     ],
     "rules": {
+        "apply-top-level-await": "off",
         "madrun": "off",
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",
