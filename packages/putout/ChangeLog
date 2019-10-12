@@ -1,3 +1,11 @@
+2019.10.12, v6.15.1
+
+fix:
+- (putout) eslint
+- (@putout/plugin-strict-mode) add once
+- (babel-plugin-putout) strict-mode
+
+
 2019.10.12, v6.15.0
 
 fix:
