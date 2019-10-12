@@ -16,6 +16,7 @@ module.exports.fix = ({node}) => {
 
 module.exports.traverse = ({push}) => {
     const isModule = store();
+    let added = false;
     
     return {
         'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|TypeAlias'() {
@@ -25,6 +26,10 @@ module.exports.traverse = ({push}) => {
             exit(path) {
                 const [first] = path.node.body;
                 
+                if (added)
+                    return;
+                
+                added = true;
                 if (isExpressionStatement(first) && first.expression.value === 'use strict')
                     return;
                 
