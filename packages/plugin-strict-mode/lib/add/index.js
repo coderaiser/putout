@@ -30,6 +30,7 @@ module.exports.traverse = ({push}) => {
                     return;
                 
                 added = true;
+                
                 if (isExpressionStatement(first) && first.expression.value === 'use strict')
                     return;
                 
