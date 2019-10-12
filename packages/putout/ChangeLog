@@ -1,3 +1,16 @@
+2019.10.12, v6.15.0
+
+fix:
+- (@putout/plugin-strict-mode) add
+
+feature:
+- (package) @putout/plugin-merge-destructuring-properties v2.0.0
+- (@putout/plugin-merge-destructuring-properties) generate -> compare
+- (@putout/compare) add ability to ignore raw values
+- (@putout/plugin-apply-top-level-await) add
+- (@putout/plugin-madrun) add run
+
+
 2019.10.12, v6.14.1
 
 feature:
