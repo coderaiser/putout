@@ -51,17 +51,19 @@ function load(options) {
         rules = {},
     } = options;
     
-    const cookedRules = parseRules(rules);
+    const parsedRules = parseRules(rules);
+    const [loadedRules, cookedRules] = splitNestedRules(parsedRules);
     
     const items = parsePluginNames(pluginNames);
     const plugins = loadPlugins({
         items,
         cache,
+        loadedRules,
     });
     
     const result = [];
     
-    // Would be greate to have ability to filter
+    // Would be great to have ability to filter
     // disabled plugins and prevent them from loading
     // but we can't because of a way multi-rule plugins
     // works. We can't determine count and names of all
@@ -74,6 +76,26 @@ function load(options) {
     }
     
     return result;
+}
+
+function splitNestedRules(rules) {
+    const loadedRules = [];
+    const cookedRules = [];
+    
+    for (const item of rules) {
+        const {rule} = item;
+        
+        if (rule.includes('/')) {
+            cookedRules.push(item);
+            continue;
+        }
+        
+        loadedRules.push(item);
+    }
+    return [
+        loadedRules,
+        cookedRules,
+    ];
 }
 
 function splitRule(rule) {
@@ -99,10 +121,13 @@ function splitRule(rule) {
     ];
 }
 
-function loadPlugins({items, cache}) {
+function loadPlugins({items, cache, loadedRules}) {
     const plugins = [];
     
     for (const [rule, itemPlugin] of items) {
+        if (!isEnabled(rule, loadedRules))
+            continue;
+        
         const [name, namespace] = splitRule(rule);
         
         const plugin = itemPlugin || loadPlugin({

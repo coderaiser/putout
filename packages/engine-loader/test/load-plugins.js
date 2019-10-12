@@ -357,3 +357,20 @@ test('putout: babelPlugins: shebang', (t) => {
     t.deepEqual(code, fixture.shebang);
     t.end();
 });
+
+test('putout: nested rules', (t) => {
+    const {code} = putout(fixture.shebang, {
+        rules: {
+            'putout/convert-babel-types': 'off',
+            'remove-unused-variables': 'off',
+        },
+        plugins: [
+            'remove-unused-variables',
+            'putout',
+        ],
+    });
+    
+    t.deepEqual(code, fixture.shebang);
+    t.end();
+});
+
