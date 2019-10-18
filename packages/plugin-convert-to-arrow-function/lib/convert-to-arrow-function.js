@@ -10,6 +10,10 @@ module.exports.include = () => [
     '__ = function __(){}',
 ];
 
+module.exports.exclude = () => [
+    '__.prototype.__ = function __(){}',
+];
+
 module.exports.filter = (path) => {
     const right = path.get('right');
     const {id} = right.node;

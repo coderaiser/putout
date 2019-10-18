@@ -24,3 +24,8 @@ test('plugin-convert-to-arrow-function: no transform: name', (t) => {
     t.end();
 });
 
+test('plugin-convert-to-arrow-function: no transform: prototype', (t) => {
+    t.noTransform('prototype');
+    t.end();
+});
+
