@@ -33,7 +33,11 @@ test('putout: codeframe: should return message', (t) => {
 });
 
 test('putout: codeframe: should return source with error pointed', (t) => {
-    const loc = { line: 2, column: 8 };
+    const loc = {
+        line: 2,
+        column: 8,
+    };
+    
     const error = {
         message: 'some error is here',
         loc,
@@ -53,7 +57,11 @@ test('putout: codeframe: should return source with error pointed', (t) => {
 });
 
 test('putout: codeframe: not highlited', (t) => {
-    const loc = { line: 2, column: 8 };
+    const loc = {
+        line: 2,
+        column: 8,
+    };
+    
     const error = {
         message: 'some error is here',
         loc,
