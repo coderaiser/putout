@@ -45,6 +45,7 @@
         "quote-props": ["error", "consistent-as-needed"],
         "semi": "error",
         "object-shorthand": "error",
+        "object-curly-spacing": "error",
         "no-useless-rename": "error",
         "no-use-before-define": "off",
         "no-var": "error",
