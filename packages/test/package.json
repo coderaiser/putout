@@ -36,15 +36,15 @@
   ],
   "devDependencies": {
     "@putout/formatter-dump": "^1.0.0",
-    "@putout/plugin-remove-unused-variables": "^1.11.0",
     "@putout/plugin-remove-empty": "^3.0.0",
-    "eslint-plugin-putout": "^2.0.0",
+    "@putout/plugin-remove-unused-variables": "^1.11.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.2.0",
     "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-putout": "^2.0.0",
     "eslint-plugin-tape": "^1.1.0",
     "lerna": "^3.8.5",
-    "madrun": "^3.0.0",
+    "madrun": "^4.1.0",
     "nodemon": "^1.14.12",
     "nyc": "^14.0.0",
     "try-to-tape": "^1.1.0"

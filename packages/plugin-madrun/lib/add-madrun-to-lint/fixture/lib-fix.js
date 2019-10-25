@@ -1,4 +1,4 @@
 module.exports = {
-    'lint': () => 'eslint lib madrun.js',
+    'lint': () => 'eslint lib .madrun.js',
 };
 

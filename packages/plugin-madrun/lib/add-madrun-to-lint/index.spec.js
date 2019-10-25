@@ -6,7 +6,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('madrun: add madrun to lint: report', (t) => {
-    t.report('lint', '"lint" should check "madrun.js"');
+    t.report('lint', '"lint" should check ".madrun.js"');
     t.end();
 });
 
@@ -30,8 +30,13 @@ test('madrun: add madrun to lint: no transform: array', (t) => {
     t.end();
 });
 
-test('madrun: add madrun to lint: no transform: exist', (t) => {
+test('madrun: add madrun to lint: no transform: exist .madrun.js', (t) => {
     t.noTransform('exist');
+    t.end();
+});
+
+test('madrun: add madrun to lint: no transform: exist madrun.js', (t) => {
+    t.transform('exist');
     t.end();
 });
 

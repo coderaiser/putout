@@ -2,7 +2,7 @@
     "parser": "babel",
     "formatter": "dump",
     "match": {
-        "madrun.js": {
+        ".madrun.js": {
             "madrun": "on"
         },
         "bin/": {
