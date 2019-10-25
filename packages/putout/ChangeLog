@@ -1,3 +1,18 @@
+2019.10.25, v6.16.0
+
+fix:
+- (@putout/engine-loader) rules options
+- (npmignore) .spec.js
+
+feature:
+- (package) @putout/plugin-madrun v3.0.0
+- (@putout/plugin-madrun) add-madrun: .madrun.js
+- (package) madrun v4.0.0
+- (@putout/eslint-config) add support of object-curly-spacing
+- (@putout/plugin-convert-to-arrow-function) exclude prototype
+- (@putout/engine-loader) speed up loading according to rules
+
+
 2019.10.12, v6.15.1
 
 fix:
