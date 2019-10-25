@@ -133,7 +133,7 @@
     "jest-codemods": "^0.20.0",
     "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
-    "madrun": "^3.0.0",
+    "madrun": "^4.0.0",
     "mock-require": "^3.0.2",
     "nodemon": "^1.14.12",
     "nyc": "^14.0.0",
