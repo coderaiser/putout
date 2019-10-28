@@ -28,7 +28,6 @@ test('putout: ignores: the "from" argument must be of type string error', (t) =>
 
 test('putout: ignores: relative path', (t) => {
     const result = ignores('/x/y', '/x/y/z', {ignore: ['*.js']});
-    
     const expected = false;
     
     t.equal(result, expected);
@@ -37,7 +36,6 @@ test('putout: ignores: relative path', (t) => {
 
 test('putout: ignores: empty string', (t) => {
     const result = ignores('', '');
-    
     const expected = '';
     
     t.equal(result, expected);
@@ -46,7 +44,6 @@ test('putout: ignores: empty string', (t) => {
 
 test('putout: ignores: ignore true', (t) => {
     const result = ignores('x/y', 'x/y/z/*.js', {ignore: ['z/*.js']});
-    
     const expected = true;
     
     t.equal(result, expected);
