@@ -25,7 +25,7 @@ module.exports.fix = (path) => {
     const params = [];
     const call = CallExpression(MemberExpression(
         Identifier('process'),
-        Identifier('exit')
+        Identifier('exit'),
     ), params);
     
     if (!argument)
