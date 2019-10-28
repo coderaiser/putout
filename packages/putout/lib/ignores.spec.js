@@ -8,21 +8,21 @@ const tryCatch = require('try-catch');
 test('putout: ignores: empty path error', (t) => {
     const [e] = tryCatch(ignores, 'x/y', 'x/y', {ignore: ['*.js']});
     
-    t.deepEqual(e.message, 'path must not be empty');
+    t.equal(e.message, 'path must not be empty');
     t.end();
 });
 
 test('putout: ignores: should be a `path.relative()` error', (t) => {
     const [e] = tryCatch(ignores, 'x/y/z', 'x/y', {ignore: ['*.js']});
     
-    t.deepEqual(e.message, 'path should be a `path.relative()`d string, but got ".."');
+    t.equal(e.message, 'path should be a `path.relative()`d string, but got ".."');
     t.end();
 });
 
-test('putout: ignores: the "path" argument must be of type string error', (t) => {
+test('putout: ignores: the "from" argument must be of type string error', (t) => {
     const [e] = tryCatch(ignores);
     
-    t.deepEqual(e.message, 'The "path" argument must be of type string. Received type undefined');
+    t.ok(e.message === 'The "from" argument must be of type string. Received type undefined' || e.message === 'Path must be a string. Received undefined');
     t.end();
 });
 
@@ -31,7 +31,7 @@ test('putout: ignores: relative path', (t) => {
     
     const expected = false;
     
-    t.deepEqual(result, expected);
+    t.equal(result, expected);
     t.end();
 });
 
@@ -40,7 +40,7 @@ test('putout: ignores: empty string', (t) => {
     
     const expected = '';
     
-    t.deepEqual(result, expected);
+    t.equal(result, expected);
     t.end();
 });
 
@@ -49,6 +49,6 @@ test('putout: ignores: ignore true', (t) => {
     
     const expected = true;
     
-    t.deepEqual(result, expected);
+    t.equal(result, expected);
     t.end();
 });
