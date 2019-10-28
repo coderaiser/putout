@@ -24,7 +24,6 @@ module.exports = {
     },
     
     'fix:lint': () => run('lint', '--fix'),
-    'putout': () => `putout index.js rules`,
     'coverage': () => `nyc ${run('test')}`,
     'debug': () => 'mocha --inspect-brk --inspect=0.0.0.0',
 };

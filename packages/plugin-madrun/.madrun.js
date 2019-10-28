@@ -11,14 +11,15 @@ module.exports = {
     'prepublishOnly': () => run(['lint', 'test']),
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w lib -x ${run('test')}`,
+    
     'lint': () => putout([
         'lib',
         'test',
         '.madrun.js',
         '.eslintrc.js',
     ]),
+    
     'fix:lint': () => run('lint', '--fix'),
-    'putout': () => `putout lib test`,
     'coverage': () => `nyc ${run('test')}`,
     'report': () => `nyc report --reporter=text-lcov | coveralls || true`,
 };

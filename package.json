@@ -4,9 +4,9 @@
   "scripts": {
     "test": "FORCE_COLOR=1 lerna run test",
     "coverage": "FORCE_COLOR=1 lerna run coverage",
-    "report": "lerna run report",
-    "lint": "lerna run lint",
-    "fix:lint": "lerna run fix:lint",
+    "report": "lerna run --no-bail report",
+    "lint": "FORCE_COLOR=1 lerna run --no-bail lint",
+    "fix:lint": "lerna run --no-bail fix:lint",
     "bootstrap": "lerna bootstrap"
   },
   "husky": {

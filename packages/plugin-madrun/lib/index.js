@@ -15,5 +15,6 @@ module.exports.rules = {
     ...getRule('convert-lint-lib'),
     ...getRule('rename-predefined-eslint-to-putout'),
     ...getRule('rename-eslint-to-putout'),
+    ...getRule('remove-putout'),
 };
 
