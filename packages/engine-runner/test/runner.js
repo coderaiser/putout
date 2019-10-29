@@ -115,3 +115,46 @@ test('putout: filter: options: no filter call', (t) => {
     t.deepEqual(places, expected, 'should equal');
     t.end();
 });
+
+test('putout: plugins: replace', (t) => {
+    const addVar = {
+        report: () => '',
+        replace: () => ({
+            debugger: 'const a = 1',
+        }),
+    };
+    
+    const {code} = putout('debugger', {
+        runPlugins,
+        plugins: [{
+            'add-variable': addVar,
+        }],
+    });
+    
+    const expected = 'const a = 1;';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: plugins: replace: a couple', (t) => {
+    const addVar = {
+        report: () => '',
+        replace: () => ({
+            'debugger': 'const a = 1',
+            'var x = 1': 'const x = 1',
+        }),
+    };
+    
+    const {code} = putout('var x = 1', {
+        runPlugins,
+        plugins: [{
+            'add-variable': addVar,
+        }],
+    });
+    
+    const expected = 'const x = 1;';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});

@@ -90,7 +90,7 @@ module.exports.find = (ast, {push, traverse}) => {
 };
 ```
 
-### Replace Plugins (proposal)
+### Replace Plugins
 
 This is a `proposal` of a new plugins format:
 

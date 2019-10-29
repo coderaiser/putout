@@ -1,11 +1,10 @@
 'use strict';
 
-const {types} = require('putout');
 const {
     isIdentifier,
     ExpressionStatement,
     toStatement,
-} = types;
+} = require('@babel/types')
 
 const {assign} = Object;
 
