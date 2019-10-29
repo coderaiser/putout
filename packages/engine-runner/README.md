@@ -14,6 +14,96 @@ Load putout plugins.
 npm i @putout/engine-runner
 ```
 
+## Supported Plugin Types
+
+### Template plugins
+
+`Template plugins` is the most prefarable format of a plugin, simplest to use.
+
+```js
+module.exports.report = () => 'debugger statement should not be used';
+
+module.exports.fix = (path) => {
+    path.remove();
+};
+
+module.exports.include = () => [
+    'debugger',
+];
+
+// optional
+module.exports.exclude = () => {
+};
+
+// optional
+module.exports.filter = (path) => {
+    return true;
+};
+```
+
+`include` and `exclude` returns an array of [@babel/types](https://babeljs.io/docs/en/babel-types), or code blocks:
+
+```js
+const __ = 'hello';
+```
+
+Where `__` can be any node. All this possible with help of [@putout/compare](https://github.com/coderaiser/putout/tree/master/packages/compare). Templates format supported in `traverse` and `find` plugins as well.
+
+### Traverse plugins
+
+`Traverse plugins` gives you more power to `filter` and `fix` nodes you need.
+
+```js
+module.exports.report = () => 'debugger statement should not be used';
+
+module.exports.fix = (path) => {
+    path.remove();
+};
+
+module.exports.traverse = ({push}) => {
+    return {
+        'debugger'(path) {
+            push(path);
+        }
+    }
+};
+```
+
+### Find plugins
+
+`Find plugins` gives you all the control over traversing, but it's the slowest format.
+Because `traversers` not merged in contrast with other plugin formats.
+
+```js
+module.exports.report = () => 'debugger statement should not be used';
+
+module.exports.fix = (path) => {
+    path.remove();
+};
+
+module.exports.find = (ast, {push, traverse}) => {
+    traverse(ast, {
+        'debugger'(path) {
+            push(path);
+        }
+    }
+};
+```
+
+### Replace Plugins (proposal)
+
+This is a `proposal` of a new plugins format:
+
+```js
+module.exports.report = () => 'debugger statement should not be used';
+
+module.exports.replace = () => {
+    'const a = 1': 'const b = 1',
+};
+```
+
+Simplest possible form, no need to use `fix`. Just `from` and `to` parts.
+
 ## Example
 
 ```js

@@ -708,9 +708,11 @@ Every `putout` plugin should contain next 2 functions:
 
 and one or more of this:
 - `traverse({push})` - find errors and `push` them;
-- `filter(path)` - filter path, should return `true`, or `false`.
-- `include` - returns array of templates, or node names to include
-- `exclude` - returns array of templates, or node names to exclude
+- `filter(path)` - filter path, should return `true`, or `false`;
+- `include` - returns array of templates, or node names to include;
+- `exclude` - returns array of templates, or node names to exclude;
+
+More information about supported plugin types you can find in [@putout/engine-runner](https://github.com/coderaiser/putout/tree/master/packages/engine-runner).
 
 `context` of `find` function contains [@babel/traverse](https://babeljs.io/docs/en/next/babel-traverse.html) and [@babel/types](https://babeljs.io/docs/en/next/babel-types.html). Also there is [template](https://babeljs.io/docs/en/next/babel-template.html) and even [generate](https://babeljs.io/docs/en/babel-generator). All of this can be get from `putout`:
 
