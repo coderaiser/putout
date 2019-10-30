@@ -1,6 +1,6 @@
 const type = 'xx';
 
-export const setSession = payload => ({
+export const setSession = (payload) => ({
     type,
     payload
 });

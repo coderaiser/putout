@@ -33,6 +33,9 @@ module.exports.traverse = ({push, options}) => {
                 if (ignore.includes(from))
                     continue;
                 
+                if (/^[A-Z].+$/.test(from))
+                    continue;
+                
                 const bindingFrom = findBinding(propPath, from);
                 const bindingTo = findBinding(propPath, to);
                 

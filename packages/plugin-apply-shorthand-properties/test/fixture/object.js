@@ -1,6 +1,6 @@
-const AUTH_SESSION = 'xx';
+const authSession = 'xx';
 
-export const setSession = session => ({
-    type: AUTH_SESSION,
+export const setSession = (session) => ({
+    type: authSession,
     payload: session
 });

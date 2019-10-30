@@ -58,3 +58,9 @@ test('plugin-apply-shorthand-properties: no transform: names overlap', (t) => {
     t.noTransform('overlap');
     t.end();
 });
+
+test('plugin-apply-shorthand-properties: no transform: constant', (t) => {
+    t.noTransform('constant');
+    t.end();
+});
+
