@@ -271,6 +271,7 @@ function preTest(test, plugin) {
         exclude,
         fix,
         rules,
+        replace,
     }] = entries(plugin).pop();
     
     if (rules) {
@@ -294,18 +295,15 @@ function preTest(test, plugin) {
         t.end();
     });
     
-    test(`${name}: include, exclude, traverse, find: is function`, (t) => {
-        const typeofInclude = isFn(include);
-        const typeofExclude = isFn(exclude);
-        const typeofTraverse = isFn(traverse);
-        const typeofFind = isFn(find);
+    test(`${name}: plugins should be of type: replace, template, traverse or find`, (t) => {
+        const isInclude = isFn(include);
+        const isExclude = isFn(exclude);
+        const isTraverse = isFn(traverse);
+        const isFind = isFn(find);
+        const isReplace = isFn(replace);
+        const isFix = isFn(fix);
         
-        t.ok(typeofFind || typeofTraverse || typeofInclude || typeofExclude, 'should export "find", "traverse", "include" or "exclude" function');
-        t.end();
-    });
-    
-    test(`${name}: fix: is function`, (t) => {
-        t.equal(typeof fix, 'function', 'should export "fix" function');
+        t.ok(isReplace || isFix && (isFind || isTraverse || isInclude || isExclude), 'should export "find", "traverse", "include" or "exclude" function');
         t.end();
     });
 }
