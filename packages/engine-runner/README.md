@@ -114,6 +114,16 @@ module.exports.replace = () => {
 };
 ```
 
+Templates:
+
+```js
+module.exports.report = () => 'any message here';
+
+module.exports.replace = () => {
+    'var _a = 1': 'const _a = 1',
+};
+```
+
 ## Example
 
 ```js

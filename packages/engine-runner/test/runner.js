@@ -170,7 +170,7 @@ test('putout: plugins: replace: remove', (t) => {
     const {code} = putout('debugger', {
         runPlugins,
         plugins: [{
-            'add-variable': rmDebugger,
+            'rm-debugger': rmDebugger,
         }],
     });
     
@@ -179,3 +179,25 @@ test('putout: plugins: replace: remove', (t) => {
     t.deepEqual(code, expected, 'should equal');
     t.end();
 });
+
+test('putout: plugins: replace: template', (t) => {
+    const varToConst = {
+        report: () => '',
+        replace: () => ({
+            'var _a = _b': 'const _a = _b',
+        }),
+    };
+    
+    const {code} = putout('var hello = 5', {
+        runPlugins,
+        plugins: [{
+            'var-to-const': varToConst,
+        }],
+    });
+    
+    const expected = 'const hello = 5;';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+

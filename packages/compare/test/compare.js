@@ -128,3 +128,13 @@ test('compare: any: base is any: no', (t) => {
     t.end();
 });
 
+test('compare: template var', (t) => {
+    const a = template.ast('const hello = "hello"');
+    const b = template.ast('const _a = "__"');
+    
+    const result = compare(a, b);
+    
+    t.ok(result, 'should equal');
+    t.end();
+});
+
