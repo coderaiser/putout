@@ -1,3 +1,14 @@
+2019.10.31, v6.17.0
+
+feature:
+- (package) @putout/plugin-remove-debugger v4.0.0
+- (@putout/engine-runner) replace: add support of variables
+- (@putout/engine-runner) replace: add ability to remove
+- (@putout/plugin-apply-shorthand-properties) exclude CAMEL_CASE constants
+- (@putout/engine-runner) add replace plugins
+- (@putout/plugin-madrun) add: remove putout
+
+
 2019.10.27, v6.16.1
 
 feature:
