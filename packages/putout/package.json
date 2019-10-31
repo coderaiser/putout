@@ -80,7 +80,7 @@
     "@putout/plugin-remove-boolean-from-logical-expressions": "^1.0.0",
     "@putout/plugin-remove-console": "^2.0.0",
     "@putout/plugin-remove-constant-conditions": "^1.0.0",
-    "@putout/plugin-remove-debugger": "^3.0.0",
+    "@putout/plugin-remove-debugger": "^4.0.0",
     "@putout/plugin-remove-double-negations": "^1.0.0",
     "@putout/plugin-remove-empty": "^3.0.0",
     "@putout/plugin-remove-nested-blocks": "^1.0.0",
