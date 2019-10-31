@@ -40,6 +40,9 @@ const fix = (from, to, path) => {
     if (!compare(path, from))
         return;
     
+    if (!to)
+        return path.remove();
+    
     replaceWith(path, template.ast(to));
 };
 

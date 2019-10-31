@@ -92,17 +92,27 @@ module.exports.find = (ast, {push, traverse}) => {
 
 ### Replace Plugins
 
-This is a `proposal` of a new plugins format:
+Convert code in declarative way. Simplest possible form, no need to use `fix`. Just `from` and `to` parts.
+
+Simplest replace example:
 
 ```js
-module.exports.report = () => 'debugger statement should not be used';
+module.exports.report = () => 'any message here';
 
 module.exports.replace = () => {
     'const a = 1': 'const b = 1',
 };
 ```
 
-Simplest possible form, no need to use `fix`. Just `from` and `to` parts.
+Simplest remove example:
+
+```js
+module.exports.report = () => 'debugger should not be used';
+
+module.exports.replace = () => {
+    'debugger': '',
+};
+```
 
 ## Example
 

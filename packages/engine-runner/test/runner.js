@@ -158,3 +158,24 @@ test('putout: plugins: replace: a couple', (t) => {
     t.deepEqual(code, expected, 'should equal');
     t.end();
 });
+
+test('putout: plugins: replace: remove', (t) => {
+    const rmDebugger = {
+        report: () => '',
+        replace: () => ({
+            debugger: '',
+        }),
+    };
+    
+    const {code} = putout('debugger', {
+        runPlugins,
+        plugins: [{
+            'add-variable': rmDebugger,
+        }],
+    });
+    
+    const expected = '';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
