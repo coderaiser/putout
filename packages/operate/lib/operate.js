@@ -4,7 +4,7 @@ const {
     isIdentifier,
     ExpressionStatement,
     toStatement,
-} = require('@babel/types')
+} = require('@babel/types');
 
 const {assign} = Object;
 
