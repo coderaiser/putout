@@ -4,7 +4,6 @@ const {template} = require('@putout/engine-parser');
 const {replaceWith} = require('@putout/operate');
 const {compare} = require('@putout/compare');
 const traverse = require('@babel/traverse').default;
-const {BlockStatement} = require('@babel/types');
 
 const jessy = require('jessy');
 const nessy = require('nessy');
@@ -45,7 +44,7 @@ module.exports = ({rule, plugin, msg, options}) => {
 const findTemplateVars = (node) => {
     const vars = [];
     
-    traverse(BlockStatement([node]), {
+    traverse(node, {
         noScope: true,
         Identifier(path) {
             const {name} = path.node;
