@@ -2,13 +2,10 @@
 
 module.exports.report = () => '"test.skip" should not be used';
 
-module.exports.fix = (path) => {
-    const {node} = path;
-    node.callee = node.callee.object;
-};
+const result = '__a(__b, __c)';
 
-module.exports.include = () => [
-    '__.skip(__)',
-    '__["skip"](__)',
-];
+module.exports.replace = () => ({
+    '__a.skip(__b, __c)': result,
+    '__a["skip"](__b, __c)': result,
+});
 
