@@ -8,17 +8,22 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-apply-destructuring: report: array: report', (t) => {
-    t.report('assignment', 'Array destructuring should be used for "a"');
+    t.report('assignment', 'Array destructuring should be used');
     t.end();
 });
 
 test('plugin-apply-destructuring: report: array: report', (t) => {
-    t.report('variable-declarator', 'Array destructuring should be used for "a"');
+    t.report('variable-declarator', 'Array destructuring should be used');
     t.end();
 });
 
 test('plugin-apply-destructuring: transform: array: variable-declarator', (t) => {
     t.transform('variable-declarator');
+    t.end();
+});
+
+test('plugin-apply-destructuring: transform: array: variable-declarator: let', (t) => {
+    t.transform('let');
     t.end();
 });
 

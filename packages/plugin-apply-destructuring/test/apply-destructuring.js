@@ -18,8 +18,8 @@ test('plugin-apply-destructuring: transform: object', (t) => {
 });
 
 test('plugin-apply-destructuring: transform: array', (t) => {
-    const code = 'const name = array[0]';
-    const fix = 'const [name] = array';
+    const code = 'const name = array[0];';
+    const fix = 'const [name] = array;';
     
     t.transformCode(code, fix);
     t.end();
