@@ -1,3 +1,16 @@
+2019.11.01, v6.18.0
+
+fix:
+- (@putout/engine-runner) rm BlockStatement
+
+feature:
+- (package) @putout/plugin-remove-only v3.0.0
+- (@putout/plugin-remove-only) convert to replace
+- (@putout/engine-parser) add ability to get expression
+- (@putout/engine-runner) replace: add abilty to use a couple vars
+- (@putout/engine-parser) add template.ast.fresh, which do not use memoization
+
+
 2019.10.31, v6.17.0
 
 feature:
