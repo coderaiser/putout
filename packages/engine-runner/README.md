@@ -124,6 +124,16 @@ module.exports.replace = () => {
 };
 ```
 
+A couple variables example:
+
+```js
+module.exports.report = () => 'any message here';
+
+module.exports.replace = () => {
+    'const _a = _b': 'const _b = _a',
+};
+```
+
 ## Example
 
 ```js

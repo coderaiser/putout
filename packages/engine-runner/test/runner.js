@@ -189,6 +189,7 @@ test('putout: plugins: replace: template', (t) => {
     };
     
     const {code} = putout('var hello = 5', {
+        fixCount: 1,
         runPlugins,
         plugins: [{
             'var-to-const': varToConst,
@@ -196,6 +197,29 @@ test('putout: plugins: replace: template', (t) => {
     });
     
     const expected = 'const hello = 5;';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: plugins: replace: template: a couple vars', (t) => {
+    const varToConst = {
+        report: () => '',
+        replace: () => ({
+            'const _a = _b': 'const _b = _a',
+            'debugger': '',
+        }),
+    };
+    
+    const {code} = putout('debugger; const hello = world', {
+        fixCount: 1,
+        runPlugins,
+        plugins: [{
+            'var-to-const': varToConst,
+        }],
+    });
+    
+    const expected = 'const world = hello;';
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

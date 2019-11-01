@@ -90,8 +90,6 @@ module.exports = ({rule, visitor, options}) => {
 
 function wrapWithCheck({rule, nodesInclude, nodesExclude, fn}) {
     return (path) => {
-        generateCode(path.node).includes('only');
-        
         log(rule, path.node);
         
         if (nodesExclude.length && compareAny(path, nodesExclude))

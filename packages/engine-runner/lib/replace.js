@@ -11,6 +11,7 @@ const nessy = require('nessy');
 const stub = () => [];
 const packKeys = (a) => () => Object.keys(a);
 const isNumber = (a) => typeof a === 'number';
+const {entries} = Object;
 
 module.exports = ({rule, plugin, msg, options}) => {
     const {
@@ -41,8 +42,8 @@ module.exports = ({rule, plugin, msg, options}) => {
     };
 };
 
-const findTemplateVars = (node) => {
-    const vars = [];
+const findVarsWays = (node) => {
+    const vars = {};
     
     traverse(node, {
         noScope: true,
@@ -62,44 +63,60 @@ const findTemplateVars = (node) => {
                 way.unshift(key);
             });
             
-            vars.unshift(way.join('.'));
+            vars[name] = way.join('.');
         },
     });
     
     return vars;
 };
 
-function getValues(routes, node) {
+function getValues({waysFrom, node}) {
     const result = {};
     
-    for (const route of routes) {
-        result[route] = jessy(route, node);
+    for (const [name, way] of entries(waysFrom)) {
+        //result[name] = path.get(way);//jessy(way, node);
+        result[name] = jessy(way, node);
     }
     
     return result;
 }
 
-function setValues(values, node) {
-    for (const [route, value] of Object.entries(values)) {
-        nessy(route, value, node);
+function setValues({waysTo, values, path}) {
+    for (const [name, way] of entries(waysTo)) {
+        nessy(way, values[name], path.node);
+        //const currentPath = path.get(way);
+        //replaceWith(currentPath, values[name]);
     }
 }
 
 const fix = (from, to, path) => {
-    if (!compare(path, from))
+    const nodeFrom = template.ast(from);
+    
+    if (!compare(path, nodeFrom))
         return;
     
     if (!to)
         return path.remove();
     
+    const nodeTo = template.ast.fresh(to);
     const {node} = path;
     
-    const nodeTo = template.ast(to);
-    const templateVars = findTemplateVars(nodeTo);
-    const values = getValues(templateVars, node);
+    const waysFrom = findVarsWays(nodeFrom);
+    const waysTo = findVarsWays(nodeTo);
+    const values = getValues({
+        waysFrom,
+        node,
+    });
     
     replaceWith(path, nodeTo);
-    setValues(values, path.node);
+    
+    setValues({
+        waysTo,
+        values,
+        path,
+    });
+    
+    path.stop();
 };
 
 const getFix = (items) => (path) => {
