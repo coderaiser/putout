@@ -12,7 +12,7 @@ module.exports = memo((value, options) => {
         ...options,
     });
     
-    return result;
+    return result.expression || result;
 });
 
 module.exports.ast = memo((value, options) => {
@@ -30,6 +30,6 @@ module.exports.ast.fresh = (value, options) => {
         ...options,
     });
     
-    return result;
+    return result.expression || result;
 };
 
