@@ -26,7 +26,7 @@
     "destructuring"
   ],
   "devDependencies": {
-    "@putout/plugin-merge-destructuring-properties": "^1.0.0",
+    "@putout/plugin-merge-destructuring-properties": "^2.0.0",
     "@putout/test": "^1.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.2.0",
