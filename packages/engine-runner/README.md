@@ -120,7 +120,7 @@ Templates:
 module.exports.report = () => 'any message here';
 
 module.exports.replace = () => {
-    'var _a = 1': 'const _a = 1',
+    'var __a = 1': 'const __a = 1',
 };
 ```
 
@@ -130,7 +130,7 @@ A couple variables example:
 module.exports.report = () => 'any message here';
 
 module.exports.replace = () => {
-    'const _a = _b': 'const _b = _a',
+    'const __a = __b': 'const __b = __a',
 };
 ```
 

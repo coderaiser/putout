@@ -184,7 +184,7 @@ test('putout: plugins: replace: template', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
-            'var _a = _b': 'const _a = _b',
+            'var __a = __b': 'const __a = __b',
         }),
     };
     
@@ -206,7 +206,7 @@ test('putout: plugins: replace: template: a couple vars', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
-            'const _a = _b': 'const _b = _a',
+            'const __a = __b': 'const __b = __a',
             'debugger': '',
         }),
     };

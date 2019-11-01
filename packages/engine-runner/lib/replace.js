@@ -51,7 +51,7 @@ const findVarsWays = (node) => {
             const {name} = path.node;
             const way = [];
             
-            if (!/^_[a-z]$/.test(name))
+            if (!/^__[a-z]$/.test(name))
                 return;
             
             path.find((path) => {
