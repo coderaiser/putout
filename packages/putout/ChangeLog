@@ -1,3 +1,14 @@
+2019.11.01, v6.20.0
+
+fix:
+- (@putout/engine-runner) replace plugins
+
+feature:
+- (package) @putout/plugin-apply-destructuring v3.0.0
+- (@putout/plugin-apply-destructuring) convert to replace
+- (package) @putout/plugin-merge-destructuring-properties v2.0.0
+
+
 2019.11.01, v6.19.0
 
 fix:
