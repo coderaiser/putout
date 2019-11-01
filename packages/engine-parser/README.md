@@ -32,6 +32,12 @@ Supported parsers:
 
 ## Example
 
+### parse.ast(template)
+create node using `memoization`.
+
+### parse.ast.fresh(template)
+create node without `memoization`.
+
 Any parser should be installed before use, but you can be shure that `@babel/parse` always installed.
 
 ```js

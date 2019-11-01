@@ -24,3 +24,12 @@ module.exports.ast = memo((value, options) => {
     return result.expression || result;
 });
 
+module.exports.ast.fresh = (value, options) => {
+    const result = template.ast(value, {
+        ...defaults,
+        ...options,
+    });
+    
+    return result;
+};
+
