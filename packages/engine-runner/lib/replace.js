@@ -74,7 +74,6 @@ function getValues({waysFrom, node}) {
     const result = {};
     
     for (const [name, way] of entries(waysFrom)) {
-        //result[name] = path.get(way);//jessy(way, node);
         result[name] = jessy(way, node);
     }
     
@@ -84,8 +83,6 @@ function getValues({waysFrom, node}) {
 function setValues({waysTo, values, path}) {
     for (const [name, way] of entries(waysTo)) {
         nessy(way, values[name], path.node);
-        //const currentPath = path.get(way);
-        //replaceWith(currentPath, values[name]);
     }
 }
 
