@@ -3,7 +3,7 @@
 module.exports.report = () => '"test.only" should not be used';
 
 module.exports.replace = () => ({
-    '_a.only(_b, _c)': '_a(_b, _c)',
-    '_a["only"](_b, _c)': '_a(_b, _c)',
+    '__a.only(__b, __c)': '__a(__b, __c)',
+    '__a["only"](__b, __c)': '__a(__b, __c)',
 });
 
