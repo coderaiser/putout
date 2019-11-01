@@ -57,8 +57,10 @@ const findVarsWays = (node) => {
             path.find((path) => {
                 const {key, listKey} = path;
                 
-                if (isNumber(key))
-                    return way.unshift(`${listKey}.${key}`);
+                if (isNumber(key)) {
+                    way.unshift(`${listKey}.${key}`);
+                    return;
+                }
                 
                 way.unshift(key);
             });
