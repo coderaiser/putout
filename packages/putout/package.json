@@ -84,7 +84,7 @@
     "@putout/plugin-remove-double-negations": "^1.0.0",
     "@putout/plugin-remove-empty": "^3.0.0",
     "@putout/plugin-remove-nested-blocks": "^1.0.0",
-    "@putout/plugin-remove-only": "^2.0.0",
+    "@putout/plugin-remove-only": "^3.0.0",
     "@putout/plugin-remove-process-exit": "^2.0.0",
     "@putout/plugin-remove-skip": "^2.0.0",
     "@putout/plugin-remove-unreachable-code": "^1.0.0",
