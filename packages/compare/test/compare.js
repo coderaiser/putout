@@ -130,7 +130,7 @@ test('compare: any: base is any: no', (t) => {
 
 test('compare: template var', (t) => {
     const a = template.ast('const hello = "hello"');
-    const b = template.ast('const _a = "__"');
+    const b = template.ast('const __a = "__"');
     
     const result = compare(a, b);
     

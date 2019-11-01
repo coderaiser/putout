@@ -96,7 +96,7 @@ function superCompare(pathNode, baseNode) {
         if (isIdentifier(id, {name: '__'}))
             continue;
         
-        if (isIdentifier(id) && /^_[a-z]$/.test(id.name))
+        if (isIdentifier(id) && /^__[a-z]$/.test(id.name))
             continue;
         
         if (isLiteral(value, {value: '__'}) && value.type === pathValue.type)

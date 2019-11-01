@@ -22,7 +22,7 @@ npm i @putout/compare
     const {compare} = require('@putout/compare');
     compare('const a = {}', 'const a = {}');
     compare('const a = {}', 'const __ = {}');
-    compare('const hello = {}', 'const _a = {}');
+    compare('const hello = {}', 'const __a = {}');
     compare('const a = "hello"', 'const __ = "__"');
     // returns
     true
