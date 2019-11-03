@@ -16,9 +16,9 @@ npm i @putout/engine-runner
 
 ## Supported Plugin Types
 
-### Replace Plugins
+### Replacer
 
-Convert code in declarative way. Simplest possible form, no need to use `fix`. Just `from` and `to` parts.
+`Replacer` converts code in declarative way. Simplest possible form, no need to use `fix`. Just `from` and `to` parts.
 
 Simplest replace example:
 
@@ -66,9 +66,9 @@ module.exports.replace = () => {
 ```
 
 
-### Template plugins
+### Includer
 
-`Template plugins` is the most prefarable format of a plugin, simplest to use.
+`includer` is the most prefarable format of a plugin, simplest to use (after `replacer`)
 
 ```js
 module.exports.report = () => 'debugger statement should not be used';
@@ -99,7 +99,7 @@ const __ = 'hello';
 
 Where `__` can be any node. All this possible with help of [@putout/compare](https://github.com/coderaiser/putout/tree/master/packages/compare). Templates format supported in `traverse` and `find` plugins as well.
 
-### Traverse plugins
+### Traverser
 
 `Traverse plugins` gives you more power to `filter` and `fix` nodes you need.
 
@@ -119,7 +119,7 @@ module.exports.traverse = ({push}) => {
 };
 ```
 
-### Find plugins
+### Finder
 
 `Find plugins` gives you all the control over traversing, but it's the slowest format.
 Because `traversers` not merged in contrast with other plugin formats.
