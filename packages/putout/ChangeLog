@@ -1,3 +1,14 @@
+2019.11.03, v6.21.0
+
+fix:
+- (@putout/engine-runner) exclude as string
+
+feature:
+- (package) @putout/plugin-convert-math-pow v4.0.0
+- (@putout/plugin-convert-math-pow) convert to replace
+- (package) @babel/types v7.6.3
+
+
 2019.11.01, v6.20.0
 
 fix:
