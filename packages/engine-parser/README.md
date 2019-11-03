@@ -44,7 +44,9 @@ Any parser should be installed before use, but you can be shure that `@babel/par
 const {parse} = require('@putout/engin-parser');
 const parser = 'acorn';
 
-const code = parse('var t = "hello"');
+const code = parse('var t = "hello"', {
+    parser,
+});
 ```
 
 ## License
