@@ -16,6 +16,56 @@ npm i @putout/engine-runner
 
 ## Supported Plugin Types
 
+### Replace Plugins
+
+Convert code in declarative way. Simplest possible form, no need to use `fix`. Just `from` and `to` parts.
+
+Simplest replace example:
+
+```js
+module.exports.report = () => 'any message here';
+
+module.exports.replace = () => {
+    'const a = 1': 'const b = 1',
+};
+
+// optional
+module.exports.exclude = () => [
+    const hello = 'world',
+];
+```
+
+Simplest remove example:
+
+```js
+module.exports.report = () => 'debugger should not be used';
+
+module.exports.replace = () => {
+    'debugger': '',
+};
+```
+
+Templates:
+
+```js
+module.exports.report = () => 'any message here';
+
+module.exports.replace = () => {
+    'var __a = 1': 'const __a = 1',
+};
+```
+
+A couple variables example:
+
+```js
+module.exports.report = () => 'any message here';
+
+module.exports.replace = () => {
+    'const __a = __b': 'const __b = __a',
+};
+```
+
+
 ### Template plugins
 
 `Template plugins` is the most prefarable format of a plugin, simplest to use.
@@ -87,50 +137,6 @@ module.exports.find = (ast, {push, traverse}) => {
             push(path);
         }
     }
-};
-```
-
-### Replace Plugins
-
-Convert code in declarative way. Simplest possible form, no need to use `fix`. Just `from` and `to` parts.
-
-Simplest replace example:
-
-```js
-module.exports.report = () => 'any message here';
-
-module.exports.replace = () => {
-    'const a = 1': 'const b = 1',
-};
-```
-
-Simplest remove example:
-
-```js
-module.exports.report = () => 'debugger should not be used';
-
-module.exports.replace = () => {
-    'debugger': '',
-};
-```
-
-Templates:
-
-```js
-module.exports.report = () => 'any message here';
-
-module.exports.replace = () => {
-    'var __a = 1': 'const __a = 1',
-};
-```
-
-A couple variables example:
-
-```js
-module.exports.report = () => 'any message here';
-
-module.exports.replace = () => {
-    'const __a = __b': 'const __b = __a',
 };
 ```
 
