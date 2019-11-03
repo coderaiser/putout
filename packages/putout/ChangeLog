@@ -1,3 +1,10 @@
+2019.11.03, v6.22.0
+
+feature:
+- (package) @putout/plugin-remove-process-exit v3.0.0
+- (@putout/plugin-remove-process-exit) convert to replace
+
+
 2019.11.03, v6.21.0
 
 fix:
