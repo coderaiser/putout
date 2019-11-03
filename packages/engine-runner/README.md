@@ -31,7 +31,7 @@ module.exports.replace = () => {
 
 // optional
 module.exports.exclude = () => [
-    const hello = 'world',
+    `const hello = 'world'`,
 ];
 ```
 
