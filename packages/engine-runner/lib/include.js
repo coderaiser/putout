@@ -2,12 +2,13 @@
 
 const stub = () => [];
 const filterStub = () => true;
+const maybeArray = require('./maybe-array');
 
 module.exports = ({rule, plugin, msg, options}) => {
     const {
         fix,
         report,
-        include = stub,
+        include,
         exclude = stub,
         filter = filterStub,
     } = plugin;
@@ -21,7 +22,7 @@ module.exports = ({rule, plugin, msg, options}) => {
             ...options,
             exclude: [
                 ...exclude(),
-                ...options.exclude || [],
+                ...maybeArray(options.exclude),
             ],
         },
         plugin: {

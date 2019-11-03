@@ -13,6 +13,7 @@ const isTemplate = (a) => {
     
     return /[(;={]/.test(a) || !/[A-Z]/.test(a);
 };
+const maybeArray = require('../maybe-array');
 const debug = require('debug')('putout:template');
 const {template} = require('@putout/engine-parser');
 const generateCode = (a) => babelGenerate(a).code;
@@ -40,14 +41,6 @@ const exclude = ({rule, tmpl, fn, nodesExclude}) => {
     return {
         [tmpl]: visit,
     };
-};
-
-const {isArray} = Array;
-const maybeArray = (a) => {
-    if (!a)
-        return [];
-    
-    return isArray(a) ? a : [a];
 };
 
 module.exports = ({rule, visitor, options}) => {

@@ -8,6 +8,8 @@ const traverse = require('@babel/traverse').default;
 const jessy = require('jessy');
 const nessy = require('nessy');
 
+const maybeArray = require('./maybe-array');
+
 const stub = () => [];
 const packKeys = (a) => () => Object.keys(a);
 const isNumber = (a) => typeof a === 'number';
@@ -31,7 +33,7 @@ module.exports = ({rule, plugin, msg, options}) => {
             ...options,
             exclude: [
                 ...exclude(),
-                ...options.exclude || [],
+                ...maybeArray(options.exclude),
             ],
         },
         plugin: {

@@ -180,6 +180,32 @@ test('putout: plugins: replace: remove', (t) => {
     t.end();
 });
 
+test('putout: plugins: replace: remove: exclude', (t) => {
+    const rmDebugger = {
+        report: () => '',
+        replace: () => ({
+            debugger: '',
+        }),
+    };
+    
+    const {code} = putout('debugger', {
+        runPlugins,
+        rules: {
+            'rm-debugger': ['on', {
+                exclude: 'debugger',
+            }],
+        },
+        plugins: [{
+            'rm-debugger': rmDebugger,
+        }],
+    });
+    
+    const expected = 'debugger';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
 test('putout: plugins: replace: template', (t) => {
     const varToConst = {
         report: () => '',
