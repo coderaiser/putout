@@ -6,6 +6,9 @@ module.exports.report = () => {
 
 module.exports.exclude = () => [
     'const {__} = __[0]',
+    'const [__] = __[0]',
+    '({__} = __[0])',
+    '[__] = __[0]',
 ];
 
 module.exports.replace = () => ({

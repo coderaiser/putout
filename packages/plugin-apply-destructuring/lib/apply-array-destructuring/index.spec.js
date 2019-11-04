@@ -32,3 +32,13 @@ test('plugin-apply-destructuring: transform: array: assignment', (t) => {
     t.end();
 });
 
+test('plugin-apply-destructuring: transform: array: nested', (t) => {
+    t.noTransform('nested');
+    t.end();
+});
+
+test('plugin-apply-destructuring: transform: array: nested assign', (t) => {
+    t.noTransform('nested-assign');
+    t.end();
+});
+
