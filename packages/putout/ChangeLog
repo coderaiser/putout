@@ -1,3 +1,14 @@
+2019.11.06, v7.0.1
+
+feature:
+- (package) @putout/plugin-apply-destructuring v4.0.0
+- (@putout/plugin-apply-destructuring) drop support of node < 7: use __object, __array
+- (package) putout v7.0.0
+- (package) @putout/plugin-remove-empty v4.0.0
+- (package) putout v7.0.0
+- (package) putout v7.0.0
+
+
 2019.11.06, v7.0.0
 
 feature:
