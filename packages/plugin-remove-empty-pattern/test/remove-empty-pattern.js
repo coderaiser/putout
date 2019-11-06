@@ -6,12 +6,12 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-remove-empty-pattern: report: object', (t) => {
-    t.reportCode('const {} = obj', 'Empty object pattern');
+    t.reportCode('const {} = obj', 'Empty pattern');
     t.end();
 });
 
 test('plugin-remove-empty-pattern: report: array', (t) => {
-    t.reportCode('const [] = array', 'Empty array pattern');
+    t.reportCode('const [] = array', 'Empty pattern');
     t.end();
 });
 
