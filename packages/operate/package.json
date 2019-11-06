@@ -39,7 +39,7 @@
     "coveralls": "^3.0.0",
     "eslint": "^6.2.0",
     "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-putout": "^2.0.0",
+    "eslint-plugin-putout": "^3.0.0",
     "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
     "madrun": "^4.1.0",
