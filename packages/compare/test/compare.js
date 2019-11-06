@@ -138,3 +138,178 @@ test('compare: template var', (t) => {
     t.end();
 });
 
+test('compare: __object', (t) => {
+    const a = template.ast('const {} = d');
+    const b = template.ast('const __object = __');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: __object: array pattern', (t) => {
+    const a = template.ast('const [] = d');
+    const b = template.ast('const __object = __');
+    
+    const result = compare(a, b);
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: __object: not equal', (t) => {
+    const a = template.ast('const {a} = d');
+    const b = template.ast('const __object = __');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: __object: object expression', (t) => {
+    const a = template.ast('const {a} = {}');
+    const b = template.ast('const __ = __object');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: __object: object expression: not equal', (t) => {
+    const a = template.ast('const {a} = {a}');
+    const b = template.ast('const __ = __object');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: __array: array pattern', (t) => {
+    const a = template.ast('const [] = d');
+    const b = template.ast('const __array = __');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: __array: object pattern', (t) => {
+    const a = template.ast('const {} = d');
+    const b = template.ast('const __array = __');
+    
+    const result = compare(a, b);
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: __array: array pattern: not empty', (t) => {
+    const a = template.ast('const [a] = d');
+    const b = template.ast('const __array = __');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: __array: array expression', (t) => {
+    const a = template.ast('const [a] = []');
+    const b = template.ast('const __ = __array');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: __array: array expression: equal', (t) => {
+    const a = template.ast('const a = [b]');
+    const b = template.ast('const __ = __array');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: array: strict', (t) => {
+    const a = template.ast('const a = [b]');
+    const b = template.ast('const __ = []');
+    
+    const result = compare(a, b);
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: array: strict: same', (t) => {
+    const a = template.ast('const a = [b]');
+    const b = template.ast('const __ = [__a]');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: object: strict', (t) => {
+    const a = template.ast('const {hello} = y');
+    const b = template.ast('const {} = m');
+    
+    const result = compare(a, b);
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: object: strict: same', (t) => {
+    const a = template.ast('const {hello} = y');
+    const b = template.ast('const {__a} = m');
+    
+    const result = compare(a, b);
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: __args', (t) => {
+    const a = template.ast('(a, b) => {}');
+    const b = template.ast('(__args) => __');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: __object: top level', (t) => {
+    const result = compare('obj = {x: 0}', '__ = __object');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: class body', (t) => {
+    const node = 'class Button extends Component {render(){}}';
+    const nodeTmpl = 'class __ extends Component {}';
+    const result = compare(node, nodeTmpl);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: function block', (t) => {
+    const node = '() => {alert()}';
+    const nodeTmpl = '() => {}';
+    const result = compare(node, nodeTmpl);
+    
+    t.ok(result);
+    t.end();
+});
+

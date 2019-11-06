@@ -5,11 +5,38 @@ const {
     isIdentifier,
     isLiteral,
     isExpressionStatement,
+    isArrayPattern,
+    isArrayExpression,
+    isObjectPattern,
+    isObjectExpression,
+    isClassBody,
+    isBlock,
 } = require('@babel/types');
 
 const log = require('./log');
 
-const isObject = (a) => typeof a === 'object';
+const {isArray} = Array;
+
+const isObject = (a) => {
+    if (!a)
+        return false;
+    
+    if (isArray(a))
+        return false;
+    
+    return typeof a === 'object';
+};
+
+const isArrays = (a, b) => {
+    if (!isArray(a) && !isArray(b))
+        return false;
+    
+    if (a.length !== b.length)
+        return false;
+    
+    return true;
+};
+
 const isStr = (a) => typeof a === 'string';
 const compareType = (type) => (path) => path.type === type;
 
@@ -34,12 +61,21 @@ function parseNode(a) {
 
 module.exports.compare = compare;
 
+const isAnyObject = (a) => isIdentifier(a, {name: '__object'});
+const isAnyArray = (a) => isIdentifier(a, {name: '__array'});
+
 function compare(path, base) {
     const node = parseNode(path);
     const baseNode = parseNode(base);
     
     const {type} = baseNode;
     const isPath = Boolean(path.node);
+    
+    if (isEqualAnyObject(node, baseNode))
+        return true;
+    
+    if (isEqualAnyArray(node, baseNode))
+        return true;
     
     if (isPath && node.type !== type) {
         const newPathNode = findParent(path, type);
@@ -83,7 +119,7 @@ function superCompare(pathNode, baseNode) {
         const value = base[key];
         const pathValue = node[key];
         
-        log (value, pathValue);
+        log(value, pathValue);
         
         if (value == '__')
             continue;
@@ -91,9 +127,18 @@ function superCompare(pathNode, baseNode) {
         if (value === pathValue)
             continue;
         
+        if (isClassBody(value) || isBlock(value))
+            continue;
+        
         const id = isExpressionStatement(value) ? value.expression : value;
         
         if (isIdentifier(id, {name: '__'}))
+            continue;
+        
+        if (isEqualAnyArray(pathValue, id))
+            continue;
+        
+        if (isEqualAnyObject(pathValue, id))
             continue;
         
         if (isIdentifier(id) && /^__[a-z]$/.test(id.name))
@@ -102,11 +147,37 @@ function superCompare(pathNode, baseNode) {
         if (isLiteral(value, {value: '__'}) && value.type === pathValue.type)
             continue;
         
-        if (value && isObject(value) && superCompare(pathValue, value))
+        if (isObject(value) && superCompare(pathValue, value))
+            continue;
+        
+        if (isArrays(value, pathValue) && superCompare(pathValue, value))
+            continue;
+        
+        if (isArray(id) && isIdentifier(id[0], {name: '__args'}))
             continue;
         
         return false;
     }
+    
+    return true;
+}
+
+function isEqualAnyArray(node, id) {
+    if (!isAnyArray(id))
+        return false;
+    
+    if (!isArrayPattern(node) && !isArrayExpression(node))
+        return false;
+    
+    return true;
+}
+
+function isEqualAnyObject(node, id) {
+    if (!isAnyObject(id))
+        return false;
+    
+    if (!isObjectPattern(node) && !isObjectExpression(node))
+        return false;
     
     return true;
 }

@@ -18,14 +18,63 @@ npm i @putout/compare
 
 ### Compare (node, baseNode)
 
+- `node` - `AST-node` or `code` that will be generated;
+- `baseNode` `AST-node` with support of `template variables`.
+
+#### Supported template variables:
+
+##### __
+
+Any node.
+
 ```js
-    const {compare} = require('@putout/compare');
-    compare('const a = {}', 'const a = {}');
-    compare('const a = {}', 'const __ = {}');
-    compare('const hello = {}', 'const __a = {}');
-    compare('const a = "hello"', 'const __ = "__"');
-    // returns
-    true
+compare('const x = data', 'const __ = __');
+compare('const {x} = data', 'const __ = __');
+compare('const x = {data}', 'const __ = __');
+// returns
+true
+```
+
+##### __object
+
+`ObjectPattern` or `ObjectExpression` with any count of `properties`.
+
+```js
+compare('const {} = data', 'const __object = __')
+compare('const {hello} = data', 'const __object = __')
+// returns
+true
+```
+
+##### __array
+
+`ArrayPattern` or `ArrayExpression` with any count of `elements`.
+
+```js
+compare('const [] = data', 'const __array = __');
+compare('const [hello] = data', 'const __array = __');
+compare('const hello = [data]', 'const __ = __array');
+// returns
+true
+```
+
+##### __args
+
+Any count of `arguments`:
+
+```js
+compare('(a, b, c) => {}', '(__args) => {}');
+compare('(a, b) => {}', '(__args) => {}');
+compare('() => {}', '(__args) => {}');
+// returns
+true
+```
+
+##### "__"
+Any string literal.
+
+```js
+compare('const a = "hello"', 'const __ = "__"');
 ```
 
 ## License
