@@ -11,7 +11,7 @@ module.exports.fix = ({path, varPath}) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        'for (const __ of __) {}'(path) {
+        'for (const __ of __) __'(path) {
             const leftPath = path.get('left');
             const varPath = leftPath.get('declarations.0.id');
             

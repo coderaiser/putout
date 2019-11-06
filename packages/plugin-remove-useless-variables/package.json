@@ -50,7 +50,7 @@
     "tape": "^4.8.0"
   },
   "peerDependencies": {
-    "putout": ">=5.12"
+    "putout": ">=7"
   },
   "license": "MIT",
   "engines": {
