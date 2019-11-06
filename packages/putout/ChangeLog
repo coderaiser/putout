@@ -1,3 +1,39 @@
+2019.11.06, v7.0.0
+
+feature:
+- (package) @putout/plugin-remove-useless-arguments v2.0.0
+- (package) @putout/plugin-convert-apply-to-spread v3.0.0
+- (package) @putout/plugin-remove-empty v4.0.0
+- (package) @putout/plugin-apply-shorthand-properties v2.0.0
+- (package) @putout/plugin-convert-for-each-to-for-of v3.0.0
+- (package) @putout/plugin-remove-console v3.0.0
+- (package) @putout/plugin-putout v3.0.0
+- (package) @putout/plugin-convert-to-arrow-function v2.0.0
+- (package) @putout/plugin-convert-object-assign-to-merge-spread v3.0.0
+- (package) @putout/plugin-remove-useless-variables v3.0.0
+- (package) @putout/plugin-madrun v4.0.0
+- (@putout/plugin-remove-useless-arguments) drop support of putout <7
+- (@putout/plugin-remove-empty) drop support of putout <7
+- (@putout/plugin-remove-console) drop support of putout <7
+- (@putout/plugin-putout) drop support of putout <7
+- (@putout/plugin-convert-to-arrow-function) drop support of putout <7
+- (@putout/plugin-convert-object-assign-to-merge-spread) drop support of putout <7
+- (@putout/plugin-remove-useless-variables) drop support of putout < 7
+- (@putout/plugin-madrun) drop support of putout < 7
+- (@putout/plugin-remove-empty-pattern) drop support of putout < 7
+- (@putout/plugin-convert-for-each-to-for-of) drop support of putout < 7
+- (@putout/plugin-convert-apply-to-spread) drop support of putout <7
+- (@putout/apply-shorthand-properties) drop support of putout < 7
+- (package) @putout/engine-runner v3.0.0
+- (package) @putout/operate v2.0.0
+- (@putout/engine-runner) add support of __object, __array
+- (package) @putout/operate v2.0.0
+- (package) @putout/compare v3.0.0
+- (package) @putout/compare v3.0.0
+- (@putout/compare) add support of __object, __array, __args
+- (@putout/apply-array-destructuring) exclude nested
+
+
 2019.11.03, v6.22.0
 
 feature:
