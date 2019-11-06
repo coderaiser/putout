@@ -57,7 +57,7 @@
     "@putout/git-status-porcelain": "^1.0.0",
     "@putout/operate": "^2.0.0",
     "@putout/plugin-apply-destructuring": "^3.0.0",
-    "@putout/plugin-apply-shorthand-properties": "^1.0.0",
+    "@putout/plugin-apply-shorthand-properties": "^2.0.0",
     "@putout/plugin-apply-top-level-await": "^1.0.1",
     "@putout/plugin-convert-apply-to-spread": "^2.0.0",
     "@putout/plugin-convert-arguments-to-rest": "^1.0.0",
