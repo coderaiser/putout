@@ -42,3 +42,8 @@ test('plugin-apply-destructuring: transform: array: nested assign', (t) => {
     t.end();
 });
 
+test('plugin-apply-destructuring: transform: array: object', (t) => {
+    t.noTransform('object');
+    t.end();
+});
+

@@ -5,8 +5,8 @@ module.exports.report = () => {
 };
 
 module.exports.exclude = () => [
-    'const {__} = __[0]',
-    'const [__] = __[0]',
+    'const __object = __[0]',
+    'const __array = __[0]',
     '({__} = __[0])',
     '[__] = __[0]',
 ];
