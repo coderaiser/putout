@@ -12,7 +12,7 @@ module.exports.fix = ({path, from, to}) => {
 
 module.exports.traverse = ({push, options}) => {
     return {
-        '({__:__})'(path) {
+        '__object'(path) {
             for (const propPath of path.get('properties')) {
                 const {shorthand} = propPath.node;
                 
