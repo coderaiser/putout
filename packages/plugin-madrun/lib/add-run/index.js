@@ -21,7 +21,7 @@ module.exports.traverse = ({push}) => {
     let added = false;
     
     return {
-        'run()'(path) {
+        'run(__args)'(path) {
             if (added)
                 return;
             

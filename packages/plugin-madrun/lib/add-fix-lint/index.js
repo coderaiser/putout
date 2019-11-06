@@ -31,7 +31,7 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        'module.exports = {}'(path) {
+        'module.exports = __object'(path) {
             const propertiesPaths = path.get('right.properties');
             const {lint, fixLint} = getLintProperties(propertiesPaths);
             

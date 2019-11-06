@@ -28,7 +28,7 @@ module.exports.fix = ({line}) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        'module.exports = {}'(path) {
+        'module.exports = __object'(path) {
             const rightPath = path.get('right');
             const lint = findKey('lint', rightPath);
             

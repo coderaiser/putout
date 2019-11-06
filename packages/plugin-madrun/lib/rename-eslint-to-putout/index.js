@@ -21,7 +21,7 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        'module.exports = {}'(path) {
+        'module.exports = __object'(path) {
             const properties = path.get('right.properties');
             
             for (const prop of properties) {

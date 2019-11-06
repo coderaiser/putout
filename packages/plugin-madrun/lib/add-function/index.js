@@ -17,7 +17,7 @@ module.exports.report = ({name}) => `function should be used instead of string i
 
 module.exports.traverse = ({push}) => {
     return {
-        'module.exports = {}'(path) {
+        'module.exports = __object'(path) {
             const propertiesPaths = path.get('right.properties');
             
             for (const propPath of propertiesPaths) {
