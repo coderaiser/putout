@@ -56,7 +56,7 @@
     "@putout/formatter-stream": "^1.0.0",
     "@putout/git-status-porcelain": "^1.0.0",
     "@putout/operate": "^2.0.0",
-    "@putout/plugin-apply-destructuring": "^3.0.0",
+    "@putout/plugin-apply-destructuring": "^4.0.0",
     "@putout/plugin-apply-shorthand-properties": "^2.0.0",
     "@putout/plugin-apply-top-level-await": "^1.0.1",
     "@putout/plugin-convert-apply-to-spread": "^3.0.0",
