@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = (path) => 'Empty pattern';
+module.exports.report = () => 'Empty pattern';
 
 module.exports.replace = () => ({
     'const {} = __': '',
