@@ -25,12 +25,12 @@ module.exports.fix = ({path}) => {
 };
 
 module.exports.exclude = () => [
-    '__.__()',
+    '__.__(__args)',
 ];
 
 module.exports.traverse = ({push}) => {
     return {
-        '__({})'(path) {
+        '__(__object)'(path) {
             const {name} = path.node.callee;
             const [argument] = path.get('arguments');
             const argProps = argument.get('properties');
