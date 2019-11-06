@@ -23,7 +23,7 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "putout": "^6.2.0",
+    "putout": "^7.0.0",
     "supertape": "^1.0.0",
     "try-catch": "^2.0.0"
   },
