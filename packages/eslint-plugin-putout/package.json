@@ -35,7 +35,7 @@
   "dependencies": {
     "@putout/eslint-config": "^2.0.0",
     "align-spaces": "^1.0.0",
-    "putout": "^6.13.0"
+    "putout": "^7.0.0"
   },
   "devDependencies": {
     "eslint": "^6.2.0",
