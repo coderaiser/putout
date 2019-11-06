@@ -1,11 +1,12 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
-
 const {
     generate,
     types,
+    operate,
 } = require('putout');
+
+const {replaceWith} = operate;
 
 const {
     spreadElement,
@@ -24,7 +25,7 @@ module.exports.fix = (path) => {
 };
 
 module.exports.include = () => [
-    '__.__()',
+    '__.__(__args)',
 ];
 
 module.exports.filter = (path) => {
