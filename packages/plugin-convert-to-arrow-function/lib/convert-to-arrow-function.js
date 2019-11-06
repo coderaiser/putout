@@ -7,11 +7,11 @@ module.exports.fix = (path) => {
 };
 
 module.exports.include = () => [
-    '__ = function __(){}',
+    '__ = function __(__args){}',
 ];
 
 module.exports.exclude = () => [
-    '__.prototype.__ = function __(){}',
+    '__.prototype.__ = function __(__args){}',
 ];
 
 module.exports.filter = (path) => {
