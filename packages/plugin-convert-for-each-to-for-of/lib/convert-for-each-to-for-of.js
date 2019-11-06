@@ -40,7 +40,7 @@ module.exports.fix = (path) => {
 
 module.exports.include = () => {
     return [
-        '__.forEach(__)',
+        '__.forEach(__args)',
     ];
 };
 
