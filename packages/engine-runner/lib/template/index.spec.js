@@ -9,7 +9,7 @@ test('putout: plugin: traverse: template', (t) => {
         report: () => '',
         fix: () => {},
         traverse: ({push}) => ({
-            'module.exports = {}'(path) {
+            'module.exports = __object'(path) {
                 push(path);
             },
         }),
@@ -109,10 +109,10 @@ test('putout: plugin: traverse: similar', (t) => {
         report: () => '',
         fix: () => {},
         traverse: ({push}) => ({
-            'module.exports = {}'(path) {
+            'module.exports = __object'(path) {
                 push(path);
             },
-            'module.exports.__ = {}'(path) {
+            'module.exports.__ = __object'(path) {
                 push(path);
             },
         }),
@@ -402,7 +402,7 @@ test('putout: plugin: traverse: template: exclude: multiple', (t) => {
     t.end();
 });
 
-test('putout: plugin: traverse: template: exclude: fn', (t) => {
+test.only('putout: plugin: traverse: template: exclude: fn', (t) => {
     const {places} = putout(`const t = () => {a()}`, {
         runPlugins,
         fix: false,

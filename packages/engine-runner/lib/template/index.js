@@ -43,6 +43,20 @@ const exclude = ({rule, tmpl, fn, nodesExclude}) => {
     };
 };
 
+const parseType = (tmpl) => {
+    const node = template.ast(tmpl);
+    
+    if (tmpl === '__object')
+        return [node, 'ObjectPattern|ObjectExpression'];
+    
+    if (tmpl === '__array')
+        return [node, 'ArrayPattern|ArrayExpression'];
+    
+    const {type} = node;
+    
+    return [node, type];
+};
+
 module.exports = ({rule, visitor, options}) => {
     const parsed = [];
     const entries = Object.entries(visitor);
@@ -60,9 +74,7 @@ module.exports = ({rule, visitor, options}) => {
             continue;
         }
         
-        const node = template.ast(tmpl);
-        const {type} = node;
-        
+        const [node, type] = parseType(tmpl);
         const visit = wrapWithCheck({
             rule,
             fn,
