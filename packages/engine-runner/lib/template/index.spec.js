@@ -402,7 +402,7 @@ test('putout: plugin: traverse: template: exclude: multiple', (t) => {
     t.end();
 });
 
-test.only('putout: plugin: traverse: template: exclude: fn', (t) => {
+test('putout: plugin: traverse: template: exclude: fn', (t) => {
     const {places} = putout(`const t = () => {a()}`, {
         runPlugins,
         fix: false,
