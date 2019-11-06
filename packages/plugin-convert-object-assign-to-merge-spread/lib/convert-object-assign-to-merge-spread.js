@@ -5,7 +5,10 @@ const {
     operate,
 } = require('putout');
 
-const {replaceWith} = operate;
+const {
+    compare,
+    replaceWith,
+} = operate;
 
 const {
     ObjectExpression,
@@ -31,10 +34,15 @@ module.exports.fix = (path) => {
     replaceWith(path, ObjectExpression(properties));
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        'Object.assign({})'(path) {
-            push(path);
-        },
-    };
+module.exports.include = () => [
+    'Object.assign(__args)',
+];
+
+module.exports.filter = (path) => {
+    const [first] = path.node.arguments;
+    
+    if (compare(first, '__object'))
+        return true;
+    
+    return false;
 };
