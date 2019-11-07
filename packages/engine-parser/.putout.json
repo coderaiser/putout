@@ -1,9 +1,16 @@
 {
     "match": {
         "espree.js": {
-            "apply-shorthand-properties": ["on", {
+            "apply-shorthand-properties": [{
                 "ignore": [
                     "preventUsingEsprima"
+                ]
+            }]
+        },
+        "acorn.js": {
+            "apply-shorthand-properties": [{
+                "ignore": [
+                    "tokensToAvoidEsprima"
                 ]
             }]
         }
