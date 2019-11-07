@@ -1,3 +1,14 @@
+2019.11.07, v7.0.2
+
+fix:
+- (putout) eslint: disable dot files ignore
+
+feature:
+- (package) @putout/compare v3.1.0
+- (@putout/compare) add parseTemplate
+- (package) @putout/plugin-madrun v4.0.0
+
+
 2019.11.06, v7.0.1
 
 feature:
