@@ -5,10 +5,6 @@ const {
     isIdentifier,
     isLiteral,
     isExpressionStatement,
-    isArrayPattern,
-    isArrayExpression,
-    isObjectPattern,
-    isObjectExpression,
     isClassBody,
     isBlock,
 } = require('@babel/types');
@@ -163,34 +159,33 @@ function superCompare(pathNode, baseNode) {
     return true;
 }
 
+const __OBJECT_TYPE = 'ObjectPattern|ObjectExpression';
+const __ARRAY_TYPE = 'ArrayPattern|ArrayExpression';
+
 function isEqualAnyArray(node, id) {
     if (!isAnyArray(id))
         return false;
     
-    if (!isArrayPattern(node) && !isArrayExpression(node))
-        return false;
-    
-    return true;
+    const {type} = node;
+    return __ARRAY_TYPE.includes(type);
 }
 
 function isEqualAnyObject(node, id) {
     if (!isAnyObject(id))
         return false;
     
-    if (!isObjectPattern(node) && !isObjectExpression(node))
-        return false;
-    
-    return true;
+    const {type} = node;
+    return __OBJECT_TYPE.includes(type);
 }
 
 function parseTemplate(tmpl) {
     const node = template.ast(tmpl);
     
     if (tmpl === '__object')
-        return [node, 'ObjectPattern|ObjectExpression'];
+        return [node, __OBJECT_TYPE];
     
     if (tmpl === '__array')
-        return [node, 'ArrayPattern|ArrayExpression'];
+        return [node, __ARRAY_TYPE];
     
     const {type} = node;
     
