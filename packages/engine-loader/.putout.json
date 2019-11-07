@@ -1,5 +1,11 @@
 {
     "rules": {
-        "convert-replace-with": "off"
+        "convert-replace-with": "off",
+        "apply-shorthand-properties": ["on", {
+            "ignore": [
+                "babelTransform",
+                "jscodeshiftTransform"
+            ]
+        }]
     }
 }
