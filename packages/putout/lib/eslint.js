@@ -10,7 +10,9 @@ const cwd = process.cwd();
 const noConfigFound = (a) => a && a.messageTemplate === 'no-config-found';
 
 const getCli = once(() => {
-    const cli = new CLIEngine();
+    const cli = new CLIEngine({
+        ignorePattern: '!.*',
+    });
     
     return {
         getConfigForFile: cli.getConfigForFile.bind(cli),
