@@ -20,7 +20,7 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "@putout/plugin-remove-empty-pattern": "^1.0.1"
+    "@putout/plugin-remove-empty-pattern": "^2.0.0"
   },
   "keywords": [
     "putout",
