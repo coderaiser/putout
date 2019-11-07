@@ -11,7 +11,7 @@ test('plugin-remove-empty: report: block', (t) => {
 });
 
 test('plugin-remove-empty: report: block', (t) => {
-    t.report('pattern', 'Empty array pattern');
+    t.report('pattern', 'Empty pattern');
     t.end();
 });
 

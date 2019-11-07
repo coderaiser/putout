@@ -10,7 +10,7 @@ const isCSS = (a) => /\.css/.test(a);
 const isMin = (a) => /\.min\./.test(a);
 
 module.exports.include = () => [
-    'import "__"',
+    'ImportDeclaration',
 ];
 
 module.exports.filter = (path, {options}) => {
@@ -25,8 +25,9 @@ module.exports.filter = (path, {options}) => {
     if (ignore.includes(value))
         return false;
     
-    if (specifiers.length)
+    if (specifiers.length) {
         return false;
+    }
     
     if (isCSS(value))
         return false;
