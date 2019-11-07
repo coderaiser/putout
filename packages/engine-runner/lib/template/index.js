@@ -5,6 +5,7 @@ const babelGenerate = require('@babel/generator').default;
 const {
     compareAny,
     compareAll,
+    parseTemplate,
 } = require('@putout/compare');
 
 const isTemplate = (a) => {
@@ -43,20 +44,6 @@ const exclude = ({rule, tmpl, fn, nodesExclude}) => {
     };
 };
 
-const parseType = (tmpl) => {
-    const node = template.ast(tmpl);
-    
-    if (tmpl === '__object')
-        return [node, 'ObjectPattern|ObjectExpression'];
-    
-    if (tmpl === '__array')
-        return [node, 'ArrayPattern|ArrayExpression'];
-    
-    const {type} = node;
-    
-    return [node, type];
-};
-
 module.exports = ({rule, visitor, options}) => {
     const parsed = [];
     const entries = Object.entries(visitor);
@@ -74,7 +61,7 @@ module.exports = ({rule, visitor, options}) => {
             continue;
         }
         
-        const [node, type] = parseType(tmpl);
+        const [node, type] = parseTemplate(tmpl);
         const visit = wrapWithCheck({
             rule,
             fn,

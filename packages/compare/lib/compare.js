@@ -60,6 +60,7 @@ function parseNode(a) {
 }
 
 module.exports.compare = compare;
+module.exports.parseTemplate = parseTemplate;
 
 const isAnyObject = (a) => isIdentifier(a, {name: '__object'});
 const isAnyArray = (a) => isIdentifier(a, {name: '__array'});
@@ -180,5 +181,19 @@ function isEqualAnyObject(node, id) {
         return false;
     
     return true;
+}
+
+function parseTemplate(tmpl) {
+    const node = template.ast(tmpl);
+
+    if (tmpl === '__object')
+        return [node, 'ObjectPattern|ObjectExpression'];
+
+    if (tmpl === '__array')
+        return [node, 'ArrayPattern|ArrayExpression'];
+
+    const {type} = node;
+
+    return [node, type];
 }
 

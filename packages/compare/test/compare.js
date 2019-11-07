@@ -7,6 +7,7 @@ const {
     compare,
     compareAll,
     compareAny,
+    parseTemplate,
 } = require('..');
 
 test('compare: base is string', (t) => {
@@ -310,6 +311,24 @@ test('compare: function block', (t) => {
     const result = compare(node, nodeTmpl);
     
     t.ok(result);
+    t.end();
+});
+
+test('compare: parse template: __object', (t) => {
+    const [node, type] = parseTemplate('__object');
+    t.equal(type, 'ObjectPattern|ObjectExpression');
+    t.end();
+});
+
+test('compare: parse template: __array', (t) => {
+    const [node, type] = parseTemplate('__array');
+    t.equal(type, 'ArrayPattern|ArrayExpression');
+    t.end();
+});
+
+test('compare: parse template: node', (t) => {
+    const [node] = parseTemplate('hello');
+    t.equal(node.type, 'Identifier');
     t.end();
 });
 
