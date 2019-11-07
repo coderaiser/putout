@@ -16,7 +16,6 @@ const isTemplate = (a) => {
 };
 const maybeArray = require('../maybe-array');
 const debug = require('debug')('putout:template');
-const {template} = require('@putout/engine-parser');
 const generateCode = (a) => babelGenerate(a).code;
 
 const log = (rule, a) => {
