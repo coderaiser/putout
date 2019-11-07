@@ -185,15 +185,15 @@ function isEqualAnyObject(node, id) {
 
 function parseTemplate(tmpl) {
     const node = template.ast(tmpl);
-
+    
     if (tmpl === '__object')
         return [node, 'ObjectPattern|ObjectExpression'];
-
+    
     if (tmpl === '__array')
         return [node, 'ArrayPattern|ArrayExpression'];
-
+    
     const {type} = node;
-
+    
     return [node, type];
 }
 

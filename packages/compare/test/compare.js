@@ -315,13 +315,13 @@ test('compare: function block', (t) => {
 });
 
 test('compare: parse template: __object', (t) => {
-    const [node, type] = parseTemplate('__object');
+    const [, type] = parseTemplate('__object');
     t.equal(type, 'ObjectPattern|ObjectExpression');
     t.end();
 });
 
 test('compare: parse template: __array', (t) => {
-    const [node, type] = parseTemplate('__array');
+    const [, type] = parseTemplate('__array');
     t.equal(type, 'ArrayPattern|ArrayExpression');
     t.end();
 });
