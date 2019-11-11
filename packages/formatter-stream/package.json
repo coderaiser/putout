@@ -19,7 +19,7 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "table": "^5.2.3"
   },
   "keywords": [

@@ -38,8 +38,8 @@ test('putout: report: dump', (t) => {
         column,
     };
     
-    const {enabled} = chalk;
-    chalk.enabled = false;
+    const {level} = chalk;
+    chalk.level = 0;
     
     const message = 'hello';
     const rule = 'remove-hello';
@@ -64,7 +64,7 @@ test('putout: report: dump', (t) => {
         '  fixable with the `--fix` option\n',
     ].join('\n');
     
-    chalk.enabled = enabled;
+    chalk.level = level;
     
     t.equal(expected, result, 'should equal');
     t.end();
