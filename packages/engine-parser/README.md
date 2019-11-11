@@ -29,6 +29,7 @@ Supported parsers:
 - [acorn](https://github.com/acornjs/acorn)
 - [espree](https://github.com/eslint/espree)
 - [esprima](https://esprima.org/)
+- [tenko](https://github.com/pvdz/tenko)
 
 ## Example
 

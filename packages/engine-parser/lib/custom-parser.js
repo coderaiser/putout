@@ -4,6 +4,7 @@ const acorn = require('./parsers/acorn');
 const babel = require('./parsers/babel');
 const espree = require('./parsers/espree');
 const esprima = require('./parsers/esprima');
+const tenko = require('./parsers/tenko');
 
 const isObject = (a) => typeof a === 'object';
 
@@ -26,6 +27,9 @@ module.exports = (source, {parser, isTS, isFlow, isJSX}) => {
     
     if (parser === 'esprima')
         return esprima.parse(source);
+    
+    if (parser === 'tenko')
+        return tenko.parse(source);
     
     return require(parser).parse(source);
 };

@@ -69,3 +69,16 @@ test('putout: use strict: parser: espree: debugger', (t) => {
     t.end();
 });
 
+test('putout: export default declaration: tenko', (t) => {
+    const {code} = putout(fixture.exportDefaultDeclaration, {
+        parser: 'tenko',
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = fixture.exportDefaultDeclarationFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
