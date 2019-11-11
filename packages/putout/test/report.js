@@ -1,10 +1,11 @@
 'use strict';
 
 const test = require('supertape');
-const chalk = require('chalk');
 const stub = require('@cloudcmd/stub');
 
 const {initReport} = require('..');
+
+const {env} = process;
 
 test('putout: report: no places', (t) => {
     const reporter = stub();
@@ -38,8 +39,8 @@ test('putout: report: dump', (t) => {
         column,
     };
     
-    const {level} = chalk;
-    chalk.level = 0;
+    const {FORCE_COLOR} = env;
+    env.FORCE_COLOR = 0;
     
     const message = 'hello';
     const rule = 'remove-hello';
@@ -64,9 +65,9 @@ test('putout: report: dump', (t) => {
         '  fixable with the `--fix` option\n',
     ].join('\n');
     
-    chalk.level = level;
+    env.FORCE_COLOR = FORCE_COLOR;
     
-    t.equal(expected, result, 'should equal');
+    t.equal(result, expected, 'should equal');
     t.end();
 });
 
