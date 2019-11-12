@@ -4,6 +4,8 @@ const test = require('@putout/test')(__dirname, {
     'apply-shorthand-properties': require('..'),
 });
 
+const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
+
 test('plugin-apply-shorthand-properties: report', (t) => {
     t.report('object', 'Shorthand properties should be used');
     t.end();
@@ -61,6 +63,15 @@ test('plugin-apply-shorthand-properties: no transform: names overlap', (t) => {
 
 test('plugin-apply-shorthand-properties: no transform: constant', (t) => {
     t.noTransform('constant');
+    t.end();
+});
+
+test('plugin-apply-shorthand-properties: no transform: assign', (t) => {
+    // scope.rename doesn't handle AssignmentPattern
+    t.noTransform('assign', {
+        'rm-unused-vars': removeUnusedVariables,
+    });
+    
     t.end();
 });
 

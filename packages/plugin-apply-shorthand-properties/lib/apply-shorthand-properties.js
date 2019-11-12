@@ -47,6 +47,10 @@ module.exports.traverse = ({push, options}) => {
                     path,
                 } = bindingFrom;
                 
+                // scope.rename doesn't handle AssignmentPattern
+                if (path.isAssignmentPattern())
+                    continue;
+                
                 if (path.isImportSpecifier() || path.isObjectPattern() || path.get('id').isObjectPattern())
                     continue;
                 
