@@ -167,6 +167,17 @@ const places = runPlugins({
 });
 ```
 
+## Logs
+
+To see logs, use:
+
+```sh
+DEBUG=putout:runner:*
+DEBUG=putout:runner:fix
+DEBUG=putout:runner:find
+DEBUG=putout:runner:template
+```
+
 ## License
 
 MIT

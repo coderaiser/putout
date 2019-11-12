@@ -2,7 +2,7 @@
 
 const traverse = require('@babel/traverse').default;
 const once = require('once');
-const debug = require('debug')('run-plugins');
+const debug = require('debug')('putout:runner:find');
 
 const runFix = require('./run-fix');
 const mergeVisitors = require('./merge-visitors');
@@ -114,9 +114,9 @@ function runWithoutMerge({ast, fix, shebang, template, pluginsFind}) {
             if (isRemoved(parentPath))
                 continue;
             
-            debug(`fix: ${rule}: `, position);
             runFix(fix, plugin.fix, {
                 path: item,
+                rule,
                 position,
             });
         }

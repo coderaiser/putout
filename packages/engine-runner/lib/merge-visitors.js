@@ -17,6 +17,7 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
     for (const {rule, plugin, msg, options} of pluginsToMerge) {
         const {push, pull} = getStore(plugin, {
             fix,
+            rule,
             shebang,
             msg,
         });
@@ -48,7 +49,7 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
     };
 };
 
-function getStore(plugin, {fix, shebang, msg}) {
+function getStore(plugin, {fix, rule, shebang, msg}) {
     let value = [];
     
     const push = (path) => {
@@ -62,6 +63,7 @@ function getStore(plugin, {fix, shebang, msg}) {
         
         runFix(fix, plugin.fix, {
             path,
+            rule,
             position,
         });
     };

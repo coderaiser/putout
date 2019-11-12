@@ -15,7 +15,7 @@ const isTemplate = (a) => {
     return /[(;={]/.test(a) || !/[A-Z]/.test(a);
 };
 const maybeArray = require('../maybe-array');
-const debug = require('debug')('putout:template');
+const debug = require('debug')('putout:runner:template');
 const generateCode = (a) => babelGenerate(a).code;
 
 const log = (rule, a) => {
