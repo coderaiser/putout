@@ -84,6 +84,7 @@ Options:
   -u, --untracked         add untracked files when in git repository
   --fix                   aply found fixes of errors to code
   --fix-count             count of fixes rounds (defaults to 10)
+  --rulesdir              specify custom rulesdir
   --enable                enable rule by name in .putout.json
   --disable               disable rule by name in .putout.json
   --enable-all            enable all rules in .putout.json
