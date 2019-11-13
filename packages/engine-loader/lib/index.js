@@ -4,6 +4,7 @@ const isEnabled = require('./is-enabled');
 const loadPlugin = require('./load-plugin');
 const parsePluginNames = require('./parse-plugin-names');
 const parseRules = require('./parse-rules');
+const validateRules = require('./validate-rules');
 
 const defaultOptions = () => Object.create(null);
 const mergeRules = ([rule, plugin], rules) => {
@@ -59,6 +60,11 @@ function load(options) {
         items,
         cache,
         loadedRules,
+    });
+    
+    validateRules({
+        rules,
+        items,
     });
     
     const result = [];

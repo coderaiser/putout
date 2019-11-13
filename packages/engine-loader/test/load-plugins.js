@@ -374,3 +374,44 @@ test('putout: nested rules', (t) => {
     t.end();
 });
 
+test('putout: no plugin for a rule', (t) => {
+    const [e] = tryCatch(putout, 'hello', {
+        rules: {
+            abcd: 'off',
+        },
+        plugins: [
+        ],
+    });
+    
+    t.equal(e.message, 'no plugin found for a rule: "abcd"');
+    t.end();
+});
+
+test('putout: nested rule', (t) => {
+    const [e] = tryCatch(putout, 'hello', {
+        rules: {
+            'putout/convert-babel-types': 'off',
+        },
+        plugins: [
+            'putout',
+        ],
+    });
+    
+    t.notOk(e);
+    t.end();
+});
+
+test('putout: nested rule', (t) => {
+    const [e] = tryCatch(putout, 'hello', {
+        rules: {
+            'babel/convert': 'off',
+        },
+        plugins: [
+            'babel/convert',
+        ],
+    });
+    
+    t.notOk(e);
+    t.end();
+});
+
