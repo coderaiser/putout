@@ -4,13 +4,13 @@ const traverse = require('@babel/traverse').default;
 const template = require('@babel/template').default;
 const types = require('@babel/types');
 
+const loader = require('@putout/engine-loader');
+const runner = require('@putout/engine-runner');
 const {
     parse,
     print,
     generate,
 } = require('@putout/engine-parser');
-const loader = require('@putout/engine-loader');
-const runner = require('@putout/engine-runner');
 
 const cutShebang = require('./cut-shebang');
 
