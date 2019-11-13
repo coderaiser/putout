@@ -35,6 +35,7 @@
     "plugins": [
         "apply-destructuring",
         "apply-shorthand-properties",
+        "apply-top-level-await",
         "extract-object-properties",
         "extract-sequence-expressions",
         "madrun",
