@@ -1,3 +1,17 @@
+2019.11.13, v7.0.4
+
+fix:
+- (putout) help: --rulesdir
+- (putout) apply-top-level-await
+- (@putout/plugin-apply-shorthand-properties) exclude AssignmentPattern
+- (@putout/engine-parser) exclude *.spec.js
+
+feature:
+- (@putout/engine-loader) add rules validation
+- (@putout/engine-runner) debug namespaces
+- (@putout/engine-parser) add tenko (esprima) support (pvdz/tenko#6)
+
+
 2019.11.11, v7.0.3
 
 fix:
