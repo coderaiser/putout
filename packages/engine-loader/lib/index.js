@@ -89,6 +89,7 @@ function getLoadedRules(rules) {
         
         loadedRules.push(item);
     }
+    
     return loadedRules;
 }
 
