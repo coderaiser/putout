@@ -171,7 +171,7 @@ async () => {
 
 ```diff
 -const t = true && false;
--const t = false;
++const t = false;
 ```
 </details>
 
