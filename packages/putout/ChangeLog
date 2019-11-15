@@ -1,3 +1,9 @@
+2019.11.15, v7.0.6
+
+fix:
+- (@putout) parseOptions: options as argument
+
+
 2019.11.15, v7.0.5
 
 fix:
