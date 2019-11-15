@@ -37,11 +37,11 @@ module.exports = (info = {}) => {
     
     const defaultMatch = parseMatch(relativeName, defaultOptions.match);
     const mergedOptions = merge(
-        options,
         defaultOptions,
         homeOptions,
         defaultMatch,
         customOptions,
+        options,
     );
     
     const customMatch = parseMatch(relativeName, customOptions.match);
