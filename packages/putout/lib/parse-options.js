@@ -8,9 +8,9 @@ const {
 } = require('path');
 const {readdirSync} = require('fs');
 
-const findUp = require('find-up');
 const once = require('once');
 const tryCatch = require('try-catch');
+const findUp = require('find-up');
 
 const merge = require('./merge');
 const parseMatch = require('./parse-match');
@@ -23,18 +23,33 @@ const readHomeOptions = once(_readHomeOptions);
 const readCodeMods = once(_readCodeMods);
 const readRules = once(_readRules);
 
-module.exports = ({rulesdir, name = '', options = {}} = {}) => {
+module.exports = (info = {}) => {
+    const {
+        rulesdir,
+        name = '',
+        options = {},
+        getOptions = _getOptions,
+    } = info;
+    
     const [dir, customOptions] = getOptions(dirname(name));
     const homeOptions = readHomeOptions();
-    const mergedOptions = merge(options, defaultOptions, homeOptions, customOptions);
-    const {match} = mergedOptions;
     const relativeName = relative(cwd, name);
     
+    const defaultMatch = parseMatch(relativeName, defaultOptions.match);
+    const mergedOptions = merge(
+        options,
+        defaultOptions,
+        homeOptions,
+        defaultMatch,
+        customOptions,
+    );
+    
+    const customMatch = parseMatch(relativeName, customOptions.match);
     const resultOptions = merge(
         readCodeMods(),
         readRules(dir, rulesdir),
         mergedOptions,
-        parseMatch(relativeName, match),
+        customMatch,
     );
     
     return {
@@ -43,7 +58,7 @@ module.exports = ({rulesdir, name = '', options = {}} = {}) => {
     };
 };
 
-function getOptions(cwd) {
+function _getOptions(cwd) {
     const putoutPath = findUp.sync('.putout.json', {
         cwd,
     });
