@@ -30,8 +30,7 @@ module.exports = ({use, declare, addParams}) => {
     const traverseObj = traverseObjectExpression(use);
     const processObj = processObjectPattern({use, declare});
     
-    const traverseAssign = traverseAssignmentExpression(use);
-    const declareAssign = traverseAssignmentExpression(declare);
+    const traverseAssign = traverseAssignmentExpression({use, declare});
     
     const traverseTmpl = traverseTemplateLiteral(use);
     const traverseArray = traverseArrayExpression(use);
@@ -68,8 +67,7 @@ module.exports = ({use, declare, addParams}) => {
                 idPath.traverse({
                     ObjectProperty(propPath) {
                         if (isAssignmentPattern(propPath.node.value)) {
-                            traverseAssign(propPath.get('value.right'));
-                            declareAssign(propPath.get('value.left'));
+                            traverseAssign(propPath.get('value'));
                             return;
                         }
                         
@@ -134,8 +132,14 @@ module.exports = ({use, declare, addParams}) => {
         },
         
         AssignmentExpression(path) {
-            traverseAssign(path.get('left'));
-            traverseAssign(path.get('right'));
+            const leftPath = path.get('left');
+            const rightPath = path.get('right');
+            
+            if (leftPath.isIdentifier())
+                use(leftPath, leftPath.node.name);
+            
+            if (rightPath.isIdentifier())
+                use(rightPath, rightPath.node.name);
         },
         
         ArrayExpression(path) {
@@ -484,8 +488,7 @@ module.exports = ({use, declare, addParams}) => {
                 }
                 
                 if (isAssignmentPattern(node)) {
-                    declareAssign(paramPath.get('left'));
-                    traverseAssign(paramPath.get('right'));
+                    traverseAssign(paramPath);
                     continue;
                 }
                 

@@ -78,7 +78,7 @@ test('remove-unused-variables: putout: assignment pattern', (t) => {
     const {code} = putout(fixture.assignmentPattern);
     const expected = fixture.assignmentPatternFix;
     
-    t.deepEqual(expected, code, 'should equal');
+    t.deepEqual(code, expected, 'should equal');
     t.end();
 });
 

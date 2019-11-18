@@ -324,11 +324,14 @@ test('remove-unused-variables: get-vars: assignment pattern', (t) => {
     
     const expected = [{
         noop: du,
-        fn: d_,
+        _fn: du,
+        def: d_,
         getName: _u,
         name: d_,
     }, {
         f: d_,
+    }, {
+        fn: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');
