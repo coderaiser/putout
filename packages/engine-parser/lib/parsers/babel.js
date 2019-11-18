@@ -30,6 +30,7 @@ module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(sourc
             'numericSeparator',
             'exportDefaultFrom',
             'nullishCoalescingOperator',
+            'optionalChaining',
             ...getBabelLangExts({
                 isTS,
                 isFlow,
