@@ -1,3 +1,17 @@
+2019.11.19, v7.1.0
+
+fix:
+- (@putout/plugin-merge-if-statements) dependencies -> devDependencies: eslint-plugin-putout
+
+feature:
+- (@putout/plugin-apply-optional-chaining) add
+- (package) @putout/engine-parser v1.7.0
+- (@putout/engine-parser) template: add support of optionalChaining
+- (@putout/plugin-remove-unused-variables) add support of OptionalMemberExpression
+- (@putout/engine-parser) add support of optionalChaining
+- (@putout/remove-unused-variables) improve support of AssignmentPattern
+
+
 2019.11.15, v7.0.6
 
 fix:
