@@ -4,6 +4,9 @@ const template = require('@babel/template').default;
 const memo = require('micro-memoize');
 const defaults = {
     allowAwaitOutsideFunction: true,
+    plugins: [
+        'optionalChaining',
+    ],
 };
 
 module.exports = memo((value, options) => {
