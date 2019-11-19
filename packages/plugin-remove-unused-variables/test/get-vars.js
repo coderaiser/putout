@@ -58,6 +58,7 @@ const fixture = readFixtures([
     'new-expression',
     'object-expression',
     'object-method',
+    'optional-member-expression',
     'root-vars',
     'scope-vars',
     'shorthand-vars',
@@ -455,6 +456,22 @@ test('remove-unused-variables: get-vars: object method', (t) => {
     }, {
         target: du,
         property: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: optional member expression', (t) => {
+    const ast = parse(fixture.optionalMemberExpression);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        hello: _u,
+        world: _u,
+        a: _u,
+        b: _u,
+        c: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');

@@ -218,6 +218,19 @@ module.exports = ({use, declare, addParams}) => {
                 use(path, property.name);
         },
         
+        OptionalMemberExpression(path) {
+            const {
+                property,
+                object,
+            } = path.node;
+            
+            if (isIdentifier(object))
+                use(path, object.name);
+            
+            if (isIdentifier(property))
+                use(path, property.name);
+        },
+        
         NewExpression(path) {
             const calleePath = path.get('callee');
             const {node} = path;
