@@ -11,26 +11,19 @@ const putoutEditorDefaults = {
     isTS: true,
 };
 
+const plugins = require('./babel-plugins');
+const options = require('./babel-options');
+
 module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(source), isJSX = getJSX(source)} = putoutEditorDefaults) {
     const {parse} = initBabel();
     
     return parse(source, {
         sourceType: 'module',
         tokens: true,
-        allowReturnOutsideFunction: true,
-        allowAwaitOutsideFunction: true,
+        ...options,
         plugins: clean([
             !isTS && !isFlow && 'estree',
-            'importMeta',
-            'dynamicImport',
-            'bigInt',
-            'classPrivateProperties',
-            'classPrivateMethods',
-            'classProperties',
-            'numericSeparator',
-            'exportDefaultFrom',
-            'nullishCoalescingOperator',
-            'optionalChaining',
+            ...plugins,
             ...getBabelLangExts({
                 isTS,
                 isFlow,

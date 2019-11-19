@@ -2,11 +2,13 @@
 
 const template = require('@babel/template').default;
 const memo = require('micro-memoize');
+
+const plugins = require('./parsers/babel-plugins');
+const options = require('./parsers/babel-options');
+
 const defaults = {
-    allowAwaitOutsideFunction: true,
-    plugins: [
-        'optionalChaining',
-    ],
+    ...options,
+    plugins,
 };
 
 module.exports = memo((value, options) => {
