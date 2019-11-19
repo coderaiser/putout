@@ -24,6 +24,7 @@
     ],
     "rules": {
         "apply-top-level-await": "off",
+        "apply-optional-chaining": "off",
         "madrun": "off",
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",
@@ -36,6 +37,7 @@
         "apply-destructuring",
         "apply-shorthand-properties",
         "apply-top-level-await",
+        "apply-optional-chaining",
         "extract-object-properties",
         "extract-sequence-expressions",
         "madrun",

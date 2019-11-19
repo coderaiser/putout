@@ -331,7 +331,7 @@ function world(a) {
 ```diff
 -const hello = world.hello;
 -const a = b[0];
-+const {hello} = world; 
++const {hello} = world;
 +const [a] = b;
 ```
 </details>
@@ -345,6 +345,14 @@ import fs from 'fs';
 -    const data = await fs.promises.readFile('hello.txt');
 -})();
 +const data = await fs.promises.readFile('hello.txt');
+```
+</details>
+
+<details><summary>apply optional chaining(<a href=https://github.com/tc39/proposal-optional-chaining>proposal-optional-chaining</a>)</summary>
+
+```diff
+-const result = hello && hello.world;
++const result = hello?.world;
 ```
 </details>
 
@@ -539,6 +547,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-convert-spread-to-array-from`](/packages/plugin-convert-spread-to-array-from) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-spread-to-array-from.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-spread-to-array-from) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-spread-to-array-from)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-spread-to-array-from) |
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-destructuring)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-top-level-await`](/packages/plugin-apply-top-level-await) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-top-level-await.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-top-level-await) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-top-level-await)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-top-level-await) |
+| [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-optional-chaining)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-optional-chaining) |
 | [`@putout/plugin-apply-shorthand-properties`](/packages/plugin-apply-shorthand-properties) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-shorthand-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-shorthand-properties) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-shorthand-properties)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-shorthand-properties) |
 | [`@putout/plugin-merge-destructuring-properties`](/packages/plugin-merge-destructuring-properties) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-destructuring-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-destructuring-properties) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-merge-destructuring-properties)](https://david-dm.org/coderaiser/putout?path=packages/plugin-merge-destructuring-properties) |
 | [`@putout/plugin-merge-if-statements`](/packages/plugin-merge-if-statements) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-if-statements.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-if-statements) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-merge-if-statements)](https://david-dm.org/coderaiser/putout?path=packages/plugin-merge-if-statements) |

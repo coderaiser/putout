@@ -40,6 +40,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - apply destructuring;
 - apply `top-level await`;
 - apply shorthand properties;
+- apply `optional chaining`;
 - merge destructuring properties;
 - merge `if` statements;
 - convert `Math.pow` to `exponentiation operator`;
