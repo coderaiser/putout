@@ -30,3 +30,8 @@ test('plugin-remove-console: time', (t) => {
     t.end();
 });
 
+test('plugin-remove-console: dir', (t) => {
+    t.transformCode('console.dir()', '');
+    t.end();
+});
+

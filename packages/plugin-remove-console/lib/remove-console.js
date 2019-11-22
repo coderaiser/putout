@@ -14,11 +14,13 @@ module.exports.include = () => [
     `console.warn(__args)`,
     `console.time(__args)`,
     `console.timeEnd(__args)`,
+    'console.dir(__args)',
     
     `console["log"](__args)`,
     `console["error"](__args)`,
     `console["warn"](__args)`,
     `console["time"](__args)`,
     `console["timeEnd"](__args)`,
+    'console["dir"](__args)',
 ];
 
