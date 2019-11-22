@@ -36,7 +36,7 @@
     "eslint-plugin-putout": "^3.0.0",
     "lerna": "^3.8.5",
     "madrun": "^5.0.0",
-    "nodemon": "^1.14.12",
+    "nodemon": "^2.0.1",
     "nyc": "^14.0.0",
     "redrun": "^7.0.2",
     "supertape": "^1.0.3"
