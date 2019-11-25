@@ -1,3 +1,16 @@
+2019.11.25, v7.2.0
+
+fix:
+- (putout) rm direct dependency @babel/parser, use @putout/engine-parser instead
+
+feature:
+- (package) @putout/plugin-madrun v5.0.0
+- (putout) add template from @putout/engine-parser
+- (@putout/remove-console) add support of console.dir
+- (package) nodemon v2.0.1
+- (@putout/engine-parser) add ability to reuse options in template
+
+
 2019.11.19, v7.1.0
 
 fix:
