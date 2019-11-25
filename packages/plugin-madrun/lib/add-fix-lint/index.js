@@ -25,7 +25,7 @@ module.exports.report = () => `fix:lint should exist`;
 module.exports.fix = (path) => {
     replaceWithMultiple(path, [
         path.node,
-        ObjectProperty(StringLiteral('fix:lint'), fixLintScript.expression),
+        ObjectProperty(StringLiteral('fix:lint'), fixLintScript),
     ]);
 };
 
