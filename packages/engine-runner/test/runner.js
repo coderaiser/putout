@@ -273,3 +273,69 @@ test('putout: plugins: replace: template: array', (t) => {
     t.end();
 });
 
+test('putout: plugins: replace: template: identifier', (t) => {
+    const varToConst = {
+        report: () => '',
+        replace: () => ({
+            '!!__a': '__a',
+        }),
+    };
+    
+    const {code} = putout('if (!!y) fn()', {
+        fixCount: 1,
+        runPlugins,
+        plugins: [{
+            'var-to-const': varToConst,
+        }],
+    });
+    
+    const expected = 'if (y) fn()';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: plugins: replace: template: ifCondition', (t) => {
+    const varToConst = {
+        report: () => '',
+        replace: () => ({
+            'if (!!__a) __b': 'if (__a) __b',
+        }),
+    };
+    
+    const {code} = putout('if (!!y) fn()', {
+        fixCount: 1,
+        runPlugins,
+        plugins: [{
+            'var-to-const': varToConst,
+        }],
+    });
+    
+    const expected = 'if (y)\n  fn();';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: plugins: replace: template: ifCondition: body', (t) => {
+    const varToConst = {
+        report: () => '',
+        replace: () => ({
+            'if (!!__a) __b': 'if (__a) __b',
+        }),
+    };
+    
+    const {code} = putout('if (!!y) {fn()}', {
+        fixCount: 1,
+        runPlugins,
+        plugins: [{
+            'var-to-const': varToConst,
+        }],
+    });
+    
+    const expected = 'if (y)\n  {fn()}';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+

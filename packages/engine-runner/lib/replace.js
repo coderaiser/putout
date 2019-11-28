@@ -4,6 +4,7 @@ const {template} = require('@putout/engine-parser');
 const {replaceWith} = require('@putout/operate');
 const {compare} = require('@putout/compare');
 const traverse = require('@babel/traverse').default;
+const {isIdentifier} = require('@babel/types');
 
 const jessy = require('jessy');
 const nessy = require('nessy');
@@ -45,6 +46,11 @@ module.exports = ({rule, plugin, msg, options}) => {
 };
 
 const findVarsWays = (node) => {
+    if (isIdentifier(node) && /^__[a-z]$/.test(node.name))
+        return {
+            [node.name]: '',
+        };
+    
     const vars = {};
     
     traverse(node, {
@@ -63,6 +69,9 @@ const findVarsWays = (node) => {
                     way.unshift(`${listKey}.${key}`);
                     return;
                 }
+                
+                if (key === 'expression')
+                    return;
                 
                 way.unshift(key);
             });
@@ -86,6 +95,11 @@ function getValues({waysFrom, node}) {
 
 function setValues({waysTo, values, path}) {
     for (const [name, way] of entries(waysTo)) {
+        if (!way) {
+            replaceWith(path, values[name]);
+            continue;
+        }
+        
         nessy(way, values[name], path.node);
     }
 }
