@@ -1,45 +1,45 @@
 'use strict';
 
 const test = require('@putout/test')(__dirname, {
-    'remove-double-negation': require('..'),
+    'remove-double-negations': require('..'),
 });
 
-test('plugin-remove-double-negation: transform: report', (t) => {
-    t.report('if', 'Double negation should not be used in conditions');
+test('plugin-remove-double-negations: transform: report', (t) => {
+    t.report('if', 'Double negations should not be used in conditions');
     t.end();
 });
 
-test('plugin-remove-double-negation: transform: if', (t) => {
+test('plugin-remove-double-negations: transform: if', (t) => {
     t.transform('if');
     t.end();
 });
 
-test('plugin-remove-double-negation: transform: var', (t) => {
+test('plugin-remove-double-negations: transform: var', (t) => {
     t.noTransform('var');
     t.end();
 });
 
-test('plugin-remove-double-negation: transform: bitwise', (t) => {
+test('plugin-remove-double-negations: transform: bitwise', (t) => {
     t.noTransform('bitwise');
     t.end();
 });
 
-test('plugin-remove-double-negation: transform: not bitwise', (t) => {
+test('plugin-remove-double-negations: transform: not bitwise', (t) => {
     t.noTransform('not-bitwise');
     t.end();
 });
 
-test('plugin-remove-double-negation: transform: logical', (t) => {
+test('plugin-remove-double-negations: transform: logical', (t) => {
     t.transform('logical');
     t.end();
 });
 
-test('plugin-remove-double-negation: transform: conditional', (t) => {
+test('plugin-remove-double-negations: transform: conditional', (t) => {
     t.transform('conditional');
     t.end();
 });
 
-test('plugin-remove-double-negation: no transform: return', (t) => {
+test('plugin-remove-double-negations: no transform: return', (t) => {
     t.noTransform('return');
     t.end();
 });
