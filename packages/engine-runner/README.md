@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/engine-runner
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/engine-runner
 
-Load putout plugins.
+Run putout plugins.
 
 ## Install
 
