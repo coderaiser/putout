@@ -332,3 +332,23 @@ test('compare: parse template: node', (t) => {
     t.end();
 });
 
+test('compare: object: template: name: not equal', (t) => {
+    const a = template.ast('hello = world + __b');
+    const b = template.ast('__a = __a + __b');
+    
+    const result = compare(a, b);
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: object: template: name: equal', (t) => {
+    const a = template.ast('hello = hello + __b');
+    const b = template.ast('__a = __a + __b');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+

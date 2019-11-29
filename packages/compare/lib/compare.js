@@ -65,6 +65,8 @@ function compare(path, base) {
     const node = parseNode(path);
     const baseNode = parseNode(base);
     
+    const templateStore = {};
+    
     const {type} = baseNode;
     const isPath = Boolean(path.node);
     
@@ -76,10 +78,10 @@ function compare(path, base) {
     
     if (isPath && node.type !== type) {
         const newPathNode = findParent(path, type);
-        return superCompare(newPathNode, baseNode);
+        return superCompare(newPathNode, baseNode, templateStore);
     }
     
-    return superCompare(node, baseNode);
+    return superCompare(node, baseNode, templateStore);
 }
 
 module.exports.compareAny = (path, baseNodes) => {
@@ -100,7 +102,7 @@ module.exports.compareAll = (path, baseNodes) => {
     return true;
 };
 
-function superCompare(pathNode, baseNode) {
+function superCompare(pathNode, baseNode, templateStore) {
     if (!baseNode || !pathNode)
         return;
     
@@ -138,16 +140,25 @@ function superCompare(pathNode, baseNode) {
         if (isEqualAnyObject(pathValue, id))
             continue;
         
-        if (isIdentifier(id) && /^__[a-z]$/.test(id.name))
-            continue;
+        if (isIdentifier(id) && /^__[a-z]$/.test(id.name)) {
+            const {name} = id;
+            
+            if (!templateStore[name]) {
+                templateStore[name] = pathValue;
+                continue;
+            }
+            
+            if (superCompare(templateStore[name], pathValue))
+                continue;
+        }
         
         if (isLiteral(value, {value: '__'}) && value.type === pathValue.type)
             continue;
         
-        if (isObject(value) && superCompare(pathValue, value))
+        if (isObject(value) && superCompare(pathValue, value, templateStore))
             continue;
         
-        if (isArrays(value, pathValue) && superCompare(pathValue, value))
+        if (isArrays(value, pathValue) && superCompare(pathValue, value, templateStore))
             continue;
         
         if (isArray(id) && isIdentifier(id[0], {name: '__args'}))
