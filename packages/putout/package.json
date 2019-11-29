@@ -93,7 +93,7 @@
     "@putout/plugin-remove-useless-array-from": "^1.0.0",
     "@putout/plugin-remove-useless-escape": "^1.0.0",
     "@putout/plugin-remove-useless-variables": "^3.0.0",
-    "@putout/plugin-simplify-ternary": "^1.0.0",
+    "@putout/plugin-simplify-ternary": "^2.0.0",
     "@putout/plugin-split-variable-declarations": "^1.0.0",
     "@putout/plugin-strict-mode": "^1.0.0",
     "array-union": "^2.0.0",
