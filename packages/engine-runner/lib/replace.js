@@ -16,6 +16,8 @@ const packKeys = (a) => () => Object.keys(a);
 const isNumber = (a) => typeof a === 'number';
 const {entries} = Object;
 
+const isNameTemplate = (a) => /^__[a-z]$/.test(a);
+
 module.exports = ({rule, plugin, msg, options}) => {
     const {
         report,
@@ -46,7 +48,7 @@ module.exports = ({rule, plugin, msg, options}) => {
 };
 
 const findVarsWays = (node) => {
-    if (isIdentifier(node) && /^__[a-z]$/.test(node.name))
+    if (isIdentifier(node) && isNameTemplate(node.name))
         return {
             [node.name]: '',
         };
@@ -59,7 +61,7 @@ const findVarsWays = (node) => {
             const {name} = path.node;
             const way = [];
             
-            if (!/^__[a-z]$/.test(name))
+            if (!isNameTemplate(name))
                 return;
             
             path.find((path) => {
