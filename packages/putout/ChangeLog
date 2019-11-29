@@ -1,3 +1,15 @@
+2019.11.29, v7.2.2
+
+fix:
+- (@putout/apply-optional-chaining) template variables
+
+feature:
+- (package) @putout/plugin-simplify-ternary v2.0.0
+- (@putout/plugin-simplify-ternary) convert to replace
+- (@putout/compare) add ability to compare that names templates variable equail
+- (@putout/engine-runner) replace: isTemplateName
+
+
 2019.11.28, v7.2.1
 
 feature:
