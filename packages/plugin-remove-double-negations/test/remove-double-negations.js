@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-remove-double-negations: transform: report', (t) => {
-    t.report('if', 'Double negations should not be used in conditions');
+    t.report('if', 'Double negation should not be used in conditions');
     t.end();
 });
 
