@@ -101,6 +101,9 @@ module.exports.compareAll = (path, baseNodes) => {
     
     return true;
 };
+// @babel/template creates empty array directives
+// extra duplicate value
+const regIgnore = /loc|start|end|directives|extra|raw/;
 
 function superCompare(pathNode, baseNode, templateStore) {
     if (!baseNode || !pathNode)
@@ -110,9 +113,7 @@ function superCompare(pathNode, baseNode, templateStore) {
     const node = pathNode;
     
     for (const key of Object.keys(baseNode)) {
-        // @babel/template creates empty array directives
-        // extra duplicate value
-        if (/loc|start|end|directives|extra|raw/.test(key))
+        if (regIgnore.test(key))
             continue;
         
         const value = base[key];
