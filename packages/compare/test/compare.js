@@ -352,3 +352,13 @@ test('compare: object: template: name: equal', (t) => {
     t.end();
 });
 
+test('compare: object: template: expression', (t) => {
+    const a = template.ast('for (const a of b) {}');
+    const b = template.ast('for (const __ of __) __');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
