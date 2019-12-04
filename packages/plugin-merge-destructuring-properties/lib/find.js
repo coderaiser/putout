@@ -7,9 +7,7 @@ const {
 
 const {compare} = operate;
 
-const {
-    isObjectPattern,
-} = types;
+const {isObjectPattern} = types;
 
 const notEmptyPlaces = (a) => a.places.length;
 
@@ -63,6 +61,6 @@ const addVariable = ({vars}) => (path, node) => {
 function sameKind(path1, path2) {
     const kind1 = path1.parentPath.node.kind;
     const kind2 = path2.parentPath.node.kind;
-
+    
     return kind1 === kind2;
 }
