@@ -25,7 +25,6 @@
   "dependencies": {
     "@babel/core": "^7.6.2",
     "@putout/engine-parser": "^1.0.0",
-    "@putout/plugin-remove-unused-variables": "^1.51.1",
     "diff-match-patch": "^1.0.4",
     "jscodeshift": "^0.6.4",
     "once": "^1.4.0",
@@ -38,6 +37,7 @@
   "devDependencies": {
     "@cloudcmd/stub": "^2.3.2",
     "@putout/test": "^1.1.1",
+    "@putout/plugin-remove-unused-variables": "^1.51.1",
     "coveralls": "^3.0.0",
     "eslint": "^6.2.0",
     "eslint-plugin-node": "^10.0.0",
