@@ -1,6 +1,6 @@
 'use strict';
 
-const babelGenerate = require('@babel/generator').default;
+const {generate} = require('@putout/engine-parser');
 
 const {
     compareAny,
@@ -16,7 +16,7 @@ const isTemplate = (a) => {
 };
 const maybeArray = require('../maybe-array');
 const debug = require('debug')('putout:runner:template');
-const generateCode = (a) => babelGenerate(a).code;
+const generateCode = (a) => generate(a).code;
 
 const log = (rule, a) => {
     if (!debug.enabled)
