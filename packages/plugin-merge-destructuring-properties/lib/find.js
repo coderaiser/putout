@@ -6,9 +6,7 @@ const {
 } = require('putout');
 
 const {compare} = operate;
-
 const {isObjectPattern} = types;
-
 const notEmptyPlaces = (a) => a.places.length;
 
 module.exports = (ast, {traverse}) => {
