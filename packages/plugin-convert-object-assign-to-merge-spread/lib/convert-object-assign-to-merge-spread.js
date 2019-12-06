@@ -40,9 +40,5 @@ module.exports.include = () => [
 
 module.exports.filter = (path) => {
     const [first] = path.node.arguments;
-    
-    if (compare(first, '__object'))
-        return true;
-    
-    return false;
+    return compare(first, '__object');
 };
