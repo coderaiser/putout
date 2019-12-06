@@ -339,3 +339,25 @@ test('putout: plugins: replace: template: ifCondition: body', (t) => {
     t.end();
 });
 
+test('putout: plugins: replace: template: object pattern', (t) => {
+    const varToConst = {
+        report: () => '',
+        replace: () => ({
+            'const __a = __b.__a': 'const {__a} = __b',
+        }),
+    };
+    
+    const {code} = putout('const hello = world.hello', {
+        fixCount: 1,
+        runPlugins,
+        plugins: [{
+            'var-to-const': varToConst,
+        }],
+    });
+    
+    const expected = 'const {\n  hello\n} = world;';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+

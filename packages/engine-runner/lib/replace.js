@@ -78,7 +78,8 @@ const findVarsWays = (node) => {
                 way.unshift(key);
             });
             
-            vars[name] = way.join('.');
+            vars[name] = vars[name] || [];
+            vars[name].push(way.join('.'));
         },
     });
     
@@ -88,21 +89,23 @@ const findVarsWays = (node) => {
 function getValues({waysFrom, node}) {
     const result = {};
     
-    for (const [name, way] of entries(waysFrom)) {
-        result[name] = jessy(way, node);
+    for (const [name, ways] of entries(waysFrom)) {
+        for (const way of ways)
+            result[name] = jessy(way, node);
     }
     
     return result;
 }
 
 function setValues({waysTo, values, path}) {
-    for (const [name, way] of entries(waysTo)) {
-        if (!way) {
+    for (const [name, ways] of entries(waysTo)) {
+        if (!ways) {
             replaceWith(path, values[name]);
             continue;
         }
         
-        nessy(way, values[name], path.node);
+        for (const way of ways)
+            nessy(way, values[name], path.node);
     }
 }
 
