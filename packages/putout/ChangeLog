@@ -1,3 +1,19 @@
+2019.12.06, v7.3.0
+
+fix:
+- (@putout/engine-runner) rm micro-memoize
+- (@putout/engine-loader) @putout/plugin-remove-unused-variables: dependencies -> devDependnecies
+
+feature:
+- (package) @putout/plugin-apply-destructuring v5.0.0
+- (package) @putout/engine-runner v3.4.0
+- (@putout/plugin-apply-destructuring) object: convert to replace
+- (@putout/engine-runner) replace: add support of object pattern
+- (@putout/plugin-convert-object-assign-to-merge-spread) simplify
+- (@putout/engine-runner) @babel/generator -> @putout/engine-parser
+- (compare) add regIgnore
+
+
 2019.11.29, v7.2.2
 
 fix:
