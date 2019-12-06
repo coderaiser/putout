@@ -134,6 +134,7 @@ test('putout: run plugins: disable, using "off"', (t) => {
 
 test('putout: fix count', (t) => {
     const result = putout(fixture.fixCount, {
+        fixCount: 3,
         plugins: [
             'apply-destructuring',
             'merge-destructuring-properties',
