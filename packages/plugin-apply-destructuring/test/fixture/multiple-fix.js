@@ -1,7 +1,9 @@
 const item = {};
 // hello
 const {
-  username,
+  username
+} = item;
+const {
   password
 } = item;
 

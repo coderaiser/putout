@@ -26,7 +26,6 @@
     "destructuring"
   ],
   "devDependencies": {
-    "@putout/plugin-merge-destructuring-properties": "^2.0.0",
     "@putout/test": "^1.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.2.0",
@@ -39,7 +38,7 @@
     "supertape": "^1.0.3"
   },
   "peerDependencies": {
-    "putout": ">=7"
+    "putout": ">=7.3"
   },
   "license": "MIT",
   "engines": {
