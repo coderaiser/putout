@@ -100,7 +100,6 @@
     "chalk": "^3.0.0",
     "debug": "^4.1.1",
     "deepmerge": "^4.0.0",
-    "diff-match-patch": "^1.0.4",
     "eslint": "^6.2.0",
     "find-up": "^4.0.0",
     "glob": "^7.1.3",
