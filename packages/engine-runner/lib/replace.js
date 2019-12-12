@@ -111,6 +111,10 @@ function setValues({waysTo, values, path}) {
 
 const fix = (from, to, path) => {
     const nodeFrom = template.ast(from);
+    const watermark = `${from} -> ${to}`;
+    
+    if (path._putout === watermark)
+        return;
     
     if (!compare(path, nodeFrom))
         return;
@@ -136,7 +140,7 @@ const fix = (from, to, path) => {
         path,
     });
     
-    path.stop();
+    path._putout = watermark;
 };
 
 const getFix = (items) => (path) => {
