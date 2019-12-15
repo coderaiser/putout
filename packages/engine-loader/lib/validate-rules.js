@@ -2,7 +2,10 @@
 
 const shift = ([a]) => a;
 const parse = (rule) => {
-    if (/^putout/.test(rule))
+    if (/^(babel|jscodeshift)\//.test(rule))
+        return rule;
+    
+    if (rule.includes('/'))
         return rule.split('/').shift();
     
     return rule;
