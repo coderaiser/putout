@@ -113,7 +113,9 @@ const fix = (from, to, path) => {
     const nodeFrom = template.ast(from);
     const watermark = `${from} -> ${to}`;
     
-    if (path._putout === watermark)
+    path._putout = path._putout || [];
+    
+    if (path._putout.includes(watermark))
         return;
     
     if (!compare(path, nodeFrom))
@@ -140,7 +142,7 @@ const fix = (from, to, path) => {
         path,
     });
     
-    path._putout = watermark;
+    path._putout.push(watermark);
 };
 
 const getFix = (items) => (path) => {
