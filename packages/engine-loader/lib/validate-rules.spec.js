@@ -22,3 +22,21 @@ test('engine-runner: validate-rules', (t) => {
     t.end();
 });
 
+test('engine-runner: validate-rules: plugin name with slash', (t) => {
+    const items = [
+        ['remove-empty/import'],
+    ];
+    
+    const rules = {
+        'remove-empty/import': 'off',
+    };
+    
+    const [e] = tryCatch(validateRules, {
+        items,
+        rules,
+    });
+    
+    t.notOk(e);
+    t.end();
+});
+

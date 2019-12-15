@@ -16,7 +16,10 @@ module.exports = ({items, rules}) => {
     const plugins = items.map(shift);
     
     for (const rule of ruleItems) {
-        if (!plugins.includes(parse(rule)))
+        const isWithSlash = plugins.includes(parse(rule));
+        const isName = plugins.includes(rule);
+        
+        if (!isName && !isWithSlash)
             throw Error(`no plugin found for a rule: "${rule}"`);
     }
 };
