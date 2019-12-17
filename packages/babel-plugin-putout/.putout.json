@@ -1,4 +1,7 @@
 {
+    "rules": {
+        "convert-esm-to-commonjs": "on"
+    },
     "ignore": [
         "lib"
     ]
