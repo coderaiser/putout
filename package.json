@@ -2,12 +2,16 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "test": "FORCE_COLOR=3 lerna run test",
-    "coverage": "FORCE_COLOR=3 lerna run coverage",
-    "report": "lerna run --no-bail report",
-    "lint": "FORCE_COLOR=3 lerna run --no-bail lint",
-    "fix:lint": "lerna run --no-bail fix:lint",
-    "bootstrap": "lerna bootstrap"
+    "test": "madrun test",
+    "test:slow": "madrun test:slow",
+    "coverage": "madrun coverage",
+    "coverage:slow": "madrun coverage:slow",
+    "report": "madrun report",
+    "lint:slow": "madrun lint:slow",
+    "lint:dot": "madrun lint:dot",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "bootstrap": "madrun bootstrap"
   },
   "husky": {
     "hooks": {
@@ -16,7 +20,9 @@
   },
   "devDependencies": {
     "husky": "^3.0.5",
-    "lerna": "^3.8.5"
+    "lerna": "^3.8.5",
+    "madrun": "^5.0.1",
+    "supertape": "^1.2.4"
   },
   "workspaces": [
     "packages/*"
