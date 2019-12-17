@@ -30,6 +30,9 @@ module.exports.traverse = ({push}) => {
                 if (!isStringLiteral(key))
                     continue;
                 
+                if (key.value !== 'lint')
+                    continue;
+                
                 const body = prop.get('value.body');
                 
                 if (body.isStringLiteral() && body.node.value.includes('eslint'))
