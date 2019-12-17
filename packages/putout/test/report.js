@@ -2,6 +2,7 @@
 
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
+const stripAnsi = require('strip-ansi');
 
 const {initReport} = require('..');
 
@@ -39,9 +40,6 @@ test('putout: report: dump', (t) => {
         column,
     };
     
-    const {FORCE_COLOR} = env;
-    env.FORCE_COLOR = 0;
-    
     const message = 'hello';
     const rule = 'remove-hello';
     
@@ -54,18 +52,18 @@ test('putout: report: dump', (t) => {
     const formatter = require('@putout/formatter-dump');
     
     const report = initReport();
-    const result = report(formatter, {
+    const formatted = report(formatter, {
         name: 'hello',
         places,
     });
+    
+    const result = stripAnsi(formatted);
     
     const expected = [
         'hello\n 1:1  error   hello  remove-hello \n',
         '✖ 1 errors in 1 files',
         '  fixable with the `--fix` option\n',
     ].join('\n');
-    
-    env.FORCE_COLOR = FORCE_COLOR;
     
     t.equal(result, expected, 'should equal');
     t.end();
