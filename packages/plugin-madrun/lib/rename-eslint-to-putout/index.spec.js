@@ -19,8 +19,13 @@ test('madrun: convert run argument: transform: template', (t) => {
     t.end();
 });
 
-test('madrun: convert run argument: no transform: eslintrc', (t) => {
+test('madrun: convert run argument: transform: eslintrc', (t) => {
     t.noTransform('eslintrc');
+    t.end();
+});
+
+test('madrun: convert run argument: no transform: not lint', (t) => {
+    t.noTransform('not-lint');
     t.end();
 });
 

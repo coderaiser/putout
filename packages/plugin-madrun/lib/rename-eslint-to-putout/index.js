@@ -35,10 +35,10 @@ module.exports.traverse = ({push}) => {
                 
                 const body = prop.get('value.body');
                 
-                if (body.isStringLiteral() && body.node.value.includes('eslint'))
+                if (body.isStringLiteral() && /^eslint/.test(body.node.value))
                     return push(body);
                 
-                if (body.isTemplateLiteral() && body.node.quasis[0].value.raw.includes('eslint'))
+                if (body.isTemplateLiteral() && /^eslint/.test(body.node.quasis[0].value.raw))
                     return push(body.get('quasis.0'));
             }
         },
