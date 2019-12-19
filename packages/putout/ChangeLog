@@ -1,3 +1,19 @@
+2019.12.19, v7.3.2
+
+fix:
+- (putout) file paths validation
+- (@putout/plugin-madrun) rename-eslint-to-putout: only beginning of the line
+- (@putout/plugin-madrun) rename-eslint-to-putout: exclude all but lint
+- (@putout/engine-loader) validate: plugin name with slash
+- (@putout/engine-loader) validate-rules: nested
+- (@putout/engine-runner) infinite loop: watermark: save all steps
+
+feature:
+- (package) madrun v5.1.0
+- (putout) speed up tests
+- (babel-plugin-putout) mocha -> tape
+
+
 2019.12.12, v7.3.1
 
 fix:
