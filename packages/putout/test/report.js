@@ -6,8 +6,6 @@ const stripAnsi = require('strip-ansi');
 
 const {initReport} = require('..');
 
-const {env} = process;
-
 test('putout: report: no places', (t) => {
     const reporter = stub();
     const report = initReport();
