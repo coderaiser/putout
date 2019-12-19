@@ -147,6 +147,9 @@ if (mergedPlaces.length)
 function addExt(a) {
     const [e, file] = tryCatch(statSync, a);
     
+    if (e && e.code === 'ENOENT')
+        return throwNotFound(a);
+    
     if (e)
         return a;
     
@@ -158,13 +161,17 @@ function addExt(a) {
     return a;
 }
 
+function throwNotFound(a) {
+    throw Error(`No files matching the pattern "${a}" were found`);
+}
+
 function getFiles(args) {
     const files = args
         .map(addExt)
         .map(one(glob.sync));
     
     if (args.length && !files[0].length)
-        throw Error(`No files matching the pattern "${args[0]}" were found`);
+        return throwNotFound(args[0]);
     
     return mergeArrays(files);
 }
