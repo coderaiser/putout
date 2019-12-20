@@ -147,7 +147,7 @@ if (mergedPlaces.length)
 function addExt(a) {
     const [e, file] = tryCatch(statSync, a);
     
-    if (e && e.code === 'ENOENT')
+    if (e && e.code === 'ENOENT' && !glob.sync(a).length)
         return throwNotFound(a);
     
     if (e)
