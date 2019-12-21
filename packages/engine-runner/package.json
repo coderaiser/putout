@@ -35,7 +35,7 @@
     "@putout/engine-parser": "^1.2.0",
     "@putout/operate": "^2.0.0",
     "debug": "^4.1.1",
-    "jessy": "^2.0.2",
+    "jessy": "^3.0.0",
     "nessy": "^2.1.0",
     "once": "^1.4.0",
     "try-catch": "^2.0.1"
