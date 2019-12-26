@@ -24,7 +24,7 @@ module.exports = {
     }),
     
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
-    'watch:test': () => `nodemon -w lib -w test -x "${run('test')}"`,
+    'watch:test': () => `nodemon -w bin -w lib -w test -x "${run('test')}"`,
     
     'lint': () => {
         const names = [

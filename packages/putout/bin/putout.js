@@ -91,7 +91,8 @@ if (argv.version) {
 }
 
 if (argv.help) {
-    help();
+    const help = require('../lib/help');
+    console.log(help());
     exit();
 }
 
@@ -196,18 +197,6 @@ function getGitNames() {
     return names
         .filter(isJS)
         .map(joinDir(gitDir));
-}
-
-function help() {
-    const bin = require('../help');
-    const usage = 'Usage: putout [options] [path]';
-    
-    console.log(usage);
-    console.log('Options:');
-    
-    for (const name of Object.keys(bin)) {
-        console.log('  %s %s', name, bin[name]);
-    }
 }
 
 function exit(e) {
