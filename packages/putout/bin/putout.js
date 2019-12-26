@@ -201,7 +201,7 @@ function getGitNames() {
 
 function exit(e) {
     if (!e)
-        process.exit(0);
+        return process.exit(0);
     
     if (typeof e === 'number')
         return process.exit(e);
