@@ -44,3 +44,11 @@ test('putout: cli: --help', (t) => {
     t.end();
 });
 
+test('putout: cli: no files found', (t) => {
+    const result = run('abc');
+    const expected = 'No files matching the pattern "abc" were found';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
