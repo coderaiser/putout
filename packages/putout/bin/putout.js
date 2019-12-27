@@ -5,7 +5,6 @@
 const {
     readFileSync,
     writeFileSync,
-    statSync,
 } = require('fs');
 
 const {join} = require('path');
@@ -13,17 +12,15 @@ const {red} = require('chalk');
 
 const cwd = process.cwd();
 
-const glob = require('glob');
 const tryCatch = require('try-catch');
 const merge = require('../lib/merge');
 const processFile = require('../lib/process-file');
+const getFiles = require('../lib/get-files');
 
 const {parse, stringify} = JSON;
 
-const one = (f) => (a) => f(a);
 const joinDir = (a) => (b) => join(a, b);
 const isJS = (a) => /(\.jsx?|\.ts|\/)$/.test(a);
-const rmDuplicates = (a) => Array.from(new Set(a));
 
 const argv = require('yargs-parser')(process.argv.slice(2), {
     boolean: [
@@ -101,14 +98,12 @@ const isString = (a) => typeof a === 'string';
 const isStringAll = (...a) => a.filter(isString).length;
 const isRuler = (a) => a.disableAll || a.enableAll || isStringAll(a.disable, a.enable);
 
-const mergeArrays = (a) => [].concat(...a);
-
 const globFiles = [
     ...gitNames,
     ...argv._.map(String),
 ];
 
-const [e, files] = tryCatch(getFiles, globFiles);
+const [e, files] = getFiles(globFiles);
 
 if (e)
     exit(e);
@@ -145,38 +140,6 @@ if (isRuler(argv)) {
 
 if (mergedPlaces.length)
     exit(1);
-
-function addExt(a) {
-    const [e, file] = tryCatch(statSync, a);
-    
-    if (e && e.code === 'ENOENT' && !glob.sync(a).length)
-        return throwNotFound(a);
-    
-    if (e)
-        return a;
-    
-    const isDir = file.isDirectory();
-    
-    if (isDir)
-        return `${a}/**/*.{js,jsx,ts}`;
-    
-    return a;
-}
-
-function throwNotFound(a) {
-    throw Error(`No files matching the pattern "${a}" were found`);
-}
-
-function getFiles(args) {
-    const files = args
-        .map(addExt)
-        .map(one(glob.sync));
-    
-    if (args.length && !files[0].length)
-        return throwNotFound(args[0]);
-    
-    return rmDuplicates(mergeArrays(files));
-}
 
 function getGitNames() {
     const porcelaine = require('@putout/git-status-porcelain');
