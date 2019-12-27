@@ -23,6 +23,7 @@ const {parse, stringify} = JSON;
 const one = (f) => (a) => f(a);
 const joinDir = (a) => (b) => join(a, b);
 const isJS = (a) => /(\.jsx?|\.ts|\/)$/.test(a);
+const rmDuplicates = (a) => Array.from(new Set(a));
 
 const argv = require('yargs-parser')(process.argv.slice(2), {
     boolean: [
@@ -174,7 +175,7 @@ function getFiles(args) {
     if (args.length && !files[0].length)
         return throwNotFound(args[0]);
     
-    return mergeArrays(files);
+    return rmDuplicates(mergeArrays(files));
 }
 
 function getGitNames() {
