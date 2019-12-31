@@ -45,6 +45,8 @@ const fixture = readFixtures([
     'return-statement',
     'variable-declarator',
     'variable-declarator-fix',
+    'try-catch',
+    'try-catch-fix',
 ]);
 
 test('remove-unused-variables: putout: no vars', (t) => {
@@ -189,6 +191,14 @@ test('remove-unused-variables: putout: function declaration', (t) => {
 test('remove-unused-variables: putout: import', (t) => {
     const {code} = putout(fixture.import);
     const expected = fixture.importFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: putout: try-catch', (t) => {
+    const {code} = putout(fixture.tryCatch);
+    const expected = fixture.tryCatchFix;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

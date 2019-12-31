@@ -47,6 +47,22 @@ module.exports = ({use, declare, addParams}) => {
                 use(path, argument.name);
         },
         
+        CatchClause(path) {
+            const param = path.get('param');
+            
+            if (!param.isIdentifier())
+                return;
+            
+            const {name} = param.node;
+            
+            declare(param, name);
+            
+            const binding = path.scope.getOwnBinding(name);
+            
+            if (binding.referenced)
+                use(param, name);
+        },
+        
         RestElement(path) {
             const {argument} = path.node;
             

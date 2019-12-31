@@ -70,6 +70,7 @@ const fixture = readFixtures([
     'template-literal',
     'tagged-template-expression',
     'throw-statement',
+    'try-catch',
     'undeclared-vars',
     'unary-expression',
     'update-expression',
@@ -935,6 +936,22 @@ test('remove-unused-variables: get-vars: throw statement', (t) => {
     const expected = [{
         e: du,
         Error: _u,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: try-catch', (t) => {
+    const ast = parse(fixture.tryCatch);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        console: _u,
+    }, {
+        error_used: du,
+    }, {
+        error: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');
