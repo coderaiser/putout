@@ -1,8 +1,4 @@
 node_modules
 .*
-src
 test
-madrun.js
-
-.madrun.js
 
