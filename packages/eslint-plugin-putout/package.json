@@ -15,7 +15,7 @@
     "eslint-plugin"
   ],
   "author": "coderaiser",
-  "main": "index.js",
+  "main": "lib/index.js",
   "nyc": {
     "exclude": [
       "*/**/*.spec.js",

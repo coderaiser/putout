@@ -43,6 +43,6 @@ module.exports = {
     'lint:progress': () => run('lint', '--fix --f progress'),
     'lint:p': () => run('lint:progress'),
     'coverage': () => `nyc ${run('test')}`,
-    'report': () => `nyc report --reporter=text-lcov | coveralls || true`,
+    'report': () => `nyc report --reporter=text-lcov | coveralls`,
 };
 
