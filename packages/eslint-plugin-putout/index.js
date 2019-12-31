@@ -11,6 +11,7 @@ module.exports.rules = {
     ...getRule('long-properties-destructuring'),
     ...getRule('destructuring-as-function-argument'),
     ...getRule('align-spaces'),
+    ...getRule('keyword-spacing'),
     ...getRule('new-line-function-call-arguments'),
     ...getRule('putout'),
 };
@@ -31,9 +32,9 @@ module.exports.configs = {
             'putout/long-properties-destructuring': 'error',
             'putout/destructuring-as-function-argument': 'error',
             'putout/align-spaces': 'error',
+            'putout/keyword-spacing': 'error',
             'putout/new-line-function-call-arguments': 'error',
             'putout/putout': 'error',
         },
     },
 };
-

@@ -50,5 +50,6 @@ Then configure the rules you want to use under the rules section.
 - [Long properties destructuring](/packages/eslint-plugin-putout/rules/long-properties-destructuring.md)
 - [Destructuring as function argument](/packages/eslint-plugin-putout/rules/destructuring-as-function-argument.md)
 - [Align spaces](/packages/eslint-plugin-putout/rules/align-spaces.md)
+- [Keyword spacing](/packages/eslint-plugin-putout/rules/keyword-spacing.md)
 - [New line function call arguments](/packages/eslint-plugin-putout/rules/new-line-function-call-arguments.md)
 

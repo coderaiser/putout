@@ -1,0 +1,12 @@
+{
+    "extends": [
+        "plugin:putout/recommended",
+        "plugin:node/recommended",
+        "plugin:eslint-plugin/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node",
+        "eslint-plugin"
+    ]
+}
