@@ -43,13 +43,13 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-- [putout](rules/putout.md)
-- [Single property destructuring](/packages/eslint-plugin-putout/rules/single-property-destructuring.md)
-- [Multiple properties destructuring](/packages/eslint-plugin-putout/rules/multiple-properties-destructuring.md)
-- [For-of multiple properties destructuring](/packages/eslint-plugin-putout/rules/for-of-multiple-properties-destructuring.md)
-- [Long properties destructuring](/packages/eslint-plugin-putout/rules/long-properties-destructuring.md)
-- [Destructuring as function argument](/packages/eslint-plugin-putout/rules/destructuring-as-function-argument.md)
-- [Align spaces](/packages/eslint-plugin-putout/rules/align-spaces.md)
-- [Keyword spacing](/packages/eslint-plugin-putout/rules/keyword-spacing.md)
-- [New line function call arguments](/packages/eslint-plugin-putout/rules/new-line-function-call-arguments.md)
+- [putout](rules/putout)
+- [Single property destructuring](/packages/eslint-plugin-putout/rules/single-property-destructuring)
+- [Multiple properties destructuring](/packages/eslint-plugin-putout/rules/multiple-properties-destructuring)
+- [For-of multiple properties destructuring](/packages/eslint-plugin-putout/rules/for-of-multiple-properties-destructuring)
+- [Long properties destructuring](/packages/eslint-plugin-putout/rules/long-properties-destructuring)
+- [Destructuring as function argument](/packages/eslint-plugin-putout/rules/destructuring-as-function-argument)
+- [Align spaces](/packages/eslint-plugin-putout/rules/align-spaces)
+- [Keyword spacing](/packages/eslint-plugin-putout/rules/keyword-spacing)
+- [New line function call arguments](/packages/eslint-plugin-putout/rules/new-line-function-call-arguments)
 

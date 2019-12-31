@@ -1,8 +1,8 @@
 'use strict';
 
-const {isCorrectLoc} = require('./common');
+const {isCorrectLoc} = require('../common');
 
-const description = 'Keep each property on separate lines when using multiple destructuring properties';
+const description = 'Keep each property on separate lines when destructuring long properties';
 
 module.exports = {
     meta: {
@@ -16,19 +16,15 @@ module.exports = {
     },
     
     create(context) {
-        const {minProperties = 2} = context.options[0] || {};
-        
         return {
-            [`VariableDeclarator[id.type="ObjectPattern"][id.properties.length>${minProperties}]`]: (node) => {
-                if (node.parent.parent.type === 'ForOfStatement')
-                    return;
-                
+            'VariableDeclarator[id.type="ObjectPattern"][id.properties.length>=2]': (node) => {
                 const {id} = node;
                 const {properties} = id;
                 const {line} = node.loc.start;
                 const isLoc = isCorrectLoc(line, properties);
+                const isLength = isCorrectLength(properties);
                 
-                if (isLoc)
+                if (isLoc || isLength)
                     return;
                 
                 const text = context
@@ -43,8 +39,7 @@ module.exports = {
                         const fixed = text
                             .replace(/,/g, ',\n')
                             .replace('{', '{\n')
-                            .replace('}', '\n}')
-                            .replace(/\n(\s*)?\n/g, '\n');
+                            .replace('}', '\n}');
                         
                         return [
                             fixer.replaceText(node, fixed),
@@ -55,4 +50,15 @@ module.exports = {
         };
     },
 };
+
+function isCorrectLength(properties) {
+    for (const prop of properties) {
+        const {name} = prop.key || prop.argument;
+        
+        if (name.length >= 10)
+            return false;
+    }
+    
+    return true;
+}
 

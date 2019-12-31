@@ -1,7 +1,7 @@
 'use strict';
 
 const getRule = (a) => ({
-    [a]: require(`./rules/${a}`),
+    [a]: require(`./rules/${a}/${a}`),
 });
 
 module.exports.rules = {
