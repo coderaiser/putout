@@ -1,7 +1,12 @@
 'use strict';
 
 const test = require('supertape');
+const mockRequire = require('mock-require');
+const stub = require('@cloudcmd/stub');
+
 const getFiles = require('./get-files');
+
+const {reRequire, stopAll} = mockRequire;
 
 const rmStart = (a) => a.replace('lib/', '');
 
@@ -20,6 +25,17 @@ test('putout: getFiles: error: not first', (t) => {
 });
 
 test('putout: getFiles', (t) => {
+    const sync = stub().returns([
+        'get-files.js',
+        'get-files.spec.js',
+    ]);
+    
+    mockRequire('glob', {
+        sync,
+    });
+    
+    const getFiles = reRequire('./get-files');
+    
     const [, files] = getFiles(['**/get-files*.js']);
     const result = files.map(rmStart);
     const expected = [
@@ -27,27 +43,52 @@ test('putout: getFiles', (t) => {
         'get-files.spec.js',
     ];
     
+    stopAll();
+    
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: getFiles: name', (t) => {
+    const sync = stub().returns([
+        'get-files.js',
+    ]);
+    
+    mockRequire('glob', {
+        sync,
+    });
+    
+    const getFiles = reRequire('./get-files');
+    
     const [, files] = getFiles(['lib/get-files.js']);
     const result = files.map(rmStart);
     const expected = [
         'get-files.js',
     ];
     
+    stopAll();
+    
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: getFiles: dir', (t) => {
+    const sync = stub().returns([
+        'bin/putout.js',
+    ]);
+    
+    mockRequire('glob', {
+        sync,
+    });
+    
+    const getFiles = reRequire('./get-files');
     const [, files] = getFiles(['bin']);
     const result = files.map(rmStart);
     const expected = [
         'bin/putout.js',
     ];
+    
+    stopAll();
     
     t.deepEqual(result, expected);
     t.end();

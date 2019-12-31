@@ -4,6 +4,7 @@ const {join} = require('path');
 
 const test = require('supertape');
 const runsome = require('runsome');
+const stripAnsi = require('strip-ansi');
 
 const cliPath = join(__dirname, '../bin/putout.js');
 const run = runsome(cliPath);
@@ -45,7 +46,7 @@ test('putout: cli: --help', (t) => {
 });
 
 test('putout: cli: no files found', (t) => {
-    const result = run('abc');
+    const result = stripAnsi(run('abc'));
     const expected = 'No files matching the pattern "abc" were found';
     
     t.equal(result, expected);
