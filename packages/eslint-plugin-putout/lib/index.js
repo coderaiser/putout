@@ -15,7 +15,7 @@ module.exports.rules = {
     ...getRule('multiple-properties-destructuring'),
     ...getRule('for-of-multiple-properties-destructuring'),
     ...getRule('long-properties-destructuring'),
-    ...getRule('destructuring-as-function-argument'),
+    ...getWrapRule('destructuring-as-function-argument'),
     ...getWrapRule('align-spaces'),
     ...getWrapRule('keyword-spacing'),
     ...getRule('new-line-function-call-arguments'),

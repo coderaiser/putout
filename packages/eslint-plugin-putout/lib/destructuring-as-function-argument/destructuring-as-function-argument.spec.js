@@ -1,7 +1,9 @@
 'use strict';
 
-const rule = require('./destructuring-as-function-argument');
 const {RuleTester} = require('eslint');
+
+const wrap = require('../wrap');
+const rule = wrap(require('./destructuring-as-function-argument'));
 
 const ruleTester = new RuleTester({
     parserOptions: {
