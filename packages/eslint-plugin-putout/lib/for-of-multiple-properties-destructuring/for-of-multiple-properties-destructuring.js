@@ -1,51 +1,31 @@
 'use strict';
 
-const description = 'Keep all properties in one line when using destructuring in for-of';
+module.exports.category = 'destructuring';
+module.exports.report = () => 'Keep all properties in one line when using destructuring in for-of';
 
-module.exports = {
-    meta: {
-        type: 'layout',
-        docs: {
-            description,
-            category: 'destructuring',
-            recommended: true,
-        },
-        fixable: 'whitespace',
-    },
+module.exports.include = ({options}) => {
+    const {maxProperties = 8} = options[0] || {};
     
-    create(context) {
-        const {maxProperties = 8} = context.options[0] || {};
-        
-        return {
-            [`VariableDeclarator[id.type="ObjectPattern"][id.properties.length<${maxProperties}]`]: (node) => {
-                if (node.parent.parent.type !== 'ForOfStatement')
-                    return;
-                
-                const text = context
-                    .getSourceCode()
-                    .getText(node);
-                
-                if (!text.includes('\n'))
-                    return;
-                
-                context.report({
-                    node,
-                    message: description,
-                    
-                    fix(fixer) {
-                        const fixed = text
-                            .replace(/\n/g, '')
-                            .replace(/,/g, ', ')
-                            .replace(/{\s*/g, '{')
-                            .replace(/\s*}/g, '}');
-                        
-                        return [
-                            fixer.replaceText(node, fixed),
-                        ];
-                    },
-                });
-            },
-        };
-    },
+    return [
+        `VariableDeclarator[id.type="ObjectPattern"][id.properties.length<${maxProperties}]`,
+    ];
+};
+
+module.exports.filter = ({node, text}) => {
+    if (node.parent.parent.type !== 'ForOfStatement')
+        return false;
+    
+    if (!text.includes('\n'))
+        return false;
+    
+    return true;
+};
+
+module.exports.fix = ({text}) => {
+    return text
+        .replace(/\n/g, '')
+        .replace(/,/g, ', ')
+        .replace(/{\s*/g, '{')
+        .replace(/\s*}/g, '}');
 };
 
