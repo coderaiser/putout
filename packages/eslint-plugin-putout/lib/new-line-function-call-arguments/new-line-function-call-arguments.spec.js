@@ -1,7 +1,9 @@
 'use strict';
 
-const rule = require('./new-line-function-call-arguments');
 const {RuleTester} = require('eslint');
+
+const wrap = require('../wrap');
+const rule = wrap(require('./new-line-function-call-arguments'));
 
 const ruleTester = new RuleTester({
     parserOptions: {

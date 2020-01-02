@@ -18,7 +18,7 @@ module.exports.rules = {
     ...getWrapRule('destructuring-as-function-argument'),
     ...getWrapRule('align-spaces'),
     ...getWrapRule('keyword-spacing'),
-    ...getRule('new-line-function-call-arguments'),
+    ...getWrapRule('new-line-function-call-arguments'),
     ...getRule('putout'),
 };
 

@@ -1,63 +1,43 @@
 'use strict';
 
-module.exports = {
-    meta: {
-        type: 'layout',
-        docs: {
-            description: 'Add new line before and after arguments in a function call',
-            category: 'CallExpression',
-            recommended: true,
-        },
-        fixable: 'whitespace',
-    },
+module.exports.report = () => 'Add new line before and after arguments in a function call';
+
+module.exports.include = () => [
+    'CallExpression',
+];
+
+module.exports.filter = ({node, text}) => {
+    if (node.callee.type !== 'Identifier')
+        return false;
     
-    create(context) {
-        return {
-            CallExpression(node) {
-                if (node.callee.type !== 'Identifier')
-                    return;
-                
-                const {name} = node.callee;
-                const source = context.getSourceCode();
-                
-                if (node.arguments.length < 3)
-                    return;
-                
-                for (const arg of node.arguments) {
-                    if (/Function|Object|Array/.test(arg.type))
-                        return;
-                }
-                
-                const text = source
-                    .getText(node)
-                    .replace(name, '');
-                
-                if (text.length < 60)
-                    return;
-                
-                const isOpenBracket = /^\(\n/.test(text);
-                const isCloseBracket = /\n\s*\)$/.test(text);
-                
-                if (isOpenBracket && isCloseBracket)
-                    return;
-                
-                context.report({
-                    node,
-                    message: 'Add new line before and after arguments in a function call',
-                    
-                    fix(fixer) {
-                        const fixed = name + text
-                            .replace('(', '(\n')
-                            .replace(/,\s?/g, ',\n')
-                            .replace(/\)$/, '\n)');
-                        
-                        return [
-                            fixer.replaceText(node, fixed),
-                        ];
-                    },
-                });
-            },
-        };
-    },
+    const {name} = node.callee;
+    
+    if (node.arguments.length < 3)
+        return;
+    
+    for (const arg of node.arguments) {
+        if (/Function|Object|Array/.test(arg.type))
+            return false;
+    }
+    
+    const cutedText = text.replace(name, '');
+    
+    if (cutedText.length < 60)
+        return false;
+    
+    const isOpenBracket = /^\(\n/.test(cutedText);
+    const isCloseBracket = /\n\s*\)$/.test(cutedText);
+    
+    if (isOpenBracket && isCloseBracket)
+        return false;
+    
+    return true;
+};
+
+module.exports.fix = ({text}) => {
+    return text
+        .replace('(', '(\n')
+        .replace(/,\s?/g, ',\n')
+        .replace(/\)$/, '\n)');
 };
 
