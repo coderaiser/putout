@@ -13,8 +13,8 @@ const getWrapRule = (a) => ({
 module.exports.rules = {
     ...getRule('single-property-destructuring'),
     ...getRule('multiple-properties-destructuring'),
-    ...getRule('for-of-multiple-properties-destructuring'),
-    ...getRule('long-properties-destructuring'),
+    ...getWrapRule('for-of-multiple-properties-destructuring'),
+    ...getWrapRule('long-properties-destructuring'),
     ...getWrapRule('destructuring-as-function-argument'),
     ...getWrapRule('align-spaces'),
     ...getWrapRule('keyword-spacing'),

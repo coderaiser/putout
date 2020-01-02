@@ -1,6 +1,6 @@
 'use strict';
 
-const prepare = (plugin, context) => (node) => {
+const prepare = (plugin, context, options) => (node) => {
     const {filter, report} = plugin;
     
     const text = context
@@ -10,6 +10,7 @@ const prepare = (plugin, context) => (node) => {
     const result = filter({
         text,
         node,
+        options,
     });
     
     if (!result)
@@ -44,8 +45,9 @@ module.exports = (plugin) => {
     return {
         meta,
         create(context) {
-            const prepared = prepare(plugin, context);
-            const names = plugin.include();
+            const {options} = context;
+            const prepared = prepare(plugin, context, options);
+            const names = plugin.include({options});
             
             return getTraversers(names, prepared, context);
         },
