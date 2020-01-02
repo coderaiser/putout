@@ -1,7 +1,9 @@
 'use strict';
 
-const rule = require('./single-property-destructuring');
 const {RuleTester} = require('eslint');
+
+const wrap = require('../wrap');
+const rule = wrap(require('./single-property-destructuring'));
 
 const ruleTester = new RuleTester({
     parserOptions: {

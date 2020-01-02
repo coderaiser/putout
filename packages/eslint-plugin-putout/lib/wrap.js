@@ -3,14 +3,16 @@
 const prepare = (plugin, context, options) => (node) => {
     const {filter, report} = plugin;
     
-    const text = context
-        .getSourceCode()
-        .getText(node);
+    const source = context.getSourceCode();
+    const getText = source.getText.bind(source);
+    
+    const text = getText(node);
     
     const result = filter({
         text,
         node,
         options,
+        getText,
     });
     
     if (!result)
@@ -19,6 +21,7 @@ const prepare = (plugin, context, options) => (node) => {
     const fix = prepareFix(plugin.fix, {
         node,
         text,
+        getText,
     });
     
     context.report({
@@ -28,10 +31,11 @@ const prepare = (plugin, context, options) => (node) => {
     });
 };
 
-const prepareFix = (fix, {node, text}) => (fixer) => {
+const prepareFix = (fix, {node, text, getText}) => (fixer) => {
     const fixed = fix({
         node,
         text,
+        getText,
     });
     
     return [

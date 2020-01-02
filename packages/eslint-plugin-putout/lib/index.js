@@ -11,7 +11,7 @@ const getWrapRule = (a) => ({
 });
 
 module.exports.rules = {
-    ...getRule('single-property-destructuring'),
+    ...getWrapRule('single-property-destructuring'),
     ...getWrapRule('multiple-properties-destructuring'),
     ...getWrapRule('for-of-multiple-properties-destructuring'),
     ...getWrapRule('long-properties-destructuring'),
