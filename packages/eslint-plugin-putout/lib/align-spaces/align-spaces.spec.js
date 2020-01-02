@@ -1,7 +1,8 @@
 'use strict';
 
-const rule = require('./align-spaces');
+const wrap = require('../wrap');
 const {RuleTester} = require('eslint');
+const rule = wrap(require('./align-spaces'));
 
 const ruleTester = new RuleTester({
     parserOptions: {

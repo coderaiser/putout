@@ -1,42 +1,26 @@
 'use strict';
 
 const alignSpaces = require('align-spaces');
+const alignedMap = new Map();
 
-module.exports = {
-    meta: {
-        type: 'layout',
-        docs: {
-            description: 'Spaces should be aligned on empty lines',
-            category: 'spaces',
-            recommended: true,
-        },
-        fixable: 'whitespace',
-    },
+module.exports.report = () => 'Spaces should be aligned on empty lines';
+
+module.exports.include = () => [
+    'Program',
+];
+
+module.exports.fix = ({text}) => {
+    return alignedMap.get(text);
+};
+
+module.exports.filter = ({text}) => {
+    const aligned = alignSpaces(text);
     
-    create(context) {
-        return {
-            Program(node) {
-                const text = context
-                    .getSourceCode()
-                    .getText(node);
-                
-                const aligned = alignSpaces(text);
-                
-                if (text === aligned)
-                    return;
-                
-                context.report({
-                    node,
-                    message: 'Spaces should be aligned on empty lines',
-                    
-                    fix(fixer) {
-                        return [
-                            fixer.replaceText(node, aligned),
-                        ];
-                    },
-                });
-            },
-        };
-    },
+    if (text === aligned)
+        return false;
+    
+    alignedMap.set(text, aligned);
+    
+    return true;
 };
 
