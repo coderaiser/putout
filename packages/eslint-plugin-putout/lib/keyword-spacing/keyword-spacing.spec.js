@@ -1,7 +1,9 @@
 'use strict';
 
 const {RuleTester} = require('eslint');
-const rule = require('./keyword-spacing');
+
+const wrap = require('../wrap');
+const rule = wrap(require('./keyword-spacing'));
 
 const ruleTester = new RuleTester({
     parserOptions: {

@@ -1,7 +1,13 @@
 'use strict';
 
+const wrap = require('./wrap');
+
 const getRule = (a) => ({
     [a]: require(`./${a}/${a}`),
+});
+
+const getWrapRule = (a) => ({
+    [a]: wrap(require(`./${a}/${a}`)),
 });
 
 module.exports.rules = {
@@ -11,7 +17,7 @@ module.exports.rules = {
     ...getRule('long-properties-destructuring'),
     ...getRule('destructuring-as-function-argument'),
     ...getRule('align-spaces'),
-    ...getRule('keyword-spacing'),
+    ...getWrapRule('keyword-spacing'),
     ...getRule('new-line-function-call-arguments'),
     ...getRule('putout'),
 };
