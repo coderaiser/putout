@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('supertape');
-const parseMatch = require('../lib/parse-match');
+const parseMatch = require('./parse-match');
 
 test('putout: parse-match: empty', (t) => {
     const result = parseMatch();

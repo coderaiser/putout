@@ -12,9 +12,9 @@ const once = require('once');
 const tryCatch = require('try-catch');
 const findUp = require('find-up');
 
-const merge = require('./merge');
 const parseMatch = require('./parse-match');
-const defaultOptions = require('../putout.json');
+const defaultOptions = require('../../putout.json');
+const merge = require('../merge');
 
 const home = homedir();
 const cwd = process.cwd();
