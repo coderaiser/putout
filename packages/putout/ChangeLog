@@ -1,3 +1,25 @@
+2020.01.03, v7.4.0
+
+fix:
+- (package) engine
+- (babel-plugin-putout) lib
+
+feature:
+- (@putout/plugin-remove-useless-templates) add
+- (eslint-plugin-putout) single-property-destructuring: wrap
+- (eslint-plugin-putout) new-line-function-call-arguments: wrap
+- (eslint-plugin-putout) multiple-properties-destructuring: wrap
+- (eslint-plugin-putout) long-properties-desturucturing
+- (eslint-plugin-putout) for-of-multiple-properties-destructuring: wrap
+- (eslint-plugin-putout) destructuring-as-function-argument: wrap
+- (eslint-plugin-putout) wrap: align-spaces
+- (eslint-plugin-putout) add wrap
+- (eslint-plugin-putout) rules -> lib
+- (eslint-plugin-putout) add keyword-spacing
+- (@putout/eslint-config) keyword-spacing: rm catch: doesn't supports optional catch binding
+- (@putout/plugin-remove-unused-variables) add support of optional catch binding (https://github.com/tc39/proposal-optional-catch-binding)
+
+
 2019.12.27, v7.3.4
 
 fix:
