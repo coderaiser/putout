@@ -14,7 +14,7 @@ module.exports = (name, match) => {
         const pattern = parseSep(item);
         
         if (RegExp(pattern).test(name))
-            assign(rules, match[pattern]);
+            assign(rules, match[item]);
     }
     
     return {

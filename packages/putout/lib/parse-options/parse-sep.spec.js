@@ -15,7 +15,7 @@ test('putout: parse-sep', (t) => {
     const parseSep = reRequire('./parse-sep');
     
     const result = parseSep('/hello');
-    const expected = '\\hello';
+    const expected = '\\\\hello';
     
     defineProperty(process, 'platform', {
         value: platform,

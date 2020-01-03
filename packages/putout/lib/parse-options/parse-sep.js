@@ -6,6 +6,6 @@ module.exports = (a) => {
     if (platform !== 'win32')
         return a;
     
-    return a.replace(RegExp('/', 'g'), `\\`);
+    return a.replace(RegExp('/', 'g'), `\\\\`);
 };
 
