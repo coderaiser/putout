@@ -7,6 +7,12 @@ node_js:
 
 os:
     - linux
+    - osx
+    - windows
+
+matrix:
+    allow_failures:
+        - os: windows
 
 script:
   - npm run bootstrap
