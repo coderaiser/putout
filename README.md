@@ -37,8 +37,19 @@ Options:
   -h, --help              display this help and exit
   -v, --version           output version information and exit
   -f, --format            use a specific output format - default: dump
+  -m, --modified          add modified files when in git repository
+  -u, --untracked         add untracked files when in git repository
   --fix                   aply found fixes of errors to code
   --fix-count             count of fixes rounds (defaults to 10)
+  --rulesdir              specify custom rulesdir
+  --enable                enable rule by name in .putout.json
+  --disable               disable rule by name in .putout.json
+  --enable-all            enable all rules in .putout.json
+  --disable-all           disable all rules in .putout.json
+  --jsx                   enable jsx (default)
+  --flow                  enable flow
+  --no-jsx                disable jsx
+  --no-flow               disable flow (default)
 ```
 
 To find possible transform places:
@@ -87,7 +98,7 @@ putout lib test --fix
 ```
 </details>
 
-<details><summary>remove useless variables</summary>
+<details><summary>remove useless <code>variables<code></summary>
 
 ```diff
 -   function hi(a) {
@@ -109,6 +120,14 @@ onIfStatement({
 
 function onIfStatement({push}) {
 }
+```
+</details>
+
+<details><summary>remove useless <code>templates</code></summary>
+
+```diff
+-console.log(`${str}`);
++console.log(str);
 ```
 </details>
 
@@ -528,6 +547,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-remove-useless-array-from`](/packages/plugin-remove-useless-array-from) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-from.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array-from) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-array-from)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-array-from) |
 | [`@putout/plugin-remove-useless-spread`](/packages/plugin-remove-useless-spread) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-spread) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-spread)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-spread) |
 | [`@putout/plugin-remove-useless-arguments`](/packages/plugin-remove-useless-arguments) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-arguments.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-arguments) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-arguments)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-arguments) |
+| [`@putout/plugin-remove-useless-templates`](/packages/plugin-remove-useless-templates) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-templates.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-templates) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-templates)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-templates) |
 | [`@putout/plugin-remove-useless-escape`](/packages/plugin-remove-useless-escape) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-escape.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-escape) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-escape)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-escape) |
 | [`@putout/plugin-remove-process-exit`](/packages/plugin-remove-process-exit) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-process-exit.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-process-exit) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-process-exit)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-process-exit) |
 | [`@putout/plugin-remove-debugger`](/packages/plugin-remove-debugger) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-debugger.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-debugger) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-debugger)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-debugger) |

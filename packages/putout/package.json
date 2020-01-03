@@ -90,6 +90,7 @@
     "@putout/plugin-remove-unused-private-fields": "^1.0.0",
     "@putout/plugin-remove-unused-variables": "^1.0.0",
     "@putout/plugin-remove-useless-arguments": "^2.0.0",
+    "@putout/plugin-remove-useless-templates": "^1.0.0",
     "@putout/plugin-remove-useless-array-from": "^1.0.0",
     "@putout/plugin-remove-useless-escape": "^1.0.0",
     "@putout/plugin-remove-useless-variables": "^3.0.0",

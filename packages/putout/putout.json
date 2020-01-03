@@ -53,6 +53,7 @@
         "remove-useless-variables",
         "remove-useless-array-from",
         "remove-useless-arguments",
+        "remove-useless-templates",
         "remove-useless-escape",
         "remove-constant-conditions",
         "remove-boolean-from-logical-expressions",

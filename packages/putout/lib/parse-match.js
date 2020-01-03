@@ -10,7 +10,7 @@ module.exports = (name, match) => {
     const items = keys(match);
     
     for (const pattern of items)
-        if (RegExp(`${pattern}`).test(name))
+        if (RegExp(pattern).test(name))
             assign(rules, match[pattern]);
     
     return {
