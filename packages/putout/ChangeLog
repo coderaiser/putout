@@ -1,3 +1,9 @@
+2020.01.03, v7.4.1
+
+fix:
+- (parse-match) add windows support
+
+
 2020.01.03, v7.4.0
 
 fix:
