@@ -91,7 +91,7 @@ function getValues({waysFrom, node}) {
     
     for (const [name, ways] of entries(waysFrom)) {
         for (const way of ways)
-            result[name] = jessy(way, node);
+            result[name] = result[name] || jessy(way, node);
     }
     
     return result;
@@ -104,8 +104,9 @@ function setValues({waysTo, values, path}) {
             continue;
         }
         
-        for (const way of ways)
+        for (const way of ways) {
             nessy(way, values[name], path.node);
+        }
     }
 }
 

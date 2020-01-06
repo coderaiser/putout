@@ -384,3 +384,25 @@ test('putout: plugins: replace: template: infinite loop', (t) => {
     t.end();
 });
 
+test('putout: plugins: replace: template: same', (t) => {
+    const applyToSpread = {
+        report: () => '',
+        replace: () => ({
+            'console.log.apply(/*hello*/ console, lines)': 'console.log(...lines)',
+        }),
+    };
+    
+    const {code} = putout('console.log(...lines)', {
+        fixCount: 1,
+        runPlugins,
+        plugins: [{
+            'apply-to-spread': applyToSpread,
+        }],
+    });
+    
+    const expected = 'console.log(...lines)';
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
