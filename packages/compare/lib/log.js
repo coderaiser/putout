@@ -3,7 +3,7 @@
 const debug = require('debug')('putout:template:compare');
 
 const {isArray} = Array;
-const isObject = (a) => typeof a === 'object';
+const isObject = (a) => a && typeof a === 'object';
 
 module.exports = (a, b) => {
     if (!debug.enabled)
