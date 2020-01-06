@@ -362,3 +362,13 @@ test('compare: object: template: expression', (t) => {
     t.end();
 });
 
+test('compare: object: template: comments', (t) => {
+    const a = template.ast('console.log(/* hello */)');
+    const b = template.ast('__a.__b()');
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+

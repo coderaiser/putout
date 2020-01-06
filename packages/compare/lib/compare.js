@@ -24,7 +24,7 @@ const isObject = (a) => {
 };
 
 const isArrays = (a, b) => {
-    if (!isArray(a) && !isArray(b))
+    if (!isArray(a) || !isArray(b))
         return false;
     
     if (a.length !== b.length)
@@ -103,7 +103,7 @@ module.exports.compareAll = (path, baseNodes) => {
 };
 // @babel/template creates empty array directives
 // extra duplicate value
-const regIgnore = /loc|start|end|directives|extra|raw/;
+const regIgnore = /loc|start|end|directives|extra|raw|comments|leadingComments/;
 
 function superCompare(pathNode, baseNode, templateStore) {
     if (!baseNode || !pathNode)
