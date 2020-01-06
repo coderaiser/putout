@@ -1,2 +1,2 @@
-path.resolve.apply(null, args);
+resolve.apply(null, args);
 

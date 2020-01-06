@@ -1,4 +1,5 @@
 const fn = (...args) => {
-    this._Emitter.emit(/* hello */ ...args);
+    // hello world
+    this._Emitter.emit(...args);
 };
 

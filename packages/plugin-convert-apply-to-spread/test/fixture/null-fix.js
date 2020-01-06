@@ -1,2 +1,2 @@
-path.resolve(...args);
+resolve(...args);
 

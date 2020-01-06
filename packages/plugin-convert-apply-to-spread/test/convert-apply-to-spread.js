@@ -5,12 +5,12 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-convert-apply-to-spread: report', (t) => {
-    t.reportCode('a.apply(a, b)', 'spread should be used instead of "apply"');
+    t.report('apply', 'Spread should be used instead of "apply"');
     t.end();
 });
 
 test('plugin-convert-apply-to-spread: transform', (t) => {
-    t.transformCode('a.apply(a, b)', 'a(...b)');
+    t.transform('apply');
     t.end();
 });
 
@@ -47,6 +47,11 @@ test('plugin-convert-apply-to-spread: transform: member expression', (t) => {
 
 test('plugin-convert-apply-to-spread: transform: null', (t) => {
     t.transform('null');
+    t.end();
+});
+
+test('plugin-convert-apply-to-spread: transform: prototype', (t) => {
+    t.transform('prototype');
     t.end();
 });
 
