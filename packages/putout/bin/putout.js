@@ -108,6 +108,9 @@ const [e, files] = getFiles(globFiles);
 if (e)
     exit(e);
 
+if (!files.length)
+    exit();
+
 const options = {
     fix,
     rulesdir,
