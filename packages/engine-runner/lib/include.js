@@ -1,5 +1,7 @@
 'use strict';
 
+const log = require('debug')('putout:runner:include');
+
 const stub = () => [];
 const filterStub = () => true;
 const maybeArray = require('./maybe-array');
@@ -13,7 +15,7 @@ module.exports = ({rule, plugin, msg, options}) => {
         filter = filterStub,
     } = plugin;
     
-    const traverse = getTraverse(include(), filter);
+    const traverse = getTraverse(include(), filter, rule);
     
     return {
         rule,
@@ -33,16 +35,19 @@ module.exports = ({rule, plugin, msg, options}) => {
     };
 };
 
-const prePush = ({filter, push, options}) => (path) => {
+const prePush = ({rule, filter, push, options}) => (path) => {
+    log(rule);
+    
     if (!filter(path, {options}))
         return;
     
     push(path);
 };
 
-const getTraverse = (include, filter) => ({push, options}) => {
+const getTraverse = (include, filter, rule) => ({push, options}) => {
     const result = {};
     const visitor = prePush({
+        rule,
         filter,
         push,
         options,

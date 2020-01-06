@@ -84,7 +84,7 @@ function wrapWithCheck({rule, nodesInclude, nodesExclude, fn}) {
         log(rule, path.node);
         
         if (nodesExclude.length && compareAny(path, nodesExclude))
-            return path.skip();
+            return;
         
         if (nodesInclude.length && !compareAll(path, nodesInclude))
             return;
