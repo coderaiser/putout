@@ -13,6 +13,7 @@ os:
 matrix:
     allow_failures:
         - os: windows
+        - os: osx
 
 script:
   - npm run bootstrap
