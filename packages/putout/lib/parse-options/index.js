@@ -44,12 +44,12 @@ module.exports = (info = {}) => {
         options,
     );
     
-    const customMatch = parseMatch(relativeName, customOptions.match);
+    const mergedMatch = parseMatch(relativeName, mergedOptions.match);
     const resultOptions = merge(
         readCodeMods(),
         readRules(dir, rulesdir),
         mergedOptions,
-        customMatch,
+        mergedMatch,
     );
     
     return {
