@@ -24,6 +24,9 @@ ruleTester.run('long-properties-destructuring', rule, {
             ...a
         } = b
         `,
+        `
+        for (const {Hello, HelloWorld} of Words) {}
+        `,
     ],
     
     invalid: [{

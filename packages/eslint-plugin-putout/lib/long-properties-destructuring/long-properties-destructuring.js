@@ -17,6 +17,11 @@ module.exports.fix = ({text}) => {
 };
 
 module.exports.filter = ({node}) => {
+    const {parent} = node.parent;
+    
+    if (parent.type === 'ForOfStatement')
+        return false;
+    
     const {id} = node;
     const {properties} = id;
     const {line} = node.loc.start;
