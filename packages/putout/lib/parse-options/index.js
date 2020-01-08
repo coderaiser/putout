@@ -1,12 +1,12 @@
 'use strict';
 
 const {homedir} = require('os');
+const {readdirSync} = require('fs');
 const {
     dirname,
     join,
     relative,
 } = require('path');
-const {readdirSync} = require('fs');
 
 const once = require('once');
 const tryCatch = require('try-catch');
@@ -19,19 +19,17 @@ const merge = require('../merge');
 const home = homedir();
 const cwd = process.cwd();
 
-const readHomeOptions = once(_readHomeOptions);
-const readCodeMods = once(_readCodeMods);
-const readRules = once(_readRules);
-
 module.exports = (info = {}) => {
     const {
         rulesdir,
         name = '',
         options = {},
-        getOptions = _getOptions,
+        readOptions = _readOptions,
+        readHomeOptions = _readHomeOptions,
+        readCodeMods = _readCodeMods,
     } = info;
     
-    const [dir, customOptions] = getOptions(dirname(name));
+    const [dir, customOptions] = readOptions(dirname(name));
     const homeOptions = readHomeOptions();
     const relativeName = relative(cwd, name);
     
@@ -58,7 +56,7 @@ module.exports = (info = {}) => {
     };
 };
 
-function _getOptions(cwd) {
+function _readOptions(cwd) {
     const putoutPath = findUp.sync('.putout.json', {
         cwd,
     });
@@ -85,7 +83,7 @@ function _getOptions(cwd) {
     ];
 }
 
-function _readRules(dirOpt, rulesDir) {
+const readRules = once((dirOpt, rulesDir) => {
     if (!rulesDir)
         return {};
     
@@ -110,16 +108,16 @@ function _readRules(dirOpt, rulesDir) {
     return {
         plugins,
     };
-}
+});
 
-function _readHomeOptions() {
+const _readHomeOptions = once(() => {
     const name = join(home, '.putout.json');
     const [, data = {}] = tryCatch(require, name);
     
     return data;
-}
+});
 
-function _readCodeMods() {
+const _readCodeMods = once(() => {
     const dir = join(home, '.putout');
     const [e, names] = tryCatch(readdirSync, dir);
     
@@ -141,4 +139,4 @@ function _readCodeMods() {
     return {
         plugins,
     };
-}
+});
