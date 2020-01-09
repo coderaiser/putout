@@ -8,6 +8,7 @@ const {
 
 const ANY_OBJECT = '__object';
 const ANY_ARRAY = '__array';
+const ANY_ARGS = '__args';
 const LINKED_NODE = /^__[a-z]$/;
 
 const isAnyObject = (a) => isIdentifier(a, {
@@ -18,13 +19,21 @@ const isAnyArray = (a) => isIdentifier(a, {
     name: ANY_ARRAY,
 });
 
-const {isArray} = Array;
 const isEqualType = (a, b) => a.type === b.type;
+const {isArray} = Array;
 
 module.exports.isEqualType = isEqualType;
 module.exports.isStr = (a) => typeof a === 'string';
 module.exports.isAny = (a) => isIdentifier(a, {name: '__'});
 module.exports.isAnyLiteral = (a, b) => isLiteral(b, {value: '__'}) && isEqualType(a, b);
+module.exports.isAnyArgs = (a) => {
+    const b = !isArray(a) ? a : a[0];
+    
+    return isIdentifier(b, {
+        name: ANY_ARGS,
+    });
+};
+
 module.exports.isPath = (path) => Boolean(path.node);
 module.exports.isArray = isArray;
 

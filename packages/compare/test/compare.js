@@ -408,6 +408,20 @@ test('compare: object: template: comments', (t) => {
     t.end();
 });
 
+test('compare: __args', (t) => {
+    const b = '__.forEach(__args)';
+    const a = `
+        Object.keys(a).forEach((x) => {
+            console.log(x);
+        });
+    `;
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);

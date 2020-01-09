@@ -2,7 +2,6 @@
 
 const {template} = require('@putout/engine-parser');
 const {
-    isIdentifier,
     isExpressionStatement,
     isClassBody,
     isBlock,
@@ -12,9 +11,9 @@ const log = require('./log');
 const {
     isObject,
     isArrays,
-    isArray,
     isAny,
     isAnyLiteral,
+    isAnyArgs,
     isStr,
     isPath,
     isEqualType,
@@ -172,13 +171,13 @@ function superCompare(node, base, {add, templateStore}) {
             continue;
         }
         
+        if (isAnyArgs(value))
+            continue;
+        
         if (isArrays(value, nodeValue)) {
             add(nodeValue, value);
             continue;
         }
-        
-        if (isArray(value) && isIdentifier(value[0], {name: '__args'}))
-            continue;
         
         return false;
     }
