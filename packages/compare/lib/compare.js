@@ -55,7 +55,6 @@ function compare(path, base) {
     
     const templateStore = {};
     
-    debugger;
     if (isEqualAnyObject(node, baseNode))
         return true;
     

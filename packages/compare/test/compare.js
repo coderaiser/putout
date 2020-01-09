@@ -62,6 +62,16 @@ test('compare: base is string: path', (t) => {
     t.end();
 });
 
+test('compare: path: parent', (t) => {
+    const path = getProgramPath('const a = "hello"');
+    const subPath = path.get('body.0.declarations.0');
+    
+    const result = compare(subPath, 'const a = "__"');
+    
+    t.ok(result, 'should equal');
+    t.end();
+});
+
 test('compare: base is string: no', (t) => {
     const a = template.ast('const a = 5');
     const b = template.ast('const a = "__"');
