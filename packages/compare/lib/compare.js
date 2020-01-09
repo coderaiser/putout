@@ -35,6 +35,8 @@ const isArrays = (a, b) => {
 
 const isStr = (a) => typeof a === 'string';
 const compareType = (type) => (path) => path.type === type;
+const isSameType = (a, b) => a.type === b.type;
+const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
 
 const findParent = (path, type) => {
     const newPathNode = path.findParent(compareType(type));
@@ -103,66 +105,70 @@ module.exports.compareAll = (path, baseNodes) => {
 };
 // @babel/template creates empty array directives
 // extra duplicate value
-const regIgnore = /loc|start|end|directives|extra|raw|comments|leadingComments/;
+const ignore = [
+    'loc',
+    'start',
+    'end',
+    'directives',
+    'extra',
+    'raw',
+    'comments',
+    'leadingComments',
+];
 
-function superCompare(pathNode, baseNode, templateStore) {
-    if (!baseNode || !pathNode)
-        return;
+function superCompare(node, base, templateStore) {
+    if (!base || !node)
+        return false;
     
-    const base = baseNode;
-    const node = pathNode;
-    
-    for (const key of Object.keys(baseNode)) {
-        if (regIgnore.test(key))
+    for (const key of Object.keys(base)) {
+        if (ignore.includes(key))
             continue;
         
-        const value = base[key];
-        const pathValue = node[key];
+        const nodeValue = node[key];
+        const value = extractExpression(base[key]);
         
-        log(value, pathValue);
+        log(value, nodeValue);
         
         if (value == '__')
             continue;
         
-        if (value === pathValue)
+        if (value === nodeValue)
             continue;
         
         if (isClassBody(value) || isBlock(value))
             continue;
         
-        const id = isExpressionStatement(value) ? value.expression : value;
-        
-        if (isIdentifier(id, {name: '__'}))
+        if (isIdentifier(value, {name: '__'}))
             continue;
         
-        if (isEqualAnyArray(pathValue, id))
+        if (isEqualAnyArray(nodeValue, value))
             continue;
         
-        if (isEqualAnyObject(pathValue, id))
+        if (isEqualAnyObject(nodeValue, value))
             continue;
         
-        if (isIdentifier(id) && /^__[a-z]$/.test(id.name)) {
-            const {name} = id;
+        if (isIdentifier(value) && /^__[a-z]$/.test(value.name)) {
+            const {name} = value;
             
             if (!templateStore[name]) {
-                templateStore[name] = pathValue;
+                templateStore[name] = nodeValue;
                 continue;
             }
             
-            if (superCompare(templateStore[name], pathValue))
+            if (superCompare(templateStore[name], nodeValue))
                 continue;
         }
         
-        if (isLiteral(value, {value: '__'}) && value.type === pathValue.type)
+        if (isLiteral(value, {value: '__'}) && isSameType(value, nodeValue))
             continue;
         
-        if (isObject(value) && superCompare(pathValue, value, templateStore))
+        if (isObject(value) && superCompare(nodeValue, value, templateStore))
             continue;
         
-        if (isArrays(value, pathValue) && superCompare(pathValue, value, templateStore))
+        if (isArrays(value, nodeValue) && superCompare(nodeValue, value, templateStore))
             continue;
         
-        if (isArray(id) && isIdentifier(id[0], {name: '__args'}))
+        if (isArray(value) && isIdentifier(value[0], {name: '__args'}))
             continue;
         
         return false;
