@@ -2,6 +2,7 @@
 
 const test = require('supertape');
 const {template, parse} = require('@putout/engine-parser');
+const {traverse} = require('putout');
 
 const {
     compare,
@@ -119,6 +120,17 @@ test('compare: any: base is any', (t) => {
     t.end();
 });
 
+test('compare: any: no path find', (t) => {
+    const path = getProgramPath(`const t = 'hello'`);
+    
+    const result = compareAny(path, [
+        '[__] = __[0]',
+    ]);
+    
+    t.notOk(result);
+    t.end();
+});
+
 test('compare: any: base is any: no', (t) => {
     const result = compareAny('const a = {}', [
         'const a = " "',
@@ -136,6 +148,20 @@ test('compare: template var', (t) => {
     const result = compare(a, b);
     
     t.ok(result, 'should equal');
+    t.end();
+});
+
+test('compare: __object: root', (t) => {
+    const result = compare('({})', '__object');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: __array: root', (t) => {
+    const result = compare('[]', '__array');
+    
+    t.ok(result);
     t.end();
 });
 
@@ -372,3 +398,16 @@ test('compare: object: template: comments', (t) => {
     t.end();
 });
 
+function getProgramPath(str) {
+    let result;
+    const ast = parse(str);
+    
+    traverse(ast, {
+        Program(path) {
+            result = path;
+            path.stop();
+        },
+    });
+    
+    return result;
+}

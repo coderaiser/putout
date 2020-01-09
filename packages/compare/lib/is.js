@@ -20,6 +20,7 @@ const {isArray} = Array;
 module.exports.isEqualType = (a, b) => a.type === b.type;
 module.exports.isStr = (a) => typeof a === 'string';
 module.exports.isAny = (a) => isIdentifier(a, {name: '__'});
+module.exports.isPath = (path) => Boolean(path.node);
 module.exports.isArray = isArray;
 
 module.exports.isObject = (a) => {

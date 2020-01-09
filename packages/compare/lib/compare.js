@@ -16,6 +16,7 @@ const {
     isArray,
     isAny,
     isStr,
+    isPath,
     isEqualType,
     isEqualAnyObject,
     isEqualAnyArray,
@@ -54,17 +55,17 @@ function compare(path, base) {
     
     const templateStore = {};
     
-    const {type} = baseNode;
-    const isPath = Boolean(path.node);
-    
+    debugger;
     if (isEqualAnyObject(node, baseNode))
         return true;
     
     if (isEqualAnyArray(node, baseNode))
         return true;
     
-    if (isPath && node.type !== type) {
+    if (isPath(path) && !isEqualType(node, baseNode)) {
+        const {type} = baseNode;
         const newPathNode = findParent(path, type);
+        
         return superCompare(newPathNode, baseNode, templateStore);
     }
     
@@ -102,7 +103,7 @@ const ignore = [
 ];
 
 function superCompare(node, base, templateStore) {
-    if (!base || !node)
+    if (!node)
         return false;
     
     for (const key of Object.keys(base)) {
