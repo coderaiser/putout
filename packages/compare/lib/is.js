@@ -1,7 +1,10 @@
 'use strict';
 
 const {template} = require('@putout/engine-parser');
-const {isIdentifier} = require('@babel/types');
+const {
+    isIdentifier,
+    isLiteral,
+} = require('@babel/types');
 
 const ANY_OBJECT = '__object';
 const ANY_ARRAY = '__array';
@@ -16,10 +19,12 @@ const isAnyArray = (a) => isIdentifier(a, {
 });
 
 const {isArray} = Array;
+const isEqualType = (a, b) => a.type === b.type;
 
-module.exports.isEqualType = (a, b) => a.type === b.type;
+module.exports.isEqualType = isEqualType;
 module.exports.isStr = (a) => typeof a === 'string';
 module.exports.isAny = (a) => isIdentifier(a, {name: '__'});
+module.exports.isAnyLiteral = (a, b) => isLiteral(b, {value: '__'}) && isEqualType(a, b);
 module.exports.isPath = (path) => Boolean(path.node);
 module.exports.isArray = isArray;
 

@@ -1,4 +1,7 @@
 {
+    "rules": {
+        "no-cond-assign": "off"
+    },
     "overrides": [{
         "files": ["lib/**/*.spec.js", "test/**"],
         "rules": {

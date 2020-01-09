@@ -3,7 +3,6 @@
 const {template} = require('@putout/engine-parser');
 const {
     isIdentifier,
-    isLiteral,
     isExpressionStatement,
     isClassBody,
     isBlock,
@@ -15,6 +14,7 @@ const {
     isArrays,
     isArray,
     isAny,
+    isAnyLiteral,
     isStr,
     isPath,
     isEqualType,
@@ -26,6 +26,7 @@ const {
 
 const compareType = (type) => (path) => path.type === type;
 const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
+const superPush = (array) => (a, b) => array.push([a, b]);
 
 const findParent = (path, type) => {
     const newPathNode = path.findParent(compareType(type));
@@ -53,8 +54,6 @@ function compare(path, base) {
     const node = parseNode(path);
     const baseNode = parseNode(base);
     
-    const templateStore = {};
-    
     if (isEqualAnyObject(node, baseNode))
         return true;
     
@@ -65,10 +64,10 @@ function compare(path, base) {
         const {type} = baseNode;
         const newPathNode = findParent(path, type);
         
-        return superCompare(newPathNode, baseNode, templateStore);
+        return superCompareIterate(newPathNode, baseNode);
     }
     
-    return superCompare(node, baseNode, templateStore);
+    return superCompareIterate(node, baseNode);
 }
 
 module.exports.compareAny = (path, baseNodes) => {
@@ -101,7 +100,28 @@ const ignore = [
     'leadingComments',
 ];
 
-function superCompare(node, base, templateStore) {
+function superCompareIterate(node, base) {
+    let item = [node, base];
+    
+    const array = [item];
+    const templateStore = {};
+    const add = superPush(array);
+    
+    while (item = array.pop()) {
+        const [node, base] = item;
+        const is = superCompare(node, base, {
+            add,
+            templateStore,
+        });
+        
+        if (!is)
+            return false;
+    }
+    
+    return true;
+}
+
+function superCompare(node, base, {add, templateStore}) {
     if (!node)
         return false;
     
@@ -140,18 +160,22 @@ function superCompare(node, base, templateStore) {
                 continue;
             }
             
-            if (superCompare(templateStore[name], nodeValue))
-                continue;
+            add(templateStore[name], nodeValue);
+            continue;
         }
         
-        if (isLiteral(value, {value: '__'}) && isEqualType(value, nodeValue))
+        if (isAnyLiteral(nodeValue, value))
             continue;
         
-        if (isObject(value) && superCompare(nodeValue, value, templateStore))
+        if (isObject(value)) {
+            add(nodeValue, value);
             continue;
+        }
         
-        if (isArrays(value, nodeValue) && superCompare(nodeValue, value, templateStore))
+        if (isArrays(value, nodeValue)) {
+            add(nodeValue, value);
             continue;
+        }
         
         if (isArray(value) && isIdentifier(value[0], {name: '__args'}))
             continue;
