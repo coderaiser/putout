@@ -10,32 +10,20 @@ const {
 } = require('@babel/types');
 
 const log = require('./log');
+const {
+    isObject,
+    isArrays,
+    isArray,
+    isAny,
+    isStr,
+    isEqualType,
+    isEqualAnyObject,
+    isEqualAnyArray,
+    isLinkedNode,
+    parseTemplate,
+} = require('./is');
 
-const {isArray} = Array;
-
-const isObject = (a) => {
-    if (!a)
-        return false;
-    
-    if (isArray(a))
-        return false;
-    
-    return typeof a === 'object';
-};
-
-const isArrays = (a, b) => {
-    if (!isArray(a) || !isArray(b))
-        return false;
-    
-    if (a.length !== b.length)
-        return false;
-    
-    return true;
-};
-
-const isStr = (a) => typeof a === 'string';
 const compareType = (type) => (path) => path.type === type;
-const isSameType = (a, b) => a.type === b.type;
 const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
 
 const findParent = (path, type) => {
@@ -59,9 +47,6 @@ function parseNode(a) {
 
 module.exports.compare = compare;
 module.exports.parseTemplate = parseTemplate;
-
-const isAnyObject = (a) => isIdentifier(a, {name: '__object'});
-const isAnyArray = (a) => isIdentifier(a, {name: '__array'});
 
 function compare(path, base) {
     const node = parseNode(path);
@@ -138,7 +123,7 @@ function superCompare(node, base, templateStore) {
         if (isClassBody(value) || isBlock(value))
             continue;
         
-        if (isIdentifier(value, {name: '__'}))
+        if (isAny(value))
             continue;
         
         if (isEqualAnyArray(nodeValue, value))
@@ -147,7 +132,7 @@ function superCompare(node, base, templateStore) {
         if (isEqualAnyObject(nodeValue, value))
             continue;
         
-        if (isIdentifier(value) && /^__[a-z]$/.test(value.name)) {
+        if (isLinkedNode(value)) {
             const {name} = value;
             
             if (!templateStore[name]) {
@@ -159,7 +144,7 @@ function superCompare(node, base, templateStore) {
                 continue;
         }
         
-        if (isLiteral(value, {value: '__'}) && isSameType(value, nodeValue))
+        if (isLiteral(value, {value: '__'}) && isEqualType(value, nodeValue))
             continue;
         
         if (isObject(value) && superCompare(nodeValue, value, templateStore))
@@ -175,38 +160,5 @@ function superCompare(node, base, templateStore) {
     }
     
     return true;
-}
-
-const __OBJECT_TYPE = 'ObjectPattern|ObjectExpression';
-const __ARRAY_TYPE = 'ArrayPattern|ArrayExpression';
-
-function isEqualAnyArray(node, id) {
-    if (!isAnyArray(id))
-        return false;
-    
-    const {type} = node;
-    return __ARRAY_TYPE.includes(type);
-}
-
-function isEqualAnyObject(node, id) {
-    if (!isAnyObject(id))
-        return false;
-    
-    const {type} = node;
-    return __OBJECT_TYPE.includes(type);
-}
-
-function parseTemplate(tmpl) {
-    const node = template.ast(tmpl);
-    
-    if (tmpl === '__object')
-        return [node, __OBJECT_TYPE];
-    
-    if (tmpl === '__array')
-        return [node, __ARRAY_TYPE];
-    
-    const {type} = node;
-    
-    return [node, type];
 }
 
