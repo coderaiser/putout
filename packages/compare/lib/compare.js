@@ -108,80 +108,78 @@ function superCompareIterate(node, base) {
     
     while (item = array.pop()) {
         const [node, base] = item;
-        const is = superCompare(node, base, {
-            add,
-            templateStore,
-        });
         
-        if (!is)
+        if (!node)
             return false;
-    }
-    
-    return true;
-}
-
-function superCompare(node, base, {add, templateStore}) {
-    if (!node)
-        return false;
-    
-    for (const key of Object.keys(base)) {
-        if (ignore.includes(key))
-            continue;
         
-        const nodeValue = node[key];
-        const value = extractExpression(base[key]);
-        
-        log(value, nodeValue);
-        
-        if (value == '__')
-            continue;
-        
-        if (value === nodeValue)
-            continue;
-        
-        if (isClassBody(value) || isBlock(value))
-            continue;
-        
-        if (isAny(value))
-            continue;
-        
-        if (isEqualAnyArray(nodeValue, value))
-            continue;
-        
-        if (isEqualAnyObject(nodeValue, value))
-            continue;
-        
-        if (isLinkedNode(value)) {
-            const {name} = value;
-            
-            if (!templateStore[name]) {
-                templateStore[name] = nodeValue;
+        for (const key of Object.keys(base)) {
+            if (ignore.includes(key))
                 continue;
-            }
             
-            add(templateStore[name], nodeValue);
-            continue;
+            const nodeValue = node[key];
+            const value = extractExpression(base[key]);
+            
+            const is = superCompare(nodeValue, value, {
+                add,
+                templateStore,
+            });
+            
+            if (!is)
+                return false;
         }
-        
-        if (isAnyLiteral(nodeValue, value))
-            continue;
-        
-        if (isObject(value)) {
-            add(nodeValue, value);
-            continue;
-        }
-        
-        if (isAnyArgs(value))
-            continue;
-        
-        if (isArrays(value, nodeValue)) {
-            add(nodeValue, value);
-            continue;
-        }
-        
-        return false;
     }
     
     return true;
 }
 
+function superCompare(nodeValue, value, {add, templateStore}) {
+    log(value, nodeValue);
+    
+    if (value == '__')
+        return true;
+    
+    if (value === nodeValue)
+        return true;
+    
+    if (isClassBody(value) || isBlock(value))
+        return true;
+    
+    if (isAny(value))
+        return true;
+    
+    if (isEqualAnyArray(nodeValue, value))
+        return true;
+    
+    if (isEqualAnyObject(nodeValue, value))
+        return true;
+    
+    if (isLinkedNode(value)) {
+        const {name} = value;
+        
+        if (!templateStore[name]) {
+            templateStore[name] = nodeValue;
+            return true;
+        }
+        
+        add(templateStore[name], nodeValue);
+        return true;
+    }
+    
+    if (isAnyLiteral(nodeValue, value))
+        return true;
+    
+    if (isAnyArgs(value))
+        return true;
+    
+    if (isObject(value)) {
+        add(nodeValue, value);
+        return true;
+    }
+    
+    if (isArrays(value, nodeValue)) {
+        add(nodeValue, value);
+        return true;
+    }
+    
+    return false;
+}
