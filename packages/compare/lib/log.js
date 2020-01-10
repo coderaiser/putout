@@ -12,7 +12,8 @@ module.exports = (a, b) => {
     const parsedValue = parseValue(a);
     const parsedPathValue = parseValue(b);
     
-    return debug(`${parsedValue} = ${parsedPathValue}`);
+    debug(`${parsedValue} = ${parsedPathValue}`);
+    return;
 };
 
 function parseValue(a) {

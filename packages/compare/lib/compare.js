@@ -7,6 +7,7 @@ const {
     isBlock,
 } = require('@babel/types');
 
+const guard = require('./guard');
 const log = require('./log');
 const {
     isObject,
@@ -116,10 +117,10 @@ function superCompareIterate(node, base) {
             if (ignore.includes(key))
                 continue;
             
-            const nodeValue = node[key];
-            const value = extractExpression(base[key]);
+            const a = node[key];
+            const b = extractExpression(base[key]);
             
-            const is = superCompare(nodeValue, value, {
+            const is = superCompare(a, b, {
                 add,
                 templateStore,
             });
@@ -132,54 +133,40 @@ function superCompareIterate(node, base) {
     return true;
 }
 
-function superCompare(nodeValue, value, {add, templateStore}) {
-    log(value, nodeValue);
+const logNodes = (a, b) => log(a, b);
+const isAnyString = (a, b) => b === '__';
+const isEqual = (a, b) => a === b;
+const isBody = (a) => isClassBody(a) || isBlock(a);
+const addLinkedNode = (a, b, {add, templateStore}) => {
+    if (!isLinkedNode(a))
+        return false;
     
-    if (value == '__')
-        return true;
+    const {name} = b;
     
-    if (value === nodeValue)
-        return true;
-    
-    if (isClassBody(value) || isBlock(value))
-        return true;
-    
-    if (isAny(value))
-        return true;
-    
-    if (isEqualAnyArray(nodeValue, value))
-        return true;
-    
-    if (isEqualAnyObject(nodeValue, value))
-        return true;
-    
-    if (isLinkedNode(value)) {
-        const {name} = value;
-        
-        if (!templateStore[name]) {
-            templateStore[name] = nodeValue;
-            return true;
-        }
-        
-        add(templateStore[name], nodeValue);
+    if (!templateStore[name]) {
+        templateStore[name] = a;
         return true;
     }
     
-    if (isAnyLiteral(nodeValue, value))
-        return true;
-    
-    if (isAnyArgs(value))
-        return true;
-    
-    if (isObject(value)) {
-        add(nodeValue, value);
-        return true;
-    }
-    
-    if (isArrays(value, nodeValue)) {
-        add(nodeValue, value);
-        return true;
-    }
-    
-    return false;
-}
+    add(templateStore[name], a);
+    return true;
+};
+
+const addObject = (a, b, {add}) => isObject(a) && add(a, b);
+const addArray = (a, b, {add}) => isArrays(b, a) && add(a, b);
+
+const superCompare = guard([
+    logNodes,
+    isAnyString,
+    isEqual,
+    isBody,
+    isAny,
+    isEqualAnyArray,
+    isEqualAnyObject,
+    addLinkedNode,
+    isAnyLiteral,
+    isAnyArgs,
+    addObject,
+    addArray,
+]);
+

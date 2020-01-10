@@ -19,13 +19,22 @@ const isAnyArray = (a) => isIdentifier(a, {
     name: ANY_ARRAY,
 });
 
+const isAnyLiteral = (a, b) => {
+    const is = isLiteral(b, {
+        value: '__',
+    });
+    
+    return is && isEqualType(a, b);
+};
+
 const isEqualType = (a, b) => a.type === b.type;
+const isAny = (a) => isIdentifier(a, {name: '__'});
 const {isArray} = Array;
 
 module.exports.isEqualType = isEqualType;
 module.exports.isStr = (a) => typeof a === 'string';
-module.exports.isAny = (a) => isIdentifier(a, {name: '__'});
-module.exports.isAnyLiteral = (a, b) => isLiteral(b, {value: '__'}) && isEqualType(a, b);
+module.exports.isAny = isAny;
+module.exports.isAnyLiteral = isAnyLiteral;
 module.exports.isAnyArgs = (a) => {
     const b = !isArray(a) ? a : a[0];
     

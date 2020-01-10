@@ -82,9 +82,9 @@ test('compare: base is string: no', (t) => {
     t.end();
 });
 
-test('compare: base is any', (t) => {
-    const a = template.ast('const a = {}');
-    const b = template.ast('const a = __');
+test.only('compare: base is any', (t) => {
+    const a = 'const a = {}';
+    const b = 'const a = __';
     
     const result = compare(a, b);
     
