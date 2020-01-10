@@ -61,6 +61,7 @@
         "nonblock-statement-body-position": ["error", "below"],
         "lines-around-directive": "error",
         "linebreak-style": ["error", "unix"],
+        "padded-blocks": ["error", "never"],
         "padding-line-between-statements": ["error", {
             "blankLine": "always",
             "prev": "*",

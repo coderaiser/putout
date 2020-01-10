@@ -52,7 +52,6 @@ module.exports.traverse = ({push}) => {
 };
 
 function parseObject(path) {
-    
     let lintLib = null;
     let lint = null;
     let fixLint = null;

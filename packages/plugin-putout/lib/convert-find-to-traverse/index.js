@@ -21,7 +21,6 @@ module.exports.fix = (path) => {
     if (path.isCallExpression()) {
         replaceWith(path.parentPath, ReturnStatement(path.node.arguments[1]));
     }
-
 };
 
 module.exports.traverse = ({push}) => {

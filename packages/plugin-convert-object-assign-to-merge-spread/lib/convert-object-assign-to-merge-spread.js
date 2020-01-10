@@ -28,7 +28,6 @@ module.exports.fix = (path) => {
         }
         
         properties = properties.concat(SpreadElement(arg));
-    
     }
     
     replaceWith(path, ObjectExpression(properties));
