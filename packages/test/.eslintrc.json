@@ -1,4 +1,10 @@
 {
+    "overrides": [{
+        "files": ["bin/**/*.js"],
+        "rules": {
+            "node/no-extraneous-require": "off"
+        }
+    }],
     "extends": [
         "plugin:putout/recommended",
         "plugin:node/recommended"
