@@ -13,7 +13,9 @@
     "url": "git://github.com/coderaiser/putout.git"
   },
   "scripts": {
-    "lint": "jsonlint -q .eslintrc.json"
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "wisdom": "madrun wisdom"
   },
   "dependencies": {},
   "peerDependencies": {
@@ -26,7 +28,9 @@
     "eslint-config"
   ],
   "devDependencies": {
-    "jsonlint": "^1.6.3"
+    "jsonlint": "^1.6.3",
+    "madrun": "^5.4.1",
+    "putout": "^7.4.3"
   },
   "license": "MIT",
   "engines": {
