@@ -17,26 +17,26 @@ const {
     isImportNamespaceSpecifier,
 } = types;
 
-const getName = ({source}) => source.raw;
+const getName = ({source}) => source.value;
 
 const convert = template(`
-    const DECLARATION = require(NAME);
+    const DECLARATION = require("NAME");
 `);
 
 const convertDestructureRename = template(`
     const {
           IMPORTED: LOCAL,
-    } = require(NAME);
+    } = require("NAME");
 `);
 
 const convertDestructure = template(`
     const {
           IMPORTED,
-    } = require(NAME);
+    } = require("NAME");
 `);
 
 const convertEmpty = template(`
-    require(%%name%%);
+    require("NAME");
 `);
 
 module.exports.convertImport = (path) => {
@@ -47,7 +47,7 @@ module.exports.convertImport = (path) => {
     const vars = [];
     
     if (!specifiers.length)
-        return replaceWith(path, convertEmpty({name}));
+        return replaceWith(path, convertEmpty({NAME: name}));
     
     for (const spec of specifiers) {
         if (isImportDefaultSpecifier(spec)) {
