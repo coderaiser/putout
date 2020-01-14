@@ -1,3 +1,20 @@
+2020.01.14, v7.4.4
+
+fix:
+- (putout) improve globbing
+- (long-properties-destructuring) exclude ForOfStatement
+
+feature:
+- (putout) speed up lint 5m -> 40s
+- (putout) eslint-plugin-node v11
+- (package) rm eslint-plugin-tape
+- (compare) simplify superCompare
+- (@putout/eslint-config) add padded-blocks: never'
+- (compare) add ANY_ARGS
+- (compare) recursion -> loop
+- (compare) isLinkedNode: add
+
+
 2020.01.07, v7.4.3
 
 fix:
