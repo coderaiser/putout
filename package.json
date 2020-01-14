@@ -3,15 +3,17 @@
   "private": true,
   "scripts": {
     "test": "madrun test",
+    "test:clean": "madrun test:clean",
     "test:slow": "madrun test:slow",
     "coverage": "madrun coverage",
     "coverage:slow": "madrun coverage:slow",
-    "report": "madrun report",
     "lint:slow": "madrun lint:slow",
     "lint:dot": "madrun lint:dot",
+    "lint-all": "madrun lint-all",
     "lint": "madrun lint",
     "fix:lint": "madrun fix:lint",
-    "bootstrap": "madrun bootstrap"
+    "bootstrap": "madrun bootstrap",
+    "report": "madrun report"
   },
   "husky": {
     "hooks": {
