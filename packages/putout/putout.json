@@ -48,6 +48,7 @@
         "apply-top-level-await",
         "apply-optional-chaining",
         "apply-nullish-coalescing",
+        "apply-numeric-separators",
         "extract-object-properties",
         "extract-sequence-expressions",
         "madrun",
