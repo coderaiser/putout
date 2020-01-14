@@ -77,6 +77,13 @@ Any string literal.
 compare('const a = "hello"', 'const __ = "__"');
 ```
 
+##### "__a"
+Linked string literal.
+
+```js
+compare('const a = "hello"', 'const __a = "__b"');
+```
+
 ## License
 
 MIT

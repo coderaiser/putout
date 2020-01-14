@@ -422,6 +422,16 @@ test('compare: __args', (t) => {
     t.end();
 });
 
+test('compare: linked node: literal', (t) => {
+    const a = 'import hello from "world"';
+    const b = 'import __a from "__b"';
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);

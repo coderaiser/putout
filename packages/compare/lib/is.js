@@ -76,7 +76,13 @@ module.exports.isEqualAnyObject = (node, baseNode) => {
     return __OBJECT_TYPE.includes(type);
 };
 
-module.exports.isLinkedNode = (a) => isIdentifier(a) && LINKED_NODE.test(a.name);
+module.exports.isLinkedNode = (a) => {
+    if (isIdentifier(a) && LINKED_NODE.test(a.name))
+        return true;
+    
+    if (isLiteral(a) && LINKED_NODE.test(a.value))
+        return true;
+};
 
 module.exports.parseTemplate = (tmpl) => {
     const node = template.ast(tmpl);
