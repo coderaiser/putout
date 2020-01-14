@@ -406,3 +406,25 @@ test('putout: plugins: replace: template: same', (t) => {
     t.end();
 });
 
+test('putout: plugins: replace: template: linked literal node', (t) => {
+    const applyToSpread = {
+        report: () => '',
+        replace: () => ({
+            'import __a from "__b"': 'const __a = require("__b")',
+        }),
+    };
+    
+    const {code} = putout('import hello from "world"', {
+        fixCount: 1,
+        runPlugins,
+        plugins: [{
+            'apply-to-spread': applyToSpread,
+        }],
+    });
+    
+    const expected = 'const hello = require("world");';
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+

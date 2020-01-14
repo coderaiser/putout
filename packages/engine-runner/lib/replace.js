@@ -17,6 +17,7 @@ const isNumber = (a) => typeof a === 'number';
 const {entries} = Object;
 
 const isNameTemplate = (a) => /^__[a-z]$/.test(a);
+const parseExpression = (a) => a.expression || a;
 
 module.exports = ({rule, plugin, msg, options}) => {
     const {
@@ -57,8 +58,10 @@ const findVarsWays = (node) => {
     
     traverse(node, {
         noScope: true,
-        Identifier(path) {
-            const {name} = path.node;
+        'Identifier|StringLiteral'(path) {
+            const {
+                name = path.node.value,
+            } = path.node;
             const way = [];
             
             if (!isNameTemplate(name))
@@ -98,6 +101,8 @@ function getValues({waysFrom, node}) {
 }
 
 function setValues({waysTo, values, path}) {
+    const node = parseExpression(path.node);
+    
     for (const [name, ways] of entries(waysTo)) {
         if (!ways) {
             replaceWith(path, values[name]);
@@ -105,7 +110,7 @@ function setValues({waysTo, values, path}) {
         }
         
         for (const way of ways) {
-            nessy(way, values[name], path.node);
+            nessy(way, values[name], node);
         }
     }
 }
