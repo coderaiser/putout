@@ -1,5 +1,7 @@
 'use strict';
 
+const {join} = require('path');
+
 const test = require('supertape');
 const mockRequire = require('mock-require');
 const stub = require('@cloudcmd/stub');
@@ -86,6 +88,33 @@ test('putout: getFiles: dir', (t) => {
     const result = files.map(rmStart);
     const expected = [
         'bin/putout.js',
+    ];
+    
+    stopAll();
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: getFiles: glob', (t) => {
+    /*
+    const sync = stub().returns([
+        'bin',
+    ]);
+    
+    mockRequire('glob', {
+        sync,
+    });
+    */
+    
+    const dir = join(__dirname, '..');
+    
+    const getFiles = reRequire('./get-files');
+    const [, files] = getFiles([`${dir}/{bin,.madrun.js}`]);
+    const result = files.map(rmStart);
+    const expected = [
+        join(dir, '.madrun.js'),
+        join(dir, 'bin/putout.js'),
     ];
     
     stopAll();

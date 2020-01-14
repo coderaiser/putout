@@ -14,28 +14,34 @@ module.exports = (args) => {
 };
 
 function getFiles(args) {
-    const files = args
-        .map(addExt)
-        .map(one(glob.sync));
+    const files = [];
     
-    return rmDuplicates(mergeArrays(files));
+    for (const arg of args)
+        files.push(...addExt(arg));
+    
+    const globbed = files.map(one(glob.sync));
+    
+    return rmDuplicates(mergeArrays(globbed));
 }
 
 function addExt(a) {
-    const [e, file] = tryCatch(statSync, a);
+    const [e] = tryCatch(statSync, a);
+    const files = glob.sync(a);
     
-    if (e && e.code === 'ENOENT' && !glob.sync(a).length)
+    if (e && e.code === 'ENOENT' && !files.length)
         return throwNotFound(a);
     
-    if (e)
-        return a;
+    const result = [];
+    for (const file of files) {
+        if (/\.(js|jsx|ts)$/.test(file)) {
+            result.push(file);
+            continue;
+        }
+        
+        result.push(`${file}/**/*.{js,jsx,ts}`);
+    }
     
-    const isDir = file.isDirectory();
-    
-    if (isDir)
-        return `${a}/**/*.{js,jsx,ts}`;
-    
-    return a;
+    return result;
 }
 
 function throwNotFound(a) {
