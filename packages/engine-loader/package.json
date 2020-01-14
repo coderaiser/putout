@@ -36,11 +36,11 @@
   ],
   "devDependencies": {
     "@cloudcmd/stub": "^2.3.2",
-    "@putout/test": "^1.1.1",
     "@putout/plugin-remove-unused-variables": "^1.51.1",
+    "@putout/test": "^1.1.1",
     "coveralls": "^3.0.0",
     "eslint": "^6.2.0",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^3.0.0",
     "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
