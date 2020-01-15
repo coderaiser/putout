@@ -9,7 +9,6 @@ const {
     compareAll,
     compareAny,
     parseTemplate,
-    
     isName,
     isImports,
     isArgs,
