@@ -17,6 +17,8 @@ const isNumber = (a) => typeof a === 'number';
 const {entries} = Object;
 
 const isNameTemplate = (a) => /^__[a-z]$/.test(a);
+const isImports = (a) => a === '__imports';
+const isArgs = (a) => a === '__args';
 const parseExpression = (a) => a.expression || a;
 
 module.exports = ({rule, plugin, msg, options}) => {
@@ -64,7 +66,7 @@ const findVarsWays = (node) => {
             } = path.node;
             const way = [];
             
-            if (!isNameTemplate(name))
+            if (!isNameTemplate(name) && !isImports(name) && !isArgs(name))
                 return;
             
             path.find((path) => {
@@ -93,8 +95,15 @@ function getValues({waysFrom, node}) {
     const result = {};
     
     for (const [name, ways] of entries(waysFrom)) {
-        for (const way of ways)
+        for (let way of ways) {
+            if (isImports(name))
+                way = way.replace(/\.0.local$/, '');
+            
+            else if (isArgs(name))
+                way = way.replace(/\.0$/, '');
+            
             result[name] = result[name] || jessy(way, node);
+        }
     }
     
     return result;
@@ -109,7 +118,10 @@ function setValues({waysTo, values, path}) {
             continue;
         }
         
-        for (const way of ways) {
+        for (let way of ways) {
+            if (isArgs(name))
+                way = way.replace(/\.0$/, '');
+            
             nessy(way, values[name], node);
         }
     }
@@ -130,15 +142,17 @@ const fix = (from, to, path) => {
     if (!to)
         return path.remove();
     
-    const nodeTo = template.ast.fresh(to);
+    const waysFrom = findVarsWays(nodeFrom);
     const {node} = path;
     
-    const waysFrom = findVarsWays(nodeFrom);
-    const waysTo = findVarsWays(nodeTo);
     const values = getValues({
         waysFrom,
         node,
     });
+    
+    const toStr = typeof to === 'function' ? to(values) : to;
+    const nodeTo = template.ast.fresh(toStr);
+    const waysTo = findVarsWays(nodeTo);
     
     replaceWith(path, nodeTo);
     

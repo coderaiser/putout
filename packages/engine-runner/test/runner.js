@@ -428,3 +428,55 @@ test('putout: plugins: replace: template: linked literal node', (t) => {
     t.end();
 });
 
+test('putout: plugins: replace: template: function: __imports', (t) => {
+    const applyToSpread = {
+        report: () => '',
+        replace: () => ({
+            'import __imports from "__a"': ({__imports, __a}) => {
+                let result = 'const {\n';
+                
+                for (const {imported, local} of __imports) {
+                    result += `${imported.name},`;
+                }
+                
+                result += `\n} = require(${__a.raw});`;
+                
+                return result;
+            },
+        }),
+    };
+    
+    const {code} = putout('import {hello} from "world"', {
+        runPlugins,
+        plugins: [{
+            'convert-esm-to-commonjs': applyToSpread,
+        }],
+    });
+    
+    const expected = `const {\n  hello\n} = require('world');`;
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
+test('putout: plugins: replace: template: function: __args', (t) => {
+    const applyToSpread = {
+        report: () => '',
+        replace: () => ({
+            'function __a(__args){}': 'const __a = (__args) => {}',
+        }),
+    };
+    
+    const {code} = putout('function hello(a, b, c){}', {
+        runPlugins,
+        plugins: [{
+            'convert-to-arrow': applyToSpread,
+        }],
+    });
+    
+    const expected = 'const hello = (a, b, c) => {};';
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
