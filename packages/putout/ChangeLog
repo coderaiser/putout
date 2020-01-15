@@ -1,3 +1,21 @@
+2020.01.15, v7.5.0
+
+fix:
+- (@putout/plugin-convert-esm-to-commonjs) add support of babel 8
+
+feature:
+- (package) @putout/plugin-convert-esm-to-commonjs v3.0.0
+- (package) @putout/engine-runner v3.7.0
+- (@putout/convert-esm-to-commonjs) replace
+- (@putout/engine-runner) move out isName, isArgs, isImports into @putout/compare
+- (@putout/compare) add isName, isArgs, isImports
+- (@putout/engine-runner) add support of __args, __imports
+- (@putout/compare) add support of __imports
+- (@putout/engine-parser) enable BABEL_TYPES_8_BREAKING
+- (@putout/engine-runner) add support of linked nodes literals
+- (@putout/compare) add ability to use linked node literals
+
+
 2020.01.14, v7.4.4
 
 fix:
