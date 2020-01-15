@@ -9,6 +9,10 @@ const {
     compareAll,
     compareAny,
     parseTemplate,
+    
+    isName,
+    isImports,
+    isArgs,
 } = require('..');
 
 test('compare: base is string', (t) => {
@@ -439,6 +443,36 @@ test('compare: linked node: __imports', (t) => {
     const result = compare(a, b);
     
     t.ok(result);
+    t.end();
+});
+
+test('compare: isName', (t) => {
+    t.ok(isName('__a'));
+    t.end();
+});
+
+test('compare: isName: no', (t) => {
+    t.notOk(isName('a'));
+    t.end();
+});
+
+test('compare: isArgs', (t) => {
+    t.ok(isArgs('__args'));
+    t.end();
+});
+
+test('compare: isArgs: no', (t) => {
+    t.notOk(isArgs('args'));
+    t.end();
+});
+
+test('compare: isImports', (t) => {
+    t.ok(isImports('__imports'));
+    t.end();
+});
+
+test('compare: isImports: no', (t) => {
+    t.notOk(isImports('imports'));
     t.end();
 });
 

@@ -9,9 +9,13 @@ const {
 
 const ANY_OBJECT = '__object';
 const ANY_ARRAY = '__array';
-const ANY_ARGS = '__args';
+const ARGS = '__args';
 const LINKED_NODE = /^__[a-z]$/;
 const IMPORTS = '__imports';
+
+module.exports.isNameStr = (a) => LINKED_NODE.test(a);
+module.exports.isImportsStr = (a) => a === IMPORTS;
+module.exports.isArgsStr = (a) => a === ARGS;
 
 const isAnyObject = (a) => isIdentifier(a, {
     name: ANY_OBJECT,
@@ -28,11 +32,11 @@ module.exports.isEqualType = isEqualType;
 module.exports.isStr = (a) => typeof a === 'string';
 module.exports.isAny = (a) => isIdentifier(a, {name: '__'});
 module.exports.isAnyLiteral = (a, b) => isLiteral(b, {value: '__'}) && isEqualType(a, b);
-module.exports.isAnyArgs = (a) => {
+module.exports.isArgs = (a) => {
     const b = !isArray(a) ? a : a[0];
     
     return isIdentifier(b, {
-        name: ANY_ARGS,
+        name: ARGS,
     });
 };
 

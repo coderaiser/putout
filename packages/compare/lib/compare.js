@@ -13,7 +13,7 @@ const {
     isArrays,
     isAny,
     isAnyLiteral,
-    isAnyArgs,
+    isArgs,
     isImports,
     isStr,
     isPath,
@@ -22,6 +22,10 @@ const {
     isEqualAnyArray,
     isLinkedNode,
     parseTemplate,
+    
+    isNameStr,
+    isArgsStr,
+    isImportsStr,
 } = require('./is');
 
 const compareType = (type) => (path) => path.type === type;
@@ -49,6 +53,10 @@ function parseNode(a) {
 
 module.exports.compare = compare;
 module.exports.parseTemplate = parseTemplate;
+
+module.exports.isName = isNameStr;
+module.exports.isImports = isImportsStr;
+module.exports.isArgs = isArgsStr;
 
 function compare(path, base) {
     const node = parseNode(path);
@@ -172,7 +180,7 @@ function superCompare(nodeValue, value, {add, templateStore}) {
     if (isImports(value))
         return true;
     
-    if (isAnyArgs(value))
+    if (isArgs(value))
         return true;
     
     if (isObject(value)) {
