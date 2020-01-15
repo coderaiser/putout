@@ -1,8 +1,5 @@
 const {
-  getValue: get
-} = require('./hi');
-
-const {
-  set
+  getValue: get,
+  set: set
 } = require('./hi');
 
