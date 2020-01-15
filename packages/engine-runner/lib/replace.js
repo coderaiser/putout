@@ -2,9 +2,14 @@
 
 const {template} = require('@putout/engine-parser');
 const {replaceWith} = require('@putout/operate');
-const {compare} = require('@putout/compare');
 const traverse = require('@babel/traverse').default;
 const {isIdentifier} = require('@babel/types');
+const {
+    compare,
+    isName,
+    isArgs,
+    isImports,
+} = require('@putout/compare');
 
 const jessy = require('jessy');
 const nessy = require('nessy');
@@ -16,9 +21,6 @@ const packKeys = (a) => () => Object.keys(a);
 const isNumber = (a) => typeof a === 'number';
 const {entries} = Object;
 
-const isNameTemplate = (a) => /^__[a-z]$/.test(a);
-const isImports = (a) => a === '__imports';
-const isArgs = (a) => a === '__args';
 const parseExpression = (a) => a.expression || a;
 
 module.exports = ({rule, plugin, msg, options}) => {
@@ -51,7 +53,7 @@ module.exports = ({rule, plugin, msg, options}) => {
 };
 
 const findVarsWays = (node) => {
-    if (isIdentifier(node) && isNameTemplate(node.name))
+    if (isIdentifier(node) && isName(node.name))
         return {
             [node.name]: '',
         };
@@ -66,7 +68,7 @@ const findVarsWays = (node) => {
             } = path.node;
             const way = [];
             
-            if (!isNameTemplate(name) && !isImports(name) && !isArgs(name))
+            if (!isName(name) && !isImports(name) && !isArgs(name))
                 return;
             
             path.find((path) => {
