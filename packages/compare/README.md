@@ -70,11 +70,26 @@ compare('() => {}', '(__args) => {}');
 true
 ```
 
+##### __imports
+
+Any count of `imports`:
+
+```js
+compare('import React, {Component} from "react"', 'import __imports from "react"');
+```
+
 ##### "__"
 Any string literal.
 
 ```js
 compare('const a = "hello"', 'const __ = "__"');
+```
+
+##### __a
+Linked literal
+
+```js
+compare('const __a = "hello"', 'const __a = "hello"');
 ```
 
 ##### "__a"
@@ -83,6 +98,7 @@ Linked string literal.
 ```js
 compare('const a = "hello"', 'const __a = "__b"');
 ```
+
 
 ## License
 

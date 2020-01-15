@@ -14,6 +14,7 @@ const {
     isAny,
     isAnyLiteral,
     isAnyArgs,
+    isImports,
     isStr,
     isPath,
     isEqualType,
@@ -168,6 +169,9 @@ function superCompare(nodeValue, value, {add, templateStore}) {
     if (isAnyLiteral(nodeValue, value))
         return true;
     
+    if (isImports(value))
+        return true;
+    
     if (isAnyArgs(value))
         return true;
     
@@ -183,3 +187,4 @@ function superCompare(nodeValue, value, {add, templateStore}) {
     
     return false;
 }
+

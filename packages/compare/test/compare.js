@@ -432,6 +432,16 @@ test('compare: linked node: literal', (t) => {
     t.end();
 });
 
+test('compare: linked node: __imports', (t) => {
+    const a = 'import React, {Component} from "world"';
+    const b = 'import __imports from "__b"';
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);

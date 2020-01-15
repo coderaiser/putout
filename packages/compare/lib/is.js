@@ -4,12 +4,14 @@ const {template} = require('@putout/engine-parser');
 const {
     isIdentifier,
     isLiteral,
+    isImportDefaultSpecifier,
 } = require('@babel/types');
 
 const ANY_OBJECT = '__object';
 const ANY_ARRAY = '__array';
 const ANY_ARGS = '__args';
 const LINKED_NODE = /^__[a-z]$/;
+const IMPORTS = '__imports';
 
 const isAnyObject = (a) => isIdentifier(a, {
     name: ANY_OBJECT,
@@ -55,6 +57,17 @@ module.exports.isArrays = (a, b) => {
         return false;
     
     return true;
+};
+
+module.exports.isImports = (a) => {
+    const b = !isArray(a) ? a : a[0];
+    
+    if (!isImportDefaultSpecifier(b))
+        return false;
+    
+    return isIdentifier(b.local, {
+        name: IMPORTS,
+    });
 };
 
 const __OBJECT_TYPE = 'ObjectPattern|ObjectExpression';
