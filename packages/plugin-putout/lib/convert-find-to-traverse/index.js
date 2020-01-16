@@ -10,7 +10,6 @@ const {
 } = types;
 
 module.exports.report = () => '"traverse" should be used instead of "find"';
-
 module.exports.fix = (path) => {
     if (path.isMemberExpression())
         return path.get('property').node.name = 'traverse';
@@ -18,9 +17,8 @@ module.exports.fix = (path) => {
     if (path.isFunction())
         return path.node.params = [path.node.params[1]];
     
-    if (path.isCallExpression()) {
-        replaceWith(path.parentPath, ReturnStatement(path.node.arguments[1]));
-    }
+    if (path.isCallExpression())
+        replaceWith(path, ReturnStatement(path.node.arguments[1]));
 };
 
 module.exports.traverse = ({push}) => {
