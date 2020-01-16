@@ -62,7 +62,7 @@
     "@putout/plugin-convert-binary-expression-to-boolean": "^1.0.0",
     "@putout/plugin-convert-commonjs-to-esm": "^2.0.0",
     "@putout/plugin-convert-esm-to-commonjs": "^3.0.0",
-    "@putout/plugin-convert-for-each-to-for-of": "^3.0.0",
+    "@putout/plugin-convert-for-each-to-for-of": "^4.0.0",
     "@putout/plugin-convert-math-pow": "^4.0.0",
     "@putout/plugin-convert-object-assign-to-merge-spread": "^3.0.0",
     "@putout/plugin-convert-spread-to-array-from": "^1.0.0",
