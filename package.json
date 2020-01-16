@@ -26,6 +26,9 @@
     "madrun": "^5.2.0",
     "supertape": "^1.2.4"
   },
+  "engines": {
+    "node": ">=8.3"
+  },
   "workspaces": [
     "packages/*"
   ],
