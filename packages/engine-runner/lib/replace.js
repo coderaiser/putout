@@ -129,6 +129,9 @@ function setValues({waysTo, values, path}) {
     }
 }
 
+const isFn = (a) => typeof a === 'function';
+const parseTo = (from, to, values) => isFn(to) ? to(values, from) : to;
+
 const fix = (from, to, path) => {
     const nodeFrom = template.ast(from);
     const watermark = `${from} -> ${to}`;
@@ -152,16 +155,16 @@ const fix = (from, to, path) => {
         node,
     });
     
-    const toStr = typeof to === 'function' ? to(values) : to;
+    const toStr = parseTo(from, to, values);
     const nodeTo = template.ast.fresh(toStr);
     const waysTo = findVarsWays(nodeTo);
     
-    replaceWith(path, nodeTo);
+    const newPath = replaceWith(path, nodeTo);
     
     setValues({
         waysTo,
         values,
-        path,
+        path: newPath,
     });
     
     path._putout.push(watermark);
