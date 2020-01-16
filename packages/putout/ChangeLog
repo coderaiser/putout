@@ -1,3 +1,22 @@
+2020.01.16, v7.6.0
+
+fix:
+- chore(madrun) :lint
+
+feature:
+- (package) @putout/plugin-convert-commonjs-to-esm v3.0.0
+- (package) @putout/plugin-putout v4.0.0
+- (package) @putout/plugin-convert-for-each-to-for-of v4.0.0
+- (package) @putout/engine-runner v4.0.0
+- (package) @putout/operate v3.0.0
+- (package) @putout/operate v3.0.0
+- (@putout/engine-runner) replace: add ability to skip
+- (@putout/operate) replaceWith: add support of expressions
+- (@putout/plugin-putout) drop support of putout < 7.6
+- (@putout/plugin-convert-for-each-to-for-of) drop support of putout < 7.6
+- (@putout/plugin-convert-commonjs-to-esm) convert to replace
+
+
 2020.01.15, v7.5.0
 
 fix:
