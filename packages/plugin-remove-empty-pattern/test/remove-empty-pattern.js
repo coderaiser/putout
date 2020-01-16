@@ -26,12 +26,12 @@ test('plugin-remove-empty-pattern: array', (t) => {
 });
 
 test('plugin-remove-empty-pattern: argument: object destructuring', (t) => {
-    t.transformCode('({}) => alert()', '() => alert()');
+    t.transformCode('({}) => alert()', '() => alert();');
     t.end();
 });
 
 test('plugin-remove-empty-pattern: argument: array destructuring', (t) => {
-    t.transformCode('([]) => alert()', '() => alert()');
+    t.transformCode('([]) => alert()', '() => alert();');
     t.end();
 });
 

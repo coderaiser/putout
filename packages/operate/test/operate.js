@@ -30,37 +30,100 @@ const {
 test('putout: operate: replaceWith', (t) => {
     const node = {};
     const replaceWith = stub();
+    const isExpressionStatement = stub().returns(false);
+    
+    const parentPath = {
+        isExpressionStatement,
+    };
     
     const path = {
         node,
+        parentPath,
         replaceWith,
     };
     
     operate.replaceWith(path, node);
     
-    t.ok(replaceWith.calledWith(node), 'should call reporter');
+    t.ok(replaceWith.calledWith(node), 'should call replaceWith');
     t.end();
 });
 
-test('putout: operate: replaceWith', (t) => {
+test('putout: operate: replaceWith: result', (t) => {
     const node = {};
-    const newPath = {};
-    const replaceWith = stub().returns(newPath);
+    const replaceWith = stub();
+    const isExpressionStatement = stub().returns(false);
+    const parentPath = {
+        isExpressionStatement,
+    };
     
     const path = {
+        node,
+        parentPath,
+        replaceWith,
+    };
+    
+    const result = operate.replaceWith(path, node);
+    
+    t.equal(result, path, 'should return result');
+    t.end();
+});
+
+test('putout: operate: replaceWith: expression', (t) => {
+    const node = {};
+    const replaceWith = stub();
+    const isExpressionStatement = stub().returns(true);
+    const isProgram = stub().returns(false);
+    const parentPath = {
+        isExpressionStatement,
+        node,
+        replaceWith,
+        isProgram,
+    };
+    
+    const path = {
+        parentPath,
         node,
         replaceWith,
     };
     
     const result = operate.replaceWith(path, node);
     
-    t.equal(result, newPath, 'should call reporter');
+    t.equal(result, parentPath, 'should return result');
+    t.end();
+});
+
+test('putout: operate: replaceWith: expression: isProgram', (t) => {
+    const node = {};
+    const replaceWith = stub();
+    const isExpressionStatement = stub().returns(true);
+    const isProgram = stub().returns(true);
+    const parentPath = {
+        node,
+        replaceWith,
+        isProgram,
+        isExpressionStatement,
+    };
+    
+    const path = {
+        parentPath,
+        node,
+        replaceWith,
+    };
+    
+    const result = operate.replaceWith(path, node);
+    
+    t.equal(result, path, 'should return result');
     t.end();
 });
 
 test('putout: operate: replaceWith: comments', (t) => {
     const comments = [];
     const replaceWith = stub();
+    const isExpressionStatement = stub().returns(false);
+    
+    const parentPath = {
+        isExpressionStatement,
+    };
     
     const node = {
         comments,
@@ -71,6 +134,7 @@ test('putout: operate: replaceWith: comments', (t) => {
     
     const path = {
         node,
+        parentPath,
         replaceWith,
     };
     
@@ -83,6 +147,7 @@ test('putout: operate: replaceWith: comments', (t) => {
 test('putout: operate: replaceWith: loc', (t) => {
     const loc = {};
     const replaceWith = stub();
+    const isExpressionStatement = stub().returns(false);
     
     const node = {
         loc,
@@ -91,9 +156,14 @@ test('putout: operate: replaceWith: loc', (t) => {
     const newNode = {
     };
     
+    const parentPath = {
+        isExpressionStatement,
+    };
+    
     const path = {
         node,
         replaceWith,
+        parentPath,
     };
     
     operate.replaceWith(path, newNode);

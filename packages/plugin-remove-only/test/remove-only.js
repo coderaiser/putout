@@ -15,7 +15,7 @@ test('plugin-remove-only: transform', (t) => {
     t.end();
 });
 
-test('plugin-remove-only: transform', (t) => {
+test.only('plugin-remove-only: transform: only-only', (t) => {
     t.transform('only-only');
     t.end();
 });

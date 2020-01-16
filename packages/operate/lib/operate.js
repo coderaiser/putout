@@ -45,15 +45,19 @@ function toExpression(el) {
 }
 
 function replaceWith(path, node) {
+    if (path.parentPath.isExpressionStatement() && !path.parentPath.isProgram())
+        path = path.parentPath;
+    
     const {comments, loc} = path.node;
-    const newPath = path.replaceWith(node);
+    
+    path.replaceWith(node);
     
     assign(path.node, {
         comments,
         loc,
     });
     
-    return newPath;
+    return path;
 }
 
 module.exports.replaceWithMultiple = (path, nodes) => {
