@@ -12,7 +12,8 @@ module.exports = {
     'lint:dot': () => 'putout .madrun.js',
     'lint-all': () => `MADRUN_NAME=1 ${run('lint:*')}`,
     'lint': () => `putout .madrun.js packages/*/{bin,lib,test,*.js,.*.js} -f progress`,
-    'fix:lint': () => 'lerna run --no-bail fix:lint',
+    'fix:lint': () => run('lint', '--fix'),
+    'fix:lint:slow': () => 'lerna run --no-bail fix:lint',
     'bootstrap': () => 'lerna bootstrap',
     'report': () => `nyc report --reporter=text-lcov | coveralls`,
 };
