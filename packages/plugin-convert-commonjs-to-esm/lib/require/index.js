@@ -1,83 +1,40 @@
 'use strict';
 
-const {
-    types,
-    operate,
-} = require('putout');
+const {types} = require('putout');
 
 const {
-    importDeclaration,
-    importSpecifier,
-    importDefaultSpecifier,
     isStringLiteral,
-
+    isIdentifier,
+    isObjectPattern,
 } = types;
-
-const {replaceWith} = operate;
 
 module.exports.report = () => 'ESM should be used insted of Commonjs';
 
-module.exports.fix = ({path, source, local, properties, isDefault}) => {
-    const {parentPath} = path;
-    source.value = addExtToRelative(source.value);
-    
-    if (isDefault) {
-        const declaration = importDeclaration([importDefaultSpecifier(local)], source);
-        return replaceWith(parentPath, declaration);
-    }
-    
-    const specifiers = [];
-    for (const {key, value} of properties)
-        specifiers.push(importSpecifier(key, value));
-    
-    replaceWith(parentPath, importDeclaration(specifiers, source));
-};
-
-module.exports.traverse = ({push}) => {
-    return {
-        VariableDeclarator(path) {
-            const idPath = path.get('id');
-            const initPath = path.get('init');
+module.exports.replace = () => ({
+    'const __a = require("__b")': ({__a, __b}, skip) => {
+        if (!isStringLiteral(__b))
+            return skip;
+        
+        let {value} = __b;
+        
+        if (value.includes('./'))
+            value += '.js';
+        
+        if (isIdentifier(__a))
+            return `import ${__a.name} from "${value}"`;
+        
+        if (isObjectPattern(__a)) {
+            const imports = [];
             
-            if (!initPath.isCallExpression())
-                return;
-            
-            const calleePath = initPath.get('callee');
-            
-            if (!calleePath.isIdentifier({name: 'require'}))
-                return;
-            
-            const [source] = initPath.node.arguments;
-            
-            if (!isStringLiteral(source))
-                return;
-            
-            if (idPath.isIdentifier())
-                return push({
-                    path,
-                    source,
-                    local: idPath.node,
-                    isDefault: true,
-                });
-            
-            const {properties} = idPath.node;
-            
-            if (idPath.isObjectPattern()) {
-                return push({
-                    path,
-                    source,
-                    properties,
-                    isDefault: false,
-                });
+            for (const {key, value} of __a.properties) {
+                imports.push(`${key.name} as ${value.name}`);
             }
-        },
-    };
-};
-
-function addExtToRelative(str) {
-    if (str.indexOf('./'))
-        return str;
-    
-    return `${str}.js`;
-}
-
+            
+            const importsStr = imports.join(',');
+            
+            return `import {${importsStr}} from "${value}"`;
+        }
+        
+        return skip;
+    },
+});
