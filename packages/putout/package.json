@@ -52,7 +52,7 @@
     "@putout/formatter-progress": "^1.0.0",
     "@putout/formatter-stream": "^1.0.0",
     "@putout/git-status-porcelain": "^1.0.0",
-    "@putout/operate": "^2.0.0",
+    "@putout/operate": "^3.0.0",
     "@putout/plugin-apply-destructuring": "^5.0.0",
     "@putout/plugin-apply-optional-chaining": "^1.0.0",
     "@putout/plugin-apply-shorthand-properties": "^2.0.0",
