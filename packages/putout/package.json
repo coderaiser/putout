@@ -74,7 +74,7 @@
     "@putout/plugin-merge-destructuring-properties": "^2.0.0",
     "@putout/plugin-merge-if-statements": "^2.0.0",
     "@putout/plugin-promises": "^1.0.0",
-    "@putout/plugin-putout": "^3.0.0",
+    "@putout/plugin-putout": "^4.0.0",
     "@putout/plugin-remove-boolean-from-logical-expressions": "^1.0.0",
     "@putout/plugin-remove-console": "^3.0.0",
     "@putout/plugin-remove-constant-conditions": "^1.0.0",
