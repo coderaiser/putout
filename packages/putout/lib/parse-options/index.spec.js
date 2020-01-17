@@ -93,7 +93,7 @@ test('putout: parseOptions: readHomeOptions', (t) => {
     });
     
     const expected = {
-        dir: '/home/coderaiser/putout/packages/putout/lib/parse-options',
+        dir: __dirname,
         rules: {
             'remove-console': 'off',
             'remove-unused-variables': 'off',
@@ -105,4 +105,104 @@ test('putout: parseOptions: readHomeOptions', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: parseOptions: custom options more important then default match', (t) => {
+    const empty = {};
+    
+    const readCodeMods = stub().returns([__dirname, empty]);
+    const readOptions = stub().returns([__dirname, empty]);
+    const readHomeOptions = stub().returns(empty);
+    
+    mockRequire('../../putout.json', {
+        match: {
+            'spec.js$': {
+                'remove-only': 'on',
+            },
+        },
+    });
+    
+    const parseOptions = reRequire('.');
+    
+    const options = {
+        rules: {
+            'remove-only': 'off',
+        },
+    };
+    
+    const result = parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readOptions,
+        readHomeOptions,
+        readCodeMods,
+    });
+    
+    const expected = {
+        dir: __dirname,
+        match: {
+            'spec.js$': {
+                'remove-only': 'on',
+            },
+        },
+        rules: {
+            'remove-only': 'off',
+        },
+    };
+    
+    stopAll();
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test(
+    'putout: parseOptions: custom match more important then custom options',
+    (t) => {
+        const empty = {};
+        
+        const readCodeMods = stub().returns([__dirname, empty]);
+        const readOptions = stub().returns([__dirname, empty]);
+        const readHomeOptions = stub().returns(empty);
+        
+        mockRequire('../../putout.json', empty);
+        
+        const parseOptions = reRequire('.');
+        
+        const options = {
+            rules: {
+                'remove-only': 'off',
+            },
+            match: {
+                'spec.js$': {
+                    'remove-only': 'on',
+                },
+            },
+        };
+        
+        const result = parseOptions({
+            name: 'parse-options.spec.js',
+            options,
+            readOptions,
+            readHomeOptions,
+            readCodeMods,
+        });
+        
+        const expected = {
+            dir: __dirname,
+            match: {
+                'spec.js$': {
+                    'remove-only': 'on',
+                },
+            },
+            rules: {
+                'remove-only': 'on',
+            },
+        };
+        
+        stopAll();
+        
+        t.deepEqual(result, expected);
+        t.end();
+    },
+);
 
