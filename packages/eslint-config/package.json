@@ -16,8 +16,7 @@
     "lint:json": "madrun lint:json",
     "lint:js": "madrun lint:js",
     "lint": "madrun lint",
-    "fix:lint": "madrun fix:lint",
-    "publishOnly": "madrun publishOnly"
+    "fix:lint": "madrun fix:lint"
   },
   "dependencies": {},
   "peerDependencies": {

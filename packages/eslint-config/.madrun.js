@@ -7,6 +7,6 @@ module.exports = {
     'lint:js': () => 'putout .madrun.js',
     'lint': () => run('lint:*'),
     'fix:lint': () => run('lint', '--fix'),
-    'publishOnly': () => run('lint'),
+    'prepublishOnly': () => run('lint'),
 };
 
