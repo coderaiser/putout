@@ -480,3 +480,26 @@ test('putout: plugins: replace: template: function: __args', (t) => {
     t.end();
 });
 
+test('putout: plugins: replace: template: function: __args, skip', (t) => {
+    const applyToSpread = {
+        report: () => '',
+        replace: () => ({
+            'const __a = require("__b")': ({}, skip) => {
+                return skip;
+            },
+        }),
+    };
+    
+    const {code} = putout('const fs = require("fs")', {
+        runPlugins,
+        plugins: [{
+            'convert-commonjs-to-esm': applyToSpread,
+        }],
+    });
+    
+    const expected = 'const fs = require("fs");';
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
