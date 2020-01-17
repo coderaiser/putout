@@ -13,9 +13,11 @@
     "url": "git://github.com/coderaiser/putout.git"
   },
   "scripts": {
+    "lint:json": "madrun lint:json",
+    "lint:js": "madrun lint:js",
     "lint": "madrun lint",
     "fix:lint": "madrun fix:lint",
-    "wisdom": "madrun wisdom"
+    "publishOnly": "madrun publishOnly"
   },
   "dependencies": {},
   "peerDependencies": {
