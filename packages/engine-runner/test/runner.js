@@ -484,7 +484,7 @@ test('putout: plugins: replace: template: function: __args, skip', (t) => {
     const applyToSpread = {
         report: () => '',
         replace: () => ({
-            'const __a = require("__b")': ({}, skip) => {
+            'const __a = require("__b")': (vars, skip) => {
                 return skip;
             },
         }),
