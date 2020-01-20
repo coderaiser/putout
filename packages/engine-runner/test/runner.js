@@ -497,7 +497,7 @@ test('putout: plugins: replace: template: function: __args, skip', (t) => {
         }],
     });
     
-    const expected = 'const fs = require("fs");';
+    const expected = 'const fs = require("fs")';
     
     t.deepEqual(code, expected);
     t.end();
