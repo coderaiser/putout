@@ -16,7 +16,6 @@ module.exports.report = () => 'Variables should be declared separately';
 
 module.exports.fix = (path) => {
     const {node} = path;
-    
     const varNodes = getVarNodes(node);
     
     replaceWithMultiple(path, varNodes);
