@@ -98,7 +98,7 @@ putout lib test --fix
 ```
 </details>
 
-<details><summary>remove useless <code>variables<code></summary>
+<details><summary>remove useless <code>variables</code></summary>
 
 ```diff
 -   function hi(a) {
