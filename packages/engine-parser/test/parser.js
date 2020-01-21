@@ -11,6 +11,7 @@ const fixture = readFixtures([
     'export-default-declaration-fix',
     'debugger',
     'debugger-fix',
+    'throw',
 ]);
 
 test('putout: export default declaration: acorn', (t) => {
@@ -80,5 +81,18 @@ test('putout: export default declaration: tenko', (t) => {
     const expected = fixture.exportDefaultDeclarationFix;
     
     t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: export default declaration: tenko', (t) => {
+    const {code} = putout(fixture.throw, {
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = '\n';
+    
+    t.equal(code, expected, 'should equal');
     t.end();
 });

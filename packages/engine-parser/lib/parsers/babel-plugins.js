@@ -11,5 +11,6 @@ module.exports = [
     'exportDefaultFrom',
     'nullishCoalescingOperator',
     'optionalChaining',
+    'throwExpressions',
 ];
 
