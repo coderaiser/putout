@@ -6,7 +6,6 @@ const {
 } = require('putout');
 
 const {replaceWith} = operate;
-
 const {isFunction} = types;
 
 module.exports.report = () => 'Reject is useless in async functions, use throw instead';

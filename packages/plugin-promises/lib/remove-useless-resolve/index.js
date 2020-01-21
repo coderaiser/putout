@@ -6,7 +6,6 @@ const {
 } = require('putout');
 
 const {replaceWith} = operate;
-
 const {isFunction} = types;
 
 module.exports.report = () => `Resolve is useless in async functions, use return value instead`;
