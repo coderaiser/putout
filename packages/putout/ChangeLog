@@ -1,3 +1,15 @@
+2020.01.21, v7.7.0
+
+feature:
+- (package) @putout/engine-parser v1.10.0
+- (putout) add @putout/convert-throw
+- (@putout/engine-parser) add support of throw expression
+- (@putout/plugin-convert-throw) add
+- (@putout/engine-runner) replace: speed up when skip
+- (package) @putout/plugin-convert-spread-to-array-from v2.0.0
+- (@putout/plugin-convert-spread-to-array-from) convert to replace
+
+
 2020.01.20, v7.6.2
 
 feature:
