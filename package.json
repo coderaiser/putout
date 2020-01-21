@@ -20,6 +20,11 @@
       "pre-commit": "putout -a"
     }
   },
+  "nyc": {
+    "exclude": [
+      "**/*.spec.js"
+    ]
+  },
   "devDependencies": {
     "husky": "^3.0.5",
     "lerna": "^3.8.5",
