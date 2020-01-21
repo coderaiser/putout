@@ -355,7 +355,7 @@ function world(a) {
 ```
 </details>
 
-<details><summary>apply top-level-await (<a href=https://github.com/tc39/proposal-top-level-await>proposal-top-level-await</a>)</summary>
+<details><summary>apply top-level-await (<a href=https://github.com/tc39/proposal-top-level-await>proposal-top-level-await</a>, disabled)</summary>
 
 ```diff
 import fs from 'fs';
@@ -367,7 +367,15 @@ import fs from 'fs';
 ```
 </details>
 
-<details><summary>apply optional chaining(<a href=https://github.com/tc39/proposal-optional-chaining>proposal-optional-chaining</a>)</summary>
+<details><summary>convert <code>throw</code> statement into expression (<a href=https://github.com/tc39/proposal-throw-expressions>proposal-throw-expressions</a>, disabled)</summary>
+
+```diff
+-const fn = (a) => {throw Error(a);}
++const fn = (a) => throw Error(a);
+```
+</details>
+
+<details><summary>apply optional chaining(<a href=https://github.com/tc39/proposal-optional-chaining>proposal-optional-chaining</a>, disabled)</summary>
 
 ```diff
 -const result = hello && hello.world;
