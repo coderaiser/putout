@@ -8,22 +8,15 @@ const {
     parseTemplate,
 } = require('@putout/compare');
 
-const isTemplate = (a) => {
-    if (a === 'enter')
-        return false;
-    
-    return /[(;={]/.test(a) || !/[A-Z]/.test(a);
-};
+const isTemplate = (a) => /[(;={]/.test(a) || !/[A-Z]/.test(a);
+
 const maybeArray = require('../maybe-array');
 const debug = require('debug')('putout:runner:template');
 const generateCode = (a) => generate(a).code;
 
-const log = (rule, a) => {
-    if (!debug.enabled)
-        return;
-    
-    debug(rule, generateCode(a));
-};
+const {entries} = Object;
+
+const log = (rule, a) => debug.enabled && debug(rule, generateCode(a));
 
 const exclude = ({rule, tmpl, fn, nodesExclude}) => {
     if (!nodesExclude.length)
@@ -45,11 +38,10 @@ const exclude = ({rule, tmpl, fn, nodesExclude}) => {
 
 module.exports = ({rule, visitor, options}) => {
     const parsed = [];
-    const entries = Object.entries(visitor);
     const nodesExclude = maybeArray(options.exclude);
     const nodesInclude = maybeArray(options.include);
     
-    for (const [tmpl, fn] of entries) {
+    for (const [tmpl, fn] of entries(visitor)) {
         if (!isTemplate(tmpl)) {
             parsed.push(exclude({
                 rule,
