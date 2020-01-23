@@ -9,9 +9,10 @@ const {runPlugins} = require('..');
 
 const fixture = readFixtures([
     'import',
+    'no-parent',
 ]);
 
-test('putout: run plugins', (t) => {
+test('putout: runner: run plugins', (t) => {
     const result = putout(fixture.import, {
         runPlugins,
         plugins: [
@@ -26,7 +27,7 @@ test('putout: run plugins', (t) => {
     t.end();
 });
 
-test('putout: run plugins: disable, using "off"', (t) => {
+test('putout: runner: run plugins: disable, using "off"', (t) => {
     const result = putout(fixture.import, {
         runPlugins,
         rules: {
@@ -45,7 +46,7 @@ test('putout: run plugins: disable, using "off"', (t) => {
     t.end();
 });
 
-test('putout: filter: options', (t) => {
+test('putout: runner: filter: options', (t) => {
     const addVar = {
         report: () => '',
         fix: stub(),
@@ -84,7 +85,7 @@ test('putout: filter: options', (t) => {
     t.end();
 });
 
-test('putout: filter: options: no filter call', (t) => {
+test('putout: runner: filter: options: no filter call', (t) => {
     const addVar = {
         report: () => '',
         fix: stub(),
@@ -116,7 +117,7 @@ test('putout: filter: options: no filter call', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace', (t) => {
+test('putout: runner: plugins: replace', (t) => {
     const addVar = {
         report: () => '',
         replace: () => ({
@@ -137,7 +138,7 @@ test('putout: plugins: replace', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: a couple', (t) => {
+test('putout: runner: plugins: replace: a couple', (t) => {
     const addVar = {
         report: () => '',
         replace: () => ({
@@ -159,7 +160,7 @@ test('putout: plugins: replace: a couple', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: remove', (t) => {
+test('putout: runner: plugins: replace: remove', (t) => {
     const rmDebugger = {
         report: () => '',
         replace: () => ({
@@ -180,7 +181,7 @@ test('putout: plugins: replace: remove', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: remove: exclude', (t) => {
+test('putout: runner: plugins: replace: remove: exclude', (t) => {
     const rmDebugger = {
         report: () => '',
         replace: () => ({
@@ -206,7 +207,7 @@ test('putout: plugins: replace: remove: exclude', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: template', (t) => {
+test('putout: runner: plugins: replace: template', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
@@ -228,7 +229,7 @@ test('putout: plugins: replace: template', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: template: a couple vars', (t) => {
+test('putout: runner: plugins: replace: template: a couple vars', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
@@ -251,7 +252,7 @@ test('putout: plugins: replace: template: a couple vars', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: template: array', (t) => {
+test('putout: runner: plugins: replace: template: array', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
@@ -273,7 +274,7 @@ test('putout: plugins: replace: template: array', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: template: identifier', (t) => {
+test('putout: runner: plugins: replace: template: identifier', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
@@ -295,7 +296,7 @@ test('putout: plugins: replace: template: identifier', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: template: ifCondition', (t) => {
+test('putout: runner: plugins: replace: template: ifCondition', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
@@ -317,7 +318,7 @@ test('putout: plugins: replace: template: ifCondition', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: template: ifCondition: body', (t) => {
+test('putout: runner: plugins: replace: template: ifCondition: body', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
@@ -339,7 +340,7 @@ test('putout: plugins: replace: template: ifCondition: body', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: template: object pattern', (t) => {
+test('putout: runner: plugins: replace: template: object pattern', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
@@ -361,7 +362,7 @@ test('putout: plugins: replace: template: object pattern', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: template: infinite loop', (t) => {
+test('putout: runner: plugins: replace: template: infinite loop', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
@@ -384,7 +385,7 @@ test('putout: plugins: replace: template: infinite loop', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: template: same', (t) => {
+test('putout: runner: plugins: replace: template: same', (t) => {
     const applyToSpread = {
         report: () => '',
         replace: () => ({
@@ -406,7 +407,7 @@ test('putout: plugins: replace: template: same', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: template: linked literal node', (t) => {
+test('putout: runner: plugins: replace: template: linked literal node', (t) => {
     const applyToSpread = {
         report: () => '',
         replace: () => ({
@@ -428,7 +429,7 @@ test('putout: plugins: replace: template: linked literal node', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: template: function: __imports', (t) => {
+test('putout: runner: plugins: replace: template: function: __imports', (t) => {
     const applyToSpread = {
         report: () => '',
         replace: () => ({
@@ -459,7 +460,7 @@ test('putout: plugins: replace: template: function: __imports', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: template: function: __args', (t) => {
+test('putout: runner: plugins: replace: template: function: __args', (t) => {
     const applyToSpread = {
         report: () => '',
         replace: () => ({
@@ -480,7 +481,7 @@ test('putout: plugins: replace: template: function: __args', (t) => {
     t.end();
 });
 
-test('putout: plugins: replace: template: function: __args, skip', (t) => {
+test('putout: runner: plugins: replace: template: function: __args, skip', (t) => {
     const applyToSpread = {
         report: () => '',
         replace: () => ({
@@ -500,6 +501,22 @@ test('putout: plugins: replace: template: function: __args, skip', (t) => {
     const expected = 'const fs = require("fs")';
     
     t.deepEqual(code, expected);
+    t.end();
+});
+
+test('putout: runner: root vars: no parent', (t) => {
+    const result = putout(fixture.noParent, {
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = {
+        code: '\n',
+        places: [],
+    };
+    
+    t.deepEqual(result, expected, 'should equal');
     t.end();
 });
 
