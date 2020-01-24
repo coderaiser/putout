@@ -7,44 +7,46 @@ const {
 
 module.exports.report = () => 'rest parameters should be used instead of "arguments"';
 
-module.exports.fix = ({path, fnPath}) => {
-    fnPath.node.params = [
+module.exports.fix = ({path, paths}) => {
+    path.node.params = [
         spreadElement(identifier('args')),
     ];
     
-    path.node.name = 'args';
+    for (const path of paths) {
+        path.node.name = 'args';
+    }
 };
 
 module.exports.traverse = ({push}) => {
-    const traverseFn = traverseFunction(push);
-    
     return {
-        FunctionExpression: traverseFn,
-        FunctionDeclaration: traverseFn,
+        'FunctionExpression|FunctionDeclaration': (path) => {
+            if (path.node.params.length)
+                return;
+            
+            const paths = [];
+            
+            path.traverse({
+                Identifier(path) {
+                    const {
+                        node,
+                        scope,
+                    } = path;
+                    
+                    if (node.name !== 'arguments')
+                        return;
+                    
+                    if (scope.hasBinding('args'))
+                        return;
+                    
+                    paths.push(path);
+                },
+            });
+            
+            if (!paths.length)
+                return;
+            
+            push({path, paths});
+        },
     };
 };
 
-const traverseFunction = (push) => (fnPath) => {
-    if (fnPath.node.params.length)
-        return;
-    
-    fnPath.traverse({
-        Identifier(path) {
-            const {
-                node,
-                scope,
-            } = path;
-            
-            if (node.name !== 'arguments')
-                return;
-            
-            if (scope.hasBinding('args'))
-                return;
-            
-            push({
-                path,
-                fnPath,
-            });
-        },
-    });
-};
