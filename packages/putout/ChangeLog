@@ -1,3 +1,16 @@
+2020.01.24, v7.7.1
+
+fix:
+- (@putout/engine-runner) template: isTemplate: entry has no sense in merge visitors
+- (@putout/plugin-convert-throw) readme links
+
+feature:
+- (package) @putout/plugin-remove-useless-spread v2.0.0
+- (@putout/plugin-remove-useless-spread) convert to replace
+- (@putout/plugin-convert-arguments-to-rest) simplify
+- (@putout/engine-parser) remove acorn version check due to using a fork with overriden version (https://github.com/acornjs/acorn/issues/862)
+
+
 2020.01.21, v7.7.0
 
 feature:
