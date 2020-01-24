@@ -36,7 +36,6 @@
     "eslint": "^6.2.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^3.0.0",
-    "eslint-plugin-tape": "^1.1.0",
     "lerna": "^3.8.5",
     "madrun": "^5.0.0",
     "nodemon": "^2.0.1",
