@@ -1,1 +1,3 @@
-for (const a of b) {}
+for (const a of b) {
+    console.log('xxx');
+}
