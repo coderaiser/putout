@@ -3,14 +3,7 @@
 const once = require('once');
 
 const initAcorn = once(() => {
-    const acorn = require('acorn');
-    
-    // fix acorn plugins
-    // https://github.com/acornjs/acorn/issues/862
-    if (acorn.version !== '6.3.0')
-        acorn.version = '6.3.0';
-    
-    const {Parser} = acorn;
+    const {Parser} = require('acorn');
     const jsx = require('acorn-jsx');
     const stage3 = require('acorn-stage3');
     
