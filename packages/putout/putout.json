@@ -56,6 +56,7 @@
         "remove-useless-arguments",
         "remove-useless-templates",
         "remove-useless-escape",
+        "remove-useless-spread",
         "remove-constant-conditions",
         "remove-boolean-from-logical-expressions",
         "remove-nested-blocks",
