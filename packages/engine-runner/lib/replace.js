@@ -16,10 +16,11 @@ const nessy = require('nessy');
 
 const maybeArray = require('./maybe-array');
 
+const {keys, entries} = Object;
+
 const stub = () => [];
-const packKeys = (a) => () => Object.keys(a);
+const packKeys = (a) => () => keys(a);
 const isNumber = (a) => typeof a === 'number';
-const {entries} = Object;
 
 const parseExpression = (a) => a.expression || a;
 
@@ -177,7 +178,7 @@ const fix = (from, to, path) => {
 };
 
 const getFix = (items) => (path) => {
-    for (const [from, to] of Object.entries(items))
+    for (const [from, to] of entries(items))
         fix(from, to, path);
 };
 
