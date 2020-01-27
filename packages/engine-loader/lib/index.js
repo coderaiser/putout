@@ -1,5 +1,7 @@
 'use strict';
 
+const memo = require('nano-memoize');
+
 const isEnabled = require('./is-enabled');
 const loadPlugin = require('./load-plugin');
 const parsePluginNames = require('./parse-plugin-names');
@@ -33,19 +35,9 @@ const mergeRules = ([rule, plugin], rules) => {
     };
 };
 
-const cache = new Map();
+module.exports.loadPlugins = memo(load);
 
-module.exports.loadPlugins = (options = {}) => {
-    if (cache.has(options))
-        return cache.get(options);
-    
-    const result = load(options);
-    cache.set(options, result);
-    
-    return result;
-};
-
-function load(options) {
+function load(options = {}) {
     const {
         pluginNames = [],
         cache = true,

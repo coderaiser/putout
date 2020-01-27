@@ -219,6 +219,21 @@ test('putout: jscodeshift', (t) => {
     t.end();
 });
 
+test('putout: jscodeshift: cache', (t) => {
+    const options = {
+        plugins: [
+            'jscodeshift/async-await-codemod/async-await',
+        ],
+    };
+    
+    putout(fixture.jscodeshift, options);
+    
+    const {code} = putout(fixture.jscodeshift, options);
+    
+    t.deepEqual(code, fixture.jscodeshiftFix);
+    t.end();
+});
+
 test('putout: jscodeshift: no vars', (t) => {
     const {code} = putout(fixture.jscodeshiftArrow, {
         plugins: [
