@@ -2,10 +2,18 @@
 
 const recast = require('recast');
 const toBabel = require('estree-to-babel');
-const customParser = require('./custom-parser');
-const memo = require('micro-memoize');
+const memo = require('nano-memoize');
 
-module.exports = memo((source, {parser, isTS, isFlow, isJSX} = {}) => {
+const customParser = require('./custom-parser');
+
+module.exports = memo((source, options) => {
+    const {
+        parser,
+        isTS,
+        isFlow,
+        isJSX,
+    } = options || {};
+    
     const ast = recast.parse(source, {
         parser: getParser({
             parser,
