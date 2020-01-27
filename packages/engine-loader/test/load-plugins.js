@@ -19,6 +19,8 @@ const fixture = readFixtures([
     'babel-plugins-fix',
     'jscodeshift',
     'jscodeshift-fix',
+    'jscodeshift-arrow',
+    'jscodeshift-arrow-fix',
     'jscodeshift-options',
     'jscodeshift-options-fix',
 ]);
@@ -214,6 +216,17 @@ test('putout: jscodeshift', (t) => {
     });
     
     t.deepEqual(code, fixture.jscodeshiftFix);
+    t.end();
+});
+
+test('putout: jscodeshift: no vars', (t) => {
+    const {code} = putout(fixture.jscodeshiftArrow, {
+        plugins: [
+            'jscodeshift/js-codemod/transforms/arrow-function',
+        ],
+    });
+    
+    t.deepEqual(code, fixture.jscodeshiftArrowFix);
     t.end();
 });
 
