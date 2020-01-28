@@ -160,15 +160,8 @@ const fix = (from, to, path) => {
     });
     
     const toStr = parseTo(to, values);
-    
-    if (toStr === from) {
-        path._putout.push(watermark);
-        return;
-    }
-    
     const nodeTo = template.ast.fresh(toStr);
     const waysTo = findVarsWays(nodeTo);
-    
     const newPath = replaceWith(path, nodeTo);
     
     setValues({

@@ -483,6 +483,28 @@ test('putout: runner: plugins: replace: template: function: __args', (t) => {
     t.end();
 });
 
+test('putout: runner: plugins: replace: template: filter', (t) => {
+    const rm = {
+        report: () => '',
+        filter: () => false,
+        replace: () => ({
+            'return x': 'return',
+        }),
+    };
+    
+    const {code} = putout('return x', {
+        runPlugins,
+        plugins: [{
+            rm,
+        }],
+    });
+    
+    const expected = 'return x';
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
 test('putout: runner: root vars: no parent', (t) => {
     const result = putout(fixture.noParent, {
         plugins: [
