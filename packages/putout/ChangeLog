@@ -1,3 +1,14 @@
+2020.01.28, v7.9.0
+
+feature:
+- (package) @putout/plugin-convert-commonjs-to-esm v4.0.0
+- (package) @putout/plugin-promises v3.0.0
+- (package) @putout/engine-runner v5.0.0
+- (@putout/plugin-convert-commonjs-to-esm) replacer: add filter
+- (@putout/plugin-promises) replacer: add filter
+- (@putout/engine-runner) replacer: add support of filter
+
+
 2020.01.28, v7.8.0
 
 fix:
