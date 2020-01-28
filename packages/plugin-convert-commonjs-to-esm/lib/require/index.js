@@ -2,26 +2,22 @@
 
 const {types} = require('putout');
 
-const {
-    isStringLiteral,
-    isIdentifier,
-    isObjectPattern,
-} = types;
+const {isObjectPattern} = types;
 
 module.exports.report = () => 'ESM should be used insted of Commonjs';
 
+const __b = 'declarations.0.init.arguments.0';
+
+module.exports.filter = (path) => {
+    return path.get(__b).isStringLiteral();
+};
+
 module.exports.replace = () => ({
-    'const __a = require("__b")': ({__a, __b}, skip) => {
-        if (!isStringLiteral(__b))
-            return skip;
-        
+    'const __a = require("__b")': ({__a, __b}) => {
         let {value} = __b;
         
         if (value.includes('./'))
             value += '.js';
-        
-        if (isIdentifier(__a))
-            return `import ${__a.name} from "${value}"`;
         
         if (isObjectPattern(__a)) {
             const imports = [];
@@ -35,6 +31,6 @@ module.exports.replace = () => ({
             return `import {${importsStr}} from "${value}"`;
         }
         
-        return skip;
+        return `import __a from "${value}"`;
     },
 });
