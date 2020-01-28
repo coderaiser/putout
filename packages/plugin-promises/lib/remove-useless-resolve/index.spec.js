@@ -15,7 +15,17 @@ test('plugin-remove-useless-resolve: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-resolve: transform: no args', (t) => {
+    t.transform('no-args');
+    t.end();
+});
+
 test('plugin-remove-useless-resolve: no transform', (t) => {
     t.noTransform('not-fn');
+    t.end();
+});
+
+test('plugin-remove-useless-resolve: no transform: not async', (t) => {
+    t.noTransform('not-async');
     t.end();
 });
