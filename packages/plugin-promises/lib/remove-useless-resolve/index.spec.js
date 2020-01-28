@@ -29,3 +29,8 @@ test('plugin-remove-useless-resolve: no transform: not async', (t) => {
     t.noTransform('not-async');
     t.end();
 });
+
+test('plugin-remove-useless-resolve: no report: not async', (t) => {
+    t.noReport('not-async');
+    t.end();
+});
