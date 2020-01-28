@@ -506,6 +506,32 @@ test('putout: runner: plugins: replace: template: function: __args, skip', (t) =
     t.end();
 });
 
+test(
+    'putout: runner: plugins: replace: template: function: __args, path',
+    (t) => {
+        const nodeType = {
+            report: () => '',
+            replace: () => ({
+                'return __': ({path}) => {
+                    return `return '${path.node.type}'`;
+                },
+            }),
+        };
+        
+        const {code} = putout('return "hello"', {
+            runPlugins,
+            plugins: [{
+                'node-type': nodeType,
+            }],
+        });
+        
+        const expected = `return 'ReturnStatement';`;
+        
+        t.deepEqual(code, expected);
+        t.end();
+    },
+);
+
 test('putout: runner: root vars: no parent', (t) => {
     const result = putout(fixture.noParent, {
         plugins: [

@@ -156,7 +156,10 @@ const fix = (from, to, path) => {
         node,
     });
     
-    const toStr = parseTo(from, to, values);
+    const toStr = parseTo(from, to, {
+        path,
+        ...values,
+    });
     
     if (toStr === from) {
         path._putout.push(watermark);
