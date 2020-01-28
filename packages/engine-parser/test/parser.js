@@ -14,7 +14,7 @@ const fixture = readFixtures([
     'throw',
 ]);
 
-test('putout: export default declaration: acorn', (t) => {
+test('putout: parser: export default declaration: acorn', (t) => {
     const {code} = putout(fixture.exportDefaultDeclaration, {
         parser: 'acorn',
         plugins: [
@@ -28,7 +28,7 @@ test('putout: export default declaration: acorn', (t) => {
     t.end();
 });
 
-test('putout: export default declaration: esprima', (t) => {
+test('putout: parser: export default declaration: esprima', (t) => {
     const {code} = putout(fixture.exportDefaultDeclaration, {
         parser: 'esprima',
         plugins: [
@@ -42,7 +42,7 @@ test('putout: export default declaration: esprima', (t) => {
     t.end();
 });
 
-test('putout: export default declaration: custom parser', (t) => {
+test('putout: parser: export default declaration: custom parser', (t) => {
     const [e] = tryCatch(putout, fixture.exportDefaultDeclaration, {
         parser: 'custom',
         plugins: [
@@ -55,7 +55,7 @@ test('putout: export default declaration: custom parser', (t) => {
     t.end();
 });
 
-test('putout: use strict: parser: espree: debugger', (t) => {
+test('putout: parser: use strict: parser: espree: debugger', (t) => {
     const {code} = putout(fixture.debugger, {
         parser: 'espree',
         fixCount: 1,
@@ -70,7 +70,7 @@ test('putout: use strict: parser: espree: debugger', (t) => {
     t.end();
 });
 
-test('putout: export default declaration: tenko', (t) => {
+test('putout: parser: export default declaration: tenko', (t) => {
     const {code} = putout(fixture.exportDefaultDeclaration, {
         parser: 'tenko',
         plugins: [
@@ -84,7 +84,7 @@ test('putout: export default declaration: tenko', (t) => {
     t.end();
 });
 
-test('putout: export default declaration: tenko', (t) => {
+test('putout: parser: export default declaration: tenko', (t) => {
     const {code} = putout(fixture.throw, {
         plugins: [
             'remove-unused-variables',
@@ -96,3 +96,4 @@ test('putout: export default declaration: tenko', (t) => {
     t.equal(code, expected, 'should equal');
     t.end();
 });
+
