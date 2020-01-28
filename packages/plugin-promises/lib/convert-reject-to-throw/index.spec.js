@@ -15,6 +15,11 @@ test('plugin-convert-reject-to-throw: transform', (t) => {
     t.end();
 });
 
+test('plugin-convert-reject-to-throw: transform: call', (t) => {
+    t.transform('call');
+    t.end();
+});
+
 test('plugin-convert-reject-to-throw: transform', (t) => {
     t.noTransform('not-async');
     t.end();
@@ -22,5 +27,10 @@ test('plugin-convert-reject-to-throw: transform', (t) => {
 
 test('plugin-convert-reject-to-throw: transform', (t) => {
     t.noTransform('not-fn');
+    t.end();
+});
+
+test('plugin-convert-reject-to-throw: no transform: no arg', (t) => {
+    t.noTransform('no-arg');
     t.end();
 });
