@@ -10,6 +10,8 @@ const {runPlugins} = require('..');
 const fixture = readFixtures([
     'import',
     'no-parent',
+    'shebang',
+    'shebang-fix',
 ]);
 
 test('putout: runner: run plugins', (t) => {
@@ -550,6 +552,18 @@ test('putout: runner: parser: no loc', (t) => {
     }];
     
     t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: runner: shebang', (t) => {
+    const {code} = putout(fixture.shebang, {
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    const expected = fixture.shebangFix;
+    
+    t.deepEqual(code, expected, 'should equal');
     t.end();
 });
 
