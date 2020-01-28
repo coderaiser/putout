@@ -19,6 +19,7 @@ const maybeArray = require('./maybe-array');
 const {keys, entries} = Object;
 
 const stub = () => [];
+const good = () => true;
 const packKeys = (a) => () => keys(a);
 const isNumber = (a) => typeof a === 'number';
 
@@ -29,6 +30,7 @@ module.exports = ({rule, plugin, msg, options}) => {
         report,
         exclude = stub,
         replace,
+        filter = good,
     } = plugin;
     
     const replaceItems = replace();
@@ -48,6 +50,7 @@ module.exports = ({rule, plugin, msg, options}) => {
         plugin: {
             report,
             fix,
+            filter,
             include,
         },
     };
@@ -131,7 +134,7 @@ function setValues({waysTo, values, path}) {
 }
 
 const isFn = (a) => typeof a === 'function';
-const parseTo = (from, to, values) => isFn(to) ? to(values, from) : to;
+const parseTo = (to, values) => isFn(to) ? to(values) : to;
 
 const fix = (from, to, path) => {
     const nodeFrom = template.ast(from);
@@ -156,10 +159,7 @@ const fix = (from, to, path) => {
         node,
     });
     
-    const toStr = parseTo(from, to, {
-        path,
-        ...values,
-    });
+    const toStr = parseTo(to, values);
     
     if (toStr === from) {
         path._putout.push(watermark);

@@ -483,55 +483,6 @@ test('putout: runner: plugins: replace: template: function: __args', (t) => {
     t.end();
 });
 
-test('putout: runner: plugins: replace: template: function: __args, skip', (t) => {
-    const applyToSpread = {
-        report: () => '',
-        replace: () => ({
-            'const __a = require("__b")': (vars, skip) => {
-                return skip;
-            },
-        }),
-    };
-    
-    const {code} = putout('const fs = require("fs")', {
-        runPlugins,
-        plugins: [{
-            'convert-commonjs-to-esm': applyToSpread,
-        }],
-    });
-    
-    const expected = 'const fs = require("fs")';
-    
-    t.deepEqual(code, expected);
-    t.end();
-});
-
-test(
-    'putout: runner: plugins: replace: template: function: __args, path',
-    (t) => {
-        const nodeType = {
-            report: () => '',
-            replace: () => ({
-                'return __': ({path}) => {
-                    return `return '${path.node.type}'`;
-                },
-            }),
-        };
-        
-        const {code} = putout('return "hello"', {
-            runPlugins,
-            plugins: [{
-                'node-type': nodeType,
-            }],
-        });
-        
-        const expected = `return 'ReturnStatement';`;
-        
-        t.deepEqual(code, expected);
-        t.end();
-    },
-);
-
 test('putout: runner: root vars: no parent', (t) => {
     const result = putout(fixture.noParent, {
         plugins: [

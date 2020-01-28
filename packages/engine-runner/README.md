@@ -30,6 +30,11 @@ module.exports.replace = () => {
 };
 
 // optional
+module.exports.filter = () => {
+    return true;
+}
+
+// optional
 module.exports.exclude = () => [
     `const hello = 'world'`,
 ];
