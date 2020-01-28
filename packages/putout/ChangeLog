@@ -1,3 +1,20 @@
+2020.01.28, v7.8.0
+
+fix:
+- (@putout/compare) rm unused micro-memoize
+
+feature:
+- (package) @putout/engine-runner v4.1.0
+- (package) @putout/plugin-promises v2.0.0
+- (@putout/engine-runner) replace: add support of path
+- (@putout/plugin-promises) convert-reject-to-throw: convert to replace
+- (@putout/plugin-promises) convert-useless-resolve: convert to replace
+- (@putout/engine-loader) micro-memoize -> nano-memoize
+- (@putout/engine-parser) micro-memoize -> nano-memoize: lint spead up: 40s -> 30s
+- (package) jscodeshift v0.7.0
+- (package) husky v4.2.1
+
+
 2020.01.24, v7.7.1
 
 fix:
