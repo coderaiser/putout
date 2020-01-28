@@ -520,3 +520,36 @@ test('putout: runner: root vars: no parent', (t) => {
     t.end();
 });
 
+test('putout: runner: parser: no loc', (t) => {
+    const rmLoc = {
+        report: () => '',
+        fix: () => {},
+        traverse: ({push}) => {
+            return {
+                Program(path) {
+                    path.node.loc = null;
+                    push(path);
+                },
+            };
+        },
+    };
+    
+    const {places} = putout('', {
+        plugins: [{
+            'rm-loc': rmLoc,
+        }],
+    });
+    
+    const expected = [{
+        rule: 'rm-loc',
+        message: '',
+        position: {
+            line: 'x',
+            column: 'x',
+        },
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
