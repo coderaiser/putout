@@ -19,7 +19,6 @@ const maybeArray = require('./maybe-array');
 const {keys, entries} = Object;
 
 const stub = () => [];
-const good = () => true;
 const packKeys = (a) => () => keys(a);
 const isNumber = (a) => typeof a === 'number';
 
@@ -30,7 +29,7 @@ module.exports = ({rule, plugin, msg, options}) => {
         report,
         exclude = stub,
         replace,
-        filter = good,
+        filter,
     } = plugin;
     
     const replaceItems = replace();

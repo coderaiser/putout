@@ -3,7 +3,7 @@
 const log = require('debug')('putout:runner:include');
 
 const stub = () => [];
-const filterStub = () => true;
+const good = () => true;
 const maybeArray = require('./maybe-array');
 
 module.exports = ({rule, plugin, msg, options}) => {
@@ -12,7 +12,7 @@ module.exports = ({rule, plugin, msg, options}) => {
         report,
         include,
         exclude = stub,
-        filter = filterStub,
+        filter = good,
     } = plugin;
     
     const traverse = getTraverse(include(), filter, rule);
