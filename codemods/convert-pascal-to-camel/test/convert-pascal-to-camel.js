@@ -35,4 +35,3 @@ test('plugin-convert-pascal-to-camel: literal', (t) => {
     t.end();
 });
 
-
