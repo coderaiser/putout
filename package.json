@@ -37,7 +37,8 @@
     "node": ">=8.3"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "codemods/*"
   ],
   "dependencies": {}
 }
