@@ -22,7 +22,9 @@
   },
   "nyc": {
     "exclude": [
-      "**/*.spec.js"
+      "**/*.spec.js",
+      "packages/*/bin",
+      "packages/*/test"
     ]
   },
   "devDependencies": {
