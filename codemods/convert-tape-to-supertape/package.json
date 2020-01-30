@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-convert-tape-to-supertape",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin for converting tape to supertape",
@@ -36,15 +36,14 @@
     "@putout/test": "^1.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.4.0",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-putout": "^2.0.0",
-    "lerna": "^3.8.5",
-    "madrun": "^3.0.5",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^3.2.1",
+    "madrun": "^5.4.1",
     "nodemon": "^1.14.12",
-    "nyc": "^14.1.1"
+    "nyc": "^15.0.0"
   },
   "peerDependencies": {
-    "putout": ">=3.9.0"
+    "putout": ">=7.9"
   },
   "license": "MIT",
   "engines": {

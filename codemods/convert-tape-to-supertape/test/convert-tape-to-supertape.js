@@ -6,22 +6,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-convert-tape-to-supertape: report: try-to', (t) => {
-    t.report('try-to', [
-        '"tryTo" should not be declared',
-        'tryTo should not be called',
-        '"supertape" should be used instead of "tape"',
-    ]);
-    
-    t.end();
-});
-
-test('plugin-convert-tape-to-supertape: report: try-to-tape', (t) => {
-    t.report('try-to-tape', [
-        '"tryToTape" should not be declared',
-        'tryToTape should not be called',
-        '"supertape" should be used instead of "tape"',
-    ]);
-    
+    t.report('try-to', '"supertape" should be used');
     t.end();
 });
 
