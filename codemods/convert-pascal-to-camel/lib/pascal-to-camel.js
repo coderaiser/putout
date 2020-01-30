@@ -90,7 +90,7 @@ function isBig(path) {
         return false;
     
     if (!node.name)
-        return;
+        return false;
     
     return /[A-Z]/.test(node.name[0]);
 };
