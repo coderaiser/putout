@@ -28,7 +28,7 @@ const fixture = readFixtures([
 const putout = require('putout');
 const {loadPlugins} = require('..');
 
-test('load-plugins: user plugin', (t) => {
+test('putout: loader: user plugin', (t) => {
     const {_findPath} = Module;
     const rmVars = 'remove-unused-variables';
     
@@ -65,7 +65,7 @@ test('load-plugins: user plugin', (t) => {
     t.end();
 });
 
-test('load-plugins: browser build with bundled plugins', (t) => {
+test('putout: loader: browser build with bundled plugins', (t) => {
     const {plugins} = Module;
     Module.plugins = {
         abc: stub(),
@@ -83,7 +83,7 @@ test('load-plugins: browser build with bundled plugins', (t) => {
     t.end();
 });
 
-test('load-plugins: can not find', (t) => {
+test('putout: loader: can not find', (t) => {
     const [e] = tryCatch(putout, `const t = 'hello'`, {
         plugins: [
             'xxx',
@@ -96,7 +96,7 @@ test('load-plugins: can not find', (t) => {
     t.end();
 });
 
-test('load-plugins: function', (t) => {
+test('putout: loader: function', (t) => {
     const rmVars = 'remove-unused-variables';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
@@ -117,7 +117,7 @@ test('load-plugins: function', (t) => {
     t.end();
 });
 
-test('load-plugins: function: rules', (t) => {
+test('putout: loader: function: rules', (t) => {
     const rmVars = 'remove-unused-variables';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
@@ -142,7 +142,7 @@ test('load-plugins: function: rules', (t) => {
     t.end();
 });
 
-test('load-plugins: function', (t) => {
+test('putout: loader: function', (t) => {
     const rmVars = 'remove-unused-variables';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
@@ -163,7 +163,7 @@ test('load-plugins: function', (t) => {
     t.end();
 });
 
-test('load-plugins: function', (t) => {
+test('putout: loader: function', (t) => {
     const rmVars = 'remove-unused-variables';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
@@ -184,7 +184,7 @@ test('load-plugins: function', (t) => {
     t.end();
 });
 
-test('load-plugins: disabled rule', (t) => {
+test('putout: loader: disabled rule', (t) => {
     const rmVars = 'remove-unused-variables';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
     
@@ -208,7 +208,31 @@ test('load-plugins: disabled rule', (t) => {
     t.end();
 });
 
-test('putout: jscodeshift', (t) => {
+test('putout: loader: plugins: array', (t) => {
+    const rmVars = 'remove-unused-variables';
+    const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
+    
+    mockRequire(`@putout/plugin-${rmVars}`, null);
+    
+    reRequire('..');
+    const putout = reRequire('putout');
+    
+    const {code} = putout(`const t = 'hello'`, {
+        rules: {
+            [rmVars]: false,
+        },
+        plugins: [
+            ['remove-unused-variables', rmVarsPlugin],
+        ],
+    });
+    
+    stopAll();
+    
+    t.equal(code, `const t = 'hello'`, 'should equal');
+    t.end();
+});
+
+test('putout: loader: jscodeshift', (t) => {
     const {code} = putout(fixture.jscodeshift, {
         plugins: [
             'jscodeshift/async-await-codemod/async-await',
@@ -219,7 +243,7 @@ test('putout: jscodeshift', (t) => {
     t.end();
 });
 
-test('putout: jscodeshift: cache', (t) => {
+test('putout: loader: jscodeshift: cache', (t) => {
     const options = {
         plugins: [
             'jscodeshift/async-await-codemod/async-await',
@@ -234,7 +258,7 @@ test('putout: jscodeshift: cache', (t) => {
     t.end();
 });
 
-test('putout: jscodeshift: no vars', (t) => {
+test('putout: loader: jscodeshift: no vars', (t) => {
     const {code} = putout(fixture.jscodeshiftArrow, {
         plugins: [
             'jscodeshift/js-codemod/transforms/arrow-function',
@@ -245,7 +269,7 @@ test('putout: jscodeshift: no vars', (t) => {
     t.end();
 });
 
-test('putout: jscodeshift: messsage', (t) => {
+test('putout: loader: jscodeshift: messsage', (t) => {
     const {places} = putout(fixture.jscodeshift, {
         loadPlugins,
         fix: false,
@@ -267,7 +291,7 @@ test('putout: jscodeshift: messsage', (t) => {
     t.end();
 });
 
-test('putout: babelPlugins', (t) => {
+test('putout: loader: babelPlugins', (t) => {
     const {code} = putout(fixture.babelPlugins, {
         plugins: [
             'babel/transform-inline-consecutive-adds',
@@ -278,7 +302,7 @@ test('putout: babelPlugins', (t) => {
     t.end();
 });
 
-test('putout: babelPlugins: espree', (t) => {
+test('putout: loader: babelPlugins: espree', (t) => {
     const {code} = putout(fixture.babelPlugins, {
         parser: 'espree',
         plugins: [
@@ -290,7 +314,7 @@ test('putout: babelPlugins: espree', (t) => {
     t.end();
 });
 
-test('putout: babelPlugins: espree: shebang', (t) => {
+test('putout: loader: babelPlugins: espree: shebang', (t) => {
     const {code} = putout(fixture.shebang, {
         parser: 'espree',
         plugins: [
@@ -303,7 +327,7 @@ test('putout: babelPlugins: espree: shebang', (t) => {
     t.end();
 });
 
-test('putout: babelPlugins: position: shebang', (t) => {
+test('putout: loader: babelPlugins: position: shebang', (t) => {
     const {places} = putout(fixture.babelPlugins, {
         fix: false,
         plugins: [
@@ -324,7 +348,7 @@ test('putout: babelPlugins: position: shebang', (t) => {
     t.end();
 });
 
-test('putout: babelPlugins: custom message', (t) => {
+test('putout: loader: babelPlugins: custom message', (t) => {
     const message = 'hello world';
     const enabled = true;
     const {places} = putout(fixture.babelPlugins, {
@@ -350,7 +374,7 @@ test('putout: babelPlugins: custom message', (t) => {
     t.end();
 });
 
-test('putout: babelPlugins: no message: first options', (t) => {
+test('putout: loader: babelPlugins: no message: first options', (t) => {
     const message = 'transform inline consecutive adds';
     const {places} = putout(fixture.babelPlugins, {
         fix: false,
@@ -375,7 +399,7 @@ test('putout: babelPlugins: no message: first options', (t) => {
     t.end();
 });
 
-test('putout: babelPlugins: shebang', (t) => {
+test('putout: loader: babelPlugins: shebang', (t) => {
     const {code} = putout(fixture.shebang, {
         plugins: [
             'babel/transform-inline-consecutive-adds',
@@ -386,7 +410,7 @@ test('putout: babelPlugins: shebang', (t) => {
     t.end();
 });
 
-test('putout: nested rules', (t) => {
+test('putout: loader: nested rules', (t) => {
     const {code} = putout(fixture.shebang, {
         rules: {
             'putout/convert-babel-types': 'off',
@@ -402,7 +426,7 @@ test('putout: nested rules', (t) => {
     t.end();
 });
 
-test('putout: no plugin for a rule', (t) => {
+test('putout: loader: no plugin for a rule', (t) => {
     const [e] = tryCatch(putout, 'hello', {
         rules: {
             abcd: 'off',
@@ -415,7 +439,7 @@ test('putout: no plugin for a rule', (t) => {
     t.end();
 });
 
-test('putout: nested rule', (t) => {
+test('putout: loader: nested rule', (t) => {
     const [e] = tryCatch(putout, 'hello', {
         rules: {
             'putout/convert-babel-types': 'off',
@@ -429,7 +453,7 @@ test('putout: nested rule', (t) => {
     t.end();
 });
 
-test('putout: nested rule', (t) => {
+test('putout: loader: nested rule', (t) => {
     const [e] = tryCatch(putout, 'hello', {
         rules: {
             'babel/convert': 'off',
