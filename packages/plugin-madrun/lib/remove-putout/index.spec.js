@@ -14,8 +14,13 @@ test('madrun: remove putout: transform: eslint', (t) => {
     t.end();
 });
 
-test('madrun: remove putout: transform: template', (t) => {
+test('madrun: remove putout: no transform: template', (t) => {
     t.noTransform('no-putout');
+    t.end();
+});
+
+test('madrun: remove putout: no transform: computed', (t) => {
+    t.noTransform('computed');
     t.end();
 });
 
