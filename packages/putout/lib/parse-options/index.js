@@ -103,9 +103,7 @@ const readRules = once((dirOpt, rulesDir) => {
         const plugin = require(full);
         const shortName = name.replace('putout-plugin-');
         
-        plugins.push({
-            [shortName]: plugin,
-        });
+        plugins.push([shortName, plugin]);
     }
     
     return {
@@ -134,12 +132,11 @@ const _readCodeMods = once(() => {
         const plugin = require(full);
         const shortName = name.replace('putout-plugin-');
         
-        plugins.push({
-            [shortName]: plugin,
-        });
+        plugins.push([shortName, plugin]);
     }
     
     return {
         plugins,
     };
 });
+

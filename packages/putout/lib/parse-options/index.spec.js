@@ -256,3 +256,64 @@ test('putout: parseOptions: no code mods directory: .putout', (t) => {
     t.end();
 });
 
+test('putout: parseOptions: read rules', (t) => {
+    const empty = {};
+    
+    const readOptions = stub().returns([__dirname, empty]);
+    const readHomeOptions = stub().returns(empty);
+    const readCodeMods = stub().returns(empty);
+    const hello = stub();
+    
+    mockRequire('../../putout.json', empty);
+    
+    const {readdirSync} = fs;
+    fs.readdirSync = () => [
+        'hello',
+    ];
+    
+    mockRequire(join(__dirname, 'hello'), hello);
+    
+    const parseOptions = reRequire('.');
+    
+    const options = {
+        rules: {
+            'remove-only': 'off',
+        },
+        match: {
+            'spec.js$': {
+                'remove-only': 'on',
+            },
+        },
+    };
+    
+    const result = parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readOptions,
+        readHomeOptions,
+        readCodeMods,
+        rulesdir: '.',
+    });
+    
+    const expected = {
+        dir: __dirname,
+        match: {
+            'spec.js$': {
+                'remove-only': 'on',
+            },
+        },
+        rules: {
+            'remove-only': 'on',
+        },
+        plugins: [
+            ['hello', hello],
+        ],
+    };
+    
+    stopAll();
+    fs.readdirSync = readdirSync;
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
