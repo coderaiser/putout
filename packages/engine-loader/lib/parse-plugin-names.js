@@ -2,7 +2,6 @@
 
 const isStr = (a) => typeof a === 'string';
 const {isArray} = Array;
-const {entries} = Object;
 
 module.exports = (plugins) => {
     const result = [];
@@ -18,8 +17,6 @@ module.exports = (plugins) => {
             result.push([pluginName, fn]);
             continue;
         }
-        
-        result.push(...entries(plugin));
     }
     
     return result;

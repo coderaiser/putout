@@ -327,9 +327,9 @@ test('putout: traverse: shebang', (t) => {
     ].join('\n');
     
     const {places} = putout(code, {
-        plugins: [{
-            'add-variable': addVar,
-        }],
+        plugins: [
+            ['add-variable', addVar],
+        ],
     });
     
     const expected = [{
@@ -364,9 +364,9 @@ test('putout: no loc', (t) => {
     };
     
     const {places} = putout('', {
-        plugins: [{
-            'add-variable': addVar,
-        }],
+        plugins: [
+            ['add-variable', addVar],
+        ],
     });
     
     const expected = [{
@@ -397,9 +397,9 @@ test('putout: plugin: find: no return', (t) => {
     };
     
     const {places} = putout('', {
-        plugins: [{
-            'add-variable': addVar,
-        }],
+        plugins: [
+            ['add-variable', addVar],
+        ],
     });
     
     const expected = [{
@@ -430,9 +430,9 @@ test('putout: plugin: return push in traverse', (t) => {
     };
     
     const {places} = putout('', {
-        plugins: [{
-            'add-variable': addVar,
-        }],
+        plugins: [
+            ['add-variable', addVar],
+        ],
     });
     
     const expected = [{
@@ -621,9 +621,9 @@ test('putout: plugin: no options (find, push)', (t) => {
     };
     
     const places = putout.findPlaces(ast, fixture.comment, {
-        plugins: [{
-            'find/push': plugin,
-        }],
+        plugins: [
+            ['find/push', plugin],
+        ],
     });
     
     const expected = [{
@@ -746,9 +746,9 @@ test('putout: plugin: include', (t) => {
     };
     
     const {places} = putout('debugger', {
-        plugins: [{
-            include,
-        }],
+        plugins: [
+            ['include', include],
+        ],
     });
     
     const expected = [{
@@ -774,9 +774,9 @@ test('putout: plugin: include: fix', (t) => {
     };
     
     const {places} = putout('debugger', {
-        plugins: [{
-            include,
-        }],
+        plugins: [
+            ['include', include],
+        ],
     });
     
     const expected = [];
@@ -793,9 +793,9 @@ test('putout: plugin: include: empty: fix', (t) => {
     };
     
     const {places} = putout('debugger', {
-        plugins: [{
-            include,
-        }],
+        plugins: [
+            ['include', include],
+        ],
     });
     
     const expected = [];
@@ -812,9 +812,9 @@ test('putout: plugin: exclude', (t) => {
     };
     
     const {places} = putout('debugger', {
-        plugins: [{
-            include,
-        }],
+        plugins: [
+            ['include', include],
+        ],
     });
     
     const expected = [];
@@ -836,9 +836,9 @@ test('putout: find: template', (t) => {
     };
     
     const {places} = putout('class Hello extends React.Component {}', {
-        plugins: [{
-            include,
-        }],
+        plugins: [
+            ['include', include],
+        ],
     });
     
     const expected = [{
@@ -867,9 +867,9 @@ test('putout: filter', (t) => {
     };
     
     const {places} = putout('class Hello extends React.Component {}', {
-        plugins: [{
-            include,
-        }],
+        plugins: [
+            ['include', include],
+        ],
     });
     
     const expected = [];

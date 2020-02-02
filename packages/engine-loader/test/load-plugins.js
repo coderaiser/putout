@@ -106,9 +106,9 @@ test('putout: loader: function', (t) => {
     const putout = reRequire('putout');
     
     const {code} = putout(`const t = 'hello'`, {
-        plugins: [{
-            [rmVars]: rmVarsPlugin,
-        }],
+        plugins: [
+            [rmVars, rmVarsPlugin],
+        ],
     });
     
     stopAll();
@@ -127,13 +127,13 @@ test('putout: loader: function: rules', (t) => {
     const putout = reRequire('putout');
     
     const {code} = putout(`const t = 'hello'`, {
-        plugins: [{
-            'brand-new-rule': {
+        plugins: [
+            ['brand-new-rule', {
                 rules: {
                     [rmVars]: rmVarsPlugin,
                 },
-            },
-        }],
+            }],
+        ],
     });
     
     stopAll();
@@ -152,9 +152,9 @@ test('putout: loader: function', (t) => {
     const putout = reRequire('putout');
     
     const {code} = putout(`const t = 'hello'`, {
-        plugins: [{
-            [rmVars]: rmVarsPlugin,
-        }],
+        plugins: [
+            [rmVars, rmVarsPlugin],
+        ],
     });
     
     stopAll();
@@ -173,9 +173,9 @@ test('putout: loader: function', (t) => {
     const putout = reRequire('putout');
     
     const {code} = putout(`const t = 'hello'`, {
-        plugins: [{
-            [rmVars]: rmVarsPlugin,
-        }],
+        plugins: [
+            [rmVars, rmVarsPlugin],
+        ],
     });
     
     stopAll();
@@ -197,9 +197,9 @@ test('putout: loader: disabled rule', (t) => {
         rules: {
             [rmVars]: false,
         },
-        plugins: [{
-            [rmVars]: rmVarsPlugin,
-        }],
+        plugins: [
+            [rmVars, rmVarsPlugin],
+        ],
     });
     
     stopAll();
