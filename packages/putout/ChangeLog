@@ -1,3 +1,13 @@
+2020.02.02, v7.9.1
+
+feature:
+- (putout) parse-options: readRules: plugins: object -> array
+- (@putout/codemod-convert-tape-to-supertape) conver to replace
+- (@putout/codemod-cut-legacy) convert to include
+- (@putout/engine-runner) filter: replace -> include
+- (@putout/engine-runner) rm unused check
+
+
 2020.01.28, v7.9.0
 
 feature:
