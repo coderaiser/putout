@@ -119,24 +119,6 @@ const _readHomeOptions = once(() => {
 });
 
 const _readCodeMods = once(() => {
-    const dir = join(home, '.putout');
-    const [e, names] = tryCatch(readdirSync, dir);
-    
-    if (e)
-        return {};
-    
-    const plugins = [];
-    
-    for (const name of names) {
-        const full = join(dir, name);
-        const plugin = require(full);
-        const shortName = name.replace('putout-plugin-');
-        
-        plugins.push([shortName, plugin]);
-    }
-    
-    return {
-        plugins,
-    };
+    return readRules(home, '.putout');
 });
 

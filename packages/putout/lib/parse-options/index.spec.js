@@ -372,3 +372,58 @@ test('putout: parseOptions: read rules: error', (t) => {
     t.end();
 });
 
+test('putout: parseOptions: readOptions: error', (t) => {
+    const empty = {};
+    
+    const readHomeOptions = stub().returns(empty);
+    const readCodeMods = stub().returns(empty);
+    const sync = stub();
+    
+    mockRequire('../../putout.json', empty);
+    mockRequire('find-up', {sync});
+    
+    const {readdirSync} = fs;
+    fs.readdirSync = () => {
+        throw 'error';
+    };
+    
+    const parseOptions = reRequire('.');
+    
+    const options = {
+        rules: {
+            'remove-only': 'off',
+        },
+        match: {
+            'spec.js$': {
+                'remove-only': 'on',
+            },
+        },
+    };
+    
+    const result = parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readHomeOptions,
+        readCodeMods,
+        rulesdir: '.',
+    });
+    
+    const expected = {
+        dir: '',
+        match: {
+            'spec.js$': {
+                'remove-only': 'on',
+            },
+        },
+        rules: {
+            'remove-only': 'on',
+        },
+    };
+    
+    stopAll();
+    fs.readdirSync = readdirSync;
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
