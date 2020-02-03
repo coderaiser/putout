@@ -1,7 +1,8 @@
 'use strict';
 
 const fs = require('fs');
-const {join} = require('path');
+const os = require('os');
+const {join, resolve} = require('path');
 
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
@@ -548,3 +549,94 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
     t.end();
 });
 
+test('putout: parseOptions: readHomeOptions', (t) => {
+    const empty = {};
+    const readOptions = stub().returns([
+        '.', {
+            rules: {
+                'remove-console': 'off',
+            },
+        },
+    ]);
+    
+    const readCodeMods = stub().returns(empty);
+    
+    const {homedir} = os;
+    const {readdirSync} = fs;
+    
+    os.homedir = stub().returns('/');
+    fs.readdirSync = () => {
+        throw 'error';
+    };
+    
+    mockRequire('./package.json', empty);
+    mockRequire('../../putout.json', empty);
+    
+    const parseOptions = reRequire('.');
+    
+    const options = {
+        rules: {
+            'remove-only': 'off',
+        },
+        match: {
+            'spec.js$': {
+                'remove-only': 'on',
+            },
+        },
+    };
+    
+    const result = parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readOptions,
+        readCodeMods,
+        rulesdir: '.',
+    });
+    
+    const expected = {
+        dir: '.',
+        match: {
+            'spec.js$': {
+                'remove-only': 'on',
+            },
+        },
+        rules: {
+            'remove-console': 'off',
+            'remove-only': 'on',
+        },
+    };
+    
+    os.homedir = homedir;
+    fs.readdirSync = readdirSync;
+    
+    stopAll();
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: parseOptions: no args', (t) => {
+    const empty = {};
+    const {homedir} = os;
+    
+    os.homedir = stub().returns('/');
+    
+    mockRequire('./package.json', empty);
+    mockRequire('../../putout.json', empty);
+    mockRequire('../../.putout.json', empty);
+    
+    const parseOptions = reRequire('.');
+    
+    const result = parseOptions();
+    
+    const expected = {
+        dir: resolve(__dirname, '..', '..'),
+    };
+    
+    os.homedir = homedir;
+    
+    stopAll();
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
