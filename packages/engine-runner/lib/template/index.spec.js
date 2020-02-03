@@ -2,6 +2,8 @@
 
 const test = require('supertape');
 const putout = require('putout');
+const debug = require('debug');
+
 const {runPlugins} = require('..');
 
 test('putout: plugin: traverse: template', (t) => {
@@ -453,3 +455,33 @@ test('putout: plugin: traverse: template: exclude: fn', (t) => {
     t.end();
 });
 
+test('putout: plugin: traverse: template: log', (t) => {
+    debug.enable('putout:runner:template');
+    
+    const {places} = putout(`const t = __`, {
+        runPlugins,
+        fix: false,
+        rules: {
+            'remove-unused-variables': ['on', {
+                exclude: [
+                    'function __() {}',
+                ],
+            }],
+        },
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = [{
+        message: '"t" is defined but never used',
+        position: {
+            column: 6,
+            line: 1,
+        },
+        rule: 'remove-unused-variables',
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});

@@ -16,7 +16,9 @@ const generateCode = (a) => generate(a).code;
 
 const {entries} = Object;
 
-const log = (rule, a) => debug.enabled && debug(rule, generateCode(a));
+const log = (rule, a) => {
+    debug.enabled && debug(rule, generateCode(a));
+};
 
 const exclude = ({rule, tmpl, fn, nodesExclude}) => {
     if (!nodesExclude.length)
@@ -70,6 +72,8 @@ module.exports = ({rule, visitor, options}) => {
     
     return parsed;
 };
+
+module.exports._log = log;
 
 function wrapWithCheck({rule, nodesInclude, nodesExclude, fn}) {
     return (path) => {
