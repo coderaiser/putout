@@ -1,7 +1,6 @@
 'use strict';
 
 const fullstore = require('fullstore');
-
 const {replaceWithMultiple} = require('putout').operate;
 
 const add = ({push, isImports, isExports}) => (path) => {
@@ -10,12 +9,9 @@ const add = ({push, isImports, isExports}) => (path) => {
     if (!isImports() && !isExports())
         return;
     
-    const {id, params} = calleePath.node;
+    const {id} = calleePath.node;
     
     if (id)
-        return;
-    
-    if (params.length)
         return;
     
     push(path);
@@ -31,6 +27,11 @@ module.exports.fix = (path) => {
 module.exports.traverse = ({push}) => {
     const isExports = fullstore();
     const isImports = fullstore();
+    const addPath = add({
+        push,
+        isImports,
+        isExports,
+    });
     
     return {
         'import __ from "__"'() {
@@ -42,8 +43,8 @@ module.exports.traverse = ({push}) => {
         ExportDefaultDeclaration() {
             isExports(true);
         },
-        '(async function __() {})()':add({push, isImports, isExports}),
-        '(async () => __)()': add({push, isImports, isExports}),
+        '(async function __() {})()': addPath,
+        '(async () => __)()': addPath,
     };
 };
 

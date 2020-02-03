@@ -38,3 +38,8 @@ test('plugin-apply-top-level-await: no transform: params', (t) => {
     t.noTransform('params');
     t.end();
 });
+
+test('plugin-apply-top-level-await: no report: params', (t) => {
+    t.noReport('params');
+    t.end();
+});
