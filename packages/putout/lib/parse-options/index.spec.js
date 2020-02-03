@@ -427,3 +427,124 @@ test('putout: parseOptions: readOptions: error', (t) => {
     t.end();
 });
 
+test('putout: parseOptions: readOptions: .putout.json', (t) => {
+    const empty = {};
+    
+    const readHomeOptions = stub().returns(empty);
+    const readCodeMods = stub().returns(empty);
+    const sync = (a) => {
+        if (a === '.putout.json')
+            return '../../putout.json';
+        
+        throw 'error';
+    };
+    
+    mockRequire('../../putout.json', empty);
+    mockRequire('find-up', {sync});
+    
+    const {readdirSync} = fs;
+    fs.readdirSync = () => {
+        throw 'error';
+    };
+    
+    const parseOptions = reRequire('.');
+    
+    const options = {
+        rules: {
+            'remove-only': 'off',
+        },
+        match: {
+            'spec.js$': {
+                'remove-only': 'on',
+            },
+        },
+    };
+    
+    const result = parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readHomeOptions,
+        readCodeMods,
+        rulesdir: '.',
+    });
+    
+    const expected = {
+        dir: '../..',
+        match: {
+            'spec.js$': {
+                'remove-only': 'on',
+            },
+        },
+        rules: {
+            'remove-only': 'on',
+        },
+    };
+    
+    stopAll();
+    fs.readdirSync = readdirSync;
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: parseOptions: readOptions: package.json', (t) => {
+    const empty = {};
+    
+    const readHomeOptions = stub().returns(empty);
+    const readCodeMods = stub().returns(empty);
+    const sync = (a) => {
+        if (a === 'package.json')
+            return './package.json';
+        
+        return null;
+    };
+    
+    mockRequire('../../putout.json', empty);
+    mockRequire('./package.json', empty);
+    mockRequire('find-up', {sync});
+    
+    const {readdirSync} = fs;
+    fs.readdirSync = () => {
+        throw 'error';
+    };
+    
+    const parseOptions = reRequire('.');
+    
+    const options = {
+        rules: {
+            'remove-only': 'off',
+        },
+        match: {
+            'spec.js$': {
+                'remove-only': 'on',
+            },
+        },
+    };
+    
+    const result = parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readHomeOptions,
+        readCodeMods,
+        rulesdir: '.',
+    });
+    
+    const expected = {
+        dir: '.',
+        match: {
+            'spec.js$': {
+                'remove-only': 'on',
+            },
+        },
+        rules: {
+            'remove-only': 'on',
+        },
+    };
+    
+    stopAll();
+    fs.readdirSync = readdirSync;
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
