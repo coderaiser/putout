@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const os = require('os');
-const {join, resolve} = require('path');
+const {join} = require('path');
 
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
@@ -618,19 +618,22 @@ test('putout: parseOptions: readHomeOptions', (t) => {
 test('putout: parseOptions: no args', (t) => {
     const empty = {};
     const {homedir} = os;
+    const sync = stub();
     
     os.homedir = stub().returns('/');
     
     mockRequire('./package.json', empty);
     mockRequire('../../putout.json', empty);
-    mockRequire('../../.putout.json', empty);
+    mockRequire('find-up', {
+        sync,
+    });
     
     const parseOptions = reRequire('.');
     
     const result = parseOptions();
     
     const expected = {
-        dir: resolve(__dirname, '..', '..'),
+        dir: '',
     };
     
     os.homedir = homedir;
