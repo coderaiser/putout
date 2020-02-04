@@ -19,3 +19,12 @@ test('plugin-apply-optional-chaining: transform: simple', (t) => {
     t.end();
 });
 
+test('plugin-apply-optional-chaining: transform: fn', (t) => {
+    t.transform('fn');
+    t.end();
+});
+
+test('plugin-apply-optional-chaining: transform: fn if', (t) => {
+    t.transform('fn-if');
+    t.end();
+});
