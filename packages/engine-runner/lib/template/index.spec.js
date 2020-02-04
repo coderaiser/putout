@@ -482,6 +482,8 @@ test('putout: plugin: traverse: template: log', (t) => {
         rule: 'remove-unused-variables',
     }];
     
+    debug.disable('putout:runner:template');
+    
     t.deepEqual(places, expected, 'should equal');
     t.end();
 });

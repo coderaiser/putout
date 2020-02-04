@@ -336,7 +336,7 @@ test('putout: runner: plugins: replace: template: ifCondition: body', (t) => {
         }],
     });
     
-    const expected = 'if (y)\n  {fn()}';
+    const expected = 'if (y)\n  {fn()};';
     
     t.deepEqual(code, expected, 'should equal');
     t.end();
@@ -478,6 +478,27 @@ test('putout: runner: plugins: replace: template: function: __args', (t) => {
     });
     
     const expected = 'const hello = (a, b, c) => {};';
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
+test('putout: runner: plugins: replace: template: expression', (t) => {
+    const rm = {
+        report: () => '',
+        replace: () => ({
+            'if (!!__a) __b': 'if (__a) __b',
+        }),
+    };
+    
+    const {code} = putout(`if (!!true) {console.log('sh');}`, {
+        runPlugins,
+        plugins: [
+            ['rm', rm],
+        ],
+    });
+    
+    const expected = `if (true)\n  {console.log('sh');};`;
     
     t.deepEqual(code, expected);
     t.end();

@@ -66,10 +66,10 @@ const findVarsWays = (node) => {
     traverse(node, {
         noScope: true,
         'Identifier|StringLiteral'(path) {
+            const way = [];
             const {
                 name = path.node.value,
             } = path.node;
-            const way = [];
             
             if (!isName(name) && !isImports(name) && !isArgs(name))
                 return;
@@ -81,9 +81,6 @@ const findVarsWays = (node) => {
                     way.unshift(`${listKey}.${key}`);
                     return;
                 }
-                
-                if (key === 'expression')
-                    return;
                 
                 way.unshift(key);
             });
@@ -106,6 +103,8 @@ function getValues({waysFrom, node}) {
             
             else if (isArgs(name))
                 way = way.replace(/\.0$/, '');
+            
+            way = way.replace(/\.expression$/, '');
             
             result[name] = result[name] || jessy(way, node);
         }
