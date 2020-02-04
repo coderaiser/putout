@@ -124,7 +124,7 @@ function superCompareIterate(node, base) {
             if (ignore.includes(key))
                 continue;
             
-            const nodeValue = node[key];
+            const nodeValue = extractExpression(node[key]);
             const value = extractExpression(base[key]);
             
             const is = superCompare(nodeValue, value, {

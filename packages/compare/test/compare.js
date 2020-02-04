@@ -475,6 +475,16 @@ test('compare: isImports: no', (t) => {
     t.end();
 });
 
+test('compare: expressions', (t) => {
+    const a = template.ast('if (a) a()');
+    const b = template.ast('if (__a) __a()');
+    
+    const result = compare(a, b);
+    
+    t.ok(result, 'should equal');
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);
