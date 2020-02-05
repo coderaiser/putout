@@ -28,3 +28,8 @@ test('plugin-apply-optional-chaining: transform: fn if', (t) => {
     t.transform('fn-if');
     t.end();
 });
+
+test('plugin-apply-optional-chaining: transform: computed', (t) => {
+    t.transform('computed');
+    t.end();
+});
