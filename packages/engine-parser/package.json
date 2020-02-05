@@ -29,7 +29,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@babel/generator": "^7.6.2",
+    "@babel/generator": "^7.8.4",
     "@babel/parser": "^7.8.4",
     "@babel/template": "^7.8.3",
     "estree-to-babel": "^2.1.0",
