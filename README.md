@@ -829,7 +829,7 @@ module.exports.fix = (path) => {
 `Visitor` used in `traverse function` can be code template as well. So when you need to find `module.exports = <something>`, you
 can use:
 
-```
+```js
 module.exports.traverse = ({push}) => {
     return {
         'module.exports = __'(path) {
