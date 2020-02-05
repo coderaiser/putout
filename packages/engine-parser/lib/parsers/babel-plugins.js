@@ -9,8 +9,6 @@ module.exports = [
     'classProperties',
     'numericSeparator',
     'exportDefaultFrom',
-    'nullishCoalescingOperator',
-    'optionalChaining',
     'throwExpressions',
 ];
 

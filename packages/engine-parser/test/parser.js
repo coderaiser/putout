@@ -97,3 +97,43 @@ test('putout: parser: export default declaration: tenko', (t) => {
     t.end();
 });
 
+test('putout: parser: babel: optional chaining', (t) => {
+    const apply = {
+        report: () => '',
+        replace: () => ({
+            '__a && __a.__b': '__a?.__b',
+        }),
+    };
+    
+    const {code} = putout('hello && hello.world', {
+        plugins: [
+            ['apply', apply],
+        ],
+    });
+    
+    const expected = 'hello?.world;';
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
+test('putout: parser: babel: nullish coalescing operator', (t) => {
+    const apply = {
+        report: () => '',
+        replace: () => ({
+            'const __a = __b || __c': 'const __a = __b ?? __c',
+        }),
+    };
+    
+    const {code} = putout('const hello = world || "world"', {
+        plugins: [
+            ['apply', apply],
+        ],
+    });
+    
+    const expected = 'const hello = world ?? "world";';
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
