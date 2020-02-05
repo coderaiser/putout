@@ -10,7 +10,7 @@ const {assign} = Object;
 test('putout: eslint: places', (t) => {
     const [, result] = eslint({
         name: 'hello.js',
-        code: `const t = 'hi'`,
+        code: `const t = 'hi'\n`,
         fix: false,
     });
     
@@ -30,11 +30,11 @@ test('putout: eslint: places', (t) => {
 test('putout: eslint: fix', (t) => {
     const [result] = eslint({
         name: 'hello.js',
-        code: `const t = 'hi'`,
+        code: `const t = 'hi'\n`,
         fix: true,
     });
     
-    const expected = `const t = 'hi';`;
+    const expected = `const t = 'hi';\n`;
     
     t.deepEqual(result, expected);
     t.end();
@@ -56,11 +56,11 @@ test('putout: eslint: fix: same', (t) => {
 test('putout: eslint: fix: cache', (t) => {
     const [result] = eslint({
         name: 'hello.js',
-        code: `const t = 'hi'`,
+        code: `const t = 'hi'\n`,
         fix: true,
     });
     
-    const expected = `const t = 'hi';`;
+    const expected = `const t = 'hi';\n`;
     
     t.deepEqual(result, expected);
     t.end();
