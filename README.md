@@ -622,7 +622,7 @@ The built-in formatter options are:
 
 Formatter function executes on every processed file, it should return `output string`.
 
-```
+```js
 module.exports = ({name, source, places, index, count, filesCount, errorsCount}) => {
     return '';
 };
@@ -738,20 +738,51 @@ Add `putout` as a `peerDependency` to your `packages.json`.
 
 #### Plugins API
 
-Every `putout` plugin should contain next 2 functions:
+Let's consider a couple plugin types, that can be used.
+
+##### Replacer
+
+The simplest `putout` plugin type, consits of 2 functions:
+
+- `report(path)` - report error message to `putout` cli;
+- `replace` - replace `key` template into `value` template;
+
+```js
+module.exports.report = () => 'use optional chaining';
+module.exports.replace = () => ({
+    '__a && __a.__b': '__a?.__b',
+});
+```
+
+This plugin will find and sugest to replace all occurences of code: `object && object.property` into `object?.property'.
+
+##### Includer
+
+More powerful plugin type, when you need more control over traversing.
+It should contain next 2 functions:
 
 - `report(path)` - report error message to `putout` cli;
 - `fix(path)` - fixes paths using `places` array received using `find` function;
 
 and one or more of this:
-- `traverse({push})` - find errors and `push` them;
-- `filter(path)` - filter path, should return `true`, or `false`;
+- `filter(path)` - filter path, should return `true`, or `false` (don't use with `traverse`);
 - `include` - returns array of templates, or node names to include;
 - `exclude` - returns array of templates, or node names to exclude;
 
+```js
+module.exports.report = () => 'use optional chaining';
+module.exports.include = () => [
+    'debugger'
+];
+
+module.exports.fix = (path) => {
+    path.remove(path);
+};
+```
+
 More information about supported plugin types you can find in [@putout/engine-runner](https://github.com/coderaiser/putout/tree/master/packages/engine-runner).
 
-`context` of `find` function contains [@babel/traverse](https://babeljs.io/docs/en/next/babel-traverse.html) and [@babel/types](https://babeljs.io/docs/en/next/babel-types.html). Also there is [template](https://babeljs.io/docs/en/next/babel-template.html) and even [generate](https://babeljs.io/docs/en/babel-generator). All of this can be get from `putout`:
+When you need, you can use [@babel/types](https://babeljs.io/docs/en/next/babel-types.html), [template](https://babeljs.io/docs/en/next/babel-template.html) and [generate](https://babeljs.io/docs/en/babel-generator). All of this can be get from `putout`:
 
 ```js
 const {
@@ -811,18 +842,9 @@ Let's consider simplest possible plugin for removing `debugger statements` [@put
 // this is a message to show in putout cli
 module.exports.report = () => 'Unexpected "debugger" statement';
 
-// lets find all "debugger" statements
-module.exports.traverse = ({push}) => {
-    return {
-        DebuggerStatement(path) {
-            push(path);
-        }
-    }
-};
-
-// when user calls "putout --fix" node will be removed with
-module.exports.fix = (path) => {
-    path.remove();
+// lets find all "debugger" statements and replace them with ""
+module.exports.replace = () => {
+    'debugger': '',
 };
 ```
 
