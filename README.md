@@ -64,6 +64,12 @@ To apply transforms:
 putout lib test --fix
 ```
 
+## Architecture
+
+`Putout` consists of a couple simple parts, here is workflow representation.
+
+![putout](https://github.com/coderaiser/putout/blob/master/images/putout.png)
+
 ## Built-in transforms
 
 <details><summary>remove unused variables</summary>
