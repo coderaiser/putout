@@ -7,8 +7,8 @@ module.exports.replace = () => ({
     '__a && __a.__b && __a.__b.__c && __a.__b.__c.__d': '__a?.__b?.__c?.__d',
     '__a && __a.__b && __a.__b.__c': '__a?.__b?.__c',
     '__a && __a.__b': '__a?.__b',
-    'typeof a === "function" && a(__args)': 'a?.(__args)',
-    'if (typeof a === "function") a(__args)': 'a?.(__args)',
-    'if (typeof a === "function") {a(__args)}': 'a?.(__args)',
+    'typeof __a === "function" && __a(__args)': '__a?.(__args)',
+    'if (typeof __a === "function") __a(__args)': '__a?.(__args)',
+    'if (typeof __a === "function") {__a(__args)}': '__a?.(__args)',
 });
 

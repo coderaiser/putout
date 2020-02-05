@@ -1,1 +1,1 @@
-typeof a === 'function' && a(b, c);
+typeof get === 'function' && get(b, c);

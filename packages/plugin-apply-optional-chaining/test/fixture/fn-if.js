@@ -1,6 +1,6 @@
-if (typeof a === 'function') {
-    a(b, c);
+if (typeof show === 'function') {
+    show(b, c);
 }
 
-if (typeof a === 'function')
-    a(b, c);
+if (typeof show === 'function')
+    show(b, c);
