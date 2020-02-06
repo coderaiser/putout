@@ -14,6 +14,10 @@ const fixture = readFixtures([
     'debugger',
     'debugger-fix',
     'throw',
+    'flow',
+    'flow-fix',
+    'typescript',
+    'typescript-fix',
 ]);
 
 test('putout: parser: export default declaration: acorn', (t) => {
@@ -145,6 +149,33 @@ test('putout: parser: generate', (t) => {
     const expected = 'a = b;';
     
     t.equal(code, expected);
+    t.end();
+});
+
+test('putout: parser: flow', (t) => {
+    const {code} = putout(fixture.flow, {
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = fixture.flowFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: parser: typescript', (t) => {
+    const {code} = putout(fixture.typescript, {
+        isTS: true,
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = fixture.typescriptFix;
+    
+    t.deepEqual(code, expected, 'should equal');
     t.end();
 });
 
