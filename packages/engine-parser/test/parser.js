@@ -4,6 +4,8 @@ const test = require('supertape');
 const putout = require('putout');
 const tryCatch = require('try-catch');
 
+const {parse, generate} = require('..');
+
 const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
@@ -134,6 +136,16 @@ test('putout: parser: babel: nullish coalescing operator', (t) => {
     const expected = 'const hello = world ?? "world";';
     
     t.deepEqual(code, expected);
+    t.end();
+});
+
+test('putout: parser: generate', (t) => {
+    const node = parse('a = b');
+    const {code} = generate(node);
+    
+    const expected = 'a = b;';
+    
+    t.equal(code, expected);
     t.end();
 });
 
