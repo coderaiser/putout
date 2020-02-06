@@ -5,7 +5,6 @@ const putout = require('putout');
 const tryCatch = require('try-catch');
 
 const {parse, generate} = require('..');
-
 const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
@@ -18,6 +17,8 @@ const fixture = readFixtures([
     'flow-fix',
     'typescript',
     'typescript-fix',
+    'jsx-template',
+    'jsx-template-fix',
 ]);
 
 test('putout: parser: export default declaration: acorn', (t) => {
@@ -161,7 +162,7 @@ test('putout: parser: flow', (t) => {
     
     const expected = fixture.flowFix;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.equal(code, expected);
     t.end();
 });
 
@@ -175,7 +176,18 @@ test('putout: parser: typescript', (t) => {
     
     const expected = fixture.typescriptFix;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: parser: jsx: enabled', (t) => {
+    const babel = require('../lib/parsers/babel');
+    
+    const node = babel.parse(fixture.jsxTemplate);
+    const {code} = generate(node);
+    const expected = fixture.jsxTemplateFix;
+    
+    t.equal(`${code}\n`, expected);
     t.end();
 });
 
