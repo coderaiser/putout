@@ -7,11 +7,12 @@ const {readFixtures} = require('./fixture');
 
 const removeUnusedVariables = require('..');
 
-const putout = (code) => {
+const putout = (code, options = {}) => {
     return _putout(code, {
-        plugins: [{
-            'remove-unused-variables': removeUnusedVariables,
-        }],
+        ...options,
+        plugins: [
+            ['remove-unused-variables', removeUnusedVariables],
+        ],
     });
 };
 
@@ -47,6 +48,8 @@ const fixture = readFixtures([
     'variable-declarator-fix',
     'try-catch',
     'try-catch-fix',
+    'typescript',
+    'typescript-fix',
 ]);
 
 test('remove-unused-variables: putout: no vars', (t) => {
@@ -201,6 +204,17 @@ test('remove-unused-variables: putout: try-catch', (t) => {
     const expected = fixture.tryCatchFix;
     
     t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: putout: typescript', (t) => {
+    const {code} = putout(fixture.typescript, {
+        isTS: true,
+    });
+    
+    const expected = fixture.typescriptFix;
+    
+    t.deepEqual(code, expected);
     t.end();
 });
 
