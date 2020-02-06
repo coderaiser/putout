@@ -142,7 +142,6 @@ test('putout: parser: babel: nullish coalescing operator', (t) => {
 test('putout: parser: generate', (t) => {
     const node = parse('a = b');
     const {code} = generate(node);
-    
     const expected = 'a = b;';
     
     t.equal(code, expected);

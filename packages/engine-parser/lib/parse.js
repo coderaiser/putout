@@ -26,8 +26,7 @@ module.exports = memo((source, options) => {
     return ast;
 });
 
-module.exports.getParser = getParser;
-function getParser({parser = 'babel', isTS, isFlow, isJSX} = {}) {
+function getParser({parser = 'babel', isTS, isFlow, isJSX}) {
     return {
         parse(source) {
             return toBabel(customParser(source, {
