@@ -260,9 +260,6 @@ function getPlugins(plugin) {
 }
 
 function preTest(test, plugin) {
-    if (!plugin)
-        return;
-    
     const [name, {
         report,
         find,
