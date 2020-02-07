@@ -26,6 +26,8 @@ module.exports = (name, namespace) => {
             message,
             transform: jscodeshiftTransform,
         });
+    
+    return null;
 };
 
 const getPlugin = ({name, transform, message}) => {
