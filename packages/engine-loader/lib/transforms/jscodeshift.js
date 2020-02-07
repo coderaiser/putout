@@ -5,12 +5,10 @@ const once = require('once');
 const {print} = require('@putout/engine-parser');
 const {assign} = Object;
 
-const isFn = (a) => typeof a === 'function';
 const isStr = (a) => typeof a === 'string';
 
 const printAST = (a) => isStr(a) ? a : print(a);
-const getFn = (a) => (...args) => {
-    const fn = isFn(a) ? a : a.default;
+const getFn = (fn) => (...args) => {
     return printAST(fn(...args));
 };
 
