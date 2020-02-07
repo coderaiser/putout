@@ -37,7 +37,9 @@ const mergeRules = ([rule, plugin], rules) => {
 
 module.exports.loadPlugins = memo(load);
 
-function load(options = {}) {
+function load(options) {
+    check(options);
+    
     const {
         pluginNames = [],
         cache = true,
@@ -157,5 +159,10 @@ function extendRules(rule, plugin) {
     }
     
     return result;
+}
+
+function check(options) {
+    if (!options || typeof options !== 'object')
+        throw Error('options should be an object!');
 }
 

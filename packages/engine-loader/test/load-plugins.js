@@ -5,12 +5,15 @@ const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const tryCatch = require('try-catch');
 const mockRequire = require('mock-require');
+const putout = require('putout');
+
 const {
     reRequire,
     stopAll,
 } = mockRequire;
 
 const {readFixtures} = require('./fixture');
+const {loadPlugins} = require('..');
 
 const fixture = readFixtures([
     'shebang',
@@ -24,9 +27,6 @@ const fixture = readFixtures([
     'jscodeshift-options',
     'jscodeshift-options-fix',
 ]);
-
-const putout = require('putout');
-const {loadPlugins} = require('..');
 
 test('putout: loader: user plugin', (t) => {
     const {_findPath} = Module;
@@ -464,6 +464,36 @@ test('putout: loader: nested rule', (t) => {
     });
     
     t.notOk(e);
+    t.end();
+});
+
+test('putout: loader: nested rule', (t) => {
+    const [e] = tryCatch(putout, 'hello', {
+        rules: {
+            'babel/convert': 'off',
+        },
+        plugins: [
+            'babel/convert',
+        ],
+    });
+    
+    t.notOk(e);
+    t.end();
+});
+
+test('putout: loader: no options', (t) => {
+    const [e] = tryCatch(loadPlugins);
+    
+    t.equal(e.message, 'options should be an object!');
+    t.end();
+});
+
+test('putout: loader: no options.pluginNames', (t) => {
+    const {places} = putout('hello', {
+        loadPlugins,
+    });
+    
+    t.notOk(places.length);
     t.end();
 });
 
