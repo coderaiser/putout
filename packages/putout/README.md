@@ -42,7 +42,8 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - apply `top-level await` (disabled, [stage 3](https://github.com/tc39/proposal-top-level-await));
 - convert `throw` statement into expression (disabled, [stage 2](https://github.com/tc39/proposal-throw-expressions));
 - apply shorthand properties;
-- apply `optional chaining`;
+- apply `optional chaining` (disabled [stage4](https://github.com/tc39/proposal-optional-chaining));
+- apply `nullish coalescing` (disabled [stage4](https://github.com/tc39/proposal-nullish-coalescing));
 - merge destructuring properties;
 - merge `if` statements;
 - convert `Math.pow` to `exponentiation operator`;

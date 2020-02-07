@@ -53,3 +53,27 @@ test('putout: cli: no files found', (t) => {
     t.end();
 });
 
+test('putout: cli: ignored', (t) => {
+    const result = run('./fixture/broken.js', {
+        cwd: __dirname,
+    });
+    
+    const expected = '';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: cli: --no-options', (t) => {
+    const options = {
+        cwd: __dirname,
+    };
+    
+    const name = join(__dirname, 'fixture/broken.js');
+    const result = stripAnsi(run(`--no-options ${name}`, options));
+    const expected = `${name}\n 2:0  error   Unexpected token   parser \n\n✖ 1 errors in 1 files\n  fixable with the \`--fix\` option`;
+    
+    t.equal(result, expected);
+    t.end();
+});
+

@@ -1,6 +1,6 @@
 'use strict';
 
-const {resolve} = require('path');
+const {resolve, dirname} = require('path');
 
 const {
     readFileSync,
@@ -21,13 +21,28 @@ const eslint = require('../lib/eslint');
 
 const getFormatter = once(_getFormatter);
 
-module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX, ruler, console, raw, exit}) => (name, index, {length}) => {
+function getOptions({noOptions, name, rulesdir}) {
+    if (noOptions)
+        return {
+            formatter: 'dump',
+            dir: dirname(name),
+        };
+    
+    return parseOptions({
+        name,
+        rulesdir,
+    });
+}
+
+module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX, ruler, console, raw, exit, noOptions}) => (name, index, {length}) => {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
-    const options = parseOptions({
+    const options = getOptions({
         name: resolvedName,
         rulesdir,
+        
+        noOptions,
     });
     
     const {
@@ -99,6 +114,7 @@ module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX, ruler, consol
     return allPlaces;
 };
 
+module.exports._getFormatter = _getFormatter;
 function _getFormatter(name, exit) {
     let e;
     let reporter;

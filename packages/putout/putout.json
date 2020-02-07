@@ -25,6 +25,7 @@
     "rules": {
         "apply-top-level-await": "off",
         "apply-optional-chaining": "off",
+        "apply-nullish-coalescing": "off",
         "madrun": "off",
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",
@@ -39,6 +40,7 @@
         "apply-shorthand-properties",
         "apply-top-level-await",
         "apply-optional-chaining",
+        "apply-nullish-coalescing",
         "extract-object-properties",
         "extract-sequence-expressions",
         "madrun",

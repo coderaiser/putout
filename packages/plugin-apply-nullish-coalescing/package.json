@@ -1,0 +1,50 @@
+{
+  "name": "@putout/plugin-apply-nullish-coalescing",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin add ability to apply nullish coalescing operator (??)",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/apply-nullish-coalescing.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "nullish-coalescing"
+  ],
+  "devDependencies": {
+    "@putout/test": "^1.0.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^6.2.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^3.0.0",
+    "lerna": "^3.8.5",
+    "madrun": "^5.0.0",
+    "nodemon": "^2.0.1",
+    "nyc": "^14.0.0",
+    "supertape": "^1.0.3"
+  },
+  "peerDependencies": {
+    "putout": ">=7"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

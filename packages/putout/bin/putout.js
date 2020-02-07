@@ -35,6 +35,7 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
         'added',
         'modified',
         'untracked',
+        'options',
     ],
     number: [
         'fixCount',
@@ -58,6 +59,7 @@ const argv = require('yargs-parser')(process.argv.slice(2), {
     default: {
         fix: false,
         fixCount: 10,
+        options: true,
     },
 });
 
@@ -128,6 +130,7 @@ const options = {
     
     exit,
     console,
+    noOptions: !argv.options,
 };
 
 const places = files
