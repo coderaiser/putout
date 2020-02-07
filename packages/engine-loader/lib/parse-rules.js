@@ -116,9 +116,6 @@ function validateState(a) {
     if (isObj(a))
         return true;
     
-    if (typeof a === 'string')
-        return true;
-    
     throw Error(`state option can be "on" or "off" only, when used as string, received: ${a}`);
 }
 
