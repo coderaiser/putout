@@ -43,6 +43,7 @@
   ],
   "devDependencies": {
     "@babel/types": "^7.6.3",
+    "@cloudcmd/stub": "^2.3.4",
     "@putout/test": "^1.1.1",
     "acorn": "https://github.com/coderaiser/acorn/archive/7.1.0.tar.gz",
     "acorn-jsx": "^5.0.2",
