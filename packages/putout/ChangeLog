@@ -1,3 +1,9 @@
+2020.02.09, v7.10.1
+
+fix:
+- (@putout/engine-parser) custom-parser: object: get back, used in putout-editor
+
+
 2020.02.09, v7.10.0
 
 fix:
