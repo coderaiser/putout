@@ -1,3 +1,26 @@
+2020.02.09, v7.10.0
+
+fix:
+- (@putout/engine-loader) loadPlugins: options check
+- (@putout/engine-parser) rm unused export to getParser
+- (@putout/engine-parser) custom-parser: rm unused isObject check
+- (@putout/apply-optional-chaining) function support
+- chore(@putout/plugin-remove-useless-spread) fixture
+- chore(@putout/plugin-remove-double-negations) fixture
+- (@putout/compare) extract expression
+- (@putout/plugin-apply-top-level-await) rm unused check
+
+feature:
+- (package) @babel/generator v7.8.4
+- (package) @babel/template v7.8.3
+- (package) @babel/parser v7.8.4
+- (@putout/engine-parser) rm nullishCoalescingOperator, optionalChaining: enabled by default (https://babeljs.io/blog/2020/01/11/7.8.0)
+- (@putout/plugin-apply-optional-chaining) add support of computed properties
+- (@putout/eslint-config) add eol-last
+- (@putout/plugin-apply-optional-chaining) add support of ifStatements
+- (@putout/engine-runner) improve expression support
+
+
 2020.02.02, v7.9.1
 
 feature:
