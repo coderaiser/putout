@@ -164,3 +164,22 @@ test('putout: parse-match: linux: match', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('putout: parse-match: encoding', (t) => {
+    const rules = {
+        madrun: 'on',
+    };
+    
+    const match = {
+        '.madrun.js': rules,
+    };
+    
+    const result = parseMatch('lib/madrun.js', match);
+    const expected = {
+        rules: {},
+    };
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
