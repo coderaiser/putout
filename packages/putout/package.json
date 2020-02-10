@@ -111,7 +111,7 @@
     "is-relative": "^1.0.0",
     "once": "^1.4.0",
     "try-catch": "^2.0.0",
-    "yargs-parser": "^16.0.0"
+    "yargs-parser": "^17.0.0"
   },
   "keywords": [
     "ast",
