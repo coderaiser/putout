@@ -1,3 +1,12 @@
+2020.02.10, v7.10.2
+
+fix:
+- (putout) match: regexp
+
+feature:
+- (package) yargs-parser v17.0.0
+
+
 2020.02.09, v7.10.1
 
 fix:
