@@ -17,6 +17,11 @@ ruleTester.run('multiple-properties-destructuring', rule, {
     valid: [
         `for (const {a, b, c, d} of items) {
         }`,
+        `
+        const {
+            a,
+            b,
+        } = c`,
     ],
     
     invalid: [{
