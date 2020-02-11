@@ -34,7 +34,7 @@ function getOptions({noOptions, name, rulesdir}) {
     });
 }
 
-module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX, ruler, console, raw, exit, noOptions}) => (name, index, {length}) => {
+module.exports = ({fix, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, console, raw, exit, noOptions}) => (name, index, {length}) => {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
@@ -68,6 +68,21 @@ module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX, ruler, consol
     const source = readFileSync(name, 'utf8');
     const isTS = /\.ts$/.test(name);
     
+    if (fileCache.canUseCache({fix, options, name: resolvedName})) {
+        const places = fileCache.getPlaces(resolvedName);
+        
+        const line = report(currentFormat, {
+            name: resolvedName,
+            places,
+            index,
+            count: length,
+            source,
+        });
+        
+        process.stdout.write(line || '');
+        return places;
+    }
+    
     const [e, result] = tryCatch(putout, source, {
         fix,
         fixCount,
@@ -94,9 +109,12 @@ module.exports = ({fix, fixCount, rulesdir, format, isFlow, isJSX, ruler, consol
         });
         
         allPlaces.push(...newPlaces);
+        fileCache.setInfo(resolvedName, allPlaces, options);
         
-        if (fix && source !== newCode)
+        if (fix && source !== newCode) {
+            fileCache.removeEntry(resolvedName);
             return writeFileSync(name, newCode);
+        }
     }
     
     const line = report(currentFormat, {

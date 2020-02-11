@@ -15,7 +15,7 @@ module.exports = {
     'lint:slow': () => 'FORCE_COLOR=3 lerna run --no-bail lint',
     'lint:dot': () => 'putout .madrun.js',
     'lint-all': () => `MADRUN_NAME=1 ${run('lint:*')}`,
-    'lint': () => `putout .madrun.js ${dirs}/*/{bin,lib,test,*.js,.*.js} -f progress`,
+    'lint': () => `putout .madrun.js ${dirs}/*/{bin,lib,test,*.js,.*.js} -f progress --cache`,
     'fix:lint': () => run('lint', '--fix'),
     'fix:lint:slow': () => 'lerna run --no-bail fix:lint',
     'bootstrap': () => 'lerna bootstrap',
