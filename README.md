@@ -48,6 +48,7 @@ Options:
   --disable-all           disable all rules in .putout.json
   --jsx                   enable jsx (default)
   --flow                  enable flow
+  --cache                 enable .putoutcache to speed up processing
   --no-jsx                disable jsx
   --no-flow               disable flow (default)
 ```

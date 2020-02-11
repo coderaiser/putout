@@ -14,5 +14,6 @@
     " --jsx                 ": "enable jsx (try to determine by default)",
     " --flow                ": "enable flow",
     " --no-jsx              ": "disable jsx",
-    " --no-flow             ": "disable flow (default)"
+    " --no-flow             ": "disable flow (default)",
+    " --cache               ": "enable .putoutcache to speed up processing"
 }

@@ -97,6 +97,7 @@ Options:
   --flow                  enable flow
   --no-jsx                disable jsx
   --no-flow               disable flow (default)
+  --cache                 enable .putoutcache to speed up processing
 ```
 
 To find erros:

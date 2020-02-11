@@ -16,6 +16,7 @@ const tryCatch = require('try-catch');
 const merge = require('../lib/merge');
 const processFile = require('../lib/process-file');
 const getFiles = require('../lib/get-files');
+const cacheFiles = require('../lib/cache-files');
 
 const {parse, stringify} = JSON;
 
@@ -24,6 +25,7 @@ const isJS = (a) => /(\.jsx?|\.ts|\/)$/.test(a);
 
 const argv = require('yargs-parser')(process.argv.slice(2), {
     boolean: [
+        'cache',
         'version',
         'help',
         'fix',
@@ -107,6 +109,11 @@ const globFiles = [
 
 const [e, files] = getFiles(globFiles);
 
+const fileCache = cacheFiles({
+    files,
+    cache: argv.cache,
+});
+
 if (e)
     exit(e);
 
@@ -115,6 +122,7 @@ if (!files.length)
 
 const options = {
     fix,
+    fileCache,
     rulesdir,
     format,
     isFlow,
@@ -138,6 +146,8 @@ const places = files
     .filter(Boolean);
 
 const mergedPlaces = merge(...places);
+
+fileCache.reconcile();
 
 if (isRuler(argv)) {
     rulerProcessor(argv, mergedPlaces);

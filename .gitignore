@@ -5,4 +5,5 @@ legacy
 yarn-error.log
 yarn.lock
 .idea
+.putoutcache
 
