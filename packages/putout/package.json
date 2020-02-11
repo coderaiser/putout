@@ -120,6 +120,7 @@
     "unused"
   ],
   "devDependencies": {
+    "@babel/core": "^7.8.4",
     "@cloudcmd/stub": "^2.3.1",
     "async-await-codemod": "https://github.com/sgilroy/async-await-codemod.git",
     "babel-loader": "^8.0.6",
