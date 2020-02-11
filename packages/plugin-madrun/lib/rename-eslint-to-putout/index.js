@@ -42,6 +42,5 @@ module.exports.traverse = ({push}) => {
                     return push(body.get('quasis.0'));
             }
         },
-    
     };
 };

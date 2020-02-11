@@ -34,3 +34,8 @@ test('madrun: convert run argument: no transform: putout', (t) => {
     t.end();
 });
 
+test('madrun: convert run argument: no transform: not str', (t) => {
+    t.noTransform('not-str');
+    t.end();
+});
+
