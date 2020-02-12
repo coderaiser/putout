@@ -158,6 +158,10 @@ test('putout: cache-files: enabled: canUseCache: not fix', (t) => {
     };
     
     mockRequire('file-entry-cache', fileEntryCache);
+    mockRequire('imurmurhash', stub().returns({
+        result: stub().returns('1cnbekx'),
+    }));
+    
     const cacheFiles = reRequire('./cache-files');
     
     const fileCache = cacheFiles({
@@ -201,6 +205,10 @@ test('putout: cache-files: enabled: canUseCache: fix, no places', (t) => {
     };
     
     mockRequire('file-entry-cache', fileEntryCache);
+    mockRequire('imurmurhash', stub().returns({
+        result: stub().returns('1cnbekx'),
+    }));
+    
     const cacheFiles = reRequire('./cache-files');
     
     const fileCache = cacheFiles({
