@@ -97,16 +97,6 @@ test('putout: getFiles: dir', (t) => {
 });
 
 test('putout: getFiles: glob', (t) => {
-    /*
-    const sync = stub().returns([
-        'bin',
-    ]);
-    
-    mockRequire('glob', {
-        sync,
-    });
-    */
-    
     const dir = join(__dirname, '..');
     
     const getFiles = reRequire('./get-files');
