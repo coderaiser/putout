@@ -11,6 +11,7 @@ module.exports = {
     'test:clean': () => `tape '${dirs}/*/test/*.js' '${dirs}/*/lib/**/*.spec.js'`,
     'test:slow': () => 'FORCE_COLOR=3 lerna run test',
     'coverage': () => `FORCE_COLOR=3 nyc ${run('test:clean')}`,
+    'coverage:short': () => `FORCE_COLOR=3 nyc --skip-full ${run('test:clean')}`,
     'coverage:slow': () => 'FORCE_COLOR=3 lerna run coverage',
     'lint:slow': () => 'FORCE_COLOR=3 lerna run --no-bail lint',
     'lint:dot': () => 'putout .madrun.js',
