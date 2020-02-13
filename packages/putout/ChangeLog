@@ -1,3 +1,9 @@
+2020.02.13, v7.11.1
+
+feature:
+- (putout) move out cli from bin
+
+
 2020.02.12, v7.11.0
 
 feature:
