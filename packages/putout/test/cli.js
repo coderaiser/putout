@@ -29,7 +29,7 @@ test('putout: cli: --version', (t) => {
 
 test('putout: cli: -h', (t) => {
     const result = run('-h');
-    const help = require('../lib/help');
+    const help = require('../lib/cli/help');
     const expected = help();
     
     t.equal(result, expected);
@@ -38,7 +38,7 @@ test('putout: cli: -h', (t) => {
 
 test('putout: cli: --help', (t) => {
     const result = run('--help');
-    const help = require('../lib/help');
+    const help = require('../lib/cli/help');
     const expected = help();
     
     t.equal(result, expected);

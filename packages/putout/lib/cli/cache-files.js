@@ -4,7 +4,7 @@ const fileEntryCache = require('file-entry-cache');
 const murmur = require('imurmurhash');
 const stringify = require('json-stringify-deterministic');
 
-const {version} = require('../package.json');
+const {version} = require('../../package.json');
 
 const optionsHashCache = new WeakMap();
 const nodeVersion = process.version;

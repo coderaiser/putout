@@ -4,8 +4,8 @@ const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
 
-const cli = require('./cli');
-const {version} = require('../package');
+const cli = require('.');
+const {version} = require('../../package');
 
 const {reRequire} = mockRequire;
 
@@ -19,9 +19,9 @@ test('putout: cli: --raw', (t) => {
     ];
     
     const error = Error('No files matching the pattern "xx" were found');
-    mockRequire('get-files', stub().returns([error]));
+    mockRequire('./get-files', stub().returns([error]));
     
-    const cli = reRequire('./cli');
+    const cli = reRequire('.');
     
     cli({
         halt,

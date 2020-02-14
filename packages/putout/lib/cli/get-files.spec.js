@@ -97,7 +97,7 @@ test('putout: getFiles: dir', (t) => {
 });
 
 test('putout: getFiles: glob', (t) => {
-    const dir = join(__dirname, '..');
+    const dir = join(__dirname, '..', '..');
     
     const getFiles = reRequire('./get-files');
     const [, files] = getFiles([`${dir}/{bin,.madrun.js}`]);

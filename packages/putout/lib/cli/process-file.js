@@ -10,14 +10,14 @@ const {
 const tryCatch = require('try-catch');
 const once = require('once');
 
-const putout = require('..');
+const putout = require('../..');
 const {ignores} = putout;
 
 const cwd = process.cwd();
 
-const report = require('../lib/report')();
-const parseOptions = require('../lib/parse-options');
-const eslint = require('../lib/eslint');
+const report = require('../report')();
+const parseOptions = require('../parse-options');
+const eslint = require('../eslint');
 
 const getFormatter = once(_getFormatter);
 

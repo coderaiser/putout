@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = () => {
-    const bin = require('../help');
+    const bin = require('../../help.json');
     const usage = 'Usage: putout [options] [path]';
     const result = [
         usage,

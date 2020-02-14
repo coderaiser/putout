@@ -10,10 +10,10 @@ const {red} = require('chalk');
 const yargsParser = require('yargs-parser');
 const tryCatch = require('try-catch');
 
-const merge = require('../lib/merge');
-const processFile = require('../lib/process-file');
-const getFiles = require('../lib/get-files');
-const cacheFiles = require('../lib/cache-files');
+const merge = require('../merge');
+const processFile = require('./process-file');
+const getFiles = require('./get-files');
+const cacheFiles = require('./cache-files');
 
 const joinDir = (a) => (b) => join(a, b);
 const isJS = (a) => /(\.jsx?|\.ts|\/)$/.test(a);
@@ -103,12 +103,12 @@ module.exports = ({argv, halt, write, writeError}) => {
         });
     
     if (args.version) {
-        write(`v${require('../package.json').version}`);
+        write(`v${require('../../package.json').version}`);
         return exit();
     }
     
     if (args.help) {
-        const help = require('../lib/help');
+        const help = require('./help');
         write(help());
         return exit();
     }
@@ -200,7 +200,7 @@ const getRulerProcessor = ({write}) => ({disable, disableAll, enable, enableAll}
     });
     
     const [, data = defaultData] = tryCatch(readFileSync, name, 'utf8');
-    const ruler = require('../lib/ruler');
+    const ruler = require('./ruler');
     const object = parse(data);
     
     let updated;
