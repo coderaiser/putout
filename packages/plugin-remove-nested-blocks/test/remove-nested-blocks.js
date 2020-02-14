@@ -14,6 +14,11 @@ test('plugin-remove-nested-blocks: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-nested-blocks: transform: switch: no vars', (t) => {
+    t.transform('switch-no-vars');
+    t.end();
+});
+
 test('plugin-remove-nested-blocks: transform: switch', (t) => {
     t.noTransform('switch');
     t.end();
