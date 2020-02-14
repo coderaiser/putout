@@ -36,11 +36,12 @@ module.exports = {
             '.webpack',
         ].join(' ');
         
-        return `bin/putout.js ${names} --cache`;
+        return `bin/putout.js ${names} --f progress`;
     },
     
     'fix:lint': () => run('lint', '--fix'),
     'lint:progress': () => run('lint', '--fix --f progress'),
+    'lint:cache': () => run('lint', '--cache'),
     'lint:p': () => run('lint:progress'),
     'coverage': () => `nyc ${run('test')}`,
     'report': () => `nyc report --reporter=text-lcov | coveralls`,

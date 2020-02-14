@@ -23,7 +23,7 @@ const isStringAll = (...a) => a.filter(isString).length;
 const {parse, stringify} = JSON;
 const {cwd} = process;
 
-module.exports = ({argv, halt, write, writeError}) => {
+module.exports = ({argv, halt, log, logError}) => {
     const args = yargsParser(argv, {
         boolean: [
             'cache',
@@ -86,11 +86,11 @@ module.exports = ({argv, halt, write, writeError}) => {
     const exit = getExit({
         raw,
         halt,
-        writeError,
+        logError,
     });
     
     const rulerProcessor = getRulerProcessor({
-        write,
+        log,
     });
     
     let gitNames = [];
@@ -103,13 +103,13 @@ module.exports = ({argv, halt, write, writeError}) => {
         });
     
     if (args.version) {
-        write(`v${require('../../package.json').version}`);
+        log(`v${require('../../package.json').version}`);
         return exit();
     }
     
     if (args.help) {
         const help = require('./help');
-        write(help());
+        log(help());
         return exit();
     }
     
@@ -150,7 +150,7 @@ module.exports = ({argv, halt, write, writeError}) => {
         },
         
         exit,
-        console,
+        log,
         noOptions: !args.options,
     };
     
@@ -193,7 +193,7 @@ function getGitNames({untracked, added, modified}) {
         .map(joinDir(gitDir));
 }
 
-const getRulerProcessor = ({write}) => ({disable, disableAll, enable, enableAll}, mergedPlaces) => {
+const getRulerProcessor = ({log}) => ({disable, disableAll, enable, enableAll}, mergedPlaces) => {
     const name = `${cwd}/.putout.json`;
     const defaultData = stringify({
         rules: {},
@@ -215,15 +215,15 @@ const getRulerProcessor = ({write}) => ({disable, disableAll, enable, enableAll}
         updated = ruler.disableAll(object, mergedPlaces);
     
     if (isString(disable) && !disable)
-        return write(object.rules);
+        return log(object.rules);
     
     if (isString(enable) && !enable)
-        return write(object.rules);
+        return log(object.rules);
     
     writeFileSync(name, stringify(updated, null, 4));
 };
 
-const getExit = ({halt, raw, writeError}) => (e) => {
+const getExit = ({halt, raw, logError}) => (e) => {
     if (!e)
         return halt(0);
     
@@ -231,9 +231,9 @@ const getExit = ({halt, raw, writeError}) => (e) => {
         return halt(e);
     
     if (raw)
-        writeError(e);
+        logError(e);
     else
-        writeError(red(e.message));
+        logError(red(e.message));
     
     halt(1);
 };

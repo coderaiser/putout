@@ -11,8 +11,8 @@ const {reRequire} = mockRequire;
 
 test('putout: cli: --raw', (t) => {
     const halt = stub();
-    const write = stub();
-    const writeError = stub();
+    const log = stub();
+    const logError = stub();
     const argv = [
         'xx',
         '--raw',
@@ -25,19 +25,19 @@ test('putout: cli: --raw', (t) => {
     
     cli({
         halt,
-        write,
-        writeError,
+        log,
+        logError,
         argv,
     });
     
-    t.ok(writeError.calledWith(error), 'should call writeError');
+    t.ok(logError.calledWith(error), 'should call logError');
     t.end();
 });
 
 test('putout: cli: --raw: halt', (t) => {
     const halt = stub();
-    const write = stub();
-    const writeError = stub();
+    const log = stub();
+    const logError = stub();
     const argv = [
         'xx',
         '--raw',
@@ -45,8 +45,8 @@ test('putout: cli: --raw: halt', (t) => {
     
     cli({
         halt,
-        write,
-        writeError,
+        log,
+        logError,
         argv,
     });
     
@@ -56,43 +56,43 @@ test('putout: cli: --raw: halt', (t) => {
 
 test('putout: cli: --version', (t) => {
     const halt = stub();
-    const write = stub();
-    const writeError = stub();
+    const log = stub();
+    const logError = stub();
     const argv = [
         '--version',
     ];
     
     cli({
         halt,
-        write,
-        writeError,
+        log,
+        logError,
         argv,
     });
     
     const expected = `v${version}`;
     
-    t.ok(write.calledWith(expected), 'should call halt');
+    t.ok(log.calledWith(expected), 'should call halt');
     t.end();
 });
 
 test('putout: cli: -v', (t) => {
     const halt = stub();
-    const write = stub();
-    const writeError = stub();
+    const log = stub();
+    const logError = stub();
     const argv = [
         '-v',
     ];
     
     cli({
         halt,
-        write,
-        writeError,
+        log,
+        logError,
         argv,
     });
     
     const expected = `v${version}`;
     
-    t.ok(write.calledWith(expected), 'should call halt');
+    t.ok(log.calledWith(expected), 'should call halt');
     t.end();
 });
 
