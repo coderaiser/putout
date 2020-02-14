@@ -1,3 +1,11 @@
+2020.02.14, v7.12.0
+
+feature:
+- (package) @putout/plugin-remove-nested-blocks v2.0.0
+- (@putout/plugin-remove-nested-blocks) drop support of putout < 7
+- (@putout/plugin-remove-nested-blocks) add support of switch case
+
+
 2020.02.13, v7.11.1
 
 feature:
