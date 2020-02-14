@@ -1,27 +1,21 @@
 'use strict';
 
 const {join} = require('path');
-const {
-    readFileSync,
-    writeFileSync,
-} = require('fs');
 
 const {red} = require('chalk');
 const yargsParser = require('yargs-parser');
-const tryCatch = require('try-catch');
 
 const merge = require('../merge');
 const processFile = require('./process-file');
 const getFiles = require('./get-files');
 const cacheFiles = require('./cache-files');
+const getRulerProcessor = require('./ruler-processor');
 
 const joinDir = (a) => (b) => join(a, b);
 const isJS = (a) => /(\.jsx?|\.ts|\/)$/.test(a);
 const isString = (a) => typeof a === 'string';
 const isStringAll = (...a) => a.filter(isString).length;
-
-const {parse, stringify} = JSON;
-const {cwd} = process;
+const isRuler = (a) => a.disableAll || a.enableAll || isStringAll(a.disable, a.enable);
 
 module.exports = ({argv, halt, log, logError}) => {
     const args = yargsParser(argv, {
@@ -113,8 +107,6 @@ module.exports = ({argv, halt, log, logError}) => {
         return exit();
     }
     
-    const isRuler = (a) => a.disableAll || a.enableAll || isStringAll(a.disable, a.enable);
-    
     const globFiles = [
         ...gitNames,
         ...args._.map(String),
@@ -192,36 +184,6 @@ function getGitNames({untracked, added, modified}) {
         .filter(isJS)
         .map(joinDir(gitDir));
 }
-
-const getRulerProcessor = ({log}) => ({disable, disableAll, enable, enableAll}, mergedPlaces) => {
-    const name = `${cwd}/.putout.json`;
-    const defaultData = stringify({
-        rules: {},
-    });
-    
-    const [, data = defaultData] = tryCatch(readFileSync, name, 'utf8');
-    const ruler = require('./ruler');
-    const object = parse(data);
-    
-    let updated;
-    
-    if (enable)
-        updated = ruler.enable(object, enable);
-    else if (disable)
-        updated = ruler.disable(object, disable);
-    else if (enableAll)
-        updated = ruler.enableAll(object, mergedPlaces);
-    else if (disableAll)
-        updated = ruler.disableAll(object, mergedPlaces);
-    
-    if (isString(disable) && !disable)
-        return log(object.rules);
-    
-    if (isString(enable) && !enable)
-        return log(object.rules);
-    
-    writeFileSync(name, stringify(updated, null, 4));
-};
 
 const getExit = ({halt, raw, logError}) => (e) => {
     if (!e)
