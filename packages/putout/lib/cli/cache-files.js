@@ -5,6 +5,7 @@ const murmur = require('imurmurhash');
 const stringify = require('json-stringify-deterministic');
 
 const {version} = require('../../package.json');
+const containEslintPlugin = require('./cache-files/contain-eslint-plugin');
 
 const optionsHashCache = new WeakMap();
 const nodeVersion = process.version;
@@ -41,6 +42,9 @@ module.exports._defaultFileCache = defaultFileCache;
 const getPlaces = (fileCache) => (name) => fileCache.getFileDescriptor(name).meta.places;
 
 const setInfo = (fileCache) => (name, places, options) => {
+    if (containEslintPlugin(places))
+        return;
+    
     const {meta} = fileCache.getFileDescriptor(name);
     
     meta.optionsHash = getOptionsHash(options);
@@ -78,3 +82,4 @@ function getOptionsHash(options) {
     
     return optionsHashCache.get(options);
 }
+

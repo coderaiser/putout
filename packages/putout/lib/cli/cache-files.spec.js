@@ -50,6 +50,44 @@ test('putout: cache-files: enabled: setInfo', (t) => {
     t.end();
 });
 
+test('putout: cache-files: enabled: setInfo: not set', (t) => {
+    const places = [];
+    const meta = {
+        optionsHash: 'hello',
+        places,
+    };
+    
+    const getFileDescriptor = stub().returns({
+        meta,
+    });
+    
+    const createFromFile = stub().returns({
+        getFileDescriptor,
+    });
+    
+    const fileEntryCache = {
+        createFromFile,
+    };
+    
+    mockRequire('file-entry-cache', fileEntryCache);
+    const cacheFiles = reRequire('./cache-files');
+    
+    const fileCache = cacheFiles({
+        cache: true,
+        files: [],
+    });
+    
+    const name = 'hello';
+    const place = {
+        rule: 'eslint/node/missing-require',
+    };
+    
+    fileCache.setInfo(name, [place], {hello: 'world'});
+    
+    t.notOk(getFileDescriptor.called, 'should not call getFileDescriptor');
+    t.end();
+});
+
 test('putout: cache-files: enabled: canUseCache: changed', (t) => {
     const meta = {
         optionsHash: 'hello',

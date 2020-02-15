@@ -36,7 +36,7 @@ module.exports = {
             '.webpack',
         ].join(' ');
         
-        return `bin/putout.js ${names} --f progress`;
+        return `bin/putout.js ${names} --f progress --cache`;
     },
     
     'fix:lint': () => run('lint', '--fix'),
