@@ -1,3 +1,9 @@
+2020.02.15, v7.12.1
+
+feature:
+- (putout) add ability to exclude rules with eslint plugins from cache (eslint/eslint#10712)
+
+
 2020.02.14, v7.12.0
 
 feature:
