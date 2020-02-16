@@ -1,5 +1,7 @@
 'use strict';
 
+const {join} = require('path');
+
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
@@ -7,7 +9,7 @@ const mockRequire = require('mock-require');
 const cli = require('.');
 const {version} = require('../../package');
 
-const {reRequire} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: --raw', (t) => {
     const halt = stub();
@@ -30,6 +32,34 @@ test('putout: cli: --raw', (t) => {
         argv,
     });
     
+    stopAll();
+    
+    t.ok(logError.calledWith(error), 'should call logError');
+    t.end();
+});
+
+test('putout: cli: --raw: parser error', (t) => {
+    const halt = stub();
+    const log = stub();
+    const logError = stub();
+    const argv = [
+        join(__dirname, 'fixture/parser-error.js'),
+        '--raw',
+        '--no-options',
+        '--format',
+        'none',
+    ];
+    
+    const cli = reRequire('.');
+    
+    cli({
+        halt,
+        log,
+        logError,
+        argv,
+    });
+    
+    const error = SyntaxError('Unexpected token (2:0)');
     t.ok(logError.calledWith(error), 'should call logError');
     t.end();
 });

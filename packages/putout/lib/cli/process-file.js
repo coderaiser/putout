@@ -11,15 +11,16 @@ const tryCatch = require('try-catch');
 const once = require('once');
 
 const putout = require('../..');
-const {ignores} = putout;
-
-const cwd = process.cwd();
 
 const report = require('../report')();
 const parseOptions = require('../parse-options');
 const eslint = require('../eslint');
 
+const {ignores} = putout;
+const cwd = process.cwd();
+
 const getFormatter = once(_getFormatter);
+const stub = () => () => {};
 
 function getOptions({noOptions, name, rulesdir}) {
     if (noOptions)
@@ -136,6 +137,9 @@ module.exports._getFormatter = _getFormatter;
 function _getFormatter(name, exit) {
     let e;
     let reporter;
+    
+    if (name === 'none')
+        return stub();
     
     [e, reporter] = tryCatch(require, `@putout/formatter-${name}`);
     

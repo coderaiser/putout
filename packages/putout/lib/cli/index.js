@@ -143,6 +143,7 @@ module.exports = ({argv, halt, log, logError}) => {
         
         exit,
         log,
+        logError,
         noOptions: !args.options,
     };
     
