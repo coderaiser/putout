@@ -1,3 +1,13 @@
+2020.02.16, v7.12.2
+
+fix:
+- (cli) logError
+- (putout) eslint: disable eslint when there is no config
+
+feature:
+- (putout) cache: include file to cache when eslint-plugin-putout used
+
+
 2020.02.15, v7.12.1
 
 feature:
