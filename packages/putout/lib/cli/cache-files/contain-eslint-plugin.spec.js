@@ -21,3 +21,15 @@ test('putout: cli: cache-files: contain-eslint-plugin', (t) => {
     t.end();
 });
 
+test(
+    'putout: cli: cache-files: contain-eslint-plugin: eslint-plugin-putout',
+    (t) => {
+        const result = containEslintPlugin([{
+            rule: 'eslint/putout/keyword-spacing',
+        }]);
+        
+        t.notOk(result, 'should ignore eslint-plugin-putout');
+        t.end();
+    },
+);
+
