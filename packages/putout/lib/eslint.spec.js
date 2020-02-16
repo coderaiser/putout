@@ -93,3 +93,28 @@ test('putout: eslint: loadPlugin', (t) => {
     t.ok(require.calledWith('eslint-plugin-putout'), 'should call require');
     t.end();
 });
+
+test('putout: eslint: no config error', (t) => {
+    const {_noConfigFound} = eslint;
+    
+    const result = _noConfigFound(null, {
+        messageTemplate: 'no-config-found',
+    });
+    
+    t.ok(result, 'should not found config');
+    t.end();
+});
+
+test('putout: eslint: no config', (t) => {
+    const {_noConfigFound} = eslint;
+    
+    const config = {
+        rules: {},
+    };
+    
+    const result = _noConfigFound(config);
+    
+    t.ok(result, 'should not found config');
+    t.end();
+});
+

@@ -4,10 +4,18 @@ const {CLIEngine, Linter} = require('eslint');
 const once = require('once');
 const tryCatch = require('try-catch');
 
-const {entries} = Object;
+const {keys, entries} = Object;
 const cwd = process.cwd();
 
-const noConfigFound = (a) => a && a.messageTemplate === 'no-config-found';
+const noConfigFound = (config, configError) => {
+    if (configError && configError.messageTemplate === 'no-config-found')
+        return true;
+    
+    if (!keys(config.rules).length)
+        return true;
+    
+    return false;
+};
 
 const getCli = once(() => {
     const cli = new CLIEngine({
@@ -77,7 +85,7 @@ module.exports = ({name, code, fix}) => {
     const cli = getCli();
     const [configError, config] = tryCatch(cli.getConfigForFile, name);
     
-    if (noConfigFound(configError))
+    if (noConfigFound(config, configError))
         return noChanges;
     
     if (configError) {
@@ -115,6 +123,7 @@ module.exports = ({name, code, fix}) => {
 };
 
 module.exports._loadPlugin = loadPlugin;
+module.exports._noConfigFound = noConfigFound;
 
 function convertToPlace({ruleId = 'parser', message, line = 'x', column = 'x'}) {
     return {
