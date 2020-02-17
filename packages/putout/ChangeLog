@@ -1,3 +1,13 @@
+2020.02.17, v7.13.0
+
+fix:
+- (@putout/pulgin-remove-useless-arguments) npmignore: add fixture
+
+feature:
+- (package) @putout/plugin-remove-useless-arguments v3.0.1
+- (@putout/plugin-remove-useless-arguments) add support of simple arguments
+
+
 2020.02.16, v7.12.2
 
 fix:
