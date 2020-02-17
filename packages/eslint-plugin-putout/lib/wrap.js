@@ -53,7 +53,7 @@ module.exports = (plugin) => {
             const prepared = prepare(plugin, context, options);
             const names = plugin.include({options});
             
-            return getTraversers(names, prepared, context);
+            return getTraversers(names, prepared);
         },
     };
 };

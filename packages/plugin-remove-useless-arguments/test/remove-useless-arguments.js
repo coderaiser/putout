@@ -19,8 +19,13 @@ test('plugin-remove-useless-arguments: transform', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-arguments: no transform: different values', (t) => {
+test('plugin-remove-useless-arguments: transform: different values', (t) => {
     t.transform('diff-values');
+    t.end();
+});
+
+test('plugin-remove-useless-arguments: transform: arg', (t) => {
+    t.transform('arg');
     t.end();
 });
 

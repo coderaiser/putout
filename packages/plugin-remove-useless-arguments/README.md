@@ -19,7 +19,8 @@ npm i @putout/plugin-remove-useless-arguments
 ```json
 {
     "rules": {
-        "remove-useless-arguments": true
+        "remove-useless-arguments/arguments": true,
+        "remove-useless-arguments/destructuring": true
     }
 }
 ```
@@ -27,6 +28,7 @@ npm i @putout/plugin-remove-useless-arguments
 ## ❌ Incorrect code example
 
 ```js
+// destructuring
 onIfStatement({
     push,
     generate,
@@ -36,17 +38,29 @@ onIfStatement({
 
 function onIfStatement({push}) {
 }
+
+// arguments
+sum(a, b, c);
+
+const sum = (a, b) => {};
 ```
 
 ## ✅ Correct code Example
 
 ```js
+// destructuring
 onIfStatement({
     push,
 })
 
 function onIfStatement({push}) {
 }
+
+// arguments
+sum(a, b, c);
+
+const sum = (a, b) => {};
+
 ```
 
 ## License
