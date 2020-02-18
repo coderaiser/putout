@@ -18,7 +18,6 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - find and remove useless `Array.from`;
 - find and remove useless `spread`;
 - find and remove useless `arguments`;
-- find and remove useless `templates`;
 - find and remove useless `escape`;
 - find and remove `debugger` statement;
 - find and remove nested blocks;
@@ -36,8 +35,9 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - find and split variable declarations;
 - find and simplify ternary;
 - if absent `strict mode` directive in `commonjs` add it;
-- convert `esm` to `commonjs`;
-- convert `commonjs` to `esm`;
+- convert `esm` to `commonjs` (disabled);
+- convert `commonjs` to `esm` (disabled);
+- convert `template` with one `expression` to `string`;
 - apply destructuring;
 - apply `top-level await` (disabled, [stage 3](https://github.com/tc39/proposal-top-level-await));
 - convert `throw` statement into expression (disabled, [stage 2](https://github.com/tc39/proposal-throw-expressions));

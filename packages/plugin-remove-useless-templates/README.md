@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-templates
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-templates
 
-`putout` plugin adds ability to find and remove useless `template string`.
+`putout` plugin adds ability to find and remove useless `template string`. Nut bundled to `putout` (by default `convert-template-to-string` is used).
 
 ## Install
 
