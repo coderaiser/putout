@@ -1,3 +1,9 @@
+2020.02.18, v7.13.1
+
+feature:
+- (@putout/plugin-convert-template-to-string) add
+
+
 2020.02.17, v7.13.0
 
 fix:
