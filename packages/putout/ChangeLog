@@ -1,3 +1,9 @@
+2020.02.24, v7.13.4
+
+feature:
+- (package) try-catch v3.0.0
+
+
 2020.02.24, v7.13.3
 
 fix:
