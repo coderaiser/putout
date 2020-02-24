@@ -46,7 +46,7 @@
     "nodemon": "^2.0.1",
     "nyc": "^14.0.0",
     "supertape": "^1.0.3",
-    "try-catch": "^2.0.0"
+    "try-catch": "^3.0.0"
   },
   "peerDependencies": {
     "putout": ">=4.40"

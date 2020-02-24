@@ -36,7 +36,7 @@
     "jscodeshift": "^0.7.0",
     "nano-memoize": "^1.1.8",
     "once": "^1.4.0",
-    "try-catch": "^2.0.1"
+    "try-catch": "^3.0.0"
   },
   "keywords": [
     "putout",
