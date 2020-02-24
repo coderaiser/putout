@@ -31,8 +31,7 @@
   "dependencies": {
     "@babel/types": "^7.6.1",
     "@putout/engine-parser": "^1.1.4",
-    "debug": "^4.1.1",
-    "try-catch": "^2.0.1"
+    "debug": "^4.1.1"
   },
   "keywords": [
     "putout",
