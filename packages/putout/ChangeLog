@@ -1,3 +1,10 @@
+2020.02.24, v7.13.2
+
+feature:
+- (putout) add ability to show eslint config validation errors
+- (@putout/eslint-config) keyword-spacing: catch, disable no-control-regex
+
+
 2020.02.18, v7.13.1
 
 feature:
