@@ -16,6 +16,9 @@
             "overrides": {
                 "switch": {
                     "after": false
+                },
+                "catch": {
+                    "after": false
                 }
             }
         }],
@@ -45,6 +48,7 @@
         "object-shorthand": "error",
         "object-curly-spacing": "error",
         "no-empty-pattern": "off",
+        "no-control-regex": "off",
         "no-useless-rename": "error",
         "no-use-before-define": "off",
         "no-var": "error",
