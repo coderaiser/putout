@@ -11,6 +11,9 @@ const noConfigFound = (config, configError) => {
     if (configError && configError.messageTemplate === 'no-config-found')
         return true;
     
+    if (configError)
+        return true;
+    
     if (!keys(config.rules).length)
         return true;
     
@@ -143,6 +146,12 @@ function disablePutout(config) {
     config.rules['putout/putout'] = 'off';
 }
 
+// when eslint config got errors, table formatter used for reporting
+// can't show control characters and crash
+//
+// https://stackoverflow.com/questions/26741455/how-to-remove-control-characters-from-string
+const rmControlChars = (a) => a.replace(/[\x00-\x1F]/g, '');
+
 function parseError(e) {
     if (!e)
         return false;
@@ -155,7 +164,7 @@ function parseError(e) {
     
     if (messageTemplate !== 'plugin-missing')
         return {
-            message,
+            message: rmControlChars(message),
         };
     
     return {
