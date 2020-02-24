@@ -1,3 +1,9 @@
+2020.02.24, v7.13.3
+
+fix:
+- (putout) when have eslint config error, mark it as found
+
+
 2020.02.24, v7.13.2
 
 feature:
