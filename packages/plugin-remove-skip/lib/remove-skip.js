@@ -9,3 +9,8 @@ module.exports.replace = () => ({
     '__a["skip"](__b, __c)': result,
 });
 
+module.exports.filter = (path) => {
+    const {parentPath} = path.parentPath;
+    return parentPath.isProgram();
+};
+

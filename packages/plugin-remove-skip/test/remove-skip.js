@@ -20,3 +20,8 @@ test('plugin-remove-skip: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-skip: transform: not top level', (t) => {
+    t.noTransform('not-top-level');
+    t.end();
+});
+
