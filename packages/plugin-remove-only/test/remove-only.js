@@ -19,3 +19,8 @@ test('plugin-remove-only: transform: only-only', (t) => {
     t.transform('only-only');
     t.end();
 });
+
+test('plugin-remove-only: transform: not top level', (t) => {
+    t.noTransform('not-top-level');
+    t.end();
+});
