@@ -28,6 +28,8 @@ const {
     isImportsStr,
 } = require('./is');
 
+const isEmptyBlock = (a) => isBlock(a) && !a.body.length;
+
 const compareType = (type) => (path) => path.type === type;
 const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
 const superPush = (array) => (a, b) => array.push([a, b]);
@@ -150,7 +152,7 @@ function superCompare(nodeValue, value, {add, templateStore}) {
     if (value === nodeValue)
         return true;
     
-    if (isClassBody(value) || isBlock(value))
+    if (isClassBody(value) || isEmptyBlock(value))
         return true;
     
     if (isAny(value))

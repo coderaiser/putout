@@ -505,6 +505,16 @@ test('compare: __body: no body', (t) => {
     t.end();
 });
 
+test('compare: block', (t) => {
+    const a = template.ast('if (typeof x === "function") x()');
+    const b = template.ast('if (typeof __a === "function") {__a(__args)}');
+    
+    const result = compare(a, b);
+    
+    t.notOk(result, 'should equal');
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);
