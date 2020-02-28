@@ -15,7 +15,7 @@ module.exports = {
         NODE_ENV: 'production',
     }),
     
-    'build:dev:all': () => parallel('build:way:*', '--mode development', {
+    'build:dev:all': () => run('build:way:*', '--mode development', {
         NODE_ENV: 'development',
     }),
     
