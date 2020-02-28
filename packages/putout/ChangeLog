@@ -1,3 +1,9 @@
+2020.02.28, v7.14.2
+
+fix:
+- (putout) ignores: negative
+
+
 2020.02.28, v7.14.1
 
 fix:
