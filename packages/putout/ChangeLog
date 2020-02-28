@@ -1,3 +1,9 @@
+2020.02.28, v7.15.0
+
+feature:
+- (@putout/plugin-remove-useless-async) add
+
+
 2020.02.28, v7.14.2
 
 fix:
