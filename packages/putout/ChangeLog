@@ -1,3 +1,14 @@
+2020.02.28, v7.14.0
+
+fix:
+- (@putout/compare) rm unused try-catch
+
+feature:
+- (@putout/plugin-remove-useless-await) add
+- (@putout/plugin-remove-skip) exclude not top level test.skip
+- (@putout/plugin-remove-only) exclude not top level test.only
+
+
 2020.02.24, v7.13.4
 
 feature:
