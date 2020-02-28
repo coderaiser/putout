@@ -13,6 +13,7 @@
     "url": "git://github.com/coderaiser/putout.git"
   },
   "scripts": {
+    "wisdom": "madrun wisdom",
     "build:way:full": "madrun build:way:full",
     "build:way:slim": "madrun build:way:slim",
     "build:dev": "madrun build:dev",

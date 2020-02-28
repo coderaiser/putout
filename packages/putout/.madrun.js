@@ -3,7 +3,7 @@
 const {run, parallel} = require('madrun');
 
 module.exports = {
-    'prepublishOnly': () => run(['lint', 'test', 'build:dev:all']),
+    'wisdom': () => run(['lint', 'test', 'build:dev:all']),
     'build:way:full': () => 'webpack --config ./.webpack/full/webpack.config.js',
     'build:way:slim': () => 'webpack --config ./.webpack/slim/webpack.config.js',
     
