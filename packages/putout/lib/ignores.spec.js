@@ -43,9 +43,20 @@ test('putout: ignores: empty string', (t) => {
 });
 
 test('putout: ignores: ignore true', (t) => {
-    const result = ignores('x/y', 'x/y/z/*.js', {ignore: ['z/*.js']});
-    const expected = true;
+    const result = ignores('x/y', 'x/y/z/*.js', {
+        ignore: ['z/*.js'],
+    });
     
-    t.equal(result, expected);
+    t.ok(result);
     t.end();
 });
+
+test('putout: ignores: negative', (t) => {
+    const result = ignores('/', '/fixture', {
+        ignore: ['!fixture', 'fixture'],
+    });
+    
+    t.notOk(result);
+    t.end();
+});
+
