@@ -91,6 +91,7 @@
     "@putout/plugin-remove-unused-variables": "^1.0.0",
     "@putout/plugin-remove-useless-arguments": "^3.0.1",
     "@putout/plugin-remove-useless-array-from": "^1.0.0",
+    "@putout/plugin-remove-useless-await": "^1.0.0",
     "@putout/plugin-remove-useless-escape": "^1.0.0",
     "@putout/plugin-remove-useless-spread": "^2.0.0",
     "@putout/plugin-remove-useless-variables": "^3.0.0",

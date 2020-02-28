@@ -58,6 +58,7 @@
         "remove-useless-arguments",
         "remove-useless-escape",
         "remove-useless-spread",
+        "remove-useless-await",
         "remove-constant-conditions",
         "remove-boolean-from-logical-expressions",
         "remove-nested-blocks",
