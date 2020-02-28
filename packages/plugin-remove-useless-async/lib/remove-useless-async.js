@@ -7,8 +7,8 @@ module.exports.fix = (path) => {
 };
 
 module.exports.include = () => [
-    'async function __() {}',
-    'async () => {}',
+    'async function __(__args) {}',
+    'async (__args) => __body',
 ];
 
 module.exports.filter = (path) => {

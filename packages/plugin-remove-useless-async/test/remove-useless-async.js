@@ -19,6 +19,21 @@ test('plugin-remove-useless-async: transform: function', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-async: transform: args', (t) => {
+    t.transform('args');
+    t.end();
+});
+
+test('plugin-remove-useless-async: transform: args fn', (t) => {
+    t.transform('args-fn');
+    t.end();
+});
+
+test('plugin-remove-useless-async: no transform: no body arrow', (t) => {
+    t.noTransform('no-body-arrow');
+    t.end();
+});
+
 test('plugin-remove-useless-async: no transform: return', (t) => {
     t.noTransform('return');
     t.end();
