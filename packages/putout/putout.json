@@ -60,6 +60,7 @@
         "remove-useless-spread",
         "remove-useless-async",
         "remove-useless-await",
+        "remove-useless-typeof",
         "remove-constant-conditions",
         "remove-boolean-from-logical-expressions",
         "remove-nested-blocks",

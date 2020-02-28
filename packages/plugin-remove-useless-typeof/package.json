@@ -1,0 +1,53 @@
+{
+  "name": "@putout/plugin-remove-useless-typeof",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin adds ability to remove useless typeof",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/remove-useless-typeof.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "publishOnly": "madrun publishOnly",
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "putout": "madrun putout",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "typeof",
+    "useless"
+  ],
+  "devDependencies": {
+    "@putout/eslint-config": "^1.0.2",
+    "@putout/test": "^1.16.1",
+    "coveralls": "^3.0.0",
+    "eslint": "^6.2.0",
+    "eslint-plugin-node": "^11.0.0",
+    "madrun": "^5.0.0",
+    "nyc": "^14.0.0",
+    "supertape": "^1.0.3"
+  },
+  "peerDependencies": {
+    "putout": ">=7.7"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
