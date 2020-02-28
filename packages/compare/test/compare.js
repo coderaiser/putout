@@ -485,6 +485,26 @@ test('compare: expressions', (t) => {
     t.end();
 });
 
+test('compare: __body', (t) => {
+    const a = template.ast('() => {}');
+    const b = template.ast('() => __body');
+    
+    const result = compare(a, b);
+    
+    t.ok(result, 'should equal');
+    t.end();
+});
+
+test('compare: __body: no body', (t) => {
+    const a = template.ast('() => x');
+    const b = template.ast('() => __body');
+    
+    const result = compare(a, b);
+    
+    t.notOk(result, 'should equal');
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);
@@ -498,3 +518,4 @@ function getProgramPath(str) {
     
     return result;
 }
+

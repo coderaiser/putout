@@ -20,6 +20,7 @@ const {
     isEqualType,
     isEqualAnyObject,
     isEqualAnyArray,
+    isEqualBody,
     isLinkedNode,
     parseTemplate,
     isNameStr,
@@ -159,6 +160,9 @@ function superCompare(nodeValue, value, {add, templateStore}) {
         return true;
     
     if (isEqualAnyObject(nodeValue, value))
+        return true;
+    
+    if (isEqualBody(nodeValue, value))
         return true;
     
     if (isLinkedNode(value)) {

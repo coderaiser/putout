@@ -99,6 +99,18 @@ Linked string literal.
 compare('const a = "hello"', 'const __a = "__b"');
 ```
 
+##### "__body"
+Any `BlockStatement`.
+
+```js
+compare('const a = () => 0, 'const a = () => __body');
+// returns
+false
+
+compare('const a = () => {}, 'const a = () => __body');
+// returns
+true
+```
 
 ## License
 

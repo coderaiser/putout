@@ -12,10 +12,15 @@ const ANY_ARRAY = '__array';
 const ARGS = '__args';
 const LINKED_NODE = /^__[a-z]$/;
 const IMPORTS = '__imports';
+const BODY = '__body';
 
 module.exports.isNameStr = (a) => LINKED_NODE.test(a);
 module.exports.isImportsStr = (a) => a === IMPORTS;
 module.exports.isArgsStr = (a) => a === ARGS;
+
+const isBody = (a) => isIdentifier(a, {
+    name: BODY,
+});
 
 const isAnyObject = (a) => isIdentifier(a, {
     name: ANY_OBJECT,
@@ -91,6 +96,13 @@ module.exports.isEqualAnyObject = (node, baseNode) => {
     
     const {type} = node;
     return __OBJECT_TYPE.includes(type);
+};
+
+module.exports.isEqualBody = (node, baseNode) => {
+    if (!isBody(baseNode))
+        return false;
+    
+    return node.type === 'BlockStatement';
 };
 
 module.exports.isLinkedNode = (a) => {
