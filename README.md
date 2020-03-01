@@ -363,14 +363,14 @@ function world(a) {
 ```
 </details>
 
-<details><summary>convert <code>esm</code> to <code>commonjs</code></summary>
+<details><summary>convert <code>esm</code> to <code>commonjs</code> (disabled)</summary>
 
 ```diff
 -import hello from 'world';
 +const hello = require('world');
 ```
 </details>
-<details><summary>convert <code>commonjs</code> to <code>esm</code></summary>
+<details><summary>convert <code>commonjs</code> to <code>esm</code> (disabled)</summary>
 
 ```diff
 -const hello = require('world');
