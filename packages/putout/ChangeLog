@@ -1,3 +1,14 @@
+2020.03.03, v7.16.1
+
+fix:
+- (putout) eslint: replace control chars on read config error
+- (@putout/plugin-strict-mode) rm unused file putout
+
+feature:
+- (@putout/eslint-config) no-multiple-empty-lines: maxBOF: 0
+- (@putout/compare) improve block support
+
+
 2020.02.29, v7.16.0
 
 feature:
