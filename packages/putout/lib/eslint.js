@@ -150,7 +150,7 @@ function disablePutout(config) {
 // can't show control characters and crash
 //
 // https://stackoverflow.com/questions/26741455/how-to-remove-control-characters-from-string
-const rmControlChars = (a) => a.replace(/[\x00-\x1F]/g, '');
+const replaceControlChars = (a) => a.replace(/[\x00-\x1F]/g, '. ');
 
 function parseError(e) {
     if (!e)
@@ -164,7 +164,7 @@ function parseError(e) {
     
     if (messageTemplate !== 'plugin-missing')
         return {
-            message: rmControlChars(message),
+            message: replaceControlChars(message),
         };
     
     return {
