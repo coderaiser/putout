@@ -29,6 +29,11 @@ test('plugin-remove-useless-async: transform: args fn', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-async: transform: generator', (t) => {
+    t.transform('generator');
+    t.end();
+});
+
 test('plugin-remove-useless-async: no transform: no body arrow', (t) => {
     t.noTransform('no-body-arrow');
     t.end();
