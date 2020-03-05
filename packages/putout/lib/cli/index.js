@@ -1,7 +1,5 @@
 'use strict';
 
-const {join} = require('path');
-
 const {red} = require('chalk');
 const yargsParser = require('yargs-parser');
 
@@ -11,13 +9,11 @@ const getFiles = require('./get-files');
 const cacheFiles = require('./cache-files');
 const getRulerProcessor = require('./ruler-processor');
 
-const joinDir = (a) => (b) => join(a, b);
-const isJS = (a) => /(\.jsx?|\.ts|\/)$/.test(a);
 const isString = (a) => typeof a === 'string';
 const isStringAll = (...a) => a.filter(isString).length;
 const isRuler = (a) => a.disableAll || a.enableAll || isStringAll(a.disable, a.enable);
 
-module.exports = ({argv, halt, log, logError}) => {
+module.exports = ({argv, halt, log, write, logError}) => {
     const args = yargsParser(argv, {
         boolean: [
             'cache',
@@ -89,12 +85,15 @@ module.exports = ({argv, halt, log, logError}) => {
     
     let gitNames = [];
     
-    if (untracked || added || modified)
+    if (untracked || added || modified) {
+        const getGitNames = require('./get-git-names');
+        
         gitNames = getGitNames({
             untracked,
             added,
             modified,
         });
+    }
     
     if (args.version) {
         log(`v${require('../../package.json').version}`);
@@ -144,6 +143,7 @@ module.exports = ({argv, halt, log, logError}) => {
         exit,
         log,
         logError,
+        write,
         noOptions: !args.options,
     };
     
@@ -163,28 +163,6 @@ module.exports = ({argv, halt, log, logError}) => {
     if (mergedPlaces.length)
         return exit(1);
 };
-
-function getGitNames({untracked, added, modified}) {
-    const porcelaine = require('@putout/git-status-porcelain');
-    const findUp = require('find-up');
-    
-    const gitDir = findUp.sync('.git', {
-        type: 'directory',
-    }).replace(/\.git$/, '');
-    
-    if (!gitDir)
-        return [];
-    
-    const names = porcelaine({
-        untracked,
-        added,
-        modified,
-    });
-    
-    return names
-        .filter(isJS)
-        .map(joinDir(gitDir));
-}
 
 const getExit = ({halt, raw, logError}) => (e) => {
     if (!e)

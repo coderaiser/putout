@@ -35,7 +35,7 @@ function getOptions({noOptions, name, rulesdir}) {
     });
 }
 
-module.exports = ({fix, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noOptions}) => (name, index, {length}) => {
+module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noOptions}) => (name, index, {length}) => {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
@@ -62,7 +62,7 @@ module.exports = ({fix, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ru
             source: '',
         });
         
-        process.stdout.write(line || '');
+        write(line || '');
         return null;
     }
     
@@ -80,7 +80,7 @@ module.exports = ({fix, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ru
             source,
         });
         
-        process.stdout.write(line || '');
+        write(line || '');
         return places;
     }
     
@@ -126,7 +126,7 @@ module.exports = ({fix, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ru
         source,
     });
     
-    process.stdout.write(line || '');
+    write(line || '');
     
     e && raw && logError(e);
     

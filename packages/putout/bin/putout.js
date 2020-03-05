@@ -4,7 +4,11 @@
 
 const cli = require('../lib/cli');
 
+const {stdout} = process;
+const write = stdout.write.bind(stdout);
+
 cli({
+    write,
     halt: process.exit,
     argv: process.argv.slice(2),
     log: console.log,

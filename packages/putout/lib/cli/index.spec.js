@@ -6,14 +6,12 @@ const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
 
-const cli = require('.');
+const _cli = require('.');
 const {version} = require('../../package');
 
 const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: --raw', (t) => {
-    const halt = stub();
-    const log = stub();
     const logError = stub();
     const argv = [
         'xx',
@@ -25,9 +23,8 @@ test('putout: cli: --raw', (t) => {
     
     const cli = reRequire('.');
     
-    cli({
-        halt,
-        log,
+    runCli({
+        cli,
         logError,
         argv,
     });
@@ -39,8 +36,6 @@ test('putout: cli: --raw', (t) => {
 });
 
 test('putout: cli: --raw: parser error', (t) => {
-    const halt = stub();
-    const log = stub();
     const logError = stub();
     const argv = [
         join(__dirname, 'fixture/parser-error.js'),
@@ -52,9 +47,8 @@ test('putout: cli: --raw: parser error', (t) => {
     
     const cli = reRequire('.');
     
-    cli({
-        halt,
-        log,
+    runCli({
+        cli,
         logError,
         argv,
     });
@@ -66,17 +60,13 @@ test('putout: cli: --raw: parser error', (t) => {
 
 test('putout: cli: --raw: halt', (t) => {
     const halt = stub();
-    const log = stub();
-    const logError = stub();
     const argv = [
         'xx',
         '--raw',
     ];
     
-    cli({
+    runCli({
         halt,
-        log,
-        logError,
         argv,
     });
     
@@ -85,17 +75,13 @@ test('putout: cli: --raw: halt', (t) => {
 });
 
 test('putout: cli: --version', (t) => {
-    const halt = stub();
     const log = stub();
-    const logError = stub();
     const argv = [
         '--version',
     ];
     
-    cli({
-        halt,
+    runCli({
         log,
-        logError,
         argv,
     });
     
@@ -106,17 +92,13 @@ test('putout: cli: --version', (t) => {
 });
 
 test('putout: cli: -v', (t) => {
-    const halt = stub();
     const log = stub();
-    const logError = stub();
     const argv = [
         '-v',
     ];
     
-    cli({
-        halt,
+    runCli({
         log,
-        logError,
         argv,
     });
     
@@ -125,4 +107,23 @@ test('putout: cli: -v', (t) => {
     t.ok(log.calledWith(expected), 'should call halt');
     t.end();
 });
+
+function runCli(options) {
+    const {
+        halt = stub(),
+        log = stub(),
+        logError = stub(),
+        write = stub(),
+        argv = [],
+        cli = _cli,
+    } = options;
+    
+    cli({
+        write,
+        halt,
+        log,
+        logError,
+        argv,
+    });
+}
 
