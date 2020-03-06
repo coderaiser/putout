@@ -7,7 +7,6 @@ const merge = require('../merge');
 const processFile = require('./process-file');
 const getFiles = require('./get-files');
 const cacheFiles = require('./cache-files');
-const getRulerProcessor = require('./ruler-processor');
 
 const isString = (a) => typeof a === 'string';
 const isStringAll = (...a) => a.filter(isString).length;
@@ -77,10 +76,6 @@ module.exports = ({argv, halt, log, write, logError}) => {
         raw,
         halt,
         logError,
-    });
-    
-    const rulerProcessor = getRulerProcessor({
-        log,
     });
     
     let gitNames = [];
@@ -156,6 +151,11 @@ module.exports = ({argv, halt, log, write, logError}) => {
     fileCache.reconcile();
     
     if (isRuler(args)) {
+        const getRulerProcessor = require('./ruler-processor');
+        const rulerProcessor = getRulerProcessor({
+            log,
+        });
+        
         rulerProcessor(args, mergedPlaces);
         return exit();
     }

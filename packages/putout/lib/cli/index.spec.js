@@ -149,6 +149,29 @@ test('putout: cli: get git names', (t) => {
     t.end();
 });
 
+test('putout: cli: ruler processor', (t) => {
+    const logError = stub();
+    const rullerProcessor = stub();
+    const getRullerProcessor = stub().returns(rullerProcessor);
+    const argv = [
+        '--enable-all',
+        __filename,
+    ];
+    
+    mockRequire('./ruler-processor', getRullerProcessor);
+    
+    const cli = reRequire('.');
+    
+    runCli({
+        cli,
+        argv,
+        logError,
+    });
+    
+    t.ok(rullerProcessor.called);
+    t.end();
+});
+
 function runCli(options) {
     const {
         halt = stub(),
