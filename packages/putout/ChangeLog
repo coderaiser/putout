@@ -1,3 +1,9 @@
+2020.03.06, v7.16.2
+
+feature:
+- (putout) cli: speed up, when ruler not used
+
+
 2020.03.03, v7.16.1
 
 fix:
