@@ -108,6 +108,19 @@ test('putout: cli: -v', (t) => {
     t.end();
 });
 
+test('putout: cli: no files', (t) => {
+    const log = stub();
+    const argv = [];
+    
+    runCli({
+        log,
+        argv,
+    });
+    
+    t.notOk(log.called, 'should not call log');
+    t.end();
+});
+
 function runCli(options) {
     const {
         halt = stub(),
