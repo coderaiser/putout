@@ -5,6 +5,7 @@ const {join} = require('path');
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
+const stripAnsi = require('strip-ansi');
 
 const _cli = require('.');
 const {version} = require('../../package');
@@ -118,6 +119,33 @@ test('putout: cli: no files', (t) => {
     });
     
     t.notOk(log.called, 'should not call log');
+    t.end();
+});
+
+test('putout: cli: get git names', (t) => {
+    const logError = stub();
+    const getGitNames = stub().returns(['./xxx.js']);
+    const argv = [
+        '--untracked',
+    ];
+    
+    mockRequire('./get-git-names', getGitNames);
+    
+    const cli = reRequire('.');
+    
+    runCli({
+        cli,
+        argv,
+        logError,
+    });
+    
+    const [allArgCalls] = logError.args;
+    const [arg] = allArgCalls;
+    
+    const output = stripAnsi(arg);
+    const message = 'No files matching the pattern "./xxx.js" were found';
+    
+    t.equal(output, message, 'should equal');
     t.end();
 });
 
