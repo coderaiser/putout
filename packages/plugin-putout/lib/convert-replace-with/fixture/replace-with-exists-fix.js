@@ -2,7 +2,7 @@
 
 const {
     replaceWith
-} = require('putout').operate;
+} = require('putout').operator;
 
 module.exports.fix = ({name, path, rightPath}) => {
     const {parentPath} = path;

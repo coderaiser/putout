@@ -19,11 +19,11 @@ const {
 const fullstore = require('fullstore');
 
 module.exports.report = () => {
-    return `"operate.replaceWith" should be called instead of "path.replaceWith"`;
+    return `"operator.replaceWith" should be called instead of "path.replaceWith"`;
 };
 
 const replaceWithAST = template.ast(`
-    const {replaceWith} = require('putout').operate;
+    const {replaceWith} = require('putout').operator;
 `);
 
 module.exports.fix = ({path, calleePath, property, object, program, isInserted}) => {

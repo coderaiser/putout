@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-putout: report', (t) => {
-    t.report('replace-with', `"operate.replaceWith" should be called instead of "path.replaceWith"`);
+    t.report('replace-with', `"operator.replaceWith" should be called instead of "path.replaceWith"`);
     t.end();
 });
 
