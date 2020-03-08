@@ -1,6 +1,6 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
+const {replaceWith} = require('putout').operator;
 
 const {traverseClass} = require('../common');
 

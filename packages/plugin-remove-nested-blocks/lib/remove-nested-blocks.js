@@ -1,6 +1,6 @@
 'use strict';
 
-const {replaceWithMultiple} = require('putout').operate;
+const {replaceWithMultiple} = require('putout').operator;
 const {keys} = Object;
 
 module.exports.report = () => 'Nested blocks should not be used';

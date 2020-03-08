@@ -1,7 +1,7 @@
 'use strict';
 
-const {types, operate} = require('putout');
-const {replaceWith} = operate;
+const {types, operator} = require('putout');
+const {replaceWith} = operator;
 
 const {
     ReturnStatement,

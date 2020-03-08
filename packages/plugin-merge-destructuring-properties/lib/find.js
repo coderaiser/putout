@@ -2,10 +2,10 @@
 
 const {
     types,
-    operate,
+    operator,
 } = require('putout');
 
-const {compare} = operate;
+const {compare} = operator;
 const {isObjectPattern} = types;
 const notEmptyPlaces = (a) => a.places.length;
 

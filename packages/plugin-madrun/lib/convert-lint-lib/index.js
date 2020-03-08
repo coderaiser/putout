@@ -2,10 +2,10 @@
 
 const {
     types,
-    operate,
+    operator,
 } = require('putout');
 
-const {replaceWith} = operate;
+const {replaceWith} = operator;
 
 const {
     isCallExpression,

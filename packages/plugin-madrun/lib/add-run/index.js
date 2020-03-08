@@ -1,13 +1,13 @@
 'use strict';
 
 const {
-    operate,
+    operator,
     template,
     types,
 } = require('putout');
 
 const {isProgram} = types;
-const {findBinding} = operate;
+const {findBinding} = operator;
 
 const node = template.ast(`const {run} = require('madrun')`);
 

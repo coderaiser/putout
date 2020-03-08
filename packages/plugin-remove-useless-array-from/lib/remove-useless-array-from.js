@@ -2,7 +2,7 @@
 
 module.exports.report = () => '"Array.from" has no sense inside for-of';
 
-const {replaceWith} = require('putout').operate;
+const {replaceWith} = require('putout').operator;
 
 module.exports.fix = (path) => {
     const rightPath = path.get('right');

@@ -1,7 +1,7 @@
 'use strict';
 
-const {operate} = require('putout');
-const {findBinding} = operate;
+const {operator} = require('putout');
+const {findBinding} = operator;
 
 module.exports.report = () => `Shorthand properties should be used`;
 

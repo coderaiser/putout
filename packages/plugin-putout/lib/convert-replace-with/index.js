@@ -1,7 +1,7 @@
 'use strict';
 
 const {
-    operate,
+    operator,
     template,
     types,
 } = require('putout');
@@ -9,7 +9,7 @@ const {
 const {
     replaceWith,
     insertAfter,
-} = operate;
+} = operator;
 
 const {
     Identifier,

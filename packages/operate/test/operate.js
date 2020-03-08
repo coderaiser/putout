@@ -383,30 +383,6 @@ test('putout: operate: isModuleExports: no exports', (t) => {
     t.end();
 });
 
-test('operate: compare', (t) => {
-    const result = operate.compare('const a = {}', 'const __ = {}');
-    
-    t.ok(result, 'should equal');
-    t.end();
-});
-
-test('operate: compareAll', (t) => {
-    const result = operate.compareAll('const a = {}', ['const __ = {}']);
-    
-    t.ok(result, 'should equal');
-    t.end();
-});
-
-test('operate: compare: any', (t) => {
-    const result = operate.compareAny('const a = {}', [
-        'const __ = {}',
-        'abc',
-    ]);
-    
-    t.ok(result, 'should equal');
-    t.end();
-});
-
 test('operate: findBindings: not found', (t) => {
     const ast = parse('const t = "hello"');
     let result;

@@ -29,9 +29,13 @@
     "report": "madrun report"
   },
   "dependencies": {
+    "@babel/traverse": "^7.8.6",
     "@babel/types": "^7.6.1",
     "@putout/engine-parser": "^1.1.4",
-    "debug": "^4.1.1"
+    "@putout/operate": "^3.0.0",
+    "debug": "^4.1.1",
+    "jessy": "^3.0.0",
+    "nessy": "^3.0.0"
   },
   "keywords": [
     "putout",

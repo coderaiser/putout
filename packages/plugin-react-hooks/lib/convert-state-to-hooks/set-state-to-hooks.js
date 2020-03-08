@@ -1,8 +1,11 @@
 'use strict';
 
-const {replaceWithMultiple} = require('putout').operate;
+const {
+    template,
+    operator,
+} = require('putout');
 
-const {template} = require('putout');
+const {replaceWithMultiple} = operator;
 
 const buildHooks = template(`
     SETTER(VALUE);

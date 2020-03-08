@@ -2,11 +2,11 @@
 
 const {
     types,
-    operate,
+    operator,
     template,
 } = require('putout');
 
-const {replaceWithMultiple} = operate;
+const {replaceWithMultiple} = operator;
 
 const {
     isIdentifier,

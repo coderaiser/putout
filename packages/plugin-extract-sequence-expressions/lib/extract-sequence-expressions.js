@@ -2,13 +2,13 @@
 
 const {
     types,
-    operate,
+    operator,
 } = require('putout');
 
 const {
     replaceWithMultiple,
     toExpression,
-} = operate;
+} = operator;
 
 const {
     ReturnStatement,

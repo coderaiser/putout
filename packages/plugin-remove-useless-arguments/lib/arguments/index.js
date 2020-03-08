@@ -1,6 +1,6 @@
 'use strict';
 
-const {findBinding} = require('putout').operate;
+const {findBinding} = require('putout').operator;
 
 module.exports.report = (path) => `Argument "${path.node.name}" is useless`;
 

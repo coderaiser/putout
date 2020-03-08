@@ -2,14 +2,14 @@
 
 const {
     types,
-    operate,
+    operator,
 } = require('putout');
 
 const {isIdentifier} = types;
 const {
     compareAny,
     findBinding,
-} = operate;
+} = operator;
 
 const getKey = ({key}) => key;
 

@@ -1,10 +1,10 @@
 'use strict';
 
-const {types, operate} = require('putout');
+const {types, operator} = require('putout');
 const {
     replaceWith,
     findBinding,
-} = operate;
+} = operator;
 const {AwaitExpression} = types;
 
 module.exports.report = () => `"return await promise()" should be used instead of "return promise()"`;

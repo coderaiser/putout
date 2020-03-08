@@ -1,11 +1,11 @@
 'use strict';
 
 const {
-    operate,
+    operator,
     template,
 } = require('putout');
 
-const {replaceWith} = operate;
+const {replaceWith} = operator;
 
 const astRequire = template.ast(`
     require('putout').types

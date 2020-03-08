@@ -7,6 +7,13 @@ const {
     isBlock,
 } = require('@babel/types');
 
+const {
+    findVarsWays,
+    getValues,
+    setValues,
+    getTemplateValues,
+} = require('./vars');
+
 const log = require('./log');
 const {
     isObject,
@@ -23,9 +30,6 @@ const {
     isEqualBody,
     isLinkedNode,
     parseTemplate,
-    isNameStr,
-    isArgsStr,
-    isImportsStr,
 } = require('./is');
 
 const isEmptyBlock = (a) => isBlock(a) && !a.body.length;
@@ -56,9 +60,10 @@ function parseNode(a) {
 module.exports.compare = compare;
 module.exports.parseTemplate = parseTemplate;
 
-module.exports.isName = isNameStr;
-module.exports.isImports = isImportsStr;
-module.exports.isArgs = isArgsStr;
+module.exports.findVarsWays = findVarsWays;
+module.exports.getValues = getValues;
+module.exports.setValues = setValues;
+module.exports.getTemplateValues = getTemplateValues;
 
 function compare(path, base) {
     const node = parseNode(path);

@@ -514,10 +514,10 @@ result = result ?? 'hello';
 <details><summary>extract object properties into variable</summary>
 
 ```diff
--const {replace} = putout.operate;
+-const {replace} = putout.operator;
 -const {isIdentifier} = putout.types;
-+const {operate, types} = putout;
-+const {replace} = operate;
++const {operator, types} = putout;
++const {replace} = operator;
 +const {isIdentifier} = types;
 ```
 
@@ -842,11 +842,11 @@ To understand how things works from the inside take a look at [Super Tiny Compil
 
 ##### Operate
 
-When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, please use `operate` insted of `path`-methods.
+When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, please use `operator` insted of `path`-methods.
 
 ```js
-const {template, operate} = require('putout');
-const {replaceWith} = operate;
+const {template, operator} = require('putout');
+const {replaceWith} = operator;
 
 const ast = template.ast(`
   const str = 'hello';
@@ -862,7 +862,7 @@ module.exports.fix = (path) => {
 ```
 
 This should be done to preserve `loc` and `comments` information, which is different in `babel` and `recast`. `putout` will handle this case for you :),
-just use methods of `operate`.
+just use methods of `operator`.
 
 
 #### Putout Plugin

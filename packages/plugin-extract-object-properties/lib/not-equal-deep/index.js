@@ -1,11 +1,11 @@
 'use strict';
 
-const {operate} = require('putout');
+const {operator} = require('putout');
 
 const {
     replaceWith,
     compare,
-} = operate;
+} = operator;
 
 module.exports.report = () => `Object properties should be extracted into variables`;
 
@@ -21,6 +21,9 @@ module.exports.traverse = ({push}) => {
         VariableDeclarator(path) {
             const idPath = path.get('id');
             const initPath = path.get('init');
+            
+            if (!initPath.scope)
+                return;
             
             if (!idPath.isObjectPattern())
                 return;

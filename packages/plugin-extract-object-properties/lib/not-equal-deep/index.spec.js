@@ -19,6 +19,13 @@ test('plugin-extract-object-properties: not-equal-deep: transform: fn', (t) => {
     t.end();
 });
 
+test('plugin-extract-object-properties: not-equal-deep: transform', (t) => {
+    t.transform('operate', {
+        putout: require('@putout/plugin-putout'),
+    });
+    t.end();
+});
+
 test('plugin-extract-object-properties: not-equal-deep: no transform: var exists', (t) => {
     t.noTransform('var-exists');
     t.end();

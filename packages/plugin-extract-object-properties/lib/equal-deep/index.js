@@ -4,10 +4,10 @@ const {
     template,
     generate,
     types,
-    operate,
+    operator,
 } = require('putout');
 
-const {replaceWith} = operate;
+const {replaceWith} = operator;
 const {isIdentifier} = types;
 
 module.exports.report = () => `Object properties should be extracted into variables`;

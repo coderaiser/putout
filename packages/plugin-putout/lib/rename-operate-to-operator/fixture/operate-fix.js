@@ -1,0 +1,1 @@
+const {operator} = require('putout');

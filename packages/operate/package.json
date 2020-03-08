@@ -25,8 +25,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@babel/types": "^7.6.3",
-    "@putout/compare": "^3.0.0"
+    "@babel/types": "^7.6.3"
   },
   "keywords": [
     "ast",

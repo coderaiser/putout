@@ -1,6 +1,6 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
+const {replaceWith} = require('putout').operator;
 
 module.exports.report = () => `First "run" argument should be string, if it is single`;
 

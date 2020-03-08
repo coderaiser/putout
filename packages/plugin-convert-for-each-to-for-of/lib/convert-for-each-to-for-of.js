@@ -2,14 +2,14 @@
 
 const {
     template,
-    operate,
+    operator,
     types,
 } = require('putout');
 
 const {
     replaceWith,
     replaceWithMultiple,
-} = operate;
+} = operator;
 
 const forOfTemplate = template(`
   for (const %%item%% of %%items%%)

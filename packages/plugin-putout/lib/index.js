@@ -10,5 +10,7 @@ module.exports.rules = {
     ...getRule('convert-replace-with'),
     ...getRule('convert-replace-with-multiple'),
     ...getRule('convert-babel-types'),
+    ...getRule('rename-operate-to-operator'),
+    ...getRule('replace-operate-with-operator'),
 };
 

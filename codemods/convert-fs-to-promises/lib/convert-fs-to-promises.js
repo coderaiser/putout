@@ -2,9 +2,10 @@
 
 const {
     types: t,
-    operate,
+    operator,
 } = require('putout');
-const {replaceWith} = operate;
+
+const {replaceWith} = operator;
 
 const NOT_COMPUTED = false;
 const SHORTHAND = true;

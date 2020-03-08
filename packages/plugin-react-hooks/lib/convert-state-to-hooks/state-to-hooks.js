@@ -1,7 +1,7 @@
 'use strict';
 
-const {template, operate} = require('putout');
-const {replaceWithMultiple} = operate;
+const {template, operator} = require('putout');
+const {replaceWithMultiple} = operator;
 
 const buildHooks = template(`
     const [NAME, SETTER] = useState(VALUE);

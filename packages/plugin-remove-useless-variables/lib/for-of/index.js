@@ -1,6 +1,6 @@
 'use strict';
 
-const {replaceWith} = require('putout').operate;
+const {replaceWith} = require('putout').operator;
 
 module.exports.report = () => `Destructuring should be used in the head of for-of`;
 

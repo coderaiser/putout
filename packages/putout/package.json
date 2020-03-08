@@ -41,6 +41,7 @@
     "@babel/code-frame": "^7.5.5",
     "@babel/traverse": "^7.1.6",
     "@babel/types": "^7.2.0",
+    "@putout/compare": "^3.8.0",
     "@putout/engine-loader": "^1.0.0",
     "@putout/engine-parser": "^1.10.0",
     "@putout/engine-runner": "^5.0.0",
@@ -114,6 +115,7 @@
     "is-relative": "^1.0.0",
     "json-stringify-deterministic": "^1.0.1",
     "once": "^1.4.0",
+    "putout/compare": "^7.16.2",
     "try-catch": "^3.0.0",
     "yargs-parser": "^17.0.0"
   },

@@ -3,7 +3,7 @@
 const fullstore = require('fullstore');
 
 const {
-    operate,
+    operator,
     template,
     types,
 } = require('putout');
@@ -11,7 +11,7 @@ const {
 const {
     insertAfter,
     replaceWith,
-} = operate;
+} = operator;
 
 const {
     Identifier,

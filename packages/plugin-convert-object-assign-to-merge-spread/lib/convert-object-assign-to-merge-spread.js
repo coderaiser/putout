@@ -2,13 +2,13 @@
 
 const {
     types,
-    operate,
+    operator,
 } = require('putout');
 
 const {
     compare,
     replaceWith,
-} = operate;
+} = operator;
 
 const {
     ObjectExpression,

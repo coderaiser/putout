@@ -24,7 +24,9 @@ module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, template = r
     const {
         pluginsFind,
         pluginsTraverse,
-    } = splitPlugins(plugins);
+    } = splitPlugins(plugins, {
+        template,
+    });
     
     for (let i = 0; i < fixCount; i++) {
         places = run({
@@ -125,7 +127,7 @@ function runWithoutMerge({ast, fix, shebang, template, pluginsFind}) {
     return places;
 }
 
-function splitPlugins(plugins) {
+function splitPlugins(plugins, {template}) {
     const pluginsFind = [];
     const pluginsTraverse = [];
     
@@ -139,7 +141,9 @@ function splitPlugins(plugins) {
             pluginsTraverse.push(item);
         
         if (plugin.replace) {
-            pluginsTraverse.push(include(replace(item)));
+            pluginsTraverse.push(include(replace(item, {
+                template,
+            })));
             continue;
         }
         

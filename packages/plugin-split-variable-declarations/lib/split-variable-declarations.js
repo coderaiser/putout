@@ -2,7 +2,7 @@
 
 const {
     types,
-    operate,
+    operator,
 } = require('putout');
 
 const {
@@ -10,7 +10,7 @@ const {
     variableDeclaration,
 } = types;
 
-const {replaceWithMultiple} = operate;
+const {replaceWithMultiple} = operator;
 
 module.exports.report = () => 'Variables should be declared separately';
 

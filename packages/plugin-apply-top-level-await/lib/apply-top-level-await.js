@@ -1,7 +1,7 @@
 'use strict';
 
 const fullstore = require('fullstore');
-const {replaceWithMultiple} = require('putout').operate;
+const {replaceWithMultiple} = require('putout').operator;
 
 const add = ({push, isImports, isExports}) => (path) => {
     const calleePath = path.get('callee');

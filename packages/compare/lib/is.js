@@ -17,6 +17,7 @@ const BODY = '__body';
 module.exports.isNameStr = (a) => LINKED_NODE.test(a);
 module.exports.isImportsStr = (a) => a === IMPORTS;
 module.exports.isArgsStr = (a) => a === ARGS;
+module.exports.isObjectStr = (a) => a === ANY_OBJECT;
 
 const isBody = (a) => isIdentifier(a, {
     name: BODY,
