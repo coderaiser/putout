@@ -1,3 +1,10 @@
+2020.03.08, v7.18.0
+
+feature:
+- (@putout/plugin-convert-for-to-for-of) add
+- (package) @putout/plugin-putout v5.0.0
+
+
 2020.03.08, v7.17.0
 
 feature:
