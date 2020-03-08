@@ -840,7 +840,7 @@ const {
 Most information you can find in [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md) is relevant to `putout` plugins.
 To understand how things works from the inside take a look at [Super Tiny Compiler](https://github.com/jamiebuilds/the-super-tiny-compiler).
 
-##### Operate
+##### Operator
 
 When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, please use `operator` insted of `path`-methods.
 
