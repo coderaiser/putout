@@ -44,7 +44,7 @@
     "@putout/compare": "^3.8.0",
     "@putout/engine-loader": "^1.0.0",
     "@putout/engine-parser": "^1.10.0",
-    "@putout/engine-runner": "^5.0.0",
+    "@putout/engine-runner": "^6.0.0",
     "@putout/formatter-codeframe": "^1.0.0",
     "@putout/formatter-dump": "^1.0.0",
     "@putout/formatter-json": "^1.0.0",
