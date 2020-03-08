@@ -115,9 +115,8 @@
     "is-relative": "^1.0.0",
     "json-stringify-deterministic": "^1.0.1",
     "once": "^1.4.0",
-    "putout/compare": "^7.16.2",
     "try-catch": "^3.0.0",
-    "yargs-parser": "^17.0.0"
+    "yargs-parser": "^18.1.0"
   },
   "keywords": [
     "ast",
