@@ -82,7 +82,7 @@
     "@putout/plugin-remove-constant-conditions": "^2.0.0",
     "@putout/plugin-remove-debugger": "^4.0.0",
     "@putout/plugin-remove-double-negations": "^2.0.0",
-    "@putout/plugin-remove-empty": "^4.0.0",
+    "@putout/plugin-remove-empty": "^5.0.0",
     "@putout/plugin-remove-nested-blocks": "^2.0.0",
     "@putout/plugin-remove-only": "^4.0.0",
     "@putout/plugin-remove-process-exit": "^3.0.0",
