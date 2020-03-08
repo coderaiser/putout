@@ -59,7 +59,7 @@
     "@putout/plugin-apply-top-level-await": "^2.0.0",
     "@putout/plugin-convert-apply-to-spread": "^3.0.0",
     "@putout/plugin-convert-arguments-to-rest": "^1.0.0",
-    "@putout/plugin-convert-binary-expression-to-boolean": "^1.0.0",
+    "@putout/plugin-convert-binary-expression-to-boolean": "^2.0.0",
     "@putout/plugin-convert-commonjs-to-esm": "^4.0.0",
     "@putout/plugin-convert-esm-to-commonjs": "^3.0.0",
     "@putout/plugin-convert-for-each-to-for-of": "^4.0.0",
