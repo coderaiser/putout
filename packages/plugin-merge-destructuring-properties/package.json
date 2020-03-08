@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-merge-destructuring-properties",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to merge destructuring properties",
   "homepage": "http://github.com/coderaiser/putout",
@@ -41,7 +41,7 @@
     "supertape": "^1.0.3"
   },
   "peerDependencies": {
-    "putout": ">=6.14.1"
+    "putout": ">=7.17"
   },
   "license": "MIT",
   "engines": {
