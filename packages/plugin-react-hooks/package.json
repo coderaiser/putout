@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-react-hooks",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability convert class components to hooks",
   "homepage": "http://github.com/coderaiser/putout",
@@ -33,7 +33,7 @@
     "react-hooks"
   ],
   "peerDependencies": {
-    "putout": ">=5.28"
+    "putout": ">=7.17"
   },
   "devDependencies": {
     "@putout/plugin-remove-unused-variables": "^1.14.0",
