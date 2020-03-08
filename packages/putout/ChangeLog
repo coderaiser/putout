@@ -1,3 +1,36 @@
+2020.03.08, v7.17.0
+
+feature:
+- (package) @putout/compare v4.0.1
+- (package) yargs-parser v18.1.0
+- (package) @putout/plugin-putout v5.0.0
+- (package) @putout/plugin-split-variable-declarations v2.0.0
+- (package) @putout/plugin-remove-useless-variables v4.0.0
+- (package) @putout/plugin-remove-useless-array-from v2.0.0
+- (package) @putout/plugin-remove-useless-arguments v4.0.0
+- (package) @putout/plugin-remove-nested-blocks v3.0.0
+- (package) @putout/plugin-remove-empty v5.0.0
+- (package) @putout/plugin-remove-constant-conditions v2.0.0
+- (package) @putout/plugin-merge-if-statements v3.0.0
+- (package) @putout/plugin-merge-destructuring-properties v3.0.0
+- (package) @putout/plugin-madrun v6.0.0
+- (@putout/convert-fs-to-promises) drop support of putout < 7.17
+- (package) @putout/plugin-extract-sequence-expressions v2.0.0
+- (package) @putout/plugin-extract-object-properties v3.0.0
+- (package) @putout/plugin-convert-top-level-return v3.0.0
+- (package) @putout/plugin-convert-object-assign-to-merge-spread v4.0.0
+- (package) @putout/plugin-convert-for-each-to-for-of v5.0.0
+- (package) @putout/plugin-convert-binary-expression-to-boolean v2.0.0
+- (package) @putout/plugin-apply-top-level-await v2.0.0
+- (package) @putout/plugin-apply-shorthand-properties v3.0.0
+- (package) @putout/plugin-promises v4.0.0
+- (package) @putout/plugin-add-return-await v2.0.0
+- (package) @putout/compare v4.0.1
+- (package) @putout/engine-runner v6.0.0
+- (package) @putout/operate v4.0.0
+- (putout) operate -> operator
+
+
 2020.03.06, v7.16.2
 
 feature:
