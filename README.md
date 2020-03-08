@@ -477,6 +477,18 @@ result = result ?? 'hello';
 
 </details>
 
+<details><summary>convert <code>for</code> to <code>for-of</code></summary>
+
+```diff
+-for (let i = 0; i < items.length; i++) {
++for (const item of items) {
+    -const item = items[i];
+    log(item);
+}
+```
+
+</details>
+
 <details><summary>convert <code>forEach</code> to <code>for-of</code></summary>
 
 ```diff
@@ -629,6 +641,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-strict-mode`](/packages/plugin-strict-mode) | [![npm](https://img.shields.io/npm/v/@putout/plugin-strict-mode.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-strict-mode) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-strict-mode)](https://david-dm.org/coderaiser/putout?path=packages/plugin-strict-mode) |
 | [`@putout/plugin-convert-math-pow`](/packages/plugin-convert-math-pow) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-math-pow.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-math-pow) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-math-pow)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-math-pow) |
 | [`@putout/plugin-convert-to-arrow-function`](/packages/plugin-convert-to-arrow-function) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-to-arrow-function.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-to-arrow-function) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-to-arrow-function)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-to-arrow-function) |
+| [`@putout/plugin-convert-for-to-for-of`](/packages/plugin-convert-for-to-for-of) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-for-to-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-for-to-for-of) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-for-to-for-of)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-for-to-for-of) |
 | [`@putout/plugin-convert-for-each-to-for-of`](/packages/plugin-convert-for-each-to-for-of) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-for-each-to-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-for-each-to-for-of) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-for-each-to-for-of)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-for-each-to-for-of) |
 | [`@putout/plugin-extract-sequence-expressions`](/packages/plugin-extract-sequence-expressions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-extract-sequence-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-extract-sequence-expressions) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-extract-sequence-expressions)](https://david-dm.org/coderaiser/putout?path=packages/plugin-extract-sequence-expressions) |
 | [`@putout/plugin-extract-object-properties`](/packages/plugin-extract-object-properties) | [![npm](https://img.shields.io/npm/v/@putout/plugin-extract-object-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-extract-object-properties) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-extract-object-properties)](https://david-dm.org/coderaiser/putout?path=packages/plugin-extract-object-properties) |
