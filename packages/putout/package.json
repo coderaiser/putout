@@ -69,7 +69,7 @@
     "@putout/plugin-convert-template-to-string": "^1.0.0",
     "@putout/plugin-convert-throw": "^1.0.0",
     "@putout/plugin-convert-to-arrow-function": "^2.0.0",
-    "@putout/plugin-convert-top-level-return": "^2.0.0",
+    "@putout/plugin-convert-top-level-return": "^3.0.0",
     "@putout/plugin-extract-object-properties": "^2.0.0",
     "@putout/plugin-extract-sequence-expressions": "^1.0.0",
     "@putout/plugin-madrun": "^5.0.0",
