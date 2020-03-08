@@ -22,7 +22,7 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "@putout/plugin-add-return-await": "^1.0.2"
+    "@putout/plugin-add-return-await": "^2.0.0"
   },
   "keywords": [
     "putout",
@@ -44,7 +44,7 @@
     "supertape": "^1.0.3"
   },
   "peerDependencies": {
-    "putout": ">=7.9"
+    "putout": ">=7.17"
   },
   "license": "MIT",
   "engines": {
