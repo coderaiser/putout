@@ -48,7 +48,7 @@ module.exports = ({rule, plugin, msg, options}, {}) => {
 };
 
 const isFn = (a) => typeof a === 'function';
-const parseTo = (to, values) => isFn(to) ? to(values) : to;
+const parseTo = (to, values, path) => isFn(to) ? to(values, path) : to;
 
 const fix = (from, to, path) => {
     const nodeFrom = template.ast(from);
@@ -73,7 +73,7 @@ const fix = (from, to, path) => {
         node,
     });
     
-    const toStr = parseTo(to, values);
+    const toStr = parseTo(to, values, path);
     const nodeTo = template.ast.fresh(toStr);
     const waysTo = findVarsWays(nodeTo);
     const newPath = replaceWith(path, nodeTo);

@@ -526,6 +526,30 @@ test('putout: runner: plugins: replace: template: filter', (t) => {
     t.end();
 });
 
+test('putout: runner: plugins: replace: path', (t) => {
+    const rm = {
+        report: () => '',
+        replace: () => ({
+            'return x': (vars, path) => {
+                path.getPrevSibling().remove();
+                return 'return x';
+            },
+        }),
+    };
+    
+    const {code} = putout('var y; return x', {
+        runPlugins,
+        plugins: [{
+            rm,
+        }],
+    });
+    
+    const expected = 'return x;';
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
 test('putout: runner: root vars: no parent', (t) => {
     const result = putout(fixture.noParent, {
         plugins: [
