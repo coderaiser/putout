@@ -24,6 +24,8 @@ ruleTester.run('keyword-spacing', rule, {
         case 1:
             break;
         }
+    `, `
+        if (true) {}
     `],
     
     invalid: [{

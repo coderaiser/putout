@@ -21,8 +21,6 @@ module.exports.fix = ({node, text}) => {
     
     if (isSwitchStatement(node))
         return fixSwitch(text);
-    
-    return text;
 };
 
 module.exports.include = () => [
@@ -36,8 +34,6 @@ module.exports.filter = ({node, text}) => {
     
     if (isSwitchStatement(node))
         return checkSwitch(text);
-    
-    return false;
 };
 
 function checkCatch(text) {
