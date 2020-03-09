@@ -19,6 +19,11 @@ ruleTester.run('keyword-spacing', rule, {
         try {
         } catch(e) {
         }
+    `,`
+        switch(x) {
+        case 1:
+            break;
+        }
     `],
     
     invalid: [{
@@ -38,6 +43,20 @@ ruleTester.run('keyword-spacing', rule, {
             }`,
         errors: [{
             message: 'Use spaces around "catch"',
+        }],
+    }, {
+        code: `
+            switch (x) {
+            case 1:
+                break;
+            }`,
+        output: `
+            switch(x) {
+            case 1:
+                break;
+            }`,
+        errors: [{
+            message: 'Avoid space after "switch"',
         }],
     }],
 });

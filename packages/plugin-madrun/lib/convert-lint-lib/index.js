@@ -28,7 +28,7 @@ module.exports.fix = ({lintLib, fixLint, lint}) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        'module.exports = __object'(path){
+        'module.exports = __object'(path) {
             const rightPath = path.get('right');
             
             const {
