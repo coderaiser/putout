@@ -59,6 +59,7 @@ const fixture = readFixtures([
     'object-expression',
     'object-method',
     'optional-member-expression',
+    'optional-call-expression',
     'root-vars',
     'scope-vars',
     'shorthand-vars',
@@ -473,6 +474,20 @@ test('remove-unused-variables: get-vars: optional member expression', (t) => {
         a: _u,
         b: _u,
         c: _u,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: optional call expression', (t) => {
+    const ast = parse(fixture.optionalCallExpression);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        map: _u,
+        x: _u,
+        y: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');

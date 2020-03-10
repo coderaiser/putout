@@ -390,7 +390,7 @@ module.exports = ({use, declare, addParams}) => {
             });
         },
         
-        CallExpression(path) {
+        'CallExpression|OptionalCallExpression'(path) {
             const {node} = path;
             const {callee} = node;
             
