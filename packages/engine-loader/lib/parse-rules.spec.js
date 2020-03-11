@@ -6,11 +6,11 @@ const tryCatch = require('try-catch');
 const parseRules = require('./parse-rules');
 
 test('putout: loader: parse rules: not on/off', (t) => {
+    const expected = 'hello: state option can be "on" or "off" only, when used as string, received: "abc"';
     const [error] = tryCatch(parseRules, {
         hello: 'abc',
     });
     
-    const expected = 'state option can be "on" or "off" only, when used as string, received: abc';
     t.equal(error.message, expected);
     t.end();
 });
