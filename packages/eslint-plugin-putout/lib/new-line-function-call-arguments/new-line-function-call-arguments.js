@@ -13,7 +13,7 @@ module.exports.filter = ({node, text}) => {
     const {name} = node.callee;
     
     if (node.arguments.length < 3)
-        return;
+        return false;
     
     for (const arg of node.arguments) {
         if (/Function|Object|Array/.test(arg.type))

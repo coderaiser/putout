@@ -12,15 +12,22 @@ const ruleTester = new RuleTester({
 });
 
 ruleTester.run('new-line-function-call-arguments', rule, {
-    valid: [
-        `console.log('a', 'b', 'c');`,
-        `const onConnectError = squad(
+    valid: [`
+         const f = () => {
+                return {
+                    ...pick(a, 'b', 'c')
+                }
+            };
+        `,
+    
+    `console.log('a', 'b', 'c');`,
+    `const onConnectError = squad(
             superFn('connect_error'),
             logWraped(isLog, importStr),
             addUrl(colorUrl),
             getDescription,
         );`,
-        `
+    `
         test('should be some test', (t) => {
             t.equal();
             t.equal();
@@ -29,7 +36,7 @@ ruleTester.run('new-line-function-call-arguments', rule, {
             t.equal();
             t.end();
         });`,
-        `
+    `
     report(formatter, {
         name,
         source: input,
@@ -39,7 +46,7 @@ ruleTester.run('new-line-function-call-arguments', rule, {
         length,
     });
     `,
-        `
+    `
      clean([
         !isDev && {
             test: /.js$/,
@@ -53,7 +60,7 @@ ruleTester.run('new-line-function-call-arguments', rule, {
             options: babelDev,
         }]);
      `,
-        `
+    `
      sendIndex(p, buildIndex(config, html, {
             ...dir,
             path: format.addSlashToEnd(rootName),
