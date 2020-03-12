@@ -9,17 +9,10 @@ const {
     parseOptions,
 } = require('putout');
 
-const {isArray} = Array;
 const cwd = process.cwd();
 const getContextOptions = ({options}) => {
     const [allContextOptions = {}] = options;
-    
-    if (!isArray(allContextOptions))
-        return allContextOptions;
-    
-    const [, contextOptions = {}] = allContextOptions;
-    
-    return contextOptions;
+    return allContextOptions;
 };
 
 module.exports = {
