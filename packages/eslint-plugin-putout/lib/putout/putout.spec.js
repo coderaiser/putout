@@ -24,6 +24,13 @@ ruleTester.run('putout', rule, {
             },
         }],
         code: `const t = 'hi';`,
+    }, {
+        options: [{
+            ignore: [
+                '<input>',
+            ],
+        }],
+        code: `const t = 'hi';`,
     }],
     invalid: [{
         options: [{
