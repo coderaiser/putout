@@ -45,6 +45,12 @@ ruleTester.run('putout', rule, {
         errors: [{
             message: '"t" is defined but never used (remove-unused-variables)',
         }],
+    }, {
+        code: `const t = 'hi'`,
+        output: `'use strict';`,
+        errors: [{
+            message: '"use strict" directive should be on top of commonjs file (strict-mode/add)',
+        }],
     }],
 });
 
