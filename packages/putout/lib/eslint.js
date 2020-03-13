@@ -153,9 +153,6 @@ function disablePutout(config) {
 const replaceControlChars = (a) => a.replace(/[\x00-\x1F]/g, '. ');
 
 function parseError(e) {
-    if (!e)
-        return false;
-    
     const {
         messageTemplate,
         messageData,

@@ -2,9 +2,11 @@
 
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
+const mockRequire = require('mock-require');
 
 const eslint = require('./eslint');
 
+const {reRequire, stopAll} = mockRequire;
 const {assign} = Object;
 
 test('putout: eslint: places', (t) => {
@@ -118,3 +120,154 @@ test('putout: eslint: no config', (t) => {
     t.end();
 });
 
+test('putout: eslint: parsing error', (t) => {
+    const [, result] = eslint({
+        name: 'hello.js',
+        code: `const t`,
+        fix: false,
+    });
+    
+    const expected = [{
+        rule: 'eslint/null',
+        message: 'Parsing error: Unexpected token',
+        position: {
+            line: 1,
+            column: 8,
+        },
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: eslint: config error: plugin missing', (t) => {
+    const _eslint = require('eslint');
+    
+    const getConfigForFile = () => {
+        const error = Error('hello');
+        error.messageTemplate = 'plugin-missing';
+        error.messageData = {
+            pluginName: 'zzz',
+        };
+        
+        throw error;
+    };
+    
+    const executeOnText = stub();
+    const CLIEngine = stub().returns({
+        getConfigForFile,
+        executeOnText,
+    });
+    
+    mockRequire('eslint', {
+        ..._eslint,
+        CLIEngine,
+    });
+    
+    const eslint = reRequire('./eslint');
+    
+    const [, places] = eslint({
+        name: 'hello.js',
+        code: `const t`,
+        fix: false,
+    });
+    
+    const expected = [{
+        rule: 'eslint/parser',
+        message: 'Plugin missing: zzz',
+        position: {
+            line: 'x',
+            column: 'x',
+        },
+    }];
+    
+    stopAll();
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
+test('putout: eslint: config error', (t) => {
+    const _eslint = require('eslint');
+    
+    const getConfigForFile = () => {
+        const error = Error('hello');
+        error.messageTemplate = 'some error';
+        error.messageData = {
+            pluginName: 'zzz',
+        };
+        
+        throw error;
+    };
+    
+    const executeOnText = stub();
+    const CLIEngine = stub().returns({
+        getConfigForFile,
+        executeOnText,
+    });
+    
+    mockRequire('eslint', {
+        ..._eslint,
+        CLIEngine,
+    });
+    
+    const eslint = reRequire('./eslint');
+    
+    const [, places] = eslint({
+        name: 'hello.js',
+        code: `const t`,
+        fix: false,
+    });
+    
+    const expected = [{
+        rule: 'eslint/parser',
+        message: 'hello',
+        position: {
+            line: 'x',
+            column: 'x',
+        },
+    }];
+    
+    stopAll();
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
+test('putout: eslint: no config found', (t) => {
+    const _eslint = require('eslint');
+    
+    const getConfigForFile = () => {
+        const error = Error('hello');
+        error.messageTemplate = 'no-config-found';
+        error.messageData = {
+            pluginName: 'zzz',
+        };
+        
+        throw error;
+    };
+    
+    const executeOnText = stub();
+    const CLIEngine = stub().returns({
+        getConfigForFile,
+        executeOnText,
+    });
+    
+    mockRequire('eslint', {
+        ..._eslint,
+        CLIEngine,
+    });
+    
+    const eslint = reRequire('./eslint');
+    
+    const [, places] = eslint({
+        name: 'hello.js',
+        code: `const t`,
+        fix: false,
+    });
+    
+    stopAll();
+    
+    t.notOk(places.length);
+    t.end();
+});
