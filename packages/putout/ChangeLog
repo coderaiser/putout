@@ -1,3 +1,19 @@
+2020.03.13, v7.18.1
+
+fix:
+- (eslint-plugin-putout) getContextOptions: remove unused
+- (@putout/eslint-config) rm brackets
+
+feature:
+- (@putout/engine-loader) parse-rules: provide more info in validation error message
+- (@putout/plugin-convert-for-to-for-of) split into 2 files
+- (@putout/plugin-remove-unused-variables) add support of OptionalCallExpression
+- (@putout/plugin-convert-for-to-for-of) add support of n
+- (@putout/engine-runner) replace: add support of path
+- (eslint-plugin-putout) keyword-spacing: add support of switch
+- (@putout/eslint-config) space-before-blocks: add
+
+
 2020.03.08, v7.18.0
 
 feature:
