@@ -3,6 +3,7 @@
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
+const tryCatch = require('try-catch');
 
 const eslint = require('./eslint');
 
@@ -263,6 +264,79 @@ test('putout: eslint: no config found', (t) => {
     const [, places] = eslint({
         name: 'hello.js',
         code: `const t`,
+        fix: false,
+    });
+    
+    stopAll();
+    
+    t.notOk(places.length);
+    t.end();
+});
+
+test('putout: eslint: parser', (t) => {
+    const _eslint = require('eslint');
+    
+    const getConfigForFile = stub().returns({
+        parser: 'hello',
+        rules: {
+            hello: 'off',
+        },
+    });
+    
+    const executeOnText = stub();
+    const CLIEngine = stub().returns({
+        getConfigForFile,
+        executeOnText,
+    });
+    
+    mockRequire('eslint', {
+        ..._eslint,
+        CLIEngine,
+    });
+    
+    const eslint = reRequire('./eslint');
+    
+    const [error] = tryCatch(eslint, {
+        name: 'hello.js',
+        code: `const t`,
+        fix: true,
+    });
+    
+    stopAll();
+    
+    t.ok(/^Cannot find module 'hello'/.test(error.message));
+    t.end();
+});
+
+test('putout: eslint: no places', (t) => {
+    const _eslint = require('eslint');
+    
+    const getConfigForFile = stub().returns({
+        plugins: [],
+        rules: {
+            hello: 'off',
+        },
+    });
+    
+    const executeOnText = stub().returns({
+        results: [],
+    });
+    
+    const CLIEngine = stub().returns({
+        getConfigForFile,
+        executeOnText,
+    });
+    
+    mockRequire('eslint', {
+        ..._eslint,
+        CLIEngine,
+    });
+    
+    const eslint = reRequire('./eslint');
+    
+    const [, places] = eslint({
+        name: 'hello.js',
+        code: `var t = "hello"`,
         fix: false,
     });
     
