@@ -15,6 +15,11 @@ test('plugin-remove-empty-pattern: report: array', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty-pattern: report: array: many elements', (t) => {
+    t.reportCode('const [,,,] = array', 'Empty pattern');
+    t.end();
+});
+
 test('plugin-remove-empty-pattern: object', (t) => {
     t.transformCode('const {} = object', '');
     t.end();
@@ -22,6 +27,11 @@ test('plugin-remove-empty-pattern: object', (t) => {
 
 test('plugin-remove-empty-pattern: array', (t) => {
     t.transformCode('const [] = array', '');
+    t.end();
+});
+
+test('plugin-remove-empty-pattern: report: array: many elements', (t) => {
+    t.transformCode('const [,,,] = array', '');
     t.end();
 });
 
@@ -44,3 +54,9 @@ test('plugin-remove-empty-pattern: argument: array destructuring: not empty', (t
     t.noTransformCode('([a]) => alert()');
     t.end();
 });
+
+test('plugin-remove-empty-pattern: destructuring: not empty: many', (t) => {
+    t.noTransformCode('const [, b] = alert()');
+    t.end();
+});
+
