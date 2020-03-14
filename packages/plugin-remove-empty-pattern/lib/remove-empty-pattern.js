@@ -3,8 +3,8 @@
 module.exports.report = () => 'Empty pattern';
 
 module.exports.replace = () => ({
-    'const {} = __': '',
-    'const [] = __': '',
+    'const {} = __a': '__a',
+    'const [] = __a': '__a',
     '([]) => __a': '() => __a',
     '({}) => __a': '() => __a',
 });

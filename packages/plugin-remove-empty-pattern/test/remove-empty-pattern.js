@@ -16,12 +16,12 @@ test('plugin-remove-empty-pattern: report: array', (t) => {
 });
 
 test('plugin-remove-empty-pattern: object', (t) => {
-    t.transformCode('const {} = object', '');
+    t.transformCode('const {} = object;', 'object;');
     t.end();
 });
 
 test('plugin-remove-empty-pattern: array', (t) => {
-    t.transformCode('const [] = array', '');
+    t.transformCode('const [] = array', 'array;');
     t.end();
 });
 
