@@ -8,10 +8,10 @@ const {template} = require('@putout/engine-parser');
 const {replaceWith} = require('@putout/operate');
 
 const {
+    is,
     isNameStr,
-    isImportsStr,
     isArgsStr,
-    isObjectStr,
+    isImportsStr,
 } = require('./is');
 
 const {entries} = Object;
@@ -46,7 +46,7 @@ function findVarsWays(node) {
                 name = path.node.value,
             } = path.node;
             
-            if (!isNameStr(name) && !isImportsStr(name) && !isArgsStr(name) && !isObjectStr(name))
+            if (!is(name))
                 return;
             
             path.find((path) => {
@@ -112,3 +112,4 @@ function setValues({waysTo, values, path}) {
         }
     }
 }
+

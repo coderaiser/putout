@@ -16,7 +16,26 @@ npm i @putout/compare
 
 ## API
 
-### Compare (node, baseNode)
+### getTemplateValues(node, template)
+
+- `node` - `AST-node` or `code` that will be generated;
+- `template` - template string with template variables;
+
+```js
+const {operator} = require('putout');
+const {template} = operator;
+const node = template.ast('const [] = a');
+getTemplateValues(node, 'const __array = array');
+// returns
+{
+    __array: {
+        type: 'ArrayPattern',
+        ...etc
+    }
+}
+```
+
+### compare (node, baseNode)
 
 - `node` - `AST-node` or `code` that will be generated;
 - `baseNode` `AST-node` with support of `template variables`.

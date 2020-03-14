@@ -2,6 +2,7 @@
 
 const test = require('supertape');
 const putout = require('putout');
+const {template} = require('@putout/engine-parser');
 
 const {compare} = require('./compare');
 const {getTemplateValues} = require('./vars');
@@ -41,6 +42,22 @@ test('putout: compare: getTemplateValues', (t) => {
     const expected = 'for (const item of items) {\n  log(item);\n};';
     
     t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: compare: getTemplateValues: __array', (t) => {
+    const node = template.ast('const [] = array');
+    const {__array} = getTemplateValues(node, 'const __array = __');
+    
+    t.equal(__array && __array.type, 'ArrayPattern');
+    t.end();
+});
+
+test('putout: compare: getTemplateValues: __', (t) => {
+    const node = template.ast('const [] = array');
+    const {__} = getTemplateValues(node, 'const __array = __');
+    
+    t.equal(__ && __.type, 'Identifier');
     t.end();
 });
 

@@ -7,17 +7,48 @@ const {
     isImportDefaultSpecifier,
 } = require('@babel/types');
 
+const isStr = (a) => typeof a === 'string';
+
 const ANY_OBJECT = '__object';
 const ANY_ARRAY = '__array';
 const ARGS = '__args';
 const LINKED_NODE = /^__[a-z]$/;
 const IMPORTS = '__imports';
 const BODY = '__body';
+const ANY = '__';
+
+const ALL = [
+    ANY_OBJECT,
+    ANY_ARRAY,
+    ARGS,
+    LINKED_NODE,
+    IMPORTS,
+    BODY,
+    ANY,
+];
+
+module.exports.is = (str, array = ALL) => {
+    for (const item of array) {
+        if (check(str, item))
+            return true;
+    }
+    
+    return false;
+};
+
+function check(str, item) {
+    if (isStr(item))
+        return str === item;
+    
+    return item.test(str);
+}
 
 module.exports.isNameStr = (a) => LINKED_NODE.test(a);
 module.exports.isImportsStr = (a) => a === IMPORTS;
 module.exports.isArgsStr = (a) => a === ARGS;
 module.exports.isObjectStr = (a) => a === ANY_OBJECT;
+module.exports.isArrayStr = (a) => a === ANY_ARRAY;
+module.exports.isAnyStr = (a) => a === ANY;
 
 const isBody = (a) => isIdentifier(a, {
     name: BODY,
@@ -36,8 +67,8 @@ const {isArray} = Array;
 
 module.exports.isEqualType = isEqualType;
 module.exports.isStr = (a) => typeof a === 'string';
-module.exports.isAny = (a) => isIdentifier(a, {name: '__'});
-module.exports.isAnyLiteral = (a, b) => isLiteral(b, {value: '__'}) && isEqualType(a, b);
+module.exports.isAny = (a) => isIdentifier(a, {name: ANY});
+module.exports.isAnyLiteral = (a, b) => isLiteral(b, {value: ANY}) && isEqualType(a, b);
 module.exports.isArgs = (a) => {
     const b = !isArray(a) ? a : a[0];
     
