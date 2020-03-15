@@ -35,7 +35,7 @@ module.exports.filter = (path) => {
 };
 
 // optional
-module.exports.merge = () => ({
+module.exports.match = () => ({
     'const __a = 1': ({__a}) {
         return true;
     }
