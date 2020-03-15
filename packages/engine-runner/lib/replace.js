@@ -14,6 +14,7 @@ const maybeArray = require('./maybe-array');
 const {keys, entries} = Object;
 
 const stub = () => [];
+const stubMatch = () => ({});
 const packKeys = (a) => () => keys(a);
 
 module.exports = ({rule, plugin, msg, options}, {}) => {
@@ -21,7 +22,7 @@ module.exports = ({rule, plugin, msg, options}, {}) => {
         report,
         exclude = stub,
         replace,
-        filter,
+        filter = getFilter(plugin.match),
     } = plugin;
     
     const replaceItems = replace();
@@ -90,5 +91,27 @@ const fix = (from, to, path) => {
 const getFix = (items) => (path) => {
     for (const [from, to] of entries(items))
         fix(from, to, path);
+};
+
+const getFilter = (match = stubMatch) => (path) => {
+    for (const [from, fn] of entries(match())) {
+        const nodeFrom = template.ast(from);
+        
+        if (!compare(path, nodeFrom)) {
+            continue;
+        }
+        
+        const waysFrom = findVarsWays(nodeFrom);
+        const {node} = path;
+        
+        const values = getValues({
+            waysFrom,
+            node,
+        });
+        
+        return fn(values, path);
+    }
+    
+    return true;
 };
 

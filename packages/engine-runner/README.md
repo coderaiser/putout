@@ -30,9 +30,16 @@ module.exports.replace = () => {
 };
 
 // optional
-module.exports.filter = () => {
+module.exports.filter = (path) => {
     return true;
-}
+};
+
+// optional
+module.exports.merge = () => ({
+    'const __a = 1': ({__a}) {
+        return true;
+    }
+})
 
 // optional
 module.exports.exclude = () => [

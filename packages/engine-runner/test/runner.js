@@ -550,6 +550,67 @@ test('putout: runner: plugins: replace: path', (t) => {
     t.end();
 });
 
+test('putout: runner: plugins: replace: match', (t) => {
+    const rm = {
+        report: () => '',
+        match: () => ({
+            'const __array = __': ({__array}) => {
+                const {elements} = __array;
+                return !elements.find(Boolean);
+            },
+        }),
+        replace: () => ({
+            'const __array = __x': '',
+        }),
+    };
+    
+    const {code} = putout('const [] = array', {
+        runPlugins,
+        plugins: [{
+            rm,
+        }],
+    });
+    
+    const expected = '';
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
+test('putout: runner: plugins: replace: match: not found', (t) => {
+    const rm = {
+        report: () => '',
+        match: () => ({
+            'const [,] = __': ({__array}) => {
+                const {elements} = __array;
+                return !elements.find(Boolean);
+            },
+        }),
+        replace: () => ({
+            'const __array = __x': '',
+        }),
+    };
+    
+    const {code} = putout('const [] = array', {
+        runPlugins,
+        plugins: [{
+            rm,
+        }],
+    });
+    
+    const expected = '';
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
+module.exports.replace = () => ({
+    'const __array = __': '',
+    'const {} = __': '',
+    '([]) => __a': '() => __a',
+    '({}) => __a': '() => __a',
+});
+
 test('putout: runner: root vars: no parent', (t) => {
     const result = putout(fixture.noParent, {
         plugins: [
