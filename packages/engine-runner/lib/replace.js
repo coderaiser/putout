@@ -24,7 +24,7 @@ module.exports = ({rule, plugin, msg, options}, {}) => {
         filter,
     } = plugin;
     
-    const replaceItems = replace({findVarsWays, getValues});
+    const replaceItems = replace();
     const fix = getFix(replaceItems);
     const include = packKeys(replaceItems);
     
