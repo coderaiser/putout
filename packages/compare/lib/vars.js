@@ -81,9 +81,6 @@ function getValues({waysFrom, node}) {
             else if (isArgsStr(name))
                 way = way.replace(/\.0$/, '');
             
-            //else if (isObjectStr(name))
-            //    way = way.replace(/\.id$/, '');
-            
             way = way.replace(/\.expression$/, '');
             
             result[name] = result[name] || jessy(way, node);
