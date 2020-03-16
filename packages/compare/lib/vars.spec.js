@@ -61,6 +61,14 @@ test('putout: compare: getTemplateValues: __', (t) => {
     t.end();
 });
 
+test('putout: compare: getTemplateValues: __object', (t) => {
+    const node = template.ast('const {} = obj');
+    const {__object} = getTemplateValues(node, 'const __object = __');
+    
+    t.equal(__object.type, 'ObjectPattern');
+    t.end();
+});
+
 test('putout: compare: vars: setValues : __args', (t) => {
     const applyToSpread = {
         report: () => '',
