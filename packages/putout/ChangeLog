@@ -1,3 +1,9 @@
+2020.03.18, v7.19.0
+
+feature:
+- (putout) -r, --renamed: add ability to add "renamed" files
+
+
 2020.03.17, v7.18.2
 
 fix:
