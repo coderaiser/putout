@@ -8,7 +8,7 @@ const findUp = require('find-up');
 const isJS = (a) => /(\.jsx?|\.ts|\/)$/.test(a);
 const joinDir = (a) => (b) => join(a, b);
 
-module.exports = ({untracked, added, modified}) => {
+module.exports = ({untracked, added, modified, renamed}) => {
     const gitDir = findUp.sync('.git', {
         type: 'directory',
     }).replace(/\.git$/, '');
@@ -20,6 +20,7 @@ module.exports = ({untracked, added, modified}) => {
         untracked,
         added,
         modified,
+        renamed,
     });
     
     return names

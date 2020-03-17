@@ -25,6 +25,7 @@ module.exports = ({argv, halt, log, write, logError}) => {
             'jsx',
             'flow',
             'added',
+            'renamed',
             'modified',
             'untracked',
             'options',
@@ -45,6 +46,7 @@ module.exports = ({argv, halt, log, write, logError}) => {
             c: 'config',
             f: 'format',
             a: 'added',
+            r: 'renamed',
             m: 'modified',
             u: 'untracked',
         },
@@ -68,6 +70,7 @@ module.exports = ({argv, halt, log, write, logError}) => {
         enable,
         enableAll,
         added,
+        renamed,
         modified,
         untracked,
     } = args;
@@ -80,13 +83,14 @@ module.exports = ({argv, halt, log, write, logError}) => {
     
     let gitNames = [];
     
-    if (untracked || added || modified) {
+    if (untracked || added || modified || renamed) {
         const getGitNames = require('./get-git-names');
         
         gitNames = getGitNames({
             untracked,
             added,
             modified,
+            renamed,
         });
     }
     

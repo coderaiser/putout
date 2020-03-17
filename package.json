@@ -21,7 +21,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "putout -a"
+      "pre-commit": "putout -ar"
     }
   },
   "nyc": {
