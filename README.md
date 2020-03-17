@@ -334,7 +334,7 @@ import * from fs;
 ```
 </details>
 
-<details><summary>if absent <code>strict mode</code> directive in <code>commonjs</code> add it</summary>
+<details><summary>Add <code>strict mode</code> directive in <code>commonjs</code> if absent</summary>
 
 ```diff
 +'use strict';
