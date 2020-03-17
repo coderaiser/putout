@@ -119,3 +119,24 @@ test('putout: compare: vars: __imports', (t) => {
     t.end();
 });
 
+test('putout: compare: vars: identifier', (t) => {
+    const varToConst = {
+        report: () => '',
+        replace: () => ({
+            '!!__a': '__a',
+        }),
+    };
+    
+    const {code} = putout('if (!!y) fn()', {
+        fixCount: 1,
+        plugins: [{
+            'var-to-const': varToConst,
+        }],
+    });
+    
+    const expected = 'if (y) fn()';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
