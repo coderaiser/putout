@@ -1,3 +1,17 @@
+2020.03.17, v7.18.2
+
+fix:
+- (putout) added
+- (@putout/engine-runner) replace: rm findVars
+- (@putout/plugin-remove-empty-pattern) putout <= 7.17
+
+feature:
+- (@putout/engine-runner) add match
+- (package) @putout/plugin-remove-empty-pattern v3.0.1
+- (@putout/plugin-remove-empty-pattern) add support of multi elements array pattern
+- (@putout/compare) getTemplateValues: add support of __array, __
+
+
 2020.03.13, v7.18.1
 
 fix:
