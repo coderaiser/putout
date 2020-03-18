@@ -26,6 +26,9 @@ module.exports.filter = (path) => {
         'AwaitExpression'() {
             illegal = false;
         },
+        'ForOfStatement'(path) {
+            illegal = !path.node.await;
+        },
     });
     
     return illegal;
