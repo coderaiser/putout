@@ -7,6 +7,9 @@ module.exports = [
     'classPrivateProperties',
     'classPrivateMethods',
     'classProperties',
+    ['decorators', {
+        decoratorsBeforeExport: true,
+    }],
     'numericSeparator',
     'exportDefaultFrom',
     'throwExpressions',

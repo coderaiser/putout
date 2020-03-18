@@ -12,6 +12,7 @@ const fixture = readFixtures([
     'export-default-declaration-fix',
     'debugger',
     'debugger-fix',
+    'decorator',
     'throw',
     'flow',
     'flow-fix',
@@ -175,6 +176,20 @@ test('putout: parser: typescript', (t) => {
     });
     
     const expected = fixture.typescriptFix;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: parser: decorator', (t) => {
+    const {code} = putout(fixture.decorator, {
+        isTS: true,
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = fixture.decorator;
     
     t.equal(code, expected);
     t.end();
