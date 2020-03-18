@@ -63,6 +63,17 @@ module.exports = ({use, declare, addParams}) => {
                 use(param, name);
         },
         
+        Decorator(path) {
+            const expressionPath = path.get('expression');
+            
+            if (!expressionPath.isIdentifier())
+                return;
+            
+            const {name} = expressionPath.node;
+            
+            use(expressionPath, name);
+        },
+        
         RestElement(path) {
             const {argument} = path.node;
             

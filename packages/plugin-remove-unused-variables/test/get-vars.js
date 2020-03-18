@@ -31,6 +31,7 @@ const fixture = readFixtures([
     'destr-assignment-array',
     'destr-nested-vars',
     'destr-fn-vars',
+    'decorator',
     'do-while',
     'export-default-function',
     'export-default-anonymous-function',
@@ -647,6 +648,21 @@ test('remove-unused-variables: get-vars: destr fn vars', (t) => {
             declared: true,
             used: false,
         },
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: decorator', (t) => {
+    const ast = parse(fixture.decorator);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        React: '_u',
+        Timer: 'd_',
+        observer: 'du',
+        undefined: '_u',
     }];
     
     t.deepEqual(result, expected, 'should equal');
