@@ -1,3 +1,16 @@
+2020.03.18, v7.19.1
+
+fix:
+- test(putout) cli: process-file: --
+
+feature:
+- (package) @putout/plugin-remove-useless-async v2.0.0
+- (@putout/plugin-remove-useless-async) drop support of putout < 7.17
+- (@putout/plugin-remove-useless-async) add support of for-await-of
+- (@putout/plugin-remove-unused-variables) add support of decorators
+- (@putout/engine-parser) add support of decorators
+
+
 2020.03.18, v7.19.0
 
 feature:
