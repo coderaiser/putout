@@ -1,0 +1,20 @@
+{
+    "rules": {
+        "no-cond-assign": "off"
+    },
+    "overrides": [{
+        "files": ["lib/**/*.spec.js", "test/**"],
+        "rules": {
+            "node/no-extraneous-require": "off",
+            "node/no-unpublished-require": "off"
+        }
+    }],
+    "extends": [
+        "plugin:putout/recommended",
+        "plugin:node/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ]
+}

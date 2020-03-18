@@ -1,0 +1,5 @@
+{
+    "rules": {
+        "putout/convert-babel-types": "off"
+    }
+}
