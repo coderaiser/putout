@@ -1,14 +1,13 @@
 'use strict';
 
 const traverse = require('@babel/traverse').default;
-
-const {merge} = traverse.visitors;
-
 const {generate} = require('@putout/engine-parser');
+
 const runFix = require('./run-fix');
 const {getPosition} = require('./get-position');
 
 const shouldSkip = (a) => !a.parent;
+const {merge} = traverse.visitors;
 
 module.exports = (pluginsToMerge, {fix, shebang, template}) => {
     const mergeItems = [];

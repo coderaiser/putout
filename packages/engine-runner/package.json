@@ -34,6 +34,7 @@
     "@putout/compare": "^4.0.1",
     "@putout/engine-parser": "^1.2.0",
     "@putout/operate": "^4.0.0",
+    "@putout/traverse": "^1.0.0",
     "debug": "^4.1.1",
     "jessy": "^3.0.0",
     "nessy": "^3.0.0",
