@@ -1,12 +1,14 @@
 'use strict';
 
 const fs = require('fs');
+const {join} = require('path');
 
 const test = require('supertape');
 const mockRequire = require('mock-require');
 const stub = require('@cloudcmd/stub');
 
 const {reRequire, stopAll} = mockRequire;
+const {cwd} = process;
 
 test('putout: cli: process-file: get formatter', (t) => {
     const formatter = stub();
@@ -77,6 +79,111 @@ test('putout: cli: process-file: eslint', (t) => {
     };
     
     t.ok(eslint.calledWith(expected), 'should call eslint');
+    t.end();
+});
+
+test('putout: cli: process-file: fileCache.removeEntry', (t) => {
+    const eslint = stub().returns(['', []]);
+    const {
+        readFileSync,
+        writeFileSync,
+    } = fs;
+    
+    const code = 'var x = 5';
+    const fix = true;
+    const name = 'example.js';
+    const log = stub();
+    const ruler = {};
+    const write = stub();
+    const fileCache = {
+        canUseCache: stub().returns(false),
+        removeEntry: stub(),
+        setInfo: stub(),
+    };
+    
+    mockRequire('../eslint', eslint);
+    
+    fs.writeFileSync = stub();
+    fs.readFileSync = (name, options) => {
+        if (name === 'example.js')
+            return code;
+        
+        return readFileSync(name, options);
+    };
+    
+    const processFile = reRequire('./process-file');
+    const fn = processFile({
+        fix,
+        log,
+        ruler,
+        write,
+        fileCache,
+    });
+    
+    fn('example.js', 0, {
+        length: 1,
+    });
+    
+    stopAll();
+    fs.readFileSync = readFileSync;
+    fs.writeFileSync = writeFileSync;
+    
+    const expected = join(cwd(), name);
+    
+    t.ok(fileCache.removeEntry.calledWith(expected), 'should call fileCache.removeEntry');
+    t.end();
+});
+
+test('putout: cli: process-file: writeFileSync', (t) => {
+    const eslint = stub().returns(['', []]);
+    const {
+        readFileSync,
+        writeFileSync,
+    } = fs;
+    
+    const code = 'var x = 5';
+    const fix = true;
+    const name = 'example.js';
+    const log = stub();
+    const ruler = {};
+    const write = stub();
+    const writeFileSyncStub = stub();
+    const fileCache = {
+        canUseCache: stub().returns(false),
+        removeEntry: stub(),
+        setInfo: stub(),
+    };
+    
+    mockRequire('../eslint', eslint);
+    
+    fs.writeFileSync = writeFileSyncStub;
+    fs.readFileSync = (name, options) => {
+        if (name === 'example.js')
+            return code;
+        
+        return readFileSync(name, options);
+    };
+    
+    const processFile = reRequire('./process-file');
+    const fn = processFile({
+        fix,
+        log,
+        ruler,
+        write,
+        fileCache,
+    });
+    
+    fn('example.js', 0, {
+        length: 1,
+    });
+    
+    stopAll();
+    fs.readFileSync = readFileSync;
+    fs.writeFileSync = writeFileSync;
+    
+    const result = '';
+    
+    t.ok(writeFileSyncStub.calledWith(name, result), 'should call writeFileSync');
     t.end();
 });
 
