@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "test": "madrun test",
-    "test:clean": "madrun test:clean",
+    "test:fast": "madrun test:fast",
     "test:slow": "madrun test:slow",
     "coverage": "madrun coverage",
     "coverage:short": "madrun coverage:short",
