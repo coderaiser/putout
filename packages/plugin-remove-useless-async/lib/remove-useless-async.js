@@ -1,5 +1,8 @@
 'use strict';
 
+const {operator} = require('putout');
+const {compare} = operator;
+
 module.exports.report = () => `Useless async should be avoided`;
 
 module.exports.fix = (path) => {
@@ -15,19 +18,26 @@ module.exports.filter = (path) => {
     let illegal = true;
     
     path.traverse({
-        'ReturnStatement'() {
+        ReturnStatement(path) {
             illegal = false;
+            path.stop();
         },
         
-        'ThrowStatement'() {
+        ThrowStatement(path) {
             illegal = false;
+            path.stop();
         },
         
-        'AwaitExpression'() {
+        AwaitExpression(path) {
             illegal = false;
+            path.stop();
         },
-        'ForOfStatement'(path) {
-            illegal = !path.node.await;
+        ForOfStatement(path) {
+            if (!compare(path, 'for await (__ of __) __'))
+                return;
+            
+            illegal = false;
+            path.stop();
         },
     });
     

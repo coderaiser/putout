@@ -54,7 +54,12 @@ test('plugin-remove-useless-async: no transform: await', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-async: no transform: no body arrow', (t) => {
+test('plugin-remove-useless-async: no transform: for of', (t) => {
+    t.noTransform('for-of');
+    t.end();
+});
+
+test('plugin-remove-useless-async: no transform: for await of', (t) => {
     t.noTransform('for-await-of');
     t.end();
 });
