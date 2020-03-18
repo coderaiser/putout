@@ -1,3 +1,14 @@
+2020.03.18, v7.20.0
+
+feature:
+- (package) @putout/traverse v1.0.0
+- (package) @putout/plugin-remove-useless-async v3.0.0
+- (@putout/plugin-remove-useless-async) traverse
+- (putout) operator: add traverse
+- (@putout/engine-runner) add @putout/traverse
+- (@putout/traverse) add
+
+
 2020.03.18, v7.19.1
 
 fix:
