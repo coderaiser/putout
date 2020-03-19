@@ -20,6 +20,9 @@ try {
 try {
 } catch (error) {
 }
+
+if(a) {
+}
 ```
 
 Examples of **correct** code for this rule:
@@ -31,6 +34,9 @@ try {
 
 try {
 } catch(error) {
+}
+
+if (a) {
 }
 ```
 

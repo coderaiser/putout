@@ -60,6 +60,12 @@ ruleTester.run('keyword-spacing', rule, {
         errors: [{
             message: 'Avoid space after "switch"',
         }],
+    }, {
+        code: `if(2 > 3) {}`,
+        output: `if (2 > 3) {}`,
+        errors: [{
+            message: 'Use space after "if"',
+        }],
     }],
 });
 
