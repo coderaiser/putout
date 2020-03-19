@@ -1,7 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {traverse} = operator;
+const {contains} = operator;
 
 module.exports.report = () => `Useless async should be avoided`;
 
@@ -15,29 +15,13 @@ module.exports.include = () => [
 ];
 
 module.exports.filter = (path) => {
-    let illegal = true;
+    const is = contains(path, [
+        'return __',
+        'throw __',
+        'await __',
+        'for await (__ of __) __',
+    ]);
     
-    traverse(path, {
-        'return __'(path) {
-            illegal = false;
-            path.stop();
-        },
-        
-        'throw __'(path) {
-            illegal = false;
-            path.stop();
-        },
-        
-        'await __'(path) {
-            illegal = false;
-            path.stop();
-        },
-        'for await (__ of __) __'(path) {
-            illegal = false;
-            path.stop();
-        },
-    });
-    
-    return illegal;
+    return !is;
 };
 

@@ -14,7 +14,9 @@ traverse AST-nodes
 npm i @putout/traverse
 ```
 
-## Example
+## API
+
+### traverse
 
 ```js
 const {template} = require('@putout/engine-parser');
@@ -38,6 +40,21 @@ traverse(node, {
         console.log('found for-of');
     },
 });
+```
+
+### contains
+
+```js
+const node = template.ast('async () => await x');
+
+contains(node, [
+    'return __',
+    'throw __',
+    'await __',
+    'for await (__ of __) __',
+]);
+// returns
+true
 ```
 
 ## License

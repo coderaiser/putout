@@ -1,8 +1,9 @@
 'use strict';
 
 const test = require('supertape');
-const {traverse} = require('./traverse');
 const {template} = require('@putout/engine-parser');
+
+const {traverse, contains} = require('./traverse');
 
 test('putout: traverse', (t) => {
     const node = template.ast(`
@@ -84,6 +85,34 @@ test('putout: traverse: path', (t) => {
     });
     
     t.ok(found);
+    t.end();
+});
+
+test('putout: traverse: contains', (t) => {
+    const node = template.ast('() => x = 5');
+    
+    const result = contains(node, [
+        'return __',
+        'throw __',
+        'await __',
+        'for await (__ of __) __',
+    ]);
+    
+    t.notOk(result, 'should not found');
+    t.end();
+});
+
+test('putout: traverse: contains', (t) => {
+    const node = template.ast('async () => await x');
+    
+    const result = contains(node, [
+        'return __',
+        'throw __',
+        'await __',
+        'for await (__ of __) __',
+    ]);
+    
+    t.ok(result, 'should found');
     t.end();
 });
 
