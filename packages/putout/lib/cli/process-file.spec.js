@@ -187,3 +187,57 @@ test('putout: cli: process-file: writeFileSync', (t) => {
     t.end();
 });
 
+test('putout: cli: process-file: cache', (t) => {
+    const eslint = stub().returns(['', []]);
+    const {
+        readFileSync,
+        writeFileSync,
+    } = fs;
+    
+    const code = 'var x = 5';
+    const fix = true;
+    const name = 'example.js';
+    const log = stub();
+    const ruler = {};
+    const write = stub();
+    const writeFileSyncStub = stub();
+    const fileCache = {
+        canUseCache: stub().returns(true),
+        removeEntry: stub(),
+        setInfo: stub(),
+        getPlaces: stub().returns([]),
+    };
+    
+    mockRequire('../eslint', eslint);
+    
+    fs.writeFileSync = writeFileSyncStub;
+    fs.readFileSync = (name, options) => {
+        if (name === 'example.js')
+            return code;
+        
+        return readFileSync(name, options);
+    };
+    
+    const processFile = reRequire('./process-file');
+    const fn = processFile({
+        fix,
+        log,
+        ruler,
+        write,
+        fileCache,
+    });
+    
+    fn('example.js', 0, {
+        length: 1,
+    });
+    
+    stopAll();
+    fs.readFileSync = readFileSync;
+    fs.writeFileSync = writeFileSync;
+    
+    const expected = join(cwd(), name);
+    
+    t.ok(fileCache.getPlaces.calledWith(expected), 'should call fileCache.getPlaces');
+    t.end();
+});
+
