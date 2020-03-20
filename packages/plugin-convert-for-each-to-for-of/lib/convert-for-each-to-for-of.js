@@ -9,6 +9,7 @@ const {
 const {
     replaceWith,
     replaceWithMultiple,
+    traverse,
 } = operator;
 
 const forOfTemplate = template(`
@@ -17,9 +18,7 @@ const forOfTemplate = template(`
 `);
 
 const {ContinueStatement} = types;
-
 const {keys} = Object;
-
 const isRoot = (path) => path.isFunction() || path.isProgram();
 
 module.exports.report = () => `for-of should be used instead of forEach`;
@@ -27,6 +26,7 @@ module.exports.report = () => `for-of should be used instead of forEach`;
 module.exports.fix = (path) => {
     const {params, body} = path.node.arguments[0];
     const item = getItem(params);
+    
     delete item.typeAnnotation;
     
     const newPath = replaceWith(path.parentPath, forOfTemplate({
@@ -88,17 +88,15 @@ function isSameNames(paramPath, objectPath) {
 function fixReturn(path) {
     const {body} = path.node;
     
-    path.traverse({
-        ReturnStatement(path) {
+    traverse(path, {
+        'return __'(path) {
             if (path.scope.block !== body)
                 return;
             
             const {argument} = path.node;
             
-            if (!argument) {
-                replaceWith(path, ContinueStatement());
-                return;
-            }
+            if (!argument)
+                return replaceWith(path, ContinueStatement());
             
             replaceWithMultiple(path, [
                 argument,
