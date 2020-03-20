@@ -241,3 +241,77 @@ test('putout: cli: process-file: cache', (t) => {
     t.end();
 });
 
+test('putout: cli: process-file: eslint: parse error', (t) => {
+    const {readFileSync} = fs;
+    
+    const code = 'var x = 5;';
+    const fix = false;
+    const name = 'example.js';
+    const log = stub();
+    const ruler = {};
+    const write = stub();
+    const exit = stub();
+    const fileCache = {
+        canUseCache: stub().returns(false),
+        removeEntry: stub(),
+        setInfo: stub(),
+        getPlaces: stub().returns([]),
+    };
+    
+    const formatter = stub();
+    const putout = () => {
+        throw Error('hi');
+    };
+    
+    putout.ignores = stub();
+    
+    mockRequire('@putout/formatter-dump', formatter);
+    mockRequire('../putout', putout);
+    
+    fs.readFileSync = (name, options) => {
+        if (name === 'example.js')
+            return code;
+        
+        return readFileSync(name, options);
+    };
+    
+    const processFile = reRequire('./process-file');
+    const fn = processFile({
+        fix,
+        log,
+        ruler,
+        write,
+        fileCache,
+        formatter,
+        exit,
+    });
+    
+    fn('example.js', 0, {
+        length: 1,
+    });
+    
+    stopAll();
+    fs.readFileSync = readFileSync;
+    
+    const expected = {
+        count: 1,
+        errorsCount: 1,
+        filesCount: 1,
+        index: 0,
+        name: join(cwd(), name),
+        places: [{
+            message: 'h',
+            position: {
+                column: 'x',
+                line: 'x',
+            },
+            rule: 'parser',
+        },
+        ],
+        source: 'var x = 5;',
+    };
+    
+    t.ok(formatter.calledWith(expected), 'should call formatter');
+    t.end();
+});
+
