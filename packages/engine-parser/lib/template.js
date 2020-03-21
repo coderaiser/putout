@@ -29,6 +29,24 @@ module.exports.ast = memo((value, options) => {
     return result.expression || result;
 });
 
+module.exports.program = memo((value, options) => {
+    const result = template.program(value, {
+        ...defaults,
+        ...options,
+    });
+    
+    return result;
+});
+
+module.exports.program.ast = memo((value, options) => {
+    const result = template.program.ast(value, {
+        ...defaults,
+        ...options,
+    });
+    
+    return result;
+});
+
 module.exports.ast.fresh = (value, options) => {
     const result = template.ast(value, {
         ...defaults,

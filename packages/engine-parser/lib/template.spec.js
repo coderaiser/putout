@@ -41,3 +41,33 @@ test('parser: template: ast', (t) => {
     t.end();
 });
 
+test('parser: template: program: ast', (t) => {
+    const one = template.program.ast('const hello = "world"');
+    one.x = 'zzz';
+    
+    const two = template.program.ast('const hello = "world"');
+    
+    t.ok(two.x);
+    t.end();
+});
+
+test('parser: template: program: ast: type', (t) => {
+    const node = template.program.ast('const hello = "world"');
+    
+    t.equal(node.type, 'Program');
+    t.end();
+});
+
+test('parser: template: program', (t) => {
+    const buildRequire = template.program(`
+      var %%importName%% = require(%%source%%);
+    `);
+    
+    const ast = buildRequire({
+        importName: Identifier('myModule'),
+        source: StringLiteral('my-module'),
+    });
+    
+    t.equal(ast.type, 'Program');
+    t.end();
+});
