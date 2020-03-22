@@ -6,9 +6,8 @@ const {
     compareAny,
     compareAll,
     parseTemplate,
+    isTemplate,
 } = require('@putout/compare');
-
-const {isTemplate} = require('@putout/traverse');
 
 const maybeArray = require('../maybe-array');
 const debug = require('debug')('putout:runner:template');
