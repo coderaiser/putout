@@ -71,7 +71,7 @@ test('putout: traverse: identifier', (t) => {
 });
 
 test('putout: traverse: path', (t) => {
-    const node = template.ast('const x = 5');
+    const node = template.program.ast('const x = 5');
     
     let found = false;
     const path = {

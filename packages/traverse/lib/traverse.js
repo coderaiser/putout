@@ -4,27 +4,42 @@ const babelTraverse = require('@babel/traverse').default;
 const {
     compare,
     parseTemplate,
+    isTemplate,
 } = require('@putout/compare');
 
 const {merge} = babelTraverse.visitors;
 const {entries} = Object;
 
-const isTemplate = (a) => /[(;={]/.test(a) || !/[A-Z]/.test(a);
-
-module.exports.isTemplate = isTemplate;
 module.exports.traverse = traverse;
+
+const getTemplate = ([a]) => a;
+
+const isNoScope = (path) => !path.node;
 
 function traverse(path, visitor) {
     const items = [];
+    const noScope = isNoScope(path);
     const {
         node = path,
     } = path;
     
-    for (const [tmpl, fn] of entries(visitor)) {
+    const parsedVisitors = entries(visitor);
+    const withTemplates = parsedVisitors
+        .map(getTemplate)
+        .find(isTemplate);
+    
+    if (!withTemplates)
+        return babelTraverse(node, {
+            noScope,
+            ...visitor,
+        });
+    
+    for (const [tmpl, fn] of parsedVisitors) {
         if (!isTemplate(tmpl)) {
             items.push({
                 [tmpl]: fn,
             });
+            continue;
         }
         
         const [node, type] = parseTemplate(tmpl);
@@ -39,7 +54,7 @@ function traverse(path, visitor) {
     }
     
     babelTraverse(node, {
-        noScope: true,
+        noScope,
         ...merge(items),
     });
 }
