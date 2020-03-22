@@ -13,15 +13,13 @@ const {entries} = Object;
 module.exports.traverse = traverse;
 
 const getTemplate = ([a]) => a;
-
-const isNoScope = (path) => !path.node;
+const isPath = (path) => Boolean(path.node);
+const parsePath = (path) => isPath(path) ? path.node : path;
 
 function traverse(path, visitor) {
+    path = parsePath(path);
     const items = [];
-    const noScope = isNoScope(path);
-    const {
-        node = path,
-    } = path;
+    const noScope = !isPath(path);
     
     const parsedVisitors = entries(visitor);
     const withTemplates = parsedVisitors
@@ -29,7 +27,7 @@ function traverse(path, visitor) {
         .find(isTemplate);
     
     if (!withTemplates)
-        return babelTraverse(node, {
+        return babelTraverse(path, {
             noScope,
             ...visitor,
         });
@@ -53,7 +51,7 @@ function traverse(path, visitor) {
         });
     }
     
-    babelTraverse(node, {
+    babelTraverse(path, {
         noScope,
         ...merge(items),
     });
