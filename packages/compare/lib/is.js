@@ -27,6 +27,8 @@ const ALL = [
     ANY,
 ];
 
+module.exports.isTemplate = (a) => /[(;={]/.test(a) | !/[A-Z]/.test(a);
+
 module.exports.is = (str, array = ALL) => {
     for (const item of array) {
         if (check(str, item))
@@ -145,8 +147,9 @@ module.exports.isLinkedNode = (a) => {
         return true;
 };
 
-module.exports.parseTemplate = (tmpl) => {
-    const node = template.ast(tmpl);
+module.exports.parseTemplate = (tmpl, {program} = {}) => {
+    const parse = !program ? template.ast : template.program.ast;
+    const node = parse(tmpl);
     
     if (tmpl === ANY_OBJECT)
         return [node, __OBJECT_TYPE];
@@ -158,3 +161,4 @@ module.exports.parseTemplate = (tmpl) => {
     
     return [node, type];
 };
+

@@ -29,6 +29,7 @@ const {
     isEqualAnyArray,
     isEqualBody,
     isLinkedNode,
+    isTemplate,
     parseTemplate,
 } = require('./is');
 
@@ -59,6 +60,7 @@ function parseNode(a) {
 
 module.exports.compare = compare;
 module.exports.parseTemplate = parseTemplate;
+module.exports.isTemplate = isTemplate;
 
 module.exports.findVarsWays = findVarsWays;
 module.exports.getValues = getValues;
