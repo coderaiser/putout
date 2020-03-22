@@ -2,6 +2,7 @@
 
 const test = require('supertape');
 const {template} = require('@putout/engine-parser');
+const {parse} = require('@babel/parser');
 
 const {traverse, contains} = require('./traverse');
 
@@ -70,8 +71,8 @@ test('putout: traverse: identifier', (t) => {
     t.end();
 });
 
-test('putout: traverse: path', (t) => {
-    const node = template.program.ast('const x = 5');
+test('putout: traverse: program: path', (t) => {
+    const node = parse('const x = 5');
     
     let found = false;
     const path = {
@@ -79,8 +80,8 @@ test('putout: traverse: path', (t) => {
     };
     
     traverse(path, {
-        Identifier() {
-            found = true;
+        Identifier(path) {
+            found = Boolean(path.scope);
         },
     });
     

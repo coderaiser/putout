@@ -1,6 +1,12 @@
 'use strict';
 
 const babelTraverse = require('@babel/traverse').default;
+
+const {
+    isFile,
+    isProgram,
+} = require('@babel/types');
+
 const {
     compare,
     parseTemplate,
@@ -12,16 +18,16 @@ const {entries} = Object;
 
 module.exports.traverse = traverse;
 
-const getTemplate = ([a]) => a;
 const isPath = (path) => Boolean(path.node);
 const parsePath = (path) => isPath(path) ? path.node : path;
+const getTemplate = ([a]) => a;
 
 function traverse(path, visitor) {
     path = parsePath(path);
     const items = [];
-    const noScope = !isPath(path);
-    
+    const noScope = !isFile(path) && !isProgram(path);
     const parsedVisitors = entries(visitor);
+    
     const withTemplates = parsedVisitors
         .map(getTemplate)
         .find(isTemplate);
