@@ -6,7 +6,7 @@ const {
 } = require('fs');
 const tryCatch = require('try-catch');
 
-const {cwd} = process;
+const cwd = process.cwd();
 const {parse, stringify} = JSON;
 const isString = (a) => typeof a === 'string';
 
