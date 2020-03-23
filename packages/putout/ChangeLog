@@ -1,3 +1,21 @@
+2020.03.23, v7.20.1
+
+fix:
+- (@putout/traverse) scope
+
+feature:
+- (@putout/engine-parser) add support of Record, Tuple (https://github.com/tc39/proposal-record-tuple)
+- (@putout/plugin-remove-unused-variables) add support of Record, Tuple (https://github.com/tc39/proposal-record-tuple)
+- (@putout/traverse) improve path support
+- (@putout/engine-runner) get isTemplate from @putout/compare
+- (@putout/compare) parseTemplate: add support of program
+- (@putout/traverse) speed up
+- (@putout/engine-parser) template: add support of template.program
+- (@putout/plugin-convert-for-each-to-for-of) path.traverse -> operator.traverse
+- (eslint-plugin-putout) keyword-spacing: add support of if
+- (@putout/traverse) add contains
+
+
 2020.03.18, v7.20.0
 
 feature:
