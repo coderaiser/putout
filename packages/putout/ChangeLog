@@ -1,3 +1,9 @@
+2020.03.23, v7.20.2
+
+fix:
+- (putout) ruler-processor: cwd
+
+
 2020.03.23, v7.20.1
 
 fix:
