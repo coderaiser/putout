@@ -23,6 +23,12 @@ try {
 
 if(a) {
 }
+
+for(i = 0; i < n; i++) {}
+
+for(x of y) {}
+
+for await(x of y) {}
 ```
 
 Examples of **correct** code for this rule:
@@ -38,5 +44,10 @@ try {
 
 if (a) {
 }
+
+for (i = 0; i < n; i++) {}
+
+for (x of y) {}
+for await (x of y) {}
 ```
 

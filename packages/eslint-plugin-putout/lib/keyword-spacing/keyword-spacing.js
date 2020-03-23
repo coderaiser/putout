@@ -3,8 +3,37 @@
 const {
     isTryStatement,
     isSwitchStatement,
-    isIfStatement,
 } = require('putout').types;
+
+const keywords = {
+    IfStatement: 'if',
+    ForStatement: 'for',
+    ForOfStatement: 'for',
+    ForOfStatement_: 'for await',
+};
+
+const checkNodeSpace = ({text, node}) => {
+    const {type} = node;
+    const key = keywords[type];
+    const key_ = keywords[`${type}_`];
+    
+    if (text.includes(`${key}(`))
+        return true;
+    
+    if (key_ && text.includes(`${key_}(`))
+        return true;
+    
+    return false;
+};
+
+const fixNodeSpace = ({node, text}) => {
+    const {type} = node;
+    const key = keywords[type];
+    
+    return text
+        .replace(`${key}(`, `${key} (`)
+        .replace(`for await(`, `for await (`);
+};
 
 module.exports.report = (node) => {
     if (isTryStatement(node))
@@ -13,10 +42,7 @@ module.exports.report = (node) => {
     if (isSwitchStatement(node))
         return 'Avoid space after "switch"';
     
-    if (isIfStatement(node))
-        return 'Use space after "if"';
-    
-    return '';
+    return `Use space after "${keywords[node.type]}"`;
 };
 
 module.exports.fix = ({node, text}) => {
@@ -26,13 +52,15 @@ module.exports.fix = ({node, text}) => {
     if (isSwitchStatement(node))
         return fixSwitch(text);
     
-    return fixIf(text);
+    return fixNodeSpace({node, text});
 };
 
 module.exports.include = () => [
     'TryStatement',
     'SwitchStatement',
     'IfStatement',
+    'ForStatement',
+    'ForOfStatement',
 ];
 
 module.exports.filter = ({node, text}) => {
@@ -42,7 +70,7 @@ module.exports.filter = ({node, text}) => {
     if (isSwitchStatement(node))
         return checkSwitch(text);
     
-    return checkIf(text);
+    return checkNodeSpace({node, text});
 };
 
 function checkCatch(text) {
@@ -57,10 +85,6 @@ function checkSwitch(text) {
     return text.includes('switch (');
 }
 
-function checkIf(text) {
-    return text.includes('if(');
-}
-
 function fixCatch(text) {
     return text
         .replace(/catch{/g, 'catch {')
@@ -71,10 +95,5 @@ function fixCatch(text) {
 function fixSwitch(text) {
     return text
         .replace(/switch \(/g, 'switch(');
-}
-
-function fixIf(text) {
-    return text
-        .replace(/if\(/g, 'if (');
 }
 

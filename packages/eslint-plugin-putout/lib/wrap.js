@@ -69,7 +69,6 @@ function getMeta(plugin) {
     return {
         type,
         docs: {
-            description: plugin.report(),
             category,
             recommended,
         },

@@ -26,6 +26,12 @@ ruleTester.run('keyword-spacing', rule, {
         }
     `, `
         if (true) {}
+    `, `
+        for (i = 0; i < n; i++) {}
+    `, `
+        for (x of y) {}
+    `, `
+        const a = async () => {for await (x of y) {}}
     `],
     
     invalid: [{
@@ -65,6 +71,24 @@ ruleTester.run('keyword-spacing', rule, {
         output: `if (2 > 3) {}`,
         errors: [{
             message: 'Use space after "if"',
+        }],
+    }, {
+        code: `for(i = 0; i < n; i++) {}`,
+        output: `for (i = 0; i < n; i++) {}`,
+        errors: [{
+            message: 'Use space after "for"',
+        }],
+    }, {
+        code: `for(x of y) {}`,
+        output: `for (x of y) {}`,
+        errors: [{
+            message: 'Use space after "for"',
+        }],
+    }, {
+        code: `const a = async () => {for await(x of y) {}}`,
+        output: `const a = async () => {for await (x of y) {}}`,
+        errors: [{
+            message: 'Use space after "for"',
         }],
     }],
 });
