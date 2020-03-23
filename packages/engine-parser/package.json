@@ -29,8 +29,8 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@babel/generator": "^7.8.4",
-    "@babel/parser": "^7.8.4",
+    "@babel/generator": "^7.9.3",
+    "@babel/parser": "^7.9.3",
     "@babel/template": "^7.8.3",
     "estree-to-babel": "^2.1.0",
     "nano-memoize": "^1.1.8",

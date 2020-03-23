@@ -4,7 +4,11 @@ const test = require('supertape');
 const putout = require('putout');
 const tryCatch = require('try-catch');
 
-const {parse, generate} = require('..');
+const {
+    parse,
+    generate,
+    print,
+} = require('..');
 const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
@@ -20,6 +24,7 @@ const fixture = readFixtures([
     'typescript-fix',
     'jsx-template',
     'jsx-template-fix',
+    'record',
 ]);
 
 test('putout: parser: export default declaration: acorn', (t) => {
@@ -203,6 +208,24 @@ test('putout: parser: jsx: enabled', (t) => {
     const expected = fixture.jsxTemplateFix;
     
     t.equal(`${code}\n`, expected);
+    t.end();
+});
+
+test('putout: parser: record', (t) => {
+    const node = parse(fixture.record);
+    const {code} = generate(node);
+    const expected = fixture.record;
+    
+    t.equal(`${code}\n`, expected);
+    t.end();
+});
+
+test('putout: parser: record: print', (t) => {
+    const node = parse(fixture.record);
+    const code = print(node);
+    const expected = fixture.record;
+    
+    t.equal(code, expected);
     t.end();
 });
 

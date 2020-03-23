@@ -1,0 +1,3 @@
+const record = #{
+  a: "b"
+};
