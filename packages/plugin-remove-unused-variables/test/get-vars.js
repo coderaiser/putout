@@ -61,14 +61,16 @@ const fixture = readFixtures([
     'object-method',
     'optional-member-expression',
     'optional-call-expression',
-    'root-vars',
+    'record',
     'scope-vars',
+    'root-vars',
     'shorthand-vars',
     'expression-statement',
-    'switch-statement',
-    'spread-vars',
     'obj-prop',
     'return-statement',
+    'switch-statement',
+    'spread-vars',
+    'tuple',
     'template-literal',
     'tagged-template-expression',
     'throw-statement',
@@ -659,10 +661,12 @@ test('remove-unused-variables: get-vars: decorator', (t) => {
     const result = getVars(ast).map(dutify);
     
     const expected = [{
-        React: '_u',
-        Timer: 'd_',
-        observer: 'du',
-        undefined: '_u',
+        React: _u,
+        Timer: d_,
+        observer: du,
+        undefined: _u,
+        Fn: d_,
+        fn: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -1172,6 +1176,34 @@ test('remove-unused-variables: get-vars: spread vars', (t) => {
             declared: true,
             used: false,
         },
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: tuple', (t) => {
+    const ast = parse(fixture.tuple);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        x: du,
+        y: du,
+        z: d_,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: record', (t) => {
+    const ast = parse(fixture.record);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        x: du,
+        y: du,
+        z: d_,
     }];
     
     t.deepEqual(result, expected, 'should equal');

@@ -36,7 +36,7 @@ module.exports = ({use, declare, addParams}) => {
     const traverseArray = traverseArrayExpression(use);
     
     return {
-        ObjectExpression(path) {
+        'ObjectExpression|RecordExpression'(path) {
             traverseObj(path.get('properties'));
         },
         
@@ -169,7 +169,7 @@ module.exports = ({use, declare, addParams}) => {
                 use(rightPath, rightPath.node.name);
         },
         
-        ArrayExpression(path) {
+        'ArrayExpression|TupleExpression'(path) {
             const {elements} = path.node;
             
             for (const el of elements) {
