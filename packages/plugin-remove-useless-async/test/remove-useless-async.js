@@ -64,3 +64,8 @@ test('plugin-remove-useless-async: no transform: for await of', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-async: no transform: for await of', (t) => {
+    t.noTransformCode('const a = async () => {}');
+    t.end();
+});
+

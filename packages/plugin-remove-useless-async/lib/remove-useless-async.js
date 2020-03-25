@@ -15,6 +15,11 @@ module.exports.include = () => [
 ];
 
 module.exports.filter = (path) => {
+    const {body} = path.node.body;
+    
+    if (!body.length)
+        return false;
+    
     const is = contains(path, [
         'return __',
         'throw __',
