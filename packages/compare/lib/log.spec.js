@@ -3,13 +3,14 @@
 const test = require('supertape');
 const mockRequire = require('mock-require');
 const {Identifier} = require('putout').types;
-
-const {reRequire} = mockRequire;
 const stub = require('@cloudcmd/stub');
 
-const {assign} = Object;
+const {_parseValue} = require('./log');
 
-test('putout: run-plugins: template: log', (t) => {
+const {assign} = Object;
+const {reRequire} = mockRequire;
+
+test('putout: compare: log', (t) => {
     const namespace = stub();
     
     assign(namespace, {
@@ -29,7 +30,7 @@ test('putout: run-plugins: template: log', (t) => {
     t.end();
 });
 
-test('putout: run-plugins: template: log: array', (t) => {
+test('putout: compare: run-plugins: template: log: array', (t) => {
     const namespace = stub();
     
     assign(namespace, {
@@ -49,7 +50,7 @@ test('putout: run-plugins: template: log: array', (t) => {
     t.end();
 });
 
-test('putout: run-plugins: template: log: object', (t) => {
+test('putout: compare: log: object', (t) => {
     const namespace = stub();
     
     assign(namespace, {
@@ -66,5 +67,53 @@ test('putout: run-plugins: template: log: object', (t) => {
     const expected = `Identifier: "hello" = Identifier: "world"`;
     
     t.ok(namespace.calledWith(expected));
+    t.end();
+});
+
+test('putout: compare: log: parseValue: object', (t) => {
+    const value = 'hello';
+    const result = _parseValue(value);
+    const expected = 'string: "hello"';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: compare: log: parseValue: array', (t) => {
+    const value = [{
+        type: 'Identifier',
+        name: 'x',
+    }];
+    
+    const result = _parseValue(value);
+    const expected = 'Identifier: ["x"]';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: compare: log: parseValue: array', (t) => {
+    const value = [{
+        type: 'StringLiteral',
+        value: 'hello',
+    }];
+    
+    const result = _parseValue(value);
+    const expected = 'StringLiteral: ["hello"]';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: compare: log: parseValue: object', (t) => {
+    const value = {
+        type: 'StringLiteral',
+        value: 'hello',
+    };
+    
+    const result = _parseValue(value);
+    const expected = 'StringLiteral: "hello"';
+    
+    t.equal(result, expected);
     t.end();
 });

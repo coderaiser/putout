@@ -15,6 +15,7 @@ module.exports = (a, b) => {
     return debug(`${parsedValue} = ${parsedPathValue}`);
 };
 
+module.exports._parseValue = parseValue;
 function parseValue(a) {
     if (isArray(a) && a[0]) {
         const [{type, name, value}] = a;
