@@ -28,6 +28,7 @@ const {
     isEqualAnyObject,
     isEqualAnyArray,
     isEqualBody,
+    isEqualNop,
     isLinkedNode,
     isTemplate,
     parseTemplate,
@@ -75,6 +76,9 @@ function compare(path, base) {
         return true;
     
     if (isEqualAnyArray(node, baseNode))
+        return true;
+    
+    if (isEqualNop(node, baseNode))
         return true;
     
     if (isPath(path) && !isEqualType(node, baseNode)) {
@@ -172,6 +176,9 @@ function superCompare(nodeValue, value, {add, templateStore}) {
         return true;
     
     if (isEqualBody(nodeValue, value))
+        return true;
+    
+    if (isEqualNop(nodeValue, value))
         return true;
     
     if (isLinkedNode(value)) {

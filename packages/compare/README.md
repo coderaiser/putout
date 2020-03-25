@@ -131,6 +131,19 @@ compare('const a = () => {}, 'const a = () => __body');
 true
 ```
 
+##### "__nop"
+Any `Function` with no `arguments` and empty body;
+
+```js
+compare('const a = () => {}, 'const __a = __nop);
+// returns
+true
+
+compare('const a = async () => {}, 'const a = () => __nop');
+// returns
+true
+```
+
 ## License
 
 MIT

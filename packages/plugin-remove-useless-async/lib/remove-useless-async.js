@@ -9,17 +9,16 @@ module.exports.fix = (path) => {
     path.node.async = false;
 };
 
+module.exports.exclude = () => [
+    '__nop',
+];
+
 module.exports.include = () => [
     'async function __(__args) {}',
     'async (__args) => __body',
 ];
 
 module.exports.filter = (path) => {
-    const {body} = path.node.body;
-    
-    if (!body.length)
-        return false;
-    
     const is = contains(path, [
         'return __',
         'throw __',

@@ -478,7 +478,37 @@ test('compare: block', (t) => {
     
     const result = compare(a, b);
     
-    t.notOk(result, 'should equal');
+    t.notOk(result, 'should not equal');
+    t.end();
+});
+
+test('compare: __nop', (t) => {
+    const a = '() => {}';
+    const b = '__nop';
+    
+    const result = compare(a, b);
+    
+    t.ok(result, 'should equal');
+    t.end();
+});
+
+test('compare: __nop: async', (t) => {
+    const a = 'const a = async () => {}';
+    const b = 'const __a = __nop';
+    
+    const result = compare(a, b);
+    
+    t.ok(result, 'should equal');
+    t.end();
+});
+
+test('compare: __nop: not', (t) => {
+    const a = 'const a = 5';
+    const b = 'const __a = __nop';
+    
+    const result = compare(a, b);
+    
+    t.notOk(result);
     t.end();
 });
 

@@ -2,8 +2,10 @@
 
 const {template} = require('@putout/engine-parser');
 const {
+    isBlockStatement,
     isIdentifier,
     isLiteral,
+    isFunction,
     isImportDefaultSpecifier,
 } = require('@babel/types');
 
@@ -15,6 +17,7 @@ const ARGS = '__args';
 const LINKED_NODE = /^__[a-z]$/;
 const IMPORTS = '__imports';
 const BODY = '__body';
+const NOP = '__nop';
 const ANY = '__';
 
 const ALL = [
@@ -54,6 +57,10 @@ module.exports.isAnyStr = (a) => a === ANY;
 
 const isBody = (a) => isIdentifier(a, {
     name: BODY,
+});
+
+const isNop = (a) => isIdentifier(a, {
+    name: NOP,
 });
 
 const isAnyObject = (a) => isIdentifier(a, {
@@ -137,6 +144,21 @@ module.exports.isEqualBody = (node, baseNode) => {
         return false;
     
     return node.type === 'BlockStatement';
+};
+
+module.exports.isEqualNop = (node, baseNode) => {
+    if (!isNop(baseNode))
+        return false;
+    
+    if (!isFunction(node))
+        return false;
+    
+    const {body} = node;
+    
+    if (!isBlockStatement(body))
+        return false;
+    
+    return !body.body.length;
 };
 
 module.exports.isLinkedNode = (a) => {
