@@ -19,7 +19,7 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "fullstore": "^2.0.2"
+    "fullstore": "^3.0.0"
   },
   "keywords": [
     "putout",
