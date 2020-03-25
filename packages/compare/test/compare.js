@@ -502,8 +502,18 @@ test('compare: __nop: async', (t) => {
     t.end();
 });
 
-test('compare: __nop: not', (t) => {
+test('compare: __nop: not fn', (t) => {
     const a = 'const a = 5';
+    const b = 'const __a = __nop';
+    
+    const result = compare(a, b);
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: __nop: no block', (t) => {
+    const a = 'const a = () => 5';
     const b = 'const __a = __nop';
     
     const result = compare(a, b);
