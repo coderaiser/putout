@@ -16,8 +16,10 @@
         "arrow-spacing": "error",
         "comma-dangle": ["error", "always-multiline"],
         "eol-last": ["error", "always"],
-        "function-paren-newline": "error",
-        "space-infix-ops": ["error", {"int32Hint": false}],
+        "function-paren-newline": ["error", "multiline-arguments"],
+        "space-infix-ops": ["error", {
+            "int32Hint": false
+        }],
         "space-before-blocks": "error",
         "prefer-arrow-callback": "error",
         "prefer-const": ["error", {
