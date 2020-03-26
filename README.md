@@ -255,7 +255,7 @@ for (const x of Object.keys(a)) {
 ```diff
 function hi() {
     return 5;
---  console.log('hello');
+-  console.log('hello');
 }
 ```
 </details>
