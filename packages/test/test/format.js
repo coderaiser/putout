@@ -40,6 +40,9 @@ test('test: formatSave', (t) => {
     fs.existsSync = existsSyncStub;
     fs.writeFileSync = writeFileSyncStub;
     
+    const {UPDATE} = process.env;
+    process.env.UPDATE = 1;
+    
     const test = reRequire('..')(__dirname, {
         'remove-console': removeConsole,
     });
@@ -58,9 +61,29 @@ test('test: formatSave', (t) => {
         t.end();
     });
     
+    test('formatSave: exists', (t) => {
+        existsSyncStub.returns(true);
+        
+        t.formatSave(formatter, 'var');
+        
+        t.ok(writeFileSyncStub.called);
+        t.end();
+    });
+    
+    test('formatManySave: exists', (t) => {
+        existsSyncStub.returns(true);
+        
+        t.formatManySave(formatter, ['var', 'var']);
+        
+        t.ok(writeFileSyncStub.called);
+        t.end();
+    });
+    
     test('last', (t) => {
         fs.existsSync = existsSync;
         fs.writeFileSync = writeFileSync;
+        process.env.UPDATE = UPDATE;
+    
         t.end();
     });
     

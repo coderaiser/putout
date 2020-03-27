@@ -304,6 +304,7 @@ function preTest(test, plugin) {
         const isReplace = isFn(replace);
         const isFix = isFn(fix);
         
+        console.log(isReplace, isFix, isFind, isTraverse, isInclude, isExclude);
         t.ok(isReplace || isFix && (isFind || isTraverse || isInclude || isExclude), 'should export "find", "traverse", "include" or "exclude" function');
         t.end();
     });
