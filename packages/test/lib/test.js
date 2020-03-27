@@ -118,7 +118,11 @@ const formatMany = (t, dir, plugins, rules) => (formatter, names) => {
         const full = fullNames[index];
         const [input] = readFixture(full);
         
-        const {places} = putout(input, {fixCount: 1, plugins, rules});
+        const {places} = putout(input, {
+            fixCount: 1,
+            plugins,
+            rules,
+        });
         
         result += report(formatter, {
             name,

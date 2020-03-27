@@ -35,6 +35,7 @@
     "runner"
   ],
   "devDependencies": {
+    "@cloudcmd/stub": "^2.3.4",
     "@putout/formatter-dump": "^1.0.0",
     "@putout/plugin-remove-empty": "^4.0.0",
     "@putout/plugin-remove-unused-variables": "^1.11.0",
@@ -44,6 +45,7 @@
     "eslint-plugin-putout": "^3.0.0",
     "lerna": "^3.8.5",
     "madrun": "^5.0.0",
+    "mock-require": "^3.0.3",
     "nodemon": "^2.0.1",
     "nyc": "^14.0.0",
     "try-to-tape": "^1.1.0"
