@@ -44,13 +44,23 @@ test('test: formatSave', (t) => {
         'remove-console': removeConsole,
     });
     
-    test('', (t) => {
+    test('formatSave', (t) => {
         t.formatSave(formatter, 'var');
         
-        fs.existsSync = existsSync;
-        fs.writeFileSync = writeFileSync;
+        t.ok(writeFileSyncStub.called);
+        t.end();
+    });
+    
+    test('formatManySave', (t) => {
+        t.formatManySave(formatter, ['var', 'var']);
         
         t.ok(writeFileSyncStub.called);
+        t.end();
+    });
+    
+    test('last', (t) => {
+        fs.existsSync = existsSync;
+        fs.writeFileSync = writeFileSync;
         t.end();
     });
     
