@@ -4,6 +4,11 @@
         "rules": {
             "node/no-extraneous-require": "off"
         }
+    }, {
+        "files": ["lib/**/*.spec.js"],
+        "rules": {
+            "node/no-unpublished-require": "off"
+        }
     }],
     "extends": [
         "plugin:putout/recommended",

@@ -11,7 +11,8 @@ const tryCatch = require('try-catch');
 const tape = require('supertape');
 const putout = require('putout');
 
-const isFn = (a) => typeof a === 'function';
+const isCorrectPlugin = require('./is-correct-plugin');
+
 const isString = (a) => typeof a === 'string';
 const {isArray} = Array;
 const {keys, entries} = Object;
@@ -308,37 +309,13 @@ function preTest(test, plugin) {
             include,
             exclude,
             
+            filter,
+            match,
             replace,
         });
         
-        t.ok(result, 'should export "find", "traverse", "include" or "exclude" function');
+        t.ok(result, 'should export "replace", "find", "traverse", "include", "exclude" function');
         t.end();
     });
-}
-
-module.exports._isCorrectPlugin = isCorrectPlugin;
-function isCorrectPlugin(plugin) {
-    const {
-        find,
-        fix,
-        traverse,
-        include,
-        exclude,
-        replace,
-    } = plugin;
-    
-    const isFix = isFn(fix);
-    const isReplace = isFn(replace);
-    
-    if (!isReplace && !isFix)
-        return false;
-    
-    const isFind = isFn(find);
-    const isTraverse = isFn(traverse);
-    
-    const isInclude = isFn(include);
-    const isExclude = isFn(exclude);
-    
-    return isFind || isTraverse || isInclude || isExclude;
 }
 

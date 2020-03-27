@@ -79,13 +79,11 @@ test('test: formatSave', (t) => {
         t.end();
     });
     
-    test('last', (t) => {
-        fs.existsSync = existsSync;
-        fs.writeFileSync = writeFileSync;
-        process.env.UPDATE = UPDATE;
-        
-        t.end();
-    });
+    fs.existsSync = existsSync;
+    fs.writeFileSync = writeFileSync;
+    process.env.UPDATE = UPDATE;
+    
+    reRequire('..');
     
     t.end();
 });
