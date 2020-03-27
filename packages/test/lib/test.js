@@ -273,6 +273,8 @@ function preTest(test, plugin) {
         fix,
         rules,
         replace,
+        filter,
+        match,
     }] = entries(plugin).pop();
     
     if (rules) {
@@ -297,16 +299,49 @@ function preTest(test, plugin) {
     });
     
     test(`${name}: plugins should be of type: replace, template, traverse or find`, (t) => {
-        const isInclude = isFn(include);
-        const isExclude = isFn(exclude);
-        const isTraverse = isFn(traverse);
-        const isFind = isFn(find);
-        const isReplace = isFn(replace);
-        const isFix = isFn(fix);
+        const result = isCorrectPlugin({
+            find,
+            fix,
+            
+            traverse,
+            
+            include,
+            exclude,
+            
+            replace,
+        });
         
-        console.log(isReplace, isFix, isFind, isTraverse, isInclude, isExclude);
-        t.ok(isReplace || isFix && (isFind || isTraverse || isInclude || isExclude), 'should export "find", "traverse", "include" or "exclude" function');
+        t.ok(result, 'should export "find", "traverse", "include" or "exclude" function');
         t.end();
     });
+}
+
+module.exports._isCorrectPlugin = isCorrectPlugin;
+function isCorrectPlugin(plugin) {
+    const {
+        find,
+        fix,
+        
+        traverse,
+        
+        include,
+        exclude,
+        
+        replace,
+    } = plugin;
+    
+    const isFix = isFn(fix);
+    const isReplace = isFn(replace);
+    
+    if (!isReplace && !isFix)
+        return false;
+    
+    const isFind = isFn(find);
+    const isTraverse = isFn(traverse);
+    
+    const isInclude = isFn(include);
+    const isExclude = isFn(exclude);
+    
+    return isFind || isTraverse || isInclude || isExclude;
 }
 

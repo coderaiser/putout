@@ -44,7 +44,7 @@ test('test: formatSave', (t) => {
     process.env.UPDATE = 1;
     
     const test = reRequire('..')(__dirname, {
-        'remove-console': removeConsole,
+        'remove-console': require('@putout/plugin-remove-console'),
     });
     
     test('formatSave', (t) => {
@@ -83,7 +83,7 @@ test('test: formatSave', (t) => {
         fs.existsSync = existsSync;
         fs.writeFileSync = writeFileSync;
         process.env.UPDATE = UPDATE;
-    
+        
         t.end();
     });
     
