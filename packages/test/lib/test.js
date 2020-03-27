@@ -321,12 +321,9 @@ function isCorrectPlugin(plugin) {
     const {
         find,
         fix,
-        
         traverse,
-        
         include,
         exclude,
-        
         replace,
     } = plugin;
     
