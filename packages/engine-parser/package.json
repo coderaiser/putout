@@ -33,7 +33,7 @@
     "@babel/parser": "^7.9.3",
     "@babel/template": "^7.8.3",
     "@babel/traverse": "^7.9.0",
-    "estree-to-babel": "^2.1.0",
+    "estree-to-babel": "^3.0.0",
     "nano-memoize": "^1.1.8",
     "once": "^1.4.0",
     "recast": "^0.18.3"
