@@ -17,6 +17,7 @@ const fixture = readFixtures([
     'debugger',
     'debugger-fix',
     'decorator',
+    'duplicate',
     'throw',
     'flow',
     'flow-fix',
@@ -25,6 +26,8 @@ const fixture = readFixtures([
     'jsx-template',
     'jsx-template-fix',
     'record',
+    'strict-mode',
+    'strict-mode-fix',
 ]);
 
 test('putout: parser: export default declaration: acorn', (t) => {
@@ -226,6 +229,24 @@ test('putout: parser: record: print', (t) => {
     const expected = fixture.record;
     
     t.equal(code, expected);
+    t.end();
+});
+
+test('putout: parser: strict mode', (t) => {
+    const {code} = putout(fixture.strictMode, {
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    t.equal(code, fixture.strictModeFix);
+    t.end();
+});
+
+test('putout: parser: duplicate', (t) => {
+    const [error] = tryCatch(parse, fixture.duplicate);
+    
+    t.equal(error.message, `Identifier 'x' has already been declared (1:11)`);
     t.end();
 });
 

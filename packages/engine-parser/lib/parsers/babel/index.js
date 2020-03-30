@@ -18,18 +18,20 @@ const putoutEditorDefaults = {
     isTS: true,
 };
 
-const plugins = require('./babel-plugins');
-const options = require('./babel-options');
+const plugins = require('./plugins');
+const options = require('./options');
+
+const moveOutDirectives = require('./move-out-directives');
+const addRawToLiteral = require('./add-raw-to-literal');
 
 module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(source), isJSX = getJSX(source)} = putoutEditorDefaults) {
     const {parse} = initBabel();
     
-    return parse(source, {
+    const ast = parse(source, {
         sourceType: 'module',
         tokens: true,
         ...options,
         plugins: clean([
-            !isTS && !isFlow && 'estree',
             ...plugins,
             ...getBabelLangExts({
                 isTS,
@@ -38,6 +40,11 @@ module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(sourc
             }),
         ]),
     });
+    
+    moveOutDirectives(ast);
+    addRawToLiteral(ast);
+    
+    return ast;
 };
 
 function getBabelLangExts({isTS, isFlow, isJSX}) {

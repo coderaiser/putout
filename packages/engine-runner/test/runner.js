@@ -442,7 +442,7 @@ test('putout: runner: plugins: replace: template: function: __imports', (t) => {
                     result += `${imported.name},`;
                 }
                 
-                result += `\n} = require(${__a.raw});`;
+                result += `\n} = require("${__a.value}");`;
                 
                 return result;
             },
