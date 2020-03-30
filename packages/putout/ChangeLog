@@ -1,3 +1,20 @@
+2020.03.30, v7.20.3
+
+fix:
+- (npmignore) add .spec.js
+- (@putout/plugin-remove-useless-async) empty async function
+
+feature:
+- (package) estree-to-babel v3.0.0
+- (@putout/engine-parser) add ability to handle duplicate variables declaration
+- (package) @putout/plugin-remove-unused-variables v2.0.0
+- (@putout/test) is-correct-plugin
+- (@putout/compare) add __nop
+- (package) fullstore v3.0.0
+- (@putout/eslint-config) function-paren-newline: multiline-arguments
+- (eslint-plugin-putout) keyword-spacing: add support of for, for-of, for-await-of
+
+
 2020.03.23, v7.20.2
 
 fix:
