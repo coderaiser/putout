@@ -7,8 +7,8 @@ const {
     operator,
 } = require('putout');
 
-const {replaceWith} = operator;
-const {isIdentifier} = types;
+const {replaceWith, getTemplateValues} = operator;
+const {isIdentifier, isCallExpression} = types;
 
 module.exports.report = () => `Object properties should be extracted into variables`;
 
@@ -42,29 +42,21 @@ module.exports.find = (ast, {traverse}) => {
     const items = [];
     
     traverse(ast, {
-        MemberExpression(path) {
-            if (!path.parentPath.isVariableDeclarator())
-                return;
+        'const __object = __a.__b'(fullPath) {
+            const {node} = fullPath;
+            const {__a, __b} = getTemplateValues(node, 'const __object = __a.__b');
+            const path = fullPath.get('declarations.0.init');
             
-            if (path.node.property.name === 'default')
-                return;
-            
-            if (!path.parentPath.get('id').isObjectPattern())
-                return;
-            
-            const objectPath = path.get('object');
-            const object = objectPath.node;
-            
-            if (objectPath.isIdentifier())
+            if (isIdentifier(__a))
                 return add({
-                    name: generate(object).code,
+                    name: generate(__a).code,
                     items,
                     path,
                 });
             
-            if (objectPath.isCallExpression())
+            if (isCallExpression(__a))
                 return add({
-                    name: generate(objectPath.node).code,
+                    name: generate(__a).code,
                     items,
                     path,
                 });
@@ -77,8 +69,7 @@ module.exports.find = (ast, {traverse}) => {
 };
 
 function getName(path) {
-    if (path.isMemberExpression())
-        return path.node.property.name;
+    return path.node.property.name;
 }
 
 function filter(all) {
