@@ -17,9 +17,6 @@ module.exports.find = (ast, {push, traverse}) => {
             const {name} = path.node;
             const {parentPath} = path;
             
-            if (!parentPath.isClassDeclaration())
-                return;
-            
             push({
                 path: parentPath,
                 name,

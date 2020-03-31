@@ -4,7 +4,6 @@ const {
     isIdentifier,
     isMemberExpression,
     isThisExpression,
-    isObjectExpression,
     isAssignmentExpression,
 } = require('putout').types;
 
@@ -53,9 +52,6 @@ function VariableDeclarator(push) {
 
 function AssignmentExpression(push) {
     return (path) => {
-        if (!isInitState(path))
-            return;
-        
         push(path);
     };
 }
@@ -69,25 +65,6 @@ function CallExpression(push) {
     };
 }
 
-function isInitState(path) {
-    const {node} = path;
-    const {
-        left,
-        right,
-    } = node;
-    
-    if (!isMemberExpression(left))
-        return false;
-    
-    if (!isThisState(left))
-        return false;
-    
-    if (!isObjectExpression(right))
-        return false;
-    
-    return true;
-}
-
 function isVarFromState(path) {
     const {init} = path.node;
     
@@ -95,9 +72,6 @@ function isVarFromState(path) {
         return false;
     
     if (isThisState(init))
-        return true;
-    
-    if (isThisState(init.object))
         return true;
     
     return false;
