@@ -23,3 +23,8 @@ test('plugin-putout: transform: replaceWith multiple exists', (t) => {
     t.transform('replace-with-multiple-exists');
     t.end();
 });
+
+test('plugin-putout: transform: insertAfter exists', (t) => {
+    t.transform('insert-after-exists');
+    t.end();
+});
