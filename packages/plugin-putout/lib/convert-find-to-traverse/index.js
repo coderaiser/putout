@@ -25,7 +25,6 @@ module.exports.traverse = ({push}) => {
     return {
         'module.exports.find = (__args) => __'(path) {
             const leftPath = path.get('left');
-            const propertyPath = leftPath.get('property');
             
             const rightPath = path.get('right');
             
