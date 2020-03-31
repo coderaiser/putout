@@ -27,24 +27,12 @@ module.exports.traverse = ({push}) => {
             const leftPath = path.get('left');
             const propertyPath = leftPath.get('property');
             
-            if (!propertyPath.isIdentifier({name: 'find'}))
-                return;
-            
             const rightPath = path.get('right');
-            
-            if (!rightPath.isFunction())
-                return;
             
             if (!isTraverseLastExpression(rightPath.node.body.body))
                 return;
             
-            if (isReturn(rightPath))
-                return;
-            
             const traverseCallPath = getTraverseCall(rightPath);
-            
-            if (!traverseCallPath)
-                return;
             
             push(traverseCallPath);
             push(leftPath);
@@ -67,21 +55,6 @@ function isTraverseLastExpression(body) {
     return isIdentifier(callee, {
         name: 'traverse',
     });
-}
-
-function isReturn(path) {
-    let is = false;
-    
-    path.traverse({
-        ReturnStatement(returnPath) {
-            if (returnPath.scope.uid !== path.scope.uid)
-                return;
-            
-            is = true;
-        },
-    });
-    
-    return is;
 }
 
 function getTraverseCall(path) {
