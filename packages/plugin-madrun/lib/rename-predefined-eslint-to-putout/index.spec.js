@@ -19,3 +19,8 @@ test('madrun: rename predefined: no transform: putout', (t) => {
     t.end();
 });
 
+test('madrun: rename predefined: no transform: putout', (t) => {
+    t.noTransform('eslint-rulesdir');
+    t.end();
+});
+

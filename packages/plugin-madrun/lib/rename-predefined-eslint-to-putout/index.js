@@ -10,16 +10,8 @@ module.exports.fix = ({eslint}) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        VariableDeclarator(path) {
-            if (!isPredefined(path.get('init')))
-                return;
-            
-            const idPath = path.get('id');
-            
-            if (!idPath.isObjectPattern())
-                return;
-            
-            const properties = idPath.get('properties');
+        'const __object = predefined'(path) {
+            const properties = path.get('declarations.0.id.properties');
             const {eslint, putout} = getPredefined(properties);
             
             if (!eslint || putout)
@@ -35,12 +27,6 @@ module.exports.traverse = ({push}) => {
         },
     };
 };
-
-function isPredefined(path) {
-    return path.isIdentifier({
-        name: 'predefined',
-    });
-}
 
 function getPredefined(properties) {
     const result = {};
@@ -65,13 +51,7 @@ function isRulesdir({eslint}) {
     const {referencePaths} = eslint;
     
     for (const {parentPath} of referencePaths) {
-        if (!parentPath.isCallExpression())
-            continue;
-        
         const argumentsPath = parentPath.get('arguments.0');
-        
-        if (!argumentsPath.isObjectExpression())
-            continue;
         
         for (const {key} of argumentsPath.node.properties) {
             if (t.isIdentifier(key, {name: 'rulesdir'}))
