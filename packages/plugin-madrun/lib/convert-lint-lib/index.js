@@ -6,11 +6,7 @@ const {
 } = require('putout');
 
 const {replaceWith} = operator;
-
-const {
-    isCallExpression,
-    StringLiteral,
-} = types;
+const {StringLiteral} = types;
 
 module.exports.report = () => `"lint" should be used instead of "lint:lib"`;
 
@@ -19,9 +15,6 @@ module.exports.fix = ({lintLib, fixLint, lint}) => {
     lint.parentPath.remove();
     
     const {body} = fixLint.parentPath.node.value;
-    
-    if (!isCallExpression(body))
-        return;
     
     body.arguments[0] = StringLiteral('lint');
 };
@@ -32,13 +25,12 @@ module.exports.traverse = ({push}) => {
             const rightPath = path.get('right');
             
             const {
-                isLintMore,
                 lint,
                 lintLib,
                 fixLint,
             } = parseObject(rightPath);
             
-            if (isLintMore || !lint || !lintLib || !fixLint)
+            if (!lint || !lintLib || !fixLint)
                 return;
             
             push({
@@ -55,7 +47,6 @@ function parseObject(path) {
     let lintLib = null;
     let lint = null;
     let fixLint = null;
-    let isLintMore = false;
     
     const properties = path.get('properties');
     for (const property of properties) {
@@ -75,15 +66,9 @@ function parseObject(path) {
             fixLint = key;
             continue;
         }
-        
-        if (key.isStringLiteral() && /^lint:/.test(key.value)) {
-            isLintMore = true;
-            continue;
-        }
     }
     
     return {
-        isLintMore,
         lintLib,
         lint,
         fixLint,
