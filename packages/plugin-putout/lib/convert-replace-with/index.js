@@ -58,8 +58,7 @@ function getVarPath(bindings) {
     if (replaceWithMultiple)
         return replaceWithMultiple.path;
     
-    if (insertAfter)
-        return insertAfter.path;
+    return insertAfter.path;
 }
 
 module.exports.traverse = ({push}) => {

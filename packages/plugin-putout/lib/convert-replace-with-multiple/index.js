@@ -60,8 +60,7 @@ function getVarPath(bindings) {
     if (replaceWith)
         return replaceWith.path;
     
-    if (insertAfter)
-        return insertAfter.path;
+    return insertAfter.path;
 }
 
 module.exports.traverse = ({push}) => {
