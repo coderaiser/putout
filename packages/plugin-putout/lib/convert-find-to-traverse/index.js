@@ -9,24 +9,39 @@ const {
     isIdentifier,
 } = types;
 
+const {entries} = Object;
+
 module.exports.report = () => '"traverse" should be used instead of "find"';
-module.exports.fix = (path) => {
-    if (path.isMemberExpression())
-        return path.get('property').node.name = 'traverse';
-    
-    if (path.isFunction())
-        return path.node.params = [path.node.params[1]];
-    
-    if (path.isCallExpression())
-        replaceWith(path, ReturnStatement(path.node.arguments[1]));
+
+const fixType = (types) => (path) => {
+    for (const [is, fix] of entries(types)) {
+        if (path[is]())
+            fix(path);
+    }
 };
+
+module.exports.fix = fixType({
+    isMemberExpression: (path) => {
+        path.get('property').node.name = 'traverse';
+    },
+    
+    isFunction: (path) => {
+        path.node.params = [path.node.params[1]];
+    },
+    
+    isCallExpression: (path) => {
+        replaceWith(path, ReturnStatement(path.node.arguments[1]));
+    },
+});
 
 module.exports.traverse = ({push}) => {
     return {
         'module.exports.find = (__args) => __'(path) {
             const leftPath = path.get('left');
-            
             const rightPath = path.get('right');
+            
+            if (rightPath.node.params.length !== 2)
+                return;
             
             if (!isTraverseLastExpression(rightPath.node.body.body))
                 return;
@@ -35,9 +50,7 @@ module.exports.traverse = ({push}) => {
             
             push(traverseCallPath);
             push(leftPath);
-            
-            if (rightPath.node.params.length === 2)
-                push(rightPath);
+            push(rightPath);
         },
     };
 };
