@@ -27,9 +27,13 @@ function traverseProperties(use, path, properties) {
     
     for (let i = 0; i < length - 1; i++) {
         const {value} = properties[i];
+        const {type} = value;
         
-        if (isIdentifier(value))
+        switch(type) {
+        case 'Identifier':
             use(path, value.name);
+            continue;
+        }
     }
 }
 
@@ -57,24 +61,31 @@ module.exports.useParamsBeforeLastUsed = ({use, isUsed}) => ({path, params}) => 
 };
 
 const traverseIsUsed = (isUsed, path, node) => {
-    if (isIdentifier(node))
+    const {type} = node;
+    
+    switch(type) {
+    case 'Identifier':
         return isUsed(path, node.name);
     
-    if (isObjectPattern(node))
+    case 'ObjectPattern':
         return isUsedObjectPattern(isUsed, path, node);
     
-    if (isAssignmentPattern(node))
+    case 'AssignmentPattern':
         return isUsedAssignmentPattern(isUsed, path, node);
+    }
 };
 
 const isUsedAssignmentPattern = (isUsed, path, node) => {
     const {left} = node;
+    const {type} = left;
     
-    if (isIdentifier(left))
+    switch(type) {
+    case 'Identifier':
         return isUsed(path, left.name);
     
-    if (isObjectPattern(left))
+    case 'ObjectPattern':
         return isUsedObjectPattern(isUsed, path, left);
+    }
 };
 
 const isUsedObjectPattern = (isUsed, path, node) => {

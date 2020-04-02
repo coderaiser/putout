@@ -18,11 +18,15 @@ const traverseObjectPattern = ({use, declare}) => {
             const {key} = path.node;
             const valuePath = path.get('value');
             
-            if (isIdentifier(key))
-                declare(path, key.name);
+            switch(key.type) {
+            case 'Identifier':
+                declare(path, key.name)
+            };
             
-            if (valuePath.isAssignmentPattern())
+            switch(valuePath.type) {
+            case 'AssignmentPattern':
                 traverseAssign(valuePath);
+            }
         }
     };
 };
@@ -53,10 +57,11 @@ const processObjectPattern = ({use, declare}) => {
                 
                 const leftPath = path.get('value.left');
                 
-                if (leftPath.isIdentifier())
+                switch(leftPath.type) {
+                case 'Identifier':
                     declare(path, leftPath.node.name);
-                
-                continue;
+                    continue;
+                }
             }
         }
     };

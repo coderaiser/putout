@@ -13,9 +13,12 @@ module.exports = ({use, declare}) => ({
     },
     QualifiedTypeIdentifier(path) {
         const {qualification} = path.node;
+        const {type} = qualification;
         
-        if (isIdentifier(qualification))
-            use(path, qualification.name);
+        switch(type) {
+        case 'Identifier':
+            return use(path, qualification.name);
+        }
     },
     
     InterfaceDeclaration(path) {

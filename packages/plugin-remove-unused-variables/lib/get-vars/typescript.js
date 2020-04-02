@@ -6,24 +6,30 @@ const {isIdentifier} = types;
 module.exports = ({use, declare}) => ({
     TSExpressionWithTypeArguments(path) {
         const {expression} = path.node;
+        const {type} = expression;
         
-        if (isIdentifier(expression))
-            use(path, expression.name);
+        switch(type) {
+        case 'Identifier': use(path, expression.name);
+        }
     },
     TSTypeReference(path) {
         const {node} = path;
         const {typeName} = node;
+        const {type} = typeName;
         
-        if (isIdentifier(typeName))
-            use(path, typeName.name);
+        switch(type) {
+        case 'Identifier': use(path, typeName.name);
+        }
     },
     
     TSQualifiedName(path) {
         const {node} = path;
         const {left} = node;
+        const {type} = left;
         
-        if (isIdentifier(left))
-            use(path, left.name);
+        switch(type) {
+        case 'Identifier': use(path, left.name)
+        }
     },
     
     TSInterfaceDeclaration(path) {
@@ -40,7 +46,10 @@ module.exports = ({use, declare}) => ({
                 continue;
             }
             
-            if (paramPath.isRestElement()) {
+            const {type} = paramPath;
+            
+            switch(type) {
+            case 'RestElement':
                 use(paramPath, paramPath.node.argument.name);
                 continue;
             }

@@ -13,7 +13,7 @@ const {
     usePropertiesBeforeRest,
 } = require('./use-params');
 
-module.exports = (ast, opts = {}) => {
+module.exports = (ast, opts) => {
     const vars = {};
     const allParams = [];
     const {setPath, traverse} = opts;
