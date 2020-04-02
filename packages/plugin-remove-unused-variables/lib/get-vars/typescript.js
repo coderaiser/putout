@@ -1,8 +1,5 @@
 'use strict';
 
-const {types} = require('putout');
-const {isIdentifier} = types;
-
 module.exports = ({use, declare}) => ({
     TSExpressionWithTypeArguments(path) {
         const {expression} = path.node;
@@ -28,7 +25,7 @@ module.exports = ({use, declare}) => ({
         const {type} = left;
         
         switch(type) {
-        case 'Identifier': use(path, left.name)
+        case 'Identifier': use(path, left.name);
         }
     },
     

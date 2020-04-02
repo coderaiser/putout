@@ -20,8 +20,8 @@ const traverseObjectPattern = ({use, declare}) => {
             
             switch(key.type) {
             case 'Identifier':
-                declare(path, key.name)
-            };
+                declare(path, key.name);
+            }
             
             switch(valuePath.type) {
             case 'AssignmentPattern':

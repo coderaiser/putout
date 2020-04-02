@@ -3,7 +3,6 @@
 const {types} = require('putout');
 
 const {
-    isAssignmentPattern,
     isIdentifier,
     isObjectPattern,
     isRestElement,

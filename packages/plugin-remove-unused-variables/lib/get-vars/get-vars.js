@@ -77,6 +77,7 @@ module.exports = ({use, declare, addParams}) => {
         RestElement(path) {
             const {argument} = path.node;
             
+            /* istanbul ignore else */
             if (isIdentifier(argument))
                 declare(path, argument.name);
         },
@@ -87,6 +88,7 @@ module.exports = ({use, declare, addParams}) => {
             const idPath = path.get('id');
             const isForIn = path.parentPath.parentPath.isForInStatement();
             
+            /* istanbul ignore else */
             if (isIdentifier(node.id)) {
                 declare(path, node.id.name);
                 isForIn && use(path, node.id.name);
@@ -254,6 +256,7 @@ module.exports = ({use, declare, addParams}) => {
             if (isIdentifier(object))
                 use(path, object.name);
             
+            /* istanbul ignore else */
             if (isIdentifier(property))
                 use(path, property.name);
         },
@@ -281,6 +284,7 @@ module.exports = ({use, declare, addParams}) => {
         TaggedTemplateExpression(path) {
             const {tag} = path.node;
             
+            /* istanbul ignore else */
             if (isIdentifier(tag))
                 use(path, tag.name);
         },
@@ -288,6 +292,7 @@ module.exports = ({use, declare, addParams}) => {
         UnaryExpression(path) {
             const {argument} = path.node;
             
+            /* istanbul ignore else */
             if (isIdentifier(argument))
                 use(path, argument.name);
         },
@@ -295,6 +300,7 @@ module.exports = ({use, declare, addParams}) => {
         UpdateExpression(path) {
             const {argument} = path.node;
             
+            /* istanbul ignore else */
             if (isIdentifier(argument))
                 use(path, argument.name);
         },
@@ -321,6 +327,7 @@ module.exports = ({use, declare, addParams}) => {
             if (isIdentifier(left))
                 use(path, left.name);
             
+            /* istanbul ignore else */
             if (isIdentifier(right))
                 use(path, right.name);
         },
@@ -389,6 +396,7 @@ module.exports = ({use, declare, addParams}) => {
             for (const paramPath of paramsPaths) {
                 const {node} = paramPath;
                 
+                /* istanbul ignore else */
                 if (isIdentifier(node)) {
                     declare(paramPath, node.name);
                     continue;
@@ -438,6 +446,7 @@ module.exports = ({use, declare, addParams}) => {
             for (const specPath of specifierPaths) {
                 const {local} = specPath.node;
                 
+                /* istanbul ignore else */
                 if (isIdentifier(local))
                     declare(specPath, local.name);
             }
@@ -485,6 +494,7 @@ module.exports = ({use, declare, addParams}) => {
                 const {declarations} = declaration;
                 
                 for (const {id} of declarations) {
+                    /* istanbul ignore else */
                     if (isIdentifier(id))
                         use(path, id.name);
                 }
@@ -493,6 +503,7 @@ module.exports = ({use, declare, addParams}) => {
             }
             
             for (const {local} of specifiers) {
+                /* istanbul ignore else */
                 if (isIdentifier(local))
                     use(path, local.name);
             }
@@ -532,6 +543,7 @@ module.exports = ({use, declare, addParams}) => {
                     continue;
                 }
                 
+                /* istanbul ignore else */
                 if (isObjectPattern(node)) {
                     processObj(paramPath.get('properties'));
                     continue;
