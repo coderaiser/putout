@@ -50,10 +50,7 @@ const addVariable = (vars) => (path, name) => {
     const {uid} = findClassName(path);
     const id = `${uid}-${name}`;
     
-    if (!vars[id])
-        vars[id] = {};
-    
-    vars[id] = {
+    vars[id] = vars[id] || {
         path,
         name,
     };
