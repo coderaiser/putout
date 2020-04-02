@@ -9,7 +9,6 @@ const {replaceWith} = operator;
 
 const {
     isIdentifier,
-    isClassMethod,
     identifier,
     functionDeclaration,
 } = types;
@@ -41,8 +40,7 @@ module.exports = (path) => {
             continue;
         }
         
-        if (isClassMethod(item))
-            funcs.push(createFunction(item.key, item.params, item.body));
+        funcs.push(createFunction(item.key, item.params, item.body));
     }
     
     replaceWith(path, render);

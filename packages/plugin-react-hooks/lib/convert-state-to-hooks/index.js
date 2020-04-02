@@ -18,8 +18,7 @@ module.exports.report = (path) => {
     if (isVarFromState(path))
         return 'hooks should be used instead of this.state';
     
-    if (isThisSetState(path))
-        return 'hooks should be used instead of this.setState';
+    return 'hooks should be used instead of this.setState';
 };
 
 module.exports.fix = (path) => {
@@ -29,8 +28,7 @@ module.exports.fix = (path) => {
     if (isVarFromState(path))
         return path.remove();
     
-    if (isThisSetState(path))
-        return setStateToHooks(path);
+    return setStateToHooks(path);
 };
 
 module.exports.find = (ast, {push, traverse}) => {
