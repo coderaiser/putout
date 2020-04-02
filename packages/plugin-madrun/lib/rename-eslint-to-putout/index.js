@@ -10,13 +10,16 @@ const replace = (a) => a
 module.exports.report = () => `"putout" should be used instead of "eslint"`;
 
 module.exports.fix = (path) => {
-    const {value} = path.node;
+    const {node} = path;
+    const {type, value} = node;
     
-    if (path.isStringLiteral())
-        return path.node.value = replace(value);
+    switch(type) {
+    case 'StringLiteral':
+        return node.value = replace(value);
     
-    if (path.isTemplateElement())
-        return path.node.value.raw = replace(value.raw);
+    case 'TemplateElement':
+        return node.value.raw = replace(value.raw);
+    }
 };
 
 module.exports.traverse = ({push}) => {
