@@ -26,6 +26,13 @@ ruleTester.run('align-spaces', rule, {
             '    return resutl;',
             '}',
         ].join('\n'),
+        output: [
+            'function hello() {',
+            '    const result = [];',
+            '    ',
+            '    return resutl;',
+            '}',
+        ].join('\n'),
         errors: [{
             message: 'Spaces should be aligned on empty lines',
             type: 'Program',
