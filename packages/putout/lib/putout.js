@@ -116,9 +116,6 @@ module.exports.template = template;
 module.exports.generate = generate;
 module.exports.initReport = require('./report');
 
-// DEPRECATED and will we removed in next MAJOR release
-module.exports.operate =
-
 module.exports.operator = {
     ...require('@putout/operate'),
     ...require('@putout/compare'),
