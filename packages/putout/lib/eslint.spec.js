@@ -3,15 +3,13 @@
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
-const tryCatch = require('try-catch');
 
 const eslint = require('./eslint');
 
 const {reRequire, stopAll} = mockRequire;
-const {assign} = Object;
 
-test('putout: eslint: places', (t) => {
-    const [, result] = eslint({
+test('putout: eslint: places', async (t) => {
+    const [, result] = await eslint({
         name: 'hello.js',
         code: `const t = 'hi'\n`,
         fix: false,
@@ -30,13 +28,13 @@ test('putout: eslint: places', (t) => {
     t.end();
 });
 
-test('putout: eslint: config file', (t) => {
+test('putout: eslint: config file', async (t) => {
     const {ESLINT_CONFIG_FILE} = process.env;
     
     process.env.ESLINT_CONFIG_FILE = 'hello.js';
     
     const eslint = reRequire('./eslint');
-    const [, places] = eslint({
+    const [, places] = await eslint({
         name: 'hello.js',
         code: `const t = 'hi'\n`,
         fix: false,
@@ -47,25 +45,27 @@ test('putout: eslint: config file', (t) => {
     
     process.env.ESLINT_CONFIG_FILE = ESLINT_CONFIG_FILE;
     
+    stopAll();
+    
     t.ok(/^Cannot read config file/.test(message));
     t.end();
 });
 
-test('putout: eslint: fix', (t) => {
-    const [result] = eslint({
+test('putout: eslint: fix', async (t) => {
+    const [result] = await eslint({
         name: 'hello.js',
         code: `const t = 'hi'\n`,
         fix: true,
     });
     
-    const expected = `const t = 'hi';\n`;
+    const expected = `const t = 'hi'\n`;
     
     t.deepEqual(result, expected);
     t.end();
 });
 
-test('putout: eslint: fix: same', (t) => {
-    const [result] = eslint({
+test('putout: eslint: fix: same', async (t) => {
+    const [result] = await eslint({
         name: 'hello.js',
         code: `const t = 'hi';`,
         fix: false,
@@ -77,49 +77,21 @@ test('putout: eslint: fix: same', (t) => {
     t.end();
 });
 
-test('putout: eslint: fix: cache', (t) => {
-    const [result] = eslint({
+test('putout: eslint: fix: cache', async (t) => {
+    const [result] = await eslint({
         name: 'hello.js',
         code: `const t = 'hi'\n`,
         fix: true,
     });
     
-    const expected = `const t = 'hi';\n`;
+    const expected = `const t = 'hi'\n`;
     
     t.deepEqual(result, expected);
     t.end();
 });
 
-test('putout: eslint: loadPlugin: namespace', (t) => {
-    const {_loadPlugin} = eslint;
-    
-    const resolve = stub().returns('@babel/eslint-plugin-development');
-    const require = assign(stub(), {
-        resolve,
-    });
-    
-    _loadPlugin('@babel/development', require);
-    
-    t.ok(require.calledWith('@babel/eslint-plugin-development'), 'should call require');
-    t.end();
-});
-
-test('putout: eslint: loadPlugin', (t) => {
-    const {_loadPlugin} = eslint;
-    
-    const resolve = stub().returns('eslint-plugin-putout');
-    const require = assign(stub(), {
-        resolve,
-    });
-    
-    _loadPlugin('putout', require);
-    
-    t.ok(require.calledWith('eslint-plugin-putout'), 'should call require');
-    t.end();
-});
-
 test('putout: eslint: no config error', (t) => {
-    const {_noConfigFound} = eslint;
+    const {_noConfigFound} = reRequire('./eslint');
     
     const result = _noConfigFound(null, {
         messageTemplate: 'no-config-found',
@@ -130,7 +102,7 @@ test('putout: eslint: no config error', (t) => {
 });
 
 test('putout: eslint: no config', (t) => {
-    const {_noConfigFound} = eslint;
+    const {_noConfigFound} = reRequire('./eslint');
     
     const config = {
         rules: {},
@@ -142,8 +114,8 @@ test('putout: eslint: no config', (t) => {
     t.end();
 });
 
-test('putout: eslint: parsing error', (t) => {
-    const [, result] = eslint({
+test('putout: eslint: parsing error', async (t) => {
+    const [, result] = await eslint({
         name: 'hello.js',
         code: `const t`,
         fix: false,
@@ -162,10 +134,10 @@ test('putout: eslint: parsing error', (t) => {
     t.end();
 });
 
-test('putout: eslint: config error: plugin missing', (t) => {
+test('putout: eslint: config error: plugin missing', async (t) => {
     const _eslint = require('eslint');
     
-    const getConfigForFile = () => {
+    const calculateConfigForFile = async () => {
         const error = Error('hello');
         error.messageTemplate = 'plugin-missing';
         error.messageData = {
@@ -175,20 +147,20 @@ test('putout: eslint: config error: plugin missing', (t) => {
         throw error;
     };
     
-    const executeOnText = stub();
-    const CLIEngine = stub().returns({
-        getConfigForFile,
-        executeOnText,
+    const lintText = stub();
+    const ESLint = stub().returns({
+        calculateConfigForFile,
+        lintText,
     });
     
     mockRequire('eslint', {
         ..._eslint,
-        CLIEngine,
+        ESLint,
     });
     
     const eslint = reRequire('./eslint');
     
-    const [, places] = eslint({
+    const [, places] = await eslint({
         name: 'hello.js',
         code: `const t`,
         fix: false,
@@ -209,10 +181,10 @@ test('putout: eslint: config error: plugin missing', (t) => {
     t.end();
 });
 
-test('putout: eslint: config error', (t) => {
+test('putout: eslint: config error', async (t) => {
     const _eslint = require('eslint');
     
-    const getConfigForFile = () => {
+    const calculateConfigForFile = async () => {
         const error = Error('hello');
         error.messageTemplate = 'some error';
         error.messageData = {
@@ -222,20 +194,20 @@ test('putout: eslint: config error', (t) => {
         throw error;
     };
     
-    const executeOnText = stub();
-    const CLIEngine = stub().returns({
-        getConfigForFile,
-        executeOnText,
+    const lintText = stub();
+    const ESLint = stub().returns({
+        calculateConfigForFile,
+        lintText,
     });
     
     mockRequire('eslint', {
         ..._eslint,
-        CLIEngine,
+        ESLint,
     });
     
     const eslint = reRequire('./eslint');
     
-    const [, places] = eslint({
+    const [, places] = await eslint({
         name: 'hello.js',
         code: `const t`,
         fix: false,
@@ -256,11 +228,12 @@ test('putout: eslint: config error', (t) => {
     t.end();
 });
 
-test('putout: eslint: no config found', (t) => {
+test('putout: eslint: no config found', async (t) => {
     const _eslint = require('eslint');
     
-    const getConfigForFile = () => {
+    const calculateConfigForFile = async () => {
         const error = Error('hello');
+        
         error.messageTemplate = 'no-config-found';
         error.messageData = {
             pluginName: 'zzz',
@@ -269,20 +242,20 @@ test('putout: eslint: no config found', (t) => {
         throw error;
     };
     
-    const executeOnText = stub();
-    const CLIEngine = stub().returns({
-        getConfigForFile,
-        executeOnText,
+    const lintText = stub();
+    const ESLint = stub().returns({
+        calculateConfigForFile,
+        lintText,
     });
     
     mockRequire('eslint', {
         ..._eslint,
-        CLIEngine,
+        ESLint,
     });
     
     const eslint = reRequire('./eslint');
     
-    const [, places] = eslint({
+    const [, places] = await eslint({
         name: 'hello.js',
         code: `const t`,
         fix: false,
@@ -294,75 +267,64 @@ test('putout: eslint: no config found', (t) => {
     t.end();
 });
 
-test('putout: eslint: parser', (t) => {
+test('putout: eslint: config: putout', async (t) => {
     const _eslint = require('eslint');
     
-    const getConfigForFile = stub().returns({
-        parser: 'hello',
-        rules: {
-            hello: 'off',
-        },
-    });
+    const calculateConfigForFile = async () => {
+        return {
+            rules: {
+                'putout/remove-unused-variabls': 'error',
+            },
+        };
+    };
     
-    const executeOnText = stub();
-    const CLIEngine = stub().returns({
-        getConfigForFile,
-        executeOnText,
+    const lintText = stub().returns([]);
+    const ESLint = stub().returns({
+        calculateConfigForFile,
+        lintText,
     });
     
     mockRequire('eslint', {
         ..._eslint,
-        CLIEngine,
+        ESLint,
     });
     
     const eslint = reRequire('./eslint');
     
-    const [error] = tryCatch(eslint, {
+    const [, places] = await eslint({
+        name: 'hello.js',
+        code: `const t`,
+        fix: false,
+    });
+    
+    stopAll();
+    
+    t.notOk(places.length);
+    t.end();
+});
+
+test('putout: eslint: parser', async (t) => {
+    const [, places] = await eslint({
         name: 'hello.js',
         code: `const t`,
         fix: true,
     });
     
-    stopAll();
+    const {message} = places[0];
     
-    t.ok(/^Cannot find module 'hello'/.test(error.message));
+    t.equal(message, 'Parsing error: Unexpected token');
     t.end();
 });
 
-test('putout: eslint: no places', (t) => {
-    const _eslint = require('eslint');
-    
-    const getConfigForFile = stub().returns({
-        plugins: [],
-        rules: {
-            hello: 'off',
-        },
-    });
-    
-    const executeOnText = stub().returns({
-        results: [],
-    });
-    
-    const CLIEngine = stub().returns({
-        getConfigForFile,
-        executeOnText,
-    });
-    
-    mockRequire('eslint', {
-        ..._eslint,
-        CLIEngine,
-    });
-    
+test('putout: eslint: output', async (t) => {
     const eslint = reRequire('./eslint');
-    
-    const [, places] = eslint({
+    const [source] = await eslint({
         name: 'hello.js',
-        code: `var t = "hello"`,
-        fix: false,
+        code: `const a = 1;`,
+        fix: true,
     });
     
-    stopAll();
-    
-    t.notOk(places.length);
+    t.equal(source, 'const a = 1;');
     t.end();
 });
+

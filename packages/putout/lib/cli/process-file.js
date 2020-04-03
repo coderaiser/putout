@@ -37,7 +37,7 @@ function getOptions({noOptions, name, rulesdir}) {
     });
 }
 
-module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noOptions}) => (name, index, {length}) => {
+module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noOptions}) => async (name, index, {length}) => {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
@@ -104,7 +104,7 @@ module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, is
             return places;
         
         const rawOrFixed = fix ? code : source;
-        const [newCode, newPlaces] = eslint({
+        const [newCode, newPlaces] = await eslint({
             name,
             code: rawOrFixed,
             fix,

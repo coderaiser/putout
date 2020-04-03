@@ -82,7 +82,7 @@ test('putout: cli: process-file: eslint', (t) => {
     t.end();
 });
 
-test('putout: cli: process-file: fileCache.removeEntry', (t) => {
+test('putout: cli: process-file: fileCache.removeEntry', async (t) => {
     const eslint = stub().returns(['', []]);
     const {
         readFileSync,
@@ -120,7 +120,7 @@ test('putout: cli: process-file: fileCache.removeEntry', (t) => {
         fileCache,
     });
     
-    fn('example.js', 0, {
+    await fn('example.js', 0, {
         length: 1,
     });
     
@@ -134,7 +134,7 @@ test('putout: cli: process-file: fileCache.removeEntry', (t) => {
     t.end();
 });
 
-test('putout: cli: process-file: writeFileSync', (t) => {
+test('putout: cli: process-file: writeFileSync', async (t) => {
     const eslint = stub().returns(['', []]);
     const {
         readFileSync,
@@ -173,7 +173,7 @@ test('putout: cli: process-file: writeFileSync', (t) => {
         fileCache,
     });
     
-    fn('example.js', 0, {
+    await fn('example.js', 0, {
         length: 1,
     });
     

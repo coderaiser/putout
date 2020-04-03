@@ -141,9 +141,18 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         noOptions: !args.options,
     };
     
-    const places = files
-        .map(processFile(options))
-        .filter(Boolean);
+    const rawPlaces = [];
+    
+    const process = processFile(options);
+    const {length} = files;
+    
+    for (let i = 0; i < length; i++) {
+        const file = files[i];
+        const place = await process(file, i, {length});
+        rawPlaces.push(place);
+    }
+    
+    const places = rawPlaces.filter(Boolean);
     
     const mergedPlaces = merge(...places);
     

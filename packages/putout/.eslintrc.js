@@ -19,7 +19,7 @@ module.exports = {
             'no-console': 0,
         },
     }, {
-        files: ['lib/parsers/**'],
+        files: ['lib/**/*.spec.js', '.webpack/**/*.js'],
         rules: {
             'node/no-unpublished-require': 'off',
         },

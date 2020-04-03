@@ -1,12 +1,11 @@
 'use strict';
 
-const {CLIEngine, Linter} = require('eslint');
+const {ESLint} = require('eslint');
 const once = require('once');
-const tryCatch = require('try-catch');
+const tryToCatch = require('try-to-catch');
 
-const {keys, entries} = Object;
-const cwd = process.cwd();
-const configFile = process.env.ESLINT_CONFIG_FILE;
+const {keys} = Object;
+const overrideConfigFile = process.env.ESLINT_CONFIG_FILE;
 
 const noConfigFound = (config, configError) => {
     if (configError && configError.messageTemplate === 'no-config-found')
@@ -25,84 +24,43 @@ const cutNewLine = ({message}) => ({
     message: message.replace(/\n.*/, ''),
 });
 
-const getCli = once(() => {
-    const cli = new CLIEngine({
-        ignorePattern: '!.*',
-        ...configFile && {
-            configFile,
+const getESLint = once(({fix}) => {
+    const eslint = new ESLint({
+        fix,
+        overrideConfig: {
+            ignorePatterns: [
+                '!.*',
+            ],
+        },
+        ...overrideConfigFile && {
+            overrideConfigFile,
             useEslintrc: false,
         },
     });
     
     return {
-        getConfigForFile: cli.getConfigForFile.bind(cli),
-        executeOnText: cli.executeOnText.bind(cli),
+        calculateConfigForFile: eslint.calculateConfigForFile.bind(eslint),
+        lintText: eslint.lintText.bind(eslint),
     };
 });
 
-const loadPlugin = (name, require) => {
-    if (name.includes('@'))
-        name = name.replace('/', '/eslint-plugin-');
-    else
-        name = `eslint-plugin-${name}`;
-    
-    const path = require.resolve(name, {
-        paths: [
-            cwd,
-        ],
-    });
-    
-    return require(path);
-};
-
-const getPluginsStore = once(() => {
-    const cache = {};
-    
-    return (name) => {
-        if (cache[name])
-            return cache[name];
-        
-        const {rules} = loadPlugin(name, require);
-        
-        cache[name] = {};
-        for (const [rule, fn] of entries(rules)) {
-            const fullRule = `${name}/${rule}`;
-            
-            cache[name][fullRule] = fn;
-        }
-        
-        return cache[name];
-    };
-});
-
-const getLinter = (plugins, parser) => {
-    const linter = new Linter();
-    const pluginsStore = getPluginsStore();
-    
-    if (parser)
-        linter.defineParser(parser, require(parser));
-    
-    for (const name of plugins)
-        linter.defineRules(pluginsStore(name));
-    
-    return linter;
-};
-
-module.exports = ({name, code, fix}) => {
+module.exports = async ({name, code, fix}) => {
     const noChanges = [
         code,
         [],
     ];
     
-    const [cliError, cli] = tryCatch(getCli);
+    const [eslintError, eslint] = await tryToCatch(getESLint, {
+        fix,
+    });
     
-    if (cliError)
+    if (eslintError)
         return [
             code,
-            [convertToPlace(cutNewLine(cliError))],
+            [convertToPlace(cutNewLine(eslintError))],
         ];
     
-    const [configError, config] = tryCatch(cli.getConfigForFile, name);
+    const [configError, config] = await tryToCatch(eslint.calculateConfigForFile, name);
     
     if (noConfigFound(config, configError))
         return noChanges;
@@ -116,32 +74,25 @@ module.exports = ({name, code, fix}) => {
     
     disablePutout(config);
     
-    if (fix) {
-        const {plugins, parser} = config;
-        const {output, messages} = getLinter(plugins, parser)
-            .verifyAndFix(code, config);
-        
-        return [
-            output,
-            messages.map(convertToPlace),
-        ];
-    }
-    
-    const {results} = cli.executeOnText(code, name);
+    // that's right, we disabled "putout" rules in "config"
+    // and now it is in eslint's cache
+    const results = await eslint.lintText(code, {
+        filePath: name,
+    });
     
     if (!results.length)
         return noChanges;
     
     const [report] = results;
+    const {output} = report;
     const places = report.messages.map(convertToPlace);
     
     return [
-        code,
+        output || code,
         places,
     ];
 };
 
-module.exports._loadPlugin = loadPlugin;
 module.exports._noConfigFound = noConfigFound;
 
 function convertToPlace({ruleId = 'parser', message, line = 'x', column = 'x'}) {
