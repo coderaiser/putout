@@ -106,7 +106,7 @@
     "@putout/plugin-strict-mode": "^1.0.0",
     "@putout/traverse": "^1.0.0",
     "array-union": "^2.0.0",
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "debug": "^4.1.1",
     "deepmerge": "^4.0.0",
     "error-stack-parser": "^2.0.6",
