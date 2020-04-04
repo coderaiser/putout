@@ -20,6 +20,7 @@ const {ignores} = putout;
 const cwd = process.cwd();
 
 const getFormatter = once(_getFormatter);
+const isParsingError = ({rule}) => rule === 'eslint/null';
 const stub = () => () => {};
 
 function getOptions({noOptions, name, rulesdir}) {
@@ -42,7 +43,6 @@ module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, is
     const options = getOptions({
         name: resolvedName,
         rulesdir,
-        
         noOptions,
     });
     
@@ -110,7 +110,11 @@ module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, is
         });
         
         allPlaces.push(...newPlaces);
-        fileCache.setInfo(resolvedName, allPlaces, options);
+        
+        const fixable = !newPlaces.filter(isParsingError).length;
+        
+        if (fixable)
+            fileCache.setInfo(resolvedName, allPlaces, options);
         
         if (fix && source !== newCode) {
             fileCache.removeEntry(resolvedName);

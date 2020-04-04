@@ -241,7 +241,7 @@ test('putout: cli: process-file: cache', (t) => {
     t.end();
 });
 
-test('putout: cli: process-file: eslint: parse error', (t) => {
+test('putout: cli: process-file: parse error', (t) => {
     const {readFileSync} = fs;
     
     const code = 'var x = 5;';
@@ -315,3 +315,58 @@ test('putout: cli: process-file: eslint: parse error', (t) => {
     t.end();
 });
 
+test('putout: cli: process-file: parser error: eslint', (t) => {
+    const eslint = stub().returns(['', [{
+        rule: 'eslint/null',
+        message: 'Parsing error: Unexpected token ?',
+        position: {line: 331, column: 34},
+    }]]);
+    
+    const {
+        readFileSync,
+        writeFileSync,
+    } = fs;
+    
+    const code = 'var x = 5';
+    const fix = true;
+    const log = stub();
+    const ruler = {};
+    const write = stub();
+    const writeFileSyncStub = stub();
+    const fileCache = {
+        canUseCache: stub().returns(false),
+        removeEntry: stub(),
+        setInfo: stub(),
+        getPlaces: stub().returns([]),
+    };
+    
+    mockRequire('../eslint', eslint);
+    
+    fs.writeFileSync = writeFileSyncStub;
+    fs.readFileSync = (name, options) => {
+        if (name === 'example.js')
+            return code;
+        
+        return readFileSync(name, options);
+    };
+    
+    const processFile = reRequire('./process-file');
+    const fn = processFile({
+        fix,
+        log,
+        ruler,
+        write,
+        fileCache,
+    });
+    
+    fn('example.js', 0, {
+        length: 1,
+    });
+    
+    stopAll();
+    fs.readFileSync = readFileSync;
+    fs.writeFileSync = writeFileSync;
+    
+    t.notOk(fileCache.setInfo.called, 'should not call fileCache.setInfo');
+    t.end();
+});
