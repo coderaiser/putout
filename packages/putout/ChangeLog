@@ -1,3 +1,26 @@
+2020.04.04, v7.20.4
+
+fix:
+- (putout) process-file: avoid cache when eslint parser error
+- feature(@putout/plugin-putout) add fixType
+- feature(@putout/plugin-madrun) rename-eslint-to-putout: : if -> switch
+- (@putout/plugin-putout) rm unused propertyPath
+- (@putout/plugin-extract-object-properties) rm unused
+- (@putout/plugin-extract-object-properties) npmignore: fixture
+- (@putout/plugin-extract-object-properties) npmignore: fixture
+
+feature:
+- (@putout/plugin-remove-unused-variables) if -> switch
+- (@putout/plugin-react-hooks) simplify
+- (@putout/plugin-putout) add fixType
+- (@putout/plugin-madrun) rename-eslint-to-putout: fix: if -> switch
+- (@putout/plugin-remove-unused-private-fields) simplify condition
+- (@putout/plugin-madrun) rm not coveraged code
+- (@putout/plugin-putout) convert-find-to-traverse: rm not covered code
+- (@putout/plugin-react-hooks) rm not coveraged by tests
+- (@putout/plugin-extract-object-properties) getTemplateValues
+
+
 2020.03.30, v7.20.3
 
 fix:
