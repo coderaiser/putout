@@ -51,6 +51,8 @@ Options:
   --jsx                   enable jsx (default)
   --flow                  enable flow
   --cache                 enable .putoutcache to speed up processing
+  --update-cache          enable .putoutcache to speed up processing from scratch
+  --remove-cache          remove .putoutcache
   --no-jsx                disable jsx
   --no-flow               disable flow (default)
 ```

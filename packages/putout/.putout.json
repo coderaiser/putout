@@ -1,4 +1,5 @@
 {
+    "parser": "acorn",
     "match": {
         "test/putout.js": {
             "apply-shorthand-properties": [{

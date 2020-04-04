@@ -1,12 +1,14 @@
 'use strict';
 
+const {unlinkSync} = require('fs');
+
 const fileEntryCache = require('file-entry-cache');
 const murmur = require('imurmurhash');
 const stringify = require('json-stringify-deterministic');
+const tryCatch = require('try-catch');
 
 const {version} = require('../../package.json');
 const containEslintPlugin = require('./cache-files/contain-eslint-plugin');
-
 const optionsHashCache = new WeakMap();
 const nodeVersion = process.version;
 
@@ -21,11 +23,18 @@ const defaultFileCache = {
     canUseCache: () => false,
 };
 
-module.exports = ({cache}) => {
+const CACHE_FILE = '.putoutcache';
+
+module.exports = ({cache, updateCache, removeCache}) => {
+    cache = cache || updateCache;
+    
+    if (updateCache || removeCache)
+        tryCatch(unlinkSync, CACHE_FILE);
+    
     if (!cache)
         return defaultFileCache;
     
-    const fileCache = fileEntryCache.createFromFile('.putoutcache');
+    const fileCache = fileEntryCache.createFromFile(CACHE_FILE);
     
     assign(fileCache, {
         getPlaces: getPlaces(fileCache),
@@ -38,6 +47,7 @@ module.exports = ({cache}) => {
 };
 
 module.exports._defaultFileCache = defaultFileCache;
+module.exports._CACHE_FILE = CACHE_FILE;
 
 const getPlaces = (fileCache) => (name) => fileCache.getFileDescriptor(name).meta.places;
 

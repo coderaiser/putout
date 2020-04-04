@@ -16,6 +16,8 @@ module.exports = ({argv, halt, log, write, logError}) => {
     const args = yargsParser(argv, {
         boolean: [
             'cache',
+            'update-cache',
+            'remove-cache',
             'version',
             'help',
             'fix',
@@ -54,6 +56,8 @@ module.exports = ({argv, halt, log, write, logError}) => {
             fix: false,
             fixCount: 10,
             options: true,
+            updateCache: false,
+            removeCache: false,
         },
     });
     
@@ -73,6 +77,8 @@ module.exports = ({argv, halt, log, write, logError}) => {
         renamed,
         modified,
         untracked,
+        updateCache,
+        removeCache,
     } = args;
     
     const exit = getExit({
@@ -121,11 +127,15 @@ module.exports = ({argv, halt, log, write, logError}) => {
     const fileCache = cacheFiles({
         files,
         cache: args.cache,
+        updateCache,
+        removeCache,
     });
     
     const options = {
         fix,
         fileCache,
+        updateCache,
+        removeCache,
         rulesdir,
         format,
         isFlow,

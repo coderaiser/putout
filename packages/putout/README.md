@@ -101,9 +101,11 @@ Options:
   --disable-all           disable all rules in .putout.json
   --jsx                   enable jsx (default)
   --flow                  enable flow
+  --cache                 enable .putoutcache to speed up processing
+  --update-cache          enable .putoutcache to speed up processing from scratch
+  --remove-cache          remove .putoutcache
   --no-jsx                disable jsx
   --no-flow               disable flow (default)
-  --cache                 enable .putoutcache to speed up processing
 ```
 
 To find erros:

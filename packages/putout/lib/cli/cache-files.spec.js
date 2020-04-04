@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs');
+
 const test = require('supertape');
 const mockRequire = require('mock-require');
 const stub = require('@cloudcmd/stub');
@@ -14,6 +16,25 @@ test('putout: cache-files: disabled: fileCache', (t) => {
     });
     
     t.equal(fileCache, cacheFiles._defaultFileCache);
+    t.end();
+});
+
+test('putout: cache-files: fileCache: updateCache', (t) => {
+    const {unlinkSync} = fs;
+    
+    const _unlinkSync = stub();
+    fs.unlinkSync = _unlinkSync;
+    
+    const cacheFiles = reRequire('./cache-files');
+    const {_CACHE_FILE} = cacheFiles;
+    
+    cacheFiles({
+        updateCache: true,
+    });
+    
+    fs.unlinkSync = unlinkSync;
+    
+    t.ok(_unlinkSync.calledWith(_CACHE_FILE));
     t.end();
 });
 

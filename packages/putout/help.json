@@ -17,5 +17,7 @@
     " --flow                ": "enable flow",
     " --no-jsx              ": "disable jsx",
     " --no-flow             ": "disable flow (default)",
-    " --cache               ": "enable .putoutcache to speed up processing"
+    " --cache               ": "enable .putoutcache to speed up processing",
+    " --update-cache        ": "enable .putoutcache to speed up processing from scratch",
+    " --remove-cache        ": "remove .putoutcache file"
 }
