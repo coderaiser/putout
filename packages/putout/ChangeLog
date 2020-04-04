@@ -1,3 +1,9 @@
+2020.04.04, v7.21.0
+
+feature:
+- (putout) add --update-cache, --remove-cache
+
+
 2020.04.04, v7.20.4
 
 fix:
