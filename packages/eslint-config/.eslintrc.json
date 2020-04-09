@@ -21,6 +21,7 @@
             "int32Hint": false
         }],
         "space-before-blocks": "error",
+        "space-before-function-paren": ["error", "never"],
         "prefer-arrow-callback": "error",
         "prefer-const": ["error", {
             "destructuring": "all"
