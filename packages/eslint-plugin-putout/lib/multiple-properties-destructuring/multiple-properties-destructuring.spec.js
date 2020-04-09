@@ -50,7 +50,7 @@ ruleTester.run('multiple-properties-destructuring', rule, {
                 sha
             } = this;
         `,
-        output:`
+        output: `
             const {
                 _filename,\n _story,
                 getValue,

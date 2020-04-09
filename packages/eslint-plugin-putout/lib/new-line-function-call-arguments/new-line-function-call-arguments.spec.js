@@ -93,7 +93,7 @@ ruleTester.run('new-line-function-call-arguments', rule, {
                     ...pick(state, 'showTransformPanel', 'parserSettings', 'parserPerCategory')
                 }
             };`,
-        output:`const f = () => {
+        output: `const f = () => {
                 return {
                     ...pick(\nstate,\n'showTransformPanel',\n'parserSettings',\n'parserPerCategory'\n)
                 }

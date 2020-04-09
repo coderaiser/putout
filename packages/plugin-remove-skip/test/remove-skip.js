@@ -2,7 +2,7 @@
 
 const removeSkip = require('..');
 const test = require('@putout/test')(__dirname, {
-    'remove-skip':  removeSkip,
+    'remove-skip': removeSkip,
 });
 
 test('plugin-remove-skip: report', (t) => {

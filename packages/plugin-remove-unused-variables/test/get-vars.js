@@ -277,7 +277,7 @@ test('remove-unused-variables: get-vars: call expression', (t) => {
     
     const expected = [{
         items: du,
-        console:_u,
+        console: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -377,7 +377,7 @@ test('remove-unused-variables: get-vars: call expression', (t) => {
     
     const expected = [{
         items: du,
-        console:_u,
+        console: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -426,7 +426,7 @@ test('remove-unused-variables: get-vars: object expression', (t) => {
         cherow: _u,
         module: _u,
         spreadExample: d_,
-        nestedProperty:d_,
+        nestedProperty: d_,
         arrayExample: d_,
         assignArrayExample: d_,
         computedExample: d_,
@@ -1221,7 +1221,7 @@ test('remove-unused-variables: get-vars: template literal', (t) => {
         msg: d_,
         console: _u,
         f: d_,
-        module:_u,
+        module: _u,
         assign: d_,
     }, {
         a: du,

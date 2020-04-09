@@ -8,6 +8,6 @@ module.exports.exclude = () => [
 
 module.exports.replace = () => ({
     'module.exports = __a': 'export default __a',
-    'module.exports.__a = __b' : 'export const __a = __b',
+    'module.exports.__a = __b': 'export const __a = __b',
 });
 

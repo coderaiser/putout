@@ -369,7 +369,7 @@ test('putout: runner: plugins: replace: template: infinite loop', (t) => {
         report: () => '',
         replace: () => ({
             'const __a = __b': 'let __a = __b',
-            'let __a = __b' : 'const __b = __a',
+            'let __a = __b': 'const __b = __a',
         }),
     };
     

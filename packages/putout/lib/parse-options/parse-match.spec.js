@@ -56,7 +56,7 @@ test('putout: parse-match: merge', (t) => {
     
     const match = {
         'lib': rulesLib,
-        'test|.spec.js':  rulesSpec,
+        'test|.spec.js': rulesSpec,
     };
     
     const expected = {
