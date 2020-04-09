@@ -15,6 +15,7 @@
         "arrow-parens": ["error", "always"],
         "arrow-spacing": "error",
         "comma-dangle": ["error", "always-multiline"],
+        "comma-spacing": "error",
         "eol-last": ["error", "always"],
         "function-paren-newline": ["error", "multiline-arguments"],
         "space-infix-ops": ["error", {

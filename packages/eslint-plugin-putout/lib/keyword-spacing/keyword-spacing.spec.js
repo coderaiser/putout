@@ -19,7 +19,7 @@ ruleTester.run('keyword-spacing', rule, {
         try {
         } catch(e) {
         }
-    `,`
+    `, `
         switch(x) {
         case 1:
             break;
