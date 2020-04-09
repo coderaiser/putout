@@ -21,7 +21,11 @@
             "int32Hint": false
         }],
         "space-before-blocks": "error",
-        "space-before-function-paren": ["error", "never"],
+        "space-before-function-paren": ["error", {
+            "anonymous": "never",
+            "named": "never",
+            "asyncArrow": "always"
+        }],
         "prefer-arrow-callback": "error",
         "prefer-const": ["error", {
             "destructuring": "all"
