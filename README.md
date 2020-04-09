@@ -1100,7 +1100,7 @@ Install `eslint-plugin-putout` with:
 npm i eslint eslint-plugin-putout -D
 ```
 
-Then create `eslintrc.json`:
+Then create `.eslintrc.json`:
 
 ```json
 {
@@ -1116,7 +1116,13 @@ Then create `eslintrc.json`:
 And use with `putout` this way:
 
 ```sh
-putout --fix lib && eslint --fix lib
+putout --fix lib
+```
+
+To set custom `eslint config file` use `ESLINT_CONFIG_FILE` env variable:
+
+```sh
+ESLINT_CONFIG_FILE=test.eslintrc.json putout --fix lib
 ```
 
 You can even use only `eslint`, because `putout` bundled to `eslint-plugin-putout` with:

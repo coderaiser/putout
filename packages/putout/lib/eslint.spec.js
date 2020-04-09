@@ -30,6 +30,27 @@ test('putout: eslint: places', (t) => {
     t.end();
 });
 
+test('putout: eslint: config file', (t) => {
+    const {ESLINT_CONFIG_FILE} = process.env;
+    
+    process.env.ESLINT_CONFIG_FILE = 'hello.js';
+    
+    const eslint = reRequire('./eslint');
+    const [, places] = eslint({
+        name: 'hello.js',
+        code: `const t = 'hi'\n`,
+        fix: false,
+    });
+    
+    const [place] = places;
+    const {message} = place;
+    
+    process.env.ESLINT_CONFIG_FILE = ESLINT_CONFIG_FILE;
+    
+    t.ok(/^Cannot read config file/.test(message));
+    t.end();
+});
+
 test('putout: eslint: fix', (t) => {
     const [result] = eslint({
         name: 'hello.js',

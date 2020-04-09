@@ -6,6 +6,7 @@ const tryCatch = require('try-catch');
 
 const {keys, entries} = Object;
 const cwd = process.cwd();
+const configFile = process.env.ESLINT_CONFIG_FILE;
 
 const noConfigFound = (config, configError) => {
     if (configError && configError.messageTemplate === 'no-config-found')
@@ -20,9 +21,17 @@ const noConfigFound = (config, configError) => {
     return false;
 };
 
+const cutNewLine = ({message}) => ({
+    message: message.replace(/\n.*/, ''),
+});
+
 const getCli = once(() => {
     const cli = new CLIEngine({
         ignorePattern: '!.*',
+        ...configFile && {
+            configFile,
+            useEslintrc: false,
+        },
     });
     
     return {
@@ -85,7 +94,14 @@ module.exports = ({name, code, fix}) => {
         [],
     ];
     
-    const cli = getCli();
+    const [cliError, cli] = tryCatch(getCli);
+    
+    if (cliError)
+        return [
+            code,
+            [convertToPlace(cutNewLine(cliError))],
+        ];
+    
     const [configError, config] = tryCatch(cli.getConfigForFile, name);
     
     if (noConfigFound(config, configError))
