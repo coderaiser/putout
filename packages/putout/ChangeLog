@@ -1,3 +1,17 @@
+2020.04.10, v7.22.0
+
+fix:
+- (@putout/eslint-config) space-before-function-paren: keep space after async
+
+feature:
+- (putout) add ESLINT_CONFIG_FILE support
+- (@putout/plugin-extract-object-properties) avoid extract of variables binded in outer scope
+- (@putout/eslint-config) add lines-between-class-members
+- (@putout/eslint-config) add key-spacing
+- (@putout/eslint-config) add comma-spacing
+- (@putout/eslint-config) add space-before-function-paren
+
+
 2020.04.04, v7.21.0
 
 feature:
