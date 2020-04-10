@@ -59,3 +59,8 @@ test('plugin-extract-object-properties: transform: same', (t) => {
     t.end();
 });
 
+test('plugin-extract-object-properties: transform: scope', (t) => {
+    t.noTransform('scope');
+    t.end();
+});
+

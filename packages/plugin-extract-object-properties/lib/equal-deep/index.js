@@ -8,6 +8,7 @@ const {
 } = require('putout');
 
 const {
+    findBinding,
     replaceWith,
     getTemplateValues,
 } = operator;
@@ -50,8 +51,11 @@ module.exports.find = (ast, {traverse}) => {
     traverse(ast, {
         'const __object = __a.__b'(fullPath) {
             const {node} = fullPath;
-            const {__a} = getTemplateValues(node, 'const __object = __a.__b');
+            const {__a, __b} = getTemplateValues(node, 'const __object = __a.__b');
             const path = fullPath.get('declarations.0.init');
+            
+            if (findBinding(fullPath, __b.name))
+                return;
             
             if (isIdentifier(__a))
                 return add({
@@ -74,31 +78,15 @@ module.exports.find = (ast, {traverse}) => {
     return filter(processed);
 };
 
-function getName(path) {
-    return path.node.property.name;
-}
-
 function filter(all) {
     const result = [];
     
     for (const {name, path, items} of all) {
-        let isBind = false;
-        
-        for (const item of items) {
-            const name = getName(item);
-            
-            isBind = item.scope.bindings[name];
-            
-            if (isBind)
-                break;
-        }
-        
-        if (!isBind)
-            result.push({
-                name,
-                path,
-                items,
-            });
+        result.push({
+            name,
+            path,
+            items,
+        });
     }
     
     return result;
