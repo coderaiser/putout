@@ -17,7 +17,6 @@
         "comma-dangle": ["error", "always-multiline"],
         "comma-spacing": "error",
         "eol-last": ["error", "always"],
-        "key-spacing": "error",
         "function-paren-newline": ["error", "multiline-arguments"],
         "space-infix-ops": ["error", {
             "int32Hint": false
