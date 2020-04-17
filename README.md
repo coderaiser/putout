@@ -262,7 +262,7 @@ function hi() {
 ```
 </details>
 
-<details><summary>replace <code>test.only</code> to <code>test</code> calls</summary>
+<details><summary>replace <code>test.only</code> with <code>test</code> calls</summary>
 
 ```diff
 -test.only('some test here', (t) => {
@@ -272,7 +272,7 @@ function hi() {
 ```
 </details>
 
-<details><summary>replace <code>test.skip</code> to <code>test</code> calls</summary>
+<details><summary>replace <code>test.skip</code> with <code>test</code> calls</summary>
 
 ```diff
 -test.skip('some test here', (t) => {
