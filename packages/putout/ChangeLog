@@ -1,3 +1,14 @@
+2020.04.18, v7.23.0
+
+fix:
+- (@putout/eslint-config) rm key-spacing
+
+feature:
+- (@putout/plugin-convert-for-in-to-for-of) add
+- (package) @putout/plugin-remove-unused-variables v2.0.1
+- (package) recast v0.19.0
+
+
 2020.04.10, v7.22.0
 
 fix:
