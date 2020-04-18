@@ -63,6 +63,7 @@
     "@putout/plugin-convert-commonjs-to-esm": "^4.0.0",
     "@putout/plugin-convert-esm-to-commonjs": "^3.0.0",
     "@putout/plugin-convert-for-each-to-for-of": "^5.0.0",
+    "@putout/plugin-convert-for-in-to-for-of": "^1.0.0",
     "@putout/plugin-convert-for-to-for-of": "^1.0.0",
     "@putout/plugin-convert-math-pow": "^4.0.0",
     "@putout/plugin-convert-object-assign-to-merge-spread": "^4.0.0",

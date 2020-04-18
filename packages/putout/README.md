@@ -53,6 +53,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `anonymous` to `arrow function`;
 - convert `for` to `for-of`;
 - convert `forEach` to `for-of`;
+- convert `for-in` to `for-of`;
 - convert `apply` to `spread`;
 - convert `arguments` to `rest`;
 - convert `Object.assign` to `merge spread`;

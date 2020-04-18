@@ -1,0 +1,53 @@
+{
+  "name": "@putout/plugin-convert-for-in-to-for-of",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin adds ability to convert for-in to for-of",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/convert-for-in-to-for-of.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "convert",
+    "for-in",
+    "for-of"
+  ],
+  "devDependencies": {
+    "@putout/eslint-config": "^1.0.2",
+    "@putout/test": "^1.13.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^6.2.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^3.0.0",
+    "madrun": "^5.0.0",
+    "nyc": "^14.0.0",
+    "supertape": "^1.0.3"
+  },
+  "peerDependencies": {
+    "putout": ">=7.17"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

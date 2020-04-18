@@ -79,6 +79,7 @@
         "convert-to-arrow-function",
         "convert-for-to-for-of",
         "convert-for-each-to-for-of",
+        "convert-for-in-to-for-of",
         "convert-top-level-return",
         "convert-spread-to-array-from",
         "convert-template-to-string",
