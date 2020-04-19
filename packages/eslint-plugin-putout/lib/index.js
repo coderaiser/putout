@@ -19,6 +19,7 @@ module.exports.rules = {
     ...getWrapRule('align-spaces'),
     ...getWrapRule('keyword-spacing'),
     ...getWrapRule('new-line-function-call-arguments'),
+    ...getWrapRule('function-declaration-paren-newline'),
     ...getRule('putout'),
 };
 
@@ -40,6 +41,7 @@ module.exports.configs = {
             'putout/align-spaces': 'error',
             'putout/keyword-spacing': 'error',
             'putout/new-line-function-call-arguments': 'error',
+            'putout/function-declaration-paren-newline': 'error',
             'putout/putout': 'error',
         },
     },
