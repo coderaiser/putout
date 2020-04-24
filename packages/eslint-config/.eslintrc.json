@@ -46,6 +46,7 @@
         "semi": "error",
         "object-shorthand": "error",
         "object-curly-spacing": "error",
+        "no-cond-assign": "off",
         "no-empty-pattern": "off",
         "no-control-regex": "off",
         "no-useless-rename": "error",
