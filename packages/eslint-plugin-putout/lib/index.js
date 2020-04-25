@@ -3,11 +3,11 @@
 const wrap = require('./wrap');
 
 const getRule = (a) => ({
-    [a]: require(`./${a}/${a}`),
+    [a]: require(`./${a}`),
 });
 
 const getWrapRule = (a) => ({
-    [a]: wrap(require(`./${a}/${a}`)),
+    [a]: wrap(require(`./${a}`)),
 });
 
 module.exports.rules = {

@@ -3,7 +3,7 @@
 const {RuleTester} = require('eslint');
 
 const wrap = require('../wrap');
-const rule = wrap(require('./function-declaration-paren-newline'));
+const rule = wrap(require('.'));
 
 const ruleTester = new RuleTester({
     parserOptions: {

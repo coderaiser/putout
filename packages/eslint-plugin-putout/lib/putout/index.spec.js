@@ -1,6 +1,6 @@
 'use strict';
 
-const rule = require('./putout');
+const rule = require('.');
 const {RuleTester} = require('eslint');
 
 const putout = require('putout');

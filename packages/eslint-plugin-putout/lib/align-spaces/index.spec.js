@@ -2,7 +2,7 @@
 
 const wrap = require('../wrap');
 const {RuleTester} = require('eslint');
-const rule = wrap(require('./align-spaces'));
+const rule = wrap(require('.'));
 
 const ruleTester = new RuleTester({
     parserOptions: {

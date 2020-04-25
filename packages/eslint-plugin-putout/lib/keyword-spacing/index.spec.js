@@ -3,7 +3,7 @@
 const {RuleTester} = require('eslint');
 
 const wrap = require('../wrap');
-const rule = wrap(require('./keyword-spacing'));
+const rule = wrap(require('.'));
 
 const ruleTester = new RuleTester({
     parserOptions: {
