@@ -1,5 +1,11 @@
 'use strict';
 
+const {operator} = require('putout');
+const {
+    replaceWith,
+    compare,
+} = operator;
+
 const getVars = require('./get-vars');
 const transform = require('./transform');
 const getUnused = require('./get-unused');
@@ -7,6 +13,9 @@ const getUnused = require('./get-unused');
 module.exports.report = ({name}) => `"${name}" is defined but never used`;
 
 module.exports.fix = ({path}) => {
+    if (compare(path, 'const __a = module.exports = __b'))
+        return replaceWith(path.parentPath, path.node.init);
+    
     path.remove();
 };
 
