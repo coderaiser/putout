@@ -16,6 +16,9 @@ module.exports.fix = ({path}) => {
     if (compare(path, 'const __a = module.exports = __b'))
         return replaceWith(path.parentPath, path.node.init);
     
+    if (compare(path, 'const __a = exports = __b'))
+        return replaceWith(path.parentPath, path.node.init);
+    
     path.remove();
 };
 

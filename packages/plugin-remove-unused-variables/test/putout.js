@@ -52,6 +52,8 @@ const fixture = readFixtures([
     'typescript-fix',
     'module-exports',
     'module-exports-fix',
+    'exports',
+    'exports-fix',
 ]);
 
 test('remove-unused-variables: putout: no vars', (t) => {
@@ -224,6 +226,15 @@ test('remove-unused-variables: putout: module.exports', (t) => {
     const {code} = putout(fixture.moduleExports);
     
     const expected = fixture.moduleExportsFix;
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
+test('remove-unused-variables: putout: exports', (t) => {
+    const {code} = putout(fixture.exports);
+    
+    const expected = fixture.exportsFix;
     
     t.deepEqual(code, expected);
     t.end();
