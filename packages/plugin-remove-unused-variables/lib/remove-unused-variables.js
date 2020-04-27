@@ -13,10 +13,7 @@ const getUnused = require('./get-unused');
 module.exports.report = ({name}) => `"${name}" is defined but never used`;
 
 module.exports.fix = ({path}) => {
-    if (compare(path, 'const __a = module.exports = __b'))
-        return replaceWith(path.parentPath, path.node.init);
-    
-    if (compare(path, 'const __a = exports = __b'))
+    if (compare(path, 'const __a = __b = __c'))
         return replaceWith(path.parentPath, path.node.init);
     
     path.remove();
