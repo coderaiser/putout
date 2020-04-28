@@ -15,9 +15,10 @@ module.exports.report = () => `for-of should be used instead of for-in`;
 module.exports.match = () => ({
     'for (__a in __b) __body': ({__a, __b, __body}) => {
         const declaration = getTemplateValues(__a, 'var __a');
+        const {name} = declaration.__a || __a;
         
         return contains(__body, [
-            `if (${__b.name}.hasOwnProperty(${declaration.__a.name})) __body`,
+            `if (${__b.name}.hasOwnProperty(${name})) __body`,
         ]);
     },
 });
