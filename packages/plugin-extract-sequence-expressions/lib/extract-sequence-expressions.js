@@ -13,6 +13,7 @@ const {
 const {
     ReturnStatement,
     BlockStatement,
+    isAwaitExpression,
 } = types;
 
 module.exports.report = () => 'sequence expressions should not be used';
@@ -61,11 +62,19 @@ const isRet = ({parentPath}) => parentPath.isReturnStatement();
 module.exports.traverse = ({push}) => {
     return {
         SequenceExpression(path) {
+            if (containsAwait(path))
+                return;
+            
             if (isBlock(path) || isFn(path) || isExpr(path) || isCallee(path) || isRet(path))
                 push(path);
         },
     };
 };
+
+function containsAwait({node}) {
+    const {expressions} = node;
+    return expressions.some(isAwaitExpression);
+}
 
 function isCallee(path) {
     const {parentPath} = path;
