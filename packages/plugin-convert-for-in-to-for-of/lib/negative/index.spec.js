@@ -19,3 +19,8 @@ test('plugin-convert-for-to-for-of: negative: body: transform', (t) => {
     t.end();
 });
 
+test('plugin-convert-for-to-for-of: negative: body: transform', (t) => {
+    t.noTransform('no-has-own');
+    t.end();
+});
+
