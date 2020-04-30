@@ -1,6 +1,7 @@
 'use strict';
 
 const {generate} = require('@putout/engine-parser');
+const tryCatch = require('try-catch');
 
 const {
     compareAny,
@@ -84,7 +85,12 @@ function wrapWithCheck({rule, nodesInclude, nodesExclude, fn}) {
         if (nodesInclude.length && !compareAll(path, nodesInclude))
             return;
         
-        fn(path);
+        const [e] = tryCatch(fn, path);
+        
+        if (e) {
+            e.rule = rule;
+            throw e;
+        }
     };
 }
 
