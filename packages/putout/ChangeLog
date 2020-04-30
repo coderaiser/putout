@@ -1,3 +1,24 @@
+2020.04.30, v7.24.0
+
+fix:
+- (@putout/plugin-convert-for-in-to-for-of) negative: absent hasOwnProperty
+- chore(npmignore) add fixture
+- (@putout/plugin-convert-for-in-to-for-of) npmignore: add fixture
+- (package) eslintrc
+
+feature:
+- (putout) add ability to show rule name on crash
+- (@putout/engine-runner) add ability to set rule name on crash
+- (@putout/plugin-extract-sequence-expressions) add support of AwaitExpression
+- (@putout/plugin-convert-for-in-to-for-of) add support of missing VariableDeclaration
+- (@putout/plugin-remove-unused-variables) const __a = __b = __c -> __b = __c
+- (@putout/plugin-remove-unused-variables) const __a = exports = __b -> exports = __b
+- (@putout/plugin-remove-unused-variables) const __a = module.exports = __b -> module.exports = __b
+- (eslint-plugin-config) simplify naming
+- (@putout/eslint-config) add "no-cond-assign: off"
+- (eslint-plugin-putout) add function declaration-paren-newline
+
+
 2020.04.18, v7.23.0
 
 fix:
