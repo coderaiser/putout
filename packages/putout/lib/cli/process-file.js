@@ -15,6 +15,7 @@ const putout = require('../..');
 const report = require('../report')();
 const parseOptions = require('../parse-options');
 const eslint = require('../eslint');
+const parseError = require('./parse-error');
 
 const {ignores} = putout;
 const cwd = process.cwd();
@@ -158,28 +159,3 @@ function _getFormatter(name, exit) {
     return reporter;
 }
 
-const cutBrackets = (a) => a.slice(0, a.lastIndexOf('('));
-
-function parseError(e) {
-    if (!e)
-        return [];
-    
-    const {
-        line,
-        column,
-    } = e.loc || {
-        line: 'x',
-        column: 'x',
-    };
-    
-    const {message} = e;
-    
-    return [{
-        message: cutBrackets(message),
-        rule: 'parser',
-        position: {
-            line,
-            column,
-        },
-    }];
-}

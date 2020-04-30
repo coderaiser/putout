@@ -109,6 +109,7 @@
     "chalk": "^3.0.0",
     "debug": "^4.1.1",
     "deepmerge": "^4.0.0",
+    "error-stack-parser": "^2.0.6",
     "eslint": "^6.2.0",
     "file-entry-cache": "^5.0.1",
     "find-up": "^4.0.0",

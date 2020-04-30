@@ -300,12 +300,12 @@ test('putout: cli: process-file: parse error', (t) => {
         index: 0,
         name: join(cwd(), name),
         places: [{
-            message: 'h',
+            message: 'hi',
             position: {
-                column: 'x',
-                line: 'x',
+                column: 15,
+                line: 263,
             },
-            rule: 'parser',
+            rule: 'crash/parser',
         },
         ],
         source: 'var x = 5;',

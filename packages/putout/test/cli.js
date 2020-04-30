@@ -71,7 +71,7 @@ test('putout: cli: --no-options', (t) => {
     
     const name = join(__dirname, 'fixture/broken.js');
     const result = stripAnsi(run(`--no-options ${name}`, options));
-    const expected = `${name}\n 2:0  error   Unexpected token   parser \n\n✖ 1 errors in 1 files\n  fixable with the \`--fix\` option`;
+    const expected = `${name}\n 2:0  error   Unexpected token   crash/parser \n\n✖ 1 errors in 1 files\n  fixable with the \`--fix\` option`;
     
     t.equal(result, expected);
     t.end();
