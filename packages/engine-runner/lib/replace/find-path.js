@@ -1,6 +1,7 @@
 'use strict';
 
 const {entries} = Object;
+const {isArray} = Array;
 
 module.exports = (parentPath) => {
     let current = {
@@ -9,19 +10,26 @@ module.exports = (parentPath) => {
     const path = [];
     
     while (current = current.parentPath) {
-        path.unshift(findKey(current, current.parentPath));
+        path.unshift(findKey(current, current.parent));
     }
     
     return path.join('.');
 };
-function findKey(next, parentPath) {
-    parentPath = parentPath || {};
+function findKey(path, parent) {
+    const {node} = path;
     
-    for (const [key, value] of entries(parentPath)) {
-        if (value === next)
+    for (const [key, value] of entries(parent)) {
+        if (isArray(value)) {
+            const index = value.indexOf(node);
+            
+            if (index >= 0)
+                return `${key}.${index}`;
+            
+            continue;
+        }
+        
+        if (value === node)
             return key;
     }
-    
-    return '';
 }
 

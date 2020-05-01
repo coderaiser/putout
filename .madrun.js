@@ -8,6 +8,7 @@ const dirs = getDirs(workspaces);
 
 module.exports = {
     'test': () => `FORCE_COLOR=3 ${run('test:fast')}`,
+    'test:fail': () => `${run('test')} | tap-pessimist`,
     'test:fast': () => `tape '${dirs}/*/test/*.js' '${dirs}/*/lib/**/*.spec.js'`,
     'test:slow': () => 'FORCE_COLOR=3 lerna run test',
     'coverage:long': () => `FORCE_COLOR=3 nyc --check-coverage ${run('test:fast')}`,

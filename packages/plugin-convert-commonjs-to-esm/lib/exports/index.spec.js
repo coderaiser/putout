@@ -5,42 +5,42 @@ const test = require('@putout/test')(__dirname, {
     'convert-commonjs-to-esm/exports': convert,
 });
 
-test('plugin-convert-esm-to-commonjs: exports: transform: report', (t) => {
+test('plugin-convert-commonjs-to-esm: exports: transform: report', (t) => {
     t.report('exports', 'ESM should be used insted of Commonjs');
     t.end();
 });
 
-test('plugin-convert-esm-to-commonjs: exports: transform', (t) => {
+test('plugin-convert-commonjs-to-esm: exports: transform', (t) => {
     t.transform('exports');
     t.end();
 });
 
-test('plugin-convert-esm-to-commonjs: exports: transform: string', (t) => {
+test('plugin-convert-commonjs-to-esm: exports: transform: string', (t) => {
     t.transform('exports-string');
     t.end();
 });
 
-test('plugin-convert-esm-to-commonjs: exports: transform: named', (t) => {
+test('plugin-convert-commonjs-to-esm: exports: transform: named', (t) => {
     t.transform('named');
     t.end();
 });
 
-test('plugin-convert-esm-to-commonjs: exports: transform: multi', (t) => {
+test('plugin-convert-commonjs-to-esm: exports: transform: multi', (t) => {
     t.transform('multi');
     t.end();
 });
 
-test('plugin-convert-esm-to-commonjs: exports: transform: no member expression', (t) => {
+test('plugin-convert-commonjs-to-esm: exports: transform: no member expression', (t) => {
     t.noTransform('no-member-expression');
     t.end();
 });
 
-test('plugin-convert-esm-to-commonjs: exports: transform: no exports', (t) => {
+test('plugin-convert-commonjs-to-esm: exports: transform: no exports', (t) => {
     t.noTransform('no-exports');
     t.end();
 });
 
-test('plugin-convert-esm-to-commonjs: exports: transform: sequance', (t) => {
+test('plugin-convert-commonjs-to-esm: exports: transform: sequance', (t) => {
     t.noTransform('sequence');
     t.end();
 });

@@ -55,9 +55,11 @@ const parseTo = (to, values, path) => isFn(to) ? to(values, path) : to;
 const fix = (from, to, path) => {
     const nodeFrom = template.ast(from);
     
-    watermark.init(from, to, path);
+    const mark = watermark(from, to, path);
     
-    if (watermark.has(from, to, path))
+    mark.init();
+    
+    if (mark.has())
         return;
     
     if (!compare(path, nodeFrom))
@@ -85,7 +87,7 @@ const fix = (from, to, path) => {
         path: newPath,
     });
     
-    watermark.set(from, to, path);
+    mark.add();
 };
 
 const getFix = (items) => (path) => {
