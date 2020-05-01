@@ -12,12 +12,12 @@ const defaults = {
 };
 
 module.exports = memo((value, options) => {
-    const result = template(value, {
+    const fn = template(value, {
         ...defaults,
         ...options,
     });
     
-    return result.expression || result;
+    return fn;
 });
 
 module.exports.ast = memo((value, options) => {

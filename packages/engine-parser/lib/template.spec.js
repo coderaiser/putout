@@ -7,6 +7,17 @@ const {
     StringLiteral,
 } = require('@babel/types');
 
+test('parser: template', (t) => {
+    const buildOnce = template(`await once(%%emitter%%, %%event%%)`);
+    const result = buildOnce({
+        emitter: Identifier('copymitter'),
+        event: StringLiteral('end'),
+    });
+    
+    t.equal(result.type, 'ExpressionStatement');
+    t.end();
+});
+
 test('parser: template: ast: fresh', (t) => {
     const buildRequire = template(`
       var %%importName%% = require(%%source%%);
