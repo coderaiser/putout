@@ -3,7 +3,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=codemods/convert-emitter-to-promise
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=codemods/convert-emitter-to-promise
 
-Convert function names from `PascalCase` to `camelCase`.
+Avoid mixing callbacks with promises (https://github.com/substack/tape/pull/503).
 
 ## Install
 
