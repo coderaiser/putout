@@ -1,6 +1,5 @@
 'use strict';
 
-const {isProgram} = require('@babel/types');
 const {template} = require('@putout/engine-parser');
 const {replaceWith} = require('@putout/operate');
 const {
@@ -10,8 +9,8 @@ const {
     setValues,
 } = require('@putout/compare');
 
-const maybeArray = require('./maybe-array');
-const findPath = require('./find-path');
+const maybeArray = require('../maybe-array');
+const watermark = require('./watermark');
 
 const {keys, entries} = Object;
 
@@ -55,18 +54,10 @@ const parseTo = (to, values, path) => isFn(to) ? to(values, path) : to;
 
 const fix = (from, to, path) => {
     const nodeFrom = template.ast(from);
-    const watermark = `${from} -> ${to}`;
-    const highWatermark = `${watermark} :> ${findPath(path)}`;
     
-    path._putout = path._putout || [];
+    watermark.init(from, to, path);
     
-    const file = path.findParent(isProgram);
-    file._putout = file._putout || [];
-    
-    if (path._putout.includes(watermark))
-        return;
-    
-    if (file._putout.includes(highWatermark))
+    if (watermark.has(from, to, path))
         return;
     
     if (!compare(path, nodeFrom))
@@ -94,8 +85,7 @@ const fix = (from, to, path) => {
         path: newPath,
     });
     
-    path._putout.push(watermark);
-    file._putout.push(highWatermark);
+    watermark.set(from, to, path);
 };
 
 const getFix = (items) => (path) => {
