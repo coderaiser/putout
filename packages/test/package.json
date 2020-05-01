@@ -48,7 +48,7 @@
     "madrun": "^5.0.0",
     "mock-require": "^3.0.3",
     "nodemon": "^2.0.1",
-    "nyc": "^14.0.0",
+    "nyc": "^15.0.1",
     "try-to-tape": "^1.1.0"
   },
   "license": "MIT",

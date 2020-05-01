@@ -16,7 +16,7 @@
     "eslint-plugin-putout": "^3.0.0",
     "madrun": "^5.0.0",
     "mocha": "^6.1.4",
-    "nyc": "^14.1.1",
+    "nyc": "^15.0.1",
     "supertape": "^1.2.4"
   },
   "scripts": {
