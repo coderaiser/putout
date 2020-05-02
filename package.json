@@ -36,6 +36,7 @@
     "husky": "^4.2.1",
     "lerna": "^3.8.5",
     "madrun": "^5.2.0",
+    "nyc": "^15.0.1",
     "supertape": "^1.2.4",
     "tap-pessimist": "^1.0.1"
   },
