@@ -37,10 +37,7 @@ Options:
   -h, --help              display this help and exit
   -v, --version           output version information and exit
   -f, --format            use a specific output format - default: dump
-  -m, --modified          add "modified" files when in git repository
-  -u, --untracked         add "untracked" files when in git repository
-  -a, --added             add "added" files when in git repository
-  -r, --renamed           add "renamed" files when in git repository
+  -s, --staged            add staged files when in git repository
   --fix                   aply found fixes of errors to code
   --fix-count             count of fixes rounds (defaults to 10)
   --rulesdir              specify custom rulesdir

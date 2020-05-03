@@ -12,7 +12,7 @@ const isString = (a) => typeof a === 'string';
 const isStringAll = (...a) => a.filter(isString).length;
 const isRuler = (a) => a.disableAll || a.enableAll || isStringAll(a.disable, a.enable);
 
-module.exports = ({argv, halt, log, write, logError}) => {
+module.exports = async ({argv, halt, log, write, logError}) => {
     const args = yargsParser(argv, {
         boolean: [
             'cache',
@@ -26,11 +26,8 @@ module.exports = ({argv, halt, log, write, logError}) => {
             'disable-all',
             'jsx',
             'flow',
-            'added',
-            'renamed',
-            'modified',
-            'untracked',
             'options',
+            'staged',
         ],
         number: [
             'fixCount',
@@ -47,10 +44,7 @@ module.exports = ({argv, halt, log, write, logError}) => {
             h: 'help',
             c: 'config',
             f: 'format',
-            a: 'added',
-            r: 'renamed',
-            m: 'modified',
-            u: 'untracked',
+            s: 'staged',
         },
         default: {
             fix: false,
@@ -73,10 +67,7 @@ module.exports = ({argv, halt, log, write, logError}) => {
         disableAll,
         enable,
         enableAll,
-        added,
-        renamed,
-        modified,
-        untracked,
+        staged,
         updateCache,
         removeCache,
     } = args;
@@ -87,17 +78,11 @@ module.exports = ({argv, halt, log, write, logError}) => {
         logError,
     });
     
-    let gitNames = [];
+    let stagedNames = [];
     
-    if (untracked || added || modified || renamed) {
-        const getGitNames = require('./get-git-names');
-        
-        gitNames = getGitNames({
-            untracked,
-            added,
-            modified,
-            renamed,
-        });
+    if (staged) {
+        const {get} = require('./staged');
+        stagedNames = await get();
     }
     
     if (args.version) {
@@ -112,7 +97,7 @@ module.exports = ({argv, halt, log, write, logError}) => {
     }
     
     const globFiles = [
-        ...gitNames,
+        ...stagedNames,
         ...args._.map(String),
     ];
     
@@ -172,6 +157,11 @@ module.exports = ({argv, halt, log, write, logError}) => {
         
         rulerProcessor(args, mergedPlaces);
         return exit();
+    }
+    
+    if (fix && staged) {
+        const {set} = require('./staged');
+        await set();
     }
     
     if (mergedPlaces.length)

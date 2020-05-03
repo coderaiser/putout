@@ -122,18 +122,64 @@ test('putout: cli: no files', (t) => {
     t.end();
 });
 
-test('putout: cli: get git names', (t) => {
+test('putout: cli: --fix --staged', async (t) => {
+    const name = './xxx.js';
     const logError = stub();
-    const getGitNames = stub().returns(['./xxx.js']);
+    const get = stub().returns([
+        name,
+    ]);
+    const set = stub();
     const argv = [
-        '--untracked',
+        '--staged',
+        '--fix',
     ];
     
-    mockRequire('./get-git-names', getGitNames);
+    const getFiles = stub().returns([null, [
+        name,
+    ]]);
+    
+    const process = stub().returns([]);
+    const processFile = stub().returns(process);
+    
+    mockRequire('./get-files', getFiles);
+    mockRequire('./process-file', processFile);
+    
+    mockRequire('./staged', {
+        get,
+        set,
+    });
     
     const cli = reRequire('.');
     
-    runCli({
+    await runCli({
+        cli,
+        argv,
+        logError,
+    });
+    
+    stopAll();
+    
+    t.ok(set.calledWith());
+    t.end();
+});
+
+test('putout: cli: --staged --fix', async (t) => {
+    const logError = stub();
+    const get = stub().returns(['./xxx.js']);
+    const set = stub();
+    const argv = [
+        '--staged',
+        '--fix',
+    ];
+    
+    mockRequire('./staged', {
+        get,
+        set,
+    });
+    
+    const cli = reRequire('.');
+    
+    await runCli({
         cli,
         argv,
         logError,
@@ -144,6 +190,8 @@ test('putout: cli: get git names', (t) => {
     
     const output = stripAnsi(arg);
     const message = 'No files matching the pattern "./xxx.js" were found';
+    
+    stopAll();
     
     t.equal(output, message, 'should equal');
     t.end();
@@ -168,11 +216,13 @@ test('putout: cli: ruler processor', (t) => {
         logError,
     });
     
+    stopAll();
+    
     t.ok(rullerProcessor.called);
     t.end();
 });
 
-function runCli(options) {
+async function runCli(options) {
     const {
         halt = stub(),
         log = stub(),
@@ -182,7 +232,7 @@ function runCli(options) {
         cli = _cli,
     } = options;
     
-    cli({
+    await cli({
         write,
         halt,
         log,
