@@ -126,6 +126,12 @@
   },
   "keywords": [
     "ast",
+    "transform",
+    "codemod",
+    "eslint",
+    "babel",
+    "plugin",
+    "jscodeshift",
     "lint",
     "variable",
     "unused"
