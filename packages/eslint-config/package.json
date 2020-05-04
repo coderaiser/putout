@@ -31,11 +31,11 @@
   "devDependencies": {
     "jsonlint": "^1.6.3",
     "madrun": "^6.0.0",
-    "putout": "^7.4.3"
+    "putout": "*"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=10"
   },
   "publishConfig": {
     "access": "public"
