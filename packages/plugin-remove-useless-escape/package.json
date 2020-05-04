@@ -28,7 +28,7 @@
     "escape"
   ],
   "devDependencies": {
-    "@putout/plugin-madrun": "^5.0.0",
+    "@putout/plugin-madrun": "^6.1.2",
     "@putout/test": "^1.16.1",
     "coveralls": "^3.0.0",
     "eslint": "^6.2.0",
