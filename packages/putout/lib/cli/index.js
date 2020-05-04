@@ -78,13 +78,6 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         logError,
     });
     
-    let stagedNames = [];
-    
-    if (staged) {
-        const {get} = require('./staged');
-        stagedNames = await get();
-    }
-    
     if (args.version) {
         log(`v${require('../../package.json').version}`);
         return exit();
@@ -94,6 +87,13 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         const help = require('./help');
         log(help());
         return exit();
+    }
+    
+    let stagedNames = [];
+    
+    if (staged) {
+        const {get} = require('./staged');
+        stagedNames = await get();
     }
     
     const globFiles = [

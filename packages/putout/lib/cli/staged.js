@@ -8,6 +8,8 @@ const findUp = require('find-up');
 const once = require('once');
 const fullstore = require('fullstore');
 
+const {isJS} = require('./get-files');
+
 const STAGED_INDEX = 3;
 const STAGED = 2;
 const STAGED_WITH_CHANGES = 3;
@@ -43,6 +45,7 @@ module.exports.get = async function get() {
     const status = await git.statusMatrix({
         fs,
         dir,
+        filter: isJS,
     });
     
     const names = status

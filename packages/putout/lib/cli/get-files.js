@@ -8,10 +8,13 @@ const tryCatch = require('try-catch');
 const mergeArrays = (a) => [].concat(...a);
 const one = (f) => (a) => f(a);
 const rmDuplicates = (a) => Array.from(new Set(a));
+const isJS = (a) => /\.(js|jsx|ts)$/.test(a);
 
 module.exports = (args) => {
     return tryCatch(getFiles, args);
 };
+
+module.exports.isJS = isJS;
 
 function getFiles(args) {
     const files = [];
@@ -33,7 +36,7 @@ function addExt(a) {
     
     const result = [];
     for (const file of files) {
-        if (/\.(js|jsx|ts)$/.test(file)) {
+        if (isJS(file)) {
             result.push(file);
             continue;
         }

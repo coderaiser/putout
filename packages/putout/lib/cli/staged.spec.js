@@ -6,6 +6,8 @@ const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
 
+const {isJS} = require('./get-files');
+
 const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: staged', async (t) => {
@@ -39,7 +41,12 @@ test('putout: cli: staged: get: statusMatrix', async (t) => {
     
     stopAll();
     
-    t.ok(statusMatrix.calledWith({fs, dir}));
+    const expected = {
+        fs,
+        dir,
+        filter: isJS,
+    };
+    t.ok(statusMatrix.calledWith(expected));
     t.end();
 });
 
@@ -61,7 +68,13 @@ test('putout: cli: staged: get: statusMatrix', async (t) => {
     
     stopAll();
     
-    t.ok(statusMatrix.calledWith({fs, dir}));
+    const expected = {
+        fs,
+        dir,
+        filter: isJS,
+    };
+    
+    t.ok(statusMatrix.calledWith(expected));
     t.end();
 });
 
