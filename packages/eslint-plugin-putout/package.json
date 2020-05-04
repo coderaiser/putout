@@ -33,7 +33,7 @@
     "debug": "madrun debug"
   },
   "dependencies": {
-    "@putout/eslint-config": "^2.0.0",
+    "@putout/eslint-config": "^3.0.0",
     "align-spaces": "^1.0.0",
     "putout": "^8.0.0"
   },
