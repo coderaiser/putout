@@ -30,7 +30,7 @@
     "@putout/eslint-config": "^1.0.2",
     "@putout/test": "^1.13.0",
     "coveralls": "^3.0.0",
-    "eslint": "^6.2.0",
+    "eslint": "^7.0.0-rc.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^3.0.0",
     "madrun": "^6.0.0",
