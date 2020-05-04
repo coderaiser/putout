@@ -39,7 +39,7 @@
     "@putout/formatter-dump": "^1.0.0",
     "@putout/plugin-remove-console": "^3.1.0",
     "@putout/plugin-remove-empty": "^5.1.0",
-    "@putout/plugin-remove-unused-variables": "^1.11.0",
+    "@putout/plugin-remove-unused-variables": "^2.3.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.2.0",
     "eslint-plugin-node": "^11.0.0",
