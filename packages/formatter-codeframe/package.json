@@ -42,7 +42,7 @@
     "nyc": "^15.0.1"
   },
   "peerDependencies": {
-    "putout": ">=4.3.2"
+    "putout": ">=8"
   },
   "license": "MIT",
   "engines": {
