@@ -42,7 +42,7 @@
     "eslint": "^6.2.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^3.0.0",
-    "madrun": "^5.0.0",
+    "madrun": "^6.0.0",
     "nyc": "^15.0.1"
   },
   "license": "MIT",

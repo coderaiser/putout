@@ -41,7 +41,7 @@
     "eslint": "^7.0.0-rc.0",
     "eslint-plugin-eslint-plugin": "^2.1.0",
     "eslint-plugin-node": "^11.0.0",
-    "madrun": "^5.0.0",
+    "madrun": "^6.0.0",
     "mocha": "^5.2.0",
     "nyc": "^15.0.1"
   },
