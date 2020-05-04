@@ -1,6 +1,6 @@
 {
   "name": "@putout/formatter-codeframe",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout formatter shows code frame with an error",
   "homepage": "http://github.com/coderaiser/putout",
