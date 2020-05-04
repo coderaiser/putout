@@ -1,3 +1,27 @@
+2020.05.04, v8.0.1
+
+feature:
+- (package) @putout/formatter-stream v2.0.0
+- (package) @putout/plugin-remove-unused-variables v2.3.0
+- (@putout/formatter-stream) drop support of node < 10
+- (package) chalk v4.0.0
+- (package) @putout/formatter-codeframe v2.0.0
+- (package) @putout/formatter-dump v2.0.0
+- (@putout/formatter-codeframe) drop support of node < 10
+- (package) chalk v4.0.0
+- (package) @putout/plugin-remove-unused-variables v2.3.0
+- (@putout/formatter-dump) drop support of node < 10
+- (package) chalk v4.0.0
+- (package) @putout/plugin-remove-unused-variables v2.3.0
+- (package) @putout/eslint-config v3.0.0
+- (@putout/eslint-config) drop support of node < 10
+- (package) eslint-plugin-putout v4.0.0
+- (package) eslint v7.0.0-rc.0
+- (package) madrun v6.0.0
+- (package) putout v8.0.0
+- (package) putout v8.0.0
+
+
 2020.05.04, v8.0.0
 
 fix:
