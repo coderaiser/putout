@@ -61,3 +61,30 @@ test('putout: runner: replace: same path, new transform', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: recursive overflow', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            test : 'test.only',
+        }),
+    };
+    
+    const source = [
+        'test()',
+    ].join('\n');
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    const expected = [
+        'test.only()',
+    ].join('\n');
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
