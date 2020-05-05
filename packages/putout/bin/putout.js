@@ -7,7 +7,7 @@ const cli = require('../lib/cli');
 const {stdout} = process;
 const write = stdout.write.bind(stdout);
 
-cli({
+module.exports = cli({
     write,
     halt: process.exit,
     argv: process.argv.slice(2),

@@ -46,6 +46,7 @@ test('putout: cli: --raw: parser error', async (t) => {
         'none',
     ];
     
+    reRequire('./process-file');
     const cli = reRequire('.');
     
     await runCli({

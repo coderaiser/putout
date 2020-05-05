@@ -143,8 +143,9 @@ function _getFormatter(name, exit) {
     let e;
     let reporter;
     
-    if (name === 'none')
+    if (name === 'none') {
         return stub();
+    }
     
     [e, reporter] = tryCatch(require, `@putout/formatter-${name}`);
     
