@@ -151,7 +151,7 @@ test('putout: cli: staged: set: findUp: not found', async (t) => {
     t.end();
 });
 
-test('putout: cli: staged: set: findUp', async (t) => {
+test('putout: cli: staged: add', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     const statusMatrix = stub().returns([
