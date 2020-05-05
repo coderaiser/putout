@@ -8,6 +8,9 @@ module.exports = {
         'plugin:putout/recommended',
         'plugin:node/recommended',
     ],
+    rules: {
+        'node/no-unsupported-features/node-builtins': 'off',
+    },
     plugins: [
         'node',
         'putout',

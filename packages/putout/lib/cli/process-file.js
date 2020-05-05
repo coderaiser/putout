@@ -3,9 +3,9 @@
 const {resolve, dirname} = require('path');
 
 const {
-    readFileSync,
-    writeFileSync,
-} = require('fs');
+    readFile,
+    writeFile,
+} = require('fs').promises;
 
 const tryCatch = require('try-catch');
 const once = require('once');
@@ -67,7 +67,7 @@ module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, is
         return null;
     }
     
-    const source = readFileSync(name, 'utf8');
+    const source = await readFile(name, 'utf8');
     const isTS = /\.ts$/.test(name);
     
     if (fileCache.canUseCache({fix, options, name: resolvedName})) {
@@ -119,7 +119,7 @@ module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, is
         
         if (fix && source !== newCode) {
             fileCache.removeEntry(resolvedName);
-            return writeFileSync(name, newCode);
+            return await writeFile(name, newCode);
         }
     }
     

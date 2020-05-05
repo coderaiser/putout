@@ -36,7 +36,7 @@ test('putout: cli: --raw', (t) => {
     t.end();
 });
 
-test('putout: cli: --raw: parser error', (t) => {
+test('putout: cli: --raw: parser error', async (t) => {
     const logError = stub();
     const argv = [
         join(__dirname, 'fixture/parser-error.js'),
@@ -48,7 +48,7 @@ test('putout: cli: --raw: parser error', (t) => {
     
     const cli = reRequire('.');
     
-    runCli({
+    await runCli({
         cli,
         logError,
         argv,

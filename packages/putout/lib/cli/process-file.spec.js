@@ -33,9 +33,9 @@ test('putout: cli: process-file: get formatter: exit', (t) => {
     t.end();
 });
 
-test('putout: cli: process-file: eslint', (t) => {
+test('putout: cli: process-file: eslint', async (t) => {
     const eslint = stub().returns(['', []]);
-    const {readFileSync} = fs;
+    const {readFile} = fs.promises;
     
     const code = 'log123("hello")';
     const fix = false;
@@ -49,11 +49,11 @@ test('putout: cli: process-file: eslint', (t) => {
     };
     
     mockRequire('../eslint', eslint);
-    fs.readFileSync = (name, options) => {
+    fs.promises.readFile = async (name, options) => {
         if (name === 'example.js')
             return code;
         
-        return readFileSync(name, options);
+        return await readFile(name, options);
     };
     
     const processFile = reRequire('./process-file');
@@ -65,12 +65,12 @@ test('putout: cli: process-file: eslint', (t) => {
         fileCache,
     });
     
-    fn('example.js', 0, {
+    await fn('example.js', 0, {
         length: 1,
     });
     
     stopAll();
-    fs.readFileSync = readFileSync;
+    fs.promises.readFile = readFile;
     
     const expected = {
         code,
@@ -85,9 +85,9 @@ test('putout: cli: process-file: eslint', (t) => {
 test('putout: cli: process-file: fileCache.removeEntry', async (t) => {
     const eslint = stub().returns(['', []]);
     const {
-        readFileSync,
-        writeFileSync,
-    } = fs;
+        readFile,
+        writeFile,
+    } = fs.promises;
     
     const code = 'var x = 5';
     const fix = true;
@@ -103,12 +103,12 @@ test('putout: cli: process-file: fileCache.removeEntry', async (t) => {
     
     mockRequire('../eslint', eslint);
     
-    fs.writeFileSync = stub();
-    fs.readFileSync = (name, options) => {
+    fs.promises.writeFile = stub();
+    fs.promises.readFile = async (name, options) => {
         if (name === 'example.js')
             return code;
         
-        return readFileSync(name, options);
+        return await readFile(name, options);
     };
     
     const processFile = reRequire('./process-file');
@@ -125,8 +125,8 @@ test('putout: cli: process-file: fileCache.removeEntry', async (t) => {
     });
     
     stopAll();
-    fs.readFileSync = readFileSync;
-    fs.writeFileSync = writeFileSync;
+    fs.promises.readFile = readFile;
+    fs.promises.writeFile = writeFile;
     
     const expected = join(cwd(), name);
     
@@ -134,12 +134,12 @@ test('putout: cli: process-file: fileCache.removeEntry', async (t) => {
     t.end();
 });
 
-test('putout: cli: process-file: writeFileSync', async (t) => {
+test('putout: cli: process-file: writeFile', async (t) => {
     const eslint = stub().returns(['', []]);
     const {
-        readFileSync,
-        writeFileSync,
-    } = fs;
+        readFile,
+        writeFile,
+    } = fs.promises;
     
     const code = 'var x = 5';
     const fix = true;
@@ -147,7 +147,7 @@ test('putout: cli: process-file: writeFileSync', async (t) => {
     const log = stub();
     const ruler = {};
     const write = stub();
-    const writeFileSyncStub = stub();
+    const writeFileStub = stub();
     const fileCache = {
         canUseCache: stub().returns(false),
         removeEntry: stub(),
@@ -156,12 +156,12 @@ test('putout: cli: process-file: writeFileSync', async (t) => {
     
     mockRequire('../eslint', eslint);
     
-    fs.writeFileSync = writeFileSyncStub;
-    fs.readFileSync = (name, options) => {
+    fs.promises.writeFile = writeFileStub;
+    fs.promises.readFile = async (name, options) => {
         if (name === 'example.js')
             return code;
         
-        return readFileSync(name, options);
+        return await readFile(name, options);
     };
     
     const processFile = reRequire('./process-file');
@@ -178,21 +178,21 @@ test('putout: cli: process-file: writeFileSync', async (t) => {
     });
     
     stopAll();
-    fs.readFileSync = readFileSync;
-    fs.writeFileSync = writeFileSync;
+    fs.promises.readFile = readFile;
+    fs.promises.writeFile = writeFile;
     
     const result = '';
     
-    t.ok(writeFileSyncStub.calledWith(name, result), 'should call writeFileSync');
+    t.ok(writeFileStub.calledWith(name, result), 'should call writeFile');
     t.end();
 });
 
-test('putout: cli: process-file: cache', (t) => {
+test('putout: cli: process-file: cache', async (t) => {
     const eslint = stub().returns(['', []]);
     const {
-        readFileSync,
-        writeFileSync,
-    } = fs;
+        readFile,
+        writeFile,
+    } = fs.promises;
     
     const code = 'var x = 5';
     const fix = true;
@@ -200,7 +200,7 @@ test('putout: cli: process-file: cache', (t) => {
     const log = stub();
     const ruler = {};
     const write = stub();
-    const writeFileSyncStub = stub();
+    const writeFileStub = stub();
     const fileCache = {
         canUseCache: stub().returns(true),
         removeEntry: stub(),
@@ -210,12 +210,12 @@ test('putout: cli: process-file: cache', (t) => {
     
     mockRequire('../eslint', eslint);
     
-    fs.writeFileSync = writeFileSyncStub;
-    fs.readFileSync = (name, options) => {
+    fs.promises.writeFile = writeFileStub;
+    fs.promises.readFile = async (name, options) => {
         if (name === 'example.js')
             return code;
         
-        return readFileSync(name, options);
+        return await readFile(name, options);
     };
     
     const processFile = reRequire('./process-file');
@@ -227,13 +227,13 @@ test('putout: cli: process-file: cache', (t) => {
         fileCache,
     });
     
-    fn('example.js', 0, {
+    await fn('example.js', 0, {
         length: 1,
     });
     
     stopAll();
-    fs.readFileSync = readFileSync;
-    fs.writeFileSync = writeFileSync;
+    fs.promises.readFile = readFile;
+    fs.promises.writeFile = writeFile;
     
     const expected = join(cwd(), name);
     
@@ -241,8 +241,8 @@ test('putout: cli: process-file: cache', (t) => {
     t.end();
 });
 
-test('putout: cli: process-file: parse error', (t) => {
-    const {readFileSync} = fs;
+test('putout: cli: process-file: parse error', async (t) => {
+    const {readFile} = fs.promises;
     
     const code = 'var x = 5;';
     const fix = false;
@@ -268,11 +268,11 @@ test('putout: cli: process-file: parse error', (t) => {
     mockRequire('@putout/formatter-dump', formatter);
     mockRequire('../putout', putout);
     
-    fs.readFileSync = (name, options) => {
+    fs.promises.readFile = async (name, options) => {
         if (name === 'example.js')
             return code;
         
-        return readFileSync(name, options);
+        return await readFile(name, options);
     };
     
     const processFile = reRequire('./process-file');
@@ -286,12 +286,12 @@ test('putout: cli: process-file: parse error', (t) => {
         exit,
     });
     
-    fn('example.js', 0, {
+    await fn('example.js', 0, {
         length: 1,
     });
     
     stopAll();
-    fs.readFileSync = readFileSync;
+    fs.readFile = readFile;
     
     const expected = {
         count: 1,
@@ -315,7 +315,7 @@ test('putout: cli: process-file: parse error', (t) => {
     t.end();
 });
 
-test('putout: cli: process-file: parser error: eslint', (t) => {
+test('putout: cli: process-file: parser error: eslint', async (t) => {
     const eslint = stub().returns(['', [{
         rule: 'eslint/null',
         message: 'Parsing error: Unexpected token ?',
@@ -323,16 +323,16 @@ test('putout: cli: process-file: parser error: eslint', (t) => {
     }]]);
     
     const {
-        readFileSync,
-        writeFileSync,
-    } = fs;
+        readFile,
+        writeFile,
+    } = fs.promises;
     
     const code = 'var x = 5';
     const fix = true;
     const log = stub();
     const ruler = {};
     const write = stub();
-    const writeFileSyncStub = stub();
+    const writeFileStub = stub();
     const fileCache = {
         canUseCache: stub().returns(false),
         removeEntry: stub(),
@@ -342,12 +342,12 @@ test('putout: cli: process-file: parser error: eslint', (t) => {
     
     mockRequire('../eslint', eslint);
     
-    fs.writeFileSync = writeFileSyncStub;
-    fs.readFileSync = (name, options) => {
+    fs.promises.writeFile = writeFileStub;
+    fs.promises.readFile = async (name, options) => {
         if (name === 'example.js')
             return code;
         
-        return readFileSync(name, options);
+        return await readFile(name, options);
     };
     
     const processFile = reRequire('./process-file');
@@ -359,13 +359,13 @@ test('putout: cli: process-file: parser error: eslint', (t) => {
         fileCache,
     });
     
-    fn('example.js', 0, {
+    await fn('example.js', 0, {
         length: 1,
     });
     
     stopAll();
-    fs.readFileSync = readFileSync;
-    fs.writeFileSync = writeFileSync;
+    fs.promises.readFile = readFile;
+    fs.promises.writeFile = writeFile;
     
     t.notOk(fileCache.setInfo.called, 'should not call fileCache.setInfo');
     t.end();
