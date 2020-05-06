@@ -1167,8 +1167,6 @@ Just create `.babelrc` file with configuration you need.
 
 ## API
 
-*To use in the browser use require("putout/dist/putout.js")*
-
 ### putout(source, options)
 
 ```js

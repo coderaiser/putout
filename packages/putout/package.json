@@ -4,7 +4,12 @@
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "the pluggable code transformer",
   "homepage": "http://github.com/coderaiser/putout",
-  "main": "lib/putout.js",
+  "main": "./lib/putout.js",
+  "exports": {
+    ".": "./lib/putout.js",
+    "./parse-options": "./lib/parse-options/index.js",
+    "./lib/parse-options": "./lib/parse-options/index.js"
+  },
   "bin": {
     "putout": "bin/putout.js"
   },
