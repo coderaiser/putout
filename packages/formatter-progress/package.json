@@ -19,7 +19,7 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "@putout/formatter-dump": "^1.0.2"
+    "@putout/formatter-dump": "^2.0.1"
   },
   "keywords": [
     "putout",
