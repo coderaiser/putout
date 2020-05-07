@@ -26,7 +26,7 @@
     "json"
   ],
   "devDependencies": {
-    "@putout/plugin-remove-unused-variables": "^1.25.0",
+    "@putout/plugin-remove-unused-variables": "^2.3.0",
     "@putout/test": "^1.3.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0-rc.0",
