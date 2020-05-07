@@ -1,6 +1,7 @@
 'use strict';
 
 const test = require('supertape');
+const montag = require('montag');
 const putout = require('putout');
 
 const {runPlugins} = require('..');
@@ -34,13 +35,13 @@ test('putout: runner: replace: same path, new transform', (t) => {
         }),
     };
     
-    const source = [
-        'module.exports.set = () => {',
-        '};',
-        '',
-        'module.exports.get = () => {',
-        '}',
-    ].join('\n');
+    const source = montag`
+        module.exports.set = () => {
+        };
+        
+        module.exports.get = () => {
+        };
+    `;
     
     const {code} = putout(source, {
         runPlugins,
@@ -49,13 +50,13 @@ test('putout: runner: replace: same path, new transform', (t) => {
         ],
     });
     
-    const expected = [
-        'export const set = () => {',
-        '};',
-        '',
-        'export const get = () => {',
-        '};',
-    ].join('\n');
+    const expected = montag`
+        export const set = () => {
+        };
+        
+        export const get = () => {
+        };
+    `;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();
