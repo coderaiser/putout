@@ -295,6 +295,16 @@ function hi() {
 ```
 </details>
 
+<details><summary>split nested destructuring</summary>
+
+```diff
+-const {a: {b}} = c;
++const {a} = c;
++const {b} = a;
+```
+
+</details>
+
 <details><summary>simplify ternary</summary>
 
 ```diff
@@ -643,6 +653,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-remove-boolean-from-logical-expressions`](/packages/plugin-remove-boolean-from-logical-expressions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-boolean-from-logical-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-boolean-from-logical-expressions) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-boolean-from-logical-expressions)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-boolean-from-logical-expressions) |
 | [`@putout/plugin-remove-nested-blocks`](/packages/plugin-remove-nested-blocks) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-nested-blocks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-nested-blocks) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-nested-blocks)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-nested-blocks) |
 | [`@putout/plugin-split-variable-declarations`](/packages/plugin-split-variable-declarations) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-variable-declarations.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-variable-declarations) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-split-variable-declarations)](https://david-dm.org/coderaiser/putout?path=packages/plugin-split-variable-declarations) |
+| [`@putout/plugin-split-nested-destructuring`](/packages/plugin-split-nested-destructuring) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-nested-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-nested-destructuring) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-split-nested-destructuring)](https://david-dm.org/coderaiser/putout?path=packages/plugin-split-nested-destructuring) |
 | [`@putout/plugin-convert-esm-to-commonjs`](/packages/plugin-convert-esm-to-commonjs) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-esm-to-commonjs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-esm-to-commonjs) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-esm-to-commonjs)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-esm-to-commonjs) |
 | [`@putout/plugin-convert-commonjs-to-esm`](/packages/plugin-convert-commonjs-to-esm) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-commonjs-to-esm.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-commonjs-to-esm) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-commonjs-to-esm)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-commonjs-to-esm) |
 | [`@putout/plugin-convert-spread-to-array-from`](/packages/plugin-convert-spread-to-array-from) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-spread-to-array-from.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-spread-to-array-from) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-spread-to-array-from)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-spread-to-array-from) |

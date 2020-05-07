@@ -106,6 +106,7 @@
     "@putout/plugin-remove-useless-typeof": "^1.0.0",
     "@putout/plugin-remove-useless-variables": "^4.0.0",
     "@putout/plugin-simplify-ternary": "^2.0.0",
+    "@putout/plugin-split-nested-destructuring": "^1.0.0",
     "@putout/plugin-split-variable-declarations": "^2.0.0",
     "@putout/plugin-strict-mode": "^1.0.0",
     "@putout/traverse": "^1.0.0",
