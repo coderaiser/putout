@@ -3,8 +3,8 @@
 const rule = require('.');
 const {RuleTester} = require('eslint');
 
-const putout = require('putout');
-const options = putout.parseOptions();
+const parseOptions = require('putout/lib/parse-options');
+const options = parseOptions();
 const {rules} = options;
 
 const ruleTester = new RuleTester({

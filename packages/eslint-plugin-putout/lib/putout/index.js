@@ -6,8 +6,9 @@ const {
     transform,
     print,
     parse,
-    parseOptions,
 } = require('putout');
+
+const parseOptions = require('putout/lib/parse-options');
 
 const cwd = process.cwd();
 const getContextOptions = ({options}) => {
