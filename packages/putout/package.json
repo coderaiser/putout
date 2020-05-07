@@ -143,19 +143,13 @@
     "unused"
   ],
   "devDependencies": {
-    "@babel/core": "^7.8.4",
     "@cloudcmd/stub": "^2.3.1",
     "async-await-codemod": "https://github.com/sgilroy/async-await-codemod.git",
-    "babel-loader": "^8.0.6",
-    "babel-plugin-macros": "^2.6.1",
     "babel-plugin-transform-inline-consecutive-adds": "^0.5.0-alpha.9",
-    "codegen.macro": "^4.0.0",
     "coveralls": "^3.0.0",
     "currify": "^4.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^4.0.0",
-    "espree": "^6.0.0",
-    "esprima": "^4.0.1",
     "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
     "madrun": "^6.0.0",
@@ -163,10 +157,7 @@
     "nodemon": "^2.0.1",
     "nyc": "^15.0.1",
     "strip-ansi": "^6.0.0",
-    "supertape": "^1.0.3",
-    "webpack": "^4.34.0",
-    "webpack-cli": "^3.3.4",
-    "webpack-merge": "^4.2.2"
+    "supertape": "^1.0.3"
   },
   "license": "MIT",
   "engines": {
