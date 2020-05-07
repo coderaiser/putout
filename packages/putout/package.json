@@ -53,7 +53,7 @@
     "@putout/formatter-codeframe": "^2.0.0",
     "@putout/formatter-dump": "^2.0.0",
     "@putout/formatter-json": "^1.0.0",
-    "@putout/formatter-progress": "^1.0.0",
+    "@putout/formatter-progress": "^2.0.0",
     "@putout/formatter-stream": "^2.0.0",
     "@putout/operate": "^4.0.0",
     "@putout/plugin-apply-destructuring": "^5.0.0",
