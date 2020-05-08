@@ -12,7 +12,7 @@ const {version} = require('../../package');
 
 const {reRequire, stopAll} = mockRequire;
 
-test('putout: cli: --raw', (t) => {
+test('putout: cli: --raw', async (t) => {
     const logError = stub();
     const argv = [
         'xx',
@@ -24,7 +24,7 @@ test('putout: cli: --raw', (t) => {
     
     const cli = reRequire('.');
     
-    runCli({
+    await runCli({
         cli,
         logError,
         argv,
@@ -60,14 +60,14 @@ test('putout: cli: --raw: parser error', async (t) => {
     t.end();
 });
 
-test('putout: cli: --raw: halt', (t) => {
+test('putout: cli: --raw: halt', async (t) => {
     const halt = stub();
     const argv = [
         'xx',
         '--raw',
     ];
     
-    runCli({
+    await runCli({
         halt,
         argv,
     });

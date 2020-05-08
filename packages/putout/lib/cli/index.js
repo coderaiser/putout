@@ -101,7 +101,8 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         ...args._.map(String),
     ];
     
-    const [e, files] = getFiles(globFiles);
+    const [e, files] = await getFiles(globFiles);
+    //const [e, files] = getFiles(globFiles);
     
     if (e)
         return exit(e);

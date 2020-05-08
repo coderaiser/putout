@@ -12,33 +12,31 @@ const {reRequire, stopAll} = mockRequire;
 
 const rmStart = (a) => a.replace('lib/', '');
 
-test('putout: getFiles: error', (t) => {
-    const [e] = getFiles(['*.xxx']);
+test('putout: getFiles: error', async (t) => {
+    const [e] = await getFiles(['*.xxx']);
     
     t.equal(e.message, 'No files matching the pattern "*.xxx" were found');
     t.end();
 });
 
-test('putout: getFiles: error: not first', (t) => {
-    const [e] = getFiles(['**/*.js', '*.xxx']);
+test('putout: getFiles: error: not first', async (t) => {
+    const [e] = await getFiles(['**/*.js', '*.xxx']);
     
     t.equal(e.message, 'No files matching the pattern "*.xxx" were found');
     t.end();
 });
 
-test('putout: getFiles', (t) => {
-    const sync = stub().returns([
+test('putout: getFiles', async (t) => {
+    const fastGlob = stub().returns([
         'get-files.js',
         'get-files.spec.js',
     ]);
     
-    mockRequire('glob', {
-        sync,
-    });
+    mockRequire('fast-glob', fastGlob);
     
     const getFiles = reRequire('./get-files');
     
-    const [, files] = getFiles(['**/get-files*.js']);
+    const [, files] = await getFiles(['**/get-files*.js']);
     const result = files.map(rmStart);
     const expected = [
         'get-files.js',
@@ -51,18 +49,16 @@ test('putout: getFiles', (t) => {
     t.end();
 });
 
-test('putout: getFiles: name', (t) => {
-    const sync = stub().returns([
+test('putout: getFiles: name', async (t) => {
+    const fastGlob = stub().returns([
         'get-files.js',
     ]);
     
-    mockRequire('glob', {
-        sync,
-    });
+    mockRequire('fast-glob', fastGlob);
     
     const getFiles = reRequire('./get-files');
     
-    const [, files] = getFiles(['lib/get-files.js']);
+    const [, files] = await getFiles(['lib/get-files.js']);
     const result = files.map(rmStart);
     const expected = [
         'get-files.js',
@@ -74,17 +70,15 @@ test('putout: getFiles: name', (t) => {
     t.end();
 });
 
-test('putout: getFiles: dir', (t) => {
-    const sync = stub().returns([
+test('putout: getFiles: dir', async (t) => {
+    const fastGlob = stub().returns([
         'bin/putout.js',
     ]);
     
-    mockRequire('glob', {
-        sync,
-    });
+    mockRequire('fast-glob', fastGlob);
     
     const getFiles = reRequire('./get-files');
-    const [, files] = getFiles(['bin']);
+    const [, files] = await getFiles(['bin']);
     const result = files.map(rmStart);
     const expected = [
         'bin/putout.js',
@@ -96,11 +90,11 @@ test('putout: getFiles: dir', (t) => {
     t.end();
 });
 
-test('putout: getFiles: glob', (t) => {
+test('putout: getFiles: glob', async (t) => {
     const dir = join(__dirname, '..', '..');
     
     const getFiles = reRequire('./get-files');
-    const [, files] = getFiles([`${dir}/{bin,.madrun.js}`]);
+    const [, files] = await getFiles([`${dir}/{bin,.madrun.js}`]);
     const result = files.map(rmStart);
     const expected = [
         join(dir, '.madrun.js'),
