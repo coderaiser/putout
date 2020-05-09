@@ -157,7 +157,7 @@
     "nodemon": "^2.0.1",
     "nyc": "^15.0.1",
     "strip-ansi": "^6.0.0",
-    "supertape": "^1.0.3"
+    "supertape": "^2.0.0"
   },
   "license": "MIT",
   "engines": {
