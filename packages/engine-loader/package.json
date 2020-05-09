@@ -43,7 +43,7 @@
     "putout-engine"
   ],
   "devDependencies": {
-    "@cloudcmd/stub": "^2.3.2",
+    "@cloudcmd/stub": "^3.0.0",
     "@putout/plugin-remove-unused-variables": "^2.0.1",
     "@putout/test": "^1.1.1",
     "coveralls": "^3.0.0",

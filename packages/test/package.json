@@ -35,7 +35,7 @@
     "runner"
   ],
   "devDependencies": {
-    "@cloudcmd/stub": "^2.3.4",
+    "@cloudcmd/stub": "^3.0.0",
     "@putout/formatter-dump": "^1.0.0",
     "@putout/plugin-remove-console": "^3.1.0",
     "@putout/plugin-remove-empty": "^5.1.0",
