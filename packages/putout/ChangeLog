@@ -1,3 +1,9 @@
+2020.05.09, v8.2.0
+
+feature:
+- (putout) glob -> fast-glob
+
+
 2020.05.07, v8.1.1
 
 feature:
