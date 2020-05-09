@@ -102,7 +102,6 @@ module.exports = async ({argv, halt, log, write, logError}) => {
     ];
     
     const [e, files] = await getFiles(globFiles);
-    //const [e, files] = getFiles(globFiles);
     
     if (e)
         return exit(e);
