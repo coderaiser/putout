@@ -2,11 +2,15 @@
 
 const {red} = require('chalk');
 const yargsParser = require('yargs-parser');
+const threadIt = require('thread-it');
 
 const merge = require('../merge');
-const processFile = require('./process-file');
+//const processFile = require('./process-file');
 const getFiles = require('./get-files');
 const cacheFiles = require('./cache-files');
+
+threadIt.init();
+const processFile = threadIt(require.resolve('./process-file'));
 
 const isString = (a) => typeof a === 'string';
 const isStringAll = (...a) => a.filter(isString).length;
@@ -144,7 +148,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
     
     const rawPlaces = [];
     
-    const process = processFile(options);
+    const process = await processFile(options);
     const {length} = files;
     
     for (let i = 0; i < length; i++) {
