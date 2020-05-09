@@ -39,7 +39,7 @@
     "nodemon": "^2.0.1",
     "nyc": "^15.0.1",
     "redrun": "^7.0.2",
-    "supertape": "^1.0.3"
+    "supertape": "^2.0.0"
   },
   "peerDependencies": {
     "putout": ">=4.31"

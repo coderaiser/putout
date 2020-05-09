@@ -56,7 +56,7 @@
     "nyc": "^15.0.1",
     "putout": "*",
     "redrun": "^7.0.2",
-    "supertape": "^1.2.3"
+    "supertape": "^2.0.0"
   },
   "license": "MIT",
   "engines": {

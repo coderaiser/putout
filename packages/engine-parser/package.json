@@ -62,7 +62,7 @@
     "nyc": "^15.0.1",
     "putout": "*",
     "redrun": "^7.0.2",
-    "supertape": "^1.2.3",
+    "supertape": "^2.0.0",
     "tenko": "^1.0.6",
     "try-catch": "^3.0.0"
   },
