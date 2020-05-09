@@ -53,7 +53,7 @@
     "eslint": "^7.0.0-rc.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^4.0.0",
-    "espree": "^6.1.1",
+    "espree": "^7.0.0",
     "esprima": "^4.0.1",
     "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
