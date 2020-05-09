@@ -36,6 +36,35 @@ test('putout: cli: --raw', async (t) => {
     t.end();
 });
 
+test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
+    const {PUTOUT_FILES = ''} = process.env;
+    
+    process.env.PUTOUT_FILES = 'xx';
+    
+    const logError = stub();
+    const argv = [
+        '--raw',
+    ];
+    
+    const error = Error('No files matching the pattern "xx" were found');
+    mockRequire('./get-files', stub().returns([error]));
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        logError,
+        argv,
+    });
+    
+    stopAll();
+    process.env.PUTOUT_FILES = PUTOUT_FILES;
+    reRequire('.');
+    
+    t.ok(logError.calledWith(error), 'should call logError');
+    t.end();
+});
+
 test('putout: cli: --raw: parser error', async (t) => {
     const logError = stub();
     const argv = [

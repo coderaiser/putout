@@ -119,6 +119,15 @@ To fix errors:
 putout lib test --fix
 ```
 
+## Environment variables
+
+`Putout` supports next `environment variables`:
+- `PUTOUT_FILES` - files that should be processed by putout, divided by ",";
+
+```js
+PUTOUT_FILES=lib,test putout --fix
+```
+
 ## Configuration
 
 To configure create `.putout.json` file and override any of [default options](/packages/putout/putout.json).

@@ -72,6 +72,15 @@ putout lib test --fix
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout.png)
 
+## Environment variables
+
+`Putout` supports next `environment variables`:
+- `PUTOUT_FILES` - files that should be processed by putout, divided by ",";
+
+```js
+PUTOUT_FILES=lib,test putout --fix
+```
+
 ## Built-in transforms
 
 <details><summary>remove unused variables</summary>

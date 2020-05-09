@@ -12,6 +12,9 @@ const isString = (a) => typeof a === 'string';
 const isStringAll = (...a) => a.filter(isString).length;
 const isRuler = (a) => a.disableAll || a.enableAll || isStringAll(a.disable, a.enable);
 
+const {PUTOUT_FILES = ''} = process.env;
+const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
+
 module.exports = async ({argv, halt, log, write, logError}) => {
     const args = yargsParser(argv, {
         boolean: [
@@ -89,16 +92,19 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         return exit();
     }
     
-    let stagedNames = [];
+    const stagedNames = [];
     
     if (staged) {
         const {get} = require('./staged');
-        stagedNames = await get();
+        const names = await get();
+        
+        stagedNames.push(...names);
     }
     
     const globFiles = [
         ...stagedNames,
         ...args._.map(String),
+        ...envNames,
     ];
     
     const [e, files] = await getFiles(globFiles);
