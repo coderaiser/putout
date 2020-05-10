@@ -29,7 +29,7 @@
   ],
   "devDependencies": {
     "@putout/plugin-madrun": "^6.1.2",
-    "@putout/test": "^1.16.1",
+    "@putout/test": "^2.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0-rc.0",
     "eslint-plugin-node": "^11.0.0",
