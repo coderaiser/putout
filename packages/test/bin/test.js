@@ -2,5 +2,5 @@
 
 'use strict';
 
-require('tape/bin/tape');
+require('supertape/bin/supertape');
 
