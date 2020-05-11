@@ -22,9 +22,11 @@
   "keywords": [
     "putout",
     "putout-plugin",
+    "putout-plugin-convert",
     "plugin",
-    "remove",
-    "only"
+    "convert",
+    "for",
+    "for-of"
   ],
   "devDependencies": {
     "@putout/eslint-config": "^1.0.2",
