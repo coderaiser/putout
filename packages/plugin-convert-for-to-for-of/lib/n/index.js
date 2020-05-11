@@ -23,6 +23,10 @@ module.exports.filter = (path) => {
     
     const prevNode = prevPath.node;
     const {body} = node;
+    
+    if (!body.body)
+        return false;
+    
     const [first] = body.body;
     const {__i, __n} = getTemplateValues(node, forLoopToN);
     const {references} = path.scope.bindings[__i.name];
