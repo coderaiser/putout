@@ -12,7 +12,7 @@ const once = require('once');
 
 const putout = require('../..');
 
-const report = require('../report')();
+//const report = require('../report')();
 const parseOptions = require('../parse-options');
 const eslint = require('../eslint');
 const parseError = require('./parse-error');
@@ -21,7 +21,7 @@ const {ignores} = putout;
 const cwd = process.cwd();
 
 const getFormatter = once(_getFormatter);
-const isParsingError = ({rule}) => rule === 'eslint/null';
+// const isParsingError = ({rule}) => rule === 'eslint/null';
 const stub = () => () => {};
 
 function getOptions({noOptions, name, rulesdir}) {
@@ -37,7 +37,12 @@ function getOptions({noOptions, name, rulesdir}) {
     });
 }
 
-module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noOptions}) => async (name, index, {length}) => {
+const {stdout} = process;
+const write = stdout.write.bind(stdout);
+const logError = console.error;
+const {exit} = process.exit;
+
+module.exports = async ({fix, /*fileCache,*/ fixCount, rulesdir, format, isFlow, isJSX, ruler, raw, noOptions}, name, index, {length}, source) => {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
@@ -47,13 +52,16 @@ module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, is
         noOptions,
     });
     
+    /*
     const {
         dir,
         formatter,
     } = options;
     
     const currentFormat = getFormatter(format || formatter, exit);
+     */
     
+    /*
     if (ignores(dir, resolvedName, options)) {
         const line = report(currentFormat, {
             name: resolvedName,
@@ -66,10 +74,12 @@ module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, is
         write(line || '');
         return null;
     }
+    */
     
-    const source = await readFile(name, 'utf8');
+    //const source = await readFile(name, 'utf8');
     const isTS = /\.ts$/.test(name);
     
+    /*
     if (fileCache.canUseCache({fix, options, name: resolvedName})) {
         const places = fileCache.getPlaces(resolvedName);
         
@@ -84,6 +94,7 @@ module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, is
         write(line || '');
         return places;
     }
+     */
     
     const [e, result] = tryCatch(putout, source, {
         fix,
@@ -112,17 +123,19 @@ module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, is
         
         allPlaces.push(...newPlaces);
         
-        const fixable = !newPlaces.filter(isParsingError).length;
+        // const fixable = !newPlaces.filter(isParsingError).length;
         
-        if (fixable)
-            fileCache.setInfo(resolvedName, allPlaces, options);
+        // if (fixable)
+        //    fileCache.setInfo(resolvedName, allPlaces, options);
         
         if (fix && source !== newCode) {
-            fileCache.removeEntry(resolvedName);
-            return await writeFile(name, newCode);
+            //fileCache.removeEntry(resolvedName);
+            await writeFile(name, newCode);
+            return {source, allPlaces, resolvedName};
         }
     }
     
+    /*
     const line = report(currentFormat, {
         name: resolvedName,
         places: allPlaces,
@@ -132,10 +145,15 @@ module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, is
     });
     
     write(line || '');
+     */
     
     e && raw && logError(e);
     
-    return allPlaces;
+    return {
+        source,
+        allPlaces,
+        resolvedName,
+    };
 };
 
 module.exports._getFormatter = _getFormatter;
@@ -143,9 +161,8 @@ function _getFormatter(name, exit) {
     let e;
     let reporter;
     
-    if (name === 'none') {
+    if (name === 'none')
         return stub();
-    }
     
     [e, reporter] = tryCatch(require, `@putout/formatter-${name}`);
     
@@ -159,4 +176,3 @@ function _getFormatter(name, exit) {
     
     return reporter;
 }
-

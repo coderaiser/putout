@@ -1,4 +1,13 @@
 {
+    "rules": {
+      "putout/putout": ["error", {
+          "rules": {
+              "remove-unused-variables": "off",
+              "remove-console": "off",
+              "remove-debugger": "off"
+          }
+      }]
+    },
     "extends": [
         "plugin:putout/recommended",
         "plugin:node/recommended"

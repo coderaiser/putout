@@ -4,9 +4,10 @@ const {red} = require('chalk');
 const yargsParser = require('yargs-parser');
 
 const merge = require('../merge');
-const processFile = require('./process-file');
+//const processFile = require('./process-file');
 const getFiles = require('./get-files');
 const cacheFiles = require('./cache-files');
+const processFile = require('./concurrency');
 
 const isString = (a) => typeof a === 'string';
 const isStringAll = (...a) => a.filter(isString).length;
@@ -124,7 +125,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
     
     const options = {
         fix,
-        fileCache,
+        //fileCache,
         updateCache,
         removeCache,
         rulesdir,
@@ -140,24 +141,15 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             enableAll,
         },
         
-        exit,
-        log,
-        logError,
-        write,
+        //exit,
+        //log,
+        //logError,
+        //write,
         noOptions: !args.options,
     };
     
-    const rawPlaces = [];
-    
-    const process = processFile(options);
-    const {length} = files;
-    
-    for (let i = 0; i < length; i++) {
-        const file = files[i];
-        const place = await process(file, i, {length});
-        rawPlaces.push(place);
-    }
-    
+    debugger;
+    const rawPlaces = await processFile(files, options);
     const places = rawPlaces.filter(Boolean);
     
     const mergedPlaces = merge(...places);
