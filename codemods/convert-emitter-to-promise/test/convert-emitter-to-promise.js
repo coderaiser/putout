@@ -40,3 +40,8 @@ test('plugin-convert-emitter-to-promise: function: any', (t) => {
     t.end();
 });
 
+test('plugin-convert-emitter-to-promise: template', (t) => {
+    t.transform('template');
+    t.end();
+});
+

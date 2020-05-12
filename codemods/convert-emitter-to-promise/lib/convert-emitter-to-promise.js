@@ -15,12 +15,14 @@ const {
 const {isProgram} = types;
 
 const ON_ANY = `__e.on(__o, (__r) => __body)`;
+const ON_ANY_NO_RESULT = `__e.on(__o, () => __body)`;
 const ON_END = `__e.on('end', () => __body)`;
 const ON_ERROR = `__e.on('error', (__r) => __body)`;
 
 const once = template(`const [%%result%%] = await once(%%emitter%%, %%event%%)`);
 const onceEnd = template(`await once(%%emitter%%, 'end')`);
 const onceError = template(`const [%%error%%] = await once(%%emitter%%, 'error')`);
+const onceAnyNoResult = template(`await once(%%emitter%%, %%event%%)`);
 
 module.exports.report = () => '"await once" should be used';
 
@@ -30,8 +32,8 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    'test(__a, (__args) => __body )': replace,
-    'test(__a, async (__args) => __body )': replace,
+    'test(__a, (__args) => __body)': replace,
+    'test(__a, async (__args) => __body)': replace,
 });
 
 function match({__body}) {
@@ -40,10 +42,13 @@ function match({__body}) {
             expression = codeLine,
         } = codeLine;
         
+        if (compare(expression, ON_END))
+            return true;
+        
         if (compare(expression, ON_ANY))
             return true;
         
-        if (compare(expression, ON_END))
+        if (compare(expression, ON_ANY_NO_RESULT))
             return true;
     }
     
@@ -72,6 +77,9 @@ function replace({__a}, path) {
         
         else if (compare(expression, ON_ANY))
             nodes = getAnyNodes(expression);
+        
+        else if (compare(expression, ON_ANY_NO_RESULT))
+            nodes = getAnyNoResultNodes(expression);
         
         else
             continue;
@@ -131,6 +139,24 @@ function getAnyNodes(expression) {
             emitter: __e,
             event: __o,
             result: __r,
+        }),
+        ...__body.body,
+    ];
+    
+    return nodes;
+}
+
+function getAnyNoResultNodes(expression) {
+    const {
+        __e,
+        __o,
+        __body,
+    } = getTemplateValues(expression, ON_ANY_NO_RESULT);
+    
+    const nodes = [
+        onceAnyNoResult({
+            emitter: __e,
+            event: __o,
         }),
         ...__body.body,
     ];
