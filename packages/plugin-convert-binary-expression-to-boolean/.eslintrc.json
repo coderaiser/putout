@@ -1,7 +1,7 @@
 {
     "extends": [
         "plugin:putout/recommended",
-        "plugin:node/recommended",
+        "plugin:node/recommended"
     ],
     "plugins": [
         "node",
