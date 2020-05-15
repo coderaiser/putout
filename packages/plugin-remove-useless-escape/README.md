@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-escape
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-escape
 
-`putout` plugin adds ability to find and add `return await`.
+`putout` plugin adds ability to find and remove useless escape.
 
 ## Install
 
