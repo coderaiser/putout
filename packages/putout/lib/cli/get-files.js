@@ -7,7 +7,8 @@ const tryToCatch = require('try-to-catch');
 
 const mergeArrays = (a) => [].concat(...a);
 const rmDuplicates = (a) => Array.from(new Set(a));
-const isJS = (a) => /\.(js|jsx|ts)$/.test(a);
+
+const isJS = (a) => /\.(m?jsx?|tsx?)$/.test(a);
 const one = (f) => (a) => f(a);
 
 module.exports = async (args) => {

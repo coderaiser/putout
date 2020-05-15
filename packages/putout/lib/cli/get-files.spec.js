@@ -8,6 +8,7 @@ const stub = require('@cloudcmd/stub');
 
 const getFiles = require('./get-files');
 
+const {isJS} = getFiles;
 const {reRequire, stopAll} = mockRequire;
 
 const rmStart = (a) => a.replace('lib/', '');
@@ -104,6 +105,20 @@ test('putout: getFiles: glob', async (t) => {
     stopAll();
     
     t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: isJS: tsx', (t) => {
+    const result = isJS('index.tsx');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: isJS: mjs', (t) => {
+    const result = isJS('index.mjs');
+    
+    t.ok(result);
     t.end();
 });
 
