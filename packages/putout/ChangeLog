@@ -1,3 +1,20 @@
+2020.05.15, v8.4.0
+
+fix:
+- (@putout/convert-for-to-for-of) n: no-length
+
+feature:
+- (putout) add support of tsx, mjs files
+- (@putout/engine-parser) babel: allowUndeclaredExports
+- (@putout/codemod-convert-emitter-to-promise) add support of template literal in event name
+- (package) supertape v2.0.1
+- (@putout/plugin-convert-for-to-for-of) keywords
+- (@putout/test) v2.0.0
+- (@putout/test) tape -> supertape
+- (package) @putout/formatter-dump v2.0.1
+- (package) putout v8.3.0
+
+
 2020.05.10, v8.3.0
 
 feature:
