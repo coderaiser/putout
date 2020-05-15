@@ -250,3 +250,10 @@ test('putout: parser: duplicate', (t) => {
     t.end();
 });
 
+test('putout: parser: undeclared exports', (t) => {
+    const [error] = tryCatch(parse, 'export {x}');
+    
+    t.notOk(error);
+    t.end();
+});
+
