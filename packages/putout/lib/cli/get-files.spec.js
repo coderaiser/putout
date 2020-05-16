@@ -1,6 +1,7 @@
 'use strict';
 
 const {join} = require('path');
+const fs = require('fs').promises;
 
 const test = require('supertape');
 const mockRequire = require('mock-require');
@@ -105,6 +106,32 @@ test('putout: getFiles: glob', async (t) => {
     stopAll();
     
     t.deepEqual(result, expected);
+    t.end();
+});
+
+test.only('putout: getFiles: mjs, tsx', (t) => {
+    const {lstat} = fs;
+    
+    fs.lstat = stub().returns({
+        isDirectory: stub().returns(true),
+    });
+    
+    const fastGlob = stub().returns([
+        'get-files',
+    ]);
+    
+    mockRequire('fast-glob', fastGlob);
+    
+    fs.lstat = lstat;
+    stopAll();
+    
+    console.log(fastGlob.args);
+    const [, args] = fastGlob.args;
+    const expected = ['get-files/**/*.{js,mjs,jsx,ts,tsx}'];
+    
+    console.log(fastGlob.calledWith());
+    
+    t.deepEqual(args, expected);
     t.end();
 });
 

@@ -1,6 +1,6 @@
 'use strict';
 
-const {stat} = require('fs').promises;
+const {lstat} = require('fs').promises;
 
 const fastGlob = require('fast-glob');
 const tryToCatch = require('try-to-catch');
@@ -27,7 +27,7 @@ async function getFiles(args) {
 
 async function addExt(a) {
     const [[e], files] = await Promise.all([
-        tryToCatch(stat, a),
+        tryToCatch(lstat, a),
         fastGlob(a, {
             onlyFiles: false,
         }),
@@ -39,12 +39,14 @@ async function addExt(a) {
     const jsFiles = [];
     const promises = [];
     for (const file of files) {
-        if (isJS(file)) {
-            jsFiles.push(file);
+        const info = await lstat(file)
+        
+        if (info.isDirectory()) {
+            promises.push(fastGlob(`${file}/**/*.{js,mjs,jsx,ts,tsx}`));
             continue;
         }
         
-        promises.push(fastGlob(`${file}/**/*.{js,jsx,ts}`));
+        jsFiles.push(file);
     }
     
     const promiseResults = !promises.length ? [] : await Promise.all(promises);
