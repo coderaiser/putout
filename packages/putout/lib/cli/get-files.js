@@ -39,7 +39,7 @@ async function addExt(a) {
     const jsFiles = [];
     const promises = [];
     for (const file of files) {
-        const info = await lstat(file)
+        const info = await lstat(file);
         
         if (info.isDirectory()) {
             promises.push(fastGlob(`${file}/**/*.{js,mjs,jsx,ts,tsx}`));

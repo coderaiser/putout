@@ -29,6 +29,12 @@ test('putout: getFiles: error: not first', async (t) => {
 });
 
 test('putout: getFiles', async (t) => {
+    const {lstat} = fs;
+    
+    fs.lstat = stub().returns({
+        isDirectory: stub().returns(false),
+    });
+    
     const fastGlob = stub().returns([
         'get-files.js',
         'get-files.spec.js',
@@ -46,12 +52,19 @@ test('putout: getFiles', async (t) => {
     ];
     
     stopAll();
+    fs.lstat = lstat;
     
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: getFiles: name', async (t) => {
+    const {lstat} = fs;
+    
+    fs.lstat = stub().returns({
+        isDirectory: stub().returns(false),
+    });
+    
     const fastGlob = stub().returns([
         'get-files.js',
     ]);
@@ -66,6 +79,7 @@ test('putout: getFiles: name', async (t) => {
         'get-files.js',
     ];
     
+    fs.lstat = lstat;
     stopAll();
     
     t.deepEqual(result, expected);
@@ -73,6 +87,12 @@ test('putout: getFiles: name', async (t) => {
 });
 
 test('putout: getFiles: dir', async (t) => {
+    const {lstat} = fs;
+    
+    fs.lstat = stub().returns({
+        isDirectory: stub().returns(false),
+    });
+    
     const fastGlob = stub().returns([
         'bin/putout.js',
     ]);
@@ -87,12 +107,20 @@ test('putout: getFiles: dir', async (t) => {
     ];
     
     stopAll();
+    fs.lstat = lstat;
     
     t.deepEqual(result, expected);
     t.end();
 });
 
 test('putout: getFiles: glob', async (t) => {
+    const {lstat} = fs;
+    
+    let is = true;
+    fs.lstat = stub().returns({
+        isDirectory: () => is = !is,
+    });
+    
     const dir = join(__dirname, '..', '..');
     
     const getFiles = reRequire('./get-files');
@@ -103,13 +131,13 @@ test('putout: getFiles: glob', async (t) => {
         join(dir, 'bin/putout.js'),
     ];
     
-    stopAll();
+    fs.lstat = lstat;
     
     t.deepEqual(result, expected);
     t.end();
 });
 
-test.only('putout: getFiles: mjs, tsx', (t) => {
+test('putout: getFiles: mjs, tsx', async (t) => {
     const {lstat} = fs;
     
     fs.lstat = stub().returns({
@@ -122,14 +150,14 @@ test.only('putout: getFiles: mjs, tsx', (t) => {
     
     mockRequire('fast-glob', fastGlob);
     
-    fs.lstat = lstat;
-    stopAll();
+    const getFiles = reRequire('./get-files');
+    await getFiles(['**/get-files*.js']);
     
-    console.log(fastGlob.args);
     const [, args] = fastGlob.args;
     const expected = ['get-files/**/*.{js,mjs,jsx,ts,tsx}'];
     
-    console.log(fastGlob.calledWith());
+    fs.lstat = lstat;
+    stopAll();
     
     t.deepEqual(args, expected);
     t.end();
