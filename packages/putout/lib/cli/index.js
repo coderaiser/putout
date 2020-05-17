@@ -159,7 +159,6 @@ module.exports = async ({argv, halt, log, write, logError}) => {
     }
     
     const places = rawPlaces.filter(Boolean);
-    
     const mergedPlaces = merge(...places);
     
     fileCache.reconcile();
