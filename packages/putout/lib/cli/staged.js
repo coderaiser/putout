@@ -8,7 +8,7 @@ const findUp = require('find-up');
 const once = require('once');
 const fullstore = require('fullstore');
 
-const {isJS} = require('./get-files');
+const {isJS} = require('./supported-files');
 
 const STAGED_INDEX = 3;
 const STAGED = 2;

@@ -6,7 +6,7 @@ const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
 
-const {isJS} = require('./get-files');
+const {isJS} = require('./supported-files');
 
 const {reRequire, stopAll} = mockRequire;
 
