@@ -10,5 +10,5 @@ const extensions = [
 ];
 
 module.exports.isJS = (a) => RegExp(`.(${extensions.join('|')})$`).test(a);
-module.exports.extensions = extensions;
+module.exports.getJSGlob = (file) => `${file}/**/*.{${extensions.join(',')}}`;
 
