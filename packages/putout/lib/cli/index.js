@@ -7,6 +7,7 @@ const merge = require('../merge');
 const processFile = require('./process-file');
 const getFiles = require('./get-files');
 const cacheFiles = require('./cache-files');
+const supportedFiles = require('./supported-files');
 
 const isString = (a) => typeof a === 'string';
 const isStringAll = (...a) => a.filter(isString).length;
@@ -36,6 +37,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             'fixCount',
         ],
         string: [
+            'ext',
             'config',
             'format',
             'disable',
@@ -57,6 +59,8 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             removeCache: false,
         },
     });
+    
+    supportedFiles.add(args.ext);
     
     const {
         fix,

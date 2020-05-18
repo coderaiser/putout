@@ -45,6 +45,7 @@ Options:
   --disable               disable rule by name in .putout.json
   --enable-all            enable all rules in .putout.json
   --disable-all           disable all rules in .putout.json
+  --ext                   specify JavaScript file extensions
   --jsx                   enable jsx (default)
   --flow                  enable flow
   --cache                 enable .putoutcache to speed up processing
