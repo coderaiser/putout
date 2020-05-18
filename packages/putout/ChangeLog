@@ -1,3 +1,13 @@
+2020.05.18, v8.5.2
+
+fix:
+- test(putout) rm unused fixtures: jscodeshift-options
+- (putout) enable ts for tsx
+
+feature:
+- (@putout/plugin-remove-useless-variables) for-of: exclude multiple properties destructuring
+
+
 2020.05.17, v8.5.1
 
 feature:
