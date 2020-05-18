@@ -37,8 +37,6 @@ const fixture = readFixtures([
     'babel-plugins-fix',
     'jscodeshift',
     'jscodeshift-fix',
-    'jscodeshift-options',
-    'jscodeshift-options-fix',
 ]);
 
 test('putout: no vars', (t) => {
