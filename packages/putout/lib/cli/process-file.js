@@ -68,7 +68,7 @@ module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, is
     }
     
     const source = await readFile(name, 'utf8');
-    const isTS = /\.ts$/.test(name);
+    const isTS = /\.tsx?$/.test(name);
     
     if (fileCache.canUseCache({fix, options, name: resolvedName})) {
         const places = fileCache.getPlaces(resolvedName);

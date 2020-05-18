@@ -254,6 +254,26 @@ test('putout: cli: ruler processor', async (t) => {
     t.end();
 });
 
+test('putout: cli: tsx', async (t) => {
+    const write = stub();
+    
+    const argv = [
+        '--no-options',
+        join(__dirname, 'fixture', 'view.tsx'),
+    ];
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        write,
+        argv,
+    });
+    
+    t.ok(write.calledWith(''), 'should call logError');
+    t.end();
+});
+
 async function runCli(options) {
     const {
         halt = stub(),
