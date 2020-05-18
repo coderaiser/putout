@@ -2,6 +2,8 @@
 
 const {replaceWith} = require('putout').operator;
 
+const isToManyProperties = (a) => a.isObjectPattern() && a.node.properties.length >= 5;
+
 module.exports.report = () => `Destructuring should be used in the head of for-of`;
 
 module.exports.fix = ({path, varPath}) => {
@@ -35,6 +37,11 @@ module.exports.traverse = ({push}) => {
                 .isIdentifier({name});
             
             if (!isSameName)
+                return;
+            
+            const idPath = parentPath.get('id');
+            
+            if (isToManyProperties(idPath))
                 return;
             
             push({

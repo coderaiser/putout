@@ -29,3 +29,8 @@ test('remove usless variables: for-of: no transform: no declaration', (t) => {
     t.end();
 });
 
+test('remove usless variables: for-of: no transform: multiple', (t) => {
+    t.noTransform('for-of-multiple');
+    t.end();
+});
+
