@@ -61,6 +61,33 @@ test('putout: cli: --ext', async (t) => {
     t.end();
 });
 
+test('putout: cli: multiple --ext', async (t) => {
+    const argv = [
+        '--ext',
+        '.xjs',
+        '--ext',
+        '.extjs',
+    ];
+    
+    const add = stub();
+    
+    const files = [];
+    mockRequire('./supported-files', {add});
+    mockRequire('./get-files', stub().returns([null, files]));
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+    });
+    
+    stopAll();
+    
+    t.ok(add.calledWith(['.xjs', '.extjs']), 'should call logError');
+    t.end();
+});
+
 test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     const {PUTOUT_FILES = ''} = process.env;
     
