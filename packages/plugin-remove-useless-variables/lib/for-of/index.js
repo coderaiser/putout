@@ -2,7 +2,7 @@
 
 const {replaceWith} = require('putout').operator;
 
-const isToManyProperties = (a) => a.isObjectPattern() && a.node.properties.length >= 5;
+const isToManyProperties = (a, {maxProperties}) => a.isObjectPattern() && a.node.properties.length > maxProperties;
 
 module.exports.report = () => `Destructuring should be used in the head of for-of`;
 
@@ -11,7 +11,7 @@ module.exports.fix = ({path, varPath}) => {
     path.remove();
 };
 
-module.exports.traverse = ({push}) => {
+module.exports.traverse = ({push, options}) => {
     return {
         'for (const __ of __) __'(path) {
             const leftPath = path.get('left');
@@ -41,7 +41,9 @@ module.exports.traverse = ({push}) => {
             
             const idPath = parentPath.get('id');
             
-            if (isToManyProperties(idPath))
+            const {maxProperties = 4} = options;
+            
+            if (isToManyProperties(idPath, {maxProperties}))
                 return;
             
             push({

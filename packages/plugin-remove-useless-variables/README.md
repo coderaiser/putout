@@ -19,9 +19,12 @@ npm i @putout/plugin-remove-useless-variables -D
 ```json
 {
     "rules": {
-        "remove-useless-variables/rename": true,
-        "remove-useless-variables/remove": true,
-        "remove-useless-variables/await": true
+        "remove-useless-variables/rename": "on",
+        "remove-useless-variables/remove": "on",
+        "remove-useless-variables/await": "on",
+        "remove-useless-variables/for-of": ["on", {
+            maxProperties: 4
+        }],
     }
 }
 ```

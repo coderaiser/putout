@@ -34,3 +34,10 @@ test('remove usless variables: for-of: no transform: multiple', (t) => {
     t.end();
 });
 
+test('remove usless variables: for-of: transform with options: multiple', (t) => {
+    t.transformWithOptions('for-of-options', {
+        maxProperties: Infinity,
+    });
+    t.end();
+});
+

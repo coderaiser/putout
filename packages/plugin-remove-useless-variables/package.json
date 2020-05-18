@@ -32,9 +32,12 @@
   "keywords": [
     "putout",
     "putout-plugin",
+    "putout-plugin-remove",
     "plugin",
+    "remove",
     "useless",
-    "variables"
+    "variables",
+    "for-of"
   ],
   "devDependencies": {
     "@putout/test": "^2.0.0",
