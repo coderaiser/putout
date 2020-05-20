@@ -7,8 +7,10 @@ const murmur = require('imurmurhash');
 const stringify = require('json-stringify-deterministic');
 const tryCatch = require('try-catch');
 
-const {version} = require('../../package.json');
-const containEslintPlugin = require('./cache-files/contain-eslint-plugin');
+const {version} = require('../../../package.json');
+const containEslintPlugin = require('./contain-eslint-plugin');
+const isNoDefinition = require('./is-no-definition');
+
 const optionsHashCache = new WeakMap();
 const nodeVersion = process.version;
 
@@ -53,6 +55,9 @@ const getPlaces = (fileCache) => (name) => fileCache.getFileDescriptor(name).met
 
 const setInfo = (fileCache) => (name, places, options) => {
     if (containEslintPlugin(places))
+        return;
+    
+    if (isNoDefinition(places))
         return;
     
     const {meta} = fileCache.getFileDescriptor(name);

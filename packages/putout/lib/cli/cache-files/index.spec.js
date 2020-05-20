@@ -6,7 +6,7 @@ const test = require('supertape');
 const mockRequire = require('mock-require');
 const stub = require('@cloudcmd/stub');
 
-const cacheFiles = require('./cache-files');
+const cacheFiles = require('.');
 
 const {reRequire} = mockRequire;
 
@@ -25,7 +25,7 @@ test('putout: cache-files: fileCache: updateCache', (t) => {
     const _unlinkSync = stub();
     fs.unlinkSync = _unlinkSync;
     
-    const cacheFiles = reRequire('./cache-files');
+    const cacheFiles = reRequire('.');
     const {_CACHE_FILE} = cacheFiles;
     
     cacheFiles({
@@ -57,7 +57,7 @@ test('putout: cache-files: enabled: setInfo', (t) => {
     };
     
     mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('./cache-files');
+    const cacheFiles = reRequire('.');
     
     const fileCache = cacheFiles({
         cache: true,
@@ -65,9 +65,52 @@ test('putout: cache-files: enabled: setInfo', (t) => {
     });
     
     const name = 'hello';
-    fileCache.setInfo(name, ['world'], {hello: 'world'});
+    const place = {
+        rule: 'hello',
+        message: 'hello world',
+    };
+    
+    fileCache.setInfo(name, [place], {hello: 'world'});
     
     t.ok(getFileDescriptor.calledWith(name), 'should call getFileDescriptor');
+    t.end();
+});
+
+test('putout: cache-files: enabled: setInfo', (t) => {
+    const meta = {
+        optionsHash: 'hello',
+        places: ['world'],
+    };
+    
+    const getFileDescriptor = stub().returns({
+        meta,
+    });
+    
+    const createFromFile = stub().returns({
+        getFileDescriptor,
+    });
+    
+    const fileEntryCache = {
+        createFromFile,
+    };
+    
+    mockRequire('file-entry-cache', fileEntryCache);
+    const cacheFiles = reRequire('.');
+    
+    const fileCache = cacheFiles({
+        cache: true,
+        files: [],
+    });
+    
+    const name = 'hello';
+    const place = {
+        rule: 'hello',
+        message: `Definition for rule 'hello' was not found.`,
+    };
+    
+    fileCache.setInfo(name, [place], {hello: 'world'});
+    
+    t.notOk(getFileDescriptor.called, 'should not call getFileDescriptor');
     t.end();
 });
 
@@ -91,7 +134,7 @@ test('putout: cache-files: enabled: setInfo: not set', (t) => {
     };
     
     mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('./cache-files');
+    const cacheFiles = reRequire('.');
     
     const fileCache = cacheFiles({
         cache: true,
@@ -131,7 +174,7 @@ test('putout: cache-files: enabled: canUseCache: changed', (t) => {
     };
     
     mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('./cache-files');
+    const cacheFiles = reRequire('.');
     
     const fileCache = cacheFiles({
         cache: true,
@@ -174,7 +217,7 @@ test('putout: cache-files: enabled: canUseCache: options changed', (t) => {
     };
     
     mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('./cache-files');
+    const cacheFiles = reRequire('.');
     
     const fileCache = cacheFiles({
         cache: true,
@@ -221,7 +264,7 @@ test('putout: cache-files: enabled: canUseCache: not fix', (t) => {
         result: stub().returns('1cnbekx'),
     }));
     
-    const cacheFiles = reRequire('./cache-files');
+    const cacheFiles = reRequire('.');
     
     const fileCache = cacheFiles({
         cache: true,
@@ -268,7 +311,7 @@ test('putout: cache-files: enabled: canUseCache: fix, no places', (t) => {
         result: stub().returns('1cnbekx'),
     }));
     
-    const cacheFiles = reRequire('./cache-files');
+    const cacheFiles = reRequire('.');
     
     const fileCache = cacheFiles({
         cache: true,
@@ -311,7 +354,7 @@ test('putout: cache-files: enabled: getOptionsHash: coverage', (t) => {
     };
     
     mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('./cache-files');
+    const cacheFiles = reRequire('.');
     
     const fileCache = cacheFiles({
         cache: true,
@@ -361,7 +404,7 @@ test('putout: cache-files: enabled: getPlaces', (t) => {
     };
     
     mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('./cache-files');
+    const cacheFiles = reRequire('.');
     
     const fileCache = cacheFiles({
         cache: true,
