@@ -5,7 +5,10 @@ const {
     operator,
 } = require('putout');
 
-const {isIdentifier} = types;
+const {
+    isIdentifier,
+    isObjectProperty,
+} = types;
 const {
     compareAny,
     findBinding,
@@ -33,7 +36,8 @@ module.exports.traverse = ({push}) => {
         '__(__object)'(path) {
             const {name} = path.node.callee;
             const [argument] = path.get('arguments');
-            const argProps = argument.get('properties');
+            const argProps = argument.get('properties')
+                .filter(isObjectProperty);
             
             const refPath = findBinding(path, name);
             
@@ -58,7 +62,9 @@ module.exports.traverse = ({push}) => {
                     return;
             }
             
-            const propKeys = properties.map(getKey);
+            const propKeys = properties
+                .map(getKey);
+            
             for (const propPath of argProps) {
                 const {key} = propPath.node;
                 const is = compareAny(key, propKeys);
