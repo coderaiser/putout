@@ -10,6 +10,7 @@ const tryCatch = require('try-catch');
 const {version} = require('../../../package.json');
 const containEslintPlugin = require('./contain-eslint-plugin');
 const isNoDefinition = require('./is-no-definition');
+const isParserError = require('./is-parser-error');
 
 const optionsHashCache = new WeakMap();
 const nodeVersion = process.version;
@@ -58,6 +59,9 @@ const setInfo = (fileCache) => (name, places, options) => {
         return;
     
     if (isNoDefinition(places))
+        return;
+    
+    if (isParserError(places))
         return;
     
     const {meta} = fileCache.getFileDescriptor(name);

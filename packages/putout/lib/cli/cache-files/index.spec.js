@@ -76,7 +76,7 @@ test('putout: cache-files: enabled: setInfo', (t) => {
     t.end();
 });
 
-test('putout: cache-files: enabled: setInfo', (t) => {
+test('putout: cache-files: setInfo: definition not found', (t) => {
     const meta = {
         optionsHash: 'hello',
         places: ['world'],
@@ -106,6 +106,44 @@ test('putout: cache-files: enabled: setInfo', (t) => {
     const place = {
         rule: 'hello',
         message: `Definition for rule 'hello' was not found.`,
+    };
+    
+    fileCache.setInfo(name, [place], {hello: 'world'});
+    
+    t.notOk(getFileDescriptor.called, 'should not call getFileDescriptor');
+    t.end();
+});
+
+test('putout: cache-files: setInfo: eslint parser error', (t) => {
+    const meta = {
+        optionsHash: 'hello',
+        places: ['world'],
+    };
+    
+    const getFileDescriptor = stub().returns({
+        meta,
+    });
+    
+    const createFromFile = stub().returns({
+        getFileDescriptor,
+    });
+    
+    const fileEntryCache = {
+        createFromFile,
+    };
+    
+    mockRequire('file-entry-cache', fileEntryCache);
+    const cacheFiles = reRequire('.');
+    
+    const fileCache = cacheFiles({
+        cache: true,
+        files: [],
+    });
+    
+    const name = 'hello';
+    const place = {
+        rule: 'eslint/parser',
+        message: `Can't find parser`,
     };
     
     fileCache.setInfo(name, [place], {hello: 'world'});
