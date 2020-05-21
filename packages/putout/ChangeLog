@@ -1,3 +1,9 @@
+2020.05.21, v8.8.0
+
+feature:
+- (putout) cache-files: add ability to avoid cache on eslint parser error
+
+
 2020.05.20, v8.7.0
 
 fix:
