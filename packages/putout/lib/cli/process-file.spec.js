@@ -48,7 +48,7 @@ test('putout: cli: process-file: eslint', async (t) => {
         setInfo: stub(),
     };
     
-    mockRequire('../eslint', eslint);
+    mockRequire('./eslint', eslint);
     fs.promises.readFile = async (name, options) => {
         if (name === 'example.js')
             return code;
@@ -101,7 +101,7 @@ test('putout: cli: process-file: fileCache.removeEntry', async (t) => {
         setInfo: stub(),
     };
     
-    mockRequire('../eslint', eslint);
+    mockRequire('./eslint', eslint);
     
     fs.promises.writeFile = stub();
     fs.promises.readFile = async (name, options) => {
@@ -154,7 +154,7 @@ test('putout: cli: process-file: writeFile', async (t) => {
         setInfo: stub(),
     };
     
-    mockRequire('../eslint', eslint);
+    mockRequire('./eslint', eslint);
     
     fs.promises.writeFile = writeFileStub;
     fs.promises.readFile = async (name, options) => {
@@ -208,7 +208,7 @@ test('putout: cli: process-file: cache', async (t) => {
         getPlaces: stub().returns([]),
     };
     
-    mockRequire('../eslint', eslint);
+    mockRequire('./eslint', eslint);
     
     fs.promises.writeFile = writeFileStub;
     fs.promises.readFile = async (name, options) => {
@@ -340,7 +340,7 @@ test('putout: cli: process-file: parser error: eslint', async (t) => {
         getPlaces: stub().returns([]),
     };
     
-    mockRequire('../eslint', eslint);
+    mockRequire('./eslint', eslint);
     
     fs.promises.writeFile = writeFileStub;
     fs.promises.readFile = async (name, options) => {

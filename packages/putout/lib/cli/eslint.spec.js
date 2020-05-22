@@ -52,6 +52,8 @@ test('putout: eslint: config file', async (t) => {
 });
 
 test('putout: eslint: fix', async (t) => {
+    const eslint = reRequire('./eslint');
+    
     const [result] = await eslint({
         name: 'hello.js',
         code: `const t = 'hi'\n`,
@@ -317,7 +319,6 @@ test('putout: eslint: parser', async (t) => {
 });
 
 test('putout: eslint: output', async (t) => {
-    const eslint = reRequire('./eslint');
     const [source] = await eslint({
         name: 'hello.js',
         code: `const a = 1;`,

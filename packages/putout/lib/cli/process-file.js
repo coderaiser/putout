@@ -14,7 +14,7 @@ const putout = require('../..');
 
 const report = require('../report')();
 const parseOptions = require('../parse-options');
-const eslint = require('../eslint');
+const eslint = require('./eslint');
 const parseError = require('./parse-error');
 
 const {ignores} = putout;
