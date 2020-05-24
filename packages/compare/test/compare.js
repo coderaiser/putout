@@ -522,6 +522,13 @@ test('compare: __nop: no block', (t) => {
     t.end();
 });
 
+test('compare: __object identifier', (t) => {
+    const result = compare('print(__object)', 'print(__object)');
+    
+    t.notOk(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);
