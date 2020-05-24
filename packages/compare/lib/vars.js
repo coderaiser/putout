@@ -9,7 +9,6 @@ const {replaceWith} = require('@putout/operate');
 
 const {
     is,
-    isNameStr,
     isArgsStr,
     isImportsStr,
 } = require('./is');
@@ -31,9 +30,9 @@ module.exports.getTemplateValues = (node, str) => {
 module.exports.findVarsWays = findVarsWays;
 
 function findVarsWays(node) {
-    if (isIdentifier(node) && isNameStr(node.name))
+    if (isIdentifier(node) && is(node.name))
         return {
-            [node.name]: '',
+            [node.name]: [''],
         };
     
     const vars = {};
@@ -83,7 +82,7 @@ function getValues({waysFrom, node}) {
             
             way = way.replace(/\.expression$/, '');
             
-            result[name] = result[name] || jessy(way, node);
+            result[name] = result[name] || jessy(way, node) || node;
         }
     }
     
@@ -96,12 +95,12 @@ function setValues({waysTo, values, path}) {
     const node = parseExpression(path.node);
     
     for (const [name, ways] of entries(waysTo)) {
-        if (!ways) {
-            replaceWith(path, values[name]);
-            continue;
-        }
-        
         for (let way of ways) {
+            if (!way) {
+                replaceWith(path, values[name]);
+                continue;
+            }
+            
             if (isArgsStr(name))
                 way = way.replace(/\.0$/, '');
             

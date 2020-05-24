@@ -2,10 +2,13 @@
 
 const test = require('supertape');
 const putout = require('putout');
+const montag = require('montag');
 const {template} = require('@putout/engine-parser');
 
 const {compare} = require('./compare');
 const {getTemplateValues} = require('./vars');
+
+const {generate} = require('putout');
 
 test('putout: compare: getTemplateValues', (t) => {
     const addVar = {
@@ -135,6 +138,39 @@ test('putout: compare: vars: identifier', (t) => {
     });
     
     const expected = 'if (y) fn()';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: compare: vars: findVarsWays: __object', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            __object: ({__object}) => {
+                const {code} = generate(__object);
+                return `(${code})`;
+            },
+        }),
+    };
+    
+    const source = montag`
+        fn({a, b, c})
+    `;
+    
+    const expected = montag`
+        fn({
+          a,
+          b,
+          c
+        })
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['convert', convert],
+        ],
+    });
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

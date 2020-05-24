@@ -16,6 +16,7 @@ const {
 
 const log = require('./log');
 const {
+    is,
     isObject,
     isArrays,
     isAny,
@@ -35,6 +36,7 @@ const {
 } = require('./is');
 
 const isEmptyBlock = (a) => isBlock(a) && !a.body.length;
+const isPrimitive = (a) => typeof a !== 'object' || a === null;
 
 const compareType = (type) => (path) => path.type === type;
 const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
@@ -160,7 +162,7 @@ function superCompare(nodeValue, value, {add, templateStore}) {
     if (value == '__')
         return true;
     
-    if (value === nodeValue)
+    if (isPrimitive(value) && !is(value) && value === nodeValue)
         return true;
     
     if (isClassBody(value) || isEmptyBlock(value))
