@@ -3,6 +3,7 @@
 const test = require('supertape');
 const montag = require('montag');
 const putout = require('putout');
+const {print} = putout;
 
 const {runPlugins} = require('..');
 
@@ -84,6 +85,40 @@ test('putout: runner: replace: recursive overflow', (t) => {
     const expected = [
         'test.only()',
     ].join('\n');
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: runner: replace: __object', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            __object: ({__object}) => {
+                const code = print(__object);
+                return `(${code})`;
+            },
+        }),
+    };
+    
+    const source = montag`
+        fn({a, b, c})
+    `;
+    
+    const expected = montag`
+        fn({
+          a,
+          b,
+          c
+        })
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['convert', convert],
+        ],
+    });
     
     t.deepEqual(code, expected, 'should equal');
     t.end();
