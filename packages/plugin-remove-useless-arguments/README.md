@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-arguments
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-arguments
 
-`putout` plugin adds ability to find and add `return await`.
+`putout` plugin adds ability to find and remove useless `arguments`.
 
 ## Install
 
