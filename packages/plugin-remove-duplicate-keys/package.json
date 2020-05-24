@@ -1,0 +1,57 @@
+{
+  "name": "@putout/plugin-remove-duplicate-keys",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin adds ability to find and remove process.exit",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/remove-duplicate-keys.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint:lib": "madrun lint:lib",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "putout": "madrun putout",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {
+    "fullstore": "^3.0.0"
+  },
+  "keyswords": [
+    "putout",
+    "putout-plugin",
+    "putout-plugin-remove",
+    "plugin",
+    "duplicate",
+    "key"
+  ],
+  "devDependencies": {
+    "@putout/test": "^2.0.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^4.0.0",
+    "lerna": "^3.8.5",
+    "madrun": "^6.0.0",
+    "nodemon": "^2.0.1",
+    "nyc": "^15.0.1"
+  },
+  "peerDependencies": {
+    "putout": ">=8"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

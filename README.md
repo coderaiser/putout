@@ -94,6 +94,18 @@ PUTOUT_FILES=lib,test putout --fix
 ```
 </details>
 
+<details><summary>remove duplicate keys</summary>
+
+```diff
+const a = {
+-    x: 'hello',
+-    ...y,
+    x: 'world',
+    ...y,
+}
+```
+</details>
+
 <details><summary>remove unused private fields</summary>
 
 ```diff

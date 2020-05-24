@@ -33,6 +33,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - find and remove `boolean` from `logical expressions`;
 - find and remove `double negations`;
 - find and remove `unreachable code`;
+- find and remove `duplicate keys`;
 - find and replace `test.only` to `test` calls;
 - find and replace `test.skip` to `test` calls;
 - find and split `variable declarations`;

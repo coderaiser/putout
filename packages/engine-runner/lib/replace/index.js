@@ -55,7 +55,6 @@ const parseTo = (to, values, path) => isFn(to) ? to(values, path) : to;
 
 const fix = (from, to, path) => {
     const nodeFrom = template.ast(from);
-    
     const mark = watermark(from, to, path);
     
     mark.init();
