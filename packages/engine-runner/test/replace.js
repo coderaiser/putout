@@ -124,3 +124,28 @@ test('putout: runner: replace: __object', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: return __object', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            __object: ({__object}) => {
+                return __object;
+            },
+        }),
+    };
+    
+    const source = montag`
+        fn({a, b, c})
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    t.deepEqual(code, source, 'should equal');
+    t.end();
+});
+
