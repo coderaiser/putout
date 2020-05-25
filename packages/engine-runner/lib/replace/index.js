@@ -17,6 +17,7 @@ const {keys, entries} = Object;
 const stub = () => [];
 const stubMatch = () => ({});
 const packKeys = (a) => () => keys(a);
+const isObj = (a) => typeof a === 'object';
 
 module.exports = ({rule, plugin, msg, options}, {}) => {
     const {
@@ -77,7 +78,7 @@ const fix = (from, to, path) => {
     });
     
     const toStr = parseTo(to, values, path);
-    const nodeTo = template.ast.fresh(toStr);
+    const nodeTo = isObj(toStr) ? toStr : template.ast.fresh(toStr);
     const waysTo = findVarsWays(nodeTo);
     const newPath = replaceWith(path, nodeTo);
     
