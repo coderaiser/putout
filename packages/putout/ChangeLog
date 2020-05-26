@@ -1,3 +1,15 @@
+2020.05.26, v8.9.0
+
+fix:
+- (compare) __object is reserved
+
+feature:
+- (@putout/plugin-remove-duplicate-keys) add
+- (@putout/engine-runner) replace: add ability to return node
+- (@putout/plugin-convert-for-in-to-for-of) simplify
+- (putout) eslint: mv to cli
+
+
 2020.05.21, v8.8.0
 
 feature:
