@@ -15,7 +15,8 @@
   "nyc": {
     "exclude": [
       "**/*.spec.js",
-      "test"
+      "test",
+      ".*.js"
     ]
   },
   "scripts": {
