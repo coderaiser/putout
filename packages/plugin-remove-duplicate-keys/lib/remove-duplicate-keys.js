@@ -13,13 +13,15 @@ const isSpreadId = (name) => (a) => isSpreadElement(a) && isIdentifier(a.argumen
 const isObjectPropertyId = (name, computed) => (a) => isObjectProperty(a, {computed}) && isIdentifier(a.key, {name});
 const isObjectPropertyLiteral = (value) => (a) => isObjectProperty(a) && isStringLiteral(a.key, {value});
 
-const store = fullstore();
+const store = fullstore([]);
 
 module.exports.report = () => 'Duplicate keys should be avoided';
 
 module.exports.replace = () => ({
     __object: ({__object}) => {
         __object.properties = store();
+        store([]);
+        
         return __object;
     },
 });
@@ -68,7 +70,8 @@ module.exports.match = () => ({
             newProperties.unshift(prop);
         }
         
-        store(newProperties);
+        if (is)
+            store(newProperties);
         
         return is;
     },

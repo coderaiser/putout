@@ -30,3 +30,8 @@ test('remove duplicate-keys: transform: couple', (t) => {
     t.end();
 });
 
+test('remove duplicate-keys: transform: no duplicate', (t) => {
+    t.noTransform('no-duplicate');
+    t.end();
+});
+
