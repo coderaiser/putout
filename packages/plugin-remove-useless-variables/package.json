@@ -49,7 +49,6 @@
     "madrun": "^6.0.0",
     "nodemon": "^2.0.1",
     "nyc": "^15.0.1",
-    "redrun": "^7.0.2",
     "tape": "^4.8.0"
   },
   "peerDependencies": {
