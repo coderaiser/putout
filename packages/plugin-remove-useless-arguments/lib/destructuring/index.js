@@ -27,10 +27,6 @@ module.exports.fix = ({path}) => {
     path.remove();
 };
 
-module.exports.exclude = () => [
-    '__.__(__args)',
-];
-
 module.exports.traverse = ({push}) => {
     return {
         '__(__object)'(path) {

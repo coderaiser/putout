@@ -9,8 +9,13 @@ test('plugin-remove-useless-arguments: no report', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-arguments: no transform', (t) => {
+test('plugin-remove-useless-arguments: no transform: spread', (t) => {
     t.noTransform('spread');
+    t.end();
+});
+
+test('plugin-remove-useless-arguments: no transform: method', (t) => {
+    t.noTransform('method');
     t.end();
 });
 
