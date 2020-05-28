@@ -18,16 +18,28 @@ module.exports.fix = ({path, imports}) => {
     }
 };
 
-module.exports.find = (ast, {traverse, push}) => {
-    const imports = [];
-    const duplicates = {};
+module.exports.traverse = ({push}) => {
+    const {
+        add,
+        get,
+        clear,
+    } = importsStore();
     
-    traverse(ast, {
-        ImportDeclaration: (path) => {
-            imports.push(path);
+    return {
+        ImportDeclaration(path) {
+            add(path);
         },
-    });
-    
+        Program: {
+            exit: () => {
+                processImports(push, get());
+                clear();
+            },
+        },
+    };
+};
+
+function processImports(push, imports) {
+    const {get, add} = duplicatesStore();
     let importDefaultCount = 0;
     
     for (const path of imports) {
@@ -35,18 +47,17 @@ module.exports.find = (ast, {traverse, push}) => {
             source,
             specifiers,
         } = path.node;
+        
         const {value} = source;
         
+        add(value, path);
         importDefaultCount += specifiers.filter(isImportDefaultSpecifier).length;
-        
-        duplicates[value] = duplicates[value] || [];
-        duplicates[value].push(path);
     }
     
     if (importDefaultCount > 1)
         return;
     
-    for (const [name, list] of entries(duplicates)) {
+    for (const [name, list] of get()) {
         if (list.length === 1)
             continue;
         
@@ -56,4 +67,34 @@ module.exports.find = (ast, {traverse, push}) => {
             imports,
         });
     }
-};
+}
+
+function importsStore() {
+    let imports = [];
+    
+    const add = (a) => imports.push(a);
+    const get = () => imports;
+    const clear = () => imports = [];
+    
+    return {
+        add,
+        get,
+        clear,
+    };
+}
+
+function duplicatesStore() {
+    const duplicates = [];
+    
+    const get = () => entries(duplicates);
+    const add = (value, path) => {
+        duplicates[value] = duplicates[value] || [];
+        duplicates[value].push(path);
+    };
+    
+    return {
+        get,
+        add,
+    };
+}
+
