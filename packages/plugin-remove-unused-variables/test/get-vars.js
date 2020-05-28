@@ -86,6 +86,8 @@ const fixture = readFixtures([
     'await',
     'flow',
     'typescript',
+    'typescript-namespace',
+    'typescript-module',
 ]);
 
 const getVars = (a, b) => {
@@ -1470,6 +1472,72 @@ test('remove-unused-variables: get-vars: typescript', (t) => {
         IInputHandlingTerminal: du,
     }, {
         options: d_,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: typescript', (t) => {
+    const ast = parse(fixture.typescript, {isTS: true});
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        Lines: du,
+        Options: du,
+        namedTypes: du,
+        FastPathType: d_,
+        callback: du,
+        names: du,
+        Viewport: du,
+        IViewport: _u,
+        IInputHandlingTerminal: du,
+    }, {
+        options: d_,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+test('remove-unused-variables: get-vars: typescript', (t) => {
+    const ast = parse(fixture.typescript, {isTS: true});
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        Lines: du,
+        Options: du,
+        namedTypes: du,
+        FastPathType: d_,
+        callback: du,
+        names: du,
+        Viewport: du,
+        IViewport: _u,
+        IInputHandlingTerminal: du,
+    }, {
+        options: d_,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+test('remove-unused-variables: get-vars: typescript: namespace', (t) => {
+    const ast = parse(fixture.typescriptNamespace, {isTS: true});
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        children: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: typescript: module', (t) => {
+    const ast = parse(fixture.typescriptModule, {isTS: true});
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        children: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

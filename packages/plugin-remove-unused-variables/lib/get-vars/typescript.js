@@ -1,5 +1,9 @@
 'use strict';
 
+const {types} = require('putout');
+
+const {isTSModuleDeclaration} = types;
+
 module.exports = ({use, declare}) => ({
     TSExpressionWithTypeArguments(path) {
         const {expression} = path.node;
@@ -31,6 +35,9 @@ module.exports = ({use, declare}) => ({
     
     TSInterfaceDeclaration(path) {
         declare(path, path.node.id.name);
+        
+        if (path.findParent(isTSModuleDeclaration))
+            use(path, path.node.id.name);
     },
     
     TSMethodSignature(path) {
