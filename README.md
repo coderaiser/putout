@@ -480,6 +480,16 @@ result = result ?? 'hello';
 ```
 </details>
 
+<details><summary>merge duplicate imports</summary>
+
+```diff
+-import {m as b} from 'y';
+-import {z} from 'y';
+-import x from 'y';
++import x, {m as b, z} from 'y';
+```
+</details>
+
 <details><summary>merge <code>if</code> statements</summary>
 
 ```diff
@@ -687,6 +697,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-apply-nullish-coalescing`](/packages/plugin-apply-nullish-coalescing) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-nullish-coalescing.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-nullish-coalescing) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-nullish-coalescing)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-nullish-coalescing) |
 | [`@putout/plugin-apply-shorthand-properties`](/packages/plugin-apply-shorthand-properties) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-shorthand-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-shorthand-properties) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-shorthand-properties)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-shorthand-properties) |
 | [`@putout/plugin-merge-destructuring-properties`](/packages/plugin-merge-destructuring-properties) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-destructuring-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-destructuring-properties) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-merge-destructuring-properties)](https://david-dm.org/coderaiser/putout?path=packages/plugin-merge-destructuring-properties) |
+| [`@putout/plugin-merge-duplicate-imports`](/packages/plugin-merge-duplicate-imports) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-duplicate-imports.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-duplicate-imports) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-merge-duplicate-imports)](https://david-dm.org/coderaiser/putout?path=packages/plugin-merge-duplicate-imports) |
 | [`@putout/plugin-merge-if-statements`](/packages/plugin-merge-if-statements) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-if-statements.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-if-statements) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-merge-if-statements)](https://david-dm.org/coderaiser/putout?path=packages/plugin-merge-if-statements) |
 | [`@putout/plugin-react-hooks`](/packages/plugin-react-hooks) | [![npm](https://img.shields.io/npm/v/@putout/plugin-react-hooks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-react-hooks) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-react-hooks)](https://david-dm.org/coderaiser/putout?path=packages/plugin-react-hooks) |
 | [`@putout/plugin-madrun`](/packages/plugin-madrun) | [![npm](https://img.shields.io/npm/v/@putout/plugin-madrun.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-madrun) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-madrun)](https://david-dm.org/coderaiser/putout?path=packages/plugin-madrun) |

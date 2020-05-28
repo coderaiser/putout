@@ -86,6 +86,7 @@
         "convert-spread-to-array-from",
         "convert-template-to-string",
         "merge-destructuring-properties",
+        "merge-duplicate-imports",
         "merge-if-statements",
         "strict-mode",
         "putout",
