@@ -46,6 +46,9 @@
         "semi": "error",
         "object-shorthand": "error",
         "object-curly-spacing": "error",
+        "no-implicit-coercion": ["error", {
+            "allow": ["~"]
+        }],
         "no-cond-assign": "off",
         "no-empty-pattern": "off",
         "no-control-regex": "off",
