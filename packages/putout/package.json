@@ -104,7 +104,7 @@
     "@putout/plugin-remove-useless-async": "^3.0.0",
     "@putout/plugin-remove-useless-await": "^1.0.0",
     "@putout/plugin-remove-useless-escape": "^1.0.0",
-    "@putout/plugin-remove-useless-spread": "^2.0.0",
+    "@putout/plugin-remove-useless-spread": "^3.0.0",
     "@putout/plugin-remove-useless-typeof": "^1.0.0",
     "@putout/plugin-remove-useless-variables": "^4.0.0",
     "@putout/plugin-simplify-ternary": "^2.0.0",
