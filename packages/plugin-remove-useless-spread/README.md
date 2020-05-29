@@ -19,7 +19,8 @@ npm i @putout/plugin-remove-useless-spread
 ```json
 {
     "rules": {
-        "remove-useless-spread": true
+        "remove-useless-spread/array": true,
+        "remove-useless-spread/object": true
     }
 }
 ```

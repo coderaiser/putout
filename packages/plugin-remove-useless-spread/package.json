@@ -12,6 +12,13 @@
     "type": "git",
     "url": "git://github.com/coderaiser/putout.git"
   },
+  "nyc": {
+    "exclude": [
+      "*/**/*.spec.js",
+      "test",
+      ".*"
+    ]
+  },
   "scripts": {
     "publishOnly": "madrun publishOnly",
     "test": "madrun test",
