@@ -28,12 +28,18 @@ npm i @putout/plugin-remove-useless-spread
 
 ```js
 for (const a of [...b]) {}
+
+const a = {
+    ...b
+};
 ```
 
 ## ✅ Correct code Example
 
 ```js
 for (const a of b) {}
+
+const a = b;
 ```
 
 ## License

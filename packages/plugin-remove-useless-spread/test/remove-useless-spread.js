@@ -9,8 +9,13 @@ test('plugin-remove-useless-spread: report', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-spread: transform', (t) => {
+test('plugin-remove-useless-spread: transform: array', (t) => {
     t.transform('for-of');
+    t.end();
+});
+
+test('plugin-remove-useless-spread: transform: object', (t) => {
+    t.transform('object');
     t.end();
 });
 
