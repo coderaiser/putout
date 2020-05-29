@@ -67,12 +67,6 @@ To apply transforms:
 putout lib test --fix
 ```
 
-## Architecture
-
-`Putout` consists of a couple simple parts, here is workflow representation.
-
-![putout](https://github.com/coderaiser/putout/blob/master/images/putout.png)
-
 ## Environment variables
 
 `Putout` supports next `environment variables`:
@@ -81,6 +75,13 @@ putout lib test --fix
 ```js
 PUTOUT_FILES=lib,test putout --fix
 ```
+
+
+## Architecture
+
+`Putout` consists of a couple simple parts, here is workflow representation.
+
+![putout](https://github.com/coderaiser/putout/blob/master/images/putout.png)
 
 ## API
 
