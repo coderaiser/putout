@@ -38,7 +38,7 @@ Options:
   -v, --version           output version information and exit
   -f, --format            use a specific output format - default: dump
   -s, --staged            add staged files when in git repository
-  --fix                   aply found fixes of errors to code
+  --fix                   apply found fixes of errors to code
   --fix-count             count of fixes rounds (defaults to 10)
   --rulesdir              specify custom rulesdir
   --enable                enable rule by name in .putout.json
