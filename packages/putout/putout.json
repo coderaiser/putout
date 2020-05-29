@@ -14,7 +14,7 @@
             "remove-only": "on",
             "remove-skip": "on"
         },
-        ".ts$": {
+        ".tsx?|.mjs": {
             "strict-mode/add": "off"
         }
     },
