@@ -82,6 +82,83 @@ putout lib test --fix
 PUTOUT_FILES=lib,test putout --fix
 ```
 
+## API
+
+### putout(source, options)
+
+First things first, `require` putout:
+
+```js
+const putout = require('putout');
+```
+
+Let's consider next `source` with two `variables` and one `call expression`:
+
+```js
+const hello = 'world';
+const hi = 'there';
+
+console.log(hello);
+```
+
+We can declare it as `source`:
+```js
+const source = `
+    const hello = 'world';
+    const hi = 'there';
+    
+    console.log(hello);
+`;
+```
+
+#### Plugins
+
+Putout supports dynamic loading of plugins from `node_modules`. Let's consider example of using [remove-unused-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables/README.md) plugin:
+
+```js
+putout(source, {
+    plugins: [
+        'remove-unused-variables',
+    ]
+});
+// returns
+{
+  code: "\n    const hello = 'world';\n\n    console.log(hello);\n",
+  places: []
+}
+```
+
+As you see `places` is empty, but the code is changed: there is no `hi` variable.
+
+#### No fix
+
+From the first day `putout` was developed with ability to split main process into two conspets: `find` and `fix`.
+This conception mirrorod in the code, so you can find all places with redundant variables:
+
+```js
+putout(source, {
+    fix: false,
+    plugins: [
+        'remove-unused-variables',
+    ]
+});
+// returns
+{
+  code: '\n' +
+    "    const hello = 'world';\n" +
+    "    const hi = 'there';\n" +
+    '    \n' +
+    '    console.log(hello);\n',
+  places: [
+    {
+      rule: 'remove-unused-variables',
+      message: '"hi" is defined but never used',
+      position: { line: 3, column: 10 }
+    }
+  ]
+}
+```
+
 ## Built-in transforms
 
 <details><summary>remove unused variables</summary>
@@ -1210,32 +1287,6 @@ Just create `.babelrc` file with configuration you need.
 }
 ```
 
-## API
-
-### putout(source, options)
-
-```js
-const putout = require('putout');
-
-const source = `
-const t = 'hello';
-const m = t + '!';
-console.log(t);
-`;
-
-const result = putout(source, {
-    plugins: [
-        'remove-unused-variables',
-    ]
-});
-// returns
-`
-const t = 'hello';
-console.log(t);
-`
-```
-
 ## License
 
 MIT
-
