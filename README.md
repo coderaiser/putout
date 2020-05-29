@@ -179,7 +179,7 @@ function onIfStatement({push}) {
 ```
 </details>
 
-<details><summary>convert <code>templates</code> with one <code>expression</code> to <code>string></code></summary>
+<details><summary>convert <code>templates</code> with one <code>expression</code> to <code>string</code></summary>
 
 ```diff
 -const  c = `${a + b}`;
