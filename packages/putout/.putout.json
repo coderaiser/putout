@@ -2,7 +2,7 @@
     "match": {
         "test/putout.js": {
             "apply-shorthand-properties": [{
-                    "ignore": "plugin"
+                "ignore": "plugin"
             }]
         }
     },
