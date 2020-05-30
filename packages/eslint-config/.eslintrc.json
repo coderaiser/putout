@@ -12,6 +12,7 @@
         }
     },
     "rules": {
+        "yoda": "error",
         "arrow-parens": ["error", "always"],
         "arrow-spacing": "error",
         "comma-dangle": ["error", "always-multiline"],
@@ -68,6 +69,7 @@
         "no-unneeded-ternary": ["error", {
             "defaultAssignment": false
         }],
+        "no-useless-return": "error",
         "nonblock-statement-body-position": ["error", "below"],
         "lines-around-directive": "error",
         "lines-between-class-members": "error",
