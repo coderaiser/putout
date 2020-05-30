@@ -159,7 +159,7 @@ function superCompareIterate(node, base) {
 function superCompare(nodeValue, value, {add, templateStore}) {
     log(value, nodeValue);
     
-    if (value == '__')
+    if (value === '__')
         return true;
     
     if (isPrimitive(value) && !is(value) && value === nodeValue)
