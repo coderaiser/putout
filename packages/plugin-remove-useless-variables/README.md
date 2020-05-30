@@ -23,7 +23,7 @@ npm i @putout/plugin-remove-useless-variables -D
         "remove-useless-variables/remove": "on",
         "remove-useless-variables/await": "on",
         "remove-useless-variables/for-of": ["on", {
-            maxProperties: 4
+            "maxProperties": 4
         }],
     }
 }
