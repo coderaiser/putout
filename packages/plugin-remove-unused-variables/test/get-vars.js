@@ -88,6 +88,7 @@ const fixture = readFixtures([
     'typescript',
     'typescript-namespace',
     'typescript-module',
+    'typescript-as',
 ]);
 
 const getVars = (a, b) => {
@@ -97,9 +98,12 @@ const getVars = (a, b) => {
     });
 };
 
+const isTS = true;
+
 const du = 'du';
 const d_ = 'd_';
 const _u = '_u';
+
 const dutify = (obj) => {
     const result = {};
     const entries = Object.entries(obj);
@@ -1477,49 +1481,6 @@ test('remove-unused-variables: get-vars: typescript', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
-
-test('remove-unused-variables: get-vars: typescript', (t) => {
-    const ast = parse(fixture.typescript, {isTS: true});
-    const result = getVars(ast).map(dutify);
-    
-    const expected = [{
-        Lines: du,
-        Options: du,
-        namedTypes: du,
-        FastPathType: d_,
-        callback: du,
-        names: du,
-        Viewport: du,
-        IViewport: _u,
-        IInputHandlingTerminal: du,
-    }, {
-        options: d_,
-    }];
-    
-    t.deepEqual(result, expected, 'should equal');
-    t.end();
-});
-test('remove-unused-variables: get-vars: typescript', (t) => {
-    const ast = parse(fixture.typescript, {isTS: true});
-    const result = getVars(ast).map(dutify);
-    
-    const expected = [{
-        Lines: du,
-        Options: du,
-        namedTypes: du,
-        FastPathType: d_,
-        callback: du,
-        names: du,
-        Viewport: du,
-        IViewport: _u,
-        IInputHandlingTerminal: du,
-    }, {
-        options: d_,
-    }];
-    
-    t.deepEqual(result, expected, 'should equal');
-    t.end();
-});
 test('remove-unused-variables: get-vars: typescript: namespace', (t) => {
     const ast = parse(fixture.typescriptNamespace, {isTS: true});
     const result = getVars(ast).map(dutify);
@@ -1538,6 +1499,19 @@ test('remove-unused-variables: get-vars: typescript: module', (t) => {
     
     const expected = [{
         children: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: typescript: as', (t) => {
+    const ast = parse(fixture.typescriptAs, {isTS});
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        t: d_,
+        cms: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');

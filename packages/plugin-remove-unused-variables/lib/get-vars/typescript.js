@@ -13,6 +13,7 @@ module.exports = ({use, declare}) => ({
         case 'Identifier': use(path, expression.name);
         }
     },
+    
     TSTypeReference(path) {
         const {node} = path;
         const {typeName} = node;
@@ -20,6 +21,16 @@ module.exports = ({use, declare}) => ({
         
         switch(type) {
         case 'Identifier': use(path, typeName.name);
+        }
+    },
+    
+    TSAsExpression(path) {
+        const {node} = path;
+        const {expression} = node;
+        const {type} = expression;
+        
+        switch(type) {
+        case 'Identifier': use(path, expression.name);
         }
     },
     
