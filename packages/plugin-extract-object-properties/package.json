@@ -31,6 +31,7 @@
     "only"
   ],
   "devDependencies": {
+    "@putout/plugin-apply-destructuring": "^5.0.0",
     "@putout/plugin-putout": "^5.0.0",
     "@putout/test": "^2.0.0",
     "coveralls": "^3.0.0",

@@ -49,6 +49,9 @@ module.exports.traverse = ({push}) => {
             for (const [current, expandPath] of members) {
                 const {name} = property;
                 
+                if (!expandPath.scope)
+                    continue;
+                
                 if (expandPath.scope.bindings[name])
                     continue;
                 

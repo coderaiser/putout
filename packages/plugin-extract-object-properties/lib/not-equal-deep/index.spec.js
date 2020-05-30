@@ -1,5 +1,7 @@
 'use strict';
 
+const applyDestructuring = require('@putout/plugin-apply-destructuring');
+
 const test = require('@putout/test')(__dirname, {
     'extract-object-properties': require('.'),
 });
@@ -43,5 +45,12 @@ test('plugin-extract-object-properties: not-equal-deep: no transform: property n
 
 test('plugin-extract-object-properties: not-equal-deep: no transform: different scopes', (t) => {
     t.noTransform('different-scopes');
+    t.end();
+});
+
+test('plugin-extract-object-properties: not-equal-deep: no transform: no scope', (t) => {
+    t.transform('no-scope', {
+        'apply-destructuring': applyDestructuring,
+    });
     t.end();
 });
