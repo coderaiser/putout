@@ -17,6 +17,7 @@ const fixture = readFixtures([
     'debugger',
     'debugger-fix',
     'decorator',
+    'decorator-legacy',
     'duplicate',
     'throw',
     'flow',
@@ -198,6 +199,20 @@ test('putout: parser: decorator', (t) => {
     });
     
     const expected = fixture.decorator;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: parser: decorator-legacy', (t) => {
+    const {code} = putout(fixture.decoratorLegacy, {
+        isTS: true,
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = fixture.decoratorLegacy;
     
     t.equal(code, expected);
     t.end();
