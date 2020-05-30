@@ -12,6 +12,8 @@
         }
     },
     "rules": {
+        "no-useless-return": "error",
+        "yoda": "error",
         "arrow-parens": ["error", "always"],
         "arrow-spacing": "error",
         "comma-dangle": ["error", "always-multiline"],
