@@ -12,9 +12,9 @@
         }
     },
     "rules": {
-        "yoda": "error",
         "arrow-parens": ["error", "always"],
         "arrow-spacing": "error",
+        "brace-style": "error",
         "comma-dangle": ["error", "always-multiline"],
         "comma-spacing": "error",
         "eol-last": ["error", "always"],
@@ -80,7 +80,8 @@
             "prev": "*",
             "next": "if"
         }],
-        "require-atomic-updates": "off"
+        "require-atomic-updates": "off",
+        "yoda": "error"
     },
     "extends": [
         "eslint:recommended"
