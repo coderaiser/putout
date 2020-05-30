@@ -260,8 +260,17 @@ function onIfStatement({push}) {
 <details><summary>convert <code>templates</code> with one <code>expression</code> to <code>string</code></summary>
 
 ```diff
--const  c = `${a + b}`;
-+const  c = String(a + b);
+-const c = `${a + b}`;
++const c = String(a + b);
+```
+</details>
+
+<details><summary>convert <code>equal</code> to <code>strict equal</code> to <code>string</code></summary>
+
+```diff
+-if (a == b) {
++if (a === b) {
+}
 ```
 </details>
 
@@ -769,6 +778,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-convert-commonjs-to-esm`](/packages/plugin-convert-commonjs-to-esm) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-commonjs-to-esm.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-commonjs-to-esm) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-commonjs-to-esm)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-commonjs-to-esm) |
 | [`@putout/plugin-convert-spread-to-array-from`](/packages/plugin-convert-spread-to-array-from) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-spread-to-array-from.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-spread-to-array-from) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-spread-to-array-from)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-spread-to-array-from) |
 | [`@putout/plugin-convert-template-to-string`](/packages/plugin-convert-template-to-string) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-template-to-string.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-template-to-string) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-template-to-string)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-template-to-string) |
+| [`@putout/plugin-convert-equal-to-strict-equal`](/packages/plugin-convert-equal-to-strict-equal) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-equal-to-strict-equal.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-equal-to-strict-equal) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-equal-to-strict-equal)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-equal-to-strict-equal) |
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-destructuring)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-top-level-await`](/packages/plugin-apply-top-level-await) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-top-level-await.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-top-level-await) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-top-level-await)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-top-level-await) |
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-optional-chaining)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-optional-chaining) |

@@ -85,6 +85,7 @@
         "convert-top-level-return",
         "convert-spread-to-array-from",
         "convert-template-to-string",
+        "convert-equal-to-strict-equal",
         "merge-destructuring-properties",
         "merge-duplicate-imports",
         "merge-if-statements",
