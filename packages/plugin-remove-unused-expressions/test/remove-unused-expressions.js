@@ -34,3 +34,8 @@ test('remove unused expression: transformCode: used', (t) => {
     t.end();
 });
 
+test('remove unused expression: transform: object', (t) => {
+    t.transformCode('({a: 1})', '');
+    t.end();
+});
+

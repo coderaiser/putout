@@ -12,6 +12,9 @@ module.exports.find = (ast, {push, traverse}) => {
             if (expressionPath.isIdentifier())
                 return push(expressionPath);
             
+            if (expressionPath.isObjectExpression())
+                return push(expressionPath);
+            
             if (!expressionPath.isLiteral())
                 return;
             
