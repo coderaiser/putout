@@ -1,6 +1,5 @@
 'use strict';
 
-const {generate} = require('@putout/engine-parser');
 const tryCatch = require('try-catch');
 
 const {
@@ -12,12 +11,11 @@ const {
 
 const maybeArray = require('../maybe-array');
 const debug = require('debug')('putout:runner:template');
-const generateCode = (a) => generate(a).code;
 
 const {entries} = Object;
 
-const log = (rule, a) => {
-    debug.enabled && debug(rule, generateCode(a));
+const log = (rule, path) => {
+    debug.enabled && debug(rule, path.toString());
 };
 
 const exclude = ({rule, tmpl, fn, nodesExclude}) => {
@@ -77,7 +75,7 @@ module.exports._log = log;
 
 function wrapWithCheck({rule, nodesInclude, nodesExclude, fn}) {
     return (path) => {
-        log(rule, path.node);
+        log(rule, path);
         
         if (nodesExclude.length && compareAny(path, nodesExclude))
             return;
