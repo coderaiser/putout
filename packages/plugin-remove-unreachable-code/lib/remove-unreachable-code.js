@@ -1,5 +1,8 @@
 'use strict';
 
+const {types} = require('putout');
+const {isFunctionDeclaration} = types;
+
 module.exports.report = () => `Unreachable code`;
 
 module.exports.fix = ({siblings}) => {
@@ -14,6 +17,9 @@ module.exports.traverse = ({push}) => {
             const siblings = path.getAllNextSiblings();
             
             if (!siblings.length)
+                return;
+            
+            if (siblings.find(isFunctionDeclaration))
                 return;
             
             push({
