@@ -1,3 +1,20 @@
+2020.06.01, v8.12.0
+
+fix:
+- (@putout/plugin-extract-object-properties) handle absense of scope after @putout/plugin-apply-destructuring
+- (@putout/engine-parser) babel: decorators -> decorators-legacy
+
+feature:
+- (@putout/engine-runner) template: generate() -> path.toString()
+- (@putout/plugin-convert-index-of-to-includes) add
+- (@putout/plugin-remove-unreachable-code) add support of FunctionDeclaration hoist (#17)
+- (@putout/plugin-remove-useless-expressions) add support of ArrayExpression
+- (@putout/plugin-remove-unused-expressions) add support of ObjectExpression
+- (@putout/eslint-config) add brace-style
+- (@putout/plugin-remove-unused-variables) add support of TSAsExpression
+- (@putout/engine-parser) acorn v7.2.0
+
+
 2020.05.30, v8.11.1
 
 fix:
