@@ -1,2 +1,2 @@
-if (!~array.indexOf(a)) {
+if (~array.indexOf(a)) {
 }
