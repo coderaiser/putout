@@ -28,7 +28,7 @@ Rule `convert-index-of-to-includes` is enabled by default, to disable add to `.p
 ## ❌ Incorrect code example
 
 ```js
-if (!~array.indexOf(element)) {
+if (~array.indexOf(element)) {
 }
 ```
 

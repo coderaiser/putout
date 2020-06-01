@@ -277,7 +277,7 @@ function onIfStatement({push}) {
 <details><summary>convert <code>indexOf</code> to <code>includes</code></summary>
 
 ```diff
--if (!~array.indexOf(element)) {
+-if (~array.indexOf(element)) {
 +if (array.includes(element)) {
 }
 ```
