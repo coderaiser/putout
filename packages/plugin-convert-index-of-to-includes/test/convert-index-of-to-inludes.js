@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-convert-index-of-to-includes: report', (t) => {
-    t.report('index-of', '"[].includes" should be used instead of "!~[].indexOf"');
+    t.report('index-of', '"includes" should be used instead of "indexOf"');
     t.end();
 });
 
