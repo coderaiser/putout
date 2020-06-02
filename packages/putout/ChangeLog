@@ -1,3 +1,17 @@
+2020.06.02, v8.13.0
+
+fix:
+- (@putout/eslint-config) no-implicit-coercion: allow ~ back, to avoid overlap with @putout/plugin-convert-index-of-to-includes
+- (@putout/plugin-convert-index-of-to-includes) report
+- (@putout/plugin-convert-index-of-to-includes) !~ -> ~
+
+feature:
+- (putout) cli: --enable: add ability to use without file argument
+- (@putout/plugin-convert-index-of-to-includes) add equal check
+- (@putout/plugin-convert-index-of-to-includes) add not equal
+- (@putout/eslint-config) no-implicit-coercion: disallow ~
+
+
 2020.06.01, v8.12.0
 
 fix:
