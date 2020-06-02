@@ -9,10 +9,6 @@ const getFiles = require('./get-files');
 const cacheFiles = require('./cache-files');
 const supportedFiles = require('./supported-files');
 
-const isString = (a) => typeof a === 'string';
-const isStringAll = (...a) => a.filter(isString).length;
-const isRuler = (a) => a.disableAll || a.enableAll || isStringAll(a.disable, a.enable);
-
 const {PUTOUT_FILES = ''} = process.env;
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
@@ -57,6 +53,8 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             options: true,
             updateCache: false,
             removeCache: false,
+            enable: '',
+            disable: '',
         },
     });
     
@@ -94,6 +92,11 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         const help = require('./help');
         log(help());
         return exit();
+    }
+    
+    if (enable || disable) {
+        const rulerProcessor = require('./ruler-processor');
+        rulerProcessor({enable, disable}, []);
     }
     
     const stagedNames = [];
@@ -167,13 +170,9 @@ module.exports = async ({argv, halt, log, write, logError}) => {
     
     fileCache.reconcile();
     
-    if (isRuler(args)) {
-        const getRulerProcessor = require('./ruler-processor');
-        const rulerProcessor = getRulerProcessor({
-            log,
-        });
-        
-        rulerProcessor(args, mergedPlaces);
+    if (enableAll || disableAll) {
+        const rulerProcessor = require('./ruler-processor');
+        rulerProcessor({enableAll, disableAll}, mergedPlaces);
         return exit();
     }
     

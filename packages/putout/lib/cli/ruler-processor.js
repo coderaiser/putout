@@ -8,9 +8,8 @@ const tryCatch = require('try-catch');
 
 const cwd = process.cwd();
 const {parse, stringify} = JSON;
-const isString = (a) => typeof a === 'string';
 
-module.exports = ({log}) => ({disable, disableAll, enable, enableAll}, mergedPlaces) => {
+module.exports = ({disable, disableAll, enable, enableAll}, mergedPlaces) => {
     const name = `${cwd}/.putout.json`;
     const defaultData = stringify({
         rules: {},
@@ -30,12 +29,6 @@ module.exports = ({log}) => ({disable, disableAll, enable, enableAll}, mergedPla
         updated = ruler.enableAll(object, mergedPlaces);
     else if (disableAll)
         updated = ruler.disableAll(object, mergedPlaces);
-    
-    if (isString(disable) && !disable)
-        return log(object.rules);
-    
-    if (isString(enable) && !enable)
-        return log(object.rules);
     
     writeFileSync(name, stringify(updated, null, 4));
 };
