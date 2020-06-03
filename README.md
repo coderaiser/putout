@@ -1000,7 +1000,8 @@ module.exports.fix = (path) => {
 };
 ```
 
-More information about supported plugin types you can find in [@putout/engine-runner](https://github.com/coderaiser/putout/tree/master/packages/engine-runner).
+More information about supported plugin types you can find at [@putout/engine-runner](https://github.com/coderaiser/putout/tree/master/packages/engine-runner).
+About the process of plugins loading you can find at [@putout/engine-loader](https://github.com/coderaiser/putout/tree/master/packages/engine-loader).
 
 When you need, you can use [@babel/types](https://babeljs.io/docs/en/next/babel-types.html), [template](https://babeljs.io/docs/en/next/babel-template.html) and [generate](https://babeljs.io/docs/en/babel-generator). All of this can be get from `putout`:
 
@@ -1144,6 +1145,7 @@ To see more sophisticated example look at [@putout/remove-console](https://githu
 You can add `babel` to `plugins` section of `.putout.json` with `babel/` prefix.
 
 *You can disable rule, or use match in a similar, way*
+*Remember to omit `babel-plugin-` or `@babel/plugin`: putout will set it up for you :)*
 
 *Example*
 Let's add `babel-plugin-transform-inline-consecutive-adds` to `.putout.json`:
@@ -1204,6 +1206,33 @@ Here you can find `babel plugins` which feets the most main purpose of `putout` 
 -bar.push(1);
 -bar.push(2);
 +const bar = [1, 2];
+```
+</details>
+
+<details><summary><a href="https://github.com/babel/babel/tree/master/codemods/babel-plugin-codemod-object-assign-to-object-spread">codemod-object-assign-to-object-spread</a></summary>
+
+```diff
+function merge(a) {
+-   return Object.assign({}, a, {
+-       hello: 'world'
+-   });
++   return {
++       ...a,
++       hello: 'world'
++   };
+};
+```
+</details>
+
+<details><summary><a href="https://github.com/babel/babel/tree/master/codemods/babel-plugin-codemod-optional-catch-binding">codemod-optional-catch-binding</a></summary>
+
+```diff
+try {
+    throw 0;
+-} catch (err) {
++} catch {
+    console.log("it failed, but this code executes");
+}
 ```
 </details>
 
