@@ -18,8 +18,10 @@ const {loadPlugins} = require('..');
 const fixture = readFixtures([
     'shebang',
     'shebang-fix',
-    'babel-plugins',
-    'babel-plugins-fix',
+    'babel-plugin',
+    'babel-plugin-fix',
+    'babel-plugin-namespace',
+    'babel-plugin-namespace-fix',
     'jscodeshift',
     'jscodeshift-fix',
     'jscodeshift-arrow',
@@ -292,25 +294,36 @@ test('putout: loader: jscodeshift: messsage', (t) => {
 });
 
 test('putout: loader: babelPlugins', (t) => {
-    const {code} = putout(fixture.babelPlugins, {
+    const {code} = putout(fixture.babelPlugin, {
         plugins: [
             'babel/transform-inline-consecutive-adds',
         ],
     });
     
-    t.deepEqual(code, fixture.babelPluginsFix);
+    t.deepEqual(code, fixture.babelPluginFix);
     t.end();
 });
 
+test('putout: loader: babelPlugins: namespace', (t) => {
+    const {code} = putout(fixture.babelPluginNamespace, {
+        loadPlugins,
+        plugins: [
+            'babel/codemod-object-assign-to-object-spread',
+        ],
+    });
+    
+    t.deepEqual(code, fixture.babelPluginNamespaceFix);
+    t.end();
+});
 test('putout: loader: babelPlugins: espree', (t) => {
-    const {code} = putout(fixture.babelPlugins, {
+    const {code} = putout(fixture.babelPlugin, {
         parser: 'espree',
         plugins: [
             'babel/transform-inline-consecutive-adds',
         ],
     });
     
-    t.deepEqual(code, fixture.babelPluginsFix);
+    t.deepEqual(code, fixture.babelPluginFix);
     t.end();
 });
 
@@ -328,7 +341,7 @@ test('putout: loader: babelPlugins: espree: shebang', (t) => {
 });
 
 test('putout: loader: babelPlugins: position: shebang', (t) => {
-    const {places} = putout(fixture.babelPlugins, {
+    const {places} = putout(fixture.babelPlugin, {
         fix: false,
         plugins: [
             'babel/transform-inline-consecutive-adds',
@@ -351,7 +364,7 @@ test('putout: loader: babelPlugins: position: shebang', (t) => {
 test('putout: loader: babelPlugins: custom message', (t) => {
     const message = 'hello world';
     const enabled = true;
-    const {places} = putout(fixture.babelPlugins, {
+    const {places} = putout(fixture.babelPlugin, {
         fix: false,
         rules: {
             'babel/transform-inline-consecutive-adds': [enabled, message],
@@ -376,7 +389,7 @@ test('putout: loader: babelPlugins: custom message', (t) => {
 
 test('putout: loader: babelPlugins: no message: first options', (t) => {
     const message = 'transform inline consecutive adds';
-    const {places} = putout(fixture.babelPlugins, {
+    const {places} = putout(fixture.babelPlugin, {
         fix: false,
         rules: {
             'babel/transform-inline-consecutive-adds': [{}],

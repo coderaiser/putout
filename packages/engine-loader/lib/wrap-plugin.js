@@ -2,6 +2,7 @@
 
 const {print} = require('@putout/engine-parser');
 const getPositions = require('./get-positions-by-diff');
+const getModulePath = require('./get-module-path');
 
 const babelTransform = require('./transforms/babel');
 const jscodeshiftTransform = require('./transforms/jscodeshift');
@@ -15,7 +16,7 @@ module.exports = (name, namespace) => {
     
     if (/babel/.test(namespace))
         return getPlugin({
-            name,
+            name: getBabelPluginName(name),
             message,
             transform: babelTransform,
         });
@@ -59,4 +60,13 @@ const getPlugin = ({name, transform, message}) => {
         },
     };
 };
+
+function getBabelPluginName(name) {
+    const namespaced = getModulePath(`@babel/plugin-${name}`);
+    
+    if (namespaced)
+        return namespaced;
+    
+    return name;
+}
 
