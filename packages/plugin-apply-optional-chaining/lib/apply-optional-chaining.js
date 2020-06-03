@@ -12,5 +12,6 @@ module.exports.replace = () => ({
     'typeof __a === "function" && __a(__args)': '__a?.(__args)',
     'if (typeof __a === "function") __a(__args)': '__a?.(__args)',
     'if (typeof __a === "function") {__a(__args)}': '__a?.(__args)',
+    '__a && __a.__b(__args)': '__a?.__b(__args)',
 });
 

@@ -39,3 +39,8 @@ test('plugin-apply-optional-chaining: transform: continue', (t) => {
     t.end();
 });
 
+test('plugin-apply-optional-chaining: transform: call', (t) => {
+    t.transform('call');
+    t.end();
+});
+
