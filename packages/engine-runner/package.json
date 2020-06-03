@@ -46,6 +46,7 @@
     "putout-engine"
   ],
   "devDependencies": {
+    "@babel/plugin-codemod-optional-catch-binding": "^7.7.4",
     "@cloudcmd/stub": "^3.0.0",
     "@putout/test": "^2.0.0",
     "coveralls": "^3.0.0",
