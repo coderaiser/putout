@@ -20,3 +20,8 @@ test('merge duplicate imports: transform: a couple defaultImportSpecifiers', (t)
     t.end();
 });
 
+test('merge duplicate imports: transform: namespace', (t) => {
+    t.noTransform('namespace');
+    t.end();
+});
+

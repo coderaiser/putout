@@ -2,8 +2,11 @@
 
 const {types} = require('putout');
 
-const {isImportDefaultSpecifier} = types;
 const {entries} = Object;
+const {
+    isImportDefaultSpecifier,
+    isImportNamespaceSpecifier,
+} = types;
 
 module.exports.report = () => `Duplicate imports should be avoided`;
 
@@ -49,6 +52,9 @@ function processImports(push, imports) {
         } = path.node;
         
         const {value} = source;
+        
+        if (specifiers.find(isImportNamespaceSpecifier))
+            continue;
         
         add(value, path);
         importDefaultCount += specifiers.filter(isImportDefaultSpecifier).length;
