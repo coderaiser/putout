@@ -20,6 +20,17 @@ test('putout: ruler: enable', (t) => {
     t.end();
 });
 
+test('putout: ruler: enable: crash', (t) => {
+    const config = enable({}, 'crash/parser');
+    const expected = {
+        rules: {
+        },
+    };
+    
+    t.deepEqual(config, expected);
+    t.end();
+});
+
 test('putout: ruler: enable: exists', (t) => {
     const config = enable({rules: {}}, 'remove-unused-variables');
     const expected = {
@@ -37,6 +48,17 @@ test('putout: ruler: disable', (t) => {
     const expected = {
         rules: {
             'remove-unused-variables': 'off',
+        },
+    };
+    
+    t.deepEqual(config, expected);
+    t.end();
+});
+
+test('putout: ruler: disable: crash', (t) => {
+    const config = disable({}, 'crash/parser');
+    const expected = {
+        rules: {
         },
     };
     
