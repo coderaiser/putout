@@ -387,6 +387,32 @@ test('putout: loader: babelPlugins: custom message', (t) => {
     t.end();
 });
 
+test('putout: loader: babelPlugins: custom message: on', (t) => {
+    const message = 'hello world';
+    const enabled = 'on';
+    const {places} = putout(fixture.babelPlugin, {
+        fix: false,
+        rules: {
+            'babel/transform-inline-consecutive-adds': [enabled, message],
+        },
+        plugins: [
+            'babel/transform-inline-consecutive-adds',
+        ],
+    });
+    
+    const expected = [{
+        rule: 'babel/transform-inline-consecutive-adds',
+        message,
+        position: {
+            line: 4,
+            column: 0,
+        },
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
 test('putout: loader: babelPlugins: no message: first options', (t) => {
     const message = 'transform inline consecutive adds';
     const {places} = putout(fixture.babelPlugin, {
