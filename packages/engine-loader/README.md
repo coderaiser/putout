@@ -66,7 +66,7 @@ Let's use two plugins:
 
 ```js
 const pluginNames = [
-    'transform-inline-consecutive-adds`,
+    'transform-inline-consecutive-adds',
     'codemod-object-assign-to-object-spread',
 ];
 
