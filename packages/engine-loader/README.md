@@ -38,7 +38,7 @@ const plugins = loadPlugins({
 
 `@putout/engine-loader` supports loading transforms written for [jscodeshift](https://github.com/facebook/jscodeshift) with help of prefix `jscodeshift/`.
 
-```json
+```js
 const pluginNames = [
     'jscodeshift/async-await-codemod',
 ];
