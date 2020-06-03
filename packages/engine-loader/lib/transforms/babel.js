@@ -6,14 +6,17 @@ const {transformFromAstSync} = require('@babel/core');
 // (recast makes broken source code from this AST-copy, because keeps source information
 // in object prototypes).
 //
-// Anyways if we just could use a "deepCopy" flag code would look like this:
+// Anyways if we just could use a "clonseInputAst" flag code would look like this:
 //
 // const {ast} = babel.transformFromAstSync(parsedAst, sourceCode, {
 //     ast: true,
-//     deepCopy: false,
+//     cloneInputAst: true,
+
 // });
 
-// https://github.com/babel/babel/issues/10231
+// Issue https://github.com/babel/babel/issues/10231
+// PR https://github.com/babel/babel/pull/10241
+//
 // https://babeljs.io/docs/en/next/babel-core.html#transformfromastsync
 module.exports = (ast, code, name) => {
     transformFromAstSync(ast, code, {
