@@ -1,3 +1,14 @@
+2020.06.03, v8.13.1
+
+fix:
+- (putout) --enable(--all)?/--disable(--all)?: filter "crash/parser" rule from .putout.json
+- feature(@putout/engine-runner) improve support of "@babel/plugin-" prefixes
+
+feature:
+- (@putout/engine-runner) improve support of "@babel/plugin-" prefixes
+- (@putout/plugin-apply-optional-chaining) add support of call
+
+
 2020.06.02, v8.13.0
 
 fix:
