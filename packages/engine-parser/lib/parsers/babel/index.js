@@ -11,7 +11,7 @@ process.env.BABEL_TYPES_8_BREAKING = true;
 
 const initBabel = once(() => require('@babel/parser'));
 const clean = (a) => a.filter(Boolean);
-const getFlow = (a) => !a.indexOf('// @flow');
+const getFlow = (a) => a.includes('// @flow');
 const getJSX = (a) => a.includes('react');
 
 const putoutEditorDefaults = {

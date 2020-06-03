@@ -22,6 +22,7 @@ const fixture = readFixtures([
     'throw',
     'flow',
     'flow-fix',
+    'flow-watermark',
     'typescript',
     'typescript-fix',
     'jsx-template',
@@ -173,6 +174,17 @@ test('putout: parser: flow', (t) => {
     const expected = fixture.flowFix;
     
     t.equal(code, expected);
+    t.end();
+});
+
+test('putout: parser: flow-watermark: not first line', (t) => {
+    const {code} = putout(fixture.flowWatermark, {
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    t.equal(code, fixture.flowWatermark);
     t.end();
 });
 
