@@ -315,6 +315,7 @@ test('putout: loader: babelPlugins: namespace', (t) => {
     t.deepEqual(code, fixture.babelPluginNamespaceFix);
     t.end();
 });
+
 test('putout: loader: babelPlugins: espree', (t) => {
     const {code} = putout(fixture.babelPlugin, {
         parser: 'espree',
