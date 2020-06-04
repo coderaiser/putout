@@ -265,7 +265,7 @@ function onIfStatement({push}) {
 ```
 </details>
 
-<details><summary>convert <code>equal</code> to <code>strict equal</code> to <code>string</code></summary>
+<details><summary>convert <code>equal</code> to <code>strict equal</code></summary>
 
 ```diff
 -if (a == b) {
