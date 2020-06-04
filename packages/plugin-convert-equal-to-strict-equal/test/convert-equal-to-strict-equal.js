@@ -14,3 +14,13 @@ test('plugin-convert-equal-to-strict-equal: transform', (t) => {
     t.end();
 });
 
+test('plugin-convert-equal-to-strict-equal: no transform: null', (t) => {
+    t.noTransform('null');
+    t.end();
+});
+
+test('plugin-convert-equal-to-strict-equal: no transform: not null', (t) => {
+    t.noTransform('not-null');
+    t.end();
+});
+
