@@ -907,7 +907,7 @@ With help of `exclude` you can set code pattern to exclude for current rule.
 Pass an array when you have a couple templates to exclude.
 
 `exclude` is cross-plugins function supported by core, when develop your plugin, please use other name
-to keep users ability to customize all plugins in a way the need to.
+to keep users ability to customize all plugins in a way they need to.
 
 ### Match
 
