@@ -133,7 +133,7 @@ As you see `places` is empty, but the code is changed: there is no `hi` variable
 
 #### No fix
 
-From the first day `putout` was developed with ability to split main process into two conspets: `find` and `fix`.
+From the first day `putout` was developed with ability to split main process into two concepts: `find` and `fix`.
 This conception mirrorod in the code, so you can find all places with redundant variables:
 
 ```js
