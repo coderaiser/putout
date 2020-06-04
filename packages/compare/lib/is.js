@@ -14,6 +14,7 @@ const isStr = (a) => typeof a === 'string';
 const ANY_OBJECT = '__object';
 const ANY_ARRAY = '__array';
 const ARGS = '__args';
+const LINKED_ARGS = /__args__[a-z]$/;
 const LINKED_NODE = /^__[a-z]$/;
 const IMPORTS = '__imports';
 const BODY = '__body';
@@ -25,6 +26,7 @@ const ALL = [
     ANY_ARRAY,
     ARGS,
     LINKED_NODE,
+    LINKED_ARGS,
     IMPORTS,
     BODY,
     ANY,
@@ -50,7 +52,7 @@ function check(str, item) {
 
 module.exports.isNameStr = (a) => LINKED_NODE.test(a);
 module.exports.isImportsStr = (a) => a === IMPORTS;
-module.exports.isArgsStr = (a) => a === ARGS;
+module.exports.isArgsStr = (a) => a === ARGS || LINKED_ARGS.test(a);
 module.exports.isObjectStr = (a) => a === ANY_OBJECT;
 module.exports.isArrayStr = (a) => a === ANY_ARRAY;
 module.exports.isAnyStr = (a) => a === ANY;
@@ -84,6 +86,11 @@ module.exports.isArgs = (a) => {
     return isIdentifier(b, {
         name: ARGS,
     });
+};
+
+module.exports.isLinkedArgs = (a) => {
+    const b = !isArray(a) ? a : a[0];
+    return isIdentifier(b) && LINKED_ARGS.test(b.name);
 };
 
 module.exports.isPath = (path) => Boolean(path.node);

@@ -22,6 +22,7 @@ const {
     isAny,
     isAnyLiteral,
     isArgs,
+    isLinkedArgs,
     isImports,
     isStr,
     isPath,
@@ -183,7 +184,7 @@ function superCompare(nodeValue, value, {add, templateStore}) {
     if (isEqualNop(nodeValue, value))
         return true;
     
-    if (isLinkedNode(value)) {
+    if (isLinkedNode(value) || isLinkedArgs(value)) {
         const {name} = value;
         
         if (!templateStore[name]) {

@@ -77,7 +77,7 @@ compare('const hello = [data]', 'const __ = __array');
 true
 ```
 
-##### __args
+##### __args, __args_a
 
 Any count of `arguments`:
 

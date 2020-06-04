@@ -176,3 +176,46 @@ test('putout: compare: vars: findVarsWays: __object', (t) => {
     t.end();
 });
 
+test('putout: compare: __args__a', (t) => {
+    const varToConst = {
+        report: () => '',
+        replace: () => ({
+            '(__args__a) => __b(__args__a)': '__b',
+        }),
+    };
+    
+    const input = 'const y = (a, b) => alert(a, b)';
+    const expected = 'const y = alert';
+    
+    const {code} = putout(input, {
+        fixCount: 1,
+        plugins: [{
+            'var-to-const': varToConst,
+        }],
+    });
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: compare: __args__a: different', (t) => {
+    const varToConst = {
+        report: () => '',
+        replace: () => ({
+            '(__args__a) => __b(__args__a)': '__b',
+        }),
+    };
+    
+    const input = 'const y = () => alert(a, b);';
+    
+    const {code} = putout(input, {
+        fixCount: 1,
+        plugins: [{
+            'var-to-const': varToConst,
+        }],
+    });
+    
+    t.deepEqual(code, input, 'should equal');
+    t.end();
+});
+
