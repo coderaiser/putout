@@ -54,7 +54,7 @@ Isn't is the same as:
 const f = alert;
 ```
 
-Actually it is the same, and this example can converted with an issue,
+Actually it is the same, and this example can be converted without an issue,
 but there is also cases like:
 
 ```js
