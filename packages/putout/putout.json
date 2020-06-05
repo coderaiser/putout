@@ -61,6 +61,7 @@
         "remove-useless-async",
         "remove-useless-await",
         "remove-useless-typeof",
+        "remove-useless-functions",
         "remove-constant-conditions",
         "remove-boolean-from-logical-expressions",
         "remove-nested-blocks",

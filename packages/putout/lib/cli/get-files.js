@@ -10,14 +10,12 @@ const {getJSGlob} = require('./supported-files');
 const mergeArrays = (a) => [].concat(...a);
 const rmDuplicates = (a) => Array.from(new Set(a));
 
-const one = (f) => (a) => f(a);
-
 module.exports = async (args) => {
     return await tryToCatch(getFiles, args);
 };
 
 async function getFiles(args) {
-    const promises = args.map(one(addExt));
+    const promises = args.map(addExt);
     const files = await Promise.all(promises);
     const mergedFiles = mergeArrays(files);
     

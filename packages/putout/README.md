@@ -11,10 +11,11 @@
 [CoverageIMGURL]:           https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
 Putout is a tool for identifying, reporting and fixing patterns found in JavaScript/JSX/Typescript/Flow code. It can:
-- find and remove unused variables;
-- find and remove unused private fields;
-- find and remove unused expressions;
-- find and remove useless variables;
+- find and remove unused `variables`;
+- find and remove unused `private fields`;
+- find and remove unused `expressions`;
+- find and remove useless `variables`;
+- find and remove useless `functions`;
 - find and remove useless `Array.from`;
 - find and remove useless `spread`;
 - find and remove useless `arguments`;
