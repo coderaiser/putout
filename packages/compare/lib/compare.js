@@ -36,12 +36,16 @@ const {
     parseTemplate,
 } = require('./is');
 
+const {isArray} = Array;
+const {keys} = Object;
+
 const isEmptyBlock = (a) => isBlock(a) && !a.body.length;
 const isPrimitive = (a) => typeof a !== 'object' || a === null;
 
 const compareType = (type) => (path) => path.type === type;
 const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
 const superPush = (array) => (a, b) => array.push([a, b]);
+const parseName = (a) => !isArray(a) ? a.name : a[0].name;
 
 const findParent = (path, type) => {
     const newPathNode = path.findParent(compareType(type));
@@ -137,7 +141,10 @@ function superCompareIterate(node, base) {
         if (!node)
             return false;
         
-        for (const key of Object.keys(base)) {
+        if (isArray(node) && isArray(base) && node.length !== base.length)
+            return false;
+        
+        for (const key of keys(base)) {
             if (ignore.includes(key))
                 continue;
             
@@ -185,7 +192,7 @@ function superCompare(nodeValue, value, {add, templateStore}) {
         return true;
     
     if (isLinkedNode(value) || isLinkedArgs(value)) {
-        const {name} = value;
+        const name = parseName(value);
         
         if (!templateStore[name]) {
             templateStore[name] = nodeValue;
