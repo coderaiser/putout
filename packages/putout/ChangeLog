@@ -1,3 +1,9 @@
+2020.06.05, v8.14.1
+
+fix:
+- (putout) npmignore: add fixture
+
+
 2020.06.05, v8.14.0
 
 fix:
