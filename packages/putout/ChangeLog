@@ -1,3 +1,17 @@
+2020.06.05, v8.14.0
+
+fix:
+- (@putout/compare) strict __args_a check
+- chore(package) pre-commit: add --
+- (@putout/engine-parser) flow: watermark not on first line
+
+feature:
+- (@putout/plugin-remove-useless-functions) add
+- (@putout/compare) add support of linked args: __args__a
+- (@putout/plugin-convert-equal-to-strict-equal) exclude null check
+- (@putout/plugin-merge-duplicate-imports) add support of ImportNamespaceSpecifier
+
+
 2020.06.03, v8.13.1
 
 fix:
