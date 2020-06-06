@@ -32,7 +32,6 @@ npm i putout
 ## Usage
 
 ```
-```
 Usage: putout [options] [path]
 Options
    -h, --help                  display this help and exit
@@ -54,7 +53,6 @@ Options
     --cache                    enable .putoutcache to speed up processing
     --fresh, --update-cache    enable .putoutcache to speed up processing from scratch
     --remove-cache             remove .putoutcache file
-```
 ```
 
 To find possible transform places:
