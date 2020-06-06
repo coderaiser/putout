@@ -51,11 +51,13 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             c: 'config',
             f: 'format',
             s: 'staged',
+            fresh: 'update-cache',
         },
         default: {
             fix: false,
             fixCount: 10,
             options: true,
+            cache: false,
             updateCache: false,
             removeCache: false,
             enable: '',
@@ -137,8 +139,6 @@ module.exports = async ({argv, halt, log, write, logError}) => {
     const options = {
         fix,
         fileCache,
-        updateCache,
-        removeCache,
         rulesdir,
         format,
         isFlow,

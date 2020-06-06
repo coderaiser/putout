@@ -169,6 +169,40 @@ test('putout: cli: --format: specified twice', async (t) => {
     t.end();
 });
 
+test('putout: cli: --fresh', async (t) => {
+    const file = join(__dirname, 'fixture/parser-error.js');
+    const argv = [
+        file,
+        '--no-options',
+        '--fresh',
+    ];
+    
+    const {_defaultFileCache} = require('./cache-files');
+    const cacheFiles = stub().returns(_defaultFileCache);
+    
+    mockRequire('./cache-files', cacheFiles);
+    
+    reRequire('./get-files');
+    reRequire('./process-file');
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+    });
+    
+    const files = [file];
+    const expected = {
+        files,
+        updateCache: true,
+        removeCache: false,
+        cache: false,
+    };
+    
+    t.ok(cacheFiles.calledWith(expected));
+    t.end();
+});
+
 test('putout: cli: --raw: halt', async (t) => {
     const halt = stub();
     const argv = [
