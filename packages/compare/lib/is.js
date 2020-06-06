@@ -14,22 +14,27 @@ const isStr = (a) => typeof a === 'string';
 const ANY_OBJECT = '__object';
 const ANY_ARRAY = '__array';
 const ARGS = '__args';
-const LINKED_ARGS = /__args__[a-z]$/;
-const LINKED_NODE = /^__[a-z]$/;
 const IMPORTS = '__imports';
 const BODY = '__body';
 const NOP = '__nop';
 const ANY = '__';
+const ID = '__identifier';
+
+const LINKED_NODE = /^__[a-z]$/;
+const LINKED_ARGS = /__args__[a-z]$/;
+const LINKED_ID = /^__identifier__[a-z]$/;
 
 const ALL = [
     ANY_OBJECT,
     ANY_ARRAY,
     ARGS,
-    LINKED_NODE,
-    LINKED_ARGS,
     IMPORTS,
     BODY,
     ANY,
+    ID,
+    LINKED_NODE,
+    LINKED_ARGS,
+    LINKED_ID,
 ];
 
 module.exports.isTemplate = (a) => /[(;={]/.test(a) | !/[A-Z]/.test(a);
@@ -73,9 +78,17 @@ const isAnyArray = (a) => isIdentifier(a, {
     name: ANY_ARRAY,
 });
 
+const isId = (a, b) => {
+    if (!isIdentifier(a, {name: ID}))
+        return false;
+    
+    return isIdentifier(b);
+};
+
 const isEqualType = (a, b) => a.type === b.type;
 const {isArray} = Array;
 
+module.exports.isId = isId;
 module.exports.isEqualType = isEqualType;
 module.exports.isStr = (a) => typeof a === 'string';
 module.exports.isAny = (a) => isIdentifier(a, {name: ANY});
@@ -91,6 +104,13 @@ module.exports.isArgs = (a) => {
 module.exports.isLinkedArgs = (a) => {
     const b = !isArray(a) ? a : a[0];
     return isIdentifier(b) && LINKED_ARGS.test(b.name);
+};
+
+module.exports.isLinkedId = (a, b) => {
+    if (!isIdentifier(a) || !LINKED_ID.test(a.name))
+        return false;
+    
+    return isIdentifier(b);
 };
 
 module.exports.isPath = (path) => Boolean(path.node);
@@ -174,6 +194,8 @@ module.exports.isLinkedNode = (a) => {
     
     if (isLiteral(a) && LINKED_NODE.test(a.value))
         return true;
+    
+    return false;
 };
 
 module.exports.parseTemplate = (tmpl, {program} = {}) => {

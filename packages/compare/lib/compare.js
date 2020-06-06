@@ -19,12 +19,14 @@ const {
 const log = require('./log');
 const {
     is,
+    isId,
     isObject,
     isArrays,
     isAny,
     isAnyLiteral,
     isArgs,
     isLinkedArgs,
+    isLinkedId,
     isImports,
     isStr,
     isPath,
@@ -189,6 +191,9 @@ function superCompare(nodeValue, value, {add, templateStore}) {
     if (isAny(value))
         return true;
     
+    if (isId(value, nodeValue))
+        return true;
+    
     if (isEqualAnyArray(nodeValue, value))
         return true;
     
@@ -201,7 +206,7 @@ function superCompare(nodeValue, value, {add, templateStore}) {
     if (isEqualNop(nodeValue, value))
         return true;
     
-    if (isLinkedNode(value) || isLinkedArgs(value)) {
+    if (isLinkedNode(value) || isLinkedArgs(value) || isLinkedId(value, nodeValue)) {
         const name = parseName(value);
         
         if (!templateStore[name]) {
