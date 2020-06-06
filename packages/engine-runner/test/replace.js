@@ -149,3 +149,26 @@ test('putout: runner: replace: return __object', (t) => {
     t.end();
 });
 
+test.only('putout: runner: replace: literal', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            '"__a" + __b': '`__a${__b}`',
+        }),
+    };
+    
+    const source = `const a = "hello " + world;`;
+    const expected = 'const a = `hello ${world}`;';
+    
+    debugger;
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    t.deepEqual(code, source, 'should equal');
+    t.end();
+});
+

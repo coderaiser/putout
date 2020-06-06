@@ -1,11 +1,11 @@
 'use strict';
 
 const traverse = require('@babel/traverse').default;
-const {isIdentifier} = require('@babel/types');
 const jessy = require('jessy');
 const nessy = require('nessy');
 const {template} = require('@putout/engine-parser');
 const {replaceWith} = require('@putout/operate');
+const {isIdentifier, isTemplateLiteral} = require('@babel/types');
 
 const {
     is,
@@ -13,7 +13,7 @@ const {
     isImportsStr,
 } = require('./is');
 
-const {entries} = Object;
+const {entries, assign} = Object;
 const isNumber = (a) => typeof a === 'number';
 const parseExpression = (a) => a.expression || a;
 
@@ -37,35 +37,43 @@ function findVarsWays(node) {
     
     const vars = {};
     
+    if (isTemplateLiteral(node))
+        assign(vars, parseTemplateLiteral(node));
+    
+    
     traverse(node, {
         noScope: true,
-        'Identifier|StringLiteral'(path) {
-            const way = [];
-            const {
-                name = path.node.value,
-            } = path.node;
-            
-            if (!is(name))
-                return;
-            
-            path.find((path) => {
-                const {key, listKey} = path;
-                
-                if (isNumber(key)) {
-                    way.unshift(`${listKey}.${key}`);
-                    return;
-                }
-                
-                way.unshift(key);
-            });
-            
-            vars[name] = vars[name] || [];
-            vars[name].push(way.join('.'));
-        },
+        'Identifier|StringLiteral': collectVars(vars),
     });
     
     return vars;
 }
+
+const collectVars = (vars) => (path) => {
+    const way = [];
+    const {node} = path;
+    const {
+        name = node.value,
+    } = node;
+    
+    if (!is(name))
+        return;
+    
+    path.find((path) => {
+        const {key, listKey} = path;
+        
+        if (isNumber(key)) {
+            way.unshift(`${listKey}.${key}`);
+            return;
+        }
+        
+        way.unshift(key);
+    });
+    
+    vars[name] = vars[name] || [];
+    vars[name].push(way.join('.'));
+};
+
 
 module.exports.getValues = getValues;
 
@@ -109,3 +117,20 @@ function setValues({waysTo, values, path}) {
     }
 }
 
+function parseTemplateLiteral({quasis}) {
+    const n = quasis.length;
+    const vars = {};
+    
+    for (let i = 0; i < n; i++) {
+        const {value} = quasis[i];
+        const {raw} = value;
+        
+        if (!raw || !is(raw))
+            continue;
+        
+        vars[raw] = vars[raw] || [];
+        vars[raw].push(`quasis.${i}.value`);
+    }
+    
+    return vars;
+}

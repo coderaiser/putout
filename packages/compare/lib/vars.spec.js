@@ -4,11 +4,10 @@ const test = require('supertape');
 const putout = require('putout');
 const montag = require('montag');
 const {template} = require('@putout/engine-parser');
+const {generate} = require('putout');
 
 const {compare} = require('./compare');
 const {getTemplateValues} = require('./vars');
-
-const {generate} = require('putout');
 
 test('putout: compare: getTemplateValues', (t) => {
     const addVar = {
@@ -198,7 +197,7 @@ test('putout: compare: __args__a', (t) => {
     t.end();
 });
 
-test('putout: compare: __args__a: different', (t) => {
+test('putout: compare: vars: __args__a: different', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
@@ -207,7 +206,6 @@ test('putout: compare: __args__a: different', (t) => {
     };
     
     const input = 'const y = () => alert(a, b);';
-    
     const {code} = putout(input, {
         fixCount: 1,
         plugins: [{
@@ -219,3 +217,23 @@ test('putout: compare: __args__a: different', (t) => {
     t.end();
 });
 
+test.only('putout: compare: vars: template literal', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            '"__a" + __b': '`__a${__b}`',
+        }),
+    };
+    
+    const source = `const a = "hello " + world;`;
+    const expected = 'const a = `hello ${world}`;';
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
