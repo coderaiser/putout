@@ -1,3 +1,17 @@
+2020.06.06, v8.15.0
+
+fix:
+- (@putout/plugin-remove-useless-spread) object: exclude: VariableDeclaration -> AssignmentExpression
+
+feature:
+- (putout) add --fresh
+- (putout) add ability to set --format a couple times, last will be applied
+- (@putout/plugin-remove-useless-spread) exclude object copy
+- (@putout/codemod-cut-legacy-functions) add
+- (@putout/compare) add __identifier
+- (@putout/compare) improve support of literals
+
+
 2020.06.05, v8.14.1
 
 fix:
