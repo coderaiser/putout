@@ -529,6 +529,13 @@ test('compare: __object identifier', (t) => {
     t.end();
 });
 
+test('compare: string literal', (t) => {
+    const result = compare('\'hello\' + x + \'world\'', '"__a" + __b + "__c"');
+    
+    t.ok(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);

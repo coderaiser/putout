@@ -5,6 +5,8 @@ const {
     isExpressionStatement,
     isClassBody,
     isBlock,
+    isIdentifier,
+    isLiteral,
 } = require('@babel/types');
 
 const {
@@ -45,7 +47,15 @@ const isPrimitive = (a) => typeof a !== 'object' || a === null;
 const compareType = (type) => (path) => path.type === type;
 const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
 const superPush = (array) => (a, b) => array.push([a, b]);
-const parseName = (a) => !isArray(a) ? a.name : a[0].name;
+const parseName = (node) => {
+    const {name, value} = node;
+    
+    if (isIdentifier(node))
+        return name;
+    
+    if (isLiteral(node))
+        return value;
+};
 
 const findParent = (path, type) => {
     const newPathNode = path.findParent(compareType(type));
