@@ -143,10 +143,8 @@ test('putout: cli: --raw: parser error', async (t) => {
 });
 
 test('putout: cli: --format: specified twice', async (t) => {
-    const logError = stub();
     const argv = [
-        join(__dirname, 'fixture/parser-error.js'),
-        '--raw',
+        __filename,
         '--no-options',
         '--format',
         'dump',
@@ -154,18 +152,22 @@ test('putout: cli: --format: specified twice', async (t) => {
         'none',
     ];
     
-    reRequire('./get-files');
-    reRequire('./process-file');
+    const process = stub();
+    const processFile = stub().returns(process);
+    mockRequire('./process-file', processFile);
+    
     const cli = reRequire('.');
     
     await runCli({
         cli,
-        logError,
         argv,
     });
     
-    const error = SyntaxError('Unexpected token (2:0)');
-    t.ok(logError.calledWith(error), 'should call logError');
+    const [arg] = processFile.args;
+    const [first] = arg;
+    const {format} = first;
+    
+    t.equal(format, 'none', 'should use last passed formatter');
     t.end();
 });
 
