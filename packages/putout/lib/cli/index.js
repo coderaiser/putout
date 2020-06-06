@@ -12,8 +12,13 @@ const supportedFiles = require('./supported-files');
 const {PUTOUT_FILES = ''} = process.env;
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
+const {isArray} = Array;
+
 module.exports = async ({argv, halt, log, write, logError}) => {
     const args = yargsParser(argv, {
+        coerce: {
+            format: (a) => isArray(a) ? a.pop() : a,
+        },
         boolean: [
             'cache',
             'update-cache',

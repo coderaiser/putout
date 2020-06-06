@@ -142,6 +142,33 @@ test('putout: cli: --raw: parser error', async (t) => {
     t.end();
 });
 
+test('putout: cli: --format: specified twice', async (t) => {
+    const logError = stub();
+    const argv = [
+        join(__dirname, 'fixture/parser-error.js'),
+        '--raw',
+        '--no-options',
+        '--format',
+        'dump',
+        '--format',
+        'none',
+    ];
+    
+    reRequire('./get-files');
+    reRequire('./process-file');
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        logError,
+        argv,
+    });
+    
+    const error = SyntaxError('Unexpected token (2:0)');
+    t.ok(logError.calledWith(error), 'should call logError');
+    t.end();
+});
+
 test('putout: cli: --raw: halt', async (t) => {
     const halt = stub();
     const argv = [
