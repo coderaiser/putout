@@ -1,1 +1,1 @@
-const options = {...options};
+options = {...options};
