@@ -191,7 +191,7 @@ function superCompare(nodeValue, value, {add, templateStore}) {
     if (isAny(value))
         return true;
     
-    if (isId(value, nodeValue))
+    if (isId(nodeValue, value))
         return true;
     
     if (isEqualAnyArray(nodeValue, value))
@@ -206,7 +206,7 @@ function superCompare(nodeValue, value, {add, templateStore}) {
     if (isEqualNop(nodeValue, value))
         return true;
     
-    if (isLinkedNode(value) || isLinkedArgs(value) || isLinkedId(value, nodeValue)) {
+    if (isLinkedNode(value) || isLinkedArgs(value) || isLinkedId(nodeValue, value)) {
         const name = parseName(value);
         
         if (!templateStore[name]) {
@@ -232,7 +232,7 @@ function superCompare(nodeValue, value, {add, templateStore}) {
         return true;
     }
     
-    if (isArrays(value, nodeValue)) {
+    if (isArrays(nodeValue, value)) {
         add(nodeValue, value);
         return true;
     }

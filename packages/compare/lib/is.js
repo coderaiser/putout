@@ -79,10 +79,10 @@ const isAnyArray = (a) => isIdentifier(a, {
 });
 
 const isId = (a, b) => {
-    if (!isIdentifier(a, {name: ID}))
+    if (!isIdentifier(b, {name: ID}))
         return false;
     
-    return isIdentifier(b);
+    return isIdentifier(a);
 };
 
 const isEqualType = (a, b) => a.type === b.type;
@@ -107,10 +107,10 @@ module.exports.isLinkedArgs = (a) => {
 };
 
 module.exports.isLinkedId = (a, b) => {
-    if (!isIdentifier(a) || !LINKED_ID.test(a.name))
+    if (!isIdentifier(b) || !LINKED_ID.test(b.name))
         return false;
     
-    return isIdentifier(b);
+    return isIdentifier(a);
 };
 
 module.exports.isPath = (path) => Boolean(path.node);
