@@ -13,11 +13,12 @@ const {PUTOUT_FILES = ''} = process.env;
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
 const {isArray} = Array;
+const maybeArray = (a) => isArray(a) ? a.pop() : a;
 
 module.exports = async ({argv, halt, log, write, logError}) => {
     const args = yargsParser(argv, {
         coerce: {
-            format: (a) => isArray(a) ? a.pop() : a,
+            format: maybeArray,
         },
         boolean: [
             'cache',
@@ -44,6 +45,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             'disable',
             'enable',
             'rulesdir',
+            'transform',
         ],
         alias: {
             v: 'version',
@@ -51,6 +53,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             c: 'config',
             f: 'format',
             s: 'staged',
+            t: 'transform',
             fresh: 'update-cache',
         },
         default: {
@@ -82,6 +85,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         staged,
         updateCache,
         removeCache,
+        transform,
     } = args;
     
     const exit = getExit({
@@ -156,6 +160,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         log,
         logError,
         write,
+        transform,
         noOptions: !args.options,
     };
     

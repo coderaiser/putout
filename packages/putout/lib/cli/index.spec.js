@@ -1,16 +1,19 @@
 'use strict';
 
 const {join} = require('path');
+const {readFile} = require('fs').promises;
 
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
 const stripAnsi = require('strip-ansi');
+const tryCatch = require('try-catch');
 
 const _cli = require('.');
 const {version} = require('../../package');
 
 const {reRequire, stopAll} = mockRequire;
+const {parse} = JSON;
 
 test('putout: cli: --raw', async (t) => {
     const logError = stub();
@@ -413,6 +416,60 @@ test('putout: cli: tsx', async (t) => {
     });
     
     t.ok(write.calledWith(''), 'should call logError');
+    t.end();
+});
+
+test('putout: cli: --transform', async (t) => {
+    const write = stub();
+    const eslint = stub().returns(['', []]);
+    
+    const name = join(__dirname, 'fixture/transform.js');
+    const source = await readFile(name, 'utf8');
+    const transform = 'const __a = __b -> const __b = __a';
+    
+    const argv = [
+        name,
+        '--transform',
+        `"${transform}"`,
+        '--no-options',
+        '--format',
+        'json',
+    ];
+    
+    mockRequire('./eslint', eslint);
+    reRequire('./process-file');
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        write,
+    });
+    
+    stopAll();
+    
+    const expected = {
+        errors: [{
+            name,
+            source,
+            places: [{
+                rule: 'transform',
+                message: transform,
+                position: {
+                    line: 1,
+                    column: 0,
+                },
+            }],
+        }],
+        filesCount: 1,
+        errorsCount: 1,
+    };
+    
+    const [arg] = write.args;
+    const [first] = arg;
+    const [, result = {}] = tryCatch(parse, first);
+    
+    t.deepEqual(result, expected);
     t.end();
 });
 

@@ -8,7 +8,7 @@ const {
 } = require('fs').promises;
 
 const tryCatch = require('try-catch');
-const once = require('once');
+const memo = require('nano-memoize');
 
 const putout = require('../..');
 
@@ -16,28 +16,42 @@ const report = require('../report')();
 const parseOptions = require('../parse-options');
 const eslint = require('./eslint');
 const parseError = require('./parse-error');
+const buildPlugins = require('./build-plugins');
 
 const {ignores} = putout;
 const cwd = process.cwd();
+const getFormatter = memo(_getFormatter);
 
-const getFormatter = once(_getFormatter);
 const isParsingError = ({rule}) => rule === 'eslint/null';
 const stub = () => () => {};
 
-function getOptions({noOptions, name, rulesdir}) {
+function getOptions({noOptions, name, transform, rulesdir}) {
+    const transformPlugins = buildPlugins(transform);
+    
     if (noOptions)
         return {
             formatter: 'dump',
             dir: dirname(name),
+            plugins: transformPlugins,
         };
     
-    return parseOptions({
+    const result = parseOptions({
         name,
         rulesdir,
     });
+    
+    const plugins = [
+        ...result.plugins,
+        ...transformPlugins,
+    ];
+    
+    return {
+        ...result,
+        plugins,
+    };
 }
 
-module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noOptions}) => async (name, index, {length}) => {
+module.exports = ({write, fix, transform, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noOptions}) => async (name, index, {length}) => {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
@@ -45,6 +59,7 @@ module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, is
         name: resolvedName,
         rulesdir,
         noOptions,
+        transform,
     });
     
     const {
@@ -138,7 +153,7 @@ module.exports = ({write, fix, fileCache, fixCount, rulesdir, format, isFlow, is
     return allPlaces;
 };
 
-module.exports._getFormatter = _getFormatter;
+module.exports._getFormatter = getFormatter;
 function _getFormatter(name, exit) {
     let e;
     let reporter;
