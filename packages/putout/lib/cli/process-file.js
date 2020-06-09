@@ -15,15 +15,17 @@ const putout = require('../..');
 const report = require('../report')();
 const parseOptions = require('../parse-options');
 const eslint = require('./eslint');
-const parseError = require('./parse-error');
+const {
+    parseError,
+    parseName,
+} = require('./parse-error');
 const buildPlugins = require('./build-plugins');
 
 const {ignores} = putout;
 const cwd = process.cwd();
-const getFormatter = memo(_getFormatter);
+const getFormatter = memo(require('./get-formatter'));
 
 const isParsingError = ({rule}) => rule === 'eslint/null';
-const stub = () => () => {};
 
 function getOptions({noOptions, name, transform, rulesdir}) {
     const transformPlugins = buildPlugins(transform);
@@ -51,7 +53,7 @@ function getOptions({noOptions, name, transform, rulesdir}) {
     };
 }
 
-module.exports = ({write, fix, transform, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noOptions}) => async (name, index, {length}) => {
+module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noOptions}) => async (name, index, {length}) => {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
@@ -109,7 +111,9 @@ module.exports = ({write, fix, transform, fileCache, fixCount, rulesdir, format,
         ...options,
     });
     
-    const allPlaces = parseError(e);
+    const allPlaces = parseError(e, {
+        debug,
+    });
     
     if (!e) {
         const {code, places} = result;
@@ -138,12 +142,15 @@ module.exports = ({write, fix, transform, fileCache, fixCount, rulesdir, format,
         }
     }
     
-    const line = report(currentFormat, {
+    const line = await makeReport(e, {
+        debug,
+        report,
+        currentFormat,
         name: resolvedName,
+        source,
         places: allPlaces,
         index,
         count: length,
-        source,
     });
     
     write(line || '');
@@ -153,25 +160,19 @@ module.exports = ({write, fix, transform, fileCache, fixCount, rulesdir, format,
     return allPlaces;
 };
 
-module.exports._getFormatter = getFormatter;
-function _getFormatter(name, exit) {
-    let e;
-    let reporter;
+async function makeReport(e, {debug, report, currentFormat, name, source, places, index, count}) {
+    const parsed = parseName(e);
+    const {loc} = e || {};
+    const isDebug = parsed && !loc && debug;
     
-    if (name === 'none') {
-        return stub();
-    }
+    source = isDebug ? await readFile(parsed, 'utf8') : source;
+    name = isDebug ? parsed : name;
     
-    [e, reporter] = tryCatch(require, `@putout/formatter-${name}`);
-    
-    if (!e)
-        return reporter;
-    
-    [e, reporter] = tryCatch(require, `putout-formatter-${name}`);
-    
-    if (e)
-        exit(e);
-    
-    return reporter;
+    return report(currentFormat, {
+        name,
+        places,
+        index,
+        count,
+        source,
+    });
 }
-

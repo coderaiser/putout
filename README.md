@@ -38,6 +38,7 @@ Options
    -v, --version               output version information and exit
    -f, --format                use a specific output format - default: dump
    -s, --staged                add staged files when in git repository
+   -d, --debug                 show internal information on crash
    --fix                       apply fixes of errors to code
    --fix-count                 count of fixes rounds (defaults to 10)
    --rulesdir                  use additional rules from directory
@@ -47,14 +48,14 @@ Options
    --enable-all                enable all rules in .putout.json
    --disable-all               disable all rules in .putout.json
    --ext                       specify JavaScript file extensions
-    --jsx                      enable jsx (try to determine by default)
-    --flow                     enable flow
-    --no-jsx                   disable jsx
-    --no-flow                  disable flow (default)
-    --cache                    enable .putoutcache to speed up processing
-    --fresh, --update-cache    enable .putoutcache to speed up processing from scratch
-    --remove-cache             remove .putoutcache file
-```
+   --jsx                       enable jsx (try to determine by default)
+   --flow                      enable flow
+   --no-jsx                    disable jsx
+   --no-flow                   disable flow (default)
+   --cache                     enable .putoutcache to speed up processing
+   --fresh, --update-cache     enable .putoutcache to speed up processing from scratch
+   --remove-cache              remove .putoutcache fil
+e``
 
 To find possible transform places:
 

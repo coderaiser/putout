@@ -22,6 +22,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         },
         boolean: [
             'cache',
+            'debug',
             'update-cache',
             'remove-cache',
             'version',
@@ -54,6 +55,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             f: 'format',
             s: 'staged',
             t: 'transform',
+            d: 'debug',
             fresh: 'update-cache',
         },
         default: {
@@ -65,12 +67,14 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             removeCache: false,
             enable: '',
             disable: '',
+            debug: false,
         },
     });
     
     supportedFiles.add(args.ext);
     
     const {
+        debug,
         fix,
         fixCount,
         raw,
@@ -141,6 +145,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
     });
     
     const options = {
+        debug,
         fix,
         fileCache,
         rulesdir,

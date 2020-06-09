@@ -1,16 +1,15 @@
 'use strict';
 
-const errorStackParser = require('error-stack-parser');
+const parser = require('error-stack-parser');
 
-module.exports = (e) => {
+module.exports.parseError = (e, {debug}) => {
     if (!e)
         return [];
     
-    const {
-        line,
-        column,
-    } = getPosition(e);
-    
+    const {line, column} = e.loc || (debug ? getPosition(e) : {
+        line: 1,
+        column: 1,
+    });
     const rule = `crash/${e.rule || 'parser'}`;
     const message = cutBrackets(e.message);
     
@@ -24,6 +23,15 @@ module.exports = (e) => {
     }];
 };
 
+module.exports.parseName = (e) => {
+    if (!e)
+        return '';
+    
+    const [stack] = parser.parse(e);
+    
+    return stack.fileName;
+};
+
 function cutBrackets(a) {
     const index = a.lastIndexOf('(');
     
@@ -34,14 +42,15 @@ function cutBrackets(a) {
 }
 
 function getPosition(e) {
-    if (e.loc)
-        return e.loc;
-    
-    const [stack] = errorStackParser.parse(e);
+    const [stack] = parser.parse(e);
+    const {
+        lineNumber,
+        columnNumber,
+    } = stack;
     
     return {
-        line: stack.lineNumber,
-        column: stack.columnNumber,
+        line: lineNumber,
+        column: columnNumber,
     };
 }
 

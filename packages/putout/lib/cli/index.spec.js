@@ -120,10 +120,10 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     t.end();
 });
 
-test('putout: cli: --raw: parser error', async (t) => {
+test('putout: cli: --raw: parse error', async (t) => {
     const logError = stub();
     const argv = [
-        join(__dirname, 'fixture/parser-error.js'),
+        join(__dirname, 'fixture/parse-error.js'),
         '--raw',
         '--no-options',
         '--format',
@@ -175,7 +175,7 @@ test('putout: cli: --format: specified twice', async (t) => {
 });
 
 test('putout: cli: --fresh', async (t) => {
-    const file = join(__dirname, 'fixture/parser-error.js');
+    const file = join(__dirname, 'fixture/parse-error.js');
     const argv = [
         file,
         '--no-options',
