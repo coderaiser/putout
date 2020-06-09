@@ -67,24 +67,6 @@ test('putout: loader: user plugin', (t) => {
     t.end();
 });
 
-test('putout: loader: browser build with bundled plugins', (t) => {
-    const {plugins} = Module;
-    Module.plugins = {
-        abc: stub(),
-    };
-    
-    const [e] = tryCatch(putout, `const t = 'hello'`, {
-        plugins: [
-            'abc',
-        ],
-    });
-    
-    Module.plugins = plugins;
-    
-    t.notOk(e, 'should find plugin in Module.plugins');
-    t.end();
-});
-
 test('putout: loader: can not find', (t) => {
     const [e] = tryCatch(putout, `const t = 'hello'`, {
         plugins: [

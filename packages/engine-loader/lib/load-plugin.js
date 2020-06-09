@@ -1,6 +1,5 @@
 'use strict';
 
-const Module = require('module');
 const tryCatch = require('try-catch');
 
 const wrapPlugin = require('./wrap-plugin');
@@ -21,9 +20,6 @@ function requirePlugin({name, namespace}) {
     
     if (userPlugin)
         return userPlugin;
-    
-    if (Module.plugins && Module.plugins[name])
-        return Module.plugins[name];
     
     throw Error(`Plugin "${namespace}-plugin-${name} could not be found!`);
 }
