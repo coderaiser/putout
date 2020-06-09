@@ -1,3 +1,13 @@
+2020.06.10, v8.17.0
+
+fix:
+- (@putout/engine-loader) load-plugin: rm useless Module.plugins (used for webpack bundle build)
+
+feature:
+- (putout) add --debug flag to switch formatter into reason of a crash (when occures)
+- (@putout/eslint-cofig) .eslintrc.json -> eslintrc.json
+
+
 2020.06.09, v8.16.1
 
 fix:
