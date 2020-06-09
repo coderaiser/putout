@@ -1,6 +1,6 @@
 'use strict';
 
-const name = 'transform';
+const name = '[transform]';
 const returns = (a) => () => a;
 
 module.exports = (line) => {

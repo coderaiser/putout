@@ -453,7 +453,7 @@ test('putout: cli: --transform', async (t) => {
             name,
             source,
             places: [{
-                rule: 'transform',
+                rule: '[transform]',
                 message: transform,
                 position: {
                     line: 1,
