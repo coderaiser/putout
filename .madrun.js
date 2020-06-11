@@ -23,6 +23,7 @@ module.exports = {
     'lint:ci': () => `putout .madrun.js '${dirs}/*/{bin,lib,test,*.js,.*.js}'`,
     'lint:cache': () => run('lint', '--cache'),
     'fix:lint': () => run('lint', '--fix'),
+    'fix:lint:fresh': () => run('fix:lint', '--fresh'),
     'fix:lint:cache': () => run('lint:cache', '--fix'),
     'fix:lint:slow': () => 'lerna run --no-bail fix:lint',
     'bootstrap': () => 'lerna bootstrap',

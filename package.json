@@ -18,6 +18,7 @@
     "lint:ci": "madrun lint:ci",
     "lint:cache": "madrun lint:cache",
     "fix:lint": "madrun fix:lint",
+    "fix:lint:fresh": "madrun fix:lint:fresh",
     "fix:lint:cache": "madrun fix:lint:cache",
     "fix:lint:slow": "madrun fix:lint:slow",
     "bootstrap": "madrun bootstrap",

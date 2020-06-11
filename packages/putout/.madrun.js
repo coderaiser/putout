@@ -17,10 +17,11 @@ module.exports = {
         
         return `bin/putout.js ${names} --f progress --cache`;
     },
-    
     'fix:lint': () => run('lint', '--fix'),
+    'fix:lint:fresh': () => run('fix:lint', '--fresh'),
     'lint:progress': () => run('lint', '--fix --f progress'),
     'lint:cache': () => run('lint', '--cache'),
+    'lint:fresh': () => run('lint', '--fresh'),
     'coverage': () => `nyc ${run('test')}`,
     'report': () => `nyc report --reporter=text-lcov | coveralls`,
 };
