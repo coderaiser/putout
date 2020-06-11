@@ -36,8 +36,9 @@ Then configure the rules you want to use under the rules section.
         "putout/long-properties-destructuring": "error",
         "putout/destructuring-as-function-argument": "error",
         "putout/align-spaces": "error",
-        "putout/new-line-function-call-arguments": "error",
-        "putout/function-declaration-paren-newline": "error"
+        "putout/newline-function-call-arguments": "error",
+        "putout/function-declaration-paren-newline": "error",
+        "putout/remove-newline-after-default-import": "error"
     }
 }
 ```
@@ -52,5 +53,6 @@ Then configure the rules you want to use under the rules section.
 - [Destructuring as function argument](/packages/eslint-plugin-putout/lib/destructuring-as-function-argument)
 - [Align spaces](/packages/eslint-plugin-putout/lib/align-spaces)
 - [Keyword spacing](/packages/eslint-plugin-putout/lib/keyword-spacing)
-- [New line function call arguments](/packages/eslint-plugin-putout/lib/new-line-function-call-arguments)
+- [Newline function call arguments](/packages/eslint-plugin-putout/lib/newline-function-call-arguments)
 - [Function declaration paren newline](/packages/eslint-plugin-putout/lib/function-declaration-paren-newline)
+- [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import)

@@ -18,8 +18,9 @@ module.exports.rules = {
     ...getWrapRule('destructuring-as-function-argument'),
     ...getWrapRule('align-spaces'),
     ...getWrapRule('keyword-spacing'),
-    ...getWrapRule('new-line-function-call-arguments'),
+    ...getWrapRule('newline-function-call-arguments'),
     ...getWrapRule('function-declaration-paren-newline'),
+    ...getWrapRule('remove-newline-after-default-import'),
     ...getRule('putout'),
 };
 
@@ -40,8 +41,9 @@ module.exports.configs = {
             'putout/destructuring-as-function-argument': 'error',
             'putout/align-spaces': 'error',
             'putout/keyword-spacing': 'error',
-            'putout/new-line-function-call-arguments': 'error',
+            'putout/newline-function-call-arguments': 'error',
             'putout/function-declaration-paren-newline': 'error',
+            'putout/remove-newline-after-default-import': 'error',
             'putout/putout': 'error',
         },
     },

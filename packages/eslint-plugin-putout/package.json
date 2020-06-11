@@ -35,6 +35,7 @@
   "dependencies": {
     "@putout/eslint-config": "^3.0.0",
     "align-spaces": "^1.0.0",
+    "montag": "^1.0.0",
     "putout": "^8.0.0"
   },
   "devDependencies": {
