@@ -659,10 +659,6 @@ result = result ?? 'hello';
     console.log(a);
 -   }
 }
--Object.keys(json).forEach((name) => {
-    manage(name, json[name]);
--});
-+}
 ```
 
 </details>
