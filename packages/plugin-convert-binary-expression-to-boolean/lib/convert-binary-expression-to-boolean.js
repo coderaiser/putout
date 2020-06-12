@@ -3,27 +3,21 @@
 const {
     types,
     operator,
+    template,
 } = require('putout');
 
 const {replaceWith} = operator;
-
-const {
-    isIdentifier,
-    BooleanLiteral,
-} = types;
-
-const {runInNewContext} = require('vm');
+const {isIdentifier} = types;
 
 module.exports.report = () => 'constant conditions should be avoided';
 
-module.exports.fix = ({path, boolean}) => {
-    replaceWith(path, BooleanLiteral(boolean));
+module.exports.fix = ({path, value}) => {
+    replaceWith(path, template.ast(String(value)));
 };
 
-module.exports.traverse = ({push, generate}) => {
+module.exports.traverse = ({push}) => {
     return {
         BinaryExpression(path) {
-            const {node} = path;
             const {
                 left,
                 right,
@@ -33,23 +27,22 @@ module.exports.traverse = ({push, generate}) => {
             if (!/<|>|===?|!===?/.test(operator))
                 return;
             
-            if (operator === '<<' || operator === '>>')
+            if (/<<|>>/.test(operator))
                 return;
             
-            if (!containsIdentifiers(path)) {
-                const {code} = generate(node);
-                const boolean = runInNewContext(code);
-                
+            const {confident, value} = path.evaluate();
+            
+            if (confident) {
                 return push({
                     path,
-                    boolean,
+                    value,
                 });
             }
             
             if (sameIdentifiers(left, right))
                 return push({
                     path,
-                    boolean: /^===?$/.test(operator),
+                    value: /^===?$/.test(operator),
                 });
         },
     };
@@ -63,17 +56,4 @@ function sameIdentifiers(left, right) {
         return false;
     
     return left.name === right.name;
-}
-
-function containsIdentifiers(testPath) {
-    let is = false;
-    
-    testPath.traverse({
-        Identifier(path) {
-            is = true;
-            path.stop();
-        },
-    });
-    
-    return is;
 }
