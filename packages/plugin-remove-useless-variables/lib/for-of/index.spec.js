@@ -1,5 +1,7 @@
 'use strict';
 
+const removeUselessArrayFrom = require('@putout/plugin-remove-useless-array-from');
+
 const test = require('@putout/test')(__dirname, {
     'remove-useless-variables/for-of': require('.'),
 });
@@ -31,6 +33,13 @@ test('remove usless variables: for-of: no transform: no declaration', (t) => {
 
 test('remove usless variables: for-of: no transform: multiple', (t) => {
     t.noTransform('for-of-multiple');
+    t.end();
+});
+
+test('remove usless variables: for-of: transform with options', (t) => {
+    t.transform('array-from', {
+        'remove-useless-array-from': removeUselessArrayFrom,
+    });
     t.end();
 });
 

@@ -20,12 +20,19 @@ module.exports.traverse = ({push, options}) => {
             if (!varPath.isIdentifier())
                 return;
             
-            const {name} = varPath.node;
+            const {scope, node} = varPath;
+            
+            const {name} = node;
+            
+            const binding = scope.bindings[name];
+            
+            if (!binding)
+                return;
             
             const {
                 references,
                 referencePaths,
-            } = varPath.scope.bindings[name];
+            } = binding;
             
             if (references !== 1)
                 return;
