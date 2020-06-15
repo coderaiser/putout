@@ -47,6 +47,7 @@
     "@putout/engine-runner": "^6.0.0",
     "@putout/formatter-codeframe": "^2.0.0",
     "@putout/formatter-dump": "^2.0.0",
+    "@putout/formatter-frame": "^1.0.0",
     "@putout/formatter-json": "^1.0.0",
     "@putout/formatter-progress": "^2.0.0",
     "@putout/formatter-stream": "^2.0.0",
