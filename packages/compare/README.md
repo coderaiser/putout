@@ -122,11 +122,11 @@ compare('const a = "hello"', 'const __a = "__b"');
 Any `BlockStatement`.
 
 ```js
-compare('const a = () => 0, 'const a = () => __body');
+compare('const a = () => 0', 'const a = () => __body');
 // returns
 false
 
-compare('const a = () => {}, 'const a = () => __body');
+compare('const a = () => {}', 'const a = () => __body');
 // returns
 true
 ```
@@ -135,11 +135,11 @@ true
 Any `Function` with no `arguments` and empty body;
 
 ```js
-compare('const a = () => {}, 'const __a = __nop);
+compare('const a = () => {}', 'const __a = __nop);
 // returns
 true
 
-compare('const a = async () => {}, 'const a = __nop');
+compare('const a = async () => {}', 'const a = __nop');
 // returns
 true
 ```
