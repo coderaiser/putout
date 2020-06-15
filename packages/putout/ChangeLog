@@ -1,3 +1,15 @@
+2020.06.16, v8.18.0
+
+fix:
+- feature(@putout/plugin-remove-useless-array-from) include +  -> replace
+- (@putout/plugin-remove-useless-variables) no binding
+
+feature:
+- (package) @putout/formatter-frame v1.0.0
+- (@putout/formatter-frame) add
+- (@putout/plugin-remove-useless-array-from) include + fix -> replace
+
+
 2020.06.15, v8.17.1
 
 fix:
