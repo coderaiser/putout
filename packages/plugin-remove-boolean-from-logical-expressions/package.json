@@ -40,11 +40,11 @@
     "supertape": "^2.0.0"
   },
   "peerDependencies": {
-    "putout": ">=10"
+    "putout": ">=8"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=10"
   },
   "publishConfig": {
     "access": "public"
