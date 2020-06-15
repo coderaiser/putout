@@ -1,3 +1,19 @@
+2020.06.15, v8.17.1
+
+fix:
+- (@putout/plugin-remove-boolean-from-logical-expression) putout >= 8
+- feature(@putout/plugin-convert-top-level-return) include +  -> replace
+- chore(madrun) add :lint:fresh
+
+feature:
+- (package) @putout/plugin-remove-boolean-from-logical-expressions v2.0.1
+- (@putout/plugin-remove-boolean-from-logical-expression) traverse -> replace
+- (@putout/plugin-convert-top-level-return) include + fix -> replace
+- (@putout/convert-binary-expression) vm -> evaluate
+- (@putout/engine-parser) acorn v7.3.1, acorn-stage3 v3.0.0
+- (@putout/eslint-plugin-putout) add remove-newline-after-default-import
+
+
 2020.06.10, v8.17.0
 
 fix:
