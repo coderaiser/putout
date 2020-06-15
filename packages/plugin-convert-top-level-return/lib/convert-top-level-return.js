@@ -1,52 +1,16 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
-
-const {
-    replaceWith,
-    replaceWithMultiple,
-} = operator;
-
-const {
-    CallExpression,
-    MemberExpression,
-    Identifier,
-} = types;
-
-const isRoot = (path) => path.isFunction();
+const {types} = require('putout');
+const {isFunction} = types;
 
 module.exports.report = () => `"process.exit" should be used instead of top-level return`;
 
-module.exports.fix = (path) => {
-    const {argument} = path.node;
-    const params = [];
-    const call = CallExpression(MemberExpression(
-        Identifier('process'),
-        Identifier('exit'),
-    ), params);
-    
-    if (!argument)
-        replaceWith(path, call);
-    
-    replaceWithMultiple(path, [
-        argument,
-        call,
-    ]);
-};
-
-module.exports.include = () => [
-    'return __',
-];
-
 module.exports.filter = (path) => {
-    const fnPath = path.findParent(isRoot);
-    
-    if (!fnPath)
-        return true;
-    
-    return false;
+    return !path.findParent(isFunction);
 };
+
+module.exports.replace = () => ({
+    'return __a()': '{__a(); process.exit()}',
+    'return __a': 'process.exit()',
+});
 
