@@ -2,13 +2,7 @@
 
 module.exports.report = () => '"Array.from" has no sense inside for-of';
 
-const {replaceWith} = require('putout').operator;
+module.exports.replace = () => ({
+    'for (const __a of Array.from(__b)) __c': 'for (const __a of __b) __c',
+});
 
-module.exports.fix = (path) => {
-    const rightPath = path.get('right');
-    replaceWith(rightPath, rightPath.node.arguments[0]);
-};
-
-module.exports.include = () => [
-    'for (const __ of Array.from(__))__',
-];
