@@ -1,30 +1,13 @@
 'use strict';
 
-const {types, operator} = require('putout');
-
-const {
-    replaceWith,
-    findBinding,
-} = operator;
-
-const {AwaitExpression} = types;
+const {operator} = require('putout');
+const {findBinding} = operator;
 
 module.exports.report = () => `"return await promise()" should be used instead of "return promise()"`;
 
-module.exports.fix = (path) => {
-    const argumentPath = path.get('argument');
-    const {node} = argumentPath;
-    
-    replaceWith(argumentPath, AwaitExpression(node));
-};
-
-module.exports.include = () => [
-    'return __()',
-];
-
-module.exports.exclude = () => [
-    'return await __()',
-];
+module.exports.replace = () => ({
+    'return __a(__args)': 'return await __a(__args)',
+});
 
 module.exports.filter = (path) => {
     const {

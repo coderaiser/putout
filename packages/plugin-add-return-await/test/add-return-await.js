@@ -14,6 +14,11 @@ test('plugin-add-return-await: transform', (t) => {
     t.end();
 });
 
+test('plugin-add-return-await: transform: args', (t) => {
+    t.transform('args');
+    t.end();
+});
+
 test('plugin-add-return-await: no transform: not async', (t) => {
     t.noTransform('not-async');
     t.end();
