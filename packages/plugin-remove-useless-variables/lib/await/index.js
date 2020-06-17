@@ -1,7 +1,5 @@
 'use strict';
 
-const {types: t} = require('putout');
-
 module.exports.report = () => `Promise.resolve has no sense in async function`;
 
 module.exports.fix = (path) => {
@@ -19,36 +17,22 @@ module.exports.fix = (path) => {
 module.exports.traverse = ({push}) => {
     return {
         AwaitExpression(path) {
-            const {node} = path;
-            const {argument} = node;
+            const argumentPath = path.get('argument');
             const declaratorPath = path.parentPath;
             
             if (!declaratorPath.isVariableDeclarator())
                 return;
             
-            if (!t.isCallExpression(argument))
+            if (!argumentPath.isCallExpression())
                 return;
             
-            const {callee} = argument;
-            
-            if (!t.isMemberExpression(callee))
+            if (!argumentPath.get('callee').matchesPattern('Promise.resolve'))
                 return;
             
-            if (!isPromiseResolve(argument.callee))
-                return;
-            
-            const argumentPath = path.get('argument');
             push(argumentPath);
         },
     };
 };
-
-function isPromiseResolve({object, property}) {
-    const isPromise = t.isIdentifier(object, {name: 'Promise'});
-    const isResolve = t.isIdentifier(property, {name: 'resolve'});
-    
-    return isPromise && isResolve;
-}
 
 function parseParent(path) {
     return [
