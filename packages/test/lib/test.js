@@ -32,25 +32,28 @@ const readFixture = (name) => {
     return [readFileSync(`${name}.js`, 'utf8'), TS.DISABLED];
 };
 
-const wrap = (dir, plugin, rules, test) => (str, fn) => {
+const wrap = (dir, plugins, rules, test) => (str, fn) => {
     test(str, (t) => {
-        t.transform = transform(t, dir, plugin, rules);
-        t.noTransform = noTransform(t, dir, plugin, rules);
-        t.transformCode = transformCode(t, plugin, rules);
-        t.noTransformCode = noTransformCode(t, plugin, rules);
+        t.transform = transform(t, dir, plugins, rules);
+        t.noTransform = noTransform(t, dir, plugins, rules);
+        t.transformCode = transformCode(t, plugins, rules);
+        t.noTransformCode = noTransformCode(t, plugins, rules);
         
-        t.transformWithOptions = transformWithOptions(t, dir, plugin);
-        t.noTransformWithOptions = noTransformWithOptions(t, dir, plugin);
+        t.transformWithOptions = transformWithOptions(t, dir, plugins);
+        t.noTransformWithOptions = noTransformWithOptions(t, dir, plugins);
         
-        t.report = report(t, dir, plugin, rules);
-        t.noReport = report(t, dir, plugin, rules);
-        t.reportCode = reportCode(t, plugin, rules);
+        t.report = report(t, dir, plugins, rules);
+        t.noReport = report(t, dir, plugins, rules);
+        t.reportCode = reportCode(t, {
+            plugins,
+            rules,
+        });
         
-        t.formatSave = formatSave(t, dir, plugin, rules);
-        t.format = UPDATE ? t.formatSave : format(t, dir, plugin, rules);
-        t.formatManySave = formatManySave(t, dir, plugin, rules);
-        t.formatMany = UPDATE ? t.formatManySave : formatMany(t, dir, plugin, rules);
-        t.noFormat = noFormat(t, dir, plugin, rules);
+        t.formatSave = formatSave(t, dir, plugins, rules);
+        t.format = UPDATE ? t.formatSave : format(t, dir, plugins, rules);
+        t.formatManySave = formatManySave(t, dir, plugins, rules);
+        t.formatMany = UPDATE ? t.formatManySave : formatMany(t, dir, plugins, rules);
+        t.noFormat = noFormat(t, dir, plugins, rules);
         
         fn(t);
     });
@@ -240,14 +243,19 @@ const getMessage = ({message}) => message;
 
 const report = (t, dir, plugins, rules) => (name, message) => {
     const full = join(dir, name);
-    const [source] = readFixture(full);
+    const [source, isTS] = readFixture(full);
     
-    reportCode(t, plugins, rules)(source, message);
+    reportCode(t, {plugins, rules, isTS})(source, message);
 };
 
-const reportCode = (t, plugins, rules) => (source, message) => {
+const reportCode = (t, {plugins, rules, isTS}) => (source, message) => {
     const fix = false;
-    const {places} = putout(source, {fix, plugins, rules});
+    const {places} = putout(source, {
+        fix,
+        isTS,
+        rules,
+        plugins,
+    });
     const resultMessages = places.map(getMessage);
     
     if (isArray(message)) {

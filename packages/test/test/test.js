@@ -10,6 +10,11 @@ test('test: message', (t) => {
     t.end();
 });
 
+test('test: ts', (t) => {
+    t.report('typescript', 'Unexpected "console" call');
+    t.end();
+});
+
 test('test: message', (t) => {
     t.report('property-identifier', [
         'Unexpected "console" call',
