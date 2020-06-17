@@ -14,8 +14,7 @@ module.exports = (a) => {
 function wild(str) {
     const wildcard = str
         .replace(/\./g, `\\.`)
-        .replace(/\*/g, `.*`)
-        .replace(/\?/g, `.?`);
+        .replace(/\*/g, `.*`);
     
     return wildcard;
 }

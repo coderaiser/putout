@@ -183,3 +183,21 @@ test('putout: parse-match: encoding', (t) => {
     t.end();
 });
 
+test('putout: parse-match: ?', (t) => {
+    const rules = {
+        ts: 'on',
+    };
+    
+    const match = {
+        'tsx?': rules,
+    };
+    
+    const result = parseMatch('lib/madrun.ts', match);
+    const expected = {
+        rules,
+    };
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+

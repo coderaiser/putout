@@ -75,7 +75,7 @@ test('putout: parse-sep: complex path: ?', (t) => {
     const parseSep = reRequire('./parse-sep');
     
     const result = parseSep('/h?ll?');
-    const expected = '/h.?ll.?';
+    const expected = '/h?ll?';
     
     defineProperty(process, 'platform', {
         value: platform,
