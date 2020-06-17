@@ -86,6 +86,8 @@ function _readOptions(cwd) {
     ];
 }
 
+const isInclude = (a) => a !== 'node_modules';
+
 const readRules = once((dirOpt, rulesDir) => {
     if (!rulesDir)
         return {};
@@ -98,7 +100,7 @@ const readRules = once((dirOpt, rulesDir) => {
     
     const plugins = [];
     
-    for (const name of names) {
+    for (const name of names.filter(isInclude)) {
         const full = join(dir, name);
         const plugin = require(full);
         const shortName = name.replace('putout-plugin-');

@@ -257,6 +257,59 @@ test('putout: parseOptions: no code mods directory: .putout', (t) => {
     t.end();
 });
 
+test('putout: parseOptions: code mods directory: .putout: exclude node_modules', (t) => {
+    const empty = {};
+    
+    const readOptions = stub().returns([__dirname, empty]);
+    const readHomeOptions = stub().returns(empty);
+    
+    mockRequire('../../putout.json', empty);
+    
+    const {readdirSync} = fs;
+    fs.readdirSync = () => [
+        'node_modules',
+    ];
+    
+    const parseOptions = reRequire('.');
+    
+    const options = {
+        rules: {
+            'remove-only': 'off',
+        },
+        match: {
+            'spec.js$': {
+                'remove-only': 'on',
+            },
+        },
+    };
+    
+    const result = parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readOptions,
+        readHomeOptions,
+    });
+    
+    const expected = {
+        dir: __dirname,
+        match: {
+            'spec.js$': {
+                'remove-only': 'on',
+            },
+        },
+        plugins: [],
+        rules: {
+            'remove-only': 'on',
+        },
+    };
+    
+    stopAll();
+    fs.readdirSync = readdirSync;
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: parseOptions: read rules', (t) => {
     const empty = {};
     
