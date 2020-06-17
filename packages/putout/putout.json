@@ -14,7 +14,10 @@
             "remove-only": "on",
             "remove-skip": "on"
         },
-        ".tsx?|.mjs": {
+       ".mjs": {
+            "strict-mode/add": "off"
+        },
+        ".tsx?": {
             "strict-mode/add": "off",
             "convert-generic-to-shorthand": "on"
         }
