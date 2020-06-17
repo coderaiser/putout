@@ -1,3 +1,16 @@
+2020.06.17, v8.18.1
+
+fix:
+- (putout) "node_modules" in codemodes directory: "~/.putout"
+- (@putout/operate) rm redundant putout.json
+
+feature:
+- (@putout/operate) isModuleExports: matchesPattern
+- (@putout/plugin-remove-useless-variables) isPromiseResolve -> matchesPattern
+- (@putout/plugin-extract-object-properties) Object.keys -> keys
+- (@putout/plugin-add-return-await) include -> replace
+
+
 2020.06.16, v8.18.0
 
 fix:
