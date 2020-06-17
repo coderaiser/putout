@@ -1,3 +1,10 @@
+2020.06.18, v8.19.1
+
+fix:
+- (putout) parse-options: parse-match: ?
+- (putout) mv out convert-generic-to-shorthand from .mjs
+
+
 2020.06.18, v8.19.0
 
 fix:
