@@ -9,8 +9,13 @@ test('plugin-convert-to-arrow-function: report', (t) => {
     t.end();
 });
 
-test('plugin-convert-to-arrow-function: transform', (t) => {
+test('plugin-convert-to-arrow-function: transform: fn', (t) => {
     t.transform('fn');
+    t.end();
+});
+
+test('plugin-convert-to-arrow-function: transform: body', (t) => {
+    t.transform('body');
     t.end();
 });
 
