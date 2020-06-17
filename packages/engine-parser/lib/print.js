@@ -8,6 +8,7 @@ module.exports = (ast) => {
     const printOptions = {
         quote: 'single',
         objectCurlySpacing: false,
+        wrapColumn: Infinity,
     };
     
     const printed = print(ast, printOptions).code;
