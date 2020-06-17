@@ -12,10 +12,13 @@ const {
     replaceWith,
     getTemplateValues,
 } = operator;
+
 const {
     isIdentifier,
     isCallExpression,
 } = types;
+
+const {keys} = Object;
 
 module.exports.report = () => `Object properties should be extracted into variables`;
 
@@ -96,9 +99,7 @@ function process(items) {
     const result = [];
     
     for (const item of items) {
-        const names = Object.keys(item);
-        
-        for (const name of names) {
+        for (const name of keys(item)) {
             if (item[name].length < 2)
                 continue;
             
