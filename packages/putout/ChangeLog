@@ -1,3 +1,13 @@
+2020.06.18, v8.19.0
+
+fix:
+- (@putout/parser) wrapLines when length is more then 74
+
+feature:
+- (@putout/plugin-convert-generic-to-shorthand) add
+- (@putout/test) add support of TS in report
+
+
 2020.06.17, v8.18.1
 
 fix:
