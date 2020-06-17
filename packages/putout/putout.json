@@ -15,7 +15,8 @@
             "remove-skip": "on"
         },
         ".tsx?|.mjs": {
-            "strict-mode/add": "off"
+            "strict-mode/add": "off",
+            "convert-generic-to-shorthand": "on"
         }
     },
     "ignore": [
@@ -30,6 +31,7 @@
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",
         "convert-top-level-return": "off",
+        "convert-generic-to-shorthand": "off",
         "convert-throw": "off",
         "remove-only": "off",
         "remove-skip": "off",
@@ -88,6 +90,7 @@
         "convert-template-to-string",
         "convert-equal-to-strict-equal",
         "convert-index-of-to-includes",
+        "convert-generic-to-shorthand",
         "merge-destructuring-properties",
         "merge-duplicate-imports",
         "merge-if-statements",
