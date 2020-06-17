@@ -20,6 +20,7 @@ module.exports = {
     'lint': () => run('lint:ci', '-f progress --cache'),
     'lint:frame': () => run('lint:ci', '-f codeframe --cache'),
     'lint:fresh': () => run('lint', '--update-cache'),
+    'fresh:lint': () => run('lint:fresh'),
     'lint:ci': () => `putout .madrun.js '${dirs}/*/{bin,lib,test,*.js,.*.js}'`,
     'lint:cache': () => run('lint', '--cache'),
     'fix:lint': () => run('lint', '--fix'),

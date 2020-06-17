@@ -15,6 +15,7 @@
     "lint": "madrun lint",
     "lint:frame": "madrun lint:frame",
     "lint:fresh": "madrun lint:fresh",
+    "fresh:lint": "madrun fresh:lint",
     "lint:ci": "madrun lint:ci",
     "lint:cache": "madrun lint:cache",
     "fix:lint": "madrun fix:lint",
