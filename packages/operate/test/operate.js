@@ -328,8 +328,8 @@ test('putout: operate: isModuleExports: path', (t) => {
     
     traverse(ast, {
         AssignmentExpression(path) {
-            const obj = path.get('left');
-            is = operate.isModuleExports(obj);
+            const leftPath = path.get('left');
+            is = operate.isModuleExports(leftPath);
             path.stop();
         },
     });

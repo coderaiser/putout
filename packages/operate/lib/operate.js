@@ -1,9 +1,9 @@
 'use strict';
 
 const {
-    isIdentifier,
     ExpressionStatement,
     toStatement,
+    matchesPattern,
 } = require('@babel/types');
 
 const {assign} = Object;
@@ -77,16 +77,7 @@ module.exports.insertAfter = (path, node) => {
 };
 
 module.exports.isModuleExports = (path) => {
-    const {
-        node = path,
-    } = path;
-    
-    const {object, property} = node;
-    
-    const isModule = isIdentifier(object, {name: 'module'});
-    const isExports = isIdentifier(property, {name: 'exports'});
-    
-    return isModule && isExports;
+    return matchesPattern(path.node || path, 'module.exports');
 };
 
 const isBinding = (name) => (path) => path.scope.bindings[name];
