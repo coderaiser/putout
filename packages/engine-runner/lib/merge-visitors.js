@@ -5,9 +5,23 @@ const {generate} = require('@putout/engine-parser');
 
 const runFix = require('./run-fix');
 const {getPosition} = require('./get-position');
+const maybeArray = require('./maybe-array');
 
 const shouldSkip = (a) => !a.parent;
 const {merge} = traverse.visitors;
+
+const {assign} = Object;
+const parse = (name, plugin, options) => {
+    const list = [];
+    
+    if (plugin[name])
+        list.push(...plugin[name]());
+    
+    if (options[name])
+        list.push(...maybeArray(options[name]));
+    
+    return list;
+};
 
 module.exports = (pluginsToMerge, {fix, shebang, template}) => {
     const mergeItems = [];
@@ -27,6 +41,11 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
             push,
             generate,
             options,
+        });
+        
+        assign(options, {
+            include: parse('include', plugin, options),
+            exclude: parse('exclude', plugin, options),
         });
         
         mergeItems.push(...template({
