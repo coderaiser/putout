@@ -35,17 +35,17 @@ module.exports = (ast, {traverse}) => {
 
 const addVariable = ({vars}) => (path, node) => {
     let is = false;
-    for (let i = 0; i < vars.length; i++) {
-        const {uid} = vars[i];
+    for (const currentVar of vars) {
+        const {uid} = currentVar;
         
         if (uid !== path.scope.uid)
             continue;
         
-        const currentPath = vars[i].path;
+        const currentPath = currentVar.path;
         is = compare(currentPath.node.init, node);
         
         if (is && sameKind(path, currentPath) && uid === path.scope.uid)
-            vars[i].places.push(path);
+            currentVar.places.push(path);
     }
     
     if (!is)
