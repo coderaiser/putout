@@ -8,7 +8,7 @@ const {template} = require('@putout/engine-parser');
 const {compare} = require('./compare');
 const {getTemplateValues} = require('./vars');
 
-const {generate} = require('putout');
+const {generate} = putout;
 
 test('putout: compare: getTemplateValues', (t) => {
     const addVar = {

@@ -37,6 +37,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - find and remove `duplicate keys`;
 - find and replace `test.only` to `test` calls;
 - find and replace `test.skip` to `test` calls;
+- reuse duplicate `init`;
 - find and split `variable declarations`;
 - find and split `nested destructuring`;
 - find and simplify ternary;
