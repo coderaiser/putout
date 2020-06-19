@@ -5,8 +5,6 @@ const {
     isExpressionStatement,
     isClassBody,
     isBlock,
-    isIdentifier,
-    isLiteral,
 } = require('@babel/types');
 
 const {
@@ -16,7 +14,9 @@ const {
     getTemplateValues,
 } = require('./vars');
 
+const link = require('.//link');
 const log = require('./log');
+
 const {
     is,
     isId,
@@ -49,15 +49,6 @@ const isPrimitive = (a) => typeof a !== 'object' || a === null;
 const compareType = (type) => (path) => path.type === type;
 const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
 const superPush = (array) => (a, b) => array.push([a, b]);
-const parseName = (node) => {
-    const {name, value} = node;
-    
-    if (isIdentifier(node))
-        return name;
-    
-    if (isLiteral(node))
-        return value;
-};
 
 const findParent = (path, type) => {
     const newPathNode = path.findParent(compareType(type));
@@ -206,17 +197,13 @@ function superCompare(nodeValue, value, {add, templateStore}) {
     if (isEqualNop(nodeValue, value))
         return true;
     
-    if (isLinkedNode(value) || isLinkedArgs(value) || isLinkedId(nodeValue, value)) {
-        const name = parseName(value);
-        
-        if (!templateStore[name]) {
-            templateStore[name] = nodeValue;
-            return true;
-        }
-        
-        add(templateStore[name], nodeValue);
-        return true;
-    }
+    if (isLinkedNode(value) || isLinkedArgs(value) || isLinkedId(nodeValue, value))
+        return link({
+            add,
+            value,
+            nodeValue,
+            templateStore,
+        });
     
     if (isAnyLiteral(nodeValue, value))
         return true;
