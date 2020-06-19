@@ -8,9 +8,10 @@ const {template} = require('@putout/engine-parser');
 const {compare} = require('./compare');
 const {getTemplateValues} = require('./vars');
 
-const {generate} = putout;
+const {types, generate} = putout;
+const {RegExpLiteral} = types;
 
-test('putout: compare: getTemplateValues', (t) => {
+test('putout: compare: vars: getTemplateValues', (t) => {
     const addVar = {
         report: () => '',
         filter: (path) => {
@@ -48,7 +49,7 @@ test('putout: compare: getTemplateValues', (t) => {
     t.end();
 });
 
-test('putout: compare: getTemplateValues: __array', (t) => {
+test('putout: compare: vars: getTemplateValues: __array', (t) => {
     const node = template.ast('const [] = array');
     const {__array} = getTemplateValues(node, 'const __array = __');
     
@@ -56,7 +57,7 @@ test('putout: compare: getTemplateValues: __array', (t) => {
     t.end();
 });
 
-test('putout: compare: getTemplateValues: __', (t) => {
+test('putout: compare: vars: getTemplateValues: __', (t) => {
     const node = template.ast('const [] = array');
     const {__} = getTemplateValues(node, 'const __array = __');
     
@@ -64,7 +65,7 @@ test('putout: compare: getTemplateValues: __', (t) => {
     t.end();
 });
 
-test('putout: compare: getTemplateValues: __object', (t) => {
+test('putout: compare: vars: getTemplateValues: __object', (t) => {
     const node = template.ast('const {} = obj');
     const {__object} = getTemplateValues(node, 'const __object = __');
     
@@ -72,7 +73,7 @@ test('putout: compare: getTemplateValues: __object', (t) => {
     t.end();
 });
 
-test('putout: compare: vars: setValues : __args', (t) => {
+test('putout: compare: vars: vars: setValues : __args', (t) => {
     const applyToSpread = {
         report: () => '',
         replace: () => ({
@@ -92,7 +93,7 @@ test('putout: compare: vars: setValues : __args', (t) => {
     t.end();
 });
 
-test('putout: compare: vars: __imports', (t) => {
+test('putout: compare: vars: vars: __imports', (t) => {
     const applyToSpread = {
         report: () => '',
         replace: () => ({
@@ -122,7 +123,7 @@ test('putout: compare: vars: __imports', (t) => {
     t.end();
 });
 
-test('putout: compare: vars: identifier', (t) => {
+test('putout: compare: vars: vars: identifier', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
@@ -143,7 +144,7 @@ test('putout: compare: vars: identifier', (t) => {
     t.end();
 });
 
-test('putout: compare: vars: findVarsWays: __object', (t) => {
+test('putout: compare: vars: vars: findVarsWays: __object', (t) => {
     const convert = {
         report: () => '',
         replace: () => ({
@@ -176,7 +177,7 @@ test('putout: compare: vars: findVarsWays: __object', (t) => {
     t.end();
 });
 
-test('putout: compare: __args__a', (t) => {
+test('putout: compare: vars: __args__a', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
@@ -198,7 +199,7 @@ test('putout: compare: __args__a', (t) => {
     t.end();
 });
 
-test('putout: compare: __args__a: different', (t) => {
+test('putout: compare: vars: __args__a: different', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
@@ -213,6 +214,38 @@ test('putout: compare: __args__a: different', (t) => {
         plugins: [{
             'var-to-const': varToConst,
         }],
+    });
+    
+    t.deepEqual(code, input, 'should equal');
+    t.end();
+});
+
+test('putout: compare: vars: "__a"', (t) => {
+    const convertReplace = {
+        report: () => '',
+        replace: () => ({
+            '__a.replace("__b", __c)': ({__b}, path) => {
+                const value = __b.raw.slice(1, -1);
+                const regexp = {
+                    ...RegExpLiteral('xx', 'g'),
+                    extra: {
+                        raw: `/${escape(value)}/g`,
+                    },
+                };
+                
+                path.get('arguments.0').replaceWith(regexp);
+                return path.node;
+            },
+        }),
+    };
+    
+    const input = '"hello".replace(/l/g, "x")';
+    
+    const {code} = putout(input, {
+        fixCount: 1,
+        plugins: [
+            ['convert-replace', convertReplace],
+        ],
     });
     
     t.deepEqual(code, input, 'should equal');

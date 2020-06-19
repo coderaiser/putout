@@ -570,4 +570,3 @@ function getProgramPath(str) {
     
     return result;
 }
-
