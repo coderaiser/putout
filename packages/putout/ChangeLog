@@ -1,3 +1,15 @@
+2020.06.19, v8.20.0
+
+fix:
+- feature(@putout/plugin-merge-destructuring-properties) find,  -> merge-destructuring-properties
+
+feature:
+- (@putout/plugin-reuse-duplicate-init) add
+- (@putout/engine-runner) traverse: add support of include, exclude
+- (@putout/plugin-merge-destructuring-properties) find, fix -> merge-destructuring-properties
+- (@putout/plugin-merge-destructuring-properties) for -> for-of
+
+
 2020.06.18, v8.19.1
 
 fix:
