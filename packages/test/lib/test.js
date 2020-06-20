@@ -104,7 +104,7 @@ const noFormat = (t, dir, plugins, rules) => (formatter, name) => {
         places,
     });
     
-    t.notOk(result, 'should not format');
+    t.equal(result, '', 'should not format');
     
     return result;
 };
