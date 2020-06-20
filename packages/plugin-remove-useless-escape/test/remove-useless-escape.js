@@ -22,6 +22,11 @@ test('plugin-remove-useless-escape: transform: template', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-escape: transform: a', (t) => {
+    t.transform('a');
+    t.end();
+});
+
 test('plugin-remove-useless-escape: no transform: slash', (t) => {
     t.noTransform('slash');
     t.end();

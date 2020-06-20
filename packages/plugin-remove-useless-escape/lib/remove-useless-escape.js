@@ -5,7 +5,11 @@ module.exports.report = () => 'Unnecessary escape character';
 module.exports.fix = (path) => {
     if (path.isStringLiteral()) {
         const {raw} = path.node;
-        path.node.raw = raw.replace(/\\"/g, '"');
+        
+        path.node.raw = raw
+            .replace(/\\"/g, '"')
+            .replace(/\\\^/g, '^');
+        
         return;
     }
     
@@ -14,13 +18,14 @@ module.exports.fix = (path) => {
         
         tmpl.value.raw = raw
             .replace(/\\'/, `'`)
-            .replace(/\\"/g, `"`);
+            .replace(/\\"/g, `"`)
+            .replace(/\\^/g, `^`);
     }
 };
 
 const hasDoubleQuote = (a) => /^((?!\\).)*\\"/.test(a);
 const hasTemplateDoubleQuote = (a) => /^((?!\\).)*(\\"|\\')/.test(a);
-const hasQuote = (a) => /^'/.test(a);
+const hasA = (a) => /^((?!\\).)*\\\^/.test(a);
 
 module.exports.traverse = ({push}) => {
     return {
@@ -30,7 +35,10 @@ module.exports.traverse = ({push}) => {
             if (!raw)
                 return;
             
-            if (hasQuote(raw) && hasDoubleQuote(raw))
+            if (hasDoubleQuote(raw))
+                push(path);
+            
+            if (hasA(raw))
                 push(path);
         },
         
