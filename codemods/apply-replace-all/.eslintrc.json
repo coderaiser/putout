@@ -1,0 +1,16 @@
+{
+    "overrides": [{
+        "files": ["lib/**/*.spec.js"],
+        "rules": {
+            "node/no-unpublished-require": "off"
+        }
+    }],
+    "extends": [
+        "plugin:putout/recommended",
+        "plugin:node/recommended"
+    ],
+    "plugins": [
+        "node",
+        "putout"
+    ]
+}
