@@ -24,7 +24,7 @@ module.exports.traverse = ({push}) => {
             
             const main = allRight[__b];
             
-            if (!main)
+            if (!main || !main.node)
                 return;
             
             if (path.scope.uid !== main.scope.uid)
