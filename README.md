@@ -302,7 +302,7 @@ const putout = require('putout');
 ```
 </details>
 
-<details><summary>convert <code>generic</code> to <code>shorthand</code> for typescript ([why](https://stackoverflow.com/a/36843084/4536327))</summary>
+<details><summary>convert <code>generic</code> to <code>shorthand</code> for typescript (<a href=https://stackoverflow.com/a/36843084/4536327>why</a>)</summary>
 
 ```diff
 interface A {
