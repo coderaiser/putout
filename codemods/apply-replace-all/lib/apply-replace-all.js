@@ -6,7 +6,6 @@ const {
 } = require('putout');
 
 const {replaceWith} = operator;
-
 const {RegExpLiteral} = types;
 
 module.exports.report = () => `Replace regexp should be used instead of string`;
