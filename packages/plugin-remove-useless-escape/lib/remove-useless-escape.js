@@ -18,6 +18,10 @@ module.exports.fix = (path) => {
     }
 };
 
+const hasDoubleQuote = (a) => /^((?!\\).)*\\"/.test(a);
+const hasTemplateDoubleQuote = (a) => /^((?!\\).)*(\\"|\\')/.test(a);
+const hasQuote = (a) => /^'/.test(a);
+
 module.exports.traverse = ({push}) => {
     return {
         '"__"'(path) {
@@ -26,7 +30,7 @@ module.exports.traverse = ({push}) => {
             if (!raw)
                 return;
             
-            if (!raw.indexOf(`'`) && /^((?!\\).)*\\"/.test(raw))
+            if (hasQuote(raw) && hasDoubleQuote(raw))
                 push(path);
         },
         
@@ -34,9 +38,8 @@ module.exports.traverse = ({push}) => {
             for (const tmpl of path.node.quasis) {
                 const {raw} = tmpl.value;
                 
-                if (/^((?!\\).)*(\\"|\\')/.test(raw)) {
+                if (hasTemplateDoubleQuote(raw))
                     return push(path);
-                }
             }
         },
     };
