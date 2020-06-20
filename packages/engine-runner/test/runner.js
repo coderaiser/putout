@@ -3,6 +3,8 @@
 const test = require('supertape');
 const putout = require('putout');
 const stub = require('@cloudcmd/stub');
+const mockRequire = require('mock-require');
+const {reRequire, stopAll} = mockRequire;
 
 const {readFixtures} = require('./fixture');
 const {runPlugins} = require('..');
@@ -14,6 +16,7 @@ const fixture = readFixtures([
     'shebang-fix',
     'babel',
     'babel-fix',
+    'debug',
 ]);
 
 test('putout: runner: run plugins', (t) => {
@@ -669,6 +672,35 @@ test('putout: runner: shebang', (t) => {
         ],
     });
     const expected = fixture.shebangFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: runner: debug', (t) => {
+    const {DEBUG} = process.env;
+    process.env.DEBUG = 'putout:runner:fix';
+    
+    const debugFn = stub();
+    debugFn.enabled = true;
+    const debug = stub().returns(debugFn);
+    
+    mockRequire('debug', debug);
+    reRequire('../lib/run-fix');
+    const {runPlugins} = reRequire('..');
+    const putout = reRequire('putout');
+    
+    const {code} = putout(fixture.debug, {
+        fix: true,
+        runPlugins,
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    const expected = '\n';
+    process.env.DEBUG = DEBUG;
+    
+    stopAll();
     
     t.deepEqual(code, expected, 'should equal');
     t.end();
