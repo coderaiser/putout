@@ -309,7 +309,6 @@ interface A {
 -    x: Array<X>;
 +    x: X[];
 }
-}
 ```
 </details>
 
