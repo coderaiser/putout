@@ -7,9 +7,6 @@ module.exports = ({name, places, index, count, filesCount, source, errorsCount})
     const naturalIndex = index + 1;
     const str = `\r${progress(naturalIndex, count)}%`;
     
-    if (!places.length)
-        return str;
-    
     const result = codeframe({
         name,
         places,
