@@ -14,6 +14,7 @@ const {
     ObjectExpression,
     SpreadElement,
     isObjectExpression,
+    isSpreadElement,
 } = types;
 
 module.exports.report = () => 'Merge spread should be used instead of Object.assign';
@@ -37,7 +38,17 @@ module.exports.include = () => [
     'Object.assign(__args)',
 ];
 
-module.exports.filter = (path) => {
-    const [first] = path.node.arguments;
-    return compare(first, '__object');
+module.exports.filter = ({node}) => {
+    const [first] = node.arguments;
+    
+    if (!compare(first, '__object'))
+        return false;
+    
+    for (const arg of node.arguments) {
+        if (isSpreadElement(arg))
+            return false;
+    }
+    
+    return true;
 };
+

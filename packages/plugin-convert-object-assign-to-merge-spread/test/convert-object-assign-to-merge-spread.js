@@ -29,3 +29,8 @@ test('plugin-convert-object-assign-to-merge-spread: transform: first', (t) => {
     t.end();
 });
 
+test('plugin-convert-object-assign-to-merge-spread: transform: spread', (t) => {
+    t.noTransform('spread');
+    t.end();
+});
+
