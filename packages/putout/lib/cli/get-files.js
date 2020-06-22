@@ -22,11 +22,17 @@ async function getFiles(args) {
     return rmDuplicates(mergeArrays(mergedFiles));
 }
 
+const globOptions = {
+    unique: true,
+    dot: true,
+};
+
 async function addExt(a) {
     const [[e], files] = await Promise.all([
         tryToCatch(lstat, a),
         fastGlob(a, {
             onlyFiles: false,
+            ...globOptions,
         }),
     ]);
     
@@ -39,7 +45,7 @@ async function addExt(a) {
         const info = await lstat(file);
         
         if (info.isDirectory()) {
-            promises.push(fastGlob(getJSGlob(file)));
+            promises.push(fastGlob(getJSGlob(file), globOptions));
             continue;
         }
         

@@ -188,7 +188,10 @@ test('putout: getFiles: getJSGlob: result', async (t) => {
     fs.lstat = lstat;
     stopAll();
     
-    t.ok(fastGlob.calledWith('get-files/some-glob'));
+    t.ok(fastGlob.calledWith('get-files/some-glob', {
+        unique: true,
+        dot: true,
+    }));
     t.end();
 });
 
