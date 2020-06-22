@@ -1,3 +1,22 @@
+2020.06.22, v8.20.1
+
+fix:
+- (putout) eslint: read config (https://github.com/eslint/eslint/issues/13427)
+- (@putout/engine-runner) debug.enabled
+- (@putout/test) noFormat: notOk -> equal ""
+- (@putout/formatter-eslint) return: undefined -> ""
+- (@putout/formatter-codeframe) return: undefined -> ""
+- (@putout/formatter-frame) early return
+- (@putout/formatter-frame) no places -> undefined
+
+feature:
+- (@putout/engine-runner) log: path -> path.toString
+- (@putout/plugin-reuse-duplicate-init) add support of @putout/plugin-remove-useless-escape
+- (@putout/plugin-remove-useless-escape) add support of ^
+- (@putout/codemod-apply-replace-all) add
+- (@putout/compare) improve support of linked string literals
+
+
 2020.06.19, v8.20.0
 
 fix:
