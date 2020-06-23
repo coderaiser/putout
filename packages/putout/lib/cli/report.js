@@ -11,6 +11,7 @@ module.exports = () => {
             places,
             index = 0,
             count = 1,
+            formatterOptions = {},
         } = options;
         
         if (places.length)
@@ -20,6 +21,7 @@ module.exports = () => {
         
         return formatter({
             name,
+            options: formatterOptions,
             source,
             places,
             index,

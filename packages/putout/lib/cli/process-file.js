@@ -12,7 +12,7 @@ const memo = require('nano-memoize');
 
 const putout = require('../..');
 
-const report = require('../report')();
+const report = require('./report')();
 const parseOptions = require('../parse-options');
 const eslint = require('./eslint');
 const {
@@ -67,12 +67,14 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
     const {
         dir,
         formatter,
+        formatterOptions,
     } = options;
     
     const currentFormat = getFormatter(format || formatter, exit);
     
     if (ignores(dir, resolvedName, options)) {
         const line = report(currentFormat, {
+            formatterOptions,
             name: resolvedName,
             places: [],
             index,
@@ -91,6 +93,7 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
         const places = fileCache.getPlaces(resolvedName);
         
         const line = report(currentFormat, {
+            formatterOptions,
             name: resolvedName,
             places,
             index,
@@ -146,6 +149,7 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
         debug,
         report,
         currentFormat,
+        formatterOptions,
         name: resolvedName,
         source,
         places: allPlaces,
@@ -160,7 +164,7 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
     return allPlaces;
 };
 
-async function makeReport(e, {debug, report, currentFormat, name, source, places, index, count}) {
+async function makeReport(e, {debug, formatterOptions, report, currentFormat, name, source, places, index, count}) {
     const parsed = parseName(e);
     const {loc} = e || {};
     const isDebug = parsed && !loc && debug;
@@ -169,6 +173,7 @@ async function makeReport(e, {debug, report, currentFormat, name, source, places
     name = isDebug ? parsed : name;
     
     return report(currentFormat, {
+        formatterOptions,
         name,
         places,
         index,

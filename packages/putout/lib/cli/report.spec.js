@@ -4,20 +4,25 @@ const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const stripAnsi = require('strip-ansi');
 
-const {initReport} = require('..');
+const {initReport} = require('../putout');
 
 test('putout: report: no places', (t) => {
     const reporter = stub();
     const report = initReport();
+    const formatterOptions = {
+        hello: 'world',
+    };
     
     report(reporter, {
         name: 'hello',
         places: [],
         source: '',
+        formatterOptions,
     });
     
     const expected = {
         count: 1,
+        options: formatterOptions,
         errorsCount: 0,
         filesCount: 0,
         index: 0,

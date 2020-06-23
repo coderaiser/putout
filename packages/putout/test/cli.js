@@ -54,7 +54,7 @@ test('putout: cli: no files found', async (t) => {
 });
 
 test('putout: cli: ignored', async (t) => {
-    const {stdout} = await run(join(__dirname, './fixture/broken.js'));
+    const {stdout} = await run(`-f dump ${join(__dirname, './fixture/broken.js')}`);
     const expected = '';
     
     t.equal(stdout, expected);

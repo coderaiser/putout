@@ -268,6 +268,7 @@ test('putout: cli: process-file: parse error', async (t) => {
         filesCount: 1,
         index: 0,
         name,
+        options: {},
         places: [{
             message: 'Unexpected token ',
             position: {
@@ -398,6 +399,7 @@ test('putout: cli: process-file: parse error: debug', async (t) => {
         filesCount: 1,
         index: 0,
         name,
+        options: {},
         places: [{
             message: 'Unexpected token ',
             position: {

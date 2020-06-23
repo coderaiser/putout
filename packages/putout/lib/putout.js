@@ -114,7 +114,7 @@ module.exports.traverse = traverse;
 module.exports.types = types;
 module.exports.template = template;
 module.exports.generate = generate;
-module.exports.initReport = require('./report');
+module.exports.initReport = require('./cli/report');
 
 module.exports.operator = {
     ...require('@putout/operate'),

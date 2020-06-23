@@ -407,6 +407,9 @@ test('putout: cli: tsx', async (t) => {
         join(__dirname, 'fixture', 'view.tsx'),
     ];
     
+    const eslint = stub().returns(['', []]);
+    mockRequire('./eslint', eslint);
+    reRequire('./process-file');
     const cli = reRequire('.');
     
     await runCli({
@@ -414,6 +417,8 @@ test('putout: cli: tsx', async (t) => {
         write,
         argv,
     });
+    
+    stopAll();
     
     t.ok(write.calledWith(''), 'should call logError');
     t.end();
