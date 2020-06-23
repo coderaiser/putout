@@ -1,3 +1,10 @@
+2020.06.23, v8.20.2
+
+fix:
+- (package) eslint v7.3.1 (https://eslint.org/blog/2020/06/eslint-v7.3.1-released)
+- (@putout/plugin-convert-object-assign-to-merge-spread) spread
+
+
 2020.06.22, v8.20.1
 
 fix:
