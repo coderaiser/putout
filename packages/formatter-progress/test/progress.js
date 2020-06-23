@@ -21,3 +21,11 @@ test('formatter: progress: many', (t) => {
     t.end();
 });
 
+test('formatter: progress: minCount', (t) => {
+    t.format(progress, 'min-count', {
+        minCount: 10,
+    });
+    
+    t.end();
+});
+
