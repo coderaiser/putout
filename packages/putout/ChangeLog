@@ -1,3 +1,11 @@
+2020.06.23, v8.21.0
+
+feature:
+- (@putout/test) format: add support of options
+- (@putout/formatter-progress) add support of minCount
+- (putout) add support of formatterOptions
+
+
 2020.06.23, v8.20.2
 
 fix:
