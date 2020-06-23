@@ -114,7 +114,6 @@ Options
    --no-flow                   disable flow (default)
    --cache                     enable .putoutcache to speed up processing
    --fresh, --update-cache     enable .putoutcache to speed up processing from scratch
-   --remove-cache              remove .putoutcache file
 ```
 
 To find erros:

@@ -200,7 +200,6 @@ test('putout: cli: --fresh', async (t) => {
     const expected = {
         files,
         updateCache: true,
-        removeCache: false,
         cache: false,
     };
     
