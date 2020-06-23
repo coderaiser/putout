@@ -1,6 +1,9 @@
 {
     "parser": "babel",
-    "formatter": "dump",
+    "formatter": "progress",
+    "formatterOptions": {
+        "minCount": 10
+    },
     "match": {
         ".madrun.js": {
             "madrun": "on"
