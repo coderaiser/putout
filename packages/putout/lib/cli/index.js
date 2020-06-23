@@ -23,10 +23,10 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         boolean: [
             'cache',
             'debug',
-            'update-cache',
             'version',
             'help',
             'fix',
+            'fresh',
             'raw',
             'enable-all',
             'disable-all',
@@ -55,14 +55,13 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             s: 'staged',
             t: 'transform',
             d: 'debug',
-            fresh: 'update-cache',
         },
         default: {
             fix: false,
             fixCount: 10,
             options: true,
             cache: false,
-            updateCache: false,
+            fresh: false,
             enable: '',
             disable: '',
             debug: false,
@@ -85,7 +84,8 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         enable,
         enableAll,
         staged,
-        updateCache,
+        fresh,
+        cache,
         transform,
     } = args;
     
@@ -136,8 +136,8 @@ module.exports = async ({argv, halt, log, write, logError}) => {
     
     const fileCache = cacheFiles({
         files,
-        cache: args.cache,
-        updateCache,
+        cache,
+        fresh,
     });
     
     const options = {

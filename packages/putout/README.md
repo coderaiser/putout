@@ -113,7 +113,7 @@ Options
    --no-jsx                    disable jsx
    --no-flow                   disable flow (default)
    --cache                     enable .putoutcache to speed up processing
-   --fresh, --update-cache     enable .putoutcache to speed up processing from scratch
+   --fresh                     generate fresh .putoutcache
 ```
 
 To find erros:

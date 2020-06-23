@@ -19,7 +19,7 @@ test('putout: cache-files: disabled: fileCache', (t) => {
     t.end();
 });
 
-test('putout: cache-files: fileCache: updateCache', (t) => {
+test('putout: cache-files: fileCache: fresh', (t) => {
     const {unlinkSync} = fs;
     
     const _unlinkSync = stub();
@@ -29,7 +29,7 @@ test('putout: cache-files: fileCache: updateCache', (t) => {
     const {_CACHE_FILE} = cacheFiles;
     
     cacheFiles({
-        updateCache: true,
+        fresh: true,
     });
     
     fs.unlinkSync = unlinkSync;

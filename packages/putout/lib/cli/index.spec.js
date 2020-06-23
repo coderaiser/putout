@@ -199,7 +199,7 @@ test('putout: cli: --fresh', async (t) => {
     const files = [file];
     const expected = {
         files,
-        updateCache: true,
+        fresh: true,
         cache: false,
     };
     
