@@ -12,9 +12,17 @@ const test = require('..')(__dirname, {
 const {reRequire} = require('mock-require');
 
 const formatter = require('@putout/formatter-dump');
+const formatterProgress = require('@putout/formatter-progress');
 
 test('test: format', (t) => {
     t.format(formatter, 'var');
+    t.end();
+});
+
+test('test: format: options', (t) => {
+    t.format(formatterProgress, 'var', {
+        minCount: 10,
+    });
     t.end();
 });
 

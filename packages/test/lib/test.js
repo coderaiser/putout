@@ -72,7 +72,7 @@ module.exports = (dir, plugin, rules) => {
     return newTape;
 };
 
-const format = (t, dir, plugins, rules) => (formatter, name) => {
+const format = (t, dir, plugins, rules) => (formatter, name, formatterOptions) => {
     const full = join(dir, name);
     const outputName = `${full}-format`;
     const [input, isTS] = readFixture(full);
@@ -82,6 +82,7 @@ const format = (t, dir, plugins, rules) => (formatter, name) => {
     
     const report = putout.initReport();
     const result = report(formatter, {
+        formatterOptions,
         name,
         source: input,
         places,
@@ -92,7 +93,7 @@ const format = (t, dir, plugins, rules) => (formatter, name) => {
     return result;
 };
 
-const noFormat = (t, dir, plugins, rules) => (formatter, name) => {
+const noFormat = (t, dir, plugins, rules) => (formatter, name, formatterOptions) => {
     const full = join(dir, name);
     const [input] = readFixture(full);
     
@@ -102,6 +103,7 @@ const noFormat = (t, dir, plugins, rules) => (formatter, name) => {
     const result = report(formatter, {
         name,
         places,
+        formatterOptions,
     });
     
     t.equal(result, '', 'should not format');
@@ -109,7 +111,7 @@ const noFormat = (t, dir, plugins, rules) => (formatter, name) => {
     return result;
 };
 
-const formatMany = (t, dir, plugins, rules) => (formatter, names) => {
+const formatMany = (t, dir, plugins, rules) => (formatter, names, formatterOptions) => {
     const joinTwo = (a) => (b) => join(a, b);
     const fullNames = names.map(joinTwo(dir));
     
@@ -130,6 +132,7 @@ const formatMany = (t, dir, plugins, rules) => (formatter, names) => {
         
         result += report(formatter, {
             name,
+            formatterOptions,
             source: input,
             places,
             index,
@@ -145,26 +148,26 @@ const formatMany = (t, dir, plugins, rules) => (formatter, names) => {
     return result;
 };
 
-const formatManySave = (t, dir, plugins, rules) => (formatter, names) => {
+const formatManySave = (t, dir, plugins, rules) => (formatter, names, options) => {
     const name = `${names.join('-')}-format.js`;
     const outputName = join(dir, name);
     
     if (!existsSync(outputName))
         writeFileSync(outputName, '');
     
-    const result = formatMany(t, dir, plugins, rules)(formatter, names);
+    const result = formatMany(t, dir, plugins, rules)(formatter, names, options);
     
     writeFileSync(outputName, result);
 };
 
-const formatSave = (t, dir, plugins, rules) => (formatter, name) => {
+const formatSave = (t, dir, plugins, rules) => (formatter, name, options) => {
     const full = join(dir, name);
     const outputName = `${full}-format.js`;
     
     if (!existsSync(outputName))
         writeFileSync(outputName, '');
     
-    const result = format(t, dir, plugins, rules)(formatter, name);
+    const result = format(t, dir, plugins, rules)(formatter, name, options);
     
     writeFileSync(outputName, result);
 };

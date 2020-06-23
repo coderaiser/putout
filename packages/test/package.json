@@ -37,6 +37,7 @@
   "devDependencies": {
     "@cloudcmd/stub": "^3.0.0",
     "@putout/formatter-dump": "^2.0.1",
+    "@putout/formatter-progress": "^2.0.0",
     "@putout/plugin-remove-console": "^3.1.0",
     "@putout/plugin-remove-empty": "^5.1.0",
     "@putout/plugin-remove-unused-variables": "^2.3.0",
