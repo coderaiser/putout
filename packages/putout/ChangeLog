@@ -1,3 +1,16 @@
+2020.06.24, v9.0.0
+
+feature:
+- (babel-plugin-putout) putout: dependencies -> peerDependencies
+- (eslint-plugin-putout) putout: dependencies -> peerDependencies
+- (putout) make eslint optional dependency
+- (putout) default formatter: progress for 10 and more files
+- (putout) rm -d, --debug from help
+- (putout) --update-cache -> --fresh
+- (putout) remove --remove-cache
+- (putout) enable process of dot files
+
+
 2020.06.23, v8.21.0
 
 feature:
