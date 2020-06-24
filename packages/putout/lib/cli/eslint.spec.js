@@ -28,6 +28,25 @@ test('putout: eslint: places', async (t) => {
     t.end();
 });
 
+test('putout: eslint: no eslint', async (t) => {
+    mockRequire('eslint', null);
+    
+    const eslint = reRequire('./eslint');
+    
+    const [, result] = await eslint({
+        name: 'hello.js',
+        code: `const t = 'hi'\n`,
+        fix: false,
+    });
+    
+    stopAll();
+    
+    const expected = [];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: eslint: config file', async (t) => {
     const {ESLINT_CONFIG_FILE} = process.env;
     

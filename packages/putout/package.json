@@ -118,7 +118,6 @@
     "debug": "^4.1.1",
     "deepmerge": "^4.0.0",
     "error-stack-parser": "^2.0.6",
-    "eslint": "^7.3.1",
     "fast-glob": "^3.2.2",
     "file-entry-cache": "^5.0.1",
     "find-up": "^4.0.0",
@@ -132,6 +131,7 @@
     "once": "^1.4.0",
     "try-catch": "^3.0.0",
     "try-to-catch": "^3.0.0",
+    "tryrequire": "^3.0.0",
     "yargs-parser": "^18.1.0"
   },
   "keywords": [
@@ -152,6 +152,7 @@
     "babel-plugin-transform-inline-consecutive-adds": "^0.5.0-alpha.9",
     "coveralls": "^3.0.0",
     "currify": "^4.0.0",
+    "eslint": "^7.3.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^4.0.0",
     "just-camel-case": "^4.0.2",

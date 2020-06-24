@@ -1,8 +1,11 @@
 'use strict';
 
-const {ESLint} = require('eslint');
+const tryCatch = require('try-catch');
 const once = require('once');
 const tryToCatch = require('try-to-catch');
+
+const [, eslint] = tryCatch(require, 'eslint');
+const {ESLint} = eslint || {};
 
 const {keys} = Object;
 const overrideConfigFile = process.env.ESLINT_CONFIG_FILE;
@@ -49,6 +52,9 @@ module.exports = async ({name, code, fix}) => {
         code,
         [],
     ];
+    
+    if (!ESLint)
+        return noChanges;
     
     const [eslintError, eslint] = await tryToCatch(getESLint, {
         fix,
