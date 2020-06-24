@@ -32,7 +32,7 @@
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0-rc.0",
     "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-putout": "^4.0.0",
+    "eslint-plugin-putout": "^5.0.1",
     "lerna": "^3.8.5",
     "madrun": "^7.0.0",
     "nodemon": "^2.0.1",
