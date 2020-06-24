@@ -55,7 +55,7 @@
     "eslint-plugin-putout": "^4.0.0",
     "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
-    "madrun": "^6.0.0",
+    "madrun": "^7.0.0",
     "montag": "^1.0.0",
     "nodemon": "^2.0.1",
     "nyc": "^15.0.1",

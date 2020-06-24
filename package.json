@@ -40,13 +40,13 @@
   "devDependencies": {
     "husky": "^4.2.1",
     "lerna": "^3.8.5",
-    "madrun": "^6.0.0",
+    "madrun": "^7.0.0",
     "nyc": "^15.0.1",
     "supertape": "^2.0.1",
     "tap-pessimist": "^1.0.1"
   },
   "engines": {
-    "node": ">=8.3"
+    "node": ">=10"
   },
   "workspaces": [
     "packages/*",

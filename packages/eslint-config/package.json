@@ -31,7 +31,7 @@
   ],
   "devDependencies": {
     "jsonlint": "^1.6.3",
-    "madrun": "^6.0.0",
+    "madrun": "^7.0.0",
     "putout": "*"
   },
   "license": "MIT",
