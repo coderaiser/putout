@@ -3,7 +3,6 @@
     "-v, --version              ": "output version information and exit",
     "-f, --format               ": "use a specific output format - default: dump",
     "-s, --staged               ": "add staged files when in git repository",
-    "-d, --debug                ": "show internal information on crash",
     "--fix                      ": "apply fixes of errors to code",
     "--fix-count                ": "count of fixes rounds (defaults to 10)",
     "--rulesdir                 ": "use additional rules from directory",
