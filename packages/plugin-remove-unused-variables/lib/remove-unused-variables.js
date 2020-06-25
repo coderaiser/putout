@@ -16,6 +16,9 @@ module.exports.fix = ({path}) => {
     if (compare(path, 'const __a = __b = __c'))
         return replaceWith(path.parentPath, path.node.init);
     
+    if (isOneImport(path))
+        return path.parentPath.remove();
+    
     path.remove();
 };
 
@@ -31,3 +34,9 @@ module.exports.find = (ast, {traverse}) => {
     return unused;
 };
 
+function isOneImport({parentPath}) {
+    if (!parentPath.isImportDeclaration())
+        return false;
+    
+    return parentPath.node.specifiers.length === 1;
+}

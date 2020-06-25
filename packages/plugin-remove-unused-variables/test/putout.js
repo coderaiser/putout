@@ -43,6 +43,7 @@ const fixture = readFixtures([
     'destr-nested-vars',
     'import',
     'import-fix',
+    'import-specifier',
     'return-statement',
     'variable-declarator',
     'variable-declarator-fix',
@@ -200,6 +201,13 @@ test('remove-unused-variables: putout: import', (t) => {
     const expected = fixture.importFix;
     
     t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: putout: unused import', (t) => {
+    const {code} = putout(fixture.importSpecifier);
+    
+    t.equal(code, '\n', 'should equal');
     t.end();
 });
 

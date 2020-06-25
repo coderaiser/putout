@@ -1,4 +1,3 @@
-import "./options";
 import { namedTypes } from "ast-types";
 
 type Pos = namedTypes.Position;
