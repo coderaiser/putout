@@ -48,7 +48,6 @@ function getPropertyPath(path, name) {
     for (const propPath of path.get('properties')) {
         const {
             key,
-            value,
             shorthand,
         } = propPath.node;
         
