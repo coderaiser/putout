@@ -58,6 +58,7 @@
         "remove-process-exit",
         "remove-console",
         "remove-empty",
+        "remove-unreferenced-variables",
         "remove-unused-variables",
         "remove-unused-private-fields",
         "remove-unused-expressions",
