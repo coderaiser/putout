@@ -15,11 +15,11 @@ module.exports = {
             'test',
         ].join(' ');
         
-        return `bin/putout.js ${names} --f progress --cache`;
+        return `bin/putout.js ${names} --cache`;
     },
     'fix:lint': () => run('lint', '--fix'),
     'fix:lint:fresh': () => run('fix:lint', '--fresh'),
-    'lint:progress': () => run('lint', '--fix --f progress'),
+    'lint:progress': () => run('lint', '--fix'),
     'lint:cache': () => run('lint', '--cache'),
     'lint:fresh': () => run('lint', '--fresh'),
     'coverage': () => `nyc ${run('test')}`,
