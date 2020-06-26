@@ -14,6 +14,16 @@ test('plugin-remove-unreferenced-variables: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-unreferenced-variables: transform: destr', (t) => {
+    t.transform('destr');
+    t.end();
+});
+
+test('plugin-remove-unreferenced-variables: transform: destr-rename', (t) => {
+    t.transform('destr-rename');
+    t.end();
+});
+
 test('plugin-remove-unreferenced-variables: no transform', (t) => {
     t.noTransform('referenced');
     t.end();

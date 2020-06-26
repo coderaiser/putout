@@ -15,10 +15,47 @@ module.exports.traverse = ({push}) => {
             
             const {referenced} = binding;
             
-            if (!referenced) {
+            if (referenced)
+                return;
+            
+            if (binding.path.isObjectPattern()) {
+                const propPath = getPropertyPath(binding.path, name);
+                
                 push(path);
-                push(binding.path);
+                push(propPath);
+                
+                return;
             }
+            
+            const idPath = binding.path.get('id');
+            
+            if (binding.path.isVariableDeclarator() && idPath.isObjectPattern()) {
+                const propPath = getPropertyPath(idPath, name);
+                
+                push(path);
+                push(propPath);
+                
+                return;
+            }
+            
+            push(path);
+            push(binding.path);
         },
     };
 };
+
+function getPropertyPath(path, name) {
+    for (const propPath of path.get('properties')) {
+        const {
+            key,
+            value,
+            shorthand,
+        } = propPath.node;
+        
+        if (shorthand && key.name !== name)
+            continue;
+        
+        return propPath;
+    }
+}
+
