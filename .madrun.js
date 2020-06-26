@@ -19,7 +19,7 @@ module.exports = {
     'lint-all': () => `MADRUN_NAME=1 ${run('lint:*')}`,
     'lint': () => run('lint:ci', '-f progress --cache'),
     'lint:frame': () => run('lint:ci', '-f codeframe --cache'),
-    'lint:fresh': () => run('lint', '--update-cache'),
+    'lint:fresh': () => run('lint', '--fresh'),
     'fresh:lint': () => run('lint:fresh'),
     'lint:ci': () => `putout .madrun.js '${dirs}/*/{bin,lib,test,*.js,.*.js}'`,
     'lint:cache': () => run('lint', '--cache'),
