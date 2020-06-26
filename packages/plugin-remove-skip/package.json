@@ -22,6 +22,7 @@
   "keywords": [
     "putout",
     "putout-plugin",
+    "putout-plugin-remove",
     "plugin",
     "remove",
     "skip"
@@ -29,7 +30,7 @@
   "devDependencies": {
     "@putout/test": "^2.0.0",
     "coveralls": "^3.0.0",
-    "eslint": "^7.0.0-rc.0",
+    "eslint": "^7.3.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^5.0.1",
     "madrun": "^7.0.0",
