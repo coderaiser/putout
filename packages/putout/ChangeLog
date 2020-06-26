@@ -1,3 +1,15 @@
+2020.06.26, v9.1.0
+
+feature:
+- (package) @putout/plugin-remove-unreferenced-variables v1.0.0
+- (@putout/plugin-remove-unreferenced-variables) add
+- (@putout/plugin-remove-unused-variables) improve unused import specifier handling
+- (package) eslint-plugin-putout v5.0.1
+- (package) madrun v7.0.0
+- (package) @putout/eslint-config v4.0.0
+- (@putout/eslint-config) if return -> if \n return'
+
+
 2020.06.24, v9.0.0
 
 feature:
