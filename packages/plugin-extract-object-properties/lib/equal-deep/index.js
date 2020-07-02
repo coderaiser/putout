@@ -103,7 +103,8 @@ function process(items) {
             if (item[name].length < 2)
                 continue;
             
-            const path = item[name][item[name].length - 1];
+            const index = item[name].length - 1;
+            const path = item[name][index];
             
             result.push({
                 name,
