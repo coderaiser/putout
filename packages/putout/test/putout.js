@@ -482,7 +482,9 @@ test('putout: isJSX: false', (t) => {
         isJSX: false,
     });
     
-    t.equal(e.message, 'Unexpected token (7:8)', 'should equal');
+    const expected = `This experimental syntax requires enabling one of the following parser plugin(s): 'jsx, flow, typescript' (7:8)`;
+    
+    t.equal(e.message, expected, 'should equal');
     t.end();
 });
 
