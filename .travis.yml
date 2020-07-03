@@ -16,7 +16,7 @@ matrix:
 
 script:
   - npm run bootstrap
-  - npm run lint
+  - npm run lint:ci
   - npm run coverage:long
   - npm run report
 
