@@ -23,7 +23,7 @@ const buildPlugins = require('./build-plugins');
 
 const {ignores} = putout;
 const cwd = process.cwd();
-const getFormatter = memo(require('./get-formatter'));
+const getFormatter = memo(require('./formatter').getFormatter);
 
 const isParsingError = ({rule}) => rule === 'eslint/null';
 
@@ -67,10 +67,9 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
     const {
         dir,
         formatter,
-        formatterOptions,
     } = options;
     
-    const currentFormat = getFormatter(format || formatter, exit);
+    const [currentFormat, formatterOptions] = getFormatter(format || formatter, exit);
     
     if (ignores(dir, resolvedName, options)) {
         const line = report(currentFormat, {

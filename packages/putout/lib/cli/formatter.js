@@ -3,7 +3,20 @@
 const tryCatch = require('try-catch');
 const stub = () => () => {};
 
-module.exports = (name, exit) => {
+const {isArray} = Array;
+const maybeArray = (a) => isArray(a) ? a : [a, {}];
+
+module.exports.getFormatter = (formatter, exit) => {
+    const [name, formatterOptions] = maybeArray(formatter);
+    
+    return [
+        getReporter(name, exit),
+        formatterOptions,
+    ];
+};
+
+module.exports.getReporter = getReporter;
+function getReporter(name, exit) {
     let e;
     let reporter;
     
@@ -22,5 +35,5 @@ module.exports = (name, exit) => {
         exit(e);
     
     return reporter;
-};
+}
 
