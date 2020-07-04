@@ -1,3 +1,14 @@
+2020.07.04, v9.1.1
+
+fix:
+- (putout) formatterOptions -> format
+
+feature:
+- (putout) process-file: reporter always return string
+- (@putout/plugin-extract-object-properties) equal-deep: index
+- (@putout/plugin-remove-unreferenced-variables) add support of VariableDeclarator
+
+
 2020.06.26, v9.1.0
 
 feature:
