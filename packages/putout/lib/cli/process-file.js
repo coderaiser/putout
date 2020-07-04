@@ -82,7 +82,7 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
             source: '',
         });
         
-        write(line || '');
+        write(line);
         return null;
     }
     
@@ -101,7 +101,7 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
             source,
         });
         
-        write(line || '');
+        write(line);
         return places;
     }
     
