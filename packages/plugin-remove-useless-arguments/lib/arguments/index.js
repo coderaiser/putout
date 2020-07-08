@@ -16,11 +16,15 @@ module.exports.traverse = ({push}) => ({
         if (!binding)
             return false;
         
-        const params = getParams(binding.path);
+        let bindingPath = binding.path;
         
-        if (!params)
+        if (bindingPath.isVariableDeclarator())
+            bindingPath = bindingPath.get('init');
+        
+        if (!checkParams(bindingPath))
             return false;
         
+        const params = bindingPath.get('params');
         const args = path.get('arguments');
         
         if (params.length >= args.length)
@@ -31,22 +35,19 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-function getParams(path) {
-    if (path.isVariableDeclarator())
-        path = path.get('init');
-    
+function checkParams(path) {
     if (!path.isFunction())
-        return null;
+        return false;
     
     const params = path.get('params');
     
     if (!params.length)
-        return null;
+        return true;
     
     const last = params.length - 1;
     
     if (params[last].isRestElement())
-        return null;
+        return false;
     
-    return params;
+    return true;
 }

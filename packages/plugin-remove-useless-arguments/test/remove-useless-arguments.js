@@ -29,6 +29,11 @@ test('plugin-remove-useless-arguments: transform: arg', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-arguments: transform: no args', (t) => {
+    t.transform('no-args');
+    t.end();
+});
+
 test('plugin-remove-useless-arguments: no transform: not object', (t) => {
     t.noTransform('not-object');
     t.end();
