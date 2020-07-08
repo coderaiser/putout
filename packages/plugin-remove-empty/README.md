@@ -10,6 +10,7 @@
 - `empty block statements`;
 - `empty patterns`;
 - `empty imports`;
+- `empty arguments`;
 
 ## Install
 
@@ -24,6 +25,7 @@ npm i @putout/plugin-remove-empty
     "rules": {
         "remove-empty/block": "on",
         "remove-empty/pattern": "on",
+        "remove-empty/argument": "on",
         "remove-empty/import": ["on", {
             "ignore": []
         }]

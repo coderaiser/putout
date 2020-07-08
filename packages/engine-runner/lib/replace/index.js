@@ -19,7 +19,7 @@ const stubMatch = () => ({});
 const packKeys = (a) => () => keys(a);
 const isObj = (a) => typeof a === 'object';
 
-module.exports = ({rule, plugin, msg, options}, {}) => {
+module.exports = ({rule, plugin, msg, options}) => {
     const {
         report,
         exclude = stub,

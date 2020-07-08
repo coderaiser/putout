@@ -1,0 +1,28 @@
+'use strict';
+
+module.exports.report = () => 'Empty argument should be avoided';
+
+module.exports.fix = (path) => {
+    path.remove();
+};
+
+module.exports.traverse = ({push}) => {
+    return {
+        '(__args) => __a'(path) {
+            const params = path.get('params');
+            const {length} = params;
+            
+            if (!length)
+                return;
+            
+            const lastPath = params[length - 1];
+            
+            if (lastPath.isObjectPattern() && !lastPath.node.properties.length)
+                push(lastPath);
+            
+            if (lastPath.isArrayPattern() && !lastPath.node.elements.length)
+                push(lastPath);
+        },
+    };
+};
+
