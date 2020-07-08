@@ -1,3 +1,16 @@
+2020.07.08, v9.2.0
+
+fix:
+- (@putout/engine-loader) rm unused get-babel-plugins
+
+feature:
+- (package) @putout/plugin-merge-destructuring-properties v4.0.0
+- (@putout/engine-runner) traverse: add store
+- (@putout/plugin-merge-destructuring-properties) find -> traverse
+- (@putout/plugin-remove-empty) add support of last argument
+- (@putout/plugin-remove-useless-arguments) add support of no arguments
+
+
 2020.07.04, v9.1.1
 
 fix:
