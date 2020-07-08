@@ -24,13 +24,12 @@ module.exports.fix = ({path, places}) => {
     }
 };
 
-module.exports.find = (ast, {traverse}) => {
-    const vars = [];
+module.exports.traverse = ({push, store}) => {
     const add = addVariable({
-        vars,
+        store,
     });
     
-    traverse(ast, {
+    return {
         VariableDeclarator(path) {
             const {
                 id,
@@ -42,15 +41,19 @@ module.exports.find = (ast, {traverse}) => {
             
             add(path, init);
         },
-    });
-    
-    return vars
-        .filter(notEmptyPlaces);
+        Program: {
+            exit() {
+                store()
+                    .filter(notEmptyPlaces)
+                    .map(push);
+            },
+        },
+    };
 };
 
-const addVariable = ({vars}) => (path, node) => {
+const addVariable = ({store}) => (path, node) => {
     let is = false;
-    for (const currentVar of vars) {
+    for (const currentVar of store()) {
         const {uid} = currentVar;
         
         if (uid !== path.scope.uid)
@@ -64,7 +67,7 @@ const addVariable = ({vars}) => (path, node) => {
     }
     
     if (!is)
-        vars.push({
+        store({
             path,
             uid: path.scope.uid,
             places: [],
