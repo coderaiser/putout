@@ -76,7 +76,6 @@ putout lib test --fix
 PUTOUT_FILES=lib,test putout --fix
 ```
 
-
 ## Architecture
 
 `Putout` consists of a couple simple parts, here is workflow representation.
