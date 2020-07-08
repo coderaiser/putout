@@ -131,6 +131,33 @@ module.exports.traverse = ({push}) => {
 };
 ```
 
+#### Store
+
+To keep things during traverse in a safe way `store` can be used.
+
+```
+module.exports.traverse = ({push, store}) => {
+    return {
+        'debugger'(path) {
+            store('x');
+            push(path);
+        },
+        Program: {
+            exit: {
+                console.log(store());
+                // returns
+                ['x', 'x', 'x']
+                // for code
+                'debugger; debugger; debugger'
+            }
+        }
+    }
+};
+```
+
+`store` is prefered way of keeping array elements, because of caching of `putout`, `traverse` init function called only once, and any other way
+of handling variables will most likely will lead to bugs.
+
 ### Finder
 
 `Find plugins` gives you all the control over traversing, but it's the slowest format.

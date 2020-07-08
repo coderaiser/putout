@@ -6,6 +6,7 @@ const {generate} = require('@putout/engine-parser');
 const runFix = require('./run-fix');
 const {getPosition} = require('./get-position');
 const maybeArray = require('./maybe-array');
+const listStore = require('./list-store');
 
 const shouldSkip = (a) => !a.parent;
 const {merge} = traverse.visitors;
@@ -28,17 +29,27 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
     const pushed = {};
     
     for (const {rule, plugin, msg, options} of pluginsToMerge) {
-        const {push, pull} = getStore(plugin, {
-            fix,
-            rule,
-            shebang,
-            msg,
-        });
+        const {
+            push,
+            pull,
+            store,
+        } = getStore(
+            plugin,
+            {
+                fix,
+                rule,
+                shebang,
+                msg,
+            },
+        );
         
-        pushed[rule] = pull;
+        pushed[rule] = () => {
+            return pull();
+        };
         
         const visitor = plugin.traverse({
             push,
+            store,
             generate,
             options,
         });
@@ -52,6 +63,7 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
             rule,
             visitor,
             options,
+            store,
         }));
     }
     
@@ -68,13 +80,14 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
 };
 
 function getStore(plugin, {fix, rule, shebang, msg}) {
-    let value = [];
+    const store = listStore();
+    const placesStore = listStore();
     
     const push = (path) => {
         const position = getPosition(path, shebang);
         const message = msg || plugin.report(path);
         
-        value.push({
+        placesStore ({
             message,
             position,
         });
@@ -87,14 +100,14 @@ function getStore(plugin, {fix, rule, shebang, msg}) {
     };
     
     const pull = () => {
-        const a = value;
-        value = [];
-        return a;
+        store.clear();
+        return placesStore.clear();
     };
     
     return {
         push,
         pull,
+        store,
     };
 }
 
