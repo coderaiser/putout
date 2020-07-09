@@ -21,21 +21,14 @@ module.exports.fix = ({path, imports}) => {
     }
 };
 
-module.exports.traverse = ({push}) => {
-    const {
-        add,
-        get,
-        clear,
-    } = importsStore();
-    
+module.exports.traverse = ({push, store}) => {
     return {
         ImportDeclaration(path) {
-            add(path);
+            store(path);
         },
         Program: {
             exit: () => {
-                processImports(push, get());
-                clear();
+                processImports(push, store());
             },
         },
     };
@@ -74,21 +67,6 @@ function processImports(push, imports) {
         });
     }
 }
-
-function importsStore() {
-    let imports = [];
-    
-    const add = (a) => imports.push(a);
-    const get = () => imports;
-    const clear = () => imports = [];
-    
-    return {
-        add,
-        get,
-        clear,
-    };
-}
-
 function duplicatesStore() {
     const duplicates = [];
     
