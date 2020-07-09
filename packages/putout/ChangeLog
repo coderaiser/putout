@@ -1,3 +1,10 @@
+2020.07.09, v9.2.1
+
+feature:
+- (package) @putout/plugin-merge-duplicate-imports v2.0.0
+- (@putout/plugin-merge-duplicate-imports) add store
+
+
 2020.07.08, v9.2.0
 
 fix:
