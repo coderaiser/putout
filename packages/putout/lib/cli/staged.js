@@ -18,6 +18,9 @@ const MODIFIED_INDEX = 2;
 const MODIFIED = 2;
 
 const namesStore = fullstore([]);
+const isStagedStr = (statuses) => (name) => /^\*?(added|modified)$/.test(statuses[name]);
+
+const {fromEntries = _fromEntries} = Object;
 
 const findGit = once(async () => {
     const type = 'directory';
@@ -55,9 +58,18 @@ module.exports.get = async function get() {
     
     namesStore(names);
     
-    const fullNames = names.map(joinDir(dir));
-    return fullNames;
+    return names.map(joinDir(dir));
 };
+
+async function getStatus(dir, filepath) {
+    const status = await git.status({
+        fs,
+        dir,
+        filepath,
+    });
+    
+    return [filepath, status];
+}
 
 module.exports.set = async function add() {
     const dir = await findGit();
@@ -66,6 +78,14 @@ module.exports.set = async function add() {
         return;
     
     const names = namesStore();
+    const statusPromises = [];
+    
+    for (const filepath of names) {
+        statusPromises.push(getStatus(dir, filepath));
+    }
+    
+    const statuses = fromEntries(await Promise.all(statusPromises));
+    const staged = names.filter(isStagedStr(statuses));
     const promises = [];
     
     for (const filepath of names)
@@ -76,5 +96,19 @@ module.exports.set = async function add() {
         }));
     
     await Promise.all(promises);
+    
+    return staged;
 };
+
+// remove on node v12
+// use Object.fromEntries
+function _fromEntries(array) {
+    const result = {};
+    
+    for (const [key, value] of array) {
+        result[key] = value;
+    }
+    
+    return result;
+}
 

@@ -27,7 +27,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "putout --fix --staged --progress --cache"
+      "pre-commit": "putout --fix --staged -f progress --cache"
     }
   },
   "nyc": {

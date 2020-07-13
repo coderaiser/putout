@@ -8,6 +8,10 @@ const processFile = require('./process-file');
 const getFiles = require('./get-files');
 const cacheFiles = require('./cache-files');
 const supportedFiles = require('./supported-files');
+const {
+    PLACE,
+    STAGE,
+} = require('./exit-codes');
 
 const {PUTOUT_FILES = ''} = process.env;
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
@@ -189,11 +193,14 @@ module.exports = async ({argv, halt, log, write, logError}) => {
     
     if (fix && staged) {
         const {set} = require('./staged');
-        await set();
+        const stagedNames = await set();
+        
+        if (!stagedNames.length)
+            exit(STAGE);
     }
     
     if (mergedPlaces.length)
-        return exit(1);
+        return exit(PLACE);
 };
 
 const getExit = ({halt, raw, logError}) => (e) => {
@@ -203,11 +210,9 @@ const getExit = ({halt, raw, logError}) => (e) => {
     if (typeof e === 'number')
         return halt(e);
     
-    if (raw)
-        logError(e);
-    else
-        logError(red(e.message));
+    const message = raw ? e : red(e.message);
     
+    logError(message);
     halt(1);
 };
 

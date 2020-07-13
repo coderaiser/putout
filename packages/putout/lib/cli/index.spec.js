@@ -270,13 +270,16 @@ test('putout: cli: no files', (t) => {
     t.end();
 });
 
-test('putout: cli: --fix --staged', async (t) => {
+test('putout: cli: --fix --staged: set', async (t) => {
     const name = './xxx.js';
     const logError = stub();
     const get = stub().returns([
         name,
     ]);
-    const set = stub();
+    const set = stub().returns([
+        'hello.txt',
+    ]);
+    
     const argv = [
         '--staged',
         '--fix',
@@ -311,10 +314,58 @@ test('putout: cli: --fix --staged', async (t) => {
     t.end();
 });
 
+test('putout: cli: --fix --staged: exit code', async (t) => {
+    const {STAGE} = require('./exit-codes');
+    const name = './xxx.js';
+    const logError = stub();
+    const halt = stub();
+    const get = stub().returns([
+        name,
+    ]);
+    const set = stub().returns([]);
+    
+    const argv = [
+        '--staged',
+        '--fix',
+    ];
+    
+    const getFiles = stub().returns([null, [
+        name,
+    ]]);
+    
+    const process = stub().returns([]);
+    const processFile = stub().returns(process);
+    
+    mockRequire('./get-files', getFiles);
+    mockRequire('./process-file', processFile);
+    
+    mockRequire('./staged', {
+        get,
+        set,
+    });
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        halt,
+        cli,
+        argv,
+        logError,
+    });
+    
+    stopAll();
+    
+    t.ok(halt.calledWith(STAGE));
+    t.end();
+});
+
 test('putout: cli: --staged --fix', async (t) => {
     const logError = stub();
     const get = stub().returns(['./xxx.js']);
-    const set = stub();
+    const set = stub().returns([
+        'hello.txt',
+    ]);
+    
     const argv = [
         '--staged',
         '--fix',

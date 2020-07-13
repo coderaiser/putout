@@ -10,6 +10,7 @@ module.exports = {
     ],
     rules: {
         'node/no-unsupported-features/node-builtins': 'off',
+        'node/no-unsupported-features/es-builtins': 'off',
     },
     plugins: [
         'node',

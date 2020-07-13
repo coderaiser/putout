@@ -159,11 +159,13 @@ test('putout: cli: staged: add', async (t) => {
     ]);
     
     const add = stub();
+    const status = stub().returns('modified');
     
     mockRequire('fs', {});
     mockRequire('find-up', findUp);
     mockRequire('isomorphic-git', {
         add,
+        status,
         statusMatrix,
     });
     
@@ -173,6 +175,42 @@ test('putout: cli: staged: add', async (t) => {
     await set();
     
     stopAll();
+    
+    const filepath = 'packages/putout/lib/cli/index.js';
+    const fs = {};
+    
+    t.ok(add.calledWith({fs, dir, filepath}));
+    t.end();
+});
+
+test('putout: cli: staged: add: fromEntries polyfill', async (t) => {
+    const {fromEntries} = Object;
+    delete Object.fromEntries;
+    
+    const dir = '/putout';
+    const findUp = stub().returns(dir);
+    const statusMatrix = stub().returns([
+        [ 'packages/putout/lib/cli/index.js', 1, 2, 2 ],
+    ]);
+    
+    const add = stub();
+    const status = stub().returns('modified');
+    
+    mockRequire('fs', {});
+    mockRequire('find-up', findUp);
+    mockRequire('isomorphic-git', {
+        add,
+        status,
+        statusMatrix,
+    });
+    
+    const {get, set} = reRequire('./staged');
+    
+    await get();
+    await set();
+    
+    stopAll();
+    Object.fromEntries = fromEntries;
     
     const filepath = 'packages/putout/lib/cli/index.js';
     const fs = {};
