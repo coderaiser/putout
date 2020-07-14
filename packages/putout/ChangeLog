@@ -1,3 +1,9 @@
+2020.07.14, v9.3.0
+
+feature:
+- (putout) staged: add ability to abort pre-commit hook, when no staged changes
+
+
 2020.07.12, v9.2.2
 
 feature:
