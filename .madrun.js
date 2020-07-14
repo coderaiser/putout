@@ -21,6 +21,7 @@ module.exports = {
     'lint:frame': () => run('lint:ci', '-f codeframe --cache'),
     'lint:fresh': () => run('lint', '--fresh'),
     'fresh:lint': () => run('lint:fresh'),
+    'fresh': () => run(['lint:fresh', 'coverage']),
     'lint:ci': () => `putout -f dump .madrun.js '${dirs}/*/{bin,lib,test,*.js,.*.js}'`,
     'lint:cache': () => run('lint', '--cache'),
     'fix:lint': () => run('lint', '--fix'),
