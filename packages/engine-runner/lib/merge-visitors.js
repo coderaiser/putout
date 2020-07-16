@@ -43,9 +43,7 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
             },
         );
         
-        pushed[rule] = () => {
-            return pull();
-        };
+        pushed[rule] = pull;
         
         const visitor = plugin.traverse({
             push,
