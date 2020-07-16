@@ -443,7 +443,7 @@ test('putout: runner: plugins: replace: template: function: __imports', (t) => {
             'import __imports from "__a"': ({__imports, __a}) => {
                 let result = 'const {\n';
                 
-                for (const {imported, local} of __imports) {
+                for (const {imported} of __imports) {
                     result += `${imported.name},`;
                 }
                 

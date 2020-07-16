@@ -56,7 +56,7 @@ function processImports(push, imports) {
     if (importDefaultCount > 1)
         return;
     
-    for (const [name, list] of get()) {
+    for (const [, list] of get()) {
         if (list.length === 1)
             continue;
         
