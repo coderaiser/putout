@@ -59,6 +59,7 @@
         "remove-empty",
         "remove-unreferenced-variables",
         "remove-unused-variables",
+        "remove-unused-for-of-variables",
         "remove-unused-private-fields",
         "remove-unused-expressions",
         "remove-useless-variables",

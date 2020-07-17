@@ -171,6 +171,16 @@ putout(source, {
 ```
 </details>
 
+<details><summary>remove unused for-of variables</summary>
+
+```diff
+-for (const {a, b} of c) {
++for (const {a} of c) {
+    console.log(a);
+}
+```
+</details>
+
 <details><summary>remove unreferenced variables</summary>
 
 ```diff
@@ -791,6 +801,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | Package | Version | Dependencies |
 |--------|-------|------------|
 | [`@putout/plugin-remove-unused-variables`](/packages/plugin-remove-unused-variables) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-variables) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-unused-variables)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-unused-variables) |
+| [`@putout/plugin-remove-unused-for-of-variables`](/packages/plugin-remove-unused-for-of-variables) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-for-of-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-for-of-variables) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-unused-for-of-variables)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-unused-for-of-variables) |
 | [`@putout/plugin-remove-unreferenced-variables`](/packages/plugin-remove-unreferenced-variables) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unreferenced-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unreferenced-variables) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-unreferenced-variables)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-unreferenced-variables) |
 |unusedunused [`@putout/plugin-remove-duplicate-keys`](/packages/plugin-remove-duplicate-keys) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-keys.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-keys) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-duplicate-keys)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-duplicate-keys) |
 | [`@putout/plugin-remove-unused-expressions`](/packages/plugin-remove-unused-expressions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-expressions) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-unused-expressions)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-unused-expressions) |
