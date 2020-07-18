@@ -38,9 +38,6 @@ function match(path) {
     const idPath = path.get('left.declarations.0.id');
     const elements = getElements(idPath);
     
-    if (elements.length === 1)
-        return false;
-    
     if (!isAllIdentifiers(elements))
         return false;
     
@@ -66,7 +63,7 @@ function getVariables(path) {
     const result = [];
     
     for (const el of elements) {
-        if (elements.length > 1 && !isReferenced(path, el))
+        if (!isReferenced(path, el))
             result.push(el);
     }
     

@@ -29,13 +29,13 @@ test('remove unused for-of-variables: no transform: identifier', (t) => {
     t.end();
 });
 
-test('remove unused for-of-variables: no transform: object: one', (t) => {
-    t.noTransform('object-one');
+test('remove unused for-of-variables: transform: object: one', (t) => {
+    t.transform('object-one');
     t.end();
 });
 
 test('remove unused for-of-variables: no transform: array: one', (t) => {
-    t.noTransform('array-one');
+    t.transform('array-one');
     t.end();
 });
 
