@@ -704,9 +704,9 @@ result = result ?? 'hello';
 
 ```diff
 -const places = [
-    ...runPlugins(),
-];
-+const places = runPlugins().slice();
+-    ...items,
+-];
++const places = items.slice();
 ```
 </details>
 

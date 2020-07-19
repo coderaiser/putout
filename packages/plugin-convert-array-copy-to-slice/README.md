@@ -28,14 +28,14 @@ npm i @putout/plugin-convert-array-copy-to-slice
 
 ```js
 const places = [
-    ...runPlugins(),
+    ...items
 ];
 ```
 
 ## ✅ Correct code Example
 
 ```js
-const places = runPlugins().slice();
+const places = items.slice();
 ```
 
 ## License
