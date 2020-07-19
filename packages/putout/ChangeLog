@@ -1,3 +1,10 @@
+2020.07.19, v9.5.0
+
+feature:
+- (@putout/plugin-convert-array-copy-to-slice) add
+- (@putout/plugin-remove-unused-for-of-variables) add support of one destructuring element
+
+
 2020.07.17, v9.4.0
 
 fix:
