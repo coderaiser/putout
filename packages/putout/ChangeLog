@@ -3,7 +3,6 @@
 feature:
 - (package) @putout/plugin-remove-useless-spread v4.0.0
 - (@putout/plugin-remove-useless-spread) add support of function call
-- (@putout/plugin-convert-array-copy-to-slice) add
 
 
 2020.07.19, v9.5.0
