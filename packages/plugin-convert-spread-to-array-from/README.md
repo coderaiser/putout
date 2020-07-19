@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-spread-to-array-from
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-spread-to-array-from
 
-`putout` plugin convert `spread` to `Array.from`.
+`putout` plugin convert `spread` to `Array.from`. Not installed, by default, used [@putout/plugin-convert-array-copy-to-spread](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-array-copy-to-slice) instead.
 
 ## Install
 

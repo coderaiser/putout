@@ -68,7 +68,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `Object.assign` to `merge spread`;
 - convert `binary expression` to `boolean`;
 - convert `top-level return` into `process.exit()`;
-- convert `spread` to `Array.from`;
+- convert `array copy` to `slice`;
 - convert typescripts' generic `<Array>` to shorthand `[]`;
 - extract sequence expressions;
 - extract object properties;

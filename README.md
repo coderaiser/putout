@@ -700,13 +700,13 @@ result = result ?? 'hello';
 
 </details>
 
-<details><summary>convert <code>spread</code> to <code>Array.from</code></summary>
+<details><summary>convert <code>array copy</code> to <code>slice</code></summary>
 
 ```diff
 -const places = [
     ...runPlugins(),
 ];
-+const places = Array.from(runPlugins());
++const places = runPlugins().slice();
 ```
 </details>
 
@@ -833,6 +833,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-convert-esm-to-commonjs`](/packages/plugin-convert-esm-to-commonjs) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-esm-to-commonjs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-esm-to-commonjs) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-esm-to-commonjs)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-esm-to-commonjs) |
 | [`@putout/plugin-convert-commonjs-to-esm`](/packages/plugin-convert-commonjs-to-esm) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-commonjs-to-esm.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-commonjs-to-esm) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-commonjs-to-esm)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-commonjs-to-esm) |
 | [`@putout/plugin-convert-spread-to-array-from`](/packages/plugin-convert-spread-to-array-from) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-spread-to-array-from.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-spread-to-array-from) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-spread-to-array-from)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-spread-to-array-from) |
+| [`@putout/plugin-convert-array-copy-to-slice`](/packages/plugin-convert-array-copy-to-slice) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-array-copy-to-slice.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-array-copy-to-slice) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-array-copy-to-slice)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-array-copy-to-slice) |
 | [`@putout/plugin-convert-template-to-string`](/packages/plugin-convert-template-to-string) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-template-to-string.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-template-to-string) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-template-to-string)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-template-to-string) |
 | [`@putout/plugin-convert-equal-to-strict-equal`](/packages/plugin-convert-equal-to-strict-equal) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-equal-to-strict-equal.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-equal-to-strict-equal) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-equal-to-strict-equal)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-equal-to-strict-equal) |
 | [`@putout/plugin-convert-index-of-to-includes`](/packages/plugin-convert-index-of-to-includes) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-index-of-to-includes.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-index-of-to-includes) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-index-of-to-includes)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-index-of-to-includes) |
