@@ -1,0 +1,4 @@
+const places = [
+    ...a,
+    ...b
+];

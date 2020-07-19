@@ -94,7 +94,7 @@
         "convert-for-each-to-for-of",
         "convert-for-in-to-for-of",
         "convert-top-level-return",
-        "convert-spread-to-array-from",
+        "convert-array-copy-to-slice",
         "convert-template-to-string",
         "convert-equal-to-strict-equal",
         "convert-index-of-to-includes",
