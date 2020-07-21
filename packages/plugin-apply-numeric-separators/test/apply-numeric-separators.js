@@ -14,7 +14,12 @@ test('plugin-apply-numeric-separators: transform', (t) => {
     t.end();
 });
 
-test('plugin-apply-numeric-separators: transform: sep', (t) => {
+test('plugin-apply-numeric-separators: no transform: sep', (t) => {
     t.noTransform('sep');
+    t.end();
+});
+
+test('plugin-apply-numeric-separators: no transform: min', (t) => {
+    t.noTransform('min');
     t.end();
 });
