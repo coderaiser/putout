@@ -2,7 +2,7 @@
 
 module.exports.report = () => `Numeric separators should be used`;
 
-const MAX = 1_000;
+const MIN = 9999;
 
 module.exports.fix = (path) => {
     const {node} = path;
@@ -20,7 +20,7 @@ module.exports.traverse = ({push}) => {
             if (raw.includes('_'))
                 return;
             
-            if (value < MAX)
+            if (value <= MIN)
                 return;
             
             push(path);
