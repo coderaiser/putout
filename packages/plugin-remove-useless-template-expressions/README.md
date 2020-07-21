@@ -19,7 +19,7 @@ npm i @putout/plugin-remove-useless-template-expressions
 ```json
 {
     "rules": {
-        "remove-useless-template-expressions": true
+        "remove-useless-template-expressions": "on"
     }
 }
 ```
