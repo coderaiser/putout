@@ -25,6 +25,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - remove useless `async`;
 - remove useless `await`;
 - remove useless `typeof`;
+- remove useless `template expressions`;
 - remove `debugger` statement;
 - remove nested blocks;
 - remove `process.exit` call;

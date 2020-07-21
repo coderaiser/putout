@@ -73,6 +73,7 @@
         "remove-useless-await",
         "remove-useless-typeof",
         "remove-useless-functions",
+        "remove-useless-template-expressions",
         "remove-constant-conditions",
         "remove-boolean-from-logical-expressions",
         "remove-nested-blocks",
