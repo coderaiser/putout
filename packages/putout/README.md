@@ -55,7 +55,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - apply shorthand properties;
 - apply `optional chaining` (disabled [stage4](https://github.com/tc39/proposal-optional-chaining));
 - apply `nullish coalescing` (disabled [stage4](https://github.com/tc39/proposal-nullish-coalescing));
-- apply [numeric separators](https://github.com/tc39/proposal-numeric-separator);
+- apply `numeric separators` (disabled, [stage3](https://github.com/tc39/proposal-numeric-separator));
 - merge destructuring properties;
 - merge duplicate imports;
 - merge `if` statements;

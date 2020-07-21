@@ -32,6 +32,7 @@
         "apply-top-level-await": "off",
         "apply-optional-chaining": "off",
         "apply-nullish-coalescing": "off",
+        "apply-numeric-separators": "off",
         "madrun": "off",
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",
