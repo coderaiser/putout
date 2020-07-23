@@ -31,11 +31,11 @@
     "useless"
   ],
   "devDependencies": {
-    "@putout/eslint-config": "^1.0.2",
     "@putout/test": "^2.0.0",
     "coveralls": "^3.0.0",
-    "eslint": "^7.0.0-rc.0",
+    "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^5.0.1",
     "madrun": "^7.0.0",
     "nyc": "^15.0.1",
     "supertape": "^2.0.0"
