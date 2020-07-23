@@ -51,7 +51,6 @@ module.exports = ({rule, plugin, msg, options}) => {
 };
 
 const isFn = (a) => typeof a === 'function';
-const parseTo = (to, values, path) => isFn(to) ? to(values, path) : to;
 
 const fix = (from, to, path) => {
     const nodeFrom = template.ast(from);
@@ -65,9 +64,6 @@ const fix = (from, to, path) => {
     if (!compare(path, nodeFrom))
         return;
     
-    if (!to)
-        return path.remove();
-    
     const waysFrom = findVarsWays(nodeFrom);
     const {node} = path;
     
@@ -76,8 +72,11 @@ const fix = (from, to, path) => {
         node,
     });
     
-    const toStr = parseTo(to, values, path);
-    const nodeTo = isObj(toStr) ? toStr : template.ast.fresh(toStr);
+    const nodeTo = parseTo(to, values, path);
+    
+    if (!nodeTo)
+        return path.remove();
+    
     const waysTo = findVarsWays(nodeTo);
     const newPath = replaceWith(path, nodeTo);
     
@@ -116,4 +115,16 @@ const getFilter = (match = stubMatch) => (path) => {
     
     return true;
 };
+
+function parseTo(to, values, path) {
+    const toStr = isFn(to) ? to(values, path) : to;
+    
+    if (!toStr)
+        return null;
+    
+    if (isObj(toStr))
+        return toStr;
+    
+    return template.ast.fresh(toStr);
+}
 

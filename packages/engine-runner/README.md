@@ -77,6 +77,48 @@ module.exports.replace = () => {
 };
 ```
 
+#### Processing of node using functions
+
+You can pass a function as object value for more soficticated processing.
+
+Remove node:
+
+```js
+module.exports.report = () => 'any message here';
+
+module.exports.replace = () => {
+    'for (const __a of __b) __c': ({__a, __b, __c}, path) => {
+        // remove node
+        return '';
+    },
+};
+
+Update node:
+
+```js
+module.exports.report = () => 'any message here';
+
+module.exports.replace = () => {
+    'for (const __a of __array) __c': ({__a, __array, __c}, path) => {
+        // update __array elements count
+        path.node.right.elements = [];
+        return path;
+    },
+};
+```
+
+Update node using template variables:
+
+```js
+module.exports.report = () => 'any message here';
+
+module.exports.replace = () => {
+    'for (const __a of __array) __c': ({__a, __array, __c}, path) => {
+        // update the whole node using template string
+        return 'for (const x of y) z';
+    },
+};
+```
 
 ### Includer
 

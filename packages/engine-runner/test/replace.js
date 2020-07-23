@@ -149,3 +149,25 @@ test('putout: runner: replace: return __object', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: remove', (t) => {
+    const rm = {
+        report: () => '',
+        replace: () => ({
+            'for (__a of __array) __c': () => {
+                return '';
+            },
+        }),
+    };
+    
+    const {code} = putout('for (const a of []) {}', {
+        runPlugins,
+        plugins: [
+            ['rm', rm],
+        ],
+    });
+    
+    const expected = '';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
