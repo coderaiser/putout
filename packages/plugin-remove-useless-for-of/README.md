@@ -1,7 +1,7 @@
-# putout-plugin-remove-useless-for-of [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-remove-useless-for-of [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-useless-for-of.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-useless-for-of"npm"
+[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-useless-for-of "npm"
 
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-for-of
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-for-of
