@@ -619,7 +619,7 @@ import fs from 'fs';
 ```
 </details>
 
-<details><summary>nullish coalescing (<a href=https://github.com/tc39/proposal-nullish-coalescing>proposal-nullish-coalescing</a>, disabled)</summary>
+<details><summary>apply nullish coalescing (<a href=https://github.com/tc39/proposal-nullish-coalescing>proposal-nullish-coalescing</a>, disabled)</summary>
 
 ```diff
 -result = typeof result  === 'undefined' ? 'hello': result;
@@ -695,7 +695,7 @@ result = result ?? 'hello';
 ```diff
 -for (let i = 0; i < items.length; i++) {
 +for (const item of items) {
-    -const item = items[i];
+-   const item = items[i];
     log(item);
 }
 ```
