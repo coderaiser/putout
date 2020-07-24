@@ -1055,7 +1055,7 @@ module.exports.replace = () => ({
 });
 ```
 
-This plugin will find and sugest to replace all occurences of code: `object && object.property` into `object?.property'.
+This plugin will find and sugest to replace all occurences of code: `object && object.property` into `object?.property`.
 
 ##### Includer
 
