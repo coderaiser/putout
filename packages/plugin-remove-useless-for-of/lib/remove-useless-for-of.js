@@ -29,7 +29,7 @@ module.exports.replace = () => ({
         const {elements} = __array;
         
         if (!elements.length)
-            return '';
+            return null;
         
         const {name} = __a;
         const {
