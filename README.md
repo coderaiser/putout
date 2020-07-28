@@ -26,7 +26,7 @@ The main difference of `putout` is saving code transformation results directly i
 ## Install
 
 ```
-npm i putout
+npm i putout -D
 ```
 
 ## Usage
