@@ -62,7 +62,7 @@ const addVariable = ({store}) => (path, node) => {
         const currentPath = currentVar.path;
         is = compare(currentPath.node.init, node);
         
-        if (is && sameKind(path, currentPath) && uid === path.scope.uid)
+        if (is && sameKind(path, currentPath))
             currentVar.places.push(path);
     }
     
