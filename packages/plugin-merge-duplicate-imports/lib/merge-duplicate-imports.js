@@ -2,7 +2,7 @@
 
 const {types} = require('putout');
 
-const {entries} = Object;
+const {values} = Object;
 const {
     isImportDefaultSpecifier,
     isImportNamespaceSpecifier,
@@ -21,14 +21,14 @@ module.exports.fix = ({path, imports}) => {
     }
 };
 
-module.exports.traverse = ({push, store}) => {
+module.exports.traverse = ({push, listStore}) => {
     return {
         ImportDeclaration(path) {
-            store(path);
+            listStore(path);
         },
         Program: {
             exit: () => {
-                processImports(push, store());
+                processImports(push, listStore());
             },
         },
     };
@@ -56,7 +56,7 @@ function processImports(push, imports) {
     if (importDefaultCount > 1)
         return;
     
-    for (const [, list] of get()) {
+    for (const list of get()) {
         if (list.length === 1)
             continue;
         
@@ -70,7 +70,7 @@ function processImports(push, imports) {
 function duplicatesStore() {
     const duplicates = [];
     
-    const get = () => entries(duplicates);
+    const get = () => values(duplicates);
     const add = (value, path) => {
         duplicates[value] = duplicates[value] || [];
         duplicates[value].push(path);
