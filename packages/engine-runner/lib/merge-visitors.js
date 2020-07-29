@@ -6,7 +6,7 @@ const {generate} = require('@putout/engine-parser');
 const runFix = require('./run-fix');
 const {getPosition} = require('./get-position');
 const maybeArray = require('./maybe-array');
-const listStore = require('./list-store');
+const {listStore, mapStore} = require('./store');
 
 const shouldSkip = (a) => !a.parent;
 const {merge} = traverse.visitors;
@@ -33,21 +33,20 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
             push,
             pull,
             store,
-        } = getStore(
-            plugin,
-            {
-                fix,
-                rule,
-                shebang,
-                msg,
-            },
-        );
+            listStore,
+        } = getStore(plugin, {
+            fix,
+            rule,
+            shebang,
+            msg,
+        });
         
         pushed[rule] = pull;
         
         const visitor = plugin.traverse({
             push,
             store,
+            listStore,
             generate,
             options,
         });
@@ -61,7 +60,6 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
             rule,
             visitor,
             options,
-            store,
         }));
     }
     
@@ -78,7 +76,8 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
 };
 
 function getStore(plugin, {fix, rule, shebang, msg}) {
-    const store = listStore();
+    const store = mapStore();
+    const list = listStore();
     const placesStore = listStore();
     
     const push = (path) => {
@@ -99,6 +98,7 @@ function getStore(plugin, {fix, rule, shebang, msg}) {
     
     const pull = () => {
         store.clear();
+        list.clear();
         return placesStore.clear();
     };
     
@@ -106,6 +106,7 @@ function getStore(plugin, {fix, rule, shebang, msg}) {
         push,
         pull,
         store,
+        listStore: list,
     };
 }
 

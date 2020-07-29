@@ -173,20 +173,20 @@ module.exports.traverse = ({push}) => {
 };
 ```
 
-#### Store
+#### listStore
 
-To keep things during traverse in a safe way `store` can be used.
+To keep things during traverse in a safe way `listStore` can be used.
 
 ```
-module.exports.traverse = ({push, store}) => {
+module.exports.traverse = ({push, listStore}) => {
     return {
         'debugger'(path) {
-            store('x');
+            listStore('x');
             push(path);
         },
         Program: {
             exit: {
-                console.log(store());
+                console.log(listStore());
                 // returns
                 ['x', 'x', 'x']
                 // for code
@@ -199,6 +199,34 @@ module.exports.traverse = ({push, store}) => {
 
 `store` is prefered way of keeping array elements, because of caching of `putout`, `traverse` init function called only once, and any other way
 of handling variables will most likely will lead to bugs.
+
+#### Store
+
+When you need `key-value` storage `store` can be used.
+
+```
+module.exports.traverse = ({push, store}) => {
+    return {
+        'debugger'(path) {
+            store('hello', 'world');
+            push(path);
+        },
+        Program: {
+            exit: {
+                store()
+                // returns
+                ['world']
+                
+                store.entries();
+                // [['hello', 'world']]
+                
+                store('hello');
+                // 'world'
+            }
+        }
+    }
+};
+```
 
 ### Finder
 
