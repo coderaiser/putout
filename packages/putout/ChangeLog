@@ -1,3 +1,19 @@
+2020.07.29, v9.9.0
+
+fix:
+- (@putout/plugin-remove-useless-for-of) replace return value:  -> null
+
+feature:
+- (package) @putout/plugin-merge-duplicate-imports v3.0.0
+- (package) @putout/plugin-merge-destructuring-properties v5.0.0
+- (package) @putout/engine-runner v8.0.0
+- (@putout/engine-runner) store -> listStore
+- (@putout/plugin-merge-duplicate-imports) store -> listStore
+- (@putout/plugin-merge-destructuring-properties) new store
+- (@putout/plugin-remove-useless-types) add
+- (@putout/plugin-merge-destructuring-properties) remove useless check
+
+
 2020.07.23, v9.8.0
 
 feature:
