@@ -349,6 +349,17 @@ interface A {
 ```
 </details>
 
+<details><summary>remove useless <code>types</code> for typescript</summary>
+
+```diff
+type oldType = number;
+
+-type newType = oldType;
+-const x:newType = 5;
++const x:oldType = 5;
+```
+</details>
+
 <details><summary>remove useless <code>escape</code></summary>
 
 ```diff
@@ -838,6 +849,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-remove-useless-async`](/packages/plugin-remove-useless-async) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-async.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-async) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-async)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-async) |
 | [`@putout/plugin-remove-useless-await`](/packages/plugin-remove-useless-await) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-await.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-await) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-await)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-await) |
 | [`@putout/plugin-remove-useless-typeof`](/packages/plugin-remove-useless-typeof) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-typeof.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-typeof) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-typeof)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-typeof) |
+| [`@putout/plugin-remove-useless-types`](/packages/plugin-remove-useless-types) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-types) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-types)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-types) |
 | [`@putout/plugin-remove-useless-array-from`](/packages/plugin-remove-useless-array-from) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-from.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array-from) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-array-from)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-array-from) |
 | [`@putout/plugin-remove-useless-spread`](/packages/plugin-remove-useless-spread) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-spread) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-spread)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-spread) |
 | [`@putout/plugin-remove-useless-arguments`](/packages/plugin-remove-useless-arguments) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-arguments.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-arguments) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-arguments)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-arguments) |

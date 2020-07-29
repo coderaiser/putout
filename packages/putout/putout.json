@@ -21,7 +21,8 @@
         },
         ".tsx?": {
             "strict-mode/add": "off",
-            "convert-generic-to-shorthand": "on"
+            "convert-generic-to-shorthand": "on",
+            "remove-useless-types": "on"
         }
     },
     "ignore": [
@@ -38,6 +39,7 @@
         "convert-commonjs-to-esm": "off",
         "convert-top-level-return": "off",
         "convert-generic-to-shorthand": "off",
+        "remove-useless-types": "off",
         "convert-throw": "off",
         "remove-only": "off",
         "remove-skip": "off",
@@ -75,6 +77,7 @@
         "remove-useless-functions",
         "remove-useless-template-expressions",
         "remove-useless-for-of",
+        "remove-useless-types",
         "remove-constant-conditions",
         "remove-boolean-from-logical-expressions",
         "remove-nested-blocks",
