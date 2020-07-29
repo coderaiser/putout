@@ -1,3 +1,10 @@
+2020.07.29, v9.9.1
+
+feature:
+- (package) @putout/plugin-remove-duplicate-keys v2.0.0
+- (@putout/plugin-remove-duplicate-keys) drop support of node < 10
+
+
 2020.07.29, v9.9.0
 
 fix:
