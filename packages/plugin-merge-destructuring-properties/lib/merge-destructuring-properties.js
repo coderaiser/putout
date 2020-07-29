@@ -52,26 +52,23 @@ module.exports.traverse = ({push, store}) => {
 };
 
 const addVariable = ({store}) => (path, node) => {
-    let is = false;
-    for (const currentVar of store()) {
-        const {uid} = currentVar;
-        
-        if (uid !== path.scope.uid)
-            continue;
-        
-        const currentPath = currentVar.path;
-        is = compare(currentPath.node.init, node);
-        
-        if (is && sameKind(path, currentPath))
-            currentVar.places.push(path);
-    }
+    const {uid} = path.scope;
+    const currentVar = store(uid);
     
-    if (!is)
-        store({
+    if (!currentVar) {
+        store(uid, {
             path,
-            uid: path.scope.uid,
             places: [],
         });
+        
+        return;
+    }
+    
+    const currentPath = currentVar.path;
+    const is = compare(currentPath.node.init, node);
+    
+    if (is && sameKind(path, currentPath))
+        currentVar.places.push(path);
 };
 
 function sameKind(path1, path2) {
