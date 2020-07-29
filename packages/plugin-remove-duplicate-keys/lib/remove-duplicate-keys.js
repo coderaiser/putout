@@ -81,9 +81,6 @@ function checkIfFirst(properties, newProperties, isFn, str, {computed} = {}) {
     const oldLength = properties.filter(isFn(str, computed)).length;
     const newLength = newProperties.filter(isFn(str, computed)).length;
     
-    if (newLength && oldLength > 1)
-        return false;
-    
-    return true;
+    return !newLength || oldLength <= 1;
 }
 
