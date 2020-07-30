@@ -84,7 +84,9 @@ function isReferenced({scope}, path) {
     
     if (path.isObjectProperty()) {
         const {name} = path.node.value;
-        return bindings[name].referenced;
+        const current = bindings[name];
+        
+        return !current || current.referenced;
     }
     
     const {node} = path;
@@ -100,7 +102,12 @@ function isAllReferenced(path, array) {
     const {bindings} = path.scope;
     
     for (const {name} of array) {
-        if (!bindings[name].referenced)
+        const current = bindings[name];
+        
+        if (!current)
+            continue;
+        
+        if (!current.referenced)
             return false;
     }
     
