@@ -49,6 +49,20 @@ module.exports.traverse = ({push, store}) => {
             
             current.nodes.push(typeName);
         },
+        TSTypeParameterInstantiation(path) {
+            const {params} = path.node;
+            
+            for (const {typeName} of params) {
+                const {name} = typeName;
+                
+                const current = store(name);
+                
+                if (!current)
+                    return;
+                
+                current.nodes.push(typeName);
+            }
+        },
         Program: {
             exit() {
                 for (const [newName, {name, path, nodes}] of store.entries()) {
