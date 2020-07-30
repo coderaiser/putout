@@ -1,3 +1,15 @@
+2020.07.30, v9.10.0
+
+fix:
+- (@putout/plugin-remove-useless-types) array support
+
+feature:
+- (@putout/plugin-remove-unused-types) add
+- (@putout/plugin-remove-useless-types) add support of return types
+- (@putout/plugin-remove-unused-for-of-variables) add support of unreferenced variables after remove-useless-variables plugin
+- (@putout/plugin-remove-useless-types) add support of export
+
+
 2020.07.29, v9.9.1
 
 feature:
