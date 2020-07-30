@@ -19,6 +19,11 @@ test('remove usless types: transform: return', (t) => {
     t.end();
 });
 
+test('remove usless types: transform: array', (t) => {
+    t.transform('array');
+    t.end();
+});
+
 test('remove usless types: no transform: generic', (t) => {
     t.noTransform('generic');
     t.end();

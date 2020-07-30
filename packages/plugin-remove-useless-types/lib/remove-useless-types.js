@@ -41,7 +41,6 @@ module.exports.traverse = ({push, store}) => {
             
             const {typeName} = typePath.node;
             const {name} = typeName;
-            
             const current = store(name);
             
             if (!current)
@@ -49,19 +48,15 @@ module.exports.traverse = ({push, store}) => {
             
             current.nodes.push(typeName);
         },
-        TSTypeParameterInstantiation(path) {
-            const {params} = path.node;
+        TSTypeReference(path) {
+            const {typeName} = path.node;
+            const {name} = typeName;
+            const current = store(name);
             
-            for (const {typeName} of params) {
-                const {name} = typeName;
-                
-                const current = store(name);
-                
-                if (!current)
-                    return;
-                
-                current.nodes.push(typeName);
-            }
+            if (!current)
+                return;
+            
+            current.nodes.push(typeName);
         },
         Program: {
             exit() {
