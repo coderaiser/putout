@@ -29,7 +29,6 @@ module.exports.traverse = ({push, store}) => {
         TSTypeReference(path) {
             const {typeName} = path.node;
             const {name} = typeName;
-            const current = store(name);
             
             use(store, name);
         },
