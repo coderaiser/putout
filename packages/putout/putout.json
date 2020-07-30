@@ -22,7 +22,8 @@
         ".tsx?": {
             "strict-mode/add": "off",
             "convert-generic-to-shorthand": "on",
-            "remove-useless-types": "on"
+            "remove-useless-types": "on",
+            "remove-unused-types": "on"
         }
     },
     "ignore": [
@@ -40,6 +41,7 @@
         "convert-top-level-return": "off",
         "convert-generic-to-shorthand": "off",
         "remove-useless-types": "off",
+        "remove-unused-types": "off",
         "convert-throw": "off",
         "remove-only": "off",
         "remove-skip": "off",
@@ -63,6 +65,7 @@
         "remove-empty",
         "remove-unreferenced-variables",
         "remove-unused-variables",
+        "remove-unused-types",
         "remove-unused-for-of-variables",
         "remove-unused-private-fields",
         "remove-unused-expressions",

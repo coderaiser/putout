@@ -1,0 +1,63 @@
+{
+  "name": "@putout/plugin-remove-unused-types",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin adds ability to find and remove unused types",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/remove-unused-types.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "nyc": {
+    "exclude": [
+      "*/**/*.spec.js",
+      "test"
+    ]
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint:lib": "madrun lint:lib",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "putout": "madrun putout",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "putout-plugin-remove",
+    "plugin",
+    "remove",
+    "unused",
+    "types"
+  ],
+  "devDependencies": {
+    "@putout/test": "^2.0.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^7.0.0-rc.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^5.0.1",
+    "lerna": "^3.8.5",
+    "madrun": "^7.0.0",
+    "nodemon": "^2.0.1",
+    "nyc": "^15.0.1",
+    "tape": "^4.8.0"
+  },
+  "peerDependencies": {
+    "putout": ">=9"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

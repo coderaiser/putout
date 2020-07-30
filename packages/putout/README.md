@@ -13,6 +13,7 @@
 Putout is a tool for identifying, reporting and fixing patterns found in JavaScript/JSX/Typescript/Flow code. It can:
 - remove unused `variables`;
 - remove unused `for-of variables`;
+- remove unused `typescripts` types;
 - remove unreferenced `variables`;
 - remove unused `private fields`;
 - remove unused `expressions`;
@@ -39,6 +40,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - remove `double negations`;
 - remove `unreachable code`;
 - remove `duplicate keys`;
+- remove useless `typescripts` types;
 - replace `test.only` to `test` calls;
 - replace `test.skip` to `test` calls;
 - reuse duplicate `init`;

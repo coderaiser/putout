@@ -19,7 +19,7 @@ npm i @putout/plugin-remove-useless-types -D
 ```json
 {
     "rules": {
-        "remove-useless-types/rename": "on"
+        "remove-useless-types": "on"
     }
 }
 ```
