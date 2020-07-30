@@ -6,9 +6,21 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
+const use = (store, name) => {
+    const current = store(name);
+    
+    if (!current)
+        return;
+    
+    current.used = true;
+};
+
 module.exports.traverse = ({push, store}) => {
     return {
         TSTypeAliasDeclaration(path) {
+            if (path.parentPath.isExportNamedDeclaration())
+                return;
+            
             store(path.node.id.name, {
                 path,
                 used: false,
@@ -19,10 +31,24 @@ module.exports.traverse = ({push, store}) => {
             const {name} = typeName;
             const current = store(name);
             
-            if (!current)
-                return;
+            use(store, name);
+        },
+        ExportSpecifier(path) {
+            use(store, path.node.local.name);
+        },
+        ExportDefaultDeclaration(path) {
+            const declarationPath = path.get('declaration');
             
-            current.used = true;
+            if (declarationPath.isIdentifier()) {
+                const {name} = path.node.declaration;
+                use(store, name);
+            }
+        },
+        ObjectProperty(path) {
+            const {value} = path.node;
+            const {name} = value;
+            
+            use(store, name);
         },
         Program: {
             exit() {

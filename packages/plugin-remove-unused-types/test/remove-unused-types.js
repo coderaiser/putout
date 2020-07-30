@@ -24,3 +24,23 @@ test('remove usless types: no transform: not defined', (t) => {
     t.end();
 });
 
+test('remove usless types: no transform: export', (t) => {
+    t.noTransform('export');
+    t.end();
+});
+
+test('remove usless types: no transform: export', (t) => {
+    t.noTransform('export-named');
+    t.end();
+});
+
+test('remove usless types: no transform: export default', (t) => {
+    t.noTransform('export-default');
+    t.end();
+});
+
+test('remove usless types: no transform: export default object', (t) => {
+    t.noTransform('export-default-object');
+    t.end();
+});
+
