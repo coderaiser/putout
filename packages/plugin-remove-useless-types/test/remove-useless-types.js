@@ -19,3 +19,8 @@ test('remove usless types: no transform: generic', (t) => {
     t.end();
 });
 
+test('remove usless types: no transform: export', (t) => {
+    t.noTransform('export');
+    t.end();
+});
+
