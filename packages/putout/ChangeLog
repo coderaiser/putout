@@ -1,3 +1,19 @@
+2020.07.31, v9.10.1
+
+fix:
+- (@putout/engine-loader) babel plugins: rm useless options
+
+feature:
+- (package) @putout/plugin-apply-optional-chaining v2.0.0
+- (package) @putout/plugin-extract-object-properties v4.0.0
+- (@putout/plugin-extract-object-properties) drop support of node < 10
+- (@putout/plugin-apply-optional-chaining) drop support of node < 10
+- (@putout/plugin-apply-optional-chaining) add support of destructuring
+- (@putout/plugin-extract-object-properties) equal-deep: rm useless filter
+- (@putout/engine-loader) babel plugins: simplify code with cloneInputAst (https://github.com/babel/babel/releases/tag/v7.11.0)
+- (@putout/plugin-remove-unused-types) add exports support
+
+
 2020.07.30, v9.10.0
 
 fix:
