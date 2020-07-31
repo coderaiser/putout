@@ -44,8 +44,3 @@ test('plugin-apply-optional-chaining: transform: call', (t) => {
     t.end();
 });
 
-test('plugin-apply-optional-chaining: transform: object', (t) => {
-    t.transform('destructuring');
-    t.end();
-});
-
