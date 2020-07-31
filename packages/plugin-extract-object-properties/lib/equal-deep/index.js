@@ -38,6 +38,7 @@ module.exports.fix = ({items}) => {
             const {
                 body = item.scope.block.body,
             } = item.scope.block.body;
+            
             body.unshift(buildAst({
                 PROPERTY: property,
                 OBJECT: object,
@@ -78,22 +79,8 @@ module.exports.find = (ast, {traverse}) => {
     
     const processed = process(Object.values(items));
     
-    return filter(processed);
+    return processed;
 };
-
-function filter(all) {
-    const result = [];
-    
-    for (const {name, path, items} of all) {
-        result.push({
-            name,
-            path,
-            items,
-        });
-    }
-    
-    return result;
-}
 
 function process(items) {
     const result = [];
