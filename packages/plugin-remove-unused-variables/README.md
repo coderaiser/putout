@@ -1,4 +1,4 @@
-# putout-plugin-remove-unused-variables [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-remove-unused-variables [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-unused-variables.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-unused-variables"npm"
@@ -11,7 +11,7 @@
 ## Install
 
 ```
-npm i @putout/plugin-remove-unused-variables
+npm i @putout/plugin-remove-unused-variables -D
 ```
 
 ## Rule
@@ -21,35 +21,24 @@ Rule `remove-unused-variables` is enabled by default, to disable add to `.putout
 ```json
 {
     "rules": {
-        "remove-unused-variables": false
+        "remove-unused-variables": "off"
     }
 }
 ```
 
-## Code Example
+## ❌ Incorrect code example
 
 ```js
-const {readFileSync} = require('fs');
-const source = readFileSync('./1.js', 'utf8');
+const a = 'hello';
+const b = 'world';
+console.log(a);
+```
 
-const putout = require('putout');
+## ✅ Correct code Example
 
-console.log(source);
-// outputs
-`
-const t = 'hello';
-const a = t;
-`
-
-const result = putout(source, {
-    plugins: [
-        'remove-unused-variables'
-    ]
-});
-// returns
-`
-const t = 'hello';
-`
+```js
+const a = 'hello';
+console.log(a);
 ```
 
 ## License
