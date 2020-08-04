@@ -1,3 +1,14 @@
+2020.08.04, v9.10.2
+
+fix:
+- (@putout/apply-optional-chaining) rm not relevant destructuring transform
+
+feature:
+- (package) @putout/plugin-madrun v7.0.0
+- (@putout/plugin-madrun) drop support of node < 10
+- (package) eslint v7.6.0
+
+
 2020.07.31, v9.10.1
 
 fix:
