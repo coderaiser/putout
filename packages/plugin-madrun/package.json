@@ -40,7 +40,7 @@
     "@putout/plugin-strict-mode": "^1.2.1",
     "@putout/test": "^2.0.0",
     "coveralls": "^3.0.0",
-    "eslint": "^7.0.0-rc.0",
+    "eslint": "^7.6.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^5.0.1",
     "lerna": "^3.8.5",
@@ -49,11 +49,11 @@
     "nyc": "^15.0.1"
   },
   "peerDependencies": {
-    "putout": ">=7.17"
+    "putout": ">=9"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=10"
   },
   "publishConfig": {
     "access": "public"
