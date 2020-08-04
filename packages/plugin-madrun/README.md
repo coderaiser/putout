@@ -1,4 +1,4 @@
-# putout-plugin-madrun [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-madrun [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-madrun.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/plugin-madrun"npm"
@@ -18,8 +18,8 @@ Add `.putout.json` with:
 
 ```json
 {
-    "plugins": [
-        "madrun"
+    "plugins": {
+        "madrun": "on"
     ]
 }
 ```
@@ -29,13 +29,13 @@ Add `.putout.json` with:
 ```json
 {
     "rules": {
-        "madrun/add-function": true,
-        "madrun/add-fix-lint": true,
-        "madrun/add-run": true,
-        "madrun/call-run": true,
-        "madrun/convert-run-argument": true,
-        "madrun/rename-series-to-run": true,
-        "madrun/rename-eslint-to-putout": true,
+        "madrun/add-function": "on",
+        "madrun/add-fix-lint": "on",
+        "madrun/add-run": "on",
+        "madrun/call-run": "on",
+        "madrun/convert-run-argument": "on",
+        "madrun/rename-series-to-run": "on",
+        "madrun/rename-eslint-to-putout": "on",
     }
 }
 ```
