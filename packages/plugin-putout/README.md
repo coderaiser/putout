@@ -1,4 +1,4 @@
-# putout-plugin-putout [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-putout [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-putout.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/plugin-putout"npm"
@@ -19,10 +19,10 @@ npm i @putout/plugin-putout -D
 ```json
 {
     "rules": {
-        "putout/convert-to-no-transform-code": true,
-        "putout/convert-replace-with": true,
-        "putout/convert-replace-with-multiple": true,
-        "putout/convert-babel-types": true,
+        "putout/convert-to-no-transform-code": "on",
+        "putout/convert-replace-with": "on",
+        "putout/convert-replace-with-multiple": "on",
+        "putout/convert-babel-types": "on"
     }
 }
 ```
