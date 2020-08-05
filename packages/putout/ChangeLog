@@ -1,3 +1,17 @@
+2020.08.06, v9.11.0
+
+feature:
+- (package) @putout/plugin-remove-unused-variables v3.0.0
+- (package) @putout/engine-parser v2.0.0
+- (package) @putout/operate v5.0.0
+- (@putout/plugin-remove-unused-variables) drop support of node < 10
+- (@putout/plugin-remove-unused-variables) add ability to preserve comments
+- (@putout/operate) drop support of node < 10
+- (@putout/operate) add support of remove
+- (@putout/engine-parser) drop support of node < 10
+- (@putout/engine-parse) add parse.fresh
+
+
 2020.08.04, v9.10.2
 
 fix:
