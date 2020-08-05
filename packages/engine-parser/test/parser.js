@@ -9,6 +9,7 @@ const {
     generate,
     print,
 } = require('..');
+
 const {readFixtures} = require('./fixture');
 
 const fixture = readFixtures([
@@ -281,6 +282,16 @@ test('putout: parser: undeclared exports', (t) => {
     const [error] = tryCatch(parse, 'export {x}');
     
     t.notOk(error);
+    t.end();
+});
+
+test('putout: parser: parse: fresh', (t) => {
+    const ast = parse.fresh('var a');
+    ast.x = 1;
+    
+    const result = parse.fresh('var a');
+    
+    t.notOk(result.x);
     t.end();
 });
 

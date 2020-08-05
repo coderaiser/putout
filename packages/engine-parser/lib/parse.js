@@ -6,7 +6,10 @@ const memo = require('nano-memoize');
 
 const customParser = require('./custom-parser');
 
-module.exports = memo((source, options) => {
+module.exports = memo(parse);
+module.exports.fresh = parse;
+
+function parse(source, options) {
     const {
         parser,
         isTS,
@@ -24,7 +27,7 @@ module.exports = memo((source, options) => {
     });
     
     return ast;
-});
+}
 
 function getParser({parser = 'babel', isTS, isFlow, isJSX}) {
     return {
