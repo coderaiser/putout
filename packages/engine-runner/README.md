@@ -1,4 +1,4 @@
-# putout-engine-runner [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/engine-runner [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/engine-runner.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/engine-runner"npm"
