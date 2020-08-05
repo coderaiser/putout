@@ -4,6 +4,7 @@ const {operator} = require('putout');
 const {
     replaceWith,
     compare,
+    remove,
 } = operator;
 
 const getVars = require('./get-vars');
@@ -19,7 +20,7 @@ module.exports.fix = ({path}) => {
     if (isOneImport(path))
         return path.parentPath.remove();
     
-    path.remove();
+    remove(path);
 };
 
 module.exports.find = (ast, {traverse}) => {
