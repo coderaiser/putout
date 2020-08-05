@@ -24,6 +24,10 @@ Print code from `ast`
 
 You can add `default options` for custom `parser` you use.
 
+### parse.fresh(code)
+
+`parse` without memoise
+
 Supported parsers:
 - [@babel/parse](https://babeljs.io/docs/en/babel-parser)
 - [acorn](https://github.com/acornjs/acorn)
