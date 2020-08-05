@@ -1,4 +1,4 @@
-# putout-plugin-convert-for-in-to-for-of [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-convert-for-in-to-for-of [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-convert-for-in-to-for-of.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/plugin-convert-for-in-to-for-of "npm"
@@ -20,8 +20,8 @@ Rule `convert-for-in-to-for-of` is enabled by default, to disable add to `.putou
 ```json
 {
     "rules": {
-        "convert-for-in-to-for-of/positive": false,
-        "convert-for-in-to-for-of/negative": false
+        "convert-for-in-to-for-of/positive": "off",
+        "convert-for-in-to-for-of/negative":"off"
     }
 }
 ```
