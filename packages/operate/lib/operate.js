@@ -81,6 +81,7 @@ module.exports.isModuleExports = (path) => {
 };
 
 const isBinding = (name) => (path) => path.scope.bindings[name];
+
 module.exports.findBinding = (path, name) => {
     const referencePath = path.findParent(isBinding(name));
     
@@ -89,3 +90,34 @@ module.exports.findBinding = (path, name) => {
     
     return referencePath.scope.bindings[name];
 };
+
+const isOneDeclaration = ({node}) => node.declarations.length === 1;
+
+const getComments = (path) => {
+    const {comments} = path.node;
+    
+    if (comments && comments.length)
+        return comments;
+    
+    const {parentPath} = path;
+    
+    if (path.isVariableDeclarator() && isOneDeclaration(parentPath)) {
+        return parentPath.node.comments;
+    }
+    
+    return [];
+};
+
+module.exports.remove = (path) => {
+    const comments = getComments(path);
+    const nextPath = path.getNextSibling();
+    const {block} = path.scope.getProgramParent();
+    
+    if (nextPath.node)
+        nextPath.node.comments = comments;
+    else
+        block.comments = comments;
+    
+    path.remove();
+};
+

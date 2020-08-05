@@ -48,6 +48,10 @@ Check if currentPath is `module.exports` expression.
 
 Can be used to convert node to `expression` when building new nodes.
 
+### remove(path)
+
+Remove `node`, preserve comments.
+
 ## License
 
 MIT

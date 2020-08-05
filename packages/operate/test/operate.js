@@ -3,6 +3,7 @@
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const putout = require('putout');
+const montag = require('montag');
 
 const {
     traverse,
@@ -465,6 +466,99 @@ test('operate: replaceWithMultiple: to expressions: ignore', (t) => {
         `  'c': 'd'`,
         `}`,
     ].join('\n');
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('operate: remove', (t) => {
+    const ast = parse.fresh(montag`
+        // hello
+        var a = 1;
+        x = 2;
+    `);
+    
+    traverse(ast, {
+        VariableDeclaration(path) {
+            operate.remove(path);
+        },
+    });
+    
+    const result = print(ast);
+    const expected = montag`
+        // hello
+        x = 2;
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('operate: remove: empty', (t) => {
+    const ast = parse.fresh(montag`
+        // hello
+        var a = 1;
+    `);
+    
+    traverse(ast, {
+        VariableDeclaration(path) {
+            operate.remove(path);
+        },
+    });
+    
+    const result = print(ast);
+    const expected = montag`
+        // hello
+    
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('operate: remove: VariableDeclarator', (t) => {
+    const ast = parse(montag`
+        // hello
+        var a = 1;
+    `);
+    
+    traverse(ast, {
+        VariableDeclarator(path) {
+            operate.remove(path);
+        },
+    });
+    
+    const result = print(ast);
+    const expected = montag`
+        // hello
+    
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('operate: remove: VariableDeclarator: a couple', (t) => {
+    const ast = parse.fresh(montag`
+        // hello
+        var a = 1, b = 2;
+    `);
+    
+    let once = false;
+    traverse(ast, {
+        VariableDeclarator(path) {
+            if (once)
+                return;
+            once = true;
+            operate.remove(path);
+        },
+    });
+    
+    const result = print(ast);
+    const expected = montag`
+        // hello
+        var b = 2;
+    `;
     
     t.equal(result, expected);
     t.end();
