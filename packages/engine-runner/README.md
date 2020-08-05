@@ -177,7 +177,7 @@ module.exports.traverse = ({push}) => {
 
 To keep things during traverse in a safe way `listStore` can be used.
 
-```
+```js
 module.exports.traverse = ({push, listStore}) => {
     return {
         'debugger'(path) {
@@ -204,7 +204,7 @@ of handling variables will most likely will lead to bugs.
 
 When you need `key-value` storage `store` can be used.
 
-```
+```js
 module.exports.traverse = ({push, store}) => {
     return {
         'debugger'(path) {
