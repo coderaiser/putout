@@ -1,10 +1,10 @@
 'use strict';
 
+const {remove} = require('putout').operator;
+
 module.exports.report = () => 'Unexpected "console" call';
 
-module.exports.fix = (path) => {
-    path.remove();
-};
+module.exports.fix = remove;
 
 module.exports.filter = ({scope}) => !scope.hasBinding('console');
 

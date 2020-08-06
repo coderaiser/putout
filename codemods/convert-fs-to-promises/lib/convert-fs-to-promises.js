@@ -1,5 +1,7 @@
 'use strict';
 
+const {remove} = require('putout').operator;
+
 const {
     types: t,
     operator,
@@ -20,7 +22,7 @@ module.exports.fix = ({path, promisified}) => {
         const {name} = declarator.id;
         
         props.push(t.ObjectProperty(t.Identifier(name), t.Identifier(name), NOT_COMPUTED, SHORTHAND));
-        path.remove();
+        remove(path);
     }
     
     const {init} = path.node;

@@ -25,6 +25,11 @@ test('plugin-remove-console: declared', (t) => {
     t.end();
 });
 
+test('plugin-remove-console: comment', (t) => {
+    t.transform('comment');
+    t.end();
+});
+
 test('plugin-remove-console: time', (t) => {
     t.transform('time', '\n\n');
     t.end();
