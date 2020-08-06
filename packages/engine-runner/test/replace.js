@@ -171,3 +171,33 @@ test('putout: runner: replace: remove', (t) => {
     t.deepEqual(code, expected, 'should equal');
     t.end();
 });
+
+test('putout: runner: replace: remove', (t) => {
+    const rm = {
+        report: () => '',
+        replace: () => ({
+            'for (__a of __array) __c': () => {
+                return '';
+            },
+        }),
+    };
+    
+    const source = montag`
+        // some loop
+        for (const a of []) {}
+    `;
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['rm', rm],
+        ],
+    });
+    
+    const expected = montag`
+        // some loop
+    
+    `;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});

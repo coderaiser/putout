@@ -1,7 +1,10 @@
 'use strict';
 
 const {template} = require('@putout/engine-parser');
-const {replaceWith} = require('@putout/operate');
+const {
+    remove,
+    replaceWith,
+} = require('@putout/operate');
 const {
     compare,
     findVarsWays,
@@ -75,7 +78,7 @@ const fix = (from, to, path) => {
     const nodeTo = parseTo(to, values, path);
     
     if (!nodeTo)
-        return path.remove();
+        return remove(path);
     
     const waysTo = findVarsWays(nodeTo);
     const newPath = replaceWith(path, nodeTo);
