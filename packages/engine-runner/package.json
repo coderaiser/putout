@@ -32,7 +32,7 @@
     "@babel/traverse": "^7.6.2",
     "@babel/types": "^7.6.1",
     "@putout/compare": "^5.0.0",
-    "@putout/engine-parser": "^1.2.0",
+    "@putout/engine-parser": "^2.0.0",
     "@putout/operate": "^5.0.0",
     "debug": "^4.1.1",
     "jessy": "^3.0.0",
