@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('supertape');
-const {template} = require('@putout/engine-parser');
+const {template} = require('putout');
 const {parse} = require('@babel/parser');
 
 const {traverse, contains} = require('./traverse');
