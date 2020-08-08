@@ -1,3 +1,10 @@
+2020.08.08, v9.11.2
+
+feature:
+- (package) @putout/compare v5.0.0
+- (@putout/engine-runner) replace: add ability to preserve comments
+
+
 2020.08.06, v9.11.1
 
 feature:
