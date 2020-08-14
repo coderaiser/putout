@@ -29,7 +29,8 @@ Add `.putout.json` with:
 ```json
 {
     "rules": {
-        "cloudcmd/convert-io-mv-to-io-move": "on"
+        "cloudcmd/convert-io-mv-to-io-move": "on",
+        "cloudcmd/convert-io-cp-to-io-copy": "on"
     }
 }
 ```
