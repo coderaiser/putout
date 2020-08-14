@@ -20,7 +20,7 @@ Add `.putout.json` with:
 {
     "plugins": {
         "cloudcmd": "on"
-    ]
+    }
 }
 ```
 
