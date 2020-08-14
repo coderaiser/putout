@@ -52,6 +52,25 @@ await IO.mv({
 await IO.move(dirPath, mp3Dir, mp3Names);
 ```
 
+# convert-io-cp-to-io-copy
+
+## ❌ Incorrect code example
+
+```js
+await IO.cp({
+    from: dirPath,
+    to: mp3Dir,
+    names: mp3Names,
+});
+```
+
+## ✅ Correct code Example
+
+```js
+await IO.copy(dirPath, mp3Dir, mp3Names);
+```
+
+
 ## License
 
 MIT
