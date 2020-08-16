@@ -24,3 +24,8 @@ test('cloudcmd: IO.cp: transform: string', (t) => {
     t.end();
 });
 
+test('cloudcmd: IO.write: transform: write', (t) => {
+    t.transform('write');
+    t.end();
+});
+

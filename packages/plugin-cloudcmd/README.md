@@ -71,6 +71,20 @@ await IO.cp({
 await IO.copy(dirPath, mp3Dir, mp3Names);
 ```
 
+# convert-io-write-to-io-create-directory
+
+## ❌ Incorrect code example
+
+```js
+await IO.write(`${mp3Dir}?dir`);
+
+```
+
+## ✅ Correct code Example
+
+```js
+await IO.createDirectory(mp3Dir);
+```
 
 ## License
 
