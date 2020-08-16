@@ -118,6 +118,15 @@ Linked string literal.
 compare('const a = "hello"', 'const __a = "__b"');
 ```
 
+##### `__a`
+Linked template literal.
+
+```js
+compare('const a = `hello`', 'const __a = `__b`');
+// returns
+true
+```
+
 ##### __body
 Any `BlockStatement`.
 

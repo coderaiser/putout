@@ -536,6 +536,13 @@ test('compare: string literal', (t) => {
     t.end();
 });
 
+test('compare: template string', (t) => {
+    const result = compare('`hello`', '`__a`');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: __identifier', (t) => {
     const result = compare('console.log("hello")', '__identifier.log(__args)');
     

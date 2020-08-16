@@ -5,6 +5,7 @@ const {
     isBlockStatement,
     isIdentifier,
     isLiteral,
+    isTemplateElement,
     isFunction,
     isImportDefaultSpecifier,
 } = require('@babel/types');
@@ -193,6 +194,9 @@ module.exports.isLinkedNode = (a) => {
         return true;
     
     if (isLiteral(a) && LINKED_NODE.test(a.value))
+        return true;
+    
+    if (isTemplateElement(a) && LINKED_NODE.test(a.value.raw))
         return true;
     
     return false;

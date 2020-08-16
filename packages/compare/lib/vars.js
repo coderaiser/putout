@@ -1,11 +1,15 @@
 'use strict';
 
 const traverse = require('@babel/traverse').default;
-const {isIdentifier} = require('@babel/types');
 const jessy = require('jessy');
 const nessy = require('nessy');
 const {template} = require('@putout/engine-parser');
 const {replaceWith} = require('@putout/operate');
+const {
+    isIdentifier,
+    isStringLiteral,
+    isTemplateElement,
+} = require('@babel/types');
 
 const {
     is,
@@ -29,6 +33,18 @@ module.exports.getTemplateValues = (node, str) => {
 
 module.exports.findVarsWays = findVarsWays;
 
+const parseName = (node) => {
+    if (isStringLiteral(node))
+        return node.value;
+    
+    //if (isTemplateLiteral(node))
+    //return node.quasis[0].value.raw;
+    if (isTemplateElement(node))
+        return node.value.raw;
+    
+    return node.name;
+};
+
 function findVarsWays(node) {
     if (isIdentifier(node) && is(node.name))
         return {
@@ -39,11 +55,10 @@ function findVarsWays(node) {
     
     traverse(node, {
         noScope: true,
-        'Identifier|StringLiteral'(path) {
+        'Identifier|StringLiteral|TemplateElement'(path) {
+            const {node} = path;
             const way = [];
-            const {
-                name = path.node.value,
-            } = path.node;
+            const name = parseName(node);
             
             if (!is(name))
                 return;

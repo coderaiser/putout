@@ -252,3 +252,28 @@ test('putout: compare: vars: "__a"', (t) => {
     t.end();
 });
 
+test('putout: compare: vars: `__a`', (t) => {
+    const varToConst = {
+        report: () => '',
+        replace: () => ({
+            'const x = `__a`': ({__a}) => {
+                const {raw} = __a.value;
+                return `const x = "${raw}"`;
+            },
+        }),
+    };
+    
+    const input = 'const x = `hello`';
+    
+    const {code} = putout(input, {
+        fixCount: 1,
+        plugins: [{
+            'var-to-const': varToConst,
+        }],
+    });
+    
+    const expected = `const x = 'hello';`;
+    
+    t.equal(code, expected, 'should equal');
+    t.end();
+});
