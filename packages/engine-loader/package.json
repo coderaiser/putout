@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.11.0",
-    "@putout/engine-parser": "^1.0.0",
+    "@putout/engine-parser": "^2.0.0",
     "diff-match-patch": "^1.0.4",
     "jscodeshift": "^0.10.0",
     "nano-memoize": "^1.1.8",
