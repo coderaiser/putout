@@ -25,6 +25,7 @@ npm i @putout/compare
 const {operator} = require('putout');
 const {template} = operator;
 const node = template.ast('const [] = a');
+
 getTemplateValues(node, 'const __array = array');
 // returns
 {
