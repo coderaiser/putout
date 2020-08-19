@@ -29,8 +29,8 @@ traverse(node, {
         console.log('found identifier');
     },
     
-    'throw __'(path) {
-        console.log('found throw');
+    'throw __a'(path, {__a}) {
+        console.log(__a);
     },
     
     'await __'(path) {

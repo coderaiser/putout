@@ -89,6 +89,24 @@ test('putout: traverse: program: path', (t) => {
     t.end();
 });
 
+test('putout: traverse: program: template variables', (t) => {
+    const node = parse('const x = 5');
+    
+    const path = {
+        node,
+    };
+    
+    let a;
+    traverse(path, {
+        'const __a = __b'(path, {__b}) {
+            a = __b;
+        },
+    });
+    
+    t.equal(a.type, 'NumericLiteral');
+    t.end();
+});
+
 test('putout: traverse: contains', (t) => {
     const node = template.ast('() => x = 5');
     

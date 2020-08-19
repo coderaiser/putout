@@ -11,6 +11,7 @@ const {
     compare,
     parseTemplate,
     isTemplate,
+    getTemplateValues,
 } = require('@putout/compare');
 
 const {merge} = babelTraverse.visitors;
@@ -50,6 +51,7 @@ function traverse(path, visitor) {
         const visit = getVisit({
             fn,
             node,
+            tmpl,
         });
         
         items.push({
@@ -63,12 +65,12 @@ function traverse(path, visitor) {
     });
 }
 
-const getVisit = ({fn, node}) => (path) => {
+const getVisit = ({fn, node, tmpl}) => (path) => {
     if (!compare(path, node)) {
         return;
     }
     
-    fn(path);
+    fn(path, getTemplateValues(path.node, tmpl));
 };
 
 module.exports.contains = (path, items) => {
