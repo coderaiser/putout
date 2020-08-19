@@ -37,8 +37,6 @@ const parseName = (node) => {
     if (isStringLiteral(node))
         return node.value;
     
-    //if (isTemplateLiteral(node))
-    //return node.quasis[0].value.raw;
     if (isTemplateElement(node))
         return node.value.raw;
     
@@ -97,7 +95,7 @@ function getValues({waysFrom, node}) {
             
             way = way.replace(/\.expression$/, '');
             
-            result[name] = result[name] || jessy(way, node) || node;
+            result[name] = result[name] || jessy(way, node);
         }
     }
     
