@@ -295,3 +295,19 @@ test('putout: parser: parse: fresh', (t) => {
     t.end();
 });
 
+test('putout: print: recast: object expressions', (t) => {
+    const ast = parse.fresh(`(a, b) => ({a: 'b'})`);
+    
+    putout.traverse(ast, {
+        Function(path) {
+            path.get('params.0').remove();
+        },
+    });
+    
+    const result = print(ast);
+    const expected = `b => ({a: 'b'})`;
+    
+    t.equal(result, expected);
+    t.end();
+});
+

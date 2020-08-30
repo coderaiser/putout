@@ -1,6 +1,6 @@
 'use strict';
 
-const recast = require('recast');
+const recast = require('@putout/recast');
 const toBabel = require('estree-to-babel');
 const memo = require('nano-memoize');
 
