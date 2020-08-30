@@ -4,8 +4,6 @@ const tryCatch = require('try-catch');
 const debug = require('debug')('putout:runner:fix');
 const {enabled} = debug;
 
-debug('xxxxx');
-
 const tryToFix = (fix, {path, position}) => {
     const [e] = tryCatch(fix, path);
     

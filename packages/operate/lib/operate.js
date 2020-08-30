@@ -4,6 +4,7 @@ const {
     ExpressionStatement,
     toStatement,
     matchesPattern,
+    isParenthesizedExpression,
 } = require('@babel/types');
 
 const {assign} = Object;
@@ -13,6 +14,9 @@ module.exports.replaceWith = replaceWith;
 const compareTypes = (a) => (b) => a.includes(b);
 module.exports.toExpression = toExpression;
 function toExpression(el) {
+    debugger;
+    el = unwrap(el);
+    
     const {type} = el;
     const ignore = [
         'ObjectProperty',
@@ -119,5 +123,24 @@ module.exports.remove = (path) => {
         block.comments = comments;
     
     path.remove();
+};
+
+module.exports.get = (path, line) => {
+    let current;
+    const stack = line.split('.');
+    
+    while (current = stack.shift()) {
+        path = unwrap(path.get(current));
+    }
+    
+    return path;
+}
+
+module.exports.unwrap = unwrap;
+function unwrap(node) {
+  if (!isParenthesizedExpression(node))
+      return node;
+   
+   return unwrap(node.expression)
 };
 

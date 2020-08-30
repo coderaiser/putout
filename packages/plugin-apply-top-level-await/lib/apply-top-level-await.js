@@ -1,10 +1,12 @@
 'use strict';
 
 const fullstore = require('fullstore');
-const {replaceWithMultiple} = require('putout').operator;
+const {operator} = require('putout');
+
+const {get, replaceWithMultiple} = operator;
 
 const add = ({push, isImports, isExports}) => (path) => {
-    const calleePath = path.get('callee');
+    const calleePath = get(path, 'callee');
     
     if (!isImports() && !isExports())
         return;
@@ -20,7 +22,7 @@ const add = ({push, isImports, isExports}) => (path) => {
 module.exports.report = () => 'Top-level-await should be used';
 
 module.exports.fix = (path) => {
-    const {body} = path.get('callee.body').node;
+    const {body} = get(path, 'callee.body').node;
     replaceWithMultiple(path, body);
 };
 

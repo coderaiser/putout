@@ -8,6 +8,7 @@ const {
 const {
     replaceWithMultiple,
     toExpression,
+    unwrap,
 } = operator;
 
 const {
@@ -46,7 +47,7 @@ module.exports.fix = (path) => {
         
         replaceWithMultiple(parentPath, [
             ...expressions,
-            ReturnStatement(argument),
+            ReturnStatement(unwrap(argument)),
         ]);
         return;
     }

@@ -106,11 +106,11 @@ test('putout: runner: replace: __object', (t) => {
     `;
     
     const expected = montag`
-        fn({
+        fn(({
           a,
           b,
           c
-        })
+        }))
     `;
     
     const {code} = putout(source, {
