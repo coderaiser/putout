@@ -994,7 +994,7 @@ Here is list of options:
 - `errorsCount` count of errors
 
 You can avoid any of this and use only what you nead. To make possible using with `putout` add prefix `putout-formatter-` to your `npm package`,
-and add tags `putput`, `formatter`, `putout-formatter`.
+and add tags `putout`, `formatter`, `putout-formatter`.
 
 ### Eslint Formatters
 
