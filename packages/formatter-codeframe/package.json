@@ -22,7 +22,7 @@
     "@babel/code-frame": "^7.0.0",
     "@putout/formatter-json": "^1.0.0",
     "chalk": "^4.0.0",
-    "table": "^5.2.3"
+    "table": "^6.0.1"
   },
   "keywords": [
     "putout",
