@@ -615,7 +615,7 @@ import fs from 'fs';
 ```
 </details>
 
-<details><summary>apply numeric separators(<a href=https://github.com/tc39/proposal-numeric-separator>proposal-numeric-separator</a>, disabled)</summary>
+<details><summary>apply numeric separators(<a href=https://github.com/tc39/proposal-numeric-separator>proposal-numeric-separator</a>)</summary>
 
 ```diff
 -const a = 100000000;
