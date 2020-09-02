@@ -1,3 +1,23 @@
+2020.09.02, v9.12.0
+
+fix:
+- (@putout/engine-runner) rm useless debug
+
+feature:
+- (putout) apply-numeric-superators: enable
+- (@putout/engine-runner) store: add support of adding properties
+- (@putout/plugin-remove-unused-types) add support of bubling
+- (@putout/eslint-config) ecmaVersion 2021
+- (@putout/formatter-codeframe) table v6.0.1
+- (@putout/formatter-codeframe) @putout/plugin-remove-unused-variables v3.0.0
+- (@putout/formatter-frame) @putout/plugin-remove-unused-variables v3.0.0
+- (@putout/formatter-stream) table v6.0.1
+- (@putout/formatter-stream) @putout/plugin-remove-unused-variables v3.0.0
+- (@putout/formatter-dump) @putout/plugin-remove-unused-variables v3.0.0
+- (@putout/formatter-dump) table v6.0.1
+- (@putout/engine-parser) recast v0.20.2 (@putout/recast: https://github.com/benjamn/recast/issues/743)
+
+
 2020.08.20, v9.11.5
 
 feature:
