@@ -153,3 +153,49 @@ test('putout: runner: plugins: traverse: store: values', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
+
+test('putout: runner: plugins: traverse: store: object', (t) => {
+    let result = [];
+    
+    const addVar = {
+        report: () => '',
+        traverse: ({store}) => ({
+            'debugger'() {
+                store('x', {
+                    hello: 'world',
+                });
+                
+                store('x', {
+                    how: 'come',
+                });
+            },
+            Program: {
+                exit() {
+                    result = store();
+                },
+            },
+        }),
+    };
+    
+    putout('debugger', {
+        runPlugins,
+        plugins: [{
+            'add-variable': addVar,
+        }],
+    });
+    
+    putout('debugger', {
+        runPlugins,
+        plugins: [{
+            'add-variable': addVar,
+        }],
+    });
+    
+    const expected = [{
+        hello: 'world',
+        how: 'come',
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});

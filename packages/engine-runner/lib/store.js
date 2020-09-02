@@ -1,6 +1,11 @@
 'use strict';
 
-const {values, entries} = Object;
+const {
+    values,
+    entries,
+    assign,
+} = Object;
+const isObject = (a) => typeof a === 'object';
 
 module.exports.listStore = (list = []) => {
     const fn = (...args) => {
@@ -31,6 +36,12 @@ module.exports.mapStore = (map = {}) => {
         
         if (args.length === 1)
             return map[name];
+        
+        if (isObject(data)) {
+            map[name] = map[name] || {};
+            assign(map[name], data);
+            return;
+        }
         
         map[name] = data;
     };
