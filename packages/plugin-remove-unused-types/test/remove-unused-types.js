@@ -44,3 +44,8 @@ test('remove usless types: no transform: export default object', (t) => {
     t.end();
 });
 
+test('remove usless types: no transform: bubling', (t) => {
+    t.noTransform('bubling');
+    t.end();
+});
+

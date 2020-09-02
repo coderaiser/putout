@@ -6,15 +6,6 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-const use = (store, name) => {
-    const current = store(name);
-    
-    if (!current)
-        return;
-    
-    current.used = true;
-};
-
 module.exports.traverse = ({push, store}) => {
     return {
         TSTypeAliasDeclaration(path) {
@@ -23,31 +14,38 @@ module.exports.traverse = ({push, store}) => {
             
             store(path.node.id.name, {
                 path,
-                used: false,
             });
         },
         TSTypeReference(path) {
             const {typeName} = path.node;
             const {name} = typeName;
             
-            use(store, name);
+            store(name, {
+                used: true,
+            });
         },
         ExportSpecifier(path) {
-            use(store, path.node.local.name);
+            store(path.node.local.name, {
+                used: true,
+            });
         },
         ExportDefaultDeclaration(path) {
             const declarationPath = path.get('declaration');
             
             if (declarationPath.isIdentifier()) {
                 const {name} = path.node.declaration;
-                use(store, name);
+                store(name, {
+                    used: true,
+                });
             }
         },
         ObjectProperty(path) {
             const {value} = path.node;
             const {name} = value;
             
-            use(store, name);
+            store(name, {
+                used: true,
+            });
         },
         Program: {
             exit() {
