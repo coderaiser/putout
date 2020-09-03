@@ -1,3 +1,9 @@
+2020.09.03, v9.13.0
+
+feature:
+- (putout) add ability to run a couple mentioned plugins with: --no-config, --plugins (#10)
+
+
 2020.09.02, v9.12.0
 
 fix:
