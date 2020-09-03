@@ -125,7 +125,7 @@ test('putout: cli: --raw: parse error', async (t) => {
     const argv = [
         join(__dirname, 'fixture/parse-error.js'),
         '--raw',
-        '--no-options',
+        '--no-config',
         '--format',
         'none',
     ];
@@ -148,7 +148,7 @@ test('putout: cli: --raw: parse error', async (t) => {
 test('putout: cli: --format: specified twice', async (t) => {
     const argv = [
         __filename,
-        '--no-options',
+        '--no-config',
         '--format',
         'dump',
         '--format',
@@ -178,7 +178,7 @@ test('putout: cli: --fresh', async (t) => {
     const file = join(__dirname, 'fixture/parse-error.js');
     const argv = [
         file,
-        '--no-options',
+        '--no-config',
         '--fresh',
     ];
     
@@ -453,7 +453,7 @@ test('putout: cli: tsx', async (t) => {
     const write = stub();
     
     const argv = [
-        '--no-options',
+        '--no-config',
         join(__dirname, 'fixture', 'view.tsx'),
     ];
     
@@ -486,7 +486,7 @@ test('putout: cli: --transform', async (t) => {
         name,
         '--transform',
         `"${transform}"`,
-        '--no-options',
+        '--no-config',
         '--format',
         'json',
     ];
@@ -518,6 +518,66 @@ test('putout: cli: --transform', async (t) => {
         }],
         filesCount: 1,
         errorsCount: 1,
+    };
+    
+    const [arg] = write.args;
+    const [first] = arg;
+    const [, result = {}] = tryCatch(parse, first);
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: cli: --plugins', async (t) => {
+    const write = stub();
+    const eslint = stub().returns(['', []]);
+    
+    const name = join(__dirname, 'fixture/plugins.js');
+    const source = await readFile(name, 'utf8');
+    
+    const argv = [
+        name,
+        '--plugins',
+        'remove-unused-variables,remove-debugger',
+        '--no-config',
+        '--format',
+        'json',
+    ];
+    
+    mockRequire('./eslint', eslint);
+    reRequire('./process-file');
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        write,
+    });
+    
+    stopAll();
+    
+    const expected = {
+        errors: [{
+            name,
+            source,
+            places: [{
+                rule: 'remove-unused-variables',
+                message: '"a" is defined but never used',
+                position: {
+                    line: 1,
+                    column: 6,
+                },
+            }, {
+                rule: 'remove-debugger',
+                message: `Unexpected "debugger" statement`,
+                position: {
+                    line: 2,
+                    column: 0,
+                },
+            }],
+        }],
+        filesCount: 1,
+        errorsCount: 2,
     };
     
     const [arg] = write.args;

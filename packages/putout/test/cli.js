@@ -61,9 +61,9 @@ test('putout: cli: ignored', async (t) => {
     t.end();
 });
 
-test('putout: cli: --no-options', async (t) => {
+test('putout: cli: --no-config', async (t) => {
     const name = join(__dirname, 'fixture/broken.js');
-    const {stdout} = await run(`--no-options ${name}`);
+    const {stdout} = await run(`--no-config ${name}`);
     const expected = `${name}\n 2:0  error   Unexpected token   crash/parser \n\n✖ 1 errors in 1 files\n  fixable with the \`--fix\` option\n`;
     
     t.equal(stripAnsi(stdout), expected);

@@ -223,7 +223,7 @@ test('putout: cli: process-file: cache', async (t) => {
 test('putout: cli: process-file: parse error', async (t) => {
     const {readFile} = fs.promises;
     
-    const noOptions = true;
+    const noConfig = true;
     const fix = false;
     const log = stub();
     const ruler = {};
@@ -247,7 +247,7 @@ test('putout: cli: process-file: parse error', async (t) => {
         write,
         fileCache,
         formatter,
-        noOptions,
+        noConfig,
         exit,
         debug: true,
     });
@@ -286,7 +286,7 @@ test('putout: cli: process-file: parse error', async (t) => {
 
 test('putout: cli: process-file: parse error: on plugin', async (t) => {
     const {readFile} = fs.promises;
-    const noOptions = true;
+    const noConfig = true;
     const fix = false;
     const log = stub();
     const ruler = {};
@@ -327,7 +327,7 @@ test('putout: cli: process-file: parse error: on plugin', async (t) => {
         write,
         fileCache,
         formatter,
-        noOptions,
+        noConfig,
         exit,
         debug: true,
     });
@@ -351,7 +351,7 @@ test('putout: cli: process-file: parse error: on plugin', async (t) => {
 test('putout: cli: process-file: parse error: debug', async (t) => {
     const {readFile} = fs.promises;
     
-    const noOptions = true;
+    const noConfig = true;
     const fix = false;
     const log = stub();
     const ruler = {};
@@ -378,7 +378,7 @@ test('putout: cli: process-file: parse error: debug', async (t) => {
         write,
         fileCache,
         formatter,
-        noOptions,
+        noConfig,
         exit,
         debug: true,
     });

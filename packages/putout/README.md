@@ -109,6 +109,7 @@ Options
    --fix-count                 count of fixes rounds (defaults to 10)
    --rulesdir                  use additional rules from directory
    --transform                 apply inline transform
+   --plugins                   plugins to use splited by comma
    --enable                    enable rule by name in .putout.json
    --disable                   disable rule by name in .putout.json
    --enable-all                enable all rules in .putout.json
@@ -119,7 +120,8 @@ Options
    --no-jsx                    disable jsx
    --no-flow                   disable flow (default)
    --cache                     enable .putoutcache to speed up processing
-   --fresh                     generate fresh .putoutcache
+   --fresh                     generate a fresh .putoutcache
+   --no-config                 avoid reading config file (.putout.json)
 ```
 
 To find erros:
@@ -132,6 +134,14 @@ To fix errors:
 
 ```
 putout lib test --fix
+```
+
+## Plugins
+
+By default `putout` uses all enabled by default plugins, anyways it can be run with a couple mentioned plugins (splitted with ","):
+
+```sh
+putout lib --plugins remove-debugger,remove-unused-variables
 ```
 
 ## Environment variables

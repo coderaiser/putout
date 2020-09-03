@@ -27,14 +27,17 @@ const getFormatter = memo(require('./formatter').getFormatter);
 
 const isParsingError = ({rule}) => rule === 'eslint/null';
 
-function getOptions({noOptions, name, transform, rulesdir}) {
+function getOptions({noConfig, plugins, name, transform, rulesdir}) {
     const transformPlugins = buildPlugins(transform);
     
-    if (noOptions)
+    if (noConfig)
         return {
             formatter: 'dump',
             dir: dirname(name),
-            plugins: transformPlugins,
+            plugins: [
+                ...plugins,
+                ...transformPlugins,
+            ],
         };
     
     const result = parseOptions({
@@ -42,26 +45,25 @@ function getOptions({noOptions, name, transform, rulesdir}) {
         rulesdir,
     });
     
-    const plugins = [
-        ...result.plugins,
-        ...transformPlugins,
-    ];
-    
     return {
         ...result,
-        plugins,
+        plugins: [
+            ...result.plugins,
+            ...transformPlugins,
+        ],
     };
 }
 
-module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noOptions}) => async (name, index, {length}) => {
+module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noConfig, plugins = []}) => async (name, index, {length}) => {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
     const options = getOptions({
         name: resolvedName,
         rulesdir,
-        noOptions,
+        noConfig,
         transform,
+        plugins,
     });
     
     const {

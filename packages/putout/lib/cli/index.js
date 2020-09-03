@@ -17,12 +17,14 @@ const {PUTOUT_FILES = ''} = process.env;
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
 const {isArray} = Array;
-const maybeArray = (a) => isArray(a) ? a.pop() : a;
+const maybeFirst = (a) => isArray(a) ? a.pop() : a;
+const plugins = (a) => a.split(',');
 
 module.exports = async ({argv, halt, log, write, logError}) => {
     const args = yargsParser(argv, {
         coerce: {
-            format: maybeArray,
+            format: maybeFirst,
+            plugins,
         },
         boolean: [
             'cache',
@@ -36,7 +38,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             'disable-all',
             'jsx',
             'flow',
-            'options',
+            'config',
             'staged',
         ],
         number: [
@@ -44,17 +46,16 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         ],
         string: [
             'ext',
-            'config',
             'format',
             'disable',
             'enable',
             'rulesdir',
             'transform',
+            'plugins',
         ],
         alias: {
             v: 'version',
             h: 'help',
-            c: 'config',
             f: 'format',
             s: 'staged',
             t: 'transform',
@@ -63,12 +64,13 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         default: {
             fix: false,
             fixCount: 10,
-            options: true,
+            config: true,
             cache: false,
             fresh: false,
             enable: '',
             disable: '',
             debug: false,
+            plugins: [],
         },
     });
     
@@ -166,7 +168,8 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         logError,
         write,
         transform,
-        noOptions: !args.options,
+        noConfig: !args.config,
+        plugins: args.plugins,
     };
     
     const rawPlaces = [];
