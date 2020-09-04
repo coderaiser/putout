@@ -15,3 +15,8 @@ test('remove duplicate-interface-keys: transform: duplicate', (t) => {
     t.end();
 });
 
+test('remove duplicate-interface-keys: no transform: index signature', (t) => {
+    t.noTransform('index-signature');
+    t.end();
+});
+

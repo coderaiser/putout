@@ -11,6 +11,9 @@ module.exports.traverse = ({push}) => ({
         const props = {};
         
         for (const prop of path.get('body')) {
+            if (prop.isTSIndexSignature())
+                continue;
+            
             const current = getCurrent(prop);
             const {computed} = prop.node;
             
