@@ -1,3 +1,12 @@
+2020.09.04, v9.14.1
+
+fix:
+- (@putout/plugin-remove-duplicate-interface-keys) index signature
+
+feature:
+- (putout) disable remove-duplicate-interface-keys, because of additional semicolon
+
+
 2020.09.04, v9.14.0
 
 feature:
