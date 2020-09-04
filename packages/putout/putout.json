@@ -23,7 +23,8 @@
             "strict-mode/add": "off",
             "convert-generic-to-shorthand": "on",
             "remove-useless-types": "on",
-            "remove-unused-types": "on"
+            "remove-unused-types": "on",
+            "remove-duplicate-interface-keys": "on"
         }
     },
     "ignore": [
@@ -41,6 +42,7 @@
         "convert-generic-to-shorthand": "off",
         "remove-useless-types": "off",
         "remove-unused-types": "off",
+        "remove-duplicate-interface-keys": "off",
         "convert-throw": "off",
         "remove-only": "off",
         "remove-skip": "off",
@@ -86,6 +88,7 @@
         "remove-double-negations",
         "remove-unreachable-code",
         "remove-duplicate-keys",
+        "remove-duplicate-interface-keys",
         "reuse-duplicate-init",
         "split-variable-declarations",
         "split-nested-destructuring",

@@ -41,6 +41,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - remove `unreachable code`;
 - remove `duplicate keys`;
 - remove useless `typescripts` types;
+- remove duplicate `interface keys` for `typescript`;
 - replace `test.only` to `test` calls;
 - replace `test.skip` to `test` calls;
 - reuse duplicate `init`;
