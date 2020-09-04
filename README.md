@@ -362,7 +362,7 @@ type oldType = number;
 ```
 </details>
 
-<details><summary>remove duplicate <code>interface</code> keys for typescript</summary>
+<details><summary>remove duplicate <code>interface</code> keys for typescript (disabled, because of additional `semicolon`);</summary>
 
 ```diff
 interface Hello {

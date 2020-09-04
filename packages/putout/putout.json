@@ -23,8 +23,7 @@
             "strict-mode/add": "off",
             "convert-generic-to-shorthand": "on",
             "remove-useless-types": "on",
-            "remove-unused-types": "on",
-            "remove-duplicate-interface-keys": "on"
+            "remove-unused-types": "on"
         }
     },
     "ignore": [
