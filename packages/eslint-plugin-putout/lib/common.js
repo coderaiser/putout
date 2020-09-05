@@ -6,7 +6,7 @@ module.exports.isCorrectLoc = (line, properties) => {
     for (let i = 0; i < n; i++) {
         const prop = properties[i];
         
-        if (prop.loc.start.line !== i + line + 1)
+        if (prop.loc.start.line < i + line + 1)
             return false;
     }
     

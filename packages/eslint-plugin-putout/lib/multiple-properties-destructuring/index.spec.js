@@ -20,6 +20,13 @@ ruleTester.run('multiple-properties-destructuring', rule, {
             b,
             c,
         } = world;`,
+        `const {
+            a,
+            // hello
+            b,
+            // world
+            c,
+        } = world;`,
         `for (const {a, b, c, d} of items) {
         }`,
     ],
