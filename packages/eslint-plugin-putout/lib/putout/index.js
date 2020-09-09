@@ -31,6 +31,7 @@ module.exports = {
         return {
             Program(node) {
                 const name = context.getFilename();
+                const isTS = /\.tsx?$/.test(name);
                 const options = getContextOptions(context);
                 const resultOptions = parseOptions({
                     name,
@@ -44,7 +45,9 @@ module.exports = {
                     .getSourceCode()
                     .getText(node);
                 
-                const ast = parse(text);
+                const ast = parse(text, {
+                    isTS,
+                });
                 const places = findPlaces(ast, text, resultOptions);
                 
                 for (const {rule, message, position} of places) {

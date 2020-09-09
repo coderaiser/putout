@@ -40,16 +40,18 @@ ruleTester.run('putout', rule, {
                 'strict-mode': false,
             },
         }],
-        code: `const t = 'hi'`,
+        code: `const m = 'hi'`,
         output: '',
         errors: [{
-            message: '"t" is defined but never used (remove-unused-variables)',
+            message: '"m" is defined but never used (remove-unused-variables)',
         }],
     }, {
         code: `const t = 'hi'`,
         output: `'use strict';`,
         errors: [{
             message: '"use strict" directive should be on top of commonjs file (strict-mode/add)',
+        }, {
+            message: '"t" is defined but never used (remove-unused-variables)',
         }],
     }],
 });
