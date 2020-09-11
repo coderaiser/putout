@@ -1,3 +1,15 @@
+2020.09.11, v9.14.2
+
+fix:
+- (@putout/eslint-config) eslint 6.2 -> 7
+- (eslint-plugin-putout) multiple-properties-destructuring: add support of comments
+
+feature:
+- (package) yargs-parser v20.0.0
+- (package) montag v1.0.0
+- (eslint-plugin-putout) add support of typescript
+
+
 2020.09.04, v9.14.1
 
 fix:
