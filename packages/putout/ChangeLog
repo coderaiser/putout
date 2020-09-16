@@ -1,3 +1,17 @@
+2020.09.16, v10.0.0
+
+fix:
+- (@putout/formatter-progress-bar) stop
+
+feature:
+- (@putout/formatter-progress-bar) 0 -> 👌
+- (putout) cache: add ability to use root cache
+- (putout) enable cache by default
+- (putout) add ability to detect CI
+- (putout) drop support of node < 12
+- (@putout/formatter-progress-bar) add
+
+
 2020.09.11, v9.14.2
 
 fix:
