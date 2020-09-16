@@ -2,6 +2,7 @@
 
 const {red} = require('chalk');
 const yargsParser = require('yargs-parser');
+const {isCI} = require('ci-info');
 
 const merge = require('../merge');
 const processFile = require('./process-file');
@@ -27,6 +28,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             plugins,
         },
         boolean: [
+            'ci',
             'cache',
             'debug',
             'version',
@@ -62,6 +64,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             d: 'debug',
         },
         default: {
+            ci: true,
             fix: false,
             fixCount: 10,
             config: true,
@@ -75,6 +78,11 @@ module.exports = async ({argv, halt, log, write, logError}) => {
     });
     
     supportedFiles.add(args.ext);
+    
+    if (args.ci && isCI) {
+        args.format = 'dump';
+        args.cache = false;
+    }
     
     const {
         debug,

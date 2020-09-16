@@ -19,6 +19,7 @@
     "--no-flow                  ": "disable flow (default)",
     "--cache                    ": "enable .putoutcache to speed up processing",
     "--fresh                    ": "generate a fresh .putoutcache",
-    "--no-config                ": "avoid reading config file (.putout.json)"
+    "--no-config                ": "avoid reading config file (.putout.json)",
+    "--no-ci                    ": "disable CI detection"
 
 }

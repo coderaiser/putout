@@ -123,6 +123,7 @@
     "@putout/traverse": "^2.0.0",
     "array-union": "^2.0.0",
     "chalk": "^4.0.0",
+    "ci-info": "^2.0.0",
     "debug": "^4.1.1",
     "deepmerge": "^4.0.0",
     "error-stack-parser": "^2.0.6",

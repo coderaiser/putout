@@ -153,6 +153,7 @@ test('putout: cli: --format: specified twice', async (t) => {
         'dump',
         '--format',
         'none',
+        '--no-ci',
     ];
     
     const process = stub();
@@ -426,7 +427,7 @@ test('putout: cli: ruler processor: --enable', async (t) => {
     t.end();
 });
 
-test('putout: cli: ruler processor: --eneable-all', async (t) => {
+test('putout: cli: ruler processor: --enable-all', async (t) => {
     const logError = stub();
     const rullerProcessor = stub();
     const argv = [
@@ -489,6 +490,7 @@ test('putout: cli: --transform', async (t) => {
         '--no-config',
         '--format',
         'json',
+        '--no-ci',
     ];
     
     mockRequire('./eslint', eslint);
@@ -542,6 +544,7 @@ test('putout: cli: --plugins', async (t) => {
         '--no-config',
         '--format',
         'json',
+        '--no-ci',
     ];
     
     mockRequire('./eslint', eslint);
