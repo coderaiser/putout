@@ -1,6 +1,7 @@
 'use strict';
 
 const progress = require('..');
+const {reRequire} = require('mock-require');
 
 const test = require('@putout/test')(__dirname, {
     'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
@@ -30,6 +31,7 @@ test('formatter: progress: minCount', (t) => {
 });
 
 test('formatter: progress: color', (t) => {
+    const progress = reRequire('..');
     t.format(progress, 'color', {
         color: 'red',
     });

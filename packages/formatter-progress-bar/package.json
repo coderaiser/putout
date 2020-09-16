@@ -38,6 +38,7 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^5.0.1",
     "madrun": "^7.0.0",
+    "mock-require": "^3.0.3",
     "nyc": "^15.0.1"
   },
   "peerDependencies": {
