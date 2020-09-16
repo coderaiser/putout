@@ -1,3 +1,9 @@
+2020.09.16, v10.0.1
+
+fix:
+- (putout) add @putout/formatter-progress-bar
+
+
 2020.09.16, v10.0.0
 
 fix:
