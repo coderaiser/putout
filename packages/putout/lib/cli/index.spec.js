@@ -154,6 +154,7 @@ test('putout: cli: --format: specified twice', async (t) => {
         '--format',
         'none',
         '--no-ci',
+        '--no-cache',
     ];
     
     const process = stub();
@@ -180,6 +181,7 @@ test('putout: cli: --fresh', async (t) => {
     const argv = [
         file,
         '--no-config',
+        '--no-cache',
         '--fresh',
     ];
     
@@ -491,6 +493,7 @@ test('putout: cli: --transform', async (t) => {
         '--format',
         'json',
         '--no-ci',
+        '--no-cache',
     ];
     
     mockRequire('./eslint', eslint);
@@ -545,6 +548,7 @@ test('putout: cli: --plugins', async (t) => {
         '--format',
         'json',
         '--no-ci',
+        '--no-cache',
     ];
     
     mockRequire('./eslint', eslint);

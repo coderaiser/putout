@@ -29,8 +29,6 @@ const defaultFileCache = {
 const CACHE_FILE = '.putoutcache';
 
 module.exports = ({cache, fresh}) => {
-    cache = cache || fresh;
-    
     if (fresh)
         tryCatch(unlinkSync, CACHE_FILE);
     

@@ -68,7 +68,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             fix: false,
             fixCount: 10,
             config: true,
-            cache: false,
+            cache: true,
             fresh: false,
             enable: '',
             disable: '',

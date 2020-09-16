@@ -4,7 +4,7 @@ const {run} = require('madrun');
 
 module.exports = {
     'wisdom': () => run(['lint', 'test']),
-    'test': () => `CI=1 tape 'test/*.js' 'lib/**/*.spec.js'`,
+    'test': () => `FORCE_COLOR=3 CI=1 tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w bin -w lib -w test -x "${run('test')}"`,
     'lint': () => {
         const names = [
