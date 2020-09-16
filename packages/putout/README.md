@@ -123,6 +123,7 @@ Options
    --cache                     enable .putoutcache to speed up processing
    --fresh                     generate a fresh .putoutcache
    --no-config                 avoid reading config file (.putout.json)
+   --no-ci                     disable CI detectio
 ```
 
 To find erros:
