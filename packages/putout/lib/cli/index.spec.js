@@ -128,6 +128,8 @@ test('putout: cli: --raw: parse error', async (t) => {
         '--no-config',
         '--format',
         'none',
+        '--no-ci',
+        '--no-cache',
     ];
     
     reRequire('./get-files');
