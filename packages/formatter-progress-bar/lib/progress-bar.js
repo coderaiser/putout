@@ -44,6 +44,7 @@ module.exports = ({name, options, places, index, count, filesCount, errorsCount}
     });
     
     if (naturalIndex === count) {
+        bar.stop();
         return `\r${result}`;
     }
     
