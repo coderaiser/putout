@@ -174,7 +174,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=10.17.0"
+    "node": ">=12"
   },
   "publishConfig": {
     "access": "public"
