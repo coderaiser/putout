@@ -17,7 +17,7 @@ module.exports = {
     'lint:slow': () => 'FORCE_COLOR=3 lerna run --no-bail lint',
     'lint:dot': () => 'putout .madrun.js',
     'lint-all': () => `MADRUN_NAME=1 ${run('lint:*')}`,
-    'lint': () => run('lint:ci', '-f progress --cache'),
+    'lint': () => run('lint:ci', '-f progress-bar --cache'),
     'lint:frame': () => run('lint:ci', '-f codeframe --cache'),
     'lint:fresh': () => run('lint', '--fresh'),
     'fresh:lint': () => run('lint:fresh'),

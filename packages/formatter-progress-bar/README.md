@@ -1,0 +1,39 @@
+# putout-formatter-progress-bar [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+
+[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/formatter-progress-bar.svg?style=flat&longCache=true
+[NPMURL]:                   https://npmjs.org/package/@putout/formatter-progress-bar "npm"
+
+[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/formatter-progress-bar
+[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/formatter-progress-bar
+
+`putout` formatter shows progress bar.
+
+## Install
+
+```
+npm i putout @putout/formatter-progress-bar
+```
+
+## Usage
+
+```
+putout --format progress-bar lib
+```
+
+## Options
+
+Formatters takes options, that can be set in `.putout.json` with:
+
+```json
+{
+    "formatter": ["progress-bar", {
+        "minCount": 0,
+        "color": "#6fbdf1"
+    }]
+}
+```
+
+## License
+
+MIT
+

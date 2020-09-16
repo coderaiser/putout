@@ -1,8 +1,5 @@
 {
-    "formatter": "progress",
-    "formatterOptions": {
-        "minCount": 10
-    },
+    "formatter": "progress-bar",
     "match": {
         "test/putout.js": {
             "apply-shorthand-properties": [{

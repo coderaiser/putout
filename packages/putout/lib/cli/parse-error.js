@@ -3,9 +3,6 @@
 const parser = require('error-stack-parser');
 
 module.exports.parseError = (e, {debug}) => {
-    if (!e)
-        return [];
-    
     const {line, column} = e.loc || (debug ? getPosition(e) : {
         line: 1,
         column: 1,

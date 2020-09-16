@@ -1,6 +1,6 @@
 {
     "parser": "babel",
-    "formatter": ["progress", {
+    "formatter": ["progress-bar", {
         "minCount": 10
     }],
     "match": {

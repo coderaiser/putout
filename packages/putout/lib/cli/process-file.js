@@ -90,7 +90,9 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
     const source = await readFile(name, 'utf8');
     const isTS = /\.tsx?$/.test(name);
     
-    if (fileCache.canUseCache({fix, options, name: resolvedName})) {
+    if (fileCache.canUseCache({fix,
+        options,
+        name: resolvedName})) {
         const places = fileCache.getPlaces(resolvedName);
         
         const line = report(currentFormat, {
@@ -115,36 +117,14 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
         ...options,
     });
     
-    const allPlaces = parseError(e, {
+    if (e) {
+        raw && logError(e);
+    }
+    
+    const {code = source} = result || {};
+    const allPlaces = result ? result.places : parseError(e, {
         debug,
     });
-    
-    if (!e) {
-        const {code, places} = result;
-        allPlaces.push(...places);
-        
-        if (ruler.disable || ruler.enable || ruler.disableAll || ruler.enableAll)
-            return places;
-        
-        const rawOrFixed = fix ? code : source;
-        const [newCode, newPlaces] = await eslint({
-            name,
-            code: rawOrFixed,
-            fix,
-        });
-        
-        allPlaces.push(...newPlaces);
-        
-        const fixable = !newPlaces.filter(isParsingError).length;
-        
-        if (fixable)
-            fileCache.setInfo(resolvedName, allPlaces, options);
-        
-        if (fix && source !== newCode) {
-            fileCache.removeEntry(resolvedName);
-            return await writeFile(name, newCode);
-        }
-    }
     
     const line = await makeReport(e, {
         debug,
@@ -158,9 +138,29 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
         count: length,
     });
     
-    write(line || '');
+    if (ruler.disable || ruler.enable || ruler.disableAll || ruler.enableAll)
+        return allPlaces;
     
-    e && raw && logError(e);
+    const rawOrFixed = fix ? code : source;
+    const [newCode, newPlaces] = await eslint({
+        name,
+        code: rawOrFixed,
+        fix,
+    });
+    
+    allPlaces.push(...newPlaces);
+    
+    const fixable = !newPlaces.filter(isParsingError).length;
+    
+    if (fixable)
+        fileCache.setInfo(resolvedName, allPlaces, options);
+    
+    if (fix && source !== newCode) {
+        fileCache.removeEntry(resolvedName);
+        await writeFile(name, newCode);
+    }
+    
+    write(line || '');
     
     return allPlaces;
 };
