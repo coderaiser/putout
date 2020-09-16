@@ -6,6 +6,7 @@ const fileEntryCache = require('file-entry-cache');
 const murmur = require('imurmurhash');
 const stringify = require('json-stringify-deterministic');
 const tryCatch = require('try-catch');
+const findUp = require('find-up');
 
 const {version} = require('../../../package.json');
 const containEslintPlugin = require('./contain-eslint-plugin');
@@ -28,14 +29,16 @@ const defaultFileCache = {
 
 const CACHE_FILE = '.putoutcache';
 
-module.exports = ({cache, fresh}) => {
+module.exports = async ({cache, fresh}) => {
+    const name = await findUp(CACHE_FILE) || CACHE_FILE;
+    
     if (fresh)
-        tryCatch(unlinkSync, CACHE_FILE);
+        tryCatch(unlinkSync, name);
     
     if (!cache)
         return defaultFileCache;
     
-    const fileCache = fileEntryCache.createFromFile(CACHE_FILE);
+    const fileCache = fileEntryCache.createFromFile(name);
     
     assign(fileCache, {
         getPlaces: getPlaces(fileCache),

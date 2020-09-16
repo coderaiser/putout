@@ -7,11 +7,12 @@ const mockRequire = require('mock-require');
 const stub = require('@cloudcmd/stub');
 
 const cacheFiles = require('.');
+const {_CACHE_FILE} = cacheFiles;
 
 const {reRequire} = mockRequire;
 
-test('putout: cache-files: disabled: fileCache', (t) => {
-    const fileCache = cacheFiles({
+test('putout: cache-files: disabled: fileCache', async (t) => {
+    const fileCache = await cacheFiles({
         cache: false,
     });
     
@@ -19,16 +20,16 @@ test('putout: cache-files: disabled: fileCache', (t) => {
     t.end();
 });
 
-test('putout: cache-files: fileCache: fresh', (t) => {
+test('putout: cache-files: fileCache: fresh', async (t) => {
     const {unlinkSync} = fs;
     
     const _unlinkSync = stub();
     fs.unlinkSync = _unlinkSync;
     
+    mockRequire('find-up', stub().returns(_CACHE_FILE));
     const cacheFiles = reRequire('.');
-    const {_CACHE_FILE} = cacheFiles;
     
-    cacheFiles({
+    await cacheFiles({
         fresh: true,
     });
     
@@ -38,7 +39,7 @@ test('putout: cache-files: fileCache: fresh', (t) => {
     t.end();
 });
 
-test('putout: cache-files: enabled: setInfo', (t) => {
+test('putout: cache-files: enabled: setInfo', async (t) => {
     const meta = {
         optionsHash: 'hello',
         places: ['world'],
@@ -59,7 +60,7 @@ test('putout: cache-files: enabled: setInfo', (t) => {
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
-    const fileCache = cacheFiles({
+    const fileCache = await cacheFiles({
         cache: true,
         files: [],
     });
@@ -76,7 +77,7 @@ test('putout: cache-files: enabled: setInfo', (t) => {
     t.end();
 });
 
-test('putout: cache-files: setInfo: definition not found', (t) => {
+test('putout: cache-files: setInfo: definition not found', async (t) => {
     const meta = {
         optionsHash: 'hello',
         places: ['world'],
@@ -97,7 +98,7 @@ test('putout: cache-files: setInfo: definition not found', (t) => {
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
-    const fileCache = cacheFiles({
+    const fileCache = await cacheFiles({
         cache: true,
         files: [],
     });
@@ -114,7 +115,7 @@ test('putout: cache-files: setInfo: definition not found', (t) => {
     t.end();
 });
 
-test('putout: cache-files: setInfo: eslint parser error', (t) => {
+test('putout: cache-files: setInfo: eslint parser error', async (t) => {
     const meta = {
         optionsHash: 'hello',
         places: ['world'],
@@ -135,7 +136,7 @@ test('putout: cache-files: setInfo: eslint parser error', (t) => {
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
-    const fileCache = cacheFiles({
+    const fileCache = await cacheFiles({
         cache: true,
         files: [],
     });
@@ -152,7 +153,7 @@ test('putout: cache-files: setInfo: eslint parser error', (t) => {
     t.end();
 });
 
-test('putout: cache-files: enabled: setInfo: not set', (t) => {
+test('putout: cache-files: enabled: setInfo: not set', async (t) => {
     const places = [];
     const meta = {
         optionsHash: 'hello',
@@ -174,7 +175,7 @@ test('putout: cache-files: enabled: setInfo: not set', (t) => {
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
-    const fileCache = cacheFiles({
+    const fileCache = await cacheFiles({
         cache: true,
         files: [],
     });
@@ -190,7 +191,7 @@ test('putout: cache-files: enabled: setInfo: not set', (t) => {
     t.end();
 });
 
-test('putout: cache-files: enabled: canUseCache: changed', (t) => {
+test('putout: cache-files: enabled: canUseCache: changed', async (t) => {
     const meta = {
         optionsHash: 'hello',
         places: ['world'],
@@ -214,7 +215,7 @@ test('putout: cache-files: enabled: canUseCache: changed', (t) => {
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
-    const fileCache = cacheFiles({
+    const fileCache = await cacheFiles({
         cache: true,
         files: [],
     });
@@ -233,7 +234,7 @@ test('putout: cache-files: enabled: canUseCache: changed', (t) => {
     t.end();
 });
 
-test('putout: cache-files: enabled: canUseCache: options changed', (t) => {
+test('putout: cache-files: enabled: canUseCache: options changed', async (t) => {
     const meta = {
         optionsHash: 'hello',
         places: ['world'],
@@ -257,7 +258,7 @@ test('putout: cache-files: enabled: canUseCache: options changed', (t) => {
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
-    const fileCache = cacheFiles({
+    const fileCache = await cacheFiles({
         cache: true,
         files: [],
     });
@@ -276,7 +277,7 @@ test('putout: cache-files: enabled: canUseCache: options changed', (t) => {
     t.end();
 });
 
-test('putout: cache-files: enabled: canUseCache: not fix', (t) => {
+test('putout: cache-files: enabled: canUseCache: not fix', async (t) => {
     const meta = {
         optionsHash: '1cnbekx',
         places: ['world'],
@@ -304,7 +305,7 @@ test('putout: cache-files: enabled: canUseCache: not fix', (t) => {
     
     const cacheFiles = reRequire('.');
     
-    const fileCache = cacheFiles({
+    const fileCache = await cacheFiles({
         cache: true,
         files: [],
     });
@@ -323,7 +324,7 @@ test('putout: cache-files: enabled: canUseCache: not fix', (t) => {
     t.end();
 });
 
-test('putout: cache-files: enabled: canUseCache: fix, no places', (t) => {
+test('putout: cache-files: enabled: canUseCache: fix, no places', async (t) => {
     const meta = {
         optionsHash: '1cnbekx',
         places: [],
@@ -351,7 +352,7 @@ test('putout: cache-files: enabled: canUseCache: fix, no places', (t) => {
     
     const cacheFiles = reRequire('.');
     
-    const fileCache = cacheFiles({
+    const fileCache = await cacheFiles({
         cache: true,
         files: [],
     });
@@ -370,7 +371,7 @@ test('putout: cache-files: enabled: canUseCache: fix, no places', (t) => {
     t.end();
 });
 
-test('putout: cache-files: enabled: getOptionsHash: coverage', (t) => {
+test('putout: cache-files: enabled: getOptionsHash: coverage', async (t) => {
     const meta = {
         optionsHash: '1cnbekx',
         places: [1],
@@ -394,7 +395,7 @@ test('putout: cache-files: enabled: getOptionsHash: coverage', (t) => {
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
-    const fileCache = cacheFiles({
+    const fileCache = await cacheFiles({
         cache: true,
         files: [],
     });
@@ -419,7 +420,7 @@ test('putout: cache-files: enabled: getOptionsHash: coverage', (t) => {
     t.end();
 });
 
-test('putout: cache-files: enabled: getPlaces', (t) => {
+test('putout: cache-files: enabled: getPlaces', async (t) => {
     const places = [];
     const meta = {
         optionsHash: '1cnbekx',
@@ -444,7 +445,7 @@ test('putout: cache-files: enabled: getPlaces', (t) => {
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
-    const fileCache = cacheFiles({
+    const fileCache = await cacheFiles({
         cache: true,
         files: [],
     });

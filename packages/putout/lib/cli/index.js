@@ -148,7 +148,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
     if (!files.length)
         return exit();
     
-    const fileCache = cacheFiles({
+    const fileCache = await cacheFiles({
         files,
         cache,
         fresh,
