@@ -7,11 +7,10 @@ const cliProgress = require('cli-progress');
 const chalk = require('chalk');
 const once = require('once');
 
-const {green, red} = chalk;
+const OK = '👌';
+const {red} = chalk;
 const dir = process.cwd();
-const formatErrorsCount = (a) => a ? red(a) : green('0');
-
-process.on('exit', () => {});
+const formatErrorsCount = (a) => a ? red(a) : OK;
 
 module.exports = ({name, options, places, index, count, filesCount, errorsCount}) => {
     const {
@@ -70,7 +69,7 @@ const createProgress = once(({count, color, name}) => {
     
     bar.start(count, 0, {
         name,
-        errorsCount: 0,
+        errorsCount: OK,
     });
     
     return bar;
