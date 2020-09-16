@@ -50,6 +50,7 @@
     "@putout/formatter-frame": "^1.0.0",
     "@putout/formatter-json": "^1.0.0",
     "@putout/formatter-progress": "^2.0.0",
+    "@putout/formatter-progress-bar": "^1.1.0",
     "@putout/formatter-stream": "^2.0.0",
     "@putout/operate": "^5.0.0",
     "@putout/plugin-apply-destructuring": "^5.0.0",
