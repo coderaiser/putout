@@ -39,6 +39,25 @@ test('putout: cache-files: fileCache: fresh', async (t) => {
     t.end();
 });
 
+test(`putout: cache-files: find up can't find`, async (t) => {
+    const {unlinkSync} = fs;
+    
+    const _unlinkSync = stub();
+    fs.unlinkSync = _unlinkSync;
+    
+    mockRequire('find-up', stub());
+    const cacheFiles = reRequire('.');
+    
+    await cacheFiles({
+        fresh: true,
+    });
+    
+    fs.unlinkSync = unlinkSync;
+    
+    t.ok(_unlinkSync.calledWith(_CACHE_FILE));
+    t.end();
+});
+
 test('putout: cache-files: enabled: setInfo', async (t) => {
     const meta = {
         optionsHash: 'hello',

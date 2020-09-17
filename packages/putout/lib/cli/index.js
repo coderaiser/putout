@@ -19,7 +19,7 @@ const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
 const {isArray} = Array;
 const maybeFirst = (a) => isArray(a) ? a.pop() : a;
-const plugins = (a) => a.split(',');
+const plugins = (a) => isArray(a) ? a : a.split(',');
 
 module.exports = async ({argv, halt, log, write, logError}) => {
     const args = yargsParser(argv, {
@@ -191,8 +191,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         rawPlaces.push(place);
     }
     
-    const places = rawPlaces.filter(Boolean);
-    const mergedPlaces = merge(...places);
+    const mergedPlaces = merge(...rawPlaces);
     
     fileCache.reconcile();
     

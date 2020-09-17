@@ -84,7 +84,7 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
         });
         
         write(line);
-        return null;
+        return [];
     }
     
     const source = await readFile(name, 'utf8');

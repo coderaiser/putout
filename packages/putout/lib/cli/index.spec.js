@@ -159,7 +159,7 @@ test('putout: cli: --format: specified twice', async (t) => {
         '--no-cache',
     ];
     
-    const process = stub();
+    const process = stub().returns([]);
     const processFile = stub().returns(process);
     mockRequire('./process-file', processFile);
     
@@ -459,6 +459,7 @@ test('putout: cli: tsx', async (t) => {
     
     const argv = [
         '--no-config',
+        '--no-cache',
         join(__dirname, 'fixture', 'view.tsx'),
     ];
     
