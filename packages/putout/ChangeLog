@@ -1,3 +1,10 @@
+2020.09.17, v10.0.2
+
+fix:
+- (putout) cli: process-file: always return array
+- (@putout/formatter-progress-bar) add " "
+
+
 2020.09.16, v10.0.1
 
 fix:
