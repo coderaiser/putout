@@ -60,7 +60,7 @@ const getColorFn = (color) => {
 const createProgress = once(({count, color, name}) => {
     const colorFn = getColorFn(color);
     const bar = new cliProgress.SingleBar({
-        format: `${colorFn('{bar}')} {percentage}% | {errorsCount} | {value}/{total}| {name}`,
+        format: `${colorFn('{bar}')} {percentage}% | {errorsCount} | {value}/{total} | {name}`,
         barCompleteChar: '\u2588',
         barIncompleteChar: '\u2591',
         clearOnComplete: true,
