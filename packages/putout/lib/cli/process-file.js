@@ -126,18 +126,6 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
         debug,
     });
     
-    const line = await makeReport(e, {
-        debug,
-        report,
-        currentFormat,
-        formatterOptions,
-        name: resolvedName,
-        source,
-        places: allPlaces,
-        index,
-        count: length,
-    });
-    
     if (ruler.disable || ruler.enable || ruler.disableAll || ruler.enableAll)
         return allPlaces;
     
@@ -159,6 +147,18 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
         fileCache.removeEntry(resolvedName);
         await writeFile(name, newCode);
     }
+    
+    const line = await makeReport(e, {
+        debug,
+        report,
+        currentFormat,
+        formatterOptions,
+        name: resolvedName,
+        source,
+        places: allPlaces,
+        index,
+        count: length,
+    });
     
     write(line || '');
     

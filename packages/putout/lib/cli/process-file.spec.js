@@ -471,3 +471,62 @@ test('putout: cli: process-file: parser error: eslint', async (t) => {
     t.end();
 });
 
+test('putout: cli: process-file: parser error: eslint: report', async (t) => {
+    const eslint = stub().returns(['', [{
+        rule: 'eslint/null',
+        message: 'Parsing error: Unexpected token ?',
+        position: {line: 331, column: 34},
+    }]]);
+    
+    const {
+        readFile,
+        writeFile,
+    } = fs.promises;
+    
+    const code = 'var x = 5';
+    const fix = true;
+    const log = stub();
+    const ruler = {};
+    const write = stub();
+    const writeFileStub = stub();
+    const fileCache = {
+        canUseCache: stub().returns(false),
+        removeEntry: stub(),
+        setInfo: stub(),
+        getPlaces: stub().returns([]),
+    };
+    
+    mockRequire('./eslint', eslint);
+    
+    fs.promises.writeFile = writeFileStub;
+    fs.promises.readFile = async (name, options) => {
+        if (name === 'example.js')
+            return code;
+        
+        return await readFile(name, options);
+    };
+    
+    const processFile = reRequire('./process-file');
+    const fn = processFile({
+        fix,
+        log,
+        ruler,
+        write,
+        fileCache,
+    });
+    
+    await fn('example.js', 0, {
+        length: 1,
+    });
+    
+    stopAll();
+    
+    fs.promises.readFile = readFile;
+    fs.promises.writeFile = writeFile;
+    
+    const [arg] = write.args;
+    const [first] = arg;
+    
+    t.ok(first.includes('Parsing error'));
+    t.end();
+});
