@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [12.x, 14.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -17,9 +17,20 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
-      run: |
+    
+    - name: install
+      run:
         npm install
+    
+    - name: bootstrap
+      run:
         npm run bootstrap
+    
+    - name: lint
+      run:
         npm run lint
+    
+    - name: coverage
+      run:
         npm run coverage
+
