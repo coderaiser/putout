@@ -1197,7 +1197,7 @@ just use methods of `operator`.
 
 When you work on a `plugin` or `codemod` please add rule `putout` into `.putout.json`:
 
-```
+```json
 {
     "rules": {
         "putout": true
