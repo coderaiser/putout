@@ -41,14 +41,24 @@ module.exports = {
                 if (ignores(cwd, name, resultOptions))
                     return;
                 
-                const text = context
-                    .getSourceCode()
-                    .getText(node);
+                const source = context.getSourceCode();
+                const {text} = source;
+                
+                if (!text)
+                    return;
                 
                 const ast = parse(text, {
                     isTS,
                 });
+                
                 const places = findPlaces(ast, text, resultOptions);
+                
+                const includeComments = true;
+                const lastToken = source.getLastToken(node, {
+                    includeComments,
+                });
+                
+                const [, last] = lastToken.range;
                 
                 for (const {rule, message, position} of places) {
                     context.report({
@@ -63,9 +73,7 @@ module.exports = {
                             transform(ast, text, resultOptions);
                             const code = print(ast);
                             
-                            return [
-                                fixer.replaceText(node, code),
-                            ];
+                            return fixer.replaceTextRange([0, last], code);
                         },
                     });
                 }
