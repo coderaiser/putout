@@ -275,6 +275,19 @@ test('putout: operate: replaceWithMultiple: for-of: empty return', (t) => {
     t.end();
 });
 
+test('putout: operate: remove: comment', (t) => {
+    const {code} = putout(fixture.comment, {
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = fixture.commentFix;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: operate: replaceWithMultiple: parent comment', (t) => {
     const {code} = putout(fixture.parentComment, {
         plugins: [
