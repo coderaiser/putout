@@ -6,16 +6,18 @@
 
 Rules run [putout rules](https://github.com/coderaiser/putout#built-in-transforms) in `eslint`.
 
-Examples of **incorrect** code for this rule:
+And can be [configured](https://eslint.org/docs/user-guide/configuring#configuring-rules) according to [putout configuration](https://github.com/coderaiser/putout#configuration).
 
-```js
-const t = 'hi';
+For example, if you want to disable the rule `remove-unused-variables` you can use:
+
+```json
+{
+    "rules": {
+        "putout/putout": ["error", {
+            "rules": {
+                "remove-unused-variables": "off"
+            }
+        }]
+    }
+}
 ```
-
-Examples of **correct** code for this rule:
-
-```js
-const t = 'hi';
-log(t);
-```
-
