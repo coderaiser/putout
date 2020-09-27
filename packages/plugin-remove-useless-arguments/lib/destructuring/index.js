@@ -79,15 +79,9 @@ function getParams(path) {
     if (path.isFunction())
         return path.get('params');
     
-    let fnPath;
-    path.traverse({
-        Function(path) {
-            fnPath = path;
-            path.stop();
-        },
-    });
+    const fnPath = path.get('init');
     
-    if (!fnPath)
+    if (!fnPath.isFunction())
         return [];
     
     return fnPath.get('params');

@@ -19,3 +19,8 @@ test('plugin-remove-useless-arguments: no transform: method', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-arguments: destructuring: no transform: function as argument', (t) => {
+    t.noTransform('fn-as-arg');
+    t.end();
+});
+
