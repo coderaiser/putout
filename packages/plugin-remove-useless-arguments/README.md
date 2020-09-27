@@ -1,4 +1,4 @@
-# putout-plugin-remove-useless-arguments [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-remove-useless-arguments [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-useless-arguments.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-useless-arguments"npm"
@@ -60,7 +60,6 @@ function onIfStatement({push}) {
 sum(a, b, c);
 
 const sum = (a, b) => {};
-
 ```
 
 ## License
