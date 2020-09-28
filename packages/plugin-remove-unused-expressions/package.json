@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-unused-expressions",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove unused expressions",
   "homepage": "http://github.com/coderaiser/putout",
@@ -35,7 +35,7 @@
   "devDependencies": {
     "@putout/test": "^2.0.0",
     "coveralls": "^3.0.0",
-    "eslint": "^7.0.0-rc.0",
+    "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^5.0.1",
     "lerna": "^3.8.5",
@@ -44,11 +44,11 @@
     "nyc": "^15.0.1"
   },
   "peerDependencies": {
-    "putout": ">=4.31"
+    "putout": ">=10"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=12"
   },
   "publishConfig": {
     "access": "public"
