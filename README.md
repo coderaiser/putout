@@ -36,7 +36,7 @@ Usage: putout [options] [path]
 Options
    -h, --help                  display this help and exit
    -v, --version               output version information and exit
-   -f, --format                use a specific output format - default: dump
+   -f, --format                use a specific output format - default: progress-bar/dump on CI
    -s, --staged                add staged files when in git repository
    --fix                       apply fixes of errors to code
    --fix-count                 count of fixes rounds (defaults to 10)
