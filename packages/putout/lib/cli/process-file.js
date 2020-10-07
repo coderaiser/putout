@@ -90,11 +90,8 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
     const source = await readFile(name, 'utf8');
     const isTS = /\.tsx?$/.test(name);
     
-    if (fileCache.canUseCache({fix,
-        options,
-        name: resolvedName})) {
+    if (fileCache.canUseCache({fix, options, name: resolvedName})) {
         const places = fileCache.getPlaces(resolvedName);
-        
         const line = report(currentFormat, {
             formatterOptions,
             name: resolvedName,
