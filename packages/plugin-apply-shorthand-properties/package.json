@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-apply-shorthand-properties",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to apply shorthand properties",
   "homepage": "http://github.com/coderaiser/putout",
@@ -26,6 +26,7 @@
   "keywords": [
     "putout",
     "putout-plugin",
+    "putout-plugin-remove",
     "plugin",
     "remove",
     "only"
@@ -34,7 +35,7 @@
     "@putout/plugin-remove-unused-variables": "^2.3.0",
     "@putout/test": "^2.0.0",
     "coveralls": "^3.0.0",
-    "eslint": "^7.0.0-rc.0",
+    "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^5.0.1",
     "madrun": "^7.0.0",
