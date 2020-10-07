@@ -1,56 +1,52 @@
-# putout-plugin-remove-console [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-strict-mode [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-console.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-console"npm"
+[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-strict-mode.svg?style=flat&longCache=true
+[NPMURL]:                   https://npmjs.org/package/@putout/plugin-strict-mode "npm"
 
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-console
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-console
+[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-strict-mode
+[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-strict-mode
 
-`putout` plugin adds ability to find and add/remove `use strict` directive.
+`putout` plugin adds ability to find and remove `useless types`.
 
 ## Install
 
 ```
-npm i @putout/plugin-remove-console
+npm i @putout/plugin-strict-mode -D
 ```
 
 ## Rule
 
-Rule `strict-mode` is enabled by default, to disable add to `.putout.json`:
-
 ```json
 {
     "rules": {
-        "strict-mode/add": false,
-        "strict-mode/remove": false,
+        "strict-mode/add": "on",
+        "strict-mode/remove": "on"
     }
 }
 ```
 
-## Code Example
+## ❌ Incorrect code example
 
 ```js
-const {readFileSync} = require('fs');
-const source = readFileSync('./1.js', 'utf8');
+'strict mode';
 
-const putout = require('putout');
+import a from 'b';
+```
 
-console.log(source);
-// outputs
-`
-console.log('hello');
-`
+```js
+const a = require('b');
+```
 
-const result = putout(source, {
-    plugins: [
-        'remove-console'
-    ]
-});
-// returns
-`
-'use strict';
-console.log('hello');
-`
+## ✅ Correct code Example
+
+```js
+import a from 'b';
+```
+
+```js
+'strict mode';
+
+const a = require('b');
 ```
 
 ## License

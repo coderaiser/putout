@@ -20,7 +20,6 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "fullstore": "^3.0.0"
   },
   "keywords": [
     "putout",
@@ -31,7 +30,7 @@
   "devDependencies": {
     "@putout/test": "^2.0.0",
     "coveralls": "^3.0.0",
-    "eslint": "^7.0.0-rc.0",
+    "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^5.0.1",
     "lerna": "^3.8.5",
@@ -41,11 +40,11 @@
     "supertape": "^2.0.0"
   },
   "peerDependencies": {
-    "putout": ">=4.31"
+    "putout": ">=10"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=12"
   },
   "publishConfig": {
     "access": "public"

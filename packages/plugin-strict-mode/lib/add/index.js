@@ -6,21 +6,18 @@ const {
     ExpressionStatement,
 } = require('putout').types;
 
-const store = require('fullstore');
-
 module.exports.report = () => '"use strict" directive should be on top of commonjs file';
 
 module.exports.fix = ({node}) => {
     node.body.unshift(ExpressionStatement(StringLiteral('use strict')));
 };
 
-module.exports.traverse = ({push}) => {
-    const isModule = store();
+module.exports.traverse = ({push, store}) => {
     let added = false;
     
     return {
         'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|TypeAlias'() {
-            isModule(true);
+            store('is-module', true);
         },
         Program: {
             exit(path) {
@@ -34,7 +31,7 @@ module.exports.traverse = ({push}) => {
                 if (isExpressionStatement(first) && first.expression.value === 'use strict')
                     return;
                 
-                if (isModule())
+                if (store('is-module'))
                     return;
                 
                 push(path);
