@@ -10,7 +10,7 @@ module.exports.traverse = ({push}) => {
     const isModule = store();
     
     return {
-        'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration'() {
+        'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration'() {
             isModule(true);
         },
         Program: {

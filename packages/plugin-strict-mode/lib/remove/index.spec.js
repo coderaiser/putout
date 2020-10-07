@@ -22,3 +22,8 @@ test('plugin-strict-mode: remove: commonjs', (t) => {
     t.end();
 });
 
+test('plugin-strict-mode: remove: export all', (t) => {
+    t.transform('export-all');
+    t.end();
+});
+
