@@ -51,7 +51,7 @@ module.exports.traverse = ({push, options}) => {
                 if (path.isAssignmentPattern())
                     continue;
                 
-                if (path.isImportSpecifier() || path.isObjectPattern() || path.get('id').isObjectPattern())
+                if (path.isImportDefaultSpecifier() || path.isImportSpecifier() || path.isObjectPattern() || path.get('id').isObjectPattern())
                     continue;
                 
                 if (references > 1)

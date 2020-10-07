@@ -66,6 +66,11 @@ test('plugin-apply-shorthand-properties: no transform: constant', (t) => {
     t.end();
 });
 
+test('plugin-apply-shorthand-properties: no transform: import declaration', (t) => {
+    t.noTransform('import-declaration');
+    t.end();
+});
+
 test('plugin-apply-shorthand-properties: no transform: assign', (t) => {
     // scope.rename doesn't handle AssignmentPattern
     t.noTransform('assign', {
