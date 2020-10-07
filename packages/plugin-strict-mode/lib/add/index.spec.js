@@ -32,3 +32,8 @@ test('plugin-strict-mode: add: no transform: flow', (t) => {
     t.end();
 });
 
+test('plugin-strict-mode: add: no transform: export-all', (t) => {
+    t.noTransform('export-all');
+    t.end();
+});
+

@@ -19,7 +19,7 @@ module.exports.traverse = ({push}) => {
     let added = false;
     
     return {
-        'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|TypeAlias'() {
+        'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|TypeAlias'() {
             isModule(true);
         },
         Program: {
