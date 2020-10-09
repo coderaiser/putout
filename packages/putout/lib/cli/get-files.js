@@ -5,7 +5,7 @@ const {lstat} = require('fs').promises;
 const fastGlob = require('fast-glob');
 const tryToCatch = require('try-to-catch');
 
-const {getJSGlob} = require('./supported-files');
+const {getSupportedGlob} = require('./supported-files');
 
 const mergeArrays = (a) => [].concat(...a);
 const rmDuplicates = (a) => Array.from(new Set(a));
@@ -45,7 +45,7 @@ async function addExt(a) {
         const info = await lstat(file);
         
         if (info.isDirectory()) {
-            promises.push(fastGlob(getJSGlob(file), globOptions));
+            promises.push(fastGlob(getSupportedGlob(file), globOptions));
             continue;
         }
         

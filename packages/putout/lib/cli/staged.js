@@ -8,7 +8,7 @@ const findUp = require('find-up');
 const once = require('once');
 const fullstore = require('fullstore');
 
-const {isJS} = require('./supported-files');
+const {isSupported} = require('./supported-files');
 
 const STAGED_INDEX = 3;
 const STAGED = 2;
@@ -48,7 +48,7 @@ module.exports.get = async function get() {
     const status = await git.statusMatrix({
         fs,
         dir,
-        filter: isJS,
+        filter: isSupported,
     });
     
     const names = status

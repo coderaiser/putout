@@ -239,6 +239,9 @@ test('putout: cli: process-file: parse error', async (t) => {
     const formatter = stub();
     mockRequire('@putout/formatter-dump', formatter);
     
+    const eslint = stub().returns(['', []]);
+    mockRequire('./eslint', eslint);
+    
     const processFile = reRequire('./process-file');
     const fn = processFile({
         fix,
@@ -366,7 +369,9 @@ test('putout: cli: process-file: parse error: debug', async (t) => {
     
     const formatter = stub();
     const putout = stub().throws('xxx');
+    const eslint = stub().returns(['', []]);
     
+    mockRequire('./eslint', eslint);
     mockRequire('../../putout', putout);
     mockRequire('@putout/formatter-dump', formatter);
     

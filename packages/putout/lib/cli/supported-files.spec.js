@@ -4,35 +4,35 @@ const mockRequire = require('mock-require');
 const test = require('supertape');
 
 const {
-    isJS,
-    getJSGlob,
+    isSupported,
+    getSupportedGlob,
 } = require('./supported-files');
 
 const {reRequire} = mockRequire;
 
-test('putout: supported files isJS: tsx', (t) => {
-    const result = isJS('index.tsx');
+test('putout: supported files isSupported: tsx', (t) => {
+    const result = isSupported('index.tsx');
     
     t.ok(result);
     t.end();
 });
 
-test('putout: supported files: isJS: mjs', (t) => {
-    const result = isJS('index.mjs');
+test('putout: supported files: isSupported: mjs', (t) => {
+    const result = isSupported('index.mjs');
     
     t.ok(result);
     t.end();
 });
 
-test('putout: supported files: isJS: cjs', (t) => {
-    const result = isJS('index.cjs');
+test('putout: supported files: isSupported: cjs', (t) => {
+    const result = isSupported('index.cjs');
     
     t.ok(result);
     t.end();
 });
 
-test('putout: supported files: getJSGlob: mjs, tsx', (t) => {
-    const result = getJSGlob('get-files');
+test('putout: supported files: getSupportedGlob: mjs, tsx', (t) => {
+    const result = getSupportedGlob('get-files');
     const expected = 'get-files/**/*.{js,mjs,cjs,jsx,ts,tsx}';
     
     t.equal(result, expected);

@@ -136,20 +136,20 @@ test('putout: getFiles: glob', async (t) => {
     t.end();
 });
 
-test('putout: getFiles: getJSGlob: call', async (t) => {
+test('putout: getFiles: getSupportedGlob: call', async (t) => {
     const {lstat} = fs;
     
     fs.lstat = stub().returns({
         isDirectory: stub().returns(true),
     });
     
-    const getJSGlob = stub();
+    const getSupportedGlob = stub();
     const fastGlob = stub().returns([
         'get-files',
     ]);
     
     mockRequire('./supported-files', {
-        getJSGlob,
+        getSupportedGlob,
     });
     
     mockRequire('fast-glob', fastGlob);
@@ -160,24 +160,24 @@ test('putout: getFiles: getJSGlob: call', async (t) => {
     fs.lstat = lstat;
     stopAll();
     
-    t.ok(getJSGlob.calledWith('get-files'));
+    t.ok(getSupportedGlob.calledWith('get-files'));
     t.end();
 });
 
-test('putout: getFiles: getJSGlob: result', async (t) => {
+test('putout: getFiles: getSupportedGlob: result', async (t) => {
     const {lstat} = fs;
     
     fs.lstat = stub().returns({
         isDirectory: stub().returns(true),
     });
     
-    const getJSGlob = stub().returns('get-files/some-glob');
+    const getSupportedGlob = stub().returns('get-files/some-glob');
     const fastGlob = stub().returns([
         'get-files',
     ]);
     
     mockRequire('./supported-files', {
-        getJSGlob,
+        getSupportedGlob,
     });
     
     mockRequire('fast-glob', fastGlob);

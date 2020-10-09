@@ -12,6 +12,6 @@ module.exports.add = once((a = '') => {
     const exts = maybeArray(a).map(cutDot);
     extensions.push(...exts);
 });
-module.exports.isJS = (a) => RegExp(`.(${extensions.join('|')})$`).test(a);
-module.exports.getJSGlob = (file) => `${file}/**/*.{${extensions.join(',')}}`;
+module.exports.isSupported = (a) => RegExp(`.(${extensions.join('|')})$`).test(a);
+module.exports.getSupportedGlob = (file) => `${file}/**/*.{${extensions.join(',')}}`;
 
