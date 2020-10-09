@@ -151,7 +151,7 @@ putout lib --plugins remove-debugger,remove-unused-variables
 `Putout` supports next `environment variables`:
 - `PUTOUT_FILES` - files that should be processed by putout, divided by ",";
 
-```js
+```sh
 PUTOUT_FILES=lib,test putout --fix
 ```
 
