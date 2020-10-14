@@ -52,10 +52,11 @@ Options
    --flow                      enable flow
    --no-jsx                    disable jsx
    --no-flow                   disable flow (default)
-   --cache                     enable .putoutcache to speed up processing
+   --cache                     enable .putoutcache to speed up processing (default)
    --fresh                     generate a fresh .putoutcache
    --no-config                 avoid reading config file (.putout.json)
    --no-ci                     disable CI detectio
+   --no-cache                  disable .putoutcache
 ```
 
 To find possible transform places:
