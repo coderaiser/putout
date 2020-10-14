@@ -34,3 +34,8 @@ test('remove usless types: no transform: export', (t) => {
     t.end();
 });
 
+test('remove usless types: no transform: qualified name', (t) => {
+    t.noTransform('qualified-name');
+    t.end();
+});
+

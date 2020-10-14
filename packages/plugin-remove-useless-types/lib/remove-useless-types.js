@@ -22,6 +22,9 @@ module.exports.traverse = ({push, store}) => {
             if (path.parentPath.isExportNamedDeclaration())
                 return;
             
+            if (typePath.get('typeName').isTSQualifiedName())
+                return;
+            
             if (typePath.isTSTypeReference()) {
                 const newName = path.node.id.name;
                 const {name} = typePath.node.typeName;
