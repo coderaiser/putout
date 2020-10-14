@@ -19,7 +19,7 @@ npm i @putout/plugin-apply-top-level-await
 ```json
 {
     "rules": {
-        "apply-top-level-await": true
+        "apply-top-level-await": "on"
     }
 }
 ```
