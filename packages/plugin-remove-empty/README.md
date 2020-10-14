@@ -37,17 +37,21 @@ npm i @putout/plugin-remove-empty
 
 ```js
 import "hello";
+import world from world;
 
 if (2 > 3) {}
+if (a > 3) {
+    world();
+}
 ```
 
 ## ✅ Correct code Example
 
 ```js
-import hello from "hello";
+import world from world;
 
-if (2 > 3) {
-    hello();
+if (a > 3) {
+    world();
 }
 ```
 

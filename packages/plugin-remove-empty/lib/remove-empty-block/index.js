@@ -67,6 +67,9 @@ module.exports.traverse = ({push}) => {
             
             const {body} = node;
             
+            if (node.innerComments)
+                return;
+            
             if (body.length)
                 return;
             
@@ -81,17 +84,16 @@ module.exports.traverse = ({push}) => {
             if (isTryStatement(parentNode))
                 return push(parentPath);
             
+            if (blockIsIndependentBody(node, parentNode))
+                return push(path);
+            
             if (blockIsConsequent(node, parentNode))
                 return push(parentPath);
             
             if (blockIsAlternate(node, parentNode))
                 return push(parentPath);
             
-            if (blockIsBody(node, parentNode))
-                return push(parentPath);
-            
-            if (blockIsIndependentBody(node, parentNode))
-                return push(path);
+            push(parentPath);
         },
     };
 };
@@ -102,11 +104,6 @@ function isFunction(node) {
     || isFunctionDeclaration(node)
     || isObjectMethod(node)
     || isClassMethod(node);
-}
-
-function blockIsBody(node, parentNode) {
-    const {body} = parentNode;
-    return body === node;
 }
 
 function blockIsIndependentBody(node, parentNode) {
@@ -131,8 +128,8 @@ function blockIsAlternate(node, parentNode) {
     if (!isIfStatement(parentNode))
         return;
     
-    if (alternate.comments)
-        return false;
+    //if (alternate.comments)
+    //    return false;
     
     return alternate === node;
 }

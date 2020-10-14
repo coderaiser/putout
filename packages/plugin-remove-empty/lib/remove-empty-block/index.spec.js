@@ -56,6 +56,11 @@ test('plugin-remove-empty: block: else', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: block: comments', (t) => {
+    t.noTransform('comments');
+    t.end();
+});
+
 test('plugin-remove-empty: block: else', (t) => {
     t.transform('else');
     t.end();
