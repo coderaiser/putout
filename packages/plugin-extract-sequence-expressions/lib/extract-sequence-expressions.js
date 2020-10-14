@@ -16,7 +16,7 @@ const {
     isAwaitExpression,
 } = types;
 
-module.exports.report = () => 'sequence expressions should not be used';
+module.exports.report = () => 'Sequence expressions should not be used';
 
 module.exports.fix = (path) => {
     const {parentPath} = path;

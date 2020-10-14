@@ -1,4 +1,4 @@
-# putout-plugin-extract-sequence-expressions [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-extract-sequence-expressions [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-extract-sequence-expressions.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/plugin-extract-sequence-expressions"npm"
@@ -19,7 +19,7 @@ npm i @putout/plugin-extract-sequence-expressions -D
 ```json
 {
     "rules": {
-        "extract-sequence-expressions": true
+        "extract-sequence-expressions": "on"
     }
 }
 ```

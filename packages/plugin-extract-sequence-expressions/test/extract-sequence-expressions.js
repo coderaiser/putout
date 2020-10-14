@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-extract-sequence-expressions: report', (t) => {
-    t.report('sequence', 'sequence expressions should not be used');
+    t.report('sequence', 'Sequence expressions should not be used');
     t.end();
 });
 
