@@ -1483,7 +1483,7 @@ Just create `.babelrc` file with configuration you need.
   "plugins": [
       ["putout", {
           "rules": {
-              "remove-unused-variables": false
+              "remove-unused-variables": "off"
           }
       }]
   ]
