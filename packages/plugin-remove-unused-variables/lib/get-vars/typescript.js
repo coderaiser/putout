@@ -70,5 +70,11 @@ module.exports = ({use, declare}) => ({
             }
         }
     },
+    TSDeclareFunction(path) {
+        const [firstPath] = path.get('params');
+        
+        if (firstPath.isRestElement())
+            use(firstPath, firstPath.node.argument.name);
+    },
 });
 

@@ -89,6 +89,7 @@ const fixture = readFixtures([
     'typescript-namespace',
     'typescript-module',
     'typescript-as',
+    'typescript-declare-function',
 ]);
 
 const getVars = (a, b) => {
@@ -1512,6 +1513,18 @@ test('remove-unused-variables: get-vars: typescript: as', (t) => {
     const expected = [{
         t: d_,
         cms: _u,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: typescript: declare function', (t) => {
+    const ast = parse(fixture.typescriptDeclareFunction, {isTS});
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        args: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
