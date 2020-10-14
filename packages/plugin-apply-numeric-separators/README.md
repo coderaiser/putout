@@ -1,4 +1,4 @@
-# putout-plugin-apply-numeric-separators [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-apply-numeric-separators [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-apply-numeric-separators.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/plugin-apply-numeric-separators"npm"
@@ -19,7 +19,7 @@ npm i @putout/plugin-apply-numeric-separators
 ```json
 {
     "rules": {
-        "apply-numeric-separators": true
+        "apply-numeric-separators": "on"
     }
 }
 ```

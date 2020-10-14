@@ -17,6 +17,9 @@ module.exports.traverse = ({push}) => {
         NumericLiteral(path) {
             const {raw, value} = path.node;
             
+            if (/^0x/.test(raw))
+                return;
+            
             if (raw.includes('_'))
                 return;
             

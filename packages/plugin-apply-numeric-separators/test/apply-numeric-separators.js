@@ -23,3 +23,9 @@ test('plugin-apply-numeric-separators: no transform: min', (t) => {
     t.noTransform('min');
     t.end();
 });
+
+test('plugin-apply-numeric-separators: no transform: hex', (t) => {
+    t.noTransform('hex');
+    t.end();
+});
+
