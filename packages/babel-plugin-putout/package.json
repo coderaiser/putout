@@ -15,7 +15,7 @@
     "eslint": "^7.0.0-rc.0",
     "eslint-plugin-putout": "^5.0.1",
     "madrun": "^7.0.0",
-    "mocha": "^6.1.4",
+    "mocha": "^8.1.3",
     "nyc": "^15.0.1",
     "supertape": "^2.0.0"
   },
