@@ -63,8 +63,12 @@ module.exports.filter = (path) => {
         return false;
     
     // that's right, when we have two arguments, and first is this
-    // we actually one argument + typescript typings
+    // we actually have one argument + typescript typings
     if (params.length > 1 && !params[0].isIdentifier({name: 'this'}))
+        return false;
+    
+    // this is the case when "i" declared and "this"
+    if (params.length >= 3 && params[0].isIdentifier({name: 'this'}))
         return false;
     
     const [paramPath] = params;

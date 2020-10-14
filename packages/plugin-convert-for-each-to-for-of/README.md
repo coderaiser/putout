@@ -1,4 +1,4 @@
-# putout-plugin-convert-for-each-to-for-of [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-convert-for-each-to-for-of [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-convert-for-each-to-for-of.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/plugin-convert-for-each-to-for-of "npm"
@@ -20,7 +20,7 @@ Rule `convert-for-each-to-for-of` is enabled by default, to disable add to `.put
 ```json
 {
     "rules": {
-        "convert-for-each-to-for-of": false
+        "convert-for-each-to-for-of": "off"
     }
 }
 ```

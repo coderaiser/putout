@@ -78,3 +78,9 @@ test('plugin-convert-for-each-to-for-of: no transform: same name', (t) => {
     t.noTransform('same-name');
     t.end();
 });
+
+test('plugin-convert-for-each-to-for-of: no transform: this i', (t) => {
+    t.noTransform('this-i');
+    t.end();
+});
+
