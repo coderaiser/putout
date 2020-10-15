@@ -1,4 +1,4 @@
-# putout-plugin-cut-legacy [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-cut-legacy [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=codemods/cut-legacy
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=codemods/cut-legacy
