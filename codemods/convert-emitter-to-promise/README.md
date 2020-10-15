@@ -1,4 +1,4 @@
-# putout-plugin-convert-emitter-to-promise [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-convert-emitter-to-promise [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=codemods/convert-emitter-to-promise
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=codemods/convert-emitter-to-promise

@@ -1,4 +1,4 @@
-# putout-plugin-convert-pascal-to-camel [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-convert-pascal-to-camel [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=codemods/convert-pascal-to-camel
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=codemods/convert-pascal-to-camel

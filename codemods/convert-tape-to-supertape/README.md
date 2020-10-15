@@ -1,4 +1,4 @@
-# putout-plugin-convert-tape-to-supertape  [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-convert-tape-to-supertape  [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-tape-to-supertape
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-tape-to-supertape
