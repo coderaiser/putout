@@ -20,8 +20,8 @@ Rule `apply-destructuring` is enabled by default, to disable add to `.putout.jso
 ```json
 {
     "rules": {
-        "apply-destructuring/object": false,
-        "apply-destructuring/array": false
+        "apply-destructuring/object": "off",
+        "apply-destructuring/array": "off"
     }
 }
 ```
