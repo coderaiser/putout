@@ -19,7 +19,7 @@ npm i @putout/plugin-add-return-await
 ```json
 {
     "rules": {
-        "add-return-await": true
+        "add-return-await": on
     }
 }
 ```
