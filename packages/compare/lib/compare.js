@@ -129,6 +129,8 @@ const ignore = [
     'raw',
     'comments',
     'leadingComments',
+    'innerComments',
+    'trailingComments',
 ];
 
 function superCompareIterate(node, base) {

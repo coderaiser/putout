@@ -564,6 +564,30 @@ test('compare: __identifier__a', (t) => {
     t.end();
 });
 
+test('compare: innerComments', (t) => {
+    const from = {
+        type: 'StringLiteral',
+        value: 'hello',
+        innerComments: [],
+    };
+    const result = compare(from, '"hello"');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: innerComments', (t) => {
+    const from = {
+        type: 'StringLiteral',
+        value: 'hello',
+        trailingComments: [],
+    };
+    const result = compare(from, '"hello"');
+    
+    t.ok(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);
