@@ -21,18 +21,12 @@ module.exports.traverse = ({push, options}) => {
                 return;
             
             const {scope, node} = varPath;
-            
             const {name} = node;
-            
-            const binding = scope.bindings[name];
-            
-            if (!binding)
-                return;
             
             const {
                 references,
                 referencePaths,
-            } = binding;
+            } = scope.bindings[name];
             
             if (references !== 1)
                 return;
