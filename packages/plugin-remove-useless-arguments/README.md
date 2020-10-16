@@ -19,8 +19,8 @@ npm i @putout/plugin-remove-useless-arguments
 ```json
 {
     "rules": {
-        "remove-useless-arguments/arguments": true,
-        "remove-useless-arguments/destructuring": true
+        "remove-useless-arguments/arguments": "on",
+        "remove-useless-arguments/destructuring": "on"
     }
 }
 ```
