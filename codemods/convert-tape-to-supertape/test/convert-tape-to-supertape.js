@@ -20,3 +20,8 @@ test('plugin-convert-tape-to-supertape: try-to-tape', (t) => {
     t.end();
 });
 
+test('plugin-convert-tape-to-supertape: try-to-tape: tape', (t) => {
+    t.transform('tape');
+    t.end();
+});
+
