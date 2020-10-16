@@ -19,7 +19,7 @@ npm i @putout/plugin-remove-useless-for-of
 ```json
 {
     "rules": {
-        "remove-useless-for-of": true
+        "remove-useless-for-of": "on"
     }
 }
 ```
