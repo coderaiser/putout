@@ -12,7 +12,7 @@
     "@babel/core": "^7.0.0",
     "@babel/eslint-plugin-development": "^1.0.1",
     "babel-plugin-transform-inline-consecutive-adds": "^0.4.3",
-    "eslint": "^7.0.0-rc.0",
+    "eslint": "^7.0.0",
     "eslint-plugin-putout": "^5.0.1",
     "madrun": "^7.0.0",
     "mocha": "^8.1.3",

@@ -50,7 +50,7 @@
     "acorn-jsx": "^5.0.2",
     "acorn-stage3": "^3.0.0",
     "coveralls": "^3.0.0",
-    "eslint": "^7.0.0-rc.0",
+    "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^5.0.1",
     "espree": "^7.0.0",
