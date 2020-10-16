@@ -20,8 +20,8 @@ Rule `convert-for-to-for-of` is enabled by default, to disable add to `.putout.j
 ```json
 {
     "rules": {
-        "convert-for-to-for-of/n": false,
-        "convert-for-to-for-of/length": false
+        "convert-for-to-for-of/n": "off",
+        "convert-for-to-for-of/length": "off"
     }
 }
 ```
