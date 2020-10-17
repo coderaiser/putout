@@ -7,7 +7,7 @@
         ".madrun.js": {
             "madrun": "on"
         },
-        "'webpack.config.js": {
+        "webpack.config.js": {
             "webpack": "on"
         },
         "bin/": {
