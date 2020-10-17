@@ -7,6 +7,9 @@
         ".madrun.js": {
             "madrun": "on"
         },
+        "'webpack.config.js": {
+            "webpack": "on"
+        },
         "bin/": {
             "remove-process-exit": "off",
             "remove-console": "off",
@@ -35,6 +38,7 @@
         "apply-optional-chaining": "off",
         "apply-nullish-coalescing": "off",
         "madrun": "off",
+        "webpack": "off",
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",
         "convert-top-level-return": "off",
@@ -57,6 +61,7 @@
         "extract-object-properties",
         "extract-sequence-expressions",
         "madrun",
+        "webpack",
         "remove-debugger",
         "remove-only",
         "remove-skip",
