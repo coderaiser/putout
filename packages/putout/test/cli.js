@@ -65,7 +65,7 @@ test('putout: cli: --no-config', async (t) => {
     const name = join(__dirname, 'fixture/broken.js');
     const {stdout} = await run(`--no-config ${name}`);
     
-    t.ok(stripAnsi(stdout).includes('Unexpected token'));
+    t.ok(stripAnsi(stdout).includes('Const declarations require an initialization value'));
     t.end();
 });
 
