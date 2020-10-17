@@ -1,3 +1,17 @@
+2020.10.17, v10.2.0
+
+fix:
+- (@putout/plugin-remove-useless-variables) for-of: get back binding check
+- (@putout/plugin-extract-sequence-expressions) capitalize report message
+
+feature:
+- (@putout/plugin-webpack) add
+- (@putout/compare) add support of innerComments, trailingComments
+- (@putout/plugin-remove-useless-variables) for-of: rm dead code
+- (@putout/plugin-apply-numeric-separators) exclude hex
+- (@putout/plugin-remove-empty) block: excludeof blocks with comments
+
+
 2020.10.14, v10.1.1
 
 fix:
