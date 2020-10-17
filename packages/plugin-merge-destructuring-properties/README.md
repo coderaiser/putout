@@ -35,7 +35,8 @@ const source = readFileSync('./1.js', 'utf8');
 const putout = require('putout');
 
 console.log(source);
-// outputs
+
+### ❌ Incorrect code example
 `
 const {one} = require('numbers'):
 const {two} = require('numbers');
@@ -46,7 +47,9 @@ const result = putout(source, {
         'merge-destructuring-properties'
     ]
 });
-// returns
+
+### ✅ Correct code Example
+
 const {
     one,
     two
