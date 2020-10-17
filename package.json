@@ -43,9 +43,6 @@
     "lerna": "^3.8.5",
     "madrun": "^7.0.0",
     "nyc": "^15.0.1",
-    "remark-cli": "^8.0.1",
-    "remark-lint": "^7.0.1",
-    "remark-preset-lint-recommended": "^4.0.1",
     "supertape": "^2.0.1",
     "tap-pessimist": "^1.0.1"
   },
