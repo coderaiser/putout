@@ -1,5 +1,6 @@
 'use strict';
 
+const webpack = require('@putout/plugin-webpack');
 const test = require('@putout/test')(__dirname, {
     'apply-numeric-separators': require('..'),
 });
@@ -29,3 +30,9 @@ test('plugin-apply-numeric-separators: no transform: hex', (t) => {
     t.end();
 });
 
+test('plugin-apply-numeric-separators: transform: webpack', (t) => {
+    t.transform('webpack', {
+        webpack,
+    });
+    t.end();
+});

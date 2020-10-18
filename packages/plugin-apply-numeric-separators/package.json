@@ -27,6 +27,7 @@
     "numeric-separators"
   ],
   "devDependencies": {
+    "@putout/plugin-webpack": "^1.1.0",
     "@putout/test": "^2.2.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0",

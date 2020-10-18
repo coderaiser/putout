@@ -15,6 +15,8 @@ module.exports.fix = (path) => {
 module.exports.traverse = ({push}) => {
     return {
         NumericLiteral(path) {
+            const {node} = path;
+            node.raw = node.raw || String(node.value);
             const {raw, value} = path.node;
             
             if (/^0x/.test(raw))

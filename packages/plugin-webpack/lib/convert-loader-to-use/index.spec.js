@@ -14,3 +14,8 @@ test('plugin-putout: transform', (t) => {
     t.end();
 });
 
+test('plugin-putout: no transform: query', (t) => {
+    t.noTransform('query');
+    t.end();
+});
+

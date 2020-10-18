@@ -51,10 +51,11 @@ module.exports.traverse = ({push}) => {
 
 function buildObject(name, options) {
     const [key, value] = options.split('=');
+    const numeric = NumericLiteral(Number(value));
     
     const loaderProp = ObjectProperty(Identifier('loader'), StringLiteral(name));
     const optionsProp = ObjectProperty(Identifier('options'), ObjectExpression([
-        ObjectProperty(Identifier(key), NumericLiteral(Number(value))),
+        ObjectProperty(Identifier(key), numeric),
     ]));
     
     const object = ObjectExpression([
@@ -64,3 +65,4 @@ function buildObject(name, options) {
     
     return object;
 }
+
