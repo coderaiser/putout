@@ -26,9 +26,9 @@ npm i @putout/plugin-webpack -D
 
 ## convert-loader-to-use
 
-### ❌ Incorrect code example
-
 Fixes webpack comilation error: `Compiling RuleSet failed: Exclamation mark separated loader lists has been removed in favor of the 'use' property with arrays (at ruleSet[1].rules[1].loader: style-loader!css-loader!clean-css-loader)`
+
+### ❌ Incorrect code example
 
 ```js
 const rules = [{
@@ -52,9 +52,9 @@ const rules = [{
 
 ## convert-query-loader-to-use
 
-### ❌ Incorrect code example
-
 Fixes webpack comilation error: `Compiling RuleSet failed: Query arguments on 'loader' has been removed in favor of the 'options' property`.
+
+### ❌ Incorrect code example
 
 ```js
 const rules = [{
