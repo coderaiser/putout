@@ -28,7 +28,7 @@ npm i @putout/plugin-webpack -D
 
 ### ❌ Incorrect code example
 
-Fixes webpack comilation error: `Uncaught exception: Error: Compiling RuleSet failed: Exclamation mark separated loader lists has been removed in favor of the 'use' property with arrays (at ruleSet[1].rules[1].loader: style-loader!css-loader!clean-css-loader)`
+Fixes webpack comilation error: `Compiling RuleSet failed: Exclamation mark separated loader lists has been removed in favor of the 'use' property with arrays (at ruleSet[1].rules[1].loader: style-loader!css-loader!clean-css-loader)`
 
 ```js
 const rules = [{
@@ -47,6 +47,33 @@ const rules = [{
         'css-loader',
         'clean-css-loader',
     ],
+}];
+```
+
+## convert-query-loader-to-use
+
+### ❌ Incorrect code example
+
+Fixes webpack comilation error: `Compiling RuleSet failed: Query arguments on 'loader' has been removed in favor of the 'options' property`.
+
+```js
+const rules = [{
+    test: /\.(png|gif|svg|woff|woff2|eot|ttf)$/,
+    loader: 'url-loader?limit=50000',
+}];
+```
+
+### ✅ Correct code Example
+
+```js
+const rules = [{
+    test: /\.(png|gif|svg|woff|woff2|eot|ttf)$/,
+    use: [{
+        loader: 'url-loader',
+        options: {
+            limit: 50000
+        }
+    }],
 }];
 ```
 
