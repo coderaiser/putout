@@ -1071,7 +1071,7 @@ When you need to match paths to rules you can use `match` section for this purpo
 {
     "match": {
         "server": {
-            "remove-process-exit": true
+            "remove-process-exit": "on"
         }
     }
 }
@@ -1202,7 +1202,7 @@ When you work on a `plugin` or `codemod` please add rule `putout` into `.putout.
 ```json
 {
     "rules": {
-        "putout": true
+        "putout": "on"
     }
 }
 ```
