@@ -21,37 +21,25 @@ Rule `merge-destructuring-properties` is enabled by default, to disable add to `
 ```json
 {
     "rules": {
-        "merge-destructuring-properties": false
+        "merge-destructuring-properties": "off"
     }
 }
 ```
 
-## Code Example
+### ❌ Incorrect code example
 
 ```js
-const {readFileSync} = require('fs');
-const source = readFileSync('./1.js', 'utf8');
-
-const putout = require('putout');
-
-console.log(source);
-// outputs
-`
 const {one} = require('numbers'):
 const {two} = require('numbers');
-`
+```
 
-const result = putout(source, {
-    plugins: [
-        'merge-destructuring-properties'
-    ]
-});
-// returns
+### ✅ Correct code Example
+
+```js
 const {
     one,
-    two
+    two,
 } = require('numbers'):
-`
 ```
 
 ## License
