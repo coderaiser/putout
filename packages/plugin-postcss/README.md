@@ -19,7 +19,7 @@ npm i @putout/plugin-postcss -D
 ```json
 {
     "rules": {
-        "postcss/convert-loader-to-use": "on",
+        "postcss/replace-loader-with-creator": "on"
     }
 }
 ```
