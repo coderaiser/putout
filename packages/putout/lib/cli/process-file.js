@@ -54,7 +54,7 @@ function getOptions({noConfig, plugins, name, transform, rulesdir}) {
     };
 }
 
-module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noConfig, plugins = []}) => async (name, index, {length}) => {
+module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noConfig, plugins = [], eslintOnly}) => async (name, index, {length}) => {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
@@ -105,14 +105,20 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
         return places;
     }
     
-    const [e, result] = tryCatch(putout, source, {
-        fix,
-        fixCount,
-        isTS,
-        isFlow,
-        isJSX,
-        ...options,
-    });
+    let e;
+    let result = {
+        places: [],
+    };
+    
+    if (!RegExp(eslintOnly).test(resolvedName))
+        [e, result] = tryCatch(putout, source, {
+            fix,
+            fixCount,
+            isTS,
+            isFlow,
+            isJSX,
+            ...options,
+        });
     
     if (e) {
         raw && logError(e);

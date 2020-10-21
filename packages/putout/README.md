@@ -217,16 +217,16 @@ const m = t + '!';
 console.log(t);
 `;
 
-const result = putout(source, {
+putout(source, {
     plugins: [
         'remove-unused-variables',
-    ]
+    ],
 });
 // returns
 `
-const t = 'hello';
-console.log(t);
-`
+const t = 'hello',
+console.log(t),
+`;
 ```
 
 ## License

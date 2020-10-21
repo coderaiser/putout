@@ -20,9 +20,10 @@ module.exports = {
             '.madrun.js',
             '.eslintrc.js',
             'test',
+            '*.md',
         ].join(' ');
         
-        return `bin/putout.js ${names}`;
+        return `ESLINT_ONLY=md bin/putout.js ${names}`;
     },
     'fix:lint': () => run('lint', '--fix'),
     'fix:lint:fresh': () => run('fix:lint', '--fresh'),

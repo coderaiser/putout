@@ -15,6 +15,7 @@ module.exports = {
     plugins: [
         'node',
         'putout',
+        'markdown',
     ],
     overrides: [{
         files: ['bin/**/*.js'],
@@ -26,6 +27,17 @@ module.exports = {
         files: ['lib/**/*.spec.js', '.webpack/**/*.js'],
         rules: {
             'node/no-unpublished-require': 'off',
+        },
+    }, {
+        files: ['*.md'],
+        rules: {
+            'node/no-extraneous-require': 'off',
+            'putout/putout': ['error', {
+                rules: {
+                    'remove-unused-expressions': 'off',
+                    'strict-mode': 'off',
+                },
+            }],
         },
     }],
 };

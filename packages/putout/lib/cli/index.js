@@ -14,7 +14,12 @@ const {
     STAGE,
 } = require('./exit-codes');
 
-const {PUTOUT_FILES = ''} = process.env;
+const {env} = process;
+const {
+    ESLINT_ONLY = '',
+    PUTOUT_FILES = '',
+} = env;
+
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
 const {isArray} = Array;
@@ -170,7 +175,6 @@ module.exports = async ({argv, halt, log, write, logError}) => {
             enable,
             enableAll,
         },
-        
         exit,
         log,
         logError,
@@ -178,6 +182,7 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         transform,
         noConfig: !args.config,
         plugins: args.plugins,
+        eslintOnly: ESLINT_ONLY,
     };
     
     const rawPlaces = [];
