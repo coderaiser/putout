@@ -63,6 +63,7 @@
         "madrun",
         "webpack",
         "remove-debugger",
+        "remove-iife",
         "remove-only",
         "remove-skip",
         "remove-process-exit",

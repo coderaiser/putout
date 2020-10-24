@@ -93,6 +93,7 @@
     "@putout/plugin-remove-duplicate-interface-keys": "^2.0.0",
     "@putout/plugin-remove-duplicate-keys": "^2.0.0",
     "@putout/plugin-remove-empty": "^5.0.0",
+    "@putout/plugin-remove-iife": "^1.0.0",
     "@putout/plugin-remove-nested-blocks": "^3.0.0",
     "@putout/plugin-remove-only": "^4.0.0",
     "@putout/plugin-remove-process-exit": "^3.0.0",
