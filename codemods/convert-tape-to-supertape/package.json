@@ -39,7 +39,7 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^5.0.1",
     "madrun": "^7.0.0",
-    "nodemon": "^1.14.12",
+    "nodemon": "^2.0.6",
     "nyc": "^15.0.0"
   },
   "peerDependencies": {
