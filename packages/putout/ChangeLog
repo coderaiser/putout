@@ -1,3 +1,14 @@
+2020.10.24, v10.3.0
+
+feature:
+- (package) @putout/plugin-convert-to-arrow-function v3.0.0
+- (@putout/plugin-convert-to-arrow-function) drop support of node < 12
+- (@putout/plugin-convert-to-arrow-function) add support of ReturnStatement
+- (@putout/plugin-postcss) add
+- (@putout/plugin-apply-numeric-separators) add support of absent raw
+- (@putout/plugin-webpack) add covert-query-loader-to-use
+
+
 2020.10.17, v10.2.1
 
 fix:
