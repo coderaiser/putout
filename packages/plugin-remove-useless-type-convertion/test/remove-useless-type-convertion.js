@@ -14,3 +14,8 @@ test('plugin-remove-useless-type-convertion: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-type-convertion: transform: typeof', (t) => {
+    t.transform('typeof');
+    t.end();
+});
+
