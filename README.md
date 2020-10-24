@@ -437,7 +437,7 @@ async () => {
 - debugger;
 ```
 </details>
-<details><summary>remove <code>iife</code> statement</summary>
+<details><summary>remove <code>iife</code></summary>
 
 ```diff
 -(function() {
