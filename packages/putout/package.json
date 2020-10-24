@@ -114,6 +114,7 @@
     "@putout/plugin-remove-useless-functions": "^1.0.3",
     "@putout/plugin-remove-useless-spread": "^4.0.0",
     "@putout/plugin-remove-useless-template-expressions": "^1.0.0",
+    "@putout/plugin-remove-useless-type-convertion": "^1.0.0",
     "@putout/plugin-remove-useless-typeof": "^1.0.0",
     "@putout/plugin-remove-useless-types": "^1.0.0",
     "@putout/plugin-remove-useless-variables": "^4.0.0",
