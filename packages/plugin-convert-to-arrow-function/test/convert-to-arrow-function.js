@@ -19,6 +19,11 @@ test('plugin-convert-to-arrow-function: transform: body', (t) => {
     t.end();
 });
 
+test('plugin-convert-to-arrow-function: transform: return fn', (t) => {
+    t.transform('return-fn');
+    t.end();
+});
+
 test('plugin-convert-to-arrow-function: no transform: this', (t) => {
     t.noTransform('this');
     t.end();

@@ -1,13 +1,15 @@
 'use strict';
 
 module.exports.report = () => 'Arrow functions should be used';
+
 module.exports.fix = (path) => {
-    const right = path.get('right');
-    right.node.type = 'ArrowFunctionExpression';
+    const fnPath = getFnPath(path);
+    fnPath.node.type = 'ArrowFunctionExpression';
 };
 
 module.exports.include = () => [
     '__ = function __(__args){}',
+    'return function (__args){}',
 ];
 
 module.exports.exclude = () => [
@@ -15,8 +17,8 @@ module.exports.exclude = () => [
 ];
 
 module.exports.filter = (path) => {
-    const right = path.get('right');
-    const {id} = right.node;
+    const fnPath = getFnPath(path);
+    const {id} = fnPath.node;
     
     if (id)
         return false;
@@ -32,3 +34,11 @@ module.exports.filter = (path) => {
     return !isThis;
 };
 
+function getFnPath(path) {
+    const argumentPath = path.get('argument');
+    
+    if (argumentPath.isFunction())
+        return argumentPath;
+    
+    return path.get('right');
+}

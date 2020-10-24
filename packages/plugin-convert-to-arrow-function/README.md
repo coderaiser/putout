@@ -29,12 +29,24 @@ npm i @putout/plugin-convert-to-arrow-function
 ```js
 module.exports = function(a, b) {
 }
+
+function x() {
+    return function(a) {
+        return b;
+    }
+}
 ```
 
 ## ✅ Correct code Example
 
 ```js
 module.exports = (a, b) => {
+}
+
+function x() {
+    return (a) => {
+        return b;
+    }
 }
 ```
 
