@@ -311,3 +311,14 @@ test('putout: print: recast: object expressions', (t) => {
     t.end();
 });
 
+test('putout: parser: json modules', (t) => {
+    const code = `
+        import json from "./foo.json" assert { type: "json" };
+    `;
+    
+    const [error] = tryCatch(parse.fresh, code);
+    
+    t.notOk(error, 'should parse');
+    t.end();
+});
+
