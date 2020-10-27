@@ -16,8 +16,11 @@ module.exports.replace = () => ({
     'const __a = require("__b")': ({__a, __b}) => {
         let {value} = __b;
         
-        if (value.includes('./'))
+        if (value.includes('./') && !/\.js(on)?$/.test(value))
             value += '.js';
+        
+        const isJSON = /\.json$/.test(value);
+        const assertion = !isJSON ? '' : 'assert { type: "json" }';
         
         if (isObjectPattern(__a)) {
             const imports = [];
@@ -28,9 +31,9 @@ module.exports.replace = () => ({
             
             const importsStr = imports.join(',');
             
-            return `import {${importsStr}} from "${value}"`;
+            return `import {${importsStr}} from "${value}" ${assertion}`;
         }
         
-        return `import __a from "${value}"`;
+        return `import __a from "${value}" ${assertion}`;
     },
 });
