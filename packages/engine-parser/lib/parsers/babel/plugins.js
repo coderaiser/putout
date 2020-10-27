@@ -12,6 +12,7 @@ module.exports = [
     'numericSeparator',
     'exportDefaultFrom',
     'throwExpressions',
+    'topLevelAwait',
     ['recordAndTuple', {
         recordAndTupleSyntaxType: 'hash',
         syntaxType: 'hash',
