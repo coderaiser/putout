@@ -1192,7 +1192,7 @@ To understand how things works from the inside take a look at [Super Tiny Compil
 
 ##### Operator
 
-When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, please use `operator` insted of `path`-methods.
+When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, please use `operator` instead of `path`-methods.
 
 ```js
 const {template, operator} = require('putout');
