@@ -10,8 +10,7 @@
 [CoverageURL]:              https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]:           https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
-`operate` provide you a way to manipulate `path` nodes and keep `comments` and `loc` information you need
-to build the same source file you had before parsing with help of `recast`.
+`operate` provide you a way to manipulate `path` nodes and keep `comments` and `loc` information.
 
 ## Install
 
@@ -19,7 +18,7 @@ to build the same source file you had before parsing with help of `recast`.
 npm i @putout/operate
 ```
 
-If you use write plugin for `putout` you already have `operate` in `putout`, all exampes will get `operate` from `putout`, but you can use direct `require` as well.
+If you write plugin for `putout` you already have `operate` in `putout`, all exampes will get `operate` from `putout`, but you can use direct `require('@putout/operate')` as well.
 
 ## API
 ### replaceWith(path, node)
