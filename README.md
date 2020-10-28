@@ -1054,7 +1054,7 @@ To configure `putout` add section `putout` to your `package.json` file or create
 
 ### Rules
 
-By default all rules located in `plugins` section (and default rules) are enabled by default.
+All rules located in `plugins` section and built-in rules are enabled by default.
 You can disable rules using "off", or enable them (in `match` section) using "on".
 
 ```json
