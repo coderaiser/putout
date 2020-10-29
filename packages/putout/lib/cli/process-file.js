@@ -126,10 +126,9 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
     if (ruler.disable || ruler.enable || ruler.disableAll || ruler.enableAll)
         return allPlaces;
     
-    const rawOrFixed = fix ? code : source;
     const [newCode, newPlaces] = await eslint({
         name,
-        code: rawOrFixed,
+        code,
         fix,
     });
     
