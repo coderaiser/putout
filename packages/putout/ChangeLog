@@ -1,3 +1,15 @@
+2020.10.29, v10.5.1
+
+feature:
+- (putout) cli: process-file: rm useless rawOrFixed
+- (@putout/plugin-convert-commonjs-to-esm) add partial support of json (babel/babel#12262)
+- (@putout/engine-parser) options: allowAwaitOutsideFunction -> plugins: topLevelAwait
+- (@putout/engine-parser) enable importAssertions
+- (@putout/plugin-remove-iife) exclude functions with ReturnStatement
+- (@putout/plugin-remove-useless-type-convertion) add support of typeof
+- (package) nodemon v2.0.6
+
+
 2020.10.25, v10.5.0
 
 feature:
