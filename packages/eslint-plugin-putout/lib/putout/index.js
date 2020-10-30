@@ -6,7 +6,7 @@ const {
     transform,
     print,
     parse,
-} = require('putout');
+} = require('../putout-wrapper')();
 
 const parseOptions = require('putout/lib/parse-options');
 

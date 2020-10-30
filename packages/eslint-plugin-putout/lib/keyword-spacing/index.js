@@ -3,7 +3,7 @@
 const {
     isTryStatement,
     isSwitchStatement,
-} = require('putout').types;
+} = require('../putout-wrapper')().types;
 
 const keywords = {
     IfStatement: 'if',
