@@ -1,11 +1,8 @@
 'use strict';
 
-const {resolve, dirname} = require('path');
+const {dirname} = require('path');
 
-const {
-    readFile,
-    writeFile,
-} = require('fs').promises;
+const {readFile} = require('fs').promises;
 
 const tryCatch = require('try-catch');
 const memo = require('nano-memoize');
@@ -22,7 +19,6 @@ const {
 const buildPlugins = require('./build-plugins');
 
 const {ignores} = putout;
-const cwd = process.cwd();
 const getFormatter = memo(require('./formatter').getFormatter);
 
 const isParsingError = ({rule}) => rule === 'eslint/null';
@@ -54,12 +50,9 @@ function getOptions({noConfig, plugins, name, transform, rulesdir}) {
     };
 }
 
-module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noConfig, plugins = []}) => async (name, index, {length}) => {
-    const resolvedName = resolve(name)
-        .replace(/^\./, cwd);
-    
+module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, format, isFlow, isJSX, ruler, logError, raw, exit, noConfig, plugins = []}) => async ({name, source, index, length}) => {
     const options = getOptions({
-        name: resolvedName,
+        name,
         rulesdir,
         noConfig,
         transform,
@@ -73,10 +66,10 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
     
     const [currentFormat, formatterOptions] = getFormatter(format || formatter, exit);
     
-    if (ignores(dir, resolvedName, options)) {
+    if (ignores(dir, name, options)) {
         const line = report(currentFormat, {
             formatterOptions,
-            name: resolvedName,
+            name,
             places: [],
             index,
             count: length,
@@ -84,17 +77,18 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
         });
         
         write(line);
-        return [];
+        
+        return {
+            places: [],
+            code: source,
+        };
     }
     
-    const source = await readFile(name, 'utf8');
-    const isTS = /\.tsx?$/.test(name);
-    
-    if (fileCache.canUseCache({fix, options, name: resolvedName})) {
-        const places = fileCache.getPlaces(resolvedName);
+    if (fileCache.canUseCache({fix, options, name})) {
+        const places = fileCache.getPlaces(name);
         const line = report(currentFormat, {
             formatterOptions,
-            name: resolvedName,
+            name,
             places,
             index,
             count: length,
@@ -102,9 +96,14 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
         });
         
         write(line);
-        return places;
+        
+        return {
+            places,
+            code: source,
+        };
     }
     
+    const isTS = /\.tsx?$/.test(name);
     const [e, result] = tryCatch(putout, source, {
         fix,
         fixCount,
@@ -124,7 +123,10 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
     });
     
     if (ruler.disable || ruler.enable || ruler.disableAll || ruler.enableAll)
-        return allPlaces;
+        return {
+            places: allPlaces,
+            code,
+        };
     
     const [newCode, newPlaces] = await eslint({
         name,
@@ -137,19 +139,17 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
     const fixable = !newPlaces.filter(isParsingError).length;
     
     if (fixable)
-        fileCache.setInfo(resolvedName, allPlaces, options);
+        fileCache.setInfo(name, allPlaces, options);
     
-    if (fix && source !== newCode) {
-        fileCache.removeEntry(resolvedName);
-        await writeFile(name, newCode);
-    }
+    if (fix && source !== newCode)
+        fileCache.removeEntry(name);
     
     const line = await makeReport(e, {
         debug,
         report,
         currentFormat,
         formatterOptions,
-        name: resolvedName,
+        name,
         source,
         places: allPlaces,
         index,
@@ -158,7 +158,10 @@ module.exports = ({write, fix, debug, transform, fileCache, fixCount, rulesdir, 
     
     write(line || '');
     
-    return allPlaces;
+    return {
+        places: allPlaces,
+        code: newCode,
+    };
 };
 
 async function makeReport(e, {debug, formatterOptions, report, currentFormat, name, source, places, index, count}) {

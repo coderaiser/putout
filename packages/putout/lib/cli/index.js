@@ -1,5 +1,7 @@
 'use strict';
 
+const {resolve} = require('path');
+
 const {red} = require('chalk');
 const yargsParser = require('yargs-parser');
 const {isCI} = require('ci-info');
@@ -14,6 +16,7 @@ const {
     STAGE,
 } = require('./exit-codes');
 
+const cwd = process.cwd();
 const {PUTOUT_FILES = ''} = process.env;
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
@@ -21,7 +24,7 @@ const {isArray} = Array;
 const maybeFirst = (a) => isArray(a) ? a.pop() : a;
 const plugins = (a) => isArray(a) ? a : a.split(',');
 
-module.exports = async ({argv, halt, log, write, logError}) => {
+module.exports = async ({argv, halt, log, write, logError, readFile, writeFile}) => {
     const args = yargsParser(argv, {
         coerce: {
             format: maybeFirst,
@@ -140,16 +143,15 @@ module.exports = async ({argv, halt, log, write, logError}) => {
         ...envNames,
     ];
     
-    const [e, files] = await getFiles(globFiles);
+    const [e, names] = await getFiles(globFiles);
     
     if (e)
         return exit(e);
     
-    if (!files.length)
+    if (!names.length)
         return exit();
     
     const fileCache = await cacheFiles({
-        files,
         cache,
         fresh,
     });
@@ -183,12 +185,25 @@ module.exports = async ({argv, halt, log, write, logError}) => {
     const rawPlaces = [];
     
     const process = processFile(options);
-    const {length} = files;
+    const {length} = names;
     
-    for (let i = 0; i < length; i++) {
-        const file = files[i];
-        const place = await process(file, i, {length});
-        rawPlaces.push(place);
+    for (let index = 0; index < length; index++) {
+        const name = names[index];
+        const resolvedName = resolve(name)
+            .replace(/^\./, cwd);
+        
+        const source = await readFile(resolvedName, 'utf8');
+        const {places, code} = await process({
+            name: resolvedName,
+            source,
+            index,
+            length,
+        });
+        
+        if (fix && source !== code)
+            await writeFile(name, code);
+        
+        rawPlaces.push(places);
     }
     
     const mergedPlaces = merge(...rawPlaces);

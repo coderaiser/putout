@@ -140,6 +140,7 @@ test('putout: cli: --raw: parse error', async (t) => {
         cli,
         logError,
         argv,
+        readFile,
     });
     
     const error = SyntaxError('Unexpected token (2:0)');
@@ -159,7 +160,11 @@ test('putout: cli: --format: specified twice', async (t) => {
         '--no-cache',
     ];
     
-    const process = stub().returns([]);
+    const process = stub().returns({
+        places: [],
+        code: '',
+    });
+    
     const processFile = stub().returns(process);
     mockRequire('./process-file', processFile);
     
@@ -201,9 +206,7 @@ test('putout: cli: --fresh', async (t) => {
         argv,
     });
     
-    const files = [file];
     const expected = {
-        files,
         fresh: true,
         cache: false,
     };
@@ -294,7 +297,11 @@ test('putout: cli: --fix --staged: set', async (t) => {
         name,
     ]]);
     
-    const process = stub().returns([]);
+    const process = stub().returns({
+        places: [],
+        code: '',
+    });
+    
     const processFile = stub().returns(process);
     
     mockRequire('./get-files', getFiles);
@@ -338,7 +345,10 @@ test('putout: cli: --fix --staged: exit code', async (t) => {
         name,
     ]]);
     
-    const process = stub().returns([]);
+    const process = stub().returns({
+        places: [],
+        code: '',
+    });
     const processFile = stub().returns(process);
     
     mockRequire('./get-files', getFiles);
@@ -507,6 +517,7 @@ test('putout: cli: --transform', async (t) => {
         cli,
         argv,
         write,
+        readFile,
     });
     
     stopAll();
@@ -562,6 +573,7 @@ test('putout: cli: --plugins', async (t) => {
         cli,
         argv,
         write,
+        readFile,
     });
     
     stopAll();
@@ -598,6 +610,39 @@ test('putout: cli: --plugins', async (t) => {
     t.end();
 });
 
+test('putout: cli: fix', async (t) => {
+    const argv = [
+        __filename,
+        '--no-config',
+        '--no-ci',
+        '--no-cache',
+        '--fix',
+    ];
+    
+    const process = stub().returns({
+        places: [],
+        code: 'hello',
+    });
+    
+    const processFile = stub().returns(process);
+    const writeFile = stub();
+    
+    mockRequire('./process-file', processFile);
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        writeFile,
+    });
+    
+    stopAll();
+    
+    t.ok(writeFile.calledWith(__filename, 'hello'));
+    t.end();
+});
+
 async function runCli(options) {
     const {
         halt = stub(),
@@ -606,6 +651,8 @@ async function runCli(options) {
         write = stub(),
         argv = [],
         cli = _cli,
+        readFile = stub().returns(''),
+        writeFile = stub(),
     } = options;
     
     await cli({
@@ -614,6 +661,8 @@ async function runCli(options) {
         log,
         logError,
         argv,
+        readFile,
+        writeFile,
     });
 }
 

@@ -2,6 +2,11 @@
 
 'use strict';
 
+const {
+    readFile,
+    writeFile,
+} = require('fs').promises;
+
 const cli = require('../lib/cli');
 
 const {stdout} = process;
@@ -13,5 +18,7 @@ module.exports = cli({
     argv: process.argv.slice(2),
     log: console.log,
     logError: console.error,
+    readFile,
+    writeFile,
 });
 
