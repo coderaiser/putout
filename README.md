@@ -1,14 +1,20 @@
 # Putout [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/putout.svg?style=flat&longCache=true
-[BuildStatusIMGURL]:        https://img.shields.io/travis/coderaiser/putout/master.svg?style=flat&longCache=true
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/putout
-[NPMURL]:                   https://npmjs.org/package/putout "npm"
-[BuildStatusURL]:           https://travis-ci.org/coderaiser/putout  "Build Status"
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/putout "Dependency Status"
+[NPMIMGURL]: https://img.shields.io/npm/v/putout.svg?style=flat&longCache=true
 
-[CoverageURL]:              https://coveralls.io/github/coderaiser/putout?branch=master
-[CoverageIMGURL]:           https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
+[BuildStatusIMGURL]: https://img.shields.io/travis/coderaiser/putout/master.svg?style=flat&longCache=true
+
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/putout
+
+[NPMURL]: https://npmjs.org/package/putout "npm"
+
+[BuildStatusURL]: https://travis-ci.org/coderaiser/putout "Build Status"
+
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/putout "Dependency Status"
+
+[CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
+
+[CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
 Putout is a pluggable and configurable code transformer with built-in `eslint`, `babel plugins` and `jscodeshift codemods` support for `js`, `jsx` `typescript` and `flow` files. It has [a lot of transforms](#built-in-transforms) that will keep your codebase in a clean state transforming any `code smell` to readable code according to best practices.
 
@@ -74,9 +80,10 @@ putout lib test --fix
 ## Environment variables
 
 `Putout` supports next `environment variables`:
+
 - `PUTOUT_FILES` - files that should be processed by putout, divided by ",";
 
-```js
+```
 PUTOUT_FILES=lib,test putout --fix
 ```
 
@@ -106,6 +113,7 @@ console.log(hello);
 ```
 
 We can declare it as `source`:
+
 ```js
 const source = `
     const hello = 'world';
@@ -123,13 +131,13 @@ Putout supports dynamic loading of plugins from `node_modules`. Let's consider e
 putout(source, {
     plugins: [
         'remove-unused-variables',
-    ]
+    ],
 });
 // returns
-{
-  code: "\n    const hello = 'world';\n\n    console.log(hello);\n",
-  places: []
-}
+({
+    "code": "\n    const hello = 'world';\n\n    console.log(hello);\n",
+    "places": [],
+});
 ```
 
 As you see `places` is empty, but the code is changed: there is no `hi` variable.
@@ -144,23 +152,23 @@ putout(source, {
     fix: false,
     plugins: [
         'remove-unused-variables',
-    ]
+    ],
 });
 // returns
-{
-  code: '\n' +
+({
+    code: '\n' +
     "    const hello = 'world';\n" +
     "    const hi = 'there';\n" +
     '    \n' +
     '    console.log(hello);\n',
-  places: [
-    {
-      rule: 'remove-unused-variables',
-      message: '"hi" is defined but never used',
-      position: { line: 3, column: 10 }
-    }
-  ]
-}
+    places: [
+        {
+            rule: 'remove-unused-variables',
+            message: '"hi" is defined but never used',
+            position: {line: 3, column: 10},
+        },
+    ],
+});
 ```
 
 ## Built-in transforms
@@ -173,6 +181,7 @@ putout(source, {
       console.log('hello world');
   }
 ```
+
 </details>
 
 <details><summary>remove unused for-of variables</summary>
@@ -183,6 +192,7 @@ putout(source, {
     console.log(a);
 }
 ```
+
 </details>
 
 <details><summary>remove unreferenced variables</summary>
@@ -194,6 +204,7 @@ let b;
 b = 2;
 console.log(b);
 ```
+
 </details>
 
 <details><summary>remove duplicate keys</summary>
@@ -206,6 +217,7 @@ const a = {
     ...y,
 }
 ```
+
 </details>
 
 <details><summary>remove unused private fields</summary>
@@ -219,6 +231,7 @@ const a = {
     };
 }
 ```
+
 </details>
 
 <details><summary>remove unused expressions</summary>
@@ -228,6 +241,7 @@ const a = {
 -     showError;
   }
 ```
+
 </details>
 
 <details><summary>remove useless <code>variables</code></summary>
@@ -239,6 +253,7 @@ const a = {
 +   function hi(b) {
     };
 ```
+
 </details>
 
 <details><summary>remove useless <code>type convertion</code></summary>
@@ -247,6 +262,7 @@ const a = {
 -const a = Boolean(b.includes(c));
 +const a = b.includes(c);
 ```
+
 </details>
 
 <details><summary>remove useless <code>functions</code></summary>
@@ -255,6 +271,7 @@ const a = {
 -   const f = (...a) => fn(...a);
 +   const f = fn;
 ```
+
 </details>
 
 <details><summary>remove useless <code>typeof</code></summary>
@@ -263,6 +280,7 @@ const a = {
 - typeof typeof 'hello';
 + typeof 'hello';
 ```
+
 </details>
 
 <details><summary>remove useless <code>await</code></summary>
@@ -271,6 +289,7 @@ const a = {
 -   await await Promise.resolve('hello');
 +   await Promise.resolve('hello');
 ```
+
 </details>
 
 <details><summary>remove useless <code>async</code></summary>
@@ -281,6 +300,7 @@ const a = {
     console.log('hello');
 };
 ```
+
 </details>
 
 <details><summary>remove useless <code>arguments</code></summary>
@@ -295,6 +315,7 @@ onIfStatement({
 function onIfStatement({push}) {
 }
 ```
+
 </details>
 
 <details><summary>remove useless <code>template expressions</code></summary>
@@ -303,6 +324,7 @@ function onIfStatement({push}) {
 -let y =`${"hello"} + ${"world"}`;
 +let y =`hello + world`;
 ```
+
 </details>
 
 <details><summary>remove useless <code>for-of</code></summary>
@@ -313,8 +335,8 @@ function onIfStatement({push}) {
 -}
 +console.log('hello');
 ```
-</details>
 
+</details>
 
 <details><summary>reuse duplicate<code>init</code></summary>
 
@@ -323,6 +345,7 @@ const putout = require('putout');
 -const {operator} = require('putout');
 +const {operator} = putout;
 ```
+
 </details>
 
 <details><summary>convert <code>templates</code> with one <code>expression</code> to <code>string</code></summary>
@@ -331,6 +354,7 @@ const putout = require('putout');
 -const c = `${a + b}`;
 +const c = String(a + b);
 ```
+
 </details>
 
 <details><summary>convert <code>equal</code> to <code>strict equal</code></summary>
@@ -340,6 +364,7 @@ const putout = require('putout');
 +if (a === b) {
 }
 ```
+
 </details>
 
 <details><summary>convert <code>indexOf</code> to <code>includes</code></summary>
@@ -349,6 +374,7 @@ const putout = require('putout');
 +if (array.includes(element)) {
 }
 ```
+
 </details>
 
 <details><summary>convert <code>generic</code> to <code>shorthand</code> for typescript (<a href=https://stackoverflow.com/a/36843084/4536327>why</a>)</summary>
@@ -359,6 +385,7 @@ interface A {
 +    x: X[];
 }
 ```
+
 </details>
 
 <details><summary>remove useless <code>types</code> for typescript</summary>
@@ -370,6 +397,7 @@ type oldType = number;
 -const x: newType = 5;
 +const x: oldType = 5;
 ```
+
 </details>
 
 <details><summary>remove duplicate <code>interface</code> keys for typescript (disabled, because of additional `semicolon`);</summary>
@@ -380,6 +408,7 @@ interface Hello {
     'hello': string
 }
 ```
+
 </details>
 
 <details><summary>remove unused <code>types</code> for typescript</summary>
@@ -389,6 +418,7 @@ type n = number;
 -type s = string;
 +const x: n = 5;
 ```
+
 </details>
 
 <details><summary>remove useless <code>escape</code></summary>
@@ -401,6 +431,7 @@ type n = number;
 +const s1 = `hello "world"`;
 +const s = `hello 'world'`;
 ```
+
 </details>
 
 <details><summary>remove useless <code>Array.from</code></summary>
@@ -409,6 +440,7 @@ type n = number;
 -for (const x of Array.from(y)) {}
 +for (const x of y) {}
 ```
+
 </details>
 
 <details><summary>remove useless <code>spread</code></summary>
@@ -417,6 +449,7 @@ type n = number;
 -for (const x of [...y]) {}
 +for (const x of y) {}
 ```
+
 </details>
 
 <details><summary>remove useless <code>Promise.resolve</code></summary>
@@ -427,6 +460,7 @@ async () => {
 +    return 'x';
 }
 ```
+
 </details>
 
 <details><summary>convert<code>Promise.reject</code> to <code>throw</code></summary>
@@ -437,6 +471,7 @@ async () => {
 +    throw 'x';
 }
 ```
+
 </details>
 
 <details><summary>remove <code>debugger</code> statement</summary>
@@ -444,6 +479,7 @@ async () => {
 ```diff
 - debugger;
 ```
+
 </details>
 <details><summary>remove <code>iife</code></summary>
 
@@ -453,6 +489,7 @@ async () => {
 -}());
 +console.log('hello world');
 ```
+
 </details>
 
 <details><summary>remove <code>boolean</code> from <code>logical expressions</code></summary>
@@ -461,6 +498,7 @@ async () => {
 -const t = true && false;
 +const t = false;
 ```
+
 </details>
 
 <details><summary>remove nested blocks</summary>
@@ -473,6 +511,7 @@ for (const x of Object.keys(a)) {
 +   console.log(x);
 }
 ```
+
 </details>
 
 <details><summary>remove double negations</summary>
@@ -482,6 +521,7 @@ for (const x of Object.keys(a)) {
 ++if (a)
     console.log('hi');
 ```
+
 </details>
 
 <details><summary>remove unreachable code</summary>
@@ -492,6 +532,7 @@ function hi() {
 -  console.log('hello');
 }
 ```
+
 </details>
 
 <details><summary>replace <code>test.only</code> with <code>test</code> calls</summary>
@@ -502,6 +543,7 @@ function hi() {
     t.end();
 });
 ```
+
 </details>
 
 <details><summary>replace <code>test.skip</code> with <code>test</code> calls</summary>
@@ -512,6 +554,7 @@ function hi() {
     t.end();
 });
 ```
+
 </details>
 
 <details><summary>remove <code>process.exit</code> call</summary>
@@ -519,6 +562,7 @@ function hi() {
 ```diff
 -process.exit();
 ```
+
 </details>
 
 <details><summary>split variable declarations</summary>
@@ -528,6 +572,7 @@ function hi() {
 +let a;
 +let b;
 ```
+
 </details>
 
 <details><summary>split nested destructuring</summary>
@@ -546,6 +591,7 @@ function hi() {
 -module.exports = fs.copyFileSync ? fs.copyFileSync : copyFileSync;
 +module.exports = fs.copyFileSync || copyFileSync;
 ```
+
 </details>
 
 <details><summary>remove <code>console.log</code> calls</summary>
@@ -553,6 +599,7 @@ function hi() {
 ```diff
 -console.log('hello');
 ```
+
 </details>
 
 <details><summary>remove empty block statements</summary>
@@ -561,6 +608,7 @@ function hi() {
 -if (x > 0) {
 -}
 ```
+
 </details>
 
 <details><summary>remove empty patterns</summary>
@@ -568,6 +616,7 @@ function hi() {
 ```diff
 -const {} = process;
 ```
+
 </details>
 
 <details><summary>remove strict mode directive from esm</summary>
@@ -577,6 +626,7 @@ function hi() {
 -
 import * from fs;
 ```
+
 </details>
 
 <details><summary>Add <code>strict mode</code> directive in <code>commonjs</code> if absent</summary>
@@ -586,6 +636,7 @@ import * from fs;
 +
 const fs = require('fs');
 ```
+
 </details>
 
 <details><summary>remove <code>constant conditions</code></summary>
@@ -607,6 +658,7 @@ function world(a) {
 -   }
 };
 ```
+
 </details>
 
 <details><summary>convert <code>esm</code> to <code>commonjs</code> (disabled)</summary>
@@ -615,6 +667,7 @@ function world(a) {
 -import hello from 'world';
 +const hello = require('world');
 ```
+
 </details>
 <details><summary>convert <code>commonjs</code> to <code>esm</code> (disabled)</summary>
 
@@ -622,6 +675,7 @@ function world(a) {
 -const hello = require('world');
 +import hello from 'world';
 ```
+
 </details>
 
 <details><summary>apply destructuring</summary>
@@ -632,6 +686,7 @@ function world(a) {
 +const {hello} = world;
 +const [a] = b;
 ```
+
 </details>
 
 <details><summary>apply top-level-await (<a href=https://github.com/tc39/proposal-top-level-await>proposal-top-level-await</a>, disabled)</summary>
@@ -644,6 +699,7 @@ import fs from 'fs';
 -})();
 +const data = await fs.promises.readFile('hello.txt');
 ```
+
 </details>
 
 <details><summary>apply numeric separators(<a href=https://github.com/tc39/proposal-numeric-separator>proposal-numeric-separator</a>)</summary>
@@ -652,6 +708,7 @@ import fs from 'fs';
 -const a = 100000000;
 +const a = 100_000_000;
 ```
+
 </details>
 
 <details><summary>convert <code>throw</code> statement into expression (<a href=https://github.com/tc39/proposal-throw-expressions>proposal-throw-expressions</a>, disabled)</summary>
@@ -660,6 +717,7 @@ import fs from 'fs';
 -const fn = (a) => {throw Error(a);}
 +const fn = (a) => throw Error(a);
 ```
+
 </details>
 
 <details><summary>apply optional chaining (<a href=https://github.com/tc39/proposal-optional-chaining>proposal-optional-chaining</a>, disabled)</summary>
@@ -668,6 +726,7 @@ import fs from 'fs';
 -const result = hello && hello.world;
 +const result = hello?.world;
 ```
+
 </details>
 
 <details><summary>apply nullish coalescing (<a href=https://github.com/tc39/proposal-nullish-coalescing>proposal-nullish-coalescing</a>, disabled)</summary>
@@ -676,6 +735,7 @@ import fs from 'fs';
 -result = typeof result  === 'undefined' ? 'hello': result;
 result = result ?? 'hello';
 ```
+
 </details>
 
 <details><summary>apply shorthand properties</summary>
@@ -687,6 +747,7 @@ result = result ?? 'hello';
 +    payload,
 });
 ```
+
 </details>
 
 <details><summary>merge destructuring properties</summary>
@@ -699,6 +760,7 @@ result = result ?? 'hello';
 +   two
 +} = require('numbers');
 ```
+
 </details>
 
 <details><summary>merge duplicate imports</summary>
@@ -709,6 +771,7 @@ result = result ?? 'hello';
 -import x from 'y';
 +import x, {m as b, z} from 'y';
 ```
+
 </details>
 
 <details><summary>merge <code>if</code> statements</summary>
@@ -720,6 +783,7 @@ result = result ?? 'hello';
 +if (a > b && b < c)
 +    console.log('hi');
 ```
+
 </details>
 
 <details><summary>convert <code>Math.pow</code> to <code>exponentiation operator</code></summary>
@@ -786,8 +850,8 @@ result = result ?? 'hello';
 -];
 +const places = items.slice();
 ```
-</details>
 
+</details>
 
 <details><summary>extract sequence expressions</summary>
 
@@ -818,6 +882,7 @@ result = result ?? 'hello';
 -console.log.apply(console, arguments);
 +console.log(...arguments);
 ```
+
 </details>
 
 <details><summary>convert <code>arguments</code> to <code>rest</code></summary>
@@ -829,6 +894,7 @@ result = result ?? 'hello';
 +    console.log(args);
 }
 ```
+
 </details>
 
 <details><summary>convert <code>Object.assign</code> to <code>merge spread</code></summary>
@@ -844,6 +910,7 @@ function merge(a) {
 +   };
 };
 ```
+
 </details>
 
 <details><summary>convert <code>binary expression</code> to <code>boolean</code></summary>
@@ -852,6 +919,7 @@ function merge(a) {
 -   const a = b === b;
 +   const a = true;
 ```
+
 </details>
 
 <details><summary>convert <code>top-level return</code> into <code>process.exit()</code>(because EcmaScript Modules doesn't support top level return)</summary>
@@ -860,6 +928,7 @@ function merge(a) {
 -   return;
 +   process.exit();
 ```
+
 </details>
 
 <details><summary>add <code>await</code> to <code>return promise()</code> statements (<a href=https://v8.dev/blog/fast-async>because it's faster, produces call stack and more readable</a>)</summary>
@@ -870,6 +939,7 @@ async run () {
 +   return await promise();
 }
 ```
+
 </details>
 
 ## Plugins
@@ -993,6 +1063,7 @@ Next packages not bundled with `putout` but can be installed separately.
 You can specify a formatter using the `--format` or `-f` flag on the command line. For example, `--format codeframe` uses the `codeframe` formatter.
 
 The built-in formatter options are:
+
 - `dump`
 - `stream`
 - `json`
@@ -1039,11 +1110,13 @@ and add tags `putout`, `formatter`, `putout-formatter`.
 `eslint formatters` can be used as well with help of `@putout/formatter-eslint` this way:
 
 Install:
+
 ```
 npm i putout @putout/formatter-eslint eslint-formatter-pretty -D
 ```
 
 Run:
+
 ```sh
 ESLINT_FORMATTER=pretty putout -f eslint lib
 ```
@@ -1112,6 +1185,7 @@ When you need to ignore some routes no metter what, you can use `ignore` section
 ### Plugins
 
 There is two types of plugins supported by `putout`, their names in npm started with prefix:
+
 - `@putout/plugin-` for official plugins
 - `putout-plugin-` for user plugins
 
@@ -1159,6 +1233,7 @@ It should contain next 2 functions:
 - `fix(path)` - fixes paths using `places` array received using `find` function;
 
 and one or more of this:
+
 - `filter(path)` - filter path, should return `true`, or `false` (don't use with `traverse`);
 - `include` - returns array of templates, or node names to include;
 - `exclude` - returns array of templates, or node names to exclude;
@@ -1166,7 +1241,7 @@ and one or more of this:
 ```js
 module.exports.report = () => 'use optional chaining';
 module.exports.include = () => [
-    'debugger'
+    'debugger',
 ];
 
 module.exports.fix = (path) => {
@@ -1208,12 +1283,11 @@ module.exports.fix = (path) => {
     
     // correct
     replaceWith(path, ast);
-}
+};
 ```
 
 This should be done to preserve `loc` and `comments` information, which is different in `babel` and `recast`. `putout` will handle this case for you :),
 just use methods of `operator`.
-
 
 #### Putout Plugin
 
@@ -1238,9 +1312,9 @@ Let's consider simplest possible plugin for removing `debugger statements` [@put
 module.exports.report = () => 'Unexpected "debugger" statement';
 
 // lets find all "debugger" statements and replace them with ""
-module.exports.replace = () => {
+module.exports.replace = () => ({
     'debugger': '',
-};
+});
 ```
 
 `Visitor` used in `traverse function` can be code template as well. So when you need to find `module.exports = <something>`, you
@@ -1251,8 +1325,8 @@ module.exports.traverse = ({push}) => {
     return {
         'module.exports = __'(path) {
             push(path);
-        }
-    }
+        },
+    };
 };
 ```
 
@@ -1270,14 +1344,14 @@ module.exports.include = () => [
 
 // optional
 module.exports.exclude = () => [
-    'console.log'
+    'console.log',
 ];
 
 // optional
 module.exports.filter = (path) => {
     // do some checks
     return true;
-}
+};
 ```
 
 #### Template
@@ -1286,7 +1360,7 @@ There is predefined placeholders:
 
 - `__` - any code;
 - `"__"` - any string literal;
-- ``__`` - any template string literal;
+- `__` - any template string literal;
 
 #### Testing
 
@@ -1381,6 +1455,7 @@ Here you can find `babel plugins` which feets the most main purpose of `putout` 
 -bar.push(2);
 +const bar = [1, 2];
 ```
+
 </details>
 
 <details><summary><a href="https://github.com/babel/babel/tree/master/codemods/babel-plugin-codemod-object-assign-to-object-spread">codemod-object-assign-to-object-spread</a></summary>
@@ -1396,6 +1471,7 @@ function merge(a) {
 +   };
 };
 ```
+
 </details>
 
 <details><summary><a href="https://github.com/babel/babel/tree/master/codemods/babel-plugin-codemod-optional-catch-binding">codemod-optional-catch-binding</a></summary>
@@ -1408,6 +1484,7 @@ try {
     console.log("it failed, but this code executes");
 }
 ```
+
 </details>
 
 Please send pull requests with `babel plugins` which can be used as codemods, or simplify, fix, makes code more readable.
@@ -1444,6 +1521,7 @@ Here you can find `jscodeshift codemods` which feets the most main purpose of `p
 +  return 'done';
 }
 ```
+
 </details>
 
 Please send pull requests with `jscodeshift codemods` which can be used to simplify, fix or makes code more readable.
@@ -1457,6 +1535,7 @@ Please send pull requests with `jscodeshift codemods` which can be used to simpl
 If you see that `putout` brokes formatting of your code, use eslint plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout).
 
 Install `eslint-plugin-putout` with:
+
 ```
 npm i eslint eslint-plugin-putout -D
 ```
@@ -1488,7 +1567,7 @@ ESLINT_CONFIG_FILE=test.eslintrc.json putout --fix lib
 
 You can even use only `eslint`, because `putout` bundled to `eslint-plugin-putout` with:
 
-```js
+```
 eslint --fix lib
 ```
 

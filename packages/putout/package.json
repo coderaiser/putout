@@ -7,8 +7,10 @@
   "main": "./lib/putout.js",
   "exports": {
     ".": "./lib/putout.js",
+    "./extensions": "./extensions.json",
     "./parse-options": "./lib/parse-options/index.js",
-    "./lib/parse-options": "./lib/parse-options/index.js"
+    "./lib/parse-options": "./lib/parse-options/index.js",
+    "./lib/cli/process-file": "./lib/cli/process-file.js"
   },
   "bin": {
     "putout": "bin/putout.js"
@@ -44,6 +46,7 @@
     "@putout/compare": "^5.0.0",
     "@putout/engine-loader": "^2.0.0",
     "@putout/engine-parser": "^2.0.0",
+    "@putout/engine-processor": "^1.0.0",
     "@putout/engine-runner": "^8.0.0",
     "@putout/formatter-codeframe": "^2.0.0",
     "@putout/formatter-dump": "^2.0.0",
@@ -124,6 +127,8 @@
     "@putout/plugin-split-variable-declarations": "^2.0.0",
     "@putout/plugin-strict-mode": "^2.0.0",
     "@putout/plugin-webpack": "^1.0.0",
+    "@putout/processor-javascript": "^1.0.0",
+    "@putout/processor-markdown": "^1.0.0",
     "@putout/traverse": "^2.0.0",
     "array-union": "^2.0.0",
     "chalk": "^4.0.0",

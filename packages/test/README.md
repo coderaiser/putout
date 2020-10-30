@@ -36,9 +36,8 @@ npm i @putout/test -D
 Here is example of tests for [remove-console](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-console):
 
 ```js
-const removeConsole = require('./fixture/remove-console');
 const test = require('@putout/test')(__dirname, {
-    'remove-console': removeConsole
+    'remove-console': require('..'),
 });
 
 test('remove-console: report', (t) => {

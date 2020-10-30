@@ -1,10 +1,12 @@
 # @putout/compare [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/compare.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/compare"npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/compare.svg?style=flat&longCache=true
 
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/compare
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/compare
+[NPMURL]: https://npmjs.org/package/@putout/compare"npm"
+
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/compare
+
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/compare
 
 Compare AST-nodes.
 
@@ -28,12 +30,12 @@ const node = template.ast('const [] = a');
 
 getTemplateValues(node, 'const __array = array');
 // returns
-{
+({
     __array: {
         type: 'ArrayPattern',
-        ...etc
-    }
-}
+        //...etc
+    },
+});
 ```
 
 ### compare (node, baseNode)
@@ -43,7 +45,7 @@ getTemplateValues(node, 'const __array = array');
 
 #### Supported template variables:
 
-##### __
+##### \__
 
 Any node.
 
@@ -52,21 +54,21 @@ compare('const x = data', 'const __ = __');
 compare('const {x} = data', 'const __ = __');
 compare('const x = {data}', 'const __ = __');
 // returns
-true
+true;
 ```
 
-##### __object
+##### \__object
 
 `ObjectPattern` or `ObjectExpression` with any count of `properties`.
 
 ```js
-compare('const {} = data', 'const __object = __')
-compare('const {hello} = data', 'const __object = __')
+compare('const {} = data', 'const __object = __');
+compare('const {hello} = data', 'const __object = __');
 // returns
-true
+true;
 ```
 
-##### __array
+##### \__array
 
 `ArrayPattern` or `ArrayExpression` with any count of `elements`.
 
@@ -75,10 +77,10 @@ compare('const [] = data', 'const __array = __');
 compare('const [hello] = data', 'const __array = __');
 compare('const hello = [data]', 'const __ = __array');
 // returns
-true
+true;
 ```
 
-##### __args, __args_a
+##### \__args, \__args_a
 
 Any count of `arguments`:
 
@@ -87,10 +89,10 @@ compare('(a, b, c) => {}', '(__args) => {}');
 compare('(a, b) => {}', '(__args) => {}');
 compare('() => {}', '(__args) => {}');
 // returns
-true
+true;
 ```
 
-##### __imports
+##### \__imports
 
 Any count of `imports`:
 
@@ -98,21 +100,24 @@ Any count of `imports`:
 compare('import React, {Component} from "react"', 'import __imports from "react"');
 ```
 
-##### "__"
+##### "\__"
+
 Any string literal.
 
 ```js
 compare('const a = "hello"', 'const __ = "__"');
 ```
 
-##### __a
+##### \__a
+
 Linked literal
 
 ```js
 compare('const __a = "hello"', 'const __a = "hello"');
 ```
 
-##### "__a"
+##### "\__a"
+
 Linked string literal.
 
 ```js
@@ -120,50 +125,53 @@ compare('const a = "hello"', 'const __a = "__b"');
 ```
 
 ##### `__a`
+
 Linked template literal.
 
 ```js
 compare('const a = `hello`', 'const __a = `__b`');
 // returns
-true
+true;
 ```
 
-##### __body
+##### \__body
+
 Any `BlockStatement`.
 
 ```js
 compare('const a = () => 0', 'const a = () => __body');
 // returns
-false
+false;
 
 compare('const a = () => {}', 'const a = () => __body');
 // returns
-true
+true;
 ```
 
-##### __nop
+##### \__nop
+
 Any `Function` with no `arguments` and empty body;
 
 ```js
-compare('const a = () => {}', 'const __a = __nop);
+compare('const a = () => {}', 'const __a = __nop');
 // returns
-true
+true;
 
 compare('const a = async () => {}', 'const a = __nop');
 // returns
-true
+true;
 ```
 
-##### __identifier
-Any `Identifier
+##### \__identifier
+
+Any \`Identifier
 
 ```js
 compare('const a = 5', 'const __identifier = 5');
 // returns
-true
+true;
 ```
 
 ## License
 
 MIT
-

@@ -48,8 +48,9 @@ module.exports = (info = {}) => {
     const resultOptions = merge(
         readCodeMods(),
         readRules(dir, rulesdir),
-        mergedMatch,
         mergedOptions,
+        mergedMatch,
+        options,
         customMatch,
     );
     

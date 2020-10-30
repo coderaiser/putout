@@ -3,7 +3,10 @@
 const memo = require('nano-memoize');
 
 const isEnabled = require('./is-enabled');
-const loadPlugin = require('./load-plugin');
+const {
+    loadPlugin,
+    loadProcessor,
+} = require('./load');
 const parsePluginNames = require('./parse-plugin-names');
 const parseRules = require('./parse-rules');
 const validateRules = require('./validate-rules');
@@ -35,14 +38,28 @@ const mergeRules = ([rule, plugin], rules) => {
     };
 };
 
-module.exports.loadPlugins = memo(load);
+module.exports.loadProcessors = memo((options) => {
+    check(options);
+    
+    const {
+        processors = [],
+    } = options;
+    
+    const list = [];
+    const namespace = 'putout';
+    
+    for (const name of processors) {
+        list.push(loadProcessor({name, namespace}));
+    }
+    
+    return list;
+});
 
-function load(options) {
+module.exports.loadPlugins = memo((options) => {
     check(options);
     
     const {
         pluginNames = [],
-        cache = true,
         rules = {},
     } = options;
     
@@ -52,7 +69,6 @@ function load(options) {
     const items = parsePluginNames(pluginNames);
     const plugins = loadPlugins({
         items,
-        cache,
         loadedRules,
     });
     
@@ -76,7 +92,7 @@ function load(options) {
     }
     
     return result;
-}
+});
 
 function getLoadedRules(rules) {
     const loadedRules = [];
@@ -116,7 +132,7 @@ function splitRule(rule) {
     ];
 }
 
-function loadPlugins({items, cache, loadedRules}) {
+function loadPlugins({items, loadedRules}) {
     const plugins = [];
     
     for (const [rule, itemPlugin] of items) {
@@ -128,7 +144,6 @@ function loadPlugins({items, cache, loadedRules}) {
         const plugin = itemPlugin || loadPlugin({
             name,
             namespace,
-            pluginCache: cache,
         });
         
         const {rules} = plugin;

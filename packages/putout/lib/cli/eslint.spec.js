@@ -105,7 +105,7 @@ test('putout: eslint: fix: cache', async (t) => {
         fix: true,
     });
     
-    const expected = `const t = 'hi'\n`;
+    const expected = `const t = 'hi';\n`;
     
     t.deepEqual(result, expected);
     t.end();
@@ -344,7 +344,7 @@ test('putout: eslint: output', async (t) => {
         fix: true,
     });
     
-    t.equal(source, 'const a = 1;');
+    t.equal(source, 'const a = 1;\n');
     t.end();
 });
 

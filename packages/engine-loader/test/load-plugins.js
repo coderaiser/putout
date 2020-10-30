@@ -74,7 +74,7 @@ test('putout: loader: can not find', (t) => {
         ],
     });
     
-    const expected = 'Plugin "putout-plugin-xxx could not be found!';
+    const expected = 'Plugin "putout-plugin-xxx" could not be found!';
     
     t.equal(e.message, expected, 'should equal');
     t.end();

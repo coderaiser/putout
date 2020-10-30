@@ -1,6 +1,7 @@
 'use strict';
 
 const wrap = require('./wrap');
+const markdown = require('./markdown');
 
 const getRule = (a) => ({
     [a]: require(`./${a}`),
@@ -27,24 +28,28 @@ module.exports.rules = {
 const config = require('@putout/eslint-config');
 const {rules} = config;
 
-module.exports.configs = {
-    recommended: {
-        ...config,
-        rules: {
-            ...rules,
-            'no-debugger': 'off',
-            'no-unused-vars': 'off',
-            'putout/single-property-destructuring': 'error',
-            'putout/multiple-properties-destructuring': 'error',
-            'putout/for-of-multiple-properties-destructuring': 'error',
-            'putout/long-properties-destructuring': 'error',
-            'putout/destructuring-as-function-argument': 'error',
-            'putout/align-spaces': 'error',
-            'putout/keyword-spacing': 'error',
-            'putout/newline-function-call-arguments': 'error',
-            'putout/function-declaration-paren-newline': 'error',
-            'putout/remove-newline-after-default-import': 'error',
-            'putout/putout': 'error',
-        },
+const recommended = {
+    ...config,
+    rules: {
+        ...rules,
+        'no-debugger': 'off',
+        'no-unused-vars': 'off',
+        'putout/single-property-destructuring': 'error',
+        'putout/multiple-properties-destructuring': 'error',
+        'putout/for-of-multiple-properties-destructuring': 'error',
+        'putout/long-properties-destructuring': 'error',
+        'putout/destructuring-as-function-argument': 'error',
+        'putout/align-spaces': 'error',
+        'putout/keyword-spacing': 'error',
+        'putout/newline-function-call-arguments': 'error',
+        'putout/function-declaration-paren-newline': 'error',
+        'putout/remove-newline-after-default-import': 'error',
+        'putout/putout': 'error',
     },
+    ...markdown,
 };
+
+module.exports.configs = {
+    recommended,
+};
+

@@ -1,7 +1,7 @@
 'use strict';
 
 const tryCatch = require('try-catch');
-const once = require('once');
+const memo = require('nano-memoize');
 const tryToCatch = require('try-to-catch');
 
 const [, eslint] = tryCatch(require, 'eslint');
@@ -27,7 +27,7 @@ const cutNewLine = ({message}) => ({
     message: message.replace(/\n.*/, ''),
 });
 
-const getESLint = once(({fix}) => {
+const getESLint = memo(({fix}) => {
     const eslint = new ESLint({
         fix,
         overrideConfig: {

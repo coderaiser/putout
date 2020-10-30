@@ -15,6 +15,12 @@ const {version} = require('../../package');
 const {reRequire, stopAll} = mockRequire;
 const {parse} = JSON;
 
+const {
+    PLACE,
+    NO_FILES,
+    NO_PROCESSORS,
+} = require('./exit-codes');
+
 test('putout: cli: --raw', async (t) => {
     const logError = stub();
     const argv = [
@@ -166,7 +172,16 @@ test('putout: cli: --format: specified twice', async (t) => {
     });
     
     const processFile = stub().returns(process);
+    const getFormatter = stub().returns([
+        'dump',
+        {},
+    ]);
+    
+    const report = stub().returns(stub);
+    
     mockRequire('./process-file', processFile);
+    mockRequire('./formatter', {getFormatter});
+    mockRequire('./report', report);
     
     const cli = reRequire('.');
     
@@ -175,11 +190,12 @@ test('putout: cli: --format: specified twice', async (t) => {
         argv,
     });
     
-    const [arg] = processFile.args;
+    const [arg] = getFormatter.args;
     const [first] = arg;
-    const {format} = first;
     
-    t.equal(format, 'none', 'should use last passed formatter');
+    stopAll();
+    
+    t.equal(first, 'none', 'should use last passed formatter');
     t.end();
 });
 
@@ -194,11 +210,19 @@ test('putout: cli: --fresh', async (t) => {
     
     const {_defaultFileCache} = require('./cache-files');
     const cacheFiles = stub().returns(_defaultFileCache);
+    const getOptions = stub().returns({
+        formatter: 'dump',
+        dir: '.',
+        processors: [
+            'javascript',
+        ],
+    });
     
     mockRequire('./cache-files', cacheFiles);
+    mockRequire('./get-options', getOptions);
     
     reRequire('./get-files');
-    reRequire('./process-file');
+    
     const cli = reRequire('.');
     
     await runCli({
@@ -227,7 +251,7 @@ test('putout: cli: --raw: halt', async (t) => {
         argv,
     });
     
-    t.ok(halt.calledWith(1), 'should call halt');
+    t.ok(halt.calledWith(NO_FILES), 'should call halt');
     t.end();
 });
 
@@ -350,9 +374,12 @@ test('putout: cli: --fix --staged: exit code', async (t) => {
         code: '',
     });
     const processFile = stub().returns(process);
+    const {_defaultFileCache} = require('./cache-files');
+    const cacheFiles = stub().returns(_defaultFileCache);
     
     mockRequire('./get-files', getFiles);
     mockRequire('./process-file', processFile);
+    mockRequire('./cache-files', cacheFiles);
     
     mockRequire('./staged', {
         get,
@@ -474,7 +501,17 @@ test('putout: cli: tsx', async (t) => {
     ];
     
     const eslint = stub().returns(['', []]);
+    const getOptions = stub().returns({
+        dir: '.',
+        formatter: 'dump',
+        processors: [
+            'javascript',
+        ],
+    });
+    
     mockRequire('./eslint', eslint);
+    mockRequire('./get-options', getOptions);
+    
     reRequire('./process-file');
     const cli = reRequire('.');
     
@@ -626,7 +663,14 @@ test('putout: cli: fix', async (t) => {
     
     const processFile = stub().returns(process);
     const writeFile = stub();
+    const getOptions = stub().returns({
+        formatter: 'dump',
+        processors: [
+            'javascript',
+        ],
+    });
     
+    mockRequire('./get-options', getOptions);
     mockRequire('./process-file', processFile);
     
     const cli = reRequire('.');
@@ -640,6 +684,176 @@ test('putout: cli: fix', async (t) => {
     stopAll();
     
     t.ok(writeFile.calledWith(__filename, 'hello'));
+    t.end();
+});
+
+test('putout: cli: no processors', async (t) => {
+    const argv = [
+        __filename,
+        '--no-config',
+        '--no-ci',
+        '--no-cache',
+    ];
+    
+    const process = stub().returns({
+        places: [],
+        code: 'hello',
+    });
+    
+    const halt = stub();
+    const processFile = stub().returns(process);
+    const getOptions = stub().returns({
+        formatter: 'dump',
+        processors: [
+        ],
+    });
+    
+    mockRequire('./get-options', getOptions);
+    mockRequire('./process-file', processFile);
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        halt,
+    });
+    
+    stopAll();
+    
+    t.ok(halt.calledWith(NO_PROCESSORS));
+    t.end();
+});
+
+test('putout: cli: not fixable', async (t) => {
+    const argv = [
+        __filename,
+        '--no-config',
+        '--no-ci',
+        '--no-cache',
+    ];
+    
+    const getOptions = stub().returns({
+        formatter: 'dump',
+        processors: [
+        ],
+    });
+    
+    const runProcessors = stub().returns({
+        isProcessed: true,
+        places: [{
+            rule: 'eslint/null',
+            position: {
+                line: 1,
+                column: 1,
+            },
+        }],
+    });
+    
+    const setInfo = stub();
+    const fileCache = stub().returns({
+        setInfo,
+    });
+    
+    mockRequire('./get-options', getOptions);
+    mockRequire('./file-cache', fileCache);
+    mockRequire('@putout/engine-processor', {
+        runProcessors,
+    });
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+    });
+    
+    stopAll();
+    
+    t.notOk(setInfo.called, 'should not call fileCache.setInfo');
+    t.end();
+});
+
+test('putout: cli: fileCache: canUseCache', async (t) => {
+    const argv = [
+        __filename,
+        '--no-config',
+        '--no-ci',
+        '--no-cache',
+    ];
+    
+    const options = {
+        dir: __dirname,
+        formatter: 'dump',
+    };
+    
+    const getOptions = stub().returns(options);
+    
+    const canUseCache = stub().returns(true);
+    const getPlaces = stub().returns([]);
+    const reconcile = stub();
+    const fileCache = stub().returns({
+        canUseCache,
+        getPlaces,
+        reconcile,
+    });
+    
+    mockRequire('./get-options', getOptions);
+    mockRequire('./cache-files', fileCache);
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+    });
+    
+    stopAll();
+    
+    const expected = {
+        fix: false,
+        name: __filename,
+        options,
+    };
+    
+    t.ok(canUseCache.calledWith(expected), 'should not call fileCache.canUseCache');
+    t.end();
+});
+
+test('putout: cli: --debug', async (t) => {
+    const argv = [
+        __filename,
+        '--no-config',
+        '--no-ci',
+        '--no-cache',
+        '--debug',
+    ];
+    
+    const halt = stub();
+    const getOptions = stub().returns({
+        dir: __dirname,
+        formatter: 'dump',
+    });
+    
+    const name = join(__dirname, './fixture/parse-error.js');
+    const source = await readFile(name, 'utf8');
+    
+    const readFileStub = stub().returns(source);
+    
+    mockRequire('./get-options', getOptions);
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        halt,
+        readFile: readFileStub,
+    });
+    
+    stopAll();
+    
+    t.ok(halt.calledWith(PLACE));
     t.end();
 });
 

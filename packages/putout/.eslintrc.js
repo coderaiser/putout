@@ -5,8 +5,8 @@ module.exports = {
         sourceType: 'module',
     },
     extends: [
-        'plugin:putout/recommended',
         'plugin:node/recommended',
+        'plugin:putout/recommended',
     ],
     rules: {
         'node/no-unsupported-features/node-builtins': 'off',

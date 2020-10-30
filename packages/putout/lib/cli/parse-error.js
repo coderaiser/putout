@@ -20,15 +20,6 @@ module.exports.parseError = (e, {debug}) => {
     }];
 };
 
-module.exports.parseName = (e) => {
-    if (!e)
-        return '';
-    
-    const [stack] = parser.parse(e);
-    
-    return stack.fileName;
-};
-
 function cutBrackets(a) {
     const index = a.lastIndexOf('(');
     

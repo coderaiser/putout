@@ -3,9 +3,17 @@
     "formatter": ["progress-bar", {
         "minCount": 10
     }],
+    "processors": [
+        "javascript",
+        "markdown"
+    ],
     "match": {
         ".madrun.js": {
             "madrun": "on"
+        },
+        ".md": {
+            "remove-unused-expressions": "off",
+            "strict-mode": "off"
         },
         "webpack.config.js": {
             "webpack": "on"
@@ -32,6 +40,9 @@
     "ignore": [
         "node_modules",
         "fixture"
+    ],
+    "exclude": [
+        ".md"
     ],
     "rules": {
         "apply-top-level-await": "off",

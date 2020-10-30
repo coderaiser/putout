@@ -1,16 +1,23 @@
 # Putout [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/putout.svg?style=flat&longCache=true
-[BuildStatusIMGURL]:        https://img.shields.io/travis/coderaiser/putout/master.svg?style=flat&longCache=true
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/putout
-[NPMURL]:                   https://npmjs.org/package/putout "npm"
-[BuildStatusURL]:           https://travis-ci.org/coderaiser/putout  "Build Status"
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/putout "Dependency Status"
+[NPMIMGURL]: https://img.shields.io/npm/v/putout.svg?style=flat&longCache=true
 
-[CoverageURL]:              https://coveralls.io/github/coderaiser/putout?branch=master
-[CoverageIMGURL]:           https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
+[BuildStatusIMGURL]: https://img.shields.io/travis/coderaiser/putout/master.svg?style=flat&longCache=true
+
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/putout
+
+[NPMURL]: https://npmjs.org/package/putout "npm"
+
+[BuildStatusURL]: https://travis-ci.org/coderaiser/putout "Build Status"
+
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/putout "Dependency Status"
+
+[CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
+
+[CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
 Putout is a tool for identifying, reporting and fixing patterns found in JavaScript/JSX/Typescript/Flow code. It can:
+
 - remove unused `variables`;
 - remove unused `for-of variables`;
 - remove unused `typescripts` types;
@@ -152,6 +159,7 @@ putout lib --plugins remove-debugger,remove-unused-variables
 ## Environment variables
 
 `Putout` supports next `environment variables`:
+
 - `PUTOUT_FILES` - files that should be processed by putout, divided by ",";
 
 ```sh
@@ -219,19 +227,18 @@ const m = t + '!';
 console.log(t);
 `;
 
-const result = putout(source, {
+putout(source, {
     plugins: [
         'remove-unused-variables',
-    ]
+    ],
 });
 // returns
 `
 const t = 'hello';
 console.log(t);
-`
+`;
 ```
 
 ## License
 
 MIT
-

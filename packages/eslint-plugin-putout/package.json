@@ -34,12 +34,12 @@
   },
   "dependencies": {
     "@putout/eslint-config": "^4.0.0",
+    "eslint-plugin-node": "^11.0.0",
     "align-spaces": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^7.0.0",
     "eslint-plugin-eslint-plugin": "^2.1.0",
-    "eslint-plugin-node": "^11.0.0",
     "madrun": "^7.0.0",
     "mocha": "^5.2.0",
     "montag": "^1.0.0",

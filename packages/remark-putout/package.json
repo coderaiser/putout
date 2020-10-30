@@ -1,0 +1,56 @@
+{
+  "name": "remark-putout",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin for remark",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/putout.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage"
+  },
+  "dependencies": {
+    "remark-cli": "^9.0.0",
+    "unist-util-visit": "^2.0.3",
+    "try-catch": "^3.0.0"
+  },
+  "keywords": [
+    "putout",
+    "remark",
+    "remark-plugin",
+    "plugin"
+  ],
+  "devDependencies": {
+    "coveralls": "^3.0.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^5.0.1",
+    "madrun": "^7.0.0",
+    "nyc": "^15.0.1",
+    "remark": "^13.0.0",
+    "remark-parse": "^9.0.0",
+    "stringify": "^5.2.0",
+    "supertape": "^2.0.0",
+    "unified": "^9.2.0",
+    "vfile-reporter": "^6.0.1"
+  },
+  "peerDependencies": {
+    "putout": ">=10"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

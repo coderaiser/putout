@@ -1,19 +1,27 @@
 'use strict';
 
-const {resolve} = require('path');
+const {resolve, normalize} = require('path');
 
 const {red} = require('chalk');
 const yargsParser = require('yargs-parser');
 const {isCI} = require('ci-info');
+const memo = require('nano-memoize');
+const {runProcessors} = require('@putout/engine-processor');
 
 const merge = require('../merge');
 const processFile = require('./process-file');
 const getFiles = require('./get-files');
 const cacheFiles = require('./cache-files');
 const supportedFiles = require('./supported-files');
+const getFormatter = memo(require('./formatter').getFormatter);
+const getOptions = require('./get-options');
+const report = require('./report')();
+
 const {
     PLACE,
     STAGE,
+    NO_FILES,
+    NO_PROCESSORS,
 } = require('./exit-codes');
 
 const cwd = process.cwd();
@@ -22,13 +30,14 @@ const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
 const {isArray} = Array;
 const maybeFirst = (a) => isArray(a) ? a.pop() : a;
-const plugins = (a) => isArray(a) ? a : a.split(',');
+const maybeArray = (a) => isArray(a) ? a : a.split(',');
+const isParsingError = ({rule}) => rule === 'eslint/null';
 
 module.exports = async ({argv, halt, log, write, logError, readFile, writeFile}) => {
     const args = yargsParser(argv, {
         coerce: {
             format: maybeFirst,
-            plugins,
+            plugins: maybeArray,
         },
         boolean: [
             'ci',
@@ -104,6 +113,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         fresh,
         cache,
         transform,
+        plugins,
     } = args;
     
     const exit = getExit({
@@ -146,7 +156,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     const [e, names] = await getFiles(globFiles);
     
     if (e)
-        return exit(e);
+        return exit(NO_FILES, e);
     
     if (!names.length)
         return exit();
@@ -160,8 +170,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         debug,
         fix,
         fileCache,
-        rulesdir,
-        format,
         isFlow,
         isJSX,
         fixCount,
@@ -173,15 +181,14 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             enableAll,
         },
         
-        exit,
         log,
         logError,
         write,
         transform,
-        noConfig: !args.config,
-        plugins: args.plugins,
+        plugins,
     };
     
+    const noConfig = !args.config;
     const rawPlaces = [];
     
     const process = processFile(options);
@@ -192,16 +199,72 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         const resolvedName = resolve(name)
             .replace(/^\./, cwd);
         
-        const source = await readFile(resolvedName, 'utf8');
-        const {places, code} = await process({
+        const options = getOptions({
             name: resolvedName,
-            source,
+            rulesdir,
+            noConfig,
+            transform,
+            plugins,
+        });
+        
+        const {formatter} = options;
+        const [currentFormat, formatterOptions] = getFormatter(format || formatter, exit);
+        const rawSource = await readFile(resolvedName, 'utf8');
+        
+        if (fileCache.canUseCache({fix, options, name})) {
+            const places = fileCache.getPlaces(name);
+            const line = report(currentFormat, {
+                report,
+                formatterOptions,
+                name: normalize(name),
+                source: rawSource,
+                places,
+                index,
+                count: length,
+            });
+            
+            write(line || '');
+            rawPlaces.push(places);
+            continue;
+        }
+        
+        const {
+            isProcessed,
+            places,
+            processedSource,
+        } = await runProcessors({
+            name: resolvedName,
+            process,
+            options,
+            rawSource,
             index,
             length,
         });
         
-        if (fix && source !== code)
-            await writeFile(name, code);
+        const line = report(currentFormat, {
+            report,
+            formatterOptions,
+            name: normalize(name),
+            source: rawSource,
+            places,
+            index,
+            count: length,
+        });
+        
+        write(line || '');
+        
+        if (!isProcessed)
+            exit(NO_PROCESSORS, Error(`No processors found for ${name}`));
+        
+        if (fix && rawSource !== processedSource) {
+            fileCache.removeEntry(name);
+            await writeFile(name, processedSource);
+        }
+        
+        const fixable = !places.filter(isParsingError).length;
+        
+        if (fixable)
+            fileCache.setInfo(name, places, options);
         
         rawPlaces.push(places);
     }
@@ -228,16 +291,16 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         return exit(PLACE);
 };
 
-const getExit = ({halt, raw, logError}) => (e) => {
-    if (!e)
+const getExit = ({halt, raw, logError}) => (code, e) => {
+    if (!code)
         return halt(0);
     
-    if (typeof e === 'number')
-        return halt(e);
+    if (!e)
+        return halt(code);
     
     const message = raw ? e : red(e.message);
     
     logError(message);
-    halt(1);
+    halt(code);
 };
 
