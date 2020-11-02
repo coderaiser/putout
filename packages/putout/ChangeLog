@@ -1,3 +1,10 @@
+2020.11.02, v11.0.0
+
+feature:
+- (putout) add processors
+- (putout) cli: move out readFile, writeFile from process-file
+
+
 2020.10.29, v10.5.1
 
 feature:
