@@ -14,3 +14,8 @@ test('plugin-webpack: convert-query-loader-to-use: transform', (t) => {
     t.end();
 });
 
+test('plugin-webpack: convert-query-loader-to-use: transform', (t) => {
+    t.transform('couple-queries');
+    t.end();
+});
+

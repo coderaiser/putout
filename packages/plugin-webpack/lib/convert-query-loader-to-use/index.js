@@ -49,14 +49,26 @@ module.exports.traverse = ({push}) => {
     };
 };
 
+function parseValue(value) {
+    if (isNaN(value))
+        return StringLiteral(value);
+    
+    return NumericLiteral(Number(value));
+}
+
 function buildObject(name, options) {
-    const [key, value] = options.split('=');
-    const numeric = NumericLiteral(Number(value));
+    const allOptions = options.split('&');
+    const properties = [];
+    
+    for (const option of allOptions) {
+        const [key, value] = option.split('=');
+        const parsed = parseValue(value);
+        
+        properties.push(ObjectProperty(Identifier(key), parsed));
+    }
     
     const loaderProp = ObjectProperty(Identifier('loader'), StringLiteral(name));
-    const optionsProp = ObjectProperty(Identifier('options'), ObjectExpression([
-        ObjectProperty(Identifier(key), numeric),
-    ]));
+    const optionsProp = ObjectProperty(Identifier('options'), ObjectExpression(properties));
     
     const object = ObjectExpression([
         loaderProp,
