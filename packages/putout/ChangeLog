@@ -1,3 +1,16 @@
+2020.11.04, v11.0.3
+
+fix:
+- (eslint-plugin-putout) peerDependencies: putout: 9 -> 11
+
+feature:
+- (package) @putout/plugin-strict-mode v2.0.0
+- (@putout/plugin-madrun) add-madrun-to-lint: exclude .*.js
+- (package) @putout/plugin-convert-object-assign-to-merge-spread v5.0.0
+- (@putout/plugin-convert-object-assign-to-merge-spread) drop support of node < 12
+- (@putout/plugin-convert-object-assign-to-merge-spread) exclude assign with one parameter: Object.assign({}, __)
+
+
 2020.11.03, v11.0.2
 
 feature:
