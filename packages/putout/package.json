@@ -149,7 +149,6 @@
     "once": "^1.4.0",
     "try-catch": "^3.0.0",
     "try-to-catch": "^3.0.0",
-    "tryrequire": "^3.0.0",
     "yargs-parser": "^20.0.0"
   },
   "keywords": [
