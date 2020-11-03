@@ -12,20 +12,32 @@ const isDot = (a) => a === 'putout .';
 
 module.exports.report = () => '"lint" should check ".madrun.js"';
 
-module.exports.fix = ({line}) => {
-    if (isStringLiteral(line)) {
-        const result = addMadrun(line.value);
+module.exports.fix = ({node}) => {
+    if (isStringLiteral(node)) {
+        const result = addMadrun(node.value);
         
-        line.value = result;
-        line.raw = result;
+        node.value = result;
+        node.raw = result;
         return;
     }
     
-    const result = addMadrun(line.value.raw);
+    const result = addMadrun(node.value.raw);
     
-    line.value.raw = result;
-    line.value.cooked = result;
+    node.value.raw = result;
+    node.value.cooked = result;
 };
+
+function getValue(body) {
+    if (isStringLiteral(body))
+        return [body, body.value];
+    
+    if (body.expressions.length)
+        return [body, ''];
+    
+    const [line] = body.quasis;
+    
+    return [line, line.value.raw];
+}
 
 module.exports.traverse = ({push}) => {
     return {
@@ -39,30 +51,17 @@ module.exports.traverse = ({push}) => {
             const value = lint.parentPath.get('value');
             
             const {body} = value.node;
+            const [node, str] = getValue(body);
             
-            if (isStringLiteral(body) && !isDot(body.value) && !isUM(body.value) && !/\.madrun/.test(body.value))
+            if (!str)
+                return;
+            
+            if (!isDot(str) && !isUM(str) && !/\.madrun/.test(str) && !str.includes('.*.js'))
                 return push({
                     path: rightPath,
                     lint,
-                    line: body,
+                    node,
                 });
-            
-            if (!isTemplateLiteral(body))
-                return;
-            
-            if (body.expressions.length)
-                return;
-            
-            const [line] = body.quasis;
-            
-            if (isDot(line.value.raw) || isUM(line.value.raw) || line.value.raw.includes('.madrun'))
-                return;
-            
-            push({
-                path: rightPath,
-                lint,
-                line,
-            });
         },
     };
 };
