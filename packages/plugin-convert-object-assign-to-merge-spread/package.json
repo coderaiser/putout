@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-convert-object-assign-to-merge-spread",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert Object.assign to merge spead",
   "homepage": "http://github.com/coderaiser/putout",
