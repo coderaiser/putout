@@ -59,7 +59,13 @@ test('madrun: add madrun to lint: no transform: dot: template', (t) => {
     t.noTransform('dot-template');
     t.end();
 });
+
 test('madrun: add madrun to lint: no transform: glob', (t) => {
     t.noTransform('glob');
+    t.end();
+});
+
+test('madrun: add madrun to lint: no transform: fn', (t) => {
+    t.noTransform('fn');
     t.end();
 });
