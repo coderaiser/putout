@@ -50,7 +50,7 @@
   },
   "peerDependencies": {
     "eslint": ">=7",
-    "putout": ">=9.0.0"
+    "putout": ">=11.0.0"
   },
   "license": "MIT",
   "publishConfig": {
