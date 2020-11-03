@@ -52,7 +52,7 @@
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-putout": "^5.0.1",
+    "eslint-plugin-putout": "^6.0.0",
     "espree": "^7.0.0",
     "esprima": "^4.0.1",
     "just-camel-case": "^4.0.2",
