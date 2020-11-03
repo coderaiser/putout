@@ -1,3 +1,11 @@
+2020.11.03, v11.0.2
+
+feature:
+- (putout) md: disable apply-shorthand-properties, remove-unused-variables
+- (@putout/plugin-webpack) convert-query-loader-to-use: add support of couple queries
+- (@putout/plugin-madrun) add-madrun-to-lint: add support of dot
+
+
 2020.11.03, v11.0.1
 
 fix:
