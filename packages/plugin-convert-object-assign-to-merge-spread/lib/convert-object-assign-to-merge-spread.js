@@ -38,6 +38,10 @@ module.exports.include = () => [
     'Object.assign(__args)',
 ];
 
+module.exports.exclude = () => [
+    'Object.assign({}, __)',
+];
+
 module.exports.filter = ({node}) => {
     const [first] = node.arguments;
     

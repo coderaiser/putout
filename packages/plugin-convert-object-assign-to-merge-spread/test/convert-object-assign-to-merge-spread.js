@@ -34,3 +34,8 @@ test('plugin-convert-object-assign-to-merge-spread: transform: spread', (t) => {
     t.end();
 });
 
+test('plugin-convert-object-assign-to-merge-spread: transform: empty', (t) => {
+    t.noTransform('empty');
+    t.end();
+});
+
