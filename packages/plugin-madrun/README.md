@@ -1,10 +1,12 @@
 # @putout/plugin-madrun [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-madrun.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-madrun"npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-madrun.svg?style=flat&longCache=true
 
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-madrun
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-madrun
+[NPMURL]: https://npmjs.org/package/@putout/plugin-madrun"npm"
+
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-madrun
+
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-madrun
 
 `putout` plugin adds ability to fix issues with [madrun](https://github.com/coderaiser/madrun) config file.
 
@@ -46,7 +48,7 @@ Add `.putout.json` with:
 
 ```js
 module.exports = {
-    'hello': 'world'
+    hello: 'world',
 };
 ```
 
@@ -54,9 +56,10 @@ module.exports = {
 
 ```js
 module.exports = {
-    'hello': () => 'world'
+    hello: () => 'world',
 };
 ```
+
 # add-fix-lint-
 
 ## ❌ Incorrect code example
@@ -65,7 +68,7 @@ module.exports = {
 const {run} = require('madrun');
 
 module.exports = {
-    'lint': 'putout lib test',
+    lint: 'putout lib test',
 };
 ```
 
@@ -86,7 +89,7 @@ module.exports = {
 
 ```js
 module.exports = {
-    'lint': 'putout lib test',
+    lint: 'putout lib test',
 };
 ```
 
@@ -96,7 +99,7 @@ module.exports = {
 const {run} = require('madrun');
 
 module.exports = {
-    'lint': 'putout lib test',
+    lint: 'putout lib test',
 };
 ```
 
@@ -106,7 +109,7 @@ module.exports = {
 
 ```js
 module.exports = {
-    'lint': () => `eslint lib test --ignore-pattern test/fixture`,
+    lint: () => `eslint lib test --ignore-pattern test/fixture`,
 };
 ```
 
@@ -114,7 +117,7 @@ module.exports = {
 
 ```js
 module.exports = {
-    'lint': () => `eslint lib test madrun.js --ignore-pattern test/fixture`,
+    lint: () => `eslint lib test madrun.js --ignore-pattern test/fixture`,
 };
 ```
 
@@ -124,7 +127,7 @@ module.exports = {
 
 ```js
 module.exports = {
-    'hello': () => run(['a']),
+    hello: () => run(['a']),
 };
 ```
 
@@ -132,7 +135,7 @@ module.exports = {
 
 ```js
 module.exports = {
-    'hello': () => run('a'),
+    hello: () => run('a'),
 };
 ```
 
@@ -142,7 +145,7 @@ module.exports = {
 
 ```js
 module.exports = {
-    'lint': 'eslint lib test --ignore test/fixture',
+    lint: 'eslint lib test --ignore test/fixture',
 };
 ```
 
@@ -150,11 +153,10 @@ module.exports = {
 
 ```js
 module.exports = {
-    'lint': 'putout lib test',
+    lint: 'putout lib test',
 };
 ```
 
 ## License
 
 MIT
-

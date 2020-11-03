@@ -1,7 +1,6 @@
 'use strict';
 
 const {types} = require('putout');
-
 const {
     isStringLiteral,
     isTemplateLiteral,
@@ -30,6 +29,9 @@ module.exports.fix = ({node}) => {
 function getValue(body) {
     if (isStringLiteral(body))
         return [body, body.value];
+    
+    if (!isTemplateLiteral(body))
+        return [body, ''];
     
     if (body.expressions.length)
         return [body, ''];

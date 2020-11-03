@@ -2,8 +2,8 @@
 
 module.exports = {
     extends: [
-        'plugin:putout/recommended',
         'plugin:node/recommended',
+        'plugin:putout/recommended',
     ],
     plugins: [
         'node',
