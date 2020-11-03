@@ -17,8 +17,8 @@ module.exports = {
         const names = [
             'bin',
             'lib',
-            '.madrun.js',
-            '.eslintrc.js',
+            '.*.js',
+            '*.md',
             'test',
         ].join(' ');
         
