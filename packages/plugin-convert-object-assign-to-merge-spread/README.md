@@ -21,7 +21,7 @@ npm i @putout/plugin-convert-object-assign-to-merge-spread -D
 ```json
 {
     "rules": {
-        "convert-object-assign-to-merge-spread": true
+        "convert-object-assign-to-merge-spread": "on"
     }
 }
 ```
