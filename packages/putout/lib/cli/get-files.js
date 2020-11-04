@@ -1,5 +1,6 @@
 'use strict';
 
+const {normalize} = require('path');
 const {lstat} = require('fs').promises;
 
 const fastGlob = require('fast-glob');
@@ -19,7 +20,8 @@ async function getFiles(args) {
     const files = await Promise.all(promises);
     const mergedFiles = mergeArrays(files);
     
-    return rmDuplicates(mergeArrays(mergedFiles));
+    return rmDuplicates(mergeArrays(mergedFiles))
+        .map(normalize);
 }
 
 const globOptions = {

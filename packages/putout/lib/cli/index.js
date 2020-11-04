@@ -1,6 +1,6 @@
 'use strict';
 
-const {resolve, normalize} = require('path');
+const {resolve} = require('path');
 
 const {red} = require('chalk');
 const yargsParser = require('yargs-parser');
@@ -216,7 +216,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             const line = report(currentFormat, {
                 report,
                 formatterOptions,
-                name: normalize(name),
+                name,
                 source: rawSource,
                 places,
                 index,
@@ -244,7 +244,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         const line = report(currentFormat, {
             report,
             formatterOptions,
-            name: normalize(name),
+            name,
             source: rawSource,
             places,
             index,

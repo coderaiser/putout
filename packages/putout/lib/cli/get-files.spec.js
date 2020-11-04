@@ -57,6 +57,36 @@ test('putout: getFiles', async (t) => {
     t.end();
 });
 
+test('putout: getFiles: normalize', async (t) => {
+    const {lstat} = fs;
+    
+    fs.lstat = stub().returns({
+        isDirectory: stub().returns(false),
+    });
+    
+    const fastGlob = stub().returns([
+        './/get-files.js',
+        './/get-files.spec.js',
+    ]);
+    
+    mockRequire('fast-glob', fastGlob);
+    
+    const getFiles = reRequire('./get-files');
+    
+    const [, files] = await getFiles(['**/get-files*.js']);
+    const result = files.map(rmStart);
+    const expected = [
+        'get-files.js',
+        'get-files.spec.js',
+    ];
+    
+    stopAll();
+    fs.lstat = lstat;
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: getFiles: name', async (t) => {
     const {lstat} = fs;
     
