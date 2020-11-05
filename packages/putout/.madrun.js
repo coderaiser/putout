@@ -8,7 +8,7 @@ const env = {
 };
 
 module.exports = {
-    'wisdom': () => run(['lint', 'test']),
+    'wisdom': () => run(['lint', 'coverage']),
     'test:raw': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'test': () => run('test:raw', '', env),
     
