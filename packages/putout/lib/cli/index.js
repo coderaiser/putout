@@ -31,7 +31,8 @@ const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 const {isArray} = Array;
 const maybeFirst = (a) => isArray(a) ? a.pop() : a;
 const maybeArray = (a) => isArray(a) ? a : a.split(',');
-const isParsingError = ({rule}) => rule === 'eslint/null';
+const isCrash = (rule) => /^crash/.test(rule);
+const isParsingError = ({rule}) => isCrash(rule) || rule === 'eslint/null';
 
 module.exports = async ({argv, halt, log, write, logError, readFile, writeFile}) => {
     const args = yargsParser(argv, {

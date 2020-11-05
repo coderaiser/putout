@@ -774,6 +774,55 @@ test('putout: cli: not fixable', async (t) => {
     t.end();
 });
 
+test('putout: cli: setInfo: crash', async (t) => {
+    const argv = [
+        __filename,
+        '--no-config',
+        '--no-ci',
+        '--no-cache',
+    ];
+    
+    const getOptions = stub().returns({
+        formatter: 'dump',
+        processors: [
+        ],
+    });
+    
+    const runProcessors = stub().returns({
+        isProcessed: true,
+        places: [{
+            rule: 'crash/promises/add-return-await',
+            position: {
+                line: 1,
+                column: 1,
+            },
+        }],
+    });
+    
+    const setInfo = stub();
+    const fileCache = stub().returns({
+        setInfo,
+    });
+    
+    mockRequire('./get-options', getOptions);
+    mockRequire('./file-cache', fileCache);
+    mockRequire('@putout/engine-processor', {
+        runProcessors,
+    });
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+    });
+    
+    stopAll();
+    
+    t.notOk(setInfo.called, 'should not call fileCache.setInfo');
+    t.end();
+});
+
 test('putout: cli: fileCache: canUseCache', async (t) => {
     const argv = [
         __filename,
