@@ -8,6 +8,7 @@ const {
 
 const isUM = (a) => a.includes(' -um');
 const isDot = (a) => a === 'putout .';
+const isJS = (a) => a.includes('*.js');
 
 module.exports.report = () => '"lint" should check ".madrun.js"';
 
@@ -58,7 +59,7 @@ module.exports.traverse = ({push}) => {
             if (!str)
                 return;
             
-            if (!isDot(str) && !isUM(str) && !/\.madrun/.test(str) && !str.includes('.*.js'))
+            if (!isJS(str) && !isDot(str) && !isUM(str) && !/\.madrun/.test(str))
                 return push({
                     path: rightPath,
                     lint,

@@ -1,6 +1,5 @@
 'use strict';
 
-/* eslint node/no-unpublished-require:0 */
 const test = require('@putout/test')(__dirname, {
     'add-madrun-to-lint': require('.'),
 });
@@ -65,7 +64,13 @@ test('madrun: add madrun to lint: no transform: glob', (t) => {
     t.end();
 });
 
+test('madrun: add madrun to lint: no transform: star', (t) => {
+    t.noTransform('star');
+    t.end();
+});
+
 test('madrun: add madrun to lint: no transform: fn', (t) => {
     t.noTransform('fn');
     t.end();
 });
+
