@@ -8,6 +8,7 @@ module.exports = {
         files: ['*.md'],
         rules: {
             'no-undef': 'off',
+            'no-multi-spaces': 'off',
             'eol-last': 'off',
             'quotes': 'off',
             'node/no-extraneous-require': 'off',
