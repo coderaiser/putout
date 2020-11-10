@@ -31,13 +31,7 @@ test('plugin-convert-commonjs-to-esm: require: transform: relative', (t) => {
 });
 
 test('plugin-convert-commonjs-to-esm: require: transform: json', (t) => {
-    // template.ast do not provide assertions field
-    // remove when support will appeer
-    //
-    // https://github.com/babel/babel/issues/12262
-    
-    // t.transform('json');
-    t.transform('json', `import info from './package.json';\n`);
+    t.transform('json');
     t.end();
 });
 

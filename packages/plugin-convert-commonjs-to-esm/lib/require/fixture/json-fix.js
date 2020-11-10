@@ -1,2 +1,1 @@
-import json from "./package.json" assert { type: "json" };
-
+import info from './package.json' assert {type: 'json'};
