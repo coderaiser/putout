@@ -1,10 +1,9 @@
 # @putout/traverse [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/traverse.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/traverse"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/traverse
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/traverse
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/traverse.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/traverse"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/traverse
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/traverse
 
 traverse AST-nodes
 
@@ -54,10 +53,9 @@ contains(node, [
     'for await (__ of __) __',
 ]);
 // returns
-true
+true;
 ```
 
 ## License
 
 MIT
-
