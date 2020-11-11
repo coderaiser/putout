@@ -5,6 +5,8 @@ const unified = require('unified');
 const markdown = require('remark-parse');
 const stringify = require('remark-stringify');
 
+const text = ({value}) => value;
+
 module.exports.extensions = [
     'md',
 ];
@@ -55,6 +57,10 @@ module.exports.postProcess = (rawSource, list) => {
             bullet: '-',
             listItemIndent: 'one',
             fences: true,
+            handlers: {
+                // prevent from [ -> \[ transformation
+                text,
+            },
         })
         .processSync(rawSource);
     
