@@ -1,3 +1,15 @@
+2020.11.11, v11.0.6
+
+fix:
+- (@putout/processor-markdown) disable: [ -> \[
+
+feature:
+- (putout) md: disable remove-console
+- (@putout/processor-markdown) links: prevent new lines
+- (eslint-plugin-putout) markdown: disable no-multi-space
+- (@putout/plugin-madrun) add-madrun-to-lint: add support of *.js
+
+
 2020.11.05, v11.0.5
 
 fix:
