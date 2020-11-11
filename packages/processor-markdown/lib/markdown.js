@@ -57,8 +57,8 @@ module.exports.postProcess = (rawSource, list) => {
             bullet: '-',
             listItemIndent: 'one',
             fences: true,
+            tightDefinitions: true,
             handlers: {
-                // prevent from [ -> \[ transformation
                 text,
             },
         })
