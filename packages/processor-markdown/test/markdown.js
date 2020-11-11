@@ -8,28 +8,40 @@ const {runProcessors} = require('@putout/engine-processor');
 const processFile = require('putout/lib/cli/process-file');
 
 test('putout: processor: markdown', async (t) => {
-    const {output, processedSource} = await doTheThing('js');
+    const {
+        output,
+        processedSource,
+    } = await doTheThing('js');
     
     t.equal(processedSource, output);
     t.end();
 });
 
 test('putout: processor: markdown: no js', async (t) => {
-    const {output, processedSource} = await doTheThing('no-js');
+    const {
+        output,
+        processedSource,
+    } = await doTheThing('no-js');
     
     t.equal(processedSource, output);
     t.end();
 });
 
-test('putout: processor: markdown: bracket: no "\["', async (t) => {
-    const {output, processedSource} = await doTheThing('bracket');
+test('putout: processor: markdown: bracket: no "\\["', async (t) => {
+    const {
+        output,
+        processedSource,
+    } = await doTheThing('bracket');
     
     t.equal(processedSource, output);
     t.end();
 });
 
 test('putout: processor: links: no new lines', async (t) => {
-    const {output, processedSource} = await doTheThing('links');
+    const {
+        output,
+        processedSource,
+    } = await doTheThing('links');
     
     t.equal(processedSource, output);
     t.end();
