@@ -137,7 +137,7 @@
     "deepmerge": "^4.0.0",
     "error-stack-parser": "^2.0.6",
     "fast-glob": "^3.2.2",
-    "file-entry-cache": "^5.0.1",
+    "file-entry-cache": "^6.0.0",
     "find-up": "^5.0.0",
     "fullstore": "^3.0.0",
     "ignore": "^5.0.4",
