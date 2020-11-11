@@ -1,3 +1,9 @@
+2020.11.11, v11.0.7
+
+feature:
+- (package) file-entry-cache v6.0.0
+
+
 2020.11.11, v11.0.6
 
 fix:
