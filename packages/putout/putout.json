@@ -15,7 +15,8 @@
             "remove-unused-expressions": "off",
             "apply-shorthand-properties": "off",
             "remove-unused-variables": "off",
-            "strict-mode": "off"
+            "strict-mode": "off",
+            "remove-console": "off"
         },
         "webpack.config.js": {
             "webpack": "on"
