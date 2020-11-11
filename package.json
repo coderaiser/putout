@@ -26,7 +26,7 @@
     "bootstrap": "madrun bootstrap",
     "report": "madrun report"
   },
-  "_husky": {
+  "husky": {
     "hooks": {
       "pre-commit": "putout --fix --staged -f progress --cache"
     }
