@@ -9,6 +9,7 @@ module.exports = {
         rules: {
             'no-undef': 'off',
             'no-multi-spaces': 'off',
+            'no-empty': 'off',
             'eol-last': 'off',
             'quotes': 'off',
             'node/no-extraneous-require': 'off',
