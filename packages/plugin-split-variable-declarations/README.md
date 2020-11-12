@@ -1,10 +1,9 @@
 # @putout/plugin-split-variable-declarations [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-split-variable-declarations.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-split-variable-declarations"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-split-variable-declarations
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-split-variable-declarations
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-split-variable-declarations.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-split-variable-declarations"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-split-variable-declarations
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-split-variable-declarations
 
 `putout` plugin adds ability to find and split variable declarations.
 
@@ -38,21 +37,20 @@ console.log(source);
 // outputs
 `
 let a, b;
-`
+`;
 
 const result = putout(source, {
     plugins: [
-        'split-variable-declarations'
-    ]
+        'split-variable-declarations',
+    ],
 });
 // returns
 `
 let a;
 let b;
-`
+`;
 ```
 
 ## License
 
 MIT
-
