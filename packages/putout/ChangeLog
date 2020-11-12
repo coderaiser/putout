@@ -1,3 +1,14 @@
+2020.11.12, v11.0.8
+
+fix:
+- (eslint-plugin-putout) engines: node v8 -> node v12
+
+feature:
+- (eslint-plugin-putout) markdown: disable: no-empty
+- (putout) md: disable remove-empty, remove-unused-for-of-variables, remove-useless-variables
+- (eslint-plugin-putout) markdown: disable: node/no-unsupported-features/es-syntax, node/no-missing-import
+
+
 2020.11.11, v11.0.7
 
 feature:
