@@ -12,9 +12,12 @@
             "madrun": "on"
         },
         ".md": {
-            "remove-unused-expressions": "off",
             "apply-shorthand-properties": "off",
+            "remove-unused-expressions": "off",
             "remove-unused-variables": "off",
+            "remove-useless-variables": "off",
+            "remove-empty": "off",
+            "remove-unused-for-of-variables": "off",
             "strict-mode": "off",
             "remove-console": "off"
         },
