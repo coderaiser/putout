@@ -18,7 +18,7 @@ npm i @putout/plugin-simplify-ternary -D
 ```json
 {
     "rules": {
-        "simplify-ternary": true
+        "simplify-ternary": "on"
     }
 }
 ```
