@@ -14,6 +14,11 @@ test('plugin-remove-boolean-from-logical-expressions: transform: logical', (t) =
     t.end();
 });
 
+test('plugin-remove-boolean-from-logical-expressions: transform: return', (t) => {
+    t.transform('return');
+    t.end();
+});
+
 test('plugin-remove-boolean-from-logical-expressions: transform: or', (t) => {
     t.noTransform('or');
     t.end();
