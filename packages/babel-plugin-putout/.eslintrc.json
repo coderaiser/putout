@@ -15,6 +15,6 @@
     "plugins": [
         "putout",
         "node",
-         "@babel/development"
+        "@babel/development"
     ]
 }

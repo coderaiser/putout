@@ -33,10 +33,10 @@
             "destructuring": "all"
         }],
         "prefer-destructuring": ["error", {
-             "AssignmentExpression": {
-                 "array": true,
-                 "object": false
-             }
+            "AssignmentExpression": {
+                "array": true,
+                "object": false
+            }
         }],
         "indent": ["error", 4],
         "implicit-arrow-linebreak": "error",

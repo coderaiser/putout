@@ -39,7 +39,7 @@
             "remove-only": "on",
             "remove-skip": "on"
         },
-       ".mjs": {
+        ".mjs": {
             "strict-mode/add": "off"
         },
         ".tsx?": {

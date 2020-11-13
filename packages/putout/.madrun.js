@@ -18,6 +18,7 @@ module.exports = {
             'bin',
             'lib',
             '*.js',
+            '*.json',
             '*.md',
             'test',
         ].join(' ');
