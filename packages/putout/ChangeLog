@@ -1,3 +1,11 @@
+2020.11.14, v11.1.1
+
+feature:
+- (package) @putout/plugin-remove-boolean-from-logical-expressions v3.0.0
+- (@putout/plugin-remove-boolean-from-logical-expressions) drop support of node < 12, putout < 11
+- (@putout/plugin-remove-boolean-from-logical-expressions) improve support of "&& true" expression (joaquimserafim/is-json#15)
+
+
 2020.11.13, v11.1.0
 
 feature:
