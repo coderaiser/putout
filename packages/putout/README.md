@@ -1,19 +1,12 @@
 # Putout [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/putout.svg?style=flat&longCache=true
-
 [BuildStatusIMGURL]: https://img.shields.io/travis/coderaiser/putout/master.svg?style=flat&longCache=true
-
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/putout
-
 [NPMURL]: https://npmjs.org/package/putout "npm"
-
 [BuildStatusURL]: https://travis-ci.org/coderaiser/putout "Build Status"
-
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/putout "Dependency Status"
-
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
-
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
 Putout is a tool for identifying, reporting and fixing patterns found in JavaScript/JSX/Typescript/Flow code. It can:

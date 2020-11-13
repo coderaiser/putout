@@ -5,7 +5,8 @@
     }],
     "processors": [
         "javascript",
-        "markdown"
+        "markdown",
+        "json"
     ],
     "match": {
         ".madrun.js": {
@@ -18,11 +19,16 @@
             "remove-useless-variables": "off",
             "remove-empty": "off",
             "remove-unused-for-of-variables": "off",
-            "strict-mode": "off",
             "remove-console": "off"
+        },
+        "(.js|.jsx|.cjs)$": {
+            "strict-mode": "on"
         },
         "webpack.config.js": {
             "webpack": "on"
+        },
+        "eslintrc": {
+            "eslint": "on"
         },
         "bin/": {
             "remove-process-exit": "off",
@@ -54,8 +60,6 @@
         "apply-top-level-await": "off",
         "apply-optional-chaining": "off",
         "apply-nullish-coalescing": "off",
-        "madrun": "off",
-        "webpack": "off",
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",
         "convert-top-level-return": "off",
@@ -66,7 +70,11 @@
         "convert-throw": "off",
         "remove-only": "off",
         "remove-skip": "off",
-        "putout": "off"
+        "putout": "off",
+        "strict-mode": "off",
+        "eslint": "off",
+        "madrun": "off",
+        "webpack": "off"
     },
     "plugins": [
         "apply-destructuring",
@@ -79,6 +87,7 @@
         "extract-sequence-expressions",
         "madrun",
         "webpack",
+        "eslint",
         "remove-debugger",
         "remove-iife",
         "remove-only",

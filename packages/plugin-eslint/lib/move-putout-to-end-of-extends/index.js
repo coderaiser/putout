@@ -1,0 +1,39 @@
+'use strict';
+
+const {types} = require('putout');
+const {isStringLiteral} = types;
+
+module.exports.report = () => '"putout" should be in the end of the "extends" list';
+
+module.exports.match = () => ({
+    '__putout_processor_json(__a)': ({__a}) => {
+        const x = __a.properties.find(isExtends);
+        
+        if (!x)
+            return false;
+        
+        const {elements} = x.value;
+        const [first] = elements;
+        const {value} = first;
+        
+        return value.includes('putout');
+    },
+});
+
+module.exports.replace = () => ({
+    '__putout_processor_json(__a)': ({__a}, path) => {
+        const x = __a.properties.find(isExtends);
+        const {elements} = x.value;
+        
+        const first = elements.shift();
+        elements.push(first);
+        
+        return path;
+    },
+});
+
+function isExtends({key}) {
+    return isStringLiteral(key, {
+        value: 'extends',
+    });
+}
