@@ -103,7 +103,7 @@ module.exports._noConfigFound = noConfigFound;
 
 function convertToPlace({ruleId = 'parser', message, line = 'x', column = 'x'}) {
     return {
-        rule: `eslint/${ruleId}`,
+        rule: `${ruleId} (eslint)`,
         message,
         position: {
             line,

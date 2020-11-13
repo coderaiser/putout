@@ -16,7 +16,7 @@ test('putout: eslint: places', async (t) => {
     });
     
     const expected = [{
-        rule: 'eslint/semi',
+        rule: 'semi (eslint)',
         message: 'Missing semicolon.',
         position: {
             line: 1,
@@ -143,7 +143,7 @@ test('putout: eslint: parsing error', async (t) => {
     });
     
     const expected = [{
-        rule: 'eslint/null',
+        rule: 'null (eslint)',
         message: 'Parsing error: Unexpected token',
         position: {
             line: 1,
@@ -188,7 +188,7 @@ test('putout: eslint: config error: plugin missing', async (t) => {
     });
     
     const expected = [{
-        rule: 'eslint/parser',
+        rule: 'parser (eslint)',
         message: 'Plugin missing: zzz',
         position: {
             line: 'x',
@@ -235,7 +235,7 @@ test('putout: eslint: config error', async (t) => {
     });
     
     const expected = [{
-        rule: 'eslint/parser',
+        rule: 'parser (eslint)',
         message: 'hello',
         position: {
             line: 'x',
