@@ -3,6 +3,7 @@
 const {run} = require('madrun');
 
 module.exports = {
+    'wisdom': () => run(['lint', 'coverage']),
     'test': () => `mocha 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w rules -x ${run('test')}`,
     'lint': () => 'putout *.md *.json *.js lib/**/{*.js,*.json,*.md}',
