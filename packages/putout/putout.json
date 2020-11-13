@@ -5,8 +5,8 @@
     }],
     "processors": [
         "javascript",
-        "markdown",
-        "json"
+        "json",
+        "markdown"
     ],
     "match": {
         ".madrun.js": {
