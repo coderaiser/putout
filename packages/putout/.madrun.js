@@ -17,7 +17,7 @@ module.exports = {
         const names = [
             'bin',
             'lib',
-            '.*.js',
+            '*.js',
             '*.md',
             'test',
         ].join(' ');
