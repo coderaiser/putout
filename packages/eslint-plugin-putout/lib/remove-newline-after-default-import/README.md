@@ -24,4 +24,3 @@ import x, {
     b,
 } from 'y';
 ```
-

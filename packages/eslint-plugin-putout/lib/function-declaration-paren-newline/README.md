@@ -10,12 +10,12 @@ Examples of **incorrect** code for this rule:
 
 ```js
 function f(
-    {a, b, c}
+    {a, b, c},
 ) {}
 
 const fn = (
     {a, b, c},
-) => {}
+) => {};
 ```
 
 Examples of **correct** code for this rule:
@@ -23,13 +23,12 @@ Examples of **correct** code for this rule:
 ```js
 function f({a, b, c}) {}
 
-const fn = ({a, b, c}) => {}
+const fn = ({a, b, c}) => {};
 
 const fnWithCall = ({a, b, c}) => {
     return x(
         a,
         b,
     );
-}
+};
 ```
-

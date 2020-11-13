@@ -9,7 +9,7 @@ Examples of **incorrect** code for this rule:
 ```js
 for ({
     username,
-    password
+    password,
 } of users) {
 }
 ```
@@ -24,4 +24,3 @@ Examples of **correct** code for this rule:
 for ({username, password} of users) {
 }
 ```
-

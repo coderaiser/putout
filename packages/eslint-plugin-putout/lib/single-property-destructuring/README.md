@@ -10,7 +10,7 @@ Examples of **incorrect** code for this rule:
 
 ```js
 const {
-    username
+    username,
 } = user;
 ```
 
@@ -19,4 +19,3 @@ Examples of **correct** code for this rule:
 ```js
 const {username} = user;
 ```
-

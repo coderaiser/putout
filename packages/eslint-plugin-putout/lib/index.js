@@ -2,6 +2,7 @@
 
 const wrap = require('./wrap');
 const markdown = require('./markdown');
+const json = require('./json');
 
 const getRule = (a) => ({
     [a]: require(`./${a}`),
@@ -46,7 +47,13 @@ const recommended = {
         'putout/remove-newline-after-default-import': 'error',
         'putout/putout': 'error',
     },
-    ...markdown,
+    overrides: [
+        ...markdown,
+        ...json,
+    ],
+    plugins: [
+        'node',
+    ],
 };
 
 module.exports.configs = {

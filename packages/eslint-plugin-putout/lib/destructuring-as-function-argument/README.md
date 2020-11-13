@@ -13,13 +13,12 @@ const login = ({
     username,
     password,
 }) => {
-}
+};
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
 const login = ({username, password}) => {
-}
+};
 ```
-

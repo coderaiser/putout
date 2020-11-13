@@ -1,0 +1,8 @@
+{
+    "overrides": [{
+        "files": "*.md",
+        "rules": {
+            "putout/destructuring-as-function-argument": "off"
+        }
+    }]
+}

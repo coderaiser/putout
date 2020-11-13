@@ -21,7 +21,6 @@ Examples of **correct** code for this rule:
 ```js
 const {
     username,
-    password
+    password,
 } = user;
 ```
-

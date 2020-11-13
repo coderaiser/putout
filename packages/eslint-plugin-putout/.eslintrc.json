@@ -1,8 +1,18 @@
 {
+    "overrides": [{
+        "files": "*.md",
+        "parser": "@babel/eslint-parser",
+        "parserOptions": {
+            "requireConfigFile": false,
+            "plugins": [
+                "@babel/plugin-syntax-top-level-await"
+            ]
+        }
+    }],
     "extends": [
-        "plugin:putout/recommended",
         "plugin:node/recommended",
-        "plugin:eslint-plugin/recommended"
+        "plugin:eslint-plugin/recommended",
+        "plugin:putout/recommended"
     ],
     "plugins": [
         "putout",

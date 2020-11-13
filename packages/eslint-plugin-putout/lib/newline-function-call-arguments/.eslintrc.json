@@ -1,0 +1,9 @@
+{
+    "overrides": [{
+        "files": ["*.md"],
+        "rules": {
+            "function-paren-newline": "off",
+            "putout/newline-function-call-arguments": "off"
+        }
+    }]
+}

@@ -1,0 +1,8 @@
+{
+    "overrides": [{
+        "files": "*.md",
+        "rules": {
+            "putout/single-property-destructuring": "off"
+        }
+    }]
+}

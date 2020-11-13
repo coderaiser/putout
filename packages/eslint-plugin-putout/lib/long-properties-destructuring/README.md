@@ -19,4 +19,3 @@ const {
     isIdentifier,
 } = user;
 ```
-

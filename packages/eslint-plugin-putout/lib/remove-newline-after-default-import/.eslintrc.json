@@ -1,0 +1,8 @@
+{
+    "overrides": [{
+        "files": "*.md",
+        "rules": {
+            "putout/remove-newline-after-default-import": "off"
+        }
+    }]
+}

@@ -3,12 +3,7 @@
 const {RuleTester} = require('eslint');
 const montag = require('montag');
 
-const parseOptions = require('putout/lib/parse-options');
-
 const rule = require('.');
-
-const options = parseOptions();
-const {rules} = options;
 
 const ruleTester = new RuleTester({
     parserOptions: {
@@ -19,11 +14,8 @@ const ruleTester = new RuleTester({
 ruleTester.run('putout', rule, {
     valid: [{
         options: [{
-            ...options,
             rules: {
-                ...rules,
-                'remove-unused-variables': false,
-                'strict-mode': false,
+                'remove-unused-variables': 'off',
             },
         }],
         code: `const t = 'hi';`,
@@ -36,13 +28,6 @@ ruleTester.run('putout', rule, {
         code: `const t = 'hi';`,
     }],
     invalid: [{
-        options: [{
-            ...options,
-            rules: {
-                ...rules,
-                'strict-mode': false,
-            },
-        }],
         code: `const m = 'hi'`,
         output: '',
         errors: [{
@@ -50,6 +35,11 @@ ruleTester.run('putout', rule, {
         }],
     }, {
         code: `const t = 'hi'`,
+        options: [{
+            rules: {
+                'strict-mode': 'on',
+            },
+        }],
         output: `'use strict';`,
         errors: [{
             message: '"use strict" directive should be on top of commonjs file (strict-mode/add)',
@@ -58,10 +48,8 @@ ruleTester.run('putout', rule, {
         }],
     }, {
         options: [{
-            ...options,
             rules: {
-                ...rules,
-                'strict-mode': false,
+                'strict-mode': 'off',
             },
         }],
         code: montag`
