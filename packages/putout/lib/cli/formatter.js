@@ -1,6 +1,8 @@
 'use strict';
 
 const tryCatch = require('try-catch');
+const {NO_FORMATTER} = require('./exit-codes');
+
 const stub = () => () => {};
 
 const {isArray} = Array;
@@ -32,7 +34,7 @@ function getReporter(name, exit) {
     [e, reporter] = tryCatch(require, `putout-formatter-${name}`);
     
     if (e)
-        exit(e);
+        exit(NO_FORMATTER, e);
     
     return reporter;
 }
