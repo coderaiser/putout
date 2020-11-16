@@ -1,6 +1,7 @@
 'use strict';
 
 const {resolve} = require('path');
+const {readFileSync} = require('fs');
 
 const {red} = require('chalk');
 const yargsParser = require('yargs-parser');
@@ -32,7 +33,19 @@ const {isArray} = Array;
 const maybeFirst = (a) => isArray(a) ? a.pop() : a;
 const maybeArray = (a) => isArray(a) ? a : a.split(',');
 const isCrash = (rule) => /^crash/.test(rule);
-const isParsingError = ({rule}) => isCrash(rule) || rule === 'eslint/null';
+const isParsingError = ({rule}) => isCrash(rule);
+
+const createFormatterProxy = (options) => {
+    return new Proxy(options, {
+        get(target, name) {
+            if (target[name])
+                return target[name];
+            
+            if (name === 'source')
+                return readFileSync(target.name, 'utf8');
+        },
+    });
+};
 
 module.exports = async ({argv, halt, log, write, logError, readFile, writeFile}) => {
     const args = yargsParser(argv, {
@@ -210,24 +223,26 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         
         const {formatter} = options;
         const [currentFormat, formatterOptions] = getFormatter(format || formatter, exit);
-        const rawSource = await readFile(resolvedName, 'utf8');
         
         if (fileCache.canUseCache({fix, options, name})) {
             const places = fileCache.getPlaces(name);
-            const line = report(currentFormat, {
+            const formatterProxy = createFormatterProxy({
                 report,
                 formatterOptions,
                 name,
-                source: rawSource,
                 places,
                 index,
                 count: length,
             });
             
+            const line = report(currentFormat, formatterProxy);
+            
             write(line || '');
             rawPlaces.push(places);
             continue;
         }
+        
+        const rawSource = await readFile(resolvedName, 'utf8');
         
         const {
             isProcessed,
