@@ -9,9 +9,9 @@ const tryCatch = require('try-catch');
 const findUp = require('find-up');
 
 const {version} = require('../../../package.json');
-const containEslintPlugin = require('./contain-eslint-plugin');
 const isNoDefinition = require('./is-no-definition');
 const isParserError = require('./is-parser-error');
+const containEslintPlugin = require('../eslint/contain-eslint-plugin');
 
 const optionsHashCache = new WeakMap();
 const nodeVersion = process.version;

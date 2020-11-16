@@ -3,7 +3,7 @@
 const {
     eslintPluginRegExp,
     putoutPluginRegExp,
-} = require('../eslint');
+} = require('.');
 
 module.exports = (places) => {
     for (const {rule} of places) {

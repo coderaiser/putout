@@ -4,7 +4,7 @@ const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
 
-const eslint = require('./eslint');
+const eslint = require('.');
 
 const {reRequire, stopAll} = mockRequire;
 
@@ -31,7 +31,7 @@ test('putout: eslint: places', async (t) => {
 test('putout: eslint: no eslint', async (t) => {
     mockRequire('eslint', null);
     
-    const eslint = reRequire('./eslint');
+    const eslint = reRequire('.');
     
     const [, result] = await eslint({
         name: 'hello.js',
@@ -52,7 +52,7 @@ test('putout: eslint: config file', async (t) => {
     
     process.env.ESLINT_CONFIG_FILE = 'hello.js';
     
-    const eslint = reRequire('./eslint');
+    const eslint = reRequire('.');
     const [, places] = await eslint({
         name: 'hello.js',
         code: `const t = 'hi'\n`,
@@ -71,7 +71,7 @@ test('putout: eslint: config file', async (t) => {
 });
 
 test('putout: eslint: fix', async (t) => {
-    const eslint = reRequire('./eslint');
+    const eslint = reRequire('.');
     
     const [result] = await eslint({
         name: 'hello.js',
@@ -112,7 +112,7 @@ test('putout: eslint: fix: cache', async (t) => {
 });
 
 test('putout: eslint: no config error', (t) => {
-    const {_noConfigFound} = reRequire('./eslint');
+    const {_noConfigFound} = reRequire('.');
     
     const result = _noConfigFound(null, {
         messageTemplate: 'no-config-found',
@@ -123,7 +123,7 @@ test('putout: eslint: no config error', (t) => {
 });
 
 test('putout: eslint: no config', (t) => {
-    const {_noConfigFound} = reRequire('./eslint');
+    const {_noConfigFound} = reRequire('.');
     
     const config = {
         rules: {},
@@ -179,7 +179,7 @@ test('putout: eslint: config error: plugin missing', async (t) => {
         ESLint,
     });
     
-    const eslint = reRequire('./eslint');
+    const eslint = reRequire('.');
     
     const [, places] = await eslint({
         name: 'hello.js',
@@ -226,7 +226,7 @@ test('putout: eslint: config error', async (t) => {
         ESLint,
     });
     
-    const eslint = reRequire('./eslint');
+    const eslint = reRequire('.');
     
     const [, places] = await eslint({
         name: 'hello.js',
@@ -274,7 +274,7 @@ test('putout: eslint: no config found', async (t) => {
         ESLint,
     });
     
-    const eslint = reRequire('./eslint');
+    const eslint = reRequire('.');
     
     const [, places] = await eslint({
         name: 'hello.js',
@@ -310,7 +310,7 @@ test('putout: eslint: config: putout', async (t) => {
         ESLint,
     });
     
-    const eslint = reRequire('./eslint');
+    const eslint = reRequire('.');
     
     const [, places] = await eslint({
         name: 'hello.js',
