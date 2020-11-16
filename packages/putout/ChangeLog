@@ -1,3 +1,12 @@
+2020.11.16, v11.2.0
+
+feature:
+- (putout) formatter: show an error when can't load formatter
+- (@putout/formatter-memory) add
+- (putout) speed up lint with cache: readFile: every time -> only when needed
+- (eslint-plugin-putout) json: no-mulsti-spaces: off
+
+
 2020.11.16, v11.1.3
 
 fix:
