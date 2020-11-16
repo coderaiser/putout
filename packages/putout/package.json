@@ -44,7 +44,7 @@
     "@babel/traverse": "^7.1.6",
     "@babel/types": "^7.2.0",
     "@putout/compare": "^5.0.0",
-    "@putout/engine-loader": "^2.0.0",
+    "@putout/engine-loader": "^3.0.0",
     "@putout/engine-parser": "^2.0.0",
     "@putout/engine-processor": "^1.0.0",
     "@putout/engine-runner": "^8.0.0",
