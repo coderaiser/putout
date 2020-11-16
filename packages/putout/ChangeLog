@@ -1,3 +1,16 @@
+2020.11.16, v11.1.2
+
+fix:
+- (putout) file-cache: eslint/ -> (eslint)
+- (@putout/engine-loader) is-enabled: rule names cross
+
+feature:
+- (package) @putout/engine-loader v3.0.0
+- (@putout/processor-markdown) add support of json
+- (@putout/engine-processor) add support of extension field in preProcessor result
+- (@putout/engine-loader) drop support of node < 12
+
+
 2020.11.14, v11.1.1
 
 feature:
