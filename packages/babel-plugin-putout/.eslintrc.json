@@ -9,8 +9,8 @@
         "node/no-unsupported-features/es-syntax": "off"
     },
     "extends": [
-        "plugin:putout/recommended",
-        "plugin:node/recommended"
+        "plugin:node/recommended",
+        "plugin:putout/recommended"
     ],
     "plugins": [
         "putout",

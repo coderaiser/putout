@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = [{
-    files: '*.md',
+    files: '*.md{js}',
     rules: {
         'no-undef': 'off',
         'no-multi-spaces': 'off',

@@ -23,12 +23,12 @@
     ]
   },
   "scripts": {
+    "wisdom": "madrun wisdom",
     "test": "madrun test",
     "watch:test": "madrun watch:test",
-    "lint:lib": "madrun lint:lib",
     "lint": "madrun lint",
+    "lint:fresh": "madrun lint:fresh",
     "fix:lint": "madrun fix:lint",
-    "putout": "madrun putout",
     "coverage": "madrun coverage",
     "debug": "madrun debug"
   },
@@ -38,8 +38,6 @@
     "eslint-plugin-node": "^11.0.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.12.1",
-    "@babel/plugin-syntax-top-level-await": "^7.12.1",
     "eslint": "^7.0.0",
     "eslint-plugin-eslint-plugin": "^2.1.0",
     "madrun": "^7.0.0",

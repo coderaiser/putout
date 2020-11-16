@@ -17,7 +17,7 @@ Add `putout` to the plugins section of your `.eslintrc` configuration file. You 
 ```json
 {
     "extends": [
-        "plugin:putout/recommended",
+        "plugin:putout/recommended"
     ],
     "plugins": [
         "putout"
