@@ -1072,6 +1072,7 @@ The built-in formatter options are:
 - `progress`
 - `progress-bar`
 - `frame` (`codeframe` + `progress`)
+- `memory`
 
 | Package | Version | Dependencies |
 |---------|---------|--------------|
@@ -1083,6 +1084,7 @@ The built-in formatter options are:
 | [`@putout/formatter-codeframe`](/packages/formatter-codeframe) | [![npm](https://img.shields.io/npm/v/@putout/formatter-codeframe.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/formatter-codeframe) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/formatter-codeframe)](https://david-dm.org/coderaiser/putout?path=packages/formatter-codeframe) |
 | [`@putout/formatter-frame`](/packages/formatter-frame) | [![npm](https://img.shields.io/npm/v/@putout/formatter-frame.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/formatter-frame) | [![Dependency Status](https://david-dm.org/frame/putout.svg?path=packages/formatter-frame)](https://david-dm.org/frame/putout?path=packages/formatter-frame) |
 | [`@putout/formatter-eslint`](/packages/formatter-eslint) | [![npm](https://img.shields.io/npm/v/@putout/formatter-eslint.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/formatter-eslint) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/formatter-eslint)](https://david-dm.org/coderaiser/putout?path=packages/formatter-eslint) |
+| [`@putout/formatter-memory`](/packages/formatter-memory) | [![npm](https://img.shields.io/npm/v/@putout/formatter-memory.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/formatter-memory) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/formatter-memory)](https://david-dm.org/coderaiser/putout?path=packages/formatter-memory) |
 
 ### Custom Formatter
 

@@ -1,0 +1,55 @@
+{
+  "name": "@putout/formatter-memory",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout formatter shows memry usage",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/memory.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage"
+  },
+  "dependencies": {
+    "@putout/formatter-dump": "^2.0.1",
+    "chalk": "^4.1.0",
+    "cli-progress": "^3.8.2",
+    "format-io": "^2.0.0",
+    "once": "^1.4.0"
+  },
+  "keywords": [
+    "putout",
+    "putout-formatter",
+    "formatter",
+    "progress-bar"
+  ],
+  "devDependencies": {
+    "@putout/plugin-remove-unused-variables": "^2.3.0",
+    "@putout/test": "^2.0.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^6.0.0",
+    "madrun": "^7.0.0",
+    "mock-require": "^3.0.3",
+    "nyc": "^15.0.1"
+  },
+  "peerDependencies": {
+    "putout": ">=11"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
