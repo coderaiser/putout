@@ -9,6 +9,7 @@ module.exports = [{
         'function-paren-newline': 'off',
         'no-undef': 'off',
         'eol-last': 'off',
+        'no-multi-spaces': 'off',
     },
 }, {
     files: 'package.json',
