@@ -7,6 +7,8 @@ const defaultProcessors = [
     'javascript',
 ];
 
+const addExtension = (name, ext) => !ext ? name : `${name}{${ext}}`;
+
 module.exports.runProcessors = async ({name, process, options, rawSource, index, length}) => {
     const allPlaces = [];
     const ext = extname(name).slice(1);
@@ -28,9 +30,10 @@ module.exports.runProcessors = async ({name, process, options, rawSource, index,
         const list = preProcess(rawSource);
         const preProcessedList = [];
         
-        for (const {source, startLine} of list) {
+        for (const {source, startLine, extension} of list) {
+            const processedName = addExtension(name, extension);
             const {code, places} = await process({
-                name,
+                name: processedName,
                 source,
                 rawSource,
                 options,
