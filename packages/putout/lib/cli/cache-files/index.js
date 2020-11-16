@@ -87,10 +87,7 @@ const canUseCache = (fileCache) => ({fix, name, options}) => {
     if (!fix)
         return true;
     
-    if (fix && !places.length)
-        return true;
-    
-    return false;
+    return fix && !places.length;
 };
 
 const hash = (a) => murmur(a).result().toString(36);

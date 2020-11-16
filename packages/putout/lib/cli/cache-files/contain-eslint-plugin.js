@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = (places) => {
-    const eslintPluginRegExp = /^eslint\/.*\/.*/;
-    const putoutPluginRegExp = /^eslint\/putout\/.*/;
+    const eslintPluginRegExp = /\/.*\s\(eslint\)$/;
+    const putoutPluginRegExp = /^putout\/.*\s\(eslint\)$/;
     
     for (const {rule} of places) {
         const isEslintPlugin = eslintPluginRegExp.test(rule);

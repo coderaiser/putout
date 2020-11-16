@@ -9,7 +9,7 @@ const stub = require('@cloudcmd/stub');
 const cacheFiles = require('.');
 const {_CACHE_FILE} = cacheFiles;
 
-const {reRequire} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: cache-files: disabled: fileCache', async (t) => {
     const fileCache = await cacheFiles({
@@ -35,6 +35,8 @@ test('putout: cache-files: fileCache: fresh', async (t) => {
     
     fs.unlinkSync = unlinkSync;
     
+    stopAll();
+    
     t.ok(_unlinkSync.calledWith(_CACHE_FILE));
     t.end();
 });
@@ -53,6 +55,7 @@ test(`putout: cache-files: find up can't find`, async (t) => {
     });
     
     fs.unlinkSync = unlinkSync;
+    stopAll();
     
     t.ok(_unlinkSync.calledWith(_CACHE_FILE));
     t.end();
@@ -91,6 +94,7 @@ test('putout: cache-files: enabled: setInfo', async (t) => {
     };
     
     fileCache.setInfo(name, [place], {hello: 'world'});
+    stopAll();
     
     t.ok(getFileDescriptor.calledWith(name), 'should call getFileDescriptor');
     t.end();
@@ -129,6 +133,7 @@ test('putout: cache-files: setInfo: definition not found', async (t) => {
     };
     
     fileCache.setInfo(name, [place], {hello: 'world'});
+    stopAll();
     
     t.notOk(getFileDescriptor.called, 'should not call getFileDescriptor');
     t.end();
@@ -167,6 +172,7 @@ test('putout: cache-files: setInfo: eslint parser error', async (t) => {
     };
     
     fileCache.setInfo(name, [place], {hello: 'world'});
+    stopAll();
     
     t.notOk(getFileDescriptor.called, 'should not call getFileDescriptor');
     t.end();
@@ -201,10 +207,11 @@ test('putout: cache-files: enabled: setInfo: not set', async (t) => {
     
     const name = 'hello';
     const place = {
-        rule: 'eslint/node/missing-require',
+        rule: 'node/missing-require (eslint)',
     };
     
     fileCache.setInfo(name, [place], {hello: 'world'});
+    stopAll();
     
     t.notOk(getFileDescriptor.called, 'should not call getFileDescriptor');
     t.end();
@@ -248,6 +255,7 @@ test('putout: cache-files: enabled: canUseCache: changed', async (t) => {
         name,
         options,
     });
+    stopAll();
     
     t.ok(getFileDescriptor.calledWith(name), 'should call getFileDescriptor');
     t.end();
@@ -291,6 +299,7 @@ test('putout: cache-files: enabled: canUseCache: options changed', async (t) => 
         name,
         options,
     });
+    stopAll();
     
     t.ok(getFileDescriptor.calledWith(name), 'should call getFileDescriptor');
     t.end();
@@ -338,6 +347,7 @@ test('putout: cache-files: enabled: canUseCache: not fix', async (t) => {
         name,
         options,
     });
+    stopAll();
     
     t.ok(result);
     t.end();
@@ -385,6 +395,7 @@ test('putout: cache-files: enabled: canUseCache: fix, no places', async (t) => {
         name,
         options,
     });
+    stopAll();
     
     t.ok(result);
     t.end();
@@ -434,6 +445,7 @@ test('putout: cache-files: enabled: getOptionsHash: coverage', async (t) => {
         name,
         options,
     });
+    stopAll();
     
     t.notOk(result);
     t.end();
@@ -470,6 +482,7 @@ test('putout: cache-files: enabled: getPlaces', async (t) => {
     });
     
     const result = fileCache.getPlaces();
+    stopAll();
     
     t.equal(result, places, 'should places equal');
     t.end();
