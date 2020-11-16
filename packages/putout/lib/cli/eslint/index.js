@@ -107,9 +107,13 @@ module.exports._noConfigFound = noConfigFound;
 module.exports.eslintPluginRegExp = eslintPluginRegExp;
 module.exports.putoutPluginRegExp = putoutPluginRegExp;
 
+const parseRule = (rule) => rule || 'crash/parser';
+
 function convertToPlace({ruleId = 'parser', message, line = 'x', column = 'x'}) {
+    const rule = `${parseRule(ruleId)}${eslintId}`;
+    
     return {
-        rule: `${ruleId}${eslintId}`,
+        rule,
         message,
         position: {
             line,
