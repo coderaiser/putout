@@ -31,3 +31,18 @@ test('putout: get-plugins: is-enabled: not found', (t) => {
     t.end();
 });
 
+test('putout: get-plugins: is-enabled: rule names cross', (t) => {
+    const name = 'eslint/move-putout-to-end-of-list';
+    const rules = [{
+        rule: 'putout',
+        state: false,
+    }, {
+        rule: 'eslint',
+        state: true,
+    }];
+    
+    const result = isEnabled(name, rules);
+    
+    t.ok(result, 'should be enabled');
+    t.end();
+});
