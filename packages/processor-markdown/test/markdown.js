@@ -17,6 +17,16 @@ test('putout: processor: markdown', async (t) => {
     t.end();
 });
 
+test('putout: processor: markdown: json', async (t) => {
+    const {
+        output,
+        processedSource,
+    } = await doTheThing('json');
+    
+    t.equal(processedSource, output);
+    t.end();
+});
+
 test('putout: processor: markdown: no js', async (t) => {
     const {
         output,
@@ -57,9 +67,11 @@ async function doTheThing(name) {
         dir: __dirname,
         processors: [
             'markdown',
+            'json',
         ],
         plugins: [
             'remove-unused-variables',
+            'eslint',
         ],
     };
     const index = 0;

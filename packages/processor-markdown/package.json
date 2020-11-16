@@ -20,6 +20,7 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
+    "@putout/processor-json": "^1.0.0",
     "remark-parse": "^9.0.0",
     "remark-stringify": "^9.0.0",
     "unified": "^9.2.0",

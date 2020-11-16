@@ -5,6 +5,8 @@ const unified = require('unified');
 const markdown = require('remark-parse');
 const stringify = require('remark-stringify');
 
+const jsonProcessor = require('@putout/processor-json');
+
 const text = ({value}) => value;
 
 module.exports.extensions = [
@@ -16,14 +18,27 @@ module.exports.preProcess = (rawSource) => {
     const collect = (list) => (node) => {
         visit(node, 'code', (node) => {
             const {lang, value} = node;
+            const startLine = node.position.start.line;
             
-            if (!/^(js|javascript|typescript)$/.test(lang))
+            if (/^(js|javascript|typescript)$/.test(lang)) {
+                list.push({
+                    startLine,
+                    source: value,
+                    extension: 'js',
+                });
+                
                 return;
+            }
             
-            list.push({
-                startLine: node.position.start.line,
-                source: value,
-            });
+            if (/^json$/.test(lang)) {
+                const [{source}] = jsonProcessor.preProcess(value);
+                
+                list.push({
+                    startLine,
+                    source,
+                    extension: 'json',
+                });
+            }
         });
     };
     
@@ -42,11 +57,19 @@ module.exports.postProcess = (rawSource, list) => {
         visit(node, 'code', (node) => {
             const {lang} = node;
             
-            if (!/^(js|javascript|typescript)$/.test(lang))
+            if (/^(js|javascript|typescript)$/.test(lang)) {
+                const source = list.shift();
+                
+                node.value = source;
                 return;
+            }
             
-            const source = list.shift();
-            node.value = source;
+            if (/^json$/.test(lang)) {
+                const code = list.shift();
+                const source = jsonProcessor.postProcess(rawSource, [code]);
+                
+                node.value = source;
+            }
         });
     };
     
