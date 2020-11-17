@@ -1,3 +1,25 @@
+2020.11.17, v11.2.1
+
+fix:
+- (putout) eslint: rm useless memo
+
+feature:
+- (package) @putout/engine-runner v9.0.0
+- (@putout/engine-runner) drop support of node < 12
+- (package) @putout/traverse v3.0.0
+- (package) @putout/compare v6.0.0
+- (package) @putout/engine-parser v3.0.0
+- (@putout/traverse) drop support of node < 12
+- (@putout/traverse) @putout/compare v6.0.0
+- (@putout/engine-runner) @putout/compare v6.0.0
+- (@putout/compare) drop support of node < 12
+- (@putout/compare) @putout/engine-parser v3.0.0
+- (@putout/engine-runner) @putout/engine-parser v3.0.0
+- (@putout/engine-loader) @putout/engine-parser v3.0.0
+- (@putout/engine-parser) drop support of node < 12
+- (@putout/engine-parser) rm parse.fresh -> parse: rm memo
+
+
 2020.11.16, v11.2.0
 
 feature:
