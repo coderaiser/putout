@@ -1,7 +1,6 @@
 'use strict';
 
 const tryCatch = require('try-catch');
-const memo = require('nano-memoize');
 const tryToCatch = require('try-to-catch');
 
 const [, eslint] = tryCatch(require, 'eslint');
@@ -31,7 +30,7 @@ const cutNewLine = ({message}) => ({
     message: message.replace(/\n.*/, ''),
 });
 
-const getESLint = memo(({fix}) => {
+const getESLint = ({fix}) => {
     const eslint = new ESLint({
         fix,
         overrideConfig: {
@@ -49,7 +48,7 @@ const getESLint = memo(({fix}) => {
         calculateConfigForFile: eslint.calculateConfigForFile.bind(eslint),
         lintText: eslint.lintText.bind(eslint),
     };
-});
+};
 
 module.exports = async ({name, code, fix}) => {
     const noChanges = [
