@@ -47,7 +47,7 @@
     "@putout/engine-loader": "^3.0.0",
     "@putout/engine-parser": "^3.0.0",
     "@putout/engine-processor": "^1.0.0",
-    "@putout/engine-runner": "^8.0.0",
+    "@putout/engine-runner": "^9.0.0",
     "@putout/formatter-codeframe": "^2.0.0",
     "@putout/formatter-dump": "^2.0.0",
     "@putout/formatter-frame": "^1.0.0",
