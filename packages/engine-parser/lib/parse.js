@@ -2,12 +2,10 @@
 
 const recast = require('@putout/recast');
 const toBabel = require('estree-to-babel');
-const memo = require('nano-memoize');
 
 const customParser = require('./custom-parser');
 
-module.exports = memo(parse);
-module.exports.fresh = parse;
+module.exports = parse;
 
 function parse(source, options) {
     const {

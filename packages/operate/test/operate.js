@@ -485,7 +485,7 @@ test('operate: replaceWithMultiple: to expressions: ignore', (t) => {
 });
 
 test('operate: remove', (t) => {
-    const ast = parse.fresh(montag`
+    const ast = parse(montag`
         // hello
         var a = 1;
         x = 2;
@@ -508,7 +508,7 @@ test('operate: remove', (t) => {
 });
 
 test('operate: remove: empty', (t) => {
-    const ast = parse.fresh(montag`
+    const ast = parse(montag`
         // hello
         var a = 1;
     `);
@@ -552,7 +552,7 @@ test('operate: remove: VariableDeclarator', (t) => {
 });
 
 test('operate: remove: VariableDeclarator: a couple', (t) => {
-    const ast = parse.fresh(montag`
+    const ast = parse(montag`
         // hello
         var a = 1, b = 2;
     `);

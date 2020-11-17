@@ -286,17 +286,17 @@ test('putout: parser: undeclared exports', (t) => {
 });
 
 test('putout: parser: parse: fresh', (t) => {
-    const ast = parse.fresh('var a');
+    const ast = parse('var a');
     ast.x = 1;
     
-    const result = parse.fresh('var a');
+    const result = parse('var a');
     
     t.notOk(result.x);
     t.end();
 });
 
 test('putout: print: recast: object expressions', (t) => {
-    const ast = parse.fresh(`(a, b) => ({a: 'b'})`);
+    const ast = parse(`(a, b) => ({a: 'b'})`);
     
     putout.traverse(ast, {
         Function(path) {
@@ -316,7 +316,7 @@ test('putout: parser: json modules', (t) => {
         import json from "./foo.json" assert { type: "json" };
     `;
     
-    const [error] = tryCatch(parse.fresh, code);
+    const [error] = tryCatch(parse, code);
     
     t.notOk(error, 'should parse');
     t.end();
