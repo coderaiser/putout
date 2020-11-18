@@ -18,7 +18,7 @@ npm i @putout/plugin-webpack -D
 ```json
 {
     "rules": {
-        "webpack/convert-loader-to-use": "on",
+        "webpack/convert-loader-to-use": "on"
     }
 }
 ```
