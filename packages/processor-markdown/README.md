@@ -5,7 +5,7 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/processor-markdown
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/processor-markdown
 
-`putout` processor adds support of markdown files.
+`putout` processor adds ability to get `js`, `json` and `ts` code from markdown files.
 
 ## Install
 
