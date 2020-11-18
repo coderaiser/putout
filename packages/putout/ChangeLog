@@ -1,3 +1,12 @@
+2020.11.18, v11.3.0
+
+feature:
+- (putout) add support of typescript in markdown files
+- (@putout/processor-markdown) add support of typescript
+- (eslint-plugin-putout) markdown: add support of typescript
+- (eslint-plugin-putout) markdown: disable node/no-unsupported-features/node-builtins
+
+
 2020.11.18, v11.2.2
 
 feature:
