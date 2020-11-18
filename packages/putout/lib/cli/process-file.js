@@ -18,7 +18,7 @@ module.exports = ({fix, debug, fixCount, isFlow, isJSX, ruler = {}, logError, ra
             code: source,
         };
     
-    const isTS = /\.tsx?$/.test(name);
+    const isTS = /\.tsx?$/.test(name) || /\{ts\}$/.test(name);
     const [e, result] = tryCatch(putout, source, {
         fix,
         fixCount,
