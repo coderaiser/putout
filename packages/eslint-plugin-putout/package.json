@@ -33,6 +33,9 @@
     "debug": "madrun debug"
   },
   "dependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/eslint-parser": "^7.12.1",
+    "@babel/plugin-syntax-typescript": "^7.12.1",
     "@putout/eslint-config": "^4.0.0",
     "align-spaces": "^1.0.0",
     "eslint-plugin-node": "^11.0.0"
