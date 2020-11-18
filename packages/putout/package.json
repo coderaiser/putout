@@ -40,9 +40,9 @@
     ]
   },
   "dependencies": {
-    "@babel/code-frame": "^7.5.5",
-    "@babel/traverse": "^7.1.6",
-    "@babel/types": "^7.2.0",
+    "@babel/code-frame": "^7.10.4",
+    "@babel/traverse": "^7.12.5",
+    "@babel/types": "^7.12.6",
     "@putout/compare": "^6.0.0",
     "@putout/engine-loader": "^3.0.0",
     "@putout/engine-parser": "^3.0.0",

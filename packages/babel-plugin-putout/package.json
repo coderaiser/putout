@@ -9,7 +9,7 @@
   "tag": false,
   "changelog": false,
   "devDependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.12.3",
     "@babel/eslint-plugin-development": "^1.0.1",
     "babel-plugin-transform-inline-consecutive-adds": "^0.4.3",
     "eslint": "^7.0.0",

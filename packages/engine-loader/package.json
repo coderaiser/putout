@@ -30,7 +30,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@babel/core": "^7.11.0",
+    "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@putout/engine-parser": "^3.0.0",
     "diff-match-patch": "^1.0.4",
