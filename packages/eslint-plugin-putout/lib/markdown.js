@@ -13,6 +13,7 @@ module.exports = [{
         'node/no-missing-require': 'off',
         'node/no-missing-import': 'off',
         'node/no-unsupported-features/es-syntax': 'off',
+        'node/no-unsupported-features/node-builtins': 'off',
     },
 }];
 
