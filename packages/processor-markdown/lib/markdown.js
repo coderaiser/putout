@@ -20,11 +20,21 @@ module.exports.preProcess = (rawSource) => {
             const {lang, value} = node;
             const startLine = node.position.start.line;
             
-            if (/^(js|javascript|typescript)$/.test(lang)) {
+            if (/^(js|javascript)$/.test(lang)) {
                 list.push({
                     startLine,
                     source: value,
                     extension: 'js',
+                });
+                
+                return;
+            }
+            
+            if (/^(ts|typescript)$/.test(lang)) {
+                list.push({
+                    startLine,
+                    source: value,
+                    extension: 'ts',
                 });
                 
                 return;
@@ -57,7 +67,14 @@ module.exports.postProcess = (rawSource, list) => {
         visit(node, 'code', (node) => {
             const {lang} = node;
             
-            if (/^(js|javascript|typescript)$/.test(lang)) {
+            if (/^(js|javascript)$/.test(lang)) {
+                const source = list.shift();
+                
+                node.value = source;
+                return;
+            }
+            
+            if (/^(ts|typescript)$/.test(lang)) {
                 const source = list.shift();
                 
                 node.value = source;

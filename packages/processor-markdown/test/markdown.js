@@ -17,6 +17,16 @@ test('putout: processor: markdown', async (t) => {
     t.end();
 });
 
+test('putout: processor: markdown: ts', async (t) => {
+    const {
+        output,
+        processedSource,
+    } = await doTheThing('ts');
+    
+    t.equal(processedSource, output);
+    t.end();
+});
+
 test('putout: processor: markdown: json', async (t) => {
     const {
         output,
