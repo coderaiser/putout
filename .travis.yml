@@ -15,7 +15,7 @@ matrix:
         - os: osx
 
 script:
-  - npm run bootstrap
+  - npm run bootstrap || true
   - npm run lint
   - npm run coverage:long
   - npm run report
