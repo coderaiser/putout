@@ -32,7 +32,7 @@
   ],
   "devDependencies": {
     "@putout/plugin-remove-unused-variables": "^3.0.0",
-    "@putout/plugin-strict-mode": "^1.2.4",
+    "@putout/plugin-strict-mode": "^2.0.0",
     "@putout/test": "^2.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
