@@ -15,8 +15,9 @@ module.exports = {
     'lint': () => putout([
         'lib',
         'test',
-        '.madrun.js',
-        '.eslintrc.js',
+        '*.js',
+        '*.json',
+        '*.md',
     ]),
     
     'fix:lint': () => run('lint', '--fix'),
