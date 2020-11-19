@@ -1,3 +1,9 @@
+2020.11.19, v11.4.0
+
+feature:
+- (putout) read options before getting file list: speed up: 1m12s -> 1m8s
+
+
 2020.11.18, v11.3.0
 
 feature:
