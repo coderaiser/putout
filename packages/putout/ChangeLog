@@ -1,3 +1,12 @@
+2020.11.19, v11.5.0
+
+feature:
+- (putout) add ability to get extensions from processors before getting file names
+- (@putout/engine-processor) add getExtensions
+- (@putout/processor-javascript) move in extensions
+- (eslint-plugin-putout) long-properties-destructuring: 10 -> 15
+
+
 2020.11.19, v11.4.0
 
 feature:
