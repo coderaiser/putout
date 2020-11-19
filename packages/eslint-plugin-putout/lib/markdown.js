@@ -17,6 +17,10 @@ const commonRules = {
 module.exports = [{
     files: '*.md{js}',
     rules: commonRules,
+    parser: '@babel/eslint-parser',
+    parserOptions: {
+        requireConfigFile: false,
+    },
 }, {
     files: '*.md{ts}',
     rules: commonRules,
