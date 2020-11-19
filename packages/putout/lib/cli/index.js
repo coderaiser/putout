@@ -7,7 +7,13 @@ const {red} = require('chalk');
 const yargsParser = require('yargs-parser');
 const {isCI} = require('ci-info');
 const memo = require('nano-memoize');
-const {runProcessors} = require('@putout/engine-processor');
+
+const {loadProcessors} = require('@putout/engine-loader');
+const {
+    runProcessors,
+    getExtensions,
+    defaultProcessors,
+} = require('@putout/engine-processor');
 
 const merge = require('../merge');
 const processFile = require('./process-file');
@@ -103,8 +109,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         },
     });
     
-    supportedFiles.add(args.ext);
-    
     if (args.ci && isCI) {
         args.format = 'dump';
         args.cache = false;
@@ -152,6 +156,21 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         rulerProcessor({enable, disable}, []);
     }
     
+    const noConfig = !args.config;
+    const {ignore, processors = defaultProcessors} = getOptions({
+        name: `${cwd}/*`,
+        rulesdir,
+        noConfig,
+        transform,
+        plugins,
+    });
+    
+    const loadedProcessors = loadProcessors({processors});
+    const extensions = getExtensions(loadedProcessors);
+    
+    supportedFiles.add(extensions);
+    supportedFiles.add(args.ext);
+    
     const stagedNames = [];
     
     if (staged) {
@@ -160,15 +179,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         
         stagedNames.push(...names);
     }
-    
-    const noConfig = !args.config;
-    const {ignore} = getOptions({
-        name: `${cwd}/*`,
-        rulesdir,
-        noConfig,
-        transform,
-        plugins,
-    });
     
     const globFiles = [
         ...stagedNames,

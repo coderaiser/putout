@@ -1,14 +1,10 @@
 'use strict';
 
-const mockRequire = require('mock-require');
 const test = require('supertape');
 
-const {
-    isSupported,
-    getSupportedGlob,
-} = require('./supported-files');
+const {isSupported} = require('./supported-files');
 
-const {reRequire} = mockRequire;
+const {reRequire} = require('mock-require');
 
 test('putout: supported files isSupported: tsx', (t) => {
     const result = isSupported('index.tsx');
@@ -32,34 +28,36 @@ test('putout: supported files: isSupported: cjs', (t) => {
 });
 
 test('putout: supported files: getSupportedGlob: mjs, tsx', (t) => {
-    const result = getSupportedGlob('get-files');
+    const {
+        add,
+        getSupportedGlob,
+    } = reRequire('./supported-files');
     const expected = 'get-files/**/*.{js,mjs,cjs,jsx,ts,tsx}';
+    
+    add(['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx']);
+    const result = getSupportedGlob('get-files');
     
     t.equal(result, expected);
     t.end();
 });
 
 test('putout: supported files: add', (t) => {
-    const extensions = [];
     const expected = ['xjs'];
     
-    mockRequire('../../extensions.json', extensions);
-    const {add} = reRequire('./supported-files');
-    add('.xjs');
+    const {add, getExtensions} = reRequire('./supported-files');
+    add('xjs');
     
-    t.deepEqual(extensions, expected);
+    t.deepEqual(expected, getExtensions());
     t.end();
 });
 
 test('putout: supported files: add: multiple', (t) => {
-    const extensions = [];
     const expected = ['xjs', 'extjs'];
     
-    mockRequire('../../extensions.json', extensions);
-    const {add} = reRequire('./supported-files');
+    const {add, getExtensions} = reRequire('./supported-files');
     add(['.xjs', '.extjs']);
     
-    t.deepEqual(extensions, expected);
+    t.deepEqual(expected, getExtensions());
     t.end();
 });
 
