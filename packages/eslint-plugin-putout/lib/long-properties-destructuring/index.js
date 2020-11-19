@@ -10,10 +10,15 @@ module.exports.include = () => [
 ];
 
 module.exports.fix = ({text}) => {
-    return text
-        .replace(/,/g, ',\n')
-        .replace('{', '{\n')
+    const end = text.indexOf('}') + 1;
+    const startText = text.slice(0, end)
+        .replace(/,/g, ',\n   ')
+        .replace('{', '{\n    ')
         .replace('}', '\n}');
+    
+    const endText = text.slice(end);
+    
+    return `${startText}${endText}`;
 };
 
 module.exports.filter = ({node}) => {
@@ -38,7 +43,7 @@ function isCorrectLength(properties) {
     for (const prop of properties) {
         const {name} = prop.key || prop.argument;
         
-        if (name.length >= 10)
+        if (name.length >= 15)
             return false;
     }
     

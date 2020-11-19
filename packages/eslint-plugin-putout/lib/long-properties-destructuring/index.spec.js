@@ -1,6 +1,7 @@
 'use strict';
 
 const {RuleTester} = require('eslint');
+const montag = require('montag');
 
 const wrap = require('../wrap');
 const rule = wrap(require('.'));
@@ -39,15 +40,49 @@ ruleTester.run('long-properties-destructuring', rule, {
     ],
     
     invalid: [{
-        code: `const {isIdentifier, a} = world;`,
-        output: `const {\nisIdentifier,\n a\n} = world;`,
+        code: `const {isValidIdentifier, a} = world;`,
+        output: montag`
+            const {
+                isValidIdentifier,
+                a
+            } = world;
+        `,
         errors: [{
             message,
             type: 'VariableDeclarator',
         }],
     }, {
-        code: `const {a, ...isIdentifier} = b;`,
-        output: `const {\na,\n ...isIdentifier\n} = b;`,
+        code: `const {a, ...isMagicIdentifier} = b;`,
+        output: montag`
+            const {
+                a,
+                ...isMagicIdentifier
+            } = b;
+        `,
+        errors: [{
+            message,
+            type: 'VariableDeclarator',
+        }],
+    }, {
+        code: montag`
+            const {ignoreSomething, processors} = getOptions({
+                rulesdir,
+                noConfig,
+                transform,
+                plugins,
+            });
+        `,
+        output: montag`
+            const {
+                ignoreSomething,
+                processors
+            } = getOptions({
+                rulesdir,
+                noConfig,
+                transform,
+                plugins,
+            });
+        `,
         errors: [{
             message,
             type: 'VariableDeclarator',

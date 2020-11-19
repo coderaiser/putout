@@ -1,6 +1,6 @@
 # keep each property on separate line when destructuring long properties (long-properties-destructuring)
 
-Always add new lines, when property name is longer then 10 characters.
+Always add new lines, when property name is longer then 15 characters.
 
 ## Rule Details
 
