@@ -225,3 +225,35 @@ test('putout: getFiles: getSupportedGlob: result', async (t) => {
     t.end();
 });
 
+test('putout: getFiles: options', async (t) => {
+    const {lstat} = fs;
+    
+    fs.lstat = stub().returns({
+        isDirectory: stub().returns(false),
+    });
+    
+    const fastGlob = stub().returns([]);
+    
+    mockRequire('fast-glob', fastGlob);
+    
+    const ignore = ['*.js'];
+    const getFiles = reRequire('./get-files');
+    await getFiles(['lib/get-files.js'], {
+        ignore,
+    });
+    
+    const expected = [
+        'lib/get-files.js', {
+            dot: true,
+            onlyFiles: false,
+            unique: true,
+            ignore,
+        },
+    ];
+    
+    fs.lstat = lstat;
+    stopAll();
+    
+    t.ok(fastGlob.calledWith(...expected));
+    t.end();
+});

@@ -161,13 +161,24 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         stagedNames.push(...names);
     }
     
+    const noConfig = !args.config;
+    const {ignore} = getOptions({
+        name: `${cwd}/*`,
+        rulesdir,
+        noConfig,
+        transform,
+        plugins,
+    });
+    
     const globFiles = [
         ...stagedNames,
         ...args._.map(String),
         ...envNames,
     ];
     
-    const [e, names] = await getFiles(globFiles);
+    const [e, names] = await getFiles(globFiles, {
+        ignore,
+    });
     
     if (e)
         return exit(NO_FILES, e);
@@ -202,7 +213,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         plugins,
     };
     
-    const noConfig = !args.config;
     const rawPlaces = [];
     
     const process = processFile(options);

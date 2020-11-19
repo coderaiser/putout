@@ -906,6 +906,44 @@ test('putout: cli: --debug', async (t) => {
     t.end();
 });
 
+test('putout: cli: get files: called with ignore option', async (t) => {
+    const argv = [
+        __filename,
+        '--no-ci',
+        '--no-cache',
+    ];
+    
+    const ignore = ['xxx'];
+    const getOptions = stub().returns({
+        dir: __dirname,
+        formatter: 'dump',
+        ignore,
+    });
+    
+    const getFiles = stub().returns(['dir', []]);
+    
+    mockRequire('./get-options', getOptions);
+    mockRequire('./get-files', getFiles);
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+    });
+    
+    stopAll();
+    
+    const expected = [
+        [__filename], {
+            ignore,
+        },
+    ];
+    
+    t.ok(getFiles.calledWith(...expected));
+    t.end();
+});
+
 async function runCli(options) {
     const {
         halt = stub(),

@@ -13,6 +13,7 @@
     "lint:dot": "madrun lint:dot",
     "lint-all": "madrun lint-all",
     "lint:frame": "madrun lint:frame",
+    "lint:fresh": "madrun lint:fresh",
     "lint:memory": "madrun lint:memory",
     "fresh:lint": "madrun fresh:lint",
     "fresh": "madrun fresh",

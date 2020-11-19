@@ -24,8 +24,7 @@ function mergeIgnores(ignores) {
         const positiveIndex = ignores.indexOf(positive(str));
         
         if (isNegative(str) && positiveIndex > i)
-            ;
-        ignores[positiveIndex] = str;
+            ignores[positiveIndex] = str;
     }
     
     const noDuplicates = new Set(ignores);
