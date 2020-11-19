@@ -1,8 +1,13 @@
 'use strict';
 
-const extensions = require('putout/extensions');
-
-module.exports.extensions = extensions;
+module.exports.extensions = [
+    'js',
+    'mjs',
+    'cjs',
+    'jsx',
+    'ts',
+    'tsx',
+];
 
 module.exports.preProcess = (source) => {
     return [{
