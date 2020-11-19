@@ -9,6 +9,18 @@ const defaultProcessors = [
 
 const addExtension = (name, ext) => !ext ? name : `${name}{${ext}}`;
 
+module.exports.defaultProcessors = defaultProcessors;
+
+module.exports.getExtensions = (processors) => {
+    const result = [];
+    
+    for (const {extensions} of processors) {
+        result.push(...extensions);
+    }
+    
+    return result;
+};
+
 module.exports.runProcessors = async ({name, process, options, rawSource, index, length}) => {
     const allPlaces = [];
     const ext = extname(name).slice(1);

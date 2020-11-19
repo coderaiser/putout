@@ -5,7 +5,7 @@ const {join} = require('path');
 
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
-const {runProcessors} = require('..');
+const {runProcessors, getExtensions} = require('..');
 
 test('putout: engine-processor: no processor', async (t) => {
     const name = 'hello.xxx';
@@ -97,6 +97,33 @@ test('putout: engine-processor: markdown: javascript', async (t) => {
     };
     
     t.ok(process.calledWith(expected), 'should not process');
+    t.end();
+});
+
+test('putout: engine-processor: getExtensions', (t) => {
+    const js = {
+        extensions: [
+            'js',
+            'ts',
+        ],
+    };
+    
+    const css = {
+        extensions: [
+            'css',
+        ],
+    };
+    
+    const processors = [js, css];
+    const result = getExtensions(processors);
+    
+    const expected = [
+        'js',
+        'ts',
+        'css',
+    ];
+    
+    t.deepEqual(expected, result, 'should equal');
     t.end();
 });
 

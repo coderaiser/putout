@@ -1,10 +1,9 @@
 # @putout/engine-processor [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/engine-loader.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/engine-loader"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/engine-loader
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/engine-loader
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/engine-loader.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/engine-loader"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/engine-loader
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/engine-loader
 
 Run putout `pre-` and `post-` processors.
 
@@ -30,7 +29,7 @@ runProcessors({
     isProcessed,
     places,
     processedSource,
-})
+});
 ```
 
 ## Processor Example
@@ -39,7 +38,7 @@ Simplest possible procesor exampmle can look like this:
 
 ```js
 module.exports.extensions = [
-    'js'
+    'js',
 ];
 
 // preProcess should always return array of sources that was get from source
@@ -59,4 +58,3 @@ module.exports.postProcess = (source, list) => {
 ## License
 
 MIT
-
