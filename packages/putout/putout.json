@@ -51,7 +51,8 @@
     },
     "ignore": [
         "**/node_modules",
-        "**/fixture"
+        "**/fixture",
+        "**/.nyc_output"
     ],
     "exclude": [
         ".md"
