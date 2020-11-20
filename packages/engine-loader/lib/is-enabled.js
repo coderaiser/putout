@@ -6,11 +6,13 @@ module.exports = (name, rules) => {
     if (typeof value === 'boolean')
         return value;
     
+    let resultState = true;
+    
     for (const {rule, state} of rules) {
         if (RegExp(`^${rule}`).test(name))
-            return state;
+            resultState = state;
     }
     
-    return true;
+    return resultState;
 };
 

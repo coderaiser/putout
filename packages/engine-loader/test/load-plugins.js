@@ -6,6 +6,7 @@ const stub = require('@cloudcmd/stub');
 const tryCatch = require('try-catch');
 const mockRequire = require('mock-require');
 const putout = require('putout');
+const montag = require('montag');
 
 const {
     reRequire,
@@ -516,6 +517,33 @@ test('putout: loader: no options.pluginNames', (t) => {
     });
     
     t.notOk(places.length);
+    t.end();
+});
+
+test('putout: loader: disabled part of rule', (t) => {
+    const code = montag`
+        const {run} = require('madrun');
+        
+        module.exports = {
+            'lint': () => 'bin/putout.js .',
+            'fix:lint': () => run('lint', '--fix'),
+        };
+    `;
+    
+    const {places} = putout(code, {
+        fix: false,
+        rules: {
+            'madrun': 'on',
+            'madrun/add-madrun-to-lint': 'off',
+        },
+        plugins: [
+            'madrun',
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(expected, places, 'should disable one of rules in plugin');
     t.end();
 });
 
