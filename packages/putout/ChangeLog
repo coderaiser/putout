@@ -1,3 +1,11 @@
+2020.11.20, v11.6.0
+
+feature:
+- (@putout/engine-loader) add ability to override rules from top
+- (putout) ignore: add .nyc_output
+- (eslint-plugin-putout) markdown: add @babel/eslint-parser
+
+
 2020.11.19, v11.5.0
 
 feature:
