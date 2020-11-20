@@ -119,6 +119,7 @@ test('putout: processor: css: found config', async (t) => {
     });
     
     stopAll();
+    reRequire('..');
     
     const expected = [{
         message: 'Expected indentation of 2 spaces (indentation)',
@@ -177,6 +178,7 @@ test('putout: processor: css: merge user config with default', async (t) => {
     });
     
     stopAll();
+    reRequire('..');
     
     const expected = [{
         message: 'Expected a trailing semicolon (declaration-block-trailing-semicolon)',

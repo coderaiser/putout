@@ -103,6 +103,7 @@ Here is a list of built-int processors:
 | [`@putout/processor-ignore`](/packages/processor-ignore) | [![npm](https://img.shields.io/npm/v/@putout/processor-ignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-ignore) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-ignore)](https://david-dm.org/coderaiser/putout?path=packages/processor-ignore) |
 | [`@putout/processor-yaml`](/packages/processor-yaml) | [![npm](https://img.shields.io/npm/v/@putout/processor-yaml.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-yaml) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-yaml)](https://david-dm.org/coderaiser/putout?path=packages/processor-yaml) |
 | [`@putout/processor-css`](/packages/processor-css) | [![npm](https://img.shields.io/npm/v/@putout/processor-css.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-css) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-css)](https://david-dm.org/coderaiser/putout?path=packages/processor-css) |
+| [`@putout/processor-html`](/packages/processor-html) | [![npm](https://img.shields.io/npm/v/@putout/processor-html.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-html) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-html)](https://david-dm.org/coderaiser/putout?path=packages/processor-html) |
 
 ## API
 

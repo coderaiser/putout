@@ -42,5 +42,9 @@ module.exports = [{
             plugins: ['@babel/plugin-syntax-typescript'],
         },
     },
+}, {
+    files: '*.html{js}',
+    rules: {
+    },
 }];
 
