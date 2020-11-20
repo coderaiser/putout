@@ -4,10 +4,21 @@ const visit = require('unist-util-visit');
 const unified = require('unified');
 const markdown = require('remark-parse');
 const stringify = require('remark-stringify');
+const remark = require('remark');
+const preset = require('remark-preset-lint-consistent');
 
 const jsonProcessor = require('@putout/processor-json');
 
 const text = ({value}) => value;
+const stringifyOptions = {
+    bullet: '-',
+    listItemIndent: 'one',
+    fences: true,
+    tightDefinitions: true,
+    handlers: {
+        text,
+    },
+};
 
 module.exports.extensions = [
     'md',
@@ -61,6 +72,20 @@ module.exports.preProcess = (rawSource) => {
     return list;
 };
 
+module.exports.process = (rawSource) => {
+    const {messages, contents} = remark()
+        .use(preset)
+        .use({
+            settings: stringifyOptions,
+        })
+        .processSync(rawSource);
+    
+    return [
+        contents,
+        messages.map(toPlace),
+    ];
+};
+
 module.exports.postProcess = (rawSource, list) => {
     const newList = list.slice();
     const apply = (list) => (node) => {
@@ -93,17 +118,19 @@ module.exports.postProcess = (rawSource, list) => {
     const {contents} = unified()
         .use(markdown)
         .use(apply, newList)
-        .use(stringify, {
-            bullet: '-',
-            listItemIndent: 'one',
-            fences: true,
-            tightDefinitions: true,
-            handlers: {
-                text,
-            },
-        })
+        .use(stringify, stringifyOptions)
         .processSync(rawSource);
     
     return contents;
 };
 
+function toPlace({reason, line, column, source, ruleId}) {
+    return {
+        message: reason,
+        rule: `${ruleId} (${source})`,
+        position: {
+            line,
+            column,
+        },
+    };
+}

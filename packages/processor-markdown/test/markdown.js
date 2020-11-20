@@ -67,7 +67,25 @@ test('putout: processor: links: no new lines', async (t) => {
     t.end();
 });
 
-async function doTheThing(name) {
+test('putout: processor: markdown: places', async (t) => {
+    const {places} = await doTheThing('place', {
+        fix: false,
+    });
+    
+    const expected = [{
+        message: 'Code blocks should be indented',
+        position: {
+            column: 1,
+            line: 3,
+        },
+        rule: 'code-block-style (remark-lint)',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
+async function doTheThing(name, {fix} = {}) {
     const inputName = join(__dirname, 'fixture', `${name}.md`);
     const outputName = join(__dirname, 'fixture', `${name}-fix.md`);
     
@@ -87,13 +105,14 @@ async function doTheThing(name) {
     const index = 0;
     const length = 1;
     
-    const process = processFile({
-        fix: true,
-    });
-    
-    const {processedSource} = await runProcessors({
+    const {
+        processedSource,
+        places,
+    } = await runProcessors({
         name: inputName,
-        process,
+        processFile: processFile({
+            fix,
+        }),
         options,
         rawSource,
         index,
@@ -103,5 +122,6 @@ async function doTheThing(name) {
     return {
         processedSource,
         output,
+        places,
     };
 }
