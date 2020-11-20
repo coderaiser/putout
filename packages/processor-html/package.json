@@ -1,0 +1,55 @@
+{
+  "name": "@putout/processor-html",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout processor adds ability to parse html files and lint js snippets",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/html.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage"
+  },
+  "dependencies": {
+    "htmlhint": "^0.14.2",
+    "svelte": "^3.29.7"
+  },
+  "keywords": [
+    "putout",
+    "putout-processor",
+    "html"
+  ],
+  "devDependencies": {
+    "@putout/engine-processor": "^2.8.0",
+    "@putout/test": "^3.1.1",
+    "coveralls": "^3.0.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^7.1.1",
+    "lerna": "^3.8.5",
+    "madrun": "^8.6.4",
+    "nodemon": "^2.0.1",
+    "nyc": "^15.0.1",
+    "putout": "*",
+    "supertape": "^4.9.1"
+  },
+  "peerDependencies": {
+    "putout": ">=14"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

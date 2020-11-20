@@ -1,0 +1,7 @@
+node_modules
+.nyc_output
+legacy
+*.swp
+yarn-error.log
+
+.putoutcache
