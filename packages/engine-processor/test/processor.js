@@ -5,11 +5,13 @@ const {join} = require('path');
 
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
+const processFile = require('putout/lib/cli/process-file');
+
 const {runProcessors, getExtensions} = require('..');
 
 test('putout: engine-processor: no processor', async (t) => {
     const name = 'hello.xxx';
-    const process = stub();
+    const processFile = stub();
     const options = {};
     const rawSource = '';
     const index = 0;
@@ -17,7 +19,7 @@ test('putout: engine-processor: no processor', async (t) => {
     
     const {isProcessed} = await runProcessors({
         name,
-        process,
+        processFile,
         options,
         rawSource,
         index,
@@ -34,14 +36,14 @@ test('putout: engine-processor: javascript', async (t) => {
     const rawSource = `const a = 'hello'`;
     const index = 0;
     const length = 1;
-    const process = stub().returns({
+    const processFile = stub().returns({
         source: rawSource,
         places: [],
     });
     
     await runProcessors({
         name,
-        process,
+        processFile,
         options,
         rawSource,
         index,
@@ -58,7 +60,7 @@ test('putout: engine-processor: javascript', async (t) => {
         startLine: 0,
     };
     
-    t.ok(process.calledWith(expected), 'should not process');
+    t.ok(processFile.calledWith(expected), 'should not process');
     t.end();
 });
 
@@ -72,14 +74,14 @@ test('putout: engine-processor: markdown: javascript', async (t) => {
     const rawSource = await readFile(name, 'utf8');
     const index = 0;
     const length = 1;
-    const process = stub().returns({
+    const processFile = stub().returns({
         source: rawSource,
         places: [],
     });
     
     await runProcessors({
         name,
-        process,
+        processFile,
         options,
         rawSource,
         index,
@@ -96,7 +98,38 @@ test('putout: engine-processor: markdown: javascript', async (t) => {
         startLine: 1,
     };
     
-    t.ok(process.calledWith(expected), 'should not process');
+    t.ok(processFile.calledWith(expected), 'should not process');
+    t.end();
+});
+
+test('putout: engine-processor: markdown: fix', async (t) => {
+    const name = join(__dirname, 'fixture', 'fix.md');
+    const outputName = join(__dirname, 'fixture', 'fix-fix.md');
+    const options = {
+        dir: __dirname,
+        processors: [
+            'markdown',
+        ],
+    };
+    const rawSource = await readFile(name, 'utf8');
+    const output = await readFile(outputName, 'utf8');
+    const index = 0;
+    const length = 1;
+    
+    const {processedSource} = await runProcessors({
+        name,
+        fix: true,
+        processFile: processFile({
+            name: `${name}{js}`,
+            fix: true,
+        }),
+        options,
+        rawSource,
+        index,
+        length,
+    });
+    
+    t.equal(processedSource, output);
     t.end();
 });
 

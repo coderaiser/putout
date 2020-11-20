@@ -41,6 +41,11 @@ module.exports.extensions = [
     'js',
 ];
 
+// with help of process you can lint an types of files with corresponding tools
+module.exports.process = (source) => {
+    return [processedSource, places];
+};
+
 // preProcess should always return array of sources that was get from source
 module.exports.preProcess = (source) => {
     return [{
