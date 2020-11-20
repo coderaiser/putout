@@ -270,7 +270,8 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             processedSource,
         } = await runProcessors({
             name: resolvedName,
-            process,
+            fix,
+            processFile: process,
             options,
             rawSource,
             index,

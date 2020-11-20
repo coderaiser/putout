@@ -24,13 +24,9 @@ test('putout: processor: javascript', async (t) => {
     const index = 0;
     const length = 1;
     
-    const process = processFile({
-        fix: true,
-    });
-    
     const {processedSource} = await runProcessors({
         name: inputName,
-        process,
+        processFile: processFile({fix: true}),
         options,
         rawSource,
         index,

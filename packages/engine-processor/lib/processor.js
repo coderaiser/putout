@@ -8,6 +8,7 @@ const defaultProcessors = [
 ];
 
 const addExtension = (name, ext) => !ext ? name : `${name}{${ext}}`;
+const stubProcess = (a) => [a, []];
 
 module.exports.defaultProcessors = defaultProcessors;
 
@@ -21,7 +22,7 @@ module.exports.getExtensions = (processors) => {
     return result;
 };
 
-module.exports.runProcessors = async ({name, process, options, rawSource, index, length}) => {
+module.exports.runProcessors = async ({name, fix, processFile, options, rawSource, index, length}) => {
     const allPlaces = [];
     const ext = extname(name).slice(1);
     const {
@@ -33,18 +34,26 @@ module.exports.runProcessors = async ({name, process, options, rawSource, index,
     });
     
     let processedSource = '';
+    let processedPlaces = [];
     let isProcessed = false;
     
-    for (const {extensions, preProcess, postProcess} of loadedProcessors) {
+    for (const {extensions, preProcess, postProcess, process = stubProcess} of loadedProcessors) {
         if (!extensions.includes(ext))
             continue;
         
-        const list = preProcess(rawSource);
+        [processedSource, processedPlaces] = process(rawSource);
+        
+        if (fix)
+            processedPlaces = [];
+        else
+            processedSource = rawSource;
+        
+        const list = preProcess(processedSource);
         const preProcessedList = [];
         
         for (const {source, startLine, extension} of list) {
             const processedName = addExtension(name, extension);
-            const {code, places} = await process({
+            const {code, places} = await processFile({
                 name: processedName,
                 source,
                 rawSource,
@@ -56,6 +65,7 @@ module.exports.runProcessors = async ({name, process, options, rawSource, index,
             
             preProcessedList.push(code);
             allPlaces.push(...places);
+            allPlaces.push(...processedPlaces);
         }
         
         processedSource = postProcess(rawSource, preProcessedList);
