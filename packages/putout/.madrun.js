@@ -13,18 +13,7 @@ module.exports = {
     'test': () => run('test:raw', '', env),
     
     'watch:test': () => `nodemon -w bin -w lib -w test -x "${run('test')}"`,
-    'lint': () => {
-        const names = [
-            'bin',
-            'lib',
-            '*.js',
-            '*.json',
-            '*.md',
-            'test',
-        ].join(' ');
-        
-        return `bin/putout.js ${names}`;
-    },
+    'lint': () => `bin/putout.js .`,
     'fix:lint': () => run('lint', '--fix'),
     'fix:lint:fresh': () => run('fix:lint', '--fresh'),
     'lint:progress': () => run('lint', '--fix'),
