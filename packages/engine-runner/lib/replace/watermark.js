@@ -5,8 +5,8 @@ const wraptile = require('wraptile');
 
 const findPath = require('./find-path');
 
-const name = '_putout_runner_replace';
-const hasWatermark = (watermark) => (path) => path[name] && path[name].has(watermark);
+const name = '__putout_runner_replace';
+const hasWatermark = (watermark) => (path) => path.node?.[name]?.has(watermark);
 
 module.exports = (from, to, path) => {
     const {
@@ -43,22 +43,25 @@ function create(from, to, path) {
 
 module.exports.init = init;
 function init({path, program}) {
-    path[name] = path[name] || new Set();
-    program[name] = program[name] || new Set();
+    path.node = path.node || {};
+    
+    path.node[name] = path.node[name] || new Set();
+    program.node[name] = program.node[name] || new Set();
 }
 
 module.exports.add = add;
 function add({path, program, watermark, highWatermark}) {
-    path[name].add(watermark);
-    program[name].add(highWatermark);
+    init({path, program});
+    path.node[name].add(watermark);
+    program.node[name].add(highWatermark);
 }
 
 module.exports.has = has;
 function has({path, program, watermark, highWatermark}) {
-    if (path[name].has(watermark) || path.findParent(hasWatermark(watermark)))
+    if (path.node[name].has(watermark) || path.findParent(hasWatermark(watermark)))
         return true;
     
-    if (program[name].has(highWatermark))
+    if (program.node[name].has(highWatermark))
         return true;
     
     return false;

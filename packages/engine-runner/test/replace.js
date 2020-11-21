@@ -201,3 +201,26 @@ test('putout: runner: replace: remove', (t) => {
     t.deepEqual(code, expected, 'should equal');
     t.end();
 });
+
+test('putout: runner: replace: remove: no node', (t) => {
+    const rm = {
+        report: () => '',
+        replace: () => ({
+            'process.exit()': '',
+            'process["exit"]()': '',
+        }),
+    };
+    
+    const {code} = putout('const a = 5;process.exit()', {
+        runPlugins,
+        plugins: [
+            ['rm', rm],
+        ],
+    });
+    
+    const expected = 'const a = 5;';
+    
+    t.equal(code, expected, 'should equal');
+    t.end();
+});
+
