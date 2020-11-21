@@ -667,6 +667,7 @@ test('putout: cli: fix', async (t) => {
     const processFile = stub().returns(process);
     const writeFile = stub();
     const getOptions = stub().returns({
+        dir: __dirname,
         formatter: 'dump',
         processors: [
             'javascript',
@@ -706,6 +707,7 @@ test('putout: cli: no processors', async (t) => {
     const halt = stub();
     const processFile = stub().returns(process);
     const getOptions = stub().returns({
+        dir: __dirname,
         formatter: 'dump',
         processors: [
         ],
@@ -737,6 +739,7 @@ test('putout: cli: not fixable', async (t) => {
     ];
     
     const getOptions = stub().returns({
+        dir: __dirname,
         formatter: 'dump',
         processors: [
         ],
@@ -788,6 +791,7 @@ test('putout: cli: setInfo: crash', async (t) => {
     ];
     
     const getOptions = stub().returns({
+        dir: __dirname,
         formatter: 'dump',
         processors: [
         ],

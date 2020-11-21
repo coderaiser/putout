@@ -7,17 +7,7 @@ const putout = require('../..');
 const eslint = require('./eslint');
 const {parseError} = require('./parse-error');
 
-const {ignores} = putout;
-
 module.exports = ({fix, debug, fixCount, isFlow, isJSX, ruler = {}, logError, raw}) => async ({name, source, startLine, options}) => {
-    const {dir} = options;
-    
-    if (ignores(dir, name, options))
-        return {
-            places: [],
-            code: source,
-        };
-    
     const isTS = /\.tsx?$/.test(name) || /\{ts\}$/.test(name);
     const [e, result] = tryCatch(putout, source, {
         fix,

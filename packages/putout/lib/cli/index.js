@@ -16,6 +16,8 @@ const {
 } = require('@putout/engine-processor');
 
 const merge = require('../merge');
+const ignores = require('../ignores');
+
 const processFile = require('./process-file');
 const getFiles = require('./get-files');
 const cacheFiles = require('./cache-files');
@@ -241,7 +243,10 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             plugins,
         });
         
-        const {formatter} = options;
+        const {
+            formatter,
+            dir,
+        } = options;
         const [currentFormat, formatterOptions] = getFormatter(format || formatter, exit);
         
         if (fileCache.canUseCache({fix, options, name})) {
@@ -262,21 +267,28 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             continue;
         }
         
-        const rawSource = await readFile(resolvedName, 'utf8');
+        let isProcessed = true;
+        let places = [];
+        let rawSource = '';
+        let processedSource = '';
         
-        const {
-            isProcessed,
-            places,
-            processedSource,
-        } = await runProcessors({
-            name: resolvedName,
-            fix,
-            processFile: process,
-            options,
-            rawSource,
-            index,
-            length,
-        });
+        if (!ignores(dir, resolvedName, options)) {
+            rawSource = await readFile(resolvedName, 'utf8');
+            
+            ({
+                isProcessed,
+                places,
+                processedSource,
+            } = await runProcessors({
+                name: resolvedName,
+                fix,
+                processFile: process,
+                options,
+                rawSource,
+                index,
+                length,
+            }));
+        }
         
         const line = report(currentFormat, {
             report,
