@@ -1,10 +1,9 @@
 # @putout/plugin-extract-object-properties [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-extract-object-properties.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-extract-object-properties"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-extract-object-properties
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-extract-object-properties
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-extract-object-properties.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-extract-object-properties"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-extract-object-properties
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-extract-object-properties
 
 `putout` plugin adds ability to convert Commonjs to ESM.
 
@@ -39,7 +38,7 @@ const {isIdentifier} = a.types;
 ```js
 const {
     operate,
-    types
+    types,
 } = a;
 
 const {replaceWith} = operate;
@@ -65,4 +64,3 @@ const {isIdentifier} = types;
 ## License
 
 MIT
-
