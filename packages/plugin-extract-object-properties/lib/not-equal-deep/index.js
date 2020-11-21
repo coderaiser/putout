@@ -22,9 +22,6 @@ module.exports.traverse = ({push}) => {
             const idPath = path.get('id');
             const initPath = path.get('init');
             
-            if (!initPath.scope)
-                return;
-            
             if (!idPath.isObjectPattern())
                 return;
             
@@ -48,9 +45,6 @@ module.exports.traverse = ({push}) => {
             
             for (const [current, expandPath] of members) {
                 const {name} = property;
-                
-                if (!expandPath.scope)
-                    continue;
                 
                 if (expandPath.scope.bindings[name])
                     continue;
