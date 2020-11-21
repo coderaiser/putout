@@ -1,3 +1,12 @@
+2020.11.21, v11.7.2
+
+feature:
+- (package) @putout/plugin-extract-object-properties v5.0.0
+- (@putout/plugin-extract-object-properties) drop support of node < 12
+- (@putout/plugin-extract-object-properties) rm uncovered code
+- (@putout/engine-runner) replace: watermark: path -> node
+
+
 2020.11.21, v11.7.1
 
 feature:
