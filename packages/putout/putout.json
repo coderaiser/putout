@@ -56,7 +56,8 @@
     "ignore": [
         "**/node_modules",
         "**/fixture",
-        "**/.nyc_output"
+        "**/.nyc_output",
+        "**/package-lock.json"
     ],
     "exclude": [
         ".md"
