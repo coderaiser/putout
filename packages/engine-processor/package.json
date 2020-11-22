@@ -30,7 +30,8 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/engine-loader": "^2.1.3"
+    "@putout/engine-loader": "^2.1.3",
+    "picomatch": "^2.2.2"
   },
   "keywords": [
     "putout",

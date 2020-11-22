@@ -7,7 +7,10 @@ const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const processFile = require('putout/lib/cli/process-file');
 
-const {runProcessors, getExtensions} = require('..');
+const {
+    runProcessors,
+    getFilePatterns,
+} = require('..');
 
 test('putout: engine-processor: no processor', async (t) => {
     const name = 'hello.xxx';
@@ -133,33 +136,6 @@ test('putout: engine-processor: markdown: fix', async (t) => {
     t.end();
 });
 
-test('putout: engine-processor: getExtensions', (t) => {
-    const js = {
-        extensions: [
-            'js',
-            'ts',
-        ],
-    };
-    
-    const css = {
-        extensions: [
-            'css',
-        ],
-    };
-    
-    const processors = [js, css];
-    const result = getExtensions(processors);
-    
-    const expected = [
-        'js',
-        'ts',
-        'css',
-    ];
-    
-    t.deepEqual(expected, result, 'should equal');
-    t.end();
-});
-
 test('putout: engine-processor: markdown: no fix', async (t) => {
     const name = join(__dirname, 'fixture/no-fix.md');
     const options = {
@@ -215,3 +191,31 @@ test('putout: engine-processor: markdown: js changed', async (t) => {
     t.equal(processedSource, expectedSource, 'should equal');
     t.end();
 });
+
+test('putout: engine-processor: getFilePatterns', (t) => {
+    const js = {
+        files: [
+            '*.js',
+            '*.ts',
+        ],
+    };
+    
+    const css = {
+        files: [
+            '*.css',
+        ],
+    };
+    
+    const processors = [js, css];
+    const result = getFilePatterns(processors);
+    
+    const expected = [
+        '*.js',
+        '*.ts',
+        '*.css',
+    ];
+    
+    t.deepEqual(expected, result, 'should equal');
+    t.end();
+});
+

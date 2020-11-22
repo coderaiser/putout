@@ -37,8 +37,8 @@ runProcessors({
 Simplest possible procesor exampmle can look like this:
 
 ```js
-module.exports.extensions = [
-    'js',
+module.exports.files = [
+    '*.js',
 ];
 
 // with help of process you can lint an types of files with corresponding tools

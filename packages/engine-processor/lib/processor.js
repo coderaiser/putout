@@ -1,7 +1,7 @@
 'use strict';
 
-const {extname} = require('path');
 const {loadProcessors} = require('@putout/engine-loader');
+const picomatch = require('picomatch');
 
 const defaultProcessors = [
     'javascript',
@@ -12,11 +12,11 @@ const stubProcess = (a) => [a, []];
 
 module.exports.defaultProcessors = defaultProcessors;
 
-module.exports.getExtensions = (processors) => {
+module.exports.getFilePatterns = (processors) => {
     const result = [];
     
-    for (const {extensions} of processors) {
-        result.push(...extensions);
+    for (const {files} of processors) {
+        result.push(...files);
     }
     
     return result;
@@ -24,7 +24,6 @@ module.exports.getExtensions = (processors) => {
 
 module.exports.runProcessors = async ({name, fix, processFile, options, rawSource, index, length}) => {
     const allPlaces = [];
-    const ext = extname(name).slice(1);
     const {
         processors = defaultProcessors,
     } = options;
@@ -37,8 +36,8 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     let processedPlaces = [];
     let isProcessed = false;
     
-    for (const {extensions, preProcess, postProcess, process = stubProcess} of loadedProcessors) {
-        if (!extensions.includes(ext))
+    for (const {files, preProcess, postProcess, process = stubProcess} of loadedProcessors) {
+        if (!isMatchName(name, files))
             continue;
         
         [processedSource, processedPlaces] = process(rawSource);
@@ -85,3 +84,16 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     };
 };
 
+function isMatchName(name, files) {
+    for (const current of files) {
+        const isMatch = picomatch(current, {
+            dot: true,
+            matchBase: true,
+        });
+        
+        if (isMatch(name))
+            return true;
+    }
+    
+    return false;
+}
