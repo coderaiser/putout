@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = [{
-    files: ['*.json', '*.md{json}'],
+    files: ['*.json', '*.*{json}'],
     rules: {
         'quotes': ['error', 'double'],
         'quote-props': ['error', 'always'],
