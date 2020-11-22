@@ -1,19 +1,29 @@
 'use strict';
 
-let extensions = [];
+const picomatch = require('picomatch');
+
+let patterns = [];
 
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : a.split(',').filter(Boolean);
-const cutDot = (a) => a.replace(/^\./, '');
 const rmDuplicates = (a) => Array.from(new Set(a));
 
 module.exports.add = (a = '') => {
-    const exts = maybeArray(a).map(cutDot);
-    extensions = rmDuplicates(extensions.concat(exts));
+    const array = maybeArray(a);
+    patterns = rmDuplicates(patterns.concat(array));
 };
 
-module.exports.isSupported = (a) => RegExp(`.(${extensions.join('|')})$`).test(a);
-module.exports.getSupportedGlob = (file) => `${file}/**/*.{${extensions.join(',')}}`;
+module.exports.isSupported = (name) => {
+    for (const pattern of patterns) {
+        const isMatch = picomatch(patterns);
+        
+        if (isMatch(name))
+            return true;
+    }
+    
+    return false;
+};
 
-module.exports.getExtensions = () => extensions;
+module.exports.getSupportedGlob = (file) => `${file}/**/{${patterns.join(',')}}`;
 
+module.exports.getPatterns = () => patterns;

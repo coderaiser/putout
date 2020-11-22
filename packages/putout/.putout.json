@@ -3,6 +3,11 @@
         ".madrun.js": {
             "madrun/add-madrun-to-lint": "off"
         },
+        "lib/cli/index.js": {
+            "apply-shorthand-properties": [{
+                "ignore": "maybeGlobArray"
+            }]
+        },
         "test/putout.js": {
             "apply-shorthand-properties": [{
                 "ignore": "plugin"

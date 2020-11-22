@@ -66,7 +66,7 @@ test('putout: cli: --ext', async (t) => {
     
     stopAll();
     
-    t.ok(add.calledWith('xjs'), 'should call add');
+    t.ok(add.calledWith(['*.xjs']), 'should call add');
     t.end();
 });
 
@@ -96,7 +96,7 @@ test('putout: cli: multiple --ext', async (t) => {
     const [, secondArgs] = add.args;
     const [args] = secondArgs;
     
-    t.deepEqual(['xjs', 'extjs'], args);
+    t.deepEqual(args, ['*.xjs', '*.extjs']);
     t.end();
 });
 
@@ -757,7 +757,7 @@ test('putout: cli: not fixable', async (t) => {
     });
     
     const setInfo = stub();
-    const getExtensions = stub();
+    const getFilePatterns = stub().returns([]);
     const fileCache = stub().returns({
         setInfo,
     });
@@ -766,7 +766,7 @@ test('putout: cli: not fixable', async (t) => {
     mockRequire('./file-cache', fileCache);
     mockRequire('@putout/engine-processor', {
         runProcessors,
-        getExtensions,
+        getFilePatterns,
     });
     
     const cli = reRequire('.');
@@ -809,7 +809,7 @@ test('putout: cli: setInfo: crash', async (t) => {
     });
     
     const setInfo = stub();
-    const getExtensions = stub().returns([]);
+    const getFilePatterns = stub().returns([]);
     const fileCache = stub().returns({
         setInfo,
     });
@@ -818,7 +818,7 @@ test('putout: cli: setInfo: crash', async (t) => {
     mockRequire('./file-cache', fileCache);
     mockRequire('@putout/engine-processor', {
         runProcessors,
-        getExtensions,
+        getFilePatterns,
     });
     
     const cli = reRequire('.');

@@ -1,12 +1,12 @@
 'use strict';
 
-module.exports.extensions = [
-    'js',
-    'mjs',
-    'cjs',
-    'jsx',
-    'ts',
-    'tsx',
+module.exports.files = [
+    '*.js',
+    '*.mjs',
+    '*.cjs',
+    '*.jsx',
+    '*.ts',
+    '*.tsx',
 ];
 
 module.exports.preProcess = (source) => {

@@ -20,8 +20,8 @@ const stringifyOptions = {
     },
 };
 
-module.exports.extensions = [
-    'md',
+module.exports.files = [
+    '*.md',
 ];
 
 module.exports.preProcess = (rawSource) => {

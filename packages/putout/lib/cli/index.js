@@ -11,7 +11,7 @@ const memo = require('nano-memoize');
 const {loadProcessors} = require('@putout/engine-loader');
 const {
     runProcessors,
-    getExtensions,
+    getFilePatterns,
     defaultProcessors,
 } = require('@putout/engine-processor');
 
@@ -37,9 +37,13 @@ const cwd = process.cwd();
 const {PUTOUT_FILES = ''} = process.env;
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
-const {isArray} = Array;
+const addStar = (a) => `*.${a}`;
+
 const maybeFirst = (a) => isArray(a) ? a.pop() : a;
 const maybeArray = (a) => isArray(a) ? a : a.split(',');
+const maybeGlobArray = (a) => maybeArray(a).map(addStar);
+
+const {isArray} = Array;
 const isCrash = (rule) => /^crash/.test(rule);
 const isParsingError = ({rule}) => isCrash(rule);
 
@@ -60,6 +64,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         coerce: {
             format: maybeFirst,
             plugins: maybeArray,
+            ext: maybeGlobArray,
         },
         boolean: [
             'ci',
@@ -168,9 +173,9 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     });
     
     const loadedProcessors = loadProcessors({processors});
-    const extensions = getExtensions(loadedProcessors);
+    const patterns = getFilePatterns(loadedProcessors);
     
-    supportedFiles.add(extensions);
+    supportedFiles.add(patterns);
     supportedFiles.add(args.ext);
     
     const stagedNames = [];

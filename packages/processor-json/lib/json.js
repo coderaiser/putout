@@ -3,8 +3,8 @@
 const prefix = '__putout_processor_json(';
 const sufix = ');';
 
-module.exports.extensions = [
-    'json',
+module.exports.files = [
+    '*.json',
 ];
 
 module.exports.preProcess = (rawSource) => {
