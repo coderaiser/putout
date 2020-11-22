@@ -22,17 +22,28 @@ test('putout: processor: ignore', async (t) => {
         processedSource,
     } = await process('.gitignore');
     
-    t.equal(processedSource, output);
+    t.equal(output, processedSource);
+    t.end();
+});
+
+test('putout: processor: ignore: no fix', async (t) => {
+    const {
+        rawSource,
+        processedSource,
+    } = await process('.gitignore', {fix: false});
+    
+    t.equal(processedSource, rawSource);
     t.end();
 });
 
 function getProcess({processors, plugins, ext = ''}) {
-    return async (name) => {
+    return async (name, {fix = true} = {}) => {
         const inputName = join(__dirname, 'fixture', `${name}${ext}`);
         const outputName = join(__dirname, 'fixture', `${name}-fix${ext}`);
         
         const rawSource = await readFile(inputName, 'utf8');
         const output = await readFile(outputName, 'utf8');
+        
         const options = {
             dir: __dirname,
             processors,
@@ -43,7 +54,7 @@ function getProcess({processors, plugins, ext = ''}) {
         
         const {processedSource} = await runProcessors({
             name: inputName,
-            processFile: processFile({fix: true}),
+            processFile: processFile({fix}),
             options,
             rawSource,
             index,
@@ -51,8 +62,9 @@ function getProcess({processors, plugins, ext = ''}) {
         });
         
         return {
-            processedSource,
+            rawSource,
             output,
+            processedSource,
         };
     };
 }

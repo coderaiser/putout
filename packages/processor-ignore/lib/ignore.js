@@ -1,10 +1,13 @@
 'use strict';
 
-const {parse} = JSON;
-const convertToArray = (a) => `["${a.split('\n').join('","').slice(0, -1)}]`;
+const convertToArray = (a) => `["${a.split('\n').join('", "').slice(0, -1)}]`;
 
 const prefix = '__putout_processor_ignore(';
 const sufix = ');';
+const parse = (a) => {
+    const fn = Function(`return ${a}`);
+    return fn();
+};
 
 module.exports.files = [
     '*ignore',
