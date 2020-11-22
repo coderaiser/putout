@@ -44,16 +44,6 @@ test('putout: supported files: getSupportedGlob: mjs, tsx', (t) => {
     t.end();
 });
 
-test('putout: supported files: add', (t) => {
-    const expected = ['xjs'];
-    
-    const {add, getPatterns} = reRequire('./supported-files');
-    add('xjs');
-    
-    t.deepEqual(expected, getPatterns());
-    t.end();
-});
-
 test('putout: supported files: add: multiple', (t) => {
     const expected = [
         '*.xjs',
