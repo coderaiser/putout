@@ -37,11 +37,8 @@ const cwd = process.cwd();
 const {PUTOUT_FILES = ''} = process.env;
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
-const addStar = (a) => `*.${a}`;
-
 const maybeFirst = (a) => isArray(a) ? a.pop() : a;
 const maybeArray = (a) => isArray(a) ? a : a.split(',');
-const maybeGlobArray = (a) => maybeArray(a).map(addStar);
 
 const {isArray} = Array;
 const isCrash = (rule) => /^crash/.test(rule);
@@ -64,7 +61,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         coerce: {
             format: maybeFirst,
             plugins: maybeArray,
-            ext: maybeGlobArray,
         },
         boolean: [
             'ci',
@@ -86,7 +82,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             'fixCount',
         ],
         string: [
-            'ext',
             'format',
             'disable',
             'enable',
@@ -176,7 +171,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     const patterns = getFilePatterns(loadedProcessors);
     
     supportedFiles.add(patterns);
-    supportedFiles.add(args.ext);
     
     const stagedNames = [];
     
