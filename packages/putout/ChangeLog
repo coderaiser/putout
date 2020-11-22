@@ -1,3 +1,23 @@
+2020.11.22, v11.8.0
+
+fix:
+- (@putout/processor-ignore) JSON.parse -> Function
+- (@putout/engine-processor) markdown changed without places found
+
+feature:
+- (@putout/processor-ignore) add
+- (eslint-plugin-putout) add support of json in .gitignore
+- (package) @putout/processor-markdown v2.0.0
+- (package) @putout/processor-json v2.0.0
+- (package) @putout/processor-javascript v2.0.0
+- (package) @putout/engine-processor v2.0.0
+- (@putout/plugin-gitignore) add
+- (putout) engine-processor: extensions -> files
+- (eslint-plugin-putout) json: *.md{json} -> *.*{json}
+- (@putout/engine-processor) extensions -> files
+- (@putout/processor-ignore) add
+
+
 2020.11.21, v11.7.2
 
 feature:
