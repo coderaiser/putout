@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = [{
-    files: ['*.json', '*.*{json}'],
+    files: ['*.json', '*{json}'],
     rules: {
         'quotes': ['error', 'double'],
         'quote-props': ['error', 'always'],
@@ -15,6 +15,11 @@ module.exports = [{
     files: 'package.json',
     rules: {
         indent: ['error', 2],
+    },
+}, {
+    files: '*ignore{json}',
+    rules: {
+        'comma-dangle': 'off',
     },
 }];
 
