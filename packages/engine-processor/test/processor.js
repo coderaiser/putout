@@ -160,3 +160,58 @@ test('putout: engine-processor: getExtensions', (t) => {
     t.end();
 });
 
+test('putout: engine-processor: markdown: no fix', async (t) => {
+    const name = join(__dirname, 'fixture/no-fix.md');
+    const options = {
+        processors: [
+            'markdown',
+        ],
+    };
+    const rawSource = await readFile(name, 'utf8');
+    const index = 0;
+    const length = 1;
+    
+    const {processedSource} = await runProcessors({
+        name,
+        processFile: processFile({
+            name: `${name}{js}`,
+            fix: true,
+        }),
+        options,
+        rawSource,
+        index,
+        length,
+    });
+    
+    t.equal(processedSource, rawSource, 'should equal');
+    t.end();
+});
+
+test('putout: engine-processor: markdown: js changed', async (t) => {
+    const name = join(__dirname, 'fixture/js-changed.md');
+    const fixedName = join(__dirname, 'fixture/js-changed-fix.md');
+    const options = {
+        processors: [
+            'markdown',
+        ],
+    };
+    const rawSource = await readFile(name, 'utf8');
+    const expectedSource = await readFile(fixedName, 'utf8');
+    const index = 0;
+    const length = 1;
+    
+    const {processedSource} = await runProcessors({
+        name,
+        processFile: processFile({
+            name: `${name}{js}`,
+            fix: true,
+        }),
+        options,
+        rawSource,
+        index,
+        length,
+    });
+    
+    t.equal(processedSource, expectedSource, 'should equal');
+    t.end();
+});

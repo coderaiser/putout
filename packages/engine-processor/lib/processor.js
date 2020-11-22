@@ -51,6 +51,7 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         const list = preProcess(processedSource);
         const preProcessedList = [];
         
+        let isJsChanged = false;
         for (const {source, startLine, extension} of list) {
             const processedName = addExtension(name, extension);
             const {code, places} = await processFile({
@@ -66,9 +67,14 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
             preProcessedList.push(code);
             allPlaces.push(...places);
             allPlaces.push(...processedPlaces);
+            
+            if (places.length || code !== source)
+                isJsChanged = true;
         }
         
-        processedSource = postProcess(rawSource, preProcessedList);
+        if (isJsChanged)
+            processedSource = postProcess(rawSource, preProcessedList);
+        
         isProcessed = true;
     }
     
