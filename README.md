@@ -144,8 +144,8 @@ putout(source, {
 });
 // returns
 ({
-    "code": "\n    const hello = 'world';\n\n    console.log(hello);\n",
-    "places": [],
+    code: "\n    const hello = 'world';\n\n    console.log(hello);\n",
+    places: [],
 });
 ```
 
@@ -1066,6 +1066,7 @@ Next packages not bundled with `putout` but can be installed separately.
 | [`@putout/plugin-eslint`](/packages/plugin-eslint) | [![npm](https://img.shields.io/npm/v/@putout/plugin-eslint.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-eslint) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-eslint)](https://david-dm.org/coderaiser/putout?path=packages/plugin-eslint) |
 | [`@putout/plugin-add-return-await`](/packages/plugin-add-return-await) | [![npm](https://img.shields.io/npm/v/@putout/plugin-add-return-await.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-add-return-await) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-add-return-await)](https://david-dm.org/coderaiser/putout?path=packages/plugin-add-return-await) |
 | [`@putout/plugin-promises`](/packages/plugin-promises) | [![npm](https://img.shields.io/npm/v/@putout/plugin-promises.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-promises) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-promises)](https://david-dm.org/coderaiser/putout?path=packages/plugin-promises) |
+| [`@putout/plugin-gitignore`](/packages/plugin-gitignore) | [![npm](https://img.shields.io/npm/v/@putout/plugin-gitignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-gitignore) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-gitignore)](https://david-dm.org/coderaiser/putout?path=packages/plugin-gitignore) |
 
 ## Formatters
 
@@ -1291,7 +1292,7 @@ const ast = template.ast(`
 
 module.exports.fix = (path) => {
     // wrong
-    path.replaceWith(ast);
+    replaceWith(path, ast);
     
     // correct
     replaceWith(path, ast);
@@ -1325,7 +1326,7 @@ module.exports.report = () => 'Unexpected "debugger" statement';
 
 // lets find all "debugger" statements and replace them with ""
 module.exports.replace = () => ({
-    'debugger': '',
+    debugger: '',
 });
 ```
 
@@ -1592,13 +1593,13 @@ Just create `.babelrc` file with configuration you need.
 
 ```json
 {
-  "plugins": [
-      ["putout", {
-          "rules": {
-              "remove-unused-variables": "off"
-          }
-      }]
-  ]
+    "plugins": [
+        ["putout", {
+            "rules": {
+                "remove-unused-variables": "off"
+            }
+        }]
+    ]
 }
 ```
 

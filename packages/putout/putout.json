@@ -21,6 +21,9 @@
             "remove-unused-for-of-variables": "off",
             "remove-console": "off"
         },
+        ".gitignore": {
+            "gitignore": "on"
+        },
         "(.js|.jsx|.cjs)$": {
             "strict-mode": "on"
         },
@@ -75,7 +78,8 @@
         "strict-mode": "off",
         "eslint": "off",
         "madrun": "off",
-        "webpack": "off"
+        "webpack": "off",
+        "gitignore": "off"
     },
     "plugins": [
         "apply-destructuring",
@@ -149,7 +153,8 @@
         "merge-if-statements",
         "strict-mode",
         "putout",
-        "promises"
+        "promises",
+        "gitignore"
     ]
 }
 
