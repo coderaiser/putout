@@ -34,7 +34,7 @@
     "markdown"
   ],
   "devDependencies": {
-    "@putout/engine-processor": "^1.0.0",
+    "@putout/engine-processor": "^2.0.0",
     "@putout/test": "^2.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0",

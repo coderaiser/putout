@@ -1,6 +1,6 @@
 {
   "name": "@putout/processor-javascript",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout processor for javascript",
   "homepage": "http://github.com/coderaiser/putout",
@@ -26,7 +26,7 @@
     "javascript"
   ],
   "devDependencies": {
-    "@putout/engine-processor": "^1.0.0",
+    "@putout/engine-processor": "^2.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
