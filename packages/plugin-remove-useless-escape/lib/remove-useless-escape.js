@@ -17,7 +17,7 @@ module.exports.fix = (path) => {
         const {raw} = tmpl.value;
         
         tmpl.value.raw = raw
-            .replace(/\\'/, `'`)
+            .replace(/\\'/g, `'`)
             .replace(/\\"/g, `"`)
             .replace(/\\^/g, `^`);
     }
