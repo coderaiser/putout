@@ -687,6 +687,15 @@ function world(a) {
 
 </details>
 
+<details><summary>convert <code>replace</code> to <code>replaceAll</code> (disabled, [stage-4](https://github.com/tc39/proposal-string-replaceall))</summary>
+
+```diff
+-'hello'.replace(/hello/g, 'world');
++'hello'.replace('hello', 'world');
+```
+
+</details>
+
 <details><summary>apply destructuring</summary>
 
 ```diff
@@ -1067,6 +1076,7 @@ Next packages not bundled with `putout` but can be installed separately.
 | [`@putout/plugin-add-return-await`](/packages/plugin-add-return-await) | [![npm](https://img.shields.io/npm/v/@putout/plugin-add-return-await.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-add-return-await) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-add-return-await)](https://david-dm.org/coderaiser/putout?path=packages/plugin-add-return-await) |
 | [`@putout/plugin-promises`](/packages/plugin-promises) | [![npm](https://img.shields.io/npm/v/@putout/plugin-promises.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-promises) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-promises)](https://david-dm.org/coderaiser/putout?path=packages/plugin-promises) |
 | [`@putout/plugin-gitignore`](/packages/plugin-gitignore) | [![npm](https://img.shields.io/npm/v/@putout/plugin-gitignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-gitignore) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-gitignore)](https://david-dm.org/coderaiser/putout?path=packages/plugin-gitignore) |
+| [`@putout/plugin-regexp`](/packages/plugin-regexp) | [![npm](https://img.shields.io/npm/v/@putout/plugin-regexp.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-regexp) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-regexp)](https://david-dm.org/coderaiser/putout?path=packages/plugin-regexp) |
 
 ## Formatters
 

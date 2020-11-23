@@ -81,7 +81,8 @@
         "eslint": "off",
         "madrun": "off",
         "webpack": "off",
-        "gitignore": "off"
+        "gitignore": "off",
+        "regexp/convert-replace-to-replace-all": "off"
     },
     "plugins": [
         "apply-destructuring",
@@ -156,7 +157,8 @@
         "strict-mode",
         "putout",
         "promises",
-        "gitignore"
+        "gitignore",
+        "regexp"
     ]
 }
 

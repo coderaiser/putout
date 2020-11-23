@@ -56,6 +56,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `template` with one `expression` to `string`;
 - convert `equal` to `strict equal`;
 - convert `indexOf` to `includes`;
+- convert `replace` to `replaceAll` (disabled, [stage 4](https://github.com/tc39/proposal-string-replaceall));
 - apply destructuring;
 - apply `top-level await` (disabled, [stage 3](https://github.com/tc39/proposal-top-level-await));
 - convert `throw` statement into expression (disabled, [stage 2](https://github.com/tc39/proposal-throw-expressions));
