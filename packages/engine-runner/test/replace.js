@@ -224,3 +224,29 @@ test('putout: runner: replace: remove: no node', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: options', (t) => {
+    const rm = {
+        report: () => '',
+        replace: ({options}) => ({
+            'process.exit()': options.code,
+        }),
+    };
+    
+    const {code} = putout('const a = 5;process.exit()', {
+        runPlugins,
+        rules: {
+            rm: ['on', {
+                code: 'debugger',
+            }],
+        },
+        plugins: [
+            ['rm', rm],
+        ],
+    });
+    
+    const expected = 'const a = 5;debugger;';
+    
+    t.equal(code, expected, 'should equal');
+    t.end();
+});
+
