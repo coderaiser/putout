@@ -21,5 +21,10 @@ module.exports = [{
     rules: {
         'comma-dangle': 'off',
     },
+}, {
+    files: '*.yml{json}',
+    rules: {
+        indent: 'off',
+    },
 }];
 
