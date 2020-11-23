@@ -30,7 +30,7 @@ module.exports = ({rule, plugin, msg, options}) => {
         filter = getFilter(plugin.match),
     } = plugin;
     
-    const replaceItems = replace();
+    const replaceItems = replace(options);
     const fix = getFix(replaceItems);
     const include = packKeys(replaceItems);
     

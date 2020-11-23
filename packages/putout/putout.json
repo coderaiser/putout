@@ -22,6 +22,9 @@
             "remove-unused-for-of-variables": "off",
             "remove-console": "off"
         },
+        ".travis.yml": {
+            "travis": "on"
+        },
         ".gitignore": {
             "gitignore": "on"
         },
@@ -82,6 +85,7 @@
         "madrun": "off",
         "webpack": "off",
         "gitignore": "off",
+        "travis": "off",
         "regexp/convert-replace-to-replace-all": "off"
     },
     "plugins": [
@@ -158,7 +162,8 @@
         "putout",
         "promises",
         "gitignore",
-        "regexp"
+        "regexp",
+        "travis"
     ]
 }
 
