@@ -1,10 +1,9 @@
 # @putout/plugin-regexp [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-regexp.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-regexp"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-regexp
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-regexp
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-regexp.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-regexp"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-regexp
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-regexp
 
 `putout` plugin helps with `Regular Expressions`.
 
@@ -20,13 +19,14 @@ npm i @putout/plugin-regexp -D
 {
     "rules": {
         "regexp/simplify": "on",
+        "regexp/optimize": "on",
         "regexp/convert-to-string": "on",
         "regexp/convert-replace-to-replace-all": "on"
     }
 }
 ```
 
-## regexp/simplify
+## regexp/optimize
 
 ### ❌ Incorrect code example
 
@@ -38,6 +38,20 @@ const a = /(ab|ab)/;
 
 ```js
 const a = /(ab)/;
+```
+
+## regexp/simplify
+
+### ❌ Incorrect code example
+
+```js
+const a = new RegExp('hello', 'i');
+```
+
+### ✅ Correct code Example
+
+```js
+const a = /hello/i;
 ```
 
 ## regexp/convert-to-string
@@ -71,4 +85,3 @@ const a = /(ab)/;
 ## License
 
 MIT
-
