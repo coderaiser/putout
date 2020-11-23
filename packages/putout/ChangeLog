@@ -1,3 +1,18 @@
+2020.11.23, v11.9.0
+
+fix:
+- (@putout/plugin-remove-useless-escape) add global flag
+- (@putout/engine-runner) replace: watermark: optional chaining not supported on node v12
+- (putout) rm --ext, has no sense since processors introduced
+
+feature:
+- (@putout/plugin-regexp) add support of disjunction
+- (package) @putout/plugin-regexp v1.0.0
+- (@putout/plugin-regexp) add
+- (@putout/codemod-cut-useless) exclude: const fn = (a) => a()
+- (@putout/compare) add support of regexp /__a/
+
+
 2020.11.22, v11.8.1
 
 fix:
