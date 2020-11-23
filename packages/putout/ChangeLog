@@ -1,3 +1,11 @@
+2020.11.23, v11.10.0
+
+feature:
+- (eslint-plugin-putout) add support of *.yml{json}
+- (@putout/processor-yaml) add
+- (@putout/plugin-travis) add
+
+
 2020.11.23, v11.9.0
 
 fix:
