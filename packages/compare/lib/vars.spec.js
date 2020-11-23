@@ -9,7 +9,7 @@ const {compare} = require('./compare');
 const {getTemplateValues} = require('./vars');
 
 const {types, generate} = putout;
-const {RegExpLiteral} = types;
+const {RegExpLiteral, StringLiteral} = types;
 
 test('putout: compare: vars: getTemplateValues', (t) => {
     const addVar = {
@@ -199,7 +199,7 @@ test('putout: compare: vars: __args__a', (t) => {
     t.end();
 });
 
-test('putout: compare: vars: __args__a: different', (t) => {
+test('putout: compare: vars: __args__a', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
@@ -207,7 +207,8 @@ test('putout: compare: vars: __args__a: different', (t) => {
         }),
     };
     
-    const input = 'const y = () => alert(a, b);';
+    const input = 'const y = (a, b) => alert(a, b)';
+    const expected = 'const y = alert';
     
     const {code} = putout(input, {
         fixCount: 1,
@@ -216,7 +217,35 @@ test('putout: compare: vars: __args__a: different', (t) => {
         }],
     });
     
-    t.deepEqual(code, input, 'should equal');
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: compare: vars: regexp', (t) => {
+    const regexp = {
+        report: () => '',
+        replace: () => ({
+            '__a.replace(/__b/, __c)': ({__b}, path) => {
+                const {pattern} = __b;
+                const regExpPath = path.get('arguments.0');
+                
+                regExpPath.replaceWith(StringLiteral(pattern));
+                
+                return path;
+            },
+        }),
+    };
+    
+    const input = `'hello'.replace(/xxx/, 'world');`;
+    const expected = `'hello'.replace('xxx', 'world');`;
+    
+    const {code} = putout(input, {
+        plugins: [{
+            regexp,
+        }],
+    });
+    
+    t.deepEqual(code, expected, 'should equal');
     t.end();
 });
 

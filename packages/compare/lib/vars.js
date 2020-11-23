@@ -9,6 +9,7 @@ const {
     isIdentifier,
     isStringLiteral,
     isTemplateElement,
+    isRegExpLiteral,
 } = require('@babel/types');
 
 const {
@@ -40,6 +41,9 @@ const parseName = (node) => {
     if (isTemplateElement(node))
         return node.value.raw;
     
+    if (isRegExpLiteral(node))
+        return node.pattern;
+    
     return node.name;
 };
 
@@ -53,7 +57,7 @@ function findVarsWays(node) {
     
     traverse(node, {
         noScope: true,
-        'Identifier|StringLiteral|TemplateElement'(path) {
+        'Identifier|StringLiteral|TemplateElement|RegExpLiteral'(path) {
             const {node} = path;
             const way = [];
             const name = parseName(node);

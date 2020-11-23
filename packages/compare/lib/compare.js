@@ -36,11 +36,11 @@ const {
     isEqualBody,
     isEqualNop,
     isLinkedNode,
+    isLinkedRegExp,
     isTemplate,
     parseTemplate,
 } = require('./is');
 
-const {isArray} = Array;
 const {keys} = Object;
 
 const isEmptyBlock = (a) => isBlock(a) && !a.body.length;
@@ -146,9 +146,6 @@ function superCompareIterate(node, base) {
         if (!node)
             return false;
         
-        if (isArray(node) && isArray(base) && node.length !== base.length)
-            return false;
-        
         for (const key of keys(base)) {
             if (ignore.includes(key))
                 continue;
@@ -197,6 +194,9 @@ function superCompare(nodeValue, value, {add, templateStore}) {
         return true;
     
     if (isEqualNop(nodeValue, value))
+        return true;
+    
+    if (isLinkedRegExp(nodeValue, value))
         return true;
     
     if (isLinkedNode(value) || isLinkedArgs(value) || isLinkedId(nodeValue, value))
