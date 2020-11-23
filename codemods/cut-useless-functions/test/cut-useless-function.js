@@ -54,3 +54,8 @@ test('cut usless functions: no transform: regexp', (t) => {
     t.end();
 });
 
+test('cut usless functions: no transform: call', (t) => {
+    t.noTransform('call');
+    t.end();
+});
+
