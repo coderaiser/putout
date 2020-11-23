@@ -49,7 +49,7 @@ module.exports.fix = (path) => {
     
     const {operator} = testPath.node;
     
-    if (operator && operator !== '=' && /[<>=!]/.test(testPath.node.operator)) {
+    if (operator && operator !== '=' && /[!<=>]/.test(testPath.node.operator)) {
         testPath.node.operator = reverse(testPath.node.operator);
         return;
     }

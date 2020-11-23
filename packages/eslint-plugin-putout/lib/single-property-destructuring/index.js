@@ -10,10 +10,10 @@ module.exports.include = () => [
 module.exports.filter = ({node, getText}) => {
     const text = getText(node.parent);
     
-    if (!/(const|let|var) \{\n/.test(text))
+    if (!/(const|let|var) {\n/.test(text))
         return;
     
-    const assignRegExp = /\{\n?.*=.*\n?.*}/;
+    const assignRegExp = /{\n?.*=.*\n?.*}/;
     
     if (assignRegExp.test(text))
         return false;

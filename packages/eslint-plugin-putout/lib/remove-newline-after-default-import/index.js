@@ -3,7 +3,7 @@
 module.exports.category = 'import';
 module.exports.report = () => 'Keep opening curly brace on one line with default import';
 
-const regExp = /,\n\s*\{/;
+const regExp = /,\n\s*{/;
 
 module.exports.filter = ({text}) => {
     return regExp.test(text);
