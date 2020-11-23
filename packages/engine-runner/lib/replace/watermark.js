@@ -6,7 +6,9 @@ const wraptile = require('wraptile');
 const findPath = require('./find-path');
 
 const name = '__putout_runner_replace';
-const hasWatermark = (watermark) => (path) => path.node?.[name]?.has(watermark);
+const hasWatermark = (watermark) => (path) => path.node && path.node[name] && path.node[name] && path.node[name].has(watermark);
+// uncomment on node v14
+//const hasWatermark = (watermark) => (path) => path.node?.[name]?.has(watermark);
 
 module.exports = (from, to, path) => {
     const {
