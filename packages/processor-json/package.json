@@ -19,7 +19,9 @@
     "fix:lint": "madrun fix:lint",
     "coverage": "madrun coverage"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@putout/processor-json": "^2.0.0"
+  },
   "keywords": [
     "putout",
     "putout-processor",

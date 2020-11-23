@@ -20,7 +20,7 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "@putout/processor-json": "^1.0.0",
+    "@putout/processor-json": "^2.0.0",
     "js-yaml": "^3.14.0"
   },
   "keywords": [
