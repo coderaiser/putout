@@ -11,6 +11,11 @@ module.exports = (regexp) => {
     regexpTree.traverse(ast, {
         RegExp({node}) {
             const {expressions} = node.body;
+            
+            if (!expressions) {
+                containsMoreThenChars = true;
+                return;
+            }
             containsMoreThenChars = Boolean(expressions.find(notChar));
         },
     });

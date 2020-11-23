@@ -29,3 +29,8 @@ test('plugin-regexp/convert-to-string: no transform: replace with flags', (t) =>
     t.end();
 });
 
+test('plugin-regexp/simplify: disjunction', (t) => {
+    t.noTransform('disjunction');
+    t.end();
+});
+

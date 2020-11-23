@@ -1,7 +1,6 @@
 'use strict';
 
 const {types} = require('putout');
-const regexpTree = require('regexp-tree');
 const isSimpleRegExp = require('../is-simple-regexp');
 
 const {StringLiteral} = types;

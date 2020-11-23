@@ -1,7 +1,7 @@
 {
     "match": {
-        "lib/index.js": {
-            "remove-useless-spread/object": "off"
+        "*.md": {
+            "regexp": "off"
         }
     }
 }
