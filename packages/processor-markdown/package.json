@@ -20,7 +20,7 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "@putout/processor-json": "^1.0.0",
+    "@putout/processor-json": "^2.0.0",
     "remark": "^13.0.0",
     "remark-parse": "^9.0.0",
     "remark-preset-lint-consistent": "^4.0.0",
