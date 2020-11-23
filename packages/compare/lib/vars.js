@@ -9,6 +9,9 @@ const {
     isIdentifier,
     isStringLiteral,
     isTemplateElement,
+    isRegExpLiteral,
+    StringLiteral,
+    Identifier,
 } = require('@babel/types');
 
 const {
@@ -40,6 +43,9 @@ const parseName = (node) => {
     if (isTemplateElement(node))
         return node.value.raw;
     
+    if (isRegExpLiteral(node))
+        return node.pattern;
+    
     return node.name;
 };
 
@@ -49,14 +55,25 @@ function findVarsWays(node) {
             [node.name]: [''],
         };
     
+    if (isRegExpLiteral(node) && is(node.pattern))
+        return {
+            [node.pattern]: ['pattern'],
+        };
+    
+    if (isStringLiteral(node) && is(node.value))
+        return {
+            [node.value]: ['value'],
+        };
+    
     const vars = {};
     
     traverse(node, {
         noScope: true,
-        'Identifier|StringLiteral|TemplateElement'(path) {
+        'Identifier|StringLiteral|TemplateElement|RegExpLiteral'(path) {
             const {node} = path;
             const way = [];
             const name = parseName(node);
+            debugger;
             
             if (!is(name))
                 return;
@@ -104,13 +121,20 @@ function getValues({waysFrom, node}) {
 
 module.exports.setValues = setValues;
 
+const convertToNode = (node, value) => {
+    if (typeof value !== 'string')
+        return value;
+    
+    return Identifier(value);
+};
+
 function setValues({waysTo, values, path}) {
     const node = parseExpression(path.node);
     
     for (const [name, ways] of entries(waysTo)) {
         for (let way of ways) {
             if (!way) {
-                replaceWith(path, values[name]);
+                replaceWith(path, convertToNode(node, values[name]));
                 continue;
             }
             

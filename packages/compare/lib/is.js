@@ -8,6 +8,7 @@ const {
     isTemplateElement,
     isFunction,
     isImportDefaultSpecifier,
+    isRegExpLiteral,
 } = require('@babel/types');
 
 const isStr = (a) => typeof a === 'string';
@@ -112,6 +113,13 @@ module.exports.isLinkedId = (a, b) => {
         return false;
     
     return isIdentifier(a);
+};
+
+module.exports.isLinkedRegExp = (a, b) => {
+    if (!isRegExpLiteral(b) || !LINKED_NODE.test(b.pattern))
+        return false;
+    
+    return isRegExpLiteral(a);
 };
 
 module.exports.isPath = (path) => Boolean(path.node);

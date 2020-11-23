@@ -1,11 +1,8 @@
 # @putout/compare [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/compare.svg?style=flat&longCache=true
-
 [NPMURL]: https://npmjs.org/package/@putout/compare"npm"
-
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/compare
-
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/compare
 
 Compare AST-nodes.
@@ -45,7 +42,7 @@ getTemplateValues(node, 'const __array = array');
 
 #### Supported template variables:
 
-##### \__
+##### __
 
 Any node.
 
@@ -57,7 +54,7 @@ compare('const x = {data}', 'const __ = __');
 true;
 ```
 
-##### \__object
+##### __object
 
 `ObjectPattern` or `ObjectExpression` with any count of `properties`.
 
@@ -68,7 +65,7 @@ compare('const {hello} = data', 'const __object = __');
 true;
 ```
 
-##### \__array
+##### __array
 
 `ArrayPattern` or `ArrayExpression` with any count of `elements`.
 
@@ -80,7 +77,7 @@ compare('const hello = [data]', 'const __ = __array');
 true;
 ```
 
-##### \__args, \__args_a
+##### __args, __args_a
 
 Any count of `arguments`:
 
@@ -92,7 +89,7 @@ compare('() => {}', '(__args) => {}');
 true;
 ```
 
-##### \__imports
+##### __imports
 
 Any count of `imports`:
 
@@ -100,7 +97,7 @@ Any count of `imports`:
 compare('import React, {Component} from "react"', 'import __imports from "react"');
 ```
 
-##### "\__"
+##### "__"
 
 Any string literal.
 
@@ -108,7 +105,7 @@ Any string literal.
 compare('const a = "hello"', 'const __ = "__"');
 ```
 
-##### \__a
+##### __a
 
 Linked literal
 
@@ -116,7 +113,7 @@ Linked literal
 compare('const __a = "hello"', 'const __a = "hello"');
 ```
 
-##### "\__a"
+##### "__a"
 
 Linked string literal.
 
@@ -134,7 +131,7 @@ compare('const a = `hello`', 'const __a = `__b`');
 true;
 ```
 
-##### \__body
+##### __body
 
 Any `BlockStatement`.
 
@@ -148,7 +145,7 @@ compare('const a = () => {}', 'const a = () => __body');
 true;
 ```
 
-##### \__nop
+##### __nop
 
 Any `Function` with no `arguments` and empty body;
 
@@ -162,9 +159,9 @@ compare('const a = async () => {}', 'const a = __nop');
 true;
 ```
 
-##### \__identifier
+##### __identifier
 
-Any \`Identifier
+Any `Identifier
 
 ```js
 compare('const a = 5', 'const __identifier = 5');

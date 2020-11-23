@@ -564,6 +564,20 @@ test('compare: __identifier__a', (t) => {
     t.end();
 });
 
+test('compare: __regexp', (t) => {
+    const result = compare('/hello/g', '/__a/');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: __regexp: inner', (t) => {
+    const result = compare('"".replace(/hello/g, "")', '__a.replace(/__b/, __c)');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: innerComments', (t) => {
     const from = {
         type: 'StringLiteral',

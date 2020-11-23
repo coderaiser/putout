@@ -123,7 +123,7 @@ test('putout: compare: vars: vars: __imports', (t) => {
     t.end();
 });
 
-test('putout: compare: vars: vars: identifier', (t) => {
+test('putout: compare: vars: identifier', (t) => {
     const varToConst = {
         report: () => '',
         replace: () => ({
@@ -141,6 +141,69 @@ test('putout: compare: vars: vars: identifier', (t) => {
     const expected = 'if (y) fn()';
     
     t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test.only('putout: compare: vars: regexp', (t) => {
+    const varToConst = {
+        report: () => '',
+        replace: () => ({
+            'const __a = /__b/': 'const __a = __b'
+        }),
+    };
+    
+    const {code} = putout('const a = /hello/', {
+        fixCount: 1,
+        plugins: [{
+            'var-to-const': varToConst,
+        }],
+    });
+    
+    const expected = `const a = 'hello';`;
+    
+    t.equal(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: compare: vars: regexp: identifier', (t) => {
+    const varToConst = {
+        report: () => '',
+        replace: () => ({
+            '/__a/': '__a',
+        }),
+    };
+    
+    const {code} = putout('/hello/', {
+        fixCount: 1,
+        plugins: [{
+            'var-to-const': varToConst,
+        }],
+    });
+    
+    const expected = `hello;`;
+    
+    t.equal(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: compare: vars: regexp: string literal', (t) => {
+    const varToConst = {
+        report: () => '',
+        replace: () => ({
+            '/__a/': `'__a'`,
+        }),
+    };
+    
+    const {code} = putout('/hello/', {
+        fixCount: 1,
+        plugins: [{
+            'var-to-const': varToConst,
+        }],
+    });
+    
+    const expected = `'hello';`;
+    
+    t.equal(code, expected, 'should equal');
     t.end();
 });
 

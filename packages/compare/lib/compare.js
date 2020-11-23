@@ -36,6 +36,7 @@ const {
     isEqualBody,
     isEqualNop,
     isLinkedNode,
+    isLinkedRegExp,
     isTemplate,
     parseTemplate,
 } = require('./is');
@@ -89,6 +90,9 @@ function compare(path, base) {
         return true;
     
     if (isEqualNop(node, baseNode))
+        return true;
+    
+    if (isLinkedRegExp(node, baseNode))
         return true;
     
     if (isPath(path) && !isEqualType(node, baseNode)) {
@@ -197,6 +201,9 @@ function superCompare(nodeValue, value, {add, templateStore}) {
         return true;
     
     if (isEqualNop(nodeValue, value))
+        return true;
+    
+    if (isLinkedRegExp(nodeValue, value))
         return true;
     
     if (isLinkedNode(value) || isLinkedArgs(value) || isLinkedId(nodeValue, value))
