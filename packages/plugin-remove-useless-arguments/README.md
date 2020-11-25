@@ -1,10 +1,9 @@
 # @putout/plugin-remove-useless-arguments [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-useless-arguments.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-useless-arguments"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-arguments
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-arguments
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-arguments.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-arguments"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-arguments
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-arguments
 
 `putout` plugin adds ability to find and remove useless `arguments`.
 
@@ -34,7 +33,7 @@ onIfStatement({
     generate,
     abc,
     helloworld,
-})
+});
 
 function onIfStatement({push}) {
 }
@@ -51,7 +50,7 @@ const sum = (a, b) => {};
 // destructuring
 onIfStatement({
     push,
-})
+});
 
 function onIfStatement({push}) {
 }
@@ -65,4 +64,3 @@ const sum = (a, b) => {};
 ## License
 
 MIT
-
