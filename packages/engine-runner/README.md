@@ -1,10 +1,9 @@
 # @putout/engine-runner [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/engine-runner.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/engine-runner"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/engine-runner
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/engine-runner
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/engine-runner.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/engine-runner"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/engine-runner
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/engine-runner
 
 Run putout plugins.
 
@@ -25,9 +24,9 @@ Simplest replace example:
 ```js
 module.exports.report = () => 'any message here';
 
-module.exports.replace = () => {
+module.exports.replace = () => ({
     'const a = 1': 'const b = 1',
-};
+});
 
 // optional
 module.exports.filter = (path) => {
@@ -36,10 +35,10 @@ module.exports.filter = (path) => {
 
 // optional
 module.exports.match = () => ({
-    'const __a = 1': ({__a}) {
+    'const __a = 1': ({__a}) => {
         return true;
-    }
-})
+    },
+});
 
 // optional
 module.exports.exclude = () => [
@@ -52,9 +51,9 @@ Simplest remove example:
 ```js
 module.exports.report = () => 'debugger should not be used';
 
-module.exports.replace = () => {
+module.exports.replace = () => ({
     'debugger': '',
-};
+});
 ```
 
 Templates:
@@ -62,9 +61,9 @@ Templates:
 ```js
 module.exports.report = () => 'any message here';
 
-module.exports.replace = () => {
+module.exports.replace = () => ({
     'var __a = 1': 'const __a = 1',
-};
+});
 ```
 
 A couple variables example:
@@ -72,9 +71,9 @@ A couple variables example:
 ```js
 module.exports.report = () => 'any message here';
 
-module.exports.replace = () => {
+module.exports.replace = () => ({
     'const __a = __b': 'const __b = __a',
-};
+});
 ```
 
 #### Processing of node using functions
@@ -86,12 +85,12 @@ Remove node:
 ```js
 module.exports.report = () => 'any message here';
 
-module.exports.replace = () => {
+module.exports.replace = () => ({
     'for (const __a of __b) __c': ({__a, __b, __c}, path) => {
         // remove node
         return '';
     },
-};
+});
 ```
 
 Update node:
@@ -99,13 +98,13 @@ Update node:
 ```js
 module.exports.report = () => 'any message here';
 
-module.exports.replace = () => {
+module.exports.replace = () => ({
     'for (const __a of __array) __c': ({__a, __array, __c}, path) => {
         // update __array elements count
         path.node.right.elements = [];
         return path;
     },
-};
+});
 ```
 
 Update node using template variables:
@@ -113,12 +112,12 @@ Update node using template variables:
 ```js
 module.exports.report = () => 'any message here';
 
-module.exports.replace = () => {
+module.exports.replace = () => ({
     'for (const __a of __array) __c': ({__a, __array, __c}, path) => {
         // update the whole node using template string
         return 'for (const x of y) z';
     },
-};
+});
 ```
 
 ### Includer
@@ -169,8 +168,8 @@ module.exports.traverse = ({push}) => {
     return {
         'debugger'(path) {
             push(path);
-        }
-    }
+        },
+    };
 };
 ```
 
@@ -186,15 +185,15 @@ module.exports.traverse = ({push, listStore}) => {
             push(path);
         },
         Program: {
-            exit: {
+            exit() {
                 console.log(listStore());
                 // returns
-                ['x', 'x', 'x']
+                ['x', 'x', 'x'];
                 // for code
-                'debugger; debugger; debugger'
-            }
-        }
-    }
+                'debugger; debugger; debugger';
+            },
+        },
+    };
 };
 ```
 
@@ -213,19 +212,21 @@ module.exports.traverse = ({push, store}) => {
             push(path);
         },
         Program: {
-            exit: {
-                store()
+            exit() {
+                store();
                 // returns
-                ['world']
+                ['world'];
                 
                 store.entries();
-                // [['hello', 'world']]
+                // returns
+                [['hello', 'world']];
                 
                 store('hello');
-                // 'world'
-            }
-        }
-    }
+                // returns
+                'world';
+            },
+        },
+    };
 };
 ```
 
@@ -245,8 +246,8 @@ module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
         'debugger'(path) {
             push(path);
-        }
-    }
+        },
+    });
 };
 ```
 
@@ -260,10 +261,11 @@ const plugins = [{
     rule: "remove-debugger",
     msg: "",        // optional
     options: {},    // optional
-    plugin:
+    plugin: {
         include: () => ['debugger'],
         fix: (path) => path.remove(),
         report: () => `debugger should not be used`,
+    },
 }];
 
 const ast = parse('const m = "hi"; debugger');
@@ -271,7 +273,7 @@ const places = runPlugins({
     ast,
     shebang: false,     // default
     fix: true,          // default
-    fixCount: 1         // default
+    fixCount: 1,        // default
     plugins,
     parser: 'babel',    // default
 });
@@ -291,4 +293,3 @@ DEBUG=putout:runner:template
 ## License
 
 MIT
-
