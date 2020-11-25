@@ -24,6 +24,7 @@ module.exports = [{
         babelOptions: {
             plugins: [
                 '@babel/plugin-syntax-class-properties',
+                '@babel/plugin-syntax-top-level-await',
             ],
         },
     },
