@@ -22,6 +22,7 @@ module.exports = [{
     parserOptions: {
         requireConfigFile: false,
         babelOptions: {
+            sourceType: 'module',
             plugins: [
                 '@babel/plugin-syntax-class-properties',
                 '@babel/plugin-syntax-top-level-await',
