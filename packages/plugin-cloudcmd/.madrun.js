@@ -1,24 +1,13 @@
 'use strict';
 
-const {
-    run,
-    predefined,
-} = require('madrun');
-
-const {putout} = predefined;
+const {run} = require('madrun');
 
 module.exports = {
     'prepublishOnly': () => run(['lint', 'test']),
     'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': () => `nodemon -w lib -x ${run('test')}`,
     
-    'lint': () => putout([
-        'lib',
-        'test',
-        '*.js',
-        '*.json',
-        '*.md',
-    ]),
+    'lint': () => 'putout .',
     
     'fix:lint': () => run('lint', '--fix'),
     'coverage': () => `nyc ${run('test')}`,
