@@ -1,8 +1,5 @@
 'use strict';
 
-const {types} = require('putout');
-const {StringLiteral} = types;
-
 const getValue = ({value}) => value;
 const notLegacy = ({value}) => value !== 'legacy';
 
