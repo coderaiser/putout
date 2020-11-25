@@ -1,10 +1,9 @@
 # @putout/plugin-react-hooks [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-react-hooks.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-react-hooks"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-react-hooks
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-react-hooks
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-react-hooks.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-react-hooks"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-react-hooks
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-react-hooks
 
 `putout` plugin adds ability to convert class components to [react hooks](https://reactjs.org/docs/hooks-intro.html).
 *Not installed with putout by default*.
@@ -56,7 +55,7 @@ class Button extends Component {
         super();
         
         this.state = {
-            enabled: true
+            enabled: true,
         };
         
         this.toogle = this._toggle.bind(this);
@@ -107,4 +106,3 @@ function Button() {
 ## License
 
 MIT
-
