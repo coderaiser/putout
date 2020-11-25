@@ -163,6 +163,96 @@ test('putout: engine-processor: markdown: no fix', async (t) => {
     t.end();
 });
 
+test('putout: engine-processor: markdown: fix: processed places', async (t) => {
+    const name = join(__dirname, 'fixture/places.md');
+    const options = {
+        processors: [
+            'markdown',
+        ],
+    };
+    const rawSource = await readFile(name, 'utf8');
+    const index = 0;
+    const length = 1;
+    const fix = true;
+    
+    const {places} = await runProcessors({
+        name,
+        fix,
+        processFile: processFile({
+            name: `${name}{js}`,
+            fix,
+        }),
+        options,
+        rawSource,
+        index,
+        length,
+    });
+    
+    t.deepEqual(places, [], 'should equal');
+    t.end();
+});
+
+test('putout: engine-processor: markdown: no fix: processed places', async (t) => {
+    const name = join(__dirname, 'fixture/places.md');
+    const options = {
+        processors: [
+            'markdown',
+        ],
+    };
+    const rawSource = await readFile(name, 'utf8');
+    const index = 0;
+    const length = 1;
+    
+    const fix = false;
+    const {places} = await runProcessors({
+        name,
+        processFile: processFile({
+            name: `${name}{js}`,
+            fix,
+        }),
+        options,
+        rawSource,
+        index,
+        length,
+    });
+    
+    const expected = [{
+        message: 'Code blocks should be fenced',
+        rule: 'code-block-style (remark-lint)',
+        position: {line: 11, column: 1},
+    }];
+    
+    t.deepEqual(expected, places, 'should equal');
+    t.end();
+});
+
+test('putout: engine-processor: markdown: no fix: places', async (t) => {
+    const name = join(__dirname, 'fixture/places.md');
+    const options = {
+        processors: [
+            'markdown',
+        ],
+    };
+    const rawSource = await readFile(name, 'utf8');
+    const index = 0;
+    const length = 1;
+    
+    const {processedSource} = await runProcessors({
+        name,
+        processFile: processFile({
+            name: `${name}{js}`,
+            fix: false,
+        }),
+        options,
+        rawSource,
+        index,
+        length,
+    });
+    
+    t.equal(processedSource, rawSource, 'should equal');
+    t.end();
+});
+
 test('putout: engine-processor: markdown: js changed', async (t) => {
     const name = join(__dirname, 'fixture/js-changed.md');
     const fixedName = join(__dirname, 'fixture/js-changed-fix.md');
