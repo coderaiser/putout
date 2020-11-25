@@ -4,18 +4,8 @@ node_js:
     - 14
     - 12
 
-os:
-    - linux
-    - osx
-    - windows
-
-matrix:
-    allow_failures:
-        - os: windows
-        - os: osx
-
 script:
-  - npm run bootstrap || true
+  - npm run bootstrap
   - npm run lint
   - npm run coverage:long
   - npm run report
