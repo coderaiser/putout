@@ -4,3 +4,4 @@ legacy
 *.swp
 yarn-error.log
 
+.putoutcache

@@ -1,10 +1,9 @@
 # putout-engine-loader [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/engine-loader.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/engine-loader"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/engine-loader
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/engine-loader
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/engine-loader.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/engine-loader"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/engine-loader
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/engine-loader
 
 Load putout plugins.
 
@@ -24,7 +23,7 @@ const pluginNames = [
 ];
 
 const rules = {
-    'remove-unused-variables': 'on'
+    'remove-unused-variables': 'on',
 };
 
 const plugins = loadPlugins({
@@ -43,9 +42,9 @@ const pluginNames = [
     'jscodeshift/async-await-codemod',
 ];
 
-const rules = [
+const rules = {
     'jscodeshift/async-await-codemod': ['on', 'any message you like :)'],
-]
+};
 
 const plugins = loadPlugins({
     pluginNames,
@@ -59,6 +58,7 @@ You can use `babel plugins` with help of `babel/` prefix.
 
 *Example*
 Let's use two plugins:
+
 - `babel-plugin-transform-inline-consecutive-adds`
 - `@babel/plugin-codemod-object-assign-to-object-spread`
 
@@ -78,4 +78,3 @@ const plugins = loadPlugins({
 ## License
 
 MIT
-
