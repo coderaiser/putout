@@ -9,3 +9,8 @@ test('plugin-travis: transform', (t) => {
     t.end();
 });
 
+test('plugin-travis: transform: disable npm cache', (t) => {
+    t.transform('cache');
+    t.end();
+});
+

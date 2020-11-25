@@ -1,9 +1,5 @@
 __putout_processor_json({
     "language": "node_js",
-    "node_js": [
-        14,
-        12
-    ],
     "script": [
         "npm run lint",
         "npm run coverage",
@@ -15,8 +11,5 @@ __putout_processor_json({
             "on_failure": "change"
         }
     },
-    "sudo": false,
-    "cache": {
-        "npm": true
-    }
+    "sudo": false
 });

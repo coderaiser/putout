@@ -19,7 +19,8 @@ npm i @putout/plugin-travis -D
 ```json
 {
     "rules": {
-        "travis/set-node-versions": "on"
+        "travis/set-node-versions": "on",
+        "travis/disable-cache": "on"
     }
 }
 ```
@@ -34,6 +35,13 @@ node_js:
   - 14
   - 12
 - - 10
+```
+
+## Disable cache
+
+```diff
+language: node_js
++cache: false
 ```
 
 ## License

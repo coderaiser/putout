@@ -15,8 +15,5 @@ __putout_processor_json({
             "on_failure": "change"
         }
     },
-    "sudo": false,
-    "cache": {
-        "npm": true
-    }
+    "sudo": false
 });
