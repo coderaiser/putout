@@ -45,7 +45,7 @@ const {series} = require('madrun');
 module.exports = {
     'eslint': () => `eslint lib test`,
     'putout': () => `putout lib test`,
-    'lint': () => series(['putout', 'eslint'),
+    'lint': () => series(['putout', 'eslint']),
     'fix:lint': () => series(['putout', 'eslint'], '--fix'),
 };
 ```
