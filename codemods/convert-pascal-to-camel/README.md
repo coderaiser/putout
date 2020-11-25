@@ -1,7 +1,7 @@
 # @putout/plugin-convert-pascal-to-camel [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=codemods/convert-pascal-to-camel
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=codemods/convert-pascal-to-camel
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=codemods/convert-pascal-to-camel
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=codemods/convert-pascal-to-camel
 
 Convert function names from `PascalCase` to `camelCase`.
 
@@ -24,7 +24,7 @@ const HowCome = () => {};
 const HowCome2 = function WhySo() {};
 const HowCome3 = function properCamelCase() {};
 const howCome4 = function WhySo() {};
-const HowCome5 = function () {};
+const HowCome5 = function() {};
 
 class SomeClass extends Component {
     HowCome() {}
@@ -47,10 +47,10 @@ const howCome = () => {};
 const howCome2 = function whySo() {};
 const howCome3 = function properCamelCase() {};
 const howCome4 = function whySo() {};
-const howCome5 = function () {};
+const howCome5 = function() {};
 
 class SomeClass extends Component {
-  howCome() {}
+    howCome() {}
 }
 
 class SomeClass2 extends Component {
@@ -62,4 +62,3 @@ class SomeClass2 extends Component {
 ## License
 
 MIT
-
