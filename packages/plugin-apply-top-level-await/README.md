@@ -27,7 +27,7 @@ npm i @putout/plugin-apply-top-level-await
 ## ❌ Incorrect code example
 
 ```js
-import fs = from 'fs';
+import fs from 'fs';
 (async () => {
     const data = await fs.promises.readFile('hello.txt');
 })();
@@ -36,7 +36,7 @@ import fs = from 'fs';
 ## ✅ Correct code Example
 
 ```js
-import fs = from 'fs';
+import fs from 'fs';
 const data = await fs.promises.readFile('hello.txt');
 ```
 
