@@ -23,6 +23,7 @@ module.exports = {
     'fresh:lint': () => run('lint:fresh'),
     'fresh': () => run(['lint:memory', 'coverage']),
     'lint': () => `putout *.js '${dirs}/*/{bin,lib,test,*.js,*.json}'`,
+    'lint:mark': () => 'putout **/*.md',
     'memory': () => run(['lint:fresh', '-f memory']),
     'fix:lint': () => run('lint', '--fix'),
     'fix:lint:fresh': () => run('fix:lint', '--fresh'),

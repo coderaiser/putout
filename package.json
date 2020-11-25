@@ -18,6 +18,7 @@
     "fresh:lint": "madrun fresh:lint",
     "fresh": "madrun fresh",
     "lint": "madrun lint",
+    "lint:mark": "madrun lint:mark",
     "memory": "madrun memory",
     "fix:lint": "madrun fix:lint",
     "fix:lint:fresh": "madrun fix:lint:fresh",
