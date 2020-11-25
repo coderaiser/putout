@@ -24,7 +24,8 @@
             "remove-console": "off"
         },
         ".json": {
-            "remove-useless-escape": "off"
+            "remove-useless-escape": "off",
+            "apply-numeric-separators": "off"
         },
         ".travis.yml": {
             "travis": "on"
