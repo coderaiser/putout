@@ -23,6 +23,9 @@
             "remove-unused-for-of-variables": "off",
             "remove-console": "off"
         },
+        ".json": {
+            "remove-useless-escape": "off"
+        },
         ".travis.yml": {
             "travis": "on"
         },
