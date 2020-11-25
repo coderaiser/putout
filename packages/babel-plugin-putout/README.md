@@ -31,13 +31,13 @@ $ npm install babel-plugin-putout
 
 ```json
 {
-  "plugins": [
-      ["putout", {
-          "rules": {
-              "remove-unused-variables": false
-          }
-      }]
-  ]
+    "plugins": [
+        ["putout", {
+            "rules": {
+                "remove-unused-variables": false
+            }
+        }]
+    ]
 }
 ```
 
@@ -51,6 +51,6 @@ $ babel --plugins putout script.js
 
 ```javascript
 require("babel-core").transform("code", {
-  plugins: ["putout"]
+    plugins: ["putout"],
 });
 ```
