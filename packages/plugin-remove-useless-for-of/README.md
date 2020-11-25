@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-for-of
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-for-of
 
-`putout` plugin adds ability to apply shorthand properties.
+`putout` plugin adds ability to remove useless `for-of` statements.
 
 ## Install
 
