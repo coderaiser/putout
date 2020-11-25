@@ -32,7 +32,7 @@ async function doTheThing(name, {fix, ext = ''} = {}) {
             'yaml',
         ],
         plugins: [
-            'travis',
+            'travis/disable-cache',
         ],
     };
     const index = 0;
