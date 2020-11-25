@@ -1,0 +1,8 @@
+{
+    "match": {
+        "*.md": {
+            "remove-useless-functions": "off",
+            "extract-sequence-expressions": "off"
+        }
+    }
+}
