@@ -6,6 +6,7 @@ const commonRules = {
     'no-empty': 'off',
     'eol-last': 'off',
     'quotes': 'off',
+    'quote-props': 'off',
     'node/no-extraneous-require': 'off',
     'node/no-unpublished-require': 'off',
     'node/no-missing-require': 'off',
