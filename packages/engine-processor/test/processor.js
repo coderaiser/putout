@@ -192,6 +192,46 @@ test('putout: engine-processor: markdown: js changed', async (t) => {
     t.end();
 });
 
+test('putout: engine-processor: yaml: no startLine', async (t) => {
+    const name = join(__dirname, 'fixture/travis.yml');
+    const options = {
+        plugins: [
+            'travis',
+        ],
+        processors: [
+            'yaml',
+        ],
+    };
+    const rawSource = await readFile(name, 'utf8');
+    const index = 0;
+    const length = 1;
+    
+    const {places} = await runProcessors({
+        name,
+        processFile: processFile({
+            name: `${name}{json}`,
+            fix: false,
+        }),
+        options,
+        rawSource,
+        index,
+        length,
+    });
+    
+    const expected = [{
+        message: '"cache" field should exist in travis',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'travis/disable-cache',
+    
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
 test('putout: engine-processor: getFilePatterns', (t) => {
     const js = {
         files: [

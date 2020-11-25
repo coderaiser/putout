@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+    - 15
+    - 14
+    - 12
+
+script:
+  - npm run lint
+  - npm run coverage && npm run report
+
+notifications:
+    email:
+        on_success: change
+        on_failure: change
+
