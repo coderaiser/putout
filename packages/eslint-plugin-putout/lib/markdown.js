@@ -20,6 +20,11 @@ module.exports = [{
     parser: '@babel/eslint-parser',
     parserOptions: {
         requireConfigFile: false,
+        babelOptions: {
+            plugins: [
+                '@babel/plugin-syntax-class-properties',
+            ],
+        },
     },
 }, {
     files: '*.md{ts}',
