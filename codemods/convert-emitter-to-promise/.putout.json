@@ -1,5 +1,7 @@
 {
-    "ignore": [
-        "test/fixture"
-    ]
+    "match": {
+        "*.md": {
+            "convert-emitter-to-promise": "off"
+        }
+    }
 }
