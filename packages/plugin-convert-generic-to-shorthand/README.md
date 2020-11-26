@@ -28,7 +28,7 @@ Rule `convert-generic-to-shorthand` is enabled by default for `ts` and `tsx` fil
 
 ## ❌ Incorrect code example
 
-```js
+```ts
 interface A {
     x: Array<X>;
     y: Array<Y>;
@@ -37,7 +37,7 @@ interface A {
 
 ## ✅ Correct code Example
 
-```js
+```ts
 interface A {
     x: X[];
     y: Y[];
