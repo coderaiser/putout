@@ -1,10 +1,9 @@
 # @putout/plugin-convert-to-arrow-function [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-convert-to-arrow-function.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-convert-to-arrow-function"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-to-arrow-function
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-to-arrow-function
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-to-arrow-function.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-convert-to-arrow-function"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-to-arrow-function
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-to-arrow-function
 
 `putout` plugin convert `anonymous` to `arrow function`.
 
@@ -28,12 +27,12 @@ npm i @putout/plugin-convert-to-arrow-function
 
 ```js
 module.exports = function(a, b) {
-}
+};
 
 function x() {
     return function(a) {
         return b;
-    }
+    };
 }
 ```
 
@@ -41,16 +40,15 @@ function x() {
 
 ```js
 module.exports = (a, b) => {
-}
+};
 
 function x() {
     return (a) => {
         return b;
-    }
+    };
 }
 ```
 
 ## License
 
 MIT
-

@@ -1,0 +1,7 @@
+{
+    "match": {
+        "*.md": {
+            "convert-to-arrow-function": "off"
+        }
+    }
+}
