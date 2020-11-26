@@ -143,7 +143,7 @@ test('putout: eslint: parsing error', async (t) => {
     });
     
     const expected = [{
-        rule: 'crash/parser (eslint)',
+        rule: 'parser (eslint)',
         message: 'Parsing error: Unexpected token',
         position: {
             line: 1,

@@ -745,7 +745,7 @@ test('putout: cli: setInfo: crash', async (t) => {
     const runProcessors = stub().returns({
         isProcessed: true,
         places: [{
-            rule: 'crash/promises/add-return-await',
+            rule: 'parser',
             position: {
                 line: 1,
                 column: 1,

@@ -41,8 +41,8 @@ const maybeFirst = (a) => isArray(a) ? a.pop() : a;
 const maybeArray = (a) => isArray(a) ? a : a.split(',');
 
 const {isArray} = Array;
-const isCrash = (rule) => /^crash/.test(rule);
-const isParsingError = ({rule}) => isCrash(rule);
+const isParser = (rule) => /^parser/.test(rule);
+const isParsingError = ({rule}) => isParser(rule);
 
 const createFormatterProxy = (options) => {
     return new Proxy(options, {

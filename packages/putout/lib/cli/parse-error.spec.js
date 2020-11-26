@@ -10,7 +10,7 @@ test('putout: cli: parse error', (t) => {
     });
     
     const expected = [{
-        rule: 'crash/parser',
+        rule: 'parser',
         message: 'hello',
         position: {
             line: 7,
@@ -29,7 +29,7 @@ test('putout: cli: parse error: no debug', (t) => {
     });
     
     const expected = [{
-        rule: 'crash/parser',
+        rule: 'parser',
         message: 'hello',
         position: {
             line: 1,
@@ -54,7 +54,7 @@ test('putout: cli: parse error', (t) => {
     });
     
     const expected = [{
-        rule: 'crash/parser',
+        rule: 'parser',
         message: 'hello',
         position: {
             line: 1,
