@@ -35,6 +35,11 @@ test('plugin-convert-commonjs-to-esm: require: transform: json', (t) => {
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: require: transform: inner require', (t) => {
+    t.transform('inner-require');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: require: transform: no require', (t) => {
     t.noTransform('no-require');
     t.end();

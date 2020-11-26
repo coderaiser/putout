@@ -1,8 +1,17 @@
 'use strict';
 
-const {types} = require('putout');
+const {
+    types,
+    operator,
+} = require('putout');
 
-const {isObjectPattern} = types;
+const {replaceWith} = operator;
+
+const {
+    isFunction,
+    isObjectPattern,
+    AwaitExpression,
+} = types;
 
 module.exports.report = () => 'ESM should be used insted of Commonjs';
 
@@ -13,7 +22,7 @@ module.exports.filter = (path) => {
 };
 
 module.exports.replace = () => ({
-    'const __a = require("__b")': ({__a, __b}) => {
+    'const __a = require("__b")': ({__a, __b}, path) => {
         let {value} = __b;
         
         if (value.includes('./') && !/\.js(on)?$/.test(value))
@@ -21,6 +30,13 @@ module.exports.replace = () => ({
         
         const isJSON = /\.json$/.test(value);
         const assertion = !isJSON ? '' : 'assert { type: "json" }';
+        
+        const fnPath = path.findParent(isFunction);
+        
+        if (fnPath) {
+            fnPath.node.async = true;
+            return applyDynamicImport(path);
+        }
         
         if (isObjectPattern(__a)) {
             const imports = [];
@@ -37,3 +53,14 @@ module.exports.replace = () => ({
         return `import __a from "${value}" ${assertion}`;
     },
 });
+
+function applyDynamicImport(path) {
+    const initPath = path.get('declarations.0.init');
+    const {node} = initPath;
+    
+    initPath.node.callee.name = 'import';
+    replaceWith(initPath, AwaitExpression(node));
+    
+    return path;
+}
+
