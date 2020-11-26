@@ -45,8 +45,8 @@ npm i @putout/plugin-eslint -D
 ```json
 {
     "extends": [
-        "plugin:node/recommended"
-        "plugin:putout/recommended",
+        "plugin:node/recommended",
+        "plugin:putout/recommended"
     ],
     "plugins": [
         "putout",
