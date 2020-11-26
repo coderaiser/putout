@@ -1,10 +1,9 @@
 # @putout/plugin-remove-empty-pattern [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-empty-pattern.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-empty-pattern"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-empty-pattern
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-empty-pattern
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-empty-pattern.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-empty-pattern"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-empty-pattern
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-empty-pattern
 
 `putout` plugin adds ability to find and remove `empty pattern statements`.
 
@@ -38,18 +37,17 @@ console.log(source);
 // outputs
 `
 const {} = process;
-`
+`;
 
 const result = putout(source, {
     plugins: [
-        'remove-empty-pattern'
-    ]
+        'remove-empty-pattern',
+    ],
 });
 // returns
-''
+'';
 ```
 
 ## License
 
 MIT
-

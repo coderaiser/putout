@@ -18,7 +18,7 @@ npm i @putout/plugin-eslint -D
 ```json
 {
     "rules": {
-        "eslint/move-putout-to-end-of-extends": "on",
+        "eslint/move-putout-to-end-of-extends": "on"
     }
 }
 ```

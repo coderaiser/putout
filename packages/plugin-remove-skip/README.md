@@ -1,10 +1,9 @@
 # @putout/plugin-remove-skip [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-skip.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-skip"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-skip
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-skip
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-skip.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-skip"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-skip
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-skip
 
 `putout` plugin adds ability to find and remove `test.skip` calls.
 
@@ -40,22 +39,21 @@ console.log(source);
 test.skip('some test', (t) => {
     t.end();
 });
-`
+`;
 
 const result = putout(source, {
     plugins: [
-        'remove-skip'
-    ]
+        'remove-skip',
+    ],
 });
 // returns
 `
 test('some test', (t) => {
     t.end();
 });
-`
+`;
 ```
 
 ## License
 
 MIT
-

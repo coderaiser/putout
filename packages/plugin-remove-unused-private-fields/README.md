@@ -1,10 +1,9 @@
 # @putout/plugin-remove-unused-private-fields [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-unused-private-fields.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-unused-private-fields"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-unused-private-fields
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-unused-private-fields
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-unused-private-fields.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-unused-private-fields"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-unused-private-fields
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-unused-private-fields
 
 `putout` plugin adds ability to remove unused private fields.
 
@@ -44,12 +43,12 @@ class Hello {
         return this.#a;
     };
 }
-`
+`;
 
 const result = putout(source, {
     plugins: [
-        'remove-unused-private-fields'
-    ]
+        'remove-unused-private-fields',
+    ],
 });
 // returns
 `
@@ -59,10 +58,9 @@ class Hello {
         return this.#a;
     };
 }
-`
+`;
 ```
 
 ## License
 
 MIT
-

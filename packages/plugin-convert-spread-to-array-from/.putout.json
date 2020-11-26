@@ -1,0 +1,8 @@
+{
+    "match": {
+        "*.md": {
+            "remove-useless-spread": "off",
+            "convert-array-copy-to-slice": "off"
+        }
+    }
+}
