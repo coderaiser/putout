@@ -30,6 +30,9 @@ module.exports.traverse = ({push}) => ({
         if (params.length >= args.length)
             return false;
         
+        if (isArguments(bindingPath))
+            return false;
+        
         const count = args.length - params.length;
         args.slice(-count).map(push);
     },
@@ -50,4 +53,21 @@ function checkParams(path) {
         return false;
     
     return true;
+}
+
+function isArguments(path) {
+    let is = false;
+    
+    path.traverse({
+        Identifier({node}) {
+            const {name} = node;
+            
+            if (name === 'arguments')
+                is = true;
+            
+            path.stop();
+        }
+    });
+    
+    return is;
 }

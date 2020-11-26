@@ -34,3 +34,8 @@ test('plugin-remove-useless-arguments: no transform: not fn: spread', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-arguments: no transform: arguments', (t) => {
+    t.noTransform('arguments');
+    t.end();
+});
+
