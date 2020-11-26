@@ -1,3 +1,9 @@
+2020.11.26, v11.10.2
+
+feature:
+- (putout) md: disable remove-useless-escape
+
+
 2020.11.26, v11.10.1
 
 fix:
