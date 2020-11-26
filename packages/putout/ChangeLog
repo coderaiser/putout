@@ -1,3 +1,14 @@
+2020.11.26, v11.11.2
+
+fix:
+- (@putout/plugin-remove-useless-arguments) function contains "arguments"
+- (@putout/plugin-travis) set-node-versions: 15 only
+
+feature:
+- (package) @putout/plugin-remove-useless-arguments v5.0.0
+- (@putout/plugin-remove-useless-arguments) drop support of node < 12
+
+
 2020.11.26, v11.11.1
 
 fix:
