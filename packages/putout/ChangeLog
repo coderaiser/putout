@@ -1,3 +1,13 @@
+2020.11.26, v11.11.1
+
+fix:
+- (putout) staged: supported files: dot, dir
+
+feature:
+- (eslint-plugin-putout) mjs: disable node/no-unsupported^Ceatures/es-syntax
+- (@putout/eslint-config) disable no-process-exit
+
+
 2020.11.26, v11.11.0
 
 fix:
