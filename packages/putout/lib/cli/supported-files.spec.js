@@ -13,6 +13,26 @@ test('putout: supported files isSupported', (t) => {
     t.end();
 });
 
+test('putout: supported files isSupported: dot', (t) => {
+    const {add, isSupported} = reRequire('./supported-files');
+    add(['*.tsx']);
+    
+    const result = isSupported('.index.tsx');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('putout: supported files isSupported: dir', (t) => {
+    const {add, isSupported} = reRequire('./supported-files');
+    add(['*.tsx']);
+    
+    const result = isSupported('/.index.tsx');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('putout: supported files isSupported: no', (t) => {
     const {add, isSupported} = reRequire('./supported-files');
     add(['*.tsx']);
