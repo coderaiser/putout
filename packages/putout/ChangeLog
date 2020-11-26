@@ -1,3 +1,14 @@
+2020.11.26, v11.11.0
+
+fix:
+- (putout) eslint: crash: x -> 0
+- (putout) crash/parser -> parser
+
+feature:
+- (putout) mjs: enable apply-top-level-await
+- (eslint-plugin-putout) add support of esm
+
+
 2020.11.26, v11.10.2
 
 feature:
