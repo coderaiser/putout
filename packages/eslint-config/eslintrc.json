@@ -55,6 +55,7 @@
         "no-control-regex": "off",
         "no-useless-rename": "error",
         "no-use-before-define": "off",
+        "no-process-exit": "off",
         "no-var": "error",
         "no-extra-parens": "error",
         "no-multi-spaces": "error",
