@@ -3,6 +3,7 @@
 const wrap = require('./wrap');
 const markdown = require('./markdown');
 const json = require('./json');
+const esm = require('./esm');
 
 const getRule = (a) => ({
     [a]: require(`./${a}`),
@@ -50,6 +51,7 @@ const recommended = {
     overrides: [
         ...markdown,
         ...json,
+        ...esm,
     ],
     plugins: [
         'node',
