@@ -6,7 +6,7 @@ module.exports = [{
         'node/no-unsupported-features/es-syntax': 'off',
     },
     plugins: [
-        'node'
+        'node',
     ],
     parser: '@babel/eslint-parser',
     parserOptions: {
