@@ -55,7 +55,8 @@
             "remove-skip": "on"
         },
         ".mjs": {
-            "strict-mode/add": "off"
+            "strict-mode/add": "off",
+            "apply-top-level-await": "on"
         },
         ".tsx?": {
             "strict-mode/add": "off",
