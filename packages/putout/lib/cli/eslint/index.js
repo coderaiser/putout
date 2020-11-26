@@ -108,7 +108,7 @@ module.exports.putoutPluginRegExp = putoutPluginRegExp;
 
 const parseRule = (rule) => rule || 'parser';
 
-function convertToPlace({ruleId = 'parser', message, line = 'x', column = 'x'}) {
+function convertToPlace({ruleId = 'parser', message, line = 0, column = 0}) {
     const rule = `${parseRule(ruleId)}${eslintId}`;
     
     return {

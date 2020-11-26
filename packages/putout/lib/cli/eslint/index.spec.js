@@ -191,8 +191,8 @@ test('putout: eslint: config error: plugin missing', async (t) => {
         rule: 'parser (eslint)',
         message: 'Plugin missing: zzz',
         position: {
-            line: 'x',
-            column: 'x',
+            line: 0,
+            column: 0,
         },
     }];
     
@@ -238,8 +238,8 @@ test('putout: eslint: config error', async (t) => {
         rule: 'parser (eslint)',
         message: 'hello',
         position: {
-            line: 'x',
-            column: 'x',
+            line: 0,
+            column: 0,
         },
     }];
     
