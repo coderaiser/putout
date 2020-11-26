@@ -1,12 +1,12 @@
 # @putout/plugin-remove-empty [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-empty.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-empty"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-empty
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-empty
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-empty.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-empty"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-empty
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-empty
 
 `putout` plugin adds ability to find and remove:
+
 - `empty block statements`;
 - `empty patterns`;
 - `empty imports`;
@@ -36,10 +36,11 @@ npm i @putout/plugin-remove-empty
 ## ❌ Incorrect code example
 
 ```js
-import "hello";
-import world from world;
+import 'hello';
+import world from 'world';
 
 if (2 > 3) {}
+
 if (a > 3) {
     world();
 }
@@ -48,7 +49,7 @@ if (a > 3) {
 ## ✅ Correct code Example
 
 ```js
-import world from world;
+import world from 'world';
 
 if (a > 3) {
     world();
@@ -58,4 +59,3 @@ if (a > 3) {
 ## License
 
 MIT
-
