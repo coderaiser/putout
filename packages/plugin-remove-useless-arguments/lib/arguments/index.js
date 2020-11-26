@@ -2,7 +2,7 @@
 
 const {findBinding} = require('putout').operator;
 
-module.exports.report = (path) => `Argument "${path.node.name}" is useless`;
+module.exports.report = ({node}) => `Argument "${node.name}" is useless`;
 
 module.exports.fix = (path) => {
     path.remove();
@@ -66,7 +66,7 @@ function isArguments(path) {
                 is = true;
             
             path.stop();
-        }
+        },
     });
     
     return is;
