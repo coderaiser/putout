@@ -1,3 +1,14 @@
+2020.11.27, v11.11.3
+
+fix:
+- chore(package) pre-commit: rm --
+
+feature:
+- (putout) mjs: enable convert-commonjs-to-esm
+- (@putout/plugin-convert-commonjs-to-esm) require: add support of dynamic import
+- (@putout/plugin-remove-useless-arguments) simplify
+
+
 2020.11.26, v11.11.2
 
 fix:
