@@ -1,7 +1,7 @@
 # @putout/plugin-convert-tape-to-supertape  [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-tape-to-supertape
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-tape-to-supertape
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-tape-to-supertape
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-tape-to-supertape
 
 Replace `tape` with `supertape`.
 
@@ -39,20 +39,19 @@ console.log(source);
 `
 const tryTo = require('try-to-tape');
 const test = require('tape');
-`
+`;
 
 const result = putout(source, {
     plugins: [
-        'convert-tape-to-supertape'
-    ]
+        'convert-tape-to-supertape',
+    ],
 });
 // returns
 `
 const test = require('supertape');
-`
+`;
 ```
 
 ## License
 
 MIT
-
