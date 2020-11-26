@@ -56,7 +56,8 @@
         },
         ".mjs": {
             "strict-mode/add": "off",
-            "apply-top-level-await": "on"
+            "apply-top-level-await": "on",
+            "convert-commonjs-to-esm": "on"
         },
         ".tsx?": {
             "strict-mode/add": "off",
