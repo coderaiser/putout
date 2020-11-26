@@ -26,7 +26,7 @@ npm i @putout/plugin-remove-duplicate-interface-keys
 
 ## ❌ Incorrect code example
 
-```js
+```ts
 interface Hello {
     'hello': any
     'hello': string
@@ -35,7 +35,7 @@ interface Hello {
 
 ## ✅ Correct code Example
 
-```js
+```ts
 interface Hello {
     'hello': string
 }
