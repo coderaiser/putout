@@ -13,7 +13,7 @@ module.exports.traverse = ({push}) => ({
         const from = path.node.extra.raw;
         const to = regexpTree.optimize(from).toString();
         
-        if (from !== to) {
+        if (from !== to && from.length !== to.length) {
             push({
                 path,
                 from,

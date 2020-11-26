@@ -1,0 +1,1 @@
+const is = /^['"]/.test(str);

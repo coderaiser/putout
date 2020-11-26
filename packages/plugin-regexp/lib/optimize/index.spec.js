@@ -14,3 +14,8 @@ test('plugin-regexp/optimize: transform', (t) => {
     t.end();
 });
 
+test('plugin-regexp/optimize: no transform: same-length', (t) => {
+    t.noTransform('same-length');
+    t.end();
+});
+
