@@ -1,3 +1,26 @@
+2020.11.26, v11.10.1
+
+fix:
+- (eslint-plugin-putout) markdown: disable no-prototype-builtins
+- (putout) json: disable apply-numeric-separators
+- (putout) json: disable remove-useless-escape
+- (eslint-plugin-putout) markdown: add sourceType
+
+feature:
+- (putout) md: disable convert-binary-expressions-to-boolean, remove-constant-conditions
+- (eslint-plugin-putout) markdown: disable no-constant-condition
+- (@putout/engine-processor) add ablity to not provide startLine
+- (@putout/plugin-travis) add disable-cache
+- (@putout/codemod-remove-legacy-from-gitignore) add
+- (eslint-plugin-putout) markdown: add top-level-await support
+- (eslint-plugin-putout) markdown: disable quote-props
+- (eslint-plugin-putout) markdown: add @babel/plugin-syntax-class-properties
+- (package) @putout/processor-json v2.0.0
+- (package) @putout/processor-json v2.0.0
+- (@putout/engine-runner) replace: add support of options
+- (@putout/plugin-regexp) simplify -> optimize
+
+
 2020.11.23, v11.10.0
 
 feature:
