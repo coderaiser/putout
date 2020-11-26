@@ -27,6 +27,9 @@ module.exports.match = () => ({
         const {elements} = nodeJS.value;
         const nodeVersions = elements.map(getValue);
         
+        if (nodeVersions.includes(15))
+            return;
+        
         return !deepEqual(nodeVersions, defaultVersions);
     },
 });
