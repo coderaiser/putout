@@ -1,4 +1,19 @@
 {
+    "overrides": [{
+        "files": "*.md{js}",
+        "parser": "@babel/eslint-parser",
+        "rules": {
+            "brace-style": "off"
+        },
+        "parserOptions": {
+            "requireConfigFile": false,
+            "babelOptions": {
+                "plugins": [
+                    "@babel/plugin-proposal-throw-expressions"
+                ]
+            }
+        }
+    }],
     "extends": [
         "plugin:node/recommended",
         "plugin:putout/recommended"
