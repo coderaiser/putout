@@ -29,7 +29,7 @@ Rule `merge-destructuring-properties` is enabled by default, to disable add to `
 ### ❌ Incorrect code example
 
 ```js
-const {one} = require('numbers'):
+const {one} = require('numbers');
 const {two} = require('numbers');
 ```
 
@@ -39,7 +39,7 @@ const {two} = require('numbers');
 const {
     one,
     two,
-} = require('numbers'):
+} = require('numbers');
 ```
 
 ## License
