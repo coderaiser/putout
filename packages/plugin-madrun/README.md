@@ -34,7 +34,8 @@ Add `.putout.json` with:
         "madrun/call-run": "on",
         "madrun/convert-run-argument": "on",
         "madrun/rename-series-to-run": "on",
-        "madrun/rename-eslint-to-putout": "on"
+        "madrun/rename-eslint-to-putout": "on",
+        "madrun/set-lint-dot": "on"
     }
 }
 ```
@@ -151,6 +152,24 @@ module.exports = {
 ```js
 module.exports = {
     lint: 'putout lib test',
+};
+```
+
+# set-lint-dot
+
+## ❌ Incorrect code example
+
+```js
+module.exports = {
+    lint: 'putout lib test',
+};
+```
+
+## ✅ Correct code Example
+
+```js
+module.exports = {
+    lint: 'putout .',
 };
 ```
 

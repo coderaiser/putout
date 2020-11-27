@@ -541,7 +541,14 @@ test('putout: loader: disabled part of rule', (t) => {
         ],
     });
     
-    const expected = [];
+    const expected = [{
+        message: '"lint" should check current directory',
+        position: {
+            column: 17,
+            line: 3,
+        },
+        rule: 'madrun/set-lint-dot',
+    }];
     
     t.deepEqual(expected, places, 'should disable one of rules in plugin');
     t.end();

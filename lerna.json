@@ -1,10 +1,10 @@
 {
-  "loglevel": "error",
-  "packages": [
-    "packages/*"
-  ],
-  "npmClient": "yarn",
-  "npmClientArgs": ["--no-lockfile"],
-  "useWorkspaces": true,
-  "version": "independent"
+    "loglevel": "error",
+    "packages": [
+        "packages/*"
+    ],
+    "npmClient": "yarn",
+    "npmClientArgs": ["--no-lockfile"],
+    "useWorkspaces": true,
+    "version": "independent"
 }

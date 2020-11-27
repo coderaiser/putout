@@ -1,6 +1,7 @@
 'use strict';
 
 const {types} = require('putout');
+const findKey = require('../find-key');
 const {
     isStringLiteral,
     isTemplateLiteral,
@@ -68,29 +69,6 @@ module.exports.traverse = ({push}) => {
         },
     };
 };
-
-function findKey(name, path) {
-    const properties = path.get('properties');
-    
-    for (const property of properties) {
-        const key = property.get('key');
-        const is = isKey(name, key);
-        
-        if (is)
-            return key;
-    }
-    
-    return null;
-}
-
-function isKey(name, key) {
-    const isId = key.isIdentifier({name});
-    const isStr = key.isStringLiteral({
-        value: name,
-    });
-    
-    return isStr || isId;
-}
 
 function addMadrun(a) {
     if (!a.includes('.madrun') && a.includes('madrun'))
