@@ -1,3 +1,16 @@
+2020.11.27, v11.11.4
+
+fix:
+- (@putout/engine-processor) change when no places
+- (putout) formatter options: apply: for every file -> after load
+- (@putout/plugin-putout) replace-with: operator used before declaration
+
+feature:
+- (@putout/plugin-madrun) add set-lint-dot
+- (@putout/plugin-travis) set-node-version: rm 12
+- (@putout/plugin-regexp) optimize: exclude regexps of same length
+
+
 2020.11.27, v11.11.3
 
 fix:
