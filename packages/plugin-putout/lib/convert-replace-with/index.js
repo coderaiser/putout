@@ -28,6 +28,7 @@ const replaceWithAST = template.ast(`
 
 module.exports.fix = ({path, calleePath, property, object, program, isInserted}) => {
     replaceWith(calleePath, property);
+    
     const strictModePath = program.get('body.0');
     const {bindings} = strictModePath.scope;
     
@@ -37,8 +38,11 @@ module.exports.fix = ({path, calleePath, property, object, program, isInserted})
         return;
     
     if (!bindings.replaceWithMultiple && !bindings.insertAfter && !isInserted()) {
+        const {types} = bindings;
+        const pathToInsertAfter = types ? types.path.parentPath : strictModePath;
+        
         isInserted(true);
-        insertAfter(strictModePath, replaceWithAST);
+        insertAfter(pathToInsertAfter, replaceWithAST);
         return;
     }
     

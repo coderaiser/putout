@@ -28,3 +28,8 @@ test('plugin-putout: transform: insertAfter exists', (t) => {
     t.transform('insert-after-exists');
     t.end();
 });
+
+test('plugin-putout: transform: putout declared', (t) => {
+    t.transform('putout-declared');
+    t.end();
+});
