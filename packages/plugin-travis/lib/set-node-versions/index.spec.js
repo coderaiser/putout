@@ -18,7 +18,3 @@ test('plugin-travis: set node versions: no transform: no versions', (t) => {
     t.end();
 });
 
-test('plugin-travis: set node versions: no transform: no versions', (t) => {
-    t.noTransform('latest');
-    t.end();
-});
