@@ -1,6 +1,9 @@
 __putout_processor_json({
     "language": "node_js",
-    "node_js": [15, 14, 12],
+    "node_js": [
+        15,
+        14
+    ],
     "script": [
         "npm run lint",
         "npm run coverage",

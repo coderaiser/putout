@@ -12,7 +12,6 @@ const one = (f) => (a) => f(a);
 const defaultVersions = [
     15,
     14,
-    12,
 ];
 
 module.exports.report = () => 'Latest version of node is missing';
