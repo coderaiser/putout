@@ -2,7 +2,7 @@
     "match": {
         ".madrun.js": {
             "madrun/add-madrun-to-lint": "off",
-            "madrun/set-putout-dot": "off"
+            "madrun/set-lint-dot": "off"
         },
         "lib/cli/index.js": {
             "apply-shorthand-properties": [{
