@@ -159,13 +159,19 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     }
     
     const noConfig = !args.config;
-    const {ignore, processors = defaultProcessors} = getOptions({
+    const {
+        formatter,
+        ignore,
+        processors = defaultProcessors,
+    } = getOptions({
         name: `${cwd}/*`,
         rulesdir,
         noConfig,
         transform,
         plugins,
     });
+    
+    const [currentFormat, formatterOptions] = getFormatter(format || formatter, exit);
     
     const loadedProcessors = loadProcessors({processors});
     const patterns = getFilePatterns(loadedProcessors);
@@ -242,11 +248,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             plugins,
         });
         
-        const {
-            formatter,
-            dir,
-        } = options;
-        const [currentFormat, formatterOptions] = getFormatter(format || formatter, exit);
+        const {dir} = options;
         
         if (fileCache.canUseCache({fix, options, name})) {
             const places = fileCache.getPlaces(name);
