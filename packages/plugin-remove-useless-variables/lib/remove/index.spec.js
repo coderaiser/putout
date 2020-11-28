@@ -1,5 +1,6 @@
 'use strict';
 
+const reuseDuplicateInit = require('@putout/plugin-reuse-duplicate-init');
 const test = require('@putout/test')(__dirname, {
     'remove-useless-variables/remove': require('.'),
 });
@@ -18,3 +19,11 @@ test('remove usless variables: remove: no transform: react', (t) => {
     t.noTransform('react');
     t.end();
 });
+
+test('plugin-reuse-duplicate-init: transform: with-remove-useless', (t) => {
+    t.transform('with-reuse', {
+        'reuse-duplicate-init': reuseDuplicateInit,
+    });
+    t.end();
+});
+

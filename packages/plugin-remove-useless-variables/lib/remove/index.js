@@ -29,6 +29,9 @@ module.exports.traverse = ({push}) => {
             if (binding.references > 1)
                 return;
             
+            if (existsMoreReferences(path, binding))
+                return;
+            
             if (!binding.path.isVariableDeclarator())
                 return;
             
@@ -44,4 +47,9 @@ module.exports.traverse = ({push}) => {
         },
     };
 };
+
+function existsMoreReferences(path, binding) {
+    const [referencePath] = binding.referencePaths;
+    return referencePath !== path;
+}
 
