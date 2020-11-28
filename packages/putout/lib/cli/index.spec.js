@@ -1,5 +1,7 @@
 'use strict';
 
+process.env.CI = process.env.CI || 'true';
+
 const {join} = require('path');
 const {readFile} = require('fs').promises;
 
@@ -16,9 +18,11 @@ const {reRequire, stopAll} = mockRequire;
 const {parse} = JSON;
 
 const {
+    OK,
     PLACE,
     NO_FILES,
     NO_PROCESSORS,
+    WAS_STOP,
 } = require('./exit-codes');
 
 test('putout: cli: --raw', async (t) => {
@@ -897,6 +901,88 @@ test('putout: cli: get files: called with ignore option', async (t) => {
     ];
     
     t.ok(getFiles.calledWith(...expected));
+    t.end();
+});
+
+test('putout: cli: get files: was stop', async (t) => {
+    const argv = [
+        '--no-cache',
+        '--no-config',
+    ];
+    
+    const ignore = ['xxx'];
+    const getOptions = stub().returns({
+        dir: __dirname,
+        formatter: 'dump',
+        ignore,
+    });
+    
+    const getFiles = stub().returns([null, [
+        __filename,
+        __filename,
+    ]]);
+    const halt = stub();
+    const isStop = stub().returns(true);
+    const onHalt = stub().returns({
+        isStop,
+    });
+    
+    mockRequire('./get-options', getOptions);
+    mockRequire('./get-files', getFiles);
+    mockRequire('./on-halt', onHalt);
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        halt,
+    });
+    
+    stopAll();
+    
+    t.ok(halt.calledWith(WAS_STOP), 'should set WAS_STOP status');
+    t.end();
+});
+
+test('putout: cli: get files: was stop: no', async (t) => {
+    const argv = [
+        __filename,
+        '--no-cache',
+        '--no-config',
+    ];
+    
+    const ignore = ['xxx'];
+    const getOptions = stub().returns({
+        dir: __dirname,
+        formatter: 'dump',
+        ignore,
+    });
+    
+    const getFiles = stub().returns([null, [
+        __filename,
+    ]]);
+    const halt = stub();
+    const isStop = stub().returns(false);
+    const onHalt = stub().returns({
+        isStop,
+    });
+    
+    mockRequire('./get-options', getOptions);
+    mockRequire('./get-files', getFiles);
+    mockRequire('./on-halt', onHalt);
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        halt,
+    });
+    
+    stopAll();
+    
+    t.ok(halt.calledWith(OK), 'should set OK status');
     t.end();
 });
 

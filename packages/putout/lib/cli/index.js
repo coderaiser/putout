@@ -7,6 +7,7 @@ const {red} = require('chalk');
 const yargsParser = require('yargs-parser');
 const {isCI} = require('ci-info');
 const memo = require('nano-memoize');
+const fullstore = require('fullstore');
 
 const {loadProcessors} = require('@putout/engine-loader');
 const {
@@ -25,12 +26,15 @@ const supportedFiles = require('./supported-files');
 const getFormatter = memo(require('./formatter').getFormatter);
 const getOptions = require('./get-options');
 const report = require('./report')();
+const onHalt = require('./on-halt');
 
 const {
+    OK,
     PLACE,
     STAGE,
     NO_FILES,
     NO_PROCESSORS,
+    WAS_STOP,
 } = require('./exit-codes');
 
 const cwd = process.cwd();
@@ -39,6 +43,7 @@ const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
 const maybeFirst = (a) => isArray(a) ? a.pop() : a;
 const maybeArray = (a) => isArray(a) ? a : a.split(',');
+const getExitCode = (wasStop) => wasStop() ? WAS_STOP : OK;
 
 const {isArray} = Array;
 const isParser = (rule) => /^parser/.test(rule);
@@ -57,6 +62,9 @@ const createFormatterProxy = (options) => {
 };
 
 module.exports = async ({argv, halt, log, write, logError, readFile, writeFile}) => {
+    const {isStop} = onHalt();
+    const wasStop = fullstore();
+    
     const args = yargsParser(argv, {
         coerce: {
             format: maybeFirst,
@@ -236,6 +244,12 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     const {length} = names;
     
     for (let index = 0; index < length; index++) {
+        if (wasStop())
+            break;
+        
+        wasStop(isStop());
+        
+        const currentIndex = isStop() ? length - 1 : index;
         const name = names[index];
         const resolvedName = resolve(name)
             .replace(/^\./, cwd);
@@ -257,7 +271,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
                 formatterOptions,
                 name,
                 places,
-                index,
+                index: currentIndex,
                 count: length,
             });
             
@@ -295,14 +309,14 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             name,
             source: rawSource,
             places,
-            index,
+            index: currentIndex,
             count: length,
         });
         
         write(line || '');
         
         if (!isProcessed)
-            exit(NO_PROCESSORS, Error(`No processors found for ${name}`));
+            return exit(NO_PROCESSORS, Error(`No processors found for ${name}`));
         
         if (fix && rawSource !== processedSource) {
             fileCache.removeEntry(name);
@@ -332,11 +346,15 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         const stagedNames = await set();
         
         if (!stagedNames.length)
-            exit(STAGE);
+            return exit(STAGE);
     }
     
     if (mergedPlaces.length)
         return exit(PLACE);
+    
+    const exitCode = getExitCode(wasStop);
+    
+    exit(exitCode);
 };
 
 const getExit = ({halt, raw, logError}) => (code, e) => {
