@@ -1,3 +1,15 @@
+2020.11.28, v11.12.0
+
+fix:
+- (@putout/plugin-remove-useless-variables) remove: miss: path -> parentPath
+- (@putout/plugin-travis) set-node-versions: always set last two: 14, 15
+
+feature:
+- (putout) add ctrl+c handler
+- (@putout/engine-processor) remove useless arguments: index, length
+- (@putout/plugin-remove-useless-variables) remove: exclude unreferenced but existing path
+
+
 2020.11.27, v11.11.4
 
 fix:
