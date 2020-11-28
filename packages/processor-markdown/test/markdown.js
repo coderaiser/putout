@@ -102,8 +102,6 @@ async function doTheThing(name, {fix} = {}) {
             'eslint',
         ],
     };
-    const index = 0;
-    const length = 1;
     
     const {
         processedSource,
@@ -115,8 +113,6 @@ async function doTheThing(name, {fix} = {}) {
         }),
         options,
         rawSource,
-        index,
-        length,
     });
     
     return {

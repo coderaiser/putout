@@ -17,16 +17,12 @@ test('putout: engine-processor: no processor', async (t) => {
     const processFile = stub();
     const options = {};
     const rawSource = '';
-    const index = 0;
-    const length = 1;
     
     const {isProcessed} = await runProcessors({
         name,
         processFile,
         options,
         rawSource,
-        index,
-        length,
     });
     
     t.notOk(isProcessed, 'should not process');
@@ -37,8 +33,6 @@ test('putout: engine-processor: javascript', async (t) => {
     const name = 'hello.js';
     const options = {};
     const rawSource = `const a = 'hello'`;
-    const index = 0;
-    const length = 1;
     const processFile = stub().returns({
         source: rawSource,
         places: [],
@@ -49,13 +43,9 @@ test('putout: engine-processor: javascript', async (t) => {
         processFile,
         options,
         rawSource,
-        index,
-        length,
     });
     
     const expected = {
-        index,
-        length,
         name,
         options,
         rawSource,
@@ -75,8 +65,6 @@ test('putout: engine-processor: markdown: javascript', async (t) => {
         ],
     };
     const rawSource = await readFile(name, 'utf8');
-    const index = 0;
-    const length = 1;
     const processFile = stub().returns({
         source: rawSource,
         places: [],
@@ -87,13 +75,9 @@ test('putout: engine-processor: markdown: javascript', async (t) => {
         processFile,
         options,
         rawSource,
-        index,
-        length,
     });
     
     const expected = {
-        index,
-        length,
         name: `${name}{js}`,
         options,
         rawSource,
@@ -116,8 +100,6 @@ test('putout: engine-processor: markdown: fix', async (t) => {
     };
     const rawSource = await readFile(name, 'utf8');
     const output = await readFile(outputName, 'utf8');
-    const index = 0;
-    const length = 1;
     
     const {processedSource} = await runProcessors({
         name,
@@ -128,8 +110,6 @@ test('putout: engine-processor: markdown: fix', async (t) => {
         }),
         options,
         rawSource,
-        index,
-        length,
     });
     
     t.equal(processedSource, output);
@@ -144,8 +124,6 @@ test('putout: engine-processor: markdown: no fix', async (t) => {
         ],
     };
     const rawSource = await readFile(name, 'utf8');
-    const index = 0;
-    const length = 1;
     
     const {processedSource} = await runProcessors({
         name,
@@ -155,8 +133,6 @@ test('putout: engine-processor: markdown: no fix', async (t) => {
         }),
         options,
         rawSource,
-        index,
-        length,
     });
     
     t.equal(processedSource, rawSource, 'should equal');
@@ -171,8 +147,6 @@ test('putout: engine-processor: markdown: fix: processed places', async (t) => {
         ],
     };
     const rawSource = await readFile(name, 'utf8');
-    const index = 0;
-    const length = 1;
     const fix = true;
     
     const {places} = await runProcessors({
@@ -184,8 +158,6 @@ test('putout: engine-processor: markdown: fix: processed places', async (t) => {
         }),
         options,
         rawSource,
-        index,
-        length,
     });
     
     t.deepEqual(places, [], 'should equal');
@@ -200,10 +172,8 @@ test('putout: engine-processor: markdown: no places no fix', async (t) => {
             'markdown',
         ],
     };
-    const rawSource = await readFile(name, 'utf8');
-    const index = 0;
-    const length = 1;
     
+    const rawSource = await readFile(name, 'utf8');
     const {processedSource} = await runProcessors({
         name,
         fix: true,
@@ -213,8 +183,6 @@ test('putout: engine-processor: markdown: no places no fix', async (t) => {
         }),
         options,
         rawSource,
-        index,
-        length,
     });
     
     t.equal(processedSource, rawSource);
@@ -229,8 +197,6 @@ test('putout: engine-processor: markdown: no fix: processed places', async (t) =
         ],
     };
     const rawSource = await readFile(name, 'utf8');
-    const index = 0;
-    const length = 1;
     
     const fix = false;
     const {places} = await runProcessors({
@@ -241,8 +207,6 @@ test('putout: engine-processor: markdown: no fix: processed places', async (t) =
         }),
         options,
         rawSource,
-        index,
-        length,
     });
     
     const expected = [{
@@ -263,8 +227,6 @@ test('putout: engine-processor: markdown: no fix: places', async (t) => {
         ],
     };
     const rawSource = await readFile(name, 'utf8');
-    const index = 0;
-    const length = 1;
     
     const {processedSource} = await runProcessors({
         name,
@@ -274,8 +236,6 @@ test('putout: engine-processor: markdown: no fix: places', async (t) => {
         }),
         options,
         rawSource,
-        index,
-        length,
     });
     
     t.equal(processedSource, rawSource, 'should equal');
@@ -292,8 +252,6 @@ test('putout: engine-processor: markdown: js changed', async (t) => {
     };
     const rawSource = await readFile(name, 'utf8');
     const expectedSource = await readFile(fixedName, 'utf8');
-    const index = 0;
-    const length = 1;
     
     const {processedSource} = await runProcessors({
         name,
@@ -303,8 +261,6 @@ test('putout: engine-processor: markdown: js changed', async (t) => {
         }),
         options,
         rawSource,
-        index,
-        length,
     });
     
     t.equal(processedSource, expectedSource, 'should equal');
@@ -321,10 +277,8 @@ test('putout: engine-processor: yaml: no startLine', async (t) => {
             'yaml',
         ],
     };
-    const rawSource = await readFile(name, 'utf8');
-    const index = 0;
-    const length = 1;
     
+    const rawSource = await readFile(name, 'utf8');
     const {places} = await runProcessors({
         name,
         processFile: processFile({
@@ -333,8 +287,6 @@ test('putout: engine-processor: yaml: no startLine', async (t) => {
         }),
         options,
         rawSource,
-        index,
-        length,
     });
     
     const expected = [{

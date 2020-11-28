@@ -286,8 +286,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
                 processFile: process,
                 options,
                 rawSource,
-                index,
-                length,
             }));
         }
         

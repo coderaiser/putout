@@ -21,16 +21,12 @@ test('putout: processor: javascript', async (t) => {
             'remove-unused-variables',
         ],
     };
-    const index = 0;
-    const length = 1;
     
     const {processedSource} = await runProcessors({
         name: inputName,
         processFile: processFile({fix: true}),
         options,
         rawSource,
-        index,
-        length,
     });
     
     t.equal(processedSource, output);

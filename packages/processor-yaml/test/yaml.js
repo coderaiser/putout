@@ -35,8 +35,6 @@ async function doTheThing(name, {fix, ext = ''} = {}) {
             'travis/disable-cache',
         ],
     };
-    const index = 0;
-    const length = 1;
     
     const {
         processedSource,
@@ -48,8 +46,6 @@ async function doTheThing(name, {fix, ext = ''} = {}) {
         }),
         options,
         rawSource,
-        index,
-        length,
     });
     
     return {

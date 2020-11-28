@@ -22,7 +22,7 @@ module.exports.getFilePatterns = (processors) => {
     return result;
 };
 
-module.exports.runProcessors = async ({name, fix, processFile, options, rawSource, index, length}) => {
+module.exports.runProcessors = async ({name, fix, processFile, options, rawSource}) => {
     const allPlaces = [];
     const {
         processors = defaultProcessors,
@@ -61,8 +61,6 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
                 source,
                 rawSource,
                 options,
-                index,
-                length,
                 startLine,
             });
             
