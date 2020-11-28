@@ -50,6 +50,6 @@ module.exports.traverse = ({push}) => {
 
 function existsMoreReferences(path, binding) {
     const [referencePath] = binding.referencePaths;
-    return referencePath !== path;
+    return path !== referencePath.parentPath;
 }
 
