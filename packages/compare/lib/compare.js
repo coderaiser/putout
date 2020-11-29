@@ -14,7 +14,7 @@ const {
     getTemplateValues,
 } = require('./vars');
 
-const link = require('.//link');
+const link = require('./link');
 const log = require('./log');
 
 const {
