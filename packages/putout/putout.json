@@ -70,6 +70,7 @@
         "**/node_modules",
         "**/fixture",
         "**/.nyc_output",
+        "**/coverage",
         "**/package-lock.json"
     ],
     "exclude": [
