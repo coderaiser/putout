@@ -27,7 +27,7 @@ module.exports = ({rule, plugin, msg, options}) => {
         report,
         exclude = stub,
         replace,
-        filter = getFilter(plugin.match),
+        filter = getFilter(plugin.match, options),
     } = plugin;
     
     const replaceItems = replace({options});
@@ -97,8 +97,10 @@ const getFix = (items) => (path) => {
         fix(from, to, path);
 };
 
-const getFilter = (match = stubMatch) => (path) => {
-    for (const [from, fn] of entries(match())) {
+const getFilter = (match = stubMatch, options) => (path) => {
+    const all = entries(match({options}));
+    
+    for (const [from, fn] of all) {
         const nodeFrom = template.ast(from);
         
         if (!compare(path, nodeFrom)) {

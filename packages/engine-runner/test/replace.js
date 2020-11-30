@@ -250,3 +250,35 @@ test('putout: runner: replace: options', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: match: options', (t) => {
+    const rm = {
+        report: () => '',
+        match: ({options}) => ({
+            'process.exit()': () => {
+                return options.is;
+            },
+        }),
+        replace: ({options}) => ({
+            'process.exit()': options.code,
+        }),
+    };
+    
+    const {code} = putout('const a = 5;process.exit()', {
+        runPlugins,
+        rules: {
+            rm: ['on', {
+                code: 'debugger',
+                is: true,
+            }],
+        },
+        plugins: [
+            ['rm', rm],
+        ],
+    });
+    
+    const expected = 'const a = 5;debugger;';
+    
+    t.equal(code, expected, 'should equal');
+    t.end();
+});
+
