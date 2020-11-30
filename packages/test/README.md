@@ -13,10 +13,13 @@ Test runner for `putout plugins`. Basically it is [supercharged](https://github.
 - `transform(filename [, output, plugins])` - check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory
 - `transformCode(input, output)` - check transform of `input` -> `output` code
 
+- `reportWithOptions(filename, options)` - check report of `filename.js` with `options`
+- `noReportWithOptions(filename, options)` - check no report of `filename.js` with `options`
 - `transformWithOptions(filename, options)` - check transform of `filename.js` with `options`
 - `noTransformWithOptions(filename, options)` - check transform of `filename.js` with `options`
 
 - `noReport(filename)` - checks error message of a plugin not produces
+- `noReportCode(filename)` - checks error message of a plugin not produces with a `code`
 - `noTransform(filename)` - check transform of `filename.js` produce nothing
 
 - `format(filename)` check file name formatting (pass `process.env.UPDATE=1` to save fixture)

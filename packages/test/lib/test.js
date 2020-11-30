@@ -43,7 +43,9 @@ const wrap = (dir, plugins, rules, test) => (str, fn) => {
         t.noTransformWithOptions = noTransformWithOptions(t, dir, plugins);
         
         t.report = report(t, dir, plugins, rules);
-        t.noReport = report(t, dir, plugins, rules);
+        t.noReport = noReport(t, dir, plugins, rules);
+        t.reportWithOptions = reportWithOptions(t, dir, plugins);
+        t.noReportWithOptions = noReportWithOptions(t, dir, plugins);
         t.reportCode = reportCode(t, {
             plugins,
             rules,
@@ -251,6 +253,41 @@ const report = (t, dir, plugins, rules) => (name, message) => {
     reportCode(t, {plugins, rules, isTS})(source, message);
 };
 
+const noReport = (t, dir, plugins, rules) => (name) => {
+    const full = join(dir, name);
+    const [source, isTS] = readFixture(full);
+    
+    noReportCode(t, {plugins, rules, isTS})(source);
+};
+
+const reportWithOptions = (t, dir, plugins) => (name, message, options) => {
+    const full = join(dir, name);
+    const [source, isTS] = readFixture(full);
+    
+    const [plugin] = plugins;
+    const [rule] = keys(plugin);
+    
+    const rules = {
+        [rule]: ['on', options],
+    };
+    
+    reportCode(t, {plugins, rules, isTS})(source, message);
+};
+
+const noReportWithOptions = (t, dir, plugins) => (name, options) => {
+    const full = join(dir, name);
+    const [source, isTS] = readFixture(full);
+    
+    const [plugin] = plugins;
+    const [rule] = keys(plugin);
+    
+    const rules = {
+        [rule]: ['on', options],
+    };
+    
+    noReportCode(t, {plugins, rules, isTS})(source);
+};
+
 const reportCode = (t, {plugins, rules, isTS}) => (source, message) => {
     const fix = false;
     const {places} = putout(source, {
@@ -267,6 +304,18 @@ const reportCode = (t, {plugins, rules, isTS}) => (source, message) => {
     }
     
     t.equal(resultMessages[0], message, 'should equal');
+};
+
+const noReportCode = (t, {plugins, rules, isTS}) => (source) => {
+    const fix = false;
+    const {places} = putout(source, {
+        fix,
+        isTS,
+        rules,
+        plugins,
+    });
+    
+    t.notOk(places.lengths, 'should not report');
 };
 
 function getPlugins(plugin) {
