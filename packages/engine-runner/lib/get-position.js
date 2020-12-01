@@ -9,8 +9,8 @@ module.exports.getPosition = (path, shebang) => {
     
     if (!loc)
         return {
-            line: 'x',
-            column: 'x',
+            line: 0,
+            column: 0,
         };
     
     const {

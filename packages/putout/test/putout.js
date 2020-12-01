@@ -371,8 +371,8 @@ test('putout: no loc', (t) => {
         rule: 'add-variable',
         message: '',
         position: {
-            line: 'x',
-            column: 'x',
+            line: 0,
+            column: 0,
         },
     }];
     
@@ -404,8 +404,8 @@ test('putout: plugin: find: no return', (t) => {
         rule: 'add-variable',
         message: '',
         position: {
-            line: 'x',
-            column: 'x',
+            line: 0,
+            column: 0,
         },
     }];
     
@@ -437,8 +437,8 @@ test('putout: plugin: return push in traverse', (t) => {
         rule: 'add-variable',
         message: '',
         position: {
-            line: 'x',
-            column: 'x',
+            line: 0,
+            column: 0,
         },
     }];
     

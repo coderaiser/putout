@@ -656,8 +656,8 @@ test('putout: runner: parser: no loc', (t) => {
         rule: 'rm-loc',
         message: '',
         position: {
-            line: 'x',
-            column: 'x',
+            line: 0,
+            column: 0,
         },
     }];
     
