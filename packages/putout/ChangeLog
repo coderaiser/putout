@@ -1,3 +1,14 @@
+2020.12.03, v11.13.0
+
+fix:
+- (@putout/engine-runner) no loc: x -> 0
+
+feature:
+- (putout) travis: disable remove-useless-escape
+- (@putout/test) add noReport, noReportCode, reportWithOptions, noReportWithOptions
+- (@putout/engine-runner) replace: match: add support of options
+
+
 2020.11.30, v11.12.1
 
 fix:
