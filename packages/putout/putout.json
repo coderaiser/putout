@@ -31,7 +31,8 @@
             "apply-numeric-separators": "off"
         },
         ".travis.yml": {
-            "travis": "on"
+            "travis": "on",
+            "remove-useless-escape": "off"
         },
         ".gitignore": {
             "gitignore": "on"
