@@ -30,7 +30,7 @@
     "debugger"
   ],
   "devDependencies": {
-    "@putout/test": "^2.0.0",
+    "@putout/test": "^3.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
