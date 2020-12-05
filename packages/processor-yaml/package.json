@@ -40,7 +40,7 @@
     "nodemon": "^2.0.1",
     "nyc": "^15.0.1",
     "putout": "*",
-    "supertape": "^2.0.0"
+    "supertape": "^3.4.2"
   },
   "peerDependencies": {
     "putout": ">=10"
