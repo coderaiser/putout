@@ -1,3 +1,10 @@
+2020.12.05, v11.14.0
+
+feature:
+- (@putout/processor-engine) globs: simplify, speed up
+- (putout) apply-shorthand-properties: off
+
+
 2020.12.03, v11.13.0
 
 fix:
