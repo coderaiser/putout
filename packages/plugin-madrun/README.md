@@ -35,7 +35,8 @@ Add `.putout.json` with:
         "madrun/convert-run-argument": "on",
         "madrun/rename-series-to-run": "on",
         "madrun/rename-eslint-to-putout": "on",
-        "madrun/set-lint-dot": "on"
+        "madrun/set-lint-dot": "on",
+        "madrun/convert-to-async": "on"
     }
 }
 ```
@@ -170,6 +171,24 @@ module.exports = {
 ```js
 module.exports = {
     lint: 'putout .',
+};
+```
+
+# convert-to-async
+
+## ❌ Incorrect code example
+
+```js
+module.exports = {
+    lint: () => String(run('hello')),
+};
+```
+
+## ✅ Correct code Example
+
+```js
+module.exports = {
+    lint: async () => String(await run('hello')),
 };
 ```
 

@@ -12,13 +12,13 @@ module.exports = {
     'test:raw': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'test': () => run('test:raw', '', env),
     
-    'watch:test': () => `nodemon -w bin -w lib -w test -x "${run('test')}"`,
+    'watch:test': async () => `nodemon -w bin -w lib -w test -x "${await run('test')}"`,
     'lint': () => `bin/putout.js .`,
     'fix:lint': () => run('lint', '--fix'),
     'fix:lint:fresh': () => run('fix:lint', '--fresh'),
     'lint:progress': () => run('lint', '--fix'),
     'lint:fresh': () => run('lint', '--fresh'),
-    'coverage:raw': () => `nyc ${run('test:raw')}`,
+    'coverage:raw': async () => `nyc ${await run('test:raw')}`,
     'coverage': () => run('coverage:raw', '', env),
     'report': () => `nyc report --reporter=text-lcov | coveralls`,
 };

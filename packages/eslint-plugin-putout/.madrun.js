@@ -5,11 +5,11 @@ const {run} = require('madrun');
 module.exports = {
     'wisdom': () => run(['lint', 'coverage']),
     'test': () => `mocha 'lib/**/*.spec.js'`,
-    'watch:test': () => `nodemon -w rules -x ${run('test')}`,
+    'watch:test': async () => `nodemon -w rules -x ${await run('test')}`,
     'lint': () => 'putout .',
     'lint:fresh': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),
-    'coverage': () => `nyc ${run('test')}`,
+    'coverage': async () => `nyc ${await run('test')}`,
     'debug': () => 'mocha --inspect-brk --inspect=0.0.0.0',
 };
 

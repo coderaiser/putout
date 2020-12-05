@@ -17,5 +17,6 @@ module.exports.rules = {
     ...getRule('rename-eslint-to-putout'),
     ...getRule('remove-putout'),
     ...getRule('set-lint-dot'),
+    ...getRule('convert-to-async'),
 };
 

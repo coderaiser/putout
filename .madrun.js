@@ -7,16 +7,16 @@ const cutStar = (a) => a.replace('/*', '');
 const dirs = getDirs(workspaces);
 
 module.exports = {
-    'test': () => `CI=1 FORCE_COLOR=3 ${run('test:fast')}`,
-    'test:fail': () => `${run('test')} | tap-pessimist`,
+    'test': async () => `CI=1 FORCE_COLOR=3 ${await run('test:fast')}`,
+    'test:fail': async () => `${await run('test')} | tap-pessimist`,
     'test:fast': () => `tape '${dirs}/*/test/*.js' '${dirs}/*/lib/**/*.spec.js'`,
     'test:slow': () => 'FORCE_COLOR=3 lerna run test',
-    'coverage:long': () => `FORCE_COLOR=3 nyc --check-coverage ${run('test:fast')}`,
-    'coverage': () => `CI=1 FORCE_COLOR=3 nyc --skip-full --check-coverage ${run('test:fast')}`,
+    'coverage:long': async () => `FORCE_COLOR=3 nyc --check-coverage ${await run('test:fast')}`,
+    'coverage': async () => `CI=1 FORCE_COLOR=3 nyc --skip-full --check-coverage ${await run('test:fast')}`,
     'coverage:slow': () => 'FORCE_COLOR=3 lerna run coverage',
     'lint:slow': () => 'FORCE_COLOR=3 lerna run --no-bail lint',
     'lint:dot': () => 'putout .madrun.js',
-    'lint-all': () => `MADRUN_NAME=1 ${run('lint:*')}`,
+    'lint-all': async () => `MADRUN_NAME=1 ${await run('lint:*')}`,
     'lint:frame': () => run('lint:ci', '-f codeframe'),
     'lint:fresh': () => run('lint', '--fresh'),
     'lint:memory': () => run('lint:fresh', '-f memory'),
