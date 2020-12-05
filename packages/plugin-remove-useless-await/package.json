@@ -37,8 +37,7 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^6.0.0",
     "madrun": "^7.0.0",
-    "nyc": "^15.0.1",
-    "supertape": "^2.0.0"
+    "nyc": "^15.0.1"
   },
   "peerDependencies": {
     "putout": ">=7.7"
