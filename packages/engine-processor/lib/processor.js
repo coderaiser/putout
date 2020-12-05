@@ -1,7 +1,8 @@
 'use strict';
 
 const {loadProcessors} = require('@putout/engine-loader');
-const picomatch = require('picomatch');
+const memo = require('nano-memoize');
+const picomatch = memo(require('picomatch'));
 
 const defaultProcessors = [
     'javascript',
@@ -30,14 +31,14 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     
     const loadedProcessors = loadProcessors({
         processors,
-    });
+    }).map(addGlobs);
     
     let processedSource = '';
     let processedPlaces = [];
     let isProcessed = false;
     
-    for (const {files, preProcess, postProcess, process = stubProcess} of loadedProcessors) {
-        if (!isMatchName(name, files))
+    for (const {isMatch, preProcess, postProcess, process = stubProcess} of loadedProcessors) {
+        if (!isMatch(name))
             continue;
         
         [processedSource, processedPlaces] = process(rawSource);
@@ -85,16 +86,15 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     };
 };
 
-function isMatchName(name, files) {
-    for (const current of files) {
-        const isMatch = picomatch(current, {
+function addGlobs(processor) {
+    const {files} = processor;
+    
+    return {
+        ...processor,
+        isMatch: picomatch(files, {
             dot: true,
             matchBase: true,
-        });
-        
-        if (isMatch(name))
-            return true;
-    }
-    
-    return false;
+        }),
+    };
 }
+
