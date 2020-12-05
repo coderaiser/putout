@@ -49,11 +49,11 @@
     "nyc": "^15.0.1"
   },
   "peerDependencies": {
-    "putout": ">=9"
+    "putout": ">=11"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "publishConfig": {
     "access": "public"
