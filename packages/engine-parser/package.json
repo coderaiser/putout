@@ -56,7 +56,7 @@
     "esprima": "^4.0.1",
     "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
-    "madrun": "^7.0.0",
+    "madrun": "^8.0.1",
     "montag": "^1.0.0",
     "nodemon": "^2.0.1",
     "nyc": "^15.0.1",

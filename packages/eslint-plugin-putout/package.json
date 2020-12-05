@@ -45,7 +45,7 @@
   "devDependencies": {
     "eslint": "^7.0.0",
     "eslint-plugin-eslint-plugin": "^2.1.0",
-    "madrun": "^7.0.0",
+    "madrun": "^8.0.1",
     "mocha": "^5.2.0",
     "montag": "^1.0.0",
     "nyc": "^15.0.1"
