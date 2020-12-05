@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "putout": "*",
-    "supertape": "^2.0.0",
+    "supertape": "^3.4.2",
     "try-catch": "^3.0.0"
   },
   "keywords": [
@@ -54,7 +54,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=14"
   },
   "publishConfig": {
     "access": "public"

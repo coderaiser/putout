@@ -36,7 +36,7 @@ test('test: formatMany', (t) => {
     t.end();
 });
 
-test('test: formatSave', (t) => {
+(() => {
     const {
         existsSync,
         writeFileSync,
@@ -92,7 +92,4 @@ test('test: formatSave', (t) => {
     process.env.UPDATE = UPDATE;
     
     reRequire('..');
-    
-    t.end();
-});
-
+})();
