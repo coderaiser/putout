@@ -1,3 +1,16 @@
+2020.12.06, v11.15.0
+
+feature:
+- (package) @putout/plugin-madrun v8.0.0
+- (@putout/plugin-madrun) drop support of node < 12
+- (putout) madrun v8.0.1
+- (@putout/plugin-madrun) add convert-to-async
+- (putout) @putout/test v3.0.0
+- (putout) supertape v3.4.2
+- (@putout/test) supertape v3.4.2
+- (putout) plugins: rm supertape, @putout/test is enaught
+
+
 2020.12.05, v11.14.0
 
 feature:
