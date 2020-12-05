@@ -757,7 +757,7 @@ result = result ?? 'hello';
 
 </details>
 
-<details><summary>apply shorthand properties</summary>
+<details><summary>apply shorthand properties (disabled)</summary>
 
 ```diff
 -export const setSession = (session) => ({
