@@ -8,8 +8,9 @@ const {
 } = require('fs');
 
 const tryCatch = require('try-catch');
-const tape = require('supertape');
+const test = require('supertape');
 const putout = require('putout');
+const currify = require('currify');
 
 const isCorrectPlugin = require('./is-correct-plugin');
 
@@ -32,49 +33,39 @@ const readFixture = (name) => {
     return [readFileSync(`${name}.js`, 'utf8'), TS.DISABLED];
 };
 
-const wrap = (dir, plugins, rules, test) => (str, fn) => {
-    test(str, (t) => {
-        t.transform = transform(t, dir, plugins, rules);
-        t.noTransform = noTransform(t, dir, plugins, rules);
-        t.transformCode = transformCode(t, plugins, rules);
-        t.noTransformCode = noTransformCode(t, plugins, rules);
+module.exports = (dir, plugin, rules) => {
+    dir = join(dir, 'fixture');
+    const plugins = getPlugins(plugin);
+    
+    preTest(test, plugin);
+    
+    return test.extend({
+        transform: transform({dir, plugins, rules}),
+        noTransform: noTransform({dir, plugins, rules}),
+        transformCode: transformCode({plugins, rules}),
+        noTransformCode: noTransformCode({plugins, rules}),
         
-        t.transformWithOptions = transformWithOptions(t, dir, plugins);
-        t.noTransformWithOptions = noTransformWithOptions(t, dir, plugins);
+        transformWithOptions: transformWithOptions({dir, plugins}),
+        noTransformWithOptions: noTransformWithOptions({dir, plugins}),
         
-        t.report = report(t, dir, plugins, rules);
-        t.noReport = noReport(t, dir, plugins, rules);
-        t.reportWithOptions = reportWithOptions(t, dir, plugins);
-        t.noReportWithOptions = noReportWithOptions(t, dir, plugins);
-        t.reportCode = reportCode(t, {
+        report: report({dir, plugins, rules}),
+        noReport: noReport({dir, plugins, rules}),
+        reportWithOptions: reportWithOptions({dir, plugins}),
+        noReportWithOptions: noReportWithOptions({dir, plugins}),
+        reportCode: reportCode({
             plugins,
             rules,
-        });
+        }),
         
-        t.formatSave = formatSave(t, dir, plugins, rules);
-        t.format = UPDATE ? t.formatSave : format(t, dir, plugins, rules);
-        t.formatManySave = formatManySave(t, dir, plugins, rules);
-        t.formatMany = UPDATE ? t.formatManySave : formatMany(t, dir, plugins, rules);
-        t.noFormat = noFormat(t, dir, plugins, rules);
-        
-        fn(t);
+        formatSave: formatSave({dir, plugins, rules}),
+        format: UPDATE ? formatSave : format({dir, plugins, rules}),
+        formatManySave: formatManySave({dir, plugins, rules}),
+        formatMany: UPDATE ? formatManySave : formatMany({dir, plugins, rules}),
+        noFormat: noFormat({dir, plugins, rules}),
     });
 };
 
-module.exports = (dir, plugin, rules) => {
-    const dirFixture = join(dir, 'fixture');
-    const plugins = getPlugins(plugin);
-    
-    const newTape = wrap(dirFixture, plugins, rules, tape);
-    newTape.only = wrap(dirFixture, plugins, rules, tape.only);
-    newTape.skip = wrap(dirFixture, plugins, rules, tape.skip);
-    
-    preTest(tape, plugin);
-    
-    return newTape;
-};
-
-const format = (t, dir, plugins, rules) => (formatter, name, formatterOptions) => {
+const format = currify(({dir, plugins, rules}, t, formatter, name, formatterOptions = {}) => {
     const full = join(dir, name);
     const outputName = `${full}-format`;
     const [input, isTS] = readFixture(full);
@@ -90,12 +81,12 @@ const format = (t, dir, plugins, rules) => (formatter, name, formatterOptions) =
         places,
     });
     
-    t.equal(result, expected);
+    const {is, output} = t.equal(result, expected);
     
-    return result;
-};
+    return {is, output, result};
+});
 
-const noFormat = (t, dir, plugins, rules) => (formatter, name, formatterOptions) => {
+const noFormat = currify(({dir, plugins, rules}, t, formatter, name, formatterOptions = {}) => {
     const full = join(dir, name);
     const [input] = readFixture(full);
     
@@ -108,12 +99,12 @@ const noFormat = (t, dir, plugins, rules) => (formatter, name, formatterOptions)
         formatterOptions,
     });
     
-    t.equal(result, '', 'should not format');
+    const {is, output} = t.equal(result, '', 'should not format');
     
-    return result;
-};
+    return {is, output, result};
+});
 
-const formatMany = (t, dir, plugins, rules) => (formatter, names, formatterOptions) => {
+const formatMany = currify(({dir, plugins, rules}, t, formatter, names, formatterOptions = {}) => {
     const joinTwo = (a) => (b) => join(a, b);
     const fullNames = names.map(joinTwo(dir));
     
@@ -145,36 +136,67 @@ const formatMany = (t, dir, plugins, rules) => (formatter, names, formatterOptio
     const outputName = join(dir, `${names.join('-')}-format`);
     const [expected] = readFixture(outputName);
     
-    t.equal(result, expected);
+    const {is, output} = t.equal(result, expected);
     
-    return result;
-};
+    return {is, output, result};
+});
 
-const formatManySave = (t, dir, plugins, rules) => (formatter, names, options) => {
+const formatManySave = currify(({dir, plugins, rules}, t, formatter, names, options = {}) => {
     const name = `${names.join('-')}-format.js`;
     const outputName = join(dir, name);
     
     if (!existsSync(outputName))
         writeFileSync(outputName, '');
     
-    const result = formatMany(t, dir, plugins, rules)(formatter, names, options);
+    const {
+        is,
+        output,
+        result,
+    } = formatMany(
+        {dir,
+            plugins,
+            rules},
+        t,
+        formatter,
+        names,
+        options,
+    );
     
     writeFileSync(outputName, result);
-};
+    
+    return {is, output, result};
+});
 
-const formatSave = (t, dir, plugins, rules) => (formatter, name, options) => {
+const formatSave = currify(({dir, plugins, rules}, t, formatter, name, options = {}) => {
     const full = join(dir, name);
     const outputName = `${full}-format.js`;
     
     if (!existsSync(outputName))
         writeFileSync(outputName, '');
     
-    const result = format(t, dir, plugins, rules)(formatter, name, options);
+    const {
+        is,
+        output,
+        result,
+    } = format(
+        {dir,
+            plugins,
+            rules},
+        t,
+        formatter,
+        name,
+        options,
+    );
     
     writeFileSync(outputName, result);
-};
+    
+    return {
+        is,
+        output,
+    };
+});
 
-const transform = (t, dir, plugins, rules) => (name, transformed, addons) => {
+const transform = currify(({dir, plugins, rules}, t, name, transformed = null, addons = {}) => {
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
     const isStr = isString(transformed);
@@ -189,10 +211,10 @@ const transform = (t, dir, plugins, rules) => (name, transformed, addons) => {
         ...addons,
     };
     
-    transformCode(t, plugins, rules)(input, output, isTS);
-};
+    return transformCode({plugins, rules}, t, input, output, isTS);
+});
 
-const transformWithOptions = (t, dir, plugins) => (name, options) => {
+const transformWithOptions = currify(({dir, plugins}, t, name, options) => {
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
     
@@ -206,10 +228,10 @@ const transformWithOptions = (t, dir, plugins) => (name, options) => {
     
     const {code} = putout(input, {isTS, plugins, rules});
     
-    t.equal(code, output, 'should equal');
-};
+    return t.equal(code, output, 'should equal');
+});
 
-const noTransformWithOptions = (t, dir, plugins) => (name, options) => {
+const noTransformWithOptions = currify(({dir, plugins}, t, name, options) => {
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
     
@@ -222,59 +244,43 @@ const noTransformWithOptions = (t, dir, plugins) => (name, options) => {
     
     const {code} = putout(input, {isTS, plugins, rules});
     
-    t.equal(code, input, 'should equal');
-};
+    return t.equal(code, input, 'should equal');
+});
 
-const noTransform = (t, dir, plugins, rules) => (name, addons) => {
+const noTransform = currify(({dir, plugins, rules}, t, name, addons = {}) => {
     const full = join(dir, name);
     const [fixture] = readFixture(full);
     
-    transform(t, dir, plugins, rules)(name, fixture, addons);
-};
+    return transform({dir, plugins, rules}, t, name, fixture, addons);
+});
 
-const transformCode = (t, plugins, rules) => (input, output, isTS) => {
+const transformCode = currify(({plugins, rules}, t, input, output, isTS = false) => {
     const {code} = putout(input, {isTS, plugins, rules});
-    
-    t.equal(code, output, 'should equal');
-};
+    return t.equal(code, output, 'should equal');
+});
 
-const noTransformCode = (t, plugins, rules) => (input) => {
+const noTransformCode = currify(({plugins, rules}, t, input) => {
     const {code} = putout(input, {plugins, rules});
-    
-    t.equal(code, input, 'should equal');
-};
+    return t.equal(code, input, 'should equal');
+});
 
 const getMessage = ({message}) => message;
 
-const report = (t, dir, plugins, rules) => (name, message) => {
+const report = currify(({dir, plugins, rules}, t, name, message) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
-    reportCode(t, {plugins, rules, isTS})(source, message);
-};
+    return reportCode({plugins, rules, isTS}, t, source, message);
+});
 
-const noReport = (t, dir, plugins, rules) => (name) => {
+const noReport = currify(({dir, plugins, rules}, t, name) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
-    noReportCode(t, {plugins, rules, isTS})(source);
-};
+    return noReportCode({plugins, rules, isTS}, t, source);
+});
 
-const reportWithOptions = (t, dir, plugins) => (name, message, options) => {
-    const full = join(dir, name);
-    const [source, isTS] = readFixture(full);
-    
-    const [plugin] = plugins;
-    const [rule] = keys(plugin);
-    
-    const rules = {
-        [rule]: ['on', options],
-    };
-    
-    reportCode(t, {plugins, rules, isTS})(source, message);
-};
-
-const noReportWithOptions = (t, dir, plugins) => (name, options) => {
+const reportWithOptions = currify(({dir, plugins}, t, name, message, options) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
@@ -285,10 +291,24 @@ const noReportWithOptions = (t, dir, plugins) => (name, options) => {
         [rule]: ['on', options],
     };
     
-    noReportCode(t, {plugins, rules, isTS})(source);
-};
+    return reportCode({plugins, rules, isTS}, t, source, message);
+});
 
-const reportCode = (t, {plugins, rules, isTS}) => (source, message) => {
+const noReportWithOptions = currify(({dir, plugins}, t, name, options) => {
+    const full = join(dir, name);
+    const [source, isTS] = readFixture(full);
+    
+    const [plugin] = plugins;
+    const [rule] = keys(plugin);
+    
+    const rules = {
+        [rule]: ['on', options],
+    };
+    
+    return noReportCode({plugins, rules, isTS}, t, source);
+});
+
+const reportCode = currify(({plugins, rules, isTS}, t, source, message) => {
     const fix = false;
     const {places} = putout(source, {
         fix,
@@ -296,17 +316,16 @@ const reportCode = (t, {plugins, rules, isTS}) => (source, message) => {
         rules,
         plugins,
     });
+    
     const resultMessages = places.map(getMessage);
     
-    if (isArray(message)) {
-        t.deepEqual(resultMessages, message, 'should equal');
-        return;
-    }
+    if (isArray(message))
+        return t.deepEqual(resultMessages, message, 'should equal');
     
-    t.equal(resultMessages[0], message, 'should equal');
-};
+    return t.equal(resultMessages[0], message, 'should equal');
+});
 
-const noReportCode = (t, {plugins, rules, isTS}) => (source) => {
+const noReportCode = currify(({plugins, rules, isTS}, t, source) => {
     const fix = false;
     const {places} = putout(source, {
         fix,
@@ -315,8 +334,8 @@ const noReportCode = (t, {plugins, rules, isTS}) => (source) => {
         plugins,
     });
     
-    t.notOk(places.lengths, 'should not report');
-};
+    return t.notOk(places.lengths, 'should not report');
+});
 
 function getPlugins(plugin) {
     return [

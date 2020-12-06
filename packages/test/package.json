@@ -23,8 +23,9 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
+    "currify": "^4.0.0",
     "putout": "*",
-    "supertape": "^3.4.2",
+    "supertape": "^3.6.1",
     "try-catch": "^3.0.0"
   },
   "keywords": [
@@ -49,8 +50,7 @@
     "madrun": "^8.0.1",
     "mock-require": "^3.0.3",
     "nodemon": "^2.0.1",
-    "nyc": "^15.0.1",
-    "try-to-tape": "^1.1.0"
+    "nyc": "^15.0.1"
   },
   "license": "MIT",
   "engines": {
