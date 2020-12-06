@@ -20,7 +20,7 @@ const MODIFIED = 2;
 const namesStore = fullstore([]);
 const isStagedStr = (statuses) => (name) => /^\*?(added|modified)$/.test(statuses[name]);
 
-const {fromEntries = _fromEntries} = Object;
+const {fromEntries} = Object;
 
 const findGit = once(async () => {
     const type = 'directory';
@@ -99,16 +99,4 @@ module.exports.set = async function add() {
     
     return staged;
 };
-
-// remove on node v12
-// use Object.fromEntries
-function _fromEntries(array) {
-    const result = {};
-    
-    for (const [key, value] of array) {
-        result[key] = value;
-    }
-    
-    return result;
-}
 
