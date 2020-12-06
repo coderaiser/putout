@@ -1,3 +1,11 @@
+2020.12.07, v12.0.0
+
+feature:
+- (@putout/plugin-madrun) set-lint-dot: add support of ExportDefaultDeclaration
+- (putout) strict-mode: enable for js
+- (putout) match: regexp -> glob
+
+
 2020.12.06, v11.16.0
 
 fix:
