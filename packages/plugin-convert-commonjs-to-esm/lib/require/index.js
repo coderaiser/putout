@@ -18,6 +18,11 @@ module.exports.report = () => 'ESM should be used insted of Commonjs';
 const __b = 'declarations.0.init.arguments.0';
 
 module.exports.filter = (path) => {
+    const {bindings} = path.scope;
+    
+    if (bindings.require)
+        return false;
+    
     return path.get(__b).isStringLiteral();
 };
 

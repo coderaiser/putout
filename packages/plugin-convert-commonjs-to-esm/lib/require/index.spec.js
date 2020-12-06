@@ -55,7 +55,13 @@ test('plugin-convert-commonjs-to-esm: require: no transform: not literal argumen
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: require: no transform: create require', (t) => {
+    t.noTransform('create-require');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: require: no report: not literal argument', (t) => {
     t.noReport('not-literal-argument');
     t.end();
 });
+
