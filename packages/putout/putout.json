@@ -11,7 +11,7 @@
         "yaml"
     ],
     "match": {
-        ".madrun.js": {
+        ".madrun.{js,cjs,mjs}": {
             "madrun": "on"
         },
         ".md": {
