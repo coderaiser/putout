@@ -24,6 +24,11 @@ test('madrun: set lint dot: transform: template: variables', (t) => {
     t.end();
 });
 
+test('madrun: set lint dot: transform: esm', (t) => {
+    t.transform('esm');
+    t.end();
+});
+
 test('madrun: set lint dot: no transform: function', (t) => {
     t.noTransform('lint-fn');
     t.end();

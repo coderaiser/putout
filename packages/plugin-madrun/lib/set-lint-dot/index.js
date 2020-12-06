@@ -51,29 +51,48 @@ function getValue(bodyPath) {
 
 module.exports.traverse = ({push}) => {
     return {
+        'export default __object'(path) {
+            const declarationPath = path.get('declaration');
+            const lintPath = getLintPath(declarationPath);
+            
+            if (!lintPath)
+                return;
+            
+            push({
+                path: lintPath,
+                lintPath,
+            });
+        },
         'module.exports = __object'(path) {
             const rightPath = path.get('right');
-            const lint = findKey('lint', rightPath);
+            const lintPath = getLintPath(rightPath);
             
-            if (!lint)
-                return;
-            
-            const valuePath = lint.parentPath.get('value');
-            const bodyPath = valuePath.get('body');
-            const [lintPath, str] = getValue(bodyPath);
-            
-            if (!str)
-                return;
-            
-            if (isDot(str))
+            if (!lintPath)
                 return;
             
             return push({
                 path: rightPath,
-                lint,
                 lintPath,
             });
         },
     };
 };
 
+function getLintPath(path) {
+    const lint = findKey('lint', path);
+    
+    if (!lint)
+        return null;
+    
+    const valuePath = lint.parentPath.get('value');
+    const bodyPath = valuePath.get('body');
+    const [lintPath, str] = getValue(bodyPath);
+    
+    if (!str)
+        return null;
+    
+    if (isDot(str))
+        return null;
+    
+    return lintPath;
+}
