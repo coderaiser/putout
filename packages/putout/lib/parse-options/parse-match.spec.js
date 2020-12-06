@@ -56,7 +56,7 @@ test('putout: parse-match: merge', (t) => {
     
     const match = {
         'lib': rulesLib,
-        'test|.spec.js': rulesSpec,
+        '{test,*.spec.js}': rulesSpec,
     };
     
     const expected = {
@@ -66,40 +66,9 @@ test('putout: parse-match: merge', (t) => {
         },
     };
     
-    const result = parseMatch('lib/putout.spec.js', match);
+    const result = parseMatch('lib/cli/putout.spec.js', match);
     
     t.deepEqual(result, expected, 'should equal');
-    t.end();
-});
-
-test('putout: parse-match: windows', (t) => {
-    const name = '\\bin\\putout.js';
-    const rules = {
-        'remove-console': 'on',
-    };
-    const match = {
-        'bin/': rules,
-    };
-    
-    const {platform} = process;
-    
-    defineProperty(process, 'platform', {
-        value: 'win32',
-    });
-    
-    reRequire('./parse-sep');
-    const parseMatch = reRequire('./parse-match');
-    const result = parseMatch(name, match);
-    
-    defineProperty(process, 'platform', {
-        value: platform,
-    });
-    
-    const expected = {
-        rules,
-    };
-    
-    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -109,7 +78,7 @@ test('putout: parse-match: linux', (t) => {
         'remove-console': 'on',
     };
     const match = {
-        'bin/': rules,
+        bin: rules,
     };
     
     const {platform} = process;
@@ -140,7 +109,7 @@ test('putout: parse-match: linux: match', (t) => {
         'remove-console': 'on',
     };
     const match = {
-        'bin/': rules,
+        bin: rules,
     };
     
     const {platform} = process;
@@ -183,16 +152,52 @@ test('putout: parse-match: encoding', (t) => {
     t.end();
 });
 
-test('putout: parse-match: ?', (t) => {
+test('putout: parse-match: couple', (t) => {
     const rules = {
         ts: 'on',
     };
     
     const match = {
-        'tsx?': rules,
+        '*.{ts,tsx}': rules,
     };
     
     const result = parseMatch('lib/madrun.ts', match);
+    const expected = {
+        rules,
+    };
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('putout: parse-match: extension', (t) => {
+    const rules = {
+        madrun: 'on',
+    };
+    
+    const match = {
+        '.madrun.*': rules,
+    };
+    
+    const result = parseMatch('.madrun.js', match);
+    const expected = {
+        rules,
+    };
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('putout: parse-match: extension: long path', (t) => {
+    const rules = {
+        madrun: 'on',
+    };
+    
+    const match = {
+        '.madrun.*': rules,
+    };
+    
+    const result = parseMatch('packages/putout/.madrun.js', match);
     const expected = {
         rules,
     };

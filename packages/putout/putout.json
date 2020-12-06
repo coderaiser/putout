@@ -14,7 +14,7 @@
         ".madrun.{js,cjs,mjs}": {
             "madrun": "on"
         },
-        ".md": {
+        "*.md": {
             "apply-shorthand-properties": "off",
             "convert-binary-expression-to-boolean": "off",
             "remove-unused-expressions": "off",
@@ -26,7 +26,7 @@
             "remove-constant-conditions": "off",
             "remove-console": "off"
         },
-        ".json": {
+        "*.json": {
             "remove-useless-escape": "off",
             "apply-numeric-separators": "off"
         },
@@ -37,30 +37,31 @@
         ".gitignore": {
             "gitignore": "on"
         },
-        "(.js|.jsx|.cjs)$": {
+        "*{.js|.jsx|.cjs}$": {
             "strict-mode": "on"
         },
         "webpack.config.js": {
             "webpack": "on"
         },
-        "eslintrc": {
+        ".eslintrc.json": {
             "eslint": "on"
         },
-        "bin/": {
+        "bin": {
             "remove-process-exit": "off",
             "remove-console": "off",
             "convert-top-level-return": "on"
         },
-        "test|.spec.js": {
+        "{test,*.spec.js}": {
             "remove-only": "on",
             "remove-skip": "on"
         },
-        ".mjs": {
-            "strict-mode/add": "off",
+        "*.mjs": {
+            "strict-mode": "on",
+            "strict-mode/remove": "on",
             "apply-top-level-await": "on",
             "convert-commonjs-to-esm": "on"
         },
-        ".tsx?": {
+        "*.{ts,tsx}": {
             "strict-mode/add": "off",
             "convert-generic-to-shorthand": "on",
             "remove-useless-types": "on",

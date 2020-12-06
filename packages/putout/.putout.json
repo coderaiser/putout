@@ -1,6 +1,6 @@
 {
     "match": {
-        ".madrun.js": {
+        ".madrun.*": {
             "madrun/add-madrun-to-lint": "off",
             "madrun/set-lint-dot": "off"
         },

@@ -117,7 +117,7 @@ test('putout: parseOptions: custom options more important then default match', (
     
     mockRequire('../../putout.json', {
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -142,7 +142,7 @@ test('putout: parseOptions: custom options more important then default match', (
     const expected = {
         dir: __dirname,
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -173,7 +173,7 @@ test('putout: parseOptions: custom match more important then custom options', (t
             'remove-only': 'off',
         },
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -190,7 +190,7 @@ test('putout: parseOptions: custom match more important then custom options', (t
     const expected = {
         dir: __dirname,
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -225,7 +225,7 @@ test('putout: parseOptions: no code mods directory: .putout', (t) => {
             'remove-only': 'off',
         },
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -241,7 +241,7 @@ test('putout: parseOptions: no code mods directory: .putout', (t) => {
     const expected = {
         dir: __dirname,
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -277,7 +277,7 @@ test('putout: parseOptions: code mods directory: .putout: exclude node_modules',
             'remove-only': 'off',
         },
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -293,7 +293,7 @@ test('putout: parseOptions: code mods directory: .putout: exclude node_modules',
     const expected = {
         dir: __dirname,
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -334,7 +334,7 @@ test('putout: parseOptions: read rules', (t) => {
             'remove-only': 'off',
         },
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -352,7 +352,7 @@ test('putout: parseOptions: read rules', (t) => {
     const expected = {
         dir: __dirname,
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -392,7 +392,7 @@ test('putout: parseOptions: read rules: error', (t) => {
             'remove-only': 'off',
         },
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -410,7 +410,7 @@ test('putout: parseOptions: read rules: error', (t) => {
     const expected = {
         dir: __dirname,
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -448,7 +448,7 @@ test('putout: parseOptions: readOptions: error', (t) => {
             'remove-only': 'off',
         },
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -465,7 +465,7 @@ test('putout: parseOptions: readOptions: error', (t) => {
     const expected = {
         dir: '',
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -508,7 +508,7 @@ test('putout: parseOptions: readOptions: .putout.json', (t) => {
             'remove-only': 'off',
         },
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -525,7 +525,7 @@ test('putout: parseOptions: readOptions: .putout.json', (t) => {
     const expected = {
         dir: '../..',
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -569,7 +569,7 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
             'remove-only': 'off',
         },
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -586,7 +586,7 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
     const expected = {
         dir: '.',
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -632,7 +632,7 @@ test('putout: parseOptions: readHomeOptions', (t) => {
             'remove-only': 'off',
         },
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },
@@ -649,7 +649,7 @@ test('putout: parseOptions: readHomeOptions', (t) => {
     const expected = {
         dir: '.',
         match: {
-            'spec.js$': {
+            '*.spec.js': {
                 'remove-only': 'on',
             },
         },

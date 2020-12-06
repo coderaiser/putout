@@ -1,6 +1,8 @@
 'use strict';
 
-const parseSep = require('./parse-sep');
+const memo = require('nano-memoize');
+const picomatch = memo(require('picomatch'));
+
 const {keys, assign} = Object;
 
 module.exports = (name, match) => {
@@ -8,13 +10,21 @@ module.exports = (name, match) => {
         return {};
     
     const rules = {};
-    const items = keys(match);
+    const globs = keys(match);
     
-    for (const item of items) {
-        const pattern = parseSep(item);
+    for (const glob of globs) {
+        const paths = [
+            glob,
+            `**/${glob}`,
+            `${glob}/**`,
+        ];
         
-        if (RegExp(pattern).test(name)) {
-            assign(rules, match[item]);
+        const isMatch = picomatch(paths, {
+            dot: true,
+        });
+        
+        if (isMatch(name)) {
+            assign(rules, match[glob]);
         }
     }
     

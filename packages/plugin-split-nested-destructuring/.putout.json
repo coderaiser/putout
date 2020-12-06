@@ -1,6 +1,6 @@
 {
     "match": {
-        ".md": {
+        "*.md": {
             "split-nested-destructuring": "off"
         }
     }

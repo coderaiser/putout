@@ -1,6 +1,6 @@
 {
     "match": {
-        ".md": {
+        "*.md": {
             "remove-boolean-from-logical-expressions": "off"
         }
     }
