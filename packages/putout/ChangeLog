@@ -1,3 +1,13 @@
+2020.12.06, v11.16.0
+
+fix:
+- (putout) staged: fromEntries
+
+feature:
+- (putout) madrun: add support of .madrun.mjs, .madrun.cjs
+- (@putout/test) wrap -> extend
+
+
 2020.12.06, v11.15.0
 
 feature:
