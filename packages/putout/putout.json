@@ -11,6 +11,9 @@
         "yaml"
     ],
     "match": {
+        "*.{js,jsx,mjs,cjs,ts,tsx}": {
+            "strict-mode": "on"
+        },
         ".madrun.{js,cjs,mjs}": {
             "madrun": "on"
         },
@@ -37,9 +40,6 @@
         ".gitignore": {
             "gitignore": "on"
         },
-        "*{.js|.jsx|.cjs}$": {
-            "strict-mode": "on"
-        },
         "webpack.config.js": {
             "webpack": "on"
         },
@@ -56,13 +56,10 @@
             "remove-skip": "on"
         },
         "*.mjs": {
-            "strict-mode": "on",
-            "strict-mode/remove": "on",
             "apply-top-level-await": "on",
             "convert-commonjs-to-esm": "on"
         },
         "*.{ts,tsx}": {
-            "strict-mode/add": "off",
             "convert-generic-to-shorthand": "on",
             "remove-useless-types": "on",
             "remove-unused-types": "on"
@@ -94,12 +91,12 @@
         "remove-only": "off",
         "remove-skip": "off",
         "putout": "off",
-        "strict-mode": "off",
         "eslint": "off",
         "madrun": "off",
         "webpack": "off",
         "gitignore": "off",
         "travis": "off",
+        "strict-mode": "off",
         "regexp/convert-replace-to-replace-all": "off"
     },
     "plugins": [
