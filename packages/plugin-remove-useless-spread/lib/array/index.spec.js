@@ -19,3 +19,8 @@ test('plugin-remove-useless-spread: array: transform: call', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-spread: array: transform: array-from', (t) => {
+    t.transform('array-from');
+    t.end();
+});
+
