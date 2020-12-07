@@ -1,6 +1,7 @@
 'use strict';
 
-const convertToArray = (a) => `["${a.split('\n').join('", "').slice(0, -1)}]`;
+const rmLast = (a) => a.slice(0, -1);
+const addNewLine = (a) => /\n$/.test(a) ? a : `${a}\n`;
 
 const prefix = '__putout_processor_ignore(';
 const sufix = ');';
@@ -32,4 +33,11 @@ module.exports.postProcess = (rawSource, list) => {
     
     return array.join('\n') + '\n';
 };
+
+function convertToArray(line) {
+    const lines = addNewLine(line).split('\n');
+    const result = '"' + rmLast(lines.join('", "'));
+    
+    return `[${result}]`;
+}
 

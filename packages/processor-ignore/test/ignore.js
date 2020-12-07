@@ -36,6 +36,16 @@ test('putout: processor: ignore: no fix', async (t) => {
     t.end();
 });
 
+test('putout: processor: ignore: no new line', async (t) => {
+    const {
+        output,
+        processedSource,
+    } = await process('no-new-line-ignore', {fix: true});
+    
+    t.equal(processedSource, output);
+    t.end();
+});
+
 function getProcess({processors, plugins, ext = ''}) {
     return async (name, {fix = true} = {}) => {
         const inputName = join(__dirname, 'fixture', `${name}${ext}`);
