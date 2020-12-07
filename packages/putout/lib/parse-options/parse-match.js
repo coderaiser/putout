@@ -1,7 +1,6 @@
 'use strict';
 
-const memo = require('nano-memoize');
-const picomatch = memo(require('picomatch'));
+const picomatch = require('picomatch');
 
 const {keys, assign} = Object;
 
