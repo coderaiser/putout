@@ -1,3 +1,12 @@
+2020.12.07, v12.0.1
+
+fix:
+- (putout) parse-match: memory leack: 400mb -> 140mb: rm memo
+
+feature:
+- (@putout/plugin-convert-commonjs-to-esm) require: exclude declared require
+
+
 2020.12.07, v12.0.0
 
 feature:
