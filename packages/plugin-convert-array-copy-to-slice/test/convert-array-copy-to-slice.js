@@ -19,3 +19,8 @@ test('plugin-convert-array-copy-to-slice: no transform: elements', (t) => {
     t.end();
 });
 
+test('plugin-convert-array-copy-to-slice: no transform: set', (t) => {
+    t.noTransform('set');
+    t.end();
+});
+
