@@ -40,11 +40,11 @@
     "nyc": "^15.0.1"
   },
   "peerDependencies": {
-    "putout": ">=7.2"
+    "putout": ">=12"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=12"
   },
   "publishConfig": {
     "access": "public"
