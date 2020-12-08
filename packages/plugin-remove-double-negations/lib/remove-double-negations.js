@@ -6,5 +6,6 @@ module.exports.replace = () => ({
     'if (!!__a) __b': 'if (__a) __b',
     '!!__a ? __b : __c': '__a ? __b : __c',
     '!!__a && __b': '__a && __b',
+    '!!__a.includes(__b)': '__a.includes(__b)',
 });
 

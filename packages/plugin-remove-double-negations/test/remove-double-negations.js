@@ -39,6 +39,11 @@ test('plugin-remove-double-negations: transform: conditional', (t) => {
     t.end();
 });
 
+test('plugin-remove-double-negations: transform: conditional', (t) => {
+    t.transform('includes');
+    t.end();
+});
+
 test('plugin-remove-double-negations: no transform: return', (t) => {
     t.noTransform('return');
     t.end();
