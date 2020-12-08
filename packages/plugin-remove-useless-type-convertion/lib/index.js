@@ -8,6 +8,6 @@ const getRule = (a) => ({
 
 module.exports.rules = {
     ...getRule('named'),
-    withDoubleNegations,
+    'with-double-negations': withDoubleNegations,
 };
 
