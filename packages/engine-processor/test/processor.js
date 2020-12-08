@@ -160,7 +160,16 @@ test('putout: engine-processor: markdown: fix: processed places', async (t) => {
         rawSource,
     });
     
-    t.deepEqual(places, [], 'should equal');
+    const expected = [{
+        message: 'Code blocks should be fenced',
+        position: {
+            column: 1,
+            line: 11,
+        },
+        rule: 'code-block-style (remark-lint)',
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
     t.end();
 });
 
@@ -173,13 +182,14 @@ test('putout: engine-processor: markdown: no places no fix', async (t) => {
         ],
     };
     
+    const fix = true;
     const rawSource = await readFile(name, 'utf8');
     const {processedSource} = await runProcessors({
         name,
-        fix: true,
+        fix,
         processFile: processFile({
             name: `${name}{js}`,
-            fix: true,
+            fix,
         }),
         options,
         rawSource,
@@ -228,11 +238,13 @@ test('putout: engine-processor: markdown: no fix: places', async (t) => {
     };
     const rawSource = await readFile(name, 'utf8');
     
+    const fix = false;
     const {processedSource} = await runProcessors({
+        fix,
         name,
         processFile: processFile({
             name: `${name}{js}`,
-            fix: false,
+            fix,
         }),
         options,
         rawSource,
@@ -253,11 +265,13 @@ test('putout: engine-processor: markdown: js changed', async (t) => {
     const rawSource = await readFile(name, 'utf8');
     const expectedSource = await readFile(fixedName, 'utf8');
     
+    const fix = true;
     const {processedSource} = await runProcessors({
+        fix,
         name,
         processFile: processFile({
             name: `${name}{js}`,
-            fix: true,
+            fix,
         }),
         options,
         rawSource,
@@ -327,6 +341,42 @@ test('putout: engine-processor: getFilePatterns', (t) => {
     ];
     
     t.deepEqual(expected, result, 'should equal');
+    t.end();
+});
+
+test('putout: processor: yaml: duplicate', async (t) => {
+    const ext = '.yml';
+    const name = 'duplicate';
+    const inputName = join(__dirname, 'fixture', `${name}${ext}`);
+    
+    const rawSource = await readFile(inputName, 'utf8');
+    
+    const options = {
+        dir: __dirname,
+        processors: [
+            'yaml',
+        ],
+    };
+    
+    const {places} = await runProcessors({
+        name: inputName,
+        processFile: processFile({
+            fix: false,
+        }),
+        options,
+        rawSource,
+    });
+    
+    const expected = [{
+        position: {
+            column: 1,
+            line: 4,
+        },
+        message: 'Duplicated mapping key only',
+        rule: 'duplicated-mapping-key (yaml)',
+    }];
+    
+    t.deepEqual(places, expected);
     t.end();
 });
 

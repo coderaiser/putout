@@ -36,6 +36,7 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     let processedSource = '';
     let processedPlaces = [];
     let isProcessed = false;
+    let isJsChanged = false;
     
     for (const {isMatch, preProcess, postProcess, process = stubProcess} of loadedProcessors) {
         if (!isMatch(name))
@@ -43,18 +44,20 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         
         [processedSource, processedPlaces] = process(rawSource);
         
+        /*
         if (fix)
             processedPlaces = [];
         else
             processedSource = rawSource;
+            */
         
-        if (!processedPlaces.length)
-            processedSource = rawSource;
+        //if (!processedPlaces.length)
+        //   processedSource = rawSource;
         
         const list = preProcess(processedSource);
         const preProcessedList = [];
         
-        let isJsChanged = false;
+        isJsChanged = false;
         for (const {source, startLine = 0, extension} of list) {
             const processedName = addExtension(name, extension);
             const {code, places} = await processFile({
@@ -78,6 +81,9 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         
         isProcessed = true;
     }
+    
+    if (!fix || !isJsChanged)
+        processedSource = rawSource;
     
     return {
         places: allPlaces,
