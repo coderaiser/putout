@@ -1,3 +1,27 @@
+2020.12.08, v12.1.0
+
+fix:
+- (@putout/plugin-remove-useless-type-convertion) npmignore: add fixture
+- (@putout/plugin-remove-useless-type-convertion) withDoubleNegations -> with-double-negations
+- (@putout/processor-ignore) no new last line
+
+feature:
+- (eslint-plugin-putout) add support of yaml
+- (@putout/processor-yaml) improve support of process result
+- (@putout/engine-processor) improve process support
+- (@putout/engine-loader) simplify plugins/processors search
+- (package) @putout/processor-markdown v2.0.1
+- (package) @putout/engine-loader v3.1.1
+- (@putout/plugin-remove-double-negations) add support of for, while, do
+- (package) @putout/plugin-remove-useless-type-convertion v2.0.0
+- (@putout/plugin-remove-useless-type-convertion) drop support of putout < 12
+- (@putout/plugin-remove-useless-type-convertion) include @putout/plugin-remove-double-negations
+- (@putout/plugin-remove-double-negations) drop support of node < 12
+- (@putout/plugin-remove-double-negations) add includes
+- (@putout/plugin-remove-useless-spread) add support of Array.from
+- (@putout/plugin-convert-array-copy-to-slice) exclude set
+
+
 2020.12.07, v12.0.1
 
 fix:
