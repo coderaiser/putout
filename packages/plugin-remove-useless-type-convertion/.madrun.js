@@ -4,7 +4,7 @@ const {run} = require('madrun');
 
 module.exports = {
     'publishOnly': () => run('lint'),
-    'test': () => `tape 'test/*.js'`,
+    'test': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'watch:test': async () => `nodemon -w lib -w test -x ${await run('test')}`,
     'lint': () => `putout .`,
     'fix:lint': () => run('lint', '--fix'),

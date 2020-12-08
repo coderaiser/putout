@@ -18,7 +18,8 @@ npm i @putout/plugin-remove-useless-convertion
 ```json
 {
     "rules": {
-        "remove-useless-convertion": "on"
+        "remove-useless-convertion/named": "on",
+        "remove-useless-convertion/with-double-negations": "on"
     }
 }
 ```

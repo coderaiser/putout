@@ -140,7 +140,6 @@
         "remove-constant-conditions",
         "remove-boolean-from-logical-expressions",
         "remove-nested-blocks",
-        "remove-double-negations",
         "remove-unreachable-code",
         "remove-duplicate-keys",
         "remove-duplicate-interface-keys",
