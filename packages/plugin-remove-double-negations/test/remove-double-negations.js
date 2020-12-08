@@ -44,6 +44,21 @@ test('plugin-remove-double-negations: transform: conditional', (t) => {
     t.end();
 });
 
+test('plugin-remove-double-negations: transform: while', (t) => {
+    t.transform('while');
+    t.end();
+});
+
+test('plugin-remove-double-negations: transform: do', (t) => {
+    t.transform('do');
+    t.end();
+});
+
+test('plugin-remove-double-negations: transform: for', (t) => {
+    t.transform('for');
+    t.end();
+});
+
 test('plugin-remove-double-negations: no transform: return', (t) => {
     t.noTransform('return');
     t.end();
