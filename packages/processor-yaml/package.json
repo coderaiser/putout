@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "@putout/processor-json": "^2.0.0",
-    "js-yaml": "^3.14.0"
+    "js-yaml": "^3.14.0",
+    "try-catch": "^3.0.0"
   },
   "keywords": [
     "putout",

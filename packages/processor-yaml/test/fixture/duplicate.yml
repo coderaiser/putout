@@ -1,0 +1,6 @@
+release:
+  only:
+    - tags
+  only:
+    - tags
+
