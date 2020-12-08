@@ -271,6 +271,11 @@ const a = {
 ```diff
 -const a = Boolean(b.includes(c));
 +const a = b.includes(c);
+
+--if (!!a)
+++if (a)
+    console.log('hi');
+
 ```
 
 </details>
@@ -520,16 +525,6 @@ for (const x of Object.keys(a)) {
 -   }
 +   console.log(x);
 }
-```
-
-</details>
-
-<details><summary>remove double negations</summary>
-
-```diff
---if (!!a)
-++if (a)
-    console.log('hi');
 ```
 
 </details>
