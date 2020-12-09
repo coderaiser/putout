@@ -18,7 +18,8 @@ npm i @putout/plugin-tape -D
 ```json
 {
     "rules": {
-        "tape/switch-expected-with-result": "on"
+        "tape/switch-expected-with-result": "on",
+        "tape/convert-tape-to-supertape": "on"
     }
 }
 ```
@@ -41,6 +42,20 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
     t.eqaul(result, expected);
     t.end();
 });
+```
+
+## convert-tape-to-supertape
+
+### ❌ Incorrect code example
+
+```js
+const test = require('tape');
+```
+
+### ✅ Correct code Example
+
+```js
+const test = require('supertape');
 ```
 
 ## License

@@ -14,3 +14,8 @@ test('plugin-test: transform', (t) => {
     t.end();
 });
 
+test('plugin-test: transform: tape', (t) => {
+    t.transform('tape');
+    t.end();
+});
+

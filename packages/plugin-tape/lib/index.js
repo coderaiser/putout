@@ -6,5 +6,6 @@ const getRule = (a) => ({
 
 module.exports.rules = {
     ...getRule('switch-expected-with-result'),
+    ...getRule('convert-tape-to-supertape'),
 };
 
