@@ -32,7 +32,7 @@
             "remove-constant-conditions": "off",
             "remove-console": "off"
         },
-        "*.json": {
+        "*.{json,yml}": {
             "remove-useless-escape": "off",
             "apply-numeric-separators": "off"
         },
