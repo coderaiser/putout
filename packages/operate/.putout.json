@@ -1,6 +1,6 @@
 {
     "rules": {
-        "putout": false
+        "putout": "off"
     }
 }
 
