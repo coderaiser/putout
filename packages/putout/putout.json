@@ -56,7 +56,8 @@
         },
         "{test,*.spec.js}": {
             "remove-only": "on",
-            "remove-skip": "on"
+            "remove-skip": "on",
+            "tape": "on"
         },
         "*.mjs": {
             "apply-top-level-await": "on",
@@ -100,6 +101,7 @@
         "webpack": "off",
         "gitignore": "off",
         "travis": "off",
+        "tape": "off",
         "strict-mode": "off",
         "regexp/convert-replace-to-replace-all": "off"
     },
@@ -178,7 +180,8 @@
         "promises",
         "gitignore",
         "regexp",
-        "travis"
+        "travis",
+        "tape"
     ]
 }
 
