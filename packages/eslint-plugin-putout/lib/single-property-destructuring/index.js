@@ -1,5 +1,8 @@
 'use strict';
 
+const {types} = require('putout');
+const {isRestElement} = types;
+
 module.exports.category = 'destructuring';
 module.exports.report = () => 'Keep curly braces on one line when you have one destructuring property';
 
@@ -26,6 +29,12 @@ module.exports.fix = ({text, node, getText}) => {
     const idText = getText(id);
     
     const [property] = id.properties;
+    
+    if (isRestElement(property)) {
+        const {name} = property.argument;
+        return text.replace(idText, `{...${name}}`);
+    }
+    
     const {key, value} = property;
     
     if (key.name === value.name)
