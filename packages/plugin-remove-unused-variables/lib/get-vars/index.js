@@ -8,15 +8,10 @@ const {
 } = types;
 
 const getVars = require('./get-vars');
-const {
-    useParamsBeforeLastUsed,
-    usePropertiesBeforeRest,
-} = require('./use-params');
 
-module.exports = (ast, opts) => {
+module.exports = ({setPath}) => {
     const vars = {};
     const allParams = [];
-    const {setPath, traverse} = opts;
     
     const use = useVariable({
         vars,
@@ -33,22 +28,13 @@ module.exports = (ast, opts) => {
     
     const addParams = addParamsVariable(allParams);
     
-    traverse(ast, getVars({
+    const tree = getVars({
         use,
         declare,
         addParams,
-    }));
+    });
     
-    allParams
-        .map(useParamsBeforeLastUsed({
-            use,
-            isUsed,
-        }))
-        .map(usePropertiesBeforeRest({
-            use,
-        }));
-    
-    return Object.values(vars);
+    return {tree, allParams, use, isUsed};
 };
 
 const addParamsVariable = (allParams) => ({path, params}) => {

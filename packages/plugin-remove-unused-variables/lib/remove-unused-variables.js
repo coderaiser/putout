@@ -11,6 +11,13 @@ const getVars = require('./get-vars');
 const transform = require('./transform');
 const getUnused = require('./get-unused');
 
+const {
+    useParamsBeforeLastUsed,
+    usePropertiesBeforeRest,
+} = require('./get-vars/use-params');
+
+const {values} = Object;
+
 module.exports.report = ({name}) => `"${name}" is defined but never used`;
 
 module.exports.fix = ({path}) => {
@@ -23,17 +30,44 @@ module.exports.fix = ({path}) => {
     remove(path);
 };
 
-module.exports.find = (ast, {traverse}) => {
-    const vars = getVars(ast, {
+module.exports.traverse = ({push}) => {
+    debugger;
+    const {tree, allParams, use, isUsed,} = getVars({
         setPath: true,
-        traverse,
     });
     
-    const transformed = transform(vars);
-    const unused = getUnused(transformed);
+    const exit = getExit({
+        push,
+        use,
+        isUsed,
+        allParams
+    });
     
-    return unused;
+    return {
+        ...tree,
+        Program: {
+            exit,
+        }
+    }
 };
+
+function getExit({push, allParams, use, isUsed}) {
+    return () => {
+        const vars = allParams
+            .map(useParamsBeforeLastUsed({
+                use,
+                isUsed,
+            }))
+            .map(usePropertiesBeforeRest({
+                use,
+            }));
+        
+        const transformed = transform(values(vars));
+        const unused = getUnused(transformed);
+        
+        unused.map(push);
+    };
+}
 
 function isOneImport({parentPath}) {
     if (!parentPath.isImportDeclaration())
