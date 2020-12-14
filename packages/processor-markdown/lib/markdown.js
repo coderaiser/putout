@@ -2,12 +2,42 @@
 
 const visit = require('unist-util-visit');
 const unified = require('unified');
-const markdown = require('remark-parse');
+const parse = require('remark-parse');
 const stringify = require('remark-stringify');
-const remark = require('remark');
 const preset = require('remark-preset-lint-consistent');
 
 const jsonProcessor = require('@putout/processor-json');
+
+const initParseStore = () => {
+    let cache = null;
+    
+    const fn = function needContext(a) {
+        parse.call(this, a);
+        const {Parser} = this;
+        
+        this.Parser = function(...a) {
+            if (cache) {
+                return cache;
+            }
+            
+            cache = Parser(...a);
+            
+            return cache;
+        };
+    };
+    
+    fn.init = () => {
+        cache = null;
+    };
+    
+    fn.clear = () => {
+        cache = null;
+    };
+    
+    return fn;
+};
+
+const parseStore = initParseStore();
 
 const text = ({value}) => value;
 const stringifyOptions = {
@@ -23,6 +53,21 @@ const stringifyOptions = {
 module.exports.files = [
     '*.md',
 ];
+
+module.exports.process = (rawSource) => {
+    parseStore.init();
+    
+    const {messages, contents} = unified()
+        .use(parseStore)
+        .use(preset)
+        .use(stringify, stringifyOptions)
+        .processSync(rawSource);
+    
+    return [
+        contents,
+        messages.map(toPlace),
+    ];
+};
 
 module.exports.preProcess = (rawSource) => {
     const list = [];
@@ -64,26 +109,12 @@ module.exports.preProcess = (rawSource) => {
     };
     
     unified()
-        .use(markdown)
+        .use(parseStore)
         .use(collect, list)
         .use(stringify)
         .processSync(rawSource);
     
     return list;
-};
-
-module.exports.process = (rawSource) => {
-    const {messages, contents} = remark()
-        .use(preset)
-        .use({
-            settings: stringifyOptions,
-        })
-        .processSync(rawSource);
-    
-    return [
-        contents,
-        messages.map(toPlace),
-    ];
 };
 
 module.exports.postProcess = (rawSource, list) => {
@@ -116,10 +147,12 @@ module.exports.postProcess = (rawSource, list) => {
     };
     
     const {contents} = unified()
-        .use(markdown)
+        .use(parseStore)
         .use(apply, newList)
         .use(stringify, stringifyOptions)
         .processSync(rawSource);
+    
+    parseStore.clear();
     
     return contents;
 };
