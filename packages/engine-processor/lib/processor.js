@@ -42,9 +42,9 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         if (!isMatch(name))
             continue;
         
-        [processedSource, processedPlaces] = process(rawSource);
+        [processedSource, processedPlaces] = await process(rawSource);
         
-        const list = preProcess(processedSource);
+        const list = await preProcess(processedSource);
         const preProcessedList = [];
         
         isJsChanged = false;
@@ -67,7 +67,7 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         }
         
         if (isJsChanged)
-            processedSource = postProcess(rawSource, preProcessedList);
+            processedSource = await postProcess(rawSource, preProcessedList);
         
         isProcessed = true;
     }
