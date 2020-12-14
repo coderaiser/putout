@@ -3,8 +3,8 @@
 module.exports.report = () => '"result" should be before "expected"';
 
 module.exports.replace = () => ({
-    't.equal(expected, result)': 't.equal(result, expected)',
-    't.equal(expected, result, __a)': 't.equal(result, expected, __a)',
-    't.deepEqual(expected, result)': 't.deepEqual(result, expected)',
-    't.deepEqual(expected, result, __a)': 't.deepEqual(result, expected, __a)',
+    't.equal(expected, __a)': 't.equal(__a, expected)',
+    't.equal(expected, __a, __b)': 't.equal(__a, expected, __b)',
+    't.deepEqual(expected, __a)': 't.deepEqual(__a, expected)',
+    't.deepEqual(expected, __a, __b)': 't.deepEqual(__a, expected, __b)',
 });

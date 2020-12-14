@@ -225,7 +225,7 @@ test('putout: engine-processor: markdown: no fix: processed places', async (t) =
         position: {line: 11, column: 1},
     }];
     
-    t.deepEqual(expected, places, 'should equal');
+    t.deepEqual(places, expected, 'should equal');
     t.end();
 });
 
@@ -340,7 +340,7 @@ test('putout: engine-processor: getFilePatterns', (t) => {
         '*.css',
     ];
     
-    t.deepEqual(expected, result, 'should equal');
+    t.deepEqual(result, expected, 'should equal');
     t.end();
 });
 

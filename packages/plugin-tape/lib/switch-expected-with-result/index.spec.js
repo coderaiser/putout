@@ -14,8 +14,13 @@ test('plugin-test: transform', (t) => {
     t.end();
 });
 
-test('plugin-test: transform', (t) => {
+test('plugin-test: transform: deep equal', (t) => {
     t.transform('deep-equal');
+    t.end();
+});
+
+test('plugin-test: transform: expected', (t) => {
+    t.transform('expected');
     t.end();
 });
 

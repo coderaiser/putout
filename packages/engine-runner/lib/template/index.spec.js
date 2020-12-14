@@ -71,7 +71,7 @@ test('putout: plugin: traverse: template: expression', (t) => {
         },
     }];
     
-    t.deepEqual(expected, places, 'should equal');
+    t.deepEqual(places, expected, 'should equal');
     t.end();
 });
 
