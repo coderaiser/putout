@@ -1,3 +1,16 @@
+2020.12.14, v12.4.0
+
+feature:
+- (package) @putout/processor-markdown v3.0.0
+- (package) @putout/engine-processor v2.5.0
+- (@putout/engine-processor) add ability to await process, preProcess and postProcess
+- (@putout/processor-markdown) use async unified API
+- (@putout/processor-markdown) speed up with help of cache: 2m16.072s -> 2m0.965
+- (@putout/plugin-tape) switch-expected-with-result: add ability to switch all assertions with expected, not only with result
+- (eslint-plugin-putout) single-property-destructuring: add support of RestElement
+- (@putout/plugin-tape) add convert-tape-to-supertape
+
+
 2020.12.09, v12.3.0
 
 fix:
