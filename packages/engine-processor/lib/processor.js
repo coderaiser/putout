@@ -54,6 +54,9 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
             fix,
         });
         
+        if (!processedSource)
+            processedSource = rawSource;
+        
         const list = await preProcess(processedSource);
         const preProcessedList = [];
         

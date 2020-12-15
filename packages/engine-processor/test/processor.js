@@ -317,6 +317,33 @@ test('putout: engine-processor: yaml: no startLine', async (t) => {
     t.end();
 });
 
+test('putout: engine: processor: yaml: duplicate: file content', async (t) => {
+    const ext = '.yml';
+    const name = 'duplicate';
+    const inputName = join(__dirname, 'fixture', `${name}${ext}`);
+    
+    const rawSource = await readFile(inputName, 'utf8');
+    
+    const options = {
+        dir: __dirname,
+        processors: [
+            'yaml',
+        ],
+    };
+    
+    const {processedSource} = await runProcessors({
+        name: inputName,
+        processFile: processFile({
+            fix: false,
+        }),
+        options,
+        rawSource,
+    });
+    
+    t.equal(processedSource, rawSource);
+    t.end();
+});
+
 test('putout: engine-processor: getFilePatterns', (t) => {
     const js = {
         files: [
@@ -344,7 +371,7 @@ test('putout: engine-processor: getFilePatterns', (t) => {
     t.end();
 });
 
-test('putout: processor: yaml: duplicate', async (t) => {
+test('putout: engine-processor: yaml: duplicate', async (t) => {
     const ext = '.yml';
     const name = 'duplicate';
     const inputName = join(__dirname, 'fixture', `${name}${ext}`);
@@ -380,7 +407,7 @@ test('putout: processor: yaml: duplicate', async (t) => {
     t.end();
 });
 
-test('putout: processor: css', async (t) => {
+test('putout: engine-processor: css', async (t) => {
     const name = 'style';
     const inputName = join(__dirname, 'fixture', `${name}.css`);
     const outputName = join(__dirname, 'fixture', `${name}-fix.css`);
