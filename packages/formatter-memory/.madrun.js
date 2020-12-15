@@ -4,7 +4,7 @@ const {run} = require('madrun');
 
 module.exports = {
     'test:base': () => `tape 'test/*.js'`,
-    'test': () => run('test:base', '', {
+    'test': async () => await run('test:base', '', {
         PUTOUT_NO_PROGRESS_BAR: 1,
     }),
     'watch:test': async () => `nodemon -w lib -w test -x ${await run('test')}`,

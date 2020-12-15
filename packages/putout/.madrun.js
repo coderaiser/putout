@@ -10,7 +10,7 @@ const env = {
 module.exports = {
     'wisdom': () => run(['lint', 'coverage']),
     'test:raw': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
-    'test': () => run('test:raw', '', env),
+    'test': async () => await run('test:raw', '', env),
     
     'watch:test': async () => `nodemon -w bin -w lib -w test -x "${await run('test')}"`,
     'lint': () => `bin/putout.js .`,
@@ -19,7 +19,7 @@ module.exports = {
     'lint:progress': () => run('lint', '--fix'),
     'lint:fresh': () => run('lint', '--fresh'),
     'coverage:raw': async () => `nyc ${await run('test:raw')}`,
-    'coverage': () => run('coverage:raw', '', env),
+    'coverage': async () => await run('coverage:raw', '', env),
     'report': () => `nyc report --reporter=text-lcov | coveralls`,
 };
 
