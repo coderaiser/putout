@@ -10,6 +10,8 @@ const defaultProcessors = [
 
 const addExtension = (name, ext) => !ext ? name : `${name}{${ext}}`;
 const stubProcess = (a) => [a, []];
+const stubPreProcess = () => [];
+const stubPostProcess = (a) => a;
 
 module.exports.defaultProcessors = defaultProcessors;
 
@@ -38,11 +40,20 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     let isProcessed = false;
     let isJsChanged = false;
     
-    for (const {isMatch, preProcess, postProcess, process = stubProcess} of loadedProcessors) {
+    for (const currentProcessor of loadedProcessors) {
+        const {
+            isMatch,
+            preProcess = stubPreProcess,
+            postProcess = stubPostProcess,
+            process = stubProcess,
+        } = currentProcessor;
+        
         if (!isMatch(name))
             continue;
         
-        [processedSource, processedPlaces] = await process(rawSource);
+        [processedSource, processedPlaces] = await process(rawSource, {
+            fix,
+        });
         
         const list = await preProcess(processedSource);
         const preProcessedList = [];
@@ -60,7 +71,6 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
             
             preProcessedList.push(code);
             allPlaces.push(...places);
-            allPlaces.push(...processedPlaces);
             
             if (places.length || code !== source)
                 isJsChanged = true;
@@ -70,9 +80,10 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
             processedSource = await postProcess(rawSource, preProcessedList);
         
         isProcessed = true;
+        allPlaces.push(...processedPlaces);
     }
     
-    if (!fix || !isJsChanged)
+    if (!fix)
         processedSource = rawSource;
     
     return {
