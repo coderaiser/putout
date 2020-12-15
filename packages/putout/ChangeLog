@@ -1,3 +1,9 @@
+2020.12.15, v12.5.1
+
+feature:
+- (putout) ignore: add dist
+
+
 2020.12.15, v12.5.0
 
 fix:
