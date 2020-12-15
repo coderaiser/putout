@@ -1,8 +1,15 @@
 'use strict';
 
-const {replaceWith} = require('putout').operator;
+const {
+    types,
+    operator,
+} = require('putout');
+const {replaceWith} = operator;
+
+const {isAssignmentPattern} = types;
 
 const isToManyProperties = (a, {maxProperties}) => a.isObjectPattern() && a.node.properties.length > maxProperties;
+const isAssignment = (a) => isAssignmentPattern(a.value);
 
 module.exports.report = () => `Destructuring should be used in the head of for-of`;
 
@@ -21,9 +28,7 @@ module.exports.traverse = ({push, options}) => {
                 return;
             
             const {scope, node} = varPath;
-            
             const {name} = node;
-            
             const binding = scope.bindings[name];
             
             if (!binding)
@@ -51,6 +56,11 @@ module.exports.traverse = ({push, options}) => {
             const {maxProperties = 4} = options;
             
             if (isToManyProperties(idPath, {maxProperties}))
+                return;
+            
+            const {properties} = idPath.node;
+            
+            if (properties.find(isAssignment))
                 return;
             
             push({

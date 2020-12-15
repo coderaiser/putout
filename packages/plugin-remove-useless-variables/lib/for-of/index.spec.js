@@ -36,6 +36,11 @@ test('remove usless variables: for-of: no transform: multiple', (t) => {
     t.end();
 });
 
+test('remove usless variables: for-of: no transform: assignment', (t) => {
+    t.noTransform('assignment');
+    t.end();
+});
+
 test('remove usless variables: for-of: transform with options', (t) => {
     t.transform('array-from', {
         'remove-useless-array-from': removeUselessArrayFrom,
