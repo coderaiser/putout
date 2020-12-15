@@ -20,6 +20,8 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
+    "cosmiconfig": "^7.0.0",
+    "once": "^1.4.0",
     "stylelint": "^13.8.0",
     "stylelint-config-standard": "^20.0.0"
   },
@@ -29,6 +31,7 @@
     "css"
   ],
   "devDependencies": {
+    "@cloudcmd/stub": "^3.1.0",
     "@putout/engine-processor": "^2.5.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
@@ -36,6 +39,7 @@
     "eslint-plugin-putout": "^6.0.0",
     "lerna": "^3.8.5",
     "madrun": "^8.0.1",
+    "mock-require": "^3.0.3",
     "nodemon": "^2.0.1",
     "nyc": "^15.0.1",
     "putout": "*",
