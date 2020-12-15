@@ -2,9 +2,12 @@
 
 const test = require('supertape');
 const putout = require('putout');
-const debug = require('debug');
+const mockRequire = require('mock-require');
+const stub = require('@cloudcmd/stub');
 
 const {runPlugins} = require('..');
+
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: plugin: traverse: template', (t) => {
     const exp = {
@@ -456,8 +459,6 @@ test('putout: plugin: traverse: template: exclude: fn', (t) => {
 });
 
 test('putout: plugin: traverse: template: log', (t) => {
-    debug.enable('putout:runner:template');
-    
     const {places} = putout(`const t = __`, {
         runPlugins,
         fix: false,
@@ -482,8 +483,33 @@ test('putout: plugin: traverse: template: log', (t) => {
         rule: 'remove-unused-variables',
     }];
     
-    debug.disable('putout:runner:template');
-    
     t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: engine: runner: template: log', (t) => {
+    const debug = stub();
+    
+    mockRequire('debug', stub().returns(debug));
+    const {_log} = reRequire('.');
+    
+    _log();
+    stopAll();
+    
+    t.notOk(debug.called, 'should not call debug');
+    t.end();
+});
+
+test('putout: engine: runner: template: log: enabled', (t) => {
+    const debug = stub();
+    debug.enabled = true;
+    
+    mockRequire('debug', stub().returns(debug));
+    const {_log} = reRequire('.');
+    
+    _log('rule', 'path');
+    stopAll();
+    
+    t.ok(debug.calledWith('rule', 'path'), 'should not call debug');
     t.end();
 });
