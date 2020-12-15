@@ -77,3 +77,29 @@ test('putout: processor: yaml: duplicate', async (t) => {
     t.end();
 });
 
+test('putout: processor: yaml: duplicate: file content', async (t) => {
+    const ext = '.yml';
+    const name = 'duplicate';
+    const inputName = join(__dirname, 'fixture', `${name}${ext}`);
+    
+    const rawSource = await readFile(inputName, 'utf8');
+    
+    const options = {
+        dir: __dirname,
+        processors: [
+            'yaml',
+        ],
+    };
+    
+    const {processedSource} = await runProcessors({
+        name: inputName,
+        processFile: processFile({
+            fix: false,
+        }),
+        options,
+        rawSource,
+    });
+    
+    t.equal(processedSource, rawSource);
+    t.end();
+});
