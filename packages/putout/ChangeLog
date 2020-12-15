@@ -1,3 +1,14 @@
+2020.12.15, v12.5.0
+
+fix:
+- (@putout/processor-markdown) process: avoid modification of rawSource
+
+feature:
+- (@putout/processor-css) add
+- (@putout/engine-processor) add ability to to pass fix into process, and ignore pre/post processes
+- (@putout/plugin-remove-useless-variables) for-of: exclude ObjectPattern properties with AssignmentPattern value
+
+
 2020.12.14, v12.4.0
 
 feature:
