@@ -380,3 +380,30 @@ test('putout: processor: yaml: duplicate', async (t) => {
     t.end();
 });
 
+test('putout: processor: css', async (t) => {
+    const name = 'style';
+    const inputName = join(__dirname, 'fixture', `${name}.css`);
+    const outputName = join(__dirname, 'fixture', `${name}-fix.css`);
+    
+    const rawSource = await readFile(inputName, 'utf8');
+    const output = await readFile(outputName, 'utf8');
+    const options = {
+        processors: [
+            'css',
+        ],
+    };
+    
+    const fix = true;
+    const {processedSource} = await runProcessors({
+        fix,
+        name: inputName,
+        processFile: processFile({
+            fix,
+        }),
+        options,
+        rawSource,
+    });
+    
+    t.equal(processedSource, output);
+    t.end();
+});
