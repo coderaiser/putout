@@ -29,14 +29,14 @@ module.exports.files = [
 module.exports.process = async (rawSource) => {
     parseStore.init();
     
-    const {messages, contents} = await unified()
+    const {messages} = await unified()
         .use(parseStore)
         .use(preset)
         .use(stringify, stringifyOptions)
         .process(rawSource);
     
     return [
-        contents,
+        rawSource,
         messages.map(toPlace),
     ];
 };
