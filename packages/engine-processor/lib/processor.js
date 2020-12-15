@@ -11,7 +11,6 @@ const defaultProcessors = [
 const addExtension = (name, ext) => !ext ? name : `${name}{${ext}}`;
 const stubProcess = (a) => [a, []];
 const stubPreProcess = () => [];
-const stubPostProcess = (a) => a;
 
 module.exports.defaultProcessors = defaultProcessors;
 
@@ -43,8 +42,8 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     for (const currentProcessor of loadedProcessors) {
         const {
             isMatch,
+            postProcess,
             preProcess = stubPreProcess,
-            postProcess = stubPostProcess,
             process = stubProcess,
         } = currentProcessor;
         
