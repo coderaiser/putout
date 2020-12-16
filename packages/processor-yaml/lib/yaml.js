@@ -7,7 +7,7 @@ const fullstore = require('fullstore');
 
 const {stringify, parse} = JSON;
 const bigFirst = (a) => a[0].toUpperCase() + a.slice(1);
-const store = fullstore();
+const store = fullstore('');
 
 module.exports.files = [
     '*.yml',
@@ -16,6 +16,11 @@ module.exports.files = [
 
 module.exports.preProcess = () => {
     const rawSource = store();
+    
+    if (!rawSource)
+        return [];
+    
+    store('');
     
     const list = [];
     const [{source}] = jsonProcessor.preProcess(rawSource, null, 2);
@@ -32,11 +37,12 @@ module.exports.process = (rawSource) => {
     const [error, value] = tryCatch(yaml.load, rawSource);
     const noPlaces = [];
     
-    const stringified = stringify(value, null, 2);
-    store(stringified);
-    
-    if (!error)
+    if (!error) {
+        const stringified = stringify(value, null, 2);
+        store(stringified);
+        
         return ['', noPlaces];
+    }
     
     const places = parsePlaces(error);
     return ['', places];
