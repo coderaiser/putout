@@ -13,7 +13,7 @@ const env = {
 };
 
 module.exports = {
-    'test:base': () => `tape '${dirs}/*/test/*.js' '${dirs}/*/lib/**/*.spec.js'`,
+    'test:base': () => `tape '${dirs}/*/test/*.js' '${dirs}/*/lib/**/*.spec.js' -f progress-bar`,
     'test': async () => await run('test:base', '', env),
     'test:fail': async () => `${await run('test')} -f fail`,
     'test:slow': () => 'FORCE_COLOR=3 lerna run test',
