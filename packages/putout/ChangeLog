@@ -1,3 +1,21 @@
+2020.12.18, v12.6.0
+
+fix:
+- (@putout/processor-yaml) preProcess: add early return when no rawSource
+- (@putout/engine-processor) update file content when there is no changes
+- (@putout/processor-yaml) replace yaml with json
+- (@putout/engine-processor) rm stubPostProcess: can't be called when preProcess returns empty array
+
+feature:
+- (putout) add ability to validate command line options
+- (@putout/plugin-tape) add expand-try-catch-arguments
+- (@putout/plugin-tape) add convert-throws-to-try-catch
+- (@putout/plugin-madrun) convert-to-async: add support of inner run call expression
+- (@putout/formatter-progress-bar) add ability to disable with PUTOUT_NO_PROGRESS_BAR
+- (@putout/formatter-memory) add ability to disable with PUTOUT_NO_PROGRESS_BAR
+- (@putout/processor-css) add ability to find config
+
+
 2020.12.15, v12.5.1
 
 feature:
