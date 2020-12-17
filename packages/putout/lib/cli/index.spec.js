@@ -10,6 +10,7 @@ const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
 const stripAnsi = require('strip-ansi');
 const tryCatch = require('try-catch');
+const {red} = require('chalk');
 
 const _cli = require('.');
 const {version} = require('../../package');
@@ -23,6 +24,7 @@ const {
     NO_FILES,
     NO_PROCESSORS,
     WAS_STOP,
+    INVALID_OPTION,
 } = require('./exit-codes');
 
 test('putout: cli: --raw', async (t) => {
@@ -983,6 +985,70 @@ test('putout: cli: get files: was stop: no', async (t) => {
     stopAll();
     
     t.ok(halt.calledWith(OK), 'should set OK status');
+    t.end();
+});
+
+test('putout: cli: invalid option', async (t) => {
+    const argv = [
+        '--hello-world',
+    ];
+    
+    const halt = stub();
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        halt,
+    });
+    
+    stopAll();
+    
+    t.ok(halt.calledWith(INVALID_OPTION), 'should exit with INVALID_OPTION code');
+    t.end();
+});
+
+test('putout: cli: invalid option: message', async (t) => {
+    const argv = [
+        '--hello-world',
+    ];
+    
+    const logError = stub();
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        logError,
+    });
+    
+    stopAll();
+    
+    const expected = red(`Invalid option '--hello-world'`);
+    
+    t.ok(logError.calledWith(expected), 'should show message about invalid option');
+    t.end();
+});
+
+test('putout: cli: invalid option: message: one char', async (t) => {
+    const argv = [
+        '-z',
+    ];
+    
+    const logError = stub();
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        logError,
+    });
+    
+    stopAll();
+    
+    const expected = red(`Invalid option '-z'`);
+    
+    t.ok(logError.calledWith(expected), 'should show message about invalid option');
     t.end();
 });
 

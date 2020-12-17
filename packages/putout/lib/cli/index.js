@@ -27,6 +27,7 @@ const getFormatter = memo(require('./formatter').getFormatter);
 const getOptions = require('./get-options');
 const report = require('./report')();
 const onHalt = require('./on-halt');
+const validateArgs = require('./validate-args');
 
 const {
     OK,
@@ -35,6 +36,7 @@ const {
     NO_FILES,
     NO_PROCESSORS,
     WAS_STOP,
+    INVALID_OPTION,
 } = require('./exit-codes');
 
 const cwd = process.cwd();
@@ -65,7 +67,11 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     const {isStop} = onHalt();
     const wasStop = fullstore();
     
-    const args = yargsParser(argv, {
+    const argvConfig = {
+        configuration: {
+            'strip-aliased': true,
+            'strip-dashed': true,
+        },
         coerce: {
             format: maybeFirst,
             plugins: maybeArray,
@@ -87,7 +93,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             'staged',
         ],
         number: [
-            'fixCount',
+            'fix-count',
         ],
         string: [
             'format',
@@ -98,12 +104,11 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             'plugins',
         ],
         alias: {
-            v: 'version',
-            h: 'help',
-            f: 'format',
-            s: 'staged',
-            t: 'transform',
-            d: 'debug',
+            version: 'v',
+            help: 'h',
+            format: 'f',
+            staged: 's',
+            transform: 't',
         },
         default: {
             ci: true,
@@ -117,7 +122,9 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             debug: false,
             plugins: [],
         },
-    });
+    };
+    
+    const args = yargsParser(argv, argvConfig);
     
     if (args.ci && isCI) {
         args.format = 'dump';
@@ -149,6 +156,11 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         halt,
         logError,
     });
+    
+    const invalidOption = validateArgs(args, argvConfig, exit);
+    
+    if (invalidOption)
+        return exit(INVALID_OPTION, Error(`Invalid option '${invalidOption}'`));
     
     if (args.version) {
         log(`v${require('../../package.json').version}`);

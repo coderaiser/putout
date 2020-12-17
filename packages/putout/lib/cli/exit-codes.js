@@ -8,5 +8,6 @@ module.exports = {
     NO_PROCESSORS: 4,
     NO_FORMATTER: 5,
     WAS_STOP: 6,
+    INVALID_OPTION: 7,
 };
 
