@@ -58,6 +58,33 @@ const test = require('tape');
 const test = require('supertape');
 ```
 
+## convert-throws-to-try-catch
+
+### ❌ Incorrect code example
+
+```js
+const test = require('supertape');
+
+test('some message', (t) => {
+    t.throws(copymitter, /from should be a string!/, 'should throw when no args');
+    t.end();
+});
+```
+
+### ✅ Correct code Example
+
+```js
+const tryCatch = require('try-catch');
+const test = require('supertape');
+
+test('some message', (t) => {
+    const [error] = tryCatch(copymitter);
+    
+    t.equal(error.message, 'from should be a string!', 'should throw when no args');
+    t.end();
+});
+```
+
 ## License
 
 MIT

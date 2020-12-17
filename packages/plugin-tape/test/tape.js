@@ -19,3 +19,8 @@ test('plugin-test: transform: tape', (t) => {
     t.end();
 });
 
+test('plugin-test: transform: tape: throws', (t) => {
+    t.transform('throws');
+    t.end();
+});
+
