@@ -1,35 +1,37 @@
 'use strict';
 
+const {join} = require('path');
 const {
-    readFileSync,
-    writeFileSync,
-} = require('fs');
-const tryCatch = require('try-catch');
+    readFile,
+    writeFile,
+} = require('fs/promises');
+
+const tryToCatch = require('try-to-catch');
 
 const cwd = process.cwd();
 const {parse, stringify} = JSON;
 
-module.exports = ({disable, disableAll, enable, enableAll}, mergedPlaces) => {
-    const name = `${cwd}/.putout.json`;
+module.exports = async ({disable, disableAll, enable, enableAll}, places) => {
+    const name = join(cwd, '.putout.json');
     const defaultData = stringify({
         rules: {},
     });
     
-    const [, data = defaultData] = tryCatch(readFileSync, name, 'utf8');
+    const [, data = defaultData] = await tryToCatch(readFile, name, 'utf8');
     const ruler = require('./ruler');
     const object = parse(data);
     
-    let updated;
+    let updated = object;
     
     if (enable)
         updated = ruler.enable(object, enable);
     else if (disable)
         updated = ruler.disable(object, disable);
     else if (enableAll)
-        updated = ruler.enableAll(object, mergedPlaces);
+        updated = ruler.enableAll(object, places);
     else if (disableAll)
-        updated = ruler.disableAll(object, mergedPlaces);
+        updated = ruler.disableAll(object, places);
     
-    writeFileSync(name, stringify(updated, null, 4));
+    await writeFile(name, stringify(updated, null, 4));
 };
 

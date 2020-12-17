@@ -20,8 +20,8 @@ test('putout: ruler: enable', (t) => {
     t.end();
 });
 
-test('putout: ruler: enable: crash', (t) => {
-    const config = enable({}, 'crash/parser');
+test('putout: ruler: enable: parser', (t) => {
+    const config = enable({}, 'parser');
     const expected = {
         rules: {
         },
@@ -55,8 +55,8 @@ test('putout: ruler: disable', (t) => {
     t.end();
 });
 
-test('putout: ruler: disable: crash', (t) => {
-    const config = disable({}, 'crash/parser');
+test('putout: ruler: disable: parser', (t) => {
+    const config = disable({}, 'parser');
     const expected = {
         rules: {
         },
