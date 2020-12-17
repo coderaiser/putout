@@ -19,7 +19,9 @@ npm i @putout/plugin-tape -D
 {
     "rules": {
         "tape/switch-expected-with-result": "on",
-        "tape/convert-tape-to-supertape": "on"
+        "tape/convert-tape-to-supertape": "on",
+        "tape/convert-throws-to-try-catch": "on",
+        "tape/expand-try-catch-arguments": "on"
     }
 }
 ```
@@ -81,6 +83,31 @@ test('some message', (t) => {
     const [error] = tryCatch(copymitter);
     
     t.equal(error.message, 'from should be a string!', 'should throw when no args');
+    t.end();
+});
+```
+
+## expand-try-catch-arguments
+
+### ❌ Incorrect code example
+
+```js
+test('some message', (t) => {
+    const fn = () => copymitter('/hello');
+    const [error] = tryCatch(fn);
+    
+    t.equal(error.message, 'to should be a string!');
+    t.end();
+});
+```
+
+### ✅ Correct code Example
+
+```js
+test('some message', (t) => {
+    const [error] = tryCatch(copymitter, '/hello');
+    
+    t.equal(error.message, 'to should be a string!');
     t.end();
 });
 ```
