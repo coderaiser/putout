@@ -1420,7 +1420,7 @@ test('remove debugger: transformCode', (t) => {
 });
 ```
 
-As you see test runner it is little bit modifed [tape](https://github.com/substack/tape).
+As you see test runner it is little bit extended [supertape](https://github.com/coderaiser/supertape).
 To see more sophisticated example look at [@putout/remove-console](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-console).
 
 ### Babel Plugins
