@@ -9,6 +9,7 @@ const commonRules = {
     'quote-props': 'off',
     'no-constant-condition': 'off',
     'node/no-extraneous-require': 'off',
+    'node/no-extraneous-import': 'off',
     'node/no-unpublished-require': 'off',
     'node/no-missing-require': 'off',
     'node/no-missing-import': 'off',
