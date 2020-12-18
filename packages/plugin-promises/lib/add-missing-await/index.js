@@ -15,6 +15,9 @@ module.exports.match = () => ({
         if (!isIdentifier(__a))
             return false;
         
+        if (path.parentPath.isArrayExpression())
+            return false;
+        
         const {name} = __a;
         const binding = path.scope.getAllBindings()[name];
         

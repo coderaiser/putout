@@ -30,3 +30,7 @@ test('plugin-add-missing-await: transform: not async', (t) => {
     t.end();
 });
 
+test('plugin-add-missing-await: transform: array', (t) => {
+    t.noTransform('array');
+    t.end();
+});
