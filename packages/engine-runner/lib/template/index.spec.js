@@ -496,7 +496,7 @@ test('putout: engine: runner: template: log', (t) => {
     _log();
     stopAll();
     
-    t.notOk(debug.called, 'should not call debug');
+    t.notOk(debug.called, 'should call debug');
     t.end();
 });
 
@@ -510,6 +510,6 @@ test('putout: engine: runner: template: log: enabled', (t) => {
     _log('rule', 'path');
     stopAll();
     
-    t.ok(debug.calledWith('rule', 'path'), 'should not call debug');
+    t.calledWith(debug, ['rule', 'path'], 'should call debug');
     t.end();
 });

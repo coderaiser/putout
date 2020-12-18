@@ -21,7 +21,8 @@ npm i @putout/plugin-tape -D
         "tape/switch-expected-with-result": "on",
         "tape/convert-tape-to-supertape": "on",
         "tape/convert-throws-to-try-catch": "on",
-        "tape/expand-try-catch-arguments": "on"
+        "tape/expand-try-catch-arguments": "on",
+        "tape/apply-stub-operator": "on"
     }
 }
 ```
@@ -108,6 +109,28 @@ test('some message', (t) => {
     const [error] = tryCatch(copymitter, '/hello');
     
     t.equal(error.message, 'to should be a string!');
+    t.end();
+});
+```
+
+## apply-stub-operator
+
+### ❌ Incorrect code example
+
+```js
+test('some message', (t) => {
+    t.ok(fn.calledWith(a));
+    t.end();
+});
+```
+
+### ✅ Correct code Example
+
+```js
+test('some message', (t) => {
+    const [error] = tryCatch(copymitter, '/hello');
+    
+    t.calledWith(fn, [a]);
     t.end();
 });
 ```

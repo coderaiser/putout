@@ -29,7 +29,7 @@ test('putout: cli: ruler-processor: read', async (t) => {
     
     const name = `${process.cwd()}/.putout.json`;
     
-    t.ok(readFileStub.calledWith(name, 'utf8'), 'should read config');
+    t.calledWith(readFileStub, [name, 'utf8'], 'should read config');
     t.end();
 });
 
@@ -58,7 +58,7 @@ test('putout: cli: ruler-processor: read: error', async (t) => {
         },
     }, null, 4);
     
-    t.ok(writeFileStub.calledWith(name, expected), 'should write config');
+    t.calledWith(writeFileStub, [name, expected], 'should write config');
     t.end();
 });
 
@@ -88,7 +88,7 @@ test('putout: cli: ruler-processor: write', async (t) => {
         },
     }, null, 4);
     
-    t.ok(writeFileStub.calledWith(name, expected), 'should write config');
+    t.calledWith(writeFileStub, [name, expected], 'should write config');
     t.end();
 });
 
@@ -118,7 +118,7 @@ test('putout: cli: ruler-processor: disable', async (t) => {
         },
     }, null, 4);
     
-    t.ok(writeFileStub.calledWith(name, expected), 'should write config');
+    t.calledWith(writeFileStub, [name, expected], 'should write config');
     t.end();
 });
 
@@ -157,7 +157,7 @@ test('putout: cli: ruler-processor: enable all', async (t) => {
         },
     }, null, 4);
     
-    t.ok(writeFileStub.calledWith(name, expected), 'should enable all');
+    t.calledWith(writeFileStub, [name, expected], 'should enable all');
     t.end();
 });
 
@@ -196,7 +196,7 @@ test('putout: cli: ruler-processor: disable all', async (t) => {
         },
     }, null, 4);
     
-    t.ok(writeFileStub.calledWith(name, expected), 'should enable all');
+    t.calledWith(writeFileStub, [name, expected], 'should enable all');
     t.end();
 });
 
@@ -232,7 +232,7 @@ test('putout: cli: ruler-processor: no option', async (t) => {
         },
     }, null, 4);
     
-    t.ok(writeFileStub.calledWith(name, expected), 'should enable all');
+    t.calledWith(writeFileStub, [name, expected], 'should enable all');
     t.end();
 });
 

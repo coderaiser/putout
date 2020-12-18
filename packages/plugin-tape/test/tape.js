@@ -29,3 +29,8 @@ test('plugin-test: transform: tape: expand try-catch arguments', (t) => {
     t.end();
 });
 
+test('plugin-test: transform: tape: apply stub operator', (t) => {
+    t.transform('called-with');
+    t.end();
+});
+

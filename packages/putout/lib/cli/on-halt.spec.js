@@ -55,7 +55,7 @@ test('putout: cli: on halt: onKeyPress: Ctrl+C', (t) => {
     
     fn(str, key);
     
-    t.ok(isStop.calledWith(true), 'should call isStop');
+    t.calledWith(isStop, [true], 'should call isStop');
     t.end();
 });
 

@@ -26,7 +26,7 @@ test('putout: compare: log', (t) => {
     log('hello', 'world');
     const expected = `string: "hello" = string: "world"`;
     
-    t.ok(namespace.calledWith(expected));
+    t.calledWith(namespace, [expected]);
     t.end();
 });
 
@@ -46,7 +46,7 @@ test('putout: compare: run-plugins: template: log: array', (t) => {
     log([Identifier('hello')], [Identifier('world')]);
     const expected = `Identifier: ["hello"] = Identifier: ["world"]`;
     
-    t.ok(namespace.calledWith(expected));
+    t.calledWith(namespace, [expected]);
     t.end();
 });
 
@@ -66,7 +66,7 @@ test('putout: compare: log: object', (t) => {
     log(Identifier('hello'), Identifier('world'));
     const expected = `Identifier: "hello" = Identifier: "world"`;
     
-    t.ok(namespace.calledWith(expected));
+    t.calledWith(namespace, [expected]);
     t.end();
 });
 

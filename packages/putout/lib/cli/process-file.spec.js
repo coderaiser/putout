@@ -44,7 +44,7 @@ test('putout: cli: process-file: eslint', async (t) => {
         name,
     };
     
-    t.ok(eslint.calledWith(expected), 'should call eslint');
+    t.calledWith(eslint, [expected], 'should call eslint');
     t.end();
 });
 
@@ -86,7 +86,7 @@ test('putout: cli: process-file: ts from preProcessor', async (t) => {
         name,
     };
     
-    t.ok(eslint.calledWith(expected), 'should call eslint');
+    t.calledWith(eslint, [expected], 'should call eslint');
     t.end();
 });
 

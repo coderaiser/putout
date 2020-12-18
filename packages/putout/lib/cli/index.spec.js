@@ -17,6 +17,7 @@ const {version} = require('../../package');
 
 const {reRequire, stopAll} = mockRequire;
 const {parse} = JSON;
+const {assign} = Object;
 
 const {
     OK,
@@ -47,7 +48,7 @@ test('putout: cli: --raw', async (t) => {
     
     stopAll();
     
-    t.ok(logError.calledWith(error), 'should call logError');
+    t.calledWith(logError, [error], 'should call logError');
     t.end();
 });
 
@@ -76,7 +77,7 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     process.env.PUTOUT_FILES = PUTOUT_FILES;
     reRequire('.');
     
-    t.ok(logError.calledWith(error), 'should call logError');
+    t.calledWith(logError, [error], 'should call logError');
     t.end();
 });
 
@@ -104,7 +105,15 @@ test('putout: cli: --raw: parse error', async (t) => {
     });
     
     const error = SyntaxError('Unexpected token (2:0)');
-    t.ok(logError.calledWith(error), 'should call logError');
+    assign(error, {
+        pos: 11,
+        loc: {
+            column: 0,
+            line: 2,
+        },
+    });
+    
+    t.calledWith(logError, [error], 'should call logError');
     t.end();
 });
 
@@ -189,7 +198,7 @@ test('putout: cli: --fresh', async (t) => {
         cache: false,
     };
     
-    t.ok(cacheFiles.calledWith(expected));
+    t.calledWith(cacheFiles, [expected]);
     t.end();
 });
 
@@ -205,7 +214,7 @@ test('putout: cli: --raw: halt', async (t) => {
         argv,
     });
     
-    t.ok(halt.calledWith(NO_FILES), 'should call halt');
+    t.calledWith(halt, [NO_FILES], 'should call halt');
     t.end();
 });
 
@@ -222,7 +231,7 @@ test('putout: cli: --version', async (t) => {
     
     const expected = `v${version}`;
     
-    t.ok(log.calledWith(expected), 'should call halt');
+    t.calledWith(log, [expected], 'should call halt');
     t.end();
 });
 
@@ -239,7 +248,7 @@ test('putout: cli: -v', async (t) => {
     
     const expected = `v${version}`;
     
-    t.ok(log.calledWith(expected), 'should call halt');
+    t.calledWith(log, [expected], 'should call halt');
     t.end();
 });
 
@@ -351,7 +360,7 @@ test('putout: cli: --fix --staged: exit code', async (t) => {
     
     stopAll();
     
-    t.ok(halt.calledWith(STAGE));
+    t.calledWith(halt, [STAGE]);
     t.end();
 });
 
@@ -418,7 +427,7 @@ test('putout: cli: ruler processor: --enable', async (t) => {
         enable: 'convert-index-of-to-includes',
     };
     
-    t.ok(rullerProcessor.calledWith(args, places));
+    t.calledWith(rullerProcessor, [args, places]);
     t.end();
 });
 
@@ -477,7 +486,7 @@ test('putout: cli: tsx', async (t) => {
     
     stopAll();
     
-    t.ok(write.calledWith(''), 'should call logError');
+    t.calledWith(write, [''], 'should call logError');
     t.end();
 });
 
@@ -638,7 +647,7 @@ test('putout: cli: fix', async (t) => {
     
     stopAll();
     
-    t.ok(writeFile.calledWith(__filename, 'hello'));
+    t.calledWith(writeFile, [__filename, 'hello']);
     t.end();
 });
 
@@ -677,7 +686,7 @@ test('putout: cli: no processors', async (t) => {
     
     stopAll();
     
-    t.ok(halt.calledWith(NO_PROCESSORS));
+    t.calledWith(halt, [NO_PROCESSORS]);
     t.end();
 });
 
@@ -827,7 +836,7 @@ test('putout: cli: fileCache: canUseCache', async (t) => {
         options,
     };
     
-    t.ok(canUseCache.calledWith(expected), 'should not call fileCache.canUseCache');
+    t.calledWith(canUseCache, [expected], 'should not call fileCache.canUseCache');
     t.end();
 });
 
@@ -864,7 +873,7 @@ test('putout: cli: --debug', async (t) => {
     
     stopAll();
     
-    t.ok(halt.calledWith(PLACE));
+    t.calledWith(halt, [PLACE]);
     t.end();
 });
 
@@ -902,7 +911,7 @@ test('putout: cli: get files: called with ignore option', async (t) => {
         },
     ];
     
-    t.ok(getFiles.calledWith(...expected));
+    t.calledWith(getFiles, expected);
     t.end();
 });
 
@@ -943,7 +952,7 @@ test('putout: cli: get files: was stop', async (t) => {
     
     stopAll();
     
-    t.ok(halt.calledWith(WAS_STOP), 'should set WAS_STOP status');
+    t.calledWith(halt, [WAS_STOP], 'should set WAS_STOP status');
     t.end();
 });
 
@@ -984,7 +993,7 @@ test('putout: cli: get files: was stop: no', async (t) => {
     
     stopAll();
     
-    t.ok(halt.calledWith(OK), 'should set OK status');
+    t.calledWith(halt, [OK], 'should set OK status');
     t.end();
 });
 
@@ -1004,7 +1013,7 @@ test('putout: cli: invalid option', async (t) => {
     
     stopAll();
     
-    t.ok(halt.calledWith(INVALID_OPTION), 'should exit with INVALID_OPTION code');
+    t.calledWith(halt, [INVALID_OPTION], 'should exit with INVALID_OPTION code');
     t.end();
 });
 
@@ -1026,7 +1035,7 @@ test('putout: cli: invalid option: message', async (t) => {
     
     const expected = red(`Invalid option '--hello-world'. Perhaps you meant '--help'`);
     
-    t.ok(logError.calledWith(expected), 'should show message about invalid option');
+    t.calledWith(logError, [expected], 'should show message about invalid option');
     t.end();
 });
 
@@ -1048,7 +1057,7 @@ test('putout: cli: invalid option: message: one char', async (t) => {
     
     const expected = red(`Invalid option '-z'`);
     
-    t.ok(logError.calledWith(expected), 'should show message about invalid option');
+    t.calledWith(logError, [expected], 'should show message about invalid option');
     t.end();
 });
 
