@@ -81,7 +81,7 @@ module.exports.set = async function add() {
     const statusPromises = [];
     
     for (const filepath of names) {
-        statusPromises.push(getStatus(dir, filepath));
+        statusPromises.push(await getStatus(dir, filepath));
     }
     
     const statuses = fromEntries(await Promise.all(statusPromises));

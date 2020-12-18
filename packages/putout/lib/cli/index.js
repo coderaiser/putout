@@ -157,10 +157,16 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         logError,
     });
     
-    const invalidOption = validateArgs(args, argvConfig, exit);
+    const optionsList = [
+        ...argvConfig.boolean,
+        ...argvConfig.string,
+        ...argvConfig.number,
+    ];
     
-    if (invalidOption)
-        return exit(INVALID_OPTION, Error(`Invalid option '${invalidOption}'`));
+    const validationError = await validateArgs(args, optionsList, exit);
+    
+    if (validationError)
+        return exit(INVALID_OPTION, validationError);
     
     if (args.version) {
         log(`v${require('../../package.json').version}`);

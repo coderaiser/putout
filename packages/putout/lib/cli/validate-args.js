@@ -3,26 +3,29 @@
 const kebabCase = require('just-kebab-case');
 const {keys} = Object;
 
-module.exports = (args, argvConfig) => {
+module.exports = async (args, optionsList) => {
     const [, ...allKeys] = keys(args);
     
     for (const arg of allKeys) {
         const kebab = kebabCase(arg);
         
-        if (argvConfig.boolean.includes(kebab))
+        if (optionsList.includes(kebab))
             continue;
         
-        if (argvConfig.number.includes(kebab))
-            continue;
+        const {length} = kebab;
         
-        if (argvConfig.string.includes(kebab))
-            continue;
+        if (length === 1)
+            return Error(`Invalid option '-${kebab}'`);
         
-        const invalid = kebab.length === 1 ? `-${kebab}` : `--${kebab}`;
-        
-        return invalid;
+        const closest = await findClosest(kebab, optionsList);
+        return Error(`Invalid option '--${kebab}'. Perhaps you meant '--${closest}'`);
     }
     
-    return '';
+    return null;
+};
+
+const findClosest = async (name, list) => {
+    const {closest} = await import('fastest-levenshtein');
+    return closest(name, list);
 };
 
