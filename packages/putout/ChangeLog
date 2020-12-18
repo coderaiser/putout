@@ -1,3 +1,10 @@
+2020.12.18, v12.7.0
+
+feature:
+- (putout) add ability to guess possible command line option when provided is invalid
+- (@putout/plugin-promises) add-missing-await
+
+
 2020.12.18, v12.6.0
 
 fix:
