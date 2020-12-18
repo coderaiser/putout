@@ -10,5 +10,6 @@ module.exports.rules = {
     'add-return-await': addReturnAwait,
     ...getRule('remove-useless-resolve'),
     ...getRule('convert-reject-to-throw'),
+    ...getRule('add-missing-await'),
 };
 

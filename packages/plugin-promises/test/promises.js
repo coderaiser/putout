@@ -14,3 +14,8 @@ test('plugin-promises: transform: export', (t) => {
     t.end();
 });
 
+test('plugin-promises: transform: add missing await', (t) => {
+    t.transform('async');
+    t.end();
+});
+

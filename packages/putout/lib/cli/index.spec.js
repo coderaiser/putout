@@ -209,13 +209,13 @@ test('putout: cli: --raw: halt', async (t) => {
     t.end();
 });
 
-test('putout: cli: --version', (t) => {
+test('putout: cli: --version', async (t) => {
     const log = stub();
     const argv = [
         '--version',
     ];
     
-    runCli({
+    await runCli({
         log,
         argv,
     });
@@ -226,13 +226,13 @@ test('putout: cli: --version', (t) => {
     t.end();
 });
 
-test('putout: cli: -v', (t) => {
+test('putout: cli: -v', async (t) => {
     const log = stub();
     const argv = [
         '-v',
     ];
     
-    runCli({
+    await runCli({
         log,
         argv,
     });
@@ -243,11 +243,11 @@ test('putout: cli: -v', (t) => {
     t.end();
 });
 
-test('putout: cli: no files', (t) => {
+test('putout: cli: no files', async (t) => {
     const log = stub();
     const argv = [];
     
-    runCli({
+    await runCli({
         log,
         argv,
     });

@@ -319,6 +319,18 @@ const a = {
 
 </details>
 
+<details><summary>add missing <code>await</code></summary>
+
+```diff
+-runCli();
++await runCli();
+
+async function runCli() {
+}
+```
+
+</details>
+
 <details><summary>remove useless <code>arguments</code></summary>
 
 ```diff
