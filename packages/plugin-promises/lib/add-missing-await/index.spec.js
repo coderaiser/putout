@@ -44,3 +44,8 @@ test('plugin-add-missing-await: no transform: top-level', (t) => {
     t.noTransform('top-level');
     t.end();
 });
+
+test('plugin-add-missing-await: no transform: catch', (t) => {
+    t.noTransform('catch');
+    t.end();
+});

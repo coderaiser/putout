@@ -20,6 +20,9 @@ module.exports.match = () => ({
         if (path.parentPath.isArrayExpression())
             return false;
         
+        if (path.parentPath.isMemberExpression())
+            return false;
+        
         const {name} = __a;
         const binding = path.scope.getAllBindings()[name];
         
