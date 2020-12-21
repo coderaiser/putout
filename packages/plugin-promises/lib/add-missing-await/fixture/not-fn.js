@@ -1,3 +1,5 @@
 const run = require('run');
 
-run();
+function hello() {
+    run();
+}

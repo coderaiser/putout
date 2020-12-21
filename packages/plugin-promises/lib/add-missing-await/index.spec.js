@@ -20,22 +20,27 @@ test('plugin-add-missing-await: transform: switch', (t) => {
     t.end();
 });
 
-test('plugin-add-missing-await: transform: not call', (t) => {
+test('plugin-add-missing-await: no transform: not call', (t) => {
     t.noTransform('not-call');
     t.end();
 });
 
-test('plugin-add-missing-await: transform: not async', (t) => {
+test('plugin-add-missing-await: no transform: not async', (t) => {
     t.noTransform('not-async');
     t.end();
 });
 
-test('plugin-add-missing-await: transform: not async', (t) => {
+test('plugin-add-missing-await: no transform: not async', (t) => {
     t.noTransform('not-fn');
     t.end();
 });
 
-test('plugin-add-missing-await: transform: array', (t) => {
+test('plugin-add-missing-await: no transform: array', (t) => {
     t.noTransform('array');
+    t.end();
+});
+
+test('plugin-add-missing-await: no transform: top-level', (t) => {
+    t.noTransform('top-level');
     t.end();
 });

@@ -14,6 +14,9 @@ module.exports.match = () => ({
         if (!isIdentifier(__a))
             return false;
         
+        if (!path.getFunctionParent())
+            return false;
+        
         if (path.parentPath.isArrayExpression())
             return false;
         
@@ -36,9 +39,7 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     '__a(__args)': (vars, path) => {
         const fnPath = path.getFunctionParent();
-        
-        if (fnPath && !fnPath.node.async)
-            fnPath.node.async = true;
+        fnPath.node.async = true;
         
         return AwaitExpression(path.node);
     },

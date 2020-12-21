@@ -1,2 +1,4 @@
-await Promise.all([runCli]);
-await all([runCli]);
+async function fn() {
+    await Promise.all([runCli]);
+    await all([runCli]);
+}

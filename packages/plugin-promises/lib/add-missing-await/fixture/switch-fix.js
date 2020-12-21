@@ -6,6 +6,5 @@ async function hello(x) {
     }
 }
 
-
 async function world() {
 }
