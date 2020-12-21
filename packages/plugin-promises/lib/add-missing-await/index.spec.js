@@ -15,6 +15,11 @@ test('plugin-add-missing-await: transform', (t) => {
     t.end();
 });
 
+test('plugin-add-missing-await: transform: switch', (t) => {
+    t.transform('switch');
+    t.end();
+});
+
 test('plugin-add-missing-await: transform: not call', (t) => {
     t.noTransform('not-call');
     t.end();

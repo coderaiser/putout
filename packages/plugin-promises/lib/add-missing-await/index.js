@@ -5,7 +5,6 @@ const {types} = require('putout');
 const {
     isIdentifier,
     AwaitExpression,
-    isFunction,
 } = types;
 
 module.exports.report = () => 'Async functions should be called using await';
@@ -36,10 +35,10 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     '__a(__args)': (vars, path) => {
-        const {block} = path.scope;
+        const fnPath = path.getFunctionParent();
         
-        if (isFunction(block))
-            block.async = true;
+        if (fnPath && !fnPath.node.async)
+            fnPath.node.async = true;
         
         return AwaitExpression(path.node);
     },
