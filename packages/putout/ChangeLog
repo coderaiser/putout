@@ -1,3 +1,20 @@
+2020.12.21, v12.7.1
+
+fix:
+- (putout) ignore: dist* -> dist, dist-dev
+- docs(readme) no : without transformation
+
+feature:
+- (@putout/plugin-tape) convert-throws-to-try-catch: add support of MemberExpression
+- (@putout/plugin-promises) add-missing-await: exclude then-catch
+- (@putout/plugin-promises) add-missing-await: exclude top level
+- (@putout/plugin-promises) add support of SwitchStatement
+- (@putout/plugin-tape) add apply-stub-operator
+- (eslint-plugin-putout) markdown: disable node/no-unpublished-import
+- (eslint-plugin-putout) markdown: disable node/no-extraneous-import
+- (@putout/plugin-promises) add-missing-await: add support of ArrayExpression
+
+
 2020.12.18, v12.7.0
 
 feature:
