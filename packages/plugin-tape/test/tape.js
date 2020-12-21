@@ -34,3 +34,8 @@ test('plugin-test: transform: tape: apply stub operator', (t) => {
     t.end();
 });
 
+test('plugin-test: transform: tape: convert calledWith to calledWithNoArgs', (t) => {
+    t.transform('no-args');
+    t.end();
+});
+

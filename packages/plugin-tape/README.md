@@ -21,6 +21,7 @@ npm i @putout/plugin-tape -D
         "tape/switch-expected-with-result": "on",
         "tape/convert-tape-to-supertape": "on",
         "tape/convert-throws-to-try-catch": "on",
+        "tape/convert-called-with-to-called-with-no-args": "on",
         "tape/expand-try-catch-arguments": "on",
         "tape/apply-stub-operator": "on"
     }
@@ -84,6 +85,40 @@ test('some message', (t) => {
     const [error] = tryCatch(copymitter);
     
     t.equal(error.message, 'from should be a string!', 'should throw when no args');
+    t.end();
+});
+```
+
+## convert-called-with-to-called-with-no-args
+
+### ❌ Incorrect code example
+
+```js
+const test = require('supertape');
+const {stub} = test;
+
+test('some message', (t) => {
+    const fn = stub();
+    
+    fn();
+    
+    t.calledWith(fn);
+    t.end();
+});
+```
+
+### ✅ Correct code Example
+
+```js
+const test = require('supertape');
+const {stub} = test;
+
+test('some message', (t) => {
+    const fn = stub();
+    
+    fn();
+    
+    t.calledWithNoArgs(fn);
     t.end();
 });
 ```
