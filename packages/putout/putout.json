@@ -75,7 +75,8 @@
         "**/fixture",
         "**/.nyc_output",
         "**/coverage",
-        "**/dist*",
+        "**/dist",
+        "**/dist-dev",
         "**/package-lock.json"
     ],
     "exclude": [
