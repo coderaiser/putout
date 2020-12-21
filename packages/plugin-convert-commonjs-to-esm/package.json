@@ -21,7 +21,6 @@
     "putout:fix": "putout --fix lib test",
     "coverage": "madrun coverage"
   },
-  "dependencies": {},
   "keywords": [
     "putout",
     "putout-plugin",
@@ -29,6 +28,21 @@
     "esm",
     "commonjs"
   ],
+  "nyc": {
+    "check-coverage": true,
+    "all": true,
+    "exclude": [
+      "**/*.spec.js",
+      "**/fixture",
+      "**/*.*.js",
+      "test"
+    ],
+    "branches": 100,
+    "lines": 100,
+    "functions": 100,
+    "statements": 100
+  },
+  "dependencies": {},
   "devDependencies": {
     "@putout/test": "^3.0.0",
     "coveralls": "^3.0.0",
