@@ -22,7 +22,6 @@
             "madrun": "on"
         },
         "*.md": {
-            "apply-shorthand-properties": "off",
             "convert-binary-expression-to-boolean": "off",
             "remove-unused-expressions": "off",
             "remove-unused-variables": "off",
@@ -98,7 +97,6 @@
         "apply-top-level-await": "off",
         "apply-optional-chaining": "on",
         "apply-nullish-coalescing": "off",
-        "apply-shorthand-properties": "off",
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",
         "convert-top-level-return": "off",
@@ -124,7 +122,6 @@
     },
     "plugins": [
         "apply-destructuring",
-        "apply-shorthand-properties",
         "apply-top-level-await",
         "apply-optional-chaining",
         "apply-nullish-coalescing",

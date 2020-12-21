@@ -11,7 +11,7 @@
 ## Install
 
 ```
-npm i @putout/plugin-apply-shorthand-properties
+npm i @putout/plugin-apply-shorthand-properties -D
 ```
 
 ## Rule
