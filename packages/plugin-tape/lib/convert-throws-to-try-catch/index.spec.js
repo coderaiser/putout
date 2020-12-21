@@ -25,3 +25,8 @@ test('plugin-tape: convert-throws-to-try-catch: declared try-catch', (t) => {
     t.end();
 });
 
+test('plugin-tape: convert-throws-to-try-catch: member expression', (t) => {
+    t.transform('member-expression');
+    t.end();
+});
+

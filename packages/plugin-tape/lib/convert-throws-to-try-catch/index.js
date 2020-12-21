@@ -5,9 +5,6 @@ const {template, operator} = require('putout');
 const {traverse} = operator;
 
 const requireTryCatch = template.ast(`const tryCatch = require('try-catch')`);
-const buildTryCatch = template(`
-    const [error] = tryCatch(NAME)
-`);
 
 module.exports.report = () => 'try-catch should be used instead of t.throws';
 
@@ -32,11 +29,13 @@ const insertRequireTryCatch = (path) => {
 
 module.exports.replace = () => ({
     't.throws(__a, __b, __c)': ({__a, __b}, path) => {
-        const node = buildTryCatch({
-            NAME: __a.name,
-        });
+        const tryCatchNode = template.ast.fresh(`
+            const [error] = tryCatch(__a)
+        `);
         
-        path.insertBefore(node);
+        tryCatchNode.declarations[0].init.arguments[0] = __a;
+        
+        path.insertBefore(tryCatchNode);
         insertRequireTryCatch(path);
         
         return `t.equal(error.message, '${__b.pattern}', __c)`;
