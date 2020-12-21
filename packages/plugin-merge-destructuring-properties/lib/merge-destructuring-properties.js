@@ -65,6 +65,10 @@ const addVariable = ({store}) => (path, node) => {
     }
     
     const currentPath = currentVar.path;
+    
+    if (path === currentPath)
+        return;
+    
     const is = compare(currentPath.node.init, node);
     
     if (is && sameKind(path, currentPath))

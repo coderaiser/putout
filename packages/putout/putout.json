@@ -64,6 +64,9 @@
             "apply-top-level-await": "on",
             "convert-commonjs-to-esm": "on"
         },
+        "*.cjs": {
+            "convert-commonjs-to-esm": "off"
+        },
         "*.{ts,tsx}": {
             "convert-generic-to-shorthand": "on",
             "remove-useless-types": "on",

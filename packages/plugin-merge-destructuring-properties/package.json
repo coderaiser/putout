@@ -29,6 +29,7 @@
     "destructuring"
   ],
   "devDependencies": {
+    "@putout/plugin-convert-commonjs-to-esm": "*",
     "@putout/test": "^3.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
