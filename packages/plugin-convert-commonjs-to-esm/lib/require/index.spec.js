@@ -40,6 +40,11 @@ test('plugin-convert-commonjs-to-esm: require: transform: inner require', (t) =>
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: require: transform: lonely', (t) => {
+    t.transform('lonely');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: require: transform: no require', (t) => {
     t.noTransform('no-require');
     t.end();
