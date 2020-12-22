@@ -1,6 +1,6 @@
 {
   "name": "@putout/engine-processor",
-  "version": "2.3.0",
+  "version": "2.6.2",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "run processors",
   "homepage": "http://github.com/coderaiser/putout",
@@ -30,7 +30,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/engine-loader": "^2.1.3",
+    "@putout/engine-loader": "^3.1.1",
     "nano-memoize": "^1.2.1",
     "picomatch": "^2.2.2"
   },
@@ -40,7 +40,7 @@
   ],
   "devDependencies": {
     "@cloudcmd/stub": "^3.0.0",
-    "@putout/processor-markdown": "^1.1.0",
+    "@putout/processor-markdown": "^3.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",

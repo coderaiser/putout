@@ -1,0 +1,58 @@
+{
+  "name": "@putout/processor-css",
+  "version": "1.1.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout processor adds ability to parse css files",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/css.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage"
+  },
+  "dependencies": {
+    "cosmiconfig": "^7.0.0",
+    "once": "^1.4.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-standard": "^20.0.0"
+  },
+  "keywords": [
+    "putout",
+    "putout-processor",
+    "css"
+  ],
+  "devDependencies": {
+    "@cloudcmd/stub": "^3.1.0",
+    "@putout/engine-processor": "^2.5.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^6.0.0",
+    "lerna": "^3.8.5",
+    "madrun": "^8.0.1",
+    "mock-require": "^3.0.3",
+    "nodemon": "^2.0.1",
+    "nyc": "^15.0.1",
+    "putout": "*",
+    "supertape": "^3.4.2"
+  },
+  "peerDependencies": {
+    "putout": ">=12"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

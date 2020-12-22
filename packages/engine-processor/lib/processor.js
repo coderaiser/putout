@@ -10,6 +10,7 @@ const defaultProcessors = [
 
 const addExtension = (name, ext) => !ext ? name : `${name}{${ext}}`;
 const stubProcess = (a) => [a, []];
+const stubPreProcess = () => [];
 
 module.exports.defaultProcessors = defaultProcessors;
 
@@ -36,25 +37,30 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     let processedSource = '';
     let processedPlaces = [];
     let isProcessed = false;
+    let isJsChanged = false;
     
-    for (const {isMatch, preProcess, postProcess, process = stubProcess} of loadedProcessors) {
+    for (const currentProcessor of loadedProcessors) {
+        const {
+            isMatch,
+            postProcess,
+            preProcess = stubPreProcess,
+            process = stubProcess,
+        } = currentProcessor;
+        
         if (!isMatch(name))
             continue;
         
-        [processedSource, processedPlaces] = process(rawSource);
+        [processedSource, processedPlaces] = await process(rawSource, {
+            fix,
+        });
         
-        if (fix)
-            processedPlaces = [];
-        else
+        if (!processedSource)
             processedSource = rawSource;
         
-        if (!processedPlaces.length)
-            processedSource = rawSource;
-        
-        const list = preProcess(processedSource);
+        const list = await preProcess(processedSource);
         const preProcessedList = [];
         
-        let isJsChanged = false;
+        isJsChanged = false;
         for (const {source, startLine = 0, extension} of list) {
             const processedName = addExtension(name, extension);
             const {code, places} = await processFile({
@@ -67,17 +73,20 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
             
             preProcessedList.push(code);
             allPlaces.push(...places);
-            allPlaces.push(...processedPlaces);
             
             if (places.length || code !== source)
                 isJsChanged = true;
         }
         
         if (isJsChanged)
-            processedSource = postProcess(rawSource, preProcessedList);
+            processedSource = await postProcess(rawSource, preProcessedList);
         
         isProcessed = true;
+        allPlaces.push(...processedPlaces);
     }
+    
+    if (!fix)
+        processedSource = rawSource;
     
     return {
         places: allPlaces,

@@ -1,8 +1,9 @@
 'use strict';
 
-const preferDestructuring = require('..');
+const convert = require('@putout/plugin-convert-commonjs-to-esm');
+
 const test = require('@putout/test')(__dirname, {
-    'merge-destructuring-properties': preferDestructuring,
+    'merge-destructuring-properties': require('..'),
 });
 
 test('plugin-merge-destructuring-properties: transform: report', (t) => {
@@ -30,3 +31,10 @@ test('plugin-merge-destructuring-properties: transform: quotes', (t) => {
     t.end();
 });
 
+test('plugin-merge-destructuring-properties: no transform: exports', (t) => {
+    t.transform('exports', {
+        'convert-commonjs-to-esm': convert,
+    });
+    
+    t.end();
+});

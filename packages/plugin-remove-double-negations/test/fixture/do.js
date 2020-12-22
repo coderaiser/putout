@@ -1,0 +1,1 @@
+do {alert();} while (!!x);

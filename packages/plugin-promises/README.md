@@ -83,6 +83,26 @@ async function hello() {
 }
 ```
 
+## add-missing-await
+
+### ❌ Incorrect
+
+```js
+runCli();
+
+async function runCli() {
+}
+```
+
+## ✅ Correct
+
+```js
+await runCli();
+
+async function runCli() {
+}
+```
+
 ## License
 
 MIT

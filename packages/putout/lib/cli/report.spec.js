@@ -31,7 +31,7 @@ test('putout: report: no places', (t) => {
         source: '',
     };
     
-    t.ok(reporter.calledWith(expected), 'should call reporter');
+    t.calledWith(reporter, [expected], 'should call reporter');
     t.end();
 });
 

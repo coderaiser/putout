@@ -40,6 +40,11 @@ test('plugin-convert-commonjs-to-esm: require: transform: inner require', (t) =>
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: require: transform: lonely', (t) => {
+    t.transform('lonely');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: require: transform: no require', (t) => {
     t.noTransform('no-require');
     t.end();
@@ -57,6 +62,16 @@ test('plugin-convert-commonjs-to-esm: require: no transform: not literal argumen
 
 test('plugin-convert-commonjs-to-esm: require: no transform: create require', (t) => {
     t.noTransform('create-require');
+    t.end();
+});
+
+test('plugin-convert-commonjs-to-esm: require: transform: evaluate', (t) => {
+    t.transform('evaluate');
+    t.end();
+});
+
+test('plugin-convert-commonjs-to-esm: require: no transform: no evaluate', (t) => {
+    t.noTransform('no-evaluate');
     t.end();
 });
 

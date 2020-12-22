@@ -85,7 +85,7 @@ test('putout: processor: markdown: places', async (t) => {
     t.end();
 });
 
-async function doTheThing(name, {fix} = {}) {
+async function doTheThing(name, {fix = true} = {}) {
     const inputName = join(__dirname, 'fixture', `${name}.md`);
     const outputName = join(__dirname, 'fixture', `${name}-fix.md`);
     
@@ -107,6 +107,7 @@ async function doTheThing(name, {fix} = {}) {
         processedSource,
         places,
     } = await runProcessors({
+        fix,
         name: inputName,
         processFile: processFile({
             fix,

@@ -40,9 +40,11 @@ function getProcess({processors, plugins, extension}) {
             plugins,
         };
         
+        const fix = true;
         const {processedSource} = await runProcessors({
+            fix,
             name: inputName,
-            processFile: processFile({fix: true}),
+            processFile: processFile({fix}),
             options,
             rawSource,
         });

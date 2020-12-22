@@ -30,6 +30,16 @@ test('plugin-convert-commonjs-to-esm: exports: transform: multi', (t) => {
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: exports: transform: identifier', (t) => {
+    t.transform('identifier');
+    t.end();
+});
+
+test('plugin-convert-commonjs-to-esm: exports: transform: different', (t) => {
+    t.transform('different');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: exports: transform: no member expression', (t) => {
     t.noTransform('no-member-expression');
     t.end();

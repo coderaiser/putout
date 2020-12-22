@@ -103,7 +103,7 @@ const getFilter = (match = stubMatch, options) => (path) => {
     for (const [from, fn] of all) {
         const nodeFrom = template.ast(from);
         
-        if (!compare(path, nodeFrom)) {
+        if (!compare(path.node, nodeFrom)) {
             continue;
         }
         

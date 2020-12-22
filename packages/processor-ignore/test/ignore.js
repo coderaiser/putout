@@ -61,6 +61,7 @@ function getProcess({processors, plugins, ext = ''}) {
         };
         
         const {processedSource} = await runProcessors({
+            fix,
             name: inputName,
             processFile: processFile({fix}),
             options,

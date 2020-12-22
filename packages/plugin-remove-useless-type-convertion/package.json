@@ -1,10 +1,10 @@
 {
   "name": "@putout/plugin-remove-useless-type-convertion",
-  "version": "1.1.0",
+  "version": "2.0.2",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to remove useless type convertion",
   "homepage": "http://github.com/coderaiser/putout",
-  "main": "lib/remove-useless-type-convertion.js",
+  "main": "lib/index.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -22,7 +22,9 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@putout/plugin-remove-double-negations": "^3.0.0"
+  },
   "keywords": [
     "putout",
     "putout-plugin",
@@ -41,7 +43,7 @@
     "nyc": "^15.0.1"
   },
   "peerDependencies": {
-    "putout": ">=10"
+    "putout": ">=12"
   },
   "license": "MIT",
   "engines": {

@@ -1,6 +1,6 @@
 {
   "name": "@putout/processor-markdown",
-  "version": "2.0.1",
+  "version": "3.0.1",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout processor adds ability to parse markdown files and lint js snippets",
   "homepage": "http://github.com/coderaiser/putout",
@@ -34,7 +34,7 @@
     "markdown"
   ],
   "devDependencies": {
-    "@putout/engine-processor": "^2.0.0",
+    "@putout/engine-processor": "^2.5.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
@@ -47,7 +47,7 @@
     "supertape": "^3.4.2"
   },
   "peerDependencies": {
-    "putout": ">=10"
+    "putout": ">=12"
   },
   "license": "MIT",
   "engines": {

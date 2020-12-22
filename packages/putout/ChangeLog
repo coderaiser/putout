@@ -1,3 +1,131 @@
+2020.12.22, v12.7.2
+
+fix:
+- (putout) cjs: disable convert-commonjs-to-esm
+- (@putout/plugin-merge-destructuring-properties) remove VariableDeclaration when used with @putout/plugin-convert-commonjs-to-esm
+- (@putout/plugin-convert-commonjs-to-esm) exports: duplicate binding
+
+feature:
+- (@putout/plugin-tape) add convert-called-with-to-called-with-no-args
+
+
+2020.12.21, v12.7.1
+
+fix:
+- (putout) ignore: dist* -> dist, dist-dev
+- docs(readme) no : without transformation
+
+feature:
+- (@putout/plugin-tape) convert-throws-to-try-catch: add support of MemberExpression
+- (@putout/plugin-promises) add-missing-await: exclude then-catch
+- (@putout/plugin-promises) add-missing-await: exclude top level
+- (@putout/plugin-promises) add support of SwitchStatement
+- (@putout/plugin-tape) add apply-stub-operator
+- (eslint-plugin-putout) markdown: disable node/no-unpublished-import
+- (eslint-plugin-putout) markdown: disable node/no-extraneous-import
+- (@putout/plugin-promises) add-missing-await: add support of ArrayExpression
+
+
+2020.12.18, v12.7.0
+
+feature:
+- (putout) add ability to guess possible command line option when provided is invalid
+- (@putout/plugin-promises) add-missing-await
+
+
+2020.12.18, v12.6.0
+
+fix:
+- (@putout/processor-yaml) preProcess: add early return when no rawSource
+- (@putout/engine-processor) update file content when there is no changes
+- (@putout/processor-yaml) replace yaml with json
+- (@putout/engine-processor) rm stubPostProcess: can't be called when preProcess returns empty array
+
+feature:
+- (putout) add ability to validate command line options
+- (@putout/plugin-tape) add expand-try-catch-arguments
+- (@putout/plugin-tape) add convert-throws-to-try-catch
+- (@putout/plugin-madrun) convert-to-async: add support of inner run call expression
+- (@putout/formatter-progress-bar) add ability to disable with PUTOUT_NO_PROGRESS_BAR
+- (@putout/formatter-memory) add ability to disable with PUTOUT_NO_PROGRESS_BAR
+- (@putout/processor-css) add ability to find config
+
+
+2020.12.15, v12.5.1
+
+feature:
+- (putout) ignore: add dist
+
+
+2020.12.15, v12.5.0
+
+fix:
+- (@putout/processor-markdown) process: avoid modification of rawSource
+
+feature:
+- (@putout/processor-css) add
+- (@putout/engine-processor) add ability to to pass fix into process, and ignore pre/post processes
+- (@putout/plugin-remove-useless-variables) for-of: exclude ObjectPattern properties with AssignmentPattern value
+
+
+2020.12.14, v12.4.0
+
+feature:
+- (package) @putout/processor-markdown v3.0.0
+- (package) @putout/engine-processor v2.5.0
+- (@putout/engine-processor) add ability to await process, preProcess and postProcess
+- (@putout/processor-markdown) use async unified API
+- (@putout/processor-markdown) speed up with help of cache: 2m16.072s -> 2m0.965
+- (@putout/plugin-tape) switch-expected-with-result: add ability to switch all assertions with expected, not only with result
+- (eslint-plugin-putout) single-property-destructuring: add support of RestElement
+- (@putout/plugin-tape) add convert-tape-to-supertape
+
+
+2020.12.09, v12.3.0
+
+fix:
+- (@putout/engine-processor) rm dead code
+
+feature:
+- (@putout/plugin-tape) add
+
+
+2020.12.09, v12.2.1
+
+fix:
+- (putout) remove-useless-escape: disable for yml
+
+
+2020.12.09, v12.2.0
+
+feature:
+- (@putout/plugin-putout-config) add
+
+
+2020.12.08, v12.1.0
+
+fix:
+- (@putout/plugin-remove-useless-type-convertion) npmignore: add fixture
+- (@putout/plugin-remove-useless-type-convertion) withDoubleNegations -> with-double-negations
+- (@putout/processor-ignore) no new last line
+
+feature:
+- (eslint-plugin-putout) add support of yaml
+- (@putout/processor-yaml) improve support of process result
+- (@putout/engine-processor) improve process support
+- (@putout/engine-loader) simplify plugins/processors search
+- (package) @putout/processor-markdown v2.0.1
+- (package) @putout/engine-loader v3.1.1
+- (@putout/plugin-remove-double-negations) add support of for, while, do
+- (package) @putout/plugin-remove-useless-type-convertion v2.0.0
+- (@putout/plugin-remove-useless-type-convertion) drop support of putout < 12
+- (@putout/plugin-remove-useless-type-convertion) include @putout/plugin-remove-double-negations
+- (@putout/plugin-remove-double-negations) drop support of node < 12
+- (@putout/plugin-remove-double-negations) add includes
+- (@putout/plugin-remove-useless-spread) add support of Array.from
+- (@putout/plugin-convert-array-copy-to-slice) exclude set
+
+
 2020.12.07, v12.0.1
 
 fix:

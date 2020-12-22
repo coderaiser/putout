@@ -22,9 +22,11 @@ test('putout: processor: javascript', async (t) => {
         ],
     };
     
+    const fix = true;
     const {processedSource} = await runProcessors({
+        fix,
         name: inputName,
-        processFile: processFile({fix: true}),
+        processFile: processFile({fix}),
         options,
         rawSource,
     });

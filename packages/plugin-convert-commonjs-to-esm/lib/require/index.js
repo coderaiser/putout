@@ -15,20 +15,27 @@ const {
 
 module.exports.report = () => 'ESM should be used insted of Commonjs';
 
-const __b = 'declarations.0.init.arguments.0';
+const __B = 'declarations.0.init.arguments.0';
 
-module.exports.filter = (path) => {
-    const {bindings} = path.scope;
-    
-    if (bindings.require)
-        return false;
-    
-    return path.get(__b).isStringLiteral();
-};
+module.exports.match = () => ({
+    'const __a = require(__b)': (vars, path) => {
+        const {bindings} = path.scope;
+        
+        if (bindings.require)
+            return false;
+        
+        const __bPath = path.get(__B);
+        return __bPath.evaluate().confident;
+    },
+    'require("__a")': (vars, path) => {
+        return path.parentPath.parentPath.isProgram();
+    },
+});
 
 module.exports.replace = () => ({
-    'const __a = require("__b")': ({__a, __b}, path) => {
-        let {value} = __b;
+    'require("__a")': 'import("__a")',
+    'const __a = require(__b)': ({__a}, path) => {
+        let {value} = path.get(__B).evaluate();
         
         if (value.includes('./') && !/\.js(on)?$/.test(value))
             value += '.js';

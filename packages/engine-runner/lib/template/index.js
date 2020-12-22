@@ -17,6 +17,7 @@ const {entries} = Object;
 const log = (rule, path) => {
     debug.enabled && debug(rule, path.toString());
 };
+module.exports._log = log;
 
 const exclude = ({rule, tmpl, fn, nodesExclude}) => {
     if (!nodesExclude.length)

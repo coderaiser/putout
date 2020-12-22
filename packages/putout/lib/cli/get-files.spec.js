@@ -190,7 +190,7 @@ test('putout: getFiles: getSupportedGlob: call', async (t) => {
     fs.lstat = lstat;
     stopAll();
     
-    t.ok(getSupportedGlob.calledWith('get-files'));
+    t.calledWith(getSupportedGlob, ['get-files']);
     t.end();
 });
 
@@ -218,10 +218,10 @@ test('putout: getFiles: getSupportedGlob: result', async (t) => {
     fs.lstat = lstat;
     stopAll();
     
-    t.ok(fastGlob.calledWith('get-files/some-glob', {
+    t.calledWith(fastGlob, ['get-files/some-glob', {
         unique: true,
         dot: true,
-    }));
+    }]);
     t.end();
 });
 
@@ -254,6 +254,6 @@ test('putout: getFiles: options', async (t) => {
     fs.lstat = lstat;
     stopAll();
     
-    t.ok(fastGlob.calledWith(...expected));
+    t.calledWith(fastGlob, expected);
     t.end();
 });

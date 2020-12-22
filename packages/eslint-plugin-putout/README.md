@@ -5,10 +5,10 @@
 ## Installation
 
 ```
-$ npm i eslint eslint-plugin-putout -D
+$ npm i putout eslint eslint-plugin-putout -D
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-putout` globally.
+**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `putout` and `eslint-plugin-putout` globally.
 
 ## Usage
 

@@ -21,7 +21,7 @@ test('putout: cli: staged', async (t) => {
     stopAll();
     
     const type = 'directory';
-    t.ok(findUp.calledWith('.git', {type}), 'should call find-up');
+    t.calledWith(findUp, ['.git', {type}], 'should call find-up');
     t.end();
 });
 
@@ -46,7 +46,7 @@ test('putout: cli: staged: get: statusMatrix', async (t) => {
         dir,
         filter: isSupported,
     };
-    t.ok(statusMatrix.calledWith(expected));
+    t.calledWith(statusMatrix, [expected]);
     t.end();
 });
 
@@ -74,7 +74,7 @@ test('putout: cli: staged: get: statusMatrix', async (t) => {
         filter: isSupported,
     };
     
-    t.ok(statusMatrix.calledWith(expected));
+    t.calledWith(statusMatrix, [expected]);
     t.end();
 });
 
@@ -123,7 +123,7 @@ test('putout: cli: staged: set: findUp', async (t) => {
     
     const type = 'directory';
     
-    t.ok(findUp.calledWith('.git', {type}));
+    t.calledWith(findUp, ['.git', {type}]);
     t.end();
 });
 
@@ -147,7 +147,7 @@ test('putout: cli: staged: set: findUp: not found', async (t) => {
     
     const type = 'directory';
     
-    t.ok(findUp.calledWith('.git', {type}));
+    t.calledWith(findUp, ['.git', {type}]);
     t.end();
 });
 
@@ -179,7 +179,7 @@ test('putout: cli: staged: add', async (t) => {
     const filepath = 'packages/putout/lib/cli/index.js';
     const fs = {};
     
-    t.ok(add.calledWith({fs, dir, filepath}));
+    t.calledWith(add, [{fs, dir, filepath}]);
     t.end();
 });
 

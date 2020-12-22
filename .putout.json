@@ -1,5 +1,8 @@
 {
     "rules": {
-        "putout": "on"
+        "putout": "on",
+        "remove-useless-spread/object": ["on", {
+            "exclude": "module.exports.rules = __"
+        }]
     }
 }

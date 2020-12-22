@@ -33,11 +33,19 @@
     }
   },
   "nyc": {
+    "check-coverage": true,
+    "all": true,
     "exclude": [
       "**/*.spec.js",
+      "**/fixture",
+      "**/*.*.js",
       "packages/*/bin",
       "packages/*/test"
-    ]
+    ],
+    "branches": 100,
+    "lines": 100,
+    "functions": 100,
+    "statements": 100
   },
   "devDependencies": {
     "eslint-plugin-node": "^11.1.0",
@@ -46,8 +54,7 @@
     "lerna": "^3.8.5",
     "madrun": "^8.0.1",
     "nyc": "^15.0.1",
-    "supertape": "^3.4.2",
-    "tap-pessimist": "^1.0.1"
+    "supertape": "^3.8.0"
   },
   "engines": {
     "node": ">=12"

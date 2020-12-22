@@ -1,10 +1,10 @@
 # Putout [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
+[NPMURL]: https://npmjs.org/package/putout "npm"
 [NPMIMGURL]: https://img.shields.io/npm/v/putout.svg?style=flat&longCache=true
+[BuildStatusURL]: https://travis-ci.org/coderaiser/putout "Build Status"
 [BuildStatusIMGURL]: https://img.shields.io/travis/coderaiser/putout/master.svg?style=flat&longCache=true
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/putout
-[NPMURL]: https://npmjs.org/package/putout "npm"
-[BuildStatusURL]: https://travis-ci.org/coderaiser/putout "Build Status"
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/putout "Dependency Status"
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
@@ -102,6 +102,7 @@ Here is a list of built-int processors:
 | [`@putout/processor-markdown`](/packages/processor-markdown) | [![npm](https://img.shields.io/npm/v/@putout/processor-markdown.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-markdown) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-markdown)](https://david-dm.org/coderaiser/putout?path=packages/processor-markdown) |
 | [`@putout/processor-ignore`](/packages/processor-ignore) | [![npm](https://img.shields.io/npm/v/@putout/processor-ignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-ignore) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-ignore)](https://david-dm.org/coderaiser/putout?path=packages/processor-ignore) |
 | [`@putout/processor-yaml`](/packages/processor-yaml) | [![npm](https://img.shields.io/npm/v/@putout/processor-yaml.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-yaml) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-yaml)](https://david-dm.org/coderaiser/putout?path=packages/processor-yaml) |
+| [`@putout/processor-css`](/packages/processor-css) | [![npm](https://img.shields.io/npm/v/@putout/processor-css.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-css) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-css)](https://david-dm.org/coderaiser/putout?path=packages/processor-css) |
 
 ## API
 
@@ -155,7 +156,7 @@ As you see `places` is empty, but the code is changed: there is no `hi` variable
 #### No fix
 
 From the first day `putout` was developed with ability to split main process into two concepts: `find` and `fix`.
-This conception mirrorod in the code, so you can find all places with redundant variables:
+This conception mirrorod in the code, so you can find all places with redundant variables without transformation:
 
 ```js
 putout(source, {
@@ -271,6 +272,11 @@ const a = {
 ```diff
 -const a = Boolean(b.includes(c));
 +const a = b.includes(c);
+
+--if (!!a)
+++if (a)
+    console.log('hi');
+
 ```
 
 </details>
@@ -309,6 +315,18 @@ const a = {
 +const show = () => {
     console.log('hello');
 };
+```
+
+</details>
+
+<details><summary>add missing <code>await</code></summary>
+
+```diff
+-runCli();
++await runCli();
+
+async function runCli() {
+}
 ```
 
 </details>
@@ -520,16 +538,6 @@ for (const x of Object.keys(a)) {
 -   }
 +   console.log(x);
 }
-```
-
-</details>
-
-<details><summary>remove double negations</summary>
-
-```diff
---if (!!a)
-++if (a)
-    console.log('hi');
 ```
 
 </details>
@@ -1072,6 +1080,8 @@ Next packages not bundled with `putout` but can be installed separately.
 | [`@putout/plugin-extract-object-properties`](/packages/plugin-extract-object-properties) | [![npm](https://img.shields.io/npm/v/@putout/plugin-extract-object-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-extract-object-properties) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-extract-object-properties)](https://david-dm.org/coderaiser/putout?path=packages/plugin-extract-object-properties) |
 | [`@putout/plugin-simplify-ternary`](/packages/plugin-simplify-ternary) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-ternary) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-simplify-ternary)](https://david-dm.org/coderaiser/putout?path=packages/plugin-simplify-ternary) |
 | [`@putout/plugin-putout`](/packages/plugin-putout) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-putout)](https://david-dm.org/coderaiser/putout?path=packages/plugin-putout) |
+| [`@putout/plugin-putout-config`](/packages/plugin-putout-config) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout-config.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout-config) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-putout-config)](https://david-dm.org/coderaiser/putout?path=packages/plugin-putout-config) |
+| [`@putout/plugin-tape`](/packages/plugin-tape) | [![npm](https://img.shields.io/npm/v/@putout/plugin-tape.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-tape) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-tape)](https://david-dm.org/coderaiser/putout?path=packages/plugin-tape) |
 | [`@putout/plugin-webpack`](/packages/plugin-webpack) | [![npm](https://img.shields.io/npm/v/@putout/plugin-webpack.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-webpack) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-webpack)](https://david-dm.org/coderaiser/putout?path=packages/plugin-webpack) |
 | [`@putout/plugin-eslint`](/packages/plugin-eslint) | [![npm](https://img.shields.io/npm/v/@putout/plugin-eslint.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-eslint) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-eslint)](https://david-dm.org/coderaiser/putout?path=packages/plugin-eslint) |
 | [`@putout/plugin-add-return-await`](/packages/plugin-add-return-await) | [![npm](https://img.shields.io/npm/v/@putout/plugin-add-return-await.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-add-return-await) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-add-return-await)](https://david-dm.org/coderaiser/putout?path=packages/plugin-add-return-await) |
@@ -1410,7 +1420,7 @@ test('remove debugger: transformCode', (t) => {
 });
 ```
 
-As you see test runner it is little bit modifed [tape](https://github.com/substack/tape).
+As you see test runner it is little bit extended [supertape](https://github.com/coderaiser/supertape).
 To see more sophisticated example look at [@putout/remove-console](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-console).
 
 ### Babel Plugins

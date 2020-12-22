@@ -73,7 +73,7 @@ test('putout: supported files: add: multiple', (t) => {
     const {add, getPatterns} = reRequire('./supported-files');
     add(['*.xjs', '*.extjs']);
     
-    t.deepEqual(expected, getPatterns());
+    t.deepEqual(getPatterns(), expected);
     t.end();
 });
 

@@ -15,7 +15,7 @@ test('putout: parser: custom parser: object', (t) => {
         parser,
     });
     
-    t.ok(parse.calledWith(source));
+    t.calledWith(parse, [source]);
     t.end();
 });
 

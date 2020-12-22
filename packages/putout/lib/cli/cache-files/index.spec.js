@@ -37,7 +37,7 @@ test('putout: cache-files: fileCache: fresh', async (t) => {
     
     stopAll();
     
-    t.ok(_unlinkSync.calledWith(_CACHE_FILE));
+    t.calledWith(_unlinkSync, [_CACHE_FILE]);
     t.end();
 });
 
@@ -57,7 +57,7 @@ test(`putout: cache-files: find up can't find`, async (t) => {
     fs.unlinkSync = unlinkSync;
     stopAll();
     
-    t.ok(_unlinkSync.calledWith(_CACHE_FILE));
+    t.calledWith(_unlinkSync, [_CACHE_FILE]);
     t.end();
 });
 
@@ -96,7 +96,7 @@ test('putout: cache-files: enabled: setInfo', async (t) => {
     fileCache.setInfo(name, [place], {hello: 'world'});
     stopAll();
     
-    t.ok(getFileDescriptor.calledWith(name), 'should call getFileDescriptor');
+    t.calledWith(getFileDescriptor, [name], 'should call getFileDescriptor');
     t.end();
 });
 
@@ -257,7 +257,7 @@ test('putout: cache-files: enabled: canUseCache: changed', async (t) => {
     });
     stopAll();
     
-    t.ok(getFileDescriptor.calledWith(name), 'should call getFileDescriptor');
+    t.calledWith(getFileDescriptor, [name], 'should call getFileDescriptor');
     t.end();
 });
 
@@ -301,7 +301,7 @@ test('putout: cache-files: enabled: canUseCache: options changed', async (t) => 
     });
     stopAll();
     
-    t.ok(getFileDescriptor.calledWith(name), 'should call getFileDescriptor');
+    t.calledWith(getFileDescriptor, [name], 'should call getFileDescriptor');
     t.end();
 });
 

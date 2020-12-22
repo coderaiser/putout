@@ -1,5 +1,5 @@
 .*
 test
 yarn-error.log
-
-madrun.js
+*.spec.js
+fixture

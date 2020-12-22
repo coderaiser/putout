@@ -1,6 +1,7 @@
 'use strict';
 
 const {sep} = require('path');
+const {Writable} = require('stream');
 
 const dump = require('@putout/formatter-dump');
 const cliProgress = require('cli-progress');
@@ -11,6 +12,9 @@ const OK = '👌';
 const {red} = chalk;
 const dir = process.cwd();
 const formatErrorsCount = (a) => a ? red(a) : OK;
+
+const {stderr} = process;
+const {PUTOUT_NO_PROGRESS_BAR} = process.env;
 
 module.exports = ({name, options, places, index, count, filesCount, errorsCount}) => {
     const {
@@ -57,6 +61,9 @@ const getColorFn = (color) => {
     return chalk[color];
 };
 
+const getStream = () => PUTOUT_NO_PROGRESS_BAR ? new Writable() : stderr;
+module.exports._getStream = getStream;
+
 const createProgress = once(({count, color, name}) => {
     const colorFn = getColorFn(color);
     const bar = new cliProgress.SingleBar({
@@ -65,6 +72,7 @@ const createProgress = once(({count, color, name}) => {
         barIncompleteChar: '\u2591',
         clearOnComplete: true,
         stopOnComplete: true,
+        stream: getStream(),
     }, cliProgress.Presets.react);
     
     bar.start(count, 0, {

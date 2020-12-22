@@ -24,6 +24,11 @@ test('madrun: convert to async: transform: three', (t) => {
     t.end();
 });
 
+test('madrun: convert to async: transform: three: arrow', (t) => {
+    t.transform('three-arrow');
+    t.end();
+});
+
 test('madrun: convert to async: not transform: await', (t) => {
     t.noTransform('await');
     t.end();
