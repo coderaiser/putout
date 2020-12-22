@@ -20,8 +20,8 @@ module.exports.exclude = () => [
 
 module.exports.replace = () => ({
     'module.exports = __a': 'export default __a',
-    'module.exports.__a = __b': ({__b}, path) => {
-        if (isIdentifier(__b))
+    'module.exports.__a = __b': ({__a, __b}, path) => {
+        if (isIdentifier(__b, {name: __a.name}))
             return addExportToBinding(__b.name, path);
         
         return 'export const __a = __b';
