@@ -1,3 +1,14 @@
+2020.12.22, v12.7.2
+
+fix:
+- (putout) cjs: disable convert-commonjs-to-esm
+- (@putout/plugin-merge-destructuring-properties) remove VariableDeclaration when used with @putout/plugin-convert-commonjs-to-esm
+- (@putout/plugin-convert-commonjs-to-esm) exports: duplicate binding
+
+feature:
+- (@putout/plugin-tape) add convert-called-with-to-called-with-no-args
+
+
 2020.12.21, v12.7.1
 
 fix:
