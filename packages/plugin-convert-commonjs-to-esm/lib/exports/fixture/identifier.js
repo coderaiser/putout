@@ -1,7 +1,8 @@
-module.exports.makeColor = makeColor;
+const getMessage = (e) => e.message || e;
 
-module.exports.hello = () => {
-};
+module.exports.getMessage = getMessage
+module.exports.makeColor = makeColor;
+module.exports.hello = () => {};
 
 function makeColor() {
 }

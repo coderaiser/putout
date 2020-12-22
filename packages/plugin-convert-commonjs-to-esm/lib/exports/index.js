@@ -31,10 +31,19 @@ module.exports.replace = () => ({
 function addExportToBinding(name, path) {
     const {scope} = path;
     const binding = scope.bindings[name];
-    const exportNode = ExportNamedDeclaration(binding.path.node);
+    const bindingPath = parseBindingPath(binding.path);
     
-    replaceWith(binding.path, exportNode);
+    const exportNode = ExportNamedDeclaration(bindingPath.node);
+    
+    replaceWith(bindingPath, exportNode);
     
     return '';
+}
+
+function parseBindingPath(path) {
+    if (path.isVariableDeclarator())
+        return path.parentPath;
+    
+    return path;
 }
 
