@@ -29,3 +29,39 @@ test('putout: runner: match', (t) => {
     t.deepEqual(error.rule, 'rm');
     t.end();
 });
+
+test('putout: runner: match: avoid move top while compare', (t) => {
+    const types = [];
+    
+    const rm = {
+        report: () => '',
+        match: () => ({
+            'const __a = require(__b)': (vars, path) => {
+                types.push(path.type);
+            },
+            'require(__a)': () => {
+                return false;
+            },
+        }),
+        replace: () => ({
+            'const __a = require(__b)': '',
+            'require(__a)': 'import(__a)',
+        }),
+    };
+    
+    putout('const a = require("hello")', {
+        fixCount: 2,
+        runPlugins,
+        plugins: [{
+            rm,
+        }],
+    });
+    
+    const expected = [
+        'VariableDeclaration',
+    ];
+    
+    t.deepEqual(types, expected);
+    t.end();
+});
+
