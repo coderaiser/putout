@@ -1,4 +1,4 @@
-# putout-formatter-stream [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/putout-formatter-stream [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/formatter-stream.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/formatter-stream "npm"
@@ -11,7 +11,7 @@
 ## Install
 
 ```
-npm i putout @putout/formatter-stream -g
+npm i putout @putout/formatter-stream
 ```
 
 ## Usage
