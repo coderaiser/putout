@@ -1,4 +1,4 @@
-# putout-formatter-frame [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/putout-formatter-frame [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/formatter-frame.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/formatter-frame "npm"
@@ -11,7 +11,7 @@
 ## Install
 
 ```
-npm i putout @putout/formatter-frame -g
+npm i putout @putout/formatter-frame
 ```
 
 ## Usage

@@ -1,4 +1,4 @@
-# putout-formatter-dump [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/putout-formatter-dump [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/formatter-dump.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/formatter-dump "npm"
@@ -11,7 +11,7 @@
 ## Install
 
 ```
-npm i putout @putout/formatter-dump -g
+npm i putout @putout/formatter-dump
 ```
 
 ## Usage

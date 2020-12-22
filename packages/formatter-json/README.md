@@ -1,4 +1,4 @@
-# putout-formatter-json [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/putout-formatter-json [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-json.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/formatter-json "npm"
@@ -10,7 +10,7 @@
 ## Install
 
 ```
-npm i putout @putout/formatter-json -g
+npm i putout @putout/formatter-json
 ```
 
 ## Usage

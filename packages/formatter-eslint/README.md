@@ -1,4 +1,4 @@
-# putout-formatter-eslint [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/putout-formatter-eslint [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-eslint.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/formatter-eslint "npm"
@@ -10,7 +10,7 @@
 ## Install
 
 ```
-npm i putout @putout/formatter-eslint -g
+npm i putout @putout/formatter-eslint
 ```
 
 ## Usage

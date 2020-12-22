@@ -1,4 +1,4 @@
-# putout-formatter-memory [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/putout-formatter-memory [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/formatter-memory.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/formatter-memory "npm"

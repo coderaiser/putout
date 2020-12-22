@@ -1,4 +1,4 @@
-# putout-formatter-codeframe [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/putout-formatter-codeframe [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/formatter-codeframe.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/formatter-codeframe "npm"
@@ -11,7 +11,7 @@
 ## Install
 
 ```
-npm i putout @putout/formatter-codeframe -g
+npm i putout @putout/formatter-codeframe
 ```
 
 ## Usage
