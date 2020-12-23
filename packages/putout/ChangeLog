@@ -1,3 +1,16 @@
+2020.12.23, v12.8.0
+
+fix:
+- (@putout/engine-runner) replace: match: avoid move top while compare
+
+feature:
+- (putout) add @putout/plugin-npmignore
+- (@putout/plugin-convert-commonjs-to-esm) exports: add support of VariableDeclarator
+- (@putout/plugin-convert-commonjs-to-esm) require: add ability to evaluate argument
+- (@putout/plugin-convert-commonjs-to-esm) require: single
+- (@putout/plugin-convert-commonjs-to-esm) module.exports.__a = __b: __a.name !== __b.name
+
+
 2020.12.22, v12.7.2
 
 fix:
