@@ -44,6 +44,9 @@
         ".gitignore": {
             "gitignore": "on"
         },
+        ".npmignore": {
+            "npmignore": "on"
+        },
         "webpack.config.js": {
             "webpack": "on"
         },
@@ -106,6 +109,7 @@
         "madrun": "off",
         "webpack": "off",
         "gitignore": "off",
+        "npmignore": "off",
         "travis": "off",
         "tape": "off",
         "strict-mode": "off",
@@ -185,6 +189,7 @@
         "putout-config",
         "promises",
         "gitignore",
+        "npmignore",
         "regexp",
         "travis",
         "tape"
