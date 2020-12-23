@@ -59,7 +59,7 @@
     "nodemon": "^2.0.1",
     "nyc": "^15.0.1",
     "putout": "*",
-    "supertape": "^3.4.2"
+    "supertape": "^4.0.0"
   },
   "license": "MIT",
   "engines": {

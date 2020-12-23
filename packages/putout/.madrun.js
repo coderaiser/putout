@@ -9,7 +9,7 @@ const env = {
 
 module.exports = {
     'wisdom': () => run(['lint', 'coverage']),
-    'test:raw': () => `tape 'test/*.js' 'lib/**/*.spec.js' -f progress-bar`,
+    'test:raw': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'test': async () => await run('test:raw', '', env),
     
     'watch:test': async () => `nodemon -w bin -w lib -w test -x "${await run('test')}"`,

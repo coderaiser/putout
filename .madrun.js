@@ -10,10 +10,11 @@ const env = {
     CI: 1,
     FORCE_COLOR: 3,
     PUTOUT_NO_PROGRESS_BAR: 1,
+    SUPERTAPE_PROGRESS_BAR: 1,
 };
 
 module.exports = {
-    'test:base': () => `tape '${dirs}/*/test/*.js' '${dirs}/*/lib/**/*.spec.js' -f progress-bar`,
+    'test:base': () => `tape '${dirs}/*/test/*.js' '${dirs}/*/lib/**/*.spec.js'`,
     'test': async () => await run('test:base', '', env),
     'test:fail': async () => `${await run('test')} -f fail`,
     'test:slow': () => 'FORCE_COLOR=3 lerna run test',

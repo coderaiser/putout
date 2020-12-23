@@ -61,7 +61,7 @@
     "nodemon": "^2.0.1",
     "nyc": "^15.0.1",
     "putout": "*",
-    "supertape": "^3.4.2",
+    "supertape": "^4.0.0",
     "tenko": "^1.0.6",
     "try-catch": "^3.0.0"
   },

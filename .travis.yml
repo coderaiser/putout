@@ -1,6 +1,4 @@
 language: node_js
-env:
-  - SUPERTAPE_NO_PROGRESS_BAR=1
 node_js:
   - 15
   - 14

@@ -38,7 +38,7 @@
     "madrun": "^8.0.1",
     "nodemon": "^2.0.1",
     "nyc": "^15.0.1",
-    "supertape": "^3.4.2",
+    "supertape": "^4.0.0",
     "try-catch": "^3.0.0"
   },
   "peerDependencies": {
