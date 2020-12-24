@@ -2,6 +2,8 @@
 
 'use strict';
 
+require('v8-compile-cache');
+
 const {
     readFile,
     writeFile,
