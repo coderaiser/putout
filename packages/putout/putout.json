@@ -68,7 +68,7 @@
             "convert-commonjs-to-esm": "on"
         },
         "*.cjs": {
-            "convert-commonjs-to-esm": "off"
+            "convert-esm-to-commonjs": "on"
         },
         "*.{ts,tsx}": {
             "convert-generic-to-shorthand": "on",
