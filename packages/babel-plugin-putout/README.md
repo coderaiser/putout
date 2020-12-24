@@ -25,9 +25,9 @@ $ npm install babel-plugin-putout
 
 ## Usage
 
-### Via `.babelrc` (Recommended)
+### Via `.babelrc.json` (Recommended)
 
-**.babelrc**
+**.babelrc.json**
 
 ```json
 {

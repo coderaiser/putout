@@ -1612,7 +1612,7 @@ Will uses putout transformations for you :).
 ## Babel
 
 `Putout` can be used as [babel plugin](/packages/babel-plugin-putout).
-Just create `.babelrc` file with configuration you need.
+Just create `.babelrc.json` file with configuration you need.
 
 ```json
 {
