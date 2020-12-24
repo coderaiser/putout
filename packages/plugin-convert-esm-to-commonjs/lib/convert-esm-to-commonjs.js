@@ -1,11 +1,14 @@
 'use strict';
 
+const {template} = require('putout');
+
 module.exports.report = () => 'Commonjs should be used insted of ESM';
 
 module.exports.replace = () => ({
     'export default __a': 'module.exports = __a',
     'export class __a {}': 'module.exports.__a = class __a {}',
-    'export function __a(__args) {}': 'module.exports.__a = function __a(__args) {}',
+    'export function __a(__args) {}': replaceFn,
+    'export async function __a(__args) {}': replaceFn,
     'export const __a = __b': 'module.exports.__a = __b',
     
     'import "__a"': 'require("__a")',
@@ -25,3 +28,12 @@ module.exports.replace = () => ({
 
 });
 
+function replaceFn({__a}, path) {
+    const {name} = __a;
+    const {declaration} = path.node;
+    const node = template.ast.fresh(`module.exports.${name} = __x`);
+    
+    node.right = declaration;
+    
+    return node;
+}
