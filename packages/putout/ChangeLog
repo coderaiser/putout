@@ -1,3 +1,13 @@
+2020.12.24, v12.9.2
+
+fix:
+- (putout) cjs: enable convert-esm-to-commonjs
+
+feature:
+- (@putout/compare) baseNode -> templateNode
+- (@putout/plugin-convert-esm-to-commonjs) add support of async function
+
+
 2020.12.24, v12.9.1
 
 feature:
