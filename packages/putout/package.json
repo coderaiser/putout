@@ -9,7 +9,8 @@
     ".": "./lib/putout.js",
     "./parse-options": "./lib/parse-options/index.js",
     "./lib/parse-options": "./lib/parse-options/index.js",
-    "./lib/cli/process-file": "./lib/cli/process-file.js"
+    "./lib/cli/process-file": "./lib/cli/process-file.js",
+    "./cli": "./lib/cli/index.js"
   },
   "bin": {
     "putout": "bin/putout.js"
