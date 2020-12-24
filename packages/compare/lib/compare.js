@@ -78,41 +78,41 @@ module.exports.getValues = getValues;
 module.exports.setValues = setValues;
 module.exports.getTemplateValues = getTemplateValues;
 
-function compare(path, base) {
+function compare(path, template) {
     const node = parseNode(path);
-    const baseNode = parseNode(base);
+    const templateNode = parseNode(template);
     
-    if (isEqualAnyObject(node, baseNode))
+    if (isEqualAnyObject(node, templateNode))
         return true;
     
-    if (isEqualAnyArray(node, baseNode))
+    if (isEqualAnyArray(node, templateNode))
         return true;
     
-    if (isEqualNop(node, baseNode))
+    if (isEqualNop(node, templateNode))
         return true;
     
-    if (isPath(path) && !isEqualType(node, baseNode)) {
-        const {type} = baseNode;
+    if (isPath(path) && !isEqualType(node, templateNode)) {
+        const {type} = templateNode;
         const newPathNode = findParent(path, type);
         
-        return superCompareIterate(newPathNode, baseNode);
+        return superCompareIterate(newPathNode, templateNode);
     }
     
-    return superCompareIterate(node, baseNode);
+    return superCompareIterate(node, templateNode);
 }
 
-module.exports.compareAny = (path, baseNodes) => {
-    for (const base of baseNodes) {
-        if (compare(path, base))
+module.exports.compareAny = (path, templateNodes) => {
+    for (const template of templateNodes) {
+        if (compare(path, template))
             return true;
     }
     
     return false;
 };
 
-module.exports.compareAll = (path, baseNodes) => {
-    for (const base of baseNodes) {
-        if (!compare(path, base))
+module.exports.compareAll = (path, templateNodes) => {
+    for (const template of templateNodes) {
+        if (!compare(path, template))
             return false;
     }
     
@@ -133,25 +133,25 @@ const ignore = [
     'trailingComments',
 ];
 
-function superCompareIterate(node, base) {
-    let item = [node, base];
+function superCompareIterate(node, template) {
+    let item = [node, template];
     
     const array = [item];
     const templateStore = {};
     const add = superPush(array);
     
     while (item = array.pop()) {
-        const [node, base] = item;
+        const [node, template] = item;
         
         if (!node)
             return false;
         
-        for (const key of keys(base)) {
+        for (const key of keys(template)) {
             if (ignore.includes(key))
                 continue;
             
             const nodeValue = extractExpression(node[key]);
-            const value = extractExpression(base[key]);
+            const value = extractExpression(template[key]);
             
             const is = superCompare(nodeValue, value, {
                 add,

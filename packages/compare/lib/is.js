@@ -159,31 +159,31 @@ module.exports.isImports = (a) => {
 const __OBJECT_TYPE = 'ObjectPattern|ObjectExpression';
 const __ARRAY_TYPE = 'ArrayPattern|ArrayExpression';
 
-module.exports.isEqualAnyArray = (node, baseNode) => {
-    if (!isAnyArray(baseNode))
+module.exports.isEqualAnyArray = (node, templateNode) => {
+    if (!isAnyArray(templateNode))
         return false;
     
     const {type} = node;
     return __ARRAY_TYPE.includes(type);
 };
 
-module.exports.isEqualAnyObject = (node, baseNode) => {
-    if (!isAnyObject(baseNode))
+module.exports.isEqualAnyObject = (node, templateNode) => {
+    if (!isAnyObject(templateNode))
         return false;
     
     const {type} = node;
     return __OBJECT_TYPE.includes(type);
 };
 
-module.exports.isEqualBody = (node, baseNode) => {
-    if (!isBody(baseNode))
+module.exports.isEqualBody = (node, templateNode) => {
+    if (!isBody(templateNode))
         return false;
     
     return node.type === 'BlockStatement';
 };
 
-module.exports.isEqualNop = (node, baseNode) => {
-    if (!isNop(baseNode))
+module.exports.isEqualNop = (node, templateNode) => {
+    if (!isNop(templateNode))
         return false;
     
     if (!isFunction(node))
