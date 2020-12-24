@@ -1,3 +1,10 @@
+2020.12.24, v12.9.0
+
+feature:
+- (package) add v8-compile-cache: speed up start time: 0m0.993s -> 0m0.843s
+- (package) supertape v4.0.0
+
+
 2020.12.23, v12.8.0
 
 fix:
