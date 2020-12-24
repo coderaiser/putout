@@ -18,7 +18,7 @@ module.exports = {
     'test': async () => await run('test:base', '', env),
     'test:fail': async () => `${await run('test')} -f fail`,
     'test:slow': () => 'FORCE_COLOR=3 lerna run test',
-    'coverage:base': async () => `nyc --check-coverage`,
+    'coverage:base': async () => `nyc`,
     'coverage:long': async () => await run('coverage:base', await run('test:base'), env),
     'coverage': async () => await run(
         'coverage:base',

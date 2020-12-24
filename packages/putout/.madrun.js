@@ -4,6 +4,7 @@ const {run} = require('madrun');
 
 const env = {
     FORCE_COLOR: 3,
+    SUPERTAPE_PROGRESS_BAR:1,
     CI: 1,
 };
 

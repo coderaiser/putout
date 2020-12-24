@@ -4,9 +4,8 @@
     "exclude": [
         "**/*.spec.js",
         "**/fixture",
-        "**/*.*.js",
-        "packages/*/bin",
-        "packages/*/test"
+        "test",
+        ".*.js"
     ],
     "branches": 100,
     "lines": 100,

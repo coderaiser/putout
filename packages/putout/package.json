@@ -31,20 +31,6 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "nyc": {
-    "check-coverage": true,
-    "all": true,
-    "exclude": [
-      "**/*.spec.js",
-      "**/fixture",
-      "test",
-      ".*.js"
-    ],
-    "branches": 100,
-    "lines": 100,
-    "functions": 100,
-    "statements": 100
-  },
   "dependencies": {
     "@babel/code-frame": "^7.10.4",
     "@babel/traverse": "^7.12.5",
