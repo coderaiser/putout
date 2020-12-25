@@ -58,7 +58,7 @@
             "remove-console": "off",
             "convert-top-level-return": "on"
         },
-        "{test,*.spec.js}": {
+        "{test,*.spec.{js,mjs,cjs}": {
             "remove-only": "on",
             "remove-skip": "on",
             "tape": "on"
