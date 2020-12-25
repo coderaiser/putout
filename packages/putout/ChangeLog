@@ -1,3 +1,9 @@
+2020.12.25, v12.9.4
+
+fix:
+- (putout) *.spec.mjs, *.spec.cjs: glob
+
+
 2020.12.25, v12.9.3
 
 feature:
