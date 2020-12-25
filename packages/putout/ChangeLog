@@ -1,3 +1,9 @@
+2020.12.25, v12.9.3
+
+feature:
+- (putout) mjs, cjs: add support of remove-only, remove-skip
+
+
 2020.12.24, v12.9.2
 
 fix:
