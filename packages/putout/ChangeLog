@@ -1,3 +1,9 @@
+2020.12.28, v12.11.1
+
+fix:
+- (putout) cli: validate-args: import -> require: Invalid host defined options in v8-compile-cache
+
+
 2020.12.28, v12.11.0
 
 feature:
