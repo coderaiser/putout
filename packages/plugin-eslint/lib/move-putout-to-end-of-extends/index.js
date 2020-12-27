@@ -16,7 +16,12 @@ module.exports.match = () => ({
         const [first] = elements;
         const {value} = first;
         
-        return value.includes('putout');
+        const includesPutout = value.includes('putout');
+        
+        if (elements.length === 1 && includesPutout)
+            return false;
+        
+        return includesPutout;
     },
 });
 
@@ -37,3 +42,4 @@ function isExtends({key}) {
         value: 'extends',
     });
 }
+
