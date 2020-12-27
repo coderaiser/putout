@@ -1,3 +1,12 @@
+2020.12.27, v12.10.0
+
+fix:
+- (@putout/plugin-eslint) move-putout-to-end-of-extends: putout is only recorod
+
+feature:
+- (putout) add ability to handle absense of processor with CANNOT_LOAD_PROCESSOR exit code
+
+
 2020.12.25, v12.9.4
 
 fix:
