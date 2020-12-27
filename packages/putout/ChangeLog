@@ -1,3 +1,10 @@
+2020.12.28, v12.11.0
+
+feature:
+- (putout) add ability to handle promise rejections
+- (@putout/plugin-browserlist) add
+
+
 2020.12.27, v12.10.0
 
 fix:
