@@ -26,6 +26,7 @@ const {
     NO_PROCESSORS,
     WAS_STOP,
     INVALID_OPTION,
+    CANNOT_LOAD_PROCESSOR,
 } = require('./exit-codes');
 
 test('putout: cli: --raw', async (t) => {
@@ -1056,6 +1057,63 @@ test('putout: cli: invalid option: message: one char', async (t) => {
     stopAll();
     
     const expected = red(`Invalid option '-z'`);
+    
+    t.calledWith(logError, [expected], 'should show message about invalid option');
+    t.end();
+});
+
+test('putout: cli: cannot load processor', async (t) => {
+    const argv = [];
+    
+    const halt = stub();
+    
+    const putoutConfig = require('../../putout.json');
+    const {processors} = putoutConfig;
+    
+    processors.push('hello');
+    
+    mockRequire('../../putout.json', putoutConfig);
+    
+    //reRequire('../parse-options');
+    //reRequire('./get-options');
+    const cli = reRequire('.');
+    
+    reRequire('../parse-options');
+    reRequire('./get-options');
+    
+    await runCli({
+        cli,
+        argv,
+        halt,
+    });
+    
+    stopAll();
+    
+    t.calledWith(halt, [CANNOT_LOAD_PROCESSOR], 'should exit with CANNOT_LOAD_PROCESSOR code');
+    t.end();
+});
+
+test('putout: cli: cannot load processor', async (t) => {
+    const argv = [];
+    
+    const logError = stub();
+    const loadProcessors = stub().throws(Error(`Processor "putout-processor-hello" could not be found!`));
+    
+    mockRequire('@putout/engine-loader', {
+        loadProcessors,
+    });
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        logError,
+    });
+    
+    stopAll();
+    
+    const expected = red(`Processor "putout-processor-hello" could not be found!`);
     
     t.calledWith(logError, [expected], 'should show message about invalid option');
     t.end();

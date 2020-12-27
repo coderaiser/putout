@@ -9,5 +9,6 @@ module.exports = {
     NO_FORMATTER: 5,
     WAS_STOP: 6,
     INVALID_OPTION: 7,
+    CANNOT_LOAD_PROCESSOR:8,
 };
 

@@ -8,6 +8,7 @@ const yargsParser = require('yargs-parser');
 const {isCI} = require('ci-info');
 const memo = require('nano-memoize');
 const fullstore = require('fullstore');
+const tryCatch = require('try-catch');
 
 const {loadProcessors} = require('@putout/engine-loader');
 const {
@@ -35,6 +36,7 @@ const {
     STAGE,
     NO_FILES,
     NO_PROCESSORS,
+    CANNOT_LOAD_PROCESSOR,
     WAS_STOP,
     INVALID_OPTION,
 } = require('./exit-codes');
@@ -198,8 +200,11 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     });
     
     const [currentFormat, formatterOptions] = getFormatter(format || formatter, exit);
+    const [error, loadedProcessors] = tryCatch(loadProcessors, {processors});
     
-    const loadedProcessors = loadProcessors({processors});
+    if (error)
+        return exit(CANNOT_LOAD_PROCESSOR, error);
+    
     const patterns = getFilePatterns(loadedProcessors);
     
     supportedFiles.add(patterns);
