@@ -33,7 +33,7 @@
             "remove-constant-conditions": "off",
             "remove-console": "off"
         },
-        "*.{json,yml}": {
+        "{*rc,*.{json,yml}}": {
             "remove-useless-escape": "off",
             "apply-numeric-separators": "off"
         },
@@ -49,6 +49,9 @@
         },
         "webpack.config.js": {
             "webpack": "on"
+        },
+        "browserlist": {
+            ".browserlistrc": "on"
         },
         ".eslintrc.json": {
             "eslint": "on"
@@ -190,6 +193,7 @@
         "promises",
         "gitignore",
         "npmignore",
+        "browserlist",
         "regexp",
         "travis",
         "tape"

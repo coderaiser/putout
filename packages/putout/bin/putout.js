@@ -24,3 +24,7 @@ module.exports = cli({
     writeFile,
 });
 
+process.on('unhandledRejection', (e) => {
+    console.error(e);
+    process.exit();
+});

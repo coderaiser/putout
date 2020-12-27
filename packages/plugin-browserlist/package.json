@@ -1,0 +1,56 @@
+{
+  "name": "@putout/plugin-browserlist",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin helps whith .browserlistrc",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/index.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage"
+  },
+  "nyc": {
+    "exclude": [
+      "*/**/*.spec.js",
+      "test"
+    ]
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "browserlist"
+  ],
+  "devDependencies": {
+    "@putout/test": "^3.0.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^7.6.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^6.0.0",
+    "lerna": "^3.8.5",
+    "madrun": "^8.0.1",
+    "nodemon": "^2.0.1",
+    "nyc": "^15.0.1"
+  },
+  "peerDependencies": {
+    "putout": ">=11"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

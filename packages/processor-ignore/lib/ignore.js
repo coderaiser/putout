@@ -1,7 +1,7 @@
 'use strict';
 
-const rmLast = (a) => a.slice(0, -1);
-const addNewLine = (a) => /\n$/.test(a) ? a : `${a}\n`;
+const {stringify} = JSON;
+const rmLast = (a) => !/\n$/.test(a) ? a : a.slice(0, -1);
 
 const prefix = '__putout_processor_ignore(';
 const sufix = ');';
@@ -12,6 +12,7 @@ const parse = (a) => {
 
 module.exports.files = [
     '*ignore',
+    '*rc',
 ];
 
 module.exports.preProcess = (rawSource) => {
@@ -34,10 +35,8 @@ module.exports.postProcess = (rawSource, list) => {
     return array.join('\n') + '\n';
 };
 
-function convertToArray(line) {
-    const lines = addNewLine(line).split('\n');
-    const result = '"' + rmLast(lines.join('", "'));
-    
-    return `[${result}]`;
+function convertToArray(str) {
+    const lines = rmLast(str).split('\n');
+    return stringify(lines);
 }
 

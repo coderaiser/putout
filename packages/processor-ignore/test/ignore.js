@@ -26,6 +26,43 @@ test('putout: processor: ignore', async (t) => {
     t.end();
 });
 
+test('putout: processor: ignore: rc', async (t) => {
+    const process = getProcess({
+        processors: [
+            'ignore',
+        ],
+        plugins: [
+            'browserlist',
+        ],
+    });
+    
+    const {
+        output,
+        processedSource,
+    } = await process('browserlistrc');
+    
+    t.equal(output, processedSource);
+    t.end();
+});
+
+test('putout: processor: ignore: rc: eslintrc: no crash', async (t) => {
+    const process = getProcess({
+        processors: [
+            'ignore',
+        ],
+        plugins: [
+            'browserlist',
+        ],
+    });
+    
+    const {places} = await process('eslintrc', {
+        noTransform: true,
+    });
+    
+    t.notOk(places.length);
+    t.end();
+});
+
 test('putout: processor: ignore: no fix', async (t) => {
     const {
         rawSource,
@@ -47,12 +84,18 @@ test('putout: processor: ignore: no new line', async (t) => {
 });
 
 function getProcess({processors, plugins, ext = ''}) {
-    return async (name, {fix = true} = {}) => {
+    return async (name, {fix = true, noTransform = false} = {}) => {
         const inputName = join(__dirname, 'fixture', `${name}${ext}`);
-        const outputName = join(__dirname, 'fixture', `${name}-fix${ext}`);
+        
+        let outputName;
+        let output;
+        
+        if (!noTransform) {
+            outputName = join(__dirname, 'fixture', `${name}-fix${ext}`);
+            output = await readFile(outputName, 'utf8');
+        }
         
         const rawSource = await readFile(inputName, 'utf8');
-        const output = await readFile(outputName, 'utf8');
         
         const options = {
             dir: __dirname,
@@ -60,7 +103,10 @@ function getProcess({processors, plugins, ext = ''}) {
             plugins,
         };
         
-        const {processedSource} = await runProcessors({
+        const {
+            processedSource,
+            places,
+        } = await runProcessors({
             fix,
             name: inputName,
             processFile: processFile({fix}),
@@ -72,6 +118,7 @@ function getProcess({processors, plugins, ext = ''}) {
             rawSource,
             output,
             processedSource,
+            places,
         };
     };
 }
