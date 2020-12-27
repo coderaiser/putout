@@ -9,6 +9,7 @@ const {isCI} = require('ci-info');
 const memo = require('nano-memoize');
 const fullstore = require('fullstore');
 const tryCatch = require('try-catch');
+const wraptile = require('wraptile');
 
 const {loadProcessors} = require('@putout/engine-loader');
 const {
@@ -20,7 +21,7 @@ const {
 const merge = require('../merge');
 const ignores = require('../ignores');
 
-const processFile = require('./process-file');
+const initProcessFile = require('./process-file');
 const getFiles = require('./get-files');
 const cacheFiles = require('./cache-files');
 const supportedFiles = require('./supported-files');
@@ -39,6 +40,7 @@ const {
     CANNOT_LOAD_PROCESSOR,
     WAS_STOP,
     INVALID_OPTION,
+    UNHANDLED,
 } = require('./exit-codes');
 
 const cwd = process.cwd();
@@ -159,6 +161,21 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         logError,
     });
     
+    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
+    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
+    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
+    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
+    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
+    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
+    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
+    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
+    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
+    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
+    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
+    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
+    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
+    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
+    
     const optionsList = [
         ...argvConfig.boolean,
         ...argvConfig.string,
@@ -263,7 +280,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     const rawPlaces = [];
     
-    const process = processFile(options);
+    const processFile = initProcessFile(options);
     const {length} = names;
     
     for (let index = 0; index < length; index++) {
@@ -320,7 +337,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             } = await runProcessors({
                 name: resolvedName,
                 fix,
-                processFile: process,
+                processFile,
                 options,
                 rawSource,
             }));
@@ -392,4 +409,10 @@ const getExit = ({halt, raw, logError}) => (code, e) => {
     logError(message);
     halt(code);
 };
+
+module.exports._addOnce = addOnce;
+function addOnce(emitter, name, fn) {
+    if (!emitter.listenerCount(name))
+        emitter.on(name, fn);
+}
 

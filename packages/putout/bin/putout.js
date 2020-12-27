@@ -13,18 +13,15 @@ const cli = require('../lib/cli');
 
 const {stdout} = process;
 const write = stdout.write.bind(stdout);
+const logError = console.error;
 
 module.exports = cli({
     write,
     halt: process.exit,
     argv: process.argv.slice(2),
     log: console.log,
-    logError: console.error,
+    logError,
     readFile,
     writeFile,
 });
 
-process.on('unhandledRejection', (e) => {
-    console.error(e);
-    process.exit();
-});

@@ -3,7 +3,8 @@
 process.env.CI = process.env.CI || 'true';
 
 const {join} = require('path');
-const {readFile} = require('fs').promises;
+const {readFile} = require('fs/promises');
+const {EventEmitter} = require('events');
 
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
@@ -1116,6 +1117,19 @@ test('putout: cli: cannot load processor', async (t) => {
     const expected = red(`Processor "putout-processor-hello" could not be found!`);
     
     t.calledWith(logError, [expected], 'should show message about invalid option');
+    t.end();
+});
+
+test('putout: cli: addOnce', (t) => {
+    const fn = stub();
+    const {_addOnce} = reRequire('.');
+    const emitter = new EventEmitter();
+    
+    _addOnce(emitter, 'hello', fn);
+    _addOnce(emitter, 'hello', fn);
+    
+    const result = emitter.listenerCount('hello');
+    t.equal(result, 1);
     t.end();
 });
 
