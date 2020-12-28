@@ -13,10 +13,16 @@
     "url": "git://github.com/coderaiser/putout.git"
   },
   "scripts": {
+    "test:base": "madrun test:base",
     "test": "madrun test",
+    "watch:test": "madrun watch:test",
     "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
     "fix:lint": "madrun fix:lint",
-    "coverage": "madrun coverage"
+    "coverage:base": "madrun coverage:base",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
   },
   "dependencies": {
     "@putout/formatter-dump": "^2.0.1",

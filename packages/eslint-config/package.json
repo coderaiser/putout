@@ -17,6 +17,8 @@
     "lint:json": "madrun lint:json",
     "lint:js": "madrun lint:js",
     "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
     "fix:lint": "madrun fix:lint"
   },
   "dependencies": {},

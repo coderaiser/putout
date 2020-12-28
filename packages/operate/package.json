@@ -15,12 +15,10 @@
   "scripts": {
     "test": "madrun test",
     "watch:test": "madrun watch:test",
-    "lint:lib": "madrun lint:lib",
-    "lint:test": "madrun lint:test",
-    "lint:bin": "madrun lint:bin",
     "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
     "fix:lint": "madrun fix:lint",
-    "putout": "madrun putout",
     "coverage": "madrun coverage",
     "report": "madrun report"
   },

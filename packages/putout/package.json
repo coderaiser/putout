@@ -21,14 +21,16 @@
   },
   "scripts": {
     "wisdom": "madrun wisdom",
+    "test:raw": "madrun test:raw",
     "test": "madrun test",
     "watch:test": "madrun watch:test",
     "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
     "fix:lint": "madrun fix:lint",
     "fix:lint:fresh": "madrun fix:lint:fresh",
     "lint:progress": "madrun lint:progress",
-    "lint:cache": "madrun lint:cache",
     "lint:fresh": "madrun lint:fresh",
+    "coverage:raw": "madrun coverage:raw",
     "coverage": "madrun coverage",
     "report": "madrun report"
   },

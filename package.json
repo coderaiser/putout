@@ -2,10 +2,11 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "test:base": "madrun test:base",
     "test": "madrun test",
     "test:fail": "madrun test:fail",
-    "test:fast": "madrun test:fast",
     "test:slow": "madrun test:slow",
+    "coverage:base": "madrun coverage:base",
     "coverage:long": "madrun coverage:long",
     "coverage": "madrun coverage",
     "coverage:slow": "madrun coverage:slow",
