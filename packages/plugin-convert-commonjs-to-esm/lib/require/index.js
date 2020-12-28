@@ -19,7 +19,7 @@ const __B = 'declarations.0.init.arguments.0';
 
 module.exports.match = () => ({
     'const __a = require(__b)': (vars, path) => {
-        const {bindings} = path.scope;
+        const bindings = path.scope.getAllBindings();
         
         if (bindings.require)
             return false;
@@ -41,14 +41,14 @@ module.exports.replace = () => ({
             value += '.js';
         
         const isJSON = /\.json$/.test(value);
-        const assertion = !isJSON ? '' : 'assert { type: "json" }';
-        
         const fnPath = path.findParent(isFunction);
         
         if (fnPath) {
             fnPath.node.async = true;
             return applyDynamicImport(path);
         }
+        
+        const assertion = !isJSON ? '' : 'assert { type: "json" }';
         
         if (isObjectPattern(__a)) {
             const imports = [];
