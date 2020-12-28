@@ -535,6 +535,7 @@ test('putout: loader: disabled part of rule', (t) => {
         rules: {
             'madrun': 'on',
             'madrun/add-madrun-to-lint': 'off',
+            'madrun/add-fresh-lint': 'off',
         },
         plugins: [
             'madrun',
