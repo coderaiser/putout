@@ -1,3 +1,12 @@
+2020.12.28, v12.12.0
+
+feature:
+- (@putout/plugin-package-json) add
+- (@putout/processor-json) add ability to cut empty lines
+- (@putout/plugin-convert-commonjs-to-esm) require: add support of existing require binding
+- (@putout/plugin-convert-for-to-for-of) improve support of using with: remove-unused-variables, remove-useless-arguments
+
+
 2020.12.28, v12.11.1
 
 fix:
