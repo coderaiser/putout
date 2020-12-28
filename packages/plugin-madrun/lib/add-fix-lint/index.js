@@ -6,12 +6,11 @@ const {
     template,
 } = require('putout');
 
+const getProperty = require('../get-property');
+
 const {replaceWithMultiple} = operator;
 
 const {
-    isIdentifier,
-    isLiteral,
-    isStringLiteral,
     ObjectProperty,
     StringLiteral,
 } = types;
@@ -32,8 +31,9 @@ module.exports.fix = (path) => {
 module.exports.traverse = ({push}) => {
     return {
         'module.exports = __object'(path) {
-            const propertiesPaths = path.get('right.properties');
-            const {lint, fixLint} = getLintProperties(propertiesPaths);
+            const rightPath = path.get('right');
+            const lint = getProperty(rightPath, 'lint');
+            const fixLint = getProperty(rightPath, 'fix:lint');
             
             if (!lint || fixLint)
                 return;
@@ -42,27 +42,4 @@ module.exports.traverse = ({push}) => {
         },
     };
 };
-
-function getLintProperties(propertiesPaths) {
-    const result = {};
-    
-    for (const propPath of propertiesPaths) {
-        const {node} = propPath;
-        
-        if (isLiteral(node.key, {value: 'fix:lint'})) {
-            result.fixLint = propPath;
-            continue;
-        }
-        
-        if (isIdentifier(node.key, {name: 'lint'}) || isStringLiteral(node.key, {value: 'lint'})) {
-            result.lint = propPath;
-            continue;
-        }
-        
-        if (result.lint && result.fixLint)
-            return result;
-    }
-    
-    return result;
-}
 

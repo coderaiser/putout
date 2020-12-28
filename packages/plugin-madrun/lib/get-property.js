@@ -1,14 +1,14 @@
 'use strict';
 
-module.exports = (name, path) => {
-    const properties = path.get('properties');
+module.exports = (path, name) => {
+    const propertyPaths = path.get(`properties`);
     
-    for (const property of properties) {
-        const key = property.get('key');
+    for (const propertyPath of propertyPaths) {
+        const key = propertyPath.get('key');
         const is = isKey(name, key);
         
         if (is)
-            return key;
+            return propertyPath;
     }
     
     return null;

@@ -5,7 +5,7 @@ const {
     operator,
 } = require('putout');
 
-const findKey = require('../find-key');
+const getProperty = require('../get-property');
 const {
     isStringLiteral,
     TemplateLiteral,
@@ -79,12 +79,12 @@ module.exports.traverse = ({push}) => {
 };
 
 function getLintPath(path) {
-    const lint = findKey('lint', path);
+    const lint = getProperty(path, 'lint');
     
     if (!lint)
         return null;
     
-    const valuePath = lint.parentPath.get('value');
+    const valuePath = lint.get('value');
     const bodyPath = valuePath.get('body');
     const [lintPath, str] = getValue(bodyPath);
     
