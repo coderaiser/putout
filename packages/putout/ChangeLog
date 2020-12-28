@@ -1,3 +1,16 @@
+2020.12.28, v13.0.0
+
+feature:
+- (package) @putout/plugin-madrun v9.0.0
+- (@putout/plugin-madrun) rename-predefined-eslint-to-putout: remove
+- (@putout/plugin-madrun drop support of node < 14
+- (putout) drop support of node < 14
+- (putout) apply-optional-chaining: enable
+- (@putout/plugin-madrun) drop support of putout < 13
+- (@putout/plugin-madun) add fresh:lint
+- (@putout/plugin-madrun) add-madrun-to-lint: remove
+
+
 2020.12.28, v12.12.0
 
 feature:
