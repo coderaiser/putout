@@ -22,12 +22,6 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "nyc": {
-    "exclude": [
-      "*/**/*.spec.js",
-      "test"
-    ]
-  },
   "dependencies": {},
   "keywords": [
     "putout",

@@ -1,8 +1,8 @@
 {
-  "name": "@putout/plugin-npmignore",
+  "name": "@putout/plugin-package-json",
   "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin helps whith .npmignore",
+  "description": "putout plugin for package.json",
   "homepage": "http://github.com/coderaiser/putout",
   "main": "lib/index.js",
   "release": false,
@@ -24,7 +24,7 @@
     "putout",
     "putout-plugin",
     "plugin",
-    "npmignore"
+    "package-json"
   ],
   "devDependencies": {
     "@putout/test": "^3.0.0",
@@ -38,7 +38,7 @@
     "nyc": "^15.0.1"
   },
   "peerDependencies": {
-    "putout": ">=12"
+    "putout": ">=11"
   },
   "license": "MIT",
   "engines": {

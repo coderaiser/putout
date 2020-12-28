@@ -19,12 +19,6 @@
     "fix:lint": "madrun fix:lint",
     "coverage": "madrun coverage"
   },
-  "nyc": {
-    "exclude": [
-      "*/**/*.spec.js",
-      "test"
-    ]
-  },
   "dependencies": {
     "fast-deep-equal": "^3.1.3"
   },

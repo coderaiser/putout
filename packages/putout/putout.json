@@ -56,6 +56,9 @@
         ".eslintrc.json": {
             "eslint": "on"
         },
+        "package.json": {
+            "package-json": "on"
+        },
         "bin": {
             "remove-process-exit": "off",
             "remove-console": "off",
@@ -109,6 +112,7 @@
         "putout": "off",
         "putout-config": "off",
         "eslint": "off",
+        "package-json": "off",
         "madrun": "off",
         "webpack": "off",
         "gitignore": "off",
@@ -130,6 +134,7 @@
         "madrun",
         "webpack",
         "eslint",
+        "package-json",
         "remove-debugger",
         "remove-iife",
         "remove-only",

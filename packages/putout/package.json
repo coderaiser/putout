@@ -84,6 +84,7 @@
     "@putout/plugin-merge-duplicate-imports": "^3.0.0",
     "@putout/plugin-merge-if-statements": "^3.0.0",
     "@putout/plugin-npmignore": "^1.0.0",
+    "@putout/plugin-package-json": "^1.0.0",
     "@putout/plugin-promises": "^4.0.0",
     "@putout/plugin-putout": "^5.0.0",
     "@putout/plugin-putout-config": "^1.0.0",
