@@ -14,3 +14,10 @@ test('plugin-convert-for-to-for-of: transform', (t) => {
     t.end();
 });
 
+test('plugin-convert-for-to-for-of: transform: remove-useless-arguments', (t) => {
+    t.transform('remove-useless-arguments', {
+        'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
+        'remove-useless-arguments': require('@putout/plugin-remove-useless-arguments'),
+    });
+    t.end();
+});

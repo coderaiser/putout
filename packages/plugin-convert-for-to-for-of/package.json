@@ -30,6 +30,8 @@
   ],
   "devDependencies": {
     "@putout/eslint-config": "^1.0.2",
+    "@putout/plugin-remove-unused-variables": "*",
+    "@putout/plugin-remove-useless-arguments": "*",
     "@putout/test": "^3.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
