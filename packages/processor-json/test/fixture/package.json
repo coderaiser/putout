@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "type": "commonjs",
+  "nyc": {
+  },
+  "keywords": [
+    "putout",
+    "putout-engine"
+  ]
+}

@@ -18,7 +18,24 @@ module.exports.preProcess = (rawSource) => {
 module.exports.postProcess = (rawSource, list) => {
     const [source] = list;
     const length = source.length - sufix.length;
+    const sliced = source.slice(prefix.length, length);
     
-    return source.slice(prefix.length, length);
+    const result = stripSpaces(sliced);
+    
+    return result;
 };
+
+function stripSpaces(source) {
+    const lines = source.split('\n');
+    const result = [];
+    
+    for (const line of lines) {
+        if (line.length && /^\s+$/.test(line))
+            continue;
+        
+        result.push(line);
+    }
+    
+    return result.join('\n');
+}
 
