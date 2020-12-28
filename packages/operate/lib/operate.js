@@ -96,7 +96,7 @@ const isOneDeclaration = ({node}) => node.declarations.length === 1;
 const getComments = (path) => {
     const {comments} = path.node;
     
-    if (comments && comments.length)
+    if (comments?.length)
         return comments;
     
     const {parentPath} = path;

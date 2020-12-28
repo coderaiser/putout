@@ -61,7 +61,7 @@ test('putout: compare: vars: getTemplateValues: __', (t) => {
     const node = template.ast('const [] = array');
     const {__} = getTemplateValues(node, 'const __array = __');
     
-    t.equal(__ && __.type, 'Identifier');
+    t.equal(__?.type, 'Identifier');
     t.end();
 });
 

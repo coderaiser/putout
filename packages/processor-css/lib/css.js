@@ -15,7 +15,7 @@ const loadConfig = once(async () => {
     
     return {
         ...config,
-        ...result && result.config,
+        ...result?.config,
     };
 });
 

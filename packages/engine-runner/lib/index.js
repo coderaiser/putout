@@ -15,7 +15,7 @@ const {
     getPosition,
 } = require('./get-position');
 
-const isRemoved = (a) => a && a.removed;
+const isRemoved = (a) => a?.removed;
 
 module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, template = require('./template')}) => {
     let places = [];

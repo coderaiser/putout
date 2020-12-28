@@ -96,7 +96,7 @@
     ],
     "rules": {
         "apply-top-level-await": "off",
-        "apply-optional-chaining": "off",
+        "apply-optional-chaining": "on",
         "apply-nullish-coalescing": "off",
         "apply-shorthand-properties": "off",
         "convert-esm-to-commonjs": "off",

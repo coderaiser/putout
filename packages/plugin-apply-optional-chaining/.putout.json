@@ -1,0 +1,5 @@
+{
+    "rules": {
+        "apply-optional-chaining": "off"
+    }
+}
