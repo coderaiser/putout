@@ -47,6 +47,66 @@ test('putout: processor: json', async (t) => {
     t.end();
 });
 
+test('putout: processor: json', async (t) => {
+    const process = getProcess({
+        extension: 'json',
+        processors: [
+            'json',
+        ],
+        plugins: [
+            'package-json',
+        ],
+    });
+    
+    const {
+        output,
+        processedSource,
+    } = await process('package');
+    
+    t.equal(processedSource, output);
+    t.end();
+});
+
+test('putout: processor: json', async (t) => {
+    const process = getProcess({
+        extension: 'json',
+        processors: [
+            'json',
+        ],
+        plugins: [
+            'package-json',
+        ],
+    });
+    
+    const {
+        output,
+        processedSource,
+    } = await process('package');
+    
+    t.equal(processedSource, output);
+    t.end();
+});
+
+test('putout: processor: json', async (t) => {
+    const {
+        output,
+        processedSource,
+    } = await process('eslintrc');
+    
+    t.equal(processedSource, output);
+    t.end();
+});
+
+test('putout: processor: json', async (t) => {
+    const {
+        output,
+        processedSource,
+    } = await process('eslintrc');
+    
+    t.equal(processedSource, output);
+    t.end();
+});
+
 function getProcess({processors, plugins, extension}) {
     return async (name) => {
         const inputName = join(__dirname, 'fixture', `${name}.${extension}`);
