@@ -18,3 +18,8 @@ test('plugin-madrun: no transform: module.exports not object', (t) => {
     t.noTransform('module-exports-not-object');
     t.end();
 });
+
+test('plugin-madrun: add-fresh-lint', (t) => {
+    t.transform('fresh-lint');
+    t.end();
+});

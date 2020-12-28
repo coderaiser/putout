@@ -7,6 +7,7 @@ const getRule = (a) => ({
 module.exports.rules = {
     ...getRule('add-function'),
     ...getRule('add-fix-lint'),
+    ...getRule('add-fresh-lint'),
     ...getRule('add-run'),
     ...getRule('call-run'),
     ...getRule('rename-series-to-run'),

@@ -12,9 +12,9 @@ module.exports = {
     'wisdom': () => run(['lint', 'coverage']),
     'test:raw': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
     'test': async () => await run('test:raw', '', env),
-    
     'watch:test': async () => `nodemon -w bin -w lib -w test -x "${await run('test')}"`,
     'lint': () => `bin/putout.js .`,
+    'fresh:lint': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),
     'fix:lint:fresh': () => run('fix:lint', '--fresh'),
     'lint:progress': () => run('lint', '--fix'),
