@@ -102,24 +102,6 @@ module.exports = {
 };
 ```
 
-# add-madrun-to-lint
-
-## ❌ Incorrect code example
-
-```js
-module.exports = {
-    lint: () => `eslint lib test --ignore-pattern test/fixture`,
-};
-```
-
-## ✅ Correct code Example
-
-```js
-module.exports = {
-    lint: () => `eslint lib test madrun.js --ignore-pattern test/fixture`,
-};
-```
-
 # convert-run-argument
 
 ## ❌ Incorrect code example

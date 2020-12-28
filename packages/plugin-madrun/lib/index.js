@@ -8,7 +8,6 @@ module.exports.rules = {
     ...getRule('add-function'),
     ...getRule('add-fix-lint'),
     ...getRule('add-run'),
-    ...getRule('add-madrun-to-lint'),
     ...getRule('call-run'),
     ...getRule('rename-series-to-run'),
     ...getRule('convert-run-argument'),
