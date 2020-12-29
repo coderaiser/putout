@@ -1,5 +1,7 @@
 {
-    "rules": {
-        "apply-optional-chaining": "off"
+    "match": {
+        "*.md": {
+            "apply-optional-chaining": "off"
+        }
     }
 }
