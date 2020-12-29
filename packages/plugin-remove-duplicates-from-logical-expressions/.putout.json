@@ -1,7 +1,7 @@
 {
     "match": {
         "*.md": {
-            "remove-boolean-from-logical-expressions": "off"
+            "remove-duplicates-from-logical-expressions": "off"
         }
     }
 }
