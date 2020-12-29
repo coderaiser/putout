@@ -24,7 +24,6 @@ module.exports.filter = (path) => {
     if (!prevPath.node)
         return false;
     
-    const prevNode = prevPath.node;
     const {body} = node;
     
     if (!body.body)
@@ -36,7 +35,7 @@ module.exports.filter = (path) => {
     if (!compare(first, assignIterable(__i)))
         return false;
     
-    if (!compare(prevNode, assignN(__n)))
+    if (!comparePrevSiblings(path, assignN(__n)))
         return false;
     
     const bindings = path.scope.bindings[__i.name];
@@ -53,13 +52,12 @@ module.exports.filter = (path) => {
 };
 
 module.exports.replace = () => ({
-    [forLoopToN]: (vars, path) => {
+    [forLoopToN]: (vars) => {
         const {__c, __i} = vars;
         const [node] = __c.body;
         const {__a, __b} = getTemplateValues(node, assignIterable(__i));
         
         __c.body.shift();
-        path.getPrevSibling().remove();
         
         return getForOfLoop({
             LEFT: __a,
@@ -68,4 +66,14 @@ module.exports.replace = () => ({
         });
     },
 });
+
+function comparePrevSiblings(prev, node) {
+    while (prev = prev.getPrevSibling()) {
+        if (!prev.node)
+            return false;
+        
+        if (compare(prev.node, node))
+            return true;
+    }
+}
 

@@ -1,4 +1,6 @@
 module.exports = async function runTests(tests) {
+    const total = tests.length;
+
     for (const {
         fn,
         message,
