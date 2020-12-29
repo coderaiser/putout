@@ -1,3 +1,21 @@
+2020.12.29, v13.1.0
+
+feature:
+- (package) @putout/engine-runner v10.0.0
+- (@putout/remove-duplicates-from-logical-expressions) add
+- (@putout/plugin-apply-optional-chaining) add support of nested expressions
+- (@putout/engine-runner) @putout/compare v7.0.0
+- (@putout/engine-runner) @putout/operate v6.0.0
+- (package) @putout/compare v7.0.0
+- (@putout/compare) drop support of node < 14
+- (package) @putout/operate v6.0.0
+- (@putout/operate) drop support of node < 14
+- (package) @putout/processor-css v2.0.0
+- (@putout/processor-css) drop support of node < 14
+- (@putout/plugin-convert-for-to-for-of) add ability to find previous siblings
+- (@putout/processor-json) postProcess: removeEmptyLines: simplify and speed up: 300ms -> 200ms
+
+
 2020.12.28, v13.0.0
 
 feature:
