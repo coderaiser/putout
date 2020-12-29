@@ -163,6 +163,7 @@
         "remove-useless-for-of",
         "remove-constant-conditions",
         "remove-boolean-from-logical-expressions",
+        "remove-duplicates-from-logical-expressions",
         "remove-nested-blocks",
         "remove-unreachable-code",
         "remove-duplicate-keys",
