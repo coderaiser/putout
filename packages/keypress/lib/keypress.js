@@ -33,4 +33,5 @@ const onKeyPress = (isStop) => (str, key) => {
     if (ctrl && name === 'c')
         isStop(true);
 };
+
 module.exports._onKeyPress = onKeyPress;

@@ -2,10 +2,9 @@
 
 const {Readable} = require('stream');
 
-const test = require('supertape');
+const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');
 const {reRequire} = mockRequire;
-const stub = require('@cloudcmd/stub');
 
 const {assign} = Object;
 
@@ -13,7 +12,7 @@ test('putout: cli: on halt: no isTTY', (t) => {
     const {isTTY} = process.stdin;
     process.stdin.isTTY = false;
     
-    const onHalt = reRequire('./on-halt');
+    const onHalt = reRequire('./keypress');
     const {isHandlerSet} = onHalt();
     
     process.stdin.isTTY = isTTY;
@@ -30,7 +29,7 @@ test('putout: cli: on halt: isTTY', (t) => {
         isCI: false,
     });
     
-    const onHalt = reRequire('./on-halt');
+    const onHalt = reRequire('./keypress');
     
     const stream = createStream();
     const {isHandlerSet} = onHalt(stream);
@@ -42,7 +41,7 @@ test('putout: cli: on halt: isTTY', (t) => {
 });
 
 test('putout: cli: on halt: onKeyPress: Ctrl+C', (t) => {
-    const {_onKeyPress} = reRequire('./on-halt');
+    const {_onKeyPress} = reRequire('./keypress');
     const isStop = stub();
     
     const fn = _onKeyPress(isStop);
@@ -60,7 +59,7 @@ test('putout: cli: on halt: onKeyPress: Ctrl+C', (t) => {
 });
 
 test('putout: cli: on halt: onKeyPress: not Ctrl+C', (t) => {
-    const {_onKeyPress} = reRequire('./on-halt');
+    const {_onKeyPress} = reRequire('./keypress');
     const isStop = stub();
     
     const fn = _onKeyPress(isStop);

@@ -936,13 +936,13 @@ test('putout: cli: get files: was stop', async (t) => {
     ]]);
     const halt = stub();
     const isStop = stub().returns(true);
-    const onHalt = stub().returns({
+    const keypress = stub().returns({
         isStop,
     });
     
     mockRequire('./get-options', getOptions);
     mockRequire('./get-files', getFiles);
-    mockRequire('./on-halt', onHalt);
+    mockRequire('@putout/keypress', keypress);
     
     const cli = reRequire('.');
     

@@ -28,7 +28,7 @@ const supportedFiles = require('./supported-files');
 const getFormatter = memo(require('./formatter').getFormatter);
 const getOptions = require('./get-options');
 const report = require('./report')();
-const onHalt = require('./on-halt');
+const keyPress = require('@putout/keypress');
 const validateArgs = require('./validate-args');
 
 const {
@@ -68,7 +68,7 @@ const createFormatterProxy = (options) => {
 };
 
 module.exports = async ({argv, halt, log, write, logError, readFile, writeFile}) => {
-    const {isStop} = onHalt();
+    const {isStop} = keyPress();
     const wasStop = fullstore();
     
     const argvConfig = {
