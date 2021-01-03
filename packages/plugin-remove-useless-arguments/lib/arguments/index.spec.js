@@ -39,3 +39,8 @@ test('plugin-remove-useless-arguments: no transform: arguments', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-arguments: report: fn', (t) => {
+    t.report('fn', 'Function argument is useless');
+    t.end();
+});
+

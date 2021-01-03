@@ -1,8 +1,19 @@
 'use strict';
 
-const {findBinding} = require('putout').operator;
+const {
+    operator,
+    types,
+} = require('putout');
 
-module.exports.report = ({node}) => `Argument "${node.name}" is useless`;
+const {isFunction} = types;
+const {findBinding} = operator;
+
+module.exports.report = ({node}) => {
+    if (isFunction(node))
+        return 'Function argument is useless';
+    
+    return `Argument "${node.name}" is useless`;
+};
 
 module.exports.fix = (path) => {
     path.remove();
