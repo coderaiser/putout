@@ -162,19 +162,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     });
     
     addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
-    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
-    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
-    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
-    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
-    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
-    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
-    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
-    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
-    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
-    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
-    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
-    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
-    addOnce(process, 'unhandledRejection', wraptile(exit, UNHANDLED));
     
     const optionsList = [
         ...argvConfig.boolean,
