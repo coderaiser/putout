@@ -11,6 +11,7 @@ const env = {
     FORCE_COLOR: 3,
     PUTOUT_PROGRESS_BAR: 0,
     SUPERTAPE_PROGRESS_BAR: 1,
+    KEYPRESS: 1,
 };
 
 module.exports = {

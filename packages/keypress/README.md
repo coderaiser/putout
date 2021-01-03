@@ -28,6 +28,10 @@ async function again() {
 }
 ```
 
+## Env Variables
+
+`KEYPRESS=1` can be used to force enable `keypress`.
+
 ## License
 
 MIT

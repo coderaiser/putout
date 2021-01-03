@@ -60,6 +60,26 @@ test('putout: cli: on halt: isTTY: duble call', (t) => {
     t.end();
 });
 
+test('putout: cli: on halt: CI, KEYPRESS', (t) => {
+    const {KEYPRESS} = process.env;
+    
+    process.env.KEYPRESS = '1';
+    
+    mockRequire('ci-info', {
+        isCI: true,
+    });
+    
+    const onHalt = reRequire('./keypress');
+    const stream = createStream();
+    const {isHandlerSet} = onHalt(stream);
+    
+    onHalt(stream);
+    process.env.KEYPRESS = KEYPRESS;
+    
+    t.ok(isHandlerSet(), 'should set handler');
+    t.end();
+});
+
 test('putout: cli: on halt: onKeyPress: Ctrl+C', (t) => {
     const {_onKeyPress} = reRequire('./keypress');
     const isStop = stub();
