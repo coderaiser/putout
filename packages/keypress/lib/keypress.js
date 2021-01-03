@@ -9,6 +9,9 @@ const isStop = fullstore(false);
 const IS_SET = () => true;
 const IS_NOT_SET = () => false;
 
+const isKeypress = (a) => a.name === '__keypress';
+const isSet = (a, b) => a.listeners(b).filter(isKeypress).length;
+
 module.exports = (stream = process.stdin) => {
     if (!stream.isTTY || isCI)
         return {
@@ -19,7 +22,8 @@ module.exports = (stream = process.stdin) => {
     readline.emitKeypressEvents(stream);
     stream.setRawMode(true);
     
-    stream.on('keypress', onKeyPress(isStop));
+    if (!isSet(stream, 'keypress'))
+        stream.on('keypress', onKeyPress(isStop));
     
     return {
         isHandlerSet: IS_SET,
@@ -27,7 +31,7 @@ module.exports = (stream = process.stdin) => {
     };
 };
 
-const onKeyPress = (isStop) => (str, key) => {
+const onKeyPress = (isStop) => function __keypress(str, key) {
     const {ctrl, name} = key;
     
     if (ctrl && name === 'c')
