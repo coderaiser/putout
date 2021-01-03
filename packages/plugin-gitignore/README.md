@@ -19,7 +19,8 @@ npm i @putout/plugin-gitignore -D
 ```json
 {
     "rules": {
-        "gitignore/add-putoutcache": "on"
+        "gitignore/add-putoutcache": "on",
+        "gitignore/add-vim-files": "on"
     }
 }
 ```
@@ -31,6 +32,15 @@ Adds `.putoutcache` into .gitignore.
 ```diff
 node_modules
 +.putoutcache
+```
+
+## Add Vim Files
+
+Adds `*.swp` into .gitignore.
+
+```diff
++*.swp
+node_modules
 ```
 
 ## License

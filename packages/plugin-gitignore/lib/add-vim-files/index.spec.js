@@ -1,11 +1,11 @@
 'use strict';
 
 const test = require('@putout/test')(__dirname, {
-    gitignore: require('.'),
+    'gitignore/add-vim-files': require('.'),
 });
 
-test('plugin-gitignore: report', (t) => {
-    t.report('gitignore', '.putoutcache should be added to .gitignore');
+test('plugin-gitignore: add-vim-files: report', (t) => {
+    t.report('gitignore', 'vim files should be added to .gitignore');
 });
 
 test('plugin-gitignore: transform', (t) => {

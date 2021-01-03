@@ -6,5 +6,6 @@ const getRule = (a) => ({
 
 module.exports.rules = {
     ...getRule('add-putoutcache'),
+    ...getRule('add-vim-files'),
 };
 
