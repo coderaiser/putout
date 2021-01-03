@@ -4,8 +4,9 @@ const {run} = require('madrun');
 
 const env = {
     FORCE_COLOR: 3,
-    SUPERTAPE_PROGRESS_BAR:1,
+    SUPERTAPE_PROGRESS_BAR: 1,
     CI: 1,
+    KEYPRESS: 1,
 };
 
 module.exports = {
