@@ -1,12 +1,12 @@
 # @putout/plugin-convert-for-in-to-for-of [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-convert-for-in-to-for-of.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-convert-for-in-to-for-of "npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-for-in-to-for-of
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-for-in-to-for-of
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-for-in-to-for-of.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-convert-for-in-to-for-of "npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-for-in-to-for-of
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-for-in-to-for-of
 
 `putout` plugin adds ability to convert `for` to `for-of` loop.
+
 ## Install
 
 ```
@@ -21,7 +21,7 @@ Rule `convert-for-in-to-for-of` is enabled by default, to disable add to `.putou
 {
     "rules": {
         "convert-for-in-to-for-of/positive": "off",
-        "convert-for-in-to-for-of/negative":"off"
+        "convert-for-in-to-for-of/negative": "off"
     }
 }
 ```
@@ -54,4 +54,3 @@ for (const item of Object.keys(object)) {
 ## License
 
 MIT
-

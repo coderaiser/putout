@@ -67,7 +67,7 @@ test('putout: runner: replace: recursive overflow', (t) => {
     const convert = {
         report: () => '',
         replace: () => ({
-            test : 'test.only',
+            test: 'test.only',
         }),
     };
     
