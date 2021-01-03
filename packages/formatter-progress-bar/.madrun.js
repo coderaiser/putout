@@ -6,7 +6,7 @@ module.exports = {
     'test:base': () => `tape 'test/*.js'`,
     
     'test': async () => await run('test:base', '', {
-        PUTOUT_NO_PROGRESS_BAR: 1,
+        PUTOUT_PROGRESS_BAR: 0,
     }),
     
     'watch:test': async () => `nodemon -w lib -w test -x ${await run('test')}`,
@@ -17,7 +17,7 @@ module.exports = {
     'coverage:base': async () => `nyc ${await run('test:base')}`,
     
     'coverage': async () => await run('coverage:base', '', {
-        PUTOUT_NO_PROGRESS_BAR: 1,
+        PUTOUT_PROGRESS_BAR: 0,
     }),
     
     'report': () => `nyc report --reporter=text-lcov | coveralls || true`,

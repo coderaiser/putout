@@ -9,7 +9,7 @@ const dirs = getDirs(workspaces);
 const env = {
     CI: 1,
     FORCE_COLOR: 3,
-    PUTOUT_NO_PROGRESS_BAR: 1,
+    PUTOUT_PROGRESS_BAR: 0,
     SUPERTAPE_PROGRESS_BAR: 1,
 };
 

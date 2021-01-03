@@ -39,29 +39,29 @@ test('formatter: progress bar: color', (t) => {
     t.end();
 });
 
-test('formatter: progress bar: get stream: no progress bar', (t) => {
-    const {PUTOUT_NO_PROGRESS_BAR} = process.env;
+test('formatter: progress bar: get stream: disable progress bar', (t) => {
+    const {PUTOUT_PROGRESS_BAR} = process.env;
     
-    process.env.PUTOUT_NO_PROGRESS_BAR = 1;
+    process.env.PUTOUT_PROGRESS_BAR = '0';
     const {_getStream} = reRequire('..');
     const stream = _getStream();
     const {stderr} = process;
     
-    process.env.PUTOUT_NO_PROGRESS_BAR = PUTOUT_NO_PROGRESS_BAR;
+    process.env.PUTOUT_PROGRESS_BAR = PUTOUT_PROGRESS_BAR;
     
     t.notEqual(stream, stderr, 'should equal to stderr');
     t.end();
 });
 
 test('formatter: progress bar: get stream', (t) => {
-    const {PUTOUT_NO_PROGRESS_BAR} = process.env;
-    delete process.env.PUTOUT_NO_PROGRESS_BAR;
+    const {PUTOUT_PROGRESS_BAR} = process.env;
+    delete process.env.PUTOUT_PROGRESS_BAR;
     
     const {_getStream} = reRequire('..');
     const stream = _getStream();
     
     const {stderr} = process;
-    process.env.PUTOUT_NO_PROGRESS_BAR = PUTOUT_NO_PROGRESS_BAR;
+    process.env.PUTOUT_PROGRESS_BAR = PUTOUT_PROGRESS_BAR;
     
     t.ok(stream === stderr, 'should equal to stderr');
     t.end();

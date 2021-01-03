@@ -33,6 +33,10 @@ Formatters takes options, that can be set in `.putout.json` with:
 }
 ```
 
+## Env variables
+
+`PUTOUT_PROGRESS_BAR` - could be used to disable or enable `progress bar` using `0` and `1`.
+
 ## License
 
 MIT
