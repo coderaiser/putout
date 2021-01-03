@@ -1,3 +1,18 @@
+2021.01.03, v13.1.2
+
+fix:
+- (putout) handle promise rejections: rm duplicates
+- (@putotu/formatter-progress-bar) PUTOUT_NO_PROGRESS_BAR -> PUTOUT_PROGRESS_BAR
+
+feature:
+- (@putout/eslint-config) add key-spacing
+- (@putout/plugin-tape) add convert-does-not-throw-to-try-catch
+- (@putout/plugin-remove-useless-arguments) argument: report: improve message when find function
+- (@putout/keypress) add ability to force enable with KEYPRESS env variable
+- (@putout/plugin-gitignore) add-vim-files
+- (@putout/keypress) add ability to set listener once
+
+
 2020.12.29, v13.1.1
 
 feature:
