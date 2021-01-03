@@ -1,0 +1,6 @@
+const tryCatch = require('try-catch');
+test('some test', (t) => {
+    const [error] = tryCatch(copymitter);
+    t.notOk(error, 'should not throw when no args');
+    t.end();
+});

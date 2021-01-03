@@ -24,6 +24,11 @@ test('plugin-test: transform: tape: throws', (t) => {
     t.end();
 });
 
+test('plugin-test: transform: tape: does-not-throw', (t) => {
+    t.transform('does-not-throw');
+    t.end();
+});
+
 test('plugin-test: transform: tape: expand try-catch arguments', (t) => {
     t.transform('try-catch');
     t.end();
