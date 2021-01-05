@@ -31,17 +31,18 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => {
     return {
-        'module.exports = __object'(path) {
-            const rightPath = path.get('right');
-            
-            const lint = getProperty(rightPath, 'lint');
-            const freshLint = getProperty(rightPath, 'fresh:lint');
-            
-            if (!lint || freshLint)
-                return;
-            
-            push(lint);
-        },
+        'export default  __object': pushLint('declaration', push),
+        'module.exports = __object': pushLint('right', push),
     };
 };
 
+const pushLint = (selector, push) => (path) => {
+    const currentPath = path.get(selector);
+    const lint = getProperty(currentPath, 'lint');
+    const freshLint = getProperty(currentPath, 'fresh:lint');
+    
+    if (!lint || freshLint)
+        return;
+    
+    push(lint);
+};

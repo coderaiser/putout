@@ -9,8 +9,13 @@ test('madrun: add fresh:lint: report', (t) => {
     t.end();
 });
 
-test('madrun: add fresh:lint: transform: string', (t) => {
+test('madrun: add fresh:lint: transform: lint', (t) => {
     t.transform('lint');
+    t.end();
+});
+
+test('madrun: add fresh:lint: transform: lint-esm', (t) => {
+    t.transform('lint-esm');
     t.end();
 });
 
