@@ -202,7 +202,8 @@
         "browserlist",
         "regexp",
         "travis",
-        "tape"
+        "tape",
+        "nodejs"
     ]
 }
 

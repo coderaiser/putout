@@ -1,10 +1,10 @@
 {
-  "name": "@putout/plugin-react-hooks",
-  "version": "3.0.2",
+  "name": "@putout/plugin-nodejs",
+  "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability convert class components to hooks",
+  "description": "putout plugin adds ability to transform code to new API of Node.js",
   "homepage": "http://github.com/coderaiser/putout",
-  "main": "lib/react-hooks.js",
+  "main": "lib/index.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -27,25 +27,27 @@
     "putout",
     "putout-plugin",
     "plugin",
-    "react",
-    "react-hooks"
+    "nodejs"
   ],
-  "peerDependencies": {
-    "putout": ">=7.17"
-  },
   "devDependencies": {
-    "@putout/plugin-remove-unused-variables": "^2.3.0",
+    "@putout/plugin-remove-unused-expressions": "^1.2.1",
+    "@putout/plugin-strict-mode": "^1.2.1",
     "@putout/test": "^3.0.0",
     "coveralls": "^3.0.0",
-    "eslint": "^7.0.0",
+    "eslint": "^7.6.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^6.0.0",
+    "lerna": "^3.8.5",
     "madrun": "^8.0.1",
+    "nodemon": "^2.0.1",
     "nyc": "^15.0.1"
+  },
+  "peerDependencies": {
+    "putout": ">=13"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=14"
   },
   "publishConfig": {
     "access": "public"

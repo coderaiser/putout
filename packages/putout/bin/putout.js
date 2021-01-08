@@ -7,7 +7,7 @@ require('v8-compile-cache');
 const {
     readFile,
     writeFile,
-} = require('fs').promises;
+} = require('fs/promises');
 
 const cli = require('../lib/cli');
 

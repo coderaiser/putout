@@ -425,6 +425,15 @@ interface A {
 
 </details>
 
+<details><summary>convert <code>fs.promises</code> to <code>fs/promises</code> for <a href=https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api>node.js</a></summary>
+
+```diff
+-const {readFile} = require('fs').promises;
++const {readFile} = require('fs/promises');
+```
+
+</details>
+
 <details><summary>remove useless <code>types</code> for typescript</summary>
 
 ```diff
@@ -1102,6 +1111,7 @@ Next packages not bundled with `putout` but can be installed separately.
 | [`@putout/plugin-browserlist`](/packages/plugin-browserlist) | [![npm](https://img.shields.io/npm/v/@putout/plugin-browserlist.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-browserlist) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-browserlist)](https://david-dm.org/coderaiser/putout?path=packages/plugin-browserlist) |
 | [`@putout/plugin-travis`](/packages/plugin-travis) | [![npm](https://img.shields.io/npm/v/@putout/plugin-travis.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-travis) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-travis)](https://david-dm.org/coderaiser/putout?path=packages/plugin-travis) |
 | [`@putout/plugin-regexp`](/packages/plugin-regexp) | [![npm](https://img.shields.io/npm/v/@putout/plugin-regexp.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-regexp) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-regexp)](https://david-dm.org/coderaiser/putout?path=packages/plugin-regexp) |
+| [`@putout/plugin-nodejs`](/packages/plugin-nodejs) | [![npm](https://img.shields.io/npm/v/@putout/plugin-nodejs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-nodejs) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-nodejs)](https://david-dm.org/coderaiser/putout?path=packages/plugin-nodejs) |
 
 ## Formatters
 

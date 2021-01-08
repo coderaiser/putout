@@ -1,7 +1,7 @@
 'use strict';
 
 const {join} = require('path');
-const fs = require('fs').promises;
+const fs = require('fs/promises');
 
 const test = require('supertape');
 const mockRequire = require('mock-require');
