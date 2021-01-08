@@ -399,7 +399,7 @@ test('putout: engine-processor: yaml: duplicate', async (t) => {
             column: 1,
             line: 4,
         },
-        message: 'Duplicated mapping key only',
+        message: 'Duplicated mapping key (4:3)',
         rule: 'duplicated-mapping-key (yaml)',
     }];
     

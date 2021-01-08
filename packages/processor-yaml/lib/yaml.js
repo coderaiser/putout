@@ -5,8 +5,8 @@ const jsonProcessor = require('@putout/processor-json');
 const tryCatch = require('try-catch');
 const fullstore = require('fullstore');
 
-const {stringify, parse} = JSON;
 const bigFirst = (a) => a[0].toUpperCase() + a.slice(1);
+const {stringify, parse} = JSON;
 const store = fullstore('');
 
 module.exports.files = [
@@ -63,12 +63,7 @@ function parsePlaces(error) {
         column: 1,
     };
     
-    const message = error.message
-        .replace(/\sat.*/, '')
-        .replace(/\n/g, '')
-        .replace(/\s+/g, ' ')
-        .replace(': ^', '');
-    
+    const [message] = error.message.split('\n');
     const place = {
         message: bigFirst(message),
         position,
