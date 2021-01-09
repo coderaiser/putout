@@ -34,6 +34,8 @@
     "putout": ">=7.17"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
     "@putout/plugin-remove-unused-variables": "^2.3.0",
     "@putout/test": "^3.0.0",
     "coveralls": "^3.0.0",
