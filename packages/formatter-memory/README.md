@@ -33,6 +33,12 @@ Formatters takes options, that can be set in `.putout.json` with:
 }
 ```
 
+## Env
+
+- `PUTOUT_PROGRESS_BAR`:
+  - `0` - disable
+  - `1` - enable
+
 ## License
 
 MIT

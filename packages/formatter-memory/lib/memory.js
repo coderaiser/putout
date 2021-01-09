@@ -13,7 +13,9 @@ const {red} = chalk;
 const formatErrorsCount = (a) => a ? red(a) : OK;
 
 const {stderr} = process;
-const {PUTOUT_NO_PROGRESS_BAR} = process.env;
+const {
+    PUTOUT_PROGRESS_BAR = '1',
+} = process.env;
 
 module.exports = ({name, options, places, index, count, filesCount, errorsCount}) => {
     const {
@@ -64,7 +66,7 @@ const getColorFn = (color) => {
     return chalk[color];
 };
 
-const getStream = () => PUTOUT_NO_PROGRESS_BAR ? new Writable() : stderr;
+const getStream = () => PUTOUT_PROGRESS_BAR !== '1' ? new Writable() : stderr;
 module.exports._getStream = getStream;
 
 const createProgress = once(({count, color, rss}) => {
