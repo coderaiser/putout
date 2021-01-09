@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('@putout/test')(__dirname, {
-    'convert-fs-to-promises': require('..'),
+    'convert-promisify-to-fs-promises': require('.'),
 });
 
 test('plugin-convert-fs-to-promises: report', (t) => {

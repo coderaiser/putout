@@ -9,3 +9,8 @@ test('cloudcmd: convert-fs-promises: transform', (t) => {
     t.end();
 });
 
+test('cloudcmd: convert-promisify-to-fs-promises: transform', (t) => {
+    t.transform('promisify');
+    t.end();
+});
+

@@ -19,7 +19,8 @@ npm i putout @putout/plugin-nodejs -D
 ```json
 {
     "rules": {
-        "nodejs/convert-fs-promises": "on"
+        "nodejs/convert-fs-promises": "on",
+        "nodejs/convert-promisify-to-fs-promises": "on"
     }
 }
 ```
@@ -36,6 +37,21 @@ import {readFile} from 'fs/promises';
 
 ```js
 const {readFile} = require('fs').promises;
+```
+
+## ✅ Correct code Example
+
+```js
+const {readFile} = require('fs/promises');
+```
+
+# convert-promisify-to-fs-promises
+
+## ❌ Incorrect code example
+
+```js
+const fs = require('fs');
+const readFile = promisify(fs.readFile);
 ```
 
 ## ✅ Correct code Example

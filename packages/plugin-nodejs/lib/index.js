@@ -4,5 +4,8 @@ const getRule = (a) => ({
     [a]: require(`./${a}`),
 });
 
-module.exports.rules = getRule('convert-fs-promises');
+module.exports.rules = {
+    ...getRule('convert-fs-promises'),
+    ...getRule('convert-promisify-to-fs-promises'),
+};
 

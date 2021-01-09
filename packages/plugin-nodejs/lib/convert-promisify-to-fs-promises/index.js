@@ -24,9 +24,9 @@ module.exports.fix = ({path, promisified}) => {
     }
     
     const {init} = path.node;
+    init.arguments[0].value = 'fs/promises';
     
     replaceWith(path.get('id'), t.ObjectPattern(props));
-    replaceWith(path.get('init'), t.MemberExpression(init, t.Identifier('promises')));
 };
 
 module.exports.find = (ast, {push, traverse}) => {
