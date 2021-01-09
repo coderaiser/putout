@@ -7,7 +7,7 @@
     "test:fail": "madrun test:fail",
     "test:slow": "madrun test:slow",
     "coverage:base": "madrun coverage:base",
-    "coverage:long": "madrun coverage:long",
+    "coverage:ci": "madrun coverage:ci",
     "coverage": "madrun coverage",
     "coverage:slow": "madrun coverage:slow",
     "lint:slow": "madrun lint:slow",

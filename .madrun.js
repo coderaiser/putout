@@ -6,10 +6,14 @@ const {workspaces} = require('./package');
 const cutStar = (a) => a.replace('/*', '');
 const dirs = getDirs(workspaces);
 
-const env = {
-    CI: 1,
-    FORCE_COLOR: 3,
+const baseEnv = {
     PUTOUT_PROGRESS_BAR: 0,
+    FORCE_COLOR: 3,
+};
+
+const env = {
+    ...baseEnv,
+    CI: 1,
     SUPERTAPE_PROGRESS_BAR: 1,
     KEYPRESS: 1,
 };
@@ -20,7 +24,7 @@ module.exports = {
     'test:fail': async () => `${await run('test')} -f fail`,
     'test:slow': () => 'FORCE_COLOR=3 lerna run test',
     'coverage:base': async () => `nyc`,
-    'coverage:long': async () => await run('coverage:base', await run('test:base'), env),
+    'coverage:ci': async () => await run('coverage:base', await run('test:base'), baseEnv),
     'coverage': async () => await run(
         'coverage:base',
         `--skip-full ${await run('test:base')}`,
