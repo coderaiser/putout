@@ -24,7 +24,8 @@ npm i @putout/plugin-tape -D
         "tape/convert-does-not-throw-to-try-catch": "on",
         "tape/convert-called-with-to-called-with-no-args": "on",
         "tape/expand-try-catch-arguments": "on",
-        "tape/apply-stub-operator": "on"
+        "tape/apply-stub-operator": "on",
+        "tape/convert-emitter-to-promise": "on"
     }
 }
 ```
@@ -133,6 +134,32 @@ test('some message', (t) => {
     fn();
     
     t.calledWithNoArgs(fn);
+    t.end();
+});
+```
+
+## convert-emitter-to-promise
+
+### ❌ Incorrect code example
+
+```js
+test('copymitter', (t) => {
+    const cp = copymitter(from, to, ['1']);
+    
+    cp.on('end', (t) => {
+        t.end();
+    });
+});
+```
+
+### ✅ Correct code Example
+
+```js
+const {once} = require('events');
+test('copymitter', async (t) => {
+    const cp = copymitter(from, to, ['1']);
+    
+    await once(cp, 'end');
     t.end();
 });
 ```

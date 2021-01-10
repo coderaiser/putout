@@ -63,11 +63,12 @@ function replace({__a}, path) {
     
     const n = body.length;
     for (let i = 0; i < n; i++) {
+        let nodes = [];
+        
         const current = body[i];
         const {
             expression = current,
         } = current;
-        let nodes = [];
         
         if (compare(expression, ON_ERROR))
             nodes = getErrorNodes(expression);

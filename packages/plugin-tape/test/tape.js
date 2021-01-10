@@ -44,3 +44,8 @@ test('plugin-test: transform: tape: convert calledWith to calledWithNoArgs', (t)
     t.end();
 });
 
+test('plugin-test: transform: tape: convert-emitter-to-promise', (t) => {
+    t.transform('emitter');
+    t.end();
+});
+
