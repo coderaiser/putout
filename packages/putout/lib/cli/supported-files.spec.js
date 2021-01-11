@@ -77,3 +77,25 @@ test('putout: supported files: add: multiple', (t) => {
     t.end();
 });
 
+test('putout: supported files: getSupportedGlob: path with slash', (t) => {
+    const {
+        add,
+        getSupportedGlob,
+    } = reRequire('./supported-files');
+    
+    const expected = 'get-files/**/{*.js,*.mjs,*.cjs,*.jsx,*.ts,*.tsx}';
+    
+    add([
+        '*.js',
+        '*.mjs',
+        '*.cjs',
+        '*.jsx',
+        '*.ts',
+        '*.tsx',
+    ]);
+    
+    const result = getSupportedGlob('get-files/');
+    
+    t.equal(result, expected);
+    t.end();
+});

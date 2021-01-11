@@ -1,5 +1,6 @@
 'use strict';
 
+const {normalize} = require('path');
 const picomatch = require('picomatch');
 
 let patterns = [];
@@ -24,6 +25,6 @@ module.exports.isSupported = (name) => {
     return false;
 };
 
-module.exports.getSupportedGlob = (file) => `${file}/**/{${patterns.join(',')}}`;
+module.exports.getSupportedGlob = (file) => normalize(`${file}/**/{${patterns.join(',')}}`);
 
 module.exports.getPatterns = () => patterns;
