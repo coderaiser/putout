@@ -74,12 +74,14 @@ test('putout: cache-files: enabled: setInfo', async (t) => {
     
     const createFromFile = stub().returns({
         getFileDescriptor,
+        reconcile: stub(),
     });
     
     const fileEntryCache = {
         createFromFile,
     };
     
+    mockRequire('./is-node-modules-changed', stub());
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
@@ -113,12 +115,14 @@ test('putout: cache-files: setInfo: definition not found', async (t) => {
     
     const createFromFile = stub().returns({
         getFileDescriptor,
+        reconcile: stub(),
     });
     
     const fileEntryCache = {
         createFromFile,
     };
     
+    mockRequire('./is-node-modules-changed', stub());
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
@@ -152,12 +156,14 @@ test('putout: cache-files: setInfo: eslint parser error', async (t) => {
     
     const createFromFile = stub().returns({
         getFileDescriptor,
+        reconcile: stub(),
     });
     
     const fileEntryCache = {
         createFromFile,
     };
     
+    mockRequire('./is-node-modules-changed', stub());
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
@@ -192,12 +198,14 @@ test('putout: cache-files: enabled: setInfo: not set', async (t) => {
     
     const createFromFile = stub().returns({
         getFileDescriptor,
+        reconcile: stub(),
     });
     
     const fileEntryCache = {
         createFromFile,
     };
     
+    mockRequire('./is-node-modules-changed', stub());
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
@@ -233,12 +241,14 @@ test('putout: cache-files: enabled: canUseCache: changed', async (t) => {
     
     const createFromFile = stub().returns({
         getFileDescriptor,
+        reconcile: stub(),
     });
     
     const fileEntryCache = {
         createFromFile,
     };
     
+    mockRequire('./is-node-modules-changed', stub());
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
@@ -277,12 +287,14 @@ test('putout: cache-files: enabled: canUseCache: options changed', async (t) => 
     
     const createFromFile = stub().returns({
         getFileDescriptor,
+        reconcile: stub(),
     });
     
     const fileEntryCache = {
         createFromFile,
     };
     
+    mockRequire('./is-node-modules-changed', stub());
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
@@ -321,12 +333,14 @@ test('putout: cache-files: enabled: canUseCache: not fix', async (t) => {
     
     const createFromFile = stub().returns({
         getFileDescriptor,
+        reconcile: stub(),
     });
     
     const fileEntryCache = {
         createFromFile,
     };
     
+    mockRequire('./is-node-modules-changed', stub());
     mockRequire('file-entry-cache', fileEntryCache);
     mockRequire('imurmurhash', stub().returns({
         result: stub().returns('1cnbekx'),
@@ -369,12 +383,14 @@ test('putout: cache-files: enabled: canUseCache: fix, no places', async (t) => {
     
     const createFromFile = stub().returns({
         getFileDescriptor,
+        reconcile: stub(),
     });
     
     const fileEntryCache = {
         createFromFile,
     };
     
+    mockRequire('./is-node-modules-changed', stub());
     mockRequire('file-entry-cache', fileEntryCache);
     mockRequire('imurmurhash', stub().returns({
         result: stub().returns('1cnbekx'),
@@ -417,12 +433,14 @@ test('putout: cache-files: enabled: getOptionsHash: coverage', async (t) => {
     
     const createFromFile = stub().returns({
         getFileDescriptor,
+        reconcile: stub(),
     });
     
     const fileEntryCache = {
         createFromFile,
     };
     
+    mockRequire('./is-node-modules-changed', stub());
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
@@ -466,14 +484,17 @@ test('putout: cache-files: enabled: getPlaces', async (t) => {
         changed,
     });
     
+    const reconcile = stub();
     const createFromFile = stub().returns({
         getFileDescriptor,
+        reconcile,
     });
     
     const fileEntryCache = {
         createFromFile,
     };
     
+    mockRequire('./is-node-modules-changed', stub().returns(false));
     mockRequire('file-entry-cache', fileEntryCache);
     const cacheFiles = reRequire('.');
     
@@ -486,6 +507,46 @@ test('putout: cache-files: enabled: getPlaces', async (t) => {
     stopAll();
     
     t.equal(result, places, 'should places equal');
+    t.end();
+});
+
+test('putout: cache-files: enabled: getPlaces', async (t) => {
+    const places = [];
+    const meta = {
+        optionsHash: '1cnbekx',
+        places,
+    };
+    
+    const changed = false;
+    
+    const getFileDescriptor = stub().returns({
+        meta,
+        changed,
+    });
+    
+    const reconcile = stub();
+    const createFromFile = stub().returns({
+        getFileDescriptor,
+        reconcile,
+    });
+    
+    const fileEntryCache = {
+        createFromFile,
+    };
+    
+    mockRequire('./is-node-modules-changed', stub().returns(true));
+    mockRequire('file-entry-cache', fileEntryCache);
+    const cacheFiles = reRequire('.');
+    
+    const fileCache = await cacheFiles({
+        cache: true,
+        files: [],
+    });
+    
+    const result = fileCache.getPlaces();
+    stopAll();
+    
+    t.notEqual(result, places, 'should places equal');
     t.end();
 });
 
