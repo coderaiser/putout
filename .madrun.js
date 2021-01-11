@@ -1,6 +1,6 @@
 'use strict';
 
-const {run} = require('madrun');
+const {run, cutEnv} = require('madrun');
 const {workspaces} = require('./package');
 
 const cutStar = (a) => a.replace('/*', '');
@@ -19,17 +19,11 @@ const env = {
 };
 
 module.exports = {
-    'test:base': () => `tape '${dirs}/*/test/*.js' '${dirs}/*/lib/**/*.spec.js'`,
-    'test': async () => await run('test:base', '', env),
-    'test:fail': async () => `${await run('test')} -f fail`,
+    'test': () => [env, `tape '${dirs}/*/test/*.js' '${dirs}/*/lib/**/*.spec.js'`],
+    'test:fail': async () => await run('test', '-f fail'),
     'test:slow': () => 'FORCE_COLOR=3 lerna run test',
-    'coverage:base': async () => `nyc`,
-    'coverage:ci': async () => await run('coverage:base', await run('test:base'), baseEnv),
-    'coverage': async () => await run(
-        'coverage:base',
-        `--skip-full ${await run('test:base')}`,
-        env,
-    ),
+    'coverage:ci': async () => [baseEnv, `nyc ${await cutEnv('test')}`],
+    'coverage': async () => [env, `nyc --skip-full ${await cutEnv('test')}`],
     'coverage:slow': () => 'FORCE_COLOR=3 lerna run coverage',
     'lint:slow': () => 'FORCE_COLOR=3 lerna run --no-bail lint',
     'lint:dot': () => 'putout .madrun.js',

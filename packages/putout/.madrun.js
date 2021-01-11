@@ -1,6 +1,6 @@
 'use strict';
 
-const {run} = require('madrun');
+const {run, cutEnv} = require('madrun');
 
 const env = {
     FORCE_COLOR: 3,
@@ -11,17 +11,15 @@ const env = {
 
 module.exports = {
     'wisdom': () => run(['lint', 'coverage']),
-    'test:raw': () => `tape 'test/*.js' 'lib/**/*.spec.js'`,
-    'test': async () => await run('test:raw', '', env),
-    'watch:test': async () => `nodemon -w bin -w lib -w test -x "${await run('test')}"`,
+    'test': () => [env, `tape 'test/*.js' 'lib/**/*.spec.js'`],
+    'watch:test': async () => [env, `nodemon -w bin -w lib -w test -x "${await cutEnv('test')}"`],
     'lint': () => `bin/putout.js .`,
     'fresh:lint': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),
     'fix:lint:fresh': () => run('fix:lint', '--fresh'),
     'lint:progress': () => run('lint', '--fix'),
     'lint:fresh': () => run('lint', '--fresh'),
-    'coverage:raw': async () => `nyc ${await run('test:raw')}`,
-    'coverage': async () => await run('coverage:raw', '', env),
+    'coverage': async () => [env, `nyc ${await run('test')}`],
     'report': () => `nyc report --reporter=text-lcov | coveralls`,
 };
 
