@@ -11,8 +11,8 @@ const findUp = require('find-up');
 const {version} = require('../../../package.json');
 const isNoDefinition = require('./is-no-definition');
 const isParserError = require('./is-parser-error');
-const isNodeModulesChanged = require('./is-node-modules-changed');
 const containEslintPlugin = require('../eslint/contain-eslint-plugin');
+const isChanged = require('./is-changed');
 
 const optionsHashCache = new WeakMap();
 const nodeVersion = process.version;
@@ -48,7 +48,7 @@ module.exports = async ({cache, fresh}) => {
         canUseCache: canUseCache(fileCache),
     });
     
-    if (await isNodeModulesChanged(fileCache))
+    if (await isChanged(fileCache))
         return defaultFileCache;
     
     return fileCache;
