@@ -1,6 +1,6 @@
 'use strict';
 
-const fs = require('fs');
+const fs = require('fs/promises');
 
 const test = require('supertape');
 const mockRequire = require('mock-require');
@@ -21,10 +21,12 @@ test('putout: cache-files: disabled: fileCache', async (t) => {
 });
 
 test('putout: cache-files: fileCache: fresh', async (t) => {
-    const {unlinkSync} = fs;
+    const unlink = stub();
     
-    const _unlinkSync = stub();
-    fs.unlinkSync = _unlinkSync;
+    mockRequire('fs/promises', {
+        ...fs,
+        unlink,
+    });
     
     mockRequire('find-up', stub().returns(_CACHE_FILE));
     const cacheFiles = reRequire('.');
@@ -33,19 +35,19 @@ test('putout: cache-files: fileCache: fresh', async (t) => {
         fresh: true,
     });
     
-    fs.unlinkSync = unlinkSync;
-    
     stopAll();
     
-    t.calledWith(_unlinkSync, [_CACHE_FILE]);
+    t.calledWith(unlink, [_CACHE_FILE]);
     t.end();
 });
 
 test(`putout: cache-files: find up can't find`, async (t) => {
-    const {unlinkSync} = fs;
+    const unlink = stub();
     
-    const _unlinkSync = stub();
-    fs.unlinkSync = _unlinkSync;
+    mockRequire('fs/promises', {
+        ...fs,
+        unlink,
+    });
     
     mockRequire('find-up', stub());
     const cacheFiles = reRequire('.');
@@ -54,10 +56,9 @@ test(`putout: cache-files: find up can't find`, async (t) => {
         fresh: true,
     });
     
-    fs.unlinkSync = unlinkSync;
     stopAll();
     
-    t.calledWith(_unlinkSync, [_CACHE_FILE]);
+    t.calledWith(unlink, [_CACHE_FILE]);
     t.end();
 });
 

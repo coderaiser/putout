@@ -1,11 +1,11 @@
 'use strict';
 
-const {unlinkSync} = require('fs');
+const {unlink} = require('fs/promises');
 
 const fileEntryCache = require('file-entry-cache');
 const murmur = require('imurmurhash');
 const stringify = require('json-stringify-deterministic');
-const tryCatch = require('try-catch');
+const tryToCatch = require('try-catch');
 const findUp = require('find-up');
 
 const {version} = require('../../../package.json');
@@ -33,7 +33,7 @@ module.exports = async ({cache, fresh}) => {
     const name = await findUp(CACHE_FILE) || CACHE_FILE;
     
     if (fresh)
-        tryCatch(unlinkSync, name);
+        await tryToCatch(unlink, name);
     
     if (!cache)
         return defaultFileCache;
