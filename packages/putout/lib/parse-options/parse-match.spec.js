@@ -206,3 +206,25 @@ test('putout: parse-match: extension: long path', (t) => {
     t.end();
 });
 
+test('putout: parse-match: similar matches', (t) => {
+    const match = {
+        'packages/plugin-*': {
+            putout: 'on',
+        },
+        'packages/plugin-putout/README.md': {
+            putout: 'off',
+        },
+    };
+    
+    const expected = {
+        rules: {
+            putout: 'off',
+        },
+    };
+    
+    const result = parseMatch('packages/plugin-putout/README.md', match);
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+

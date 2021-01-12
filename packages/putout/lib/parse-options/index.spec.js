@@ -426,15 +426,14 @@ test('putout: parseOptions: read rules: error', (t) => {
     t.end();
 });
 
-test('putout: parseOptions: readOptions: error', (t) => {
+test('putout: parseOptions: readOptions: do not returns dir, load rules can not read', (t) => {
     const empty = {};
     
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
-    const sync = stub();
+    const readOptions = stub().returns(['', empty]);
     
     mockRequire('../../putout.json', empty);
-    mockRequire('find-up', {sync});
     
     const {readdirSync} = fs;
     fs.readdirSync = () => {
@@ -459,6 +458,7 @@ test('putout: parseOptions: readOptions: error', (t) => {
         options,
         readHomeOptions,
         readCodeMods,
+        readOptions,
         rulesdir: '.',
     });
     
@@ -486,6 +486,7 @@ test('putout: parseOptions: readOptions: .putout.json', (t) => {
     
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
+    const readOptions = stub().returns(['../..', {}]);
     const sync = (a) => {
         if (a === '.putout.json')
             return '../../putout.json';
@@ -519,6 +520,7 @@ test('putout: parseOptions: readOptions: .putout.json', (t) => {
         options,
         readHomeOptions,
         readCodeMods,
+        readOptions,
         rulesdir: '.',
     });
     
@@ -541,21 +543,14 @@ test('putout: parseOptions: readOptions: .putout.json', (t) => {
     t.end();
 });
 
-test('putout: parseOptions: readOptions: package.json', (t) => {
+test('putout: parseOptions: can not readd dir', (t) => {
     const empty = {};
     
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
-    const sync = (a) => {
-        if (a === 'package.json')
-            return './package.json';
-        
-        return null;
-    };
+    const readOptions = stub().returns(['.', empty]);
     
     mockRequire('../../putout.json', empty);
-    mockRequire('./package.json', empty);
-    mockRequire('find-up', {sync});
     
     const {readdirSync} = fs;
     fs.readdirSync = () => {
@@ -580,6 +575,7 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
         options,
         readHomeOptions,
         readCodeMods,
+        readOptions,
         rulesdir: '.',
     });
     
@@ -671,10 +667,12 @@ test('putout: parseOptions: readHomeOptions', (t) => {
 test('putout: parseOptions: no args', (t) => {
     const empty = {};
     const {homedir} = os;
+    const read = stub().returns(['', {}]);
     const sync = stub();
     
     os.homedir = stub().returns('/');
     
+    mockRequire('./recursive-read', read);
     mockRequire('./package.json', empty);
     mockRequire('../../putout.json', empty);
     mockRequire('find-up', {
@@ -690,6 +688,55 @@ test('putout: parseOptions: no args', (t) => {
     };
     
     os.homedir = homedir;
+    
+    stopAll();
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: parseOptions: readOptions: package.json', (t) => {
+    const empty = {};
+    
+    const readHomeOptions = stub().returns(empty);
+    const readCodeMods = stub().returns(empty);
+    const read = stub().returns(['', {}]);
+    
+    mockRequire('../../putout.json', empty);
+    mockRequire('./recursive-read', read);
+    
+    const parseOptions = reRequire('.');
+    
+    const options = {
+        rules: {
+            'remove-only': 'off',
+        },
+        match: {
+            '*.spec.js': {
+                'remove-only': 'on',
+            },
+        },
+    };
+    
+    const result = parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readHomeOptions,
+        readCodeMods,
+    });
+    
+    delete result.dir;
+    
+    const expected = {
+        match: {
+            '*.spec.js': {
+                'remove-only': 'on',
+            },
+        },
+        rules: {
+            'remove-only': 'on',
+        },
+    };
     
     stopAll();
     

@@ -5,7 +5,6 @@ const {readdirSync} = require('fs');
 const {
     dirname,
     join,
-    relative,
 } = require('path');
 
 const once = require('once');
@@ -15,9 +14,9 @@ const findUp = require('find-up');
 const parseMatch = require('./parse-match');
 const defaultOptions = require('../../putout.json');
 const merge = require('../merge');
+const recursiveRead = require('./recursive-read');
 
 const home = homedir();
-const cwd = process.cwd();
 
 module.exports = (info = {}) => {
     const {
@@ -29,29 +28,33 @@ module.exports = (info = {}) => {
         readCodeMods = _readCodeMods,
     } = info;
     
-    const [dir, customOptions] = readOptions(dirname(name));
+    const [dir, customOptions] = readOptions(name);
     const homeOptions = readHomeOptions();
-    const relativeName = relative(cwd, name);
+    const defaultMatch = parseMatch(name, defaultOptions.match);
     
-    const defaultMatch = parseMatch(relativeName, defaultOptions.match);
-    const mergedOptions = merge(
+    const optionsList = [
         defaultOptions,
         homeOptions,
         defaultMatch,
         customOptions,
         options,
+    ];
+    
+    const mergedOptions = merge(...optionsList);
+    const mergedDefaultsMatch = merge(
+        mergedOptions,
+        parseMatch(name, mergedOptions.match),
+        options,
     );
     
-    const mergedMatch = parseMatch(relativeName, mergedOptions.match);
-    const customMatch = parseMatch(relativeName, options.match);
+    const mergedMatch = merge(customOptions, options, parseMatch(name, options.match));
     
     const resultOptions = merge(
         readCodeMods(),
         readRules(dir, rulesdir),
         mergedOptions,
+        mergedDefaultsMatch,
         mergedMatch,
-        options,
-        customMatch,
     );
     
     return {
@@ -60,17 +63,13 @@ module.exports = (info = {}) => {
     };
 };
 
-function _readOptions(cwd) {
-    const putoutPath = findUp.sync('.putout.json', {
-        cwd,
-    });
+function _readOptions(name) {
+    const [dir, options] = recursiveRead(name, '.putout.json');
     
-    if (putoutPath)
-        return [
-            dirname(putoutPath),
-            require(putoutPath),
-        ];
+    if (dir)
+        return [dir, options];
     
+    const cwd = dirname(name);
     const packagePath = findUp.sync('package.json', {
         cwd,
     });
@@ -79,6 +78,7 @@ function _readOptions(cwd) {
         return [
             dirname(packagePath),
             require(packagePath).putout || {},
+            {},
         ];
     
     return [

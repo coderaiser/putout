@@ -1,4 +1,7 @@
 {
+    "rules": {
+        "putout": "off"
+    },
     "match": {
         "*.md": {
             "regexp": "off"

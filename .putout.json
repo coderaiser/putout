@@ -1,6 +1,10 @@
 {
+    "match": {
+        "**/packages/plugin-*": {
+            "putout": "on"
+        }
+    },
     "rules": {
-        "putout": "on",
         "remove-useless-spread/object": ["on", {
             "exclude": "module.exports.rules = __"
         }]

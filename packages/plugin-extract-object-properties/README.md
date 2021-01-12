@@ -37,11 +37,11 @@ const {isIdentifier} = a.types;
 
 ```js
 const {
-    operate,
+    operator,
     types,
 } = a;
 
-const {replaceWith} = operate;
+const {replaceWith} = operator;
 const {isIdentifier} = types;
 ```
 
