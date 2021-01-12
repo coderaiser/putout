@@ -35,7 +35,7 @@
     "codeframe"
   ],
   "devDependencies": {
-    "@putout/plugin-remove-unused-variables": "^3.0.0",
+    "@putout/plugin-remove-unused-variables": "*",
     "@putout/plugin-strict-mode": "^2.0.0",
     "@putout/test": "^3.0.0",
     "coveralls": "^3.0.0",

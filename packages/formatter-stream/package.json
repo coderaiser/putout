@@ -33,7 +33,7 @@
     "stream"
   ],
   "devDependencies": {
-    "@putout/plugin-remove-unused-variables": "^3.0.0",
+    "@putout/plugin-remove-unused-variables": "*",
     "@putout/test": "^3.0.0",
     "babel-plugin-transform-inline-consecutive-adds": "^0.5.0-alpha.9",
     "coveralls": "^3.0.0",

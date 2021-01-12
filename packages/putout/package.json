@@ -113,7 +113,7 @@
     "@putout/plugin-remove-unused-for-of-variables": "^1.0.0",
     "@putout/plugin-remove-unused-private-fields": "^1.0.0",
     "@putout/plugin-remove-unused-types": "^1.0.0",
-    "@putout/plugin-remove-unused-variables": "^3.0.0",
+    "@putout/plugin-remove-unused-variables": "*",
     "@putout/plugin-remove-useless-arguments": "^5.0.0",
     "@putout/plugin-remove-useless-array-from": "^2.0.0",
     "@putout/plugin-remove-useless-async": "^3.0.0",

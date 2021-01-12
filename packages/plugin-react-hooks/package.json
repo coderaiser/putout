@@ -36,7 +36,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-react": "^7.12.10",
-    "@putout/plugin-remove-unused-variables": "^2.3.0",
+    "@putout/plugin-remove-unused-variables": "*",
     "@putout/test": "^3.0.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
