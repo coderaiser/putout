@@ -19,7 +19,7 @@ module.exports = {
     'fix:lint:fresh': () => run('fix:lint', '--fresh'),
     'lint:progress': () => run('lint', '--fix'),
     'lint:fresh': () => run('lint', '--fresh'),
-    'coverage': async () => [env, `nyc ${await run('test')}`],
+    'coverage': async () => [env, `nyc ${await cutEnv('test')}`],
     'report': () => `nyc report --reporter=text-lcov | coveralls`,
 };
 
