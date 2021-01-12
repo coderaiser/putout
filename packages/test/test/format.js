@@ -62,8 +62,32 @@ test('test: formatMany', (t) => {
         t.end();
     });
     
+    test('format: with UPDATE env variable', (t) => {
+        const {UPDATE} = process.env;
+        process.env.UPDATE = 1;
+        
+        t.format(formatter, 'var');
+        
+        process.env.UPDATE = UPDATE;
+        
+        t.ok(writeFileSyncStub.called);
+        t.end();
+    });
+    
     test('formatManySave', (t) => {
         t.formatManySave(formatter, ['var', 'var']);
+        
+        t.ok(writeFileSyncStub.called);
+        t.end();
+    });
+    
+    test('formatMany: with UPDATE env variable', (t) => {
+        const {UPDATE} = process.env;
+        process.env.UPDATE = 1;
+        
+        t.formatMany(formatter, ['var', 'var']);
+        
+        process.env.UPDATE = UPDATE;
         
         t.ok(writeFileSyncStub.called);
         t.end();

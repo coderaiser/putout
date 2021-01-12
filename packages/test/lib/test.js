@@ -58,9 +58,9 @@ module.exports = (dir, plugin, rules) => {
         }),
         
         formatSave: formatSave({dir, plugins, rules}),
-        format: UPDATE ? formatSave : format({dir, plugins, rules}),
+        format: (UPDATE ? formatSave : format)({dir, plugins, rules}),
         formatManySave: formatManySave({dir, plugins, rules}),
-        formatMany: UPDATE ? formatManySave : formatMany({dir, plugins, rules}),
+        formatMany: (UPDATE ? formatManySave : formatMany)({dir, plugins, rules}),
         noFormat: noFormat({dir, plugins, rules}),
     });
 };

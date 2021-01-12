@@ -22,7 +22,8 @@ Test runner for `putout plugins`. Basically it is [supercharged](https://github.
 - `noReportCode(filename)` - checks error message of a plugin not produces with a `code`
 - `noTransform(filename)` - check transform of `filename.js` produce nothing
 
-- `format(filename)` check file name formatting (pass `process.env.UPDATE=1` to save fixture)
+- `format(formatter, filename)` check file name formatting (pass `process.env.UPDATE=1` to save fixture)
+- `formatMany(formatter, [filename1, filename2])` check file name formatting (pass `process.env.UPDATE=1` to save fixture)
 
 ## Install
 
