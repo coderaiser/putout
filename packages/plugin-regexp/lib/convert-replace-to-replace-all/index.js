@@ -1,6 +1,12 @@
 'use strict';
 
-const {types} = require('putout');
+const {
+    types,
+    operator,
+} = require('putout');
+
+const {replaceWith} = operator;
+
 const isSimpleRegExp = require('../is-simple-regexp');
 
 const {StringLiteral} = types;
@@ -25,7 +31,7 @@ module.exports.replace = () => ({
         const regExpPath = path.get('arguments.0');
         const calleePath = path.get('callee.property');
         
-        regExpPath.replaceWith(StringLiteral(pattern));
+        replaceWith(regExpPath, StringLiteral(pattern));
         calleePath.node.name = 'replaceAll';
         
         return path;

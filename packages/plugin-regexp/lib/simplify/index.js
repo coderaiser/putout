@@ -1,9 +1,16 @@
 'use strict';
 
 const {
+    types,
+    operator,
+} = require('putout');
+
+const {replaceWith} = operator;
+
+const {
     isStringLiteral,
     RegExpLiteral,
-} = require('putout').types;
+} = types;
 
 const match = ({__a}) => isStringLiteral(__a);
 
@@ -30,24 +37,20 @@ const encode = (a) => a.replace('/', '\\/');
 function oneArgumentReplace({__a}, path) {
     const {value} = __a;
     
-    path.replaceWith({
+    return replaceWith(path, {
         ...RegExpLiteral(value),
         extra: {
             raw: `/${encode(value)}/`,
         },
     });
-    
-    return path;
 }
 
 function twoArgumentsReplace({__a, __b}, path) {
-    path.replaceWith({
+    return replaceWith(path, {
         ...RegExpLiteral(__a.value, __b.value),
         extra: {
             raw: `/${encode(__a.value)}/${__b.value}`,
         },
     });
-    
-    return path;
 }
 
