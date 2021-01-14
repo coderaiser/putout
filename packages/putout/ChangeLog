@@ -1,3 +1,13 @@
+2021.01.14, v13.5.1
+
+fix:
+- (putout) match: absolute path
+- (@putout/plugin-regexp) replaceWith -> operator.replaceWith
+
+feature:
+- (@putout/processor-css) improve merge configs support
+
+
 2021.01.13, v13.5.0
 
 feature:
