@@ -45,7 +45,7 @@ test('putout: operate: replaceWith', (t) => {
     
     operate.replaceWith(path, node);
     
-    t.ok(replaceWith.calledWith(node), 'should call replaceWith');
+    t.calledWith(replaceWith, [node], 'should call replaceWith');
     t.end();
 });
 
@@ -185,7 +185,7 @@ test('putout: operate: insertAfter', (t) => {
     
     operate.insertAfter(path, node);
     
-    t.ok(insertAfter.calledWith(node), 'should call reporter');
+    t.calledWith(insertAfter, [node], 'should call reporter');
     t.end();
 });
 
@@ -233,7 +233,7 @@ test('putout: operate: replaceWithMultiple', (t) => {
     
     operate.replaceWithMultiple(path, nodes);
     
-    t.ok(replaceWithMultiple.calledWith(nodes), 'should call reporter');
+    t.calledWith(replaceWithMultiple, [nodes], 'should call reporter');
     t.end();
 });
 

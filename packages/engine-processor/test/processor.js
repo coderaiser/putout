@@ -53,7 +53,7 @@ test('putout: engine-processor: javascript', async (t) => {
         startLine: 0,
     };
     
-    t.ok(processFile.calledWith(expected), 'should not process');
+    t.calledWith(processFile, [expected], 'should not process');
     t.end();
 });
 
@@ -85,7 +85,7 @@ test('putout: engine-processor: markdown: javascript', async (t) => {
         startLine: 1,
     };
     
-    t.ok(processFile.calledWith(expected), 'should not process');
+    t.calledWith(processFile, [expected], 'should not process');
     t.end();
 });
 

@@ -551,7 +551,7 @@ test('putout: loader: disabled part of rule', (t) => {
         rule: 'madrun/set-lint-dot',
     }];
     
-    t.deepEqual(expected, places, 'should disable one of rules in plugin');
+    t.deepEqual(places, expected, 'should disable one of rules in plugin');
     t.end();
 });
 
