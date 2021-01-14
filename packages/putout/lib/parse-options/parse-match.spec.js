@@ -228,3 +228,22 @@ test('putout: parse-match: similar matches', (t) => {
     t.end();
 });
 
+test('putout: parse-match: absolute', (t) => {
+    const match = {
+        '{test,*.spec.js}': {
+            'remove-only': 'on',
+        },
+    };
+    
+    const expected = {
+        rules: {
+            'remove-only': 'on',
+        },
+    };
+    
+    const result = parseMatch('/putout/packages/process-css/test/css.js', match);
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+

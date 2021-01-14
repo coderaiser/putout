@@ -16,6 +16,7 @@ module.exports = (name, match) => {
             glob,
             `**/${glob}`,
             `${glob}/**`,
+            `**/${glob}/**`,
         ];
         
         const isMatch = picomatch(paths, {
