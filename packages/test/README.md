@@ -34,7 +34,7 @@ check transform of `filename.js` with `options`
 ## noTransformWithOptions(filename, options)
 check transform of `filename.js` with `options`
 
-## noReport(filename)`
+## noReport(filename)
 checks error message of a plugin not produces
 
 ## noReportCode(filename)
