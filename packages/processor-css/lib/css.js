@@ -3,6 +3,8 @@
 const {cosmiconfig} = require('cosmiconfig');
 const stylelint = require('stylelint');
 const once = require('once');
+const deepmerge = require('deepmerge');
+
 const config = require('../stylelintrc');
 
 module.exports.files = [
@@ -12,11 +14,15 @@ module.exports.files = [
 const loadConfig = once(async () => {
     const explorer = cosmiconfig('stylelint');
     const result = await explorer.search();
+    const newConfig = result?.config;
     
-    return {
-        ...config,
-        ...result?.config,
-    };
+    if (!newConfig)
+        return config;
+    
+    return deepmerge.all([
+        config,
+        newConfig,
+    ]);
 });
 
 module.exports.process = async (code, {fix}) => {
