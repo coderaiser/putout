@@ -1,3 +1,13 @@
+2021.01.15, v13.6.0
+
+feature:
+- (package) @putout/plugin-regexp v2.0.0
+- (@putout/plugin-regexp) add remove-useless-regexp
+- (@putout/plugin-regexp) add remove-useless-group
+- (@putout/plugin-regexp) drop support of node < 14
+- (@putout/plugin-regexp) simplify -> apply-literal-notation
+
+
 2021.01.14, v13.5.1
 
 fix:
