@@ -23,3 +23,8 @@ test('plugin-regexp: convert-replace-to-replace-all: transform', (t) => {
     t.transform('replace-global');
     t.end();
 });
+
+test('plugin-regexp: convert-replace-to-replace-all: transform', (t) => {
+    t.transform('remove-useless-group');
+    t.end();
+});

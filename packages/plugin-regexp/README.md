@@ -21,7 +21,8 @@ npm i @putout/plugin-regexp -D
         "regexp/apply-literal-notation": "on",
         "regexp/optimize": "on",
         "regexp/convert-to-string": "on",
-        "regexp/convert-replace-to-replace-all": "on"
+        "regexp/convert-replace-to-replace-all": "on",
+        "regexp/remove-useless-group": "on"
     }
 }
 ```
@@ -70,6 +71,8 @@ const a = /hello/i;
 
 ## regexp/convert-replace-to-replace-all
 
+Simplify code according to [string-replace-all](https://github.com/tc39/proposal-string-replaceall).
+
 ### ❌ Incorrect code example
 
 ```js
@@ -80,6 +83,20 @@ const a = /hello/i;
 
 ```js
 'hello'.replaceAll('hello', 'world');
+```
+
+## regexp/remove-useless-group
+
+### ❌ Incorrect code example
+
+```js
+/\.(hello)/.test(str);
+```
+
+### ✅ Correct code Example
+
+```js
+/\.hello/.test(str);
 ```
 
 ## License

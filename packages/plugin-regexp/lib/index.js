@@ -9,5 +9,6 @@ module.exports.rules = {
     ...getRule('optimize'),
     ...getRule('convert-to-string'),
     ...getRule('convert-replace-to-replace-all'),
+    ...getRule('remove-useless-group'),
 };
 
