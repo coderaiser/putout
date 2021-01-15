@@ -23,7 +23,7 @@ module.exports.fix = (path) => {
     }
 };
 
-const hasTemplateQuote = (a) => /^((?!\\).)*(\\"|\\')/.test(a);
+const hasTemplateQuote = (a) => /^(?!\\).*(\\"|\\')/.test(a);
 const createRegExp = (a) => RegExp(`^((?!\\\\).)*\\\\${a}.`);
 
 const hasA = (a) => createRegExp('\\^').test(a);

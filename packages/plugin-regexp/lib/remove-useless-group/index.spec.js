@@ -14,8 +14,13 @@ test('plugin-regexp/remove-useless-group: transform', (t) => {
     t.end();
 });
 
-test('plugin-regexp/remove-useless-group: no transform: same-length', (t) => {
+test('plugin-regexp/remove-useless-group: no transform: disjunction', (t) => {
     t.noTransform('disjunction');
+    t.end();
+});
+
+test('plugin-regexp/remove-useless-group: no transform: disjunction', (t) => {
+    t.noTransform('repetition');
     t.end();
 });
 

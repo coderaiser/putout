@@ -22,7 +22,8 @@ npm i @putout/plugin-regexp -D
         "regexp/optimize": "on",
         "regexp/convert-to-string": "on",
         "regexp/convert-replace-to-replace-all": "on",
-        "regexp/remove-useless-group": "on"
+        "regexp/remove-useless-group": "on",
+        "regexp/remove-useless-regexp": "on"
     }
 }
 ```
@@ -97,6 +98,20 @@ Simplify code according to [string-replace-all](https://github.com/tc39/proposal
 
 ```js
 /\.hello/.test(str);
+```
+
+## regexp/remove-useless-regexp
+
+### ❌ Incorrect code example
+
+```js
+const a = /^\.hello$/.test(str);
+```
+
+### ✅ Correct code Example
+
+```js
+const a = str === '.hello';
 ```
 
 ## License

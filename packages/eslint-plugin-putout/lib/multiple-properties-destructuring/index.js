@@ -33,6 +33,6 @@ module.exports.fix = ({text}) => {
         .replace(/,/g, ',\n')
         .replace('{', '{\n')
         .replace('}', '\n}')
-        .replace(/\n(\s*)?\n/g, '\n');
+        .replace(/\n\s*?\n/g, '\n');
 };
 

@@ -10,5 +10,6 @@ module.exports.rules = {
     ...getRule('convert-to-string'),
     ...getRule('convert-replace-to-replace-all'),
     ...getRule('remove-useless-group'),
+    ...getRule('remove-useless-regexp'),
 };
 

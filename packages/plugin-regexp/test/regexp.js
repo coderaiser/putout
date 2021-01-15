@@ -24,7 +24,12 @@ test('plugin-regexp: convert-replace-to-replace-all: transform', (t) => {
     t.end();
 });
 
-test('plugin-regexp: convert-replace-to-replace-all: transform', (t) => {
+test('plugin-regexp: remove-useless-group: transform', (t) => {
     t.transform('remove-useless-group');
+    t.end();
+});
+
+test('plugin-regexp: remove-useless-regexp: transform', (t) => {
+    t.transform('remove-useless-regexp');
     t.end();
 });

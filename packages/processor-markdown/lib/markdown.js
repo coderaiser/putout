@@ -103,7 +103,7 @@ const collect = (list) => (node) => {
             return;
         }
         
-        if (/^json$/.test(lang)) {
+        if (lang === 'json') {
             const [{source}] = jsonProcessor.preProcess(value);
             
             list.push({
@@ -133,7 +133,7 @@ const apply = (list, rawSource) => (node) => {
             return;
         }
         
-        if (/^json$/.test(lang)) {
+        if (lang === 'json') {
             const code = list.shift();
             const source = jsonProcessor.postProcess(rawSource, [code]);
             

@@ -1,0 +1,9 @@
+'use strict';
+
+const getType = (a) => (a.node || a).type;
+
+module.exports.isRepetition = (a) => getType(a) === 'Repetition';
+module.exports.isDisjunction = (a) => getType(a) === 'Disjunction';
+module.exports.isChar = (a) => getType(a) === 'Char';
+module.exports.isAlternative = (a) => getType(a) === 'Alternative';
+
