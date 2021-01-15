@@ -18,7 +18,7 @@ npm i @putout/plugin-regexp -D
 ```json
 {
     "rules": {
-        "regexp/simplify": "on",
+        "regexp/apply-literal-notation": "on",
         "regexp/optimize": "on",
         "regexp/convert-to-string": "on",
         "regexp/convert-replace-to-replace-all": "on"
@@ -40,7 +40,7 @@ const a = /(ab|ab)/;
 const a = /(ab)/;
 ```
 
-## regexp/simplify
+## regexp/apply-literal-notation
 
 ### ❌ Incorrect code example
 

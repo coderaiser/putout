@@ -9,7 +9,7 @@ test('plugin-regexp: optimize: report', (t) => {
     t.end();
 });
 
-test('plugin-regexp: simplify: transform', (t) => {
+test('plugin-regexp: apply-literal-notation: transform', (t) => {
     t.transform('regexp');
     t.end();
 });

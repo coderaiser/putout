@@ -5,7 +5,7 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
-    ...getRule('simplify'),
+    ...getRule('apply-literal-notation'),
     ...getRule('optimize'),
     ...getRule('convert-to-string'),
     ...getRule('convert-replace-to-replace-all'),
