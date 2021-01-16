@@ -14,7 +14,12 @@ npm i @putout/engine-processor
 ## Code Example
 
 ```js
-const {runProcessors} = require('@putout/engine-processor');
+const {
+    getProcessorRunners,
+    runProcessors,
+} = require('@putout/engine-processor');
+
+const processorRunners = getProcessorRunners(processors);
 
 runProcessors({
     name,
@@ -23,6 +28,7 @@ runProcessors({
     rawSource,
     index,
     length,
+    processorRunners, // optional
 });
 // returns
 ({

@@ -3,7 +3,6 @@
 const {loadProcessors} = require('@putout/engine-loader');
 const memo = require('nano-memoize');
 const picomatch = memo(require('picomatch'));
-const once = require('once');
 
 const defaultProcessors = [
     'javascript',
@@ -12,12 +11,6 @@ const defaultProcessors = [
 const addExtension = (name, ext) => !ext ? name : `${name}{${ext}}`;
 const stubProcess = (a) => [a, []];
 const stubPreProcess = () => [];
-
-const getLoadedProcessors = once((processors) => {
-    return loadProcessors({
-        processors,
-    }).map(addGlobs);
-});
 
 module.exports.defaultProcessors = defaultProcessors;
 
@@ -31,26 +24,26 @@ module.exports.getFilePatterns = (processors) => {
     return result;
 };
 
-module.exports.runProcessors = async ({name, fix, processFile, options, rawSource}) => {
+module.exports.runProcessors = async ({name, fix, processFile, options, rawSource, processorRunners}) => {
     const allPlaces = [];
     const {
         processors = defaultProcessors,
     } = options;
     
-    const loadedProcessors = getLoadedProcessors(processors);
+    processorRunners = processorRunners || getProcessorRunners(processors);
     
     let processedSource = '';
     let processedPlaces = [];
     let isProcessed = false;
     let isJsChanged = false;
     
-    for (const currentProcessor of loadedProcessors) {
+    for (const currentRunner of processorRunners) {
         const {
             isMatch,
             postProcess,
             preProcess = stubPreProcess,
             process = stubProcess,
-        } = currentProcessor;
+        } = currentRunner;
         
         if (!isMatch(name))
             continue;
@@ -100,6 +93,13 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     };
 };
 
+module.exports.getProcessorRunners = getProcessorRunners;
+function getProcessorRunners(processors) {
+    return loadProcessors({
+        processors,
+    }).map(addGlobs);
+}
+
 function addGlobs(processor) {
     const {files} = processor;
     
@@ -111,3 +111,4 @@ function addGlobs(processor) {
         }),
     };
 }
+

@@ -6,11 +6,14 @@ const {join} = require('path');
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const processFile = require('putout/lib/cli/process-file');
+const {getFilePatterns} = require('..');
 
-const {
-    runProcessors,
-    getFilePatterns,
-} = require('..');
+const runProcessors = (...a) => {
+//    reRequire('once');
+    const {runProcessors} = require('..');
+    
+    return runProcessors(...a);
+};
 
 test('putout: engine-processor: no processor', async (t) => {
     const name = 'hello.xxx';
