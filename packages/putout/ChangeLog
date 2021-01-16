@@ -1,3 +1,13 @@
+2021.01.16, v13.7.0
+
+feature:
+- feature(package) @putout/engine-processor v2.7.0: getProcessor runners
+- feature(@putout/engine-processor) add getProcessorRunners
+- feature(@putout/formatter-memory) add to finale output rss, heap total and heap usage'
+- feature(@putout/engine-processor) improve speed and memory usage according to (node --prof): 269MB -> 65mb, 1m7s -> 0m58s
+
+
+
 2021.01.15, v13.6.0
 
 feature:
