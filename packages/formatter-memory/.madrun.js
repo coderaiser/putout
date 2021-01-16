@@ -7,6 +7,7 @@ module.exports = {
     
     'test': async () => await run('test:base', '', {
         PUTOUT_PROGRESS_BAR: 0,
+        TEST: 1,
     }),
     
     'watch:test': async () => `nodemon -w lib -w test -x ${await run('test')}`,
@@ -18,6 +19,7 @@ module.exports = {
     
     'coverage': async () => await run('coverage:base', '', {
         PUTOUT_PROGRESS_BAR: 0,
+        TEST: 1,
     }),
     
     'report': () => `nyc report --reporter=text-lcov | coveralls || true`,

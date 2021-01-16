@@ -7,14 +7,20 @@ const cliProgress = require('cli-progress');
 const chalk = require('chalk');
 const once = require('once');
 const format = require('format-io');
+const montag = require('montag');
 
 const OK = '👌';
-const {red} = chalk;
+const {
+    green,
+    yellow,
+    red,
+} = chalk;
 const formatErrorsCount = (a) => a ? red(a) : OK;
 
 const {stderr} = process;
 const {
     PUTOUT_PROGRESS_BAR = '1',
+    TEST = 0,
 } = process.env;
 
 module.exports = ({name, options, places, index, count, filesCount, errorsCount}) => {
@@ -26,6 +32,8 @@ module.exports = ({name, options, places, index, count, filesCount, errorsCount}
     const memory = process.memoryUsage();
     
     const rss = format.size(memory.rss);
+    const heapUsed = format.size(memory.heapUsed);
+    const heapTotal = format.size(memory.heapTotal);
     
     const naturalIndex = index + 1;
     const result = dump({
@@ -53,7 +61,11 @@ module.exports = ({name, options, places, index, count, filesCount, errorsCount}
     
     if (naturalIndex === count) {
         bar.stop();
-        return `\r${result}`;
+        return `\r${result}\n${getInfo({
+            rss,
+            heapUsed,
+            heapTotal,
+        })}`;
     }
     
     return '';
@@ -87,4 +99,32 @@ const createProgress = once(({count, color, rss}) => {
     
     return bar;
 });
+
+const parseMemory = (memory) => {
+    if (TEST)
+        return {
+            rss: '65.29mb',
+            heapUsed: '65.29mb',
+            heapTotal: '224.57mb',
+        };
+    
+    return memory;
+};
+
+module.exports._parseMemory = parseMemory;
+
+function getInfo(memory) {
+    const {
+        heapUsed,
+        heapTotal,
+        rss,
+    } = parseMemory(memory);
+    
+    return montag`
+        heap used: ${green(heapUsed)}
+        heap total: ${yellow(heapTotal)}
+        rss: ${red(rss)}
+    
+    `;
+}
 

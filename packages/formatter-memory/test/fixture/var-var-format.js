@@ -6,3 +6,7 @@
 
 [1m[91m✖ 2 errors in 2 files[39m[22m
 [1m[91m  fixable with the `--fix` option[39m[22m
+
+heap used: [32m65.29mb[39m
+heap total: [33m224.57mb[39m
+rss: [31m65.29mb[39m

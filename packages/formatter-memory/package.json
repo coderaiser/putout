@@ -29,6 +29,7 @@
     "chalk": "^4.1.0",
     "cli-progress": "^3.8.2",
     "format-io": "^2.0.0",
+    "montag": "^1.1.0",
     "once": "^1.4.0"
   },
   "keywords": [

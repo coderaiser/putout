@@ -64,7 +64,26 @@ test('formatter: memory: get stream', (t) => {
     const {stderr} = process;
     process.env.PUTOUT_PROGRESS_BAR = PUTOUT_PROGRESS_BAR;
     
-    t.ok(stream === stderr, 'should equal to stderr');
+    t.equal(stream, stderr, 'should equal to stderr');
+    t.end();
+});
+
+test('formatter: memory: parse memory: no CI', (t) => {
+    const {TEST} = process.env;
+    delete process.env.TEST;
+    
+    const memory = {
+        rss: 0,
+        heapUsed: 0,
+        totalHeap: 0,
+    };
+    reRequire('ci-info');
+    const {_parseMemory} = reRequire('..');
+    const result = _parseMemory(memory);
+    
+    process.env.TEST = TEST;
+    
+    t.equal(result, memory);
     t.end();
 });
 
