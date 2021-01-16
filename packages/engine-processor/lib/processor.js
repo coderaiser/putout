@@ -3,6 +3,7 @@
 const {loadProcessors} = require('@putout/engine-loader');
 const memo = require('nano-memoize');
 const picomatch = memo(require('picomatch'));
+const once = require('once');
 
 const defaultProcessors = [
     'javascript',
@@ -11,6 +12,12 @@ const defaultProcessors = [
 const addExtension = (name, ext) => !ext ? name : `${name}{${ext}}`;
 const stubProcess = (a) => [a, []];
 const stubPreProcess = () => [];
+
+const getLoadedProcessors = once((processors) => {
+    return loadProcessors({
+        processors,
+    }).map(addGlobs);
+});
 
 module.exports.defaultProcessors = defaultProcessors;
 
@@ -30,9 +37,7 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         processors = defaultProcessors,
     } = options;
     
-    const loadedProcessors = loadProcessors({
-        processors,
-    }).map(addGlobs);
+    const loadedProcessors = getLoadedProcessors(processors);
     
     let processedSource = '';
     let processedPlaces = [];
@@ -106,4 +111,3 @@ function addGlobs(processor) {
         }),
     };
 }
-
