@@ -11,10 +11,10 @@ const fullstore = require('fullstore');
 const tryCatch = require('try-catch');
 const wraptile = require('wraptile');
 
-const {loadProcessors} = require('@putout/engine-loader');
 const {
     runProcessors,
     getFilePatterns,
+    getProcessorRunners,
     defaultProcessors,
 } = require('@putout/engine-processor');
 
@@ -204,12 +204,12 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     });
     
     const [currentFormat, formatterOptions] = getFormatter(format || formatter, exit);
-    const [error, loadedProcessors] = tryCatch(loadProcessors, {processors});
+    const [error, processorRunners] = tryCatch(getProcessorRunners, processors);
     
     if (error)
         return exit(CANNOT_LOAD_PROCESSOR, error);
     
-    const patterns = getFilePatterns(loadedProcessors);
+    const patterns = getFilePatterns(processorRunners);
     
     supportedFiles.add(patterns);
     
@@ -327,6 +327,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
                 processFile,
                 options,
                 rawSource,
+                processorRunners,
             }));
         }
         
