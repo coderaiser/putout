@@ -22,6 +22,26 @@ test('putout: cli: parse error', (t) => {
     t.end();
 });
 
+test('putout: cli: parse error: rule', (t) => {
+    const e = Error('hello');
+    e.rule = 'remove-debugger';
+    const result = parseError(e, {
+        debug: true,
+    });
+    
+    const expected = [{
+        rule: 'remove-debugger (parser)',
+        message: 'hello',
+        position: {
+            line: 26,
+            column: 15,
+        },
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: cli: parse error: no debug', (t) => {
     const e = Error('hello');
     const result = parseError(e, {

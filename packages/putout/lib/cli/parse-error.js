@@ -7,7 +7,7 @@ module.exports.parseError = (e, {debug}) => {
         line: 1,
         column: 1,
     });
-    const rule = 'parser';
+    const rule = e.rule ? `${e.rule} (parser)` : 'parser';
     const message = cutBrackets(e.message);
     
     return [{
