@@ -19,6 +19,11 @@ test('plugin-convert-for-to-for-of: transform: used length', (t) => {
     t.end();
 });
 
+test('plugin-convert-for-to-for-of: transform: no-name', (t) => {
+    t.noTransform('no-name');
+    t.end();
+});
+
 test('plugin-convert-for-to-for-of: transform: remove-useless-arguments', (t) => {
     t.transform('remove-useless-arguments', {
         'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),

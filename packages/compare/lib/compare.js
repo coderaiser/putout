@@ -79,6 +79,9 @@ module.exports.setValues = setValues;
 module.exports.getTemplateValues = getTemplateValues;
 
 function compare(path, template) {
+    if (!path)
+        return false;
+    
     const node = parseNode(path);
     const templateNode = parseNode(template);
     

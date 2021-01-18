@@ -583,15 +583,10 @@ test('compare: innerComments', (t) => {
     t.end();
 });
 
-test('compare: innerComments', (t) => {
-    const from = {
-        type: 'StringLiteral',
-        value: 'hello',
-        trailingComments: [],
-    };
-    const result = compare(from, '"hello"');
+test('compare: undefined', (t) => {
+    const result = compare(undefined, '"hello"');
     
-    t.ok(result);
+    t.notOk(result);
     t.end();
 });
 
