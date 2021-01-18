@@ -1,1 +1,1 @@
-const a = /\.(ab)/.test('ab');
+const a = /(ab)/.test('ab');

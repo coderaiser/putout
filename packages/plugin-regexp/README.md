@@ -91,13 +91,13 @@ Simplify code according to [string-replace-all](https://github.com/tc39/proposal
 ### ❌ Incorrect code example
 
 ```js
-/\.(hello)/.test(str);
+/(hello)/.test(str);
 ```
 
 ### ✅ Correct code Example
 
 ```js
-/\.hello/.test(str);
+/hello/.test(str);
 ```
 
 ## regexp/remove-useless-regexp

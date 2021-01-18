@@ -1,7 +1,7 @@
 'use strict';
 
 const regexpTree = require('regexp-tree');
-const {isRepetition, isDisjunction} = require('../types');
+const {isDisjunction} = require('../types');
 
 module.exports.report = ({from, to}) => `Remove useless group from RegExp ${from}, use ${to}`;
 
@@ -29,10 +29,10 @@ function removeUselessGroup(str) {
     
     regexpTree.traverse(ast, {
         Group(path) {
-            const {node, parentPath} = path;
-            
-            if (isRepetition(parentPath))
+            if (path.parent.type !== 'RegExp')
                 return;
+            
+            const {node} = path;
             
             if (isDisjunction(node.expression))
                 return;

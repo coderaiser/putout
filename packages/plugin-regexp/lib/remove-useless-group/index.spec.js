@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-regexp/remove-useless-group: report', (t) => {
-    t.report('regexp', `Remove useless group from RegExp /\\.(ab)/, use /\\.ab/`);
+    t.report('regexp', `Remove useless group from RegExp /(ab)/, use /ab/`);
     t.end();
 });
 
@@ -19,8 +19,22 @@ test('plugin-regexp/remove-useless-group: no transform: disjunction', (t) => {
     t.end();
 });
 
-test('plugin-regexp/remove-useless-group: no transform: disjunction', (t) => {
+test('plugin-regexp/remove-useless-group: no transform: repetition', (t) => {
     t.noTransform('repetition');
     t.end();
 });
 
+test('plugin-regexp/remove-useless-group: no transform: two groups', (t) => {
+    t.noTransform('two-groups');
+    t.end();
+});
+
+test('plugin-regexp/remove-useless-group: no transform: tag', (t) => {
+    t.noTransform('tag');
+    t.end();
+});
+
+test('plugin-regexp/remove-useless-group: no transform: first-group', (t) => {
+    t.noTransform('first-group');
+    t.end();
+});
