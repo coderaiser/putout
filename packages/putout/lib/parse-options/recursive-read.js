@@ -12,7 +12,7 @@ module.exports = (name, configName) => {
     let dir = name;
     const optionsList = [];
     
-    while (dir !== '/' && dir !== '.') {
+    while (dir !== dirname(dir)) {
         const path = join(dir, configName);
         const [, nextResult] = tryCatch(require, path);
         
