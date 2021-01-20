@@ -1,3 +1,14 @@
+2021.01.20, v13.8.0
+
+fix:
+- (@putout/processor-markdown) show errors after fixing
+- (@putout/compare) undefined as argument
+
+feature:
+- (@putout/plugin-declare-undefined-variables) add
+- (putout) parser-error: add ability to show rule
+
+
 2021.01.18, v13.7.1
 
 fix:
