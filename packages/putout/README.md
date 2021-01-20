@@ -57,16 +57,6 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `equal` to `strict equal`;
 - convert `indexOf` to `includes`;
 - convert `replace` to `replaceAll` (disabled, [stage 4](https://github.com/tc39/proposal-string-replaceall));
-- apply destructuring;
-- apply `top-level await` (disabled, [stage 3](https://github.com/tc39/proposal-top-level-await));
-- convert `throw` statement into expression (disabled, [stage 2](https://github.com/tc39/proposal-throw-expressions));
-- apply shorthand properties (disabled);
-- apply `optional chaining` (disabled [stage4](https://github.com/tc39/proposal-optional-chaining));
-- apply `nullish coalescing` (disabled [stage4](https://github.com/tc39/proposal-nullish-coalescing));
-- apply `numeric separators` ([stage4](https://github.com/tc39/proposal-numeric-separator));
-- merge destructuring properties;
-- merge duplicate imports;
-- merge `if` statements;
 - convert `Math.pow` to `exponentiation operator`;
 - convert `anonymous` to `arrow function`;
 - convert `for` to `for-of`;
@@ -79,11 +69,22 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `top-level return` into `process.exit()`;
 - convert `array copy` to `slice`;
 - convert typescripts' generic `<Array>` to shorthand `[]`;
+- apply destructuring;
+- apply `top-level await` (disabled, [stage 3](https://github.com/tc39/proposal-top-level-await));
+- convert `throw` statement into expression (disabled, [stage 2](https://github.com/tc39/proposal-throw-expressions));
+- apply shorthand properties (disabled);
+- apply `optional chaining` (disabled [stage4](https://github.com/tc39/proposal-optional-chaining));
+- apply `nullish coalescing` (disabled [stage4](https://github.com/tc39/proposal-nullish-coalescing));
+- apply `numeric separators` ([stage4](https://github.com/tc39/proposal-numeric-separator));
+- merge destructuring properties;
+- merge duplicate imports;
+- merge `if` statements;
 - extract sequence expressions;
 - extract object properties;
 - add `return await`;
 - remove useless `Promise.resolve`;
 - convert `Promise.reject` to `throw`;
+- declare `undefined variables`;
 
 ## Why?
 

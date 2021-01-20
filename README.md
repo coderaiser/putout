@@ -340,6 +340,23 @@ async function runCli() {
 
 </details>
 
+<details><summary>declare undefined variables</summary>
+
+```diff
+const fs = import 'fs/promises';
+const {stub} = import 'supertape';
+
++const {assign} = Object;
+
+const readFile = stub();
+
+assign(fs, {
+    readFile,
+});
+```
+
+</details>
+
 <details><summary>remove useless <code>arguments</code></summary>
 
 ```diff
@@ -1092,6 +1109,7 @@ Next packages not bundled with `putout` but can be installed separately.
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
+| [`@putout/plugin-declare-undefined-variables`](/packages/plugin-declare-undefined-variables) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare-undefined-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare-undefined-variables) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-declare-undefined-variables)](https://david-dm.org/coderaiser/putout?path=packages/plugin-declare-undefined-variables) |
 | [`@putout/plugin-reuse-duplicate-init`](/packages/plugin-reuse-duplicate-init) | [![npm](https://img.shields.io/npm/v/@putout/plugin-reuse-duplicate-init.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-reuse-duplicate-init) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-reuse-duplicate-init)](https://david-dm.org/coderaiser/putout?path=packages/plugin-reuse-duplicate-init) |
 | [`@putout/plugin-madrun`](/packages/plugin-madrun) | [![npm](https://img.shields.io/npm/v/@putout/plugin-madrun.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-madrun) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-madrun)](https://david-dm.org/coderaiser/putout?path=packages/plugin-madrun) |
 | [`@putout/plugin-strict-mode`](/packages/plugin-strict-mode) | [![npm](https://img.shields.io/npm/v/@putout/plugin-strict-mode.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-strict-mode) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-strict-mode)](https://david-dm.org/coderaiser/putout?path=packages/plugin-strict-mode) |
