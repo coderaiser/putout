@@ -85,12 +85,35 @@ test('putout: processor: markdown: places', async (t) => {
     t.end();
 });
 
+test('putout: processor: markdown: fix: should return no places', async (t) => {
+    const {places} = await doTheThing('place', {
+        fix: true,
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
+test('putout: processor: markdown: no fix: should not change source', async (t) => {
+    const {
+        processedSource,
+        rawSource,
+    } = await doTheThing('no-places-no-change', {
+        fix: false,
+    });
+    
+    t.equal(processedSource, rawSource);
+    t.end();
+});
+
 async function doTheThing(name, {fix = true} = {}) {
     const inputName = join(__dirname, 'fixture', `${name}.md`);
     const outputName = join(__dirname, 'fixture', `${name}-fix.md`);
     
     const rawSource = await readFile(inputName, 'utf8');
-    const output = await readFile(outputName, 'utf8');
+    const output = !fix ? '' : await readFile(outputName, 'utf8');
     const options = {
         dir: __dirname,
         processors: [
@@ -118,6 +141,7 @@ async function doTheThing(name, {fix = true} = {}) {
     
     return {
         processedSource,
+        rawSource,
         output,
         places,
     };

@@ -26,14 +26,20 @@ module.exports.files = [
     '*.md',
 ];
 
-module.exports.process = async (rawSource) => {
+module.exports.process = async (rawSource, {fix}) => {
     parseStore.init();
     
-    const {messages} = await unified()
+    const {messages, contents} = await unified()
         .use(parseStore)
         .use(preset)
         .use(stringify, stringifyOptions)
         .process(rawSource);
+    
+    if (fix && contents !== rawSource && messages.length)
+        return [
+            contents,
+            [],
+        ];
     
     return [
         rawSource,

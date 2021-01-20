@@ -7,13 +7,7 @@ const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const processFile = require('putout/lib/cli/process-file');
 const {getFilePatterns} = require('..');
-
-const runProcessors = (...a) => {
-//    reRequire('once');
-    const {runProcessors} = require('..');
-    
-    return runProcessors(...a);
-};
+const {runProcessors} = require('..');
 
 test('putout: engine-processor: no processor', async (t) => {
     const name = 'hello.xxx';
@@ -142,7 +136,7 @@ test('putout: engine-processor: markdown: no fix', async (t) => {
     t.end();
 });
 
-test('putout: engine-processor: markdown: fix: processed places', async (t) => {
+test('putout: engine-processor: markdown: fix: do not return processed places', async (t) => {
     const name = join(__dirname, 'fixture/places.md');
     const options = {
         processors: [
@@ -151,6 +145,33 @@ test('putout: engine-processor: markdown: fix: processed places', async (t) => {
     };
     const rawSource = await readFile(name, 'utf8');
     const fix = true;
+    
+    const {places} = await runProcessors({
+        name,
+        fix,
+        processFile: processFile({
+            name: `${name}{js}`,
+            fix,
+        }),
+        options,
+        rawSource,
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+
+test('putout: engine-processor: markdown: no fix: return processed places', async (t) => {
+    const name = join(__dirname, 'fixture/places.md');
+    const options = {
+        processors: [
+            'markdown',
+        ],
+    };
+    const rawSource = await readFile(name, 'utf8');
+    const fix = false;
     
     const {places} = await runProcessors({
         name,
