@@ -62,7 +62,27 @@ const recommended = {
     ],
 };
 
+const ide = {
+    ...recommended,
+    rules: {
+        ...recommended.rules,
+        'putout/align-spaces': 'off',
+        'putout/putout': ['error', {
+            rules: {
+                'remove-empty/block': 'off',
+                'remove-unused-variables': 'off',
+                'remove-skip': 'off',
+                'remove-only': 'off',
+                'remove-console': 'off',
+                'remove-debugger': 'off',
+                'convert-for-to-for-of': 'off',
+            },
+        }],
+    },
+};
+
 module.exports.configs = {
     recommended,
+    ide,
 };
 

@@ -25,6 +25,19 @@ Add `putout` to the plugins section of your `.eslintrc` configuration file. You 
 }
 ```
 
+When use `putout` in IDE with `--fix` on save, use:
+
+```json
+{
+    "extends": [
+        "plugin:putout/ide"
+    ],
+    "plugins": [
+        "putout"
+    ]
+}
+```
+
 Then configure the rules you want to use under the rules section.
 
 ```json
