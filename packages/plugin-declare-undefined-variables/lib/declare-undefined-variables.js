@@ -7,6 +7,7 @@ const nodes = {
     entries: template.ast('const {entries} = Object'),
     parse: template.ast('const {parse} = JSON'),
     stringify: template.ast('const {stringify} = JSON'),
+    join: template.ast(`import {join} from 'path'`),
 };
 
 const {entries} = Object;
