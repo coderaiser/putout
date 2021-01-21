@@ -1,5 +1,7 @@
 'use strict';
 
+const {isObjectExpression} = require('putout').types;
+
 module.exports.category = 'destructuring';
 module.exports.report = () => 'Keep braces on the same line with brackets';
 
@@ -11,7 +13,14 @@ module.exports.include = () => {
 
 const badEndReg = /},?\n(\s+)?]/;
 
-module.exports.filter = ({text}) => {
+module.exports.filter = ({node, text}) => {
+    const {elements} = node;
+    
+    for (const element of elements) {
+        if (!isObjectExpression(element))
+            return false;
+    }
+    
     const isStart = /^\[\n(\s+)?{/.test(text);
     const isEnd = badEndReg.test(text);
     

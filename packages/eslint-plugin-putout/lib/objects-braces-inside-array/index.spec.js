@@ -19,6 +19,12 @@ ruleTester.run('objects-braces-inside-array', rule, {
         const expected = [{
             hello: 'world',
         }];
+    `, `
+        const expected = [
+            [__filename], {
+                ignore,
+            },
+        ];
     `],
     
     invalid: [{

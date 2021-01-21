@@ -848,8 +848,7 @@ test('putout: find: template', (t) => {
             line: 1,
         },
         rule: 'include',
-    },
-    ];
+    }];
     
     t.deepEqual(places, expected, 'should equal');
     t.end();
