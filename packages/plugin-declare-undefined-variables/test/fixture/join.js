@@ -1,1 +1,2 @@
-join(__dirname, 'package.json');
+const name = 'package.json';
+join(__dirname, name);

@@ -1,5 +1,8 @@
 'use strict';
 
+const {types} = require('putout');
+const {isImportDeclaration} = types;
+
 const declarations = require('./declarations');
 
 const {entries} = Object;
@@ -41,6 +44,11 @@ const isUndefined = (name) => (vars, path) => {
 const createUndefined = (name, node) => (vars, path) => {
     const scope = path.scope.getProgramParent();
     const bodyPath = scope.path.get('body');
+    
+    if (isImportDeclaration(node)) {
+        bodyPath[0].insertBefore(node);
+        return path;
+    }
     
     for (const currentPath of bodyPath) {
         if (currentPath.isVariableDeclaration())
