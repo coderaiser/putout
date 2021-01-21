@@ -172,13 +172,11 @@ putout(source, {
     "    const hi = 'there';\n" +
     '    \n' +
     '    console.log(hello);\n',
-    places: [
-        {
-            rule: 'remove-unused-variables',
-            message: '"hi" is defined but never used',
-            position: {line: 3, column: 10},
-        },
-    ],
+    places: [{
+        rule: 'remove-unused-variables',
+        message: '"hi" is defined but never used',
+        position: {line: 3, column: 10},
+    }],
 });
 ```
 

@@ -9,16 +9,21 @@ module.exports.include = () => {
     ];
 };
 
+const badEndReg = /},?\n(\s+)?]/;
+
 module.exports.filter = ({text}) => {
-    const is = /^\[\n(\s+)?{/.test(text);
+    const isStart = /^\[\n(\s+)?{/.test(text);
+    const isEnd = badEndReg.test(text);
     
-    return is;
+    return isStart || isEnd;
 };
 
 module.exports.fix = ({text}) => {
     return text
         .replace('[\n', '[')
+        .replace(/\[\s+{/, '[{')
         .replace('\n]', ']')
-        .replace(/},\n(\s+)?{/, '}, {');
+        .replace(/},\n(\s+)?{/, '}, {')
+        .replace(badEndReg, '}]');
 };
 

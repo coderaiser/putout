@@ -14,7 +14,7 @@ const ruleTester = new RuleTester({
 
 const message = 'Keep braces on the same line with brackets';
 
-ruleTester.run('format-object-expressions', rule, {
+ruleTester.run('objects-braces-inside-array', rule, {
     valid: [`
         const expected = [{
             hello: 'world',
@@ -23,8 +23,7 @@ ruleTester.run('format-object-expressions', rule, {
     
     invalid: [{
         code: montag`
-            const expected = [
-            {
+            const expected = [{
                 hello: 'world',
             }
         ];
@@ -43,8 +42,7 @@ ruleTester.run('format-object-expressions', rule, {
             const expected = [
             {
                 hello: 'world',
-            },
-            {
+            }, {
                 hi: 'there',
             }
         ];
@@ -55,6 +53,30 @@ ruleTester.run('format-object-expressions', rule, {
             }, {
                 hi: 'there',
             }];
+        `,
+        errors: [{
+            message,
+            type: 'ArrayExpression',
+        }],
+    }, {
+        code: montag`
+        ({
+            places: [        {
+                rule: 'remove-unused-variables',
+                message: '"hi" is defined but never used',
+                position: {line: 3, column: 10},
+            },
+            ],
+        });
+        `,
+        output: montag`
+        ({
+            places: [{
+                rule: 'remove-unused-variables',
+                message: '"hi" is defined but never used',
+                position: {line: 3, column: 10},
+            }],
+        });
         `,
         errors: [{
             message,
