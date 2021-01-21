@@ -7,7 +7,10 @@ const declarations = require('./declarations');
 
 const {entries} = Object;
 
-module.exports.report = () => 'Variable should be declared';
+module.exports.report = (path) => {
+    const {name} = path.node.callee;
+    return `'${name}' should be declared`;
+};
 
 module.exports.match = ({options}) => {
     const {dismiss = []} = options;
