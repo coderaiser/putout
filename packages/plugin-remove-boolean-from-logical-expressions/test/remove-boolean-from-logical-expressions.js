@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-remove-boolean-from-logical-expressions: report', (t) => {
-    t.report('logical', '"true" has no sense in logical expressions');
+    t.report('logical', '"true" and "false" has no sense in logical expressions');
     t.end();
 });
 
@@ -16,6 +16,11 @@ test('plugin-remove-boolean-from-logical-expressions: transform: logical', (t) =
 
 test('plugin-remove-boolean-from-logical-expressions: transform: return', (t) => {
     t.transform('return');
+    t.end();
+});
+
+test('plugin-remove-boolean-from-logical-expressions: transform: equal', (t) => {
+    t.transform('equal');
     t.end();
 });
 
