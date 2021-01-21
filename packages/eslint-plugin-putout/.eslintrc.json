@@ -5,8 +5,8 @@
         "plugin:putout/recommended"
     ],
     "plugins": [
-        "putout",
+        "eslint-plugin",
         "node",
-        "eslint-plugin"
+        "putout"
     ]
 }

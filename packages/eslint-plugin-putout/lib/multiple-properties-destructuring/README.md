@@ -9,10 +9,16 @@ This rule aims to shorten destructuring of one property.
 Examples of **incorrect** code for this rule:
 
 ```js
-const {username, password} = user;
+const {
+    username,
+} = user;
 ```
 
 Examples of **correct** code for this rule:
+
+```js
+const {username} = user;
+```
 
 ## Options
 

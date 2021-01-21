@@ -38,7 +38,8 @@ Then configure the rules you want to use under the rules section.
         "putout/align-spaces": "error",
         "putout/newline-function-call-arguments": "error",
         "putout/function-declaration-paren-newline": "error",
-        "putout/remove-newline-after-default-import": "error"
+        "putout/remove-newline-after-default-import": "error",
+        "putout/objects-braces-insde-array": "error"
     }
 }
 ```
@@ -56,3 +57,4 @@ Then configure the rules you want to use under the rules section.
 - [Newline function call arguments](/packages/eslint-plugin-putout/lib/newline-function-call-arguments)
 - [Function declaration paren newline](/packages/eslint-plugin-putout/lib/function-declaration-paren-newline)
 - [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import)
+- [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array)

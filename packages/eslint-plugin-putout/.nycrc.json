@@ -1,6 +1,6 @@
 {
     "check-coverage": true,
-    "all": true,
+    "all": false,
     "exclude": [
         "**/*.spec.js",
         "**/fixture",

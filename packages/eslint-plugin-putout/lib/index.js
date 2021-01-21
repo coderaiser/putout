@@ -25,6 +25,7 @@ module.exports.rules = {
     ...getWrapRule('newline-function-call-arguments'),
     ...getWrapRule('function-declaration-paren-newline'),
     ...getWrapRule('remove-newline-after-default-import'),
+    ...getWrapRule('objects-braces-inside-array'),
     ...getRule('putout'),
 };
 
@@ -47,6 +48,7 @@ const recommended = {
         'putout/newline-function-call-arguments': 'error',
         'putout/function-declaration-paren-newline': 'error',
         'putout/remove-newline-after-default-import': 'error',
+        'putout/objects-braces-inside-array': 'error',
         'putout/putout': 'error',
     },
     overrides: [
