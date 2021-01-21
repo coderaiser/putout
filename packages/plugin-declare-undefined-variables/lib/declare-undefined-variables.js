@@ -1,14 +1,6 @@
 'use strict';
 
-const {template} = require('putout');
-
-const nodes = {
-    assign: template.ast('const {assign} = Object'),
-    entries: template.ast('const {entries} = Object'),
-    parse: template.ast('const {parse} = JSON'),
-    stringify: template.ast('const {stringify} = JSON'),
-    join: template.ast(`import {join} from 'path'`),
-};
+const declarations = require('./declarations');
 
 const {entries} = Object;
 
@@ -18,7 +10,7 @@ module.exports.match = ({options}) => {
     const {dismiss = []} = options;
     const traverseObject = {};
     
-    for (const [name] of entries(nodes)) {
+    for (const [name] of entries(declarations)) {
         if (dismiss.includes(name))
             continue;
         
@@ -32,7 +24,7 @@ module.exports.replace = ({options}) => {
     const {dismiss = []} = options;
     const traverseObject = {};
     
-    for (const [name, node] of entries(nodes)) {
+    for (const [name, node] of entries(declarations)) {
         if (dismiss.includes(name))
             continue;
         
