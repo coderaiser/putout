@@ -32,7 +32,6 @@ test('putout: runner: match', (t) => {
 
 test('putout: runner: match: avoid move top while compare', (t) => {
     const types = [];
-    
     const rm = {
         report: () => '',
         match: () => ({

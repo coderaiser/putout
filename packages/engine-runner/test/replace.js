@@ -3,11 +3,11 @@
 const test = require('supertape');
 const montag = require('montag');
 const putout = require('putout');
-const {print, types} = putout;
-
-const {StringLiteral} = types;
 
 const {runPlugins} = require('..');
+
+const {print, types} = putout;
+const {StringLiteral} = types;
 
 test('putout: runner: replace: same', (t) => {
     const addVar = {

@@ -9,8 +9,22 @@ test('plugin-putout: transform', (t) => {
     t.end();
 });
 
+test('plugin-putout: transform: all presented', (t) => {
+    t.noTransform('gitignore-fix');
+    t.end();
+});
+
 test('plugin-putout: transform', (t) => {
     t.transform('vim-files');
+    t.end();
+});
+
+test('plugin-putout: transform: options', (t) => {
+    t.transformWithOptions('options', {
+        dismiss: [
+            '.nyc_output',
+        ],
+    });
     t.end();
 });
 
