@@ -1,3 +1,29 @@
+2021.01.22, v13.9.0
+
+fix:
+- fix(gitignore) report
+- fix(eslint-plugin-putout) objects-braces-inside-array: false positives
+- feature(@putout/plugin-apply-destructuring) add support of second array element (prefer-destructuring in eslint do not fixes)
+
+
+feature:
+- feature(package) @putout/plugin-gitignore v2.0.1
+- feature(@putout/plugin-gitignore) drop support of putout < 13
+- feature(@putout/plugin-gitignore) merge 3 rules into one
+- feature(@putout/plugin-gitignore) add-nyc-output
+- feature(@putout/plugin-tape) convert-throws-to-try-catch: add support of two args
+- feature(@putout/plugin-remove-boolean-from-logical-expressions) add support of using booleans in conditions
+- feature(eslint-plugin-putout) improve support of objects-braces-inside-array
+- feature(eslint-plugin-putout) add "ide" to extend from to improve experiance in IDE
+- feature(eslint-plugin-putout) add objects-braces-inside-array
+- feature(@putout/plugin-apply-destructuring) add support of second array element (prefer-destructuring in eslint do not fixes)
+- feature(@putout/plugin-declare-undefined-variables) place name of a variable into report
+- feature(@putout/plugin-declare-undefined-variables) add ability to put ImportDeclarations on top
+- feature(@putout/plugin-declarations) mv out declarations
+- feature(@putout/plugin-declare-undefined-variables) add support of join
+
+
+
 2021.01.20, v13.8.0
 
 fix:
