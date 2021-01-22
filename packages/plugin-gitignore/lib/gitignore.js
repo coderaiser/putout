@@ -10,7 +10,7 @@ const names = [
     '*.swp',
 ];
 
-module.exports.report = () => `should be added to .gitignore`;
+module.exports.report = () => `Dot files should be added to .gitignore`;
 
 module.exports.match = ({options}) => {
     const {dismiss = []} = options;
