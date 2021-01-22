@@ -3,7 +3,9 @@
 const test = require('supertape');
 const montag = require('montag');
 const putout = require('putout');
-const {print} = putout;
+const {print, types} = putout;
+
+const {StringLiteral} = types;
 
 const {runPlugins} = require('..');
 
@@ -277,6 +279,55 @@ test('putout: runner: replace: match: options', (t) => {
     });
     
     const expected = 'const a = 5;debugger;';
+    
+    t.equal(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: runner: replace: same function: should produce same result', (t) => {
+    const getValue = (a) => a.value;
+    const push = (pattern) => {
+        const fn = ({__a}, path) => {
+            __a.elements.push(StringLiteral(pattern));
+            return path;
+        };
+        
+        return () => ({
+            '__putout_processor_ignore(__a)': fn,
+        });
+    };
+    
+    const match = (pattern) => {
+        const fn = ({__a}) => {
+            const list = __a.elements.map(getValue);
+            return !list.includes(pattern);
+        };
+        
+        return () => ({
+            '__putout_processor_ignore(__a)': fn,
+        });
+    };
+    
+    const hello = {
+        report: () => '',
+        match: match('hello'),
+        replace: push('hello'),
+    };
+    const world = {
+        report: () => '',
+        match: match('world'),
+        replace: push('world'),
+    };
+    
+    const {code} = putout('__putout_processor_ignore([])', {
+        runPlugins,
+        plugins: [
+            ['hello', hello],
+            ['world', world],
+        ],
+    });
+    
+    const expected = `__putout_processor_ignore(['hello']);`;
     
     t.equal(code, expected, 'should equal');
     t.end();
