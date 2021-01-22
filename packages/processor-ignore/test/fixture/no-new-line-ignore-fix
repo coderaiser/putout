@@ -1,4 +1,5 @@
-*.swp
 .*
 madrun.js
+.nyc_output
 .putoutcache
+*.swp
