@@ -10,6 +10,7 @@ const {getSupportedGlob} = require('./supported-files');
 
 const mergeArrays = (a) => [].concat(...a);
 const rmDuplicates = (a) => Array.from(new Set(a));
+const unixifyPath = (a) => !a.includes('\\') ? a : a.replace(/\\/g, '/');
 
 module.exports = async (args, options) => {
     return await tryToCatch(getFiles, args, options);
@@ -32,9 +33,8 @@ const globOptions = {
 const addExt = (options) => async function addExt(a) {
     const [[e], files] = await Promise.all([
         tryToCatch(lstat, a),
-        fastGlob(a, {
+        safeGlob(a, {
             onlyFiles: false,
-            ...globOptions,
             ...options,
         }),
     ]);
@@ -48,10 +48,8 @@ const addExt = (options) => async function addExt(a) {
         const info = await lstat(file);
         
         if (info.isDirectory()) {
-            promises.push(fastGlob(getSupportedGlob(file), {
-                ...globOptions,
-                ...options,
-            }));
+            const glob = getSupportedGlob(file);
+            promises.push(await safeGlob(glob, options));
             continue;
         }
         
@@ -72,3 +70,11 @@ function throwNotFound(a) {
     throw Error(`No files matching the pattern "${a}" were found`);
 }
 
+async function safeGlob(glob, options) {
+    const result = await fastGlob(unixifyPath(glob), {
+        ...options,
+        ...globOptions,
+    });
+    
+    return result;
+}
