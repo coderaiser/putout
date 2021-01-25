@@ -1,3 +1,9 @@
+2021.01.25, v13.9.1
+
+fix:
+- (putout) cli: get-files: windows
+
+
 2021.01.22, v13.9.0
 
 fix:
