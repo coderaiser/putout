@@ -72,6 +72,7 @@ const createProgress = once(({count, color, name}) => {
         barIncompleteChar: '\u2591',
         clearOnComplete: true,
         stopOnComplete: true,
+        hideCursor: true,
         stream: getStream(),
     }, cliProgress.Presets.react);
     
