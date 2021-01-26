@@ -6,7 +6,7 @@
         "mocha": true
     },
     "rules": {
-        "node/no-unsupported-features/es-syntax": "off"
+        "node/no-missing-require": "off"
     },
     "extends": [
         "plugin:node/recommended",

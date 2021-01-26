@@ -4,7 +4,7 @@ const tryCatch = require('try-catch');
 const visit = require('unist-util-visit');
 
 const putout = require('putout');
-const parseOptions = require('putout/lib/parse-options');
+const parseOptions = require('putout/parse-options');
 
 module.exports = (options) => (node, file) => {
     visit(node, 'code', process(file, options));

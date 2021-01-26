@@ -12,5 +12,6 @@ module.exports.rules = {
     ...getRule('convert-babel-types'),
     ...getRule('rename-operate-to-operator'),
     ...getRule('replace-operate-with-operator'),
+    ...getRule('shorten-putout-exports'),
 };
 

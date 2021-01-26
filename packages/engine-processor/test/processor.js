@@ -5,7 +5,7 @@ const {join} = require('path');
 
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
-const processFile = require('putout/lib/cli/process-file');
+const processFile = require('putout/process-file');
 const {getFilePatterns} = require('..');
 const {runProcessors} = require('..');
 

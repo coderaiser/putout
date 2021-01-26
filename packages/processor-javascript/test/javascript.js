@@ -5,7 +5,7 @@ const {readFile} = require('fs/promises');
 
 const test = require('supertape');
 const {runProcessors} = require('@putout/engine-processor');
-const processFile = require('putout/lib/cli/process-file');
+const processFile = require('putout/process-file');
 
 test('putout: processor: javascript', async (t) => {
     const inputName = join(__dirname, 'fixture', 'simple.js');

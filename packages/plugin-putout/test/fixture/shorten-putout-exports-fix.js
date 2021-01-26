@@ -1,0 +1,1 @@
+require('putout/process-file');

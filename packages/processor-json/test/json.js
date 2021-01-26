@@ -5,7 +5,7 @@ const {readFile} = require('fs/promises');
 
 const test = require('supertape');
 const {runProcessors} = require('@putout/engine-processor');
-const processFile = require('putout/lib/cli/process-file');
+const processFile = require('putout/process-file');
 
 const process = getProcess({
     extension: 'json',

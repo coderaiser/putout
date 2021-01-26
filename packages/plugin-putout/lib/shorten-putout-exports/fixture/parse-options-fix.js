@@ -1,0 +1,1 @@
+require('putout/parse-options');

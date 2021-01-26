@@ -8,7 +8,7 @@ const mockRequire = require('mock-require');
 
 const stub = require('@cloudcmd/stub');
 const {runProcessors} = require('@putout/engine-processor');
-const processFile = require('putout/lib/cli/process-file');
+const processFile = require('putout/process-file');
 
 const {stopAll, reRequire} = mockRequire;
 

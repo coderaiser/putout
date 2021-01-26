@@ -6,7 +6,7 @@ const {
     transform,
 } = require('putout');
 
-const parseOptions = require('putout/lib/parse-options');
+const parseOptions = require('putout/parse-options');
 
 module.exports = () => {
     let code = '';

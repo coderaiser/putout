@@ -1,4 +1,10 @@
 {
+    "overrides": [{
+        "files": "lib/putout/index.js",
+        "rules": {
+            "node/no-missing-require": "off"
+        }
+    }],
     "extends": [
         "plugin:node/recommended",
         "plugin:eslint-plugin/recommended",

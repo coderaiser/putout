@@ -21,7 +21,8 @@ npm i @putout/plugin-putout -D
         "putout/convert-to-no-transform-code": "on",
         "putout/convert-replace-with": "on",
         "putout/convert-replace-with-multiple": "on",
-        "putout/convert-babel-types": "on"
+        "putout/convert-babel-types": "on",
+        "putout/shorten-putout-exports": "on"
     }
 }
 ```
@@ -116,6 +117,20 @@ const {
     isObjectExpression,
     isIdentifier,
 } = require('putout').types;
+```
+
+## shorten-putout-exports
+
+### ❌ Incorrect code example
+
+```js
+const parseOptions = require('putout/parse-options');
+```
+
+### ✅ Correct code Example
+
+```js
+const parseOptions = require('putout/parse-options');
 ```
 
 ## License

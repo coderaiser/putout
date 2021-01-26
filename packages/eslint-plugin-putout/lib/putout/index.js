@@ -8,7 +8,7 @@ const {
     parse,
 } = require('putout');
 
-const parseOptions = require('putout/lib/parse-options');
+const parseOptions = require('putout/parse-options');
 
 const cwd = process.cwd();
 const getContextOptions = ({options}) => {

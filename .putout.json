@@ -1,6 +1,6 @@
 {
     "match": {
-        "**/packages/plugin-*": {
+        "**/packages/{remark-putout,engine-processor,{plugin,processor}-*}": {
             "putout": "on"
         },
         "**/packages/plugin-*/*.md{json}": {
