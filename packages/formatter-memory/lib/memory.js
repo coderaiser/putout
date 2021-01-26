@@ -90,6 +90,7 @@ const createProgress = once(({count, color, rss}) => {
         clearOnComplete: true,
         stopOnComplete: true,
         stream: getStream(),
+        hideCursor: true,
     }, cliProgress.Presets.react);
     
     bar.start(count, 0, {
