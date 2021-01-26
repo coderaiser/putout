@@ -55,8 +55,6 @@ test('putout: cli: --raw', async (t) => {
 });
 
 test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
-    const {PUTOUT_FILES = ''} = process.env;
-    
     process.env.PUTOUT_FILES = 'xx';
     
     const logError = stub();
@@ -76,7 +74,8 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     });
     
     stopAll();
-    process.env.PUTOUT_FILES = PUTOUT_FILES;
+    
+    delete process.env.PUTOUT_FILES;
     reRequire('.');
     
     t.calledWith(logError, [error], 'should call logError');
