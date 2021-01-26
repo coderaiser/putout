@@ -1,3 +1,12 @@
+2021.01.26, v13.10.0
+
+fix:
+- (putout) parse-options: recursive read: throw when cannot parse config
+
+feature:
+- (putout) process-file: add ability to set match on inner formats
+
+
 2021.01.25, v13.9.1
 
 fix:
