@@ -187,7 +187,7 @@
     "currify": "^4.0.0",
     "eslint": "^7.3.1",
     "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-putout": "^6.0.0",
+    "eslint-plugin-putout": "^7.0.0",
     "just-camel-case": "^4.0.2",
     "lerna": "^3.8.5",
     "madrun": "^8.6.0",
