@@ -1,3 +1,16 @@
+2021.01.26, v14.0.0
+
+feature:
+- (package) @putout/plugin-putout v6.0.0
+- (@putout/plugin-putout) drop support of putout < 14
+- (babel-plugin-putout) drop support of node < 14
+- (eslint-plugin-putout) drop support of node < 14
+- (putout) plugin-apply-shorthand-properties: remove from default install
+- (@putout/formatter-progress-bar) add ability to hide cursor
+- (@putout/formatter-memory) add ability to hide cursor
+- (putout) putout/lib/cli/process-file -> putout/process-file
+
+
 2021.01.26, v13.10.0
 
 fix:
