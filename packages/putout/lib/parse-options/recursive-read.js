@@ -6,15 +6,20 @@ const tryCatch = require('try-catch');
 const merge = require('../merge');
 const parseMatch = require('./parse-match');
 
-module.exports = (name, configName) => {
+module.exports = (name, configName, overrides) => {
+    const customRequire = overrides?.require || require;
     let mainDir;
-    
     let dir = name;
+    
     const optionsList = [];
     
     while (dir !== dirname(dir)) {
         const path = join(dir, configName);
-        const [, nextResult] = tryCatch(require, path);
+        const [error, nextResult] = tryCatch(customRequire, path);
+        
+        if (error && error.code !== 'MODULE_NOT_FOUND') {
+            throw error;
+        }
         
         if (nextResult) {
             mainDir = mainDir || dir;
