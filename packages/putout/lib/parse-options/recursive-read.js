@@ -8,12 +8,12 @@ const parseMatch = require('./parse-match');
 
 module.exports = (name, configName, overrides) => {
     const customRequire = overrides?.require || require;
-    let mainDir;
-    let dir = name;
-    
     const optionsList = [];
     
-    while (dir !== dirname(dir)) {
+    let mainDir;
+    let dir = dirname(name);
+    
+    do {
         const path = join(dir, configName);
         const [error, nextResult] = tryCatch(customRequire, path);
         
@@ -27,7 +27,7 @@ module.exports = (name, configName, overrides) => {
         }
         
         dir = dirname(dir);
-    }
+    } while (dir !== dirname(dir));
     
     let mergedOptions = merge(...optionsList);
     
