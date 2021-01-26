@@ -31,14 +31,14 @@
     "report": "madrun report"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=14"
   },
   "keywords": [
     "putout",
     "babel-plugin"
   ],
   "peerDependencies": {
-    "putout": ">=9.0.0"
+    "putout": ">=14"
   },
   "publishConfig": {
     "access": "public"
