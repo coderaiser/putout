@@ -18,7 +18,7 @@ npm i @putout/plugin-remove-constant-conditions -D
 ```json
 {
     "rules": {
-        "remove-constant-conditions": true
+        "remove-constant-conditions": "on"
     }
 }
 ```

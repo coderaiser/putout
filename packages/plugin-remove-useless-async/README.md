@@ -1,10 +1,9 @@
 # @putout/plugin-remove-useless-async [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-useless-async.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-useless-async"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-async
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-async
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-async.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-async"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-async
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-async
 
 `putout` plugin adds ability to apply shorthand properties.
 
@@ -19,7 +18,7 @@ npm i @putout/plugin-remove-useless-async
 ```json
 {
     "rules": {
-        "remove-useless-async": true
+        "remove-useless-async": "on"
     }
 }
 ```
@@ -43,4 +42,3 @@ function show() {
 ## License
 
 MIT
-

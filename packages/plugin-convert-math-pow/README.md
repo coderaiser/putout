@@ -20,7 +20,7 @@ Rule `convert-math-pow` is enabled by default, to disable add to `.putout.json`:
 ```json
 {
     "rules": {
-        "convert-math-pow": false
+        "convert-math-pow": "off"
     }
 }
 ```

@@ -20,7 +20,7 @@ Rule `convert-esm-to-commonjs` is disabled by default, to enable add to `.putout
 ```json
 {
     "rules": {
-        "convert-esm-to-commonjs": true
+        "convert-esm-to-commonjs": "on"
     }
 }
 ```

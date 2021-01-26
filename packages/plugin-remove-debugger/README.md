@@ -20,7 +20,7 @@ Rule `remove-debugger` is enabled by default, to disable add to `.putout.json`:
 ```json
 {
     "rules": {
-        "remove-debugger": false
+        "remove-debugger": "off"
     }
 }
 ```

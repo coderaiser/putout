@@ -20,7 +20,7 @@ Rule `remove-unused-private-fields` is enabled by default, to disable add to `.p
 ```json
 {
     "rules": {
-        "remove-unused-private-fields": false
+        "remove-unused-private-fields": "off"
     }
 }
 ```

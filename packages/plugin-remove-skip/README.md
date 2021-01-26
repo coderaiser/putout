@@ -20,7 +20,7 @@ Rule `remove-skip` enabled by default, to disable add to `.putout.json`:
 ```json
 {
     "rules": {
-        "remove-skip": false
+        "remove-skip": "off"
     }
 }
 ```

@@ -20,7 +20,7 @@ Rule `remove-process-exit` is disabled by default, to enable add to `.putout.jso
 ```json
 {
     "rules": {
-        "remove-process-exit": true
+        "remove-process-exit": "on"
     }
 }
 ```

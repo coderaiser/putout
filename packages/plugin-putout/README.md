@@ -34,7 +34,7 @@ npm i @putout/plugin-putout -D
 test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
     const code = 'const {name} = array[0]';
     
-    t.transformCode(code, code);
+    t.noTransformCode(code);
     t.end();
 });
 ```
@@ -56,14 +56,16 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
 
 ```js
 module.exports.fix = (path) => {
-    path.replaceWith(Identifier('hello'));
+    replaceWith(path, Identifier('hello'));
 };
+
+const {replaceWith} = require('putout').operator;
 ```
 
 ### ✅ Correct code Example
 
 ```js
-const {replaceWith} = require('putout').operate;
+const {replaceWith} = require('putout').operator;
 
 module.exports.fix = (path) => {
     replaceWith(path, Identifier('hello'));
@@ -76,14 +78,16 @@ module.exports.fix = (path) => {
 
 ```js
 module.exports.fix = (path) => {
-    path.replaceWithMultiple([Identifier('hello')]);
+    replaceWithMultiple(path, [Identifier('hello')]);
 };
+
+const {replaceWithMultiple} = require('putout').operator;
 ```
 
 ### ✅ Correct code Example
 
 ```js
-const {replaceWithMultiple} = require('putout').operate;
+const {replaceWithMultiple} = require('putout').operator;
 
 module.exports.fix = (path) => {
     replaceWithMultiple(path, [Identifier('hello')]);
@@ -100,7 +104,7 @@ const {
     SpreadElement,
     isObjectExpression,
     isIdentifier,
-} = require('@babel/types');
+} = require('putout').types;
 ```
 
 ### ✅ Correct code Example

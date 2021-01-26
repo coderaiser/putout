@@ -35,8 +35,8 @@ npm i @putout/plugin-package-json -D
 ```json
 {
     "nyc": {
-        "check-coverage": true,
-        "all": true,
+        "check-coverage": "on",
+        "all": "on",
         "exclude": [
             "**/*.spec.js",
             "**/fixture",
@@ -57,8 +57,8 @@ File `.nycrc.json`:
 
 ```json
 {
-    "check-coverage": true,
-    "all": true,
+    "check-coverage": "on",
+    "all": "on",
     "exclude": [
         "**/*.spec.js",
         "**/fixture",
@@ -75,4 +75,3 @@ File `.nycrc.json`:
 ## License
 
 MIT
-

@@ -20,7 +20,7 @@ Rule `remove-only` is enabled by default, to disable add to `.putout.json`:
 ```json
 {
     "rules": {
-        "remove-only": false
+        "remove-only": "off"
     }
 }
 ```

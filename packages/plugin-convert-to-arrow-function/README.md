@@ -18,7 +18,7 @@ npm i @putout/plugin-convert-to-arrow-function
 ```json
 {
     "rules": {
-        "convert-to-arrow-function": true
+        "convert-to-arrow-function": "on"
     }
 }
 ```

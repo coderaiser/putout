@@ -20,7 +20,7 @@ Rule `remove-console` is enabled by default, to disable add to `.putout.json`:
 ```json
 {
     "rules": {
-        "remove-console": false
+        "remove-console": "off"
     }
 }
 ```

@@ -20,7 +20,7 @@ Rule `remove-unreferenced-variables` enabled by default, to disable add to `.put
 ```json
 {
     "rules": {
-        "remove-unreferenced-variables": false
+        "remove-unreferenced-variables": "off"
     }
 }
 ```

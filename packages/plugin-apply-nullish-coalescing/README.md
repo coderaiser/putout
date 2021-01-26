@@ -18,7 +18,7 @@ npm i @putout/plugin-apply-nullish-coalescing
 ```json
 {
     "rules": {
-        "apply-nullish-coalescing": true
+        "apply-nullish-coalescing": "on"
     }
 }
 ```

@@ -1,10 +1,9 @@
 # @putout/plugin-remove-double-negations [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-double-negations.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-double-negations"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-double-negations
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-double-negations
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-double-negations.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-double-negations"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-double-negations
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-double-negations
 
 `putout` plugin adds ability to remove double negations.
 
@@ -19,7 +18,7 @@ npm i @putout/plugin-remove-double-negations
 ```json
 {
     "rules": {
-        "remove-double-negations": false
+        "remove-double-negations": "off"
     }
 }
 ```
@@ -43,4 +42,3 @@ if (a) {
 ## License
 
 MIT
-

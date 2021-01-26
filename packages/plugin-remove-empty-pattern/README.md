@@ -20,7 +20,7 @@ Rule `remove-empty-pattern` is enabled by default, to disable add to `.putout.js
 ```json
 {
     "rules": {
-        "remove-empty-pattern": false
+        "remove-empty-pattern": "off"
     }
 }
 ```

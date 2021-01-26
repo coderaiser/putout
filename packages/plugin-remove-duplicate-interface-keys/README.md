@@ -1,10 +1,9 @@
 # @putout/plugin-remove-duplicate-interface-keys [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-interface-keys.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-duplicate-interface-keys"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-duplicate-interface-keys
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-duplicate-interface-keys
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-interface-keys.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-duplicate-interface-keys"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-duplicate-interface-keys
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-duplicate-interface-keys
 
 `putout` plugin adds ability to find and remove duplecate interface-keys.
 
@@ -19,7 +18,7 @@ npm i @putout/plugin-remove-duplicate-interface-keys
 ```json
 {
     "rules": {
-        "remove-duplicate-interface-keys": true
+        "remove-duplicate-interface-keys": "on"
     }
 }
 ```
@@ -44,4 +43,3 @@ interface Hello {
 ## License
 
 MIT
-

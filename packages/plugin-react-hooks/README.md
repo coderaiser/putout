@@ -31,13 +31,13 @@ Here is list of rules:
 ```json
 {
     "rules": {
-        "react-hooks/remove-bind": true,
-        "react-hooks/rename-method-under-score": true,
-        "react-hooks/convert-state-to-hooks": true,
-        "react-hooks/remove-this": true,
-        "react-hooks/convert-class-to-function": true,
-        "react-hooks/convert-component-to-use-state": true,
-        "react-hooks/convert-import-component-to-use-state": true
+        "react-hooks/remove-bind": "on",
+        "react-hooks/rename-method-under-score": "on",
+        "react-hooks/convert-state-to-hooks": "on",
+        "react-hooks/remove-this": "on",
+        "react-hooks/convert-class-to-function": "on",
+        "react-hooks/convert-component-to-use-state": "on",
+        "react-hooks/convert-import-component-to-use-state": "on"
     }
 }
 ```

@@ -7,15 +7,27 @@ const putout = require('../..');
 const eslint = require('./eslint');
 const {parseError} = require('./parse-error');
 
+const merge = require('../merge');
+const parseMatch = require('../parse-options/parse-match');
+
+const getMatchedOptions = (name, options) => {
+    if (!name.includes('{'))
+        return options;
+    
+    return merge(options, parseMatch(name, options.match));
+};
+
 module.exports = ({fix, debug, fixCount, isFlow, isJSX, ruler = {}, logError, raw}) => async ({name, source, startLine, options}) => {
     const isTS = /\.tsx?$/.test(name) || /{ts}$/.test(name);
+    const matchedOptions = getMatchedOptions(name, options);
+    
     const [e, result] = tryCatch(putout, source, {
         fix,
         fixCount,
         isTS,
         isFlow,
         isJSX,
-        ...options,
+        ...matchedOptions,
     });
     
     if (e) {
@@ -49,7 +61,7 @@ module.exports = ({fix, debug, fixCount, isFlow, isJSX, ruler = {}, logError, ra
     };
 };
 
-function formatPlaces(line, places) {
+function formatPlaces(line = 1, places) {
     const newPlaces = [];
     
     for (const place of places) {

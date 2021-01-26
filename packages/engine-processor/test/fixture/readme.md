@@ -1,0 +1,7 @@
+```json
+{
+    "rules": {
+        "putout": true
+    }
+}
+```

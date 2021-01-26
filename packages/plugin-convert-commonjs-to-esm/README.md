@@ -18,7 +18,7 @@ npm i @putout/plugin-convert-commonjs-to-esm -D
 ```json
 {
     "rules": {
-        "convert-commonjs-to-esm": true
+        "convert-commonjs-to-esm": "on"
     }
 }
 ```

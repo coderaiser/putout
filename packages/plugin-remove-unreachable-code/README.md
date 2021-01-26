@@ -18,7 +18,7 @@ npm i @putout/plugin-remove-unreachable-code
 ```json
 {
     "rules": {
-        "remove-unreachable-code": true
+        "remove-unreachable-code": "on"
     }
 }
 ```

@@ -18,7 +18,7 @@ npm i @putout/plugin-convert-throw -D
 ```json
 {
     "rules": {
-        "convert-throw": true
+        "convert-throw": "on"
     }
 }
 ```

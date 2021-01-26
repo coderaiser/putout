@@ -1,10 +1,9 @@
 # @putout/plugin-remove-duplicates-from-logical-expression [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-duplicates-from-logical-expression.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-duplicates-from-logical-expression"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-duplicates-from-logical-expression
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-duplicates-from-logical-expression
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-duplicates-from-logical-expression.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-duplicates-from-logical-expression"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-duplicates-from-logical-expression
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-duplicates-from-logical-expression
 
 `putout` plugin adds ability to find and remove `duplicates` from logical expressions`.
 
@@ -19,7 +18,7 @@ npm i @putout/plugin-remove-duplicates-from-logical-expression -D
 ```json
 {
     "rules": {
-        "remove-duplicates-from-logical-expression": true
+        "remove-duplicates-from-logical-expression": "on"
     }
 }
 ```
@@ -39,4 +38,3 @@ const t = a && b;
 ## License
 
 MIT
-

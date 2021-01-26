@@ -20,7 +20,7 @@ Rule `split-variable-declarations` is enabled by default, to disable add to `.pu
 ```json
 {
     "rules": {
-        "split-variable-declarations": false
+        "split-variable-declarations": "off"
     }
 }
 ```

@@ -20,7 +20,7 @@ Rule `remove-nested-blocks` is enabled by default, to disable add to `.putout.js
 ```json
 {
     "rules": {
-        "remove-nested-blocks": false
+        "remove-nested-blocks": "off"
     }
 }
 ```

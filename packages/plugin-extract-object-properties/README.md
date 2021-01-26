@@ -18,8 +18,8 @@ npm i @putout/plugin-extract-object-properties -D
 ```json
 {
     "rules": {
-        "extract-object-properties/equal-deep": true,
-        "extract-object-properties/not-equal-deep": true
+        "extract-object-properties/equal-deep": "on",
+        "extract-object-properties/not-equal-deep": "on"
     }
 }
 ```

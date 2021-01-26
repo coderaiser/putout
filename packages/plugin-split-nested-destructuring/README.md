@@ -20,7 +20,7 @@ Rule `split-nested-destructuring` is enabled by default, to disable add to `.put
 ```json
 {
     "rules": {
-        "split-nested-destructuring": false
+        "split-nested-destructuring": "off"
     }
 }
 ```

@@ -458,3 +458,47 @@ test('putout: engine-processor: css', async (t) => {
     t.equal(processedSource, output);
     t.end();
 });
+
+test('putout: engine-processor: md: json: options', async (t) => {
+    const name = join(__dirname, 'fixture', 'readme.md');
+    const options = {
+        match: {
+            '*.md{json}': {
+                'putout-config': 'on',
+            },
+        },
+        rules: {
+            'putout-config': 'off',
+        },
+        plugins: [
+            'putout-config',
+        ],
+        processors: [
+            'markdown',
+        ],
+    };
+    
+    const rawSource = await readFile(name, 'utf8');
+    const {places} = await runProcessors({
+        name,
+        processFile: processFile({
+            name: `${name}{json}`,
+            fix: false,
+        }),
+        options,
+        rawSource,
+    });
+    
+    const expected = [{
+        message: 'String should be used instead of Boolean',
+        position: {
+            column: 18,
+            line: 4,
+        },
+        rule: 'putout-config/convert-boolean-to-string',
+    }];
+    
+    t.deepEqual(places, expected, 'should equal');
+    t.end();
+});
+

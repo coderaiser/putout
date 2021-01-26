@@ -20,7 +20,7 @@ Rule `convert-apply-to-spread` is enabled by default, to disable add to `.putout
 ```json
 {
     "rules": {
-        "convert-apply-to-spread": false
+        "convert-apply-to-spread": "off"
     }
 }
 ```
