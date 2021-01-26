@@ -1074,8 +1074,6 @@ test('putout: cli: cannot load processor', async (t) => {
     
     mockRequire('../../putout.json', putoutConfig);
     
-    //reRequire('../parse-options');
-    //reRequire('./get-options');
     const cli = reRequire('.');
     
     reRequire('../parse-options');
