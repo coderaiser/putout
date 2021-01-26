@@ -46,11 +46,11 @@
     "nyc": "^15.0.1"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "peerDependencies": {
     "eslint": ">=7",
-    "putout": ">=11.0.0"
+    "putout": ">=14"
   },
   "license": "MIT",
   "publishConfig": {
