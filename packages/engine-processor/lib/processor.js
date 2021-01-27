@@ -1,8 +1,7 @@
 'use strict';
 
 const {loadProcessors} = require('@putout/engine-loader');
-const memo = require('nano-memoize');
-const picomatch = memo(require('picomatch'));
+const picomatch = require('picomatch');
 
 const defaultProcessors = [
     'javascript',
