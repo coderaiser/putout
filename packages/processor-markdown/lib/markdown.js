@@ -1,15 +1,8 @@
 'use strict';
 
-const visit = require('unist-util-visit');
-const unified = require('unified');
-const parse = require('remark-parse');
-const stringify = require('remark-stringify');
-const preset = require('remark-preset-lint-consistent');
-const jsonProcessor = require('@putout/processor-json');
-
 const {initParseStore} = require('./parse-store');
 
-const parseStore = initParseStore(parse);
+const parseStore = initParseStore();
 
 const text = ({value}) => value;
 const stringifyOptions = {
@@ -27,6 +20,10 @@ module.exports.files = [
 ];
 
 module.exports.process = async (rawSource, {fix}) => {
+    const unified = require('unified');
+    const stringify = require('remark-stringify');
+    const preset = require('remark-preset-lint-consistent');
+    
     parseStore.init();
     
     const {messages, contents} = await unified()
@@ -48,6 +45,8 @@ module.exports.process = async (rawSource, {fix}) => {
 };
 
 module.exports.preProcess = async (rawSource) => {
+    const unified = require('unified');
+    const stringify = require('remark-stringify');
     const list = [];
     
     await unified()
@@ -60,6 +59,8 @@ module.exports.preProcess = async (rawSource) => {
 };
 
 module.exports.postProcess = async (rawSource, list) => {
+    const unified = require('unified');
+    const stringify = require('remark-stringify');
     const newList = list.slice();
     
     const {contents} = await unified()
@@ -84,44 +85,52 @@ function toPlace({reason, line, column, source, ruleId}) {
     };
 }
 
-const collect = (list) => (node) => {
-    visit(node, 'code', (node) => {
-        const {lang, value} = node;
-        const startLine = node.position.start.line;
-        
-        if (/^(js|javascript)$/.test(lang)) {
-            list.push({
-                startLine,
-                source: value,
-                extension: 'js',
-            });
+const collect = (list) => {
+    const jsonProcessor = require('@putout/processor-json');
+    const visit = require('unist-util-visit');
+    
+    return (node) => {
+        visit(node, 'code', (node) => {
+            const {lang, value} = node;
+            const startLine = node.position.start.line;
             
-            return;
-        }
-        
-        if (/^(ts|typescript)$/.test(lang)) {
-            list.push({
-                startLine,
-                source: value,
-                extension: 'ts',
-            });
+            if (/^(js|javascript)$/.test(lang)) {
+                list.push({
+                    startLine,
+                    source: value,
+                    extension: 'js',
+                });
+                
+                return;
+            }
             
-            return;
-        }
-        
-        if (lang === 'json') {
-            const [{source}] = jsonProcessor.preProcess(value);
+            if (/^(ts|typescript)$/.test(lang)) {
+                list.push({
+                    startLine,
+                    source: value,
+                    extension: 'ts',
+                });
+                
+                return;
+            }
             
-            list.push({
-                startLine,
-                source,
-                extension: 'json',
-            });
-        }
-    });
+            if (lang === 'json') {
+                const [{source}] = jsonProcessor.preProcess(value);
+                
+                list.push({
+                    startLine,
+                    source,
+                    extension: 'json',
+                });
+            }
+        });
+    };
 };
 
 const apply = (list, rawSource) => (node) => {
+    const jsonProcessor = require('@putout/processor-json');
+    const visit = require('unist-util-visit');
+    
     visit(node, 'code', (node) => {
         const {lang} = node;
         

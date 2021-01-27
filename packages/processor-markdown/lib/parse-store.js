@@ -1,6 +1,8 @@
 'use strict';
 
-module.exports.initParseStore = (parse) => {
+const parse = require('remark-parse');
+
+module.exports.initParseStore = () => {
     let cache = null;
     
     const fn = function needContext(a) {

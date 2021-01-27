@@ -1,7 +1,5 @@
 'use strict';
 
-const yaml = require('js-yaml');
-const jsonProcessor = require('@putout/processor-json');
 const tryCatch = require('try-catch');
 const fullstore = require('fullstore');
 
@@ -15,6 +13,8 @@ module.exports.files = [
 ];
 
 module.exports.preProcess = () => {
+    const jsonProcessor = require('@putout/processor-json');
+    
     const rawSource = store();
     
     if (!rawSource)
@@ -34,6 +34,8 @@ module.exports.preProcess = () => {
 };
 
 module.exports.process = (rawSource) => {
+    const yaml = require('js-yaml');
+    
     const [error, value] = tryCatch(yaml.load, rawSource);
     const noPlaces = [];
     
@@ -49,6 +51,9 @@ module.exports.process = (rawSource) => {
 };
 
 module.exports.postProcess = (rawSource, list) => {
+    const yaml = require('js-yaml');
+    const jsonProcessor = require('@putout/processor-json');
+    
     const source = jsonProcessor.postProcess(rawSource, list);
     const result = yaml.dump(parse(source));
     
