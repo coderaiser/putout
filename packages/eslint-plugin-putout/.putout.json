@@ -1,5 +1,6 @@
 {
     "rules": {
-        "putout": "on"
+        "putout": "on",
+        "putout/shorten-imports": "off"
     }
 }
