@@ -22,7 +22,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-replace-with": "on",
         "putout/convert-replace-with-multiple": "on",
         "putout/convert-babel-types": "on",
-        "putout/shorten-putout-exports": "on"
+        "putout/shorten-imports": "on"
     }
 }
 ```
@@ -119,7 +119,7 @@ const {
 } = require('putout').types;
 ```
 
-## shorten-putout-exports
+## shorten-imports
 
 ### ❌ Incorrect code example
 
