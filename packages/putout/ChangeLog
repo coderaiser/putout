@@ -1,3 +1,13 @@
+2021.01.28, v14.0.2
+
+fix:
+- (putout) VS Code support (#48)
+- (@putout/plugin-putout) shorten-putout-exports -> shorten-imports
+
+feature:
+- (@putout/engine-processor) drop memo: speed up
+
+
 2021.01.27, v14.0.1
 
 fix:
