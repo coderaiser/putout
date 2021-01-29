@@ -26,6 +26,16 @@ test('putout: processor: ignore', async (t) => {
     t.end();
 });
 
+test('putout: processor: ignore: windows', async (t) => {
+    const {
+        output,
+        processedSource,
+    } = await process('windows-gitignore');
+    
+    t.equal(processedSource, output);
+    t.end();
+});
+
 test('putout: processor: ignore: rc', async (t) => {
     const process = getProcess({
         processors: [
