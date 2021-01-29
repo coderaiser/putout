@@ -1,0 +1,4 @@
+.nyc_output
+.putoutcache
+node_modules
+*.swp
