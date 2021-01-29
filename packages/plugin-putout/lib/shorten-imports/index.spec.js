@@ -5,12 +5,12 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-putout: convert-putout-exports: report', (t) => {
-    t.report('shorten-putout-exports', 'Shorten require path to putout exports');
+    t.report('shorten-imports', 'Shorten require path to putout exports');
     t.end();
 });
 
 test('plugin-putout: transform', (t) => {
-    t.transform('shorten-putout-exports');
+    t.transform('shorten-imports');
     t.end();
 });
 
