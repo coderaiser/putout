@@ -1,3 +1,13 @@
+2021.01.30, v14.0.3
+
+fix:
+- (putout) prevent unhandled exeptions
+- (@putout/processor-ignore) windows line endings
+
+feature:
+- (@putout/plugin-gitignore) add yarn-error.log
+
+
 2021.01.28, v14.0.2
 
 fix:
