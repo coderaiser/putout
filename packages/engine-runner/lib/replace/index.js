@@ -21,6 +21,9 @@ const stub = () => [];
 const stubMatch = () => ({});
 const packKeys = (a) => () => keys(a);
 const isObj = (a) => typeof a === 'object';
+const getReplaceItems = (fn, options) => isObj(fn) ? fn : fn({
+    options,
+});
 
 module.exports = ({rule, plugin, msg, options}) => {
     const {
@@ -30,7 +33,7 @@ module.exports = ({rule, plugin, msg, options}) => {
         filter = getFilter(plugin.match, options),
     } = plugin;
     
-    const replaceItems = replace({options});
+    const replaceItems = getReplaceItems(replace, options);
     const fix = getFix(replaceItems);
     const include = packKeys(replaceItems);
     

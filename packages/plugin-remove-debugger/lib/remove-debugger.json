@@ -1,0 +1,7 @@
+{
+    "report": "Unexpected \"debugger\" statement",
+    "replace": {
+        "debugger": ""
+    }
+}
+
