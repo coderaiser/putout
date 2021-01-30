@@ -11,6 +11,11 @@ const process = getProcess({
     processors: [
         'ignore',
     ],
+    rules: {
+        gitignore: ['on', {
+            dismiss: ['yarn-error.log'],
+        }],
+    },
     plugins: [
         'gitignore',
     ],
@@ -93,7 +98,7 @@ test('putout: processor: ignore: no new line', async (t) => {
     t.end();
 });
 
-function getProcess({processors, plugins, ext = ''}) {
+function getProcess({processors, plugins, rules, ext = ''}) {
     return async (name, {fix = true, noTransform = false} = {}) => {
         const inputName = join(__dirname, 'fixture', `${name}${ext}`);
         
@@ -111,6 +116,7 @@ function getProcess({processors, plugins, ext = ''}) {
             dir: __dirname,
             processors,
             plugins,
+            rules,
         };
         
         const {

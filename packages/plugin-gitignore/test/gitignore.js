@@ -19,7 +19,7 @@ test('plugin-putout: transform: all presented', (t) => {
     t.end();
 });
 
-test('plugin-putout: transform', (t) => {
+test('plugin-putout: transform: vim-files', (t) => {
     t.transform('vim-files');
     t.end();
 });

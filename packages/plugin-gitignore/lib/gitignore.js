@@ -8,6 +8,7 @@ const names = [
     '.nyc_output',
     '.putoutcache',
     '*.swp',
+    'yarn-error.log',
 ];
 
 module.exports.report = () => `Dot files should be added to .gitignore`;
