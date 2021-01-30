@@ -2,20 +2,21 @@
 
 'use strict';
 
-require('v8-compile-cache');
+//require('v8-compile-cache');
 
 const {
     readFile,
     writeFile,
 } = require('fs/promises');
 
+const tryToCatch = require('try-to-catch');
 const cli = require('../lib/cli');
 
 const {stdout} = process;
 const write = stdout.write.bind(stdout);
 const logError = console.error;
 
-module.exports = cli({
+module.exports = tryToCatch(cli, {
     write,
     halt: process.exit,
     argv: process.argv.slice(2),
