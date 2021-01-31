@@ -82,3 +82,16 @@ test('parser: template: program', (t) => {
     t.equal(ast.type, 'Program');
     t.end();
 });
+
+test.only('parser: template: await', (t) => {
+    const buildDeclaration= template(`
+        const A = await B()
+    `);
+    
+    const ast = buildDeclaration({
+        A: Identifier('myModule'),
+        B: StringLiteral('my-module'),
+    });
+    
+    t.end();
+});

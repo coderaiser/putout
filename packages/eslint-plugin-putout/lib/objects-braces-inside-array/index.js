@@ -32,7 +32,7 @@ module.exports.fix = ({text}) => {
         .replace('[\n', '[')
         .replace(/\[\s+{/, '[{')
         .replace('\n]', ']')
-        .replace(/},\n(\s+)?{/, '}, {')
+        .replace(/},\n(\s+)?{/g, '}, {')
         .replace(badEndReg, '}]');
 };
 
