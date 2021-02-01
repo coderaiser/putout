@@ -35,6 +35,7 @@ jobs:
     - name: coverage
       run:
         npm run coverage
+        npm run report
 
     - name: Coveralls
       uses: coverallsapp/github-action@master
