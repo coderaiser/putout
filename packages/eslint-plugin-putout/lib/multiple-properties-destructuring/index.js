@@ -1,7 +1,10 @@
 'use strict';
 
 const {isImportDeclaration} = require('putout').types;
-const {isCorrectLoc} = require('../common');
+const {
+    isCorrectLoc,
+    isCorrectImportLoc,
+} = require('../common');
 
 module.exports.category = 'destructuring';
 module.exports.report = () => 'Keep each property on separate lines when using multiple destructuring properties';
@@ -24,7 +27,7 @@ module.exports.filter = ({node}) => {
     const {line} = node.loc.start;
     
     if (isImportDeclaration(node))
-        return !isCorrectLoc(line, specifiers);
+        return !isCorrectImportLoc(line, specifiers);
     
     if (parent.parent && parent.parent.type === 'ForOfStatement')
         return false;

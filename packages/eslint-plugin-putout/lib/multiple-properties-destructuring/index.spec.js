@@ -27,11 +27,16 @@ ruleTester.run('multiple-properties-destructuring', rule, {
             b,
             // world
             c,
-        } = world;`,
-        `for (const {a, b, c, d} of items) {
-        }`,
-    ],
-    
+        } = world;
+        `, `
+        for (const {a, b, c, d} of items) {
+        }
+        `, `
+        import x, {
+            m as b,
+            z
+        } from 'y';
+    `],
     invalid: [{
         code: `const {x, y} = screen;`,
         output: `const {\nx,\n y\n} = screen;`,
@@ -74,6 +79,13 @@ ruleTester.run('multiple-properties-destructuring', rule, {
     }, {
         code: `import {a, b, c} from 'world';`,
         output: `import {\na,\n b,\n c\n} from 'world';`,
+        errors: [{
+            message,
+            type: 'ImportDeclaration',
+        }],
+    }, {
+        code: `import x, {m as b, z} from 'y';`,
+        output: `import x,\n {\nm as b,\n z\n} from 'y';`,
         errors: [{
             message,
             type: 'ImportDeclaration',

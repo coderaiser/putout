@@ -35,7 +35,10 @@ import x from 'y';
 ## ✅ Correct code Example
 
 ```js
-import x, {m as b, z} from 'y';
+import x, {
+    m as b,
+    z,
+} from 'y';
 ```
 
 ## License
