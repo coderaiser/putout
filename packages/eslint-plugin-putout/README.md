@@ -1,6 +1,15 @@
-# eslint-plugin-putout
+# eslint-plugin-putout [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
-[ESLint](https://eslint.org) plugin for putout with built-in rules from [@putout/eslint-config](https://github.com/coderaiser/putout/tree/master/packages/eslint-config).
+[NPMIMGURL]: https://img.shields.io/npm/v/eslint-plugin-putout.svg?style=flat&longCache=true
+[BuildStatusIMGURL]: https://img.shields.io/travis/coderaiser/eslint-plugin-putout/master.svg?style=flat&longCache=true
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/eslint-plugin-putout.svg?path=packages/eslint-plugin-putout
+[NPMURL]: https://npmjs.org/package/eslint-plugin-putout "npm"
+[BuildStatusURL]: https://travis-ci.org/coderaiser/eslint-plugin-putout "Build Status"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/eslint-plugin-putout?path=packages/eslint-plugin-putout "Dependency Status"
+[CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
+[CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
+
+[ESLint](https://eslint.org) plugin for putout with built-in rules from [@putout/eslint-config](https://github.com/coderaiser/eslint-plugin-putout/tree/master/packages/eslint-config).
 
 ## Installation
 
@@ -43,7 +52,7 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "putout/putout": "error",
+        "putout/eslint-plugin-putout": "error",
         "putout/single-property-destructuring": "error",
         "putout/multiple-properties-destructuring": "error",
         "putout/long-properties-destructuring": "error",
