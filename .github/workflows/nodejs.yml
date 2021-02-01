@@ -20,17 +20,21 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     
+    - name: Install Redrun
+      run:
+        npm i redrun -g
+    
     - name: Install
       run:
         npm install
     
     - name: Bootstrap
       run:
-        npm run bootstrap
+        redrun bootstrap
     
     - name: Lint
       run:
-        npm run fix:lint
+        redrun fix:lint
     
     - name: Commit fixes
       uses: EndBug/add-and-commit@v7
@@ -39,10 +43,10 @@ jobs:
     
     - name: Coverage
       run:
-        npm run coverage
-        npm run report
+        - redrun coverage report
     
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+
