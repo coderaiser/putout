@@ -20,28 +20,29 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     
-    - name: install
+    - name: Install
       run:
         npm install
     
-    - name: bootstrap
+    - name: Bootstrap
       run:
         npm run bootstrap
     
-    - name: lint
+    - name: Lint
       run:
         npm run fix:lint
     
-    - name: coverage
+    - name: Commit fixes
+      uses: EndBug/add-and-commit@v7
+      with:
+        message: 'chore(${{ env.NAME }}) lint using actions'
+    
+    - name: Coverage
       run:
         npm run coverage
         npm run report
-
+    
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-    
-    - uses: EndBug/add-and-commit@v7
-      with:
-        message: 'chore(${{ env.NAME }}) lint using actions'
