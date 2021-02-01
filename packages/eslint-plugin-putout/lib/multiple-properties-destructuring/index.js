@@ -1,5 +1,6 @@
 'use strict';
 
+const {isImportDeclaration} = require('putout').types;
 const {isCorrectLoc} = require('../common');
 
 module.exports.category = 'destructuring';
@@ -10,22 +11,27 @@ module.exports.include = ({options}) => {
     
     return [
         `VariableDeclarator[id.type="ObjectPattern"][id.properties.length>${minProperties}]`,
+        `ImportDeclaration[specifiers.length>=${minProperties}]`,
     ];
 };
 
 module.exports.filter = ({node}) => {
-    if (node.parent.parent.type === 'ForOfStatement')
-        return false;
-    
-    const {id} = node;
-    const {properties} = id;
+    const {
+        id,
+        specifiers,
+        parent,
+    } = node;
     const {line} = node.loc.start;
-    const isLoc = isCorrectLoc(line, properties);
     
-    if (isLoc)
+    if (isImportDeclaration(node))
+        return !isCorrectLoc(line, specifiers);
+    
+    if (parent.parent && parent.parent.type === 'ForOfStatement')
         return false;
     
-    return true;
+    const {properties} = id;
+    
+    return !isCorrectLoc(line, properties);
 };
 
 module.exports.fix = ({text}) => {

@@ -7,7 +7,8 @@ const rule = wrap(require('.'));
 
 const ruleTester = new RuleTester({
     parserOptions: {
-        ecmaVersion: 2019,
+        ecmaVersion: 2021,
+        sourceType: 'module',
     },
 });
 
@@ -69,6 +70,13 @@ ruleTester.run('multiple-properties-destructuring', rule, {
         errors: [{
             message,
             type: 'VariableDeclarator',
+        }],
+    }, {
+        code: `import {a, b, c} from 'world';`,
+        output: `import {\na,\n b,\n c\n} from 'world';`,
+        errors: [{
+            message,
+            type: 'ImportDeclaration',
         }],
     }],
 });

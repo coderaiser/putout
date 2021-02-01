@@ -4,20 +4,32 @@ In the same way as eslint [object-property-newline](https://eslint.org/docs/rule
 
 ## Rule Details
 
-This rule aims to shorten destructuring of one property.
-
 Examples of **incorrect** code for this rule:
 
 ```js
-const {
-    username,
-} = user;
+const {a, b, c} = user;
+```
+
+```js
+import {a, b, c} from 'user';
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-const {username} = user;
+const {
+    a,
+    b,
+    c,
+} = user;
+```
+
+```js
+import {
+    a,
+    b,
+    c,
+} from 'user';
 ```
 
 ## Options

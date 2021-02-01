@@ -2,7 +2,7 @@
     "overrides": [{
         "files": "*.md{js}",
         "rules": {
-            "putout/single-property-destructuring": "off"
+            "putout/multiple-properties-destructuring": "off"
         }
     }]
 }
