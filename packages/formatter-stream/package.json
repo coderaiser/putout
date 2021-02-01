@@ -36,7 +36,6 @@
     "@putout/plugin-remove-unused-variables": "*",
     "@putout/test": "^3.0.0",
     "babel-plugin-transform-inline-consecutive-adds": "^0.5.0-alpha.9",
-    "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^7.0.0",

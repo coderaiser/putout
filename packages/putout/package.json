@@ -184,7 +184,6 @@
     "@cloudcmd/stub": "^3.0.0",
     "async-await-codemod": "https://github.com/sgilroy/async-await-codemod.git",
     "babel-plugin-transform-inline-consecutive-adds": "^0.5.0-alpha.9",
-    "coveralls": "^3.0.0",
     "currify": "^4.0.0",
     "eslint": "^7.3.1",
     "eslint-plugin-node": "^11.0.0",

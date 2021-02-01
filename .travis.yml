@@ -6,7 +6,6 @@ script:
   - npm run bootstrap
   - npm run lint
   - npm run coverage:ci
-  - npm run report
 notifications:
   email:
     on_success: never

@@ -45,7 +45,6 @@
     "@putout/plugin-remove-console": "^3.1.0",
     "@putout/plugin-remove-empty": "^5.1.0",
     "@putout/plugin-remove-unused-variables": "*",
-    "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^7.0.0",

@@ -33,7 +33,6 @@
     "@putout/plugin-remove-unused-expressions": "^2.0.0",
     "@putout/plugin-strict-mode": "^2.0.0",
     "@putout/test": "^3.0.0",
-    "coveralls": "^3.0.0",
     "eslint": "^7.6.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^7.0.0",

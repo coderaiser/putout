@@ -37,7 +37,6 @@
   "devDependencies": {
     "@cloudcmd/stub": "^3.1.0",
     "@putout/engine-processor": "^2.5.0",
-    "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^7.0.0",

@@ -1,11 +1,13 @@
 name: Node CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      NAME: putout
 
     strategy:
       matrix:
@@ -34,3 +36,11 @@ jobs:
       run:
         npm run coverage
 
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - uses: EndBug/add-and-commit@v7
+      with:
+        message: 'chore(${{ env.NAME }}) lint using actions'

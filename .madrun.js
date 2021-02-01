@@ -42,7 +42,7 @@ module.exports = {
     'fix:lint:cache': async () => await run('lint:cache', '--fix'),
     'fix:lint:slow': () => 'lerna run --no-bail fix:lint',
     'bootstrap': () => 'lerna bootstrap',
-    'report': () => `nyc report --reporter=text-lcov | coveralls`,
+    'report': () => 'nyc report --reporter=lcov',
 };
 
 function getDirs(workspaces) {
