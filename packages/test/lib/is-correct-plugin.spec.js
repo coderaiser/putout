@@ -1,8 +1,6 @@
 'use strict';
 
-const test = require('supertape');
-const stub = require('@cloudcmd/stub');
-
+const {test, stub} = require('supertape');
 const isCorrectPlugin = require('./is-correct-plugin');
 
 test('test: isCorrectPlugin: not', (t) => {
