@@ -1,5 +1,7 @@
 'use strict';
 
+const processorCSS = require('@putout/processor-css');
+
 const {initParseStore} = require('./parse-store');
 
 const parseStore = initParseStore();
@@ -26,12 +28,15 @@ module.exports.process = async (rawSource, {fix}) => {
     
     parseStore.init();
     
+    const places = [];
     const {messages, contents} = await unified()
         .use(parseStore)
         .use(preset)
+        .use(process, {places, fix})
         .use(stringify, stringifyOptions)
         .process(rawSource);
     
+    console.log('::::', places);
     if (fix && contents !== rawSource && messages.length)
         return [
             contents,
@@ -86,7 +91,7 @@ function toPlace({reason, line, column, source, ruleId}) {
 }
 
 const collect = (list) => {
-    const jsonProcessor = require('@putout/processor-json');
+    const processorJSON = require('@putout/processor-json');
     const visit = require('unist-util-visit');
     
     return (node) => {
@@ -115,7 +120,7 @@ const collect = (list) => {
             }
             
             if (lang === 'json') {
-                const [{source}] = jsonProcessor.preProcess(value);
+                const [{source}] = processorJSON.preProcess(value);
                 
                 list.push({
                     startLine,
@@ -157,3 +162,27 @@ const apply = (list, rawSource) => (node) => {
     });
 };
 
+function process({places, fix}) {
+    const processorCSS = require('@putout/processor-css');
+    const visit = require('unist-util-visit');
+    console.log(this);
+    
+    return (node) => {
+        visit(node, 'code', async (node) => {
+            const {lang, value} = node;
+            const startLine = node.position.start.line;
+            
+            if (/^css$/.test(lang)) {
+                console.log('xxx', value);
+                debugger;
+                const [code, currentPlaces] = await processorCSS.process(value);
+                console.log('zzzz', code, places);
+                
+                places.push(...currentPlaces);
+                
+                node.value = code;
+                return;
+            }
+        });
+    };
+};
