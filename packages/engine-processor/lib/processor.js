@@ -1,5 +1,6 @@
 'use strict';
 
+const typos = require('@putout/processor-typos');
 const {loadProcessors} = require('@putout/engine-loader');
 const picomatch = require('picomatch');
 
@@ -59,10 +60,22 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         
         isJsChanged = false;
         for (const {source, startLine = 0, extension} of list) {
+            const [typosFreeSource, typosPlaces] = await typos.process(source, {fix});
+            
+            if (typosPlaces.length) {
+                preProcessedList.push(source);
+                allPlaces.push(...typosPlaces);
+                isJsChanged = true;
+                
+                continue;
+            }
+            
+            console.log(typosFreeSource);
+            
             const processedName = addExtension(name, extension);
             const {code, places} = await processFile({
                 name: processedName,
-                source,
+                source: typosFreeSource,
                 rawSource,
                 options,
                 startLine,
