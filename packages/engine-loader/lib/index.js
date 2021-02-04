@@ -55,7 +55,7 @@ module.exports.loadProcessors = memo((options) => {
     return list;
 });
 
-module.exports.loadPlugins = memo((options) => {
+module.exports.loadPlugins = (options) => {
     check(options);
     
     const {
@@ -92,7 +92,7 @@ module.exports.loadPlugins = memo((options) => {
     }
     
     return result;
-});
+};
 
 function getLoadedRules(rules) {
     const loadedRules = [];
