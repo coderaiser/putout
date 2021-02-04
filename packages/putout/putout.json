@@ -9,7 +9,8 @@
         "markdown",
         "ignore",
         "yaml",
-        "css"
+        "css",
+        "html"
     ],
     "match": {
         "*.{js,jsx,mjs,cjs,ts,tsx}": {

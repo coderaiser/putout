@@ -5,18 +5,43 @@ const processorCSS = require('@putout/processor-css');
 const createSpaceLine = (a) => Array(a).join(' ');
 const addSpaces = (spacesCount) => (a) => createSpaceLine(spacesCount) + a;
 const cutSpaces = (spacesCount) => (a) => a.slice(spacesCount);
-const getSpacesCount = (text) => {
-    let i = 0;
-    
-    while(/\s/.test(text[i]))
-        ++i;
-    
-    return i;
-};
 
 module.exports.files = [
     '*.html',
 ];
+
+module.exports.process = async (rawSource, {fix}) => {
+    const svelte = require('svelte/compiler');
+    const allPlaces = [];
+    
+    const {code} = await svelte.preprocess(rawSource, {
+        async style(node) {
+            console.log(node);
+            const {content} = node;
+            const source = removePrefixSpaces(content);
+            const [processedSource, places] = await processorCSS.process(source, {fix});
+            const code = addPrefixSpaces({
+                content,
+                source: processedSource.slice(0, -1),
+            });
+            
+            for (const place of places) {
+            }
+            
+            allPlaces.push(...places);
+            
+            return {
+                code,
+            };
+        },
+    });
+    
+    debugger;
+    if (!fix)
+        return [rawSource, allPlaces];
+    
+    return [code, []];
+};
 
 module.exports.preProcess = async (rawSource) => {
     const svelte = require('svelte/compiler');
@@ -51,13 +76,9 @@ module.exports.postProcess = async (rawSource, list) => {
     const {code} = await svelte.preprocess(rawSource, {
         script({content}) {
             const currentSource = list.shift().trim();
-            const spacesCount = getSpacesCount(content);
-            const lastLine = content.split('\n').pop();
-            
             const code = addPrefixSpaces({
-                currentSource,
-                spacesCount,
-                lastLine,
+                content,
+                source: currentSource,
             });
             
             return {
@@ -69,8 +90,10 @@ module.exports.postProcess = async (rawSource, list) => {
     return code;
 };
 
-function addPrefixSpaces({currentSource, spacesCount, lastLine}) {
-    const code = '\n' + currentSource
+function addPrefixSpaces({content, source}) {
+    const spacesCount = getSpacesCount(content);
+    const lastLine = content.split('\n').pop();
+    const code = '\n' + source
         .split('\n')
         .map(addSpaces(spacesCount))
         .join('\n') + '\n' + lastLine;
@@ -79,9 +102,9 @@ function addPrefixSpaces({currentSource, spacesCount, lastLine}) {
 }
 
 function convertStartToLine(start, str) {
-    let newLines = 1;
+    let newLines = 4;
     
-    for (let i = 0; i < start; i++) {
+    for (let i = 0; i <= start; i++) {
         if (str[i] === '\n')
             ++newLines;
     }
@@ -90,7 +113,7 @@ function convertStartToLine(start, str) {
 }
 
 function removePrefixSpaces(text) {
-    const lines =  text
+    const lines = text
         .split('\n')
         .slice(1);
     
@@ -100,3 +123,13 @@ function removePrefixSpaces(text) {
         .map(cutSpaces(spacesCount))
         .join('\n');
 }
+
+function getSpacesCount(text) {
+    let i = 0;
+    
+    while(/\s/.test(text[i]))
+        ++i;
+    
+    return i;
+};
+

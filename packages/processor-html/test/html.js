@@ -38,9 +38,16 @@ test('putout: processor: html: css', async (t) => {
         message: '\'log\' is not defined.',
         position: {
             column: 1,
-            line: 13,
+            line: 11,
         },
         rule: 'no-undef (eslint)',
+    }, {
+        message: 'Expected a trailing semicolon (declaration-block-trailing-semicolon)',
+        position: {
+            column: 26,
+            line: 5,
+        },
+        rule: 'declaration-block-trailing-semicolon (stylelint)',
     }];
     
     t.deepEqual(places, expected);
