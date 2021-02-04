@@ -3,8 +3,8 @@
 [90mRule: remove-unused-variables[39m
 > 1 | const t = 'hello';
     |      ^
-  2 | 
-  3 | 
+  2 |
+  3 |
 
 
 [31m[1m1 error found.[22m[39m[31m[1m[22m[39m

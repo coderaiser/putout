@@ -1,5 +1,8 @@
 'use strict';
 
+const {join} = require('path');
+const {readFile} = require('fs/promises');
+
 const test = require('supertape');
 const codeframe = require('./codeframe');
 
@@ -32,7 +35,7 @@ test('putout: codeframe: should return message', (t) => {
     t.end();
 });
 
-test('putout: codeframe: not highlited', (t) => {
+test('putout: codeframe: not highlited', async (t) => {
     const loc = {
         line: 2,
         column: 8,
@@ -51,7 +54,8 @@ test('putout: codeframe: not highlited', (t) => {
     const result = codeframe({
         source, error, highlightCode: false,
     });
-    const expected = '  1 | \n> 2 |       fonction(a) {\n    |        ^ some error is here\n  3 |         return a;\n  4 |       }\n  5 |     ';
+    
+    const expected = await readFile(join(__dirname, 'fixture', 'codeframe'), 'utf8');
     
     t.equal(result, expected, 'should equal');
     t.end();
