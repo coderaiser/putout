@@ -3,8 +3,7 @@
 const {readFile} = require('fs/promises');
 const {join} = require('path');
 
-const test = require('supertape');
-const stub = require('@cloudcmd/stub');
+const {test, stub} = require('supertape');
 const processFile = require('putout/process-file');
 const {getFilePatterns} = require('..');
 const {runProcessors} = require('..');
@@ -502,3 +501,42 @@ test('putout: engine-processor: md: json: options', async (t) => {
     t.end();
 });
 
+test('putout: engine-processor: lint + js', async (t) => {
+    const options = {
+    };
+    
+    const processorRunners = [{
+        isMatch: stub().returns(true),
+        process: () => {
+            return [
+                'hello', [],
+            ];
+        },
+        preProcess: () => {
+            return [{
+                source: 'var a',
+                startLine: 0,
+            }];
+        },
+        postProcess: (content) => {
+            return content;
+        },
+    }];
+    
+    const rawSource = 'hello world';
+    
+    const fix = true;
+    const {processedSource} = await runProcessors({
+        fix,
+        name: 'hello.md',
+        processFile: processFile({
+            fix,
+        }),
+        options,
+        rawSource,
+        processorRunners,
+    });
+    
+    t.equal(processedSource, 'hello', 'should use processed source in postProcess');
+    t.end();
+});

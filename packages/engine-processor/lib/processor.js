@@ -76,7 +76,7 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         }
         
         if (isJsChanged)
-            processedSource = await postProcess(rawSource, preProcessedList);
+            processedSource = await postProcess(processedSource, preProcessedList);
         
         isProcessed = true;
         allPlaces.push(...processedPlaces);
