@@ -1,12 +1,10 @@
 2021.02.04, v14.0.4
 
 fix:
-- chore(putout) update codeframe fixtures
 - (@putout/engine-processor) postProcess: rawSource -> processedSource
--  (putout) uncomment v8-compile cache
+- (putout) uncomment v8-compile cache
 - (@putout/traverse) dependencies
 - (eslint-plugin-putout) multiple-properties-destructuring: ImportDeclaration: loc
-- chore(nodejs) lint -> :lint
 - (eslint-plugin-putout) objects-braces-inside-array: multiple objects
 
 feature:
