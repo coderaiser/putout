@@ -279,6 +279,7 @@ const noReport = currify(({dir, plugins, rules}, t, name) => {
     
     return noReportCode({plugins, rules, isTS}, t, source);
 });
+module.exports._createNoReport = noReport;
 
 const reportWithOptions = currify(({dir, plugins}, t, name, message, options) => {
     const full = join(dir, name);
@@ -334,7 +335,7 @@ const noReportCode = currify(({plugins, rules, isTS}, t, source) => {
         plugins,
     });
     
-    return t.notOk(places.lengths, 'should not report');
+    return t.deepEqual(places, [], 'should not report');
 });
 
 function getPlugins(plugin) {

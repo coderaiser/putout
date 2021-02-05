@@ -1,5 +1,10 @@
 'use strict';
 
+const {join} = require('path');
+
+const {stub} = require('supertape');
+const {_createNoReport} = require('..');
+
 const test = require('..')(__dirname, {
     'remove-imports': {
         report: () => 'avoid imports',
@@ -33,6 +38,40 @@ test('putout: test: noReportWithOptions', (t) => {
     t.noReportWithOptions('remove-import', {
         cache,
     });
+    t.end();
+});
+
+test('putout: test: noReport', (t) => {
+    const noReport = _createNoReport({
+        dir: join(__dirname, 'fixture'),
+        plugins: [
+            ['remove-import', {
+                report: () => 'hello',
+                include: () => ['ImportDeclaration'],
+            }],
+        ],
+    });
+    
+    const deepEqual = stub();
+    const mockTest = {
+        deepEqual,
+    };
+    
+    noReport(mockTest, 'remove-import');
+    
+    const place = {
+        message: 'hello',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'remove-import',
+    };
+    
+    const message = 'should not report';
+    const expected = [[place], [], message];
+    
+    t.calledWith(deepEqual, expected);
     t.end();
 });
 
