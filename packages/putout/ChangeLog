@@ -1,3 +1,18 @@
+2021.02.05, v14.1.0
+
+fix:
+- fix(@putout/test) false positive on noReport
+
+
+feature:
+- feature(putout) madrun: convert-nyc-to-c8: disable
+- feature(@putout/plugin-madrun) add convert-nyc-to-c8
+- feature(putout) bin: Commonjs -> ESM: prevent hang on errors
+- feature(@putout/plugin-gitignore) add coverage
+- feature(@putout/engine-loader) loadPlugins: rm useless memo
+
+
+
 2021.02.04, v14.0.4
 
 fix:
