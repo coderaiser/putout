@@ -270,7 +270,9 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     const processFile = initProcessFile(options);
     const {length} = names;
     
-    for (let index = 0; index < length; index++) {
+    let index = -1;
+    while (++index < length) {
+    //for (let index = 0; index < length; index++) {
         if (wasStop())
             break;
         

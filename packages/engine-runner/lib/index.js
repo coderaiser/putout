@@ -28,7 +28,9 @@ module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, template = r
         template,
     });
     
-    for (let i = 0; i < fixCount; i++) {
+    let i = fixCount + 1;
+    
+    while (--i) {
         places = run({
             ast,
             fix,

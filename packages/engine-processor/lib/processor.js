@@ -36,13 +36,15 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     let isProcessed = false;
     let isJsChanged = false;
     
-    for (const currentRunner of processorRunners) {
+    let i = processorRunners.length;
+    
+    while (--i >= 0) {
         const {
             isMatch,
             postProcess,
             preProcess = stubPreProcess,
             process = stubProcess,
-        } = currentRunner;
+        } = processorRunners[i];
         
         if (!isMatch(name))
             continue;
@@ -58,7 +60,14 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         const preProcessedList = [];
         
         isJsChanged = false;
-        for (const {source, startLine = 0, extension} of list) {
+        let j = list.length;
+        while (--j >= 0) {
+        //for (const {source, startLine = 0, extension} of list) {
+            const {
+                source,
+                startLine = 0,
+                extension,
+            } = list[j];
             const processedName = addExtension(name, extension);
             const {code, places} = await processFile({
                 name: processedName,
