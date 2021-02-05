@@ -5,7 +5,7 @@
     "exclude": [
         "**/*.spec.js",
         "**/fixture",
-        "**/*.*.js",
+        "**/.*.*",
         "packages/*/bin",
         "packages/*/test"
     ],

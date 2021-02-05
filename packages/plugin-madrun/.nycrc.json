@@ -2,7 +2,7 @@
     "check-coverage": true,
     "all": true,
     "exclude": [
-        "**/*.spec.js",
+        "**/*.spec.*",
         "**/fixture",
         "test",
         ".*.*"

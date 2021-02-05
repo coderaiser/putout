@@ -2,10 +2,10 @@
     "check-coverage": true,
     "all": true,
     "exclude": [
-        "**/*.spec.js",
+        "**/*.spec.*",
         "**/fixture",
         "test",
-        ".*.js"
+        ".*.*"
     ],
     "branches": 100,
     "lines": 100,
