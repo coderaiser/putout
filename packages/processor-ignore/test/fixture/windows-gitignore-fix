@@ -2,3 +2,4 @@
 .putoutcache
 node_modules
 *.swp
+coverage

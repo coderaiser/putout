@@ -4,3 +4,4 @@ yarn-error.log
 .nyc_output
 
 .putoutcache
+coverage

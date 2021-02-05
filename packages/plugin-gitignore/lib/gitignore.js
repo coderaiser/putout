@@ -9,6 +9,7 @@ const names = [
     '.putoutcache',
     '*.swp',
     'yarn-error.log',
+    'coverage',
 ];
 
 module.exports.report = () => `Dot files should be added to .gitignore`;
