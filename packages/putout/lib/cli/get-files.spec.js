@@ -144,10 +144,10 @@ test('putout: getFiles: dir', async (t) => {
 
 test('putout: getFiles: glob', async (t) => {
     const dir = join(__dirname, '..', '..');
-    const [, files] = await getFiles([`${dir}/.madrun.js`]);
+    const [, files] = await getFiles([`${dir}/.madrun.mjs`]);
     const result = files.map(rmStart);
     const expected = [
-        join(dir, '.madrun.js'),
+        join(dir, '.madrun.mjs'),
     ];
     
     t.deepEqual(result, expected);
