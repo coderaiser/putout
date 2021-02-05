@@ -43,7 +43,7 @@ jobs:
     
     - name: Coverage
       run:
-        redrun coverage report
+        redrun coverage
     
     - name: Coveralls
       uses: coverallsapp/github-action@master
