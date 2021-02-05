@@ -1,22 +1,16 @@
 #!/usr/bin/env node
-
-'use strict';
-
-require('v8-compile-cache');
-
-const {
+import {
     readFile,
     writeFile,
-} = require('fs/promises');
+} from 'fs/promises';
 
-const tryToCatch = require('try-to-catch');
-const cli = require('../lib/cli');
+import cli from '../lib/cli/index.js';
 
 const {stdout} = process;
 const write = stdout.write.bind(stdout);
 const logError = console.error;
 
-module.exports = tryToCatch(cli, {
+await cli({
     write,
     halt: process.exit,
     argv: process.argv.slice(2),

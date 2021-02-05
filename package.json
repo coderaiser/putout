@@ -34,12 +34,12 @@
     }
   },
   "devDependencies": {
+    "c8": "^7.5.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-putout": "^7.0.0",
     "husky": "^4.2.1",
     "lerna": "^3.8.5",
     "madrun": "^8.6.0",
-    "nyc": "^15.0.1",
     "supertape": "^4.0.0"
   },
   "engines": {

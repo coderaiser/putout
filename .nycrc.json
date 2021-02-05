@@ -1,4 +1,5 @@
 {
+    "skipFull": true,
     "check-coverage": true,
     "all": true,
     "exclude": [

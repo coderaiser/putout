@@ -20,11 +20,11 @@ const env = {
 };
 
 module.exports = {
-    'test': () => [env, `tape '${dirs}/*/test/*.js' '${dirs}/*/lib/**/*.spec.js'`],
+    'test': () => [env, `tape '${dirs}/*/test/*.js' '${dirs}/*/{bin,lib}/**/*.spec.*'`],
     'test:fail': async () => await run('test', '-f fail'),
     'test:slow': () => 'FORCE_COLOR=3 lerna run test',
-    'coverage:ci': async () => [baseEnv, `nyc ${await cutEnv('test')}`],
-    'coverage': async () => [env, `nyc --skip-full ${await cutEnv('test')}`],
+    'coverage:ci': async () => await run('coverage', null, env),
+    'coverage': async () => [env, `c8 ${await cutEnv('test')}`],
     'coverage:slow': () => 'FORCE_COLOR=3 lerna run coverage',
     'lint:slow': () => 'FORCE_COLOR=3 lerna run --no-bail lint',
     'lint:dot': () => 'putout .madrun.js',
@@ -42,7 +42,7 @@ module.exports = {
     'fix:lint:cache': async () => await run('lint:cache', '--fix'),
     'fix:lint:slow': () => 'lerna run --no-bail fix:lint',
     'bootstrap': () => 'lerna bootstrap',
-    'report': () => 'nyc report --reporter=lcov',
+    'report': () => 'c8 report --reporter=lcov',
 };
 
 function getDirs(workspaces) {

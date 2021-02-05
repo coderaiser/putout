@@ -68,6 +68,7 @@ const createFormatterProxy = (options) => {
 };
 
 module.exports = async ({argv, halt, log, write, logError, readFile, writeFile}) => {
+    log = !process.send ? log : process.send.bind(process);
     const {isStop} = keyPress();
     const wasStop = fullstore();
     
@@ -175,7 +176,8 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         return exit(INVALID_OPTION, validationError);
     
     if (args.version) {
-        log(`v${require('../../package.json').version}`);
+        const {version} = require('../../package.json');
+        log(`v${version}`);
         return exit();
     }
     

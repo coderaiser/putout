@@ -143,24 +143,12 @@ test('putout: getFiles: dir', async (t) => {
 });
 
 test('putout: getFiles: glob', async (t) => {
-    const {lstat} = fs;
-    
-    let is = true;
-    fs.lstat = stub().returns({
-        isDirectory: () => is = !is,
-    });
-    
     const dir = join(__dirname, '..', '..');
-    
-    const getFiles = reRequire('./get-files');
-    const [, files] = await getFiles([`${dir}/{bin,.madrun.js}`]);
+    const [, files] = await getFiles([`${dir}/.madrun.js`]);
     const result = files.map(rmStart);
     const expected = [
         join(dir, '.madrun.js'),
-        join(dir, 'bin/putout.js'),
     ];
-    
-    fs.lstat = lstat;
     
     t.deepEqual(result, expected);
     t.end();
