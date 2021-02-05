@@ -23,3 +23,9 @@ test('plugin-madrun: add-fresh-lint', (t) => {
     t.transform('fresh-lint');
     t.end();
 });
+
+test('plugin-madrun: convert-n8-to-c8', (t) => {
+    t.transform('coverage');
+    t.end();
+});
+

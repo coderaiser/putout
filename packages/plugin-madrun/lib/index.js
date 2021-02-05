@@ -17,5 +17,6 @@ module.exports.rules = {
     ...getRule('remove-putout'),
     ...getRule('set-lint-dot'),
     ...getRule('convert-to-async'),
+    ...getRule('convert-nyc-to-c8'),
 };
 
