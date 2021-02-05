@@ -19,7 +19,9 @@
             "putout-config": "on"
         },
         ".madrun.{js,cjs,mjs}": {
-            "madrun": "on"
+            "madrun": ["on", {
+                "convert-nyc-to-c8": "off"
+            }]
         },
         "*.md": {
             "convert-binary-expression-to-boolean": "off",
