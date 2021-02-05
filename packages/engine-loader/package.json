@@ -40,6 +40,7 @@
     "@babel/plugin-codemod-object-assign-to-object-spread": "^7.7.4",
     "@cloudcmd/stub": "^3.0.0",
     "@putout/plugin-remove-unused-variables": "*",
+    "c8": "^7.5.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^7.0.0",
@@ -50,7 +51,6 @@
     "mock-require": "^3.0.3",
     "montag": "^1.0.0",
     "nodemon": "^2.0.1",
-    "nyc": "^15.0.1",
     "putout": "^14.0.0",
     "supertape": "^4.0.0"
   },

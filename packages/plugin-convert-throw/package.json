@@ -34,11 +34,11 @@
     "@babel/eslint-parser": "^7.12.1",
     "@babel/plugin-proposal-throw-expressions": "^7.12.1",
     "@putout/test": "^3.0.0",
+    "c8": "^7.5.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^7.0.0",
-    "madrun": "^8.0.1",
-    "nyc": "^15.0.1"
+    "madrun": "^8.0.1"
   },
   "peerDependencies": {
     "putout": ">=7.7"

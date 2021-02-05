@@ -35,6 +35,7 @@
   "devDependencies": {
     "@cloudcmd/stub": "^3.0.0",
     "@putout/processor-markdown": "^3.0.0",
+    "c8": "^7.5.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^7.0.0",
@@ -42,7 +43,6 @@
     "madrun": "^8.0.1",
     "mock-require": "^3.0.3",
     "nodemon": "^2.0.1",
-    "nyc": "^15.0.1",
     "putout": "*",
     "supertape": "^4.0.0"
   },

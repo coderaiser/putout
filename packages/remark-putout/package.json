@@ -34,11 +34,11 @@
     "plugin"
   ],
   "devDependencies": {
+    "c8": "^7.5.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^7.0.0",
     "madrun": "^8.0.1",
-    "nyc": "^15.0.1",
     "remark": "^13.0.0",
     "remark-parse": "^9.0.0",
     "stringify": "^5.2.0",
