@@ -1,10 +1,7 @@
 'use strict';
 
 module.exports = (path) => {
-    const propertyPaths = path.get(`properties`);
-    
-    for (const propertyPath of propertyPaths) {
-        return propertyPath;
-    }
+    const [propertyPath] = path.get(`properties`);
+    return propertyPath;
 };
 
