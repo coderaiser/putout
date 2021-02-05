@@ -45,7 +45,9 @@ module.exports.traverse = ({push}) => {
 };
 
 function getPropertyPath(path, name) {
-    for (const propPath of path.get('properties')) {
+    let propPath;
+    
+    for (propPath of path.get('properties')) {
         const {
             key,
             shorthand,
@@ -54,7 +56,9 @@ function getPropertyPath(path, name) {
         if (shorthand && key.name !== name)
             continue;
         
-        return propPath;
+        break;
     }
+    
+    return propPath;
 }
 
