@@ -4,6 +4,5 @@ yarn-error.log
 *.spec.js
 fixture
 
-madrun.js
 
 coverage

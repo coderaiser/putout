@@ -3,5 +3,4 @@ test
 yarn-error.log
 *.spec.js
 
-madrun.js
 coverage
