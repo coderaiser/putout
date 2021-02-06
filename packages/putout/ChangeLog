@@ -1,3 +1,16 @@
+2021.02.06, v14.1.1
+
+fix:
+- (@putout/plugin-madrun) npmignore: add coverage
+
+feature:
+- (package) @putout/plugin-npmignore v2.0.0
+- (@putout/plugin-npmignore) drop support of node < 14
+- (@putout/plugin-npmignore) add coverage
+- (@putout/plugin-madrun) convert-nyc-to-c8: add report support
+- (putout) madrun: convert-nyc-to-c8: disable
+
+
 2021.02.05, v14.1.0
 
 fix:
