@@ -3,3 +3,4 @@
 *.md
 yarn-error.log
 
+coverage

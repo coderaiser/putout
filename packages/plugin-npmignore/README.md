@@ -19,7 +19,14 @@ npm i @putout/plugin-npmignore -D
 ```json
 {
     "rules": {
-        "npmignore/add-dot-files": "on"
+        "npmignore": ["on", {
+            "dismiss": [
+                ".nyc_output",
+                ".putoutcache",
+                "*.swp",
+                "coverage"
+            ]
+        }]
     }
 }
 ```
