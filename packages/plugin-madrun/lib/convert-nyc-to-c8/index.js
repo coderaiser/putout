@@ -22,22 +22,28 @@ module.exports.traverse = ({push}) => {
     return {
         'export default __object'(path) {
             const rightPath = path.get('declaration');
-            const coverage = getProperty(rightPath, 'coverage');
+            const coveragePath = getProperty(rightPath, 'coverage');
+            const reportPath = getProperty(rightPath, 'report');
             
-            if (!coverage)
-                return;
-            
-            const bodyPath = coverage.get('value.body');
-            const line = bodyPath.toString();
-            
-            if (line.includes('c8') || !line.includes('nyc'))
-                return;
-            
-            push({
-                path: bodyPath,
-                line,
-            });
+            add(coveragePath, {push});
+            add(reportPath, {push});
         },
     };
 };
+
+function add(currentPath, {push}) {
+    if (!currentPath)
+        return;
+    
+    const bodyPath = currentPath.get('value.body');
+    const line = bodyPath.toString();
+    
+    if (line.includes('c8') || !line.includes('nyc'))
+        return;
+    
+    push({
+        path: bodyPath,
+        line,
+    });
+}
 

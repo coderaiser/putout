@@ -7,6 +7,7 @@ const cutStar = (a) => a.replace('/*', '');
 const dirs = getDirs(workspaces);
 
 const baseEnv = {
+    SUPERTAPE_TIMEOUT: 7000,
     PUTOUT_PROGRESS_BAR: 0,
     FORCE_COLOR: 3,
     TEST: 1,

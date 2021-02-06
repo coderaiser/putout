@@ -18,6 +18,6 @@ export default {
         PUTOUT_PROGRESS_BAR: 0,
     }),
     
-    'report': () => `nyc report --reporter=text-lcov | coveralls || true`,
+    'report': () => `c8 report --reporter=text-lcov | coveralls || true`,
 };
 

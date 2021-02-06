@@ -20,6 +20,6 @@ export default {
         TEST: 1,
     }),
     
-    'report': () => `nyc report --reporter=text-lcov | coveralls || true`,
+    'report': () => `c8 report --reporter=text-lcov | coveralls || true`,
 };
 

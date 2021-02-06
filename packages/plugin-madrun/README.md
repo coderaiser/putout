@@ -13,16 +13,6 @@
 npm i putout @putout/plugin-madrun -D
 ```
 
-Add `.putout.json` with:
-
-```json
-{
-    "plugins": {
-        "madrun": "on"
-    }
-}
-```
-
 ## Rules
 
 ```json
@@ -37,7 +27,8 @@ Add `.putout.json` with:
         "madrun/rename-series-to-run": "on",
         "madrun/rename-eslint-to-putout": "on",
         "madrun/set-lint-dot": "on",
-        "madrun/convert-to-async": "on"
+        "madrun/convert-to-async": "off",
+        "madrun/convert-nyc-to-c8": "off"
     }
 }
 ```
@@ -196,6 +187,26 @@ module.exports = {
 ```js
 module.exports = {
     lint: async () => String(await run('hello')),
+};
+```
+
+# convert-nyc-to-c8
+
+## ❌ Incorrect code example
+
+```js
+export default {
+    coverage: () => 'nyc npm test',
+    report: () => `nyc report --reporter=text-lcov | coveralls`,
+};
+```
+
+## ✅ Correct code Example
+
+```js
+export default {
+    coverage: () => 'c8 npm test',
+    report: 'c8 report --reporter=lcov',
 };
 ```
 

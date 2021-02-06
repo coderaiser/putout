@@ -24,7 +24,7 @@ test('plugin-madrun: add-fresh-lint', (t) => {
     t.end();
 });
 
-test('plugin-madrun: convert-n8-to-c8', (t) => {
+test('plugin-madrun: convert-nyc-to-c8', (t) => {
     t.transform('coverage');
     t.end();
 });

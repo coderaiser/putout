@@ -21,6 +21,6 @@ export default {
     'lint:progress': () => run('lint', '--fix'),
     'lint:fresh': () => run('lint', '--fresh'),
     'coverage': async () => [env, `c8 ${await cutEnv('test')}`],
-    'report': () => `nyc report --reporter=text-lcov | coveralls`,
+    'report': () => `c8 report --reporter=text-lcov | coveralls`,
 };
 
