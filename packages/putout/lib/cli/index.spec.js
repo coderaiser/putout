@@ -12,6 +12,7 @@ const mockRequire = require('mock-require');
 const stripAnsi = require('strip-ansi');
 const tryCatch = require('try-catch');
 const {red} = require('chalk');
+const tryToCatch = require('try-to-catch');
 
 const _cli = require('.');
 const {version} = require('../../package');
@@ -19,6 +20,7 @@ const {version} = require('../../package');
 const {reRequire, stopAll} = mockRequire;
 const {parse} = JSON;
 const {assign} = Object;
+const rejectStub = (a) => () => Promise.reject(a);
 
 const {
     OK,
@@ -452,6 +454,32 @@ test('putout: cli: ruler processor: --enable-all', async (t) => {
     stopAll();
     
     t.ok(rullerProcessor.called);
+    t.end();
+});
+
+test('putout: cli: ruler processor: --disable-all', async (t) => {
+    const name = join(__dirname, 'fixture/plugins.js');
+    const logError = stub();
+    const argv = [
+        '--disable-all',
+        name,
+    ];
+    
+    const rullerError = Error('should call rullerProcessor with await');
+    const rullerProcessor = rejectStub(rullerError);
+    
+    mockRequire('./ruler-processor', rullerProcessor);
+    const cli = reRequire('.');
+    
+    const [error] = await tryToCatch(runCli, {
+        cli,
+        argv,
+        logError,
+    });
+    
+    stopAll();
+    
+    t.equal(error, rullerError);
     t.end();
 });
 

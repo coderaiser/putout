@@ -367,7 +367,8 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     if (enableAll || disableAll) {
         const rulerProcessor = require('./ruler-processor');
-        rulerProcessor({enableAll, disableAll}, mergedPlaces);
+        await rulerProcessor({enableAll, disableAll}, mergedPlaces);
+        
         return exit();
     }
     
