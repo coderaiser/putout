@@ -13,7 +13,7 @@ const env = {
 export default {
     'wisdom': () => run(['lint', 'coverage']),
     'test': () => [env, `tape 'test/*.js' '{bin,lib}/**/*.spec.{js,mjs}'`],
-    'watch:test': async () => [env, `nodemon -w bin -w lib -w test -x "${await cutEnv('test')}"`],
+    'watch:test': async () => [env, `nodemon -w bin -w lib -w test -x "${await cutEnv('test')} -f tap"`],
     'lint': () => `bin/putout.mjs .`,
     'fresh:lint': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),
