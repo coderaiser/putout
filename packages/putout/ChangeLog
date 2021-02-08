@@ -1,3 +1,13 @@
+2021.02.08, v14.2.0
+
+feature:
+- feature(package) @putout/plugin-tape v2.0.0
+- feature(@putout/plugin-tape) drop support of node < 14
+- feature(@putout/plugin-tape) add declare-stub
+- feature(package) tenko v2.0.0
+
+
+
 2021.02.07, v14.1.3
 
 fix:
