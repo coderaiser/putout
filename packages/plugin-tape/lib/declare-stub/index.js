@@ -20,8 +20,7 @@ module.exports.report = () => '"stub" should be declared';
 
 module.exports.match = () => ({
     'stub()': (vars, path) => {
-        const {stub} = path.scope.getAllBindings();
-        return !stub;
+        return !path.scope.hasBinding('stub');
     },
 });
 
