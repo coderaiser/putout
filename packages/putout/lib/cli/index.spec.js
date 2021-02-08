@@ -20,7 +20,6 @@ const {version} = require('../../package');
 const {reRequire, stopAll} = mockRequire;
 const {parse} = JSON;
 const {assign} = Object;
-const rejectStub = (a) => () => Promise.reject(a);
 
 const {
     OK,
@@ -466,7 +465,7 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
     ];
     
     const rullerError = Error('should call rullerProcessor with await');
-    const rullerProcessor = rejectStub(rullerError);
+    const rullerProcessor = stub().rejects(rullerError);
     
     mockRequire('./ruler-processor', rullerProcessor);
     const cli = reRequire('.');
