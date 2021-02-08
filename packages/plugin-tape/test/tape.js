@@ -49,3 +49,8 @@ test('plugin-test: transform: tape: convert-emitter-to-promise', (t) => {
     t.end();
 });
 
+test('plugin-test: transform: tape: declare-stub', (t) => {
+    t.transform('declare-stub');
+    t.end();
+});
+

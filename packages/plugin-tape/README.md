@@ -211,6 +211,32 @@ test('some message', (t) => {
 });
 ```
 
+## declare-stub
+
+### ❌ Incorrect code example
+
+```js
+const test = require('supertape');
+
+test('xxx', (t) => {
+    const a = stub();
+    
+    t.end();
+});
+```
+
+### ✅ Correct code Example
+
+```js
+const {test, stub} = require('supertape');
+
+test('xxx', (t) => {
+    const a = stub();
+    
+    t.end();
+});
+```
+
 ## License
 
 MIT
