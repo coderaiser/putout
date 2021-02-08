@@ -1,14 +1,12 @@
 'use strict';
 
 const {
-    operator,
     types,
     template,
+    operator,
 } = require('putout');
 
-const {replaceWith} = require('putout').operator;
-
-const {traverse} = operator;
+const {replaceWith, compare} = operator;
 
 const {
     ObjectPattern,
@@ -46,24 +44,20 @@ module.exports.replace = () => ({
 });
 
 function findSupertape(path) {
-    let supertapePath;
     const programPath = path.scope.getProgramParent().path;
+    const declaration = 'declarations.0';
     
-    traverse(programPath, {
-        'require("supertape")': (path) => {
-            supertapePath = path.parentPath;
-        },
-    });
-    
-    if (!supertapePath) {
-        const node = template.ast('const {test, stub} = require("supertape")');
-        
-        programPath.node.body
-            .unshift(node);
-        
-        supertapePath = programPath.get('body.0.declarations.0');
+    for (const el of programPath.get('body')) {
+        if (compare(el, 'const test = require("supertape")')) {
+            return el.get(declaration);
+        }
     }
     
-    return supertapePath;
+    const node = template.ast('const {test, stub} = require("supertape")');
+    
+    programPath.node.body
+        .unshift(node);
+    
+    return programPath.get(`body.0.${declaration}`);
 }
 
