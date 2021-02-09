@@ -780,7 +780,7 @@ import fs from 'fs';
 
 </details>
 
-<details><summary>apply optional chaining (<a href=https://github.com/tc39/proposal-optional-chaining>proposal-optional-chaining</a>, disabled)</summary>
+<details><summary>apply optional chaining (<a href=https://github.com/tc39/proposal-optional-chaining>proposal-optional-chaining</a>)</summary>
 
 ```diff
 -const result = hello && hello.world;
