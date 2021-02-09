@@ -1653,6 +1653,14 @@ Just create `.babelrc.json` file with configuration you need.
 }
 ```
 
+## Contributions
+
+You can make contribution proposing a feature, fixing a bug or typo in documentation or making a dontation ;).
+
+## Donations
+
+`putout` requires quite a lot of my effort and time. If you like it, support me on [patreon](https://www.patreon.com/coderaiser).
+
 ## License
 
 MIT
