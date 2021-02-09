@@ -733,7 +733,7 @@ function world(a) {
 
 ```diff
 -'hello'.replace(/hello/g, 'world');
-+'hello'.replace('hello', 'world');
++'hello'.replaceAll('hello', 'world');
 ```
 
 </details>
