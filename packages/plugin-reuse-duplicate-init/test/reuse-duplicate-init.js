@@ -1,6 +1,8 @@
 'use strict';
 
 const removeUselessVariables = require('@putout/plugin-remove-useless-variables');
+const declareStub = require('@putout/plugin-tape').rules['declare-stub'];
+
 const test = require('@putout/test')(__dirname, {
     'reuse-duplicate-init': require('..'),
 });
@@ -31,3 +33,11 @@ test('plugin-reuse-duplicate-init: transform: no node', (t) => {
     });
     t.end();
 });
+
+test('plugin-reuse-duplicate-init: transform: no node', (t) => {
+    t.transform('declare-stub', {
+        'tape/declare-stub': declareStub,
+    });
+    t.end();
+});
+
