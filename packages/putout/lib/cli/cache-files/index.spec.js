@@ -546,7 +546,7 @@ test('putout: cache-files: enabled: getPlaces', async (t) => {
     const result = fileCache.getPlaces();
     stopAll();
     
-    t.notEqual(result, places, 'should places equal');
+    t.equal(result, places, 'should places equal');
     t.end();
 });
 

@@ -5,7 +5,7 @@ const {unlink} = require('fs/promises');
 const fileEntryCache = require('file-entry-cache');
 const murmur = require('imurmurhash');
 const stringify = require('json-stringify-deterministic');
-const tryToCatch = require('try-catch');
+const tryToCatch = require('try-to-catch');
 const findUp = require('find-up');
 
 const {version} = require('../../../package.json');
@@ -49,7 +49,7 @@ module.exports = async ({cache, fresh}) => {
     });
     
     if (await isChanged(fileCache))
-        return defaultFileCache;
+        await tryToCatch(unlink, name);
     
     return fileCache;
 };
