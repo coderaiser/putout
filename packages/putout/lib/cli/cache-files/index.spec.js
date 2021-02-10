@@ -28,7 +28,7 @@ test('putout: cache-files: fileCache: fresh', async (t) => {
         unlink,
     });
     
-    mockRequire('find-up', stub().returns(_CACHE_FILE));
+    mockRequire('find-cache-dir', stub().returns('node_modules/.cache'));
     const cacheFiles = reRequire('.');
     
     await cacheFiles({
@@ -36,8 +36,9 @@ test('putout: cache-files: fileCache: fresh', async (t) => {
     });
     
     stopAll();
+    const expected = 'node_modules/.cache/places';
     
-    t.calledWith(unlink, [_CACHE_FILE]);
+    t.calledWith(unlink, [expected]);
     t.end();
 });
 
@@ -49,7 +50,7 @@ test(`putout: cache-files: find up can't find`, async (t) => {
         unlink,
     });
     
-    mockRequire('find-up', stub());
+    mockRequire('find-cache-dir', stub());
     const cacheFiles = reRequire('.');
     
     await cacheFiles({

@@ -3,10 +3,10 @@
 const {unlink} = require('fs/promises');
 
 const fileEntryCache = require('file-entry-cache');
+const findCacheDir = require('find-cache-dir');
 const murmur = require('imurmurhash');
 const stringify = require('json-stringify-deterministic');
 const tryToCatch = require('try-to-catch');
-const findUp = require('find-up');
 
 const {version} = require('../../../package.json');
 const isNoDefinition = require('./is-no-definition');
@@ -19,6 +19,7 @@ const nodeVersion = process.version;
 
 const {assign} = Object;
 const returns = (a) => () => a;
+const CACHE_FILE = '.putoutcache';
 
 const defaultFileCache = {
     getPlaces: returns([]),
@@ -28,10 +29,8 @@ const defaultFileCache = {
     canUseCache: returns(false),
 };
 
-const CACHE_FILE = '.putoutcache';
-
 module.exports = async ({cache, fresh}) => {
-    const name = await findUp(CACHE_FILE) || CACHE_FILE;
+    const name = await findCachePath();
     
     if (fresh)
         await tryToCatch(unlink, name);
@@ -102,5 +101,17 @@ function getOptionsHash(options) {
     }
     
     return optionsHashCache.get(options);
+}
+
+async function findCachePath() {
+    const cacheDir = await findCacheDir({
+        name: 'putout',
+        create: true,
+    });
+    
+    if (cacheDir)
+        return `${cacheDir}/places`;
+    
+    return CACHE_FILE;
 }
 
