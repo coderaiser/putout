@@ -1,3 +1,16 @@
+2021.02.10, v14.2.1
+
+fix:
+- fix(putout) cli: cache-files: cold cache after first run
+
+
+feature:
+- feature(@putout/plugin-reuse-duplicate-init) add support of the same paths with changed values
+- feature(@putout/plugin-tape) declare-stub: speed up search of "test" declaration (https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#do-not-traverse-when-manual-lookup-will-do)
+- feature(@putout/plugin-tape) declare-stub: getAllBindings -> hasBinding
+
+
+
 2021.02.08, v14.2.0
 
 feature:
