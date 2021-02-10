@@ -19,9 +19,7 @@ const __B = 'declarations.0.init.arguments.0';
 
 module.exports.match = () => ({
     'const __a = require(__b)': (vars, path) => {
-        const bindings = path.scope.getAllBindings();
-        
-        if (bindings.require)
+        if (path.scope.getBinding('require'))
             return false;
         
         const __bPath = path.get(__B);
