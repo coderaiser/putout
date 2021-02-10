@@ -1653,13 +1653,22 @@ Just create `.babelrc.json` file with configuration you need.
 }
 ```
 
+## Real-world uses
+
+- [Cloud Commander](https://github.com/coderaiser/cloudcmd): orthodox file manager for the web.
+- [Eslint Config Hardcore](https://github.com/EvgenyOrekhov/eslint-config-hardcore): The most strict (but practical) ESLint config out there.
+- [Mock Import](https://github.com/coderaiser/mock-import): Mocking of Node.js EcmaScript Modules.
+- [Madrun](https://github.com/coderaiser/madrun): CLI tool to run multiple npm-scripts in a madly comfortable way.
+
+Do you use `putout` in your application as well? Please open a Pull Request to include it here. We would love to have it in our list.
+
 ## Contributions
 
 You can make contribution proposing a feature, fixing a bug or typo in documentation or making a dontation ;).
 
 ## Donations
 
-`putout` requires quite a lot of my effort and time. If you like it, support me on [patreon](https://www.patreon.com/coderaiser).
+`putout` requires quite a lot of effort and time. If you like it, support on [patreon](https://www.patreon.com/coderaiser).
 
 ## License
 
