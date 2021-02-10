@@ -2,6 +2,7 @@
 
 const {join, dirname} = require('path');
 const tryCatch = require('try-catch');
+const escalade = require('escalade/sync');
 
 const merge = require('../merge');
 const parseMatch = require('./parse-match');
@@ -13,21 +14,13 @@ module.exports = (name, configName, overrides) => {
     let mainDir;
     let dir = dirname(name);
     
-    do {
-        const path = join(dir, configName);
-        const [error, nextResult] = tryCatch(customRequire, path);
+    escalade(dir, (dir, names) => {
+        if (!names.includes(configName))
+            return;
         
-        if (error && error.code !== 'MODULE_NOT_FOUND') {
-            throw error;
-        }
-        
-        if (nextResult) {
-            mainDir = mainDir || dir;
-            optionsList.push(nextResult);
-        }
-        
-        dir = dirname(dir);
-    } while (dir !== dirname(dir));
+        mainDir = mainDir || dir;
+        optionsList.push(customRequire(`${dir}/${configName}`));
+    });
     
     let mergedOptions = merge(...optionsList);
     

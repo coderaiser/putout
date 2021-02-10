@@ -9,7 +9,7 @@ const {
 
 const once = require('once');
 const tryCatch = require('try-catch');
-const findUp = require('find-up');
+const escalade = require('escalade');
 
 const parseMatch = require('./parse-match');
 const defaultOptions = require('../../putout.json');
@@ -63,16 +63,15 @@ module.exports = (info = {}) => {
     };
 };
 
+const includes = (name) => (dir, names) => names.includes(name);
+
 function _readOptions(name) {
     const [dir, options] = recursiveRead(name, '.putout.json');
     
     if (dir)
         return [dir, options];
     
-    const cwd = dirname(name);
-    const packagePath = findUp.sync('package.json', {
-        cwd,
-    });
+    const packagePath = escalade(name, includes('package.json'));
     
     if (packagePath)
         return [
