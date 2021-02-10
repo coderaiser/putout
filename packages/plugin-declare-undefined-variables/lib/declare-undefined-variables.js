@@ -41,7 +41,7 @@ module.exports.replace = ({options}) => {
 };
 
 const isUndefined = (name) => (vars, path) => {
-    return !path.scope.getAllBindings()[name];
+    return !path.scope.hasBinding(name);
 };
 
 const createUndefined = (name, node) => (vars, path) => {
