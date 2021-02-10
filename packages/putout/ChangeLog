@@ -1,3 +1,17 @@
+2021.02.10, v14.3.0
+
+fix:
+- feature(putout) cli: --fix: speed up: look at cache first, and if there is no places - can read from cache
+
+
+feature:
+- feature(putout) cli: --fix: speed up: look at cache first, and if there is no places - can read from cache
+- feature(putout) cli: cache-files: mv to node_modules/.cache
+- feature(@putout/plugin-declare-undefined-variables) simplify: getAllBindings -> hasBinding
+- feature(@putout/plugin-convert-commonjs-to-esm) require: simplify: getAllBingins -> hasBinding
+
+
+
 2021.02.10, v14.2.1
 
 fix:
