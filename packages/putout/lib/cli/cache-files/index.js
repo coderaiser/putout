@@ -74,7 +74,7 @@ const setInfo = (fileCache) => (name, places, options) => {
     meta.places = places;
 };
 
-const canUseCache = (fileCache) => ({fix, name, options}) => {
+const canUseCache = (fileCache) => ({name, options}) => {
     const {changed, meta} = fileCache.getFileDescriptor(name);
     const {
         places,
@@ -86,9 +86,6 @@ const canUseCache = (fileCache) => ({fix, name, options}) => {
     
     if (optionsHash !== getOptionsHash(options))
         return false;
-    
-    if (!fix)
-        return true;
     
     return !places.length;
 };

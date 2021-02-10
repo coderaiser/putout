@@ -859,7 +859,6 @@ test('putout: cli: fileCache: canUseCache', async (t) => {
     stopAll();
     
     const expected = {
-        fix: false,
         name: __filename,
         options,
     };

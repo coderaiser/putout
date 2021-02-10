@@ -365,7 +365,7 @@ test('putout: cache-files: enabled: canUseCache: not fix', async (t) => {
     });
     stopAll();
     
-    t.ok(result);
+    t.notOk(result);
     t.end();
 });
 

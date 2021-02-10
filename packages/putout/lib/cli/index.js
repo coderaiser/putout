@@ -293,7 +293,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         
         const {dir} = options;
         
-        if (fileCache.canUseCache({fix, options, name})) {
+        if (fileCache.canUseCache({options, name})) {
             const places = fileCache.getPlaces(name);
             const formatterProxy = createFormatterProxy({
                 report,
@@ -348,7 +348,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         if (!isProcessed)
             return exit(NO_PROCESSORS, Error(`No processors found for ${name}`));
         
-        if (fix && rawSource !== processedSource) {
+        if (rawSource !== processedSource) {
             fileCache.removeEntry(name);
             await writeFile(name, processedSource);
         }
