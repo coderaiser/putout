@@ -148,6 +148,7 @@
     "debug": "^4.1.1",
     "deepmerge": "^4.0.0",
     "error-stack-parser": "^2.0.6",
+    "escalade": "^3.1.1",
     "fast-glob": "^3.2.2",
     "fastest-levenshtein": "^1.0.12",
     "file-entry-cache": "^6.0.0",

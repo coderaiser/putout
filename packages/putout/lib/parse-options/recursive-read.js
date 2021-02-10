@@ -1,7 +1,6 @@
 'use strict';
 
-const {join, dirname} = require('path');
-const tryCatch = require('try-catch');
+const {dirname} = require('path');
 const escalade = require('escalade/sync');
 
 const merge = require('../merge');
@@ -12,7 +11,7 @@ module.exports = (name, configName, overrides) => {
     const optionsList = [];
     
     let mainDir;
-    let dir = dirname(name);
+    const dir = dirname(name);
     
     escalade(dir, (dir, names) => {
         if (!names.includes(configName))
