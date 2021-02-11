@@ -47,7 +47,7 @@
     "madrun": "^8.0.1",
     "montag": "^1.0.0",
     "nodemon": "^2.0.1",
-    "putout": "^14.0.0",
+    "putout": "*",
     "supertape": "^4.0.0"
   },
   "license": "MIT",
