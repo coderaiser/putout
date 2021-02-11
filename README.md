@@ -2,8 +2,8 @@
 
 [NPMURL]: https://npmjs.org/package/putout "npm"
 [NPMIMGURL]: https://img.shields.io/npm/v/putout.svg?style=flat&longCache=true
-[BuildStatusURL]: https://travis-ci.org/coderaiser/putout "Build Status"
-[BuildStatusIMGURL]: https://img.shields.io/travis/coderaiser/putout/master.svg?style=flat&longCache=true
+[BuildStatusURL]: https://github.com/coderaiser/putout/actions?query=workflow%3A%22Node+CI%22 "Build Status"
+[BuildStatusIMGURL]: https://github.com/coderaiser/putout/workflows/Node%20CI/badge.svg
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/putout
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/putout "Dependency Status"
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
