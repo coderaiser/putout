@@ -1,3 +1,10 @@
+2021.02.11, v15.0.1
+
+feature:
+- feature(putout) parse-options: speed up: 0m37.367s -> 0m36.347s
+
+
+
 2021.02.11, v15.0.0
 
 fix:
