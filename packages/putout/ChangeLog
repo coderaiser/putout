@@ -1,3 +1,18 @@
+2021.02.11, v15.0.0
+
+fix:
+- fix(help) .putoutcache -> cache
+
+
+feature:
+- feature(putout) remove-duplicate-interface-keys: removed from dependency after being disabled for a long time
+- feature(putout) apply-nullish-coalescing: remove from default install after a long time being disabled
+- feature(putout) madrun/convert-nyc-to-c8: enable by default
+- feature(package) @putout/plugin-gitignore v3.0.0
+- feature(@putout/plugin-gitignore) rm .putoutcache
+
+
+
 2021.02.11, v14.5.0
 
 fix:
