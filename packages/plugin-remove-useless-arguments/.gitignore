@@ -1,7 +1,5 @@
 node_modules
-.nyc_output
 *.swp
 yarn-error.log
 coverage
 
-.putoutcache

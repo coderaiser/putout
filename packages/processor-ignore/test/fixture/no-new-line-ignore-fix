@@ -1,6 +1,4 @@
 .*
 madrun.js
-.nyc_output
-.putoutcache
 *.swp
 coverage

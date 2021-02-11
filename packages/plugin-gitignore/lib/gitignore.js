@@ -5,8 +5,6 @@ const {StringLiteral} = types;
 const getValue = ({value}) => value;
 
 const names = [
-    '.nyc_output',
-    '.putoutcache',
     '*.swp',
     'yarn-error.log',
     'coverage',

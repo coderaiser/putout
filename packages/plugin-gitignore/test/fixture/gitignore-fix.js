@@ -1,1 +1,1 @@
-__putout_processor_ignore(['node_modules', '.nyc_output', '.putoutcache', '*.swp', 'yarn-error.log', 'coverage']);
+__putout_processor_ignore(['node_modules', '*.swp', 'yarn-error.log', 'coverage']);
