@@ -101,8 +101,8 @@ Options
    --flow                      enable flow
    --no-jsx                    disable jsx
    --no-flow                   disable flow (default)
-   --cache                     enable .putoutcache to speed up processing (default)
-   --fresh                     generate a fresh .putoutcache
+   --cache                     enable cache to speed up processing (default)
+   --fresh                     generate a fresh cache
    --no-config                 avoid reading config file (.putout.json)
    --no-ci                     disable CI detection
    --no-cache                  disable .putoutcache
