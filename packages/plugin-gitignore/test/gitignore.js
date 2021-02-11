@@ -27,7 +27,7 @@ test('plugin-putout: transform: vim-files', (t) => {
 test('plugin-putout: transform: options', (t) => {
     t.transformWithOptions('options', {
         dismiss: [
-            '.nyc_output',
+            'coverage',
         ],
     });
     t.end();

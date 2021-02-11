@@ -1,8 +1,6 @@
 node_modules
-legacy
 *.swp
 yarn-error.log
 
 coverage
 .nyc_output
-.putoutcache
