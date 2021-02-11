@@ -132,7 +132,7 @@ test('putout: parseOptions: custom options more important then default match', (
     };
     
     const result = parseOptions({
-        name: 'parse-options.spec.js',
+        name: 'index.spec.js',
         options,
         readOptions,
         readHomeOptions,
@@ -668,19 +668,15 @@ test('putout: parseOptions: no args', (t) => {
     const empty = {};
     const {homedir} = os;
     const read = stub().returns(['', {}]);
-    const sync = stub();
     
     os.homedir = stub().returns('/');
     
     mockRequire('./recursive-read', read);
     mockRequire('./package.json', empty);
     mockRequire('../../putout.json', empty);
-    mockRequire('find-up', {
-        sync,
-    });
+    mockRequire('escalade/sync', stub());
     
     const parseOptions = reRequire('.');
-    
     const result = parseOptions();
     
     const expected = {
@@ -719,7 +715,7 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
     };
     
     const result = parseOptions({
-        name: 'parse-options.spec.js',
+        name: __filename,
         options,
         readHomeOptions,
         readCodeMods,
@@ -743,3 +739,4 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+

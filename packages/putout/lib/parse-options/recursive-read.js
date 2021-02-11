@@ -1,33 +1,22 @@
 'use strict';
 
-const {join, dirname} = require('path');
-const tryCatch = require('try-catch');
+const {dirname} = require('path');
+const escalade = require('escalade/sync');
 
 const merge = require('../merge');
 const parseMatch = require('./parse-match');
 
 module.exports = (name, configName, overrides) => {
+    if (name === '<input>')
+        return ['', {}];
+    
     const customRequire = overrides?.require || require;
-    const optionsList = [];
-    
-    let mainDir;
-    let dir = dirname(name);
-    
-    do {
-        const path = join(dir, configName);
-        const [error, nextResult] = tryCatch(customRequire, path);
-        
-        if (error && error.code !== 'MODULE_NOT_FOUND') {
-            throw error;
-        }
-        
-        if (nextResult) {
-            mainDir = mainDir || dir;
-            optionsList.push(nextResult);
-        }
-        
-        dir = dirname(dir);
-    } while (dir !== dirname(dir));
+    const dir = dirname(name);
+    const [mainDir, optionsList] = getOptionsList({
+        dir,
+        configName,
+        customRequire,
+    });
     
     let mergedOptions = merge(...optionsList);
     
@@ -43,4 +32,19 @@ module.exports = (name, configName, overrides) => {
     
     return [mainDir, mergedOptions];
 };
+
+function getOptionsList({dir, configName, customRequire}) {
+    let mainDir;
+    const optionsList = [];
+    
+    escalade(dir, (dir, names) => {
+        if (!names.includes(configName))
+            return;
+        
+        mainDir = mainDir || dir;
+        optionsList.push(customRequire(`${dir}/${configName}`));
+    });
+    
+    return [mainDir, optionsList];
+}
 
