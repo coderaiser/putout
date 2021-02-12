@@ -54,29 +54,25 @@ module.exports.process = async (rawSource, {fix}) => {
 };
 
 module.exports.preProcess = async (rawSource) => {
+    const list = [];
     const svelte = require('svelte/compiler');
     
-    const list = [];
-    const ast = svelte.parse(rawSource);
-    
-    svelte.walk(ast, {
-        enter(node) {
-            const {name, children} = node;
+    await svelte.preprocess(rawSource, {
+        async script(node) {
+            const {content} = node;
+            const source = removePrefixSpaces(content);
+            const index = rawSource.indexOf(content);
             
-            if (name === 'script') {
-                const {data, start} = children[0];
-                const source = removePrefixSpaces(data);
-                const startLine = getStartLine({
-                    index: start,
-                    rawSource,
-                });
-                
-                list.push({
-                    startLine,
-                    source,
-                    extension: 'js',
-                });
-            }
+            const startLine = getStartLine({
+                rawSource,
+                index,
+            });
+            
+            list.push({
+                startLine,
+                source,
+                extension: 'js',
+            });
         },
     });
     

@@ -70,7 +70,21 @@ test('putout: processor: html: css: fix', async (t) => {
     t.end();
 });
 
-async function process(name, {ext, processors, plugins, fix = true} = {}) {
+test('putout: processor: html: empty script', async (t) => {
+    const {
+        processedSource,
+        output,
+    } = await process('empty-script', {
+        produceOutput: false,
+        ext: 'html',
+        processors,
+    });
+    
+    t.equal(processedSource, output);
+    t.end();
+});
+
+async function process(name, {ext, processors, plugins, fix = true, produceOutput = true} = {}) {
     const inputName = join(__dirname, 'fixture', `${name}.${ext}`);
     const outputName = join(__dirname, 'fixture', `${name}-fix.${ext}`);
     
@@ -78,7 +92,10 @@ async function process(name, {ext, processors, plugins, fix = true} = {}) {
     
     let output = '';
     
-    if (fix)
+    if (!produceOutput)
+        output = rawSource;
+    
+    else if (fix && produceOutput)
         output = await readFile(outputName, 'utf8');
     
     const options = {
