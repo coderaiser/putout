@@ -88,7 +88,7 @@ function _readOptions(name) {
 
 const isInclude = (a) => a !== 'node_modules';
 
-const readRules = once((dirOpt, rulesDir) => {
+function readRules(dirOpt, rulesDir) {
     if (!rulesDir)
         return {};
     
@@ -111,7 +111,7 @@ const readRules = once((dirOpt, rulesDir) => {
     return {
         plugins,
     };
-});
+}
 
 const _readHomeOptions = once(() => {
     const name = join(home, '.putout.json');

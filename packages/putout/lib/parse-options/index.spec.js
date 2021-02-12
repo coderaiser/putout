@@ -740,3 +740,57 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
     t.end();
 });
 
+test('putout: parseOptions: rules dir: no once', (t) => {
+    const empty = {};
+    
+    const readOptions = stub().returns([__dirname, empty]);
+    const readHomeOptions = stub().returns(empty);
+    const readCodeMods = stub().returns(empty);
+    const hello = stub();
+    
+    mockRequire('../../putout.json', empty);
+    
+    const {readdirSync} = fs;
+    const readdirSyncStub = stub().returns([]);
+    fs.readdirSync = readdirSyncStub;
+    
+    mockRequire(join(__dirname, 'hello'), hello);
+    
+    const parseOptions = reRequire('.');
+    
+    const options = {
+        rules: {
+            'remove-only': 'off',
+        },
+        match: {
+            '*.spec.js': {
+                'remove-only': 'on',
+            },
+        },
+    };
+    
+    parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readOptions,
+        readHomeOptions,
+        readCodeMods,
+        rulesdir: 'hello',
+    });
+    
+    parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readOptions,
+        readHomeOptions,
+        readCodeMods,
+        rulesdir: 'world',
+    });
+    
+    stopAll();
+    fs.readdirSync = readdirSync;
+    
+    t.calledTwice(readdirSyncStub);
+    t.end();
+});
+
