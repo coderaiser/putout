@@ -9,6 +9,7 @@ const {isCI} = require('ci-info');
 const memo = require('nano-memoize');
 const fullstore = require('fullstore');
 const tryCatch = require('try-catch');
+const tryToCatch = require('try-to-catch');
 const wraptile = require('wraptile');
 
 const {
@@ -30,6 +31,7 @@ const getOptions = require('./get-options');
 const report = require('./report')();
 const keyPress = require('@putout/keypress');
 const validateArgs = require('./validate-args');
+const {parseError} = require('./parse-error');
 
 const {
     OK,
@@ -319,18 +321,32 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         if (!ignores(dir, resolvedName, options)) {
             rawSource = await readFile(resolvedName, 'utf8');
             
-            ({
-                isProcessed,
-                places,
-                processedSource,
-            } = await runProcessors({
+            const [error, result] = await tryToCatch(runProcessors, {
                 name: resolvedName,
                 fix,
                 processFile,
                 options,
                 rawSource,
                 processorRunners,
-            }));
+            });
+            
+            if (error) {
+                places = parseError(error, {
+                    debug,
+                });
+                
+                isProcessed = true;
+                processedSource = rawSource;
+                
+                if (raw)
+                    log(error);
+            } else {
+                ({
+                    isProcessed,
+                    places,
+                    processedSource,
+                } = result);
+            }
         }
         
         const line = report(currentFormat, {

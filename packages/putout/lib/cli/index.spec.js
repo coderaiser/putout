@@ -1156,6 +1156,84 @@ test('putout: cli: addOnce', (t) => {
     t.end();
 });
 
+test('putout: processor throw', async (t) => {
+    const file = join(__dirname, 'fixture/processor.throw');
+    const throwProcessor = require('./fixture/processor-throw');
+    const argv = [
+        file,
+        '--no-config',
+        '--no-cache',
+        '--no-ci',
+        '--format',
+        'json-lines',
+    ];
+    
+    const getOptions = stub().returns({
+        formatter: require('@putout/formatter-json'),
+        dir: '.',
+        processors: [
+            ['throw-processor', throwProcessor],
+        ],
+    });
+    
+    mockRequire('./get-options', getOptions);
+    
+    const cli = reRequire('.');
+    const write = stub();
+    
+    await runCli({
+        cli,
+        write,
+        argv,
+    });
+    
+    const {places} = parse(write.args[0]);
+    const [{rule}] = places;
+    
+    t.equal(rule, 'parser');
+    t.end();
+});
+
+test('putout: processor throw: raw', async (t) => {
+    const file = join(__dirname, 'fixture/processor.throw');
+    const throwProcessor = require('./fixture/processor-throw');
+    const argv = [
+        file,
+        '--no-config',
+        '--no-cache',
+        '--no-ci',
+        '--format',
+        'json-lines',
+        '--raw',
+    ];
+    
+    const getOptions = stub().returns({
+        formatter: require('@putout/formatter-json'),
+        dir: '.',
+        processors: [
+            ['throw-processor', throwProcessor],
+        ],
+    });
+    
+    mockRequire('./get-options', getOptions);
+    
+    const cli = reRequire('.');
+    const log = stub();
+    
+    await runCli({
+        cli,
+        argv,
+        log,
+    });
+    
+    const [firstCall] = log.args;
+    const [error] = firstCall;
+    const {message} = error;
+    
+    t.equal(message, 'preProcess');
+    t.end();
+});
+
 async function runCli(options) {
     const {
         halt = stub(),
