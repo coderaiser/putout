@@ -1,3 +1,9 @@
+2021.02.12, v15.0.2
+
+fix:
+- (putout) parse-options: read rules from dir: never called after reading codemods
+
+
 2021.02.11, v15.0.1
 
 feature:
