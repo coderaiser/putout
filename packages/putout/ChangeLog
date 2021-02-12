@@ -1,3 +1,13 @@
+2021.02.12, v15.1.0
+
+fix:
+- (@putout/process-html) no content inside script tag
+
+feature:
+- (putout) add ability to handle crash of processor
+- (@putout/engine-loader) loadProcessors: add support of passing function, similar to loadPlugins
+
+
 2021.02.12, v15.0.2
 
 fix:
