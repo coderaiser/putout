@@ -45,10 +45,17 @@ module.exports.loadProcessors = memo((options) => {
         processors = [],
     } = options;
     
+    const parsedProcessors = parsePluginNames(processors);
+    
     const list = [];
     const namespace = 'putout';
     
-    for (const name of processors) {
+    for (const [name, fn] of parsedProcessors) {
+        if (fn) {
+            list.push(fn);
+            continue;
+        }
+        
         list.push(loadProcessor({name, namespace}));
     }
     
