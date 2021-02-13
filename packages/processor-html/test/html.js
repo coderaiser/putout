@@ -99,6 +99,7 @@ test('putout: processor: html: empty script', async (t) => {
         processedSource,
         output,
     } = await process('empty-script', {
+        fix: false,
         produceOutput: false,
         ext: 'html',
         processors,

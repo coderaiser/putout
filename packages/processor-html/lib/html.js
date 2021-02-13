@@ -60,6 +60,10 @@ module.exports.preProcess = async (rawSource) => {
     await svelte.preprocess(rawSource, {
         async script(node) {
             const {content} = node;
+            
+            if (!content)
+                return;
+            
             const source = removePrefixSpaces(content);
             const index = rawSource.indexOf(content);
             
@@ -84,6 +88,9 @@ module.exports.postProcess = async (rawSource, list) => {
     
     const {code} = await svelte.preprocess(rawSource, {
         script({content}) {
+            if (!content)
+                return;
+            
             const currentSource = list.shift().trim();
             const code = addPrefixSpaces({
                 content,
