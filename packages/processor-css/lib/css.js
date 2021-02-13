@@ -27,17 +27,28 @@ const loadConfig = once(async () => {
 module.exports.process = async (code, {fix}) => {
     const stylelint = require('stylelint');
     const config = await loadConfig();
-    const {output, results} = await stylelint.lint({
+    const {
+        errored,
+        output,
+        results,
+    } = await stylelint.lint({
         fix,
         code,
         config,
     });
     
     const {warnings} = results[0];
+    const places = warnings.map(toPlace);
+    
+    if (errored)
+        return [
+            code,
+            places,
+        ];
     
     return [
         output,
-        warnings.map(toPlace),
+        places,
     ];
 };
 

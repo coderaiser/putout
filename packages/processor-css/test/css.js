@@ -75,6 +75,42 @@ test('putout: processor: css: places', async (t) => {
     t.end();
 });
 
+test('putout: processor: css: template', async (t) => {
+    const name = 'template';
+    const inputName = join(__dirname, 'fixture', `${name}.css`);
+    
+    const rawSource = await readFile(inputName, 'utf8');
+    
+    const options = {
+        processors: [
+            'css',
+        ],
+    };
+    
+    const fix = false;
+    const {places} = await runProcessors({
+        fix,
+        name: inputName,
+        processFile: processFile({
+            fix,
+        }),
+        options,
+        rawSource,
+    });
+    
+    const expected = [{
+        message: 'Unknown word (CssSyntaxError)',
+        position: {
+            column: 4,
+            line: 1,
+        },
+        rule: 'CssSyntaxError (stylelint)',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
 test('putout: processor: css: found config', async (t) => {
     const name = 'style';
     const inputName = join(__dirname, 'fixture', `${name}.css`);

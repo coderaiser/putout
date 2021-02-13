@@ -70,6 +70,30 @@ test('putout: processor: html: css: fix', async (t) => {
     t.end();
 });
 
+test('putout: processor: html: css: template', async (t) => {
+    const {places} = await process('style-template', {
+        fix: false,
+        produceOutput: false,
+        ext: 'html',
+        processors,
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = [{
+        message: 'Unknown word (CssSyntaxError)',
+        position: {
+            column: 8,
+            line: 2,
+        },
+        rule: 'CssSyntaxError (stylelint)',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
 test('putout: processor: html: empty script', async (t) => {
     const {
         processedSource,
