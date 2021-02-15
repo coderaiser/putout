@@ -104,7 +104,7 @@ Options
    --fresh                     generate a fresh cache
    --no-config                 avoid reading config file (.putout.json)
    --no-ci                     disable CI detection
-   --no-cache                  disable .putoutcache
+   --no-cache                  disable cache
 ```
 
 To find erros:
