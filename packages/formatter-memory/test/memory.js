@@ -77,7 +77,7 @@ test('formatter: memory: parse memory: no CI', (t) => {
         heapUsed: 0,
         totalHeap: 0,
     };
-    reRequire('ci-info');
+    
     const {_parseMemory} = reRequire('..');
     const result = _parseMemory(memory);
     
