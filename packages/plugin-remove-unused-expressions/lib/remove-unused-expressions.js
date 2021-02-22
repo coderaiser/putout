@@ -6,15 +6,10 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.traverse = ({push, listStore}) => {
+module.exports.traverse = ({push, options}) => {
+    const {dismiss = []} = options;
+    
     return {
-        Program: {
-            exit() {
-                listStore()
-                    .slice(1)
-                    .map(push);
-            },
-        },
         ExpressionStatement(path) {
             const expressionPath = path.get('expression');
             
@@ -32,8 +27,8 @@ module.exports.traverse = ({push, listStore}) => {
             
             const {node} = expressionPath;
             
-            if (node.value === 'use strict') {
-                listStore(expressionPath);
+            if (dismiss.includes(node.value)) {
+                process.stdout.write('xxx');
                 return;
             }
             

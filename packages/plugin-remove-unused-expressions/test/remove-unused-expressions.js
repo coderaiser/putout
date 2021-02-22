@@ -26,14 +26,6 @@ test('remove unused expression: transformCode: string', (t) => {
     t.end();
 });
 
-test('remove unused expression: transformCode: used', (t) => {
-    const from = `"use strict"; "use strict";`;
-    const to = `'use strict';`;
-    
-    t.transformCode(from, to);
-    t.end();
-});
-
 test('remove unused expression: transformCode: object', (t) => {
     t.transformCode('({a: 1})', '');
     t.end();
@@ -41,6 +33,15 @@ test('remove unused expression: transformCode: object', (t) => {
 
 test('remove unused expression: transformCode: array', (t) => {
     t.transformCode('[1, 2, 3]', '');
+    t.end();
+});
+
+test('remove unused expression: transformCode: options', (t) => {
+    t.noTransformWithOptions('options', {
+        dismiss: [
+            'hello world',
+        ],
+    });
     t.end();
 });
 

@@ -71,7 +71,8 @@
         },
         "*.mjs": {
             "apply-top-level-await": "on",
-            "convert-commonjs-to-esm": "on"
+            "convert-commonjs-to-esm": "on",
+            "remove-unused-expressions": "on"
         },
         "*.cjs": {
             "convert-esm-to-commonjs": "on"
@@ -117,7 +118,12 @@
         "travis": "off",
         "tape": "off",
         "strict-mode": "off",
-        "regexp/convert-replace-to-replace-all": "off"
+        "regexp/convert-replace-to-replace-all": "off",
+        "remove-unused-expressions": ["on", {
+            "dismiss": [
+                "use strict"
+            ]
+        }]
     },
     "plugins": [
         "apply-destructuring",
