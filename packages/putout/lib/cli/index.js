@@ -29,7 +29,7 @@ const supportedFiles = require('./supported-files');
 const getFormatter = memo(require('./formatter').getFormatter);
 const getOptions = require('./get-options');
 const report = require('./report')();
-const keyPress = require('@putout/keypress');
+const keyPress = require('@putout/cli-keypress');
 const validateArgs = require('./validate-args');
 const {parseError} = require('./parse-error');
 

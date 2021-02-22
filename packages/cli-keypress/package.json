@@ -1,8 +1,8 @@
 {
-  "name": "@putout/keypress",
-  "version": "1.2.2",
+  "name": "@putout/cli-keypress",
+  "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin helps whith .gitignore",
+  "description": "handle keypress",
   "homepage": "http://github.com/coderaiser/putout",
   "main": "lib/keypress.js",
   "release": false,

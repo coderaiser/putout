@@ -967,7 +967,7 @@ test('putout: cli: get files: was stop', async (t) => {
     
     mockRequire('./get-options', getOptions);
     mockRequire('./get-files', getFiles);
-    mockRequire('@putout/keypress', keypress);
+    mockRequire('@putout/cli-keypress', keypress);
     
     const cli = reRequire('.');
     
