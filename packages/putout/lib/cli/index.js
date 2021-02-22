@@ -1,5 +1,7 @@
 'use strict';
 
+require('v8-compile-cache');
+
 const {resolve} = require('path');
 const {readFileSync} = require('fs');
 
