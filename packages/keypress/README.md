@@ -5,7 +5,7 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/keypress
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/keypress
 
-`putout` keypress handler;
+`putout` keypress handler (renamed to [@putout/cli-keypress](https://www.npmjs.com/package/@putout/cli-keypress)).
 
 ## Install
 
