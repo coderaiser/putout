@@ -18,10 +18,14 @@ npm i @putout/plugin-convert-commonjs-to-esm -D
 ```json
 {
     "rules": {
-        "convert-commonjs-to-esm": "on"
+        "convert-commonjs-to-esm/require": "on",
+        "convert-commonjs-to-esm/exports": "on",
+        "convert-commonjs-to-esm/commons": "on"
     }
 }
 ```
+
+# require
 
 ## ❌ Incorrect code example
 
@@ -41,6 +45,40 @@ export default () => {
 };
 ```
 
+# exports
+
+## ❌ Incorrect code example
+
+```js
+module.exports = () => {
+};
+```
+
+## ✅ Correct code Example
+
+```js
+export default () => {
+};
+```
+
+# Commons
+
+## ❌ Incorrect code example
+
+```js
+await readFile(__filename);
+```
+
+## ✅ Correct code Example
+
+```js
+import {createCommons} from 'simport';
+const {__filename} = createCommons(import.meta.url);
+
+await readFile(__filename);
+```
+
 ## License
 
 MIT
+

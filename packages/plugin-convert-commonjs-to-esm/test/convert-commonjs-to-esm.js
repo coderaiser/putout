@@ -20,3 +20,7 @@ test('plugin-convert-commonjs-to-esm: transform: export: string', (t) => {
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: transform: commons', (t) => {
+    t.transform('commons');
+    t.end();
+});
