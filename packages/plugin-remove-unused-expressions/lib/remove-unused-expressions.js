@@ -27,10 +27,8 @@ module.exports.traverse = ({push, options}) => {
             
             const {node} = expressionPath;
             
-            if (dismiss.includes(node.value)) {
-                process.stdout.write('xxx');
+            if (dismiss.includes(node.value))
                 return;
-            }
             
             push(expressionPath);
         },
