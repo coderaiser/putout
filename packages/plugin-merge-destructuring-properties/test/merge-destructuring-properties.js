@@ -38,3 +38,11 @@ test('plugin-merge-destructuring-properties: no transform: exports', (t) => {
     
     t.end();
 });
+
+test('plugin-merge-destructuring-properties: no transform: removed variable', (t) => {
+    t.transform('mock-require', {
+        'convert-mock-require-to-mock-import': require('@putout/plugin-convert-mock-require-to-mock-import'),
+    });
+    
+    t.end();
+});

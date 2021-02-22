@@ -69,6 +69,9 @@ const addVariable = ({store}) => (path, node) => {
     if (path === currentPath)
         return;
     
+    if (currentPath.removed)
+        return;
+    
     const is = compare(currentPath.node.init, node);
     
     if (is && sameKind(path, currentPath))
