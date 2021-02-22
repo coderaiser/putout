@@ -1,3 +1,16 @@
+2021.02.22, v15.2.0
+
+fix:
+- fix(@putout/plugin-remove-unused-expressions) rm log
+
+
+feature:
+- feature(@putout/plugin-merge-destructuring-properties) add support of removed node
+- feature(@putout/plugin-convert-mock-require-to-mock-import) add
+- feature(@putout/plugin-remove-unused-expressions) add support of options
+
+
+
 2021.02.18, v15.1.2
 
 feature:
