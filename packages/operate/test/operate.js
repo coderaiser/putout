@@ -10,6 +10,7 @@ const {
     parse,
     types,
     print,
+    template,
 } = putout;
 
 const operate = require('..');
@@ -557,13 +558,10 @@ test('operate: remove: VariableDeclarator: a couple', (t) => {
         var a = 1, b = 2;
     `);
     
-    let once = false;
     traverse(ast, {
         VariableDeclarator(path) {
-            if (once)
-                return;
-            once = true;
             operate.remove(path);
+            path.stop();
         },
     });
     
@@ -571,6 +569,60 @@ test('operate: remove: VariableDeclarator: a couple', (t) => {
     const expected = montag`
         // hello
         var b = 2;
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('operate: getPathAfterImports', (t) => {
+    const ast = parse(montag`
+        import {readFile} from 'fs/promises';
+    `);
+    
+    traverse(ast, {
+        ImportDeclaration(path) {
+            const programScope = path.scope.getProgramParent();
+            const body = programScope.path.get('body');
+            const afterImportsPath = operate.getPathAfterImports(body);
+            
+            afterImportsPath.insertAfter(template.ast('const x = 5;'));
+            path.stop();
+        },
+    });
+    
+    const result = print(ast);
+    const expected = montag`
+        import {readFile} from 'fs/promises';
+        const x = 5;
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('operate: getPathAfterImports: couple imports', (t) => {
+    const ast = parse(montag`
+        import {readFile} from 'fs/promises';
+        import {join} from 'path';
+    `);
+    
+    traverse(ast, {
+        ImportDeclaration(path) {
+            const programScope = path.scope.getProgramParent();
+            const body = programScope.path.get('body');
+            const afterImportsPath = operate.getPathAfterImports(body);
+            
+            afterImportsPath.insertAfter(template.ast('const x = 5;'));
+            path.stop();
+        },
+    });
+    
+    const result = print(ast);
+    const expected = montag`
+        import {readFile} from 'fs/promises';
+        import {join} from 'path';
+        const x = 5;
     `;
     
     t.equal(result, expected);

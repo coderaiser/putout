@@ -1,7 +1,10 @@
 'use strict';
 
-const {template, types} = require('putout');
-const {isImportDeclaration} = types;
+const {
+    template,
+    operator,
+} = require('putout');
+const {getPathAfterImports} = operator;
 
 const importSimport = template.ast(`import {createCommons} from 'simport'`);
 const initCommons = template.ast(`const {__filename, __dirname, require} = createCommons(import.meta.url)`);
@@ -12,7 +15,7 @@ module.exports.fix = (path) => {
     const {scope} = path;
     const programScope = scope.getProgramParent();
     const body = programScope.path.get('body');
-    const afterImportPath = getPathAfterImport(body);
+    const afterImportPath = getPathAfterImports(body);
     
     afterImportPath.insertBefore(importSimport);
     afterImportPath.insertBefore(initCommons);
@@ -26,14 +29,4 @@ module.exports.include = () => [
 ];
 
 module.exports.filter = ({scope}) => !scope.hasBinding('__dirname') && !scope.hasBinding('__filename');
-
-function getPathAfterImport(body) {
-    const n = body.length;
-    let i = 0;
-    
-    while (i < n && isImportDeclaration(body[i]))
-        ++i;
-    
-    return body[i];
-}
 

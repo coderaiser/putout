@@ -4,6 +4,7 @@ const {
     ExpressionStatement,
     toStatement,
     matchesPattern,
+    isImportDeclaration,
 } = require('@babel/types');
 
 const {assign} = Object;
@@ -119,5 +120,15 @@ module.exports.remove = (path) => {
         block.comments = comments;
     
     path.remove();
+};
+
+module.exports.getPathAfterImports = (body) => {
+    const n = body.length;
+    let i = 0;
+    
+    while (i < n - 1 && isImportDeclaration(body[i]))
+        ++i;
+    
+    return body[i];
 };
 

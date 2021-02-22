@@ -1,6 +1,10 @@
 'use strict';
 
-const {template} = require('putout');
+const {
+    template,
+    operator,
+} = require('putout');
+const {getPathAfterImports} = operator;
 
 const importMockImport = template.ast(`import {createMockImport} from 'mock-import'`);
 const initMockImport = template.ast(`const {mockImport, reImport, stopAll} = createMockImport(import.meta.url)`);
@@ -22,7 +26,7 @@ module.exports.replace = () => ({
         if (!scope.hasBinding('createMockImport')) {
             maybeRemoveOldStopAll(scope);
             
-            const endOfImportPath = getImportEnd(programPath.get('body'));
+            const endOfImportPath = getPathAfterImports(programPath.get('body'));
             endOfImportPath.insertBefore(importMockImport);
             endOfImportPath.insertBefore(initMockImport);
         }
@@ -32,19 +36,6 @@ module.exports.replace = () => ({
         return 'await reImport(__a)';
     },
 });
-
-function getImportEnd(body) {
-    let resultPath = body[body.length - 1];
-    
-    for (const path of body) {
-        if (path.type !== 'ImportDeclaration') {
-            resultPath = path;
-            break;
-        }
-    }
-    
-    return resultPath;
-}
 
 function maybeRemoveOldStopAll(scope) {
     const {path} = scope.getBinding('stopAll');
