@@ -1,3 +1,5 @@
+import mockRequire from 'mock-require';
+
 import {createMockImport} from 'mock-import';
 
 const {
@@ -5,8 +7,6 @@ const {
     reImport,
     stopAll
 } = createMockImport(import.meta.url);
-
-const mockRequire = require('mock-require');
 
 test('', async t => {
     mockImport('fs/promises', {
