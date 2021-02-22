@@ -1,0 +1,73 @@
+# @putout/plugin-convert-mock-require-to-mock-import [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-mock-require-to-mock-import.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-convert-mock-require-to-mock-import "npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-mock-require-to-mock-import
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-mock-require-to-mock-import
+
+`putout` plugin adds ability to convert [mockRequire](https://github.com/boblauer/mock-require) to [mockImport](https://github.com/coderaiser/mock-import).
+
+## Install
+
+```
+npm i @putout/plugin-convert-mock-require-to-mock-import -D
+```
+
+## Rule
+
+Rule `convert-mock-require-to-mock-import` is enabled by default for `*.mjs`, to disable add to `.putout.json`:
+
+```json
+{
+    "rules": {
+        "convert-mock-require-to-mock-import": "off"
+    }
+}
+```
+
+## ❌ Incorrect code example
+
+```js
+const mockRequire = require('mock-require');
+const {reRequire, stopAll} = mockRequire;
+
+test('', (t) => {
+    mockRequire('fs/promises', {
+        unlink: stub(),
+    });
+    
+    const fn = reRequire('..');
+    fn();
+    
+    stopAll();
+    t.end();
+});
+```
+
+## ✅ Correct code Example
+
+```js
+import {createMockImport} from 'mock-import';
+
+const {
+    mockImport,
+    reImport,
+    stopAll,
+} = createMockImport(import.meta.url);
+
+test('', async (t) => {
+    mockImport('fs/promises', {
+        unlink: stub(),
+    });
+    
+    const fn = await reImport('..');
+    fn();
+    
+    stopAll();
+    t.end();
+});
+```
+
+## License
+
+MIT

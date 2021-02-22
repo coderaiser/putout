@@ -72,6 +72,7 @@
         "*.mjs": {
             "apply-top-level-await": "on",
             "convert-commonjs-to-esm": "on",
+            "convert-mock-require-to-mock-import": "on",
             "remove-unused-expressions": "on"
         },
         "*.cjs": {
@@ -119,6 +120,7 @@
         "tape": "off",
         "strict-mode": "off",
         "regexp/convert-replace-to-replace-all": "off",
+        "convert-mock-require-to-mock-import": "off",
         "remove-unused-expressions": ["on", {
             "dismiss": [
                 "use strict"
@@ -190,6 +192,7 @@
         "convert-equal-to-strict-equal",
         "convert-index-of-to-includes",
         "convert-generic-to-shorthand",
+        "convert-mock-require-to-mock-import",
         "merge-destructuring-properties",
         "merge-duplicate-imports",
         "merge-if-statements",

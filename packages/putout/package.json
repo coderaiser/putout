@@ -72,6 +72,7 @@
     "@putout/plugin-convert-generic-to-shorthand": "^1.0.0",
     "@putout/plugin-convert-index-of-to-includes": "^1.0.0",
     "@putout/plugin-convert-math-pow": "^4.0.0",
+    "@putout/plugin-convert-mock-require-to-mock-import": "^1.0.0",
     "@putout/plugin-convert-object-assign-to-merge-spread": "^5.0.0",
     "@putout/plugin-convert-template-to-string": "^1.0.0",
     "@putout/plugin-convert-throw": "^1.0.0",
