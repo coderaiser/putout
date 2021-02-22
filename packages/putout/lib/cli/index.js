@@ -30,7 +30,7 @@ const getFormatter = memo(require('./formatter').getFormatter);
 const getOptions = require('./get-options');
 const report = require('./report')();
 const keyPress = require('@putout/cli-keypress');
-const validateArgs = require('./validate-args');
+const validateArgs = require('@putout/cli-validate-args');
 const {parseError} = require('./parse-error');
 
 const {
@@ -172,7 +172,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         ...argvConfig.number,
     ];
     
-    const validationError = await validateArgs(args, optionsList, exit);
+    const validationError = await validateArgs(args, optionsList);
     
     if (validationError)
         return exit(INVALID_OPTION, validationError);
