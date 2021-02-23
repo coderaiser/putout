@@ -8,6 +8,7 @@
         }
     },
     "rules": {
+        "madrun/set-report-lcov": "on",
         "remove-useless-spread/object": ["on", {
             "exclude": "module.exports.rules = __"
         }]

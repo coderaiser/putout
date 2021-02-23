@@ -27,8 +27,9 @@ npm i putout @putout/plugin-madrun -D
         "madrun/rename-series-to-run": "on",
         "madrun/rename-eslint-to-putout": "on",
         "madrun/set-lint-dot": "on",
-        "madrun/convert-to-async": "off",
-        "madrun/convert-nyc-to-c8": "off"
+        "madrun/convert-to-async": "on",
+        "madrun/convert-nyc-to-c8": "on",
+        "madrun/set-report-lcov": "on"
     }
 }
 ```
@@ -206,6 +207,25 @@ export default {
 ```js
 export default {
     coverage: () => 'c8 npm test',
+    report: 'c8 report --reporter=lcov',
+};
+```
+
+# set-report-lcov
+
+## ❌ Incorrect code example
+
+```js
+export default {
+    'report': () => `c8 report --reporter=text-lcov | coveralls || true`,
+};
+
+```
+
+## ✅ Correct code Example
+
+```js
+export default {
     report: 'c8 report --reporter=lcov',
 };
 ```

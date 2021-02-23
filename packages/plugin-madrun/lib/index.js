@@ -18,5 +18,6 @@ module.exports.rules = {
     ...getRule('set-lint-dot'),
     ...getRule('convert-to-async'),
     ...getRule('convert-nyc-to-c8'),
+    ...getRule('set-report-lcov'),
 };
 

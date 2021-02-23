@@ -29,3 +29,8 @@ test('plugin-madrun: convert-nyc-to-c8', (t) => {
     t.end();
 });
 
+test('plugin-madrun: set-report-lcov', (t) => {
+    t.transform('set-report-lcov');
+    t.end();
+});
+
