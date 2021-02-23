@@ -14,6 +14,9 @@ module.exports.traverse = ({push}) => ({
             if (prop.isTSIndexSignature())
                 continue;
             
+            if (prop.isTSCallSignatureDeclaration())
+                continue;
+            
             const current = getCurrent(prop);
             const {computed} = prop.node;
             
