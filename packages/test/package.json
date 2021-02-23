@@ -6,7 +6,7 @@
   "homepage": "http://github.com/coderaiser/putout",
   "main": "lib/test.js",
   "bin": {
-    "tape": "bin/test.js"
+    "tape": "bin/test.mjs"
   },
   "release": false,
   "tag": false,

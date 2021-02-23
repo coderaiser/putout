@@ -2,6 +2,7 @@
     "check-coverage": true,
     "all": true,
     "exclude": [
+        "bin",
         "**/*.spec.*",
         "**/fixture",
         "test",

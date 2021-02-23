@@ -2,5 +2,5 @@
 
 'use strict';
 
-require('supertape/bin/supertape');
+import('supertape/bin/supertape');
 
