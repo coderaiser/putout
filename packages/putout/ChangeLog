@@ -1,3 +1,17 @@
+2021.02.23, v15.3.1
+
+fix:
+- feature(package) enabled fixed @putout/plugin-remove-duplicate-interface-keys v3.0.0 (benajmn/recast#868)
+
+
+feature:
+- feature(package) enabled fixed @putout/plugin-remove-duplicate-interface-keys v3.0.0 (benajmn/recast#868)
+- feature(@putout/plugin-remove-duplicate-interface-keys) drop support of node < 14
+- feature(@putout/test) bin: convert to ESM
+- feature(package) supertape v5.0.0
+
+
+
 2021.02.22, v15.3.0
 
 feature:
