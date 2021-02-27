@@ -34,8 +34,15 @@ const hasTemplateQuote = (a) => /^(?!\\).*(\\"|\\')/.test(a);
 const createRegExp = (a) => RegExp(`^((?!\\\\).)*\\\\${a}.`);
 
 const hasA = (a) => createRegExp('\\^').test(a);
-const hasEmoji = (a) => RegExp(emojiRegex).test(a);
 const hasDoubleQuote = (a) => createRegExp('"').test(a);
+const hasEmoji = (a) => {
+    for (const emoji of match(a)) {
+        if (a.includes(`\\${emoji}`))
+            return true;
+    }
+    
+    return false;
+};
 
 module.exports.traverse = ({push}) => {
     return {

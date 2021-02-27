@@ -12,6 +12,11 @@ test('plugin-remove-useless-escape: report', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-escape: no report: no-emoji', (t) => {
+    t.noReport('no-emoji');
+    t.end();
+});
+
 test('plugin-remove-useless-escape: transform', (t) => {
     t.transform('string');
     t.end();
