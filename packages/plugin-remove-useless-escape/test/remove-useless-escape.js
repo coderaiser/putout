@@ -37,6 +37,11 @@ test('plugin-remove-useless-escape: transform: quote', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-escape: transform: emoji', (t) => {
+    t.transform('emoji');
+    t.end();
+});
+
 test('plugin-remove-useless-escape: no transform: no raw', (t) => {
     t.transform('no-raw', {
         addFixLint,

@@ -1,6 +1,10 @@
 'use strict';
 
+const emojiRegex = require('emoji-regex');
+
 module.exports.report = () => 'Unnecessary escape character';
+
+const match = (a) => a.match(emojiRegex()) || [];
 
 module.exports.fix = (path) => {
     if (path.isStringLiteral()) {
@@ -9,6 +13,9 @@ module.exports.fix = (path) => {
         path.node.raw = raw
             .replace(/\\"/g, '"')
             .replace(/\\\^/g, '^');
+        
+        for (const emoji of match(raw))
+            path.node.raw = raw.replace(`\\${emoji}`, emoji);
         
         return;
     }
@@ -27,6 +34,7 @@ const hasTemplateQuote = (a) => /^(?!\\).*(\\"|\\')/.test(a);
 const createRegExp = (a) => RegExp(`^((?!\\\\).)*\\\\${a}.`);
 
 const hasA = (a) => createRegExp('\\^').test(a);
+const hasEmoji = (a) => RegExp(emojiRegex).test(a);
 const hasDoubleQuote = (a) => createRegExp('"').test(a);
 
 module.exports.traverse = ({push}) => {
@@ -37,11 +45,19 @@ module.exports.traverse = ({push}) => {
             if (!raw)
                 return;
             
-            if (hasDoubleQuote(raw))
+            if (hasDoubleQuote(raw)) {
                 push(path);
+                return;
+            }
             
-            if (hasA(raw))
+            if (hasEmoji(raw)) {
                 push(path);
+                return;
+            }
+            
+            if (hasA(raw)) {
+                push(path);
+            }
         },
         
         '`__`'(path) {
