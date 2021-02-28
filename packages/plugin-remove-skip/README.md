@@ -25,33 +25,20 @@ Rule `remove-skip` enabled by default, to disable add to `.putout.json`:
 }
 ```
 
-## Usage
+## ❌ Incorrect code example
 
 ```js
-const {readFileSync} = require('fs');
-const source = readFileSync('./1.js', 'utf8');
-
-const putout = require('putout');
-
-console.log(source);
-// outputs
-`
-test.skip('some test', (t) => {
+test.skip('some', (t) => {
     t.end();
 });
-`;
+```
 
-const result = putout(source, {
-    plugins: [
-        'remove-skip',
-    ],
-});
-// returns
-`
-test('some test', (t) => {
+## ✅ Correct code Example
+
+```js
+test('some', (t) => {
     t.end();
 });
-`;
 ```
 
 ## License
