@@ -1,3 +1,22 @@
+2021.02.28, v15.4.0
+
+fix:
+- fix(@putout/plugin-declare-undefined-variables) crawl after declare
+- fix(@putout/plugin-remove-useless-escape) false positives on strings with emoji but without escaping
+
+
+feature:
+- feature(@putout/plugin-convert-assignment-to-arrow-function) add
+- feature(@putout/plugin-remove-useless-escape) template literal: add support of emoji
+- feature(eslint-plugin-putout) objects-braces-inside-array: add badStart variable
+- feature(@putout/plugin-remove-useless-escape) speed up: add early return when no escape: 1m12.388s -> 1m6.770s on Mac OS
+- feature(eslint-plugin-putout) html: add env browser
+- feature(@putout/test) add noReportAfterTransform
+- feature(@putout/plugin-remove-useless-escape) add support of emoji
+- feature(@putout/plugin-madrun) add set-report-lcov
+
+
+
 2021.02.23, v15.3.1
 
 fix:
