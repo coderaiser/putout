@@ -401,11 +401,11 @@ const putout = require('putout');
 
 </details>
 
-<details><summary>convert <code>templates</code> with one <code>expression</code> to <code>string</code></summary>
+<details><summary>convert <code>assignment</code> to <code>arrow function</code>
 
 ```diff
--const c = `${a + b}`;
-+const c = String(a + b);
+-const createRegExp = (a) = RegExp(a, 'g');
++const createRegExp = a => RegExp(a, 'g');
 ```
 
 </details>
@@ -1038,6 +1038,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-convert-binary-expression-to-boolean`](/packages/plugin-convert-binary-expression-to-boolean) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-binary-expression-to-boolean.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-binary-expression-to-boolean) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-binary-expression-to-boolean)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-binary-expression-to-boolean) |
 | [`@putout/plugin-convert-top-level-return`](/packages/plugin-convert-top-level-return) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-top-level-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-top-level-return) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-top-level-return)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-top-level-return) |
 | [`@putout/plugin-convert-mock-require-to-mock-import`](/packages/plugin-convert-mock-require-to-mock-import) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-mock-require-to-mock-import.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-mock-require-to-mock-import) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-mock-require-to-mock-import)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-mock-require-to-mock-import) |
+| [`@putout/plugin-convert-assignment-to-arrow-function`](/packages/plugin-convert-assignment-to-arrow-function) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-assignment-to-arrow-function.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-assignment-to-arrow-function) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-assignment-to-arrow-function)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-assignment-to-arrow-function) |
 
 ### Removers
 
