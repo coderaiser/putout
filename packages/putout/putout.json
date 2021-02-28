@@ -122,7 +122,7 @@
         "strict-mode": "off",
         "regexp/convert-replace-to-replace-all": "off",
         "convert-mock-require-to-mock-import": "off",
-        "remove-duplicates-interface-keys": "off",
+        "remove-duplicate-interface-keys": "off",
         "remove-unused-expressions": ["on", {
             "dismiss": [
                 "use strict"
@@ -169,7 +169,7 @@
         "remove-constant-conditions",
         "remove-boolean-from-logical-expressions",
         "remove-duplicates-from-logical-expressions",
-        "remove-duplicates-interface-keys",
+        "remove-duplicate-interface-keys",
         "remove-nested-blocks",
         "remove-unreachable-code",
         "remove-duplicate-keys",
