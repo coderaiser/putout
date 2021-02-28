@@ -1,10 +1,13 @@
-# putout-engine-parser [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# putout-engine-parser [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Dev Dependency Status][DevDependencyStatusIMGURL]][DevDependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/engine-parser.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/engine-parser"npm"
 
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/engine-parser
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/engine-parser
+
+[DevDependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/engine-parser?type=dev
+[DevDependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/engine-parser&type=dev
 
 `putout` plugin adds ability to find and remove `debugger` statement.
 
