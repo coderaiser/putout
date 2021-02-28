@@ -1,3 +1,16 @@
+2021.02.28, v15.4.1
+
+fix:
+- fix(putout) remove-duplicates-interface-keys -> remove-duplicate-interface-keys
+- fix(@putout/test) bin: dynamic import -> import
+
+
+feature:
+- feature(package) acorn-stage3 v4.0.0
+- feature(package) acorn v8.0.5
+
+
+
 2021.02.28, v15.4.0
 
 fix:
