@@ -11,6 +11,7 @@ module.exports.include = () => {
     ];
 };
 
+const badStart = /^\[\n(\s+)?{/;
 const badEndReg = /},?\n(\s+)?]/;
 
 module.exports.filter = ({node, text}) => {
@@ -21,7 +22,7 @@ module.exports.filter = ({node, text}) => {
             return false;
     }
     
-    const isStart = /^\[\n(\s+)?{/.test(text);
+    const isStart = badStart.test(text);
     const isEnd = badEndReg.test(text);
     
     return isStart || isEnd;
