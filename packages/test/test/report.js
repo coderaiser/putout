@@ -3,7 +3,12 @@
 const {join} = require('path');
 
 const {stub} = require('supertape');
-const {_createNoReport} = require('..');
+const {template} = require('putout');
+
+const {
+    _createNoReport,
+    _createNoReportAfterTransform,
+} = require('..');
 
 const test = require('..')(__dirname, {
     'remove-imports': {
@@ -69,6 +74,50 @@ test('putout: test: noReport', (t) => {
     };
     
     const message = 'should not report';
+    const expected = [[place], [], message];
+    
+    t.calledWith(deepEqual, expected);
+    t.end();
+});
+
+test('putout: test: noReportAfterTransform', (t) => {
+    const noReportAfterTransform = _createNoReportAfterTransform({
+        dir: join(__dirname, 'fixture'),
+        plugins: [
+            ['declare', {
+                report: () => 'hello',
+                replace: () => ({
+                    'join(__a, __b)': (vars, path) => {
+                        if (path.scope.hasBinding('join'))
+                            return;
+                        
+                        const programPath = path.scope.getProgramParent().path;
+                        programPath.node.body.unshift(template.ast('import {join} from "path"'));
+                        
+                        return path;
+                    },
+                }),
+            }],
+        ],
+    });
+    
+    const deepEqual = stub();
+    const mockTest = {
+        deepEqual,
+    };
+    
+    noReportAfterTransform(mockTest, 'no-report-after-transform');
+    
+    const place = {
+        message: 'hello',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'declare',
+    };
+    
+    const message = 'should not report after transform';
     const expected = [[place], [], message];
     
     t.calledWith(deepEqual, expected);

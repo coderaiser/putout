@@ -37,6 +37,16 @@ check transform of `filename.js` with `options`
 ## noReport(filename)
 checks error message of a plugin not produces
 
+## noReportAfterTransform(filename)
+checks error message of a plugin not produces
+
+```js
+test('test: no report after transform', (t) => {
+    t.noReportAfterTransform('file');
+    t.end();
+});
+```
+
 ## noReportCode(filename)
 checks error message of a plugin not produces with a `code`
 

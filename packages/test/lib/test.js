@@ -50,6 +50,7 @@ module.exports = (dir, plugin, rules) => {
         
         report: report({dir, plugins, rules}),
         noReport: noReport({dir, plugins, rules}),
+        noReportAfterTransform: noReportAfterTransform({dir, plugins, rules}),
         reportWithOptions: reportWithOptions({dir, plugins}),
         noReportWithOptions: noReportWithOptions({dir, plugins}),
         reportCode: reportCode({
@@ -281,6 +282,14 @@ const noReport = currify(({dir, plugins, rules}, t, name) => {
 });
 module.exports._createNoReport = noReport;
 
+const noReportAfterTransform = currify(({dir, plugins, rules}, t, name) => {
+    const full = join(dir, name);
+    const [source, isTS] = readFixture(full);
+    
+    return noReportCodeAfterTransform({plugins, rules, isTS}, t, source);
+});
+module.exports._createNoReportAfterTransform = noReportAfterTransform;
+
 const reportWithOptions = currify(({dir, plugins}, t, name, message, options) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
@@ -336,6 +345,18 @@ const noReportCode = currify(({plugins, rules, isTS}, t, source) => {
     });
     
     return t.deepEqual(places, [], 'should not report');
+});
+
+const noReportCodeAfterTransform = currify(({plugins, rules, isTS}, t, source) => {
+    const fix = true;
+    const {places} = putout(source, {
+        fix,
+        isTS,
+        rules,
+        plugins,
+    });
+    
+    return t.deepEqual(places, [], 'should not report after transform');
 });
 
 function getPlugins(plugin) {
