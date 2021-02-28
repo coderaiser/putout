@@ -6,6 +6,7 @@ const {isImportDeclaration} = types;
 const declarations = require('./declarations');
 
 const {entries} = Object;
+const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
 
 module.exports.report = (path) => {
     const {name} = path.node.callee;
@@ -34,7 +35,7 @@ module.exports.replace = ({options}) => {
         if (dismiss.includes(name))
             continue;
         
-        traverseObject[`${name}(__args)`] = createUndefined(name, node);
+        traverseObject[`${name}(__args)`] = declare(name, node);
     }
     
     return traverseObject;
@@ -44,12 +45,13 @@ const isUndefined = (name) => (vars, path) => {
     return !path.scope.hasBinding(name);
 };
 
-const createUndefined = (name, node) => (vars, path) => {
+const declare = (name, node) => (vars, path) => {
     const scope = path.scope.getProgramParent();
     const bodyPath = scope.path.get('body');
     
     if (isImportDeclaration(node)) {
         bodyPath[0].insertBefore(node);
+        crawl(path);
         return path;
     }
     
@@ -64,6 +66,7 @@ const createUndefined = (name, node) => (vars, path) => {
         break;
     }
     
+    crawl(path);
     return path;
 };
 

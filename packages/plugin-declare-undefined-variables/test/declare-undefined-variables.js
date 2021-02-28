@@ -34,3 +34,13 @@ test('putout: plugin: declare-undefined-variables: transform: parse', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: no report after transform: join', (t) => {
+    t.noReportAfterTransform('join');
+    t.end();
+});
+
+test('putout: plugin: declare-undefined-variables: no report after transform: assign', (t) => {
+    t.noReportAfterTransform('assign');
+    t.end();
+});
+
