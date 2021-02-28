@@ -52,6 +52,9 @@ module.exports.traverse = ({push}) => {
             if (!raw)
                 return;
             
+            if (!raw.includes('\\'))
+                return;
+            
             if (hasDoubleQuote(raw)) {
                 push(path);
                 return;
