@@ -412,7 +412,7 @@ const putout = require('putout');
 
 </details>
 
-<details><summary>convert <code>assignment</code> to <code>arrow function</code>
+<details><summary>convert <code>assignment</code> to <code>arrow function</code></summary>
 
 ```diff
 -const createRegExp = (a) = RegExp(a, 'g');
