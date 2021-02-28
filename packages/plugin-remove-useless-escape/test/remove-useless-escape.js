@@ -12,12 +12,27 @@ test('plugin-remove-useless-escape: report', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-escape: report: a: ^', (t) => {
+    t.report('a', 'Unnecessary escape character');
+    t.end();
+});
+
 test('plugin-remove-useless-escape: no report: no-emoji', (t) => {
     t.noReport('no-emoji');
     t.end();
 });
 
-test('plugin-remove-useless-escape: transform', (t) => {
+test('plugin-remove-useless-escape: no report: new-line', (t) => {
+    t.noReport('new-line');
+    t.end();
+});
+
+test('plugin-remove-useless-escape: no report: escaped', (t) => {
+    t.noReport('escaped');
+    t.end();
+});
+
+test('plugin-remove-useless-escape: transform: string', (t) => {
     t.transform('string');
     t.end();
 });
@@ -27,7 +42,7 @@ test('plugin-remove-useless-escape: transform: template', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-escape: transform: a', (t) => {
+test('plugin-remove-useless-escape: transform: a: ^', (t) => {
     t.transform('a');
     t.end();
 });
@@ -44,6 +59,11 @@ test('plugin-remove-useless-escape: transform: quote', (t) => {
 
 test('plugin-remove-useless-escape: transform: emoji', (t) => {
     t.transform('emoji');
+    t.end();
+});
+
+test('plugin-remove-useless-escape: transform: emoji: template', (t) => {
+    t.transform('emoji-template');
     t.end();
 });
 

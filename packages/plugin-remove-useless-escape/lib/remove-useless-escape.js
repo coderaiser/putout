@@ -4,37 +4,49 @@ const emojiRegex = require('emoji-regex');
 
 module.exports.report = () => 'Unnecessary escape character';
 
-const match = (a) => a.match(emojiRegex()) || [];
-
 module.exports.fix = (path) => {
     if (path.isStringLiteral()) {
         const {raw} = path.node;
-        
-        path.node.raw = raw
-            .replace(/\\"/g, '"')
-            .replace(/\\\^/g, '^');
-        
-        for (const emoji of match(raw))
-            path.node.raw = raw.replace(`\\${emoji}`, emoji);
-        
+        path.node.raw = unEscape(raw);
         return;
     }
     
     for (const tmpl of path.node.quasis) {
         const {raw} = tmpl.value;
-        
-        tmpl.value.raw = raw
-            .replace(/\\'/g, `'`)
-            .replace(/\\"/g, `"`)
-            .replace(/\\^/g, `^`);
+        tmpl.value.raw = unEscape(raw);
     }
 };
 
-const hasTemplateQuote = (a) => /^(?!\\).*(\\"|\\')/.test(a);
-const createRegExp = (a) => RegExp(`^((?!\\\\).)*\\\\${a}.`);
+module.exports.traverse = ({push}) => {
+    return {
+        '"__"'(path) {
+            const {raw} = path.node;
+            
+            if (isEscaped(raw))
+                push(path);
+        },
+        
+        '`__`'(path) {
+            for (const tmpl of path.node.quasis) {
+                const {raw} = tmpl.value;
+                
+                if (hasQuote(raw))
+                    return push(path);
+                
+                if (isEscaped(raw))
+                    return push(path);
+            }
+        },
+    };
+};
 
-const hasA = (a) => createRegExp('\\^').test(a);
-const hasDoubleQuote = (a) => createRegExp('"').test(a);
+const createCheckRegExp = (a) => RegExp(`^((?!\\\\).)*\\\\${a}.`);
+
+const match = (a) => a.match(emojiRegex()) || [];
+const hasA = (a) => /\\\^/.test(a);
+const hasDoubleQuote = (a) => createCheckRegExp('"').test(a);
+const hasQuote = (a) => createCheckRegExp(`'`).test(a);
+
 const hasEmoji = (a) => {
     for (const emoji of match(a)) {
         if (a.includes(`\\${emoji}`))
@@ -44,40 +56,37 @@ const hasEmoji = (a) => {
     return false;
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        '"__"'(path) {
-            const {raw} = path.node;
-            
-            if (!raw)
-                return;
-            
-            if (!raw.includes('\\'))
-                return;
-            
-            if (hasDoubleQuote(raw)) {
-                push(path);
-                return;
-            }
-            
-            if (hasEmoji(raw)) {
-                push(path);
-                return;
-            }
-            
-            if (hasA(raw)) {
-                push(path);
-            }
-        },
-        
-        '`__`'(path) {
-            for (const tmpl of path.node.quasis) {
-                const {raw} = tmpl.value;
-                
-                if (hasTemplateQuote(raw))
-                    return push(path);
-            }
-        },
-    };
-};
+function isEscaped(raw) {
+    if (!raw)
+        return false;
+    
+    if (!raw.includes('\\'))
+        return false;
+    
+    if (hasDoubleQuote(raw))
+        return true;
+    
+    if (hasEmoji(raw))
+        return true;
+    
+    if (hasA(raw))
+        return true;
+    
+    return false;
+}
+
+const createEncodedRegExp = (a) => RegExp(`\\\\${a}`, 'g');
+
+function unEscape(raw) {
+    raw = raw
+        .replace(/\\'/g, `'`)
+        .replace(createEncodedRegExp(`"`), '"')
+        .replace(/\\\^/g, '^');
+    
+    for (const emoji of match(raw)) {
+        raw = raw.replace(createEncodedRegExp(emoji), emoji);
+    }
+    
+    return raw;
+}
 
