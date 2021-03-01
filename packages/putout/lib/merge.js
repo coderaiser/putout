@@ -1,7 +1,7 @@
 'use strict';
 
 const deepmerge = require('deepmerge');
-const arrayUnion = require('array-union');
+const arrayUnion = (...a) => [...new Set(a.flat())];
 
 const arrayMerge = (a, b) => arrayUnion(b, a);
 
