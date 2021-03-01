@@ -1,3 +1,11 @@
+2021.03.01, v15.4.2
+
+feature:
+- feature(package) @putout/plugin-madrun v10.0.0
+- feature(@putout/plugin-madrun) remove add-fresh-lint
+
+
+
 2021.02.28, v15.4.1
 
 fix:
