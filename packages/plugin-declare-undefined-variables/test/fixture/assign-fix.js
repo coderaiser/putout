@@ -1,5 +1,5 @@
 import a1 from 'b';
-const a =  require('x');
+const a = require('x');
 
 const {
     assign
