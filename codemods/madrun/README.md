@@ -21,7 +21,8 @@ npm i putout @putout/plugin-madrun -D
 {
     "rules": {
         "madrun/add-madrun-to-lint": "on",
-        "madrun/rename-predefined-eslint-to-putout": "on"
+        "madrun/rename-predefined-eslint-to-putout": "on",
+        "madrun/add-fresh-lint": "on"
     }
 }
 ```
@@ -83,6 +84,31 @@ module.exports = {
     },
 };
 ```
+# add-fresh-lint
+
+## ❌ Incorrect code example
+
+```js
+const {run} = require('madrun');
+
+module.exports = {
+    lint: 'putout lib test',
+};
+```
+
+## ✅ Correct code Example
+
+```js
+const {run} = require('madrun');
+
+module.exports = {
+    'lint': 'putout lib test',
+    'fresh:lint': run('lint', '--fresh'),
+    'lint:fresh': run('lint', '--fresh'),
+};
+```
+
+
 
 ## License
 

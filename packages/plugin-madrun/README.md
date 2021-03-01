@@ -20,7 +20,6 @@ npm i putout @putout/plugin-madrun -D
     "rules": {
         "madrun/add-function": "on",
         "madrun/add-fix-lint": "on",
-        "madrun/add-fresh-lint": "on",
         "madrun/add-run": "on",
         "madrun/call-run": "on",
         "madrun/convert-run-argument": "on",
@@ -72,30 +71,6 @@ const {run} = require('madrun');
 module.exports = {
     'lint': 'putout lib test',
     'fix:lint': run('lint', '--fix'),
-};
-```
-
-# add-fresh-lint
-
-## ❌ Incorrect code example
-
-```js
-const {run} = require('madrun');
-
-module.exports = {
-    lint: 'putout lib test',
-};
-```
-
-## ✅ Correct code Example
-
-```js
-const {run} = require('madrun');
-
-module.exports = {
-    'lint': 'putout lib test',
-    'fresh:lint': run('lint', '--fresh'),
-    'lint:fresh': run('lint', '--fresh'),
 };
 ```
 

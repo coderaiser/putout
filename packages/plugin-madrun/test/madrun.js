@@ -19,11 +19,6 @@ test('plugin-madrun: no transform: module.exports not object', (t) => {
     t.end();
 });
 
-test('plugin-madrun: add-fresh-lint', (t) => {
-    t.transform('fresh-lint');
-    t.end();
-});
-
 test('plugin-madrun: convert-nyc-to-c8', (t) => {
     t.transform('coverage');
     t.end();
