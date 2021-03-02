@@ -10,10 +10,10 @@ module.exports = (ast) => {
         objectCurlySpacing: false,
         wrapColumn: Infinity,
     };
-    
+
     const printed = print(ast, printOptions).code;
     const code = fixStrictMode(printed);
-    
+
     return code;
 };
 

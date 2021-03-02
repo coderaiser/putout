@@ -1,6 +1,7 @@
 'use strict';
 
 const once = require('once');
+const {File} = require('@babel/core');
 
 // stricter validation to prevent even more invalid ASTs: not only
 // from a tree shape point of view but also ensuring that nodes in
@@ -24,10 +25,10 @@ const options = require('./options');
 const moveOutDirectives = require('./move-out-directives');
 const addRawToLiteral = require('./add-raw-to-literal');
 
-module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(source), isJSX = getJSX(source)} = putoutEditorDefaults) {
+module.exports.parse = function babelParse(code, {isTS, isFlow = getFlow(code), isJSX = getJSX(code)} = putoutEditorDefaults) {
     const {parse} = initBabel();
-    
-    const ast = parse(source, {
+
+    const ast = parse(code, {
         sourceType: 'module',
         tokens: true,
         ...options,
@@ -40,10 +41,10 @@ module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(sourc
             }),
         ]),
     });
-    
+
     moveOutDirectives(ast);
     addRawToLiteral(ast);
-    
+
     return ast;
 };
 
@@ -51,18 +52,18 @@ function getBabelLangExts({isTS, isFlow, isJSX}) {
     const langs = [
         isJSX && 'jsx',
     ];
-    
+
     if (isTS)
         return langs.concat([
             'typescript',
         ]);
-    
+
     if (isFlow)
         return langs.concat([
             'flow',
             'flowComments',
         ]);
-    
+
     return langs;
 }
 

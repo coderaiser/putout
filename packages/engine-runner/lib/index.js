@@ -19,7 +19,7 @@ const isRemoved = (a) => a?.removed;
 
 module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, template = require('./template')}) => {
     let places = [];
-    
+
     const merge = once(mergeVisitors);
     const {
         pluginsFind,
@@ -27,7 +27,7 @@ module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, template = r
     } = splitPlugins(plugins, {
         template,
     });
-    
+
     for (let i = 0; i < fixCount; i++) {
         places = run({
             ast,
@@ -38,11 +38,11 @@ module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, template = r
             merge,
             template,
         });
-        
+
         if (!fix || !places.length)
             return places;
     }
-    
+
     return places;
 };
 
@@ -61,9 +61,9 @@ function runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge}) {
         shebang,
         template,
     });
-    
-    traverse(ast, visitor);
-    
+
+    ast.path.traverse(visitor, ast.scope);
+
     const places = [];
     for (const [rule, pull] of entries) {
         const items = pull();
@@ -75,20 +75,20 @@ function runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge}) {
             });
         }
     }
-    
+
     return places;
 }
 
 function runWithoutMerge({ast, fix, shebang, template, pluginsFind}) {
     const places = [];
-    
+
     for (const {rule, plugin, msg, options} of pluginsFind) {
         debug(`find: ${rule}`);
         const {
             report,
             find,
         } = plugin;
-        
+
         const items = superFind({
             rule,
             find,
@@ -98,24 +98,24 @@ function runWithoutMerge({ast, fix, shebang, template, pluginsFind}) {
             shebang,
             template,
         });
-        
+
         if (!items.length)
             continue;
-        
+
         for (const item of items) {
             const message = msg || report(item);
             const {parentPath} = getPath(item);
             const position = getPosition(item, shebang);
-            
+
             places.push({
                 rule,
                 message,
                 position,
             });
-            
+
             if (isRemoved(parentPath))
                 continue;
-            
+
             runFix(fix, plugin.fix, {
                 path: item,
                 rule,
@@ -123,36 +123,36 @@ function runWithoutMerge({ast, fix, shebang, template, pluginsFind}) {
             });
         }
     }
-    
+
     return places;
 }
 
 function splitPlugins(plugins, {template}) {
     const pluginsFind = [];
     const pluginsTraverse = [];
-    
+
     for (const item of plugins) {
         const {plugin} = item;
-        
+
         if (plugin.find)
             pluginsFind.push(item);
-        
+
         if (plugin.traverse)
             pluginsTraverse.push(item);
-        
+
         if (plugin.replace) {
             pluginsTraverse.push(include(replace(item, {
                 template,
             })));
             continue;
         }
-        
+
         if (plugin.include) {
             pluginsTraverse.push(include(item));
             continue;
         }
     }
-    
+
     return {
         pluginsFind,
         pluginsTraverse,

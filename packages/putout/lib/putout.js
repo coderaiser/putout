@@ -1,6 +1,5 @@
 'use strict';
 
-const traverse = require('@babel/traverse').default;
 const types = require('@babel/types');
 
 const loader = require('@putout/engine-loader');
@@ -10,6 +9,7 @@ const {
     print,
     generate,
     template,
+    traverse,
 } = require('@putout/engine-parser');
 
 const cutShebang = require('./cut-shebang');
@@ -110,7 +110,9 @@ function transform(ast, source, opts) {
 
 module.exports.parse = parse;
 module.exports.print = print;
+
 module.exports.traverse = traverse;
+
 module.exports.types = types;
 module.exports.template = template;
 module.exports.generate = generate;

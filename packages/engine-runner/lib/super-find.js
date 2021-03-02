@@ -11,15 +11,15 @@ module.exports = function superFind({rule, find, ast, options, template}) {
     const push = (a) => {
         pushItems.push(a);
     };
-    
-    const returnItems = find(ast, {
+
+    const returnItems = find(ast.ast, {
         traverse: traverse({rule, options, template}),
         generate,
         types,
         push,
         options,
     });
-    
+
     return [
         ...pushItems,
         ...returnItems || [],
@@ -33,7 +33,9 @@ function traverse({rule, options, template}) {
             visitor,
             options,
         }));
-        
-        return babelTraverse(ast, templateVisitors);
+
+        ast.path.traverse(ast, templateVisitors)
+
+        //return babelTraverse(ast.ast, templateVisitors, ast.scope);
     };
 }

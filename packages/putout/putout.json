@@ -130,6 +130,7 @@
         }]
     },
     "plugins": [
+        "add-async-to-function-with-await",
         "apply-destructuring",
         "apply-top-level-await",
         "apply-optional-chaining",

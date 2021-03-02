@@ -3,6 +3,7 @@
 const test = require('supertape');
 const putout = require('putout');
 const tryCatch = require('try-catch');
+const montag = require('montag');
 
 const {
     parse,
@@ -274,7 +275,7 @@ test('putout: parser: strict mode', (t) => {
 test('putout: parser: duplicate', (t) => {
     const [error] = tryCatch(parse, fixture.duplicate);
     
-    t.equal(error.message, `Identifier 'x' has already been declared (1:11)`);
+    t.ok(error.message.includes('Duplicate'), 'Duplicate declaration');
     t.end();
 });
 
@@ -319,6 +320,17 @@ test('putout: parser: json modules', (t) => {
     const [error] = tryCatch(parse, code);
     
     t.notOk(error, 'should parse');
+    t.end();
+});
+
+test('putout: parser: await in regular function', (t) => {
+    const code = montag`
+        const a = () => await fn();
+    `;
+    
+    const [error] = tryCatch(parse, code);
+    
+    t.notOk(error, 'should parse function wiht await');
     t.end();
 });
 

@@ -28,6 +28,7 @@
     "report": "madrun report"
   },
   "dependencies": {
+    "@babel/core": "^7.13.8",
     "@babel/generator": "^7.12.5",
     "@babel/parser": "^7.12.5",
     "@babel/template": "^7.10.4",
