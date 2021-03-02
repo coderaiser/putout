@@ -29,6 +29,16 @@ test('putout: plugin: declare-undefined-variables: transform: readable', (t) => 
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: transform: try-catch', (t) => {
+    t.transform('try-catch');
+    t.end();
+});
+
+test('putout: plugin: declare-undefined-variables: transform: try-to-catch', (t) => {
+    t.transform('try-to-catch');
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: transform: assign: dismiss', (t) => {
     t.noTransformWithOptions('assign', {
         dismiss: ['assign', 'stringify'],

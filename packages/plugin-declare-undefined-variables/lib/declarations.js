@@ -9,4 +9,6 @@ module.exports = {
     'stringify': template.ast('const {stringify} = JSON'),
     'join': template.ast(`import {join} from 'path'`),
     'Readable.from': template.ast(`import {Readable} from 'stream'`),
+    'tryCatch': template.ast(`import tryCatch from 'try-catch'`),
+    'tryToCatch': template.ast(`import tryToCatch from 'try-to-catch'`),
 };

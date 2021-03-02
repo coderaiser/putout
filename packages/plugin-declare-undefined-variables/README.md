@@ -35,7 +35,9 @@ Add `.putout.json` with:
                 "parse",
                 "stringify",
                 "join",
-                "Readable.from"
+                "Readable.from",
+                "tryCatch",
+                "tryToCatch"
             ]
         }]
     }
