@@ -30,7 +30,12 @@ Add `.putout.json` with:
     "rules": {
         "declare-undefined-variables": ["on", {
             "dismiss": [
-                "assert"
+                "assert",
+                "entries",
+                "parse",
+                "stringify",
+                "join",
+                "Readable.from"
             ]
         }]
     }

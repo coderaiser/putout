@@ -1,9 +1,9 @@
 'use strict';
 
 const {types} = require('putout');
-const {isImportDeclaration} = types;
-
 const declarations = require('./declarations');
+
+const {isImportDeclaration} = types;
 
 const {entries} = Object;
 const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
@@ -42,25 +42,32 @@ module.exports.replace = ({options}) => {
 };
 
 const isUndefined = (name) => (vars, path) => {
-    return !path.scope.hasBinding(name);
+    const cutedName = name.split('.').pop();
+    return !path.scope.hasBinding(cutedName);
 };
 
 const declare = (name, node) => (vars, path) => {
     const scope = path.scope.getProgramParent();
-    const bodyPath = scope.path.get('body');
-    
-    if (isImportDeclaration(node)) {
-        bodyPath[0].insertBefore(node);
-        crawl(path);
-        return path;
-    }
+    const programPath = scope.path;
+    const bodyPath = programPath.get('body');
     
     for (const currentPath of bodyPath) {
-        if (currentPath.isVariableDeclaration())
+        if (isUseStrict(currentPath)) {
             continue;
+        }
         
-        if (currentPath.isImportDeclaration())
+        if (isImportDeclaration(node)) {
+            currentPath.insertBefore(node);
+            break;
+        }
+        
+        if (currentPath.isVariableDeclaration()) {
             continue;
+        }
+        
+        if (currentPath.isImportDeclaration()) {
+            continue;
+        }
         
         currentPath.insertBefore(node);
         break;
@@ -70,3 +77,13 @@ const declare = (name, node) => (vars, path) => {
     return path;
 };
 
+function isUseStrict(path) {
+    if (!path.isExpressionStatement())
+        return false;
+    
+    const expressionPath = path.get('expression');
+    
+    return expressionPath.isStringLiteral({
+        value: 'use strict',
+    });
+}

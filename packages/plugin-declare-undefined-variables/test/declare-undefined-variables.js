@@ -19,6 +19,11 @@ test('putout: plugin: declare-undefined-variables: transform: join', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: transform: readable', (t) => {
+    t.transform('readable');
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: transform: assign: dismiss', (t) => {
     t.noTransformWithOptions('assign', {
         dismiss: ['assign', 'stringify'],
