@@ -60,3 +60,10 @@ test('plugin-convert-esm-to-commonjs: transform: export function', (t) => {
     t.end();
 });
 
+test('plugin-convert-esm-to-commonjs: transform: declare', (t) => {
+    t.transform('declare', {
+        'declare-undefinded-variables': require('@putout/plugin-declare-undefined-variables'),
+    });
+    t.end();
+});
+

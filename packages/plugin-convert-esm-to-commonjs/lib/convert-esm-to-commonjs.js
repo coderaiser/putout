@@ -21,7 +21,7 @@ module.exports.replace = () => ({
             result += `${imported.name}: ${local.name},\n`;
         }
         
-        result += `\n} = require(${__a.raw});`;
+        result += `\n} = require("${__a.value}");`;
         
         return result;
     },
