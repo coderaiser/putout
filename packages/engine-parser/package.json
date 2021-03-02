@@ -12,6 +12,11 @@
     "type": "git",
     "url": "git://github.com/coderaiser/putout.git"
   },
+  "exports": {
+    ".": "./lib/parser.js",
+    "./parsers/babel/options": "./lib/parsers/babel/options.js",
+    "./parsers/babel/plugins": "./lib/parsers/babel/plugins.js"
+  },
   "scripts": {
     "test": "madrun test",
     "watch:test": "madrun watch:test",
@@ -60,7 +65,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "publishConfig": {
     "access": "public"
