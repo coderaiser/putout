@@ -8,9 +8,13 @@ const {isImportDeclaration} = types;
 const {entries} = Object;
 const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
 
+const cutName = (a) => a.split('.').shift();
+
 module.exports.report = (path) => {
-    const {name} = path.node.callee;
-    return `'${name}' should be declared`;
+    const name = path.get('callee').toString();
+    const cutedName = cutName(name);
+    
+    return `'${cutedName}' should be declared`;
 };
 
 module.exports.match = ({options}) => {
@@ -42,7 +46,7 @@ module.exports.replace = ({options}) => {
 };
 
 const isUndefined = (name) => (vars, path) => {
-    const cutedName = name.split('.').pop();
+    const cutedName = cutName(name);
     return !path.scope.hasBinding(cutedName);
 };
 

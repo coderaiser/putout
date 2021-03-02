@@ -9,6 +9,11 @@ test('putout: plugin: declare-undefined-variables: report: assign', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: transform: readable', (t) => {
+    t.report('readable', `'Readable' should be declared`);
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: transform: assign', (t) => {
     t.transform('assign');
     t.end();
