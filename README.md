@@ -416,7 +416,7 @@ const putout = require('putout');
 
 ```diff
 -const createRegExp = (a) = RegExp(a, 'g');
-+const createRegExp = a => RegExp(a, 'g');
++const createRegExp = (a) => RegExp(a, 'g');
 ```
 
 </details>
