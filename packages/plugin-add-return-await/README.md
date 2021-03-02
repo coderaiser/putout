@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-add-return-await
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-add-return-await
 
-`putout` plugin adds ability to find and add `return await`.
+`putout` plugin adds ability to find and add `return await`. Part of [@putout/promises](https://github.com/coderaiser/putout/blob/master/packages/plugin-promises/README.md).
 
 ## Install
 
