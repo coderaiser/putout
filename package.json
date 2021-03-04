@@ -38,7 +38,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-putout": "^7.0.0",
     "husky": "^4.2.1",
-    "lerna": "^3.8.5",
+    "lerna": "^4.0.0",
     "madrun": "^8.6.0",
     "supertape": "^5.0.0"
   },
