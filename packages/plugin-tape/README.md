@@ -169,6 +169,7 @@ test('copymitter', async (t) => {
 ### ❌ Incorrect code example
 
 ```js
+import tryCatch from 'try-catch';
 test('some message', (t) => {
     const fn = () => copymitter('/hello');
     const [error] = tryCatch(fn);
@@ -181,6 +182,7 @@ test('some message', (t) => {
 ### ✅ Correct code Example
 
 ```js
+import tryCatch from 'try-catch';
 test('some message', (t) => {
     const [error] = tryCatch(copymitter, '/hello');
     
@@ -203,6 +205,7 @@ test('some message', (t) => {
 ### ✅ Correct code Example
 
 ```js
+import tryCatch from 'try-catch';
 test('some message', (t) => {
     const [error] = tryCatch(copymitter, '/hello');
     
