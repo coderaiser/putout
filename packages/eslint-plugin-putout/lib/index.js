@@ -71,7 +71,7 @@ const ide = {
         'putout/align-spaces': 'off',
         'putout/putout': ['error', {
             rules: {
-                'remove-empty/block': 'off',
+                'remove-empty': 'off',
                 'remove-unused-variables': 'off',
                 'remove-skip': 'off',
                 'remove-only': 'off',
