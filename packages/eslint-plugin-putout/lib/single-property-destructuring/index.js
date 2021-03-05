@@ -7,7 +7,7 @@ const {
     isVariableDeclarator,
 } = types;
 
-const NewLinesReg = /(\s+)?\n(\s+)?/g;
+const NewLinesReg = /([\s,]+)?\n(\s+)?/g;
 const AssignRegExp = /{\n?.*=.*\n?.*}/;
 
 module.exports.category = 'destructuring';
