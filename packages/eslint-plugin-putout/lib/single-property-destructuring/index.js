@@ -4,6 +4,7 @@ const {types} = require('putout');
 const {
     isRestElement,
     isImportDeclaration,
+    isVariableDeclarator,
 } = types;
 
 const NewLinesReg = /(\s+)?\n(\s+)?/g;
@@ -23,10 +24,10 @@ module.exports.filter = ({node, getText}) => {
     if (AssignRegExp.test(text))
         return false;
     
-    if (/(const|let|var) {\n/.test(text))
+    if (isVariableDeclarator(node) && /(const|let|var) {\n/.test(text))
         return true;
     
-    if (/import {\n/.test(getText(node)))
+    if (isImportDeclaration(node) && /import {\n/.test(getText(node)))
         return true;
     
     return false;
