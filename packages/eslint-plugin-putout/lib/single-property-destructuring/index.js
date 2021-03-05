@@ -1,33 +1,44 @@
 'use strict';
 
 const {types} = require('putout');
-const {isRestElement} = types;
+const {
+    isRestElement,
+    isImportDeclaration,
+} = types;
+
+const NewLinesReg = /(\s+)?\n(\s+)?/g;
+const AssignRegExp = /{\n?.*=.*\n?.*}/;
 
 module.exports.category = 'destructuring';
 module.exports.report = () => 'Keep curly braces on one line when you have one destructuring property';
 
 module.exports.include = () => [
     'VariableDeclarator[id.type="ObjectPattern"][id.properties.length=1]',
+    'ImportDeclaration[specifiers.length=1]',
 ];
 
 module.exports.filter = ({node, getText}) => {
     const text = getText(node.parent);
     
-    if (!/(const|let|var) {\n/.test(text))
-        return;
-    
-    const assignRegExp = /{\n?.*=.*\n?.*}/;
-    
-    if (assignRegExp.test(text))
+    if (AssignRegExp.test(text))
         return false;
     
-    return true;
+    if (/(const|let|var) {\n/.test(text))
+        return true;
+    
+    if (/import {\n/.test(getText(node)))
+        return true;
+    
+    return false;
 };
 
 module.exports.fix = ({text, node, getText}) => {
+    if (isImportDeclaration(node)) {
+        return text.replace(NewLinesReg, '');
+    }
+    
     const {id} = node;
     const idText = getText(id);
-    
     const [property] = id.properties;
     
     if (isRestElement(property)) {

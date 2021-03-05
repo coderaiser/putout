@@ -12,10 +12,15 @@ Examples of **incorrect** code for this rule:
 const {
     username,
 } = user;
+
+import {
+    password,
+} from './user';
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
 const {username} = user;
+import {password} from './user';
 ```

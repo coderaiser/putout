@@ -1,13 +1,15 @@
 'use strict';
 
 const {RuleTester} = require('eslint');
+const montag = require('montag');
 
 const wrap = require('../wrap');
 const rule = wrap(require('.'));
 
 const ruleTester = new RuleTester({
     parserOptions: {
-        ecmaVersion: 2019,
+        ecmaVersion: 2021,
+        sourceType: 'module',
     },
 });
 
@@ -18,6 +20,7 @@ ruleTester.run('single-property-destructuring', rule, {
         `const {
             hello = true
         } = world;`,
+        `import {x} from 'y';`,
     ],
     
     invalid: [{
@@ -40,6 +43,17 @@ ruleTester.run('single-property-destructuring', rule, {
         errors: [{
             message: 'Keep curly braces on one line when you have one destructuring property',
             type: 'VariableDeclarator',
+        }],
+    }, {
+        code: montag`
+            import {
+                x
+            } from './tap'
+        `,
+        output: `import {x} from './tap'`,
+        errors: [{
+            message: 'Keep curly braces on one line when you have one destructuring property',
+            type: 'ImportDeclaration',
         }],
     }],
 });
