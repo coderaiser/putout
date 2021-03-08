@@ -31,7 +31,7 @@ npm i @putout/plugin-promises -D
 
 ```js
 async function hello() {
-    return world;
+    return world();
 }
 
 async function world() {
@@ -42,7 +42,7 @@ async function world() {
 
 ```js
 async function hello() {
-    return world;
+    return await world()
 }
 
 async function world() {
