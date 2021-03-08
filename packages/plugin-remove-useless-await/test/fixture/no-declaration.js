@@ -1,0 +1,1 @@
+await readFile(__filename);
