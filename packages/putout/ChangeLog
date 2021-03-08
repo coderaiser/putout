@@ -1,3 +1,24 @@
+2021.03.08, v15.5.0
+
+fix:
+- fix(eslint-plugin-putout) single-property-destructuring: add support of ","
+- fix(@putout/operate) rm Changelog
+- fix(@putout/plugin-declare-udnefined-variables) report: Readable
+- chore(@putout/plugin-declare-udnefined-variables) fixture: rm " "
+
+
+feature:
+- feature(@putout/plugin-remove-useless-await) add suppoort of not async functions
+- feature(putout) bin: disable remove-empty/import, ESM: disable strict-mode/add
+- feature(eslint-plugin-putout) single-property-destructuring: add support of ImportDeclaration
+- feature(eslint-plugin-putout) ide: remove-empty/block -> remove-empty
+- feature(package) lerna v4.0.0
+- feature(@putout/plugin-declare-undefined-variables) add support of tryCatch, tryToCatch
+- feature(@putout/plugin-convert-esm-to-commonjs) add support of @putout/plugin-declare-undefined-variables
+- feature(@putout/plugin-declare-undefined-variables) add support of Readable.from
+
+
+
 2021.03.01, v15.4.3
 
 feature:
