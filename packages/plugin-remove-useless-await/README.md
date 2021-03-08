@@ -27,12 +27,20 @@ npm i @putout/plugin-remove-useless-await
 
 ```js
 await await Promise.resolve();
+await hello();
+
+function hello() {
+}
 ```
 
 ## ✅ Correct code Example
 
 ```js
 await Promise.resolve();
+hello();
+
+function hello() {
+}
 ```
 
 ## License

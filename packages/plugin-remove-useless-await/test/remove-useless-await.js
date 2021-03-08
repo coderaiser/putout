@@ -14,3 +14,8 @@ test('plugin-remove-useless-await: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-await: transform: not async', (t) => {
+    t.transform('not-async');
+    t.end();
+});
+
