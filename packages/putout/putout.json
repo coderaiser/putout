@@ -62,7 +62,8 @@
         "bin": {
             "remove-process-exit": "off",
             "remove-console": "off",
-            "convert-top-level-return": "on"
+            "convert-top-level-return": "on",
+            "remove-empty/import": "off"
         },
         "{test,*.spec.{js,mjs,cjs}}": {
             "remove-only": "on",
@@ -73,7 +74,8 @@
             "apply-top-level-await": "on",
             "convert-commonjs-to-esm": "on",
             "convert-mock-require-to-mock-import": "on",
-            "remove-unused-expressions": "on"
+            "remove-unused-expressions": "on",
+            "strict-mode/add": "off"
         },
         "*.cjs": {
             "convert-esm-to-commonjs": "on"

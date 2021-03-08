@@ -1,7 +1,0 @@
-{
-    "match": {
-        "bin": {
-            "remove-empty/import": "off"
-        }
-    }
-}
