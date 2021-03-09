@@ -54,3 +54,8 @@ test('plugin-test: transform: tape: declare-stub', (t) => {
     t.end();
 });
 
+test('plugin-test: transform: tape: convert-ok-to-match', (t) => {
+    t.transform('convert-ok-to-match');
+    t.end();
+});
+

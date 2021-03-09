@@ -11,6 +11,7 @@ module.exports.rules = {
     ...getRule('convert-does-not-throw-to-try-catch'),
     ...getRule('convert-called-with-to-called-with-no-args'),
     ...getRule('convert-emitter-to-promise'),
+    ...getRule('convert-ok-to-match'),
     ...getRule('expand-try-catch-arguments'),
     ...getRule('apply-stub-operator'),
     ...getRule('declare-stub'),

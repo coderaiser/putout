@@ -1,0 +1,21 @@
+'use strict';
+
+const test = require('@putout/test')(__dirname, {
+    'tape/convert-ok-to-match': require('.'),
+});
+
+test('plugin-tape: convert-ok-to-match: report', (t) => {
+    t.report('ok', 't.match should be used instead of t.ok with includes');
+    t.end();
+});
+
+test('plugin-tape: convert-ok-to-match: transform', (t) => {
+    t.transform('ok');
+    t.end();
+});
+
+test('plugin-tape: convert-ok-to-match: transform: message', (t) => {
+    t.transform('message');
+    t.end();
+});
+

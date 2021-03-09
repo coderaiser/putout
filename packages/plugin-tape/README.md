@@ -25,7 +25,8 @@ npm i @putout/plugin-tape -D
         "tape/convert-called-with-to-called-with-no-args": "on",
         "tape/expand-try-catch-arguments": "on",
         "tape/apply-stub-operator": "on",
-        "tape/convert-emitter-to-promise": "on"
+        "tape/convert-emitter-to-promise": "on",
+        "tape/convert-ok-to-match": "on"
     }
 }
 ```
@@ -238,6 +239,20 @@ test('xxx', (t) => {
     
     t.end();
 });
+```
+
+## convert-ok-to-match
+
+### ❌ Incorrect code example
+
+```js
+t.ok(result.includes('hello'));
+```
+
+### ✅ Correct code Example
+
+```js
+t.match(result, /hello/);
 ```
 
 ## License
