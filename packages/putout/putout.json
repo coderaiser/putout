@@ -74,8 +74,7 @@
             "apply-top-level-await": "on",
             "convert-commonjs-to-esm": "on",
             "convert-mock-require-to-mock-import": "on",
-            "remove-unused-expressions": "on",
-            "strict-mode/add": "off"
+            "remove-unused-expressions": "on"
         },
         "*.cjs": {
             "convert-esm-to-commonjs": "on"
