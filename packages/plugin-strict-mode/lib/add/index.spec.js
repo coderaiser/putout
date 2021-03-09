@@ -37,3 +37,8 @@ test('plugin-strict-mode: add: no transform: export-all', (t) => {
     t.end();
 });
 
+test('plugin-strict-mode: add: no transform: top-level-await', (t) => {
+    t.noTransform('top-level-await');
+    t.end();
+});
+

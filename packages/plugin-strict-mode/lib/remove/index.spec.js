@@ -27,3 +27,8 @@ test('plugin-strict-mode: remove: export all', (t) => {
     t.end();
 });
 
+test('plugin-strict-mode: remove: transform: top-level-await', (t) => {
+    t.transform('top-level-await');
+    t.end();
+});
+

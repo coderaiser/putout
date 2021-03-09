@@ -4,6 +4,7 @@ const {
     isExpressionStatement,
     StringLiteral,
     ExpressionStatement,
+    isProgram,
 } = require('putout').types;
 
 module.exports.report = () => '"use strict" directive should be on top of commonjs file';
@@ -12,31 +13,28 @@ module.exports.fix = ({node}) => {
     node.body.unshift(ExpressionStatement(StringLiteral('use strict')));
 };
 
-module.exports.traverse = ({push, store}) => {
-    let added = false;
-    
-    return {
-        'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|TypeAlias'() {
+module.exports.traverse = ({push, store}) => ({
+    'await __a(__args)'({scope}) {
+        const {block} = scope;
+        
+        if (isProgram(block))
             store('is-module', true);
+    },
+    'ImportDeclaration|ExportNamedDeclaration|ExportDefaultDeclaration|ExportAllDeclaration|TypeAlias'() {
+        store('is-module', true);
+    },
+    Program: {
+        exit(path) {
+            const [first] = path.node.body;
+            
+            if (isExpressionStatement(first) && first.expression.value === 'use strict')
+                return;
+            
+            if (store('is-module'))
+                return;
+            
+            push(path);
         },
-        Program: {
-            exit(path) {
-                const [first] = path.node.body;
-                
-                if (added)
-                    return;
-                
-                added = true;
-                
-                if (isExpressionStatement(first) && first.expression.value === 'use strict')
-                    return;
-                
-                if (store('is-module'))
-                    return;
-                
-                push(path);
-            },
-        },
-    };
-};
+    },
+});
 
