@@ -1,3 +1,15 @@
+2021.03.09, v15.5.1
+
+fix:
+- fix(putout) mjs: remove disable of strict-mode/add
+
+
+feature:
+- feature(@putout/processor-css) stylelint-config-standard v21.0.0
+- feature(@putout/plugin-strict-mode) add support of top level await
+
+
+
 2021.03.08, v15.5.0
 
 fix:
