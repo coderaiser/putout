@@ -39,3 +39,8 @@ test('plugin-remove-useless-await: transform: callee not identifier', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-await: transform: type-promise', (t) => {
+    t.transform('type-promise');
+    t.end();
+});
+

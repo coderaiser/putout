@@ -32,8 +32,24 @@ module.exports.filter = (path) => {
     if (!fnPath.isFunction())
         return false;
     
-    const {async} = fnPath.node;
+    if (isTypePromise(fnPath))
+        return false;
     
+    const {async} = fnPath.node;
     return !async;
 };
+
+function isTypePromise(path) {
+    const returnTypePath = path.get('returnType');
+    
+    if (!returnTypePath.node)
+        return false;
+    
+    const typeNamePath = returnTypePath.get('typeAnnotation.typeName');
+    
+    if (!typeNamePath.isIdentifier())
+        return false;
+    
+    return typeNamePath.node.name === 'Promise';
+}
 
