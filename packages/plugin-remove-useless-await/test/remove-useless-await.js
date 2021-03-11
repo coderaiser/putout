@@ -29,6 +29,16 @@ test('plugin-remove-useless-await: transform: no declaration', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-await: no transform: promise', (t) => {
+    t.noTransform('promise');
+    t.end();
+});
+
+test('plugin-remove-useless-await: no transform: resolve', (t) => {
+    t.noTransform('resolve');
+    t.end();
+});
+
 test('plugin-remove-useless-await: transform: not fn', (t) => {
     t.noTransform('not-fn');
     t.end();

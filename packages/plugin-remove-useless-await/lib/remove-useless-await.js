@@ -1,5 +1,8 @@
 'use strict';
 
+const {operator} = require('putout');
+const {traverse} = operator;
+
 module.exports.report = () => `Useless await should be avoided`;
 
 module.exports.replace = () => ({
@@ -32,11 +35,13 @@ module.exports.filter = (path) => {
     if (!fnPath.isFunction())
         return false;
     
+    if (looksLikePromise(fnPath))
+        return false;
+    
     if (isTypePromise(fnPath))
         return false;
     
-    const {async} = fnPath.node;
-    return !async;
+    return !fnPath.node.async;
 };
 
 function isTypePromise(path) {
@@ -51,5 +56,21 @@ function isTypePromise(path) {
         return false;
     
     return typeNamePath.node.name === 'Promise';
+}
+
+function looksLikePromise(path) {
+    let is = false;
+    
+    const markFound = (path) => {
+        is = true;
+        path.stop();
+    };
+    
+    traverse(path.node, {
+        'new Promise(__a)': markFound,
+        'Promise.__(__args)': markFound,
+    });
+    
+    return is;
 }
 
