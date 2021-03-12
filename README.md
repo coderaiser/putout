@@ -761,7 +761,7 @@ function world(a) {
 
 </details>
 
-<details><summary>apply top-level-await (<a href=https://github.com/tc39/proposal-top-level-await>proposal-top-level-await</a>, disabled)</summary>
+<details><summary>apply top-level-await (<a href=https://github.com/tc39/proposal-top-level-await>proposal-top-level-await</a>, enabled for ESM)</summary>
 
 ```diff
 import fs from 'fs';
