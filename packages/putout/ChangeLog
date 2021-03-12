@@ -1,3 +1,14 @@
+2021.03.12, v15.7.1
+
+fix:
+- fix(putout) convert-any-to-primitive -> remove-useless-types-from-constants
+
+
+feature:
+- feature(@putout/plugin-convert-any-to-primitive) simplify: rm bigFirst
+
+
+
 2021.03.12, v15.7.0
 
 feature:
