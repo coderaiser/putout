@@ -333,3 +333,28 @@ test('putout: runner: replace: same function: should produce same result', (t) =
     t.end();
 });
 
+test('putout: runner: replace: ts', (t) => {
+    const hello = {
+        report: () => 'Type "number" should be used instead of "any"',
+        replace: () => ({
+            'const __a: any = __b': ({__a}, path) => {
+                __a.typeAnnotation.typeAnnotation.type = 'TSNumberKeyword';
+                return path;
+            },
+        }),
+    };
+    
+    const {code} = putout('const a: any = 5', {
+        runPlugins,
+        isTS: true,
+        plugins: [
+            ['hello', hello],
+        ],
+    });
+    
+    const expected = 'const a: number = 5';
+    
+    t.equal(code, expected);
+    t.end();
+});
+
