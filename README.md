@@ -441,7 +441,7 @@ const putout = require('putout');
 
 </details>
 
-<details><summary>convert <code>generic</code> to <code>shorthand</code> for typescript (<a href=https://stackoverflow.com/a/36843084/4536327>why</a>)</summary>
+<details><summary>convert <code>generic</code> to <code>shorthand</code> (for typescript) (<a href=https://stackoverflow.com/a/36843084/4536327>why</a>)</summary>
 
 ```diff
 interface A {
@@ -470,11 +470,10 @@ interface A {
 
 </details>
 
-<details><summary>remove useless <code>types</code> for typescript</summary>
+<details><summary>remove useless <code>types</code> (for typescript)</summary>
 
 ```diff
 type oldType = number;
-
 -type newType = oldType;
 -const x: newType = 5;
 +const x: oldType = 5;
@@ -482,7 +481,7 @@ type oldType = number;
 
 </details>
 
-<details><summary>remove duplicate <code>interface</code> keys for typescript</summary>
+<details><summary>remove duplicate <code>interface</code> keys (for typescript)</summary>
 
 ```diff
 interface Hello {
@@ -493,7 +492,7 @@ interface Hello {
 
 </details>
 
-<details><summary>remove unused <code>types</code> for typescript</summary>
+<details><summary>remove unused <code>types</code> (for typescript)</summary>
 
 ```diff
 type n = number;
