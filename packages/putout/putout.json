@@ -81,9 +81,9 @@
         },
         "*.{ts,tsx}": {
             "convert-generic-to-shorthand": "on",
-            "convert-any-to-primitive": "on",
             "remove-duplicate-interface-keys": "on",
             "remove-useless-types": "on",
+            "remove-useless-types-from-constants": "on",
             "remove-unused-types": "on"
         }
     },
@@ -106,8 +106,8 @@
         "convert-commonjs-to-esm": "off",
         "convert-top-level-return": "off",
         "convert-generic-to-shorthand": "off",
-        "convert-any-to-primitive": "off",
         "remove-useless-types": "off",
+        "remove-useless-types-from-constants": "on",
         "remove-unused-types": "off",
         "convert-throw": "off",
         "remove-only": "off",
@@ -165,6 +165,7 @@
         "remove-useless-await",
         "remove-useless-typeof",
         "remove-useless-types",
+        "remove-useless-types-from-constants",
         "remove-useless-type-convertion",
         "remove-useless-functions",
         "remove-useless-template-expressions",
@@ -198,7 +199,6 @@
         "convert-equal-to-strict-equal",
         "convert-index-of-to-includes",
         "convert-generic-to-shorthand",
-        "convert-any-to-primitive",
         "convert-mock-require-to-mock-import",
         "convert-assignment-to-arrow-function",
         "merge-destructuring-properties",

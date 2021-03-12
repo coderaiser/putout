@@ -452,11 +452,11 @@ interface A {
 
 </details>
 
-<details><summary>convert <code>any</code> to <code>primitive</code> for typescript</summary>
+<details><summary>remove useless <code>types</code> from <code>constants</code></summary>
 
 ```diff
 -const x: any = 5;
-+const x: number = 5;
++const x = 5;
 ```
 
 </details>
@@ -1050,6 +1050,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-convert-index-of-to-includes`](/packages/plugin-convert-index-of-to-includes) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-index-of-to-includes.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-index-of-to-includes) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-index-of-to-includes)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-index-of-to-includes) |
 | [`@putout/plugin-convert-generic-to-shorthand`](/packages/plugin-convert-generic-to-shorthand) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-generic-to-shorthand.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-generic-to-shorthand) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-generic-to-shorthand)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-generic-to-shorthand) |
 | [`@putout/plugin-convert-any-to-primitive`](/packages/plugin-convert-any-to-primitive) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-any-to-primitive.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-any-to-primitive) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-any-to-primitive)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-any-to-primitive) |
+| [`@putout/plugin-remove-useless-types-from-constants`](/packages/plugin-remove-useless-types-from-constants) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-types-from-constants.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-types-from-constants) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-types-from-constants)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-types-from-constants) |
 | [`@putout/plugin-convert-math-pow`](/packages/plugin-convert-math-pow) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-math-pow.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-math-pow) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-math-pow)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-math-pow) |
 | [`@putout/plugin-convert-to-arrow-function`](/packages/plugin-convert-to-arrow-function) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-to-arrow-function.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-to-arrow-function) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-to-arrow-function)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-to-arrow-function) |
 | [`@putout/plugin-convert-for-to-for-of`](/packages/plugin-convert-for-to-for-of) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-for-to-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-for-to-for-of) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-for-to-for-of)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-for-to-for-of) |
