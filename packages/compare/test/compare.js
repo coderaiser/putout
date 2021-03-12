@@ -583,8 +583,36 @@ test('compare: innerComments', (t) => {
     t.end();
 });
 
-test('compare: ts', (t) => {
+test('compare: ts: importKind', (t) => {
     const result = compare('const a:any = 5', 'const __a: any = __b');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: ts: exportKind', (t) => {
+    const node = {
+        type: 'ExportNamedDeclaration',
+        specifiers: [],
+        source: null,
+        declaration: {
+            type: 'VariableDeclaration',
+            declarations: [{
+                type: 'VariableDeclarator',
+                id: {
+                    type: 'Identifier',
+                    name: 'a',
+                },
+                init: {
+                    type: 'NumericLiteral',
+                    value: 5,
+                },
+            }],
+            kind: 'const',
+        },
+    };
+    
+    const result = compare(node, 'export const __a = 5');
     
     t.ok(result);
     t.end();
