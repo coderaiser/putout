@@ -8,7 +8,10 @@ const options = require('./parsers/babel/options');
 
 const defaults = {
     ...options,
-    plugins,
+    plugins: [
+        ...plugins,
+        'typescript',
+    ],
 };
 
 module.exports = memo((value, options) => {

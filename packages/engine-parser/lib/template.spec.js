@@ -69,6 +69,13 @@ test('parser: template: program: ast: type', (t) => {
     t.end();
 });
 
+test('parser: template: ast: ts', (t) => {
+    const node = template.program.ast('const hello: any = "world"');
+    
+    t.equal(node.type, 'Program');
+    t.end();
+});
+
 test('parser: template: program', (t) => {
     const buildRequire = template.program(`
       var %%importName%% = require(%%source%%);
