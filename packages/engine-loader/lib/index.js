@@ -10,6 +10,7 @@ const {
 const parsePluginNames = require('./parse-plugin-names');
 const parseRules = require('./parse-rules');
 const validateRules = require('./validate-rules');
+const validatePlugin = require('./validate-plugin');
 
 const defaultOptions = () => Object.create(null);
 const mergeRules = ([rule, plugin], rules) => {
@@ -152,6 +153,8 @@ function loadPlugins({items, loadedRules}) {
             name,
             namespace,
         });
+        
+        validatePlugin({plugin, rule});
         
         const {rules} = plugin;
         

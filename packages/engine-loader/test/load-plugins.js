@@ -555,3 +555,15 @@ test('putout: loader: disabled part of rule', (t) => {
     t.end();
 });
 
+test('putout: loader: plugin is a function', (t) => {
+    const [e] = tryCatch(putout, 'hello', {
+        loadPlugins,
+        plugins: [
+            ['fn', () => {}],
+        ],
+    });
+    
+    t.equal(e.message, `Plugin "fn" type cannot be determined. Supported plugin types: https://git.io/JqcMn`);
+    t.end();
+});
+
