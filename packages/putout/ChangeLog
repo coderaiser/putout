@@ -1,3 +1,21 @@
+2021.03.12, v15.6.0
+
+feature:
+- feature(package) @putout/engine-processor v3.0.0
+- feature(package) @putout/engine-loader v4.0.0
+- feature(@putout/engine-processor) drop support of node < 14
+- feature(package) @putout/engine-loader v4.0.0
+- feature(@putout/engine-loader) drop support of node < 14
+- feature(@putout/compare) add support of exportKind
+- feature(@putout/engine-loader) add plugin validation
+- feature(@putout/compare) add support of typescript
+- feature(@putout/engine-parser) template: enable typescript
+- feature(@putout/plugin-remove-useless-await) add support of Promise constructor, and methods
+- feature(@putout/plugin-remove-useless-await) add support of typescript Promise generic
+- feature(@putout/plugin-tape) add convert-ok-to-match
+
+
+
 2021.03.09, v15.5.1
 
 fix:
