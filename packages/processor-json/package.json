@@ -32,7 +32,7 @@
     "json"
   ],
   "devDependencies": {
-    "@putout/engine-processor": "^2.0.0",
+    "@putout/engine-processor": "*",
     "c8": "^7.5.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",

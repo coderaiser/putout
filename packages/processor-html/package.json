@@ -29,7 +29,7 @@
     "html"
   ],
   "devDependencies": {
-    "@putout/engine-processor": "^2.8.0",
+    "@putout/engine-processor": "*",
     "@putout/test": "^3.1.1",
     "c8": "^7.5.0",
     "coveralls": "^3.0.0",
