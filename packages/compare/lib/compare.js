@@ -134,6 +134,7 @@ const ignore = [
     'leadingComments',
     'innerComments',
     'trailingComments',
+    'importKind',
 ];
 
 function superCompareIterate(node, template) {

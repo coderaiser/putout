@@ -583,6 +583,13 @@ test('compare: innerComments', (t) => {
     t.end();
 });
 
+test('compare: ts', (t) => {
+    const result = compare('const a:any = 5', 'const __a: any = __b');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: undefined', (t) => {
     const result = compare(undefined, '"hello"');
     
