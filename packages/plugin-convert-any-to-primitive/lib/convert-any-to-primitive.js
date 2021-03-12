@@ -15,7 +15,6 @@ const {
 } = types;
 
 const isPrimitiveType = (node) => getType(node) !== TSAnyKeyword;
-const bigFirst = (a) => a[0].toUpperCase() + a.slice(1);
 
 module.exports.report = (path) => {
     const {node} = path.get('declarations.0.init');
@@ -45,33 +44,33 @@ function getTypeAnnotation(node) {
         return TSSymbolKeyword();
     
     const type = getType(node);
-    const method = `TS${bigFirst(type)}Keyword`;
+    const method = `TS${type}Keyword`;
     
     return types[method]();
 }
 
 function getType(node) {
     if (isNumericLiteral(node))
-        return 'number';
+        return 'Number';
     
     if (isNullLiteral(node))
-        return 'null';
+        return 'Null';
     
     if (isStringLiteral(node))
-        return 'string';
+        return 'String';
     
     if (isBooleanLiteral(node))
-        return 'boolean';
+        return 'Boolean';
     
     if (isBigIntLiteral(node))
         return 'BigInt';
     
     if (isIdentifier(node, {name: 'undefined'}))
-        return 'undefined';
+        return 'Undefined';
     
     if (compare(node, 'Symbol()'))
-        return 'symbol';
+        return 'Symbol';
     
-    return 'any';
+    return 'Any';
 }
 
