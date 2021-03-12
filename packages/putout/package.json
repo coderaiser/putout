@@ -41,7 +41,7 @@
     "@putout/cli-keypress": "^1.0.0",
     "@putout/cli-validate-args": "^1.0.0",
     "@putout/compare": "^7.0.0",
-    "@putout/engine-loader": "^3.0.0",
+    "@putout/engine-loader": "^4.0.0",
     "@putout/engine-parser": "^3.0.0",
     "@putout/engine-processor": "^2.7.0",
     "@putout/engine-runner": "^10.0.0",
