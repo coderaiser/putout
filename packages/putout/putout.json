@@ -107,7 +107,7 @@
         "convert-top-level-return": "off",
         "convert-generic-to-shorthand": "off",
         "remove-useless-types": "off",
-        "remove-useless-types-from-constants": "on",
+        "remove-useless-types-from-constants": "off",
         "remove-unused-types": "off",
         "convert-throw": "off",
         "remove-only": "off",
