@@ -22,21 +22,20 @@ const isPrimitiveType = (node) => getType(node) !== TSAnyKeyword;
 
 module.exports.report = () => 'Remove useless type when declaring constant with primitive value';
 
+const checkType = ({__a, __b}) => __a.typeAnnotation && isPrimitiveType(__b);
+const removeType = ({__a}, path) => {
+    delete __a.typeAnnotation;
+    return path;
+};
+
 module.exports.match = () => ({
-    'const __a: __ = __b': ({__a, __b}) => {
-        if (!__a.typeAnnotation)
-            return false;
-        
-        return isPrimitiveType(__b);
-    },
+    'const __a: __ = __b': checkType,
+    'let __a: __ = __b': checkType,
 });
 
 module.exports.replace = () => ({
-    'const __a: __ = __c': ({__a}, path) => {
-        delete __a.typeAnnotation;
-        
-        return path;
-    },
+    'const __a: __ = __c': removeType,
+    'let __a: __ = __c': removeType,
 });
 
 function getType(node) {
