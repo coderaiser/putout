@@ -23,7 +23,6 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/processor-json": "^2.0.0",
     "remove-blank-lines": "^1.4.1"
   },
   "keywords": [
