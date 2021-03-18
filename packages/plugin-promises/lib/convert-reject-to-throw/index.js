@@ -12,5 +12,6 @@ module.exports.filter = (path) => {
 
 module.exports.replace = () => ({
     'return Promise.reject(__a)': 'throw __a',
+    'return await Promise.reject(__a)': 'throw __a',
 });
 

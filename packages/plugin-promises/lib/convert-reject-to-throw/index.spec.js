@@ -20,6 +20,11 @@ test('plugin-convert-reject-to-throw: transform: call', (t) => {
     t.end();
 });
 
+test('plugin-convert-reject-to-throw: transform: await', (t) => {
+    t.transform('await');
+    t.end();
+});
+
 test('plugin-convert-reject-to-throw: transform', (t) => {
     t.noTransform('not-async');
     t.end();
