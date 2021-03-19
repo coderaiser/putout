@@ -1,4 +1,4 @@
-# putout-engine-loader [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/engine-loader [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/engine-loader.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/engine-loader"npm"
@@ -66,8 +66,8 @@ Let's use two plugins:
 
 ```js
 const pluginNames = [
-    'transform-inline-consecutive-adds',
-    'codemod-object-assign-to-object-spread',
+    'babel/transform-inline-consecutive-adds',
+    'babel/codemod-object-assign-to-object-spread',
 ];
 
 const plugins = loadPlugins({
