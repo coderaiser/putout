@@ -14,6 +14,15 @@
 npm i @putout/engine-parser
 ```
 
+## Supported parsers
+- [@babel/parse](https://babeljs.io/docs/en/babel-parser)
+- [acorn](https://github.com/acornjs/acorn)
+- [espree](https://github.com/eslint/espree)
+- [esprima](https://esprima.org/)
+- [tenko](https://github.com/pvdz/tenko)
+
+Any parser should be installed before use, but you can be shure that `@babel/parse` always installed.
+
 ## API
 
 ### print(ast)
@@ -26,16 +35,7 @@ You can add `default options` for custom `parser` you use.
 
 ### parse.fresh(code)
 
-`parse` without memoise
-
-Supported parsers:
-- [@babel/parse](https://babeljs.io/docs/en/babel-parser)
-- [acorn](https://github.com/acornjs/acorn)
-- [espree](https://github.com/eslint/espree)
-- [esprima](https://esprima.org/)
-- [tenko](https://github.com/pvdz/tenko)
-
-## Example
+`parse` without `memoization`.
 
 ### parse.ast(template)
 create node using `memoization`.
@@ -43,7 +43,7 @@ create node using `memoization`.
 ### parse.ast.fresh(template)
 create node without `memoization`.
 
-Any parser should be installed before use, but you can be shure that `@babel/parse` always installed.
+## Example
 
 ```js
 const {parse} = require('@putout/engin-parser');
