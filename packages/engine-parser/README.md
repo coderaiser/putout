@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/engine-parser
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/engine-parser
 
-`putout` plugin adds ability to find and remove `debugger` statement.
+`putout` engine that parses input.
 
 ## Install
 
