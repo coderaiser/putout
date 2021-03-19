@@ -1,4 +1,4 @@
-# @putout/engine-parser [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Dev Dependency Status][DevDependencyStatusIMGURL]][DevDependencyStatusURL]
+# @putout/engine-parser [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/engine-parser.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/engine-parser"npm"
