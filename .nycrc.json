@@ -6,6 +6,7 @@
         "**/*.spec.*",
         "**/fixture",
         "**/.*.*",
+        "packages/*/coverage",
         "packages/*/bin",
         "packages/*/test"
     ],
