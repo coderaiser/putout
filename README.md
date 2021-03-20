@@ -250,6 +250,21 @@ const a = {
 
 </details>
 
+<details><summary>remove duplicate case</summary>
+
+```diff
+switch (x) {
+    case 5:
+        console.log('hello');
+        break;
+-    case 5:
+-        console.log('zz');
+-        break;
+}
+```
+
+</details>
+
 <details><summary>remove unused private fields</summary>
 
 ```diff
@@ -1068,6 +1083,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-remove-unused-types`](/packages/plugin-remove-unused-types) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-types) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-unused-types)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-unused-types) |
 | [`@putout/plugin-remove-unreferenced-variables`](/packages/plugin-remove-unreferenced-variables) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unreferenced-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unreferenced-variables) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-unreferenced-variables)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-unreferenced-variables) |
 | [`@putout/plugin-remove-duplicate-keys`](/packages/plugin-remove-duplicate-keys) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-keys.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-keys) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-duplicate-keys)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-duplicate-keys) |
+| [`@putout/plugin-remove-duplicate-case`](/packages/plugin-remove-duplicate-case) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-case.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-case) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-duplicate-case)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-duplicate-case) |
 | [`@putout/plugin-remove-unused-expressions`](/packages/plugin-remove-unused-expressions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-expressions) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-unused-expressions)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-unused-expressions) |
 | [`@putout/plugin-remove-unused-private-fields`](/packages/plugin-remove-unused-private-fields) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-private-fields.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-private-fields) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-unused-private-fields)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-unused-private-fields) |
 | [`@putout/plugin-remove-useless-variables`](/packages/plugin-remove-useless-variables) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-variables) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-variables)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-variables) |

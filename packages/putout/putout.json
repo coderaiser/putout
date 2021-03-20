@@ -175,6 +175,7 @@
         "remove-boolean-from-logical-expressions",
         "remove-duplicates-from-logical-expressions",
         "remove-duplicate-interface-keys",
+        "remove-duplicate-case",
         "remove-nested-blocks",
         "remove-unreachable-code",
         "remove-duplicate-keys",
