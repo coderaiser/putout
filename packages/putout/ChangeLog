@@ -1,3 +1,15 @@
+2021.03.20, v15.9.0
+
+fix:
+- docs(@putout/engline-loader) babel: add prefix
+
+
+feature:
+- feature(@putout/eslint-config) disable no-duplicate-case
+- feature(@putout/plugin-remove-duplicate-case) add
+
+
+
 2021.03.18, v15.8.0
 
 fix:
