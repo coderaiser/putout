@@ -1158,7 +1158,7 @@ Next packages not bundled with `putout` but can be installed separately.
 
 ## Formatters
 
-`putout` use formatters similar to [eslint's formatters](https://eslint.org/docs/user-guide/formatters/).
+`putout` uses formatters similar to [eslint's formatters](https://eslint.org/docs/user-guide/formatters/).
 You can specify a formatter using the `--format` or `-f` flag on the command line. For example, `--format codeframe` uses the `codeframe` formatter.
 
 The built-in formatter options are:
