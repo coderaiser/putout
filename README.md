@@ -824,7 +824,7 @@ import fs from 'fs';
 
 </details>
 
-<details><summary>apply nullish coalescing (<a href=https://github.com/tc39/proposal-nullish-coalescing>proposal-nullish-coalescing</a>, disabled)</summary>
+<details><summary>apply nullish coalescing (<a href=https://github.com/tc39/proposal-nullish-coalescing>proposal-nullish-coalescing</a>, not bundled)</summary>
 
 ```diff
 -result = typeof result  === 'undefined' ? 'hello': result;
