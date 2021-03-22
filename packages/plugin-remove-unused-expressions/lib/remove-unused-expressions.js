@@ -22,6 +22,9 @@ module.exports.traverse = ({push, options}) => {
             if (expressionPath.isArrayExpression())
                 return push(expressionPath);
             
+            if (expressionPath.isMemberExpression())
+                return push(expressionPath);
+            
             if (!expressionPath.isLiteral())
                 return;
             

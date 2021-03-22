@@ -36,6 +36,11 @@ test('remove unused expression: transformCode: array', (t) => {
     t.end();
 });
 
+test('remove unused expression: transformCode: member expression', (t) => {
+    t.transformCode('this.hello;', '');
+    t.end();
+});
+
 test('remove unused expression: transformCode: options', (t) => {
     t.noTransformWithOptions('options', {
         dismiss: [
