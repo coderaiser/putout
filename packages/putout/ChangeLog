@@ -1,3 +1,14 @@
+2021.03.23, v15.10.0
+
+feature:
+- feature(package) @putout/plugin-convert-for-each-to-for-of v6.0.0
+- feature(@putout/plugin-convert-for-each-to-for-of) drop support of putout < 15
+- feature(@putout/plugin-convert-for-each-to-for-of) add support of [].forEach.call
+- feature(@putout/plugin-convert-for-each-to-for-of) plugin type: Includer -> Replacer
+- feature(@putout/plugin-remove-unused-expressions) add support of MemberExpression
+
+
+
 2021.03.20, v15.9.0
 
 fix:
