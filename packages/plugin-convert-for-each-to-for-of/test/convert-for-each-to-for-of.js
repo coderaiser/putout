@@ -54,6 +54,11 @@ test('plugin-convert-for-each-to-for-of: no transform: var not bound', (t) => {
     t.end();
 });
 
+test('plugin-convert-for-each-to-for-of: no transform: call', (t) => {
+    t.transform('call');
+    t.end();
+});
+
 test('plugin-convert-for-each-to-for-of: no transform: var is bound', (t) => {
     t.noTransform('var');
     t.end();

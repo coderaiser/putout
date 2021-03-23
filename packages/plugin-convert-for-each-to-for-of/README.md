@@ -31,6 +31,10 @@ Rule `convert-for-each-to-for-of` is enabled by default, to disable add to `.put
 Object.keys(json).forEach((name) => {
     manage(name, json[name]);
 });
+
+[].forEach.call(arguments, (item) => {
+    console.log(item);
+});
 ```
 
 ## ✅ Correct code Example
@@ -38,6 +42,10 @@ Object.keys(json).forEach((name) => {
 ```js
 for (const name of Object.keys(json)) {
     manage(name, json[name]);
+}
+
+for (const name of arguments) {
+    console.log(item);
 }
 ```
 

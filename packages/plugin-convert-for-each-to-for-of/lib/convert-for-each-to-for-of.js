@@ -24,6 +24,7 @@ const isRoot = (path) => path.isFunction() || path.isProgram();
 module.exports.report = () => `for-of should be used instead of forEach`;
 
 module.exports.replace = () => ({
+    '__.forEach.call(__a, (__b) => __body)': 'for (const __b of __a) __body',
     '__.forEach(__args)': (vars, path) => {
         const {params, body} = path.node.arguments[0];
         const item = getItem(params);
