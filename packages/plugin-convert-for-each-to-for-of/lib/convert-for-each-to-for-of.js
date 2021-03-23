@@ -23,66 +23,64 @@ const isRoot = (path) => path.isFunction() || path.isProgram();
 
 module.exports.report = () => `for-of should be used instead of forEach`;
 
-module.exports.fix = (path) => {
-    const {params, body} = path.node.arguments[0];
-    const item = getItem(params);
-    
-    delete item.typeAnnotation;
-    
-    const newPath = replaceWith(path.parentPath, forOfTemplate({
-        item,
-        items: path.node.callee.object,
-        body,
-    }));
-    
-    fixReturn(newPath);
-};
+module.exports.replace = () => ({
+    '__.forEach(__args)': (vars, path) => {
+        const {params, body} = path.node.arguments[0];
+        const item = getItem(params);
+        
+        delete item.typeAnnotation;
+        
+        const newPath = replaceWith(path.parentPath, forOfTemplate({
+            item,
+            items: path.node.callee.object,
+            body,
+        }));
+        
+        fixReturn(newPath);
+    },
+});
 
-module.exports.include = () => {
-    return [
-        '__.forEach(__args)',
-    ];
-};
-
-module.exports.filter = (path) => {
-    const objectPath = path.get('callee.object');
-    const fnPath = path.get('arguments.0');
-    
-    if (!fnPath.isFunction())
-        return false;
-    
-    const params = fnPath.get('params');
-    
-    if (!params.length)
-        return false;
-    
-    if (isParentContainsFunctionArgument(objectPath))
-        return false;
-    
-    if (path.node.arguments.length === 2 && !path.get('arguments.1').isThisExpression())
-        return false;
-    
-    // that's right, when we have two arguments, and first is this
-    // we actually have one argument + typescript typings
-    if (params.length > 1 && !params[0].isIdentifier({name: 'this'}))
-        return false;
-    
-    // this is the case when "i" declared and "this"
-    if (params.length >= 3 && params[0].isIdentifier({name: 'this'}))
-        return false;
-    
-    const [paramPath] = params;
-    
-    if (isSameNames(paramPath, objectPath))
-        return false;
-    
-    const rootPath = path.findParent(isRoot);
-    
-    if (isBoundVars(rootPath, fnPath))
-        return false;
-    
-    return true;
-};
+module.exports.match = () => ({
+    '__.forEach(__args)': (vars, path) => {
+        const objectPath = path.get('callee.object');
+        const fnPath = path.get('arguments.0');
+        
+        if (!fnPath.isFunction())
+            return false;
+        
+        const params = fnPath.get('params');
+        
+        if (!params.length)
+            return false;
+        
+        if (isParentContainsFunctionArgument(objectPath))
+            return false;
+        
+        if (path.node.arguments.length === 2 && !path.get('arguments.1').isThisExpression())
+            return false;
+        
+        // that's right, when we have two arguments, and first is this
+        // we actually have one argument + typescript typings
+        if (params.length > 1 && !params[0].isIdentifier({name: 'this'}))
+            return false;
+        
+        // this is the case when "i" declared and "this"
+        if (params.length >= 3 && params[0].isIdentifier({name: 'this'}))
+            return false;
+        
+        const [paramPath] = params;
+        
+        if (isSameNames(paramPath, objectPath))
+            return false;
+        
+        const rootPath = path.findParent(isRoot);
+        
+        if (isBoundVars(rootPath, fnPath))
+            return false;
+        
+        return true;
+    },
+});
 
 function isSameNames(paramPath, objectPath) {
     const {name} = paramPath.node;
