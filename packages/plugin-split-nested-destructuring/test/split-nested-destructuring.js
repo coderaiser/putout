@@ -16,3 +16,8 @@ test('plugin-split-destructuring: transform', (t) => {
     t.end();
 });
 
+test('plugin-split-destructuring: transform: fn', (t) => {
+    t.transform('fn');
+    t.end();
+});
+

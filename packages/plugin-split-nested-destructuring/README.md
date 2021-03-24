@@ -15,12 +15,10 @@ npm i @putout/plugin-split-nested-destructuring -D
 
 ## Rule
 
-Rule `split-nested-destructuring` is enabled by default, to disable add to `.putout.json`:
-
 ```json
 {
     "rules": {
-        "split-nested-destructuring": "off"
+        "split-nested-destructuring": "on"
     }
 }
 ```
@@ -29,6 +27,10 @@ Rule `split-nested-destructuring` is enabled by default, to disable add to `.put
 
 ```js
 const {a: {b}} = c;
+
+function f({a: {b}}) {
+    console.log(b);
+}
 ```
 
 ## ✅ Correct code Example
@@ -36,6 +38,11 @@ const {a: {b}} = c;
 ```js
 const {a} = c;
 const {b} = a;
+
+function f({a}) {
+    const {b} = a;
+    console.log(b);
+}
 ```
 
 ## License
