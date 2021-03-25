@@ -40,7 +40,7 @@ test('plugin-apply-destructuring: transform: logical', (t) => {
     t.end();
 });
 
-test('plugin-apply-destructuring: transform: logical: and', (t) => {
+test('plugin-apply-destructuring: no transform: logical: and', (t) => {
     t.noTransform('logical-and');
     t.end();
 });
