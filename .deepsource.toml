@@ -1,11 +1,16 @@
 version = 1
 
 exclude_patterns = ["**/fixture/**"]
+test_patterns = [
+  "**/test/**",
+  "*.spec.js"
+]
 
 [[analyzers]]
 name = "javascript"
 enabled = true
 
-  [analyzers.meta]
-  environment = ["nodejs"]
-  style_guide = "airbnb"
+[analyzers.meta]
+environment = ["nodejs"]
+style_guide = "airbnb"
+
