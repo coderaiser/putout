@@ -203,6 +203,7 @@
         "convert-generic-to-shorthand",
         "convert-mock-require-to-mock-import",
         "convert-assignment-to-arrow-function",
+        "convert-assignment-to-comparison",
         "merge-destructuring-properties",
         "merge-duplicate-imports",
         "merge-if-statements",

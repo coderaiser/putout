@@ -436,6 +436,16 @@ const putout = require('putout');
 
 </details>
 
+<details><summary>convert <code>assignment</code> to <code>comparison</code></summary>
+
+```diff
+-if (a = 5) {
++if (a === 5) {
+}
+```
+
+</details>
+
 <details><summary>convert <code>equal</code> to <code>strict equal</code></summary>
 
 ```diff
@@ -1073,6 +1083,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-convert-top-level-return`](/packages/plugin-convert-top-level-return) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-top-level-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-top-level-return) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-top-level-return)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-top-level-return) |
 | [`@putout/plugin-convert-mock-require-to-mock-import`](/packages/plugin-convert-mock-require-to-mock-import) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-mock-require-to-mock-import.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-mock-require-to-mock-import) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-mock-require-to-mock-import)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-mock-require-to-mock-import) |
 | [`@putout/plugin-convert-assignment-to-arrow-function`](/packages/plugin-convert-assignment-to-arrow-function) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-assignment-to-arrow-function.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-assignment-to-arrow-function) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-assignment-to-arrow-function)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-assignment-to-arrow-function) |
+| [`@putout/plugin-convert-assignment-comparison`](/packages/plugin-convert-assignment-comparison) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-assignment-comparison.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-assignment-comparison) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-assignment-comparison)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-assignment-comparison) |
 
 ### Removers
 

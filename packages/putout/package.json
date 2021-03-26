@@ -64,6 +64,7 @@
     "@putout/plugin-convert-arguments-to-rest": "^1.0.0",
     "@putout/plugin-convert-array-copy-to-slice": "^1.0.0",
     "@putout/plugin-convert-assignment-to-arrow-function": "^1.0.0",
+    "@putout/plugin-convert-assignment-to-comparison": "^1.0.0",
     "@putout/plugin-convert-binary-expression-to-boolean": "^2.0.0",
     "@putout/plugin-convert-commonjs-to-esm": "^5.0.0",
     "@putout/plugin-convert-equal-to-strict-equal": "^1.0.0",
