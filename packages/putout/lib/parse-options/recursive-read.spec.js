@@ -50,3 +50,36 @@ test('putout: parse-options: recursive read: error: no error', (t) => {
     t.end();
 });
 
+test('putout: parse-options: recursive read: error: no error', (t) => {
+    const require = stub(() => {
+        if (require.callCount === 1)
+            return {
+                rules: {
+                    putout: 'off',
+                },
+            };
+        
+        if (require.callCount === 2)
+            return {
+                rules: {
+                    putout: 'on',
+                },
+            };
+        
+        return {};
+    });
+    
+    const [, options] = read(__filename, '.putout.json', {
+        require,
+    });
+    
+    const expected = {
+        rules: {
+            putout: 'off',
+        },
+    };
+    
+    t.deepEqual(options, expected);
+    t.end();
+});
+

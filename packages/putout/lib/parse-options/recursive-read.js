@@ -20,7 +20,7 @@ module.exports = (name, configName, overrides) => {
     
     let mergedOptions = merge(...optionsList);
     
-    for (const currentOptions of optionsList.reverse())
+    for (const currentOptions of optionsList)
         mergedOptions = merge(
             mergedOptions,
             currentOptions,
@@ -45,6 +45,6 @@ function getOptionsList({dir, configName, customRequire}) {
         optionsList.push(customRequire(`${dir}/${configName}`));
     });
     
-    return [mainDir, optionsList];
+    return [mainDir, optionsList.reverse()];
 }
 

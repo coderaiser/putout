@@ -19,7 +19,7 @@ module.exports.filter = (path) => {
 };
 
 module.exports.replace = () => ({
-    '(function() {})()': ({}, path) => {
+    '(function() {})()': (vars, path) => {
         const {body} = path.node.callee.body;
         replaceWithMultiple(path.parentPath, body);
         

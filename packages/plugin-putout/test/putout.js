@@ -14,3 +14,12 @@ test('plugin-putout: transform: shorten putout exports', (t) => {
     t.end();
 });
 
+test('plugin-putout: convert-destructuring-to-identifier: report: destructuring', (t) => {
+    t.report('convert-destructuring-to-identifier', 'Identifier should be used instead of empty destructuring');
+    t.end();
+});
+
+test('plugin-putout: convert-destructuring-todentifier: transform: destructuring', (t) => {
+    t.transform('convert-destructuring-to-identifier');
+    t.end();
+});

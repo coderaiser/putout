@@ -22,6 +22,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-replace-with": "on",
         "putout/convert-replace-with-multiple": "on",
         "putout/convert-babel-types": "on",
+        "putout/convert-destructuring-to-identifier": "on",
         "putout/shorten-imports": "on"
     }
 }
@@ -117,6 +118,31 @@ const {
     isObjectExpression,
     isIdentifier,
 } = require('putout').types;
+```
+
+## convert-to-no-transform-code
+
+### ❌ Incorrect code example
+
+```js
+module.exports.replace = () => ({
+    'const __a = __b': ({}) => {
+    },
+    'const __c = __d': ({}, path) => {
+    
+    },
+});
+```
+
+### ✅ Correct code Example
+
+```js
+module.exports.replace = () => ({
+    'const __a = __b': (vars) => {
+    },
+    'const __c = __d': (vars, path) => {
+    },
+});
 ```
 
 ## shorten-imports

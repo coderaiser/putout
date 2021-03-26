@@ -27,7 +27,7 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    '__putout_processor_ignore(__a)': ({}, path) => {
+    '__putout_processor_ignore(__a)': (vars, path) => {
         const elementsPath = path.get('arguments.0.elements');
         
         for (const elementPath of elementsPath) {

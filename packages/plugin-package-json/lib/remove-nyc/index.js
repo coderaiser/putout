@@ -15,7 +15,7 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    '__putout_processor_json(__a)': ({}, path) => {
+    '__putout_processor_json(__a)': (vars, path) => {
         const properties = path.get('arguments.0.properties');
         
         for (const propPath of properties) {
