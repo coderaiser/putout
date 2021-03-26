@@ -7,6 +7,13 @@ const {replaceWith} = operator;
 module.exports.report = () => `Avoid useless for-of`;
 
 module.exports.match = () => ({
+    'for (const __identifier__a of __identifier__b) __c': ({__identifier__a}, path) => {
+        const {name} = __identifier__a;
+        const {references} = path.scope.bindings[name];
+        
+        return !references;
+    },
+    
     'for (const __a of __array) __c': ({__a, __array}, path) => {
         if (__array.elements.length >= 2)
             return false;
@@ -25,6 +32,7 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
+    'for (const __identifier__a of __identifier__b) __c': '__c',
     'for (const __a of __array) __c': ({__a, __c, __array}, path) => {
         const {elements} = __array;
         
@@ -49,3 +57,4 @@ module.exports.replace = () => ({
         return path;
     },
 });
+

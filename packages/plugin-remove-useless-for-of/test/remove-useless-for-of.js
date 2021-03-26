@@ -39,3 +39,8 @@ test('plugin-remove-useless-for-of: transform: no refs', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-for-of: transform: unused', (t) => {
+    t.transform('unused');
+    t.end();
+});
+

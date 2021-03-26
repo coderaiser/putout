@@ -12,17 +12,12 @@ module.exports.add = (array) => {
 };
 
 module.exports.isSupported = (name) => {
-    for (const pattern of patterns) {
-        const isMatch = picomatch(patterns, {
-            dot: true,
-            matchBase: true,
-        });
-        
-        if (isMatch(name))
-            return true;
-    }
+    const isMatch = picomatch(patterns, {
+        dot: true,
+        matchBase: true,
+    });
     
-    return false;
+    return isMatch(name);
 };
 
 module.exports.getSupportedGlob = (file) => normalize(`${file}/**/{${patterns.join(',')}}`);
