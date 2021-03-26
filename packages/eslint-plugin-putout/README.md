@@ -61,7 +61,7 @@ Then configure the rules you want to use under the rules section.
         "putout/newline-function-call-arguments": "error",
         "putout/function-declaration-paren-newline": "error",
         "putout/remove-newline-after-default-import": "error",
-        "putout/objects-braces-insde-array": "error"
+        "putout/objects-braces-inside-array": "error"
     }
 }
 ```
