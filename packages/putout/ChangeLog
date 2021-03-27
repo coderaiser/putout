@@ -1,3 +1,8 @@
+2021.03.27, v16.0.0
+feature:
+- (putout) convert-binary-expression-to-boolean -> convert-comparison-to-boolean
+
+
 2021.03.26, v15.13.0
 feature:
 - (@putout/plugin-convert-assignment-to-comparison) add
