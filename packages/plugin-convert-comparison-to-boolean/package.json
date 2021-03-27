@@ -1,10 +1,10 @@
 {
-  "name": "@putout/plugin-convert-binary-expression-to-boolean",
-  "version": "2.1.1",
+  "name": "@putout/plugin-convert-comparison-to-boolean",
+  "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert binary expression to boolean",
   "homepage": "http://github.com/coderaiser/putout",
-  "main": "lib/convert-binary-expression-to-boolean.js",
+  "main": "lib/convert-comparison-to-boolean.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -41,11 +41,11 @@
     "madrun": "^8.0.1"
   },
   "peerDependencies": {
-    "putout": ">=7.17"
+    "putout": ">=16"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=14"
   },
   "publishConfig": {
     "access": "public"
