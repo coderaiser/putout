@@ -5,7 +5,7 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-binary-expression-to-boolean
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-binary-expression-to-boolean
 
-`putout` plugin adds ability to find and convert `binary expression` to `boolean`.
+`putout` plugin adds ability to find and convert `binary expression` to `boolean`. Renamed to [@putout/plugin-convert-comparison-to-boolean](https://www.npmjs.com/package/@putout/plugin-convert-comparison-to-boolean).
 
 ## Install
 
