@@ -24,7 +24,7 @@
             "madrun": "on"
         },
         "*.md": {
-            "convert-binary-expression-to-boolean": "off",
+            "convert-comparison-to-boolean": "off",
             "remove-unused-expressions": "off",
             "remove-unused-variables": "off",
             "remove-useless-escape": "off",
@@ -188,7 +188,7 @@
         "convert-apply-to-spread",
         "convert-arguments-to-rest",
         "convert-object-assign-to-merge-spread",
-        "convert-binary-expression-to-boolean",
+        "convert-comparison-to-boolean",
         "convert-math-pow",
         "convert-throw",
         "convert-to-arrow-function",
