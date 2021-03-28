@@ -13,7 +13,30 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 
 [![putout](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm.svg)](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm)
 
-## Why?
+## Table of Contents
+
+- [Why does this project exist?](#why-does-this-project-exist)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Architecture](#architecture)
+- [API](#api)
+- [Built-in transformations](#built-in-transformations)
+- [Plugins](#plugins)
+- [Formatters](#formatters)
+- [Configuration](#configuration)
+- [Plugins API](#plugins-api)
+- [Babel Plugins](#babel-plugins)
+- [JSCodeshift Codemods](#jscodeshift-codemods)
+- [Codemods](#codemods)
+- [Eslint](#eslint)
+- [Babel](#babel)
+- [Real-world uses](#real-world-uses)
+- [Contributions](#contributions)
+- [Donations](#donations)
+- [License](#license)
+
+
+## Why does this project exist?
 
 - because [eslint](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
 - because [babel](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139);
@@ -22,7 +45,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 
 The main difference of `putout` is saving code transformation results directly in a source code in a day-to-day baisis.
 
-## Install
+## Installation
 
 ```
 npm i putout -D
@@ -69,7 +92,7 @@ To apply transforms:
 putout lib test --fix
 ```
 
-## Environment variables
+### Environment variables
 
 `Putout` supports next `environment variables`:
 
@@ -192,7 +215,7 @@ putout(source, {
 });
 ```
 
-## Built-in transforms
+## Built-in transformations
 
 <details><summary>remove unused variables</summary>
 
@@ -1330,11 +1353,11 @@ Add `putout` as a `peerDependency` to your `packages.json`.
 
 *Always add keywords `putout`, `putout-plugin` when publish putout plugin to `npm` so others can easily find it.*
 
-#### Plugins API
+## Plugins API
 
 Let's consider a couple plugin types, that can be used.
 
-##### Replacer
+### Replacer
 
 The simplest `putout` plugin type, consits of 2 functions:
 
@@ -1350,7 +1373,7 @@ module.exports.replace = () => ({
 
 This plugin will find and sugest to replace all occurences of code: `object && object.property` into `object?.property`.
 
-##### Includer
+### Includer
 
 More powerful plugin type, when you need more control over traversing.
 It should contain next 2 functions:
@@ -1391,7 +1414,7 @@ const {
 Most information you can find in [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md) is relevant to `putout` plugins.
 To understand how things works from the inside take a look at [Super Tiny Compiler](https://github.com/jamiebuilds/the-super-tiny-compiler).
 
-##### Operator
+### Operator
 
 When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, please use `operator` instead of `path`-methods.
 
@@ -1415,7 +1438,7 @@ module.exports.fix = (path) => {
 This should be done to preserve `loc` and `comments` information, which is different in `babel` and `recast`. `putout` will handle this case for you :),
 just use methods of `operator`.
 
-#### Putout Plugin
+### Putout Plugin
 
 When you work on a `plugin` or `codemod` please add rule `putout` into `.putout.json`:
 
@@ -1429,7 +1452,7 @@ When you work on a `plugin` or `codemod` please add rule `putout` into `.putout.
 
 [@putout/plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/plugin-putout) will handle plugin-specific cases for you :).
 
-#### Example
+### Example
 
 Let's consider simplest possible plugin for removing `debugger statements` [@putout/plugin-remove-debugger](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-debugger):
 
@@ -1480,7 +1503,7 @@ module.exports.filter = (path) => {
 };
 ```
 
-#### Template
+### Template
 
 There is predefined placeholders:
 
@@ -1488,7 +1511,7 @@ There is predefined placeholders:
 - `"__"` - any string literal;
 - `__` - any template string literal;
 
-#### Testing
+### Testing
 
 That was the simplest module to remove `debugger` statements in your code. Let's look how to test it using [@putout/test](https://github.com/coderaiser/putout/tree/master/packages/test):
 
@@ -1514,7 +1537,7 @@ test('remove debugger: transformCode', (t) => {
 As you see test runner it is little bit extended [supertape](https://github.com/coderaiser/supertape).
 To see more sophisticated example look at [@putout/remove-console](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-console).
 
-### Babel Plugins
+## Babel Plugins
 
 You can add `babel` to `plugins` section of `.putout.json` with `babel/` prefix.
 
@@ -1615,7 +1638,7 @@ try {
 
 Please send pull requests with `babel plugins` which can be used as codemods, or simplify, fix, makes code more readable.
 
-### JSCodeshift
+## JSCodeshift codemods
 
 `jscodeshift` codemods can be added to `plugins` section of `.putout.json` with prefix `jscodeshift/`. This way:
 
@@ -1629,7 +1652,7 @@ Please send pull requests with `babel plugins` which can be used as codemods, or
 }
 ```
 
-#### JSCodeshift codemods list
+### JSCodeshift codemods list
 
 Here you can find `jscodeshift codemods` which feets the most main purpose of `putout` and adviced to use:
 
