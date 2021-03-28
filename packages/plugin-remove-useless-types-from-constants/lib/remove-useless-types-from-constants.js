@@ -16,17 +16,10 @@ const {
     TSBooleanKeyword,
     TSBigIntKeyword,
     TSSymbolKeyword,
+    isTSUnionType,
 } = types;
 
-const isPrimitiveType = (node) => getType(node) !== TSAnyKeyword;
-
 module.exports.report = () => 'Remove useless type when declaring constant with primitive value';
-
-const checkType = ({__a, __b}) => __a.typeAnnotation && isPrimitiveType(__b);
-const removeType = ({__a}, path) => {
-    delete __a.typeAnnotation;
-    return path;
-};
 
 module.exports.match = () => ({
     'const __a: __ = __b': checkType,
@@ -62,3 +55,28 @@ function getType(node) {
     
     return TSAnyKeyword;
 }
+
+const checkType = ({__a, __b}) => {
+    if (!__a.typeAnnotation)
+        return false;
+    
+    if (isTSUnionType(__a.typeAnnotation.typeAnnotation))
+        return false;
+    
+    return isPrimitiveType(__b);
+};
+
+const isPrimitiveType = (node) => {
+    const type = getType(node);
+    
+    if (type === TSAnyKeyword)
+        return false;
+    
+    return true;
+};
+
+const removeType = ({__a}, path) => {
+    delete __a.typeAnnotation;
+    return path;
+};
+

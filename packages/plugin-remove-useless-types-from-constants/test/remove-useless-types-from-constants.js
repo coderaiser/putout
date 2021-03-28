@@ -19,6 +19,11 @@ test('plugin-remove-useless-types-from-constants: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-types-from-constants: no transform: union', (t) => {
+    t.noTransform('union');
+    t.end();
+});
+
 test('plugin-remove-useless-types-from-constants: no report', (t) => {
     t.noReport('no-type');
     t.end();
