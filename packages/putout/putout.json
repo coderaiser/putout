@@ -10,8 +10,7 @@
         "ignore",
         "yaml",
         "css",
-        "html",
-        "typescript"
+        "html"
     ],
     "match": {
         "*.{js,jsx,mjs,cjs,ts,tsx}": {
