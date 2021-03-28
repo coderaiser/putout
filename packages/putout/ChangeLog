@@ -1,3 +1,8 @@
+2021.03.28, v16.1.0
+feature:
+- (@putout/plugin-remove-useless-conditions) add
+
+
 2021.03.28, v16.0.1
 fix:
 - (putout) processor-typescript: move out from bundle: to many false positives, all ts files should be loaded before check so types can be determined
