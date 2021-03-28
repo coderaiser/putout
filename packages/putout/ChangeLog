@@ -1,3 +1,11 @@
+2021.03.28, v16.0.1
+fix:
+- (putout) processor-typescript: move out from bundle: to many false positives, all ts files should be loaded before check so types can be determined
+
+feature:
+- (putout) convert-binary-expression-to-boolean -> convert-comparison-to-boolean
+
+
 2021.03.27, v16.0.0
 feature:
 - (putout) convert-binary-expression-to-boolean -> convert-comparison-to-boolean
