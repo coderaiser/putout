@@ -1745,6 +1745,7 @@ Just create `.babelrc.json` file with configuration you need.
 - [Eslint Config Hardcore](https://github.com/EvgenyOrekhov/eslint-config-hardcore): The most strict (but practical) ESLint config out there.
 - [Mock Import](https://github.com/coderaiser/mock-import): Mocking of Node.js EcmaScript Modules.
 - [Madrun](https://github.com/coderaiser/madrun): CLI tool to run multiple npm-scripts in a madly comfortable way.
+- [Xterm.js](https://github.com/xtermjs/xterm.js/pull/3269): A terminal for the web.
 
 Do you use `putout` in your application as well? Please open a Pull Request to include it here. We would love to have it in our list.
 
