@@ -18,3 +18,8 @@ test('plugin-convert-assignment-to-arrow-function: no transform: variable', (t) 
     t.noTransform('variable');
     t.end();
 });
+
+test('plugin-convert-assignment-to-arrow-function: no transform: object', (t) => {
+    t.noTransform('object');
+    t.end();
+});

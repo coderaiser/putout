@@ -1,13 +1,19 @@
 'use strict';
 
 const {types} = require('putout');
-const {isIdentifier} = types;
+const {
+    isIdentifier,
+    isMemberExpression,
+} = types;
 
 module.exports.report = () => 'Expected ArrowFunction instead of Assignment';
 
 module.exports.match = () => ({
     'const __a = __b = __c': ({__b}, path) => {
         if (isIdentifier(__b) && path.scope.hasBinding(__b.name))
+            return false;
+        
+        if (isMemberExpression(__b) && path.scope.hasBinding(__b.object.name))
             return false;
         
         return true;
