@@ -11,6 +11,7 @@ module.exports.report = ({from, to}) => `RegExp ${from} can be optimized to ${to
 module.exports.fix = ({path, to}) => {
     const {flags} = path.node;
     path.node.extra.raw = `${to}${flags}`;
+    path.node.pattern = to.slice(1, -1);
 };
 
 module.exports.traverse = ({push}) => ({

@@ -1,7 +1,9 @@
 'use strict';
 
+const optimize = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'regexp/optimize': require('.'),
+    'regexp/optimize': optimize,
 });
 
 test('plugin-regexp/optimize: report', (t) => {
@@ -26,6 +28,16 @@ test('plugin-regexp/optimize: no transform: crash', (t) => {
 
 test('plugin-regexp/optimize: no transform: crash', (t) => {
     t.transform('flags');
+    t.end();
+});
+
+test('plugin-regexp/optimize: ', (t) => {
+    t.transform('flags');
+    t.end();
+});
+
+test('plugin-regexp/optimize: false positive after fix', (t) => {
+    t.noReportAfterTransform('after-fix');
     t.end();
 });
 
