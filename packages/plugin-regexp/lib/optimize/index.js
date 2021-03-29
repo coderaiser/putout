@@ -9,7 +9,8 @@ const addSlashes = (a) => START_SLASH + a + END_SLASH;
 module.exports.report = ({from, to}) => `RegExp ${from} can be optimized to ${to}`;
 
 module.exports.fix = ({path, to}) => {
-    path.node.extra.raw = to;
+    const {flags} = path.node;
+    path.node.extra.raw = `${to}${flags}`;
 };
 
 module.exports.traverse = ({push}) => ({
