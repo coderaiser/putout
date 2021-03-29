@@ -13,7 +13,7 @@ module.exports.match = () => ({
         if (isIdentifier(__b) && path.scope.hasBinding(__b.name))
             return false;
         
-        if (isMemberExpression(__b) && path.scope.hasBinding(__b.object.name))
+        if (isMemberExpression(__b))
             return false;
         
         return true;

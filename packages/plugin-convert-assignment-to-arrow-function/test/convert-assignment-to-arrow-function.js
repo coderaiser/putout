@@ -19,7 +19,7 @@ test('plugin-convert-assignment-to-arrow-function: no transform: variable', (t) 
     t.end();
 });
 
-test('plugin-convert-assignment-to-arrow-function: no transform: object', (t) => {
-    t.noTransform('object');
+test('plugin-convert-assignment-to-arrow-function: no transform: member-expression', (t) => {
+    t.noTransform('member-expression');
     t.end();
 });
