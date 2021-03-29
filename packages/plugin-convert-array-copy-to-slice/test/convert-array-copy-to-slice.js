@@ -24,3 +24,8 @@ test('plugin-convert-array-copy-to-slice: no transform: set', (t) => {
     t.end();
 });
 
+test('plugin-convert-array-copy-to-slice: no transform: set-map', (t) => {
+    t.noTransform('set-map');
+    t.end();
+});
+

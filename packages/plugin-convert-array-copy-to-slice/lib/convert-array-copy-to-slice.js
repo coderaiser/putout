@@ -1,10 +1,28 @@
 'use strict';
 
+const {types, operator} = require('putout');
+
+const {isIdentifier} = types;
+const {compare} = operator;
+
 module.exports.report = () => `Array should be copied using slice`;
 
 module.exports.exclude = () => [
     '[...new Set(__a)]',
 ];
+
+module.exports.match = () => ({
+    '[...__a]': ({__a}, path) => {
+        if (isIdentifier(__a)) {
+            const binding = path.scope.getBinding(__a.name);
+            
+            if (compare(binding.path, 'const __ = new Set(__)'))
+                return false;
+        }
+        
+        return true;
+    },
+});
 
 module.exports.replace = () => ({
     '[...__a]': '__a.slice()',
