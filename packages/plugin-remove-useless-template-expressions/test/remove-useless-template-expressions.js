@@ -24,3 +24,8 @@ test('plugin-remove-useless-template-expressions: no transform: var: only', (t) 
     t.end();
 });
 
+test('plugin-remove-useless-template-expressions: no transform: comments', (t) => {
+    t.noTransform('comments');
+    t.end();
+});
+

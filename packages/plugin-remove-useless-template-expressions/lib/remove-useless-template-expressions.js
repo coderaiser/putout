@@ -34,6 +34,9 @@ module.exports.traverse = ({push}) => {
                 return;
             
             for (const expr of expressions) {
+                if (expr.node.comments)
+                    continue;
+                
                 if (expr.isLiteral()) {
                     push(path);
                     break;
