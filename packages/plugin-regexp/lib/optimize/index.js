@@ -2,6 +2,10 @@
 
 const regexpTree = require('regexp-tree');
 
+const START_SLASH = 1;
+const END_SLASH = 1;
+const addSlashes = (a) => START_SLASH + a + END_SLASH;
+
 module.exports.report = ({from, to}) => `RegExp ${from} can be optimized to ${to}`;
 
 module.exports.fix = ({path, to}) => {
@@ -10,13 +14,13 @@ module.exports.fix = ({path, to}) => {
 
 module.exports.traverse = ({push}) => ({
     RegExpLiteral(path) {
-        const from = path.node.extra.raw;
-        const to = regexpTree.optimize(from).toString();
+        const from = path.node.pattern;
+        const to = regexpTree.optimize(RegExp(from)).toString();
         
-        if (from !== to && from.length !== to.length) {
+        if (from !== to && addSlashes(from.length) !== to.length) {
             push({
                 path,
-                from,
+                from: `/${from}/`,
                 to,
             });
         }
