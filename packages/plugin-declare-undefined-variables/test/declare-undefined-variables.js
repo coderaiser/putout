@@ -39,6 +39,11 @@ test('putout: plugin: declare-undefined-variables: transform: try-to-catch', (t)
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: transform: read-file', (t) => {
+    t.transform('read-file');
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: transform: assign: dismiss', (t) => {
     t.noTransformWithOptions('assign', {
         dismiss: ['assign', 'stringify'],

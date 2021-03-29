@@ -25,6 +25,8 @@ Add `.putout.json` with:
 
 ## Rules
 
+You can `dismiss` variables you don't want to define.
+
 ```json
 {
     "rules": {
@@ -37,14 +39,15 @@ Add `.putout.json` with:
                 "join",
                 "Readable.from",
                 "tryCatch",
-                "tryToCatch"
+                "tryToCatch",
+                "readFile"
             ]
         }]
     }
 }
 ```
 
-# declare-undefined-variables/assign
+# `assign`
 
 ## ❌ Incorrect code example
 
@@ -71,31 +74,20 @@ assign(object, {
 });
 ```
 
-# declare-undefined-variables/stringify
+# `readFile`
 
 ## ❌ Incorrect code example
 
 ```js
-const hello = 'world';
-const object = {
-};
-
-assign(object, {
-    hello,
-});
+await readFile('./README.md', 'utf8');
 ```
 
 ## ✅ Correct code Example
 
 ```js
-const hello = 'world';
-const object = {
-};
-const {assign} = Object;
+import {readFile} from 'fs/promises';
 
-assign(object, {
-    hello,
-});
+await readFile('./README.md', 'utf8');
 ```
 
 ## License

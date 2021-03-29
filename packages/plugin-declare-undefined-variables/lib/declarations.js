@@ -11,4 +11,5 @@ module.exports = {
     'Readable.from': template.ast(`import {Readable} from 'stream'`),
     'tryCatch': template.ast(`import tryCatch from 'try-catch'`),
     'tryToCatch': template.ast(`import tryToCatch from 'try-to-catch'`),
+    'readFile': template.ast(`import {readFile} from 'fs/promises'`),
 };

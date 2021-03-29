@@ -66,19 +66,21 @@ export default () => {
 ## ❌ Incorrect code example
 
 ```js
+import {readFile} from 'fs/promises';
+
 await readFile(__filename);
 ```
 
 ## ✅ Correct code Example
 
 ```js
+import {readFile} from 'fs/promises';
 import {createCommons} from 'simport';
-const {__filename} = createCommons(import.meta.url);
 
+const {__filename} = createCommons(import.meta.url);
 await readFile(__filename);
 ```
 
 ## License
 
 MIT
-
