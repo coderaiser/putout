@@ -36,6 +36,11 @@ test('plugin-regexp/optimize: ', (t) => {
     t.end();
 });
 
+test('plugin-regexp/optimize: escapes', (t) => {
+    t.noTransform('escape');
+    t.end();
+});
+
 test('plugin-regexp/optimize: false positive after fix', (t) => {
     t.noReportAfterTransform('after-fix');
     t.end();
