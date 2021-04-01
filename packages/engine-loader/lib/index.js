@@ -8,6 +8,7 @@ const {
     loadProcessor,
 } = require('./load');
 const parsePluginNames = require('./parse-plugin-names');
+const parseProcessorNames = require('./parse-processor-names');
 const parseRules = require('./parse-rules');
 const validateRules = require('./validate-rules');
 const validatePlugin = require('./validate-plugin');
@@ -46,7 +47,7 @@ module.exports.loadProcessors = memo((options) => {
         processors = [],
     } = options;
     
-    const parsedProcessors = parsePluginNames(processors);
+    const parsedProcessors = parseProcessorNames(processors);
     
     const list = [];
     const namespace = 'putout';

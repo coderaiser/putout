@@ -1,6 +1,8 @@
 'use strict';
 
 const test = require('supertape');
+
+const markdown = require('@putout/processor-markdown');
 const {loadProcessors} = require('..');
 
 test('putout: engine-loader: load processors', (t) => {
@@ -42,6 +44,35 @@ test('putout: engine-loader: load processors: function', (t) => {
     
     const expected = [
         throwProcessor,
+    ];
+    
+    t.deepEqual(list, expected);
+    t.end();
+});
+
+test('putout: engine-loader: load processors: off', (t) => {
+    const list = loadProcessors({
+        processors: [
+            ['markdown', 'off'],
+        ],
+    });
+    
+    const expected = [
+    ];
+    
+    t.deepEqual(list, expected);
+    t.end();
+});
+
+test('putout: engine-loader: load processors: on', (t) => {
+    const list = loadProcessors({
+        processors: [
+            ['markdown', 'on'],
+        ],
+    });
+    
+    const expected = [
+        markdown,
     ];
     
     t.deepEqual(list, expected);

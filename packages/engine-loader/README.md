@@ -5,7 +5,7 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/engine-loader
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/engine-loader
 
-Load putout plugins.
+Load putout `plugins`, `processors`.
 
 ## Install
 
@@ -14,6 +14,8 @@ npm i @putout/engine-loader
 ```
 
 ## Code Example
+
+### loadPlugins
 
 ```js
 const {loadPlugins} = require('@putout/engine-loader');
@@ -33,7 +35,7 @@ const plugins = loadPlugins({
 });
 ```
 
-### JSCodeshift
+#### JSCodeshift
 
 `@putout/engine-loader` supports loading transforms written for [jscodeshift](https://github.com/facebook/jscodeshift) with help of prefix `jscodeshift/`.
 
@@ -52,7 +54,7 @@ const plugins = loadPlugins({
 });
 ```
 
-### Babel Plugins
+#### Babel Plugins
 
 You can use `babel plugins` with help of `babel/` prefix.
 
@@ -72,6 +74,19 @@ const pluginNames = [
 
 const plugins = loadPlugins({
     pluginNames,
+});
+```
+
+### loadProcessors
+
+```js
+const {loadProcessors} = require('@putout/engine-loader');
+
+const plugins = loadProcessors({
+    processors: [
+        ['javascript', 'on'],
+        ['markdown', 'off'],
+    ],
 });
 ```
 
