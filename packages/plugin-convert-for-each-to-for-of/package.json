@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-convert-for-each-to-for-of",
-  "version": "6.1.0",
+  "version": "6.2.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert forEach to for-of",
   "homepage": "http://github.com/coderaiser/putout",
