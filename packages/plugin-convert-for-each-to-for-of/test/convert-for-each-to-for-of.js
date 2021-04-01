@@ -67,6 +67,11 @@ test('plugin-convert-for-each-to-for-of: no transform: member-expression', (t) =
     t.end();
 });
 
+test('plugin-convert-for-each-to-for-of: no transform: inner-block', (t) => {
+    t.transform('inner-block');
+    t.end();
+});
+
 test('plugin-convert-for-each-to-for-of: no transform: var is bound', (t) => {
     t.noTransform('var');
     t.end();

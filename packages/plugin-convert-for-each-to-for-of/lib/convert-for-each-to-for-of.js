@@ -90,11 +90,9 @@ function isSameNames(paramPath, objectPath) {
 }
 
 function fixReturn(path) {
-    const {body} = path.node;
-    
     traverse(path, {
         'return __'(path) {
-            if (path.scope.block !== body)
+            if (!isForBeforeFnUp(path))
                 return;
             
             const {argument} = path.node;
@@ -143,5 +141,26 @@ function compare(a, b) {
     }
     
     return false;
+}
+
+function isForBeforeFnUp(path) {
+    let wasForOf = false;
+    let wasFn = false;
+    
+    while (path = path.parentPath) {
+        if (path.isFunction())
+            wasFn = true;
+        
+        if (path.isForOfStatement())
+            wasForOf = true;
+        
+        if (wasForOf && wasFn)
+            return true;
+        
+        if (wasFn && !wasForOf)
+            return false;
+    }
+    
+    return true;
 }
 
