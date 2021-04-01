@@ -1,5 +1,8 @@
 'use strict';
 
+const convertComparisonToBoolean = require('@putout/plugin-convert-comparison-to-boolean');
+const removeUselessVariables = require('@putout/plugin-remove-useless-variables');
+
 const test = require('@putout/test')(__dirname, {
     'convert-for-each-to-for-of': require('..'),
 });
@@ -59,6 +62,11 @@ test('plugin-convert-for-each-to-for-of: no transform: call', (t) => {
     t.end();
 });
 
+test('plugin-convert-for-each-to-for-of: no transform: member-expression', (t) => {
+    t.transform('member-expression');
+    t.end();
+});
+
 test('plugin-convert-for-each-to-for-of: no transform: var is bound', (t) => {
     t.noTransform('var');
     t.end();
@@ -86,6 +94,14 @@ test('plugin-convert-for-each-to-for-of: no transform: same name', (t) => {
 
 test('plugin-convert-for-each-to-for-of: no transform: this i', (t) => {
     t.noTransform('this-i');
+    t.end();
+});
+
+test('plugin-convert-comparison-to-boolean: transform: with convert-for-each-to-for-of', (t) => {
+    t.transform('convert-comparison-to-boolean', {
+        'convert-comparison-to-boolean': convertComparisonToBoolean,
+        'remove-useless-variables': removeUselessVariables,
+    });
     t.end();
 });
 

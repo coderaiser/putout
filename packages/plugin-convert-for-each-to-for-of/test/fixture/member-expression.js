@@ -1,0 +1,2 @@
+variable.defs.forEach(def => {
+});

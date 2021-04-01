@@ -38,6 +38,7 @@ module.exports.replace = () => ({
         }));
         
         fixReturn(newPath);
+        path.scope.crawl();
     },
 });
 

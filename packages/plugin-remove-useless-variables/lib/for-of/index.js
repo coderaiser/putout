@@ -52,7 +52,6 @@ module.exports.traverse = ({push, options}) => {
                 return;
             
             const idPath = parentPath.get('id');
-            
             const {maxProperties = 4} = options;
             
             if (isToManyProperties(idPath, {maxProperties}))
