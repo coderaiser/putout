@@ -36,7 +36,7 @@ npm i @putout/plugin-putout -D
 test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
     const code = 'const {name} = array[0]';
     
-    t.noTransformCode(code);
+    t.transform(code, '');
     t.end();
 });
 ```
@@ -58,10 +58,8 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
 
 ```js
 module.exports.fix = (path) => {
-    replaceWith(path, Identifier('hello'));
+    path.replaceWith(Identifier('hello'));
 };
-
-const {replaceWith} = require('putout').operator;
 ```
 
 ### ✅ Correct code Example
@@ -80,10 +78,8 @@ module.exports.fix = (path) => {
 
 ```js
 module.exports.fix = (path) => {
-    replaceWithMultiple(path, [Identifier('hello')]);
+    path.replaceWithMultiple([Identifier('hello')]);
 };
-
-const {replaceWithMultiple} = require('putout').operator;
 ```
 
 ### ✅ Correct code Example
@@ -106,7 +102,7 @@ const {
     SpreadElement,
     isObjectExpression,
     isIdentifier,
-} = require('putout').types;
+} = require('@babel/types');
 ```
 
 ### ✅ Correct code Example
@@ -150,7 +146,7 @@ module.exports.replace = () => ({
 ### ❌ Incorrect code example
 
 ```js
-const parseOptions = require('putout/parse-options');
+const parseOptions = require('putout/lib/parse-options');
 ```
 
 ### ✅ Correct code Example
