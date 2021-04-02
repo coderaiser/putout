@@ -8,6 +8,7 @@
   "exports": {
     ".": "./lib/putout.js",
     "./parse-options": "./lib/parse-options/index.js",
+    "./parse-error": "./lib/cli/parse-error.js",
     "./lib/parse-options": "./lib/parse-options/index.js",
     "./process-file": "./lib/cli/process-file.js",
     "./cli": "./lib/cli/index.js"
@@ -153,7 +154,6 @@
     "ci-info": "^3.1.1",
     "debug": "^4.1.1",
     "deepmerge": "^4.0.0",
-    "error-stack-parser": "^2.0.6",
     "escalade": "^3.1.1",
     "fast-glob": "^3.2.2",
     "file-entry-cache": "^6.0.0",

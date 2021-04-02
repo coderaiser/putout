@@ -34,7 +34,7 @@ const getOptions = require('./get-options');
 const report = require('./report')();
 const keyPress = require('@putout/cli-keypress');
 const validateArgs = require('@putout/cli-validate-args');
-const {parseError} = require('./parse-error');
+const parseError = require('./parse-error');
 
 const {
     OK,
@@ -89,7 +89,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         boolean: [
             'ci',
             'cache',
-            'debug',
             'version',
             'help',
             'fix',
@@ -129,7 +128,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             fresh: false,
             enable: '',
             disable: '',
-            debug: false,
             plugins: [],
         },
     };
@@ -142,7 +140,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     }
     
     const {
-        debug,
         fix,
         fixCount,
         raw,
@@ -251,7 +248,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     });
     
     const options = {
-        debug,
         fix,
         fileCache,
         isFlow,
@@ -334,9 +330,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             });
             
             if (error) {
-                places = parseError(error, {
-                    debug,
-                });
+                places = parseError(error);
                 
                 isProcessed = true;
                 processedSource = rawSource;

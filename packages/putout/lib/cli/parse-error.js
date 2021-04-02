@@ -1,12 +1,10 @@
 'use strict';
 
-const parser = require('error-stack-parser');
-
-module.exports.parseError = (e, {debug}) => {
-    const {line, column} = e.loc || (debug ? getPosition(e) : {
+module.exports = (e) => {
+    const {line, column} = e.loc || {
         line: 1,
         column: 1,
-    });
+    };
     const rule = e.rule ? `${e.rule} (parser)` : 'parser';
     const message = cutBrackets(e.message);
     
@@ -27,18 +25,5 @@ function cutBrackets(a) {
         return a;
     
     return a.slice(0, index);
-}
-
-function getPosition(e) {
-    const [stack] = parser.parse(e);
-    const {
-        lineNumber,
-        columnNumber,
-    } = stack;
-    
-    return {
-        line: lineNumber,
-        column: columnNumber,
-    };
 }
 

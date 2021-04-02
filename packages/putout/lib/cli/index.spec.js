@@ -867,13 +867,12 @@ test('putout: cli: fileCache: canUseCache', async (t) => {
     t.end();
 });
 
-test('putout: cli: --debug', async (t) => {
+test('putout: cli: exit code: PLACE', async (t) => {
     const argv = [
         __filename,
         '--no-config',
         '--no-ci',
         '--no-cache',
-        '--debug',
     ];
     
     const halt = stub();

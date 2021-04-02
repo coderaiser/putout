@@ -5,7 +5,7 @@ const tryCatch = require('try-catch');
 const putout = require('../..');
 
 const eslint = require('./eslint');
-const {parseError} = require('./parse-error');
+const parseError = require('./parse-error');
 
 const merge = require('../merge');
 const parseMatch = require('../parse-options/parse-match');
@@ -17,7 +17,7 @@ const getMatchedOptions = (name, options) => {
     return merge(options, parseMatch(name, options.match));
 };
 
-module.exports = ({fix, debug, fixCount, isFlow, isJSX, ruler = {}, logError, raw}) => async ({name, source, startLine, options}) => {
+module.exports = ({fix, fixCount, isFlow, isJSX, ruler = {}, logError, raw}) => async ({name, source, startLine, options}) => {
     const isTS = /\.tsx?$/.test(name) || /{ts}$/.test(name);
     const matchedOptions = getMatchedOptions(name, options);
     
@@ -35,9 +35,7 @@ module.exports = ({fix, debug, fixCount, isFlow, isJSX, ruler = {}, logError, ra
     }
     
     const {code = source} = result || {};
-    const allPlaces = result ? result.places : parseError(e, {
-        debug,
-    });
+    const allPlaces = result ? result.places : parseError(e);
     
     if (ruler.disable || ruler.enable || ruler.disableAll || ruler.enableAll)
         return {
