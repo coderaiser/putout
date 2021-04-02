@@ -1,3 +1,24 @@
+2021.04.02, v16.1.1
+fix:
+- (putout) uncomment v8-compile-cache
+- (@putout/plugin-convert-for-each-to-for-of) crawl: convert-for-each-to-for-of :-> remove-useless-variables :-> convert-comparsion-to-boolean: evaluate expression
+- (@putout/plugin-regexp) optimize: Incomplete quantifier (DmitrySoshnikov/regexp-tree#224)
+- (@putout/plugin-regexp) report after transform
+
+feature:
+- (putout) rm unused --debug
+- (@putout/plugin-convert-for-each-to-for-of) add support of inner blocks
+- (@putout/engine-loader) add ability to switch off processor
+- (@putout/plugin-declare-undefined-variables) add support of readFile
+- (@putout/plugin-regexp) optimize: add support of flags
+- (@putout/plugin-remove-useless-template-expressions) add support of comments
+- (@putout/plugin-regexp) optimize: improve patterns support
+- (@putout/plugin-convert-assignment-to-arrow-function) exclude MemberExpression argument
+- (@putout/plugin-convert-assignment-to-arrow-function) improve support of MemberExpressions
+- (@putout/plugin-convert-array-copy-to-slice) improve support of Set
+- (@putout/plugin-remove-useless-types-from-constants) add support of UnionType
+
+
 2021.03.28, v16.1.0
 feature:
 - (@putout/plugin-remove-useless-conditions) add
