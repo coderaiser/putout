@@ -22,7 +22,7 @@ const plugins = require('./plugins');
 const options = require('./options');
 
 const moveOutDirectives = require('./move-out-directives');
-const addRawToLiteral = require('./add-raw-to-literal');
+//const addRawToLiteral = require('./add-raw-to-literal');
 
 module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(source), isJSX = getJSX(source)} = putoutEditorDefaults) {
     const {parse} = initBabel();
@@ -42,7 +42,7 @@ module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(sourc
     });
     
     moveOutDirectives(ast);
-    addRawToLiteral(ast);
+    //addRawToLiteral(ast);
     
     return ast;
 };
