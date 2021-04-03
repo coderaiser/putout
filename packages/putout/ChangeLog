@@ -1,3 +1,10 @@
+2021.04.04, v16.2.0
+feature:
+- (package) @putout/engine-parser v4.0.0
+- (@putout/engine-parser) drop support of node < 14
+- (@putout/engine-parser) speed up: 1m.30 -> 1m.20: estree-to-babel v4.0.0
+
+
 2021.04.02, v16.1.1
 fix:
 - (putout) uncomment v8-compile-cache
