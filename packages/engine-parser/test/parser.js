@@ -11,6 +11,7 @@ const {
 } = require('..');
 
 const {readFixtures} = require('./fixture');
+const {traverse} = putout;
 
 const fixture = readFixtures([
     'export-default-declaration',
@@ -298,7 +299,7 @@ test('putout: parser: parse: fresh', (t) => {
 test('putout: print: recast: object expressions', (t) => {
     const ast = parse(`(a, b) => ({a: 'b'})`);
     
-    putout.traverse(ast, {
+    traverse(ast, {
         Function(path) {
             path.get('params.0').remove();
         },
