@@ -181,7 +181,10 @@ function superCompare(nodeValue, value, {add, templateStore}) {
     if (comparePrimitives(nodeValue, value))
         return true;
     
-    if (isClassBody(value) || isEmptyBlock(value))
+    if (isClassBody(value))
+        return true;
+    
+    if (isEmptyBlock(value))
         return true;
     
     if (isAny(value))
