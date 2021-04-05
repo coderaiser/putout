@@ -1,3 +1,9 @@
+2021.04.05, v16.4.0
+fix:
+- (putout) rm enable of apply-optional-chaining: enabled by default
+feature:
+- (@putout/plugin-apply-array-at) add
+
 2021.04.05, v16.3.0
 fix:
 - (@putout/engine-parser) rm unused @babel/traverse
