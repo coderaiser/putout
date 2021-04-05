@@ -14,3 +14,8 @@ test('plugin-remove-useless-array-constructor: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-array-constructor: transform: of', (t) => {
+    t.transform('of');
+    t.end();
+});
+

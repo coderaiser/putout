@@ -17,7 +17,8 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    'Array(...__a)': 'Array.of(...__a)',
+    'Array(...__a)': '[__a]',
+    'Array.of(__args)': '[__args]',
     'Array(__args)': '[__args]',
     'new Array(__args)': ({__args}, path) => {
         path.node.type = 'CallExpression';
