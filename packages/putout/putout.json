@@ -101,7 +101,6 @@
     ],
     "rules": {
         "apply-top-level-await": "off",
-        "apply-optional-chaining": "on",
         "apply-array-at": "off",
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",

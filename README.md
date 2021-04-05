@@ -863,7 +863,7 @@ function world(a) {
 
 </details>
 
-<details><summary>apply `Array.at`(disabled, <a href=https://github.com/tc39/proposal-relative-indexing-method>stage 4</a>)</summary>
+<details><summary>apply `Array.at`(disabled, <a href=https://github.com/tc39/proposal-relative-indexing-method>stage 3</a>)</summary>
 
 ```diff
 -const latest = (a) => a[a.length - 1];
