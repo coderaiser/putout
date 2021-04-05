@@ -45,6 +45,7 @@ const {keys} = Object;
 
 const isEmptyBlock = (a) => isBlock(a) && !a.body.length;
 const isPrimitive = (a) => typeof a !== 'object' || a === null;
+const comparePrimitives = (nodeValue, value) => isPrimitive(value) && !is(value) && value === nodeValue;
 
 const compareType = (type) => (path) => path.type === type;
 const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
@@ -177,7 +178,7 @@ function superCompare(nodeValue, value, {add, templateStore}) {
     if (value === '__')
         return true;
     
-    if (isPrimitive(value) && !is(value) && value === nodeValue)
+    if (comparePrimitives(nodeValue, value))
         return true;
     
     if (isClassBody(value) || isEmptyBlock(value))
