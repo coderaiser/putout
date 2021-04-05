@@ -863,6 +863,15 @@ function world(a) {
 
 </details>
 
+<details><summary>apply `Array.at`(disabled, <a href=https://github.com/tc39/proposal-relative-indexing-method>stage 4</a>)</summary>
+
+```diff
+-const latest = (a) => a[a.length - 1];
++const latest = (a) => a.at(-1);
+```
+
+</details>
+
 <details><summary>apply top-level-await (<a href=https://github.com/tc39/proposal-top-level-await>proposal-top-level-await</a>, enabled for ESM)</summary>
 
 ```diff

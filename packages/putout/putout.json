@@ -102,6 +102,7 @@
     "rules": {
         "apply-top-level-await": "off",
         "apply-optional-chaining": "on",
+        "apply-array-at": "off",
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",
         "convert-top-level-return": "off",
@@ -136,6 +137,7 @@
         "apply-destructuring",
         "apply-top-level-await",
         "apply-optional-chaining",
+        "apply-array-at",
         "apply-numeric-separators",
         "extract-object-properties",
         "extract-sequence-expressions",
