@@ -323,3 +323,15 @@ test('putout: parser: json modules', (t) => {
     t.end();
 });
 
+test('putout: parser: Literal: node.raw', (t) => {
+    const {code} = putout('10000', {
+        plugins: [
+            ['apply-numeric-separators'],
+        ],
+    });
+    
+    const expected = '10_000';
+    
+    t.equal(code, expected);
+    t.end();
+});
