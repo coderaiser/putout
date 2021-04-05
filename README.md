@@ -863,6 +863,15 @@ function world(a) {
 
 </details>
 
+<details><summary>apply <code>Array.at</code>(disabled, <a href=https://github.com/tc39/proposal-relative-indexing-method>stage 3</a>)</summary>
+
+```diff
+-const latest = (a) => a[a.length - 1];
++const latest = (a) => a.at(-1);
+```
+
+</details>
+
 <details><summary>apply top-level-await (<a href=https://github.com/tc39/proposal-top-level-await>proposal-top-level-await</a>, enabled for ESM)</summary>
 
 ```diff
@@ -1115,6 +1124,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-destructuring)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-top-level-await`](/packages/plugin-apply-top-level-await) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-top-level-await.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-top-level-await) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-top-level-await)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-top-level-await) |
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-optional-chaining)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-optional-chaining) |
+| [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-array-at)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-array-at) |
 
 ### Splitters
 
