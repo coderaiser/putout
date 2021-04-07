@@ -29,6 +29,7 @@ const fixture = readFixtures([
     'typescript-fix',
     'jsx-template',
     'jsx-template-fix',
+    'jsx-not-react',
     'record',
     'strict-mode',
     'strict-mode-fix',
@@ -232,7 +233,7 @@ test('putout: parser: decorator-legacy', (t) => {
     t.end();
 });
 
-test('putout: parser: jsx: enabled', (t) => {
+test('putout: parser: jsx', (t) => {
     const babel = require('../lib/parsers/babel');
     
     const node = babel.parse(fixture.jsxTemplate);
@@ -240,6 +241,13 @@ test('putout: parser: jsx: enabled', (t) => {
     const expected = fixture.jsxTemplateFix;
     
     t.equal(`${code}\n`, expected);
+    t.end();
+});
+
+test('putout: parser: jsx: not react', (t) => {
+    const [error] = tryCatch(parse, fixture.jsxNotReact);
+    
+    t.notOk(error);
     t.end();
 });
 

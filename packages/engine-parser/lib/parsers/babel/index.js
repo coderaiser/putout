@@ -12,7 +12,6 @@ process.env.BABEL_TYPES_8_BREAKING = true;
 const initBabel = once(() => require('@babel/parser'));
 const clean = (a) => a.filter(Boolean);
 const getFlow = (a) => a.includes('// @flow');
-const getJSX = (a) => a.includes('react');
 
 const putoutEditorDefaults = {
     isTS: true,
@@ -23,7 +22,7 @@ const options = require('./options');
 
 const moveOutDirectives = require('./move-out-directives');
 
-module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(source), isJSX = getJSX(source)} = putoutEditorDefaults) {
+module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(source)} = putoutEditorDefaults) {
     const {parse} = initBabel();
     
     const ast = parse(source, {
@@ -35,7 +34,6 @@ module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(sourc
             ...getBabelLangExts({
                 isTS,
                 isFlow,
-                isJSX,
             }),
         ]),
     });
@@ -45,9 +43,9 @@ module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(sourc
     return ast;
 };
 
-function getBabelLangExts({isTS, isFlow, isJSX}) {
+function getBabelLangExts({isTS, isFlow}) {
     const langs = [
-        isJSX && 'jsx',
+        'jsx',
     ];
     
     if (isTS)
