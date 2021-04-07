@@ -28,7 +28,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [Babel Plugins](#babel-plugins)
 - [JSCodeshift Codemods](#jscodeshift-codemods)
 - [Codemods](#codemods)
-- [Integration with Eslint](#integration-with-eslint)
+- [Integration with ESLint](#integration-with-eslint)
 - [Integration with Babel](#integration-with-babel)
 - [Real-world uses](#real-world-uses)
 - [Contributions](#contributions)
