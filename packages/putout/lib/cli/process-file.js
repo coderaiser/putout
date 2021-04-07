@@ -17,7 +17,7 @@ const getMatchedOptions = (name, options) => {
     return merge(options, parseMatch(name, options.match));
 };
 
-module.exports = ({fix, fixCount, isFlow, isJSX, ruler = {}, logError, raw}) => async ({name, source, startLine, options}) => {
+module.exports = ({fix, fixCount, isFlow, ruler = {}, logError, raw}) => async ({name, source, startLine, options}) => {
     const isTS = /\.tsx?$/.test(name) || /{ts}$/.test(name);
     const matchedOptions = getMatchedOptions(name, options);
     
@@ -26,7 +26,6 @@ module.exports = ({fix, fixCount, isFlow, isJSX, ruler = {}, logError, raw}) => 
         fixCount,
         isTS,
         isFlow,
-        isJSX,
         ...matchedOptions,
     });
     

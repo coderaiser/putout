@@ -32,7 +32,6 @@ const fixture = readFixtures([
     'overlap',
     'overlap-fix',
     'jsx',
-    'not-jsx',
     'babel-plugins',
     'babel-plugins-fix',
     'jscodeshift',
@@ -472,26 +471,6 @@ test('putout: overlap', (t) => {
 
 test('putout: isJSX', (t) => {
     const [e] = tryCatch(putout, fixture.jsx);
-    
-    t.notOk(e, 'should not be an error');
-    t.end();
-});
-
-test('putout: isJSX: false', (t) => {
-    const [e] = tryCatch(putout, fixture.jsx, {
-        isJSX: false,
-    });
-    
-    const expected = `This experimental syntax requires enabling one of the following parser plugin(s): 'jsx, flow, typescript' (7:8)`;
-    
-    t.equal(e.message, expected, 'should equal');
-    t.end();
-});
-
-test('putout: typescript: not jsx', (t) => {
-    const [e] = tryCatch(putout, fixture.notJsx, {
-        isTS: true,
-    });
     
     t.notOk(e, 'should not be an error');
     t.end();

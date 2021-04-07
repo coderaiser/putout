@@ -96,7 +96,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             'raw',
             'enable-all',
             'disable-all',
-            'jsx',
             'flow',
             'config',
             'staged',
@@ -146,7 +145,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         rulesdir,
         format,
         flow: isFlow,
-        jsx: isJSX,
         disable,
         disableAll,
         enable,
@@ -251,7 +249,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         fix,
         fileCache,
         isFlow,
-        isJSX,
         fixCount,
         raw,
         ruler: {

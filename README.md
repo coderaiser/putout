@@ -68,9 +68,7 @@ Options
    --disable                   disable rule by name in .putout.json
    --enable-all                enable all rules in .putout.json
    --disable-all               disable all rules in .putout.json
-   --jsx                       enable jsx (try to determine by default)
    --flow                      enable flow
-   --no-jsx                    disable jsx
    --no-flow                   disable flow (default)
    --cache                     enable cache to speed up processing (default)
    --fresh                     generate a fresh cache
