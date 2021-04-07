@@ -1587,7 +1587,8 @@ To see more sophisticated example look at [@putout/remove-console](https://githu
 
 You can add `babel` to `plugins` section of `.putout.json` with `babel/` prefix.
 
-*You can disable rule, or use match in a similar, way*
+*You can disable rule, or use match in a similar way.*
+
 *Remember to omit `babel-plugin-` or `@babel/plugin`: putout will set it up for you :)*
 
 *Example*
