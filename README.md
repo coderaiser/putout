@@ -28,8 +28,8 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [Babel Plugins](#babel-plugins)
 - [JSCodeshift Codemods](#jscodeshift-codemods)
 - [Codemods](#codemods)
-- [Eslint](#eslint)
-- [Babel](#babel)
+- [Integration with Eslint](#integration-with-eslint)
+- [Integration with Babel](#integration-with-babel)
 - [Real-world uses](#real-world-uses)
 - [Contributions](#contributions)
 - [Donations](#donations)
@@ -1725,7 +1725,7 @@ Please send pull requests with `jscodeshift codemods` which can be used to simpl
 
 `putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/master/codemods/plugin-convert-tape-to-supertape) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
 
-## ESLint
+## Integration with ESLint
 
 If you see that `putout` brokes formatting of your code, use eslint plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout).
 
@@ -1768,7 +1768,7 @@ eslint --fix lib
 
 Will uses putout transformations for you :).
 
-## Babel
+## Integration with Babel
 
 `Putout` can be used as [babel plugin](/packages/babel-plugin-putout).
 Just create `.babelrc.json` file with configuration you need.
