@@ -1,3 +1,12 @@
+2021.04.07, v16.5.0
+fix:
+- (putout) rm enable of apply-optional-chaining: enabled by default
+feature:
+- (putout) rm useless --jsx: always enable (#53)
+- (@putout/engine-parser) babel: enable jsx by default
+- (@putout/plugin-remove-useless-array-constructor) improve support of Array.of
+- (@putout/plugin-apply-array-at) add
+
 2021.04.05, v16.4.0
 fix:
 - (putout) rm enable of apply-optional-chaining: enabled by default
