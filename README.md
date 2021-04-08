@@ -25,8 +25,8 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [Formatters](#formatters)
 - [Configuration](#configuration)
 - [Plugins API](#plugins-api)
-- [Using Babel Plugins in Putout](#using-babel-plugins-in-putout)
-- [Using JSCodeshift Codemods in Putout](#using-jscodeshift-codemods-in-putout)
+- [Using Babel Plugins with Putout](#using-babel-plugins-with-putout)
+- [Using JSCodeshift Codemods with Putout](#using-jscodeshift-codemods-with-putout)
 - [Codemods](#codemods)
 - [Integration with ESLint](#integration-with-eslint)
 - [Integration with Babel](#integration-with-babel)
@@ -1581,7 +1581,7 @@ test('remove debugger: transformCode', (t) => {
 As you see test runner it is little bit extended [supertape](https://github.com/coderaiser/supertape).
 To see more sophisticated example look at [@putout/remove-console](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-console).
 
-## Using Babel Plugins in Putout
+## Using Babel Plugins with Putout
 
 You can add `babel` to `plugins` section of `.putout.json` with `babel/` prefix.
 
@@ -1683,7 +1683,7 @@ try {
 
 Please send pull requests with `babel plugins` which can be used as codemods, or simplify, fix, makes code more readable.
 
-## Using JSCodeshift codemods in Putout
+## Using JSCodeshift codemods with Putout
 
 `jscodeshift` codemods can be added to `plugins` section of `.putout.json` with prefix `jscodeshift/`. This way:
 
