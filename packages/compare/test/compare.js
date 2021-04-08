@@ -2,7 +2,8 @@
 
 const test = require('supertape');
 const {template, parse} = require('@putout/engine-parser');
-const {traverse} = require('putout');
+const {traverse, types} = require('putout');
+const {ExpressionStatement} = types;
 
 const {
     compare,
@@ -622,6 +623,14 @@ test('compare: undefined', (t) => {
     const result = compare(undefined, '"hello"');
     
     t.notOk(result);
+    t.end();
+});
+
+test('compare: member expression', (t) => {
+    const node = template.ast('expect(root.toSource()).to.equal(`hello`)');
+    const result = compare(ExpressionStatement(node), 'expect(root.toSource()).to.equal(__d)');
+    
+    t.ok(result);
     t.end();
 });
 

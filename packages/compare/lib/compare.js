@@ -83,8 +83,8 @@ function compare(path, template) {
     if (!path)
         return false;
     
-    const node = parseNode(path);
-    const templateNode = parseNode(template);
+    const node = extractExpression(parseNode(path));
+    const templateNode = extractExpression(parseNode(template));
     
     if (isEqualAnyObject(node, templateNode))
         return true;
