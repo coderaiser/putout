@@ -12,7 +12,6 @@ function parse(source, options) {
         parser,
         isTS,
         isFlow,
-        isJSX,
     } = options || {};
     
     const ast = recast.parse(source, {
@@ -20,21 +19,19 @@ function parse(source, options) {
             parser,
             isTS,
             isFlow,
-            isJSX,
         }),
     });
     
     return ast;
 }
 
-function getParser({parser = 'babel', isTS, isFlow, isJSX}) {
+function getParser({parser = 'babel', isTS, isFlow}) {
     return {
         parse(source) {
             return toBabel(customParser(source, {
                 parser,
                 isTS,
                 isFlow,
-                isJSX,
             }));
         },
     };

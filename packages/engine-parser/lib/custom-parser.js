@@ -8,12 +8,11 @@ const tenko = require('./parsers/tenko');
 
 const isObject = (a) => typeof a === 'object';
 
-module.exports = (source, {parser, isTS, isFlow, isJSX}) => {
+module.exports = (source, {parser, isTS, isFlow}) => {
     if (parser === 'babel')
         return babel.parse(source, {
             isTS,
             isFlow,
-            isJSX,
         });
     
     if (isObject(parser))
