@@ -4,6 +4,7 @@ module.exports.report = () => 'Unnecessary use of conditional expression for def
 
 module.exports.replace = () => ({
     '__a ? __a : __b': '__a || __b',
+    '__a ? __b : __b ': '__b',
     '__a ? __b : __b ? __c : __d': '__b ? __c : __d',
 });
 

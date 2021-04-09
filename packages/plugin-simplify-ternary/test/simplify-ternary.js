@@ -24,6 +24,11 @@ test('plugin-simplify-ternary: transform: duplicate', (t) => {
     t.end();
 });
 
+test('plugin-simplify-ternary: transform: simple-duplicate', (t) => {
+    t.transform('simple-duplicate');
+    t.end();
+});
+
 test('plugin-simplify-ternary: no: transform: different test and consequent', (t) => {
     t.noTransform('diff');
     t.end();
