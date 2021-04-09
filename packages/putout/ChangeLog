@@ -1,3 +1,19 @@
+2021.04.09, v16.6.0
+feature:
+- (package) @putout/plugin-remove-useless-type-convertion v3.0.0
+- (package) @putout/plugin-convert-top-level-return v4.0.0
+- (@putout/plugin-remove-useless-type-convertion) drop support of putout < 16
+- (@putout/plugin-convert-top-level-return) drop support of putout < 16
+- (@putotu/plugin-remove-useless-conditions) improve support of If conditions
+- (@putout/compare) improve support of if condition
+- (@putout/plugin-simplify-ternary) add simple duplicates support
+- (package) @putout/engine-parser v4.1.1
+- (@putout/plugin-simplify-ternary) add support of duplicates
+- (@putout/compare) improve ability to compare expressions
+- (putout) rm useless --jsx: always enable (#53)
+- (@putout/engine-parser) babel: enable jsx by default (#53)
+
+
 2021.04.07, v16.5.0
 fix:
 - (putout) rm enable of apply-optional-chaining: enabled by default
