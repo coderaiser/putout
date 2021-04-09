@@ -12,5 +12,6 @@ module.exports.filter = (path) => {
 module.exports.replace = () => ({
     'return __a()': '{__a(); process.exit()}',
     'return __a': 'process.exit()',
+    'return': 'process.exit()',
 });
 
