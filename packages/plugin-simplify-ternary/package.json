@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-simplify-ternary",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to simplify ternary operator",
   "homepage": "http://github.com/coderaiser/putout",
