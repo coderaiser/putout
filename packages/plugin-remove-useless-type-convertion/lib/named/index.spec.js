@@ -34,3 +34,13 @@ test('plugin-remove-useless-type-convertion: transform: for', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-type-convertion: transform: for-start', (t) => {
+    t.transform('for-start');
+    t.end();
+});
+
+test('plugin-remove-useless-type-convertion: transform: for-end', (t) => {
+    t.transform('for-end');
+    t.end();
+});
+
