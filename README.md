@@ -1625,7 +1625,7 @@ const t = [1, 2];
 Using `putout` as a runner for `babel` `plugins` you can not only change file content, but also see what exactly will be changed. You can use your already written
 `babel` `plugins` or reuse work in progress plugins made for `babel`, but remember that `putout` `plugins` gave more accurate information about changing places, and works faster (no need to find infromation about changes in transformed file).
 
-#### Babel plugins list
+### Babel plugins list
 
 Here you can find `babel plugins` which feets the most main purpose of `putout` and adviced to use:
 
