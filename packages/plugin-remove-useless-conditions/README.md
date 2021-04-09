@@ -29,12 +29,19 @@ npm i @putout/plugin-remove-useless-condition
 if (zone?.tooltipCallback) {
     zone.tooltipCallback(e);
 }
+
+if (a)
+    alert('hello');
+else
+    alert('hello');
 ```
 
 ## ✅ Correct code Example
 
 ```js
 zone?.tooltipCallback(e);
+
+alert('hello');
 ```
 
 ## License

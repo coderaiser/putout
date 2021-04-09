@@ -14,3 +14,8 @@ test('plugin-remove-useless-conditions: transform: array', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-conditions: transform: duplicate', (t) => {
+    t.transform('duplicate');
+    t.end();
+});
+
