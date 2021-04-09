@@ -27,12 +27,16 @@ npm i @putout/plugin-simplify-ternary -D
 
 ```js
 module.exports = fs.copyFileSync ? fs.copyFileSync : copyFileSync;
+
+const nodeTypes = Array.isArray(matcher.nodeType) ? matcher.nodeType : matcher.nodeType;
 ```
 
 ## ✅ Correct code Example
 
 ```js
 module.exports = fs.copyFileSync || copyFileSync;
+
+const nodeTypes = matcher.nodeType;
 ```
 
 ## License
