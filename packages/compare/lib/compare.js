@@ -205,6 +205,9 @@ function superCompare(nodeValue, value, {add, templateStore}) {
     if (isEqualNop(nodeValue, value))
         return true;
     
+    if (!nodeValue)
+        return false;
+    
     if (isLinkedRegExp(nodeValue, value))
         return true;
     

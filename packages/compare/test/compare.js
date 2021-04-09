@@ -634,6 +634,13 @@ test('compare: member expression', (t) => {
     t.end();
 });
 
+test('compare: if', (t) => {
+    const result = compare('if (a) alert()', 'if (__a) __b; else __b');
+    
+    t.notOk(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);
