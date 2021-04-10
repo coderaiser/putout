@@ -1,11 +1,7 @@
 'use strict';
 
 const {template} = require('@putout/engine-parser');
-const {
-    isExpressionStatement,
-    isClassBody,
-    isBlock,
-} = require('@babel/types');
+const {isExpressionStatement} = require('@babel/types');
 
 const {
     findVarsWays,
@@ -14,38 +10,20 @@ const {
     getTemplateValues,
 } = require('./vars');
 
-const link = require('./link');
-const log = require('./log');
+const {runComparators} = require('./comparators');
 
 const {
-    is,
-    isId,
-    isObject,
-    isArrays,
-    isAny,
-    isAnyLiteral,
-    isArgs,
-    isLinkedArgs,
-    isLinkedId,
-    isImports,
     isStr,
     isPath,
     isEqualType,
     isEqualAnyObject,
     isEqualAnyArray,
-    isEqualBody,
     isEqualNop,
-    isLinkedNode,
-    isLinkedRegExp,
     isTemplate,
     parseTemplate,
 } = require('./is');
 
 const {keys} = Object;
-
-const isEmptyBlock = (a) => isBlock(a) && !a.body.length;
-const isPrimitive = (a) => typeof a !== 'object' || a === null;
-const comparePrimitives = (nodeValue, value) => isPrimitive(value) && !is(value) && value === nodeValue;
 
 const compareType = (type) => (path) => path.type === type;
 const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
@@ -159,7 +137,7 @@ function superCompareIterate(node, template) {
             const nodeValue = extractExpression(node[key]);
             const value = extractExpression(template[key]);
             
-            const is = superCompare(nodeValue, value, {
+            const is = runComparators(nodeValue, value, {
                 add,
                 templateStore,
             });
@@ -170,74 +148,5 @@ function superCompareIterate(node, template) {
     }
     
     return true;
-}
-
-function superCompare(nodeValue, value, {add, templateStore}) {
-    log(value, nodeValue);
-    
-    if (value === '__')
-        return true;
-    
-    if (comparePrimitives(nodeValue, value))
-        return true;
-    
-    if (isClassBody(value))
-        return true;
-    
-    if (isEmptyBlock(value))
-        return true;
-    
-    if (isAny(value))
-        return true;
-    
-    if (isId(nodeValue, value))
-        return true;
-    
-    if (isEqualAnyArray(nodeValue, value))
-        return true;
-    
-    if (isEqualAnyObject(nodeValue, value))
-        return true;
-    
-    if (isEqualBody(nodeValue, value))
-        return true;
-    
-    if (isEqualNop(nodeValue, value))
-        return true;
-    
-    if (!nodeValue)
-        return false;
-    
-    if (isLinkedRegExp(nodeValue, value))
-        return true;
-    
-    if (isLinkedNode(value) || isLinkedArgs(value) || isLinkedId(nodeValue, value))
-        return link({
-            add,
-            value,
-            nodeValue,
-            templateStore,
-        });
-    
-    if (isAnyLiteral(nodeValue, value))
-        return true;
-    
-    if (isImports(value))
-        return true;
-    
-    if (isArgs(value))
-        return true;
-    
-    if (isObject(value)) {
-        add(nodeValue, value);
-        return true;
-    }
-    
-    if (isArrays(nodeValue, value)) {
-        add(nodeValue, value);
-        return true;
-    }
-    
-    return false;
 }
 
