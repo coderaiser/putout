@@ -14,30 +14,9 @@ module.exports.fix = (path) => {
 
 module.exports.find = (ast, {push, traverse}) => {
     traverse(ast, {
-        ClassProperty(path) {
-            const keyPath = path.get('key');
-            
-            if (!isBig(keyPath))
-                return;
-            
-            push(keyPath);
-        },
-        ClassMethod(path) {
-            const keyPath = path.get('key');
-            
-            if (!isBig(keyPath))
-                return;
-            
-            push(keyPath);
-        },
-        FunctionDeclaration(path) {
-            const idPath = path.get('id');
-            
-            if (!isBig(idPath))
-                return;
-            
-            push(idPath);
-        },
+        ClassProperty: checkBig('key', push),
+        ClassMethod: checkBig('key', push),
+        FunctionDeclaration: checkBig('id', push),
         
         FunctionExpression(path) {
             const idPath = path.get('id');
@@ -93,5 +72,16 @@ function isBig(path) {
         return false;
     
     return /[A-Z]/.test(node.name[0]);
+}
+
+function checkBig(query, push) {
+    return (path) => {
+        const keyPath = path.get(query);
+        
+        if (!isBig(keyPath))
+            return;
+        
+        push(keyPath);
+    };
 }
 
