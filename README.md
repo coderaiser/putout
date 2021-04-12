@@ -349,10 +349,8 @@ switch (x) {
 <details><summary>remove useless <code>array constructor</code></summary>
 
 ```diff
--const a = Array(...x);
--const b = Array(1, 2, 3);
-+const a = Array.of(...x);
-+const b = [1, 2, 3];
+-const a = Array(1, 2, 3);
++const a = [1, 2, 3];
 ```
 
 </details>
