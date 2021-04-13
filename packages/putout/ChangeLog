@@ -1,3 +1,9 @@
+2021.04.13, v16.7.0
+feature:
+- (putout) rm @putout/processor-html from default install
+
+
+
 2021.04.13, v16.6.1
 feature:
 - (package) @putout/plugin-remove-useless-spread v5.0.0
