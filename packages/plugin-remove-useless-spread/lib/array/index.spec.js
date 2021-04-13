@@ -29,8 +29,8 @@ test('plugin-remove-useless-spread: array: no transform: not-call', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-spread: array: transform: map', (t) => {
-    t.transform('map');
+test('plugin-remove-useless-spread: array: no transform: map', (t) => {
+    t.noTransform('map');
     t.end();
 });
 
