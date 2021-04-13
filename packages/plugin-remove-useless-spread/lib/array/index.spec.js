@@ -19,6 +19,26 @@ test('plugin-remove-useless-spread: array: transform: call', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-spread: array: transform: call-args', (t) => {
+    t.transform('call-args');
+    t.end();
+});
+
+test('plugin-remove-useless-spread: array: no transform: not-call', (t) => {
+    t.noTransform('not-call');
+    t.end();
+});
+
+test('plugin-remove-useless-spread: array: transform: map', (t) => {
+    t.transform('map');
+    t.end();
+});
+
+test('plugin-remove-useless-spread: array: transform: multiple', (t) => {
+    t.transform('multiple');
+    t.end();
+});
+
 test('plugin-remove-useless-spread: array: transform: array-from', (t) => {
     t.transform('array-from');
     t.end();

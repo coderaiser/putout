@@ -1,0 +1,1 @@
+const places = getPlaces(a);
