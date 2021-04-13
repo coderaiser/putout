@@ -1,3 +1,12 @@
+2021.04.13, v16.6.1
+feature:
+- (package) @putout/plugin-remove-useless-spread v5.0.0
+- (@putout/plugin-remove-useless-spread) drop support of node < 14
+- (@putout/plugin-remove-useless-spread) array: improve ability to handle spread
+- (@putout/compare) mv out comparators
+
+
+
 2021.04.09, v16.6.0
 feature:
 - (package) @putout/plugin-remove-useless-type-convertion v3.0.0
