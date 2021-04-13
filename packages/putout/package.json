@@ -145,7 +145,6 @@
     "@putout/plugin-travis": "^1.0.0",
     "@putout/plugin-webpack": "^1.0.0",
     "@putout/processor-css": "^2.0.0",
-    "@putout/processor-html": "^1.0.0",
     "@putout/processor-ignore": "^1.0.1",
     "@putout/processor-javascript": "^2.0.0",
     "@putout/processor-json": "^2.0.0",
