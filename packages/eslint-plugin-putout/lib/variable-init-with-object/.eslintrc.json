@@ -1,0 +1,8 @@
+    {
+    "overrides": [{
+        "files": "*.md{js}",
+        "rules": {
+            "putout/variable-init-with-object": "off"
+        }
+    }]
+}
