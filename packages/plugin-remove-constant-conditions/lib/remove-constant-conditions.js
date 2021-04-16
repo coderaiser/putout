@@ -10,9 +10,8 @@ const {
     replaceWithMultiple,
 } = operator;
 
-const {isIdentifier} = types;
-
 const {runInNewContext} = require('vm');
+const {isIdentifier} = types;
 
 module.exports.report = () => 'constant conditions should not be used';
 
