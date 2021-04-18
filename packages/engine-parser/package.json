@@ -38,7 +38,7 @@
   ],
   "devDependencies": {
     "@cloudcmd/stub": "^3.0.0",
-    "acorn": "^7.3.1",
+    "acorn": "^8.1.1",
     "acorn-jsx": "^5.0.2",
     "acorn-stage3": "^4.0.0",
     "c8": "^7.5.0",
