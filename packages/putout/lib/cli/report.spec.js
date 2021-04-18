@@ -2,9 +2,11 @@
 
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
-const stripAnsi = require('strip-ansi');
+const {createSimport} = require('simport');
 
 const {initReport} = require('../putout');
+
+const simport = createSimport(__filename);
 
 test('putout: report: no places', (t) => {
     const reporter = stub();
@@ -35,7 +37,7 @@ test('putout: report: no places', (t) => {
     t.end();
 });
 
-test('putout: report: dump', (t) => {
+test('putout: report: dump', async (t) => {
     const line = 1;
     const column = 1;
     const position = {
@@ -60,6 +62,7 @@ test('putout: report: dump', (t) => {
         places,
     });
     
+    const stripAnsi = await simport('strip-ansi');
     const result = stripAnsi(formatted);
     
     const expected = [

@@ -9,10 +9,10 @@ const {EventEmitter} = require('events');
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
-const stripAnsi = require('strip-ansi');
 const tryCatch = require('try-catch');
 const {red} = require('chalk');
 const tryToCatch = require('try-to-catch');
+const {createSimport} = require('simport');
 
 const _cli = require('.');
 const {version} = require('../../package');
@@ -30,6 +30,8 @@ const {
     INVALID_OPTION,
     CANNOT_LOAD_PROCESSOR,
 } = require('./exit-codes');
+
+const simport = createSimport(__filename);
 
 test('putout: cli: --raw', async (t) => {
     const logError = stub();
@@ -395,6 +397,7 @@ test('putout: cli: --staged --fix', async (t) => {
     const [allArgCalls] = logError.args;
     const [arg] = allArgCalls;
     
+    const stripAnsi = await simport('strip-ansi');
     const output = stripAnsi(arg);
     const message = 'No files matching the pattern "./xxx.js" were found';
     
