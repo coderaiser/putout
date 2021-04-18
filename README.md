@@ -122,7 +122,7 @@ And here is CLI sheme.
 
 ### Processors
 
-With help of [processors](https://github.com/coderaiser/putout/blob/master/packages/engine-processor) `putout` can be extended to reading any file format and parsing `JavaScript` from there.
+With help of [processors](https://github.com/coderaiser/putout/blob/master/packages/engine-processor) `putout` can be extended to read any file format and parse `JavaScript` from there.
 
 Here is a list of built-int processors:
 
