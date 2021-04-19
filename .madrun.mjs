@@ -1,7 +1,12 @@
-'use strict';
+import {
+    run,
+    cutEnv,
+} from 'madrun';
 
-const {run, cutEnv} = require('madrun');
-const {workspaces} = require('./package');
+import {createCommons} from 'simport';
+
+const {require} = createCommons(import.meta.url);
+const {workspaces} = require('./package.json');
 
 const cutStar = (a) => a.replace('/*', '');
 const dirs = getDirs(workspaces);
@@ -20,7 +25,7 @@ const env = {
     KEYPRESS: 1,
 };
 
-module.exports = {
+export default {
     'test': () => [env, `tape '${dirs}/*/test/*.js' '${dirs}/*/{bin,lib}/**/*.spec.*'`],
     'test:fail': async () => await run('test', '-f fail'),
     'test:slow': () => 'FORCE_COLOR=3 lerna run test',
