@@ -53,10 +53,11 @@ module.exports.traverse = ({push, store}) => {
 
 const addVariable = ({store}) => (path, node) => {
     const {uid} = path.scope;
-    const currentVar = store(uid);
+    const str = `${uid}-${path.get('init').toString()}`;
+    const currentVar = store(str);
     
     if (!currentVar) {
-        store(uid, {
+        store(str, {
             path,
             places: [],
         });
@@ -67,9 +68,6 @@ const addVariable = ({store}) => (path, node) => {
     const currentPath = currentVar.path;
     
     if (path === currentPath)
-        return;
-    
-    if (currentPath.removed)
         return;
     
     const is = compare(currentPath.node.init, node);

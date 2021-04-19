@@ -5,8 +5,10 @@ const {join} = require('path');
 
 const {test, stub} = require('supertape');
 const processFile = require('putout/process-file');
-const {getFilePatterns} = require('..');
-const {runProcessors} = require('..');
+const {
+    getFilePatterns,
+    runProcessors,
+} = require('..');
 
 test('putout: engine-processor: no processor', async (t) => {
     const name = 'hello.xxx';
