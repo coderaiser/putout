@@ -20,7 +20,8 @@ npm i @putout/plugin-promises -D
     "rules": {
         "promises/add-return-await": "on",
         "promises/remove-useless-resolve": "on",
-        "promises/convert-reject-to-throw": "on"
+        "promises/convert-reject-to-throw": "on",
+        "promises/convert-new-promise-to-async": "on"
     }
 }
 ```
@@ -105,6 +106,27 @@ async function runCli() {
 }
 ```
 
+## convert-new-promise-to-async
+
+### ❌ Incorrect
+
+```js
+function get() {
+    return new Promise((resolve, reject) => {
+        reject(Error("Cannot get"));
+    });
+}
+```
+
+## ✅ Correct
+
+```js
+async function get() {
+    throw Error("Cannot get");
+}
+```
+
 ## License
 
 MIT
+
