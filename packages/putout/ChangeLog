@@ -1,3 +1,22 @@
+2021.04.20, v16.8.0
+fix:
+- (@putout/plugin-remove-useless-spread) array: false positive
+
+
+feature:
+- (package) @putout/processor-markdown v4.0.0
+- (putout) rm v8-compile-cache (zertosh/v8-compile-cache#30)
+- (@putout/processor-markdown) drop support of node < 14
+- (package) unist-util-visit v3.0.0
+- (@putout/plugin-merge-destructuring-properties) improve support of destructuring
+- (@putout/plugin-promises) convert-new-promise-to-async: improve support of inner functions
+- (@putout/plugin-promises) add convert-new-promise-to-async
+- (package) acorn v8.1.1
+- (package) strip-ansi v7.0.0
+- (eslint-plugin-putout) add variable-init-with-object
+
+
+
 2021.04.13, v16.7.0
 feature:
 - (putout) rm @putout/processor-html from default install
