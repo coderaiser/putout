@@ -171,7 +171,6 @@
     "picomatch": "^2.2.2",
     "try-catch": "^3.0.0",
     "try-to-catch": "^3.0.0",
-    "v8-compile-cache": "^2.2.0",
     "wraptile": "^3.0.0",
     "yargs-parser": "^20.0.0"
   },

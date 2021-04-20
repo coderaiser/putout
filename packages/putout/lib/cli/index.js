@@ -1,8 +1,5 @@
 'use strict';
 
-/* c8 ignore next */
-!process.env.CI && require('v8-compile-cache');
-
 const {resolve} = require('path');
 const {readFileSync} = require('fs');
 
