@@ -1,6 +1,9 @@
 {
+    "rules": {
+        "node/no-unsupported-features/es-syntax": "off"
+    },
     "overrides": [{
-        "files": "test/*.js",
+        "files": "test/**.js",
         "rules": {
             "node/no-missing-require": "off"
         }

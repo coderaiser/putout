@@ -1,6 +1,10 @@
 'use strict';
 
 const {initParseStore} = require('./parse-store');
+const {createSimport} = require('simport');
+const once = require('once');
+
+const simport = createSimport(__filename);
 
 const parseStore = initParseStore();
 
@@ -19,10 +23,28 @@ module.exports.files = [
     '*.md',
 ];
 
+const loadDependencies = once(async () => {
+    const unified = await simport('unified');
+    const stringify = await simport('remark-stringify');
+    const visit = await simport('unist-util-visit');
+    const preset = await simport('remark-preset-lint-consistent');
+    const jsonProcessor = await simport('@putout/processor-json');
+    
+    return {
+        unified,
+        stringify,
+        visit,
+        preset,
+        jsonProcessor,
+    };
+});
+
 module.exports.process = async (rawSource, {fix}) => {
-    const unified = require('unified');
-    const stringify = require('remark-stringify');
-    const preset = require('remark-preset-lint-consistent');
+    const {
+        unified,
+        stringify,
+        preset,
+    } = await loadDependencies();
     
     parseStore.init();
     
@@ -45,13 +67,22 @@ module.exports.process = async (rawSource, {fix}) => {
 };
 
 module.exports.preProcess = async (rawSource) => {
-    const unified = require('unified');
-    const stringify = require('remark-stringify');
+    const {
+        unified,
+        stringify,
+        visit,
+        jsonProcessor,
+    } = await loadDependencies();
+    
     const list = [];
     
     await unified()
         .use(parseStore)
-        .use(collect, list)
+        .use(collect, {
+            list,
+            visit,
+            jsonProcessor,
+        })
         .use(stringify)
         .process(rawSource);
     
@@ -59,13 +90,23 @@ module.exports.preProcess = async (rawSource) => {
 };
 
 module.exports.postProcess = async (rawSource, list) => {
-    const unified = require('unified');
-    const stringify = require('remark-stringify');
+    const {
+        unified,
+        stringify,
+        visit,
+        jsonProcessor,
+    } = await loadDependencies();
+    
     const newList = list.slice();
     
     const {contents} = await unified()
         .use(parseStore)
-        .use(apply, newList, rawSource)
+        .use(apply, {
+            list: newList,
+            rawSource,
+            visit,
+            jsonProcessor,
+        })
         .use(stringify, stringifyOptions)
         .process(rawSource);
     
@@ -85,9 +126,8 @@ function toPlace({reason, line, column, source, ruleId}) {
     };
 }
 
-const collect = (list) => {
+const collect = ({list, visit}) => {
     const jsonProcessor = require('@putout/processor-json');
-    const visit = require('unist-util-visit');
     
     return (node) => {
         visit(node, 'code', (node) => {
@@ -127,10 +167,7 @@ const collect = (list) => {
     };
 };
 
-const apply = (list, rawSource) => (node) => {
-    const jsonProcessor = require('@putout/processor-json');
-    const visit = require('unist-util-visit');
-    
+const apply = ({list, rawSource, visit, jsonProcessor}) => (node) => {
     visit(node, 'code', (node) => {
         const {lang} = node;
         
