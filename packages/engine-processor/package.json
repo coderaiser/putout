@@ -33,7 +33,6 @@
     "putout-engine"
   ],
   "devDependencies": {
-    "@putout/processor-markdown": "^3.0.0",
     "c8": "^7.5.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",

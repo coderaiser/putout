@@ -148,7 +148,7 @@
     "@putout/processor-ignore": "^1.0.1",
     "@putout/processor-javascript": "^2.0.0",
     "@putout/processor-json": "^2.0.0",
-    "@putout/processor-markdown": "^3.0.0",
+    "@putout/processor-markdown": "^4.0.0",
     "@putout/processor-yaml": "^1.0.0",
     "@putout/traverse": "^3.0.0",
     "chalk": "^4.0.0",
