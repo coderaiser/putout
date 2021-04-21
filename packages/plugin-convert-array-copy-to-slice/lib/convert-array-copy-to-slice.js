@@ -9,13 +9,11 @@ module.exports.report = () => `Array should be copied using slice`;
 
 module.exports.exclude = () => [
     '[...new Set(__a)]',
+    'new Set([...__a])',
 ];
 
 module.exports.match = () => ({
     '[...__a]': ({__a}, path) => {
-        if (compare(path.parentPath, 'new Set(__a)'))
-            return false;
-        
         if (isIdentifier(__a)) {
             const binding = path.scope.getBinding(__a.name);
             
