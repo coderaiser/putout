@@ -44,3 +44,8 @@ test('plugin-remove-useless-spread: array: transform: array-from', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-spread: array: transform: set', (t) => {
+    t.transform('set');
+    t.end();
+});
+
