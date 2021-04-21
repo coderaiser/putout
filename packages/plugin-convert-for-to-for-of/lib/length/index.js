@@ -18,7 +18,7 @@ module.exports.filter = (path) => {
     
     const {body} = node;
     const [first] = body.body;
-    const {__i, __e} = getTemplateValues(node, forLoop);
+    const {__i, __e} = getTemplateValues(path, forLoop);
     const {references} = path.scope.bindings[__i.name];
     
     if (references > 3)

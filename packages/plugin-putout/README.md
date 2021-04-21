@@ -23,6 +23,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-replace-with-multiple": "on",
         "putout/convert-babel-types": "on",
         "putout/convert-destructuring-to-identifier": "on",
+        "putout/convert-node-to-path-in-get-template-values": "on",
         "putout/shorten-imports": "on"
     }
 }
@@ -139,6 +140,20 @@ module.exports.replace = () => ({
     'const __c = __d': (vars, path) => {
     },
 });
+```
+
+## convert-node-to-path-in-get-template-values
+
+### ❌ Incorrect code example
+
+```js
+const {__a, __b} = getTemplateValues(path.node, 'const __a = __b');
+```
+
+### ✅ Correct code Example
+
+```js
+const {__a, __b} = getTemplateValues(path, 'const __a = __b');
 ```
 
 ## shorten-imports

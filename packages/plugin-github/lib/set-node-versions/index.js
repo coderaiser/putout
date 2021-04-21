@@ -29,7 +29,7 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => ({
     '__putout_processor_json(__a)'(path) {
-        const {__a} = getTemplateValues(path.node, '__putout_processor_json(__a)');
+        const {__a} = getTemplateValues(path, '__putout_processor_json(__a)');
         traverse(__a, {
             '__object'(path) {
                 const nodeVersionPath = path.get('properties.0');

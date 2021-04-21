@@ -30,7 +30,7 @@ module.exports.filter = (path) => {
         return false;
     
     const [first] = body.body;
-    const {__i, __n} = getTemplateValues(node, forLoopToN);
+    const {__i, __n} = getTemplateValues(path, forLoopToN);
     
     if (!compare(first, assignIterable(__i)))
         return false;

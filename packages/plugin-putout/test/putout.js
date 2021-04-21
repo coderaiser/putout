@@ -23,3 +23,8 @@ test('plugin-putout: convert-destructuring-todentifier: transform: destructuring
     t.transform('convert-destructuring-to-identifier');
     t.end();
 });
+
+test('plugin-putout: convert-node-to-path-in-get-template-values: transform', (t) => {
+    t.transform('get-template-values');
+    t.end();
+});

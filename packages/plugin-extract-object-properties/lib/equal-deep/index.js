@@ -54,8 +54,7 @@ module.exports.find = (ast, {traverse}) => {
     
     traverse(ast, {
         'const __object = __a.__b'(fullPath) {
-            const {node} = fullPath;
-            const {__a, __b} = getTemplateValues(node, 'const __object = __a.__b');
+            const {__a, __b} = getTemplateValues(fullPath, 'const __object = __a.__b');
             const path = fullPath.get('declarations.0.init');
             
             if (findBinding(fullPath, __b.name))

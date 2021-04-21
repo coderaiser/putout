@@ -13,6 +13,7 @@ module.exports.rules = {
     ...getRule('convert-babel-types'),
     ...getRule('rename-operate-to-operator'),
     ...getRule('replace-operate-with-operator'),
+    ...getRule('convert-node-to-path-in-get-template-values'),
     ...getRule('shorten-imports'),
 };
 
