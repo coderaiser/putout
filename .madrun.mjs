@@ -29,7 +29,7 @@ export default {
     'test': () => [env, `tape '${dirs}/*/test/*.js' '${dirs}/*/{bin,lib}/**/*.spec.*'`],
     'test:fail': async () => await run('test', '-f fail'),
     'test:slow': () => 'FORCE_COLOR=3 lerna run test',
-    'coverage:ci': async () => await run('coverage', null, env),
+    'coverage:ci': async () => [env, `c8 --no-skip-full ${await cutEnv('test')}`],
     'coverage': async () => [env, `c8 ${await cutEnv('test')}`],
     'coverage:slow': () => 'FORCE_COLOR=3 lerna run coverage',
     'lint:slow': () => 'FORCE_COLOR=3 lerna run --no-bail lint',
