@@ -22,7 +22,11 @@ const {entries} = Object;
 const isNumber = (a) => typeof a === 'number';
 const parseExpression = (a) => a.expression || a;
 
+const parseNode = (a) => a.node || a;
+
 module.exports.getTemplateValues = (node, str) => {
+    node = parseNode(node);
+    
     const templateNode = template.ast(str);
     const waysFrom = findVarsWays(templateNode);
     

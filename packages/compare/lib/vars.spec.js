@@ -57,6 +57,18 @@ test('putout: compare: vars: getTemplateValues: __array', (t) => {
     t.end();
 });
 
+test('putout: compare: vars: getTemplateValues: path', (t) => {
+    const node = template.ast('const [] = array');
+    const path = {
+        node,
+    };
+    
+    const {__array} = getTemplateValues(path, 'const __array = __');
+    
+    t.equal(__array && __array.type, 'ArrayPattern');
+    t.end();
+});
+
 test('putout: compare: vars: getTemplateValues: __', (t) => {
     const node = template.ast('const [] = array');
     const {__} = getTemplateValues(node, 'const __array = __');
