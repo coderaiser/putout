@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-convert-array-copy-to-slice",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert array copy to slice",
   "homepage": "http://github.com/coderaiser/putout",
