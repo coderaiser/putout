@@ -36,8 +36,8 @@
             "remove-useless-escape": "off",
             "apply-numeric-separators": "off"
         },
-        ".travis.yml": {
-            "travis": "on",
+        ".github/**/*.yml": {
+            "github": "on",
             "remove-useless-escape": "off"
         },
         ".gitignore": {
@@ -119,7 +119,7 @@
         "webpack": "off",
         "gitignore": "off",
         "npmignore": "off",
-        "travis": "off",
+        "github": "off",
         "tape": "off",
         "strict-mode": "off",
         "regexp/convert-replace-to-replace-all": "off",
@@ -217,7 +217,7 @@
         "npmignore",
         "browserlist",
         "regexp",
-        "travis",
+        "github",
         "tape",
         "nodejs"
     ]

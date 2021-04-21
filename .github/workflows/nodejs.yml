@@ -1,45 +1,38 @@
 name: Node CI
-
-on: [push, pull_request]
-
+on:
+  - push
+  - pull_request
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [14.x, 15.x]
-
+        node-version:
+          - 14.x
+          - 16.x
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    
-    - name: Install Redrun
-      run:
-        npm i redrun -g
-    
-    - name: Install
-      run:
-        npm install
-    
-    - name: Bootstrap
-      run:
-        redrun bootstrap
-    
-    - name: Lint
-      run:
-        redrun lint
-    
-    - name: Coverage
-      run:
-        redrun coverage report
-    
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
+      - name: Install Redrun
+        run: npm i redrun -g
+
+      - name: Install
+        run: npm install
+
+      - name: Bootstrap
+        run: redrun bootstrap
+
+      - name: Lint
+        run: redrun lint
+
+      - name: Coverage
+        run: redrun coverage report
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
