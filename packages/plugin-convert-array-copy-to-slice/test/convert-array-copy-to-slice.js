@@ -29,3 +29,13 @@ test('plugin-convert-array-copy-to-slice: no transform: set-map', (t) => {
     t.end();
 });
 
+test('plugin-convert-array-copy-to-slice: no transform: arg-to-set', (t) => {
+    t.noTransform('arg-to-set');
+    t.end();
+});
+
+test('plugin-convert-array-copy-to-slice: no transform: no-binding', (t) => {
+    t.noTransform('no-binding');
+    t.end();
+});
+

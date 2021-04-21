@@ -13,8 +13,14 @@ module.exports.exclude = () => [
 
 module.exports.match = () => ({
     '[...__a]': ({__a}, path) => {
+        if (compare(path.parentPath, 'new Set(__a)'))
+            return false;
+        
         if (isIdentifier(__a)) {
             const binding = path.scope.getBinding(__a.name);
+            
+            if (!binding)
+                return false;
             
             if (compare(binding.path, 'const __ = new Set(__)'))
                 return false;
