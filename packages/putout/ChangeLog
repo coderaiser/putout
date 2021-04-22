@@ -1,3 +1,10 @@
+2021.04.22, v16.10.1
+
+fix:
+- (putout) add missing @putout/plugin-github
+
+
+
 2021.04.22, v16.10.0
 feature:
 - (package) @putout/plugin-convert-for-to-for-of v2.0.0
