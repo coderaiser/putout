@@ -70,6 +70,11 @@ test('plugin-convert-commonjs-to-esm: require: transform: evaluate', (t) => {
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: require: transform: require-is-argument', (t) => {
+    t.transform('require-is-argument');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: require: no transform: no evaluate', (t) => {
     t.noTransform('no-evaluate');
     t.end();
