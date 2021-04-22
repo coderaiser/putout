@@ -1,3 +1,18 @@
+2021.04.22, v16.10.0
+feature:
+- (package) @putout/plugin-convert-for-to-for-of v2.0.0
+- (package) @putout/plugin-extract-object-properties v6.0.0
+- (@putout/plugin-extract-object-properties) drop support of putout < 16
+- (@putout/plugin-convert-for-to-for-of) drop support of putout < 16
+- (@putout/plugin-apply-destructuring) array: add support of typed destructuring (#56)
+- (@putout/plugin-putout) add convert-node-to-path-in-get-template-values
+- (@putout/compare) getTemplateValues: add support of path
+- (@putout/plugin-convert-array-copy-to-slice) check for Set: imperative -> declarative
+- (@putout/plugin-remove-useless-spread) add support of Set (#55)
+- (@putout/plugin-convert-array-copy-to-slice) improve support of Set constructor (#55)
+
+
+
 2021.04.21, v16.9.0
 feature:
 - (@putout/plugin-github) add
