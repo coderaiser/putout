@@ -37,6 +37,11 @@ test('plugin-apply-destructuring: transform: array: second', (t) => {
     t.end();
 });
 
+test('plugin-apply-destructuring: transform: array: type', (t) => {
+    t.transform('type');
+    t.end();
+});
+
 test('plugin-apply-destructuring: transform: array: nested', (t) => {
     t.noTransform('nested');
     t.end();
