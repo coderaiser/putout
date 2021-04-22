@@ -26,31 +26,18 @@ Rule `apply-destructuring` is enabled by default, to disable add to `.putout.jso
 }
 ```
 
-## Code Example
+## ❌ Incorrect code example
 
 ```js
-const {readFileSync} = require('fs');
-const source = readFileSync('./1.js', 'utf8');
+const first = array[0];
+const name = user.name;
+```
 
-const putout = require('putout');
+## ✅ Correct code Example
 
-console.log(source);
-// outputs
-`
-const hello = world.hello;
-const a = b[0];
-`;
-
-const result = putout(source, {
-    plugins: [
-        'apply-destructuring',
-    ],
-});
-// returns
-`
-const {hello} = world;
-const [a] = b;
-`;
+```js
+const [first] = array;
+const {name} = user;
 ```
 
 ## License

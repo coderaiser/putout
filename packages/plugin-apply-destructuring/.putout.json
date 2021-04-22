@@ -1,0 +1,8 @@
+{
+    "match": {
+        "README.md": {
+            "apply-destructuring/object": "off",
+            "apply-destructuring/array": "off"
+        }
+    }
+}
