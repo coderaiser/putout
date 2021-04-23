@@ -27,7 +27,7 @@
     "@babel/preset-env": "^7.12.1",
     "@putout/engine-parser": "^4.0.1",
     "diff-match-patch": "^1.0.4",
-    "jscodeshift": "^0.11.0",
+    "jscodeshift": "^0.12.0",
     "nano-memoize": "^1.1.8",
     "once": "^1.4.0",
     "try-catch": "^3.0.0"
