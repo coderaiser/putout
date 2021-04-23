@@ -75,6 +75,11 @@ test('plugin-convert-commonjs-to-esm: require: transform: require-is-argument', 
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: require: transform: default', (t) => {
+    t.transform('default');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: require: no transform: no evaluate', (t) => {
     t.noTransform('no-evaluate');
     t.end();

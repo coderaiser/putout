@@ -50,6 +50,7 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
+    'const __a = require(__b).default': 'const __a = require(__b)',
     'require("__a")': 'import("__a")',
     'const __a = require(__b)': ({__a}, path) => {
         let {value} = path.get(__B).evaluate();
@@ -96,13 +97,6 @@ module.exports.replace = () => ({
         path.insertBefore([
             importNode,
         ]);
-        
-        /*
-        return BlockStatement([
-            importNode,
-            declarationNode,
-        ]);
-        */
         
         return declarationNode;
     },
