@@ -78,6 +78,20 @@ test('some message', (t) => {
 });
 ```
 
+### ✅ Correct code Example
+
+```js
+const tryCatch = require('try-catch');
+const test = require('supertape');
+
+test('some message', (t) => {
+    const [error] = tryCatch(copymitter);
+    
+    t.equal(error.message, 'from shoulde be a string!', 'should throw when no args');
+    t.end();
+});
+```
+
 ## convert-does-not-throw-to-try-catch
 
 ### ❌ Incorrect code example
