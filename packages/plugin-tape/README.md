@@ -220,10 +220,7 @@ test('some message', (t) => {
 ### ✅ Correct code Example
 
 ```js
-import tryCatch from 'try-catch';
 test('some message', (t) => {
-    const [error] = tryCatch(copymitter, '/hello');
-    
     t.calledWith(fn, [a]);
     t.end();
 });
