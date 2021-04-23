@@ -1,1 +1,2 @@
-import diff from 'jest-diff';
+import _diff from 'jest-diff';
+const diff = _diff.default;

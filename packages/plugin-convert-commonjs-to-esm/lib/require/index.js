@@ -31,7 +31,8 @@ const createImport = ({name, source}) => {
     return ImportDeclaration(specifiers, source);
 };
 
-const createDeclaration = template('const NAME1 = FN(NAME2)');
+const createFnDeclaration = template('const NAME1 = FN(NAME2)');
+const createDeclaration = template('const NAME1 = NAME2.default');
 
 module.exports.match = () => ({
     'const __a = require(__b)': (vars, path) => {
@@ -50,7 +51,6 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    'const __a = require(__b).default': 'const __a = require(__b)',
     'require("__a")': 'import("__a")',
     'const __a = require(__b)': ({__a}, path) => {
         let {value} = path.get(__B).evaluate();
@@ -88,9 +88,26 @@ module.exports.replace = () => ({
             name: Identifier(name),
             source: __c,
         });
-        const declarationNode = createDeclaration({
+        const declarationNode = createFnDeclaration({
             NAME1: __a,
             FN: __b,
+            NAME2: Identifier(name),
+        });
+        
+        path.insertBefore([
+            importNode,
+        ]);
+        
+        return declarationNode;
+    },
+    'const __a = require(__b).default': ({__a, __b}, path) => {
+        const name = `_${__a.name}`;
+        const importNode = createImport({
+            name: Identifier(name),
+            source: __b,
+        });
+        const declarationNode = createDeclaration({
+            NAME1: __a,
             NAME2: Identifier(name),
         });
         
