@@ -66,7 +66,7 @@ export default () => {
 ## ❌ Incorrect code example
 
 ```js
-import {readFile} from 'fs/promises';
+const {readFile} = require('fs/promises');
 
 await readFile(__filename);
 ```
