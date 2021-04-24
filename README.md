@@ -21,7 +21,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [Architecture](#architecture)
 - [API](#api)
 - [Built-in transformations](#built-in-transformations)
-- [Plugins](#plugins)
+- [Plugins](#plugins-1)
 - [Formatters](#formatters)
 - [Configuration](#configuration)
 - [Plugins API](#plugins-api)
