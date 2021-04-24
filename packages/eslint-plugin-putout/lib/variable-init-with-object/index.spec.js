@@ -31,6 +31,13 @@ ruleTester.run('variable-init-with-object', rule, {
             message,
             type: 'VariableDeclarator',
         }],
+    }, {
+        code: 'const options = {img: {maxSize: 512}};',
+        output: 'const options = {\nimg: {\nmaxSize: 512\n}\n};',
+        errors: [{
+            message,
+            type: 'VariableDeclarator',
+        }],
     }],
 });
 

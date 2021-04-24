@@ -26,7 +26,7 @@ module.exports.filter = ({node}) => {
 module.exports.fix = ({text}) => {
     return text
         .replace(/,/g, ',\n')
-        .replace('{', '{\n')
-        .replace('}', '\n}');
+        .replace(/{/g, '{\n')
+        .replace(/}/g, '\n}');
 };
 
