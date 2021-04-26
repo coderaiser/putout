@@ -11,6 +11,7 @@ const defaultOptions = () => Object.create(null);
 const parseState = (rule, value) => validateState(rule, value) && value === 'on' || value !== 'off';
 
 module.exports = (rules) => {
+    rules = rmDuplicates(rules);
     const result = [];
     
     const plugin = null;
@@ -117,5 +118,21 @@ function validateState(rule, value) {
         return true;
     
     throw Error(`${rule}: state option can be "on" or "off" only, when used as string, received: "${value}"`);
+}
+
+const cut = (a) => a.split('/')[0];
+const isExclude = (a) => a.includes('babel') || a.includes('jscodeshift');
+
+function rmDuplicates(rules) {
+    const newRules = {};
+    
+    for (const [rule, value] of entries(rules)) {
+        if (!isExclude(rule) && rule.includes('/') && parseState(rule, value))
+            newRules[cut(rule)] = 'on';
+        
+        newRules[rule] = value;
+    }
+    
+    return newRules;
 }
 

@@ -24,6 +24,30 @@ test('putout: loader: parse rules: two elements array', (t) => {
     t.end();
 });
 
+test('putout: loader: parse rules: disabled: enabled partially', (t) => {
+    const result = parseRules({
+        'convert-commonjs-to-esm': 'off',
+        'convert-commonjs-to-esm/require': 'on',
+    });
+    
+    const expected = [{
+        msg: '',
+        options: {},
+        plugin: null,
+        rule: 'convert-commonjs-to-esm',
+        state: true,
+    }, {
+        msg: '',
+        options: {},
+        plugin: null,
+        rule: 'convert-commonjs-to-esm/require',
+        state: true,
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: loader: parse rules: three elements array: custom message', (t) => {
     const [, result] = tryCatch(parseRules, {
         hello: ['on', 'hello', {
