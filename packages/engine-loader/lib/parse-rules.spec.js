@@ -20,7 +20,7 @@ test('putout: loader: parse rules: two elements array', (t) => {
         hello: ['on', {}],
     });
     
-    t.equal(error, null);
+    t.notOk(error);
     t.end();
 });
 

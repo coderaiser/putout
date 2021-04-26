@@ -266,6 +266,20 @@ t.ok(result.includes('hello'));
 t.match(result, /hello/);
 ```
 
+## convert-equal-to-not-ok
+
+### ❌ Incorrect code example
+
+```js
+t.equal(error, null);
+```
+
+### ✅ Correct code Example
+
+```js
+t.notOk(error);
+```
+
 ## License
 
 MIT

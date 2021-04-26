@@ -1,0 +1,1 @@
+t.notOk(error, 'hello');

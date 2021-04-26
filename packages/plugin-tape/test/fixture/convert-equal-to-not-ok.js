@@ -1,0 +1,1 @@
+t.equal(error, null);

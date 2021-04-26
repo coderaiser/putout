@@ -12,6 +12,7 @@ module.exports.rules = {
     ...getRule('convert-called-with-to-called-with-no-args'),
     ...getRule('convert-emitter-to-promise'),
     ...getRule('convert-ok-to-match'),
+    ...getRule('convert-equal-to-not-ok'),
     ...getRule('expand-try-catch-arguments'),
     ...getRule('apply-stub-operator'),
     ...getRule('declare-stub'),
