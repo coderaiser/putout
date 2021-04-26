@@ -127,6 +127,7 @@
     "@putout/plugin-remove-useless-async": "^3.0.0",
     "@putout/plugin-remove-useless-await": "^1.0.0",
     "@putout/plugin-remove-useless-conditions": "^1.0.0",
+    "@putout/plugin-remove-useless-continue": "^1.0.0",
     "@putout/plugin-remove-useless-escape": "^1.0.0",
     "@putout/plugin-remove-useless-for-of": "^2.0.0",
     "@putout/plugin-remove-useless-functions": "^1.0.3",

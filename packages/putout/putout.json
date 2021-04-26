@@ -158,6 +158,7 @@
         "remove-unused-expressions",
         "remove-useless-variables",
         "remove-useless-array-constructor",
+        "remove-useless-continue",
         "remove-useless-conditions",
         "remove-useless-array-from",
         "remove-useless-arguments",
