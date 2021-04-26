@@ -520,6 +520,26 @@ test('putout: loader: no options.pluginNames', (t) => {
     t.end();
 });
 
+test('putout: loader: enable part of rule', (t) => {
+    const source = `const {run} = require('madrun');`;
+    
+    const {code} = putout(source, {
+        fix: true,
+        rules: {
+            'convert-commonjs-to-esm': 'off',
+            'convert-commonjs-to-esm/require': 'on',
+        },
+        plugins: [
+            'convert-commonjs-to-esm',
+        ],
+    });
+    
+    const expected = `import {run} from 'madrun';`;
+    
+    t.equal(code, expected, 'should enable one of rules in plugin');
+    t.end();
+});
+
 test('putout: loader: disabled part of rule', (t) => {
     const code = montag`
         const {run} = require('madrun');
