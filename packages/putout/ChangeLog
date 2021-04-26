@@ -1,3 +1,17 @@
+2021.04.26, v16.11.0
+
+feature:
+- (@putout/plugin-remove-useless-continue) add
+- (@putout/processor-css) stylelint-config-standard v22.0.0
+- (eslint-plugin-putout) variable-init-with-objects: add support of nested objects
+- (@putout/plugin-convert-is-nan-to-number) add (not bundled)
+- (@putout/plugin-convert-commonjs-to-esm) improve handling of default properties
+- (@putout/plugin-convert-commonjs-to-esm) add support of require default
+- (@putout/engine-loader) jscodeshift v0.12.0
+- (@putout/plugin-convert-commonjs-to-esm) add support of "require as argument"
+
+
+
 2021.04.22, v16.10.1
 
 fix:
