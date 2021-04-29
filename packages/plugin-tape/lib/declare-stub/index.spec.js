@@ -20,3 +20,13 @@ test('plugin-tape: declare-stub: test-exists', (t) => {
     t.end();
 });
 
+test('plugin-tape: declare-stub: transform: not tape', (t) => {
+    t.transform('not-tape');
+    t.end();
+});
+
+test('plugin-tape: declare-stub: no report after transform: not tape', (t) => {
+    t.noReportAfterTransform('not-tape');
+    t.end();
+});
+

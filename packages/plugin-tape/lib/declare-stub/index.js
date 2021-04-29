@@ -25,19 +25,29 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     'stub()': (vars, path) => {
         const supertapePath = findSupertape(path);
+        const programPath = path.scope.getProgramParent().path;
         
         const computed = false;
         const shorthand = true;
         const idTest = Identifier('test');
         const idStub = Identifier('stub');
         
-        const id = ObjectPattern([
-            ObjectProperty(idTest, idTest, computed, shorthand),
-            ObjectProperty(idStub, idStub, computed, shorthand),
-        ]);
+        if (supertapePath) {
+            const id = ObjectPattern([
+                ObjectProperty(idTest, idTest, computed, shorthand),
+                ObjectProperty(idStub, idStub, computed, shorthand),
+            ]);
+            
+            replaceWith(supertapePath.get('id'), id);
+            programPath.scope.crawl();
+            
+            return path;
+        }
         
-        replaceWith(supertapePath.get('id'), id);
-        path.scope.getProgramParent().crawl();
+        const node = getDeclarationNode(path);
+        
+        programPath.node.body.unshift(node);
+        programPath.scope.crawl();
         
         return path;
     },
@@ -53,11 +63,13 @@ function findSupertape(path) {
         }
     }
     
-    const node = template.ast('const {test, stub} = require("supertape")');
+    return null;
+}
+
+function getDeclarationNode(path) {
+    if (path.scope.hasBinding('test'))
+        return template.ast('const {stub} = require("supertape")');
     
-    programPath.node.body
-        .unshift(node);
-    
-    return programPath.get(`body.0.${declaration}`);
+    return template.ast('const {test, stub} = require("supertape")');
 }
 
