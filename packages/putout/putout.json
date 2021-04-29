@@ -125,11 +125,7 @@
         "regexp/convert-replace-to-replace-all": "off",
         "convert-mock-require-to-mock-import": "off",
         "remove-duplicate-interface-keys": "off",
-        "remove-unused-expressions": ["on", {
-            "dismiss": [
-                "use strict"
-            ]
-        }]
+        "remove-unused-expressions": "on"
     },
     "plugins": [
         "apply-destructuring",

@@ -116,7 +116,7 @@
     "@putout/plugin-remove-skip": "^3.0.0",
     "@putout/plugin-remove-unreachable-code": "^1.0.0",
     "@putout/plugin-remove-unreferenced-variables": "^1.0.0",
-    "@putout/plugin-remove-unused-expressions": "^3.0.0",
+    "@putout/plugin-remove-unused-expressions": "^4.0.0",
     "@putout/plugin-remove-unused-for-of-variables": "^1.0.0",
     "@putout/plugin-remove-unused-private-fields": "^1.0.0",
     "@putout/plugin-remove-unused-types": "^1.0.0",
