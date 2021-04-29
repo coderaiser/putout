@@ -1,3 +1,19 @@
+2021.04.29, v16.12.0
+
+fix:
+- (@putout/plugin-remove-unused-expressions) simplify strict mode checks
+
+
+feature:
+- (package) @putout/plugin-remove-unused-expressions v4.0.0
+- (@putout/plugin-remove-unused-expressions) drop support of putout < 16
+- (@putout/plugin-remove-unused-expressions) improve support of strict mode
+- (@putout/plugin-tape) declare-stub: add support of test declared in other way
+- (@putout/engine-loader) add ability to enable parts of disabled rules (#57)
+- (@putout/plugin-tape) add convert-equal-to-not-ok
+
+
+
 2021.04.26, v16.11.0
 
 feature:
