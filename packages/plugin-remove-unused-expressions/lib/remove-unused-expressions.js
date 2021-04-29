@@ -33,14 +33,10 @@ function isNotDirectiveLiteral(path) {
     if (!path.isLiteral())
         return false;
     
-    if (!path.isStringLiteral())
+    if (!path.isStringLiteral({value: 'use strict'}))
         return true;
     
-    const {node, parentPath} = path;
-    
-    if (node.value !== 'use strict')
-        return true;
-    
+    const {parentPath} = path;
     const isDirective = parentPath === parentPath.parentPath.get('body.0');
     
     return !isDirective;
