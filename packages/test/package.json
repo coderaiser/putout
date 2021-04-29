@@ -10,7 +10,7 @@
   },
   "exports": {
     ".": "./lib/test.js",
-    "./processor": "./lib/processor.js"
+    "./processor": "./lib/processor/index.js"
   },
   "release": false,
   "tag": false,

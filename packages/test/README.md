@@ -111,7 +111,7 @@ test('test: declared', (t) => {
 
 With `processors api` you can test `processors` in a simplest possible way.
 
-### Example
+First things first, init `test` with:
 
 ```js
 const {createTest} = require('@putout/test/processor');
@@ -126,12 +126,34 @@ const test = createTest(__dirname, {
     ],
 });
 
+```
+
+### process(filename [, plugins, ])
+
+Example:
+
+```js
 test('putout: processor: json', async (t) => {
     await t.process('eslintrc');
 });
 
 test('putout: processor: json', async (t) => {
     await t.process('package', ['package-json']);
+});
+```
+
+### comparePlaces(filename, places)
+
+```js
+test('putout: processor: css: places', async (t) => {
+    await t.comparePlaces('style', [{
+        message: 'Expected indentation of 4 spaces (indentation)',
+        position: {
+            column: 1,
+            line: 2,
+        },
+        rule: 'indentation (stylelint)',
+    }]);
 });
 ```
 
