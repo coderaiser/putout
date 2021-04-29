@@ -1,13 +1,8 @@
 'use strict';
 
-const {join} = require('path');
-const {readFile} = require('fs/promises');
+const {createTest} = require('@putout/test/processor');
 
-const test = require('supertape');
-const {runProcessors} = require('@putout/engine-processor');
-const processFile = require('putout/process-file');
-
-const process = getProcess({
+const test = createTest(__dirname, {
     extension: 'json',
     processors: [
         'json',
@@ -18,121 +13,10 @@ const process = getProcess({
 });
 
 test('putout: processor: json', async (t) => {
-    const {
-        output,
-        processedSource,
-    } = await process('eslintrc');
-    
-    t.equal(processedSource, output);
-    t.end();
+    await t.process('eslintrc');
 });
 
 test('putout: processor: json', async (t) => {
-    const process = getProcess({
-        extension: 'json',
-        processors: [
-            'json',
-        ],
-        plugins: [
-            'package-json',
-        ],
-    });
-    
-    const {
-        output,
-        processedSource,
-    } = await process('package');
-    
-    t.equal(processedSource, output);
-    t.end();
+    await t.process('package', ['package-json']);
 });
-
-test('putout: processor: json', async (t) => {
-    const process = getProcess({
-        extension: 'json',
-        processors: [
-            'json',
-        ],
-        plugins: [
-            'package-json',
-        ],
-    });
-    
-    const {
-        output,
-        processedSource,
-    } = await process('package');
-    
-    t.equal(processedSource, output);
-    t.end();
-});
-
-test('putout: processor: json', async (t) => {
-    const process = getProcess({
-        extension: 'json',
-        processors: [
-            'json',
-        ],
-        plugins: [
-            'package-json',
-        ],
-    });
-    
-    const {
-        output,
-        processedSource,
-    } = await process('package');
-    
-    t.equal(processedSource, output);
-    t.end();
-});
-
-test('putout: processor: json', async (t) => {
-    const {
-        output,
-        processedSource,
-    } = await process('eslintrc');
-    
-    t.equal(processedSource, output);
-    t.end();
-});
-
-test('putout: processor: json', async (t) => {
-    const {
-        output,
-        processedSource,
-    } = await process('eslintrc');
-    
-    t.equal(processedSource, output);
-    t.end();
-});
-
-function getProcess({processors, plugins, extension}) {
-    return async (name) => {
-        const inputName = join(__dirname, 'fixture', `${name}.${extension}`);
-        const outputName = join(__dirname, 'fixture', `${name}-fix.${extension}`);
-        
-        const rawSource = await readFile(inputName, 'utf8');
-        const output = await readFile(outputName, 'utf8');
-        const options = {
-            dir: __dirname,
-            processors,
-            plugins,
-        };
-        
-        const fix = true;
-        const {processedSource} = await runProcessors({
-            fix,
-            name: inputName,
-            processFile: processFile({fix}),
-            options,
-            rawSource,
-        });
-        
-        return {
-            processedSource,
-            output,
-        };
-    };
-}
 

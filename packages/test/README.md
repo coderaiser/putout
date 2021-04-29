@@ -8,36 +8,42 @@
 
 Test runner for `putout plugins`. Basically it is [supercharged](https://github.com/coderaiser/supertape) `tape` with aditional asseritions:
 
-# API
+## Install
 
-## report(filename, message)
+```
+npm i @putout/test -D
+```
+
+## Plugins API
+
+### report(filename, message)
 checks error message of a plugin
 
-## reportCode(input, message)
+### reportCode(input, message)
 checks error message of a plugin from `input` code
 
-## transform(filename [, output, plugins])
+### transform(filename [, output, plugins])
 check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory
 
-## transformCode(input, output)
+### transformCode(input, output)
 check transform of `input` -> `output` code
 
-## reportWithOptions(filename, options)
+### reportWithOptions(filename, options)
 check report of `filename.js` with `options`
 
-## noReportWithOptions(filename, options)
+### noReportWithOptions(filename, options)
 check no report of `filename.js` with `options`
 
-## transformWithOptions(filename, options)
+### transformWithOptions(filename, options)
 check transform of `filename.js` with `options`
 
-## noTransformWithOptions(filename, options)
+### noTransformWithOptions(filename, options)
 check transform of `filename.js` with `options`
 
-## noReport(filename)
+### noReport(filename)
 checks error message of a plugin not produces
 
-## noReportAfterTransform(filename)
+### noReportAfterTransform(filename)
 checks error message of a plugin not produces
 
 ```js
@@ -47,30 +53,19 @@ test('test: no report after transform', (t) => {
 });
 ```
 
-## noReportCode(filename)
+### noReportCode(filename)
 checks error message of a plugin not produces with a `code`
 
-## noTransform(filename)
+### noTransform(filename)
 check transform of `filename.js` produce nothing
 
-
-## format(formatter, filename)
+### format(formatter, filename)
 check file name formatting (pass `process.env.UPDATE=1` to save fixture)
 
-## formatMany(formatter, [filename1, filename2])
+### formatMany(formatter, [filename1, filename2])
 check file name formatting (pass `process.env.UPDATE=1` to save fixture)
 
-## Install
-
-```
-npm i @putout/test -D
-```
-
-## Usage Example
-
-### test(dir, plugin)
-- `dir` - directory that contains fixtures` subdirectory;
-- `plugins` - plugin object contains `name of a plugin` and `plugin function`;
+#### Usage Example
 
 Here is example of tests for [remove-console](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-console):
 
@@ -109,6 +104,34 @@ test('test: declared', (t) => {
 test('test: declared', (t) => {
     t.noTransformCode('alert()');
     t.end();
+});
+```
+
+## Processors API
+
+With `processors api` you can test `processors` in a simplest possible way.
+
+### Example
+
+```js
+const {createTest} = require('@putout/test/processor');
+
+const test = createTest(__dirname, {
+    extension: 'json',
+    processors: [
+        'json',
+    ],
+    plugins: [
+        'eslint',
+    ],
+});
+
+test('putout: processor: json', async (t) => {
+    await t.process('eslintrc');
+});
+
+test('putout: processor: json', async (t) => {
+    await t.process('package', ['package-json']);
 });
 ```
 
