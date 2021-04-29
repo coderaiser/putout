@@ -18,11 +18,7 @@ npm i @putout/plugin-remove-unused-expressions -D
 ```json
 {
     "rules": {
-        "remove-unused-expressions": ["on", {
-            "dismiss": [
-                "strict mode"
-            ]
-        }]
+        "remove-unused-expressions": "on"
     }
 }
 ```

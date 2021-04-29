@@ -6,9 +6,7 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.traverse = ({push, options}) => {
-    const {dismiss = []} = options;
-    
+module.exports.traverse = ({push}) => {
     return {
         ExpressionStatement(path) {
             const expressionPath = path.get('expression');
@@ -25,16 +23,26 @@ module.exports.traverse = ({push, options}) => {
             if (expressionPath.isMemberExpression())
                 return push(expressionPath);
             
-            if (!expressionPath.isLiteral())
-                return;
-            
-            const {node} = expressionPath;
-            
-            if (dismiss.includes(node.value))
-                return;
-            
-            push(expressionPath);
+            if (isNotDirectiveLiteral(expressionPath))
+                return push(expressionPath);
         },
     };
 };
+
+function isNotDirectiveLiteral(path) {
+    if (!path.isLiteral())
+        return false;
+    
+    if (!path.isStringLiteral())
+        return true;
+    
+    const {node, parentPath} = path;
+    
+    if (node.value !== 'use strict')
+        return true;
+    
+    const isDirective = parentPath === parentPath.parentPath.get('body.0');
+    
+    return !isDirective;
+}
 

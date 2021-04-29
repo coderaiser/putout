@@ -41,12 +41,7 @@ test('remove unused expression: transformCode: member expression', (t) => {
     t.end();
 });
 
-test('remove unused expression: transformCode: options', (t) => {
-    t.noTransformWithOptions('options', {
-        dismiss: [
-            'hello world',
-        ],
-    });
+test('remove unused expression: transform: duplicate strict mode', (t) => {
+    t.transform('duplicate-strict-mode');
     t.end();
 });
-
