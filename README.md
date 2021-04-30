@@ -1406,7 +1406,7 @@ If you need to `remove-something` create `putout` plugin with a name `putout-plu
 }
 ```
 
-Add `putout` as a `peerDependency` to your `packages.json`.
+Add `putout` as a `peerDependency` to your `packages.json` (>= of version you developing for).
 
 *Always add keywords `putout`, `putout-plugin` when publish putout plugin to `npm` so others can easily find it.*
 
