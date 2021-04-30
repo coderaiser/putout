@@ -5,6 +5,7 @@ const {stub} = require('supertape');
 const {
     createTest,
     _createProcess,
+    _createNoProcess,
     _createComparePlaces,
 } = require('.');
 const test = createTest(__dirname, {
@@ -21,9 +22,29 @@ test('putout: test: processor: process', async (t) => {
     await t.process('eslintrc');
 });
 
-test('putout: test: processor: no filename', (t) => {
+test('putout: test: processor: no process', async (t) => {
+    await t.noProcess('empty-script.html', null, [
+        'html',
+    ]);
+});
+
+test('putout: test: processor: process: no filename', (t) => {
     const fail = stub();
     const createRunner = _createProcess();
+    const operator = {
+        fail,
+    };
+    
+    const runner = createRunner(operator);
+    runner();
+    
+    t.calledWith(fail, [`Expected filename to be string!`]);
+    t.end();
+});
+
+test('putout: test: processor: no process: no filename', (t) => {
+    const fail = stub();
+    const createRunner = _createNoProcess();
     const operator = {
         fail,
     };

@@ -61,8 +61,9 @@ module.exports.preProcess = async (rawSource) => {
         async script(node) {
             const {content} = node;
             
-            if (!content)
+            if (!content) {
                 return;
+            }
             
             const source = removePrefixSpaces(content);
             const index = rawSource.indexOf(content);

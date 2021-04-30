@@ -30,7 +30,7 @@
   ],
   "devDependencies": {
     "@putout/engine-processor": "*",
-    "@putout/test": "^3.1.1",
+    "@putout/test": "^3.5.0",
     "c8": "^7.5.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
@@ -39,8 +39,7 @@
     "lerna": "^4.0.0",
     "madrun": "^8.6.4",
     "nodemon": "^2.0.1",
-    "putout": "*",
-    "supertape": "^5.0.0"
+    "putout": "*"
   },
   "peerDependencies": {
     "putout": ">=14"

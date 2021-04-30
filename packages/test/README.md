@@ -142,6 +142,18 @@ test('putout: processor: json', async (t) => {
 });
 ```
 
+### noProcess(filename [, plugins, processors])
+
+Check that filename would not be processed.
+
+Example:
+
+```js
+test('putout: process: json: no process', async (t) => {
+    await t.noProcess('eslintrc', [], ['json']);
+});
+```
+
 ### comparePlaces(filename, places)
 
 ```js
