@@ -254,7 +254,7 @@ test('putout: engine-processor: markdown: no fix: processed places', async (t) =
     t.end();
 });
 
-test('putout: engine-processor: markdown: no fix: places', async (t) => {
+test('putout: engine-processor: markdown: no fix: should not change source', async (t) => {
     const name = join(__dirname, 'fixture/places.md');
     const options = {
         processors: [
@@ -276,6 +276,31 @@ test('putout: engine-processor: markdown: no fix: places', async (t) => {
     });
     
     t.equal(processedSource, rawSource, 'should equal');
+    t.end();
+});
+
+test('putout: engine-processor: markdown: fix: no places', async (t) => {
+    const name = join(__dirname, 'fixture/places.md');
+    const options = {
+        processors: [
+            'markdown',
+        ],
+    };
+    const rawSource = await readFile(name, 'utf8');
+    
+    const fix = true;
+    const {places} = await runProcessors({
+        fix,
+        name,
+        processFile: processFile({
+            name: `${name}{js}`,
+            fix,
+        }),
+        options,
+        rawSource,
+    });
+    
+    t.deepEqual(places, []);
     t.end();
 });
 
