@@ -283,7 +283,7 @@ test('putout: parser: strict mode', (t) => {
 test('putout: parser: duplicate', (t) => {
     const [error] = tryCatch(parse, fixture.duplicate);
     
-    t.equal(error.message, `Identifier 'x' has already been declared (1:11)`);
+    t.equal(error.message, `Identifier 'x' has already been declared. (1:11)`);
     t.end();
 });
 
