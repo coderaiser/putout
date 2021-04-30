@@ -35,7 +35,7 @@ test('remark-putout: error', async (t) => {
             },
         })
         .process(file, (err, file) => {
-            const message = 'Unterminated string constant (1:10)';
+            const message = 'Unterminated string constant. (1:10)';
             
             t.equal(file.messages[0].message, message);
             t.end();
