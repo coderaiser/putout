@@ -1,141 +1,41 @@
 'use strict';
 
-const {join} = require('path');
-const {readFile} = require('fs/promises');
+const {createTest} = require('@putout/test/processor');
 
-const test = require('supertape');
-const {runProcessors} = require('@putout/engine-processor');
-const processFile = require('putout/process-file');
-
-const process = getProcess({
+const test = createTest(__dirname, {
+    extension: '',
     processors: [
         'ignore',
     ],
-    rules: {
-        gitignore: ['on', {
-            dismiss: ['yarn-error.log'],
-        }],
-    },
     plugins: [
         'gitignore',
     ],
 });
 
 test('putout: processor: ignore', async (t) => {
-    const {
-        output,
-        processedSource,
-    } = await process('.gitignore');
-    
-    t.equal(output, processedSource);
-    t.end();
+    await t.process('.gitignore');
 });
 
 test('putout: processor: ignore: windows', async (t) => {
-    const {
-        output,
-        processedSource,
-    } = await process('windows-gitignore');
-    
-    t.equal(processedSource, output);
-    t.end();
+    await t.process('windows-gitignore');
 });
 
 test('putout: processor: ignore: rc', async (t) => {
-    const process = getProcess({
-        processors: [
-            'ignore',
-        ],
-        plugins: [
-            'browserlist',
-        ],
-    });
-    
-    const {
-        output,
-        processedSource,
-    } = await process('browserlistrc');
-    
-    t.equal(output, processedSource);
-    t.end();
+    await t.process('browserlistrc', ['browserlist']);
 });
 
 test('putout: processor: ignore: rc: eslintrc: no crash', async (t) => {
-    const process = getProcess({
-        processors: [
-            'ignore',
-        ],
-        plugins: [
-            'browserlist',
-        ],
-    });
-    
-    const {places} = await process('eslintrc', {
-        noTransform: true,
-    });
-    
-    t.notOk(places.length);
-    t.end();
-});
-
-test('putout: processor: ignore: no fix', async (t) => {
-    const {
-        rawSource,
-        processedSource,
-    } = await process('.gitignore', {fix: false});
-    
-    t.equal(processedSource, rawSource);
-    t.end();
+    await t.comparePlaces('eslintrc', [{
+        message: 'Dot files should be added to .gitignore',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'gitignore',
+    }]);
 });
 
 test('putout: processor: ignore: no new line', async (t) => {
-    const {
-        output,
-        processedSource,
-    } = await process('no-new-line-ignore', {fix: true});
-    
-    t.equal(processedSource, output);
-    t.end();
+    await t.process('no-new-line-ignore');
 });
-
-function getProcess({processors, plugins, rules, ext = ''}) {
-    return async (name, {fix = true, noTransform = false} = {}) => {
-        const inputName = join(__dirname, 'fixture', `${name}${ext}`);
-        
-        let outputName;
-        let output;
-        
-        if (!noTransform) {
-            outputName = join(__dirname, 'fixture', `${name}-fix${ext}`);
-            output = await readFile(outputName, 'utf8');
-        }
-        
-        const rawSource = await readFile(inputName, 'utf8');
-        
-        const options = {
-            dir: __dirname,
-            processors,
-            plugins,
-            rules,
-        };
-        
-        const {
-            processedSource,
-            places,
-        } = await runProcessors({
-            fix,
-            name: inputName,
-            processFile: processFile({fix}),
-            options,
-            rawSource,
-        });
-        
-        return {
-            rawSource,
-            output,
-            processedSource,
-            places,
-        };
-    };
-}
 

@@ -7,7 +7,9 @@ const {
     _createProcess,
     _createNoProcess,
     _createComparePlaces,
+    _addDot,
 } = require('.');
+
 const test = createTest(__dirname, {
     extension: 'json',
     processors: [
@@ -71,6 +73,11 @@ test('putout: test: processor: comparePlaces: no filename', (t) => {
     runner();
     
     t.calledWith(fail, [`Expected filename to be string!`]);
+    t.end();
+});
+
+test('putout: test: processor: addDot', (t) => {
+    t.equal(_addDot(''), '');
     t.end();
 });
 

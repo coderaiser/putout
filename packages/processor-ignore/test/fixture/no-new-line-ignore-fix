@@ -1,4 +1,5 @@
 .*
 madrun.js
 *.swp
+yarn-error.log
 coverage

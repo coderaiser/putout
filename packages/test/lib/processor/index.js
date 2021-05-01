@@ -20,6 +20,9 @@ const buildOptions = ({options, plugins, processors}) => {
     };
 };
 
+const addDot = (a) => a ? `.${a}` : '';
+module.exports._addDot = addDot;
+
 module.exports.createTest = (dir, options) => {
     return test.extend({
         process: createProcess(dir, options),
@@ -84,11 +87,11 @@ const createComparePlaces = (dir, options) => (operator) => async (filename, exp
 module.exports._createComparePlaces = createComparePlaces;
 
 async function process(filename, dir, {processors, plugins, extension, fix = true, noChange = false}) {
-    extension = extname(filename).slice(1) || extension;
-    filename = basename(filename, `.${extension}`);
+    extension = addDot(extname(filename).slice(1) || extension);
+    filename = basename(filename, String(extension));
     
-    const inputName = join(dir, 'fixture', `${filename}.${extension}`);
-    const outputName = join(dir, 'fixture', `${filename}-fix.${extension}`);
+    const inputName = join(dir, 'fixture', `${filename}${extension}`);
+    const outputName = join(dir, 'fixture', `${filename}-fix${extension}`);
     
     const rawSource = await readFile(inputName, 'utf8');
     const output = !fix || noChange ? '' : await readFile(outputName, 'utf8');
