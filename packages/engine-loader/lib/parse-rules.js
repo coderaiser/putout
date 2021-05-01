@@ -11,9 +11,9 @@ const defaultOptions = () => Object.create(null);
 const parseState = (rule, value) => validateState(rule, value) && value === 'on' || value !== 'off';
 
 module.exports = (rules) => {
-    rules = rmDuplicates(rules);
-    const result = [];
+    rules = parseSubrules(rules);
     
+    const result = [];
     const plugin = null;
     const msg = '';
     
@@ -123,7 +123,7 @@ function validateState(rule, value) {
 const cut = (a) => a.split('/')[0];
 const isExclude = (a) => a.includes('babel') || a.includes('jscodeshift');
 
-function rmDuplicates(rules) {
+function parseSubrules(rules) {
     const newRules = {};
     
     for (const [rule, value] of entries(rules)) {
