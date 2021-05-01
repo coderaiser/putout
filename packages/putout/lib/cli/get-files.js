@@ -8,7 +8,6 @@ const tryToCatch = require('try-to-catch');
 
 const {getSupportedGlob} = require('./supported-files');
 
-const mergeArrays = (a) => [].concat(...a);
 const rmDuplicates = (a) => Array.from(new Set(a));
 const unixifyPath = (a) => !a.includes('\\') ? a : a.replace(/\\/g, '/');
 
@@ -19,9 +18,9 @@ module.exports = async (args, options) => {
 async function getFiles(args, options) {
     const promises = args.map(addExt(options));
     const files = await Promise.all(promises);
-    const mergedFiles = mergeArrays(files);
+    const mergedFiles = files.flat();
     
-    return rmDuplicates(mergeArrays(mergedFiles))
+    return rmDuplicates(mergedFiles)
         .map(normalize);
 }
 
@@ -60,7 +59,7 @@ const addExt = (options) => async function addExt(a) {
     
     const result = [
         ...jsFiles,
-        ...mergeArrays(promiseResults),
+        ...promiseResults.flat(),
     ];
     
     return result;
