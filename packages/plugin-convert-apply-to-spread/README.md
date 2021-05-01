@@ -15,39 +15,24 @@ npm i @putout/plugin-convert-apply-to-spread -D
 
 ## Rule
 
-Rule `convert-apply-to-spread` is enabled by default, to disable add to `.putout.json`:
-
 ```json
 {
     "rules": {
-        "convert-apply-to-spread": "off"
+        "convert-apply-to-spread": "on"
     }
 }
 ```
 
-## Code Example
+## ❌ Incorrect code example
 
 ```js
-const {readFileSync} = require('fs');
-const source = readFileSync('./1.js', 'utf8');
-
-const putout = require('putout');
-
-console.log(source);
-// outputs
-`
 console.log.apply(console, arguments);
-`;
+```
 
-const result = putout(source, {
-    plugins: [
-        'convert-apply-to-spread',
-    ],
-});
-// returns
-`
+## ✅ Correct code Example
+
+```js
 console.log(...arguments);
-`;
 ```
 
 ## License

@@ -1,0 +1,7 @@
+{
+    "match": {
+        "README.md": {
+            "convert-apply-to-spread": "off"
+        }
+    }
+}
