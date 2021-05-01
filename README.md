@@ -1063,6 +1063,15 @@ result = result ?? 'hello';
 
 </details>
 
+<details><summary>convert <code>concat</code> to <code>flat</code></summary>
+
+```diff
+-[].concat(...array);
++array.flat();
+```
+
+</details>
+
 <details><summary>convert <code>arguments</code> to <code>rest</code></summary>
 
 ```diff
@@ -1153,6 +1162,8 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
+| [`@putout/plugin-convert-apply-to-spread`](/packages/plugin-convert-apply-to-spread) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-apply-to-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-apply-to-spread) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-apply-to-spread)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-apply-to-spread) |
+| [`@putout/plugin-convert-concat-to-flat`](/packages/plugin-convert-concat-to-flat) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-concat-to-flat.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-concat-to-flat) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-concat-to-flat)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-concat-to-flat) |
 | [`@putout/plugin-convert-esm-to-commonjs`](/packages/plugin-convert-esm-to-commonjs) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-esm-to-commonjs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-esm-to-commonjs) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-esm-to-commonjs)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-esm-to-commonjs) |
 | [`@putout/plugin-convert-commonjs-to-esm`](/packages/plugin-convert-commonjs-to-esm) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-commonjs-to-esm.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-commonjs-to-esm) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-commonjs-to-esm)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-commonjs-to-esm) |
 | [`@putout/plugin-convert-array-copy-to-slice`](/packages/plugin-convert-array-copy-to-slice) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-array-copy-to-slice.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-array-copy-to-slice) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-array-copy-to-slice)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-array-copy-to-slice) |

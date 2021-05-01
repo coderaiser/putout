@@ -54,8 +54,10 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - split `nested destructuring`;
 - simplify ternary;
 - if absent `strict mode` directive in `commonjs` add it;
-- convert `esm` to `commonjs` (disabled);
-- convert `commonjs` to `esm` (disabled);
+- convert `apply` to `spread`;
+- convert `concat` to `flat`;
+- convert `esm` to `commonjs` (enabled for `*.cjs`);
+- convert `commonjs` to `esm` (enabled for `*.mjs`);
 - convert `template` with one `expression` to `string`;
 - convert `equal` to `strict equal`;
 - convert `indexOf` to `includes`;
