@@ -1,105 +1,27 @@
 'use strict';
 
-const {join} = require('path');
-const {readFile} = require('fs/promises');
-
-const test = require('supertape');
-const {runProcessors} = require('@putout/engine-processor');
-const processFile = require('putout/process-file');
+const {createTest} = require('@putout/test/processor');
+const test = createTest(__dirname, {
+    processors: [
+        'yaml',
+    ],
+});
 
 test('putout: processor: yaml', async (t) => {
-    const ext = '.yml';
-    const name = 'travis';
-    const inputName = join(__dirname, 'fixture', `${name}${ext}`);
-    const outputName = join(__dirname, 'fixture', `${name}-fix${ext}`);
-    
-    const rawSource = await readFile(inputName, 'utf8');
-    const output = await readFile(outputName, 'utf8');
-    
-    const options = {
-        dir: __dirname,
-        processors: [
-            'yaml',
-        ],
-        plugins: [
-            'travis/disable-cache',
-        ],
-    };
-    
-    const fix = true;
-    const {processedSource} = await runProcessors({
-        fix,
-        name: inputName,
-        processFile: processFile({
-            fix,
-        }),
-        options,
-        rawSource,
-    });
-    
-    t.equal(processedSource, output);
-    t.end();
+    await t.process('travis.yml', ['travis/disable-cache']);
 });
 
 test('putout: processor: yaml: duplicate', async (t) => {
-    const ext = '.yml';
-    const name = 'duplicate';
-    const inputName = join(__dirname, 'fixture', `${name}${ext}`);
-    
-    const rawSource = await readFile(inputName, 'utf8');
-    
-    const options = {
-        dir: __dirname,
-        processors: [
-            'yaml',
-        ],
-    };
-    
-    const {places} = await runProcessors({
-        name: inputName,
-        processFile: processFile({
-            fix: false,
-        }),
-        options,
-        rawSource,
-    });
-    
-    const expected = [{
+    await t.comparePlaces('duplicate.yml', [{
         position: {
             column: 1,
             line: 4,
         },
         message: 'Duplicated mapping key (4:3)',
         rule: 'duplicated-mapping-key (yaml)',
-    }];
-    
-    t.deepEqual(places, expected);
-    t.end();
+    }]);
 });
 
 test('putout: processor: yaml: duplicate: file content', async (t) => {
-    const ext = '.yml';
-    const name = 'duplicate';
-    const inputName = join(__dirname, 'fixture', `${name}${ext}`);
-    
-    const rawSource = await readFile(inputName, 'utf8');
-    
-    const options = {
-        dir: __dirname,
-        processors: [
-            'yaml',
-        ],
-    };
-    
-    const {processedSource} = await runProcessors({
-        name: inputName,
-        processFile: processFile({
-            fix: false,
-        }),
-        options,
-        rawSource,
-    });
-    
-    t.equal(processedSource, rawSource);
-    t.end();
+    await t.noProcess('duplicate.yml');
 });
