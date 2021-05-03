@@ -872,7 +872,7 @@ function world(a) {
 
 </details>
 
-<details><summary>apply <code>Array.at</code>(disabled, <a href=https://github.com/tc39/proposal-relative-indexing-method>stage-3</a>)</summary>
+<details><summary>apply <code>Array.at</code>(not bunled, <a href=https://github.com/tc39/proposal-relative-indexing-method>stage-3</a>)</summary>
 
 ```diff
 -const latest = (a) => a[a.length - 1];
@@ -903,7 +903,7 @@ import fs from 'fs';
 
 </details>
 
-<details><summary>convert <code>throw</code> statement into expression (<a href=https://github.com/tc39/proposal-throw-expressions>proposal-throw-expressions</a>, disabled)</summary>
+<details><summary>convert <code>throw</code> statement into expression (<a href=https://github.com/tc39/proposal-throw-expressions>proposal-throw-expressions</a>, not bundled)</summary>
 
 ```diff
 -const fn = (a) => {throw Error(a);}
@@ -1143,7 +1143,6 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-destructuring)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-top-level-await`](/packages/plugin-apply-top-level-await) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-top-level-await.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-top-level-await) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-top-level-await)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-top-level-await) |
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-optional-chaining)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-optional-chaining) |
-| [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-array-at)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-array-at) |
 
 ### Splitters
 
@@ -1245,6 +1244,8 @@ Next packages not bundled with `putout` but can be installed separately.
 | [`@putout/plugin-postcss`](/packages/plugin-postcss) | [![npm](https://img.shields.io/npm/v/@putout/plugin-postcss.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-postcss) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-postcss)](https://david-dm.org/coderaiser/putout?path=packages/plugin-postcss) |
 | [`@putout/plugin-convert-any-to-primitive`](/packages/plugin-convert-any-to-primitive) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-any-to-primitive.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-any-to-primitive) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-any-to-primitive)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-any-to-primitive) |
 | [`@putout/plugin-travis`](/packages/plugin-travis) | [![npm](https://img.shields.io/npm/v/@putout/plugin-travis.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-travis) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-travis)](https://david-dm.org/coderaiser/putout?path=packages/plugin-travis) |
+| [`@putout/plugin-convert-throw`](/packages/plugin-convert-throw) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-throw.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-throw) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-throw)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-throw) |
+| [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-array-at)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-array-at) |
 
 ### Other
 
