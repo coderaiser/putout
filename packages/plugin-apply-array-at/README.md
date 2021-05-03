@@ -15,7 +15,7 @@ npm i @putout/plugin-apply-array-at
 
 ## Rule
 
-Rule `apply-array-at` is `disable` by default, to `enable` add to `.putout.json`:
+Rule `apply-array-at` is not bundled by default, to `enable` add to `.putout.json`:
 
 ## Rule
 
@@ -23,7 +23,10 @@ Rule `apply-array-at` is `disable` by default, to `enable` add to `.putout.json`
 {
     "rules": {
         "apply-array-at": "on"
-    }
+    },
+    "plugins": [
+        "apply-array-at"
+    ]
 }
 ```
 
