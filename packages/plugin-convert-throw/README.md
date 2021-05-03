@@ -19,7 +19,10 @@ npm i @putout/plugin-convert-throw -D
 {
     "rules": {
         "convert-throw": "on"
-    }
+    },
+    "plugins": [
+        "convert-throw"
+    ]
 }
 ```
 
