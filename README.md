@@ -162,6 +162,8 @@ To enable it use:
 }
 ```
 
+Processors can be tested using [@putout/test/processors](https://github.com/coderaiser/putout/tree/master/packages/test#processors-api).
+
 ## API
 
 ### putout(source, options)
