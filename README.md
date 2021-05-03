@@ -101,11 +101,11 @@ PUTOUT_FILES=lib,test putout --fix
 
 ## Architecture
 
-`Putout` consists of a couple simple parts, here is workflow representation.
+`Putout` consists of a couple simple parts, here is workflow representation:
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout.png)
 
-And here is CLI sheme.
+And here is CLI sheme:
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-cli.png)
 
