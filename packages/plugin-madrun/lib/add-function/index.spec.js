@@ -17,7 +17,7 @@ test('madrun: add function: transform: string', (t) => {
 });
 
 test('madrun: add function: transform: exports', (t) => {
-    t.transform('exports');
+    t.noTransform('exports');
     t.end();
 });
 
@@ -28,6 +28,11 @@ test('madrun: add function: transform: call', (t) => {
 
 test('madrun: add function: transform: no exports', (t) => {
     t.transform('no-exports');
+    t.end();
+});
+
+test('madrun: add function: transform: export-default', (t) => {
+    t.transform('export-default');
     t.end();
 });
 
