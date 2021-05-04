@@ -2,11 +2,9 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "test:base": "madrun test:base",
     "test": "madrun test",
     "test:fail": "madrun test:fail",
     "test:slow": "madrun test:slow",
-    "coverage:base": "madrun coverage:base",
     "coverage:ci": "madrun coverage:ci",
     "coverage": "madrun coverage",
     "coverage:slow": "madrun coverage:slow",
@@ -28,16 +26,11 @@
     "bootstrap": "madrun bootstrap",
     "report": "madrun report"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "putout --staged -f progress --cache"
-    }
-  },
   "devDependencies": {
     "c8": "^7.5.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-putout": "^7.0.0",
-    "husky": "^4.2.1",
+    "husky": "^6.0.0",
     "lerna": "^4.0.0",
     "madrun": "^8.6.0",
     "simport": "^1.1.3",

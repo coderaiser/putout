@@ -11,5 +11,8 @@
         "remove-useless-spread/object": ["on", {
             "exclude": "module.exports.rules = __"
         }]
-    }
+    },
+    "ignore": [
+        ".husky"
+    ]
 }
