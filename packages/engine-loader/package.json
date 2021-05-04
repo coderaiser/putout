@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
     "@putout/engine-parser": "^4.0.1",
     "diff-match-patch": "^1.0.4",
     "jscodeshift": "^0.12.0",
