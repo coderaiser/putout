@@ -58,10 +58,12 @@ Then configure the rules you want to use under the rules section.
         "putout/long-properties-destructuring": "error",
         "putout/destructuring-as-function-argument": "error",
         "putout/align-spaces": "error",
+        "putout/keyword-spacing": "error",
         "putout/newline-function-call-arguments": "error",
         "putout/function-declaration-paren-newline": "error",
         "putout/remove-newline-after-default-import": "error",
-        "putout/objects-braces-inside-array": "error"
+        "putout/objects-braces-inside-array": "error",
+        "putout/variable-init-with-object": "error"
     }
 }
 ```
