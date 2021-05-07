@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-webpack",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin helps with migration to latest webpack",
   "homepage": "http://github.com/coderaiser/putout",
