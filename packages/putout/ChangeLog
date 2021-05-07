@@ -1,3 +1,16 @@
+2021.05.07, v17.0.1
+
+fix:
+- (putout) exports: add package.json to show version in putout editor
+- (@putout/engine-loader) rm unused @babel/preset-env
+
+
+feature:
+- (@putout/plugin-madrun) add-function: add support of export default
+- (package) husky v6.0.0
+
+
+
 2021.05.03, v17.0.0
 
 feature:
