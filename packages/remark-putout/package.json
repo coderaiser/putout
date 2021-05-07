@@ -24,8 +24,8 @@
   },
   "dependencies": {
     "remark-cli": "^9.0.0",
-    "unist-util-visit": "^2.0.3",
-    "try-catch": "^3.0.0"
+    "try-catch": "^3.0.0",
+    "unist-util-visit": "^3.0.1"
   },
   "keywords": [
     "putout",
