@@ -1,4 +1,0 @@
-```js
-const a = 'hello
-```
-
