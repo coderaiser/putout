@@ -11,7 +11,8 @@
     "./parse-error": "./lib/cli/parse-error.js",
     "./lib/parse-options": "./lib/parse-options/index.js",
     "./process-file": "./lib/cli/process-file.js",
-    "./cli": "./lib/cli/index.js"
+    "./cli": "./lib/cli/index.js",
+    "./package.json": "./package.json"
   },
   "bin": {
     "putout": "bin/putout.mjs"
