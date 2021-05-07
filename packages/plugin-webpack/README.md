@@ -18,7 +18,9 @@ npm i @putout/plugin-webpack -D
 ```json
 {
     "rules": {
-        "webpack/convert-loader-to-use": "on"
+        "webpack/convert-loader-to-use": "on",
+        "webpack/convert-query-loader-to-use": "on",
+        "webpack/convert-node-to-resolve-fallback": "on"
     }
 }
 ```
@@ -74,6 +76,39 @@ const rules = [{
         },
     }],
 }];
+```
+
+## convert-node-to-resolve-fallback
+
+Fixes webpack comilation error:
+
+```
+Module not found: Error: Can't resolve 'path'`
+
+BREAKING CHANGE: webpack < 5 used to include polyfills for node.js core modules by default.
+This is no longer the case. Verify if you need this module and configure a polyfill for it.
+```
+
+### ❌ Incorrect code example
+
+```js
+module.exports = {
+    node: {
+        path: 'empty',
+    },
+};
+```
+
+### ✅ Correct code Example
+
+```js
+module.exports = {
+    resolve: {
+        fallback: {
+            path: false,
+        },
+    },
+};
 ```
 
 ## License

@@ -7,5 +7,6 @@ const getRule = (a) => ({
 module.exports.rules = {
     ...getRule('convert-loader-to-use'),
     ...getRule('convert-query-loader-to-use'),
+    ...getRule('convert-node-to-resolve-fallback'),
 };
 
