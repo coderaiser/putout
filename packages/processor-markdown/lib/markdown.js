@@ -26,9 +26,16 @@ module.exports.files = [
 const loadDependencies = once(async () => {
     const unified = await simport('unified');
     const stringify = await simport('remark-stringify');
-    const visit = await simport('unist-util-visit');
     const preset = await simport('remark-preset-lint-consistent');
     const jsonProcessor = await simport('@putout/processor-json');
+    
+    // Fix: TypeError: visit is not a function
+    //
+    // remark installs "uninst-util-visit" v2 using npm and has `module.exports = visit`
+    // but v3 has `export const visit = () => {}`
+    // and simport imports nearest version of "uninst-util-visit" which is v2
+    // that's why regular import should be used here while remark not transit to v3
+    const {visit} = await import('unist-util-visit');
     
     return {
         unified,
