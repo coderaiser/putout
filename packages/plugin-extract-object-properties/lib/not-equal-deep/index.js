@@ -12,6 +12,7 @@ module.exports.report = () => `Object properties should be extracted into variab
 module.exports.fix = ({path, expandPath, property}) => {
     expandPath.node.properties.push(property);
     replaceWith(path, property);
+    path.scope.crawl();
 };
 
 module.exports.traverse = ({push}) => {

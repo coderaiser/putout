@@ -22,10 +22,6 @@ module.exports.report = () => {
     return `"operator.replaceWith" should be called instead of "path.replaceWith"`;
 };
 
-const replaceWithAST = template.ast(`
-    const {replaceWith} = require('putout').operator;
-`);
-
 module.exports.fix = ({path, calleePath, property, object, program, isInserted}) => {
     replaceWith(calleePath, property);
     
@@ -38,6 +34,10 @@ module.exports.fix = ({path, calleePath, property, object, program, isInserted})
         return;
     
     if (!bindings.replaceWithMultiple && !bindings.insertAfter && !isInserted()) {
+        const replaceWithAST = template.ast.fresh(`
+            const {replaceWith} = require('putout').operator;
+        `);
+        
         const {types} = bindings;
         const pathToInsertAfter = types ? types.path.parentPath : strictModePath;
         

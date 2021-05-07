@@ -1,6 +1,8 @@
 'use strict';
 
 const applyDestructuring = require('@putout/plugin-apply-destructuring');
+const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
+const putout = require('@putout/plugin-putout');
 
 const test = require('@putout/test')(__dirname, {
     'extract-object-properties': require('.'),
@@ -48,9 +50,18 @@ test('plugin-extract-object-properties: not-equal-deep: no transform: different 
     t.end();
 });
 
-test('plugin-extract-object-properties: not-equal-deep: no transform: no scope', (t) => {
+test('plugin-extract-object-properties: not-equal-deep: transform: no scope', (t) => {
     t.transform('no-scope', {
         'apply-destructuring': applyDestructuring,
     });
     t.end();
 });
+
+test('plugin-extract-object-properties: not-equal-deep: transform: remove unused-varaibles: duplicate declaration', (t) => {
+    t.transform('remove-unused-variables', {
+        'remove': removeUnusedVariables,
+        'putout/convert-replace-with': putout.rules['convert-replace-with'],
+    });
+    t.end();
+});
+

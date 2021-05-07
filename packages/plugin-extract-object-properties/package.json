@@ -31,8 +31,9 @@
     "only"
   ],
   "devDependencies": {
-    "@putout/plugin-apply-destructuring": "^5.0.0",
-    "@putout/plugin-putout": "^5.0.0",
+    "@putout/plugin-apply-destructuring": "*",
+    "@putout/plugin-putout": "*",
+    "@putout/plugin-remove-unused-variables": "*",
     "@putout/test": "^3.0.0",
     "c8": "^7.5.0",
     "eslint": "^7.0.0",
