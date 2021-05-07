@@ -8,6 +8,7 @@
   "release": false,
   "tag": false,
   "changelog": false,
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git://github.com/coderaiser/putout.git"
@@ -41,17 +42,18 @@
     "madrun": "^8.0.1",
     "remark": "^13.0.0",
     "remark-parse": "^9.0.0",
+    "simport": "^1.2.0",
     "stringify": "^5.2.0",
     "supertape": "^5.0.0",
     "unified": "^9.2.0",
     "vfile-reporter": "^6.0.1"
   },
   "peerDependencies": {
-    "putout": ">=10"
+    "putout": ">=16"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "publishConfig": {
     "access": "public"

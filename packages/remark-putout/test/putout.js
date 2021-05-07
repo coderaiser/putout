@@ -1,12 +1,13 @@
-'use strict';
+import {readFile} from 'fs/promises';
+import {join} from 'path';
 
-const {readFile} = require('fs/promises');
-const {join} = require('path');
+import test from 'supertape';
+import remark from 'remark';
 
-const test = require('supertape');
-const remark = require('remark');
+import putout from '../lib/putout.js';
+import {createCommons} from 'simport';
 
-const putout = require('..');
+const {__dirname} = createCommons(import.meta.url);
 
 test('remark-putout', async (t) => {
     const file = await readFile(join(__dirname, 'fixture', 'js.md'), 'utf8');

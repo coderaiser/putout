@@ -1,12 +1,10 @@
-'use strict';
+import tryCatch from 'try-catch';
+import visit from 'unist-util-visit';
 
-const tryCatch = require('try-catch');
-const visit = require('unist-util-visit');
+import putout from 'putout';
+import parseOptions from 'putout/parse-options';
 
-const putout = require('putout');
-const parseOptions = require('putout/parse-options');
-
-module.exports = (options) => (node, file) => {
+export default (options) => (node, file) => {
     visit(node, 'code', process(file, options));
 };
 
@@ -28,6 +26,7 @@ const process = (file, options) => (node) => {
         ...resultOptions,
         isTS,
     });
+    
     // Combine position of fenced code block with position
     // of code within the code block to produce actual location
     const fixedPosition = {
