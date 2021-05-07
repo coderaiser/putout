@@ -1,5 +1,5 @@
 import tryCatch from 'try-catch';
-import visit from 'unist-util-visit';
+import {visit} from 'unist-util-visit';
 
 import putout from 'putout';
 import parseOptions from 'putout/parse-options';
