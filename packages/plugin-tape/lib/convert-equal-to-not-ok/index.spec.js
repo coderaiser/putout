@@ -19,3 +19,7 @@ test('plugin-tape: convert-equal-to-not-ok: transform: message', (t) => {
     t.end();
 });
 
+test('plugin-tape: convert-equal-to-not-ok: transform: bool', (t) => {
+    t.transform('bool');
+    t.end();
+});
