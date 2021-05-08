@@ -1,3 +1,23 @@
+2021.05.09, v17.1.0
+
+fix:
+- (@putout/processor-markdown) rm useless remark
+- (remark-putout) visit: destructuring
+- (@putout/processor-markdown) loadDependencies: visit: destructuring
+- (@putout/plugin-extract-object-properties) duplicate declaration after putout/convert-replace-with, remove-unused-variables
+
+
+feature:
+- (@putout/plugin-remove-useless-operand) add
+- (@putout/plugin-convert-equal-to-ok) add
+- (@putout/plugin) convert-equal-to-not-ok: add support of boolean
+- (remark-putout) move out to https://github.com/putoutjs/remark-putout
+- (remark-putout) convert to ESM
+- (package) unist-util-visit v3.0.1
+- (@putout/plugin-webpack) add convert-node-to-resolve-fallback
+
+
+
 2021.05.07, v17.0.1
 
 fix:
