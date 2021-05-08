@@ -1102,7 +1102,7 @@ function merge(a) {
 
 </details>
 
-<details><summary>convert <code>binary expression</code> to <code>boolean</code></summary>
+<details><summary>convert <code>comparison</code> to <code>boolean</code></summary>
 
 ```diff
 -   const a = b === b;

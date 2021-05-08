@@ -2,7 +2,7 @@
   "name": "@putout/plugin-convert-comparison-to-boolean",
   "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to convert binary expression to boolean",
+  "description": "putout plugin adds ability to convert comparison to boolean",
   "homepage": "http://github.com/coderaiser/putout",
   "main": "lib/convert-comparison-to-boolean.js",
   "release": false,
