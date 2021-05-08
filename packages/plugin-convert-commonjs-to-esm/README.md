@@ -31,18 +31,12 @@ npm i @putout/plugin-convert-commonjs-to-esm -D
 
 ```js
 const {join} = require('path');
-
-module.exports = () => {
-};
 ```
 
 ## ✅ Correct code Example
 
 ```js
 import {join} from 'path';
-
-export default () => {
-};
 ```
 
 # exports
