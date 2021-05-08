@@ -19,6 +19,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - remove unused `expressions`;
 - remove useless `variables`;
 - remove useless `continue`;
+- remove useless `operand`;
 - remove useless `array constructor`;
 - remove useless `conditions`;
 - remove useless `type convertion`;
