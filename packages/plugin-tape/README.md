@@ -280,6 +280,20 @@ t.equal(error, null);
 t.notOk(error);
 ```
 
+## convert-equal-to-ok
+
+### ❌ Incorrect code example
+
+```js
+t.equal(result, true);
+```
+
+### ✅ Correct code Example
+
+```js
+t.ok(result);
+```
+
 ## License
 
 MIT

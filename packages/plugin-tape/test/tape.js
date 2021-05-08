@@ -64,3 +64,7 @@ test('plugin-test: transform: tape: convert-equal-to-not-ok', (t) => {
     t.end();
 });
 
+test('plugin-test: transform: tape: convert-equal-to-ok', (t) => {
+    t.transform('convert-equal-to-ok');
+    t.end();
+});

@@ -13,6 +13,7 @@ module.exports.rules = {
     ...getRule('convert-emitter-to-promise'),
     ...getRule('convert-ok-to-match'),
     ...getRule('convert-equal-to-not-ok'),
+    ...getRule('convert-equal-to-ok'),
     ...getRule('expand-try-catch-arguments'),
     ...getRule('apply-stub-operator'),
     ...getRule('declare-stub'),
