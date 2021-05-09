@@ -29,3 +29,8 @@ test('plugin-remove-useless-template-expressions: no transform: comments', (t) =
     t.end();
 });
 
+test('plugin-remove-useless-template-expressions: no transform: contains quasis', (t) => {
+    t.noTransform('contains-quasis');
+    t.end();
+});
+

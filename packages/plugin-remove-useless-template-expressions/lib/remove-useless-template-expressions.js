@@ -37,7 +37,7 @@ module.exports.traverse = ({push}) => {
                 if (expr.node.comments)
                     continue;
                 
-                if (expr.isLiteral()) {
+                if (expr.isLiteral() && !expr.isTemplateLiteral()) {
                     push(path);
                     break;
                 }
