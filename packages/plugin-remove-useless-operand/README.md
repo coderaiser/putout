@@ -27,12 +27,14 @@ npm i @putout/plugin-remove-useless-operand
 
 ```js
 a = a + b;
+b += 1;
 ```
 
 ## ✅ Correct code Example
 
 ```js
 a += b;
+++b;
 ```
 
 ## License

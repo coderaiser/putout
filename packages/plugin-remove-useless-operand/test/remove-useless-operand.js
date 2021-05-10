@@ -14,3 +14,13 @@ test('plugin-remove-useless-operand: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-operand: transform: add-one', (t) => {
+    t.transform('add-one');
+    t.end();
+});
+
+test('plugin-remove-useless-operand: transform: sub-one', (t) => {
+    t.transform('sub-one');
+    t.end();
+});
+
