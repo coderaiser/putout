@@ -1,3 +1,18 @@
+2021.05.11, v17.2.0
+
+fix:
+- (@putout/plugin-remove-useless-template-expressions) exclude inner TemplateLiterals
+
+
+feature:
+- (@putout/plugin-remove-boolean-from-assertions) add
+- (package) @putout/plugin-remove-boolean-from-logical-expressions v4.0.0
+- (@putout/plugin-remove-boolean-from-logical-expressions) mv assertions to @putout/plugin-remove-boolean-from-assertions
+- (@putout/plugin-remove-boolean-from-logical-expressions) drop support of putout < 17
+- (@putout/plugin-remove-useless-operand) add support of inc and dec
+
+
+
 2021.05.09, v17.1.0
 
 fix:
