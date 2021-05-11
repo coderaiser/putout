@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-simplify-ternary: report', (t) => {
-    t.report('identifier', 'Unnecessary use of conditional expression for default assignment');
+    t.report('identifier', 'Ternary should be simplified');
     t.end();
 });
 
