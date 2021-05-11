@@ -7,6 +7,7 @@
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-simplify-ternary
 
 `putout` plugin adds ability to simplify `ternary`.
+
 ## Install
 
 ```
