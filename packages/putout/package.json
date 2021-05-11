@@ -100,7 +100,7 @@
     "@putout/plugin-putout": "^6.0.0",
     "@putout/plugin-putout-config": "^1.0.0",
     "@putout/plugin-regexp": "^2.0.0",
-    "@putout/plugin-remove-boolean-from-logical-expressions": "^3.0.0",
+    "@putout/plugin-remove-boolean-from-logical-expressions": "^4.0.0",
     "@putout/plugin-remove-console": "^3.0.0",
     "@putout/plugin-remove-constant-conditions": "^2.0.0",
     "@putout/plugin-remove-debugger": "^4.0.0",
