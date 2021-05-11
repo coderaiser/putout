@@ -39,3 +39,8 @@ test('plugin-simplify-ternary: transform: object', (t) => {
     t.end();
 });
 
+test('plugin-simplify-ternary: transform: nested', (t) => {
+    t.transform('nested');
+    t.end();
+});
+
