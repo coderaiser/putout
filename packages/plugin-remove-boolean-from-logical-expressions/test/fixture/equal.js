@@ -1,3 +1,0 @@
-if (a === true)
-    return;
-

@@ -19,11 +19,6 @@ test('plugin-remove-boolean-from-logical-expressions: transform: return', (t) =>
     t.end();
 });
 
-test('plugin-remove-boolean-from-logical-expressions: transform: equal', (t) => {
-    t.transform('equal');
-    t.end();
-});
-
 test('plugin-remove-boolean-from-logical-expressions: transform: or', (t) => {
     t.noTransform('or');
     t.end();
