@@ -168,6 +168,7 @@
         "remove-useless-template-expressions",
         "remove-useless-for-of",
         "remove-constant-conditions",
+        "remove-boolean-from-assertions",
         "remove-boolean-from-logical-expressions",
         "remove-duplicates-from-logical-expressions",
         "remove-duplicate-interface-keys",

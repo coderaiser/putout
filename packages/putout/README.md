@@ -42,6 +42,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - remove `empty patterns`;
 - remove `strict mode` directive from `esm`;
 - remove `constant conditions`;
+- remove `boolean` from `assertion`;
 - remove `boolean` from `logical expressions`;
 - remove `duplicates` from `logical expressions`;
 - remove `unreachable code`;
