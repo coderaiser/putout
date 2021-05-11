@@ -1,1 +1,1 @@
- var c = fs.all || fs.b;
+const x = val[key] || clone(val[key], depth - 1);

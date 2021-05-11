@@ -34,3 +34,8 @@ test('plugin-simplify-ternary: no: transform: different test and consequent', (t
     t.end();
 });
 
+test('plugin-simplify-ternary: transform: object', (t) => {
+    t.transform('object');
+    t.end();
+});
+
