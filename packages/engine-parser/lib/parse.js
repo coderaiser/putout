@@ -28,8 +28,7 @@ function parse(source, options) {
 function getParser({parser = 'babel', isTS, isFlow}) {
     return {
         parse(source) {
-            return toBabel(customParser(source, {
-                parser,
+            return toBabel(customParser(source, parser, {
                 isTS,
                 isFlow,
             }));

@@ -236,7 +236,9 @@ test('putout: parser: decorator-legacy', (t) => {
 test('putout: parser: jsx', (t) => {
     const babel = require('../lib/parsers/babel');
     
-    const node = babel.parse(fixture.jsxTemplate);
+    const node = babel.parse(fixture.jsxTemplate, {
+        isJSX: true,
+    });
     const {code} = generate(node);
     const expected = fixture.jsxTemplateFix;
     

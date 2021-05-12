@@ -13,16 +13,12 @@ const initBabel = once(() => require('@babel/parser'));
 const clean = (a) => a.filter(Boolean);
 const getFlow = (a) => a.includes('// @flow');
 
-const putoutEditorDefaults = {
-    isTS: true,
-};
-
 const plugins = require('./plugins');
 const options = require('./options');
 
 const moveOutDirectives = require('./move-out-directives');
 
-module.exports.parse = function babelParse(source, {isTS, isJSX = true, isFlow = getFlow(source)} = putoutEditorDefaults) {
+module.exports.parse = function babelParse(source, {isTS, isJSX = true, isFlow = getFlow(source)}) {
     const {parse} = initBabel();
     
     const ast = parse(source, {

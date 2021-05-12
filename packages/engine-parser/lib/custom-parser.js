@@ -8,8 +8,11 @@ const tenko = require('./parsers/tenko');
 const secondChance = require('./second-chance');
 
 const isObject = (a) => typeof a === 'object';
+const putoutEditorDefaults = {
+    isTS: true,
+};
 
-module.exports = (source, {parser, isTS, isFlow}) => {
+module.exports = (source, parser, {isTS, isFlow} = putoutEditorDefaults) => {
     const options = {
         parser,
         isTS,
@@ -31,7 +34,10 @@ function customParse(source, {parser, isTS, isFlow, isJSX}) {
         });
     
     if (isObject(parser))
-        return parser.parse(source);
+        return parser.parse(source, {
+            isJSX,
+            isTS,
+        });
     
     if (parser === 'espree')
         return espree.parse(source);
