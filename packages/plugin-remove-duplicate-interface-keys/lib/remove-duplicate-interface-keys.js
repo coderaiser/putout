@@ -17,6 +17,9 @@ module.exports.traverse = ({push}) => ({
             if (prop.isTSCallSignatureDeclaration())
                 continue;
             
+            if (prop.isTSConstructSignatureDeclaration())
+                continue;
+            
             const current = getCurrent(prop);
             const {computed} = prop.node;
             
@@ -39,6 +42,8 @@ function getCurrent(path) {
     if (keyPath.isIdentifier()) {
         return node.name;
     }
+    
+    !node;
     
     return node.value;
 }

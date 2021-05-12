@@ -30,3 +30,8 @@ test('remove duplicate-interface-keys: no transform: index signature', (t) => {
     t.end();
 });
 
+test('remove duplicate-interface-keys: no transform: method', (t) => {
+    t.noTransform('method');
+    t.end();
+});
+
