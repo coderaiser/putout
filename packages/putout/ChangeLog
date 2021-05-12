@@ -1,3 +1,21 @@
+2021.05.13, v17.3.0
+
+fix:
+- (@putout/engine-parser) rm useless defaults
+- (@putout/plugin-simplify-ternary) report message
+
+
+feature:
+- (@putout/plugin-apply-as-type-assertions) add
+- (putout) add ability to disable jsx
+- (@putout/engine-parser) custom-parser: improve support of ambiguity syntax related to jsx and typescript in Putout Editor
+- (@putout/engine-parser) add support of parsing ambiguity syntax that overlap with jsx and typescript
+- (@putout/plugin-remove-duplicate-interface-keys) add support of TSConstructSignatureDeclaration
+- (@putout/plugin-simplify-ternary) add ability to shrink nested ternary
+- (@putout/plugin-simplify-ternary) add support of MemberExpression as test in ConditionalExpression
+
+
+
 2021.05.11, v17.2.0
 
 fix:
