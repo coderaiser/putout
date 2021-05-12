@@ -8,15 +8,13 @@ const tenko = require('./parsers/tenko');
 const secondChance = require('./second-chance');
 
 const isObject = (a) => typeof a === 'object';
-const putoutEditorDefaults = {
-    isTS: true,
-};
 
-module.exports = (source, parser, {isTS, isFlow} = putoutEditorDefaults) => {
+module.exports = (source, parser, {isTS, isFlow, isJSX}) => {
     const options = {
         parser,
         isTS,
         isFlow,
+        isJSX,
     };
     
     return secondChance(customParse, source, options, {
