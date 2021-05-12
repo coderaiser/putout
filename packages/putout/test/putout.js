@@ -476,6 +476,15 @@ test('putout: isJSX', (t) => {
     t.end();
 });
 
+test('putout: isJSX: disabled', (t) => {
+    const [e] = tryCatch(putout, fixture.jsx, {
+        isJSX: false,
+    });
+    
+    t.ok(e, 'should be an error');
+    t.end();
+});
+
 test('putout: babelPlugins', (t) => {
     const {code} = putout(fixture.babelPlugins, {
         plugins: [

@@ -39,6 +39,7 @@ module.exports = (source, opts) => {
         parser,
         isTS,
         isFlow,
+        isJSX,
     } = opts;
     
     const [clearSource, shebang] = cutShebang(source);
@@ -46,6 +47,7 @@ module.exports = (source, opts) => {
         parser,
         isTS,
         isFlow,
+        isJSX,
     });
     
     const places = transform(ast, source, opts);
