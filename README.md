@@ -940,6 +940,15 @@ import fs from 'fs';
 
 </details>
 
+<details><summary>apply <code>as</code> type assertion (according to <a href=https://basarat.gitbook.io/typescript/type-system/type-assertion#as-foo-vs-less-than-foo-greater-than>best practices</a>)</summary>
+
+```diff
+-const boundaryElement = <HTMLElement>e.target;
++const boundaryElement1 = e.target as HTMLElement;
+```
+
+</details>
+
 <details><summary>apply nullish coalescing (<a href=https://github.com/tc39/proposal-nullish-coalescing>proposal-nullish-coalescing</a>, not bundled)</summary>
 
 ```diff
@@ -1162,6 +1171,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-destructuring)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-top-level-await`](/packages/plugin-apply-top-level-await) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-top-level-await.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-top-level-await) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-top-level-await)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-top-level-await) |
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-optional-chaining)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-optional-chaining) |
+| [`@putout/plugin-apply-as-type-assertions`](/packages/plugin-apply-as-type-assertions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-as-type-assertions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-as-type-assertions) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-as-type-assertions)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-as-type-assertions) |
 
 ### Splitters
 

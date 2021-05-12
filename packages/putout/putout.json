@@ -79,6 +79,7 @@
             "convert-esm-to-commonjs": "on"
         },
         "*.{ts,tsx}": {
+            "apply-as-type-assertions": "on",
             "convert-generic-to-shorthand": "on",
             "remove-duplicate-interface-keys": "on",
             "remove-useless-types": "on",
@@ -100,6 +101,7 @@
     ],
     "rules": {
         "apply-top-level-await": "off",
+        "apply-as-type-assertions": "off",
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",
         "convert-top-level-return": "off",
@@ -130,6 +132,7 @@
         "apply-top-level-await",
         "apply-optional-chaining",
         "apply-numeric-separators",
+        "apply-as-type-assertions",
         "extract-object-properties",
         "extract-sequence-expressions",
         "madrun",
