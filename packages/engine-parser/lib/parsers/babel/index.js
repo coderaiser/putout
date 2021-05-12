@@ -22,7 +22,7 @@ const options = require('./options');
 
 const moveOutDirectives = require('./move-out-directives');
 
-module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(source)} = putoutEditorDefaults) {
+module.exports.parse = function babelParse(source, {isTS, isJSX = true, isFlow = getFlow(source)} = putoutEditorDefaults) {
     const {parse} = initBabel();
     
     const ast = parse(source, {
@@ -34,6 +34,7 @@ module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(sourc
             ...getBabelLangExts({
                 isTS,
                 isFlow,
+                isJSX,
             }),
         ]),
     });
@@ -43,9 +44,9 @@ module.exports.parse = function babelParse(source, {isTS, isFlow = getFlow(sourc
     return ast;
 };
 
-function getBabelLangExts({isTS, isFlow}) {
+function getBabelLangExts({isTS, isFlow, isJSX}) {
     const langs = [
-        'jsx',
+        isJSX && 'jsx',
     ];
     
     if (isTS)

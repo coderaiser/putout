@@ -343,3 +343,17 @@ test('putout: parser: Literal: node.raw', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: parser: typescrip with jsx: ambiguity syntax', (t) => {
+    const source = `
+        const boundaryElement = <HTMLElement1>e.target;
+   `;
+    
+    const [error] = tryCatch(putout, source, {
+        isTS: true,
+    });
+    
+    t.notOk(error, 'should give second chance');
+    t.end();
+});
+

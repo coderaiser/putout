@@ -5,14 +5,29 @@ const babel = require('./parsers/babel');
 const espree = require('./parsers/espree');
 const esprima = require('./parsers/esprima');
 const tenko = require('./parsers/tenko');
+const secondChance = require('./second-chance');
 
 const isObject = (a) => typeof a === 'object';
 
 module.exports = (source, {parser, isTS, isFlow}) => {
+    const options = {
+        parser,
+        isTS,
+        isFlow,
+    };
+    
+    return secondChance(customParse, source, options, {
+        ...options,
+        isJSX: false,
+    });
+};
+
+function customParse(source, {parser, isTS, isFlow, isJSX}) {
     if (parser === 'babel')
         return babel.parse(source, {
             isTS,
             isFlow,
+            isJSX,
         });
     
     if (isObject(parser))
@@ -31,5 +46,5 @@ module.exports = (source, {parser, isTS, isFlow}) => {
         return tenko.parse(source);
     
     return require(parser).parse(source);
-};
+}
 
