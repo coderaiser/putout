@@ -1,28 +1,28 @@
-# @putout/plugin-apply-as-type-assertion [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-apply-as-type-assertions [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-as-type-assertion.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-apply-as-type-assertion"npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-as-type-assertion
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-as-type-assertion
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-as-type-assertions.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-apply-as-type-assertions"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-as-type-assertions
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-as-type-assertions
 
-`putout` plugin adds ability to apply `as` type asssertion according to [best practices](https://basarat.gitbook.io/typescript/type-system/type-assertion#as-foo-vs-less-than-foo-greater-than)
+`putout` plugin adds ability to apply `as` type asssertion according to [best practices](https://basarat.gitbook.io/typescript/type-system/type-assertions#as-foo-vs-less-than-foo-greater-than)
 
 ## Install
 
 ```
-npm i @putout/plugin-apply-as-type-assertion
+npm i @putout/plugin-apply-as-type-assertions
 ```
 
 ## Rule
 
-Rule `apply-as-type-assertion` is not bundled by default, to `enable` add to `.putout.json`:
+Rule `apply-as-type-assertions` is not bundled by default, to `enable` add to `.putout.json`:
 
 ## Rule
 
 ```json
 {
     "rules": {
-        "apply-as-type-assertion": "on"
+        "apply-as-type-assertions": "on"
     }
 }
 ```
