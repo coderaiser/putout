@@ -18,8 +18,4 @@ module.exports.fix = (path) => {
     replaceWith(path, newValue);
 };
 
-module.exports.traverse = ({push}) => ({
-    BooleanLiteral(path) {
-        push(path);
-    },
-});
+module.exports.include = () => ['BooleanLiteral'];

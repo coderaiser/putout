@@ -24,6 +24,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-babel-types": "on",
         "putout/convert-destructuring-to-identifier": "on",
         "putout/convert-node-to-path-in-get-template-values": "on",
+        "putout/convert-traverse-to-include": "on",
         "putout/shorten-imports": "on"
     }
 }
@@ -168,6 +169,26 @@ const parseOptions = require('putout/lib/parse-options');
 
 ```js
 const parseOptions = require('putout/parse-options');
+```
+
+## convert-traverse-to-include
+
+### ❌ Incorrect code example
+
+```js
+module.exports.traverse = ({push}) => ({
+    TSTypeAssertion(path) {
+        push(path);
+    },
+});
+```
+
+### ✅ Correct code Example
+
+```js
+module.exports.include = () => [
+    'TSTypeAssertion',
+];
 ```
 
 ## License

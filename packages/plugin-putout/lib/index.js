@@ -11,9 +11,10 @@ module.exports.rules = {
     ...getRule('convert-destructuring-to-identifier'),
     ...getRule('convert-replace-with-multiple'),
     ...getRule('convert-babel-types'),
+    ...getRule('convert-node-to-path-in-get-template-values'),
+    ...getRule('convert-traverse-to-include'),
     ...getRule('rename-operate-to-operator'),
     ...getRule('replace-operate-with-operator'),
-    ...getRule('convert-node-to-path-in-get-template-values'),
     ...getRule('shorten-imports'),
 };
 

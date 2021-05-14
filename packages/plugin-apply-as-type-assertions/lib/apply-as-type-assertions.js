@@ -18,9 +18,5 @@ module.exports.fix = (path) => {
     replaceWith(path, TSAsExpression(expression, typeName));
 };
 
-module.exports.traverse = ({push}) => ({
-    TSTypeAssertion(path) {
-        push(path);
-    },
-});
+module.exports.include = () => ['TSTypeAssertion'];
 

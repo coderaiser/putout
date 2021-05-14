@@ -28,3 +28,8 @@ test('plugin-putout: convert-node-to-path-in-get-template-values: transform', (t
     t.transform('get-template-values');
     t.end();
 });
+
+test('plugin-putout: convert-traverse-to-include: transform', (t) => {
+    t.transform('convert-traverse-to-include');
+    t.end();
+});
