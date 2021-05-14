@@ -54,7 +54,8 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - reuse duplicate `init`;
 - split `variable declarations`;
 - split `nested destructuring`;
-- simplify ternary;
+- simplify `ternary`;
+- simplify `logical expressions`;
 - if absent `strict mode` directive in `commonjs` add it;
 - convert `apply` to `spread`;
 - convert `concat` to `flat`;

@@ -778,7 +778,16 @@ function hi() {
 
 </details>
 
-<details><summary>simplify ternary</summary>
+<details><summary>simplify `ternary`</summary>
+
+```diff
+-!(options && !options.bidirectional);
++!options || options.bidirectional;
+```
+
+</details>
+
+<details><summary>simplify `logical expressions`</summary>
 
 ```diff
 -module.exports = fs.copyFileSync ? fs.copyFileSync : copyFileSync;
@@ -1289,6 +1298,7 @@ Next packages not bundled with `putout` but can be installed separately.
 | [`@putout/plugin-extract-sequence-expressions`](/packages/plugin-extract-sequence-expressions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-extract-sequence-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-extract-sequence-expressions) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-extract-sequence-expressions)](https://david-dm.org/coderaiser/putout?path=packages/plugin-extract-sequence-expressions) |
 | [`@putout/plugin-extract-object-properties`](/packages/plugin-extract-object-properties) | [![npm](https://img.shields.io/npm/v/@putout/plugin-extract-object-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-extract-object-properties) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-extract-object-properties)](https://david-dm.org/coderaiser/putout?path=packages/plugin-extract-object-properties) |
 | [`@putout/plugin-simplify-ternary`](/packages/plugin-simplify-ternary) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-ternary) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-simplify-ternary)](https://david-dm.org/coderaiser/putout?path=packages/plugin-simplify-ternary) |
+| [`@putout/plugin-simplify-logical-expressions`](/packages/plugin-simplify-logical-expressions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-logical-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-logical-expressions) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-simplify-logical-expressions)](https://david-dm.org/coderaiser/putout?path=packages/plugin-simplify-logical-expressions) |
 | [`@putout/plugin-putout`](/packages/plugin-putout) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-putout)](https://david-dm.org/coderaiser/putout?path=packages/plugin-putout) |
 | [`@putout/plugin-putout-config`](/packages/plugin-putout-config) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout-config.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout-config) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-putout-config)](https://david-dm.org/coderaiser/putout?path=packages/plugin-putout-config) |
 | [`@putout/plugin-tape`](/packages/plugin-tape) | [![npm](https://img.shields.io/npm/v/@putout/plugin-tape.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-tape) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-tape)](https://david-dm.org/coderaiser/putout?path=packages/plugin-tape) |

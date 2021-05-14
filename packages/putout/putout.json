@@ -183,6 +183,7 @@
         "split-variable-declarations",
         "split-nested-destructuring",
         "simplify-ternary",
+        "simplify-logical-expressions",
         "convert-esm-to-commonjs",
         "convert-commonjs-to-esm",
         "convert-apply-to-spread",
