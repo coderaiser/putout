@@ -44,3 +44,8 @@ test('plugin-simplify-ternary: transform: nested', (t) => {
     t.end();
 });
 
+test('plugin-simplify-ternary: transform: boolean', (t) => {
+    t.transform('boolean');
+    t.end();
+});
+
