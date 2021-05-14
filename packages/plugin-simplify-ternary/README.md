@@ -1,10 +1,9 @@
 # @putout/plugin-simplify-ternary [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-simplify-ternary "npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-simplify-ternary
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-simplify-ternary
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-simplify-ternary "npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-simplify-ternary
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-simplify-ternary
 
 `putout` plugin adds ability to simplify `ternary`.
 
@@ -29,7 +28,8 @@ npm i @putout/plugin-simplify-ternary -D
 ```js
 module.exports = fs.copyFileSync ? fs.copyFileSync : copyFileSync;
 
-const nodeTypes = Array.isArray(matcher.nodeType) ? matcher.nodeType : matcher.nodeType;
+x = y ? y : z;
+x = y ? z : y;
 ```
 
 ## ✅ Correct code Example
@@ -37,10 +37,10 @@ const nodeTypes = Array.isArray(matcher.nodeType) ? matcher.nodeType : matcher.n
 ```js
 module.exports = fs.copyFileSync || copyFileSync;
 
-const nodeTypes = matcher.nodeType;
+x = y || z;
+x = y && z;
 ```
 
 ## License
 
 MIT
-

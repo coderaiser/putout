@@ -14,7 +14,7 @@ test('plugin-simplify-ternary: transform', (t) => {
     t.end();
 });
 
-test('plugin-simplify-ternary: transform', (t) => {
+test('plugin-simplify-ternary: transform: object', (t) => {
     t.transform('object');
     t.end();
 });
@@ -34,13 +34,8 @@ test('plugin-simplify-ternary: no transform: different test and consequent', (t)
     t.end();
 });
 
-test('plugin-simplify-ternary: transform: object', (t) => {
-    t.transform('object');
-    t.end();
-});
-
-test('plugin-simplify-ternary: no transform: nested', (t) => {
-    t.noTransform('nested');
+test('plugin-simplify-ternary: transform: nested', (t) => {
+    t.transform('nested');
     t.end();
 });
 
