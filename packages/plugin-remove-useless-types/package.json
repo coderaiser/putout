@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-useless-types",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove useless",
   "homepage": "http://github.com/coderaiser/putout",
