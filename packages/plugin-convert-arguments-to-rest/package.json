@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-convert-arguments-to-rest",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert arguments to rest",
   "homepage": "http://github.com/coderaiser/putout",
