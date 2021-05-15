@@ -49,34 +49,33 @@ function getValue(bodyPath) {
     return [bodyPath, ''];
 }
 
-module.exports.traverse = ({push}) => {
-    return {
-        'export default __object'(path) {
-            const declarationPath = path.get('declaration');
-            const lintPath = getLintPath(declarationPath);
-            
-            if (!lintPath)
-                return;
-            
-            push({
-                path: lintPath,
-                lintPath,
-            });
-        },
-        'module.exports = __object'(path) {
-            const rightPath = path.get('right');
-            const lintPath = getLintPath(rightPath);
-            
-            if (!lintPath)
-                return;
-            
-            return push({
-                path: rightPath,
-                lintPath,
-            });
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    'export default __object'(path) {
+        const declarationPath = path.get('declaration');
+        const lintPath = getLintPath(declarationPath);
+        
+        if (!lintPath)
+            return;
+        
+        push({
+            path: lintPath,
+            lintPath,
+        });
+    },
+    
+    'module.exports = __object'(path) {
+        const rightPath = path.get('right');
+        const lintPath = getLintPath(rightPath);
+        
+        if (!lintPath)
+            return;
+        
+        return push({
+            path: rightPath,
+            lintPath,
+        });
+    },
+});
 
 function getLintPath(path) {
     const lint = getProperty(path, 'lint');

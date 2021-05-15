@@ -27,19 +27,17 @@ function isBabelTypes(path) {
         .isStringLiteral({value: '@babel/types'});
 }
 
-module.exports.traverse = ({push}) => {
-    return {
-        CallExpression(path) {
-            if (!isRequire(path))
-                return;
-            
-            if (!isBabelTypes(path))
-                return;
-            
-            push(path);
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    CallExpression(path) {
+        if (!isRequire(path))
+            return;
+        
+        if (!isBabelTypes(path))
+            return;
+        
+        push(path);
+    },
+});
 
 module.exports.fix = (path) => {
     replaceWith(path, astRequire);

@@ -12,27 +12,25 @@ module.exports.report = ({name}) => {
     return `"run" should be called in script: "${name}"`;
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        ArrowFunctionExpression(path) {
-            const {body} = path.node;
-            
-            if (!isStringLiteral(body))
-                return;
-            
-            const {value} = body;
-            
-            if (!/^(redrun|npm run)/.test(value))
-                return;
-            
-            push({
-                path,
-                value,
-                name: path.parent.key.value,
-            });
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    ArrowFunctionExpression(path) {
+        const {body} = path.node;
+        
+        if (!isStringLiteral(body))
+            return;
+        
+        const {value} = body;
+        
+        if (!/^(redrun|npm run)/.test(value))
+            return;
+        
+        push({
+            path,
+            value,
+            name: path.parent.key.value,
+        });
+    },
+});
 
 module.exports.fix = ({path, value}) => {
     const [line, arg] = value.split(' -- ');

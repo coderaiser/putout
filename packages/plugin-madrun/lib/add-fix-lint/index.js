@@ -28,18 +28,16 @@ module.exports.fix = (path) => {
     ]);
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        'module.exports = __object'(path) {
-            const rightPath = path.get('right');
-            const lint = getProperty(rightPath, 'lint');
-            const fixLint = getProperty(rightPath, 'fix:lint');
-            
-            if (!lint || fixLint)
-                return;
-            
-            push(lint);
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    'module.exports = __object'(path) {
+        const rightPath = path.get('right');
+        const lint = getProperty(rightPath, 'lint');
+        const fixLint = getProperty(rightPath, 'fix:lint');
+        
+        if (!lint || fixLint)
+            return;
+        
+        push(lint);
+    },
+});
 

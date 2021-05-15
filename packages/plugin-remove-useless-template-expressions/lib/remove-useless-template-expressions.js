@@ -24,25 +24,23 @@ module.exports.fix = (path) => {
     }
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        TemplateLiteral(path) {
-            const expressions = path.get('expressions');
-            const {length} = expressions;
+module.exports.traverse = ({push}) => ({
+    TemplateLiteral(path) {
+        const expressions = path.get('expressions');
+        const {length} = expressions;
+        
+        if (!length)
+            return;
+        
+        for (const expr of expressions) {
+            if (expr.node.comments)
+                continue;
             
-            if (!length)
-                return;
-            
-            for (const expr of expressions) {
-                if (expr.node.comments)
-                    continue;
-                
-                if (expr.isLiteral() && !expr.isTemplateLiteral()) {
-                    push(path);
-                    break;
-                }
+            if (expr.isLiteral() && !expr.isTemplateLiteral()) {
+                push(path);
+                break;
             }
-        },
-    };
-};
+        }
+    },
+});
 

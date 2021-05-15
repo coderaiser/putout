@@ -29,12 +29,10 @@ module.exports.fix = (path) => {
     ]);
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        'export default  __object': pushLint('declaration', push),
-        'module.exports = __object': pushLint('right', push),
-    };
-};
+module.exports.traverse = ({push}) => ({
+    'export default  __object': pushLint('declaration', push),
+    'module.exports = __object': pushLint('right', push),
+});
 
 const pushLint = (selector, push) => (path) => {
     const currentPath = path.get(selector);

@@ -14,25 +14,23 @@ module.exports.fix = (path) => {
     declarationPath.remove();
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        AwaitExpression(path) {
-            const argumentPath = path.get('argument');
-            const declaratorPath = path.parentPath;
-            
-            if (!declaratorPath.isVariableDeclarator())
-                return;
-            
-            if (!argumentPath.isCallExpression())
-                return;
-            
-            if (!argumentPath.get('callee').matchesPattern('Promise.resolve'))
-                return;
-            
-            push(argumentPath);
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    AwaitExpression(path) {
+        const argumentPath = path.get('argument');
+        const declaratorPath = path.parentPath;
+        
+        if (!declaratorPath.isVariableDeclarator())
+            return;
+        
+        if (!argumentPath.isCallExpression())
+            return;
+        
+        if (!argumentPath.get('callee').matchesPattern('Promise.resolve'))
+            return;
+        
+        push(argumentPath);
+    },
+});
 
 function parseParent(path) {
     return [

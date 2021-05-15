@@ -43,28 +43,26 @@ function getValue(body) {
     return [line, line.value.raw];
 }
 
-module.exports.traverse = ({push}) => {
-    return {
-        'module.exports = __object'(path) {
-            const rightPath = path.get('right');
-            const lint = getProperty(rightPath, 'lint');
-            const value = lint.get('value');
-            
-            const {body} = value.node;
-            const [node, str] = getValue(body);
-            
-            if (!str)
-                return;
-            
-            if (!isJS(str) && !isDot(str) && !isUM(str) && !/\.madrun/.test(str))
-                return push({
-                    path: rightPath,
-                    lint,
-                    node,
-                });
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    'module.exports = __object'(path) {
+        const rightPath = path.get('right');
+        const lint = getProperty(rightPath, 'lint');
+        const value = lint.get('value');
+        
+        const {body} = value.node;
+        const [node, str] = getValue(body);
+        
+        if (!str)
+            return;
+        
+        if (!isJS(str) && !isDot(str) && !isUM(str) && !/\.madrun/.test(str))
+            return push({
+                path: rightPath,
+                lint,
+                node,
+            });
+    },
+});
 
 function addMadrun(a) {
     if (!a.includes('.madrun') && a.includes('madrun'))

@@ -31,19 +31,17 @@ module.exports.fix = (path) => {
     replaceWith(valuePath, ArrayExpression(elements));
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        ObjectExpression(path) {
-            const properties = path.get('properties');
-            for (const propPath of properties) {
-                const {node} = propPath;
-                const {key, value} = node;
-                const isLoader = isIdentifier(key, {name: 'loader'});
-                const isExclamation = isStringLiteral(value) && value.value.includes('!');
-                
-                if (isLoader && isExclamation)
-                    push(propPath);
-            }
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    ObjectExpression(path) {
+        const properties = path.get('properties');
+        for (const propPath of properties) {
+            const {node} = propPath;
+            const {key, value} = node;
+            const isLoader = isIdentifier(key, {name: 'loader'});
+            const isExclamation = isStringLiteral(value) && value.value.includes('!');
+            
+            if (isLoader && isExclamation)
+                push(propPath);
+        }
+    },
+});

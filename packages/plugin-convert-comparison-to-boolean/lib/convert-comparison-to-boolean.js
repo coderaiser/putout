@@ -15,38 +15,36 @@ module.exports.fix = ({path, value}) => {
     replaceWith(path, template.ast(String(value)));
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        BinaryExpression(path) {
-            const {
-                left,
-                right,
-                operator,
-            } = path.node;
-            
-            if (!/<|>|===?|!===?/.test(operator))
-                return;
-            
-            if (/<<|>>/.test(operator))
-                return;
-            
-            const {confident, value} = path.evaluate();
-            
-            if (confident) {
-                return push({
-                    path,
-                    value,
-                });
-            }
-            
-            if (sameIdentifiers(left, right))
-                return push({
-                    path,
-                    value: /^===?$/.test(operator),
-                });
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    BinaryExpression(path) {
+        const {
+            left,
+            right,
+            operator,
+        } = path.node;
+        
+        if (!/<|>|===?|!===?/.test(operator))
+            return;
+        
+        if (/<<|>>/.test(operator))
+            return;
+        
+        const {confident, value} = path.evaluate();
+        
+        if (confident) {
+            return push({
+                path,
+                value,
+            });
+        }
+        
+        if (sameIdentifiers(left, right))
+            return push({
+                path,
+                value: /^===?$/.test(operator),
+            });
+    },
+});
 
 function sameIdentifiers(left, right) {
     if (!isIdentifier(left))

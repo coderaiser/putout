@@ -27,53 +27,51 @@ module.exports.fix = ({path}) => {
     path.remove();
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        '__(__object)'(path) {
-            const {name} = path.node.callee;
-            const [argument] = path.get('arguments');
-            const argProps = argument.get('properties')
-                .filter(isObjectProperty);
-            
-            const refPath = findBinding(path, name);
-            
-            if (!refPath)
+module.exports.traverse = ({push}) => ({
+    '__(__object)'(path) {
+        const {name} = path.node.callee;
+        const [argument] = path.get('arguments');
+        const argProps = argument.get('properties')
+            .filter(isObjectProperty);
+        
+        const refPath = findBinding(path, name);
+        
+        if (!refPath)
+            return;
+        
+        const binding = refPath.scope.bindings[name];
+        const params = getParams(binding.path);
+        
+        if (!params.length)
+            return;
+        
+        const [param] = params;
+        
+        if (!param.isObjectPattern())
+            return;
+        
+        const {properties} = param.node;
+        
+        for (const prop of properties) {
+            if (!isIdentifier(prop.value))
                 return;
+        }
+        
+        const propKeys = properties
+            .map(getKey);
+        
+        for (const propPath of argProps) {
+            const {key} = propPath.node;
+            const is = compareAny(key, propKeys);
             
-            const binding = refPath.scope.bindings[name];
-            const params = getParams(binding.path);
-            
-            if (!params.length)
-                return;
-            
-            const [param] = params;
-            
-            if (!param.isObjectPattern())
-                return;
-            
-            const {properties} = param.node;
-            
-            for (const prop of properties) {
-                if (!isIdentifier(prop.value))
-                    return;
-            }
-            
-            const propKeys = properties
-                .map(getKey);
-            
-            for (const propPath of argProps) {
-                const {key} = propPath.node;
-                const is = compareAny(key, propKeys);
-                
-                if (!is)
-                    push({
-                        name,
-                        path: propPath,
-                    });
-            }
-        },
-    };
-};
+            if (!is)
+                push({
+                    name,
+                    path: propPath,
+                });
+        }
+    },
+});
 
 function getParams(path) {
     if (path.isFunction())

@@ -21,18 +21,17 @@ module.exports.fix = ({path, imports}) => {
     }
 };
 
-module.exports.traverse = ({push, listStore}) => {
-    return {
-        ImportDeclaration(path) {
-            listStore(path);
+module.exports.traverse = ({push, listStore}) => ({
+    ImportDeclaration(path) {
+        listStore(path);
+    },
+    
+    Program: {
+        exit: () => {
+            processImports(push, listStore());
         },
-        Program: {
-            exit: () => {
-                processImports(push, listStore());
-            },
-        },
-    };
-};
+    },
+});
 
 function processImports(push, imports) {
     const {get, add} = duplicatesStore();

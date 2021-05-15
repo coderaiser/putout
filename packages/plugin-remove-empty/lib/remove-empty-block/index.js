@@ -57,46 +57,44 @@ module.exports.fix = (path) => {
     replaceWith(testPath, UnaryExpression('!', testPath.node));
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        BlockStatement(path) {
-            const {
-                node,
-                parentPath,
-            } = path;
-            
-            const {body} = node;
-            
-            if (node.innerComments)
-                return;
-            
-            if (body.length)
-                return;
-            
-            const parentNode = parentPath.node;
-            
-            if (isFunction(parentNode))
-                return;
-            
-            if (isCatchClause(parentNode))
-                return;
-            
-            if (isTryStatement(parentNode))
-                return push(parentPath);
-            
-            if (blockIsIndependentBody(node, parentNode))
-                return push(path);
-            
-            if (blockIsConsequent(node, parentNode))
-                return push(parentPath);
-            
-            if (blockIsAlternate(node, parentNode))
-                return push(parentPath);
-            
-            push(parentPath);
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    BlockStatement(path) {
+        const {
+            node,
+            parentPath,
+        } = path;
+        
+        const {body} = node;
+        
+        if (node.innerComments)
+            return;
+        
+        if (body.length)
+            return;
+        
+        const parentNode = parentPath.node;
+        
+        if (isFunction(parentNode))
+            return;
+        
+        if (isCatchClause(parentNode))
+            return;
+        
+        if (isTryStatement(parentNode))
+            return push(parentPath);
+        
+        if (blockIsIndependentBody(node, parentNode))
+            return push(path);
+        
+        if (blockIsConsequent(node, parentNode))
+            return push(parentPath);
+        
+        if (blockIsAlternate(node, parentNode))
+            return push(parentPath);
+        
+        push(parentPath);
+    },
+});
 
 function isFunction(node) {
     return isArrowFunctionExpression(node)

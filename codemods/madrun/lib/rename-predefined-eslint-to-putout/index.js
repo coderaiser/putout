@@ -8,25 +8,23 @@ module.exports.fix = ({eslint}) => {
     eslint.scope.rename('eslint', 'putout');
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        'const __object = predefined'(path) {
-            const properties = path.get('declarations.0.id.properties');
-            const {eslint, putout} = getPredefined(properties);
-            
-            if (!eslint || putout)
-                return;
-            
-            if (isRulesdir(eslint.scope.bindings))
-                return;
-            
-            push({
-                eslint,
-                path,
-            });
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    'const __object = predefined'(path) {
+        const properties = path.get('declarations.0.id.properties');
+        const {eslint, putout} = getPredefined(properties);
+        
+        if (!eslint || putout)
+            return;
+        
+        if (isRulesdir(eslint.scope.bindings))
+            return;
+        
+        push({
+            eslint,
+            path,
+        });
+    },
+});
 
 function getPredefined(properties) {
     const result = {};

@@ -19,29 +19,27 @@ module.exports.fix = ({lintLib, fixLint, lint}) => {
     body.arguments[0] = StringLiteral('lint');
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        'module.exports = __object'(path) {
-            const rightPath = path.get('right');
-            
-            const {
-                lint,
-                lintLib,
-                fixLint,
-            } = parseObject(rightPath);
-            
-            if (!lint || !lintLib || !fixLint)
-                return;
-            
-            push({
-                path: rightPath,
-                lint,
-                lintLib,
-                fixLint,
-            });
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    'module.exports = __object'(path) {
+        const rightPath = path.get('right');
+        
+        const {
+            lint,
+            lintLib,
+            fixLint,
+        } = parseObject(rightPath);
+        
+        if (!lint || !lintLib || !fixLint)
+            return;
+        
+        push({
+            path: rightPath,
+            lint,
+            lintLib,
+            fixLint,
+        });
+    },
+});
 
 function parseObject(path) {
     let lintLib = null;

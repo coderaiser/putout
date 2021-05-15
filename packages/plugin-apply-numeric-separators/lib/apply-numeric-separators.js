@@ -12,26 +12,24 @@ module.exports.fix = (path) => {
     node.value = split(raw);
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        NumericLiteral(path) {
-            const {node} = path;
-            node.raw = node.raw || String(node.value);
-            const {raw, value} = path.node;
-            
-            if (/^0x/.test(raw))
-                return;
-            
-            if (raw.includes('_'))
-                return;
-            
-            if (value <= MIN)
-                return;
-            
-            push(path);
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    NumericLiteral(path) {
+        const {node} = path;
+        node.raw = node.raw || String(node.value);
+        const {raw, value} = path.node;
+        
+        if (/^0x/.test(raw))
+            return;
+        
+        if (raw.includes('_'))
+            return;
+        
+        if (value <= MIN)
+            return;
+        
+        push(path);
+    },
+});
 
 function split(str) {
     const n = str.length - 1;

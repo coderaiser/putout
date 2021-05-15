@@ -59,17 +59,15 @@ const isFn = ({parentPath}) => parentPath.isArrowFunctionExpression();
 const isExpr = ({parentPath}) => parentPath.isExpressionStatement();
 const isRet = ({parentPath}) => parentPath.isReturnStatement();
 
-module.exports.traverse = ({push}) => {
-    return {
-        SequenceExpression(path) {
-            if (containsAwait(path))
-                return;
-            
-            if (isBlock(path) || isFn(path) || isExpr(path) || isCallee(path) || isRet(path))
-                push(path);
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    SequenceExpression(path) {
+        if (containsAwait(path))
+            return;
+        
+        if (isBlock(path) || isFn(path) || isExpr(path) || isCallee(path) || isRet(path))
+            push(path);
+    },
+});
 
 function containsAwait({node}) {
     const {expressions} = node;

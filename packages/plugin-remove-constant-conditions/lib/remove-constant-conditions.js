@@ -30,35 +30,33 @@ module.exports.fix = ({path, result}) => {
     replaceWith(path, alternate);
 };
 
-module.exports.traverse = ({push, generate}) => {
-    return {
-        IfStatement(path) {
-            const testPath = path.get('test');
-            const {
-                left,
-                right,
-                operator,
-            } = testPath.node;
+module.exports.traverse = ({push, generate}) => ({
+    IfStatement(path) {
+        const testPath = path.get('test');
+        const {
+            left,
+            right,
+            operator,
+        } = testPath.node;
+        
+        if (!containsIdentifiers(testPath)) {
+            const {node} = testPath;
+            const {code} = generate(node);
+            const result = runInNewContext(code);
             
-            if (!containsIdentifiers(testPath)) {
-                const {node} = testPath;
-                const {code} = generate(node);
-                const result = runInNewContext(code);
-                
-                return push({
-                    path,
-                    result,
-                });
-            }
-            
-            if (isIdentifier(left) && isIdentifier(right) && left.name === right.name)
-                return push({
-                    path,
-                    result: /^===?$/.test(operator),
-                });
-        },
-    };
-};
+            return push({
+                path,
+                result,
+            });
+        }
+        
+        if (isIdentifier(left) && isIdentifier(right) && left.name === right.name)
+            return push({
+                path,
+                result: /^===?$/.test(operator),
+            });
+    },
+});
 
 function containsIdentifiers(testPath) {
     if (testPath.isIdentifier())

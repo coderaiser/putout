@@ -34,26 +34,24 @@ module.exports.fix = fixType({
     },
 });
 
-module.exports.traverse = ({push}) => {
-    return {
-        'module.exports.find = (__args) => __'(path) {
-            const leftPath = path.get('left');
-            const rightPath = path.get('right');
-            
-            if (rightPath.node.params.length !== 2)
-                return;
-            
-            if (!isTraverseLastExpression(rightPath.node.body.body))
-                return;
-            
-            const traverseCallPath = getTraverseCall(rightPath);
-            
-            push(traverseCallPath);
-            push(leftPath);
-            push(rightPath);
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    'module.exports.find = (__args) => __'(path) {
+        const leftPath = path.get('left');
+        const rightPath = path.get('right');
+        
+        if (rightPath.node.params.length !== 2)
+            return;
+        
+        if (!isTraverseLastExpression(rightPath.node.body.body))
+            return;
+        
+        const traverseCallPath = getTraverseCall(rightPath);
+        
+        push(traverseCallPath);
+        push(leftPath);
+        push(rightPath);
+    },
+});
 
 function isTraverseLastExpression(body) {
     const n = body.length - 1;

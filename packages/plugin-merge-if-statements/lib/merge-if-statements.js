@@ -41,13 +41,11 @@ const getConsequent = (path) => {
     return null;
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        'if (__) __': onIfStatement({
-            push,
-        }),
-    };
-};
+module.exports.traverse = ({push}) => ({
+    'if (__) __': onIfStatement({
+        push,
+    }),
+});
 
 const onIfStatement = ({push}) => (path) => {
     const consequentPath = getConsequent(path);

@@ -4,45 +4,43 @@ module.exports.report = () => `Unreferenced variables should be avoided`;
 
 module.exports.fix = (path) => path.remove();
 
-module.exports.traverse = ({push}) => {
-    return {
-        '__identifier = __a'(path) {
-            const {name} = path.node.left;
-            const binding = path.scope.bindings[name];
-            
-            if (!binding)
-                return;
-            
-            const {referenced} = binding;
-            
-            if (referenced)
-                return;
-            
-            if (binding.path.isObjectPattern()) {
-                const propPath = getPropertyPath(binding.path, name);
-                
-                push(path);
-                push(propPath);
-                
-                return;
-            }
-            
-            const idPath = binding.path.get('id');
-            
-            if (binding.path.isVariableDeclarator() && idPath.isObjectPattern()) {
-                const propPath = getPropertyPath(idPath, name);
-                
-                push(path);
-                push(propPath);
-                
-                return;
-            }
+module.exports.traverse = ({push}) => ({
+    '__identifier = __a'(path) {
+        const {name} = path.node.left;
+        const binding = path.scope.bindings[name];
+        
+        if (!binding)
+            return;
+        
+        const {referenced} = binding;
+        
+        if (referenced)
+            return;
+        
+        if (binding.path.isObjectPattern()) {
+            const propPath = getPropertyPath(binding.path, name);
             
             push(path);
-            push(binding.path);
-        },
-    };
-};
+            push(propPath);
+            
+            return;
+        }
+        
+        const idPath = binding.path.get('id');
+        
+        if (binding.path.isVariableDeclarator() && idPath.isObjectPattern()) {
+            const propPath = getPropertyPath(idPath, name);
+            
+            push(path);
+            push(propPath);
+            
+            return;
+        }
+        
+        push(path);
+        push(binding.path);
+    },
+});
 
 function getPropertyPath(path, name) {
     let propPath;

@@ -19,26 +19,25 @@ module.exports.fix = ({path}) => {
     replaceWith(path, arrowFunctionExpression([], path.node));
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        'export default __object'(path) {
-            const properties = path.get('declaration.properties');
-            
-            traverseProperties({
-                properties,
-                push,
-            });
-        },
-        'module.exports = __object'(path) {
-            const properties = path.get('right.properties');
-            
-            traverseProperties({
-                properties,
-                push,
-            });
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    'export default __object'(path) {
+        const properties = path.get('declaration.properties');
+        
+        traverseProperties({
+            properties,
+            push,
+        });
+    },
+    
+    'module.exports = __object'(path) {
+        const properties = path.get('right.properties');
+        
+        traverseProperties({
+            properties,
+            push,
+        });
+    },
+});
 
 function traverseProperties({properties, push}) {
     for (const propPath of properties) {

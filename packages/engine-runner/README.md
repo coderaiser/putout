@@ -164,13 +164,11 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        'debugger'(path) {
-            push(path);
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    'debugger'(path) {
+        push(path);
+    },
+});
 ```
 
 #### listStore
@@ -178,23 +176,22 @@ module.exports.traverse = ({push}) => {
 To keep things during traverse in a safe way `listStore` can be used.
 
 ```js
-module.exports.traverse = ({push, listStore}) => {
-    return {
-        'debugger'(path) {
-            listStore('x');
-            push(path);
+module.exports.traverse = ({push, listStore}) => ({
+    'debugger'(path) {
+        listStore('x');
+        push(path);
+    },
+    
+    Program: {
+        exit() {
+            console.log(listStore());
+            // returns
+            ['x', 'x', 'x'];
+            // for code
+            'debugger; debugger; debugger';
         },
-        Program: {
-            exit() {
-                console.log(listStore());
-                // returns
-                ['x', 'x', 'x'];
-                // for code
-                'debugger; debugger; debugger';
-            },
-        },
-    };
-};
+    },
+});
 ```
 
 `store` is prefered way of keeping array elements, because of caching of `putout`, `traverse` init function called only once, and any other way
@@ -205,29 +202,28 @@ of handling variables will most likely will lead to bugs.
 When you need `key-value` storage `store` can be used.
 
 ```js
-module.exports.traverse = ({push, store}) => {
-    return {
-        'debugger'(path) {
-            store('hello', 'world');
-            push(path);
+module.exports.traverse = ({push, store}) => ({
+    'debugger'(path) {
+        store('hello', 'world');
+        push(path);
+    },
+    
+    Program: {
+        exit() {
+            store();
+            // returns
+            ['world'];
+            
+            store.entries();
+            // returns
+            [['hello', 'world']];
+            
+            store('hello');
+            // returns
+            'world';
         },
-        Program: {
-            exit() {
-                store();
-                // returns
-                ['world'];
-                
-                store.entries();
-                // returns
-                [['hello', 'world']];
-                
-                store('hello');
-                // returns
-                'world';
-            },
-        },
-    };
-};
+    },
+});
 ```
 
 ### Finder

@@ -17,16 +17,14 @@ module.exports.fix = ({path}) => {
     replaceWith(path, template.ast(REPORT_SCRIPT));
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        'export default __object'(path) {
-            const rightPath = path.get('declaration');
-            const reportPath = getProperty(rightPath, 'report');
-            
-            add(reportPath, {push});
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    'export default __object'(path) {
+        const rightPath = path.get('declaration');
+        const reportPath = getProperty(rightPath, 'report');
+        
+        add(reportPath, {push});
+    },
+});
 
 function add(currentPath, {push}) {
     if (!currentPath)

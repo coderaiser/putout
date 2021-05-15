@@ -17,28 +17,26 @@ module.exports.fix = (path) => {
     }
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        '"__"'(path) {
-            const {raw} = path.node;
+module.exports.traverse = ({push}) => ({
+    '"__"'(path) {
+        const {raw} = path.node;
+        
+        if (isEscaped(raw))
+            push(path);
+    },
+    
+    '`__`'(path) {
+        for (const tmpl of path.node.quasis) {
+            const {raw} = tmpl.value;
+            
+            if (hasQuote(raw))
+                return push(path);
             
             if (isEscaped(raw))
-                push(path);
-        },
-        
-        '`__`'(path) {
-            for (const tmpl of path.node.quasis) {
-                const {raw} = tmpl.value;
-                
-                if (hasQuote(raw))
-                    return push(path);
-                
-                if (isEscaped(raw))
-                    return push(path);
-            }
-        },
-    };
-};
+                return push(path);
+        }
+    },
+});
 
 const createCheckRegExp = (a) => RegExp(`^((?!\\\\).)*\\\\${a}.`);
 

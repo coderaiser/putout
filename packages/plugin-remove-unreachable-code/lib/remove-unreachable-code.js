@@ -11,22 +11,20 @@ module.exports.fix = ({siblings}) => {
     }
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        'ReturnStatement|ThrowStatement'(path) {
-            const siblings = path.getAllNextSiblings();
-            
-            if (!siblings.length)
-                return;
-            
-            if (siblings.find(isFunctionDeclaration))
-                return;
-            
-            push({
-                path: siblings[0],
-                siblings,
-            });
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    'ReturnStatement|ThrowStatement'(path) {
+        const siblings = path.getAllNextSiblings();
+        
+        if (!siblings.length)
+            return;
+        
+        if (siblings.find(isFunctionDeclaration))
+            return;
+        
+        push({
+            path: siblings[0],
+            siblings,
+        });
+    },
+});
 

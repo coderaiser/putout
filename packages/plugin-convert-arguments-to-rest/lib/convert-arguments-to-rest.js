@@ -17,36 +17,34 @@ module.exports.fix = ({path, paths}) => {
     }
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        'FunctionExpression|FunctionDeclaration': (path) => {
-            if (path.node.params.length)
-                return;
-            
-            const paths = [];
-            
-            path.traverse({
-                Identifier(path) {
-                    const {
-                        node,
-                        scope,
-                    } = path;
-                    
-                    if (node.name !== 'arguments')
-                        return;
-                    
-                    if (scope.hasBinding('args'))
-                        return;
-                    
-                    paths.push(path);
-                },
-            });
-            
-            if (!paths.length)
-                return;
-            
-            push({path, paths});
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    'FunctionExpression|FunctionDeclaration': (path) => {
+        if (path.node.params.length)
+            return;
+        
+        const paths = [];
+        
+        path.traverse({
+            Identifier(path) {
+                const {
+                    node,
+                    scope,
+                } = path;
+                
+                if (node.name !== 'arguments')
+                    return;
+                
+                if (scope.hasBinding('args'))
+                    return;
+                
+                paths.push(path);
+            },
+        });
+        
+        if (!paths.length)
+            return;
+        
+        push({path, paths});
+    },
+});
 

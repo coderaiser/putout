@@ -18,18 +18,16 @@ module.exports.fix = ({path, line}) => {
     replaceWith(path, template.ast(c8));
 };
 
-module.exports.traverse = ({push}) => {
-    return {
-        'export default __object'(path) {
-            const rightPath = path.get('declaration');
-            const coveragePath = getProperty(rightPath, 'coverage');
-            const reportPath = getProperty(rightPath, 'report');
-            
-            add(coveragePath, {push});
-            add(reportPath, {push});
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    'export default __object'(path) {
+        const rightPath = path.get('declaration');
+        const coveragePath = getProperty(rightPath, 'coverage');
+        const reportPath = getProperty(rightPath, 'report');
+        
+        add(coveragePath, {push});
+        add(reportPath, {push});
+    },
+});
 
 function add(currentPath, {push}) {
     if (!currentPath)
