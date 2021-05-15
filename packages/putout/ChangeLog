@@ -1,3 +1,16 @@
+2021.05.15, v17.5.0
+
+fix:
+- (@putout/plugin-simplify-ternary) || -> &&
+- (@putout/plugin-simplify-ternary) rm broken cases, where condition was removed
+
+
+feature:
+- (@putout/plugin-remove-useless-return) add
+- (@putout/plugin-putout) add convert-traverse-to-include: apply-as-type-assertions, putout-config
+
+
+
 2021.05.14, v17.4.0
 
 feature:
