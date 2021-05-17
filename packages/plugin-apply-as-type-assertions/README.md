@@ -5,7 +5,7 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-as-type-assertions
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-as-type-assertions
 
-`putout` plugin adds ability to apply `as` type asssertion according to [best practices](https://basarat.gitbook.io/typescript/type-system/type-assertions#as-foo-vs-less-than-foo-greater-than)
+`putout` plugin adds ability to apply `as` type asssertion according to [best practices](https://basarat.gitbook.io/typescript/type-system/type-assertion#as-foo-vs-less-than-foo-greater-than).
 
 ## Install
 
