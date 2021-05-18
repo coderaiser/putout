@@ -795,7 +795,7 @@ function hi() {
 
 </details>
 
-<details><summary>simplify `ternary`</summary>
+<details><summary>simplify <code>ternary</code></summary>
 
 ```diff
 -!(options && !options.bidirectional);
@@ -804,7 +804,7 @@ function hi() {
 
 </details>
 
-<details><summary>simplify `logical expressions`</summary>
+<details><summary>simplify <code>logical expressions</code></summary>
 
 ```diff
 -module.exports = fs.copyFileSync ? fs.copyFileSync : copyFileSync;
