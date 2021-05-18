@@ -38,6 +38,13 @@ ruleTester.run('variable-init-with-object', rule, {
             message,
             type: 'VariableDeclarator',
         }],
+    }, {
+        code: `module.exports = {start: () => 'react-scripts start'}`,
+        output: `module.exports = {\nstart: () => 'react-scripts start'\n}`,
+        errors: [{
+            message,
+            type: 'AssignmentExpression',
+        }],
     }],
 });
 
