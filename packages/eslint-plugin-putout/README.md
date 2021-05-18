@@ -63,7 +63,7 @@ Then configure the rules you want to use under the rules section.
         "putout/function-declaration-paren-newline": "error",
         "putout/remove-newline-after-default-import": "error",
         "putout/objects-braces-inside-array": "error",
-        "putout/variable-init-with-object": "error"
+        "putout/object-init": "error"
     }
 }
 ```
@@ -82,4 +82,4 @@ Then configure the rules you want to use under the rules section.
 - [Function declaration paren newline](/packages/eslint-plugin-putout/lib/function-declaration-paren-newline)
 - [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import)
 - [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array)
-- [Variable init with object](/packages/eslint-plugin-putout/lib/variable-init-with-object)
+- [Object init](/packages/eslint-plugin-putout/lib/object-init)

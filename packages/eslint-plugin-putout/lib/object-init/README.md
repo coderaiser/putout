@@ -1,4 +1,4 @@
-# keep each property on separate line when using multiple destructuring properties (variable-init-with-object)
+# keep each property on separate line when initializing an object(object-init)
 
 In the same way as eslint [object-property-newline](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/multiple-properties-destructuring) but for initializing variables with `object expression`.
 
@@ -7,7 +7,13 @@ In the same way as eslint [object-property-newline](https://github.com/coderaise
 Examples of **incorrect** code for this rule:
 
 ```js
-const user = {name};
+const user = {
+    name,
+};
+
+module.exports = {
+    lint: 'putout lint',
+};
 ```
 
 Examples of **correct** code for this rule:
@@ -16,5 +22,8 @@ Examples of **correct** code for this rule:
 const user = {
     name,
 };
-```
 
+module.exports = {
+    lint: 'putout lint',
+};
+```
