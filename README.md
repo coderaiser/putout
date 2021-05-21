@@ -38,6 +38,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [Integration with ESLint](#integration-with-eslint)
 - [Integration with Babel](#integration-with-babel)
 - [Real-world uses](#real-world-uses)
+- [Versioning policy](#versioning-policy)
 - [Contributions](#contributions)
 - [Donations](#donations)
 - [License](#license)
@@ -1885,6 +1886,14 @@ Just create `.babelrc.json` file with configuration you need.
 
 Do you use `putout` in your application as well? Please open a Pull Request to include it here. We would love to have it in our list.
 
+## Versioning Policy
+`Putout` follows semantic versioning ([semver](https://semver.org)) principles.
+That means that with a version number **major**.**minor**.**patch**:
+
+- **patch**: `bug fix`, `dependency update` (`17.0.0 -> 17.0.1`).
+- **minor**: `new features`, `new rules` or `fixes` (`17.0.0 -> 17.1.0`).
+- **major** `breaking changes`, `removing rules` (`17.0.0 -> 18.0.0`).
+   
 ## Contributions
 
 You can make contribution proposing a feature, fixing a bug or typo in documentation or making a dontation ;).
