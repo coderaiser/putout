@@ -70,9 +70,6 @@ const createFormatterProxy = (options) => {
 };
 
 module.exports = async ({argv, halt, log, write, logError, readFile, writeFile}) => {
-    if (process.send)
-        process.send.bind(process);
-    
     const {isStop} = keyPress();
     const wasStop = fullstore();
     

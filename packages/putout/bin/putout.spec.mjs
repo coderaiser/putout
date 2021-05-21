@@ -1,6 +1,5 @@
 import {join} from 'path';
-import {once} from 'events';
-import {fork} from 'child_process';
+import {spawnSync} from 'child_process';
 
 import {test} from 'supertape';
 import {
@@ -15,21 +14,21 @@ const cliPath = join(__dirname, 'putout.mjs');
 
 test('putout: cli: -v', async (t) => {
     const {version} = await simport('../package.json');
-    const child = fork(cliPath, ['-v']);
+    const {stdout} = spawnSync(cliPath, ['-v'], {
+        encoding: 'utf8',
+    });
     
-    const [message] = await once(child, 'message');
-    
-    t.equal(message, `v${version}`);
+    t.equal(stdout, `v${version}\n`);
     t.end();
 });
 
 test('putout: cli: -h', async (t) => {
     const help = await simport('../lib/cli/help');
-    const child = fork(cliPath, ['-h']);
+    const {stdout} = spawnSync(cliPath, ['-h'], {
+        encoding: 'utf8',
+    });
     
-    const [message] = await once(child, 'message');
-    
-    t.equal(message, help());
+    t.equal(stdout, `${help()}\n`);
     t.end();
 });
 
