@@ -24,6 +24,9 @@ module.exports.traverse = ({push}) => ({
         
         if (isNotDirectiveLiteral(expressionPath))
             return push(expressionPath);
+        
+        if (expressionPath.isUnaryExpression({operator: '!'}))
+            return push(expressionPath);
     },
 });
 

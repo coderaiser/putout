@@ -43,7 +43,5 @@ function getCurrent(path) {
         return node.name;
     }
     
-    !node;
-    
     return node.value;
 }
