@@ -33,7 +33,7 @@
     "@babel/plugin-syntax-class-properties": "^7.12.1",
     "@babel/plugin-syntax-top-level-await": "^7.12.1",
     "@babel/plugin-syntax-typescript": "^7.12.1",
-    "@putout/eslint-config": "^4.0.0",
+    "@putout/eslint-config": "^5.0.0",
     "align-spaces": "^1.0.0",
     "eslint-plugin-node": "^11.0.0"
   },
