@@ -1,3 +1,23 @@
+2021.05.22, v17.5.1
+
+fix:
+- (putout) bin: useless process.send.bind
+
+
+feature:
+- (@putout/engine-processor) speed up: unroll loop: 1m32.712s -> 1m20.898s (mac os)
+- (package) @putout/eslint-config v5.0.0
+- (@putout/eslint-config) drop support of node < 14
+- (@putout/eslint-config)
+- (@putout/plugin-simplify-ternary) add support of same assigny and ternary operand
+- (@putout/plugin-remove-unused-expressions) add support of not unary expression
+- (putout) eslint-plugin-putout v8.0.0
+- (eslint-plugin-putout) drop support of putout < 17
+- (eslint-plugin-putout) variable-init-with-object -> object-init
+- (eslint-plugin-putout) variable-init-with-object: add support of AssignmentExpression
+
+
+
 2021.05.15, v17.5.0
 
 fix:
