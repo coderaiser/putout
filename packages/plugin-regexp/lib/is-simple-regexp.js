@@ -16,6 +16,7 @@ module.exports = (regexp) => {
                 containsMoreThenChars = true;
                 return;
             }
+            
             containsMoreThenChars = Boolean(expressions.find(notChar));
         },
     });

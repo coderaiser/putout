@@ -86,6 +86,14 @@
             "blankLine": "always",
             "prev": "if",
             "next": "return"
+        }, {
+            "blankLine": "always",
+            "prev": "if",
+            "next": "expression"
+        }, {
+            "blankLine": "always",
+            "prev": "if",
+            "next": "const"
         }],
         "require-atomic-updates": "off",
         "yoda": "error"
