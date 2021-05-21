@@ -1,6 +1,6 @@
 {
   "name": "@putout/eslint-config",
-  "version": "4.4.0",
+  "version": "5.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout config for eslint",
   "homepage": "http://github.com/coderaiser/putout",
