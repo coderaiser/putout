@@ -44,3 +44,8 @@ test('plugin-simplify-ternary: transform: boolean', (t) => {
     t.end();
 });
 
+test('plugin-simplify-ternary: transform: same', (t) => {
+    t.transform('same');
+    t.end();
+});
+

@@ -204,7 +204,9 @@ const transform = currify(({dir, plugins, rules}, t, name, transformed = null, a
     
     const [output] = isStr ? [transformed] : readFixture(`${full}-fix`);
     
-    addons = isStr ? addons : transformed;
+    if (!isStr)
+        addons = transformed;
+    
     addons = addons || {};
     
     plugins[0] = {
