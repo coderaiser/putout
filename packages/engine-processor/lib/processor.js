@@ -34,7 +34,9 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     let processedSource = '';
     let processedPlaces = [];
     let isProcessed = false;
-    let isJsChanged = false;
+    
+    const list = [];
+    const preProcessedList = [];
     
     for (const currentRunner of processorRunners) {
         const {
@@ -47,6 +49,7 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         if (!isMatch(name))
             continue;
         
+        isProcessed = true;
         [processedSource, processedPlaces] = await process(rawSource, {
             fix,
         });
@@ -54,33 +57,32 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         if (!processedSource)
             processedSource = rawSource;
         
-        const list = await preProcess(processedSource);
-        const preProcessedList = [];
+        const info = await preProcess(processedSource);
+        const files = info.map(addPostProcess(createPostProcess({
+            postProcess,
+        })));
         
-        isJsChanged = false;
-        for (const {source, startLine = 0, extension} of list) {
-            const processedName = addExtension(name, extension);
-            const {code, places} = await processFile({
-                name: processedName,
-                source,
-                rawSource,
-                options,
-                startLine,
-            });
-            
-            preProcessedList.push(code);
-            allPlaces.push(...places);
-            
-            if (places.length || code !== source)
-                isJsChanged = true;
-        }
-        
-        if (isJsChanged)
-            processedSource = await postProcess(processedSource, preProcessedList);
-        
-        isProcessed = true;
-        allPlaces.push(...processedPlaces);
+        list.push(...files);
     }
+    
+    for (const {source, startLine = 0, extension, postProcess} of list) {
+        const processedName = addExtension(name, extension);
+        const {code, places} = await processFile({
+            name: processedName,
+            source,
+            rawSource,
+            options,
+            startLine,
+        });
+        
+        preProcessedList.push(code);
+        allPlaces.push(...places);
+        
+        if (places.length || code !== source)
+            processedSource = await postProcess(processedSource, preProcessedList);
+    }
+    
+    allPlaces.push(...processedPlaces);
     
     if (!fix)
         processedSource = rawSource;
@@ -108,6 +110,22 @@ function addGlobs(processor) {
             dot: true,
             matchBase: true,
         }),
+    };
+}
+
+const addPostProcess = (postProcess) => (el) => ({
+    ...el,
+    postProcess,
+});
+
+function createPostProcess({postProcess}) {
+    let i = 0;
+    
+    return async (processedSource, preProcessedList) => {
+        if (++i === preProcessedList.length)
+            return await postProcess(processedSource, preProcessedList);
+        
+        return processedSource;
     };
 }
 

@@ -137,6 +137,29 @@ test('putout: engine-processor: markdown: no fix', async (t) => {
     t.end();
 });
 
+test('putout: engine-processor: markdown: no fix: is processed', async (t) => {
+    const name = join(__dirname, 'fixture/no-js.md');
+    const options = {
+        processors: [
+            'markdown',
+        ],
+    };
+    const rawSource = await readFile(name, 'utf8');
+    
+    const {isProcessed} = await runProcessors({
+        name,
+        processFile: processFile({
+            name: `${name}{js}`,
+            fix: false,
+        }),
+        options,
+        rawSource,
+    });
+    
+    t.ok(isProcessed);
+    t.end();
+});
+
 test('putout: engine-processor: markdown: fix: do not return processed places', async (t) => {
     const name = join(__dirname, 'fixture/places.md');
     const options = {
