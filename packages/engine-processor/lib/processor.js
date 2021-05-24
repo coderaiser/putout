@@ -24,7 +24,6 @@ module.exports.getFilePatterns = (processors) => {
 };
 
 module.exports.runProcessors = async ({name, fix, processFile, options, rawSource, processorRunners}) => {
-    const allPlaces = [];
     const {
         processors = defaultProcessors,
     } = options;
@@ -34,9 +33,69 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     let processedSource = '';
     let processedPlaces = [];
     let isProcessed = false;
+    let fileList = [];
+    let allPlaces = [];
     
-    const list = [];
+    ({fileList, isProcessed, processedSource, processedPlaces} = await getFiles({
+        name,
+        fix,
+        rawSource,
+        processorRunners,
+    }));
+    
+    ({processedSource, allPlaces} = await iterate({
+        name,
+        fileList,
+        options,
+        rawSource,
+        processFile,
+        processedSource,
+    }));
+    
+    allPlaces.push(...processedPlaces);
+    
+    if (!fix)
+        processedSource = rawSource;
+    
+    return {
+        places: allPlaces,
+        processedSource,
+        isProcessed,
+    };
+};
+
+async function iterate({name, rawSource, fileList, processFile, processedSource, options}) {
+    const allPlaces = [];
     const preProcessedList = [];
+    
+    for (const {source, startLine = 0, extension, postProcess} of fileList) {
+        const processedName = addExtension(name, extension);
+        const {code, places} = await processFile({
+            name: processedName,
+            source,
+            rawSource,
+            options,
+            startLine,
+        });
+        
+        preProcessedList.push(code);
+        allPlaces.push(...places);
+        
+        if (places.length || code !== source)
+            processedSource = await postProcess(processedSource, preProcessedList);
+    }
+    
+    return {
+        processedSource,
+        allPlaces,
+    };
+}
+
+async function getFiles({name, fix, rawSource, processorRunners}) {
+    let isProcessed = false;
+    let processedSource = '';
+    let processedPlaces = [];
+    const fileList = [];
     
     for (const currentRunner of processorRunners) {
         const {
@@ -62,37 +121,16 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
             postProcess,
         })));
         
-        list.push(...files);
+        fileList.push(...files);
     }
-    
-    for (const {source, startLine = 0, extension, postProcess} of list) {
-        const processedName = addExtension(name, extension);
-        const {code, places} = await processFile({
-            name: processedName,
-            source,
-            rawSource,
-            options,
-            startLine,
-        });
-        
-        preProcessedList.push(code);
-        allPlaces.push(...places);
-        
-        if (places.length || code !== source)
-            processedSource = await postProcess(processedSource, preProcessedList);
-    }
-    
-    allPlaces.push(...processedPlaces);
-    
-    if (!fix)
-        processedSource = rawSource;
     
     return {
-        places: allPlaces,
-        processedSource,
         isProcessed,
+        processedSource,
+        processedPlaces,
+        fileList,
     };
-};
+}
 
 module.exports.getProcessorRunners = getProcessorRunners;
 function getProcessorRunners(processors) {
