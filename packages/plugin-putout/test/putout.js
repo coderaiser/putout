@@ -33,3 +33,8 @@ test('plugin-putout: convert-traverse-to-include: transform', (t) => {
     t.transform('convert-traverse-to-include');
     t.end();
 });
+
+test('plugin-putout: convert-process-to-find: transform', (t) => {
+    t.transform('convert-process-to-find');
+    t.end();
+});

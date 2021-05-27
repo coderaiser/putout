@@ -557,18 +557,14 @@ test('putout: engine-processor: lint + js', async (t) => {
     
     const processorRunners = [{
         isMatch: stub().returns(true),
-        process: () => {
-            return [
-                'hello', [],
-            ];
-        },
-        preProcess: () => {
+        fix: () => 'hello',
+        branch: () => {
             return [{
                 source: 'var a',
                 startLine: 0,
             }];
         },
-        postProcess: (content) => {
+        merge: (content) => {
             return content;
         },
     }];
@@ -590,3 +586,39 @@ test('putout: engine-processor: lint + js', async (t) => {
     t.equal(processedSource, 'hello', 'should use processed source in postProcess');
     t.end();
 });
+
+test('putout: engine-processor: no fix', async (t) => {
+    const options = {
+    };
+    
+    const processorRunners = [{
+        isMatch: stub().returns(true),
+        branch: () => {
+            return [{
+                source: 'var a',
+                startLine: 0,
+            }];
+        },
+        merge: (content) => {
+            return content;
+        },
+    }];
+    
+    const rawSource = 'hello world';
+    
+    const fix = true;
+    const {processedSource} = await runProcessors({
+        fix,
+        name: 'hello.md',
+        processFile: processFile({
+            fix,
+        }),
+        options,
+        rawSource,
+        processorRunners,
+    });
+    
+    t.equal(processedSource, 'hello world', 'should use processed source in postProcess');
+    t.end();
+});
+

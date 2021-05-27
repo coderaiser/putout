@@ -1,29 +1,27 @@
 'use strict';
 
 const tryCatch = require('try-catch');
-const fullstore = require('fullstore');
 
 const bigFirst = (a) => a[0].toUpperCase() + a.slice(1);
 const {stringify, parse} = JSON;
-const store = fullstore('');
 
 module.exports.files = [
     '*.yml',
     '*.yaml',
 ];
 
-module.exports.preProcess = () => {
+module.exports.branch = (rawSource) => {
+    const yaml = require('js-yaml');
     const jsonProcessor = require('@putout/processor-json');
     
-    const rawSource = store();
+    const list = [];
+    const [error, value] = tryCatch(yaml.load, rawSource);
     
-    if (!rawSource)
+    if (error)
         return [];
     
-    store('');
-    
-    const list = [];
-    const [{source}] = jsonProcessor.preProcess(rawSource, null, 2);
+    const stringified = stringify(value, null, 2);
+    const [{source}] = jsonProcessor.branch(stringified, null, 2);
     
     list.push({
         source,
@@ -33,34 +31,29 @@ module.exports.preProcess = () => {
     return list;
 };
 
-module.exports.process = (rawSource) => {
+module.exports.find = (rawSource) => {
     const yaml = require('js-yaml');
     
-    const [error, value] = tryCatch(yaml.load, rawSource);
-    const noPlaces = [];
-    
-    if (!error) {
-        const stringified = stringify(value, null, 2);
-        store(stringified);
-        
-        return ['', noPlaces];
-    }
-    
+    const [error] = tryCatch(yaml.load, rawSource);
     const places = parsePlaces(error);
-    return ['', places];
+    
+    return places;
 };
 
-module.exports.postProcess = (rawSource, list) => {
+module.exports.merge = (rawSource, list) => {
     const yaml = require('js-yaml');
     const jsonProcessor = require('@putout/processor-json');
     
-    const source = jsonProcessor.postProcess(rawSource, list);
+    const source = jsonProcessor.merge(rawSource, list);
     const result = yaml.dump(parse(source));
     
     return result;
 };
 
 function parsePlaces(error) {
+    if (!error)
+        return [];
+    
     const {mark, reason} = error;
     const {line} = mark;
     const position = {
@@ -77,3 +70,4 @@ function parsePlaces(error) {
     
     return [place];
 }
+

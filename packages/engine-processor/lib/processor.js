@@ -8,8 +8,9 @@ const defaultProcessors = [
 ];
 
 const addExtension = (name, ext) => !ext ? name : `${name}{${ext}}`;
-const stubProcess = (a) => [a, []];
-const stubPreProcess = () => [];
+const stubFind = () => [];
+const stubFix = (a) => a;
+const stubSplit = () => [];
 
 module.exports.defaultProcessors = defaultProcessors;
 
@@ -66,9 +67,9 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
 
 async function iterate({name, rawSource, fileList, processFile, processedSource, options}) {
     const allPlaces = [];
-    const preProcessedList = [];
+    const branchedList = [];
     
-    for (const {source, startLine = 0, extension, postProcess} of fileList) {
+    for (const {source, startLine = 0, extension, merge} of fileList) {
         const processedName = addExtension(name, extension);
         const {code, places} = await processFile({
             name: processedName,
@@ -78,11 +79,11 @@ async function iterate({name, rawSource, fileList, processFile, processedSource,
             startLine,
         });
         
-        preProcessedList.push(code);
+        branchedList.push(code);
         allPlaces.push(...places);
         
         if (places.length || code !== source)
-            processedSource = await postProcess(processedSource, preProcessedList);
+            processedSource = await merge(processedSource, branchedList);
     }
     
     return {
@@ -100,26 +101,27 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
     for (const currentRunner of processorRunners) {
         const {
             isMatch,
-            postProcess,
-            preProcess = stubPreProcess,
-            process = stubProcess,
+            merge,
+            branch = stubSplit,
+            find = stubFind,
+            fix: fixFind = stubFix,
         } = currentRunner;
         
         if (!isMatch(name))
             continue;
         
         isProcessed = true;
-        [processedSource, processedPlaces] = await process(rawSource, {
-            fix,
-        });
+        
+        if (fix)
+            processedSource = await fixFind(rawSource);
+        else
+            processedPlaces = await find(rawSource);
         
         if (!processedSource)
             processedSource = rawSource;
         
-        const info = await preProcess(processedSource);
-        const files = info.map(addPostProcess(createPostProcess({
-            postProcess,
-        })));
+        const info = await branch(processedSource);
+        const files = info.map(addMerge(merge));
         
         fileList.push(...files);
     }
@@ -151,19 +153,8 @@ function addGlobs(processor) {
     };
 }
 
-const addPostProcess = (postProcess) => (el) => ({
+const addMerge = (merge) => (el) => ({
     ...el,
-    postProcess,
+    merge,
 });
-
-function createPostProcess({postProcess}) {
-    let i = 0;
-    
-    return async (processedSource, preProcessedList) => {
-        if (++i === preProcessedList.length)
-            return await postProcess(processedSource, preProcessedList);
-        
-        return processedSource;
-    };
-}
 

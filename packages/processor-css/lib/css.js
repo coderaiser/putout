@@ -24,15 +24,10 @@ const loadConfig = once(async () => {
     ]);
 });
 
-module.exports.process = async (code, {fix}) => {
+module.exports.find = async (code) => {
     const stylelint = require('stylelint');
     const config = await loadConfig();
-    const {
-        errored,
-        output,
-        results,
-    } = await stylelint.lint({
-        fix,
+    const {results} = await stylelint.lint({
         code,
         config,
     });
@@ -40,16 +35,19 @@ module.exports.process = async (code, {fix}) => {
     const {warnings} = results[0];
     const places = warnings.map(toPlace);
     
-    if (errored)
-        return [
-            code,
-            places,
-        ];
+    return places;
+};
+
+module.exports.fix = async (code) => {
+    const stylelint = require('stylelint');
+    const config = await loadConfig();
+    const {output} = await stylelint.lint({
+        fix: true,
+        code,
+        config,
+    });
     
-    return [
-        output,
-        places,
-    ];
+    return output;
 };
 
 function toPlace({line, column, rule, text}) {

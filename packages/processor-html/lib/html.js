@@ -10,15 +10,46 @@ module.exports.files = [
     '*.html',
 ];
 
-module.exports.process = async (rawSource, {fix}) => {
+module.exports.fix = async (rawSource) => {
     const svelte = require('svelte/compiler');
-    const allPlaces = [];
     
     const {code} = await svelte.preprocess(rawSource, {
         async style(node) {
             const {content} = node;
             const source = removePrefixSpaces(content);
-            const [currentSource, places] = await processorCSS.process(source, {fix});
+            const currentSource = await processorCSS.fix(source);
+            
+            if (currentSource.includes('{ {'))
+                return {
+                    code: content,
+                };
+            
+            const code = addPrefixSpaces({
+                currentSource: currentSource.slice(0, -1),
+                content,
+            });
+            
+            return {
+                code,
+            };
+        },
+    });
+    
+    return code;
+};
+
+module.exports.find = async (rawSource) => {
+    const svelte = require('svelte/compiler');
+    const allPlaces = [];
+    
+    await svelte.preprocess(rawSource, {
+        async style(node) {
+            const {content} = node;
+            const source = removePrefixSpaces(content);
+            const [currentSource, places] = await Promise.all([
+                processorCSS.fix(source),
+                processorCSS.find(source),
+            ]);
             
             const code = addPrefixSpaces({
                 currentSource: currentSource.slice(0, -1),
@@ -47,13 +78,10 @@ module.exports.process = async (rawSource, {fix}) => {
         },
     });
     
-    if (!fix)
-        return [rawSource, allPlaces];
-    
-    return [code, []];
+    return allPlaces;
 };
 
-module.exports.preProcess = async (rawSource) => {
+module.exports.branch = async (rawSource) => {
     const list = [];
     const svelte = require('svelte/compiler');
     
@@ -84,7 +112,7 @@ module.exports.preProcess = async (rawSource) => {
     return list;
 };
 
-module.exports.postProcess = async (rawSource, list) => {
+module.exports.merge = async (rawSource, list) => {
     const svelte = require('svelte/compiler');
     
     const {code} = await svelte.preprocess(rawSource, {

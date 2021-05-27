@@ -22,6 +22,11 @@ test('putout: processor: yaml: duplicate', async (t) => {
     }]);
 });
 
+test('putout: engine-processor: yaml: no startLine', async (t) => {
+    await t.comparePlaces('travis.yml', []);
+});
+
 test('putout: processor: yaml: duplicate: file content', async (t) => {
     await t.noProcess('duplicate.yml');
 });
+

@@ -9,14 +9,14 @@ module.exports.files = [
     '*.tsx',
 ];
 
-module.exports.preProcess = (source) => {
+module.exports.branch = (source) => {
     return [{
         source,
         startLine: 0,
     }];
 };
 
-module.exports.postProcess = (source, list) => {
+module.exports.merge = (source, list) => {
     return list[0];
 };
 

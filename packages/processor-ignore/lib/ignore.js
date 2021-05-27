@@ -15,7 +15,7 @@ module.exports.files = [
     '*rc',
 ];
 
-module.exports.preProcess = (rawSource) => {
+module.exports.branch = (rawSource) => {
     const array = convertToArray(rawSource);
     const source = `${prefix}${array}${sufix}`;
     
@@ -26,7 +26,7 @@ module.exports.preProcess = (rawSource) => {
     }];
 };
 
-module.exports.postProcess = (rawSource, list) => {
+module.exports.merge = (rawSource, list) => {
     const [source] = list;
     const length = source.length - sufix.length;
     const str = source.slice(prefix.length, length);

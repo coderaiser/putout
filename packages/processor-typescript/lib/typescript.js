@@ -5,7 +5,7 @@ module.exports.files = [
     '*.tsx',
 ];
 
-module.exports.process = (rawSource) => {
+module.exports.find = (rawSource) => {
     const {Project} = require('ts-morph');
     const project = new Project();
     
@@ -14,7 +14,7 @@ module.exports.process = (rawSource) => {
     
     const places = diagnostics.map(toPlace);
     
-    return [rawSource, places];
+    return places;
 };
 
 function toPlace(diagnostic) {

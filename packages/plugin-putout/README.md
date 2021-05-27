@@ -25,6 +25,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-destructuring-to-identifier": "on",
         "putout/convert-node-to-path-in-get-template-values": "on",
         "putout/convert-traverse-to-include": "on",
+        "putout/convert-procedss-to-find": "on",
         "putout/shorten-imports": "on"
     }
 }
@@ -191,6 +192,23 @@ module.exports.include = () => [
 ];
 ```
 
+## convert-process-to-find
+
+### ❌ Incorrect code example
+
+```js
+module.exports.preProcess = () => {};
+module.exports.postProcess = () => {};
+```
+
+### ✅ Correct code Example
+
+```js
+module.exports.branch = (rawSource) => [];
+module.exports.merge = (processedSource, list) => '';
+```
+
 ## License
 
 MIT
+

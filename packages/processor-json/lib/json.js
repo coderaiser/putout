@@ -9,7 +9,7 @@ module.exports.files = [
     '*.json',
 ];
 
-module.exports.preProcess = (rawSource) => {
+module.exports.branch = (rawSource) => {
     const source = `${prefix}${rawSource}${sufix}`;
     return [{
         startLine: 0,
@@ -17,7 +17,7 @@ module.exports.preProcess = (rawSource) => {
     }];
 };
 
-module.exports.postProcess = (rawSource, list) => {
+module.exports.merge = (rawSource, list) => {
     const [source] = list;
     const length = source.length - sufix.length;
     const sliced = source.slice(prefix.length, length);

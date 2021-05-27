@@ -46,7 +46,25 @@ const loadDependencies = once(async () => {
     };
 });
 
-module.exports.process = async (rawSource, {fix}) => {
+module.exports.find = async (rawSource) => {
+    const {
+        unified,
+        stringify,
+        preset,
+    } = await loadDependencies();
+    
+    parseStore.init();
+    
+    const {messages} = await unified()
+        .use(parseStore)
+        .use(preset)
+        .use(stringify, stringifyOptions)
+        .process(rawSource);
+    
+    return messages.map(toPlace);
+};
+
+module.exports.fix = async (rawSource) => {
     const {
         unified,
         stringify,
@@ -61,19 +79,13 @@ module.exports.process = async (rawSource, {fix}) => {
         .use(stringify, stringifyOptions)
         .process(rawSource);
     
-    if (fix && contents !== rawSource && messages.length)
-        return [
-            contents,
-            [],
-        ];
+    if (!messages.length)
+        return rawSource;
     
-    return [
-        rawSource,
-        messages.map(toPlace),
-    ];
+    return contents;
 };
 
-module.exports.preProcess = async (rawSource) => {
+module.exports.branch = async (rawSource) => {
     const {
         unified,
         stringify,
@@ -96,7 +108,7 @@ module.exports.preProcess = async (rawSource) => {
     return list;
 };
 
-module.exports.postProcess = async (rawSource, list) => {
+module.exports.merge = async (rawSource, list) => {
     const {
         unified,
         stringify,
@@ -162,7 +174,7 @@ const collect = ({list, visit}) => {
             }
             
             if (lang === 'json') {
-                const [{source}] = jsonProcessor.preProcess(value);
+                const [{source}] = jsonProcessor.branch(value);
                 
                 list.push({
                     startLine,
@@ -194,7 +206,7 @@ const apply = ({list, rawSource, visit, jsonProcessor}) => (node) => {
         
         if (lang === 'json') {
             const code = list.shift();
-            const source = jsonProcessor.postProcess(rawSource, [code]);
+            const source = jsonProcessor.merge(rawSource, [code]);
             
             node.value = source;
         }

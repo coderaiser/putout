@@ -47,21 +47,22 @@ module.exports.files = [
     '*.js',
 ];
 
-// with help of process you can lint an types of files with corresponding tools
-module.exports.process = (source) => {
-    return [processedSource, places];
+module.exports.find = (source) => {
+    return places;
 };
 
-// preProcess should always return array of sources that was get from source
-module.exports.preProcess = (source) => {
+module.exports.fix = (source) => {
+    return `modified ${source}`;
+};
+
+module.exports.branch = (source) => {
     return [{
         source,
         startLine: 0,
     }];
 };
 
-// postProcess should join all processed source list into main source
-module.exports.postProcess = (source, list) => {
+module.exports.merge = (source, list) => {
     return list[0];
 };
 ```

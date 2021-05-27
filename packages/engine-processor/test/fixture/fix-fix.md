@@ -9,5 +9,5 @@ const a = 5;
 ```
 
 ```js
-const x = 2
+const x = 2;
 ```

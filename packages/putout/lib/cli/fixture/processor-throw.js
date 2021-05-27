@@ -4,11 +4,11 @@ module.exports.files = [
     '*.throw',
 ];
 
-module.exports.preProcess = (source) => {
+module.exports.branch = (source) => {
     throw Error('preProcess');
 };
 
-module.exports.postProcess = (source, list) => {
+module.exports.merge = (source, list) => {
     return list[0];
 };
 
