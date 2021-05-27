@@ -10,5 +10,6 @@ module.exports.exclude = () => [
 module.exports.replace = () => ({
     '(...__a) => __b(...__a)': '__b',
     '(...__a) => {__b(...__a)}': '__b',
+    'async (__a, __b) => {return await __c(__a, __b);}': '__c',
 });
 

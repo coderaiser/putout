@@ -19,6 +19,11 @@ test('remove usless functions: transform: fn', (t) => {
     t.end();
 });
 
+test('remove usless functions: transform: async', (t) => {
+    t.transform('async');
+    t.end();
+});
+
 test('remove usless functions: no transform: method', (t) => {
     t.noTransform('method');
     t.end();
