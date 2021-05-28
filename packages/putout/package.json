@@ -151,7 +151,7 @@
     "@putout/plugin-tape": "^2.0.0",
     "@putout/plugin-webpack": "^1.0.0",
     "@putout/processor-css": "^3.0.0",
-    "@putout/processor-ignore": "^1.0.1",
+    "@putout/processor-ignore": "^2.0.0",
     "@putout/processor-javascript": "^2.0.0",
     "@putout/processor-json": "^2.0.0",
     "@putout/processor-markdown": "^4.0.0",
