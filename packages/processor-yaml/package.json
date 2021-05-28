@@ -23,7 +23,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/processor-json": "^2.0.0",
+    "@putout/processor-json": "^3.0.0",
     "fullstore": "^3.0.0",
     "js-yaml": "^4.0.0",
     "try-catch": "^3.0.0"
