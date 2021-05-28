@@ -1,3 +1,34 @@
+2021.05.28, v18.0.0
+
+fix:
+- (@putout/processsor-markdown) rm unused dependencies
+
+
+feature:
+- (package) @putout/processor-css v3.0.0
+- (package) @putout/processor-json v3.0.0
+- (package) @putout/processor-json v3.0.0
+- (@putout/processor-typescript) drop support of putout < 18
+- (package) @putout/processor-markdown v5.0.0
+- (@putout/processor-markdown) drop support of putout < 18
+- (package) @putout/processor-json v3.0.0
+- (@putout/processor-json) drop support of putout < 18
+- (package) @putout/processor-javascript v3.0.0
+- (@putout/processor-javascript) drop support of putout < 18
+- (package) @putout/processor-ignore v2.0.0
+- (@putout/processor-ignore) drop support of putout < 18
+- (package) @putout/processor-css v3.0.0
+- (@putout/processor-css) drop support of putout < 18
+- (@putout/processor-html) drop support of putout < 18
+- (package) @putout/processor-yaml v2.0.0
+- (package) @putout/engine-processor v4.0.0
+- (@putout/processor-yaml) drop support of putout < 18
+- (@putout/remove-useless-functions) add support of async
+- (@putout/engine-processor) convert process to find
+- (@putout/engine-processor) runProcessors: speed up: 1m13.010s -> 1m11.628s (mac os)
+
+
+
 2021.05.22, v17.5.1
 
 fix:
