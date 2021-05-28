@@ -1,6 +1,6 @@
 {
   "name": "@putout/processor-javascript",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout processor for javascript",
   "homepage": "http://github.com/coderaiser/putout",
