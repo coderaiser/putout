@@ -50,11 +50,11 @@
     "putout": "*"
   },
   "peerDependencies": {
-    "putout": ">=16"
+    "putout": ">=18"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=14"
   },
   "publishConfig": {
     "access": "public"
