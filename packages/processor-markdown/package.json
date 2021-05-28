@@ -38,7 +38,6 @@
     "markdown"
   ],
   "devDependencies": {
-    "@putout/engine-processor": "*",
     "@putout/test": "^3.5.0",
     "c8": "^7.5.0",
     "eslint": "^7.0.0",
