@@ -1,6 +1,6 @@
 {
   "name": "@putout/processor-json",
-  "version": "2.1.3",
+  "version": "3.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout processor adds ability to lint json",
   "homepage": "http://github.com/coderaiser/putout",
