@@ -29,8 +29,8 @@ const {
     types,
 } = require('putout');
 
-const {ContinueStatement} = types;
 const {replaceWith} = operator;
+const {ContinueStatement} = types;
 
 replaceWith(path, ContinueStatement());
 ```
