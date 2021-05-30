@@ -24,16 +24,32 @@ If you write plugin for `putout` you already have `operator` in `putout`, all ex
 ### replaceWith(path, node)
 
 ```js
-const {replaceWith} = require('putout').operator;
-replaceWith(path, ContinueStatement);
+const {
+    operator,
+    types,
+} = require('putout');
+
+const {ContinueStatement} = types;
+const {replaceWith} = operator;
+
+replaceWith(path, ContinueStatement());
 ```
 
 ### replaceWithMultiple(path, nodes)
 
 ```js
-const {replaceWithMultiple} = require('putout').operator;
+const {
+    operator,
+    types,
+} = require('putout');
 
-replaceWith(path, [
+const {replaceWithMultiple} = operator;
+const {
+    ExpressionStatement,
+    ContinueStatement,
+} = types;
+
+replaceWithMultiple(path, [
     ExpressionStatement(path.node.argument),
     ContinueStatement,
 ]);
