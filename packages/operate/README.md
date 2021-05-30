@@ -1,8 +1,8 @@
 # Operate [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/putout.svg?style=flat&longCache=true
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operate.svg?style=flat&longCache=true
 [BuildStatusIMGURL]: https://img.shields.io/travis/coderaiser/putout/master.svg?style=flat&longCache=true
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/putout
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/operate
 [NPMURL]: https://npmjs.org/package/putout "npm"
 [BuildStatusURL]: https://travis-ci.org/coderaiser/putout "Build Status"
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/operate "Dependency Status"
@@ -17,21 +17,21 @@
 npm i @putout/operate
 ```
 
-If you write plugin for `putout` you already have `operate` in `putout`, all exampes will get `operate` from `putout`, but you can use direct `require('@putout/operate')` as well.
+If you write plugin for `putout` you already have `operator` in `putout`, all exampes will get `operator` from `putout`, but you can use direct `require('@putout/operate')` as well.
 
 ## API
 
 ### replaceWith(path, node)
 
 ```js
-const {replaceWith} = require('putout').operate;
+const {replaceWith} = require('putout').operator;
 replaceWith(path, ContinueStatement);
 ```
 
 ### replaceWithMultiple(path, nodes)
 
 ```js
-const {replaceWithMultiple} = require('putout').operate;
+const {replaceWithMultiple} = require('putout').operator;
 
 replaceWith(path, [
     ExpressionStatement(path.node.argument),
