@@ -622,3 +622,30 @@ test('putout: engine-processor: no fix', async (t) => {
     t.end();
 });
 
+test('putout: engine-processor: call merge once', async (t) => {
+    const name = join(__dirname, 'fixture/call-merge-once.md');
+    const nameFix = join(__dirname, 'fixture/call-merge-once-fix.md');
+    
+    const options = {
+        processors: [
+            'markdown',
+        ],
+    };
+    const rawSource = await readFile(name, 'utf8');
+    const fixedSource = await readFile(nameFix, 'utf8');
+    
+    const {processedSource} = await runProcessors({
+        fix: true,
+        name,
+        processFile: processFile({
+            name: `${name}{js}`,
+            fix: true,
+        }),
+        options,
+        rawSource,
+    });
+    
+    t.equal(processedSource, fixedSource);
+    t.end();
+});
+
