@@ -9,12 +9,10 @@
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
-
 > "Perfection is finally attained not when there is no longer anything to add,
 > but when there is no longer anything to take away"
 >
->  (c) Antoine de Saint Exupéry
-
+> (c) Antoine de Saint Exupéry
 
 Putout is a pluggable and configurable code transformer with built-in `eslint`, `babel plugins` and `jscodeshift codemods` support for `js`, `jsx` `typescript` and `flow` files. It has [a lot of transforms](#built-in-transformations) that will keep your codebase in a clean state transforming any `code smell` to readable code according to best practices.
 
@@ -1675,13 +1673,13 @@ To see more sophisticated example look at [@putout/remove-console](https://githu
 
 ### 🤷‍♂️ What if I don't want to publish plugin?
 
-If you don't want to publish the `plugin` you developed, you can pass it to `Putout` as an `object` described earler. Here is [how it can look like](https://github.com/coderaiser/mock-import/blob/v1.0.8/lib/convert-imports/index.js#L19-L33):  
+If you don't want to publish the `plugin` you developed, you can pass it to `Putout` as an `object` described earler. Here is [how it can look like](https://github.com/coderaiser/mock-import/blob/v1.0.8/lib/convert-imports/index.js#L19-L33):
 
 ```js
 putout('const a = 5', {
-   plugins: [
-      ['remove-unused-variables', require('@putout/plugin-remove-unused-variables')],
-   ]
+    plugins: [
+        ['remove-unused-variables', require('@putout/plugin-remove-unused-variables')],
+    ],
 });
 ```
 
@@ -1901,13 +1899,14 @@ Just create `.babelrc.json` file with configuration you need.
 Do you use `putout` in your application as well? Please open a Pull Request to include it here. We would love to have it in our list.
 
 ## Versioning Policy
+
 `Putout` follows semantic versioning ([semver](https://semver.org)) principles.
 That means that with a version number **major**.**minor**.**patch**:
 
 - **patch**: `bug fix`, `dependency update` (`17.0.0 -> 17.0.1`).
 - **minor**: `new features`, `new rules` or `fixes` (`17.0.0 -> 17.1.0`).
 - **major** `breaking changes`, `removing rules` (`17.0.0 -> 18.0.0`).
-   
+
 ## Contributions
 
 You can make contribution proposing a feature, fixing a bug or typo in documentation or making a dontation ;).
