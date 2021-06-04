@@ -9,8 +9,19 @@ module.exports.files = [
     '*.json',
 ];
 
+const toJS = (source) => `${prefix}${source}${sufix}`;
+const fromJS = (source) => {
+    const length = source.length - sufix.length;
+    const sliced = source.slice(prefix.length, length);
+    
+    return removeBlankLines(sliced);
+};
+
+module.exports.toJS = toJS;
+module.exports.fromJS = fromJS;
+
 module.exports.branch = (rawSource) => {
-    const source = `${prefix}${rawSource}${sufix}`;
+    const source = toJS(rawSource);
     return [{
         startLine: 0,
         source,
@@ -19,10 +30,6 @@ module.exports.branch = (rawSource) => {
 
 module.exports.merge = (rawSource, list) => {
     const [source] = list;
-    const length = source.length - sufix.length;
-    const sliced = source.slice(prefix.length, length);
-    const result = removeBlankLines(sliced);
-    
-    return result;
+    return fromJS(source);
 };
 

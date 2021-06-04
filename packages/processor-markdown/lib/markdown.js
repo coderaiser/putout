@@ -174,7 +174,7 @@ const collect = ({list, visit}) => {
             }
             
             if (lang === 'json') {
-                const [{source}] = jsonProcessor.branch(value);
+                const source = jsonProcessor.toJS(value);
                 
                 list.push({
                     startLine,
@@ -186,7 +186,7 @@ const collect = ({list, visit}) => {
     };
 };
 
-const apply = ({list, rawSource, visit, jsonProcessor}) => (node) => {
+const apply = ({list, visit, jsonProcessor}) => (node) => {
     visit(node, 'code', (node) => {
         const {lang} = node;
         
@@ -206,7 +206,7 @@ const apply = ({list, rawSource, visit, jsonProcessor}) => (node) => {
         
         if (lang === 'json') {
             const code = list.shift();
-            const source = jsonProcessor.merge(rawSource, [code]);
+            const source = jsonProcessor.fromJS(code);
             
             node.value = source;
         }
