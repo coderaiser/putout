@@ -43,11 +43,9 @@ module.exports.find = (rawSource) => {
 module.exports.merge = (rawSource, list) => {
     const yaml = require('js-yaml');
     const jsonProcessor = require('@putout/processor-json');
-    
     const source = jsonProcessor.merge(rawSource, list);
-    const result = yaml.dump(parse(source));
     
-    return result;
+    return yaml.dump(parse(source));
 };
 
 function parsePlaces(error) {
