@@ -36,3 +36,7 @@ jobs:
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: typos-action
+        uses: crate-ci/typos@v1.0.4
+
