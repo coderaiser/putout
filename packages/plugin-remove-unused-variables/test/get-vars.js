@@ -175,7 +175,7 @@ test('remove-unused-variables: get-vars: array expression', (t) => {
         b: du,
         result: d_,
         spread: d_,
-        spreaded: du,
+        forSpread: du,
         templated: du,
         template: d_,
     }];

@@ -7,9 +7,9 @@ const result = [
     b,
 ];
 
-const spreaded = [];
+const forSpread = [];
 const spread = [
-    ...spreaded,
+    ...forSpread,
 ];
 
 const templated = 'hi';
