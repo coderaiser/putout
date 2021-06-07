@@ -1507,7 +1507,7 @@ module.exports.replace = () => ({
 });
 ```
 
-This plugin will find and sugest to replace all occurences of code: `object && object.property` into `object?.property`.
+This plugin will find and sugest to replace all occurrences of code: `object && object.property` into `object?.property`.
 
 ### Includer
 
@@ -1617,7 +1617,7 @@ Where `__` is a placeholder for anything.
 
 *Remember: template key should be valid JavaScript, or Type name like in previous example.*
 
-You can aslo use `include` and/or `exclude` insead of `traverse` and `filter` ([more sophisticated example](https://github.com/coderaiser/putout/blob/master/packages/plugin-add-return-await/lib/add-return-await.js)):
+You can also use `include` and/or `exclude` insead of `traverse` and `filter` ([more sophisticated example](https://github.com/coderaiser/putout/blob/master/packages/plugin-add-return-await/lib/add-return-await.js)):
 
 ```js
 // should be always used include/or exclude, when traverse not used
@@ -1727,11 +1727,11 @@ const t = [1, 2];
 ```
 
 Using `putout` as a runner for `babel` `plugins` you can not only change file content, but also see what exactly will be changed. You can use your already written
-`babel` `plugins` or reuse work in progress plugins made for `babel`, but remember that `putout` `plugins` gave more accurate information about changing places, and works faster (no need to find infromation about changes in transformed file).
+`babel` `plugins` or reuse work in progress plugins made for `babel`, but remember that `putout` `plugins` gave more accurate information about changing places, and works faster (no need to find information about changes in transformed file).
 
 ### Babel plugins list
 
-Here you can find `babel plugins` which feets the most main purpose of `putout` and adviced to use:
+Here you can find `babel plugins` which feets the most main purpose of `putout` and advised to use:
 
 <details><summary><a href="https://babeljs.io/docs/en/babel-plugin-transform-inline-consecutive-adds">transform-inline-consecutive-adds</a></summary>
 
@@ -1803,7 +1803,7 @@ Please send pull requests with `babel plugins` which can be used as codemods, or
 
 ### JSCodeshift codemods list
 
-Here you can find `jscodeshift codemods` which feets the most main purpose of `putout` and adviced to use:
+Here you can find `jscodeshift codemods` which feets the most main purpose of `putout` and advised to use:
 
 <details><summary><a href="https://github.com/sgilroy/async-await-codemod">async-await-codemod</a></summary>
 
