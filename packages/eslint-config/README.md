@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/eslint-config
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/eslint-config
 
-`putout` config for `eslint`. If `putout` brokes fromatting `eslint` will fix it 😉.
+`putout` config for `eslint`. If `putout` brokes formatting `eslint` will fix it 😉.
 
 ## Install
 
