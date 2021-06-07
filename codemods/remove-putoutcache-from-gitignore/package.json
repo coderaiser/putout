@@ -3,7 +3,7 @@
   "name": "@putout/plugin-remove-putoutcache-from-gitignore",
   "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin helps whith .remove-legacy-from-gitignore",
+  "description": "putout plugin helps to remove putoutcache from .gitignore",
   "homepage": "http://github.com/coderaiser/putout",
   "main": "lib/remove-legacy-from-gitignore.js",
   "release": false,
