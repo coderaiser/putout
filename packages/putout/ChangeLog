@@ -1,7 +1,7 @@
 2021.05.28, v18.0.0
 
 fix:
-- (@putout/processsor-markdown) rm unused dependencies
+- (@putout/processors-markdown) rm unused dependencies
 
 
 feature:
@@ -248,9 +248,9 @@ feature:
 
 2021.04.09, v16.6.0
 feature:
-- (package) @putout/plugin-remove-useless-type-convertion v3.0.0
+- (package) @putout/plugin-remove-useless-type-conversion v3.0.0
 - (package) @putout/plugin-convert-top-level-return v4.0.0
-- (@putout/plugin-remove-useless-type-convertion) drop support of putout < 16
+- (@putout/plugin-remove-useless-type-conversion) drop support of putout < 16
 - (@putout/plugin-convert-top-level-return) drop support of putout < 16
 - (@putotu/plugin-remove-useless-conditions) improve support of If conditions
 - (@putout/compare) improve support of if condition
@@ -297,7 +297,7 @@ feature:
 2021.04.02, v16.1.1
 fix:
 - (putout) uncomment v8-compile-cache
-- (@putout/plugin-convert-for-each-to-for-of) crawl: convert-for-each-to-for-of :-> remove-useless-variables :-> convert-comparsion-to-boolean: evaluate expression
+- (@putout/plugin-convert-for-each-to-for-of) crawl: convert-for-each-to-for-of :-> remove-useless-variables :-> convert-comparison-to-boolean: evaluate expression
 - (@putout/plugin-regexp) optimize: Incomplete quantifier (DmitrySoshnikov/regexp-tree#224)
 - (@putout/plugin-regexp) report after transform
 
@@ -798,7 +798,7 @@ feature:
 - feature(@putout/plugin-tape) convert-throws-to-try-catch: add support of two args
 - feature(@putout/plugin-remove-boolean-from-logical-expressions) add support of using booleans in conditions
 - feature(eslint-plugin-putout) improve support of objects-braces-inside-array
-- feature(eslint-plugin-putout) add "ide" to extend from to improve experiance in IDE
+- feature(eslint-plugin-putout) add "ide" to extend from to improve experience in IDE
 - feature(eslint-plugin-putout) add objects-braces-inside-array
 - feature(@putout/plugin-apply-destructuring) add support of second array element (prefer-destructuring in eslint do not fixes)
 - feature(@putout/plugin-declare-undefined-variables) place name of a variable into report
@@ -889,8 +889,8 @@ feature:
 
 feature:
 - (@putout/plugin-nodejs) add
-- (@putout/processsor-yaml) package: js-yaml v4.0.0
-- (@putout/plugin-madrun) convert-to-async: imporve support of couple run arguments
+- (@putout/processors-yaml) package: js-yaml v4.0.0
+- (@putout/plugin-madrun) convert-to-async: improve support of couple run arguments
 - (@putout/plugin-madrun) add-fresh-lint: add support of ESM
 
 
@@ -974,7 +974,7 @@ fix:
 - (@putout/plugin-eslint) move-putout-to-end-of-extends: putout is only recorod
 
 feature:
-- (putout) add ability to handle absense of processor with CANNOT_LOAD_PROCESSOR exit code
+- (putout) add ability to handle absence of processor with CANNOT_LOAD_PROCESSOR exit code
 
 
 2020.12.25, v12.9.4
@@ -1132,8 +1132,8 @@ feature:
 2020.12.08, v12.1.0
 
 fix:
-- (@putout/plugin-remove-useless-type-convertion) npmignore: add fixture
-- (@putout/plugin-remove-useless-type-convertion) withDoubleNegations -> with-double-negations
+- (@putout/plugin-remove-useless-type-conversion) npmignore: add fixture
+- (@putout/plugin-remove-useless-type-conversion) withDoubleNegations -> with-double-negations
 - (@putout/processor-ignore) no new last line
 
 feature:
@@ -1144,9 +1144,9 @@ feature:
 - (package) @putout/processor-markdown v2.0.1
 - (package) @putout/engine-loader v3.1.1
 - (@putout/plugin-remove-double-negations) add support of for, while, do
-- (package) @putout/plugin-remove-useless-type-convertion v2.0.0
-- (@putout/plugin-remove-useless-type-convertion) drop support of putout < 12
-- (@putout/plugin-remove-useless-type-convertion) include @putout/plugin-remove-double-negations
+- (package) @putout/plugin-remove-useless-type-conversion v2.0.0
+- (@putout/plugin-remove-useless-type-conversion) drop support of putout < 12
+- (@putout/plugin-remove-useless-type-conversion) include @putout/plugin-remove-double-negations
 - (@putout/plugin-remove-double-negations) drop support of node < 12
 - (@putout/plugin-remove-double-negations) add includes
 - (@putout/plugin-remove-useless-spread) add support of Array.from
@@ -1592,14 +1592,14 @@ feature:
 - (@putout/engine-parser) options: allowAwaitOutsideFunction -> plugins: topLevelAwait
 - (@putout/engine-parser) enable importAssertions
 - (@putout/plugin-remove-iife) exclude functions with ReturnStatement
-- (@putout/plugin-remove-useless-type-convertion) add support of typeof
+- (@putout/plugin-remove-useless-type-conversion) add support of typeof
 - (package) nodemon v2.0.6
 
 
 2020.10.25, v10.5.0
 
 feature:
-- (@putout/plugin-remove-useless-type-convertion) add
+- (@putout/plugin-remove-useless-type-conversion) add
 
 
 2020.10.25, v10.4.0
@@ -1909,7 +1909,7 @@ feature:
 feature:
 - (package) @putout/engine-runner v7.0.0
 - (@putout/engine-runner) drop support of node < 10
-- (@putout/engine-runner) replace: fn: returns emtpy -> remove node
+- (@putout/engine-runner) replace: fn: returns empty -> remove node
 
 
 2020.07.21, v9.7.0
@@ -2224,7 +2224,7 @@ feature:
 2020.06.01, v8.12.0
 
 fix:
-- (@putout/plugin-extract-object-properties) handle absense of scope after @putout/plugin-apply-destructuring
+- (@putout/plugin-extract-object-properties) handle absence of scope after @putout/plugin-apply-destructuring
 - (@putout/engine-parser) babel: decorators -> decorators-legacy
 
 feature:
@@ -2877,7 +2877,7 @@ feature:
 - (package) @putout/plugin-remove-useless-spread v2.0.0
 - (@putout/plugin-remove-useless-spread) convert to replace
 - (@putout/plugin-convert-arguments-to-rest) simplify
-- (@putout/engine-parser) remove acorn version check due to using a fork with overriden version (https://github.com/acornjs/acorn/issues/862)
+- (@putout/engine-parser) remove acorn version check due to using a fork with overridden version (https://github.com/acornjs/acorn/issues/862)
 
 
 2020.01.21, v7.7.0
@@ -3269,7 +3269,7 @@ feature:
 - (package) @putout/plugin-remove-only v3.0.0
 - (@putout/plugin-remove-only) convert to replace
 - (@putout/engine-parser) add ability to get expression
-- (@putout/engine-runner) replace: add abilty to use a couple vars
+- (@putout/engine-runner) replace: add ability to use a couple vars
 - (@putout/engine-parser) add template.ast.fresh, which do not use memoization
 
 
@@ -3844,7 +3844,7 @@ fix:
 feature:
 - (packages) eslint v6.2.0
 - (package) eslint v6.2.0
-- (@putout/plugin-remove-unused-private-fields) add support of anynomous class expression
+- (@putout/plugin-remove-unused-private-fields) add support of anonymous class expression
 - (@putout/plugin-remove-unused-private-fields) add support of ClassExpression
 - (run-plugins) complexity on multiple fix rounds: quadratic -> linear
 - (package) eslint-plugin-putout v9.1.0
@@ -4311,7 +4311,7 @@ feature:
 - (@putout/plugin-remove-double-negations) add
 - (@putout/plugin-remove-empty) remove-empty-block: add support of negation
 - (@putout/plugin-merge-if-statements) add support of inner else
-- (@putout/plugin-merge-if-statements) add support of an emtpy block
+- (@putout/plugin-merge-if-statements) add support of an empty block
 
 
 2019.07.04, v4.47.0
@@ -4507,7 +4507,7 @@ feature:
 2019.06.25, v4.32.3
 
 feature:
-- (putout) speed up vistors merge
+- (putout) speed up visitors merge
 
 
 2019.06.24, v4.32.2
@@ -5146,7 +5146,7 @@ feature:
 
 feature:
 - (putout) add support of parser
-- (plugin-remove-unused-variables) split AssingmentExpression and assignmentPattrn
+- (plugin-remove-unused-variables) split AssignmentExpression and assignmentPattrn
 - (eslint-plugin-putout) one-line-destructuring: condition -> selector
 
 
@@ -5318,7 +5318,7 @@ feature:
 - (plugin-remove-unused-variables) add support of jsx
 - (putout) add support of jsx
 - (plugin-remove-unused-variables) add support of ObjectExpression in arguments of NewExpression
-- (plugin-remove-unused-varaibles) add support of AssignmentPattern in ObjectExpression
+- (plugin-remove-unused-variables) add support of AssignmentPattern in ObjectExpression
 - (plugin-remove-unused-variables) add support of ClassDeclaration
 
 
@@ -5337,7 +5337,7 @@ fix:
 2019.01.15, v3.7.0
 
 feature:
-- (putout) read config not directory containg file not cwd
+- (putout) read config not directory containing file not cwd
 
 
 2019.01.15, v3.6.3
