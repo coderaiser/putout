@@ -5,7 +5,7 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-convertion
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-convertion
 
-`putout` plugin adds ability to apply shorthand properties.
+`putout` plugin adds ability to apply shorthand properties. Renamed to [@putout/remove-useless-type-conversion](https://www.npmjs.com/package/@putout/plugin-remove-useless-type-conversion)
 
 ## Install
 
