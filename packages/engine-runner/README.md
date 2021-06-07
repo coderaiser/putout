@@ -122,7 +122,7 @@ module.exports.replace = () => ({
 
 ### Includer
 
-`includer` is the most prefarable format of a plugin, simplest to use (after `replacer`)
+`includer` is the most preferable format of a plugin, simplest to use (after `replacer`)
 
 ```js
 module.exports.report = () => 'debugger statement should not be used';
@@ -194,7 +194,7 @@ module.exports.traverse = ({push, listStore}) => ({
 });
 ```
 
-`store` is prefered way of keeping array elements, because of caching of `putout`, `traverse` init function called only once, and any other way
+`store` is preferred way of keeping array elements, because of caching of `putout`, `traverse` init function called only once, and any other way
 of handling variables will most likely will lead to bugs.
 
 #### Store
