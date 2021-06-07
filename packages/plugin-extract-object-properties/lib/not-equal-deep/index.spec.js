@@ -57,7 +57,7 @@ test('plugin-extract-object-properties: not-equal-deep: transform: no scope', (t
     t.end();
 });
 
-test('plugin-extract-object-properties: not-equal-deep: transform: remove unused-varaibles: duplicate declaration', (t) => {
+test('plugin-extract-object-properties: not-equal-deep: transform: remove unused-variables: duplicate declaration', (t) => {
     t.transform('remove-unused-variables', {
         'remove': removeUnusedVariables,
         'putout/convert-replace-with': putout.rules['convert-replace-with'],
