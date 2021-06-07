@@ -25,7 +25,7 @@ npm i @putout/plugin-package-json -D
 
 ## remove-nyc
 
-- additional fields in `package.json` produces more trafic then users of your package really need;
+- additional fields in `package.json` produces more traffic then users of your package really need;
 - [c8](https://github.com/bcoe/c8) uses [same config name and format](https://github.com/bcoe/c8/blob/v7.3.5/lib/parse-args.js#L8) so transition between tools will be much easier;
 
 ### ❌ Incorrect code example
