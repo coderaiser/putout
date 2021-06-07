@@ -1,7 +1,7 @@
 {
     "match": {
         "*.md": {
-            "remove-useless-type-convertion": "off"
+            "remove-useless-type-conversion": "off"
         }
     }
 }

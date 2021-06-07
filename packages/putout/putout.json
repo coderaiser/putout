@@ -167,7 +167,7 @@
         "remove-useless-typeof",
         "remove-useless-types",
         "remove-useless-types-from-constants",
-        "remove-useless-type-convertion",
+        "remove-useless-type-conversion",
         "remove-useless-functions",
         "remove-useless-template-expressions",
         "remove-useless-for-of",

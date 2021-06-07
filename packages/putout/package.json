@@ -137,7 +137,7 @@
     "@putout/plugin-remove-useless-return": "^1.0.0",
     "@putout/plugin-remove-useless-spread": "^5.0.0",
     "@putout/plugin-remove-useless-template-expressions": "^1.0.0",
-    "@putout/plugin-remove-useless-type-convertion": "^3.0.0",
+    "@putout/plugin-remove-useless-type-conversion": "^1.0.0",
     "@putout/plugin-remove-useless-typeof": "^1.0.0",
     "@putout/plugin-remove-useless-types": "^1.0.0",
     "@putout/plugin-remove-useless-types-from-constants": "^1.0.0",
