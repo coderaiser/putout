@@ -81,7 +81,7 @@ test('putout: root vars: no parent', (t) => {
     t.end();
 });
 
-test('putout: await outside funciton', (t) => {
+test('putout: await outside function', (t) => {
     const result = putout(fixture.awaitOutsideFunc, {
         plugins: [
             'remove-unused-variables',
