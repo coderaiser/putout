@@ -22,7 +22,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - remove useless `operand`;
 - remove useless `array constructor`;
 - remove useless `conditions`;
-- remove useless `type convertion`;
+- remove useless `type conversion`;
 - remove useless `functions`;
 - remove useless `Array.from`;
 - remove useless `spread`;
@@ -65,7 +65,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `equal` to `strict equal`;
 - convert `indexOf` to `includes`;
 - convert `replace` to `replaceAll` (disabled, [stage 4](https://github.com/tc39/proposal-string-replaceall));
-- convert `assignemnt` to `arrow function`;
+- convert `assignment` to `arrow function`;
 - extract sequence expressions;
 - extract object properties;
 - add `return await`;
