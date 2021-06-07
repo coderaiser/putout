@@ -1,17 +1,17 @@
 2021.06.07, v18.0.1
 
 fix:
-- (@putout/plugin-regexp) description: whith -> with
-- (@putout/plugin-gitignore) description: whith -> with
-- (@putout/plugin-npmignore) description: whith -> with
-- (@putout/plugin-github) description: whith -> with
-- (@putout/plugin-travis) description: whith -> with
-- (@putout/plugin-browserilist) description: whith -> with
+- (@putout/plugin-regexp) description: typo: with
+- (@putout/plugin-gitignore) description: typo: with
+- (@putout/plugin-npmignore) description: typo: with
+- (@putout/plugin-github) description: typo: with
+- (@putout/plugin-travis) description: typo: with
+- (@putout/plugin-browserilist) description: typo: with
 - (@putout/engine-processor) call merge once
 
 
 feature:
-- (@putout/plugin-remove-useless-type-conversion) renamed from @putout/plugin-remove-useless-type-convertion
+- (@putout/plugin-remove-useless-type-conversion) renamed
 - (@putout/processor-yaml) merge: simplify
 - (@putout/processor-json) add toJS/fromJS
 - (package) ts-morph v11.0.0
