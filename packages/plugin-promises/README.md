@@ -18,7 +18,6 @@ npm i @putout/plugin-promises -D
 ```json
 {
     "rules": {
-        "promises/add-return-await": "on",
         "promises/add-missing-await": "on",
         "promises/remove-useless-resolve": "on",
         "promises/convert-reject-to-throw": "on",

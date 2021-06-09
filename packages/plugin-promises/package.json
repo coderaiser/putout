@@ -23,7 +23,6 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/plugin-add-return-await": "^2.0.0"
   },
   "keywords": [
     "putout",

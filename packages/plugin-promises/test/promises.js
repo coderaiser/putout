@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-promises: transform: report', (t) => {
-    t.report('await', '"return await promise()" should be used instead of "return promise()"');
+    t.report('await', 'Async functions should be called using await');
     t.end();
 });
 
