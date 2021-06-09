@@ -19,6 +19,7 @@ npm i @putout/plugin-promises -D
 {
     "rules": {
         "promises/add-return-await": "on",
+        "promises/add-missing-await": "on",
         "promises/remove-useless-resolve": "on",
         "promises/convert-reject-to-throw": "on",
         "promises/convert-new-promise-to-async": "on"
