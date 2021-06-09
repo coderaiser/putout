@@ -1,3 +1,12 @@
+2021.06.10, v18.0.2
+
+feature:
+- (package) @putout/plugin-promises v5.0.0
+- (@putout/plugin-promises) drop support of node < 14
+- (@putout/plugin-promises) add-return-await: merged into add-missing-await
+
+
+
 2021.06.07, v18.0.1
 
 fix:
