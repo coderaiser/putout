@@ -923,6 +923,16 @@ function world(a) {
 
 </details>
 
+<details><summary>apply <code>if condition</code></summary>
+
+```diff
+-if (2 > 3);
++if (2 > 3)
+    alert();
+```
+
+</details>
+
 <details><summary>apply <code>Array.at</code>(not bunled, <a href=https://github.com/tc39/proposal-relative-indexing-method>stage-3</a>)</summary>
 
 ```diff
@@ -1204,6 +1214,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-apply-top-level-await`](/packages/plugin-apply-top-level-await) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-top-level-await.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-top-level-await) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-top-level-await)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-top-level-await) |
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-optional-chaining)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-optional-chaining) |
 | [`@putout/plugin-apply-as-type-assertions`](/packages/plugin-apply-as-type-assertions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-as-type-assertions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-as-type-assertions) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-as-type-assertions)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-as-type-assertions) |
+| [`@putout/plugin-apply-if-condition`](/packages/plugin-apply-if-condition) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-if-condition.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-if-condition) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-if-condition)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-if-condition) |
 
 ### Splitters
 
