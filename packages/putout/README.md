@@ -73,6 +73,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - convert `Promise.reject` to `throw`;
 - declare `undefined variables`;
 - apply `as` type assertions;
+- apply `if condition`;
 
 ## Why?
 
