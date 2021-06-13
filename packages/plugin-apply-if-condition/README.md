@@ -30,10 +30,8 @@ Rule `apply-if-condition`:
 ## ❌ Incorrect code example
 
 ```js
-if (2 > 3)
-    ;
-
-alert();
+if (2 > 3);
+    alert();
 ```
 
 ## ✅ Correct code Example
