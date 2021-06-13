@@ -6,10 +6,10 @@ module.exports.report = () => 'Identifier should be used instead of empty destru
 
 module.exports.match = () => ({
     '({}) => __body': (vars, path) => {
-        return findUp(path, 'module.exports.replace = __');
+        return findUp(path, 'module.exports.__a = __');
     },
     '({}, __a) => __body': (vars, path) => {
-        return findUp(path, 'module.exports.replace = __');
+        return findUp(path, 'module.exports.__a = __');
     },
 });
 

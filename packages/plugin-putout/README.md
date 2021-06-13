@@ -25,7 +25,8 @@ npm i @putout/plugin-putout -D
         "putout/convert-destructuring-to-identifier": "on",
         "putout/convert-node-to-path-in-get-template-values": "on",
         "putout/convert-traverse-to-include": "on",
-        "putout/convert-procedss-to-find": "on",
+        "putout/convert-process-to-find": "on",
+        "putout/convert-method-to-property": "on",
         "putout/shorten-imports": "on"
     }
 }
@@ -208,7 +209,29 @@ module.exports.branch = (rawSource) => [];
 module.exports.merge = (processedSource, list) => '';
 ```
 
+## convert-method-to-property
+
+- property simpler to work with;
+- support of `convert-destructuring-to-identifier` which is `Replacer`, while `convert-method-to-property` is `Traverser` (searches for `Method` node);
+
+### ❌ Incorrect code example
+
+```js
+module.exports.match = () => ({
+    'module.exports.traverse = __a'({}, path) {
+    },
+});
+```
+
+### ✅ Correct code Example
+
+```js
+module.exports.match = () => ({
+    'module.exports.traverse = __a': ({}, path) => {
+    },
+});
+```
+
 ## License
 
 MIT
-

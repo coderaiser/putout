@@ -14,6 +14,7 @@ module.exports.rules = {
     ...getRule('convert-node-to-path-in-get-template-values'),
     ...getRule('convert-traverse-to-include'),
     ...getRule('convert-process-to-find'),
+    ...getRule('convert-method-to-property'),
     ...getRule('rename-operate-to-operator'),
     ...getRule('replace-operate-with-operator'),
     ...getRule('shorten-imports'),

@@ -15,7 +15,7 @@ module.exports.replace = () => ({
             params.pop();
         
         fnPath.traverse({
-            ReturnStatement(path) {
+            ReturnStatement: (path) => {
                 const argPath = path.get('argument');
                 
                 if (argPath.isArrayExpression()) {

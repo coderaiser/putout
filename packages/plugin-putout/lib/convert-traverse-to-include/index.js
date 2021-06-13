@@ -15,7 +15,7 @@ const isPush = (path) => path.get('value').isIdentifier({
 module.exports.report = () => 'Includer should be used instead of Traverser';
 
 module.exports.match = () => ({
-    'module.exports.traverse = __a'({}, path) {
+    'module.exports.traverse = __a': (vars, path) => {
         const __aPath = path.get('right.body');
         
         if (__aPath.isBlockStatement())
@@ -32,7 +32,7 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    'module.exports.traverse = __a'({}, path) {
+    'module.exports.traverse = __a': (vars, path) => {
         const node = template.ast.fresh('module.exports.include = () => []');
         const __aPath = path.get('right.body');
         
