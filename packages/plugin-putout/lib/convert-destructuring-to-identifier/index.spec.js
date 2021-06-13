@@ -14,3 +14,8 @@ test('plugin-putout: convert-destructuring-todentifier: transform: destructuring
     t.end();
 });
 
+test('plugin-putout: convert-destructuring-todentifier: transform: match', (t) => {
+    t.transform('match');
+    t.end();
+});
+

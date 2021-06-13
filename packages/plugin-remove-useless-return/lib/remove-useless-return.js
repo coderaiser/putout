@@ -3,7 +3,7 @@
 module.exports.report = () => 'Useless "return" should be avoided';
 
 module.exports.match = () => ({
-    'module.exports.traverse = __a'({}, path) {
+    'module.exports.traverse = __a': (vars, path) => {
         const bodyPath = path.get('right.body');
         
         if (!bodyPath.isBlockStatement())

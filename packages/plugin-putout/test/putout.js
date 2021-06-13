@@ -38,3 +38,9 @@ test('plugin-putout: convert-process-to-find: transform', (t) => {
     t.transform('convert-process-to-find');
     t.end();
 });
+
+test('plugin-putout: convert-method-to-property: transform', (t) => {
+    t.transform('convert-method-to-property');
+    t.end();
+});
+
