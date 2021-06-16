@@ -1907,6 +1907,7 @@ Just create `.babelrc.json` file with configuration you need.
 - [Madrun](https://github.com/coderaiser/madrun): CLI tool to run multiple npm-scripts in a madly comfortable way.
 - [Xterm.js](https://github.com/xtermjs/xterm.js/pull/3269): A terminal for the web.
 - [Stylelint](https://github.com/stylelint/stylelint/issues/5291#issuecomment-841625288): A mighty, modern linter that helps you avoid errors and enforce conventions in your styles.
+- [ESTrace](https://github.com/coderaiser/estrace): Trace functions in EcmaScript Modules.
 
 Do you use `putout` in your application as well? Please open a Pull Request to include it here. We would love to have it in our list.
 
