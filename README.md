@@ -117,7 +117,7 @@ And here is CLI sheme:
 
 ### Engines
 
-`Engines` is a hurt of `putout`: `loader`, `runner` and `parser` works for every processed file. `Processor` runs all the processors.
+`Engines` is the heart of `putout`: `loader`, `runner` and `parser` works for every processed file. `Processor` runs all the processors.
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
