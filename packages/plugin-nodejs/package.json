@@ -30,8 +30,6 @@
     "nodejs"
   ],
   "devDependencies": {
-    "@putout/plugin-remove-unused-expressions": "^1.2.1",
-    "@putout/plugin-strict-mode": "^1.2.1",
     "@putout/test": "^3.0.0",
     "c8": "^7.5.0",
     "eslint": "^7.6.0",
