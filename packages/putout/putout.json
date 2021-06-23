@@ -184,6 +184,7 @@
         "reuse-duplicate-init",
         "split-variable-declarations",
         "split-nested-destructuring",
+        "simplify-assignment",
         "simplify-ternary",
         "simplify-logical-expressions",
         "convert-esm-to-commonjs",
