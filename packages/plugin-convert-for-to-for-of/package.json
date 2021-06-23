@@ -33,7 +33,6 @@
     "for-of"
   ],
   "devDependencies": {
-    "@putout/eslint-config": "^1.0.2",
     "@putout/plugin-remove-unused-variables": "*",
     "@putout/plugin-remove-useless-arguments": "*",
     "@putout/test": "^3.0.0",

@@ -27,7 +27,6 @@
     "only"
   ],
   "devDependencies": {
-    "@putout/eslint-config": "^1.0.2",
     "@putout/plugin-convert-comparison-to-boolean": "*",
     "@putout/plugin-remove-useless-variables": "*",
     "@putout/test": "^3.0.0",
