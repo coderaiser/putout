@@ -1,0 +1,16 @@
+{
+    "overrides": [{
+        "files": "*.md{js}",
+        "rules": {
+            "no-unneeded-ternary": "off"
+        }
+    }],
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:putout/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ]
+}
