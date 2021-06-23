@@ -1525,7 +1525,7 @@ Let's consider a couple plugin types, that can be used.
 
 The simplest `putout` plugin type, consits of 2 functions:
 
-- `report(path)` - report error message to `putout` cli;
+- `report` - report error message to `putout` cli;
 - `replace` - replace `key` template into `value` template;
 
 ```js
@@ -1542,12 +1542,12 @@ This plugin will find and sugest to replace all occurrences of code: `object && 
 More powerful plugin type, when you need more control over traversing.
 It should contain next 2 functions:
 
-- `report(path)` - report error message to `putout` cli;
-- `fix(path)` - fixes paths using `places` array received using `find` function;
+- `report` - report error message to `putout` cli;
+- `fix` - fixes paths using `places` array received using `find` function;
 
 and one or more of this:
 
-- `filter(path)` - filter path, should return `true`, or `false` (don't use with `traverse`);
+- `filter` - filter path, should return `true`, or `false` (don't use with `traverse`);
 - `include` - returns array of templates, or node names to include;
 - `exclude` - returns array of templates, or node names to exclude;
 
