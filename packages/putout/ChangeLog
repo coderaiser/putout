@@ -1,3 +1,19 @@
+2021.06.23, v18.2.0
+
+feature:
+- (@putout/plugin-simplify-assignment) add
+- (@putout/plugin-remove-useless-escape) @putout/plugin-madrun v10.2.0
+- (package) mocha v9.0.1
+- (package) eslint-plugin-eslint-plugin v3.2.0
+- (package) @putout/plugin-remove-unused-expressions v4.2.0
+- (package) @babel/eslint-plugin-development v7.14.5
+- (package) mocha v9.0.1
+- (package) @putout/plugin-remove-useless-return v2.0.0
+- (@putout/plugin-remove-useless-return) drop support of node < 14
+- (@putout/plugin-putout) add support of convert-method-to-property
+
+
+
 2021.06.14, v18.1.1
 
 feature:
