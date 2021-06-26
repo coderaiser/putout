@@ -1,3 +1,11 @@
+2021.06.26, v18.3.0
+
+feature:
+- (putout) add ability to use as loader (https://github.com/coderaiser/putout#using-putout-as-loader)
+- (@putout/plugin-simplify-assignment) add
+
+
+
 2021.06.23, v18.2.0
 
 feature:
