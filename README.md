@@ -35,6 +35,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [Codemods](#codemods)
 - [Integration with ESLint](#integration-with-eslint)
 - [Integration with Babel](#integration-with-babel)
+- [Using Putout as Loader](#using-putout-as-loader)
 - [Real-world uses](#real-world-uses)
 - [Versioning policy](#versioning-policy)
 - [Contributions](#contributions)
@@ -1912,6 +1913,24 @@ Just create `.babelrc.json` file with configuration you need.
                 "remove-unused-variables": "off"
             }
         }]
+    ]
+}
+```
+
+## Using Putout as Loader
+
+`Putout` can be used as [loader](https://nodejs.org/dist/latest-v16.x/docs/api/esm.html#esm_transformsource_source_context_defaulttransformsource) this way:
+
+```sh
+node --loader putout your-file.js
+```
+
+You can also transform input files using `Babel`. For example if you need to transform `jsx` with `@babel/plugin-transform-react-jsx` you can use `.putout.json`:
+
+```json
+{
+    "plugins": [
+        "babel/transform-react-jsx"
     ]
 }
 ```

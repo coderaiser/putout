@@ -6,12 +6,16 @@
   "homepage": "http://github.com/coderaiser/putout",
   "main": "./lib/putout.js",
   "exports": {
-    ".": "./lib/putout.js",
+    ".": {
+      "require": "./lib/putout.js",
+      "import": "./lib/putout.mjs"
+    },
     "./parse-options": "./lib/parse-options/index.js",
     "./parse-error": "./lib/cli/parse-error.js",
     "./lib/parse-options": "./lib/parse-options/index.js",
     "./process-file": "./lib/cli/process-file.js",
     "./cli": "./lib/cli/index.js",
+    "./loader": "./lib/loader.js",
     "./package.json": "./package.json"
   },
   "bin": {
@@ -177,6 +181,7 @@
     "nano-memoize": "^1.1.11",
     "once": "^1.4.0",
     "picomatch": "^2.2.2",
+    "react": "^17.0.2",
     "try-catch": "^3.0.0",
     "try-to-catch": "^3.0.0",
     "wraptile": "^3.0.0",
@@ -195,6 +200,7 @@
     "unused"
   ],
   "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.14.5",
     "@cloudcmd/stub": "^3.0.0",
     "async-await-codemod": "https://github.com/sgilroy/async-await-codemod.git",
     "babel-plugin-transform-inline-consecutive-adds": "^0.5.0-alpha.9",
@@ -206,6 +212,7 @@
     "just-camel-case": "^4.0.2",
     "lerna": "^4.0.0",
     "madrun": "^8.6.0",
+    "mock-import": "^1.1.0",
     "mock-require": "^3.0.2",
     "nodemon": "^2.0.1",
     "pullout": "^4.0.0",
