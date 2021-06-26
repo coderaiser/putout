@@ -5,6 +5,7 @@
         "**/*.spec.*",
         "**/fixture",
         "test",
+        "coverage",
         ".*.*"
     ],
     "branches": 100,

@@ -12,6 +12,7 @@
     },
     "plugins": [
         "babel/transform-inline-consecutive-adds",
+        "babel/transform-react-jsx",
         "jscodeshift/async-await-codemod/async-await"
     ]
 }
