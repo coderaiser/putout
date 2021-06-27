@@ -46,7 +46,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 
 - because [eslint](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes);
 - because [babel](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139);
-- because [prettier](https://github.com/prettier/prettier) it is a formatter;
+- because [prettier](https://github.com/prettier/prettier) is a formatter;
 - because [jscodeshift](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support;
 
 The main difference of `putout` is saving code transformation results directly in a source code in a day-to-day baisis;
