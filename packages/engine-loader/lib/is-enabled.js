@@ -1,10 +1,13 @@
 'use strict';
 
+const {isArray} = Array;
+
 module.exports = (name, rules) => {
-    const value = rules[name];
+    if (isArray(name))
+        [name] = name;
     
-    if (typeof value === 'boolean')
-        return value;
+    if (typeof rules[name] === 'boolean')
+        return rules[name];
     
     let resultState = true;
     

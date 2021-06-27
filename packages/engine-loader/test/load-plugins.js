@@ -462,7 +462,7 @@ test('putout: loader: no plugin for a rule', (t) => {
     t.end();
 });
 
-test('putout: loader: nested rule', (t) => {
+test('putout: loader: nested rule: one', (t) => {
     const [e] = tryCatch(putout, 'hello', {
         rules: {
             'putout/convert-babel-types': 'off',
@@ -476,21 +476,7 @@ test('putout: loader: nested rule', (t) => {
     t.end();
 });
 
-test('putout: loader: nested rule', (t) => {
-    const [e] = tryCatch(putout, 'hello', {
-        rules: {
-            'babel/convert': 'off',
-        },
-        plugins: [
-            'babel/convert',
-        ],
-    });
-    
-    t.notOk(e);
-    t.end();
-});
-
-test('putout: loader: nested rule', (t) => {
+test('putout: loader: nested rule: babel', (t) => {
     const [e] = tryCatch(putout, 'hello', {
         rules: {
             'babel/convert': 'off',
@@ -587,3 +573,20 @@ test('putout: loader: plugin is a function', (t) => {
     t.end();
 });
 
+test('putout: loader: ESM', async (t) => {
+    const trace = await import('estrace/plugin');
+    const [e] = tryCatch(putout, 'hello', {
+        loadPlugins,
+        rules: {
+            trace: ['on', {
+                url: 'file://hello.js',
+            }],
+        },
+        plugins: [
+            ['trace', trace],
+        ],
+    });
+    
+    t.notOk(e);
+    t.end();
+});

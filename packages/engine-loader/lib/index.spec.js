@@ -4,7 +4,7 @@ const test = require('supertape');
 const mockRequire = require('mock-require');
 const {reRequire, stopAll} = mockRequire;
 
-test('load-plugins', (t) => {
+test('engine-loader: load-plugins', (t) => {
     mockRequire('module', {
         _findPath: () => {},
         plugins: {
