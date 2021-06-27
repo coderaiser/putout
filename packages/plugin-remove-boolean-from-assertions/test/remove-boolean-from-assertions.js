@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-remove-boolean-from-assertions: report', (t) => {
-    t.report('assertions', 'Boolean should be avoided in assertions');
+    t.report('assertions', 'Avoid boolean in assertions');
     t.end();
 });
 
