@@ -14,3 +14,8 @@ test('plugin-remove-boolean-from-assertions: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-boolean-from-assertions: no transform: not-equal-false', (t) => {
+    t.noTransform('not-equal-false');
+    t.end();
+});
+

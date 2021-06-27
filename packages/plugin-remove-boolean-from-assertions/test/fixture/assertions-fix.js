@@ -22,12 +22,6 @@ if (!a)
 if (!a)
     alert();
 
-if (a)
-    alert();
-
-if (a)
-    alert();
-
 const b = a === Boolean(b);
 const c = a == Boolean(c);
 

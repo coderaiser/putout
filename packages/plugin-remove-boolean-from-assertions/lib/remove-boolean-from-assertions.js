@@ -18,8 +18,6 @@ module.exports.replace = () => ({
     '__a == false': '!__a',
     
     '__a !== true': '!__a',
-    '__a !== false': '__a',
     '__a != true': '!__a',
-    '__a != false': '__a',
 });
 

@@ -22,12 +22,6 @@ if (a !== true)
 if (a != true)
     alert();
 
-if (a != false)
-    alert();
-
-if (a !== false)
-    alert();
-
 const b = a === true;
 const c = a == true;
 
