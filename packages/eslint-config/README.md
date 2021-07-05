@@ -1,4 +1,4 @@
-# putout-eslint-config [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/eslint-config [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/eslint-config.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/eslint-config "npm"
