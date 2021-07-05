@@ -712,8 +712,8 @@ async () => {
 <details><summary>remove <code>boolean</code> from <code>assertions</code></summary>
 
 ```diff
--if (a !== true)
-+if (!a)
+-if (a === true)
++if (a)
     alert();
 ```
 
