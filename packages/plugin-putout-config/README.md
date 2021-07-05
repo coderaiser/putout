@@ -30,8 +30,8 @@ npm i @putout/plugin-putout-config -D
 ```json
 {
     "rules": {
-        "remove-unused-variables": "on",
-        "remove-debugger": "off"
+        "remove-unused-variables": true,
+        "remove-debugger": false
     }
 }
 ```
