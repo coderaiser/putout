@@ -1474,6 +1474,8 @@ Or pass options using `rules` section:
 }
 ```
 
+#### Exclude
+
 With help of `exclude` you can set `type` or `code pattern` to exclude for current rule.
 Pass an array when you have a couple templates to exclude:
 
