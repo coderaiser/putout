@@ -73,6 +73,7 @@
     "@putout/plugin-convert-array-copy-to-slice": "^1.0.0",
     "@putout/plugin-convert-assignment-to-arrow-function": "^1.0.0",
     "@putout/plugin-convert-assignment-to-comparison": "^1.0.0",
+    "@putout/plugin-convert-bitwise-to-logical": "^1.0.0",
     "@putout/plugin-convert-commonjs-to-esm": "^5.0.0",
     "@putout/plugin-convert-comparison-to-boolean": "^1.0.0",
     "@putout/plugin-convert-concat-to-flat": "^1.0.0",

@@ -187,6 +187,7 @@
         "simplify-assignment",
         "simplify-logical-expressions",
         "simplify-ternary",
+        "convert-bitwise-to-logical",
         "convert-esm-to-commonjs",
         "convert-commonjs-to-esm",
         "convert-apply-to-spread",

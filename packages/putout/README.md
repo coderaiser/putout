@@ -59,6 +59,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - simplify `logical expressions`;
 - if absent `strict mode` directive in `commonjs` add it;
 - convert `apply` to `spread`;
+- convert `bitwise` to `logical` operator;
 - convert `concat` to `flat`;
 - convert `esm` to `commonjs` (enabled for `*.cjs`);
 - convert `commonjs` to `esm` (enabled for `*.mjs`);
