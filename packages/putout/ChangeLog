@@ -1,3 +1,21 @@
+2021.07.06, v18.4.0
+
+fix:
+- (@putout/compare) isTemplate: returns: number -> boolean
+
+
+feature:
+- (@putout/engine-runner) add ability to exclude node by type
+- (@putout/plugin-convert-bitwise-to-logical) add
+- (@putout/compare) compare: add support of node types
+- (package) jscodeshift v0.13.0
+- (@putout/engine-loader) add support of plugins loaded with ESM (#61)
+- (@putout/plugin-remove-boolean-from-assertions) report: Should be avoided -> Avoid
+- (@putout/plugin-remove-boolean-from-assertion) exclude assertion with false
+- (putout) add ability to use as loader (https://github.com/coderaiser/putout#using-putout-as-loader)
+
+
+
 2021.06.26, v18.3.0
 
 feature:
