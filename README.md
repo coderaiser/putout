@@ -1474,11 +1474,24 @@ Or pass options using `rules` section:
 }
 ```
 
-With help of `exclude` you can set code pattern to exclude for current rule.
-Pass an array when you have a couple templates to exclude.
+With help of `exclude` you can set `type` or `code pattern` to exclude for current rule.
+Pass an array when you have a couple templates to exclude:
 
-`exclude` is cross-plugins function supported by core, when develop your plugin, please use other name
+```json
+{
+    "rules": {
+        "remove-unused-variables": ["on", {
+            "exclude": [
+                "VariableDeclaration"
+            ]
+        }]
+    }
+}
+```
+
+`exclude` is cross-plugin function supported by core, when develop your plugin, please use other name
 to keep users ability to customize all plugins in a way they need to.
+
 
 ### Match
 
