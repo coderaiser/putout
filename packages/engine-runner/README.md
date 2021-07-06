@@ -43,6 +43,7 @@ module.exports.match = () => ({
 // optional
 module.exports.exclude = () => [
     `const hello = 'world'`,
+    'ArrowFunctionExpression',
 ];
 ```
 

@@ -293,7 +293,7 @@ test('putout: plugin: traverse: template: different', (t) => {
     t.end();
 });
 
-test('putout: plugin: find: template: exclude', (t) => {
+test('putout: plugin: find: template: exclude: node type', (t) => {
     const exp = {
         report: () => '',
         fix: () => {},
@@ -311,7 +311,7 @@ test('putout: plugin: find: template: exclude', (t) => {
         rules: {
             exp: ['on', {
                 exclude: [
-                    'module.exports = __',
+                    'AssignmentExpression',
                 ],
             }],
         },
@@ -326,36 +326,7 @@ test('putout: plugin: find: template: exclude', (t) => {
     t.end();
 });
 
-test('putout: plugin: traverse: template: exclude', (t) => {
-    const exp = {
-        report: () => '',
-        fix: () => {},
-        traverse: ({push}) => ({
-            'module.exports = __'(path) {
-                push(path);
-            },
-        }),
-    };
-    
-    const {places} = putout('module.exports = {a: 1}', {
-        runPlugins,
-        rules: {
-            exp: ['on', {
-                exclude: 'module.exports = __',
-            }],
-        },
-        plugins: [{
-            exp,
-        }],
-    });
-    
-    const expected = [];
-    
-    t.deepEqual(places, expected, 'should equal');
-    t.end();
-});
-
-test('putout: plugin: traverse: template: exclude', (t) => {
+test('putout: plugin: traverse: template: exclude: places', (t) => {
     const {places} = putout(`const t = 'hi'; const m = 1`, {
         runPlugins,
         fix: false,
