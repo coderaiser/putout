@@ -64,6 +64,9 @@ function compare(path, template) {
     const node = extractExpression(parseNode(path));
     const templateNode = extractExpression(parseNode(template));
     
+    if (node.type === template)
+        return true;
+    
     if (isEqualAnyObject(node, templateNode))
         return true;
     

@@ -641,6 +641,13 @@ test('compare: if', (t) => {
     t.end();
 });
 
+test('compare: type', (t) => {
+    const result = compare('if (a) alert()', 'IfStatement');
+    
+    t.ok(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);
