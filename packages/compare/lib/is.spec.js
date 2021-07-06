@@ -7,6 +7,7 @@ const {
     isObjectStr,
     isArrayStr,
     isAnyStr,
+    isTemplate,
 } = require('./is');
 
 test('compare: is: parseTemplate: program', (t) => {
@@ -57,6 +58,13 @@ test('compare: is: isAnyStr', (t) => {
     const result = isAnyStr('__');
     
     t.ok(result);
+    t.end();
+});
+
+test('compare: is: isTemplate: type', (t) => {
+    const result = isTemplate('ArrowFunctionExpression');
+    
+    t.equal(typeof result, 'boolean');
     t.end();
 });
 
