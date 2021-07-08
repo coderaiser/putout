@@ -1,5 +1,7 @@
 'use strict';
 
+const {stub} = require('supertape');
+
 const removeConsole = require('./fixture/remove-console');
 const test = require('..')(__dirname, {
     'remove-console': removeConsole,
@@ -65,3 +67,34 @@ test('test: transform: typescript', (t) => {
     t.end();
 });
 
+(() => {
+    const fs = require('fs');
+    const {reRequire} = require('mock-require');
+    const {writeFileSync} = fs;
+    const writeFileSyncStub = stub();
+    
+    fs.writeFileSync = writeFileSyncStub;
+    
+    process.env.UPDATE = 1;
+    
+    const test = reRequire('..')(__dirname, {
+        'remove-console': require('@putout/plugin-remove-console'),
+    });
+    
+    test('transform: with UPDATE env variable', (t) => {
+        const {UPDATE} = process.env;
+        process.env.UPDATE = 1;
+        
+        t.transform('typescript', '\n');
+        
+        process.env.UPDATE = UPDATE;
+        
+        t.ok(writeFileSyncStub.called);
+        t.end();
+    });
+    
+    fs.writeFileSync = writeFileSync;
+    delete process.env.UPDATE;
+    
+    reRequire('..');
+})();

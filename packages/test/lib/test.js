@@ -214,7 +214,12 @@ const transform = currify(({dir, plugins, rules}, t, name, transformed = null, a
         ...addons,
     };
     
-    return transformCode({plugins, rules}, t, input, output, isTS);
+    const {code} = putout(input, {isTS, plugins, rules});
+    
+    if (UPDATE)
+        writeFileSync(`${full}-fix.js`, code);
+    
+    return t.equal(code, output, 'should equal');
 });
 
 const transformWithOptions = currify(({dir, plugins}, t, name, options) => {
@@ -230,6 +235,9 @@ const transformWithOptions = currify(({dir, plugins}, t, name, options) => {
     };
     
     const {code} = putout(input, {isTS, plugins, rules});
+    
+    if (UPDATE)
+        writeFileSync(`${full}-fix.js`, code);
     
     return t.equal(code, output, 'should equal');
 });

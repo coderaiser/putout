@@ -16,6 +16,10 @@ npm i @putout/test -D
 
 ## Plugins API
 
+### Environment Variable
+
+Set environment variable `UPDATE=1` to update `transform` and `format` fixtures.
+
 ### report(filename, message)
 checks error message of a plugin
 
