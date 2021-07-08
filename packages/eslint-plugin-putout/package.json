@@ -10,6 +10,7 @@
     "url": "git://github.com/coderaiser/putout.git"
   },
   "keywords": [
+    "putout",
     "eslint",
     "eslintplugin",
     "eslint-plugin"
@@ -35,7 +36,8 @@
     "@babel/plugin-syntax-typescript": "^7.12.1",
     "@putout/eslint-config": "^5.0.0",
     "align-spaces": "^1.0.0",
-    "eslint-plugin-node": "^11.0.0"
+    "eslint-plugin-node": "^11.0.0",
+    "estree-to-babel": "^4.0.1"
   },
   "devDependencies": {
     "c8": "^7.5.0",

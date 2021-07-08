@@ -5,8 +5,10 @@ const {
     findPlaces,
     transform,
     print,
-    parse,
 } = require('putout');
+
+const v8 = require('v8');
+const toBabel = require('estree-to-babel');
 
 const parseOptions = require('putout/lib/parse-options');
 
@@ -15,6 +17,8 @@ const getContextOptions = ({options}) => {
     const [allContextOptions = {}] = options;
     return allContextOptions;
 };
+
+const copyAST = (a) => v8.deserialize(v8.serialize(a));
 
 module.exports = {
     meta: {
@@ -31,7 +35,6 @@ module.exports = {
         return {
             Program(node) {
                 const name = context.getFilename();
-                const isTS = /\.tsx?$/.test(name);
                 const options = getContextOptions(context);
                 const resultOptions = parseOptions({
                     name,
@@ -47,10 +50,7 @@ module.exports = {
                 if (!text)
                     return;
                 
-                const ast = parse(text, {
-                    isTS,
-                });
-                
+                const ast = toBabel(copyAST(node));
                 const places = findPlaces(ast, text, resultOptions);
                 
                 const includeComments = true;
