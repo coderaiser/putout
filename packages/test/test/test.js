@@ -93,6 +93,19 @@ test('test: transform: typescript', (t) => {
         t.end();
     });
     
+    test('transformWithOptions: with UPDATE env variable', (t) => {
+        const {UPDATE} = process.env;
+        process.env.UPDATE = 1;
+        
+        t.transformWithOptions('typescript', {
+        });
+        
+        process.env.UPDATE = UPDATE;
+        
+        t.ok(writeFileSyncStub.called);
+        t.end();
+    });
+    
     fs.writeFileSync = writeFileSync;
     delete process.env.UPDATE;
     

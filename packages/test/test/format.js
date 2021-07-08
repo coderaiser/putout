@@ -48,7 +48,6 @@ test('test: formatMany', (t) => {
     fs.existsSync = existsSyncStub;
     fs.writeFileSync = writeFileSyncStub;
     
-    const {UPDATE} = process.env;
     process.env.UPDATE = 1;
     
     const test = reRequire('..')(__dirname, {
@@ -113,7 +112,7 @@ test('test: formatMany', (t) => {
     
     fs.existsSync = existsSync;
     fs.writeFileSync = writeFileSync;
-    process.env.UPDATE = UPDATE;
+    delete process.env.UPDATE;
     
     reRequire('..');
 })();
