@@ -38,3 +38,8 @@ test('plugin-regexp/remove-useless-group: no transform: first-group', (t) => {
     t.noTransform('first-group');
     t.end();
 });
+
+test('plugin-regexp/remove-useless-group: no transform: named group', (t) => {
+    t.noTransform('named-group');
+    t.end();
+});

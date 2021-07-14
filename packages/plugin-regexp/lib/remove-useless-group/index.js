@@ -34,6 +34,9 @@ function removeUselessGroup(str) {
             
             const {node} = path;
             
+            if (node.name)
+                return;
+            
             if (isDisjunction(node.expression))
                 return;
             
