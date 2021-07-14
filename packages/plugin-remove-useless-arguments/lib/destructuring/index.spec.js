@@ -24,3 +24,7 @@ test('plugin-remove-useless-arguments: destructuring: no transform: function as 
     t.end();
 });
 
+test('plugin-remove-useless-arguments: destructuring: no transform: fn', (t) => {
+    t.noTransform('fn');
+    t.end();
+});
