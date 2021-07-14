@@ -12,21 +12,22 @@ const ruleTester = new RuleTester({
 });
 
 ruleTester.run('putout', rule, {
-    valid: [{
-        options: [{
-            rules: {
-                'remove-unused-variables': 'off',
-            },
+    valid: [
+        'fn(/(?<foo>a)/)', {
+            options: [{
+                rules: {
+                    'remove-unused-variables': 'off',
+                },
+            }],
+            code: `const t = 'hi';`,
+        }, {
+            options: [{
+                ignore: [
+                    '<input>',
+                ],
+            }],
+            code: `const t = 'hi';`,
         }],
-        code: `const t = 'hi';`,
-    }, {
-        options: [{
-            ignore: [
-                '<input>',
-            ],
-        }],
-        code: `const t = 'hi';`,
-    }],
     invalid: [{
         code: `const m = 'hi'`,
         output: '',
