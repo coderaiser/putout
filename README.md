@@ -827,8 +827,8 @@ function hi() {
 <details><summary>simplify <code>logical expressions</code></summary>
 
 ```diff
--module.exports = fs.copyFileSync ? fs.copyFileSync : copyFileSync;
-+module.exports = fs.copyFileSync || copyFileSync;
+-!(options && !options.bidirectional);
++!options || options.bidirectional;
 ```
 
 </details>
@@ -836,8 +836,8 @@ function hi() {
 <details><summary>simplify <code>ternary</code></summary>
 
 ```diff
--!(options && !options.bidirectional);
-+!options || options.bidirectional;
+-module.exports = fs.copyFileSync ? fs.copyFileSync : copyFileSync;
++module.exports = fs.copyFileSync || copyFileSync;
 ```
 
 </details>
