@@ -115,6 +115,8 @@ const ignore = [
     'comments',
     'leadingComments',
     'innerComments',
+    'parent',
+    'range',
     'trailingComments',
     'importKind',
     'exportKind',

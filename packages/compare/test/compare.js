@@ -648,6 +648,45 @@ test('compare: type', (t) => {
     t.end();
 });
 
+test('compare: range: ignore', (t) => {
+    const node = {
+        type: 'Identifier',
+        name: 'hello',
+        range: [92, 95],
+    };
+    
+    const template = {
+        type: 'Identifier',
+        name: 'hello',
+        range: [24, 27],
+    };
+    
+    const result = compare(node, template);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: parent: ignore', (t) => {
+    const node = {
+        type: 'Identifier',
+        name: 'hello',
+        parent: {
+        },
+    };
+    
+    const template = {
+        type: 'Identifier',
+        name: 'hello',
+        parent: null,
+    };
+    
+    const result = compare(node, template);
+    
+    t.ok(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);
