@@ -14,3 +14,8 @@ test('plugin-simplify-logical-expression: transform', (t) => {
     t.end();
 });
 
+test('plugin-simplify-logical-expression: transform: wrong-not', (t) => {
+    t.transform('wrong-not');
+    t.end();
+});
+

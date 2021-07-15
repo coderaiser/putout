@@ -28,12 +28,16 @@ npm i @putout/plugin-simplify-logical-expressions -D
 
 ```js
 const is = !(options && !options.bidirectional);
+
+if (!left.type === 'UnaryExpression');
 ```
 
 ## ✅ Correct code Example
 
 ```js
 const is = !options || options.bidirectional;
+
+if (left.type !== 'UnaryExpression');
 ```
 
 ## License
