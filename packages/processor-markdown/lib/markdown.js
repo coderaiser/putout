@@ -24,7 +24,7 @@ module.exports.files = [
 ];
 
 const loadDependencies = once(async () => {
-    const unified = await simport('unified');
+    const {unified} = await simport('unified');
     const stringify = await simport('remark-stringify');
     const preset = await simport('remark-preset-lint-consistent');
     const jsonProcessor = await simport('@putout/processor-json');
@@ -73,7 +73,7 @@ module.exports.fix = async (rawSource) => {
     
     parseStore.init();
     
-    const {messages, contents} = await unified()
+    const {messages, value} = await unified()
         .use(parseStore)
         .use(preset)
         .use(stringify, stringifyOptions)
@@ -82,7 +82,7 @@ module.exports.fix = async (rawSource) => {
     if (!messages.length)
         return rawSource;
     
-    return contents;
+    return value;
 };
 
 module.exports.branch = async (rawSource) => {
@@ -118,7 +118,7 @@ module.exports.merge = async (rawSource, list) => {
     
     const newList = list.slice();
     
-    const {contents} = await unified()
+    const {value} = await unified()
         .use(parseStore)
         .use(apply, {
             list: newList,
@@ -131,7 +131,7 @@ module.exports.merge = async (rawSource, list) => {
     
     parseStore.clear();
     
-    return contents;
+    return value;
 };
 
 function toPlace({reason, line, column, source, ruleId}) {
