@@ -94,6 +94,7 @@
         "**/coverage",
         "**/dist",
         "**/dist-dev",
+        "**/build",
         "**/package-lock.json"
     ],
     "exclude": [
