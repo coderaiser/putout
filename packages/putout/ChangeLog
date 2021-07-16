@@ -1,3 +1,21 @@
+2021.07.16, v18.5.0
+
+fix:
+- (@putout/compare) exclude: range, parent (#67)
+- (@putout/plugin-regexp) remove-useless-group: exlude named capturing groups (#67)
+
+
+feature:
+- (ruler) exclude rules not related to putout
+- (package) unified v10.0.0
+- (@putout/plugin-simplify-logical-expressions) add support of wrong ternary (eslint/eslint#14802)
+- (putout) add logo
+- (@putout/test) transform, transformWithOptions: add support of UPDATE env variable
+- (eslint-plugin-putout) avoid duplicate parsing (#66)
+- (package) espree v8.0.0
+
+
+
 2021.07.06, v18.4.0
 
 fix:
