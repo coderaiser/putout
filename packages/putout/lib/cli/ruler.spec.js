@@ -55,6 +55,26 @@ test('putout: ruler: disable', (t) => {
     t.end();
 });
 
+test('putout: ruler: disable: not putout rule', (t) => {
+    const config = disable({}, 'remove-unused-variables (stylelint)');
+    const expected = {
+        rules: {},
+    };
+    
+    t.deepEqual(config, expected);
+    t.end();
+});
+
+test('putout: ruler: enable: not putout rule', (t) => {
+    const config = enable({}, 'remove-unused-variables (stylelint)');
+    const expected = {
+        rules: {},
+    };
+    
+    t.deepEqual(config, expected);
+    t.end();
+});
+
 test('putout: ruler: disable: parser', (t) => {
     const config = disable({}, 'parser');
     const expected = {

@@ -6,7 +6,15 @@ const initRules = (config) => {
 };
 
 const {keys} = Object;
-const isParser = (rule) => /^parser/.test(rule);
+const isPutoutRule = (rule) => {
+    if (/^parser/.test(rule))
+        return false;
+    
+    if (rule.includes('('))
+        return false;
+    
+    return true;
+};
 
 module.exports.disableAll = (config, places) => {
     initRules(config);
@@ -27,7 +35,7 @@ module.exports.enable = enable;
 function enable(config, rule) {
     initRules(config);
     
-    if (isParser(rule))
+    if (!isPutoutRule(rule))
         return config;
     
     config.rules[rule] = 'on';
@@ -39,7 +47,7 @@ module.exports.disable = disable;
 function disable(config, rule) {
     initRules(config);
     
-    if (isParser(rule))
+    if (!isPutoutRule(rule))
         return config;
     
     config.rules[rule] = 'off';
