@@ -155,6 +155,7 @@
         "remove-unused-private-fields",
         "remove-unused-expressions",
         "remove-useless-variables",
+        "remove-useless-map",
         "remove-useless-array-constructor",
         "remove-useless-continue",
         "remove-useless-operand",
