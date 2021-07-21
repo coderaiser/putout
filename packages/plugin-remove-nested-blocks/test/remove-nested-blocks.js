@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-remove-nested-blocks: report', (t) => {
-    t.report('for-of', 'Nested blocks should not be used');
+    t.report('for-of', 'Avoid nested blocks');
     t.end();
 });
 
@@ -16,6 +16,11 @@ test('plugin-remove-nested-blocks: transform', (t) => {
 
 test('plugin-remove-nested-blocks: transform: switch: no vars', (t) => {
     t.transform('switch-no-vars');
+    t.end();
+});
+
+test('plugin-remove-nested-blocks: transform: vars', (t) => {
+    t.transform('vars');
     t.end();
 });
 

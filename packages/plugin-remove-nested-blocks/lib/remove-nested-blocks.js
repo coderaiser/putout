@@ -3,7 +3,16 @@
 const {replaceWithMultiple} = require('putout').operator;
 const {keys} = Object;
 
-module.exports.report = () => 'Nested blocks should not be used';
+const intersect = (a, b) => a.filter(Set.prototype.has, new Set(b));
+const isIntersect = (bindingsA, bindingsB) => {
+    const keysA = keys(bindingsA);
+    const keysB = keys(bindingsB);
+    const is = intersect(keysA, keysB).length;
+    
+    return is;
+};
+
+module.exports.report = () => 'Avoid nested blocks';
 
 module.exports.fix = (path) => {
     replaceWithMultiple(path, path.node.body);
@@ -23,6 +32,11 @@ module.exports.filter = (path) => {
     if (isSwitch && !varsCount)
         return true;
     
-    return parentPath.isBlockStatement();
+    if (isSwitch)
+        return false;
+    
+    const is = !isIntersect(bindings, path.parentPath.scope.bindings);
+    
+    return is && parentPath.isBlockStatement() || parentPath.isProgram();
 };
 
