@@ -1,9 +1,7 @@
 'use strict';
 
-/* eslint node/no-unpublished-require:0 */
-const removeEmptyBlock = require('.');
 const test = require('@putout/test')(__dirname, {
-    'remove-empty-block': removeEmptyBlock,
+    'remove-empty-block': require('.'),
 });
 
 test('plugin-remove-empty: block: report', (t) => {
@@ -75,3 +73,9 @@ test('plugin-remove-empty: block: if test call', (t) => {
     t.transform('if-test-call');
     t.end();
 });
+
+test('plugin-remove-empty: block: block-fn', (t) => {
+    t.transform('block-fn');
+    t.end();
+});
+
