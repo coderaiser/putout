@@ -126,9 +126,6 @@ function blockIsAlternate(node, parentNode) {
     if (!isIfStatement(parentNode))
         return;
     
-    //if (alternate.comments)
-    //    return false;
-    
     return alternate === node;
 }
 
