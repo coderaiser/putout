@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-empty",
-  "version": "5.4.0",
+  "version": "5.4.1",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove blocks with empty body",
   "homepage": "http://github.com/coderaiser/putout",
