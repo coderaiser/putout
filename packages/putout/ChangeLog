@@ -1,3 +1,18 @@
+2021.07.21, v18.7.0
+
+fix:
+- (@putout/plugin-remove-empty) rm dead code
+
+
+feature:
+- (@putout/plugin-apply-early-return) add (not bundled)
+- (@putout/plugin-remove-nested-blocks) add support of variables declared in nested block
+- (@putout/plugin-remove-empty-block) add support of Program
+- (@putout/plugin-remove-useless-map) add
+- (@putout/plugin-jest) add
+
+
+
 2021.07.16, v18.6.0
 
 feature:
