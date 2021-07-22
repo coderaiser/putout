@@ -1125,6 +1125,18 @@ result = result ?? 'hello';
 
 </details>
 
+<details><summary>convert <code>map</code> to <code>for-of</code></summary>
+
+```diff
+-names.map((name) => {
++for (const name of names) {
+    alert(`hello ${name}`);
++}
+-});
+```
+
+</details>
+
 <details><summary>convert <code>array copy</code> to <code>slice</code></summary>
 
 ```diff
@@ -1283,6 +1295,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-convert-for-to-for-of`](/packages/plugin-convert-for-to-for-of) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-for-to-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-for-to-for-of) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-for-to-for-of)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-for-to-for-of) |
 | [`@putout/plugin-convert-for-each-to-for-of`](/packages/plugin-convert-for-each-to-for-of) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-for-each-to-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-for-each-to-for-of) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-for-each-to-for-of)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-for-each-to-for-of) |
 | [`@putout/plugin-convert-for-in-to-for-of`](/packages/plugin-convert-for-in-to-for-of) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-for-in-to-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-for-in-to-for-of) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-for-in-to-for-of)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-for-in-to-for-of) |
+| [`@putout/plugin-convert-map-to-for-of`](/packages/plugin-convert-map-to-for-of) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-map-to-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-map-to-for-of) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-map-to-for-of)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-map-to-for-of) |
 | [`@putout/plugin-convert-object-assign-to-merge-spread`](/packages/plugin-convert-object-assign-to-merge-spread) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-object-assign-to-merge-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-object-assign-to-merge-spread) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-object-assign-to-merge-spread)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-object-assign-to-merge-spread) |
 | [`@putout/plugin-convert-comparison-to-boolean`](/packages/plugin-convert-comparison-to-boolean) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-comparison-to-boolean.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-comparison-to-boolean) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-comparison-to-boolean)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-comparison-to-boolean) |
 | [`@putout/plugin-convert-top-level-return`](/packages/plugin-convert-top-level-return) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-top-level-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-top-level-return) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-top-level-return)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-top-level-return) |

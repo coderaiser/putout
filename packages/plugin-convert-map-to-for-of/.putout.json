@@ -1,0 +1,7 @@
+{
+    "match": {
+        "*.md": {
+            "convert-map-to-for-of": "off"
+        }
+    }
+}

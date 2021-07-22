@@ -16,7 +16,7 @@ function trim(str) {
 }
 
 const fixturesDir = path.join(__dirname, 'fixture');
-fs.readdirSync(fixturesDir).map((caseName) => {
+for (const caseName of fs.readdirSync(fixturesDir)) {
     test(`babel plugin for putout: should ${caseName.split('-').join(' ')}`, (t) => {
         const fixtureDir = path.join(fixturesDir, caseName);
         const actualPath = path.join(fixtureDir, 'actual.js');
@@ -38,5 +38,5 @@ fs.readdirSync(fixturesDir).map((caseName) => {
         t.equal(trim(code), trim(expected));
         t.end();
     });
-});
+}
 
