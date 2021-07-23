@@ -61,7 +61,9 @@
         "no-var": "error",
         "no-extra-parens": "error",
         "no-multi-spaces": "error",
-        "no-else-return": "error",
+        "no-else-return": ["error", {
+            "allowElseIf": false
+        }],
         "no-trailing-spaces": ["error", {
             "skipBlankLines": true
         }],
