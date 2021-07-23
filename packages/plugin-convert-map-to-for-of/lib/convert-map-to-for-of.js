@@ -8,6 +8,7 @@ const {
 const {
     isReturnStatement,
     isBlockStatement,
+    isTryStatement,
 } = types;
 
 const tail = (body) => body[body.length - 1];
@@ -22,7 +23,12 @@ module.exports.match = () => ({
         if (!isBlockStatement(__c))
             return false;
         
-        if (isReturnStatement(tail(__c.body)))
+        const last = tail(__c.body);
+        
+        if (isTryStatement(last))
+            return false;
+        
+        if (isReturnStatement(last))
             return false;
         
         return true;

@@ -19,3 +19,8 @@ test('plugin-convert-map-to-for-of: transform: not-identifier', (t) => {
     t.end();
 });
 
+test('plugin-convert-map-to-for-of: no transform: try', (t) => {
+    t.noTransform('try');
+    t.end();
+});
+
