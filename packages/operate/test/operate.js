@@ -1,5 +1,7 @@
 'use strict';
 
+const tryCatch = require('try-catch');
+
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const putout = require('putout');
@@ -14,8 +16,9 @@ const {
 } = putout;
 
 const operate = require('..');
-const {readFixtures} = require('./fixture');
+const {extract} = operate;
 
+const {readFixtures} = require('./fixture');
 const fixture = readFixtures();
 
 const {
@@ -626,6 +629,46 @@ test('operate: getPathAfterImports: couple imports', (t) => {
     `;
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('operate: extract: Identifier', (t) => {
+    const name = 'hello';
+    const node = {
+        type: 'Identifier',
+        name,
+    };
+    
+    const value = extract(node);
+    
+    t.equal(name, value);
+    t.end();
+});
+
+test('operate: extract: Literal', (t) => {
+    const value = 'hello';
+    const node = {
+        type: 'StringLiteral',
+        value,
+    };
+    
+    const result = extract(node);
+    
+    t.equal(result, value);
+    t.end();
+});
+
+test('operate: extract: unknown', (t) => {
+    const value = 'hello';
+    const node = {
+        type: 'UnknownStatement',
+        value,
+    };
+    
+    const [error] = tryCatch(extract, node);
+    const expected = '"operator.extract(node)" understands only Literals and Identifiers 🤷';
+    
+    t.equal(error.message, expected);
     t.end();
 });
 

@@ -5,6 +5,8 @@ const {
     toStatement,
     matchesPattern,
     isImportDeclaration,
+    isLiteral,
+    isIdentifier,
 } = require('@babel/types');
 
 const {assign} = Object;
@@ -130,5 +132,15 @@ module.exports.getPathAfterImports = (body) => {
         ++i;
     
     return body[i];
+};
+
+module.exports.extract = (node) => {
+    if (isIdentifier(node))
+        return node.name;
+    
+    if (isLiteral(node))
+        return node.value;
+    
+    throw Error('"operator.extract(node)" understands only Literals and Identifiers 🤷');
 };
 
