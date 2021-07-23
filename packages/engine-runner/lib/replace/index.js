@@ -16,11 +16,19 @@ const maybeArray = require('../maybe-array');
 const watermark = require('./watermark');
 
 const {keys, entries} = Object;
+const {stringify} = JSON;
 
 const stub = () => [];
 const stubMatch = () => ({});
 const packKeys = (a) => () => keys(a);
 const isObj = (a) => typeof a === 'object';
+
+const validateTemplateValues = (a, b) => {
+    for (const key of keys(a)) {
+        if (!b[key])
+            throw Error(`Looks like template values not linked: ${stringify(keys(a))} ${stringify(keys(b))}`);
+    }
+};
 
 module.exports = ({rule, plugin, msg, options}) => {
     const {
@@ -82,6 +90,8 @@ const fix = (from, to, path) => {
     
     const waysTo = findVarsWays(nodeTo);
     const newPath = replaceWith(path, nodeTo);
+    
+    validateTemplateValues(waysTo, waysFrom);
     
     setValues({
         waysTo,

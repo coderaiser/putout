@@ -3,6 +3,7 @@
 const test = require('supertape');
 const montag = require('montag');
 const putout = require('putout');
+const tryCatch = require('try-catch');
 
 const {runPlugins} = require('..');
 
@@ -355,6 +356,28 @@ test('putout: runner: replace: ts', (t) => {
     const expected = 'const a: number = 5';
     
     t.equal(code, expected);
+    t.end();
+});
+
+test('putout: runner: replace: template identifiers not linked', (t) => {
+    const hello = {
+        report: () => '',
+        replace: () => ({
+            'const __a = 5': 'const __b = 7',
+        }),
+    };
+    
+    const message = 'Looks like template values not linked: ["__b"] ["__a"]';
+    
+    const [error] = tryCatch(putout, 'const a = 5', {
+        runPlugins,
+        isTS: true,
+        plugins: [
+            ['hello', hello],
+        ],
+    });
+    
+    t.equal(error.message, message);
     t.end();
 });
 
