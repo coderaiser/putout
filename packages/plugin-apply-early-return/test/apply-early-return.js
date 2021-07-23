@@ -14,6 +14,11 @@ test('plugin-apply-destructuring: transform: else', (t) => {
     t.end();
 });
 
+test('plugin-apply-destructuring: transform: else-if', (t) => {
+    t.transform('else-if');
+    t.end();
+});
+
 test('plugin-apply-destructuring: transform: return', (t) => {
     t.transform('return');
     t.end();
