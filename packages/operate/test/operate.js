@@ -53,6 +53,21 @@ test('putout: operate: replaceWith', (t) => {
     t.end();
 });
 
+test('putout: operate: replaceWith: no parentPath', (t) => {
+    const node = {};
+    const replaceWith = stub();
+    
+    const path = {
+        node,
+        replaceWith,
+    };
+    
+    const result = operate.replaceWith(path, node);
+    
+    t.equal(result, path, 'should return result');
+    t.end();
+});
+
 test('putout: operate: replaceWith: result', (t) => {
     const node = {};
     const replaceWith = stub();

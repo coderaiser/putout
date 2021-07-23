@@ -39,7 +39,7 @@ function toExpression(el) {
 }
 
 function replaceWith(path, node) {
-    if (path.parentPath.isExpressionStatement() && !path.parentPath.isProgram())
+    if (path?.parentPath?.isExpressionStatement?.() && !path.parentPath.isProgram())
         path = path.parentPath;
     
     const {comments, loc} = path.node;
