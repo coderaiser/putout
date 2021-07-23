@@ -21,6 +21,13 @@ If you write plugin for `putout` you already have `operator` in `putout`, all ex
 
 ## API
 
+### getValue(path)
+
+- checks the node by type,
+- if it is `Identifier` return `name`,
+- if it is any type of `Literal` return `value`
+- `throw` in other cases
+
 ### replaceWith(path, node)
 
 ```js

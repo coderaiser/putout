@@ -1,6 +1,6 @@
 {
     "rules": {
-        "putout": "off"
+        "putout": "off",
+        "convert-esm-to-commonjs": "on"
     }
 }
-
