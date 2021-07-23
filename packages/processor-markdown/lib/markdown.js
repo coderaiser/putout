@@ -24,7 +24,6 @@ module.exports.files = [
 ];
 
 const loadDependencies = once(async () => {
-    const {unified} = await simport('unified');
     const stringify = await simport('remark-stringify');
     const preset = await simport('remark-preset-lint-consistent');
     const jsonProcessor = await simport('@putout/processor-json');
@@ -36,6 +35,8 @@ const loadDependencies = once(async () => {
     // and simport imports nearest version of "uninst-util-visit" which is v2
     // that's why regular import should be used here while remark not transit to v3
     const {visit} = await import('unist-util-visit');
+    // sometimes cannot load unified with simport on node v14
+    const {unified} = await import('unified');
     
     return {
         unified,
