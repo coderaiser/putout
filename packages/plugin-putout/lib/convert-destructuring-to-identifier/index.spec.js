@@ -9,12 +9,12 @@ test('plugin-putout: convert-destructuring-to-identifier: report: destructuring'
     t.end();
 });
 
-test('plugin-putout: convert-destructuring-todentifier: transform: destructuring', (t) => {
+test('plugin-putout: convert-destructuring-to-Identifier: transform: destructuring', (t) => {
     t.transform('destructuring');
     t.end();
 });
 
-test('plugin-putout: convert-destructuring-todentifier: transform: match', (t) => {
+test('plugin-putout: convert-destructuring-to-Identifier: transform: match', (t) => {
     t.transform('match');
     t.end();
 });

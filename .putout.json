@@ -1,7 +1,8 @@
 {
     "match": {
         "**/packages/{remark-putout,engine-processor,{plugin,processor}-*}": {
-            "putout": "on"
+            "putout": "on",
+            "putout/check-replace-code": "off"
         },
         "**/packages/plugin-*/*.md{json}": {
             "putout-config": "on"

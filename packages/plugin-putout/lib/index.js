@@ -18,5 +18,6 @@ module.exports.rules = {
     ...getRule('rename-operate-to-operator'),
     ...getRule('replace-operate-with-operator'),
     ...getRule('shorten-imports'),
+    ...getRule('check-replace-code'),
 };
 
