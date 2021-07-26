@@ -29,3 +29,8 @@ test('putout: plugin-eslint: move-putout-to-end-in-extends: no transform: only',
     t.end();
 });
 
+test('putout: plugin-eslint: move-putout-to-end-in-extends: no transform: extends-not-array', (t) => {
+    t.noTransform('extends-not-array');
+    t.end();
+});
+

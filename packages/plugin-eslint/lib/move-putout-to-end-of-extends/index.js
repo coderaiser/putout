@@ -1,7 +1,10 @@
 'use strict';
 
 const {types} = require('putout');
-const {isStringLiteral} = types;
+const {
+    isArrayExpression,
+    isStringLiteral,
+} = types;
 
 module.exports.report = () => '"putout" should be in the end of the "extends" list';
 
@@ -10,6 +13,9 @@ module.exports.match = () => ({
         const x = __a.properties.find(isExtends);
         
         if (!x)
+            return false;
+        
+        if (!isArrayExpression(x.value))
             return false;
         
         const {elements} = x.value;
