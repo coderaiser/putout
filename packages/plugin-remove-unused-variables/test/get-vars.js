@@ -83,6 +83,7 @@ const fixture = readFixtures([
     'jsx-template',
     'jsx-spread-attribute',
     'jsx-fragment',
+    'jsx-member-expression',
     'yield',
     'await',
     'flow',
@@ -1384,6 +1385,20 @@ test('remove-unused-variables: get-vars: jsx fragment', (t) => {
         React: du,
         module: _u,
         require: _u,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: jsx member expression', (t) => {
+    const ast = parse(fixture.jsxMemberExpression);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        React: du,
+        x: d_,
+        a: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');

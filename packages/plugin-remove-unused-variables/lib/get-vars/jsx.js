@@ -1,7 +1,10 @@
 'use strict';
 
 const {types} = require('putout');
-const {isIdentifier} = types;
+const {
+    isIdentifier,
+    isJSXIdentifier,
+} = types;
 
 module.exports = (use) => ({
     JSXOpeningElement(path) {
@@ -23,6 +26,14 @@ module.exports = (use) => ({
         
         if (argPath.isIdentifier())
             return use(path, argPath.node.name);
+    },
+    
+    JSXMemberExpression(path) {
+        const {node} = path;
+        const {object} = node;
+        
+        if (isJSXIdentifier(object))
+            use(path, object.name);
     },
     
     JSXExpressionContainer(path) {
