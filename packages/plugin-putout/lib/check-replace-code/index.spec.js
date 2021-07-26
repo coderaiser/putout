@@ -29,8 +29,13 @@ test('plugin-putout: check-replace-code: no report: fn', (t) => {
     t.end();
 });
 
+test('plugin-putout: check-replace-code: report: invalid', (t) => {
+    t.report('invalid', `'Const declarations' require an initialization value. (1:9)`);
+    t.end();
+});
+
 test('plugin-putout: check-replace-code: no transform: condition', (t) => {
-    t.report('condition', 'transform mismatch: "if (__a = __b) __body" -> "if (__a === __b) __body" !== "if (_temp === _temp2)\n    {};"');
+    t.report('condition', 'transform mismatch: "if (__a = __b) __body" -> "if (__a === __b) __body" !== "if (_temp === _temp2)\n  {};"');
     t.end();
 });
 

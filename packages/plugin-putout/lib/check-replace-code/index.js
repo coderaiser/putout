@@ -5,8 +5,6 @@ const tryCatch = require('try-catch');
 
 const {
     operator,
-    template,
-    print,
     types,
 } = putout;
 
@@ -15,7 +13,6 @@ const {replaceWith} = require('putout').operator;
 const {
     compare,
     extract,
-    traverse,
 } = operator;
 
 const name = '__putout_plugin_check_replace_code';
@@ -50,7 +47,16 @@ module.exports.traverse = ({push}) => ({
             const {node} = propertyPath;
             const key = extract(node.key);
             const value = extract(node.value);
-            const keyCode = generateCode(path, key);
+            const [generateError, keyCode] = generateCode(path, key);
+            
+            if (generateError) {
+                push({
+                    error: generateError,
+                    mainPath: path,
+                    path: propertyPath,
+                });
+                return;
+            }
             
             const [transformError, result] = tryCatch(putout, keyCode, {
                 fix: true,
@@ -87,24 +93,30 @@ module.exports.traverse = ({push}) => ({
 });
 
 function generateCode(rootPath, key) {
-    const ast = template.ast.fresh(key);
-    
-    traverse(ast, {
-        Identifier(path) {
-            const {parentPath} = path;
-            const {name} = path.node;
-            
-            if (/^__[a-z]$/.test(name)) {
-                path.node.name = rootPath.scope.generateUid();
-                return;
-            }
-            
-            if (name === '__body' && parentPath) {
-                replaceWith(path.parentPath, BlockStatement([]));
-            }
-        },
+    const [transformError, result] = tryCatch(putout, key, {
+        fix: true,
+        plugins: [
+            ['generate', {
+                report: () => {},
+                include: () => [
+                    'Identifier',
+                ],
+                fix: (path) => {
+                    const {name} = path.node;
+                    
+                    if (/^__[a-z]$/.test(name)) {
+                        path.node.name = rootPath.scope.generateUid();
+                        return;
+                    }
+                    
+                    if (name === '__body') {
+                        replaceWith(path.parentPath, BlockStatement([]));
+                    }
+                },
+            }],
+        ],
     });
     
-    return print(ast);
+    return [transformError, result?.code];
 }
 
