@@ -673,6 +673,34 @@ test('operate: extract: Literal', (t) => {
     t.end();
 });
 
+test('operate: extract: TemplateElement', (t) => {
+    const raw = 'hello';
+    const node = {
+        type: 'TemplateElement',
+        value: {
+            raw,
+        },
+    };
+    
+    const result = extract(node);
+    
+    t.equal(result, raw);
+    t.end();
+});
+
+test('operate: extract: RegExpLiteral', (t) => {
+    const pattern = 'hello';
+    const node = {
+        type: 'RegExpLiteral',
+        pattern,
+    };
+    
+    const result = extract(node);
+    
+    t.equal(result, pattern);
+    t.end();
+});
+
 test('operate: extract: unknown', (t) => {
     const value = 'hello';
     const node = {
@@ -681,7 +709,7 @@ test('operate: extract: unknown', (t) => {
     };
     
     const [error] = tryCatch(extract, node);
-    const expected = '"operator.extract(node)" understands only Literals and Identifiers 🤷';
+    const expected = '"operator.extract(node)" understands only Literals, Identifiers, TemplateElement and RegExpLiteral  🤷, found: UnknownStatement';
     
     t.equal(error.message, expected);
     t.end();

@@ -7,6 +7,8 @@ const {
     isImportDeclaration,
     isLiteral,
     isIdentifier,
+    isTemplateElement,
+    isRegExpLiteral,
 } = require('@babel/types');
 
 const {assign} = Object;
@@ -138,9 +140,15 @@ module.exports.extract = (node) => {
     if (isIdentifier(node))
         return node.name;
     
+    if (isRegExpLiteral(node))
+        return node.pattern;
+    
     if (isLiteral(node))
         return node.value;
     
-    throw Error('"operator.extract(node)" understands only Literals and Identifiers 🤷');
+    if (isTemplateElement(node))
+        return node.value.raw;
+    
+    throw Error(`"operator.extract(node)" understands only Literals, Identifiers, TemplateElement and RegExpLiteral  🤷, found: ${node.type}`);
 };
 
