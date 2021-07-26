@@ -24,6 +24,26 @@ module.exports = ({use, declare}) => ({
         }
     },
     
+    TSTypeAliasDeclaration(path) {
+        const {node} = path;
+        const {id} = node;
+        const {type} = id;
+        
+        switch(type) {
+        case 'Identifier': declare(path, id.name);
+        }
+    },
+    
+    TSTypeQuery(path) {
+        const {node} = path;
+        const {exprName} = node;
+        const {type} = exprName;
+        
+        switch(type) {
+        case 'Identifier': use(path, exprName.name);
+        }
+    },
+    
     TSAsExpression(path) {
         const {node} = path;
         const {expression} = node;

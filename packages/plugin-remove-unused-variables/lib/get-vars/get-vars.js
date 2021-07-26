@@ -481,14 +481,16 @@ module.exports = ({use, declare, addParams}) => {
                 return use(path, declaration.id.name);
             
             // typescript
-            if (declarationPath.isTSInterfaceDeclaration()) {
+            if (declarationPath.isTSInterfaceDeclaration())
+                return use(path, declaration.id.name);
+            
+            if (declarationPath.isTSTypeAliasDeclaration()) {
                 return use(path, declaration.id.name);
             }
             
             // flow
-            if (declarationPath.isInterfaceDeclaration()) {
+            if (declarationPath.isInterfaceDeclaration())
                 return use(path, declaration.id.name);
-            }
             
             if (isVariableDeclaration(declaration)) {
                 const {declarations} = declaration;

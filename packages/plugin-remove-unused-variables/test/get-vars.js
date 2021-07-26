@@ -90,6 +90,7 @@ const fixture = readFixtures([
     'typescript-namespace',
     'typescript-module',
     'typescript-as',
+    'typescript-type-query',
     'typescript-declare-function',
 ]);
 
@@ -1490,6 +1491,7 @@ test('remove-unused-variables: get-vars: typescript', (t) => {
         Viewport: du,
         IViewport: _u,
         IInputHandlingTerminal: du,
+        Pos: d_,
     }, {
         options: d_,
     }];
@@ -1540,6 +1542,19 @@ test('remove-unused-variables: get-vars: typescript: declare function', (t) => {
     
     const expected = [{
         args: du,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: typescript: type query', (t) => {
+    const ast = parse(fixture.typescriptTypeQuery, {isTS});
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        superType: du,
+        cms: _u,
     }];
     
     t.deepEqual(result, expected, 'should equal');
