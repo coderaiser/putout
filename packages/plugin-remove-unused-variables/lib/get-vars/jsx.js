@@ -14,6 +14,10 @@ module.exports = (use) => ({
         use(path, 'React');
     },
     
+    JSXFragment(path) {
+        use(path, 'React');
+    },
+    
     JSXSpreadAttribute(path) {
         const argPath = path.get('argument');
         
