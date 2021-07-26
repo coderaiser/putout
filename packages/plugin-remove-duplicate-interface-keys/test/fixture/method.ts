@@ -4,4 +4,5 @@ export interface IParamsConstructor {
 
   /** create params from ParamsArray */
   fromArray(values: ParamsArray): IParams;
+  fromArray(): IParams;
 }

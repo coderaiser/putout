@@ -20,6 +20,9 @@ module.exports.traverse = ({push}) => ({
             if (prop.isTSConstructSignatureDeclaration())
                 continue;
             
+            if (prop.isTSMethodSignature())
+                continue;
+            
             const current = getCurrent(prop);
             const {computed} = prop.node;
             

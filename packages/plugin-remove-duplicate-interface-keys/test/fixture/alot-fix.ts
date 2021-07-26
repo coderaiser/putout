@@ -8,6 +8,7 @@ interface LabelledContainer<T> {
     readonly [index: number]: string;
     (source: string, subString: string): boolean;
     (start: number): string;
+    reset(): void;
     reset(): any;
     a(c: (this: void, e: E) => void): void;
 }
