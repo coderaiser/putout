@@ -91,6 +91,7 @@ function generateCode(rootPath, key) {
     
     traverse(ast, {
         Identifier(path) {
+            const {parentPath} = path;
             const {name} = path.node;
             
             if (/^__[a-z]$/.test(name)) {
@@ -98,7 +99,7 @@ function generateCode(rootPath, key) {
                 return;
             }
             
-            if (name === '__body') {
+            if (name === '__body' && parentPath) {
                 replaceWith(path.parentPath, BlockStatement([]));
             }
         },
