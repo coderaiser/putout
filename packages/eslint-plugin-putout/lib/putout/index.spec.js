@@ -12,27 +12,29 @@ const ruleTester = new RuleTester({
 });
 
 ruleTester.run('putout', rule, {
-    valid: [`
+    valid: [
+        `const bar = foo?.bar;`,
+        `
         function foo({ bar }) {
           return { bar };
         }
         
         foo({ bar: 123 });`,
-    'fn(/(?<foo>a)/)', {
-        options: [{
-            rules: {
-                'remove-unused-variables': 'off',
-            },
+        'fn(/(?<foo>a)/)', {
+            options: [{
+                rules: {
+                    'remove-unused-variables': 'off',
+                },
+            }],
+            code: `const t = 'hi';`,
+        }, {
+            options: [{
+                ignore: [
+                    '<input>',
+                ],
+            }],
+            code: `const t = 'hi';`,
         }],
-        code: `const t = 'hi';`,
-    }, {
-        options: [{
-            ignore: [
-                '<input>',
-            ],
-        }],
-        code: `const t = 'hi';`,
-    }],
     invalid: [{
         code: `const m = 'hi'`,
         output: '',
