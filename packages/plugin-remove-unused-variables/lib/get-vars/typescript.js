@@ -2,7 +2,10 @@
 
 const {types} = require('putout');
 
-const {isTSModuleDeclaration} = types;
+const {
+    isIdentifier,
+    isTSModuleDeclaration,
+} = types;
 
 module.exports = ({use, declare}) => ({
     TSExpressionWithTypeArguments(path) {
@@ -11,6 +14,26 @@ module.exports = ({use, declare}) => ({
         
         switch(type) {
         case 'Identifier': use(path, expression.name);
+        }
+    },
+    
+    TSFunctionType(path) {
+        const {node} = path;
+        const {parameters} = node;
+        
+        for (const param of parameters) {
+            const {type} = param;
+            
+            switch(type) {
+            case 'Identifier':
+                declare(path, param.name);
+                use(path, param.name);
+                break;
+            
+            case 'RestElement':
+                if (isIdentifier(param.argument))
+                    use(path, param.argument.name);
+            }
         }
     },
     

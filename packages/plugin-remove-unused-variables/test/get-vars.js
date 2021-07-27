@@ -92,6 +92,7 @@ const fixture = readFixtures([
     'typescript-module',
     'typescript-as',
     'typescript-type-query',
+    'typescript-function-type-parameter',
     'typescript-declare-function',
 ]);
 
@@ -1570,6 +1571,20 @@ test('remove-unused-variables: get-vars: typescript: type query', (t) => {
     const expected = [{
         superType: du,
         cms: _u,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: typescript: function type parameter', (t) => {
+    const ast = parse(fixture.typescriptFunctionTypeParameter, {isTS});
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        Hello: du,
+        params: du,
+        x: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');
