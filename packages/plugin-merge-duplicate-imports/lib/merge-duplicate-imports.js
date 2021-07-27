@@ -23,6 +23,9 @@ module.exports.fix = ({path, imports}) => {
 
 module.exports.traverse = ({push, listStore}) => ({
     ImportDeclaration(path) {
+        if (path.node.importKind)
+            return;
+        
         listStore(path);
     },
     

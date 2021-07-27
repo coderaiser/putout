@@ -25,3 +25,8 @@ test('merge duplicate imports: transform: namespace', (t) => {
     t.end();
 });
 
+test('merge duplicate imports: transform: import-type', (t) => {
+    t.noTransform('import-type');
+    t.end();
+});
+
