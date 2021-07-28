@@ -1,0 +1,4 @@
+try {
+    log();
+} catch {
+}
