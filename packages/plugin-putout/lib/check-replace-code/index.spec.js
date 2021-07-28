@@ -39,8 +39,8 @@ test('plugin-putout: check-replace-code: report: invalid', (t) => {
     t.end();
 });
 
-test('plugin-putout: check-replace-code: no transform: condition', (t) => {
-    t.report('condition', 'transform mismatch: "if (__a = __b) __body" -> "if (__a === __b) __body" !== "if (_temp === _temp2)\n  {};"');
+test('plugin-putout: check-replace-code: no report: condition', (t) => {
+    t.noReport('condition');
     t.end();
 });
 

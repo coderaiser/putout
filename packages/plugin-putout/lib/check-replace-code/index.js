@@ -21,6 +21,15 @@ const {BlockStatement} = types;
 const get = (path) => path[name];
 const set = (path) => path[name] = true;
 
+const rmSemi = (a) => {
+    const last = a[a.length - 1];
+    
+    if (last !== ';')
+        return a;
+    
+    return a.slice(0, -1);
+};
+
 module.exports.report = ({path, code, error}) => {
     if (error)
         return error.message;
@@ -80,7 +89,7 @@ module.exports.traverse = ({push}) => ({
             }
             
             const {code} = result;
-            const [error, is] = tryCatch(compare, code, template);
+            const [error, is] = tryCatch(compare, rmSemi(code), template);
             
             if (error || !is)
                 push({
