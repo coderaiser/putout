@@ -29,6 +29,11 @@ test('plugin-putout: check-replace-code: no report: fn', (t) => {
     t.end();
 });
 
+test('plugin-putout: check-replace-code: no report: member', (t) => {
+    t.noReport('member');
+    t.end();
+});
+
 test('plugin-putout: check-replace-code: report: invalid', (t) => {
     t.report('invalid', `'Const declarations' require an initialization value. (1:9)`);
     t.end();

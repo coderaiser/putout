@@ -46,7 +46,7 @@ module.exports.traverse = ({push}) => ({
             
             const {node} = propertyPath;
             const key = extract(node.key);
-            const value = extract(node.value);
+            const template = extract(node.value);
             const [generateError, keyCode] = generateCode(path, key);
             
             if (generateError) {
@@ -64,7 +64,7 @@ module.exports.traverse = ({push}) => ({
                     ['evaluate', {
                         report: () => {},
                         replace: () => ({
-                            [key]: value,
+                            [key]: template,
                         }),
                     }],
                 ],
@@ -80,7 +80,7 @@ module.exports.traverse = ({push}) => ({
             }
             
             const {code} = result;
-            const [error, is] = tryCatch(compare, value, code);
+            const [error, is] = tryCatch(compare, code, template);
             
             if (error || !is)
                 push({
