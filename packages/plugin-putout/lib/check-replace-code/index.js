@@ -3,12 +3,9 @@
 const putout = require('putout');
 const tryCatch = require('try-catch');
 
-const {
-    operator,
-    types,
-} = putout;
+const generateCode = require('./generate-code');
 
-const {replaceWith} = require('putout').operator;
+const {operator} = putout;
 
 const {
     compare,
@@ -16,7 +13,6 @@ const {
 } = operator;
 
 const name = '__putout_plugin_check_replace_code';
-const {BlockStatement} = types;
 
 const get = (path) => path[name];
 const set = (path) => path[name] = true;
@@ -101,45 +97,4 @@ module.exports.traverse = ({push}) => ({
         }
     },
 });
-
-const createVarStore = (path) => {
-    const store = {};
-    return (name) => {
-        if (store[name])
-            return store[name];
-        
-        store[name] = path.scope.generateUid();
-        
-        return store[name];
-    };
-};
-
-function generateCode(rootPath, key) {
-    const getVar = createVarStore(rootPath);
-    const [transformError, result] = tryCatch(putout, key, {
-        fix: true,
-        plugins: [
-            ['generate', {
-                report: () => {},
-                include: () => [
-                    'Identifier',
-                ],
-                fix: (path) => {
-                    const {name} = path.node;
-                    
-                    if (/^__[a-z]$/.test(name)) {
-                        path.node.name = getVar(name);
-                        return;
-                    }
-                    
-                    if (name === '__body') {
-                        replaceWith(path.parentPath, BlockStatement([]));
-                    }
-                },
-            }],
-        ],
-    });
-    
-    return [transformError, result?.code];
-}
 
