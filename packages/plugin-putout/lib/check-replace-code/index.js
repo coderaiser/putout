@@ -89,6 +89,7 @@ module.exports.traverse = ({push}) => ({
             }
             
             const {code} = result;
+            
             const [error, is] = tryCatch(compare, rmSemi(code), template);
             
             if (error || !is)
@@ -101,7 +102,20 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
+const createVarStore = (path) => {
+    const store = {};
+    return (name) => {
+        if (store[name])
+            return store[name];
+        
+        store[name] = path.scope.generateUid();
+        
+        return store[name];
+    };
+};
+
 function generateCode(rootPath, key) {
+    const getVar = createVarStore(rootPath);
     const [transformError, result] = tryCatch(putout, key, {
         fix: true,
         plugins: [
@@ -114,7 +128,7 @@ function generateCode(rootPath, key) {
                     const {name} = path.node;
                     
                     if (/^__[a-z]$/.test(name)) {
-                        path.node.name = rootPath.scope.generateUid();
+                        path.node.name = getVar(name);
                         return;
                     }
                     
