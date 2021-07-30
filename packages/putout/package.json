@@ -61,6 +61,7 @@
     "@putout/formatter-progress-bar": "^1.1.0",
     "@putout/formatter-stream": "^2.0.0",
     "@putout/operate": "^6.0.0",
+    "@putout/plugin-apply-array-at": "^1.0.0",
     "@putout/plugin-apply-as-type-assertions": "^1.0.0",
     "@putout/plugin-apply-destructuring": "^5.0.0",
     "@putout/plugin-apply-if-condition": "^1.0.0",

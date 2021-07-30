@@ -101,6 +101,7 @@
         ".md"
     ],
     "rules": {
+        "apply-array-at": "off",
         "apply-top-level-await": "off",
         "apply-as-type-assertions": "off",
         "convert-esm-to-commonjs": "off",
@@ -129,6 +130,7 @@
         "remove-unused-expressions": "on"
     },
     "plugins": [
+        "apply-array-at",
         "apply-destructuring",
         "apply-top-level-await",
         "apply-optional-chaining",

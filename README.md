@@ -966,7 +966,7 @@ function world(a) {
 
 </details>
 
-<details><summary>apply <code>Array.at</code>(not bundled, <a href=https://github.com/tc39/proposal-relative-indexing-method>stage-3</a>)</summary>
+<details><summary>apply <code>Array.at</code>(<a href=https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#2021-07-29-version-1660-current-bethgriggs>disabled</a>)</summary>
 
 ```diff
 -const latest = (a) => a[a.length - 1];
@@ -1254,6 +1254,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
+| [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-array-at)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-array-at) |
 | [`@putout/plugin-apply-numeric-separators`](/packages/plugin-apply-numeric-separators) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-numeric-separators.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-numeric-separators) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-numeric-separators)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-numeric-separators) |
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-destructuring)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-top-level-await`](/packages/plugin-apply-top-level-await) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-top-level-await.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-top-level-await) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-top-level-await)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-top-level-await) |
@@ -1379,7 +1380,6 @@ Next packages not bundled with `putout` but can be installed separately.
 | [`@putout/plugin-convert-any-to-primitive`](/packages/plugin-convert-any-to-primitive) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-any-to-primitive.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-any-to-primitive) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-any-to-primitive)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-any-to-primitive) |
 | [`@putout/plugin-travis`](/packages/plugin-travis) | [![npm](https://img.shields.io/npm/v/@putout/plugin-travis.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-travis) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-travis)](https://david-dm.org/coderaiser/putout?path=packages/plugin-travis) |
 | [`@putout/plugin-convert-throw`](/packages/plugin-convert-throw) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-throw.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-throw) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-throw)](https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-throw) |
-| [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-array-at)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-array-at) |
 | [`@putout/plugin-add-return-await`](/packages/plugin-add-return-await) | [![npm](https://img.shields.io/npm/v/@putout/plugin-add-return-await.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-add-return-await) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-add-return-await)](https://david-dm.org/coderaiser/putout?path=packages/plugin-add-return-await) |
 
 ### Other
