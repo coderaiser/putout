@@ -26,7 +26,7 @@ module.exports = (rootPath, key) => {
                     }
                     
                     if (name === '__body') {
-                        replaceWith(path.parentPath, BlockStatement([]));
+                        replaceWith(path, BlockStatement([]));
                     }
                 },
             }],

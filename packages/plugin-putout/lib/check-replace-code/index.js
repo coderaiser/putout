@@ -18,12 +18,8 @@ const get = (path) => path[name];
 const set = (path) => path[name] = true;
 
 const rmSemi = (a) => {
-    const last = a[a.length - 1];
-    
     a = a.replace(';;', ';');
-    
-    if (last === ';')
-        return a.slice(0, -1);
+    a = a.replace(/;$/, '');
     
     return a;
 };
@@ -87,7 +83,6 @@ module.exports.traverse = ({push}) => ({
             }
             
             const {code} = result;
-            
             const [error, is] = tryCatch(compare, rmSemi(code), template);
             
             if (error || !is)
