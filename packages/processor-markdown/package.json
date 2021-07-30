@@ -30,7 +30,7 @@
     "remark-stringify": "^9.0.0",
     "simport": "^1.2.0",
     "unified": "^10.0.0",
-    "unist-util-visit": "^3.0.0"
+    "unist-util-visit": "^4.0.0"
   },
   "keywords": [
     "putout",
