@@ -20,10 +20,12 @@ const set = (path) => path[name] = true;
 const rmSemi = (a) => {
     const last = a[a.length - 1];
     
-    if (last !== ';')
-        return a;
+    a = a.replace(';;', ';');
     
-    return a.slice(0, -1);
+    if (last === ';')
+        return a.slice(0, -1);
+    
+    return a;
 };
 
 module.exports.report = ({path, code, error}) => {

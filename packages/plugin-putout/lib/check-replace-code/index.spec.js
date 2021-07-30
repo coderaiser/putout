@@ -44,3 +44,8 @@ test('plugin-putout: check-replace-code: no report: condition', (t) => {
     t.end();
 });
 
+test('plugin-putout: check-replace-code: no report: double-semi', (t) => {
+    t.noReport('double-semi');
+    t.end();
+});
+
