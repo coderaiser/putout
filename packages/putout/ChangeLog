@@ -1,3 +1,40 @@
+2021.07.30, v18.9.0
+
+fix:
+- (@putout/plugin-putout) check-replace-code: double semi
+- (@putout/plugin-putout) check-replace-code: compare args order
+- (@putout/processor-markdown) load unified with simport sometimes doesn't work on node v14, use dynamic import (https://github.com/coderaiser/estrace/runs/3143243819?check_suite_focus=true)
+- (@putout/plugin-apply-eary-return) >14 -> >=14
+
+
+feature:
+- (putout) bundle @putout/plugin-apply-array-at (https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#2021-07-29-version-1660-current-bethgriggs)
+- (@putout/plugin-putout) check-replace-code: improve support of ArrowFunctionExpression
+- (package) unist-util-visit v4.0.0
+- (@putout/plugin-putout) check-replace-code: move out generateCode
+- (@putout/plugin-putout) check-replace-code: add varStore
+- (@putout/plugin-apply-try-catch) add
+- (@putout/plugin-putout) check-replace-code: add support of addition semicolon
+- (@putout/plugin-merge-duplicate-imports) add support of ImportDeclaration importKind (#71)
+- (@putout/plugin-remove-unused-variables) add support of TSFunctionType
+- (@putout/plugin-putout) check-replace-code: improve error handling
+- (@putout/compare) @putout/operate v6.4.0: parseName -> extract
+- (@putout/operate) extract: add support of TemplateElement and RegExpLiteral
+- (@putout/plugin-putout) check-replace-code: exclude cases with no path.parentPath
+- (@putout/plugin-remove-duplicate-interface-keys) exclude TSMethodSignature
+- (@putout/plugin-eslint) move putout to end of extends: exclude not ArrayExpression
+- (@putout/plugin-remove-unused-variables) add support of JSXMemberExpression
+- (@putout/plugin-remove-unused-variables) add support of TSTypeAliasDeclaration
+- (@putout/plugin-remove-unused-variables) add support of JSXFragment
+- (@putout/plugin-putout) add check-replace-code
+- (@putout/engine-runner) replace: add validation of linked template values
+- (@putout/operate) replaceWith: add support of nodes with no parentPath
+- (@putout/operate) add extract
+- (@putout/plugin-convert-map-to-for-of) exclude try-catch
+- (@putout/eslint-config) no-else-return: add allowElseIf
+
+
+
 2021.07.22, v18.8.0
 
 feature:
