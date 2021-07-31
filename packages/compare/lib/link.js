@@ -30,3 +30,4 @@ module.exports = ({add, value, nodeValue, templateStore}) => {
     add(templateStore[name], nodeValue);
     return true;
 };
+

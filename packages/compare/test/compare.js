@@ -648,6 +648,13 @@ test('compare: type', (t) => {
     t.end();
 });
 
+test('compare: Identifier: __a', (t) => {
+    const result = compare('_temp11', '__a');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: range: ignore', (t) => {
     const node = {
         type: 'Identifier',

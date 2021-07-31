@@ -1,7 +1,10 @@
 'use strict';
 
 const {template} = require('@putout/engine-parser');
-const {isExpressionStatement} = require('@babel/types');
+const {
+    isIdentifier,
+    isExpressionStatement,
+} = require('@babel/types');
 
 const {
     findVarsWays,
@@ -18,6 +21,7 @@ const {
     isEqualType,
     isEqualAnyObject,
     isEqualAnyArray,
+    isLinkedNode,
     isEqualNop,
     isTemplate,
     parseTemplate,
@@ -74,6 +78,9 @@ function compare(path, template) {
         return true;
     
     if (isEqualNop(node, templateNode))
+        return true;
+    
+    if (isIdentifier(node) && isLinkedNode(templateNode))
         return true;
     
     if (isPath(path) && !isEqualType(node, templateNode)) {
