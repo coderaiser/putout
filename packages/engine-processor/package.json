@@ -39,7 +39,6 @@
     "eslint-plugin-putout": "^8.0.0",
     "lerna": "^4.0.0",
     "madrun": "^8.0.1",
-    "mock-require": "^3.0.3",
     "nodemon": "^2.0.1",
     "putout": "*",
     "supertape": "^5.0.0"
