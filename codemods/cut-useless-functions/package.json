@@ -41,8 +41,7 @@
     "eslint-plugin-putout": "^8.0.0",
     "lerna": "^4.0.0",
     "madrun": "^8.0.1",
-    "nodemon": "^2.0.1",
-    "tape": "^4.8.0"
+    "nodemon": "^2.0.1"
   },
   "peerDependencies": {
     "putout": ">=8"
