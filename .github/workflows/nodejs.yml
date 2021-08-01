@@ -18,10 +18,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install Redrun
-        run: npm i redrun -g
-
-      - name: Install
-        run: npm install
+        run: npm i redrun lerna -g
 
       - name: Bootstrap
         run: redrun bootstrap
