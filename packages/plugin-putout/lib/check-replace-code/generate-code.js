@@ -5,7 +5,11 @@ const tryCatch = require('try-catch');
 
 const {types, operator} = putout;
 const {replaceWith} = operator;
-const {BlockStatement} = types;
+const {
+    ArrayPattern,
+    ObjectPattern,
+    BlockStatement,
+} = types;
 
 module.exports = (rootPath, key) => {
     const getVar = createVarStore(rootPath);
@@ -22,6 +26,20 @@ module.exports = (rootPath, key) => {
                     
                     if (/^__[a-z]$/.test(name)) {
                         path.node.name = getVar(name);
+                        return;
+                    }
+                    
+                    if (name === '__array') {
+                        if (path.parentPath.isVariableDeclarator())
+                            replaceWith(path, ArrayPattern([]));
+                        
+                        return;
+                    }
+                    
+                    if (name === '__object') {
+                        if (path.parentPath.isVariableDeclarator())
+                            replaceWith(path, ObjectPattern([]));
+                        
                         return;
                     }
                     

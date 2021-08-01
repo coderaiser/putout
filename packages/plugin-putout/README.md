@@ -27,7 +27,8 @@ npm i @putout/plugin-putout -D
         "putout/convert-traverse-to-include": "on",
         "putout/convert-process-to-find": "on",
         "putout/convert-method-to-property": "on",
-        "putout/shorten-imports": "on"
+        "putout/shorten-imports": "on",
+        "putout/check-replace-code": "on"
     }
 }
 ```
@@ -231,6 +232,20 @@ module.exports.match = () => ({
     },
 });
 ```
+
+## check-replace-code
+
+Checks that [Replacer](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#replacer) transform is possible.
+
+### ❌ Incorrect code example
+
+```js
+module.exports.replace = () => ({
+    'if (__a = __b) __body': 'if (__a === "__b") __body',
+});
+```
+
+There is no `fix` for this rule, it used internally to be more confident about `test coverage`, because of declaration form, transforms cannon be checked by `nyc` and `c8`, and uncovered lines can find unfixable false possitives when running on code. This additional tests, if you forget to test some case (from a big list of rules that is supported) it will be checked with this `rule` and make code more stable and tranform bugs.
 
 ## License
 
