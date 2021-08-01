@@ -31,7 +31,6 @@
   "devDependencies": {
     "@putout/test": "^3.5.0",
     "c8": "^7.5.0",
-    "coveralls": "^3.0.0",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^8.0.0",
