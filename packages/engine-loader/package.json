@@ -45,7 +45,7 @@
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^8.0.0",
-    "estrace": "^1.5.1",
+    "estrace": "^2.1.0",
     "js-codemod": "^7.0.0",
     "just-camel-case": "^4.0.2",
     "lerna": "^4.0.0",

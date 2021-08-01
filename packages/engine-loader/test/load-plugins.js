@@ -574,16 +574,16 @@ test('putout: loader: plugin is a function', (t) => {
 });
 
 test('putout: loader: ESM', async (t) => {
-    const trace = await import('estrace/plugin');
+    const estrace = await import('estrace/plugin');
     const [e] = tryCatch(putout, 'hello', {
         loadPlugins,
         rules: {
-            trace: ['on', {
+            'estrace/trace': ['on', {
                 url: 'file://hello.js',
             }],
         },
         plugins: [
-            ['trace', trace],
+            ['estrace', estrace],
         ],
     });
     
