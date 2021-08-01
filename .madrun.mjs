@@ -11,8 +11,6 @@ const {workspaces} = require('./package.json');
 const cutStar = (a) => a.replace('/*', '');
 const dirs = getDirs(workspaces);
 
-const NODE_OPTIONS = '"--no-deprecation"';
-
 const baseEnv = {
     SUPERTAPE_TIMEOUT: 7000,
     PUTOUT_PROGRESS_BAR: 0,
@@ -25,7 +23,6 @@ const env = {
     CI: 1,
     SUPERTAPE_PROGRESS_BAR: 1,
     KEYPRESS: 1,
-    NODE_OPTIONS,
 };
 
 export default {
@@ -53,6 +50,7 @@ export default {
     'bootstrap': () => 'lerna bootstrap',
     'report': () => 'c8 report --reporter=lcov',
     'prepare': () => 'husky install',
+    'postinstall': () => 'patch-package',
 };
 
 function getDirs(workspaces) {

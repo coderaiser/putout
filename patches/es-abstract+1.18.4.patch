@@ -1,0 +1,29 @@
+diff --git a/node_modules/es-abstract/package.json b/node_modules/es-abstract/package.json
+index 20a82e3..23bad51 100644
+--- a/node_modules/es-abstract/package.json
++++ b/node_modules/es-abstract/package.json
+@@ -23,15 +23,15 @@
+ 	"exports": {
+ 		".": "./index.js",
+ 		"./package.json": "./package.json",
+-		"./2020/": "./2020/",
+-		"./2019/": "./2019/",
+-		"./2018/": "./2018/",
+-		"./2017/": "./2017/",
+-		"./2016/": "./2016/",
+-		"./2015/": "./2015/",
+-		"./helpers/": "./helpers/",
+-		"./5/": "./5/",
+-		"./": "./"
++		"./2020/*": "./2020/*.js",
++		"./2019/*": "./2019/*.js",
++		"./2018/*": "./2018/*.js",
++		"./2017/*": "./2017/*.js",
++		"./2016/*": "./2016/*.js",
++		"./2015/*": "./2015/*.js",
++		"./helpers/*": "./helpers/*.js",
++		"./5/*": "./5/*.js",
++		"./*": "./*.js"
+ 	},
+ 	"sideEffects": false,
+ 	"scripts": {
