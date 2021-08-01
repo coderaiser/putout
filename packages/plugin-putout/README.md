@@ -245,7 +245,7 @@ module.exports.replace = () => ({
 });
 ```
 
-There is no `fix` for this rule, it used internally to be more confident about `test coverage`, because of declaration form, transforms cannon be checked by `nyc` and `c8`, and uncovered lines can find unfixable false possitives when running on code. This additional tests, if you forget to test some case (from a big list of rules that is supported) it will be checked with this `rule` and make code more stable and tranform bugs.
+There is no `fix` for this rule, it used internally to be more confident about `test coverage`, because of declaration form, transforms cannon be checked by `nyc` and `c8`, and uncovered lines can find unfixable false possitives when running on code. This additional tests, if you forget to test some case (from a big list of rules that is supported) it will be checked with this `rule` and make code more stable and transform bugs.
 
 ## License
 
