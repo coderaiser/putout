@@ -83,10 +83,6 @@ module.exports.traverse = ({push}) => ({
             }
             
             const {code} = result;
-            
-            if (!code.length && !template.length)
-                return;
-            
             const [error, is] = tryCatch(compare, rmSemi(code), template);
             
             if (error || !is)

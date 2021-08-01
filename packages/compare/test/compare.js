@@ -694,6 +694,13 @@ test('compare: parent: ignore', (t) => {
     t.end();
 });
 
+test('compare: same values', (t) => {
+    const result = compare('', '');
+    
+    t.ok(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);
