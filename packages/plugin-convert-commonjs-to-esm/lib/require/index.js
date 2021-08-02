@@ -40,7 +40,9 @@ module.exports.match = () => ({
             return false;
         
         const __bPath = path.get(__B);
-        return __bPath.evaluate().confident;
+        const {confident, value} = __bPath.evaluate();
+        
+        return value && confident;
     },
     'require("__a")': (vars, path) => {
         return path.parentPath.parentPath.isProgram();

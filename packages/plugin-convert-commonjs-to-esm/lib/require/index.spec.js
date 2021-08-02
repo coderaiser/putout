@@ -85,6 +85,11 @@ test('plugin-convert-commonjs-to-esm: require: no transform: no evaluate', (t) =
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: require: no transform: not-string-argument', (t) => {
+    t.noTransform('not-string-argument');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: require: no transform: inner-json', (t) => {
     t.noTransform('inner-json');
     t.end();
