@@ -1,6 +1,5 @@
 'use strict';
 
-/* eslint node/no-unpublished-require:0 */
 const test = require('@putout/test')(__dirname, {
     'convert-state-to-hooks': require('.'),
 });

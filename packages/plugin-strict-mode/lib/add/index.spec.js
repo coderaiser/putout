@@ -2,7 +2,6 @@
 
 process.on('unhandledRejection', () => {});
 
-/* eslint node/no-unpublished-require:0 */
 const test = require('@putout/test')(__dirname, {
     'strict-mode/add': require('.'),
 });

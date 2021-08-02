@@ -2,7 +2,6 @@
 
 const applyDestructuring = require('.');
 
-/* eslint node/no-unpublished-require:0 */
 const test = require('@putout/test')(__dirname, {
     'apply-array-destructuring': applyDestructuring,
 });

@@ -1,6 +1,5 @@
 'use strict';
 
-/* eslint node/no-unpublished-require:0 */
 const test = require('@putout/test')(__dirname, {
     'madrun/rename-series-to-run': require('.'),
 });
