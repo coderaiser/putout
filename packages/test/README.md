@@ -29,6 +29,15 @@ checks error message of a plugin from `input` code
 ### transform(filename [, output, plugins])
 check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory
 
+```js
+test('remove usless variables: for-of', (t) => {
+    t.transform('array-from', {
+        'remove-useless-array-from': removeUselessArrayFrom,
+    });
+    t.end();
+});
+```
+
 ### transformCode(input, output)
 check transform of `input` -> `output` code
 
