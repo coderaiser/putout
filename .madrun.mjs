@@ -50,7 +50,6 @@ export default {
     'bootstrap': () => 'lerna bootstrap',
     'report': () => 'c8 report --reporter=lcov',
     'prepare': () => 'husky install',
-    'postinstall': () => 'patch-package',
 };
 
 function getDirs(workspaces) {
