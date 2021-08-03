@@ -43,3 +43,9 @@ test('plugin-regexp/remove-useless-group: no transform: named group', (t) => {
     t.noTransform('named-group');
     t.end();
 });
+
+test('plugin-regexp/remove-useless-group: no transform: empty non capturing group', (t) => {
+    t.noTransform('empty-non-capturing-group');
+    t.end();
+});
+

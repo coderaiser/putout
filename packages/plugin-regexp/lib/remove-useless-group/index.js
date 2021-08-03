@@ -37,6 +37,9 @@ function removeUselessGroup(str) {
             if (node.name)
                 return;
             
+            if (!node.expression)
+                return;
+            
             if (isDisjunction(node.expression))
                 return;
             
