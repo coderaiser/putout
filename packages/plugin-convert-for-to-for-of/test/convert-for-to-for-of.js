@@ -24,6 +24,11 @@ test('plugin-convert-for-to-for-of: no transform: more i references', (t) => {
     t.end();
 });
 
+test('plugin-convert-for-to-for-of: no transform: no body', (t) => {
+    t.noTransform('no-body');
+    t.end();
+});
+
 test('plugin-convert-for-to-for-of: no transform: more i references n', (t) => {
     t.noTransform('for-more-n');
     t.end();

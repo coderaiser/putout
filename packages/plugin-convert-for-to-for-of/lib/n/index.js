@@ -1,10 +1,16 @@
 'use strict';
 
-const {operator, template} = require('putout');
+const {
+    operator,
+    template,
+    types,
+} = require('putout');
 const {
     compare,
     getTemplateValues,
 } = operator;
+
+const {isBlockStatement} = types;
 
 module.exports.report = () => 'for-of should be used instead of for';
 
@@ -26,7 +32,7 @@ module.exports.filter = (path) => {
     
     const {body} = node;
     
-    if (!body.body)
+    if (!isBlockStatement(body))
         return false;
     
     const [first] = body.body;

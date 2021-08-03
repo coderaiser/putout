@@ -1,10 +1,12 @@
 'use strict';
 
-const {operator} = require('putout');
+const {operator, types} = require('putout');
 const {
     compare,
     getTemplateValues,
 } = operator;
+
+const {isBlockStatement} = types;
 
 module.exports.report = () => 'for-of should be used instead of for';
 
@@ -15,8 +17,11 @@ const assignIterableWithName = (__i, __e) => `const __a = ${__e.name}[${__i.name
 
 module.exports.filter = (path) => {
     const {node} = path;
-    
     const {body} = node;
+    
+    if (!isBlockStatement(body))
+        return false;
+    
     const [first] = body.body;
     const {__i, __e} = getTemplateValues(path, forLoop);
     const {references} = path.scope.bindings[__i.name];
