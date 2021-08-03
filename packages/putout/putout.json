@@ -12,8 +12,13 @@
         "css"
     ],
     "match": {
-        "*.{js,jsx,mjs,cjs,ts,tsx}": {
-            "strict-mode": "on"
+        "*.{mjs,ts,tsx}": {
+            "strict-mode/remove": "on",
+            "strict-mode/add": "off"
+        },
+        "*.{jsx,js,cjs}": {
+            "strict-mode/add": "on",
+            "strict-mode/remove": "on"
         },
         "{.,}putout.json": {
             "putout-config": "on"
