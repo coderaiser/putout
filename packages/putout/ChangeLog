@@ -1,3 +1,20 @@
+2021.08.03, v18.9.1
+
+fix:
+- (putout) strict-mode/add on empty ts files
+- (@putout/plugin-putout) check-replace-code: false positive on empty result
+
+
+feature:
+- (@putout/plugin-convert-commonjs-to-esm) require: add support of "undefined" as argument of "require"
+- (package) estrace v2.1.0
+- (@putout/plugin-putout) check-replace-code: add support of __array, __object
+- (@putout/compare) add support of same empty strings
+- (@putout/compare) add support of top-level linked nodes
+- (@putout/plugin-cli-validate-args) rm unused mock-require
+
+
+
 2021.07.30, v18.9.0
 
 fix:
