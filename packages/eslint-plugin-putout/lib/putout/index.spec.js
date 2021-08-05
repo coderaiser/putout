@@ -90,7 +90,7 @@ const parserTester = new RuleTester({
 });
 
 parserTester.run('putout', rule, {
-    valid: [{
+    valid: [``, {
         options: [{
             rules: {
                 'remove-unused-variables': 'off',

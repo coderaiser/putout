@@ -47,11 +47,11 @@ module.exports = {
                 const source = context.getSourceCode();
                 const {text} = source;
                 
-                if (!text)
-                    return;
-                
                 const ast = toBabel(copyAST(node));
                 const places = findPlaces(ast, text, resultOptions);
+                
+                if (!places.length)
+                    return;
                 
                 const includeComments = true;
                 const lastToken = source.getLastToken(node, {
