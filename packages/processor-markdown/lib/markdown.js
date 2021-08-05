@@ -54,7 +54,7 @@ module.exports.find = async (rawSource) => {
         preset,
     } = await loadDependencies();
     
-    parseStore.init();
+    await parseStore.init();
     
     const {messages} = await unified()
         .use(parseStore)
@@ -72,7 +72,7 @@ module.exports.fix = async (rawSource) => {
         preset,
     } = await loadDependencies();
     
-    parseStore.init();
+    await parseStore.init();
     
     const {messages, value} = await unified()
         .use(parseStore)
@@ -130,7 +130,7 @@ module.exports.merge = async (rawSource, list) => {
         .use(stringify, stringifyOptions)
         .process(rawSource);
     
-    parseStore.clear();
+    await parseStore.clear();
     
     return value;
 };

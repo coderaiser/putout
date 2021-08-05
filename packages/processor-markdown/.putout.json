@@ -1,0 +1,5 @@
+{
+    "rules": {
+        "remove-useless-async": "off"
+    }
+}

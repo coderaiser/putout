@@ -1,9 +1,11 @@
 'use strict';
 
-const parse = require('remark-parse');
+const {createSimport} = require('simport');
+const simport = createSimport(__filename);
 
 module.exports.initParseStore = () => {
     let cache = null;
+    let parse = null;
     
     const fn = function needContext(a) {
         parse.call(this, a);
@@ -20,11 +22,12 @@ module.exports.initParseStore = () => {
         };
     };
     
-    fn.init = () => {
+    fn.init = async () => {
         cache = null;
+        parse = await simport('remark-parse');
     };
     
-    fn.clear = () => {
+    fn.clear = async () => {
         cache = null;
     };
     
