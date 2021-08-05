@@ -50,35 +50,38 @@ module.exports = {
                 const ast = toBabel(copyAST(node));
                 const places = findPlaces(ast, text, resultOptions);
                 
-                if (!places.length)
-                    return;
-                
-                const includeComments = true;
-                const lastToken = source.getLastToken(node, {
-                    includeComments,
-                });
-                
-                const [, last] = lastToken.range;
-                
                 for (const {rule, message, position} of places) {
                     context.report({
                         message: `${message} (${rule})`,
-                        
+                        fix: fix({
+                            ast,
+                            text,
+                            node,
+                            source,
+                            resultOptions,
+                        }),
                         loc: {
                             start: position,
                             end: position,
-                        },
-                        
-                        fix(fixer) {
-                            transform(ast, text, resultOptions);
-                            const code = print(ast);
-                            
-                            return fixer.replaceTextRange([0, last], code);
                         },
                     });
                 }
             },
         };
     },
+};
+
+const fix = ({ast, text, node, source, resultOptions}) => (fixer) => {
+    const includeComments = true;
+    const lastToken = source.getLastToken(node, {
+        includeComments,
+    });
+    
+    const [, last] = lastToken.range;
+    
+    transform(ast, text, resultOptions);
+    const code = print(ast);
+    
+    return fixer.replaceTextRange([0, last], code);
 };
 
