@@ -368,18 +368,6 @@ switch (x) {
 
 </details>
 
-
-<details><summary>remove useless <code><a href=https://www.typescriptlang.org/docs/handbook/2/mapped-types.html>mapped types</a></code></summary>
-
-```diff
--type SuperType = {
--   [Key in keyof Type]: Type[Key]
--}
-+type SuperType = Type;
-```
-
-</details>
-
 <details><summary>remove useless <code>continue</code></summary>
 
 ```diff
@@ -621,7 +609,7 @@ interface A {
 
 </details>
 
-<details><summary>remove useless <code>types</code> from <code>constants</code></summary>
+<details><summary>remove useless <code>types</code> from <code>constants</code> (for typescript)</summary>
 
 ```diff
 -const x: any = 5;
@@ -629,6 +617,18 @@ interface A {
 ```
 
 </details>
+   
+<details><summary>remove useless <code><a href=https://www.typescriptlang.org/docs/handbook/2/mapped-types.html>mapped types</a></code>(for typescript)</summary>
+
+```diff
+-type SuperType = {
+-   [Key in keyof Type]: Type[Key]
+-}
++type SuperType = Type;
+```
+
+</details>
+
 
 <details><summary>convert <code>fs.promises</code> to <code>fs/promises</code> for <a href=https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api>node.js</a></summary>
 
