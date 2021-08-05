@@ -694,8 +694,17 @@ test('compare: parent: ignore', (t) => {
     t.end();
 });
 
-test('compare: same values', (t) => {
+test('compare: both values are empty', (t) => {
     const result = compare('', '');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: typescript: keyof', (t) => {
+    const node = 'type R = {[P in keyof Todo]: Todo[P];}';
+    const template = 'type __a = {[__b in keyof __c]: __c[__b];}';
+    const result = compare(node, template);
     
     t.ok(result);
     t.end();

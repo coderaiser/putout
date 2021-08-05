@@ -9,6 +9,7 @@ const {
     isFunction,
     isImportDefaultSpecifier,
     isRegExpLiteral,
+    isTSTypeParameter,
 } = require('@babel/types');
 
 const isStr = (a) => typeof a === 'string';
@@ -205,6 +206,9 @@ module.exports.isLinkedNode = (a) => {
         return true;
     
     if (isTemplateElement(a) && LINKED_NODE.test(a.value.raw))
+        return true;
+    
+    if (isTSTypeParameter(a) && LINKED_NODE.test(a.name))
         return true;
     
     return false;
