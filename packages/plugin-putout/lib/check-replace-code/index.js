@@ -63,6 +63,7 @@ module.exports.traverse = ({push}) => ({
             
             const [transformError, result] = tryCatch(putout, keyCode, {
                 fix: true,
+                isTS: true,
                 plugins: [
                     ['evaluate', {
                         report: () => {},

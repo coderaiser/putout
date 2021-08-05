@@ -35,7 +35,7 @@ test('plugin-putout: check-replace-code: no report: member', (t) => {
 });
 
 test('plugin-putout: check-replace-code: report: invalid', (t) => {
-    t.report('invalid', `'Const declarations' require an initialization value. (1:9)`);
+    t.report('invalid', `Unexpected token (1:10)`);
     t.end();
 });
 
@@ -61,6 +61,11 @@ test('plugin-putout: check-replace-code: no report: array', (t) => {
 
 test('plugin-putout: check-replace-code: no report: object', (t) => {
     t.noReport('object');
+    t.end();
+});
+
+test('plugin-putout: check-replace-code: no report: typescript', (t) => {
+    t.noReport('typescript');
     t.end();
 });
 

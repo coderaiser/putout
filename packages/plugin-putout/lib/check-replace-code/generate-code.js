@@ -15,6 +15,7 @@ module.exports = (rootPath, key) => {
     const getVar = createVarStore(rootPath);
     const [transformError, result] = tryCatch(putout, key, {
         fix: true,
+        isTS: true,
         plugins: [
             ['generate', {
                 report: () => {},
