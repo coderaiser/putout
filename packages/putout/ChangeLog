@@ -1,3 +1,19 @@
+2021.08.05, v18.10.0
+
+fix:
+- (eslint-plugin-putout) putout: range of null
+
+
+feature:
+- (@putout/plugin-remove-useless-mapped-types) add
+- (@putout/plugin-putout) check-replace-code: add support of typescript
+- (@putout/compare) compare: add support of TSTypeParameter
+- (eslint-plugin-putout) putout: move out fix
+- (@putout/plugin-regexp) remove-useless-group: add support of empty non capturing group
+- (@putout/plugin-convert-for-to-for-of) add support of not BlockStatement loop body
+
+
+
 2021.08.03, v18.9.1
 
 fix:
