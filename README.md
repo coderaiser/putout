@@ -1031,15 +1031,6 @@ import fs from 'fs';
 
 </details>
 
-<details><summary>convert <code>throw</code> statement into expression (<a href=https://github.com/tc39/proposal-throw-expressions>proposal-throw-expressions</a>, not bundled)</summary>
-
-```diff
--const fn = (a) => {throw Error(a);}
-+const fn = (a) => throw Error(a);
-```
-
-</details>
-
 <details><summary>apply optional chaining (<a href=https://github.com/tc39/proposal-optional-chaining>proposal-optional-chaining</a>)</summary>
 
 ```diff
@@ -1063,6 +1054,26 @@ import fs from 'fs';
 ```diff
 -result = typeof result  === 'undefined' ? 'hello': result;
 result = result ?? 'hello';
+```
+
+</details>
+
+<details><summary>apply <a href=https://www.typescriptlang.org/docs/handbook/utility-types.html>utility types</a></summary>
+
+```diff
+-type SuperType = {
+-    [Key in keyof Type]?: Type[Key];
+-}
++type SuperType = Partial<Type>;
+```
+
+</details>
+
+<details><summary>convert <code>throw</code> statement into expression (<a href=https://github.com/tc39/proposal-throw-expressions>proposal-throw-expressions</a>, not bundled)</summary>
+
+```diff
+-const fn = (a) => {throw Error(a);}
++const fn = (a) => throw Error(a);
 ```
 
 </details>
@@ -1295,6 +1306,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-optional-chaining)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-optional-chaining) |
 | [`@putout/plugin-apply-as-type-assertions`](/packages/plugin-apply-as-type-assertions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-as-type-assertions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-as-type-assertions) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-as-type-assertions)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-as-type-assertions) |
 | [`@putout/plugin-apply-if-condition`](/packages/plugin-apply-if-condition) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-if-condition.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-if-condition) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-if-condition)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-if-condition) |
+| [`@putout/plugin-apply-utility-types`](/packages/plugin-apply-utility-types) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-utility-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-utility-types) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-utility-types)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-utility-types) |
 
 ### Splitters
 

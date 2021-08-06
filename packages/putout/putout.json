@@ -85,6 +85,7 @@
         },
         "*.{ts,tsx}": {
             "apply-as-type-assertions": "on",
+            "apply-utility-types": "on",
             "convert-generic-to-shorthand": "on",
             "remove-duplicate-interface-keys": "on",
             "remove-useless-types": "on",
@@ -111,6 +112,7 @@
         "apply-array-at": "off",
         "apply-top-level-await": "off",
         "apply-as-type-assertions": "off",
+        "apply-utility-types": "off",
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",
         "convert-top-level-return": "off",
@@ -145,6 +147,7 @@
         "apply-optional-chaining",
         "apply-numeric-separators",
         "apply-as-type-assertions",
+        "apply-utility-types",
         "apply-if-condition",
         "extract-object-properties",
         "extract-sequence-expressions",
