@@ -89,6 +89,7 @@
             "remove-duplicate-interface-keys": "on",
             "remove-useless-types": "on",
             "remove-useless-mapped-types": "on",
+            "remove-useless-mapping-modifiers": "on",
             "remove-useless-types-from-constants": "on",
             "remove-unused-types": "on"
         }
@@ -116,6 +117,7 @@
         "convert-generic-to-shorthand": "off",
         "remove-useless-types": "off",
         "remove-useless-mapped-types": "off",
+        "remove-useless-mapping-modifiers": "off",
         "remove-useless-types-from-constants": "off",
         "remove-unused-types": "off",
         "remove-only": "off",
@@ -166,6 +168,7 @@
         "remove-useless-variables",
         "remove-useless-map",
         "remove-useless-mapped-types",
+        "remove-useless-mapping-modifiers",
         "remove-useless-array-constructor",
         "remove-useless-continue",
         "remove-useless-operand",
