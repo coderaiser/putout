@@ -21,7 +21,7 @@ const commonRules = {
 module.exports = [{
     files: '*.md{js}',
     rules: commonRules,
-    parser: '@babel/eslint-parser',
+    parser: '@babel/eslint-parser/experimental-worker',
     parserOptions: {
         requireConfigFile: false,
         babelOptions: {
@@ -35,7 +35,7 @@ module.exports = [{
 }, {
     files: '*.md{ts}',
     rules: commonRules,
-    parser: '@babel/eslint-parser',
+    parser: '@babel/eslint-parser/experimental-worker',
     parserOptions: {
         requireConfigFile: false,
         babelOptions: {

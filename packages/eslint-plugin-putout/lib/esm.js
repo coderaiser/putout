@@ -8,14 +8,11 @@ module.exports = [{
     plugins: [
         'node',
     ],
-    parser: '@babel/eslint-parser',
+    parser: '@babel/eslint-parser/experimental-worker',
     parserOptions: {
         requireConfigFile: false,
         babelOptions: {
             sourceType: 'module',
-            plugins: [
-                '@babel/plugin-syntax-top-level-await',
-            ],
         },
     },
 }];

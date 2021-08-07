@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.12.3",
-    "@babel/eslint-parser": "^7.12.1",
+    "@babel/eslint-parser": "^7.15.0",
     "@babel/plugin-syntax-class-properties": "^7.12.1",
     "@babel/plugin-syntax-top-level-await": "^7.12.1",
     "@babel/plugin-syntax-typescript": "^7.12.1",

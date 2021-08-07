@@ -1,6 +1,6 @@
 {
     "overrides": [{
-        "files": "lib/putout/index.js",
+        "files": "lib/putout/index{.js,.spec.js}",
         "rules": {
             "node/no-missing-require": "off"
         }

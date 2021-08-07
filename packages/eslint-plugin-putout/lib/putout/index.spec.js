@@ -80,7 +80,7 @@ ruleTester.run('putout', rule, {
 });
 
 const parserTester = new RuleTester({
-    parser: require.resolve('@babel/eslint-parser'),
+    parser: require.resolve('@babel/eslint-parser/experimental-worker'),
     parserOptions: {
         requireConfigFile: false,
         babelOptions: {
