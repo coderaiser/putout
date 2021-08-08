@@ -368,27 +368,6 @@ switch (x) {
 
 </details>
 
-<details><summary>remove useless <code><a href=https://www.typescriptlang.org/docs/handbook/2/mapped-types.html>mapped types</a></code></summary>
-
-```diff
--type SuperType = {
--   [Key in keyof Type]: Type[Key]
--}
-+type SuperType = Type;
-```
-
-</details>
-
-<details><summary>remove useless <code><a href=https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#mapping-modifiers>mapping modifiers</a></code></summary>
-
-```diff
-type SuperType = {
--   +readonly[Key in keyof Type]+?: Type[Key];
-+   readonly[Key in keyof Type]?: Type[Key];
-}
-```
-
-</details>
 
 <details><summary>remove useless <code>continue</code></summary>
 
@@ -640,6 +619,7 @@ interface A {
 
 </details>
    
+
 <details><summary>remove useless <code><a href=https://www.typescriptlang.org/docs/handbook/2/mapped-types.html>mapped types</a></code>(for typescript)</summary>
 
 ```diff
@@ -651,6 +631,16 @@ interface A {
 
 </details>
 
+<details><summary>remove useless <code><a href=https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#mapping-modifiers>mapping modifiers</a></code>(for typescript)</summary>
+
+```diff
+type SuperType = {
+-   +readonly[Key in keyof Type]+?: Type[Key];
++   readonly[Key in keyof Type]?: Type[Key];
+}
+```
+
+</details>
 
 <details><summary>convert <code>fs.promises</code> to <code>fs/promises</code> for <a href=https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api>node.js</a></summary>
 
@@ -1040,7 +1030,7 @@ import fs from 'fs';
 
 </details>
 
-<details><summary>apply <code>as</code> type assertion (according to <a href=https://basarat.gitbook.io/typescript/type-system/type-assertion#as-foo-vs-less-than-foo-greater-than>best practices</a>)</summary>
+<details><summary>apply <code>as</code> type assertion (according to <a href=https://basarat.gitbook.io/typescript/type-system/type-assertion#as-foo-vs-less-than-foo-greater-than>best practices</a>, for typescript)</summary>
 
 ```diff
 -const boundaryElement = <HTMLElement>e.target;
@@ -1058,7 +1048,7 @@ result = result ?? 'hello';
 
 </details>
 
-<details><summary>apply <a href=https://www.typescriptlang.org/docs/handbook/utility-types.html>utility types</a></summary>
+<details><summary>apply <a href=https://www.typescriptlang.org/docs/handbook/utility-types.html>utility types</a> (for typescript)</summary>
 
 ```diff
 -type SuperType = {
