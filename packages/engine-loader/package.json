@@ -33,7 +33,8 @@
   },
   "keywords": [
     "putout",
-    "putout-engine"
+    "putout-engine",
+    "loader"
   ],
   "devDependencies": {
     "@babel/plugin-codemod-object-assign-to-object-spread": "^7.7.4",
