@@ -3,12 +3,12 @@
         ".madrun.*": {
             "madrun/add-madrun-to-lint": "off",
             "madrun/set-lint-dot": "off"
+        },
+        "/Users/coderaiser/putout/packages/putout/lib/cli/fixture/plugins.js": {
+            "putout": "off",
+            "babel/transform-inline-consecutive-adds": "off",
+            "jscodeshift/async-await-codemod/async-await": "off"
         }
-    },
-    "rules": {
-        "putout": "off",
-        "babel/transform-inline-consecutive-adds": "off",
-        "jscodeshift/async-await-codemod/async-await": "off"
     },
     "plugins": [
         "babel/transform-inline-consecutive-adds",

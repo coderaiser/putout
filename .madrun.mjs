@@ -11,15 +11,11 @@ const {workspaces} = require('./package.json');
 const cutStar = (a) => a.replace('/*', '');
 const dirs = getDirs(workspaces);
 
-const baseEnv = {
+const env = {
     SUPERTAPE_TIMEOUT: 7000,
     PUTOUT_PROGRESS_BAR: 0,
     FORCE_COLOR: 3,
     TEST: 1,
-};
-
-const env = {
-    ...baseEnv,
     CI: 1,
     SUPERTAPE_PROGRESS_BAR: 1,
     KEYPRESS: 1,

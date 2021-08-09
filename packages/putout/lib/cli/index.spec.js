@@ -485,6 +485,33 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
     t.end();
 });
 
+test('putout: cli: --match', async (t) => {
+    const logError = stub();
+    const argv = [
+        '--match',
+        '*.md',
+    ];
+    
+    const readError = Error('cannot read config file');
+    const readFile = stub().rejects(readError);
+    const writeFile = stub();
+    const halt = stub();
+    
+    const {matchErrors, READ_ERROR} = await import('@putout/cli-match');
+    const cli = reRequire('.');
+    await runCli({
+        cli,
+        halt,
+        argv,
+        logError,
+        readFile,
+        writeFile,
+    });
+    
+    t.calledWith(halt, [READ_ERROR], matchErrors[READ_ERROR]);
+    t.end();
+});
+
 test('putout: cli: tsx', async (t) => {
     const write = stub();
     

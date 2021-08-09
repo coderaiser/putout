@@ -53,6 +53,7 @@ const maybeFirst = (a) => isArray(a) ? a.pop() : a;
 const maybeArray = (a) => isArray(a) ? a : a.split(',');
 const getExitCode = (wasStop) => wasStop() ? WAS_STOP : OK;
 
+const isStr = (a) => typeof a === 'string';
 const {isArray} = Array;
 const isParser = (rule) => /^parser/.test(rule);
 const isParsingError = ({rule}) => isParser(rule);
@@ -106,6 +107,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             'rulesdir',
             'transform',
             'plugins',
+            'match',
         ],
         alias: {
             version: 'v',
@@ -181,6 +183,18 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         const help = require('./help');
         log(help());
         return exit();
+    }
+    
+    if (isStr(args.match)) {
+        const {match, matchErrors} = await import('@putout/cli-match');
+        const code = await match({
+            pattern: args.match,
+            cwd,
+            readFile,
+            writeFile,
+        });
+        
+        return exit(code, `--match: ${matchErrors[code]}`);
     }
     
     if (enable || disable) {
@@ -401,7 +415,7 @@ const getExit = ({halt, raw, logError}) => (code, e) => {
     if (!e)
         return halt(code);
     
-    const message = raw ? e : red(e.message);
+    const message = raw ? e : red(e.message || e);
     
     logError(message);
     halt(code);
