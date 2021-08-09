@@ -26,8 +26,9 @@
   "keywords": [
     "putout",
     "putout-plugin",
+    "putout-plugin-split",
     "plugin",
-    "debugger"
+    "variables"
   ],
   "devDependencies": {
     "@putout/plugin-remove-unused-variables": "*",
