@@ -5,8 +5,10 @@ const isBool = (a) => typeof a === 'boolean';
 const isStr = (a) => typeof a === 'string';
 const isObj = (a) => typeof a === 'object';
 const {entries} = Object;
+const {stringify} = JSON;
 
 const notSupportedError = (a) => Error(`Rule format not supported ${a}: ${typeof a}`);
+const rulesUsedInsteadOfMatchError = (a) => Error(`Looks like you need to change "rules" to "match" for ${stringify(a)}`);
 const defaultOptions = () => Object.create(null);
 const parseState = (rule, value) => validateState(rule, value) && value === 'on' || value !== 'off';
 
@@ -47,6 +49,9 @@ module.exports = (rules) => {
             result.push(parseArray(rule, value));
             continue;
         }
+        
+        if (isObj(value))
+            throw rulesUsedInsteadOfMatchError(value);
         
         throw notSupportedError(value);
     }

@@ -79,3 +79,18 @@ test('putout: loader: parse rules: not supported', (t) => {
     t.end();
 });
 
+test('putout: loader: parse rules: rules used instead of match', (t) => {
+    const [error] = tryCatch(parseRules, {
+        rules: {
+            'README.md': {
+                'remove-debugger': 'off',
+            },
+        },
+    });
+    
+    const expected = 'Looks like you need to change "rules" to "match" for {"README.md":{"remove-debugger":"off"}}';
+    
+    t.equal(error.message, expected);
+    t.end();
+});
+
