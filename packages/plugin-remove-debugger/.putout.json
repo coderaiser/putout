@@ -1,0 +1,7 @@
+{
+    "match": {
+        "*.md": {
+            "remove-debugger": "off"
+        }
+    }
+}
