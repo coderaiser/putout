@@ -106,6 +106,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             'rulesdir',
             'transform',
             'plugins',
+            'match',
         ],
         alias: {
             version: 'v',
@@ -181,6 +182,16 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         const help = require('./help');
         log(help());
         return exit();
+    }
+    
+    if (args.match) {
+        const {match, matchErrors} = await import('@putout/cli-match');
+        const code = await match({
+            name: args.match,
+            cwd,
+        });
+        
+        exit(code, matchErrors[code]);
     }
     
     if (enable || disable) {
@@ -401,7 +412,7 @@ const getExit = ({halt, raw, logError}) => (code, e) => {
     if (!e)
         return halt(code);
     
-    const message = raw ? e : red(e.message);
+    const message = raw ? e : red(e.message || e);
     
     logError(message);
     halt(code);

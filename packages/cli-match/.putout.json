@@ -1,6 +1,6 @@
 {
     "match": {
-        "lib/index.js": {
+        "README.md": {
             "remove-useless-spread/object": "off"
         }
     }

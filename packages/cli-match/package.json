@@ -1,0 +1,53 @@
+{
+  "name": "@putout/cli-match",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "handle match",
+  "homepage": "http://github.com/coderaiser/putout",
+  "main": "lib/match.js",
+  "type": "module",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {
+    "try-catch": "^3.0.0",
+    "try-to-catch": "^3.0.0"
+  },
+  "keywords": [
+    "putout"
+  ],
+  "devDependencies": {
+    "@putout/test": "^3.0.0",
+    "c8": "^7.5.0",
+    "eslint": "^7.6.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^8.0.0",
+    "lerna": "^4.0.0",
+    "madrun": "^8.0.1",
+    "mock-import": "^1.1.0",
+    "nodemon": "^2.0.1",
+    "putout": "*",
+    "supertape": "^5.0.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
