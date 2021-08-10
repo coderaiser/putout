@@ -991,6 +991,15 @@ function world(a) {
 
 </details>
 
+<details><summary>apply <code><a href=https://web.mit.edu/jwalden/www/isArray.html>isArray</a></code></summary>
+
+```diff
+-x instanceof Array;
++Array.isArray(x);
+```
+
+</details>
+
 <details><summary>apply <code>Array.at</code>(<a href=https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#2021-07-29-version-1660-current-bethgriggs>disabled</a>)</summary>
 
 ```diff
@@ -1290,6 +1299,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
+| [`@putout/plugin-apply-is-array`](/packages/plugin-apply-is-array) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-is-array.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-is-array) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-is-array)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-is-array) |
 | [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-array-at)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-array-at) |
 | [`@putout/plugin-apply-numeric-separators`](/packages/plugin-apply-numeric-separators) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-numeric-separators.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-numeric-separators) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-numeric-separators)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-numeric-separators) |
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-destructuring)](https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-destructuring) |

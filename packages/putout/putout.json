@@ -142,6 +142,7 @@
     },
     "plugins": [
         "apply-array-at",
+        "apply-is-array",
         "apply-destructuring",
         "apply-top-level-await",
         "apply-optional-chaining",
