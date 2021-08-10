@@ -381,3 +381,24 @@ test('putout: runner: replace: template identifiers not linked', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: template identifiers: instanceof', (t) => {
+    const instance = {
+        report: () => '',
+        replace: () => ({
+            '__a instanceof Array': 'Array.isArray(__a)',
+        }),
+    };
+    
+    const {code} = putout('[1, 2] instanceof Array', {
+        runPlugins,
+        plugins: [
+            ['instance', instance],
+        ],
+    });
+    
+    const expected = 'Array.isArray([1, 2]);';
+    
+    t.equal(code, expected);
+    t.end();
+});
+

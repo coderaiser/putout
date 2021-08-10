@@ -68,3 +68,10 @@ test('compare: is: isTemplate: type', (t) => {
     t.end();
 });
 
+test('compare: is: isTemplate: big char', (t) => {
+    const result = isTemplate('__a instanceof Array');
+    
+    t.ok(result);
+    t.end();
+});
+
