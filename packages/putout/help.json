@@ -12,7 +12,7 @@
     "--disable                  ": "disable rule by name in .putout.json",
     "--enable-all               ": "enable all rules in .putout.json",
     "--disable-all              ": "disable all rules in .putout.json",
-    "--match                    ": "convert \"rules\" to \"match\" using pattern in .putout.json",
+    "--match                    ": "read .putout.json and convert \"rules\" to \"match\" using pattern",
     "--flow                     ": "enable flow",
     "--no-flow                  ": "disable flow (default)",
     "--cache                    ": "enable cache to speed up processing (default)",
