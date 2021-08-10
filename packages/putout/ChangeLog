@@ -1,3 +1,11 @@
+2021.08.10, v18.14.0
+
+feature:
+- (putout) --match: reformulate
+- (@putout/plugin-apply-is-array) add
+- (@putout/compare) add support of template contains big char
+
+
 2021.08.10, v18.13.0
 
 fix:
