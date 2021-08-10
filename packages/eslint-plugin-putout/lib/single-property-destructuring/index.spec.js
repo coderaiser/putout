@@ -66,6 +66,27 @@ ruleTester.run('single-property-destructuring', rule, {
             message: 'Keep curly braces on one line when you have one destructuring property',
             type: 'ImportDeclaration',
         }],
+    }, {
+        code: montag`
+            import {
+                run,
+            } from 'madrun';
+            
+            export default {
+                'test': () => "tape 'lib/*.spec",
+            }
+        `,
+        output: montag`
+            import {run} from 'madrun';
+            
+            export default {
+                'test': () => "tape 'lib/*.spec",
+            }
+        `,
+        errors: [{
+            message: 'Keep curly braces on one line when you have one destructuring property',
+            type: 'ImportDeclaration',
+        }],
     }],
 });
 

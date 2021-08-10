@@ -21,13 +21,13 @@ module.exports.include = () => [
 module.exports.filter = ({node, getText}) => {
     const text = getText(node.parent);
     
+    if (isImportDeclaration(node) && /import {\n/.test(getText(node)))
+        return true;
+    
     if (AssignRegExp.test(text))
         return false;
     
     if (isVariableDeclarator(node) && /(const|let|var) {\n/.test(text))
-        return true;
-    
-    if (isImportDeclaration(node) && /import {\n/.test(getText(node)))
         return true;
     
     return false;

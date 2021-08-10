@@ -1,6 +1,4 @@
-import {
-    run,
-} from 'madrun';
+import {run} from 'madrun';
 
 export default {
     'test': () => `tape test/*.js 'lib/**/*.spec.js'`,
