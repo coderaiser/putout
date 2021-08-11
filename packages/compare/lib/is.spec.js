@@ -75,3 +75,10 @@ test('compare: is: isTemplate: big char', (t) => {
     t.end();
 });
 
+test('compare: is: isTemplate: big char is first', (t) => {
+    const result = isTemplate('X instanceof Array');
+    
+    t.ok(result);
+    t.end();
+});
+
