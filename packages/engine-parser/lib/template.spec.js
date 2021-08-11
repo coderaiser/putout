@@ -1,11 +1,14 @@
 'use strict';
 
+const tryCatch = require('try-catch');
+
 const test = require('supertape');
-const template = require('./template');
 const {
     Identifier,
     StringLiteral,
 } = require('@babel/types');
+
+const template = require('./template');
 
 test('parser: template', (t) => {
     const buildOnce = template(`await once(%%emitter%%, %%event%%)`);
@@ -49,6 +52,17 @@ test('parser: template: ast', (t) => {
     const two = template.ast('const hello = "world"');
     
     t.ok(two.x);
+    t.end();
+});
+
+test('parser: template: import in block', (t) => {
+    const [error] = tryCatch(template.ast, `
+    {
+        import compare from '@putout/compare';
+    }
+    `);
+    
+    t.notOk(error);
     t.end();
 });
 

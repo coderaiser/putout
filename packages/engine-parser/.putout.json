@@ -1,0 +1,7 @@
+{
+    "match": {
+        "*.js": {
+            "convert-esm-to-commonjs": "on"
+        }
+    }
+}

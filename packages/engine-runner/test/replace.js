@@ -402,3 +402,36 @@ test('putout: runner: replace: template identifiers: instanceof', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: import', (t) => {
+    const instance = {
+        report: () => '',
+        replace: () => ({
+            'import {parse, compare, transform} from "putout"': `{
+                import {parse, transform} from 'putout';
+                import compare from '@putout/compare';
+            }`,
+        }),
+    };
+    
+    const source = montag`
+        import {parse, compare, transform} from 'putout';
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        fixCount: 4,
+        plugins: [
+            ['instance', instance],
+            'remove-nested-blocks',
+        ],
+    });
+    
+    const expected = montag`
+        import {parse, transform} from 'putout';
+        import compare from '@putout/compare';
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
