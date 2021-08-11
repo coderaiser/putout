@@ -15,8 +15,6 @@ npm i @putout/plugin-convert-esm-to-commonjs
 
 ## Rule
 
-Rule `convert-esm-to-commonjs` is disabled by default, to enable add to `.putout.json`:
-
 ```json
 {
     "rules": {
@@ -25,29 +23,16 @@ Rule `convert-esm-to-commonjs` is disabled by default, to enable add to `.putout
 }
 ```
 
-## Code Example
+## ❌ Incorrect code example
 
 ```js
-const {readFileSync} = require('fs');
-const source = readFileSync('./1.js', 'utf8');
-
-const putout = require('putout');
-
-console.log(source);
-// outputs
-`
 import hello from 'world';
-`;
+```
 
-const result = putout(source, {
-    plugins: [
-        'convert-esm-to-commonjs',
-    ],
-});
-// returns
-`
+## ✅ Correct code Example
+
+```js
 const hello = require('world');
-`;
 ```
 
 ## License
