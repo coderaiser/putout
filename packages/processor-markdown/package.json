@@ -26,7 +26,7 @@
     "@putout/processor-json": "^3.0.0",
     "once": "^1.4.0",
     "remark-parse": "^10.0.0",
-    "remark-preset-lint-consistent": "^4.0.0",
+    "remark-preset-lint-consistent": "^5.0.0",
     "remark-stringify": "^10.0.0",
     "simport": "^1.2.0",
     "unified": "^10.0.0",
