@@ -211,28 +211,6 @@ test('putout: compare: vars: __args__a', (t) => {
     t.end();
 });
 
-test('putout: compare: vars: __args__a', (t) => {
-    const varToConst = {
-        report: () => '',
-        replace: () => ({
-            '(__args__a) => __b(__args__a)': '__b',
-        }),
-    };
-    
-    const input = 'const y = (a, b) => alert(a, b)';
-    const expected = 'const y = alert';
-    
-    const {code} = putout(input, {
-        fixCount: 1,
-        plugins: [{
-            'var-to-const': varToConst,
-        }],
-    });
-    
-    t.deepEqual(code, expected, 'should equal');
-    t.end();
-});
-
 test('putout: compare: vars: regexp', (t) => {
     const regexp = {
         report: () => '',
