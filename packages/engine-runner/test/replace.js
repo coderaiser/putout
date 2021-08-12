@@ -419,7 +419,6 @@ test('putout: runner: replace: import', (t) => {
     
     const {code} = putout(source, {
         runPlugins,
-        fixCount: 4,
         plugins: [
             ['instance', instance],
             'remove-nested-blocks',
@@ -432,6 +431,29 @@ test('putout: runner: replace: import', (t) => {
     `;
     
     t.equal(code, expected);
+    t.end();
+});
+
+test('putout: runner: replace: empty', (t) => {
+    const instance = {
+        report: () => '',
+        replace: () => ({
+            '': '',
+        }),
+    };
+    
+    const source = montag`
+        import {parse, compare, transform} from 'putout';
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['instance', instance],
+        ],
+    });
+    
+    t.equal(code, source);
     t.end();
 });
 

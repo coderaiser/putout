@@ -43,6 +43,9 @@ module.exports = ({rule, visitor, options}) => {
     const nodesInclude = maybeArray(options.include);
     
     for (const [tmpl, fn] of entries(visitor)) {
+        if (!tmpl)
+            continue;
+        
         if (!isTemplate(tmpl)) {
             parsed.push(exclude({
                 rule,
