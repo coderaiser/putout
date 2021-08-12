@@ -21,12 +21,13 @@ module.exports.match = () => ({
             return false;
         
         const {raw} = __b.extra;
+        
         return isSimpleRegExp(raw);
     },
 });
 
 module.exports.replace = () => ({
-    '__a.replace(/__b/, __c)': ({__b}, path) => {
+    '__a.replace(/__b/g, __c)': ({__b}, path) => {
         const {pattern} = __b;
         const regExpPath = path.get('arguments.0');
         const calleePath = path.get('callee.property');

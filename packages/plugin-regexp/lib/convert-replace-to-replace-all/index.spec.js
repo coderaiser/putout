@@ -24,3 +24,8 @@ test('plugin-regexp/convert-replace-to-replace-all: no transform: replace with f
     t.end();
 });
 
+test('plugin-regexp/convert-replace-to-replace-all: no transform: character-class', (t) => {
+    t.noTransform('character-class');
+    t.end();
+});
+
