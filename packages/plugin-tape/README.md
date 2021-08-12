@@ -26,7 +26,8 @@ npm i @putout/plugin-tape -D
         "tape/expand-try-catch-arguments": "on",
         "tape/apply-stub-operator": "on",
         "tape/convert-emitter-to-promise": "on",
-        "tape/convert-ok-to-match": "on"
+        "tape/convert-ok-to-match": "on",
+        "tape/convert-match-regexp-to-string": "on"
     }
 }
 ```
@@ -292,6 +293,20 @@ t.equal(result, true);
 
 ```js
 t.ok(result);
+```
+
+## convert-match-regexp-to-string
+
+### ❌ Incorrect code example
+
+```js
+t.match(result, RegExp('hello'));
+```
+
+### ✅ Correct code Example
+
+```js
+t.match(result, 'hello');
 ```
 
 ## License

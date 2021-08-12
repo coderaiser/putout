@@ -12,6 +12,7 @@ module.exports.rules = {
     ...getRule('convert-called-with-to-called-with-no-args'),
     ...getRule('convert-emitter-to-promise'),
     ...getRule('convert-ok-to-match'),
+    ...getRule('convert-match-regexp-to-string'),
     ...getRule('convert-equal-to-not-ok'),
     ...getRule('convert-equal-to-ok'),
     ...getRule('expand-try-catch-arguments'),

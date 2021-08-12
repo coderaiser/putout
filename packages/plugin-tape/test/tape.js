@@ -68,3 +68,8 @@ test('plugin-test: transform: tape: convert-equal-to-ok', (t) => {
     t.transform('convert-equal-to-ok');
     t.end();
 });
+
+test('plugin-test: transform: tape: convert-match-regexp-to-string', (t) => {
+    t.transform('convert-match-regexp-to-string');
+    t.end();
+});
