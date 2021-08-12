@@ -1,9 +1,26 @@
 'use strict';
 
 module.exports.report = () => 't.match should be used with string pattern';
+const {isSimpleRegExp} = require('@putout/plugin-regexp');
+
+const checkRegExp = ({__b}) => isSimpleRegExp(RegExp(__b.pattern));
+const checkStr = ({__b}) => isSimpleRegExp(RegExp(__b.value));
+
+module.exports.match = () => ({
+    't.match(__a, RegExp(__b))': checkStr,
+    't.match(__a, RegExp(__b), __c)': checkStr,
+    't.match(__a, /__b/)': checkRegExp,
+    't.match(__a, /__b/, __c)': checkRegExp,
+});
 
 module.exports.replace = () => ({
     't.match(__a, RegExp(__b))': 't.match(__a, __b)',
     't.match(__a, RegExp(__b), __c)': 't.match(__a, __b, __c)',
+    't.match(__a, /__b/)': ({__b}) => {
+        return `t.match(__a, '${__b.pattern}')`;
+    },
+    't.match(__a, /__b/, __c)': ({__b}) => {
+        return `t.match(__a, '${__b.pattern}', __c)`;
+    },
 });
 

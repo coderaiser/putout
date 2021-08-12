@@ -71,8 +71,7 @@ test('putout: parser: export default declaration: custom parser', (t) => {
         ],
     });
     
-    const expected = `Cannot find module 'custom'`;
-    t.match(e.message, RegExp(expected), 'should equal');
+    t.match(e.message, `Cannot find module 'custom'`);
     t.end();
 });
 

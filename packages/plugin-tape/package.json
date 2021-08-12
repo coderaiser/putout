@@ -22,7 +22,9 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@putout/plugin-regexp": "^2.5.0"
+  },
   "keywords": [
     "putout",
     "putout-plugin",
