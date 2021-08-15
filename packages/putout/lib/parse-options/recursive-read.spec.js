@@ -50,7 +50,7 @@ test('putout: parse-options: recursive read: error: no error', (t) => {
     t.end();
 });
 
-test('putout: parse-options: recursive read: error: no error', (t) => {
+test('putout: parse-options: recursive read: read options only once', (t) => {
     const require = stub(() => {
         if (require.callCount === 1)
             return {
