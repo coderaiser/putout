@@ -34,14 +34,14 @@
     "@babel/plugin-syntax-class-properties": "^7.12.1",
     "@babel/plugin-syntax-top-level-await": "^7.12.1",
     "@babel/plugin-syntax-typescript": "^7.12.1",
-    "@putout/eslint-config": "^5.0.0",
+    "@putout/eslint-config": "^6.0.0",
     "align-spaces": "^1.0.0",
     "eslint-plugin-node": "^11.0.0",
     "estree-to-babel": "^4.0.1"
   },
   "devDependencies": {
     "c8": "^7.5.0",
-    "eslint": "^7.0.0",
+    "eslint": "^8.0.0-beta.1",
     "eslint-plugin-eslint-plugin": "^3.2.0",
     "madrun": "^8.0.1",
     "mocha": "^9.0.1",
