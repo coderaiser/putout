@@ -31,7 +31,7 @@ class SomeClass extends Component {
 }
 
 class SomeClass2 extends Component {
-    HowCome = () => {}
+    HowCome = () => {};
 }
 ```
 
@@ -54,7 +54,7 @@ class SomeClass extends Component {
 }
 
 class SomeClass2 extends Component {
-  howCome = () => {}
+    howCome = () => {};
 }
 
 ```
