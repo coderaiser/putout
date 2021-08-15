@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "c8": "^7.5.0",
-    "eslint": "^8.0.0-beta.1",
+    "eslint": "^8.0.0-beta.0",
     "eslint-plugin-eslint-plugin": "^3.2.0",
     "madrun": "^8.0.1",
     "mocha": "^9.0.1",
@@ -51,8 +51,8 @@
     "node": ">=14"
   },
   "peerDependencies": {
-    "eslint": ">=7",
-    "putout": ">=17"
+    "eslint": ">=8",
+    "putout": ">=18"
   },
   "license": "MIT",
   "publishConfig": {
