@@ -40,6 +40,7 @@ const recommended = {
         ...rules,
         'no-debugger': 'off',
         'no-unused-vars': 'off',
+        
         'putout/single-property-destructuring': 'error',
         'putout/multiple-properties-destructuring': 'error',
         'putout/for-of-multiple-properties-destructuring': 'error',
@@ -53,6 +54,8 @@ const recommended = {
         'putout/objects-braces-inside-array': 'error',
         'putout/object-init': 'error',
         'putout/putout': 'error',
+        
+        'node/no-unsupported-features/es-syntax': 'off',
     },
     overrides: [
         ...markdown,
