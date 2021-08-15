@@ -107,7 +107,7 @@ function readRules(dirOpt, rulesDir) {
     for (const name of names.filter(isInclude)) {
         const full = join(dir, name);
         const plugin = require(full);
-        const shortName = name.replace('putout-plugin-');
+        const shortName = name.replace('putout-plugin-', '');
         
         plugins.push([shortName, plugin]);
     }

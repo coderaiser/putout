@@ -310,22 +310,83 @@ test('putout: parseOptions: code mods directory: .putout: exclude node_modules',
     t.end();
 });
 
+test('putout: parseOptions: read rules: putout-plugin', (t) => {
+    const empty = {};
+    
+    const readOptions = stub().returns([__dirname, empty]);
+    const readHomeOptions = stub().returns(empty);
+    const readCodeMods = stub().returns(empty);
+    
+    mockRequire('../../putout.json', empty);
+    
+    const plugin = stub();
+    mockRequire(join(__dirname, 'putout-plugin-hello'), plugin);
+    
+    mockRequire('fs', {
+        readdirSync: stub().returns([
+            'putout-plugin-hello',
+        ]),
+    });
+    
+    const parseOptions = reRequire('.');
+    
+    const options = {
+        rules: {
+            'remove-only': 'off',
+        },
+        match: {
+            '*.spec.js': {
+                'remove-only': 'on',
+            },
+        },
+    };
+    
+    const result = parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readOptions,
+        readHomeOptions,
+        readCodeMods,
+        rulesdir: '.',
+    });
+    
+    stopAll();
+    
+    const expected = {
+        dir: __dirname,
+        match: {
+            '*.spec.js': {
+                'remove-only': 'on',
+            },
+        },
+        rules: {
+            'remove-only': 'on',
+        },
+        plugins: [
+            ['hello', plugin],
+        ],
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: parseOptions: read rules', (t) => {
     const empty = {};
     
     const readOptions = stub().returns([__dirname, empty]);
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
-    const hello = stub();
     
     mockRequire('../../putout.json', empty);
+    mockRequire('fs', {
+        readdirSync: stub().returns([
+            'hello',
+        ]),
+    });
     
-    const {readdirSync} = fs;
-    fs.readdirSync = () => [
-        'hello',
-    ];
-    
-    mockRequire(join(__dirname, 'hello'), hello);
+    const plugin = stub();
+    mockRequire(join(__dirname, 'hello'), plugin);
     
     const parseOptions = reRequire('.');
     
@@ -360,12 +421,11 @@ test('putout: parseOptions: read rules', (t) => {
             'remove-only': 'on',
         },
         plugins: [
-            ['hello', hello],
+            ['hello', plugin],
         ],
     };
     
     stopAll();
-    fs.readdirSync = readdirSync;
     
     t.deepEqual(result, expected);
     t.end();
@@ -381,9 +441,10 @@ test('putout: parseOptions: read rules: error', (t) => {
     mockRequire('../../putout.json', empty);
     
     const {readdirSync} = fs;
-    fs.readdirSync = () => {
-        throw 'error';
-    };
+    
+    mockRequire('fs', {
+        readdirSync: stub().throws('error'),
+    });
     
     const parseOptions = reRequire('.');
     
