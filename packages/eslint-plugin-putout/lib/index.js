@@ -4,6 +4,7 @@ const wrap = require('./wrap');
 const markdown = require('./markdown');
 const json = require('./json');
 const esm = require('./esm');
+const ts = require('./ts');
 const yaml = require('./yaml');
 const html = require('./html');
 
@@ -58,6 +59,7 @@ const recommended = {
         ...markdown,
         ...json,
         ...esm,
+        ...ts,
         ...yaml,
         ...html,
     ],

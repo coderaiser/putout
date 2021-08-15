@@ -11,6 +11,7 @@ const v8 = require('v8');
 const toBabel = require('estree-to-babel');
 
 const parseOptions = require('putout/lib/parse-options');
+const {transpile} = require('putout/register');
 
 const cwd = process.cwd();
 const getContextOptions = ({options}) => {
@@ -19,6 +20,8 @@ const getContextOptions = ({options}) => {
 };
 
 const copyAST = (a) => v8.deserialize(v8.serialize(a));
+
+transpile();
 
 module.exports = {
     meta: {
