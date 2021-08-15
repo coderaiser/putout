@@ -8,7 +8,7 @@ const {
     disableAll,
 } = require('./ruler');
 
-test('putout: ruler: enable', (t) => {
+test('putout: cli: ruler: enable', (t) => {
     const config = enable({}, 'remove-unused-variables');
     const expected = {
         rules: {
@@ -20,7 +20,7 @@ test('putout: ruler: enable', (t) => {
     t.end();
 });
 
-test('putout: ruler: enable: parser', (t) => {
+test('putout: cli: ruler: enable: parser', (t) => {
     const config = enable({}, 'parser');
     const expected = {
         rules: {
@@ -31,7 +31,7 @@ test('putout: ruler: enable: parser', (t) => {
     t.end();
 });
 
-test('putout: ruler: enable: exists', (t) => {
+test('putout: cli: ruler: enable: exists', (t) => {
     const config = enable({rules: {}}, 'remove-unused-variables');
     const expected = {
         rules: {
@@ -43,7 +43,7 @@ test('putout: ruler: enable: exists', (t) => {
     t.end();
 });
 
-test('putout: ruler: disable', (t) => {
+test('putout: cli: ruler: disable', (t) => {
     const config = disable({}, 'remove-unused-variables');
     const expected = {
         rules: {
@@ -55,7 +55,7 @@ test('putout: ruler: disable', (t) => {
     t.end();
 });
 
-test('putout: ruler: disable: not putout rule', (t) => {
+test('putout: cli: ruler: disable: not putout rule', (t) => {
     const config = disable({}, 'remove-unused-variables (stylelint)');
     const expected = {
         rules: {},
@@ -65,7 +65,7 @@ test('putout: ruler: disable: not putout rule', (t) => {
     t.end();
 });
 
-test('putout: ruler: enable: not putout rule', (t) => {
+test('putout: cli: ruler: enable: not putout rule', (t) => {
     const config = enable({}, 'remove-unused-variables (stylelint)');
     const expected = {
         rules: {},
@@ -75,7 +75,7 @@ test('putout: ruler: enable: not putout rule', (t) => {
     t.end();
 });
 
-test('putout: ruler: disable: parser', (t) => {
+test('putout: cli: ruler: disable: parser', (t) => {
     const config = disable({}, 'parser');
     const expected = {
         rules: {
@@ -86,7 +86,7 @@ test('putout: ruler: disable: parser', (t) => {
     t.end();
 });
 
-test('putout: ruler: disable: exists', (t) => {
+test('putout: cli: ruler: disable: exists: empty', (t) => {
     const config = disable({}, 'remove-unused-variables');
     const expected = {
         rules: {
@@ -98,7 +98,7 @@ test('putout: ruler: disable: exists', (t) => {
     t.end();
 });
 
-test('putout: ruler: disableAll', (t) => {
+test('putout: cli: ruler: disableAll', (t) => {
     const places = [{
         rule: 'remove-unused-variables',
     }];
@@ -114,7 +114,7 @@ test('putout: ruler: disableAll', (t) => {
     t.end();
 });
 
-test('putout: ruler: disable: exists', (t) => {
+test('putout: cli: ruler: disable: exists', (t) => {
     const places = [{
         rule: 'remove-unused-variables',
     }];
@@ -136,7 +136,7 @@ test('putout: ruler: disable: exists', (t) => {
     t.end();
 });
 
-test('putout: ruler: enableAll', (t) => {
+test('putout: cli: ruler: enableAll', (t) => {
     const places = [{
         rule: 'remove-unused-variables',
     }];
@@ -151,7 +151,7 @@ test('putout: ruler: enableAll', (t) => {
     t.end();
 });
 
-test('putout: ruler: enableAll: exists', (t) => {
+test('putout: cli: ruler: enableAll: exists', (t) => {
     const places = [{
         rule: 'remove-unused-variables',
     }];
