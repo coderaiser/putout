@@ -3,7 +3,6 @@
 const wrap = require('./wrap');
 const markdown = require('./markdown');
 const json = require('./json');
-const esm = require('./esm');
 const yaml = require('./yaml');
 const html = require('./html');
 
@@ -60,7 +59,6 @@ const recommended = {
     overrides: [
         ...markdown,
         ...json,
-        ...esm,
         ...yaml,
         ...html,
     ],
