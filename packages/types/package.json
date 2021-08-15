@@ -1,10 +1,10 @@
 {
-  "name": "@putout/plugin-remove-debugger",
-  "version": "4.0.2",
+  "name": "@putout/types",
+  "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to find and remove process.exit",
+  "description": "putout types for typescript",
   "homepage": "http://github.com/coderaiser/putout",
-  "main": "lib/remove-debugger.ts",
+  "main": "types.ts",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -22,17 +22,18 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@babel/traverse": "^7.15.0",
+    "@types/babel__traverse": "^7.14.2"
+  },
   "keywords": [
     "putout",
-    "putout-plugin",
-    "putout-plugin-remove",
-    "plugin",
-    "debugger"
+    "types"
   ],
   "devDependencies": {
     "@putout/test": "^3.0.0",
     "c8": "^7.5.0",
+    "check-dts": "^0.5.5",
     "eslint": "^7.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^8.0.0",
@@ -40,13 +41,7 @@
     "madrun": "^8.0.1",
     "nodemon": "^2.0.1"
   },
-  "peerDependencies": {
-    "putout": ">=6.16"
-  },
   "license": "MIT",
-  "engines": {
-    "node": ">=8.3.0"
-  },
   "publishConfig": {
     "access": "public"
   }

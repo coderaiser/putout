@@ -32,6 +32,7 @@ const report = require('./report')();
 const keyPress = require('@putout/cli-keypress');
 const validateArgs = require('@putout/cli-validate-args');
 const parseError = require('./parse-error');
+const {transpile} = require('../register.js');
 
 const {
     OK,
@@ -71,6 +72,8 @@ const createFormatterProxy = (options) => {
 };
 
 module.exports = async ({argv, halt, log, write, logError, readFile, writeFile}) => {
+    transpile();
+    
     const {isStop} = keyPress();
     const wasStop = fullstore();
     

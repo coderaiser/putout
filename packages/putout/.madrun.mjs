@@ -1,8 +1,12 @@
 import {run} from 'madrun';
 
+const env = {
+    TS_NODE_FILES: true,
+}
+
 export default {
     'wisdom': () => run(['lint', 'coverage']),
-    'test': () => `tape 'test/*.js' '{bin,lib}/**/*.spec.{js,mjs}'`,
+    'test': () => [env, `tape 'test/*.js' '{bin,lib}/**/*.spec.{js,mjs}'`],
     'watch:test': async () => `nodemon -w bin -w lib -w test -x "${await run('test')} -f tap"`,
     'lint': () => `bin/putout.mjs .`,
     'fresh:lint': () => run('lint', '--fresh'),

@@ -12,6 +12,7 @@ const cutStar = (a) => a.replace('/*', '');
 const dirs = getDirs(workspaces);
 
 const env = {
+    TS_NODE_FILES: true,
     SUPERTAPE_TIMEOUT: 7000,
     PUTOUT_PROGRESS_BAR: 0,
     FORCE_COLOR: 3,

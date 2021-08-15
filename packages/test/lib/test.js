@@ -10,6 +10,7 @@ const {
 const tryCatch = require('try-catch');
 const test = require('supertape');
 const putout = require('putout');
+const {checkTypes} = require('putout/register');
 const currify = require('currify');
 
 const isCorrectPlugin = require('./is-correct-plugin');
@@ -33,7 +34,10 @@ const readFixture = (name) => {
     return [readFileSync(`${name}.js`, 'utf8'), TS.DISABLED];
 };
 
+checkTypes();
+
 module.exports = (dir, plugin, rules) => {
+    
     dir = join(dir, 'fixture');
     const plugins = getPlugins(plugin);
     
