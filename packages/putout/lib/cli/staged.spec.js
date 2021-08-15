@@ -25,7 +25,7 @@ test('putout: cli: staged', async (t) => {
     t.end();
 });
 
-test('putout: cli: staged: get: statusMatrix', async (t) => {
+test('putout: cli: staged: get: statusMatrix: empty', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     const statusMatrix = stub().returns([
