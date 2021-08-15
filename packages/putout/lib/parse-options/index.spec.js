@@ -63,7 +63,7 @@ test('putout: parse-options: options rules overrides default match', (t) => {
     t.end();
 });
 
-test('putout: parseOptions: readHomeOptions', (t) => {
+test('putout: parseOptions: readHomeOptions: __dirname', (t) => {
     const readCodeMods = stub().returns([
         __dirname, {
         },
@@ -598,7 +598,7 @@ test('putout: parseOptions: can not readd dir', (t) => {
     t.end();
 });
 
-test('putout: parseOptions: readHomeOptions', (t) => {
+test('putout: parseOptions: readHomeOptions: .', (t) => {
     const empty = {};
     const readOptions = stub().returns([
         '.', {
@@ -610,13 +610,13 @@ test('putout: parseOptions: readHomeOptions', (t) => {
     
     const readCodeMods = stub().returns(empty);
     
-    const {homedir} = os;
-    const {readdirSync} = fs;
+    mockRequire('os', {
+        homedir: stub().returns('/'),
+    });
     
-    os.homedir = stub().returns('/');
-    fs.readdirSync = () => {
-        throw 'error';
-    };
+    mockRequire('fs', {
+        readdirSync: stub().throws('error'),
+    });
     
     mockRequire('./package.json', empty);
     mockRequire('../../putout.json', empty);
@@ -654,9 +654,6 @@ test('putout: parseOptions: readHomeOptions', (t) => {
             'remove-only': 'on',
         },
     };
-    
-    os.homedir = homedir;
-    fs.readdirSync = readdirSync;
     
     stopAll();
     
