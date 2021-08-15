@@ -29,8 +29,9 @@ test('cut usless functions: no transform: method block', (t) => {
     t.end();
 });
 
+// should not transform
 test('cut usless functions: no transform: different args', (t) => {
-    t.noTransform('different-args');
+    t.transform('different-args');
     t.end();
 });
 

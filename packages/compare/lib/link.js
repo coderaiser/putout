@@ -6,6 +6,8 @@ const {
     isStringLiteral,
 } = require('@babel/types');
 
+const {isArray} = Array;
+
 const parseName = (node) => {
     const {name, value} = node;
     
@@ -17,6 +19,7 @@ const parseName = (node) => {
 };
 
 module.exports = ({add, value, nodeValue, templateStore}) => {
+    debugger;
     const name = parseName(value);
     
     if (isStringLiteral(value) && !isStringLiteral(nodeValue))
@@ -27,7 +30,9 @@ module.exports = ({add, value, nodeValue, templateStore}) => {
         return true;
     }
     
-    add(templateStore[name], nodeValue);
+    if (!isArray(nodeValue))
+        add(templateStore[name], nodeValue);
+    
     return true;
 };
 

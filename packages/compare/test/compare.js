@@ -710,6 +710,15 @@ test('compare: typescript: keyof', (t) => {
     t.end();
 });
 
+test('compare: typescript: arrow function type', (t) => {
+    const node = `(): boolean => name.startsWith('__')`;
+    const template = `(__args__a) => __a.__b(__args__a)`;
+    const result = compare(node, template);
+    
+    t.ok(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);

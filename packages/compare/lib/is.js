@@ -88,7 +88,9 @@ const isId = (a, b) => {
     return isIdentifier(a);
 };
 
-const isEqualType = (a, b) => a.type === b.type;
+const isEqualType = (a, b) => {
+    return a.type === b.type;
+};
 const {isArray} = Array;
 
 module.exports.isId = isId;
