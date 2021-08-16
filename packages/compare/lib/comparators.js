@@ -27,8 +27,6 @@ const {
 
 const isEmptyBlock = (a) => isBlock(a) && !a.body.length;
 const isPrimitive = (a) => typeof a !== 'object' || a === null;
-const {isArray} = Array;
-const compareTypes = (a, b) => b;
 
 const second = (f) => (a, b) => f(b);
 

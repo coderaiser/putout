@@ -19,7 +19,6 @@ const parseName = (node) => {
 };
 
 module.exports = ({add, value, nodeValue, templateStore}) => {
-    debugger;
     const name = parseName(value);
     
     if (isStringLiteral(value) && !isStringLiteral(nodeValue))

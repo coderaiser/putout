@@ -1146,7 +1146,7 @@ test('putout: cli: cannot load processor', async (t) => {
     t.end();
 });
 
-test('putout: cli: cannot load processor', async (t) => {
+test('putout: cli: cannot load processor: not found', async (t) => {
     const argv = [];
     
     const logError = stub();

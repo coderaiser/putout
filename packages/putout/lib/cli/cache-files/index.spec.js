@@ -471,7 +471,7 @@ test('putout: cache-files: enabled: getOptionsHash: coverage', async (t) => {
     t.end();
 });
 
-test('putout: cache-files: enabled: getPlaces', async (t) => {
+test('putout: cache-files: enabled: getPlaces: isChanged: no', async (t) => {
     const places = [];
     const meta = {
         optionsHash: '1cnbekx',
@@ -511,7 +511,7 @@ test('putout: cache-files: enabled: getPlaces', async (t) => {
     t.end();
 });
 
-test('putout: cache-files: enabled: getPlaces', async (t) => {
+test('putout: cache-files: enabled: getPlaces: isChanged: yes', async (t) => {
     const places = [];
     const meta = {
         optionsHash: '1cnbekx',

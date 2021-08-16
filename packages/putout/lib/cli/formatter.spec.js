@@ -22,7 +22,7 @@ test('putout: cli: formatter: get formatter', (t) => {
     t.end();
 });
 
-test('putout: cli: formatter: get formatter', (t) => {
+test('putout: cli: formatter: get formatter: options', (t) => {
     const exit = stub();
     
     const formatterOptions = {
