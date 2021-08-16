@@ -1,3 +1,27 @@
+2021.08.16, v18.15.0
+
+fix:
+- (@putout/compare) link: arrays
+- (putout) parse-options: read rules with "putout-plugin" prefix
+- (eslint-plugin-putout) rm additiona esm handling
+- (@putout/engine-runner) empty key
+
+
+feature:
+- (putout) eslint-plugin-putout v9.0.0
+- (putout) eslint v8 (https://eslint.org/blog/2021/08/eslint-v8.0.0-beta.0-released)
+- (eslint-plugin-putout) drop support of eslint < 8
+- (@putout/eslint-config) add support of es2022
+- (eslint-plugin-putout) node: disable node/no-unsupported-features/es-syntax
+- (@putout/plugin-tape) convert-match-regexp-to-string: add ability to check if regexp is simple
+- (@putout/plugin-regexp) export isSimpleRegExp
+- (@putout/plugin-tape) add convert-match-regexp-to-string
+- (@putout/processor-markdown) remark-preset-lint-consistent v5.0.0
+- (@putout/engine-parser) babel: enable allowImportExportEverywhere: to use ImportDeclaration in block while transform
+- (@putout/compare) add support of templates beginning with big char
+
+
+
 2021.08.10, v18.14.0
 
 feature:
