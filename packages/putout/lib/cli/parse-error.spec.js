@@ -38,7 +38,7 @@ test('putout: cli: parse error: rule', (t) => {
     t.end();
 });
 
-test('putout: cli: parse error', (t) => {
+test('putout: cli: parse error: loc', (t) => {
     const e = Error('hello');
     
     e.loc = {
