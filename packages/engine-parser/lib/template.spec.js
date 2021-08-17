@@ -21,7 +21,7 @@ test('parser: template', (t) => {
     t.end();
 });
 
-test('parser: template: ast: fresh', (t) => {
+test('parser: template: expression', (t) => {
     const buildRequire = template(`
       var %%importName%% = require(%%source%%);
     `);

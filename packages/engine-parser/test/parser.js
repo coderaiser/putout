@@ -90,7 +90,7 @@ test('putout: parser: use strict: parser: espree: debugger', (t) => {
     t.end();
 });
 
-test('putout: parser: export default declaration: tenko', (t) => {
+test('putout: parser: export default declaration: tenko: export default', (t) => {
     const {code} = putout(fixture.exportDefaultDeclaration, {
         parser: 'tenko',
         plugins: [
@@ -104,7 +104,7 @@ test('putout: parser: export default declaration: tenko', (t) => {
     t.end();
 });
 
-test('putout: parser: export default declaration: tenko', (t) => {
+test('putout: parser: export default declaration: tenko: throw', (t) => {
     const {code} = putout(fixture.throw, {
         plugins: [
             'remove-unused-variables',
