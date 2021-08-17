@@ -20,6 +20,7 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
+    '__a.map(__b => __b)': '__a',
     'const [__a] = __b.map((__c) => __d)': ({__a, __c}) => {
         return ` {
             const [${__c.name}] = __b;
