@@ -127,48 +127,6 @@ test('putout: loader: function: rules', (t) => {
     t.end();
 });
 
-test('putout: loader: function', (t) => {
-    const rmVars = 'remove-unused-variables';
-    const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
-    
-    mockRequire(`@putout/plugin-${rmVars}`, null);
-    
-    reRequire('..');
-    const putout = reRequire('putout');
-    
-    const {code} = putout(`const t = 'hello'`, {
-        plugins: [{
-            [rmVars]: rmVarsPlugin,
-        }],
-    });
-    
-    stopAll();
-    
-    t.equal(code, '', 'should equal');
-    t.end();
-});
-
-test('putout: loader: function', (t) => {
-    const rmVars = 'remove-unused-variables';
-    const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
-    
-    mockRequire(`@putout/plugin-${rmVars}`, null);
-    
-    reRequire('..');
-    const putout = reRequire('putout');
-    
-    const {code} = putout(`const t = 'hello'`, {
-        plugins: [{
-            [rmVars]: rmVarsPlugin,
-        }],
-    });
-    
-    stopAll();
-    
-    t.equal(code, '', 'should equal');
-    t.end();
-});
-
 test('putout: loader: disabled rule', (t) => {
     const rmVars = 'remove-unused-variables';
     const rmVarsPlugin = require(`@putout/plugin-${rmVars}`);
