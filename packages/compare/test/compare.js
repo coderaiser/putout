@@ -316,7 +316,7 @@ test('compare: object: strict: same', (t) => {
     t.end();
 });
 
-test('compare: __args', (t) => {
+test('compare: __args: nodes', (t) => {
     const a = template.ast('(a, b) => {}');
     const b = template.ast('(__args) => __');
     
@@ -539,13 +539,6 @@ test('compare: string literal', (t) => {
 
 test('compare: template string', (t) => {
     const result = compare('`hello`', '`__a`');
-    
-    t.ok(result);
-    t.end();
-});
-
-test('compare: __identifier', (t) => {
-    const result = compare('console.log("hello")', '__identifier.log(__args)');
     
     t.ok(result);
     t.end();

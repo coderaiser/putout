@@ -70,7 +70,7 @@ test('putout: compare: log: object', (t) => {
     t.end();
 });
 
-test('putout: compare: log: parseValue: object', (t) => {
+test('putout: compare: log: parseValue: string', (t) => {
     const value = 'hello';
     const result = _parseValue(value);
     const expected = 'string: "hello"';
@@ -79,7 +79,7 @@ test('putout: compare: log: parseValue: object', (t) => {
     t.end();
 });
 
-test('putout: compare: log: parseValue: array', (t) => {
+test('putout: compare: log: parseValue: array: Identifier', (t) => {
     const value = [{
         type: 'Identifier',
         name: 'x',
@@ -92,7 +92,7 @@ test('putout: compare: log: parseValue: array', (t) => {
     t.end();
 });
 
-test('putout: compare: log: parseValue: array', (t) => {
+test('putout: compare: log: parseValue: array: StringLiteral', (t) => {
     const value = [{
         type: 'StringLiteral',
         value: 'hello',
