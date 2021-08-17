@@ -106,7 +106,7 @@ test('putout: traverse: program: template variables', (t) => {
     t.end();
 });
 
-test('putout: traverse: contains', (t) => {
+test('putout: traverse: contains: not found', (t) => {
     const node = template.ast('() => x = 5');
     
     const result = contains(node, [
@@ -120,7 +120,7 @@ test('putout: traverse: contains', (t) => {
     t.end();
 });
 
-test('putout: traverse: contains', (t) => {
+test('putout: traverse: contains: found', (t) => {
     const node = template.ast('async () => await x');
     
     const result = contains(node, [
