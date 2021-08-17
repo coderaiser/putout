@@ -17,7 +17,7 @@ test('test: ts', (t) => {
     t.end();
 });
 
-test('test: message', (t) => {
+test('test: message: all messages', (t) => {
     t.report('property-identifier', [
         'Unexpected "console" call',
         'Unexpected "console" call',
@@ -27,7 +27,7 @@ test('test: message', (t) => {
     t.end();
 });
 
-test('test: message', (t) => {
+test('test: no report', (t) => {
     t.noReport('declared');
     t.end();
 });

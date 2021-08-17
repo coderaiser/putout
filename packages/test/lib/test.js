@@ -405,10 +405,14 @@ function preTest(test, plugin) {
         return;
     }
     
+    const options = {
+        checkDuplicates: false,
+    };
+    
     test(`${name}: report: is function`, (t) => {
         t.equal(typeof report, 'function', 'should export "report" function');
         t.end();
-    });
+    }, options);
     
     test(`${name}: plugins should be of type: replace, template, traverse or find`, (t) => {
         const result = isCorrectPlugin({
@@ -427,6 +431,6 @@ function preTest(test, plugin) {
         
         t.ok(result, 'should export "replace", "find", "traverse", "include", "exclude" function');
         t.end();
-    });
+    }, options);
 }
 
