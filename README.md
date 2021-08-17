@@ -525,8 +525,8 @@ function onIfStatement({push}) {
 <details><summary>remove useless <code>template expressions</code></summary>
 
 ```diff
--let y =`${"hello"} + ${"world"}`;
-+let y =`hello + world`;
+-let y = `${"hello"} + ${"world"}`;
++let y = `hello + world`;
 ```
 
 </details>
@@ -792,7 +792,7 @@ for (const x of Object.keys(a)) {
 ```diff
 function hi() {
     return 5;
--  console.log('hello');
+-   console.log('hello');
 }
 ```
 
