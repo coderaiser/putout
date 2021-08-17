@@ -19,6 +19,11 @@ test('plugin-remove-useless-map: transform: same', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-map: no transform: not-same', (t) => {
+    t.noTransform('not-same');
+    t.end();
+});
+
 test('plugin-remove-useless-map: transform: not-identifier', (t) => {
     t.noTransform('not-identifier');
     t.end();
