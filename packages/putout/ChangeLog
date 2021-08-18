@@ -1,3 +1,15 @@
+2021.08.18, v18.16.0
+
+feature:
+- (package) supertape v6.0.1
+- (putout) disable remove-unreachable-code for markdown
+- (eslint-plugin-putout) reuse ts in markdown
+- (eslint-plugin-putout) markdown: disable no-unreachable
+- (eslint-plugin-putout) add support of typescript
+- (@putout/plugin-remove-useless-map) add support of id function
+
+
+
 2021.08.16, v18.15.0
 
 fix:
