@@ -2,5 +2,8 @@
     "rules": {
         "putout": "on",
         "putout/shorten-imports": "off"
-    }
+    },
+    "ignore": [
+        "!**/fixture"
+    ]
 }

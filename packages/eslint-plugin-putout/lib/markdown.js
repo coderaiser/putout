@@ -1,5 +1,7 @@
 'use strict';
 
+const [ts] = require('./ts');
+
 const commonRules = {
     'no-undef': 'off',
     'no-multi-spaces': 'off',
@@ -34,18 +36,8 @@ module.exports = [{
         },
     },
 }, {
+    ...ts,
     files: '*.md{ts}',
     rules: commonRules,
-    parser: '@babel/eslint-parser/experimental-worker',
-    parserOptions: {
-        requireConfigFile: false,
-        babelOptions: {
-            plugins: ['@babel/plugin-syntax-typescript'],
-        },
-    },
-}, {
-    files: '*.html{js}',
-    rules: {
-    },
 }];
 
