@@ -7,6 +7,7 @@ const commonRules = {
     'eol-last': 'off',
     'quotes': 'off',
     'quote-props': 'off',
+    'no-unreachable': 'off',
     'no-constant-condition': 'off',
     'node/no-extraneous-require': 'off',
     'node/no-extraneous-import': 'off',
