@@ -40,7 +40,7 @@
     "just-camel-case": "^4.0.2",
     "madrun": "^8.0.1",
     "nodemon": "^2.0.1",
-    "supertape": "^5.0.0",
+    "supertape": "^6.0.0",
     "try-catch": "^3.0.0"
   },
   "peerDependencies": {

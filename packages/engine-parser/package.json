@@ -53,7 +53,7 @@
     "montag": "^1.0.0",
     "nodemon": "^2.0.1",
     "putout": "*",
-    "supertape": "^5.0.0",
+    "supertape": "^6.0.0",
     "tenko": "^2.0.0",
     "try-catch": "^3.0.0"
   },
