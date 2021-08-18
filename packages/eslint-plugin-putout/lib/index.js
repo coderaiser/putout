@@ -5,6 +5,7 @@ const markdown = require('./markdown');
 const json = require('./json');
 const yaml = require('./yaml');
 const html = require('./html');
+const ts = require('./ts');
 
 const getRule = (a) => ({
     [a]: require(`./${a}`),
@@ -61,6 +62,7 @@ const recommended = {
         ...json,
         ...yaml,
         ...html,
+        ...ts,
     ],
     plugins: [
         'node',
