@@ -1,7 +1,7 @@
 import {run} from 'madrun';
 
 export default {
-    'test': () => `tape -d 'lib/*.spec.js' test/*.js`,
+    'test': () => `tape 'lib/*.spec.js' test/*.js`,
     'watch:test': async () => `nodemon -w lib -w test -x ${await run('test')}`,
     'lint': () => `putout .`,
     'fresh:lint': () => run('lint', '--fresh'),

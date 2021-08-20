@@ -29,3 +29,7 @@ test('plugin-madrun: set-report-lcov', (t) => {
     t.end();
 });
 
+test('plugin-madrun: remove-check-duplicates', (t) => {
+    t.transform('remove-check-duplicates');
+    t.end();
+});

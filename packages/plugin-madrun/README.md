@@ -28,7 +28,8 @@ npm i putout @putout/plugin-madrun -D
         "madrun/set-lint-dot": "on",
         "madrun/convert-to-async": "on",
         "madrun/convert-nyc-to-c8": "on",
-        "madrun/set-report-lcov": "on"
+        "madrun/set-report-lcov": "on",
+        "madrun/remove-check-duplicates-from-test": "on"
     }
 }
 ```
@@ -202,6 +203,25 @@ export default {
 ```js
 export default {
     report: 'c8 report --reporter=lcov',
+};
+```
+
+# remove-check-duplicates-from-test
+
+## ❌ Incorrect code example
+
+```js
+export default {
+    'test': () => 'tape -d *.js',
+};
+
+```
+
+## ✅ Correct code Example
+
+```js
+export default {
+    'test': () => 'tape *.js',
 };
 ```
 

@@ -13,7 +13,7 @@ test('madrun: add run: report', (t) => {
     t.end();
 });
 
-test('madrun: add run: transform: exists', (t) => {
+test('madrun: add run: no transform: no exists', (t) => {
     t.transform('no-run');
     t.end();
 });
