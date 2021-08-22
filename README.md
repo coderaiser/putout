@@ -55,9 +55,15 @@ The main difference of `putout` is saving code transformation results directly i
 
 ## Installation
 
+To install `Putout` as a development dependency, run:
+
 ```
 npm i putout -D
 ```
+
+Or, for one-off usage, you can execute `Putout` directly with npm's package executor: `npx putout`.
+
+Make sure that you are running a recent (16.0<) version of Node.
 
 ## Usage
 
@@ -90,21 +96,22 @@ Options
 To find possible transform places:
 
 ```
-putout lib test
+npx putout lib test
 ```
 
 To apply transforms:
 
 ```
-putout lib test --fix
+npx putout lib test --fix
 ```
 
 ### Environment variables
 
-`Putout` supports next `environment variables`:
+`Putout` supports the following environment variables:
 
 - `PUTOUT_FILES` - files that should be processed by putout, divided by ",";
 
+Example:
 ```
 PUTOUT_FILES=lib,test putout --fix
 ```
@@ -619,7 +626,6 @@ interface A {
 ```
 
 </details>
-   
 
 <details><summary>remove useless <code><a href=https://www.typescriptlang.org/docs/handbook/2/mapped-types.html>mapped types</a></code>(for typescript)</summary>
 
