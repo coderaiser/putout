@@ -2,10 +2,10 @@
 
 const regexpTree = require('regexp-tree');
 
-const notChar = (a) => a.type !== 'Char';
+const notSimpleChar = ({type, kind}) => type !== 'Char' || kind !== 'simple';
 
 module.exports = (regexp) => {
-    let containsMoreThenChars = false;
+    let containsMoreThenSimpleChars = false;
     const ast = regexpTree.parse(regexp);
     
     if (ast.body.type !== 'Alternative')
@@ -14,10 +14,10 @@ module.exports = (regexp) => {
     regexpTree.traverse(ast, {
         RegExp({node}) {
             const {expressions} = node.body;
-            containsMoreThenChars = Boolean(expressions.find(notChar));
+            containsMoreThenSimpleChars = Boolean(expressions.find(notSimpleChar));
         },
     });
     
-    return !containsMoreThenChars;
+    return !containsMoreThenSimpleChars;
 };
 

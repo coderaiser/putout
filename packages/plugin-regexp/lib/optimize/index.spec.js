@@ -26,7 +26,7 @@ test('plugin-regexp/optimize: no transform: crash', (t) => {
     t.end();
 });
 
-test('plugin-regexp/optimize: no transform: crash', (t) => {
+test('plugin-regexp/optimize: no transform: flags', (t) => {
     t.transform('flags');
     t.end();
 });

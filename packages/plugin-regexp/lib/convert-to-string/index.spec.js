@@ -14,7 +14,7 @@ test('plugin-regexp/convert-to-string: transform', (t) => {
     t.end();
 });
 
-test('plugin-regexp/convert-to-string: transform', (t) => {
+test('plugin-regexp/convert-to-string: transform: replace-all', (t) => {
     t.transform('replace-all');
     t.end();
 });
@@ -31,6 +31,11 @@ test('plugin-regexp/convert-to-string: no transform: replace with flags', (t) =>
 
 test('plugin-regexp/simplify: disjunction', (t) => {
     t.noTransform('disjunction');
+    t.end();
+});
+
+test('plugin-regexp/simplify: \\d', (t) => {
+    t.noTransform('meta');
     t.end();
 });
 
