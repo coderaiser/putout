@@ -393,7 +393,7 @@ function preTest(test, plugin) {
         test(`${name}: rules is an object`, (t) => {
             t.equal(typeof rules, 'object', 'should export "rules" object');
             t.end();
-        });
+        }, {checkDuplicates: false});
         
         const entries = Object.entries(rules);
         for (const [entryName, plugin] of entries) {

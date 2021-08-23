@@ -10,7 +10,7 @@ test('plugin-convert-pascal-to-camel: function', (t) => {
     t.end();
 });
 
-test('plugin-convert-pascal-to-camel: class', (t) => {
+test('plugin-convert-pascal-to-camel: transform: class', (t) => {
     t.transform('class');
     t.end();
 });

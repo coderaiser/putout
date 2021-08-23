@@ -9,6 +9,11 @@ test('plugin-remove-useless-async: report', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-async: report', (t) => {
+    t.report('async', 'Useless async should be avoided');
+    t.end();
+});
+
 test('plugin-remove-useless-async: transform', (t) => {
     t.transform('async');
     t.end();
