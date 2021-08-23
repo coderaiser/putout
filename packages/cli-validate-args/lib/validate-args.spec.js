@@ -3,7 +3,7 @@
 const test = require('supertape');
 const validateArgs = require('./validate-args');
 
-test('putout: cli: validate args: invalid', async (t) => {
+test('putout: cli: validate args: invalid: suggest', async (t) => {
     const args = {
         _: [],
         fi: true,
@@ -27,7 +27,7 @@ test('putout: cli: validate args: valid', async (t) => {
     t.end();
 });
 
-test('putout: cli: validate args: valid', async (t) => {
+test('putout: cli: validate args: invalid', async (t) => {
     const args = {
         _: [],
         f: true,

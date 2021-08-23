@@ -25,7 +25,7 @@ module.exports = async (args, optionsList) => {
 };
 
 const findClosest = async (name, list) => {
-    const {closest} = require('fastest-levenshtein');
+    const {closest} = await import('fastest-levenshtein');
     return closest(name, list);
 };
 
