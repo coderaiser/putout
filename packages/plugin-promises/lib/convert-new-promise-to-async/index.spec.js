@@ -25,7 +25,7 @@ test('plugin-convert-new-promise-to-async: no transform: reject', (t) => {
     t.end();
 });
 
-test('plugin-convert-new-promise-to-async: transform', (t) => {
+test('plugin-convert-new-promise-to-async: transform: callback', (t) => {
     t.transform('callback');
     t.end();
 });

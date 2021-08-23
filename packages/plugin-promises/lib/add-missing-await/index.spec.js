@@ -30,7 +30,7 @@ test('plugin-add-missing-await: no transform: not async', (t) => {
     t.end();
 });
 
-test('plugin-add-missing-await: no transform: not async', (t) => {
+test('plugin-add-missing-await: no transform: not fn', (t) => {
     t.noTransform('not-fn');
     t.end();
 });

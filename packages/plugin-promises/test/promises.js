@@ -19,3 +19,8 @@ test('plugin-promises: transform: add missing await', (t) => {
     t.end();
 });
 
+test('plugin-promises: transform: return-useless-async', (t) => {
+    t.transform('remove-useless-async');
+    t.end();
+});
+

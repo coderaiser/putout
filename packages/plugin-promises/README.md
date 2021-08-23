@@ -20,6 +20,7 @@ npm i @putout/plugin-promises -D
     "rules": {
         "promises/add-missing-await": "on",
         "promises/remove-useless-resolve": "on",
+        "promises/remove-useless-async": "on",
         "promises/convert-reject-to-throw": "on",
         "promises/convert-new-promise-to-async": "on"
     }
@@ -64,6 +65,24 @@ async function hello() {
 
 ```js
 async function hello() {
+    return 'hello';
+}
+```
+
+## remove-useless-async
+
+### ❌ Incorrect
+
+```js
+async function hello() {
+    return 'hello';
+}
+```
+
+## ✅ Correct
+
+```js
+function hello() {
     return 'hello';
 }
 ```
