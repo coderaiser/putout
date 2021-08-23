@@ -232,7 +232,9 @@ As you see `places` is empty, but the code is changed: there is no `hi` variable
 
 #### No fix
 
-With `fix` turned off, you can find places with redundant variables without making changes to the source file:
+From the start, `putout` was developed with ability to split the main process into two concepts: `find` (find places that could be fixed) and `fix` (apply the fixes to the files).
+It is therefore easy to find sections that could be fixed.
+In the following example reduntand variables are found without making changes to the source file:
 
 ```js
 putout(source, {
