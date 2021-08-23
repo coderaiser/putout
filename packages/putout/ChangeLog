@@ -1,3 +1,22 @@
+2021.08.23, v19.0.0
+
+fix:
+- (@putout/cli-validate-args) switch to dinymic import
+- (@putout/plugin-regexp) convert-to-string: false possitive with Char of kind meta: \d
+- (@putout/eslint-config) peerDependency
+- (eslint-plugin-putout) peerDependencies: eslint
+
+
+feature:
+- (package) @putout/plugin-promises v6.0.0
+- (@putout/operate) extract: add support of ClassMethod
+- (putout) remove-useless-async -> promises/remove-useless-async
+- (@putout/plugin-promises) add @putout/plugin-remove-useless-async
+- (@putout/plugin-remove-useless-async) add support of functions with return
+- (@putout/plugin-madrun) add remove-check-duplicates-from-test
+
+
+
 2021.08.18, v18.16.0
 
 feature:
