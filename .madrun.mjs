@@ -22,7 +22,7 @@ const env = {
 };
 
 export default {
-    'test': () => [env, `tape '${dirs}/*/test/*.js' '${dirs}/*/{bin,lib}/**/*.spec.*'`],
+    'test': () => [env, `tape --no-check-duplicates '${dirs}/*/test/*.js' '${dirs}/*/{bin,lib}/**/*.spec.*'`],
     'test:fail': async () => await run('test', '-f fail'),
     'test:slow': () => 'FORCE_COLOR=3 lerna run test',
     'coverage:ci': async () => [env, `c8 --no-skip-full ${await cutEnv('test')}`],
