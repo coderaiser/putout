@@ -9,6 +9,7 @@ module.exports.exclude = () => [
     '__.split(__)',
     '__.exec(__)',
     '__.replace(__, __)',
+    '__.replaceAll(__, __)',
     'const __a = /__b/',
 ];
 
