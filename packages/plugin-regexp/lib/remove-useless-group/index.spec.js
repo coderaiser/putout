@@ -34,6 +34,16 @@ test('plugin-regexp/remove-useless-group: no transform: tag', (t) => {
     t.end();
 });
 
+test('plugin-regexp/remove-useless-group: no transform: split', (t) => {
+    t.noTransform('split');
+    t.end();
+});
+
+test('plugin-regexp/remove-useless-group: no transform: replace', (t) => {
+    t.noTransform('replace');
+    t.end();
+});
+
 test('plugin-regexp/remove-useless-group: no transform: first-group', (t) => {
     t.noTransform('first-group');
     t.end();

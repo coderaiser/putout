@@ -5,6 +5,11 @@ const {isDisjunction} = require('../types');
 
 module.exports.report = ({from, to}) => `Remove useless group from RegExp ${from}, use ${to}`;
 
+module.exports.exclude = () => [
+    '__.split(__)',
+    '__.replace(__, __)',
+];
+
 module.exports.fix = ({path, to}) => {
     path.node.extra.raw = to;
 };

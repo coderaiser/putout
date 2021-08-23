@@ -1,0 +1,1 @@
+'lala'.split(/(a)/g);
