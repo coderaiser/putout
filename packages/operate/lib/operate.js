@@ -9,6 +9,7 @@ const {
     isIdentifier,
     isTemplateElement,
     isRegExpLiteral,
+    isClassMethod,
 } = require('@babel/types');
 
 const {assign} = Object;
@@ -136,7 +137,8 @@ module.exports.getPathAfterImports = (body) => {
     return body[i];
 };
 
-module.exports.extract = (node) => {
+module.exports.extract = extract;
+function extract(node) {
     if (isIdentifier(node))
         return node.name;
     
@@ -149,6 +151,9 @@ module.exports.extract = (node) => {
     if (isTemplateElement(node))
         return node.value.raw;
     
+    if (isClassMethod(node))
+        return extract(node.key);
+    
     throw Error(`"operator.extract(node)" understands only Literals, Identifiers, TemplateElement and RegExpLiteral  🤷, found: ${node.type}`);
-};
+}
 

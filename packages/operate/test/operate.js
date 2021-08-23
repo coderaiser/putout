@@ -701,6 +701,38 @@ test('operate: extract: RegExpLiteral', (t) => {
     t.end();
 });
 
+test('operate: extract: ClassMethod: Identifier', (t) => {
+    const name = 'hello';
+    const node = {
+        type: 'ClassMethod',
+        key: {
+            type: 'Identifier',
+            name,
+        },
+    };
+    
+    const result = extract(node);
+    
+    t.equal(result, name);
+    t.end();
+});
+
+test('operate: extract: ClassMethod: Literal', (t) => {
+    const value = 'hello';
+    const node = {
+        type: 'ClassMethod',
+        key: {
+            type: 'StringLiteral',
+            value,
+        },
+    };
+    
+    const result = extract(node);
+    
+    t.equal(result, value);
+    t.end();
+});
+
 test('operate: extract: unknown', (t) => {
     const value = 'hello';
     const node = {
