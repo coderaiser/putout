@@ -63,3 +63,7 @@ test('plugin-regexp/remove-useless-group: no transform: variable', (t) => {
     t.noTransform('variable');
     t.end();
 });
+test('plugin-regexp/remove-useless-group: no transform: exec', (t) => {
+    t.noTransform('exec');
+    t.end();
+});

@@ -7,6 +7,7 @@ module.exports.report = ({from, to}) => `Remove useless group from RegExp ${from
 
 module.exports.exclude = () => [
     '__.split(__)',
+    '__.exec(__)',
     '__.replace(__, __)',
     'const __a = /__b/',
 ];
