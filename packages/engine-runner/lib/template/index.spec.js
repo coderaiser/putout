@@ -400,7 +400,7 @@ test('putout: plugin: traverse: template: exclude: fn', (t) => {
     t.end();
 });
 
-test('putout: plugin: traverse: template: exclude: fn', (t) => {
+test('putout: plugin: traverse: template: exclude: fn: FunctionDeclaration', (t) => {
     const {places} = putout(`const t = __`, {
         runPlugins,
         fix: false,

@@ -175,7 +175,7 @@ test('putout: runner: replace: remove', (t) => {
     t.end();
 });
 
-test('putout: runner: replace: remove', (t) => {
+test('putout: runner: replace: remove: comments', (t) => {
     const rm = {
         report: () => '',
         replace: () => ({
