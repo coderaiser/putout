@@ -34,13 +34,13 @@ test('plugin-remove-useless-async: transform: generator', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-async: no transform: no body arrow', (t) => {
-    t.noTransform('no-body-arrow');
+test('plugin-remove-useless-async: transform: export-default', (t) => {
+    t.transform('export-default');
     t.end();
 });
 
-test('plugin-remove-useless-async: no transform: return', (t) => {
-    t.noTransform('return');
+test('plugin-remove-useless-async: no transform: no body arrow', (t) => {
+    t.noTransform('no-body-arrow');
     t.end();
 });
 
