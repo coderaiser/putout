@@ -5,7 +5,7 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-async
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-async
 
-`putout` plugin adds ability to remove useless `async`.
+`putout` plugin adds ability to remove useless `async`. Part of [@putout/plugin-promises](https://github.com/coderaiser/putout/tree/master/packages/plugin-promises).
 
 ## Install
 
