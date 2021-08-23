@@ -1,7 +1,7 @@
 2021.08.23, v19.0.0
 
 fix:
-- (@putout/cli-validate-args) switch to dinymic import
+- (@putout/cli-validate-args) switch to dinamic import
 - (@putout/plugin-regexp) convert-to-string: false possitive with Char of kind meta: \d
 - (@putout/eslint-config) peerDependency
 - (eslint-plugin-putout) peerDependencies: eslint
