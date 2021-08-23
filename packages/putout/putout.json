@@ -182,7 +182,6 @@
         "remove-useless-arguments",
         "remove-useless-escape",
         "remove-useless-spread",
-        "remove-useless-async",
         "remove-useless-await",
         "remove-useless-return",
         "remove-useless-typeof",

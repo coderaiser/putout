@@ -1,7 +1,9 @@
 'use strict';
 
-const test = require('supertape');
-const stub = require('@cloudcmd/stub');
+const {
+    test,
+    stub,
+} = require('supertape');
 const mockRequire = require('mock-require');
 
 const eslint = require('.');
@@ -291,13 +293,11 @@ test('putout: eslint: no config found', async (t) => {
 test('putout: eslint: config: putout', async (t) => {
     const _eslint = require('eslint');
     
-    const calculateConfigForFile = async () => {
-        return {
-            rules: {
-                'putout/remove-unused-variabls': 'error',
-            },
-        };
-    };
+    const calculateConfigForFile = stub().resolves({
+        rules: {
+            'putout/remove-unused-variabls': 'error',
+        },
+    });
     
     const lintText = stub().returns([]);
     const ESLint = stub().returns({
