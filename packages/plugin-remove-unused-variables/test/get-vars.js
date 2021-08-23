@@ -382,19 +382,6 @@ test('remove-unused-variables: get-vars: binary expression', (t) => {
     t.end();
 });
 
-test('remove-unused-variables: get-vars: call expression', (t) => {
-    const ast = parse(fixture.callExpression);
-    const result = getVars(ast).map(dutify);
-    
-    const expected = [{
-        items: du,
-        console: _u,
-    }];
-    
-    t.deepEqual(result, expected, 'should equal');
-    t.end();
-});
-
 test('remove-unused-variables: get-vars: member expression', (t) => {
     const ast = parse(fixture.memberExpression);
     const result = getVars(ast).map(dutify);
