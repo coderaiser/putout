@@ -59,3 +59,7 @@ test('plugin-regexp/remove-useless-group: no transform: empty non capturing grou
     t.end();
 });
 
+test('plugin-regexp/remove-useless-group: no transform: variable', (t) => {
+    t.noTransform('variable');
+    t.end();
+});

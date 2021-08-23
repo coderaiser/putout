@@ -1,1 +1,1 @@
-const a = /ab/;
+const a = /(ab)/;
