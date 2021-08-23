@@ -16,11 +16,11 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-Putout is a pluggable and configurable code transformer with built-in `eslint`, `babel plugins` and `jscodeshift codemods` support for `js`, `jsx` `typescript` and `flow` files. It has [a lot of transforms](#built-in-transformations) that will keep your codebase in a clean state transforming any `code smell` to readable code according to best practices.
+Putout is a pluggable and configurable code transformer with built-in `eslint`, `babel plugins` and `jscodeshift codemods` support for `js`, `jsx` `typescript` and `flow` files. It has [a lot of transforms](#built-in-transformations) that will keep your codebase in a clean state transforming any code smell to readable code according to best practices.
 
 [![putout](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm.svg)](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm)
 
-## Table of Contents
+## Table of contents
 
 - [Why does this project exist?](#why-does-this-project-exist)
 - [Installation](#installation)
@@ -51,13 +51,19 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - because [prettier](https://github.com/prettier/prettier) is a formatter;
 - because [jscodeshift](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support;
 
-The main difference of `putout` is saving code transformation results directly in a source code in a day-to-day baisis;
+`Putout` on the other hand can make more drastic code transformations that directly alter your code base.
 
 ## Installation
+
+To install `Putout` as a development dependency, run:
 
 ```
 npm i putout -D
 ```
+
+Or, for one-off usage, you can execute `Putout` directly with npm's package executor: `npx putout`.
+
+Make sure that you are running a relatively recent (≥14.8) version of Node.
 
 ## Usage
 
@@ -90,38 +96,39 @@ Options
 To find possible transform places:
 
 ```
-putout lib test
+npx putout lib test
 ```
 
 To apply transforms:
 
 ```
-putout lib test --fix
+npx putout lib test --fix
 ```
 
 ### Environment variables
 
-`Putout` supports next `environment variables`:
+`Putout` supports the following environment variables:
 
 - `PUTOUT_FILES` - files that should be processed by putout, divided by ",";
 
+Example:
 ```
 PUTOUT_FILES=lib,test putout --fix
 ```
 
 ## Architecture
 
-`Putout` consists of a couple simple parts, here is workflow representation:
+`Putout` consists of a couple simple parts, here is a workflow representation:
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout.png)
 
-And here is CLI sheme:
+And here is a CLI sheme:
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-cli.png)
 
 ### Engines
 
-`Engines` is the heart of `putout`: `loader`, `runner` and `parser` works for every processed file. `Processor` runs all the processors.
+`Engines` is the heart of `putout`: `loader`, `runner` and `parser` run for every processed file. `Processor` runs all the processors.
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
@@ -199,7 +206,7 @@ We can declare it as `source`:
 const source = `
     const hello = 'world';
     const hi = 'there';
-    
+
     console.log(hello);
 `;
 ```
@@ -225,8 +232,7 @@ As you see `places` is empty, but the code is changed: there is no `hi` variable
 
 #### No fix
 
-From the first day `putout` was developed with ability to split main process into two concepts: `find` and `fix`.
-This conception mirrorod in the code, so you can find all places with redundant variables without transformation:
+With `fix` turned off, you can find places with redundant variables without making changes to the source file:
 
 ```js
 putout(source, {
@@ -619,7 +625,6 @@ interface A {
 ```
 
 </details>
-   
 
 <details><summary>remove useless <code><a href=https://www.typescriptlang.org/docs/handbook/2/mapped-types.html>mapped types</a></code>(for typescript)</summary>
 
@@ -1487,7 +1492,7 @@ The built-in formatter options are:
 
 ### Custom Formatter
 
-Formatter function executes on every processed file, it should return `output string`.
+A formatter function executes on every processed file, it should return an `output string`.
 
 ```js
 module.exports = ({name, source, places, index, count, filesCount, errorsCount}) => {
@@ -1504,8 +1509,8 @@ Here is list of options:
 - `filesCount` - count of files with errors
 - `errorsCount` count of errors
 
-You can avoid any of this and use only what you nead. To make possible using with `putout` add prefix `putout-formatter-` to your `npm package`,
-and add tags `putout`, `formatter`, `putout-formatter`.
+You can avoid any of this and use only what you nead. To make your formatter usable with `putout`, add the prefix `putout-formatter-` to your `npm` package,
+and add the tags `putout`, `formatter`, `putout-formatter`.
 
 ### Eslint Formatters
 
@@ -1589,7 +1594,7 @@ When you need to match paths to rules you can use `match` section for this purpo
 
 ### Ignore
 
-When you need to ignore some routes no metter what, you can use `ignore` section in `.putout.json`:
+When you need to ignore some routes no matter what, you can use `ignore` section in `.putout.json`:
 
 ```json
 {
@@ -1601,7 +1606,7 @@ When you need to ignore some routes no metter what, you can use `ignore` section
 
 ### Plugins
 
-There is two types of plugins supported by `putout`, their names in npm started with prefix:
+There are two types of plugins supported by `putout`, their names in npm start with a prefix:
 
 - `@putout/plugin-` for official plugins
 - `putout-plugin-` for user plugins
@@ -1623,7 +1628,7 @@ Add `putout` as a `peerDependency` to your `packages.json` (>= of version you de
 
 ## Plugins API
 
-Let's consider a couple plugin types, that can be used.
+Let's consider a couple of plugin types that can be used.
 
 ### Replacer
 
@@ -1639,7 +1644,7 @@ module.exports.replace = () => ({
 });
 ```
 
-This plugin will find and sugest to replace all occurrences of code: `object && object.property` into `object?.property`.
+This plugin will find and suggest to replace all occurrences of code: `object && object.property` into `object?.property`.
 
 ### Includer
 
@@ -1669,7 +1674,7 @@ module.exports.fix = (path) => {
 More information about supported plugin types you can find at [@putout/engine-runner](https://github.com/coderaiser/putout/tree/master/packages/engine-runner).
 About the process of plugins loading you can find at [@putout/engine-loader](https://github.com/coderaiser/putout/tree/master/packages/engine-loader).
 
-When you need, you can use [@babel/types](https://babeljs.io/docs/en/next/babel-types.html), [template](https://babeljs.io/docs/en/next/babel-template.html) and [generate](https://babeljs.io/docs/en/babel-generator). All of this can be get from `putout`:
+When you need, you can use [@babel/types](https://babeljs.io/docs/en/next/babel-types.html), [template](https://babeljs.io/docs/en/next/babel-template.html) and [generate](https://babeljs.io/docs/en/babel-generator). All of this can be gotten from `putout`:
 
 ```js
 const {
@@ -1697,14 +1702,14 @@ const ast = template.ast(`
 module.exports.fix = (path) => {
     // wrong
     path.replaceWith(ast);
-    
+
     // correct
     replaceWith(path, ast);
 };
 ```
 
 This should be done to preserve `loc` and `comments` information, which is different in `babel` and `recast`. `putout` will handle this case for you :),
-just use methods of `operator`.
+just use the methods of `operator`.
 
 ### Putout Plugin
 
@@ -1801,7 +1806,7 @@ test('remove debugger: transformCode', (t) => {
 ```
 
 As you see test runner it is little bit extended [supertape](https://github.com/coderaiser/supertape).
-To see more sophisticated example look at [@putout/remove-console](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-console).
+To see a more sophisticated example look at [@putout/remove-console](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-console).
 
 ### 🤷‍♂️ What if I don't want to publish a plugin?
 
@@ -1819,9 +1824,9 @@ Where `plugins` is an `array` that contains `[name, implementation]` `tuples`.
 
 ## Using Babel Plugins with Putout
 
-You can add `babel` to `plugins` section of `.putout.json` with `babel/` prefix.
+You can add `babel` to the `plugins` section of `.putout.json` with `babel/` prefix.
 
-*You can disable rule, or use match in a similar way.*
+*You can disable a rule, or use a match in a similar way.*
 
 *Remember to omit `babel-plugin-` or `@babel/plugin`: putout will set it up for you :)*
 
@@ -1836,7 +1841,7 @@ Let's add `babel-plugin-transform-inline-consecutive-adds` to `.putout.json`:
 }
 ```
 
-Then create a file and process it with help of `babel plugin`.
+Then create a file and process it with the help of `babel plugin`.
 
 ```sh
 coderaiser@cloudcmd:~$ cat > a.js
@@ -1954,7 +1959,7 @@ Here you can find `jscodeshift codemods` which feets the most main purpose of `p
 
 </details>
 
-Please send pull requests with `jscodeshift codemods` which can be used to simplify, fix or makes code more readable.
+Please send pull requests with `jscodeshift codemods` which can be used to simplify, fix, or make code more readable.
 
 ## Codemods
 
@@ -2052,8 +2057,7 @@ Do you use `putout` in your application as well? Please open a Pull Request to i
 
 ## Versioning Policy
 
-`Putout` follows semantic versioning ([semver](https://semver.org)) principles.
-That means that with a version number **major**.**minor**.**patch**:
+`Putout` follows semantic versioning ([semver](https://semver.org)) principles, with version numbers being on the format **major**.**minor**.**patch**:
 
 - **patch**: `bug fix`, `dependency update` (`17.0.0 -> 17.0.1`).
 - **minor**: `new features`, `new rules` or `fixes` (`17.0.0 -> 17.1.0`).
@@ -2061,11 +2065,11 @@ That means that with a version number **major**.**minor**.**patch**:
 
 ## Contributions
 
-You can make contribution proposing a feature, fixing a bug or typo in documentation or making a dontation ;).
+You can contribute by proposing a feature, fixing a bug or a typo in the documentation, or by making a donation ;).
 
 ## Donations
 
-`putout` requires quite a lot of effort and time. If you like it, support on [patreon](https://www.patreon.com/coderaiser).
+`putout` requires quite a lot of effort and time. If you like it, support us on [patreon](https://www.patreon.com/coderaiser).
 
 ## License
 
