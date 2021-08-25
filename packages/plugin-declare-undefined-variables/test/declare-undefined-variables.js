@@ -9,7 +9,7 @@ test('putout: plugin: declare-undefined-variables: report: assign', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: transform: readable', (t) => {
+test('putout: plugin: declare-undefined-variables: report: readable', (t) => {
     t.report('readable', `'Readable' should be declared`);
     t.end();
 });
@@ -41,6 +41,11 @@ test('putout: plugin: declare-undefined-variables: transform: try-to-catch', (t)
 
 test('putout: plugin: declare-undefined-variables: transform: read-file', (t) => {
     t.transform('read-file');
+    t.end();
+});
+
+test('putout: plugin: declare-undefined-variables: transform: mock-import', (t) => {
+    t.transform('mock-import');
     t.end();
 });
 

@@ -1,0 +1,1 @@
+mockImport('hello', hello);
