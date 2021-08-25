@@ -1,3 +1,17 @@
+2021.08.25, v19.0.1
+
+fix:
+- (@putout/plugin-apply-top-level-await) add to @putout/plugin-promises
+
+
+feature:
+- (@putout/plugin-regexp) remove-useless-group: add support of replaceAll (#74)
+- (@putout/plugin-regexp) remove-useless-group: exclude exec (#74)
+- (@putout/plugin-regexp) remove-useless-group: exclude VariableDeclaration (#74)
+- (@putout/plugin-regexp) remove-useless-group: exclude split, replace (#74)
+
+
+
 2021.08.23, v19.0.0
 
 fix:
