@@ -1,7 +1,7 @@
 {
     "match": {
         "*.md": {
-            "remove-useless-await": "off"
+            "promises/remove-useless-await": "off"
         }
     }
 }

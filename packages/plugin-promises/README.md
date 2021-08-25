@@ -21,6 +21,7 @@ npm i @putout/plugin-promises -D
         "promises/add-missing-await": "on",
         "promises/remove-useless-resolve": "on",
         "promises/remove-useless-async": "on",
+        "promises/remove-useless-await": "on",
         "promises/convert-reject-to-throw": "on",
         "promises/convert-new-promise-to-async": "on",
         "promises/apply-top-level-await": "on"
@@ -86,6 +87,20 @@ async function hello() {
 function hello() {
     return 'hello';
 }
+```
+
+## remove-useless-await
+
+### ❌ Incorrect
+
+```js
+await await Promise.resolve();
+```
+
+## ✅ Correct
+
+```js
+await await Promise.resolve();
 ```
 
 ## convert-reject-to-throw
