@@ -76,10 +76,8 @@
             "tape": "on"
         },
         "*.mjs": {
-            "apply-top-level-await": "on",
             "convert-commonjs-to-esm": "on",
-            "convert-mock-require-to-mock-import": "on",
-            "remove-unused-expressions": "on"
+            "convert-mock-require-to-mock-import": "on"
         },
         "*.cjs": {
             "convert-esm-to-commonjs": "on"
@@ -111,7 +109,6 @@
     ],
     "rules": {
         "apply-array-at": "off",
-        "apply-top-level-await": "off",
         "apply-as-type-assertions": "off",
         "apply-utility-types": "off",
         "convert-esm-to-commonjs": "off",
@@ -138,14 +135,12 @@
         "strict-mode": "off",
         "regexp/convert-replace-to-replace-all": "off",
         "convert-mock-require-to-mock-import": "off",
-        "remove-duplicate-interface-keys": "off",
-        "remove-unused-expressions": "on"
+        "remove-duplicate-interface-keys": "off"
     },
     "plugins": [
         "apply-array-at",
         "apply-is-array",
         "apply-destructuring",
-        "apply-top-level-await",
         "apply-optional-chaining",
         "apply-numeric-separators",
         "apply-as-type-assertions",

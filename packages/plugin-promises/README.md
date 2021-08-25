@@ -22,7 +22,8 @@ npm i @putout/plugin-promises -D
         "promises/remove-useless-resolve": "on",
         "promises/remove-useless-async": "on",
         "promises/convert-reject-to-throw": "on",
-        "promises/convert-new-promise-to-async": "on"
+        "promises/convert-new-promise-to-async": "on",
+        "promises/apply-top-level-await": "on"
     }
 }
 ```
@@ -143,6 +144,26 @@ function get() {
 async function get() {
     throw Error("Cannot get");
 }
+```
+
+## apply-top-level-await
+
+### ❌ Incorrect
+
+```js
+import {readFile} from 'fs/promises';
+
+(async () => {
+    await readFile('./README.md', 'utf8');
+})();
+```
+
+## ✅ Correct
+
+```js
+import {readFile} from 'fs/promises';
+
+await readFile('./README.md', 'utf8');
 ```
 
 ## License

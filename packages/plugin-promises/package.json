@@ -23,6 +23,7 @@
     "report": "madrun report"
   },
   "dependencies": {
+    "@putout/plugin-apply-top-level-await": "^2.0.1",
     "@putout/plugin-remove-useless-async": "^3.2.0",
     "add": "^2.0.6"
   },

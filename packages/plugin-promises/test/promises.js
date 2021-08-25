@@ -24,3 +24,8 @@ test('plugin-promises: transform: return-useless-async', (t) => {
     t.end();
 });
 
+test('plugin-promises: transform: apply-top-level-await', (t) => {
+    t.transform('apply-top-level-await');
+    t.end();
+});
+

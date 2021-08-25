@@ -1,7 +1,7 @@
 {
     "match": {
         "*.md": {
-            "apply-top-level-await": "off"
+            "promises/apply-top-level-await": "off"
         }
     }
 }

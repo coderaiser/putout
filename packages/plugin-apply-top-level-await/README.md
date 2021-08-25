@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-top-level-await
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-top-level-await
 
-`putout` plugin applies [top-level-await](https://v8.dev/features/top-level-await).
+`putout` plugin applies [top-level-await](https://v8.dev/features/top-level-await). Part of [@putout/promises](https://github.com/coderaiser/putout/tree/master/packages/plugin-promises).
 
 ## Install
 
