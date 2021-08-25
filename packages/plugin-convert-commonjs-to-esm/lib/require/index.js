@@ -55,6 +55,10 @@ module.exports.match = () => ({
         const name = camelCase(__b.value);
         return !path.scope.bindings[name];
     },
+    'const __a = require("__b").__c(__args)': ({__b}, path) => {
+        const name = camelCase(__b.value);
+        return !path.scope.bindings[name];
+    },
 });
 
 module.exports.replace = () => ({
@@ -113,6 +117,14 @@ module.exports.replace = () => ({
         return `{
             import ${name} from "__b";
             const __a = ${name}(__args);
+        }`;
+    },
+    'const __a = require("__b").__c(__args)': ({__b}) => {
+        const name = camelCase(__b.value);
+        
+        return `{
+            import ${name} from "__b";
+            const __a = ${name}.__c(__args);
         }`;
     },
     'const __a = require(__b).default': ({__a, __b}, path) => {
