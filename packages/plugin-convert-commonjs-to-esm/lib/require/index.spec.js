@@ -85,6 +85,11 @@ test('plugin-convert-commonjs-to-esm: require: transform: call', (t) => {
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: require: transform: call: kebab', (t) => {
+    t.transform('call-kebab');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: require: no transform: no evaluate', (t) => {
     t.noTransform('no-evaluate');
     t.end();

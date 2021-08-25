@@ -1,5 +1,6 @@
 'use strict';
 
+const camelCase = require('just-camel-case');
 const {
     types,
     operator,
@@ -103,7 +104,7 @@ module.exports.replace = () => ({
         return declarationNode;
     },
     'const __a = require("__b")(__args)': ({__b}) => {
-        const name = __b.value;
+        const name = camelCase(__b.value);
         
         return `{
             import ${name} from "__b";
