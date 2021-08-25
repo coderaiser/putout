@@ -51,6 +51,10 @@ module.exports.match = () => ({
     'const __a = __b(require(__c))': ({__a, __c}) => {
         return isIdentifier(__a) && isStringLiteral(__c);
     },
+    'const __a = require("__b")(__args)': ({__b}, path) => {
+        const name = camelCase(__b.value);
+        return !path.scope.bindings[name];
+    },
 });
 
 module.exports.replace = () => ({
