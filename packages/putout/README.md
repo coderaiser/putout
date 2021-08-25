@@ -9,7 +9,7 @@
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
-![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.png)
+![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
 Putout is a tool for identifying, reporting and fixing patterns found in JavaScript/JSX/Typescript/Flow code. It can:
 
