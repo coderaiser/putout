@@ -20,6 +20,11 @@ test('plugin-convert-commonjs-to-esm: commons: transform: require', (t) => {
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: commons: no transform: top-level-require', (t) => {
+    t.noTransform('top-level-require');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: commons: no transform: declared require', (t) => {
     t.noTransform('declared-require');
     t.end();
