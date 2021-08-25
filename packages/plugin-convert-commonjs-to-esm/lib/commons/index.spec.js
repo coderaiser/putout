@@ -15,6 +15,16 @@ test('plugin-convert-commonjs-to-esm: commons: transform', (t) => {
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: commons: transform: require', (t) => {
+    t.transform('require');
+    t.end();
+});
+
+test('plugin-convert-commonjs-to-esm: commons: no transform: declared require', (t) => {
+    t.noTransform('declared-require');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: commons: no transform', (t) => {
     t.noTransformCode('const a = 5');
     t.end();

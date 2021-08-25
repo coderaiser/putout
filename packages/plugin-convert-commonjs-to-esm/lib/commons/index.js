@@ -26,7 +26,14 @@ module.exports.fix = (path) => {
 module.exports.include = () => [
     '__filename',
     '__dirname',
+    'require',
 ];
 
-module.exports.filter = ({scope}) => !scope.hasBinding('__dirname') && !scope.hasBinding('__filename');
+module.exports.filter = ({scope}) => {
+    const isDirname = scope.hasBinding('__dirname');
+    const isFilename = scope.hasBinding('__filename');
+    const isRequire = scope.hasBinding('require');
+    
+    return !isDirname && !isFilename && !isRequire;
+};
 
