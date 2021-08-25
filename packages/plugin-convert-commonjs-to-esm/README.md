@@ -31,12 +31,21 @@ npm i @putout/plugin-convert-commonjs-to-esm -D
 
 ```js
 const {join} = require('path');
+
+const args = require('minimist')({
+    string: ['a', 'b'],
+});
 ```
 
 ## ✅ Correct code Example
 
 ```js
 import {join} from 'path';
+import minimist from 'minimist';
+
+const args = minimist({
+    string: ['a', 'b'],
+});
 ```
 
 # exports

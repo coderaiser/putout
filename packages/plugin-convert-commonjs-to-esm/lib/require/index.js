@@ -102,6 +102,14 @@ module.exports.replace = () => ({
         
         return declarationNode;
     },
+    'const __a = require("__b")(__args)': ({__b}) => {
+        const name = __b.value;
+        
+        return `{
+            import ${name} from "__b";
+            const __a = ${name}(__args);
+        }`;
+    },
     'const __a = require(__b).default': ({__a, __b}, path) => {
         const name = `_${__a.name}`;
         const importNode = createImport({
