@@ -1,3 +1,20 @@
+2021.08.25, v19.0.2
+
+fix:
+- (putout) remove-useless-await -> promises/remove-useless-await
+
+
+feature:
+- (@putout/plugin-promises) add @putout/plugin-remove-useless-await
+- (@putout/plugin-convert-commonjs-to-esm) require: add support of chaining
+- (@putout/plugin-convert-commonjs-to-esm) commons: add support of top-level-require
+- (@putout/plugin-convert-commonjs-to-esm) add support of declared require
+- (@putout/plugin-convert-commonjs-to-esm) require: excluded binded
+- (@putout/plugin-convert-commonjs-to-esm) require: add support of kebab-case
+- (@putout/plugin-convert-commonjs-to-esm) add support of `const __a = require("__b")(__args)`
+
+
+
 2021.08.25, v19.0.1
 
 fix:
