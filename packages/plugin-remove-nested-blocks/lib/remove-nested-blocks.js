@@ -37,6 +37,6 @@ module.exports.filter = (path) => {
     
     const is = !isIntersect(bindings, path.parentPath.scope.bindings);
     
-    return is && parentPath.isBlockStatement() || parentPath.isProgram();
+    return is && (parentPath.isBlockStatement() || parentPath.isProgram());
 };
 
