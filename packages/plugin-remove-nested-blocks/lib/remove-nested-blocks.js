@@ -3,13 +3,15 @@
 const {replaceWithMultiple} = require('putout').operator;
 const {keys} = Object;
 
-const intersect = (a, b) => a.filter(Set.prototype.has, new Set(b));
-const isIntersect = (bindingsA, bindingsB) => {
+const isIntersect = (bindingsA, path) => {
     const keysA = keys(bindingsA);
-    const keysB = keys(bindingsB);
-    const is = intersect(keysA, keysB).length;
     
-    return is;
+    for (const key of keysA) {
+        if (path.scope.hasBinding(key))
+            return true;
+    }
+    
+    return false;
 };
 
 module.exports.report = () => 'Avoid nested blocks';
@@ -35,7 +37,7 @@ module.exports.filter = (path) => {
     if (isSwitch)
         return false;
     
-    const is = !isIntersect(bindings, path.parentPath.scope.bindings);
+    const is = !isIntersect(bindings, path.parentPath);
     
     return is && (parentPath.isBlockStatement() || parentPath.isProgram());
 };
