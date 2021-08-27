@@ -1,3 +1,22 @@
+2021.08.27, v19.1.0
+
+fix:
+- (@putout/plugin-remove-nested-blocks) declared
+
+feature:
+- (package) @putout/plugin-remove-useless-variables v5.0.0
+- (package) @putout/plugin-remove-nested-blocks v4.0.0
+- (package) @putout/plugin-tape v3.0.0
+- (package) @putout/engine-runner v11.0.0
+- (@putout/plugin-remove-useless-variables) drop support of putout < 19
+- (@putout/plugin-remove-nested-blocks) drop support of putout < 19
+- (@putout/plugin-tape) drop support of putout < 19
+- (@putout/plugin-tape) simplify according to @putout/engine-runner crawling
+- (@putout/plugin-remove-useless-variables) rm binding check
+- (@putout/engine-runner) replace: add crawl
+- (@putout/plugin-declare-undefined-variables) add support of mockImport (https://github.com/coderaiser/mock-import)
+
+
 2021.08.25, v19.0.2
 
 fix:
