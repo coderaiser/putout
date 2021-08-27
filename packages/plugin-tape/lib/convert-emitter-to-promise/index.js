@@ -169,15 +169,9 @@ const declareOnce = (path) => {
     if (path.scope.bindings.once)
         return;
     
-    const program = path.findParent(isProgram);
-    
-    if (program._putout_codemod_convert_emitter_to_promise)
-        return;
-    
-    const {node} = program;
+    const {node} = path.findParent(isProgram);
     const {body} = node;
     
     body.unshift(template.ast(`const {once} = require('events')`));
-    program._putout_codemod_convert_emitter_to_promise = 'added const {once} = require("events")';
 };
 

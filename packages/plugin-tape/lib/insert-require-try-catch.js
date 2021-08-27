@@ -1,7 +1,6 @@
 'use strict';
 
-const {template, operator} = require('putout');
-const {traverse} = operator;
+const {template} = require('putout');
 
 const requireTryCatch = template.ast(`const tryCatch = require('try-catch')`);
 
@@ -11,16 +10,6 @@ module.exports = (path) => {
     if (parentScope.bindings.tryCatch)
         return;
     
-    let is = false;
-    
-    traverse(parentScope.block, {
-        'const tryCatch = require("try-catch")'(path) {
-            is = true;
-            path.stop();
-        },
-    });
-    
-    if (!is)
-        parentScope.block.body.unshift(requireTryCatch);
+    parentScope.block.body.unshift(requireTryCatch);
 };
 
