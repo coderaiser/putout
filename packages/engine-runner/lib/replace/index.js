@@ -100,6 +100,8 @@ const fix = (from, to, path) => {
     });
     
     mark.add();
+    path.scope.getBlockParent().crawl();
+    path.scope.getProgramParent().crawl();
 };
 
 const getFix = (items) => (path) => {
