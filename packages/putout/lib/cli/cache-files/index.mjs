@@ -1,18 +1,19 @@
-'use strict';
+import {unlink} from 'fs/promises';
 
-const {unlink} = require('fs/promises');
+import fileEntryCache from 'file-entry-cache';
+import findCacheDir from 'find-cache-dir';
+import murmur from 'imurmurhash';
+import stringify from 'json-stringify-deterministic';
+import tryToCatch from 'try-to-catch';
+import {createCommons} from 'simport';
 
-const fileEntryCache = require('file-entry-cache');
-const findCacheDir = require('find-cache-dir');
-const murmur = require('imurmurhash');
-const stringify = require('json-stringify-deterministic');
-const tryToCatch = require('try-to-catch');
+import isNoDefinition from './is-no-definition.js';
+import isParserError from './is-parser-error.js';
+import containEslintPlugin from '../eslint/contain-eslint-plugin.js';
+import {isChanged} from './is-changed.mjs';
 
+const {require} = createCommons(import.meta.url);
 const {version} = require('../../../package.json');
-const isNoDefinition = require('./is-no-definition');
-const isParserError = require('./is-parser-error');
-const containEslintPlugin = require('../eslint/contain-eslint-plugin');
-const isChanged = require('./is-changed');
 
 const optionsHashCache = new WeakMap();
 const nodeVersion = process.version;
@@ -29,7 +30,7 @@ const defaultFileCache = {
     canUseCache: returns(false),
 };
 
-module.exports = async ({cache, fresh}) => {
+export async function cacheFiles({cache, fresh}) {
     const name = await findCachePath();
     
     if (fresh)
@@ -53,8 +54,8 @@ module.exports = async ({cache, fresh}) => {
     return fileCache;
 };
 
-module.exports._defaultFileCache = defaultFileCache;
-module.exports._CACHE_FILE = CACHE_FILE;
+export const _defaultFileCache = defaultFileCache;
+export const _CACHE_FILE = CACHE_FILE;
 
 const getPlaces = (fileCache) => (name) => fileCache.getFileDescriptor(name).meta.places;
 

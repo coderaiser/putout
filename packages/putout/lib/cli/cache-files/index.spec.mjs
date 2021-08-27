@@ -1,35 +1,37 @@
-'use strict';
+import {createMockImport} from 'mock-import';
 
-const fs = require('fs/promises');
+const {
+    mockImport,
+    reImport,
+    stopAll,
+} = createMockImport(import.meta.url);
 
-const test = require('supertape');
-const mockRequire = require('mock-require');
-const stub = require('@cloudcmd/stub');
+import fs from 'fs/promises';
 
-const cacheFiles = require('.');
-const {_CACHE_FILE} = cacheFiles;
+import test from 'supertape';
+import stub from '@cloudcmd/stub';
 
-const {reRequire, stopAll} = mockRequire;
+import {cacheFiles, _CACHE_FILE, _defaultFileCache} from './index.mjs';
 
 test('putout: cache-files: disabled: fileCache', async (t) => {
     const fileCache = await cacheFiles({
         cache: false,
     });
     
-    t.equal(fileCache, cacheFiles._defaultFileCache);
+    t.equal(fileCache, _defaultFileCache);
     t.end();
 });
 
 test('putout: cache-files: fileCache: fresh', async (t) => {
     const unlink = stub();
     
-    mockRequire('fs/promises', {
+    mockImport('fs/promises', {
         ...fs,
         unlink,
     });
     
-    mockRequire('find-cache-dir', stub().returns('node_modules/.cache'));
-    const cacheFiles = reRequire('.');
+    mockImport('find-cache-dir', stub().returns('node_modules/.cache'));
+    const {cacheFiles} = await reImport('./index.mjs');
     
     await cacheFiles({
         fresh: true,
@@ -43,15 +45,16 @@ test('putout: cache-files: fileCache: fresh', async (t) => {
 });
 
 test(`putout: cache-files: find up can't find`, async (t) => {
+    debugger;
     const unlink = stub();
     
-    mockRequire('fs/promises', {
+    mockImport('fs/promises', {
         ...fs,
         unlink,
     });
     
-    mockRequire('find-cache-dir', stub());
-    const cacheFiles = reRequire('.');
+    mockImport('find-cache-dir', stub());
+    const {cacheFiles} = await reImport('./index.mjs');
     
     await cacheFiles({
         fresh: true,
@@ -82,9 +85,11 @@ test('putout: cache-files: enabled: setInfo', async (t) => {
         createFromFile,
     };
     
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('.');
+    const isChanged = stub();
+    
+    mockImport('./is-changed.mjs', {isChanged});
+    mockImport('file-entry-cache', fileEntryCache);
+    const {cacheFiles} = await reImport('./index.mjs');
     
     const fileCache = await cacheFiles({
         cache: true,
@@ -123,9 +128,11 @@ test('putout: cache-files: setInfo: definition not found', async (t) => {
         createFromFile,
     };
     
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('.');
+    const isChanged = stub();
+    
+    mockImport('./is-changed.mjs', {isChanged});
+    mockImport('file-entry-cache', fileEntryCache);
+    const {cacheFiles} = await reImport('./index.mjs');
     
     const fileCache = await cacheFiles({
         cache: true,
@@ -164,9 +171,11 @@ test('putout: cache-files: setInfo: eslint parser error', async (t) => {
         createFromFile,
     };
     
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('.');
+    const isChanged = stub();
+    
+    mockImport('./is-changed.mjs', {isChanged});
+    mockImport('file-entry-cache', fileEntryCache);
+    const {cacheFiles} = await reImport('./index.mjs');
     
     const fileCache = await cacheFiles({
         cache: true,
@@ -206,9 +215,11 @@ test('putout: cache-files: enabled: setInfo: not set', async (t) => {
         createFromFile,
     };
     
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('.');
+    const isChanged = stub();
+    
+    mockImport('./is-changed.mjs', {isChanged});
+    mockImport('file-entry-cache', fileEntryCache);
+    const {cacheFiles} = await reImport('./index.mjs');
     
     const fileCache = await cacheFiles({
         cache: true,
@@ -249,9 +260,11 @@ test('putout: cache-files: enabled: canUseCache: changed', async (t) => {
         createFromFile,
     };
     
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('.');
+    const isChanged = stub();
+    
+    mockImport('./is-changed.mjs', {isChanged});
+    mockImport('file-entry-cache', fileEntryCache);
+    const {cacheFiles} = await reImport('./index.mjs');
     
     const fileCache = await cacheFiles({
         cache: true,
@@ -295,9 +308,11 @@ test('putout: cache-files: enabled: canUseCache: options changed', async (t) => 
         createFromFile,
     };
     
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('.');
+    const isChanged = stub();
+    
+    mockImport('./is-changed.mjs', {isChanged});
+    mockImport('file-entry-cache', fileEntryCache);
+    const {cacheFiles} = await reImport('./index.mjs');
     
     const fileCache = await cacheFiles({
         cache: true,
@@ -341,13 +356,15 @@ test('putout: cache-files: enabled: canUseCache: not fix', async (t) => {
         createFromFile,
     };
     
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    mockRequire('imurmurhash', stub().returns({
+    const isChanged = stub();
+    
+    mockImport('./is-changed.mjs', {isChanged});
+    mockImport('file-entry-cache', fileEntryCache);
+    mockImport('imurmurhash', stub().returns({
         result: stub().returns('1cnbekx'),
     }));
     
-    const cacheFiles = reRequire('.');
+    const {cacheFiles} = await reImport('./index.mjs');
     
     const fileCache = await cacheFiles({
         cache: true,
@@ -391,13 +408,15 @@ test('putout: cache-files: enabled: canUseCache: fix, no places', async (t) => {
         createFromFile,
     };
     
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    mockRequire('imurmurhash', stub().returns({
+    const isChanged = stub();
+    
+    mockImport('./is-changed.mjs', {isChanged});
+    mockImport('file-entry-cache', fileEntryCache);
+    mockImport('imurmurhash', stub().returns({
         result: stub().returns('1cnbekx'),
     }));
     
-    const cacheFiles = reRequire('.');
+    const {cacheFiles} = await reImport('./index.mjs');
     
     const fileCache = await cacheFiles({
         cache: true,
@@ -441,9 +460,11 @@ test('putout: cache-files: enabled: getOptionsHash: coverage', async (t) => {
         createFromFile,
     };
     
-    mockRequire('./is-changed', stub());
-    mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('.');
+    const isChanged = stub();
+    
+    mockImport('./is-changed.mjs', {isChanged});
+    mockImport('file-entry-cache', fileEntryCache);
+    const {cacheFiles} = await reImport('./index.mjs');
     
     const fileCache = await cacheFiles({
         cache: true,
@@ -495,9 +516,11 @@ test('putout: cache-files: enabled: getPlaces: isChanged: no', async (t) => {
         createFromFile,
     };
     
-    mockRequire('./is-changed', stub().returns(false));
-    mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('.');
+    const isChanged = stub().returns(false);
+    
+    mockImport('./is-changed.mjs', {isChanged});
+    mockImport('file-entry-cache', fileEntryCache);
+    const {cacheFiles} = await reImport('./index.mjs');
     
     const fileCache = await cacheFiles({
         cache: true,
@@ -535,9 +558,11 @@ test('putout: cache-files: enabled: getPlaces: isChanged: yes', async (t) => {
         createFromFile,
     };
     
-    mockRequire('./is-changed', stub().returns(true));
-    mockRequire('file-entry-cache', fileEntryCache);
-    const cacheFiles = reRequire('.');
+    const isChanged = stub().returns(true);
+    
+    mockImport('./is-changed.mjs', {isChanged});
+    mockImport('file-entry-cache', fileEntryCache);
+    const {cacheFiles} = await reImport('./index.mjs');
     
     const fileCache = await cacheFiles({
         cache: true,

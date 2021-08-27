@@ -24,7 +24,6 @@ const ignores = require('../ignores');
 
 const initProcessFile = require('./process-file');
 const getFiles = require('./get-files');
-const cacheFiles = require('./cache-files');
 const supportedFiles = require('./supported-files');
 const getFormatter = memo(require('./formatter').getFormatter);
 const getOptions = require('./get-options');
@@ -250,6 +249,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (!names.length)
         return exit();
     
+    const {cacheFiles} = await import('./cache-files/index.mjs');
     const fileCache = await cacheFiles({
         cache,
         fresh,

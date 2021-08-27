@@ -1,9 +1,7 @@
-'use strict';
+import {dirname, join} from 'path';
+import {findUp} from 'find-up';
 
-const {dirname, join} = require('path');
-const findUp = require('find-up');
-
-module.exports = async (fileCache) => {
+export async function isChanged(fileCache) {
     const result = await Promise.all([
         isNodeModulesChanged(fileCache),
         isEslintChanged(fileCache),
@@ -15,10 +13,7 @@ module.exports = async (fileCache) => {
     return is;
 };
 
-module.exports.isNodeModulesChanged = isNodeModulesChanged;
-module.exports.isEslintChanged = isEslintChanged;
-
-async function isNodeModulesChanged(fileCache) {
+export async function isNodeModulesChanged(fileCache) {
     const packagePath = await findUp('package.json');
     
     if (!packagePath)
@@ -26,10 +21,11 @@ async function isNodeModulesChanged(fileCache) {
     
     const name = join(dirname(packagePath), 'node_modules');
     
-    return isChanged(name, fileCache);
+    return checkCache(name, fileCache);
 }
 
 // https://eslint.org/docs/user-guide/configuring#configuration-file-formats
+export // https://eslint.org/docs/user-guide/configuring#configuration-file-formats
 async function isEslintChanged(fileCache) {
     const name = await findUp([
         '.eslintrc.json',
@@ -42,10 +38,10 @@ async function isEslintChanged(fileCache) {
     if (!name)
         return false;
     
-    return isChanged(name, fileCache);
+    return checkCache(name, fileCache);
 }
 
-function isChanged(name, fileCache) {
+function checkCache(name, fileCache) {
     const options = {};
     const places = [];
     
