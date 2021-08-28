@@ -61,7 +61,6 @@ module.exports = (plugin) => {
 function getMeta(plugin) {
     const {
         type = 'layout',
-        category = 'spacing',
         recommended = true,
         fixable = 'whitespace',
     } = plugin;
@@ -69,7 +68,6 @@ function getMeta(plugin) {
     return {
         type,
         docs: {
-            category,
             recommended,
         },
         fixable,
