@@ -1,4 +1,7 @@
-import {run, cutEnv} from 'madrun';
+import {
+    run,
+    cutEnv,
+} from 'madrun';
 
 const NODE_OPTIONS = `'--no-warnings --loader mock-import'`;
 const testEnv = {
@@ -15,7 +18,7 @@ export default {
     'fix:lint:fresh': () => run('fix:lint', '--fresh'),
     'lint:progress': () => run('lint', '--fix'),
     'lint:fresh': () => run('lint', '--fresh'),
-    'coverage': async () => `c8 ${await cutEnv('test')}`,
+    'coverage': async () => [testEnv, `c8 ${await cutEnv('test')}`],
     'report': () => 'c8 report --reporter=lcov',
 };
 

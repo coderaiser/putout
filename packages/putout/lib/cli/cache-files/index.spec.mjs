@@ -11,7 +11,11 @@ import fs from 'fs/promises';
 import test from 'supertape';
 import stub from '@cloudcmd/stub';
 
-import {cacheFiles, _CACHE_FILE, _defaultFileCache} from './index.mjs';
+import {
+    cacheFiles,
+    _CACHE_FILE,
+    _defaultFileCache,
+} from './index.mjs';
 
 test('putout: cache-files: disabled: fileCache', async (t) => {
     const fileCache = await cacheFiles({
@@ -45,7 +49,6 @@ test('putout: cache-files: fileCache: fresh', async (t) => {
 });
 
 test(`putout: cache-files: find up can't find`, async (t) => {
-    debugger;
     const unlink = stub();
     
     mockImport('fs/promises', {

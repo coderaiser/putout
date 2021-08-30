@@ -52,7 +52,7 @@ export async function cacheFiles({cache, fresh}) {
         await tryToCatch(unlink, name);
     
     return fileCache;
-};
+}
 
 export const _defaultFileCache = defaultFileCache;
 export const _CACHE_FILE = CACHE_FILE;

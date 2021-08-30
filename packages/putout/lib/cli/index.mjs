@@ -1,38 +1,41 @@
-'use strict';
+import {resolve} from 'path';
+import {readFileSync} from 'fs';
 
-const {resolve} = require('path');
-const {readFileSync} = require('fs');
+import chalk from 'chalk';
+import yargsParser from 'yargs-parser';
+import {isCI} from 'ci-info';
+import memo from 'nano-memoize';
+import fullstore from 'fullstore';
+import tryCatch from 'try-catch';
+import tryToCatch from 'try-to-catch';
+import wraptile from 'wraptile';
+import {createCommons} from 'simport';
 
-const {red} = require('chalk');
-const yargsParser = require('yargs-parser');
-const {isCI} = require('ci-info');
-const memo = require('nano-memoize');
-const fullstore = require('fullstore');
-const tryCatch = require('try-catch');
-const tryToCatch = require('try-to-catch');
-const wraptile = require('wraptile');
-
-const {
+import {
     runProcessors,
     getFilePatterns,
     getProcessorRunners,
     defaultProcessors,
-} = require('@putout/engine-processor');
+} from '@putout/engine-processor';
 
-const merge = require('../merge');
-const ignores = require('../ignores');
+import merge from '../merge.js';
+import ignores from '../ignores.js';
 
-const initProcessFile = require('./process-file');
-const getFiles = require('./get-files');
-const supportedFiles = require('./supported-files');
-const getFormatter = memo(require('./formatter').getFormatter);
-const getOptions = require('./get-options');
-const report = require('./report')();
-const keyPress = require('@putout/cli-keypress');
-const validateArgs = require('@putout/cli-validate-args');
-const parseError = require('./parse-error');
+import initProcessFile from './process-file.js';
+import getFiles from './get-files.js';
+import supportedFiles from './supported-files.js';
+import getOptions from './get-options.js';
+import Report from './report.js';
+import keyPress from '@putout/cli-keypress';
+import validateArgs from '@putout/cli-validate-args';
+import parseError from './parse-error.js';
 
-const {
+import formatter from './formatter.js';
+const getFormatter = memo(formatter.getFormatter);
+const report = Report();
+const {red} = chalk;
+
+import {
     OK,
     PLACE,
     STAGE,
@@ -42,7 +45,7 @@ const {
     WAS_STOP,
     INVALID_OPTION,
     UNHANDLED,
-} = require('./exit-codes');
+} from './exit-codes.mjs';
 
 const cwd = process.cwd();
 const {PUTOUT_FILES = ''} = process.env;
@@ -57,6 +60,8 @@ const {isArray} = Array;
 const isParser = (rule) => /^parser/.test(rule);
 const isParsingError = ({rule}) => isParser(rule);
 
+const {require} = createCommons(import.meta.url);
+
 const createFormatterProxy = (options) => {
     return new Proxy(options, {
         get(target, name) {
@@ -69,7 +74,7 @@ const createFormatterProxy = (options) => {
     });
 };
 
-module.exports = async ({argv, halt, log, write, logError, readFile, writeFile}) => {
+export default async ({argv, halt, log, write, logError, readFile, writeFile}) => {
     const {isStop} = keyPress();
     const wasStop = fullstore();
     
@@ -179,7 +184,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     }
     
     if (args.help) {
-        const help = require('./help');
+        const help = require('./help.js');
         log(help());
         return exit();
     }
@@ -197,7 +202,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     }
     
     if (enable || disable) {
-        const rulerProcessor = require('./ruler-processor');
+        const rulerProcessor = await import('./ruler-processor');
         rulerProcessor({enable, disable}, []);
     }
     
@@ -386,7 +391,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     fileCache.reconcile();
     
     if (enableAll || disableAll) {
-        const rulerProcessor = require('./ruler-processor');
+        const rulerProcessor = await import('./ruler-processor');
         await rulerProcessor({enableAll, disableAll}, mergedPlaces);
         
         return exit();
@@ -421,7 +426,7 @@ const getExit = ({halt, raw, logError}) => (code, e) => {
     halt(code);
 };
 
-module.exports._addOnce = addOnce;
+export const _addOnce = addOnce;
 function addOnce(emitter, name, fn) {
     if (!emitter.listenerCount(name))
         emitter.on(name, fn);

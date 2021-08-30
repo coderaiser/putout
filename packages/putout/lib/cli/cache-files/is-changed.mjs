@@ -1,4 +1,7 @@
-import {dirname, join} from 'path';
+import {
+    dirname,
+    join,
+} from 'path';
 import {findUp} from 'find-up';
 
 export async function isChanged(fileCache) {
@@ -11,7 +14,7 @@ export async function isChanged(fileCache) {
     const is = Boolean(trueCount);
     
     return is;
-};
+}
 
 export async function isNodeModulesChanged(fileCache) {
     const packagePath = await findUp('package.json');

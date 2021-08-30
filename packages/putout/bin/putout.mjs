@@ -5,7 +5,7 @@ import {
     writeFile,
 } from 'fs/promises';
 
-import cli from '../lib/cli/index.js';
+import cli from '../lib/cli/index.mjs';
 
 const {stdout} = process;
 const write = stdout.write.bind(stdout);

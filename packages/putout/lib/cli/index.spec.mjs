@@ -1,27 +1,40 @@
-'use strict';
+import {createCommons} from 'simport';
+import {createMockImport} from 'mock-import';
+
+const {
+    mockImport,
+    reImport,
+    reImportDefault,
+    stopAll,
+} = createMockImport(import.meta.url);
+
+const {
+    __filename,
+    __dirname,
+    require,
+} = createCommons(import.meta.url);
 
 process.env.CI = process.env.CI || 'true';
 
-const {join} = require('path');
-const {readFile} = require('fs/promises');
-const {EventEmitter} = require('events');
+import {join} from 'path';
+import {readFile} from 'fs/promises';
+import {EventEmitter} from 'events';
 
-const test = require('supertape');
-const stub = require('@cloudcmd/stub');
-const mockRequire = require('mock-require');
-const tryCatch = require('try-catch');
-const {red} = require('chalk');
-const tryToCatch = require('try-to-catch');
-const {createSimport} = require('simport');
+import test from 'supertape';
+import stub from '@cloudcmd/stub';
+import tryCatch from 'try-catch';
+import chalk from 'chalk';
+import tryToCatch from 'try-to-catch';
+import {createSimport} from 'simport';
 
-const _cli = require('.');
-const {version} = require('../../package');
+import _cli from './index.mjs';
 
-const {reRequire, stopAll} = mockRequire;
+const {version} = require('../../package.json');
 const {parse} = JSON;
 const {assign} = Object;
+const {red} = chalk;
 
-const {
+import {
     OK,
     PLACE,
     NO_FILES,
@@ -29,7 +42,7 @@ const {
     WAS_STOP,
     INVALID_OPTION,
     CANNOT_LOAD_PROCESSOR,
-} = require('./exit-codes');
+} from './exit-codes.mjs';
 
 const simport = createSimport(__filename);
 
@@ -41,9 +54,9 @@ test('putout: cli: --raw', async (t) => {
     ];
     
     const error = Error('No files matching the pattern "xx" were found');
-    mockRequire('./get-files', stub().returns([error]));
+    mockImport('./get-files', stub().returns([error]));
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -66,9 +79,9 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     ];
     
     const error = Error('No files matching the pattern "xx" were found');
-    mockRequire('./get-files', stub().returns([error]));
+    mockImport('./get-files', stub().returns([error]));
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -79,7 +92,7 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     stopAll();
     
     delete process.env.PUTOUT_FILES;
-    reRequire('.');
+    await reImportDefault('./index.mjs');
     
     t.calledWith(logError, [error], 'should call logError');
     t.end();
@@ -97,9 +110,9 @@ test('putout: cli: --raw: parse error', async (t) => {
         '--no-cache',
     ];
     
-    reRequire('./get-files');
-    reRequire('./process-file');
-    const cli = reRequire('.');
+    await reImport('./get-files');
+    await reImport('./process-file');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -146,11 +159,11 @@ test('putout: cli: --format: specified twice', async (t) => {
     
     const report = stub().returns(stub);
     
-    mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {getFormatter});
-    mockRequire('./report', report);
+    mockImport('./process-file', processFile);
+    mockImport('./formatter', {getFormatter});
+    mockImport('./report', report);
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -175,7 +188,7 @@ test('putout: cli: --fresh', async (t) => {
         '--fresh',
     ];
     
-    const {_defaultFileCache} = require('./cache-files');
+    const {_defaultFileCache} = await import('./cache-files/index.mjs');
     const cacheFiles = stub().returns(_defaultFileCache);
     const getOptions = stub().returns({
         formatter: 'dump',
@@ -185,12 +198,12 @@ test('putout: cli: --fresh', async (t) => {
         ],
     });
     
-    mockRequire('./cache-files', cacheFiles);
-    mockRequire('./get-options', getOptions);
+    mockImport('./cache-files/index.mjs', {cacheFiles});
+    mockImport('./get-options', getOptions);
     
-    reRequire('./get-files');
+    await reImport('./get-files');
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -293,17 +306,20 @@ test('putout: cli: --fix --staged: set', async (t) => {
         code: '',
     });
     
+    const {_defaultFileCache} = await import('./cache-files/index.mjs');
     const processFile = stub().returns(process);
+    const cacheFiles = stub().returns(_defaultFileCache);
     
-    mockRequire('./get-files', getFiles);
-    mockRequire('./process-file', processFile);
+    mockImport('./get-files.js', getFiles);
+    mockImport('./process-file.js', processFile);
+    mockImport('./cache-files/index.mjs', {cacheFiles});
     
-    mockRequire('./staged', {
+    mockImport('./staged.mjs', {
         get,
         set,
     });
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -341,19 +357,19 @@ test('putout: cli: --fix --staged: exit code', async (t) => {
         code: '',
     });
     const processFile = stub().returns(process);
-    const {_defaultFileCache} = require('./cache-files');
+    const {_defaultFileCache} = await import('./cache-files/index.mjs');
     const cacheFiles = stub().returns(_defaultFileCache);
     
-    mockRequire('./get-files', getFiles);
-    mockRequire('./process-file', processFile);
-    mockRequire('./cache-files', cacheFiles);
+    mockImport('./get-files', getFiles);
+    mockImport('./process-file', processFile);
+    mockImport('./cache-files/index.mjs', {cacheFiles});
     
-    mockRequire('./staged', {
+    mockImport('./staged', {
         get,
         set,
     });
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         halt,
@@ -380,13 +396,12 @@ test('putout: cli: --staged --fix', async (t) => {
         '--fix',
     ];
     
-    mockRequire('./staged', {
+    mockImport('./staged.mjs', {
         get,
         set,
     });
     
-    reRequire('./get-files');
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -415,9 +430,9 @@ test('putout: cli: ruler processor: --enable', async (t) => {
         'convert-index-of-to-includes',
     ];
     
-    mockRequire('./ruler-processor', rullerProcessor);
+    mockImport('./ruler-processor', rullerProcessor);
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     await runCli({
         cli,
         argv,
@@ -444,9 +459,9 @@ test('putout: cli: ruler processor: --enable-all', async (t) => {
         __filename,
     ];
     
-    mockRequire('./ruler-processor', rullerProcessor);
+    mockImport('./ruler-processor', rullerProcessor);
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     await runCli({
         cli,
         argv,
@@ -470,8 +485,8 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
     const rullerError = Error('should call rullerProcessor with await');
     const rullerProcessor = stub().rejects(rullerError);
     
-    mockRequire('./ruler-processor', rullerProcessor);
-    const cli = reRequire('.');
+    mockImport('./ruler-processor', rullerProcessor);
+    const cli = await reImportDefault('./index.mjs');
     
     const [error] = await tryToCatch(runCli, {
         cli,
@@ -498,7 +513,7 @@ test('putout: cli: --match', async (t) => {
     const halt = stub();
     
     const {matchErrors, READ_ERROR} = await import('@putout/cli-match');
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     await runCli({
         cli,
         halt,
@@ -530,11 +545,11 @@ test('putout: cli: tsx', async (t) => {
         ],
     });
     
-    mockRequire('./eslint', eslint);
-    mockRequire('./get-options', getOptions);
+    mockImport('./eslint', eslint);
+    mockImport('./get-options', getOptions);
     
-    reRequire('./process-file');
-    const cli = reRequire('.');
+    await reImport('./process-file');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -550,7 +565,6 @@ test('putout: cli: tsx', async (t) => {
 
 test('putout: cli: --transform', async (t) => {
     const write = stub();
-    const eslint = stub().returns(['', []]);
     
     const name = join(__dirname, 'fixture/transform.js');
     const source = await readFile(name, 'utf8');
@@ -567,9 +581,7 @@ test('putout: cli: --transform', async (t) => {
         '--no-cache',
     ];
     
-    mockRequire('./eslint', eslint);
-    reRequire('./process-file');
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -591,10 +603,17 @@ test('putout: cli: --transform', async (t) => {
                     line: 1,
                     column: 0,
                 },
+            }, {
+                message: '\'b\' is not defined.',
+                position: {
+                    column: 11,
+                    line: 1,
+                },
+                rule: 'no-undef (eslint)',
             }],
         }],
         filesCount: 1,
-        errorsCount: 1,
+        errorsCount: 2,
     };
     
     const [arg] = write.args;
@@ -623,9 +642,9 @@ test('putout: cli: --plugins', async (t) => {
         '--no-cache',
     ];
     
-    mockRequire('./eslint', eslint);
-    reRequire('./process-file');
-    const cli = reRequire('.');
+    mockImport('./eslint', eslint);
+    await reImport('./process-file');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -692,10 +711,10 @@ test('putout: cli: fix', async (t) => {
         ],
     });
     
-    mockRequire('./get-options', getOptions);
-    mockRequire('./process-file', processFile);
+    mockImport('./get-options', getOptions);
+    mockImport('./process-file', processFile);
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -731,10 +750,10 @@ test('putout: cli: no processors', async (t) => {
         ],
     });
     
-    mockRequire('./get-options', getOptions);
-    mockRequire('./process-file', processFile);
+    mockImport('./get-options', getOptions);
+    mockImport('./process-file', processFile);
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -780,14 +799,14 @@ test('putout: cli: not fixable', async (t) => {
         setInfo,
     });
     
-    mockRequire('./get-options', getOptions);
-    mockRequire('./file-cache', fileCache);
-    mockRequire('@putout/engine-processor', {
+    mockImport('./get-options', getOptions);
+    mockImport('./file-cache', fileCache);
+    mockImport('@putout/engine-processor', {
         runProcessors,
         getFilePatterns,
     });
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -832,14 +851,14 @@ test('putout: cli: setInfo: crash', async (t) => {
         setInfo,
     });
     
-    mockRequire('./get-options', getOptions);
-    mockRequire('./file-cache', fileCache);
-    mockRequire('@putout/engine-processor', {
+    mockImport('./get-options', getOptions);
+    mockImport('./file-cache', fileCache);
+    mockImport('@putout/engine-processor', {
         runProcessors,
         getFilePatterns,
     });
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -870,16 +889,16 @@ test('putout: cli: fileCache: canUseCache', async (t) => {
     const canUseCache = stub().returns(true);
     const getPlaces = stub().returns([]);
     const reconcile = stub();
-    const fileCache = stub().returns({
+    const cacheFiles = stub().returns({
         canUseCache,
         getPlaces,
         reconcile,
     });
     
-    mockRequire('./get-options', getOptions);
-    mockRequire('./cache-files', fileCache);
+    mockImport('./get-options', getOptions);
+    mockImport('./cache-files/index.mjs', {cacheFiles});
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -916,9 +935,9 @@ test('putout: cli: exit code: PLACE', async (t) => {
     
     const readFileStub = stub().returns(source);
     
-    mockRequire('./get-options', getOptions);
+    mockImport('./get-options', getOptions);
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -949,10 +968,10 @@ test('putout: cli: get files: called with ignore option', async (t) => {
     
     const getFiles = stub().returns(['dir', []]);
     
-    mockRequire('./get-options', getOptions);
-    mockRequire('./get-files', getFiles);
+    mockImport('./get-options', getOptions);
+    mockImport('./get-files', getFiles);
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -994,11 +1013,11 @@ test('putout: cli: get files: was stop', async (t) => {
         isStop,
     });
     
-    mockRequire('./get-options', getOptions);
-    mockRequire('./get-files', getFiles);
-    mockRequire('@putout/cli-keypress', keypress);
+    mockImport('./get-options', getOptions);
+    mockImport('./get-files', getFiles);
+    mockImport('@putout/cli-keypress', keypress);
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -1035,11 +1054,11 @@ test('putout: cli: get files: was stop: no', async (t) => {
         isStop,
     });
     
-    mockRequire('./get-options', getOptions);
-    mockRequire('./get-files', getFiles);
-    mockRequire('./on-halt', onHalt);
+    mockImport('./get-options', getOptions);
+    mockImport('./get-files', getFiles);
+    mockImport('./on-halt', onHalt);
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -1059,7 +1078,7 @@ test('putout: cli: invalid option', async (t) => {
     ];
     
     const halt = stub();
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -1079,7 +1098,7 @@ test('putout: cli: invalid option: message', async (t) => {
     ];
     
     const logError = stub();
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -1101,7 +1120,7 @@ test('putout: cli: invalid option: message: one char', async (t) => {
     ];
     
     const logError = stub();
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -1127,12 +1146,12 @@ test('putout: cli: cannot load processor', async (t) => {
     
     processors.push('hello');
     
-    mockRequire('../../putout.json', putoutConfig);
+    mockImport('../../putout.json', putoutConfig);
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
-    reRequire('../parse-options');
-    reRequire('./get-options');
+    await reImport('../parse-options');
+    await reImport('./get-options');
     
     await runCli({
         cli,
@@ -1152,11 +1171,11 @@ test('putout: cli: cannot load processor: not found', async (t) => {
     const logError = stub();
     const loadProcessors = stub().throws(Error(`Processor "putout-processor-hello" could not be found!`));
     
-    mockRequire('@putout/engine-loader', {
+    mockImport('@putout/engine-loader', {
         loadProcessors,
     });
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     
     await runCli({
         cli,
@@ -1172,9 +1191,9 @@ test('putout: cli: cannot load processor: not found', async (t) => {
     t.end();
 });
 
-test('putout: cli: addOnce', (t) => {
+test('putout: cli: addOnce', async (t) => {
     const fn = stub();
-    const {_addOnce} = reRequire('.');
+    const {_addOnce} = await reImport('./index.mjs');
     const emitter = new EventEmitter();
     
     _addOnce(emitter, 'hello', fn);
@@ -1205,9 +1224,9 @@ test('putout: processor throw', async (t) => {
         ],
     });
     
-    mockRequire('./get-options', getOptions);
+    mockImport('./get-options', getOptions);
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     const write = stub();
     
     await runCli({
@@ -1244,9 +1263,9 @@ test('putout: processor throw: raw', async (t) => {
         ],
     });
     
-    mockRequire('./get-options', getOptions);
+    mockImport('./get-options', getOptions);
     
-    const cli = reRequire('.');
+    const cli = await reImportDefault('./index.mjs');
     const log = stub();
     
     await runCli({
