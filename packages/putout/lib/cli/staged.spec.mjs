@@ -1,21 +1,24 @@
-'use strict';
+import {createMockImport} from 'mock-import';
 
-const fs = require('fs');
+const {
+    mockImport,
+    reImport,
+    stopAll,
+} = createMockImport(import.meta.url);
 
-const test = require('supertape');
-const stub = require('@cloudcmd/stub');
-const mockRequire = require('mock-require');
+import fs from 'fs';
 
-const {isSupported} = require('./supported-files');
+import test from 'supertape';
+import stub from '@cloudcmd/stub';
 
-const {reRequire, stopAll} = mockRequire;
+import {isSupported} from './supported-files.js';
 
 test('putout: cli: staged', async (t) => {
     const findUp = stub().returns('');
     
-    mockRequire('find-up', findUp);
+    mockImport('find-up', {findUp});
     
-    const {get} = reRequire('./staged');
+    const {get} = await reImport('./staged.mjs');
     await get();
     
     stopAll();
@@ -31,12 +34,12 @@ test('putout: cli: staged: get: statusMatrix: empty', async (t) => {
     const statusMatrix = stub().returns([
     ]);
     
-    mockRequire('find-up', findUp);
-    mockRequire('isomorphic-git', {
+    mockImport('find-up', {findUp});
+    mockImport('isomorphic-git', {
         statusMatrix,
     });
     
-    const {get} = reRequire('./staged');
+    const {get} = await reImport('./staged.mjs');
     await get();
     
     stopAll();
@@ -58,12 +61,12 @@ test('putout: cli: staged: get: statusMatrix', async (t) => {
         [ 'packages/putout/lib/cli/staged.js', 1, 2, 3 ],
     ]);
     
-    mockRequire('find-up', findUp);
-    mockRequire('isomorphic-git', {
+    mockImport('find-up', {findUp});
+    mockImport('isomorphic-git', {
         statusMatrix,
     });
     
-    const {get} = reRequire('./staged');
+    const {get} = await reImport('./staged.mjs');
     await get();
     
     stopAll();
@@ -85,12 +88,12 @@ test('putout: cli: staged: get: statusMatrix: result', async (t) => {
         [ 'packages/putout/lib/cli/index.js', 1, 2, 2 ],
     ]);
     
-    mockRequire('find-up', findUp);
-    mockRequire('isomorphic-git', {
+    mockImport('find-up', {findUp});
+    mockImport('isomorphic-git', {
         statusMatrix,
     });
     
-    const {get} = reRequire('./staged');
+    const {get} = await reImport('./staged.mjs');
     
     const names = await get();
     stopAll();
@@ -110,12 +113,12 @@ test('putout: cli: staged: set: findUp', async (t) => {
         [ 'packages/putout/lib/cli/index.js', 1, 2, 2 ],
     ]);
     
-    mockRequire('find-up', findUp);
-    mockRequire('isomorphic-git', {
+    mockImport('find-up', {findUp});
+    mockImport('isomorphic-git', {
         statusMatrix,
     });
     
-    const {set} = reRequire('./staged');
+    const {set} = await reImport('./staged.mjs');
     
     await set();
     
@@ -134,12 +137,12 @@ test('putout: cli: staged: set: findUp: not found', async (t) => {
         [ 'packages/putout/lib/cli/index.js', 1, 2, 2 ],
     ]);
     
-    mockRequire('find-up', findUp);
-    mockRequire('isomorphic-git', {
+    mockImport('find-up', {findUp});
+    mockImport('isomorphic-git', {
         statusMatrix,
     });
     
-    const {set} = reRequire('./staged');
+    const {set} = await reImport('./staged.mjs');
     
     await set();
     
@@ -161,15 +164,15 @@ test('putout: cli: staged: add', async (t) => {
     const add = stub();
     const status = stub().returns('modified');
     
-    mockRequire('fs', {});
-    mockRequire('find-up', findUp);
-    mockRequire('isomorphic-git', {
+    mockImport('fs', {});
+    mockImport('find-up', {findUp});
+    mockImport('isomorphic-git', {
         add,
         status,
         statusMatrix,
     });
     
-    const {get, set} = reRequire('./staged');
+    const {get, set} = await reImport('./staged.mjs');
     
     await get();
     await set();

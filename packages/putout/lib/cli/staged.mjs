@@ -1,14 +1,12 @@
-'use strict';
+import {join} from 'path';
+import fs from 'fs';
 
-const {join} = require('path');
-const fs = require('fs');
+import git from 'isomorphic-git';
+import {findUp} from 'find-up';
+import once from 'once';
+import fullstore from 'fullstore';
 
-const git = require('isomorphic-git');
-const findUp = require('find-up');
-const once = require('once');
-const fullstore = require('fullstore');
-
-const {isSupported} = require('./supported-files');
+import {isSupported} from './supported-files.js';
 
 const STAGED_INDEX = 3;
 const STAGED = 2;
@@ -39,7 +37,7 @@ const isModified = (a) => a[MODIFIED_INDEX] === MODIFIED;
 const head = ([a]) => a;
 const joinDir = (a) => (b) => join(a, b);
 
-module.exports.get = async function get() {
+export const get = async function get() {
     const dir = await findGit();
     
     if (!dir)
@@ -71,7 +69,7 @@ async function getStatus(dir, filepath) {
     return [filepath, status];
 }
 
-module.exports.set = async function add() {
+export const set = async function add() {
     const dir = await findGit();
     
     if (!dir)

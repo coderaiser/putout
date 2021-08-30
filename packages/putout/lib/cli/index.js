@@ -227,7 +227,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     const stagedNames = [];
     
     if (staged) {
-        const {get} = require('./staged');
+        const {get} = await import('./staged.mjs');
         const names = await get();
         
         stagedNames.push(...names);
@@ -393,7 +393,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     }
     
     if (fix && staged) {
-        const {set} = require('./staged');
+        const {set} = await import('./staged.mjs');
         const stagedNames = await set();
         
         if (!stagedNames.length)
