@@ -1,17 +1,17 @@
 'use strict';
 
-const applyDestructuring = require('..');
+const applyArrayAt = require('..');
 
 const test = require('@putout/test')(__dirname, {
-    'apply-destructuring': applyDestructuring,
+    'apply-array-at': applyArrayAt,
 });
 
-test('plugin-apply-destructuring: transform: report', (t) => {
+test('plugin-apply-array-at: transform: report', (t) => {
     t.report('array', 'Should be used "Array.at"');
     t.end();
 });
 
-test('plugin-apply-destructuring: transform: object', (t) => {
+test('plugin-apply-array-at: transform: object', (t) => {
     t.transform('array');
     t.end();
 });
