@@ -1,1 +1,1 @@
-/(?<hello>\d)/
+/(?<hello>\d)/.test('x');

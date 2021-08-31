@@ -14,6 +14,16 @@ test('plugin-regexp/remove-useless-group: transform', (t) => {
     t.end();
 });
 
+test('plugin-regexp/remove-useless-group: transform: match', (t) => {
+    t.transform('match');
+    t.end();
+});
+
+test('plugin-regexp/remove-useless-group: transform: search', (t) => {
+    t.transform('search');
+    t.end();
+});
+
 test('plugin-regexp/remove-useless-group: no transform: disjunction', (t) => {
     t.noTransform('disjunction');
     t.end();
