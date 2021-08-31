@@ -1,0 +1,7 @@
+{
+    "match": {
+        "README.md": {
+            "apply-filter-boolean": "off"
+        }
+    }
+}

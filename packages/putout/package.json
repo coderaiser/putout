@@ -65,6 +65,7 @@
     "@putout/plugin-apply-array-at": "^1.0.0",
     "@putout/plugin-apply-as-type-assertions": "^1.0.0",
     "@putout/plugin-apply-destructuring": "^5.0.0",
+    "@putout/plugin-apply-filter-boolean": "^1.0.0",
     "@putout/plugin-apply-if-condition": "^1.0.0",
     "@putout/plugin-apply-is-array": "^1.0.0",
     "@putout/plugin-apply-numeric-separators": "^1.0.0",

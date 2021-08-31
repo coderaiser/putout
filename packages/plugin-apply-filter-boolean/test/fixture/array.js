@@ -1,0 +1,1 @@
+arra.filter((a) => a);

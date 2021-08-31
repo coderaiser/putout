@@ -1,7 +1,7 @@
 # @putout/plugin-apply-array-at [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-apply-array-at"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-apply-array-at "npm"
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-array-at
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-array-at
 
@@ -15,18 +15,11 @@ npm i @putout/plugin-apply-array-at
 
 ## Rule
 
-Rule `apply-array-at` is not bundled by default, to `enable` add to `.putout.json`:
-
-## Rule
-
 ```json
 {
     "rules": {
-        "apply-array-at": "on"
-    },
-    "plugins": [
-        "apply-array-at"
-    ]
+        "apply-array-at": "off"
+    }
 }
 ```
 
