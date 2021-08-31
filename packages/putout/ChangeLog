@@ -1,3 +1,11 @@
+2021.08.31, v19.2.0
+
+feature:
+- (@putout/plugin-apply-filter-boolean) add
+- (eslint-plugin-putout) rm caregory (https://eslint.org/blog/2021/08/eslint-v8.0.0-beta.1-released)
+- (package) ts-morph v12.0.0
+
+
 2021.08.27, v19.1.0
 
 fix:
