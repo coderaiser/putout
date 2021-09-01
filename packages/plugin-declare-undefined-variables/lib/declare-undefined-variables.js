@@ -2,12 +2,16 @@
 
 const {types} = require('putout');
 const declarations = require('./declarations');
+const {
+    addDeclaration,
+    checkDeclaration,
+} = require('./record');
 
 const {isImportDeclaration} = types;
 
 const {entries} = Object;
-const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
 
+const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
 const cutName = (a) => a.split('.').shift();
 
 module.exports.report = (path) => {
@@ -46,8 +50,13 @@ module.exports.replace = ({options}) => {
 };
 
 const isUndefined = (name) => (vars, path) => {
+    const {scope} = path;
     const cutedName = cutName(name);
-    return !path.scope.hasBinding(cutedName);
+    
+    if (checkDeclaration(name, path))
+        return false;
+    
+    return !scope.hasBinding(cutedName);
 };
 
 const declare = (name, node) => (vars, path) => {
@@ -77,6 +86,8 @@ const declare = (name, node) => (vars, path) => {
         break;
     }
     
+    addDeclaration(name, path);
+    
     crawl(path);
     return path;
 };
@@ -91,3 +102,4 @@ function isUseStrict(path) {
         value: 'use strict',
     });
 }
+
