@@ -29,6 +29,7 @@ const {
     WAS_STOP,
     INVALID_OPTION,
     CANNOT_LOAD_PROCESSOR,
+    RULLER_WITH_FIX,
 } = require('./exit-codes');
 
 const simport = createSimport(__filename);
@@ -482,6 +483,86 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
     stopAll();
     
     t.equal(error, rullerError);
+    t.end();
+});
+
+test('putout: cli: ruler processor: --disable-all --fix', async (t) => {
+    const name = join(__dirname, 'fixture/plugins.js');
+    const logError = stub();
+    const argv = [
+        '--disable-all',
+        '--fix',
+        name,
+    ];
+    const rullerProcessor = stub();
+    
+    mockRequire('./ruler-processor', rullerProcessor);
+    const cli = reRequire('.');
+    
+    await tryToCatch(runCli, {
+        cli,
+        argv,
+        logError,
+    });
+    
+    stopAll();
+    
+    t.notCalled(rullerProcessor);
+    t.end();
+});
+
+test('putout: cli: ruler processor: --enable --fix', async (t) => {
+    const name = join(__dirname, 'fixture/plugins.js');
+    const logError = stub();
+    const argv = [
+        '--enable',
+        'hello',
+        '--fix',
+        name,
+    ];
+    const rullerProcessor = stub();
+    
+    mockRequire('./ruler-processor', rullerProcessor);
+    const cli = reRequire('.');
+    
+    await tryToCatch(runCli, {
+        cli,
+        argv,
+        logError,
+    });
+    
+    stopAll();
+    
+    const expected = red('--fix cannot be used with "--enable(-all)" or "--diable(-all)"');
+    
+    t.calledWith(logError, [expected]);
+    t.end();
+});
+
+test('putout: cli: ruler processor: --enable-all --fix', async (t) => {
+    const name = join(__dirname, 'fixture/plugins.js');
+    const logError = stub();
+    const argv = [
+        '--enable-all',
+        '--fix',
+        name,
+    ];
+    const rullerProcessor = stub();
+    const halt = stub();
+    
+    mockRequire('./ruler-processor', rullerProcessor);
+    const cli = reRequire('.');
+    
+    await tryToCatch(runCli, {
+        cli,
+        argv,
+        logError,
+        halt,
+    });
+    
+    stopAll();
+    
+    t.calledWith(halt, [RULLER_WITH_FIX]);
     t.end();
 });
 

@@ -8,11 +8,15 @@
             "putout": "off",
             "babel/transform-inline-consecutive-adds": "off",
             "jscodeshift/async-await-codemod/async-await": "off"
+        },
+        "*.js": {
+            "convert-esm-to-commonjs": "on"
         }
     },
     "plugins": [
         "babel/transform-inline-consecutive-adds",
         "babel/transform-react-jsx",
         "jscodeshift/async-await-codemod/async-await"
-    ]
+    ],
+    "rules": {}
 }

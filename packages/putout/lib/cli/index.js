@@ -43,6 +43,7 @@ const {
     WAS_STOP,
     INVALID_OPTION,
     UNHANDLED,
+    RULLER_WITH_FIX,
 } = require('./exit-codes');
 
 const cwd = process.cwd();
@@ -125,6 +126,8 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             fresh: false,
             enable: '',
             disable: '',
+            disableAll: false,
+            enableAll: false,
             plugins: [],
         },
     };
@@ -196,6 +199,9 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         
         return exit(code, `--match: ${matchErrors[code]}`);
     }
+    
+    if (fix && (enable || disable || enableAll || disableAll))
+        return exit(RULLER_WITH_FIX, Error('--fix cannot be used with "--enable(-all)" or "--diable(-all)"'));
     
     if (enable || disable) {
         const rulerProcessor = require('./ruler-processor');
@@ -388,8 +394,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (enableAll || disableAll) {
         const rulerProcessor = require('./ruler-processor');
         await rulerProcessor({enableAll, disableAll}, mergedPlaces);
-        
-        return exit();
     }
     
     if (fix && staged) {

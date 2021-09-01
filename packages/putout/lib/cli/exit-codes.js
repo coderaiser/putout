@@ -11,5 +11,6 @@ module.exports = {
     INVALID_OPTION: 7,
     CANNOT_LOAD_PROCESSOR: 8,
     UNHANDLED: 9,
+    RULLER_WITH_FIX: 10,
 };
 
