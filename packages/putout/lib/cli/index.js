@@ -11,6 +11,9 @@ const fullstore = require('fullstore');
 const tryCatch = require('try-catch');
 const tryToCatch = require('try-to-catch');
 const wraptile = require('wraptile');
+const {createSimport} = require('simport');
+
+const simport = createSimport(__filename);
 
 const {
     runProcessors,
@@ -204,8 +207,8 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         return exit(RULLER_WITH_FIX, Error(`'--fix' cannot be used with ruller toggler ('--enable', '--disable')`));
     
     if (enable || disable) {
-        const rulerProcessor = require('./ruler-processor');
-        rulerProcessor({enable, disable}, []);
+        const rulerProcessor = await simport('@putout/cli-ruler');
+        rulerProcessor({enable, disable, readFile, writeFile}, []);
     }
     
     const noConfig = !args.config;
@@ -392,8 +395,8 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     fileCache.reconcile();
     
     if (enableAll || disableAll) {
-        const rulerProcessor = require('./ruler-processor');
-        await rulerProcessor({enableAll, disableAll}, mergedPlaces);
+        const rulerProcessor = await simport('@putout/cli-ruler');
+        await rulerProcessor({enableAll, disableAll, readFile, writeFile}, mergedPlaces);
     }
     
     if (fix && staged) {

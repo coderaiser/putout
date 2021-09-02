@@ -410,19 +410,26 @@ test('putout: cli: --staged --fix', async (t) => {
 
 test('putout: cli: ruler processor: --enable', async (t) => {
     const logError = stub();
+    const readFile = stub();
+    const writeFile = stub();
     const rullerProcessor = stub();
     const argv = [
         '--enable',
         'convert-index-of-to-includes',
     ];
     
-    mockRequire('./ruler-processor', rullerProcessor);
+    const simport = stub().returns(rullerProcessor);
+    const createSimport = stub().returns(simport);
+    
+    mockRequire('simport', {createSimport});
     
     const cli = reRequire('.');
     await runCli({
         cli,
         argv,
         logError,
+        readFile,
+        writeFile,
     });
     
     stopAll();
@@ -431,6 +438,8 @@ test('putout: cli: ruler processor: --enable', async (t) => {
     const args = {
         disable: '',
         enable: 'convert-index-of-to-includes',
+        readFile,
+        writeFile,
     };
     
     t.calledWith(rullerProcessor, [args, places]);
@@ -445,7 +454,10 @@ test('putout: cli: ruler processor: --enable-all', async (t) => {
         __filename,
     ];
     
-    mockRequire('./ruler-processor', rullerProcessor);
+    const simport = stub().returns(rullerProcessor);
+    const createSimport = stub().returns(simport);
+    
+    mockRequire('simport', {createSimport});
     
     const cli = reRequire('.');
     await runCli({
@@ -471,7 +483,10 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
     const rullerError = Error('should call rullerProcessor with await');
     const rullerProcessor = stub().rejects(rullerError);
     
-    mockRequire('./ruler-processor', rullerProcessor);
+    const simport = stub().returns(rullerProcessor);
+    const createSimport = stub().returns(simport);
+    
+    mockRequire('simport', {createSimport});
     const cli = reRequire('.');
     
     const [error] = await tryToCatch(runCli, {

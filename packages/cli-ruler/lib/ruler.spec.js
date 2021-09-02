@@ -1,12 +1,10 @@
-'use strict';
-
-const test = require('supertape');
-const {
+import test from 'supertape';
+import {
     enable,
     enableAll,
     disable,
     disableAll,
-} = require('./ruler');
+} from './ruler.js';
 
 test('putout: cli: ruler: enable', (t) => {
     const config = enable({}, 'remove-unused-variables');
