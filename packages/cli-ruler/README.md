@@ -24,6 +24,7 @@ import {
     readFile,
     writeFile,
 } from 'fs/promises';
+
 import ruler from '@putout/cli-ruler';
 
 const places = [{
@@ -62,10 +63,10 @@ import {
     readFile,
     writeFile,
 } from 'fs/promises';
+
 import ruler from '@putout/cli-ruler';
 
 const places = [];
-
 const options = {
     enable: 'remove-unused-variables',
     readFile,
