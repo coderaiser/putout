@@ -1,5 +1,3 @@
-'use strict';
-
 const getRule = (a) => a.rule;
 const initRules = (config) => {
     config.rules = config.rules || {};
@@ -16,7 +14,7 @@ const isPutoutRule = (rule) => {
     return true;
 };
 
-module.exports.disableAll = (config, places) => {
+export const disableAll = (config, places) => {
     initRules(config);
     const rules = parseRules(places);
     const existingRules = keys(config.rules);
@@ -30,9 +28,7 @@ module.exports.disableAll = (config, places) => {
     return config;
 };
 
-module.exports.enable = enable;
-
-function enable(config, rule) {
+export function enable(config, rule) {
     initRules(config);
     
     if (!isPutoutRule(rule))
@@ -43,8 +39,7 @@ function enable(config, rule) {
     return config;
 }
 
-module.exports.disable = disable;
-function disable(config, rule) {
+export function disable(config, rule) {
     initRules(config);
     
     if (!isPutoutRule(rule))
@@ -55,7 +50,7 @@ function disable(config, rule) {
     return config;
 }
 
-module.exports.enableAll = (config, places) => {
+export const enableAll = (config, places) => {
     initRules(config);
     const rules = parseRules(places);
     

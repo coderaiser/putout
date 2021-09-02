@@ -1,24 +1,18 @@
-'use strict';
+import {join} from 'path';
 
-const {join} = require('path');
-const {
-    readFile,
-    writeFile,
-} = require('fs/promises');
-
-const tryToCatch = require('try-to-catch');
+import tryToCatch from 'try-to-catch';
+import * as ruler from './ruler.js';
 
 const cwd = process.cwd();
 const {parse, stringify} = JSON;
 
-module.exports = async ({disable, disableAll, enable, enableAll}, places) => {
+export async function rulerProcessor({disable, disableAll, enable, enableAll, readFile, writeFile}, places) {
     const name = join(cwd, '.putout.json');
     const defaultData = stringify({
         rules: {},
     });
     
     const [, data = defaultData] = await tryToCatch(readFile, name, 'utf8');
-    const ruler = require('./ruler');
     const object = parse(data);
     
     let updated = object;
@@ -33,5 +27,5 @@ module.exports = async ({disable, disableAll, enable, enableAll}, places) => {
         updated = ruler.disableAll(object, places);
     
     await writeFile(name, stringify(updated, null, 4));
-};
+}
 
