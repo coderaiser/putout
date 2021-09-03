@@ -1,22 +1,23 @@
 'use strict';
 
+const montag = require('montag');
 const removeConsole = require('..');
 const test = require('@putout/test')(__dirname, {
     'remove-empty-pattern': removeConsole,
 });
 
 test('plugin-remove-empty-pattern: report: object', (t) => {
-    t.reportCode('const {} = obj', 'Empty pattern');
+    t.reportCode('const {} = obj', 'Avoid empty patterns');
     t.end();
 });
 
 test('plugin-remove-empty-pattern: report: array', (t) => {
-    t.reportCode('const [] = array', 'Empty pattern');
+    t.reportCode('const [] = array', 'Avoid empty patterns');
     t.end();
 });
 
 test('plugin-remove-empty-pattern: report: array: many elements', (t) => {
-    t.reportCode('const [,,,] = array', 'Empty pattern');
+    t.reportCode('const [,,,] = array', 'Avoid empty patterns');
     t.end();
 });
 
@@ -27,6 +28,22 @@ test('plugin-remove-empty-pattern: object', (t) => {
 
 test('plugin-remove-empty-pattern: array', (t) => {
     t.transformCode('const [] = array', '');
+    t.end();
+});
+
+test('plugin-remove-empty-pattern: let', (t) => {
+    t.transformCode(montag`
+        let [,,,] = x;
+        let {} = y;
+    `, '');
+    t.end();
+});
+
+test('plugin-remove-empty-pattern: assignment', (t) => {
+    t.transformCode(montag`
+        [,,,] = x;
+        ({} = y);
+    `, '');
     t.end();
 });
 
