@@ -10,42 +10,84 @@
 ## Install
 
 ```
-npm i @putout/plugin-remove-empty-pattern
+npm i @putout/plugin-remove-useless-pattern -D
 ```
 
 ## Rule
 
-Rule `remove-empty-pattern` is enabled by default, to disable add to `.putout.json`:
-
 ```json
 {
     "rules": {
-        "remove-empty-pattern": "off"
+        "remove-useless-pattern": "on"
     }
 }
 ```
 
-## Code Example
+## ❌ Incorrect code example
 
 ```js
-const {readFileSync} = require('fs');
-const source = readFileSync('./1.js', 'utf8');
+const [] = array;
+const {} = object;
+```
 
-const putout = require('putout');
+## ✅ Correct code Example
 
-console.log(source);
-// outputs
-`
-const {} = process;
-`;
+```js
+function hi(b) {
+}
+```
 
-const result = putout(source, {
-    plugins: [
-        'remove-empty-pattern',
-    ],
-});
-// returns
-'';
+## Remove
+
+### ❌ Incorrect code example
+
+```js
+const child_process = require('child_process');
+const {
+    exec,
+    spawn,
+} = child_process;
+```
+
+### ✅ Correct code Example
+
+```js
+const {
+    exec,
+    spawn,
+} = require('child_process');
+```
+
+### ✅ Correct code Example
+
+```js
+() => {
+    const result = transformer.transform(
+        realTransformer,
+        transformCode,
+        code,
+        parser,
+    );
+    
+    return result;
+};
+```
+
+## For-of
+
+### ❌ Incorrect code example
+
+```js
+for (const a of b) {
+    const {c} = a;
+}
+```
+
+### ✅ Correct code Example
+
+```js
+for (const {c} of b) {
+}
 ```
 
 ## License
