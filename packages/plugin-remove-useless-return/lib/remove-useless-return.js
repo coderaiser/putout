@@ -37,6 +37,12 @@ module.exports.filter = (path) => {
     if (argPath.isNewExpression())
         return false;
     
+    if (argPath.isAwaitExpression())
+        return false;
+    
+    if (argPath.isTemplateLiteral())
+        return false;
+    
     return true;
 };
 

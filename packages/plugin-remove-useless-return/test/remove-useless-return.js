@@ -34,3 +34,8 @@ test('plugin-remove-useless-return: no transform: new', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-return: no transform: str', (t) => {
+    t.noTransform('str');
+    t.end();
+});
+
