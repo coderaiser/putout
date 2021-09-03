@@ -26,7 +26,7 @@ npm i @putout/plugin-remove-useless-return
 ## ❌ Incorrect code example
 
 ```js
-module.exports.traverse = ({push}) => {
+const traverse = ({push}) => {
     return {
         ObjectExpression(path) {
         },
@@ -37,7 +37,7 @@ module.exports.traverse = ({push}) => {
 ## ✅ Correct code Example
 
 ```js
-module.exports.traverse = ({push}) => ({
+const traverse = ({push}) => ({
     ObjectExpression(path) {
     },
 });

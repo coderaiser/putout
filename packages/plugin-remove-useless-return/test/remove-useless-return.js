@@ -14,3 +14,13 @@ test('plugin-remove-useless-return: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-return: transform: export', (t) => {
+    t.transform('export');
+    t.end();
+});
+
+test('plugin-remove-useless-return: transform: declaration', (t) => {
+    t.transform('declaration');
+    t.end();
+});
+
