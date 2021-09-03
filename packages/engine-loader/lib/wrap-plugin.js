@@ -31,35 +31,34 @@ module.exports = (name, namespace) => {
     return null;
 };
 
-const getPlugin = ({name, transform, message}) => {
-    return {
-        report: () => message,
-        fix: () => {},
-        find(ast, {push}) {
-            const oldCode = print(ast);
-            transform(ast, oldCode, name);
-            const newCode = print(ast);
+const getPlugin = ({name, transform, message}) => ({
+    report: () => message,
+    fix: () => {},
+    
+    find(ast, {push}) {
+        const oldCode = print(ast);
+        transform(ast, oldCode, name);
+        const newCode = print(ast);
+        
+        if (newCode === oldCode)
+            return;
+        
+        const positions = getPositions(oldCode, newCode);
+        for (const start of positions) {
+            const node = {
+                loc: {
+                    start,
+                },
+            };
             
-            if (newCode === oldCode)
-                return;
+            const path = {
+                node,
+            };
             
-            const positions = getPositions(oldCode, newCode);
-            for (const start of positions) {
-                const node = {
-                    loc: {
-                        start,
-                    },
-                };
-                
-                const path = {
-                    node,
-                };
-                
-                push(path);
-            }
-        },
-    };
-};
+            push(path);
+        }
+    },
+});
 
 function getBabelPluginName(name) {
     const namespaced = getModulePath(`@babel/plugin-${name}`);

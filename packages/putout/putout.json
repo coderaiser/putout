@@ -32,6 +32,7 @@
             "remove-unused-variables": "off",
             "remove-useless-escape": "off",
             "remove-useless-variables": "off",
+            "remove-useless-return": "off",
             "remove-empty": "off",
             "remove-unused-for-of-variables": "off",
             "remove-constant-conditions": "off",

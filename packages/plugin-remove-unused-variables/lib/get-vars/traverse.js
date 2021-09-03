@@ -33,38 +33,36 @@ const traverseObjectPattern = ({use, declare}) => {
 
 module.exports.traverseObjectPattern = traverseObjectPattern;
 
-const processObjectPattern = ({use, declare}) => {
-    return (propertiesPaths) => {
-        for (const path of propertiesPaths) {
-            const {value} = path.node;
+const processObjectPattern = ({use, declare}) => (propertiesPaths) => {
+    for (const path of propertiesPaths) {
+        const {value} = path.node;
+        
+        if (isIdentifier(value)) {
+            declare(path, value.name);
+            continue;
+        }
+        
+        if (isObjectPattern(value)) {
+            const process = processObjectPattern({use, declare});
+            process(path.get('value.properties'));
+            continue;
+        }
+        
+        if (isAssignmentPattern(value)) {
+            const useAssignment = traverseAssignmentPattern({
+                use,
+            });
+            useAssignment(path.get('value.right'));
             
-            if (isIdentifier(value)) {
-                declare(path, value.name);
+            const leftPath = path.get('value.left');
+            
+            switch(leftPath.type) {
+            case 'Identifier':
+                declare(path, leftPath.node.name);
                 continue;
-            }
-            
-            if (isObjectPattern(value)) {
-                const process = processObjectPattern({use, declare});
-                process(path.get('value.properties'));
-                continue;
-            }
-            
-            if (isAssignmentPattern(value)) {
-                const useAssignment = traverseAssignmentPattern({
-                    use,
-                });
-                useAssignment(path.get('value.right'));
-                
-                const leftPath = path.get('value.left');
-                
-                switch(leftPath.type) {
-                case 'Identifier':
-                    declare(path, leftPath.node.name);
-                    continue;
-                }
             }
         }
-    };
+    }
 };
 
 module.exports.processObjectPattern = processObjectPattern;
@@ -159,17 +157,15 @@ const traverseTemplateLiteral = (use) => (path, expressions) => {
 
 module.exports.traverseTemplateLiteral = traverseTemplateLiteral;
 
-const traverseAssignmentPattern = ({use}) => {
-    return (path) => {
-        const {node} = path;
-        const {right} = node;
-        
-        if (isIdentifier(node))
-            use(path.parentPath, node.name);
-        
-        if (isIdentifier(right))
-            use(path, right.name);
-    };
+const traverseAssignmentPattern = ({use}) => (path) => {
+    const {node} = path;
+    const {right} = node;
+    
+    if (isIdentifier(node))
+        use(path.parentPath, node.name);
+    
+    if (isIdentifier(right))
+        use(path, right.name);
 };
 
 module.exports.traverseAssignmentPattern = traverseAssignmentPattern;

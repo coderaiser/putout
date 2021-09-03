@@ -5,9 +5,7 @@ const {isFunction} = types;
 
 module.exports.report = () => `"process.exit" should be used instead of top-level return`;
 
-module.exports.filter = (path) => {
-    return !path.findParent(isFunction);
-};
+module.exports.filter = (path) => !path.findParent(isFunction);
 
 module.exports.replace = () => ({
     'return __a()': '{__a(); process.exit()}',

@@ -8,12 +8,10 @@ const {isVariableDeclarator} = types;
 module.exports.category = 'destructuring';
 module.exports.report = () => 'Keep each property on separate line';
 
-module.exports.include = () => {
-    return [
-        `VariableDeclarator[init.type="ObjectExpression"]`,
-        `AssignmentExpression[right.type="ObjectExpression"]`,
-    ];
-};
+module.exports.include = () => [
+    `VariableDeclarator[init.type="ObjectExpression"]`,
+    `AssignmentExpression[right.type="ObjectExpression"]`,
+];
 
 module.exports.filter = ({node}) => {
     const {

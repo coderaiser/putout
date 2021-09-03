@@ -11,13 +11,11 @@ test('putout: runner: traverse: exclude', (t) => {
         exclude: () => [
             'const __a = __identifier',
         ],
-        traverse: ({push}) => {
-            return {
-                'const __identifier = __b'(path) {
-                    push(path);
-                },
-            };
-        },
+        traverse: ({push}) => ({
+            'const __identifier = __b'(path) {
+                push(path);
+            },
+        }),
         fix: (path) => {
             path.remove();
         },

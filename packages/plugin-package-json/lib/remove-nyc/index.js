@@ -6,12 +6,9 @@ const isNYC = (a) => a.value === 'nyc';
 module.exports.report = () => 'Remove nyc section of package.json, use file .nycrc.json intead';
 
 module.exports.match = () => ({
-    '__putout_processor_json(__a)': ({__a}) => {
-        return __a.properties
-            .map(getKey)
-            .filter(isNYC)
-            .length;
-    },
+    '__putout_processor_json(__a)': ({__a}) => __a.properties
+        .map(getKey)
+        .filter(isNYC).length,
 });
 
 module.exports.replace = () => ({

@@ -60,9 +60,7 @@ test('putout: runner: filter: options', (t) => {
         include: () => [
             'debugger',
         ],
-        filter: (path, {options}) => {
-            return options.ok;
-        },
+        filter: (path, {options}) => options.ok,
     };
     
     const code = 'debugger';
@@ -99,9 +97,7 @@ test('putout: runner: filter: options: no filter call', (t) => {
         include: () => [
             'debugger',
         ],
-        filter: (path, {options}) => {
-            return options.ok;
-        },
+        filter: (path, {options}) => options.ok,
     };
     
     const code = 'debugger';
@@ -636,14 +632,12 @@ test('putout: runner: parser: no loc', (t) => {
     const rmLoc = {
         report: () => '',
         fix: () => {},
-        traverse: ({push}) => {
-            return {
-                Program(path) {
-                    path.node.loc = null;
-                    push(path);
-                },
-            };
-        },
+        traverse: ({push}) => ({
+            Program(path) {
+                path.node.loc = null;
+                push(path);
+            },
+        }),
     };
     
     const {places} = putout('', {

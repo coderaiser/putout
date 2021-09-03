@@ -9,14 +9,10 @@ module.exports.files = [
     '*.tsx',
 ];
 
-module.exports.branch = (source) => {
-    return [{
-        source,
-        startLine: 0,
-    }];
-};
+module.exports.branch = (source) => [{
+    source,
+    startLine: 0,
+}];
 
-module.exports.merge = (source, list) => {
-    return list[0];
-};
+module.exports.merge = (source, list) => list[0];
 

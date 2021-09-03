@@ -147,7 +147,7 @@
     "@putout/plugin-remove-useless-mapped-types": "^1.0.0",
     "@putout/plugin-remove-useless-mapping-modifiers": "^1.0.0",
     "@putout/plugin-remove-useless-operand": "^1.0.0",
-    "@putout/plugin-remove-useless-return": "^2.0.0",
+    "@putout/plugin-remove-useless-return": "^3.0.0",
     "@putout/plugin-remove-useless-spread": "^5.0.0",
     "@putout/plugin-remove-useless-template-expressions": "^1.0.0",
     "@putout/plugin-remove-useless-type-conversion": "^1.0.0",

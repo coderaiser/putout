@@ -131,9 +131,7 @@ test('putout: runner: replace: return __object', (t) => {
     const convert = {
         report: () => '',
         replace: () => ({
-            __object: ({__object}) => {
-                return __object;
-            },
+            __object: ({__object}) => __object,
         }),
     };
     
@@ -156,9 +154,7 @@ test('putout: runner: replace: remove', (t) => {
     const rm = {
         report: () => '',
         replace: () => ({
-            'for (__a of __array) __c': () => {
-                return '';
-            },
+            'for (__a of __array) __c': () => '',
         }),
     };
     
@@ -179,9 +175,7 @@ test('putout: runner: replace: remove: comments', (t) => {
     const rm = {
         report: () => '',
         replace: () => ({
-            'for (__a of __array) __c': () => {
-                return '';
-            },
+            'for (__a of __array) __c': () => '',
         }),
     };
     
@@ -257,9 +251,7 @@ test('putout: runner: replace: match: options', (t) => {
     const rm = {
         report: () => '',
         match: ({options}) => ({
-            'process.exit()': () => {
-                return options.is;
-            },
+            'process.exit()': () => options.is,
         }),
         replace: ({options}) => ({
             'process.exit()': options.code,

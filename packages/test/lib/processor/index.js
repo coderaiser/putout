@@ -12,13 +12,11 @@ const processFile = require('putout/process-file');
 const {runProcessors} = require('@putout/engine-processor');
 
 const isStr = (a) => typeof a === 'string';
-const buildOptions = ({options, plugins, processors}) => {
-    return {
-        ...options,
-        plugins: plugins || options.plugins,
-        processors: processors || options.processors,
-    };
-};
+const buildOptions = ({options, plugins, processors}) => ({
+    ...options,
+    plugins: plugins || options.plugins,
+    processors: processors || options.processors,
+});
 
 const addDot = (a) => a ? `.${a}` : '';
 module.exports._addDot = addDot;

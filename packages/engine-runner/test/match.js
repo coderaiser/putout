@@ -38,9 +38,7 @@ test('putout: runner: match: avoid move top while compare', (t) => {
             'const __a = require(__b)': (vars, path) => {
                 types.push(path.type);
             },
-            'require(__a)': () => {
-                return false;
-            },
+            'require(__a)': () => false,
         }),
         replace: () => ({
             'const __a = require(__b)': '',

@@ -5,11 +5,9 @@ const {isObjectExpression} = require('putout').types;
 module.exports.category = 'destructuring';
 module.exports.report = () => 'Keep braces on the same line with brackets';
 
-module.exports.include = () => {
-    return [
-        'ArrayExpression',
-    ];
-};
+module.exports.include = () => [
+    'ArrayExpression',
+];
 
 const badStart = /^\[\n(\s+)?{/;
 const badEndReg = /},?\n(\s+)?]/;

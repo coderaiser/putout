@@ -17,9 +17,7 @@ const {
 module.exports.report = () => '"stub" should be declared';
 
 module.exports.match = () => ({
-    'stub()': (vars, path) => {
-        return !path.scope.hasBinding('stub');
-    },
+    'stub()': (vars, path) => !path.scope.hasBinding('stub'),
 });
 
 module.exports.replace = () => ({

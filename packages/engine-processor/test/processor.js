@@ -558,15 +558,11 @@ test('putout: engine-processor: lint + js', async (t) => {
     const processorRunners = [{
         isMatch: stub().returns(true),
         fix: () => 'hello',
-        branch: () => {
-            return [{
-                source: 'var a',
-                startLine: 0,
-            }];
-        },
-        merge: (content) => {
-            return content;
-        },
+        branch: () => [{
+            source: 'var a',
+            startLine: 0,
+        }],
+        merge: (content) => content,
     }];
     
     const rawSource = 'hello world';
@@ -593,15 +589,11 @@ test('putout: engine-processor: no fix', async (t) => {
     
     const processorRunners = [{
         isMatch: stub().returns(true),
-        branch: () => {
-            return [{
-                source: 'var a',
-                startLine: 0,
-            }];
-        },
-        merge: (content) => {
-            return content;
-        },
+        branch: () => [{
+            source: 'var a',
+            startLine: 0,
+        }],
+        merge: (content) => content,
     }];
     
     const rawSource = 'hello world';
