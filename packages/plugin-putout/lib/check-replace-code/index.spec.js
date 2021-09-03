@@ -29,6 +29,11 @@ test('plugin-putout: check-replace-code: no report: fn', (t) => {
     t.end();
 });
 
+test('plugin-putout: check-replace-code: no report: array-argument', (t) => {
+    t.noReport('array-argument');
+    t.end();
+});
+
 test('plugin-putout: check-replace-code: no report: member', (t) => {
     t.noReport('member');
     t.end();

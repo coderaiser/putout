@@ -32,9 +32,10 @@ module.exports = (rootPath, key) => {
                     
                     if (name === '__array') {
                         if (path.parentPath.isVariableDeclarator())
-                            replaceWith(path, ArrayPattern([]));
+                            return replaceWith(path, ArrayPattern([]));
                         
-                        return;
+                        if (path.parentPath.isFunction())
+                            return replaceWith(path, ArrayPattern([]));
                     }
                     
                     if (name === '__object') {
