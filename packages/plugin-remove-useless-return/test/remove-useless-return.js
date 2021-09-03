@@ -29,3 +29,8 @@ test('plugin-remove-useless-return: no transform: fn-call', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-return: no transform: new', (t) => {
+    t.noTransform('new');
+    t.end();
+});
+

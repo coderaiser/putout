@@ -31,6 +31,12 @@ module.exports.filter = (path) => {
     
     const argPath = first.get('argument');
     
-    return !argPath.isCallExpression();
+    if (argPath.isCallExpression())
+        return false;
+    
+    if (argPath.isNewExpression())
+        return false;
+    
+    return true;
 };
 
