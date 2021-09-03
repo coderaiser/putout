@@ -1,4 +1,1 @@
-const find = ({push}) => (({
-    ObjectExpression: (path) => {
-    }
-}));
+const find = ({push}) => [];

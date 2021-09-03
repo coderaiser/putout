@@ -24,3 +24,8 @@ test('plugin-remove-useless-return: transform: declaration', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-return: no transform: fn-call', (t) => {
+    t.noTransform('fn-call');
+    t.end();
+});
+

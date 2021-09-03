@@ -26,6 +26,11 @@ module.exports.filter = (path) => {
     if (!first)
         return false;
     
-    return first.isReturnStatement();
+    if (!first.isReturnStatement())
+        return false;
+    
+    const argPath = first.get('argument');
+    
+    return !argPath.isCallExpression();
 };
 
