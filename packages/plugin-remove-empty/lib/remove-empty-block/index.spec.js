@@ -49,7 +49,7 @@ test('plugin-remove-empty: block: empty if: not binary expression', (t) => {
     t.end();
 });
 
-test('plugin-remove-empty: block: else', (t) => {
+test('plugin-remove-empty: block: else-comment', (t) => {
     t.noTransform('else-comment');
     t.end();
 });

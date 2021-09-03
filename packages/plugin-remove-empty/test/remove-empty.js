@@ -5,13 +5,13 @@ const test = require('@putout/test')(__dirname, {
     'remove-empty': removeEmpty,
 });
 
-test('plugin-remove-empty: report: block', (t) => {
+test('plugin-remove-empty: complex: report: block', (t) => {
     t.report('not-function', 'Empty block statement');
     t.end();
 });
 
 test('plugin-remove-empty: report: block', (t) => {
-    t.report('pattern', 'Empty pattern');
+    t.report('pattern', 'Avoid empty patterns');
     t.end();
 });
 

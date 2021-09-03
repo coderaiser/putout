@@ -23,7 +23,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/plugin-remove-empty-pattern": "^3.0.1"
+    "@putout/plugin-remove-empty-pattern": "^4.0.0"
   },
   "keywords": [
     "putout",
