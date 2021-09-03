@@ -34,6 +34,11 @@ test('plugin-putout: check-replace-code: no report: array-argument', (t) => {
     t.end();
 });
 
+test('plugin-putout: check-replace-code: no report: array-assignment', (t) => {
+    t.noReport('array-assignment');
+    t.end();
+});
+
 test('plugin-putout: check-replace-code: no report: member', (t) => {
     t.noReport('member');
     t.end();

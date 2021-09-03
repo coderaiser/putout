@@ -36,6 +36,9 @@ module.exports = (rootPath, key) => {
                         
                         if (path.parentPath.isFunction())
                             return replaceWith(path, ArrayPattern([]));
+                        
+                        if (path.parentPath.isAssignmentExpression())
+                            return replaceWith(path, ArrayPattern([]));
                     }
                     
                     if (name === '__object') {
