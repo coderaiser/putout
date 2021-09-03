@@ -12,6 +12,7 @@ module.exports = [{
         'eol-last': 'off',
         'no-multi-spaces': 'off',
         'putout/objects-braces-inside-array': 'off',
+        'putout/array-element-newline': 'off',
     },
 }, {
     files: 'package.json',
@@ -22,6 +23,7 @@ module.exports = [{
     files: '*ignore{json}',
     rules: {
         'comma-dangle': 'off',
+        'putout/array-element-newline': 'off',
     },
 }, {
     files: '*.yml{json}',
