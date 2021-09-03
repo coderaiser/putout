@@ -10,7 +10,6 @@ feature:
 - (package) @putout/plugin-remove-useless-return v3.0.0
 - (@putout/plugin-remove-useless-return) drop support of putout < 19
 - (@putout/plugin-remove-useless-return) add support of const declaration
-- (@putout/cli-ruler) move out from putout
 
 
 2021.09.02, v19.4.0
