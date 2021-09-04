@@ -82,3 +82,10 @@ test('compare: is: isTemplate: big char is first', (t) => {
     t.end();
 });
 
+test('compare: is: isTemplate: "."', (t) => {
+    const result = isTemplate('Readable.from`hello`');
+    
+    t.ok(result);
+    t.end();
+});
+

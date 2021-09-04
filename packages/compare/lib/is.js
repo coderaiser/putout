@@ -40,7 +40,7 @@ const ALL = [
     LINKED_ID,
 ];
 
-module.exports.isTemplate = (a) => /[(;={\s]/.test(a) || !/^[A-Z]/.test(a);
+module.exports.isTemplate = (a) => /[(;={.\s]/.test(a) || !/^[A-Z]/.test(a);
 
 module.exports.is = (str, array = ALL) => {
     for (const item of array) {
