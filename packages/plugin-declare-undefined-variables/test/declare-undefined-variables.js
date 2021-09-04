@@ -5,12 +5,12 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('putout: plugin: declare-undefined-variables: report: assign', (t) => {
-    t.report('assign', `'assign' should be declared`);
+    t.report('assign', `Declare 'assign'`);
     t.end();
 });
 
 test('putout: plugin: declare-undefined-variables: report: readable', (t) => {
-    t.report('readable', `'Readable' should be declared`);
+    t.report('readable', `Declare 'Readable'`);
     t.end();
 });
 
@@ -46,6 +46,11 @@ test('putout: plugin: declare-undefined-variables: transform: read-file', (t) =>
 
 test('putout: plugin: declare-undefined-variables: transform: mock-import', (t) => {
     t.transform('mock-import');
+    t.end();
+});
+
+test('putout: plugin: declare-undefined-variables: report: montag', (t) => {
+    t.report('montag', `Declare 'montag'`);
     t.end();
 });
 

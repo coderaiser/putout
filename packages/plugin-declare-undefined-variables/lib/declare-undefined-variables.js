@@ -14,10 +14,10 @@ const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
 const cutName = (a) => a.split('.').shift();
 
 module.exports.report = (path) => {
-    const name = path.get('callee').toString();
+    const name = getName(path);
     const cutedName = cutName(name);
     
-    return `'${cutedName}' should be declared`;
+    return `Declare '${cutedName}'`;
 };
 
 module.exports.match = ({options}) => {
@@ -102,5 +102,12 @@ function isUseStrict(path) {
     return expressionPath.isStringLiteral({
         value: 'use strict',
     });
+}
+
+function getName(path) {
+    if (path.isTaggedTemplateExpression())
+        return path.node.tag.name;
+    
+    return path.get('callee').toString();
 }
 
