@@ -47,7 +47,9 @@ module.exports = async ({cache, fresh}) => {
         canUseCache: canUseCache(fileCache),
     });
     
-    if (await isChanged(fileCache))
+    const {findUp} = await import('find-up');
+    
+    if (await isChanged(fileCache, {findUp}))
         await tryToCatch(unlink, name);
     
     return fileCache;

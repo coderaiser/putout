@@ -1,9 +1,8 @@
 'use strict';
 
 const {test, stub} = require('supertape');
-const mockRequire = require('mock-require');
 
-const {stopAll, reRequire} = mockRequire;
+const {stopAll, reRequire} = require('mock-require');
 
 test('putout: cli: cache files: is changed: isNodeModulesChanged: cannot find', async (t) => {
     const fileCache = {
@@ -12,10 +11,10 @@ test('putout: cli: cache files: is changed: isNodeModulesChanged: cannot find', 
         reconcile: stub(),
     };
     
-    mockRequire('find-up', stub());
+    const findUp = stub();
     
     const {isNodeModulesChanged} = reRequire('./is-changed');
-    const result = await isNodeModulesChanged(fileCache);
+    const result = await isNodeModulesChanged(fileCache, {findUp});
     
     stopAll();
     
@@ -30,10 +29,10 @@ test('putout: cli: cache files: is changed: isNodeModulesChanged', async (t) => 
         reconcile: stub(),
     };
     
-    mockRequire('find-up', stub().returns('xx'));
+    const findUp = stub().returns('xx');
     
     const {isNodeModulesChanged} = reRequire('./is-changed');
-    const result = await isNodeModulesChanged(fileCache);
+    const result = await isNodeModulesChanged(fileCache, {findUp});
     
     stopAll();
     
@@ -48,10 +47,10 @@ test('putout: cli: cache files: is changed: isEslintChanged: cannot find', async
         reconcile: stub(),
     };
     
-    mockRequire('find-up', stub());
+    const findUp = stub();
     
     const {isEslintChanged} = reRequire('./is-changed');
-    const result = await isEslintChanged(fileCache);
+    const result = await isEslintChanged(fileCache, {findUp});
     
     stopAll();
     
@@ -66,10 +65,10 @@ test('putout: cli: cache files: is changed: isEslintChanged', async (t) => {
         reconcile: stub(),
     };
     
-    mockRequire('find-up', stub().returns('xxx'));
+    const findUp = stub().returns('xxx');
     
     const {isEslintChanged} = reRequire('./is-changed');
-    const result = await isEslintChanged(fileCache);
+    const result = await isEslintChanged(fileCache, {findUp});
     
     stopAll();
     
@@ -84,10 +83,10 @@ test('putout: cli: cache files: is changed', async (t) => {
         reconcile: stub(),
     };
     
-    mockRequire('find-up', stub());
+    const findUp = stub();
     
     const isChanged = reRequire('./is-changed');
-    const result = await isChanged(fileCache);
+    const result = await isChanged(fileCache, {findUp});
     
     stopAll();
     

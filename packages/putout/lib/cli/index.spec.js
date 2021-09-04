@@ -314,7 +314,59 @@ test('putout: cli: --fix --staged: set', async (t) => {
     
     stopAll();
     
-    t.ok(set.calledWith());
+    const {findUp} = await import('find-up');
+    
+    t.calledWith(set, [{findUp}]);
+    t.end();
+});
+
+test('putout: cli: --fix --staged: get', async (t) => {
+    const name = './xxx.js';
+    const logError = stub();
+    const get = stub().returns([
+        name,
+    ]);
+    const set = stub().returns([
+        'hello.txt',
+    ]);
+    
+    const argv = [
+        '--staged',
+        '--fix',
+    ];
+    
+    const getFiles = stub().returns([null, [
+        name,
+    ]]);
+    
+    const process = stub().returns({
+        places: [],
+        code: '',
+    });
+    
+    const processFile = stub().returns(process);
+    
+    mockRequire('./get-files', getFiles);
+    mockRequire('./process-file', processFile);
+    
+    mockRequire('./staged', {
+        get,
+        set,
+    });
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        logError,
+    });
+    
+    stopAll();
+    
+    const {findUp} = await import('find-up');
+    
+    t.calledWith(get, [{findUp}]);
     t.end();
 });
 

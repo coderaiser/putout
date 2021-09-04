@@ -238,7 +238,8 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     if (staged) {
         const {get} = require('./staged');
-        const names = await get();
+        const {findUp} = await import('find-up');
+        const names = await get({findUp});
         
         stagedNames.push(...names);
     }
@@ -401,7 +402,8 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     if (fix && staged) {
         const {set} = require('./staged');
-        const stagedNames = await set();
+        const {findUp} = await import('find-up');
+        const stagedNames = await set({findUp});
         
         if (!stagedNames.length)
             return exit(STAGE);

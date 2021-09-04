@@ -4,7 +4,6 @@ const {join} = require('path');
 const fs = require('fs');
 
 const git = require('isomorphic-git');
-const findUp = require('find-up');
 const once = require('once');
 const fullstore = require('fullstore');
 
@@ -22,7 +21,7 @@ const isStagedStr = (statuses) => (name) => /^\*?(added|modified)$/.test(statuse
 
 const {fromEntries} = Object;
 
-const findGit = once(async () => {
+const findGit = once(async ({findUp}) => {
     const type = 'directory';
     
     const gitDir = await findUp('.git', {
@@ -39,8 +38,8 @@ const isModified = (a) => a[MODIFIED_INDEX] === MODIFIED;
 const head = ([a]) => a;
 const joinDir = (a) => (b) => join(a, b);
 
-module.exports.get = async function get() {
-    const dir = await findGit();
+module.exports.get = async function get({findUp}) {
+    const dir = await findGit({findUp});
     
     if (!dir)
         return [];
@@ -71,8 +70,8 @@ async function getStatus(dir, filepath) {
     return [filepath, status];
 }
 
-module.exports.set = async function add() {
-    const dir = await findGit();
+module.exports.set = async function set({findUp}) {
+    const dir = await findGit({findUp});
     
     if (!dir)
         return;

@@ -179,7 +179,7 @@
     "fast-glob": "^3.2.2",
     "file-entry-cache": "^6.0.0",
     "find-cache-dir": "^3.3.1",
-    "find-up": "^5.0.0",
+    "find-up": "^6.0.0",
     "fullstore": "^3.0.0",
     "ignore": "^5.0.4",
     "imurmurhash": "^0.1.4",

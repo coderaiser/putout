@@ -1,12 +1,11 @@
 'use strict';
 
 const {dirname, join} = require('path');
-const findUp = require('find-up');
 
-module.exports = async (fileCache) => {
+module.exports = async (fileCache, {findUp}) => {
     const result = await Promise.all([
-        isNodeModulesChanged(fileCache),
-        isEslintChanged(fileCache),
+        isNodeModulesChanged(fileCache, {findUp}),
+        isEslintChanged(fileCache, {findUp}),
     ]);
     
     const trueCount = result.filter(Boolean).length;
@@ -18,7 +17,7 @@ module.exports = async (fileCache) => {
 module.exports.isNodeModulesChanged = isNodeModulesChanged;
 module.exports.isEslintChanged = isEslintChanged;
 
-async function isNodeModulesChanged(fileCache) {
+async function isNodeModulesChanged(fileCache, {findUp}) {
     const packagePath = await findUp('package.json');
     
     if (!packagePath)
@@ -30,7 +29,7 @@ async function isNodeModulesChanged(fileCache) {
 }
 
 // https://eslint.org/docs/user-guide/configuring#configuration-file-formats
-async function isEslintChanged(fileCache) {
+async function isEslintChanged(fileCache, {findUp}) {
     const name = await findUp([
         '.eslintrc.json',
         '.eslintrc.js',

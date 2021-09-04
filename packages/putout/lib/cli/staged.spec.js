@@ -13,10 +13,8 @@ const {reRequire, stopAll} = mockRequire;
 test('putout: cli: staged', async (t) => {
     const findUp = stub().returns('');
     
-    mockRequire('find-up', findUp);
-    
     const {get} = reRequire('./staged');
-    await get();
+    await get({findUp});
     
     stopAll();
     
@@ -31,13 +29,12 @@ test('putout: cli: staged: get: statusMatrix: empty', async (t) => {
     const statusMatrix = stub().returns([
     ]);
     
-    mockRequire('find-up', findUp);
     mockRequire('isomorphic-git', {
         statusMatrix,
     });
     
     const {get} = reRequire('./staged');
-    await get();
+    await get({findUp});
     
     stopAll();
     
@@ -58,13 +55,12 @@ test('putout: cli: staged: get: statusMatrix', async (t) => {
         [ 'packages/putout/lib/cli/staged.js', 1, 2, 3 ],
     ]);
     
-    mockRequire('find-up', findUp);
     mockRequire('isomorphic-git', {
         statusMatrix,
     });
     
     const {get} = reRequire('./staged');
-    await get();
+    await get({findUp});
     
     stopAll();
     
@@ -85,14 +81,12 @@ test('putout: cli: staged: get: statusMatrix: result', async (t) => {
         [ 'packages/putout/lib/cli/index.js', 1, 2, 2 ],
     ]);
     
-    mockRequire('find-up', findUp);
     mockRequire('isomorphic-git', {
         statusMatrix,
     });
     
     const {get} = reRequire('./staged');
-    
-    const names = await get();
+    const names = await get({findUp});
     stopAll();
     
     const expected = [
@@ -110,14 +104,12 @@ test('putout: cli: staged: set: findUp', async (t) => {
         [ 'packages/putout/lib/cli/index.js', 1, 2, 2 ],
     ]);
     
-    mockRequire('find-up', findUp);
     mockRequire('isomorphic-git', {
         statusMatrix,
     });
     
     const {set} = reRequire('./staged');
-    
-    await set();
+    await set({findUp});
     
     stopAll();
     
@@ -134,14 +126,12 @@ test('putout: cli: staged: set: findUp: not found', async (t) => {
         [ 'packages/putout/lib/cli/index.js', 1, 2, 2 ],
     ]);
     
-    mockRequire('find-up', findUp);
     mockRequire('isomorphic-git', {
         statusMatrix,
     });
     
     const {set} = reRequire('./staged');
-    
-    await set();
+    await set({findUp});
     
     stopAll();
     
@@ -162,7 +152,6 @@ test('putout: cli: staged: add', async (t) => {
     const status = stub().returns('modified');
     
     mockRequire('fs', {});
-    mockRequire('find-up', findUp);
     mockRequire('isomorphic-git', {
         add,
         status,
@@ -171,8 +160,8 @@ test('putout: cli: staged: add', async (t) => {
     
     const {get, set} = reRequire('./staged');
     
-    await get();
-    await set();
+    await get({findUp});
+    await set({findUp});
     
     stopAll();
     
