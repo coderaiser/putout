@@ -41,7 +41,8 @@ You can `dismiss` variables you don't want to define.
                 "tryCatch",
                 "tryToCatch",
                 "readFile",
-                "mockImport"
+                "mockImport",
+                "montag"
             ]
         }]
     }

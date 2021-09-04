@@ -8,7 +8,6 @@ const {
 } = require('./record');
 
 const {isImportDeclaration} = types;
-
 const {entries} = Object;
 
 const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
@@ -30,6 +29,7 @@ module.exports.match = ({options}) => {
             continue;
         
         traverseObject[`${name}(__args)`] = isUndefined(name);
+        traverseObject[`${name}\`__a\``] = isUndefined(name);
     }
     
     return traverseObject;
@@ -44,6 +44,7 @@ module.exports.replace = ({options}) => {
             continue;
         
         traverseObject[`${name}(__args)`] = declare(name, node);
+        traverseObject[`${name}\`__a\``] = declare(name, node);
     }
     
     return traverseObject;

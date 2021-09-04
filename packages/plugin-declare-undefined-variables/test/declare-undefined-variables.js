@@ -49,6 +49,11 @@ test('putout: plugin: declare-undefined-variables: transform: mock-import', (t) 
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: transform: montag', (t) => {
+    t.transform('montag');
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: transform: assign: dismiss', (t) => {
     t.noTransformWithOptions('assign', {
         dismiss: ['assign', 'stringify'],
