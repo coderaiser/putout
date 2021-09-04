@@ -42,7 +42,7 @@ async function world() {
 }
 ```
 
-## ✅ Correct
+### ✅ Correct
 
 ```js
 async function hello() {
@@ -63,7 +63,7 @@ async function hello() {
 }
 ```
 
-## ✅ Correct
+### ✅ Correct
 
 ```js
 async function hello() {
@@ -81,7 +81,7 @@ async function hello() {
 }
 ```
 
-## ✅ Correct
+### ✅ Correct
 
 ```js
 function hello() {
@@ -97,7 +97,7 @@ function hello() {
 await await Promise.resolve();
 ```
 
-## ✅ Correct
+### ✅ Correct
 
 ```js
 await await Promise.resolve();
@@ -113,7 +113,7 @@ async function hello() {
 }
 ```
 
-## ✅ Correct
+### ✅ Correct
 
 ```js
 async function hello() {
@@ -132,7 +132,7 @@ async function runCli() {
 }
 ```
 
-## ✅ Correct
+### ✅ Correct
 
 ```js
 await runCli();
@@ -153,7 +153,7 @@ function get() {
 }
 ```
 
-## ✅ Correct
+### ✅ Correct
 
 ```js
 async function get() {
@@ -173,7 +173,7 @@ import {readFile} from 'fs/promises';
 })();
 ```
 
-## ✅ Correct
+### ✅ Correct
 
 ```js
 import {readFile} from 'fs/promises';
