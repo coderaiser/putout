@@ -686,7 +686,7 @@ interface Hello {
 ```diff
 type n = number;
 -type s = string;
-+const x: n = 5;
+const x: n = 5;
 ```
 
 </details>
