@@ -6,7 +6,7 @@ import * as ruler from './ruler.js';
 const cwd = process.cwd();
 const {parse, stringify} = JSON;
 
-export async function rulerProcessor({disable, disableAll, enable, enableAll, readFile, writeFile}, places) {
+export default async function rulerProcessor({disable, disableAll, enable, enableAll, readFile, writeFile}, places) {
     const name = join(cwd, '.putout.json');
     const defaultData = stringify({
         rules: {},

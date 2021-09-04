@@ -3,7 +3,7 @@ import {
     stub,
 } from 'supertape';
 
-import {rulerProcessor} from './index.js';
+import rulerProcessor from './index.js';
 
 const {stringify} = JSON;
 const reject = Promise.reject.bind(Promise);
