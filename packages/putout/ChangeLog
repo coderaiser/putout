@@ -1,3 +1,21 @@
+2021.09.04, v19.6.0
+
+feature:
+- (package) @putout/plugin-declare-undefined-variables v2.0.0
+- (@putout/plugin-declare-undefined-variables) drop support of putout < 19
+- (@putout/plugin-declare-undefined-variables) report: change
+- (@putout/plugin-declare-undefined-variables) add support of montag
+- (@putout/compare) isTemplate: add support of "."
+- (package) @putout/plugin-remove-empty v6.0.0
+- (@putout/plugin-remove-empty) drop suppot of putout < 19
+- (package) @putout/plugin-remove-empty-pattern v4.0.0
+- (@putout/plugin-remove-empty-pattern) drop support of node < 14
+- (@putout/plugin-remove-empty-pattern) add support of let declaration and assignment
+- (@putout/plugin-putout) check-replace-code: generate code: __array: add support of AssignmentPattern
+- (@putout/plugin-remove-empty-pattern) add support of ArrayPattern full of empty elements
+- (@putout/plugin-putout) check-replace-code: add support of ArrayPattern used as function argument
+
+
 2021.09.03, v19.5.0
 
 fix:
