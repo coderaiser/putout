@@ -74,9 +74,9 @@ test('putout: runner: replace: recursive overflow', (t) => {
         }),
     };
     
-    const source = [
-        'test()',
-    ].join('\n');
+    const source = montag`
+        test()
+    `;
     
     const {code} = putout(source, {
         runPlugins,
@@ -85,9 +85,9 @@ test('putout: runner: replace: recursive overflow', (t) => {
         ],
     });
     
-    const expected = [
-        'test.only()',
-    ].join('\n');
+    const expected = montag`
+        test.only()
+    `;
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

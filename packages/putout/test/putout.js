@@ -1,5 +1,7 @@
 'use strict';
 
+const montag = require('montag');
+
 const test = require('supertape');
 const tryCatch = require('try-catch');
 const stub = require('@cloudcmd/stub');
@@ -307,10 +309,10 @@ test('putout: traverse: shebang', (t) => {
         ],
     };
     
-    const code = [
-        '#!/usr/bin/env node',
-        'debugger;',
-    ].join('\n');
+    const code = montag`
+        #!/usr/bin/env node
+        debugger;
+    `;
     
     const {places} = putout(code, {
         plugins: [{
