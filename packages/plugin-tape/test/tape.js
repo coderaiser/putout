@@ -73,3 +73,8 @@ test('plugin-test: transform: tape: convert-match-regexp-to-string', (t) => {
     t.transform('convert-match-regexp-to-string');
     t.end();
 });
+
+test('plugin-test: transform: tape: convert-ok-to-called-with', (t) => {
+    t.transform('convert-ok-to-called-with');
+    t.end();
+});

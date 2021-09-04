@@ -27,6 +27,7 @@ npm i @putout/plugin-tape -D
         "tape/apply-stub-operator": "on",
         "tape/convert-emitter-to-promise": "on",
         "tape/convert-ok-to-match": "on",
+        "tape/convert-ok-to-called-with": "on",
         "tape/convert-match-regexp-to-string": "on"
     }
 }
@@ -265,6 +266,20 @@ t.ok(result.includes('hello'));
 
 ```js
 t.match(result, /hello/);
+```
+
+## convert-ok-to-match
+
+### ❌ Incorrect code example
+
+```js
+t.ok(set.calledWith(1, 2));
+```
+
+### ✅ Correct code Example
+
+```js
+t.calledWith(set, [1, 2]);
 ```
 
 ## convert-equal-to-not-ok
