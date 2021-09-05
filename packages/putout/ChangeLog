@@ -1,3 +1,11 @@
+2021.09.05, v19.7.1
+
+fix:
+- (@putout/cli-validate-args) quote -> back quote
+- (putout) cli: --disable-all + --quotes
+feature:
+- (@putout/plugin-apply-montag) improve support of newlines
+
 2021.09.04, v19.7.0
 
 fix:
