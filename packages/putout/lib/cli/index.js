@@ -204,7 +204,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     }
     
     if (fix && (enable || disable || enableAll || disableAll))
-        return exit(RULLER_WITH_FIX, Error(`'--fix' cannot be used with ruller toggler ('--enable', '--disable')`));
+        return exit(RULLER_WITH_FIX, Error('`--fix` cannot be used with ruler toggler (`--enable`, `--disable`)'));
     
     if (enable || disable) {
         const rulerProcessor = await simport('@putout/cli-ruler');

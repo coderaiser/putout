@@ -600,7 +600,7 @@ test('putout: cli: ruler processor: --enable --fix', async (t) => {
     
     stopAll();
     
-    const expected = red(`'--fix' cannot be used with ruller toggler ('--enable', '--disable')`);
+    const expected = red('`--fix` cannot be used with ruler toggler (`--enable`, `--disable`)');
     
     t.calledWith(logError, [expected]);
     t.end();
