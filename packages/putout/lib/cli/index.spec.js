@@ -1237,7 +1237,7 @@ test('putout: cli: invalid option: message', async (t) => {
     
     stopAll();
     
-    const expected = red(`Invalid option '--hello-world'. Perhaps you meant '--help'`);
+    const expected = red('Invalid option `--hello-world`. Perhaps you meant `--help`');
     
     t.calledWith(logError, [expected], 'should show message about invalid option');
     t.end();

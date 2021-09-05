@@ -18,7 +18,7 @@ module.exports = async (args, optionsList) => {
             return Error(`Invalid option '-${kebab}'`);
         
         const closest = await findClosest(kebab, optionsList);
-        return Error(`Invalid option '--${kebab}'. Perhaps you meant '--${closest}'`);
+        return Error(`Invalid option \`--${kebab}\`. Perhaps you meant \`--${closest}\``);
     }
     
     return null;

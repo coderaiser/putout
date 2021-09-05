@@ -11,7 +11,7 @@ test('putout: cli: validate args: invalid: suggest', async (t) => {
     
     const error = await validateArgs(args, ['fix']);
     
-    t.equal(error.message, `Invalid option '--fi'. Perhaps you meant '--fix'`);
+    t.equal(error.message, 'Invalid option `--fi`. Perhaps you meant `--fix`');
     t.end();
 });
 
