@@ -1,5 +1,7 @@
 'use strict';
 
+const montag = require('montag');
+
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const {createSimport} = require('simport');
@@ -65,11 +67,14 @@ test('putout: report: dump', async (t) => {
     const stripAnsi = await simport('strip-ansi');
     const result = stripAnsi(formatted);
     
-    const expected = [
-        'hello\n 1:1  error   hello  remove-hello \n',
-        '✖ 1 errors in 1 files',
-        '  fixable with the `--fix` option\n',
-    ].join('\n');
+    const expected = montag`
+        hello
+         1:1  error   hello  remove-hello 
+        
+        ✖ 1 errors in 1 files
+          fixable with the \`--fix\` option
+    
+    `;
     
     t.equal(result, expected, 'should equal');
     t.end();

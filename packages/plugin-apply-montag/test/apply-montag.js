@@ -19,6 +19,11 @@ test('plugin-apply-destructuring: transform: property', (t) => {
     t.end();
 });
 
+test('plugin-apply-destructuring: transform: newline', (t) => {
+    t.transform('newline');
+    t.end();
+});
+
 test('plugin-apply-destructuring: no transform: not-str', (t) => {
     t.noTransform('not-str');
     t.end();

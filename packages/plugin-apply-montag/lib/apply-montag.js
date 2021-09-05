@@ -13,27 +13,31 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    '__array.join("\\n")': (vars, path) => {
-        const [value, aligner] = evaluate(path);
+    '__array.join("\\n")': ({__array}, path) => {
+        const [value, aligner] = evaluate({__array}, path);
         
         return `montag\`\n${value}\n${aligner}\``;
     },
 });
 
 const createAligner = (i) => Array(i + 1).join(' ');
+const getValue = (a) => a.value;
 
-function evaluate(path) {
-    const fn = Function(`return ${path}`);
-    const str = fn();
+function evaluate({__array}, path) {
+    const str = __array.elements.map(getValue).join('\n');
+    
     const lines = str.split('\n');
     const column = getColumn(path);
     const aligned = [];
     const aligner = createAligner(column);
     for (const line of lines) {
-        aligned.push(`${aligner}${line}`);
+        aligned.push(`${aligner}${line}`.replace(/\n/g, '\\n'));
     }
     
-    return [aligned.join('\n'), createAligner(column - 4)];
+    const alignedStr = aligned.join('\n')
+        .replace(/\`/g, '\\`');
+    
+    return [alignedStr, createAligner(column - 4)];
 }
 
 function getColumn(path) {
