@@ -1,6 +1,5 @@
 'use strict';
 
-const shift = ([a]) => a;
 const parse = (rule) => {
     if (/^(babel|jscodeshift)\//.test(rule))
         return rule;
@@ -13,14 +12,24 @@ const parse = (rule) => {
 
 module.exports = ({items, rules}) => {
     const ruleItems = Object.keys(rules);
-    const plugins = items.map(shift);
     
     for (const rule of ruleItems) {
-        const isWithSlash = plugins.includes(parse(rule));
-        const isName = plugins.includes(rule);
+        let isName = false;
+        let isWithSlash = false;
+        
+        for (const [pluginName, plugin = {}] of items) {
+            isName = pluginName === rule;
+            isWithSlash = pluginName === parse(rule);
+            
+            if (isName && plugin.rules)
+                throw Error(`Rule "${rule}" cannot be applied to nested plugin "${pluginName}"`);
+            
+            if (isName || isWithSlash)
+                break;
+        }
         
         if (!isName && !isWithSlash)
-            throw Error(`no plugin found for a rule: "${rule}"`);
+            throw Error(`No plugin found for a rule: "${rule}"`);
     }
 };
 

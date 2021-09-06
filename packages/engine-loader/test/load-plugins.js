@@ -416,7 +416,7 @@ test('putout: loader: no plugin for a rule', (t) => {
         ],
     });
     
-    t.equal(e.message, 'no plugin found for a rule: "abcd"');
+    t.equal(e.message, 'No plugin found for a rule: "abcd"');
     t.end();
 });
 
@@ -548,3 +548,4 @@ test('putout: loader: ESM', async (t) => {
     t.notOk(e);
     t.end();
 });
+

@@ -40,3 +40,22 @@ test('engine-runner: validate-rules: plugin name with slash', (t) => {
     t.end();
 });
 
+test('engine-runner: validate-rules: nested plugin', (t) => {
+    const items = [
+        ['estrace/trace', {
+            rules: {},
+        }],
+    ];
+    
+    const rules = {
+        'estrace/trace': 'off',
+    };
+    
+    const [error] = tryCatch(validateRules, {
+        items,
+        rules,
+    });
+    
+    t.equal(error.message, 'Rule "estrace/trace" cannot be applied to nested plugin "estrace/trace"');
+    t.end();
+});
