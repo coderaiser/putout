@@ -21,6 +21,8 @@ const fixture = readFixtures([
     'debug',
 ]);
 
+const {assign} = Object;
+
 test('putout: runner: run plugins', (t) => {
     const result = putout(fixture.import, {
         runPlugins,
@@ -731,5 +733,47 @@ test('putout: runner: traverse: no visitors', (t) => {
     });
     
     t.equal(error.message, 'Visitors cannot be empty in "no-visitors"');
+    t.end();
+});
+
+test('putout: runner: nested: options', (t) => {
+    const passedOptions = {
+        include: [],
+        exclude: [],
+    };
+    const first = {
+        report: () => '',
+        fix: stub(),
+        traverse: ({push, options}) => {
+            assign(passedOptions, options);
+            
+            return {
+                debugger: push,
+            };
+        },
+    };
+    
+    const code = 'debugger';
+    const nested = {
+        rules: {
+            first,
+        },
+    };
+    
+    const options = {
+        hello: 'world',
+    };
+    
+    putout(code, {
+        runPlugins,
+        rules: {
+            'nested/first': ['on', options],
+        },
+        plugins: [
+            ['nested', nested],
+        ],
+    });
+    
+    t.deepEqual(passedOptions, options);
     t.end();
 });
