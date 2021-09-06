@@ -1,5 +1,7 @@
 'use strict';
 
+const tryCatch = require('try-catch');
+
 const test = require('supertape');
 const putout = require('putout');
 const stub = require('@cloudcmd/stub');
@@ -712,3 +714,22 @@ test('putout: runner: babel', (t) => {
     t.end();
 });
 
+test('putout: runner: traverse: no visitors', (t) => {
+    const noVisitors = {
+        report: () => '',
+        fix: stub(),
+        traverse: () => {},
+    };
+    
+    const code = 'debugger';
+    
+    const [error] = tryCatch(putout, code, {
+        runPlugins,
+        plugins: [
+            ['no-visitors', noVisitors],
+        ],
+    });
+    
+    t.equal(error.message, 'Visitors cannot be empty in "no-visitors"');
+    t.end();
+});
