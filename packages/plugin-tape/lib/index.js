@@ -10,6 +10,7 @@ module.exports.rules = {
     ...getRule('convert-throws-to-try-catch'),
     ...getRule('convert-does-not-throw-to-try-catch'),
     ...getRule('convert-called-with-to-called-with-no-args'),
+    ...getRule('convert-called-with-no-args-to-called-with'),
     ...getRule('convert-emitter-to-promise'),
     ...getRule('convert-ok-to-match'),
     ...getRule('convert-ok-to-called-with'),

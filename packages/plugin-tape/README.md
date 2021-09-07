@@ -23,6 +23,7 @@ npm i @putout/plugin-tape -D
         "tape/convert-throws-to-try-catch": "on",
         "tape/convert-does-not-throw-to-try-catch": "on",
         "tape/convert-called-with-to-called-with-no-args": "on",
+        "tape/convert-called-with-no-args-to-called-with": "on",
         "tape/expand-try-catch-arguments": "on",
         "tape/apply-stub-operator": "on",
         "tape/convert-emitter-to-promise": "on",
@@ -151,6 +152,40 @@ test('some message', (t) => {
     fn();
     
     t.calledWithNoArgs(fn);
+    t.end();
+});
+```
+
+## convert-called-with-no-args-to-called-with
+
+### ❌ Incorrect code example
+
+```js
+const test = require('supertape');
+const {stub} = test;
+
+test('some message', (t) => {
+    const fn = stub();
+    
+    fn();
+    
+    t.calledWithNoArgs(fn, [1, 2]);
+    t.end();
+});
+```
+
+### ✅ Correct code Example
+
+```js
+const test = require('supertape');
+const {stub} = test;
+
+test('some message', (t) => {
+    const fn = stub();
+    
+    fn();
+    
+    t.calledWith(fn, [1, 2]);
     t.end();
 });
 ```
