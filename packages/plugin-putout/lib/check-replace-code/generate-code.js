@@ -34,6 +34,9 @@ module.exports = (rootPath, key) => {
                         if (path.parentPath.isVariableDeclarator())
                             return replaceWith(path, ArrayPattern([]));
                         
+                        if (path.parentPath.isCallExpression())
+                            return replaceWith(path, ArrayPattern([]));
+                        
                         if (path.parentPath.isFunction())
                             return replaceWith(path, ArrayPattern([]));
                         
