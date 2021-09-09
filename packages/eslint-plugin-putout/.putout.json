@@ -9,6 +9,7 @@
         }
     },
     "ignore": [
-        "!**/fixture"
+        "!**/fixture",
+        "fixture/ide.js"
     ]
 }

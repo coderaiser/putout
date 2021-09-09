@@ -78,6 +78,7 @@ const ide = {
             rules: {
                 'remove-empty': 'off',
                 'remove-unused-variables': 'off',
+                'remove-unused-expressions': 'off',
                 'remove-skip': 'off',
                 'remove-only': 'off',
                 'remove-console': 'off',

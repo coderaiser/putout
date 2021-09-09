@@ -1,0 +1,10 @@
+{
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:putout/ide"
+    ],
+    "plugins": [
+        "node",
+        "putout"
+    ]
+}
