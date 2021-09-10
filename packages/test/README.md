@@ -1,10 +1,9 @@
 # @putout/test [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/test.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/test"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/test-runner
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/test-runner
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/test.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/test"npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/test-runner
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/test-runner
 
 Test runner for `putout plugins`. Basically it is [supercharged `tape`](https://github.com/coderaiser/supertape) with aditional asseritions:
 
@@ -25,12 +24,15 @@ UPDATE=1 tape test/*.js
 ## Plugins API
 
 ### report(filename, message)
+
 checks error message of a plugin
 
 ### reportCode(input, message)
+
 checks error message of a plugin from `input` code
 
 ### transform(filename [, output, plugins])
+
 check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory
 
 ```js
@@ -43,6 +45,7 @@ test('remove usless variables: for-of', (t) => {
 ```
 
 ### transformCode(input, output)
+
 check transform of `input` -> `output` code
 
 ```js
@@ -53,12 +56,15 @@ test('remove-console: property identifier: code', (t) => {
 ```
 
 ### reportWithOptions(filename, options)
+
 check report of `filename.js` with `options`
 
 ### noReportWithOptions(filename, options)
+
 check no report of `filename.js` with `options`
 
 ### transformWithOptions(filename, options)
+
 check transform of `filename.js` with `options`
 
 ### noTransformWithOptions(filename, options)
@@ -73,12 +79,15 @@ test('test: declared', (t) => {
 ```
 
 ### noTransformWithOptions(filename, options)
+
 check transform of `filename.js` with `options`
 
 ### noReport(filename)
+
 checks error message of a plugin not produces
 
 ### noReportAfterTransform(filename)
+
 checks error message of a plugin not produces
 
 ```js
@@ -89,15 +98,19 @@ test('test: no report after transform', (t) => {
 ```
 
 ### noReportCode(filename)
+
 checks error message of a plugin not produces with a `code`
 
 ### noTransform(filename)
+
 check transform of `filename.js` produce nothing
 
 ### format(formatter, filename)
+
 check file name formatting (pass `process.env.UPDATE=1` to save fixture)
 
 ### formatMany(formatter, [filename1, filename2])
+
 check file name formatting (pass `process.env.UPDATE=1` to save fixture)
 
 #### Usage Example
@@ -157,12 +170,12 @@ const test = createTest(__dirname, {
 Example:
 
 ```js
-test('putout: processor: json', async (t) => {
-    await t.process('eslintrc');
+test('putout: processor: json', async ({process}) => {
+    await process('eslintrc');
 });
 
-test('putout: processor: json', async (t) => {
-    await t.process('package', ['package-json']);
+test('putout: processor: json', async ({process}) => {
+    await process('package', ['package-json']);
 });
 ```
 
@@ -181,8 +194,8 @@ test('putout: process: json: no process', async (t) => {
 ### comparePlaces(filename, places)
 
 ```js
-test('putout: processor: css: places', async (t) => {
-    await t.comparePlaces('style', [{
+test('putout: processor: css: places', async ({comparePlaces}) => {
+    await comparePlaces('style', [{
         message: 'Expected indentation of 4 spaces (indentation)',
         position: {
             column: 1,
@@ -196,4 +209,3 @@ test('putout: processor: css: places', async (t) => {
 ## License
 
 MIT
-

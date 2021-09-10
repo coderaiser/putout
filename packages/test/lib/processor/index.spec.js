@@ -20,8 +20,8 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: test: processor: process', async (t) => {
-    await t.process('eslintrc');
+test('putout: test: processor: process', async ({process}) => {
+    await process('eslintrc');
 });
 
 test('putout: test: processor: no process', async (t) => {
@@ -58,8 +58,8 @@ test('putout: test: processor: no process: no filename', (t) => {
     t.end();
 });
 
-test('putout: test: processor: comparePlaces', async (t) => {
-    await t.comparePlaces('style.css', []);
+test('putout: test: processor: comparePlaces', async ({comparePlaces}) => {
+    await comparePlaces('style.css', []);
 });
 
 test('putout: test: processor: comparePlaces: no filename', (t) => {
