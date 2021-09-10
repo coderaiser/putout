@@ -6,7 +6,7 @@
 [DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/test-runner
 [DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/test-runner
 
-Test runner for `putout plugins`. Basically it is [supercharged](https://github.com/coderaiser/supertape) `tape` with aditional asseritions:
+Test runner for `putout plugins`. Basically it is [supercharged `tape`](https://github.com/coderaiser/supertape) with aditional asseritions:
 
 ## Install
 
@@ -14,11 +14,15 @@ Test runner for `putout plugins`. Basically it is [supercharged](https://github.
 npm i @putout/test -D
 ```
 
-## Plugins API
-
-### Environment Variable
+## Autofix
 
 Set environment variable `UPDATE=1` to update `transform` and `format` fixtures.
+
+```sh
+UPDATE=1 tape test/*.js
+```
+
+## Plugins API
 
 ### report(filename, message)
 checks error message of a plugin
@@ -41,6 +45,13 @@ test('remove usless variables: for-of', (t) => {
 ### transformCode(input, output)
 check transform of `input` -> `output` code
 
+```js
+test('remove-console: property identifier: code', (t) => {
+    t.transformCode('console.log()', '');
+    t.end();
+});
+```
+
 ### reportWithOptions(filename, options)
 check report of `filename.js` with `options`
 
@@ -49,6 +60,17 @@ check no report of `filename.js` with `options`
 
 ### transformWithOptions(filename, options)
 check transform of `filename.js` with `options`
+
+### noTransformWithOptions(filename, options)
+
+When file should not be transformed:
+
+```js
+test('test: declared', (t) => {
+    t.noTransform('declared');
+    t.end();
+});
+```
 
 ### noTransformWithOptions(filename, options)
 check transform of `filename.js` with `options`
@@ -92,11 +114,6 @@ test('remove-console: report', (t) => {
     t.end();
 });
 
-test('remove-console: property identifier: code', (t) => {
-    t.transformCode('console.log()', '');
-    t.end();
-});
-
 test('remove-console: property identifier', (t) => {
     t.transform('property-identifier');
     t.end();
@@ -104,12 +121,6 @@ test('remove-console: property identifier', (t) => {
 
 test('remove-console: property literal', (t) => {
     t.transform('property-literal', '\n\n');
-    t.end();
-});
-
-// when file should not be transformed
-test('test: declared', (t) => {
-    t.noTransform('declared');
     t.end();
 });
 
