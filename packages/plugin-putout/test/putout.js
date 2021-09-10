@@ -34,6 +34,11 @@ test('plugin-putout: convert-traverse-to-include: complex: transform', (t) => {
     t.end();
 });
 
+test('plugin-putout: convert-traverse-to-include: complex: transform: traverse-to-repalce', (t) => {
+    t.transform('convert-traverse-to-replace');
+    t.end();
+});
+
 test('plugin-putout: convert-process-to-find: complex transform', (t) => {
     t.transform('convert-process-to-find');
     t.end();
