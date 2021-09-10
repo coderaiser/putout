@@ -12,20 +12,20 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: processor: ignore', async (t) => {
-    await t.process('.gitignore');
+test('putout: processor: ignore', async ({process}) => {
+    await process('.gitignore');
 });
 
-test('putout: processor: ignore: windows', async (t) => {
-    await t.process('windows-gitignore');
+test('putout: processor: ignore: windows', async ({process}) => {
+    await process('windows-gitignore');
 });
 
-test('putout: processor: ignore: rc', async (t) => {
-    await t.process('browserlistrc', ['browserlist']);
+test('putout: processor: ignore: rc', async ({process}) => {
+    await process('browserlistrc', ['browserlist']);
 });
 
-test('putout: processor: ignore: rc: eslintrc: no crash', async (t) => {
-    await t.comparePlaces('eslintrc', [{
+test('putout: processor: ignore: rc: eslintrc: no crash', async ({comparePlaces}) => {
+    await comparePlaces('eslintrc', [{
         message: 'Dot files should be added to .gitignore',
         position: {
             column: 0,
@@ -35,7 +35,7 @@ test('putout: processor: ignore: rc: eslintrc: no crash', async (t) => {
     }]);
 });
 
-test('putout: processor: ignore: no new line', async (t) => {
-    await t.process('no-new-line-ignore');
+test('putout: processor: ignore: no new line', async ({process}) => {
+    await process('no-new-line-ignore');
 });
 

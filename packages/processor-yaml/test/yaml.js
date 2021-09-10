@@ -7,12 +7,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: processor: yaml', async (t) => {
-    await t.process('travis.yml', ['travis/disable-cache']);
+test('putout: processor: yaml', async ({process}) => {
+    await process('travis.yml', ['travis/disable-cache']);
 });
 
-test('putout: processor: yaml: duplicate', async (t) => {
-    await t.comparePlaces('duplicate.yml', [{
+test('putout: processor: yaml: duplicate', async ({comparePlaces}) => {
+    await comparePlaces('duplicate.yml', [{
         position: {
             column: 1,
             line: 4,
@@ -22,8 +22,8 @@ test('putout: processor: yaml: duplicate', async (t) => {
     }]);
 });
 
-test('putout: engine-processor: yaml: no startLine', async (t) => {
-    await t.comparePlaces('travis.yml', []);
+test('putout: engine-processor: yaml: no startLine', async ({comparePlaces}) => {
+    await comparePlaces('travis.yml', []);
 });
 
 test('putout: processor: yaml: duplicate: file content', async (t) => {

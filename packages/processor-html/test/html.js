@@ -9,12 +9,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: processor: html', async (t) => {
-    await t.process('html', ['remove-unused-variables']);
+test('putout: processor: html', async ({process}) => {
+    await process('html', ['remove-unused-variables']);
 });
 
-test('putout: processor: html: css: no fix', async (t) => {
-    await t.comparePlaces('style', [{
+test('putout: processor: html: css: no fix', async ({comparePlaces}) => {
+    await comparePlaces('style', [{
         message: '\'log\' is not defined.',
         position: {
             column: 1,
@@ -31,12 +31,12 @@ test('putout: processor: html: css: no fix', async (t) => {
     }]);
 });
 
-test('putout: processor: html: css: fix', async (t) => {
-    await t.process('style', ['remove-unused-variables']);
+test('putout: processor: html: css: fix', async ({process}) => {
+    await process('style', ['remove-unused-variables']);
 });
 
-test('putout: processor: html: css: template', async (t) => {
-    await t.comparePlaces('style-template', [{
+test('putout: processor: html: css: template', async ({comparePlaces}) => {
+    await comparePlaces('style-template', [{
         message: 'Unknown word (CssSyntaxError)',
         position: {
             column: 8,

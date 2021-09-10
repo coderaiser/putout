@@ -18,6 +18,7 @@ npm i @putout/plugin-putout -D
 ```json
 {
     "rules": {
+        "putout/apply-processors-destructuring": "on",
         "putout/convert-to-no-transform-code": "on",
         "putout/convert-replace-with": "on",
         "putout/convert-replace-with-multiple": "on",
@@ -32,6 +33,25 @@ npm i @putout/plugin-putout -D
         "putout/check-replace-code": "on"
     }
 }
+```
+
+## apply-processors-destructuring
+
+### ❌ Incorrect code example
+
+```js
+test('', async (t) => {
+    await t.process({});
+});
+
+```
+
+### ✅ Correct code Example
+
+```js
+test('', async ({process}) => {
+    await process({});
+});
 ```
 
 ## convert-to-no-transform-code

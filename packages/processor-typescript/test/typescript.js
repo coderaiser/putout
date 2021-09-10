@@ -7,8 +7,8 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: processor: typescript', async (t) => {
-    await t.comparePlaces('typescript.ts', [{
+test('putout: processor: typescript', async ({comparePlaces}) => {
+    await comparePlaces('typescript.ts', [{
         message: 'Type \'0\' is not assignable to type \'null\'.',
         position: {
             column: 1,

@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: processor: javascript', async (t) => {
-    await t.process('simple.js', ['remove-unused-variables']);
+test('putout: processor: javascript', async ({process}) => {
+    await process('simple.js', ['remove-unused-variables']);
 });
 

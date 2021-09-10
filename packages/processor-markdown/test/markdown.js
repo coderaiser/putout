@@ -14,40 +14,40 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: processor: markdown', async (t) => {
-    await t.process('js');
+test('putout: processor: markdown', async ({process}) => {
+    await process('js');
 });
 
-test('putout: processor: markdown: ts', async (t) => {
-    await t.process('ts');
+test('putout: processor: markdown: ts', async ({process}) => {
+    await process('ts');
 });
 
-test('putout: processor: markdown: json', async (t) => {
-    await t.process('json');
+test('putout: processor: markdown: json', async ({process}) => {
+    await process('json');
 });
 
-test('putout: processor: markdown: no js', async (t) => {
-    await t.process('no-js');
+test('putout: processor: markdown: no js', async ({process}) => {
+    await process('no-js');
 });
 
-test('putout: processor: markdown: bracket: no "\\["', async (t) => {
-    await t.process('bracket');
+test('putout: processor: markdown: bracket: no "\\["', async ({process}) => {
+    await process('bracket');
 });
 
-test('putout: processor: links: no new lines', async (t) => {
-    await t.process('links');
+test('putout: processor: links: no new lines', async ({process}) => {
+    await process('links');
 });
 
-test('putout: processor: markdown: places', async (t) => {
-    await t.process('place');
+test('putout: processor: markdown: places', async ({process}) => {
+    await process('place');
 });
 
-test('putout: processor: markdown: js-json', async (t) => {
-    await t.process('js-json');
+test('putout: processor: markdown: js-json', async ({process}) => {
+    await process('js-json');
 });
 
-test('putout: processor: markdown: places', async (t) => {
-    await t.comparePlaces('place', [{
+test('putout: processor: markdown: places', async ({comparePlaces}) => {
+    await comparePlaces('place', [{
         message: 'Code blocks should be indented',
         position: {
             column: 1,

@@ -49,6 +49,11 @@ test('plugin-putout: convert-method-to-property: complex: transform', (t) => {
     t.end();
 });
 
+test('plugin-putout: convert-method-to-property: complex: transform: apply-processors-destrcturing', (t) => {
+    t.transform('apply-processors-destructuring');
+    t.end();
+});
+
 test('plugin-putout: check-replace-code: complex: report', (t) => {
     t.report('check-replace-code', `☝️  Looks like template values not linked: ["__b"] ["__a"]`);
     t.end();

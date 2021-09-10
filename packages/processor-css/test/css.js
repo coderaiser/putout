@@ -18,12 +18,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: processor: css', async (t) => {
-    await t.process('style');
+test('putout: processor: css', async ({process}) => {
+    await process('style');
 });
 
-test('putout: processor: css: places', async (t) => {
-    await t.comparePlaces('style', [{
+test('putout: processor: css: places', async ({comparePlaces}) => {
+    await comparePlaces('style', [{
         message: 'Expected indentation of 4 spaces (indentation)',
         position: {
             column: 1,
@@ -33,8 +33,8 @@ test('putout: processor: css: places', async (t) => {
     }]);
 });
 
-test('putout: processor: css: template', async (t) => {
-    await t.comparePlaces('template', [{
+test('putout: processor: css: template', async ({comparePlaces}) => {
+    await comparePlaces('template', [{
         message: 'Unknown word (CssSyntaxError)',
         position: {
             column: 4,
