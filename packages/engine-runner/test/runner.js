@@ -777,3 +777,25 @@ test('putout: runner: nested: options', (t) => {
     t.deepEqual(passedOptions, options);
     t.end();
 });
+
+test('putout: runner: traverse: no return fn', (t) => {
+    const noReturnFn = {
+        traverse: () => ({
+            'async (__a) => __b': 'async ({process}) => __b',
+        }),
+    };
+    
+    const code = 'async (a) => a';
+    
+    const [error] = tryCatch(putout, code, {
+        runPlugins,
+        plugins: [
+            ['no-return-fn', noReturnFn],
+        ],
+    });
+    
+    const expected = '☝️  Looks like provided visitor is not a function: "async ({process}) => __b". More on using Traverser: https://git.io/JqcMn';
+    
+    t.equal(error.message, expected);
+    t.end();
+});

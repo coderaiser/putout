@@ -13,10 +13,14 @@ const maybeArray = require('../maybe-array');
 const debug = require('debug')('putout:runner:template');
 
 const {entries} = Object;
+const isFn = (a) => typeof a === 'function';
 
 const log = (rule, path) => {
     debug.enabled && debug(rule, path.toString());
 };
+
+const {stringify} = JSON;
+
 module.exports._log = log;
 
 const exclude = ({rule, tmpl, fn, nodesExclude}) => {
@@ -86,6 +90,9 @@ function wrapWithCheck({rule, nodesInclude, nodesExclude, fn}) {
         
         if (nodesInclude.length && !compareAll(path, nodesInclude))
             return;
+        
+        if (!isFn(fn))
+            throw Error(`☝️  Looks like provided visitor is not a function: ${stringify(fn)}. More on using Traverser: https://git.io/JqcMn`);
         
         const [e] = tryCatch(fn, path);
         
