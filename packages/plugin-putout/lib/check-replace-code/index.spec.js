@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-putout: check-replace-code: report', (t) => {
-    t.report('replace', 'Looks like template values not linked: ["__b"] ["__a"]');
+    t.report('replace', '☝️  Looks like template values not linked: ["__b"] ["__a"]');
     t.end();
 });
 
