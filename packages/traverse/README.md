@@ -44,6 +44,9 @@ traverse(node, {
 ### contains
 
 ```js
+const {template} = require('@putout/engine-parser');
+const {contains} = require('@putout/traverse');
+
 const node = template.ast('async () => await x');
 
 contains(node, [
