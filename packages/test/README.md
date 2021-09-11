@@ -5,7 +5,7 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/test-runner
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/test-runner
 
-Test runner for `putout plugins`. Basically it is [supercharged `tape`](https://github.com/coderaiser/supertape) with aditional asseritions:
+Test runner for [`putout plugins`](https://github.com/coderaiser/putout#plugins-api). Basically it is [supercharged `tape`](https://github.com/coderaiser/supertape) with aditional asseritions:
 
 ## Install
 
