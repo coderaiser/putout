@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-putout-config",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin helps to maintain putout config",
   "homepage": "http://github.com/coderaiser/putout",
