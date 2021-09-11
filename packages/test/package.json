@@ -3,7 +3,7 @@
   "version": "3.7.3",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "test runner for putout plugins ",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/test",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/test#readme",
   "main": "lib/test.js",
   "bin": {
     "tape": "bin/test.mjs"
