@@ -3,7 +3,7 @@
   "version": "1.2.1",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin helps to maintain putout config",
-  "homepage": "http://github.com/coderaiser/putout",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-putout-config#readme",
   "main": "lib/index.js",
   "release": false,
   "tag": false,
