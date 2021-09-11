@@ -27,9 +27,23 @@ UPDATE=1 tape test/*.js
 
 checks error message of a plugin
 
+```js
+test('remove usless variables: for-of', (t) => {
+    t.report('dot', 'Dot files should be added to .gitignore');
+    t.end();
+});
+```
+
 ### reportCode(input, message)
 
 checks error message of a plugin from `input` code
+
+```js
+test('remove debugger: report', (t) => {
+    t.reportCode('debugger', 'Unexpected "debugger" statement');
+    t.end();
+});
+```
 
 ### transform(filename [, output, plugins])
 
@@ -59,13 +73,46 @@ test('remove-console: property identifier: code', (t) => {
 
 check report of `filename.js` with `options`
 
+```js
+test('putout: test: reportWithOptions', (t) => {
+    const cache = new Map();
+    cache.set('x', 'y');
+    
+    t.reportWithOptions('remove-import', 'avoid imports', {
+        cache,
+    });
+    t.end();
+});
+```
+
 ### noReportWithOptions(filename, options)
 
 check no report of `filename.js` with `options`
 
+```js
+test('putout: test: noReportWithOptions', (t) => {
+    const cache = new Map();
+    
+    t.noReportWithOptions('remove-import', {
+        cache,
+    });
+    t.end();
+});
+```
+
 ### transformWithOptions(filename, options)
 
 check transform of `filename.js` with `options`
+
+```js
+test('putout: plugin: declare-undefined-variables: transform: parse', (t) => {
+    t.transformWithOptions('parse', {
+        dismiss: ['assign', 'stringify'],
+    });
+    
+    t.end();
+});
+```
 
 ### noTransformWithOptions(filename, options)
 
@@ -82,9 +129,25 @@ test('test: declared', (t) => {
 
 check transform of `filename.js` with `options`
 
+```js
+test('putout: plugin: declare-undefined-variables: transform: assign: dismiss', (t) => {
+    t.noTransformWithOptions('assign', {
+        dismiss: ['assign', 'stringify'],
+    });
+    t.end();
+});
+```
+
 ### noReport(filename)
 
 checks error message of a plugin not produces
+
+```js
+test('plugin-putout: check-replace-code: no report: typescript', (t) => {
+    t.noReport('typescript');
+    t.end();
+});
+```
 
 ### noReportAfterTransform(filename)
 
@@ -97,21 +160,42 @@ test('test: no report after transform', (t) => {
 });
 ```
 
-### noReportCode(filename)
-
-checks error message of a plugin not produces with a `code`
-
 ### noTransform(filename)
 
-check transform of `filename.js` produce nothing
+check transform of `filename.js` produce nothing new
+
+```js
+test('plugin-apply-numeric-separators: no transform: hex', (t) => {
+    t.noTransform('hex');
+    t.end();
+});
+```
 
 ### format(formatter, filename)
 
 check file name formatting (pass `process.env.UPDATE=1` to save fixture)
 
+### noFormat
+
+check that there is no formatting for for such file
+
+```js
+test('formatter: codeframe: no', (t) => {
+    t.noFormat(codeframe, 'no');
+    t.end();
+});
+```
+
 ### formatMany(formatter, [filename1, filename2])
 
 check file name formatting (pass `process.env.UPDATE=1` to save fixture)
+
+```js
+test('formatter: dump: many', (t) => {
+    t.formatMany(dump, ['var', 'var']);
+    t.end();
+});
+```
 
 #### Usage Example
 
@@ -129,11 +213,6 @@ test('remove-console: report', (t) => {
 
 test('remove-console: property identifier', (t) => {
     t.transform('property-identifier');
-    t.end();
-});
-
-test('remove-console: property literal', (t) => {
-    t.transform('property-literal', '\n\n');
     t.end();
 });
 
