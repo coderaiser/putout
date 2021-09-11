@@ -1,7 +1,7 @@
 # @putout/test [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/test.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/test"npm"
+[NPMURL]: https://npmjs.org/package/@putout/test "npm"
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/test-runner
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/test-runner
 
