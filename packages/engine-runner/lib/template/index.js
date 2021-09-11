@@ -92,7 +92,7 @@ function wrapWithCheck({rule, nodesInclude, nodesExclude, fn}) {
             return;
         
         if (!isFn(fn))
-            throw Error(`☝️  Looks like provided visitor is not a function: ${stringify(fn)}. More on using Traverser: https://git.io/JqcMn`);
+            throw Error(`☝️ Looks like provided visitor is not a function: ${stringify(fn)}. More on using Traverser: https://git.io/JqcMn`);
         
         const [e] = tryCatch(fn, path);
         

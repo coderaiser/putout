@@ -794,7 +794,7 @@ test('putout: runner: traverse: no return fn', (t) => {
         ],
     });
     
-    const expected = '☝️  Looks like provided visitor is not a function: "async ({process}) => __b". More on using Traverser: https://git.io/JqcMn';
+    const expected = '☝️ Looks like provided visitor is not a function: "async ({process}) => __b". More on using Traverser: https://git.io/JqcMn';
     
     t.equal(error.message, expected);
     t.end();
