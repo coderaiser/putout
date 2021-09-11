@@ -54,6 +54,8 @@ npm i @putout/plugin-putout-config -D
 
 ```json
 {
+    "rules": {},
+    "plugins": [],
     "match": {
         "*.js": {
             "remove-unused-variables": "off"

@@ -1,7 +1,7 @@
 {
     "match": {
-        "*.md": {
-            "putout-config/convert-boolean-to-string": "off"
+        "*.md{json}": {
+            "putout-config": "off"
         }
     }
 }
