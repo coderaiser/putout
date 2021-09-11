@@ -18,7 +18,8 @@ npm i @putout/plugin-putout-config -D
 ```json
 {
     "rules": {
-        "putout/convert-boolean-to-string": "on"
+        "putout-config/convert-boolean-to-string": "on",
+        "putout-config/remove-empty": "on"
     }
 }
 ```
@@ -43,6 +44,32 @@ npm i @putout/plugin-putout-config -D
     "rules": {
         "remove-unused-variables": "on",
         "remove-debugger": "off"
+    }
+}
+```
+
+## remove-empty
+
+### ❌ Incorrect code example
+
+```json
+{
+    "match": {
+        "*.js": {
+            "remove-unused-variables": "off"
+        }
+    }
+}
+```
+
+### ✅ Correct code Example
+
+```json
+{
+    "match": {
+        "*.js": {
+            "remove-unused-variables": "off"
+        }
     }
 }
 ```
