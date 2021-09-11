@@ -5,7 +5,7 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-putout-config
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-putout-config
 
-`putout` plugin helps with `putout` plugins development.
+`putout` plugin helps with [`putout`](https://github.com/coderaiser/putout) plugins development.
 
 ## Install
 
