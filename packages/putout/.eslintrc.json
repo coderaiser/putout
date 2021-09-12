@@ -1,6 +1,6 @@
 {
     "overrides": [{
-        "files": "lib/cli/exit-codes.spec.mjs",
+        "files": "test/exports.mjs",
         "rules": {
             "node/no-missing-import": "off"
         }

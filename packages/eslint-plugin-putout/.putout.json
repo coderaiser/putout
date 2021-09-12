@@ -1,7 +1,6 @@
 {
     "rules": {
-        "putout": "on",
-        "putout/shorten-imports": "off"
+        "putout": "on"
     },
     "match": {
         "*.js": {

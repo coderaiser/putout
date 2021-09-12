@@ -8,10 +8,3 @@ test('putout: cli: exit-codes: mjs', async (t) => {
     t.end();
 });
 
-test('putout: cli: exit codes: exported in package.json', async (t) => {
-    const {OK} = await import('putout/exit-codes');
-    
-    t.equal(OK, 0);
-    t.end();
-});
-
