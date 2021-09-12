@@ -2091,6 +2091,14 @@ coderaiser@localcmd:~/putout$ echo $?
 7
 ```
 
+### API
+
+Exit codes `enum` can be imported as:
+
+```js
+import {OK} from 'putout/exit-codes';
+```
+
 ## Real-world uses
 
 - [Cloud Commander](https://cloudcmd.io): orthodox file manager for the web.

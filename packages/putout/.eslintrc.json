@@ -1,4 +1,10 @@
 {
+    "overrides": [{
+        "files": "lib/cli/exit-codes.spec.mjs",
+        "rules": {
+            "node/no-missing-import": "off"
+        }
+    }],
     "rules": {
         "node/no-unsupported-features/es-syntax": "off"
     },
