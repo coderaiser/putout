@@ -452,7 +452,7 @@ test('putout: cli: --staged --fix', async (t) => {
     
     const stripAnsi = await simport('strip-ansi');
     const output = stripAnsi(arg);
-    const message = 'No files matching the pattern "./xxx.js" were found';
+    const message = '🐊 No files matching the pattern "./xxx.js" were found';
     
     stopAll();
     
@@ -596,7 +596,7 @@ test('putout: cli: ruler processor: --enable-all: no path', async (t) => {
     
     stopAll();
     
-    const expected = red('`path` is missing for ruler toggler (`--enable-all`, `--disable-all`)');
+    const expected = red('🐊 `path` is missing for ruler toggler (`--enable-all`, `--disable-all`)');
     
     t.calledWith(logError, [expected]);
     t.end();
@@ -678,7 +678,7 @@ test('putout: cli: ruler processor: --enable --fix: log', async (t) => {
     
     stopAll();
     
-    const expected = red('`--fix` cannot be used with ruler toggler (`--enable`, `--disable`)');
+    const expected = red('🐊 `--fix` cannot be used with ruler toggler (`--enable`, `--disable`)');
     
     t.calledWith(logError, [expected]);
     t.end();
@@ -1315,7 +1315,7 @@ test('putout: cli: invalid option: message', async (t) => {
     
     stopAll();
     
-    const expected = red('Invalid option `--hello-world`. Perhaps you meant `--help`');
+    const expected = red('🐊 Invalid option `--hello-world`. Perhaps you meant `--help`');
     
     t.calledWith(logError, [expected], 'should show message about invalid option');
     t.end();
@@ -1337,7 +1337,7 @@ test('putout: cli: invalid option: message: one char', async (t) => {
     
     stopAll();
     
-    const expected = red(`Invalid option '-z'`);
+    const expected = red(`🐊 Invalid option '-z'`);
     
     t.calledWith(logError, [expected], 'should show message about invalid option');
     t.end();
@@ -1392,7 +1392,7 @@ test('putout: cli: cannot load processor: not found', async (t) => {
     
     stopAll();
     
-    const expected = red(`Processor "putout-processor-hello" could not be found!`);
+    const expected = red(`🐊 Processor "putout-processor-hello" could not be found!`);
     
     t.calledWith(logError, [expected], 'should show message about invalid option');
     t.end();

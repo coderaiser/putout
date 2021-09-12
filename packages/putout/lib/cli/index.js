@@ -430,7 +430,7 @@ const getExit = ({halt, raw, logError}) => (code, e) => {
     if (!e)
         return halt(code);
     
-    const message = raw ? e : red(e.message || e);
+    const message = raw ? e : red(`🐊 ${e.message || e}`);
     
     logError(message);
     halt(code);
