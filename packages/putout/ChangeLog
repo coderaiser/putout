@@ -1,3 +1,16 @@
+2021.09.12, v20.0.1
+
+fix:
+- (eslint-plugin-putout) putout/ide -> putout/safe
+
+feature:
+- (package) @putout/plugin-eslint v2.0.0
+- (@putout/plugin-eslint) drop support of putout < 20
+- (@putout/plugin-eslint) add covert-ide-to-safe
+- (@putout/engine-loader) parse-rules: validation: add ☝️
+- (package) eslint-plugin-putout v10.0.0
+
+
 2021.09.12, v20.0.0
 
 fix:
