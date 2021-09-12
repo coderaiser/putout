@@ -38,6 +38,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [Integration with ESLint](#integration-with-eslint)
 - [Integration with Babel](#integration-with-babel)
 - [Using Putout as Loader](#using-putout-as-loader)
+- [Exit Codes](#exit-codes)
 - [Real-world uses](#real-world-uses)
 - [Versioning policy](#versioning-policy)
 - [Contributions](#contributions)
@@ -2060,6 +2061,34 @@ You can also transform input files using `Babel`. For example if you need to tra
         "babel/transform-react-jsx"
     ]
 }
+```
+
+## Exit Codes
+
+`Putout` can have one of next [exit codes](https://github.com/coderaiser/putout/blob/master/packages/putout/lib/cli/exit-codes.js):
+
+| Code | Description | Example|
+|---|-----------------|-------------|
+| 0 | no errors found | `<empty>` |
+| 1 | found places with errors | `<violations of rules>` |
+| 2 | nothing in stage  | `no output` |
+| 3 | no files found | `🐊 No files matching the pattern "hello" were found` |
+| 4 | no processor found | `🐊 No processors found for hello.abc` |
+| 5 | no formatter found | ` 🐊 Cannot find module 'putout-formatter-hello'` |
+| 6 | was stop | `<empty or violations of rules>` |
+| 7 | invalid option|  `🐊 Invalid option '--hello'. Perhaps you meant '--help'`
+| 8 | can't load processor | `<unhandled exception>`
+| 9 | unhandled excpetion | `<unhandled exception>`
+| 10 | ruller used with `--fix` | `🐊 '--fix' cannot be used with ruler toggler ('--enable', '--disable')`
+| 11 | ruller used without files | `🐊 'path' is missing for ruler toggler ('--enable-all', '--disable-all')`
+
+Example of providing invalid option:
+
+```sh
+coderaiser@localcmd:~/putout$ putout --helo
+🐊 Invalid option `--helo`. Perhaps you meant `--help`
+coderaiser@localcmd:~/putout$ echo $?
+7
 ```
 
 ## Real-world uses
