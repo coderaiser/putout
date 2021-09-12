@@ -22,6 +22,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 
 ## Table of contents
 
+- [Whom should I thank for this project exist?](#whom-should-i-thank-for-this-project-exist)
 - [Why does this project exist?](#why-does-this-project-exist)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -45,12 +46,23 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [Donations](#donations)
 - [License](#license)
 
+## Whom should I thank for this project exist?
+
+> "If I have seen further, it is by standing upon the shoulders of giants".
+>
+> (c) Isaak Newton
+
+- [`ESLint`](https://eslint.org) for stable releases and future proof `API`.
+- [`Babel`](https://babeljs.io) for amazing `API` documented in `Hadnbook` and responsivness of a team.
+- [`Prettier`](https://github.com/prettier/prettier) for minimalistic options and uniform codestyle.
+- [`jscodeshift`](https://github.com/facebook/jscodeshift) for making codemods simple and popular.
+
 ## Why does this project exist?
 
-- because [eslint](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes);
-- because [babel](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139);
-- because [prettier](https://github.com/prettier/prettier) is a formatter;
-- because [jscodeshift](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support;
+- `ESLint` avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
+- `Babel` produces [throw-away code](https://github.com/babel/babel/issues/5139).
+- `Prettier` is a formatter.
+- `jscodeshift` has no `config` and `plugins` support.
 
 `Putout` on the other hand can make more drastic code transformations that directly alter your code base.
 
