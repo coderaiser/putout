@@ -86,8 +86,6 @@ Options
    --disable-all               disable all rules in .putout.json
    --match                     read .putout.json and convert "rules" to "match" using pattern
    --flow                      enable flow
-   --no-flow                   disable flow (default)
-   --cache                     enable cache to speed up processing (default)
    --fresh                     generate a fresh cache
    --no-config                 avoid reading config file (.putout.json)
    --no-ci                     disable CI detection
