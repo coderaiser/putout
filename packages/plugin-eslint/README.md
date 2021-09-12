@@ -18,7 +18,8 @@ npm i @putout/plugin-eslint -D
 ```json
 {
     "rules": {
-        "eslint/move-putout-to-end-of-extends": "on"
+        "eslint/move-putout-to-end-of-extends": "on",
+        "eslint/convert-ide-to-safe": "on"
     }
 }
 ```
@@ -47,6 +48,38 @@ npm i @putout/plugin-eslint -D
     "extends": [
         "plugin:node/recommended",
         "plugin:putout/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ]
+}
+```
+
+## convert-ide-to-safe
+
+### ❌ Incorrect code example
+
+```json
+{
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:putout/ide"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ]
+}
+```
+
+### ✅ Correct code Example
+
+```json
+{
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:putout/safe"
     ],
     "plugins": [
         "putout",

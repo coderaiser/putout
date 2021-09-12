@@ -19,7 +19,7 @@ test('putout: plugin-eslint: move-putout-to-end-in-extends: no transform: no ext
     t.end();
 });
 
-test('putout: plugin-eslint: move-putout-to-end-in-extends: no transform: only', (t) => {
+test('putout: plugin-eslint: move-putout-to-end-in-extends: no report: only', (t) => {
     t.noReport('only');
     t.end();
 });

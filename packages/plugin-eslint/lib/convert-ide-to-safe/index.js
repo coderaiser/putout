@@ -2,7 +2,7 @@
 
 const {getExtends} = require('../get-extends');
 
-module.exports.report = () => '"putout" should be in the end of the "extends" list';
+module.exports.report = () => 'Use "putout/safe" instead of "putout/ide"';
 
 module.exports.match = () => ({
     '__putout_processor_json(__a)': ({__a}) => {
@@ -11,15 +11,12 @@ module.exports.match = () => ({
         if (!elements)
             return false;
         
-        const [first] = elements;
-        const {value} = first;
+        for (const {value} of elements) {
+            if (value.includes('putout/ide'))
+                return true;
+        }
         
-        const includesPutout = value.includes('putout');
-        
-        if (elements.length === 1 && includesPutout)
-            return false;
-        
-        return includesPutout;
+        return false;
     },
 });
 
@@ -27,8 +24,12 @@ module.exports.replace = () => ({
     '__putout_processor_json(__a)': ({__a}, path) => {
         const elements = getExtends(__a);
         
-        const first = elements.shift();
-        elements.push(first);
+        for (const element of elements) {
+            const {value} = element;
+            
+            if (value.includes('putout/ide'))
+                element.value = 'plugin:putout/safe';
+        }
         
         return path;
     },
