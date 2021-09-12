@@ -12,5 +12,6 @@ module.exports = {
     CANNOT_LOAD_PROCESSOR: 8,
     UNHANDLED: 9,
     RULLER_WITH_FIX: 10,
+    RULLER_NO_FILES: 11,
 };
 

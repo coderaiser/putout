@@ -47,6 +47,7 @@ const {
     INVALID_OPTION,
     UNHANDLED,
     RULLER_WITH_FIX,
+    RULLER_NO_FILES,
 } = require('./exit-codes');
 
 const cwd = process.cwd();
@@ -257,7 +258,12 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (e)
         return exit(NO_FILES, e);
     
-    if (!names.length)
+    const noFiles = !names.length;
+    
+    if (noFiles && (enableAll || disableAll))
+        return exit(RULLER_NO_FILES, Error('`path` is missing for ruler toggler (`--enable-all`, `--disable-all`)'));
+    
+    if (noFiles)
         return exit();
     
     const fileCache = await cacheFiles({

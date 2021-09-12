@@ -578,7 +578,85 @@ test('putout: cli: ruler processor: --disable-all --fix', async (t) => {
     t.end();
 });
 
-test('putout: cli: ruler processor: --enable --fix', async (t) => {
+test('putout: cli: ruler processor: --enable-all: no path', async (t) => {
+    const logError = stub();
+    const argv = [
+        '--enable-all',
+    ];
+    const rullerProcessor = stub();
+    
+    mockRequire('./ruler-processor', rullerProcessor);
+    const cli = reRequire('.');
+    
+    await tryToCatch(runCli, {
+        cli,
+        argv,
+        logError,
+    });
+    
+    stopAll();
+    
+    const expected = red('`path` is missing for ruler toggler (`--enable-all`, `--disable-all`)');
+    
+    t.calledWith(logError, [expected]);
+    t.end();
+});
+
+test('putout: cli: ruler processor: --enable-all: no path: code', async (t) => {
+    const name = join(__dirname, 'fixture/plugins.js');
+    const logError = stub();
+    const argv = [
+        '--enable-all',
+        '--fix',
+        name,
+    ];
+    const rullerProcessor = stub();
+    const halt = stub();
+    
+    mockRequire('./ruler-processor', rullerProcessor);
+    const cli = reRequire('.');
+    
+    await tryToCatch(runCli, {
+        cli,
+        argv,
+        logError,
+        halt,
+    });
+    
+    stopAll();
+    
+    t.calledWith(halt, [RULLER_WITH_FIX]);
+    t.end();
+});
+
+test('putout: cli: ruler processor: --enable-all --fix: code', async (t) => {
+    const name = join(__dirname, 'fixture/plugins.js');
+    const logError = stub();
+    const argv = [
+        '--enable-all',
+        '--fix',
+        name,
+    ];
+    const rullerProcessor = stub();
+    const halt = stub();
+    
+    mockRequire('./ruler-processor', rullerProcessor);
+    const cli = reRequire('.');
+    
+    await tryToCatch(runCli, {
+        cli,
+        argv,
+        logError,
+        halt,
+    });
+    
+    stopAll();
+    
+    t.calledWith(halt, [RULLER_WITH_FIX]);
+    t.end();
+});
+
+test('putout: cli: ruler processor: --enable --fix: log', async (t) => {
     const name = join(__dirname, 'fixture/plugins.js');
     const logError = stub();
     const argv = [
