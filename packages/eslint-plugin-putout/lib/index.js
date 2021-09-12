@@ -69,7 +69,7 @@ const recommended = {
     ],
 };
 
-const ide = {
+const safe = {
     ...recommended,
     rules: {
         ...recommended.rules,
@@ -91,6 +91,6 @@ const ide = {
 
 module.exports.configs = {
     recommended,
-    ide,
+    safe,
 };
 

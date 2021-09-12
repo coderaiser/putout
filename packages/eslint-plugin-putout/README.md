@@ -34,21 +34,6 @@ Add `putout` to the plugins section of your `.eslintrc` configuration file. You 
 }
 ```
 
-### Safe mode
-
-When using `putout` in IDE with `--fix` on save, or when you want to disable the most dangerous rules, use:
-
-```json
-{
-    "extends": [
-        "plugin:putout/safe"
-    ],
-    "plugins": [
-        "putout"
-    ]
-}
-```
-
 Then configure the rules you want to use under the rules section.
 
 ```json
@@ -85,3 +70,29 @@ Then configure the rules you want to use under the rules section.
 - [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import)
 - [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array)
 - [Object init](/packages/eslint-plugin-putout/lib/object-init)
+
+### Safe mode
+
+When using `putout` in IDE with `--fix` on save, or when you want to disable the most dangerous rules, use:
+
+```json
+{
+    "extends": [
+        "plugin:putout/safe"
+    ],
+    "plugins": [
+        "putout"
+    ]
+}
+```
+
+List of disabled `putout` rules:
+
+- [remove-empty](https://github.com/coderaiser/putout/tree/v20.0.0/packages/plugin-remove-empty);
+- [remove-unused-variables](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-unused-variables);
+- [remove-unused-expressions](https://github.com/coderaiser/putout/tree/v20.0.0/packages);
+- [remove-skip](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-skip);
+- [remove-only](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-only);
+- [remove-console](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-console);
+- [emove-debugger](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-debugger);
+- [onvert-for-to-for-of](https://github.com/coderaiser/putout/tree/v20.0.0/packages/convert-for-to-for-of);

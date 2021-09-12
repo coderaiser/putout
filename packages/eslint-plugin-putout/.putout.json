@@ -9,6 +9,6 @@
     },
     "ignore": [
         "!**/fixture",
-        "fixture/ide.js"
+        "fixture/safe.js"
     ]
 }
