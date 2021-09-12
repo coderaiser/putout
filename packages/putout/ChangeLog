@@ -1,3 +1,32 @@
+2021.09.12, v20.0.0
+
+fix:
+- (eslint-plugin-putout) package: description: plagin -> plugin
+- (putout) export: putout/lib/parse-options -> putout/parse-options (#48)
+- (@putout/plugin-putout-config) examples
+- (@putout/test) homepage
+- (@putout/engine-runner) rm "☝️  " -> "☝️""
+- docs(@putout/test) add Autofix
+
+feature:
+- (eslint-plugin-putout) drop support of putout < 20
+- (putout) add ability to import exit codes enum
+- (package) improve description
+- (putout) help: remove enabled by default options
+- (putout) cli: add `🐊` to error messages
+- (putout) cli: add ability to exit with error when ruler toggler used without a path
+- (@putout/plugin-putout-config) add remove-empty
+- (@putout/plugin-putout) add apply-processors-destructuring
+- (@putout/engine-runner) add ☝️
+- (@putout/plugin-putout) add convert-traverse-to-replace
+- (@putout/engine-runner) improve error message when visitor provided to Traverser is not a function (https://github.com/coderaiser/putout/tree/v19.7.1/packages/engine-runner#traverser)
+- (eslint-plugin-putout) ide: disable remove-unused-expressions
+- (@putout/plugin-tape) add convert-called-with-no-args-to-called-with
+- (@putout/plugin-putout) check-replace-code: __array: add support of CallExpression
+- (@putout/engine-loader) validate-rules: throw when passing options to nested plugin (instead of go nowhere) (coderaiser/estrace#4)
+- (@putout/engine-runner) throw error when no visitor
+
+
 2021.09.05, v19.7.1
 
 fix:
