@@ -2067,20 +2067,20 @@ You can also transform input files using `Babel`. For example if you need to tra
 
 `Putout` can have one of next [exit codes](https://github.com/coderaiser/putout/blob/master/packages/putout/lib/cli/exit-codes.js):
 
-| Code | Description | Example|
-|---|-----------------|-------------|
-| 0 | no errors found | `<empty>` |
-| 1 | found places with errors | `<violations of rules>` |
-| 2 | nothing in stage  | `no output` |
-| 3 | no files found | `🐊 No files matching the pattern "hello" were found` |
-| 4 | no processor found | `🐊 No processors found for hello.abc` |
-| 5 | no formatter found | ` 🐊 Cannot find module 'putout-formatter-hello'` |
-| 6 | was stop | `<empty or violations of rules>` |
-| 7 | invalid option|  `🐊 Invalid option '--hello'. Perhaps you meant '--help'`
-| 8 | can't load processor | `<unhandled exception>`
-| 9 | unhandled excpetion | `<unhandled exception>`
-| 10 | ruller used with `--fix` | `🐊 '--fix' cannot be used with ruler toggler ('--enable', '--disable')`
-| 11 | ruller used without files | `🐊 'path' is missing for ruler toggler ('--enable-all', '--disable-all')`
+| Code | Name | Description | Example|
+|------|------|-----------------|-------------|
+| 0    | `OK` | no errors found | `<empty>` |
+| 1    | `PLACE` | found places with errors | `<violations of rules>` |
+| 2    | `STAGE` | nothing in stage  | `no output` |
+| 3    | `NO_FILES`| no files found | `🐊 No files matching the pattern "hello" were found` |
+| 4    | `NO_PROCESSORS` | no processor found | `🐊 No processors found for hello.abc` |
+| 5    | `NO_FORMATTER` | no formatter found | ` 🐊 Cannot find module 'putout-formatter-hello'` |
+| 6    | `WAS_STOP` | was stop | `<empty or violations of rules>` |
+| 7    | `INVALID_OPTION`| invalid option|  `🐊 Invalid option '--hello'. Perhaps you meant '--help'`
+| 8    | `CANNOT_LOAD_PROCESSOR`| can't load processor | `<unhandled exception>`
+| 9    | `UNHANDLED` | unhandled exception | `<unhandled exception>`
+| 10   | `RULLER_WITH_FIX` | ruller used with `--fix` | `🐊 '--fix' cannot be used with ruler toggler ('--enable', '--disable')`
+| 11   | `RULLER_NO_FILES` | ruller used without files | `🐊 'path' is missing for ruler toggler ('--enable-all', '--disable-all')`
 
 Example of providing invalid option:
 
