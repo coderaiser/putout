@@ -12,7 +12,6 @@
     },
     "./parse-options": "./lib/parse-options/index.js",
     "./parse-error": "./lib/cli/parse-error.js",
-    "./lib/parse-options": "./lib/parse-options/index.js",
     "./process-file": "./lib/cli/process-file.js",
     "./exit-codes": "./lib/cli/exit-codes.mjs",
     "./cli": "./lib/cli/index.js",

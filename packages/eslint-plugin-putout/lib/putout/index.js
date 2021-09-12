@@ -10,7 +10,7 @@ const {
 const v8 = require('v8');
 const toBabel = require('estree-to-babel');
 
-const parseOptions = require('putout/lib/parse-options');
+const parseOptions = require('putout/parse-options');
 
 const cwd = process.cwd();
 const getContextOptions = ({options}) => {
