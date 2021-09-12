@@ -5,7 +5,7 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/eslint?path=packages/plugin-eslint
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/eslint.svg?path=packages/plugin-eslint
 
-`putout` plugin helps to automate fixing `eslint` config.
+[`putout`](https://github.com/coderaiser/putout) plugin helps to automate fixing `ESLint` config.
 
 ## Install
 
