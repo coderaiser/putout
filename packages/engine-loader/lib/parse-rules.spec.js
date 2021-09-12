@@ -6,7 +6,7 @@ const tryCatch = require('try-catch');
 const parseRules = require('./parse-rules');
 
 test('putout: loader: parse rules: not on/off', (t) => {
-    const expected = 'hello: state option can be "on" or "off" only, when used as string, received: "abc"';
+    const expected = '☝️ hello: state option can be "on" or "off" only, when used as string, received: "abc"';
     const [error] = tryCatch(parseRules, {
         hello: 'abc',
     });
@@ -74,7 +74,7 @@ test('putout: loader: parse rules: not supported', (t) => {
         hello: 1,
     });
     
-    const expected = 'Rule format not supported 1: number';
+    const expected = '☝️ Rule format not supported 1: number';
     t.equal(error.message, expected);
     t.end();
 });
@@ -88,7 +88,7 @@ test('putout: loader: parse rules: rules used instead of match', (t) => {
         },
     });
     
-    const expected = 'Looks like you need to change "rules" to "match" for {"README.md":{"remove-debugger":"off"}}';
+    const expected = '☝️ Looks like you need to change "rules" to "match" for {"README.md":{"remove-debugger":"off"}}';
     
     t.equal(error.message, expected);
     t.end();

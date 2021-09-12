@@ -7,8 +7,9 @@ const isObj = (a) => typeof a === 'object';
 const {entries} = Object;
 const {stringify} = JSON;
 
-const notSupportedError = (a) => Error(`Rule format not supported ${a}: ${typeof a}`);
-const rulesUsedInsteadOfMatchError = (a) => Error(`Looks like you need to change "rules" to "match" for ${stringify(a)}`);
+const notSupportedError = (a) => Error(`☝️ Rule format not supported ${a}: ${typeof a}`);
+const rulesUsedInsteadOfMatchError = (a) => Error(`☝️ Looks like you need to change "rules" to "match" for ${stringify(a)}`);
+const stateOptionError = ({rule, value}) => Error(`☝️ ${rule}: state option can be "on" or "off" only, when used as string, received: "${value}"`);
 const defaultOptions = () => Object.create(null);
 const parseState = (rule, value) => validateState(rule, value) && value === 'on' || value !== 'off';
 
@@ -122,7 +123,10 @@ function validateState(rule, value) {
     if (isObj(value))
         return true;
     
-    throw Error(`${rule}: state option can be "on" or "off" only, when used as string, received: "${value}"`);
+    throw stateOptionError({
+        rule,
+        value,
+    });
 }
 
 const cut = (a) => a.split('/')[0];
