@@ -34,12 +34,14 @@ Add `putout` to the plugins section of your `.eslintrc` configuration file. You 
 }
 ```
 
-When use `putout` in IDE with `--fix` on save, use:
+### Safe mode
+
+When using `putout` in IDE with `--fix` on save, or when you want to disable the most dangerous rules, use:
 
 ```json
 {
     "extends": [
-        "plugin:putout/ide"
+        "plugin:putout/safe"
     ],
     "plugins": [
         "putout"
@@ -52,7 +54,7 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "putout/eslint-plugin-putout": "error",
+        "putout/putout": "error",
         "putout/single-property-destructuring": "error",
         "putout/multiple-properties-destructuring": "error",
         "putout/long-properties-destructuring": "error",
