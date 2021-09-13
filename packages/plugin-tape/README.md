@@ -22,6 +22,7 @@ npm i @putout/plugin-tape -D
         "tape/convert-tape-to-supertape": "on",
         "tape/convert-throws-to-try-catch": "on",
         "tape/convert-does-not-throw-to-try-catch": "on",
+        "tape/convert-called-with-args": "on",
         "tape/convert-called-with-to-called-with-no-args": "on",
         "tape/convert-called-with-no-args-to-called-with": "on",
         "tape/expand-try-catch-arguments": "on",
@@ -108,6 +109,40 @@ test('some message', (t) => {
 });
 ```
 
+## convert-called-with-args
+
+### ❌ Incorrect code example
+
+```js
+const test = require('supertape');
+const {stub} = test;
+
+test('some message', (t) => {
+    const fn = stub();
+    
+    fn();
+    
+    t.calledWith(fn, 'hello');
+    t.end();
+});
+```
+
+### ✅ Correct code Example
+
+```js
+const test = require('supertape');
+const {stub} = test;
+
+test('some message', (t) => {
+    const fn = stub();
+    
+    fn();
+    
+    t.calledWith(fn, ['hello']);
+    t.end();
+});
+```
+
 ### ✅ Correct code Example
 
 ```js
@@ -117,7 +152,7 @@ const test = require('supertape');
 test('some message', (t) => {
     const [error] = tryCatch(copymitter);
     
-    t.nottOk(error, 'should throw when no args');
+    t.notOk(error, 'should throw when no args');
     t.end();
 });
 ```
