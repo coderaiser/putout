@@ -16,7 +16,7 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-Putout is a pluggable and configurable code transformer with built-in `eslint`, `babel plugins` and `jscodeshift codemods` support for `js`, `jsx` `typescript` and `flow` files. It has [a lot of transforms](#built-in-transformations) that will keep your codebase in a clean state transforming any code smell to readable code according to best practices.
+Putout is a pluggable and configurable code transformer with built-in `eslint`, `babel plugins` and `jscodeshift codemods` support for `js`, `jsx` `typescript` and `flow` files. It has [a lot of transforms](#built-in-transformations) that will keep your codebase in a clean state, transforming any code smell to readable code according to best practices.
 
 [![putout](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm.svg)](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm)
 
@@ -74,8 +74,6 @@ To install `Putout` as a development dependency, run:
 npm i putout -D
 ```
 
-Or, for one-off usage, you can execute `Putout` directly with npm's package executor: `npx putout`.
-
 Make sure that you are running a relatively recent (≥14.8) version of Node.
 
 ## Usage
@@ -85,17 +83,24 @@ Usage: putout [options] [path]
 Options
    -h, --help                  display this help and exit
    -v, --version               output version information and exit
-   -f, --format                use a specific output format - default: progress-bar/dump on CI
+   -f, --format                use a specific output format, 
+                               the default is: progress-bar/dump on CI
    -s, --staged                add staged files when in git repository
    --fix                       apply fixes of errors to code
    --fix-count                 count of fixes rounds (defaults to 10)
    --rulesdir                  use additional rules from directory
    --transform                 apply inline transform
    --plugins                   plugins to use splited by comma
-   --enable                    enable rule by name in .putout.json
-   --disable                   disable rule by name in .putout.json
-   --enable-all                enable all rules in .putout.json
-   --disable-all               disable all rules in .putout.json
+   --enable                    edits the project's .putout.json file to
+                               toggle on a specific rule there. Note that 
+                               this parameter can not be used together with --fix, 
+                               instead it only edits the .putout.json file.
+   --disable                   edits the project's .putout.json file to
+                               toggle off a specific rule there
+   --enable-all                edits the project's .putout.json file to
+                               turn on all rules applicable to your current codebase
+   --disable-all               edits the project's .putout.json file to
+                               turn off all rules applicable to your current codebase
    --match                     read .putout.json and convert "rules" to "match" using pattern
    --flow                      enable flow
    --fresh                     generate a fresh cache
@@ -104,16 +109,35 @@ Options
    --no-cache                  disable cache
 ```
 
-To find possible transform places:
+To find possible transform places in a folder named "src", run:
 
 ```
-npx putout lib test
+npx putout src
 ```
 
-To apply transforms:
+To find possible transform places in multiple folders, such as folders named "lib" and "src", run: 
 
 ```
-npx putout lib test --fix
+npx putout lib src
+```
+
+To apply the transforms, use `--fix`:
+
+```
+npx putout lib src --fix
+```
+
+### Applying a single rule
+
+By default, all rules are enabled. To apply only a single rule, you first have to disable all other rules in your .putout.json file. As an example, to apply only `remove-unused-variables` to code in the folder "src", you should run:
+
+```sh
+# Disable all rules applicable to this project in .putout.json
+npx putout src --disable-all
+# Toggle only `remove-unused-variables` on in .putout.json
+npx putout src --enable remove-unused-variables
+# Apply fixes
+npx putout src --fix
 ```
 
 ### Environment variables
@@ -203,7 +227,7 @@ First things first, `require` putout:
 const putout = require('putout');
 ```
 
-Let's consider next `source` with two `variables` and one `call expression`:
+Let's consider the next `source` with two `variables` and one `call expression`:
 
 ```js
 const hello = 'world';
@@ -225,7 +249,7 @@ const source = `
 
 #### Plugins
 
-Putout supports dynamic loading of plugins from `node_modules`. Let's consider example of using [remove-unused-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables/README.md) plugin:
+Putout supports dynamic loading of plugins from `node_modules`. Let's consider the example of using the [remove-unused-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables/README.md) plugin:
 
 ```js
 putout(source, {
@@ -240,7 +264,7 @@ putout(source, {
 });
 ```
 
-As you see `places` is empty, but the code is changed: there is no `hi` variable.
+As you see, `places` is empty, but the code is changed: there is no `hi` variable.
 
 #### No fix
 
