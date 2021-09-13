@@ -1,10 +1,12 @@
 'use strict';
 
 const log = require('debug')('putout:runner:include');
+const maybeArray = require('./maybe-array');
 
+const {stringify} = JSON;
 const stub = () => [];
 const good = () => true;
-const maybeArray = require('./maybe-array');
+const isFn = (a) => typeof a === 'function';
 
 module.exports = ({rule, plugin, msg, options}) => {
     const {
@@ -14,6 +16,9 @@ module.exports = ({rule, plugin, msg, options}) => {
         exclude = stub,
         filter = good,
     } = plugin;
+    
+    if (!isFn(include))
+        throw Error(`☝️ Looks like "include" is not a function: ${stringify(include)}. More on using Includer: https://git.io/JqcMn`);
     
     const traverse = getTraverse(include(), filter, rule);
     
