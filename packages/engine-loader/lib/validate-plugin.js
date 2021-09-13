@@ -17,6 +17,6 @@ module.exports = ({plugin, rule}) => {
             return;
     }
     
-    throw Error(`Plugin "${rule}" type cannot be determined. Supported plugin types: https://git.io/JqcMn`);
+    throw Error(`☝️ Plugin "${rule}" type cannot be determined. Supported plugin types: https://git.io/JqcMn`);
 };
 

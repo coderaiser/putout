@@ -527,7 +527,7 @@ test('putout: loader: plugin is a function', (t) => {
         ],
     });
     
-    t.equal(e.message, `Plugin "fn" type cannot be determined. Supported plugin types: https://git.io/JqcMn`);
+    t.equal(e.message, `☝️ Plugin "fn" type cannot be determined. Supported plugin types: https://git.io/JqcMn`);
     t.end();
 });
 
