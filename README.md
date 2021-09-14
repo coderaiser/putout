@@ -2075,7 +2075,7 @@ You can also transform input files using `Babel`. For example if you need to tra
 
 ## Exit Codes
 
-`Putout` can have one of next [exit codes](https://github.com/coderaiser/putout/blob/master/packages/putout/lib/cli/exit-codes.js):
+`Putout` can have one of next [exit codes](https://github.com/coderaiser/putout/blob/master/packages/putout/lib/cli/exit-codes.mjs):
 
 | Code | Name | Description | Example|
 |------|------|-----------------|-------------|
