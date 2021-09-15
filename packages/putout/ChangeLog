@@ -1,3 +1,19 @@
+2021.09.15, v20.1.0
+
+fix:
+- (eslint-plugin-putout) putout/ide -> putout/safe
+
+feature:
+- (help) improve help (#81) (thanks a lot to @egilll 🎉!)
+- (@putout/plugin-declare-undefined-variables) add support of Object.keys
+- (@putout/plugin-tape) add convert-called-with-args
+- (@putout/engine-loader) add ☝️  when cannot determine plugin type
+- (@putout/engine-runner) add support of "include" not a function in Includer
+- (package) @putout/plugin-eslint v2.0.0
+- (@putout/plugin-eslint) drop support of putout < 20
+- (@putout/plugin-eslint) add covert-ide-to-safe
+
+
 2021.09.12, v20.0.1
 
 fix:
