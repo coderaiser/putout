@@ -90,7 +90,7 @@ Options
    --fix-count                 count of fixes rounds (defaults to 10)
    --rulesdir                  use additional rules from directory
    --transform                 apply inline transform
-   --plugins                   plugins to use splited by comma
+   --plugins                   a comma-seperated list of plugins to use
    --enable                    edits the project's .putout.json file to
                                toggle on a specific rule there. Note that 
                                this parameter can not be used together with --fix, 
@@ -109,35 +109,35 @@ Options
    --no-cache                  disable cache
 ```
 
-To find possible transform places in a folder named "src", run:
+To find possible transform places in a folder named "lib", run:
 
 ```
-npx putout src
+npx putout lib
 ```
 
-To find possible transform places in multiple folders, such as folders named "lib" and "src", run: 
+To find possible transform places in multiple folders, such as folders named "lib" and "test", run: 
 
 ```
-npx putout lib src
+npx putout lib test
 ```
 
 To apply the transforms, use `--fix`:
 
 ```
-npx putout lib src --fix
+npx putout lib test --fix
 ```
 
 ### Applying a single rule
 
-By default, all rules are enabled. To apply only a single rule, you first have to disable all other rules in your .putout.json file. As an example, to apply only `remove-unused-variables` to code in the folder "src", you should run:
+By default, all rules are enabled. To apply only a single rule, you first have to disable all other rules in your .putout.json file. As an example, to apply only `remove-unused-variables` to code in the folder "lib", you should run:
 
 ```sh
 # Disable all rules applicable to this project in .putout.json
-npx putout src --disable-all
+npx putout lib --disable-all
 # Toggle only `remove-unused-variables` on in .putout.json
-npx putout src --enable remove-unused-variables
+npx putout lib --enable remove-unused-variables
 # Apply fixes
-npx putout src --fix
+npx putout lib --fix
 ```
 
 ### Environment variables
