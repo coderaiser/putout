@@ -107,26 +107,26 @@ npm i putout -D
 
 ```
 Usage: putout [options] [path]
-Options
+Options:
    -h, --help                  display this help and exit
    -v, --version               output version information and exit
-   -f, --format                use a specific output format - default: progress-bar/dump on CI
+   -f, --format [formatter]    use a specific output format, the default is: 'progress-bar' localy and 'dump' on CI
    -s, --staged                add staged files when in git repository
    --fix                       apply fixes of errors to code
-   --fix-count                 count of fixes rounds (defaults to 10)
+   --fix-count [count = 10]    count of fixes rounds
    --rulesdir                  use additional rules from directory
-   --transform                 apply inline transform
-   --plugins                   plugins to use splited by comma
-   --enable                    enable rule by name in .putout.json
-   --disable                   disable rule by name in .putout.json
-   --enable-all                enable all rules in .putout.json
-   --disable-all               disable all rules in .putout.json
-   --match                     read .putout.json and convert "rules" to "match" using pattern
+   --transform [replacer]      apply Replacer, for example 'var __a = __b -> const __a = __b', read about Replacer https://git.io/JqcMn
+   --plugins [plugins list]    a comma-separated list of plugins to use
+   --enable [rule]             enable the rule and save it to '.putout.json' walking up parent directories
+   --disable [rule]            disable the rule and save it to '.putout.json' walking up parent directories
+   --enable-all                enable all found rules and save them to '.putout.json' walking up parent directories
+   --disable-all               disable all found rules (set baseline) and save them '.putout.json' walking up parent directories
+   --match [file name]         read .putout.json and convert 'rules' to 'match' using pattern
    --flow                      enable flow
    --fresh                     generate a fresh cache
-   --no-config                 avoid reading config file (.putout.json)
-   --no-ci                     disable CI detection
-   --no-cache                  disable cache
+   --no-config                 avoid reading '.putout.json'
+   --no-ci                     disable the CI detection
+   --no-cache                  disable the cache
 ```
 
 To find erros:

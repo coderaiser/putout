@@ -5,7 +5,7 @@ module.exports = () => {
     const usage = 'Usage: putout [options] [path]';
     const result = [
         usage,
-        'Options',
+        'Options: ',
     ];
     
     for (const name of Object.keys(bin)) {
