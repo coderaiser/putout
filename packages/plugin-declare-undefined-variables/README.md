@@ -37,6 +37,7 @@ You can `dismiss` variables you don't want to define.
                 "parse",
                 "stringify",
                 "join",
+                "keys",
                 "Readable.from",
                 "tryCatch",
                 "tryToCatch",
@@ -74,6 +75,29 @@ const {assign} = Object;
 assign(object, {
     hello,
 });
+```
+
+# `keys`
+
+## ❌ Incorrect code example
+
+```js
+const hello = 'world';
+const object = {
+};
+
+const allKeys = keys(object);
+```
+
+## ✅ Correct code Example
+
+```js
+const hello = 'world';
+const object = {
+};
+const {keys} = Object;
+
+const allKeys = keys(object);
 ```
 
 # `readFile`
