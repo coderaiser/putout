@@ -1,19 +1,19 @@
 'use strict';
 
 const test = require('@putout/test')(__dirname, {
-    'remove-legacy-from-gitignore': require('..'),
+    'remove-madrun-from-gitignore': require('..'),
 });
 
-test('plugin-gitignore: report', (t) => {
+test('plugin-remove-madrun-from-gitignore: report', (t) => {
     t.report('gitignore', '.putoutcache should be removed from .gitignore');
 });
 
-test('plugin-gitignore: transform', (t) => {
+test('plugin-remove-madrun-from-gitignore: transform', (t) => {
     t.transform('gitignore');
     t.end();
 });
 
-test('plugin-gitignore: no transform: present', (t) => {
+test('plugin-remove-madrun-from-gitignore: no transform: present', (t) => {
     t.noTransform('not-present');
     t.end();
 });
