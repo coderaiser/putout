@@ -14,8 +14,8 @@ module.exports = {
     'tryToCatch': template.ast(`import tryToCatch from 'try-to-catch'`),
     'readFile': template.ast(`import {readFile} from 'fs/promises'`),
     'montag': template.ast(`import montag from 'montag'`),
-    'mockImport': template.ast(`{
-        import {createMockImport} from 'mock-import';
-        const {mockImport, stopAll, reImport} = createMockImport(import.meta.url);
-    }`),
+    'mockImport': template.ast(`const {mockImport} = createMockImport(import.meta.url)`),
+    'reImport': template.ast(`const {reImport} = createMockImport(import.meta.url)`),
+    'stopAll': template.ast(`const {stopAll} = createMockImport(import.meta.url)`),
+    'createMockImport': template.ast(`import {createMockImport} from 'mock-import';`),
 };

@@ -54,6 +54,11 @@ test('putout: plugin: declare-undefined-variables: transform: mock-import', (t) 
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: transform: re-import', (t) => {
+    t.transform('re-import');
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: report: montag', (t) => {
     t.report('montag', `Declare 'montag'`);
     t.end();
