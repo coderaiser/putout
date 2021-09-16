@@ -9,12 +9,12 @@ test('plugin-strict-mode: remove: report', (t) => {
     t.end();
 });
 
-test('plugin-strict-mode: remove: commonjs', (t) => {
+test('plugin-strict-mode: transform: esm', (t) => {
     t.transform('esm');
     t.end();
 });
 
-test('plugin-strict-mode: remove: commonjs', (t) => {
+test('plugin-strict-mode: transform: commonjs', (t) => {
     t.transform('commonjs');
     t.end();
 });

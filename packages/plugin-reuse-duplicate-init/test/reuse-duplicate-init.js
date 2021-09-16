@@ -34,7 +34,7 @@ test('plugin-reuse-duplicate-init: transform: no node', (t) => {
     t.end();
 });
 
-test('plugin-reuse-duplicate-init: transform: no node', (t) => {
+test('plugin-reuse-duplicate-init: transform: declare-stub', (t) => {
     t.transform('declare-stub', {
         'tape/declare-stub': declareStub,
     });

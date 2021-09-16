@@ -14,12 +14,12 @@ test('plugin-convert-for-to-for-of: negative: transform', (t) => {
     t.end();
 });
 
-test('plugin-convert-for-to-for-of: negative: body: transform', (t) => {
+test('plugin-convert-for-to-for-of: negative: no transform: for-in-body', (t) => {
     t.transform('for-in-body');
     t.end();
 });
 
-test('plugin-convert-for-to-for-of: negative: body: transform', (t) => {
+test('plugin-convert-for-to-for-of: negative: no transform: no-has-own', (t) => {
     t.noTransform('no-has-own');
     t.end();
 });

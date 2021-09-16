@@ -46,7 +46,7 @@ test('putout: processor: markdown: js-json', async ({process}) => {
     await process('js-json');
 });
 
-test('putout: processor: markdown: places', async ({comparePlaces}) => {
+test('putout: processor: markdown: compare places', async ({comparePlaces}) => {
     await comparePlaces('place', [{
         message: 'Code blocks should be indented',
         position: {

@@ -14,7 +14,7 @@ test('plugin-react-hooks: convert-import-component-to-use-state: transform', (t)
     t.end();
 });
 
-test('plugin-react-hooks: convert-import-component-to-use-state: transform', (t) => {
+test('plugin-react-hooks: convert-import-component-to-use-state: transform: component', (t) => {
     t.transform('component');
     t.end();
 });

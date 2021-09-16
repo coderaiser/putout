@@ -9,12 +9,12 @@ test('plugin-remove-useless-types-from-constants: report', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-types-from-constants: transform', (t) => {
+test('plugin-remove-useless-types-from-constants: transform: any', (t) => {
     t.transform('any');
     t.end();
 });
 
-test('plugin-remove-useless-types-from-constants: transform', (t) => {
+test('plugin-remove-useless-types-from-constants: transform: let', (t) => {
     t.transform('let');
     t.end();
 });

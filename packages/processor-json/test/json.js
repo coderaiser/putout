@@ -12,11 +12,11 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('putout: processor: json', async ({process}) => {
+test('putout: processor: json: eslintrc', async ({process}) => {
     await process('eslintrc');
 });
 
-test('putout: processor: json', async ({process}) => {
+test('putout: processor: json: package', async ({process}) => {
     await process('package', ['package-json']);
 });
 

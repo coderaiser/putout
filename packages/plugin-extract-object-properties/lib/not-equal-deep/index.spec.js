@@ -13,7 +13,7 @@ test('plugin-extract-object-properties: not-equal-deep: report', (t) => {
     t.end();
 });
 
-test('plugin-extract-object-properties: not-equal-deep: transform', (t) => {
+test('plugin-extract-object-properties: not-equal-deep: transform: object', (t) => {
     t.transform('object');
     t.end();
 });
@@ -23,7 +23,7 @@ test('plugin-extract-object-properties: not-equal-deep: transform: fn', (t) => {
     t.end();
 });
 
-test('plugin-extract-object-properties: not-equal-deep: transform', (t) => {
+test('plugin-extract-object-properties: not-equal-deep: transform: operate', (t) => {
     t.transform('operate', {
         putout: require('@putout/plugin-putout'),
     });
