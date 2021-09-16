@@ -1,3 +1,21 @@
+2021.09.16, v20.2.0
+
+fix:
+- chore(nycrc) exclude: fixture -> *fixture
+
+feature:
+- (eslint-plugin-putout) no-resolve: add support of import directory
+- (putout) export putout/eslint
+- (eslint-plugin-putout) add no-unresolved
+- (@putout/plugin-declare-undefined-variables) add support of basename, dirname, extname from path
+- (package) @putout/plugin-remove-useless-async v4.0.0
+- (@putout/plugin-remove-useless-async) drop support of node < 14
+- (@putout/plugin-remove-useless-async) report: Useless async should be avoided -> Avoid useless async
+- (@putout/plugin-declare-undefined-variables) add support of reImport, stopAll
+- (@putout/plugin-remove-duplicate-keys) add support of rename while destructuring
+- (eslint-plugin-putout) safe: disable remove-unused-for-of-variables
+
+
 2021.09.15, v20.1.0
 
 fix:
