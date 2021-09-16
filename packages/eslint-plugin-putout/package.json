@@ -20,9 +20,11 @@
   "scripts": {
     "wisdom": "madrun wisdom",
     "test": "madrun test",
+    "test:all": "madrun test:all",
     "watch:test": "madrun watch:test",
     "lint": "madrun lint",
-    "lint:fixture": "madrun lint:fixture",
+    "lint:all": "madrun lint:all",
+    "lint:ide": "madrun lint:ide",
     "fresh:lint": "madrun fresh:lint",
     "lint:fresh": "madrun lint:fresh",
     "fix:lint": "madrun fix:lint",
@@ -38,7 +40,8 @@
     "@putout/eslint-config": "^6.0.0",
     "align-spaces": "^1.0.0",
     "eslint-plugin-node": "^11.0.0",
-    "estree-to-babel": "^4.0.1"
+    "estree-to-babel": "^4.0.1",
+    "try-catch": "^3.0.0"
   },
   "devDependencies": {
     "c8": "^7.5.0",
@@ -46,7 +49,9 @@
     "eslint-plugin-eslint-plugin": "^3.2.0",
     "madrun": "^8.0.1",
     "mocha": "^9.0.1",
-    "montag": "^1.0.0"
+    "montag": "^1.0.0",
+    "simport": "^1.2.0",
+    "supertape": "^6.6.0"
   },
   "engines": {
     "node": ">=14"

@@ -4,6 +4,7 @@ const prepare = (plugin, context, options) => (node) => {
     const {filter, report} = plugin;
     
     const source = context.getSourceCode();
+    const filename = context.getFilename();
     const getText = source.getText.bind(source);
     
     const text = getText(node);
@@ -13,12 +14,14 @@ const prepare = (plugin, context, options) => (node) => {
         node,
         options,
         getText,
+        filename,
     });
     
     if (!result)
         return;
     
     const fix = prepareFix(plugin.fix, {
+        filename,
         node,
         text,
         getText,
@@ -31,11 +34,12 @@ const prepare = (plugin, context, options) => (node) => {
     });
 };
 
-const prepareFix = (fix, {node, text, getText}) => (fixer) => {
+const prepareFix = (fix, {node, text, getText, filename}) => (fixer) => {
     const fixed = fix({
         node,
         text,
         getText,
+        filename,
     });
     
     return [

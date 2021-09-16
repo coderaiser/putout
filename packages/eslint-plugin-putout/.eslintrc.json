@@ -1,14 +1,18 @@
 {
+    "rules": {
+        "putout/align-spaces": "error"
+    },
     "overrides": [{
-        "files": "lib/putout/index{.js,.spec.js}",
+        "files": ["test/*.mjs", "lib/putout/index{.js,.spec.js}"],
         "rules": {
-            "node/no-missing-require": "off"
+            "node/no-missing-require": "off",
+            "node/no-missing-import": "off"
         }
     }],
     "extends": [
         "plugin:node/recommended",
         "plugin:eslint-plugin/recommended",
-        "plugin:putout/recommended"
+        "plugin:putout/safe"
     ],
     "plugins": [
         "eslint-plugin",

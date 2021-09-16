@@ -17,8 +17,5 @@
             "remove-debugger": "off",
             "convert-for-to-for-of": "off"
         }
-    },
-    "ignore": [
-        "!**/fixture"
-    ]
+    }
 }

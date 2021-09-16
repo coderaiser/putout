@@ -15,12 +15,12 @@ const {
 
 import {
     password,
-} from './user';
+} from './user.js';
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
 const {username} = user;
-import {password} from './user';
+import {password} from './user.js';
 ```

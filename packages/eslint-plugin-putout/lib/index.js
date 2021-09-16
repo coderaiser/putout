@@ -28,6 +28,7 @@ module.exports.rules = {
     ...getWrapRule('remove-newline-after-default-import'),
     ...getWrapRule('objects-braces-inside-array'),
     ...getWrapRule('object-init'),
+    ...getWrapRule('no-unresolved'),
     ...getRule('putout'),
 };
 
@@ -53,6 +54,7 @@ const recommended = {
         'putout/remove-newline-after-default-import': 'error',
         'putout/objects-braces-inside-array': 'error',
         'putout/object-init': 'error',
+        'putout/no-unresolved': 'error',
         'putout/putout': 'error',
         
         'node/no-unsupported-features/es-syntax': 'off',

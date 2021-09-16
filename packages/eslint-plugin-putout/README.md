@@ -70,6 +70,7 @@ Then configure the rules you want to use under the rules section.
 - [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import)
 - [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array)
 - [Object init](/packages/eslint-plugin-putout/lib/object-init)
+- [No unresolved](/packages/eslint-plugin-putout/lib/no-unresolved)
 
 ### Safe mode
 
@@ -95,5 +96,5 @@ List of disabled `putout` rules:
 - [remove-skip](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-skip);
 - [remove-only](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-only);
 - [remove-console](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-console);
-- [emove-debugger](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-debugger);
-- [onvert-for-to-for-of](https://github.com/coderaiser/putout/tree/v20.0.0/packages/convert-for-to-for-of);
+- [remove-debugger](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-debugger);
+- [convert-for-to-for-of](https://github.com/coderaiser/putout/tree/v20.0.0/packages/convert-for-to-for-of);

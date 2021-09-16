@@ -3,6 +3,7 @@
 *.md
 yarn-error.log
 
+test
 coverage
 fixture
 eslint-fixture

@@ -1,16 +1,17 @@
 import {run} from 'madrun';
 
 export default {
-    'wisdom': () => run(['lint', 'coverage']),
-    'test': () => `mocha 'lib/**/*.spec.js'`,
+    'wisdom': () => run(['lint:all', 'coverage']),
+    'test': () => 'tape test/*.mjs',
+    'test:all': () => `mocha 'lib/**/*.spec.js' test/*.mjs`,
     'watch:test': async () => `nodemon -w rules -x ${await run('test')}`,
     'lint': () => 'putout .',
-    'prelint': () => run('lint:ide'),
+    'lint:all': () => run(['lint', 'lint:ide']),
     'lint:ide': () => 'eslint -c .eslintrc-safe.json eslint-fixture',
     'fresh:lint': () => run('lint', '--fresh'),
     'lint:fresh': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),
-    'coverage': async () => `c8 ${await run('test')}`,
+    'coverage': async () => `c8 ${await run('test:all')}`,
     'debug': () => 'mocha --inspect-brk --inspect=0.0.0.0',
 };
 
