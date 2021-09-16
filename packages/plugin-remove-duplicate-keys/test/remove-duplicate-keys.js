@@ -25,8 +25,13 @@ test('remove duplicate-keys: transform: couple', (t) => {
     t.end();
 });
 
-test('remove duplicate-keys: transform: no duplicate', (t) => {
+test('remove duplicate-keys: no transform: no duplicate', (t) => {
     t.noTransform('no-duplicate');
+    t.end();
+});
+
+test('remove duplicate-keys: no transform: rename', (t) => {
+    t.noTransform('rename');
     t.end();
 });
 

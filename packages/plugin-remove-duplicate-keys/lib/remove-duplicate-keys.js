@@ -47,6 +47,10 @@ module.exports.match = () => ({
             if (isObjectProperty(prop) && isIdentifier(prop.key)) {
                 const {computed} = prop;
                 const {name} = prop.key;
+                
+                if (name !== prop.value.name)
+                    continue;
+                
                 const isFirst = checkIfFirst(properties, newProperties, isObjectPropertyId, name, {
                     computed,
                 });
