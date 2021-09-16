@@ -3,7 +3,7 @@
 const {operator} = require('putout');
 const {contains} = operator;
 
-module.exports.report = () => `Useless async should be avoided`;
+module.exports.report = () => `Avoid useless async`;
 
 module.exports.fix = (path) => {
     path.node.async = false;

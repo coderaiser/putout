@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-remove-useless-async: report', (t) => {
-    t.report('async', 'Useless async should be avoided');
+    t.report('async', 'Avoid useless async');
     t.end();
 });
 
