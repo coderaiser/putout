@@ -6,7 +6,7 @@ export default {
     'watch:test': async () => `nodemon -w rules -x ${await run('test')}`,
     'lint': () => 'putout .',
     'prelint': () => run('lint:ide'),
-    'lint:ide': () => 'eslint -c .eslintrc-safe.json fixture',
+    'lint:ide': () => 'eslint -c .eslintrc-safe.json eslint-fixture',
     'fresh:lint': () => run('lint', '--fresh'),
     'lint:fresh': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),

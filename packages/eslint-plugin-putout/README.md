@@ -90,6 +90,7 @@ List of disabled `putout` rules:
 
 - [remove-empty](https://github.com/coderaiser/putout/tree/v20.0.0/packages/plugin-remove-empty);
 - [remove-unused-variables](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-unused-variables);
+- [remove-unused-for-of-variables](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-unused-for-of-variables);
 - [remove-unused-expressions](https://github.com/coderaiser/putout/tree/v20.0.0/packages);
 - [remove-skip](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-skip);
 - [remove-only](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-only);

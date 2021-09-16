@@ -5,10 +5,20 @@
     "match": {
         "*.js": {
             "convert-esm-to-commonjs": "on"
+        },
+        "eslint-fixture": {
+            "remove-empty": "off",
+            "remove-unused-variables": "off",
+            "remove-unused-expressions": "off",
+            "remove-unused-for-of-variables": "off",
+            "remove-skip": "off",
+            "remove-only": "off",
+            "remove-console": "off",
+            "remove-debugger": "off",
+            "convert-for-to-for-of": "off"
         }
     },
     "ignore": [
-        "!**/fixture",
-        "fixture/safe.js"
+        "!**/fixture"
     ]
 }

@@ -4,6 +4,7 @@
     "exclude": [
         "**/*.spec.*",
         "**/fixture",
+        "**/eslint-fixture",
         "test",
         ".*.*"
     ],
