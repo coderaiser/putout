@@ -4,17 +4,17 @@ const test = require('@putout/test')(__dirname, {
     'remove-useless-spread/object': require('.'),
 });
 
-test('plugin-remove-useless-spread: report', (t) => {
+test('plugin-remove-useless-spread: object: report', (t) => {
     t.report('object', 'Useless spread should be avoided');
     t.end();
 });
 
-test('plugin-remove-useless-spread: transform: object', (t) => {
+test('plugin-remove-useless-spread: object: transform: object', (t) => {
     t.transform('object');
     t.end();
 });
 
-test('plugin-remove-useless-spread: no transform: same', (t) => {
+test('plugin-remove-useless-spread: object: no transform: same', (t) => {
     t.noTransform('same');
     t.end();
 });

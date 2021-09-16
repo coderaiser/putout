@@ -9,12 +9,12 @@ test('plugin-remove-useless-template-expressions: report', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-template-expressions: transform', (t) => {
+test('plugin-remove-useless-template-expressions: transform: literal', (t) => {
     t.transform('literal');
     t.end();
 });
 
-test('plugin-remove-useless-template-expressions: transform', (t) => {
+test('plugin-remove-useless-template-expressions: transform: var', (t) => {
     t.transform('var');
     t.end();
 });

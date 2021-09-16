@@ -9,11 +9,6 @@ test('plugin-remove-useless-async: report', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-async: report', (t) => {
-    t.report('async', 'Useless async should be avoided');
-    t.end();
-});
-
 test('plugin-remove-useless-async: transform', (t) => {
     t.transform('async');
     t.end();
@@ -69,7 +64,7 @@ test('plugin-remove-useless-async: no transform: for await of', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-async: no transform: for await of', (t) => {
+test('plugin-remove-useless-async: no transform: noop', (t) => {
     t.noTransformCode('const a = async () => {}');
     t.end();
 });

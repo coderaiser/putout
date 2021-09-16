@@ -14,33 +14,32 @@ test('plugin-remove-useless-type-conversion: transform', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-type-conversion: transform: typeof', (t) => {
+test('plugin-remove-useless-type-conversion: named: transform: typeof', (t) => {
     t.transform('typeof');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversion: transform: if', (t) => {
+test('plugin-remove-useless-type-conversion: named: transform: if', (t) => {
     t.transform('if');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversion: transform: while', (t) => {
+test('plugin-remove-useless-type-conversion: named: transform: while', (t) => {
     t.transform('while');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversion: transform: for', (t) => {
+test('plugin-remove-useless-type-conversion: named: transform: for', (t) => {
     t.transform('for');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversion: transform: for-start', (t) => {
+test('plugin-remove-useless-type-conversion: named: transform: for-start', (t) => {
     t.transform('for-start');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversion: transform: for-end', (t) => {
+test('plugin-remove-useless-type-conversion: named: transform: for-end', (t) => {
     t.transform('for-end');
     t.end();
 });
-

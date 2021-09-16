@@ -9,7 +9,7 @@ test('plugin-strict-mode: remove: report', (t) => {
     t.end();
 });
 
-test('plugin-strict-mode: transform: esm', (t) => {
+test('plugin-strict-mode: remove: transform: esm', (t) => {
     t.transform('esm');
     t.end();
 });
