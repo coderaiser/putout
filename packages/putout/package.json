@@ -16,6 +16,7 @@
     "./exit-codes": "./lib/cli/exit-codes.mjs",
     "./cli": "./lib/cli/index.js",
     "./loader": "./lib/loader.js",
+    "./eslint": "./lib/cli/eslint/index.js",
     "./package.json": "./package.json"
   },
   "bin": {
