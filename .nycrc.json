@@ -4,7 +4,7 @@
     "all": true,
     "exclude": [
         "**/*.spec.*",
-        "**/fixture",
+        "**/*fixture",
         "**/.*.*",
         "packages/*/coverage",
         "packages/*/bin",
