@@ -11,6 +11,7 @@ Examples of **incorrect** code for this rule:
 
 ```js
 import x from './y';
+import dir from './dir';
 ```
 
 [File extension is mandatory](https://nodejs.org/api/esm.html#esm_mandatory_file_extensions) and will produce an error from `node.js`:
@@ -24,5 +25,6 @@ Examples of **correct** code for this rule:
 
 ```js
 import x from './y.js';
+import dir from './dir/index.js';
 ```
 
