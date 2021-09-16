@@ -122,7 +122,7 @@ npx putout lib test --fix
 
 ### Applying a single rule
 
-By default, all rules are enabled. To apply only a single rule, you first have to disable all other rules in your .putout.json file. As an example, to apply only `remove-unused-variables` to code in the folder "lib", you should run:
+By default, all rules are enabled. To apply only a single rule, you first have to disable all other rules in your `.putout.json` file. As an example, to apply only `remove-unused-variables` to code in the folder `lib`, you should run:
 
 ```sh
 # Disable all rules applicable to this project in .putout.json
