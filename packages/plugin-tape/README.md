@@ -46,7 +46,7 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
@@ -63,7 +63,7 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
 const test = require('tape');
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 const test = require('supertape');
@@ -82,7 +82,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 const tryCatch = require('try-catch');
@@ -109,6 +109,20 @@ test('some message', (t) => {
 });
 ```
 
+### ✅ Correct code example
+
+```js
+const test = require('supertape');
+const tryCatch = require('try-catch');
+
+test('some test', (t) => {
+    const [error] = tryCatch(copymitter);
+    
+    t.notOk(error, 'should not throw when no args');
+    t.end();
+});
+```
+
 ## convert-called-with-args
 
 ### ❌ Incorrect code example
@@ -127,7 +141,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 const test = require('supertape');
@@ -143,7 +157,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 const tryCatch = require('try-catch');
@@ -175,7 +189,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 const test = require('supertape');
@@ -209,7 +223,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 const test = require('supertape');
@@ -239,7 +253,7 @@ test('copymitter', (t) => {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 const {once} = require('events');
@@ -266,7 +280,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 import tryCatch from 'try-catch';
@@ -289,7 +303,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 test('some message', (t) => {
@@ -312,7 +326,7 @@ test('xxx', (t) => {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 const {test, stub} = require('supertape');
@@ -332,7 +346,7 @@ test('xxx', (t) => {
 t.ok(result.includes('hello'));
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 t.match(result, /hello/);
@@ -346,7 +360,7 @@ t.match(result, /hello/);
 t.ok(set.calledWith(1, 2));
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 t.calledWith(set, [1, 2]);
@@ -360,7 +374,7 @@ t.calledWith(set, [1, 2]);
 t.equal(error, null);
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 t.notOk(error);
@@ -374,7 +388,7 @@ t.notOk(error);
 t.equal(result, true);
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 t.ok(result);
@@ -388,7 +402,7 @@ t.ok(result);
 t.match(result, RegExp('hello'));
 ```
 
-### ✅ Correct code Example
+### ✅ Correct code example
 
 ```js
 t.match(result, 'hello');
