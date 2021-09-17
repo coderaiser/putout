@@ -36,6 +36,9 @@ You can `dismiss` variables you don't want to define.
                 "entries",
                 "parse",
                 "stringify",
+                "basename",
+                "dirname",
+                "extname",
                 "join",
                 "keys",
                 "Readable.from",
@@ -43,6 +46,9 @@ You can `dismiss` variables you don't want to define.
                 "tryToCatch",
                 "readFile",
                 "mockImport",
+                "createMockImport",
+                "reImport",
+                "stopAll",
                 "montag"
             ]
         }]
