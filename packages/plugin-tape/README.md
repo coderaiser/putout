@@ -30,7 +30,9 @@ npm i @putout/plugin-tape -D
         "tape/convert-emitter-to-promise": "on",
         "tape/convert-ok-to-match": "on",
         "tape/convert-ok-to-called-with": "on",
-        "tape/convert-match-regexp-to-string": "on"
+        "tape/convert-match-regexp-to-string": "on",
+        "tape/declare-stub": "on",
+        "tape/declare-t": "on"
     }
 }
 ```
@@ -334,6 +336,24 @@ const {test, stub} = require('supertape');
 test('xxx', (t) => {
     const a = stub();
     
+    t.end();
+});
+```
+
+## declare-t
+
+### ❌ Incorrect code example
+
+```js
+test('xxx', () => {
+    t.end();
+});
+```
+
+### ✅ Correct code example
+
+```js
+test('xxx', (t) => {
     t.end();
 });
 ```

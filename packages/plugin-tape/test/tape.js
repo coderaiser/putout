@@ -89,3 +89,8 @@ test('plugin-tape: transform: convert-called-with-args', (t) => {
     t.end();
 });
 
+test('plugin-tape: transform: declare-t', (t) => {
+    t.transform('declare-t');
+    t.end();
+});
+

@@ -21,5 +21,6 @@ module.exports.rules = {
     ...getRule('expand-try-catch-arguments'),
     ...getRule('apply-stub-operator'),
     ...getRule('declare-stub'),
+    ...getRule('declare-t'),
 };
 
