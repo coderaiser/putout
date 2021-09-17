@@ -12,7 +12,9 @@ const {
 
 const cwd = process.cwd();
 
-const isRelative = (a) => /^\.\.?\//.test(a);
+const RELATIVE = '\\.\\.?\\/?';
+const isRelativeStart = (a) => RegExp(`^${RELATIVE}`).test(a);
+const isRelativeEnd = (a) => RegExp(`${RELATIVE}$`).test(a);
 const getDir = (a) => a === '<input>' ? cwd : dirname(a);
 
 module.exports.category = 'errors';
@@ -37,13 +39,23 @@ module.exports.filter = ({node}) => {
     const {source} = node;
     const {value} = source;
     
-    if (!isRelative(value))
+    if (!isRelativeStart(value))
         return false;
     
     return !extname(value);
 };
 
 function resolveSource({dir, value}) {
+    if (isRelativeEnd(value)) {
+        const name = join(dir, value, 'package.json');
+        const [error, info] = tryCatch(require, name);
+        
+        if (error)
+            return value;
+        
+        return join(value, info.main);
+    }
+    
     for (const ext of ['js', 'mjs', 'cjs']) {
         const name = join(dir, `${value}.${ext}`);
         const [error] = tryCatch(accessSync, name);
@@ -60,3 +72,4 @@ function resolveSource({dir, value}) {
     
     return `${value}.js`;
 }
+
