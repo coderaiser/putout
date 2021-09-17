@@ -15,3 +15,8 @@ test('plugin-tape: convert-called-with-no-args-to-called-with: transform', (t) =
     t.end();
 });
 
+test('plugin-tape: convert-called-with-no-args-to-called-with: transform: identifier', (t) => {
+    t.transform('identifier');
+    t.end();
+});
+
