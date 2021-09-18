@@ -9,12 +9,12 @@ test('plugin-remove-useless-arguments: report', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-arguments: transform', (t) => {
+test('plugin-remove-useless-arguments: transform: call', (t) => {
     t.transform('call');
     t.end();
 });
 
-test('plugin-remove-useless-arguments: transform', (t) => {
+test('plugin-remove-useless-arguments: transform: scope', (t) => {
     t.transform('scope');
     t.end();
 });
@@ -39,7 +39,7 @@ test('plugin-remove-useless-arguments: no transform: not object', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-arguments: no transform: not object', (t) => {
+test('plugin-remove-useless-arguments: no transform: deep', (t) => {
     t.noTransform('deep');
     t.end();
 });
