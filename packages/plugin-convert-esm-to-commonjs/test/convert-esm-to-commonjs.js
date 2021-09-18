@@ -40,6 +40,16 @@ test('plugin-convert-esm-to-commonjs: transform: import default', (t) => {
     t.end();
 });
 
+test('plugin-convert-esm-to-commonjs: transform: specifiers', (t) => {
+    t.transform('specifiers');
+    t.end();
+});
+
+test('plugin-convert-esm-to-commonjs: report: import default', (t) => {
+    t.report('import-default', ['Commonjs should be used insted of ESM']);
+    t.end();
+});
+
 test('plugin-convert-esm-to-commonjs: transform: import empty', (t) => {
     t.transform('import-empty');
     t.end();

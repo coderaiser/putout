@@ -1,6 +1,7 @@
 'use strict';
 
-const {template} = require('putout');
+const {types, template} = require('putout');
+const {isImportDefaultSpecifier} = types;
 
 module.exports.report = () => 'Commonjs should be used insted of ESM';
 
@@ -13,17 +14,35 @@ module.exports.replace = () => ({
     
     'import "__a"': 'require("__a")',
     'import * as __a from "__b"': 'const __a = require("__b")',
-    'import __a from "__b"': 'const __a = require("__b")',
     'import __imports from "__a"': ({__imports, __a}) => {
-        let result = 'const {\n';
+        let assignment = '';
+        let destructuring = 'const {\n';
+        let hasSpecifiers = false;
         
-        for (const {imported, local} of __imports) {
-            result += `${imported.name}: ${local.name},\n`;
+        for (const currentImport of __imports) {
+            const {imported, local} = currentImport;
+            
+            if (isImportDefaultSpecifier(currentImport)) {
+                assignment = `const ${local.name} = require("__a")`;
+                continue;
+            }
+            
+            hasSpecifiers = true;
+            destructuring += `${imported.name}: ${local.name},\n`;
         }
         
-        result += `\n} = require("${__a.value}");`;
+        destructuring += `\n} = require("${__a.value}");`;
         
-        return result;
+        if (assignment && !hasSpecifiers)
+            return assignment;
+        
+        if (!assignment && hasSpecifiers)
+            return destructuring;
+        
+        return `{
+            ${assignment};
+            ${destructuring};
+        }`;
     },
 
 });
