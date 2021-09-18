@@ -8,9 +8,6 @@
             "putout": "off",
             "babel/transform-inline-consecutive-adds": "off",
             "jscodeshift/async-await-codemod/async-await": "off"
-        },
-        "*.js": {
-            "convert-esm-to-commonjs": "on"
         }
     },
     "plugins": [

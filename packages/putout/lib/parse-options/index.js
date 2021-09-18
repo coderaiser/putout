@@ -15,6 +15,7 @@ const parseMatch = require('./parse-match');
 const defaultOptions = require('../../putout.json');
 const merge = require('../merge');
 const recursiveRead = require('./recursive-read');
+const applyModuleTypeRules = require('./apply-module-type-rules');
 
 const home = homedir();
 
@@ -71,11 +72,13 @@ const includes = (name) => (dir, names) => names.includes(name) && name;
 
 function _readOptions(name) {
     const [dir, options] = recursiveRead(name, '.putout.json');
+    const [, packagePath] = tryCatch(escalade, name, includes('package.json'));
+    
+    if (packagePath)
+        applyModuleTypeRules(require(packagePath), options);
     
     if (dir)
         return [dir, options];
-    
-    const [, packagePath] = tryCatch(escalade, name, includes('package.json'));
     
     if (packagePath)
         return [
