@@ -41,6 +41,7 @@ You can `dismiss` variables you don't want to define.
                 "extname",
                 "join",
                 "keys",
+                "values",
                 "Readable.from",
                 "tryCatch",
                 "tryToCatch",
@@ -104,6 +105,24 @@ const object = {
 const {keys} = Object;
 
 const allKeys = keys(object);
+```
+
+# `values`
+
+## ❌ Incorrect code example
+
+```js
+const object = {};
+const allValues = values(object);
+```
+
+## ✅ Correct code Example
+
+```js
+const {values} = Object;
+
+const object = {};
+const allValues = values(object);
 ```
 
 # `readFile`

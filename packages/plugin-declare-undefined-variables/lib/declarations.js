@@ -6,6 +6,7 @@ module.exports = {
     'assign': template.ast('const {assign} = Object'),
     'entries': template.ast('const {entries} = Object'),
     'keys': template.ast('const {keys} = Object'),
+    'values': template.ast('const {values} = Object'),
     
     'parse': template.ast('const {parse} = JSON'),
     'stringify': template.ast('const {stringify} = JSON'),
