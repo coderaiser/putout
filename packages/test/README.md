@@ -23,9 +23,9 @@ UPDATE=1 tape test/*.js
 
 ## Plugins API
 
-### report(filename, message)
+### report(filename, message | []messages)
 
-checks error message of a plugin
+checks error message (or messages) of a plugin
 
 ```js
 test('remove usless variables: for-of', (t) => {
