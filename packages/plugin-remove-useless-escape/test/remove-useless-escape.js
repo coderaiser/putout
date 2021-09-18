@@ -68,7 +68,12 @@ test('plugin-remove-useless-escape: transform: emoji: template', (t) => {
 });
 
 test('plugin-remove-useless-escape: transform: regexp: colon', (t) => {
-    t.transform('colon');
+    t.transform('regexp-colon');
+    t.end();
+});
+
+test('plugin-remove-useless-escape: transform: regexp: slash', (t) => {
+    t.transform('regexp-slash');
     t.end();
 });
 

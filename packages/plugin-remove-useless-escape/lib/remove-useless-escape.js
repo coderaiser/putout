@@ -104,12 +104,14 @@ function unEscape(raw) {
 }
 
 function unescapeRegExp(raw) {
-    return raw.replace(/\\:/g, ':');
+    return raw
+        .replace(/\\:/g, ':')
+        .replace(/\\\//g, '/');
 }
 
 function isEscapedRegExp(raw) {
-    const includes = /\\:/.test(raw);
-    const notIncludes = !/\\\\:/.test(raw);
+    const includes = /\\[:/]/.test(raw);
+    const notIncludes = !/\\\\[:/]/.test(raw);
     
     return includes && notIncludes;
 }
