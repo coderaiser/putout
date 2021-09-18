@@ -1,3 +1,21 @@
+2021.09.19, v20.3.0
+
+fix:
+- (@putout/plugin-convert-esm-to-commonjs) duplicate report
+
+feature:
+- (@putout/plugin-remove-useless-escape) "\+" -> "+"
+- (@putout/plugin-remove-useless-escape) regexp: add support of slash
+- (putout) add ability to detect package type (module/commonjs) and apply matching converters
+- (@putout/plugin-declare-undefined-variables) values -> Object.values
+- (@putout/plugin-remove-useless-escape) add support of regexp
+- (@putout/plugin-tape) add remove-default-messages
+- (@putout/plugin-tape) convert-match-regexp-to-string: add support of notMatch
+- (@putout/tape) add declare-t
+- (@putout/plugin-tape) convert-called-with-no-args-to-called-with: add support of identifier used as second arg
+- (eslint-plugin-putout) no-unresolved: add support of "main" entry of "package.json"
+
+
 2021.09.16, v20.2.0
 
 fix:
