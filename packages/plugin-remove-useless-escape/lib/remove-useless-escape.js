@@ -11,6 +11,15 @@ module.exports.fix = (path) => {
         return;
     }
     
+    if (path.isRegExpLiteral()) {
+        const {pattern} = path.node;
+        const unescaped = unescapeRegExp(pattern);
+        path.node.pattern = unescaped;
+        path.node.raw = `/${unescaped}/`;
+        path.node.extra.raw = `/${unescaped}/`;
+        return;
+    }
+    
     for (const tmpl of path.node.quasis) {
         const {raw} = tmpl.value;
         tmpl.value.raw = unEscape(raw);
@@ -18,6 +27,12 @@ module.exports.fix = (path) => {
 };
 
 module.exports.traverse = ({push}) => ({
+    'RegExpLiteral'(path) {
+        const {raw} = path.node;
+        
+        if (isEscapedRegExp(raw))
+            push(path);
+    },
     '"__"'(path) {
         const {raw} = path.node;
         
@@ -86,5 +101,16 @@ function unEscape(raw) {
     }
     
     return raw;
+}
+
+function unescapeRegExp(raw) {
+    return raw.replace(/\\:/g, ':');
+}
+
+function isEscapedRegExp(raw) {
+    const includes = /\\:/.test(raw);
+    const notIncludes = !/\\\\:/.test(raw);
+    
+    return includes && notIncludes;
 }
 
