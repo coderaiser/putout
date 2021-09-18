@@ -11,16 +11,22 @@ module.exports.match = () => ({
     't.match(__a, RegExp(__b), __c)': checkStr,
     't.match(__a, /__b/)': checkRegExp,
     't.match(__a, /__b/, __c)': checkRegExp,
+    
+    't.notMatch(__a, RegExp(__b))': checkStr,
+    't.notMatch(__a, RegExp(__b), __c)': checkStr,
+    't.notMatch(__a, /__b/)': checkRegExp,
+    't.notMatch(__a, /__b/, __c)': checkRegExp,
 });
 
 module.exports.replace = () => ({
     't.match(__a, RegExp(__b))': 't.match(__a, __b)',
     't.match(__a, RegExp(__b), __c)': 't.match(__a, __b, __c)',
-    't.match(__a, /__b/)': ({__b}) => {
-        return `t.match(__a, '${__b.pattern}')`;
-    },
-    't.match(__a, /__b/, __c)': ({__b}) => {
-        return `t.match(__a, '${__b.pattern}', __c)`;
-    },
+    't.match(__a, /__b/)': ({__b}) => `t.match(__a, '${__b.pattern}')`,
+    't.match(__a, /__b/, __c)': ({__b}) => `t.match(__a, '${__b.pattern}', __c)`,
+    
+    't.notMatch(__a, RegExp(__b))': 't.notMatch(__a, __b)',
+    't.notMatch(__a, RegExp(__b), __c)': 't.notMatch(__a, __b, __c)',
+    't.notMatch(__a, /__b/)': ({__b}) => `t.notMatch(__a, '${__b.pattern}')`,
+    't.notMatch(__a, /__b/, __c)': ({__b}) => `t.notMatch(__a, '${__b.pattern}', __c)`,
 });
 

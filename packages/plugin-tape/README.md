@@ -428,6 +428,23 @@ t.match(result, RegExp('hello'));
 t.match(result, 'hello');
 ```
 
+## remove-default-messages
+
+`supertape` will put this information for you, and it is always the same.
+No need to repeat the same information twice on one line, better to avoid it.
+
+### ❌ Incorrect code example
+
+```js
+t.equal(result, expected, 'should equal');
+```
+
+### ✅ Correct code example
+
+```js
+t.equal(result, expected);
+```
+
 ## License
 
 MIT

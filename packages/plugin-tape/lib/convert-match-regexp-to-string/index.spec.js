@@ -14,6 +14,11 @@ test('plugin-tape: convert-match-regexp-to-string: transform', (t) => {
     t.end();
 });
 
+test('plugin-tape: convert-match-regexp-to-string: transform: not-match', (t) => {
+    t.transform('not-match');
+    t.end();
+});
+
 test('plugin-tape: convert-match-regexp-to-string: no transform: not-simple', (t) => {
     t.noTransform('not-simple');
     t.end();
