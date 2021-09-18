@@ -133,7 +133,7 @@ test('putout: engine-processor: markdown: no fix', async (t) => {
         rawSource,
     });
     
-    t.equal(processedSource, rawSource, 'should equal');
+    t.equal(processedSource, rawSource);
     t.end();
 });
 
@@ -298,7 +298,7 @@ test('putout: engine-processor: markdown: no fix: should not change source', asy
         rawSource,
     });
     
-    t.equal(processedSource, rawSource, 'should equal');
+    t.equal(processedSource, rawSource);
     t.end();
 });
 
@@ -350,7 +350,7 @@ test('putout: engine-processor: markdown: js changed', async (t) => {
         rawSource,
     });
     
-    t.equal(processedSource, expectedSource, 'should equal');
+    t.equal(processedSource, expectedSource);
     t.end();
 });
 

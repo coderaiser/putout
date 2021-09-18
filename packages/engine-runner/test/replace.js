@@ -217,7 +217,7 @@ test('putout: runner: replace: remove: no node', (t) => {
     
     const expected = 'const a = 5;';
     
-    t.equal(code, expected, 'should equal');
+    t.equal(code, expected);
     t.end();
 });
 
@@ -243,7 +243,7 @@ test('putout: runner: replace: options', (t) => {
     
     const expected = 'const a = 5;debugger;';
     
-    t.equal(code, expected, 'should equal');
+    t.equal(code, expected);
     t.end();
 });
 
@@ -273,7 +273,7 @@ test('putout: runner: replace: match: options', (t) => {
     
     const expected = 'const a = 5;debugger;';
     
-    t.equal(code, expected, 'should equal');
+    t.equal(code, expected);
     t.end();
 });
 
@@ -322,7 +322,7 @@ test('putout: runner: replace: same function: should produce same result', (t) =
     
     const expected = `__putout_processor_ignore(['hello']);`;
     
-    t.equal(code, expected, 'should equal');
+    t.equal(code, expected);
     t.end();
 });
 

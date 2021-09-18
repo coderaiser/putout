@@ -64,7 +64,7 @@ test('putout: loader: user plugin', (t) => {
     mockRequire.stopAll();
     Module._findPath = _findPath;
     
-    t.equal(code, '', 'should equal');
+    t.equal(code, '');
     t.end();
 });
 
@@ -77,7 +77,7 @@ test('putout: loader: can not find', (t) => {
     
     const expected = 'Plugin "putout-plugin-xxx" could not be found!';
     
-    t.equal(e.message, expected, 'should equal');
+    t.equal(e.message, expected);
     t.end();
 });
 
@@ -98,7 +98,7 @@ test('putout: loader: function', (t) => {
     
     stopAll();
     
-    t.equal(code, '', 'should equal');
+    t.equal(code, '');
     t.end();
 });
 
@@ -123,7 +123,7 @@ test('putout: loader: function: rules', (t) => {
     
     stopAll();
     
-    t.equal(code, '', 'should equal');
+    t.equal(code, '');
     t.end();
 });
 
@@ -147,7 +147,7 @@ test('putout: loader: disabled rule', (t) => {
     
     stopAll();
     
-    t.equal(code, `const t = 'hello'`, 'should equal');
+    t.equal(code, `const t = 'hello'`);
     t.end();
 });
 
@@ -171,7 +171,7 @@ test('putout: loader: plugins: array', (t) => {
     
     stopAll();
     
-    t.equal(code, `const t = 'hello'`, 'should equal');
+    t.equal(code, `const t = 'hello'`);
     t.end();
 });
 

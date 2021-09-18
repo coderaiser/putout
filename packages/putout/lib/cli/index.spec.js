@@ -456,7 +456,7 @@ test('putout: cli: --staged --fix', async (t) => {
     
     stopAll();
     
-    t.equal(output, message, 'should equal');
+    t.equal(output, message);
     t.end();
 });
 

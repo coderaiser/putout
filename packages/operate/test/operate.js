@@ -160,7 +160,7 @@ test('putout: operate: replaceWith: comments', (t) => {
     
     operate.replaceWith(path, newNode);
     
-    t.equal(path.node.comments, comments, 'should equal');
+    t.equal(path.node.comments, comments);
     t.end();
 });
 
@@ -188,7 +188,7 @@ test('putout: operate: replaceWith: loc', (t) => {
     
     operate.replaceWith(path, newNode);
     
-    t.equal(path.node.loc, loc, 'should equal');
+    t.equal(path.node.loc, loc);
     t.end();
 });
 
@@ -226,7 +226,7 @@ test('putout: operate: insertAfter: comments', (t) => {
     
     operate.insertAfter(path, newNode);
     
-    t.equal(path.node.comments, comments, 'should equal');
+    t.equal(path.node.comments, comments);
     t.end();
 });
 

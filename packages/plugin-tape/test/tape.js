@@ -94,8 +94,8 @@ test('plugin-tape: transform: declare-t', (t) => {
     t.end();
 });
 
-test('plugin-tape: transform: remove-default-message', (t) => {
-    t.transform('remove-default-message');
+test('plugin-tape: transform: remove-default-messages', (t) => {
+    t.transform('remove-default-messages');
     t.end();
 });
 

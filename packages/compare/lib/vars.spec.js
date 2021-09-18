@@ -293,6 +293,6 @@ test('putout: compare: vars: `__a`', (t) => {
     
     const expected = `const x = 'hello';`;
     
-    t.equal(code, expected, 'should equal');
+    t.equal(code, expected);
     t.end();
 });

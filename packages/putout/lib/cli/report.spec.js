@@ -76,7 +76,7 @@ test('putout: report: dump', async (t) => {
     
     `;
     
-    t.equal(result, expected, 'should equal');
+    t.equal(result, expected);
     t.end();
 });
 

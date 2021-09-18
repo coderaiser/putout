@@ -219,7 +219,7 @@ const transform = currify(({dir, plugins, rules}, t, name, transformed = null, a
     if (UPDATE)
         writeFileSync(`${full}-fix.js`, code);
     
-    return t.equal(code, output, 'should equal');
+    return t.equal(code, output);
 });
 
 const transformWithOptions = currify(({dir, plugins}, t, name, options) => {
@@ -239,7 +239,7 @@ const transformWithOptions = currify(({dir, plugins}, t, name, options) => {
     if (UPDATE)
         writeFileSync(`${full}-fix.js`, code);
     
-    return t.equal(code, output, 'should equal');
+    return t.equal(code, output);
 });
 
 const noTransformWithOptions = currify(({dir, plugins}, t, name, options) => {
@@ -255,7 +255,7 @@ const noTransformWithOptions = currify(({dir, plugins}, t, name, options) => {
     
     const {code} = putout(input, {isTS, plugins, rules});
     
-    return t.equal(code, input, 'should equal');
+    return t.equal(code, input);
 });
 
 const noTransform = currify(({dir, plugins, rules}, t, name, addons = {}) => {
@@ -267,12 +267,12 @@ const noTransform = currify(({dir, plugins, rules}, t, name, addons = {}) => {
 
 const transformCode = currify(({plugins, rules}, t, input, output, isTS = false) => {
     const {code} = putout(input, {isTS, plugins, rules});
-    return t.equal(code, output, 'should equal');
+    return t.equal(code, output);
 });
 
 const noTransformCode = currify(({plugins, rules}, t, input) => {
     const {code} = putout(input, {plugins, rules});
-    return t.equal(code, input, 'should equal');
+    return t.equal(code, input);
 });
 
 const getMessage = ({message}) => message;
@@ -342,7 +342,7 @@ const reportCode = currify(({plugins, rules, isTS}, t, source, message) => {
     if (isArray(message))
         return t.deepEqual(resultMessages, message, 'should equal');
     
-    return t.equal(resultMessages[0], message, 'should equal');
+    return t.equal(resultMessages[0], message);
 });
 
 const noReportCode = currify(({plugins, rules, isTS}, t, source) => {

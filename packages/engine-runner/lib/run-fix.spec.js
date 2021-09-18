@@ -25,7 +25,7 @@ test('fix: error', (t) => {
     const is = true;
     const [e] = tryCatch(fix, is, fn, {path, position});
     
-    t.equal(e.loc, position, 'should equal');
+    t.equal(e.loc, position);
     t.end();
 });
 

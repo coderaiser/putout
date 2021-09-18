@@ -22,5 +22,6 @@ module.exports.rules = {
     ...getRule('apply-stub-operator'),
     ...getRule('declare-stub'),
     ...getRule('declare-t'),
+    ...getRule('remove-default-messages'),
 };
 

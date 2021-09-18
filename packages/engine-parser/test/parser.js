@@ -113,7 +113,7 @@ test('putout: parser: export default declaration: tenko: throw', (t) => {
     
     const expected = '\n';
     
-    t.equal(code, expected, 'should equal');
+    t.equal(code, expected);
     t.end();
 });
 

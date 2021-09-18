@@ -209,7 +209,7 @@ test('remove-unused-variables: putout: import', (t) => {
 test('remove-unused-variables: putout: unused import', (t) => {
     const {code} = putout(fixture.importSpecifier);
     
-    t.equal(code, '\n', 'should equal');
+    t.equal(code, '\n');
     t.end();
 });
 
