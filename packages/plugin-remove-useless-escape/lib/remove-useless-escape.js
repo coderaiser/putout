@@ -1,6 +1,14 @@
 'use strict';
 
 const emojiRegex = require('emoji-regex');
+const {
+    types,
+    operator,
+} = require('putout');
+
+const {replaceWith} = operator;
+const {RegExpLiteral} = types;
+const {assign} = Object;
 
 module.exports.report = () => 'Unnecessary escape character';
 
@@ -12,11 +20,17 @@ module.exports.fix = (path) => {
     }
     
     if (path.isRegExpLiteral()) {
-        const {pattern} = path.node;
+        const {pattern, flags} = path.node;
         const unescaped = unescapeRegExp(pattern);
-        path.node.pattern = unescaped;
-        path.node.raw = `/${unescaped}/`;
-        path.node.extra.raw = `/${unescaped}/`;
+        const regExpNode = assign(RegExpLiteral(unescaped, flags), {
+            value: unescaped,
+            extra: {
+                raw: `/${unescaped}/`,
+                rawValue: unescaped,
+            },
+        });
+        
+        replaceWith(path, regExpNode);
         return;
     }
     
@@ -76,6 +90,9 @@ function isEscaped(raw) {
     if (!raw.includes('\\'))
         return false;
     
+    if (raw.includes('\\+') && !raw.includes('\\\\+'))
+        return true;
+    
     if (hasDoubleQuote(raw))
         return true;
     
@@ -93,6 +110,7 @@ const createEncodedRegExp = (a) => RegExp(`\\\\${a}`, 'g');
 function unEscape(raw) {
     raw = raw
         .replace(/\\'/g, `'`)
+        .replace(/\\\+/g, '+')
         .replace(createEncodedRegExp(`"`), '"')
         .replace(/\\\^/g, '^');
     
@@ -106,13 +124,13 @@ function unEscape(raw) {
 function unescapeRegExp(raw) {
     return raw
         .replace(/\\:/g, ':')
-        .replace(/\\\//g, '/');
+        .replace(/\+\\\//g, '+/');
 }
 
+const isRegExpColon = (a) => /\\:/.test(a) && !/\\\\:/.test(a);
+const isRegExpSlash = (a) => /\+\\\//.test(a);
+
 function isEscapedRegExp(raw) {
-    const includes = /\\[:/]/.test(raw);
-    const notIncludes = !/\\\\[:/]/.test(raw);
-    
-    return includes && notIncludes;
+    return isRegExpColon(raw) || isRegExpSlash(raw);
 }
 
