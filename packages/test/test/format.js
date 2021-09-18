@@ -54,14 +54,14 @@ test('test: formatMany', (t) => {
         'remove-console': require('@putout/plugin-remove-console'),
     });
     
-    test('formatSave', (t) => {
+    test('test: formatSave', (t) => {
         t.formatSave(formatter, 'var');
         
         t.ok(writeFileSyncStub.called);
         t.end();
     });
     
-    test('format: with UPDATE env variable', (t) => {
+    test('test: format: with UPDATE env variable', (t) => {
         const {UPDATE} = process.env;
         process.env.UPDATE = 1;
         
@@ -73,14 +73,14 @@ test('test: formatMany', (t) => {
         t.end();
     });
     
-    test('formatManySave', (t) => {
+    test('test: formatManySave', (t) => {
         t.formatManySave(formatter, ['var', 'var']);
         
         t.ok(writeFileSyncStub.called);
         t.end();
     });
     
-    test('formatMany: with UPDATE env variable', (t) => {
+    test('test: formatMany: with UPDATE env variable', (t) => {
         const {UPDATE} = process.env;
         process.env.UPDATE = 1;
         
@@ -92,7 +92,7 @@ test('test: formatMany', (t) => {
         t.end();
     });
     
-    test('formatSave: exists', (t) => {
+    test('test: formatSave: exists', (t) => {
         existsSyncStub.returns(true);
         
         t.formatSave(formatter, 'var');
@@ -101,7 +101,7 @@ test('test: formatMany', (t) => {
         t.end();
     });
     
-    test('formatManySave: exists', (t) => {
+    test('test: formatManySave: exists', (t) => {
         existsSyncStub.returns(true);
         
         t.formatManySave(formatter, ['var', 'var']);

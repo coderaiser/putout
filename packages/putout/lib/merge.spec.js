@@ -3,7 +3,7 @@
 const test = require('supertape');
 const merge = require('./merge');
 
-test('merge', (t) => {
+test('putout: merge', (t) => {
     const defaultConfig = {
         plugins: [
             'remove-unused-variables',
