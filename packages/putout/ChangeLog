@@ -1,3 +1,13 @@
+2021.09.19, v20.3.1
+
+feature:
+- (package) @putout/plugin-putout v7.0.0
+- (@putout/plugin-putout) drop support of putout < 20
+- (@putout/plugin-putout) declare: add
+- (@putout/plugin-declare-undefined-variables) add support of lazy building of nodes
+- (@putout/plugin-declare-undefined-variables) export declare
+
+
 2021.09.19, v20.3.0
 
 fix:
