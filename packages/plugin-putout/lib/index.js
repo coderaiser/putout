@@ -21,5 +21,6 @@ module.exports.rules = {
     ...getRule('replace-operate-with-operator'),
     ...getRule('shorten-imports'),
     ...getRule('check-replace-code'),
+    ...getRule('declare'),
 };
 

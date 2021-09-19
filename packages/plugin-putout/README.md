@@ -30,7 +30,8 @@ npm i @putout/plugin-putout -D
         "putout/convert-process-to-find": "on",
         "putout/convert-method-to-property": "on",
         "putout/shorten-imports": "on",
-        "putout/check-replace-code": "on"
+        "putout/check-replace-code": "on",
+        "putout/declare": "on"
     }
 }
 ```
@@ -285,6 +286,25 @@ module.exports.replace = () => ({
 ```
 
 There is no `fix` for this rule, it used internally to be more confident about `test coverage`, because of declaration form, transforms cannon be checked by `nyc` and `c8`, and uncovered lines can find unfixable false possitives when running on code. This additional tests, if you forget to test some case (from a big list of rules that is supported) it will be checked with this `rule` and make code more stable and transform bugs.
+
+## declare
+
+Depend on [@putout/convert-esm-to-commonjs](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-esm-to-commonjs) and
+[@putout/declare-undefined-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables)
+
+### ❌ Incorrect code example
+
+```js
+compare(a, 'const __a = __b');
+```
+
+### ✅ Correct code Example
+
+```js
+const operator = require('putout');
+const {compare} = operator;
+compare(a, 'const __a = __b');
+```
 
 ## License
 

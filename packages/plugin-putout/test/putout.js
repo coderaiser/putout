@@ -59,3 +59,7 @@ test('plugin-putout: check-replace-code: complex: report', (t) => {
     t.end();
 });
 
+test('plugin-putout: convert-method-to-property: complex: transform: declare', (t) => {
+    t.transform('declare');
+    t.end();
+});
