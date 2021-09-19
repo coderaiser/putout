@@ -1,7 +1,6 @@
 'use strict';
 
 const {types} = require('putout');
-const declarations = require('./declarations');
 const {
     addDeclaration,
     checkDeclaration,
@@ -13,14 +12,20 @@ const {entries} = Object;
 const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
 const cutName = (a) => a.split('.').shift();
 
-module.exports.report = (path) => {
+module.exports = (declarations) => ({
+    report,
+    match: match(declarations),
+    replace: replace(declarations),
+});
+
+const report = (path) => {
     const name = getName(path);
     const cutedName = cutName(name);
     
     return `Declare '${cutedName}'`;
 };
 
-module.exports.match = ({options}) => {
+const match = (declarations) => ({options}) => {
     const {dismiss = []} = options;
     const traverseObject = {};
     
@@ -30,12 +35,13 @@ module.exports.match = ({options}) => {
         
         traverseObject[`${name}(__args)`] = isUndefined(name);
         traverseObject[`${name}\`__a\``] = isUndefined(name);
+        traverseObject[`const __a = ${name}`] = isUndefined(name);
     }
     
     return traverseObject;
 };
 
-module.exports.replace = ({options}) => {
+const replace = (declarations) => ({options}) => {
     const {dismiss = []} = options;
     const traverseObject = {};
     
@@ -45,6 +51,7 @@ module.exports.replace = ({options}) => {
         
         traverseObject[`${name}(__args)`] = declare(name, node);
         traverseObject[`${name}\`__a\``] = declare(name, node);
+        traverseObject[`const __a = ${name}`] = declare(name, node);
     }
     
     return traverseObject;
@@ -107,6 +114,9 @@ function isUseStrict(path) {
 function getName(path) {
     if (path.isTaggedTemplateExpression())
         return path.node.tag.name;
+    
+    if (path.isVariableDeclaration())
+        return path.get('declarations.0.init').node.name;
     
     return path.get('callee').toString();
 }
