@@ -12,7 +12,7 @@
 > **Perfection is finally attained not when there is no longer anything to add,
 > but when there is no longer anything to take away**
 >
-> **Antoine de Saint Exupéry**
+> **(c) Antoine de Saint Exupéry**
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
@@ -51,7 +51,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 
 ## 🤷‍♂ Whom should I thank for this project exist?
 
-> **If I have seen further, it is by standing upon the shoulders of giants"**
+> **If I have seen further, it is by standing upon the shoulders of giants**
 >
 > **(c) Isaak Newton**
 
