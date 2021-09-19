@@ -5,6 +5,12 @@
         },
         "**/packages/plugin-*/*.md{json}": {
             "putout-config": "on"
+        },
+        "README.md": {
+            "convert-to-arrow-function": "off",
+            "promises/convert-reject-to-throw": "off",
+            "promises/add-missing-await": "off",
+            "promises/remove-useless-async": "off"
         }
     },
     "rules": {

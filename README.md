@@ -9,10 +9,10 @@
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
-> "Perfection is finally attained not when there is no longer anything to add,
-> but when there is no longer anything to take away"
+> *"Perfection is finally attained not when there is no longer anything to add,
+> but when there is no longer anything to take away"*
 >
-> (c) Antoine de Saint Exupéry
+> *(c) Antoine de Saint Exupéry*
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
@@ -22,10 +22,13 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 
 ## Table of contents
 
-- [Whom should I thank for this project exist?](#whom-should-i-thank-for-this-project-exist)
-- [Why does this project exist?](#why-does-this-project-exist)
+- [🤷‍♂️ Whom should I thank for this project exist?](#-whom-should-i-thank-for-this-project-exist)
+- [🤷‍♂️ Why does this project exist?](#%EF%B8%8F-why-does-this-project-exist)
 - [Installation](#installation)
 - [Usage](#usage)
+- [🤷‍♂️ What is `Ruler`?](#%EF%B8%8F-what-is-ruler)
+- [🤷‍♂️ How a `Ruler` can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
+- [Converting `CommonJS` to `ESM`](#converting-commonjs-to-esm)
 - [Architecture](#architecture)
 - [API](#api)
 - [Built-in transformations](#built-in-transformations)
@@ -46,23 +49,23 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [Donations](#donations)
 - [License](#license)
 
-## Whom should I thank for this project exist?
+## 🤷‍♂ Whom should I thank for this project exist?
 
-> "If I have seen further, it is by standing upon the shoulders of giants".
+> *"If I have seen further, it is by standing upon the shoulders of giants"*
 >
-> (c) Isaak Newton
+> *(c) Isaak Newton*
 
 - [`ESLint`](https://eslint.org) for stable releases and future proof `API`.
 - [`Babel`](https://babeljs.io) for amazing `API` documented in `Hadnbook` and responsivness of a team.
 - [`Prettier`](https://github.com/prettier/prettier) for minimalistic options and uniform codestyle.
 - [`jscodeshift`](https://github.com/facebook/jscodeshift) for making codemods simple and popular.
 
-## Why does this project exist?
+## 🤷‍♂️ Why does this project exist?
 
-- `ESLint` avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
-- `Babel` produces [throw-away code](https://github.com/babel/babel/issues/5139).
-- `Prettier` is a formatter.
-- `jscodeshift` has no `config` and `plugins` support.
+- [`ESLint`](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
+- [`Babel`](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139).
+- [`Prettier`](https://github.com/prettier/prettier) is a formatter.
+- [`jscodeshift`](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
 
 `Putout` on the other hand can make more drastic code transformations that directly alter your code base.
 
@@ -77,6 +80,12 @@ npm i putout -D
 Make sure that you are running a relatively recent (≥14.8) version of Node.
 
 ## Usage
+
+> *”Grown-ups never understand anything by themselves, and it is tiresome for children to be always and forever explaining things to them”*
+>
+> *(c) Antoine de Saint-Exupéry*
+
+🐊 `Putout` tries to be clear and likes a lot to exaplian things. So when you write `putout --help` most likely you will hear gladly purr :
 
 ```
 Usage: putout [options] [path]
@@ -108,7 +117,7 @@ To find possible transform places in a folder named "lib", run:
 npx putout lib
 ```
 
-To find possible transform places in multiple folders, such as folders named "lib" and "test", run: 
+To find possible transform places in multiple folders, such as folders named "lib" and "test", run:
 
 ```
 npx putout lib test
@@ -118,19 +127,6 @@ To apply the transforms, use `--fix`:
 
 ```
 npx putout lib test --fix
-```
-
-### Applying a single rule
-
-By default, all rules are enabled. To apply only a single rule, you first have to disable all other rules in your `.putout.json` file. As an example, to apply only `remove-unused-variables` to code in the folder `lib`, you should run:
-
-```sh
-# Disable all rules applicable to this project in .putout.json
-npx putout lib --disable-all
-# Toggle only `remove-unused-variables` on in .putout.json
-npx putout lib --enable remove-unused-variables
-# Apply fixes
-npx putout lib --fix
 ```
 
 ### Environment variables
@@ -144,6 +140,105 @@ Example:
 ```
 PUTOUT_FILES=lib,test putout --fix
 ```
+
+## 🤷‍♂️ What is `Ruler`?
+
+When you need to change `.putout.json` you can do it not only editing the file, but also with help of `Ruler`.
+
+`Ruler` can `enable one specific` rule with `putout --enable convert-commonjs-to-esm` or `disable all rules` `Putout` finds in one go with `putout --disable-all`. But it should never be used with `--fix`, because unclear things makes 🐊 `Putout` angry and you can find him barking you:
+
+```
+🐊 `--fix` cannot be used with ruler toggler (`--enable`, `--disable`)
+```
+
+## 🤷‍♂️ How `ruler` can be helpful to me?
+
+You may want to convert your [`CommonJS`](https://nodejs.org/api/modules.html) module into [`Ecma Script Modules`](https://nodejs.org/api/esm.html) since [node v12 supports it without a flag](https://nodejs.org/de/blog/release/v12.17.0/).
+
+### Converting `CommonJS` to `ESM`
+
+Let's suppose you have a file called `index.js`:
+
+```js
+const unused = 5;
+
+module.exports = function() {
+    return promise();
+};
+
+async function promise(a) {
+    return Promise.reject(Error('x'));
+}
+```
+
+You want to convert it to [ESM](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), and everything else keep untouched. You can do this with a `Ruler`. So you disable all rules that `Putout` can find right now.
+
+`putout index.js --disable-all` will find next errors:
+
+```sh
+ 1:4   error   "unused" is defined but never used                        remove-unused-variables
+ 7:23  error   "a" is defined but never used                             remove-unused-variables
+ 3:0   error   Arrow functions should be used                            convert-to-arrow-function
+ 1:0   error   "use strict" directive should be on top of commonjs file  strict-mode/add
+ 8:4   error   Reject is useless in async functions, use throw instead   promises/convert-reject-to-throw
+ 4:11  error   Async functions should be called using await              promises/add-missing-await
+ 7:0   error   Useless async should be avoided                           promises/remove-useless-async
+```
+
+And create config file `.putout.json`:
+
+```
+{
+    "rules": {
+        "remove-unused-variables": "off",
+        "convert-to-arrow-function": "off",
+        "strict-mode/add": "off",
+        "promises/convert-reject-to-throw": "off",
+        "promises/add-missing-await": "off",
+        "promises/remove-useless-async": "off"
+    }
+}
+```
+
+Then running `putout index.js --enable convert-commonjs-to-esm` will update config with:
+
+```diff
+{
+    "rules": {
+        "remove-unused-variables": "off",
+        "convert-to-arrow-function": "off",
+        "strict-mode/add": "off",
+        "promises/convert-reject-to-throw": "off",
+        "promises/add-missing-await": "off",
+-       "promises/remove-useless-async": "off"
++       "promises/remove-useless-async": "off",
++       "convert-commonjs-to-esm": "on"
+    }
+}
+```
+
+Then `putout --fix index.js` will do the thing and update `index.js` with:
+
+```js
+const unused = 5;
+
+export default function() {
+    return promise();
+}
+
+async function promise(a) {
+    return Promise.reject(Error('x'));
+}
+```
+
+So in case of `src` directory, it will look like:
+
+```sh
+putout src --disable-all && putout src --enable convert-commonjs-to-esm && putout src --fix
+```
+
+This command will disable all rules that `Putout` can find right now and `enables` a single rule. All `Putout` rules made for good and highly suggested to be used, they all enabled in all my repositories. You can always disable what you don't need, so give it a try you wan't regret 🐊.
+Happy coding 🎈!
 
 ## Architecture
 
@@ -2074,7 +2169,7 @@ Just create `.babelrc.json` file with configuration you need.
 
 ## Using Putout as Loader
 
-`Putout` can be used as [loader](https://nodejs.org/dist/latest-v16.x/docs/api/esm.html#esm_transformsource_source_context_defaulttransformsource) this way:
+`Putout` can be used as [loader](https://nodejs.org/dist/latest-v16.x/docs/api/esm.html#esm\_transformsource\_source\_context\_defaulttransformsource) this way:
 
 ```sh
 node --loader putout your-file.js
