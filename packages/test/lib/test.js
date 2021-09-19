@@ -153,15 +153,7 @@ const formatManySave = currify(({dir, plugins, rules}, t, formatter, names, opti
         is,
         output,
         result,
-    } = formatMany(
-        {dir,
-            plugins,
-            rules},
-        t,
-        formatter,
-        names,
-        options,
-    );
+    } = formatMany({dir, plugins, rules}, t, formatter, names, options);
     
     writeFileSync(outputName, result);
     
