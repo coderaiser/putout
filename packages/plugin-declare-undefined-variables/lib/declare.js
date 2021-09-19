@@ -45,9 +45,11 @@ const replace = (declarations) => ({options}) => {
     const {dismiss = []} = options;
     const traverseObject = {};
     
-    for (const [name, node] of entries(declarations)) {
+    for (const [name, buildNode] of entries(declarations)) {
         if (dismiss.includes(name))
             continue;
+        
+        const node = buildNode();
         
         traverseObject[`${name}(__args)`] = declare(name, node);
         traverseObject[`${name}\`__a\``] = declare(name, node);

@@ -1,31 +1,32 @@
 'use strict';
 
 const {template} = require('putout');
+const lazyAST = (a) => () => template.ast(a);
 
 module.exports = {
-    'assign': template.ast('const {assign} = Object'),
-    'entries': template.ast('const {entries} = Object'),
-    'keys': template.ast('const {keys} = Object'),
-    'values': template.ast('const {values} = Object'),
+    'assign': lazyAST('const {assign} = Object'),
+    'entries': lazyAST('const {entries} = Object'),
+    'keys': lazyAST('const {keys} = Object'),
+    'values': lazyAST('const {values} = Object'),
     
-    'parse': template.ast('const {parse} = JSON'),
-    'stringify': template.ast('const {stringify} = JSON'),
+    'parse': lazyAST('const {parse} = JSON'),
+    'stringify': lazyAST('const {stringify} = JSON'),
     
-    'basename': template.ast(`import {basename} from 'path'`),
-    'extname': template.ast(`import {extname} from 'path'`),
-    'dirname': template.ast(`import {dirname} from 'path'`),
-    'join': template.ast(`import {join} from 'path'`),
+    'basename': lazyAST(`import {basename} from 'path'`),
+    'extname': lazyAST(`import {extname} from 'path'`),
+    'dirname': lazyAST(`import {dirname} from 'path'`),
+    'join': lazyAST(`import {join} from 'path'`),
     
-    'Readable.from': template.ast(`import {Readable} from 'stream'`),
-    'readFile': template.ast(`import {readFile} from 'fs/promises'`),
+    'Readable.from': lazyAST(`import {Readable} from 'stream'`),
+    'readFile': lazyAST(`import {readFile} from 'fs/promises'`),
     
-    'tryCatch': template.ast(`import tryCatch from 'try-catch'`),
-    'tryToCatch': template.ast(`import tryToCatch from 'try-to-catch'`),
+    'tryCatch': lazyAST(`import tryCatch from 'try-catch'`),
+    'tryToCatch': lazyAST(`import tryToCatch from 'try-to-catch'`),
     
-    'montag': template.ast(`import montag from 'montag'`),
+    'montag': lazyAST(`import montag from 'montag'`),
     
-    'mockImport': template.ast(`const {mockImport} = createMockImport(import.meta.url)`),
-    'reImport': template.ast(`const {reImport} = createMockImport(import.meta.url)`),
-    'stopAll': template.ast(`const {stopAll} = createMockImport(import.meta.url)`),
-    'createMockImport': template.ast(`import {createMockImport} from 'mock-import';`),
+    'mockImport': lazyAST(`const {mockImport} = createMockImport(import.meta.url)`),
+    'reImport': lazyAST(`const {reImport} = createMockImport(import.meta.url)`),
+    'stopAll': lazyAST(`const {stopAll} = createMockImport(import.meta.url)`),
+    'createMockImport': lazyAST(`import {createMockImport} from 'mock-import';`),
 };

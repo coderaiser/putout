@@ -10,7 +10,7 @@ const {template} = putout;
 
 test('putout: plugin: declare-undefined-variables: declare', (t) => {
     const declarations = {
-        operator: template.ast(`import {operator} from 'putout'`),
+        operator: () => template.ast(`import {operator} from 'putout'`),
     };
     
     const {code} = putout('const {compare} = operator;', {
