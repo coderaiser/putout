@@ -32,7 +32,7 @@
     "init"
   ],
   "devDependencies": {
-    "@putout/plugin-remove-useless-variables": "^4.3.0",
+    "@putout/plugin-remove-useless-variables": "^5.0.0",
     "@putout/plugin-tape": "^3.5.0",
     "@putout/test": "^3.0.0",
     "c8": "^7.5.0",
