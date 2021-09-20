@@ -48,7 +48,7 @@
     "@putout/formatter-dump": "^2.0.1",
     "@putout/formatter-progress": "^2.0.0",
     "@putout/plugin-remove-console": "^3.1.0",
-    "@putout/plugin-remove-empty": "^5.1.0",
+    "@putout/plugin-remove-empty": "^6.0.0",
     "@putout/plugin-remove-unused-variables": "*",
     "c8": "^7.5.0",
     "eslint": "^8.0.0-beta.0",
