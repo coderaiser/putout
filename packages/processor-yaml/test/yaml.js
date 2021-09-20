@@ -22,7 +22,7 @@ test('putout: processor: yaml: duplicate', async ({comparePlaces}) => {
     }]);
 });
 
-test('putout: engine-processor: yaml: no startLine', async ({comparePlaces}) => {
+test('putout: processor: yaml: no startLine', async ({comparePlaces}) => {
     await comparePlaces('travis.yml', []);
 });
 
