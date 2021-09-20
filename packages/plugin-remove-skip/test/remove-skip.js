@@ -15,7 +15,7 @@ test('plugin-remove-skip: transform', (t) => {
     t.end();
 });
 
-test('plugin-remove-skip: transform', (t) => {
+test('plugin-remove-skip: transform: skip-skip', (t) => {
     t.transform('skip-skip');
     t.end();
 });
