@@ -29,7 +29,7 @@ test('remove usless types: no transform: export', (t) => {
     t.end();
 });
 
-test('remove usless types: no transform: export', (t) => {
+test('remove usless types: no transform: export-named', (t) => {
     t.noTransform('export-named');
     t.end();
 });
