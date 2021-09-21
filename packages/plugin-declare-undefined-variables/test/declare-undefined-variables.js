@@ -19,6 +19,11 @@ test('putout: plugin: declare-undefined-variables: transform: assign', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: transform: is-array', (t) => {
+    t.transform('is-array');
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: transform: keys', (t) => {
     t.transform('keys');
     t.end();

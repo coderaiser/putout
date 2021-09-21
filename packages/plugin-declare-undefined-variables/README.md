@@ -36,6 +36,7 @@ You can `dismiss` variables you don't want to define.
                 "entries",
                 "parse",
                 "stringify",
+                "isArray",
                 "basename",
                 "dirname",
                 "extname",
@@ -168,6 +169,21 @@ const {
 mockImport('fs/promises', {
     readFile: stub().resolves(''),
 });
+```
+
+# `isArray`
+
+## ❌ Incorrect code example
+
+```js
+isArray(array);
+```
+
+## ✅ Correct code Example
+
+```js
+const {isArray} = Array;
+isArray(array);
 ```
 
 ## License

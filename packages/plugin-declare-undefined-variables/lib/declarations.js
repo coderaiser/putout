@@ -9,6 +9,8 @@ module.exports = {
     'keys': lazyAST('const {keys} = Object'),
     'values': lazyAST('const {values} = Object'),
     
+    'isArray': lazyAST('const {isArray} = Array'),
+    
     'parse': lazyAST('const {parse} = JSON'),
     'stringify': lazyAST('const {stringify} = JSON'),
     
