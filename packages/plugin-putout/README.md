@@ -296,14 +296,18 @@ Depend on [@putout/convert-esm-to-commonjs](https://github.com/coderaiser/putout
 
 ```js
 compare(a, 'const __a = __b');
+isIdentifier(a);
 ```
 
 ### ✅ Correct code Example
 
 ```js
-const operator = require('putout');
+const {operator, types} = require('putout');
 const {compare} = operator;
+const {isIdentifier} = types;
+
 compare(a, 'const __a = __b');
+isIdentifier(a);
 ```
 
 ## License

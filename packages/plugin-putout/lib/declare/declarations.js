@@ -8,5 +8,7 @@ module.exports = {
     contains: lazyAST(`const {contains} = operator`),
     traverse: lazyAST(`const {traverse} = operator`),
     operator: lazyAST(`import {operator} from 'putout'`),
+    types: lazyAST(`import {types} from 'putout'`),
+    isIdentifier: lazyAST(`const {isIdentifier} = types`),
 };
 

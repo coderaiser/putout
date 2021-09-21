@@ -34,3 +34,8 @@ test('plugin-putout: declare: transform: operator', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: types', (t) => {
+    t.transform('types');
+    t.end();
+});
+
