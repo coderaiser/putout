@@ -9,11 +9,6 @@ test('plugin-npmignore: transform', (t) => {
     t.end();
 });
 
-test('plugin-npmignore: transform', (t) => {
-    t.transform('npmignore');
-    t.end();
-});
-
 test('plugin-npmignore: transform: options', (t) => {
     t.transformWithOptions('options', {
         dismiss: [
