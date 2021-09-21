@@ -19,12 +19,12 @@ test('plugin-merge-if-statements: transform: else', (t) => {
     t.end();
 });
 
-test('plugin-merge-if-statements: transform: else', (t) => {
+test('plugin-merge-if-statements: transform: inner else', (t) => {
     t.noTransform('inner-else');
     t.end();
 });
 
-test('plugin-merge-if-statements: transform: else', (t) => {
+test('plugin-merge-if-statements: transform: empty', (t) => {
     t.transform('empty');
     t.end();
 });
