@@ -438,8 +438,8 @@ console.log(b);
 
 ```diff
 const a = {
--    x: 'hello',
--    ...y,
+-   x: 'hello',
+-   ...y,
     x: 'world',
     ...y,
 }
@@ -454,9 +454,9 @@ switch (x) {
     case 5:
         console.log('hello');
         break;
--    case 5:
--        console.log('zz');
--        break;
+-   case 5:
+-       console.log('zz');
+-       break;
 }
 ```
 
@@ -537,8 +537,8 @@ switch (x) {
 -    }
 -};
 +module.exports.traverse = ({push}) => ({
-+   ObjectExpression(path) {
-+   }
++    ObjectExpression(path) {
++    }
 +});
 ```
 
