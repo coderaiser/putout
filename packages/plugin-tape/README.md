@@ -32,7 +32,9 @@ npm i @putout/plugin-tape -D
         "tape/convert-ok-to-called-with": "on",
         "tape/convert-match-regexp-to-string": "on",
         "tape/declare-stub": "on",
-        "tape/declare-t": "on"
+        "tape/declare-t": "on",
+        "tape/remove-default-messages": "on",
+        "tape/remove-useless-not-called-args": "on"
     }
 }
 ```
@@ -443,6 +445,20 @@ t.equal(result, expected, 'should equal');
 
 ```js
 t.equal(result, expected);
+```
+
+## remove-useless-not-called-args
+
+### ❌ Incorrect code example
+
+```js
+t.notCalled(fn, []);
+```
+
+### ✅ Correct code example
+
+```js
+t.notCalled(fn);
 ```
 
 ## License

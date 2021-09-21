@@ -23,5 +23,6 @@ module.exports.rules = {
     ...getRule('declare-stub'),
     ...getRule('declare-t'),
     ...getRule('remove-default-messages'),
+    ...getRule('remove-useless-not-called-args'),
 };
 

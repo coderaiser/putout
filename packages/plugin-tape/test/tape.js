@@ -99,3 +99,8 @@ test('plugin-tape: transform: remove-default-messages', (t) => {
     t.end();
 });
 
+test('plugin-tape: transform: remove-useless-not-called-args', (t) => {
+    t.transform('remove-useless-not-called-args');
+    t.end();
+});
+
