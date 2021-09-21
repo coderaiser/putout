@@ -46,7 +46,7 @@ test('plugin-apply-shorthand-properties: no transform: destructuring', (t) => {
     t.end();
 });
 
-test('plugin-apply-shorthand-properties: no transform: destructuring', (t) => {
+test('plugin-apply-shorthand-properties: no transform: import', (t) => {
     t.noTransform('import');
     t.end();
 });

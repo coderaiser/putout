@@ -9,12 +9,12 @@ test('plugin-convert-generic-to-shorthand: report', (t) => {
     t.end();
 });
 
-test('plugin-convert-generic-to-shorthand: transform', (t) => {
+test('plugin-convert-generic-to-shorthand: transform: array', (t) => {
     t.transform('array');
     t.end();
 });
 
-test('plugin-convert-generic-to-shorthand: transform', (t) => {
+test('plugin-convert-generic-to-shorthand: no transform: multiple', (t) => {
     t.noTransform('multiple');
     t.end();
 });

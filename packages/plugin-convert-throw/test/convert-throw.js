@@ -1,16 +1,15 @@
 'use strict';
 
 const test = require('@putout/test')(__dirname, {
-    'convert-math-pow': require('..'),
+    'convert-throw': require('..'),
 });
 
-test('plugin-convert-math-pow: report', (t) => {
+test('plugin-convert-throw: report', (t) => {
     t.report('throw', '"throw" should be used without body');
     t.end();
 });
 
-test('plugin-convert-math-pow: transform', (t) => {
+test('plugin-convert-throw: transform', (t) => {
     t.transform('throw');
     t.end();
 });
-

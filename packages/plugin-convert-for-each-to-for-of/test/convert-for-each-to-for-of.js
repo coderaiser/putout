@@ -102,7 +102,7 @@ test('plugin-convert-for-each-to-for-of: no transform: this i', (t) => {
     t.end();
 });
 
-test('plugin-convert-comparison-to-boolean: transform: with convert-for-each-to-for-of', (t) => {
+test('plugin-convert-for-each-to-for-of: transform: with convert-comparison-to-boolean', (t) => {
     t.transform('convert-comparison-to-boolean', {
         'convert-comparison-to-boolean': convertComparisonToBoolean,
         'remove-useless-variables': removeUselessVariables,
