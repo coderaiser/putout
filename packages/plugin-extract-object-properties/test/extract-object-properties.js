@@ -14,17 +14,17 @@ test('plugin-extract-object-properties: transform', (t) => {
     t.end();
 });
 
-test('plugin-extract-object-properties: transform: function', (t) => {
+test('plugin-extract-object-properties: transform: fn', (t) => {
     t.transform('fn');
     t.end();
 });
 
-test('plugin-extract-object-properties: transform: function', (t) => {
+test('plugin-extract-object-properties: transform: fn-args', (t) => {
     t.noTransform('fn-args');
     t.end();
 });
 
-test('plugin-extract-object-properties: transform: no var', (t) => {
+test('plugin-extract-object-properties: transform: not-var', (t) => {
     t.noTransform('not-var');
     t.end();
 });
