@@ -9,8 +9,8 @@ test('putout: plugin: declare-undefined-variables: report: assign', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: report: readable', (t) => {
-    t.report('readable', `Declare 'Readable'`);
+test('putout: plugin: declare-undefined-variables: report: readable-simple', (t) => {
+    t.report('readable-simple', `Declare 'Readable'`);
     t.end();
 });
 
@@ -41,6 +41,11 @@ test('putout: plugin: declare-undefined-variables: transform: join', (t) => {
 
 test('putout: plugin: declare-undefined-variables: transform: readable', (t) => {
     t.transform('readable');
+    t.end();
+});
+
+test('putout: plugin: declare-undefined-variables: transform: readable-simple', (t) => {
+    t.transform('readable-simple');
     t.end();
 });
 
