@@ -169,6 +169,7 @@
         "remove-unused-expressions",
         "remove-useless-variables",
         "remove-useless-map",
+        "remove-useless-new",
         "remove-useless-mapped-types",
         "remove-useless-mapping-modifiers",
         "remove-useless-array-constructor",

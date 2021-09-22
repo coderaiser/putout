@@ -498,6 +498,15 @@ switch (x) {
 
 </details>
 
+<details><summary>remove useless <code>new</code>(<a href=https://262.ecma-international.org/12.0/#sec-error-constructor>why</a>)</summary>
+
+```diff
+-new Error('something when wrong');
++Error('something when wrong');
+```
+
+</details>
+
 <details><summary>remove useless <code>map</code></summary>
 
 ```diff
@@ -1512,6 +1521,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-remove-unused-private-fields`](/packages/plugin-remove-unused-private-fields) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-private-fields.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-private-fields) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-unused-private-fields)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-unused-private-fields) |
 | [`@putout/plugin-remove-useless-variables`](/packages/plugin-remove-useless-variables) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-variables) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-variables)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-variables) |
 | [`@putout/plugin-remove-useless-map`](/packages/plugin-remove-useless-map) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-map.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-map) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-map)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-map) |
+| [`@putout/plugin-remove-useless-new`](/packages/plugin-remove-useless-new) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-new.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-new) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-new)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-new) |
 | [`@putout/plugin-remove-useless-mapped-types`](/packages/plugin-remove-useless-mapped-types) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-mapped-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-mapped-types) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-mapped-types)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-mapped-types) |
 | [`@putout/plugin-remove-useless-mapping-modifiers`](/packages/plugin-remove-useless-mapping-modifiers) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-mapping-modifiers.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-mapping-modifiers) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-mapping-modifiers)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-mapping-modifiers) |
 | [`@putout/plugin-remove-useless-return`](/packages/plugin-remove-useless-return) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-return) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-return)](https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-return) |
