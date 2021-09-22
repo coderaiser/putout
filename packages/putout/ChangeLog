@@ -1,3 +1,14 @@
+2021.09.22, v20.4.0
+
+feature:
+- (@putout/plugin-remove-useless-new) add
+- (@putout/plugin-putout) declare: types: add support of types checkers provided by babel
+- (@putout/plugin-declare-undefined-variables) add readFileSync, writeFile, writeFileSync
+- (@putout/plugin-declare-undefined-variables) move out node.js API
+- (@putout/plugin-tape) add remove-useless-not-called-args
+- (@putout/plugin-putout) declare: add support of types, isIdentifier
+
+
 2021.09.21, v20.3.2
 
 feature:
