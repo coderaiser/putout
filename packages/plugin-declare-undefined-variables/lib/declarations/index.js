@@ -2,6 +2,7 @@
 
 const {template} = require('putout');
 const lazyAST = (a) => () => template.ast(a);
+const nodeJS = require('./node-js.js');
 
 module.exports = {
     assign: lazyAST('const {assign} = Object'),
@@ -14,14 +15,7 @@ module.exports = {
     parse: lazyAST('const {parse} = JSON'),
     stringify: lazyAST('const {stringify} = JSON'),
     
-    basename: lazyAST(`import {basename} from 'path'`),
-    extname: lazyAST(`import {extname} from 'path'`),
-    dirname: lazyAST(`import {dirname} from 'path'`),
-    join: lazyAST(`import {join} from 'path'`),
-    
-    Readable: lazyAST(`import {Readable} from 'stream'`),
-    readFile: lazyAST(`import {readFile} from 'fs/promises'`),
-    
+    ...nodeJS,
     tryCatch: lazyAST(`import tryCatch from 'try-catch'`),
     tryToCatch: lazyAST(`import tryToCatch from 'try-to-catch'`),
     
