@@ -109,3 +109,8 @@ test('putout: plugin: declare-undefined-variables: no report after transform: as
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: node-js-fs', (t) => {
+    t.transform('node-js-fs');
+    t.end();
+});
+

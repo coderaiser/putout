@@ -13,6 +13,9 @@ const path = {
 const fs = {
     Readable: lazyAST(`import {Readable} from 'stream'`),
     readFile: lazyAST(`import {readFile} from 'fs/promises'`),
+    readFileSync: lazyAST(`import {readFileSync} from 'fs'`),
+    writeFile: lazyAST(`import {writeFile} from 'fs/promises'`),
+    writeFileSync: lazyAST(`import {writeFileSync} from 'fs'`),
 };
 
 module.exports = {

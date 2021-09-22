@@ -1,0 +1,5 @@
+readFile();
+writeFile();
+
+readFileSync();
+writeFileSync();
