@@ -8,7 +8,8 @@
 `putout` plugin adds ability to remove useless operator `new`. Which has no sense for `Boolean`, `String`, `Number`, `Error`:
 
 > Thus the function call `Error(…)` is equivalent to the object creation expression `new Error(…)` with the same arguments.
-> (c) https://262.ecma-international.org/12.0/#sec-error-constructor
+>
+>  (c) https://262.ecma-international.org/12.0/#sec-error-constructor
 
 [`Symbol`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) cannot be used with `new`, as it is primitive.
 
@@ -31,14 +32,13 @@ npm i @putout/plugin-remove-useless-map
 ## ❌ Incorrect code example
 
 ```js
-const [str] = lines.map((line) => `hello ${line}`);
+new Error('Something whent wrong');
 ```
 
 ## ✅ Correct code Example
 
 ```js
-const [line] = lines;
-const str = `hello ${line}`;
+Error('Something whent wrong');
 ```
 
 ## License
