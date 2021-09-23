@@ -104,3 +104,7 @@ test('plugin-tape: transform: remove-useless-not-called-args', (t) => {
     t.end();
 });
 
+test('plugin-tape: transform: apply-with-name', (t) => {
+    t.transform('apply-with-name');
+    t.end();
+});

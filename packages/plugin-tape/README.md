@@ -18,6 +18,8 @@ npm i @putout/plugin-tape -D
 ```json
 {
     "rules": {
+        "tape/apply-stub-operator": "on",
+        "tape/apply-with-name": "on",
         "tape/switch-expected-with-result": "on",
         "tape/convert-tape-to-supertape": "on",
         "tape/convert-throws-to-try-catch": "on",
@@ -26,7 +28,6 @@ npm i @putout/plugin-tape -D
         "tape/convert-called-with-to-called-with-no-args": "on",
         "tape/convert-called-with-no-args-to-called-with": "on",
         "tape/expand-try-catch-arguments": "on",
-        "tape/apply-stub-operator": "on",
         "tape/convert-emitter-to-promise": "on",
         "tape/convert-ok-to-match": "on",
         "tape/convert-ok-to-called-with": "on",
@@ -315,6 +316,33 @@ test('some message', (t) => {
     t.end();
 });
 ```
+
+## apply-with-name
+
+### ❌ Incorrect code example
+
+```js
+test('should call init before show', (t) => {
+    const init = stub();
+    const show = stub();
+    
+    t.calledInOrder([init, show]);
+    t.end();
+});
+```
+
+### ✅ Correct code example
+
+```js
+test('should call init before show', (t) => {
+    const init = stub().withName('init');
+    const show = stub().withName('show');
+    
+    t.calledInOrder([init, show]);
+    t.end();
+});
+```
+
 
 ## declare-stub
 

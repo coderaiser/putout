@@ -5,7 +5,7 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
-    ...getRule('switch-expected-with-result'),
+    ...getRule('apply-with-name'),
     ...getRule('convert-tape-to-supertape'),
     ...getRule('convert-throws-to-try-catch'),
     ...getRule('convert-does-not-throw-to-try-catch'),
@@ -19,10 +19,11 @@ module.exports.rules = {
     ...getRule('convert-equal-to-not-ok'),
     ...getRule('convert-equal-to-ok'),
     ...getRule('expand-try-catch-arguments'),
-    ...getRule('apply-stub-operator'),
     ...getRule('declare-stub'),
     ...getRule('declare-t'),
     ...getRule('remove-default-messages'),
     ...getRule('remove-useless-not-called-args'),
+    ...getRule('switch-expected-with-result'),
+    ...getRule('apply-stub-operator'),
 };
 
