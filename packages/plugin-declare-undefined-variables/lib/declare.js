@@ -1,6 +1,10 @@
 'use strict';
 
 const {types} = require('putout');
+const {
+    addDeclarationForESLint,
+    checkDeclarationForESLint,
+} = require('./record');
 
 const {isImportDeclaration} = types;
 const {keys} = Object;
@@ -31,6 +35,9 @@ const filter = (declarations) => {
         const {dismiss = []} = options;
         const {scope, node} = path;
         const {name} = node;
+        
+        if (checkDeclarationForESLint(name, path))
+            return false;
         
         if (scope.hasBinding(name))
             return false;
@@ -75,6 +82,7 @@ const fix = (declarations) => (path) => {
     }
     
     crawl(path);
+    addDeclarationForESLint(name, path);
 };
 
 function isUseStrict(path) {

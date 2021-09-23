@@ -90,7 +90,7 @@ const parserTester = new RuleTester({
 });
 
 parserTester.run('putout', rule, {
-    valid: [``, {
+    valid: [{
         options: [{
             rules: {
                 'remove-unused-variables': 'off',
@@ -120,6 +120,41 @@ parserTester.run('putout', rule, {
             line: 2,
             column: 8,
             message: 'Shorthand [] should be used instead of Array (convert-generic-to-shorthand)',
+        }],
+    }],
+});
+
+parserTester.run('putout', rule, {
+    valid: [`
+        import {createMockImport} from 'mock-import';
+        const {mockImport, reImport} = createMockImport(import.meta.url);
+        
+        mockImport('hello', world);
+        await reImport('./index.js');
+    `],
+    invalid: [{
+        code: montag`
+            import {createMockImport} from 'mock-import';
+            const {mockImport} = createMockImport(import.meta.url);
+            
+            mockImport('hello', world);
+            await reImport('./index.js');
+        `,
+        output: montag`
+            import {createMockImport} from 'mock-import';
+            
+            const {
+                mockImport,
+                reImport
+            } = createMockImport(import.meta.url);
+            
+            mockImport('hello', world);
+            await reImport('./index.js');
+        `,
+        errors: [{
+            line: 5,
+            column: 7,
+            message: `Declare 'reImport' (declare-undefined-variables)`,
         }],
     }],
 });
