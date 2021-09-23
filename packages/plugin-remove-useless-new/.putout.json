@@ -1,7 +1,7 @@
 {
     "match": {
         "*.md": {
-            "remove-useless-map": "off"
+            "remove-useless-new": "off"
         }
     }
 }
