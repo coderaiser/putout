@@ -3,12 +3,10 @@
 const {template} = require('putout');
 const lazyAST = (a) => () => template.ast(a);
 const nodeJS = require('./node-js.js');
+const object = require('./object');
 
 module.exports = {
-    assign: lazyAST('const {assign} = Object'),
-    entries: lazyAST('const {entries} = Object'),
-    keys: lazyAST('const {keys} = Object'),
-    values: lazyAST('const {values} = Object'),
+    ...object,
     
     isArray: lazyAST('const {isArray} = Array'),
     

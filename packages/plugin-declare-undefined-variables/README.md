@@ -36,6 +36,7 @@ You can `dismiss` variables you don't want to define.
                 "entries",
                 "parse",
                 "stringify",
+                "defineProperty",
                 "isArray",
                 "basename",
                 "dirname",

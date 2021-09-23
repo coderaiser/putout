@@ -114,3 +114,8 @@ test('putout: plugin: declare-undefined-variables: node-js-fs', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: object', (t) => {
+    t.transform('object');
+    t.end();
+});
+
