@@ -1,5 +1,7 @@
 'use strict';
 
+const fsPromises = require('./fs-promises');
+
 const path = {
     basename: `import {basename} from 'path'`,
     extname: `import {extname} from 'path'`,
@@ -8,10 +10,9 @@ const path = {
 };
 
 const fs = {
+    ...fsPromises,
     Readable: `import {Readable} from 'stream'`,
-    readFile: `import {readFile} from 'fs/promises'`,
     readFileSync: `import {readFileSync} from 'fs'`,
-    writeFile: `import {writeFile} from 'fs/promises'`,
     writeFileSync: `import {writeFileSync} from 'fs'`,
 };
 
