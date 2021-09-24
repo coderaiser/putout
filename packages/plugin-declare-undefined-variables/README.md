@@ -38,6 +38,7 @@ You can `dismiss` variables you don't want to define.
                 "stringify",
                 "defineProperty",
                 "isArray",
+                "noop",
                 "basename",
                 "dirname",
                 "extname",
@@ -188,6 +189,21 @@ isArray(array);
 ```js
 const {isArray} = Array;
 isArray(array);
+```
+
+# `noop`
+
+## ❌ Incorrect code example
+
+```js
+noop();
+```
+
+## ✅ Correct code Example
+
+```js
+const noop = () => {};
+noop();
 ```
 
 ## License

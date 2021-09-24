@@ -1,5 +1,7 @@
 'use strict';
 
+const montag = require('montag');
+
 const test = require('@putout/test')(__dirname, {
     'declare-undefined-variables': require('..'),
 });
@@ -116,6 +118,15 @@ test('putout: plugin: declare-undefined-variables: node-js-fs', (t) => {
 
 test('putout: plugin: declare-undefined-variables: object', (t) => {
     t.transform('object');
+    t.end();
+});
+
+test('putout: plugin: declare-undefined-variables: noop', (t) => {
+    t.transformCode('noop();', montag`
+        const noop = () => {};
+        noop();
+    `);
+    
     t.end();
 });
 

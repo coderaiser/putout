@@ -11,6 +11,8 @@ module.exports = {
     parse: 'const {parse} = JSON',
     stringify: 'const {stringify} = JSON',
     
+    noop: 'const noop = () => {}',
+    
     ...nodeJS,
     tryCatch: `import tryCatch from 'try-catch'`,
     tryToCatch: `import tryToCatch from 'try-to-catch'`,
