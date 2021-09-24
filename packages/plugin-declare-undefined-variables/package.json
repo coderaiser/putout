@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-declare-undefined-variables",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to declare undefined variables",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables",
