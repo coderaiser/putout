@@ -55,7 +55,12 @@ function applyWithNameToArray({__array}, path) {
 function checkStub(node, path) {
     const {bindings} = path.scope;
     const {name} = node;
-    const initPath = bindings[name].path.get('init');
+    const binding = bindings[name];
+    
+    if (!binding)
+        return false;
+    
+    const initPath = binding.path.get('init');
     const calleePath = initPath.get('callee');
     
     return !calleePath.isMemberExpression();
@@ -64,7 +69,12 @@ function checkStub(node, path) {
 function applyWithNameToNode(node, path) {
     const {bindings} = path.scope;
     const {name} = node;
-    const initPath = bindings[name].path.get('init');
+    const binding = bindings[name];
+    
+    if (!binding)
+        return;
+    
+    const initPath = binding.path.get('init');
     const calleePath = initPath.get('callee');
     
     if (calleePath.isMemberExpression())

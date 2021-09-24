@@ -29,3 +29,8 @@ test('plugin-tape: apply-with-name: no transform: returns', (t) => {
     t.end();
 });
 
+test('plugin-tape: apply-with-name: no transform: not-declared', (t) => {
+    t.transform('not-declared');
+    t.end();
+});
+
