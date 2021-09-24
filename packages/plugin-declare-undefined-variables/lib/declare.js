@@ -1,6 +1,6 @@
 'use strict';
 
-const {types} = require('putout');
+const {types, template} = require('putout');
 const {
     addDeclarationForESLint,
     checkDeclarationForESLint,
@@ -57,7 +57,7 @@ const fix = (declarations) => (path) => {
     const scope = path.scope.getProgramParent();
     const programPath = scope.path;
     const bodyPath = programPath.get('body');
-    const node = declarations[name]();
+    const node = template.ast(declarations[name]);
     
     for (const currentPath of bodyPath) {
         if (isUseStrict(currentPath)) {

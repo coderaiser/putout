@@ -6,11 +6,9 @@ const montag = require('montag');
 
 const declare = require('../lib/declare.js');
 
-const {template} = putout;
-
 test('putout: plugin: declare-undefined-variables: declare', (t) => {
     const declarations = {
-        operator: () => template.ast(`import {operator} from 'putout'`),
+        operator: `import {operator} from 'putout'`,
     };
     
     const {code} = putout('const {compare} = operator;', {
