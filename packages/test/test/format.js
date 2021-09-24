@@ -59,7 +59,7 @@ test('test: formatMany', (t) => {
         
         t.ok(writeFileSyncStub.called);
         t.end();
-    });
+    }, {checkAssertionsCount: false});
     
     test('test: format: with UPDATE env variable', (t) => {
         const {UPDATE} = process.env;
@@ -71,14 +71,14 @@ test('test: formatMany', (t) => {
         
         t.ok(writeFileSyncStub.called);
         t.end();
-    });
+    }, {checkAssertionsCount: false});
     
     test('test: formatManySave', (t) => {
         t.formatManySave(formatter, ['var', 'var']);
         
         t.ok(writeFileSyncStub.called);
         t.end();
-    });
+    }, {checkAssertionsCount: false});
     
     test('test: formatMany: with UPDATE env variable', (t) => {
         const {UPDATE} = process.env;
@@ -90,7 +90,7 @@ test('test: formatMany', (t) => {
         
         t.ok(writeFileSyncStub.called);
         t.end();
-    });
+    }, {checkAssertionsCount: false});
     
     test('test: formatSave: exists', (t) => {
         existsSyncStub.returns(true);
@@ -99,7 +99,7 @@ test('test: formatMany', (t) => {
         
         t.ok(writeFileSyncStub.called);
         t.end();
-    });
+    }, {checkAssertionsCount: false});
     
     test('test: formatManySave: exists', (t) => {
         existsSyncStub.returns(true);
@@ -108,7 +108,7 @@ test('test: formatMany', (t) => {
         
         t.ok(writeFileSyncStub.called);
         t.end();
-    });
+    }, {checkAssertionsCount: false});
     
     fs.existsSync = existsSync;
     fs.writeFileSync = writeFileSync;

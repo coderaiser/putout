@@ -72,6 +72,7 @@ test('test: transform: plugin', (t) => {
     t.transform('plugin', {
         putout: require('@putout/plugin-putout'),
     });
+    t.end();
 });
 
 test('test: transform: rule of a plugin', (t) => {
@@ -80,6 +81,7 @@ test('test: transform: rule of a plugin', (t) => {
         'remove': require('@putout/plugin-remove-unused-variables'),
         'putout/convert-replace-with': putout.rules['convert-replace-with'],
     });
+    t.end();
 });
 
 (() => {
@@ -106,7 +108,7 @@ test('test: transform: rule of a plugin', (t) => {
         
         t.ok(writeFileSyncStub.called);
         t.end();
-    });
+    }, {checkAssertionsCount: false});
     
     test('transformWithOptions: with UPDATE env variable', (t) => {
         const {UPDATE} = process.env;
@@ -119,7 +121,7 @@ test('test: transform: rule of a plugin', (t) => {
         
         t.ok(writeFileSyncStub.called);
         t.end();
-    });
+    }, {checkAssertionsCount: false});
     
     fs.writeFileSync = writeFileSync;
     delete process.env.UPDATE;
