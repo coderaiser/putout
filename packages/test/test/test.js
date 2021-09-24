@@ -1,6 +1,7 @@
 'use strict';
 
 const {stub} = require('supertape');
+const putout = require('@putout/plugin-putout');
 
 const removeConsole = require('./fixture/remove-console');
 const test = require('..')(__dirname, {
@@ -65,6 +66,20 @@ test('test: declared', (t) => {
 test('test: transform: typescript', (t) => {
     t.transform('typescript', '\n');
     t.end();
+});
+
+test('test: transform: plugin', (t) => {
+    t.transform('plugin', {
+        putout: require('@putout/plugin-putout'),
+    });
+});
+
+test('test: transform: rule of a plugin', (t) => {
+    t.transform('remove-unused-variables', {
+        'extract-object-properties': require('@putout/plugin-extract-object-properties'),
+        'remove': require('@putout/plugin-remove-unused-variables'),
+        'putout/convert-replace-with': putout.rules['convert-replace-with'],
+    });
 });
 
 (() => {

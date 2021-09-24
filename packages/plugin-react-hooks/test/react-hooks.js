@@ -14,7 +14,9 @@ test('plugin-react-hooks: transform', (t) => {
 });
 
 test('plugin-react-hooks: transform: React.Component', (t) => {
-    t.transform('react-component');
+    t.transform('react-component', {
+        'remove-unused-variables': rmUnused,
+    });
     t.end();
 });
 

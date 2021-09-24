@@ -47,6 +47,8 @@
     "@cloudcmd/stub": "^3.0.0",
     "@putout/formatter-dump": "^2.0.1",
     "@putout/formatter-progress": "^2.0.0",
+    "@putout/plugin-extract-object-properties": "^6.0.1",
+    "@putout/plugin-putout": "^7.2.0",
     "@putout/plugin-remove-console": "^3.1.0",
     "@putout/plugin-remove-empty": "^6.0.0",
     "@putout/plugin-remove-unused-variables": "*",

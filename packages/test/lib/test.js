@@ -201,12 +201,14 @@ const transform = currify(({dir, plugins, rules}, t, name, transformed = null, a
     
     addons = addons || {};
     
-    plugins[0] = {
-        ...plugins[0],
-        ...addons,
-    };
-    
-    const {code} = putout(input, {isTS, plugins, rules});
+    const {code} = putout(input, {
+        isTS,
+        rules,
+        plugins: [{
+            ...plugins[0],
+            ...addons,
+        }],
+    });
     
     if (UPDATE)
         writeFileSync(`${full}-fix.js`, code);
