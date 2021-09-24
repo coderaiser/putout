@@ -6,6 +6,7 @@ const test = require('@putout/test')(__dirname, {
 
 test('plugin-travis: disable-npm-cache: report', (t) => {
     t.report('travis', '"cache" field should exist in travis');
+    t.end();
 });
 
 test('plugin-travis: disable-npm-cache: transform', (t) => {

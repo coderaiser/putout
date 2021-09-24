@@ -22,6 +22,7 @@ test('putout: parse-options: apply module type rules: module', (t) => {
     };
     
     t.deepEqual(options, expected);
+    t.end();
 });
 
 test('putout: parse-options: apply module type rules: commonjs', (t) => {
@@ -43,6 +44,7 @@ test('putout: parse-options: apply module type rules: commonjs', (t) => {
     };
     
     t.deepEqual(options, expected);
+    t.end();
 });
 
 test('putout: parse-options: apply module type rules: no type', (t) => {
@@ -60,6 +62,7 @@ test('putout: parse-options: apply module type rules: no type', (t) => {
     };
     
     t.deepEqual(options, expected);
+    t.end();
 });
 
 test('putout: parse-options: apply module type rules: match exists', (t) => {
@@ -84,5 +87,6 @@ test('putout: parse-options: apply module type rules: match exists', (t) => {
     };
     
     t.deepEqual(options, expected);
+    t.end();
 });
 

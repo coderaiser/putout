@@ -26,5 +26,6 @@ module.exports.rules = {
     ...getRule('remove-useless-not-called-args'),
     ...getRule('switch-expected-with-result'),
     ...getRule('apply-stub-operator'),
+    ...getRule('add-t-end'),
 };
 

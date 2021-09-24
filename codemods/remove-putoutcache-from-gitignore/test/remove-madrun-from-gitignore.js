@@ -6,6 +6,7 @@ const test = require('@putout/test')(__dirname, {
 
 test('plugin-remove-madrun-from-gitignore: report', (t) => {
     t.report('gitignore', '.putoutcache should be removed from .gitignore');
+    t.end();
 });
 
 test('plugin-remove-madrun-from-gitignore: transform', (t) => {

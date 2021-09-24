@@ -6,6 +6,7 @@ const test = require('@putout/test')(__dirname, {
 
 test('plugin-travis: set node versions: report', (t) => {
     t.report('travis', 'Latest version of node is missing');
+    t.end();
 });
 
 test('plugin-travis: set node versions: transform', (t) => {

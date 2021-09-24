@@ -6,6 +6,7 @@ const test = require('@putout/test')(__dirname, {
 
 test('plugin-github: set node versions: report', (t) => {
     t.report('github', 'Latest version of node is missing');
+    t.end();
 });
 
 test('plugin-github: set node versions: transform', (t) => {

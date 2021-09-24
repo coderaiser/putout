@@ -6,6 +6,7 @@ const test = require('@putout/test')(__dirname, {
 
 test('plugin-browserlist: remove-node-versions: report', (t) => {
     t.report('browserlist', 'remove node from .browserlist');
+    t.end();
 });
 
 test('plugin-browserlist: remove-node-versions: transform', (t) => {

@@ -6,6 +6,7 @@ const test = require('@putout/test')(__dirname, {
 
 test('codemod-remove-legacy-from-gitignore: report', (t) => {
     t.report('gitignore', 'legacy should be removed from .gitignore');
+    t.end();
 });
 
 test('codemod-remove-legacy-from-gitignore: transform', (t) => {

@@ -20,6 +20,7 @@ npm i @putout/plugin-tape -D
     "rules": {
         "tape/apply-stub-operator": "on",
         "tape/apply-with-name": "on",
+        "tape/add-t-end": "on",
         "tape/sync-with-name": "on",
         "tape/switch-expected-with-result": "on",
         "tape/convert-tape-to-supertape": "on",
@@ -403,6 +404,23 @@ test('xxx', (t) => {
 ```js
 test('xxx', () => {
     t.end();
+});
+```
+
+### ✅ Correct code example
+
+```js
+test('xxx', (t) => {
+    t.end();
+});
+```
+
+## add-t-end
+
+### ❌ Incorrect code example
+
+```js
+test('xxx', () => {
 });
 ```
 
