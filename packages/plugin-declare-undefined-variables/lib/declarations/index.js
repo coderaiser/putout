@@ -18,6 +18,7 @@ module.exports = {
     tryToCatch: `import tryToCatch from 'try-to-catch'`,
     
     montag: `import montag from 'montag'`,
+    once: `import once from 'once'`,
     
     mockImport: `const {mockImport} = createMockImport(import.meta.url)`,
     reImport: `const {reImport} = createMockImport(import.meta.url)`,

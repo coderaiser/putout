@@ -130,3 +130,12 @@ test('putout: plugin: declare-undefined-variables: noop', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: once', (t) => {
+    t.transformCode('once();', montag`
+        import once from 'once';
+        once();
+    `);
+    
+    t.end();
+});
+

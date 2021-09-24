@@ -56,7 +56,8 @@ You can `dismiss` variables you don't want to define.
                 "createMockImport",
                 "reImport",
                 "stopAll",
-                "montag"
+                "montag",
+                "once"
             ]
         }]
     }
