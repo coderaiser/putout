@@ -20,6 +20,7 @@ npm i @putout/plugin-tape -D
     "rules": {
         "tape/apply-stub-operator": "on",
         "tape/apply-with-name": "on",
+        "tape/sync-with-name": "on",
         "tape/switch-expected-with-result": "on",
         "tape/convert-tape-to-supertape": "on",
         "tape/convert-throws-to-try-catch": "on",
@@ -343,6 +344,31 @@ test('should call init before show', (t) => {
 });
 ```
 
+## sync-with-name
+
+### ❌ Incorrect code example
+
+```js
+test('should call init before show', (t) => {
+    const init = stub().withName('show');
+    const show = stub().withName('show');
+    
+    t.calledInOrder([init, show]);
+    t.end();
+});
+```
+
+### ✅ Correct code example
+
+```js
+test('should call init before show', (t) => {
+    const init = stub().withName('init');
+    const show = stub().withName('show');
+    
+    t.calledInOrder([init, show]);
+    t.end();
+});
+```
 
 ## declare-stub
 

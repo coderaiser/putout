@@ -1,5 +1,6 @@
 'use strict';
 
+const montag = require('montag');
 const test = require('@putout/test')(__dirname, {
     tape: require('..'),
 });
@@ -108,3 +109,16 @@ test('plugin-tape: transform: apply-with-name', (t) => {
     t.transform('apply-with-name');
     t.end();
 });
+
+test('plugin-tape: transform: sync-with-name', (t) => {
+    t.transformCode(`const a = stub().withName('b');`, montag`
+        const {
+          test,
+          stub
+        } = require('supertape');
+        
+        const a = stub().withName('a');
+    `);
+    t.end();
+});
+
