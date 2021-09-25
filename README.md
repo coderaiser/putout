@@ -111,13 +111,13 @@ Options:
    --no-cache                  disable the cache
 ```
 
-To find possible transform places in a folder named "lib", run:
+To find possible transform places in a folder named `lib`, run:
 
 ```
 npx putout lib
 ```
 
-To find possible transform places in multiple folders, such as folders named "lib" and "test", run:
+To find possible transform places in multiple folders, such as folders named `lib` and `test`, run:
 
 ```
 npx putout lib test
