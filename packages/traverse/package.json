@@ -3,7 +3,7 @@
   "version": "3.0.4",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "traverse ast-nodes",
-  "homepage": "http://github.com/coderaiser/putout",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/traverse",
   "main": "lib/traverse.js",
   "release": false,
   "tag": false,
@@ -45,7 +45,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "publishConfig": {
     "access": "public"
