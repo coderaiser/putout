@@ -25,7 +25,7 @@
   "dependencies": {
     "@babel/traverse": "^7.12.7",
     "@babel/types": "^7.12.7",
-    "@putout/compare": "^7.6.0",
+    "@putout/compare": "^8.0.0",
     "@putout/engine-parser": "^4.0.1",
     "@putout/operate": "^6.0.0",
     "debug": "^4.1.1",
