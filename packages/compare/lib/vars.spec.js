@@ -1,5 +1,7 @@
 'use strict';
 
+const tryCatch = require('try-catch');
+
 const test = require('supertape');
 const putout = require('putout');
 const montag = require('montag');
@@ -46,6 +48,14 @@ test('putout: compare: vars: getTemplateValues', (t) => {
     const expected = 'for (const item of items) {\n  log(item);\n};';
     
     t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: compare: vars: getTemplateValues: no template', (t) => {
+    const node = template.ast('const [] = array');
+    const [error] = tryCatch(getTemplateValues, node);
+    
+    t.equal(error.message, `☝️ Looks like argument 'template' of 'getTemplateValues(node, template)': is not a string, but 'undefined'`);
     t.end();
 });
 

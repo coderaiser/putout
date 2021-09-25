@@ -15,11 +15,17 @@ const {
 
 const {entries} = Object;
 const isNumber = (a) => typeof a === 'number';
+const isString = (a) => typeof a === 'string';
 const parseExpression = (a) => a.expression || a;
 
 const parseNode = (a) => a.node || a;
 
+const {stringify} = JSON;
+
 module.exports.getTemplateValues = (node, str) => {
+    if (!isString(str))
+        throw Error(`☝️ Looks like argument 'template' of 'getTemplateValues(node, template)': is not a string, but '${stringify(str)}'`);
+    
     node = parseNode(node);
     
     const templateNode = template.ast(str);
