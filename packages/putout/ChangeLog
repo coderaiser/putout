@@ -1,3 +1,31 @@
+2021.09.25, v20.5.0
+
+fix:
+- (@putout/test) leack of plugins used in `t.transform()`
+- (@putout/plugin-tape) apply-with-name: not declared
+- (@putout/plugin-declare-undefined-variables) get back record, to have eslint-plugin-putout support
+
+feature:
+- (package) @putout/compare v8.0.0
+- (package) @putout/traverse v4.0.0
+- (@putout/traverse) drop support of node < 14
+- (package) @putout/compare v8.0.0
+- (package) @putout/compare v8.0.0
+- (package) @putout/compare v8.0.0
+- (@putout/compare) getTemplateValues: add validation of input
+- (@putout/plugin-tape) add remove-useless-t-end
+- (@putout/plugin-putout) declare: add addTemplateValues
+- (@putout/plugin-tape) add-t-end
+- (@putout/plugin-declare-undefined-variables) add support of once
+- (@putout/plugin-putout) declare add precalculated json with types (@putout/plugin-declare-undefined-variables v4.0.0)
+- (@putout/plugin-declare-undefined-variables) add fs/promises
+- (@putout/plugin-declare-undefined-variables) add support of noop
+- (@putout/plugin-declare-undefined-variables) simplify declarations
+- (@putout/plugin-tape) add sync-with-name
+- (@putout/plugin-tape) add apply-with-name
+- (@putout/plugin-declare-undefined-variables) add support of Object.defineProperty
+
+
 2021.09.22, v20.4.0
 
 feature:
