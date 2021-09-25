@@ -21,6 +21,7 @@ npm i @putout/plugin-tape -D
         "tape/apply-stub-operator": "on",
         "tape/apply-with-name": "on",
         "tape/add-t-end": "on",
+        "tape/remove-useless-t-end": "on",
         "tape/sync-with-name": "on",
         "tape/switch-expected-with-result": "on",
         "tape/convert-tape-to-supertape": "on",
@@ -428,6 +429,25 @@ test('xxx', () => {
 
 ```js
 test('xxx', (t) => {
+    t.end();
+});
+```
+
+## remove-useless-t-end
+
+### ❌ Incorrect code example
+
+```js
+test('test: remove me', () => {
+    t.end();
+    t.end();
+});
+```
+
+### ✅ Correct code example
+
+```js
+test('test: remove me', () => {
     t.end();
 });
 ```

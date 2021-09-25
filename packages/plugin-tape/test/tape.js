@@ -115,6 +115,11 @@ test('plugin-tape: transform: add-t-end', (t) => {
     t.end();
 });
 
+test('plugin-tape: transform: remove-useless-t-end', (t) => {
+    t.transform('remove-useless-t-end');
+    t.end();
+});
+
 test('plugin-tape: transform: sync-with-name', (t) => {
     t.transformCode(`const a = stub().withName('b');`, montag`
         const {
