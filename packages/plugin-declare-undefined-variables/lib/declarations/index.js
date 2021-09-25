@@ -1,9 +1,11 @@
 'use strict';
 
-const nodeJS = require('./node-js.js');
+const nodeJS = require('./node-js');
 const object = require('./object');
 
 module.exports = {
+    ...nodeJS,
+    
     ...object,
     
     isArray: 'const {isArray} = Array',
@@ -13,7 +15,6 @@ module.exports = {
     
     noop: 'const noop = () => {}',
     
-    ...nodeJS,
     tryCatch: `import tryCatch from 'try-catch'`,
     tryToCatch: `import tryToCatch from 'try-to-catch'`,
     

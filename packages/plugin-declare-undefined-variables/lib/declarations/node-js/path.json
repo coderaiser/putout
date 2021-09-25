@@ -1,0 +1,16 @@
+{
+    "resolve": "import {resolve} from 'path'",
+    "normalize": "import {normalize} from 'path'",
+    "isAbsolute": "import {isAbsolute} from 'path'",
+    "join": "import {join} from 'path'",
+    "relative": "import {relative} from 'path'",
+    "toNamespacedPath": "import {toNamespacedPath} from 'path'",
+    "dirname": "import {dirname} from 'path'",
+    "basename": "import {basename} from 'path'",
+    "extname": "import {extname} from 'path'",
+    "format": "import {format} from 'path'",
+    "sep": "import {sep} from 'path'",
+    "delimiter": "import {delimiter} from 'path'",
+    "win32": "import {win32} from 'path'",
+    "posix": "import {posix} from 'path'"
+}

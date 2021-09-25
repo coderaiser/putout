@@ -1,13 +1,7 @@
 'use strict';
 
 const fsPromises = require('./fs-promises');
-
-const path = {
-    basename: `import {basename} from 'path'`,
-    extname: `import {extname} from 'path'`,
-    dirname: `import {dirname} from 'path'`,
-    join: `import {join} from 'path'`,
-};
+const path = require('./path');
 
 const fs = {
     ...fsPromises,

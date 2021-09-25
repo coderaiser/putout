@@ -5,7 +5,10 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-declare-undefined-variables
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-declare-undefined-variables
 
-`putout` plugin adds ability to transform to new [Cloud Commander](https://declare-undefined-variables.io) API.
+`putout` plugin adds ability to declare variable that was not defined before, including:
+
+- [fs/promises](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html)
+- [path](https://nodejs.org/dist/latest-v16.x/docs/api/path.html)
 
 ## Install
 
