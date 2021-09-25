@@ -49,7 +49,7 @@
     "@putout/cli-match": "^1.0.0",
     "@putout/cli-ruler": "^1.0.0",
     "@putout/cli-validate-args": "^1.0.0",
-    "@putout/compare": "^7.0.0",
+    "@putout/compare": "^8.0.0",
     "@putout/engine-loader": "^4.0.0",
     "@putout/engine-parser": "^4.0.0",
     "@putout/engine-processor": "^4.0.0",
