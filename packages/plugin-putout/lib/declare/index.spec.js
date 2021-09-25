@@ -39,3 +39,8 @@ test('plugin-putout: declare: transform: types', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: get-template-values', (t) => {
+    t.transform('get-template-values');
+    t.end();
+});
+

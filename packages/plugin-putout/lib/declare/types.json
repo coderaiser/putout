@@ -1,4 +1,5 @@
 {
+    "types": "import {types} from 'putout'",
     "is": "const {is} = types",
     "isBinding": "const {isBinding} = types",
     "isBlockScoped": "const {isBlockScoped} = types",

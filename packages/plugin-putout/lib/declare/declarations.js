@@ -1,13 +1,10 @@
 'use strict';
 
 const types = require('./types');
+const operator = require('./operator');
 
 module.exports = {
-    compare: `const {compare} = operator`,
-    contains: `const {contains} = operator`,
-    traverse: `const {traverse} = operator`,
-    operator: `import {operator} from 'putout'`,
+    ...operator,
     ...types,
-    types: `import {types} from 'putout'`,
 };
 
