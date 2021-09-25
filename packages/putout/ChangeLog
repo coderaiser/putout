@@ -1,3 +1,9 @@
+2021.09.25, v20.5.1
+
+feature:
+- (package) @putout/plugin-declare-undefined-variables v4.1.0
+
+
 2021.09.25, v20.5.0
 
 fix:
