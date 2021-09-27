@@ -21,6 +21,7 @@ npm i @putout/plugin-tape -D
         "tape/apply-stub-operator": "on",
         "tape/apply-with-name": "on",
         "tape/add-t-end": "on",
+        "tape/add-stop-all": "on",
         "tape/remove-useless-t-end": "on",
         "tape/sync-with-name": "on",
         "tape/switch-expected-with-result": "on",
@@ -429,6 +430,34 @@ test('xxx', () => {
 
 ```js
 test('xxx', (t) => {
+    t.end();
+});
+```
+
+## add-stop-all
+
+### ❌ Incorrect code example
+
+```js
+test('stop-all: should be called', () => {
+    mockImport('fs/promises', {
+        readFile: stub(),
+    });
+    
+    t.end();
+});
+```
+
+### ✅ Correct code example
+
+```js
+test('stop-all: should be called', () => {
+    mockImport('fs/promises', {
+        readFile: stub(),
+    });
+    
+    stopAll();
+    
     t.end();
 });
 ```

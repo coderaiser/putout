@@ -115,6 +115,11 @@ test('plugin-tape: transform: add-t-end', (t) => {
     t.end();
 });
 
+test('plugin-tape: transform: add-stop-all', (t) => {
+    t.transform('add-stop-all');
+    t.end();
+});
+
 test('plugin-tape: transform: remove-useless-t-end', (t) => {
     t.transform('remove-useless-t-end');
     t.end();
