@@ -31,6 +31,13 @@ test('plugin-merge-destructuring-properties: transform: require', (t) => {
     t.end();
 });
 
+test('plugin-merge-destructuring-properties: transform: putout/declare', (t) => {
+    t.transform('putout-declare', {
+        'putout/declare': require('@putout/plugin-putout').rules.declare,
+    });
+    t.end();
+});
+
 test('plugin-merge-destructuring-properties: no transform: exports', (t) => {
     t.transform('exports', {
         'convert-commonjs-to-esm': convert,
