@@ -5,7 +5,7 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-tape
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-tape
 
-`putout` plugin helps to apply best parctises for tests written with [supertape](https://github.com/coderaiser/supertape).
+[`Putout`](https://github.com/coderaiser/putout) plugin helps to apply best parctises for tests written with [supertape](https://github.com/coderaiser/supertape).
 
 ## Install
 
@@ -162,20 +162,6 @@ test('some message', (t) => {
     fn();
     
     t.calledWith(fn, ['hello']);
-    t.end();
-});
-```
-
-### ✅ Correct code example
-
-```js
-const tryCatch = require('try-catch');
-const test = require('supertape');
-
-test('some message', (t) => {
-    const [error] = tryCatch(copymitter);
-    
-    t.notOk(error, 'should throw when no args');
     t.end();
 });
 ```
