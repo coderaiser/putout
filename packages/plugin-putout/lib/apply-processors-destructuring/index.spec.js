@@ -14,6 +14,11 @@ test('plugin-putout: apply-processors-destructuring: transform', (t) => {
     t.end();
 });
 
+test('plugin-putout: apply-processors-destructuring: transform: no-process', (t) => {
+    t.transform('no-process');
+    t.end();
+});
+
 test('plugin-putout: apply-processors-destructuring: transform: compare places', (t) => {
     t.transform('compare-places');
     t.end();
