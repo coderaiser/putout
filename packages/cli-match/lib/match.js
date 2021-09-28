@@ -51,7 +51,10 @@ export const match = async ({pattern, cwd, readFile = _readFile, writeFile = _wr
     
     options.match = {
         ...options.match,
-        [pattern]: rules,
+        [pattern]: {
+            ...options.match?.[pattern],
+            ...rules,
+        },
     };
     
     delete options.rules;

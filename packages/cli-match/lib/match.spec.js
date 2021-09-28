@@ -158,6 +158,39 @@ test('putout: match: exist', async (t) => {
     t.end();
 });
 
+test('putout: match: exist: with same pattern', async (t) => {
+    const writeFile = stub().resolves();
+    const readFile = stub().resolves(stringify({
+        match: {
+            '*.md': {
+                'remove-unused-variables': 'off',
+            },
+        },
+        rules: {
+            'remove-debugger': 'on',
+        },
+    }));
+    
+    await match({
+        pattern: '*.md',
+        cwd: '/',
+        readFile,
+        writeFile,
+    });
+    
+    const expected = stringify({
+        match: {
+            '*.md': {
+                'remove-unused-variables': 'off',
+                'remove-debugger': 'on',
+            },
+        },
+    }, null, 4) + '\n';
+    
+    t.calledWith(writeFile, ['/.putout.json', expected]);
+    t.end();
+});
+
 test('putout: match: pass readFile and writeFile', async (t) => {
     const writeFile = stub().resolves();
     const readFile = stub().resolves(stringify({
