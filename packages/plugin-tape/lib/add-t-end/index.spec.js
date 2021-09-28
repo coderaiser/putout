@@ -19,3 +19,7 @@ test('plugin-tape: add-t-end: transform: not-empty', (t) => {
     t.end();
 });
 
+test('plugin-tape: add-t-end: transform: async', (t) => {
+    t.transform('async');
+    t.end();
+});
