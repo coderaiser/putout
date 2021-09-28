@@ -46,7 +46,7 @@ test('putout: processor: html: css: template', async ({comparePlaces}) => {
     }]);
 });
 
-test('putout: processor: html: empty script', async (t) => {
-    await t.noProcess('empty-script');
+test('putout: processor: html: empty script', async ({noProcess}) => {
+    await noProcess('empty-script');
 });
 

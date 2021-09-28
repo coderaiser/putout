@@ -24,8 +24,8 @@ test('putout: test: processor: process', async ({process}) => {
     await process('eslintrc');
 });
 
-test('putout: test: processor: no process', async (t) => {
-    await t.noProcess('empty-script.html', null, [
+test('putout: test: processor: no process', async ({noProcess}) => {
+    await noProcess('empty-script.html', null, [
         'html',
     ]);
 });

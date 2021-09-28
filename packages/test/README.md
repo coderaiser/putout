@@ -265,8 +265,8 @@ Check that filename would not be processed.
 Example:
 
 ```js
-test('putout: process: json: no process', async (t) => {
-    await t.noProcess('eslintrc', [], ['json']);
+test('putout: process: json: no process', async ({noProcess}) => {
+    await noProcess('eslintrc', [], ['json']);
 });
 ```
 

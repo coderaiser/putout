@@ -26,7 +26,7 @@ test('putout: processor: yaml: no startLine', async ({comparePlaces}) => {
     await comparePlaces('travis.yml', []);
 });
 
-test('putout: processor: yaml: duplicate: file content', async (t) => {
-    await t.noProcess('duplicate.yml');
+test('putout: processor: yaml: duplicate: file content', async ({noProcess}) => {
+    await noProcess('duplicate.yml');
 });
 
