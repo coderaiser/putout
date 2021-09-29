@@ -14,6 +14,11 @@ test('plugin-tape: convert-equal-to-not-ok: transform', (t) => {
     t.end();
 });
 
+test('plugin-tape: convert-equal-to-not-ok: transform: undefined', (t) => {
+    t.transform('undefined');
+    t.end();
+});
+
 test('plugin-tape: convert-equal-to-not-ok: transform: deep-equal', (t) => {
     t.transform('deep-equal');
     t.end();
