@@ -5,12 +5,17 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-tape: convert-equal-to-not-ok: report', (t) => {
-    t.report('equal', 't.notOk should be used instead of t.equal');
+    t.report('equal', `Use 't.notOk()' instead of 't.equal()' or 't.deepEqual()'`);
     t.end();
 });
 
 test('plugin-tape: convert-equal-to-not-ok: transform', (t) => {
     t.transform('equal');
+    t.end();
+});
+
+test('plugin-tape: convert-equal-to-not-ok: transform: deep-equal', (t) => {
+    t.transform('deep-equal');
     t.end();
 });
 
