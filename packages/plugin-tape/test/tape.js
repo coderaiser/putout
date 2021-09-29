@@ -125,6 +125,11 @@ test('plugin-tape: transform: remove-useless-t-end', (t) => {
     t.end();
 });
 
+test('plugin-tape: transform: convert-equal-to-called-once', (t) => {
+    t.transform('convert-equal-to-called-once');
+    t.end();
+});
+
 test('plugin-tape: transform: sync-with-name', (t) => {
     t.transformCode(`const a = stub().withName('b');`, montag`
         const {

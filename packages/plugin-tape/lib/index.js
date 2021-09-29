@@ -19,6 +19,7 @@ module.exports.rules = {
     ...getRule('convert-match-regexp-to-string'),
     ...getRule('convert-equal-to-not-ok'),
     ...getRule('convert-equal-to-ok'),
+    ...getRule('convert-equal-to-called-once'),
     ...getRule('expand-try-catch-arguments'),
     ...getRule('declare-stub'),
     ...getRule('declare-t'),
