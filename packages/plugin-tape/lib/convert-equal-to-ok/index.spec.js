@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-tape: convert-equal-to-ok: report', (t) => {
-    t.report('equal', `Use 't.ok()' instead of 't.equal()' or 't.deepEqual()'`);
+    t.report('equal', `Use 't.ok(result)' instead of 't.equal(result, true)'`);
     t.end();
 });
 
