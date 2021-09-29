@@ -20,6 +20,7 @@ module.exports.rules = {
     ...getRule('convert-equal-to-not-ok'),
     ...getRule('convert-equal-to-ok'),
     ...getRule('convert-equal-to-called-once'),
+    ...getRule('convert-deep-equal-to-equal'),
     ...getRule('expand-try-catch-arguments'),
     ...getRule('declare-stub'),
     ...getRule('declare-t'),

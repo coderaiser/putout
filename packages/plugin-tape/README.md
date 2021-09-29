@@ -32,6 +32,7 @@ npm i @putout/plugin-tape -D
         "tape/convert-called-with-to-called-with-no-args": "on",
         "tape/convert-called-with-no-args-to-called-with": "on",
         "tape/convert-equal-to-called-once": "on",
+        "tape/convert-deep-equal-to-equal": "on",
         "tape/expand-try-catch-arguments": "on",
         "tape/convert-emitter-to-promise": "on",
         "tape/convert-ok-to-match": "on",
@@ -197,6 +198,34 @@ test('some message', (t) => {
     fn();
     
     t.calledOnce(fn);
+    t.end();
+});
+```
+
+## convert-deep-equal-equal
+
+Use `equal` when comparing with primitive;
+
+### ❌ Incorrect code example
+
+```js
+const test = require('supertape');
+const {stub} = test;
+
+test('some message', (t) => {
+    t.deepEqual(x, 5);
+    t.end();
+});
+```
+
+### ✅ Correct code example
+
+```js
+const test = require('supertape');
+const {stub} = test;
+
+test('some message', (t) => {
+    t.equal(x, 5);
     t.end();
 });
 ```

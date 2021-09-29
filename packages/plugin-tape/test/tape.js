@@ -130,6 +130,11 @@ test('plugin-tape: transform: convert-equal-to-called-once', (t) => {
     t.end();
 });
 
+test('plugin-tape: transform: convert-deep-equal-to-equal', (t) => {
+    t.transform('convert-deep-equal-to-equal');
+    t.end();
+});
+
 test('plugin-tape: transform: sync-with-name', (t) => {
     t.transformCode(`const a = stub().withName('b');`, montag`
         const {

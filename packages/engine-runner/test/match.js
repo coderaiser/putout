@@ -26,7 +26,7 @@ test('putout: runner: match', (t) => {
         }],
     });
     
-    t.deepEqual(error.rule, 'rm');
+    t.equal(error.rule, 'rm');
     t.end();
 });
 

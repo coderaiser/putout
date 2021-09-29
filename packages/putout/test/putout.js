@@ -190,7 +190,7 @@ test('putout: typescript', (t) => {
         ],
     });
     
-    t.deepEqual(code, '\n', 'should equal');
+    t.equal(code, '\n');
     t.end();
 });
 
