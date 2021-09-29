@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-tape: convert-equal-to-not-ok: report', (t) => {
-    t.report('equal', `Use 't.notOk()' instead of 't.equal()' or 't.deepEqual()'`);
+    t.report('equal', `Use 't.notOk(error)' instead of 't.equal(error, null)'`);
     t.end();
 });
 

@@ -1,6 +1,9 @@
 'use strict';
 
-module.exports.report = () => `Use 't.notOk()' instead of 't.equal()' or 't.deepEqual()'`;
+module.exports.report = (path) => {
+    const arg = path.get('arguments.0');
+    return `Use 't.notOk(${arg})' instead of '${path}'`;
+};
 
 module.exports.replace = () => ({
     't.equal(__a, null)': 't.notOk(__a)',
