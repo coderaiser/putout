@@ -14,3 +14,8 @@ test('plugin-tape: convert-deep-equal-to-equal: transform', (t) => {
     t.end();
 });
 
+test('plugin-tape: convert-deep-equal-to-equal: no transform: regexp', (t) => {
+    t.noTransform('regexp');
+    t.end();
+});
+

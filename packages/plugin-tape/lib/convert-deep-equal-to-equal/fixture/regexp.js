@@ -1,0 +1,1 @@
+t.deepEqual(x, /a/);

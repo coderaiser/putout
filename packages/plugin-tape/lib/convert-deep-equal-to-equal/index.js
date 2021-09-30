@@ -2,7 +2,10 @@
 
 const {types} = require('putout');
 
-const {isLiteral} = types;
+const {
+    isLiteral,
+    isRegExpLiteral,
+} = types;
 
 module.exports.report = (path) => {
     const args = path.get('arguments');
@@ -13,7 +16,12 @@ module.exports.report = (path) => {
     return `Use 't.equal(${args[0]}, ${args[1]}, ${args[2]})' instead of '${path} when comparin with primitive'`;
 };
 
-const check = ({__b}) => isLiteral(__b);
+const check = ({__b}) => {
+    if (isRegExpLiteral(__b))
+        return false;
+    
+    return isLiteral(__b);
+};
 
 module.exports.match = () => ({
     't.deepEqual(__a, __b)': check,
