@@ -1,3 +1,32 @@
+2021.09.30, v20.5.2
+
+fix:
+- (putout) parse-options: convert to esm/commonjs when no .putout.json found, but package.json
+- (@putout/plugin-tape) convert-deep-equal-to-equal: exclude regexp
+- (@putout/plugin-tape) add-t-end: t.end() not last operation
+- (@putout/cli-match) match exists with the same pattern
+- (@putout/plugin-merge-destructuring-properties) add crawl for @putout/plugin-putout/declare
+
+feature:
+- (@putout/plugin-convert-commonjs-to-esm) commons: report: improve message
+- (@putout/plugin-convert-commonjs-to-esm) commons: add support of top level require
+- (@putout/plugin-convert-commonjs-to-esm) require: exclude package.json
+- (@putout/plugin-tape) declare-t: add support of upper scope
+- (@putout/plugin-tape) add convert-deep-equal-to-equal
+- (@putout/plugin-tape) add convert-equal-to-called-once
+- (@putout/plugin-convert-equal-to-not-ok) add support of undefined
+- (@putout/plugin-tape) convert-equal-to-ok: report: more details
+- (@putout/plugin-tape) convert-equal-to-not-ok: report: more details
+- (@putout/plugin-tape) convert-equal-to-not-ok: add support of deep-equal
+- (@putout/plugin-tape) convert-equal-to-ok: add support of t.deepEqual()
+- (@putout/plugin-putout) apply-processors-destructuring: add support of t.end()
+- (@putout/plugin-putout) apply-processors-destructuring: add support of noProcess
+- (@putout/plugin-tape) add-t-end: add support of async
+- (@putout/plugin-tape) add add-stop-all
+- (@putout/plugin-putout) declare: add template
+- (@putout/plugin-declare-undefined-variables) add support of path from node.js
+
+
 2021.09.25, v20.5.1
 
 feature:
