@@ -170,7 +170,7 @@ test('some message', (t) => {
 
 ## convert-equal-to-called-once
 
-No need to use `equal`, `supertape` supports [`calledOnce`](https://github.com/coderaiser/supertape/tree/master/packages/operator-stub#tcalledoncefn--message).
+No need to use [`equal`](https://github.com/coderaiser/supertape#tequalactual-expected-msg), [`supertape`](https://github.com/coderaiser/supertape) supports [`calledOnce`](https://github.com/coderaiser/supertape/tree/master/packages/operator-stub#tcalledoncefn--message).
 
 ### ❌ Incorrect code example
 
@@ -488,7 +488,7 @@ test('xxx', (t) => {
 
 ## add-stop-all
 
-This is bad if you mocked import but forget to stop it this leads to bugs
+When you write test mocking `ESM` with [`mockImport()`](https://github.com/coderaiser/mock-import#mockimportname-mock) never forget to call [`stopAll()`](https://github.com/coderaiser/mock-import#stopall) when you no longer needs it. This leads to bugs in tests which are hard to find, each test should be checked with the one which pass when called alone but fail when called with others.
 
 ### ❌ Incorrect code example
 
