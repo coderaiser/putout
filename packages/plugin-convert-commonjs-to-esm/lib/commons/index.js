@@ -3,11 +3,9 @@
 const {
     template,
     operator,
-    types,
 } = require('putout');
 
 const {getPathAfterImports} = operator;
-const {isProgram} = types;
 
 const importSimport = template.ast(`import {createCommons} from 'simport'`);
 const initCommons = template.ast(`const {__filename, __dirname, require} = createCommons(import.meta.url)`);
@@ -39,16 +37,6 @@ module.exports.filter = (path) => {
     const isFilename = scope.hasBinding('__filename');
     const isRequire = scope.hasBinding('require');
     
-    if (isTopLevelRequire(path))
-        return false;
-    
     return !isDirname && !isFilename && !isRequire;
 };
-
-function isTopLevelRequire(path) {
-    if (path.node.name !== 'require')
-        return false;
-    
-    return isProgram(path.scope.block);
-}
 
