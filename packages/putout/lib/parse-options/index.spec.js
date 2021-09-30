@@ -548,15 +548,8 @@ test('putout: parseOptions: readOptions: .putout.json', (t) => {
     const readHomeOptions = stub().returns(empty);
     const readCodeMods = stub().returns(empty);
     const readOptions = stub().returns(['../..', {}]);
-    const sync = (a) => {
-        if (a === '.putout.json')
-            return '../../putout.json';
-        
-        throw 'error';
-    };
     
     mockRequire('../../putout.json', empty);
-    mockRequire('find-up', {sync});
     
     const {readdirSync} = fs;
     fs.readdirSync = () => {
@@ -783,12 +776,59 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
     
     const expected = {
         match: {
+            '*.js': {
+                'convert-esm-to-commonjs': 'on',
+            },
             '*.spec.js': {
                 'remove-only': 'on',
             },
         },
         rules: {
             'remove-only': 'on',
+            'convert-esm-to-commonjs': 'on',
+        },
+    };
+    
+    stopAll();
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: parseOptions: readOptions: no options but package.json', (t) => {
+    const empty = {};
+    
+    const readHomeOptions = stub().returns(empty);
+    const readCodeMods = stub().returns(empty);
+    const read = stub().returns(['', {}]);
+    
+    mockRequire('../../package.json', {
+        type: 'module',
+    });
+    mockRequire('../../putout.json', empty);
+    mockRequire('./recursive-read', read);
+    
+    const parseOptions = reRequire('.');
+    
+    const options = {};
+    
+    const result = parseOptions({
+        name: __filename,
+        options,
+        readHomeOptions,
+        readCodeMods,
+    });
+    
+    delete result.dir;
+    
+    const expected = {
+        match: {
+            '*.js': {
+                'convert-commonjs-to-esm': 'on',
+            },
+        },
+        rules: {
+            'convert-commonjs-to-esm': 'on',
         },
     };
     
