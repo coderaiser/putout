@@ -202,7 +202,7 @@ test('some message', (t) => {
 });
 ```
 
-## convert-deep-equal-equal
+## convert-deep-equal-to-equal
 
 Use `equal` when comparing with primitive;
 
