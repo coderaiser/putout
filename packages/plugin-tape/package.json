@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-tape",
-  "version": "3.14.1",
+  "version": "3.14.2",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin helps with tests",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-tape",
