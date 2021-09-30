@@ -11,7 +11,7 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => ({
     't.end()': (path) => {
-        if (path.scope.bindings.t)
+        if (path.scope.hasBinding('t'))
             return;
         
         push(path);
