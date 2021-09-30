@@ -6,7 +6,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-convert-commonjs-to-esm: commons: report', (t) => {
-    t.report('commons', '"__filename" and "__dirname" should be declared');
+    t.report('commons', '"__filename", "__dirname" and "require" should be declared in ESM');
     t.end();
 });
 

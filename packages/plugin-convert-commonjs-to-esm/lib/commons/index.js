@@ -10,7 +10,7 @@ const {getPathAfterImports} = operator;
 const importSimport = template.ast(`import {createCommons} from 'simport'`);
 const initCommons = template.ast(`const {__filename, __dirname, require} = createCommons(import.meta.url)`);
 
-module.exports.report = () => '"__filename" and "__dirname" should be declared';
+module.exports.report = () => '"__filename", "__dirname" and "require" should be declared in ESM';
 
 module.exports.fix = (path) => {
     const {scope} = path;
