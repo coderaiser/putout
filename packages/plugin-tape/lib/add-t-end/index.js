@@ -27,6 +27,11 @@ function match({__body}) {
     if (!length)
         return true;
     
+    for (const element of body) {
+        if (compare(element, 't.end()'))
+            return false;
+    }
+    
     return !compare(body[length - 1], 't.end()');
 }
 
