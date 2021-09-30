@@ -206,7 +206,7 @@ test('some message', (t) => {
 
 ## convert-deep-equal-to-equal
 
-Use `equal` when comparing with primitive;
+Use [`equal`](https://github.com/coderaiser/supertape#tequalactual-expected-msg) when comparing with primitives, [`deepEqual`](https://github.com/coderaiser/supertape#tdeepequalactual-expected-msg) for [`Objects`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) and [`Arrays`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array);
 
 ### ❌ Incorrect code example
 
