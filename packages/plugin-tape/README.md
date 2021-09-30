@@ -170,6 +170,8 @@ test('some message', (t) => {
 
 ## convert-equal-to-called-once
 
+No need to use `equal`, `supertape` supports [`calledOnce`](https://github.com/coderaiser/supertape/tree/master/packages/operator-stub#tcalledoncefn--message).
+
 ### ❌ Incorrect code example
 
 ```js
@@ -485,6 +487,8 @@ test('xxx', (t) => {
 ```
 
 ## add-stop-all
+
+This is bad if you mocked import but forget to stop it this leads to bugs
 
 ### ❌ Incorrect code example
 
