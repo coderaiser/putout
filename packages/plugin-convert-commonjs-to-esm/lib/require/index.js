@@ -34,19 +34,26 @@ const createImport = ({name, source}) => {
 
 const createFnDeclaration = template('const NAME1 = FN(NAME2)');
 const createDeclaration = template('const NAME1 = NAME2.default');
+const isPackage = ({value}) => /package(\.json)?$/.test(value);
 
 module.exports.match = () => ({
-    'const __a = require(__b)': (vars, path) => {
+    'const __a = require(__b)': ({__b}, path) => {
         if (path.scope.getBinding('require'))
             return false;
         
         const __bPath = path.get(__B);
         const {confident, value} = __bPath.evaluate();
         
+        if (isPackage(__b))
+            return false;
+        
         return value && confident;
     },
     'require("__a")': (vars, path) => {
-        return path.parentPath.parentPath.isProgram();
+        if (!path.parentPath.parentPath.isProgram())
+            return false;
+        
+        return true;
     },
     'const __a = __b(require(__c))': ({__a, __c}) => {
         return isIdentifier(__a) && isStringLiteral(__c);

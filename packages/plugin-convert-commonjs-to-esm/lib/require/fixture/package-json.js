@@ -1,0 +1,1 @@
+const Pack = require('../package');

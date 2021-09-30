@@ -1,1 +1,1 @@
-const info = require('./package.json');
+const info = require('./help.json');
