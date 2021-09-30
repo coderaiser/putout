@@ -488,7 +488,7 @@ test('xxx', (t) => {
 
 ## add-stop-all
 
-When you write test mocking `ESM` with [`mockImport()`](https://github.com/coderaiser/mock-import#mockimportname-mock) never forget to call [`stopAll()`](https://github.com/coderaiser/mock-import#stopall) when you no longer needs it. This leads to bugs in tests which are hard to find, each test should be checked with the one which pass when called alone but fail when called with others.
+When you write test mocking `ESM` with [`mockImport()`](https://github.com/coderaiser/mock-import#mockimportname-mock) never forget to call [`stopAll()`](https://github.com/coderaiser/mock-import#stopall) when you no longer need it. This leads to bugs in tests which are hard to find, each test should be checked with the one which pass when called alone but fail when called with others.
 
 ### ❌ Incorrect code example
 
