@@ -14,20 +14,28 @@ Every package contain next scrips that can be run with `npm run`:
 - `test`
 - `coverage`
 
-## Commit
+### 🤷 How to check if my changes not brake something?
+When your made changes, added coverage and your package 📦 is ready for publishing, run: `npm run fresh`,
+in the root of the repository, it will run `lint` and `test` over all `packages`.
+
+### 🤷 What if I'm adding new plugin?
+When adding new plugin, add it to [`package.json`](https://github.com/coderaiser/putout/blob/master/packages/putout/package.json) and [`putout.json`](https://github.com/coderaiser/putout/blob/master/packages/putout/putout.json).
+Update [`Built-in Transformations`](https://github.com/coderaiser/putout#built-in-transformations) and [`Plugins`](https://github.com/coderaiser/putout#plugins-1).
+
+## 🤷 How to name commit?
 Format of the commit message: **type(scope) subject**
 
 **Type**:
-- feature(scope) subject
-- fix(scope) subject
-- docs(scope) subject
-- refactor(scope) subject
-- test(scope) subject
-- chore(scope) subject
+- [`feature(scope) subject`](https://github.com/coderaiser/putout/commit/6155a9b8f8b44675f1956db94e3f65a202648d38)
+- [`fix(scope) subject`](https://github.com/coderaiser/putout/commit/cccea1f51230bbe663cf386e407f67d0bf32a9ee)
+- [`docs(scope) subject`](https://github.com/coderaiser/putout/commit/bf0ee7cae8e1ab38befc8b4586aa750b34483078)
+- [`refactor(scope) subject`](https://github.com/coderaiser/putout/commit/0bd6c3400f79e70307161d95580317c1f6d63c41)
+- [`test(scope) subject`](https://github.com/coderaiser/putout/issues/82)
+- [`chore(scope) subject`](https://github.com/coderaiser/putout/commit/202810ae7debf78b30770cf0cb5d3cdefa83c7ec)
 
 **Scope**:
 Scope could be anything specifying place of the commit change.
-For example util, console, view, edit, style etc...
+For example [`@plugin-remove-unused-variables`](https://github.com/coderaiser/putout/blob/master/packages/putout/package.json), [`@putout/cli-ruler`](https://github.com/coderaiser/putout/blob/master/packages/putout/package.json), [`putout`](https://github.com/coderaiser/putout/blob/master/packages/putout/) etc...
 
 **Subject text**:
 - use imperative, present tense: “change” not “changed” nor “changes”
@@ -35,8 +43,4 @@ For example util, console, view, edit, style etc...
 - no dot (.) at the end
 **Message body**:
 - just as in <subject> use imperative, present tense: “change” not “changed” nor “changes”
-- includes motivation for the change and contrasts with previous behavior
-
-**Examples**:
-- [fix(style) .name{width}: 37% -> 35%](https://github.com/coderaiser/cloudcmd/commit/94b0642e3990c17b3a0ee3efeb75f343e1e7c050)
-- [fix(console) dispatch: focus -> mouseup](https://github.com/coderaiser/cloudcmd/commit/f41ec5058d1411e86a881f8e8077e0572e0409ec)
+- includes motivation for the change and contrasts with previous 
