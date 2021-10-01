@@ -137,11 +137,7 @@ test('plugin-tape: transform: convert-deep-equal-to-equal', (t) => {
 
 test('plugin-tape: transform: sync-with-name', (t) => {
     t.transformCode(`const a = stub().withName('b');`, montag`
-        const {
-          test,
-          stub
-        } = require('supertape');
-        
+        import {stub} from 'supertape';
         const a = stub().withName('a');
     `);
     t.end();

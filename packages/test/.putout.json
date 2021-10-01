@@ -1,7 +1,7 @@
 {
     "match": {
         "*.md": {
-            "tape/declare-test": "off"
+            "tape/declare": "off"
         }
     }
 }

@@ -38,9 +38,8 @@ npm i @putout/plugin-tape -D
         "tape/convert-ok-to-match": "on",
         "tape/convert-ok-to-called-with": "on",
         "tape/convert-match-regexp-to-string": "on",
-        "tape/declare-stub": "on",
         "tape/declare-t": "on",
-        "tape/declare-test": "on",
+        "tape/declare": "on",
         "tape/remove-default-messages": "on",
         "tape/remove-useless-not-called-args": "on"
     }
@@ -207,7 +206,7 @@ test('some message', (t) => {
 
 ## convert-deep-equal-to-equal
 
-Use [`equal`](https://github.com/coderaiser/supertape#tequalactual-expected-msg) when comparing with primitives, [`deepEqual`](https://github.com/coderaiser/supertape#tdeepequalactual-expected-msg) for [`Objects`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) and [`Arrays`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array);
+Use [`equal`](https://github.com/coderaiser/supertape#tequalactual-expected-msg) when comparing with primitives, [`deepEqual`](https://github.com/coderaiser/supertape#tdeepequalactual-expected-msg) for [`Objects`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Object) and [`Arrays`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Array);
 
 ### ❌ Incorrect code example
 
@@ -426,13 +425,11 @@ test('should call init before show', (t) => {
 });
 ```
 
-## declare-stub
+## declare
 
 ### ❌ Incorrect code example
 
 ```js
-const test = require('supertape');
-
 test('xxx', (t) => {
     const a = stub();
     
@@ -443,7 +440,10 @@ test('xxx', (t) => {
 ### ✅ Correct code example
 
 ```js
-const {test, stub} = require('supertape');
+import {
+    test,
+    stub,
+} from 'supertape';
 
 test('xxx', (t) => {
     const a = stub();
@@ -465,26 +465,6 @@ test('xxx', () => {
 ### ✅ Correct code example
 
 ```js
-test('xxx', (t) => {
-    t.end();
-});
-```
-
-## declare-test
-
-### ❌ Incorrect code example
-
-```js
-test('xxx', (t) => {
-    t.end();
-});
-```
-
-### ✅ Correct code example
-
-```js
-import {test} from 'supertape';
-
 test('xxx', (t) => {
     t.end();
 });
