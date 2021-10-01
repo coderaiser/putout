@@ -881,7 +881,7 @@ async () => {
 
 </details>
 
-<details><summary>convert<code>Promise.reject</code> to <code>throw</code></summary>
+<details><summary>convert <code>Promise.reject</code> to <code>throw</code></summary>
 
 ```diff
 async () => {
