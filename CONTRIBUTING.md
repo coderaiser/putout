@@ -1,4 +1,4 @@
-# 🚀 I want to contribute
+# 🚀 I want contribute
 
 That's awesome 👏! Make fork of a repo, clone it and run:
 
