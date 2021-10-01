@@ -63,3 +63,38 @@ test('putout: plugin: declare-undefined-variables: declare: variable', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: plugin: declare-undefined-variables: cache', (t) => {
+    const declarations = {
+        test: `import {test} from 'supertape'`,
+        stub: `import {stub} from 'supertape'`,
+    };
+    
+    const source = montag`
+        test('', (t) => {
+            const fn = stub();
+            fn();
+            t.end();
+        });
+    `;
+    
+    const {code: secondAttempt} = putout(source, {
+        plugins: [
+            ['declare-undefined-variables', declare(declarations)],
+            'merge-duplicate-imports',
+        ],
+    });
+    
+    const expected = montag`
+        import {stub, test} from 'supertape';
+        test('', (t) => {
+            const fn = stub();
+            fn();
+            t.end();
+        });
+    `;
+    
+    t.equal(secondAttempt, expected);
+    t.end();
+});
+

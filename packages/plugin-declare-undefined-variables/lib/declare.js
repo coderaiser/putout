@@ -57,7 +57,7 @@ const fix = (declarations) => (path) => {
     const scope = path.scope.getProgramParent();
     const programPath = scope.path;
     const bodyPath = programPath.get('body');
-    const node = template.ast(declarations[name]);
+    const node = template.ast.fresh(declarations[name]);
     
     for (const currentPath of bodyPath) {
         if (isUseStrict(currentPath)) {
