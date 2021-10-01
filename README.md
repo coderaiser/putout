@@ -10,7 +10,7 @@
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
 > **Perfection is finally attained not when there is no longer anything to add,
-> but when there is no longer anything to take away**
+> but when there is no longer anything to take away.**
 >
 > **(c) Antoine de Saint Exupéry**
 
@@ -50,7 +50,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 
 ## 🤷‍♂ Whom should I thank for this project exist?
 
-> **If I have seen further, it is by standing upon the shoulders of giants**
+> **If I have seen further, it is by standing upon the shoulders of giants.**
 >
 > **(c) Isaak Newton**
 
@@ -80,7 +80,7 @@ Make sure that you are running a relatively recent (≥14.8) version of Node.
 
 ## Usage
 
-> **Grown-ups never understand anything by themselves, and it is tiresome for children to be always and forever explaining things to them**
+> **Grown-ups never understand anything by themselves, and it is tiresome for children to be always and forever explaining things to them.**
 >
 > **(c) Antoine de Saint-Exupéry**
 
@@ -316,7 +316,7 @@ Processors can be tested using [@putout/test/processors](https://github.com/code
 
 ## API
 
-> **In one’s life. there are levels in the pursuit of study. In the lowest level, a person studies but nothing comes of it, and he feels that both he and others are unskillful. At this point he is worthless. In the middle level he is still useless but is aware of his own insufficiencies and can also see the insufficiencies of others. At a higher level, he has pride concerning his own ability, rejoices in praise from others, and laments the lack of ability in his fellows. This man has worth. At the highest level a man has the look of knowing nothing**
+> **In one’s life. there are levels in the pursuit of study. In the lowest level, a person studies but nothing comes of it, and he feels that both he and others are unskillful. At this point he is worthless. In the middle level he is still useless but is aware of his own insufficiencies and can also see the insufficiencies of others. At a higher level, he has pride concerning his own ability, rejoices in praise from others, and laments the lack of ability in his fellows. This man has worth. At the highest level a man has the look of knowing nothing.**
 >
 > **(c) Yamamoto Tsunetomo**
 
