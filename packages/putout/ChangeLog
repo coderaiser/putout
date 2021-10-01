@@ -1,3 +1,16 @@
+2021.10.01, v20.6.0
+
+feature:
+- (package) @putout/plugin-reuse-duplicate-init v2.0.0
+- (package) @putout/plugin-tape v4.0.0
+- (package) @putout/plugin-reuse-duplicate-init v2.0.0
+- (@putout/plugin-reuse-duplicate-init) drop support of node < 14
+- (package) @putout/plugin-tape v4.0.0
+- (@putout/plugin-tape) drop support of putout < 20
+- (@putout/plugin-tape) merge declare-stub with declare-test
+- (@putout/plugin-tape) add declare-test
+
+
 2021.09.30, v20.5.2
 
 fix:
