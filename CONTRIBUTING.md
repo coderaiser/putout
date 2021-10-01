@@ -1,24 +1,26 @@
-## Development
+# 🚀 I want to contribute
 
-Make fork of a repo, clone it. Then run:
+That's awesome 👏! Make fork of a repo, clone it and run:
 
 ```
+cd putout
 npm install
 npm run bootstrap
 ```
 
-Then choose `package` you want to work with from `packages` directory.
-Every package contain next scrips that can be run with `npm run`:
-- `lint`
-- `fix:lint`
-- `test`
-- `coverage`
+No matter what `package` you are interested in, you always have 4 little friends:
+- 🦊 `lint`
+- 🐺 `fix:lint`
+- 🦏 `test`
+- 🦛 `coverage`
 
-### 🤷 How to check if my changes not brake something?
-When your made changes, added coverage and your package 📦 is ready for publishing, run: `npm run fresh`,
+You can call them from each package with `npm run` and they always come 🤙.
+
+## 🤷 How to check if my changes do not break anything?
+When your made changes, added coverage and your package is ready for publishing 📦 , run: `npm run fresh`,
 in the root of the repository, it will run `lint` and `test` over all `packages`.
 
-### 🤷 What if I'm adding new plugin?
+## 🤷 What if I'm adding new plugin?
 When adding new plugin, add it to [`package.json`](https://github.com/coderaiser/putout/blob/master/packages/putout/package.json) and [`putout.json`](https://github.com/coderaiser/putout/blob/master/packages/putout/putout.json).
 Update [`Built-in Transformations`](https://github.com/coderaiser/putout#built-in-transformations) and [`Plugins`](https://github.com/coderaiser/putout#plugins-1).
 
