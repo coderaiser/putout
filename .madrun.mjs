@@ -26,6 +26,7 @@ const env = {
 
 export default {
     'test': () => [env, `tape '${dirs}/*/test/*.*' '${dirs}/*/{bin,lib}/**/*.spec.*'`],
+    'test:inspect': () => [env, `node --inspect-brk --inspect=0.0.0.0 node_modules/.bin/${cutEnv('test')}`],
     'test:fail': async () => await run('test', '-f fail'),
     'test:slow': () => 'FORCE_COLOR=3 lerna run test',
     'coverage:ci': async () => [env, `c8 --no-skip-full ${await cutEnv('test')}`],
