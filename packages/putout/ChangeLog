@@ -1,3 +1,18 @@
+2021.10.01, v20.6.1
+
+fix:
+- (@putout/plugin-declare-undefined-variables) declare: template.ast -> template.ast.fresh
+- (@putout/plugin-merge-duplicate-imports) report: Avoid duplicate imports
+- (@putout/plugin-merge-duplicate-imports) importKind -> importKind=type
+
+feature:
+- (putout) *.md: disable declare-undefined-variables
+- (@putout/cli-ruller) add support of tuple
+- (@putout/plugin-declare-undefined-variables) add support of putout
+- (@putout/eslint-config) add dot-notation (https://eslint.org/docs/rules/dot-notation)
+- (@putout/plugin-merge-duplicate-imports) drop support of node < 14
+
+
 2021.10.01, v20.6.0
 
 feature:
