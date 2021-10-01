@@ -37,7 +37,8 @@
             "remove-unused-for-of-variables": "off",
             "remove-constant-conditions": "off",
             "remove-console": "off",
-            "remove-unreachable-code": "off"
+            "remove-unreachable-code": "off",
+            "declare-undefined-variables": "off"
         },
         "{*rc,*.{json,yml}}": {
             "remove-useless-escape": "off",
