@@ -1,0 +1,1 @@
+putout('const a = b');

@@ -60,7 +60,8 @@ You can `dismiss` variables you don't want to define.
                 "reImport",
                 "stopAll",
                 "montag",
-                "once"
+                "once",
+                "putout"
             ]
         }]
     }
