@@ -45,8 +45,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [Exit Codes](#exit-codes)
 - [Real-world uses](#real-world-uses)
 - [Versioning policy](#versioning-policy)
-- [Contributions](#contributions)
-- [Donations](#donations)
+- [🚀 I want contribute](#-i-want-contribute)
 - [License](#license)
 
 ## 🤷‍♂ Whom should I thank for this project exist?
@@ -2260,13 +2259,11 @@ Do you use `putout` in your application as well? Please open a Pull Request to i
 - **minor**: `new features`, `new rules` or `fixes` (`17.0.0 -> 17.1.0`).
 - **major** `breaking changes`, `removing rules` (`17.0.0 -> 18.0.0`).
 
-## Contributions
+## 🚀 I want contribute
 
-You can contribute by proposing a feature, fixing a bug or a typo in the documentation, or by making a donation ;).
-
-## Donations
-
-`putout` requires quite a lot of effort and time. If you like it, support us on [patreon](https://www.patreon.com/coderaiser).
+You can contribute by proposing a feature, fixing a bug or a typo in the documentation.
+If you wish to play with code 🔥, [you can](https://github.com/coderaiser/putout/blob/master/CONTRIBUTING.md) 💪!
+🐊 `Putout` rejoice and wag its tail when see new contributions 👾.
 
 ## License
 
