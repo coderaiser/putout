@@ -15,6 +15,13 @@ test('merge duplicate imports: transform', (t) => {
     t.end();
 });
 
+test('merge duplicate imports: transform: tape: declare', (t) => {
+    t.transform('tape', {
+        'tape/declare': require('@putout/plugin-tape').rules.declare,
+    });
+    t.end();
+});
+
 test('merge duplicate imports: transform: a couple defaultImportSpecifiers', (t) => {
     t.noTransform('couple-defaults');
     t.end();
