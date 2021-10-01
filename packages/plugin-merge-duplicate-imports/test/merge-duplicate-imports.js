@@ -6,7 +6,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('merge duplicate imports: report', (t) => {
-    t.report('duplicate', 'Duplicate imports should be avoided');
+    t.report('duplicate', 'Avoid duplicate imports');
     t.end();
 });
 

@@ -8,7 +8,7 @@ const {
     isImportNamespaceSpecifier,
 } = types;
 
-module.exports.report = () => `Duplicate imports should be avoided`;
+module.exports.report = () => `Avoid duplicate imports`;
 
 module.exports.fix = ({path, imports}) => {
     const all = path.node.specifiers;
