@@ -18,7 +18,7 @@ No matter what `package` you are interested in, you always have 4 little friends
 - 🦏 `test`
 - 🦛 `coverage`
 
-You can call them from each package with `npm run` and they always come 🤙.
+You can call them from each package with `npm run` and they will always come 🤙.
 
 ## 🤷 How to check if my changes do not break anything?
 When your made changes, added coverage and your package is ready for publishing 📦 , run: `npm run fresh`,
