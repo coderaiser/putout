@@ -27,9 +27,6 @@ module.exports.traverse = ({push}) => {
             if (!main || !main.node)
                 return;
             
-            if (path === main)
-                return;
-            
             if (path.scope.uid !== main.scope.uid)
                 return;
             
