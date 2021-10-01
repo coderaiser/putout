@@ -96,6 +96,31 @@ test('putout: cli: ruler: disable: exists: empty', (t) => {
     t.end();
 });
 
+test('putout: cli: ruler: disableAll: tuple', (t) => {
+    const places = [{
+        rule: 'remove-unused-variables',
+    }];
+    
+    const rules = {
+        'remove-useless-spread/object': ['on', {
+            exclude: 'module.exports.rules = __',
+        }],
+    };
+    
+    const config = disableAll({rules}, places);
+    const expected = {
+        rules: {
+            'remove-unused-variables': 'off',
+            'remove-useless-spread/object': ['off', {
+                exclude: 'module.exports.rules = __',
+            }],
+        },
+    };
+    
+    t.deepEqual(config, expected);
+    t.end();
+});
+
 test('putout: cli: ruler: disableAll', (t) => {
     const places = [{
         rule: 'remove-unused-variables',
