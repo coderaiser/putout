@@ -40,6 +40,7 @@ npm i @putout/plugin-tape -D
         "tape/convert-match-regexp-to-string": "on",
         "tape/declare-stub": "on",
         "tape/declare-t": "on",
+        "tape/declare-test": "on",
         "tape/remove-default-messages": "on",
         "tape/remove-useless-not-called-args": "on"
     }
@@ -464,6 +465,26 @@ test('xxx', () => {
 ### ✅ Correct code example
 
 ```js
+test('xxx', (t) => {
+    t.end();
+});
+```
+
+## declare-test
+
+### ❌ Incorrect code example
+
+```js
+test('xxx', (t) => {
+    t.end();
+});
+```
+
+### ✅ Correct code example
+
+```js
+import {test} from 'supertape';
+
 test('xxx', (t) => {
     t.end();
 });

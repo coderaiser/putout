@@ -1,3 +1,4 @@
+import {test} from 'supertape';
 test('message', (t) => {
     const [error] = tryCatch(copymitter, '/hello');
 

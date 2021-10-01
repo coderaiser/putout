@@ -147,3 +147,7 @@ test('plugin-tape: transform: sync-with-name', (t) => {
     t.end();
 });
 
+test('plugin-tape: transform: declare-test', (t) => {
+    t.transform('declare-test');
+    t.end();
+});

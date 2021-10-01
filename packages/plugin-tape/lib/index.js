@@ -24,6 +24,7 @@ module.exports.rules = {
     ...getRule('expand-try-catch-arguments'),
     ...getRule('declare-stub'),
     ...getRule('declare-t'),
+    ...getRule('declare-test'),
     ...getRule('remove-default-messages'),
     ...getRule('remove-useless-not-called-args'),
     ...getRule('switch-expected-with-result'),

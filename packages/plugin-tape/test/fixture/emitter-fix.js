@@ -1,3 +1,5 @@
+import {test} from 'supertape';
+
 const {
     once
 } = require('events');
