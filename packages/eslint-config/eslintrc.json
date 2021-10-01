@@ -17,6 +17,7 @@
         "brace-style": "error",
         "comma-dangle": ["error", "always-multiline"],
         "comma-spacing": "error",
+        "dot-notation": "error",
         "eol-last": ["error", "always"],
         "function-paren-newline": ["error", "multiline-arguments"],
         "key-spacing": "error",
