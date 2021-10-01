@@ -1,5 +1,9 @@
 # 🚀 I want contribute
 
+> **There is surely nothing other than the single purpose of the present moment. A man's whole life is a succession of moment after moment. There will be nothing else to do, and nothing else to pursue. Live being true to the single purpose of the moment.**
+>
+> **Yamamoto Tsunetomo "Hagakure"**
+
 That's awesome 👏! Make fork of a repo, clone it and run:
 
 ```
