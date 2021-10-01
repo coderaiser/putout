@@ -156,6 +156,16 @@ You may want to convert your [`CommonJS`](https://nodejs.org/api/modules.html) m
 
 ### Converting `CommonJS` to `ESM`
 
+#### ☝️ I have a `package.json`
+
+Well, if you have no `type` field or `type=commonjs` your package will be
+converted to `CommonJS` automatically. To convert to `ESM` just set `type=module`.
+
+#### ☝️ I have `.cjs` or `.mjs` files
+
+They will be converted automatically to `CommonJS` and `ESM` accordingly.
+
+#### ☝️ I want run only one rule
 Let's suppose you have a file called `index.js`:
 
 ```js
