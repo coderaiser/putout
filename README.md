@@ -84,7 +84,7 @@ Make sure that you are running a relatively recent (≥14.8) version of Node.
 >
 > **(c) Antoine de Saint-Exupéry**
 
-🐊 `Putout` tries to be clear and likes a lot to exaplian things. So when you write `putout --help` most likely you will hear gladly purr :
+🐊 `Putout` tries to be clear and likes a lot to explain things. So when you write `putout --help` most likely you will hear gladly purr :
 
 ```
 Usage: putout [options] [path]
