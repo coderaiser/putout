@@ -1,0 +1,6 @@
+{
+    "rules": {
+        "putout/evaluate": "off",
+        "no-unused-labels": "off"
+    }
+}

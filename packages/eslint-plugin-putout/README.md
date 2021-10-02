@@ -71,6 +71,7 @@ Then configure the rules you want to use under the rules section.
 - [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array)
 - [Object init](/packages/eslint-plugin-putout/lib/object-init)
 - [No unresolved](/packages/eslint-plugin-putout/lib/no-unresolved)
+- [Evaluate](/packages/eslint-plugin-putout/lib/evaluate)
 
 ### Safe mode
 

@@ -29,6 +29,7 @@ module.exports.rules = {
     ...getWrapRule('objects-braces-inside-array'),
     ...getWrapRule('object-init'),
     ...getWrapRule('no-unresolved'),
+    ...getWrapRule('evaluate'),
     ...getRule('putout'),
 };
 
@@ -55,6 +56,7 @@ const recommended = {
         'putout/objects-braces-inside-array': 'error',
         'putout/object-init': 'error',
         'putout/no-unresolved': 'error',
+        'putout/evaluate': 'error',
         'putout/putout': 'error',
         
         'node/no-unsupported-features/es-syntax': 'off',
