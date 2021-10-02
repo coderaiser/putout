@@ -39,6 +39,7 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
             rule,
             shebang,
             msg,
+            options,
         });
         
         pushed[rule] = pull;
@@ -78,7 +79,7 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
     };
 };
 
-function getStore(plugin, {fix, rule, shebang, msg}) {
+function getStore(plugin, {fix, rule, shebang, msg, options}) {
     const store = mapStore();
     const list = listStore();
     const placesStore = listStore();
@@ -96,6 +97,7 @@ function getStore(plugin, {fix, rule, shebang, msg}) {
             path,
             rule,
             position,
+            options,
         });
     };
     

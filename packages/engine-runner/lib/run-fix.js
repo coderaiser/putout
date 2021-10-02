@@ -4,8 +4,8 @@ const tryCatch = require('try-catch');
 const debug = require('debug')('putout:runner:fix');
 const {enabled} = debug;
 
-const tryToFix = (fix, {path, position}) => {
-    const [e] = tryCatch(fix, path);
+const tryToFix = (fix, {path, position, options}) => {
+    const [e] = tryCatch(fix, path, {options});
     
     if (!e)
         return;
@@ -15,7 +15,7 @@ const tryToFix = (fix, {path, position}) => {
     throw e;
 };
 
-module.exports = (is, fix, {path, rule, position}) => {
+module.exports = (is, fix, {path, rule, position, options}) => {
     if (!is)
         return;
     
@@ -24,6 +24,7 @@ module.exports = (is, fix, {path, rule, position}) => {
     tryToFix(fix, {
         path,
         position,
+        options,
     });
 };
 

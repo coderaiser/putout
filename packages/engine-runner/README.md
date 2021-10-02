@@ -161,7 +161,7 @@ Where `__` can be any node. All this possible with help of [@putout/compare](htt
 ```js
 module.exports.report = () => 'debugger statement should not be used';
 
-module.exports.fix = (path) => {
+module.exports.fix = (path, {options}) => {
     path.remove();
 };
 
