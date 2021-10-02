@@ -10,6 +10,9 @@ module.exports.fix = (path) => {
 };
 
 module.exports.traverse = ({push}) => ({
+    'test("__a", () => {})': (path) => {
+        push(path.get('arguments.1.body'));
+    },
     't.end()': (path) => {
         if (path.scope.hasBinding('t'))
             return;
