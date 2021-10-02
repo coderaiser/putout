@@ -144,3 +144,13 @@ test('putout: plugin: declare-undefined-variables: once', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: options-declarations', (t) => {
+    t.transformWithOptions('options-declarations', {
+        declarations: {
+            custom: `const custom= require('custom')`,
+        },
+    });
+    
+    t.end();
+});
+

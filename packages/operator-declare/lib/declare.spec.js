@@ -205,17 +205,17 @@ test('putout: plugin: declare-undefined-variables: ImportDeclaration', (t) => {
     });
     
     const expected = montag`
-            import a1 from 'b';
-            const a = require('x');
-            
-            const {
-                assign
-            } = Object;
-            
-            function hello() {
-                assign('xxx');
-            }
-    `;
+        import a1 from 'b';
+        const a = require('x');
+        
+        const {
+            assign
+        } = Object;
+        
+        function hello() {
+            assign('xxx');
+        }
+`;
     
     t.equal(secondAttempt, expected);
     t.end();
@@ -249,6 +249,48 @@ test('putout: plugin: declare-undefined-variables: dismiss', (t) => {
     });
     
     t.equal(code, source);
+    t.end();
+});
+
+test('putout: plugin: declare-undefined-variables: options', (t) => {
+    const declarations = {
+        assign: `const {assign} = Object`,
+    };
+    
+    const source = montag`
+        import a1 from 'b';
+        const a = require('x');
+        
+        function hello() {
+            assign('xxx');
+        }
+    `;
+    
+    const {code} = putout(source, {
+        rules: {
+            declare: ['on', {
+                declarations,
+            }],
+        },
+        plugins: [
+            ['declare', declare({})],
+        ],
+    });
+    
+    const expected = montag`
+        import a1 from 'b';
+        const a = require('x');
+        
+        const {
+            assign
+        } = Object;
+        
+        function hello() {
+            assign('xxx');
+        }
+    `;
+    
+    t.equal(code, expected);
     t.end();
 });
 

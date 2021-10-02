@@ -28,12 +28,15 @@ Add `.putout.json` with:
 
 ## Rules
 
-You can `dismiss` variables you don't want to define.
+You can `dismiss` variables you don't want to define, or declare using "declarations":
 
 ```json
 {
     "rules": {
         "declare-undefined-variables": ["on", {
+            "declarations": {
+                "hello": "import {hello} from 'world'"
+            },
             "dismiss": [
                 "assert",
                 "entries",

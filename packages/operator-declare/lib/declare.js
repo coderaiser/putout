@@ -32,7 +32,8 @@ const filter = (declarations) => {
     const names = keys(declarations);
     
     return (path, {options}) => {
-        const {dismiss = []} = options;
+        const {dismiss = [], declarations = []} = options;
+        const optionNames = keys(declarations);
         const {scope, node} = path;
         const {name} = node;
         
@@ -42,7 +43,7 @@ const filter = (declarations) => {
         if (scope.hasBinding(name))
             return false;
         
-        if (!names.includes(name))
+        if (!names.includes(name) && !optionNames.includes(name))
             return false;
         
         if (dismiss.includes(name))
@@ -52,12 +53,17 @@ const filter = (declarations) => {
     };
 };
 
-const fix = (declarations) => (path) => {
+const fix = (declarations) => (path, {options}) => {
+    const allDeclarations = {
+        ...declarations,
+        ...options.declarations,
+    };
+    
     const {name} = path.node;
     const scope = path.scope.getProgramParent();
     const programPath = scope.path;
     const bodyPath = programPath.get('body');
-    const node = template.ast.fresh(declarations[name]);
+    const node = template.ast.fresh(allDeclarations[name]);
     
     for (const currentPath of bodyPath) {
         if (isUseStrict(currentPath)) {
