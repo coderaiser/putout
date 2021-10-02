@@ -30,6 +30,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [🤷‍♂️ How a `Ruler` can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
 - [Converting `CommonJS` to `ESM`](#converting-commonjs-to-esm)
 - [Architecture](#architecture)
+- [🌴 Laws of the Jungle](#-laws-of-the-jungle)
 - [API](#api)
 - [Built-in transformations](#built-in-transformations)
 - [Plugins](#plugins-1)
@@ -258,6 +259,13 @@ Happy coding 🎈!
 And here is a CLI sheme:
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-cli.png)
+
+### 🌴 Laws of the Jungle
+
+- 🐅 `engines` chilling with `engines`, and chasing `plugins`, `processors`, `operators`;
+- 🦌 `plugins` chilling with `plugins` and `operators` via `require('putout').operator`;
+- 🦒 `processors` chilling with `processors`;
+- 🐃 `operators` chilling with `operators`;
 
 ### Engines
 
