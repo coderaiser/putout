@@ -20,15 +20,15 @@ const fn = (__filename, __dirname, require) => {
 
 This rule aims to evaluate expressions `source` of `ImportDeclaration`:
 
-Examples of **incorrect** code for this rule:
+Examples of **incorrect** code locaed in `hello.spec.js` for this rule:
 
 ```js
-import {password} from '__putout_evaluate: join("hello", " ", "world")';
+import {readFile} from '__putout_evaluate: `./` + basename(__filename).replace(`.spec.js`, `.js`)';
+
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-import {password} from 'hello world';
+import {readFile} from './hello.js';
 ```
-
