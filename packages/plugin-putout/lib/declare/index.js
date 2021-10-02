@@ -1,7 +1,8 @@
 'use strict';
 
-const declare = require('@putout/plugin-declare-undefined-variables/declare');
+const {operator} = require('putout');
 const declarations = require('./declarations');
+const {declare} = operator;
 
 module.exports = declare(declarations);
 

@@ -23,7 +23,6 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/plugin-declare-undefined-variables": "^4.0.0",
     "fullstore": "^3.0.0",
     "try-catch": "^3.0.0"
   },

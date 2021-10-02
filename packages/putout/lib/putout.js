@@ -120,6 +120,7 @@ module.exports.operator = {
     ...require('@putout/operate'),
     ...require('@putout/compare'),
     ...require('@putout/traverse'),
+    ...require('@putout/operator-declare'),
 };
 
 module.exports.ignores = require('./ignores');

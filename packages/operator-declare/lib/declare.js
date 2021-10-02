@@ -12,7 +12,7 @@ const {keys} = Object;
 const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
 const cutName = (a) => a.split('.').shift();
 
-module.exports = (declarations) => ({
+module.exports.declare = (declarations) => ({
     report,
     include,
     fix: fix(declarations),

@@ -1,10 +1,10 @@
 {
-  "name": "@putout/plugin-declare-undefined-variables",
-  "version": "4.3.0",
+  "name": "@putout/operator-declare",
+  "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to declare undefined variables",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables",
-  "main": "lib/index.js",
+  "description": "putout operator adds ability to declare referenced variables that wan not defined",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-declare",
+  "main": "lib/declare.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -25,13 +25,11 @@
   "dependencies": {},
   "keywords": [
     "putout",
-    "putout-plugin",
-    "plugin",
-    "declare-undefined-variables"
+    "putout-operator",
+    "operator",
+    "declare"
   ],
   "devDependencies": {
-    "@putout/plugin-remove-unused-expressions": "*",
-    "@putout/plugin-strict-mode": "*",
     "@putout/test": "^3.0.0",
     "c8": "^7.5.0",
     "eslint": "^8.0.0-beta.0",

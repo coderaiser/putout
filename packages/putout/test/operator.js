@@ -1,7 +1,10 @@
 'use strict';
 
+const montag = require('montag');
 const test = require('supertape');
-const {operator} = require('..');
+const putout = require('..');
+
+const {operator} = putout;
 
 test('putout: operator: compare', (t) => {
     const result = operator.compare('const a = {}', 'const __ = {}');
@@ -23,7 +26,31 @@ test('putout: operator: compare: any', (t) => {
         'abc',
     ]);
     
-    t.ok(result, 'should equal');
+    t.ok(result);
+    t.end();
+});
+
+test('putout: operator: declare', (t) => {
+    const declare = operator.declare({
+        fs: `import fs from 'fs/promises'`,
+    });
+    
+    const source = montag`
+        await fs.readFile('./.putout.json', 'utf8');
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['declare', declare],
+        ],
+    });
+    
+    const expected = montag`
+        import fs from 'fs/promises';
+        await fs.readFile('./.putout.json', 'utf8');
+    `;
+    
+    t.equal(code, expected);
     t.end();
 });
 
