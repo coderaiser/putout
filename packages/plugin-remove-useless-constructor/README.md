@@ -9,7 +9,7 @@
 >
 > https://google.github.io/styleguide/tsguide.html#primitive-types-wrapper-classes
 
-`putout` plugin adds ability to remove useless `constructors`. Use with [remove-useless-new](https://github.com/coderaiser/putout/tree/master/packages/plugin-tape#readme).
+`putout` plugin adds ability to remove useless `constructors`. Use with [remove-useless-new](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-new#readme).
 
 ## Install
 
