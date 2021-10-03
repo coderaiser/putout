@@ -142,6 +142,7 @@
     "@putout/plugin-remove-useless-array-constructor": "^1.0.0",
     "@putout/plugin-remove-useless-array-from": "^2.0.0",
     "@putout/plugin-remove-useless-conditions": "^1.0.0",
+    "@putout/plugin-remove-useless-constructor": "^1.0.0",
     "@putout/plugin-remove-useless-continue": "^1.0.0",
     "@putout/plugin-remove-useless-escape": "^1.0.0",
     "@putout/plugin-remove-useless-for-of": "^2.0.0",

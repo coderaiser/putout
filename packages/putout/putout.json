@@ -171,6 +171,7 @@
         "remove-useless-variables",
         "remove-useless-map",
         "remove-useless-new",
+        "remove-useless-constructor",
         "remove-useless-mapped-types",
         "remove-useless-mapping-modifiers",
         "remove-useless-array-constructor",
