@@ -530,7 +530,7 @@ test('compare: __object identifier', (t) => {
     t.end();
 });
 
-test('compare: string literal', (t) => {
+test('compare: string literal: expression', (t) => {
     const result = compare('\'hello\' + x + \'world\'', '"__a" + __b + "__c"');
     
     t.ok(result);
@@ -682,6 +682,13 @@ test('compare: parent: ignore', (t) => {
     };
     
     const result = compare(node, template);
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: string literal', (t) => {
+    const result = compare('"hello"', '__a');
     
     t.ok(result);
     t.end();

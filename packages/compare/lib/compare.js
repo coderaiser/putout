@@ -4,6 +4,7 @@ const {template} = require('@putout/engine-parser');
 const {
     isIdentifier,
     isExpressionStatement,
+    isStringLiteral,
 } = require('@babel/types');
 
 const {
@@ -84,6 +85,9 @@ function compare(path, template) {
         return true;
     
     if (isIdentifier(node) && isLinkedNode(templateNode))
+        return true;
+    
+    if (isStringLiteral(node) && isLinkedNode(templateNode))
         return true;
     
     if (isPath(path) && !isEqualType(node, templateNode)) {
