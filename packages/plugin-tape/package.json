@@ -23,7 +23,6 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/plugin-regexp": "^2.5.0"
   },
   "keywords": [
     "putout",
@@ -43,7 +42,7 @@
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {
-    "putout": ">=20.7"
+    "putout": ">=20.8"
   },
   "license": "MIT",
   "engines": {
