@@ -1,3 +1,11 @@
+2021.10.03, v20.9.0
+
+feature:
+- (@putout/plugin-putout) check-replace-code: add support of top level comparison __a, "hello"
+- (@putout/compare) add support of top level comparison __a === "hello world"
+- (@putout/plugin-remove-useless-constructor) add
+
+
 2021.10.03, v20.8.0
 
 fix:
