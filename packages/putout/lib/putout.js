@@ -121,6 +121,7 @@ module.exports.operator = {
     ...require('@putout/compare'),
     ...require('@putout/traverse'),
     ...require('@putout/operator-declare'),
+    ...require('@putout/operator-regexp'),
 };
 
 module.exports.ignores = require('./ignores');

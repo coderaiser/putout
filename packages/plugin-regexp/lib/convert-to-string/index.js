@@ -5,10 +5,7 @@ const {
     operator,
 } = require('putout');
 
-const {replaceWith} = operator;
-
-const isSimpleRegExp = require('../is-simple-regexp');
-
+const {replaceWith, isSimpleRegExp} = operator;
 const {StringLiteral} = types;
 
 const match = (flags) => ({__b}) => {

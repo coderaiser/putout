@@ -1,0 +1,56 @@
+{
+  "name": "@putout/operator-regexp",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout operator adds ability to check if provided regexp can be converted to string without loosing it's sense",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-regexp#readme",
+  "main": "lib/regexp.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {
+    "regexp-tree": "^0.1.24"
+  },
+  "keywords": [
+    "putout",
+    "putout-operator",
+    "operator",
+    "regexp"
+  ],
+  "devDependencies": {
+    "@putout/test": "^3.0.0",
+    "c8": "^7.5.0",
+    "eslint": "^8.0.0-beta.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^10.0.0",
+    "lerna": "^4.0.0",
+    "madrun": "^8.0.1",
+    "montag": "^1.2.1",
+    "nodemon": "^2.0.1",
+    "supertape": "^6.7.2"
+  },
+  "peerDependencies": {
+    "putout": ">=20"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

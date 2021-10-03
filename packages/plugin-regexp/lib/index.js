@@ -13,5 +13,3 @@ module.exports.rules = {
     ...getRule('remove-useless-regexp'),
 };
 
-module.exports.isSimpleRegExp = require('./is-simple-regexp');
-
