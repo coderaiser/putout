@@ -5,8 +5,17 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-array-constructor
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-array-constructor
 
+> TypeScript code must not use the Array() constructor, with or without new. It has confusing and contradictory usage.
+>
+> https://google.github.io/styleguide/tsguide.html#array-constructor
+
 `putout` plugin removes useless [Array constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Array).
-It has a different meaning for one, and couple arguments.
+It has a different meaning for one, and couple arguments:
+
+```js
+const a = new Array(2); // [undefined, undefined]
+const b = new Array(2, 3); // [2, 3];
+```
 
 ## Install
 

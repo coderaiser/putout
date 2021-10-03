@@ -1,7 +1,8 @@
 {
     "match": {
         "*.md": {
-            "remove-useless-array-constructor": "off"
+            "remove-useless-array-constructor": "off",
+            "remove-useless-new": "off"
         }
     }
 }
