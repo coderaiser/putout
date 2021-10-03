@@ -44,6 +44,11 @@ test('plugin-putout: declare: transform: template', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: declare', (t) => {
+    t.transform('declare');
+    t.end();
+});
+
 test('plugin-putout: declare: transform: get-template-values', (t) => {
     t.transform('get-template-values');
     t.end();
