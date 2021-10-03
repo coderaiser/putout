@@ -1,3 +1,22 @@
+2021.10.03, v20.8.0
+
+fix:
+- feature(@putout/engine-runner) add ability to pass options to fix
+
+feature:
+- (@putout/plugin-tape) use isSimpleRegExp from operator
+- (package) @putout/plugin-regexp v3.0.0
+- (@putout/plugin-regexp) drop support of putout < 20
+- (@putout/plugin-putout) declare: add isSimpleRegExp
+- (@putout/operator-regexp) add
+- (package) estrace v3.0.2
+- (@putout/plugin-tape) declare: add Test, Stub
+- (@putout/plugin-tape) declare-t: add support of empty body
+- (@putout/engine-runner) add ability to pass options to fix
+- (@putout/operator-declare) add ability to pass options with declarations
+- (eslint-plugin-putout) add evaluate (https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/evaluate)
+
+
 2021.10.02, v20.7.1
 
 feature:

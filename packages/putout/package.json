@@ -1,6 +1,6 @@
 {
   "name": "putout",
-  "version": "20.7.1",
+  "version": "20.8.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊 Pluggable and configurable code transformer with built-in eslint, babel plugins and jscodeshift codemods support of js, jsx typescript, flow files, markdown, yaml and json",
   "homepage": "http://github.com/coderaiser/putout",
