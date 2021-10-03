@@ -21,9 +21,20 @@ module.exports = (rootPath, key) => {
                 report: () => {},
                 include: () => [
                     'Identifier',
+                    'StringLiteral',
                 ],
                 fix: (path) => {
-                    const {name} = path.node;
+                    const {node} = path;
+                    
+                    const {
+                        value,
+                        name,
+                    } = node;
+                    
+                    if (path.isStringLiteral() && /^__[a-z]$/.test(value)) {
+                        path.node.value = getVar(value);
+                        return;
+                    }
                     
                     if (/^__[a-z]$/.test(name)) {
                         path.node.name = getVar(name);
