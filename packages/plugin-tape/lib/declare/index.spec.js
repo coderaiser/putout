@@ -19,6 +19,11 @@ test('plugin-tape: declare: transform: stub', (t) => {
     t.end();
 });
 
+test('plugin-tape: declare: transform: types', (t) => {
+    t.transform('types');
+    t.end();
+});
+
 test('plugin-tape: declare: declared', (t) => {
     t.noTransform('declared');
     t.end();
