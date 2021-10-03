@@ -49,3 +49,8 @@ test('plugin-putout: declare: transform: get-template-values', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: regexp', (t) => {
+    t.transform('regexp');
+    t.end();
+});
+

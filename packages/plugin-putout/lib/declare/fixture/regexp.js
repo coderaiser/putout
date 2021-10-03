@@ -1,0 +1,1 @@
+isSimpleRegExp(/[a-z]/);

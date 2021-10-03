@@ -5,6 +5,7 @@ module.exports = {
     compare: `const {compare} = operator`,
     contains: `const {contains} = operator`,
     traverse: `const {traverse} = operator`,
+    isSimpleRegExp: `const {isSimpleRegExp} = operator`,
     getTemplateValues: `const {getTemplateValues} = operator`,
 };
 
