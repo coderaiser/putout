@@ -1,12 +1,6 @@
 {
     "rules": {
-        "putout": "on",
-        "declare-undefined-variables": ["on", {
-            "declarations": {
-                "click": "import {click} from '__putout_evaluate: `./` + basename(__filename).replace(`.spec.mjs`, `.js`)'",
-                "mouseOver": "import {mouseOver} from '__putout_evaluate: `./` + basename(__filename).replace(`.spec.mjs`, `.js`)'"
-            }
-        }]
+        "putout": "on"
     },
     "match": {
         "*.js": {
