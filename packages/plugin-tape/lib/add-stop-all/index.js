@@ -51,7 +51,7 @@ function check(path) {
     let hasAssertions = false;
     
     traverse(path, {
-        'mockImport(__a, __b)': (path) => {
+        'mockImport(__a, __b)': () => {
             hasMockImport = true;
         },
         'stopAll()': () => {
