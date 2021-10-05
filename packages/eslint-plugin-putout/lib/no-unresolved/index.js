@@ -16,15 +16,18 @@ const RELATIVE = '\\.\\.?\\/?';
 const isRelativeStart = (a) => RegExp(`^${RELATIVE}`).test(a);
 const isRelativeEnd = (a) => RegExp(`${RELATIVE}$`).test(a);
 const getDir = (a) => a === '<input>' ? cwd : dirname(a);
+const getValue = (node) => {
+    const {source} = node;
+    const {value} = source;
+    return value;
+};
 
 module.exports.category = 'errors';
 module.exports.report = () => 'Always add an extension to relative imports';
-module.exports.include = () => ['ImportDeclaration'];
+module.exports.include = () => ['ImportDeclaration', 'ImportExpression'];
 
 module.exports.fix = ({node, text, filename}) => {
-    const {source} = node;
-    const {value} = source;
-    
+    const value = getValue(node);
     const dir = getDir(filename);
     
     const resolved = resolveSource({
@@ -36,8 +39,7 @@ module.exports.fix = ({node, text, filename}) => {
 };
 
 module.exports.filter = ({node}) => {
-    const {source} = node;
-    const {value} = source;
+    const value = getValue(node);
     
     if (!isRelativeStart(value))
         return false;

@@ -27,6 +27,13 @@ ruleTester.run('no-unresolved', rule, {
             message,
             type: 'ImportDeclaration',
         }],
+    }, {
+        code: `import('./dynamic')`,
+        output: `import('./dynamic.js')`,
+        errors: [{
+            message,
+            type: 'ImportExpression',
+        }],
     }],
 });
 
