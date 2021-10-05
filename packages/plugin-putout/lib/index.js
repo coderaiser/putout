@@ -22,5 +22,6 @@ module.exports.rules = {
     ...getRule('shorten-imports'),
     ...getRule('check-replace-code'),
     ...getRule('declare'),
+    ...getRule('add-missing-argument'),
 };
 

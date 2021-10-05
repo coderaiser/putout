@@ -1,0 +1,7 @@
+test('', (
+    {
+        comparePlaces: comparePlaces
+    }
+) => {
+    comparePlaces();
+});
