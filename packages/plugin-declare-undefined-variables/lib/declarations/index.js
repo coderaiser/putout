@@ -21,6 +21,7 @@ module.exports = {
     montag: `import montag from 'montag'`,
     once: `import once from 'once'`,
     putout: `import putout from 'putout'`,
+    eslint: `import eslint from 'putout/eslint'`,
     
     mockImport: `const {mockImport} = createMockImport(import.meta.url)`,
     reImport: `const {reImport} = createMockImport(import.meta.url)`,

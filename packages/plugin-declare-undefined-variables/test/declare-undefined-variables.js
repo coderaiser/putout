@@ -135,6 +135,15 @@ test('putout: plugin: declare-undefined-variables: noop', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: eslint', (t) => {
+    t.transformCode('eslint();', montag`
+        import eslint from 'putout/eslint';
+        eslint();
+    `);
+    
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: once', (t) => {
     t.transformCode('once();', montag`
         import once from 'once';
