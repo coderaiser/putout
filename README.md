@@ -166,7 +166,7 @@ converted to `CommonJS` automatically. To convert to `ESM` just set `type=module
 
 They will be converted automatically to `CommonJS` and `ESM` accordingly.
 
-#### ☝️ I want run only one rule
+#### ☝️ I want to run only one rule
 Let's suppose you have a file called `index.js`:
 
 ```js
