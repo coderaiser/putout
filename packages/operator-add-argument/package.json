@@ -1,6 +1,6 @@
 {
   "name": "@putout/operator-add-argument",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout operator adds ability to add argument to referenced variables that wan not defined",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-add-argument",
