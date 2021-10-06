@@ -59,3 +59,7 @@ test('plugin-putout: declare: transform: regexp', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: add-argument', (t) => {
+    t.transform('add-argument');
+    t.end();
+});
