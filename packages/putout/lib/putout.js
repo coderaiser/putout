@@ -122,6 +122,7 @@ module.exports.operator = {
     ...require('@putout/traverse'),
     ...require('@putout/operator-declare'),
     ...require('@putout/operator-regexp'),
+    ...require('@putout/operator-add-argument'),
 };
 
 module.exports.ignores = require('./ignores');

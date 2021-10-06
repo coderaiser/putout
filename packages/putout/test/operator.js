@@ -54,3 +54,33 @@ test('putout: operator: declare', (t) => {
     t.end();
 });
 
+test('putout: operator: addArgument', (t) => {
+    const args = {
+        compare: ['{compare}', 'test("__a", (__args) => __body)'],
+    };
+    
+    const source = montag`
+        test('', () => {
+            compare(a, b);
+        });
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['addArgument-undefined-variables', operator.addArgument(args)],
+        ],
+    });
+    
+    const expected = montag`
+        test('', (
+            {
+                compare: compare
+            }
+        ) => {
+            compare(a, b);
+        });
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
