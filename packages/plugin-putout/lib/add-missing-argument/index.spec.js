@@ -19,3 +19,8 @@ test('plugin-putout: add-missing-argument: no transform: has binding', (t) => {
     t.end();
 });
 
+test('plugin-putout: add-missing-argument: no transform: not-test', (t) => {
+    t.noTransform('not-test');
+    t.end();
+});
+

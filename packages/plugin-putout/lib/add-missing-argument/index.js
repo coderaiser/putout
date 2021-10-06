@@ -1,12 +1,17 @@
 'use strict';
 
-const {types} = require('putout');
+const {
+    operator,
+    types,
+} = require('putout');
 
 const {
     Identifier,
     ObjectPattern,
     ObjectProperty,
 } = types;
+
+const {compare} = operator;
 
 module.exports.report = () => 'Argument "comparePlaces" is missing';
 
@@ -24,6 +29,9 @@ module.exports.traverse = ({push}) => ({
         
         if (path.scope.hasBinding('comparePlaces'))
             return;
+        
+        if (!compare(path.scope.path.parentPath, 'test("__a", (__args) => __body)'))
+            return false;
         
         push(path);
     },
