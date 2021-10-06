@@ -38,30 +38,37 @@ const fix = ({declaration, path}) => {
     path.scope.block.params = [declarationNode];
 };
 
-const traverse = (args) => ({push}) => ({
-    ReferencedIdentifier(path) {
-        for (const [name, [declaration, pattern]] of entries(args)) {
-            if (path.node.name !== name)
-                continue;
-            
-            if (path.scope.hasBinding(name))
-                continue;
-            
-            if (!isFunction(path.scope.block))
-                continue;
-            
-            if (path.scope.block.params.length)
-                continue;
-            
-            if (!compare(path.scope.path.parentPath, pattern))
-                continue;
-            
-            push({
-                name,
-                declaration,
-                path,
-            });
-        }
-    },
-});
+const traverse = (args) => ({push, options}) => {
+    const allArgs = {
+        ...options.args,
+        ...args,
+    };
+    
+    return {
+        ReferencedIdentifier(path) {
+            for (const [name, [declaration, pattern]] of entries(allArgs)) {
+                if (path.node.name !== name)
+                    continue;
+                
+                if (path.scope.hasBinding(name))
+                    continue;
+                
+                if (!isFunction(path.scope.block))
+                    continue;
+                
+                if (path.scope.block.params.length)
+                    continue;
+                
+                if (!compare(path.scope.path.parentPath, pattern))
+                    continue;
+                
+                push({
+                    name,
+                    declaration,
+                    path,
+                });
+            }
+        },
+    };
+};
 

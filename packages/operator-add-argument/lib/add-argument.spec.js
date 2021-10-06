@@ -64,6 +64,39 @@ test('putout: operator: add-argument: identifier', (t) => {
     t.end();
 });
 
+test('putout: operator: add-argument: options', (t) => {
+    const args = {
+    };
+    
+    const source = montag`
+        test('', () => {
+            t.end();
+        });
+    `;
+    
+    const {code} = putout(source, {
+        rules: {
+            'add-argument': ['on', {
+                args: {
+                    t: ['t', 'test("__a", (__args) => __body)'],
+                },
+            }],
+        },
+        plugins: [
+            ['add-argument', addArgument(args)],
+        ],
+    });
+    
+    const expected = montag`
+        test('', t => {
+            t.end();
+        });
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: operator: add-argument: has binding', (t) => {
     const declarations = {
         t: ['t', 'test("__a", (__args) => __body)'],

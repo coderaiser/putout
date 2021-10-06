@@ -18,15 +18,15 @@ npm i putout @putout/operator-add-argument
 If you want to create `putout plugin` that will add-argument variables according to your needs just:
 
 ```js
-const {
-    operator,
-    addArgument,
-} = require('putout');
+const {operator} = require('putout');
+
+const {addArgument} = operator;
 
 module.exports = addArgument({
     comparePlaces: ['{comparePlaces}', 'test("__a", (__args) => __body)'],
 });
 ```
+
 If you have a file `index.spec.js`:
 
 ```diff
@@ -34,6 +34,20 @@ If you have a file `index.spec.js`:
 +test('', ({comparePlaces}) => {
     comparePlaces();
 });
+```
+
+Plugin supports options, so you can pass it in `.putout.json`:
+
+```json
+{
+    "rules": {
+        "tape/declare-t": ["on", {
+            "declarations": {
+                "comparePlaces": ["{comparePlaces}", "test('__a', (__args) => __body)"]
+            }
+        }]
+    }
+}
 ```
 
 ## License
