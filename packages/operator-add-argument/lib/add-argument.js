@@ -10,6 +10,7 @@ const {
     ObjectPattern,
     ObjectProperty,
     isBlockStatement,
+    isFunction,
 } = types;
 
 const {entries} = Object;
@@ -44,6 +45,9 @@ const traverse = (args) => ({push}) => ({
                 continue;
             
             if (path.scope.hasBinding(name))
+                continue;
+            
+            if (!isFunction(path.scope.block))
                 continue;
             
             if (path.scope.block.params.length)

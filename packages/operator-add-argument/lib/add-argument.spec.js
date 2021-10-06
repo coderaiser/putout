@@ -105,3 +105,22 @@ test('putout: operator: add-argument: wrong place', (t) => {
     t.equal(code, source);
     t.end();
 });
+
+test('putout: operator: add-argument: not a function', (t) => {
+    const declarations = {
+        t: ['t', 'test("__a", (__args) => __body)'],
+    };
+    
+    const source = montag`
+        t();
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['addArgument-undefined-variables', addArgument(declarations)],
+        ],
+    });
+    
+    t.equal(code, source);
+    t.end();
+});
