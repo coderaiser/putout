@@ -14,11 +14,6 @@ test('plugin-tape: declare-t: transform', (t) => {
     t.end();
 });
 
-test('plugin-tape: declare-t: transform: empty', (t) => {
-    t.transform('empty');
-    t.end();
-});
-
 test('plugin-tape: declare-t: no transform', (t) => {
     t.noTransform('upper-scope');
     t.end();
