@@ -1,3 +1,15 @@
+2021.10.07, v20.10.1
+
+fix:
+- (putout) cli: parse-options: --rulesdir when no package.json or .putout.json found
+
+feature:
+- (@putout/operator-add-argument) add support of labaled statement
+- (@putout/operator-add-argument) add support of options
+- (@putout/operator-add-argument) exclude blocks that is not a function
+- (@putout/plugin-tape) declare-t: simplify
+
+
 2021.10.06, v20.10.0
 
 feature:
