@@ -11,11 +11,19 @@ const {
     ObjectProperty,
     isBlockStatement,
     isFunction,
+    isObjectPattern,
+    isIdentifier,
+    isLabeledStatement,
 } = types;
 
 const {entries} = Object;
 
+const COMPUTED = true;
+const SHORTHAND = true;
+
 const report = ({name}) => `Argument "${name}" is missing`;
+
+const maybeObjectPattern = (a) => a || ObjectPattern([]);
 
 module.exports.addArgument = (args) => ({
     report,
@@ -27,11 +35,14 @@ const fix = ({declaration, path}) => {
     const declarationNode = template.ast.fresh(declaration);
     
     if (isBlockStatement(declarationNode)) {
-        const {expression} = declarationNode.body[0];
-        const prop = ObjectProperty(expression, expression);
-        const node = ObjectPattern([prop]);
+        const prop = createProperty(declarationNode.body[0]);
         
-        path.scope.block.params = [node];
+        const {params} = path.scope.block;
+        const node = maybeObjectPattern(params[0]);
+        
+        node.properties.push(prop);
+        params[0] = node;
+        
         return;
     }
     
@@ -56,7 +67,9 @@ const traverse = (args) => ({push, options}) => {
                 if (!isFunction(path.scope.block))
                     continue;
                 
-                if (path.scope.block.params.length)
+                const {params} = path.scope.block;
+                
+                if (params.length && has(name, params[0]))
                     continue;
                 
                 if (!compare(path.scope.path.parentPath, pattern))
@@ -71,4 +84,27 @@ const traverse = (args) => ({push, options}) => {
         },
     };
 };
+
+function has(name, node) {
+    if (!isObjectPattern(node))
+        return false;
+    
+    for (const {key, value} of node.properties) {
+        if (isIdentifier(key, {name}) || isIdentifier(value, {name}))
+            return true;
+    }
+    
+    return false;
+}
+
+function createProperty(node) {
+    if (!isLabeledStatement(node)) {
+        const {expression} = node;
+        return ObjectProperty(expression, expression, !COMPUTED, SHORTHAND);
+    }
+    
+    const {label, body} = node;
+    
+    return ObjectProperty(label, body.expression, !COMPUTED, SHORTHAND);
+}
 

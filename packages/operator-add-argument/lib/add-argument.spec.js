@@ -26,10 +26,68 @@ test('putout: operator: add-argument', (t) => {
     const expected = montag`
         test('', (
             {
-                compare: compare
+                compare
             }
         ) => {
             compare(a, b);
+        });
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: operator: add-argument: when argument already exist', (t) => {
+    const declarations = {
+        compare: ['{compare}', 'test("__a", (__args) => __body)'],
+    };
+    
+    const source = montag`
+        test('', ({compare, comparePlaces}) => {
+            compare(a, b);
+            comparePlaces(a, b);
+        });
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['addArgument-undefined-variables', addArgument(declarations)],
+        ],
+    });
+    
+    const expected = montag`
+        test('', ({compare, comparePlaces}) => {
+            compare(a, b);
+            comparePlaces(a, b);
+        });
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: operator: add-argument: rename', (t) => {
+    const declarations = {
+        superCompare: ['{compare: superCompare}', 'test("__a", (__args) => __body)'],
+    };
+    
+    const source = montag`
+        test('', ({}) => {
+            superCompare(a, b);
+        });
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['addArgument-undefined-variables', addArgument(declarations)],
+        ],
+    });
+    
+    const expected = montag`
+        test('', ({
+            compare: superCompare
+        }) => {
+            superCompare(a, b);
         });
     `;
     

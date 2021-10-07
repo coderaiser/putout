@@ -1,6 +1,6 @@
 test('', (
     {
-        comparePlaces: comparePlaces
+        comparePlaces
     }
 ) => {
     comparePlaces();

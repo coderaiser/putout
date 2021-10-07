@@ -74,7 +74,7 @@ test('putout: operator: addArgument', (t) => {
     const expected = montag`
         test('', (
             {
-                compare: compare
+                compare
             }
         ) => {
             compare(a, b);
