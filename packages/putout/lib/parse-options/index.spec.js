@@ -264,11 +264,11 @@ test('putout: parseOptions: code mods directory: .putout: exclude node_modules',
     const readHomeOptions = stub().returns(empty);
     
     mockRequire('../../putout.json', empty);
-    
-    const {readdirSync} = fs;
-    fs.readdirSync = () => [
-        'node_modules',
-    ];
+    mockRequire('fs', {
+        readdirSync: stub().returns([
+            'node_modules',
+        ]),
+    });
     
     const parseOptions = reRequire('.');
     
@@ -304,7 +304,6 @@ test('putout: parseOptions: code mods directory: .putout: exclude node_modules',
     };
     
     stopAll();
-    fs.readdirSync = readdirSync;
     
     t.deepEqual(result, expected);
     t.end();
