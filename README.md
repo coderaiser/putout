@@ -27,7 +27,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [Installation](#installation)
 - [Usage](#usage)
 - [🤷‍♂️ What is `Ruler`?](#%EF%B8%8F-what-is-ruler)
-- [🤷‍♂️ How a `Ruler` can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
+- [🤷‍♂️ How `Ruler` can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
 - [Converting `CommonJS` to `ESM`](#converting-commonjs-to-esm)
 - [Architecture](#architecture)
 - [🌴 Laws of the Jungle](#-laws-of-the-jungle)
