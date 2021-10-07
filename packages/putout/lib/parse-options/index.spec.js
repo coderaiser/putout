@@ -1,5 +1,7 @@
 'use strict';
 
+const tryCatch = require('try-catch');
+
 const fs = require('fs');
 const os = require('os');
 const {join} = require('path');
@@ -888,6 +890,51 @@ test('putout: parseOptions: rules dir: no once', (t) => {
     fs.readdirSync = readdirSync;
     
     t.calledTwice(readdirSyncStub);
+    t.end();
+});
+
+test('putout: parseOptions: rules dir: no dir options', (t) => {
+    const empty = {};
+    
+    const readOptions = stub().returns(['', empty]);
+    const readHomeOptions = stub().returns(empty);
+    const readCodeMods = stub().returns(empty);
+    
+    mockRequire('../../putout.json', empty);
+    
+    const readdirSync = stub().returns([
+        'world',
+    ]);
+    
+    mockRequire('fs', {
+        readdirSync,
+    });
+    
+    const parseOptions = reRequire('.');
+    
+    const options = {
+        rules: {
+            'remove-only': 'off',
+        },
+        match: {
+            '*.spec.js': {
+                'remove-only': 'on',
+            },
+        },
+    };
+    
+    const [error] = tryCatch(parseOptions, {
+        name: 'parse-options.spec.js',
+        options,
+        readOptions,
+        readHomeOptions,
+        readCodeMods,
+        rulesdir: 'hello',
+    });
+    
+    stopAll();
+    
+    t.match(error.message, `Cannot find module '${join(process.cwd(), 'hello/world')}'`);
     t.end();
 });
 

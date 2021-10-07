@@ -100,7 +100,11 @@ function readRules(dirOpt, rulesDir) {
     if (!rulesDir)
         return {};
     
-    const dir = join(dirOpt, rulesDir);
+    let dir = join(dirOpt, rulesDir);
+    
+    if (!/^\//.test(dir))
+        dir = join(process.cwd(), rulesDir);
+    
     const [e, names] = tryCatch(readdirSync, dir);
     
     if (e)
