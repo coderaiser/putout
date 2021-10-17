@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "c8": "^7.5.0",
-    "eslint": "^8.0.0-beta.0",
+    "eslint": "^8.0.1",
     "eslint-plugin-eslint-plugin": "^3.2.0",
     "madrun": "^8.0.1",
     "mocha": "^9.0.1",

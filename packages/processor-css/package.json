@@ -38,7 +38,7 @@
     "@cloudcmd/stub": "^3.1.0",
     "@putout/test": "*",
     "c8": "^7.5.0",
-    "eslint": "^8.0.0-beta.0",
+    "eslint": "^8.0.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^10.0.0",
     "lerna": "^4.0.0",
