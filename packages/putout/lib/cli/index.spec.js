@@ -176,7 +176,7 @@ test('putout: cli: --fresh', async (t) => {
         '--fresh',
     ];
     
-    const {_defaultCache} = require('./cache');
+    const {_defaultCache} = require('@putout/cli-cache');
     const createCache = stub().returns(_defaultCache);
     const getOptions = stub().returns({
         formatter: 'dump',
@@ -186,7 +186,7 @@ test('putout: cli: --fresh', async (t) => {
         ],
     });
     
-    mockRequire('./cache', {createCache});
+    mockRequire('@putout/cli-cache', {createCache});
     mockRequire('./get-options', getOptions);
     
     reRequire('./get-files');
@@ -399,12 +399,12 @@ test('putout: cli: --fix --staged: exit code', async (t) => {
         code: '',
     });
     const processFile = stub().returns(process);
-    const {_defaultCache} = require('./cache');
+    const {_defaultCache} = require('@putout/cli-cache');
     const createCache = stub().returns(_defaultCache);
     
     mockRequire('./get-files', getFiles);
     mockRequire('./process-file', processFile);
-    mockRequire('./cache', {createCache});
+    mockRequire('@putout/cli-cache', {createCache});
     
     mockRequire('./staged', {
         get,
@@ -1108,7 +1108,7 @@ test('putout: cli: fileCache: canUseCache', async (t) => {
     });
     
     mockRequire('./get-options', getOptions);
-    mockRequire('./cache', {createCache});
+    mockRequire('@putout/cli-cache', {createCache});
     
     const cli = reRequire('.');
     
@@ -1119,12 +1119,12 @@ test('putout: cli: fileCache: canUseCache', async (t) => {
     
     stopAll();
     
-    const expected = {
-        name: __filename,
+    const expected = [
+        __filename,
         options,
-    };
+    ];
     
-    t.calledWith(canUseCache, [expected], 'should not call fileCache.canUseCache');
+    t.calledWith(canUseCache, expected);
     t.end();
 });
 

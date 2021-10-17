@@ -48,11 +48,7 @@ function isChanged(name, fileCache) {
     const options = {};
     const places = [];
     
-    const can = fileCache.canUseCache({
-        name,
-        options,
-        fix: true,
-    });
+    const can = fileCache.canUseCache(name, options);
     
     fileCache.setInfo(name, places, options);
     fileCache.reconcile();

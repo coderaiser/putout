@@ -28,7 +28,7 @@ const ignores = require('../ignores');
 
 const initProcessFile = require('./process-file');
 const getFiles = require('./get-files');
-const {createCache} = require('./cache');
+const {createCache} = require('@putout/cli-cache');
 const supportedFiles = require('./supported-files');
 const getFormatter = memo(require('./formatter').getFormatter);
 const getOptions = require('./get-options');
@@ -317,7 +317,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         
         const {dir} = options;
         
-        if (fileCache.canUseCache({options, name})) {
+        if (fileCache.canUseCache(name, options)) {
             const places = fileCache.getPlaces(name);
             const formatterProxy = createFormatterProxy({
                 report,
