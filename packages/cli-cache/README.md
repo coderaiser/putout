@@ -5,7 +5,7 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/cli-cache
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/cli-cache
 
-Read `.putout.json` and convert `rules`  into `cache`;
+Create `cache` of places found by [putout](https://github.com/coderaiser/putout).
 
 ## Install
 
