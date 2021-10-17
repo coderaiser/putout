@@ -12,6 +12,7 @@ const tryCatch = require('try-catch');
 const tryToCatch = require('try-to-catch');
 const wraptile = require('wraptile');
 const {createSimport} = require('simport');
+const {version} = require('../../package.json');
 
 const simport = createSimport(__filename);
 
@@ -27,7 +28,7 @@ const ignores = require('../ignores');
 
 const initProcessFile = require('./process-file');
 const getFiles = require('./get-files');
-const cacheFiles = require('./cache-files');
+const {createCache} = require('./cache');
 const supportedFiles = require('./supported-files');
 const getFormatter = memo(require('./formatter').getFormatter);
 const getOptions = require('./get-options');
@@ -181,7 +182,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         return exit(INVALID_OPTION, validationError);
     
     if (args.version) {
-        const {version} = require('../../package.json');
         log(`v${version}`);
         return exit();
     }
@@ -266,14 +266,14 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (noFiles)
         return exit();
     
-    const fileCache = await cacheFiles({
+    const fileCache = await createCache({
+        version,
         cache,
         fresh,
     });
     
     const options = {
         fix,
-        fileCache,
         isFlow,
         fixCount,
         raw,

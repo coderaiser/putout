@@ -176,8 +176,8 @@ test('putout: cli: --fresh', async (t) => {
         '--fresh',
     ];
     
-    const {_defaultFileCache} = require('./cache-files');
-    const cacheFiles = stub().returns(_defaultFileCache);
+    const {_defaultCache} = require('./cache');
+    const createCache = stub().returns(_defaultCache);
     const getOptions = stub().returns({
         formatter: 'dump',
         dir: '.',
@@ -186,7 +186,7 @@ test('putout: cli: --fresh', async (t) => {
         ],
     });
     
-    mockRequire('./cache-files', cacheFiles);
+    mockRequire('./cache', {createCache});
     mockRequire('./get-options', getOptions);
     
     reRequire('./get-files');
@@ -198,12 +198,15 @@ test('putout: cli: --fresh', async (t) => {
         argv,
     });
     
+    stopAll();
+    
     const expected = {
         fresh: true,
         cache: false,
+        version,
     };
     
-    t.calledWith(cacheFiles, [expected]);
+    t.calledWith(createCache, [expected]);
     t.end();
 });
 
@@ -283,6 +286,7 @@ test('putout: cli: --fix --staged: set', async (t) => {
     const argv = [
         '--staged',
         '--fix',
+        '--no-cache',
     ];
     
     const getFiles = stub().returns([null, [
@@ -333,6 +337,7 @@ test('putout: cli: --fix --staged: get', async (t) => {
     const argv = [
         '--staged',
         '--fix',
+        '--no-cache',
     ];
     
     const getFiles = stub().returns([null, [
@@ -394,12 +399,12 @@ test('putout: cli: --fix --staged: exit code', async (t) => {
         code: '',
     });
     const processFile = stub().returns(process);
-    const {_defaultFileCache} = require('./cache-files');
-    const cacheFiles = stub().returns(_defaultFileCache);
+    const {_defaultCache} = require('./cache');
+    const createCache = stub().returns(_defaultCache);
     
     mockRequire('./get-files', getFiles);
     mockRequire('./process-file', processFile);
-    mockRequire('./cache-files', cacheFiles);
+    mockRequire('./cache', {createCache});
     
     mockRequire('./staged', {
         get,
@@ -1096,14 +1101,14 @@ test('putout: cli: fileCache: canUseCache', async (t) => {
     const canUseCache = stub().returns(true);
     const getPlaces = stub().returns([]);
     const reconcile = stub();
-    const fileCache = stub().returns({
+    const createCache = stub().returns({
         canUseCache,
         getPlaces,
         reconcile,
     });
     
     mockRequire('./get-options', getOptions);
-    mockRequire('./cache-files', fileCache);
+    mockRequire('./cache', {createCache});
     
     const cli = reRequire('.');
     

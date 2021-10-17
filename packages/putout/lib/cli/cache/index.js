@@ -8,7 +8,6 @@ const murmur = require('imurmurhash');
 const stringify = require('json-stable-stringify-without-jsonify');
 const tryToCatch = require('try-to-catch');
 
-const {version} = require('../../../package.json');
 const isNoDefinition = require('./is-no-definition');
 const isParserError = require('./is-parser-error');
 const containEslintPlugin = require('./contain-eslint-plugin');
@@ -21,7 +20,7 @@ const {assign} = Object;
 const returns = (a) => () => a;
 const CACHE_FILE = '.putoutcache';
 
-const defaultFileCache = {
+const defaultCache = {
     getPlaces: returns([]),
     setInfo: returns(),
     removeEntry: returns(),
@@ -29,22 +28,29 @@ const defaultFileCache = {
     canUseCache: returns(false),
 };
 
-module.exports = async ({cache, fresh}) => {
+module.exports.createCache = async ({cache, fresh, version}) => {
     const name = await findCachePath();
     
     if (fresh)
         await tryToCatch(unlink, name);
     
     if (!cache)
-        return defaultFileCache;
+        return defaultCache;
     
     const fileCache = fileEntryCache.createFromFile(name);
+    const getOptionsHash = createGetOptionsCache({version});
     
     assign(fileCache, {
-        getPlaces: getPlaces(fileCache),
+        getPlaces: getPlaces({fileCache}),
         getOptionsHash,
-        setInfo: setInfo(fileCache),
-        canUseCache: canUseCache(fileCache),
+        setInfo: setInfo({
+            fileCache,
+            getOptionsHash,
+        }),
+        canUseCache: canUseCache({
+            fileCache,
+            getOptionsHash,
+        }),
     });
     
     const {findUp} = await import('find-up');
@@ -55,12 +61,12 @@ module.exports = async ({cache, fresh}) => {
     return fileCache;
 };
 
-module.exports._defaultFileCache = defaultFileCache;
+module.exports._defaultCache = defaultCache;
 module.exports._CACHE_FILE = CACHE_FILE;
 
-const getPlaces = (fileCache) => (name) => fileCache.getFileDescriptor(name).meta.places;
+const getPlaces = ({fileCache}) => (name) => fileCache.getFileDescriptor(name).meta.places;
 
-const setInfo = (fileCache) => (name, places, options) => {
+const setInfo = ({fileCache, getOptionsHash}) => (name, places, options) => {
     if (containEslintPlugin(places))
         return;
     
@@ -76,7 +82,7 @@ const setInfo = (fileCache) => (name, places, options) => {
     meta.places = places;
 };
 
-const canUseCache = (fileCache) => ({name, options}) => {
+const canUseCache = ({fileCache, getOptionsHash}) => ({name, options}) => {
     const {changed, meta} = fileCache.getFileDescriptor(name);
     const {
         places,
@@ -94,13 +100,13 @@ const canUseCache = (fileCache) => ({name, options}) => {
 
 const hash = (a) => murmur(a).result().toString(36);
 
-function getOptionsHash(options) {
+const createGetOptionsCache = ({version}) => (options) => {
     if (!optionsHashCache.has(options)) {
         optionsHashCache.set(options, hash(`${version}_${nodeVersion}_${stringify(options)}`));
     }
     
     return optionsHashCache.get(options);
-}
+};
 
 async function findCachePath() {
     const cacheDir = await findCacheDir({
