@@ -10,8 +10,6 @@ const {keys} = Object;
 const overrideConfigFile = process.env.ESLINT_CONFIG_FILE;
 
 const eslintId = ' (eslint)';
-const eslintPluginRegExp = /\/.*\s\(eslint\)$/;
-const putoutPluginRegExp = /^putout\/.*\s\(eslint\)$/;
 
 const noConfigFound = (config, configError) => {
     if (configError && configError.messageTemplate === 'no-config-found')
@@ -103,8 +101,6 @@ module.exports = async ({name, code, fix}) => {
 };
 
 module.exports._noConfigFound = noConfigFound;
-module.exports.eslintPluginRegExp = eslintPluginRegExp;
-module.exports.putoutPluginRegExp = putoutPluginRegExp;
 
 const parseRule = (rule) => rule || 'parser';
 

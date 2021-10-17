@@ -11,7 +11,7 @@ const tryToCatch = require('try-to-catch');
 const {version} = require('../../../package.json');
 const isNoDefinition = require('./is-no-definition');
 const isParserError = require('./is-parser-error');
-const containEslintPlugin = require('../eslint/contain-eslint-plugin');
+const containEslintPlugin = require('./contain-eslint-plugin');
 const isChanged = require('./is-changed');
 
 const optionsHashCache = new WeakMap();
