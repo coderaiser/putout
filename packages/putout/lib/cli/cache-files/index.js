@@ -5,7 +5,8 @@ const {unlink} = require('fs/promises');
 const fileEntryCache = require('file-entry-cache');
 const findCacheDir = require('find-cache-dir');
 const murmur = require('imurmurhash');
-const stringify = require('json-stringify-deterministic');
+//const stringify = require('json-stringify-deterministic');
+const stringify = require('json-stable-stringify-without-jsonify');
 const tryToCatch = require('try-to-catch');
 
 const {version} = require('../../../package.json');

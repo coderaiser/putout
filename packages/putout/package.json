@@ -191,7 +191,7 @@
     "imurmurhash": "^0.1.4",
     "is-relative": "^1.0.0",
     "isomorphic-git": "^1.4.0",
-    "json-stringify-deterministic": "^1.0.1",
+    "json-stable-stringify-without-jsonify": "^1.0.1",
     "nano-memoize": "^1.1.11",
     "once": "^1.4.0",
     "picomatch": "^2.2.2",
