@@ -1,3 +1,9 @@
+2021.10.17, v20.10.3
+
+feature:
+- (putout) json-stable-stringify -> json-stable-stringify-without-jsonify
+
+
 2021.10.17, v20.10.2
 
 fix:
