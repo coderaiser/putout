@@ -1,3 +1,14 @@
+2021.10.18, v20.12.0
+
+feature:
+- (package) @putout/plugin-remove-skip v4.0.0
+- (package) @putout/plugin-remove-only v5.0.0
+- (@putout/plugin-remove-only) drop support of node < 14
+- (@putout/plugin-remove-skip) drop support of node < 14
+- (@putout/plugin-remove-skipt) add support of options
+- (@putout/plugin-remove-only) add support of options
+
+
 2021.10.17, v20.11.0
 
 feature:
