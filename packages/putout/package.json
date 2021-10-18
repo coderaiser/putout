@@ -132,7 +132,7 @@
     "@putout/plugin-remove-nested-blocks": "^4.0.0",
     "@putout/plugin-remove-only": "^5.0.0",
     "@putout/plugin-remove-process-exit": "^3.0.0",
-    "@putout/plugin-remove-skip": "^3.0.0",
+    "@putout/plugin-remove-skip": "^4.0.0",
     "@putout/plugin-remove-unreachable-code": "^1.0.0",
     "@putout/plugin-remove-unreferenced-variables": "^1.0.0",
     "@putout/plugin-remove-unused-expressions": "^4.0.0",
