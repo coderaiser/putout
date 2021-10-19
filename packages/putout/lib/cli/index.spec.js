@@ -122,6 +122,46 @@ test('putout: cli: --raw: parse error', async (t) => {
     t.end();
 });
 
+test('putout: cli: --format: ci', async (t) => {
+    const argv = [
+        __filename,
+        '--no-config',
+        '--ci',
+    ];
+    
+    const process = stub().returns({
+        places: [],
+        code: '',
+    });
+    
+    const processFile = stub().returns(process);
+    const getFormatter = stub().returns([
+        'dump',
+        {},
+    ]);
+    
+    const report = stub().returns(stub);
+    
+    mockRequire('./process-file', processFile);
+    mockRequire('./formatter', {getFormatter});
+    mockRequire('./report', report);
+    mockRequire('ci-info', {
+        isCI: true,
+    });
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+    });
+    
+    stopAll();
+    
+    t.calledWith(getFormatter, ['stream', stub()]);
+    t.end();
+});
+
 test('putout: cli: --format: specified twice', async (t) => {
     const argv = [
         __filename,

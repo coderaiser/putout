@@ -140,7 +140,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     const args = yargsParser(argv, argvConfig);
     
     if (args.ci && isCI) {
-        args.format = 'dump';
+        args.format = 'stream';
         args.cache = false;
     }
     
