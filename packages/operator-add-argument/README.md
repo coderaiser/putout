@@ -5,8 +5,7 @@
 [DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/operator-add-argument
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/operator-add-argument
 
-`putout` operator adds ability to add-argument variable that was not defined before:
-
+`putout` operator adds ability to add-argument variable that was not defined before. Renamed to [@putout/operator-add-args](https://github.com/coderaiser/putout/tree/v20.13.0/packages/operator-add-args).
 ## Install
 
 ```
