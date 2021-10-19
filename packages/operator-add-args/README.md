@@ -1,11 +1,11 @@
 # @putout/operator-add-args [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-add-argument.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/operator-add-argument "npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/operator-add-argument
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/operator-add-argument
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-add-args.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/operator-add-args "npm"
+[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/operator-add-args
+[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/operator-add-args
 
-`putout` operator adds ability to add-argument variable that was not defined before. Renamed to [@putout/operator-add-args](https://github.com/coderaiser/putout/tree/v20.13.0/packages/operator-add-args).
+`putout` operator adds ability to add-args variable that was not defined before. Renamed to [@putout/operator-add-args](https://github.com/coderaiser/putout/tree/v20.13.0/packages/operator-add-args).
 
 ## Install
 
@@ -15,7 +15,7 @@ npm i putout @putout/operator-add-args
 
 ## API
 
-If you want to create `putout plugin` that will add-argument variables according to your needs just:
+If you want to create `putout plugin` that will add `args` according to your needs just:
 
 ```js
 const {operator} = require('putout');
