@@ -21,7 +21,7 @@ const fn = (__filename, __dirname, require) => {
 
 This rule aims to evaluate expressions `source` of `ImportDeclaration`:
 
-Examples of **incorrect** code locaed in `hello.spec.js` for this rule:
+Examples of **incorrect** code located in `hello.spec.js` for this rule:
 
 ```js
 import {readFile} from '__putout_evaluate: `./` + basename(__filename).replace(`.spec.js`, `.js`)';
