@@ -1,3 +1,9 @@
+2021.10.19, v20.14.0
+
+feature:
+- (putout) ci formatter: dump -> stream
+
+
 2021.10.19, v20.13.0
 
 feature:
