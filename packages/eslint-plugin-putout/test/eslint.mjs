@@ -34,3 +34,6 @@ test('eslint-plugin-putout: evaluate: fix', async ({process}) => {
     await process('evaluate');
 });
 
+test('eslint-plugin-putout: tape-add-newline-before-assertion', async ({process}) => {
+    await process('tape-add-newline-before-assertion');
+});

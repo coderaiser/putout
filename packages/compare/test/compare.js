@@ -353,18 +353,21 @@ test('compare: function block', (t) => {
 
 test('compare: parse template: __object', (t) => {
     const [, type] = parseTemplate('__object');
+    
     t.equal(type, 'ObjectPattern|ObjectExpression');
     t.end();
 });
 
 test('compare: parse template: __array', (t) => {
     const [, type] = parseTemplate('__array');
+    
     t.equal(type, 'ArrayPattern|ArrayExpression');
     t.end();
 });
 
 test('compare: parse template: node', (t) => {
     const [node] = parseTemplate('hello');
+    
     t.equal(node.type, 'Identifier');
     t.end();
 });

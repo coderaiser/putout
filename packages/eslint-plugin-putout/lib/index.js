@@ -30,6 +30,7 @@ module.exports.rules = {
     ...getWrapRule('object-init'),
     ...getWrapRule('no-unresolved'),
     ...getWrapRule('evaluate'),
+    ...getWrapRule('tape-add-newline-before-assertion'),
     ...getRule('putout'),
 };
 
@@ -57,6 +58,7 @@ const recommended = {
         'putout/object-init': 'error',
         'putout/no-unresolved': 'error',
         'putout/evaluate': 'error',
+        'putout/tape-add-newline-before-assertion': 'error',
         'putout/putout': 'error',
         
         'node/no-unsupported-features/es-syntax': 'off',

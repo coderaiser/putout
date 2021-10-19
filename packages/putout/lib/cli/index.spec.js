@@ -1412,6 +1412,7 @@ test('putout: cli: addOnce', (t) => {
     _addOnce(emitter, 'hello', fn);
     
     const result = emitter.listenerCount('hello');
+    
     t.equal(result, 1);
     t.end();
 });

@@ -75,6 +75,7 @@ test('putout: loader: parse rules: not supported', (t) => {
     });
     
     const expected = '☝️ Rule format not supported 1: number';
+    
     t.equal(error.message, expected);
     t.end();
 });

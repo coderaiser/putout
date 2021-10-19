@@ -36,6 +36,7 @@ test('plugin-react-hooks: remove-this: transform: code', (t) => {
             }
         }
     `;
+    
     t.transformCode(from, to);
     t.end();
 });

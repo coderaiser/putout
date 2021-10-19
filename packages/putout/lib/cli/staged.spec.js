@@ -19,6 +19,7 @@ test('putout: cli: staged', async (t) => {
     stopAll();
     
     const type = 'directory';
+    
     t.calledWith(findUp, ['.git', {type}], 'should call find-up');
     t.end();
 });
@@ -43,6 +44,7 @@ test('putout: cli: staged: get: statusMatrix: empty', async (t) => {
         dir,
         filter: isSupported,
     };
+    
     t.calledWith(statusMatrix, [expected]);
     t.end();
 });

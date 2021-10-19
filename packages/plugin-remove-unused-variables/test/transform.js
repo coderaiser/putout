@@ -51,6 +51,7 @@ test('transform: couple', (t) => {
         name: 'str2',
         count: 3,
     }];
+    
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
