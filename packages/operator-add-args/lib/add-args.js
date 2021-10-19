@@ -25,7 +25,7 @@ const report = ({name}) => `Argument "${name}" is missing`;
 
 const maybeObjectPattern = (a) => a || ObjectPattern([]);
 
-module.exports.addArgument = (args) => ({
+module.exports.addArgs = (args) => ({
     report,
     fix,
     traverse: traverse(args),

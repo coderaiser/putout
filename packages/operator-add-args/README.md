@@ -1,4 +1,4 @@
-# @putout/operator-add-argument [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/operator-add-args [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-add-argument.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/operator-add-argument "npm"
@@ -6,6 +6,7 @@
 [DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/operator-add-argument
 
 `putout` operator adds ability to add-argument variable that was not defined before. Renamed to [@putout/operator-add-args](https://github.com/coderaiser/putout/tree/v20.13.0/packages/operator-add-args).
+
 ## Install
 
 ```
@@ -18,9 +19,9 @@ If you want to create `putout plugin` that will add-argument variables according
 
 ```js
 const {operator} = require('putout');
-const {addArgument} = operator;
+const {addArgs} = operator;
 
-module.exports = addArgument({
+module.exports = addArgs({
     comparePlaces: ['{comparePlaces}', 'test("__a", (__args) => __body)'],
 });
 ```
@@ -40,7 +41,7 @@ Plugin supports options, so you can pass it in `.putout.json`:
 {
     "rules": {
         "tape/declare-t": ["on", {
-            "declarations": {
+            "args": {
                 "comparePlaces": ["{comparePlaces}", "test('__a', (__args) => __body)"]
             }
         }]

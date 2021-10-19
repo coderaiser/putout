@@ -4,10 +4,10 @@ const test = require('supertape');
 const putout = require('putout');
 const montag = require('montag');
 
-const {addArgument} = require('./add-argument.js');
+const {addArgs} = require('./add-args.js');
 
 test('putout: operator: add-argument', (t) => {
-    const declarations = {
+    const args = {
         compare: ['{compare}', 'test("__a", (__args) => __body)'],
     };
     
@@ -19,7 +19,7 @@ test('putout: operator: add-argument', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['addArgument-undefined-variables', addArgument(declarations)],
+            ['addArgs-undefined-variables', addArgs(args)],
         ],
     });
     
@@ -38,7 +38,7 @@ test('putout: operator: add-argument', (t) => {
 });
 
 test('putout: operator: add-argument: when argument already exist', (t) => {
-    const declarations = {
+    const args = {
         compare: ['{compare}', 'test("__a", (__args) => __body)'],
     };
     
@@ -51,7 +51,7 @@ test('putout: operator: add-argument: when argument already exist', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['addArgument-undefined-variables', addArgument(declarations)],
+            ['addArgs-undefined-variables', addArgs(args)],
         ],
     });
     
@@ -67,7 +67,7 @@ test('putout: operator: add-argument: when argument already exist', (t) => {
 });
 
 test('putout: operator: add-argument: rename', (t) => {
-    const declarations = {
+    const args = {
         superCompare: ['{compare: superCompare}', 'test("__a", (__args) => __body)'],
     };
     
@@ -79,7 +79,7 @@ test('putout: operator: add-argument: rename', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['addArgument-undefined-variables', addArgument(declarations)],
+            ['addArgs-undefined-variables', addArgs(args)],
         ],
     });
     
@@ -96,7 +96,7 @@ test('putout: operator: add-argument: rename', (t) => {
 });
 
 test('putout: operator: add-argument: identifier', (t) => {
-    const declarations = {
+    const args = {
         t: ['t', 'test("__a", (__args) => __body)'],
     };
     
@@ -108,7 +108,7 @@ test('putout: operator: add-argument: identifier', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['addArgument-undefined-variables', addArgument(declarations)],
+            ['addArgs-undefined-variables', addArgs(args)],
         ],
     });
     
@@ -141,7 +141,7 @@ test('putout: operator: add-argument: options', (t) => {
             }],
         },
         plugins: [
-            ['add-argument', addArgument(args)],
+            ['add-argument', addArgs(args)],
         ],
     });
     
@@ -156,7 +156,7 @@ test('putout: operator: add-argument: options', (t) => {
 });
 
 test('putout: operator: add-argument: has binding', (t) => {
-    const declarations = {
+    const args = {
         t: ['t', 'test("__a", (__args) => __body)'],
     };
     
@@ -168,7 +168,7 @@ test('putout: operator: add-argument: has binding', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['addArgument-undefined-variables', addArgument(declarations)],
+            ['addArgs-undefined-variables', addArgs(args)],
         ],
     });
     
@@ -177,7 +177,7 @@ test('putout: operator: add-argument: has binding', (t) => {
 });
 
 test('putout: operator: add-argument: wrong place', (t) => {
-    const declarations = {
+    const args = {
         t: ['t', 'test("__a", (__args) => __body)'],
     };
     
@@ -189,7 +189,7 @@ test('putout: operator: add-argument: wrong place', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['addArgument-undefined-variables', addArgument(declarations)],
+            ['addArgs-undefined-variables', addArgs(args)],
         ],
     });
     
@@ -198,7 +198,7 @@ test('putout: operator: add-argument: wrong place', (t) => {
 });
 
 test('putout: operator: add-argument: not a function', (t) => {
-    const declarations = {
+    const args = {
         t: ['t', 'test("__a", (__args) => __body)'],
     };
     
@@ -208,10 +208,11 @@ test('putout: operator: add-argument: not a function', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['addArgument-undefined-variables', addArgument(declarations)],
+            ['addArgs-undefined-variables', addArgs(args)],
         ],
     });
     
     t.equal(code, source);
     t.end();
 });
+

@@ -54,7 +54,7 @@ test('putout: operator: declare', (t) => {
     t.end();
 });
 
-test('putout: operator: addArgument', (t) => {
+test('putout: operator: addArgs', (t) => {
     const args = {
         compare: ['{compare}', 'test("__a", (__args) => __body)'],
     };
@@ -67,7 +67,7 @@ test('putout: operator: addArgument', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['addArgument-undefined-variables', operator.addArgument(args)],
+            ['add-args', operator.addArgs(args)],
         ],
     });
     

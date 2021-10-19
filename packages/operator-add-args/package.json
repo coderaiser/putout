@@ -1,10 +1,10 @@
 {
-  "name": "@putout/operator-add-argument",
-  "version": "1.3.1",
+  "name": "@putout/operator-add-args",
+  "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout operator adds ability to add argument to referenced variables that wan not defined",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-add-argument",
-  "main": "lib/add-argument.js",
+  "description": "putout operator adds ability to add args to referenced variables that wan not defined",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-add-args",
+  "main": "lib/add-args.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -29,7 +29,7 @@
     "putout",
     "putout-operator",
     "operator",
-    "add-argument"
+    "add-args"
   ],
   "devDependencies": {
     "@putout/test": "^3.0.0",

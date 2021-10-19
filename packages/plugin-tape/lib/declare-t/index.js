@@ -1,8 +1,8 @@
 'use strict';
 
 const {operator} = require('putout');
-const {addArgument} = operator;
+const {addArgs} = operator;
 
-module.exports = addArgument({
+module.exports = addArgs({
     t: ['t', 'test("__a", (__args) => __body)'],
 });
