@@ -10,7 +10,7 @@
 ## Install
 
 ```
-npm i putout @putout/operator-add-argument
+npm i putout @putout/operator-add-args
 ```
 
 ## API
