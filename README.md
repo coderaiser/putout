@@ -145,7 +145,8 @@ PUTOUT_FILES=lib,test putout --fix
 
 When you need to change `.putout.json` you can do it not only editing the file, but also with help of `Ruler`.
 
-`Ruler` can `enable one specific` rule with `putout --enable convert-commonjs-to-esm` or `disable all rules Putout finds` in one go with `putout --disable-all`. But it should never be used with `--fix`, because unclear things makes 🐊 `Putout` angry and you can find him barking you:
+`Ruler` can `enable` one rule with `putout --enable convert-commonjs-to-esm` or `disable` all rules Putout able to find using `putout --disable-all`.
+Remember, it should never be used with `--fix`, because unclear things makes 🐊 `Putout` angry and you can find him barking at you:
 
 ```
 🐊 `--fix` cannot be used with ruler toggler (`--enable`, `--disable`)
