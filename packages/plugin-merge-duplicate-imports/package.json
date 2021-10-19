@@ -33,7 +33,7 @@
     "imports"
   ],
   "devDependencies": {
-    "@putout/plugin-tape": "^4.0.0",
+    "@putout/plugin-tape": "*",
     "@putout/test": "^3.0.0",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",

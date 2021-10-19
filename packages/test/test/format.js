@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 
-const stub = require('@cloudcmd/stub');
+const {stub} = require('supertape');
 
 const removeConsole = require('./fixture/remove-console');
 const test = require('..')(__dirname, {
