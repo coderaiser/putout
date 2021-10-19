@@ -38,7 +38,7 @@ npm i @putout/plugin-tape -D
         "tape/convert-ok-to-match": "on",
         "tape/convert-ok-to-called-with": "on",
         "tape/convert-match-regexp-to-string": "on",
-        "tape/declare-t": "on",
+        "tape/add-args": "on",
         "tape/declare": "on",
         "tape/remove-default-messages": "on",
         "tape/remove-useless-not-called-args": "on"
@@ -452,7 +452,7 @@ test('xxx', (t) => {
 });
 ```
 
-## declare-t
+## add-args
 
 ### ❌ Incorrect code example
 

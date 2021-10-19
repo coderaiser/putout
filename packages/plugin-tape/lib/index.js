@@ -22,7 +22,7 @@ module.exports.rules = {
     ...getRule('convert-equal-to-called-once'),
     ...getRule('convert-deep-equal-to-equal'),
     ...getRule('expand-try-catch-arguments'),
-    ...getRule('declare-t'),
+    ...getRule('add-args'),
     ...getRule('declare'),
     ...getRule('remove-default-messages'),
     ...getRule('remove-useless-not-called-args'),
