@@ -1815,6 +1815,7 @@ Add `putout` as a `peerDependency` to your `packages.json` (>= of version you de
 ## Plugins API
 
 > **Throughout your life advance daily, becoming more skillful than yesterday more skillful than today. This is never-ending**
+>
 > **(c) Yamamoto Tsunetomo**
 
 Let's consider a couple of plugin types that can be used.
