@@ -19,7 +19,7 @@ npm i @putout/plugin-putout -D
 {
     "rules": {
         "putout/apply-processors-destructuring": "on",
-        "putout/add-missing-argument": "on",
+        "putout/add-args": "on",
         "putout/convert-to-no-transform-code": "on",
         "putout/convert-replace-with": "on",
         "putout/convert-replace-with-multiple": "on",
@@ -312,7 +312,7 @@ compare(a, 'const __a = __b');
 isIdentifier(a);
 ```
 
-## add-missing-argument
+## add-args
 
 ### ❌ Incorrect code example
 
