@@ -67,7 +67,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [`Prettier`](https://github.com/prettier/prettier) is a formatter.
 - [`jscodeshift`](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
 
-`Putout` on the other hand can make more drastic code transformations that directly alter your code base.
+`Putout` on the other hand can make more drastic code transformations that directly affect your codebase making it a better place to code 💻.
 
 ## Installation
 
