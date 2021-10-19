@@ -68,3 +68,8 @@ test('plugin-putout: convert-method-to-property: complex: transform: add-missing
     t.transform('add-missing-argument');
     t.end();
 });
+
+test('plugin-putout: convert-add-argument-to-add-args', (t) => {
+    t.transform('convert-add-argument-to-add-args');
+    t.end();
+});

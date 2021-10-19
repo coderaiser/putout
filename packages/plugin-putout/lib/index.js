@@ -17,6 +17,7 @@ module.exports.rules = {
     ...getRule('convert-traverse-to-replace'),
     ...getRule('convert-process-to-find'),
     ...getRule('convert-method-to-property'),
+    ...getRule('convert-add-argument-to-add-args'),
     ...getRule('rename-operate-to-operator'),
     ...getRule('replace-operate-with-operator'),
     ...getRule('shorten-imports'),

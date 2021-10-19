@@ -30,6 +30,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-traverse-to-replace": "on",
         "putout/convert-process-to-find": "on",
         "putout/convert-method-to-property": "on",
+        "putout/convert-add-argument-to-add-args": "on",
         "putout/shorten-imports": "on",
         "putout/check-replace-code": "on",
         "putout/declare": "on"
@@ -328,6 +329,29 @@ test('', ({comparePlaces}) => {
     comparePlaces();
 });
 ```
+
+## convert-add-argument-to-add-args
+
+```js
+const {operator} = require('putout');
+const {addArgument} = operator;
+
+module.exports = addArgument({
+    t: ['t', 'test("__a", (__args) => __body)'],
+});
+```
+
+### ✅ Correct code Example
+
+```js
+const {operator} = require('putout');
+const {addArgs} = operator;
+
+module.exports = addArgs({
+    t: ['t', 'test("__a", (__args) => __body)'],
+});
+```
+
 
 ## License
 
