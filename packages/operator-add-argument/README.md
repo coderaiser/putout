@@ -19,7 +19,6 @@ If you want to create `putout plugin` that will add-argument variables according
 
 ```js
 const {operator} = require('putout');
-
 const {addArgument} = operator;
 
 module.exports = addArgument({
