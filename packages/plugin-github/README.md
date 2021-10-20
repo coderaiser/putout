@@ -20,7 +20,8 @@ npm i @putout/plugin-github -D
 {
     "rules": {
         "github/set-node-versions": "on",
-        "github/set-checkout-version": "on"
+        "github/set-checkout-version": "on",
+        "github/set-setup-node-version": "on"
     }
 }
 ```
@@ -47,6 +48,13 @@ jobs:
 +      - uses: actions/checkout@v2
 ```
 
+## set-checkout-version
+
+```diff
+  steps:
+-      - uses: actions/setup-node@v1
++      - uses: actions/setup-node@v2
+```
 
 ## License
 

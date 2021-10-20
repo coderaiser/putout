@@ -14,3 +14,8 @@ test('plugin-github: transform: set-checkout-version', (t) => {
     t.end();
 });
 
+test('plugin-github: transform: set-setup-node-version', (t) => {
+    t.transform('set-setup-node-version');
+    t.end();
+});
+
