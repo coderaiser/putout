@@ -80,7 +80,7 @@
     "@putout/plugin-browserlist": "^1.0.0",
     "@putout/plugin-convert-apply-to-spread": "^3.0.0",
     "@putout/plugin-convert-arguments-to-rest": "^1.0.0",
-    "@putout/plugin-convert-array-copy-to-slice": "^1.0.0",
+    "@putout/plugin-convert-array-copy-to-slice": "^2.0.0",
     "@putout/plugin-convert-assignment-to-arrow-function": "^1.0.0",
     "@putout/plugin-convert-assignment-to-comparison": "^1.0.0",
     "@putout/plugin-convert-bitwise-to-logical": "^1.0.0",
