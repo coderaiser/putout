@@ -1,3 +1,13 @@
+2021.10.20, v20.15.0
+
+feature:
+- (package) @putout/plugin-github v2.0.0
+- (@putout/plugin-github) drop support of putout < 20
+- (@putout/plugin-github) add set-setup-node-version
+- (@putout/plugin-github) add set-checkout-version
+- (@putout/plugin-github) set-node-versions: add v17
+
+
 2021.10.19, v20.14.0
 
 feature:
