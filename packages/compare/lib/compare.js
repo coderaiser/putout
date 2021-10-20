@@ -29,10 +29,12 @@ const {
 } = require('./is');
 
 const {keys} = Object;
+const {isArray} = Array;
 
 const compareType = (type) => (path) => path.type === type;
 const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
 const superPush = (array) => (a, b) => array.push([a, b]);
+const maybeArray = (a) => isArray(a) ? a : [a];
 
 const findParent = (path, type) => {
     const newPathNode = path.findParent(compareType(type));
@@ -110,6 +112,8 @@ module.exports.compareAny = (path, templateNodes) => {
 };
 
 module.exports.compareAll = (path, templateNodes) => {
+    templateNodes = maybeArray(templateNodes);
+    
     for (const template of templateNodes) {
         if (!compare(path, template))
             return false;

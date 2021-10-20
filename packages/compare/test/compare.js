@@ -109,6 +109,13 @@ test('compare: all: base is all', (t) => {
     t.end();
 });
 
+test('compare: all: not array', (t) => {
+    const result = compareAll('const a = {}', 'const a  = __');
+    
+    t.ok(result, 'should equal');
+    t.end();
+});
+
 test('compare: all: base is all: no', (t) => {
     const result = compareAll('const a = {}', [
         'const a = " "',

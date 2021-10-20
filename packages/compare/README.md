@@ -35,10 +35,12 @@ getTemplateValues(node, 'const __array = array');
 });
 ```
 
-### compare (node, baseNode)
+### compare(node: Node, baseNode: Node)
 
 - `node` - `AST-node` or `code` that will be generated;
 - `baseNode` `AST-node` with support of `template variables`.
+
+### compareAll(node: Node, baseNodes: Node|Nodes[])
 
 #### Supported template variables:
 
