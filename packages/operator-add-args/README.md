@@ -23,6 +23,10 @@ const {addArgs} = operator;
 
 module.exports = addArgs({
     comparePlaces: ['{comparePlaces}', 'test("__a", (__args) => __body)'],
+    t: ['{comparePlaces}', [
+        'test("__a", (__args) => __body)',
+        'test.only("__a", (__args) => __body)'
+    ],
 });
 ```
 

@@ -37,6 +37,52 @@ test('putout: operator: add-argument', (t) => {
     t.end();
 });
 
+test('putout: operator: add-argument: a couple patterns', (t) => {
+    const args = {
+        compare: ['{compare}', [
+            'test("__a", (__args) => __body)',
+            'test.only("__a", (__args) => __body)',
+        ]],
+    };
+    
+    const source = montag`
+        test('', () => {
+            compare(a, b);
+        });
+        
+        test.only('', () => {
+            compare(a, b);
+        });
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['addArgs-undefined-variables', addArgs(args)],
+        ],
+    });
+    
+    const expected = montag`
+        test('', (
+            {
+                compare
+            }
+        ) => {
+            compare(a, b);
+        });
+        
+        test.only('', (
+            {
+                compare
+            }
+        ) => {
+            compare(a, b);
+        });
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: operator: add-argument: when argument already exist', (t) => {
     const args = {
         compare: ['{compare}', 'test("__a", (__args) => __body)'],

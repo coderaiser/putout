@@ -23,7 +23,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/compare": "^8.1.0"
+    "@putout/compare": "^8.3.0"
   },
   "keywords": [
     "putout",

@@ -1,6 +1,6 @@
 'use strict';
 
-const {compare} = require('@putout/compare');
+const {compareAny} = require('@putout/compare');
 const {
     types,
     template,
@@ -72,7 +72,7 @@ const traverse = (args) => ({push, options}) => {
                 if (params.length && has(name, params[0]))
                     continue;
                 
-                if (!compare(path.scope.path.parentPath, pattern))
+                if (!compareAny(path.scope.path.parentPath, pattern))
                     continue;
                 
                 push({
