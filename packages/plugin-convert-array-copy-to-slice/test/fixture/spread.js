@@ -1,10 +1,5 @@
-const places = [
-    ...runPlugins({
-        ast,
-        shebang,
-        fix,
-        fixCount,
-        plugins,
-        parser,
-    }),
-];
+function copy(ast) {
+    const places = [
+        ...ast,
+    ];
+}

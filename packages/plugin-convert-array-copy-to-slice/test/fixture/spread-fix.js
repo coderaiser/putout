@@ -1,8 +1,3 @@
-const places = runPlugins({
-    ast,
-    shebang,
-    fix,
-    fixCount,
-    plugins,
-    parser,
-}).slice();
+function copy(ast) {
+    const places = ast.slice();
+}

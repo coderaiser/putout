@@ -2,7 +2,10 @@
 
 const {types, operator} = require('putout');
 
-const {isIdentifier} = types;
+const {
+    isIdentifier,
+    isCallExpression,
+} = types;
 const {compare} = operator;
 
 module.exports.report = () => `Array should be copied using slice`;
@@ -14,6 +17,9 @@ module.exports.exclude = () => [
 
 module.exports.match = () => ({
     '[...__a]': ({__a}, path) => {
+        if (isCallExpression(__a))
+            return false;
+        
         if (isIdentifier(__a)) {
             const binding = path.scope.getBinding(__a.name);
             

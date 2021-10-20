@@ -39,3 +39,7 @@ test('plugin-convert-array-copy-to-slice: no transform: no-binding', (t) => {
     t.end();
 });
 
+test('plugin-convert-array-copy-to-slice: no transform: fn', (t) => {
+    t.noTransform('fn');
+    t.end();
+});

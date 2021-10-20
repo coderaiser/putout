@@ -1,0 +1,3 @@
+const a = [
+    ...maybeArray(b),
+];
