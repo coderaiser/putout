@@ -12,11 +12,13 @@ const {
 const nodeVersions = [
     '14.x',
     '16.x',
+    '17.x',
 ];
 
 const nodeVersionsNode = template.ast(`[
   "14.x",
-  "16.x"
+  "16.x",
+  "17.x",
 ]`);
 
 const {parse} = JSON;
