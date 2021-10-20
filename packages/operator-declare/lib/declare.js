@@ -75,7 +75,7 @@ const fix = (declarations) => (path, {options}) => {
             break;
         }
         
-        if (currentPath.isVariableDeclaration()) {
+        if (currentPath.isVariableDeclaration() && bodyPath.length > 1) {
             continue;
         }
         

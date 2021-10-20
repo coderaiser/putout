@@ -26,6 +26,26 @@ test('putout: plugin: declare-undefined-variables: declare', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: declare: spread', (t) => {
+    const declarations = {
+        maybeArray: `const maybeArray = (a) => isArray(a) ? a : [a]`,
+    };
+    
+    const {code} = putout('const a = [...maybeArray(b)];', {
+        plugins: [
+            ['declare-undefined-variables', declare(declarations)],
+        ],
+    });
+    
+    const expected = montag`
+        const maybeArray = a => isArray(a) ? a : [a];
+        const a = [...maybeArray(b)];
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: declare: variable', (t) => {
     const declarations = {
         operator: `import {operator} from 'putout'`,
