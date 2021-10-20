@@ -138,6 +138,13 @@ test('compare: any: base is any', (t) => {
     t.end();
 });
 
+test('compare: any: not an array', (t) => {
+    const result = compareAny('const a = {}', 'const a  = __');
+    
+    t.ok(result, 'should equal');
+    t.end();
+});
+
 test('compare: any: no path find', (t) => {
     const path = getProgramPath(`const t = 'hello'`);
     

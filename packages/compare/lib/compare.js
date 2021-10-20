@@ -103,6 +103,8 @@ function compare(path, template) {
 }
 
 module.exports.compareAny = (path, templateNodes) => {
+    templateNodes = maybeArray(templateNodes);
+    
     for (const template of templateNodes) {
         if (compare(path, template))
             return true;
