@@ -101,6 +101,7 @@
     "@putout/plugin-convert-template-to-string": "^1.0.0",
     "@putout/plugin-convert-to-arrow-function": "^3.0.0",
     "@putout/plugin-convert-top-level-return": "^4.0.0",
+    "@putout/plugin-convert-typeof-to-is-type": "^1.0.0",
     "@putout/plugin-declare-undefined-variables": "^5.0.0",
     "@putout/plugin-eslint": "^2.0.0",
     "@putout/plugin-extract-object-properties": "^6.0.0",

@@ -220,6 +220,7 @@
         "convert-for-in-to-for-of",
         "convert-map-to-for-of",
         "convert-top-level-return",
+        "convert-typeof-to-is-type",
         "convert-array-copy-to-slice",
         "convert-template-to-string",
         "convert-equal-to-strict-equal",
