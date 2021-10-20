@@ -1,0 +1,10 @@
+const isString = a => typeof a === 'string';
+const isNumber = a => typeof a === 'number';
+const isObject = a => a && typeof a === 'object';
+const isFn = a => typeof a === 'function';
+const isBool = a => typeof a === 'boolean';
+isString(a);
+isNumber(a);
+isObject(a);
+isFn(a);
+isBool(a);

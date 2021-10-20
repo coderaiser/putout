@@ -121,8 +121,13 @@ test('putout: plugin: declare-undefined-variables: object', (t) => {
     t.end();
 });
 
-test('putout: plugin: putout', (t) => {
+test('putout: plugin: declare-undefined-variables: putout', (t) => {
     t.transform('putout');
+    t.end();
+});
+
+test('putout: plugin: declare-undefined-variables: is-type', (t) => {
+    t.transform('is-type');
     t.end();
 });
 

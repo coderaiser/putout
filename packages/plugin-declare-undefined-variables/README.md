@@ -7,8 +7,9 @@
 
 `putout` plugin adds ability to declare variable that was not defined before, including:
 
-- [fs/promises](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html)
-- [path](https://nodejs.org/dist/latest-v16.x/docs/api/path.html)
+- [fs/promises](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html);
+- [path](https://nodejs.org/dist/latest-v16.x/docs/api/path.html);
+- types: `isFn`, `isString`, `isNuber`, `isObject` ;
 
 ## Install
 
@@ -212,6 +213,24 @@ noop();
 ```js
 const noop = () => {};
 noop();
+```
+
+# Types
+
+## ❌ Incorrect code example
+
+```js
+if (isFn(fn))
+    fn();
+```
+
+## ✅ Correct code Example
+
+```js
+const isFn = (a) => typeof a === 'function';
+
+if (isFn(fn))
+    fn();
 ```
 
 ## License
