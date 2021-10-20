@@ -131,6 +131,11 @@ test('putout: plugin: declare-undefined-variables: is-type', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: maybe', (t) => {
+    t.transform('maybe');
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: noop', (t) => {
     t.transformCode('noop();', montag`
         const noop = () => {};

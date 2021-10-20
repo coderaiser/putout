@@ -3,11 +3,13 @@
 const nodeJS = require('./node-js');
 const object = require('./object');
 const isType = require('./is-type');
+const maybe = require('./maybe');
 
 module.exports = {
     ...nodeJS,
     ...object,
     ...isType,
+    ...maybe,
     
     isArray: 'const {isArray} = Array',
     

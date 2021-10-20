@@ -1,7 +1,9 @@
 {
     "match": {
         "*.md": {
-            "declare-undefined-variables": "off"
+            "declare-undefined-variables": "off",
+            "remove-useless-spread/array": "off",
+            "convert-array-copy-to-slice": "off"
         }
     }
 }

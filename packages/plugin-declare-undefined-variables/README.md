@@ -10,6 +10,7 @@
 - [fs/promises](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html);
 - [path](https://nodejs.org/dist/latest-v16.x/docs/api/path.html);
 - types: `isFn`, `isString`, `isNuber`, `isObject` ;
+- maybe: `maybeArray`;
 
 ## Install
 
@@ -231,6 +232,27 @@ const isFn = (a) => typeof a === 'function';
 
 if (isFn(fn))
     fn();
+```
+
+# Maybe
+
+## ❌ Incorrect code example
+
+```js
+const a = [
+    ...maybeArray(b),
+];
+```
+
+## ✅ Correct code Example
+
+```js
+const {isArray} = Array;
+const maybeArray = (a) => isArray(a) ? a : [a];
+
+const a = [
+    ...maybeArray(b),
+];
 ```
 
 ## License
