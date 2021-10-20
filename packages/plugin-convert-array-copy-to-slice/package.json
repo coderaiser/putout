@@ -3,7 +3,7 @@
   "version": "1.4.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert array copy to slice",
-  "homepage": "http://github.com/coderaiser/putout",
+  "homepage": "http://github.com/coderaiser/putout/tree/master/packages/plugin-convert-array-copy-to-slice",
   "main": "lib/convert-array-copy-to-slice.js",
   "release": false,
   "tag": false,
@@ -42,11 +42,11 @@
     "madrun": "^8.0.1"
   },
   "peerDependencies": {
-    "putout": ">=9"
+    "putout": ">=20"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "publishConfig": {
     "access": "public"
