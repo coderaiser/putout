@@ -9,3 +9,8 @@ test('plugin-github: transform', (t) => {
     t.end();
 });
 
+test('plugin-github: transform: set-checkout-version', (t) => {
+    t.transform('set-checkout-version');
+    t.end();
+});
+

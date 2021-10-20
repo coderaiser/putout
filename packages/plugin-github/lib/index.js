@@ -6,5 +6,6 @@ const getRule = (a) => ({
 
 module.exports.rules = {
     ...getRule('set-node-versions'),
+    ...getRule('set-checkout-version'),
 };
 

@@ -19,12 +19,13 @@ npm i @putout/plugin-github -D
 ```json
 {
     "rules": {
-        "github/set-node-versions": "on"
+        "github/set-node-versions": "on",
+        "github/set-checkout-version": "on"
     }
 }
 ```
 
-## Set node versions
+## set-node-versions
 
 ```diff
 jobs:
@@ -37,6 +38,15 @@ jobs:
 -       node-version: [14.x, 15.x]
 +       node-version: [14.x, 16.x]
 ```
+
+## set-checkout-version
+
+```diff
+  steps:
+-      - uses: actions/checkout@v1
++      - uses: actions/checkout@v2
+```
+
 
 ## License
 
