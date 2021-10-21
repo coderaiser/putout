@@ -1,3 +1,13 @@
+2021.10.22, v20.18.0
+
+feature:
+- (putout) loader: add support of node v16.12 (https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#16.12.0)
+- (@putout/plugin-declare-undefined-variables) add support of stream
+- (@putout/plugin-declare-undefined-variables) add support of module
+- (eslint-plugin-putout) no-unresolved: disable for TS
+- (@putout/plugin-convert-generic-to-shorthand) exclude TSUnionType
+
+
 2021.10.21, v20.17.0
 
 fix:
