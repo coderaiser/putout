@@ -4,6 +4,24 @@ import parseOptions from './parse-options/index.js';
 
 const cwd = process.cwd();
 
+const toLoad = (transformSource) => async (url, context, defaultLoad) => {
+    const {source: rawSource} = await defaultLoad(url, context);
+    
+    if (!rawSource)
+        return {
+            format: 'commonjs',
+        };
+    
+    const {source} = await transformSource(rawSource, {
+        url,
+    });
+    
+    return {
+        source,
+        format: 'module',
+    };
+};
+
 export const transformSource = (source, context) => {
     const {url} = context;
     
@@ -24,4 +42,6 @@ export const transformSource = (source, context) => {
         source: code,
     };
 };
+
+export const load = toLoad(transformSource);
 

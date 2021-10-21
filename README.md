@@ -2231,10 +2231,10 @@ Just create `.babelrc.json` file with configuration you need.
 
 ## Using Putout as Loader
 
-`Putout` can be used as [loader](https://nodejs.org/dist/latest-v16.x/docs/api/esm.html#esm\_transformsource\_source\_context\_defaulttransformsource) this way:
+`Putout` can be used as [loader](https://nodejs.org/dist/latest-v17.x/docs/api/esm.html#loaders) this way:
 
 ```sh
-node --loader putout your-file.js
+node --no-deprecation --loader putout your-file.js
 ```
 
 You can also transform input files using `Babel`. For example if you need to transform `jsx` with `@babel/plugin-transform-react-jsx` you can use `.putout.json`:

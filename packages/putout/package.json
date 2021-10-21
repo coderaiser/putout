@@ -15,7 +15,7 @@
     "./process-file": "./lib/cli/process-file.js",
     "./exit-codes": "./lib/cli/exit-codes.mjs",
     "./cli": "./lib/cli/index.js",
-    "./loader": "./lib/loader.js",
+    "./loader": "./lib/loader.mjs",
     "./eslint": "./lib/cli/eslint/index.js",
     "./package.json": "./package.json"
   },
