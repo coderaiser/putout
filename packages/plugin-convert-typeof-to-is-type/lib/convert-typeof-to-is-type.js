@@ -1,7 +1,5 @@
 'use strict';
 
-const {keys} = Object;
-
 module.exports.report = () => `Use function to check type instead of 'typeof'`;
 module.exports.match = () => ({
     'typeof __a === "__b"': (vars, path) => {
@@ -35,11 +33,9 @@ const names = [
     'isBool',
 ];
 
-function isBind(path) {
-    const allKeys = keys(path.scope.bindings);
-    
+function isBind({scope}) {
     for (const name of names) {
-        if (allKeys.includes(name))
+        if (scope.hasBinding(name))
             return true;
     }
     
