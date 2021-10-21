@@ -3,7 +3,10 @@
 const {types, operator} = require('putout');
 const {replaceWith} = operator;
 
-const {tSArrayType} = types;
+const {
+    tSArrayType,
+    isTSUnionType,
+} = types;
 
 module.exports.report = () => 'Shorthand [] should be used instead of Array';
 
@@ -22,6 +25,10 @@ module.exports.traverse = ({push}) => ({
             return;
         
         const [typeReference] = params;
+        
+        if (isTSUnionType(typeReference))
+            return;
+        
         push({
             path,
             typeReference,
