@@ -13,5 +13,6 @@ const fs = {
 module.exports = {
     ...path,
     ...fs,
+    ...require('./module'),
 };
 
