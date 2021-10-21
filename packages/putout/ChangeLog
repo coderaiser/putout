@@ -1,3 +1,16 @@
+2021.10.21, v20.17.0
+
+fix:
+- (@putout/plugin-remove-unused-variables) typescript dts
+
+feature:
+- (putout) declare-undefined-variables: disable for *.d.ts
+- (@putout/plugin-convert-typeof-to-is-type) add support of upper scopes
+- (@putout/plugin-convert-typeof-to-is-type) exclude binded values
+- (@putout/plugin-convert-typeof-to-is-type) exclude VariableDeclarator
+- (eslint-plugin-putout) tape-add-newline-before-assertion: add support of test.skip(), test.only()
+
+
 2021.10.20, v20.16.1
 
 fix:
