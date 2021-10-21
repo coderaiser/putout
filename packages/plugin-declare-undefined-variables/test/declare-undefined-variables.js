@@ -141,6 +141,11 @@ test('putout: plugin: declare-undefined-variables: module', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: stream', (t) => {
+    t.transform('stream');
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: noop', (t) => {
     t.transformCode('noop();', montag`
         const noop = () => {};
