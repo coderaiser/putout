@@ -24,3 +24,8 @@ test('plugin-convert-typeof-to-is-type: transform: declaration', (t) => {
     t.end();
 });
 
+test('plugin-convert-typeof-to-is-type: transform: bind', (t) => {
+    t.noTransform('bind');
+    t.end();
+});
+
