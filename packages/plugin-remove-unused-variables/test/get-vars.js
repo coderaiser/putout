@@ -91,6 +91,7 @@ const fixture = readFixtures([
     'typescript-namespace',
     'typescript-module',
     'typescript-as',
+    'typescript-dts',
     'typescript-type-query',
     'typescript-function-type-parameter',
     'typescript-declare-function',
@@ -1573,6 +1574,15 @@ test('remove-unused-variables: get-vars: typescript: function type parameter', (
         params: du,
         x: du,
     }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: typescript: types', (t) => {
+    const ast = parse(fixture.typescriptDts, {isTS});
+    const result = getVars(ast).map(dutify);
+    const expected = [];
     
     t.deepEqual(result, expected, 'should equal');
     t.end();

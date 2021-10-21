@@ -114,6 +114,11 @@ module.exports = ({use, declare}) => ({
         }
     },
     TSDeclareFunction(path) {
+        const params = path.get('params');
+        
+        if (!params.length)
+            return;
+        
         const [firstPath] = path.get('params');
         
         if (firstPath.isRestElement())
