@@ -819,6 +819,42 @@ test('putout: cli: tsx', async (t) => {
     t.end();
 });
 
+test('putout: cli: d.ts', async (t) => {
+    const name = join(__dirname, 'fixture', 'types.d.ts');
+    const halt = stub();
+    
+    const argv = [
+        name,
+    ];
+    
+    const parseOptions = require('../parse-options');
+    const options = parseOptions({
+        name,
+    });
+    
+    assign(options, {
+        ignore: [],
+    });
+    
+    const getOptions = stub().returns(options);
+    
+    mockRequire('./get-options', getOptions);
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        halt,
+        cli,
+        argv,
+        readFile,
+    });
+    
+    stopAll();
+    
+    t.calledWith(halt, [OK]);
+    t.end();
+});
+
 test('putout: cli: --transform', async (t) => {
     const write = stub();
     const eslint = stub().returns(['', []]);

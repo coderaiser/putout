@@ -94,6 +94,9 @@
             "remove-useless-mapping-modifiers": "on",
             "remove-useless-types-from-constants": "on",
             "remove-unused-types": "on"
+        },
+        "*.d.ts": {
+            "declare-undefined-variables": "off"
         }
     },
     "ignore": [
