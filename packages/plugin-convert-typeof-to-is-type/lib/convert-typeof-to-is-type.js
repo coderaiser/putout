@@ -6,6 +6,9 @@ module.exports.match = () => ({
         if (path.parentPath.isFunction())
             return false;
         
+        if (path.parentPath.isVariableDeclarator())
+            return false;
+        
         if (path.parentPath.parentPath.parentPath?.isFunction())
             return false;
         
