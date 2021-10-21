@@ -6,10 +6,10 @@ module.exports.report = () => 'Add new line before assertion';
 const regexp = /;\n +?t\..*;\n +?t.end\(\);/;
 
 module.exports.filter = ({text}) => {
-    if (!/^test\(/.test(text))
+    if (!/^test(\.only|\.skip)?\(/.test(text))
         return false;
     
-    const assertions = text.match(/t\..*/g);
+    const assertions = text.match(/\st\..*/g);
     
     if (!assertions)
         return false;
@@ -21,7 +21,7 @@ module.exports.filter = ({text}) => {
 };
 
 module.exports.fix = ({text}) => {
-    const [assertion] = text.match(/t\..*/);
+    const [assertion] = text.match(/\st\..*/);
     return text.replace(assertion, `\n${assertion}`);
 };
 
