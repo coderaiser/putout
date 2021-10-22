@@ -1,11 +1,9 @@
-# Putout [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
+# Putout ![NPM version][NPMIMGURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
 [NPMURL]: https://npmjs.org/package/putout "npm"
 [NPMIMGURL]: https://img.shields.io/npm/v/putout.svg?style=flat&longCache=true
 [BuildStatusURL]: https://github.com/coderaiser/putout/actions?query=workflow%3A%22Node+CI%22 "Build Status"
 [BuildStatusIMGURL]: https://github.com/coderaiser/putout/workflows/Node%20CI/badge.svg
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/putout
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/putout "Dependency Status"
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
