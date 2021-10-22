@@ -1954,7 +1954,7 @@ module.exports.traverse = ({push}) => ({
 
 Where `__` is a placeholder for anything.
 
-*Remember: template key should be valid JavaScript, or Type name like in previous example.*
+*☝️Remember: template key should be valid JavaScript, or Type name like in previous example.*
 
 You can also use `include` and/or `exclude` insead of `traverse` and `filter` ([more sophisticated example](https://github.com/coderaiser/putout/blob/master/packages/plugin-add-return-await/lib/add-return-await.js)):
 
@@ -2030,7 +2030,7 @@ You can add `babel` to the `plugins` section of `.putout.json` with `babel/` pre
 
 *You can disable a rule, or use a match in a similar way.*
 
-*Remember to omit `babel-plugin-` or `@babel/plugin`: putout will set it up for you :)*
+*☝️Remember to omit `babel-plugin-` or `@babel/plugin`: putout will set it up for you :)*
 
 *Example*
 Let's add `babel-plugin-transform-inline-consecutive-adds` to `.putout.json`:
