@@ -100,6 +100,9 @@ module.exports = ({use, declare, addParams}) => {
                             return;
                         }
                         
+                        if (propPath.node.computed && isIdentifier(propPath.node.key))
+                            use(propPath.get('key'), propPath.node.key.name);
+                        
                         if (!isIdentifier(propPath.node.value))
                             return;
                         
