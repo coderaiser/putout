@@ -83,6 +83,7 @@ const safe = {
         'putout/putout': ['error', {
             rules: {
                 'remove-empty': 'off',
+                'remove-unused-types': 'off',
                 'remove-unused-variables': 'off',
                 'remove-unused-expressions': 'off',
                 'remove-unused-for-of-variables': 'off',

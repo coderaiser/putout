@@ -24,7 +24,7 @@
     "watch:test": "madrun watch:test",
     "lint": "madrun lint",
     "lint:all": "madrun lint:all",
-    "lint:ide": "madrun lint:ide",
+    "lint:safe": "madrun lint:safe",
     "fresh:lint": "madrun fresh:lint",
     "lint:fresh": "madrun lint:fresh",
     "fix:lint": "madrun fix:lint",
