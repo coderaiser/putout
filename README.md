@@ -272,7 +272,7 @@ The branches extend both above and below.
 The secondary roots going downward represent actions
 that bind the individual soul to earthly existence.**
 >
-> **“Bhagavatgita”, chapter 15**
+> **(c) “Bhagavatgita”, chapter 15**
 
 ![Ashvattha](https://github.com/coderaiser/putout/blob/master/images/ashvattha.jpeg)
 
@@ -305,7 +305,7 @@ Looks this way in [ESTree](https://github.com/estree/estree) JavaScript syntax f
 
 > **When one is not capable of true intelligence, it is good to consult with someone of good sense. An advisor will fulfill the Way when he makes a decision by selfless and frank intelligence because he is not personally involved. This way of doing things will certainly be seen by others as being strongly rooted. It is, for example, like a large tree with many roots.**
 > 
-> **Yamamoto Tsunetomo "Hagakure"**
+> **(c) Yamamoto Tsunetomo "Hagakure"**
 
 🐊`Putout` based on [Babel AST](https://github.com/babel/babel/blob/main/packages/babel-parser/ast/spec.md). It has a couple differences from `ESTree` which are perfectly handled by [estrace-to-babel](https://github.com/coderaiser/estree-to-babel) especially when 🐊`Putout` running as [a plugin for `ESLint`](#integration-with-eslint).
 
