@@ -28,6 +28,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [🤷‍♂️ How `Ruler` can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
 - [Converting `CommonJS` to `ESM`](#converting-commonjs-to-esm)
 - [Architecture](#architecture)
+- [🌲 The Tree of a Syntax](#-the-tree-of-a-syntax)
 - [🌴 Laws of the Jungle](#-laws-of-the-jungle)
 - [API](#api)
 - [Built-in transformations](#built-in-transformations)
@@ -259,6 +260,55 @@ And here is a CLI sheme:
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-cli.png)
 
+### 🌲 The Tree of a Syntax
+
+> **The wise speak of the perennial Ashvattha tree,
+which has roots above and branches below.
+The leaves protecting it are the Vedas.
+One who knows this, truly knows.**
+> **The tender sprouts of this mighty tree
+are the senses nourished by the gunas.
+The branches extend both above and below.
+The secondary roots going downward represent actions
+that bind the individual soul to earthly existence.**
+>
+> **“Bhagavatgita”, chapter 15**
+
+![Ashvattha](https://github.com/coderaiser/putout/blob/master/images/ashvattha.jpeg)
+
+On the bottom level of 🐊`Putout` layes down `Syntax Tree`. This is data structure that makes possible to do [crazy transformations in a simplest possible way](https://dev.to/viveknayyar/revealing-the-magic-of-ast-by-writing-babel-plugins-1h01). It used mostly in compilers development.
+
+You can read about it in [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md). To understand how things works from the inside take a look at [Super Tiny Compiler](https://github.com/jamiebuilds/the-super-tiny-compiler).
+
+For example next code:
+
+```js
+hello = 'world';
+```
+
+Looks this way in [ESTree](https://github.com/estree/estree) JavaScript syntax format:
+
+```json
+{
+    "type": "AssignmentExpression",
+    "operator": "=",
+    "left": {
+        "type": "Identifier",
+        "name": "hello"
+    },
+    "right": {
+        "type": "StringLiteral",
+        "value": "world"
+    }
+}
+```
+
+> **When one is not capable of true intelligence, it is good to consult with someone of good sense. An advisor will fulfill the Way when he makes a decision by selfless and frank intelligence because he is not personally involved. This way of doing things will certainly be seen by others as being strongly rooted. It is, for example, like a large tree with many roots.**
+> 
+> **Yamamoto Tsunetomo "Hagakure"**
+
+🐊`Putout` based on [Babel AST](https://github.com/babel/babel/blob/main/packages/babel-parser/ast/spec.md). It has a couple differences from `ESTree` which are perfectly handled by [estrace-to-babel](https://github.com/coderaiser/estree-to-babel) especially when 🐊`Putout` running as [a plugin for `ESLint`](#integration-with-eslint).
+
 ### 🌴 Laws of the Jungle
 
 - 🐅 `engines` chilling with `engines`, and chasing `plugins`, `processors`, `operators`;
@@ -325,7 +375,7 @@ Processors can be tested using [@putout/test/processors](https://github.com/code
 
 > **In one’s life. there are levels in the pursuit of study. In the lowest level, a person studies but nothing comes of it, and he feels that both he and others are unskillful. At this point he is worthless. In the middle level he is still useless but is aware of his own insufficiencies and can also see the insufficiencies of others. At a higher level, he has pride concerning his own ability, rejoices in praise from others, and laments the lack of ability in his fellows. This man has worth. At the highest level a man has the look of knowing nothing.**
 >
-> **(c) Yamamoto Tsunetomo**
+> **(c) Yamamoto Tsunetomo "Hagakure"**
 
 In the similar way works 🐊`Putout API`: it has no
 plugins defined, `tabula rasa`.
@@ -1828,7 +1878,7 @@ Add `putout` as a `peerDependency` to your `packages.json` (>= of version you de
 
 > **Throughout your life advance daily, becoming more skillful than yesterday more skillful than today. This is never-ending**
 >
-> **(c) Yamamoto Tsunetomo**
+> **(c) Yamamoto Tsunetomo "Hagakure"**
 
 Let's consider a couple of plugin types that can be used.
 
@@ -1885,9 +1935,6 @@ const {
     generate,
 } = require('putout');
 ```
-
-Most information you can find in [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md) is relevant to `putout` plugins.
-To understand how things works from the inside take a look at [Super Tiny Compiler](https://github.com/jamiebuilds/the-super-tiny-compiler).
 
 ### Operator
 
