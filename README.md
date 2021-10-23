@@ -328,7 +328,7 @@ Processors can be tested using [@putout/test/processors](https://github.com/code
 > **(c) Yamamoto Tsunetomo**
 
 In the similar way works 🐊`Putout API`: it has no
-plugins defined, `tabula rasa`
+plugins defined, `tabula rasa`.
 
 ### putout(source, options)
 
