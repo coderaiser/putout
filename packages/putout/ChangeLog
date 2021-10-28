@@ -1,3 +1,15 @@
+2021.10.28, v20.19.0
+
+fix:
+- (@putout/plugin-remove-unused-variables) add support of computed key
+
+feature:
+- (package) @putout/processor-yaml v3.0.0
+- (@putout/processor-yaml) drop support of putout < 20
+- (@putout/processor-yaml) js-yaml -> yaml: useless quotes (nodeca/js-yaml#645)
+- (eslint-plugin-putout) safe: disable remove-unused-types
+
+
 2021.10.22, v20.18.0
 
 feature:
