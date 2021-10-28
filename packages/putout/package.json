@@ -177,7 +177,7 @@
     "@putout/processor-javascript": "^3.0.0",
     "@putout/processor-json": "^3.0.0",
     "@putout/processor-markdown": "^5.0.0",
-    "@putout/processor-yaml": "^2.0.0",
+    "@putout/processor-yaml": "^3.0.0",
     "@putout/traverse": "^4.0.0",
     "chalk": "^4.0.0",
     "ci-info": "^3.1.1",
