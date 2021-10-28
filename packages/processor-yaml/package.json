@@ -1,6 +1,6 @@
 {
   "name": "@putout/processor-yaml",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout processor adds ability to parse yaml files and lint js snippets",
   "homepage": "http://github.com/coderaiser/putout",
