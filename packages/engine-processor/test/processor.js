@@ -469,11 +469,11 @@ test('putout: engine-processor: yaml: duplicate', async (t) => {
     
     const expected = [{
         position: {
-            column: 1,
-            line: 4,
+            column: 3,
+            line: 2,
         },
-        message: 'Duplicated mapping key (4:3)',
-        rule: 'duplicated-mapping-key (yaml)',
+        message: `Map keys must be unique; "only" is repeated`,
+        rule: 'yaml-semantic-error (yaml)',
     }];
     
     t.deepEqual(places, expected);

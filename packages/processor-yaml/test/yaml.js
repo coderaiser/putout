@@ -11,14 +11,18 @@ test('putout: processor: yaml', async ({process}) => {
     await process('travis.yml', ['travis/disable-cache']);
 });
 
+test('putout: processor: yaml: actions', async ({noProcess}) => {
+    await noProcess('actions.yml');
+});
+
 test('putout: processor: yaml: duplicate', async ({comparePlaces}) => {
     await comparePlaces('duplicate.yml', [{
         position: {
-            column: 1,
-            line: 4,
+            column: 3,
+            line: 2,
         },
-        message: 'Duplicated mapping key (4:3)',
-        rule: 'duplicated-mapping-key (yaml)',
+        message: `Map keys must be unique; "only" is repeated`,
+        rule: 'yaml-semantic-error (yaml)',
     }]);
 });
 

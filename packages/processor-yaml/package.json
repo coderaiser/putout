@@ -24,9 +24,9 @@
   },
   "dependencies": {
     "@putout/processor-json": "^3.0.0",
-    "fullstore": "^3.0.0",
-    "js-yaml": "^4.0.0",
-    "try-catch": "^3.0.0"
+    "just-kebab-case": "^3.0.0",
+    "try-catch": "^3.0.0",
+    "yaml": "^1.10.2"
   },
   "keywords": [
     "putout",

@@ -1,8 +1,9 @@
 'use strict';
 
 const tryCatch = require('try-catch');
+const justKebabCase = require('just-kebab-case');
 
-const bigFirst = (a) => a[0].toUpperCase() + a.slice(1);
+const parseRule = (a) => justKebabCase(a.replace('YAML', 'Yaml'));
 const {stringify, parse} = JSON;
 
 module.exports.files = [
@@ -11,11 +12,11 @@ module.exports.files = [
 ];
 
 module.exports.branch = (rawSource) => {
-    const yaml = require('js-yaml');
+    const yaml = require('yaml');
     const jsonProcessor = require('@putout/processor-json');
     
     const list = [];
-    const [error, value] = tryCatch(yaml.load, rawSource);
+    const [error, value] = tryCatch(yaml.parse, rawSource);
     
     if (error)
         return [];
@@ -32,40 +33,57 @@ module.exports.branch = (rawSource) => {
 };
 
 module.exports.find = (rawSource) => {
-    const yaml = require('js-yaml');
+    const yaml = require('yaml');
     
-    const [error] = tryCatch(yaml.load, rawSource);
-    const places = parsePlaces(error);
+    const [error] = tryCatch(yaml.parse, rawSource);
+    const places = parsePlaces({
+        error,
+        rawSource,
+    });
     
     return places;
 };
 
 module.exports.merge = (rawSource, list) => {
-    const yaml = require('js-yaml');
+    const yaml = require('yaml');
     const jsonProcessor = require('@putout/processor-json');
     const source = jsonProcessor.merge(rawSource, list);
     
-    return yaml.dump(parse(source));
+    return yaml.stringify(parse(source));
 };
 
-function parsePlaces(error) {
+function parsePlaces({error, rawSource}) {
     if (!error)
         return [];
     
-    const {mark, reason} = error;
-    const {line} = mark;
-    const position = {
-        line: line + 1,
-        column: 1,
-    };
-    
-    const [message] = error.message.split('\n');
+    const {message, source} = error;
+    const {start} = source.range;
+    const [rule] = String(error).split(':');
     const place = {
-        message: bigFirst(message),
-        position,
-        rule: `${reason.replace(/\s/g, '-')} (yaml)`,
+        message,
+        rule: `${parseRule(rule)} (yaml)`,
+        position: parsePosition({
+            start,
+            rawSource,
+        }),
     };
     
     return [place];
 }
 
+function parsePosition({start, rawSource}) {
+    let line = 1;
+    let lastLineStart = 0;
+    
+    for (let i = 0; i <= start; i++) {
+        if (rawSource[i] === '\n') {
+            ++line;
+            lastLineStart = i;
+        }
+    }
+    
+    return {
+        line,
+        column: start - lastLineStart,
+    };
+}
