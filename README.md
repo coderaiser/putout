@@ -102,7 +102,7 @@ Options:
    --disable [rule]            disable the rule and save it to '.putout.json' walking up parent directories
    --enable-all                enable all found rules and save them to '.putout.json' walking up parent directories
    --disable-all               disable all found rules (set baseline) and save them to '.putout.json' walking up parent directories
-   --match [file name]         read .putout.json and convert 'rules' to 'match' using pattern
+   --match [pattern]           read .putout.json and convert 'rules' to 'match' according to 'pattern'
    --flow                      enable flow
    --fresh                     generate a fresh cache
    --no-config                 avoid reading '.putout.json'
