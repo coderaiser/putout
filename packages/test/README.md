@@ -1,9 +1,7 @@
-# @putout/test [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/test [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/test.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/test "npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/test-runner
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/test-runner
 
 Test runner for [`putout plugins`](https://github.com/coderaiser/putout#plugins-api). Basically it is [supercharged `tape`](https://github.com/coderaiser/supertape) with aditional asseritions:
 
