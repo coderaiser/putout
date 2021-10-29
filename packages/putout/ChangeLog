@@ -1,3 +1,9 @@
+2021.10.29, v20.19.1
+
+fix:
+- (putout) --help: --match [file name] -> --match [pattern]
+
+
 2021.10.28, v20.19.0
 
 fix:
