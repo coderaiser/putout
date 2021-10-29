@@ -320,12 +320,12 @@ Looks this way in [ESTree](https://github.com/estree/estree) JavaScript syntax f
 
 `Engines` is the heart of `putout`: `loader`, `runner` and `parser` run for every processed file. `Processor` runs all the processors.
 
-| Package | Version | Dependencies |
-|--------|-------|------------|
-| [`@putout/engine-parser`](/packages/engine-parser) | [![npm](https://img.shields.io/npm/v/@putout/engine-parser.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-parser) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/engine-parser)](https://david-dm.org/coderaiser/putout?path=packages/engine-parser) |
-| [`@putout/engine-loader`](/packages/engine-loader) | [![npm](https://img.shields.io/npm/v/@putout/engine-loader.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-loader) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/engine-loader)](https://david-dm.org/coderaiser/putout?path=packages/engine-loader) |
-| [`@putout/engine-runner`](/packages/engine-runner) | [![npm](https://img.shields.io/npm/v/@putout/engine-runner.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-runner) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/engine-runner)](https://david-dm.org/coderaiser/putout?path=packages/engine-runner) |
-| [`@putout/engine-processor`](/packages/engine-processor) | [![npm](https://img.shields.io/npm/v/@putout/engine-processor.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-processor) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/engine-processor)](https://david-dm.org/coderaiser/putout?path=packages/engine-processor) |
+| Package | Version |
+|--------|-------|
+| [`@putout/engine-parser`](/packages/engine-parser) | [![npm](https://img.shields.io/npm/v/@putout/engine-parser.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-parser) |
+| [`@putout/engine-loader`](/packages/engine-loader) | [![npm](https://img.shields.io/npm/v/@putout/engine-loader.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-loader) |
+| [`@putout/engine-runner`](/packages/engine-runner) | [![npm](https://img.shields.io/npm/v/@putout/engine-runner.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-runner) |
+| [`@putout/engine-processor`](/packages/engine-processor) | [![npm](https://img.shields.io/npm/v/@putout/engine-processor.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-processor) |
 
 ### Processors
 
