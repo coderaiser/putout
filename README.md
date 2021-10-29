@@ -97,7 +97,7 @@ Options:
    --fix-count [count = 10]    count of fixes rounds
    --rulesdir                  use additional rules from directory
    --transform [replacer]      apply Replacer, for example 'var __a = __b -> const __a = __b', read about Replacer https://git.io/JqcMn
-   --plugins [plugins list]    a comma-separated list of plugins to use
+   --plugins [plugins]         a comma-separated list of plugins to use
    --enable [rule]             enable the rule and save it to '.putout.json' walking up parent directories
    --disable [rule]            disable the rule and save it to '.putout.json' walking up parent directories
    --enable-all                enable all found rules and save them to '.putout.json' walking up parent directories
