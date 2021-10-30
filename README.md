@@ -333,14 +333,14 @@ With help of [processors](https://github.com/coderaiser/putout/blob/master/packa
 
 Here is a list of built-int processors:
 
-| Package | Version | Dependencies |
-|--------|-------|------------|
-| [`@putout/processor-javascript`](/packages/processor-javascript) | [![npm](https://img.shields.io/npm/v/@putout/processor-javascript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-javascript) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-javascript)](https://david-dm.org/coderaiser/putout?path=packages/processor-javascript) |
-| [`@putout/processor-json`](/packages/processor-json) | [![npm](https://img.shields.io/npm/v/@putout/processor-json.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-json) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-json)](https://david-dm.org/coderaiser/putout?path=packages/processor-json) |
-| [`@putout/processor-markdown`](/packages/processor-markdown) | [![npm](https://img.shields.io/npm/v/@putout/processor-markdown.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-markdown) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-markdown)](https://david-dm.org/coderaiser/putout?path=packages/processor-markdown) |
-| [`@putout/processor-ignore`](/packages/processor-ignore) | [![npm](https://img.shields.io/npm/v/@putout/processor-ignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-ignore) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-ignore)](https://david-dm.org/coderaiser/putout?path=packages/processor-ignore) |
-| [`@putout/processor-yaml`](/packages/processor-yaml) | [![npm](https://img.shields.io/npm/v/@putout/processor-yaml.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-yaml) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-yaml)](https://david-dm.org/coderaiser/putout?path=packages/processor-yaml) |
-| [`@putout/processor-css`](/packages/processor-css) | [![npm](https://img.shields.io/npm/v/@putout/processor-css.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-css) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-css)](https://david-dm.org/coderaiser/putout?path=packages/processor-css) |
+| Package | Version |
+|--------|-------|
+| [`@putout/processor-javascript`](/packages/processor-javascript) | [![npm](https://img.shields.io/npm/v/@putout/processor-javascript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-javascript) |
+| [`@putout/processor-json`](/packages/processor-json) | [![npm](https://img.shields.io/npm/v/@putout/processor-json.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-json) |
+| [`@putout/processor-markdown`](/packages/processor-markdown) | [![npm](https://img.shields.io/npm/v/@putout/processor-markdown.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-markdown) |
+| [`@putout/processor-ignore`](/packages/processor-ignore) | [![npm](https://img.shields.io/npm/v/@putout/processor-ignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-ignore) |
+| [`@putout/processor-yaml`](/packages/processor-yaml) | [![npm](https://img.shields.io/npm/v/@putout/processor-yaml.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-yaml) |
+| [`@putout/processor-css`](/packages/processor-css) | [![npm](https://img.shields.io/npm/v/@putout/processor-css.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-css) |
 
 You can disable any of them with:
 
