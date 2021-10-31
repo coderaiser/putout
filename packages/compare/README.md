@@ -161,7 +161,7 @@ true;
 
 ##### __identifier
 
-Any `Identifier
+Any `Identifier`
 
 ```js
 compare('const a = 5', 'const __identifier = 5');
