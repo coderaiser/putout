@@ -45,7 +45,7 @@
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
     "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-putout": "^10.0.0",
+    "eslint-plugin-putout": "^11.0.0",
     "estrace": "^3.0.2",
     "js-codemod": "^7.0.0",
     "just-camel-case": "^4.0.2",

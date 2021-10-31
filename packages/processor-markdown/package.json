@@ -42,7 +42,7 @@
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
     "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-putout": "^10.0.0",
+    "eslint-plugin-putout": "^11.0.0",
     "lerna": "^4.0.0",
     "madrun": "^8.0.1",
     "nodemon": "^2.0.1",
