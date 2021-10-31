@@ -58,8 +58,8 @@
     "node": ">=14"
   },
   "peerDependencies": {
-    "eslint": ">=8.0.0-beta.0",
-    "putout": ">=20"
+    "eslint": ">=8.0.0",
+    "putout": ">=21"
   },
   "license": "MIT",
   "publishConfig": {
