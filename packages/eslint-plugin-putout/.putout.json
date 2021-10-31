@@ -12,8 +12,8 @@
             "remove-unused-variables": "off",
             "remove-unused-expressions": "off",
             "remove-unused-for-of-variables": "off",
-            "remove-skip": "off",
-            "remove-only": "off",
+            "tape/remove-skip": "off",
+            "tape/remove-only": "off",
             "remove-console": "off",
             "remove-debugger": "off",
             "convert-for-to-for-of": "off"

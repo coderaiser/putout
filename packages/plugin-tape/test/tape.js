@@ -147,3 +147,14 @@ test('plugin-tape: transform: declare-test', (t) => {
     t.transform('declare-test');
     t.end();
 });
+
+test('plugin-tape: transform: remove-only', (t) => {
+    t.transform('remove-only');
+    t.end();
+});
+
+test('plugin-tape: transform: remove-skip', (t) => {
+    t.transform('remove-skip');
+    t.end();
+});
+

@@ -73,8 +73,6 @@
             "remove-empty/import": "off"
         },
         "{test,*.spec.{js,mjs,cjs}}": {
-            "remove-only": "on",
-            "remove-skip": "on",
             "tape": "on"
         },
         "*.mjs": {
@@ -125,8 +123,6 @@
         "remove-useless-mapping-modifiers": "off",
         "remove-useless-types-from-constants": "off",
         "remove-unused-types": "off",
-        "remove-only": "off",
-        "remove-skip": "off",
         "putout": "off",
         "putout-config": "off",
         "eslint": "off",
@@ -160,8 +156,6 @@
         "package-json",
         "remove-debugger",
         "remove-iife",
-        "remove-only",
-        "remove-skip",
         "remove-process-exit",
         "remove-console",
         "remove-empty",

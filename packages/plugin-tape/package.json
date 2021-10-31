@@ -22,7 +22,10 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@putout/plugin-remove-only": "^5.0.0",
+    "@putout/plugin-remove-skip": "^4.0.0"
+  },
   "keywords": [
     "putout",
     "putout-plugin",

@@ -39,7 +39,9 @@ npm i @putout/plugin-tape -D
         "tape/add-args": "on",
         "tape/declare": "on",
         "tape/remove-default-messages": "on",
-        "tape/remove-useless-not-called-args": "on"
+        "tape/remove-useless-not-called-args": "on",
+        "tape/remove-only": "on",
+        "tape/remove-skip": "on"
     }
 }
 ```
@@ -633,6 +635,44 @@ t.notCalled(fn, []);
 
 ```js
 t.notCalled(fn);
+```
+
+## remove-only
+
+### ❌ Incorrect code example
+
+```js
+test.only('some test', (t) => {
+    t.end();
+});
+
+```
+
+### ✅ Correct code Example
+
+```js
+test('some test', (t) => {
+    t.end();
+});
+```
+
+## remove-skip
+
+### ❌ Incorrect code example
+
+```js
+test.skip('some test', (t) => {
+    t.end();
+});
+
+```
+
+### ✅ Correct code Example
+
+```js
+test('some test', (t) => {
+    t.end();
+});
 ```
 
 ## License
