@@ -1,9 +1,7 @@
-# @putout/compare [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/compare [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/compare.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/compare"npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/compare
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/compare
+[NPMURL]: https://npmjs.org/package/@putout/compare "npm"
 
 Compare AST-nodes.
 
