@@ -1,9 +1,7 @@
-# @putout/engine-processor [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/engine-processor [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/engine-loader.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/engine-loader"npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/engine-loader
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/engine-loader
 
 Run putout `pre-` and `post-` processors.
 
