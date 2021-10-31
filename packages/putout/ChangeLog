@@ -1,3 +1,16 @@
+2021.10.31, v21.0.0
+
+fix:
+- (@putout/plugin-tape) drop support of putout < 21
+
+feature:
+- (putout) eslint-plugin-putout v11.0.0
+- (eslint-plugin-putout) drop support of putout < 21
+- (package) @putout/plugin-tape v6.0.0
+- (@putout/plugin-tape) drop support of putout <= v20.20
+- (@putout/plugin-tape) add remove-only, remove-skip
+
+
 2021.10.29, v20.19.2
 
 fix:
