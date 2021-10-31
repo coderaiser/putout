@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-skip.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-skip"npm"
 
-`putout` plugin adds ability to find and remove `test.skip` calls.
+`putout` plugin adds ability to find and remove `test.skip` calls. Part of [@putout/plugin-tape](https://github.com/coderaiser/putout/tree/master/packages/plugin-tape).
 
 ## Install
 
