@@ -11,6 +11,9 @@ function getPath(namespace, type, name) {
     if (!path)
         path = getModulePath(`${namespace}-${type}-${name}`);
     
+    if (!path)
+        path = getModulePath(name);
+    
     return path;
 }
 

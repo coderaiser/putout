@@ -549,3 +549,19 @@ test('putout: loader: ESM', async (t) => {
     t.end();
 });
 
+test('putout: loader: namespace', (t) => {
+    const source = `const {run} = require('madrun');`;
+    
+    const {code} = putout(source, {
+        fix: true,
+        plugins: [
+            '@putout/plugin-convert-commonjs-to-esm',
+        ],
+    });
+    
+    const expected = `import {run} from 'madrun';`;
+    
+    t.equal(code, expected, 'should enable one of rules in plugin');
+    t.end();
+});
+
