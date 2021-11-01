@@ -1,0 +1,1 @@
+arra.find((a) => a);
