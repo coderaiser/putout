@@ -33,7 +33,7 @@ test('merge duplicate imports: transform: namespace', (t) => {
 });
 
 test('merge duplicate imports: transform: import-type', (t) => {
-    t.noTransform('import-type');
+    t.transform('import-type');
     t.end();
 });
 

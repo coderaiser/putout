@@ -12,8 +12,10 @@ module.exports.report = () => `Avoid duplicate imports`;
 
 module.exports.fix = ({path, imports}) => {
     const all = path.node.specifiers;
+    convertImportKind(path);
     
     for (const path of imports) {
+        convertImportKind(path);
         const {specifiers} = path.node;
         
         all.push(...specifiers);
@@ -23,8 +25,8 @@ module.exports.fix = ({path, imports}) => {
 
 module.exports.traverse = ({push, listStore}) => ({
     ImportDeclaration(path) {
-        if (path.node.importKind === 'type')
-            return;
+        //if (path.node.importKind === 'type')
+        //    return;
         
         listStore(path);
     },
@@ -84,3 +86,12 @@ function duplicatesStore() {
     };
 }
 
+function convertImportKind(path) {
+    if (path.node.importKind !== 'type')
+        return;
+    
+    for (const spec of path.node.specifiers)
+        spec.importKind = 'type';
+    
+    path.node.importKind = 'value';
+}
