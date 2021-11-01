@@ -1,3 +1,12 @@
+2021.11.01, v21.1.0
+
+feature:
+- (package) @putout/plugin-merge-duplicate-imports v4.0.0
+- (@putout/plugin-merge-duplicate-imports) drop support of putout < 21
+- (@putout/plugin-merge-duplicate-imports) add support of ImportSpecifier importKind (https://babeljs.io/blog/2021/10/29/7.16.0#typescript-45-features-13802httpsgithubcombabelbabelpull13802-13838httpsgithubcombabelbabelpull13838)
+- (@putout/plugin-apply-filter-boolean) add support of find
+
+
 2021.10.31, v21.0.0
 
 fix:
