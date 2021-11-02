@@ -938,3 +938,38 @@ test('putout: parseOptions: rules dir: no dir options', (t) => {
     t.end();
 });
 
+test('putout: parse-options: defaults: no strict-mode/add', (t) => {
+    const options = {
+        rules: {
+            'strict-mode': 'off',
+        },
+    };
+    
+    const {rules} = parseOptions({
+        name: 'index.js',
+        options,
+    });
+    
+    const result = rules['strict-mode/add'];
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('putout: parse-options: defaults: strict-mode off', (t) => {
+    const options = {
+        rules: {
+            'strict-mode': 'off',
+        },
+    };
+    
+    const {rules} = parseOptions({
+        name: 'index.js',
+        options,
+    });
+    
+    const result = rules['strict-mode'];
+    
+    t.equal(result, 'off');
+    t.end();
+});

@@ -17,8 +17,7 @@
             "strict-mode/add": "off"
         },
         "*.{jsx,js,cjs}": {
-            "strict-mode/add": "on",
-            "strict-mode/remove": "on"
+            "strict-mode": "on"
         },
         "{.,}putout.json": {
             "putout-config": "on"
