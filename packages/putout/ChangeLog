@@ -1,3 +1,12 @@
+2021.11.02, v21.1.2
+
+feature:
+- (@putout/plugin-apply-is-array) drop support of putout < 21
+- (@putout/plugin-apply-is-array) Array.isArray -> isArray
+- (@putout/plugin-declare-undefined-variables) add support of isUndefined
+- (@putout/plugin-convert-typeof-to-is-type) add support of isUndefined
+
+
 2021.11.02, v21.1.1
 
 fix:

@@ -1,6 +1,6 @@
 {
   "name": "putout",
-  "version": "21.1.1",
+  "version": "21.1.2",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊 Pluggable and configurable code transformer with built-in eslint, babel plugins and jscodeshift codemods support of js, jsx typescript, flow files, markdown, yaml and json",
   "homepage": "http://github.com/coderaiser/putout",
@@ -73,7 +73,7 @@
     "@putout/plugin-apply-destructuring": "^5.0.0",
     "@putout/plugin-apply-filter-boolean": "^1.0.0",
     "@putout/plugin-apply-if-condition": "^1.0.0",
-    "@putout/plugin-apply-is-array": "^1.0.0",
+    "@putout/plugin-apply-is-array": "^2.0.0",
     "@putout/plugin-apply-numeric-separators": "^1.0.0",
     "@putout/plugin-apply-optional-chaining": "^2.0.0",
     "@putout/plugin-apply-utility-types": "^1.0.0",
