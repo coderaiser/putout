@@ -1242,7 +1242,7 @@ function world(a) {
 
 </details>
 
-<details><summary>apply <code>filter(Boolean)t</code></summary>
+<details><summary>apply <code>filter(Boolean)</code></summary>
 
 ```diff
 -array.filter((a) => a);
