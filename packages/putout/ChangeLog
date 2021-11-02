@@ -1,3 +1,12 @@
+2021.11.02, v21.1.1
+
+fix:
+- (putout) strict-mode/add: on, strict-mode/remove: on -> strict-mode: on
+
+feature:
+- (@putout/engine-loader) add support of namespaced plugins
+
+
 2021.11.01, v21.1.0
 
 feature:
