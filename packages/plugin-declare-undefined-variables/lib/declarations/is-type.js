@@ -6,5 +6,6 @@ module.exports = {
     isFn: `const isFn = (a) => typeof a === 'function'`,
     isBool: `const isBool = (a) => typeof a === 'boolean'`,
     isObject: `const isObject = (a) => a && typeof a === 'object'`,
+    isUndefined: `const isUndefined = (a) => typeof a === 'undefined'`,
 };
 
