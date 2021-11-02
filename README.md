@@ -1135,7 +1135,7 @@ function hi() {
 
 </details>
 
-<details><summary>remove strict mode directive from esm</summary>
+<details><summary>remove <code>strict mode</code> directive from esm</summary>
 
 ```diff
 -'use strict';
