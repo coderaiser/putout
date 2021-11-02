@@ -1,2 +1,2 @@
-Array.isArray([1, 2,3]);
-Array.isArray(x);
+isArray([1, 2,3]);
+isArray(x);
