@@ -1,7 +1,8 @@
 {
     "match": {
         "*.md": {
-            "simplify-ternary": "off"
+            "simplify-ternary": "off",
+            "convert-typeof-to-is-type": "off"
         }
     }
 }
