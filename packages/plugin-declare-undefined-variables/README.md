@@ -1,9 +1,7 @@
-# @putout/plugin-declare-undefined-variables [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-declare-undefined-variables [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-declare-undefined-variables.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-declare-undefined-variables"npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-declare-undefined-variables
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-declare-undefined-variables
 
 `putout` plugin adds ability to declare variable that was not defined before, including:
 
@@ -11,7 +9,7 @@
 - [path](https://nodejs.org/dist/latest-v16.x/docs/api/path.html);
 - [path](https://nodejs.org/dist/latest-v16.x/docs/api/module.html);
 - [stream](https://nodejs.org/dist/latest-v16.x/docs/api/stream.html);
-- types: `isFn`, `isString`, `isNuber`, `isObject` ;
+- types: `isFn`, `isString`, `isNumber`, `isObject` `isUndefined`;
 - maybe: `maybeArray`;
 
 ## Install
