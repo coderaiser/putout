@@ -1,0 +1,8 @@
+{
+    "overrides": [{
+        "files": "*.md{js}",
+        "rules": {
+            "putout/tape-add-newline-between-tests": "off"
+        }
+    }]
+}

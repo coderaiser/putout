@@ -904,6 +904,7 @@ test('remove-unused-variables: get-vars: fn call: vars', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
+
 test('remove-unused-variables: get-vars: fn vars', (t) => {
     const ast = parse(fixture.fnVars);
     const result = getVars(ast);
@@ -1518,6 +1519,7 @@ test('remove-unused-variables: get-vars: typescript', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
+
 test('remove-unused-variables: get-vars: typescript: namespace', (t) => {
     const ast = parse(fixture.typescriptNamespace, {isTS: true});
     const result = getVars(ast).map(dutify);

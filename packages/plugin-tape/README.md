@@ -206,7 +206,7 @@ test('some message', (t) => {
 
 ## convert-deep-equal-to-equal
 
-Use [`equal`](https://github.com/coderaiser/supertape#tequalactual-expected-msg) when comparing with primitives, [`deepEqual`](https://github.com/coderaiser/supertape#tdeepequalactual-expected-msg) for [`Objects`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Object) and [`Arrays`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Array);
+Use [`equal`](https://github.com/coderaiser/supertape#tequalactual-expected-msg) when comparing with primitives, [`deepEqual`](https://github.com/coderaiser/supertape#tdeepequalactual-expected-msg) for [`Objects`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) and [`Arrays`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array);
 
 ### ❌ Incorrect code example
 
@@ -318,6 +318,7 @@ test('copymitter', (t) => {
 
 ```js
 const {once} = require('events');
+
 test('copymitter', async (t) => {
     const cp = copymitter(from, to, ['1']);
     
@@ -332,6 +333,7 @@ test('copymitter', async (t) => {
 
 ```js
 import tryCatch from 'try-catch';
+
 test('some message', (t) => {
     const fn = () => copymitter('/hello');
     const [error] = tryCatch(fn);
@@ -345,6 +347,7 @@ test('some message', (t) => {
 
 ```js
 import tryCatch from 'try-catch';
+
 test('some message', (t) => {
     const [error] = tryCatch(copymitter, '/hello');
     

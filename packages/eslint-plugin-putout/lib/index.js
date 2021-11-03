@@ -31,6 +31,7 @@ module.exports.rules = {
     ...getWrapRule('no-unresolved'),
     ...getWrapRule('evaluate'),
     ...getWrapRule('tape-add-newline-before-assertion'),
+    ...getWrapRule('tape-add-newline-between-tests'),
     ...getRule('putout'),
 };
 
@@ -59,6 +60,7 @@ const recommended = {
         'putout/no-unresolved': 'error',
         'putout/evaluate': 'error',
         'putout/tape-add-newline-before-assertion': 'error',
+        'putout/tape-add-newline-between-tests': 'error',
         'putout/putout': 'error',
         
         'node/no-unsupported-features/es-syntax': 'off',

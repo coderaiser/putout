@@ -9,6 +9,7 @@ test('putout: operator: regexp: is-simple-regexp: simple regexp', (t) => {
     t.ok(result);
     t.end();
 });
+
 test('putout: operator: regexp: is-simple-regexp: not simple regexp', (t) => {
     const result = isSimpleRegExp(/[a-z]/);
     

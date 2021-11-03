@@ -18,6 +18,7 @@ test('plugin-regexp/apply-literal-notation: transform: one argument and new', (t
     t.transformCode(`new RegExp('hello')`, '/hello/;');
     t.end();
 });
+
 test('plugin-regexp/apply-literal-notation: transform: two arguments', (t) => {
     t.transformCode(`RegExp('hello', 'g')`, '/hello/g;');
     t.end();
