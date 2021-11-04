@@ -17,7 +17,7 @@ npm i @putout/cli-keypress
 const keyPress = require('keypress');
 const {isStop} = keyPress();
 
-// do some stuf antil ctrl+c pressed
+// do some stuff until ctrl+c pressed
 async function again() {
     if (isStop())
         return;
