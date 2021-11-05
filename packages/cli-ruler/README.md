@@ -1,9 +1,7 @@
-# @putout/cli-ruler [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/cli-ruler [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/cli-ruler.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/cli-ruler "npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/cli-ruler
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/cli-ruler
 
 Ruler toggler for `.putout.json`.
 
