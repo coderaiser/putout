@@ -314,3 +314,40 @@ test('putout: plugin: declare-undefined-variables: options', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: vars', (t) => {
+    const declarations = {
+        maybeArray: `const maybeArray = (a) => isArray(a) ? a : [a]`,
+        maybeFn: `const maybeFn = (a) => isFn(a) ? a : noop`,
+    };
+    
+    const source = montag`
+        const b = [
+            ...maybeArray(a),
+            maybeFn(b),
+        ];
+    `;
+    
+    const {code} = putout(source, {
+        rules: {
+            declare: ['on', {
+                declarations,
+            }],
+        },
+        plugins: [
+            ['declare', declare({})],
+        ],
+    });
+    
+    const expected = montag`
+        const maybeFn = a => isFn(a) ? a : noop;
+        const maybeArray = a => isArray(a) ? a : [a];
+        const b = [
+            ...maybeArray(a),
+            maybeFn(b),
+        ];
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+

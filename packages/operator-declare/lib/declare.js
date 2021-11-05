@@ -6,7 +6,10 @@ const {
     checkDeclarationForESLint,
 } = require('./record');
 
-const {isImportDeclaration} = types;
+const {
+    isImportDeclaration,
+    isVariableDeclaration,
+} = types;
 const {keys} = Object;
 
 const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
@@ -75,7 +78,7 @@ const fix = (declarations) => (path, {options}) => {
             break;
         }
         
-        if (currentPath.isVariableDeclaration() && bodyPath.length > 1) {
+        if (currentPath.isVariableDeclaration() && bodyPath.length !== bodyPath.filter(isVariableDeclaration).length) {
             continue;
         }
         
