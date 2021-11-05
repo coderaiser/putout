@@ -1,6 +1,6 @@
 {
   "name": "@putout/operator-declare",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout operator adds ability to declare referenced variables that wan not defined",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-declare",
