@@ -7,11 +7,13 @@
             "convert-esm-to-commonjs": "on"
         },
         "eslint-fixture": {
+            "strict-mode": "off",
             "remove-empty": "off",
             "remove-unused-types": "off",
             "remove-unused-variables": "off",
             "remove-unused-expressions": "off",
             "remove-unused-for-of-variables": "off",
+            "remove-useless-return": "off",
             "tape/remove-skip": "off",
             "tape/remove-only": "off",
             "remove-console": "off",

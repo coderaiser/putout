@@ -89,6 +89,7 @@ const safe = {
                 'remove-unused-variables': 'off',
                 'remove-unused-expressions': 'off',
                 'remove-unused-for-of-variables': 'off',
+                'remove-useless-return': 'off',
                 'tape/remove-skip': 'off',
                 'tape/remove-only': 'off',
                 'remove-console': 'off',
