@@ -29,6 +29,9 @@ module.exports.filter = (path) => {
     if (!first.isReturnStatement())
         return false;
     
+    if (hasComments(first))
+        return false;
+    
     const argPath = first.get('argument');
     
     if (argPath.isCallExpression())
@@ -49,3 +52,11 @@ module.exports.filter = (path) => {
     return true;
 };
 
+function hasComments(path) {
+    const {comments} = path.node;
+    
+    if (!comments)
+        return false;
+    
+    return comments.length;
+}

@@ -54,3 +54,8 @@ test('plugin-remove-useless-return: no transform: no-return', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-return: no transform: comment', (t) => {
+    t.noTransform('comment');
+    t.end();
+});
+
