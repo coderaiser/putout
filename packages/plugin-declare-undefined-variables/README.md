@@ -10,7 +10,7 @@
 - [path](https://nodejs.org/dist/latest-v16.x/docs/api/module.html);
 - [stream](https://nodejs.org/dist/latest-v16.x/docs/api/stream.html);
 - types: `isFn`, `isString`, `isNumber`, `isObject` `isUndefined`;
-- maybe: `maybeArray`;
+- maybe: `maybeArray`, `maybeFn`;
 
 ## Install
 

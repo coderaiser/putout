@@ -1,4 +1,5 @@
-const a = [
-    ...maybeArray(b),
-];
+fn([
+    maybeArray(b),
+    maybeFn(b),
+]);
 
