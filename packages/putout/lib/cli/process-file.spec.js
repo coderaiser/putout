@@ -92,7 +92,7 @@ test('putout: cli: process-file: ts from preProcessor', async (t) => {
 });
 
 test('putout: cli: process-file: options for inner data', async (t) => {
-    const source = `__processor_json(${stringify({
+    const source = `__putout_processor_json(${stringify({
         rules: {
             'putout-config': true,
         },
@@ -139,7 +139,7 @@ test('putout: cli: process-file: options for inner data', async (t) => {
     const expected = [{
         message: 'String should be used instead of Boolean',
         position: {
-            column: 43,
+            column: 50,
             line: 2,
         },
         rule: 'putout-config/convert-boolean-to-string',

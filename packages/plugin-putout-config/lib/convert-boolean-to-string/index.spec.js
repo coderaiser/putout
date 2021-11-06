@@ -9,8 +9,23 @@ test('plugin-putout-config: convert-boolean-to-string: report', (t) => {
     t.end();
 });
 
-test('plugin-putout-config: convert-boolean-to-string: transform', (t) => {
+test('plugin-putout-config: convert-boolean-to-string: transform: bool', (t) => {
     t.transform('bool');
+    t.end();
+});
+
+test('plugin-putout-config: convert-boolean-to-string: transform: match', (t) => {
+    t.transform('match');
+    t.end();
+});
+
+test('plugin-putout-config: convert-boolean-to-string: transform: tuple', (t) => {
+    t.transform('tuple');
+    t.end();
+});
+
+test('plugin-putout-config: convert-boolean-to-string: transform: options', (t) => {
+    t.noTransform('options');
     t.end();
 });
 

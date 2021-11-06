@@ -9,8 +9,15 @@ test('plugin-apply-is-array: transform: report', (t) => {
     t.end();
 });
 
-test('plugin-apply-is-array: transform: else', (t) => {
+test('plugin-apply-is-array: transform: instanceof', (t) => {
     t.transform('instanceof');
+    t.end();
+});
+
+test('plugin-apply-is-array: transform: inline', (t) => {
+    t.transformWithOptions('inline', {
+        inline: true,
+    });
     t.end();
 });
 

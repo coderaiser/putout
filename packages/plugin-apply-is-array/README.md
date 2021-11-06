@@ -34,6 +34,24 @@ const {isArray} = Array;
 isArray(x);
 ```
 
+In case of using `inline` option:
+
+```json
+{
+    "rules": {
+        "apply-is-array": ["on", {
+            "inline": true,
+        }]
+    }
+}
+```
+
+`Array.isArray` will be inlined:
+
+```js
+Array.isArray(x);
+```
+
 ## License
 
 MIT
