@@ -6,12 +6,12 @@ module.exports.replace = ({options}) => {
     const {inline} = options;
     
     return {
-        '__a instanceof Array': (vars, path) => {
+        '__a instanceof Array': () => {
             if (inline)
                 return 'Array.isArray(__a)';
             
             return 'isArray(__a)';
-        }
-    }
+        },
+    };
 };
 

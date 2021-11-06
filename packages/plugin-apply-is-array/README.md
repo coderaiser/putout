@@ -40,7 +40,7 @@ In case of using `inline` option:
 {
     "rules": {
         "apply-is-array": ["on", {
-            "inline": true,
+            "inline": true
         }]
     }
 }
