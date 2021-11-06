@@ -28,7 +28,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 - [🤷‍♂️ How `Ruler` can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
 - [Converting `CommonJS` to `ESM`](#converting-commonjs-to-esm)
 - [Architecture](#architecture)
-- [🌲 The Tree of a Syntax](#-the-tree-of-a-syntax)
+- [🌲 The Tree of Syntax](#-the-tree-of-syntax)
 - [🌴 Laws of the Jungle](#-laws-of-the-jungle)
 - [API](#api)
 - [Built-in transformations](#built-in-transformations)
@@ -260,7 +260,7 @@ And here is a CLI sheme:
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-cli.png)
 
-### 🌲 The Tree of a Syntax
+### 🌲 The Tree of Syntax
 
 > **The wise speak of the perennial Ashvattha tree,
 which has roots above and branches below.
@@ -280,13 +280,17 @@ On the bottom level of 🐊`Putout` layes down `Syntax Tree`. This is data struc
 
 You can read about it in [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md). To understand how things works from the inside take a look at [Super Tiny Compiler](https://github.com/jamiebuilds/the-super-tiny-compiler).
 
-For example next code:
+> **When you look at a tree, se it for its leafs, its branches, its trunk and the roots, then and only then will you see the tree**
+>
+> **(c) Takuan Soho, "The Unfettered Mind: Writings of the Zen Master to the Sword Master"**
+
+Consider next peace of code:
 
 ```js
 hello = 'world';
 ```
 
-Looks this way in [ESTree](https://github.com/estree/estree) JavaScript syntax format:
+It looks this way in [ESTree](https://github.com/estree/estree) JavaScript syntax format:
 
 ```json
 {
