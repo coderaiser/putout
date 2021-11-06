@@ -1,9 +1,7 @@
-# @putout/plugin-putout-config [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-putout-config [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-putout-config.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-putout-config"npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-putout-config
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-putout-config
 
 `putout` plugin helps with [`putout`](https://github.com/coderaiser/putout) plugins development.
 
