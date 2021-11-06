@@ -1,3 +1,19 @@
+2021.11.06, v21.2.0
+
+fix:
+- (@putout/plugin-remove-useless-return) exclude nodes with comments
+
+feature:
+- (package) @putout/plugin-putout-config v2.0.0
+- (@putout/plugin-putout-config) drop support of node < 14
+- (@putout/plugin-apply-is-array) add support of "inline" option (https://github.com/xtermjs/xterm.js/pull/3538#discussion_r743663993)
+- (@putout/plugin-putout-config) improve support of plugin options
+- (@putout/operator-declare) improve VariableDeclaration check
+- (@putout/plugin-declare-undefined-variables) maybe: add maybeFn
+- (eslint-plugin-putout) safe: disable remove-useless-return
+- (eslint-plugin-tape) add tape-add-newline-between-tests
+
+
 2021.11.02, v21.1.2
 
 feature:
