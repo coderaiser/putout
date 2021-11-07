@@ -7,7 +7,7 @@
 
 - [fs/promises](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html);
 - [path](https://nodejs.org/dist/latest-v16.x/docs/api/path.html);
-- [path](https://nodejs.org/dist/latest-v16.x/docs/api/module.html);
+- [module](https://nodejs.org/dist/latest-v16.x/docs/api/module.html);
 - [stream](https://nodejs.org/dist/latest-v16.x/docs/api/stream.html);
 - types: `isFn`, `isString`, `isNumber`, `isObject` `isUndefined`;
 - maybe: `maybeArray`, `maybeFn`;
