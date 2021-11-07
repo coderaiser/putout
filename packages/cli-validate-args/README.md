@@ -1,9 +1,7 @@
-# @putout/cli-validate-args [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/cli-validate-args [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/cli-validate-args.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/cli-validate-args"npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/cli-validate-args
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/cli-validate-args
 
 Validate args and propose the closes variaint found by [fastest-levenshtein](https://www.npmjs.com/package/fastest-levenshtein):
 
