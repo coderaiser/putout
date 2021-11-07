@@ -146,6 +146,16 @@ test('putout: plugin: declare-undefined-variables: stream', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: currify', (t) => {
+    t.transform('currify');
+    t.end();
+});
+
+test('putout: plugin: declare-undefined-variables: wraptile', (t) => {
+    t.transform('wraptile');
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: noop', (t) => {
     t.transformCode('noop();', montag`
         const noop = () => {};

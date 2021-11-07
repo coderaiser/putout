@@ -11,6 +11,8 @@
 - [stream](https://nodejs.org/dist/latest-v16.x/docs/api/stream.html);
 - types: `isFn`, `isString`, `isNumber`, `isObject` `isUndefined`;
 - maybe: `maybeArray`, `maybeFn`;
+- [wraptile](https://github.com/coderaiser/wraptile);
+- [currify](https://github.com/coderaiser/currify);
 
 ## Install
 

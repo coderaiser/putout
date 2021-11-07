@@ -25,6 +25,8 @@ module.exports = {
     once: `import once from 'once'`,
     putout: `import putout from 'putout'`,
     eslint: `import eslint from 'putout/eslint'`,
+    currify: `import currify from 'currify'`,
+    wraptile: `import wraptile from 'wraptile'`,
     
     mockImport: `const {mockImport} = createMockImport(import.meta.url)`,
     reImport: `const {reImport} = createMockImport(import.meta.url)`,
