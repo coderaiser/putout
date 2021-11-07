@@ -8,7 +8,6 @@ Validate args and propose the closes variaint found by [fastest-levenshtein](htt
 ```
 Invalid option '--fi'. Perhaps you meant '--fix'`
 ```
-.
 
 ## Install
 
