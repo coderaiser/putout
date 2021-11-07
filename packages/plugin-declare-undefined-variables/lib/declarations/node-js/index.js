@@ -11,5 +11,6 @@ module.exports = {
     ...require('./path'),
     ...require('./module'),
     ...require('./stream'),
+    ...require('./os'),
 };
 

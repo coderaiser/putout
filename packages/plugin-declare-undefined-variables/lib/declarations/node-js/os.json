@@ -1,0 +1,23 @@
+{
+    "arch": "import {arch} from 'os'",
+    "cpus": "import {cpus} from 'os'",
+    "endianness": "import {endianness} from 'os'",
+    "freemem": "import {freemem} from 'os'",
+    "getPriority": "import {getPriority} from 'os'",
+    "homedir": "import {homedir} from 'os'",
+    "hostname": "import {hostname} from 'os'",
+    "loadavg": "import {loadavg} from 'os'",
+    "networkInterfaces": "import {networkInterfaces} from 'os'",
+    "platform": "import {platform} from 'os'",
+    "release": "import {release} from 'os'",
+    "setPriority": "import {setPriority} from 'os'",
+    "tmpdir": "import {tmpdir} from 'os'",
+    "totalmem": "import {totalmem} from 'os'",
+    "type": "import {type} from 'os'",
+    "userInfo": "import {userInfo} from 'os'",
+    "uptime": "import {uptime} from 'os'",
+    "version": "import {version} from 'os'",
+    "constants": "import {constants} from 'os'",
+    "EOL": "import {EOL} from 'os'",
+    "devNull": "import {devNull} from 'os'"
+}
