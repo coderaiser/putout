@@ -27,6 +27,8 @@ module.exports = {
     eslint: `import eslint from 'putout/eslint'`,
     currify: `import currify from 'currify'`,
     wraptile: `import wraptile from 'wraptile'`,
+    pipe: `import pipe from 'pipe-io'`,
+    pullout: `import pullout from 'pullout'`,
     
     mockImport: `const {mockImport} = createMockImport(import.meta.url)`,
     reImport: `const {reImport} = createMockImport(import.meta.url)`,

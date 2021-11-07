@@ -14,6 +14,8 @@
 - maybe: `maybeArray`, `maybeFn`;
 - [wraptile](https://github.com/coderaiser/wraptile);
 - [currify](https://github.com/coderaiser/currify);
+- [pipe-io](https://github.com/coderaiser/pipe-io);
+- [pullout](https://github.com/coderaiser/pullout);
 
 ## Install
 

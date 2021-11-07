@@ -198,3 +198,20 @@ test('putout: plugin: declare-undefined-variables: options-declarations', (t) =>
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: pipe', (t) => {
+    t.transformCode('await pipe([stream]);', montag`
+        import pipe from 'pipe-io';
+        await pipe([stream]);
+    `);
+    
+    t.end();
+});
+
+test('putout: plugin: declare-undefined-variables: pullout', (t) => {
+    t.transformCode('await pullout(stream);', montag`
+        import pullout from 'pullout';
+        await pullout(stream);
+    `);
+    
+    t.end();
+});
