@@ -62,8 +62,7 @@ test('putout: match: parse error', async (t) => {
 });
 
 test('putout: match: no rules', async (t) => {
-    const readFile = stub().resolves(stringify({
-    }));
+    const readFile = stub().resolves(stringify({}));
     
     const code = await match({
         pattern: '*.md',

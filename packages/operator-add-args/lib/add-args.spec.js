@@ -169,8 +169,7 @@ test('putout: operator: add-argument: identifier', (t) => {
 });
 
 test('putout: operator: add-argument: options', (t) => {
-    const args = {
-    };
+    const args = {};
     
     const source = montag`
         test('', () => {

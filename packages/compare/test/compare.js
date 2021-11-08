@@ -688,8 +688,7 @@ test('compare: parent: ignore', (t) => {
     const node = {
         type: 'Identifier',
         name: 'hello',
-        parent: {
-        },
+        parent: {},
     };
     
     const template = {

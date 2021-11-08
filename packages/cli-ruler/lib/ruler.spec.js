@@ -21,8 +21,7 @@ test('putout: cli: ruler: enable', (t) => {
 test('putout: cli: ruler: enable: parser', (t) => {
     const config = enable({}, 'parser');
     const expected = {
-        rules: {
-        },
+        rules: {},
     };
     
     t.deepEqual(config, expected);
@@ -76,8 +75,7 @@ test('putout: cli: ruler: enable: not putout rule', (t) => {
 test('putout: cli: ruler: disable: parser', (t) => {
     const config = disable({}, 'parser');
     const expected = {
-        rules: {
-        },
+        rules: {},
     };
     
     t.deepEqual(config, expected);

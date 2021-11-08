@@ -49,6 +49,7 @@ Then configure the rules you want to use under the rules section.
         "putout/newline-function-call-arguments": "error",
         "putout/function-declaration-paren-newline": "error",
         "putout/remove-newline-after-default-import": "error",
+        "putout/remove-newline-from-empty-object": "error",
         "putout/remove-empty-newline-after-last-specifier": "error",
         "putout/objects-braces-inside-array": "error",
         "putout/object-init": "error"
@@ -69,6 +70,7 @@ Then configure the rules you want to use under the rules section.
 - [Newline function call arguments](/packages/eslint-plugin-putout/lib/newline-function-call-arguments)
 - [Function declaration paren newline](/packages/eslint-plugin-putout/lib/function-declaration-paren-newline)
 - [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import)
+- [Remove newline from empty object](/packages/eslint-plugin-putout/lib/remove-newline-from-empty-object)
 - [Remove empty newline after last specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-specifier)
 - [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array)
 - [Object init](/packages/eslint-plugin-putout/lib/object-init)

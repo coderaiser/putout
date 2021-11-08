@@ -45,3 +45,7 @@ test('eslint-plugin-putout: tape-add-newline-between-tests', async ({process}) =
 test('eslint-plugin-putout: remove-empty-newline-after-last-specifier', async ({process}) => {
     await process('remove-empty-newline-after-last-specifier');
 });
+
+test('eslint-plugin-putout: remove-newline-from-empty-object', async ({process}) => {
+    await process('remove-newline-from-empty-object');
+});

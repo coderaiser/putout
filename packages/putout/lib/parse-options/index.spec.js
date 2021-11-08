@@ -85,8 +85,7 @@ test('putout: parseOptions: readHomeOptions: __dirname', (t) => {
         },
     });
     
-    mockRequire('../../putout.json', {
-    });
+    mockRequire('../../putout.json', {});
     
     const parseOptions = reRequire('.');
     

@@ -552,8 +552,7 @@ test('putout: engine-processor: md: json: options', async (t) => {
 });
 
 test('putout: engine-processor: lint + js', async (t) => {
-    const options = {
-    };
+    const options = {};
     
     const processorRunners = [{
         isMatch: stub().returns(true),
@@ -584,8 +583,7 @@ test('putout: engine-processor: lint + js', async (t) => {
 });
 
 test('putout: engine-processor: no fix', async (t) => {
-    const options = {
-    };
+    const options = {};
     
     const processorRunners = [{
         isMatch: stub().returns(true),

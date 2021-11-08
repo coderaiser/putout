@@ -4,8 +4,7 @@ const {test, stub} = require('supertape');
 const isCorrectPlugin = require('./is-correct-plugin');
 
 test('test: isCorrectPlugin: not', (t) => {
-    const result = isCorrectPlugin({
-    });
+    const result = isCorrectPlugin({});
     
     t.notOk(result);
     t.end();

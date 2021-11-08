@@ -4,8 +4,7 @@ const {test} = require('supertape');
 const applyModuleTypeRules = require('./apply-module-type-rules');
 
 test('putout: parse-options: apply module type rules: module', (t) => {
-    const options = {
-    };
+    const options = {};
     
     const info = {
         type: 'module',
@@ -26,8 +25,7 @@ test('putout: parse-options: apply module type rules: module', (t) => {
 });
 
 test('putout: parse-options: apply module type rules: commonjs', (t) => {
-    const options = {
-    };
+    const options = {};
     
     const info = {
         type: 'commonjs',

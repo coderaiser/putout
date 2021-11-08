@@ -149,8 +149,7 @@ test('putout: operate: replaceWith: comments', (t) => {
         comments,
     };
     
-    const newNode = {
-    };
+    const newNode = {};
     
     const path = {
         node,
@@ -173,8 +172,7 @@ test('putout: operate: replaceWith: loc', (t) => {
         loc,
     };
     
-    const newNode = {
-    };
+    const newNode = {};
     
     const parentPath = {
         isExpressionStatement,
@@ -193,8 +191,7 @@ test('putout: operate: replaceWith: loc', (t) => {
 });
 
 test('putout: operate: insertAfter', (t) => {
-    const node = {
-    };
+    const node = {};
     const insertAfter = stub();
     
     const path = {
@@ -216,8 +213,7 @@ test('putout: operate: insertAfter: comments', (t) => {
         comments,
     };
     
-    const newNode = {
-    };
+    const newNode = {};
     
     const path = {
         node,
@@ -234,8 +230,7 @@ test('putout: operate: replaceWithMultiple', (t) => {
     const nodes = [];
     const comments = [];
     
-    const replaceWithMultiple = stub().returns({
-    });
+    const replaceWithMultiple = stub().returns({});
     
     const parentPath = {
         node: {

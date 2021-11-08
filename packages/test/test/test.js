@@ -114,8 +114,7 @@ test('test: transform: rule of a plugin', (t) => {
         const {UPDATE} = process.env;
         process.env.UPDATE = 1;
         
-        t.transformWithOptions('typescript', {
-        });
+        t.transformWithOptions('typescript', {});
         
         process.env.UPDATE = UPDATE;
         

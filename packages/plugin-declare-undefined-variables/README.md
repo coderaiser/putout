@@ -85,8 +85,7 @@ You can `dismiss` variables you don't want to define, or declare using "declarat
 
 ```js
 const hello = 'world';
-const object = {
-};
+const object = {};
 
 assign(object, {
     hello,
@@ -97,8 +96,7 @@ assign(object, {
 
 ```js
 const hello = 'world';
-const object = {
-};
+const object = {};
 const {assign} = Object;
 
 assign(object, {
@@ -112,8 +110,7 @@ assign(object, {
 
 ```js
 const hello = 'world';
-const object = {
-};
+const object = {};
 
 const allKeys = keys(object);
 ```
@@ -122,8 +119,7 @@ const allKeys = keys(object);
 
 ```js
 const hello = 'world';
-const object = {
-};
+const object = {};
 const {keys} = Object;
 
 const allKeys = keys(object);
