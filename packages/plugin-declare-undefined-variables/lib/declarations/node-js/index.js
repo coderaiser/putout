@@ -12,5 +12,6 @@ module.exports = {
     ...require('./module'),
     ...require('./stream'),
     ...require('./os'),
+    ...require('./child_process'),
 };
 

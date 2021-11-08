@@ -146,6 +146,11 @@ test('putout: plugin: declare-undefined-variables: os', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: child_process', (t) => {
+    t.transform('child_process');
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: stream', (t) => {
     t.transform('stream');
     t.end();

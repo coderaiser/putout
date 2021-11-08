@@ -1,0 +1,1 @@
+spawn('./hello');
