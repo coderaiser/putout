@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
 
 test('putout: processor: typescript', async ({comparePlaces}) => {
     await comparePlaces('typescript.ts', [{
-        message: 'Type \'0\' is not assignable to type \'null\'.',
+        message: `Type '0' is not assignable to type 'null'.`,
         position: {
             column: 1,
             line: 1,

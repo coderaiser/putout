@@ -80,7 +80,9 @@ ruleTester.run('new-line-function-call-arguments', rule, {
         `,
         output:
         '\n        const onConnectError = squad(\n' +
-        'superFn(\'connect_error\'),\n        logWraped(isLog,\n' +
+        `superFn('connect_error'),
+        logWraped(isLog,
+` +
         'importStr),\n        addUrl(colorUrl),\n        ' +
         'getDescription\n);\n        ',
         errors: [{

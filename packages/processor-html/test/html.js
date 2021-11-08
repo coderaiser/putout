@@ -15,7 +15,7 @@ test('putout: processor: html', async ({process}) => {
 
 test('putout: processor: html: css: no fix', async ({comparePlaces}) => {
     await comparePlaces('style', [{
-        message: '\'log\' is not defined.',
+        message: `'log' is not defined.`,
         position: {
             column: 1,
             line: 13,

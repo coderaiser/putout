@@ -3,5 +3,8 @@
         "*.md": {
             "remove-useless-escape": "off"
         }
+    },
+    "rules": {
+        "convert-quotes-to-backticks": "off"
     }
 }

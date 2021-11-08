@@ -548,7 +548,7 @@ test('compare: __object identifier', (t) => {
 });
 
 test('compare: string literal: expression', (t) => {
-    const result = compare('\'hello\' + x + \'world\'', '"__a" + __b + "__c"');
+    const result = compare(`'hello' + x + 'world'`, '"__a" + __b + "__c"');
     
     t.ok(result);
     t.end();

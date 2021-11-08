@@ -98,6 +98,7 @@
     "@putout/plugin-convert-math-pow": "^4.0.0",
     "@putout/plugin-convert-mock-require-to-mock-import": "^1.0.0",
     "@putout/plugin-convert-object-assign-to-merge-spread": "^5.0.0",
+    "@putout/plugin-convert-quotes-to-backticks": "^1.0.0",
     "@putout/plugin-convert-template-to-string": "^1.0.0",
     "@putout/plugin-convert-to-arrow-function": "^3.0.0",
     "@putout/plugin-convert-top-level-return": "^4.0.0",

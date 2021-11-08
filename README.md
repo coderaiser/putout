@@ -167,6 +167,7 @@ converted to `CommonJS` automatically. To convert to `ESM` just set `type=module
 They will be converted automatically to `CommonJS` and `ESM` accordingly.
 
 #### ☝️ I want to run only one rule
+
 Let's suppose you have a file called `index.js`:
 
 ```js
@@ -263,14 +264,14 @@ And here is a CLI sheme:
 ### 🌲 The Tree of Syntax
 
 > **The wise speak of the perennial Ashvattha tree,
-which has roots above and branches below.
-The leaves protecting it are the Vedas.
-One who knows this, truly knows.**
+> which has roots above and branches below.
+> The leaves protecting it are the Vedas.
+> One who knows this, truly knows.**
 > **The tender sprouts of this mighty tree
-are the senses nourished by the gunas.
-The branches extend both above and below.
-The secondary roots going downward represent actions
-that bind the individual soul to earthly existence.**
+> are the senses nourished by the gunas.
+> The branches extend both above and below.
+> The secondary roots going downward represent actions
+> that bind the individual soul to earthly existence.**
 >
 > **(c) “Bhagavatgita”, chapter 15**
 
@@ -308,7 +309,7 @@ It looks this way in [ESTree](https://github.com/estree/estree) JavaScript synta
 ```
 
 > **When one is not capable of true intelligence, it is good to consult with someone of good sense. An advisor will fulfill the Way when he makes a decision by selfless and frank intelligence because he is not personally involved. This way of doing things will certainly be seen by others as being strongly rooted. It is, for example, like a large tree with many roots.**
-> 
+>
 > **(c) Yamamoto Tsunetomo "Hagakure"**
 
 🐊`Putout` based on [Babel AST](https://github.com/babel/babel/blob/main/packages/babel-parser/ast/spec.md). It has a couple differences from `ESTree` which are perfectly handled by [estree-to-babel](https://github.com/coderaiser/estree-to-babel) especially when 🐊`Putout` running as [a plugin for `ESLint`](#integration-with-eslint).
@@ -793,6 +794,15 @@ const putout = require('putout');
 -if (a = 5) {
 +if (a === 5) {
 }
+```
+
+</details>
+
+<details><summary>convert <code>quotes</code> to <code>backticks</code></summary>
+
+```diff
+-const a = 'hello \'world\'';
++const a = `hello 'world'`;
 ```
 
 </details>
@@ -1575,6 +1585,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-convert-apply-to-spread`](/packages/plugin-convert-apply-to-spread) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-apply-to-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-apply-to-spread) |
+| [`@putout/plugin-convert-quotes-to-backticks`](/packages/plugin-convert-quotes-to-backticks) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-quotes-to-backticks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-quotes-to-backticks) |
 | [`@putout/plugin-convert-bitwise-to-logical`](/packages/plugin-convert-bitwise-to-logical) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-bitwise-to-logical.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-bitwise-to-logical) |
 | [`@putout/plugin-convert-concat-to-flat`](/packages/plugin-convert-concat-to-flat) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-concat-to-flat.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-concat-to-flat) |
 | [`@putout/plugin-convert-esm-to-commonjs`](/packages/plugin-convert-esm-to-commonjs) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-esm-to-commonjs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-esm-to-commonjs) |

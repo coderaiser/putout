@@ -40,6 +40,7 @@
             "declare-undefined-variables": "off"
         },
         "{*rc,*.{json,yml}}": {
+            "convert-quotes-to-backticks": "off",
             "remove-useless-escape": "off",
             "apply-numeric-separators": "off"
         },
@@ -225,6 +226,7 @@
         "convert-mock-require-to-mock-import",
         "convert-assignment-to-arrow-function",
         "convert-assignment-to-comparison",
+        "convert-quotes-to-backticks",
         "merge-destructuring-properties",
         "merge-duplicate-imports",
         "merge-if-statements",
