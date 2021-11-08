@@ -82,6 +82,11 @@ test('plugin-remove-useless-escape: transform: plus', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-escape: transform: backtick', (t) => {
+    t.transform('backtick');
+    t.end();
+});
+
 test('plugin-remove-useless-escape: no transform: no raw', (t) => {
     t.transform('no-raw', {
         addFixLint,

@@ -63,6 +63,9 @@ module.exports.traverse = ({push}) => ({
             
             if (isEscaped(raw))
                 return push(path);
+            
+            if (raw.includes('\\\''))
+                return push(path);
         }
     },
 });
