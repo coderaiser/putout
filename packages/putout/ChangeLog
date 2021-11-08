@@ -1,3 +1,16 @@
+2021.11.08, v21.3.0
+
+feature:
+- (@putout/plugin-convert-quotes-to-backticks) add
+- (@putout/plugin-remove-useless-escape) add support of escaping single quotes in backquotes
+- (eslint-plugin-putout) add remove-newline-from-empty-object
+- (eslint-plugin-putout) add remove-empty-newline-after-last-specifier
+- (@putout/plugin-declare-undefined-variables) add support of child_process
+- (@putout/plugin-declare-undefined-variables) add pullout, pipe-io
+- (@putout/plugin-declare-undefined-variables) add support of os
+- (@putout/plugin-declare-undefined-variables) add currify, wraptile
+
+
 2021.11.06, v21.2.0
 
 fix:
