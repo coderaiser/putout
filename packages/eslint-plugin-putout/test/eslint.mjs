@@ -41,3 +41,7 @@ test('eslint-plugin-putout: tape-add-newline-before-assertion', async ({process}
 test('eslint-plugin-putout: tape-add-newline-between-tests', async ({process}) => {
     await process('tape-add-newline-between-tests');
 });
+
+test('eslint-plugin-putout: remove-empty-newline-after-last-specifier', async ({process}) => {
+    await process('remove-empty-newline-after-last-specifier');
+});
