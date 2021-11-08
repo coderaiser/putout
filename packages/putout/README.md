@@ -48,6 +48,7 @@ Putout is a tool for identifying, reporting and fixing patterns found in JavaScr
 - remove `boolean` from `assertion`;
 - remove `boolean` from `logical expressions`;
 - remove `duplicates` from `logical expressions`;
+- remove `duplicates` from TypeScript `Union`;
 - remove `unreachable code`;
 - remove `duplicate keys`;
 - remove useless `typescripts` types;

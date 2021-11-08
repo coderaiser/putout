@@ -129,6 +129,7 @@
     "@putout/plugin-remove-duplicate-interface-keys": "^3.0.0",
     "@putout/plugin-remove-duplicate-keys": "^2.0.0",
     "@putout/plugin-remove-duplicates-from-logical-expressions": "^1.0.0",
+    "@putout/plugin-remove-duplicates-from-union": "^1.0.0",
     "@putout/plugin-remove-empty": "^6.0.0",
     "@putout/plugin-remove-iife": "^1.0.0",
     "@putout/plugin-remove-nested-blocks": "^4.0.0",

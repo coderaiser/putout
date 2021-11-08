@@ -473,6 +473,15 @@ putout(source, {
 
 </details>
 
+<details><summary>remove duplicates from `union` (for typescript)</summary>
+
+```diff
+-type x = boolean[] |A | string | A | string[] | boolean[];
++type x = boolean[] | A | string | string[];
+```
+
+</details>
+
 <details><summary>remove duplicates from logical expressions</summary>
 
 ```diff
@@ -1655,6 +1664,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-remove-constant-conditions`](/packages/plugin-remove-constant-conditions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-constant-conditions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-constant-conditions) |
 | [`@putout/plugin-remove-boolean-from-assertions`](/packages/plugin-remove-boolean-from-assertions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-boolean-from-assertions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-boolean-from-assertions) |
 | [`@putout/plugin-remove-boolean-from-logical-expressions`](/packages/plugin-remove-boolean-from-logical-expressions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-boolean-from-logical-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-boolean-from-logical-expressions) |
+| [`@putout/plugin-remove-duplicates-from-union`](/packages/plugin-remove-duplicates-from-union) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicates-from-union.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicates-from-union) |
 | [`@putout/plugin-remove-duplicates-from-logical-expressions`](/packages/plugin-remove-duplicates-from-logical-expressions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicates-from-logical-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicates-from-logical-expressions) |
 | [`@putout/plugin-remove-nested-blocks`](/packages/plugin-remove-nested-blocks) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-nested-blocks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-nested-blocks) |
 

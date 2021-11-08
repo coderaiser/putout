@@ -190,6 +190,7 @@
         "remove-constant-conditions",
         "remove-boolean-from-assertions",
         "remove-boolean-from-logical-expressions",
+        "remove-duplicates-from-union",
         "remove-duplicates-from-logical-expressions",
         "remove-duplicate-interface-keys",
         "remove-duplicate-case",
