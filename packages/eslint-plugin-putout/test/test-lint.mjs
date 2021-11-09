@@ -14,7 +14,7 @@ const read = async (name) => {
     if (data)
         return [`${name}.js`, data];
     
-    return [`${name}.ts}`, await readFile(`${name}.ts`, 'utf8')];
+    return [`${name}.ts`, await readFile(`${name}.ts`, 'utf8')];
 };
 
 export const test = extend({

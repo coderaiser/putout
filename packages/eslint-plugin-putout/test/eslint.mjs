@@ -49,3 +49,7 @@ test('eslint-plugin-putout: remove-empty-newline-after-last-specifier', async ({
 test('eslint-plugin-putout: remove-newline-from-empty-object', async ({process}) => {
     await process('remove-newline-from-empty-object');
 });
+
+test('eslint-plugin-putout: add-newlines-between-types-in-union', async ({process}) => {
+    await process('add-newlines-between-types-in-union');
+});

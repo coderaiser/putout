@@ -24,13 +24,21 @@ npm i @putout/plugin-remove-duplicates-from-union -D
 ## ❌ Incorrect code example
 
 ```ts
-type x = boolean[] | A | string | A | string[] | boolean[];
+type x = boolean[]
+    | A
+    | string
+    | A
+    | string[]
+    | boolean[];
 ```
 
 ## ✅ Correct code Example
 
 ```ts
-type x = boolean[] | A | string | string[];
+type x = boolean[]
+    | A
+    | string
+    | string[];
 ```
 
 ## License
