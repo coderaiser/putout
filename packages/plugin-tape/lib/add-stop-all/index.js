@@ -23,27 +23,31 @@ module.exports.fix = (path) => {
 };
 
 const TEST = 'test("__a", (t) => __body)';
+const TEST_ASYNC = 'test("__a", async (t) => __body)';
 
 module.exports.traverse = ({push}) => ({
-    [TEST]: (path) => {
-        const {
-            hasMockImport,
-            hasStopAll,
-            hasAssertions,
-        } = check(path);
-        
-        if (!hasMockImport)
-            return;
-        
-        if (!hasAssertions)
-            return;
-        
-        if (hasStopAll)
-            return;
-        
-        push(path);
-    },
+    [TEST]: createTraverse(push),
+    [TEST_ASYNC]: createTraverse(push),
 });
+
+const createTraverse = (push) => (path) => {
+    const {
+        hasMockImport,
+        hasStopAll,
+        hasAssertions,
+    } = check(path);
+    
+    if (!hasMockImport)
+        return;
+    
+    if (!hasAssertions)
+        return;
+    
+    if (hasStopAll)
+        return;
+    
+    push(path);
+};
 
 function check(path) {
     let hasStopAll = false;

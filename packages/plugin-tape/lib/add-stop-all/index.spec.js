@@ -29,3 +29,8 @@ test('plugin-tape: add-mock-import: transform: many-assertions', (t) => {
     t.end();
 });
 
+test('plugin-tape: add-mock-import: transform: async', (t) => {
+    t.transform('async');
+    t.end();
+});
+
