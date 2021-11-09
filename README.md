@@ -55,7 +55,7 @@ Putout is a pluggable and configurable code transformer with built-in `eslint`, 
 > **(c) Isaak Newton**
 
 - [`ESLint`](https://eslint.org) for stable releases and future proof `API`.
-- [`Babel`](https://babeljs.io) for amazing `API` documented in `Hadnbook` and responsivness of a team.
+- [`Babel`](https://babeljs.io) for amazing `API` documented in `Handbook` and responsiveness of a team.
 - [`Prettier`](https://github.com/prettier/prettier) for minimalistic options and uniform codestyle.
 - [`jscodeshift`](https://github.com/facebook/jscodeshift) for making codemods simple and popular.
 
