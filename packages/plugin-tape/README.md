@@ -20,6 +20,7 @@ npm i @putout/plugin-tape -D
         "tape/apply-with-name": "on",
         "tape/add-t-end": "on",
         "tape/add-stop-all": "on",
+        "tape/add-await-to-re-import": "on",
         "tape/remove-useless-t-end": "on",
         "tape/sync-with-name": "on",
         "tape/switch-expected-with-result": "on",
@@ -490,6 +491,26 @@ test('xxx', (t) => {
 });
 ```
 
+## add-await-to-re-import
+
+### ❌ Incorrect code example
+
+```js
+test('stop-all: should be called', (t) => {
+    const read = reImport('./read');
+    t.end();
+});
+```
+
+### ✅ Correct code example
+
+```js
+test('stop-all: should be called', async (t) => {
+    const read = await reImport('./read');
+    t.end();
+});
+```
+
 ## add-stop-all
 
 When you write test mocking `ESM` with [`mockImport()`](https://github.com/coderaiser/mock-import#mockimportname-mock) never forget to call [`stopAll()`](https://github.com/coderaiser/mock-import#stopall) when you no longer need it. This leads to bugs in tests which are hard to find, each test should be checked with the one which pass when called alone but fail when called with others.
@@ -497,7 +518,7 @@ When you write test mocking `ESM` with [`mockImport()`](https://github.com/coder
 ### ❌ Incorrect code example
 
 ```js
-test('stop-all: should be called', () => {
+test('stop-all: should be called', (t) => {
     mockImport('fs/promises', {
         readFile: stub(),
     });
@@ -509,7 +530,7 @@ test('stop-all: should be called', () => {
 ### ✅ Correct code example
 
 ```js
-test('stop-all: should be called', () => {
+test('stop-all: should be called', (t) => {
     mockImport('fs/promises', {
         readFile: stub(),
     });

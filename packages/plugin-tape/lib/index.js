@@ -6,6 +6,7 @@ const getRule = (a) => ({
 
 module.exports.rules = {
     ...getRule('apply-with-name'),
+    ...getRule('add-await-to-re-import'),
     ...getRule('sync-with-name'),
     ...getRule('convert-tape-to-supertape'),
     ...getRule('convert-throws-to-try-catch'),
