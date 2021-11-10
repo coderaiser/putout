@@ -1,3 +1,13 @@
+2021.11.10, v21.5.0
+
+feature:
+- (putout) terminal: add support of WebStorm, VS Code
+- (@putout/plugin-tape) add remove-stop-all
+- (@putout/plugin-tape) add add-await-to-re-import
+- (@putout/plugin-tape) add-stop-all: add support of async functions
+- (eslint-plugin-putout) add add-newlines-between-types-in-union
+
+
 2021.11.08, v21.4.0
 
 feature:
