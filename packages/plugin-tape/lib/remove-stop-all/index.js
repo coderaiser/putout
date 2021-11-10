@@ -2,6 +2,15 @@
 
 const {operator} = require('putout');
 
+const {
+    TEST,
+    TEST_ONLY,
+    TEST_SKIP,
+    TEST_ASYNC,
+    TEST_ASYNC_ONLY,
+    TEST_ASYNC_SKIP,
+} = require('../test-signatures');
+
 const {traverse} = operator;
 
 module.exports.report = () => `Remove 'stopAll()' when you not calling 'reImport()'`;
@@ -9,15 +18,6 @@ module.exports.report = () => `Remove 'stopAll()' when you not calling 'reImport
 module.exports.fix = (path) => {
     path.remove();
 };
-
-const TEST = 'test("__a", (t) => __body)';
-const TEST_ASYNC = 'test("__a", async (t) => __body)';
-
-const TEST_ONLY = 'test.only("__a", (t) => __body)';
-const TEST_ASYNC_ONLY = 'test.only("__a", async (t) => __body)';
-
-const TEST_SKIP = 'test.skip("__a", (t) => __body)';
-const TEST_ASYNC_SKIP = 'test.skip("__a", async (t) => __body)';
 
 module.exports.traverse = ({push}) => ({
     [TEST]: createTraverse(push),

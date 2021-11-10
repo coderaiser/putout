@@ -7,6 +7,15 @@ const {
 } = require('putout');
 
 const {
+    TEST,
+    TEST_ONLY,
+    TEST_SKIP,
+    TEST_ASYNC,
+    TEST_ASYNC_ONLY,
+    TEST_ASYNC_SKIP,
+} = require('../test-signatures');
+
+const {
     traverse,
     compare,
 } = operator;
@@ -22,12 +31,14 @@ module.exports.fix = (path) => {
     assertionPath.insertBefore(ExpressionStatement(stopAllNode));
 };
 
-const TEST = 'test("__a", (t) => __body)';
-const TEST_ASYNC = 'test("__a", async (t) => __body)';
-
 module.exports.traverse = ({push}) => ({
     [TEST]: createTraverse(push),
+    [TEST_ONLY]: createTraverse(push),
+    [TEST_SKIP]: createTraverse(push),
+    
     [TEST_ASYNC]: createTraverse(push),
+    [TEST_ASYNC_ONLY]: createTraverse(push),
+    [TEST_ASYNC_SKIP]: createTraverse(push),
 });
 
 const createTraverse = (push) => (path) => {
