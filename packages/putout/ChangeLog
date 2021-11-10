@@ -1,3 +1,16 @@
+2021.11.10, v21.6.0
+
+feature:
+- (package) @putout/plugin-remove-useless-functions v2.0.0
+- (@putout/plugin-remove-useless-functions) drop support of node < 14
+- (putout) apply-filter-boolean: disabled and will be removed in next major version
+- (@putout/plugin-remove-useless-functions) add support of id
+- (eslint-plugin-putout) add babel options from @putout/engine-parser for TypeScript and Markdown
+- (@putout/engine-parser) export babel/options
+- (@putout/plugin-tape) add-stop-all: add support of test.only(), test.skip()
+- (@putout/plugin-tape) remove-stop-all: add support of test.only(), test.skip()
+
+
 2021.11.10, v21.5.0
 
 feature:
