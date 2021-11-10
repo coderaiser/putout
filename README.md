@@ -281,7 +281,9 @@ On the bottom level of 🐊`Putout` layes down `Syntax Tree`. This is data struc
 
 You can read about it in [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md). To understand how things works from the inside take a look at [Super Tiny Compiler](https://github.com/jamiebuilds/the-super-tiny-compiler).
 
-> **When you look at a tree, se it for its leafs, its branches, its trunk and the roots, then and only then will you see the tree**
+> **Preoccupied with a single leaf, you won't see the tree.
+> Preoccupied with a single tree, you'll miss the entire forest.
+> When you look at a tree, se it for its leafs, its branches, its trunk and the roots, then and only then will you see the tree.**
 >
 > **(c) Takuan Soho, "The Unfettered Mind: Writings of the Zen Master to the Sword Master"**
 
