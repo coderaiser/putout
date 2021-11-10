@@ -1,3 +1,9 @@
+2021.11.10, v22.0.0
+
+feature:
+- (putout) remove apply-filter-boolean from default install, use remove-useless-functions instead'
+
+
 2021.11.10, v21.6.0
 
 feature:
