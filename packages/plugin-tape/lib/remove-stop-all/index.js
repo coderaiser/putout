@@ -13,9 +13,20 @@ module.exports.fix = (path) => {
 const TEST = 'test("__a", (t) => __body)';
 const TEST_ASYNC = 'test("__a", async (t) => __body)';
 
+const TEST_ONLY = 'test.only("__a", (t) => __body)';
+const TEST_ASYNC_ONLY = 'test.only("__a", async (t) => __body)';
+
+const TEST_SKIP = 'test.skip("__a", (t) => __body)';
+const TEST_ASYNC_SKIP = 'test.skip("__a", async (t) => __body)';
+
 module.exports.traverse = ({push}) => ({
     [TEST]: createTraverse(push),
+    [TEST_ONLY]: createTraverse(push),
+    [TEST_SKIP]: createTraverse(push),
+    
     [TEST_ASYNC]: createTraverse(push),
+    [TEST_ASYNC_ONLY]: createTraverse(push),
+    [TEST_ASYNC_SKIP]: createTraverse(push),
 });
 
 const createTraverse = (push) => (path) => {

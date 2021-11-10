@@ -14,6 +14,11 @@ test('plugin-tape: remove-stop-all: transform', (t) => {
     t.end();
 });
 
+test('plugin-tape: remove-stop-all: transform: async', (t) => {
+    t.transform('async');
+    t.end();
+});
+
 test('plugin-tape: remove-stop-all: no transform: re-import', (t) => {
     t.noTransform('re-import');
     t.end();
