@@ -4,10 +4,14 @@
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout parser",
   "homepage": "http://github.com/coderaiser/putout",
-  "main": "lib/parser.js",
+  "main": "./lib/parser.js",
   "release": false,
   "tag": false,
   "changelog": false,
+  "exports": {
+    ".": "./lib/parser.js",
+    "./babel/options": "./lib/parsers/babel/options.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/coderaiser/putout.git"

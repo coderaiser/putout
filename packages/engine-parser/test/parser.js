@@ -358,3 +358,11 @@ test('putout: parser: typescrip with jsx: ambiguity syntax', (t) => {
     t.end();
 });
 
+test('putout: parser: babel/options', (t) => {
+    const result = require('@putout/engine-parser/babel/options');
+    const expected = require('../lib/parsers/babel/options');
+    
+    t.equal(result, expected);
+    t.end();
+});
+
