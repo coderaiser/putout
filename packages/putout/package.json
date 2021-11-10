@@ -149,7 +149,7 @@
     "@putout/plugin-remove-useless-continue": "^1.0.0",
     "@putout/plugin-remove-useless-escape": "^1.0.0",
     "@putout/plugin-remove-useless-for-of": "^2.0.0",
-    "@putout/plugin-remove-useless-functions": "^1.0.3",
+    "@putout/plugin-remove-useless-functions": "^2.0.0",
     "@putout/plugin-remove-useless-map": "^1.0.0",
     "@putout/plugin-remove-useless-mapped-types": "^1.0.0",
     "@putout/plugin-remove-useless-mapping-modifiers": "^1.0.0",
