@@ -31,12 +31,15 @@ npm i @putout/plugin-remove-useless-functions -D
 const y = (...a) => {
     alert(...a);
 };
+
+[].filter((a) => a);
 ```
 
 ### ✅ Correct code Example
 
 ```js
 const y = alert;
+[].filter(Boolean);
 ```
 
 ## Open Questions

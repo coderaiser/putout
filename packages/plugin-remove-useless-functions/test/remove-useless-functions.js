@@ -24,6 +24,16 @@ test('remove usless functions: transform: async', (t) => {
     t.end();
 });
 
+test('remove usless functions: transform: bool', (t) => {
+    t.transform('bool');
+    t.end();
+});
+
+test('remove usless functions: transform: id', (t) => {
+    t.transform('id');
+    t.end();
+});
+
 test('remove usless functions: no transform: method', (t) => {
     t.noTransform('method');
     t.end();
