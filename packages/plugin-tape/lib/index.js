@@ -31,6 +31,7 @@ module.exports.rules = {
     ...getRule('apply-stub-operator'),
     ...getRule('add-t-end'),
     ...getRule('add-stop-all'),
+    ...getRule('remove-stop-all'),
     ...getRule('remove-useless-t-end'),
     'remove-only': require('@putout/plugin-remove-only'),
     'remove-skip': require('@putout/plugin-remove-skip'),

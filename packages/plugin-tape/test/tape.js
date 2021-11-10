@@ -158,6 +158,11 @@ test('plugin-tape: transform: remove-skip', (t) => {
     t.end();
 });
 
+test('plugin-tape: transform: remove-stop-all', (t) => {
+    t.transform('remove-stop-all');
+    t.end();
+});
+
 test('plugin-tape: transform: add-await-to-re-import', (t) => {
     t.transform('add-await-to-re-import');
     t.end();

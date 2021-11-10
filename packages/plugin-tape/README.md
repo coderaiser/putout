@@ -42,7 +42,8 @@ npm i @putout/plugin-tape -D
         "tape/remove-default-messages": "on",
         "tape/remove-useless-not-called-args": "on",
         "tape/remove-only": "on",
-        "tape/remove-skip": "on"
+        "tape/remove-skip": "on",
+        "tape/remove-stop-all": "on"
     }
 }
 ```
@@ -686,6 +687,20 @@ test('some test', (t) => {
 
 ```js
 test.skip('some test', (t) => {
+    t.end();
+});
+
+```
+
+## remove-stop-all
+
+When `reImport()` or `reRequire` not called, `stopAll()` is redundant and should be removed.
+
+### ❌ Incorrect code example
+
+```js
+test('some test', (t) => {
+    stopAll();
     t.end();
 });
 
