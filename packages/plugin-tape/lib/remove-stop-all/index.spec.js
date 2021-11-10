@@ -38,3 +38,8 @@ test('plugin-tape: remove-stop-all: no transform: mock-import', (t) => {
     t.noTransform('mock-import');
     t.end();
 });
+
+test('plugin-tape: remove-stop-all: no transform: trace-import', (t) => {
+    t.noTransform('trace-import');
+    t.end();
+});

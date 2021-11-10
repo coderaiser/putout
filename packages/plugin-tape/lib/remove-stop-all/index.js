@@ -63,6 +63,9 @@ function check(path) {
         'mockImport(__a, __b)': () => {
             hasMockImport = true;
         },
+        'traceImport(__a, __b)': () => {
+            hasReImport = true;
+        },
         'reRequire(__a)': () => {
             hasReImport = true;
         },
