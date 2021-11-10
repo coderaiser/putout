@@ -1,8 +1,5 @@
 {
     "match": {
-        "README.md": {
-            "apply-filter-boolean": "off"
-        },
         "*.md": {
             "remove-useless-functions": "off"
         }

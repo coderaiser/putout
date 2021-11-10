@@ -111,7 +111,6 @@
         ".md"
     ],
     "rules": {
-        "apply-filter-boolean": "off",
         "apply-array-at": "off",
         "apply-as-type-assertions": "off",
         "apply-utility-types": "off",
@@ -141,7 +140,6 @@
     },
     "plugins": [
         "apply-array-at",
-        "apply-filter-boolean",
         "apply-is-array",
         "apply-destructuring",
         "apply-optional-chaining",
