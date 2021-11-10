@@ -2,7 +2,7 @@
 
 process.env.CI = process.env.CI || 'true';
 
-const {join} = require('path');
+const {join, basename} = require('path');
 const {readFile} = require('fs/promises');
 const {EventEmitter} = require('events');
 
@@ -130,7 +130,13 @@ test('putout: cli: --format: ci', async (t) => {
     ];
     
     const process = stub().returns({
-        places: [],
+        places: [{
+            message: 'hello',
+            position: {
+                line: 1,
+                column: 1,
+            },
+        }],
         code: '',
     });
     
@@ -204,6 +210,337 @@ test('putout: cli: --format: specified twice', async (t) => {
     stopAll();
     
     t.equal(first, 'none', 'should use last passed formatter');
+    t.end();
+});
+
+test('putout: cli: no ide', async (t) => {
+    const name = basename(__filename);
+    const argv = [
+        name,
+        '--fresh',
+    ];
+    
+    const processFile = stub().returns(stub().returns({
+        places: [],
+        code: '',
+    }));
+    
+    const getFormatter = stub().returns([
+        'dump',
+        {},
+    ]);
+    
+    const report = stub();
+    const getFiles = stub().returns([null, [
+        name,
+    ]]);
+    
+    const canUseCache = stub().returns(false);
+    const getPlaces = stub().returns([]);
+    const reconcile = stub();
+    const setInfo = stub();
+    
+    const createCache = stub().returns({
+        canUseCache,
+        getPlaces,
+        reconcile,
+        setInfo,
+    });
+    
+    mockRequire('./process-file', processFile);
+    mockRequire('./formatter', {getFormatter});
+    mockRequire('./report', stub().returns(report));
+    mockRequire('./get-files', getFiles);
+    
+    mockRequire('@putout/cli-cache', {createCache});
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+    });
+    
+    stopAll();
+    const expected = ['dump', {
+        count: 1,
+        formatterOptions: {},
+        index: 0,
+        name,
+        places: [],
+        report: stub(),
+        source: '',
+    }];
+    
+    t.calledWith(report, expected);
+    t.end();
+});
+
+test('putout: cli: ide: web storm', async (t) => {
+    const name = basename(__filename);
+    const argv = [
+        name,
+        '--fresh',
+    ];
+    
+    const {TERMINAL_EMULATOR} = process.env;
+    process.env.TERMINAL_EMULATOR = 'JetBrains-JediTerm';
+    
+    const processFile = stub().returns(stub().returns({
+        places: [],
+        code: '',
+    }));
+    
+    const getFormatter = stub().returns([
+        'dump',
+        {},
+    ]);
+    
+    const report = stub();
+    
+    const getFiles = stub().returns([null, [
+        name,
+    ]]);
+    
+    const canUseCache = stub().returns(false);
+    const getPlaces = stub().returns([]);
+    const reconcile = stub();
+    const setInfo = stub();
+    
+    const createCache = stub().returns({
+        canUseCache,
+        getPlaces,
+        reconcile,
+        setInfo,
+    });
+    
+    mockRequire('./process-file', processFile);
+    mockRequire('./formatter', {getFormatter});
+    mockRequire('./report', stub().returns(report));
+    mockRequire('./get-files', getFiles);
+    mockRequire('@putout/cli-cache', {createCache});
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+    });
+    
+    stopAll();
+    process.env.TERMINAL_EMULATOR = TERMINAL_EMULATOR;
+    
+    const expected = ['dump', {
+        count: 1,
+        formatterOptions: {},
+        index: 0,
+        name: join(process.cwd(), name),
+        places: [],
+        report: stub(),
+        source: '',
+    }];
+    
+    t.calledWith(report, expected);
+    t.end();
+});
+
+test('putout: cli: ide: vs code', async (t) => {
+    const name = basename(__filename);
+    const argv = [
+        name,
+        '--fresh',
+    ];
+    
+    const {TERM_PROGRAM} = process.env;
+    process.env.TERM_PROGRAM = 'vscode';
+    
+    const processFile = stub().returns(stub().returns({
+        places: [],
+        code: '',
+    }));
+    
+    const getFormatter = stub().returns([
+        'dump',
+        {},
+    ]);
+    
+    const report = stub();
+    
+    const getFiles = stub().returns([null, [
+        name,
+    ]]);
+    
+    const canUseCache = stub().returns(false);
+    const getPlaces = stub().returns([]);
+    const reconcile = stub();
+    const setInfo = stub();
+    
+    const createCache = stub().returns({
+        canUseCache,
+        getPlaces,
+        reconcile,
+        setInfo,
+    });
+    
+    mockRequire('./process-file', processFile);
+    mockRequire('./formatter', {getFormatter});
+    mockRequire('./report', stub().returns(report));
+    mockRequire('./get-files', getFiles);
+    mockRequire('@putout/cli-cache', {createCache});
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+    });
+    
+    stopAll();
+    process.env.TERM_PROGRAM = TERM_PROGRAM;
+    
+    const expected = ['dump', {
+        count: 1,
+        formatterOptions: {},
+        index: 0,
+        name: join(process.cwd(), name),
+        places: [],
+        report: stub(),
+        source: '',
+    }];
+    
+    t.calledWith(report, expected);
+    t.end();
+});
+
+test('putout: cli: ide: vs code: cache', async (t) => {
+    const name = basename(__filename);
+    const argv = [
+        name,
+        '--cache',
+    ];
+    
+    const {TERM_PROGRAM} = process.env;
+    process.env.TERM_PROGRAM = 'vscode';
+    
+    const processFile = stub().returns(stub().returns({
+        places: [],
+        code: '',
+    }));
+    
+    const getFormatter = stub().returns([
+        'dump',
+        {},
+    ]);
+    
+    const report = stub();
+    
+    const getFiles = stub().returns([null, [
+        name,
+    ]]);
+    
+    const canUseCache = stub().returns(false);
+    const getPlaces = stub().returns([]);
+    const reconcile = stub();
+    const setInfo = stub();
+    
+    const createCache = stub().returns({
+        canUseCache,
+        getPlaces,
+        reconcile,
+        setInfo,
+    });
+    
+    mockRequire('./process-file', processFile);
+    mockRequire('./formatter', {getFormatter});
+    mockRequire('./report', stub().returns(report));
+    mockRequire('./get-files', getFiles);
+    mockRequire('@putout/cli-cache', {createCache});
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+    });
+    
+    stopAll();
+    process.env.TERM_PROGRAM = TERM_PROGRAM;
+    
+    const expected = ['dump', {
+        count: 1,
+        formatterOptions: {},
+        index: 0,
+        name: join(process.cwd(), name),
+        places: [],
+        report: stub(),
+        source: '',
+    }];
+    
+    t.calledWith(report, expected);
+    t.end();
+});
+
+test('putout: cli: no ide: cache', async (t) => {
+    const name = basename(__filename);
+    const argv = [
+        name,
+        '--cache',
+    ];
+    
+    const processFile = stub().returns(stub().returns({
+        places: [],
+        code: '',
+    }));
+    
+    const getFormatter = stub().returns([
+        'dump',
+        {},
+    ]);
+    
+    const report = stub();
+    
+    const getFiles = stub().returns([null, [
+        name,
+    ]]);
+    
+    const canUseCache = stub().returns(false);
+    const getPlaces = stub().returns([]);
+    const reconcile = stub();
+    const setInfo = stub();
+    
+    const createCache = stub().returns({
+        canUseCache,
+        getPlaces,
+        reconcile,
+        setInfo,
+    });
+    
+    mockRequire('./process-file', processFile);
+    mockRequire('./formatter', {getFormatter});
+    mockRequire('./report', stub().returns(report));
+    mockRequire('./get-files', getFiles);
+    mockRequire('@putout/cli-cache', {createCache});
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+    });
+    
+    stopAll();
+    
+    const expected = ['dump', {
+        count: 1,
+        formatterOptions: {},
+        index: 0,
+        name: join(process.cwd(), name),
+        places: [],
+        report: stub(),
+        source: '',
+    }];
+    
+    t.calledWith(report, expected);
     t.end();
 });
 

@@ -16,6 +16,10 @@ const {version} = require('../../package.json');
 
 const simport = createSimport(__filename);
 
+const {env} = process;
+const isIDE = env.TERMINAL_EMULATOR || env.TERM_PROGRAM === 'vscode';
+const chooseName = (name, resolvedName) => !isIDE ? name : resolvedName;
+
 const {
     runProcessors,
     getFilePatterns,
@@ -322,7 +326,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             const formatterProxy = createFormatterProxy({
                 report,
                 formatterOptions,
-                name,
+                name: chooseName(name, resolvedName),
                 places,
                 index: currentIndex,
                 count: length,
@@ -372,7 +376,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         const line = report(currentFormat, {
             report,
             formatterOptions,
-            name,
+            name: chooseName(name, resolvedName),
             source: rawSource,
             places,
             index: currentIndex,
