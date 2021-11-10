@@ -1,5 +1,6 @@
 'use strict';
 
+const parserOpts = require('@putout/engine-parser/babel/options');
 const [ts] = require('./ts');
 
 const commonRules = {
@@ -29,6 +30,7 @@ module.exports = [{
         requireConfigFile: false,
         babelOptions: {
             sourceType: 'module',
+            parserOpts,
             plugins: [
                 '@babel/plugin-syntax-class-properties',
                 '@babel/plugin-syntax-top-level-await',
