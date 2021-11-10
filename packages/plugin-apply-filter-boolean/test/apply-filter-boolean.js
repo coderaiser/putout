@@ -11,7 +11,7 @@ test('plugin-apply-filter-boolean: transform: report', (t) => {
     t.end();
 });
 
-test('plugin-apply-filter-boolean: transform: object', (t) => {
+test('plugin-apply-filter-boolean: transform: array', (t) => {
     t.transform('array');
     t.end();
 });
