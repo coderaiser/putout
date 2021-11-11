@@ -1,10 +1,7 @@
-# @putout/putout-formatter-stream [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/putout-formatter-stream [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/@putout/formatter-stream.svg?style=flat&longCache=true
 [NPMURL]:                   https://npmjs.org/package/@putout/formatter-stream "npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/formatter-stream
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/formatter-stream
 
 `putout` formatter stores output and stream it on end.
 
