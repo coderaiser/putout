@@ -42,7 +42,7 @@ Plugin supports options, so you can pass it in `.putout.json`:
 
 Can be used with [eslint-plugin-putout/evaluate](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/evaluate):
 
-```
+```json
 {
     "rules": {
         "putout/declare-undefined-variables": ["on", {
