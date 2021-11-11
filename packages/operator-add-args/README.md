@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-add-args.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/operator-add-args "npm"
 
-`putout` operator adds ability to add-args variable that was not defined before. Renamed to [@putout/operator-add-args](https://github.com/coderaiser/putout/tree/v20.13.0/packages/operator-add-args).
+`putout` operator adds ability to add-args variable that was not defined before.
 
 ## Install
 
