@@ -4,7 +4,10 @@
 >
 > **(c) Yamamoto Tsunetomo "Hagakure"**
 
-That's awesome 👏! Make fork of a repo, clone it and run:
+That's awesome 👏! Check out [`good first issues`](https://github.com/coderaiser/putout/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22),
+most likely you can do some contribution using web interface, otherwise wary not 😏.
+
+Make fork of a repo, clone it and run:
 
 ```
 cd putout
@@ -41,7 +44,7 @@ Format of the commit message: **type(scope) subject**
 
 **Scope**:
 Scope could be anything specifying place of the commit change.
-For example [`@plugin-remove-unused-variables`](https://github.com/coderaiser/putout/blob/master/packages/putout/package.json), [`@putout/cli-ruler`](https://github.com/coderaiser/putout/blob/master/packages/putout/package.json), [`putout`](https://github.com/coderaiser/putout/blob/master/packages/putout/) etc...
+For example [`@putout/plugin-remove-unused-variables`](https://github.com/coderaiser/putout/blob/master/packages/putout/package.json), [`@putout/cli-ruler`](https://github.com/coderaiser/putout/blob/master/packages/putout/package.json), [`putout`](https://github.com/coderaiser/putout/blob/master/packages/putout/) etc...
 
 **Subject text**:
 - use imperative, present tense: “change” not “changed” nor “changes”
