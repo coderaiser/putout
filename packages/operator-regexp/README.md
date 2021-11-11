@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-regexp.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/operator-regexp "npm"
 
-`putout` operator adds ability to determine is provided [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) can be
+[`putout`](https://github.com/coderaiser/putout) operator adds ability to determine is provided [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) can be
 converted to [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) without loosing it's sense.
 
 It is used for example in [regexp/convert-replace-to-relace-all](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#regexpconvert-replace-to-replace-all):
