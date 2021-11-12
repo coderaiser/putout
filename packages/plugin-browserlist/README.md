@@ -1,10 +1,7 @@
-# @putout/plugin-browserlist [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-browserlist [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-browserlist.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-browserlist"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-browserlist
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-browserlist
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-browserlist.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-browserlist"npm"
 
 `putout` plugin helps with [browserlist](https://github.com/browserslist/browserslist).
 
@@ -41,4 +38,3 @@ not dead
 ## License
 
 MIT
-

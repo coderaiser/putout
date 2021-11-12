@@ -1,9 +1,7 @@
-# @putout/plugin-simplify-assignment [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-simplify-assignment [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-simplify-assignment.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-simplify-assignment "npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-simplify-assignment
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-simplify-assignment
 
 `putout` plugin adds ability to simplify `assignment`.
 

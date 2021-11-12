@@ -1,9 +1,7 @@
-# @putout/plugin-convert-is-nan-to-number-is-nan [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-convert-is-nan-to-number-is-nan [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-is-nan-to-number-is-nan.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-is-nan-to-number-is-nan "npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-is-nan-to-number-is-nan
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-is-nan-to-number-is-nan
 
 `putout` plugin adds ability to convert `isNaN` to more robust [Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN).
 

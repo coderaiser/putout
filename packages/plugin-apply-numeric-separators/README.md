@@ -1,10 +1,7 @@
-# @putout/plugin-apply-numeric-separators [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-apply-numeric-separators [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-apply-numeric-separators.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-apply-numeric-separators"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-apply-numeric-separators
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-apply-numeric-separators
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-numeric-separators.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-apply-numeric-separators"npm"
 
 `putout` plugin apply `numeric separators`.
 
@@ -39,4 +36,3 @@ const t = 10_000_000;
 ## License
 
 MIT
-

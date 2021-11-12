@@ -1,9 +1,7 @@
-# @putout/plugin-remove-useless-constructors [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-remove-useless-constructors [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-constructors.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-constructors "npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-constructors
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-constructors
 
 > Wrapper classes have surprising behaviour, such as `new Boolean(false)` evaluating to `true`.
 >

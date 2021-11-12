@@ -1,9 +1,7 @@
-# @putout/plugin-promises [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-promises [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-promises.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-promises"npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-promises
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-promises
 
 `putout` plugin adds ability to work with promises.
 
@@ -184,4 +182,3 @@ await readFile('./README.md', 'utf8');
 ## License
 
 MIT
-

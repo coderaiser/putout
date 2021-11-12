@@ -1,9 +1,7 @@
-# @putout/plugin-remove-constant-conditions [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-remove-constant-conditions [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-constant-conditions.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-constant-conditions"npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-constant-conditions
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-constant-conditions
 
 `putout` plugin adds ability to find and remove `constant conditions`.
 

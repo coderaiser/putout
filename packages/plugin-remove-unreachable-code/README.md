@@ -1,9 +1,7 @@
-# @putout/plugin-remove-unreachable-code [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-remove-unreachable-code [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-unreachable-code.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-unreachable-code"npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-unreachable-code
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-unreachable-code
 
 `putout` plugin adds ability to find and remove unreachable code.
 

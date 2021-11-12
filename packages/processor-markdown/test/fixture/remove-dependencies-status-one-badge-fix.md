@@ -1,0 +1,1 @@
+# @putout/putout-formatter-dump

@@ -1,10 +1,7 @@
-# @putout/putout-formatter-progress-bar [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/putout-formatter-progress-bar [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/formatter-progress-bar.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/formatter-progress-bar "npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/formatter-progress-bar
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/formatter-progress-bar
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-progress-bar.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/formatter-progress-bar "npm"
 
 `putout` formatter shows progress bar.
 
@@ -40,4 +37,3 @@ Formatters takes options, that can be set in `.putout.json` with:
 ## License
 
 MIT
-

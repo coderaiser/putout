@@ -1,9 +1,7 @@
-# @putout/plugin-convert-spread-to-array-from [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-convert-spread-to-array-from [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-spread-to-array-from.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-spread-to-array-from"npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-spread-to-array-from
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-spread-to-array-from
 
 `putout` plugin convert `spread` to `Array.from`. Not installed, by default, used [@putout/plugin-convert-array-copy-to-slice](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-array-copy-to-slice) instead.
 

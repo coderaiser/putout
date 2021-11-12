@@ -1,10 +1,7 @@
-# @putout/putout-formatter-codeframe [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/putout-formatter-codeframe [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/formatter-codeframe.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/formatter-codeframe "npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/formatter-codeframe
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/formatter-codeframe
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-codeframe.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/formatter-codeframe "npm"
 
 `putout` formatter shows codeframe of file with an errors.
 
@@ -39,4 +36,3 @@ Possible output:
 ## License
 
 MIT
-

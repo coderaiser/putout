@@ -1,10 +1,7 @@
-# @putout/plugin-travis [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-travis [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-travis.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-travis"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-travis
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-travis
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-travis.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-travis"npm"
 
 `putout` plugin helps with `putout` plugins development.
 
@@ -47,4 +44,3 @@ language: node_js
 ## License
 
 MIT
-

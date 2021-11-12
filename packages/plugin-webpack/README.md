@@ -1,9 +1,7 @@
-# @putout/plugin-webpack [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-webpack [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-webpack.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-webpack"npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/webpack?path=packages/plugin-webpack
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/webpack.svg?path=packages/plugin-webpack
 
 `webpack` plugin helps to migrate to latest `webpack` version.
 

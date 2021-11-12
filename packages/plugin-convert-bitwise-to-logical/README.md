@@ -1,9 +1,7 @@
-# @putout/plugin-convert-bitwise-to-logical [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-convert-bitwise-to-logical [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-bitwise-to-logical.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-bitwise-to-logical "npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-bitwise-to-logical
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-bitwise-to-logical
 
 `putout` plugin adds ability to convert `bitwise` to `logical` operator.
 

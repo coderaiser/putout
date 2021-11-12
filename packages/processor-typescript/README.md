@@ -1,10 +1,7 @@
-# @putout/processor-typescript [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/processor-typescript [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/processor-typescript.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/processor-typescript "npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/processor-typescript
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/processor-typescript
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/processor-typescript.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/processor-typescript "npm"
 
 `putout` processor adds support of type check for `typescript` files.
 
@@ -27,4 +24,3 @@ npm i @putout/processor-typescript -D
 ## License
 
 MIT
-

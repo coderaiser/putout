@@ -1,10 +1,7 @@
-# @putout/plugin-add-return-await [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-add-return-await [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-add-return-await.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-add-return-await"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-add-return-await
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-add-return-await
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-add-return-await.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-add-return-await"npm"
 
 `putout` plugin adds ability to find and add `return await`. Part of [@putout/promises](https://github.com/coderaiser/putout/blob/master/packages/plugin-promises/README.md).
 
@@ -43,4 +40,3 @@ async function world() {
 ## License
 
 MIT
-

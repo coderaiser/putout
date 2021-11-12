@@ -1,9 +1,7 @@
-# @putout/plugin-convert-equal-to-strict-equal [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-convert-equal-to-strict-equal [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-equal-to-strict-equal.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-equal-to-strict-equal "npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-convert-equal-to-strict-equal
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-convert-equal-to-strict-equal
 
 `putout` plugin adds ability to convert `equal` to `strict equal` loop.
 

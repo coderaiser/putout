@@ -1,10 +1,7 @@
-# @putout/plugin-merge-destructuring-properties [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-merge-destructuring-properties [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-merge-destructuring-properties.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-merge-destructuring-properties"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-merge-destructuring-properties
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-merge-destructuring-properties
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-merge-destructuring-properties.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-merge-destructuring-properties"npm"
 
 `putout` plugin adds ability to merge destructuring properties.
 
@@ -45,4 +42,3 @@ const {
 ## License
 
 MIT
-

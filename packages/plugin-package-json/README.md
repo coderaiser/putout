@@ -1,9 +1,7 @@
-# @putout/plugin-package-json [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-package-json [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-package-json.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-package-json"npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/package-json?path=packages/plugin-package-json
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/package-json.svg?path=packages/plugin-package-json
 
 `putout` plugin helps to automate fixing `package-json` config.
 

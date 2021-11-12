@@ -1,10 +1,7 @@
-# @putout/plugin-strict-mode [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-strict-mode [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-strict-mode.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-strict-mode "npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-strict-mode
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-strict-mode
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-strict-mode.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-strict-mode "npm"
 
 `putout` plugin adds ability to find and remove `useless types`.
 
@@ -52,4 +49,3 @@ const a = require('b');
 ## License
 
 MIT
-

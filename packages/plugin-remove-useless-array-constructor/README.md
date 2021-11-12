@@ -1,9 +1,7 @@
-# @putout/plugin-remove-useless-array-constructor [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-remove-useless-array-constructor [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-constructor.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-array-constructor"npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-useless-array-constructor
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-useless-array-constructor
 
 > TypeScript code must not use the Array() constructor, with or without new. It has confusing and contradictory usage.
 >
@@ -48,4 +46,3 @@ const a = [1, 2, 3];
 ## License
 
 MIT
-

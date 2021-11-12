@@ -27,6 +27,7 @@ const loadDependencies = once(async () => {
     const stringify = await simport('remark-stringify');
     const preset = await simport('remark-preset-lint-consistent');
     const jsonProcessor = await simport('@putout/processor-json');
+    const {rules} = await simport('./rules/index.mjs');
     
     // Fix: TypeError: visit is not a function
     //
@@ -44,6 +45,7 @@ const loadDependencies = once(async () => {
         visit,
         preset,
         jsonProcessor,
+        rules,
     };
 });
 
@@ -52,6 +54,7 @@ module.exports.find = async (rawSource) => {
         unified,
         stringify,
         preset,
+        rules,
     } = await loadDependencies();
     
     await parseStore.init();
@@ -59,6 +62,7 @@ module.exports.find = async (rawSource) => {
     const {messages} = await unified()
         .use(parseStore)
         .use(preset)
+        .use(rules)
         .use(stringify, stringifyOptions)
         .process(rawSource);
     
@@ -70,6 +74,7 @@ module.exports.fix = async (rawSource) => {
         unified,
         stringify,
         preset,
+        rules,
     } = await loadDependencies();
     
     await parseStore.init();
@@ -77,6 +82,7 @@ module.exports.fix = async (rawSource) => {
     const {messages, value} = await unified()
         .use(parseStore)
         .use(preset)
+        .use(rules)
         .use(stringify, stringifyOptions)
         .process(rawSource);
     

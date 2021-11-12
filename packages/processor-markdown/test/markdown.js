@@ -46,6 +46,25 @@ test('putout: processor: markdown: js-json', async ({process}) => {
     await process('js-json');
 });
 
+test('putout: processor: markdown: remove-dependencies-status: process', async ({process}) => {
+    await process('remove-dependencies-status');
+});
+
+test('putout: processor: markdown: remove-dependencies-status-one-badge: process', async ({process}) => {
+    await process('remove-dependencies-status-one-badge');
+});
+
+test('putout: processor: markdown: remove-dependencies-status: compare places', async ({comparePlaces}) => {
+    await comparePlaces('remove-dependencies-status', [{
+        message: 'Remove reference to DependencyStatusIMGURL',
+        position: {
+            column: 69,
+            line: 1,
+        },
+        rule: 'remove-dependencies-status-badge (remark-lint)',
+    }]);
+});
+
 test('putout: processor: markdown: compare places', async ({comparePlaces}) => {
     await comparePlaces('place', [{
         message: 'Code blocks should be indented',

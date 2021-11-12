@@ -1,10 +1,7 @@
-# @putout/plugin-remove-unused-variables [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-remove-unused-variables [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-unused-variables.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-unused-variables"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-unused-variables
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-unused-variables
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-unused-variables.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-unused-variables"npm"
 
 `putout` plugin adds ability to find and remove unused variables.
 
@@ -44,4 +41,3 @@ console.log(a);
 ## License
 
 MIT
-

@@ -1,10 +1,7 @@
-# @putout/putout-formatter-memory [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/putout-formatter-memory [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/formatter-memory.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/formatter-memory "npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/formatter-memory
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/formatter-memory
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-memory.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/formatter-memory "npm"
 
 `putout` formatter shows memory used.
 
@@ -42,4 +39,3 @@ Formatters takes options, that can be set in `.putout.json` with:
 ## License
 
 MIT
-

@@ -1,10 +1,7 @@
-# @putout/putout-formatter-frame [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/putout-formatter-frame [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/formatter-frame.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/formatter-frame "npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/formatter-frame
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/formatter-frame
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-frame.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/formatter-frame "npm"
 
 `putout` fromatter with `progress` + `codeframe`.
 
@@ -23,4 +20,3 @@ putout -f frame lib
 ## License
 
 MIT
-

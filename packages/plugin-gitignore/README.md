@@ -1,9 +1,7 @@
-# @putout/plugin-gitignore [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-gitignore [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-gitignore.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-gitignore"npm"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/putout?path=packages/plugin-gitignore
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-gitignore
 
 `putout` plugin helps with `putout` plugins development.
 

@@ -1,10 +1,7 @@
-# @putout/plugin-remove-iife [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
+# @putout/plugin-remove-iife [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/plugin-remove-iife.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/plugin-remove-iife"npm"
-
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/putout?path=packages/plugin-remove-iife
-[DependencyStatusIMGURL]:   https://david-dm.org/coderaiser/putout.svg?path=packages/plugin-remove-iife
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-iife.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-iife"npm"
 
 `putout` plugin adds ability to find and remove [iife](https://developer.mozilla.org/en-US/docs/Glossary/IIFE).
 
@@ -41,4 +38,3 @@ console.log('hello');
 ## License
 
 MIT
-
