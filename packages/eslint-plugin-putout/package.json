@@ -4,6 +4,7 @@
   "description": "eslint plugin for putout",
   "release": false,
   "tag": false,
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout",
   "changelog": false,
   "repository": {
     "type": "git",
