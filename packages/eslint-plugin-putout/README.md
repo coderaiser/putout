@@ -1,11 +1,11 @@
-# eslint-plugin-putout [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
+# eslint-plugin-putout [![NPM version][NPMIMGURL]][NPMURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/eslint-plugin-putout.svg?style=flat&longCache=true
 [BuildStatusIMGURL]: https://img.shields.io/travis/coderaiser/eslint-plugin-putout/master.svg?style=flat&longCache=true
-[DependencyStatusIMGURL]: https://david-dm.org/coderaiser/eslint-plugin-putout.svg?path=packages/eslint-plugin-putout
+
 [NPMURL]: https://npmjs.org/package/eslint-plugin-putout "npm"
 [BuildStatusURL]: https://travis-ci.org/coderaiser/eslint-plugin-putout "Build Status"
-[DependencyStatusURL]: https://david-dm.org/coderaiser/eslint-plugin-putout?path=packages/eslint-plugin-putout "Dependency Status"
+
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
