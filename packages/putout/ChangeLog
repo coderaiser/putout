@@ -1,3 +1,18 @@
+2021.11.14, v22.0.1
+
+fix:
+- (putout) parse-options: read rules: directory with config -> current working directory
+- test(@putout/engine-processor) markdown disable change without fix in favour of simpler rules
+- feature(@putout/processor-markdown) add support of rules splited to fix and traverse
+
+feature:
+- (@putout/rules-set-homepage) update homepage so it linked to package directory (#88)
+- (@putout/processor-markdown) add merge-heading-spaces
+- (@putout/processor-markdown) add support of rules splited to fix and traverse
+- (@putout/processor-markdown) rules: add remove-dependencies-badge (#85)
+- (@putout/plugin-tape) remove-stop-all: add support of traceImport
+
+
 2021.11.10, v22.0.0
 
 feature:
