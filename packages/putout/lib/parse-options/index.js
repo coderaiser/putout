@@ -56,7 +56,7 @@ module.exports = (info = {}) => {
     
     const resultOptions = merge(
         readCodeMods(),
-        readRules(dir, rulesdir),
+        readRules('./', rulesdir),
         mergedOptions,
         mergedDefaultsMatch,
         mergedMatch,

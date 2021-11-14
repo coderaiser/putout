@@ -320,7 +320,7 @@ test('putout: parseOptions: read rules: putout-plugin', (t) => {
     mockRequire('../../putout.json', empty);
     
     const plugin = stub();
-    mockRequire(join(__dirname, 'putout-plugin-hello'), plugin);
+    mockRequire(join(process.cwd(), 'putout-plugin-hello'), plugin);
     
     mockRequire('fs', {
         readdirSync: stub().returns([
@@ -386,7 +386,7 @@ test('putout: parseOptions: read rules', (t) => {
     });
     
     const plugin = stub();
-    mockRequire(join(__dirname, 'hello'), plugin);
+    mockRequire(join(process.cwd(), 'hello'), plugin);
     
     const parseOptions = reRequire('.');
     
