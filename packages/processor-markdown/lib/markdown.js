@@ -1,8 +1,10 @@
 'use strict';
 
-const {initParseStore} = require('./parse-store');
 const {createSimport} = require('simport');
 const once = require('once');
+
+const {toPlace} = require('./parse-place');
+const {initParseStore} = require('./parse-store');
 
 const simport = createSimport(__filename);
 
@@ -27,7 +29,7 @@ const loadDependencies = once(async () => {
     const stringify = await simport('remark-stringify');
     const preset = await simport('remark-preset-lint-consistent');
     const jsonProcessor = await simport('@putout/processor-json');
-    const {rules} = await simport('./rules/index.mjs');
+    const {run} = await simport('./rules/index.mjs');
     
     // Fix: TypeError: visit is not a function
     //
@@ -45,7 +47,7 @@ const loadDependencies = once(async () => {
         visit,
         preset,
         jsonProcessor,
-        rules,
+        run,
     };
 });
 
@@ -54,7 +56,7 @@ module.exports.find = async (rawSource) => {
         unified,
         stringify,
         preset,
-        rules,
+        run,
     } = await loadDependencies();
     
     await parseStore.init();
@@ -62,7 +64,7 @@ module.exports.find = async (rawSource) => {
     const {messages} = await unified()
         .use(parseStore)
         .use(preset)
-        .use(rules)
+        .use(run, {fix: false})
         .use(stringify, stringifyOptions)
         .process(rawSource);
     
@@ -74,20 +76,17 @@ module.exports.fix = async (rawSource) => {
         unified,
         stringify,
         preset,
-        rules,
+        run,
     } = await loadDependencies();
     
     await parseStore.init();
     
-    const {messages, value} = await unified()
+    const {value} = await unified()
         .use(parseStore)
         .use(preset)
-        .use(rules)
+        .use(run, {fix: true})
         .use(stringify, stringifyOptions)
         .process(rawSource);
-    
-    if (!messages.length)
-        return rawSource;
     
     return value;
 };
@@ -140,17 +139,6 @@ module.exports.merge = async (rawSource, list) => {
     
     return value;
 };
-
-function toPlace({reason, line, column, source, ruleId}) {
-    return {
-        message: reason,
-        rule: `${ruleId} (${source})`,
-        position: {
-            line,
-            column,
-        },
-    };
-}
 
 const collect = ({list, visit}) => {
     const jsonProcessor = require('@putout/processor-json');

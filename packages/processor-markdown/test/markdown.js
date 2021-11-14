@@ -56,10 +56,10 @@ test('putout: processor: markdown: remove-dependencies-status-one-badge: process
 
 test('putout: processor: markdown: remove-dependencies-status: compare places', async ({comparePlaces}) => {
     await comparePlaces('remove-dependencies-status', [{
-        message: 'Remove reference to DependencyStatusIMGURL',
+        message: 'Remove dependencies status badge',
         position: {
-            column: 69,
-            line: 1,
+            column: 1,
+            line: 6,
         },
         rule: 'remove-dependencies-status-badge (remark-lint)',
     }]);

@@ -1,7 +1,14 @@
-import {lintRule} from 'unified-lint-rule';
+const report = () => 'Remove dependencies status badge';
 
-export const removeDependenciesStatusBadge = lintRule('remark-lint:remove-dependencies-status-badge', (tree, file) => {
-    const children = tree.children.filter(isDependencyStatus(file));
+export default {
+    name: 'remove-dependencies-status-badge',
+    traverse,
+    fix,
+    report,
+};
+
+function fix(node, tree) {
+    const children = tree.children.filter(isDependencyStatus());
     tree.children = children;
     
     const [heading] = children;
@@ -9,43 +16,43 @@ export const removeDependenciesStatusBadge = lintRule('remark-lint:remove-depend
     if (heading.type !== 'heading')
         return;
     
-    let headingChildren = heading.children.filter(isDependencyLink(file));
-    const latest = headingChildren[headingChildren.length - 1];
-    
-    if (latest.type === 'text' && latest.value === ' ')
-        headingChildren = headingChildren.slice(0, -1);
-    
-    if (latest.type === 'text' && / $/.test(latest.value))
-        latest.value = latest.value.slice(0, -1);
-    
+    const headingChildren = heading.children.filter(isDependencyLink);
     tree.children[0].children = headingChildren;
-});
+}
 
-const isDependencyStatus = (file) => (child) => {
+function traverse(tree) {
+    const nodes = [];
+    tree.children.filter(isDependencyStatus(nodes));
+    const [first] = nodes;
+    
+    if (nodes.length)
+        return [first];
+}
+
+const isDependencyStatus = (nodes = []) => (child) => {
     if (child.type !== 'definition')
         return true;
     
     if (child.label === 'DependencyStatusURL') {
-        file.message('Remove DependencyStatusURL', child);
+        nodes.push(child);
         return false;
     }
     
     if (child.label === 'DependencyStatusIMGURL') {
-        file.message('Remove DependencyStatusIMGURL', child);
+        nodes.push(child);
         return false;
     }
     
     return true;
 };
 
-const isDependencyLink = (file) => (child) => {
+const isDependencyLink = (child) => {
     if (child.type !== 'linkReference')
         return true;
     
-    if (child.children[0].label === 'DependencyStatusIMGURL') {
-        file.message('Remove reference to DependencyStatusIMGURL', child);
+    if (child.children[0].label === 'DependencyStatusIMGURL')
         return false;
-    }
     
     return true;
 };
+

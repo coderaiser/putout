@@ -47,7 +47,8 @@
     "lerna": "^4.0.0",
     "madrun": "^8.0.1",
     "nodemon": "^2.0.1",
-    "putout": "*"
+    "putout": "*",
+    "supertape": "^6.10.0"
   },
   "peerDependencies": {
     "putout": ">=18"
