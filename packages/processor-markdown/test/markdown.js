@@ -76,3 +76,18 @@ test('putout: processor: markdown: compare places', async ({comparePlaces}) => {
     }]);
 });
 
+test('putout: processor: markdown: merge-heading-spaces: aprocess', async ({process}) => {
+    await process('merge-heading-spaces');
+});
+
+test('putout: processor: markdown: merge-heading-spaces: comparePlaces', async ({comparePlaces}) => {
+    await comparePlaces('merge-heading-spaces', [{
+        message: 'Remove dependencies status badge',
+        position: {
+            column: 1,
+            line: 6,
+        },
+        rule: 'remove-dependencies-status-badge (remark-lint)',
+    }]);
+});
+

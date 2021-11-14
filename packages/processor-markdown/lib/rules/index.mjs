@@ -1,21 +1,24 @@
 import {lintRule} from 'unified-lint-rule';
 import removeDependenciesStatusBadge from './remove-dependencies-status-badge.mjs';
 import removeTrailingWhitespacesFromHeading from './remove-trailing-whitespaces-from-heading.mjs';
+import mergeHeadingSpceces from './merge-heading-spaces.mjs';
 
 const plugins = [
     removeDependenciesStatusBadge,
     removeTrailingWhitespacesFromHeading,
+    mergeHeadingSpceces,
 ];
-
-const maybeEmptyArray = (a) => isArray(a) ? a : [];
-
-const {isArray} = Array;
 
 export const run = lintRule('remark-lint:run', (tree, file, options) => {
     for (const {fix, traverse, report, name} of plugins) {
-        const nodes = traverse(tree);
+        const nodes = [];
+        const push = nodes.push.bind(nodes);
         
-        for (const node of maybeEmptyArray(nodes)) {
+        traverse(tree, {
+            push,
+        });
+        
+        for (const node of nodes) {
             if (options.fix) {
                 fix(node, tree);
                 continue;

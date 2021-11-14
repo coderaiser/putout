@@ -1,5 +1,7 @@
 const report = () => 'Remove dependencies status badge';
 
+const noop = () => {};
+
 export default {
     name: 'remove-dependencies-status-badge',
     traverse,
@@ -20,28 +22,21 @@ function fix(node, tree) {
     tree.children[0].children = headingChildren;
 }
 
-function traverse(tree) {
-    const nodes = [];
-    tree.children.filter(isDependencyStatus(nodes));
-    const [first] = nodes;
-    
-    if (nodes.length)
-        return [first];
+function traverse(tree, {push}) {
+    tree.children.filter(isDependencyStatus(push));
 }
 
-const isDependencyStatus = (nodes = []) => (child) => {
+const isDependencyStatus = (push = noop) => (child) => {
     if (child.type !== 'definition')
         return true;
     
     if (child.label === 'DependencyStatusURL') {
-        nodes.push(child);
+        push(child);
         return false;
     }
     
-    if (child.label === 'DependencyStatusIMGURL') {
-        nodes.push(child);
+    if (child.label === 'DependencyStatusIMGURL')
         return false;
-    }
     
     return true;
 };

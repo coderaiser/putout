@@ -12,7 +12,7 @@ const fix = (heading, tree) => {
     tree.children[0].children = heading.children;
 };
 
-const traverse = (tree) => {
+const traverse = (tree, {push}) => {
     const [heading] = tree.children;
     
     if (heading.type !== 'heading')
@@ -21,7 +21,7 @@ const traverse = (tree) => {
     const latest = heading.children[heading.children.length - 1];
     
     if (latest.type === 'text' && / $/.test(latest.value))
-        return [heading];
+        push(heading);
 };
 
 export default {
