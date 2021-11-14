@@ -68,7 +68,8 @@ module.exports.find = async (rawSource) => {
         .use(stringify, stringifyOptions)
         .process(rawSource);
     
-    return messages.map(toPlace);
+    return messages
+        .map(toPlace);
 };
 
 module.exports.fix = async (rawSource) => {

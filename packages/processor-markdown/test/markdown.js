@@ -76,7 +76,7 @@ test('putout: processor: markdown: compare places', async ({comparePlaces}) => {
     }]);
 });
 
-test('putout: processor: markdown: merge-heading-spaces: aprocess', async ({process}) => {
+test('putout: processor: markdown: merge-heading-spaces: process', async ({process}) => {
     await process('merge-heading-spaces');
 });
 
