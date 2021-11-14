@@ -21,6 +21,9 @@ npm i @putout/processor-markdown -D
 }
 ```
 
+## Rules
+- [Remove dependencies status badges](https://github.com/coderaiser/putout/tree/master/packages/processor-markdown/lib/rules/remove-dependencies-status-badge.md)
+
 ## License
 
 MIT
