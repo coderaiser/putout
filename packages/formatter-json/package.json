@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout formatter output json on end",
-  "homepage": "http://github.com/coderaiser/putout",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-json",
   "main": "lib/json.js",
   "release": false,
   "tag": false,

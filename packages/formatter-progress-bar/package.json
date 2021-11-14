@@ -3,7 +3,7 @@
   "version": "1.3.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout formatter shows progress and shows result at the end",
-  "homepage": "http://github.com/coderaiser/putout",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-progress-bar",
   "main": "lib/progress-bar.js",
   "release": false,
   "tag": false,

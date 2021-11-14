@@ -1,7 +1,8 @@
 {
     "loglevel": "error",
     "packages": [
-        "packages/*"
+        "packages/*",
+        "rules/*"
     ],
     "npmClient": "yarn",
     "npmClientArgs": ["--no-lockfile"],

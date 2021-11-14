@@ -3,7 +3,7 @@
   "version": "8.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin helps with plugins development",
-  "homepage": "http://github.com/coderaiser/putout",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-putout",
   "main": "lib/index.js",
   "release": false,
   "tag": false,

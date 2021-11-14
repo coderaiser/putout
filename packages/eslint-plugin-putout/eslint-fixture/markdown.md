@@ -13,4 +13,3 @@ const hello: string = 'world';
 
 return hello;
 ```
-

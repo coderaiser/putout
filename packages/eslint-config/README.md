@@ -1,7 +1,7 @@
 # @putout/eslint-config [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/eslint-config.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/eslint-config "npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/eslint-config.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/eslint-config "npm"
 
 [🐊`Putout`](https://github.com/coderaiser/putout) config for `eslint`. If `putout` brokes formatting `eslint` will fix it 😉.
 
@@ -56,4 +56,3 @@ $ npm run lint:fix
 ## License
 
 MIT
-

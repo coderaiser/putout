@@ -1,7 +1,7 @@
 # @putout/engine-parser [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/@putout/engine-parser.svg?style=flat&longCache=true
-[NPMURL]:                   https://npmjs.org/package/@putout/engine-parser"npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/engine-parser.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/engine-parser"npm"
 
 `putout` engine that parses input.
 
@@ -12,6 +12,7 @@ npm i @putout/engine-parser
 ```
 
 ## Supported parsers
+
 - [@babel/parse](https://babeljs.io/docs/en/babel-parser)
 - [acorn](https://github.com/acornjs/acorn)
 - [espree](https://github.com/eslint/espree)
@@ -35,9 +36,11 @@ You can add `default options` for custom `parser` you use.
 `parse` without `memoization`.
 
 ### parse.ast(template)
+
 create node using `memoization`.
 
 ### parse.ast.fresh(template)
+
 create node without `memoization`.
 
 ## Example
@@ -54,4 +57,3 @@ const code = parse('var t = "hello"', {
 ## License
 
 MIT
-

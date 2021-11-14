@@ -3,7 +3,7 @@
   "version": "4.6.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout parser",
-  "homepage": "http://github.com/coderaiser/putout",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/engine-parser",
   "main": "./lib/parser.js",
   "release": false,
   "tag": false,

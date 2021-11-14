@@ -3,7 +3,7 @@
   "version": "2.0.2",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability apply optional chaining",
-  "homepage": "http://github.com/coderaiser/putout",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-optional-chaining",
   "main": "lib/apply-optional-chaining.js",
   "release": false,
   "tag": false,

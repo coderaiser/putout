@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability use apply early return",
-  "homepage": "http://github.com/coderaiser/putout",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-early-return",
   "main": "lib/apply-early-return.js",
   "release": false,
   "tag": false,

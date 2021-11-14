@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@putout/plugin-remove-madrun-from-gitignore",
+  "name": "@putout/codemod-remove-madrun-from-gitignore",
   "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin helps with removing madrun from gitiginore",

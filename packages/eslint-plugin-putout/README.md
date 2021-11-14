@@ -2,10 +2,8 @@
 
 [NPMIMGURL]: https://img.shields.io/npm/v/eslint-plugin-putout.svg?style=flat&longCache=true
 [BuildStatusIMGURL]: https://img.shields.io/travis/coderaiser/eslint-plugin-putout/master.svg?style=flat&longCache=true
-
 [NPMURL]: https://npmjs.org/package/eslint-plugin-putout "npm"
 [BuildStatusURL]: https://travis-ci.org/coderaiser/eslint-plugin-putout "Build Status"
-
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 

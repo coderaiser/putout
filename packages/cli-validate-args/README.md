@@ -54,7 +54,7 @@ if (error) {
 $ node validate-args.js --fi
 Invalid option '--fi'. Perhaps you meant '--fix'`
 ```
+
 ## License
 
 MIT
-

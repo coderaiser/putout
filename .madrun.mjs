@@ -40,7 +40,7 @@ export default {
     'lint:memory': async () => await run('lint:fresh', '-f memory'),
     'fresh:lint': async () => await run('lint:fresh'),
     'fresh': async () => await run(['lint:memory', 'coverage']),
-    'lint': () => `putout . --raw`,
+    'lint': () => `putout . --raw --rulesdir rules`,
     'lint:mark': () => 'putout **/*.md',
     'memory': async () => await run(['lint:fresh', '-f memory']),
     'fix:lint': async () => await run('lint', '--fix'),
