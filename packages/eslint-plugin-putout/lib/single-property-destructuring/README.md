@@ -23,4 +23,8 @@ Examples of **correct** code for this rule:
 ```js
 const {username} = user;
 import {password} from './user.js';
+
+import {
+    helloWorld as simpleHello,
+} from './hello.js';
 ```

@@ -1,6 +1,10 @@
 'use strict';
 
-const {types} = require('putout');
+const {
+    operator,
+    types,
+} = require('putout');
+
 const {
     isRestElement,
     isImportDeclaration,
@@ -10,6 +14,10 @@ const {
 const NewLinesReg = /([\s,]+)?\n(\s+)?/g;
 const AssignRegExp = /{\n?.*=.*\n?.*}/;
 
+const {
+    compare,
+} = operator;
+
 module.exports.category = 'destructuring';
 module.exports.report = () => 'Keep curly braces on one line when you have one destructuring property';
 
@@ -18,16 +26,19 @@ module.exports.include = () => [
     'ImportDeclaration[specifiers.length=1]',
 ];
 
-module.exports.filter = ({node, getText}) => {
-    const text = getText(node.parent);
+module.exports.filter = ({node, text, getText}) => {
+    const parentText = getText(node.parent);
     
-    if (isImportDeclaration(node) && /import {\n/.test(getText(node)))
-        return true;
-    
-    if (AssignRegExp.test(text))
+    if (isImportDeclaration(node) && !compare(node.specifiers[0].local, node.specifiers[0].imported))
         return false;
     
-    if (isVariableDeclarator(node) && /(const|let|var) {\n/.test(text))
+    if (isImportDeclaration(node) && /import {\n/.test(text))
+        return true;
+    
+    if (AssignRegExp.test(parentText))
+        return false;
+    
+    if (isVariableDeclarator(node) && /(const|let|var) {\n/.test(parentText))
         return true;
     
     return false;

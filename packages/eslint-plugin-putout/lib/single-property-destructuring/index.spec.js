@@ -21,6 +21,11 @@ ruleTester.run('single-property-destructuring', rule, {
             hello = true
         } = world;`,
         `import {x} from 'y';`,
+        montag`
+            import {
+                helloWorld as simpleHello,
+            } from './user.js';
+        `,
     ],
     
     invalid: [{
