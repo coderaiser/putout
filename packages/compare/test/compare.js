@@ -735,6 +735,15 @@ test('compare: typescript: arrow function type', (t) => {
     t.end();
 });
 
+test('compare: no template', (t) => {
+    const node = 'const a = 5';
+    const template = null;
+    const result = compare(node, template);
+    
+    t.notOk(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);

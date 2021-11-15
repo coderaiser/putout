@@ -71,6 +71,9 @@ function compare(path, template) {
     if (!path)
         return false;
     
+    if (!template)
+        return false;
+    
     const node = extractExpression(parseNode(path));
     const templateNode = extractExpression(parseNode(template));
     
