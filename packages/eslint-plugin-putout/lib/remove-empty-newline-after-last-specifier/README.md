@@ -12,6 +12,12 @@ import {
     b,
 
 } from 'y';
+
+push({
+    a,
+    b,
+
+});
 ```
 
 Examples of **correct** code for this rule:
@@ -21,4 +27,9 @@ import {
     a,
     b,
 } from 'y';
+
+push({
+    a,
+    b,
+});
 ```

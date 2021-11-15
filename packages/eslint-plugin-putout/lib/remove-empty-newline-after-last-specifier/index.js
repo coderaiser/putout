@@ -3,7 +3,7 @@
 module.exports.category = 'import';
 module.exports.report = () => 'Remove newline after last specifier';
 
-const regExp = /\n\s+}/;
+const regExp = /\n\n(\s+)?}/;
 
 module.exports.filter = ({text}) => {
     return regExp.test(text);
@@ -16,5 +16,6 @@ module.exports.fix = ({text}) => {
 
 module.exports.include = () => [
     'ImportDeclaration',
+    'ObjectExpression',
 ];
 

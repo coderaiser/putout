@@ -3,3 +3,9 @@ import {
     world,
     
 } from 'b';
+
+push({
+    a,
+    b,
+    
+});

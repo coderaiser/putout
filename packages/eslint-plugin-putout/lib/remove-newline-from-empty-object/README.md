@@ -8,7 +8,6 @@ Examples of **incorrect** code for this rule:
 
 ```js
 const a = {
-
 };
 ```
 

@@ -22,6 +22,17 @@ ruleTester.run('remove-empty-newline-after-last-specifier', rule, {
         `, montag`
             import {y} from 'z';
         `,
+        montag`
+            const ruleTester = new RuleTester({
+                parserOptions: {
+                }
+            });
+            
+            push({
+                a,
+                b,
+            });
+        `,
     ],
     
     invalid: [{
@@ -39,6 +50,24 @@ ruleTester.run('remove-empty-newline-after-last-specifier', rule, {
         errors: [{
             message: 'Remove newline after last specifier',
             type: 'ImportDeclaration',
+        }],
+    }, {
+        code: montag`
+            push({
+                a,
+                b,
+            
+            });
+        `,
+        output: montag`
+            push({
+                a,
+                b,
+            });
+        `,
+        errors: [{
+            message: 'Remove newline after last specifier',
+            type: 'ObjectExpression',
         }],
     }],
 });
