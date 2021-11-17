@@ -152,7 +152,6 @@ module.exports.replace = () => ({
     'const __a = __b': ({}) => {
     },
     'const __c = __d': ({}, path) => {
-    
     },
 });
 ```

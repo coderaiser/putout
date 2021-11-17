@@ -35,19 +35,6 @@ ruleTester.run('remove-empty-newline-from-empty-object', rule, {
     invalid: [{
         code: montag`
             const a = {
-            
-            };
-        `,
-        output: montag`
-            const a = {};
-        `,
-        errors: [{
-            message: 'Remove newline from empty object',
-            type: 'ObjectExpression',
-        }],
-    }, {
-        code: montag`
-            const a = {
             };
         `,
         output: montag`

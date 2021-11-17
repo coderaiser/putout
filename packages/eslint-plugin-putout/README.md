@@ -47,6 +47,7 @@ Then configure the rules you want to use under the rules section.
         "putout/add-newlines-between-types-in-union": "error",
         "putout/remove-newline-after-default-import": "error",
         "putout/remove-newline-from-empty-object": "error",
+        "putout/remove-empty-newline-before-first-specifier": "error",
         "putout/remove-empty-newline-after-last-specifier": "error",
         "putout/objects-braces-inside-array": "error",
         "putout/object-init": "error"
@@ -69,6 +70,7 @@ Then configure the rules you want to use under the rules section.
 - [Add newlines between types in union](/packages/eslint-plugin-putout/lib/add-newlines-between-types-in-union)
 - [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import)
 - [Remove newline from empty object](/packages/eslint-plugin-putout/lib/remove-newline-from-empty-object)
+- [Remove empty newline before first specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-before-first-specifier)
 - [Remove empty newline after last specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-specifier)
 - [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array)
 - [Object init](/packages/eslint-plugin-putout/lib/object-init)
