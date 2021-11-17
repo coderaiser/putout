@@ -1,1 +1,1 @@
-t.match(result, RegExp('hello'), 'hello world');
+t.match(result, 'hello', 'hello world');
