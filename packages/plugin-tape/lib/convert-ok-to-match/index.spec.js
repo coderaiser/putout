@@ -19,3 +19,8 @@ test('plugin-tape: convert-ok-to-match: transform: message', (t) => {
     t.end();
 });
 
+test('plugin-tape: convert-ok-to-match: no transform: keys', (t) => {
+    t.noTransform('keys');
+    t.end();
+});
+
