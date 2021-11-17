@@ -606,6 +606,7 @@ test('compare: ts: exportKind', (t) => {
         type: 'ExportNamedDeclaration',
         specifiers: [],
         source: null,
+        assertions: [],
         declaration: {
             type: 'VariableDeclaration',
             declarations: [{
