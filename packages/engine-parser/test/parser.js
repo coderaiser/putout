@@ -366,6 +366,14 @@ test('putout: parser: babel/options', (t) => {
     t.end();
 });
 
+test('putout: parser: babel/plugins', (t) => {
+    const result = require('@putout/engine-parser/babel/plugins');
+    const expected = require('../lib/parsers/babel/plugins');
+    
+    t.equal(result, expected);
+    t.end();
+});
+
 test('putout: parser: babel', (t) => {
     const result = require('@putout/engine-parser/babel');
     const expected = require('../lib/parsers/babel');

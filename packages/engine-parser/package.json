@@ -13,6 +13,7 @@
     "./acorn": "./lib/parsers/acorn.js",
     "./babel": "./lib/parsers/babel/index.js",
     "./babel/options": "./lib/parsers/babel/options.js",
+    "./babel/plugins": "./lib/parsers/babel/plugins.js",
     "./espree": "./lib/parsers/espree.js",
     "./esprima": "./lib/parsers/esprima.js"
   },
