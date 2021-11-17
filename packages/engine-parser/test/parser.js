@@ -374,3 +374,27 @@ test('putout: parser: babel', (t) => {
     t.end();
 });
 
+test('putout: parser: acorn', (t) => {
+    const result = require('@putout/engine-parser/acorn');
+    const expected = require('../lib/parsers/acorn');
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: parser: espree', (t) => {
+    const result = require('@putout/engine-parser/espree');
+    const expected = require('../lib/parsers/espree');
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: parser: esprima', (t) => {
+    const result = require('@putout/engine-parser/esprima');
+    const expected = require('../lib/parsers/esprima');
+    
+    t.equal(result, expected);
+    t.end();
+});
+
