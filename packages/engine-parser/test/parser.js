@@ -366,3 +366,11 @@ test('putout: parser: babel/options', (t) => {
     t.end();
 });
 
+test('putout: parser: babel', (t) => {
+    const result = require('@putout/engine-parser/babel');
+    const expected = require('../lib/parsers/babel');
+    
+    t.equal(result, expected);
+    t.end();
+});
+
