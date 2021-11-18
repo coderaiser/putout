@@ -57,3 +57,8 @@ test('eslint-plugin-putout: remove-newline-from-empty-object', async ({process})
 test('eslint-plugin-putout: add-newlines-between-types-in-union', async ({process}) => {
     await process('add-newlines-between-types-in-union');
 });
+
+test('eslint-plugin-putout: array-element-newline', async ({process}) => {
+    await process('array-element-newline');
+});
+

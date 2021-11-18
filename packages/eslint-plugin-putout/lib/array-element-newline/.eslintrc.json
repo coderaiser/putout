@@ -1,0 +1,8 @@
+{
+    "overrides": [{
+        "files": "*.md{js}",
+        "rules": {
+            "putout/array-element-newline": "off"
+        }
+    }]
+}

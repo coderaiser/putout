@@ -16,6 +16,7 @@ const getWrapRule = (a) => ({
 });
 
 module.exports.rules = {
+    ...getWrapRule('array-element-newline'),
     ...getWrapRule('single-property-destructuring'),
     ...getWrapRule('multiple-properties-destructuring'),
     ...getWrapRule('for-of-multiple-properties-destructuring'),
@@ -49,6 +50,7 @@ const recommended = {
         'no-debugger': 'off',
         'no-unused-vars': 'off',
         
+        'putout/array-element-newline': 'error',
         'putout/single-property-destructuring': 'error',
         'putout/multiple-properties-destructuring': 'error',
         'putout/for-of-multiple-properties-destructuring': 'error',

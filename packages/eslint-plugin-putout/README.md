@@ -36,6 +36,7 @@ Then configure the rules you want to use under the rules section.
 {
     "rules": {
         "putout/putout": "error",
+        "putout/array-element-newline": "error",
         "putout/single-property-destructuring": "error",
         "putout/multiple-properties-destructuring": "error",
         "putout/long-properties-destructuring": "error",
@@ -58,6 +59,7 @@ Then configure the rules you want to use under the rules section.
 ## Supported Rules
 
 - [putout](lib/putout)
+- [Array element newline](/packages/eslint-plugin-putout/lib/array-element-newline)
 - [Single property destructuring](/packages/eslint-plugin-putout/lib/single-property-destructuring)
 - [Multiple properties destructuring](/packages/eslint-plugin-putout/lib/multiple-properties-destructuring)
 - [For-of multiple properties destructuring](/packages/eslint-plugin-putout/lib/for-of-multiple-properties-destructuring)
