@@ -21,15 +21,15 @@ try {
 } catch(error) {
 }
 
-if (a) {
+if(a) {
 }
 
-for (i = 0; i < n; i++) {}
+for(i = 0; i < n; i++) {}
 
-for (x of y) {}
+for(x of y) {}
 
 async () => {
-    for await (x of y) {}
+    for await(x of y) {}
 };
 ```
 
@@ -37,7 +37,7 @@ Examples of **correct** code for this rule:
 
 ```js
 try {
-} catch {
+}catch {
 }
 
 try {
