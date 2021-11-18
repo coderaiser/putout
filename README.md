@@ -14,7 +14,7 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-Putout is a pluggable and configurable code transformer with built-in `eslint`, `babel plugins` and `jscodeshift codemods` support for `js`, `jsx` `typescript` and `flow` files. It has [a lot of transforms](#built-in-transformations) that will keep your codebase in a clean state, transforming any code smell to readable code according to best practices.
+🐊`Putout` is a pluggable and configurable code transformer with built-in `eslint`, `babel plugins` and `jscodeshift codemods` support for `js`, `jsx` `typescript` and `flow` files. It has [a lot of transforms](#built-in-transformations) that will keep your codebase in a clean state, transforming any code smell to readable code according to best practices.
 
 [![putout](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm.svg)](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm)
 
@@ -1874,7 +1874,7 @@ When you need to ignore some routes no matter what, you can use `ignore` section
 
 ### Plugins
 
-There are two types of plugins supported by `putout`, their names in npm start with a prefix:
+There are two types of plugins supported by 🐊`Putout`, their names in npm start with a prefix:
 
 - `@putout/plugin-` for official plugins
 - `putout-plugin-` for user plugins
@@ -1904,7 +1904,7 @@ Let's consider a couple of plugin types that can be used.
 
 ### Replacer
 
-The simplest `putout` plugin type, consits of 2 functions:
+The simplest 🐊`Putout` plugin type, consits of 2 functions:
 
 - `report` - report error message to `putout` cli;
 - `replace` - replace `key` template into `value` template;
@@ -2236,7 +2236,7 @@ Please send pull requests with `jscodeshift codemods` which can be used to simpl
 
 ## Integration with ESLint
 
-If you see that `putout` brokes formatting of your code, use eslint plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout).
+If you see that 🐊`Putout` brokes formatting of your code, use eslint plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout).
 
 Install `eslint-plugin-putout` with:
 
