@@ -7,13 +7,9 @@ In the same way as eslint [object-property-newline](https://github.com/coderaise
 Examples of **incorrect** code for this rule:
 
 ```js
-const user = {
-    name,
-};
+const user = {name};
 
-module.exports = {
-    lint: 'putout lint',
-};
+module.exports = {lint: 'putout lint'};
 ```
 
 Examples of **correct** code for this rule:
