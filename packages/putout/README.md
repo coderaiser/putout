@@ -9,7 +9,7 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-🐊[`Putout`](https://github.com/coderaiser/putout) is a tool for identifying, reporting and fixing patterns found in JavaScript/JSX/Typescript/Flow code. It can:
+🐊[`Putout`](https://github.com/coderaiser/putout) find and fix problems in your `JavaScript`, `JSX`, `Typescript`, `Flow`, `Yaml, `Json` and `Markdown`. It can:
 
 - remove unused `variables`;
 - remove unused `for-of variables`;
