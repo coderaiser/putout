@@ -13,12 +13,12 @@ npm i @putout/plugin-convert-generic-to-shorthand -D
 
 ## Rule
 
-Rule `convert-generic-to-shorthand` is enabled by default for `ts` and `tsx` files, to disable add to `.putout.json`:
+Rule `convert-generic-to-shorthand` is enabled by default for `ts` and `tsx` files.
 
 ```json
 {
     "rules": {
-        "convert-generic-to-shorthand": "off"
+        "convert-generic-to-shorthand": "on"
     }
 }
 ```
