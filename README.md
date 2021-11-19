@@ -475,10 +475,10 @@ putout(source, {
 
 </details>
 
-<details><summary>remove duplicates from `union` (for typescript)</summary>
+<details><summary>remove duplicates from <code>union</code> (for typescript)</summary>
 
 ```diff
--type x = boolean[] |A | string | A | string[] | boolean[];
+-type x = boolean[] | A | string | A | string[] | boolean[];
 +type x = boolean[] | A | string | string[];
 ```
 
