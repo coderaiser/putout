@@ -91,7 +91,7 @@
     "@putout/plugin-convert-for-each-to-for-of": "^6.0.0",
     "@putout/plugin-convert-for-in-to-for-of": "^2.0.0",
     "@putout/plugin-convert-for-to-for-of": "^2.0.0",
-    "@putout/plugin-convert-generic-to-shorthand": "^1.0.0",
+    "@putout/plugin-convert-generic-to-shorthand": "^2.0.0",
     "@putout/plugin-convert-index-of-to-includes": "^1.0.0",
     "@putout/plugin-convert-map-to-for-of": "^1.0.0",
     "@putout/plugin-convert-math-pow": "^4.0.0",
