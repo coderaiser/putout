@@ -19,7 +19,12 @@ module.exports.traverse = ({push}) => ({
         if (!path.get('typeName').isIdentifier({name: 'Array'}))
             return;
         
-        const {params} = path.node.typeParameters;
+        const {typeParameters} = path.node;
+        
+        if (!typeParameters)
+            return;
+        
+        const {params} = typeParameters;
         
         if (!params || params.length > 1)
             return;
