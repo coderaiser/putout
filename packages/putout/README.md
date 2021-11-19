@@ -9,7 +9,7 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-Putout is a tool for identifying, reporting and fixing patterns found in JavaScript/JSX/Typescript/Flow code. It can:
+🐊[`Putout`](https://github.com/coderaiser/putout) is a tool for identifying, reporting and fixing patterns found in JavaScript/JSX/Typescript/Flow code. It can:
 
 - remove unused `variables`;
 - remove unused `for-of variables`;
@@ -142,7 +142,7 @@ putout lib test --fix
 
 ## Plugins
 
-By default `putout` uses all enabled by default plugins, anyways it can be run with a couple mentioned plugins (splitted with ","):
+By default 🐊`Putout` uses all enabled by default plugins, anyways it can be run with a couple mentioned plugins (splitted with ","):
 
 ```sh
 putout lib --plugins remove-debugger,remove-unused-variables
@@ -150,7 +150,7 @@ putout lib --plugins remove-debugger,remove-unused-variables
 
 ## Environment variables
 
-`Putout` supports next `environment variables`:
+🐊`Putout` supports next `environment variables`:
 
 - `PUTOUT_FILES` - files that should be processed by putout, divided by ",";
 
@@ -190,7 +190,7 @@ When you need to ignore some routes no metter what, you can use `ignore` section
 
 ## Plugins
 
-`Putout` supports `plugins`, there is two types: with prefix official `@putout/plugin-` and user plugins with prefix `putout-plugin-`. To use your plugin create plugin as `npm` package with keywords `putout`, `putout-plugin` and add it to `.putout.json`.
+🐊`Putout` supports `plugins`, there is two types: with prefix official `@putout/plugin-` and user plugins with prefix `putout-plugin-`. To use your plugin create plugin as `npm` package with keywords `putout`, `putout-plugin` and add it to `.putout.json`.
 
 For example if you need to `remove-something` create `putout` plugin with name `putout-plugin-remove-something` and it to `package.json`:
 
@@ -204,7 +204,7 @@ For example if you need to `remove-something` create `putout` plugin with name `
 
 ## Codemods
 
-`putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/master/codemods/plugin-convert-tape-to-supertape) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
+🐊`Putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/master/codemods/plugin-convert-tape-to-supertape) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
 
 ## API
 
