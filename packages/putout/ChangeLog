@@ -1,3 +1,23 @@
+2021.11.19, v22.0.2
+
+fix:
+- (@putout/plugin-convert-generic-to-shorthand) exclude when no type parameters
+
+feature:
+- (package) @putout/plugin-convert-generic-to-shorthand v2.0.0
+- (@putout/plugin-convert-generic-to-shorthand) drop support of node < 14
+- (eslint-plugin-putout) add array-element-newline
+- (eslint-plugin-putout) add remove-empty-newline-before-first-specifier
+- (@putout/engine-parser) export babel/plugins
+- (@putout/engine-parser) export acorn, espree, esprima
+- (@putout/engine-parser) export babel parser
+- (@putout/plugin-tape) convert-ok-to-match: exclude: keys
+- (@putout/plugin-tape) convert-ok-to-match: rm RegExp, t.match adds it
+- (eslint-plugin-putout) single-property-destructuring: exclude ImportSpecifier with local different then imported
+- (@putout/compare) add support of empty template
+- (eslint-plugin-putout) remove-empty-newline-after-last-specifier: add support of ObjectExpression
+
+
 2021.11.14, v22.0.1
 
 fix:
