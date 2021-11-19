@@ -21,21 +21,17 @@ Result example:
 
 ```json
 {
-    "errors": [
-        {
-            "name": "/home/coderaiser/putout/packages/putout/lib/putout.js",
-            "places": [
-                {
-                    "rule": "remove-debugger",
-                    "message": "Unexpected \"debugger\" statement",
-                    "position": {
-                        "line": 3,
-                        "column": 0
-                    }
-                }
-            ]
-        }
-    ],
+    "errors": [{
+        "name": "/home/coderaiser/putout/packages/putout/lib/putout.js",
+        "places": [{
+            "rule": "remove-debugger",
+            "message": "Unexpected \"debugger\" statement",
+            "position": {
+                "line": 3,
+                "column": 0
+            }
+        }]
+    }],
     "filesCount": 1,
     "errorsCount": 1
 }

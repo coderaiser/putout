@@ -11,7 +11,6 @@ module.exports = [{
         'no-undef': 'off',
         'eol-last': 'off',
         'no-multi-spaces': 'off',
-        'putout/objects-braces-inside-array': 'off',
     },
 }, {
     files: 'package.json',
