@@ -1,1 +1,1 @@
-const a = `hello 'world'`;
+const a = `hello \'world\'`;

@@ -14,3 +14,8 @@ test('plugin-convert-quotes-to-backtics: transform', (t) => {
     t.end();
 });
 
+test('plugin-convert-quotes-to-backtics: transform: newline', (t) => {
+    t.transform('newline');
+    t.end();
+});
+
