@@ -12,16 +12,12 @@ const {
 
 module.exports.report = () => `Use backticks instead of quotes`;
 
-//const cutQuotes = (a, b) => !a ? b : a.slice(1, -1);
-const cutQuotes = (a) => a.slice(1, -1);
-
 module.exports.fix = (path) => {
-    //const {value, raw} = path.node;
-    const {raw} = path.node;
+    const value = path.node.value.replace('\n', '\\n');
     
     replaceWith(path, TemplateLiteral([
         TemplateElement({
-            raw: cutQuotes(raw),
+            raw: value,
         }),
     ], []));
 };
