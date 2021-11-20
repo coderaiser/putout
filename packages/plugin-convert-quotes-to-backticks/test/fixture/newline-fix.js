@@ -1,1 +1,1 @@
-const str = `hello'\n'`;
+const str = `hello'\n'\n`;
