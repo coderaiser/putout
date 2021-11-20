@@ -26,6 +26,7 @@
             "madrun": "on"
         },
         "*.md": {
+            "convert-quotes-to-backticks": "off",
             "convert-comparison-to-boolean": "off",
             "remove-unused-expressions": "off",
             "remove-unused-variables": "off",

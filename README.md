@@ -427,7 +427,7 @@ putout(source, {
 });
 // returns
 ({
-    code: "\n    const hello = 'world';\n\n    console.log(hello);\n",
+    code: `\n    const hello = 'world';\n\n    console.log(hello);\n`,
     places: [],
 });
 ```
@@ -450,8 +450,8 @@ putout(source, {
 // returns
 ({
     code: '\n' +
-    "    const hello = 'world';\n" +
-    "    const hi = 'there';\n" +
+    `    const hello = 'world';\n` +
+    `    const hi = 'there';\n` +
     '    \n' +
     '    console.log(hello);\n',
     places: [{
