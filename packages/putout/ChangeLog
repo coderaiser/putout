@@ -1,3 +1,15 @@
+2021.11.21, v22.1.0
+
+fix:
+- (@putout/plugin-convert-quotes-to-backticks) a couple newlines
+- (@putout/plugin-convert-quotes-to-backticks) newlines
+
+feature:
+- (putout) *.md: disable convert-quotes-to-backticks
+- (@putout/plugin-convert-quotes-to-backtics) add suport of newlines
+- (eslint-plugin-putout) objects-braces-inside-array: enable for json, disable for yaml
+
+
 2021.11.19, v22.0.2
 
 fix:
