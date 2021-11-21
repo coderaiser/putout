@@ -1203,7 +1203,7 @@ test('putout: cli: --transform', async (t) => {
     const argv = [
         name,
         '--transform',
-        `"${transform}"`,
+        String(transform),
         '--no-config',
         '--format',
         'json',
