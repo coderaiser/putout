@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-debugger.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-debugger "npm"
 
-`putout` plugin adds ability to find and remove `debugger` statement.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove `debugger` statement.
 
 ## Install
 

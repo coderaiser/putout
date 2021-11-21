@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-codeframe.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/formatter-codeframe "npm"
 
-`putout` formatter shows codeframe of file with an errors.
+🐊[`Putout`](https://github.com/coderaiser/putout) formatter shows codeframe of file with an errors.
 
 ## Install
 

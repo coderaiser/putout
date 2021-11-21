@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-nodejs.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-nodejs"npm"
 
-`putout` plugin adds ability to transform to new [nodejs.org](https://nodejs.io) API and best practices.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to transform to new [nodejs.org](https://nodejs.io) API and best practices.
 
 ## Install
 

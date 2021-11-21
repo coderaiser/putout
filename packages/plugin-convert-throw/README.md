@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-throw.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-throw "npm"
 
-`putout` plugin adds ability convert throw statement into throw expression.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability convert throw statement into throw expression.
 
 ## Install
 

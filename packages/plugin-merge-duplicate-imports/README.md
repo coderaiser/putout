@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-merge-duplicate-imports.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-merge-duplicate-imports "npm"
 
-`putout` plugin adds ability to find and remove duplecate keys.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove duplecate keys.
 
 ## Install
 

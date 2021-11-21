@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-commonjs-to-esm.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-commonjs-to-esm"npm"
 
-`putout` plugin adds ability to convert Commonjs to ESM.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert Commonjs to ESM.
 
 ## Install
 

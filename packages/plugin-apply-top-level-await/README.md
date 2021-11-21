@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-top-level-await.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-top-level-await"npm"
 
-`putout` plugin applies [top-level-await](https://v8.dev/features/top-level-await). Part of [@putout/promises](https://github.com/coderaiser/putout/tree/master/packages/plugin-promises).
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin applies [top-level-await](https://v8.dev/features/top-level-await). Part of [@putout/promises](https://github.com/coderaiser/putout/tree/master/packages/plugin-promises).
 
 ## Install
 

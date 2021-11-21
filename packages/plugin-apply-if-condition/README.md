@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-if-condition.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-if-condition"npm"
 
-`putout` plugin adds ability to apply `if condition`
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to apply `if condition`
 
 ## Install
 

@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-types-from-constants.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-types-from-constants "npm"
 
-`putout` plugin adds ability to convert `generic` to `shorthand` (https://stackoverflow.com/a/36843084/4536327).
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert `generic` to `shorthand` (https://stackoverflow.com/a/36843084/4536327).
 
 ## Install
 

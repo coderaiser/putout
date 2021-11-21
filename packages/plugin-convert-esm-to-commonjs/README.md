@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-esm-to-commonjs.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-esm-to-commonjs"npm"
 
-`putout` plugin adds ability to convert `EcmaScript Modules` to `CommonJS`
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert `EcmaScript Modules` to `CommonJS`
 
 ## Install
 

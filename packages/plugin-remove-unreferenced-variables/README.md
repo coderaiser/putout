@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-unreferenced-variables.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-unreferenced-variables"npm"
 
-`putout` plugin adds ability to find and remove `unreferenced-variables`.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove `unreferenced-variables`.
 
 ## Install
 

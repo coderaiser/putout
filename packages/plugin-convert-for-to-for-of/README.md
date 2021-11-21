@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-for-to-for-of.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-for-to-for-of "npm"
 
-`putout` plugin adds ability to convert `for` to `for-of` loop.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert `for` to `for-of` loop.
 
 ## Install
 

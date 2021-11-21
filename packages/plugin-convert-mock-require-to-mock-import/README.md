@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-mock-require-to-mock-import.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-mock-require-to-mock-import "npm"
 
-`putout` plugin adds ability to convert [mockRequire](https://github.com/boblauer/mock-require) to [mockImport](https://github.com/coderaiser/mock-import).
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert [mockRequire](https://github.com/boblauer/mock-require) to [mockImport](https://github.com/coderaiser/mock-import).
 
 ## Install
 

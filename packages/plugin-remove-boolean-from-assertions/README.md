@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-boolean-from-assertions.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-boolean-from-assertions "npm"
 
-`putout` plugin adds ability to remove `boolean` from `assertions`. Renamed to [@putout/plugin-remove-boolean-to-assertionss](https://www.npmjs.com/package/@putout/plugin-remove-boolean-from-assertionss).
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to remove `boolean` from `assertions`. Renamed to [@putout/plugin-remove-boolean-to-assertionss](https://www.npmjs.com/package/@putout/plugin-remove-boolean-from-assertionss).
 
 ## Install
 

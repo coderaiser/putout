@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-await.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-await "npm"
 
-`putout` plugin adds ability to apply shorthand properties. Part of [@putout/plugin-promises](https://github.com/coderaiser/putout/tree/master/packages/plugin-promises).
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to apply shorthand properties. Part of [@putout/plugin-promises](https://github.com/coderaiser/putout/tree/master/packages/plugin-promises).
 
 ## Install
 

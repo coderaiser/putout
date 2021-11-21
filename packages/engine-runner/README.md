@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/engine-runner.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/engine-runner"npm"
 
-Run putout plugins.
+Run 🐊[`Putout`](https://github.com/coderaiser/putout) plugins.
 
 ## Install
 

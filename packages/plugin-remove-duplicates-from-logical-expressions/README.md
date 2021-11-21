@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-duplicates-from-logical-expression.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-duplicates-from-logical-expression "npm"
 
-`putout` plugin adds ability to find and remove `duplicates` from logical expressions`.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove `duplicates` from logical expressions`.
 
 ## Install
 

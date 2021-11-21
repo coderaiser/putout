@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-from.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-array-from"npm"
 
-`putout` plugin adds ability to remove useless `Array.from`.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to remove useless `Array.from`.
 
 ## Install
 

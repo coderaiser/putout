@@ -7,7 +7,7 @@
 >
 > https://google.github.io/styleguide/tsguide.html#array-constructor
 
-`putout` plugin removes useless [Array constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Array).
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin removes useless [Array constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Array).
 It has a different meaning for one, and couple arguments:
 
 ```js

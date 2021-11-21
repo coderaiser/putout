@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-regexp.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-regexp"npm"
 
-`putout` plugin helps with `Regular Expressions`.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin helps with `Regular Expressions`.
 
 ## Install
 

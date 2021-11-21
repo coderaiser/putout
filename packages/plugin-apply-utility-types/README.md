@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-utility-types.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-utility-types"npm"
 
-`putout` plugin adds ability to apply `utility types`.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to apply `utility types`.
 
 ## Install
 

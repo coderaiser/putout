@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-unused-expressions.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-unused-expressions"npm"
 
-`putout` plugin adds ability to find and remove `unused expressions`.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove `unused expressions`.
 
 ## Install
 

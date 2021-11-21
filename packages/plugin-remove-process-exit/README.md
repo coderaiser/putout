@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-process-exit.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-process-exit"npm"
 
-`putout` plugin adds ability to find and remove `process.exit` calls.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove `process.exit` calls.
 
 ## Install
 

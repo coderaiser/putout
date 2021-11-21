@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-as-type-assertions.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-as-type-assertions"npm"
 
-`putout` plugin adds ability to apply `as` type asssertion according to [best practices](https://basarat.gitbook.io/typescript/type-system/type-assertion#as-foo-vs-less-than-foo-greater-than).
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to apply `as` type asssertion according to [best practices](https://basarat.gitbook.io/typescript/type-system/type-assertion#as-foo-vs-less-than-foo-greater-than).
 
 ## Install
 

@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-only.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-only"npm"
 
-`putout` plugin adds ability to find and remove `test.only` calls. Part of [@putout/plugin-tape](https://github.com/coderaiser/putout/tree/master/packages/plugin-tape).
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove `test.only` calls. Part of [@putout/plugin-tape](https://github.com/coderaiser/putout/tree/master/packages/plugin-tape).
 
 ## Install
 

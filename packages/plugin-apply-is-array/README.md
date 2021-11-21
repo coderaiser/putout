@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-is-array.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-is-array "npm"
 
-`putout` plugin adds ability to apply `Array.isArray()`. Fits good with [@putout/plugin-declare-undefined-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables).
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to apply `Array.isArray()`. Fits good with [@putout/plugin-declare-undefined-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables).
 
 ## Install
 

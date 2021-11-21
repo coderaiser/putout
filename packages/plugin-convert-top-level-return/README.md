@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-top-level-return.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-top-level-return"npm"
 
-`putout` plugin adds ability convert `top-level return` into `process.exit`.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability convert `top-level return` into `process.exit`.
 
 ## Install
 

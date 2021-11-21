@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-madrun.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-madrun"npm"
 
-`putout` plugin adds ability to fix issues with [madrun](https://github.com/coderaiser/madrun) config file.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to fix issues with [madrun](https://github.com/coderaiser/madrun) config file.
 
 ## Install
 

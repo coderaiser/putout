@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-continue.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-continue "npm"
 
-`putout` plugin adds ability to remove useless `continue`.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to remove useless `continue`.
 
 ## Install
 

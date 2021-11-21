@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-try-catch.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-try-catch"npm"
 
-`putout` plugin adds ability to apply [tryCatch](https://github.com/coderaiser/try-catch).
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to apply [tryCatch](https://github.com/coderaiser/try-catch).
 
 ## Install
 

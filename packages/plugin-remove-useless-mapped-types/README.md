@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-mapped-types.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-mapped-types "npm"
 
-`putout` plugin adds ability to remove useless [mapped types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html).
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to remove useless [mapped types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html).
 
 ## Install
 

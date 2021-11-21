@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-assignment-to-comparison.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-assignment-to-comparison"npm"
 
-`putout` plugin adds ability to convert assignment to comparison.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert assignment to comparison.
 
 ## Install
 

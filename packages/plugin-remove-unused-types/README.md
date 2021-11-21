@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-unused-types.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-unused-types "npm"
 
-`putout` plugin adds ability to find and remove `unused types`.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove `unused types`.
 
 ## Install
 

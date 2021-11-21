@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-declare-undefined-variables.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-declare-undefined-variables"npm"
 
-`putout` plugin adds ability to declare variable that was not defined before, including:
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to declare variable that was not defined before, including:
 
 - [fs/promises](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html);
 - [path](https://nodejs.org/dist/latest-v16.x/docs/api/path.html);

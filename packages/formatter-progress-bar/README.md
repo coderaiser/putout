@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-progress-bar.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/formatter-progress-bar "npm"
 
-`putout` formatter shows progress bar.
+🐊[`Putout`](https://github.com/coderaiser/putout) formatter shows progress bar.
 
 ## Install
 

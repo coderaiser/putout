@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-templates.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-templates"npm"
 
-`putout` plugin adds ability to find and remove useless `template string`. Nut bundled to `putout` (by default `convert-template-to-string` is used).
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove useless `template string`. Nut bundled to `putout` (by default `convert-template-to-string` is used).
 
 ## Install
 

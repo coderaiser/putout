@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-empty-pattern.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-empty-pattern"npm"
 
-`putout` plugin adds ability to find and remove `empty pattern statements`.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove `empty pattern statements`.
 
 ## Install
 

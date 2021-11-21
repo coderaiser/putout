@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-map-to-for-of.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-map-to-for-of "npm"
 
-`putout` plugin adds ability to convert `map` to `for-of` loop.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert `map` to `for-of` loop.
 
 ## Install
 

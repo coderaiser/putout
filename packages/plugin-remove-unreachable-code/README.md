@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-unreachable-code.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-unreachable-code"npm"
 
-`putout` plugin adds ability to find and remove unreachable code.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove unreachable code.
 
 ## Install
 
