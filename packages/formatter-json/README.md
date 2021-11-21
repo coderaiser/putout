@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-json.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/formatter-json "npm"
 
-`putout` formatter output json on end.
+[🐊`Putout`](https://github.com/coderaiser/putout "🐊Putout") formatter output json on end.
 
 ## Install
 
