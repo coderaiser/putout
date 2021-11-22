@@ -97,6 +97,10 @@
             "blankLine": "always",
             "prev": "if",
             "next": "const"
+        }, {
+            "blankLine": "always",
+            "prev": "for",
+            "next": "return"
         }],
         "require-atomic-updates": "off",
         "yoda": "error"

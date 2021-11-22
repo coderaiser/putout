@@ -62,3 +62,7 @@ test('eslint-plugin-putout: array-element-newline', async ({process}) => {
     await process('array-element-newline');
 });
 
+test('eslint-plugin-putout: config: padding-line-between-statements', async ({process}) => {
+    await process('padding-line-between-statements');
+});
+
