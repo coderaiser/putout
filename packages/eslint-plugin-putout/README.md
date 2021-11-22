@@ -58,7 +58,7 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-- [putout](lib/putout)
+- [Putout](lib/putout)
 - [Array element newline](/packages/eslint-plugin-putout/lib/array-element-newline)
 - [Single property destructuring](/packages/eslint-plugin-putout/lib/single-property-destructuring)
 - [Multiple properties destructuring](/packages/eslint-plugin-putout/lib/multiple-properties-destructuring)
