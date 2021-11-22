@@ -33,6 +33,14 @@ ruleTester.run('array-element-newline', rule, {
             const a = [{a: 1}, {b: 2}, {c: 3}, {
                 b: [1, 2, 3, 4, 5]
             }];
+        `, montag`
+            const argv = [
+                join(__dirname, 'fixture/parse-error.js'),
+                '--raw',
+                '--no-config',
+                '--format',
+                'none',
+            ];
         `],
     
     invalid: [{
@@ -59,6 +67,17 @@ ruleTester.run('array-element-newline', rule, {
         `,
         
         output: `const a = [\n'a',\n 'b',\n 'c',\n 'd'\n];`,
+        
+        errors: [{
+            message: 'Add newlines between array elements',
+            type: 'ArrayExpression',
+        }],
+    }, {
+        code: montag`
+            const a = [a, b, c, d];
+        `,
+        
+        output: `const a = [\na,\n b,\n c,\n d\n];`,
         
         errors: [{
             message: 'Add newlines between array elements',

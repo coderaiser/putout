@@ -11,16 +11,24 @@ module.exports.report = () => 'Add newlines between array elements';
 
 const regexp = /['\da-zA-Z]+, ['\da-zA-Z]/;
 
-const isESTreeLiteral = (a) => a.type === 'Literal';
+const isSupportedNode = (a) => {
+    if (a.type === 'Literal')
+        return true;
+    
+    if (a.type === 'Identifier')
+        return true;
+    
+    return false;
+};
 
 module.exports.filter = ({text, node}) => {
     if (isMemberExpression(node.parent))
         return false;
     
-    const isAllPrimitives = node.elements
-        .every(isESTreeLiteral);
+    const supported = node.elements
+        .every(isSupportedNode);
     
-    if (!isAllPrimitives )
+    if (!supported)
         return false;
     
     if (!isVariableDeclarator(node.parent))
