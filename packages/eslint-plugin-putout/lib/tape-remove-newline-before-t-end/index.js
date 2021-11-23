@@ -3,7 +3,7 @@
 module.exports.category = 'tape';
 module.exports.report = () => 'Remove newline before t.end()';
 
-const newlineReg = /\n +\n +t.end\(\)/;
+const newlineReg = /\n( +)?\n +t.end\(\)/;
 
 module.exports.filter = ({text}) => {
     if (!/^test(\.only|\.skip)?\(/.test(text))
