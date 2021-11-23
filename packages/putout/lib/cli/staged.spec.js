@@ -89,6 +89,7 @@ test('putout: cli: staged: get: statusMatrix: result', async (t) => {
     
     const {get} = reRequire('./staged');
     const names = await get({findUp});
+    
     stopAll();
     
     const expected = [

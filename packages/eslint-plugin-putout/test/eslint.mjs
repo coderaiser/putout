@@ -62,6 +62,10 @@ test('eslint-plugin-putout: add-newlines-between-types-in-union', async ({proces
     await process('add-newlines-between-types-in-union');
 });
 
+test('eslint-plugin-putout: add-newline-before-function-call', async ({process}) => {
+    await process('add-newline-before-function-call');
+});
+
 test('eslint-plugin-putout: array-element-newline', async ({process}) => {
     await process('array-element-newline');
 });
