@@ -88,7 +88,7 @@ function getStore(plugin, {fix, rule, shebang, msg, options}) {
         const position = getPosition(path, shebang);
         const message = msg || plugin.report(path);
         
-        placesStore ({
+        placesStore({
             message,
             position,
         });
