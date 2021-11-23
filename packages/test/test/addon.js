@@ -11,7 +11,6 @@ test('test: addon: transform', (t) => {
     t.transform('var', '\n', {
         'remove-unused-variable': removeUnused,
     });
-    
     t.end();
 });
 

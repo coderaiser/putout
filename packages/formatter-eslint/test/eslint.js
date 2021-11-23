@@ -16,7 +16,6 @@ test('formatter: eslint: eslint-formatter', (t) => {
     
     t.format(eslint, 'eslint-formatter');
     delete process.env.ESLINT_FORMATTER;
-    
     t.end();
 });
 

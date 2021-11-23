@@ -59,6 +59,5 @@ test('remove unused for-of-variables: transform: remove-useless-variables: for-o
     t.transform('for-of', {
         'remove-useless-variables/for-of': removeUselessVariables,
     });
-    
     t.end();
 });

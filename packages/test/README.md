@@ -107,7 +107,6 @@ test('putout: plugin: declare-undefined-variables: transform: parse', (t) => {
     t.transformWithOptions('parse', {
         dismiss: ['assign', 'stringify'],
     });
-    
     t.end();
 });
 ```

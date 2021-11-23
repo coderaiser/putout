@@ -26,7 +26,6 @@ test('formatter: memory: minCount', (t) => {
     t.format(progress, 'min-count', {
         minCount: 10,
     });
-    
     t.end();
 });
 
@@ -35,7 +34,6 @@ test('formatter: memory: color', (t) => {
     t.format(progress, 'color', {
         color: 'red',
     });
-    
     t.end();
 });
 

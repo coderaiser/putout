@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports.category = 'tape';
-module.exports.report = () => 'Add new line between tests';
+module.exports.report = () => 'Add newline between tests';
 
 module.exports.filter = ({text, node, getText, getCommentsBefore}) => {
     if (!/^test(\.only|\.skip)?\(/.test(text))

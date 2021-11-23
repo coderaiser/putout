@@ -437,7 +437,6 @@ test('should call init before show', (t) => {
 ```js
 test('xxx', (t) => {
     const a = stub();
-    
     t.end();
 });
 ```
@@ -452,7 +451,6 @@ import {
 
 test('xxx', (t) => {
     const a = stub();
-    
     t.end();
 });
 ```
@@ -523,7 +521,6 @@ test('stop-all: should be called', (t) => {
     mockImport('fs/promises', {
         readFile: stub(),
     });
-    
     t.end();
 });
 ```
@@ -537,7 +534,6 @@ test('stop-all: should be called', (t) => {
     });
     
     stopAll();
-    
     t.end();
 });
 ```

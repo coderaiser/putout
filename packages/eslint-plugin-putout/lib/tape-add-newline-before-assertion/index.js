@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports.category = 'tape';
-module.exports.report = () => 'Add new line before assertion';
+module.exports.report = () => 'Add newline before assertion';
 
 const regexp = /;\n +?t\..*;\n +?t.end\(\);/;
 

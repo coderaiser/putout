@@ -26,7 +26,6 @@ test('formatter: progress bar: minCount', (t) => {
     t.format(progress, 'min-count', {
         minCount: 10,
     });
-    
     t.end();
 });
 
@@ -35,7 +34,6 @@ test('formatter: progress bar: color', (t) => {
     t.format(progress, 'color', {
         color: 'red',
     });
-    
     t.end();
 });
 

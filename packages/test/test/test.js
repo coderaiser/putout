@@ -24,7 +24,6 @@ test('test: message: all messages', (t) => {
         'Unexpected "console" call',
         'Unexpected "console" call',
     ]);
-    
     t.end();
 });
 

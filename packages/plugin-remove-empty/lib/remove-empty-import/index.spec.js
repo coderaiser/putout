@@ -35,7 +35,6 @@ test('plugin-remove-empty: import: options', (t) => {
             'firebase',
         ],
     });
-    
     t.end();
 });
 

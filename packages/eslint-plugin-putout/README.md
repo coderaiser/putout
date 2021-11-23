@@ -78,8 +78,9 @@ Then configure the rules you want to use under the rules section.
 - [Object init](/packages/eslint-plugin-putout/lib/object-init)
 - [No unresolved](/packages/eslint-plugin-putout/lib/no-unresolved)
 - [Evaluate](/packages/eslint-plugin-putout/lib/evaluate)
-- [Tape: add new line before assertion]('/packages/eslint-plugin-putout/lib/tape-add-new-line-before-assertion)
-- [Tape: add new line between tests]('/packages/eslint-plugin-putout/lib/tape-add-new-line-between-tests)
+- [Tape: add newline before assertion]('/packages/eslint-plugin-putout/lib/tape-add-new-line-before-assertion)
+- [Tape: add newline between tests]('/packages/eslint-plugin-putout/lib/tape-add-new-line-between-tests)
+- [Tape: remove newline before t.end()]('/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end)
 
 ### Safe mode
 

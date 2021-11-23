@@ -97,7 +97,6 @@ test('putout: plugin: declare-undefined-variables: transform: parse', (t) => {
     t.transformWithOptions('parse', {
         dismiss: ['assign', 'stringify'],
     });
-    
     t.end();
 });
 
@@ -171,7 +170,6 @@ test('putout: plugin: declare-undefined-variables: noop', (t) => {
         const noop = () => {};
         noop();
     `);
-    
     t.end();
 });
 
@@ -180,7 +178,6 @@ test('putout: plugin: declare-undefined-variables: eslint', (t) => {
         import eslint from 'putout/eslint';
         eslint();
     `);
-    
     t.end();
 });
 
@@ -189,7 +186,6 @@ test('putout: plugin: declare-undefined-variables: once', (t) => {
         import once from 'once';
         once();
     `);
-    
     t.end();
 });
 
@@ -199,7 +195,6 @@ test('putout: plugin: declare-undefined-variables: options-declarations', (t) =>
             custom: `const custom= require('custom')`,
         },
     });
-    
     t.end();
 });
 
@@ -208,7 +203,6 @@ test('putout: plugin: declare-undefined-variables: pipe', (t) => {
         import pipe from 'pipe-io';
         await pipe([stream]);
     `);
-    
     t.end();
 });
 
@@ -217,6 +211,5 @@ test('putout: plugin: declare-undefined-variables: pullout', (t) => {
         import pullout from 'pullout';
         await pullout(stream);
     `);
-    
     t.end();
 });

@@ -27,7 +27,6 @@ test('plugin-apply-shorthand-properties: transform: options', (t) => {
             'plugin',
         ],
     });
-    
     t.end();
 });
 
@@ -76,7 +75,6 @@ test('plugin-apply-shorthand-properties: no transform: assign', (t) => {
     t.noTransform('assign', {
         'rm-unused-vars': removeUnusedVariables,
     });
-    
     t.end();
 });
 

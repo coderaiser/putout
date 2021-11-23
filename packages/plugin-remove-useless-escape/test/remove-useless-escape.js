@@ -91,7 +91,6 @@ test('plugin-remove-useless-escape: no transform: no raw', (t) => {
     t.transform('no-raw', {
         addFixLint,
     });
-    
     t.end();
 });
 

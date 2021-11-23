@@ -36,7 +36,6 @@ test('plugin-split-variable-declarations: null literal: loc', (t) => {
     t.transform('null-literal', '\n\n', {
         'remove-unused-variables': removeUnusedVariables,
     });
-    
     t.end();
 });
 

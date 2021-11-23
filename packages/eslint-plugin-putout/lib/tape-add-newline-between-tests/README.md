@@ -1,10 +1,10 @@
-# Add new line between tests (add-newline-between-tests)
+# Add newline between tests (add-newline-between-tests)
 
-Add new line between tests, for [supertape](https://github.com/coderaiser/supertape).
+Add newline between tests, for [supertape](https://github.com/coderaiser/supertape).
 
 ## Rule Details
 
-This rule aims to add new line between tests.
+This rule aims to add newline between tests.
 
 Examples of **incorrect** code for this rule:
 

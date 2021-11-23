@@ -37,6 +37,7 @@ module.exports.rules = {
     ...getWrapRule('evaluate'),
     ...getWrapRule('tape-add-newline-before-assertion'),
     ...getWrapRule('tape-add-newline-between-tests'),
+    ...getWrapRule('tape-remove-newline-before-t-end'),
     ...getRule('putout'),
 };
 
@@ -71,6 +72,7 @@ const recommended = {
         'putout/evaluate': 'error',
         'putout/tape-add-newline-before-assertion': 'error',
         'putout/tape-add-newline-between-tests': 'error',
+        'putout/tape-remove-newline-before-t-end': 'error',
         'putout/putout': 'error',
         
         'node/no-unsupported-features/es-syntax': 'off',

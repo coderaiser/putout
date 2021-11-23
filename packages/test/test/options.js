@@ -22,6 +22,5 @@ test('test: options: no transform', (t) => {
             'world',
         ],
     });
-    
     t.end();
 });

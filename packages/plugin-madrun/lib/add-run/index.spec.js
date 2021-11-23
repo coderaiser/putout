@@ -33,7 +33,6 @@ test('madrun: add run: transform: strict', (t) => {
         add,
         removeUnusedExpressions,
     });
-    
     t.end();
 });
 

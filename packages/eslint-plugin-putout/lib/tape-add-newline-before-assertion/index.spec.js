@@ -59,7 +59,7 @@ ruleTester.run('remove-newline-after-default-import', rule, {
             `});`,
         ].join('\n'),
         errors: [{
-            message: 'Add new line before assertion',
+            message: 'Add newline before assertion',
             type: 'CallExpression',
         }],
     }],
