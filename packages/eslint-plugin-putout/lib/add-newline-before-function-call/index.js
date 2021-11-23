@@ -71,4 +71,3 @@ function getSpacesBeforeNode(node, {getText, text = getText(node)}) {
     
     return spaces.slice(1);
 }
-

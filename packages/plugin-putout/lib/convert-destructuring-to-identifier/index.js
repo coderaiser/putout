@@ -26,5 +26,6 @@ function findUp(path, str) {
         
         path = path.parentPath;
     }
+    
     return false;
 }
