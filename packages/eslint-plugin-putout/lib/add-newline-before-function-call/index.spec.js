@@ -70,6 +70,8 @@ ruleTester.run('add-newline-before-function-call', rule, {
                 newlineBeforeVar(b);
             });
         `,
+        '{\n    const a = 5;\n    const b = 4;\n\n    hello();}',
+        '{\n    const a = 5;\n\n    const b = 4;\n    hello();}',
     ],
     
     invalid: [{

@@ -8,6 +8,8 @@ const {
     isExpressionStatement,
 } = types;
 
+const regExp = /^\n( +)?\n +$/;
+
 module.exports.category = 'typescript';
 module.exports.report = () => 'Add newline before function call';
 
@@ -31,7 +33,7 @@ module.exports.filter = ({text, node, getText, getCommentsBefore}) => {
     
     const spaces = getSpacesBeforeNode(node, {text, getText});
     
-    if (/^\n +\n +$/.test(spaces))
+    if (regExp.test(spaces))
         return false;
     
     for (let i = 2; i < n; i++) {
@@ -47,7 +49,7 @@ module.exports.filter = ({text, node, getText, getCommentsBefore}) => {
         
         const spaces = getSpacesBeforeNode(prevA, {getText});
         
-        if (/^\n +\n +$/.test(spaces))
+        if (regExp.test(spaces))
             return false;
         
         return true;
