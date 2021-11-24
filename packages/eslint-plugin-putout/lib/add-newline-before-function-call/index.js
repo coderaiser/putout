@@ -40,7 +40,7 @@ module.exports.filter = ({text, node, getText}) => {
         const prevA = body[i - 1];
         
         if (!isVariableDeclaration(prevA))
-            continue;
+            return false;
         
         const spaces = getSpacesBeforeNode(prevA, {getText});
         
