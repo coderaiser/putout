@@ -11,8 +11,11 @@ const {
 module.exports.category = 'typescript';
 module.exports.report = () => 'Add newline before function call';
 
-module.exports.filter = ({text, node, getText}) => {
+module.exports.filter = ({text, node, getText, getCommentsBefore}) => {
     if (!isExpressionStatement(node.parent))
+        return false;
+    
+    if (getCommentsBefore(node.parent).length)
         return false;
     
     const {parent} = node.parent;

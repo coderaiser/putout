@@ -62,6 +62,13 @@ ruleTester.run('add-newline-before-function-call', rule, {
                 t.equal(result, 1);
                 t.end();
             });
+        `, montag`
+            test('hello: world', (t) => {
+                const a = 5;
+                const b = 4;
+                // hello world
+                newlineBeforeVar(b);
+            });
         `,
     ],
     
