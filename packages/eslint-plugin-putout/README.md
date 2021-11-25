@@ -35,6 +35,9 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
+        "putout/add-newlines-between-types-in-union": "error",
+        "putout/add-newline-before-function-call": "error",
+        "putout/add-newline-after-function-call": "error",
         "putout/putout": "error",
         "putout/array-element-newline": "error",
         "putout/single-property-destructuring": "error",
@@ -45,7 +48,6 @@ Then configure the rules you want to use under the rules section.
         "putout/keyword-spacing": "error",
         "putout/newline-function-call-arguments": "error",
         "putout/function-declaration-paren-newline": "error",
-        "putout/add-newlines-between-types-in-union": "error",
         "putout/remove-newline-after-default-import": "error",
         "putout/remove-newline-from-empty-object": "error",
         "putout/remove-empty-newline-before-first-specifier": "error",
@@ -58,18 +60,21 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-- [Putout](lib/putout)
+- [Add newlines between types in union](/packages/eslint-plugin-putout/lib/add-newlines-between-types-in-union)
+- [Add newline before function call](/packages/eslint-plugin-putout/lib/add-newline-before-function-call)
+- [Add newline after function call](/packages/eslint-plugin-putout/lib/add-newline-after-function-call)
+- [Align spaces](/packages/eslint-plugin-putout/lib/align-spaces)
 - [Array element newline](/packages/eslint-plugin-putout/lib/array-element-newline)
+- [Evaluate](/packages/eslint-plugin-putout/lib/evaluate)
+- [Putout](lib/putout)
 - [Single property destructuring](/packages/eslint-plugin-putout/lib/single-property-destructuring)
 - [Multiple properties destructuring](/packages/eslint-plugin-putout/lib/multiple-properties-destructuring)
 - [For-of multiple properties destructuring](/packages/eslint-plugin-putout/lib/for-of-multiple-properties-destructuring)
 - [Long properties destructuring](/packages/eslint-plugin-putout/lib/long-properties-destructuring)
 - [Destructuring as function argument](/packages/eslint-plugin-putout/lib/destructuring-as-function-argument)
-- [Align spaces](/packages/eslint-plugin-putout/lib/align-spaces)
 - [Keyword spacing](/packages/eslint-plugin-putout/lib/keyword-spacing)
 - [Newline function call arguments](/packages/eslint-plugin-putout/lib/newline-function-call-arguments)
 - [Function declaration paren newline](/packages/eslint-plugin-putout/lib/function-declaration-paren-newline)
-- [Add newlines between types in union](/packages/eslint-plugin-putout/lib/add-newlines-between-types-in-union)
 - [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import)
 - [Remove newline from empty object](/packages/eslint-plugin-putout/lib/remove-newline-from-empty-object)
 - [Remove empty newline before first specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-before-first-specifier)
@@ -77,7 +82,6 @@ Then configure the rules you want to use under the rules section.
 - [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array)
 - [Object init](/packages/eslint-plugin-putout/lib/object-init)
 - [No unresolved](/packages/eslint-plugin-putout/lib/no-unresolved)
-- [Evaluate](/packages/eslint-plugin-putout/lib/evaluate)
 - [Tape: add newline before assertion]('/packages/eslint-plugin-putout/lib/tape-add-new-line-before-assertion)
 - [Tape: add newline between tests]('/packages/eslint-plugin-putout/lib/tape-add-new-line-between-tests)
 - [Tape: remove newline before t.end()]('/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end)

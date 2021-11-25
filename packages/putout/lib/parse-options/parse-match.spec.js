@@ -88,6 +88,7 @@ test('putout: parse-match: linux', (t) => {
     });
     
     reRequire('./parse-sep');
+    
     const parseMatch = reRequire('./parse-match');
     const result = parseMatch(name, match);
     
@@ -119,6 +120,7 @@ test('putout: parse-match: linux: match', (t) => {
     });
     
     reRequire('./parse-sep');
+    
     const parseMatch = reRequire('./parse-match');
     const result = parseMatch(name, match);
     

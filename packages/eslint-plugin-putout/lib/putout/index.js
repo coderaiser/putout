@@ -77,9 +77,9 @@ const fix = ({ast, text, node, source, resultOptions}) => (fixer) => {
         includeComments,
     });
     
-    const [, last] = lastToken.range;
-    
     transform(ast, text, resultOptions);
+    
+    const [, last] = lastToken.range;
     const code = print(ast);
     
     return fixer.replaceTextRange([0, last], code);

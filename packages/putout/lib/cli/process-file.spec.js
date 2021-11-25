@@ -119,6 +119,7 @@ test('putout: cli: process-file: options for inner data', async (t) => {
     };
     
     mockRequire('./eslint', eslint);
+    
     const processFile = reRequire('./process-file');
     const fn = processFile({
         fix,

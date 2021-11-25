@@ -685,6 +685,7 @@ test('putout: runner: debug', (t) => {
     
     mockRequire('debug', debug);
     reRequire('../lib/run-fix');
+    
     const {runPlugins} = reRequire('..');
     const putout = reRequire('putout');
     

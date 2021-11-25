@@ -7,6 +7,7 @@ const prepare = (plugin, context, options) => (node) => {
     const filename = context.getFilename();
     const getText = source.getText.bind(source);
     const getCommentsBefore = source.getCommentsBefore.bind(source);
+    const getCommentsAfter = source.getCommentsAfter.bind(source);
     
     const text = getText(node);
     
@@ -16,6 +17,7 @@ const prepare = (plugin, context, options) => (node) => {
         options,
         getText,
         getCommentsBefore,
+        getCommentsAfter,
         filename,
     });
     

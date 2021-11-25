@@ -20,6 +20,7 @@ const isPutoutRule = (rule) => {
 
 export const disableAll = (config, places) => {
     initRules(config);
+    
     const rules = parseRules(places);
     const existingRules = keys(config.rules);
     
