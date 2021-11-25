@@ -14,9 +14,9 @@ const ruleTester = new RuleTester({
 
 ruleTester.run('array-element-newline', rule, {
     valid: [`
-            const a = ['a', 'b', 'c'];
+            const a = ['a', 'b', 'c', 'd'];
         `, montag`
-            ['a', 'b', 'c', 'd'].map();
+            ['a', 'b', 'c', 'd', 'e'].map();
         `, montag`
             const a = [{
                 hello: 'world',
@@ -28,6 +28,7 @@ ruleTester.run('array-element-newline', rule, {
                 1,
                 2,
                 3,
+                4,
             ];
         `, montag`
             const a = [{a: 1}, {b: 2}, {c: 3}, {
@@ -45,7 +46,7 @@ ruleTester.run('array-element-newline', rule, {
     
     invalid: [{
         code: montag`
-            const a = [1, 2, 3, 4];
+            const a = [1, 2, 3, 4, 5];
         `,
         
         output: montag`
@@ -53,7 +54,8 @@ ruleTester.run('array-element-newline', rule, {
             1,
              2,
              3,
-             4
+             4,
+             5
             ];
         `,
         
@@ -63,10 +65,10 @@ ruleTester.run('array-element-newline', rule, {
         }],
     }, {
         code: montag`
-            const a = ['a', 'b', 'c', 'd'];
+            const a = ['a', 'b', 'c', 'd', 'e'];
         `,
         
-        output: `const a = [\n'a',\n 'b',\n 'c',\n 'd'\n];`,
+        output: `const a = [\n'a',\n 'b',\n 'c',\n 'd',\n 'e'\n];`,
         
         errors: [{
             message: 'Add newlines between array elements',
@@ -74,10 +76,10 @@ ruleTester.run('array-element-newline', rule, {
         }],
     }, {
         code: montag`
-            const a = [a, b, c, d];
+            const a = [a, b, c, d, e];
         `,
         
-        output: `const a = [\na,\n b,\n c,\n d\n];`,
+        output: `const a = [\na,\n b,\n c,\n d,\n e\n];`,
         
         errors: [{
             message: 'Add newlines between array elements',

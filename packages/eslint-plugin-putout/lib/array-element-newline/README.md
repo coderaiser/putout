@@ -25,4 +25,6 @@ const a = [
     6,
     7,
 ];
+
+const stdio = [0, 1, 2, 'pipe'];
 ```

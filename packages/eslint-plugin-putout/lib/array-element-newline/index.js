@@ -34,7 +34,7 @@ module.exports.filter = ({text, node}) => {
     if (!isVariableDeclarator(node.parent))
         return false;
     
-    if (node.elements.length < 4)
+    if (node.elements.length < 5)
         return false;
     
     if (regexp.test(text))
