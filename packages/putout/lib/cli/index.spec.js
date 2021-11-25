@@ -262,6 +262,7 @@ test('putout: cli: no ide', async (t) => {
     });
     
     stopAll();
+    
     const expected = ['dump', {
         count: 1,
         formatterOptions: {},

@@ -6,6 +6,8 @@ const {
     isBlockStatement,
     isExpressionStatement,
     isVariableDeclaration,
+    isObjectExpression,
+    isArrayExpression,
 } = types;
 
 const regExp = /^;?\n( +)?\n +$/;
@@ -49,6 +51,14 @@ module.exports.filter = ({text, node, getText, getCommentsAfter}) => {
         
         if (!isVariableDeclaration(next))
             break;
+        
+        const {init} = next.declarations[0];
+        
+        if (isObjectExpression(init) && init.properties.length)
+            return true;
+        
+        if (isArrayExpression(init) && init.elements.length)
+            return true;
         
         const spacesAfterNext = getSpacesAfterNode(next, {getText});
         

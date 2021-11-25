@@ -116,6 +116,56 @@ ruleTester.run('add-newline-after-function-call', rule, {
             message: 'Add newline after function call',
             type: 'CallExpression',
         }],
+    }, {
+        code: montag`
+            test('hello: world', (t) => {
+                hello();
+                const a = {
+                    hello: world,
+                };
+                
+                return;
+            });
+        `,
+        output:
+            `test('hello: world', (t) => {\n` +
+            '    hello();\n' +
+            ';\n' +
+            '    const a = {\n' +
+            '        hello: world,\n' +
+            '    };\n' +
+            '    \n' +
+            '    return;\n' +
+            '});',
+        errors: [{
+            message: 'Add newline after function call',
+            type: 'CallExpression',
+        }],
+    }, {
+        code: montag`
+            test('hello: world', (t) => {
+                hello();
+                const a = [
+                    "hello",
+                ];
+                
+                return;
+            });
+        `,
+        output:
+            `test('hello: world', (t) => {\n` +
+            '    hello();\n' +
+            ';\n' +
+            '    const a = [\n' +
+            '        "hello",\n' +
+            '    ];\n' +
+            '    \n' +
+            '    return;\n' +
+            '});',
+        errors: [{
+            message: 'Add newline after function call',
+            type: 'CallExpression',
+        }],
     }],
 });
 
