@@ -479,7 +479,7 @@ test('remove-unused-variables: get-vars: optional member expression', (t) => {
         a: 'du',
     },
     {
-        b: 'd_',
+        b: 'du',
     }];
     
     t.deepEqual(result, expected, 'should equal');

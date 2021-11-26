@@ -251,10 +251,17 @@ module.exports = ({use, declare, addParams}) => {
         },
         
         OptionalMemberExpression(path) {
-            const {object} = path.node;
+            const {
+                object,
+                property,
+                computed,
+            } = path.node;
             
             if (isIdentifier(object))
                 use(path, object.name);
+            
+            if (computed && isIdentifier(property))
+                use(path, property.name);
         },
         
         NewExpression(path) {
