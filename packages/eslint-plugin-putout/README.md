@@ -103,14 +103,15 @@ When using `putout` in IDE with `--fix` on save, or when you want to disable the
 
 List of disabled `putout` rules:
 
-- [remove-empty](https://github.com/coderaiser/putout/tree/v20.0.0/packages/plugin-remove-empty);
-- [remove-unused-variables](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-unused-variables);
-- [remove-unused-types](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-unused-types);
-- [remove-unused-for-of-variables](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-unused-for-of-variables);
-- [remove-unused-expressions](https://github.com/coderaiser/putout/tree/v20.0.0/packages);
+- [remove-empty](https://github.com/coderaiser/putout/tree/v22.0.0/packages/plugin-remove-empty);
+- [remove-unused-variables](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-unused-variables);
+- [remove-unused-types](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-unused-types);
+- [remove-unused-for-of-variables](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-unused-for-of-variables);
+- [remove-unused-expressions](https://github.com/coderaiser/putout/tree/v22.0.0/packages);
 - [remove-useless-return](https://github.com/coderaiser/putout/tree/master/remove-useless-return);
-- [remove-skip](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-skip);
-- [remove-only](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-only);
-- [remove-console](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-console);
-- [remove-debugger](https://github.com/coderaiser/putout/tree/v20.0.0/packages/remove-debugger);
-- [convert-for-to-for-of](https://github.com/coderaiser/putout/tree/v20.0.0/packages/convert-for-to-for-of);
+- [remove-skip](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-skip);
+- [remove-only](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-only);
+- [remove-console](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-console);
+- [remove-debugger](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-debugger);
+- [remove-unreachable-code](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-unreachable-code);
+- [convert-for-to-for-of](https://github.com/coderaiser/putout/tree/v22.0.0/packages/convert-for-to-for-of);

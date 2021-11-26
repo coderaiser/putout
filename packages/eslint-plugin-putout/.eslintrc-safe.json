@@ -1,4 +1,7 @@
 {
+    "rules": {
+        "no-unreachable": "off"
+    },
     "extends": [
         "plugin:node/recommended",
         "plugin:putout/safe"
