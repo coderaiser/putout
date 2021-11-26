@@ -13,7 +13,7 @@ const ruleTester = new RuleTester({
 
 ruleTester.run('putout', rule, {
     valid: [
-        `const bar = foo?.bar;`,
+        `const bar = foo?.bar; log(bar)`,
         `
         function foo({ bar }) {
           return { bar };

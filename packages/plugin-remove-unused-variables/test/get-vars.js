@@ -473,10 +473,13 @@ test('remove-unused-variables: get-vars: optional member expression', (t) => {
     
     const expected = [{
         hello: _u,
-        world: _u,
         a: _u,
-        b: _u,
-        c: _u,
+        clear: d_,
+    }, {
+        a: 'du',
+    },
+    {
+        b: 'd_',
     }];
     
     t.deepEqual(result, expected, 'should equal');
@@ -488,7 +491,6 @@ test('remove-unused-variables: get-vars: optional call expression', (t) => {
     const result = getVars(ast).map(dutify);
     
     const expected = [{
-        map: _u,
         x: _u,
         y: _u,
     }];
