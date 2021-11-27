@@ -21,8 +21,12 @@ module.exports.fix = ({path, result}) => {
         consequent,
     } = path.node;
     
+    const {
+        body = [consequent],
+    } = consequent;
+    
     if (result)
-        return replaceWithMultiple(path, consequent.body);
+        return replaceWithMultiple(path, body);
     
     if (!alternate)
         return path.remove();

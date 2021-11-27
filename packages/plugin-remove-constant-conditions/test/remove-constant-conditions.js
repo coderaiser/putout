@@ -39,3 +39,7 @@ test('plugin-remove-constant-conditions: transform: same', (t) => {
     t.end();
 });
 
+test('plugin-remove-constant-conditions: transform: no-body', (t) => {
+    t.transform('no-body');
+    t.end();
+});
