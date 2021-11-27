@@ -1,3 +1,31 @@
+2021.11.27, v22.2.0
+
+fix:
+- (@putout/plugin-remove-unused-variables) OptionalMemberExpression: computed property
+- (eslint-plugin-putout) array-element-newline: minimum elements: 4 -> 5
+- (eslint-plugin-putout) add-newlinew-before-function-call: trimed whitespaces on empty line
+- (eslint-plugin-putout) add-newline-before-function-call: add support of comments
+- (eslint-plugin-putout) add-newline-before-function-call: continue -> return
+
+feature:
+- (package) @putout/plugin-remove-constant-conditions v3.0.0
+- (@putout/plugin-remove-constant-conditions) drop support of node < 14
+- (@putout/plugin-remove-constant-conditions) add support of consequent not body
+- (eslint-plugin-putout) safe: disable remove-unreachable-code
+- (@putout/plugin-remove-unused-variables) improve support of OptionalMemberExpression
+- (eslint-plugin-putout) add-newline-after-function-call: add support of ArrayExpression and ObjectExpression
+- (eslint-plugin-putout) add add-newline-after-function-call
+- (@putout/eslint-config) padding-line-between-statements: add support of while
+- (eslint-plugin-putout) add add-newline-before-function-call
+- (@putout/eslint-config) add func-call-spacing (https://eslint.org/docs/rules/func-call-spacing)
+- (eslint-plugin-putout) plugin-tape-remove-newline-before-t-end: add support of trimed newline
+- (eslint-plugin-putout) add add-newline-before-t-end
+- (@putout/plugin-declare-undefined-variables) add maybeEmptyArray
+- (eslint-plugin-putout) array-element-newline: add support of Identifier
+- (@putout/eslint-config) padding-line-between-statements: add newline between for and return
+- (@putout/plugin-remove-useless-spread) add support of logical expressions
+
+
 2021.11.21, v22.1.1
 
 feature:
