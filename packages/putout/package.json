@@ -108,7 +108,7 @@
     "@putout/plugin-extract-sequence-expressions": "^2.0.0",
     "@putout/plugin-github": "^2.0.0",
     "@putout/plugin-gitignore": "^3.0.0",
-    "@putout/plugin-madrun": "^10.0.0",
+    "@putout/plugin-madrun": "^11.0.0",
     "@putout/plugin-merge-destructuring-properties": "^5.0.0",
     "@putout/plugin-merge-duplicate-imports": "^4.0.0",
     "@putout/plugin-merge-if-statements": "^3.0.0",
