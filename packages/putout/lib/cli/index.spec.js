@@ -488,6 +488,9 @@ test('putout: cli: no ide: cache', async (t) => {
         '--cache',
     ];
     
+    const {TERMINAL_EMULATOR} = process.env;
+    process.env.TERMINAL_EMULATOR = 'none';
+    
     const processFile = stub().returns(stub().returns({
         places: [],
         code: '',
@@ -530,12 +533,13 @@ test('putout: cli: no ide: cache', async (t) => {
     });
     
     stopAll();
+    process.env.TERMINAL_EMULATOR = TERMINAL_EMULATOR;
     
     const expected = ['dump', {
         count: 1,
         formatterOptions: {},
         index: 0,
-        name: join(process.cwd(), name),
+        name,
         places: [],
         report: stub(),
         source: '',

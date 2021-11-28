@@ -17,7 +17,7 @@ const {version} = require('../../package.json');
 const simport = createSimport(__filename);
 
 const {env} = process;
-const isIDE = env.TERMINAL_EMULATOR || env.TERM_PROGRAM === 'vscode';
+const isIDE = /JetBrains/.test(env.TERMINAL_EMULATOR) || env.TERM_PROGRAM === 'vscode';
 const chooseName = (name, resolvedName) => !isIDE ? name : resolvedName;
 
 const {
