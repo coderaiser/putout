@@ -33,3 +33,8 @@ test('plugin-madrun: remove-check-duplicates', (t) => {
     t.transform('remove-check-duplicates');
     t.end();
 });
+
+test('plugin-madrun: declare', (t) => {
+    t.transform('declare');
+    t.end();
+});

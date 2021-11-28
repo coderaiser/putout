@@ -223,6 +223,26 @@ export default {
 };
 ```
 
+# declare
+
+## ❌ Incorrect code example
+
+```js
+export default {
+    'coverage': async () => [env, `c8 ${await cutEnv('test')}`],
+};
+
+```
+
+## ✅ Correct code Example
+
+```js
+import {cutEnv} from 'madrun';
+export default {
+    'coverage': async () => [env, `c8 ${await cutEnv('test')}`],
+};
+```
+
 ## License
 
 MIT

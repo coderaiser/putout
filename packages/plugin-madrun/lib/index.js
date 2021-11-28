@@ -19,5 +19,6 @@ module.exports.rules = {
     ...getRule('convert-nyc-to-c8'),
     ...getRule('set-report-lcov'),
     ...getRule('remove-check-duplicates-from-test'),
+    ...getRule('declare'),
 };
 
