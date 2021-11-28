@@ -1,7 +1,12 @@
 'use strict';
 
+const {join} = require('path');
+
+const {readFileSync} = require('fs');
+
 const {RuleTester} = require('eslint');
 const montag = require('montag');
+const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.ts`), 'utf8');
 
 const rule = require('.');
 
@@ -89,6 +94,10 @@ const parserTester = new RuleTester({
     },
 });
 
+const tsParserTester = new RuleTester({
+    parser: require.resolve('@typescript-eslint/parser'),
+});
+
 parserTester.run('putout', rule, {
     valid: [{
         options: [{
@@ -142,10 +151,9 @@ parserTester.run('putout', rule, {
         `,
         output: montag`
             import {createMockImport} from 'mock-import';
-            
             const {
-                mockImport,
-                reImport
+              mockImport,
+              reImport
             } = createMockImport(import.meta.url);
             
             mockImport('hello', world);
@@ -155,6 +163,57 @@ parserTester.run('putout', rule, {
             line: 5,
             column: 7,
             message: `Declare 'reImport' (declare-undefined-variables)`,
+        }],
+    }],
+});
+
+parserTester.run('putout', rule, {
+    valid: [`
+        import {createMockImport} from 'mock-import';
+        const {mockImport, reImport} = createMockImport(import.meta.url);
+        
+        mockImport('hello', world);
+        await reImport('./index.js');
+    `],
+    invalid: [{
+        code: montag`
+            import {createMockImport} from 'mock-import';
+            const {mockImport} = createMockImport(import.meta.url);
+            
+            mockImport('hello', world);
+            await reImport('./index.js');
+        `,
+        output: montag`
+            import {createMockImport} from 'mock-import';
+            const {
+              mockImport,
+              reImport
+            } = createMockImport(import.meta.url);
+            
+            mockImport('hello', world);
+            await reImport('./index.js');
+        `,
+        errors: [{
+            line: 5,
+            column: 7,
+            message: `Declare 'reImport' (declare-undefined-variables)`,
+        }],
+    }],
+});
+
+tsParserTester.run('typescript-eslint-comments', rule, {
+    valid: [`
+        // valid case
+        const noop = () => {};
+        noop();
+    `],
+    invalid: [{
+        code: readFixture('typescript-eslint-comments'),
+        output: readFixture('typescript-eslint-comments-fix'),
+        errors: [{
+            line: 13,
+            column: 9,
+            message: 'constant conditions should not be used (remove-constant-conditions)',
         }],
     }],
 });

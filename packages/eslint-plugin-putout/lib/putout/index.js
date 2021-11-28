@@ -5,6 +5,7 @@ const {
     findPlaces,
     transform,
     print,
+    parse,
 } = require('putout');
 
 const v8 = require('v8');
@@ -47,7 +48,12 @@ module.exports = {
                 const source = context.getSourceCode();
                 const {text} = source;
                 
-                const ast = toBabel(copyAST(node));
+                const ast = parse(text, {
+                    parser: {
+                        parse: () => toBabel(copyAST(node)),
+                    },
+                });
+                
                 const places = findPlaces(ast, text, resultOptions);
                 
                 for (const {rule, message, position} of places) {
