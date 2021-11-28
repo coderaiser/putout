@@ -213,7 +213,7 @@ tsParserTester.run('typescript-eslint-comments', rule, {
         errors: [{
             line: 13,
             column: 9,
-            message: 'constant conditions should not be used (remove-constant-conditions)',
+            message: 'Avoid constant conditions (remove-constant-conditions)',
         }],
     }],
 });

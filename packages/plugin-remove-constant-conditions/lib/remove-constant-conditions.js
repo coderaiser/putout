@@ -13,7 +13,7 @@ const {
 const {runInNewContext} = require('vm');
 const {isIdentifier} = types;
 
-module.exports.report = () => 'constant conditions should not be used';
+module.exports.report = () => 'Avoid constant conditions';
 
 module.exports.fix = ({path, result}) => {
     const {

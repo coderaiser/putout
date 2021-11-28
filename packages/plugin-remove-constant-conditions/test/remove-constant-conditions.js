@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-remove-constant-conditions: report', (t) => {
-    t.report('positive', 'constant conditions should not be used');
+    t.report('positive', 'Avoid constant conditions');
     t.end();
 });
 
