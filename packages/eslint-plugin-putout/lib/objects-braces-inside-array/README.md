@@ -1,4 +1,4 @@
-# keep braces on the same line as brackets (object-braces-inside-array)
+# Keep braces on the same line as brackets (`object-braces-inside-array`)
 
 ## Rule Details
 

@@ -1,4 +1,4 @@
-# Spaces should be aligned (aling-spaces)
+# Spaces should be aligned (`aling-spaces`)
 
 After `putout` process files it can remove spaces from empty line, this `rule` fixes it.
 

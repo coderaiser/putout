@@ -1,4 +1,4 @@
-# keep curly bracesin in one line when property is single (newline-function-call-arguments)
+# Keep curly braces in one line when property is single (`newline-function-call-arguments`)
 
 Addition to eslint's [function-paren-newline](https://eslint.org/docs/rules/function-paren-newline)
 

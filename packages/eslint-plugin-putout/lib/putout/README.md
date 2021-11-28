@@ -1,4 +1,4 @@
-# Putout (putout)
+# Putout (`putout`)
 
 🐊[`Putout`](https://github.com/coderaiser/putout) used as eslint plugin.
 

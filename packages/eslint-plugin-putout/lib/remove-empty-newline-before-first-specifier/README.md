@@ -1,4 +1,4 @@
-# Remove empty new line before first specifier(remove-empty-newline-before-first-specifier)
+# Remove empty new line before first specifier (`remove-empty-newline-before-first-specifier`)
 
 ## Rule Details
 

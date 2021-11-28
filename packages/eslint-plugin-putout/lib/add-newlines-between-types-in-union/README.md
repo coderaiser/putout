@@ -1,4 +1,4 @@
-# Add new lines between types in union (add-newlines-between-types-in-union)
+# Add new lines between types in union (`add-newlines-between-types-in-union`)
 
 ## Rule Details
 

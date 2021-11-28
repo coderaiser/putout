@@ -1,4 +1,4 @@
-# keep each property on separate line when using multiple destructuring properties (multiple-properties-destructuring)
+# Keep each property on separate line when using multiple destructuring properties (`multiple-properties-destructuring`)
 
 In the same way as eslint [object-property-newline](https://eslint.org/docs/rules/object-property-newline), but for destructuring.
 

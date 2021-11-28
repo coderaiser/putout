@@ -1,6 +1,6 @@
-# keep curly bracesin in one line when property is single (single-property-destructuring)
+# Keep curly braces in one line when property is single (`single-property-destructuring`)
 
-When `putout` removes unused variables declared as destructured properties, it keeps one property to take 3 lines, instead of 1.
+When 🐊[`Putout`](https://github.com/coderaiser/putout) removes unused variables declared as destructured properties, it keeps one property to take 3 lines, instead of 1.
 
 ## Rule Details
 

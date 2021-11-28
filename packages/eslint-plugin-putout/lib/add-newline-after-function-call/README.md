@@ -1,4 +1,4 @@
-# Add new line after function call (add-newline-after-function-call)
+# Add new line after function call (`add-newline-after-function-call`)
 
 ## Rule Details
 

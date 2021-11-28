@@ -1,4 +1,4 @@
-# evaluate expression (evaluate)
+# evaluate expression (`evaluate`)
 
 Evaluate expression started with `__putout_evaluate: `.
 Provided code is processed with [`@putout/plugin-declare-undefined-variables`](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables). So next code:

@@ -5,7 +5,7 @@
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
-[`ESLint`](https://eslint.org) plugin for 🐊[`Putout`](https://github.com/coderaiser/putout) with built-in rules from [@putout/eslint-config](https://github.com/coderaiser/eslint-plugin-putout/tree/master/packages/eslint-config).
+[`ESLint`](https://eslint.org) plugin for 🐊[`Putout`](https://github.com/coderaiser/putout) with built-in rules from [`@putout/eslint-config`](https://github.com/coderaiser/putout/tree/master/packages/eslint-config).
 
 ## Installation
 
@@ -17,7 +17,7 @@ $ npm i putout eslint eslint-plugin-putout -D
 
 ## Usage
 
-Add `putout` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `putout` to the plugins section of your `.eslintrc.json` configuration file. You can omit the `eslint-plugin-` prefix:
 
 ```json
 {
@@ -88,7 +88,7 @@ Then configure the rules you want to use under the rules section.
 
 ### Safe mode
 
-When using `putout` in IDE with `--fix` on save, or when you want to disable the most dangerous rules, use:
+When using 🐊`Putout` in IDE with `--fix` on save, or when you want to disable the most dangerous rules, use:
 
 ```json
 {
@@ -101,7 +101,7 @@ When using `putout` in IDE with `--fix` on save, or when you want to disable the
 }
 ```
 
-List of disabled `putout` rules:
+List of disabled 🐊`Putout` rules:
 
 - [remove-empty](https://github.com/coderaiser/putout/tree/v22.0.0/packages/plugin-remove-empty);
 - [remove-unused-variables](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-unused-variables);

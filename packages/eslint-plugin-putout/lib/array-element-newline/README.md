@@ -1,4 +1,4 @@
-# Add new lines between types in union (add-newlines-between-types-in-union)
+# Add new lines between types in union (`add-newlines-between-types-in-union`)
 
 Because [`array-element-newline`](https://eslint.org/docs/rules/array-element-newline) requires [`array-bracket-newline`](https://eslint.org/docs/rules/array-bracket-newline).
 And `array-bracket-newline` and conflicts with [`object-braces-inside-array`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/objects-braces-inside-array).

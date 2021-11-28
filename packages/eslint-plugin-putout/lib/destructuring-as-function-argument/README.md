@@ -1,4 +1,4 @@
-# keep curly bracesin in one line when you use destructuring as function argument (destructuring-as-function-argument)
+# Keep curly braces in one line when you use destructuring as function argument (`destructuring-as-function-argument`)
 
 When `putout` removes unused variable located in function argument object pattern, it formats in in a multiple lines.
 

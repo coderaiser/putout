@@ -1,4 +1,4 @@
-# Remove new line in empty object (remove-newline-from-empty-object)
+# Remove new line in empty object (`remove-newline-from-empty-object`)
 
 ## Rule Details
 

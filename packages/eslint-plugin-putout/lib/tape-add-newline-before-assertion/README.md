@@ -1,6 +1,6 @@
-# Add newline before assertion (add-newline-before-assertion)
+# Add newline before assertion (`add-newline-before-assertion`)
 
-Add newline before `t.equal()` etc, for [supertape](https://github.com/coderaiser/supertape).
+Add newline before `t.equal()` etc, for [`supertape`](https://github.com/coderaiser/supertape).
 
 ## Rule Details
 

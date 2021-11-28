@@ -1,6 +1,6 @@
-# Keep opening curly brace on one line with default import (remove-newline-after-default-import)
+# Keep opening curly brace on one line with default import (`remove-newline-after-default-import`)
 
-Fixes [object-curly-newline](https://eslint.org/docs/rules/object-curly-newline) + [eslint-plugin-modules-newline](https://github.com/gmsorrow/eslint-plugin-modules-newline).
+Fixes [`object-curly-newline`](https://eslint.org/docs/rules/object-curly-newline) + [`eslint-plugin-modules-newline`](https://github.com/gmsorrow/eslint-plugin-modules-newline).
 
 ## Rule Details
 

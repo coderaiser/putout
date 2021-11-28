@@ -1,6 +1,6 @@
-# Remove newline before `t.end()` (remove-newline-before-t-end)
+# Remove newline before `t.end()` (`remove-newline-before-t-end`)
 
-Remove newline before `t.end()`, for [supertape](https://github.com/coderaiser/supertape).
+Remove newline before `t.end()`, for [`supertape`](https://github.com/coderaiser/supertape).
 
 ## Rule Details
 

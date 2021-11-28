@@ -1,4 +1,4 @@
-# keep each property on separate line when initializing an object(object-init)
+# Keep each property on separate line when initializing an object(`object-init`)
 
 In the same way as eslint [object-property-newline](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/multiple-properties-destructuring) but for initializing variables with `object expression`.
 

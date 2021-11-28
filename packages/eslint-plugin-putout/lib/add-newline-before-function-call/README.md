@@ -1,4 +1,4 @@
-# Add new line before function call (add-newline-before-function-call)
+# Add new line before function call (`add-newline-before-function-call`)
 
 ## Rule Details
 

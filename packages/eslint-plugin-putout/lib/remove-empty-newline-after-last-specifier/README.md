@@ -1,4 +1,4 @@
-# Remove empty new line after last specifier(remove-empty-newline-after-last-specifier)
+# Remove empty new line after last specifier(`remove-empty-newline-after-last-specifier`)
 
 ## Rule Details
 

@@ -1,4 +1,4 @@
-# Use spaces around "catch" (function-declaration-paren-newline)
+# Remove newlines between parens in function declaration (`function-declaration-paren-newline`)
 
 Similar to `eslint` [function-paren-newline](https://eslint.org/docs/rules/function-declaration-paren-newline), but forbids new lines in function declarations and expressions arguments.
 

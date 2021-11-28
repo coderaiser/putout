@@ -1,4 +1,4 @@
-# check if path can be resolved and fix if cannot (no-unresolved)
+# Check if path can be resolved and fix if cannot (`no-unresolved`)
 
 Similar to [`no-unresolved`](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-unresolved.md) from
 [`eslint-plugin-putout`](https://github.com/import-js/eslint-plugin-import). But supports only `ESM` and have `autofix`.

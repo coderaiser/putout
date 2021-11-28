@@ -1,6 +1,6 @@
-# Add newline between tests (add-newline-between-tests)
+# Add newline between tests (`add-newline-between-tests`)
 
-Add newline between tests, for [supertape](https://github.com/coderaiser/supertape).
+Add newline between tests, for [`supertape`](https://github.com/coderaiser/supertape).
 
 ## Rule Details
 

@@ -1,4 +1,4 @@
-# Keep all properties in one line when using destructuring in for-of (for-of-multiple-properties-destructuring)
+# Keep all properties in one line when using destructuring in `for-of` (`for-of-multiple-properties-destructuring`)
 
 ## Rule Details
 
