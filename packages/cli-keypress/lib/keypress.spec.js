@@ -4,7 +4,10 @@ const {Readable} = require('stream');
 
 const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');
-const {reRequire} = mockRequire;
+const {
+    reRequire,
+    stopAll,
+} = mockRequire;
 
 const {assign} = Object;
 
@@ -36,6 +39,8 @@ test('putout: cli: on halt: isTTY', (t) => {
     
     process.env.CI = CI;
     
+    stopAll();
+    
     t.ok(isHandlerSet(), 'should set handler');
     t.end();
 });
@@ -56,6 +61,8 @@ test('putout: cli: on halt: isTTY: duble call', (t) => {
     onHalt(stream);
     process.env.CI = CI;
     
+    stopAll();
+    
     t.ok(isHandlerSet(), 'should set handler');
     t.end();
 });
@@ -75,6 +82,8 @@ test('putout: cli: on halt: CI, KEYPRESS', (t) => {
     
     onHalt(stream);
     process.env.KEYPRESS = KEYPRESS;
+    
+    stopAll();
     
     t.ok(isHandlerSet(), 'should set handler');
     t.end();

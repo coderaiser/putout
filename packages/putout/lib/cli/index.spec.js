@@ -1869,6 +1869,8 @@ test('putout: processor throw', async (t) => {
     const {places} = parse(write.args[0]);
     const [{rule}] = places;
     
+    stopAll();
+    
     t.equal(rule, 'parser');
     t.end();
 });
@@ -1908,6 +1910,8 @@ test('putout: processor throw: raw', async (t) => {
     const [firstCall] = log.args;
     const [error] = firstCall;
     const {message} = error;
+    
+    stopAll();
     
     t.equal(message, 'preProcess');
     t.end();

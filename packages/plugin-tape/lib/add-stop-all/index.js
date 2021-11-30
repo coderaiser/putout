@@ -69,6 +69,9 @@ function check(path) {
         'mockImport(__a, __b)': () => {
             hasMockImport = true;
         },
+        'mockRequire(__a, __b)': () => {
+            hasMockImport = true;
+        },
         'stopAll()': () => {
             hasStopAll = true;
         },

@@ -61,7 +61,7 @@ test('putout: loader: user plugin', (t) => {
         ],
     });
     
-    mockRequire.stopAll();
+    stopAll();
     Module._findPath = _findPath;
     
     t.equal(code, '');

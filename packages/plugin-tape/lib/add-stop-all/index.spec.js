@@ -14,6 +14,11 @@ test('plugin-tape: add-stop-all: transform', (t) => {
     t.end();
 });
 
+test('plugin-tape: add-stop-all: transform: mock-require', (t) => {
+    t.transform('mock-require');
+    t.end();
+});
+
 test('plugin-tape: add-stop-all: no transform: no assertions', (t) => {
     t.noTransform('no-assertions');
     t.end();

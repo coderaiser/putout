@@ -8,7 +8,7 @@ const stub = require('@cloudcmd/stub');
 const {_parseValue} = require('./log');
 
 const {assign} = Object;
-const {reRequire} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: compare: log', (t) => {
     const namespace = stub();
@@ -25,6 +25,8 @@ test('putout: compare: log', (t) => {
     
     log('hello', 'world');
     const expected = `string: "hello" = string: "world"`;
+    
+    stopAll();
     
     t.calledWith(namespace, [expected]);
     t.end();
@@ -46,6 +48,8 @@ test('putout: compare: run-plugins: template: log: array', (t) => {
     log([Identifier('hello')], [Identifier('world')]);
     const expected = `Identifier: ["hello"] = Identifier: ["world"]`;
     
+    stopAll();
+    
     t.calledWith(namespace, [expected]);
     t.end();
 });
@@ -65,6 +69,8 @@ test('putout: compare: log: object', (t) => {
     
     log(Identifier('hello'), Identifier('world'));
     const expected = `Identifier: "hello" = Identifier: "world"`;
+    
+    stopAll();
     
     t.calledWith(namespace, [expected]);
     t.end();
