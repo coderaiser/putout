@@ -4,8 +4,8 @@ import {
 } from 'madrun';
 
 const testEnv = {
-    TERM_PROGRAM: 'none',
-    TERMINAL_EMULATOR: 'none',
+    TERM_PROGRAM: 0,
+    TERMINAL_EMULATOR: 0,
 };
 
 export default {
