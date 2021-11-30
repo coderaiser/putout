@@ -14,12 +14,18 @@
         "processors": {
             "description": "Tell 🐊Putout which processors to use to support file types other then JavaScript",
             "type": "array",
-            "uniqueItems": true
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
         },
         "ignore": {
             "description": "Tell 🐊Putout to ignore specific files and directories.",
             "type": "array",
-            "uniqueItems": true
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
         },
         "match": {
             "description": "Allows to match rules for files and folders, specified by glob patterns.",

@@ -61,7 +61,7 @@ test('putout: parse-options: validateOptions: processors', (t) => {
     t.end();
 });
 
-test('putout: parse-options: validateOptions: processors: no uniq', (t) => {
+test('putout: parse-options: validateOptions: processors: duplicates', (t) => {
     const [error] = tryCatch(validateOptions, {
         processors: [
             'markdown',
@@ -69,7 +69,16 @@ test('putout: parse-options: validateOptions: processors: no uniq', (t) => {
         ],
     });
     
-    t.equal(error.message, '.putout.json: processors: must NOT have duplicate items (items ## 0 and 1 are identical)');
+    t.equal(error.message, '.putout.json: processors: must NOT have duplicate items (items ## 1 and 0 are identical)');
+    t.end();
+});
+
+test('putout: parse-options: validateOptions: processors: items', (t) => {
+    const [error] = tryCatch(validateOptions, {
+        processors: [1, 2],
+    });
+    
+    t.equal(error.message, '.putout.json: processors/0: must be string');
     t.end();
 });
 
@@ -91,6 +100,15 @@ test('putout: parse-options: validateOptions: ignore', (t) => {
     t.end();
 });
 
+test('putout: parse-options: validateOptions: ignore: items', (t) => {
+    const [error] = tryCatch(validateOptions, {
+        ignore: [1, 2],
+    });
+    
+    t.equal(error.message, '.putout.json: ignore/0: must be string');
+    t.end();
+});
+
 test('putout: parse-options: validateOptions: ignore: duplicate', (t) => {
     const [error] = tryCatch(validateOptions, {
         ignore: [
@@ -99,7 +117,7 @@ test('putout: parse-options: validateOptions: ignore: duplicate', (t) => {
         ],
     });
     
-    t.equal(error.message, '.putout.json: ignore: must NOT have duplicate items (items ## 0 and 1 are identical)');
+    t.equal(error.message, '.putout.json: ignore: must NOT have duplicate items (items ## 1 and 0 are identical)');
     t.end();
 });
 
