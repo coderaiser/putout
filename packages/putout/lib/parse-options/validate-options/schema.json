@@ -16,6 +16,26 @@
                 }],
                 "minItems": 2,
                 "additionalItems": false
+            }, {
+                "type": "array",
+                "items": [{
+                    "enum": [ "on", "off"]
+                }, {
+                    "type": "string"
+                }, {
+                    "type": "object"
+                }],
+                "minItems": 3,
+                "additionalItems": false
+            }, {
+                "type": "array",
+                "items": [{
+                    "enum": [ "on", "off"]
+                }, {
+                    "type": "string"
+                }],
+                "minItems": 2,
+                "additionalItems": false
             }]
         },
         "rules": {

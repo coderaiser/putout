@@ -144,6 +144,29 @@ test('putout: parse-options: validateOptions: rules: item: options', (t) => {
     t.end();
 });
 
+test('putout: parse-options: validateOptions: rules: item: message', (t) => {
+    const [error] = tryCatch(validateOptions, {
+        rules: {
+            'remove-unused-variables': ['on', 'hello'],
+        },
+    });
+    
+    t.notOk(error);
+    t.end();
+});
+
+test('putout: parse-options: validateOptions: rules: item: message, options', (t) => {
+    const [error] = tryCatch(validateOptions, {
+        rules: {
+            'remove-unused-variables': ['on', 'hello', {
+            }],
+        },
+    });
+    
+    t.notOk(error);
+    t.end();
+});
+
 test('putout: parse-options: validateOptions: rules: match: options', (t) => {
     const [error] = tryCatch(validateOptions, {
         match: {
