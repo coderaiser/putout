@@ -1,3 +1,9 @@
+2021.11.30, v22.3.2
+
+fix:
+- (putout) validate-options: rm rule names: has no sense for validation as any rule provided by plugin supported
+
+
 2021.11.30, v22.3.1
 
 feature:
