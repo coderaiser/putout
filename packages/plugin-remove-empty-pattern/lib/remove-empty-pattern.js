@@ -1,8 +1,18 @@
 'use strict';
 
+const {isObjectPattern} = require('putout').types;
+
 module.exports.report = () => 'Avoid empty patterns';
 
-const notOk = (a) => !a;
+const notOk = (a) => {
+    if (!a)
+        return true;
+    
+    if (isObjectPattern(a) && !a.properties.length)
+        return true;
+    
+    return false;
+};
 const check = ({__array}) => {
     const {elements} = __array;
     return elements.every(notOk);
