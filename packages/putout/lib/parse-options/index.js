@@ -16,6 +16,7 @@ const defaultOptions = require('../../putout.json');
 const merge = require('../merge');
 const recursiveRead = require('./recursive-read');
 const applyModuleTypeRules = require('./apply-module-type-rules');
+const {validateOptions} = require('./validate-options');
 
 const home = homedir();
 
@@ -61,6 +62,8 @@ module.exports = (info = {}) => {
         mergedDefaultsMatch,
         mergedMatch,
     );
+    
+    validateOptions(resultOptions);
     
     return {
         ...resultOptions,

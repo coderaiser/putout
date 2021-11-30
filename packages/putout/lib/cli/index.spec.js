@@ -30,6 +30,7 @@ const {
     INVALID_OPTION,
     CANNOT_LOAD_PROCESSOR,
     RULLER_WITH_FIX,
+    INVALID_CONFIG,
 } = require('./exit-codes');
 
 const simport = createSimport(__filename);
@@ -1914,6 +1915,91 @@ test('putout: processor throw: raw', async (t) => {
     stopAll();
     
     t.equal(message, 'preProcess');
+    t.end();
+});
+
+test('putout: processor: invalid config', async (t) => {
+    const argv = [
+        __filename,
+    ];
+    
+    const halt = stub();
+    
+    mockRequire('../../putout.json', {
+        exclude: [
+            '.md',
+        ],
+    });
+    
+    reRequire('../parse-options');
+    reRequire('./get-options');
+    
+    const cli = reRequire('.');
+    const log = stub();
+    
+    await runCli({
+        halt,
+        cli,
+        argv,
+        log,
+    });
+    
+    stopAll();
+    
+    t.calledWith(halt, [INVALID_CONFIG]);
+    t.end();
+});
+
+test('putout: processor: invalid config: message', async (t) => {
+    const argv = [
+        __filename,
+        '-f',
+        'dump',
+    ];
+    
+    const logError = stub();
+    
+    mockRequire('../../putout.json', {
+        exclude: [
+            '.md',
+        ],
+    });
+    
+    reRequire('../parse-options');
+    
+    const getOptions = reRequire('./get-options');
+    mockRequire('./get-options', (args) => {
+        const {name} = args;
+        
+        if (/\.js$/.test(name))
+            return getOptions(args);
+        
+        return {
+            dir: __dirname,
+            ignore: [],
+        };
+    });
+    
+    const cli = reRequire('.');
+    const log = stub();
+    
+    await runCli({
+        logError,
+        cli,
+        argv,
+        log,
+    });
+    
+    stopAll();
+    
+    const [allArgCalls] = logError.args;
+    const [arg] = allArgCalls;
+    
+    const stripAnsi = await simport('strip-ansi');
+    const result = stripAnsi(arg);
+    const expected = '🐊 .putout.json: exclude: must NOT have additional properties';
+    
+    t.equal(result, expected);
     t.end();
 });
 

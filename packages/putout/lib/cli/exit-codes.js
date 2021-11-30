@@ -13,5 +13,6 @@ module.exports = {
     UNHANDLED: 9,
     RULLER_WITH_FIX: 10,
     RULLER_NO_FILES: 11,
+    INVALID_CONFIG: 12,
 };
 

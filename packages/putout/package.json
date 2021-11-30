@@ -178,6 +178,7 @@
     "@putout/processor-markdown": "^5.0.0",
     "@putout/processor-yaml": "^3.0.0",
     "@putout/traverse": "^4.0.0",
+    "ajv": "^8.8.2",
     "chalk": "^4.0.0",
     "ci-info": "^3.1.1",
     "debug": "^4.1.1",

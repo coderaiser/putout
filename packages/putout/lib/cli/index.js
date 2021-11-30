@@ -53,6 +53,7 @@ const {
     UNHANDLED,
     RULLER_WITH_FIX,
     RULLER_NO_FILES,
+    INVALID_CONFIG,
 } = require('./exit-codes');
 
 const cwd = process.cwd();
@@ -217,17 +218,22 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     }
     
     const noConfig = !args.config;
-    const {
-        formatter,
-        ignore,
-        processors = defaultProcessors,
-    } = getOptions({
+    const [configError, config] = tryCatch(getOptions, {
         name: `${cwd}/*`,
         rulesdir,
         noConfig,
         transform,
         plugins,
     });
+    
+    if (configError)
+        return exit(INVALID_CONFIG, configError);
+    
+    const {
+        formatter,
+        ignore,
+        processors = defaultProcessors,
+    } = config;
     
     const [currentFormat, formatterOptions] = getFormatter(format || formatter, exit);
     const [error, processorRunners] = tryCatch(getProcessorRunners, processors);
@@ -311,13 +317,16 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         const resolvedName = resolve(name)
             .replace(/^\./, cwd);
         
-        const options = getOptions({
+        const [configError, options] = tryCatch(getOptions, {
             name: resolvedName,
             rulesdir,
             noConfig,
             transform,
             plugins,
         });
+        
+        if (configError)
+            return exit(INVALID_CONFIG, configError);
         
         const {dir} = options;
         

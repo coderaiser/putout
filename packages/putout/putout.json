@@ -108,9 +108,6 @@
         "**/build",
         "**/package-lock.json"
     ],
-    "exclude": [
-        ".md"
-    ],
     "rules": {
         "apply-array-at": "off",
         "apply-as-type-assertions": "off",

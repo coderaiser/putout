@@ -972,3 +972,19 @@ test('putout: parse-options: defaults: strict-mode off', (t) => {
     t.equal(result, 'off');
     t.end();
 });
+
+test('putout: parse-options: invalid', (t) => {
+    const options = {
+        exclude: [
+            '.md',
+        ],
+    };
+    
+    const [error] = tryCatch(parseOptions, {
+        name: 'index.js',
+        options,
+    });
+    
+    t.equal(error.message, '.putout.json: exclude: must NOT have additional properties');
+    t.end();
+});

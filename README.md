@@ -2330,6 +2330,7 @@ You can also transform input files using `Babel`. For example if you need to tra
 | 9    | `UNHANDLED` | unhandled exception | `<unhandled exception>`
 | 10   | `RULLER_WITH_FIX` | ruller used with `--fix` | `🐊 '--fix' cannot be used with ruler toggler ('--enable', '--disable')`
 | 11   | `RULLER_NO_FILES` | ruller used without files | `🐊 'path' is missing for ruler toggler ('--enable-all', '--disable-all')`
+| 12   | `INVALID_CONFIG` | config has invalid properties| `🐊 .putout.json: exclude: must NOT have additional properties`
 
 Example of providing invalid option:
 
