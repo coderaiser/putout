@@ -1,3 +1,9 @@
+2021.11.30, v22.3.3
+
+fix:
+- (putout) validate-options: add support of optional message
+
+
 2021.11.30, v22.3.2
 
 fix:
