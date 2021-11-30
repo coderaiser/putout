@@ -10,3 +10,7 @@ const {
     },
 } = obj;
 
+const defaultProcessors = [];
+const [error, {
+    processors = defaultProcessors,
+}] = getOptions();

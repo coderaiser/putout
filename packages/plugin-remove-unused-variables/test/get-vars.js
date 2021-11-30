@@ -630,19 +630,32 @@ test('remove-unused-variables: get-vars: destr assignment: array', (t) => {
     t.end();
 });
 
+const D = {
+    declared: true,
+    used: false,
+};
+
+const U = {
+    declared: false,
+    used: true,
+};
+
+const DU = {
+    declared: true,
+    used: true,
+};
+
 test('remove-unused-variables: get-vars: destr nested vars', (t) => {
     const ast = parse(fixture.destrNestedVars);
     const result = getVars(ast);
     
     const expected = [{
-        obj: {
-            declared: true,
-            used: true,
-        },
-        world: {
-            declared: true,
-            used: false,
-        },
+        defaultProcessors: DU,
+        error: D,
+        getOptions: U,
+        processors: D,
+        obj: DU,
+        world: D,
     }];
     
     t.deepEqual(result, expected, 'should equal');

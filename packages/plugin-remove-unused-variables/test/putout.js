@@ -112,7 +112,7 @@ test('remove-unused-variables: putout: destr vars', (t) => {
 
 test('remove-unused-variables: putout: destr nested vars', (t) => {
     const {code} = putout(fixture.destrNestedVars);
-    const expected = '\n\n';
+    const expected = 'const [, {}] = getOptions();\n';
     
     t.deepEqual(code, expected, 'should equal');
     t.end();

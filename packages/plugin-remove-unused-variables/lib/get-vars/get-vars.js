@@ -116,6 +116,11 @@ module.exports = ({use, declare, addParams}) => {
             } else if (idPath.isArrayPattern()) {
                 const elements = idPath.get('elements');
                 for (const elPath of elements) {
+                    if (elPath.isObjectPattern()) {
+                        processObj(elPath.get('properties'));
+                        continue;
+                    }
+                    
                     if (elPath.isAssignmentPattern()) {
                         const leftPath = elPath.get('left');
                         const rightPath = elPath.get('right');
