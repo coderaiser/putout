@@ -121,3 +121,39 @@ test('putout: parse-options: validateOptions: ignore: duplicate', (t) => {
     t.end();
 });
 
+test('putout: parse-options: validateOptions: rules: item', (t) => {
+    const [error] = tryCatch(validateOptions, {
+        rules: {
+            'remove-unused-variables': 0,
+        },
+    });
+    
+    t.equal(error.message, '.putout.json: rules/remove-unused-variables: must be equal to one of the allowed values (on/off)');
+    t.end();
+});
+
+test('putout: parse-options: validateOptions: rules: item: options', (t) => {
+    const [error] = tryCatch(validateOptions, {
+        rules: {
+            'remove-unused-variables': ['on', {
+            }],
+        },
+    });
+    
+    t.notOk(error);
+    t.end();
+});
+
+test('putout: parse-options: validateOptions: rules: match: options', (t) => {
+    const [error] = tryCatch(validateOptions, {
+        match: {
+            '*.md': {
+                'remove-unused-variables': 1,
+            },
+        },
+    });
+    
+    t.equal(error.message, '.putout.json: match/*.md/remove-unused-variables: must be equal to one of the allowed values (on/off)');
+    t.end();
+});
+

@@ -16,8 +16,17 @@ module.exports.validateOptions = (options) => {
     const [error] = validate.errors || [];
     
     if (error)
-        throw Error(`.putout.json: ${parsePath(error)}${parseAdditional(error)}${parseMessage(error)}`);
+        throw Error(`.putout.json: ${parsePath(error)}${parseAdditional(error)}${parseMessage(error)}${parseAllowed(error)}`);
 };
+
+function parseAllowed(error) {
+    const {allowedValues} = error.params;
+    
+    if (!allowedValues)
+        return '';
+    
+    return ` (${allowedValues.join('/')})`;
+}
 
 function parseMessage(error) {
     return error.message.replace(',', ' or ');

@@ -27,7 +27,7 @@ for (const caseName of fs.readdirSync(fixturesDir)) {
                 'transform-inline-consecutive-adds',
                 createConfigItem([plugin, {
                     rules: {
-                        'strict-mode': true,
+                        'strict-mode': 'on',
                     },
                 }]),
             ],
