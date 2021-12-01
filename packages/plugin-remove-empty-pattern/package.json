@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-empty-pattern",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove empty patterns",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-empty-pattern",
