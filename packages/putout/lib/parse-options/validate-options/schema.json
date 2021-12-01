@@ -5,12 +5,11 @@
     "definitions": {
         "rule": {
             "oneOf": [{
-                "description": "🐊Putout rule\n\n\"off\" means rule is off\n\"on\" means it is a on\n",
-                "enum": [ "on", "off"]
+                "$ref": "#/definitions/ruleToggle"
             }, {
                 "type": "array",
                 "items": [{
-                    "enum": [ "on", "off"]
+                    "$ref": "#/definitions/ruleToggle"
                 }, {
                     "type": "object"
                 }],
@@ -19,7 +18,7 @@
             }, {
                 "type": "array",
                 "items": [{
-                    "enum": [ "on", "off"]
+                    "$ref": "#/definitions/ruleToggle"
                 }, {
                     "type": "string"
                 }, {
@@ -30,7 +29,7 @@
             }, {
                 "type": "array",
                 "items": [{
-                    "enum": [ "on", "off"]
+                    "$ref": "#/definitions/ruleToggle"
                 }, {
                     "type": "string"
                 }],
@@ -46,6 +45,14 @@
                     "$ref": "#/definitions/rule"
                 }
             }
+        },
+        "ruleToggle": {
+            "oneOf": [{
+                "description": "🐊Putout rule\n\n\"off\" means rule is off\n\"on\" means it is a on\n",
+                "enum": [ "on", "off"]
+            }, {
+                "enum": [true, false]
+            }]
         }
     },
     "properties": {

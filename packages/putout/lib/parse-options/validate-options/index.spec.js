@@ -167,6 +167,21 @@ test('putout: parse-options: validateOptions: rules: item: message, options', (t
     t.end();
 });
 
+test('putout: parse-options: validateOptions: rules: item: boolean', (t) => {
+    const [error] = tryCatch(validateOptions, {
+        rules: {
+            'remove-debugger': false,
+            'tape': [true, {
+            }],
+            'remove-unused-variables': [true, 'hello', {
+            }],
+        },
+    });
+    
+    t.notOk(error);
+    t.end();
+});
+
 test('putout: parse-options: validateOptions: rules: match: options', (t) => {
     const [error] = tryCatch(validateOptions, {
         match: {
