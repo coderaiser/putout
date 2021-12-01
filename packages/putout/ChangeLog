@@ -1,3 +1,9 @@
+2021.12.01, v22.3.4
+
+fix:
+- (putout) validate-options: add support of boolean
+
+
 2021.11.30, v22.3.3
 
 fix:
