@@ -26,7 +26,7 @@ npm i @putout/plugin-remove-useless-mapped-types
 ```ts
 type SuperType = {
     [Key in keyof Type]: Type[Key];
-}
+};
 ```
 
 ## ✅ Correct code Example

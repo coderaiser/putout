@@ -33,13 +33,19 @@ module.exports = [{
             parserOpts,
             plugins: [
                 '@babel/plugin-syntax-class-properties',
-                '@babel/plugin-syntax-top-level-await',
             ],
         },
     },
 }, {
     ...ts,
     files: '*.md{ts}',
-    rules: commonRules,
+    rules: {
+        ...commonRules,
+        ...ts.rules,
+        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-inferrable-types': 'off',
+        '@typescript-eslint/array-type': 'off',
+    },
 }];
 

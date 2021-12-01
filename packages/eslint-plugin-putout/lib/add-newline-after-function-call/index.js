@@ -12,7 +12,7 @@ const {
 
 const regExp = /^;?\n( +)?\n +$/;
 
-module.exports.category = 'typescript';
+module.exports.category = 'layout';
 module.exports.report = () => 'Add newline after function call';
 
 module.exports.filter = ({text, node, getText, getCommentsAfter}) => {

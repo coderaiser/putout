@@ -26,7 +26,7 @@ npm i @putout/plugin-remove-useless-mapping-identifiers
 ```ts
 type SuperType = {
     [Key in keyof Type]+?: Type[Key];
-}
+};
 ```
 
 ## ✅ Correct code Example
@@ -34,7 +34,7 @@ type SuperType = {
 ```ts
 type SuperType = {
     [Key in keyof Type]?: Type[Key];
-}
+};
 ```
 
 ## License

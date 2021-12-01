@@ -36,17 +36,17 @@
     "@babel/core": "^7.12.3",
     "@babel/eslint-parser": "^7.15.0",
     "@babel/plugin-syntax-class-properties": "^7.12.1",
-    "@babel/plugin-syntax-top-level-await": "^7.12.1",
-    "@babel/plugin-syntax-typescript": "^7.12.1",
     "@putout/engine-parser": "^4.6.0",
     "@putout/eslint-config": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.4.0",
     "align-spaces": "^1.0.0",
     "eslint-plugin-node": "^11.0.0",
     "estree-to-babel": "^4.0.1",
-    "try-catch": "^3.0.0"
+    "try-catch": "^3.0.0",
+    "typescript": "^4.5.2"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^5.4.0",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
     "eslint-plugin-eslint-plugin": "^3.2.0",
@@ -56,7 +56,7 @@
     "simport": "^1.2.0",
     "supertape": "^6.6.0",
     "try-to-catch": "^3.0.0",
-    "typescript": "^4.5.2"
+    "@babel/plugin-syntax-typescript": "^7.12.1"
   },
   "engines": {
     "node": ">=14"

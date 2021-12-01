@@ -82,3 +82,7 @@ test('eslint-plugin-putout: newlines-around-function-call', async ({noProcess}) 
     await noProcess('newlines-around-function-call');
 });
 
+test('eslint-plugin-putout: ts: semi', async ({process}) => {
+    await process('semi');
+});
+

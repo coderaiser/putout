@@ -26,7 +26,7 @@ npm i @putout/plugin-apply-utility-types
 ```ts
 type SuperType1 = {
     [Key in keyof Type]?: Type[Key];
-}
+};
 ```
 
 ## ✅ Correct code Example
