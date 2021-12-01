@@ -107,6 +107,7 @@ const safe = {
                 'remove-unused-for-of-variables': 'off',
                 'remove-unreachable-code': 'off',
                 'remove-useless-return': 'off',
+                'remove-useless-arguments': 'off',
                 'tape/remove-skip': 'off',
                 'tape/remove-only': 'off',
                 'remove-console': 'off',

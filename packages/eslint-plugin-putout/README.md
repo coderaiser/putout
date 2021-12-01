@@ -109,6 +109,7 @@ List of disabled 🐊`Putout` rules:
 - [remove-unused-for-of-variables](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-unused-for-of-variables);
 - [remove-unused-expressions](https://github.com/coderaiser/putout/tree/v22.0.0/packages);
 - [remove-useless-return](https://github.com/coderaiser/putout/tree/master/remove-useless-return);
+- [remove-useless-arguments](https://github.com/coderaiser/putout/tree/master/remove-useless-arguments);
 - [remove-skip](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-skip);
 - [remove-only](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-only);
 - [remove-console](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-console);
