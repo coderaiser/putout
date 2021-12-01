@@ -87,6 +87,11 @@ test('plugin-remove-empty-pattern: transform: nested array destructuring', (t) =
     t.end();
 });
 
+test('plugin-remove-empty-pattern: transform: nested array destructuring: array', (t) => {
+    t.transformCode('const [, []] = getOptions()', '');
+    t.end();
+});
+
 test('plugin-remove-empty-pattern: no transform: nested array destructuring', (t) => {
     t.noTransformCode('const [{rule}] = options');
     t.end();

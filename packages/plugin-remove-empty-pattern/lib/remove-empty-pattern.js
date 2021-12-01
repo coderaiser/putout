@@ -1,6 +1,10 @@
 'use strict';
 
+const {types} = require('putout');
+
 const {isObjectPattern} = require('putout').types;
+
+const {isArrayPattern} = types;
 
 module.exports.report = () => 'Avoid empty patterns';
 
@@ -9,6 +13,9 @@ const notOk = (a) => {
         return true;
     
     if (isObjectPattern(a) && !a.properties.length)
+        return true;
+    
+    if (isArrayPattern(a) && !a.elements.length)
         return true;
     
     return false;
