@@ -1,6 +1,6 @@
 {
     "match": {
-        "**/{packages,codemods/{test,engine-processor,{plugin,processor}-*}": {
+        "**/{packages,codemods}/{test,engine-processor,{plugin,processor}-*}": {
             "putout": "on"
         },
         "**/rules": {
