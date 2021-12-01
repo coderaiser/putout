@@ -45,7 +45,7 @@
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
     "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-putout": "^11.0.0",
+    "eslint-plugin-putout": "^12.0.0",
     "just-camel-case": "^4.0.2",
     "lerna": "^4.0.0",
     "madrun": "^8.0.1",

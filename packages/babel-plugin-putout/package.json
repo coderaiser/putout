@@ -14,7 +14,7 @@
     "babel-plugin-transform-inline-consecutive-adds": "^0.4.3",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
-    "eslint-plugin-putout": "^11.0.0",
+    "eslint-plugin-putout": "^12.0.0",
     "madrun": "^8.0.1",
     "mocha": "^9.0.1",
     "supertape": "^6.0.0"
