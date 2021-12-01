@@ -32,6 +32,19 @@ export const test = extend({
         
         return operator.equal(source, fixture);
     },
+    noProcess: (operator) => async (name) => {
+        const full = join(fixtureDir, name);
+        const [resolvedName, code] = await read(full);
+        const fix = true;
+        
+        const [source] = await eslint({
+            name: resolvedName,
+            code,
+            fix,
+        });
+        
+        return operator.equal(source, code);
+    },
     comparePlaces: (operator) => async (name, expected) => {
         const full = join(fixtureDir, name);
         const [resolvedName, code] = await read(full);
