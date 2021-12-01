@@ -86,3 +86,7 @@ test('eslint-plugin-putout: ts: semi', async ({process}) => {
     await process('semi');
 });
 
+test('eslint-plugin-putout: ts: disabled', async ({comparePlaces}) => {
+    await comparePlaces('ts-disabled', []);
+});
+

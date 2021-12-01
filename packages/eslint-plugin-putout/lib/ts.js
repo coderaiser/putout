@@ -22,6 +22,9 @@ const ts = {
         '@typescript-eslint/semi': 'error',
         '@typescript-eslint/array-type': 'error',
         'space-before-function-paren': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/ban-types': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
         '@typescript-eslint/space-before-function-paren': ['error', {
             anonymous: 'never',
             named: 'never',
