@@ -8,6 +8,9 @@ const prepare = (plugin, context, options) => (node) => {
     const getText = source.getText.bind(source);
     const getCommentsBefore = source.getCommentsBefore.bind(source);
     const getCommentsAfter = source.getCommentsAfter.bind(source);
+    const getSpacesBeforeNode = createGetSpacesBeforeNode({
+        getText,
+    });
     
     const text = getText(node);
     
@@ -18,6 +21,7 @@ const prepare = (plugin, context, options) => (node) => {
         getText,
         getCommentsBefore,
         getCommentsAfter,
+        getSpacesBeforeNode,
         filename,
     });
     
@@ -90,4 +94,15 @@ function getTraversers(names, plugin) {
     
     return traversers;
 }
+
+const createGetSpacesBeforeNode = ({getText}) => (node, text = getText(node)) => {
+    let spaces = '';
+    let i = 0;
+    
+    while (!spaces || /^[ \n]+$/.test(spaces))
+        spaces = getText(node, ++i)
+            .replace(text, '');
+    
+    return spaces.slice(1);
+};
 

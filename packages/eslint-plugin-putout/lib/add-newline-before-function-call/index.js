@@ -13,7 +13,7 @@ const regExp = /^\n( +)?\n +$/;
 module.exports.category = 'typescript';
 module.exports.report = () => 'Add newline before function call';
 
-module.exports.filter = ({text, node, getText, getCommentsBefore}) => {
+module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) => {
     if (!isExpressionStatement(node.parent))
         return false;
     
@@ -31,7 +31,7 @@ module.exports.filter = ({text, node, getText, getCommentsBefore}) => {
     if (n < 3)
         return false;
     
-    const spaces = getSpacesBeforeNode(node, {text, getText});
+    const spaces = getSpacesBeforeNode(node, text);
     
     if (regExp.test(spaces))
         return false;
@@ -48,7 +48,7 @@ module.exports.filter = ({text, node, getText, getCommentsBefore}) => {
         if (!isVariableDeclaration(prevA))
             return false;
         
-        const spaces = getSpacesBeforeNode(prevA, {getText});
+        const spaces = getSpacesBeforeNode(prevA);
         
         if (regExp.test(spaces))
             return false;
@@ -56,7 +56,7 @@ module.exports.filter = ({text, node, getText, getCommentsBefore}) => {
         if (!nextA)
             return true;
         
-        const nextSpaces = getSpacesBeforeNode(nextA, {getText});
+        const nextSpaces = getSpacesBeforeNode(nextA);
         return !regExp.test(nextSpaces);
     }
     
@@ -71,13 +71,3 @@ module.exports.include = () => [
     'CallExpression',
 ];
 
-function getSpacesBeforeNode(node, {getText, text = getText(node)}) {
-    let spaces = '';
-    let i = 0;
-    
-    while (!spaces || /^[ \n]+$/.test(spaces))
-        spaces = getText(node, ++i)
-            .replace(text, '');
-    
-    return spaces.slice(1);
-}

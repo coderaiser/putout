@@ -28,6 +28,12 @@ ruleTester.run('remove-newline-after-default-import', rule, {
                 t.equal(result, 3);
                 t.end();
             });
+        `, `
+            test('lint: some check', (t) => {
+                const result = 1 + 2;
+                
+                t.end();
+            });
         `,
     ],
     
