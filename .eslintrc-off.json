@@ -1,0 +1,7 @@
+{
+    "ignorePatterns": [
+        "*.*",
+        "!**/eslint-plugin-putout"
+    ]
+}
+

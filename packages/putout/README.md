@@ -153,6 +153,8 @@ putout lib --plugins remove-debugger,remove-unused-variables
 🐊`Putout` supports next `environment variables`:
 
 - `PUTOUT_FILES` - files that should be processed by putout, divided by ",";
+- `PUTOUT_CONFIG_FILE` - path to 🐊`Putout` config file;
+- `ESLINT_CONFIG_FILE` - path to `ESLint` config file;
 
 ```sh
 PUTOUT_FILES=lib,test putout --fix

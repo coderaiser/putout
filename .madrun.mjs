@@ -26,6 +26,14 @@ const env = {
     KEYPRESS: 1,
 };
 
+const eslintOffEnv = {
+    ESLINT_CONFIG_FILE: './.eslintrc-off.json',
+};
+
+const putoutOffEnv = {
+    PUTOUT_CONFIG_FILE: './.putout-off.json',
+};
+
 export default {
     'test': () => [env, `tape '${dirs}/*/test/*.*' '${dirs}/*/{bin,lib}/**/*.spec.*'`],
     'test:inspect': () => [env, `node --inspect-brk --inspect=0.0.0.0 node_modules/.bin/${cutEnv('test')}`],
@@ -42,6 +50,8 @@ export default {
     'lint:memory': async () => await run('lint:fresh', '-f memory'),
     'fresh:lint': async () => await run('lint:fresh'),
     'fresh': async () => await run(['lint:memory', 'coverage']),
+    'fresh:off:eslint': async () => [eslintOffEnv, await run('lint:memory')],
+    'fresh:off:putout': async () => [putoutOffEnv, await run('lint:memory', '--no-config')],
     'lint': () => `putout . --raw --rulesdir rules`,
     'lint:mark': () => 'putout **/*.md',
     'memory': async () => await run(['lint:fresh', '-f memory']),

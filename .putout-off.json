@@ -1,0 +1,22 @@
+{
+    "formatter": "memory",
+    "processors": [
+        "javascript",
+        "json",
+        "markdown",
+        "ignore",
+        "yaml",
+        "css"
+    ],
+    "ignore": [
+        "**/node_modules",
+        "**/fixture",
+        "**/.nyc_output",
+        "**/coverage",
+        "**/dist",
+        "**/dist-dev",
+        "**/build",
+        "**/package-lock.json",
+        ".husky"
+    ]
+}

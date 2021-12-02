@@ -132,7 +132,8 @@ npx putout lib test --fix
 
 🐊`Putout` supports the following environment variables:
 
-- `PUTOUT_FILES` - files that should be processed by putout, divided by ",";
+- `PUTOUT_CONFIG_FILE` - path to 🐊`Putout` config file;
+- `PUTOUT_FILES` - files that should be processed by 🐊`Putout`, divided by ",";
 
 Example:
 
@@ -2257,7 +2258,7 @@ Then create `.eslintrc.json`:
 }
 ```
 
-And use with `putout` this way:
+And use with 🐊`Putout` this way:
 
 ```sh
 putout --fix lib
@@ -2269,13 +2270,13 @@ To set custom `eslint config file` use `ESLINT_CONFIG_FILE` env variable:
 ESLINT_CONFIG_FILE=test.eslintrc.json putout --fix lib
 ```
 
-You can even use only `eslint`, because `putout` bundled to `eslint-plugin-putout` with:
+You can even use only `ESlint`, because `putout` bundled to `eslint-plugin-putout` with:
 
 ```
 eslint --fix lib
 ```
 
-Will uses putout transformations for you :).
+Will uses 🐊`Putout` transformations for you :).
 
 ## Integration with Babel
 
