@@ -1,3 +1,19 @@
+2021.12.02, v22.4.0
+
+feature:
+- (putout) add env variable PUTOUT_CONFIG_FILE
+- (eslint-plugin-putout) ts: add extension rules
+- (eslint-plugin-putout) ts: enable @typescript-eslint/type-annotation-spacing
+- (eslint-plugin-putout) safe: add remove-useless-arguments
+- (eslint-plugin-putout) tape-remove-newline-before-t-end: add support of case when no assertions found before t.end()
+- (eslint-plugin-putout) ts: disable: ban-types, no-explicit-any, no-empty-function
+- (package) eslint-plugin-putout v12.0.0
+- (eslint-plugin-putout) drop support of putout < 22
+- (eslint-plugin-putout) add first class support of typescript
+- (eslint-plugin-putout) improve support of add-newline-{before,after}-function-call
+- (@putout/plugin-remove-empty-pattern) add support of nested ArrayPattern
+
+
 2021.12.01, v22.3.4
 
 fix:
