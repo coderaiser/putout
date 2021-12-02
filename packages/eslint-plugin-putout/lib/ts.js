@@ -1,24 +1,16 @@
 'use strict';
 
+const {rules} = require('@putout/eslint-config');
+
 const extensionRules = {
     'no-undef': 'off',
     'no-var': 'off',
     
-    'semi': 'off',
-    '@typescript-eslint/semi': 'error',
-    
     'brace-style': 'off',
     '@typescript-eslint/brace-style': ['error'],
     
-    'space-before-function-paren': 'off',
-    '@typescript-eslint/space-before-function-paren': ['error', {
-        anonymous: 'never',
-        named: 'never',
-        asyncArrow: 'always',
-    }],
-    
     'comma-dangle': 'off',
-    '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
+    '@typescript-eslint/comma-dangle': rules['comma-dangle'],
     
     'comma-spacing': 'off',
     '@typescript-eslint/comma-spacing': 'error',
@@ -29,8 +21,44 @@ const extensionRules = {
     'func-call-spacing': 'off',
     '@typescript-eslint/func-call-spacing': 'error',
     
-    'indent': 'off',
-    '@typescript-eslint/indent': ['error', 4],
+    // broken
+    '@typescript-eslint/indent': 'off',
+    
+    'lines-between-class-members': 'off',
+    '@typescript-eslint/lines-between-class-members': 'error',
+    
+    '@typescript-eslint/no-array-constructor': 'off',
+    
+    'no-extra-parens': 'off',
+    '@typescript-eslint/no-extra-parens': 'error',
+    
+    'no-extra-semi': 'off',
+    '@typescript-eslint/no-extra-semi': 'error',
+    
+    '@typescript-eslint/no-implied-eval': 'off',
+    
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
+    
+    'object-curly-spacing': 'off',
+    '@typescript-eslint/object-curly-spacing': 'error',
+    
+    'padding-line-between-statements': 'off',
+    '@typescript-eslint/padding-line-between-statements': rules['padding-line-between-statements'],
+    
+    'quotes': 'off',
+    '@typescript-eslint/quotes': rules.quotes,
+    
+    '@typescript-eslint/require-await': 'off',
+    
+    'semi': 'off',
+    '@typescript-eslint/semi': rules.semi,
+    
+    'space-before-function-paren': 'off',
+    '@typescript-eslint/space-before-function-paren': rules['space-before-function-paren'],
+    
+    'space-infix-ops': 'off',
+    '@typescript-eslint/space-infix-ops': rules[ 'space-infix-ops'],
 };
 
 const ts = {
