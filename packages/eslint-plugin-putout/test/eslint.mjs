@@ -86,6 +86,10 @@ test('eslint-plugin-putout: ts: semi', async ({process}) => {
     await process('semi');
 });
 
+test('eslint-plugin-putout: ts: type-annotation-spacing', async ({process}) => {
+    await process('type-annotation-spacing');
+});
+
 test('eslint-plugin-putout: ts: disabled', async ({comparePlaces}) => {
     await comparePlaces('ts-disabled', []);
 });

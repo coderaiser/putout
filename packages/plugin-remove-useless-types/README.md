@@ -31,7 +31,7 @@ type oldType = {
 
 type newType = oldType;
 
-const x:newType = 5;
+const x: newType = 5;
 ```
 
 ## ✅ Correct code Example
@@ -42,7 +42,7 @@ type oldType = {
     b: string,
 };
 
-const x:oldType = 5;
+const x: oldType = 5;
 ```
 
 ## License
