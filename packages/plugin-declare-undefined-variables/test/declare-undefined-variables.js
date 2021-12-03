@@ -165,6 +165,11 @@ test('putout: plugin: declare-undefined-variables: wraptile', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: logical', (t) => {
+    t.transform('logical');
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: noop', (t) => {
     t.transformCode('noop();', montag`
         const noop = () => {};

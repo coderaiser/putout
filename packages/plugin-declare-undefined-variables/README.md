@@ -13,6 +13,7 @@
 - [child_process](https://nodejs.org/dist/latest-v16.x/docs/api/child_process.html);
 - types: `isFn`, `isString`, `isNumber`, `isObject` `isUndefined`;
 - maybe: `maybeArray`, `maybeFn`, `maybeEmptyArray`;
+- logical: `not`;
 - [wraptile](https://github.com/coderaiser/wraptile);
 - [currify](https://github.com/coderaiser/currify);
 - [pipe-io](https://github.com/coderaiser/pipe-io);

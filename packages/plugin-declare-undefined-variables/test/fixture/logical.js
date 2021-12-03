@@ -1,0 +1,1 @@
+const notOK = not(isOK);
