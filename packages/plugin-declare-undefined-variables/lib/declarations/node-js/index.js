@@ -12,6 +12,7 @@ module.exports = {
     ...require('./module'),
     ...require('./stream'),
     ...require('./os'),
+    ...require('./zlib'),
     ...require('./child_process'),
 };
 
