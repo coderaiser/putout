@@ -1,7 +1,6 @@
 'use strict';
 
 const fs = require('fs');
-
 const {stub} = require('supertape');
 
 const removeConsole = require('./fixture/remove-console');
@@ -14,26 +13,22 @@ const {reRequire} = require('mock-require');
 const formatter = require('@putout/formatter-dump');
 const formatterProgress = require('@putout/formatter-progress');
 
-test('test: format', (t) => {
-    t.format(formatter, 'var');
-    t.end();
+test('test: format', async ({format}) => {
+    await format(formatter, 'var');
 });
 
-test('test: format: options', (t) => {
-    t.format(formatterProgress, 'var', {
+test('test: format: options', async ({format}) => {
+    await format(formatterProgress, 'var', {
         minCount: 10,
     });
-    t.end();
 });
 
-test('test: no format', (t) => {
-    t.noFormat(formatter, 'declared');
-    t.end();
+test('test: no format', async ({noFormat}) => {
+    await noFormat(formatter, 'declared');
 });
 
-test('test: formatMany', (t) => {
-    t.formatMany(formatter, ['var', 'var']);
-    t.end();
+test('test: formatMany', async ({formatMany}) => {
+    await formatMany(formatter, ['var', 'var']);
 });
 
 (() => {
@@ -54,18 +49,18 @@ test('test: formatMany', (t) => {
         'remove-console': require('@putout/plugin-remove-console'),
     });
     
-    test('test: formatSave', (t) => {
-        t.formatSave(formatter, 'var');
+    test('test: formatSave', async (t) => {
+        await t.formatSave(formatter, 'var');
         
         t.ok(writeFileSyncStub.called);
         t.end();
     }, {checkAssertionsCount: false});
     
-    test('test: format: with UPDATE env variable', (t) => {
+    test('test: format: with UPDATE env variable', async (t) => {
         const {UPDATE} = process.env;
         process.env.UPDATE = 1;
         
-        t.format(formatter, 'var');
+        await t.format(formatter, 'var');
         
         process.env.UPDATE = UPDATE;
         
@@ -73,18 +68,18 @@ test('test: formatMany', (t) => {
         t.end();
     }, {checkAssertionsCount: false});
     
-    test('test: formatManySave', (t) => {
-        t.formatManySave(formatter, ['var', 'var']);
+    test('test: formatManySave', async (t) => {
+        await t.formatManySave(formatter, ['var', 'var']);
         
         t.ok(writeFileSyncStub.called);
         t.end();
     }, {checkAssertionsCount: false});
     
-    test('test: formatMany: with UPDATE env variable', (t) => {
+    test('test: formatMany: with UPDATE env variable', async (t) => {
         const {UPDATE} = process.env;
         process.env.UPDATE = 1;
         
-        t.formatMany(formatter, ['var', 'var']);
+        await t.formatMany(formatter, ['var', 'var']);
         
         process.env.UPDATE = UPDATE;
         
@@ -92,19 +87,19 @@ test('test: formatMany', (t) => {
         t.end();
     }, {checkAssertionsCount: false});
     
-    test('test: formatSave: exists', (t) => {
+    test('test: formatSave: exists', async (t) => {
         existsSyncStub.returns(true);
         
-        t.formatSave(formatter, 'var');
+        await t.formatSave(formatter, 'var');
         
         t.ok(writeFileSyncStub.called);
         t.end();
     }, {checkAssertionsCount: false});
     
-    test('test: formatManySave: exists', (t) => {
+    test('test: formatManySave: exists', async (t) => {
         existsSyncStub.returns(true);
         
-        t.formatManySave(formatter, ['var', 'var']);
+        await t.formatManySave(formatter, ['var', 'var']);
         
         t.ok(writeFileSyncStub.called);
         t.end();

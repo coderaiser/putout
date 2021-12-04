@@ -66,7 +66,7 @@ module.exports = (dir, plugin, rules) => {
     });
 };
 
-const format = currify(({dir, plugins, rules}, t, formatter, name, formatterOptions = {}) => {
+const format = currify(({dir, plugins, rules}, t) => async (formatter, name, formatterOptions = {}) => {
     const full = join(dir, name);
     const outputName = `${full}-format`;
     const [input, isTS] = readFixture(full);
@@ -75,7 +75,7 @@ const format = currify(({dir, plugins, rules}, t, formatter, name, formatterOpti
     const {places} = putout(input, {fixCount: 1, isTS, plugins, rules});
     
     const report = putout.initReport();
-    const result = report(formatter, {
+    const result = await report(formatter, {
         formatterOptions,
         name,
         source: input,
@@ -87,14 +87,14 @@ const format = currify(({dir, plugins, rules}, t, formatter, name, formatterOpti
     return {is, output, result};
 });
 
-const noFormat = currify(({dir, plugins, rules}, t, formatter, name, formatterOptions = {}) => {
+const noFormat = currify(({dir, plugins, rules}, t) => async (formatter, name, formatterOptions = {}) => {
     const full = join(dir, name);
     const [input] = readFixture(full);
     
     const {places} = putout(input, {plugins, rules});
     
     const report = putout.initReport();
-    const result = report(formatter, {
+    const result = await report(formatter, {
         name,
         places,
         formatterOptions,
@@ -105,7 +105,7 @@ const noFormat = currify(({dir, plugins, rules}, t, formatter, name, formatterOp
     return {is, output, result};
 });
 
-const formatMany = currify(({dir, plugins, rules}, t, formatter, names, formatterOptions = {}) => {
+const formatMany = currify(({dir, plugins, rules}, t) => async (formatter, names, formatterOptions = {}) => {
     const joinTwo = (a) => (b) => join(a, b);
     const fullNames = names.map(joinTwo(dir));
     
@@ -124,7 +124,7 @@ const formatMany = currify(({dir, plugins, rules}, t, formatter, names, formatte
             rules,
         });
         
-        result += report(formatter, {
+        result += await report(formatter, {
             name,
             formatterOptions,
             source: input,
@@ -142,44 +142,44 @@ const formatMany = currify(({dir, plugins, rules}, t, formatter, names, formatte
     return {is, output, result};
 });
 
-const formatManySave = currify(({dir, plugins, rules}, t, formatter, names, options = {}) => {
+const formatManySave = currify(({dir, plugins, rules}, t) => async (formatter, names, options = {}) => {
     const name = `${names.join('-')}-format.js`;
     const outputName = join(dir, name);
     
     if (!existsSync(outputName))
         writeFileSync(outputName, '');
     
+    const runFormat = await formatMany({dir, plugins, rules}, t);
+    
     const {
         is,
         output,
         result,
-    } = formatMany({dir, plugins, rules}, t, formatter, names, options);
+    } = await runFormat(formatter, names, options);
     
     writeFileSync(outputName, result);
     
     return {is, output, result};
 });
 
-const formatSave = currify(({dir, plugins, rules}, t, formatter, name, options = {}) => {
+const formatSave = currify(({dir, plugins, rules}, t) => async (formatter, name, options = {}) => {
     const full = join(dir, name);
     const outputName = `${full}-format.js`;
     
     if (!existsSync(outputName))
         writeFileSync(outputName, '');
     
+    const runFormat = format({
+        dir,
+        plugins,
+        rules,
+    }, t);
+    
     const {
         is,
         output,
         result,
-    } = format(
-        {dir,
-            plugins,
-            rules},
-        t,
-        formatter,
-        name,
-        options,
-    );
+    } = await runFormat(formatter, name, options);
     
     writeFileSync(outputName, result);
     

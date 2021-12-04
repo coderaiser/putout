@@ -172,14 +172,19 @@ test('plugin-apply-numeric-separators: no transform: hex', (t) => {
 
 check file name formatting (pass `process.env.UPDATE=1` to save fixture)
 
+```js
+test('formatter: codeframe', async ({format}) => {
+    await format(codeframe);
+});
+```
+
 ### noFormat
 
 check that there is no formatting for for such file
 
 ```js
-test('formatter: codeframe: no', (t) => {
-    t.noFormat(codeframe, 'no');
-    t.end();
+test('formatter: codeframe: no', async ({noFormat}) => {
+    await noFormat(codeframe, 'no');
 });
 ```
 
@@ -188,9 +193,8 @@ test('formatter: codeframe: no', (t) => {
 check file name formatting (pass `process.env.UPDATE=1` to save fixture)
 
 ```js
-test('formatter: dump: many', (t) => {
-    t.formatMany(dump, ['var', 'var']);
-    t.end();
+test('formatter: dump: many', async ({formatMany}) => {
+    await formatMany(dump, ['var', 'var']);
 });
 ```
 
