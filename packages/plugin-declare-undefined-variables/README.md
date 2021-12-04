@@ -15,6 +15,7 @@
 - types: `isFn`, `isString`, `isNumber`, `isObject` `isUndefined`;
 - maybe: `maybeArray`, `maybeFn`, `maybeEmptyArray`;
 - logical: `not`, `id`;
+- fresh-import: `freshImport`, `freshImportDefault`;
 - [wraptile](https://github.com/coderaiser/wraptile);
 - [currify](https://github.com/coderaiser/currify);
 - [pipe-io](https://github.com/coderaiser/pipe-io);

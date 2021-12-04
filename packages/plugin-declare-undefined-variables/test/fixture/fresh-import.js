@@ -1,0 +1,2 @@
+freshImport('hello');
+freshImportDefault('hello');

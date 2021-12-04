@@ -175,6 +175,11 @@ test('putout: plugin: declare-undefined-variables: logical', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: fresh-import', (t) => {
+    t.transform('fresh-import');
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: noop', (t) => {
     t.transformCode('noop();', montag`
         const noop = () => {};
