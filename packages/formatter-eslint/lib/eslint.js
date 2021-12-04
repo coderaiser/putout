@@ -1,8 +1,6 @@
-'use strict';
+import {jsonFormatter} from '@putout/formatter-json';
 
-const {jsonFormatter} = require('@putout/formatter-json');
-
-module.exports = async ({name, source, places, index, count, filesCount, errorsCount}) => {
+export default async ({name, source, places, index, count, filesCount, errorsCount}) => {
     const json = jsonFormatter({
         name, source, places, index, count, filesCount, errorsCount,
     });
@@ -35,8 +33,8 @@ async function format(results) {
     const {ESLINT_FORMATTER} = process.env;
     
     if (ESLINT_FORMATTER) {
-        const eslintFormatter = require(`eslint-formatter-${ESLINT_FORMATTER}`);
-        return await eslintFormatter(results);
+        const eslintFormatter = await import(`eslint-formatter-${ESLINT_FORMATTER}`);
+        return await eslintFormatter.default(results);
     }
     
     return JSON.stringify(results, null, 4);

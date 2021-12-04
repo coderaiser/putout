@@ -1,9 +1,12 @@
-'use strict';
+import {createCommons} from 'simport';
+import putoutTest from '@putout/test';
+import rmUnused from '@putout/plugin-remove-unused-variables';
 
-const eslint = require('..');
+import eslint from '../lib/eslint.js';
 
-const test = require('@putout/test')(__dirname, {
-    'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
+const {__dirname} = createCommons(import.meta.url);
+const test = putoutTest(__dirname, {
+    'remove-unused-variables': rmUnused,
 });
 
 test('formatter: eslint', async ({format}) => {
