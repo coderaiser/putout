@@ -2,7 +2,7 @@
 
 const {jsonFormatter} = require('@putout/formatter-json');
 
-module.exports = ({name, source, places, index, count, filesCount, errorsCount}) => {
+module.exports = async ({name, source, places, index, count, filesCount, errorsCount}) => {
     const json = jsonFormatter({
         name, source, places, index, count, filesCount, errorsCount,
     });
@@ -28,14 +28,16 @@ module.exports = ({name, source, places, index, count, filesCount, errorsCount})
         });
     }
     
-    return format(output);
+    return await format(output);
 };
 
-function format(results) {
+async function format(results) {
     const {ESLINT_FORMATTER} = process.env;
     
-    if (ESLINT_FORMATTER)
-        return require(`eslint-formatter-${ESLINT_FORMATTER}`)(results);
+    if (ESLINT_FORMATTER) {
+        const eslintFormatter = require(`eslint-formatter-${ESLINT_FORMATTER}`);
+        return await eslintFormatter(results);
+    }
     
     return JSON.stringify(results, null, 4);
 }
