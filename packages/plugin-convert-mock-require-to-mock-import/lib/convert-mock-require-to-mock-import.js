@@ -38,7 +38,12 @@ module.exports.replace = () => ({
 });
 
 function maybeRemoveOldStopAll(scope) {
-    const {path} = scope.getBinding('stopAll');
+    const binding = scope.getBinding('stopAll');
+    
+    if (!binding)
+        return;
+    
+    const {path} = binding;
     
     if (path)
         path.remove();

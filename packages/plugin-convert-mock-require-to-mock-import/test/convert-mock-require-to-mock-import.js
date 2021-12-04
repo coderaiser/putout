@@ -14,3 +14,8 @@ test('plugin-convert-mock-require-to-mock-import: transform', (t) => {
     t.end();
 });
 
+test('plugin-convert-mock-require-to-mock-import: transform: no-stop-all', (t) => {
+    t.transform('no-stop-all');
+    t.end();
+});
+
