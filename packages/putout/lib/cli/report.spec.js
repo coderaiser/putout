@@ -10,14 +10,14 @@ const {initReport} = require('../putout');
 
 const simport = createSimport(__filename);
 
-test('putout: report: no places', (t) => {
+test('putout: report: no places', async (t) => {
     const reporter = stub();
     const report = initReport();
     const formatterOptions = {
         hello: 'world',
     };
     
-    report(reporter, {
+    await report(reporter, {
         name: 'hello',
         places: [],
         source: '',
@@ -59,7 +59,7 @@ test('putout: report: dump', async (t) => {
     const formatter = require('@putout/formatter-dump');
     
     const report = initReport();
-    const formatted = report(formatter, {
+    const formatted = await report(formatter, {
         name: 'hello',
         places,
     });

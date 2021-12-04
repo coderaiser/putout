@@ -341,7 +341,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
                 count: length,
             });
             
-            const line = report(currentFormat, formatterProxy);
+            const line = await report(currentFormat, formatterProxy);
             
             write(line || '');
             rawPlaces.push(places);
@@ -382,7 +382,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             }
         }
         
-        const line = report(currentFormat, {
+        const line = await report(currentFormat, {
             report,
             formatterOptions,
             name: chooseName(name, resolvedName),

@@ -4,7 +4,7 @@ module.exports = () => {
     let filesCount = 0;
     let errorsCount = 0;
     
-    return (formatter, options) => {
+    return async (formatter, options) => {
         const {
             name,
             source,
@@ -19,7 +19,7 @@ module.exports = () => {
         
         errorsCount += places.length;
         
-        return formatter({
+        return await formatter({
             name,
             options: formatterOptions,
             source,
