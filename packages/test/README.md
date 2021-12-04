@@ -21,7 +21,7 @@ UPDATE=1 tape test/*.js
 
 ## Plugins API
 
-### report(filename, message | []messages)
+### `report(filename, message | []messages)`
 
 checks error message (or messages) of a plugin
 
@@ -32,7 +32,7 @@ test('remove usless variables: for-of', (t) => {
 });
 ```
 
-### reportCode(input, message)
+### `reportCode(input, message)`
 
 checks error message of a plugin from `input` code
 
@@ -43,7 +43,7 @@ test('remove debugger: report', (t) => {
 });
 ```
 
-### transform(filename [, output, plugins])
+### `transform(filename [, output, plugins])`
 
 check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory
 
@@ -56,7 +56,7 @@ test('remove usless variables: for-of', (t) => {
 });
 ```
 
-### transformCode(input, output)
+### `transformCode(input, output)`
 
 check transform of `input` -> `output` code
 
@@ -67,7 +67,7 @@ test('remove-console: property identifier: code', (t) => {
 });
 ```
 
-### reportWithOptions(filename, options)
+### `reportWithOptions(filename, options)`
 
 check report of `filename.js` with `options`
 
@@ -83,7 +83,7 @@ test('putout: test: reportWithOptions', (t) => {
 });
 ```
 
-### noReportWithOptions(filename, options)
+### `noReportWithOptions(filename, options)`
 
 check no report of `filename.js` with `options`
 
@@ -98,7 +98,7 @@ test('putout: test: noReportWithOptions', (t) => {
 });
 ```
 
-### transformWithOptions(filename, options)
+### `transformWithOptions(filename, options)`
 
 check transform of `filename.js` with `options`
 
@@ -111,7 +111,7 @@ test('putout: plugin: declare-undefined-variables: transform: parse', (t) => {
 });
 ```
 
-### noTransformWithOptions(filename, options)
+### `noTransformWithOptions(filename, options)`
 
 When file should not be transformed:
 
@@ -122,7 +122,7 @@ test('test: declared', (t) => {
 });
 ```
 
-### noTransformWithOptions(filename, options)
+### `noTransformWithOptions(filename, options)`
 
 check transform of `filename.js` with `options`
 
@@ -135,7 +135,7 @@ test('putout: plugin: declare-undefined-variables: transform: assign: dismiss', 
 });
 ```
 
-### noReport(filename)
+### `noReport(filename)`
 
 checks error message of a plugin not produces
 
@@ -146,9 +146,9 @@ test('plugin-putout: check-replace-code: no report: typescript', (t) => {
 });
 ```
 
-### noReportAfterTransform(filename)
+### `noReportAfterTransform(filename)`
 
-checks error message of a plugin not produces
+checks error message of a plugin not produced
 
 ```js
 test('test: no report after transform', (t) => {
@@ -157,9 +157,9 @@ test('test: no report after transform', (t) => {
 });
 ```
 
-### noTransform(filename)
+### `noTransform(filename)`
 
-check transform of `filename.js` produce nothing new
+check transform of `filename.js` produce nothing
 
 ```js
 test('plugin-apply-numeric-separators: no transform: hex', (t) => {
@@ -168,7 +168,7 @@ test('plugin-apply-numeric-separators: no transform: hex', (t) => {
 });
 ```
 
-### format(formatter, filename)
+### `format(formatter, filename)`
 
 check file name formatting (pass `process.env.UPDATE=1` to save fixture)
 
@@ -178,7 +178,7 @@ test('formatter: codeframe', async ({format}) => {
 });
 ```
 
-### noFormat
+### `noFormat`
 
 check that there is no formatting for for such file
 
@@ -188,7 +188,7 @@ test('formatter: codeframe: no', async ({noFormat}) => {
 });
 ```
 
-### formatMany(formatter, [filename1, filename2])
+### `formatMany(formatter, [filename1, filename2])`
 
 check file name formatting (pass `process.env.UPDATE=1` to save fixture)
 
@@ -245,7 +245,7 @@ const test = createTest(__dirname, {
 
 ```
 
-### process(filename [, plugins, ])
+### `process(filename [, plugins, ])`
 
 Example:
 
@@ -259,7 +259,7 @@ test('putout: processor: json', async ({process}) => {
 });
 ```
 
-### noProcess(filename [, plugins, processors])
+### `noProcess(filename [, plugins, processors])`
 
 Check that filename would not be processed.
 
@@ -271,7 +271,7 @@ test('putout: process: json: no process', async ({noProcess}) => {
 });
 ```
 
-### comparePlaces(filename, places)
+### `comparePlaces(filename, places)`
 
 ```js
 test('putout: processor: css: places', async ({comparePlaces}) => {
