@@ -1,3 +1,31 @@
+2021.12.04, v22.5.0
+
+fix:
+- (@putout/plugin-convert-mock-require-to-mock-import) handle no stopAll case
+
+feature:
+- (@putout/plugin-declare-undefined-variables) add support of simport
+- (package) @putout/formatter-progress-bar v2.0.0
+- (@putout/test) format: improve ability to test ESM
+- (@putout/plugin-convert-commonjs-to-esm) require: call: exclude dot dot
+- (@putout/plugin-declare-undefined-variables) add fresh-import
+- (@putout/formatter-progress-bar) convert to ESM
+- (package) @putout/plugin-convert-commonjs-to-esm v6.0.0
+- (package) @putout/formatter-progress v3.0.0
+- (@putout/formatter-progress) convert to ESM
+- (@putout/plugin-convert-commonjs-to-esm) drop support of putout < 22
+- (@putout/plugin-convert-commonjs-to-esm) require: improve support of namespaces: PascalCase -> kebabCase
+- (@putout/test) v4.0.0
+- (putout) add support of ESM formatters
+- (@putout/formatter-eslint) convert to ESM
+- (@putout/formatter-eslint) convert to async
+- (@putout/test) format: convert to async
+- (putout) add support of async formatters
+- (@putout/plugin-declare-undefined-variables) add support of zlib
+- (@putout/plugin-declare-undefined-variables) logical: add id
+- (@putout/plugin-declare-undefined-variables) add logical
+
+
 2021.12.02, v22.4.0
 
 feature:
