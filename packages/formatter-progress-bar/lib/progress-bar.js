@@ -1,12 +1,10 @@
-'use strict';
+import {sep} from 'path';
+import {Writable} from 'stream';
 
-const {sep} = require('path');
-const {Writable} = require('stream');
-
-const dump = require('@putout/formatter-dump');
-const cliProgress = require('cli-progress');
-const chalk = require('chalk');
-const once = require('once');
+import dump from '@putout/formatter-dump';
+import cliProgress from 'cli-progress';
+import chalk from 'chalk';
+import once from 'once';
 
 const OK = '👌';
 const {red} = chalk;
@@ -16,7 +14,7 @@ const formatErrorsCount = (a) => a ? red(a) : OK;
 const {stderr} = process;
 const {PUTOUT_PROGRESS_BAR = '1'} = process.env;
 
-module.exports = ({name, options, places, index, count, filesCount, errorsCount}) => {
+export default ({name, options, places, index, count, filesCount, errorsCount}) => {
     const {
         color = '#6fbdf1',
         minCount = 0,
@@ -62,7 +60,7 @@ const getColorFn = (color) => {
 };
 
 const getStream = () => PUTOUT_PROGRESS_BAR === '0' ? new Writable() : stderr;
-module.exports._getStream = getStream;
+export const _getStream = getStream;
 
 const createProgress = once(({count, color, name}) => {
     const colorFn = getColorFn(color);

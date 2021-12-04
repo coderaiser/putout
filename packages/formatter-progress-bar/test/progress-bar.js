@@ -1,67 +1,69 @@
-'use strict';
+import {createCommons} from 'simport';
 
-const progress = require('..');
-const {reRequire} = require('mock-require');
+const {__dirname} = createCommons(import.meta.url);
 
-const test = require('@putout/test')(__dirname, {
-    'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
+import putoutTest from '@putout/test';
+import rmVars from '@putout/plugin-remove-unused-variables';
+
+import progress from '../lib/progress-bar.js';
+
+const createFreshImport = (count = 0) => (name) => import(`${name}?count=${++count}`);
+const freshImport = createFreshImport();
+
+const test = putoutTest(__dirname, {
+    'remove-unused-variables': rmVars,
 });
 
-test('formatter: progress bar', (t) => {
-    t.format(progress, 'var');
-    t.end();
+const freshImportDefault = async (name) => (await freshImport(name)).default;
+
+test('formatter: progress bar', async ({format}) => {
+    await format(progress, 'var');
 });
 
-test('formatter: progress bar: no', (t) => {
-    t.format(progress, 'no');
-    t.end();
+test('formatter: progress bar: no', async ({format}) => {
+    await format(progress, 'no');
 });
 
-test('formatter: progress bar: many', (t) => {
-    t.formatMany(progress, ['var', 'var']);
-    t.end();
+test('formatter: progress bar: many', async ({formatMany}) => {
+    await formatMany(progress, ['var', 'var']);
 });
 
-test('formatter: progress bar: minCount', (t) => {
-    t.format(progress, 'min-count', {
+test('formatter: progress bar: minCount', async ({format}) => {
+    await format(progress, 'min-count', {
         minCount: 10,
     });
-    t.end();
 });
 
-test('formatter: progress bar: color', (t) => {
-    const progress = reRequire('..');
-    t.format(progress, 'color', {
+test('formatter: progress bar: color', async ({format}) => {
+    const progress = await freshImportDefault('../lib/progress-bar.js');
+    await format(progress, 'color', {
         color: 'red',
     });
-    t.end();
 });
 
-test('formatter: progress bar: get stream: disable progress bar', (t) => {
+test('formatter: progress bar: get stream: disable progress bar', async ({notEqual}) => {
     const {PUTOUT_PROGRESS_BAR} = process.env;
     
     process.env.PUTOUT_PROGRESS_BAR = '0';
-    const {_getStream} = reRequire('..');
+    const {_getStream} = await freshImport('../lib/progress-bar.js');
     const stream = _getStream();
     const {stderr} = process;
     
     process.env.PUTOUT_PROGRESS_BAR = PUTOUT_PROGRESS_BAR;
     
-    t.notEqual(stream, stderr, 'should equal to stderr');
-    t.end();
+    notEqual(stream, stderr, 'should equal to stderr');
 });
 
-test('formatter: progress bar: get stream', (t) => {
+test('formatter: progress bar: get stream', async ({ok}) => {
     const {PUTOUT_PROGRESS_BAR} = process.env;
     delete process.env.PUTOUT_PROGRESS_BAR;
     
-    const {_getStream} = reRequire('..');
+    const {_getStream} = await freshImport('../lib/progress-bar.js');
     const stream = _getStream();
     
     const {stderr} = process;
     process.env.PUTOUT_PROGRESS_BAR = PUTOUT_PROGRESS_BAR;
     
-    t.ok(stream === stderr, 'should equal to stderr');
-    t.end();
+    ok(stream === stderr, 'should equal to stderr');
 });
 
