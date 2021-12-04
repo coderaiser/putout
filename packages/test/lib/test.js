@@ -19,6 +19,15 @@ const {isArray} = Array;
 const {keys, entries} = Object;
 
 const {UPDATE} = process.env;
+global.__putout_test_update = UPDATE;
+global.__putout_test_fs = {
+    readFileSync,
+    writeFileSync,
+    existsSync,
+};
+
+const isUpdate = () => UPDATE || global.__putout_test_update;
+
 const TS = {
     ENABLED: true,
     DISABLED: false,
@@ -34,6 +43,8 @@ const readFixture = (name) => {
 };
 
 module.exports = (dir, plugin, rules) => {
+    const update = isUpdate();
+    
     dir = join(dir, 'fixture');
     const plugins = getPlugins(plugin);
     
@@ -59,9 +70,9 @@ module.exports = (dir, plugin, rules) => {
         }),
         
         formatSave: formatSave({dir, plugins, rules}),
-        format: (UPDATE ? formatSave : format)({dir, plugins, rules}),
+        format: (update ? formatSave : format)({dir, plugins, rules}),
         formatManySave: formatManySave({dir, plugins, rules}),
-        formatMany: (UPDATE ? formatManySave : formatMany)({dir, plugins, rules}),
+        formatMany: (update ? formatManySave : formatMany)({dir, plugins, rules}),
         noFormat: noFormat({dir, plugins, rules}),
     });
 };
@@ -143,6 +154,11 @@ const formatMany = currify(({dir, plugins, rules}, t) => async (formatter, names
 });
 
 const formatManySave = currify(({dir, plugins, rules}, t) => async (formatter, names, options = {}) => {
+    const {
+        existsSync,
+        writeFileSync,
+    } = global.__putout_test_fs;
+    
     const name = `${names.join('-')}-format.js`;
     const outputName = join(dir, name);
     
@@ -163,6 +179,11 @@ const formatManySave = currify(({dir, plugins, rules}, t) => async (formatter, n
 });
 
 const formatSave = currify(({dir, plugins, rules}, t) => async (formatter, name, options = {}) => {
+    const {
+        existsSync,
+        writeFileSync,
+    } = global.__putout_test_fs;
+    
     const full = join(dir, name);
     const outputName = `${full}-format.js`;
     
@@ -210,7 +231,7 @@ const transform = currify(({dir, plugins, rules}, t, name, transformed = null, a
         }],
     });
     
-    if (UPDATE)
+    if (isUpdate())
         writeFileSync(`${full}-fix.js`, code);
     
     return t.equal(code, output);
@@ -230,7 +251,7 @@ const transformWithOptions = currify(({dir, plugins}, t, name, options) => {
     
     const {code} = putout(input, {isTS, plugins, rules});
     
-    if (UPDATE)
+    if (isUpdate())
         writeFileSync(`${full}-fix.js`, code);
     
     return t.equal(code, output);

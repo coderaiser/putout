@@ -1,0 +1,101 @@
+import fs from 'fs';
+import {stub} from 'supertape';
+import {createCommons} from 'simport';
+
+import removeConsole from '@putout/plugin-remove-console';
+
+import removeConsoleFixture from './fixture/remove-console.js';
+import createTest from '../lib/test.js';
+
+const {__dirname} = createCommons(import.meta.url);
+
+const test = createTest(__dirname, {
+    'remove-console': removeConsoleFixture,
+});
+
+import formatter from '@putout/formatter-dump';
+import formatterProgress from '@putout/formatter-progress';
+
+test('test: format', async ({format}) => {
+    await format(formatter, 'var');
+});
+
+test('test: format: options', async ({format}) => {
+    await format(formatterProgress, 'var', {
+        minCount: 10,
+    });
+});
+
+test('test: no format', async ({noFormat}) => {
+    await noFormat(formatter, 'declared');
+});
+
+test('test: formatMany', async ({formatMany}) => {
+    await formatMany(formatter, ['var', 'var']);
+});
+
+const {
+    existsSync,
+    writeFileSync,
+} = fs;
+
+const existsSyncStub = stub().returns(false);
+const writeFileSyncStub = stub();
+
+global.__putout_test_update = true;
+
+const testUpdate = createTest(__dirname, {
+    'remove-console': removeConsole,
+});
+
+global.__putout_test_update = false;
+global.__putout_test_fs = {
+    existsSync: existsSyncStub,
+    writeFileSync: writeFileSyncStub,
+};
+
+testUpdate('test: formatSave', async ({ok, formatSave}) => {
+    await formatSave(formatter, 'var');
+    
+    ok(writeFileSyncStub.called);
+}, {checkAssertionsCount: false});
+
+testUpdate('test: format: with UPDATE env variable', async ({ok, format}) => {
+    global.__putout_test_update = true;
+    await format(formatter, 'var');
+    
+    global.__putout_test_update = false;
+    ok(writeFileSyncStub.called);
+}, {checkAssertionsCount: false});
+
+testUpdate('test: formatManySave', async ({ok, formatManySave}) => {
+    await formatManySave(formatter, ['var', 'var']);
+    ok(writeFileSyncStub.called);
+}, {checkAssertionsCount: false});
+
+testUpdate('test: formatMany: with UPDATE env variable', async ({ok, formatMany}) => {
+    global.__putout_test_update = true;
+    await formatMany(formatter, ['var', 'var']);
+    
+    global.__putout_test_update = false;
+    ok(writeFileSyncStub.called);
+}, {checkAssertionsCount: false});
+
+testUpdate('test: formatSave: exists', async ({ok, formatSave}) => {
+    existsSyncStub.returns(true);
+    
+    await formatSave(formatter, 'var');
+    
+    ok(writeFileSyncStub.called);
+}, {checkAssertionsCount: false});
+
+testUpdate('test: formatManySave: exists', async ({ok, formatManySave}) => {
+    existsSyncStub.returns(true);
+    
+    await formatManySave(formatter, ['var', 'var']);
+    
+    ok(writeFileSyncStub.called);
+}, {checkAssertionsCount: false});
+
+fs.existsSync = existsSync;
+fs.writeFileSync = writeFileSync;
