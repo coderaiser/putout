@@ -34,6 +34,9 @@ module.exports = {
     pipe: `import pipe from 'pipe-io'`,
     pullout: `import pullout from 'pullout'`,
     
+    createSimport: `import {createSimport} from 'simport'`,
+    simport: `const simport = createSimport(import.meta.url)`,
+    
     mockImport: `const {mockImport} = createMockImport(import.meta.url)`,
     reImport: `const {reImport} = createMockImport(import.meta.url)`,
     stopAll: `const {stopAll} = createMockImport(import.meta.url)`,

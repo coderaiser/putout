@@ -1,10 +1,10 @@
 'use strict';
 
+const {createSimport} = require('simport');
+
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
-const progress = require('@putout/formatter-progress');
-
 const {
     getFormatter,
     getReporter,
@@ -12,8 +12,12 @@ const {
 
 const {reRequire, stopAll} = mockRequire;
 
+const simport = createSimport(__filename);
+
 test('putout: cli: formatter: get formatter', async (t) => {
     const exit = stub();
+    
+    const progress = await simport('@putout/formatter-progress');
     
     const result = await getFormatter('progress', exit);
     const expected = [progress, {}];
@@ -28,6 +32,8 @@ test('putout: cli: formatter: get formatter: options', async (t) => {
     const formatterOptions = {
         minCount: 10,
     };
+    
+    const progress = await simport('@putout/formatter-progress');
     
     const result = await getFormatter(['progress', formatterOptions], exit);
     const expected = [progress, formatterOptions];

@@ -20,6 +20,7 @@
 - [currify](https://github.com/coderaiser/currify);
 - [pipe-io](https://github.com/coderaiser/pipe-io);
 - [pullout](https://github.com/coderaiser/pullout);
+- [simport](https://github.com/coderaiser/simport);
 
 ## Install
 
@@ -75,7 +76,8 @@ You can `dismiss` variables you don't want to define, or declare using "declarat
                 "stopAll",
                 "montag",
                 "once",
-                "putout"
+                "putout",
+                "simport"
             ]
         }]
     }

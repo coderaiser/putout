@@ -228,3 +228,12 @@ test('putout: plugin: declare-undefined-variables: pullout', (t) => {
     `);
     t.end();
 });
+
+test('putout: plugin: declare-undefined-variables: simport', (t) => {
+    t.transformCode(`await simport('fs');`, montag`
+        import {createSimport} from 'simport';
+        const simport = createSimport(import.meta.url);
+        await simport('fs');
+    `);
+    t.end();
+});
