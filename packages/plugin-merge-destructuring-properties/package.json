@@ -33,7 +33,7 @@
     "@putout/plugin-convert-commonjs-to-esm": "*",
     "@putout/plugin-convert-mock-require-to-mock-import": "*",
     "@putout/plugin-putout": "*",
-    "@putout/test": "^3.0.0",
+    "@putout/test": "^4.0.0",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
     "eslint-plugin-node": "^11.0.0",
