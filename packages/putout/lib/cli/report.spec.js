@@ -1,13 +1,11 @@
 'use strict';
 
 const montag = require('montag');
-
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const {createSimport} = require('simport');
 
 const {initReport} = require('../putout');
-
 const simport = createSimport(__filename);
 
 test('putout: report: no places', async (t) => {

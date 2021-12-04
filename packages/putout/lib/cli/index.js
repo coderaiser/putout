@@ -235,7 +235,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         processors = defaultProcessors,
     } = config;
     
-    const [currentFormat, formatterOptions] = getFormatter(format || formatter, exit);
+    const [currentFormat, formatterOptions] = await getFormatter(format || formatter, exit);
     const [error, processorRunners] = tryCatch(getProcessorRunners, processors);
     
     if (error)

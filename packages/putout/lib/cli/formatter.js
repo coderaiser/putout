@@ -1,24 +1,27 @@
 'use strict';
 
-const tryCatch = require('try-catch');
+const {createSimport} = require('simport');
+const tryToCatch = require('try-to-catch');
+
 const {NO_FORMATTER} = require('./exit-codes');
 
+const simport = createSimport(__filename);
 const stub = () => () => {};
 
 const {isArray} = Array;
 const maybeArray = (a) => isArray(a) ? a : [a, {}];
 
-module.exports.getFormatter = (formatter, exit) => {
+module.exports.getFormatter = async (formatter, exit) => {
     const [name, formatterOptions] = maybeArray(formatter);
     
     return [
-        getReporter(name, exit),
+        await getReporter(name, exit),
         formatterOptions,
     ];
 };
 
 module.exports.getReporter = getReporter;
-function getReporter(name, exit) {
+async function getReporter(name, exit) {
     let e;
     let reporter;
     
@@ -26,16 +29,16 @@ function getReporter(name, exit) {
         return stub();
     }
     
-    [e, reporter] = tryCatch(require, `@putout/formatter-${name}`);
+    [e, reporter] = await tryToCatch(simport, `@putout/formatter-${name}`);
     
     if (!e)
         return reporter;
     
-    [e, reporter] = tryCatch(require, `putout-formatter-${name}`);
+    [e, reporter] = await tryToCatch(simport, `putout-formatter-${name}`);
     
-    if (e)
-        exit(NO_FORMATTER, e);
+    if (!e)
+        return reporter;
     
-    return reporter;
+    exit(NO_FORMATTER, e);
 }
 

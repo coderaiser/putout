@@ -1765,9 +1765,9 @@ The built-in formatter options are:
 A formatter function executes on every processed file, it should return an `output string`.
 
 ```js
-module.exports = ({name, source, places, index, count, filesCount, errorsCount}) => {
+export default function formatter({name, source, places, index, count, filesCount, errorsCount}) {
     return '';
-};
+}
 ```
 
 Here is list of options:
