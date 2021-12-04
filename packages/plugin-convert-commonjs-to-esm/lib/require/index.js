@@ -1,6 +1,6 @@
 'use strict';
 
-const camelCase = require('just-camel-case');
+const justCamelCase = require('just-camel-case');
 const {
     types,
     operator,
@@ -19,6 +19,8 @@ const {
     ImportDefaultSpecifier,
     Identifier,
 } = types;
+
+const camelCase = (a) => justCamelCase(a.replace('@', ''));
 
 module.exports.report = () => 'ESM should be used insted of Commonjs';
 
@@ -58,14 +60,8 @@ module.exports.match = () => ({
     'const __a = __b(require(__c))': ({__a, __c}) => {
         return isIdentifier(__a) && isStringLiteral(__c);
     },
-    'const __a = require("__b")(__args)': ({__b}, path) => {
-        const name = camelCase(__b.value);
-        return !path.scope.bindings[name];
-    },
-    'const __a = require("__b").__c(__args)': ({__b}, path) => {
-        const name = camelCase(__b.value);
-        return !path.scope.bindings[name];
-    },
+    'const __a = require("__b")(__args)': convertCall,
+    'const __a = require("__b").__c(__args)': convertCall,
 });
 
 module.exports.replace = () => ({
@@ -152,6 +148,11 @@ module.exports.replace = () => ({
         return declarationNode;
     },
 });
+
+function convertCall({__b}, path) {
+    const name = camelCase(__b.value);
+    return !path.scope.bindings[name];
+}
 
 function applyDynamicImport(path) {
     const initPath = path.get('declarations.0.init');
