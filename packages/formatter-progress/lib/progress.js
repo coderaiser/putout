@@ -1,8 +1,6 @@
-'use strict';
+import dump from '@putout/formatter-dump';
 
-const dump = require('@putout/formatter-dump');
-
-module.exports = ({name, options, places, index, count, filesCount, errorsCount}) => {
+export default ({name, options, places, index, count, filesCount, errorsCount}) => {
     const {minCount = 0} = options;
     const naturalIndex = index + 1;
     const str = `\r${progress(naturalIndex, count)}%`;

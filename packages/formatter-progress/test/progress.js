@@ -1,30 +1,31 @@
-'use strict';
+import {createCommons} from 'simport';
 
-const progress = require('..');
+import rmVars from '@putout/plugin-remove-unused-variables';
+import putoutTest from '@putout/test';
 
-const test = require('@putout/test')(__dirname, {
-    'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
+import progress from '../lib/progress.js';
+
+const {__dirname} = createCommons(import.meta.url);
+
+const test = putoutTest(__dirname, {
+    'remove-unused-variables': rmVars,
 });
 
-test('formatter: progress', (t) => {
-    t.format(progress, 'var');
-    t.end();
+test('formatter: progress', async ({format}) => {
+    await format(progress, 'var');
 });
 
-test('formatter: progress: no', (t) => {
-    t.format(progress, 'no');
-    t.end();
+test('formatter: progress: no', async ({format}) => {
+    await format(progress, 'no');
 });
 
-test('formatter: progress: many', (t) => {
-    t.formatMany(progress, ['var', 'var']);
-    t.end();
+test('formatter: progress: many', async ({formatMany}) => {
+    await formatMany(progress, ['var', 'var']);
 });
 
-test('formatter: progress: minCount', (t) => {
-    t.format(progress, 'min-count', {
+test('formatter: progress: minCount', async ({format}) => {
+    await format(progress, 'min-count', {
         minCount: 10,
     });
-    t.end();
 });
 
