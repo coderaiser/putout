@@ -60,8 +60,8 @@ module.exports.match = () => ({
     'const __a = __b(require(__c))': ({__a, __c}) => {
         return isIdentifier(__a) && isStringLiteral(__c);
     },
-    'const __a = require("__b")(__args)': convertCall,
-    'const __a = require("__b").__c(__args)': convertCall,
+    'const __a = require("__b")(__args)': checkCall,
+    'const __a = require("__b").__c(__args)': checkCall,
 });
 
 module.exports.replace = () => ({
@@ -149,8 +149,12 @@ module.exports.replace = () => ({
     },
 });
 
-function convertCall({__b}, path) {
+function checkCall({__b}, path) {
     const name = camelCase(__b.value);
+    
+    if (!name)
+        return false;
+    
     return !path.scope.bindings[name];
 }
 

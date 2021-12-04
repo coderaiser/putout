@@ -85,6 +85,11 @@ test('plugin-convert-commonjs-to-esm: require: transform: call', (t) => {
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: require: no transform: call-dot', (t) => {
+    t.noTransform('call-dot');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: require: transform: chain', (t) => {
     t.transform('chain');
     t.end();
