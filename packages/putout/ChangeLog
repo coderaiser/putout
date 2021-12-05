@@ -1,3 +1,18 @@
+2021.12.05, v22.5.1
+
+feature:
+- (package) @putout/plugin-declare-undefined-variables v6.0.0
+- (package) @putout/plugin-tape v7.0.0
+- (package) @putout/operator-declare v2.0.0
+- (@putout/operator-declare) drop support of putout < 22.5
+- (@putout/plugin-tape) drop support of putout < 22.5
+- (@putout/plugin-tape) declare: add mockImport
+- (@putout/plugin-declare-undefined-variables) mv mock-import to @putout/plugin-tape
+- (@putout/plugin-declare-undefined-variables) drop support of putout < 22.5
+- (@putout/plugin-declare-undefined-variables) simport: add support of dual packages
+- (@putout/operator-declare) add support of dual packages: esm and commonjs
+
+
 2021.12.04, v22.5.0
 
 fix:
