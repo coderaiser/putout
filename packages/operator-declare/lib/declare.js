@@ -14,7 +14,7 @@ const {
     isVariableDeclaration,
 } = types;
 
-const {keys, entries} = Object;
+const {keys} = Object;
 const isString = (a) => typeof a === 'string';
 
 const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
@@ -37,23 +37,17 @@ const report = (path) => {
 const include = () => ['ReferencedIdentifier'];
 
 const filter = (declarations) => (path, {options}) => {
-    const type = getModuleType(path) || setModuleType(parseType(path), path);
-    
     const {dismiss = []} = options;
-    const allDeclarations = parseDeclarations(type, {
+    const allDeclarations = {
         ...declarations,
         ...options.declarations,
-    });
+    };
     
     const names = keys(allDeclarations);
-    
     const {scope, node} = path;
     const {name} = node;
     
-    if (checkDeclarationForESLint(name, path))
-        return false;
-    
-    if (scope.hasBinding(name))
+    if (scope.hasBinding(name) || checkDeclarationForESLint(name, path))
         return false;
     
     if (!names.includes(name))
@@ -66,17 +60,20 @@ const filter = (declarations) => (path, {options}) => {
 };
 
 const fix = (declarations) => (path, {options}) => {
-    const type = getModuleType(path);
-    const allDeclarations = parseDeclarations(type, {
+    const type = getModuleType(path) || setModuleType(parseType(path), path);
+    
+    const allDeclarations = {
         ...declarations,
         ...options.declarations,
-    });
+    };
     
     const {name} = path.node;
+    const code = parseCode(type, allDeclarations[name]);
+    
     const scope = path.scope.getProgramParent();
     const programPath = scope.path;
     const bodyPath = programPath.get('body');
-    const node = template.ast.fresh(allDeclarations[name]);
+    const node = template.ast.fresh(code);
     
     for (const currentPath of bodyPath) {
         if (isUseStrict(currentPath)) {
@@ -115,22 +112,12 @@ function isUseStrict(path) {
     });
 }
 
-const chooseType = (type, current) => {
+const parseCode = (type, current) => {
     if (isString(current))
         return current;
     
     return current[type];
 };
-
-function parseDeclarations(type, declarations) {
-    const resultDeclarations = {};
-    
-    for (const [name, option] of entries(declarations)) {
-        resultDeclarations[name] = chooseType(type, option);
-    }
-    
-    return resultDeclarations;
-}
 
 const parseType = (path) => {
     let isESM = false;
