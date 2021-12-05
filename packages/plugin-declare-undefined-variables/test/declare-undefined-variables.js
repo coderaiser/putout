@@ -229,11 +229,22 @@ test('putout: plugin: declare-undefined-variables: pullout', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: simport', (t) => {
+test('putout: plugin: declare-undefined-variables: simport: commonjs', (t) => {
     t.transformCode(`await simport('fs');`, montag`
         import {createSimport} from 'simport';
+        const simport = createSimport(__filename);
+        await simport('fs');
+    `);
+    t.end();
+});
+
+test('putout: plugin: declare-undefined-variables: simport: esm', (t) => {
+    t.transformCode(`import {readFile} from 'fs'; await simport('fs');`, montag`
+        import {createSimport} from 'simport';
+        import {readFile} from 'fs';
         const simport = createSimport(import.meta.url);
         await simport('fs');
     `);
     t.end();
 });
+

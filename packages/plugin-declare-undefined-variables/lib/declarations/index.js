@@ -35,7 +35,10 @@ module.exports = {
     pullout: `import pullout from 'pullout'`,
     
     createSimport: `import {createSimport} from 'simport'`,
-    simport: `const simport = createSimport(import.meta.url)`,
+    simport: {
+        esm: `const simport = createSimport(import.meta.url)`,
+        commonjs: `const simport = createSimport(__filename)`,
+    },
     
     mockImport: `const {mockImport} = createMockImport(import.meta.url)`,
     reImport: `const {reImport} = createMockImport(import.meta.url)`,
