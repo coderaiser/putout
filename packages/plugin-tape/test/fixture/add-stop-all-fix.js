@@ -1,4 +1,18 @@
+import {createMockImport} from 'mock-import';
 import {test} from 'supertape';
+
+const {
+    reImport
+} = createMockImport(import.meta.url);
+
+const {
+    mockImport
+} = createMockImport(import.meta.url);
+
+const {
+    stopAll
+} = createMockImport(import.meta.url);
+
 test('test: remove', async (t) => {
     const read = await reImport('./read.js');
 

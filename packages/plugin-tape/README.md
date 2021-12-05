@@ -432,7 +432,38 @@ test('should call init before show', (t) => {
 
 ## declare
 
-### ❌ Incorrect code example
+### `mockImport`
+
+#### ❌ Incorrect code example
+
+```js
+import {stub} from 'supertape';
+
+mockImport('fs/promises', {
+    readFile: stub().resolves(''),
+});
+```
+
+##### ✅ Correct code Example
+
+```js
+import {stub} from 'supertape';
+import {createMockImport} from 'mock-import';
+
+const {
+    mockImport,
+    stopAll,
+    reImport,
+} = createMockImport(import.meta.url);
+
+mockImport('fs/promises', {
+    readFile: stub().resolves(''),
+});
+```
+
+### `tape`
+
+#### ❌ Incorrect code example
 
 ```js
 test('xxx', (t) => {
@@ -441,7 +472,7 @@ test('xxx', (t) => {
 });
 ```
 
-### ✅ Correct code example
+#### ✅ Correct code example
 
 ```js
 import {

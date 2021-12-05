@@ -29,3 +29,23 @@ test('plugin-tape: declare: declared', (t) => {
     t.end();
 });
 
+test('putout-tape: declare: transform: mock-import', (t) => {
+    t.transform('mock-import');
+    t.end();
+});
+
+test('plugin-tape: declare: transform: re-import', (t) => {
+    t.transform('re-import');
+    t.end();
+});
+
+test('plugin-tape: declare: transform: stop-all: esm', (t) => {
+    t.transform('stop-all-esm');
+    t.end();
+});
+
+test('plugin-tape: declare: transform: stop-all: commonjs', (t) => {
+    t.transform('stop-all-commonjs');
+    t.end();
+});
+

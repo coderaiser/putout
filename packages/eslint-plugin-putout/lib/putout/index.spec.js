@@ -134,14 +134,26 @@ parserTester.run('putout', rule, {
 });
 
 parserTester.run('putout', rule, {
-    valid: [`
-        import {createMockImport} from 'mock-import';
-        const {mockImport, reImport} = createMockImport(import.meta.url);
-        
-        mockImport('hello', world);
-        await reImport('./index.js');
-    `],
+    valid: [{
+        options: [{
+            rules: {
+                tape: 'on',
+            },
+        }],
+        code: `
+            import {createMockImport} from 'mock-import';
+            const {mockImport, reImport} = createMockImport(import.meta.url);
+            
+            mockImport('hello', world);
+            await reImport('./index.js');
+        `,
+    }],
     invalid: [{
+        options: [{
+            rules: {
+                tape: 'on',
+            },
+        }],
         code: montag`
             import {createMockImport} from 'mock-import';
             const {mockImport} = createMockImport(import.meta.url);
@@ -162,20 +174,31 @@ parserTester.run('putout', rule, {
         errors: [{
             line: 5,
             column: 7,
-            message: `Declare 'reImport' (declare-undefined-variables)`,
+            message: `Declare 'reImport' (tape/declare)`,
         }],
     }],
 });
 
 parserTester.run('putout', rule, {
-    valid: [`
-        import {createMockImport} from 'mock-import';
-        const {mockImport, reImport} = createMockImport(import.meta.url);
-        
-        mockImport('hello', world);
-        await reImport('./index.js');
-    `],
+    valid: [{
+        options: [{
+            rules: {
+                tape: 'on',
+            },
+        }],
+        code: `
+            import {createMockImport} from 'mock-import';
+            const {mockImport, reImport} = createMockImport(import.meta.url);
+            
+            mockImport('hello', world);
+            await reImport('./index.js');
+    `}],
     invalid: [{
+        options: [{
+            rules: {
+                tape: 'on',
+            },
+        }],
         code: montag`
             import {createMockImport} from 'mock-import';
             const {mockImport} = createMockImport(import.meta.url);
@@ -196,7 +219,7 @@ parserTester.run('putout', rule, {
         errors: [{
             line: 5,
             column: 7,
-            message: `Declare 'reImport' (declare-undefined-variables)`,
+            message: `Declare 'reImport' (tape/declare)`,
         }],
     }],
 });
