@@ -39,9 +39,4 @@ module.exports = {
         esm: `const simport = createSimport(import.meta.url)`,
         commonjs: `const simport = createSimport(__filename)`,
     },
-    
-    mockImport: `const {mockImport} = createMockImport(import.meta.url)`,
-    reImport: `const {reImport} = createMockImport(import.meta.url)`,
-    stopAll: `const {stopAll} = createMockImport(import.meta.url)`,
-    createMockImport: `import {createMockImport} from 'mock-import';`,
 };

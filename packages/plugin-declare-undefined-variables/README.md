@@ -70,9 +70,6 @@ You can `dismiss` variables you don't want to define, or declare using "declarat
                 "readFileSync",
                 "writeFile",
                 "writeFileSync",
-                "mockImport",
-                "createMockImport",
-                "reImport",
                 "stopAll",
                 "montag",
                 "once",
@@ -162,35 +159,6 @@ await readFile('./README.md', 'utf8');
 import {readFile} from 'fs/promises';
 
 await readFile('./README.md', 'utf8');
-```
-
-# `mockImport`
-
-## ❌ Incorrect code example
-
-```js
-import {stub} from 'supertape';
-
-mockImport('fs/promises', {
-    readFile: stub().resolves(''),
-});
-```
-
-## ✅ Correct code Example
-
-```js
-import {stub} from 'supertape';
-import {createMockImport} from 'mock-import';
-
-const {
-    mockImport,
-    stopAll,
-    reImport,
-} = createMockImport(import.meta.url);
-
-mockImport('fs/promises', {
-    readFile: stub().resolves(''),
-});
 ```
 
 # `isArray`
