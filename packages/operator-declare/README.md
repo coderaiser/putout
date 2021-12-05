@@ -26,6 +26,26 @@ module.exports = declare({
 });
 ```
 
+### Dual packages
+
+When you need different declarations for `ESM` and `CommonJS` you can use:
+
+```js
+const {
+    operator,
+    declare,
+} = require('putout');
+
+module.exports = declare({
+    fs: {
+        esm: `import fs from 'fs/promises'`,
+        comomnjs: `const fs = require('fs')`,
+    },
+});
+```
+
+### Configuration
+
 Plugin supports options, so you can pass it in `.putout.json`:
 
 ```json
@@ -39,6 +59,8 @@ Plugin supports options, so you can pass it in `.putout.json`:
     }
 }
 ```
+
+### Evaluate
 
 Can be used with [eslint-plugin-putout/evaluate](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/evaluate):
 

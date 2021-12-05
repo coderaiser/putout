@@ -22,7 +22,9 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@putout/traverse": "^4.0.0"
+  },
   "keywords": [
     "putout",
     "putout-operator",

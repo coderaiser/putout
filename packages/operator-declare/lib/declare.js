@@ -1,16 +1,21 @@
 'use strict';
 
 const {types, template} = require('putout');
+const {traverse} = require('@putout/traverse');
 const {
     addDeclarationForESLint,
     checkDeclarationForESLint,
+    getModuleType,
+    setModuleType,
 } = require('./record');
 
 const {
     isImportDeclaration,
     isVariableDeclaration,
 } = types;
-const {keys} = Object;
+
+const {keys, entries} = Object;
+const isString = (a) => typeof a === 'string';
 
 const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
 const cutName = (a) => a.split('.').shift();
@@ -31,36 +36,41 @@ const report = (path) => {
 
 const include = () => ['ReferencedIdentifier'];
 
-const filter = (declarations) => {
-    const names = keys(declarations);
+const filter = (declarations) => (path, {options}) => {
+    const type = getModuleType(path) || setModuleType(parseType(path), path);
     
-    return (path, {options}) => {
-        const {dismiss = [], declarations = []} = options;
-        const optionNames = keys(declarations);
-        const {scope, node} = path;
-        const {name} = node;
-        
-        if (checkDeclarationForESLint(name, path))
-            return false;
-        
-        if (scope.hasBinding(name))
-            return false;
-        
-        if (!names.includes(name) && !optionNames.includes(name))
-            return false;
-        
-        if (dismiss.includes(name))
-            return false;
-        
-        return true;
-    };
+    const {dismiss = []} = options;
+    const allDeclarations = parseDeclarations(type, {
+        ...declarations,
+        ...options.declarations,
+    });
+    
+    const names = keys(allDeclarations);
+    
+    const {scope, node} = path;
+    const {name} = node;
+    
+    if (checkDeclarationForESLint(name, path))
+        return false;
+    
+    if (scope.hasBinding(name))
+        return false;
+    
+    if (!names.includes(name))
+        return false;
+    
+    if (dismiss.includes(name))
+        return false;
+    
+    return true;
 };
 
 const fix = (declarations) => (path, {options}) => {
-    const allDeclarations = {
+    const type = getModuleType(path);
+    const allDeclarations = parseDeclarations(type, {
         ...declarations,
         ...options.declarations,
-    };
+    });
     
     const {name} = path.node;
     const scope = path.scope.getProgramParent();
@@ -105,3 +115,35 @@ function isUseStrict(path) {
     });
 }
 
+const chooseType = (type, current) => {
+    if (isString(current))
+        return current;
+    
+    return current[type];
+};
+
+function parseDeclarations(type, declarations) {
+    const resultDeclarations = {};
+    
+    for (const [name, option] of entries(declarations)) {
+        resultDeclarations[name] = chooseType(type, option);
+    }
+    
+    return resultDeclarations;
+}
+
+const parseType = (path) => {
+    let isESM = false;
+    
+    const scope = path.scope.getProgramParent();
+    const programPath = scope.path;
+    
+    traverse(programPath, {
+        'ImportDeclaration|ExportDeclaration'(path) {
+            isESM = true;
+            path.stop();
+        },
+    });
+    
+    return isESM ? 'esm' : 'commonjs';
+};

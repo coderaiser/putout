@@ -351,3 +351,69 @@ test('putout: plugin: declare-undefined-variables: vars', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: dual: commonjs', (t) => {
+    const declarations = {
+        simport: {
+            esm: 'const simport = createSimport(import.meta.url)',
+            commonjs: 'const simport = createSimport(__filename)',
+        },
+    };
+    
+    const source = montag`
+        simport('fs');
+    `;
+    
+    const {code} = putout(source, {
+        rules: {
+            declare: ['on', {
+                declarations,
+            }],
+        },
+        plugins: [
+            ['declare', declare({})],
+        ],
+    });
+    
+    const expected = montag`
+        const simport = createSimport(__filename);
+        simport('fs');
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: plugin: declare-undefined-variables: dual: esm', (t) => {
+    const declarations = {
+        simport: {
+            esm: 'const simport = createSimport(import.meta.url)',
+            commonjs: 'const simport = createSimport(__filename)',
+        },
+    };
+    
+    const source = montag`
+        import {readFile} from 'fs';
+        simport('fs');
+    `;
+    
+    const {code} = putout(source, {
+        rules: {
+            declare: ['on', {
+                declarations,
+            }],
+        },
+        plugins: [
+            ['declare', declare({})],
+        ],
+    });
+    
+    const expected = montag`
+        import {readFile} from 'fs';
+        const simport = createSimport(import.meta.url);
+        simport('fs');
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
