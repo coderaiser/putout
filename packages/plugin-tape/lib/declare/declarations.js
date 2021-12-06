@@ -7,8 +7,9 @@ module.exports = {
     Stub: 'import {Stub} from "supertape"',
     
     mockImport: `const {mockImport} = createMockImport(import.meta.url)`,
-    mockRequire: `const mockRequire = require('mock-require')`,
     reImport: `const {reImport} = createMockImport(import.meta.url)`,
+    mockRequire: `import mockRequire from 'mock-require'`,
+    reRequire: `const {reRequire} = mockRequire`,
     stopAll: {
         esm: `const {stopAll} = createMockImport(import.meta.url)`,
         commonjs: `const {stopAll} = mockRequire`,

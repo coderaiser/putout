@@ -49,3 +49,8 @@ test('plugin-tape: declare: transform: stop-all: commonjs', (t) => {
     t.end();
 });
 
+test('plugin-tape: declare: transform: re-require', (t) => {
+    t.transform('re-require');
+    t.end();
+});
+
