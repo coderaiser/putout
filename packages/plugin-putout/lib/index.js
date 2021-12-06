@@ -7,6 +7,7 @@ const getRule = (a) => ({
 module.exports.rules = {
     ...getRule('apply-processors-destructuring'),
     ...getRule('apply-async-formatter'),
+    ...getRule('convert-putout-test-to-create-test'),
     ...getRule('convert-to-no-transform-code'),
     ...getRule('convert-find-to-traverse'),
     ...getRule('convert-replace-with'),

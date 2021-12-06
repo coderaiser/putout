@@ -24,6 +24,11 @@ test('plugin-putout: convert-destructuring-todentifier: complex: transform: dest
     t.end();
 });
 
+test('plugin-putout: convert-putout-test-to-create-test', (t) => {
+    t.transform('convert-putout-test-to-create-test');
+    t.end();
+});
+
 test('plugin-putout: convert-node-to-path-in-get-template-values: complex: transform', (t) => {
     t.transform('get-template-values');
     t.end();

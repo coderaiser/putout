@@ -19,6 +19,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-processors-destructuring": "on",
         "putout/apply-async-formatter": "on",
         "putout/add-args": "on",
+        "putout/convert-putout-test-to-create-test": "on",
         "putout/convert-to-no-transform-code": "on",
         "putout/convert-replace-with": "on",
         "putout/convert-replace-with-multiple": "on",
@@ -73,6 +74,19 @@ test('formatter: codeframea', (t) => {
 test('formatter: codeframea', async ({format}) => {
     await format(codeframe, 1);
 });
+```
+## convert-putout-test-to-create-test"
+
+### ❌ Incorrect code example
+
+```js
+import putoutTest from '@putout/test';
+```
+
+### ✅ Correct code Example
+
+```js
+import createTest from '@putout/test';
 ```
 
 ## convert-to-no-transform-code
