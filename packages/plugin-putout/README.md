@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-putout.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-putout"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin helps with 🐊[`Putout`](https://github.com/coderaiser/putout) plugins development.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin helps with 🐊`Putout` plugins development.
 
 ## Install
 
@@ -76,6 +76,8 @@ test('formatter: codeframea', async ({format}) => {
 });
 ```
 ## convert-putout-test-to-create-test"
+
+Fixes results of [@putout/convert-commonjs-to-esm](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-commonjs-to-esm) work.
 
 ### ❌ Incorrect code example
 
