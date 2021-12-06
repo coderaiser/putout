@@ -7,34 +7,29 @@ const test = require('@putout/test')(__dirname, {
     'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
 });
 
-test('formatter: memory', (t) => {
-    t.format(progress, 'var');
-    t.end();
+test('formatter: memory', async ({format}) => {
+    await format(progress, 'var');
 });
 
-test('formatter: memory: no', (t) => {
-    t.format(progress, 'no');
-    t.end();
+test('formatter: memory: no', async ({format}) => {
+    await format(progress, 'no');
 });
 
-test('formatter: memory: many', (t) => {
-    t.formatMany(progress, ['var', 'var']);
-    t.end();
+test('formatter: memory: many', async ({formatMany}) => {
+    await formatMany(progress, ['var', 'var']);
 });
 
-test('formatter: memory: minCount', (t) => {
-    t.format(progress, 'min-count', {
+test('formatter: memory: minCount', async ({format}) => {
+    await format(progress, 'min-count', {
         minCount: 10,
     });
-    t.end();
 });
 
-test('formatter: memory: color', (t) => {
+test('formatter: memory: color', async ({format}) => {
     const progress = reRequire('..');
-    t.format(progress, 'color', {
+    await format(progress, 'color', {
         color: 'red',
     });
-    t.end();
 });
 
 test('formatter: memory: get stream: no progress bar', (t) => {

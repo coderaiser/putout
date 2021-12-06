@@ -54,6 +54,11 @@ test('plugin-putout: convert-method-to-property: complex: transform: apply-proce
     t.end();
 });
 
+test('plugin-putout: convert-method-to-property: complex: transform: apply-async-formatter', (t) => {
+    t.transform('apply-async-formatter');
+    t.end();
+});
+
 test('plugin-putout: check-replace-code: complex: report', (t) => {
     t.report('check-replace-code', `☝️ Looks like template values not linked: ["__b"] ["__a"]`);
     t.end();

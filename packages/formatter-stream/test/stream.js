@@ -6,18 +6,15 @@ const test = require('@putout/test')(__dirname, {
     'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
 });
 
-test('formatter: stream', (t) => {
-    t.format(stream, 'var');
-    t.end();
+test('formatter: stream', async ({format}) => {
+    await format(stream, 'var');
 });
 
-test('formatter: stream: no', (t) => {
-    t.noFormat(stream, 'no');
-    t.end();
+test('formatter: stream: no', async ({noFormat}) => {
+    await noFormat(stream, 'no');
 });
 
-test('formatter: stream: many', (t) => {
-    t.formatMany(stream, ['var', 'var']);
-    t.end();
+test('formatter: stream: many', async ({formatMany}) => {
+    await formatMany(stream, ['var', 'var']);
 });
 

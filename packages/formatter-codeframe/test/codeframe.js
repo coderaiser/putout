@@ -10,22 +10,18 @@ const testStrict = require('@putout/test')(__dirname, {
     'strict-mode': require('@putout/plugin-strict-mode'),
 });
 
-test('formatter: codeframe', (t) => {
-    t.format(codeframe, 'var');
-    t.end();
+test('formatter: codeframe', async ({format}) => {
+    await format(codeframe, 'var');
 });
 
-test('formatter: codeframe: no', (t) => {
-    t.noFormat(codeframe, 'no');
-    t.end();
+test('formatter: codeframe: no', async ({noFormat}) => {
+    await noFormat(codeframe, 'no');
 });
 
-test('formatter: codeframe: many', (t) => {
-    t.formatMany(codeframe, ['var', 'var']);
-    t.end();
+test('formatter: codeframe: many', async ({formatMany}) => {
+    await formatMany(codeframe, ['var', 'var']);
 });
 
-testStrict('formatter: zero', (t) => {
-    t.format(codeframe, 'strict');
-    t.end();
+testStrict('formatter: zero', async ({format}) => {
+    await format(codeframe, 'strict');
 });

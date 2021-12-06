@@ -6,18 +6,15 @@ const test = require('@putout/test')(__dirname, {
     'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
 });
 
-test('formatter: frame', (t) => {
-    t.format(progress, 'var');
-    t.end();
+test('formatter: frame', async ({format}) => {
+    await format(progress, 'var');
 });
 
-test('formatter: frame: no', (t) => {
-    t.format(progress, 'no');
-    t.end();
+test('formatter: frame: no', async ({format}) => {
+    await format(progress, 'no');
 });
 
-test('formatter: frame: many', (t) => {
-    t.formatMany(progress, ['var', 'var']);
-    t.end();
+test('formatter: frame: many', async ({formatMany}) => {
+    await formatMany(progress, ['var', 'var']);
 });
 
