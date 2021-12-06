@@ -2,9 +2,10 @@
 
 const {types} = require('putout');
 
-const {isObjectPattern} = require('putout').types;
-
-const {isArrayPattern} = types;
+const {
+    isObjectPattern,
+    isArrayPattern,
+} = types;
 
 module.exports.report = () => 'Avoid empty patterns';
 
