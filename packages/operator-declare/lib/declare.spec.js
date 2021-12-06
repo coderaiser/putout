@@ -1,5 +1,7 @@
 'use strict';
 
+const tryCatch = require('try-catch');
+
 const test = require('supertape');
 const putout = require('putout');
 const montag = require('montag');
@@ -414,6 +416,33 @@ test('putout: plugin: declare-undefined-variables: dual: esm', (t) => {
     `;
     
     t.equal(code, expected);
+    t.end();
+});
+
+test('putout: plugin: declare-undefined-variables: missing declaration', (t) => {
+    const declarations = {
+        simport: {},
+    };
+    
+    const source = montag`
+        import {readFile} from 'fs';
+        simport('fs');
+    `;
+    
+    const [error] = tryCatch(putout, source, {
+        rules: {
+            declare: ['on', {
+                declarations,
+            }],
+        },
+        plugins: [
+            ['declare', declare({})],
+        ],
+    });
+    
+    const expected = `🐊 @putout/operator-declare: code is empty for type 'esm' in declaraiont 'simport' -> {}`;
+    
+    t.equal(error.message, expected);
     t.end();
 });
 

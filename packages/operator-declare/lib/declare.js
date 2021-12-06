@@ -20,6 +20,10 @@ const isString = (a) => typeof a === 'string';
 const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
 const cutName = (a) => a.split('.').shift();
 
+const isUndefined = (a) => typeof a === 'undefined';
+
+const {stringify} = JSON;
+
 module.exports.declare = (declarations) => ({
     report,
     include,
@@ -68,7 +72,7 @@ const fix = (declarations) => (path, {options}) => {
     };
     
     const {name} = path.node;
-    const code = parseCode(type, allDeclarations[name]);
+    const code = parseCode(name, type, allDeclarations[name]);
     
     const scope = path.scope.getProgramParent();
     const programPath = scope.path;
@@ -112,11 +116,16 @@ function isUseStrict(path) {
     });
 }
 
-const parseCode = (type, current) => {
+const parseCode = (name, type, current) => {
     if (isString(current))
         return current;
     
-    return current[type];
+    const result = current[type];
+    
+    if (isUndefined(result))
+        throw Error(`🐊 @putout/operator-declare: code is empty for type '${type}' in declaraiont '${name}' -> ${stringify(current, null, 4)}`);
+    
+    return result;
 };
 
 const parseType = (path) => {
