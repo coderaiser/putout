@@ -83,12 +83,20 @@ Fixes results of [@putout/convert-commonjs-to-esm](https://github.com/coderaiser
 
 ```js
 import putoutTest from '@putout/test';
+
+const test = putoutTest(__dirname, {
+    'remove-unused-variables': rmVars,
+});
 ```
 
 ### ✅ Correct code Example
 
 ```js
 import createTest from '@putout/test';
+
+const test = createTest(__dirname, {
+    'remove-unused-variables': rmVars,
+});
 ```
 
 ## convert-to-no-transform-code
@@ -320,7 +328,8 @@ module.exports.replace = () => ({
 });
 ```
 
-There is no `fix` for this rule, it used internally to be more confident about `test coverage`, because of declaration form, transforms cannon be checked by `nyc` and `c8`, and uncovered lines can find unfixable false possitives when running on code. This additional tests, if you forget to test some case (from a big list of rules that is supported) it will be checked with this `rule` and make code more stable and transform bugs.
+There is no `fix` for this rule, it used internally to be more confident about `test coverage`, because of declaration form, transforms cannon be checked by `nyc` and `c8`, and uncovered lines can find unfixable false possitives when running on code.
+This is additional tests, if you forget to test some case (from a big list of rules that is supported) it will be checked with this `rule` and make transforms more stable.
 
 ## declare
 
