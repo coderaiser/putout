@@ -14,3 +14,8 @@ test('plugin-putout: convert-putout-test-to-create-test: transform', (t) => {
     t.end();
 });
 
+test('plugin-putout: convert-putout-test-to-create-test: no transform: declared', (t) => {
+    t.noTransform('declared');
+    t.end();
+});
+
