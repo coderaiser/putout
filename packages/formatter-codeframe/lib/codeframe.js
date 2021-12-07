@@ -1,17 +1,16 @@
-'use strict';
-
-const {jsonFormatter} = require('@putout/formatter-json');
-const {codeFrameColumns} = require('@babel/code-frame');
+import {jsonFormatter} from '@putout/formatter-json';
+import {codeFrameColumns} from '@babel/code-frame';
+import chalk from 'chalk';
 
 const {
     bold,
     gray,
     redBright,
-} = require('chalk');
+} = chalk;
 
 const MOVE_MESSAGE_WHEN_NO_PLACE = 1;
 
-module.exports = ({name, source, places, index, count, filesCount, errorsCount}) => {
+export default ({name, source, places, index, count, filesCount, errorsCount}) => {
     const json = jsonFormatter({
         name, source, places, index, count, filesCount, errorsCount,
     });

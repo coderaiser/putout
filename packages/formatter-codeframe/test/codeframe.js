@@ -1,12 +1,18 @@
-'use strict';
+import {createCommons} from 'simport';
 
-const codeframe = require('..');
+const {
+    __dirname,
+    require,
+} = createCommons(import.meta.url);
 
-const test = require('@putout/test')(__dirname, {
+import codeframe from '../lib/codeframe.js';
+import createTest from '@putout/test';
+
+const test = createTest(__dirname, {
     'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
 });
 
-const testStrict = require('@putout/test')(__dirname, {
+const testStrict = createTest(__dirname, {
     'strict-mode': require('@putout/plugin-strict-mode'),
 });
 
