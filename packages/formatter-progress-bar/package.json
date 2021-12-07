@@ -1,6 +1,6 @@
 {
   "name": "@putout/formatter-progress-bar",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout formatter shows progress and shows result at the end",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-progress-bar",
