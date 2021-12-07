@@ -1,3 +1,22 @@
+2021.12.07, v22.5.2
+
+fix:
+- (@putout/operator-declare) simplify
+
+feature:
+- (package) @putout/formatter-dump v3.0.0
+- (package) @putout/formatter-dump v3.0.0
+- (@putout/formatter-dump) convert to ESM (#91)
+- (package) @putout/plugin-remove-useless-escape v2.0.0
+- (eslint-plugin-putout) objects-braces-inside-array: add support of newlines in the middle
+- (@putout/plugin-remove-useless-escape) drop support of node < 14
+- (@putout/plugin-remove-useless-escape) add support of comma
+- (@putout/plugin-putout) add convert-putout-test-to-create-test
+- (@putout/operator-declare) add ability to handle missing case of dual package
+- (@putout/plugin-putout) add apply-async-formatter (#91)
+- (@putout/tape) add support of reRequire
+
+
 2021.12.05, v22.5.1
 
 feature:
