@@ -1,9 +1,14 @@
-'use strict';
+import {createCommons} from 'simport';
 
-const json = require('..');
+import createTest from '@putout/test';
+import rmVars from '@putout/plugin-remove-unused-variables';
 
-const test = require('@putout/test')(__dirname, {
-    'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
+import json from '../lib/json.js';
+
+const {__dirname} = createCommons(import.meta.url);
+
+const test = createTest(__dirname, {
+    'remove-unused-variables': rmVars,
 });
 
 test('formatter: json', async ({format}) => {

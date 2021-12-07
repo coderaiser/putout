@@ -1,8 +1,6 @@
-'use strict';
-
 let errors = [];
 
-module.exports = ({name, source, places, index, count, filesCount, errorsCount}) => {
+export default ({name, source, places, index, count, filesCount, errorsCount}) => {
     const result = jsonFormatter({
         name,
         source,
@@ -21,9 +19,7 @@ module.exports = ({name, source, places, index, count, filesCount, errorsCount})
     return `${json}\n`;
 };
 
-module.exports.jsonFormatter = jsonFormatter;
-
-function jsonFormatter({name, source, places, index, count, filesCount, errorsCount}) {
+export function jsonFormatter({name, source, places, index, count, filesCount, errorsCount}) {
     if (places.length)
         errors.push({
             name,
