@@ -13,7 +13,7 @@ export default {
     'fresh:lint': () => run('lint', '--fresh'),
     'lint:fresh': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),
-    'coverage:base': async () => `nyc ${await run('test:base')}`,
+    'coverage:base': async () => `c8 ${await run('test:base')}`,
     
     'coverage': async () => await run('coverage:base', '', {
         PUTOUT_PROGRESS_BAR: 0,

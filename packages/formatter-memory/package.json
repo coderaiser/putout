@@ -8,6 +8,7 @@
   "release": false,
   "tag": false,
   "changelog": false,
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git://github.com/coderaiser/putout.git"
@@ -25,7 +26,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/formatter-dump": "^2.0.1",
+    "@putout/formatter-dump": "^3.0.0",
     "chalk": "^4.1.0",
     "cli-progress": "^3.8.2",
     "format-io": "^2.0.0",
@@ -46,14 +47,15 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^12.0.0",
     "madrun": "^8.0.1",
-    "mock-require": "^3.0.3"
+    "mock-require": "^3.0.3",
+    "simport": "^1.2.0"
   },
   "peerDependencies": {
-    "putout": ">=11"
+    "putout": ">=22.5"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "publishConfig": {
     "access": "public"

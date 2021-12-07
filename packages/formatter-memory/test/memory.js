@@ -1,11 +1,20 @@
-'use strict';
+import {createCommons} from 'simport';
+import createTest from '@putout/test';
 
-const progress = require('..');
-const {reRequire} = require('mock-require');
+const {
+    __dirname,
+    require,
+} = createCommons(import.meta.url);
 
-const test = require('@putout/test')(__dirname, {
+import progress from '../lib/memory.js';
+
+const test = createTest(__dirname, {
     'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
 });
+
+const freshImport = ((count) => (name) => import(`${name}?count=${++count}`))(0);
+
+const freshImportDefault = ((count) => async (name) => (await import(`${name}?count=${++count}`)).default)(0);
 
 test('formatter: memory', async ({format}) => {
     await format(progress, 'var');
@@ -26,18 +35,18 @@ test('formatter: memory: minCount', async ({format}) => {
 });
 
 test('formatter: memory: color', async ({format}) => {
-    const progress = reRequire('..');
+    const progress = await freshImportDefault('../lib/memory.js');
     await format(progress, 'color', {
         color: 'red',
     });
 });
 
-test('formatter: memory: get stream: no progress bar', (t) => {
+test('formatter: memory: get stream: no progress bar', async (t) => {
     const {PUTOUT_PROGRESS_BAR} = process.env;
     
     process.env.PUTOUT_PROGRESS_BAR = 0;
     
-    const {_getStream} = reRequire('..');
+    const {_getStream} = await freshImport('../lib/memory.js');
     const stream = _getStream();
     const {stderr} = process;
     
@@ -47,11 +56,11 @@ test('formatter: memory: get stream: no progress bar', (t) => {
     t.end();
 });
 
-test('formatter: memory: get stream', (t) => {
+test('formatter: memory: get stream', async (t) => {
     const {PUTOUT_PROGRESS_BAR} = process.env;
     delete process.env.PUTOUT_PROGRESS_BAR;
     
-    const {_getStream} = reRequire('..');
+    const {_getStream} = await freshImport('../lib/memory.js');
     const stream = _getStream();
     
     const {stderr} = process;
@@ -61,7 +70,7 @@ test('formatter: memory: get stream', (t) => {
     t.end();
 });
 
-test('formatter: memory: parse memory: no CI', (t) => {
+test('formatter: memory: parse memory: no CI', async (t) => {
     const {TEST} = process.env;
     delete process.env.TEST;
     
@@ -71,7 +80,7 @@ test('formatter: memory: parse memory: no CI', (t) => {
         totalHeap: 0,
     };
     
-    const {_parseMemory} = reRequire('..');
+    const {_parseMemory} = await freshImport('../lib/memory.js');
     const result = _parseMemory(memory);
     
     process.env.TEST = TEST;

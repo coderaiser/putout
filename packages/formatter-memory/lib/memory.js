@@ -1,13 +1,11 @@
-'use strict';
+import {Writable} from 'stream';
 
-const {Writable} = require('stream');
-
-const dump = require('@putout/formatter-dump');
-const cliProgress = require('cli-progress');
-const chalk = require('chalk');
-const once = require('once');
-const format = require('format-io');
-const montag = require('montag');
+import dump from '@putout/formatter-dump';
+import cliProgress from 'cli-progress';
+import chalk from 'chalk';
+import once from 'once';
+import format from 'format-io';
+import montag from 'montag';
 
 const OK = '👌';
 const {
@@ -23,7 +21,7 @@ const {
     TEST = 0,
 } = process.env;
 
-module.exports = ({name, options, places, index, count, filesCount, errorsCount}) => {
+export default ({name, options, places, index, count, filesCount, errorsCount}) => {
     const {
         color = '#ea4336',
         minCount = 0,
@@ -79,7 +77,7 @@ const getColorFn = (color) => {
 };
 
 const getStream = () => PUTOUT_PROGRESS_BAR !== '1' ? new Writable() : stderr;
-module.exports._getStream = getStream;
+export const _getStream = getStream;
 
 const createProgress = once(({count, color, rss}) => {
     const colorFn = getColorFn(color);
@@ -112,7 +110,7 @@ const parseMemory = (memory) => {
     return memory;
 };
 
-module.exports._parseMemory = parseMemory;
+export const _parseMemory = parseMemory;
 
 function getInfo(memory) {
     const {
