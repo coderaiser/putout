@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/formatter-json": "^1.0.0"
+    "@putout/formatter-json": "^2.0.0"
   },
   "keywords": [
     "putout",
