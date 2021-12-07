@@ -22,6 +22,7 @@ module.exports.fix = (path) => {
     if (path.isRegExpLiteral()) {
         const {pattern, flags} = path.node;
         const unescaped = unescapeRegExp(pattern);
+        
         const regExpNode = assign(RegExpLiteral(unescaped, flags), {
             value: unescaped,
             extra: {
@@ -76,6 +77,7 @@ const match = (a) => a.match(emojiRegex()) || [];
 const hasA = (a) => /\\\^/.test(a);
 const hasDoubleQuote = (a) => createCheckRegExp('"').test(a);
 const hasQuote = (a) => createCheckRegExp(`'`).test(a);
+const hasComa = (a) => createCheckRegExp(',').test(a);
 
 const hasEmoji = (a) => {
     for (const emoji of match(a)) {
@@ -105,6 +107,9 @@ function isEscaped(raw) {
     if (hasA(raw))
         return true;
     
+    if (hasComa(raw))
+        return true;
+    
     return false;
 }
 
@@ -115,7 +120,8 @@ function unEscape(raw) {
         .replace(/\\'/g, `'`)
         .replace(/\\\+/g, '+')
         .replace(createEncodedRegExp(`"`), '"')
-        .replace(/\\\^/g, '^');
+        .replace(/\\\^/g, '^')
+        .replace(/(\\),/g, ',');
     
     for (const emoji of match(raw)) {
         raw = raw.replace(createEncodedRegExp(emoji), emoji);
@@ -127,13 +133,15 @@ function unEscape(raw) {
 function unescapeRegExp(raw) {
     return raw
         .replace(/\\:/g, ':')
-        .replace(/\+\\\//g, '+/');
+        .replace(/\+\\\//g, '+/')
+        .replace(/(\\),/g, ',');
 }
 
 const isRegExpColon = (a) => /\\:/.test(a) && !/\\\\:/.test(a);
 const isRegExpSlash = (a) => /\+\\\//.test(a);
+const isComa = (a) => /(\\),/.test(a);
 
 function isEscapedRegExp(raw) {
-    return isRegExpColon(raw) || isRegExpSlash(raw);
+    return isRegExpColon(raw) || isRegExpSlash(raw) || isComa(raw);
 }
 
