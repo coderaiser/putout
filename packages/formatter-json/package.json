@@ -1,6 +1,6 @@
 {
   "name": "@putout/formatter-json",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout formatter output json on end",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-json",
