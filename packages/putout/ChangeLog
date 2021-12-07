@@ -1,3 +1,14 @@
+2021.12.07, v22.5.3
+
+fix:
+- (eslint-plugin-putout) objects-braces-inside-array: whitespaces before open brace
+
+feature:
+- (package) @putout/formatter-memory v2.0.0
+- (@putout/formatter-memory) convert to ESM (#91)
+- (package) @putout/formatter-dump v3.0.0
+
+
 2021.12.07, v22.5.2
 
 fix:
