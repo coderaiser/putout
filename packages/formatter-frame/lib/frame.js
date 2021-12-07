@@ -1,9 +1,7 @@
-'use strict';
-
-const codeframe = require('@putout/formatter-codeframe');
+import codeframe from '@putout/formatter-codeframe';
 const {round} = Math;
 
-module.exports = ({name, places, index, count, filesCount, source, errorsCount}) => {
+export default ({name, places, index, count, filesCount, source, errorsCount}) => {
     const naturalIndex = index + 1;
     const str = `\r${progress(naturalIndex, count)}%`;
     
