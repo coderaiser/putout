@@ -1,8 +1,15 @@
-'use strict';
+import {createCommons} from 'simport';
 
-const dump = require('..');
+const {
+    __dirname,
+    require,
+} = createCommons(import.meta.url);
 
-const test = require('@putout/test')(__dirname, {
+import dump from '../lib/dump.js';
+
+import createTest from '@putout/test';
+
+const test = createTest(__dirname, {
     'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
 });
 

@@ -1,9 +1,9 @@
-'use strict';
-
-const {
+import {
     table,
     getBorderCharacters,
-} = require('table');
+} from 'table';
+
+import chalk from 'chalk';
 
 const {
     underline,
@@ -11,11 +11,11 @@ const {
     grey,
     bold,
     redBright,
-} = require('chalk');
+} = chalk;
 
-const {jsonFormatter} = require('@putout/formatter-json');
+import {jsonFormatter} from '@putout/formatter-json';
 
-module.exports = ({name, places, index, count, filesCount, errorsCount}) => {
+export default ({name, places, index, count, filesCount, errorsCount}) => {
     const json = jsonFormatter({
         name, places, index, count, filesCount, errorsCount,
     });
