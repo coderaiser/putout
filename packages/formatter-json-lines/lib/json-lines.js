@@ -1,8 +1,6 @@
-'use strict';
-
 const {stringify} = JSON;
 
-module.exports = ({name, source, places, index, count, filesCount, errorsCount}) => {
+export default ({name, source, places, index, count, filesCount, errorsCount}) => {
     const json = stringify({
         name,
         source,

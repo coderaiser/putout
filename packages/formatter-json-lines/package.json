@@ -8,6 +8,7 @@
   "release": false,
   "tag": false,
   "changelog": false,
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git://github.com/coderaiser/putout.git"
@@ -36,10 +37,11 @@
     "eslint": "^8.0.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^12.0.0",
-    "madrun": "^8.0.1"
+    "madrun": "^8.0.1",
+    "simport": "^1.2.0"
   },
   "peerDependencies": {
-    "putout": ">=13"
+    "putout": ">=22.5"
   },
   "license": "MIT",
   "engines": {
