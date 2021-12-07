@@ -115,6 +115,30 @@ ruleTester.run('objects-braces-inside-array', rule, {
             message,
             type: 'ArrayExpression',
         }],
+    }, {
+        code: montag`
+            const expected = [{
+                hello: 'world',
+            },
+            {
+                hi: 'there',
+            }, {
+                a: 'b',
+            }];
+        `,
+        output: montag`
+            const expected = [{
+                hello: 'world',
+            }, {
+                hi: 'there',
+            }, {
+                a: 'b',
+            }];
+        `,
+        errors: [{
+            message,
+            type: 'ArrayExpression',
+        }],
     }],
 });
 

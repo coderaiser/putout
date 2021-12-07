@@ -11,6 +11,7 @@ module.exports.include = () => [
 
 const badStart = /^\[\n(\s+)?{/;
 const badEndReg = /},?\n(\s+)?]/;
+const badMiddle = /\},\n(s+)?\{/;
 
 module.exports.filter = ({node, text}) => {
     const {elements} = node;
@@ -22,8 +23,9 @@ module.exports.filter = ({node, text}) => {
     
     const isStart = badStart.test(text);
     const isEnd = badEndReg.test(text);
+    const isBadMiddle = badMiddle.test(text);
     
-    return isStart || isEnd;
+    return isStart || isEnd || isBadMiddle;
 };
 
 module.exports.fix = ({text}) => {
