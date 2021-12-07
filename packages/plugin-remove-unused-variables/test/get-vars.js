@@ -477,8 +477,7 @@ test('remove-unused-variables: get-vars: optional member expression', (t) => {
         clear: d_,
     }, {
         a: 'du',
-    },
-    {
+    }, {
         b: 'du',
     }];
     
