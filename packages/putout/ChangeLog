@@ -1,3 +1,18 @@
+2021.12.07, v22.6.0
+
+feature:
+- (putout) add exit code: CANNOT_LOAD_FORMATTER
+- (package) @putout/formatter-json-lines v2.0.0
+- (@putout/formatter-json-lines) convert to ESM (#91)
+- (package) @putout/formatter-stream v3.0.0
+- (package) @putout/formatter-json v2.0.0
+- (package) @putout/formatter-json v2.0.0
+- (package) @putout/formatter-json v2.0.0
+- (package) @putout/formatter-json v2.0.0
+- (@putout/formatter-json) convert to ESM (#91)
+- (@putout/formatter-stream) convert to ESM (#91)
+
+
 2021.12.07, v22.5.5
 
 feature:
