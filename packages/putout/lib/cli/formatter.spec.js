@@ -5,14 +5,18 @@ const {createSimport} = require('simport');
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
+
 const {
-    getFormatter,
-    getReporter,
-} = require('./formatter');
+    NO_FORMATTER,
+    CANNOT_LOAD_FORMATTER,
+} = require('./exit-codes');
+const {getFormatter} = require('./formatter');
 
 const {reRequire, stopAll} = mockRequire;
 
 const simport = createSimport(__filename);
+
+const {assign} = Object;
 
 test('putout: cli: formatter: get formatter', async (t) => {
     const exit = stub();
@@ -62,7 +66,10 @@ test('putout: cli: formatter: get reporter', async (t) => {
 });
 
 test('putout: cli: formatter: calls', async (t) => {
-    const simport = stub().rejects(Error('not found'));
+    const simport = stub()
+        .rejects(assign(Error('not found'), {
+            code: 'ERR_MODULE_NOT_FOUND',
+        }));
     
     mockRequire('simport', {
         createSimport: stub().returns(simport),
@@ -90,7 +97,11 @@ test('putout: cli: formatter: second import', async (t) => {
     const simport = async () => {
         if (!called) {
             called = true;
-            throw Error('not found from test');
+            const error = assign(Error('not found from test'), {
+                code: 'ERR_MODULE_NOT_FOUND',
+            });
+            
+            throw error;
         }
         
         return 'found from test';
@@ -113,12 +124,43 @@ test('putout: cli: formatter: second import', async (t) => {
     t.end();
 });
 
-test('putout: cli: formatter: get reporter: exit', async (t) => {
+test('putout: cli: formatter: get reporter: exit: NO_FORMATTER', async (t) => {
     const exit = stub();
-    
+    const {getReporter} = reRequire('./formatter');
     await getReporter('xxx', exit);
     
-    t.ok(exit.called);
+    const expected = [
+        NO_FORMATTER,
+        Error(`Cannot find package 'putout-formatter-xxx'`),
+    ];
+    
+    stopAll();
+    reRequire('./formatter');
+    
+    t.calledWith(exit, expected, 'should call exit');
+    t.end();
+});
+
+test('putout: cli: formatter: get reporter: exit: CANNOT_LOAD_FORMATTER', async (t) => {
+    const exit = stub();
+    const simport = stub().rejects(Error('Syntax error'));
+    
+    mockRequire('simport', {
+        createSimport: stub().returns(simport),
+    });
+    
+    const {getReporter} = reRequire('./formatter');
+    await getReporter('xxx', exit);
+    
+    const expected = [
+        CANNOT_LOAD_FORMATTER,
+        Error(`@putout/formatter-xxx: Syntax error`),
+    ];
+    
+    stopAll();
+    reRequire('./formatter');
+    
+    t.calledWith(exit, expected, 'should call exit');
     t.end();
 });
 

@@ -11,3 +11,4 @@ export const UNHANDLED = 9;
 export const RULLER_WITH_FIX = 10;
 export const RULLER_NO_FILES = 11;
 export const INVALID_CONFIG = 12;
+export const CANNOT_LOAD_FORMATTER = 13;

@@ -1849,7 +1849,7 @@ test('putout: processor throw', async (t) => {
     ];
     
     const getOptions = stub().returns({
-        formatter: require('@putout/formatter-json'),
+        formatter: await simport('@putout/formatter-json'),
         dir: '.',
         processors: [
             ['throw-processor', throwProcessor],
@@ -1890,7 +1890,7 @@ test('putout: processor throw: raw', async (t) => {
     ];
     
     const getOptions = stub().returns({
-        formatter: require('@putout/formatter-json'),
+        formatter: await simport('@putout/formatter-json'),
         dir: '.',
         processors: [
             ['throw-processor', throwProcessor],
