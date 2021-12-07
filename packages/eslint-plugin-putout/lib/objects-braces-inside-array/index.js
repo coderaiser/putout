@@ -11,7 +11,7 @@ module.exports.include = () => [
 
 const badStart = /^\[\n(\s+)?{/;
 const badEndReg = /},?\n(\s+)?]/;
-const badMiddle = /\},\n(s+)?\{/;
+const badMiddle = /\},\n(\s+)?\{/;
 
 module.exports.filter = ({node, text}) => {
     const {elements} = node;
