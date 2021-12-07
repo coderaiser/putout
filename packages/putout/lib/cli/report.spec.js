@@ -54,7 +54,7 @@ test('putout: report: dump', async (t) => {
         rule,
     }];
     
-    const formatter = require('@putout/formatter-dump');
+    const formatter = await simport('@putout/formatter-dump');
     
     const report = initReport();
     const formatted = await report(formatter, {
