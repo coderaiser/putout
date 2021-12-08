@@ -84,7 +84,6 @@ function transform(ast, source, opts) {
         rules,
         fix,
         fixCount,
-        parser,
         loadPlugins,
         runPlugins,
     } = opts;
@@ -102,7 +101,6 @@ function transform(ast, source, opts) {
         fix,
         fixCount,
         plugins,
-        parser,
     });
     
     return places;
