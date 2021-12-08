@@ -1,3 +1,14 @@
+2021.12.08, v22.6.1
+
+fix:
+- (putout) transform: runPlugins: rm useless parser
+
+feature:
+- (@putout/plugin-declare-undefined-variables) wrap: add returns
+- (eslint-plugin-putout) putout: add ability to remove parent, it makes recast go crazy (https://github.com/eslint/eslint/blob/v8.4.0/lib/linter/linter.js#L964)
+- (eslint-plugin-putout) putout: use generate, when recast cannot print
+
+
 2021.12.07, v22.6.0
 
 feature:
