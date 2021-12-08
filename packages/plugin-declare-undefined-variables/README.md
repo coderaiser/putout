@@ -14,7 +14,7 @@
 - [child_process](https://nodejs.org/dist/latest-v16.x/docs/api/child_process.html);
 - types: `isFn`, `isString`, `isNumber`, `isObject` `isUndefined`;
 - maybe: `maybeArray`, `maybeFn`, `maybeEmptyArray`;
-- logical: `not`, `id`;
+- wrap: `not`,`id`, `returns`;
 - fresh-import: `freshImport`, `freshImportDefault`;
 - [wraptile](https://github.com/coderaiser/wraptile);
 - [currify](https://github.com/coderaiser/currify);

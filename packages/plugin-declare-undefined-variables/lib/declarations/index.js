@@ -4,7 +4,7 @@ const nodeJS = require('./node-js');
 const object = require('./object');
 const isType = require('./is-type');
 const maybe = require('./maybe');
-const logical = require('./logical');
+const wrap = require('./wrap');
 const freshImport = require('./fresh-import');
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
     ...object,
     ...isType,
     ...maybe,
-    ...logical,
+    ...wrap,
     ...freshImport,
     
     isArray: 'const {isArray} = Array',

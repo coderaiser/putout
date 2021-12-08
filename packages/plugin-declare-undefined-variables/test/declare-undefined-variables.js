@@ -160,8 +160,8 @@ test('putout: plugin: declare-undefined-variables: wraptile', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: logical', (t) => {
-    t.transform('logical');
+test('putout: plugin: declare-undefined-variables: wrap', (t) => {
+    t.transform('wrap');
     t.end();
 });
 
@@ -238,3 +238,10 @@ test('putout: plugin: declare-undefined-variables: simport: esm', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: returns', (t) => {
+    t.transformCode(`returns('hello');`, montag`
+        const returns = a => () => a;
+        returns('hello');
+    `);
+    t.end();
+});
