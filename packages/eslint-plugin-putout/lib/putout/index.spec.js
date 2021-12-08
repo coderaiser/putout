@@ -224,7 +224,8 @@ parserTester.run('putout', rule, {
     }, {
         code: `a = is() ? a : b`,
         output: montag`
-            if (!is()) a = b;
+            if (!is())
+              a = b;
         `,
         errors: [{
             line: 1,

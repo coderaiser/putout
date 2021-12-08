@@ -6,12 +6,10 @@ const {
     transform,
     print,
     parse,
-    generate,
+    traverse,
 } = require('putout');
 
 const v8 = require('v8');
-const toBabel = require('estree-to-babel');
-const tryCatch = require('try-catch');
 
 const parseOptions = require('putout/parse-options');
 
@@ -22,6 +20,7 @@ const getContextOptions = ({options}) => {
 };
 
 const copyAST = (a) => v8.deserialize(v8.serialize(a));
+const returns = (a) => () => a;
 
 module.exports = {
     meta: {
@@ -51,9 +50,7 @@ module.exports = {
                 const {text} = source;
                 
                 const ast = parse(text, {
-                    parser: {
-                        parse: () => toBabel(copyAST(node)),
-                    },
+                    parser: createParser(node),
                 });
                 
                 const places = findPlaces(ast, text, resultOptions);
@@ -88,17 +85,33 @@ const fix = ({ast, text, node, source, resultOptions}) => (fixer) => {
     transform(ast, text, resultOptions);
     
     const [, last] = lastToken.range;
-    const code = printCode(ast);
+    const code = print(ast);
     
     return fixer.replaceTextRange([0, last], code);
 };
 
-function printCode(ast) {
-    const [, code] = tryCatch(print, ast);
+const createParser = (node) => {
+    const ast = copyAST(node);
+    removeParent(ast);
     
-    if (code)
-        return code;
+    const parser = {
+        parse: returns(ast),
+    };
     
-    return generate(ast).code;
+    return parser;
+};
+
+// ESLint adds parent to each node
+// it makes recase go crazy
+// so we better drop them
+//
+// https://github.com/eslint/eslint/blob/v8.4.0/lib/linter/linter.js#L964
+function removeParent(ast) {
+    traverse(ast, {
+        noScope: true,
+        enter(path) {
+            delete path.node.parent;
+        },
+    });
 }
 
