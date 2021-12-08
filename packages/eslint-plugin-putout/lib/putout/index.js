@@ -6,10 +6,12 @@ const {
     transform,
     print,
     parse,
+    generate,
 } = require('putout');
 
 const v8 = require('v8');
 const toBabel = require('estree-to-babel');
+const tryCatch = require('try-catch');
 
 const parseOptions = require('putout/parse-options');
 
@@ -86,8 +88,17 @@ const fix = ({ast, text, node, source, resultOptions}) => (fixer) => {
     transform(ast, text, resultOptions);
     
     const [, last] = lastToken.range;
-    const code = print(ast);
+    const code = printCode(ast);
     
     return fixer.replaceTextRange([0, last], code);
 };
+
+function printCode(ast) {
+    const [, code] = tryCatch(print, ast);
+    
+    if (code)
+        return code;
+    
+    return generate(ast).code;
+}
 

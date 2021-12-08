@@ -1,18 +1,18 @@
 'use strict';
 
 const {join} = require('path');
-
 const {readFileSync} = require('fs');
 
 const {RuleTester} = require('eslint');
 const montag = require('montag');
+
 const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.ts`), 'utf8');
 
 const rule = require('.');
 
 const ruleTester = new RuleTester({
     parserOptions: {
-        ecmaVersion: 2021,
+        ecmaVersion: 2022,
     },
 });
 
@@ -220,6 +220,16 @@ parserTester.run('putout', rule, {
             line: 5,
             column: 7,
             message: `Declare 'reImport' (tape/declare)`,
+        }],
+    }, {
+        code: `a = is() ? a : b`,
+        output: montag`
+            if (!is()) a = b;
+        `,
+        errors: [{
+            line: 1,
+            column: 1,
+            message: `Ternary should be simplified (simplify-ternary)`,
         }],
     }],
 });
