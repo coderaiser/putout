@@ -6,8 +6,9 @@ const {
     transform,
     print,
     parse,
-    traverse,
 } = require('putout');
+
+const traverse = require('@babel/traverse').default;
 
 const v8 = require('v8');
 

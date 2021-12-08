@@ -43,7 +43,6 @@
     "@typescript-eslint/parser": "^5.4.0",
     "align-spaces": "^1.0.0",
     "eslint-plugin-node": "^11.0.0",
-    "estree-to-babel": "^4.0.1",
     "try-catch": "^3.0.0",
     "typescript": "^4.5.2"
   },
