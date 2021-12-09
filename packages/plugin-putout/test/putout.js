@@ -1,7 +1,9 @@
 'use strict';
 
+const putout = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    putout: require('..'),
+    putout,
 });
 
 test('plugin-putout: transform', (t) => {

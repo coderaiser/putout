@@ -1,7 +1,9 @@
 'use strict';
 
+const checkReplaceCode = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/check-replace-code': require('.'),
+    'putout/check-replace-code': checkReplaceCode,
 });
 
 test('plugin-putout: check-replace-code: report', (t) => {

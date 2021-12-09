@@ -1,7 +1,9 @@
 'use strict';
 
+const convertBabelTypes = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/convert-babel-types': require('.'),
+    'putout/convert-babel-types': convertBabelTypes,
 });
 
 test('plugin-putout: convert-babel-types: report', (t) => {

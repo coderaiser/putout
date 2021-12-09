@@ -1,7 +1,9 @@
 'use strict';
 
+const convertDestructuringToIdentifier = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/convert-destructuring-to-identifier': require('.'),
+    'putout/convert-destructuring-to-identifier': convertDestructuringToIdentifier,
 });
 
 test('plugin-putout: convert-destructuring-to-identifier: report: destructuring', (t) => {

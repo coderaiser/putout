@@ -1,7 +1,9 @@
 'use strict';
 
+const replaceWithMultiple = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/replace-with-multiple': require('.'),
+    'putout/replace-with-multiple': replaceWithMultiple,
 });
 
 test('plugin-putout: replace-with-multiple: report', (t) => {

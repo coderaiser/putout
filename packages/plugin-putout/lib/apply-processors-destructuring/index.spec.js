@@ -1,7 +1,9 @@
 'use strict';
 
+const applyProcessorsDestructuring = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/apply-processors-destructuring': require('.'),
+    'putout/apply-processors-destructuring': applyProcessorsDestructuring,
 });
 
 test('plugin-putout: apply-processors-destructuring: report', (t) => {

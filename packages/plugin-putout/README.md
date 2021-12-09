@@ -418,17 +418,16 @@ test('remove debugger: report', (t) => {
 ```js
 const removeDebugger = require('..');
 const test = require('@putout/test')(__dirname, {
-    'remove-debugger': removeDebugger
+    'remove-debugger': removeDebugger,
 });
 
 test('remove debugger: report', (t) => {
     const test = require('@putout/test')(__dirname, {
-        'remove-debugger': removeDebugger
+        'remove-debugger': removeDebugger,
     });
     t.end();
 });
 ```
-
 
 ## License
 

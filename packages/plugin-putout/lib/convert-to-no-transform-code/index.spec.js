@@ -1,7 +1,9 @@
 'use strict';
 
+const convertToNoTransformCode = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/convert-to-no-transform-code': require('.'),
+    'putout/convert-to-no-transform-code': convertToNoTransformCode,
 });
 
 test('plugin-putout: convert-to-no-transform-code: transform', (t) => {

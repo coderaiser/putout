@@ -1,7 +1,9 @@
 'use strict';
 
+const addArgs = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/add-args': require('.'),
+    'putout/add-args': addArgs,
 });
 
 test('plugin-putout: add-args: report', (t) => {

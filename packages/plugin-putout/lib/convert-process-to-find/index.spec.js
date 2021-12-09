@@ -1,7 +1,9 @@
 'use strict';
 
+const convertProcessToFind = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/convert-process-to-find': require('.'),
+    'putout/convert-process-to-find': convertProcessToFind,
 });
 
 test('plugin-putout: convert-process-to-find: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const convertFindToTraverse = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    test: require('.'),
+    'convert-find-to-traverse': convertFindToTraverse,
 });
 
 test('plugin-putout: convert find to traverse: report', (t) => {
