@@ -23,6 +23,8 @@ const getContextOptions = ({options}) => {
 const copyAST = (a) => v8.deserialize(v8.serialize(a));
 const returns = (a) => () => a;
 
+const EMPTY_VISITORS = {};
+
 module.exports = {
     meta: {
         type: 'suggestion',
@@ -35,45 +37,44 @@ module.exports = {
     },
     
     create(context) {
-        return {
-            Program(node) {
-                const name = context.getFilename();
-                const options = getContextOptions(context);
-                const resultOptions = parseOptions({
-                    name,
-                    options,
-                });
-                
-                if (ignores(cwd, name, resultOptions))
-                    return;
-                
-                const source = context.getSourceCode();
-                const {text} = source;
-                
-                const ast = parse(text, {
-                    parser: createParser(node),
-                });
-                
-                const places = findPlaces(ast, text, resultOptions);
-                
-                for (const {rule, message, position} of places) {
-                    context.report({
-                        message: `${message} (${rule})`,
-                        fix: fix({
-                            ast,
-                            text,
-                            node,
-                            source,
-                            resultOptions,
-                        }),
-                        loc: {
-                            start: position,
-                            end: position,
-                        },
-                    });
-                }
-            },
-        };
+        const name = context.getFilename();
+        const options = getContextOptions(context);
+        const resultOptions = parseOptions({
+            name,
+            options,
+        });
+        
+        if (ignores(cwd, name, resultOptions))
+            return EMPTY_VISITORS;
+        
+        const source = context.getSourceCode();
+        const {text} = source;
+        const node = source.ast;
+        
+        const ast = parse(text, {
+            parser: createParser(node),
+        });
+        
+        const places = findPlaces(ast, text, resultOptions);
+        
+        for (const {rule, message, position} of places) {
+            context.report({
+                message: `${message} (${rule})`,
+                fix: fix({
+                    ast,
+                    text,
+                    node,
+                    source,
+                    resultOptions,
+                }),
+                loc: {
+                    start: position,
+                    end: position,
+                },
+            });
+        }
+        
+        return EMPTY_VISITORS;
     },
 };
 
