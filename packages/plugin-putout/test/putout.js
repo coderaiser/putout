@@ -83,3 +83,8 @@ test('plugin-putout: convert-add-argument-to-add-args', (t) => {
     t.transform('convert-add-argument-to-add-args');
     t.end();
 });
+
+test('plugin-putout: transform: move-require-on-top-level', (t) => {
+    t.transform('move-require-on-top-level');
+    t.end();
+});
