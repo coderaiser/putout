@@ -1,0 +1,2 @@
+if (fn(a ))
+    alert();

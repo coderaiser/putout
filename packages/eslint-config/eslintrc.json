@@ -25,6 +25,7 @@
         "space-infix-ops": ["error", {
             "int32Hint": false
         }],
+        "space-in-parens": "error",
         "space-before-blocks": "error",
         "space-before-function-paren": ["error", {
             "anonymous": "never",
