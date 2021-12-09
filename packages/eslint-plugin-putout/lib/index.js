@@ -97,6 +97,7 @@ const safe = {
     ...recommended,
     rules: {
         ...recommended.rules,
+        'no-useless-return': 'off',
         'putout/align-spaces': 'off',
         'putout/putout': ['error', {
             rules: {

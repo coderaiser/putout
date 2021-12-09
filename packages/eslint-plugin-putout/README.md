@@ -103,6 +103,7 @@ When using 🐊`Putout` in IDE with `--fix` on save, or when you want to disable
 
 List of disabled 🐊`Putout` rules:
 
+- [no-useless-return](https://eslint.org/docs/rules/no-useless-return)
 - [remove-empty](https://github.com/coderaiser/putout/tree/v22.0.0/packages/plugin-remove-empty);
 - [remove-unused-variables](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-unused-variables);
 - [remove-unused-types](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-unused-types);
