@@ -1,3 +1,17 @@
+2021.12.09, v22.6.2
+
+fix:
+- (eslint-plugin-putout) putout: traverse: use faster version
+
+feature:
+- (package) @putout/plugin-remove-useless-return v4.0.0
+- (eslint-plugin-putout) safe: disable no-useless-return
+- (@putout/plugin-remove-useless-return) report: Useless "return" should be avoided -> Avoid useless "return"
+- (@putout/eslint-config) add space-in-parens
+- (eslint-plugin-putout) putout: simplify according to https://github.com/eslint/eslint/issues/15394#issuecomment-989410995
+- (package) @babel/traverse v7.16.3
+
+
 2021.12.08, v22.6.1
 
 fix:
