@@ -5,7 +5,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-remove-useless-return: report', (t) => {
-    t.report('return', 'Useless "return" should be avoided');
+    t.report('return', 'Avoid useless "return"');
     t.end();
 });
 

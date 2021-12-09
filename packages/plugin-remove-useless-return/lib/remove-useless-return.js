@@ -2,7 +2,7 @@
 
 const {replaceWith} = require('putout').operator;
 
-module.exports.report = () => 'Useless "return" should be avoided';
+module.exports.report = () => 'Avoid useless "return"';
 
 module.exports.include = () => [
     'ArrowFunctionExpression',
