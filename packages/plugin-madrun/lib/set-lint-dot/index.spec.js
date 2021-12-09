@@ -1,7 +1,9 @@
 'use strict';
 
+const setLintDot = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'set-lint-dot': require('.'),
+    'set-lint-dot': setLintDot,
 });
 
 test('madrun: set lint dot: report', (t) => {

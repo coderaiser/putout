@@ -1,7 +1,9 @@
 'use strict';
 
+const removeIife = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-iife': require('..'),
+    'remove-iife': removeIife,
 });
 
 test('remove iife: report', (t) => {

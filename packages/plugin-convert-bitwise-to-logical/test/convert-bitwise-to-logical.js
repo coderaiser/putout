@@ -1,7 +1,9 @@
 'use strict';
 
+const convertBitwiseToLogical = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-bitwise-to-logical': require('..'),
+    'convert-bitwise-to-logical': convertBitwiseToLogical,
 });
 
 test('plugin-convert-bitwise-to-logical: report', (t) => {

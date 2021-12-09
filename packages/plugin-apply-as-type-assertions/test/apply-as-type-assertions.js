@@ -1,7 +1,9 @@
 'use strict';
 
+const applyAsTypeAssertiong = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'apply-as-type-assertiong': require('..'),
+    'apply-as-type-assertiong': applyAsTypeAssertiong,
 });
 
 test('plugin-apply-as-type-assertiong: transform: report', (t) => {

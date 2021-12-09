@@ -1,7 +1,9 @@
 'use strict';
 
+const applyUtilityTypes = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'apply-utility-types': require('..'),
+    'apply-utility-types': applyUtilityTypes,
 });
 
 test('plugin-apply-utility-types: transform: report: mapped-types', (t) => {

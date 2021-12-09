@@ -1,7 +1,9 @@
 'use strict';
 
+const convertIoMvToIoMove = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'cloudcmd/convert-io-mv-to-io-move': require('.'),
+    'cloudcmd/convert-io-mv-to-io-move': convertIoMvToIoMove,
 });
 
 test('cloudcmd: convert-io-mv-to-io-move: IO.mv: report', (t) => {

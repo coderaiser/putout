@@ -1,7 +1,9 @@
 'use strict';
 
+const syncWithName = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/sync-with-name': require('.'),
+    'tape/sync-with-name': syncWithName,
 });
 
 test('plugin-tape: sync-with-name: report', (t) => {

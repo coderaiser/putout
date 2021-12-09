@@ -1,7 +1,9 @@
 'use strict';
 
+const madrun = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    madrun: require('..'),
+    madrun,
 });
 
 test('plugin-madrun: transform', (t) => {

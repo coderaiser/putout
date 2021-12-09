@@ -1,7 +1,9 @@
 'use strict';
 
+const convertReplaceToReplaceAll = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'regexp/convert-replace-to-replace-all': require('.'),
+    'regexp/convert-replace-to-replace-all': convertReplaceToReplaceAll,
 });
 
 test('plugin-regexp/convert-replace-to-replace-all: report', (t) => {

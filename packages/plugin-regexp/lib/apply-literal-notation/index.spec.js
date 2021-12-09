@@ -1,7 +1,9 @@
 'use strict';
 
+const applyLiteralNotation = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'regexp/apply-literal-notation': require('.'),
+    'regexp/apply-literal-notation': applyLiteralNotation,
 });
 
 test('plugin-regexp/apply-literal-notation: report', (t) => {

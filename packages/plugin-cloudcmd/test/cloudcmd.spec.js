@@ -1,7 +1,9 @@
 'use strict';
 
+const cloudcmd = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    cloudcmd: require('..'),
+    cloudcmd,
 });
 
 test('cloudcmd: IO.mv: report', (t) => {

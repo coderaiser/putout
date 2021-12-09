@@ -1,7 +1,9 @@
 'use strict';
 
+const convertStateToHooks = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-state-to-hooks': require('.'),
+    'convert-state-to-hooks': convertStateToHooks,
 });
 
 test('plugin-react-hooks: convert state tot hooks: report', (t) => {

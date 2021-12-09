@@ -1,7 +1,9 @@
 'use strict';
 
+const convertToString = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'regexp/convert-to-string': require('.'),
+    'regexp/convert-to-string': convertToString,
 });
 
 test('plugin-regexp/convert-to-string: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const convertApplyToSpread = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-apply-to-spread': require('..'),
+    'convert-apply-to-spread': convertApplyToSpread,
 });
 
 test('plugin-convert-apply-to-spread: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessOperand = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-operand': require('..'),
+    'remove-useless-operand': removeUselessOperand,
 });
 
 test('plugin-remove-useless-operand: report', (t) => {

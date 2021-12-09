@@ -1,7 +1,9 @@
 'use strict';
 
+const tryToCatch = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'try-to-catch': require('.'),
+    'try-to-catch': tryToCatch,
 });
 
 test('plugin-apply-try-catch: try-to-catch: transform: report', (t) => {

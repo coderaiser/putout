@@ -1,7 +1,9 @@
 'use strict';
 
+const convertTraverseToReplace = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/convert-traverse-to-replace': require('.'),
+    'putout/convert-traverse-to-replace': convertTraverseToReplace,
 });
 
 test('plugin-putout: convert-traverse-to-replace: report', (t) => {

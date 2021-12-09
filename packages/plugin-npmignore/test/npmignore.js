@@ -1,7 +1,9 @@
 'use strict';
 
+const npmignore = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    npmignore: require('..'),
+    npmignore,
 });
 
 test('plugin-npmignore: transform', (t) => {

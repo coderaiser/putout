@@ -1,7 +1,9 @@
 'use strict';
 
+const gitignore = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    gitignore: require('..'),
+    gitignore,
 });
 
 test('plugin-gitignore: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const convertTraverseToInclude = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/convert-traverse-to-include': require('.'),
+    'putout/convert-traverse-to-include': convertTraverseToInclude,
 });
 
 test('plugin-putout: convert-traverse-to-include: report', (t) => {

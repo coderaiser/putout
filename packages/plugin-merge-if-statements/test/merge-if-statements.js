@@ -1,7 +1,9 @@
 'use strict';
 
+const mergeIfStatements = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'merge-if-statements': require('..'),
+    'merge-if-statements': mergeIfStatements,
 });
 
 test('plugin-merge-if-statements: transform: report', (t) => {

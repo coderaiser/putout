@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "fullstore": "^3.0.0",
+    "just-camel-case": "^6.0.1",
     "try-catch": "^3.0.0"
   },
   "keywords": [

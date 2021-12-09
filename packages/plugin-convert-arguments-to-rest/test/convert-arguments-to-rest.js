@@ -1,7 +1,9 @@
 'use strict';
 
+const convertArgumentsToRest = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-arguments-to-rest': require('..'),
+    'convert-arguments-to-rest': convertArgumentsToRest,
 });
 
 test('plugin-convert-arguments-to-rest: report', (t) => {

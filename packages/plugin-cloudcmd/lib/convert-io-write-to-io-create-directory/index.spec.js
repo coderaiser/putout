@@ -1,7 +1,9 @@
 'use strict';
 
+const convertIoWriteToIoCreateDirectory = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'cloudcmd/convert-io-write-to-io-create-directory': require('.'),
+    'cloudcmd/convert-io-write-to-io-create-directory': convertIoWriteToIoCreateDirectory,
 });
 
 test('cloudcmd: convert-io-write-to-io-create-directory: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const convertConcatToFlat = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-concat-to-flat': require('..'),
+    'convert-concat-to-flat': convertConcatToFlat,
 });
 
 test('plugin-convert-concat-to-flat: report', (t) => {

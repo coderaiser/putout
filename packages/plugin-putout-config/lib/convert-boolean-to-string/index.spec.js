@@ -1,7 +1,9 @@
 'use strict';
 
+const convertBooleanToString = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout-config/convert-boolean-to-string': require('.'),
+    'putout-config/convert-boolean-to-string': convertBooleanToString,
 });
 
 test('plugin-putout-config: convert-boolean-to-string: report', (t) => {

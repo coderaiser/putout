@@ -1,7 +1,9 @@
 'use strict';
 
+const addStopAll = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/add-stop-all': require('.'),
+    'tape/add-stop-all': addStopAll,
 });
 
 test('plugin-tape: add-stop-all: report', (t) => {

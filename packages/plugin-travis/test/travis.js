@@ -1,7 +1,9 @@
 'use strict';
 
+const travis = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    travis: require('..'),
+    travis,
 });
 
 test('plugin-travis: transform', (t) => {

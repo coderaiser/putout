@@ -1,7 +1,9 @@
 'use strict';
 
+const github = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    github: require('..'),
+    github,
 });
 
 test('plugin-github: transform', (t) => {

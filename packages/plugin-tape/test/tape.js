@@ -1,8 +1,10 @@
 'use strict';
 
+const tape = require('..');
+
 const montag = require('montag');
 const test = require('@putout/test')(__dirname, {
-    tape: require('..'),
+    tape,
 });
 
 test('plugin-tape: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const setReportLcov = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'set-report-lcov': require('.'),
+    'set-report-lcov': setReportLcov,
 });
 
 test('madrun: set-report-lcov: report', (t) => {

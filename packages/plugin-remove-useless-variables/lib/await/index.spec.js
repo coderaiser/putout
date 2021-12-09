@@ -1,7 +1,8 @@
 'use strict';
 
+const plugin = require('.');
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-variables/await': require('.'),
+    'remove-useless-variables/await': plugin,
 });
 
 test('remove usless variables: await: report', (t) => {

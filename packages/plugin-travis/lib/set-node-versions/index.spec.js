@@ -1,7 +1,9 @@
 'use strict';
 
+const setNodeVersion = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'travis/set-node-version': require('.'),
+    'travis/set-node-version': setNodeVersion,
 });
 
 test('plugin-travis: set node versions: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const declare = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'madrun/declare': require('.'),
+    'madrun/declare': declare,
 });
 
 test('plugin-madrun: declare: report', (t) => {

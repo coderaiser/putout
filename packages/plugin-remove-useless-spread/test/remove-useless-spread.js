@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessSpread = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-spread': require('..'),
+    'remove-useless-spread': removeUselessSpread,
 });
 
 test('plugin-remove-useless-spread: report', (t) => {

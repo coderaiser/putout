@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessReturn = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-return': require('..'),
+    'remove-useless-return': removeUselessReturn,
 });
 
 test('plugin-remove-useless-return: report', (t) => {

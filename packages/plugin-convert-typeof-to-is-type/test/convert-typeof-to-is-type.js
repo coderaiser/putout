@@ -1,7 +1,9 @@
 'use strict';
 
+const convertTypeofToIsType = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-typeof-to-is-type': require('..'),
+    'convert-typeof-to-is-type': convertTypeofToIsType,
 });
 
 test('plugin-convert-typeof-to-is-type: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const n = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-for-to-for-of/n': require('.'),
+    'convert-for-to-for-of/n': n,
 });
 
 test('plugin-convert-for-to-for-of: n: report', (t) => {

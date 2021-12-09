@@ -1,7 +1,9 @@
 'use strict';
 
+const convertMatchRegexpToString = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/convert-match-regexp-to-string': require('.'),
+    'tape/convert-match-regexp-to-string': convertMatchRegexpToString,
 });
 
 test('plugin-tape: convert-match-regexp-to-string: report', (t) => {

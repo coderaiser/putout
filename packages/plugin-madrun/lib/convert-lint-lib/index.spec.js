@@ -1,7 +1,9 @@
 'use strict';
 
+const convertLintLib = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-lint-lib': require('.'),
+    'convert-lint-lib': convertLintLib,
 });
 
 test('madrun: convert lint:lib: report', (t) => {

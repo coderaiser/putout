@@ -1,7 +1,9 @@
 'use strict';
 
+const simplifyTernary = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'simplify-ternary': require('..'),
+    'simplify-ternary': simplifyTernary,
 });
 
 test('plugin-simplify-ternary: report', (t) => {

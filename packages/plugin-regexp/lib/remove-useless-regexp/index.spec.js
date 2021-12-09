@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessRegexp = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'regexp/remove-useless-regexp': require('.'),
+    'regexp/remove-useless-regexp': removeUselessRegexp,
 });
 
 test('plugin-regexp/remove-useless-regexp: report', (t) => {

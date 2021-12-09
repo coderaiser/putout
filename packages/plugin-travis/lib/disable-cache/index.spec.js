@@ -1,7 +1,9 @@
 'use strict';
 
+const disableNpmCache = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'travis/disable-npm-cache': require('.'),
+    'travis/disable-npm-cache': disableNpmCache,
 });
 
 test('plugin-travis: disable-npm-cache: report', (t) => {

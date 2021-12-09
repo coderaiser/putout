@@ -1,7 +1,9 @@
 'use strict';
 
+const convertOkToCalledWith = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/convert-ok-to-called-with': require('.'),
+    'tape/convert-ok-to-called-with': convertOkToCalledWith,
 });
 
 test('plugin-tape: convert-ok-to-called-with: report', (t) => {

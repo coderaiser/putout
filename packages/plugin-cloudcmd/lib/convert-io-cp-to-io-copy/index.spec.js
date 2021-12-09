@@ -1,7 +1,9 @@
 'use strict';
 
+const convertIoCpToIoCopy = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'cloudcmd/convert-io-cp-to-io-copy': require('.'),
+    'cloudcmd/convert-io-cp-to-io-copy': convertIoCpToIoCopy,
 });
 
 test('cloudcmd: convert-io-cp-to-io-copy: IO.cp: report', (t) => {

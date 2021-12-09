@@ -33,7 +33,8 @@ npm i @putout/plugin-putout -D
         "putout/convert-add-argument-to-add-args": "on",
         "putout/shorten-imports": "on",
         "putout/check-replace-code": "on",
-        "putout/declare": "on"
+        "putout/declare": "on",
+        "putout/move-require-on-top-level": "on"
     }
 }
 ```
@@ -392,6 +393,39 @@ const {addArgs} = operator;
 
 module.exports = addArgs({
     t: ['t', 'test("__a", (__args) => __body)'],
+});
+```
+
+## move-require-on-top-level
+
+### ❌ Incorrect code example
+
+```js
+const test = require('@putout/test')(__dirname, {
+    'remove-debugger': require('..'),
+});
+
+test('remove debugger: report', (t) => {
+    t.transform('debugger', {
+        'remove-debugger': require('..'),
+    });
+    t.end();
+});
+```
+
+### ✅ Correct code Example
+
+```js
+const removeDebugger = require('..');
+const test = require('@putout/test')(__dirname, {
+    'remove-debugger': removeDebugger,
+});
+
+test('remove debugger: report', (t) => {
+    const test = require('@putout/test')(__dirname, {
+        'remove-debugger': removeDebugger,
+    });
+    t.end();
 });
 ```
 

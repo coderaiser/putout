@@ -1,7 +1,9 @@
 'use strict';
 
+const webpack = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    webpack: require('..'),
+    webpack,
 });
 
 test('plugin-webpack: transform', (t) => {

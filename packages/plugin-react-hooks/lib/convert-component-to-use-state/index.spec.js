@@ -1,7 +1,9 @@
 'use strict';
 
+const convertComponentToUseState = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-component-to-use-state': require('.'),
+    'convert-component-to-use-state': convertComponentToUseState,
 });
 
 test('plugin-react-hooks: convert-component-to-use-state: report', (t) => {

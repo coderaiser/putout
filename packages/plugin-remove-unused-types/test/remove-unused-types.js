@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUnusedTypes = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-unused-types': require('..'),
+    'remove-unused-types': removeUnusedTypes,
 });
 
 test('remove unused types: report', (t) => {

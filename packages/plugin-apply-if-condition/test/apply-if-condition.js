@@ -1,7 +1,9 @@
 'use strict';
 
+const applyIfCondition = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'apply-if-condition': require('..'),
+    'apply-if-condition': applyIfCondition,
 });
 
 test('plugin-apply-if-condition: report', (t) => {

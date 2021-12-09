@@ -1,7 +1,9 @@
 'use strict';
 
+const removeCheckDuplicatesFromTest = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-check-duplicates-from-test': require('.'),
+    'remove-check-duplicates-from-test': removeCheckDuplicatesFromTest,
 });
 
 test('madrun: remove-check-duplicates-from-test: report', (t) => {

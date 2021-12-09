@@ -1,7 +1,9 @@
 'use strict';
 
+const equalDeep = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'extract-object-properties/equal-deep': require('.'),
+    'extract-object-properties/equal-deep': equalDeep,
 });
 
 test('plugin-extract-object-properties: equal-deep: report', (t) => {

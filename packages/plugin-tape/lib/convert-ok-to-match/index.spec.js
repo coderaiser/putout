@@ -1,7 +1,9 @@
 'use strict';
 
+const convertOkToMatch = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/convert-ok-to-match': require('.'),
+    'tape/convert-ok-to-match': convertOkToMatch,
 });
 
 test('plugin-tape: convert-ok-to-match: report', (t) => {

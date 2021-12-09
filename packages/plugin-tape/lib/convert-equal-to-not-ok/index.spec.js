@@ -1,7 +1,9 @@
 'use strict';
 
+const convertEqualToNotOk = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/convert-equal-to-not-ok': require('.'),
+    'tape/convert-equal-to-not-ok': convertEqualToNotOk,
 });
 
 test('plugin-tape: convert-equal-to-not-ok: report', (t) => {

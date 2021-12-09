@@ -1,7 +1,9 @@
 'use strict';
 
+const declare = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/declare': require('.'),
+    'putout/declare': declare,
 });
 
 test('plugin-putout: declare: report', (t) => {

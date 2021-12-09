@@ -1,7 +1,9 @@
 'use strict';
 
+const strictMode = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'strict-mode': require('..'),
+    'strict-mode': strictMode,
 });
 
 test('plugin-strict-mode: transform', (t) => {

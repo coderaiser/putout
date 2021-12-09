@@ -1,7 +1,9 @@
 'use strict';
 
+const regexp = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    regexp: require('..'),
+    regexp,
 });
 
 test('plugin-regexp: optimize: report', (t) => {

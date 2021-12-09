@@ -1,7 +1,9 @@
 'use strict';
 
+const convertQueryLoaderToUse = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'webpack/convert-query-loader-to-use': require('.'),
+    'webpack/convert-query-loader-to-use': convertQueryLoaderToUse,
 });
 
 test('plugin-webpack: convert-query-loader-to-use: report', (t) => {

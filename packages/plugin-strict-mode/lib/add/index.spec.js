@@ -1,9 +1,11 @@
 'use strict';
 
+const add = require('.');
+
 process.on('unhandledRejection', () => {});
 
 const test = require('@putout/test')(__dirname, {
-    'strict-mode/add': require('.'),
+    'strict-mode/add': add,
 });
 
 test('plugin-strict-mode: add: report', (t) => {

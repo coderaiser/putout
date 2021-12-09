@@ -1,7 +1,9 @@
 'use strict';
 
+const convertToArrowFunction = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-to-arrow-function': require('..'),
+    'convert-to-arrow-function': convertToArrowFunction,
 });
 
 test('plugin-convert-to-arrow-function: report', (t) => {

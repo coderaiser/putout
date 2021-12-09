@@ -1,7 +1,9 @@
 'use strict';
 
+const removeNestedBlocks = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-nested-blocks': require('..'),
+    'remove-nested-blocks': removeNestedBlocks,
 });
 
 test('plugin-remove-nested-blocks: report', (t) => {

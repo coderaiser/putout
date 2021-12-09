@@ -1,7 +1,9 @@
 'use strict';
 
+const convertToAsync = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-to-async': require('.'),
+    'convert-to-async': convertToAsync,
 });
 
 test('madrun: convert to async: report', (t) => {

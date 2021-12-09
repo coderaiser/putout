@@ -1,7 +1,9 @@
 'use strict';
 
+const removeEmptyBlock = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-empty-block': require('.'),
+    'remove-empty-block': removeEmptyBlock,
 });
 
 test('plugin-remove-empty: block: report', (t) => {

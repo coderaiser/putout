@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUnusedExpression = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-unused-expression': require('..'),
+    'remove-unused-expression': removeUnusedExpression,
 });
 
 test('remove unused expression: report', (t) => {

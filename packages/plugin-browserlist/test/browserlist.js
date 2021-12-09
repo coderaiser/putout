@@ -1,7 +1,9 @@
 'use strict';
 
+const browserilist = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    browserilist: require('..'),
+    browserilist,
 });
 
 test('plugin-putout: transform: node', (t) => {

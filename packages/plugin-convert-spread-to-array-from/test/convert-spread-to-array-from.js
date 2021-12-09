@@ -1,7 +1,9 @@
 'use strict';
 
+const convertSpreadToArrayFrom = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-spread-to-array-from': require('..'),
+    'convert-spread-to-array-from': convertSpreadToArrayFrom,
 });
 
 test('plugin-convert-spread-to-array-from: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const convertIsNanToNumberIsNan = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-is-nan-to-number-is-nan': require('..'),
+    'convert-is-nan-to-number-is-nan': convertIsNanToNumberIsNan,
 });
 
 test('plugin-convert-is-nan-to-number-is-nan: report', (t) => {

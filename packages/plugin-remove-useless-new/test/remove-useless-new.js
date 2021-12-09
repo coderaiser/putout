@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessNew = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-new': require('..'),
+    'remove-useless-new': removeUselessNew,
 });
 
 test('plugin-remove-useless-new: report', (t) => {

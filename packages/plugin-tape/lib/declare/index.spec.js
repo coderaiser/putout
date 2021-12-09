@@ -1,7 +1,9 @@
 'use strict';
 
+const declare = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/declare': require('.'),
+    'tape/declare': declare,
 });
 
 test('plugin-tape: declare: report', (t) => {

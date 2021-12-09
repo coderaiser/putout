@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessTemplates = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-templates': require('..'),
+    'remove-useless-templates': removeUselessTemplates,
 });
 
 test('plugin-remove-useless-templates: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUnreferencedVariables = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-unreferenced-variables': require('..'),
+    'remove-unreferenced-variables': removeUnreferencedVariables,
 });
 
 test('plugin-remove-unreferenced-variables: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessArguments = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-arguments': require('..'),
+    'remove-useless-arguments': removeUselessArguments,
 });
 
 test('plugin-remove-useless-arguments: report', (t) => {

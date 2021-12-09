@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessConditions = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-conditions': require('..'),
+    'remove-useless-conditions': removeUselessConditions,
 });
 
 test('plugin-remove-useless-conditions: report', (t) => {

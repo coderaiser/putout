@@ -1,7 +1,9 @@
 'use strict';
 
+const removeBind = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-bind': require('.'),
+    'remove-bind': removeBind,
 });
 
 test('plugin-react-hooks: remove-bind: report', (t) => {

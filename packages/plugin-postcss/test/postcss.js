@@ -1,7 +1,9 @@
 'use strict';
 
+const postcss = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    postcss: require('..'),
+    postcss,
 });
 
 test('plugin-postcss: transform: replace-plugin-with-creator', (t) => {

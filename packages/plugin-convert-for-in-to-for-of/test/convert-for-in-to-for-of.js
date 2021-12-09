@@ -1,7 +1,9 @@
 'use strict';
 
+const convertForInToForOf = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-for-in-to-for-of': require('..'),
+    'convert-for-in-to-for-of': convertForInToForOf,
 });
 
 test('plugin-convert-for-in-to-for-of: report', (t) => {

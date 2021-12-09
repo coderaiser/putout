@@ -1,7 +1,9 @@
 'use strict';
 
+const remove = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'strict-mode/remove': require('.'),
+    'strict-mode/remove': remove,
 });
 
 test('plugin-strict-mode: remove: report', (t) => {

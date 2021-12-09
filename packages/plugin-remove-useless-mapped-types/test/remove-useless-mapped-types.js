@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessMappedTypes = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-mapped-types': require('..'),
+    'remove-useless-mapped-types': removeUselessMappedTypes,
 });
 
 test('plugin-remove-useless-mapped-types: report', (t) => {

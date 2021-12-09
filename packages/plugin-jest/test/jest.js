@@ -1,7 +1,9 @@
 'use strict';
 
+const jest = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    jest: require('..'),
+    jest,
 });
 
 test('plugin-jest: report', (t) => {

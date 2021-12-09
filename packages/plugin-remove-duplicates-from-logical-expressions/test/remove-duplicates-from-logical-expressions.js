@@ -1,7 +1,9 @@
 'use strict';
 
+const removeDuplicatesFromLogicalExpressions = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-duplicates-from-logical-expressions': require('..'),
+    'remove-duplicates-from-logical-expressions': removeDuplicatesFromLogicalExpressions,
 });
 
 test('plugin-remove-duplicates-from-logical-expressions: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessTemplateExpressions = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-template-expressions': require('..'),
+    'remove-useless-template-expressions': removeUselessTemplateExpressions,
 });
 
 test('plugin-remove-useless-template-expressions: report', (t) => {

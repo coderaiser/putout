@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessContinue = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-continue': require('..'),
+    'remove-useless-continue': removeUselessContinue,
 });
 
 test('plugin-remove-useless-continue: report', (t) => {

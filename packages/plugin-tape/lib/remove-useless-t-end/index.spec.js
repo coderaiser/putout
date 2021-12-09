@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessTEnd = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/remove-useless-t-end': require('.'),
+    'tape/remove-useless-t-end': removeUselessTEnd,
 });
 
 test('plugin-tape: remove-useless-t-end: report', (t) => {

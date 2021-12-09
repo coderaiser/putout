@@ -1,7 +1,9 @@
 'use strict';
 
+const montag = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    montag: require('..'),
+    montag,
 });
 
 test('plugin-apply-montag: transform: report', (t) => {

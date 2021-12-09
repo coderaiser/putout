@@ -1,7 +1,9 @@
 'use strict';
 
+const removeNodeVersions = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'browserlist/remove-node-versions': require('..'),
+    'browserlist/remove-node-versions': removeNodeVersions,
 });
 
 test('plugin-browserlist: remove-node-versions: report', (t) => {

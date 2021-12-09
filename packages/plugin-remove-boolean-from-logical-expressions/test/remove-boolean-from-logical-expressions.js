@@ -1,7 +1,9 @@
 'use strict';
 
+const removeBooleanFromLogicalExpressions = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-boolean-from-logical-expressions': require('..'),
+    'remove-boolean-from-logical-expressions': removeBooleanFromLogicalExpressions,
 });
 
 test('plugin-remove-boolean-from-logical-expressions: report', (t) => {

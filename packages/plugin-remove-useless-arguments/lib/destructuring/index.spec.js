@@ -1,7 +1,9 @@
 'use strict';
 
+const destructuring = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-arguments/destructuring': require('.'),
+    'remove-useless-arguments/destructuring': destructuring,
 });
 
 test('plugin-remove-useless-arguments: no report', (t) => {

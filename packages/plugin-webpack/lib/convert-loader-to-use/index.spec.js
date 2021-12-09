@@ -1,7 +1,9 @@
 'use strict';
 
+const convertLoaderToUse = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'webpack/convert-loader-to-use': require('.'),
+    'webpack/convert-loader-to-use': convertLoaderToUse,
 });
 
 test('plugin-webpack: convert-loader-to-use: report', (t) => {

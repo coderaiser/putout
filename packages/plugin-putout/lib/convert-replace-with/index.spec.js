@@ -1,7 +1,9 @@
 'use strict';
 
+const convertReplaceWith = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/convert-replace-with': require('.'),
+    'putout/convert-replace-with': convertReplaceWith,
 });
 
 test('plugin-putout: convert-replace-with: report', (t) => {

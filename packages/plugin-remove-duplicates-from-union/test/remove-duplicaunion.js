@@ -1,7 +1,9 @@
 'use strict';
 
+const removeDuplicatesFromUnion = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-duplicates-from-union': require('..'),
+    'remove-duplicates-from-union': removeDuplicatesFromUnion,
 });
 
 test('plugin-remove-duplicates-from-union: report', (t) => {

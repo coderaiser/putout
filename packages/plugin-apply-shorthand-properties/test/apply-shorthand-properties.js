@@ -1,7 +1,9 @@
 'use strict';
 
+const applyShorthandProperties = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'apply-shorthand-properties': require('..'),
+    'apply-shorthand-properties': applyShorthandProperties,
 });
 
 const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');

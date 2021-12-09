@@ -1,8 +1,10 @@
 'use strict';
 
+const remove = require('.');
+
 const reuseDuplicateInit = require('@putout/plugin-reuse-duplicate-init');
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-variables/remove': require('.'),
+    'remove-useless-variables/remove': remove,
 });
 
 test('remove usless variables: remove: report', (t) => {

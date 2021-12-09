@@ -1,7 +1,9 @@
 'use strict';
 
+const convertPutoutTestToCreateTest = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/convert-putout-test-to-create-test': require('.'),
+    'putout/convert-putout-test-to-create-test': convertPutoutTestToCreateTest,
 });
 
 test('plugin-putout: convert-putout-test-to-create-test: report', (t) => {

@@ -1,9 +1,13 @@
 'use strict';
 
+const {declare} = require('@putout/plugin-putout').rules;
+
+const mergeDestructuringProperties = require('..');
+
 const convert = require('@putout/plugin-convert-commonjs-to-esm');
 
 const test = require('@putout/test')(__dirname, {
-    'merge-destructuring-properties': require('..'),
+    'merge-destructuring-properties': mergeDestructuringProperties,
 });
 
 test('plugin-merge-destructuring-properties: transform: report', (t) => {
@@ -33,7 +37,7 @@ test('plugin-merge-destructuring-properties: transform: require', (t) => {
 
 test('plugin-merge-destructuring-properties: transform: putout/declare', (t) => {
     t.transform('putout-declare', {
-        'putout/declare': require('@putout/plugin-putout').rules.declare,
+        'putout/declare': declare,
     });
     t.end();
 });

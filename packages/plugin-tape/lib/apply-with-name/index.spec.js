@@ -1,7 +1,9 @@
 'use strict';
 
+const applyWithName = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/apply-with-name': require('.'),
+    'tape/apply-with-name': applyWithName,
 });
 
 test('plugin-tape: apply-with-name: report', (t) => {

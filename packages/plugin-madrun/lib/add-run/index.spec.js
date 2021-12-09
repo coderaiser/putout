@@ -1,9 +1,11 @@
 'use strict';
 
+const addRun = require('.');
+
 const strictMode = require('@putout/plugin-strict-mode');
 const removeUnusedExpressions = require('@putout/plugin-remove-unused-expressions');
 const test = require('@putout/test')(__dirname, {
-    'add-run': require('.'),
+    'add-run': addRun,
 });
 
 const {add} = strictMode.rules;

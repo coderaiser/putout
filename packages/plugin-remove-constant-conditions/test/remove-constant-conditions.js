@@ -1,7 +1,9 @@
 'use strict';
 
+const removeConstantConditions = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-constant-conditions': require('..'),
+    'remove-constant-conditions': removeConstantConditions,
 });
 
 test('plugin-remove-constant-conditions: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const convertTopLevelReturn = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-top-level-return': require('..'),
+    'convert-top-level-return': convertTopLevelReturn,
 });
 
 test('plugin-convert-top-level-return: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const convertEqualToStrictEqual = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-equal-to-strict-equal': require('..'),
+    'convert-equal-to-strict-equal': convertEqualToStrictEqual,
 });
 
 test('plugin-convert-equal-to-strict-equal: report', (t) => {

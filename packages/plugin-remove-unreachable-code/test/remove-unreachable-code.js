@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUnreachableCode = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-unreachable-code': require('..'),
+    'remove-unreachable-code': removeUnreachableCode,
 });
 
 test('plugin-remove-unreachable-code: report', (t) => {

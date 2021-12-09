@@ -1,7 +1,9 @@
 'use strict';
 
+const movePutoutToEndOfExtends = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'eslint/move-putout-to-end-of-extends': require('.'),
+    'eslint/move-putout-to-end-of-extends': movePutoutToEndOfExtends,
 });
 
 test('putout: plugin-eslint: move-putout-to-end-in-extends: report', (t) => {

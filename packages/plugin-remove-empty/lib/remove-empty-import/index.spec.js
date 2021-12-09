@@ -1,7 +1,9 @@
 'use strict';
 
+const removeEmptyImport = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-empty-import': require('.'),
+    'remove-empty-import': removeEmptyImport,
 });
 
 test('plugin-remove-empty: import: report', (t) => {

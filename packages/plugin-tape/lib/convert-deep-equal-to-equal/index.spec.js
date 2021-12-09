@@ -1,7 +1,9 @@
 'use strict';
 
+const convertDeepEqualToEqual = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/convert-deep-equal-to-equal': require('.'),
+    'tape/convert-deep-equal-to-equal': convertDeepEqualToEqual,
 });
 
 test('plugin-tape: convert-deep-equal-to-equal: report', (t) => {

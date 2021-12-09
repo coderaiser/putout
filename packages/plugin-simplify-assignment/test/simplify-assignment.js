@@ -1,7 +1,9 @@
 'use strict';
 
+const simplifyAssignment = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'simplify-assignment': require('..'),
+    'simplify-assignment': simplifyAssignment,
 });
 
 test('plugin-simplify-assignment: report', (t) => {

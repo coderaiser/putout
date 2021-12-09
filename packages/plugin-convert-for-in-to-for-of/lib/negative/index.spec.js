@@ -1,7 +1,9 @@
 'use strict';
 
+const negative = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-for-in-to-for-of/negative': require('.'),
+    'convert-for-in-to-for-of/negative': negative,
 });
 
 test('plugin-convert-for-in-to-for-of: negative: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const convertNodeToResolveFallback = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'webpack/convert-node-to-resolve-fallback': require('.'),
+    'webpack/convert-node-to-resolve-fallback': convertNodeToResolveFallback,
 });
 
 test('plugin-webpack: convert-node-to-resolve-fallback: report', (t) => {

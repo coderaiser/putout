@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessTypeof = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-typeof': require('..'),
+    'remove-useless-typeof': removeUselessTypeof,
 });
 
 test('plugin-remove-useless-typeof: report', (t) => {

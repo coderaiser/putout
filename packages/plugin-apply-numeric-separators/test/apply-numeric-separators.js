@@ -1,8 +1,10 @@
 'use strict';
 
+const applyNumericSeparators = require('..');
+
 const webpack = require('@putout/plugin-webpack');
 const test = require('@putout/test')(__dirname, {
-    'apply-numeric-separators': require('..'),
+    'apply-numeric-separators': applyNumericSeparators,
 });
 
 test('plugin-apply-numeric-separators: transform: report', (t) => {

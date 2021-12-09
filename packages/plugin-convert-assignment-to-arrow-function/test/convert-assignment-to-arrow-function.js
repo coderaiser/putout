@@ -1,7 +1,9 @@
 'use strict';
 
+const convertAssignmentToArrowFunction = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-assignment-to-arrow-function': require('..'),
+    'convert-assignment-to-arrow-function': convertAssignmentToArrowFunction,
 });
 
 test('plugin-convert-assignment-to-arrow-function: report', (t) => {

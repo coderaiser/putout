@@ -1,7 +1,9 @@
 'use strict';
 
+const convertAnyToPrimitive = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-any-to-primitive': require('..'),
+    'convert-any-to-primitive': convertAnyToPrimitive,
 });
 
 test('plugin-convert-any-to-primitive: report', (t) => {

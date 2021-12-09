@@ -69,7 +69,7 @@ test('test: transform: typescript', (t) => {
 
 test('test: transform: plugin', (t) => {
     t.transform('plugin', {
-        putout: require('@putout/plugin-putout'),
+        putout,
     });
     t.end();
 });

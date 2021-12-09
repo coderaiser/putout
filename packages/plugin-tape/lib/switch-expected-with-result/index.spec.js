@@ -1,7 +1,9 @@
 'use strict';
 
+const switchExpectedWithResult = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/switch-expected-with-result': require('.'),
+    'tape/switch-expected-with-result': switchExpectedWithResult,
 });
 
 test('plugin-tape: switch-expected-with-result: report', (t) => {

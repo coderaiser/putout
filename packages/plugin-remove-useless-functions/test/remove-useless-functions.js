@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessFunctions = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-functions': require('..'),
+    'remove-useless-functions': removeUselessFunctions,
 });
 
 test('remove usless functions: report', (t) => {

@@ -1,5 +1,7 @@
 'use strict';
 
+const {declare} = require('@putout/plugin-tape').rules;
+
 const mergeDebugger = require('..');
 const test = require('@putout/test')(__dirname, {
     'merge-duplicate-imports': mergeDebugger,
@@ -17,7 +19,7 @@ test('merge duplicate imports: transform', (t) => {
 
 test('merge duplicate imports: transform: tape: declare', (t) => {
     t.transform('tape', {
-        'tape/declare': require('@putout/plugin-tape').rules.declare,
+        'tape/declare': declare,
     });
     t.end();
 });

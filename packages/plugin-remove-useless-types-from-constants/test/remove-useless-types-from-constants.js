@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessTypesFromConstants = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-types-from-constants': require('..'),
+    'remove-useless-types-from-constants': removeUselessTypesFromConstants,
 });
 
 test('plugin-remove-useless-types-from-constants: report', (t) => {

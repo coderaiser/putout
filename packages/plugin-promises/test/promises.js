@@ -1,7 +1,9 @@
 'use strict';
 
+const promises = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    promises: require('..'),
+    promises,
 });
 
 test('plugin-promises: transform: report', (t) => {

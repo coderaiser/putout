@@ -1,7 +1,9 @@
 'use strict';
 
+const convertCalledWithArguments = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/convert-called-with-arguments': require('.'),
+    'tape/convert-called-with-arguments': convertCalledWithArguments,
 });
 
 test('plugin-tape: convert-called-with-arguments: report', (t) => {

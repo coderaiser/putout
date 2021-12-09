@@ -1,7 +1,9 @@
 'use strict';
 
+const removeEmptyArgument = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-empty-argument': require('.'),
+    'remove-empty-argument': removeEmptyArgument,
 });
 
 test('plugin-remove-empty: argument: report', (t) => {

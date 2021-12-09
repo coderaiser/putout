@@ -1,7 +1,9 @@
 'use strict';
 
+const applyOptionalChaining = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'apply-optional-chaining': require('..'),
+    'apply-optional-chaining': applyOptionalChaining,
 });
 
 test('plugin-apply-optional-chaining: transform: report', (t) => {

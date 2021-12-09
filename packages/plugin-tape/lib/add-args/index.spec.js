@@ -1,7 +1,9 @@
 'use strict';
 
+const addArgs = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/add-args': require('.'),
+    'tape/add-args': addArgs,
 });
 
 test('plugin-tape: add-args: report', (t) => {

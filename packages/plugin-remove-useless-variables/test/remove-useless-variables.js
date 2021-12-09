@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessVariables = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-variables': require('..'),
+    'remove-useless-variables': removeUselessVariables,
 });
 
 test('remove usless variables: report', (t) => {

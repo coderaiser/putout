@@ -231,8 +231,11 @@ test('formatter: dump: many', async ({formatMany}) => {
 Here is example of tests for [remove-console](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-console):
 
 ```js
-const test = require('@putout/test')(__dirname, {
-    'remove-console': require('..'),
+const removeConsole = require('@putout/plugin-remove-console');
+const {createTest} = require('@putout/test');
+
+const test = createTest(__dirname, {
+    'remove-console': removeConsole,
 });
 
 test('remove-console: report', (t) => {

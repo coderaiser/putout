@@ -1,7 +1,9 @@
 'use strict';
 
+const shortenPutoutExports = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/shorten-putout-exports': require('.'),
+    'putout/shorten-putout-exports': shortenPutoutExports,
 });
 
 test('plugin-putout: shorten-putout-exports: report', (t) => {

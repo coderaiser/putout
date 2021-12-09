@@ -1,7 +1,9 @@
 'use strict';
 
+const nodejs = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    nodejs: require('..'),
+    nodejs,
 });
 
 test('cloudcmd: convert-fs-promises: transform', (t) => {

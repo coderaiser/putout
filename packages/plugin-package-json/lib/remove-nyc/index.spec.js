@@ -1,7 +1,9 @@
 'use strict';
 
+const removeNyc = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'package-json/remove-nyc': require('.'),
+    'package-json/remove-nyc': removeNyc,
 });
 
 test('putout: plugin-package-json: remove-nyc: report', (t) => {

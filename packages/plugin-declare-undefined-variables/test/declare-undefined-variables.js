@@ -1,9 +1,11 @@
 'use strict';
 
+const declareUndefinedVariables = require('..');
+
 const montag = require('montag');
 
 const test = require('@putout/test')(__dirname, {
-    'declare-undefined-variables': require('..'),
+    'declare-undefined-variables': declareUndefinedVariables,
 });
 
 test('putout: plugin: declare-undefined-variables: report: assign', (t) => {

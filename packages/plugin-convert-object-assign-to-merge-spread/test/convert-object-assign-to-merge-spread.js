@@ -1,7 +1,9 @@
 'use strict';
 
+const convertObjectAssignToMergeSpread = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-object-assign-to-merge-spread': require('..'),
+    'convert-object-assign-to-merge-spread': convertObjectAssignToMergeSpread,
 });
 
 test('plugin-convert-object-assign-to-merge-spread: report', (t) => {

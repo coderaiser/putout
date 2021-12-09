@@ -1,7 +1,9 @@
 'use strict';
 
+const packageJson = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'package-json': require('..'),
+    'package-json': packageJson,
 });
 
 test('putout: plugin-package-json: remove-nyc: complex: report', (t) => {

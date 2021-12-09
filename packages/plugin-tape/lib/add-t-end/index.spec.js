@@ -1,7 +1,9 @@
 'use strict';
 
+const addTEnd = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/add-t-end': require('.'),
+    'tape/add-t-end': addTEnd,
 });
 
 test('plugin-tape: add-t-end: report', (t) => {

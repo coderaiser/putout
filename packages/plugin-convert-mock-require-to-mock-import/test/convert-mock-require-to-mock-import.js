@@ -1,7 +1,9 @@
 'use strict';
 
+const convertMockRequireToMockImport = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-mock-require-to-mock-import': require('..'),
+    'convert-mock-require-to-mock-import': convertMockRequireToMockImport,
 });
 
 test('plugin-convert-mock-require-to-mock-import: report', (t) => {

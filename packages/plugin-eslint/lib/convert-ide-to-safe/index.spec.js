@@ -1,7 +1,9 @@
 'use strict';
 
+const convertIdeToSafe = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'eslint/convert-ide-to-safe': require('.'),
+    'eslint/convert-ide-to-safe': convertIdeToSafe,
 });
 
 test('putout: plugin-eslint: convert-ide-to-safe: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const rename = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-variables/rename': require('.'),
+    'remove-useless-variables/rename': rename,
 });
 
 test('remove-useless-variables: rename: report', (t) => {

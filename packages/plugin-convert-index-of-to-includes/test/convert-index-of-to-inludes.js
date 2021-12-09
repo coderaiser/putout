@@ -1,7 +1,9 @@
 'use strict';
 
+const convertIndexOfToIncludes = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-index-of-to-includes': require('..'),
+    'convert-index-of-to-includes': convertIndexOfToIncludes,
 });
 
 test('plugin-convert-index-of-to-includes: report', (t) => {

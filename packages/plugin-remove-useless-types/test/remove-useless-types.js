@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessTypes = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-types': require('..'),
+    'remove-useless-types': removeUselessTypes,
 });
 
 test('remove useless types: report', (t) => {

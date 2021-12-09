@@ -1,7 +1,9 @@
 'use strict';
 
+const convertFsPromises = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'nodejs/convert-fs-promises': require('.'),
+    'nodejs/convert-fs-promises': convertFsPromises,
 });
 
 test('nodejs: convert-fs-promises: report', (t) => {

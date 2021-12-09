@@ -1,7 +1,9 @@
 'use strict';
 
+const convertNodeToPathInGetTemplateValues = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/convert-node-to-path-in-get-template-values': require('.'),
+    'putout/convert-node-to-path-in-get-template-values': convertNodeToPathInGetTemplateValues,
 });
 
 test('plugin-putout: convert-node-to-path-in-get-template-values: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const callRun = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'call-run': require('.'),
+    'call-run': callRun,
 });
 
 test('madrun: call run: report', (t) => {

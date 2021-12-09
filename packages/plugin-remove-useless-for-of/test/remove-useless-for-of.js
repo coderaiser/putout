@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessForOf = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-for-of': require('..'),
+    'remove-useless-for-of': removeUselessForOf,
 });
 
 test('plugin-remove-useless-for-of: report', (t) => {

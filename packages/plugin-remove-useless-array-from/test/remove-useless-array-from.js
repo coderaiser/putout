@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessArrayFrom = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-array-from': require('..'),
+    'remove-useless-array-from': removeUselessArrayFrom,
 });
 
 test('plugin-remove-useless-array-from: report', (t) => {

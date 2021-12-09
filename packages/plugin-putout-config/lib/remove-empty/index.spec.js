@@ -1,7 +1,9 @@
 'use strict';
 
+const removeEmpty = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout-config/remove-empty': require('.'),
+    'putout-config/remove-empty': removeEmpty,
 });
 
 test('plugin-putout-config: remove-empty: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const applyEarlyReturn = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'apply-early-return': require('..'),
+    'apply-early-return': applyEarlyReturn,
 });
 
 test('plugin-apply-early-return: transform: report', (t) => {

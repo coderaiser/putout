@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessConstructor = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-constructor': require('..'),
+    'remove-useless-constructor': removeUselessConstructor,
 });
 
 test('plugin-remove-useless-constructor: report', (t) => {

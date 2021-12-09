@@ -1,7 +1,9 @@
 'use strict';
 
+const renameMethodUnderScore = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'rename-method-under-score': require('.'),
+    'rename-method-under-score': renameMethodUnderScore,
 });
 
 test('plugin-react-hooks: rename-method-under-score: report', (t) => {

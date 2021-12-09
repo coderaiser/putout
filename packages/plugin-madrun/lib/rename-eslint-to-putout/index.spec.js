@@ -1,7 +1,9 @@
 'use strict';
 
+const renameEsilntToPutout = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'madrun/rename-esilnt-to-putout': require('.'),
+    'madrun/rename-esilnt-to-putout': renameEsilntToPutout,
 });
 
 test('madrun: rename-eslint-to-putout: report', (t) => {

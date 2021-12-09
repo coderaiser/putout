@@ -1,7 +1,9 @@
 'use strict';
 
+const addAwaitToReImport = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'tape/add-await-to-re-import': require('.'),
+    'tape/add-await-to-re-import': addAwaitToReImport,
 });
 
 test('plugin-tape: add-await-to-re-import: report', (t) => {

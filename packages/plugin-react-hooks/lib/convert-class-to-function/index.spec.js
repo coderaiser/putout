@@ -1,7 +1,9 @@
 'use strict';
 
+const convertClassToFunction = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-class-to-function': require('.'),
+    'convert-class-to-function': convertClassToFunction,
 });
 
 test('plugin-react-hooks: convert-class-to-function: report', (t) => {

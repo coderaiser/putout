@@ -1,7 +1,9 @@
 'use strict';
 
+const convertArrayCopyToSlice = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-array-copy-to-slice': require('..'),
+    'convert-array-copy-to-slice': convertArrayCopyToSlice,
 });
 
 test('plugin-convert-array-copy-to-slice: report', (t) => {

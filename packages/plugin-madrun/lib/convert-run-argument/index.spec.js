@@ -1,7 +1,9 @@
 'use strict';
 
+const convertRunArgument = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'madrun/convert-run-argument': require('.'),
+    'madrun/convert-run-argument': convertRunArgument,
 });
 
 test('madrun: convert run argument: report', (t) => {

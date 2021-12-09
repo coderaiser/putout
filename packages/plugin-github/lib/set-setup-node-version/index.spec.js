@@ -1,7 +1,9 @@
 'use strict';
 
+const setSetupNodeVersion = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'github/set-setup-node-version': require('.'),
+    'github/set-setup-node-version': setSetupNodeVersion,
 });
 
 test('plugin-github: set setup-node versions: report', (t) => {

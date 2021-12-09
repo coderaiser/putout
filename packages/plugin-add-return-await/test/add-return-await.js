@@ -1,7 +1,9 @@
 'use strict';
 
+const addReturnAwait = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'add-return-await': require('..'),
+    'add-return-await': addReturnAwait,
 });
 
 test('plugin-add-return-await: report', (t) => {

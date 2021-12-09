@@ -1,7 +1,9 @@
 'use strict';
 
+const extractObjectProperties = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'extract-object-properties': require('..'),
+    'extract-object-properties': extractObjectProperties,
 });
 
 test('plugin-extract-object-properties: report', (t) => {

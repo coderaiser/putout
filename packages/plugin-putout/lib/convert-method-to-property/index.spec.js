@@ -1,7 +1,9 @@
 'use strict';
 
+const convertMethodToProperty = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/convert-method-to-property': require('.'),
+    'putout/convert-method-to-property': convertMethodToProperty,
 });
 
 test('plugin-putout: convert-method-to-property: report', (t) => {

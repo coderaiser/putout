@@ -1,7 +1,9 @@
 'use strict';
 
+const removePutout = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'madrun/remove-putout': require('.'),
+    'madrun/remove-putout': removePutout,
 });
 
 test('madrun: remove putout: report', (t) => {

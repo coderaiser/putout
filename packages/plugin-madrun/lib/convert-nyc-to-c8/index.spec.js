@@ -1,7 +1,9 @@
 'use strict';
 
+const convertNycToC8 = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-nyc-to-c8': require('.'),
+    'convert-nyc-to-c8': convertNycToC8,
 });
 
 test('madrun: convert-nyc-to-c8: report', (t) => {

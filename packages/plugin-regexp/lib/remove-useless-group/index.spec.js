@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessGroup = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'regexp/remove-useless-group': require('.'),
+    'regexp/remove-useless-group': removeUselessGroup,
 });
 
 test('plugin-regexp/remove-useless-group: report', (t) => {

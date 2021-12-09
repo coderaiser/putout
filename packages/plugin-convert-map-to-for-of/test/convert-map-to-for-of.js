@@ -1,7 +1,9 @@
 'use strict';
 
+const convertMapToForOf = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-map-to-for-of': require('..'),
+    'convert-map-to-for-of': convertMapToForOf,
 });
 
 test('plugin-convert-map-to-for-of: report', (t) => {

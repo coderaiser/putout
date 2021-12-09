@@ -1,7 +1,9 @@
 'use strict';
 
+const convertAddArgumentToAddArgs = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'putout/convert-add-argument-to-add-args': require('.'),
+    'putout/convert-add-argument-to-add-args': convertAddArgumentToAddArgs,
 });
 
 test('plugin-putout: convert-add-argument-to-add-args: report', (t) => {

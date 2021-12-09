@@ -1,7 +1,9 @@
 'use strict';
 
+const convertPromisifyToFsPromises = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-promisify-to-fs-promises': require('.'),
+    'convert-promisify-to-fs-promises': convertPromisifyToFsPromises,
 });
 
 test('plugin-convert-fs-to-promises: report', (t) => {

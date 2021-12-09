@@ -1,7 +1,9 @@
 'use strict';
 
+const putout = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    putout: require('..'),
+    putout,
 });
 
 test('plugin-putout: transform', (t) => {
@@ -81,5 +83,10 @@ test('plugin-putout: convert-method-to-property: complex: transform: add-args', 
 
 test('plugin-putout: convert-add-argument-to-add-args', (t) => {
     t.transform('convert-add-argument-to-add-args');
+    t.end();
+});
+
+test('plugin-putout: transform: move-require-on-top-level', (t) => {
+    t.transform('move-require-on-top-level');
     t.end();
 });

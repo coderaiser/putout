@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessMap = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-map': require('..'),
+    'remove-useless-map': removeUselessMap,
 });
 
 test('plugin-remove-useless-map: report', (t) => {

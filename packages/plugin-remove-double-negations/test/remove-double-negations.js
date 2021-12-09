@@ -1,7 +1,9 @@
 'use strict';
 
+const removeDoubleNegations = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-double-negations': require('..'),
+    'remove-double-negations': removeDoubleNegations,
 });
 
 test('plugin-remove-double-negations: transform: report', (t) => {

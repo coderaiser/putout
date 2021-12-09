@@ -1,7 +1,9 @@
 'use strict';
 
+const convertMathPow = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-math-pow': require('..'),
+    'convert-math-pow': convertMathPow,
 });
 
 test('plugin-convert-math-pow: report', (t) => {

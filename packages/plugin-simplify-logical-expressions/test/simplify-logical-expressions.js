@@ -1,7 +1,9 @@
 'use strict';
 
+const simplifyLogicalExpression = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'simplify-logical-expression': require('..'),
+    'simplify-logical-expression': simplifyLogicalExpression,
 });
 
 test('plugin-simplify-logical-expression: report', (t) => {

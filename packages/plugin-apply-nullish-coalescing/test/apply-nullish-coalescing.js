@@ -1,7 +1,9 @@
 'use strict';
 
+const applyNullishCoalescing = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'apply-nullish-coalescing': require('..'),
+    'apply-nullish-coalescing': applyNullishCoalescing,
 });
 
 test('plugin-apply-nullish-coalescing: transform: report', (t) => {

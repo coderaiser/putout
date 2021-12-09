@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessAsync = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-async': require('..'),
+    'remove-useless-async': removeUselessAsync,
 });
 
 test('plugin-remove-useless-async: report', (t) => {

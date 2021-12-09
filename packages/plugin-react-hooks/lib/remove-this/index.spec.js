@@ -1,7 +1,9 @@
 'use strict';
 
+const removeThis = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-this': require('.'),
+    'remove-this': removeThis,
 });
 
 test('plugin-react-hooks: remove-this: report', (t) => {

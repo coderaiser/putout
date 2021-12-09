@@ -1,7 +1,9 @@
 'use strict';
 
+const applyIsArray = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'apply-is-array': require('..'),
+    'apply-is-array': applyIsArray,
 });
 
 test('plugin-apply-is-array: transform: report', (t) => {

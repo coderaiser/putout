@@ -1,7 +1,9 @@
 'use strict';
 
+const removeBooleanFromAssertions = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-boolean-from-assertions': require('..'),
+    'remove-boolean-from-assertions': removeBooleanFromAssertions,
 });
 
 test('plugin-remove-boolean-from-assertions: report', (t) => {

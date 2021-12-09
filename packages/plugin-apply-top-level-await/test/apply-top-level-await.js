@@ -1,7 +1,9 @@
 'use strict';
 
+const applyTopLevelAwait = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'apply-top-level-await': require('..'),
+    'apply-top-level-await': applyTopLevelAwait,
 });
 
 test('plugin-apply-top-level-await: transform: report', (t) => {

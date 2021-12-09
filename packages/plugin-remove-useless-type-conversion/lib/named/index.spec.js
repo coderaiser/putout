@@ -1,7 +1,9 @@
 'use strict';
 
+const removeUselessTypeConversion = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'remove-useless-type-conversion': require('.'),
+    'remove-useless-type-conversion': removeUselessTypeConversion,
 });
 
 test('plugin-remove-useless-type-conversion: named: report', (t) => {

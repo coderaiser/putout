@@ -1,7 +1,9 @@
 'use strict';
 
+const convertGenericToShorthand = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-generic-to-shorthand': require('..'),
+    'convert-generic-to-shorthand': convertGenericToShorthand,
 });
 
 test('plugin-convert-generic-to-shorthand: report', (t) => {

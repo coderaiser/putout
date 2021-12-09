@@ -1,7 +1,9 @@
 'use strict';
 
+const addFixLint = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'add-fix-lint': require('.'),
+    'add-fix-lint': addFixLint,
 });
 
 test('madrun: add fix:lint: report', (t) => {

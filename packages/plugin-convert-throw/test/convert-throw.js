@@ -1,7 +1,9 @@
 'use strict';
 
+const convertThrow = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-throw': require('..'),
+    'convert-throw': convertThrow,
 });
 
 test('plugin-convert-throw: report', (t) => {

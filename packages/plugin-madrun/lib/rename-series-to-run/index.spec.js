@@ -1,7 +1,9 @@
 'use strict';
 
+const renameSeriesToRun = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'madrun/rename-series-to-run': require('.'),
+    'madrun/rename-series-to-run': renameSeriesToRun,
 });
 
 test('madrun: rename-series-to-run: report', (t) => {

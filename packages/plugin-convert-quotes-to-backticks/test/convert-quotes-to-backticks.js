@@ -1,7 +1,9 @@
 'use strict';
 
+const convertQuotesToBacktics = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-quotes-to-backtics': require('..'),
+    'convert-quotes-to-backtics': convertQuotesToBacktics,
 });
 
 test('plugin-convert-quotes-to-backtics: report', (t) => {

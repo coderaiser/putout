@@ -1,7 +1,9 @@
 'use strict';
 
+const convertImportComponentToUseState = require('.');
+
 const test = require('@putout/test')(__dirname, {
-    'convert-import-component-to-use-state': require('.'),
+    'convert-import-component-to-use-state': convertImportComponentToUseState,
 });
 
 test('plugin-react-hooks: convert-import-component-to-use-state: report', (t) => {

@@ -1,7 +1,9 @@
 'use strict';
 
+const extractSequenceExpressions = require('..');
+
 const test = require('@putout/test')(__dirname, {
-    'extract-sequence-expressions': require('..'),
+    'extract-sequence-expressions': extractSequenceExpressions,
 });
 
 test('plugin-extract-sequence-expressions: report', (t) => {
