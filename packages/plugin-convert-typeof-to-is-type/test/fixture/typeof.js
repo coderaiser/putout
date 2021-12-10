@@ -1,3 +1,4 @@
+const isFn = (a) => typeof a === 'function';
 typeof fn === 'function';
 typeof a === 'string';
 typeof a === 'boolean';

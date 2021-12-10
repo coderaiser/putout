@@ -15,12 +15,17 @@ test('plugin-convert-typeof-to-is-type: transform', (t) => {
 });
 
 test('plugin-convert-typeof-to-is-type: transform: fn', (t) => {
-    t.noTransform('fn');
+    t.transform('fn');
     t.end();
 });
 
 test('plugin-convert-typeof-to-is-type: transform: declaration', (t) => {
     t.noTransform('declaration');
+    t.end();
+});
+
+test('plugin-convert-typeof-to-is-type: transform: global', (t) => {
+    t.transform('global');
     t.end();
 });
 
