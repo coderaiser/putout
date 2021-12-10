@@ -2,11 +2,13 @@
 
 const {isArray} = Array;
 
+const isBool = (a) => typeof a === 'boolean';
+
 module.exports = (name, rules) => {
     if (isArray(name))
         [name] = name;
     
-    if (typeof rules[name] === 'boolean')
+    if (isBool(rules[name]))
         return rules[name];
     
     let resultState = true;
