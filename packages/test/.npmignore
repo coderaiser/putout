@@ -1,7 +1,7 @@
 .*
 test
 yarn-error.log
-*.spec.js
+*.spec.*
 
 coverage
 fixture

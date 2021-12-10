@@ -42,7 +42,10 @@ const readFixture = (name) => {
     return [readFileSync(`${name}.js`, 'utf8'), TS.DISABLED];
 };
 
-module.exports = (dir, plugin, rules) => {
+module.exports = createTest;
+module.exports.createTest = createTest;
+
+function createTest(dir, plugin, rules) {
     const update = isUpdate();
     
     dir = join(dir, 'fixture');
@@ -75,7 +78,7 @@ module.exports = (dir, plugin, rules) => {
         formatMany: (update ? formatManySave : formatMany)({dir, plugins, rules}),
         noFormat: noFormat({dir, plugins, rules}),
     });
-};
+}
 
 const format = currify(({dir, plugins, rules}, t) => async (formatter, name, formatterOptions = {}) => {
     const full = join(dir, name);

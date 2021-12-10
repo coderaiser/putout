@@ -41,8 +41,7 @@
     "eslint": "^8.0.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^12.0.0",
-    "madrun": "^8.0.1",
-    "simport": "^1.2.0"
+    "madrun": "^8.0.1"
   },
   "peerDependencies": {
     "putout": ">=22.5"

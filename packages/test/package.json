@@ -9,8 +9,12 @@
     "tape": "bin/test.mjs"
   },
   "exports": {
-    ".": "./lib/test.js",
-    "./processor": "./lib/processor/index.js"
+    ".": {
+      "require": "./lib/test.js",
+      "import": "./lib/test.mjs"
+    },
+    "./processor": "./lib/processor/index.js",
+    "./formatter": "./lib/formatter/index.mjs"
   },
   "release": false,
   "tag": false,
@@ -33,6 +37,7 @@
     "@putout/engine-processor": "*",
     "currify": "^4.0.0",
     "putout": "*",
+    "simport": "^1.2.0",
     "supertape": "^6.0.0",
     "try-catch": "^3.0.0"
   },
@@ -58,8 +63,7 @@
     "lerna": "^4.0.0",
     "madrun": "^8.0.1",
     "mock-require": "^3.0.3",
-    "nodemon": "^2.0.1",
-    "simport": "^1.2.0"
+    "nodemon": "^2.0.1"
   },
   "license": "MIT",
   "engines": {

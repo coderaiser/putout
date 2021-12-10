@@ -1,16 +1,9 @@
-import {createCommons} from 'simport';
-
-const {
-    __dirname,
-    require,
-} = createCommons(import.meta.url);
+import {createTest} from '@putout/test';
+import rmVars from '@putout/plugin-remove-unused-variables';
 
 import dump from '../lib/dump.js';
-
-import createTest from '@putout/test';
-
-const test = createTest(__dirname, {
-    'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
+const test = createTest(import.meta.url, {
+    'remove-unused-variables': rmVars,
 });
 
 test('formatter: dump', async ({format}) => {
