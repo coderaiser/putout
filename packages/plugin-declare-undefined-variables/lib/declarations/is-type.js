@@ -7,5 +7,6 @@ module.exports = {
     isBool: `const isBool = (a) => typeof a === 'boolean'`,
     isObject: `const isObject = (a) => a && typeof a === 'object'`,
     isUndefined: `const isUndefined = (a) => typeof a === 'undefined'`,
+    isSymbol: `const isSymbol = (a) => typeof a === 'symbol'`,
 };
 

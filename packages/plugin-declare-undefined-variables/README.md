@@ -12,7 +12,7 @@
 - [os](https://nodejs.org/dist/latest-v16.x/docs/api/os.html);
 - [zlib](https://nodejs.org/dist/latest-v16.x/docs/api/zlib.html);
 - [child_process](https://nodejs.org/dist/latest-v16.x/docs/api/child_process.html);
-- types: `isFn`, `isString`, `isNumber`, `isObject` `isUndefined`;
+- is types: `isFn`, `isString`, `isNumber`, `isObject`, `isUndefined`, `isSymbol`;
 - maybe: `maybeArray`, `maybeFn`, `maybeEmptyArray`;
 - wrap: `not`,`id`, `returns`;
 - fresh-import: `freshImport`, `freshImportDefault`;

@@ -4,3 +4,4 @@ isObject(a);
 isFn(a);
 isBool(a);
 isUndefined(a);
+isSymbol(a);
