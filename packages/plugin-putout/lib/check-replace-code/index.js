@@ -48,6 +48,10 @@ module.exports.traverse = ({push}) => ({
                 continue;
             
             const {node} = propertyPath;
+            
+            if (node.computed)
+                return false;
+            
             const key = extract(node.key);
             const template = extract(node.value);
             const [generateError, keyCode] = generateCode(path, key);

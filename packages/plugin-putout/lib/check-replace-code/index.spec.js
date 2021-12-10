@@ -19,6 +19,11 @@ test('plugin-putout: check-replace-code: no transform: replace', (t) => {
     t.end();
 });
 
+test('plugin-putout: check-replace-code: no transform: computed', (t) => {
+    t.noReport('computed');
+    t.end();
+});
+
 test('plugin-putout: check-replace-code: no transform: replace: destr', (t) => {
     t.noTransform('destr');
     t.end();
