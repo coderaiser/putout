@@ -25,6 +25,7 @@ module.exports.replace = () => ({
     'typeof __a === "number"': 'isNumber(__a)',
     'typeof __a === "boolean"': 'isBool(__a)',
     'typeof __a === "undefined"': 'isUndefined(__a)',
+    'typeof __a === "symbol"': 'isSymbol(__a)',
 });
 
 const names = [
@@ -33,6 +34,7 @@ const names = [
     'isNumber',
     'isBool',
     'isUndefined',
+    'isSymbol',
 ];
 
 function isBind({scope}) {
