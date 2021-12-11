@@ -102,6 +102,37 @@ Get binding `path` by name using starting from `path` and move up.
 getBindingPath(path, 'hello');
 ```
 
+## `compute(path)`
+
+Computes value of expression:
+
+For `code` like this:
+
+```js
+const bodies = {
+    function: `typeof __a === 'function'`,
+};
+
+module.exports.replace = () => ({
+    [bodies.function]: 'isFn(__a)',
+});
+```
+
+You can compute value of `bodies.function`:
+
+```js
+const {parse, operator} = require('putout');
+const {traverse, compute} = operator;
+
+traverse({
+    '__a.__b': (path) => {
+        const [computed, value] = compute(path);
+        // returns
+        [true, "typeof __a === 'function'"];
+    },
+});
+```
+
 ## License
 
 MIT

@@ -659,3 +659,10 @@ test('opreate: extract', (t) => {
     t.equal(operate.extract, extract);
     t.end();
 });
+
+test('opreate: compute', (t) => {
+    const {compute} = require('../lib/compute');
+    
+    t.equal(operate.compute, compute);
+    t.end();
+});

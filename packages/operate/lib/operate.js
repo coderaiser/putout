@@ -9,12 +9,14 @@ const {
 
 const {getBinding, getBindingPath} = require('./get-binding');
 const {extract} = require('./extract');
+const {compute} = require('./compute');
 
 const {assign} = Object;
 
 module.exports.getBinding = getBinding;
 module.exports.getBindingPath = getBindingPath;
 module.exports.extract = extract;
+module.exports.compute = compute;
 module.exports.replaceWith = replaceWith;
 
 const compareTypes = (a) => (b) => a.includes(b);
