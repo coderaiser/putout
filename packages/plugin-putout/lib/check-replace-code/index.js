@@ -5,16 +5,12 @@ const tryCatch = require('try-catch');
 
 const generateCode = require('./generate-code');
 
-const {operator, types} = putout;
-const {
-    isMemberExpression,
-    isObjectExpression,
-} = types;
+const {operator} = putout;
 
 const {
     compare,
     extract,
-    getBindingPath,
+    compute,
 } = operator;
 
 const name = '__putout_plugin_check_replace_code';
@@ -33,7 +29,7 @@ module.exports.report = ({path, code, error}) => {
     if (error)
         return error.message;
     
-    const key = extract(path.node.key);
+    const [, key] = parseKey(path);
     const value = extract(path.node.value);
     
     return `transform mismatch: "${key}" -> "${value}" !== "${code}"`;
@@ -53,13 +49,18 @@ module.exports.traverse = ({push}) => ({
                 continue;
             
             const {node} = propertyPath;
-            const key = compute(propertyPath);
+            const [parseError, key] = parseKey(propertyPath);
             
-            if (!key)
-                continue;
+            if (parseError) {
+                push({
+                    error: parseError,
+                    mainPath: path,
+                    path: propertyPath,
+                });
+                return;
+            }
             
             const template = extract(node.value);
-            
             const [generateError, keyCode] = generateCode(path, key);
             
             if (generateError) {
@@ -106,34 +107,18 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-function compute(path) {
-    const {key, computed} = path.node;
+function parseKey(propertyPath) {
+    const {node} = propertyPath;
     
-    if (!computed)
-        return extract(key);
+    if (!node.computed)
+        return [null, extract(node.key)];
     
-    if (!isMemberExpression(key))
-        return '';
+    const keyPath = propertyPath.get('key');
+    const [isComputed, key] = compute(keyPath);
     
-    const bindingPath = getBindingPath(path, extract(key.object));
+    if (!isComputed)
+        return [Error(`Replace key cannot be computed: '${keyPath.toString()}'`)];
     
-    if (!bindingPath)
-        return '';
-    
-    const bindingNode = bindingPath.node;
-    
-    if (!isObjectExpression(bindingNode.init))
-        return '';
-    
-    const keyPropertyValue = extract(key.property);
-    
-    for (const property of bindingNode.init.properties) {
-        const keyValue = extract(property.key);
-        
-        if (keyValue === keyPropertyValue)
-            return extract(property.value);
-    }
-    
-    return `'not found'`;
+    return [null, key];
 }
 

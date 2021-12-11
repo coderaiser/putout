@@ -7,9 +7,9 @@ const BODIES = {
 };
 
 const {NOT_OBJECT_EXPRESSION} = options;
+const NOT_MEMBER_EXPRESSION = `typeof __a === 'b'`;
 
 module.exports.replace = () => ({
-    [NOT_FOUND.function]: 'isFn(__a)',
     [BODIES.string]: 'isString(__a)',
     [NOT_MEMBER_EXPRESSION]: 'isNumber(__a)',
     [NOT_OBJECT_EXPRESSION.boolean]: 'isBool(__a)',

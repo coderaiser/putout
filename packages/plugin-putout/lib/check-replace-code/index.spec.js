@@ -27,12 +27,12 @@ test('plugin-putout: check-replace-code: report: computed', (t) => {
 });
 
 test('plugin-putout: check-replace-code: report: computed: not found', (t) => {
-    t.report('computed-not-found', '☝️ Looks like template values not linked: [] -> ["__a"]');
+    t.report('computed-not-found', `Replace key cannot be computed: 'BODIES.function'`);
     t.end();
 });
 
 test('plugin-putout: check-replace-code: no report: computed invalid', (t) => {
-    t.noReport('computed-invalid');
+    t.report('computed-invalid', `Replace key cannot be computed: 'NOT_OBJECT_EXPRESSION.boolean'`);
     t.end();
 });
 
