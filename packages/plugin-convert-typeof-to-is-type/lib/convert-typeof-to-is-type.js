@@ -1,7 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {compare} = operator;
+const {compare, getBindingPath} = operator;
 
 const NAMES = {
     function: 'isFn',
@@ -49,29 +49,13 @@ module.exports.replace = () => ({
 function isBind(path, name) {
     const fnName = NAMES[name];
     const fnBody = BODIES[name];
-    const binding = getBinding(path, fnName);
+    const bindingPath = getBindingPath(path, fnName);
     
-    if (!binding)
+    if (!bindingPath)
         return false;
     
-    const {body} = binding.path.node.init;
+    const {body} = bindingPath.node.init;
     
     return !compare(body, fnBody);
-}
-
-function getBinding(path, name) {
-    const binding = path.scope.bindings[name];
-    
-    if (binding)
-        return binding;
-    
-    while (path = path.parentPath) {
-        const binding = path.scope.bindings[name];
-        
-        if (binding)
-            return binding;
-    }
-    
-    return null;
 }
 
