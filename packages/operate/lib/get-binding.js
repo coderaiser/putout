@@ -1,6 +1,7 @@
 'use strict';
 
-module.exports.getBinding = (path, name) => {
+module.exports.getBinding = getBinding;
+function getBinding(path, name) {
     const binding = path.scope.bindings[name];
     
     if (binding)
@@ -14,5 +15,6 @@ module.exports.getBinding = (path, name) => {
     }
     
     return null;
-};
+}
 
+module.exports.getBindingPath = (path, name) => getBinding(path, name)?.path;

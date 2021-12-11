@@ -1,8 +1,6 @@
+'use strict';
+
 const {
-    ExpressionStatement,
-    toStatement,
-    matchesPattern,
-    isImportDeclaration,
     isLiteral,
     isIdentifier,
     isTemplateElement,
@@ -33,5 +31,5 @@ function extract(node) {
         return extract(node.key);
     
     throw Error(`"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement and RegExpLiteral  🤷, found: ${node.type}`);
-};
+}
 

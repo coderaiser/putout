@@ -1,7 +1,5 @@
 'use strict';
 
-const tryCatch = require('try-catch');
-
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const putout = require('putout');
@@ -16,7 +14,6 @@ const {
 } = putout;
 
 const operate = require('..');
-const {extract} = operate;
 
 const {readFixtures} = require('./fixture');
 const fixture = readFixtures();
@@ -646,6 +643,13 @@ test('opreate: getBinding', (t) => {
     const {getBinding} = require('../lib/get-binding');
     
     t.equal(operate.getBinding, getBinding);
+    t.end();
+});
+
+test('opreate: getBindingPath', (t) => {
+    const {getBindingPath} = require('../lib/get-binding');
+    
+    t.equal(operate.getBindingPath, getBindingPath);
     t.end();
 });
 

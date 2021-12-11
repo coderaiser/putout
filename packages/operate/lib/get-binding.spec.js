@@ -4,9 +4,9 @@ const {parse, operator} = require('putout');
 const {test} = require('supertape');
 const {traverse} = operator;
 
-const {getBinding} = require('./get-binding');
+const {getBinding, getBindingPath} = require('./get-binding');
 
-test('operate: get-binding: current scope', (t) => {
+test('operate: getBinding: current scope', (t) => {
     let result;
     
     const ast = parse(`const hello = 'world'`);
@@ -22,7 +22,7 @@ test('operate: get-binding: current scope', (t) => {
     t.end();
 });
 
-test('operate: get-binding: upper scope', (t) => {
+test('operate: getBinding: upper scope', (t) => {
     let result;
     
     const ast = parse(`
@@ -44,7 +44,7 @@ test('operate: get-binding: upper scope', (t) => {
     t.end();
 });
 
-test('operate: get-binding: no', (t) => {
+test('operate: getBinding: no', (t) => {
     let result;
     
     const ast = parse(`
@@ -58,6 +58,44 @@ test('operate: get-binding: no', (t) => {
     traverse(ast, {
         'return __a'(path) {
             result = getBinding(path, 'hello');
+        },
+    });
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('operate: getBindingPath: same', (t) => {
+    let binding;
+    let bindingPath;
+    
+    const ast = parse(`const hello = 'world'`);
+    
+    traverse(ast, {
+        Identifier(path) {
+            binding = getBinding(path, 'hello');
+            bindingPath = getBindingPath(path, 'hello');
+        },
+    });
+    
+    t.equal(binding.path, bindingPath);
+    t.end();
+});
+
+test('operate: getBindingPath: no', (t) => {
+    let result;
+    
+    const ast = parse(`
+        const upper = 'scope'
+        
+        function x() {
+            return 'y';
+        }
+    `);
+    
+    traverse(ast, {
+        'return __a'(path) {
+            result = getBindingPath(path, 'hello');
         },
     });
     

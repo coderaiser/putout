@@ -22,6 +22,7 @@ If you write plugin for `putout` you already have `operator` in `putout`, all ex
 ### `extract(path)`
 
 Extract node value according to it's type::
+
 - if it is `Identifier` return `name`;
 - if it is any type of `Literal` return `value`;
 - if it is `RegExp` return `pattern`;
@@ -91,6 +92,14 @@ Get binding by name using starting from `path` and move up.
 
 ```js
 getBinding(path, 'hello');
+```
+
+## `getBindingPath(path, name)`
+
+Get binding `path` by name using starting from `path` and move up.
+
+```js
+getBindingPath(path, 'hello');
 ```
 
 ## License

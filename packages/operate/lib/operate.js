@@ -5,20 +5,15 @@ const {
     toStatement,
     matchesPattern,
     isImportDeclaration,
-    isLiteral,
-    isIdentifier,
-    isTemplateElement,
-    isRegExpLiteral,
-    isClassMethod,
-    isTemplateLiteral,
 } = require('@babel/types');
 
-const {getBinding} = require('./get-binding');
+const {getBinding, getBindingPath} = require('./get-binding');
 const {extract} = require('./extract');
 
 const {assign} = Object;
 
 module.exports.getBinding = getBinding;
+module.exports.getBindingPath = getBindingPath;
 module.exports.extract = extract;
 module.exports.replaceWith = replaceWith;
 
