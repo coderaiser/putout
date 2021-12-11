@@ -359,7 +359,7 @@ test('putout: runner: replace: template identifiers not linked', (t) => {
         }),
     };
     
-    const message = '☝️ Looks like template values not linked: ["__b"] ["__a"]';
+    const message = '☝️ Looks like template values not linked: ["__a"] -> ["__b"]';
     
     const [error] = tryCatch(putout, 'const a = 5', {
         runPlugins,

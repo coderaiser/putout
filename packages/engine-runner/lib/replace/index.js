@@ -26,7 +26,7 @@ const isObj = (a) => typeof a === 'object';
 const validateTemplateValues = (a, b) => {
     for (const key of keys(a)) {
         if (!b[key])
-            throw Error(`☝️ Looks like template values not linked: ${stringify(keys(a))} ${stringify(keys(b))}`);
+            throw Error(`☝️ Looks like template values not linked: ${stringify(keys(b))} -> ${stringify(keys(a))}`);
     }
 };
 
