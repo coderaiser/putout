@@ -5,11 +5,16 @@ const tryCatch = require('try-catch');
 
 const generateCode = require('./generate-code');
 
-const {operator} = putout;
+const {operator, types} = putout;
+const {
+    isMemberExpression,
+    isObjectExpression,
+} = types;
 
 const {
     compare,
     extract,
+    getBindingPath,
 } = operator;
 
 const name = '__putout_plugin_check_replace_code';
@@ -48,12 +53,13 @@ module.exports.traverse = ({push}) => ({
                 continue;
             
             const {node} = propertyPath;
+            const key = compute(propertyPath);
             
-            if (node.computed)
-                return false;
+            if (!key)
+                continue;
             
-            const key = extract(node.key);
             const template = extract(node.value);
+            
             const [generateError, keyCode] = generateCode(path, key);
             
             if (generateError) {
@@ -99,4 +105,35 @@ module.exports.traverse = ({push}) => ({
         }
     },
 });
+
+function compute(path) {
+    const {key, computed} = path.node;
+    
+    if (!computed)
+        return extract(key);
+    
+    if (!isMemberExpression(key))
+        return '';
+    
+    const bindingPath = getBindingPath(path, extract(key.object));
+    
+    if (!bindingPath)
+        return '';
+    
+    const bindingNode = bindingPath.node;
+    
+    if (!isObjectExpression(bindingNode.init))
+        return '';
+    
+    const keyPropertyValue = extract(key.property);
+    
+    for (const property of bindingNode.init.properties) {
+        const keyValue = extract(property.key);
+        
+        if (keyValue === keyPropertyValue)
+            return extract(property.value);
+    }
+    
+    return `'not found'`;
+}
 

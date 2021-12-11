@@ -1,5 +1,4 @@
 const BODIES = {
-    function: `typeof __a === 'string'`,
     string: `typeof __a === 'string'`,
     number: `typeof __a === 'number'`,
     boolean: `typeof __a === 'boolean'`,
@@ -7,11 +6,13 @@ const BODIES = {
     symbol: `typeof __a === 'symbol'`,
 };
 
+const {NOT_OBJECT_EXPRESSION} = options;
+
 module.exports.replace = () => ({
-    [BODIES.function]: 'isFn(__a)',
-    [BODIES.string]: 'isString(__b)',
-    [BODIES.number]: 'isNumber(__a)',
-    [BODIES.boolean]: 'isBool(__a)',
+    [NOT_FOUND.function]: 'isFn(__a)',
+    [BODIES.string]: 'isString(__a)',
+    [NOT_MEMBER_EXPRESSION]: 'isNumber(__a)',
+    [NOT_OBJECT_EXPRESSION.boolean]: 'isBool(__a)',
     [BODIES.undefined]: 'isUndefined(__a)',
     [BODIES.symbol]: 'isSymbol(__a)',
 });

@@ -7,7 +7,7 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('plugin-putout: check-replace-code: report', (t) => {
-    t.report('replace', '☝️ Looks like template values not linked: ["__b"] ["__a"]');
+    t.report('replace', '☝️ Looks like template values not linked: ["__a"] -> ["__b"]');
     t.end();
 });
 
@@ -21,8 +21,18 @@ test('plugin-putout: check-replace-code: no transform: replace', (t) => {
     t.end();
 });
 
-test('plugin-putout: check-replace-code: no transform: computed', (t) => {
-    t.noReport('computed');
+test('plugin-putout: check-replace-code: report: computed', (t) => {
+    t.report('computed', '☝️ Looks like template values not linked: ["__a"] -> ["__b"]');
+    t.end();
+});
+
+test('plugin-putout: check-replace-code: report: computed: not found', (t) => {
+    t.report('computed-not-found', '☝️ Looks like template values not linked: [] -> ["__a"]');
+    t.end();
+});
+
+test('plugin-putout: check-replace-code: no report: computed invalid', (t) => {
+    t.noReport('computed-invalid');
     t.end();
 });
 

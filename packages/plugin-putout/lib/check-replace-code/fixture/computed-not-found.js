@@ -1,5 +1,4 @@
 const BODIES = {
-    function: `typeof __a === 'string'`,
     string: `typeof __a === 'string'`,
     number: `typeof __a === 'number'`,
     boolean: `typeof __a === 'boolean'`,
