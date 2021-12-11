@@ -19,14 +19,18 @@ If you write plugin for `putout` you already have `operator` in `putout`, all ex
 
 ## API
 
-### extract(path)
+### `extract(path)`
 
-- checks the node by type,
-- if it is `Identifier` return `name`,
-- if it is any type of `Literal` return `value`
+Extract node value according to it's type::
+- if it is `Identifier` return `name`;
+- if it is any type of `Literal` return `value`;
+- if it is `RegExp` return `pattern`;
+- if it is `TemplateLiteral` return `qusis[0].value.raw`;
+- if it is `TemplateElement` return `value.raw`;
+- if it is `ClassMethod` return `key`;
 - `throw` in other cases
 
-### replaceWith(path, node)
+### `replaceWith(path, node)`
 
 ```js
 const {
@@ -40,7 +44,7 @@ const {ContinueStatement} = types;
 replaceWith(path, ContinueStatement());
 ```
 
-### replaceWithMultiple(path, nodes)
+### `replaceWithMultiple(path, nodes)`
 
 ```js
 const {
@@ -60,25 +64,33 @@ replaceWithMultiple(path, [
 ]);
 ```
 
-### isModuleExports(path)
+### `isModuleExports(path)`
 
 Check if currentPath is `module.exports` expression.
 
-### toExpression(node)
+### `toExpression(node)`
 
 Can be used to convert node to `expression` when building new nodes.
 
-### remove(path)
+### `remove(path)`
 
 Remove `node`, preserve comments.
 
-## getPathAfterImports(body)
+## `getPathAfterImports(body)`
 
 Get next `path` after latest `ImportDeclaration`:
 
 ```js
 const programPath =  path.scope.getProgramParent().path;
 const afterImportsPath = getPathAfterImports(programPath.get('body'));
+```
+
+## `getBinding(path, name)`
+
+Get binding by name using starting from `path` and move up.
+
+```js
+getBinding(path, 'hello');
 ```
 
 ## License

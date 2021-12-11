@@ -10,10 +10,16 @@ const {
     isTemplateElement,
     isRegExpLiteral,
     isClassMethod,
+    isTemplateLiteral,
 } = require('@babel/types');
+
+const {getBinding} = require('./get-binding');
+const {extract} = require('./extract');
 
 const {assign} = Object;
 
+module.exports.getBinding = getBinding;
+module.exports.extract = extract;
 module.exports.replaceWith = replaceWith;
 
 const compareTypes = (a) => (b) => a.includes(b);
@@ -136,24 +142,4 @@ module.exports.getPathAfterImports = (body) => {
     
     return body[i];
 };
-
-module.exports.extract = extract;
-function extract(node) {
-    if (isIdentifier(node))
-        return node.name;
-    
-    if (isRegExpLiteral(node))
-        return node.pattern;
-    
-    if (isLiteral(node))
-        return node.value;
-    
-    if (isTemplateElement(node))
-        return node.value.raw;
-    
-    if (isClassMethod(node))
-        return extract(node.key);
-    
-    throw Error(`"operator.extract(node)" understands only Literals, Identifiers, TemplateElement and RegExpLiteral  🤷, found: ${node.type}`);
-}
 

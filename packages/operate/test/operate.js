@@ -642,103 +642,16 @@ test('operate: getPathAfterImports: couple imports', (t) => {
     t.end();
 });
 
-test('operate: extract: Identifier', (t) => {
-    const name = 'hello';
-    const node = {
-        type: 'Identifier',
-        name,
-    };
+test('opreate: getBinding', (t) => {
+    const {getBinding} = require('../lib/get-binding');
     
-    const value = extract(node);
-    
-    t.equal(name, value);
+    t.equal(operate.getBinding, getBinding);
     t.end();
 });
 
-test('operate: extract: Literal', (t) => {
-    const value = 'hello';
-    const node = {
-        type: 'StringLiteral',
-        value,
-    };
+test('opreate: extract', (t) => {
+    const {extract} = require('../lib/extract');
     
-    const result = extract(node);
-    
-    t.equal(result, value);
+    t.equal(operate.extract, extract);
     t.end();
 });
-
-test('operate: extract: TemplateElement', (t) => {
-    const raw = 'hello';
-    const node = {
-        type: 'TemplateElement',
-        value: {
-            raw,
-        },
-    };
-    
-    const result = extract(node);
-    
-    t.equal(result, raw);
-    t.end();
-});
-
-test('operate: extract: RegExpLiteral', (t) => {
-    const pattern = 'hello';
-    const node = {
-        type: 'RegExpLiteral',
-        pattern,
-    };
-    
-    const result = extract(node);
-    
-    t.equal(result, pattern);
-    t.end();
-});
-
-test('operate: extract: ClassMethod: Identifier', (t) => {
-    const name = 'hello';
-    const node = {
-        type: 'ClassMethod',
-        key: {
-            type: 'Identifier',
-            name,
-        },
-    };
-    
-    const result = extract(node);
-    
-    t.equal(result, name);
-    t.end();
-});
-
-test('operate: extract: ClassMethod: Literal', (t) => {
-    const value = 'hello';
-    const node = {
-        type: 'ClassMethod',
-        key: {
-            type: 'StringLiteral',
-            value,
-        },
-    };
-    
-    const result = extract(node);
-    
-    t.equal(result, value);
-    t.end();
-});
-
-test('operate: extract: unknown', (t) => {
-    const value = 'hello';
-    const node = {
-        type: 'UnknownStatement',
-        value,
-    };
-    
-    const [error] = tryCatch(extract, node);
-    const expected = '"operator.extract(node)" understands only Literals, Identifiers, TemplateElement and RegExpLiteral  🤷, found: UnknownStatement';
-    
-    t.equal(error.message, expected);
-    t.end();
-});
-
