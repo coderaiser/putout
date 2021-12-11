@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-convert-typeof-to-is-type",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert typeof to is type",
   "homepage": "http://github.com/coderaiser/putout/tree/master/packages/plugin-convert-typeof-to-is-type",
