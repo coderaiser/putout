@@ -13,6 +13,10 @@ const COMPUTED = true;
 
 module.exports.compute = (path) => {
     const {node} = path;
+    
+    if (isExtractable(path))
+        return [true, extract(node)];
+    
     const bindingPath = parseBindingPath(path);
     
     if (!bindingPath)
@@ -52,5 +56,18 @@ function parseObjectExpression(node, bindingNode) {
     }
     
     return [NOT_COMPUTED];
+}
+
+function isExtractable(path) {
+    const computed = false;
+    const {parentPath} = path;
+    
+    if (path.isLiteral())
+        return true;
+    
+    if (parentPath.isObjectProperty({computed}))
+        return true;
+    
+    return false;
 }
 

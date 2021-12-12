@@ -6,6 +6,48 @@ const {compute} = require('./compute');
 
 const {traverse} = operator;
 
+test('operate: compute: Identifier: ObjectProperty: not computed', (t) => {
+    let result;
+    
+    const ast = parse(`
+        module.exports.replace = () => ({
+            debugger: '',
+        });
+    `);
+    
+    traverse(ast, {
+        __a: (path) => {
+            if (path.node.name === 'debugger')
+                result = compute(path);
+        },
+    });
+    
+    const expected = [true, 'debugger'];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('operate: compute: Literal', (t) => {
+    let result;
+    
+    const ast = parse(`
+        const bodies = 'hello';
+        console.log(bodies);
+    `);
+    
+    traverse(ast, {
+        '"__a"': (path) => {
+            result = compute(path);
+        },
+    });
+    
+    const expected = [true, 'hello'];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('operate: compute: Identifier: Literal', (t) => {
     let result;
     
