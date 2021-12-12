@@ -1,3 +1,27 @@
+2021.12.12, v22.7.0
+
+feature:
+- (package) @putout/plugin-convert-comparison-to-boolean v2.0.0
+- (@putout/operate) compute: add support of evaluate
+- (@putout/plugin-convert-comparison-to-boolean) improve support of member expressions
+- (@putout/plugin-convert-comparison-to-boolean) drop support of putout < 22
+- (@putout/plugin-putout) check-replace-code: simplify
+- (@putout/operate) compute: add support of Literal
+- (@putout/plugin-putout) check-replace-code: use compute from operate
+- (@putout/operate) add compute
+- (@putout/plugin-putout) check-replace-code: add support of MemberExpression in computed property
+- (@putout/plugin-convert-typeof-to-is-type) use getBindingPath from operate
+- (@putout/operate) add getBinding, getBindingPath
+- (@putout/operate) add getBinding
+- (@putout/engine-runner) replace: validation output:  ["__b"] ["__a"] ->  ["__a"] -> ["__b"]
+- (@putout/plugin-putout) add move-require-on-top-level
+- (@putout/test) add support of createTest
+- (@putout/engine-loader) is-enabled: use isBool
+- (@putout/plugin-convert-typeof-to-is-type) improve binding search
+- (@putout/plugin-putout) check-replace-code: exclude computed keys
+- (@putout/plugin-convert-typeof-to-is-type) add support of isSymbol
+- (@putout/plugin-declare-undefined-variables) add support of isSymbol
+
 2021.12.09, v22.6.2
 
 fix:
