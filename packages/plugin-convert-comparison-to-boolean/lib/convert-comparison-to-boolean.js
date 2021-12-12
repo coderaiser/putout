@@ -6,7 +6,7 @@ const {
     template,
 } = require('putout');
 
-const {replaceWith} = operator;
+const {replaceWith, compute} = operator;
 const {isIdentifier} = types;
 
 module.exports.report = () => 'constant conditions should be avoided';
@@ -29,7 +29,7 @@ module.exports.traverse = ({push}) => ({
         if (/<<|>>/.test(operator))
             return;
         
-        const {confident, value} = path.evaluate();
+        const [confident, value] = compute(path);
         
         if (confident) {
             return push({

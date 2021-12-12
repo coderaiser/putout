@@ -44,6 +44,11 @@ test('plugin-convert-comparison-to-boolean: transform: same', (t) => {
     t.end();
 });
 
+test('plugin-convert-comparison-to-boolean: transform: compute', (t) => {
+    t.transform('compute');
+    t.end();
+});
+
 test('plugin-convert-comparison-to-boolean: no transform: bitwise', (t) => {
     t.noTransform('bitwise');
     t.end();
