@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    isLiteral,
-    isObjectExpression,
-} = require('@babel/types');
+const {isObjectExpression} = require('@babel/types');
 
 const {getBindingPath} = require('./get-binding');
 const {extract} = require('./extract');
@@ -11,11 +8,19 @@ const {extract} = require('./extract');
 const NOT_COMPUTED = false;
 const COMPUTED = true;
 
-module.exports.compute = (path) => {
+module.exports.compute = compute;
+function compute(path) {
     const {node} = path;
+    const {confident, value} = path.evaluate();
+    
+    if (confident)
+        return [COMPUTED, value];
+    
+    if (path.isBinaryExpression())
+        return parseBinaryExpression(path);
     
     if (isExtractable(path))
-        return [true, extract(node)];
+        return [COMPUTED, extract(node)];
     
     const bindingPath = parseBindingPath(path);
     
@@ -24,14 +29,11 @@ module.exports.compute = (path) => {
     
     const bindingNode = bindingPath.node;
     
-    if (isLiteral(bindingNode.init))
-        return [true, extract(bindingNode.init)];
-    
     if (isObjectExpression(bindingNode.init))
         return parseObjectExpression(node, bindingNode);
     
     return [NOT_COMPUTED];
-};
+}
 
 function parseBindingPath(path) {
     const {node} = path;
@@ -39,7 +41,7 @@ function parseBindingPath(path) {
     if (path.isIdentifier())
         return getBindingPath(path, extract(node));
     
-    if (path.isMemberExpression())
+    if (isSimpleMemberExpression(path))
         return getBindingPath(path, extract(node.object));
     
     return null;
@@ -62,12 +64,45 @@ function isExtractable(path) {
     const computed = false;
     const {parentPath} = path;
     
-    if (path.isLiteral())
-        return true;
+    return parentPath.isObjectProperty({computed});
+}
+
+function isSimpleMemberExpression(path) {
+    const objectPath = path.get('object');
     
-    if (parentPath.isObjectProperty({computed}))
-        return true;
+    if (!path.isMemberExpression())
+        return false;
     
-    return false;
+    if (objectPath.isMemberExpression())
+        return false;
+    
+    if (objectPath.isCallExpression())
+        return false;
+    
+    return true;
+}
+
+const binary = {
+    init: (op, fn) => binary[op] = fn,
+};
+
+function parseBinaryExpression(path) {
+    const {operator} = path.node;
+    const leftPath = path.get('left');
+    const rightPath = path.get('right');
+    const [computedLeft, left] = compute(leftPath);
+    
+    if (!computedLeft)
+        return [NOT_COMPUTED];
+    
+    const [computedRight, right] = compute(rightPath);
+    
+    if (!computedRight)
+        return [NOT_COMPUTED];
+    
+    const line = `return a ${operator} b`;
+    const fn = binary[operator] || binary.init(operator, Function('a', 'op', 'b', line));
+    
+    return [COMPUTED, fn(left, operator, right)];
 }
 

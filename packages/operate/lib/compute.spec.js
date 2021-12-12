@@ -6,6 +6,9 @@ const {compute} = require('./compute');
 
 const {traverse} = operator;
 
+const COMPUTED = true;
+const NOT_COMPUTED = false;
+
 test('operate: compute: Identifier: ObjectProperty: not computed', (t) => {
     let result;
     
@@ -22,7 +25,7 @@ test('operate: compute: Identifier: ObjectProperty: not computed', (t) => {
         },
     });
     
-    const expected = [true, 'debugger'];
+    const expected = [COMPUTED, 'debugger'];
     
     t.deepEqual(result, expected);
     t.end();
@@ -188,3 +191,132 @@ test('operate: compute: not', (t) => {
     t.end();
 });
 
+test('operate: compute: boolean', (t) => {
+    let result;
+    
+    const ast = parse(`
+        const b = 5;
+        const a = b;
+        
+        module.exports.replace = () => ({
+            [a]: '',
+        });
+    `);
+    
+    traverse(ast, {
+        ObjectProperty: (path) => {
+            result = compute(path.get('key'));
+        },
+    });
+    
+    const expected = [true, 5];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('operate: compute: binary expression', (t) => {
+    let result;
+    
+    const ast = parse(`
+        const a = {
+            b: 5,
+        };
+        
+        if (a.b === 5)
+            return;
+    `);
+    
+    traverse(ast, {
+        BinaryExpression: (path) => {
+            result = compute(path);
+        },
+    });
+    
+    const expected = [true, true];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('operate: compute: binary expression: cannot compute left', (t) => {
+    let result;
+    
+    const ast = parse(`
+        if (x === 5)
+            return;
+    `);
+    
+    traverse(ast, {
+        BinaryExpression: (path) => {
+            result = compute(path);
+        },
+    });
+    
+    const expected = [NOT_COMPUTED];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('operate: compute: binary expression: cannot compute right', (t) => {
+    let result;
+    
+    const ast = parse(`
+        const a = {
+            b: 5,
+        };
+        
+        if (a.b === y)
+            return;
+    `);
+    
+    traverse(ast, {
+        BinaryExpression: (path) => {
+            result = compute(path);
+        },
+    });
+    
+    const expected = [NOT_COMPUTED];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('operate: compute: nested member expression', (t) => {
+    let result;
+    
+    const ast = parse(`
+        a.b.c === y
+    `);
+    
+    traverse(ast, {
+        BinaryExpression: (path) => {
+            result = compute(path);
+        },
+    });
+    
+    const expected = [NOT_COMPUTED];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('operate: compute: member expression: function', (t) => {
+    let result;
+    
+    const ast = parse(`
+        a.b().c === y
+    `);
+    
+    traverse(ast, {
+        BinaryExpression: (path) => {
+            result = compute(path);
+        },
+    });
+    
+    const expected = [NOT_COMPUTED];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
