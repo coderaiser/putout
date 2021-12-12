@@ -108,11 +108,6 @@ module.exports.traverse = ({push}) => ({
 });
 
 function parseKey(propertyPath) {
-    const {node} = propertyPath;
-    
-    if (!node.computed)
-        return [null, extract(node.key)];
-    
     const keyPath = propertyPath.get('key');
     const [isComputed, key] = compute(keyPath);
     
