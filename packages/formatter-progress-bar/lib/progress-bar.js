@@ -7,6 +7,8 @@ import chalk from 'chalk';
 import once from 'once';
 
 const OK = '👌';
+const BLUE = '#6fbdf1';
+
 const {red} = chalk;
 const dir = process.cwd();
 const formatErrorsCount = (a) => a ? red(a) : OK;
@@ -16,7 +18,7 @@ const {PUTOUT_PROGRESS_BAR = '1'} = process.env;
 
 export default ({name, options, places, index, count, filesCount, errorsCount}) => {
     const {
-        color = '#6fbdf1',
+        color = BLUE,
         minCount = 0,
     } = options;
     
