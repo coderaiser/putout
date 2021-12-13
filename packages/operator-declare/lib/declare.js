@@ -1,7 +1,8 @@
 'use strict';
 
 const {types, template} = require('putout');
-const {traverse} = require('@putout/traverse');
+const {isESM} = require('@putout/operate');
+
 const {
     addDeclarationForESLint,
     checkDeclarationForESLint,
@@ -19,6 +20,7 @@ const isString = (a) => typeof a === 'string';
 
 const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
 const cutName = (a) => a.split('.').shift();
+const parseType = (path) => isESM(path) ? 'esm' : 'commonjs';
 
 const isUndefined = (a) => typeof a === 'undefined';
 
@@ -128,18 +130,3 @@ const parseCode = (name, type, current) => {
     return result;
 };
 
-const parseType = (path) => {
-    let isESM = false;
-    
-    const scope = path.scope.getProgramParent();
-    const programPath = scope.path;
-    
-    traverse(programPath, {
-        'ImportDeclaration|ExportDeclaration'(path) {
-            isESM = true;
-            path.stop();
-        },
-    });
-    
-    return isESM ? 'esm' : 'commonjs';
-};
