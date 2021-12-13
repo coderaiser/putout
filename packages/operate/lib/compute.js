@@ -73,13 +73,10 @@ function isSimpleMemberExpression(path) {
     if (!path.isMemberExpression())
         return false;
     
-    if (objectPath.isMemberExpression())
+    if (path.node.computed)
         return false;
     
-    if (objectPath.isCallExpression())
-        return false;
-    
-    return true;
+    return objectPath.isIdentifier();
 }
 
 const binary = {

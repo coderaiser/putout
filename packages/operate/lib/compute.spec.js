@@ -320,3 +320,27 @@ test('operate: compute: member expression: function', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('operate: compute: MemberExpression: computed', (t) => {
+    let is;
+    
+    const ast = parse(`
+        const a = {
+            hello: 'world',
+        };
+        const b = {
+            world: 'hello',
+        };
+        const c = a[hello] + b[world];
+    `);
+    
+    traverse(ast, {
+        BinaryExpression: (path) => {
+            [is] = compute(path);
+        },
+    });
+    
+    t.notOk(is);
+    t.end();
+});
+
