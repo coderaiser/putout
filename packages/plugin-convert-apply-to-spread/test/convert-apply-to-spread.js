@@ -19,21 +19,21 @@ test('plugin-convert-apply-to-spread: transform', (t) => {
 
 test('plugin-convert-apply-to-spread: transform: no apply', (t) => {
     const code = 'a(a, b)';
-
+    
     t.noTransformCode(code);
     t.end();
 });
 
 test('plugin-convert-apply-to-spread: transform: call', (t) => {
     const code = 'a.call(a, b)';
-
+    
     t.noTransformCode(code);
     t.end();
 });
 
 test('plugin-convert-apply-to-spread: transform: context', (t) => {
     const code = 'a.apply(b, c)';
-
+    
     t.noTransformCode(code);
     t.end();
 });

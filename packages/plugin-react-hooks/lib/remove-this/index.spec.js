@@ -29,7 +29,7 @@ test('plugin-react-hooks: remove-this: transform: code', (t) => {
             }
         }
     `;
-
+    
     const to = `
         const {Component} = require('react');
         
@@ -39,7 +39,7 @@ test('plugin-react-hooks: remove-this: transform: code', (t) => {
             }
         }
     `;
-
+    
     t.transformCode(from, to);
     t.end();
 });
