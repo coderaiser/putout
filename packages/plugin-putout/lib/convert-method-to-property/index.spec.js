@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const convertMethodToProperty = require('.');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'putout/convert-method-to-property': convertMethodToProperty,
 });
 

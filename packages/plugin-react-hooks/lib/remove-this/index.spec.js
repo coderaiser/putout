@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const removeThis = require('.');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'remove-this': removeThis,
 });
 
@@ -28,7 +29,7 @@ test('plugin-react-hooks: remove-this: transform: code', (t) => {
             }
         }
     `;
-    
+
     const to = `
         const {Component} = require('react');
         
@@ -38,7 +39,7 @@ test('plugin-react-hooks: remove-this: transform: code', (t) => {
             }
         }
     `;
-    
+
     t.transformCode(from, to);
     t.end();
 });

@@ -1,9 +1,10 @@
 'use strict';
 
-const applyAsTypeAssertiong = require('..');
+const {createTest} = require('@putout/test');
+const applyAsTypeAssertions = require('..');
 
-const test = require('@putout/test')(__dirname, {
-    'apply-as-type-assertiong': applyAsTypeAssertiong,
+const test = createTest(__dirname, {
+    'apply-as-type-assertions': applyAsTypeAssertions,
 });
 
 test('plugin-apply-as-type-assertiong: transform: report', (t) => {

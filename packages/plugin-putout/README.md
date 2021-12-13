@@ -16,6 +16,7 @@ npm i @putout/plugin-putout -D
 ```json
 {
     "rules": {
+        "putout/apply-create-test": "on",
         "putout/apply-processors-destructuring": "on",
         "putout/apply-async-formatter": "on",
         "putout/add-args": "on",
@@ -32,6 +33,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-method-to-property": "on",
         "putout/convert-add-argument-to-add-args": "on",
         "putout/convert-dirname-to-url": "on",
+        "putout/convert-url-to-dirname": "on",
         "putout/shorten-imports": "on",
         "putout/check-replace-code": "on",
         "putout/declare": "on",
@@ -75,6 +77,25 @@ test('formatter: codeframea', (t) => {
 ```js
 test('formatter: codeframea', async ({format}) => {
     await format(codeframe, 1);
+});
+```
+
+## apply-create-test
+
+### ❌ Incorrect code example
+
+```js
+const test = require('@putout/test')({
+    'remove-debugger': plugin,
+});
+```
+
+### ✅ Correct code example
+
+```js
+const {createTest} = require('@putout/test');
+const test = createTest({
+    'remove-debugger': plugin,
 });
 ```
 
@@ -415,6 +436,28 @@ const test = createTest(__dirname, {
 ```js
 import {createTest} from '@putout/test';
 import plugin from '@putout/plugin-debugger';
+
+const test = createTest(import.meta.url, {
+    'remove-debugger': plugin,
+});
+```
+
+## convert-url-to-dirname-
+
+```js
+const {createTest} = require('@putout/test');
+const plugin = require('@putout/plugin-debugger');
+
+const test = createTest(import.meta.url, {
+    'remove-debugger': plugin,
+});
+```
+
+### ✅ Correct code Example
+
+```js
+const {createTest} = require('@putout/test');
+const plugin = require('@putout/plugin-debugger');
 
 const test = createTest(import.meta.url, {
     'remove-debugger': plugin,

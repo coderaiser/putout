@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const convertLoaderToUse = require('.');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'webpack/convert-loader-to-use': convertLoaderToUse,
 });
 

@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const convertEqualToNotOk = require('.');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'tape/convert-equal-to-not-ok': convertEqualToNotOk,
 });
 

@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const convertAnyToPrimitive = require('..');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'convert-any-to-primitive': convertAnyToPrimitive,
 });
 

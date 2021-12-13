@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const convertTraverseToReplace = require('.');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'putout/convert-traverse-to-replace': convertTraverseToReplace,
 });
 

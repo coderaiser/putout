@@ -1,12 +1,13 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const extractObjectProperties = require('.');
 
 const applyDestructuring = require('@putout/plugin-apply-destructuring');
 const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
 const putout = require('@putout/plugin-putout');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'extract-object-properties': extractObjectProperties,
 });
 

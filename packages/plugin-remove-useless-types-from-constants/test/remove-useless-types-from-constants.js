@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const removeUselessTypesFromConstants = require('..');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'remove-useless-types-from-constants': removeUselessTypesFromConstants,
 });
 

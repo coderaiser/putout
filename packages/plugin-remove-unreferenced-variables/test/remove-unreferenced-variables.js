@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const removeUnreferencedVariables = require('..');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'remove-unreferenced-variables': removeUnreferencedVariables,
 });
 

@@ -1,7 +1,8 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const removeDebugger = require('..');
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'remove-duplicate-interface-keys': removeDebugger,
 });
 

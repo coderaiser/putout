@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const movePutoutToEndOfExtends = require('.');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'eslint/move-putout-to-end-of-extends': movePutoutToEndOfExtends,
 });
 

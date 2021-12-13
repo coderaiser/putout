@@ -7,6 +7,7 @@ const getRule = (a) => ({
 module.exports.rules = {
     ...getRule('apply-processors-destructuring'),
     ...getRule('apply-async-formatter'),
+    ...getRule('apply-create-test'),
     ...getRule('convert-putout-test-to-create-test'),
     ...getRule('convert-to-no-transform-code'),
     ...getRule('convert-find-to-traverse'),
@@ -21,6 +22,7 @@ module.exports.rules = {
     ...getRule('convert-method-to-property'),
     ...getRule('convert-add-argument-to-add-args'),
     ...getRule('convert-dirname-to-url'),
+    ...getRule('convert-url-to-dirname'),
     ...getRule('rename-operate-to-operator'),
     ...getRule('replace-operate-with-operator'),
     ...getRule('shorten-imports'),

@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const convertEqualToStrictEqual = require('..');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'convert-equal-to-strict-equal': convertEqualToStrictEqual,
 });
 

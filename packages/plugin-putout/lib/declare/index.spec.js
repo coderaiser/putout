@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const declare = require('.');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'putout/declare': declare,
 });
 
@@ -65,3 +66,9 @@ test('plugin-putout: declare: transform: add-argument', (t) => {
     t.transform('add-argument');
     t.end();
 });
+
+test('plugin-putout: declare: transform: create-test', (t) => {
+    t.transform('create-test');
+    t.end();
+});
+

@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const convertNodeToPathInGetTemplateValues = require('.');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'putout/convert-node-to-path-in-get-template-values': convertNodeToPathInGetTemplateValues,
 });
 

@@ -1,10 +1,11 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const add = require('.');
 
 process.on('unhandledRejection', () => {});
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'strict-mode/add': add,
 });
 

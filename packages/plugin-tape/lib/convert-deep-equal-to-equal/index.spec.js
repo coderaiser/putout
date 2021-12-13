@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const convertDeepEqualToEqual = require('.');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'tape/convert-deep-equal-to-equal': convertDeepEqualToEqual,
 });
 

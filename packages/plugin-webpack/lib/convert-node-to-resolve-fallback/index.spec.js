@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const convertNodeToResolveFallback = require('.');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'webpack/convert-node-to-resolve-fallback': convertNodeToResolveFallback,
 });
 

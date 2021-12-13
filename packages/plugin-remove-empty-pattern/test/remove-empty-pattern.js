@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const montag = require('montag');
 const removeConsole = require('..');
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'remove-empty-pattern': removeConsole,
 });
 

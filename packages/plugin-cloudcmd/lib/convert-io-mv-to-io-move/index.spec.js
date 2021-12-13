@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const convertIoMvToIoMove = require('.');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'cloudcmd/convert-io-mv-to-io-move': convertIoMvToIoMove,
 });
 

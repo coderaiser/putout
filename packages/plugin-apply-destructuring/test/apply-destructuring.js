@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const applyDestructuring = require('..');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'apply-destructuring': applyDestructuring,
 });
 
@@ -19,14 +20,14 @@ test('plugin-apply-destructuring: transform: object', (t) => {
 test('plugin-apply-destructuring: transform: array', (t) => {
     const code = 'const name = array[0];';
     const fix = 'const [name] = array;';
-    
+
     t.transformCode(code, fix);
     t.end();
 });
 
 test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
     const code = 'const {name} = array[0]';
-    
+
     t.noTransformCode(code);
     t.end();
 });

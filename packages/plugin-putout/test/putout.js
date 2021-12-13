@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const putout = require('..');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     putout,
 });
 
@@ -95,3 +96,14 @@ test('plugin-putout: transform: convert-dirname-to-url', (t) => {
     t.transform('convert-dirname-to-url');
     t.end();
 });
+
+test('plugin-putout: transform: convert-url-to-dirname', (t) => {
+    t.transform('convert-url-to-dirname');
+    t.end();
+});
+
+test('plugin-putout: transform: apply-create-test', (t) => {
+    t.transform('apply-create-test');
+    t.end();
+});
+

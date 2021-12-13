@@ -1,11 +1,12 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const reuseDuplicateInit = require('..');
 
 const removeUselessVariables = require('@putout/plugin-remove-useless-variables');
 const declareStub = require('@putout/plugin-tape').rules.declare;
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'reuse-duplicate-init': reuseDuplicateInit,
 });
 

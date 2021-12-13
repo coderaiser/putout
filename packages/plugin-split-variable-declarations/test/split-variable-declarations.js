@@ -1,9 +1,10 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const splitVariableDeclarations = require('..');
 const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'split-variable-declarations': splitVariableDeclarations,
 });
 

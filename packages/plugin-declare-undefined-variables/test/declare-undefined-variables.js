@@ -1,10 +1,11 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const declareUndefinedVariables = require('..');
 
 const montag = require('montag');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'declare-undefined-variables': declareUndefinedVariables,
 });
 

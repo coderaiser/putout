@@ -1,9 +1,10 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const {declare} = require('@putout/plugin-tape').rules;
 
 const mergeDebugger = require('..');
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'merge-duplicate-imports': mergeDebugger,
 });
 

@@ -1,7 +1,8 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const convert = require('.');
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'tape/convert-throws-to-try-catch': convert,
 });
 

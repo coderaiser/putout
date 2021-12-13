@@ -1,9 +1,10 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const declareUndefindedVariables = require('@putout/plugin-declare-undefined-variables');
 
 const convert = require('..');
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'convert-esm-to-commonjs': convert,
 });
 

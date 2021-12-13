@@ -1,7 +1,8 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const removeSkip = require('..');
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'remove-skip': removeSkip,
 });
 

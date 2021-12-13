@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const removeUnusedExpression = require('..');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'remove-unused-expression': removeUnusedExpression,
 });
 
@@ -18,14 +19,14 @@ test('remove unused expression: transformCode', (t) => {
 
 test('remove unused expression: transformCode: used', (t) => {
     const code = 'fn()';
-    
+
     t.noTransformCode(code);
     t.end();
 });
 
 test('remove unused expression: transformCode: string', (t) => {
     const code = '"hello"';
-    
+
     t.transformCode(code, '');
     t.end();
 });

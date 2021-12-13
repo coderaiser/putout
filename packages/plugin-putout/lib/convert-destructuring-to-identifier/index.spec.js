@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const convertDestructuringToIdentifier = require('.');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'putout/convert-destructuring-to-identifier': convertDestructuringToIdentifier,
 });
 

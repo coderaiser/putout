@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const moveRequireOnTopLevel = require('.');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'putout/move-require-on-top-level': moveRequireOnTopLevel,
 });
 

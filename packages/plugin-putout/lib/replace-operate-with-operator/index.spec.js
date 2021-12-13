@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const replaceOperateWithOperator = require('.');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'putout/replace-operate-with-operator': replaceOperateWithOperator,
 });
 

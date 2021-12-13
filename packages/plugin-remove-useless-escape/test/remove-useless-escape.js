@@ -1,11 +1,12 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const removeUselessEscape = require('..');
 
 const madrun = require('@putout/plugin-madrun');
 const addFixLint = madrun.rules['add-fix-lint'];
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'remove-useless-escape': removeUselessEscape,
 });
 

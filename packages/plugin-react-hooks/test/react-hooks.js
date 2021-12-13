@@ -1,8 +1,9 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const reactHooks = require('..');
 const rmUnused = require('@putout/plugin-remove-unused-variables');
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'react-hooks': reactHooks,
 });
 

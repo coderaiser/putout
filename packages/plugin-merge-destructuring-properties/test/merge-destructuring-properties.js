@@ -1,12 +1,13 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const {declare} = require('@putout/plugin-putout').rules;
 
 const mergeDestructuringProperties = require('..');
 
 const convert = require('@putout/plugin-convert-commonjs-to-esm');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'merge-destructuring-properties': mergeDestructuringProperties,
 });
 

@@ -1,11 +1,12 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
 const convertForEachToForOf = require('..');
 
 const convertComparisonToBoolean = require('@putout/plugin-convert-comparison-to-boolean');
 const removeUselessVariables = require('@putout/plugin-remove-useless-variables');
 
-const test = require('@putout/test')(__dirname, {
+const test = createTest(__dirname, {
     'convert-for-each-to-for-of': convertForEachToForOf,
 });
 
