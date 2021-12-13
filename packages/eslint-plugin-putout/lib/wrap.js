@@ -8,7 +8,12 @@ const prepare = (plugin, context, options) => (node) => {
     const getText = source.getText.bind(source);
     const getCommentsBefore = source.getCommentsBefore.bind(source);
     const getCommentsAfter = source.getCommentsAfter.bind(source);
+    
     const getSpacesBeforeNode = createGetSpacesBeforeNode({
+        getText,
+    });
+    
+    const getSpacesAfterNode = createGetSpacesAfterNode({
         getText,
     });
     
@@ -22,6 +27,7 @@ const prepare = (plugin, context, options) => (node) => {
         getCommentsBefore,
         getCommentsAfter,
         getSpacesBeforeNode,
+        getSpacesAfterNode,
         filename,
     });
     
@@ -104,5 +110,16 @@ const createGetSpacesBeforeNode = ({getText}) => (node, text = getText(node)) =>
             .replace(text, '');
     
     return spaces.slice(1);
+};
+
+const createGetSpacesAfterNode = ({getText}) => (node, {text = getText(node)}) => {
+    let spaces = '';
+    let i = 0;
+    
+    while (!spaces || /^[ \n;]+$/.test(spaces))
+        spaces = getText(node, 0, ++i)
+            .replace(text, '');
+    
+    return spaces.slice(0, -1);
 };
 

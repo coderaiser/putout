@@ -15,7 +15,7 @@ const regExp = /^;?\n( +)?\n +$/;
 module.exports.category = 'layout';
 module.exports.report = () => 'Add newline after function call';
 
-module.exports.filter = ({text, node, getText, getCommentsAfter}) => {
+module.exports.filter = ({text, node, getText, getCommentsAfter, getSpacesAfterNode}) => {
     if (!isExpressionStatement(node.parent))
         return false;
     
@@ -33,7 +33,7 @@ module.exports.filter = ({text, node, getText, getCommentsAfter}) => {
     if (n < 3)
         return false;
     
-    const spaces = getSpacesAfterNode(node, {text, getText});
+    const spaces = getSpacesAfterNode(node, {text});
     
     if (regExp.test(spaces))
         return false;
@@ -83,15 +83,4 @@ module.exports.fix = ({text}) => {
 module.exports.include = () => [
     'CallExpression',
 ];
-
-function getSpacesAfterNode(node, {getText, text = getText(node)}) {
-    let spaces = '';
-    let i = 0;
-    
-    while (!spaces || /^[ \n;]+$/.test(spaces))
-        spaces = getText(node, 0, ++i)
-            .replace(text, '');
-    
-    return spaces.slice(0, -1);
-}
 
