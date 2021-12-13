@@ -666,3 +666,61 @@ test('opreate: compute', (t) => {
     t.equal(operate.compute, compute);
     t.end();
 });
+
+test('operate: isESM: no', (t) => {
+    let is = true;
+    
+    const ast = parse(montag`
+        const a = require('hello');
+    `);
+    
+    traverse(ast, {
+        Program(path) {
+            is = operate.isESM(path);
+        },
+    });
+    
+    t.notOk(is);
+    t.end();
+});
+
+test('operate: isESM: yes', (t) => {
+    let is = true;
+    
+    const ast = parse(montag`
+        import {readFile} from 'fs/promises';
+        
+        export const read = async () => {
+            return await readFile('./README.md', 'utf8');
+        }
+    `);
+    
+    traverse(ast, {
+        CallExpression(path) {
+            is = operate.isESM(path);
+        },
+    });
+    
+    t.ok(is);
+    t.end();
+});
+
+test('operate: isESM: yes: export', (t) => {
+    let is = true;
+    
+    const ast = parse(montag`
+        export const read = async () => {
+            return await readFile('./README.md', 'utf8');
+        }
+    `);
+    
+    traverse(ast, {
+        CallExpression(path) {
+            is = operate.isESM(path);
+        },
+    });
+    
+    t.ok(is);
+    t.end();
+});
+

@@ -133,6 +133,10 @@ traverse({
 });
 ```
 
+## `isESM(path)`
+
+Check if given source is `ESM` search for `ImportDeclaration` and `ExportDeclaration` nodes.
+
 ## License
 
 MIT

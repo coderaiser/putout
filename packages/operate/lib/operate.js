@@ -5,6 +5,7 @@ const {
     toStatement,
     matchesPattern,
     isImportDeclaration,
+    isExportDeclaration,
 } = require('@babel/types');
 
 const {getBinding, getBindingPath} = require('./get-binding');
@@ -138,5 +139,20 @@ module.exports.getPathAfterImports = (body) => {
         ++i;
     
     return body[i];
+};
+
+module.exports.isESM = (path) => {
+    const scope = path.scope.getProgramParent();
+    const programPath = scope.path;
+    
+    for (const node of programPath.node.body) {
+        if (isImportDeclaration(node))
+            return true;
+        
+        if (isExportDeclaration(node))
+            return true;
+    }
+    
+    return false;
 };
 
