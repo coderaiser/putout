@@ -1,12 +1,9 @@
-import createTest from '@putout/test';
-import {createCommons} from 'simport';
+import {createTest} from '@putout/test';
 import rmVars from '@putout/plugin-remove-unused-variables';
-
-const {__dirname} = createCommons(import.meta.url);
 
 import progress from '../lib/frame.js';
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     'remove-unused-variables': rmVars,
 });
 

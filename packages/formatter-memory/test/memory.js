@@ -1,15 +1,10 @@
-import {createCommons} from 'simport';
-import createTest from '@putout/test';
-
-const {
-    __dirname,
-    require,
-} = createCommons(import.meta.url);
+import {createTest} from '@putout/test';
+import rmUnused from '@putout/plugin-remove-unused-variables';
 
 import progress from '../lib/memory.js';
 
-const test = createTest(__dirname, {
-    'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
+const test = createTest(import.meta.url, {
+    'remove-unused-variables': rmUnused,
 });
 
 const freshImport = ((count) => (name) => import(`${name}?count=${++count}`))(0);

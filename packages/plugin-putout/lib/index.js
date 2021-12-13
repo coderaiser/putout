@@ -20,6 +20,7 @@ module.exports.rules = {
     ...getRule('convert-process-to-find'),
     ...getRule('convert-method-to-property'),
     ...getRule('convert-add-argument-to-add-args'),
+    ...getRule('convert-dirname-to-url'),
     ...getRule('rename-operate-to-operator'),
     ...getRule('replace-operate-with-operator'),
     ...getRule('shorten-imports'),

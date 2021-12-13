@@ -1,15 +1,12 @@
 import fs from 'fs';
 import {stub} from 'supertape';
-import {createCommons} from 'simport';
 
 import removeConsole from '@putout/plugin-remove-console';
 
 import removeConsoleFixture from './fixture/remove-console.js';
-import createTest from '../lib/test.js';
+import {createTest} from '../lib/test.mjs';
 
-const {__dirname} = createCommons(import.meta.url);
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     'remove-console': removeConsoleFixture,
 });
 
@@ -44,7 +41,7 @@ const writeFileSyncStub = stub();
 
 global.__putout_test_update = true;
 
-const testUpdate = createTest(__dirname, {
+const testUpdate = createTest(import.meta.url, {
     'remove-console': removeConsole,
 });
 

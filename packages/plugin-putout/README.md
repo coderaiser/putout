@@ -31,6 +31,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-process-to-find": "on",
         "putout/convert-method-to-property": "on",
         "putout/convert-add-argument-to-add-args": "on",
+        "putout/convert-dirname-to-url": "on",
         "putout/shorten-imports": "on",
         "putout/check-replace-code": "on",
         "putout/declare": "on",
@@ -393,6 +394,30 @@ const {addArgs} = operator;
 
 module.exports = addArgs({
     t: ['t', 'test("__a", (__args) => __body)'],
+});
+```
+
+## convert-dirname-to-url
+
+```js
+import {createTest} from '@putout/test';
+import plugin from '@putout/plugin-debugger';
+import {createSimport} from 'simport';
+const {__dirname} = createSimport(import.meta.url);
+
+const test = createTest(__dirname, {
+    'remove-debugger': plugin,
+});
+```
+
+### ✅ Correct code Example
+
+```js
+import {createTest} from '@putout/test';
+import plugin from '@putout/plugin-debugger';
+
+const test = createTest(import.meta.url, {
+    'remove-debugger': plugin,
 });
 ```
 

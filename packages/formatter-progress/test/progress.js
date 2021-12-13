@@ -1,13 +1,9 @@
-import {createCommons} from 'simport';
-
 import rmVars from '@putout/plugin-remove-unused-variables';
-import createTest from '@putout/test';
+import {createTest} from '@putout/test';
 
 import progress from '../lib/progress.js';
 
-const {__dirname} = createCommons(import.meta.url);
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     'remove-unused-variables': rmVars,
 });
 

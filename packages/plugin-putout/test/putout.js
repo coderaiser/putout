@@ -90,3 +90,8 @@ test('plugin-putout: transform: move-require-on-top-level', (t) => {
     t.transform('move-require-on-top-level');
     t.end();
 });
+
+test('plugin-putout: transform: convert-dirname-to-url', (t) => {
+    t.transform('convert-dirname-to-url');
+    t.end();
+});

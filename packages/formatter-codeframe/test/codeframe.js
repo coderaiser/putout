@@ -1,19 +1,15 @@
-import {createCommons} from 'simport';
-
-const {
-    __dirname,
-    require,
-} = createCommons(import.meta.url);
+import strictMode from '@putout/plugin-strict-mode';
+import rmUnused from '@putout/plugin-remove-unused-variables';
 
 import codeframe from '../lib/codeframe.js';
-import createTest from '@putout/test';
+import {createTest} from '@putout/test';
 
-const test = createTest(__dirname, {
-    'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
+const test = createTest(import.meta.url, {
+    'remove-unused-variables': rmUnused,
 });
 
-const testStrict = createTest(__dirname, {
-    'strict-mode': require('@putout/plugin-strict-mode'),
+const testStrict = createTest(import.meta.url, {
+    'strict-mode': strictMode,
 });
 
 test('formatter: codeframe', async ({format}) => {
