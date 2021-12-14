@@ -54,7 +54,7 @@ module.exports.traverse = ({push, options}) => ({
         
         const {properties} = idPath.node;
         
-        if (properties.find(isAssignment))
+        if (idPath.isObjectPattern() && properties.find(isAssignment))
             return;
         
         push({

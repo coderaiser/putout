@@ -19,6 +19,11 @@ test('remove usless variables: for-of: transform', (t) => {
     t.end();
 });
 
+test('remove usless variables: for-of: transform: array-pattern', (t) => {
+    t.transform('array-pattern');
+    t.end();
+});
+
 test('remove usless variables: for-of: no transform: no destr', (t) => {
     t.noTransform('no-destr');
     t.end();
