@@ -1,9 +1,5 @@
 'use strict';
 
-const tryCatch = require('try-catch');
-
-const {isObjectExpression} = require('@babel/types');
-
 const {getBindingPath} = require('./get-binding');
 const {extract} = require('./extract');
 
@@ -29,10 +25,10 @@ function compute(path) {
     if (!bindingPath)
         return [NOT_COMPUTED];
     
-    const bindingNode = bindingPath.node;
+    const initPath = bindingPath.get('init');
     
-    if (isObjectExpression(bindingNode.init))
-        return parseObjectExpression(node, bindingNode);
+    if (initPath.isObjectExpression())
+        return parseObjectExpression(path, initPath);
     
     return [NOT_COMPUTED];
 }
@@ -49,18 +45,18 @@ function parseBindingPath(path) {
     return null;
 }
 
-function parseObjectExpression(node, bindingNode) {
-    const keyPropertyValue = extract(node.property);
+function parseObjectExpression(path, initPath) {
+    const keyPropertyValue = extract(path.node.property);
     
-    for (const property of bindingNode.init.properties) {
-        const keyValue = extract(property.key);
+    for (const propertyPath of initPath.get('properties')) {
+        const keyValue = extract(propertyPath.node.key);
         
         if (keyValue !== keyPropertyValue)
             continue;
         
-        const [error, value] = tryCatch(extract, property.value);
+        const [is, value] = compute(propertyPath.get('value'));
         
-        if (error)
+        if (!is)
             break;
         
         return [COMPUTED, value];
@@ -72,6 +68,9 @@ function parseObjectExpression(node, bindingNode) {
 function isExtractable(path) {
     const computed = false;
     const {parentPath} = path;
+    
+    if (!path.isIdentifier() && !path.isLiteral())
+        return false;
     
     return parentPath.isObjectProperty({computed});
 }

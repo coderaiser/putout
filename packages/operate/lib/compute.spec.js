@@ -365,3 +365,28 @@ test('operate: compute: MemberExpression: nested', (t) => {
     t.notOk(is);
     t.end();
 });
+
+test('operate: compute: MemberExpression: nested: computed', (t) => {
+    let result = [];
+    
+    const ast = parse(`
+        const items = {
+            length: 10,
+        };
+        
+        const a = {
+            b: 5,
+            c: items.length,
+        }
+        const x = a.b + a.c;
+        `);
+    
+    traverse(ast, {
+        BinaryExpression: (path) => {
+            result = compute(path);
+        },
+    });
+    
+    t.deepEqual(result, [true, 15]);
+    t.end();
+});
