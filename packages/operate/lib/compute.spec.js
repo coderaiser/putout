@@ -344,3 +344,24 @@ test('operate: compute: MemberExpression: computed', (t) => {
     t.end();
 });
 
+test('operate: compute: MemberExpression: nested', (t) => {
+    let is;
+    
+    const ast = parse(`
+        const a = {
+            b: 0,
+            c: d.length,
+        }
+        if (a.b > a.c)
+            return;
+        `);
+    
+    traverse(ast, {
+        BinaryExpression: (path) => {
+            [is] = compute(path);
+        },
+    });
+    
+    t.notOk(is);
+    t.end();
+});

@@ -23,7 +23,8 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@babel/types": "^7.12.6"
+    "@babel/types": "^7.12.6",
+    "try-catch": "^3.0.0"
   },
   "keywords": [
     "ast",
@@ -43,8 +44,7 @@
     "montag": "^1.0.0",
     "nodemon": "^2.0.1",
     "putout": "*",
-    "supertape": "^6.0.0",
-    "try-catch": "^3.0.0"
+    "supertape": "^6.0.0"
   },
   "license": "MIT",
   "engines": {

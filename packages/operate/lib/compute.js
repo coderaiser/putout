@@ -1,5 +1,7 @@
 'use strict';
 
+const tryCatch = require('try-catch');
+
 const {isObjectExpression} = require('@babel/types');
 
 const {getBindingPath} = require('./get-binding');
@@ -53,8 +55,15 @@ function parseObjectExpression(node, bindingNode) {
     for (const property of bindingNode.init.properties) {
         const keyValue = extract(property.key);
         
-        if (keyValue === keyPropertyValue)
-            return [COMPUTED, extract(property.value)];
+        if (keyValue !== keyPropertyValue)
+            continue;
+        
+        const [error, value] = tryCatch(extract, property.value);
+        
+        if (error)
+            break;
+        
+        return [COMPUTED, value];
     }
     
     return [NOT_COMPUTED];
