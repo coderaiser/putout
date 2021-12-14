@@ -32,8 +32,13 @@ test('plugin-convert-typeof-to-is-type: transform: global', (t) => {
     t.end();
 });
 
-test('plugin-convert-typeof-to-is-type: transform: bind', (t) => {
+test('plugin-convert-typeof-to-is-type: no transform: bind', (t) => {
     t.noTransform('bind');
+    t.end();
+});
+
+test('plugin-convert-typeof-to-is-type: no transform: not defined', (t) => {
+    t.noTransform('not-defined');
     t.end();
 });
 

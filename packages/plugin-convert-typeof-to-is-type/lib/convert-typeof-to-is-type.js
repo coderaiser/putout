@@ -23,7 +23,7 @@ const BODIES = {
 
 module.exports.report = () => `Use function to check type instead of 'typeof'`;
 module.exports.match = () => ({
-    'typeof __a === "__b"': ({__b}, path) => {
+    'typeof __a === "__b"': ({__a, __b}, path) => {
         if (path.parentPath.isFunction())
             return false;
         
@@ -31,6 +31,9 @@ module.exports.match = () => ({
             return false;
         
         if (isBind(path, __b.value))
+            return false;
+        
+        if (!getBindingPath(path, __a.name))
             return false;
         
         return true;

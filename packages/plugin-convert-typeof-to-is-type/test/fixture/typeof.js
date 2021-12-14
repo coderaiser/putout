@@ -1,3 +1,6 @@
+const a = 'hello';
+const fn = () => a;
+
 const isFn = (a) => typeof a === 'function';
 typeof fn === 'function';
 typeof a === 'string';
