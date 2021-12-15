@@ -1,9 +1,19 @@
 'use strict';
 
-const wrapPlugin = require('./wrap-plugin');
-const getModulePath = require('./get-module-path');
+const {createRequire} = require('module');
+const tryCatch = require('try-catch');
 
+const wrapPlugin = require('./wrap-plugin');
+
+// yarn PnP API
+// https://yarnpkg.com/advanced/rulebook#modules-shouldnt-hardcode-node_modules-paths-to-access-other-modules
+const customRequire = createRequire(__filename);
 const bigFirst = (a) => `${a[0].toUpperCase()}${a.slice(1)}`;
+
+const getModulePath = (name) => {
+    const [, path] = tryCatch(customRequire.resolve, name);
+    return path;
+};
 
 function getPath(namespace, type, name) {
     let path = getModulePath(`@${namespace}/${type}-${name}`);
@@ -26,7 +36,7 @@ const load = (type) => ({name, namespace}) => {
     if (!pluginPath)
         throw Error(`${bigFirst(type)} "${namespace}-${type}-${name}" could not be found!`);
     
-    return require(pluginPath);
+    return customRequire(pluginPath);
 };
 
 module.exports.loadPlugin = load('plugin');

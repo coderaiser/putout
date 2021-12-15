@@ -1,8 +1,9 @@
 'use strict';
 
+const tryCatch = require('try-catch');
 const {print} = require('@putout/engine-parser');
+
 const getPositions = require('./get-positions-by-diff');
-const getModulePath = require('./get-module-path');
 
 const babelTransform = require('./transforms/babel');
 const jscodeshiftTransform = require('./transforms/jscodeshift');
@@ -10,6 +11,11 @@ const jscodeshiftTransform = require('./transforms/jscodeshift');
 const getMessage = (a) => a
     .replace(/@babel\/plugin-|babel-plugin-/, '')
     .replace(/-/g, ' ');
+
+const getModulePath = (name) => {
+    const [, path] = tryCatch(require.resolve, name);
+    return path;
+};
 
 module.exports = (name, namespace) => {
     const message = getMessage(name);
