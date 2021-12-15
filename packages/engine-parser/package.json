@@ -39,7 +39,8 @@
     "@putout/recast": "^1.1.0",
     "estree-to-babel": "^4.0.0",
     "nano-memoize": "^1.1.8",
-    "once": "^1.4.0"
+    "once": "^1.4.0",
+    "try-catch": "^3.0.0"
   },
   "keywords": [
     "putout",
@@ -63,8 +64,7 @@
     "nodemon": "^2.0.1",
     "putout": "*",
     "supertape": "^6.0.0",
-    "tenko": "^2.0.0",
-    "try-catch": "^3.0.0"
+    "tenko": "^2.0.0"
   },
   "license": "MIT",
   "engines": {
