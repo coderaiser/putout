@@ -102,6 +102,7 @@
         "**/node_modules",
         "**/fixture",
         "**/.nyc_output",
+        "**/.yarn",
         "**/coverage",
         "**/dist",
         "**/dist-dev",
