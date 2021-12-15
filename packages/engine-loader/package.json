@@ -42,6 +42,7 @@
     "@putout/plugin-convert-commonjs-to-esm": "*",
     "@putout/plugin-remove-unused-variables": "*",
     "@putout/processor-markdown": "*",
+    "@putout/processor-javascript": "*",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
     "eslint-plugin-node": "^11.0.0",

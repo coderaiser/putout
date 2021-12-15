@@ -1,10 +1,17 @@
 {
+    "overrides": [{
+        "files": "*.js",
+        "rules": {
+            "import/no-extraneous-dependencies": "error"
+        }
+    }],
     "extends": [
         "plugin:node/recommended",
         "plugin:putout/recommended"
     ],
     "plugins": [
         "node",
-        "putout"
+        "putout",
+        "import"
     ]
 }

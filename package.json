@@ -35,6 +35,7 @@
   "devDependencies": {
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
+    "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-putout": "^12.0.0",
     "husky": "^6.0.0",
