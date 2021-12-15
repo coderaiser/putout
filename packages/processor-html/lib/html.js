@@ -19,7 +19,7 @@ module.exports.fix = async (rawSource) => {
             const source = removePrefixSpaces(content);
             const currentSource = await processorCSS.fix(source);
             
-            if (currentSource.includes('{ {'))
+            if (currentSource.includes('errored'))
                 return {
                     code: content,
                 };
