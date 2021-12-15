@@ -1,4 +1,4 @@
-# @putout/putout-formatter-eslint [![NPM version][NPMIMGURL]][NPMURL]
+# @putout/formatter-eslint [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-eslint.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/formatter-eslint "npm"

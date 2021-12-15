@@ -1,4 +1,4 @@
-# @putout/putout-formatter-codeframe [![NPM version][NPMIMGURL]][NPMURL]
+# @putout/formatter-codeframe [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-codeframe.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/formatter-codeframe "npm"

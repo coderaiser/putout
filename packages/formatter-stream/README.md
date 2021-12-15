@@ -1,4 +1,4 @@
-# @putout/putout-formatter-stream [![NPM version][NPMIMGURL]][NPMURL]
+# @putout/formatter-stream [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-stream.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/formatter-stream "npm"
