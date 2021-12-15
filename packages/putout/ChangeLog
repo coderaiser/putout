@@ -1,3 +1,29 @@
+2021.12.15, v22.8.0
+
+fix:
+- (@putout/processor-css) disable property-no-vendor-prefix, selector-no-vendor-prefix
+- (@putout/engine-parser) try-catch: devDependencies -> dependencies (#92)
+- (@putout/operate) try-catch: dependencies -> devDependencies
+
+feature:
+- (putout) formatters: use chalk v4 to have support of Yarn PnP (https://github.com/yarnpkg/berry/issues/3843)
+- (putout) add support of yarn PnP by formatters loader (#93)
+- (@putout/engine-loader) add support of Yarn PnP (#93)
+- (package) stylelint-config-standard v24.0.0
+- (package) stylelint v14.1.0
+- (@putout/operate) compute: nested MemberExpressions: extract -> compute
+- (@putout/plugin-convert-typeof-to-is-type) exclude undefined undeclared
+- (@putout/operate) compute: exclude values of MemberExpression that cannot be extracted
+- (@putout/plugin-remove-useless-variables) for-of: add support of ArrayPattern
+- (eslint-plugin-putout) wrap: add getSpacesAfterNode
+- (@putout/plugin-putout) add apply-create-test
+- (@putout/plugin-putout) add convert-dirname-to-url
+- (@putout/operator-declare) use isESM from @putout/operate
+- (@putout/operate) add isESM
+- (@putout/formatter-progress-bar) add color constant
+- (@putout/operate) compute: isSimbleMemberExpression: simplify object check: not MemberExpression, not CallExpression -> not computed and Identifier'
+
+
 2021.12.12, v22.7.0
 
 feature:
