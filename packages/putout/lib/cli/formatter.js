@@ -1,6 +1,5 @@
 'use strict';
 
-const {createSimport} = require('simport');
 const tryToCatch = require('try-to-catch');
 
 const {
@@ -8,7 +7,8 @@ const {
     CANNOT_LOAD_FORMATTER,
 } = require('./exit-codes');
 
-const simport = createSimport(__filename);
+const simpleImport = require('./simple-import');
+
 const stub = () => () => {};
 
 const {isArray} = Array;
@@ -48,7 +48,7 @@ async function loadFormatter(names) {
     let reporter;
     
     for (const name of names) {
-        [e, reporter] = await tryToCatch(simport, name);
+        [e, reporter] = await tryToCatch(simpleImport, name);
         
         if (!e)
             return [null, reporter];
@@ -69,3 +69,4 @@ async function loadFormatter(names) {
     
     return [e];
 }
+

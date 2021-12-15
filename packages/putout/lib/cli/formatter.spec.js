@@ -1,7 +1,5 @@
 'use strict';
 
-const {createSimport} = require('simport');
-
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
@@ -14,14 +12,12 @@ const {getFormatter} = require('./formatter');
 
 const {reRequire, stopAll} = mockRequire;
 
-const simport = createSimport(__filename);
-
 const {assign} = Object;
 
 test('putout: cli: formatter: get formatter', async (t) => {
     const exit = stub();
     
-    const progress = await simport('@putout/formatter-progress');
+    const {default: progress} = await import('@putout/formatter-progress');
     
     const result = await getFormatter('progress', exit);
     const expected = [progress, {}];
@@ -37,7 +33,7 @@ test('putout: cli: formatter: get formatter: options', async (t) => {
         minCount: 10,
     };
     
-    const progress = await simport('@putout/formatter-progress');
+    const {default: progress} = await import('@putout/formatter-progress');
     
     const result = await getFormatter(['progress', formatterOptions], exit);
     const expected = [progress, formatterOptions];
@@ -50,9 +46,7 @@ test('putout: cli: formatter: get reporter', async (t) => {
     const formatter = stub();
     const simport = stub().returns(formatter);
     
-    mockRequire('simport', {
-        createSimport: stub().returns(simport),
-    });
+    mockRequire('./simple-import', simport);
     
     const {getReporter} = reRequire('./formatter');
     
@@ -71,9 +65,7 @@ test('putout: cli: formatter: calls', async (t) => {
             code: 'ERR_MODULE_NOT_FOUND',
         }));
     
-    mockRequire('simport', {
-        createSimport: stub().returns(simport),
-    });
+    mockRequire('./simple-import', simport);
     
     const {getReporter} = reRequire('./formatter');
     
@@ -107,9 +99,7 @@ test('putout: cli: formatter: second import', async (t) => {
         return 'found from test';
     };
     
-    mockRequire('simport', {
-        createSimport: stub().returns(simport),
-    });
+    mockRequire('./simple-import', simport);
     
     const {getReporter} = reRequire('./formatter');
     
@@ -145,9 +135,7 @@ test('putout: cli: formatter: get reporter: exit: CANNOT_LOAD_FORMATTER', async 
     const exit = stub();
     const simport = stub().rejects(Error('Syntax error'));
     
-    mockRequire('simport', {
-        createSimport: stub().returns(simport),
-    });
+    mockRequire('./simple-import', simport);
     
     const {getReporter} = reRequire('./formatter');
     await getReporter('xxx', exit);
