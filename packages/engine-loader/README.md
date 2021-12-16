@@ -11,6 +11,11 @@ Load putout `plugins`, `processors`.
 npm i @putout/engine-loader
 ```
 
+## Env Variables
+
+When you need to get things working with Yarn PnP, and using custom `plugins` `formatters` or `processers`, add env variable
+`PUTOUT_YARN_PNP` with name of a package that contains dependencies you need.
+
 ## Code Example
 
 ### loadPlugins

@@ -41,6 +41,7 @@
 - [Codemods](#codemods)
 - [Integration with ESLint](#integration-with-eslint)
 - [Integration with Babel](#integration-with-babel)
+- [Integration with Yarn PnP](#integration-with-yarn-pnp)
 - [Using Putout as Loader](#using-putout-as-loader)
 - [Exit Codes](#exit-codes)
 - [Real-world uses](#real-world-uses)
@@ -2293,6 +2294,22 @@ Just create `.babelrc.json` file with configuration you need.
         }]
     ]
 }
+```
+
+## Integration with Yarn PnP
+
+Since 🐊`Putout` has dynamic nature of loading:
+- `plugins`;
+- `processors`;
+- `formatters`;
+
+It was a nice adventure to have support of such a nice feature of `Yarn` as [`Plug'n'Play`](https://yarnpkg.com/features/pnp).
+For this purpose new `env variable` was added to help to [load external extensions](https://yarnpkg.com/advanced/rulebook/#modules-shouldnt-hardcode-node_modules-paths-to-access-other-modules): `PUTOUT_YARN_PNP`.
+
+So if you package `eslint-config-hardcore` you should run `ESLint` this way:
+
+```sh
+PUTOUT_YARN_PNP=eslint-config-hardcore eslint .
 ```
 
 ## Using Putout as Loader
