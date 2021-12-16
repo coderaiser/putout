@@ -103,6 +103,7 @@
         "**/fixture",
         "**/.nyc_output",
         "**/.yarn",
+        "**/.pnp.*",
         "**/coverage",
         "**/dist",
         "**/dist-dev",
