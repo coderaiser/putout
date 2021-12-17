@@ -31,3 +31,8 @@ test('plugin-tape: add-t-end: no transform: contains', (t) => {
     t.noTransform('contains');
     t.end();
 });
+
+test('plugin-tape: add-t-end: no report: callback', (t) => {
+    t.noReport('callback');
+    t.end();
+});

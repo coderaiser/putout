@@ -5,7 +5,7 @@ const {
     template,
     operator,
 } = require('putout');
-const {compare} = operator;
+const {compare, traverse} = operator;
 const {ExpressionStatement} = types;
 
 module.exports.report = () => `'t.end()' is missing at the end of the test`;
@@ -20,7 +20,7 @@ module.exports.replace = () => ({
     'test(__a, async (t) => __body)': replace,
 });
 
-function match({__body}) {
+function match({__body}, path) {
     const {body} = __body;
     const {length} = body;
     
@@ -32,7 +32,14 @@ function match({__body}) {
             return false;
     }
     
-    return !compare(body[length - 1], 't.end()');
+    let found = false;
+    traverse(path, {
+        't.end()': () => {
+            found = true;
+        },
+    });
+    
+    return !found;
 }
 
 function replace({__body}, path) {
