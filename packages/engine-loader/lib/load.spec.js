@@ -61,9 +61,37 @@ test('putout: engine-loader: laod: env: PUTOUT_YARN_PNP', (t) => {
         namespace: 'putout',
     });
     
+    delete process.env.PUTOUT_YARN_PNP;
+    
     stopAll();
     
     t.match(error.message, `Cannot find module 'hello'`);
+    t.end();
+});
+
+test('putout: engine-loader: laod: createRequire', (t) => {
+    const customRequire = stub().returns('plugin');
+    
+    assign(customRequire, {
+        resolve: stub().returns('world'),
+    });
+    
+    const createRequire = stub().returns(customRequire);
+    
+    mockRequire('module', {
+        createRequire,
+    });
+    
+    const {loadPlugin} = reRequire('./load.js');
+    
+    tryCatch(loadPlugin, {
+        name: '@putout/plugin-remove-debugger',
+        namespace: 'putout',
+    });
+    
+    stopAll();
+    
+    t.calledCount(createRequire, 2, 'should call for "putout" and PUTOUT_YARN_PNP');
     t.end();
 });
 

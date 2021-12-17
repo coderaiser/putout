@@ -7,6 +7,11 @@
             "node/no-unsupported-features/es-syntax": "off",
             "node/no-missing-import": "off"
         }
+    }, {
+        "files": "lib/load.js",
+        "rules": {
+            "node/no-unpublished-require": "off"
+        }
     }],
     "extends": [
         "plugin:node/recommended",
