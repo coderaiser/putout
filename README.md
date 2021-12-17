@@ -2299,6 +2299,7 @@ Just create `.babelrc.json` file with configuration you need.
 ## Integration with Yarn PnP
 
 Since 🐊`Putout` has dynamic nature of loading:
+
 - `plugins`;
 - `processors`;
 - `formatters`;

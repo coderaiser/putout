@@ -34,7 +34,10 @@ module.exports.filter = (path) => {
     
     const argPath = first.get('argument');
     
-    if (argPath.isCallExpression())
+    if (isChainCall(argPath))
+        return false;
+    
+    if (!isEmptyCall(argPath))
         return false;
     
     if (argPath.isNewExpression())
@@ -50,6 +53,27 @@ module.exports.filter = (path) => {
         return false;
     
     return true;
+};
+
+const isChainCall = (path) => {
+    if (!path.isCallExpression())
+        return false;
+    
+    const calleePath = path.get('callee');
+    
+    if (!calleePath.isMemberExpression())
+        return false;
+    
+    const objectPath = calleePath.get('object');
+    
+    return objectPath.isCallExpression();
+};
+
+const isEmptyCall = (path) => {
+    if (!path.isCallExpression())
+        return true;
+    
+    return !path.node.arguments.length;
 };
 
 function hasComments(path) {

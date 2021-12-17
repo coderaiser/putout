@@ -32,13 +32,18 @@ test('plugin-remove-useless-return: transform: logic', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-return: transform: await', (t) => {
-    t.noTransform('await');
+test('plugin-remove-useless-return: transform: no-args', (t) => {
+    t.transform('no-args');
     t.end();
 });
 
-test('plugin-remove-useless-return: no transform: fn-call', (t) => {
-    t.noTransform('fn-call');
+test('plugin-remove-useless-return: transform: chain-call', (t) => {
+    t.noTransform('chain-call');
+    t.end();
+});
+
+test('plugin-remove-useless-return: transform: await', (t) => {
+    t.noTransform('await');
     t.end();
 });
 
@@ -49,6 +54,11 @@ test('plugin-remove-useless-return: no transform: new', (t) => {
 
 test('plugin-remove-useless-return: no transform: str', (t) => {
     t.noTransform('str');
+    t.end();
+});
+
+test('plugin-remove-useless-return: no transform: not-empty-call', (t) => {
+    t.noTransform('not-empty-call');
     t.end();
 });
 
