@@ -248,3 +248,11 @@ test('putout: plugin: declare-undefined-variables: returns', (t) => {
     `);
     t.end();
 });
+
+test('putout: plugin: declare-undefined-variables: nodejs: url', (t) => {
+    t.transformCode(`pathToFileURL(path);`, montag`
+        import {pathToFileURL} from 'url';
+        pathToFileURL(path);
+    `);
+    t.end();
+});

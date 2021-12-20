@@ -10,6 +10,7 @@
 - [module](https://nodejs.org/dist/latest-v16.x/docs/api/module.html);
 - [stream](https://nodejs.org/dist/latest-v16.x/docs/api/stream.html);
 - [os](https://nodejs.org/dist/latest-v16.x/docs/api/os.html);
+- [url](https://nodejs.org/dist/latest-v16.x/docs/api/url.html);
 - [zlib](https://nodejs.org/dist/latest-v16.x/docs/api/zlib.html);
 - [child_process](https://nodejs.org/dist/latest-v16.x/docs/api/child_process.html);
 - is types: `isFn`, `isString`, `isNumber`, `isObject`, `isBool`, `isUndefined`, `isSymbol`;
