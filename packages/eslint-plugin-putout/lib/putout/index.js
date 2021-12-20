@@ -1,5 +1,7 @@
 'use strict';
 
+const tryCatch = require('try-catch');
+
 const {
     ignores,
     findPlaces,
@@ -55,7 +57,7 @@ module.exports = {
             parser: createParser(node),
         });
         
-        const places = findPlaces(ast, text, resultOptions);
+        const [, places = []] = tryCatch(findPlaces, ast, text, resultOptions);
         
         for (const {rule, message, position} of places) {
             context.report({

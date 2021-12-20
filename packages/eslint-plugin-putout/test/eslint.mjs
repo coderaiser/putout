@@ -98,3 +98,14 @@ test('eslint-plugin-putout: ts: disabled', async ({comparePlaces}) => {
     await comparePlaces('ts-disabled', []);
 });
 
+test('eslint-plugin-putout: ts: duplicate', async ({comparePlaces}) => {
+    await comparePlaces('ts-duplicate', [{
+        message: `'Stub' is already defined.`,
+        position: {
+            column: 9,
+            line: 2,
+        },
+        rule: '@typescript-eslint/no-redeclare (eslint)',
+    }]);
+});
+

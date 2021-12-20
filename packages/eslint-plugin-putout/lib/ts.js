@@ -59,6 +59,9 @@ const extensionRules = {
     
     'space-infix-ops': 'off',
     '@typescript-eslint/space-infix-ops': rules[ 'space-infix-ops'],
+    
+    'no-redecalre': 'off',
+    '@typescript-eslint/no-redeclare': 'error',
 };
 
 const ts = {

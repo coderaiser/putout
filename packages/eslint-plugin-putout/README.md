@@ -120,4 +120,3 @@ Disabled 🐊`Putout` rules:
 - [remove-debugger](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-debugger);
 - [remove-unreachable-code](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-unreachable-code);
 - [convert-for-to-for-of](https://github.com/coderaiser/putout/tree/v22.0.0/packages/convert-for-to-for-of);
-
