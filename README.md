@@ -2238,7 +2238,7 @@ Please send pull requests with `jscodeshift codemods` which can be used to simpl
 
 ## Integration with ESLint
 
-If you see that 🐊`Putout` brokes formatting of your code, use eslint plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout).
+If you see that 🐊`Putout` brokes formatting of your code, use eslint plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#eslint-plugin-putout--).
 
 Install `eslint-plugin-putout` with:
 
