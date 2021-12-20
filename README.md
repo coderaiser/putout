@@ -24,8 +24,8 @@
 - [🤷‍♂️ Why does this project exist?](#%EF%B8%8F-why-does-this-project-exist)
 - [Installation](#installation)
 - [Usage](#usage)
-- [🤷‍♂️ What is `Ruler`?](#%EF%B8%8F-what-is-ruler)
-- [🤷‍♂️ How `Ruler` can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
+- [🤷 What is `Ruler`?](#%EF%B8%8F-what-is-ruler)
+- [🤷 How `Ruler` can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
 - [Converting `CommonJS` to `ESM`](#converting-commonjs-to-esm)
 - [Architecture](#architecture)
 - [🌲 The Tree of Syntax](#-the-tree-of-syntax)
@@ -43,10 +43,10 @@
 - [Integration with Babel](#integration-with-babel)
 - [Integration with Yarn PnP](#integration-with-yarn-pnp)
 - [Using Putout as Loader](#using-putout-as-loader)
-- [Exit Codes](#exit-codes)
+- [🚪 Exit Codes](#exit-codes)
 - [Real-world uses](#real-world-uses)
 - [Versioning policy](#versioning-policy)
-- [🚀 I want contribute](#-i-want-contribute)
+- [🚀I want contribute](#-i-want-contribute)
 - [License](#license)
 
 ## 🤷‍♂ Whom should I thank for this project exist?
@@ -2341,7 +2341,7 @@ You can also transform input files using `Babel`. For example if you need to tra
 }
 ```
 
-## Exit Codes
+## 🚪Exit Codes
 
 🐊`Putout` can have one of next [exit codes](https://github.com/coderaiser/putout/blob/master/packages/putout/lib/cli/exit-codes.mjs):
 
