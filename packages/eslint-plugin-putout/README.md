@@ -101,9 +101,12 @@ When using 🐊`Putout` in IDE with `--fix` on save, or when you want to disable
 }
 ```
 
-List of disabled 🐊`Putout` rules:
+Disabled `ESLint` rules:
 
 - [no-useless-return](https://eslint.org/docs/rules/no-useless-return)
+
+Disabled 🐊`Putout` rules:
+
 - [remove-empty](https://github.com/coderaiser/putout/tree/v22.0.0/packages/plugin-remove-empty);
 - [remove-unused-variables](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-unused-variables);
 - [remove-unused-types](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-unused-types);
@@ -117,3 +120,4 @@ List of disabled 🐊`Putout` rules:
 - [remove-debugger](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-debugger);
 - [remove-unreachable-code](https://github.com/coderaiser/putout/tree/v22.0.0/packages/remove-unreachable-code);
 - [convert-for-to-for-of](https://github.com/coderaiser/putout/tree/v22.0.0/packages/convert-for-to-for-of);
+
