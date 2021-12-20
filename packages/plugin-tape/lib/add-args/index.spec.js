@@ -17,6 +17,11 @@ test('plugin-tape: add-args: transform', (t) => {
     t.end();
 });
 
+test('plugin-tape: add-args: transform: async', (t) => {
+    t.transform('async');
+    t.end();
+});
+
 test('plugin-tape: add-args: no transform', (t) => {
     t.noTransform('upper-scope');
     t.end();
