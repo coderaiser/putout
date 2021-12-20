@@ -35,14 +35,14 @@
 - [🏟 Plugins](#-plugins-1)
 - [🦚 Formatters](#formatters)
 - [🦉 Configuration](#-configuration)
-- [Plugins API](#plugins-api)
+- [🧬 Plugins API](#-plugins-api)
 - [Using Babel Plugins with Putout](#using-babel-plugins-with-putout)
 - [🐌 Using JSCodeshift Codemods with Putout](#using-jscodeshift-codemods-with-putout)
 - [Codemods](#codemods)
 - [🦕 Integration with ESLint](#-integration-with-eslint)
 - [☄️ Integration with Babel](#-integration-with-babel)
 - [🐈 Integration with Yarn PnP](#-integration-with-yarn-pnp)
-- [Using Putout as Loader](#using-putout-as-loader)
+- [⛓ Using Putout as Loader](#-using-putout-as-loader)
 - [🚪 Exit Codes](#exit-codes)
 - [🦔 Real-world uses](#-real-world-uses)
 - [📻 Versioning policy](#-versioning-policy)
@@ -1906,7 +1906,7 @@ Add `putout` as a `peerDependency` to your `packages.json` (>= of version you de
 
 *Always add keywords `putout`, `putout-plugin` when publish putout plugin to `npm` so others can easily find it.*
 
-## Plugins API
+## 🧬 Plugins API
 
 > **Throughout your life advance daily, becoming more skillful than yesterday more skillful than today. This is never-ending**
 >
@@ -2323,7 +2323,7 @@ So if you package `eslint-config-hardcore` you should run `ESLint` this way:
 PUTOUT_YARN_PNP=eslint-config-hardcore eslint .
 ```
 
-## Using Putout as Loader
+## ⛓ Using Putout as Loader
 
 🐊`Putout` can be used as [loader](https://nodejs.org/dist/latest-v17.x/docs/api/esm.html#loaders) this way:
 
