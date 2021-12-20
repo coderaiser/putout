@@ -1,5 +1,9 @@
 'use strict';
 
+const {types} = require('putout');
+
+const {isFunction} = types;
+
 module.exports.report = () => `Call 'reImport()' using await`;
 
 module.exports.match = () => ({
@@ -15,7 +19,11 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     'reImport(__a)': (vars, path) => {
-        path.scope.block.async = true;
+        const fnPath = path.findParent(isFunction);
+        
+        if (fnPath)
+            fnPath.node.async = true;
+        
         return 'await reImport(__a)';
     },
 });

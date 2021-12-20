@@ -1,0 +1,7 @@
+() => {
+    {
+        reImport('x');
+    }
+};
+
+reImport('x');

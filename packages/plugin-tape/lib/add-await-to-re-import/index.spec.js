@@ -17,3 +17,8 @@ test('plugin-tape: add-await-to-re-import: transform', (t) => {
     t.end();
 });
 
+test('plugin-tape: add-await-to-re-import: transform: block', (t) => {
+    t.transform('block');
+    t.end();
+});
+
