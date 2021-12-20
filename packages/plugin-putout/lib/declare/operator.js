@@ -9,5 +9,6 @@ module.exports = {
     isSimpleRegExp: `const {isSimpleRegExp} = operator`,
     getTemplateValues: `const {getTemplateValues} = operator`,
     addArgument: `const {addArgument} = operator`,
+    replaceWith: `const {replaceWith} = opreator`,
 };
 

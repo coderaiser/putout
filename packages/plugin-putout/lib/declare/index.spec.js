@@ -1,5 +1,7 @@
 'use strict';
 
+const montag = require('montag');
+
 const {createTest} = require('@putout/test');
 const declare = require('.');
 
@@ -64,6 +66,17 @@ test('plugin-putout: declare: transform: regexp', (t) => {
 
 test('plugin-putout: declare: transform: add-argument', (t) => {
     t.transform('add-argument');
+    t.end();
+});
+
+test('plugin-putout: declare: transform: replaceWith', (t) => {
+    t.transformCode('replaceWith(a);', montag`
+        const {
+          replaceWith
+        } = opreator;
+        
+        replaceWith(a);
+    `);
     t.end();
 });
 

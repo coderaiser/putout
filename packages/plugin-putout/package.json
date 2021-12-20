@@ -42,6 +42,7 @@
     "eslint-plugin-putout": "^12.0.0",
     "lerna": "^4.0.0",
     "madrun": "^8.0.1",
+    "montag": "^1.2.1",
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {
