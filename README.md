@@ -2091,7 +2091,7 @@ To see a more sophisticated example look at [@putout/remove-console](https://git
 
 ### 🤷‍♂️ What if I don't want to publish a plugin?
 
-If you don't want to publish a `plugin` you developed, you can pass it to `Putout` as an `object` described earler. Here is [how it can look like](https://github.com/coderaiser/mock-import/blob/v1.0.8/lib/convert-imports/index.js#L19-L33):
+If you don't want to publish a `plugin` you developed, you can pass it to 🐊`Putout` as an `object` described earler. Here is [how it can look like](https://github.com/coderaiser/mock-import/blob/v1.0.8/lib/convert-imports/index.js#L19-L33):
 
 ```js
 putout('const a = 5', {
@@ -2105,7 +2105,7 @@ Where `plugins` is an `array` that contains `[name, implementation]` `tuples`.
 
 ## 🗿 Using Babel Plugins with Putout
 
-You can add `babel` to the `plugins` section of `.putout.json` with `babel/` prefix.
+You can add `Babel` to the `plugins` section of `.putout.json` with `babel/` prefix.
 
 *You can disable a rule, or use a match in a similar way.*
 
