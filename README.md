@@ -184,7 +184,7 @@ async function promise(a) {
 }
 ```
 
-You want to convert it to [ESM](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), and everything else keep untouched. You can do this with a `Ruler`. So you disable all rules that `Putout` can find right now.
+You want to convert it to [ESM](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), and everything else keep untouched. You can do this with a `Ruler`. So you disable all rules that 🐊`Putout` can find right now.
 
 `putout index.js --disable-all` will find next errors:
 
