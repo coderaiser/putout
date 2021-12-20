@@ -22,23 +22,23 @@
 
 - [🤷‍♂️ Whom should I thank for this project exist?](#-whom-should-i-thank-for-this-project-exist)
 - [🤷‍♂️ Why does this project exist?](#%EF%B8%8F-why-does-this-project-exist)
-- [Installation](#installation)
-- [Usage](#usage)
+- [🚚 Installation](#-installation)
+- [🎙 Usage](#usage)
 - [🤷 What is `Ruler`?](#%EF%B8%8F-what-is-ruler)
 - [🤷 How `Ruler` can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
-- [Converting `CommonJS` to `ESM`](#converting-commonjs-to-esm)
-- [🏛 Architecture](#architecture)
+- [🚁 Converting `CommonJS` to `ESM`](#-converting-commonjs-to-esm)
+- [🏛 Architecture](#-architecture)
 - [🌲 The Tree of Syntax](#-the-tree-of-syntax)
 - [🌴 Laws of the Jungle](#-laws-of-the-jungle)
-- [API](#api)
-- [Built-in transformations](#built-in-transformations)
+- [🏗 API](#-api)
+- [🏨 Built-in transformations](#built-in-transformations)
 - [🏟 Plugins](#-plugins-1)
 - [🦚 Formatters](#formatters)
 - [🦉 Configuration](#-configuration)
 - [🧬 Plugins API](#-plugins-api)
-- [Using Babel Plugins with Putout](#using-babel-plugins-with-putout)
-- [🐌 Using JSCodeshift Codemods with Putout](#using-jscodeshift-codemods-with-putout)
-- [Codemods](#codemods)
+- [🗿 Using Babel Plugins with Putout](#-using-babel-plugins-with-putout)
+- [🐌 Using JSCodeshift Codemods with Putout](#-using-jscodeshift-codemods-with-putout)
+- [🛴 Codemods](#-codemods)
 - [🦕 Integration with ESLint](#-integration-with-eslint)
 - [☄️ Integration with Babel](#-integration-with-babel)
 - [🐈 Integration with Yarn PnP](#-integration-with-yarn-pnp)
@@ -69,7 +69,7 @@
 
 🐊`Putout` on the other hand can make more drastic code transformations that directly affect your codebase making it a better place to code 💻.
 
-## Installation
+## 🚚 Installation
 
 To install 🐊`Putout` as a development dependency, run:
 
@@ -79,7 +79,7 @@ npm i putout -D
 
 Make sure that you are running a relatively recent (≥14.8) version of Node.
 
-## Usage
+## 🎙 Usage
 
 > **Grown-ups never understand anything by themselves, and it is tiresome for children to be always and forever explaining things to them.**
 >
@@ -157,7 +157,7 @@ Remember, it should never be used with `--fix`, because unclear things makes �
 
 You may want to convert your [`CommonJS`](https://nodejs.org/api/modules.html) module into [`Ecma Script Modules`](https://nodejs.org/api/esm.html) since [node v12 supports it without a flag](https://nodejs.org/de/blog/release/v12.17.0/).
 
-### Converting `CommonJS` to `ESM`
+### 🚁 Converting `CommonJS` to `ESM`
 
 #### ☝️ I have a `package.json`
 
@@ -380,7 +380,7 @@ To enable it use:
 
 Processors can be tested using [@putout/test/processors](https://github.com/coderaiser/putout/tree/master/packages/test#processors-api).
 
-## API
+## 🏗 API
 
 > **In one’s life. there are levels in the pursuit of study. In the lowest level, a person studies but nothing comes of it, and he feels that both he and others are unskillful. At this point he is worthless. In the middle level he is still useless but is aware of his own insufficiencies and can also see the insufficiencies of others. At a higher level, he has pride concerning his own ability, rejoices in praise from others, and laments the lack of ability in his fellows. This man has worth. At the highest level a man has the look of knowing nothing.**
 >
@@ -464,7 +464,7 @@ putout(source, {
 });
 ```
 
-## Built-in transformations
+## 🏨 Built-in transformations
 
 <details><summary>remove unused variables</summary>
 
@@ -2103,7 +2103,7 @@ putout('const a = 5', {
 
 Where `plugins` is an `array` that contains `[name, implementation]` `tuples`.
 
-## Using Babel Plugins with Putout
+## 🗿 Using Babel Plugins with Putout
 
 You can add `babel` to the `plugins` section of `.putout.json` with `babel/` prefix.
 
@@ -2242,7 +2242,7 @@ Here you can find `jscodeshift codemods` which feets the most main purpose of `p
 
 Please send pull requests with `jscodeshift codemods` which can be used to simplify, fix, or make code more readable.
 
-## Codemods
+## 🛴 Codemods
 
 `putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/master/codemods/plugin-convert-tape-to-supertape) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
 
