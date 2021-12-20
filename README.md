@@ -27,27 +27,27 @@
 - [🤷 What is `Ruler`?](#%EF%B8%8F-what-is-ruler)
 - [🤷 How `Ruler` can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
 - [Converting `CommonJS` to `ESM`](#converting-commonjs-to-esm)
-- [Architecture](#architecture)
+- [🏛 Architecture](#architecture)
 - [🌲 The Tree of Syntax](#-the-tree-of-syntax)
 - [🌴 Laws of the Jungle](#-laws-of-the-jungle)
 - [API](#api)
 - [Built-in transformations](#built-in-transformations)
-- [Plugins](#plugins-1)
-- [Formatters](#formatters)
-- [Configuration](#configuration)
+- [🏟 Plugins](#-plugins-1)
+- [🦚 Formatters](#formatters)
+- [🦉 Configuration](#-configuration)
 - [Plugins API](#plugins-api)
 - [Using Babel Plugins with Putout](#using-babel-plugins-with-putout)
-- [Using JSCodeshift Codemods with Putout](#using-jscodeshift-codemods-with-putout)
+- [🐌 Using JSCodeshift Codemods with Putout](#using-jscodeshift-codemods-with-putout)
 - [Codemods](#codemods)
-- [Integration with ESLint](#integration-with-eslint)
-- [Integration with Babel](#integration-with-babel)
-- [Integration with Yarn PnP](#integration-with-yarn-pnp)
+- [🦕 Integration with ESLint](#-integration-with-eslint)
+- [☄️ Integration with Babel](#-integration-with-babel)
+- [🐈 Integration with Yarn PnP](#-integration-with-yarn-pnp)
 - [Using Putout as Loader](#using-putout-as-loader)
 - [🚪 Exit Codes](#exit-codes)
-- [Real-world uses](#real-world-uses)
-- [Versioning policy](#versioning-policy)
+- [🦔 Real-world uses](#-real-world-uses)
+- [📻 Versioning policy](#-versioning-policy)
 - [🚀I want contribute](#-i-want-contribute)
-- [License](#license)
+- [🍄 License](#-license)
 
 ## 🤷‍♂ Whom should I thank for this project exist?
 
@@ -253,7 +253,7 @@ putout src --disable-all && putout src --enable convert-commonjs-to-esm && putou
 This command will disable all rules that `Putout` can find right now and `enables` a single rule. All `Putout` rules made for good and highly suggested to be used, they all enabled in all my repositories. You can always disable what you don't need, so give it a try you wan't regret 🐊.
 Happy coding 🎈!
 
-## Architecture
+## 🏛 Architecture
 
 `Putout` consists of a couple simple parts, here is a workflow representation:
 
@@ -1563,7 +1563,7 @@ async run () {
 
 </details>
 
-## Plugins
+## 🏟 Plugins
 
 The `putout` repo is comprised of many npm packages. It is a [lerna](https://github.com/lerna/lerna) monorepo similar to [babel](https://github.com/babel/babel).
 
@@ -1741,7 +1741,7 @@ Next packages not bundled with `putout` but can be installed separately.
 | [`@putout/plugin-regexp`](/packages/plugin-regexp) | [![npm](https://img.shields.io/npm/v/@putout/plugin-regexp.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-regexp) |
 | [`@putout/plugin-nodejs`](/packages/plugin-nodejs) | [![npm](https://img.shields.io/npm/v/@putout/plugin-nodejs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-nodejs) |
 
-## Formatters
+## 🦚 Formatters
 
 `putout` uses formatters similar to [eslint's formatters](https://eslint.org/docs/user-guide/formatters/).
 You can specify a formatter using the `--format` or `-f` flag on the command line. For example, `--format codeframe` uses the `codeframe` formatter.
@@ -1809,7 +1809,7 @@ Run:
 ESLINT_FORMATTER=pretty putout -f eslint lib
 ```
 
-## Configuration
+## 🦉 Configuration
 
 To configure `putout` add section `putout` to your `package.json` file or create `.putout.json` file and override any of [default options](/packages/putout/putout.json).
 
@@ -1886,7 +1886,7 @@ When you need to ignore some routes no matter what, you can use `ignore` section
 
 ### Plugins
 
-There are two types of plugins supported by 🐊`Putout`, their names in npm start with a prefix:
+There are two types of plugin names supported by 🐊`Putout`, their names in npm start with a prefix:
 
 - `@putout/plugin-` for official plugins
 - `putout-plugin-` for user plugins
@@ -2063,7 +2063,7 @@ There is predefined placeholders:
 - `"__"` - any string literal;
 - `__` - any template string literal;
 
-### Testing
+### 📼 Testing
 
 That was the simplest module to remove `debugger` statements in your code. Let's look how to test it using [@putout/test](https://github.com/coderaiser/putout/tree/master/packages/test):
 
@@ -2205,7 +2205,7 @@ try {
 
 Please send pull requests with `babel plugins` which can be used as codemods, or simplify, fix, makes code more readable.
 
-## Using JSCodeshift codemods with Putout
+## 🐌 Using JSCodeshift codemods with Putout
 
 `jscodeshift` codemods can be added to `plugins` section of `.putout.json` with prefix `jscodeshift/`. This way:
 
@@ -2246,7 +2246,7 @@ Please send pull requests with `jscodeshift codemods` which can be used to simpl
 
 `putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/master/codemods/plugin-convert-tape-to-supertape) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
 
-## Integration with ESLint
+## 🦕 Integration with ESLint
 
 If you see that 🐊`Putout` brokes formatting of your code, use eslint plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#eslint-plugin-putout--).
 
@@ -2289,9 +2289,9 @@ eslint --fix lib
 
 Will uses 🐊`Putout` transformations for you :).
 
-## Integration with Babel
+## ☄️ Integration with Babel
 
-`Putout` can be used as [babel plugin](/packages/babel-plugin-putout).
+🐊 `Putout` can be used as [babel plugin](/packages/babel-plugin-putout).
 Just create `.babelrc.json` file with configuration you need.
 
 ```json
@@ -2306,7 +2306,7 @@ Just create `.babelrc.json` file with configuration you need.
 }
 ```
 
-## Integration with Yarn PnP
+## 🐈 Integration with Yarn PnP
 
 Since 🐊`Putout` has dynamic nature of loading:
 
@@ -2379,7 +2379,7 @@ Exit codes `enum` can be imported as:
 import {OK} from 'putout/exit-codes';
 ```
 
-## Real-world uses
+## 🦔 Real-world uses
 
 - [Cloud Commander](https://cloudcmd.io): orthodox file manager for the web.
 - [Eslint Config Hardcore](https://github.com/EvgenyOrekhov/eslint-config-hardcore): The most strict (but practical) ESLint config out there.
@@ -2391,7 +2391,7 @@ import {OK} from 'putout/exit-codes';
 
 Do you use `putout` in your application as well? Please open a Pull Request to include it here. We would love to have it in our list.
 
-## Versioning Policy
+## 📻 Versioning Policy
 
 `Putout` follows semantic versioning ([semver](https://semver.org)) principles, with version numbers being on the format **major**.**minor**.**patch**:
 
@@ -2405,6 +2405,6 @@ You can contribute by proposing a feature, fixing a bug or a typo in the documen
 If you wish to play with code 🔥, [you can](https://github.com/coderaiser/putout/blob/master/CONTRIBUTING.md) 💪!
 🐊 `Putout` rejoice and wag its tail when see new contributions 👾.
 
-## License
+## 🍄 License
 
 MIT
