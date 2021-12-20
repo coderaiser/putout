@@ -1,3 +1,20 @@
+2021.12.20, v22.9.0
+
+fix:
+- (@putout/plugin-putout) convert-replace-with: crawl
+
+feature:
+- (@putout/plugin-apply-await-import) exclude cases where parent not VariableDeclarator
+- (@putout/plugin-apply-await-import) add
+- (@putout/plugin-putout) declare: add replaceWith
+- (@putout/plugin-tape) add-args: add support of async functions
+- (package) ts-morph v13.0.2
+- (@putout/plugin-declare-undefined-variables) add support of url
+- (@putout/engine-loader) improve Yarn PnP support (#93)
+- (@putout/plugin-remove-useless-return) improve handling of call expressions
+- (@putout/plugin-tape) add-t-end: exclude case where callback used
+
+
 2021.12.16, v22.8.2
 
 fix:
