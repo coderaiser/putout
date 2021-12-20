@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-add-args.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/operator-add-args "npm"
 
-`putout` operator adds ability to add argument that was not defined before.
+🐊`Putout` operator adds ability to add argument that was not defined before.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm i putout @putout/operator-add-args
 
 ## API
 
-If you want to create `putout plugin` that will add `args` according to your needs just:
+If you want to create 🐊`Putout` `plugin` that will add `args` according to your needs just:
 
 ```js
 const {operator} = require('putout');
