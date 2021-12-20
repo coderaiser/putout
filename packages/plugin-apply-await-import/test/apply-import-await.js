@@ -17,3 +17,8 @@ test('plugin-apply-await-import: transform: await-import', (t) => {
     t.end();
 });
 
+test('plugin-apply-await-import: transform: not-declaration', (t) => {
+    t.noTransform('not-declaration');
+    t.end();
+});
+

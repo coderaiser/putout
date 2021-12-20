@@ -16,6 +16,9 @@ module.exports.report = () => `Use 'await' near 'import' call`;
 
 module.exports.match = () => ({
     'import(__a)'(vars, path) {
+        if (!path.parentPath.isVariableDeclarator())
+            return false;
+        
         return !path.parentPath.isAwaitExpression();
     },
 });
