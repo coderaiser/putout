@@ -15,6 +15,7 @@ const traverse = require('@babel/traverse').default;
 const v8 = require('v8');
 
 const parseOptions = require('putout/parse-options');
+const {parseError} = require('./parse-error');
 
 const cwd = process.cwd();
 const getContextOptions = ({options}) => {
@@ -57,7 +58,13 @@ module.exports = {
             parser: createParser(node),
         });
         
-        const [, places = []] = tryCatch(findPlaces, ast, text, resultOptions);
+        const [error, places = []] = tryCatch(findPlaces, ast, text, resultOptions);
+        
+        if (error)
+            context.report({
+                message: `${parseError(error)} (putout)`,
+                node,
+            });
         
         for (const {rule, message, position} of places) {
             context.report({
