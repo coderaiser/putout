@@ -3,6 +3,8 @@
 const {createTest} = require('@putout/test');
 const convertReplaceWith = require('.');
 
+const {declare} = require('../index.js').rules;
+
 const test = createTest(__dirname, {
     'putout/convert-replace-with': convertReplaceWith,
 });
@@ -34,5 +36,12 @@ test('plugin-putout: convert-replace-with: transform: insertAfter exists', (t) =
 
 test('plugin-putout: convert-replace-with: transform: putout declared', (t) => {
     t.transform('putout-declared');
+    t.end();
+});
+
+test('plugin-putout: convert-replace-with: transform: replace with crawl', (t) => {
+    t.transform('replace-with-crawl', {
+        declare,
+    });
     t.end();
 });
