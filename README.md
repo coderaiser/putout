@@ -20,12 +20,12 @@
 
 ## Table of contents
 
-- [🤷‍♂️ Whom should I thank for this project exist?](#-whom-should-i-thank-for-this-project-exist)
+- [🙏 Whom should I thank for this project exist?](#-whom-should-i-thank-for-this-project-exist)
 - [🤷‍♂️ Why does this project exist?](#%EF%B8%8F-why-does-this-project-exist)
 - [🚚 Installation](#-installation)
 - [🎙 Usage](#usage)
-- [🤷 What is `Ruler`?](#%EF%B8%8F-what-is-ruler)
-- [🤷 How `Ruler` can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
+- [🤷‍♂️ What is `Ruler`?](#%EF%B8%8F-what-is-ruler)
+- [🤷‍♂️ How `Ruler` can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
 - [🚁 Converting `CommonJS` to `ESM`](#-converting-commonjs-to-esm)
 - [🏛 Architecture](#-architecture)
 - [🌲 The Tree of Syntax](#-the-tree-of-syntax)
@@ -49,14 +49,14 @@
 - [🚀I want contribute](#-i-want-contribute)
 - [🍄 License](#-license)
 
-## 🤷‍♂ Whom should I thank for this project exist?
+## 🙏 Whom should I thank for this project exist?
 
 > **If I have seen further, it is by standing upon the shoulders of giants.**
 >
 > **(c) Isaak Newton**
 
 - [`ESLint`](https://eslint.org) for stable releases and future proof `API`.
-- [`Babel`](https://babeljs.io) for amazing `API` documented in `Handbook` and responsiveness of a team.
+- [`Babel`](https://babeljs.io) for amazing `API` documented in [`Handbook`](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#babel-plugin-handbook) and responsiveness of a team.
 - [`Prettier`](https://github.com/prettier/prettier) for minimalistic options and uniform codestyle.
 - [`jscodeshift`](https://github.com/facebook/jscodeshift) for making codemods simple and popular.
 
