@@ -1,0 +1,22 @@
+{
+    "overrides": [{
+        "files": "*.js",
+        "rules": {
+            "no-useless-escape": "off"
+        }
+    }, {
+        "files": "*.md{js}",
+        "rules": {
+            "no-useless-return": "off",
+            "no-else-return": "off"
+        }
+    }],
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:putout/recommended"
+    ],
+    "plugins": [
+        "node",
+        "putout"
+    ]
+}

@@ -1244,6 +1244,15 @@ function world(a) {
 
 </details>
 
+<details><summary>apply `await import`</summary>
+
+```diff
+-const {readFile} = import('fs/promises');
++const {readFile} = await import('fs/promises');
+```
+
+</details>
+
 <details><summary>apply <code>if condition</code></summary>
 
 ```diff
@@ -1563,6 +1572,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-apply-is-array`](/packages/plugin-apply-is-array) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-is-array.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-is-array) |
+| [`@putout/plugin-apply-await-import`](/packages/plugin-apply-await-import) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-await-import.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-await-import) |
 | [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) |
 | [`@putout/plugin-apply-numeric-separators`](/packages/plugin-apply-numeric-separators) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-numeric-separators.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-numeric-separators) |
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) |

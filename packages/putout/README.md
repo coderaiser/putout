@@ -86,6 +86,7 @@
 - apply `filter(Boolean)`;
 - apply [isArray](https://web.mit.edu/jwalden/www/isArray.html);
 - apply `if condition`;
+- apply `await import`;
 
 ## Why?
 
