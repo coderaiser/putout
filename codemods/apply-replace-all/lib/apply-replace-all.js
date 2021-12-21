@@ -14,7 +14,7 @@ module.exports.replace = () => ({
     '__a.replace("__b", __c)': ({__b}, path) => {
         const value = __b.raw.slice(1, -1);
         const regexp = {
-            ...RegExpLiteral('xx', 'g'),
+            ...RegExpLiteral(escape(value), 'g'),
             extra: {
                 raw: `/${escape(value)}/g`,
             },

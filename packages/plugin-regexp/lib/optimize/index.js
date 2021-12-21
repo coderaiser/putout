@@ -1,10 +1,10 @@
 'use strict';
 
-const regexpTree = require('regexp-tree');
+const tryCatch = require('try-catch');
 
-const START_SLASH = 1;
-const END_SLASH = 1;
-const addSlashes = (a) => START_SLASH + a + END_SLASH;
+const {optimize} = require('regexp-tree');
+
+const cutSlashes = (a) => a.split('/').slice(1, -1).join('/');
 
 const whitelist = [];
 const blacklist = [
@@ -15,26 +15,29 @@ const options = {
     blacklist,
 };
 
-module.exports.report = ({from, to}) => `RegExp ${from} can be optimized to ${to}`;
+module.exports.report = ({pattern, to}) => `RegExp /${pattern}/ can be optimized to /${to}/`;
 
 module.exports.fix = ({path, to}) => {
-    const {flags} = path.node;
-    path.node.extra.raw = `${to}${flags}`;
-    path.node.pattern = to.slice(1, -1);
+    path.node.extra.raw = to;//`${to}${flags}`;
+    path.node.pattern = to;//.slice(1, -1);
 };
 
 module.exports.traverse = ({push}) => ({
     RegExpLiteral(path) {
-        const from = path.node.pattern;
-        const to = regexpTree.optimize(RegExp(from), whitelist, options).toString();
+        const {pattern, flags} = path.node;
+        const [error, result] = tryCatch(optimize, RegExp(pattern, flags), whitelist, options);
         
-        if (from !== to && addSlashes(from.length) !== to.length) {
+        if (error)
+            return;
+        
+        const to = cutSlashes(result._string);
+        
+        if (pattern !== to && pattern.length !== to.length) {
             push({
                 path,
-                from: `/${from}/`,
+                pattern,
                 to,
             });
         }
     },
 });
-

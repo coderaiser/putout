@@ -15,6 +15,7 @@ module.exports.exclude = () => [
 ];
 
 module.exports.fix = ({path, to}) => {
+    path.node.pattern = to.slice(1, -1);
     path.node.extra.raw = to;
 };
 

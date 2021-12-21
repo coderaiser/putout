@@ -23,7 +23,8 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "regexp-tree": "^0.1.21"
+    "regexp-tree": "^0.1.21",
+    "try-catch": "^3.0.0"
   },
   "keywords": [
     "putout",

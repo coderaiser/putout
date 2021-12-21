@@ -22,17 +22,12 @@ test('plugin-regexp/optimize: no transform: same-length', (t) => {
     t.end();
 });
 
-test('plugin-regexp/optimize: no transform: crash', (t) => {
-    t.transform('crash');
+test('plugin-regexp/optimize: transform: crash', (t) => {
+    t.noTransform('crash');
     t.end();
 });
 
-test('plugin-regexp/optimize: no transform: flags', (t) => {
-    t.transform('flags');
-    t.end();
-});
-
-test('plugin-regexp/optimize: ', (t) => {
+test('plugin-regexp/optimize: transform: flags', (t) => {
     t.transform('flags');
     t.end();
 });

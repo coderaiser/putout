@@ -47,7 +47,7 @@ function oneArgumentReplace({__a}, path) {
 
 function twoArgumentsReplace({__a, __b}, path) {
     return replaceWith(path, {
-        ...RegExpLiteral(__a.value, __b.value),
+        ...RegExpLiteral(encode(__a.value), __b.value),
         extra: {
             raw: `/${encode(__a.value)}/${__b.value}`,
         },

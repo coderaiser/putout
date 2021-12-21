@@ -1,1 +1,1 @@
-import info from './help.json' assert {type: 'json'};
+import info from './help.json' assert { type: 'json' };
