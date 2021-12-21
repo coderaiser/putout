@@ -46,7 +46,7 @@
 - [🚪 Exit Codes](#exit-codes)
 - [🦔 Real-world uses](#-real-world-uses)
 - [📻 Versioning policy](#-versioning-policy)
-- [🚀I want contribute](#-i-want-contribute)
+- [🚀 I want contribute](#-i-want-contribute)
 - [🍄 License](#-license)
 
 ## 🙏 Whom should I thank for this project exist?
