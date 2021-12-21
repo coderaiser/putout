@@ -1,3 +1,18 @@
+2021.12.21, v23.0.0
+
+feature:
+- (package) @putout/engine-loader v5.0.0
+- (package) @putout/engine-loader v5.0.0
+- (package) @putout/plugin-regexp v4.0.0
+- (@putout/plugin-regexp) drop support of putout < 23
+- (putout) drop jscodeshift support
+- (@putout/engine-loader) drop support of jscodeshift
+- (putout) apply @putout/recast v1.5.1 modifications
+- (eslint-plugin-putout) putout: add ability parse error instead of  throw
+- (eslint-plugin-putout) ts: add no-redeclare
+- (@putout/plugin-tape) add-await-to-re-import: add suport of nested blocks
+
+
 2021.12.20, v22.9.0
 
 fix:
