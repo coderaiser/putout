@@ -146,14 +146,14 @@ PUTOUT_FILES=lib,test putout --fix
 
 When you need to change `.putout.json` you can do it not only editing the file, but also with help of `Ruler`.
 
-`Ruler` can `enable` one rule with `putout --enable convert-commonjs-to-esm` or `disable` all rules Putout able to find using `putout --disable-all`.
-Remember, it should never be used with `--fix`, because unclear things makes 🐊 `Putout` angry and you can find him barking at you:
+`Ruler` can `enable` one rule with `putout --enable [rule]` or `disable` all rules 🐊`Putout` able to find using `putout --disable-all`.
+☝️Remember, `Ruler` should never be used with `--fix`, because unclear things makes 🐊 `Putout` angry and you can find him barking at you:
 
 ```
 🐊 `--fix` cannot be used with ruler toggler (`--enable`, `--disable`)
 ```
 
-## 🤷‍♂️ How `ruler` can be helpful to me?
+## 🤷‍♂️ How `Ruler` can be helpful to me?
 
 You may want to convert your [`CommonJS`](https://nodejs.org/api/modules.html) module into [`Ecma Script Modules`](https://nodejs.org/api/esm.html) since [node v12 supports it without a flag](https://nodejs.org/de/blog/release/v12.17.0/).
 
