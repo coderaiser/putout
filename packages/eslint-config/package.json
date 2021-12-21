@@ -33,7 +33,6 @@
   ],
   "devDependencies": {
     "c8": "^7.5.0",
-    "jsonlint": "^1.6.3",
     "madrun": "^8.0.1",
     "putout": "*"
   },

@@ -1,9 +1,7 @@
 import {run} from 'madrun';
 
 export default {
-    'lint:json': () => 'jsonlint -q eslintrc.json',
-    'lint:js': () => 'putout .',
-    'lint': () => run('lint:*'),
+    'lint': () => 'putout .',
     'fresh:lint': () => run('lint', '--fresh'),
     'lint:fresh': () => run('lint', '--fresh'),
     'fix:lint': () => run('lint', '--fix'),
