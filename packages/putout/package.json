@@ -2,7 +2,7 @@
   "name": "putout",
   "version": "22.9.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊 Pluggable and configurable code transformer with built-in eslint, babel plugins and jscodeshift codemods support of js, jsx typescript, flow files, markdown, yaml and json",
+  "description": "🐊 Pluggable and configurable code transformer with built-in eslint and babel plugins support of js, jsx typescript, flow files, markdown, yaml and json",
   "homepage": "http://github.com/coderaiser/putout",
   "main": "./lib/putout.js",
   "exports": {
@@ -215,7 +215,6 @@
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.14.5",
     "@cloudcmd/stub": "^3.0.0",
-    "async-await-codemod": "https://github.com/sgilroy/async-await-codemod.git",
     "babel-plugin-transform-inline-consecutive-adds": "^0.5.0-alpha.9",
     "c8": "^7.5.0",
     "currify": "^4.0.0",

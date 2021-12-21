@@ -36,8 +36,6 @@ const fixture = readFixtures([
     'jsx',
     'babel-plugins',
     'babel-plugins-fix',
-    'jscodeshift',
-    'jscodeshift-fix',
 ]);
 
 test('putout: no vars', (t) => {
@@ -680,38 +678,6 @@ test('putout: plugin: options: off', (t) => {
     const expected = [];
     
     t.deepEqual(places, expected, 'should equal');
-    t.end();
-});
-
-test('putout: jscodeshift', (t) => {
-    const {code} = putout(fixture.jscodeshift, {
-        plugins: [
-            'jscodeshift/async-await-codemod/async-await',
-        ],
-    });
-    
-    t.deepEqual(code, fixture.jscodeshiftFix);
-    t.end();
-});
-
-test('putout: jscodeshift: messsage', (t) => {
-    const {places} = putout(fixture.jscodeshift, {
-        fix: false,
-        plugins: [
-            'jscodeshift/async-await-codemod/async-await',
-        ],
-    });
-    
-    const expected = [{
-        message: 'async await codemod/async await',
-        position: {
-            column: 0,
-            line: 2,
-        },
-        rule: 'jscodeshift/async-await-codemod/async-await',
-    }];
-    
-    t.deepEqual(places, expected);
     t.end();
 });
 

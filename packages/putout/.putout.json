@@ -6,13 +6,11 @@
         },
         "/Users/coderaiser/putout/packages/putout/lib/cli/fixture/plugins.js": {
             "putout": "off",
-            "babel/transform-inline-consecutive-adds": "off",
-            "jscodeshift/async-await-codemod/async-await": "off"
+            "babel/transform-inline-consecutive-adds": "off"
         }
     },
     "plugins": [
         "babel/transform-inline-consecutive-adds",
-        "babel/transform-react-jsx",
-        "jscodeshift/async-await-codemod/async-await"
+        "babel/transform-react-jsx"
     ]
 }

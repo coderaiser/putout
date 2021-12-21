@@ -14,7 +14,7 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-🐊`Putout` is a pluggable and configurable code transformer with built-in `eslint`, `babel plugins` and `jscodeshift codemods` support for `js`, `jsx` `typescript` and `flow` files. It has [a lot of transforms](#built-in-transformations) that will keep your codebase in a clean state, transforming any code smell to readable code according to best practices.
+🐊`Putout` is a pluggable and configurable code transformer with built-in `eslint` and `babel plugins` for `js`, `jsx` `typescript` and `flow` files. It has [a lot of transforms](#built-in-transformations) that will keep your codebase in a clean state, transforming any code smell to readable code according to best practices.
 
 [![putout](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm.svg)](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm)
 
@@ -37,7 +37,6 @@
 - [🦉 Configuration](#-configuration)
 - [🧬 Plugins API](#-plugins-api)
 - [🗿 Using Babel Plugins with Putout](#-using-babel-plugins-with-putout)
-- [🐌 Using JSCodeshift Codemods with Putout](#-using-jscodeshift-codemods-with-putout)
 - [🛴 Codemods](#-codemods)
 - [🦕 Integration with ESLint](#-integration-with-eslint)
 - [☄️ Integration with Babel](#-integration-with-babel)
@@ -2204,43 +2203,6 @@ try {
 </details>
 
 Please send pull requests with `babel plugins` which can be used as codemods, or simplify, fix, makes code more readable.
-
-## 🐌 Using JSCodeshift codemods with Putout
-
-`jscodeshift` codemods can be added to `plugins` section of `.putout.json` with prefix `jscodeshift/`. This way:
-
-*Example*
-
-```json
-{
-    "plugins": [
-        "jscodeshift/async-await-codemod"
-    ]
-}
-```
-
-### JSCodeshift codemods list
-
-Here you can find `jscodeshift codemods` which feets the most main purpose of `putout` and advised to use:
-
-<details><summary><a href="https://github.com/sgilroy/async-await-codemod">async-await-codemod</a></summary>
-
-```diff
--function makeRequest() {
--  return getJSON().then(data => {
--    console.log(data);
--    return 'done';
--  });
-+ async function makeRequest() {
-+  const data = await getJSON();
-+  console.log(data);
-+  return 'done';
-}
-```
-
-</details>
-
-Please send pull requests with `jscodeshift codemods` which can be used to simplify, fix, or make code more readable.
 
 ## 🛴 Codemods
 
