@@ -130,7 +130,7 @@ function validateState(rule, value) {
 }
 
 const cut = (a) => a.split('/')[0];
-const isExclude = (a) => a.includes('babel') || a.includes('jscodeshift');
+const isExclude = (a) => a.includes('babel');
 
 function parseSubrules(rules) {
     const newRules = {};

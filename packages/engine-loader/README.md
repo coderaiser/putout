@@ -38,25 +38,6 @@ const plugins = loadPlugins({
 });
 ```
 
-#### JSCodeshift
-
-`@putout/engine-loader` supports loading transforms written for [jscodeshift](https://github.com/facebook/jscodeshift) with help of prefix `jscodeshift/`.
-
-```js
-const pluginNames = [
-    'jscodeshift/async-await-codemod',
-];
-
-const rules = {
-    'jscodeshift/async-await-codemod': ['on', 'any message you like :)'],
-};
-
-const plugins = loadPlugins({
-    pluginNames,
-    rules, // optional
-});
-```
-
 #### Babel Plugins
 
 You can use `babel plugins` with help of `babel/` prefix.

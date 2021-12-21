@@ -23,12 +23,6 @@ const fixture = readFixtures([
     'babel-plugin-fix',
     'babel-plugin-namespace',
     'babel-plugin-namespace-fix',
-    'jscodeshift',
-    'jscodeshift-fix',
-    'jscodeshift-arrow',
-    'jscodeshift-arrow-fix',
-    'jscodeshift-options',
-    'jscodeshift-options-fix',
 ]);
 
 test('putout: loader: user plugin', (t) => {
@@ -172,65 +166,6 @@ test('putout: loader: plugins: array', (t) => {
     stopAll();
     
     t.equal(code, `const t = 'hello'`);
-    t.end();
-});
-
-test('putout: loader: jscodeshift', (t) => {
-    const {code} = putout(fixture.jscodeshift, {
-        plugins: [
-            'jscodeshift/async-await-codemod/async-await',
-        ],
-    });
-    
-    t.deepEqual(code, fixture.jscodeshiftFix);
-    t.end();
-});
-
-test('putout: loader: jscodeshift: cache', (t) => {
-    const options = {
-        plugins: [
-            'jscodeshift/async-await-codemod/async-await',
-        ],
-    };
-    
-    putout(fixture.jscodeshift, options);
-    
-    const {code} = putout(fixture.jscodeshift, options);
-    
-    t.deepEqual(code, fixture.jscodeshiftFix);
-    t.end();
-});
-
-test('putout: loader: jscodeshift: no vars', (t) => {
-    const {code} = putout(fixture.jscodeshiftArrow, {
-        plugins: [
-            'jscodeshift/js-codemod/transforms/arrow-function',
-        ],
-    });
-    
-    t.deepEqual(code, fixture.jscodeshiftArrowFix);
-    t.end();
-});
-
-test('putout: loader: jscodeshift: messsage', (t) => {
-    const {places} = putout(fixture.jscodeshift, {
-        loadPlugins,
-        fix: false,
-        plugins: [
-            'jscodeshift/async-await-codemod/async-await',
-        ],
-    });
-    
-    const expected = [{
-        message: 'async await codemod/async await',
-        position: {
-            column: 0,
-            line: 2,
-        },
-        rule: 'jscodeshift/async-await-codemod/async-await',
-    }];
-    
-    t.deepEqual(places, expected);
     t.end();
 });
 

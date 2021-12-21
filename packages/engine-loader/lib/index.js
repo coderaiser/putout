@@ -120,19 +120,12 @@ function getLoadedRules(rules) {
 
 function splitRule(rule) {
     const name = rule
-        .replace('babel/', '')
-        .replace('jscodeshift/', '');
+        .replace('babel/', '');
     
     if (/^babel/.test(rule))
         return [
             name,
             'babel',
-        ];
-    
-    if (/^jscodeshift/.test(rule))
-        return [
-            name,
-            'jscodeshift',
         ];
     
     return [

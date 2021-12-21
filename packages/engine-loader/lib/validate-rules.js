@@ -1,7 +1,7 @@
 'use strict';
 
 const parse = (rule) => {
-    if (/^(babel|jscodeshift)\//.test(rule))
+    if (/^babel\//.test(rule))
         return rule;
     
     if (rule.includes('/'))

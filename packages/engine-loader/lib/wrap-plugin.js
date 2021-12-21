@@ -6,7 +6,6 @@ const {print} = require('@putout/engine-parser');
 const getPositions = require('./get-positions-by-diff');
 
 const babelTransform = require('./transforms/babel');
-const jscodeshiftTransform = require('./transforms/jscodeshift');
 
 const getMessage = (a) => a
     .replace(/@babel\/plugin-|babel-plugin-/, '')
@@ -25,13 +24,6 @@ module.exports = (name, namespace) => {
             name: getBabelPluginName(name),
             message,
             transform: babelTransform,
-        });
-    
-    if (/jscodeshift/.test(namespace))
-        return getPlugin({
-            name,
-            message,
-            transform: jscodeshiftTransform,
         });
     
     return null;
