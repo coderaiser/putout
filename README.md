@@ -1312,7 +1312,7 @@ import fs from 'fs';
 
 </details>
 
-<details><summary>apply <code>as</code> type assertion (according to <a href=https://basarat.gitbook.io/typescript/type-system/type-assertion#as-foo-vs-less-than-foo-greater-than>best practices</a>, for typescript)</summary>
+<details><summary>apply <code>as</code> type assertion (according to <a href=https://basarat.gitbook.io/typescript/type-system/type-assertion#as-foo-vs.-less-than-foo-greater-than>best practices</a>, for typescript)</summary>
 
 ```diff
 -const boundaryElement = <HTMLElement>e.target;
