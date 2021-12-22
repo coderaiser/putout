@@ -22,11 +22,13 @@ module.exports.fix = (path) => {
     if (path.isRegExpLiteral()) {
         const {pattern, flags} = path.node;
         const unescaped = unescapeRegExp(pattern);
+        const raw = `/${unescaped}/`;
         
         const regExpNode = assign(RegExpLiteral(unescaped, flags), {
             value: unescaped,
+            raw,
             extra: {
-                raw: `/${unescaped}/`,
+                raw,
                 rawValue: unescaped,
             },
         });
@@ -134,17 +136,15 @@ function unescapeRegExp(raw) {
     return raw
         .replace(/\\:/g, ':')
         .replace(/\+\\\//g, '+/')
-        .replace(/(\\),/, ',');
+        .replace(/\\,/g, ',');
 }
 
-const isRegExpColon = (a) => /\\:/.test(a) && !/\\\\:/.test(a);
-const isRegExpSlash = (a) => /[^\\]+\\\//.test(a);
-const isComa = (a) => a.includes('\\,') && !a.includes('\\\\,');
+const is = (a) => (b) => b.includes(`\\${a}`) && !b.includes(`\\\\${a}`);
+const isRegExpColon = is(':');
+const isComa = is(',');
+const isRegExpSlash = (a) => a.includes('\\\\\\\\');
 
 function isEscapedRegExp(raw) {
-    if (!raw)
-        return false;
-    
     return isRegExpColon(raw) || isRegExpSlash(raw) || isComa(raw);
 }
 

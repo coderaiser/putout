@@ -14,8 +14,8 @@ test('putout: parse-sep: win32', (t) => {
     
     const parseSep = reRequire('./parse-sep');
     
-    const result = parseSep('/hello');
-    const expected = '\\\\hello';
+    const result = parseSep('/hello/');
+    const expected = '\\\\hello\\\\';
     
     defineProperty(process, 'platform', {
         value: platform,

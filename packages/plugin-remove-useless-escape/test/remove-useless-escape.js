@@ -50,8 +50,8 @@ test('plugin-remove-useless-escape: transform: a: ^', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-escape: no transform: slash', (t) => {
-    t.noTransform('slash');
+test('plugin-remove-useless-escape: no report: slash', (t) => {
+    t.noReport('slash');
     t.end();
 });
 
@@ -75,8 +75,8 @@ test('plugin-remove-useless-escape: transform: regexp: colon', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-escape: transform: regexp: slash', (t) => {
-    t.transform('regexp-slash');
+test('plugin-remove-useless-escape: transform: regexp', (t) => {
+    t.noTransform('regexp-slash');
     t.end();
 });
 
@@ -102,7 +102,3 @@ test('plugin-remove-useless-escape: no transform: no raw', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-escape: no transform: no slash before', (t) => {
-    t.noTransformCode('/hello\\\\,/');
-    t.end();
-});
