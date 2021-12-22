@@ -31,6 +31,11 @@ module.exports.filter = (path) => {
     if (iBinding.constantViolations.length > 1)
         return false;
     
+    const {references} = path.scope.bindings[__i.name];
+    
+    if (references < 4)
+        return false;
+    
     return compare(first, assignIterableWithName(__i, __e));
 };
 

@@ -17,6 +17,11 @@ test('plugin-convert-for-to-for-of: entries: transform', (t) => {
     t.end();
 });
 
+test('plugin-convert-for-to-for-of: entries: no transform: index-references', (t) => {
+    t.noTransform('index-references');
+    t.end();
+});
+
 test('plugin-convert-for-to-for-of: entries: no transform: changed-index', (t) => {
     t.noTransform('changed-index');
     t.end();
