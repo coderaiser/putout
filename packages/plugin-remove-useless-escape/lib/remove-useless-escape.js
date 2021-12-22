@@ -121,7 +121,7 @@ function unEscape(raw) {
         .replace(/\\\+/g, '+')
         .replace(createEncodedRegExp(`"`), '"')
         .replace(/\\\^/g, '^')
-        .replace(/(\\),/g, ',');
+        .replace(/(\\),/, ',');
     
     for (const emoji of match(raw)) {
         raw = raw.replace(createEncodedRegExp(emoji), emoji);
@@ -134,14 +134,17 @@ function unescapeRegExp(raw) {
     return raw
         .replace(/\\:/g, ':')
         .replace(/\+\\\//g, '+/')
-        .replace(/(\\),/g, ',');
+        .replace(/(\\),/, ',');
 }
 
 const isRegExpColon = (a) => /\\:/.test(a) && !/\\\\:/.test(a);
-const isRegExpSlash = (a) => /\+\\\//.test(a);
-const isComa = (a) => /(\\),/.test(a);
+const isRegExpSlash = (a) => /[^\\]+\\\//.test(a);
+const isComa = (a) => a.includes('\\,') && !a.includes('\\\\,');
 
 function isEscapedRegExp(raw) {
+    if (!raw)
+        return false;
+    
     return isRegExpColon(raw) || isRegExpSlash(raw) || isComa(raw);
 }
 

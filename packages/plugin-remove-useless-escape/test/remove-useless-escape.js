@@ -102,3 +102,7 @@ test('plugin-remove-useless-escape: no transform: no raw', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-escape: no transform: no slash before', (t) => {
+    t.noTransformCode('/hello\\\\,/');
+    t.end();
+});
