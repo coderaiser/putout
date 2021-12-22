@@ -2,10 +2,8 @@ const report = () => 'Merge heading spaces';
 
 const fix = (heading) => {
     const newChildren = [];
-    const n = heading.children.length;
     
-    for (let i = 0; i < n; i++) {
-        const node = heading.children[i];
+    for (const [i, node] of heading.children.entries()) {
         const nextNode = heading.children[i + 1];
         
         if (bothSpaces(node, nextNode))
@@ -23,10 +21,7 @@ const traverse = (tree, {push}) => {
     if (heading.type !== 'heading')
         return;
     
-    const n = heading.children.length;
-    
-    for (let i = 0; i < n; i++) {
-        const node = heading.children[i];
+    for (const [i, node] of heading.children.entries()) {
         const nextNode = heading.children[i + 1];
         
         if (bothSpaces(node, nextNode)) {

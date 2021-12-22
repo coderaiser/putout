@@ -8,5 +8,6 @@ module.exports.rules = {
     ...getRule('n'),
     ...getRule('length'),
     ...getRule('entries'),
+    ...getRule('entries-n'),
 };
 

@@ -17,10 +17,7 @@ module.exports = (dirOpt, resolvedName, options = {}) => {
 };
 
 function mergeIgnores(ignores) {
-    const n = ignores.length;
-    
-    for (let i = 0; i < n; i++) {
-        const str = ignores[i];
+    for (const [i, str] of ignores.entries()) {
         const positiveIndex = ignores.indexOf(positive(str));
         
         if (isNegative(str) && positiveIndex > i)

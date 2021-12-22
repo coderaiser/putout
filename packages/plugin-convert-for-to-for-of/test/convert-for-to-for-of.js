@@ -27,13 +27,13 @@ test('plugin-convert-for-to-for-of: transform: entries', (t) => {
     t.end();
 });
 
-test('plugin-convert-for-to-for-of: no transform: no body', (t) => {
-    t.noTransform('no-body');
+test('plugin-convert-for-to-for-of: transform: entries-n', (t) => {
+    t.transform('entries-n');
     t.end();
 });
 
-test('plugin-convert-for-to-for-of: no transform: more i references n', (t) => {
-    t.noTransform('for-more-n');
+test('plugin-convert-for-to-for-of: no transform: no body', (t) => {
+    t.noTransform('no-body');
     t.end();
 });
 

@@ -3,11 +3,7 @@
 const {isImportDefaultSpecifier} = require('putout').types;
 
 module.exports.isCorrectLoc = (line, properties) => {
-    const n = properties.length;
-    
-    for (let i = 0; i < n; i++) {
-        const prop = properties[i];
-        
+    for (const [i, prop] of properties.entries()) {
         if (prop.loc.start.line < i + line + 1)
             return false;
     }
@@ -16,14 +12,10 @@ module.exports.isCorrectLoc = (line, properties) => {
 };
 
 module.exports.isCorrectImportLoc = (line, specifiers) => {
-    const n = specifiers.length;
-    
     if (!isImportDefaultSpecifier(specifiers[0]))
         ++line;
     
-    for (let i = 0; i < n; i++) {
-        const spec = specifiers[i];
-        
+    for (const [i, spec] of specifiers.entries()) {
         if (spec.loc.start.line < i + line)
             return false;
     }
