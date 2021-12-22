@@ -27,6 +27,21 @@ test('plugin-regexp/remove-useless-group: transform: search', (t) => {
     t.end();
 });
 
+test('plugin-regexp/remove-useless-group: no transform: group alternatives', (t) => {
+    t.transformCode('/^(babel)/.test(x)', '/^babel/.test(x)');
+    t.end();
+});
+
+test('plugin-regexp/remove-useless-group: no transform: group alternatives inside Repetition', (t) => {
+    t.noTransformCode('/^(babel){1,}/.test(x)');
+    t.end();
+});
+
+test('plugin-regexp/remove-useless-group: no transform: Alternative inside Assertion', (t) => {
+    t.noTransformCode('/^(babel)\\1{1,}/.test(x)');
+    t.end();
+});
+
 test('plugin-regexp/remove-useless-group: no transform: disjunction', (t) => {
     t.noTransform('disjunction');
     t.end();

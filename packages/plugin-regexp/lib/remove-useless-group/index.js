@@ -42,7 +42,14 @@ function removeUselessGroup(str) {
     
     regexpTree.traverse(ast, {
         Group(path) {
-            if (path.parent.type !== 'RegExp')
+            const {type} = path.parent;
+            
+            if (!/RegExp|Alternative/.test(type))
+                return;
+            
+            const nextNode = getNextSibling(path);
+            
+            if (nextNode?.type === 'Repetition')
                 return;
             
             const {node} = path;
@@ -70,12 +77,27 @@ function includes(path) {
     if (compare(parentPath, '__.match(/__a/)'))
         return true;
     
-    if (compare(parentPath.parentPath, '/__a/.test(__b)')) {
+    if (compare(parentPath.parentPath, '/__a/.test(__b)'))
         return true;
-    }
     
     if (compare(parentPath, '__.search(/__a/)'))
         return true;
     
     return false;
 }
+
+function getNextSibling(path) {
+    let found = false;
+    const {expressions = []} = path.parent;
+    
+    for (const current of expressions) {
+        if (found)
+            return current;
+        
+        if (current === path.node)
+            found = true;
+    }
+    
+    return null;
+}
+
