@@ -22,6 +22,11 @@ test('plugin-convert-for-to-for-of: n: transform: used length', (t) => {
     t.end();
 });
 
+test('plugin-convert-for-to-for-of: n: no transform: more i references', (t) => {
+    t.noTransform('for-more');
+    t.end();
+});
+
 test('plugin-convert-for-to-for-of: n: transform: no-name', (t) => {
     t.noTransform('no-name');
     t.end();

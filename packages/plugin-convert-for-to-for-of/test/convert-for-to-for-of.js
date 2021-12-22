@@ -22,8 +22,8 @@ test('plugin-convert-for-to-for-of: transform: for to n', (t) => {
     t.end();
 });
 
-test('plugin-convert-for-to-for-of: no transform: more i references', (t) => {
-    t.noTransform('for-more');
+test('plugin-convert-for-to-for-of: transform: entries', (t) => {
+    t.transform('entries');
     t.end();
 });
 

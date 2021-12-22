@@ -37,6 +37,11 @@ for (let i = 0; i < n; i++) {
     const item = items[i];
     log(item);
 }
+
+for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    log(i, item);
+}
 ```
 
 ## ✅ Correct code Example
@@ -44,6 +49,10 @@ for (let i = 0; i < n; i++) {
 ```js
 for (const item of items) {
     log(item);
+}
+
+for (const [i, item] of items.entries()) {
+    log(i, item);
 }
 ```
 
