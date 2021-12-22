@@ -18,13 +18,17 @@ const isRelativeEnd = (a) => RegExp(`${RELATIVE}$`).test(a);
 const getDir = (a) => a === '<input>' ? cwd : dirname(a);
 const getValue = (node) => {
     const {source} = node;
-    const {value} = source;
-    return value;
+    return source?.value;
 };
 
 module.exports.category = 'errors';
 module.exports.report = () => 'Always add an extension to relative imports';
-module.exports.include = () => ['ImportDeclaration', 'ImportExpression'];
+module.exports.include = () => [
+    'ImportDeclaration',
+    'ImportExpression',
+    'ExportAllDeclaration',
+    'ExportNamedDeclaration',
+];
 
 module.exports.fix = ({node, text, filename}) => {
     const value = getValue(node);
