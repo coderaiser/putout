@@ -1,3 +1,20 @@
+2021.12.23, v23.1.0
+
+fix:
+- (@putout/plugin-convert-for-to-for-of) entries: count i references (should be more then 3)
+
+feature:
+- (@putout/plugin-remove-useless-array-entries) add
+- (@putout/plugin-convert-for-to-for-of) length: add support of destructuring
+- (@putout/plugin-convert-for-to-for-of) entries: add support of destructuring
+- (@putout/plugin-convert-for-to-for-of) add support of entries with declared n
+- (@putout/plugin-convert-for-to-for-of) add support of entries
+- (eslint-plugin-putout) no-unresolved: add support of export declarations
+- (@putout/plugin-remove-useless-escape) set RegExp raw
+- (@putout/plugin-remove-useless-escape) improve support of handling "," in RegExp
+- (@putout/plugin-regexp) remove-useless-group: add support of Alternative
+
+
 2021.12.21, v23.0.0
 
 feature:
