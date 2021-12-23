@@ -47,6 +47,8 @@ export default {
     'lint-all': async () => `MADRUN_NAME=1 ${await run('lint:*')}`,
     'lint:frame': async () => await run('lint:ci', '-f codeframe'),
     'lint:fresh': async () => await run('lint', '--fresh'),
+    'lint:fresh:only:putout': async () => [eslintOffEnv, await run('lint:memory')],
+    'lint:fresh:only:eslint': async () => [putoutOffEnv, await run('lint:memory', '--no-config')],
     'lint:memory': async () => await run('lint:fresh', '-f memory'),
     'lint:only:putout': async () => [eslintOffEnv, await run('lint:memory')],
     'lint:only:eslint': async () => [putoutOffEnv, await run('lint:memory', '--no-config')],
