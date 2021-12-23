@@ -1,5 +1,7 @@
 'use strict';
 
+const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
+
 const {createTest} = require('@putout/test');
 const convertForToForOf = require('./index.js');
 
@@ -29,6 +31,13 @@ test('plugin-convert-for-to-for-of: entries: no transform: changed-index', (t) =
 
 test('plugin-convert-for-to-for-of: entries: no transform: index-not-identifier', (t) => {
     t.noTransform('index-not-identifier');
+    t.end();
+});
+
+test('plugin-convert-for-to-for-of: entries: transform: remove-useless-arguments', (t) => {
+    t.transform('remove-useless-arguments', {
+        'remove-unused-variables': removeUnusedVariables,
+    });
     t.end();
 });
 
