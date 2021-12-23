@@ -1,6 +1,10 @@
 'use strict';
 
-const {operator, types} = require('putout');
+const {
+    operator,
+    types,
+    template,
+} = require('putout');
 const {
     compare,
     getTemplateValues,
@@ -11,7 +15,7 @@ const {isBlockStatement} = types;
 module.exports.report = () => 'for-of should be used instead of for';
 
 const forLoop = 'for (let __i = 0; __i < __e.length; __i++) __c';
-const getForOfLoop = (__a, __b) => `for (const ${__a.name} of ${__b.name}) __c`;
+const getForOfLoop = template(`for (const LEFT of RIGHT) BODY`);
 const assignIterable = (__i) => `const __a = __b[${__i.name}]`;
 const assignIterableWithName = (__i, __e) => `const __a = ${__e.name}[${__i.name}]`;
 
@@ -40,7 +44,11 @@ module.exports.replace = () => ({
         
         __c.body.shift();
         
-        return getForOfLoop(__a, __b);
+        return getForOfLoop({
+            LEFT: __a,
+            RIGHT: __b,
+            BODY: __c,
+        });
     },
 });
 
