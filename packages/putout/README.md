@@ -36,6 +36,7 @@
 - remove useless `typeof`;
 - remove useless `template expressions`;
 - remove useless `for-of`;
+- remove useless `array.entries()`;
 - remove `debugger` statement;
 - remove `iife`;
 - remove nested blocks;

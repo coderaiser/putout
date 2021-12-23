@@ -143,6 +143,7 @@
     "@putout/plugin-remove-unused-variables": "*",
     "@putout/plugin-remove-useless-arguments": "^5.0.0",
     "@putout/plugin-remove-useless-array-constructor": "^1.0.0",
+    "@putout/plugin-remove-useless-array-entries": "^1.0.0",
     "@putout/plugin-remove-useless-array-from": "^2.0.0",
     "@putout/plugin-remove-useless-conditions": "^1.0.0",
     "@putout/plugin-remove-useless-constructor": "^1.0.0",

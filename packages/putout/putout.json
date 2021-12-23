@@ -187,6 +187,7 @@
         "remove-useless-functions",
         "remove-useless-template-expressions",
         "remove-useless-for-of",
+        "remove-useless-array-entries",
         "remove-constant-conditions",
         "remove-boolean-from-assertions",
         "remove-boolean-from-logical-expressions",

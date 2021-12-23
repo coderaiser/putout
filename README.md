@@ -784,6 +784,17 @@ function onIfStatement({push}) {
 
 </details>
 
+<details><summary>remove useless <code><a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries>array.entries()</a></code></summary>
+
+```diff
+-for (const [,element] of array.entries()) {
+-}
++for (const element of array) {
++}
+```
+
+</details>
+
 <details><summary>reuse duplicate<code>init</code></summary>
 
 ```diff
@@ -1655,6 +1666,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-remove-useless-types-from-constants`](/packages/plugin-remove-useless-types-from-constants) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-types-from-constants.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-types-from-constants) |
 | [`@putout/plugin-remove-useless-array-from`](/packages/plugin-remove-useless-array-from) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-from.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array-from) |
 | [`@putout/plugin-remove-useless-spread`](/packages/plugin-remove-useless-spread) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-spread) |
+| [`@putout/plugin-remove-useless-array-entries`](/packages/plugin-remove-useless-array-entries) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array-entries) |
 | [`@putout/plugin-remove-useless-arguments`](/packages/plugin-remove-useless-arguments) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-arguments.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-arguments) |
 | [`@putout/plugin-remove-useless-escape`](/packages/plugin-remove-useless-escape) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-escape.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-escape) |
 | [`@putout/plugin-remove-useless-template-expressions`](/packages/plugin-remove-useless-template-expressions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-template-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-template-expressions) |
