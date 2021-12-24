@@ -3,7 +3,7 @@
   "version": "4.1.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin helps with regexp",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#readme",
   "main": "lib/index.js",
   "release": false,
   "tag": false,

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability apply array.at",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-array-at",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-array-at#readme",
   "main": "lib/apply-array-at.js",
   "release": false,
   "tag": false,

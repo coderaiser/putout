@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to remove useless operand",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-operand",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-operand#readme",
   "main": "lib/remove-useless-operand.js",
   "release": false,
   "tag": false,

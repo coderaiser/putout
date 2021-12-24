@@ -3,7 +3,7 @@
   "version": "4.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert Math.pow to exponentiation operator",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-math-pow",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-math-pow#readme",
   "main": "lib/convert-math-pow.js",
   "release": false,
   "tag": false,

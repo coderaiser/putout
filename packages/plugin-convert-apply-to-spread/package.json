@@ -3,7 +3,7 @@
   "version": "3.1.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert apply to spread",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-apply-to-spread",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-apply-to-spread#readme",
   "main": "lib/convert-apply-to-spread.js",
   "release": false,
   "tag": false,

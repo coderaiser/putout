@@ -3,7 +3,7 @@
   "version": "3.0.1",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout formatter shows code frame with an error",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-codeframe",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-codeframe#readme",
   "main": "lib/codeframe.js",
   "release": false,
   "tag": false,

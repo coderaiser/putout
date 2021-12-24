@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout formatter shows progress and codeframe at the end",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-frame",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-frame#readme",
   "main": "lib/frame.js",
   "release": false,
   "tag": false,

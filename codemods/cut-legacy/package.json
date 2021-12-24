@@ -4,7 +4,7 @@
   "private": true,
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "convert PascalCase to camelCase",
-  "homepage": "http://github.com/coderaiser/putout",
+  "homepage": "http://github.com/coderaiser/putout#readme",
   "main": "lib/cut-legacy",
   "release": false,
   "tag": false,

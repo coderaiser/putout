@@ -3,7 +3,7 @@
   "version": "3.0.1",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove test.constant-conditions calls",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-constant-conditions",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-constant-conditions#readme",
   "main": "lib/remove-constant-conditions.js",
   "release": false,
   "tag": false,

@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert generic to shorthand",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-generic-to-shorthand",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-generic-to-shorthand#readme",
   "main": "lib/convert-generic-to-shorthand.js",
   "release": false,
   "tag": false,

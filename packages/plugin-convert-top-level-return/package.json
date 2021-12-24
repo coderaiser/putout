@@ -3,7 +3,7 @@
   "version": "4.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert top-level return to process.exit",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-top-level-return",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-top-level-return#readme",
   "main": "lib/convert-top-level-return.js",
   "release": false,
   "tag": false,

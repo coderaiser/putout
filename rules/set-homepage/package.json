@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to find and remove process.exit",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/rules/set-homepage",
+  "description": "putout plugin adds ability to set homepage",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/rules/set-homepage#readme",
   "main": "lib/set-homepage.js",
   "release": false,
   "tag": false,
@@ -26,10 +26,7 @@
   "dependencies": {},
   "keywords": [
     "putout",
-    "putout-plugin",
-    "putout-plugin-remove",
-    "plugin",
-    "debugger"
+    "putout-rule"
   ],
   "devDependencies": {
     "@putout/test": "^4.0.0",
@@ -42,11 +39,11 @@
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {
-    "putout": ">=6.16"
+    "putout": ">=23"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=14"
   },
   "publishConfig": {
     "access": "public"

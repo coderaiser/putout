@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to remove boolean from assertions",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-boolean-from-assertions",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-boolean-from-assertions#readme",
   "main": "lib/remove-boolean-from-assertions.js",
   "release": false,
   "tag": false,

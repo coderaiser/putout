@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert map to for-of",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-map-to-for-of",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-map-to-for-of#readme",
   "main": "lib/convert-map-to-for-of.js",
   "release": false,
   "tag": false,

@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "convert \"rules\" section to \"match\" in .putout.json",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-match",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-match#readme",
   "main": "lib/match.js",
   "type": "module",
   "release": false,

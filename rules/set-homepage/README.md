@@ -7,3 +7,7 @@
 -  "homepage": "https://github.com/coderaiser/putout",
 +  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-set-homepage",
 ```
+
+# License
+
+MIT

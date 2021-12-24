@@ -4,7 +4,7 @@
   "private": true,
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "convert PascalCase to camelCase",
-  "homepage": "http://github.com/coderaiser/putout",
+  "homepage": "http://github.com/coderaiser/putout#readme",
   "main": "lib/pascal-to-camel",
   "release": false,
   "tag": false,

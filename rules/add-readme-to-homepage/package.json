@@ -1,0 +1,51 @@
+{
+  "name": "@putout/rule-add-readme-to-homepage",
+  "version": "1.0.0",
+  "private": true,
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin adds ability to add anchor #readme to homepage",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/rules/add-readme-to-homepage#readme",
+  "main": "lib/add-readme-to-homepage.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-rule"
+  ],
+  "devDependencies": {
+    "@putout/test": "^4.0.0",
+    "c8": "^7.5.0",
+    "eslint": "^8.0.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^12.0.0",
+    "lerna": "^4.0.0",
+    "madrun": "^8.0.1",
+    "nodemon": "^2.0.1"
+  },
+  "peerDependencies": {
+    "putout": ">=23"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

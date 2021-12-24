@@ -3,7 +3,7 @@
   "version": "5.2.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to remove useless spread",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-spread",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-spread#readme",
   "main": "lib/remove-useless-spread.js",
   "release": false,
   "tag": false,

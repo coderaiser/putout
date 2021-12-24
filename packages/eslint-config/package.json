@@ -3,7 +3,7 @@
   "version": "6.5.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout config for eslint",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/eslint-config",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/eslint-config#readme",
   "main": "./eslintrc.json",
   "exports": "./eslintrc.json",
   "release": false,

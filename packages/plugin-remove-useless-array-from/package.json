@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to remove useless Array.from",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-array-from",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-array-from#readme",
   "main": "lib/remove-useless-array-from.js",
   "release": false,
   "tag": false,
