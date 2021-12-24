@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/engine-loader.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/engine-loader"npm"
 
-Load putout `plugins`, `processors`.
+Load 🐊[`Putout`](https://github.com/coderaiser/putout) `Plugins` and `Processors`.
 
 ## Install
 

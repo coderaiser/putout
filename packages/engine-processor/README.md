@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/engine-loader.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/engine-loader"npm"
 
-Run putout `pre-` and `post-` processors.
+🐊[`Putout`](https://github.com/coderaiser/putout) processor that runns all engines according to supported file types.
 
 ```
 npm i @putout/engine-processor
