@@ -14,7 +14,7 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-🐊`Putout` is a pluggable and configurable code transformer with built-in `ESLint` and `Babel plugins` support for `js`, `jsx` `typescript` and `flow` files. It has [a lot of transforms](#built-in-transformations) that will keep your codebase in a clean state, transforming any code smell to readable code according to best practices.
+🐊`Putout` is a pluggable and configurable code transformer with built-in `ESLint` and `Babel plugins` support for `js`, `jsx` `typescript` and `flow` files. It has [a lot of transforms](#-built-in-transformations) that will keep your codebase in a clean state, transforming any code smell to readable code according to best practices.
 
 [![putout](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm.svg)](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm)
 
@@ -31,9 +31,9 @@
 - [🌲 The Tree of Syntax](#-the-tree-of-syntax)
 - [🌴 Laws of the Jungle](#-laws-of-the-jungle)
 - [🏗 API](#-api)
-- [🏨 Built-in transformations](#built-in-transformations)
+- [🏨 Built-in transformations](#-built-in-transformations)
 - [🏟 Plugins](#-plugins-1)
-- [🦚 Formatters](#formatters)
+- [🦚 Formatters](#-formatters)
 - [🦉 Configuration](#-configuration)
 - [🧬 Plugins API](#-plugins-api)
 - [🗿 Using Babel Plugins with Putout](#-using-babel-plugins-with-putout)
