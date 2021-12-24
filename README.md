@@ -612,9 +612,9 @@ switch (x) {
 <details><summary>remove useless <code>continue</code></summary>
 
 ```diff
-+for (sign = decpt, i = 0; (sign /= 10) != 0; i++);
 -for (sign = decpt, i = 0; (sign /= 10) != 0; i++)
 -    continue;
++for (sign = decpt, i = 0; (sign /= 10) != 0; i++);
 ```
 
 </details>
