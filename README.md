@@ -485,7 +485,7 @@ putout(source, {
 
 </details>
 
-<details><summary>remove duplicates from logical expressions</summary>
+<details><summary>remove duplicates from <code>logical expressions</code></summary>
 
 ```diff
 -a && b && a
@@ -494,7 +494,7 @@ putout(source, {
 
 </details>
 
-<details><summary>remove unused for-of variables</summary>
+<details><summary>remove unused <code>for-of variables</code></summary>
 
 ```diff
 -for (const {a, b} of c) {
@@ -505,7 +505,7 @@ putout(source, {
 
 </details>
 
-<details><summary>remove unreferenced variables</summary>
+<details><summary>remove <code>unreferenced variables</code></summary>
 
 ```diff
 -let a;
@@ -517,7 +517,7 @@ console.log(b);
 
 </details>
 
-<details><summary>remove duplicate keys</summary>
+<details><summary>remove duplicate <code>keys</code></summary>
 
 ```diff
 const a = {
@@ -530,7 +530,7 @@ const a = {
 
 </details>
 
-<details><summary>remove duplicate case</summary>
+<details><summary>remove duplicate <code>case</code></summary>
 
 ```diff
 switch (x) {
@@ -545,7 +545,7 @@ switch (x) {
 
 </details>
 
-<details><summary>remove unused private fields</summary>
+<details><summary>remove unused <code>private fields</code></summary>
 
 ```diff
   class Hello {
@@ -559,7 +559,7 @@ switch (x) {
 
 </details>
 
-<details><summary>remove unused expressions</summary>
+<details><summary>remove unused <code>expressions</code></summary>
 
 ```diff
   function show(error) {
@@ -1254,7 +1254,7 @@ function world(a) {
 
 </details>
 
-<details><summary>apply `await import`</summary>
+<details><summary>apply <code>await import</code></summary>
 
 ```diff
 -const {readFile} = import('fs/promises');
