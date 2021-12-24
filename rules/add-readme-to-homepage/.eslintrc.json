@@ -1,4 +1,7 @@
 {
+    "rules": {
+        "node/no-unpublished-require": "off"
+    },
     "extends": [
         "plugin:node/recommended",
         "plugin:putout/recommended"

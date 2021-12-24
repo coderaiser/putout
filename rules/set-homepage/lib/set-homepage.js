@@ -1,15 +1,17 @@
 'use strict';
 
-const {types} = require('putout');
-
-const {isStringLiteral} = types;
 const parseName = (a) => a.value.replace('@putout/', '');
+
+const {parseProperties} = require('../../not-rule-parse-properties');
 
 module.exports.report = () => 'Set homepage';
 
 module.exports.match = () => ({
     '__putout_processor_json(__a)': ({__a}) => {
-        const {name, homepage} = parseProperties(__a);
+        const {name, homepage} = parseProperties(__a, [
+            'name',
+            'homepage',
+        ]);
         
         if (!name || !homepage)
             return false;
@@ -34,31 +36,15 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     '__putout_processor_json(__a)': ({__a}, path) => {
-        const {name, homepage} = parseProperties(__a);
+        const {name, homepage} = parseProperties(__a, [
+            'name',
+            'homepage',
+        ]);
+        
         const dir = parseName(name);
         homepage.value = `https://github.com/coderaiser/putout/tree/master/packages/${dir}`;
+        
         return path;
     },
 });
 
-function parseProperties(node) {
-    let name;
-    let homepage;
-    
-    for (const {key, value} of node.properties) {
-        if (isStringLiteral(key, {value: 'name'})) {
-            name = value;
-            continue;
-        }
-        
-        if (isStringLiteral(key, {value: 'homepage'})) {
-            homepage = value;
-            continue;
-        }
-    }
-    
-    return {
-        name,
-        homepage,
-    };
-}

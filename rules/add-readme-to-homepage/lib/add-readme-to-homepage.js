@@ -1,5 +1,7 @@
 'use strict';
 
+const {parseProperties} = require('../../not-rule-parse-properties');
+
 module.exports.report = () => `Add anchor '#readme' to 'homepage' in package.json`;
 
 module.exports.match = () => ({
@@ -26,17 +28,4 @@ module.exports.replace = () => ({
         return path;
     },
 });
-
-function parseProperties(node, names) {
-    const result = {};
-    
-    for (const {key, value} of node.properties) {
-        if (names.includes(key.value)) {
-            result[key.value] = value;
-            continue;
-        }
-    }
-    
-    return result;
-}
 

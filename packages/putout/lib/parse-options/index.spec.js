@@ -431,6 +431,67 @@ test('putout: parseOptions: read rules', (t) => {
     t.end();
 });
 
+test('putout: parseOptions: read rules: not-rule-', (t) => {
+    const empty = {};
+    
+    const readOptions = stub().returns([__dirname, empty]);
+    const readHomeOptions = stub().returns(empty);
+    const readCodeMods = stub().returns(empty);
+    
+    mockRequire('../../putout.json', empty);
+    mockRequire('fs', {
+        readdirSync: stub().returns([
+            'not-rule-world',
+            'hello',
+        ]),
+    });
+    
+    const plugin = stub();
+    mockRequire(join(process.cwd(), 'hello'), plugin);
+    
+    const parseOptions = reRequire('.');
+    
+    const options = {
+        rules: {
+            'remove-only': 'off',
+        },
+        match: {
+            '*.spec.js': {
+                'remove-only': 'on',
+            },
+        },
+    };
+    
+    const result = parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readOptions,
+        readHomeOptions,
+        readCodeMods,
+        rulesdir: '.',
+    });
+    
+    const expected = {
+        dir: __dirname,
+        match: {
+            '*.spec.js': {
+                'remove-only': 'on',
+            },
+        },
+        rules: {
+            'remove-only': 'on',
+        },
+        plugins: [
+            ['hello', plugin],
+        ],
+    };
+    
+    stopAll();
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: parseOptions: read rules: error', (t) => {
     const empty = {};
     

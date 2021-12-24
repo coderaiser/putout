@@ -97,7 +97,7 @@ function _readOptions(name) {
     ];
 }
 
-const isInclude = (a) => a !== 'node_modules';
+const isInclude = (a) => !/(^not-rule-.*|^node_modules$)/.test(a);
 
 function readRules(dirOpt, rulesDir) {
     if (!rulesDir)
