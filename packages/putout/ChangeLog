@@ -1,3 +1,20 @@
+2021.12.25, v23.2.0
+
+feature:
+- (package) @putout/plugin-reuse-duplicate-init v3.0.0
+- (package) @putout/plugin-remove-unused-types v2.0.0
+- (package) @putout/engine-runner v12.0.0
+- (@putout/plugin-reuse-duplicate-init) drop support of putout < 23
+- (@putout/plugin-reuse-duplicate-init) add support of MemberExpression
+- (@putout/plugin-remove-unused-types) drop support of putout < 23
+- (@putout/plugin-remove-unused-types) store -> upstore
+- (@putout/engine-runner) add support of upstore
+- (@putout/engine-runner) improve support of Program: exit + exclude
+- (@putout/plugin-github) traverse-property: callback -> return array
+- (putout) rules: exclude "not-rule-*" glob
+- (@putout/rule-add-readme-to-homepage) add
+
+
 2021.12.23, v23.1.0
 
 fix:
