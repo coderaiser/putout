@@ -172,22 +172,28 @@ module.exports.traverse = ({push}) => ({
 
 #### listStore
 
-To keep things during traverse in a safe way `listStore` can be used.
+To keep things during traverse in a safe way `listStore` can be used for code:
 
 ```js
-module.exports.traverse = ({push, listStore}) => ({
+debugger;
+const hello = '';
+debugger;
+const world = '';
+```
+
+```js
+module.exports.traverse = ({listStore}) => ({
     'debugger'(path) {
         listStore('x');
-        push(path);
     },
     
     Program: {
         exit() {
             console.log(listStore());
             // returns
-            ['x', 'x', 'x'];
+            ['x', 'x'];
             // for code
-            'debugger; debugger; debugger';
+            debugger; debugger';
         },
     },
 });
@@ -257,24 +263,6 @@ module.exports.traverse = ({push, store}) => ({
                 
                 push(path);
             }
-        },
-    },
-});
-```
-
-#### ListStore
-
-When you need to track list of elements, use `listStore`:
-
-```
-module.exports.traverse = ({push, listStore}) => ({
-    ImportDeclaration(path) {
-        listStore(path);
-    },
-
-    Program: {
-        exit: () => {
-            processImports(push, listStore());
         },
     },
 });
