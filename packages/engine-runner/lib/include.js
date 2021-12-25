@@ -16,12 +16,12 @@ module.exports = ({rule, plugin, msg, options}) => {
         exclude = stub,
         filter = good,
     } = plugin;
-    
+
     if (!isFn(include))
         throw Error(`☝️ Looks like "include" is not a function: ${stringify(include)}. More on using Includer: https://git.io/JqcMn`);
-    
+
     const traverse = getTraverse(include(), filter, rule);
-    
+
     return {
         rule,
         msg,

@@ -16,7 +16,7 @@ const parse = (name, plugin, options) => {
     const list = [];
     
     if (plugin[name])
-        list.push(...plugin[name]());
+        list.push(...maybeArray(plugin[name]()));
     
     if (options[name])
         list.push(...maybeArray(options[name]));
@@ -41,9 +41,9 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
             msg,
             options,
         });
-        
+
         pushed[rule] = pull;
-        
+
         const visitor = plugin.traverse({
             push,
             store,
@@ -51,15 +51,15 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
             generate,
             options,
         });
-        
+
         if (!visitor)
             throw Error(`Visitors cannot be empty in "${rule}"`);
-        
+
         assign(options, {
             include: parse('include', plugin, options),
             exclude: parse('exclude', plugin, options),
         });
-        
+
         mergeItems.push(...template({
             rule,
             visitor,

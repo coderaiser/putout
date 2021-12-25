@@ -24,7 +24,7 @@ const {stringify} = JSON;
 module.exports._log = log;
 
 const exclude = ({rule, tmpl, fn, nodesExclude}) => {
-    if (!nodesExclude.length)
+    if (!isFn(fn) || !nodesExclude.length)
         return {
             [tmpl]: fn,
         };

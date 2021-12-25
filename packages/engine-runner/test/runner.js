@@ -800,3 +800,32 @@ test('putout: runner: traverse: no return fn', (t) => {
     t.equal(error.message, expected);
     t.end();
 });
+
+test('putout: runner: traverse: Program: exit + exclude', (t) => {
+    const noReturnFn = {
+        report: () => '',
+        exclude: () => 'const __a = __b',
+        fix: (path) => path.node.body = [],
+        traverse: ({push}) => ({
+            Program: {
+                exit(path) {
+                    push(path);
+                },
+            },
+        }),
+    };
+    
+    const code = 'async (a) => a';
+    
+    const result = putout(code, {
+        runPlugins,
+        fix: true,
+        plugins: [
+            ['no-return-fn', noReturnFn],
+        ],
+    });
+    
+    t.equal(result.code, '');
+    t.end();
+});
+
