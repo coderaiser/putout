@@ -1,10 +1,12 @@
 {
+    "rules": {
+        "putout/align-spaces": "error"
+    },
     "overrides": [{
         "files": ["lib/**/*.spec.js", "test/**"],
         "rules": {
             "node/no-extraneous-require": "off",
-            "node/no-unpublished-require": "off",
-            "putout/align-spaces": "error"
+            "node/no-unpublished-require": "off"
         }
     }],
     "extends": [

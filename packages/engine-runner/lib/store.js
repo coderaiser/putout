@@ -5,7 +5,6 @@ const {
     entries,
     assign,
 } = Object;
-const isObject = (a) => typeof a === 'object';
 
 module.exports.listStore = (list = []) => {
     const fn = (...args) => {
@@ -27,33 +26,42 @@ module.exports.listStore = (list = []) => {
     return fn;
 };
 
-module.exports.mapStore = (map = {}) => {
-    const fn = (...args) => {
-        if (!args.length)
-            return values(map);
-        
-        const [name, data] = args;
-        
-        if (args.length === 1)
-            return map[name];
-        
-        if (isObject(data)) {
-            map[name] = map[name] || {};
-            assign(map[name], data);
-            return;
-        }
-        
+module.exports.mapStore = createStore({
+    set(map, name, data) {
         map[name] = data;
+    },
+});
+
+module.exports.upStore = createStore({
+    set(map, name, data) {
+        map[name] = map[name] || {};
+        assign(map[name], data);
+    },
+});
+
+function createStore({set}) {
+    return (map = {}) => {
+        const fn = (...args) => {
+            if (!args.length)
+                return values(map);
+            
+            const [name, data] = args;
+            
+            if (args.length === 1)
+                return map[name];
+            
+            set(map, name, data);
+        };
+        
+        fn.clear = () => {
+            map = {};
+        };
+        
+        fn.entries = () => {
+            return entries(map);
+        };
+        
+        return fn;
     };
-    
-    fn.clear = () => {
-        map = {};
-    };
-    
-    fn.entries = () => {
-        return entries(map);
-    };
-    
-    return fn;
-};
+}
 

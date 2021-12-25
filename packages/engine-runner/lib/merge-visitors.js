@@ -6,7 +6,11 @@ const {generate} = require('@putout/engine-parser');
 const runFix = require('./run-fix');
 const {getPosition} = require('./get-position');
 const maybeArray = require('./maybe-array');
-const {listStore, mapStore} = require('./store');
+const {
+    listStore,
+    mapStore,
+    upStore,
+} = require('./store');
 
 const shouldSkip = (a) => !a.parent;
 const {merge} = traverse.visitors;
@@ -33,6 +37,7 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
             push,
             pull,
             store,
+            upstore,
             listStore,
         } = getStore(plugin, {
             fix,
@@ -41,25 +46,26 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
             msg,
             options,
         });
-
+        
         pushed[rule] = pull;
-
+        
         const visitor = plugin.traverse({
             push,
             store,
             listStore,
+            upstore,
             generate,
             options,
         });
-
+        
         if (!visitor)
             throw Error(`Visitors cannot be empty in "${rule}"`);
-
+        
         assign(options, {
             include: parse('include', plugin, options),
             exclude: parse('exclude', plugin, options),
         });
-
+        
         mergeItems.push(...template({
             rule,
             visitor,
@@ -82,6 +88,7 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
 function getStore(plugin, {fix, rule, shebang, msg, options}) {
     const store = mapStore();
     const list = listStore();
+    const upstore = upStore();
     const placesStore = listStore();
     
     const push = (path) => {
@@ -104,6 +111,7 @@ function getStore(plugin, {fix, rule, shebang, msg, options}) {
     const pull = () => {
         store.clear();
         list.clear();
+        upstore.clear();
         return placesStore.clear();
     };
     
@@ -112,6 +120,7 @@ function getStore(plugin, {fix, rule, shebang, msg, options}) {
         pull,
         store,
         listStore: list,
+        upstore,
     };
 }
 

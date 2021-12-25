@@ -159,19 +159,19 @@ test('putout: runner: plugins: traverse: store: object', (t) => {
     
     const addVar = {
         report: () => '',
-        traverse: ({store}) => ({
+        traverse: ({upstore}) => ({
             'debugger'() {
-                store('x', {
+                upstore('x', {
                     hello: 'world',
                 });
                 
-                store('x', {
+                upstore('x', {
                     how: 'come',
                 });
             },
             Program: {
                 exit() {
-                    result = store();
+                    result = upstore();
                 },
             },
         }),

@@ -193,7 +193,7 @@ module.exports.traverse = ({push, listStore}) => ({
 });
 ```
 
-`store` is preferred way of keeping array elements, because of caching of `putout`, `traverse` init function called only once, and any other way
+`store` is preferred way of keeping data, because of caching 🐊`putout`, `traverse` init function called only once, and any other way
 of handling variables will most likely will lead to bugs.
 
 #### Store
@@ -220,6 +220,61 @@ module.exports.traverse = ({push, store}) => ({
             store('hello');
             // returns
             'world';
+        },
+    },
+});
+```
+
+#### Upstore
+
+When you need to update already saved values, use `upstore`
+
+```js
+module.exports.traverse = ({push, store}) => ({
+    TSTypeAliasDeclaration(path) {
+        if (path.parentPath.isExportNamedDeclaration())
+            return;
+        
+        store(path.node.id.name, {
+            path,
+        });
+    },
+    
+    ObjectProperty(path) {
+        const {value} = path.node;
+        const {name} = value;
+        
+        store(name, {
+            used: true,
+        });
+    },
+    
+    Program: {
+        exit() {
+            for (const {path, used} of store()) {
+                if (used)
+                    continue;
+                
+                push(path);
+            }
+        },
+    },
+});
+```
+
+#### ListStore
+
+When you need to track list of elements, use `listStore`:
+
+```
+module.exports.traverse = ({push, listStore}) => ({
+    ImportDeclaration(path) {
+        listStore(path);
+    },
+
+    Program: {
+        exit: () => {
+            processImports(push, listStore());
         },
     },
 });
