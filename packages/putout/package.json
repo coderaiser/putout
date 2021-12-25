@@ -164,7 +164,7 @@
     "@putout/plugin-remove-useless-types": "^1.0.0",
     "@putout/plugin-remove-useless-types-from-constants": "^1.0.0",
     "@putout/plugin-remove-useless-variables": "^5.0.0",
-    "@putout/plugin-reuse-duplicate-init": "^2.0.0",
+    "@putout/plugin-reuse-duplicate-init": "^3.0.0",
     "@putout/plugin-simplify-assignment": "^1.0.0",
     "@putout/plugin-simplify-logical-expressions": "^1.0.0",
     "@putout/plugin-simplify-ternary": "^2.0.0",
