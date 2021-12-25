@@ -193,7 +193,7 @@ module.exports.traverse = ({listStore}) => ({
             // returns
             ['x', 'x'];
             // for code
-            debugger; debugger';
+            'debugger; debugger';
         },
     },
 });
