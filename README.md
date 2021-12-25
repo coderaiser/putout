@@ -146,7 +146,8 @@ PUTOUT_FILES=lib,test putout --fix
 When you need to change `.putout.json` you can do it not only editing the file, but also with help of `Ruler`.
 
 `Ruler` can `enable` one rule with `putout --enable [rule]` or `disable` all rules 🐊`Putout` able to find using `putout --disable-all`.
-☝️Remember, `Ruler` should never be used with `--fix`, because unclear things makes 🐊 `Putout` angry and you can find him barking at you:
+
+*☝️Remember, `Ruler` should never be used with `--fix`, because unclear things makes 🐊 `Putout` angry and you can find him barking at you:*
 
 ```
 🐊 `--fix` cannot be used with ruler toggler (`--enable`, `--disable`)
@@ -2155,8 +2156,9 @@ coderaiser@cloudcmd:~$ cat a.js
 const t = [1, 2];
 ```
 
-Using `putout` as a runner for `babel` `plugins` you can not only change file content, but also see what exactly will be changed. You can use your already written
-`babel` `plugins` or reuse work in progress plugins made for `babel`, but remember that `putout` `plugins` gave more accurate information about changing places, and works faster (no need to find information about changes in transformed file).
+Using 🐊`Putout` as a runner for `babel` `plugins` you can not only change file content, but also see what exactly will be changed. You can use your already written `babel` `plugins` or reuse work in progress plugins made for `babel`, 
+   
+☝️ *Remember 🐊`Putout` `plugins` gave more accurate information about changing places, and works faster (no need to find information about changes in transformed file).*
 
 ### Babel plugins list
 
@@ -2230,7 +2232,7 @@ putout --rulesdir ./rules
 
 This way you can keep rules specific for your project and run them on each lint.
 
-☝️ Remember: if you want to exclude file from loading, add prefix `not-rule-` and 🐊`Putout` will ignore it (in the same way as he does for `node_modules`).
+☝️ *Remember: if you want to exclude file from loading, add prefix `not-rule-` and 🐊`Putout` will ignore it (in the same way as he does for `node_modules`).*
 
 ## 🦕 Integration with ESLint
 
