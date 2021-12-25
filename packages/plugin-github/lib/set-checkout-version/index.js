@@ -25,16 +25,16 @@ module.exports.traverse = ({push}) => ({
     '__putout_processor_json(__a)'(path) {
         const {__a} = getTemplateValues(path, '__putout_processor_json(__a)');
         
-        traverseProperty(__a, 'uses', (propertyPath) => {
+        for (const propertyPath of traverseProperty(__a, 'uses')) {
             const valuePath = propertyPath.get('value');
             const {value} = valuePath.node;
             
             if (value === 'actions/checkout@v2')
-                return;
+                continue;
             
             if (value === 'actions/checkout@v1')
                 push(valuePath);
-        });
+        }
     },
 });
 

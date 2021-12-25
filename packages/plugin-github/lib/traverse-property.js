@@ -1,17 +1,23 @@
 'use strict';
 
-const {operator} = require('putout');
-const {traverse} = operator;
+const {traverse} = require('putout').operator;
 
-module.exports.traverseProperty = (node, name, fn) => {
+module.exports.traverseProperty = (node, name) => {
+    const collector = [];
+    
     traverse(node, {
-        '__object'(path) {
-            for (const propertyPath of path.get('properties')) {
-                const {value} = propertyPath.get('key').node;
-                
-                if (value === name)
-                    fn(propertyPath);
-            }
-        },
+        ObjectExpression: collect(name, collector),
     });
+    
+    return collector;
 };
+
+const collect = (name, collector) => (path) => {
+    for (const propertyPath of path.get('properties')) {
+        const {value} = propertyPath.get('key').node;
+        
+        if (name === value)
+            collector.push(propertyPath);
+    }
+};
+

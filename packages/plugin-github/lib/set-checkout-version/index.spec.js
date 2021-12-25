@@ -17,8 +17,13 @@ test('plugin-github: set checkout versions: transform', (t) => {
     t.end();
 });
 
-test('plugin-github: set checkout versions: no transform: no version', (t) => {
+test('plugin-github: set checkout versions: no report: latest', (t) => {
     t.noReport('latest');
+    t.end();
+});
+
+test('plugin-github: set checkout versions: no report: no-uses', (t) => {
+    t.noReport('no-uses');
     t.end();
 });
 
