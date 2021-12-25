@@ -1,13 +1,15 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const {replaceWith} = require('putout').operator;
+const {
+    replaceWith,
+    traverse,
+} = operator;
 
 const {
     AwaitExpression,
     isStringLiteral,
 } = types;
-const {traverse} = operator;
 
 module.exports.report = () => 'Async functions should be used';
 

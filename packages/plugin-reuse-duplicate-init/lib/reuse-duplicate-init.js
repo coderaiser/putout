@@ -5,41 +5,46 @@ const {replaceWith} = operator;
 
 module.exports.report = () => 'Duplicate init should be reused';
 
+module.exports.fix = ({path, newPath}) => {
+    replaceWith(path.get('declarations.0.init'), newPath);
+};
+
 module.exports.exclude = () => [
     'const __a = __identifier',
 ];
 
-module.exports.traverse = ({push}) => {
-    const allRight = {};
+module.exports.traverse = ({push, store}) => ({
+    'const __identifier = __b'(path) {
+        const idPath = path.get('declarations.0.id');
+        const initPath = path.get('declarations.0.init');
+        const initName = initPath.toString();
+        
+        store(initName, idPath);
+    },
     
-    return {
-        'const __identifier = __b'(path) {
-            const __b = path.get('declarations.0.init').toString();
+    'const __object = __b'(path) {
+        const initPath = path.get('declarations.0.init');
+        const initName = initPath.toString();
+        
+        for (const propPath of path.get('declarations.0.id.properties')) {
+            const nestedPath = propPath.get('key');
+            const nestedName = nestedPath.toString();
             
-            allRight[__b] = path;
-        },
-        'const __object = __b'(path) {
-            const initPath = path.get('declarations.0.init');
-            const __b = initPath.toString();
-            
-            const main = allRight[__b];
-            
-            if (!main || !main.node)
-                return;
-            
-            if (path.scope.uid !== main.scope.uid)
-                return;
-            
-            push({
-                path,
-                main,
-            });
-        },
-    };
-};
-
-module.exports.fix = ({path, main}) => {
-    const {id} = main.node.declarations[0];
-    replaceWith(path.get('declarations.0.init'), id);
-};
+            store(`${initName}.${nestedName}`, nestedPath);
+        }
+        
+        const newPath = store(initName);
+        
+        if (!newPath || !newPath.node)
+            return;
+        
+        if (path.scope.uid !== newPath.scope.uid)
+            return;
+        
+        push({
+            path,
+            newPath,
+        });
+    },
+});
 

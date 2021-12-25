@@ -1,7 +1,8 @@
 {
     "match": {
         "*.md": {
-            "reuse-duplicate-init": "off"
+            "reuse-duplicate-init": "off",
+            "merge-destructuring-properties": "off"
         }
     }
 }

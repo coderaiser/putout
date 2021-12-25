@@ -20,6 +20,11 @@ test('plugin-reuse-duplicate-init: transform', (t) => {
     t.end();
 });
 
+test('plugin-reuse-duplicate-init: transform: member', (t) => {
+    t.transform('member');
+    t.end();
+});
+
 test('plugin-reuse-duplicate-init: no transform: scope', (t) => {
     t.noTransform('scope');
     t.end();

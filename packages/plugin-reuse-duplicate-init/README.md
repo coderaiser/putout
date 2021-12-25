@@ -25,7 +25,13 @@ npm i @putout/plugin-reuse-duplicate-init -D
 
 ```js
 const putout = require('putout');
-const {a, b} = require('putout');
+const {
+    a,
+    b,
+    operator,
+} = require('putout');
+
+const {replaceWith} = operator;
 ```
 
 ## ✅ Correct code Example
@@ -33,6 +39,9 @@ const {a, b} = require('putout');
 ```js
 const putout = require('putout');
 const {a, b} = putout;
+
+const {operator} = require('putout');
+const {replaceWith} = require('putout').operator;
 ```
 
 ## License
