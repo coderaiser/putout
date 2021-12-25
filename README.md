@@ -2220,6 +2220,18 @@ Please send pull requests with `babel plugins` which can be used as codemods, or
 
 `putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/master/codemods/plugin-convert-tape-to-supertape) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
 
+### `rulesdir`
+
+When you have plugins related to your project and you don't want to publish them (because it cannot be reused right now). Use [`rulesdir`](https://github.com/coderaiser/putout/tree/master/rules):
+
+```sh
+putout --rulesdir ./rules
+```
+
+This way you can keep rules specific for your project and run them on each lint.
+
+☝️ Remember: if you want to exclude file from loading, add prefix `not-rule-` and 🐊`Putout` will ignore it (in the same way as he does for `node_modules`).
+
 ## 🦕 Integration with ESLint
 
 If you see that 🐊`Putout` brokes formatting of your code, use eslint plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#eslint-plugin-putout--).
