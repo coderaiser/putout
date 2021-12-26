@@ -86,20 +86,28 @@ const programPath =  path.scope.getProgramParent().path;
 const afterImportsPath = getPathAfterImports(programPath.get('body'));
 ```
 
-## `getBinding(path, name: Node|string)`
+## `getBinding(path, name: string | Node)`
 
-Get binding by name using starting from `path` and move up.
+Get binding (declaration of variable) by name using starting from `path` and move up.
 
 ```js
 getBinding(path, 'hello');
 ```
 
-## `getBindingPath(path, name)`
+## `getBindingPath(path, name: string | Node)`
 
 Get binding `path` by name using starting from `path` and move up.
 
 ```js
-getBindingPath(path, 'hello');
+const bindingPath = getBindingPath(path, 'hello');
+
+module.exports.match = () => ({
+    'typeof __a === "__b"': ({__a}, path) => {
+        // when __a declared proceed to replace
+        return getBindingPath(path, __a))
+    }
+});
+
 ```
 
 ## `compute(path)`
