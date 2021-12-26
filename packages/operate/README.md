@@ -86,7 +86,7 @@ const programPath =  path.scope.getProgramParent().path;
 const afterImportsPath = getPathAfterImports(programPath.get('body'));
 ```
 
-## `getBinding(path, name)`
+## `getBinding(path, name: Node|string)`
 
 Get binding by name using starting from `path` and move up.
 
