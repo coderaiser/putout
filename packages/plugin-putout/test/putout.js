@@ -107,3 +107,8 @@ test('plugin-putout: transform: apply-create-test', (t) => {
     t.end();
 });
 
+test('plugin-putout: transform: includer', (t) => {
+    t.transform('includer');
+    t.end();
+});
+

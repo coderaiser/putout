@@ -30,5 +30,6 @@ module.exports.rules = {
     ...getRule('declare'),
     ...getRule('add-args'),
     ...getRule('move-require-on-top-level'),
+    ...getRule('includer'),
 };
 

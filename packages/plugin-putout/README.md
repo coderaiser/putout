@@ -37,6 +37,7 @@ npm i @putout/plugin-putout -D
         "putout/shorten-imports": "on",
         "putout/check-replace-code": "on",
         "putout/declare": "on",
+        "putout/includer": "on",
         "putout/move-require-on-top-level": "on"
     }
 }
@@ -495,6 +496,34 @@ test('remove debugger: report', (t) => {
     });
     t.end();
 });
+```
+
+## includer
+
+### ❌ Incorrect code example
+
+```js
+module.exports.include = () => 'cons __a = __b';
+module.exports.exclude = () => 'var __a = __b';
+
+module.exports.include = 'cons __a = __b';
+module.exports.exclude = 'var __a = __b';
+
+module.exports.include = ['cons __a = __b'];
+module.exports.exclude = ['var __a = __b'];
+```
+
+### ✅ Correct code Example
+
+```js
+module.exports.include = () => ['cons __a = __b'];
+module.exports.exclude = () => ['var __a = __b'];
+
+module.exports.include = () => ['cons __a = __b'];
+module.exports.exclude = () => ['var __a = __b'];
+
+module.exports.include = () => ['cons __a = __b'];
+module.exports.exclude = () => ['var __a = __b'];
 ```
 
 ## License
