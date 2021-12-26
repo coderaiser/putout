@@ -170,9 +170,14 @@ module.exports.traverse = ({push}) => ({
 });
 ```
 
-#### listStore
+#### Storages
 
-To keep things during traverse in a safe way `listStore` can be used for code:
+Storages is preferred way of keeping data 🐊`Putout`, `traverse` init function called only once, and any other way
+of handling variables will most likely will lead to bugs.
+
+##### listStore
+
+To keep things and save them as a list during traverse in a safe way `listStore` can be used for code:
 
 ```js
 debugger;
@@ -198,11 +203,6 @@ module.exports.traverse = ({listStore}) => ({
     },
 });
 ```
-
-`store` is preferred way of keeping data, because of caching 🐊`putout`, `traverse` init function called only once, and any other way
-of handling variables will most likely will lead to bugs.
-
-#### Store
 
 When you need `key-value` storage `store` can be used.
 
