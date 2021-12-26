@@ -1,6 +1,6 @@
 {
   "name": "@putout/operate",
-  "version": "6.12.2",
+  "version": "6.13.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "operate on ast",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operate#readme",
@@ -20,7 +20,8 @@
     "lint:fresh": "madrun lint:fresh",
     "fix:lint": "madrun fix:lint",
     "coverage": "madrun coverage",
-    "report": "madrun report"
+    "report": "madrun report",
+    "wisdom": "madrun wisdom"
   },
   "dependencies": {
     "@babel/types": "^7.12.6"
