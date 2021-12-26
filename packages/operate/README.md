@@ -104,8 +104,8 @@ const bindingPath = getBindingPath(path, 'hello');
 module.exports.match = () => ({
     'typeof __a === "__b"': ({__a}, path) => {
         // when __a declared proceed to replace
-        return getBindingPath(path, __a))
-    }
+        return getBindingPath(path, __a);
+    },
 });
 
 ```
