@@ -1,6 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
+
 const {compare, getBindingPath} = operator;
 
 const NAMES = {
@@ -33,7 +34,7 @@ module.exports.match = () => ({
         if (isBind(path, __b.value))
             return false;
         
-        if (!getBindingPath(path, __a.name))
+        if (!getBindingPath(path, __a))
             return false;
         
         return true;

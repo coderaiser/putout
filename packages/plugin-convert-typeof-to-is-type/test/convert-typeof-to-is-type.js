@@ -32,6 +32,11 @@ test('plugin-convert-typeof-to-is-type: transform: global', (t) => {
     t.end();
 });
 
+test('plugin-convert-typeof-to-is-type: transform: member', (t) => {
+    t.transform('member');
+    t.end();
+});
+
 test('plugin-convert-typeof-to-is-type: no transform: bind', (t) => {
     t.noTransform('bind');
     t.end();
