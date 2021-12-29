@@ -1,50 +1,48 @@
 'use strict';
 
+const {findProperties} = require('putout').operator;
 const parseName = (a) => a.value.replace('@putout/', '');
-
-const {parseProperties} = require('../../not-rule-parse-properties');
 
 module.exports.report = () => 'Set homepage';
 
-module.exports.match = () => ({
-    '__putout_processor_json(__a)': ({__a}) => {
-        const {name, homepage} = parseProperties(__a, [
+module.exports.traverse = ({push}) => ({
+    '__putout_processor_json(__a)': (path) => {
+        const __aPath = path.get('arguments.0');
+        const {namePath, homepagePath} = findProperties(__aPath, [
             'name',
             'homepage',
         ]);
         
-        if (!name || !homepage)
-            return false;
+        if (!namePath || !homepagePath)
+            return;
+        
+        const name = namePath.node.value;
+        const homepage = homepagePath.node.value;
         
         if (!/^@putout/.test(name.value))
-            return false;
+            return;
         
         if (name.value.includes('codemod'))
-            return false;
+            return;
         
         if (name.value.includes('rule'))
-            return false;
+            return;
         
         const dir = parseName(name);
         
         if (homepage.value.includes(dir))
-            return false;
+            return;
         
-        return true;
+        push({
+            name,
+            path: homepagePath,
+            homepage,
+        });
     },
 });
 
-module.exports.replace = () => ({
-    '__putout_processor_json(__a)': ({__a}, path) => {
-        const {name, homepage} = parseProperties(__a, [
-            'name',
-            'homepage',
-        ]);
-        
-        const dir = parseName(name);
-        homepage.value = `https://github.com/coderaiser/putout/tree/master/packages/${dir}`;
-        
-        return path;
-    },
-});
+module.exports.fix = ({name, homepage}) => {
+    const dir = parseName(name);
+    homepage.value = `https://github.com/coderaiser/putout/tree/master/packages/${dir}`;
+};
 

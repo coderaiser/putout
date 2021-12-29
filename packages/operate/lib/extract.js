@@ -12,6 +12,8 @@ const {
 module.exports.extract = extract;
 
 function extract(node) {
+    node = node.node || node;
+    
     if (isIdentifier(node))
         return node.name;
     

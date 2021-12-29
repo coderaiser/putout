@@ -1,31 +1,32 @@
 'use strict';
 
-const {parseProperties} = require('../../not-rule-parse-properties');
+const {findProperties} = require('putout').operator;
 
 module.exports.report = () => `Add anchor '#readme' to 'homepage' in package.json`;
 
-module.exports.match = () => ({
-    '__putout_processor_json(__a)': ({__a}) => {
-        const {homepage} = parseProperties(__a, [
+module.exports.fix = ({homepage}) => {
+    homepage.value += '#readme';
+};
+
+module.exports.traverse = ({push}) => ({
+    '__putout_processor_json(__a)': (path) => {
+        const __a = path.get('arguments.0');
+        const {homepagePath} = findProperties(__a, [
             'homepage',
         ]);
         
-        if (!homepage)
+        if (!homepagePath)
             return false;
         
-        return !homepage.value.includes('#readme');
-    },
-});
-
-module.exports.replace = () => ({
-    '__putout_processor_json(__a)': ({__a}, path) => {
-        const {homepage} = parseProperties(__a, [
-            'homepage',
-        ]);
+        const homepage = homepagePath.node.value;
         
-        homepage.value += '#readme';
+        if (homepage.value.includes('#readme'))
+            return false;
         
-        return path;
+        push({
+            path: homepagePath,
+            homepage,
+        });
     },
 });
 

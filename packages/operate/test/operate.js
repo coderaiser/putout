@@ -667,6 +667,13 @@ test('opreate: compute', (t) => {
     t.end();
 });
 
+test('opreate: findProperties', (t) => {
+    const {findProperties} = require('../lib/find-properties');
+    
+    t.equal(operate.findProperties, findProperties);
+    t.end();
+});
+
 test('operate: isESM: no', (t) => {
     let is = true;
     

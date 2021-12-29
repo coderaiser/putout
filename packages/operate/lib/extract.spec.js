@@ -18,6 +18,19 @@ test('operate: extract: Identifier', (t) => {
     t.end();
 });
 
+test('operate: extract: path', (t) => {
+    const name = 'hello';
+    const node = {
+        type: 'Identifier',
+        name,
+    };
+    
+    const value = extract({node});
+    
+    t.equal(name, value);
+    t.end();
+});
+
 test('operate: extract: Literal', (t) => {
     const value = 'hello';
     const node = {

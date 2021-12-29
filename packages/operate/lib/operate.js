@@ -11,6 +11,7 @@ const {
 const {getBinding, getBindingPath} = require('./get-binding');
 const {extract} = require('./extract');
 const {compute} = require('./compute');
+const {findProperties} = require('./find-properties');
 
 const {assign} = Object;
 
@@ -19,6 +20,7 @@ module.exports.getBindingPath = getBindingPath;
 module.exports.extract = extract;
 module.exports.compute = compute;
 module.exports.replaceWith = replaceWith;
+module.exports.findProperties = findProperties;
 
 const compareTypes = (a) => (b) => a.includes(b);
 module.exports.toExpression = toExpression;

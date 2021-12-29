@@ -1,6 +1,7 @@
 {
   "name": "@putout/rule-set-homepage",
   "version": "1.0.0",
+  "type": "commonjs",
   "private": true,
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to set homepage",

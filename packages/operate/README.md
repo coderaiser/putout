@@ -145,6 +145,14 @@ traverse({
 
 Check if given source is `ESM` search for `ImportDeclaration` and `ExportDeclaration` nodes.
 
+## `findProperties(path: Path, names: string[]`
+
+Find properties in `ObjectExpression` path and add suffix `Path` when found:
+
+```js
+const {homepagePath} = findProperties(__aPath, ['homepage']);
+```
+
 ## License
 
 MIT
