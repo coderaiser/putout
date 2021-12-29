@@ -1,3 +1,13 @@
+2021.12.29, v23.4.0
+
+feature:
+- (package) @putout/plugin-package-json v2.0.0
+- (@putout/package-json) drop support of putout < 23
+- (@putout/plugin-putout) declare: add findProperties
+- (@putout/plugin-package-json) add add-type
+- (@putout/operate) add findProperties
+
+
 2021.12.26, v23.3.0
 
 feature:
