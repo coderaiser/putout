@@ -41,11 +41,11 @@
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {
-    "putout": ">=11"
+    "putout": ">=23"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "publishConfig": {
     "access": "public"
