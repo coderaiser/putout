@@ -1,6 +1,7 @@
 {
   "name": "@putout/cli-cache",
   "version": "1.0.1",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "cache of places found by putout",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-cache#readme",

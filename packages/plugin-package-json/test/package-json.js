@@ -17,3 +17,8 @@ test('putout: plugin-package-json: remove-nyc: complex: transform', (t) => {
     t.end();
 });
 
+test('putout: plugin-package-json: remove-nyc: add-type', (t) => {
+    t.transform('add-type');
+    t.end();
+});
+

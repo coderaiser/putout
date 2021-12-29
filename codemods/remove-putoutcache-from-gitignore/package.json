@@ -2,6 +2,7 @@
   "private": true,
   "name": "@putout/codemod-remove-putoutcache-from-gitignore",
   "version": "1.0.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin helps to remove putoutcache from .gitignore",
   "homepage": "http://github.com/coderaiser/putout#readme",

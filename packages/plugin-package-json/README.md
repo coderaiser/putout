@@ -16,7 +16,8 @@ npm i @putout/plugin-package-json -D
 ```json
 {
     "rules": {
-        "package-json/remove-nyc": "on"
+        "package-json/remove-nyc": "on",
+        "package-json/add-type": "on"
     }
 }
 ```
@@ -67,6 +68,18 @@ File `.nycrc.json`:
     "lines": 100,
     "functions": 100,
     "statements": 100
+}
+```
+
+## add-type
+
+Add [`type`](https://nodejs.org/dist/latest-v17.x/docs/api/packages.html#type) field to `package.json`:
+
+```diff
+{
+    "name": "hello",
+    "version": "1.0.0",
++   "type": "commonjs"
 }
 ```
 

@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-postcss",
   "version": "1.0.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin helps with migration to latest postcss",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-postcss#readme",

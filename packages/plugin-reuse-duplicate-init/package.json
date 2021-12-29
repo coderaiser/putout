@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-reuse-duplicate-init",
   "version": "3.0.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to resue duplicate init",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-reuse-duplicate-init#readme",

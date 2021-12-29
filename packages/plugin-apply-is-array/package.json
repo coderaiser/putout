@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-apply-is-array",
   "version": "2.1.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability use apply Array.isArray()",
   "homepage": "http://github.com/coderaiser/putout/tree/master/packages/plugin-apply-is-array#readme",

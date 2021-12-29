@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-gitignore",
   "version": "3.0.1",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin helps with .gitignore",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-gitignore#readme",

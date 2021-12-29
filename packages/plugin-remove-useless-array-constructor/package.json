@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-remove-useless-array-constructor",
   "version": "1.1.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to remove useless Array constructor",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-array-constructor#readme",

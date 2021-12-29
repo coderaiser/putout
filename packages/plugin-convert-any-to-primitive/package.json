@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-convert-any-to-primitive",
   "version": "1.0.1",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert any to primitive type",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-any-to-primitive#readme",

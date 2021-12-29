@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-convert-to-arrow-function",
   "version": "3.0.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert anonymous to arrow function",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-to-arrow-function#readme",

@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-remove-useless-array-entries",
   "version": "1.0.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to remove useless array.entries()",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-array-entries#readme",

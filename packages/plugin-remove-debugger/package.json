@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-remove-debugger",
   "version": "4.0.2",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove process.exit",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-debugger#readme",

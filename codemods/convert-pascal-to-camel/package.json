@@ -1,6 +1,7 @@
 {
   "name": "@putout/codemod-convert-pascal-to-camel",
   "version": "1.0.0",
+  "type": "commonjs",
   "private": true,
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "convert PascalCase to camelCase",

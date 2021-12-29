@@ -2,6 +2,7 @@
   "name": "@putout/codemod-apply-filter-boolean",
   "private": true,
   "version": "1.1.1",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to apply filter(Boolean)",
   "homepage": "https://github.com/coderaiser/putout/tree/v21.6.0/packages/plugin-apply-filter-boolean#readme",

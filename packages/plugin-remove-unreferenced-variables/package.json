@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-remove-unreferenced-variables",
   "version": "1.2.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove unreferenced variables",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unreferenced-variables#readme",

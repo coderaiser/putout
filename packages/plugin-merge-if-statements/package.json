@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-merge-if-statements",
   "version": "3.1.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to merge if-statements",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-merge-if-statements#readme",

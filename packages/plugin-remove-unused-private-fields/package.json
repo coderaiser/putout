@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-remove-unused-private-fields",
   "version": "1.2.1",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to remove unused private fields",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-private-fields#readme",

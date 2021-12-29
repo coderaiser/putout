@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-apply-try-catch",
   "version": "1.0.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability apply try-catch",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-try-catch#readme",

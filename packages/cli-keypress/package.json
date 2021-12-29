@@ -1,6 +1,7 @@
 {
   "name": "@putout/cli-keypress",
   "version": "1.0.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "handle keypress",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-keypress#readme",

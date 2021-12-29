@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-remove-useless-return",
   "version": "4.1.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove useless return",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-return#readme",

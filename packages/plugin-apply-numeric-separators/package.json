@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-apply-numeric-separators",
   "version": "1.2.1",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability apply numeric separators",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-numeric-separators#readme",

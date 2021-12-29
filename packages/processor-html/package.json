@@ -1,6 +1,7 @@
 {
   "name": "@putout/processor-html",
   "version": "2.0.1",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout processor adds ability to parse html files and lint js snippets",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-html#readme",

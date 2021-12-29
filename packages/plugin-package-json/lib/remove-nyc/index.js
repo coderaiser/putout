@@ -1,26 +1,22 @@
 'use strict';
 
-const getKey = (a) => a.key;
-const isNYC = (a) => a.value === 'nyc';
+const {findProperties} = require('putout').operator;
 
 module.exports.report = () => `Remove 'nyc' section of 'package.json', use file '.nycrc.json' intead`;
 
-module.exports.match = () => ({
-    '__putout_processor_json(__a)': ({__a}) => __a.properties
-        .map(getKey)
-        .filter(isNYC).length,
-});
+module.exports.fix = (path) => {
+    path.remove();
+};
 
-module.exports.replace = () => ({
-    '__putout_processor_json(__a)': (vars, path) => {
-        const properties = path.get('arguments.0.properties');
+module.exports.traverse = ({push}) => ({
+    '__putout_processor_json(__a)': (path) => {
+        const __aPath = path.get('arguments.0');
+        const {nycPath} = findProperties(__aPath, ['nyc']);
         
-        for (const propPath of properties) {
-            if (propPath.get('key.value').node === 'nyc')
-                propPath.remove();
-        }
+        if (!nycPath)
+            return;
         
-        return path;
+        push(nycPath);
     },
 });
 

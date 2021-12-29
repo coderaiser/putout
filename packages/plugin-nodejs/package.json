@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-nodejs",
   "version": "1.1.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to transform code to new API of Node.js",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-nodejs#readme",

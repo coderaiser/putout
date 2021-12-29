@@ -1,6 +1,7 @@
 {
   "name": "@putout/plugin-remove-double-negations",
   "version": "3.1.0",
+  "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to remove double negations",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-double-negations#readme",
