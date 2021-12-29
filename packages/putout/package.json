@@ -116,7 +116,7 @@
     "@putout/plugin-merge-if-statements": "^3.0.0",
     "@putout/plugin-nodejs": "^1.0.0",
     "@putout/plugin-npmignore": "^2.0.0",
-    "@putout/plugin-package-json": "^1.0.0",
+    "@putout/plugin-package-json": "^2.0.0",
     "@putout/plugin-promises": "^6.0.0",
     "@putout/plugin-putout": "^8.0.0",
     "@putout/plugin-putout-config": "^2.0.0",
