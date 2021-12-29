@@ -10,5 +10,6 @@ module.exports = {
     getTemplateValues: `const {getTemplateValues} = operator`,
     addArgument: `const {addArgument} = operator`,
     replaceWith: `const {replaceWith} = opreator`,
+    findProperties: `const {findProperties} = operator`,
 };
 

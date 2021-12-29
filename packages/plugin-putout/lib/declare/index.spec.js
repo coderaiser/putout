@@ -80,6 +80,19 @@ test('plugin-putout: declare: transform: replaceWith', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: findProperties', (t) => {
+    t.transformCode('findProperties(a, []);', montag`
+        import {operator} from 'putout';
+        
+        const {
+          findProperties
+        } = operator;
+        
+        findProperties(a, []);
+    `);
+    t.end();
+});
+
 test('plugin-putout: declare: transform: create-test', (t) => {
     t.transform('create-test');
     t.end();
