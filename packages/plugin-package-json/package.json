@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-package-json",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin for package.json",
