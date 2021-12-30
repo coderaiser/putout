@@ -486,7 +486,7 @@ putout(source, {
     `    const hi = 'there';\n` +
     '    \n' +
     '    console.log(hello);\n' +
-    '// {"version": 3, ...}',
+    '   //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJ...',
     places: [{
         rule: 'remove-unused-variables',
         message: '"hi" is defined but never used',

@@ -6,8 +6,6 @@ const generate = require('./generate');
 const babel = require('./parsers/babel');
 const print = require('./print');
 
-const {stringify} = JSON;
-
 test('putout: engina-parser: parse + generate = sourcemap', (t) => {
     const source = `const hello = 'world';`;
     const ast = babel.parse(source, {
@@ -29,14 +27,7 @@ test('putout: engina-parser: parse + print = sourcemap', (t) => {
     });
     
     const code = print(ast, {sourceMapName: 'hello.map'});
-    const expected = source + '\n//' + stringify({
-        version: 3,
-        sources: [ 'hello.js' ],
-        names: [],
-        mappings: 'AAAA,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC',
-        file: 'hello.map',
-        sourcesContent: [ `const hello = 'world';` ],
-    }) + '\n';
+    const expected = `${source}\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhlbGxvLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLENBQUMsQ0FBQyxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDLEVBQUUsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDIiwiZmlsZSI6ImhlbGxvLm1hcCIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IGhlbGxvID0gJ3dvcmxkJzsiXX0=\n`;
     
     t.equal(code, expected);
     t.end();

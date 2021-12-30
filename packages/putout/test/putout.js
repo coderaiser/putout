@@ -833,8 +833,8 @@ test('putout: source map', (t) => {
     
     const expected = montag`
           const a = b;
-          //{"version":3,"sources":["hello"],"names":[],"mappings":"AAAA,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,EAAE,CAAC","file":"world","sourcesContent":["const a = b;"]}\n
-    `;
+          //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhlbGxvIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLENBQUMsQ0FBQyxDQUFDLENBQUMsRUFBRSxFQUFFLEVBQUUsQ0FBQyIsImZpbGUiOiJ3b3JsZCIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IGEgPSBiOyJdfQ==
+    \n`;
     
     t.equal(code, expected);
     t.end();
