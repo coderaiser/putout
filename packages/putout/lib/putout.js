@@ -40,10 +40,13 @@ module.exports = (source, opts) => {
         isTS,
         isFlow,
         isJSX,
+        sourceFileName,
+        sourceMapName,
     } = opts;
     
     const [clearSource, shebang] = cutShebang(source);
     const ast = parse(clearSource, {
+        sourceFileName,
         parser,
         isTS,
         isFlow,
@@ -58,7 +61,9 @@ module.exports = (source, opts) => {
             places,
         };
     
-    const printed = print(ast);
+    const printed = print(ast, {
+        sourceMapName,
+    });
     const code = `${shebang}${printed}`;
     
     return {

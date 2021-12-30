@@ -464,6 +464,37 @@ putout(source, {
 });
 ```
 
+#### 🗺 Sourcemap
+
+When you need `sourcemap` you can have it easily just pass:
+- ✅ `sourceFileName`;
+- ✅ `sourceMapName`;
+
+```js
+putout(source, {
+    fix: false,
+    sourceFileName: 'hello.js',
+    sourceMapName: 'world.js',
+    plugins: [
+        'remove-unused-variables',
+    ],
+});
+// returns
+({
+    code: '\n' +
+    `    const hello = 'world';\n` +
+    `    const hi = 'there';\n` +
+    '    \n' +
+    '    console.log(hello);\n' +
+    '// {"version": 3, ...}',
+    places: [{
+        rule: 'remove-unused-variables',
+        message: '"hi" is defined but never used',
+        position: {line: 3, column: 10},
+    }],
+});
+```
+
 ## 🏨 Built-in transformations
 
 <details><summary>remove <code>unused variables</code></summary>

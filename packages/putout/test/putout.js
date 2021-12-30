@@ -822,3 +822,21 @@ test('putout: filter', (t) => {
     t.end();
 });
 
+test('putout: source map', (t) => {
+    const source = montag`
+        const a = b;
+    `;
+    const {code} = putout(source, {
+        sourceFileName: 'hello',
+        sourceMapName: 'world',
+    });
+    
+    const expected = montag`
+          const a = b;
+          //{"version":3,"sources":["hello"],"names":[],"mappings":"AAAA,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,EAAE,CAAC","file":"world","sourcesContent":["const a = b;"]}\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
