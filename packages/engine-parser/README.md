@@ -43,6 +43,46 @@ create node using `memoization`.
 
 create node without `memoization`.
 
+### Sourcemaps
+
+You have two ways to benefit from source map generation:
+
+- using `Recast` print;
+- using `Babel` generator;
+
+#### Generate sourcemaps usign Recast
+
+```js
+const source = `const hello = 'world';`;
+const ast = parse(source, {
+    sourceFileName: 'hello.js',
+});
+print(ast, {sourceMapName: 'hello.map'});
+// returns
+`const hello = 'world';
+{"version":3,"sources":["hello.js"],"names":[],"mappings":"AAAA...","file":"hello.map","sourcesContent":["const hello = 'world';"]}`;
+```
+
+#### Generate sourcemaps usign Bebel
+
+To generate sourcemap usig babel generator, you should use babel parser before.
+This is low level transformation, because `Babel` doesn't preserve any formatting.
+
+```js
+const {generate} = require('@putout/engine-parser');
+const babel = require('@putout/engine-parser/babel');
+
+const ast = babel.parse(source, {
+    sourceFilename: 'hello.js',
+});
+
+generate(ast, {sourceMaps: true}, {
+    'hello.js': source,
+});
+// returns
+({code, map});
+```
+
 ## Example
 
 ```js

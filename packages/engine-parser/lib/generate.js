@@ -2,10 +2,11 @@
 
 const generate = require('@babel/generator').default;
 
-module.exports = (node) => {
+module.exports = (node, options, sourceMaps) => {
     return generate(node, {
         comments: false,
         recordAndTupleSyntaxType: 'hash',
-    });
+        ...options,
+    }, sourceMaps);
 };
 

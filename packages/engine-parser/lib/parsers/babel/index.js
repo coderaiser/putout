@@ -18,12 +18,16 @@ const options = require('./options');
 
 const moveOutDirectives = require('./move-out-directives');
 
-module.exports.parse = function babelParse(source, {isTS, isJSX = true, isFlow = getFlow(source)}) {
+// There is a difference in options naming for babel and recast
+// recast -> sourceFileName
+// babel, putout: sourceFilename
+module.exports.parse = function babelParse(source, {sourceFilename, isTS, isJSX = true, isFlow = getFlow(source)}) {
     const {parse} = initBabel();
     
     const ast = parse(source, {
         sourceType: 'module',
         tokens: true,
+        sourceFilename,
         ...options,
         plugins: clean([
             ...plugins,

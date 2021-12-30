@@ -13,14 +13,17 @@ function parse(source, options) {
         isTS,
         isFlow,
         isJSX,
+        sourceFileName,
     } = options || {};
     
     const ast = recast.parse(source, {
+        sourceFileName,
         parser: getParser({
             parser,
             isTS,
             isFlow,
             isJSX,
+            sourceFileName,
         }),
     });
     

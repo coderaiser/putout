@@ -3,17 +3,26 @@
 const {print} = require('@putout/recast');
 
 const fixStrictMode = (a) => a.replace(`\n\n\n'use strict'`, `\n\n'use strict'`);
+const addSourceMap = (sourceMapName, {code, map}) => !sourceMapName ? code : `${code}\n//${stringify(map)}\n`;
 
-module.exports = (ast) => {
+const {stringify} = JSON;
+
+module.exports = (ast, options = {}) => {
+    const {sourceMapName} = options;
     const printOptions = {
         quote: 'single',
         objectCurlySpacing: false,
         wrapColumn: Infinity,
+        ...options,
     };
     
-    const printed = print(ast, printOptions).code;
-    const code = fixStrictMode(printed);
+    const printed = print(ast, printOptions);
+    const {map} = printed;
+    const code = fixStrictMode(printed.code);
     
-    return code;
+    return addSourceMap(sourceMapName, {
+        code,
+        map,
+    });
 };
 
