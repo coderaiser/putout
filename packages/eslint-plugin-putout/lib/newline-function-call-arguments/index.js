@@ -10,6 +10,9 @@ module.exports.filter = ({node, text}) => {
     if (node.callee.type !== 'Identifier')
         return false;
     
+    if (text.includes(`'`))
+        return false;
+    
     const {name} = node.callee;
     
     if (node.arguments.length < 3)
