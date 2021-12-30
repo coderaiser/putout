@@ -1,3 +1,13 @@
+2021.12.30, v23.5.0
+
+fix:
+- (eslint-plugin-putout) newline-function-call-arguments: exclude code contains quote
+
+feature:
+- (putout) add support of sourcemaps
+- (@putout/engine-parser) add sourcemaps support
+
+
 2021.12.29, v23.4.0
 
 feature:
