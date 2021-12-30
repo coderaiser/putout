@@ -259,7 +259,7 @@ Happy coding 🎈!
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout.png)
 
-And here is a CLI sheme:
+And here is a CLI scheme:
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-cli.png)
 
