@@ -3,6 +3,7 @@
 const {print} = require('@putout/recast');
 
 const fixStrictMode = (a) => a.replace(`\n\n\n'use strict'`, `\n\n'use strict'`);
+const btoa = (a) => Buffer.from(a, 'binary').toString('base64');
 const addSourceMap = (sourceMapName, {code, map}) => !sourceMapName ? code : `${code}\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,${btoa(stringify(map))}\n`;
 
 const {stringify} = JSON;
