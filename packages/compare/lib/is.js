@@ -216,7 +216,7 @@ module.exports.isLinkedNode = (a) => {
 
 module.exports.parseTemplate = (tmpl, {program} = {}) => {
     const parse = !program ? template.ast : template.program.ast;
-    const node = parse(tmpl);
+    const node = parse(tmpl) || template.ast.fresh(tmpl);
     
     if (tmpl === ANY_OBJECT)
         return [node, __OBJECT_TYPE];

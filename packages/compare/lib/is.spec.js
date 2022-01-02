@@ -1,5 +1,7 @@
 'use strict';
 
+const tryCatch = require('try-catch');
+
 const test = require('supertape');
 const {
     parseTemplate,
@@ -16,6 +18,16 @@ test('compare: is: parseTemplate: program', (t) => {
     });
     
     t.equal(node.type, 'Program');
+    t.end();
+});
+
+test('compare: is: parseTemplate: cache exceptions', (t) => {
+    let error;
+    
+    [error] = tryCatch(parseTemplate, 'if');
+    [error] = tryCatch(parseTemplate, 'if');
+    
+    t.match(error.message, '@babel/template', 'should not cache exceptions');
     t.end();
 });
 
