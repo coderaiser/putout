@@ -30,6 +30,8 @@ module.exports = (from, to, path) => {
     };
 };
 
+module.exports.REPLACE_WATERMARK = name;
+
 module.exports.create = create;
 function create(from, to, path) {
     const watermark = `${from} -> ${to}`;
@@ -52,6 +54,7 @@ function init({path, program}) {
 module.exports.add = add;
 function add({path, program, watermark, highWatermark}) {
     init({path, program});
+    
     path.node[name].add(watermark);
     program.node[name].add(highWatermark);
 }

@@ -41,6 +41,8 @@ module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, template = r
         
         if (!fix || !places.length)
             return places;
+        
+        replace.clearWatermark(ast);
     }
     
     return places;

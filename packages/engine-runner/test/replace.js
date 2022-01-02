@@ -449,3 +449,39 @@ test('putout: runner: replace: empty', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: watermark: when function used', (t) => {
+    const source = montag`
+        template('hello');
+        NumericLiteral(5);
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            'convert-esm-to-commonjs',
+            'declare-undefined-variables',
+            'putout',
+        ],
+    });
+    
+    const expected = montag`
+       const {
+         types: types
+       } = require('putout');
+       
+       const {
+         template: template
+       } = require('putout');
+       
+       const {
+         NumericLiteral
+       } = types;
+       
+       template('hello');
+       NumericLiteral(5);
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+

@@ -61,6 +61,10 @@ module.exports = ({rule, plugin, msg, options}) => {
     };
 };
 
+module.exports.clearWatermark = (ast) => {
+    delete ast.program[watermark.REPLACE_WATERMARK];
+};
+
 const isFn = (a) => typeof a === 'function';
 
 const fix = (from, to, path) => {
