@@ -15,7 +15,8 @@ npm i @putout/engine-runner
 
 ### Replacer
 
-`Replacer` converts code in declarative way. Simplest possible form, no need to use `fix`. Just `from` and `to` parts.
+`Replacer` converts code in declarative way. Simplest possible form, no need to use `fix`. Just `from` and `to` parts
+according to [`template variables syntax`](https://github.com/coderaiser/putout/tree/master/packages/compare#supported-template-variables).
 
 Simplest replace example:
 
