@@ -6,9 +6,7 @@ const {isESM} = operator;
 module.exports.report = () => `Use 'createTest(import.meta.url)' instead of 'createTest(__dirname)'`;
 
 module.exports.match = () => ({
-    'createTest(__dirname, __a)': (vars, path) => {
-        return isESM(path);
-    },
+    'createTest(__dirname, __a)': (vars, path) => isESM(path),
 });
 
 module.exports.replace = () => ({

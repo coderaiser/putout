@@ -1,3 +1,3 @@
-const fn = ({hello}) => hello.world();
+const fn = ({hello}) => hello();
 
 const fn1 = patch => patch();

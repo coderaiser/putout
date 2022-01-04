@@ -1,6 +1,16 @@
 'use strict';
 
-const {replaceWith} = require('putout').operator;
+const {
+    types,
+    operator,
+} = require('putout');
+
+const {replaceWith} = operator;
+
+const {
+    isIdentifier,
+    isLiteral,
+} = types;
 
 module.exports.report = () => 'Avoid useless "return"';
 
@@ -37,7 +47,7 @@ module.exports.filter = (path) => {
     if (isChainCall(argPath))
         return false;
     
-    if (!isEmptyCall(argPath))
+    if (!isSimpleArgs(argPath))
         return false;
     
     if (argPath.isNewExpression())
@@ -61,19 +71,29 @@ const isChainCall = (path) => {
     
     const calleePath = path.get('callee');
     
-    if (!calleePath.isMemberExpression())
-        return false;
+    if (calleePath.isMemberExpression())
+        return true;
     
     const objectPath = calleePath.get('object');
     
     return objectPath.isCallExpression();
 };
 
-const isEmptyCall = (path) => {
+const isSimpleArgs = (path) => {
     if (!path.isCallExpression())
         return true;
     
-    return !path.node.arguments.length;
+    for (const arg of path.node.arguments) {
+        if (isIdentifier(arg))
+            continue;
+        
+        if (isLiteral(arg))
+            continue;
+        
+        return false;
+    }
+    
+    return true;
 };
 
 function hasComments(path) {

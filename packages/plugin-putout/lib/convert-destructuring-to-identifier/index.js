@@ -5,12 +5,8 @@ const {compare} = require('putout').operator;
 module.exports.report = () => 'Identifier should be used instead of empty destructuring';
 
 module.exports.match = () => ({
-    '({}) => __body': (vars, path) => {
-        return findUp(path, 'module.exports.__a = __');
-    },
-    '({}, __a) => __body': (vars, path) => {
-        return findUp(path, 'module.exports.__a = __');
-    },
+    '({}) => __body': (vars, path) => findUp(path, 'module.exports.__a = __'),
+    '({}, __a) => __body': (vars, path) => findUp(path, 'module.exports.__a = __'),
 });
 
 module.exports.replace = () => ({

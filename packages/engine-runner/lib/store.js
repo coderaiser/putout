@@ -57,9 +57,7 @@ function createStore({set}) {
             map = {};
         };
         
-        fn.entries = () => {
-            return entries(map);
-        };
+        fn.entries = () => entries(map);
         
         return fn;
     };

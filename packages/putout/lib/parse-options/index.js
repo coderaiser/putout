@@ -135,7 +135,5 @@ const _readHomeOptions = once(() => {
     return data;
 });
 
-const _readCodeMods = once(() => {
-    return readRules(home, '.putout');
-});
+const _readCodeMods = once(() => readRules(home, '.putout'));
 

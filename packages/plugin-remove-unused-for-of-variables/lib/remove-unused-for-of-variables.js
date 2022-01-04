@@ -17,21 +17,13 @@ module.exports.report = (path) => {
 };
 
 module.exports.match = () => ({
-    'for (const __array of __b) __c': (vars, path) => {
-        return match(path);
-    },
-    'for (const __object of __b) __c': (vars, path) => {
-        return match(path);
-    },
+    'for (const __array of __b) __c': (vars, path) => match(path),
+    'for (const __object of __b) __c': (vars, path) => match(path),
 });
 
 module.exports.replace = () => ({
-    'for (const __array of __b) __c': (vars, path) => {
-        return replace(path);
-    },
-    'for (const __object of __b) __c': (vars, path) => {
-        return replace(path);
-    },
+    'for (const __array of __b) __c': (vars, path) => replace(path),
+    'for (const __object of __b) __c': (vars, path) => replace(path),
 });
 
 function match(path) {

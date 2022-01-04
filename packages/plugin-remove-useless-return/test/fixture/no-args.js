@@ -1,5 +1,5 @@
 const fn = ({hello}) => {
-    return hello.world();
+    return hello();
 };
 
 const fn1 = (patch) => {

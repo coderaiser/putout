@@ -10,9 +10,7 @@ module.exports.report = () => {
     return `Unexpected new lines around arguments`;
 };
 
-module.exports.fix = ({text}) => {
-    return fixNewLines(text);
-};
+module.exports.fix = ({text}) => fixNewLines(text);
 
 module.exports.include = () => [
     'FunctionDeclaration',

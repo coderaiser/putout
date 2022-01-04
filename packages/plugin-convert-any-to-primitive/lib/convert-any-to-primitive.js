@@ -24,9 +24,7 @@ module.exports.report = (path) => {
 };
 
 module.exports.match = () => ({
-    'const __a: any = __b': ({__b}) => {
-        return isPrimitiveType(__b);
-    },
+    'const __a: any = __b': ({__b}) => isPrimitiveType(__b),
 });
 
 module.exports.replace = () => ({

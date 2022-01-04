@@ -37,6 +37,11 @@ test('plugin-remove-useless-return: transform: no-args', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-return: transform: nested', (t) => {
+    t.transform('nested');
+    t.end();
+});
+
 test('plugin-remove-useless-return: transform: chain-call', (t) => {
     t.noTransform('chain-call');
     t.end();
@@ -57,13 +62,18 @@ test('plugin-remove-useless-return: no transform: str', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-return: no transform: not-empty-call', (t) => {
-    t.noTransform('not-empty-call');
+test('plugin-remove-useless-return: no transform: not-simple-args', (t) => {
+    t.noTransform('not-simple-args');
     t.end();
 });
 
 test('plugin-remove-useless-return: no transform: no-return', (t) => {
     t.noTransform('no-return');
+    t.end();
+});
+
+test('plugin-remove-useless-return: no transform: member', (t) => {
+    t.noTransform('member');
     t.end();
 });
 
