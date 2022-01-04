@@ -19,5 +19,8 @@ module.exports.replace = () => ({
     't.deepEqual(__a, undefined, __b)': 't.notOk(__a, __b)',
     't.deepEqual(__a, false)': 't.notOk(__a)',
     't.deepEqual(__a, false, __b)': 't.notOk(__a, __b)',
+    
+    't.equal(__a)': 't.notOk(__a)',
+    't.notEqual(__a)': 't.ok(__a)',
 });
 
