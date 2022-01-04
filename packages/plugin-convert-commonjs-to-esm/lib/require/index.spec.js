@@ -111,6 +111,11 @@ test('plugin-convert-commonjs-to-esm: require: transform: call: kebab', (t) => {
     t.end();
 });
 
+test('plugin-convert-commonjs-to-esm: require: transform: member', (t) => {
+    t.transform('member');
+    t.end();
+});
+
 test('plugin-convert-commonjs-to-esm: require: transform: call: kebab: namespace', (t) => {
     t.transform('call-kebab-namespace');
     t.end();

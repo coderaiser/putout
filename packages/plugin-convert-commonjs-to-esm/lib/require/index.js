@@ -35,7 +35,6 @@ const createImport = ({name, source}) => {
 };
 
 const createFnDeclaration = template('const NAME1 = FN(NAME2)');
-const createDeclaration = template('const NAME1 = NAME2.default');
 const isPackage = ({value}) => /package(\.json)?$/.test(value);
 
 module.exports.match = () => ({
@@ -65,6 +64,10 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
+    'const __a = require(__b).__c': `{
+        const {__c} = require(__b);
+        const __a = __c;
+    }`,
     'require("__a")': 'import("__a")',
     'const __a = require(__b)': ({__a}, path) => {
         let {value} = path.get(__B).evaluate();
@@ -129,23 +132,6 @@ module.exports.replace = () => ({
             import ${name} from "__b";
             const __a = ${name}.__c(__args);
         }`;
-    },
-    'const __a = require(__b).default': ({__a, __b}, path) => {
-        const name = `_${__a.name}`;
-        const importNode = createImport({
-            name: Identifier(name),
-            source: __b,
-        });
-        const declarationNode = createDeclaration({
-            NAME1: __a,
-            NAME2: Identifier(name),
-        });
-        
-        path.insertBefore([
-            importNode,
-        ]);
-        
-        return declarationNode;
     },
 });
 
