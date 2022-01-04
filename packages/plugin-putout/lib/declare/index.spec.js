@@ -71,11 +71,26 @@ test('plugin-putout: declare: transform: add-argument', (t) => {
 
 test('plugin-putout: declare: transform: replaceWith', (t) => {
     t.transformCode('replaceWith(a);', montag`
+        import {operator} from 'putout';
+        
         const {
           replaceWith
-        } = opreator;
+        } = operator;
         
         replaceWith(a);
+    `);
+    t.end();
+});
+
+test('plugin-putout: declare: transform: replaceWithMultiple', (t) => {
+    t.transformCode('replaceWithMultiple(a);', montag`
+        import {operator} from 'putout';
+        
+        const {
+          replaceWithMultiple
+        } = operator;
+        
+        replaceWithMultiple(a);
     `);
     t.end();
 });
