@@ -3,6 +3,8 @@
 module.exports = {
     operator: `import {operator} from 'putout'`,
     compare: `const {compare} = operator`,
+    compareAll: `const {compareAll} = operator`,
+    compareAny: `const {compareAny} = operator`,
     contains: `const {contains} = operator`,
     traverse: `const {traverse} = operator`,
     declare: `const {declare} = operator`,
