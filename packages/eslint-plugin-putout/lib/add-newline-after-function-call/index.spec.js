@@ -146,7 +146,7 @@ ruleTester.run('add-newline-after-function-call', rule, {
             test('hello: world', (t) => {
                 hello();
                 const a = [
-                    "hello",
+                    "world",
                 ];
                 
                 return;
@@ -157,7 +157,7 @@ ruleTester.run('add-newline-after-function-call', rule, {
             '    hello();\n' +
             ';\n' +
             '    const a = [\n' +
-            '        "hello",\n' +
+            '        "world",\n' +
             '    ];\n' +
             '    \n' +
             '    return;\n' +

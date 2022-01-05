@@ -10,7 +10,7 @@ const {
     isArrayExpression,
 } = types;
 
-const regExp = /^;?\n( +)?\n +$/;
+const regExp = /^;?\n( +)?\n( +)?/;
 
 module.exports.category = 'layout';
 module.exports.report = () => 'Add newline after function call';

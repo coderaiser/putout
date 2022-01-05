@@ -70,6 +70,10 @@ test('eslint-plugin-putout: add-newline-after-function-call', async ({process}) 
     await process('add-newline-after-function-call');
 });
 
+test('eslint-plugin-putout: add-newline-after-function-call-couple-newlines', async ({process}) => {
+    await process('add-newline-after-function-call-couple-newlines');
+});
+
 test('eslint-plugin-putout: array-element-newline', async ({process}) => {
     await process('array-element-newline');
 });
