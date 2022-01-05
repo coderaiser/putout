@@ -256,3 +256,8 @@ test('putout: plugin: declare-undefined-variables: nodejs: url', (t) => {
     `);
     t.end();
 });
+
+test('putout: plugin: declare-undefined-variables: readFixture', (t) => {
+    t.transform(`fixtures`);
+    t.end();
+});

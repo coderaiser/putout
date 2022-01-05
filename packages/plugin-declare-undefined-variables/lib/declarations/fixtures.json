@@ -1,0 +1,3 @@
+{
+    "readFixture": "const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');"
+}

@@ -1,0 +1,1 @@
+readFixture('hello.js');

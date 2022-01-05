@@ -6,6 +6,7 @@ const isType = require('./is-type');
 const maybe = require('./maybe');
 const wrap = require('./wrap');
 const freshImport = require('./fresh-import');
+const fixtures = require('./fixtures');
 
 module.exports = {
     ...nodeJS,
@@ -14,6 +15,7 @@ module.exports = {
     ...maybe,
     ...wrap,
     ...freshImport,
+    ...fixtures,
     
     isArray: 'const {isArray} = Array',
     
