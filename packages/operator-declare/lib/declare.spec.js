@@ -446,3 +446,35 @@ test('putout: plugin: declare-undefined-variables: missing declaration', (t) => 
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: MemberExpression', (t) => {
+    const declarations = {
+        __c4: 'const {__c4} = global',
+    };
+    
+    const source = montag`
+        __c4.mark();
+    `;
+    
+    const {code} = putout(source, {
+        rules: {
+            declare: ['on', {
+                declarations,
+            }],
+        },
+        plugins: [
+            ['declare', declare({})],
+        ],
+    });
+    
+    const expected = montag`
+        const {
+          __c4
+        } = global;
+        
+        __c4.mark();
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
