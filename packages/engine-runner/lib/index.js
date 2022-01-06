@@ -122,6 +122,7 @@ function runWithoutMerge({ast, fix, shebang, template, pluginsFind}) {
                 path: item,
                 rule,
                 position,
+                options,
             });
         }
     }

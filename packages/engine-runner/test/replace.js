@@ -485,3 +485,38 @@ test('putout: runner: replace: watermark: when function used', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: fix: options', (t) => {
+    const instance = {
+        report: () => '',
+        fix: (path, {options}) => path.get('declarations.0').node.init.value = options.value,
+        find: (ast, {traverse, push}) => {
+            traverse(ast, {
+                'const __a = __b'(path) {
+                    push(path);
+                },
+            });
+        },
+    };
+    
+    const source = montag`
+        const a = 5;
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        rules: {
+            instance: ['on', {
+                value: 3,
+            }],
+        },
+        plugins: [
+            ['instance', instance],
+        ],
+    });
+    
+    const expected = 'const a = 3;';
+    
+    t.equal(code, expected);
+    t.end();
+});
+
