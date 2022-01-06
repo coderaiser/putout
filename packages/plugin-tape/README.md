@@ -31,6 +31,7 @@ npm i @putout/plugin-tape -D
         "tape/convert-called-with-to-called-with-no-args": "on",
         "tape/convert-called-with-no-args-to-called-with": "on",
         "tape/convert-equal-to-called-once": "on",
+        "tape/convert-equal-to-deep-equal": "on",
         "tape/convert-deep-equal-to-equal": "on",
         "tape/expand-try-catch-arguments": "on",
         "tape/convert-emitter-to-promise": "on",
@@ -642,6 +643,30 @@ t.equal(result, true);
 
 ```js
 t.ok(result);
+```
+
+## convert-equal-to-deep-equal
+
+### ❌ Incorrect code example
+
+```js
+const expected = {
+    hello: 'world',
+};
+
+t.equal(error, expected);
+t.end();
+```
+
+### ✅ Correct code example
+
+```js
+const expected = {
+    hello: 'world',
+};
+
+t.deepEqual(error, expected);
+t.end();
 ```
 
 ## convert-match-regexp-to-string

@@ -73,6 +73,11 @@ test('plugin-tape: transform: convert-equal-to-not-ok', (t) => {
     t.end();
 });
 
+test('plugin-tape: transform: convert-equal-to-deep-equal', (t) => {
+    t.transform('convert-equal-to-deep-equal');
+    t.end();
+});
+
 test('plugin-tape: transform: convert-equal-to-ok', (t) => {
     t.transform('convert-equal-to-ok');
     t.end();
