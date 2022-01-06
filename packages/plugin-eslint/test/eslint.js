@@ -22,3 +22,8 @@ test('putout: plugin-eslint: transform: convert-ide-to-safe', (t) => {
     t.end();
 });
 
+test('putout: plugin-eslint: transform: apply-safe-align', (t) => {
+    t.transform('apply-safe-align');
+    t.end();
+});
+

@@ -1,10 +1,7 @@
 {
-    "rules": {
-        "putout/align-spaces": "error"
-    },
     "extends": [
         "plugin:node/recommended",
-        "plugin:putout/safe"
+        "plugin:putout/safe+align"
     ],
     "plugins": [
         "node",

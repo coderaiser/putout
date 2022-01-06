@@ -10,10 +10,10 @@ module.exports.getExtends = (node) => {
     const x = node.properties.find(isExtends);
     
     if (!x)
-        return null;
+        return [];
     
     if (!isArrayExpression(x.value))
-        return null;
+        return [];
     
     return x.value.elements;
 };

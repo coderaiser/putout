@@ -16,9 +16,29 @@ npm i @putout/plugin-eslint -D
 ```json
 {
     "rules": {
+        "eslint/apply-safe-align": "on",
         "eslint/move-putout-to-end-of-extends": "on",
         "eslint/convert-ide-to-safe": "on"
     }
+}
+```
+
+## apply-safe-align
+
+```diff
+{
+-    "rules": {
+-       "putout/align-spaces": "error"
+-    },
+    "extends": [
+-       "plugin:putout/safe",
++       "plugin:putout/safe+align",
+        "plugin:node/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ]
 }
 ```
 

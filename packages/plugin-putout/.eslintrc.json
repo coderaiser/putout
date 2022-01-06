@@ -1,11 +1,10 @@
 {
     "rules": {
-        "node/no-missing-require": "off",
-        "putout/align-spaces": "error"
+        "node/no-missing-require": "off"
     },
     "extends": [
         "plugin:node/recommended",
-        "plugin:putout/safe"
+        "plugin:putout/safe+align"
     ],
     "plugins": [
         "node",

@@ -8,7 +8,7 @@ module.exports.match = () => ({
     '__putout_processor_json(__a)': ({__a}) => {
         const elements = getExtends(__a);
         
-        if (!elements)
+        if (!elements.length)
             return false;
         
         const [first] = elements;

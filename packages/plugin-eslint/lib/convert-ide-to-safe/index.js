@@ -8,9 +8,6 @@ module.exports.match = () => ({
     '__putout_processor_json(__a)': ({__a}) => {
         const elements = getExtends(__a);
         
-        if (!elements)
-            return false;
-        
         for (const {value} of elements) {
             if (value.includes('putout/ide'))
                 return true;

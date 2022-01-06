@@ -1,7 +1,4 @@
 {
-    "rules": {
-        "putout/align-spaces": "error"
-    },
     "overrides": [{
         "files": ["lib/**/*.spec.js", "test/**"],
         "rules": {
@@ -11,7 +8,7 @@
     }],
     "extends": [
         "plugin:node/recommended",
-        "plugin:putout/safe"
+        "plugin:putout/safe+align"
     ],
     "plugins": [
         "putout",
