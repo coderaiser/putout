@@ -46,6 +46,15 @@ Adds `*.swp` into .gitignore.
 node_modules
 ```
 
+## Add `.idea` Files
+
+Adds `*.swp` into .gitignore.
+
+```diff
++.idea
+node_modules
+```
+
 ## License
 
 MIT

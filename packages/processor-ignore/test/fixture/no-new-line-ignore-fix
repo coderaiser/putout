@@ -1,5 +1,6 @@
 .*
 madrun.js
+.idea
 *.swp
 yarn-error.log
 coverage

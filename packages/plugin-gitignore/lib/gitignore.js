@@ -5,6 +5,7 @@ const {StringLiteral} = types;
 const getValue = ({value}) => value;
 
 const names = [
+    '.idea',
     '*.swp',
     'yarn-error.log',
     'coverage',
