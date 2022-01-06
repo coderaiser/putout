@@ -101,6 +101,10 @@ When using 🐊`Putout` in IDE with `--fix` on save, or when you want to disable
 }
 ```
 
+### safe+align
+
+When you want to enable ability to align spaces on empty lines, use `safe+align`.
+
 Disabled `ESLint` rules:
 
 - [no-useless-return](https://eslint.org/docs/rules/no-useless-return)

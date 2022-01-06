@@ -122,5 +122,12 @@ const safe = {
 module.exports.configs = {
     recommended,
     safe,
+    'safe+align': {
+        ...safe,
+        rules: {
+            ...safe.rules,
+            'putout/align-spaces': 'error',
+        },
+    },
 };
 
