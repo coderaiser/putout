@@ -1,5 +1,9 @@
 'use strict';
 
+const {join} = require('path');
+
+const {readFileSync} = require('fs');
+
 const {RuleTester} = require('eslint');
 const montag = require('montag');
 
@@ -12,6 +16,8 @@ const ruleTester = new RuleTester({
         sourceType: 'module',
     },
 });
+
+const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');
 
 ruleTester.run('add-newline-before-function-call', rule, {
     valid: [
@@ -91,7 +97,7 @@ ruleTester.run('add-newline-before-function-call', rule, {
             '});',
         
         errors: [{
-            message: 'Add newline before function call',
+            message: 'Add newline before expression',
             type: 'CallExpression',
         }],
     }, {
@@ -114,8 +120,15 @@ ruleTester.run('add-newline-before-function-call', rule, {
             '    }\n' +
             '});',
         errors: [{
-            message: 'Add newline before function call',
+            message: 'Add newline before expression',
             type: 'CallExpression',
+        }],
+    }, {
+        code: readFixture('assignment'),
+        output: readFixture('assignment-fix'),
+        errors: [{
+            message: 'Add newline before expression',
+            type: 'AssignmentExpression',
         }],
     }],
 });

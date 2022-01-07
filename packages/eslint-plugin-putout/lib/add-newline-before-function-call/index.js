@@ -11,7 +11,7 @@ const {
 const regExp = /^\n( +)?\n +$/;
 
 module.exports.category = 'typescript';
-module.exports.report = () => 'Add newline before function call';
+module.exports.report = () => 'Add newline before expression';
 
 module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) => {
     if (!isExpressionStatement(node.parent))
@@ -69,5 +69,5 @@ module.exports.fix = ({text}) => {
 
 module.exports.include = () => [
     'CallExpression',
+    'AssignmentExpression',
 ];
-

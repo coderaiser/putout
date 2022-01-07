@@ -1,0 +1,13 @@
+{
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:putout/safe"
+    ],
+    "plugins": [
+        "node",
+        "putout"
+    ],
+    "ignorePatterns": [
+        "!fixture"
+    ]
+}
