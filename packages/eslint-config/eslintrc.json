@@ -85,6 +85,10 @@
         "padded-blocks": ["error", "never"],
         "padding-line-between-statements": ["error", {
             "blankLine": "always",
+            "prev": "block-like",
+            "next": "for"
+        }, {
+            "blankLine": "always",
             "prev": "*",
             "next": "if"
         }, {
