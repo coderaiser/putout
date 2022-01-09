@@ -18,7 +18,7 @@ npm i putout @putout/plugin-nodejs -D
     "rules": {
         "nodejs/convert-fs-promises": "on",
         "nodejs/convert-promisify-to-fs-promises": "on",
-        "nodejs/convert-dirname-to-promises": "on"
+        "nodejs/convert-dirname-to-url": "on"
     }
 }
 ```
@@ -58,7 +58,7 @@ const readFile = promisify(fs.readFile);
 const {readFile} = require('fs/promises');
 ```
 
-# convert-dirname-to-promises
+# convert-dirname-to-url
 
 Only for `EcmaScript Modules`.
 
