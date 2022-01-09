@@ -14,5 +14,6 @@ module.exports = {
     replaceWith: `const {replaceWith} = operator`,
     replaceWithMultiple: `const {replaceWithMultiple} = operator`,
     findProperties: `const {findProperties} = operator`,
+    isESM: `const {isESM} = operator`,
 };
 

@@ -108,6 +108,19 @@ test('plugin-putout: declare: transform: findProperties', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: isESM', (t) => {
+    t.transformCode('isESM', montag`
+        import {operator} from 'putout';
+        
+        const {
+          isESM
+        } = operator;
+        
+        isESM
+    `);
+    t.end();
+});
+
 test('plugin-putout: declare: transform: create-test', (t) => {
     t.transform('create-test');
     t.end();
