@@ -22,10 +22,6 @@ const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
 const cutName = (a) => a.split('.').shift();
 const parseType = (path) => isESM(path) ? 'esm' : 'commonjs';
 
-const isUndefined = (a) => typeof a === 'undefined';
-
-const {stringify} = JSON;
-
 module.exports.declare = (declarations) => ({
     report,
     include,
@@ -53,6 +49,8 @@ const filter = (declarations) => (path, {options}) => {
     const {scope, node} = path;
     const {name} = node;
     
+    const type = getModuleType(path) || setModuleType(parseType(path), path);
+    
     if (scope.hasBinding(name) || checkDeclarationForESLint(name, path))
         return false;
     
@@ -62,11 +60,16 @@ const filter = (declarations) => (path, {options}) => {
     if (dismiss.includes(name))
         return false;
     
+    const code = parseCode(name, type, allDeclarations[name]);
+    
+    if (!code)
+        return false;
+    
     return true;
 };
 
 const fix = (declarations) => (path, {options}) => {
-    const type = getModuleType(path) || setModuleType(parseType(path), path);
+    const type = setModuleType(parseType(path), path);
     
     const allDeclarations = {
         ...declarations,
@@ -123,9 +126,6 @@ const parseCode = (name, type, current) => {
         return current;
     
     const result = current[type];
-    
-    if (isUndefined(result))
-        throw Error(`🐊 @putout/operator-declare: code is empty for type '${type}' in declaraiont '${name}' -> ${stringify(current, null, 4)}`);
     
     return result;
 };
