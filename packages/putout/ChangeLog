@@ -1,3 +1,38 @@
+2022.01.09, v23.6.0
+
+fix:
+- (@putout/engine-runner) find: options
+- (eslint-plugin-putout) add-newline-after-function-call: multiple empty lines
+- feature(@putout/plugin-declare-undefined-variables) add fixtures
+- feature(@putout/engine-runner) add support to clear replace watermarks after fix round is done
+- (@putout/engine-parser) btoa: get back node v14 support
+- (@putout/engine-parser) sourcemap url
+
+feature:
+- (package) @putout/plugin-nodejs v2.0.0
+- (@putout/plugin-nodejs) drop support of putout < 23
+- (@putout/plugin-nodejs) add convert-dirname-to-url
+- (@putout/plugin-putout) declare: add isESM
+- (package) @putout/plugin-convert-commonjs-to-esm v7.0.0
+- (@putout/plugin-convert-commonjs-to-esm) drop support of putout < 23
+- (@putout/plugin-convert-commonjs-to-esm) commonjs: use node.js built-ins, instead of simport
+- (@putout/operator-declare) add ability to pass only "esm" or only "commonjs"
+- (@putout/eslint-config) padding-line-between-statements: add newline before "for", after block-like
+- (eslint-plugin-putout) add-newline-before-function-call: add support of AssignmentExpression
+- (@putout/plugin-tape) add convert-equal-to-deep-equal
+- (@putout/plugin-gitignore) add support of .idea
+- (@putout/plugin-eslint) add apply-safe-align
+- (eslint-plugin-putout) add safe+align
+- (@putout/plugin-declare-undefined-variables) add fixtures
+- (@putout/plugin-putout) declare: add compareAny, compareAll
+- (@putout/plugin-putout) declare: add replaceWithMultiple
+- (@putout/plugin-convert-commonjs-to-esm) require: add support of MemberExpression
+- (@putout/plugin-tape) convert-equal-to-not-ok: add support of equal/notEqual with one argument passed
+- (@putout/plugin-remove-useless-return) add support of nested functions
+- (@putout/compare) is: parseTemplate: avoid caching exception as undefined
+- (@putout/engine-runner) add support to clear replace watermarks after fix round is done
+
+
 2021.12.30, v23.5.0
 
 fix:
