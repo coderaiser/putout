@@ -17,7 +17,8 @@ npm i putout @putout/plugin-nodejs -D
 {
     "rules": {
         "nodejs/convert-fs-promises": "on",
-        "nodejs/convert-promisify-to-fs-promises": "on"
+        "nodejs/convert-promisify-to-fs-promises": "on",
+        "nodejs/convert-dirname-to-promises": "on"
     }
 }
 ```
@@ -55,6 +56,28 @@ const readFile = promisify(fs.readFile);
 
 ```js
 const {readFile} = require('fs/promises');
+```
+
+# convert-dirname-to-promises
+
+Only for `EcmaScript Modules`.
+
+## ❌ Incorrect code example
+
+```js
+import {readFile} from 'fs/promises';
+
+const file1 = join(__dirname, '../../package.json');
+const file2 = path.join(__dirname, '../../package.json');
+```
+
+## ✅ Correct code Example
+
+```js
+import {readFile} from 'fs/promises';
+
+const file1 = new URL('../../package.json', import.meta.url);
+const file2 = new URL('../../package.json', import.meta.url);
 ```
 
 ## License
