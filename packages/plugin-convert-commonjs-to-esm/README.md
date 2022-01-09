@@ -76,9 +76,9 @@ await readFile(__filename);
 
 ```js
 import {readFile} from 'fs/promises';
-import {createCommons} from 'simport';
+import {fileURLToPath} from 'url';
 
-const {__filename} = createCommons(import.meta.url);
+const __filename = fileURLToPath(import.meta.url);
 await readFile(__filename);
 ```
 

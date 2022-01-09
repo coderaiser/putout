@@ -7,8 +7,11 @@ const {
 
 const {getPathAfterImports} = operator;
 
-const importSimport = template.ast(`import {createCommons} from 'simport'`);
-const initCommons = template.ast(`const {__filename, __dirname, require} = createCommons(import.meta.url)`);
+const initCommons = template.ast(`
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = dirname(__filename);
+    const require = createRequire(import.meta.url);
+`);
 
 module.exports.report = () => '"__filename", "__dirname" and "require" should be declared in ESM';
 
@@ -18,7 +21,6 @@ module.exports.fix = (path) => {
     const body = programScope.path.get('body');
     const afterImportPath = getPathAfterImports(body);
     
-    afterImportPath.insertBefore(importSimport);
     afterImportPath.insertBefore(initCommons);
     
     programScope.crawl();
