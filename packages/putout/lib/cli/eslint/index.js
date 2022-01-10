@@ -28,13 +28,14 @@ const cutNewLine = ({message}) => ({
     message: message.replace(/\n.*/, ''),
 });
 
-const getESLint = ({fix}) => {
+const getESLint = ({fix, config}) => {
     const eslint = new ESLint({
         fix,
         overrideConfig: {
             ignorePatterns: [
                 '!.*',
             ],
+            ...config,
         },
         ...overrideConfigFile && {
             overrideConfigFile,
@@ -48,7 +49,7 @@ const getESLint = ({fix}) => {
     };
 };
 
-module.exports = async ({name, code, fix}) => {
+module.exports = async ({name, code, fix, config}) => {
     const noChanges = [
         code,
         [],
@@ -59,6 +60,7 @@ module.exports = async ({name, code, fix}) => {
     
     const [eslintError, eslint] = await tryToCatch(getESLint, {
         fix,
+        config,
     });
     
     if (eslintError)
@@ -67,9 +69,9 @@ module.exports = async ({name, code, fix}) => {
             [convertToPlace(cutNewLine(eslintError))],
         ];
     
-    const [configError, config] = await tryToCatch(eslint.calculateConfigForFile, name);
+    const [configError, finalConfig] = await tryToCatch(eslint.calculateConfigForFile, name);
     
-    if (noConfigFound(config, configError))
+    if (noConfigFound(finalConfig, configError))
         return noChanges;
     
     if (configError) {
@@ -79,10 +81,10 @@ module.exports = async ({name, code, fix}) => {
         ];
     }
     
-    disablePutout(config);
+    disablePutout(finalConfig);
     
     // that's right, we disabled "putout" rules in "config"
-    // and now it is in eslint's cache
+    // and now it located in eslint's cache
     const results = await eslint.lintText(code, {
         filePath: name,
     });

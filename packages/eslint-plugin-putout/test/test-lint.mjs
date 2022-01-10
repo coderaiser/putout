@@ -5,6 +5,14 @@ import eslint from 'putout/eslint';
 import tryToCatch from 'try-to-catch';
 import {extend} from 'supertape';
 
+const config = {
+    extends: [
+        'plugin:node/recommended',
+        'plugin:eslint-plugin/recommended',
+        'plugin:putout/recommended',
+    ],
+};
+
 const fixtureDir = new URL('fixture', import.meta.url).pathname;
 const read = async (name) => {
     const [, data] = await tryToCatch(readFile, `${name}.js`, 'utf8');
@@ -26,6 +34,7 @@ export const test = extend({
             name: resolvedName,
             code,
             fix,
+            config,
         });
         
         return operator.equal(source, fixture);
@@ -37,6 +46,7 @@ export const test = extend({
         
         const [source] = await eslint({
             name: resolvedName,
+            config,
             code,
             fix,
         });
@@ -48,6 +58,7 @@ export const test = extend({
         const [resolvedName, code] = await read(full);
         
         const [, places] = await eslint({
+            config,
             name: resolvedName,
             code,
         });

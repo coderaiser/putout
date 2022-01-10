@@ -348,3 +348,20 @@ test('putout: eslint: output', async (t) => {
     t.end();
 });
 
+test('putout: eslint: output: config', async (t) => {
+    const config = {
+        rules: {
+            semi: 'off',
+        },
+    };
+    const [source] = await eslint({
+        name: 'hello.js',
+        code: `var a = 1`,
+        fix: true,
+        config,
+    });
+    
+    t.equal(source, 'const a = 1\n');
+    t.end();
+});
+
