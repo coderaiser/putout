@@ -2307,7 +2307,33 @@ You can even use only `ESlint`, because `putout` bundled to `eslint-plugin-putou
 eslint --fix lib
 ```
 
-Will uses 🐊`Putout` transformations for you :).
+Applies 🐊`Putout` transformations for you :).
+
+### Working with `ESLint` API
+
+`ESLint` cames as a formatter when 🐊`Putout` done his transformations. That's why it used a lot in different parts of application, for testing purpose and using `API` in a simplest possible way. You can access it using:
+
+```js
+import {eslint} from 'putout/eslint';
+```
+
+Usage as simple as:
+
+```js
+const [source, places] = await eslint({
+    name: 'hello.js',
+    code: `const t = 'hi'\n`,
+    fix: false,
+});
+```
+
+In a similar to 🐊`Putou` way.
+
+☝️ *The only difference is 🐊`Putout` return object with "code" and places} properties*
+
+Also it has a `name` property it used by `ESLint` to calculate configuration file.
+
+This `API` doesn't suppose to came in 🌴 Public Space, anyways it is already used in [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout) to [test plugins](https://github.com/coderaiser/putout/blob/master/packages/eslint-plugin-putout/test/test-lint.mjs#L24-L28), so why not :)? Anyways it's signature didn't changed from the begining.
 
 ## ☄️ Integration with Babel
 
@@ -2408,7 +2434,7 @@ import {OK} from 'putout/exit-codes';
 - [`Xterm.js`](https://github.com/xtermjs/xterm.js/pull/3538): A terminal for the web.
 - [`Stylelint`](https://github.com/stylelint/stylelint/issues/5291#issuecomment-920778090): A mighty, modern linter that helps you avoid errors and enforce conventions in your styles.
 - [`ESTrace`](https://github.com/coderaiser/estrace): Trace functions in EcmaScript Modules.
-- [🎩`ESCover`](https://github.com/coderaiser/escover): Coverage for EcmaScript Modules.  
+- [🎩`ESCover`](https://github.com/coderaiser/escover): Coverage for EcmaScript Modules.
 
 Do you use `putout` in your application as well? Please open a Pull Request to include it here. We would love to have it in our list.
 
