@@ -2311,7 +2311,7 @@ Applies 🐊`Putout` transformations for you :).
 
 ### Working with `ESLint` API
 
-`ESLint` begins his work as a formatter when 🐊`Putout` done his transformations. That's why it used a lot in different parts of application, for testing purpose and using `API` in a simplest possible way. You can access it using:
+`ESLint` begins his work as a formatter when 🐊`Putout` done his transformations. That's why it used a lot in different parts of application, for testing purpose and using `API` in a simplest possible way. You can access it with:
 
 ```js
 import {eslint} from 'putout/eslint';
@@ -2329,7 +2329,7 @@ const [source, places] = await eslint({
 
 In a similar to 🐊`Putout` way.
 
-☝️ *The only difference is 🐊`Putout` return object with "code" and places} properties*
+☝️ *The only difference is 🐊`Putout` return [object with `code` and `places`](https://github.com/coderaiser/putout#plugins) properties*
 
 Also it has a `name` property it used by `ESLint` to calculate configuration file.
 
