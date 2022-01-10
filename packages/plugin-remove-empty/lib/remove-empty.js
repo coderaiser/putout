@@ -5,5 +5,6 @@ module.exports.rules = {
     pattern: require('@putout/plugin-remove-empty-pattern'),
     argument: require('./argument'),
     import: require('./import'),
+    export: require('./export'),
 };
 

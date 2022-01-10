@@ -9,6 +9,7 @@
 - `empty patterns`;
 - `empty imports`;
 - `empty arguments`;
+- `empty exports`;
 
 ## Install
 
@@ -24,6 +25,7 @@ npm i @putout/plugin-remove-empty
         "remove-empty/block": "on",
         "remove-empty/pattern": "on",
         "remove-empty/argument": "on",
+        "remove-empty/export": "on",
         "remove-empty/import": ["on", {
             "ignore": []
         }]
@@ -42,6 +44,8 @@ if (2 > 3) {}
 if (a > 3) {
     world();
 }
+
+export {};
 ```
 
 ## ✅ Correct code Example
