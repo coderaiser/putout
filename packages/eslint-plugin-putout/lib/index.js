@@ -99,6 +99,7 @@ const safe = {
         ...recommended.rules,
         'no-useless-return': 'off',
         'putout/align-spaces': 'off',
+        'putout/remove-newline-from-empty-object': 'off',
         'putout/putout': ['error', {
             rules: {
                 'remove-empty': 'off',
