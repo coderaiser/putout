@@ -1,3 +1,16 @@
+2022.01.10, v23.7.0
+
+fix:
+- (@putout/plugin-nodejs) convert-dirname-to-url
+
+feature:
+- (putout) eslint: add ability to pass config
+- (eslint-plugin-putout) safe: disable remove-newline-from-empty-objects
+- (eslint-plugin-putout) remove-newline-from-empty-object: add support of inner comments
+- (@putout/plugin-remove-empty) add support of export
+- (@putout/plugin-remove-empty) simplify namings
+
+
 2022.01.09, v23.6.0
 
 fix:
