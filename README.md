@@ -2324,6 +2324,11 @@ const [source, places] = await eslint({
     name: 'hello.js',
     code: `const t = 'hi'\n`,
     fix: false,
+    config: {
+        extends: [
+            'plugin:putout/recommended',
+        ],
+    },
 });
 ```
 
