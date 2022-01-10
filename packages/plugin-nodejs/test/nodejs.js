@@ -17,3 +17,8 @@ test('cloudcmd: convert-promisify-to-fs-promises: transform', (t) => {
     t.end();
 });
 
+test('cloudcmd: transform: convert-dirname-to-url', (t) => {
+    t.transform('convert-dirname-to-url');
+    t.end();
+});
+

@@ -1,16 +1,11 @@
-import {join} from 'path';
 import {spawnSync} from 'child_process';
 
 import {test} from 'supertape';
-import {
-    createSimport,
-    createCommons,
-} from 'simport';
+import {createSimport} from 'simport';
 
 const simport = createSimport(import.meta.url);
-const {__dirname} = createCommons(import.meta.url);
 
-const cliPath = join(__dirname, 'putout.mjs');
+const cliPath = new URL('putout.mjs', import.meta.url).pathname;
 
 test('putout: bin: cli: -v', async (t) => {
     const {version} = await simport('../package.json');

@@ -4,10 +4,7 @@ import {join} from 'path';
 import tryToCatch from 'try-to-catch';
 import {extend} from 'supertape';
 
-import {createCommons} from 'simport';
-const {__dirname} = createCommons(import.meta.url);
-
-const fixtureDir = join(__dirname, 'fixture');
+const fixtureDir = new URL('fixture', import.meta.url).pathname;
 const read = async (name) => {
     const [, data] = await tryToCatch(readFile, `${name}.js`, 'utf8');
     

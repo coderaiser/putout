@@ -1,15 +1,11 @@
-import {join} from 'path';
 import {
     test,
     stub,
 } from 'supertape';
-import {createCommons} from 'simport';
 import {
     load,
     transformSource,
 } from './loader.mjs';
-
-const {__dirname} = createCommons(import.meta.url);
 
 test('putout: loader: transformSource', (t) => {
     const context = {
@@ -25,9 +21,9 @@ test('putout: loader: transformSource', (t) => {
 });
 
 test('putout: loader: transformSource: ignore: no mock', (t) => {
-    const name = join(__dirname, '../test/fixture/debugger.js');
+    const url = new URL('../test/fixture/debugger.js', import.meta.url).href;
     const context = {
-        url: `file://${name}`,
+        url,
     };
     
     const code = 'const a = 5;';
