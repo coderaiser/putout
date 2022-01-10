@@ -2327,7 +2327,7 @@ const [source, places] = await eslint({
 });
 ```
 
-In a similar to 🐊`Putou` way.
+In a similar to 🐊`Putout` way.
 
 ☝️ *The only difference is 🐊`Putout` return object with "code" and places} properties*
 
