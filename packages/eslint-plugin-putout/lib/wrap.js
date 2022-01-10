@@ -8,6 +8,7 @@ const prepare = (plugin, context, options) => (node) => {
     const getText = source.getText.bind(source);
     const getCommentsBefore = source.getCommentsBefore.bind(source);
     const getCommentsAfter = source.getCommentsAfter.bind(source);
+    const getCommentsInside = source.getCommentsInside.bind(source);
     
     const getSpacesBeforeNode = createGetSpacesBeforeNode({
         getText,
@@ -26,6 +27,7 @@ const prepare = (plugin, context, options) => (node) => {
         getText,
         getCommentsBefore,
         getCommentsAfter,
+        getCommentsInside,
         getSpacesBeforeNode,
         getSpacesAfterNode,
         filename,

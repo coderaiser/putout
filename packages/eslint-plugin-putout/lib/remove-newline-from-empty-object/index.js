@@ -8,7 +8,12 @@ module.exports.report = () => 'Remove newline from empty object';
 
 const regExp = /\n/;
 
-module.exports.filter = ({text, node}) => {
+module.exports.filter = ({text, node, getCommentsInside}) => {
+    const comments = getCommentsInside(node);
+    
+    if (comments.length)
+        return false;
+    
     if (isArrayExpression(node.parent))
         return false;
     

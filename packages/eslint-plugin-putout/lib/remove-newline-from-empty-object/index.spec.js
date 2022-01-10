@@ -20,6 +20,11 @@ ruleTester.run('remove-empty-newline-from-empty-object', rule, {
         `,
         montag`
             const a = {
+                // hello
+            };
+        `,
+        montag`
+            const a = {
                 hello,
                 world,
             };
