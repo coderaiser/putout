@@ -22,6 +22,7 @@ npm i putout @putout/plugin-madrun -D
         "madrun/call-run": "on",
         "madrun/convert-run-argument": "on",
         "madrun/convert-run-to-cut-env": "on",
+        "madrun/convert-cut-env-to-run": "on",
         "madrun/rename-series-to-run": "on",
         "madrun/rename-eslint-to-putout": "on",
         "madrun/set-lint-dot": "on",
@@ -122,6 +123,30 @@ export default {
     'test:only': () => 'npm test',
     'coverage': async () => [env, await run('test')],
     'coverage:only': async () => [env, await run('test:only')],
+};
+```
+
+## ✅ Correct code Example
+
+```js
+export default {
+    'test': () => [env, 'npm test'],
+    'test:only': () => 'npm test',
+    'coverage': async () => [env, await cutEnv('test')],
+    'coverage:only': async () => [env, await run('test:only')],
+};
+```
+
+# convert-cut-env-to-run
+
+## ❌ Incorrect code example
+
+```js
+export default {
+    'test': () => [env, 'npm test'],
+    'test:only': () => 'npm test',
+    'coverage': async () => [env, await cutEnv('test')],
+    'coverage:only': async () => [env, await cutEnv('test:only')],
 };
 ```
 
