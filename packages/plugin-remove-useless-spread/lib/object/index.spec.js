@@ -27,3 +27,7 @@ test('plugin-remove-useless-spread: object: no transform: logical', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-spread: object: no transform: comment', (t) => {
+    t.noTransform('comment');
+    t.end();
+});
