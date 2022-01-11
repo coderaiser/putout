@@ -17,6 +17,7 @@ module.exports.rules = {
     ...getRule('set-lint-dot'),
     ...getRule('convert-to-async'),
     ...getRule('convert-nyc-to-c8'),
+    ...getRule('convert-run-to-cut-env'),
     ...getRule('set-report-lcov'),
     ...getRule('remove-check-duplicates-from-test'),
     ...getRule('declare'),

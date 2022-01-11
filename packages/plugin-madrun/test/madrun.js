@@ -41,3 +41,9 @@ test('plugin-madrun: declare', (t) => {
     t.transform('declare');
     t.end();
 });
+
+test('plugin-madrun: transform: convert-run-to-cut-env', (t) => {
+    t.transform('convert-run-to-cut-env');
+    t.end();
+});
+
