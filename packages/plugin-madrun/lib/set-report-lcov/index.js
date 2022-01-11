@@ -5,9 +5,8 @@ const {
     operator,
 } = require('putout');
 
+const {getProperty} = require('../get-property');
 const {replaceWith} = operator;
-
-const getProperty = require('../get-property');
 
 const REPORT_SCRIPT = '"c8 report --reporter=lcov"';
 

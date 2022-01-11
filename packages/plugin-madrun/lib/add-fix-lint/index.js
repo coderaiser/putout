@@ -6,8 +6,7 @@ const {
     template,
 } = require('putout');
 
-const getProperty = require('../get-property');
-
+const {getProperty} = require('../get-property');
 const {replaceWithMultiple} = operator;
 
 const {

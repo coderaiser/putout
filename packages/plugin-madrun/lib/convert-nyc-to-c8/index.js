@@ -6,8 +6,7 @@ const {
 } = require('putout');
 
 const {replaceWith} = operator;
-
-const getProperty = require('../get-property');
+const {getProperty} = require('../get-property');
 
 module.exports.report = () => {
     return `coverage should use "c8" instead of "nyc"`;

@@ -18,6 +18,7 @@ module.exports.rules = {
     ...getRule('convert-to-async'),
     ...getRule('convert-nyc-to-c8'),
     ...getRule('convert-run-to-cut-env'),
+    ...getRule('convert-cut-env-to-run'),
     ...getRule('set-report-lcov'),
     ...getRule('remove-check-duplicates-from-test'),
     ...getRule('declare'),

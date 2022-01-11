@@ -6,8 +6,7 @@ const {
 } = require('putout');
 
 const {replaceWith} = operator;
-
-const getProperty = require('../get-property');
+const {getProperty} = require('../get-property');
 
 module.exports.report = () => 'test: "-d" can be removed, duplicates checked by default';
 

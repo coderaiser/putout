@@ -8,11 +8,11 @@ const {getProperty} = require('../get-property');
 module.exports.report = () => `Use 'cutEnv()' instead of 'run()'`;
 
 module.exports.replace = () => ({
-    'run(__a)': 'cutEnv(__a)',
+    'cutEnv(__a)': 'run(__a)',
 });
 
 module.exports.match = () => ({
-    'run(__a)': ({__a}, path) => {
+    'cutEnv(__a)': ({__a}, path) => {
         const exportDefault = getExportDefault(path);
         
         if (!exportDefault)
@@ -26,7 +26,7 @@ module.exports.match = () => ({
         
         const {body} = property.node.value;
         
-        return isArrayExpression(body);
+        return !isArrayExpression(body);
     },
 });
 

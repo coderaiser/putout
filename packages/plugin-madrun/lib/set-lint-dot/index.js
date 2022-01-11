@@ -5,7 +5,7 @@ const {
     operator,
 } = require('putout');
 
-const getProperty = require('../get-property');
+const {getProperty} = require('../get-property');
 const {
     isStringLiteral,
     TemplateLiteral,
