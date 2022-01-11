@@ -668,9 +668,23 @@ test('opreate: compute', (t) => {
 });
 
 test('opreate: findProperties', (t) => {
-    const {findProperties} = require('../lib/find-properties');
+    const {findProperties} = require('../lib/properties');
     
     t.equal(operate.findProperties, findProperties);
+    t.end();
+});
+
+test('opreate: findProperty', (t) => {
+    const {findProperty} = require('../lib/properties');
+    
+    t.equal(operate.findProperty, findProperty);
+    t.end();
+});
+
+test('opreate: getExportDefault', (t) => {
+    const {getExportDefault} = require('../lib/get-export-default');
+    
+    t.equal(operate.getExportDefault, getExportDefault);
     t.end();
 });
 

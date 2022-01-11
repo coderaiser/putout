@@ -5,13 +5,12 @@ const {
     operator,
 } = require('putout');
 
-const {getProperty} = require('../get-property');
 const {
     isStringLiteral,
     TemplateLiteral,
 } = types;
 
-const {replaceWith} = operator;
+const {replaceWith, findProperty} = operator;
 
 const dotLine = 'putout .';
 const isDot = (a) => a.includes(dotLine);
@@ -78,7 +77,7 @@ module.exports.traverse = ({push}) => ({
 });
 
 function getLintPath(path) {
-    const lint = getProperty(path, 'lint');
+    const lint = findProperty(path, 'lint');
     
     if (!lint)
         return null;

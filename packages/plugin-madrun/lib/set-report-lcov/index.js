@@ -5,8 +5,10 @@ const {
     operator,
 } = require('putout');
 
-const {getProperty} = require('../get-property');
-const {replaceWith} = operator;
+const {
+    findProperty,
+    replaceWith,
+} = operator;
 
 const REPORT_SCRIPT = '"c8 report --reporter=lcov"';
 
@@ -19,7 +21,7 @@ module.exports.fix = ({path}) => {
 module.exports.traverse = ({push}) => ({
     'export default __object'(path) {
         const rightPath = path.get('declaration');
-        const reportPath = getProperty(rightPath, 'report');
+        const reportPath = findProperty(rightPath, 'report');
         
         add(reportPath, {push});
     },

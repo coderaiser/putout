@@ -11,7 +11,8 @@ const {
 const {getBinding, getBindingPath} = require('./get-binding');
 const {extract} = require('./extract');
 const {compute} = require('./compute');
-const {findProperties} = require('./find-properties');
+const {getExportDefault} = require('./get-export-default');
+const {findProperty, findProperties} = require('./properties');
 
 const {assign} = Object;
 
@@ -20,6 +21,9 @@ module.exports.getBindingPath = getBindingPath;
 module.exports.extract = extract;
 module.exports.compute = compute;
 module.exports.replaceWith = replaceWith;
+module.exports.getExportDefault = getExportDefault;
+
+module.exports.findProperty = findProperty;
 module.exports.findProperties = findProperties;
 
 const compareTypes = (a) => (b) => a.includes(b);

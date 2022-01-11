@@ -19,3 +19,17 @@ module.exports.findProperties = (path, names) => {
     return result;
 };
 
+module.exports.findProperty = (path, name) => {
+    const propertyPaths = path.get(`properties`);
+    
+    for (const propertyPath of propertyPaths) {
+        const keyPath = propertyPath.get('key');
+        const currentName = extract(keyPath);
+        
+        if (currentName === name)
+            return propertyPath;
+    }
+    
+    return null;
+};
+

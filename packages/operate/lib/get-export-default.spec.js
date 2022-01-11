@@ -5,41 +5,40 @@ const {
     operator,
     print,
 } = require('putout');
+
 const {test} = require('supertape');
-const {findProperties} = require('./find-properties');
+const {getExportDefault} = require('./get-export-default');
 
 const {traverse} = operator;
 
-test('operate: find-properties', (t) => {
-    const ast = parse(`({"hello": 'world'})`);
+test('operate: getExportDefault', (t) => {
+    const ast = parse(`export default {}`);
     
     traverse(ast, {
         ObjectExpression: (path) => {
-            const {helloPath} = findProperties(path, ['hello']);
+            const helloPath = getExportDefault(path);
             helloPath.remove();
         },
     });
     
     const result = print(ast);
-    const expected = '(({}))';
+    const expected = '';
     
     t.deepEqual(result, expected);
     t.end();
 });
 
-test('operate: find-properties: Identifier', (t) => {
+test('operate: getExportDefault: not found', (t) => {
+    let result;
     const ast = parse(`({hello: 'world'})`);
     
     traverse(ast, {
         ObjectExpression: (path) => {
-            const {helloPath} = findProperties(path, ['hello']);
-            helloPath.remove();
+            result = getExportDefault(path);
         },
     });
     
-    const result = print(ast);
-    const expected = '(({}))';
-    
-    t.deepEqual(result, expected);
+    t.notOk(result);
     t.end();
 });
+

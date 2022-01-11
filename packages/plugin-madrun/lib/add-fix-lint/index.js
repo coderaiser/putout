@@ -6,8 +6,10 @@ const {
     template,
 } = require('putout');
 
-const {getProperty} = require('../get-property');
-const {replaceWithMultiple} = operator;
+const {
+    findProperty,
+    replaceWithMultiple,
+} = operator;
 
 const {
     ObjectProperty,
@@ -30,8 +32,8 @@ module.exports.fix = (path) => {
 module.exports.traverse = ({push}) => ({
     'module.exports = __object'(path) {
         const rightPath = path.get('right');
-        const lint = getProperty(rightPath, 'lint');
-        const fixLint = getProperty(rightPath, 'fix:lint');
+        const lint = findProperty(rightPath, 'lint');
+        const fixLint = findProperty(rightPath, 'fix:lint');
         
         if (!lint || fixLint)
             return;

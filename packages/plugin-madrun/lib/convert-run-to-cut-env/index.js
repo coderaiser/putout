@@ -1,9 +1,11 @@
 'use strict';
 
-const {types} = require('putout');
+const {types, operator} = require('putout');
 const {isArrayExpression} = types;
-const {getExportDefault} = require('../get-export-default');
-const {getProperty} = require('../get-property');
+const {
+    getExportDefault,
+    findProperty,
+} = operator;
 
 module.exports.report = () => `Use 'cutEnv()' instead of 'run()'`;
 
@@ -19,7 +21,7 @@ module.exports.match = () => ({
             return false;
         
         const declarationPath = exportDefault.get('declaration');
-        const property = getProperty(declarationPath, __a.value);
+        const property = findProperty(declarationPath, __a.value);
         
         if (!property)
             return false;

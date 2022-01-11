@@ -5,8 +5,10 @@ const {
     operator,
 } = require('putout');
 
-const {replaceWith} = operator;
-const {getProperty} = require('../get-property');
+const {
+    replaceWith,
+    findProperty,
+} = operator;
 
 module.exports.report = () => 'test: "-d" can be removed, duplicates checked by default';
 
@@ -18,7 +20,7 @@ module.exports.fix = ({path, line}) => {
 module.exports.traverse = ({push}) => ({
     'export default __object'(path) {
         const declarationPath = path.get('declaration');
-        const testPath = getProperty(declarationPath, 'test');
+        const testPath = findProperty(declarationPath, 'test');
         
         add(testPath, {push});
     },

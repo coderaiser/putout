@@ -141,9 +141,21 @@ traverse({
 });
 ```
 
+## `getExportDefault(path)`
+
+Get `export default` or null.
+
 ## `isESM(path)`
 
 Check if given source is `ESM` search for `ImportDeclaration` and `ExportDeclaration` nodes.
+
+## `findProperty(path: Path, name: string)`
+
+Find property in `ObjectExpression` path:
+
+```js
+const homepagePath = findProperties(__aPath, 'homepage');
+```
 
 ## `findProperties(path: Path, names: string[])`
 

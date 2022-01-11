@@ -5,8 +5,7 @@ const {
     operator,
 } = require('putout');
 
-const {replaceWith} = operator;
-const {getProperty} = require('../get-property');
+const {replaceWith, findProperty} = operator;
 
 module.exports.report = () => {
     return `coverage should use "c8" instead of "nyc"`;
@@ -20,8 +19,8 @@ module.exports.fix = ({path, line}) => {
 module.exports.traverse = ({push}) => ({
     'export default __object'(path) {
         const rightPath = path.get('declaration');
-        const coveragePath = getProperty(rightPath, 'coverage');
-        const reportPath = getProperty(rightPath, 'report');
+        const coveragePath = findProperty(rightPath, 'coverage');
+        const reportPath = findProperty(rightPath, 'report');
         
         add(coveragePath, {push});
         add(reportPath, {push});
