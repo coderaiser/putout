@@ -32,6 +32,7 @@
     "throw"
   ],
   "devDependencies": {
+    "@babel/core": "^7.16.7",
     "@babel/eslint-parser": "^7.12.1",
     "@babel/plugin-proposal-throw-expressions": "^7.12.1",
     "@putout/test": "^4.0.0",
