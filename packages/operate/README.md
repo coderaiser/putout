@@ -149,20 +149,20 @@ Get `export default` or null.
 
 Check if given source is `ESM` search for `ImportDeclaration` and `ExportDeclaration` nodes.
 
-## `findProperty(path: Path, name: string)`
+## `getProperty(path: Path, name: string)`
 
 Find property in `ObjectExpression` path:
 
 ```js
-const homepagePath = findProperties(__aPath, 'homepage');
+const homepagePath = getProperties(__aPath, 'homepage');
 ```
 
-## `findProperties(path: Path, names: string[])`
+## `getProperties(path: Path, names: string[])`
 
 Find properties in `ObjectExpression` path and add suffix `Path` when found:
 
 ```js
-const {homepagePath} = findProperties(__aPath, ['homepage']);
+const {homepagePath} = getProperties(__aPath, ['homepage']);
 ```
 
 ## License

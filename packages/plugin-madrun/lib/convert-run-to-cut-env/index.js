@@ -4,7 +4,7 @@ const {types, operator} = require('putout');
 const {isArrayExpression} = types;
 const {
     getExportDefault,
-    findProperty,
+    getProperty,
 } = operator;
 
 module.exports.report = () => `Use 'cutEnv()' instead of 'run()'`;
@@ -21,7 +21,7 @@ module.exports.match = () => ({
             return false;
         
         const declarationPath = exportDefault.get('declaration');
-        const property = findProperty(declarationPath, __a.value);
+        const property = getProperty(declarationPath, __a.value);
         
         if (!property)
             return false;

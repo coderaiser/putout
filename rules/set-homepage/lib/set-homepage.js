@@ -1,6 +1,6 @@
 'use strict';
 
-const {findProperties} = require('putout').operator;
+const {getProperties} = require('putout').operator;
 const parseName = (a) => a.value.replace('@putout/', '');
 
 module.exports.report = () => 'Set homepage';
@@ -8,7 +8,7 @@ module.exports.report = () => 'Set homepage';
 module.exports.traverse = ({push}) => ({
     '__putout_processor_json(__a)': (path) => {
         const __aPath = path.get('arguments.0');
-        const {namePath, homepagePath} = findProperties(__aPath, [
+        const {namePath, homepagePath} = getProperties(__aPath, [
             'name',
             'homepage',
         ]);

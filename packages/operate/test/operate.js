@@ -667,17 +667,17 @@ test('opreate: compute', (t) => {
     t.end();
 });
 
-test('opreate: findProperties', (t) => {
-    const {findProperties} = require('../lib/properties');
+test('opreate: getProperties', (t) => {
+    const {getProperties} = require('../lib/properties');
     
-    t.equal(operate.findProperties, findProperties);
+    t.equal(operate.getProperties, getProperties);
     t.end();
 });
 
-test('opreate: findProperty', (t) => {
-    const {findProperty} = require('../lib/properties');
+test('opreate: getProperty', (t) => {
+    const {getProperty} = require('../lib/properties');
     
-    t.equal(operate.findProperty, findProperty);
+    t.equal(operate.getProperty, getProperty);
     t.end();
 });
 

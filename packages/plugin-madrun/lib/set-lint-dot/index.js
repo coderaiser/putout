@@ -10,7 +10,7 @@ const {
     TemplateLiteral,
 } = types;
 
-const {replaceWith, findProperty} = operator;
+const {replaceWith, getProperty} = operator;
 
 const dotLine = 'putout .';
 const isDot = (a) => a.includes(dotLine);
@@ -77,7 +77,7 @@ module.exports.traverse = ({push}) => ({
 });
 
 function getLintPath(path) {
-    const lint = findProperty(path, 'lint');
+    const lint = getProperty(path, 'lint');
     
     if (!lint)
         return null;

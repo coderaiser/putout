@@ -10,14 +10,14 @@ const {
     StringLiteral,
 } = types;
 
-const {findProperties} = operator;
+const {getProperties} = operator;
 
 module.exports.report = () => `Add 'type' of module to 'package.json'`;
 
 module.exports.traverse = ({push}) => ({
     '__putout_processor_json(__a)': (path) => {
         const __aPath = path.get('arguments.0');
-        const {versionPath, typePath} = findProperties(__aPath, ['version', 'type']);
+        const {versionPath, typePath} = getProperties(__aPath, ['version', 'type']);
         
         if (typePath)
             return;

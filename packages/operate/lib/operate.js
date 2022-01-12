@@ -12,7 +12,7 @@ const {getBinding, getBindingPath} = require('./get-binding');
 const {extract} = require('./extract');
 const {compute} = require('./compute');
 const {getExportDefault} = require('./get-export-default');
-const {findProperty, findProperties} = require('./properties');
+const {getProperty, getProperties} = require('./properties');
 
 const {assign} = Object;
 
@@ -23,8 +23,8 @@ module.exports.compute = compute;
 module.exports.replaceWith = replaceWith;
 module.exports.getExportDefault = getExportDefault;
 
-module.exports.findProperty = findProperty;
-module.exports.findProperties = findProperties;
+module.exports.getProperty = getProperty;
+module.exports.getProperties = getProperties;
 
 const compareTypes = (a) => (b) => a.includes(b);
 module.exports.toExpression = toExpression;

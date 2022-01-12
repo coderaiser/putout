@@ -6,7 +6,7 @@ const {
 } = require('putout');
 
 const {
-    findProperty,
+    getProperty,
     replaceWith,
 } = operator;
 
@@ -21,7 +21,7 @@ module.exports.fix = ({path}) => {
 module.exports.traverse = ({push}) => ({
     'export default __object'(path) {
         const rightPath = path.get('declaration');
-        const reportPath = findProperty(rightPath, 'report');
+        const reportPath = getProperty(rightPath, 'report');
         
         add(reportPath, {push});
     },

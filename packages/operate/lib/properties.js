@@ -2,7 +2,7 @@
 
 const {extract} = require('./extract');
 
-module.exports.findProperties = (path, names) => {
+module.exports.getProperties = (path, names) => {
     const result = {};
     
     for (const propertyPath of path.get('properties')) {
@@ -19,7 +19,7 @@ module.exports.findProperties = (path, names) => {
     return result;
 };
 
-module.exports.findProperty = (path, name) => {
+module.exports.getProperty = (path, name) => {
     const propertyPaths = path.get(`properties`);
     
     for (const propertyPath of propertyPaths) {

@@ -95,15 +95,15 @@ test('plugin-putout: declare: transform: replaceWithMultiple', (t) => {
     t.end();
 });
 
-test('plugin-putout: declare: transform: findProperties', (t) => {
-    t.transformCode('findProperties(a, []);', montag`
+test('plugin-putout: declare: transform: getProperties', (t) => {
+    t.transformCode('getProperties(a, []);', montag`
         import {operator} from 'putout';
         
         const {
-          findProperties
+          getProperties
         } = operator;
         
-        findProperties(a, []);
+        getProperties(a, []);
     `);
     t.end();
 });

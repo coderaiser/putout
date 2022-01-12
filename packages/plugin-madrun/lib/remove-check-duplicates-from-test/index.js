@@ -7,7 +7,7 @@ const {
 
 const {
     replaceWith,
-    findProperty,
+    getProperty,
 } = operator;
 
 module.exports.report = () => 'test: "-d" can be removed, duplicates checked by default';
@@ -20,7 +20,7 @@ module.exports.fix = ({path, line}) => {
 module.exports.traverse = ({push}) => ({
     'export default __object'(path) {
         const declarationPath = path.get('declaration');
-        const testPath = findProperty(declarationPath, 'test');
+        const testPath = getProperty(declarationPath, 'test');
         
         add(testPath, {push});
     },

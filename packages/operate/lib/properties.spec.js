@@ -7,16 +7,16 @@ const {
 } = require('putout');
 
 const {test} = require('supertape');
-const {findProperty, findProperties} = require('./properties');
+const {getProperty, getProperties} = require('./properties');
 
 const {traverse} = operator;
 
-test('operate: properties: findProperties', (t) => {
+test('operate: properties: getProperties', (t) => {
     const ast = parse(`({"hello": 'world'})`);
     
     traverse(ast, {
         ObjectExpression: (path) => {
-            const {helloPath} = findProperties(path, ['hello']);
+            const {helloPath} = getProperties(path, ['hello']);
             helloPath.remove();
         },
     });
@@ -28,12 +28,12 @@ test('operate: properties: findProperties', (t) => {
     t.end();
 });
 
-test('operate: properties: findProperties: Identifier', (t) => {
+test('operate: properties: getProperties: Identifier', (t) => {
     const ast = parse(`({hello: 'world'})`);
     
     traverse(ast, {
         ObjectExpression: (path) => {
-            const {helloPath} = findProperties(path, ['hello']);
+            const {helloPath} = getProperties(path, ['hello']);
             helloPath.remove();
         },
     });
@@ -45,12 +45,12 @@ test('operate: properties: findProperties: Identifier', (t) => {
     t.end();
 });
 
-test('operate: properties: findProperty', (t) => {
+test('operate: properties: getProperty', (t) => {
     const ast = parse(`({"hello": 'world'})`);
     
     traverse(ast, {
         ObjectExpression: (path) => {
-            const helloPath = findProperty(path, 'hello');
+            const helloPath = getProperty(path, 'hello');
             helloPath.remove();
         },
     });
@@ -62,13 +62,13 @@ test('operate: properties: findProperty', (t) => {
     t.end();
 });
 
-test('operate: properties: findProperty: not found', (t) => {
+test('operate: properties: getProperty: not found', (t) => {
     let result;
     const ast = parse(`({"hello": 'world'})`);
     
     traverse(ast, {
         ObjectExpression: (path) => {
-            result = findProperty(path, 'world');
+            result = getProperty(path, 'world');
         },
     });
     
