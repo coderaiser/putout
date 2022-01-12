@@ -103,6 +103,7 @@ const safe = {
         'putout/putout': ['error', {
             rules: {
                 'remove-empty': 'off',
+                'nodejs/remove-process-exit': 'off',
                 'remove-unused-types': 'off',
                 'remove-unused-variables': 'off',
                 'remove-unused-expressions': 'off',
