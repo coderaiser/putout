@@ -1,3 +1,22 @@
+2022.01.12, v24.0.0
+
+feature:
+- (putout) eslint-plugin-putout v13
+- (@putout/plugin-nodejs) drop support of putout < 24
+- (eslint-plugin-putout) drop support of putout < 24
+- (eslint-plugin-putout) safe: disable nodejs/remove-process-exit
+- (@putout/plugin-nodejs) merge remove-process-exit
+- (putout) remove from default install disabled apply-array-it
+- (package) @putout/plugin-package-json v3.0.0
+- (package) @putout/plugin-putout v9.0.0
+- (package) @putout/plugin-madrun v13.0.0
+- (package) @putout/operate v7.0.0
+- (@putout/plugin-putout) drop support of putout < 24
+- (@putout/plugin-package-json) drop support of putout < 24
+- (@putout/plugin-madrun) drop support of putout < 24
+- (@putout/operate) findProperty -> getProperty
+
+
 2022.01.11, v23.8.0
 
 feature:
