@@ -69,7 +69,6 @@
     "@putout/operator-add-args": "^1.0.0",
     "@putout/operator-declare": "^2.0.0",
     "@putout/operator-regexp": "^1.0.0",
-    "@putout/plugin-apply-array-at": "^1.0.0",
     "@putout/plugin-apply-as-type-assertions": "^1.0.0",
     "@putout/plugin-apply-await-import": "^1.0.0",
     "@putout/plugin-apply-destructuring": "^5.0.0",
