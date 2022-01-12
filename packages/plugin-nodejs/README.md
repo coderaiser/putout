@@ -11,19 +11,22 @@
 npm i putout @putout/plugin-nodejs -D
 ```
 
-## Rules
+## Options
 
 ```json
 {
     "rules": {
         "nodejs/convert-fs-promises": "on",
         "nodejs/convert-promisify-to-fs-promises": "on",
-        "nodejs/convert-dirname-to-url": "on"
+        "nodejs/convert-dirname-to-url": "on",
+        "nodejs/remove-process-exit": "on"
     }
 }
 ```
 
-# convert-fs-promises
+## Rules
+
+### convert-fs-promises
 
 Convert [fs.promises](https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api) into form that will be simpler to use and convert from in `ESM` to:
 
@@ -31,38 +34,38 @@ Convert [fs.promises](https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_f
 import {readFile} from 'fs/promises';
 ```
 
-## ❌ Incorrect code example
+#### ❌ Incorrect code example
 
 ```js
 const {readFile} = require('fs').promises;
 ```
 
-## ✅ Correct code Example
+#### ✅ Correct code Example
 
 ```js
 const {readFile} = require('fs/promises');
 ```
 
-# convert-promisify-to-fs-promises
+### convert-promisify-to-fs-promises
 
-## ❌ Incorrect code example
+#### ❌ Incorrect code example
 
 ```js
 const fs = require('fs');
 const readFile = promisify(fs.readFile);
 ```
 
-## ✅ Correct code Example
+#### ✅ Correct code Example
 
 ```js
 const {readFile} = require('fs/promises');
 ```
 
-# convert-dirname-to-url
+### convert-dirname-to-url
 
 Only for `EcmaScript Modules`.
 
-## ❌ Incorrect code example
+#### ❌ Incorrect code example
 
 ```js
 import {readFile} from 'fs/promises';
@@ -71,13 +74,30 @@ const file1 = join(__dirname, '../../package.json');
 const file2 = path.join(__dirname, '../../package.json');
 ```
 
-## ✅ Correct code Example
+#### ✅ Correct code Example
 
 ```js
 import {readFile} from 'fs/promises';
 
 const file1 = new URL('../../package.json', import.meta.url);
 const file2 = new URL('../../package.json', import.meta.url);
+```
+
+### convert-promisify-to-fs-promises
+
+#### ❌ Incorrect code example
+
+```js
+const fs = require('fs');
+const readFile = promisify(fs.readFile);
+```
+
+### remove-process-exit
+
+In most cases `process.exit()` is called from `bin` directory, if not - disable this rule using `match`.
+
+```diff
+-process.exit();
 ```
 
 ## License

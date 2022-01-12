@@ -1703,7 +1703,6 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-remove-useless-escape`](/packages/plugin-remove-useless-escape) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-escape.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-escape) |
 | [`@putout/plugin-remove-useless-template-expressions`](/packages/plugin-remove-useless-template-expressions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-template-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-template-expressions) |
 | [`@putout/plugin-remove-useless-for-of`](/packages/plugin-remove-useless-for-of) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-for-of) |
-| [`@putout/plugin-remove-process-exit`](/packages/plugin-remove-process-exit) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-process-exit.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-process-exit) |
 | [`@putout/plugin-remove-debugger`](/packages/plugin-remove-debugger) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-debugger.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-debugger) |
 | [`@putout/plugin-remove-iife`](/packages/plugin-remove-iife) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-iife.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-iife) |
 | [`@putout/plugin-remove-double-negations`](/packages/plugin-remove-double-negations) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-double-negations.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-double-negations) |
@@ -1910,7 +1909,7 @@ When you need to match paths to rules you can use `match` section for this purpo
 {
     "match": {
         "server": {
-            "remove-process-exit": "on"
+            "nodejs/remove-process-exit": "on"
         }
     }
 }

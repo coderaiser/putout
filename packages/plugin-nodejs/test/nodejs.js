@@ -22,3 +22,8 @@ test('cloudcmd: transform: convert-dirname-to-url', (t) => {
     t.end();
 });
 
+test('cloudcmd: transform: remove-process-exit', (t) => {
+    t.transform('remove-process-exit');
+    t.end();
+});
+

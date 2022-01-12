@@ -68,7 +68,7 @@
             "package-json": "on"
         },
         "bin": {
-            "remove-process-exit": "off",
+            "nodejs/remove-process-exit": "off",
             "remove-console": "off",
             "convert-top-level-return": "on",
             "remove-empty/import": "off"
@@ -154,7 +154,6 @@
         "package-json",
         "remove-debugger",
         "remove-iife",
-        "remove-process-exit",
         "remove-console",
         "remove-empty",
         "remove-unreferenced-variables",

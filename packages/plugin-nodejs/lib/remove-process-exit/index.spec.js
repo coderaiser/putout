@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const rmProcessExit = require('..');
+const rmProcessExit = require('.');
 const test = createTest(__dirname, {
     'remove-process-exit': rmProcessExit,
 });

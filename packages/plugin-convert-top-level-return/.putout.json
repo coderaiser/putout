@@ -1,7 +1,7 @@
 {
     "match": {
         "*.md": {
-            "remove-process-exit": "off"
+            "nodejs/remove-process-exit": "off"
         }
     }
 }

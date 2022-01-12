@@ -133,7 +133,6 @@
     "@putout/plugin-remove-empty": "^6.0.0",
     "@putout/plugin-remove-iife": "^1.0.0",
     "@putout/plugin-remove-nested-blocks": "^4.0.0",
-    "@putout/plugin-remove-process-exit": "^3.0.0",
     "@putout/plugin-remove-unreachable-code": "^1.0.0",
     "@putout/plugin-remove-unreferenced-variables": "^1.0.0",
     "@putout/plugin-remove-unused-expressions": "^4.0.0",
