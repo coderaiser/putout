@@ -83,15 +83,6 @@ const file1 = new URL('../../package.json', import.meta.url);
 const file2 = new URL('../../package.json', import.meta.url);
 ```
 
-### convert-promisify-to-fs-promises
-
-#### ❌ Incorrect code example
-
-```js
-const fs = require('fs');
-const readFile = promisify(fs.readFile);
-```
-
 ### remove-process-exit
 
 In most cases `process.exit()` is called from `bin` directory, if not - disable this rule using `match`.
