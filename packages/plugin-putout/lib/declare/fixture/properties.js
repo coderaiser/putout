@@ -1,0 +1,2 @@
+getProperty();
+getProperties();

@@ -13,7 +13,8 @@ module.exports = {
     addArgument: `const {addArgument} = operator`,
     replaceWith: `const {replaceWith} = operator`,
     replaceWithMultiple: `const {replaceWithMultiple} = operator`,
-    getProperties: `const {getProperties} = operator`,
     isESM: `const {isESM} = operator`,
+    getProperty: `const {getProperty} = operator`,
+    getProperties: `const {getProperties} = operator`,
 };
 

@@ -126,3 +126,8 @@ test('plugin-putout: declare: transform: create-test', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: properties', (t) => {
+    t.transform('properties');
+    t.end();
+});
+
