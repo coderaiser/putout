@@ -1,9 +1,9 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const removeSkip = require('..');
+const removeSkip = require('.');
 const test = createTest(__dirname, {
-    'remove-skip': removeSkip,
+    'tape/remove-skip': removeSkip,
 });
 
 test('plugin-remove-skip: report', (t) => {

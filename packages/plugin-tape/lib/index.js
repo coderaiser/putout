@@ -34,7 +34,7 @@ module.exports.rules = {
     ...getRule('add-stop-all'),
     ...getRule('remove-stop-all'),
     ...getRule('remove-useless-t-end'),
-    'remove-only': require('@putout/plugin-remove-only'),
-    'remove-skip': require('@putout/plugin-remove-skip'),
+    ...getRule('remove-only'),
+    ...getRule('remove-skip'),
 };
 

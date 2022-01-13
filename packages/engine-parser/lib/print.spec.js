@@ -13,14 +13,16 @@ test('putout: parser: print: long lines', (t) => {
     `;
     
     const expected = montag`
+        import {test} from 'supertape';
         test('putout: parseOptions: code mods directory: .putout: exclude node_modules', (t) => {
             const empty = {};
+            t.end();
         });
     `;
     
     const {code} = putout(source, {
         plugins: [
-            'remove-only',
+            'tape',
         ],
     });
     

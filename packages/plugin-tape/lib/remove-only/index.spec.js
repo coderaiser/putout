@@ -1,9 +1,9 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const removeOnly = require('..');
+const removeOnly = require('.');
 const test = createTest(__dirname, {
-    'remove-only': removeOnly,
+    'tape/remove-only': removeOnly,
 });
 
 test('plugin-remove-only: report', (t) => {
