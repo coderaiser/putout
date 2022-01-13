@@ -27,3 +27,8 @@ test('cloudcmd: transform: remove-process-exit', (t) => {
     t.end();
 });
 
+test('cloudcmd: transform: convert-top-level-return', (t) => {
+    t.transform('convert-top-level-return', '\n');
+    t.end();
+});
+

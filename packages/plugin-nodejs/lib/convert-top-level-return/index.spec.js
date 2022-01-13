@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const convertTopLevelReturn = require('..');
+const convertTopLevelReturn = require('.');
 
 const test = createTest(__dirname, {
     'convert-top-level-return': convertTopLevelReturn,

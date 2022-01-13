@@ -19,6 +19,7 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/convert-fs-promises": "on",
         "nodejs/convert-promisify-to-fs-promises": "on",
         "nodejs/convert-dirname-to-url": "on",
+        "nodejs/convert-top-level-return": "on",
         "nodejs/remove-process-exit": "on"
     }
 }
@@ -89,6 +90,20 @@ In most cases `process.exit()` is called from `bin` directory, if not - disable 
 
 ```diff
 -process.exit();
+```
+
+### convert-top-level-return
+
+#### ❌ Incorrect code example
+
+```js
+return;
+```
+
+#### ✅ Correct code Example
+
+```js
+process.exit();
 ```
 
 ## License

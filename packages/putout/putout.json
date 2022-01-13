@@ -69,8 +69,8 @@
         },
         "bin": {
             "nodejs/remove-process-exit": "off",
+            "nodejs/convert-top-level-return": "on",
             "remove-console": "off",
-            "convert-top-level-return": "on",
             "remove-empty/import": "off"
         },
         "{test,*.spec.{js,mjs,cjs}}": {
@@ -115,7 +115,7 @@
         "apply-utility-types": "off",
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",
-        "convert-top-level-return": "off",
+        "nodejs/convert-top-level-return": "off",
         "convert-generic-to-shorthand": "off",
         "remove-useless-types": "off",
         "remove-useless-mapped-types": "off",
@@ -215,7 +215,6 @@
         "convert-for-each-to-for-of",
         "convert-for-in-to-for-of",
         "convert-map-to-for-of",
-        "convert-top-level-return",
         "convert-typeof-to-is-type",
         "convert-array-copy-to-slice",
         "convert-template-to-string",
