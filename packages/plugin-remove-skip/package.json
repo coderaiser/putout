@@ -1,10 +1,10 @@
 {
   "name": "@putout/plugin-remove-skip",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove test.only calls",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-skip#readme",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-tape#remove-skip",
   "main": "lib/remove-skip.js",
   "release": false,
   "tag": false,
