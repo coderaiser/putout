@@ -820,7 +820,7 @@ function onIfStatement({push}) {
 <details><summary>remove useless <code><a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries>array.entries()</a></code></summary>
 
 ```diff
--for (const [,element] of array.entries()) {
+-for (const [, element] of array.entries()) {
 -}
 +for (const element of array) {
 +}
@@ -1619,9 +1619,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-apply-numeric-separators`](/packages/plugin-apply-numeric-separators) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-numeric-separators.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-numeric-separators) |
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) |
-| [`@putout/plugin-apply-as-type-assertions`](/packages/plugin-apply-as-type-assertions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-as-type-assertions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-as-type-assertions) |
 | [`@putout/plugin-apply-if-condition`](/packages/plugin-apply-if-condition) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-if-condition.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-if-condition) |
-| [`@putout/plugin-apply-utility-types`](/packages/plugin-apply-utility-types) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-utility-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-utility-types) |
 
 ### Splitters
 
@@ -1652,7 +1650,6 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-convert-template-to-string`](/packages/plugin-convert-template-to-string) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-template-to-string.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-template-to-string) |
 | [`@putout/plugin-convert-equal-to-strict-equal`](/packages/plugin-convert-equal-to-strict-equal) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-equal-to-strict-equal.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-equal-to-strict-equal) |
 | [`@putout/plugin-convert-index-of-to-includes`](/packages/plugin-convert-index-of-to-includes) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-index-of-to-includes.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-index-of-to-includes) |
-| [`@putout/plugin-convert-generic-to-shorthand`](/packages/plugin-convert-generic-to-shorthand) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-generic-to-shorthand.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-generic-to-shorthand) |
 | [`@putout/plugin-convert-math-pow`](/packages/plugin-convert-math-pow) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-math-pow.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-math-pow) |
 | [`@putout/plugin-convert-to-arrow-function`](/packages/plugin-convert-to-arrow-function) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-to-arrow-function.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-to-arrow-function) |
 | [`@putout/plugin-convert-for-to-for-of`](/packages/plugin-convert-for-to-for-of) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-for-to-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-for-to-for-of) |
@@ -1672,10 +1669,8 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 |--------|-------|
 | [`@putout/plugin-remove-unused-variables`](/packages/plugin-remove-unused-variables) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-variables) |
 | [`@putout/plugin-remove-unused-for-of-variables`](/packages/plugin-remove-unused-for-of-variables) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-for-of-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-for-of-variables) |
-| [`@putout/plugin-remove-unused-types`](/packages/plugin-remove-unused-types) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-types) |
 | [`@putout/plugin-remove-unreferenced-variables`](/packages/plugin-remove-unreferenced-variables) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unreferenced-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unreferenced-variables) |
 | [`@putout/plugin-remove-duplicate-keys`](/packages/plugin-remove-duplicate-keys) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-keys.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-keys) |
-| [`@putout/plugin-remove-duplicate-interface-keys`](/packages/plugin-remove-duplicate-interface-keys) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-interface-keys.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-interface-keys) |
 | [`@putout/plugin-remove-duplicate-case`](/packages/plugin-remove-duplicate-case) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-case.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicate-case) |
 | [`@putout/plugin-remove-unused-expressions`](/packages/plugin-remove-unused-expressions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-expressions) |
 | [`@putout/plugin-remove-unused-private-fields`](/packages/plugin-remove-unused-private-fields) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-private-fields.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-private-fields) |
@@ -1683,8 +1678,6 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-remove-useless-map`](/packages/plugin-remove-useless-map) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-map.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-map) |
 | [`@putout/plugin-remove-useless-new`](/packages/plugin-remove-useless-new) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-new.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-new) |
 | [`@putout/plugin-remove-useless-constructor`](/packages/plugin-remove-useless-constructor) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-constructor.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-constructor) |
-| [`@putout/plugin-remove-useless-mapped-types`](/packages/plugin-remove-useless-mapped-types) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-mapped-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-mapped-types) |
-| [`@putout/plugin-remove-useless-mapping-modifiers`](/packages/plugin-remove-useless-mapping-modifiers) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-mapping-modifiers.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-mapping-modifiers) |
 | [`@putout/plugin-remove-useless-return`](/packages/plugin-remove-useless-return) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-return) |
 | [`@putout/plugin-remove-useless-continue`](/packages/plugin-remove-useless-continue) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-continue.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-continue) |
 | [`@putout/plugin-remove-useless-operand`](/packages/plugin-remove-useless-operand) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-operand.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-operand) |
@@ -1693,8 +1686,6 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-remove-useless-type-conversion`](/packages/plugin-remove-useless-type-conversion) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-type-conversion.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-type-conversion) |
 | [`@putout/plugin-remove-useless-functions`](/packages/plugin-remove-useless-functions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-functions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-functions) |
 | [`@putout/plugin-remove-useless-typeof`](/packages/plugin-remove-useless-typeof) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-typeof.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-typeof) |
-| [`@putout/plugin-remove-useless-types`](/packages/plugin-remove-useless-types) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-types) |
-| [`@putout/plugin-remove-useless-types-from-constants`](/packages/plugin-remove-useless-types-from-constants) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-types-from-constants.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-types-from-constants) |
 | [`@putout/plugin-remove-useless-array-from`](/packages/plugin-remove-useless-array-from) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-from.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array-from) |
 | [`@putout/plugin-remove-useless-spread`](/packages/plugin-remove-useless-spread) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-spread) |
 | [`@putout/plugin-remove-useless-array-entries`](/packages/plugin-remove-useless-array-entries) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-array-entries) |
@@ -1712,7 +1703,6 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-remove-constant-conditions`](/packages/plugin-remove-constant-conditions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-constant-conditions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-constant-conditions) |
 | [`@putout/plugin-remove-boolean-from-assertions`](/packages/plugin-remove-boolean-from-assertions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-boolean-from-assertions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-boolean-from-assertions) |
 | [`@putout/plugin-remove-boolean-from-logical-expressions`](/packages/plugin-remove-boolean-from-logical-expressions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-boolean-from-logical-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-boolean-from-logical-expressions) |
-| [`@putout/plugin-remove-duplicates-from-union`](/packages/plugin-remove-duplicates-from-union) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicates-from-union.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicates-from-union) |
 | [`@putout/plugin-remove-duplicates-from-logical-expressions`](/packages/plugin-remove-duplicates-from-logical-expressions) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicates-from-logical-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicates-from-logical-expressions) |
 | [`@putout/plugin-remove-nested-blocks`](/packages/plugin-remove-nested-blocks) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-nested-blocks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-nested-blocks) |
 
@@ -1753,13 +1743,12 @@ Next packages not bundled with `putout` but can be installed separately.
 | [`@putout/plugin-cloudcmd`](/packages/plugin-cloudcmd) | [![npm](https://img.shields.io/npm/v/@putout/plugin-cloudcmd.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-cloudcmd) |
 | [`@putout/plugin-postcss`](/packages/plugin-postcss) | [![npm](https://img.shields.io/npm/v/@putout/plugin-postcss.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-postcss) |
 | [`@putout/plugin-jest`](/packages/plugin-jest) | [![npm](https://img.shields.io/npm/v/@putout/plugin-jest.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-jest) |
-| [`@putout/plugin-convert-any-to-primitive`](/packages/plugin-convert-any-to-primitive) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-any-to-primitive.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-any-to-primitive) |
 | [`@putout/plugin-travis`](/packages/plugin-travis) | [![npm](https://img.shields.io/npm/v/@putout/plugin-travis.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-travis) |
 | [`@putout/plugin-convert-throw`](/packages/plugin-convert-throw) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-throw.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-throw) |
 | [`@putout/plugin-remove-only`](/packages/plugin-remove-only) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-only.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-only) |
 | [`@putout/plugin-remove-skip`](/packages/plugin-remove-skip) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-skip.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-skip) |
 
-### Other
+### Groups
 
 | Package | Version |
 |--------|-------|
@@ -1782,6 +1771,7 @@ Next packages not bundled with `putout` but can be installed separately.
 | [`@putout/plugin-github`](/packages/plugin-github) | [![npm](https://img.shields.io/npm/v/@putout/plugin-github.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-github) |
 | [`@putout/plugin-regexp`](/packages/plugin-regexp) | [![npm](https://img.shields.io/npm/v/@putout/plugin-regexp.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-regexp) |
 | [`@putout/plugin-nodejs`](/packages/plugin-nodejs) | [![npm](https://img.shields.io/npm/v/@putout/plugin-nodejs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-nodejs) |
+| [`@putout/plugin-typescript`](/packages/plugin-typescript) | [![npm](https://img.shields.io/npm/v/@putout/plugin-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-typescript) |
 
 ## 🦚 Formatters
 

@@ -1,0 +1,3 @@
+interface Hello {
+    hello: string
+}

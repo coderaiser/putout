@@ -84,15 +84,7 @@
             "convert-esm-to-commonjs": "on"
         },
         "*.{ts,tsx}": {
-            "apply-as-type-assertions": "on",
-            "apply-utility-types": "on",
-            "convert-generic-to-shorthand": "on",
-            "remove-duplicate-interface-keys": "on",
-            "remove-useless-types": "on",
-            "remove-useless-mapped-types": "on",
-            "remove-useless-mapping-modifiers": "on",
-            "remove-useless-types-from-constants": "on",
-            "remove-unused-types": "on"
+            "typescript": "on"
         },
         "*.d.ts": {
             "declare-undefined-variables": "off"
@@ -111,17 +103,10 @@
         "**/package-lock.json"
     ],
     "rules": {
-        "apply-as-type-assertions": "off",
-        "apply-utility-types": "off",
+        "typescript": "off",
         "convert-esm-to-commonjs": "off",
         "convert-commonjs-to-esm": "off",
         "nodejs/convert-top-level-return": "off",
-        "convert-generic-to-shorthand": "off",
-        "remove-useless-types": "off",
-        "remove-useless-mapped-types": "off",
-        "remove-useless-mapping-modifiers": "off",
-        "remove-useless-types-from-constants": "off",
-        "remove-unused-types": "off",
         "putout": "off",
         "putout-config": "off",
         "eslint": "off",
@@ -134,8 +119,7 @@
         "tape": "off",
         "strict-mode": "off",
         "regexp/convert-replace-to-replace-all": "off",
-        "convert-mock-require-to-mock-import": "off",
-        "remove-duplicate-interface-keys": "off"
+        "convert-mock-require-to-mock-import": "off"
     },
     "plugins": [
         "apply-await-import",
@@ -143,8 +127,6 @@
         "apply-destructuring",
         "apply-optional-chaining",
         "apply-numeric-separators",
-        "apply-as-type-assertions",
-        "apply-utility-types",
         "apply-if-condition",
         "extract-object-properties",
         "extract-sequence-expressions",
@@ -158,7 +140,6 @@
         "remove-empty",
         "remove-unreferenced-variables",
         "remove-unused-variables",
-        "remove-unused-types",
         "remove-unused-for-of-variables",
         "remove-unused-private-fields",
         "remove-unused-expressions",
@@ -166,8 +147,6 @@
         "remove-useless-map",
         "remove-useless-new",
         "remove-useless-constructor",
-        "remove-useless-mapped-types",
-        "remove-useless-mapping-modifiers",
         "remove-useless-array-constructor",
         "remove-useless-continue",
         "remove-useless-operand",
@@ -178,8 +157,6 @@
         "remove-useless-spread",
         "remove-useless-return",
         "remove-useless-typeof",
-        "remove-useless-types",
-        "remove-useless-types-from-constants",
         "remove-useless-type-conversion",
         "remove-useless-functions",
         "remove-useless-template-expressions",
@@ -188,9 +165,7 @@
         "remove-constant-conditions",
         "remove-boolean-from-assertions",
         "remove-boolean-from-logical-expressions",
-        "remove-duplicates-from-union",
         "remove-duplicates-from-logical-expressions",
-        "remove-duplicate-interface-keys",
         "remove-duplicate-case",
         "remove-nested-blocks",
         "remove-unreachable-code",
@@ -220,7 +195,6 @@
         "convert-template-to-string",
         "convert-equal-to-strict-equal",
         "convert-index-of-to-includes",
-        "convert-generic-to-shorthand",
         "convert-mock-require-to-mock-import",
         "convert-assignment-to-arrow-function",
         "convert-assignment-to-comparison",
@@ -233,6 +207,7 @@
         "putout",
         "putout-config",
         "promises",
+        "typescript",
         "gitignore",
         "npmignore",
         "browserlist",

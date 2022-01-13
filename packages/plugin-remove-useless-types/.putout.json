@@ -1,7 +1,0 @@
-{
-    "match": {
-        "README.md": {
-            "remove-useless-types-from-constants": "off"
-        }
-    }
-}

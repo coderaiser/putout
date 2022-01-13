@@ -112,7 +112,7 @@ parserTester.run('putout', rule, {
     invalid: [{
         options: [{
             rules: {
-                'convert-generic-to-shorthand': 'on',
+                'typescript/convert-generic-to-shorthand': 'on',
             },
         }],
         code: montag`
@@ -128,7 +128,7 @@ parserTester.run('putout', rule, {
         }, {
             line: 2,
             column: 8,
-            message: 'Shorthand [] should be used instead of Array (convert-generic-to-shorthand)',
+            message: 'Shorthand [] should be used instead of Array (typescript/convert-generic-to-shorthand)',
         }],
     }],
 });

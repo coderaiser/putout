@@ -1,7 +1,0 @@
-{
-    "match": {
-        "*.md": {
-            "remove-duplicates-from-union": "off"
-        }
-    }
-}
