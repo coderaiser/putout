@@ -31,7 +31,7 @@ npm i putout @putout/plugin-typescript -D
 
 ## Rules
 
-### `apply-as-type-assertion`
+### apply-as-type-assertion
 
 #### ❌ Incorrect code example
 
@@ -45,7 +45,7 @@ const boundaryElement = <HTMLElement>e.target;
 const boundaryElement1 = e.target as HTMLElement;
 ```
 
-### `apply-utility-types`
+### apply-utility-types
 
 #### ❌ Incorrect code example
 
@@ -61,7 +61,7 @@ type SuperType1 = {
 type SuperType1 = Partial<Type>;
 ```
 
-### `convert-generic-to-shorthand`
+### convert-generic-to-shorthand
 
 Convert `generic` to `shorthand` (https://stackoverflow.com/a/36843084/4536327).
 
@@ -83,7 +83,7 @@ interface A {
 }
 ```
 
-### `remove-duplicates-from-union`
+### remove-duplicates-from-union
 
 #### ❌ Incorrect code example
 
@@ -105,7 +105,7 @@ type x = boolean[]
     | string[];
 ```
 
-### `remove-useless-types-from-constants`
+### remove-useless-types-from-constants
 
 #### ❌ Incorrect code example
 
@@ -119,7 +119,7 @@ const x: any = 5;
 const x = 5;
 ```
 
-### `remove-unused-types`
+### remove-unused-types
 
 #### ❌ Incorrect code example
 
@@ -138,7 +138,7 @@ type n = number;
 const x: n = 5;
 ```
 
-### `remove-useless-types`
+### remove-useless-types
 
 #### ❌ Incorrect code example
 
@@ -170,7 +170,7 @@ const x: oldType = {
 };
 ```
 
-### `remove-useless-mapped-types`
+### remove-useless-mapped-types
 
 Rmove useless [mapped types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html).
 
@@ -189,7 +189,7 @@ type SuperType = Type;
 ```
 
 
-### `remove-useless-mapping-modifiers`
+### remove-useless-mapping-modifiers
 
 Remove useless [mapping modifiers](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#mapping-modifiers).
 
@@ -210,7 +210,7 @@ type SuperType = {
 ```
 
 
-### `remove-duplicate-interface-keys`
+### remove-duplicate-interface-keys
 
 #### ❌ Incorrect code example
 
