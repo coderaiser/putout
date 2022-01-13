@@ -498,6 +498,8 @@ putout(source, {
 
 ## 🏨 Built-in transformations
 
+### JavaScript
+
 <details><summary>remove <code>unused variables</code></summary>
 
 ```diff
@@ -505,15 +507,6 @@ putout(source, {
 -     const message = 'hello';
       console.log('hello world');
   }
-```
-
-</details>
-
-<details><summary>remove duplicates from <code>union</code> (for typescript)</summary>
-
-```diff
--type x = boolean[] | A | string | A | string[] | boolean[];
-+type x = boolean[] | A | string | string[];
 ```
 
 </details>
@@ -733,38 +726,6 @@ switch (x) {
 
 </details>
 
-<details><summary>remove useless <code>await</code></summary>
-
-```diff
--   await await Promise.resolve('hello');
-+   await Promise.resolve('hello');
-```
-
-</details>
-
-<details><summary>remove useless <code>async</code></summary>
-
-```diff
--const show = async () => {
-+const show = () => {
-    console.log('hello');
-};
-```
-
-</details>
-
-<details><summary>add missing <code>await</code></summary>
-
-```diff
--runCli();
-+await runCli();
-
-async function runCli() {
-}
-```
-
-</details>
-
 <details><summary>declare undefined variables</summary>
 
 ```diff
@@ -907,89 +868,6 @@ const putout = require('putout');
 
 </details>
 
-<details><summary>convert <code>generic</code> to <code>shorthand</code> (for typescript) (<a href=https://stackoverflow.com/a/36843084/4536327>why</a>)</summary>
-
-```diff
-interface A {
--    x: Array<X>;
-+    x: X[];
-}
-```
-
-</details>
-
-<details><summary>remove useless <code>types</code> from <code>constants</code> (for typescript)</summary>
-
-```diff
--const x: any = 5;
-+const x = 5;
-```
-
-</details>
-
-<details><summary>remove useless <code><a href=https://www.typescriptlang.org/docs/handbook/2/mapped-types.html>mapped types</a></code>(for typescript)</summary>
-
-```diff
--type SuperType = {
--   [Key in keyof Type]: Type[Key]
--}
-+type SuperType = Type;
-```
-
-</details>
-
-<details><summary>remove useless <code><a href=https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#mapping-modifiers>mapping modifiers</a></code>(for typescript)</summary>
-
-```diff
-type SuperType = {
--   +readonly[Key in keyof Type]+?: Type[Key];
-+   readonly[Key in keyof Type]?: Type[Key];
-}
-```
-
-</details>
-
-<details><summary>convert <code>fs.promises</code> to <code>fs/promises</code> for <a href=https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api>node.js</a></summary>
-
-```diff
--const {readFile} = require('fs').promises;
-+const {readFile} = require('fs/promises');
-```
-
-</details>
-
-<details><summary>remove useless <code>types</code> (for typescript)</summary>
-
-```diff
-type oldType = number;
--type newType = oldType;
--const x: newType = 5;
-+const x: oldType = 5;
-```
-
-</details>
-
-<details><summary>remove duplicate <code>interface</code> keys (for typescript)</summary>
-
-```diff
-interface Hello {
--   'hello': any;
-    'hello': string;
-}
-```
-
-</details>
-
-<details><summary>remove unused <code>types</code> (for typescript)</summary>
-
-```diff
-type n = number;
--type s = string;
-const x: n = 5;
-```
-
-</details>
-
 <details><summary>remove useless <code>escape</code></summary>
 
 ```diff
@@ -1017,28 +895,6 @@ const x: n = 5;
 ```diff
 -for (const x of [...y]) {}
 +for (const x of y) {}
-```
-
-</details>
-
-<details><summary>remove useless <code>Promise.resolve</code></summary>
-
-```diff
-async () => {
--    return Promise.resolve('x');
-+    return 'x';
-}
-```
-
-</details>
-
-<details><summary>convert <code>Promise.reject</code> to <code>throw</code></summary>
-
-```diff
-async () => {
--    return Promise.reject('x');
-+    throw 'x';
-}
 ```
 
 </details>
@@ -1100,36 +956,6 @@ function hi() {
     return 5;
 -   console.log('hello');
 }
-```
-
-</details>
-
-<details><summary>replace <code>test.only</code> with <code>test</code> calls</summary>
-
-```diff
--test.only('some test here', (t) => {
-+test('some test here', (t) => {
-    t.end();
-});
-```
-
-</details>
-
-<details><summary>replace <code>test.skip</code> with <code>test</code> calls</summary>
-
-```diff
--test.skip('some test here', (t) => {
-+test('some test here', (t) => {
-    t.end();
-});
-```
-
-</details>
-
-<details><summary>remove <code>process.exit</code> call</summary>
-
-```diff
--process.exit();
 ```
 
 </details>
@@ -1324,19 +1150,6 @@ function world(a) {
 
 </details>
 
-<details><summary>apply top-level-await (<a href=https://github.com/tc39/proposal-top-level-await>proposal-top-level-await</a>, enabled for ESM)</summary>
-
-```diff
-import fs from 'fs';
-
--(async () => {
--    const data = await fs.promises.readFile('hello.txt');
--})();
-+const data = await fs.promises.readFile('hello.txt');
-```
-
-</details>
-
 <details><summary>apply numeric separators(<a href=https://github.com/tc39/proposal-numeric-separator>proposal-numeric-separator</a>)</summary>
 
 ```diff
@@ -1355,31 +1168,11 @@ import fs from 'fs';
 
 </details>
 
-<details><summary>apply <code>as</code> type assertion (according to <a href=https://basarat.gitbook.io/typescript/type-system/type-assertion#as-foo-vs.-less-than-foo-greater-than>best practices</a>, for typescript)</summary>
-
-```diff
--const boundaryElement = <HTMLElement>e.target;
-+const boundaryElement1 = e.target as HTMLElement;
-```
-
-</details>
-
 <details><summary>apply nullish coalescing (<a href=https://github.com/tc39/proposal-nullish-coalescing>proposal-nullish-coalescing</a>, not bundled)</summary>
 
 ```diff
 -result = typeof result  === 'undefined' ? 'hello': result;
 result = result ?? 'hello';
-```
-
-</details>
-
-<details><summary>apply <a href=https://www.typescriptlang.org/docs/handbook/utility-types.html>utility types</a> (for typescript)</summary>
-
-```diff
--type SuperType = {
--    [Key in keyof Type]?: Type[Key];
--}
-+type SuperType = Partial<Type>;
 ```
 
 </details>
@@ -1585,7 +1378,99 @@ function merge(a) {
 ```
 
 </details>
+   
+### Promises
 
+<details><summary>remove useless <code>await</code></summary>
+
+```diff
+-   await await Promise.resolve('hello');
++   await Promise.resolve('hello');
+```
+
+</details>
+
+<details><summary>remove useless <code>async</code></summary>
+
+```diff
+-const show = async () => {
++const show = () => {
+    console.log('hello');
+};
+```
+
+</details>
+
+<details><summary>add missing <code>await</code></summary>
+
+```diff
+-runCli();
++await runCli();
+
+async function runCli() {
+}
+```
+
+</details>
+   
+<details><summary>add <code>await</code> to <code>return promise()</code> statements (<a href=https://v8.dev/blog/fast-async>because it's faster, produces call stack and more readable</a>)</summary>
+
+```diff
+async run () {
+-   return promise();
++   return await promise();
+}
+```
+
+</details>
+
+<details><summary>apply top-level-await (<a href=https://github.com/tc39/proposal-top-level-await>proposal-top-level-await</a>, enabled for ESM)</summary>
+
+```diff
+import fs from 'fs';
+
+-(async () => {
+-    const data = await fs.promises.readFile('hello.txt');
+-})();
++const data = await fs.promises.readFile('hello.txt');
+```
+
+</details>
+
+<details><summary>remove useless <code>Promise.resolve</code></summary>
+
+```diff
+async () => {
+-    return Promise.resolve('x');
++    return 'x';
+}
+```
+
+</details>
+
+<details><summary>convert <code>Promise.reject</code> to <code>throw</code></summary>
+
+```diff
+async () => {
+-    return Promise.reject('x');
++    throw 'x';
+}
+```
+
+</details>
+
+
+### Node.js
+
+<details><summary>convert <code>fs.promises</code> to <code>fs/promises</code> for <a href=https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api>node.js</a></summary>
+
+```diff
+-const {readFile} = require('fs').promises;
++const {readFile} = require('fs/promises');
+```
+
+</details>
+   
 <details><summary>convert <code>top-level return</code> into <code>process.exit()</code>(because EcmaScript Modules doesn't support top level return)</summary>
 
 ```diff
@@ -1595,13 +1480,139 @@ function merge(a) {
 
 </details>
 
-<details><summary>add <code>await</code> to <code>return promise()</code> statements (<a href=https://v8.dev/blog/fast-async>because it's faster, produces call stack and more readable</a>)</summary>
+<details><summary>remove <code>process.exit</code> call</summary>
 
 ```diff
-async run () {
--   return promise();
-+   return await promise();
+-process.exit();
+```
+
+</details>
+   
+### Tape
+   
+<details><summary>replace <code>test.only</code> with <code>test</code> calls</summary>
+
+```diff
+-test.only('some test here', (t) => {
++test('some test here', (t) => {
+    t.end();
+});
+```
+
+</details>
+
+<details><summary>replace <code>test.skip</code> with <code>test</code> calls</summary>
+
+```diff
+-test.skip('some test here', (t) => {
++test('some test here', (t) => {
+    t.end();
+});
+```
+
+</details>
+
+### TypeScript
+
+<details><summary>remove duplicates from <code>union</code></summary>
+
+```diff
+-type x = boolean[] | A | string | A | string[] | boolean[];
++type x = boolean[] | A | string | string[];
+```
+
+</details>
+
+<details><summary>convert <code>generic</code> to <code>shorthand</code>(<a href=https://stackoverflow.com/a/36843084/4536327>why</a>)</summary>
+
+```diff
+interface A {
+-    x: Array<X>;
++    x: X[];
 }
+```
+
+</details>
+
+<details><summary>remove useless <code>types</code> from <code>constants</code></summary>
+
+```diff
+-const x: any = 5;
++const x = 5;
+```
+
+</details>
+
+<details><summary>remove useless <code><a href=https://www.typescriptlang.org/docs/handbook/2/mapped-types.html>mapped types</a></code></summary>
+
+```diff
+-type SuperType = {
+-   [Key in keyof Type]: Type[Key]
+-}
++type SuperType = Type;
+```
+
+</details>
+
+<details><summary>remove useless <code><a href=https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#mapping-modifiers>mapping modifiers</a></code></summary>
+
+```diff
+type SuperType = {
+-   +readonly[Key in keyof Type]+?: Type[Key];
++   readonly[Key in keyof Type]?: Type[Key];
+}
+```
+
+</details>
+
+<details><summary>remove useless <code>types</code></summary>
+
+```diff
+type oldType = number;
+-type newType = oldType;
+-const x: newType = 5;
++const x: oldType = 5;
+```
+
+</details>
+
+<details><summary>remove duplicate <code>interface</code> keys</summary>
+
+```diff
+interface Hello {
+-   'hello': any;
+    'hello': string;
+}
+```
+
+</details>
+
+<details><summary>remove unused <code>types</code></summary>
+
+```diff
+type n = number;
+-type s = string;
+const x: n = 5;
+```
+
+</details>
+   
+<details><summary>apply <code>as</code> type assertion (according to <a href=https://basarat.gitbook.io/typescript/type-system/type-assertion#as-foo-vs.-less-than-foo-greater-than>best practices</a>)</summary>
+
+```diff
+-const boundaryElement = <HTMLElement>e.target;
++const boundaryElement1 = e.target as HTMLElement;
+```
+
+</details>
+   
+<details><summary>apply <a href=https://www.typescriptlang.org/docs/handbook/utility-types.html>utility types</a></summary>
+
+```diff
+-type SuperType = {
+-    [Key in keyof Type]?: Type[Key];
+-}
++type SuperType = Partial<Type>;
 ```
 
 </details>
