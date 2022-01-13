@@ -4,7 +4,7 @@
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove test.only calls",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-only#readme",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-tape#remove-only",
   "main": "lib/remove-only.js",
   "release": false,
   "tag": false,
