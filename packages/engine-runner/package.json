@@ -28,7 +28,7 @@
     "@babel/types": "^7.12.7",
     "@putout/compare": "^8.0.0",
     "@putout/engine-parser": "^4.0.1",
-    "@putout/operate": "^6.0.0",
+    "@putout/operate": "^7.0.0",
     "debug": "^4.1.1",
     "jessy": "^3.0.0",
     "nessy": "^4.0.0",
