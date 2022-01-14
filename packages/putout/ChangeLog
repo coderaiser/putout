@@ -1,3 +1,14 @@
+2022.01.14, v24.1.0
+
+feature:
+- (@putout/test) get rid of simport
+- (putout) get rid of simport
+- (package) @putout/cli-ruler v2.0.0
+- (@putout/cli-ruler) named export ruler
+- (@putout/processor-markdown) rm simport
+- (@putout/plugin-tape) mv remove-only, remove-skip from dependencies
+
+
 2022.01.13, v24.0.2
 
 feature:
