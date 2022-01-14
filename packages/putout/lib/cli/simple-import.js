@@ -1,8 +1,6 @@
 'use strict';
 
-// yarn doesn't understand how simport works
-// https://github.com/coderaiser/putout/issues/93
-
+// How in other way to mock import using mock require in CommonJS?
 module.exports.simpleImportDefault = async (url) => (await import(url)).default;
 module.exports.simpleImport = async (url) => await import(url);
 

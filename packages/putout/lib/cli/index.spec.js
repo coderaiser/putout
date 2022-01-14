@@ -12,7 +12,7 @@ const mockRequire = require('mock-require');
 const tryCatch = require('try-catch');
 const {red} = require('chalk');
 const tryToCatch = require('try-to-catch');
-const {createSimport} = require('simport');
+const {simpleImportDefault} = require('./simple-import');
 
 const _cli = require('.');
 const {version} = require('../../package');
@@ -32,8 +32,6 @@ const {
     RULLER_WITH_FIX,
     INVALID_CONFIG,
 } = require('./exit-codes');
-
-const simport = createSimport(__filename);
 
 test('putout: cli: --raw', async (t) => {
     const logError = stub();
@@ -838,7 +836,7 @@ test('putout: cli: --staged --fix', async (t) => {
     const [allArgCalls] = logError.args;
     const [arg] = allArgCalls;
     
-    const stripAnsi = await simport('strip-ansi');
+    const stripAnsi = await simpleImportDefault('strip-ansi');
     const output = stripAnsi(arg);
     const message = '🐊 No files matching the pattern "./xxx.js" were found';
     
@@ -1852,7 +1850,7 @@ test('putout: processor throw', async (t) => {
     ];
     
     const getOptions = stub().returns({
-        formatter: await simport('@putout/formatter-json'),
+        formatter: await simpleImportDefault('@putout/formatter-json'),
         dir: '.',
         processors: [
             ['throw-processor', throwProcessor],
@@ -1893,7 +1891,7 @@ test('putout: processor throw: raw', async (t) => {
     ];
     
     const getOptions = stub().returns({
-        formatter: await simport('@putout/formatter-json'),
+        formatter: await simpleImportDefault('@putout/formatter-json'),
         dir: '.',
         processors: [
             ['throw-processor', throwProcessor],
@@ -1998,7 +1996,7 @@ test('putout: processor: invalid config: message', async (t) => {
     const [allArgCalls] = logError.args;
     const [arg] = allArgCalls;
     
-    const stripAnsi = await simport('strip-ansi');
+    const stripAnsi = await simpleImportDefault('strip-ansi');
     const result = stripAnsi(arg);
     const expected = '🐊 .putout.json: exclude: must NOT have additional properties';
     
