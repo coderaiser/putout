@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-convert-commonjs-to-esm",
-  "version": "7.1.0",
+  "version": "7.1.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to convert commonjs to ecma script module",
