@@ -39,6 +39,10 @@ const isPackage = ({value}) => /package(\.json)?$/.test(value);
 
 module.exports.match = () => ({
     'const __a = require(__b)': ({__b}, path) => {
+        // exclude jsons while not supported
+        if (/\.json/.test(__b.value))
+            return false;
+        
         if (path.scope.getBinding('require'))
             return false;
         
@@ -75,7 +79,6 @@ module.exports.replace = () => ({
         if (value.includes('./') && !/\.js(on)?$/.test(value))
             value += '.js';
         
-        const isJSON = /\.json$/.test(value);
         const fnPath = path.findParent(isFunction);
         
         if (fnPath) {
@@ -84,12 +87,10 @@ module.exports.replace = () => ({
         }
         
         // disabled while not supported
+        //
+        // const isJSON = /\.json$/.test(value);
         // const assertion = !isJSON ? '' : 'assert { type: "json" }';
         const assertion = '';
-        
-        // do not change while not supported
-        if (isJSON)
-            return path;
         
         if (isObjectPattern(__a)) {
             const imports = [];
