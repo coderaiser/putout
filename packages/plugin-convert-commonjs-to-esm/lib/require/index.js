@@ -83,7 +83,13 @@ module.exports.replace = () => ({
             return applyDynamicImport(path);
         }
         
-        const assertion = !isJSON ? '' : 'assert { type: "json" }';
+        // disabled while not supported
+        // const assertion = !isJSON ? '' : 'assert { type: "json" }';
+        const assertion = '';
+        
+        // do not change while not supported
+        if (isJSON)
+            return path;
         
         if (isObjectPattern(__a)) {
             const imports = [];
