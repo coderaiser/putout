@@ -11,10 +11,7 @@ const fullstore = require('fullstore');
 const tryCatch = require('try-catch');
 const tryToCatch = require('try-to-catch');
 const wraptile = require('wraptile');
-const {createSimport} = require('simport');
 const {version} = require('../../package.json');
-
-const simport = createSimport(__filename);
 
 const {env} = process;
 const isIDE = /JetBrains/.test(env.TERMINAL_EMULATOR) || env.TERM_PROGRAM === 'vscode';
@@ -213,8 +210,8 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         return exit(RULLER_WITH_FIX, Error('`--fix` cannot be used with ruler toggler (`--enable`, `--disable`)'));
     
     if (enable || disable) {
-        const rulerProcessor = await simport('@putout/cli-ruler');
-        rulerProcessor({enable, disable, readFile, writeFile}, []);
+        const {ruler} = await import('@putout/cli-ruler');
+        ruler({enable, disable, readFile, writeFile}, []);
     }
     
     const noConfig = !args.config;
@@ -415,8 +412,8 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     fileCache.reconcile();
     
     if (enableAll || disableAll) {
-        const rulerProcessor = await simport('@putout/cli-ruler');
-        await rulerProcessor({enableAll, disableAll, readFile, writeFile}, mergedPlaces);
+        const {ruler} = await import('@putout/cli-ruler');
+        await ruler({enableAll, disableAll, readFile, writeFile}, mergedPlaces);
     }
     
     if (fix && staged) {

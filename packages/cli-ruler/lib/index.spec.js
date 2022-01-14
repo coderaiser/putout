@@ -3,7 +3,7 @@ import {
     stub,
 } from 'supertape';
 
-import rulerProcessor from './index.js';
+import {ruler} from './index.js';
 
 const {stringify} = JSON;
 const reject = Promise.reject.bind(Promise);
@@ -15,7 +15,7 @@ test('putout: cli: ruler-processor: read', async (t) => {
     const readFile = stub().returns('{}');
     const writeFile = stub();
     
-    await rulerProcessor({enable, readFile, writeFile}, places);
+    await ruler({enable, readFile, writeFile}, places);
     
     const name = `${process.cwd()}/.putout.json`;
     
@@ -30,7 +30,7 @@ test('putout: cli: ruler-processor: read: error', async (t) => {
     const readFile = stub().returns(reject('no file'));
     const writeFile = stub();
     
-    await rulerProcessor({enable, readFile, writeFile}, places);
+    await ruler({enable, readFile, writeFile}, places);
     
     const name = `${process.cwd()}/.putout.json`;
     const expected = stringify({
@@ -50,7 +50,7 @@ test('putout: cli: ruler-processor: write', async (t) => {
     const enable = 'remove-unused-variables';
     const places = [];
     
-    await rulerProcessor({enable, readFile, writeFile}, places);
+    await ruler({enable, readFile, writeFile}, places);
     
     const name = `${process.cwd()}/.putout.json`;
     const expected = stringify({
@@ -70,7 +70,7 @@ test('putout: cli: ruler-processor: disable', async (t) => {
     const disable = 'remove-unused-variables';
     const places = [];
     
-    await rulerProcessor({disable, readFile, writeFile}, places);
+    await ruler({disable, readFile, writeFile}, places);
     
     const name = `${process.cwd()}/.putout.json`;
     const expected = stringify({
@@ -99,7 +99,7 @@ test('putout: cli: ruler-processor: enable all', async (t) => {
         rule: 'remove-debugger',
     }];
     
-    await rulerProcessor({enableAll, readFile, writeFile}, places);
+    await ruler({enableAll, readFile, writeFile}, places);
     
     const name = `${process.cwd()}/.putout.json`;
     const expected = stringify({
@@ -129,7 +129,7 @@ test('putout: cli: ruler-processor: disable all', async (t) => {
         rule: 'remove-debugger',
     }];
     
-    await rulerProcessor({disableAll, readFile, writeFile}, places);
+    await ruler({disableAll, readFile, writeFile}, places);
     
     const name = `${process.cwd()}/.putout.json`;
     const expected = stringify({
@@ -157,7 +157,7 @@ test('putout: cli: ruler-processor: no option', async (t) => {
         readFile,
         writeFile,
     };
-    await rulerProcessor(options, places);
+    await ruler(options, places);
     
     const name = `${process.cwd()}/.putout.json`;
     const expected = stringify({

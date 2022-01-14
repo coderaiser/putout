@@ -1,12 +1,12 @@
 import {join} from 'path';
 
 import tryToCatch from 'try-to-catch';
-import * as ruler from './ruler.js';
+import * as ruleProcessor from './rule-processor.js';
 
 const cwd = process.cwd();
 const {parse, stringify} = JSON;
 
-export default async function rulerProcessor({disable, disableAll, enable, enableAll, readFile, writeFile}, places) {
+export async function ruler({disable, disableAll, enable, enableAll, readFile, writeFile}, places) {
     const name = join(cwd, '.putout.json');
     const defaultData = stringify({
         rules: {},
@@ -18,13 +18,13 @@ export default async function rulerProcessor({disable, disableAll, enable, enabl
     let updated = object;
     
     if (enable)
-        updated = ruler.enable(object, enable);
+        updated = ruleProcessor.enable(object, enable);
     else if (disable)
-        updated = ruler.disable(object, disable);
+        updated = ruleProcessor.disable(object, disable);
     else if (enableAll)
-        updated = ruler.enableAll(object, places);
+        updated = ruleProcessor.enableAll(object, places);
     else if (disableAll)
-        updated = ruler.disableAll(object, places);
+        updated = ruleProcessor.disableAll(object, places);
     
     await writeFile(name, stringify(updated, null, 4));
 }

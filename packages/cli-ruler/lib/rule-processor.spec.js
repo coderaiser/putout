@@ -4,7 +4,7 @@ import {
     enableAll,
     disable,
     disableAll,
-} from './ruler.js';
+} from './rule-processor.js';
 
 test('putout: cli: ruler: enable', (t) => {
     const config = enable({}, 'remove-unused-variables');

@@ -23,7 +23,7 @@ import {
     writeFile,
 } from 'fs/promises';
 
-import ruler from '@putout/cli-ruler';
+import {rule} from '@putout/cli-ruler';
 
 const places = [{
     rule: 'remove-unused-variables',
