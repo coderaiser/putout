@@ -1,8 +1,5 @@
 'use strict';
 
-const {createSimport} = require('simport');
-const simport = createSimport(__filename);
-
 module.exports.initParseStore = () => {
     let cache = null;
     let parse = null;
@@ -24,7 +21,7 @@ module.exports.initParseStore = () => {
     
     fn.init = async () => {
         cache = null;
-        parse = await simport('remark-parse');
+        ({default: parse} = await import('remark-parse'));
     };
     
     fn.clear = async () => {
