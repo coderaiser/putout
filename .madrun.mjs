@@ -1,11 +1,10 @@
+import {createRequire} from 'module';
 import {
     run,
     cutEnv,
 } from 'madrun';
 
-import {createCommons} from 'simport';
-
-const {require} = createCommons(import.meta.url);
+const require = createRequire(import.meta.url);
 const {workspaces} = require('./package.json');
 
 const cutStar = (a) => a.replace('/*', '');
