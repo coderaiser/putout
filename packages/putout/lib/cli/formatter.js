@@ -7,7 +7,7 @@ const {
     CANNOT_LOAD_FORMATTER,
 } = require('./exit-codes');
 
-const simpleImport = require('./simple-import');
+const {simpleImportDefault} = require('./simple-import');
 
 const stub = () => () => {};
 
@@ -48,7 +48,7 @@ async function loadFormatter(names) {
     let reporter;
     
     for (const name of names) {
-        [e, reporter] = await tryToCatch(simpleImport, name);
+        [e, reporter] = await tryToCatch(simpleImportDefault, name);
         
         if (!e)
             return [null, reporter];

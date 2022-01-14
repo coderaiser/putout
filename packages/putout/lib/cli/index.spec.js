@@ -848,20 +848,23 @@ test('putout: cli: --staged --fix', async (t) => {
     t.end();
 });
 
-test('putout: cli: ruler processor: --enable', async (t) => {
+test('putout: cli: ruler: --enable', async (t) => {
     const logError = stub();
     const readFile = stub();
     const writeFile = stub();
-    const rullerProcessor = stub();
+    const ruler = stub();
     const argv = [
         '--enable',
         'convert-index-of-to-includes',
     ];
     
-    const simport = stub().returns(rullerProcessor);
-    const createSimport = stub().returns(simport);
+    const simpleImport = stub().returns({
+        ruler,
+    });
     
-    mockRequire('simport', {createSimport});
+    mockRequire('./simple-import', {
+        simpleImport,
+    });
     
     const cli = reRequire('.');
     await runCli({
@@ -882,22 +885,21 @@ test('putout: cli: ruler processor: --enable', async (t) => {
         writeFile,
     };
     
-    t.calledWith(rullerProcessor, [args, places]);
+    t.calledWith(ruler, [args, places]);
     t.end();
 });
 
-test('putout: cli: ruler processor: --enable-all', async (t) => {
+test('putout: cli: ruler: --enable-all', async (t) => {
     const logError = stub();
-    const rullerProcessor = stub();
+    const ruler = stub();
     const argv = [
         '--enable-all',
         __filename,
     ];
     
-    const simport = stub().returns(rullerProcessor);
-    const createSimport = stub().returns(simport);
+    const simpleImport = stub().returns({ruler});
     
-    mockRequire('simport', {createSimport});
+    mockRequire('./simple-import', {simpleImport});
     
     const cli = reRequire('.');
     await runCli({
@@ -908,7 +910,7 @@ test('putout: cli: ruler processor: --enable-all', async (t) => {
     
     stopAll();
     
-    t.ok(rullerProcessor.called);
+    t.ok(ruler.called);
     t.end();
 });
 
@@ -920,13 +922,14 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
         name,
     ];
     
-    const rullerError = Error('should call rullerProcessor with await');
-    const rullerProcessor = stub().rejects(rullerError);
+    const rulerError = Error('should call ruler with await');
+    const ruler = stub().rejects(rulerError);
     
-    const simport = stub().returns(rullerProcessor);
-    const createSimport = stub().returns(simport);
+    const simpleImport = stub().returns({
+        ruler,
+    });
     
-    mockRequire('simport', {createSimport});
+    mockRequire('./simple-import', {simpleImport});
     const cli = reRequire('.');
     
     const [error] = await tryToCatch(runCli, {
@@ -937,7 +940,7 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
     
     stopAll();
     
-    t.equal(error, rullerError);
+    t.equal(error, rulerError);
     t.end();
 });
 

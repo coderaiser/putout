@@ -44,9 +44,11 @@ test('putout: cli: formatter: get formatter: options', async (t) => {
 
 test('putout: cli: formatter: get reporter', async (t) => {
     const formatter = stub();
-    const simport = stub().returns(formatter);
+    const simpleImportDefault = stub().returns(formatter);
     
-    mockRequire('./simple-import', simport);
+    mockRequire('./simple-import', {
+        simpleImportDefault,
+    });
     
     const {getReporter} = reRequire('./formatter');
     
@@ -60,12 +62,14 @@ test('putout: cli: formatter: get reporter', async (t) => {
 });
 
 test('putout: cli: formatter: calls', async (t) => {
-    const simport = stub()
+    const simpleImportDefault = stub()
         .rejects(assign(Error('not found'), {
             code: 'ERR_MODULE_NOT_FOUND',
         }));
     
-    mockRequire('./simple-import', simport);
+    mockRequire('./simple-import', {
+        simpleImportDefault,
+    });
     
     const {getReporter} = reRequire('./formatter');
     
@@ -79,14 +83,14 @@ test('putout: cli: formatter: calls', async (t) => {
     stopAll();
     reRequire('./formatter');
     
-    t.deepEqual(simport.args, expected);
+    t.deepEqual(simpleImportDefault.args, expected);
     t.end();
 });
 
 test('putout: cli: formatter: second import', async (t) => {
     let called = false;
     
-    const simport = async () => {
+    const simpleImportDefault = async () => {
         if (!called) {
             called = true;
             const error = assign(Error('not found from test'), {
@@ -99,7 +103,9 @@ test('putout: cli: formatter: second import', async (t) => {
         return 'found from test';
     };
     
-    mockRequire('./simple-import', simport);
+    mockRequire('./simple-import', {
+        simpleImportDefault,
+    });
     
     const {getReporter} = reRequire('./formatter');
     
@@ -133,9 +139,11 @@ test('putout: cli: formatter: get reporter: exit: NO_FORMATTER', async (t) => {
 
 test('putout: cli: formatter: get reporter: exit: CANNOT_LOAD_FORMATTER', async (t) => {
     const exit = stub();
-    const simport = stub().rejects(Error('Syntax error'));
+    const simpleImportDefault = stub().rejects(Error('Syntax error'));
     
-    mockRequire('./simple-import', simport);
+    mockRequire('./simple-import', {
+        simpleImportDefault,
+    });
     
     const {getReporter} = reRequire('./formatter');
     await getReporter('xxx', exit);

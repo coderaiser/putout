@@ -12,6 +12,7 @@ const tryCatch = require('try-catch');
 const tryToCatch = require('try-to-catch');
 const wraptile = require('wraptile');
 const {version} = require('../../package.json');
+const {simpleImport} = require('./simple-import');
 
 const {env} = process;
 const isIDE = /JetBrains/.test(env.TERMINAL_EMULATOR) || env.TERM_PROGRAM === 'vscode';
@@ -195,7 +196,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     }
     
     if (isStr(args.match)) {
-        const {match, matchErrors} = await import('@putout/cli-match');
+        const {match, matchErrors} = await simpleImport('@putout/cli-match');
         const code = await match({
             pattern: args.match,
             cwd,
@@ -210,7 +211,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         return exit(RULLER_WITH_FIX, Error('`--fix` cannot be used with ruler toggler (`--enable`, `--disable`)'));
     
     if (enable || disable) {
-        const {ruler} = await import('@putout/cli-ruler');
+        const {ruler} = await simpleImport('@putout/cli-ruler');
         ruler({enable, disable, readFile, writeFile}, []);
     }
     
@@ -246,7 +247,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     if (staged) {
         const {get} = require('./staged');
-        const {findUp} = await import('find-up');
+        const {findUp} = await simpleImport('find-up');
         const names = await get({findUp});
         
         stagedNames.push(...names);
@@ -412,13 +413,13 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     fileCache.reconcile();
     
     if (enableAll || disableAll) {
-        const {ruler} = await import('@putout/cli-ruler');
+        const {ruler} = await simpleImport('@putout/cli-ruler');
         await ruler({enableAll, disableAll, readFile, writeFile}, mergedPlaces);
     }
     
     if (fix && staged) {
         const {set} = require('./staged');
-        const {findUp} = await import('find-up');
+        const {findUp} = await simpleImport('find-up');
         const stagedNames = await set({findUp});
         
         if (!stagedNames.length)
