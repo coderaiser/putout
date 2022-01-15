@@ -113,3 +113,6 @@ test('eslint-plugin-putout: ts: duplicate', async ({comparePlaces}) => {
     }]);
 });
 
+test('eslint-plugin-putout: remove-empty-specifiers', async ({process}) => {
+    await process('remove-empty-specifiers');
+});

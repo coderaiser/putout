@@ -52,6 +52,7 @@ Then configure the rules you want to use under the rules section.
         "putout/remove-newline-from-empty-object": "error",
         "putout/remove-empty-newline-before-first-specifier": "error",
         "putout/remove-empty-newline-after-last-specifier": "error",
+        "putout/remove-empty-specifiers": "error",
         "putout/objects-braces-inside-array": "error",
         "putout/object-init": "error"
     }
@@ -79,6 +80,7 @@ Then configure the rules you want to use under the rules section.
 - [Remove newline from empty object](/packages/eslint-plugin-putout/lib/remove-newline-from-empty-object)
 - [Remove empty newline before first specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-before-first-specifier)
 - [Remove empty newline after last specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-specifier)
+- [Remove empty specifiers](/packages/eslint-plugin-putout/lib/remove-empty-specifiers)
 - [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array)
 - [Object init](/packages/eslint-plugin-putout/lib/object-init)
 - [No unresolved](/packages/eslint-plugin-putout/lib/no-unresolved)
