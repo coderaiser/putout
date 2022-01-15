@@ -26,6 +26,12 @@ ruleTester.run('single-property-destructuring', rule, {
                 helloWorld as simpleHello,
             } from './user.js';
         `,
+        montag`
+            const {
+        //  parentPath,
+            node,
+        } = path;
+        `,
     ],
     
     invalid: [{

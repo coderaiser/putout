@@ -26,7 +26,10 @@ module.exports.include = () => [
     'ImportDeclaration[specifiers.length=1]',
 ];
 
-module.exports.filter = ({node, text, getText}) => {
+module.exports.filter = ({node, text, getText, getCommentsInside}) => {
+    if (getCommentsInside(node).length)
+        return false;
+    
     const parentText = getText(node.parent);
     
     if (isImportDeclaration(node) && !compare(node.specifiers[0].local, node.specifiers[0].imported))
