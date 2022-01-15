@@ -82,8 +82,8 @@ test('eslint-plugin-putout: config: padding-line-between-statements', async ({pr
     await process('padding-line-between-statements');
 });
 
-test('eslint-plugin-putout: newlines-around-function-call', async ({noProcess}) => {
-    await noProcess('newlines-around-function-call');
+test('eslint-plugin-putout: newlines-around-function-call', async ({process}) => {
+    await process('newlines-around-function-call');
 });
 
 test('eslint-plugin-putout: ts: semi', async ({process}) => {

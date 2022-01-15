@@ -33,6 +33,9 @@ module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) =
     
     const spaces = getSpacesBeforeNode(node, text);
     
+    if (!spaces)
+        return false;
+    
     if (regExp.test(spaces))
         return false;
     
@@ -43,7 +46,6 @@ module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) =
             continue;
         
         const prevA = body[i - 1];
-        const nextA = body[i + 1];
         
         if (!isVariableDeclaration(prevA))
             return false;
@@ -53,11 +55,7 @@ module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) =
         if (regExp.test(spaces))
             return false;
         
-        if (!nextA)
-            return true;
-        
-        const nextSpaces = getSpacesBeforeNode(nextA);
-        return !regExp.test(nextSpaces);
+        return true;
     }
     
     return false;

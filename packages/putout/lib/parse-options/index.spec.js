@@ -911,6 +911,7 @@ test('putout: parseOptions: rules dir: no once', (t) => {
     
     const {readdirSync} = fs;
     const readdirSyncStub = stub().returns([]);
+    
     fs.readdirSync = readdirSyncStub;
     
     mockRequire(join(__dirname, 'hello'), hello);

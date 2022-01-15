@@ -78,6 +78,23 @@ ruleTester.run('add-newline-before-function-call', rule, {
         `,
         '{\n    const a = 5;\n    const b = 4;\n\n    hello();}',
         '{\n    const a = 5;\n\n    const b = 4;\n    hello();}',
+        montag`
+        {
+            let fileList = [];
+            let allPlaces = [];
+            let merge = null;
+            
+            ({fileList, merge, isProcessed, processedSource, processedPlaces} = await getFiles({
+                name,
+                fix,
+                rawSource,
+                processorRunners,
+            }));
+            
+            ({processedSource, allPlaces} = await iterate({
+            }));
+        }
+        `,
     ],
     
     invalid: [{
@@ -129,6 +146,13 @@ ruleTester.run('add-newline-before-function-call', rule, {
         errors: [{
             message: 'Add newline before expression',
             type: 'AssignmentExpression',
+        }],
+    }, {
+        code: readFixture('before-newline'),
+        output: readFixture('before-newline-fix'),
+        errors: [{
+            message: 'Add newline before expression',
+            type: 'CallExpression',
         }],
     }],
 });

@@ -697,6 +697,7 @@ test('putout: runner: debug', (t) => {
         ],
     });
     const expected = '\n';
+    
     process.env.DEBUG = DEBUG;
     
     stopAll();
