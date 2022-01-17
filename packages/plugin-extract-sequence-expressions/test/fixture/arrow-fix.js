@@ -3,3 +3,9 @@
   hi;
   return result;
 }, {});
+
+sort((a, b) => {
+  console.log(a, b);
+  return a - b;
+});
+

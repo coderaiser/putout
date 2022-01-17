@@ -6,6 +6,7 @@ const {
     matchesPattern,
     isImportDeclaration,
     isExportDeclaration,
+    isExpression,
 } = require('@babel/types');
 
 const {getBinding, getBindingPath} = require('./get-binding');
@@ -26,7 +27,6 @@ module.exports.getExportDefault = getExportDefault;
 module.exports.getProperty = getProperty;
 module.exports.getProperties = getProperties;
 
-const compareTypes = (a) => (b) => a.includes(b);
 module.exports.toExpression = toExpression;
 function toExpression(el) {
     const {type} = el;
@@ -34,18 +34,10 @@ function toExpression(el) {
         'ObjectProperty',
     ];
     
-    const expressions = [
-        'Identifier',
-        'Literal',
-        'SequenceExpression',
-        'CallExpression',
-        'ObjectExpression',
-    ];
-    
     if (ignore.includes(type))
         return el;
     
-    if (expressions.find(compareTypes(type)))
+    if (isExpression(el))
         return ExpressionStatement(el);
     
     return toStatement(el);

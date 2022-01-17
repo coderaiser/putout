@@ -745,3 +745,16 @@ test('operate: isESM: yes: export', (t) => {
     t.end();
 });
 
+test('putout: operate: toExpression', (t) => {
+    let result;
+    const ast = parse('a + b');
+    
+    traverse(ast, {
+        BinaryExpression(path) {
+            result = operate.toExpression(path);
+        },
+    });
+    
+    t.equal(result.type, 'ExpressionStatement');
+    t.end();
+});
