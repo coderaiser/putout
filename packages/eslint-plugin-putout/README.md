@@ -103,10 +103,6 @@ When using 🐊`Putout` in IDE with `--fix` on save, or when you want to disable
 }
 ```
 
-### safe+align
-
-When you want to enable ability to align spaces on empty lines, use `safe+align`.
-
 Disabled `ESLint` rules:
 
 - [`no-useless-return`](https://eslint.org/docs/rules/no-useless-return)
@@ -122,9 +118,15 @@ Disabled 🐊`Putout` rules:
 - [`remove-unused-expressions`](https://github.com/coderaiser/putout/tree/v24.0.0/packages);
 - [`remove-useless-return`](https://github.com/coderaiser/putout/tree/master/remove-useless-return);
 - [`remove-useless-arguments`](https://github.com/coderaiser/putout/tree/master/remove-useless-arguments);
+- [`remove-useless-variables/rename`](https://github.com/coderaiser/putout/tree/master/remove-useless-arguments#rename);
 - [`remove-skip`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-skip);
 - [`remove-only`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-only);
 - [`remove-console`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-console);
 - [`remove-debugger`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-debugger);
 - [`remove-unreachable-code`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-unreachable-code);
 - [`convert-for-to-for-of`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/convert-for-to-for-of);
+
+### safe+align
+
+When you want to enable ability to align spaces on empty lines, while have all benefits of `safe` preset: use `safe+align`.
+

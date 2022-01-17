@@ -113,6 +113,7 @@ const safe = {
                 'remove-unreachable-code': 'off',
                 'remove-useless-return': 'off',
                 'remove-useless-arguments': 'off',
+                'remove-useless-variables/rename': 'off',
                 'tape/remove-skip': 'off',
                 'tape/remove-only': 'off',
                 'remove-console': 'off',
