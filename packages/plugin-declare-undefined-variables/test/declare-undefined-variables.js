@@ -261,3 +261,11 @@ test('putout: plugin: declare-undefined-variables: readFixture', (t) => {
     t.transform(`fixtures`);
     t.end();
 });
+
+test('putout: plugin: declare-undefined-variables: chalk', (t) => {
+    t.transformCode(`chalk.red('hello');`, montag`
+        import chalk from 'chalk';
+        chalk.red('hello');
+    `);
+    t.end();
+});

@@ -23,6 +23,7 @@
 - [pipe-io](https://github.com/coderaiser/pipe-io);
 - [pullout](https://github.com/coderaiser/pullout);
 - [simport](https://github.com/coderaiser/simport);
+- [chalk](https://www.npmjs.com/package/chalk);
 
 ## Install
 
