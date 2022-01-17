@@ -24,6 +24,7 @@
 - [pullout](https://github.com/coderaiser/pullout);
 - [simport](https://github.com/coderaiser/simport);
 - [chalk](https://www.npmjs.com/package/chalk);
+- [table](https://www.npmjs.com/package/table);
 
 ## Install
 

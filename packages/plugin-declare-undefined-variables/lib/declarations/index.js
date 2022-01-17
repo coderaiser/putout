@@ -36,6 +36,7 @@ module.exports = {
     pipe: `import pipe from 'pipe-io'`,
     pullout: `import pullout from 'pullout'`,
     chalk: `import chalk from 'chalk'`,
+    table: `import table from 'table'`,
     
     createSimport: `import {createSimport} from 'simport'`,
     simport: {

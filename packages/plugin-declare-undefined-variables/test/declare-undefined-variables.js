@@ -269,3 +269,11 @@ test('putout: plugin: declare-undefined-variables: chalk', (t) => {
     `);
     t.end();
 });
+
+test('putout: plugin: declare-undefined-variables: table', (t) => {
+    t.transformCode(`table(data);`, montag`
+        import table from 'table';
+        table(data);
+    `);
+    t.end();
+});
