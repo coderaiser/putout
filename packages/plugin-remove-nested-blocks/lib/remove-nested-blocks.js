@@ -18,6 +18,7 @@ module.exports.report = () => 'Avoid nested blocks';
 
 module.exports.fix = (path) => {
     replaceWithMultiple(path, path.node.body);
+    path.scope.getProgramParent().crawl();
 };
 
 module.exports.include = () => [

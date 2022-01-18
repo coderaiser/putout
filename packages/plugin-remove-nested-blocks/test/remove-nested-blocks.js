@@ -2,6 +2,7 @@
 
 const {createTest} = require('@putout/test');
 const removeNestedBlocks = require('..');
+const {declare} = require('@putout/plugin-tape').rules;
 
 const test = createTest(__dirname, {
     'remove-nested-blocks': removeNestedBlocks,
@@ -19,6 +20,13 @@ test('plugin-remove-nested-blocks: transform', (t) => {
 
 test('plugin-remove-nested-blocks: transform: switch: no vars', (t) => {
     t.transform('switch-no-vars');
+    t.end();
+});
+
+test('plugin-remove-nested-blocks: transform: crawl', (t) => {
+    t.transform('crawl', {
+        'tape/declare': declare,
+    });
     t.end();
 });
 
