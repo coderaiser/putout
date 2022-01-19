@@ -116,6 +116,7 @@ Disabled 🐊`Putout` rules:
 - [`typescript/remove-unused-types`](https://github.com/coderaiser/putout/tree/v24.0.2/packages/plugin-typescript#remove-unused-types);
 - [`remove-unused-for-of-variables`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-unused-for-of-variables);
 - [`remove-unused-expressions`](https://github.com/coderaiser/putout/tree/v24.0.0/packages);
+- [`remove-unreferenced-variables`](https://github.com/coderaiser/putout/tree/24.1.0/packages);
 - [`remove-useless-return`](https://github.com/coderaiser/putout/tree/master/remove-useless-return);
 - [`remove-useless-arguments`](https://github.com/coderaiser/putout/tree/master/remove-useless-arguments);
 - [`remove-useless-variables/rename`](https://github.com/coderaiser/putout/tree/master/remove-useless-arguments#rename);
