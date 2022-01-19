@@ -19,9 +19,9 @@ const {
 const {keys} = Object;
 const isString = (a) => typeof a === 'string';
 
-const getLastImportPath = (bodyPath) => bodyPath.filter(isImportDeclaration).pop();
 const getLastVarPath = (bodyPath) => bodyPath.filter(isVariableDeclaration).pop();
 const isLast = (insertionPath, bodyPath) => bodyPath[bodyPath.length - 1] === insertionPath;
+const isLocalImport = (path) => path.node.source.value.includes('.');
 
 const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
 const cutName = (a) => a.split('.').shift();
@@ -119,9 +119,8 @@ function getInsertionPath(node, bodyPath) {
     const lastImportPath = getLastImportPath(bodyPath);
     const lastVarPath = getLastVarPath(bodyPath);
     
-    if ((isImportDeclaration(node) || isRequire(node)) && lastImportPath) {
+    if ((isImportDeclaration(node) || isRequire(node)) && lastImportPath)
         return lastImportPath;
-    }
     
     if (isVariableDeclaration(node) && lastVarPath && !isLast(lastVarPath, bodyPath))
         return lastVarPath;
@@ -147,6 +146,27 @@ function insert(node, bodyPath) {
     if (!insertionPath && !isUseStrict(first))
         return first.insertBefore(node);
     
+    if (insertionPath.isImportDeclaration() && isLocalImport(insertionPath))
+        return insertionPath.insertBefore(node);
+    
     return insertionPath.insertAfter(node);
 }
 
+const getLastImportPath = (bodyPath) => {
+    const imports = [];
+    const localImports = [];
+    
+    for (const path of bodyPath) {
+        if (!path.isImportDeclaration())
+            continue;
+        
+        if (isLocalImport(path)) {
+            localImports.push(path);
+            continue;
+        }
+        
+        imports.push(path);
+    }
+    
+    return imports.pop() || localImports.pop();
+};

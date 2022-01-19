@@ -602,3 +602,29 @@ test('putout: operator: declare: require', (t) => {
     t.equal(secondAttempt, expected);
     t.end();
 });
+
+test('putout: operator: declare: local import', (t) => {
+    const declarations = {
+        operator: `import {operator} from 'putout'`,
+    };
+    
+    const source = montag`
+        import a from './a.js';
+        operator();
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['declare-undefined-variables', declare(declarations)],
+        ],
+    });
+    
+    const expected = montag`
+        import {operator} from 'putout';
+        import a from './a.js';
+        operator();
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
