@@ -1,5 +1,6 @@
-import {createMockImport} from 'mock-import';
 import {readFile} from 'fs/promises';
+
+import {createMockImport} from 'mock-import';
 
 const {
   reImport

@@ -339,8 +339,8 @@ test('putout: operator: declare: vars', (t) => {
     });
     
     const expected = montag`
-        const maybeArray = a => isArray(a) ? a : [a];
         const maybeFn = a => isFn(a) ? a : noop;
+        const maybeArray = a => isArray(a) ? a : [a];
         const b = [
             ...maybeArray(a),
             maybeFn(b),
@@ -537,5 +537,68 @@ test('putout: operator: declare: imports order', (t) => {
     `;
     
     t.equal(code, expected);
+    t.end();
+});
+
+test('putout: operator: declare: vars order', (t) => {
+    const declarations = {
+        not: `const not = (fn) => (...a) => !fn(...a);`,
+        id: `const id = () => a;`,
+    };
+    
+    const source = montag`
+        const notOK = not(isOK);
+        const a = id('hello');
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['declare-undefined-variables', declare(declarations)],
+        ],
+    });
+    
+    const expected = montag`
+        const id = () => a;
+        const not = fn => (...a) => !fn(...a);
+        const notOK = not(isOK);
+        const a = id('hello');
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: operator: declare: require', (t) => {
+    const declarations = {
+        cwd: `const {cwd} = require('process')`,
+    };
+    
+    const source = montag`
+        const a = 5;
+        
+        function hello() {
+            return cwd();
+        }
+    `;
+    
+    const {code: secondAttempt} = putout(source, {
+        plugins: [
+            ['declare', declare(declarations)],
+        ],
+    });
+    
+    const expected = montag`
+        const {
+            cwd
+        } = require('process');
+        
+        const a = 5;
+        
+        function hello() {
+            return cwd();
+        }
+    `;
+    
+    t.equal(secondAttempt, expected);
     t.end();
 });

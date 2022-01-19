@@ -1,5 +1,6 @@
-import {createMockImport} from 'mock-import';
 import {test} from 'supertape';
+
+import {createMockImport} from 'mock-import';
 
 const {
     reImport

@@ -233,8 +233,8 @@ test('putout: plugin: declare-undefined-variables: simport: commonjs', (t) => {
 
 test('putout: plugin: declare-undefined-variables: simport: esm', (t) => {
     t.transformCode(`import {readFile} from 'fs'; await simport('fs');`, montag`
-        import {createSimport} from 'simport';
         import {readFile} from 'fs';
+        import {createSimport} from 'simport';
         const simport = createSimport(import.meta.url);
         await simport('fs');
     `);

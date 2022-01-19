@@ -123,7 +123,7 @@ function getInsertionPath(node, bodyPath) {
         return lastImportPath;
     }
     
-    if (isVariableDeclaration(node) && lastVarPath)
+    if (isVariableDeclaration(node) && lastVarPath && !isLast(lastVarPath, bodyPath))
         return lastVarPath;
     
     if (isVariableDeclaration(node) && lastImportPath)
@@ -137,16 +137,15 @@ const isRequire = (node) => compare(node, 'const __a = require(__b)');
 function insert(node, bodyPath) {
     const insertionPath = getInsertionPath(node, bodyPath);
     const [first] = bodyPath;
-    const notRequire = !isRequire(node) && !isRequire(insertionPath);
+    
+    if (isRequire(node))
+        return first.insertBefore(node);
     
     if (!insertionPath && isUseStrict(first))
         return first.insertAfter(node);
     
     if (!insertionPath && !isUseStrict(first))
         return first.insertBefore(node);
-    
-    if (notRequire && insertionPath.isVariableDeclaration() && isLast(insertionPath, bodyPath))
-        return insertionPath.insertBefore(node);
     
     return insertionPath.insertAfter(node);
 }

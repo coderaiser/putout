@@ -1,5 +1,6 @@
-import {createMockImport} from 'mock-import';
 import fs from 'fs';
+
+import {createMockImport} from 'mock-import';
 
 const {
   reImport
