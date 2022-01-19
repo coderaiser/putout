@@ -1,3 +1,4 @@
+import {mkdirSync} from 'fs';
 import {writeFileSync} from 'fs';
 import {readFileSync} from 'fs';
 import {writeFile} from 'fs/promises';
@@ -7,3 +8,5 @@ writeFile();
 
 readFileSync();
 writeFileSync();
+
+mkdirSync();

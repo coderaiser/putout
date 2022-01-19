@@ -1,13 +1,8 @@
 'use strict';
 
-const fs = {
-    ...require('./fs-promises'),
-    readFileSync: `import {readFileSync} from 'fs'`,
-    writeFileSync: `import {writeFileSync} from 'fs'`,
-};
-
 module.exports = {
-    ...fs,
+    ...require('./fs'),
+    ...require('./fs-promises'),
     ...require('./path'),
     ...require('./process'),
     ...require('./module'),

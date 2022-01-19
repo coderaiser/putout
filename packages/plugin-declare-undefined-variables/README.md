@@ -6,7 +6,7 @@
 🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to declare variable that was not defined before, including:
 
 - [child_process](https://nodejs.org/dist/latest-v16.x/docs/api/child_process.html);
-- [fs/promises](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html);
+- [fs](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html);
 - [path](https://nodejs.org/dist/latest-v16.x/docs/api/path.html);
 - [process](https://nodejs.org/dist/latest-v16.x/docs/api/process.html);
 - [module](https://nodejs.org/dist/latest-v16.x/docs/api/module.html);
