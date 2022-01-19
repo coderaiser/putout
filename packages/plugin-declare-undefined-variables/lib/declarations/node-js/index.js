@@ -9,6 +9,7 @@ const fs = {
 module.exports = {
     ...fs,
     ...require('./path'),
+    ...require('./process'),
     ...require('./module'),
     ...require('./stream'),
     ...require('./os'),

@@ -5,14 +5,15 @@
 
 🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to declare variable that was not defined before, including:
 
+- [child_process](https://nodejs.org/dist/latest-v16.x/docs/api/child_process.html);
 - [fs/promises](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html);
 - [path](https://nodejs.org/dist/latest-v16.x/docs/api/path.html);
+- [process](https://nodejs.org/dist/latest-v16.x/docs/api/process.html);
 - [module](https://nodejs.org/dist/latest-v16.x/docs/api/module.html);
 - [stream](https://nodejs.org/dist/latest-v16.x/docs/api/stream.html);
 - [os](https://nodejs.org/dist/latest-v16.x/docs/api/os.html);
 - [url](https://nodejs.org/dist/latest-v16.x/docs/api/url.html);
 - [zlib](https://nodejs.org/dist/latest-v16.x/docs/api/zlib.html);
-- [child_process](https://nodejs.org/dist/latest-v16.x/docs/api/child_process.html);
 - is types: `isFn`, `isString`, `isNumber`, `isObject`, `isBool`, `isUndefined`, `isSymbol`;
 - maybe: `maybeArray`, `maybeFn`, `maybeEmptyArray`;
 - wrap: `not`,`id`, `returns`;

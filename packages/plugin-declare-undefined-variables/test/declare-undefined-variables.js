@@ -277,3 +277,11 @@ test('putout: plugin: declare-undefined-variables: table', (t) => {
     `);
     t.end();
 });
+
+test('putout: plugin: declare-undefined-variables: node-js: process', (t) => {
+    t.transformCode(`cwd();`, montag`
+        import {cwd} from 'process';
+        cwd();
+    `);
+    t.end();
+});
