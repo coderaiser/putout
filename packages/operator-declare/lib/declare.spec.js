@@ -6,7 +6,7 @@ const montag = require('montag');
 
 const {declare} = require('./declare.js');
 
-test('putout: plugin: declare-undefined-variables: declare', (t) => {
+test('putout: operator: declare: declare', (t) => {
     const declarations = {
         operator: `import {operator} from 'putout'`,
     };
@@ -26,7 +26,7 @@ test('putout: plugin: declare-undefined-variables: declare', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: declare: spread', (t) => {
+test('putout: operator: declare: declare: spread', (t) => {
     const declarations = {
         maybeArray: `const maybeArray = (a) => isArray(a) ? a : [a]`,
     };
@@ -46,7 +46,7 @@ test('putout: plugin: declare-undefined-variables: declare: spread', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: declare: variable', (t) => {
+test('putout: operator: declare: declare: variable', (t) => {
     const declarations = {
         operator: `import {operator} from 'putout'`,
         getTemplateValues: `const {getTemplateValues} = operator`,
@@ -84,7 +84,7 @@ test('putout: plugin: declare-undefined-variables: declare: variable', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: cache', (t) => {
+test('putout: operator: declare: cache', (t) => {
     const declarations = {
         test: `import {test} from 'supertape'`,
         stub: `import {stub} from 'supertape'`,
@@ -106,7 +106,7 @@ test('putout: plugin: declare-undefined-variables: cache', (t) => {
     });
     
     const expected = montag`
-        import {stub, test} from 'supertape';
+        import {test, stub} from 'supertape';
         test('', (t) => {
             const fn = stub();
             fn();
@@ -118,7 +118,7 @@ test('putout: plugin: declare-undefined-variables: cache', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: strict mode', (t) => {
+test('putout: operator: declare: strict mode', (t) => {
     const declarations = {
         test: `import {test} from 'supertape'`,
         stub: `import {stub} from 'supertape'`,
@@ -143,7 +143,7 @@ test('putout: plugin: declare-undefined-variables: strict mode', (t) => {
     
     const expected = montag`
         'use strict';
-        import {stub, test} from 'supertape';
+        import {test, stub} from 'supertape';
         
         test('', (t) => {
             const fn = stub();
@@ -156,7 +156,7 @@ test('putout: plugin: declare-undefined-variables: strict mode', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: VariableDeclaration', (t) => {
+test('putout: operator: declare: VariableDeclaration', (t) => {
     const declarations = {
         mockImport: `const {mockImport} = createMockImport(import.meta.url)`,
         reImport: `const {reImport} = createMockImport(import.meta.url)`,
@@ -204,7 +204,7 @@ test('putout: plugin: declare-undefined-variables: VariableDeclaration', (t) => 
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: ImportDeclaration', (t) => {
+test('putout: operator: declare: ImportDeclaration', (t) => {
     const declarations = {
         assign: `const {assign} = Object`,
     };
@@ -241,7 +241,7 @@ test('putout: plugin: declare-undefined-variables: ImportDeclaration', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: dismiss', (t) => {
+test('putout: operator: declare: dismiss', (t) => {
     const declarations = {
         assign: `const {assign} = Object`,
     };
@@ -272,7 +272,7 @@ test('putout: plugin: declare-undefined-variables: dismiss', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: options', (t) => {
+test('putout: operator: declare: options', (t) => {
     const declarations = {
         assign: `const {assign} = Object`,
     };
@@ -314,7 +314,7 @@ test('putout: plugin: declare-undefined-variables: options', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: vars', (t) => {
+test('putout: operator: declare: vars', (t) => {
     const declarations = {
         maybeArray: `const maybeArray = (a) => isArray(a) ? a : [a]`,
         maybeFn: `const maybeFn = (a) => isFn(a) ? a : noop`,
@@ -339,8 +339,8 @@ test('putout: plugin: declare-undefined-variables: vars', (t) => {
     });
     
     const expected = montag`
-        const maybeFn = a => isFn(a) ? a : noop;
         const maybeArray = a => isArray(a) ? a : [a];
+        const maybeFn = a => isFn(a) ? a : noop;
         const b = [
             ...maybeArray(a),
             maybeFn(b),
@@ -351,7 +351,7 @@ test('putout: plugin: declare-undefined-variables: vars', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: dual: commonjs', (t) => {
+test('putout: operator: declare: dual: commonjs', (t) => {
     const declarations = {
         simport: {
             esm: 'const simport = createSimport(import.meta.url)',
@@ -383,7 +383,7 @@ test('putout: plugin: declare-undefined-variables: dual: commonjs', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: esm for commonjs', (t) => {
+test('putout: operator: declare: esm for commonjs', (t) => {
     const declarations = {
         simport: {
             esm: 'const simport = createSimport(import.meta.url)',
@@ -413,7 +413,7 @@ test('putout: plugin: declare-undefined-variables: esm for commonjs', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: esm for esm', (t) => {
+test('putout: operator: declare: esm for esm', (t) => {
     const declarations = {
         simport: {
             esm: 'const simport = createSimport(import.meta.url)',
@@ -446,7 +446,7 @@ test('putout: plugin: declare-undefined-variables: esm for esm', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: dual: esm', (t) => {
+test('putout: operator: declare: dual: esm', (t) => {
     const declarations = {
         simport: {
             esm: 'const simport = createSimport(import.meta.url)',
@@ -480,7 +480,7 @@ test('putout: plugin: declare-undefined-variables: dual: esm', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: MemberExpression', (t) => {
+test('putout: operator: declare: MemberExpression', (t) => {
     const declarations = {
         __c4: 'const {__c4} = global',
     };
@@ -512,3 +512,30 @@ test('putout: plugin: declare-undefined-variables: MemberExpression', (t) => {
     t.end();
 });
 
+test('putout: operator: declare: imports order', (t) => {
+    const declarations = {
+        operator: `import {operator} from 'putout'`,
+        readFile: `import {readFile} from 'fs/promises'`,
+    };
+    
+    const source = montag`
+        readFile();
+        operator();
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['declare-undefined-variables', declare(declarations)],
+        ],
+    });
+    
+    const expected = montag`
+        import {readFile} from 'fs/promises';
+        import {operator} from 'putout';
+        readFile();
+        operator();
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

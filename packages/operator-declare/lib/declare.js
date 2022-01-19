@@ -2,6 +2,7 @@
 
 const {types, template} = require('putout');
 const {isESM} = require('@putout/operate');
+const {compare} = require('@putout/compare');
 
 const {
     addDeclarationForESLint,
@@ -17,6 +18,10 @@ const {
 
 const {keys} = Object;
 const isString = (a) => typeof a === 'string';
+
+const getLastImportPath = (bodyPath) => bodyPath.filter(isImportDeclaration).pop();
+const getLastVarPath = (bodyPath) => bodyPath.filter(isVariableDeclaration).pop();
+const isLast = (insertionPath, bodyPath) => bodyPath[bodyPath.length - 1] === insertionPath;
 
 const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
 const cutName = (a) => a.split('.').shift();
@@ -84,27 +89,7 @@ const fix = (declarations) => (path, {options}) => {
     const bodyPath = programPath.get('body');
     const node = template.ast.fresh(code);
     
-    for (const currentPath of bodyPath) {
-        if (isUseStrict(currentPath)) {
-            continue;
-        }
-        
-        if (isImportDeclaration(node)) {
-            currentPath.insertBefore(node);
-            break;
-        }
-        
-        if (currentPath.isVariableDeclaration() && bodyPath.length !== bodyPath.filter(isVariableDeclaration).length) {
-            continue;
-        }
-        
-        if (currentPath.isImportDeclaration()) {
-            continue;
-        }
-        
-        currentPath.insertBefore(node);
-        break;
-    }
+    insert(node, bodyPath);
     
     crawl(path);
     addDeclarationForESLint(name, path);
@@ -129,4 +114,40 @@ const parseCode = (name, type, current) => {
     
     return result;
 };
+
+function getInsertionPath(node, bodyPath) {
+    const lastImportPath = getLastImportPath(bodyPath);
+    const lastVarPath = getLastVarPath(bodyPath);
+    
+    if ((isImportDeclaration(node) || isRequire(node)) && lastImportPath) {
+        return lastImportPath;
+    }
+    
+    if (isVariableDeclaration(node) && lastVarPath)
+        return lastVarPath;
+    
+    if (isVariableDeclaration(node) && lastImportPath)
+        return lastImportPath;
+    
+    return null;
+}
+
+const isRequire = (node) => compare(node, 'const __a = require(__b)');
+
+function insert(node, bodyPath) {
+    const insertionPath = getInsertionPath(node, bodyPath);
+    const [first] = bodyPath;
+    const notRequire = !isRequire(node) && !isRequire(insertionPath);
+    
+    if (!insertionPath && isUseStrict(first))
+        return first.insertAfter(node);
+    
+    if (!insertionPath && !isUseStrict(first))
+        return first.insertBefore(node);
+    
+    if (notRequire && insertionPath.isVariableDeclaration() && isLast(insertionPath, bodyPath))
+        return insertionPath.insertBefore(node);
+    
+    return insertionPath.insertAfter(node);
+}
 
