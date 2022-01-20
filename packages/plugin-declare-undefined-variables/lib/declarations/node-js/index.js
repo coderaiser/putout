@@ -10,6 +10,7 @@ module.exports = {
     ...require('./os'),
     ...require('./zlib'),
     ...require('./url'),
+    ...require('./util'),
     ...require('./child_process'),
 };
 

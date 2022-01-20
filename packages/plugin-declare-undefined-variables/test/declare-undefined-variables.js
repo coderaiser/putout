@@ -257,6 +257,14 @@ test('putout: plugin: declare-undefined-variables: nodejs: url', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: nodejs: util', (t) => {
+    t.transformCode(`promisify(fn);`, montag`
+        import {promisify} from 'util';
+        promisify(fn);
+    `);
+    t.end();
+});
+
 test('putout: plugin: declare-undefined-variables: readFixture', (t) => {
     t.transform(`fixtures`);
     t.end();

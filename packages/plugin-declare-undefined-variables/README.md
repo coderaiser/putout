@@ -13,6 +13,7 @@
 - [stream](https://nodejs.org/dist/latest-v16.x/docs/api/stream.html);
 - [os](https://nodejs.org/dist/latest-v16.x/docs/api/os.html);
 - [url](https://nodejs.org/dist/latest-v16.x/docs/api/url.html);
+- [util](https://nodejs.org/dist/latest-v16.x/docs/api/util.html);
 - [zlib](https://nodejs.org/dist/latest-v16.x/docs/api/zlib.html);
 - is types: `isFn`, `isString`, `isNumber`, `isObject`, `isBool`, `isUndefined`, `isSymbol`;
 - maybe: `maybeArray`, `maybeFn`, `maybeEmptyArray`;
