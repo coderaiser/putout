@@ -1,5 +1,8 @@
 'use strict';
 
+const {readFileSync} = require('fs');
+const {join} = require('path');
+
 const test = require('supertape');
 const montag = require('montag');
 const putout = require('putout');
@@ -9,6 +12,8 @@ const {runPlugins} = require('..');
 
 const {print, types} = putout;
 const {StringLiteral} = types;
+
+const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');
 
 test('putout: runner: replace: same', (t) => {
     const addVar = {
@@ -556,13 +561,7 @@ test('putout: runner: replace: fix: crawl', (t) => {
 });
 
 test('putout: runner: replace: fix: crawl: block', (t) => {
-    const source = montag`
-        const {
-            replaceWith,
-            replaceWithMultiple
-        } = require('putout').operator;
-    `;
-    
+    const source = readFixture('crawl-block');
     const {code} = putout(source, {
         runPlugins,
         plugins: [
@@ -570,16 +569,7 @@ test('putout: runner: replace: fix: crawl: block', (t) => {
         ],
     });
     
-    const expected = montag`
-        {
-            import {operator} from 'putout';
-            
-            const {
-                replaceWith,
-                replaceWithMultiple
-            } = operator;
-        }
-    `;
+    const expected = readFixture('crawl-block-fix');
     
     t.equal(code, expected);
     t.end();
