@@ -87,7 +87,7 @@
     "@putout/plugin-convert-concat-to-flat": "^1.0.0",
     "@putout/plugin-convert-equal-to-strict-equal": "^1.0.0",
     "@putout/plugin-convert-esm-to-commonjs": "^3.0.0",
-    "@putout/plugin-convert-for-each-to-for-of": "^6.0.0",
+    "@putout/plugin-convert-for-each-to-for-of": "^7.0.0",
     "@putout/plugin-convert-for-in-to-for-of": "^2.0.0",
     "@putout/plugin-convert-for-to-for-of": "^2.0.0",
     "@putout/plugin-convert-index-of-to-includes": "^1.0.0",
