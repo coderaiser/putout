@@ -1,7 +1,5 @@
 'use strict';
 
-const fullstore = require('fullstore');
-
 const {
     operator,
     template,
@@ -26,7 +24,7 @@ const replaceWithAST = template.ast(`
     const {replaceWithMultiple} = require('putout').operate;
 `);
 
-module.exports.fix = ({path, calleePath, property, object, program, isInserted}) => {
+module.exports.fix = ({path, calleePath, property, object, program}) => {
     const strictModePath = program.get('body.0');
     const {bindings} = strictModePath.scope;
     
@@ -35,11 +33,6 @@ module.exports.fix = ({path, calleePath, property, object, program, isInserted})
     
     if (bindings.replaceWithMultiple)
         return;
-    
-    if (isInserted())
-        return;
-    
-    isInserted(true);
     
     if (!bindings.replaceWith && !bindings.insertAfter)
         return insertAfter(strictModePath, replaceWithAST);
@@ -63,32 +56,27 @@ function getVarPath(bindings) {
     return insertAfter.path;
 }
 
-module.exports.traverse = ({push}) => {
-    const isInserted = fullstore();
-    
-    return {
-        CallExpression(path) {
-            const calleePath = path.get('callee');
-            
-            if (!calleePath.isMemberExpression())
-                return;
-            
-            const {object, property} = calleePath.node;
-            
-            if (property.name !== 'replaceWithMultiple')
-                return;
-            
-            const program = path.findParent((path) => path.isProgram());
-            
-            push({
-                isInserted,
-                path,
-                object,
-                program,
-                calleePath,
-                property,
-            });
-        },
-    };
-};
+module.exports.traverse = ({push}) => ({
+    CallExpression(path) {
+        const calleePath = path.get('callee');
+        
+        if (!calleePath.isMemberExpression())
+            return;
+        
+        const {object, property} = calleePath.node;
+        
+        if (property.name !== 'replaceWithMultiple')
+            return;
+        
+        const program = path.findParent((path) => path.isProgram());
+        
+        push({
+            path,
+            object,
+            program,
+            calleePath,
+            property,
+        });
+    },
+});
 
