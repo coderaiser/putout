@@ -573,7 +573,7 @@ test('putout: runner: replace: fix: crawl: block', (t) => {
     const expected = montag`
         {
             import {operator} from 'putout';
-
+            
             const {
                 replaceWith,
                 replaceWithMultiple
