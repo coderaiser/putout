@@ -1,5 +1,7 @@
 'use strict';
 
+const declareUndefinedVariables = require('@putout/plugin-declare-undefined-variables');
+
 const {createTest} = require('@putout/test');
 const {declare} = require('@putout/plugin-tape').rules;
 
@@ -35,8 +37,10 @@ test('merge duplicate imports: transform: namespace', (t) => {
     t.end();
 });
 
-test('merge duplicate imports: transform: import-type', (t) => {
-    t.transform('import-type');
+test('merge duplicate imports: transform: declare', (t) => {
+    t.transform('declare', {
+        'declare-undefined-variables': declareUndefinedVariables,
+    });
     t.end();
 });
 
