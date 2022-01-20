@@ -42,6 +42,7 @@ module.exports.rules = {
     ...getWrapRule('tape-add-newline-between-tests'),
     ...getWrapRule('tape-remove-newline-before-t-end'),
     ...getRule('putout'),
+    ...getRule('remove-empty-newline-after-import'),
 };
 
 const config = require('@putout/eslint-config');
@@ -71,6 +72,7 @@ const recommended = {
         'putout/remove-newline-from-empty-object': 'error',
         'putout/remove-empty-newline-before-first-specifier': 'error',
         'putout/remove-empty-newline-after-last-specifier': 'error',
+        'putout/remove-empty-newline-after-import': 'error',
         'putout/remove-empty-specifiers': 'error',
         'putout/objects-braces-inside-array': 'error',
         'putout/object-init': 'error',

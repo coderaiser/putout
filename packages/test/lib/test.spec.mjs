@@ -3,6 +3,7 @@ import removeConsoleFixture from '../test/fixture/remove-console.js';
 import _createTest, {
     createTest,
 } from './test.mjs';
+
 import cjsTest from './test.js';
 
 const test = createTest(import.meta.url, {

@@ -9,22 +9,23 @@ This rule aims to shorten destructuring of one property.
 Examples of **incorrect** code for this rule:
 
 ```js
+import {
+    password,
+} from './user.js';
+
 const {
     username,
 } = user;
 
-import {
-    password,
-} from './user.js';
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-const {username} = user;
 import {password} from './user.js';
-
 import {
     helloWorld as simpleHello,
 } from './hello.js';
+
+const {username} = user;
 ```

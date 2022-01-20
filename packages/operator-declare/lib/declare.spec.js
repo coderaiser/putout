@@ -628,3 +628,46 @@ test('putout: operator: declare: local import', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operator: declare: couple imports', (t) => {
+    const declarations1 = {
+        operator: `import {operator} from 'putout'`,
+    };
+    
+    const declarations2 = {
+        compare: `import {compare} from '@putout/compare'`,
+    };
+    
+    const source = montag`
+        import a from 'a';
+        
+        operator();
+        compare();
+    `;
+    
+    let {code} = putout(source, {
+        plugins: [
+            ['declare-undefined-variables', declare(declarations1)],
+        ],
+    });
+    
+    ({code} = putout(code, {
+        plugins: [
+            ['declare-undefined-variables', declare(declarations2)],
+        ],
+    }));
+    
+    const expected = montag`
+        import a from 'a';
+        
+        import {operator} from 'putout';
+        
+        import {compare} from '@putout/compare';
+        
+        operator();
+        compare();
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
