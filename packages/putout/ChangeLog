@@ -1,3 +1,51 @@
+2022.01.20, v24.2.0
+
+fix:
+- (@putout/plugin-merge-duplicate-imports) crawl: integrate with declare
+
+feature:
+- (package) @putout/plugin-remove-nested-blocks v5.0.0
+- (@putout/plugin-remove-nested-blocks) drop support of putout < 24
+- (package) @putout/plugin-putout v10.0.0
+- (@putout/plugin-putout) drop support of putout < 24.2
+- (package) @putout/plugin-merge-duplicate-imports v5.0.0
+- (@putout/plugin-merge-duplicate-imports) drop support of putout < 24
+- (package) @putout/plugin-merge-destructuring-properties v6.0.0
+- (@putout/plugin-merge-destructuring-properties) drop support of putout < 24
+- (package) @putout/plugin-extract-object-properties v7.0.0
+- (@putout/plugin-extract-object-properties) drop support of putout < 24
+- (package) @putout/plugin-convert-mock-require-to-mock-import v2.0.0
+- (@putout/plugin-convert-mock-require-to-mock-import) drop support of putout < 24
+- (package) @putout/plugin-convert-for-each-to-for-of v7.0.0
+- (@putout/plugin-convert-for-each-to-for-of) drop support of putout < 24
+- (package) @putout/plugin-convert-commonjs-to-esm v8.0.0
+- (@putout/plugin-convert-commonjs-to-esm) drop support of putout < 24
+- (package) @putout/operator-declare v3.0.0
+- (@putout/operator-declare) drop support of putout < 24
+- (@putout/engine-runner) runFix: add ability to crawl
+- (eslint-plugin-putout) add remove-empty-newline-after-import
+- (@putout/plugin-declare-undefined-variables) add nodejs util
+- (@putout/operator/declare) respect import order: locals - latest import
+- (@putout/operator-declare) import require support
+- (@putout/operator-declare) improve declarations order
+- (@putout/plugin-declare-undefined-variables) add fs
+- (@putout/plugin-declare-undefined-variables) add support of process
+- (eslint-plugin-putout) safe: disable remove-unreferenced-variables
+- (@putout/plugin-remove-nested-blocks) integrate with tape/declare: add crawling
+- (eslint-plugin-putout) safe: disable remove-useless-variables/rename
+- (@putout/operate) toExpression: improve expression check
+- (@putout/plugin-declare-undefined-variables) add support of table
+- (@putout/plugin-declare-undefined-variables) add support of chalk
+- (eslint-plugin-putout) add remove-empty-specifiers
+- (eslint-plugin-putout) add-newline-before-function-call: add support of spaces after
+- (eslint-plugin-putout) single-property-destructuring: exclude elements with comments inside
+- (@putout/plugin-convert-commonjs-to-esm) require: exclude json while not supported
+- (@putout/plugin-convert-commonjs-to-esm) require: disable import assertions while not supported
+- (package) @putout/operate v7.0.0
+- (package) @putout/operate v7.0.0
+- (package) @putout/operate v7.0.0
+
+
 2022.01.14, v24.1.0
 
 feature:
