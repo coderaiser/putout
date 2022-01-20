@@ -44,7 +44,6 @@ module.exports.fix = ({path, calleePath, property, object, program, isInserted})
         isInserted(true);
         insertAfter(pathToInsertAfter, replaceWithAST);
         
-        path.scope.getProgramParent().crawl();
         return;
     }
     

@@ -6,9 +6,14 @@ const {enabled} = debug;
 
 const tryToFix = (fix, {path, position, options}) => {
     const [e] = tryCatch(fix, path, {options});
+    const {scope} = path.path || path;
     
-    if (!e)
+    if (!e && scope)
+        scope.getProgramParent().crawl();
+    
+    if (!e) {
         return;
+    }
     
     e.loc = e.loc || position;
     

@@ -23,7 +23,6 @@ const getLastVarPath = (bodyPath) => bodyPath.filter(isVariableDeclaration).pop(
 const isLast = (insertionPath, bodyPath) => bodyPath[bodyPath.length - 1] === insertionPath;
 const isLocalImport = (path) => path.node.source.value.includes('.');
 
-const crawl = (path) => path.scope.getProgramParent().path.scope.crawl();
 const cutName = (a) => a.split('.').shift();
 const parseType = (path) => isESM(path) ? 'esm' : 'commonjs';
 
@@ -90,8 +89,6 @@ const fix = (declarations) => (path, {options}) => {
     const node = template.ast.fresh(code);
     
     insert(node, bodyPath);
-    
-    crawl(path);
     addDeclarationForESLint(name, path);
 };
 

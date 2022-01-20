@@ -22,8 +22,6 @@ module.exports.fix = ({path, places}) => {
         
         place.remove();
     }
-    
-    path.scope.crawl();
 };
 
 module.exports.traverse = ({push, store}) => {

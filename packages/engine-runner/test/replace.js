@@ -520,3 +520,67 @@ test('putout: runner: replace: fix: options', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: fix: crawl', (t) => {
+    const source = montag`
+        test('hello world', (t) => {
+            emitter.on('progress', () => {
+                t.equal(progress, 100);
+                t.end();
+            });
+        });
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            'tape',
+        ],
+    });
+    
+    const expected = montag`
+        import {test} from 'supertape';
+        
+        const {
+            once
+        } = require('events');
+        
+        test('hello world', async t => {
+            await once(emitter, 'progress');
+            t.equal(progress, 100);
+            t.end();
+        });
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: runner: replace: fix: crawl: block', (t) => {
+    const source = montag`
+        const {
+            replaceWith,
+            replaceWithMultiple
+        } = require('putout').operator;
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            'convert-commonjs-to-esm',
+        ],
+    });
+    
+    const expected = montag`
+        {
+            import {operator} from 'putout';
+
+            const {
+                replaceWith,
+                replaceWithMultiple
+            } = operator;
+        }
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

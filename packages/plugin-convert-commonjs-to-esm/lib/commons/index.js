@@ -22,8 +22,6 @@ module.exports.fix = (path) => {
     const afterImportPath = getPathAfterImports(body);
     
     afterImportPath.insertBefore(initCommons);
-    
-    programScope.crawl();
 };
 
 module.exports.include = () => [

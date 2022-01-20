@@ -1,5 +1,7 @@
 'use strict';
 
+const montag = require('montag');
+
 const tryCatch = require('try-catch');
 
 const test = require('supertape');
@@ -830,3 +832,27 @@ test('putout: runner: traverse: Program: exit + exclude', (t) => {
     t.end();
 });
 
+test('putout: runner: fix: crawl', (t) => {
+    const source = montag`
+        import {readFile} from 'fs/promises';
+        import {writeFile} from 'fs/promises';
+        
+        log(readFile, writeFile);
+    `;
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            'declare-undefined-variables',
+            'merge-duplicate-imports',
+        ],
+    });
+    
+    const expected = montag`
+        import {readFile, writeFile} from 'fs/promises';
+        
+        log(readFile, writeFile);
+    `;
+    
+    t.deepEqual(code, expected);
+    t.end();
+});

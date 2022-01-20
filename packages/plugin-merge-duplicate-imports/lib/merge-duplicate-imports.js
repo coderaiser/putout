@@ -21,8 +21,6 @@ module.exports.fix = ({path, imports}) => {
         all.push(...specifiers);
         path.remove();
     }
-    
-    path.scope.getProgramParent().crawl();
 };
 
 module.exports.traverse = ({push, listStore}) => ({

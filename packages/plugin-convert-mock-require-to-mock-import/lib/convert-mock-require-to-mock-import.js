@@ -31,8 +31,6 @@ module.exports.replace = () => ({
             endOfImportPath.insertBefore(initMockImport);
         }
         
-        programPath.scope.crawl();
-        
         return 'await reImport(__a)';
     },
 });
