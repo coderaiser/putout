@@ -77,7 +77,7 @@ Can be used to convert node to `expression` when building new nodes.
 
 Remove `node`, preserve comments.
 
-## `getPathAfterImports(body)`
+### `getPathAfterImports(body)`
 
 Get next `path` after latest `ImportDeclaration`:
 
@@ -86,7 +86,7 @@ const programPath =  path.scope.getProgramParent().path;
 const afterImportsPath = getPathAfterImports(programPath.get('body'));
 ```
 
-## `getBinding(path, name: string | Node)`
+### `getBinding(path, name: string | Node)`
 
 Get binding (declaration of variable) by name using starting from `path` and move up.
 
@@ -94,7 +94,7 @@ Get binding (declaration of variable) by name using starting from `path` and mov
 getBinding(path, 'hello');
 ```
 
-## `getBindingPath(path, name: string | Node)`
+### `getBindingPath(path, name: string | Node)`
 
 Get binding `path` by name using starting from `path` and move up.
 
@@ -110,7 +110,7 @@ module.exports.match = () => ({
 
 ```
 
-## `compute(path)`
+### `compute(path)`
 
 Computes value of expression:
 
@@ -141,15 +141,15 @@ traverse({
 });
 ```
 
-## `getExportDefault(path)`
+### `getExportDefault(path)`
 
 Get `export default` or null.
 
-## `isESM(path)`
+### `isESM(path)`
 
 Check if given source is `ESM` search for `ImportDeclaration` and `ExportDeclaration` nodes.
 
-## `getProperty(path: Path, name: string)`
+### `getProperty(path: Path, name: string)`
 
 Find property in `ObjectExpression` path:
 
@@ -157,7 +157,7 @@ Find property in `ObjectExpression` path:
 const homepagePath = getProperties(__aPath, 'homepage');
 ```
 
-## `getProperties(path: Path, names: string[])`
+### `getProperties(path: Path, names: string[])`
 
 Find properties in `ObjectExpression` path and add suffix `Path` when found:
 
