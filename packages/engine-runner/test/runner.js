@@ -708,6 +708,37 @@ test('putout: runner: debug', (t) => {
     t.end();
 });
 
+test('putout: runner: debug: replace', (t) => {
+    const {DEBUG} = process.env;
+    process.env.DEBUG = 'putout:runner:fix';
+    
+    const debugFn = stub();
+    debugFn.enabled = true;
+    const debug = stub().returns(debugFn);
+    
+    mockRequire('debug', debug);
+    reRequire('../lib/replace');
+    
+    const {runPlugins} = reRequire('..');
+    const putout = reRequire('putout');
+    
+    putout('debugger', {
+        fix: true,
+        runPlugins,
+        plugins: [
+            'remove-debugger',
+        ],
+    });
+    
+    const expected = [`debugger -> ''\n`];
+    process.env.DEBUG = DEBUG;
+    
+    stopAll();
+    
+    t.calledWith(debugFn, expected);
+    t.end();
+});
+
 test('putout: runner: babel', (t) => {
     const {code} = putout(fixture.babel, {
         runPlugins,

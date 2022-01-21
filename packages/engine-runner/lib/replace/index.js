@@ -11,9 +11,14 @@ const {
     getValues,
     setValues,
 } = require('@putout/compare');
+const debug = require('debug')('putout:runner:replace');
 
 const maybeArray = require('../maybe-array');
 const watermark = require('./watermark');
+
+const log = (from, path) => {
+    debug.enabled && debug(`${from} -> ${path}\n`);
+};
 
 const {keys, entries} = Object;
 const {stringify} = JSON;
@@ -89,8 +94,10 @@ const fix = (from, to, path) => {
     
     const nodeTo = parseTo(to, values, path);
     
-    if (!nodeTo)
+    if (!nodeTo) {
+        log(from, `''`);
         return remove(path);
+    }
     
     const waysTo = findVarsWays(nodeTo);
     const newPath = replaceWith(path, nodeTo);
@@ -105,7 +112,9 @@ const fix = (from, to, path) => {
     
     mark.add();
     path.scope.getBlockParent().crawl();
-    path.scope.getProgramParent().crawl();
+    //path.scope.getProgramParent().crawl();
+    
+    log(from, newPath);
 };
 
 const getFix = (items) => (path) => {

@@ -322,12 +322,11 @@ const places = runPlugins({
 
 To see logs, use:
 
-```sh
-DEBUG=putout:runner:*
-DEBUG=putout:runner:fix
-DEBUG=putout:runner:find
-DEBUG=putout:runner:template
-```
+- ✅ `DEBUG=putout:runner:*`
+- ✅ `DEBUG=putout:runner:fix`
+- ✅ `DEBUG=putout:runner:find`
+- ✅ `DEBUG=putout:runner:template`
+- ✅ `DEBUG=putout:runner:replace`
 
 ## License
 
