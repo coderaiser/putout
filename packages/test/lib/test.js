@@ -18,15 +18,13 @@ const isString = (a) => typeof a === 'string';
 const {isArray} = Array;
 const {keys, entries} = Object;
 
-const {UPDATE} = process.env;
-global.__putout_test_update = UPDATE;
 global.__putout_test_fs = {
     readFileSync,
     writeFileSync,
     existsSync,
 };
 
-const isUpdate = () => UPDATE || global.__putout_test_update;
+const isUpdate = () => Boolean(Number(process.env.UPDATE));
 
 const TS = {
     ENABLED: true,
@@ -214,6 +212,8 @@ const formatSave = currify(({dir, plugins, rules}, t) => async (formatter, name,
 });
 
 const transform = currify(({dir, plugins, rules}, t, name, transformed = null, addons = {}) => {
+    const {writeFileSync} = global.__putout_test_fs;
+    
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
     const isStr = isString(transformed);
@@ -234,13 +234,15 @@ const transform = currify(({dir, plugins, rules}, t, name, transformed = null, a
         }],
     });
     
-    if (isUpdate())
+    if (isUpdate() && !isStr) {
         writeFileSync(`${full}-fix.js`, code);
+    }
     
     return t.equal(code, output);
 });
 
 const transformWithOptions = currify(({dir, plugins}, t, name, options) => {
+    const {writeFileSync} = global.__putout_test_fs;
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
     

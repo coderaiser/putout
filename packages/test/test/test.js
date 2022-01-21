@@ -100,22 +100,66 @@ test('test: transform: rule of a plugin', (t) => {
     test('transform: with UPDATE env variable', (t) => {
         const {UPDATE} = process.env;
         process.env.UPDATE = 1;
+        const {writeFileSync} = global.__putout_test_fs;
+        
+        const writeFileSyncStub = stub();
+        global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+        
+        t.transform('typescript');
+        
+        process.env.UPDATE = UPDATE;
+        global.__putout_test_fs.writeFileSync = writeFileSync;
+        
+        t.ok(writeFileSyncStub.called, 'should write fixture');
+        t.end();
+    }, {checkAssertionsCount: false});
+    
+    test('transform: with UPDATE env variable: with arg', (t) => {
+        const {UPDATE} = process.env;
+        process.env.UPDATE = 1;
+        const {writeFileSync} = global.__putout_test_fs;
+        
+        const writeFileSyncStub = stub();
+        global.__putout_test_fs.writeFileSync = writeFileSyncStub;
         
         t.transform('typescript', '\n');
         
         process.env.UPDATE = UPDATE;
+        global.__putout_test_fs.writeFileSync = writeFileSync;
         
-        t.ok(writeFileSyncStub.called);
+        t.notOk(writeFileSyncStub.called, 'should not write fixture');
+        t.end();
+    }, {checkAssertionsCount: false});
+    
+    test('noTransform: with UPDATE env variable', (t) => {
+        const {UPDATE} = process.env;
+        process.env.UPDATE = 1;
+        const {writeFileSync} = global.__putout_test_fs;
+        
+        const writeFileSyncStub = stub();
+        global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+        
+        t.noTransform('const');
+        
+        process.env.UPDATE = UPDATE;
+        global.__putout_test_fs.writeFileSync = writeFileSync;
+        
+        t.notOk(writeFileSyncStub.called, 'should not write fixture');
         t.end();
     }, {checkAssertionsCount: false});
     
     test('transformWithOptions: with UPDATE env variable', (t) => {
         const {UPDATE} = process.env;
         process.env.UPDATE = 1;
+        const {writeFileSync} = global.__putout_test_fs;
         
-        t.transformWithOptions('typescript', {});
+        const writeFileSyncStub = stub();
+        global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+        
+        t.transformWithOptions('const', {});
         
         process.env.UPDATE = UPDATE;
+        global.__putout_test_fs.writeFileSync = writeFileSync;
         
         t.ok(writeFileSyncStub.called);
         t.end();
