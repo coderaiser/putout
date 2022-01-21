@@ -1,7 +1,7 @@
 import {operator} from 'putout';
 
 const {
-  compare
+  compareAny
 } = operator;
 
 const {
@@ -9,7 +9,7 @@ const {
 } = operator;
 
 const {
-  compareAny
+  compare
 } = operator;
 
 compare(a, b);

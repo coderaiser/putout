@@ -2,12 +2,12 @@
 import {Readable} from 'stream';
 
 const {
-    stringify
-} = JSON;
-
-const {
     assign
 } = Object;
+
+const {
+    stringify
+} = JSON;
 
 test('cloudcmd: route: content length', async (t) => {
     const path = '';

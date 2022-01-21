@@ -1,13 +1,13 @@
-const maybeArray = a => isArray(a) ? a : [a];
-const maybeEmptyArray = a => !a ? [] : a;
-const maybeFn = a => isFn(a) ? a : noop;
+const noop = () => {};
+const isFn = a => typeof a === 'function';
 
 const {
     isArray
 } = Array;
 
-const isFn = a => typeof a === 'function';
-const noop = () => {};
+const maybeFn = a => isFn(a) ? a : noop;
+const maybeEmptyArray = a => !a ? [] : a;
+const maybeArray = a => isArray(a) ? a : [a];
 fn([
     maybeArray(b),
     maybeEmptyArray(c),

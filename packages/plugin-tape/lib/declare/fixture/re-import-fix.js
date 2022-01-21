@@ -3,7 +3,7 @@ import {readFile} from 'fs/promises';
 import {createMockImport} from 'mock-import';
 
 const {
-  reImport
+  stopAll
 } = createMockImport(import.meta.url);
 
 const {
@@ -11,7 +11,7 @@ const {
 } = createMockImport(import.meta.url);
 
 const {
-  stopAll
+  reImport
 } = createMockImport(import.meta.url);
 
 await reImport('hello');

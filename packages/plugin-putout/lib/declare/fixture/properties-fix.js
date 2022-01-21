@@ -1,11 +1,11 @@
 import {operator} from 'putout';
 
 const {
-  getProperty
+  getProperties
 } = operator;
 
 const {
-  getProperties
+  getProperty
 } = operator;
 
 getProperty();

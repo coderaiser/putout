@@ -11,8 +11,6 @@ const {
     ObjectProperty,
     isBlockStatement,
     isFunction,
-    isObjectPattern,
-    isIdentifier,
     isLabeledStatement,
 } = types;
 
@@ -67,11 +65,6 @@ const traverse = (args) => ({push, options}) => {
                 if (!isFunction(path.scope.block))
                     continue;
                 
-                const {params} = path.scope.block;
-                
-                if (params.length && has(name, params[0]))
-                    continue;
-                
                 if (!compareAny(path.scope.path.parentPath, pattern))
                     continue;
                 
@@ -84,18 +77,6 @@ const traverse = (args) => ({push, options}) => {
         },
     };
 };
-
-function has(name, node) {
-    if (!isObjectPattern(node))
-        return false;
-    
-    for (const {key, value} of node.properties) {
-        if (isIdentifier(key, {name}) || isIdentifier(value, {name}))
-            return true;
-    }
-    
-    return false;
-}
 
 function createProperty(node) {
     if (!isLabeledStatement(node)) {

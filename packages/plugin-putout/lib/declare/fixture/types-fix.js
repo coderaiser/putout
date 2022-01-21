@@ -1,15 +1,7 @@
 import {types} from 'putout';
 
 const {
-  isArrayExpression
-} = types;
-
-const {
-  isCallExpression
-} = types;
-
-const {
-  isIdentifier
+  isStringLiteral
 } = types;
 
 const {
@@ -17,7 +9,15 @@ const {
 } = types;
 
 const {
-  isStringLiteral
+  isIdentifier
+} = types;
+
+const {
+  isCallExpression
+} = types;
+
+const {
+  isArrayExpression
 } = types;
 
 isArrayExpression(node);

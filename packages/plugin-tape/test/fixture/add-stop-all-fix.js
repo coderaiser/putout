@@ -3,7 +3,7 @@ import {test} from 'supertape';
 import {createMockImport} from 'mock-import';
 
 const {
-    reImport
+    stopAll
 } = createMockImport(import.meta.url);
 
 const {
@@ -11,7 +11,7 @@ const {
 } = createMockImport(import.meta.url);
 
 const {
-    stopAll
+    reImport
 } = createMockImport(import.meta.url);
 
 test('test: remove', async (t) => {

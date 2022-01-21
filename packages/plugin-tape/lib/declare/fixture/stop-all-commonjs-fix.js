@@ -1,7 +1,6 @@
-const mockRequire = require('mock-require');
-
 const {
   stopAll
 } = mockRequire;
 
+const mockRequire = require('mock-require');
 stopAll();

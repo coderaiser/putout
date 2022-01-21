@@ -1,9 +1,10 @@
 import a1 from 'b';
-const a = require('x');
 
 const {
     assign
 } = Object;
+
+const a = require('x');
 
 function hello() {
     assign('xxx');

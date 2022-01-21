@@ -182,7 +182,7 @@ test('putout: operator: declare: VariableDeclaration', (t) => {
             import {createMockImport} from 'mock-import';
             
             const {
-              reImport
+              stopAll
             } = createMockImport(import.meta.url);
             
             const {
@@ -190,7 +190,7 @@ test('putout: operator: declare: VariableDeclaration', (t) => {
             } = createMockImport(import.meta.url);
             
             const {
-              stopAll
+              reImport
             } = createMockImport(import.meta.url);
             
             await reImport('hello');
@@ -226,11 +226,12 @@ test('putout: operator: declare: ImportDeclaration', (t) => {
     
     const expected = montag`
         import a1 from 'b';
-        const a = require('x');
         
         const {
             assign
         } = Object;
+        
+        const a = require('x');
         
         function hello() {
             assign('xxx');
@@ -299,11 +300,12 @@ test('putout: operator: declare: options', (t) => {
     
     const expected = montag`
         import a1 from 'b';
-        const a = require('x');
         
         const {
             assign
         } = Object;
+        
+        const a = require('x');
         
         function hello() {
             assign('xxx');
@@ -570,14 +572,16 @@ test('putout: operator: declare: vars order', (t) => {
 
 test('putout: operator: declare: require', (t) => {
     const declarations = {
-        cwd: `const {cwd} = require('process')`,
+        process: `const process = require('process')`,
+        fs: `const fs = require('fs')`,
     };
     
     const source = montag`
         const a = 5;
         
-        function hello() {
-            return cwd();
+        async function hello() {
+            await fs.readFile(a);
+            return process.cwd();
         }
     `;
     
@@ -588,14 +592,13 @@ test('putout: operator: declare: require', (t) => {
     });
     
     const expected = montag`
-        const {
-            cwd
-        } = require('process');
-        
+        const process = require('process');
+        const fs = require('fs');
         const a = 5;
         
-        function hello() {
-            return cwd();
+        async function hello() {
+            await fs.readFile(a);
+            return process.cwd();
         }
     `;
     
@@ -666,6 +669,35 @@ test('putout: operator: declare: couple imports', (t) => {
         
         operator();
         compare();
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: operator: declare: couple consts', (t) => {
+    const declarations1 = {
+        maybeArray: 'const maybeArray = (a) => isArray(a) ? a : [a]',
+        isArray: 'const {isArray} = Array',
+    };
+    
+    const source = montag`
+        maybeArray(x);
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['declare-undefined-variables', declare(declarations1)],
+        ],
+    });
+    
+    const expected = montag`
+        const {
+          isArray
+        } = Array;
+        
+        const maybeArray = a => isArray(a) ? a : [a];
+        maybeArray(x);
     `;
     
     t.equal(code, expected);

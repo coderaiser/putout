@@ -19,10 +19,6 @@ const getForOfLoop = template(`for (const LEFT of RIGHT) BODY`);
 const assignIterable = (__i) => `const __a = __b[${__i.name}]`;
 const assignN = (__n) => `const ${__n.name} = __e.length`;
 
-const hasReferences = (path) => keys(path.get('init.declarations.0.id').scope.references).length;
-
-const {keys} = Object;
-
 module.exports.filter = (path) => {
     const {node} = path;
     const prevPath = path.getPrevSibling();
@@ -44,12 +40,7 @@ module.exports.filter = (path) => {
     if (!comparePrevSiblings(path, assignN(__n)))
         return false;
     
-    const bindings = path.scope.bindings[__i.name];
-    
-    if (!bindings && !hasReferences(path))
-        return true;
-    
-    const {references} = bindings;
+    const {references} = path.scope.bindings[__i.name];
     
     if (references > 3)
         return false;

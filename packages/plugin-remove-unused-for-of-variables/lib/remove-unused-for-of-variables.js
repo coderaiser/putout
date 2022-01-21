@@ -96,9 +96,6 @@ function isAllReferenced(path, array) {
     for (const {name} of array) {
         const current = bindings[name];
         
-        if (!current)
-            continue;
-        
         if (!current.referenced)
             return false;
     }
