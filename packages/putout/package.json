@@ -159,7 +159,7 @@
     "@putout/plugin-split-nested-destructuring": "^1.0.0",
     "@putout/plugin-split-variable-declarations": "^2.0.0",
     "@putout/plugin-strict-mode": "^2.0.0",
-    "@putout/plugin-tape": "^7.0.0",
+    "@putout/plugin-tape": "^8.0.0",
     "@putout/plugin-typescript": "^1.0.0",
     "@putout/plugin-webpack": "^1.0.0",
     "@putout/processor-css": "^3.0.0",
