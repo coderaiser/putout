@@ -2011,7 +2011,7 @@ const {
 
 ### Operator
 
-When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, please use `operator` instead of `path`-methods.
+When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, please use [`operator`](https://github.com/coderaiser/putout/tree/master/packages/operate#readme) instead of `path`-methods.
 
 ```js
 const {template, operator} = require('putout');
