@@ -137,11 +137,15 @@ function splitPlugins(plugins, {template}) {
     for (const item of plugins) {
         const {plugin} = item;
         
-        if (plugin.find)
+        if (plugin.find) {
             pluginsFind.push(item);
+            continue;
+        }
         
-        if (plugin.traverse)
+        if (plugin.traverse) {
             pluginsTraverse.push(item);
+            continue;
+        }
         
         if (plugin.replace) {
             pluginsTraverse.push(include(replace(item, {

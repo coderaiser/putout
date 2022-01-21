@@ -887,3 +887,72 @@ test('putout: runner: fix: crawl', (t) => {
     t.deepEqual(code, expected);
     t.end();
 });
+
+test('putout: runner: duplication: traverse + include', (t) => {
+    const duplicator = {
+        report: () => '',
+        include: () => 'debugger',
+        traverse: ({push}) => ({
+            debugger: push,
+        }),
+    };
+    
+    const code = 'debugger';
+    
+    const {places} = putout(code, {
+        runPlugins,
+        fix: false,
+        plugins: [
+            ['duplicator', duplicator],
+        ],
+    });
+    
+    const expected = [{
+        message: '',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'duplicator',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
+test('putout: runner: duplication: find + traverse', (t) => {
+    const duplicator = {
+        report: () => '',
+        include: () => 'debugger',
+        find: (ast, {traverse, push}) => {
+            traverse(ast, {
+                DebuggerStatement: push,
+            });
+        },
+        traverse: ({push}) => ({
+            debugger: push,
+        }),
+    };
+    
+    const code = 'debugger';
+    
+    const {places} = putout(code, {
+        runPlugins,
+        fix: false,
+        plugins: [
+            ['duplicator', duplicator],
+        ],
+    });
+    
+    const expected = [{
+        message: '',
+        position: {
+            column: 0,
+            line: 1,
+        },
+        rule: 'duplicator',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
