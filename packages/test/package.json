@@ -15,7 +15,8 @@
       "import": "./lib/test.mjs"
     },
     "./processor": "./lib/processor/index.js",
-    "./formatter": "./lib/formatter/index.mjs"
+    "./formatter": "./lib/formatter/index.mjs",
+    "./eslint": "./lib/eslint/eslint.mjs"
   },
   "release": false,
   "tag": false,
@@ -39,7 +40,8 @@
     "currify": "^4.0.0",
     "putout": "*",
     "supertape": "^6.0.0",
-    "try-catch": "^3.0.0"
+    "try-catch": "^3.0.0",
+    "try-to-catch": "^3.0.0"
   },
   "keywords": [
     "putout",

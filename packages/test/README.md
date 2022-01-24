@@ -255,6 +255,64 @@ test('test: declared', (t) => {
 });
 ```
 
+## ESLint API
+
+First you need to create test with:
+
+```js
+import {createTest} from '@putout/test/eslint';
+const test = createTest(import.meta.url);
+```
+
+### `process(filename [, config])`
+
+Example:
+
+```js
+test('test: eslint: transform', async ({process}) => {
+    await process('operator-linebreak');
+});
+
+test('test: eslint: transform', async ({process}) => {
+    await process('operator-linebreak', {
+        rules: {
+            'putout/putout': {
+                rules: {
+                    'convert-esm-to-commonjs': 'on',
+                },
+            },
+        },
+    });
+});
+```
+
+### `noProcess(filename)`
+
+Check that filename would not be processed.
+
+Example:
+
+```js
+test('test: eslint: noProcess', async ({noProcess}) => {
+    await noProcess('operator-linebreak-fix');
+});
+```
+
+### `comparePlaces(filename, places)`
+
+```js
+test('eslint-config: operator-line-break', async ({comparePlaces}) => {
+    await comparePlaces('operator-linebreak', [{
+        "message": "There should be no line break before or after '='.",
+        "position": {
+            "column": 1,
+            "line": 2,
+        },
+        "rule": "operator-linebreak (eslint)",
+    }]);
+});
+```
+
 ## Processors API
 
 With `processors api` you can test `processors` in a simplest possible way.
