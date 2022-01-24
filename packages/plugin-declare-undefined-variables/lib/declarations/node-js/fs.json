@@ -93,11 +93,8 @@
     "WriteStream": "import {WriteStream} from 'fs'",
     "FileReadStream": "import {FileReadStream} from 'fs'",
     "FileWriteStream": "import {FileWriteStream} from 'fs'",
-    "_toUnixTimestamp": "import {_toUnixTimestamp} from 'fs'",
     "F_OK": "import {F_OK} from 'fs'",
     "R_OK": "import {R_OK} from 'fs'",
     "W_OK": "import {W_OK} from 'fs'",
-    "X_OK": "import {X_OK} from 'fs'",
-    "constants": "import {constants} from 'fs'",
-    "promises": "import {promises} from 'fs'"
+    "X_OK": "import {X_OK} from 'fs'"
 }

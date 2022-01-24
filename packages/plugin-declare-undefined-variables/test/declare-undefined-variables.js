@@ -293,3 +293,8 @@ test('putout: plugin: declare-undefined-variables: node-js: process', (t) => {
     `);
     t.end();
 });
+
+test('putout: plugin: declare-undefined-variables: node-js: no transform', (t) => {
+    t.noTransformCode(`promises.filter();`);
+    t.end();
+});

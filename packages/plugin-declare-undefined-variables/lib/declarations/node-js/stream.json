@@ -10,6 +10,5 @@
     "finished": "import {finished} from 'stream'",
     "destroy": "import {destroy} from 'stream'",
     "compose": "import {compose} from 'stream'",
-    "promises": "import {promises} from 'stream'",
     "Stream": "import {Stream} from 'stream'"
 }
