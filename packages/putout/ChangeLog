@@ -1,3 +1,16 @@
+2022.01.24, v24.2.2
+
+fix:
+- (@putout/plugin-declare-undefined-variables) node-js: exclude "promises" as it is to general
+- (@putout/engine-runner) avoid duplication of plugins
+
+feature:
+- (package) @putout/plugin-convert-esm-to-commonjs v4.0.0
+- (@putout/plugin-convert-esm-to-commonjs) drop support of putout < 24
+- (@putout/plugin-convert-esm-to-commonjs) Commonjs -> CommonJS
+- (@putout/engine-runner) add ability to debug with "putout:runner:replace"
+
+
 2022.01.21, v24.2.1
 
 fix:
