@@ -20,6 +20,11 @@
         "dot-notation": "error",
         "eol-last": ["error", "always"],
         "func-call-spacing": "error",
+        "operator-linebreak": ["error", "before", {
+            "overrides": {
+                "=": "none"
+            }
+        }],
         "function-paren-newline": ["error", "multiline-arguments"],
         "key-spacing": "error",
         "space-infix-ops": ["error", {

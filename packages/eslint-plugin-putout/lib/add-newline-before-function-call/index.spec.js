@@ -106,12 +106,12 @@ ruleTester.run('add-newline-before-function-call', rule, {
             });
         `,
         output:
-            `test('hello: world', (t) => {\n` +
-            '    const a = 5;\n' +
-            '    const b = 4;\n' +
-            '    \n' +
-            'hello();\n' +
-            '});',
+            `test('hello: world', (t) => {\n`
+            + '    const a = 5;\n'
+            + '    const b = 4;\n'
+            + '    \n'
+            + 'hello();\n'
+            + '});',
         
         errors: [{
             message: 'Add newline before expression',
@@ -128,14 +128,14 @@ ruleTester.run('add-newline-before-function-call', rule, {
             });
         `,
         output:
-            `test('hello: world', (t) => {\n` +
-            '    if (m) {\n' +
-            '        const a = 5;\n' +
-            '        const b = 4;\n' +
-            '        \n' +
-            'hello();\n' +
-            '    }\n' +
-            '});',
+            `test('hello: world', (t) => {\n`
+            + '    if (m) {\n'
+            + '        const a = 5;\n'
+            + '        const b = 4;\n'
+            + '        \n'
+            + 'hello();\n'
+            + '    }\n'
+            + '});',
         errors: [{
             message: 'Add newline before expression',
             type: 'CallExpression',

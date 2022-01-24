@@ -188,7 +188,6 @@ type SuperType = {
 type SuperType = Type;
 ```
 
-
 ### remove-useless-mapping-modifiers
 
 Remove useless [mapping modifiers](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#mapping-modifiers).
@@ -208,7 +207,6 @@ type SuperType = {
     [Key in keyof Type]?: Type[Key];
 };
 ```
-
 
 ### remove-duplicate-interface-keys
 

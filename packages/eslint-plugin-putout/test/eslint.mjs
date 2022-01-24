@@ -1,4 +1,5 @@
-import {test} from './test-lint.mjs';
+import {createTest} from '@putout/test/eslint';
+const test = createTest(import.meta.url);
 
 test('eslint-plugin-putout: no-resolve: places', async ({comparePlaces}) => {
     await comparePlaces('no-unresolved-message', [{

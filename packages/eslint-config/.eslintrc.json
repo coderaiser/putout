@@ -1,0 +1,15 @@
+{
+    "rules": {
+        "node/no-missing-import": "off"
+    },
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:eslint-plugin/recommended",
+        "plugin:putout/safe+align"
+    ],
+    "plugins": [
+        "eslint-plugin",
+        "node",
+        "putout"
+    ]
+}
