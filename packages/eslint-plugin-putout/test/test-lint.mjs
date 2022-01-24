@@ -24,7 +24,7 @@ const read = async (name) => {
 };
 
 export const test = extend({
-    process: (operator) => async (name) => {
+    process: (operator) => async (name, override) => {
         const full = join(fixtureDir, name);
         const [resolvedName, code] = await read(full);
         const [, fixture] = await read(`${full}-fix`);
@@ -34,7 +34,10 @@ export const test = extend({
             name: resolvedName,
             code,
             fix,
-            config,
+            config: {
+                ...config,
+                ...override,
+            },
         });
         
         return operator.equal(source, fixture);
