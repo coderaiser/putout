@@ -24,8 +24,8 @@
 - [🤷‍♂️ Why does this project exist?](#%EF%B8%8F-why-does-this-project-exist)
 - [🚚 Installation](#-installation)
 - [🎙 Usage](#usage)
-- [🤷‍♂️ What is `Ruler`?](#%EF%B8%8F-what-is-ruler)
-- [🤷‍♂️ How `Ruler` can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
+- [📐 What is `Ruler`?](#%EF%B8%8F-what-is-ruler)
+- [✂️ How `Ruler` can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
 - [🚁 Converting `CommonJS` to `ESM`](#-converting-commonjs-to-esm)
 - [🏛 Architecture](#-architecture)
 - [🌲 The Tree of Syntax](#-the-tree-of-syntax)
@@ -141,7 +141,7 @@ Example:
 PUTOUT_FILES=lib,test putout --fix
 ```
 
-## 🤷‍♂️ What is `Ruler`?
+## 📐 What is `Ruler`?
 
 When you need to change `.putout.json` you can do it not only editing the file, but also with help of `Ruler`.
 
@@ -153,7 +153,7 @@ When you need to change `.putout.json` you can do it not only editing the file, 
 🐊 `--fix` cannot be used with ruler toggler (`--enable`, `--disable`)
 ```
 
-## 🤷‍♂️ How `Ruler` can be helpful to me?
+## ✂️ How `Ruler` can be helpful to me?
 
 You may want to convert your [`CommonJS`](https://nodejs.org/api/modules.html) module into [`Ecma Script Modules`](https://nodejs.org/api/esm.html) since [node v12 supports it without a flag](https://nodejs.org/de/blog/release/v12.17.0/).
 
