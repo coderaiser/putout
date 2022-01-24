@@ -438,7 +438,7 @@ As you see, `places` is empty, but the code is changed: there is no `hi` variabl
 
 #### No fix
 
-From the start, `putout` was developed with ability to split the main process into two concepts: `find` (find places that could be fixed) and `fix` (apply the fixes to the files).
+From the beginning, 🐊`Putout` developed with ability to split the main process into two concepts: `find` (find places that could be fixed) and `fix` (apply the fixes to the files).
 It is therefore easy to find sections that could be fixed.
 In the following example reduntand variables are found without making changes to the source file:
 
@@ -2329,12 +2329,12 @@ const [source, places] = await eslint({
 });
 ```
 
-In a similar to 🐊`Putout` way.
+In a similar to 🐊`Putout` way. But it has a couple differences:
 
-☝️ *The only difference is 🐊`Putout` return [object with `code` and `places`](https://github.com/coderaiser/putout#plugins) properties.
-Also it has a `name` property it used by `ESLint` to calculate configuration file.*
+- ☝️ *[🐊`Putout` returns object with `code` and `places` properties](https://github.com/coderaiser/putout#plugins).*
+- ☝️ *`ESLint` has a `name` property that is used to calculate configuration file.*
 
-If you want to apply 🐊`Putout` transformations using rules located in 'putout/putout', enable `putout` flag:
+If you want to apply 🐊`Putout` transformations using `putout/putout` rule, enable `putout` with the same called flag:
 
 ```js
 const [source, places] = await eslint({
@@ -2350,7 +2350,7 @@ const [source, places] = await eslint({
 });
 ```
 
-It is disabled by default, because `ESLint` always run after putout transformations, so there is no need traverse tree again.
+It is disabled by default, because `ESLint` always runs after 🐊`Putout` transformations, so there is no need to traverse tree again.
 
 This `API` doesn't suppose to came in 🌴 Public Space, anyways it is already used in [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout) to [test plugins](https://github.com/coderaiser/putout/blob/master/packages/eslint-plugin-putout/test/test-lint.mjs#L24-L28), so why not :)? Anyways it's signature didn't changed from the beginning.
 
