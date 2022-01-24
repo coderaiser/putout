@@ -365,3 +365,21 @@ test('putout: eslint: output: config', async (t) => {
     t.end();
 });
 
+test('putout: eslint: enable putout', async (t) => {
+    const config = {
+        rules: {
+            semi: 'off',
+        },
+    };
+    const [source] = await eslint({
+        name: 'hello.js',
+        code: `var a = 1`,
+        fix: true,
+        putout: true,
+        config,
+    });
+    
+    t.equal(source, `'use strict';\n\n`);
+    t.end();
+});
+

@@ -34,6 +34,7 @@ export const test = extend({
             name: resolvedName,
             code,
             fix,
+            putout: true,
             config: {
                 ...config,
                 ...override,

@@ -1,9 +1,5 @@
-import tryToCatch from 'try-to-catch';
-import work from './work.js';
-import initProcessFile from '../process-file.js'
+'use strict';
 
-export default () => {};
-export const m = () => {
-    
-};
+module.exports = 'hello';
+module.exports.m = () => {};
 

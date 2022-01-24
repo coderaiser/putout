@@ -1378,7 +1378,7 @@ function merge(a) {
 ```
 
 </details>
-   
+
 ### Promises
 
 <details><summary>remove useless <code>await</code></summary>
@@ -1412,7 +1412,7 @@ async function runCli() {
 ```
 
 </details>
-   
+
 <details><summary>add <code>await</code> to <code>return promise()</code> statements (<a href=https://v8.dev/blog/fast-async>because it's faster, produces call stack and more readable</a>)</summary>
 
 ```diff
@@ -1459,7 +1459,6 @@ async () => {
 
 </details>
 
-
 ### Node.js
 
 <details><summary>convert <code>fs.promises</code> to <code>fs/promises</code> for <a href=https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api>node.js</a></summary>
@@ -1470,7 +1469,7 @@ async () => {
 ```
 
 </details>
-   
+
 <details><summary>convert <code>top-level return</code> into <code>process.exit()</code>(because EcmaScript Modules doesn't support top level return)</summary>
 
 ```diff
@@ -1487,9 +1486,9 @@ async () => {
 ```
 
 </details>
-   
+
 ### Tape
-   
+
 <details><summary>replace <code>test.only</code> with <code>test</code> calls</summary>
 
 ```diff
@@ -1596,7 +1595,7 @@ const x: n = 5;
 ```
 
 </details>
-   
+
 <details><summary>apply <code>as</code> type assertion (according to <a href=https://basarat.gitbook.io/typescript/type-system/type-assertion#as-foo-vs.-less-than-foo-greater-than>best practices</a>)</summary>
 
 ```diff
@@ -1605,7 +1604,7 @@ const x: n = 5;
 ```
 
 </details>
-   
+
 <details><summary>apply <a href=https://www.typescriptlang.org/docs/handbook/utility-types.html>utility types</a></summary>
 
 ```diff
@@ -2306,7 +2305,7 @@ eslint --fix lib
 
 Applies 🐊`Putout` transformations for you :).
 
-### Working with `ESLint` API
+### `ESLint` API
 
 `ESLint` begins his work as a formatter when 🐊`Putout` done his transformations. That's why it used a lot in different parts of application, for testing purpose and using `API` in a simplest possible way. You can access it with:
 
@@ -2321,6 +2320,7 @@ const [source, places] = await eslint({
     name: 'hello.js',
     code: `const t = 'hi'\n`,
     fix: false,
+    putout: false, // transform result using 🐊Putou rules located in 'putout/putout'
     config: {
         extends: [
             'plugin:putout/recommended',
@@ -2331,9 +2331,26 @@ const [source, places] = await eslint({
 
 In a similar to 🐊`Putout` way.
 
-☝️ *The only difference is 🐊`Putout` return [object with `code` and `places`](https://github.com/coderaiser/putout#plugins) properties*
+☝️ *The only difference is 🐊`Putout` return [object with `code` and `places`](https://github.com/coderaiser/putout#plugins) properties.
+Also it has a `name` property it used by `ESLint` to calculate configuration file.*
 
-Also it has a `name` property it used by `ESLint` to calculate configuration file.
+If you want to apply 🐊`Putout` transformations using rules located in 'putout/putout', enable `putout` flag:
+
+```js
+const [source, places] = await eslint({
+    name: 'hello.js',
+    code: `const t = 'hi'\n`,
+    fix: false,
+    putout: true,
+    config: {
+        extends: [
+            'plugin:putout/recommended',
+        ],
+    },
+});
+```
+
+It is disabled by default, because `ESLint` always run after putout transformations, so there is no need traverse tree again.
 
 This `API` doesn't suppose to came in 🌴 Public Space, anyways it is already used in [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout) to [test plugins](https://github.com/coderaiser/putout/blob/master/packages/eslint-plugin-putout/test/test-lint.mjs#L24-L28), so why not :)? Anyways it's signature didn't changed from the beginning.
 

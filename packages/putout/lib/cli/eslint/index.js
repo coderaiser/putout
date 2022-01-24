@@ -49,7 +49,7 @@ const getESLint = ({fix, config}) => {
     };
 };
 
-module.exports = async ({name, code, fix, config}) => {
+module.exports = async ({name, code, fix, config, putout = false}) => {
     const noChanges = [
         code,
         [],
@@ -81,7 +81,7 @@ module.exports = async ({name, code, fix, config}) => {
         ];
     }
     
-    disablePutout(finalConfig);
+    !putout && disablePutout(finalConfig);
     
     // that's right, we disabled "putout" rules in "config"
     // and now it located in eslint's cache

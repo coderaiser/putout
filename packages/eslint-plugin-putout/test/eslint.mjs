@@ -122,15 +122,17 @@ test('eslint-plugin-putout: remove-empty-newline-after-import', async ({process}
 });
 
 test('eslint-plugin-putout: esm-to-cjs', async ({process}) => {
-    debugger;
     await process('esm-to-cjs', {
         rules: {
             'putout/putout': ['error', {
+                ignore: [
+                    '!**/fixture',
+                ],
                 rules: {
-                    'convert-esm-to-commonjs': 'on'
-                }
-            }]
-        }
+                    'convert-esm-to-commonjs': 'on',
+                },
+            }],
+        },
     });
 });
 
