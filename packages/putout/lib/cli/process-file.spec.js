@@ -149,3 +149,67 @@ test('putout: cli: process-file: options for inner data', async (t) => {
     t.deepEqual(places, expected);
     t.end();
 });
+
+test('putout: cli: process-file: ruler', async (t) => {
+    const source = `__putout_processor_json(${stringify({
+        rules: {
+            'putout-config': true,
+        },
+    })})`;
+    const fix = false;
+    const name = 'example.md{json}';
+    const log = stub();
+    const write = stub();
+    const eslint = stub().returns(['', []]);
+    
+    const options = {
+        dir: '.',
+        match: {
+            '*.md{json}': {
+                'putout-config': 'on',
+            },
+        },
+        rules: {
+            'putout-config': 'off',
+        },
+        plugins: [
+            'putout-config',
+        ],
+    };
+    
+    mockRequire('./eslint', eslint);
+    
+    const ruler = {
+        enableAll: true,
+    };
+    
+    const processFile = reRequire('./process-file');
+    const fn = processFile({
+        fix,
+        log,
+        write,
+        ruler,
+    });
+    
+    const {places} = await fn({
+        name,
+        source,
+        index: 0,
+        length: 1,
+        options,
+    });
+    
+    stopAll();
+    
+    const expected = [{
+        message: 'String should be used instead of Boolean',
+        position: {
+            column: 50,
+            line: 2,
+        },
+        rule: 'putout-config/convert-boolean-to-string',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});

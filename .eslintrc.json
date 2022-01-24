@@ -7,7 +7,7 @@
     }],
     "extends": [
         "plugin:node/recommended",
-        "plugin:putout/recommended"
+        "plugin:putout/safe+align"
     ],
     "plugins": [
         "node",

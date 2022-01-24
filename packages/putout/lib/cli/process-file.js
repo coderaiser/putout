@@ -3,12 +3,11 @@
 const tryCatch = require('try-catch');
 
 const putout = require('../..');
+const merge = require('../merge');
+const parseMatch = require('../parse-options/parse-match');
 
 const eslint = require('./eslint');
 const parseError = require('./parse-error');
-
-const merge = require('../merge');
-const parseMatch = require('../parse-options/parse-match');
 
 const getMatchedOptions = (name, options) => {
     if (!name.includes('{'))

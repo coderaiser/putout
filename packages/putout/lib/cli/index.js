@@ -1,50 +1,39 @@
 'use strict';
 
-const {resolve} = require('path');
-const {readFileSync} = require('fs');
-
 const {red} = require('chalk');
 const yargsParser = require('yargs-parser');
 const {isCI} = require('ci-info');
 const memo = require('nano-memoize');
-const fullstore = require('fullstore');
 const tryCatch = require('try-catch');
-const tryToCatch = require('try-to-catch');
 const wraptile = require('wraptile');
+const fullstore = require('fullstore');
+
+const keyPress = require('@putout/cli-keypress');
 const {version} = require('../../package.json');
 const {simpleImport} = require('./simple-import');
-
-const {env} = process;
-const isIDE = /JetBrains/.test(env.TERMINAL_EMULATOR) || env.TERM_PROGRAM === 'vscode';
-const chooseName = (name, resolvedName) => !isIDE ? name : resolvedName;
+const {run} = require('./runner/runner.js');
 
 const {
-    runProcessors,
     getFilePatterns,
     getProcessorRunners,
     defaultProcessors,
 } = require('@putout/engine-processor');
 
 const merge = require('../merge');
-const ignores = require('../ignores');
 
-const initProcessFile = require('./process-file');
 const getFiles = require('./get-files');
 const {createCache} = require('@putout/cli-cache');
 const supportedFiles = require('./supported-files');
 const getFormatter = memo(require('./formatter').getFormatter);
 const getOptions = require('./get-options');
-const report = require('./report')();
-const keyPress = require('@putout/cli-keypress');
+
 const validateArgs = require('@putout/cli-validate-args');
-const parseError = require('./parse-error');
 
 const {
     OK,
     PLACE,
     STAGE,
     NO_FILES,
-    NO_PROCESSORS,
     CANNOT_LOAD_PROCESSOR,
     WAS_STOP,
     INVALID_OPTION,
@@ -64,20 +53,6 @@ const getExitCode = (wasStop) => wasStop() ? WAS_STOP : OK;
 
 const isStr = (a) => typeof a === 'string';
 const {isArray} = Array;
-const isParser = (rule) => /^parser/.test(rule);
-const isParsingError = ({rule}) => isParser(rule);
-
-const createFormatterProxy = (options) => {
-    return new Proxy(options, {
-        get(target, name) {
-            if (target[name])
-                return target[name];
-            
-            if (name === 'source')
-                return readFileSync(target.name, 'utf8');
-        },
-    });
-};
 
 module.exports = async ({argv, halt, log, write, logError, readFile, writeFile}) => {
     const {isStop} = keyPress();
@@ -299,114 +274,29 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         plugins,
     };
     
-    const rawPlaces = [];
+    const {rawPlaces, exited} = await run({
+        fix,
+        exit,
+        readFile,
+        writeFile,
+        raw,
+        rulesdir,
+        names,
+        options,
+        fileCache,
+        currentFormat,
+        formatterOptions,
+        write,
+        log,
+        isStop,
+        wasStop,
+        noConfig,
+        plugins,
+        transform,
+    });
     
-    const processFile = initProcessFile(options);
-    const {length} = names;
-    
-    for (let index = 0; index < length; index++) {
-        if (wasStop())
-            break;
-        
-        wasStop(isStop());
-        
-        const currentIndex = isStop() ? length - 1 : index;
-        const name = names[index];
-        const resolvedName = resolve(name)
-            .replace(/^\./, cwd);
-        
-        const [configError, options] = tryCatch(getOptions, {
-            name: resolvedName,
-            rulesdir,
-            noConfig,
-            transform,
-            plugins,
-        });
-        
-        if (configError)
-            return exit(INVALID_CONFIG, configError);
-        
-        const {dir} = options;
-        
-        if (fileCache.canUseCache(name, options)) {
-            const places = fileCache.getPlaces(name);
-            const formatterProxy = createFormatterProxy({
-                report,
-                formatterOptions,
-                name: chooseName(name, resolvedName),
-                places,
-                index: currentIndex,
-                count: length,
-            });
-            
-            const line = await report(currentFormat, formatterProxy);
-            
-            write(line || '');
-            rawPlaces.push(places);
-            continue;
-        }
-        
-        let isProcessed = true;
-        let places = [];
-        let rawSource = '';
-        let processedSource = '';
-        
-        if (!ignores(dir, resolvedName, options)) {
-            rawSource = await readFile(resolvedName, 'utf8');
-            
-            const [error, result] = await tryToCatch(runProcessors, {
-                name: resolvedName,
-                fix,
-                processFile,
-                options,
-                rawSource,
-                processorRunners,
-            });
-            
-            if (error) {
-                places = parseError(error);
-                
-                isProcessed = true;
-                processedSource = rawSource;
-                
-                if (raw)
-                    log(error);
-            } else {
-                ({
-                    isProcessed,
-                    places,
-                    processedSource,
-                } = result);
-            }
-        }
-        
-        const line = await report(currentFormat, {
-            report,
-            formatterOptions,
-            name: chooseName(name, resolvedName),
-            source: rawSource,
-            places,
-            index: currentIndex,
-            count: length,
-        });
-        
-        write(line || '');
-        
-        if (!isProcessed)
-            return exit(NO_PROCESSORS, Error(`No processors found for ${name}`));
-        
-        if (rawSource !== processedSource) {
-            fileCache.removeEntry(name);
-            await writeFile(name, processedSource);
-        }
-        
-        const fixable = !places.filter(isParsingError).length;
-        
-        if (fixable)
-            fileCache.setInfo(name, places, options);
-        
-        rawPlaces.push(places);
-    }
+    if (exited)
+        return;
     
     const mergedPlaces = merge(...rawPlaces);
     
@@ -445,6 +335,10 @@ const getExit = ({halt, raw, logError}) => (code, e) => {
     
     logError(message);
     halt(code);
+    
+    return {
+        exited: true,
+    };
 };
 
 module.exports._addOnce = addOnce;
@@ -452,4 +346,3 @@ function addOnce(emitter, name, fn) {
     if (!emitter.listenerCount(name))
         emitter.on(name, fn);
 }
-

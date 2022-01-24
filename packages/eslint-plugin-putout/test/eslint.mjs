@@ -126,6 +126,21 @@ test('eslint-plugin-putout: remove-empty-newline-after-import', async ({process}
     await process('remove-empty-newline-after-import');
 });
 
+test('eslint-plugin-putout: strict-mode', async ({process}) => {
+    await process('strict-mode', {
+        rules: {
+            'putout/putout': ['error', {
+                ignore: [
+                    '!**/fixture',
+                ],
+                rules: {
+                    'remove-unused-expressions': 'on',
+                },
+            }],
+        },
+    });
+});
+
 test('eslint-plugin-putout: esm-to-cjs', async ({process}) => {
     await process('esm-to-cjs', {
         rules: {
