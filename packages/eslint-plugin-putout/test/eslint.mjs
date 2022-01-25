@@ -83,6 +83,10 @@ test('eslint-plugin-putout: config: padding-line-between-statements', async ({pr
     await process('padding-line-between-statements');
 });
 
+test('eslint-plugin-putout: config: padding-line-ts', async ({process}) => {
+    await process('padding-line-ts');
+});
+
 test('eslint-plugin-putout: newlines-around-function-call', async ({process}) => {
     await process('newlines-around-function-call');
 });

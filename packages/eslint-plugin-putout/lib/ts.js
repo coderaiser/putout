@@ -44,7 +44,7 @@ const extensionRules = {
     '@typescript-eslint/object-curly-spacing': 'error',
     
     'padding-line-between-statements': 'off',
-    '@typescript-eslint/padding-line-between-statements': rules['padding-line-between-statements'],
+    '@typescript-eslint/padding-line-between-statements': convertPaddingLines(rules['padding-line-between-statements']),
     
     'quotes': 'off',
     '@typescript-eslint/quotes': rules.quotes,
@@ -100,4 +100,25 @@ module.exports = [
         },
     },
 ];
+
+function convertPaddingLines([state, ...lines]) {
+    const newLines = [];
+    for (const line of lines) {
+        let {prev, next} = line;
+        
+        if (prev.includes('cjs-'))
+            prev = prev.replace('cjs-', '');
+        
+        if (next.includes('cjs-'))
+            next = next.replace('cjs-', '');
+        
+        newLines.push({
+            ...line,
+            prev,
+            next,
+        });
+    }
+    
+    return [state, ...newLines];
+}
 

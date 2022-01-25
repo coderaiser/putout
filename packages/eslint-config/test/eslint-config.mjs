@@ -9,3 +9,7 @@ test('eslint-config: padding-export', async ({process}) => {
     await process('padding-export');
 });
 
+test('eslint-config: padding-import', async ({process}) => {
+    await process('padding-import');
+});
+

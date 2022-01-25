@@ -13,3 +13,6 @@ export function set() {
 
 function assign() {
 }
+
+module.exports._hello = _hello;
+function _hello() {}

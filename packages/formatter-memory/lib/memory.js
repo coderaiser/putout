@@ -76,8 +76,7 @@ const getColorFn = (color) => {
     return chalk[color];
 };
 
-const getStream = () => PUTOUT_PROGRESS_BAR !== '1' ? new Writable() : stderr;
-export const _getStream = getStream;
+export const _getStream = () => PUTOUT_PROGRESS_BAR !== '1' ? new Writable() : stderr;
 
 const createProgress = once(({count, color, rss}) => {
     const colorFn = getColorFn(color);
@@ -87,7 +86,7 @@ const createProgress = once(({count, color, rss}) => {
         barIncompleteChar: '\u2591',
         clearOnComplete: true,
         stopOnComplete: true,
-        stream: getStream(),
+        stream: _getStream(),
         hideCursor: true,
     }, cliProgress.Presets.react);
     
