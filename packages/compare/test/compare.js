@@ -81,7 +81,31 @@ test('compare: path: parent: no findUp', (t) => {
         findUp: false,
     });
     
-    t.notOk(result, 'should equal');
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: path: compareAny: no findUp', (t) => {
+    const path = getProgramPath('const a = "hello"');
+    const subPath = path.get('body.0.declarations.0');
+    
+    const result = compareAny(subPath, ['const a = "__"'], {
+        findUp: false,
+    });
+    
+    t.notOk(result, 'should not find');
+    t.end();
+});
+
+test('compare: path: compareAll: no findUp', (t) => {
+    const path = getProgramPath('const a = "hello"');
+    const subPath = path.get('body.0.declarations.0');
+    
+    const result = compareAll(subPath, ['const a = "__"'], {
+        findUp: false,
+    });
+    
+    t.notOk(result, 'should not find');
     t.end();
 });
 

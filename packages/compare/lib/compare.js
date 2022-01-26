@@ -118,11 +118,11 @@ module.exports.compareAny = (path, templateNodes, options) => {
     return false;
 };
 
-module.exports.compareAll = (path, templateNodes) => {
+module.exports.compareAll = (path, templateNodes, options) => {
     templateNodes = maybeArray(templateNodes);
     
     for (const template of templateNodes) {
-        if (!compare(path, template))
+        if (!compare(path, template, options))
             return false;
     }
     
