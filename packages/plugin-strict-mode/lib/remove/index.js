@@ -2,7 +2,7 @@
 
 const {isProgram} = require('putout').types;
 
-module.exports.report = () => '"use strict" is redundant is esm';
+module.exports.report = () => '"use strict" is redundant in ESM';
 
 module.exports.fix = (path) => path.remove();
 
