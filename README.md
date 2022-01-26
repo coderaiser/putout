@@ -451,11 +451,11 @@ putout(source, {
 });
 // returns
 ({
-    code: '\n'
-    + `    const hello = 'world';\n`
-    + `    const hi = 'there';\n`
-    + '    \n'
-    + '    console.log(hello);\n',
+    code: '\n' +
+    `    const hello = 'world';\n` +
+    `    const hi = 'there';\n` +
+    '    \n' +
+    '    console.log(hello);\n',
     places: [{
         rule: 'remove-unused-variables',
         message: '"hi" is defined but never used',
@@ -482,12 +482,12 @@ putout(source, {
 });
 // returns
 ({
-    code: '\n'
-    + `    const hello = 'world';\n`
-    + `    const hi = 'there';\n`
-    + '    \n'
-    + '    console.log(hello);\n'
-    + '   //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJ...',
+    code: '\n' +
+    `    const hello = 'world';\n` +
+    `    const hi = 'there';\n` +
+    '    \n' +
+    '    console.log(hello);\n' +
+    '   //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJ...',
     places: [{
         rule: 'remove-unused-variables',
         message: '"hi" is defined but never used',

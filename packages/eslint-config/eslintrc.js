@@ -22,9 +22,11 @@ module.exports = {
         'dot-notation': 'error',
         'eol-last': ['error', 'always'],
         'func-call-spacing': 'error',
-        'operator-linebreak': ['error', 'before', {
+        'operator-linebreak': ['error', 'after', {
             overrides: {
                 '=': 'none',
+                '|': 'before',
+                '||': 'before',
             },
         }],
         'function-paren-newline': ['error', 'multiline-arguments'],

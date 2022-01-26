@@ -83,12 +83,12 @@ ruleTester.run('new-line-function-call-arguments', rule, {
         getDescription);
         `,
         output:
-        '\n        const onConnectError = squad(\n'
-        + `superFn(connect_error),
+        '\n        const onConnectError = squad(\n' +
+        `superFn(connect_error),
         logWraped(isLog,
-`
-        + 'importStr),\n        addUrl(colorUrl),\n        '
-        + 'getDescription\n);\n        ',
+` +
+        'importStr),\n        addUrl(colorUrl),\n        ' +
+        'getDescription\n);\n        ',
         errors: [{
             message: 'Add new line before and after arguments in a function call',
             type: 'CallExpression',
