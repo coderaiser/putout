@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to find and remove console.log calls",
+  "description": "putout plugin adds ability to add or remove strict mode directive",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-strict-mode#readme",
   "main": "lib/strict-mode.js",
   "release": false,
@@ -41,11 +41,11 @@
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {
-    "putout": ">=10"
+    "putout": ">=24"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "publishConfig": {
     "access": "public"
