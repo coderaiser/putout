@@ -55,7 +55,7 @@ ruleTester.run('putout', rule, {
         }],
         output: `'use strict';`,
         errors: [{
-            message: '"use strict" directive should be on top of commonjs file (strict-mode/add)',
+            message: '"use strict" directive should be on top of CommonJS file (strict-mode/add)',
         }, {
             message: '"t" is defined but never used (remove-unused-variables)',
         }],
