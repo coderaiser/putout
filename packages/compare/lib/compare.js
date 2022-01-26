@@ -64,7 +64,9 @@ module.exports.getValues = getValues;
 module.exports.setValues = setValues;
 module.exports.getTemplateValues = getTemplateValues;
 
-function compare(path, template) {
+function compare(path, template, options = {}) {
+    const {findUp = true} = options;
+    
     if (!path && !template)
         return true;
     
@@ -95,7 +97,7 @@ function compare(path, template) {
     if (isStringLiteral(node) && isLinkedNode(templateNode))
         return true;
     
-    if (isPath(path) && !isEqualType(node, templateNode)) {
+    if (findUp && isPath(path) && !isEqualType(node, templateNode)) {
         const {type} = templateNode;
         const newPathNode = findParent(path, type);
         
@@ -105,11 +107,11 @@ function compare(path, template) {
     return superCompareIterate(node, templateNode);
 }
 
-module.exports.compareAny = (path, templateNodes) => {
+module.exports.compareAny = (path, templateNodes, options) => {
     templateNodes = maybeArray(templateNodes);
     
     for (const template of templateNodes) {
-        if (compare(path, template))
+        if (compare(path, template, options))
             return true;
     }
     

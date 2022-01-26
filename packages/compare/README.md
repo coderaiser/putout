@@ -33,12 +33,26 @@ getTemplateValues(node, 'const __array = array');
 });
 ```
 
-### compare(node: Node, baseNode: Node)
+### compare(node: string | Node, template: string | Node [, options: Options])
 
 - `node` - `AST-node` or `code` that will be generated;
-- `baseNode` `AST-node` with support of `template variables`.
+- `template` - `AST-node` with support of `template variables`.
+- `options` - (optional) - object with properties:
+  - `findUp` (default: `true`) - find up template node;
 
-### compareAll(node: Node, baseNodes: Node|Nodes[])
+### compareAll(node: string | Node, templates: string[] | Node|Nodes[], [, options: Options])
+
+Compare nodes feets `templates`.
+
+### compareAny(node: string | Node, templates: string[] | Node|Nodes[], [, options: Options])
+
+Compare any nodes that feets one of `templates `
+
+```js
+compareAny(path, 'const __a = __b', {
+    findUp: false,
+});
+```
 
 #### Supported template variables:
 
