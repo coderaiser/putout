@@ -185,7 +185,6 @@
     "nano-memoize": "^1.1.11",
     "once": "^1.4.0",
     "picomatch": "^2.2.2",
-    "thread-it": "^1.1.3",
     "try-catch": "^3.0.0",
     "try-to-catch": "^3.0.0",
     "wraptile": "^3.0.0",
