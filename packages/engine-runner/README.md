@@ -228,6 +228,8 @@ of handling variables will most likely will lead to bugs. There is 3 store types
 - ✅`store`;
 - ✅`upstore`;
 
+Let's talk about each of them.
+
 ### `listStore`
 
 To save things as a list use `listStore`:
