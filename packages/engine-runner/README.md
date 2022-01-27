@@ -171,104 +171,6 @@ module.exports.traverse = ({push}) => ({
 });
 ```
 
-#### Storages
-
-Storages is preferred way of keeping data 🐊`Putout`, `traverse` init function called only once, and any other way
-of handling variables will most likely will lead to bugs.
-
-##### listStore
-
-To keep things and save them as a list during traverse in a safe way `listStore` can be used for code:
-
-```js
-debugger;
-const hello = '';
-debugger;
-const world = '';
-```
-
-```js
-module.exports.traverse = ({listStore}) => ({
-    'debugger'(path) {
-        listStore('x');
-    },
-    
-    Program: {
-        exit() {
-            console.log(listStore());
-            // returns
-            ['x', 'x'];
-            // for code
-            'debugger; debugger';
-        },
-    },
-});
-```
-
-When you need `key-value` storage `store` can be used.
-
-```js
-module.exports.traverse = ({push, store}) => ({
-    'debugger'(path) {
-        store('hello', 'world');
-        push(path);
-    },
-    
-    Program: {
-        exit() {
-            store();
-            // returns
-            ['world'];
-            
-            store.entries();
-            // returns
-            [['hello', 'world']];
-            
-            store('hello');
-            // returns
-            'world';
-        },
-    },
-});
-```
-
-#### Upstore
-
-When you need to update already saved values, use `upstore`
-
-```js
-module.exports.traverse = ({push, store}) => ({
-    TSTypeAliasDeclaration(path) {
-        if (path.parentPath.isExportNamedDeclaration())
-            return;
-        
-        store(path.node.id.name, {
-            path,
-        });
-    },
-    
-    ObjectProperty(path) {
-        const {value} = path.node;
-        const {name} = value;
-        
-        store(name, {
-            used: true,
-        });
-    },
-    
-    Program: {
-        exit() {
-            for (const {path, used} of store()) {
-                if (used)
-                    continue;
-                
-                push(path);
-            }
-        },
-    },
-});
-```
-
 ### Finder
 
 `Find plugins` gives you all the control over traversing, but it's the slowest format.
@@ -315,6 +217,109 @@ const places = runPlugins({
     fixCount: 1,        // default
     plugins,
     parser: 'babel',    // default
+});
+```
+
+## Stores
+
+Stores is preferred way of keeping 🐊`Putout` data, `traverse` init function called only once, and any other way
+of handling variables will most likely will lead to bugs. There is 3 store types:
+- ✅`listStore`;
+- ✅`store`;
+- ✅`upstore`;
+
+### `listStore`
+
+To keep things and save them as a list use `listStore`:
+
+```js
+debugger;
+const hello = '';
+debugger;
+const world = '';
+```
+
+```js
+module.exports.traverse = ({listStore}) => ({
+    'debugger'(path) {
+        listStore('x');
+    },
+    
+    Program: {
+        exit() {
+            console.log(listStore());
+            // returns
+            ['x', 'x'];
+            // for code
+            'debugger; debugger';
+        },
+    },
+});
+```
+
+### `store`
+
+When you need `key-value` use `store`:
+
+```js
+module.exports.traverse = ({push, store}) => ({
+    'debugger'(path) {
+        store('hello', 'world');
+        push(path);
+    },
+    
+    Program: {
+        exit() {
+            store();
+            // returns
+            ['world'];
+            
+            store.entries();
+            // returns
+            [['hello', 'world']];
+            
+            store('hello');
+            // returns
+            'world';
+        },
+    },
+});
+```
+
+### `upstore`
+
+When you need to update already saved values, use `upstore`:
+
+```js
+module.exports.traverse = ({push, store}) => ({
+    TSTypeAliasDeclaration(path) {
+        if (path.parentPath.isExportNamedDeclaration())
+            return;
+        
+        store(path.node.id.name, {
+            path,
+        });
+    },
+    
+    ObjectProperty(path) {
+        const {value} = path.node;
+        const {name} = value;
+        
+        store(name, {
+            used: true,
+        });
+    },
+    
+    Program: {
+        exit() {
+            for (const {path, used} of store()) {
+                if (used)
+                    continue;
+                
+                push(path);
+            }
+        },
+    },
 });
 ```
 
