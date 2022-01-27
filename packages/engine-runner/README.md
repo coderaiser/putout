@@ -230,7 +230,7 @@ of handling variables will most likely will lead to bugs. There is 3 store types
 
 ### `listStore`
 
-To keep things and save them as a list use `listStore`:
+To save things as a list use `listStore`:
 
 ```js
 debugger;
