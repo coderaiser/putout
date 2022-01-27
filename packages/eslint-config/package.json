@@ -21,7 +21,8 @@
     "fresh:lint": "madrun fresh:lint",
     "lint:fresh": "madrun lint:fresh",
     "fix:lint": "madrun fix:lint",
-    "prepublishOnly": "madrun prepublishOnly"
+    "prepublishOnly": "madrun prepublishOnly",
+    "wisdom": "madrun wisdom"
   },
   "dependencies": {},
   "peerDependencies": {
