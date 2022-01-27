@@ -232,7 +232,8 @@ Let's talk about each of them.
 
 ### `listStore`
 
-To save things as a list use `listStore`:
+To save things as a list use `listStore`.
+Let's suppose you have such code:
 
 ```js
 debugger;
@@ -240,6 +241,8 @@ const hello = '';
 debugger;
 const world = '';
 ```
+
+Let's process it!
 
 ```js
 module.exports.traverse = ({listStore}) => ({
