@@ -27,6 +27,8 @@ module.exports = {
                 '=': 'none',
                 '|': 'before',
                 '||': 'before',
+                ':': 'before',
+                '?': 'before',
             },
         }],
         'function-paren-newline': ['error', 'multiline-arguments'],
