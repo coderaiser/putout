@@ -116,6 +116,7 @@ const safe = {
                 'remove-useless-return': 'off',
                 'remove-useless-arguments': 'off',
                 'remove-useless-variables/rename': 'off',
+                'remove-useless-spread': 'off',
                 'remove-unreferenced-variables': 'off',
                 'tape/remove-skip': 'off',
                 'tape/remove-only': 'off',

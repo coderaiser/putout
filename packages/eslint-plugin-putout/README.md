@@ -121,6 +121,7 @@ Disabled 🐊`Putout` rules:
 - [`remove-unreferenced-variables`](https://github.com/coderaiser/putout/tree/24.1.0/packages);
 - [`remove-useless-return`](https://github.com/coderaiser/putout/tree/master/remove-useless-return);
 - [`remove-useless-arguments`](https://github.com/coderaiser/putout/tree/master/remove-useless-arguments);
+- [`remove-useless-spread`](https://github.com/coderaiser/putout/tree/master/remove-useless-spread/#readme);
 - [`remove-useless-variables/rename`](https://github.com/coderaiser/putout/tree/master/remove-useless-arguments#rename);
 - [`remove-skip`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-skip);
 - [`remove-only`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-only);
