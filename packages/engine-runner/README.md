@@ -13,6 +13,14 @@ npm i @putout/engine-runner
 
 ## Supported Plugin Types
 
+There is a couple plugin types supported by 🐊`Putout`:
+- ✅[`Replacer`](#replacer)
+- ✅[`Includer`](#includer)
+- ✅[`Traverser`](#traverser)
+- ✅[`Finder`](#finder)
+
+They goes from simplest to hardest. Let's start from `Replacer`.
+
 ### Replacer
 
 `Replacer` converts code in declarative way. Simplest possible form, no need to use `fix`. Just `from` and `to` parts
