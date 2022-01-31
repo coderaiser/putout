@@ -7,4 +7,3 @@ test
 coverage
 fixture
 eslint-fixture
-lib/**/*.md
