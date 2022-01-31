@@ -14,8 +14,7 @@ module.exports.fix = async (rawSource) => {
     const svelte = require('svelte/compiler');
     
     const {code} = await svelte.preprocess(rawSource, {
-        async style(node) {
-            const {content} = node;
+        async style({content}) {
             const source = removePrefixSpaces(content);
             const currentSource = await processorCSS.fix(source);
             
@@ -43,8 +42,7 @@ module.exports.find = async (rawSource) => {
     const allPlaces = [];
     
     await svelte.preprocess(rawSource, {
-        async style(node) {
-            const {content} = node;
+        async style({content}) {
             const source = removePrefixSpaces(content);
             const [currentSource, places] = await Promise.all([
                 processorCSS.fix(source),
@@ -86,9 +84,7 @@ module.exports.branch = async (rawSource) => {
     const svelte = require('svelte/compiler');
     
     await svelte.preprocess(rawSource, {
-        async script(node) {
-            const {content} = node;
-            
+        async script({content}) {
             if (!content) {
                 return;
             }

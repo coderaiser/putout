@@ -62,9 +62,7 @@ function toCamel(name) {
     return `${b}${newName}`;
 }
 
-function isBig(path) {
-    const {node} = path;
-    
+function isBig({node}) {
     if (!node)
         return false;
     

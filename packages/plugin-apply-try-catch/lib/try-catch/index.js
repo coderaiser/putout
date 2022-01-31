@@ -12,9 +12,7 @@ module.exports.include = () => [
     'TryStatement',
 ];
 
-module.exports.filter = (path) => {
-    const {node} = path;
-    
+module.exports.filter = ({node}) => {
     const {
         block,
         handler,

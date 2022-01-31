@@ -2,9 +2,7 @@
 
 module.exports.report = () => 'useState should be used instead of Component';
 
-module.exports.fix = (path) => {
-    const {node} = path;
-    
+module.exports.fix = ({node}) => {
     node.imported.name = 'useState';
     node.local.name = 'useState';
 };

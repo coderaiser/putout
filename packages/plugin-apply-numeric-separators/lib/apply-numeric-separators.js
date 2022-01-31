@@ -4,8 +4,7 @@ module.exports.report = () => `Numeric separators should be used`;
 
 const MIN = 9999;
 
-module.exports.fix = (path) => {
-    const {node} = path;
+module.exports.fix = ({node}) => {
     const {raw} = node;
     
     node.raw = split(raw);

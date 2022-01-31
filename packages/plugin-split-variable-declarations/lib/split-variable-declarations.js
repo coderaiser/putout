@@ -45,12 +45,7 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-function getVarNodes(node) {
-    const {
-        kind,
-        declarations,
-    } = node;
-    
+function getVarNodes({kind, declarations}) {
     const result = [];
     
     for (const declaration of declarations) {

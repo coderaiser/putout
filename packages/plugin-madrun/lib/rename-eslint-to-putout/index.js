@@ -9,8 +9,7 @@ const replace = (a) => a
 
 module.exports.report = () => `"putout" should be used instead of "eslint"`;
 
-module.exports.fix = (path) => {
-    const {node} = path;
+module.exports.fix = ({node}) => {
     const {type, value} = node;
     
     switch(type) {

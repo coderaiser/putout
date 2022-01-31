@@ -71,9 +71,7 @@ function removeUselessGroup(str) {
     return [is, regexpTree.generate(ast)];
 }
 
-function includes(path) {
-    const {parentPath} = path;
-    
+function includes({parentPath}) {
     if (compare(parentPath, '__.match(/__a/)'))
         return true;
     

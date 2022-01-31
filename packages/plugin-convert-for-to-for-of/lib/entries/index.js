@@ -44,8 +44,7 @@ module.exports.filter = (path) => {
 };
 
 module.exports.replace = () => ({
-    [forLoop]: (vars) => {
-        const {__c, __i} = vars;
+    [forLoop]: ({__c, __i}) => {
         const [node] = __c.body;
         const {__a, __b} = getTemplateValues(node, assignIterable(__i));
         

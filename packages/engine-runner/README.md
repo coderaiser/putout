@@ -14,6 +14,7 @@ npm i @putout/engine-runner
 ## Supported Plugin Types
 
 There is a couple plugin types supported by 🐊`Putout`:
+
 - ✅[`Replacer`](#replacer)
 - ✅[`Includer`](#includer)
 - ✅[`Traverser`](#traverser)
@@ -232,6 +233,7 @@ const places = runPlugins({
 
 Stores is preferred way of keeping 🐊`Putout` data, `traverse` init function called only once, and any other way
 of handling variables will most likely will lead to bugs. There is 3 store types:
+
 - ✅`listStore`;
 - ✅`store`;
 - ✅`upstore`;

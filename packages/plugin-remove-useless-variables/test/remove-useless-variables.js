@@ -62,3 +62,8 @@ test('remove usless variables: transform: var', (t) => {
     t.end();
 });
 
+test('remove usless variables: transform: destruct', (t) => {
+    t.transform('destruct');
+    t.end();
+});
+

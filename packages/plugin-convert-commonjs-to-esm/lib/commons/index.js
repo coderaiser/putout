@@ -15,8 +15,7 @@ const initCommons = template.ast(`
 
 module.exports.report = () => '"__filename", "__dirname" and "require" should be declared in ESM';
 
-module.exports.fix = (path) => {
-    const {scope} = path;
+module.exports.fix = ({scope}) => {
     const programScope = scope.getProgramParent();
     const body = programScope.path.get('body');
     const afterImportPath = getPathAfterImports(body);
@@ -30,9 +29,7 @@ module.exports.include = () => [
     'require',
 ];
 
-module.exports.filter = (path) => {
-    const {scope} = path;
-    
+module.exports.filter = ({scope}) => {
     const isDirname = scope.hasBinding('__dirname');
     const isFilename = scope.hasBinding('__filename');
     const isRequire = scope.hasBinding('require');

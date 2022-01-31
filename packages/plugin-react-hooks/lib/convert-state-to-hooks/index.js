@@ -73,8 +73,7 @@ function isThisState(init) {
     return isThis(init, 'state');
 }
 
-function isThisSetState(path) {
-    const {node} = path;
+function isThisSetState({node}) {
     return isThis(node.callee, 'setState');
 }
 

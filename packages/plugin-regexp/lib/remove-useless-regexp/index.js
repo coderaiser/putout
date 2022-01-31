@@ -61,8 +61,7 @@ function isOnlyChars(str) {
     let is = false;
     
     regexpTree.traverse(ast, {
-        RegExp(path) {
-            const {node} = path;
+        RegExp({node}) {
             const {body} = node;
             
             if (isChar(body)) {

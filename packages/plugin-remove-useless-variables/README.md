@@ -17,6 +17,7 @@ npm i @putout/plugin-remove-useless-variables -D
 {
     "rules": {
         "remove-useless-variables/rename": "on",
+        "remove-useless-variables/destruct": "on",
         "remove-useless-variables/remove": "on",
         "remove-useless-variables/await": "on",
         "remove-useless-variables/for-of": ["on", {
@@ -40,6 +41,23 @@ function hi(a) {
 
 ```js
 function hi(b) {
+}
+```
+
+## Destruct
+
+### ❌ Incorrect code example
+
+```js
+function hi(c) {
+    const {a, b} = c;
+}
+```
+
+### ✅ Correct code Example
+
+```js
+function hi({a, b}) {
 }
 ```
 

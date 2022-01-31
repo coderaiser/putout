@@ -16,8 +16,7 @@ const {RegExpLiteral, StringLiteral} = types;
 test('putout: compare: vars: getTemplateValues', (t) => {
     const addVar = {
         report: () => '',
-        filter: (path) => {
-            const {node} = path;
+        filter: ({node}) => {
             const {body} = node;
             const [first] = body.body;
             const {__i} = getTemplateValues(node, 'for (let __i = 0; __i < __n; __i++) __c');
@@ -25,8 +24,7 @@ test('putout: compare: vars: getTemplateValues', (t) => {
             return compare(first, `const __a = __b[${__i.name}]`);
         },
         replace: () => ({
-            'for (let __i = 0; __i < __n; __i++) __c': (vars) => {
-                const {__c, __i} = vars;
+            'for (let __i = 0; __i < __n; __i++) __c': ({__c, __i}) => {
                 const [node] = __c.body;
                 const {__a, __b} = getTemplateValues(node, `const __a = __b[${__i.name}]`);
                 

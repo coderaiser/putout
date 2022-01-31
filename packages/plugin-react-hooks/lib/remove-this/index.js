@@ -12,8 +12,7 @@ module.exports.fix = ({path}) => {
 
 module.exports.find = (ast, {push, traverse}) => {
     traverseClass(traverse, ast, {
-        ThisExpression(path) {
-            const {parentPath} = path;
+        ThisExpression({parentPath}) {
             const propertyPath = parentPath.get('property');
             
             const {name} = propertyPath.node;

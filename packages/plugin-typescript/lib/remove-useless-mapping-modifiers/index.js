@@ -2,8 +2,7 @@
 
 module.exports.report = () => 'Avoid useless mapping modifiers';
 
-module.exports.fix = (path) => {
-    const {node} = path;
+module.exports.fix = ({node}) => {
     const {optional, readonly} = node;
     
     if (optional === '+')
