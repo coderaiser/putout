@@ -20,6 +20,7 @@
     "lint:only:putout": "madrun lint:only:putout",
     "lint:only:eslint": "madrun lint:only:eslint",
     "fresh:lint": "madrun fresh:lint",
+    "fresh:fix": "madrun fresh:fix",
     "fresh": "madrun fresh",
     "fresh:only:putout": "madrun fresh:only:putout",
     "fresh:only:eslint": "madrun fresh:only:eslint",
