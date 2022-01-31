@@ -14,6 +14,7 @@ module.exports.fix = ({text}) => fixNewLines(text);
 
 module.exports.include = () => [
     'FunctionDeclaration',
+    'FunctionExpression',
     'ArrowFunctionExpression',
 ];
 

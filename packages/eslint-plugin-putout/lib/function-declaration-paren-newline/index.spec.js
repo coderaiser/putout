@@ -51,6 +51,26 @@ ruleTester.run('keyword-spacing', rule, {
         errors: [{
             message: 'Unexpected new lines around arguments',
         }],
+    }, {
+        code: `
+            regexpTree.traverse(ast, {
+                RegExp(
+                    {node},
+                ) {
+                    const {body} = node;
+                }
+            });
+            `,
+        output: `
+            regexpTree.traverse(ast, {
+                RegExp({node}) {
+                    const {body} = node;
+                }
+            });
+            `,
+        errors: [{
+            message: 'Unexpected new lines around arguments',
+        }],
     }],
 });
 

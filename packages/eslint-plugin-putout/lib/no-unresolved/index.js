@@ -16,10 +16,7 @@ const RELATIVE = '\\.\\.?\\/?';
 const isRelativeStart = (a) => RegExp(`^${RELATIVE}`).test(a);
 const isRelativeEnd = (a) => RegExp(`${RELATIVE}$`).test(a);
 const getDir = (a) => a === '<input>' ? cwd : dirname(a);
-const getValue = (node) => {
-    const {source} = node;
-    return source?.value;
-};
+const getValue = ({source}) => source?.value;
 
 module.exports.category = 'errors';
 module.exports.report = () => 'Always add an extension to relative imports';
