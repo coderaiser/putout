@@ -17,3 +17,7 @@ test('plugin-apply-await: await: transform: await', (t) => {
     t.end();
 });
 
+test('plugin-apply-await: await: transform: async', (t) => {
+    t.transform('async');
+    t.end();
+});
