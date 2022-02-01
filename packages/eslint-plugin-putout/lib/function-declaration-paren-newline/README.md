@@ -18,7 +18,7 @@ regexpTree.traverse(ast, {
         {node},
     ) {
         const {body} = node;
-    }
+    },
 });
 ```
 
@@ -39,6 +39,6 @@ const fnWithCall = ({a, b, c}) => {
 regexpTree.traverse(ast, {
     RegExp({node}) {
         const {body} = node;
-    }
+    },
 });
 ```
