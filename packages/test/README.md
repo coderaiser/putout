@@ -269,7 +269,7 @@ const test = createTest(import.meta.url);
 Works in similar to [transform](#transformfilename--output-plugins) way:
 - ✅reads `operator-linebreak.js`;
 - ✅transforms it;
-- ✅checks that `operator-linebreak-fix.js`;
+- ✅checks that transformed is equal to `operator-linebreak-fix.js`;
 
 Example:
 
