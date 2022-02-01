@@ -7,5 +7,6 @@ const getRule = (a) => ({
 module.exports.rules = {
     ...getRule('try-catch'),
     ...getRule('try-to-catch'),
+    ...getRule('await'),
 };
 

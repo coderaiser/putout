@@ -17,3 +17,8 @@ test('plugin-apply-try-catch: transform: try-catch', (t) => {
     t.end();
 });
 
+test('plugin-apply-try-catch: transform: await', (t) => {
+    t.transform('await');
+    t.end();
+});
+

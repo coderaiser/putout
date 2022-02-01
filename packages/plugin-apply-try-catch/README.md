@@ -17,7 +17,8 @@ npm i @putout/plugin-apply-try-catch
 {
     "rules": {
         "apply-try-catch/try-catch": "on",
-        "apply-try-catch/try-to-catch": "on"
+        "apply-try-catch/try-to-catch": "on",
+        "apply-try-catch/await": "on"
     }
 }
 ```
@@ -54,6 +55,21 @@ try {
 
 ```js
 const [error] = await tryCatch(log, 'hello');
+```
+
+## await
+
+### ❌ Incorrect code example
+
+```js
+await tryCatch(a, b);
+tryToCatch(a, b);
+```
+
+### ✅ Correct code Example
+
+```js
+await tryToCatch(a, b);
 ```
 
 ## License
