@@ -102,6 +102,11 @@ test('plugin-putout: check-replace-code: no report: string literal', (t) => {
     t.end();
 });
 
+test('plugin-putout: check-replace-code: no report: match', (t) => {
+    t.noReport('match');
+    t.end();
+});
+
 test('plugin-putout: check-replace-code: report: mismatch', (t) => {
     t.report('mismatch', 'transform mismatch: "if (__a = __b) __body" -> "if (__a === "__b") __body" !== "if (_temp === _temp2)\n  {};"');
     t.end();

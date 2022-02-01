@@ -44,6 +44,9 @@ module.exports.traverse = ({push}) => ({
         if (get(path))
             return;
         
+        if (hasMatch(path))
+            return;
+        
         for (const propertyPath of path.get('right.body.properties')) {
             if (!propertyPath.get('value').isStringLiteral())
                 continue;
@@ -115,5 +118,16 @@ function parseKey(propertyPath) {
         return [Error(`Replace key cannot be computed: '${keyPath.toString()}'`)];
     
     return [null, key];
+}
+
+function hasMatch(path) {
+    const {body} = path.scope.getProgramParent().path.node;
+    
+    for (const current of body) {
+        if (compare(current, 'module.exports.match = __a'))
+            return true;
+    }
+    
+    return false;
 }
 
