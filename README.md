@@ -2314,6 +2314,21 @@ import {eslint} from 'putout/eslint';
 ```
 
 To use it simply write:
+   
+```js
+const [source, places] = await eslint({
+    name: 'hello.js',
+    code: `const t = 'hi'\n`,
+    fix: false,
+});
+```
+
+Isn't it looks similar to 🐊`Putout` way? It definitely is! But... It has a couple differences you should remember:
+
+- ☝️ *[🐊`Putout` returns object with `code` and `places` properties](https://github.com/coderaiser/putout#plugins).*
+- ☝️ *`ESLint` has a `name` property that is used to calculate configuration file.*
+
+And you can even override any of ESLint ⚙️ options with help of `config` property:
 
 ```js
 const [source, places] = await eslint({
@@ -2327,12 +2342,7 @@ const [source, places] = await eslint({
     },
 });
 ```
-
-Isn't it looks similar to 🐊`Putout` way? It definitely is! But... It has a couple differences you should remember:
-
-- ☝️ *[🐊`Putout` returns object with `code` and `places` properties](https://github.com/coderaiser/putout#plugins).*
-- ☝️ *`ESLint` has a `name` property that is used to calculate configuration file.*
-
+   
 If you want to apply 🐊`Putout` transformations using `putout/putout` `ESLint` rule, enable `putout` with the same called flag:
 
 ```js
