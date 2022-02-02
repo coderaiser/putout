@@ -464,7 +464,21 @@ putout(source, {
 });
 ```
 
-#### 🗺 Sourcemap
+#### 🗺 Source map
+
+> *Source maps are embedded in the generated source using a special comment. These comments may contain the entire source map, using a Data URI, or may reference an external URL or file.*
+> 
+> (c) [Source maps in Node.js](https://nodejs.medium.com/source-maps-in-node-js-482872b56116)
+
+In our case `Data URL` used. Here is an example of source map:
+{
+    version : 3,
+    file: "out.js",
+    sourceRoot : "",
+    sources: ["foo.js", "bar.js"],
+    names: ["src", "maps", "are", "fun"],
+    mappings: "AAgBC,SAAQ,CAAEA"
+}
 
 When you need `sourcemap` you can have it easily just pass:
 
