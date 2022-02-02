@@ -24,6 +24,7 @@ const fixture = readFixtures([
     'conditional-expression',
     'condition-vars',
     'class-declaration',
+    'class-property',
     'class-import',
     'class-return',
     'destr-vars',
@@ -1310,6 +1311,20 @@ test('remove-unused-variables: get-vars: class declarator', (t) => {
         B: _u,
         A: d_,
         C: d_,
+    }];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: class property', (t) => {
+    const ast = parse(fixture.classProperty);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        Math: _u,
+        pi: du,
+        thing: du,
     }];
     
     t.deepEqual(result, expected, 'should equal');

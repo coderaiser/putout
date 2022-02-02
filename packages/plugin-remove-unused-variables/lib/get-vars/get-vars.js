@@ -151,6 +151,13 @@ module.exports = ({use, declare, addParams}) => {
                 traverseArray(initPath.get('elements'));
         },
         
+        'ClassProperty'(path) {
+            const valuePath = path.get('value');
+            
+            if (valuePath.isIdentifier())
+                use(valuePath, valuePath.node.name);
+        },
+        
         'ClassDeclaration|ClassExpression'(path) {
             const {node} = path;
             const {
