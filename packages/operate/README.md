@@ -151,7 +151,7 @@ Check if given source is `ESM` search for `ImportDeclaration` and `ExportDeclara
 
 ### `getProperty(path: Path, name: string)`
 
-Find property in `ObjectExpression` path:
+Get property from `ObjectExpression` path:
 
 ```js
 const homepagePath = getProperties(__aPath, 'homepage');
@@ -159,7 +159,7 @@ const homepagePath = getProperties(__aPath, 'homepage');
 
 ### `getProperties(path: Path, names: string[])`
 
-Find properties in `ObjectExpression` path and add suffix `Path` when found:
+Get properties from `ObjectExpression` path and add a `Path` suffix to each result:
 
 ```js
 const {homepagePath} = getProperties(__aPath, ['homepage']);
