@@ -62,33 +62,33 @@ Then configure the rules you want to use under the rules section.
 
 ## Rules
 
-- [Add newlines between types in union](/packages/eslint-plugin-putout/lib/add-newlines-between-types-in-union)
-- [Add newline before function call](/packages/eslint-plugin-putout/lib/add-newline-before-function-call)
-- [Add newline after function call](/packages/eslint-plugin-putout/lib/add-newline-after-function-call)
-- [Align spaces](/packages/eslint-plugin-putout/lib/align-spaces)
-- [Array element newline](/packages/eslint-plugin-putout/lib/array-element-newline)
-- [Evaluate](/packages/eslint-plugin-putout/lib/evaluate)
-- [Putout](lib/putout)
-- [Single property destructuring](/packages/eslint-plugin-putout/lib/single-property-destructuring)
-- [Multiple properties destructuring](/packages/eslint-plugin-putout/lib/multiple-properties-destructuring)
-- [For-of multiple properties destructuring](/packages/eslint-plugin-putout/lib/for-of-multiple-properties-destructuring)
-- [Long properties destructuring](/packages/eslint-plugin-putout/lib/long-properties-destructuring)
-- [Destructuring as function argument](/packages/eslint-plugin-putout/lib/destructuring-as-function-argument)
-- [Keyword spacing](/packages/eslint-plugin-putout/lib/keyword-spacing)
-- [Newline function call arguments](/packages/eslint-plugin-putout/lib/newline-function-call-arguments)
-- [Function declaration paren newline](/packages/eslint-plugin-putout/lib/function-declaration-paren-newline)
-- [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import)
-- [Remove newline from empty object](/packages/eslint-plugin-putout/lib/remove-newline-from-empty-object)
-- [Remove empty newline before first specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-before-first-specifier)
-- [Remove empty newline after last specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-specifier)
-- [Remove empty newline after import](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-import)
-- [Remove empty specifiers](/packages/eslint-plugin-putout/lib/remove-empty-specifiers)
-- [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array)
-- [Object init](/packages/eslint-plugin-putout/lib/object-init)
-- [No unresolved](/packages/eslint-plugin-putout/lib/no-unresolved)
-- [Tape: add newline before assertion]('/packages/eslint-plugin-putout/lib/tape-add-new-line-before-assertion)
-- [Tape: add newline between tests]('/packages/eslint-plugin-putout/lib/tape-add-new-line-between-tests)
-- [Tape: remove newline before t.end()]('/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end)
+- [Add newlines between types in union](/packages/eslint-plugin-putout/lib/add-newlines-between-types-in-union#readme)
+- [Add newline before function call](/packages/eslint-plugin-putout/lib/add-newline-before-function-call#readme)
+- [Add newline after function call](/packages/eslint-plugin-putout/lib/add-newline-after-function-call#readme)
+- [Align spaces](/packages/eslint-plugin-putout/lib/align-spaces#readme)
+- [Array element newline](/packages/eslint-plugin-putout/lib/array-element-newline#readme)
+- [Evaluate](/packages/eslint-plugin-putout/lib/evaluate#readme)
+- [Putout](lib/putout#readme)
+- [Single property destructuring](/packages/eslint-plugin-putout/lib/single-property-destructuring#readme)
+- [Multiple properties destructuring](/packages/eslint-plugin-putout/lib/multiple-properties-destructuring#readme)
+- [For-of multiple properties destructuring](/packages/eslint-plugin-putout/lib/for-of-multiple-properties-destructuring#readme)
+- [Long properties destructuring](/packages/eslint-plugin-putout/lib/long-properties-destructuring#readme)
+- [Destructuring as function argument](/packages/eslint-plugin-putout/lib/destructuring-as-function-argument#readme)
+- [Keyword spacing](/packages/eslint-plugin-putout/lib/keyword-spacing#readme)
+- [Newline function call arguments](/packages/eslint-plugin-putout/lib/newline-function-call-arguments#readme)
+- [Function declaration paren newline](/packages/eslint-plugin-putout/lib/function-declaration-paren-newline#readme)
+- [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import#readme)
+- [Remove newline from empty object](/packages/eslint-plugin-putout/lib/remove-newline-from-empty-object#readme)
+- [Remove empty newline before first specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-before-first-specifier#readme)
+- [Remove empty newline after last specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-specifier#readme)
+- [Remove empty newline after import](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-import#readme)
+- [Remove empty specifiers](/packages/eslint-plugin-putout/lib/remove-empty-specifiers#readme)
+- [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array#readme)
+- [Object init](/packages/eslint-plugin-putout/lib/object-init#readme)
+- [No unresolved](/packages/eslint-plugin-putout/lib/no-unresolved#readme)
+- [Tape: add newline before assertion]('/packages/eslint-plugin-putout/lib/tape-add-new-line-before-assertion#readme)
+- [Tape: add newline between tests]('/packages/eslint-plugin-putout/lib/tape-add-new-line-between-tests#readme)
+- [Tape: remove newline before t.end(#readme)]('/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end)
 
 ### Safe mode
 
@@ -107,28 +107,28 @@ When using 🐊`Putout` in IDE with `--fix` on save, or when you want to disable
 
 Disabled `ESLint` rules:
 
-- [`no-useless-return`](https://eslint.org/docs/rules/no-useless-return)
-- [`putout/remove-newline-from-empty-object`](https://eslint.org/docs/rules/no-useless-return)
+- [`no-useless-return`](https://eslint.org/docs/rules/no-useless-return#readme)
+- [`putout/remove-newline-from-empty-object`](https://eslint.org/docs/rules/no-useless-return#readme)
 
 Disabled 🐊`Putout` rules:
 
-- [`remove-empty`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-empty);
-- [`nodejs/remove-process-exit`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-nodejs#remove-process-exit);
-- [`remove-unused-variables`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-unused-variables);
-- [`typescript/remove-unused-types`](https://github.com/coderaiser/putout/tree/v24.0.2/packages/plugin-typescript#remove-unused-types);
-- [`remove-unused-for-of-variables`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-unused-for-of-variables);
-- [`remove-unused-expressions`](https://github.com/coderaiser/putout/tree/v24.0.0/packages);
-- [`remove-unreferenced-variables`](https://github.com/coderaiser/putout/tree/24.1.0/packages);
-- [`remove-useless-return`](https://github.com/coderaiser/putout/tree/master/remove-useless-return);
-- [`remove-useless-arguments`](https://github.com/coderaiser/putout/tree/master/remove-useless-arguments);
-- [`remove-useless-spread`](https://github.com/coderaiser/putout/tree/master/remove-useless-spread/#readme);
-- [`remove-useless-variables/rename`](https://github.com/coderaiser/putout/tree/master/remove-useless-arguments#rename);
-- [`remove-skip`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-skip);
-- [`remove-only`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-only);
-- [`remove-console`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-console);
-- [`remove-debugger`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-debugger);
-- [`remove-unreachable-code`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-unreachable-code);
-- [`convert-for-to-for-of`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/convert-for-to-for-of);
+- [`remove-empty`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-empty#readme);
+- [`nodejs/remove-process-exit`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-nodejs#remove-process-exit#readme);
+- [`remove-unused-variables`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-unused-variables#readme);
+- [`typescript/remove-unused-types`](https://github.com/coderaiser/putout/tree/v24.0.2/packages/plugin-typescript#remove-unused-types#readme);
+- [`remove-unused-for-of-variables`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-unused-for-of-variables#readme);
+- [`remove-unused-expressions`](https://github.com/coderaiser/putout/tree/v24.0.0/packages#readme);
+- [`remove-unreferenced-variables`](https://github.com/coderaiser/putout/tree/24.1.0/packages#readme);
+- [`remove-useless-return`](https://github.com/coderaiser/putout/tree/master/remove-useless-return#readme);
+- [`remove-useless-arguments`](https://github.com/coderaiser/putout/tree/master/remove-useless-arguments#readme);
+- [`remove-useless-spread`](https://github.com/coderaiser/putout/tree/master/remove-useless-spread/#readme#readme);
+- [`remove-useless-variables/rename`](https://github.com/coderaiser/putout/tree/master/remove-useless-arguments#rename#readme);
+- [`remove-skip`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-skip#readme);
+- [`remove-only`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-only#readme);
+- [`remove-console`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-console#readme);
+- [`remove-debugger`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-debugger#readme);
+- [`remove-unreachable-code`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/remove-unreachable-code#readme);
+- [`convert-for-to-for-of`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/convert-for-to-for-of#readme);
 
 ### safe+align
 
