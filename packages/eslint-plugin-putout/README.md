@@ -60,7 +60,7 @@ Then configure the rules you want to use under the rules section.
 }
 ```
 
-## Supported Rules
+## Rules
 
 - [Add newlines between types in union](/packages/eslint-plugin-putout/lib/add-newlines-between-types-in-union)
 - [Add newline before function call](/packages/eslint-plugin-putout/lib/add-newline-before-function-call)
