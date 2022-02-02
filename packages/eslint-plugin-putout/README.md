@@ -88,7 +88,7 @@ Then configure the rules you want to use under the rules section.
 - [No unresolved](/packages/eslint-plugin-putout/lib/no-unresolved#readme)
 - [Tape: add newline before assertion]('/packages/eslint-plugin-putout/lib/tape-add-new-line-before-assertion#readme)
 - [Tape: add newline between tests]('/packages/eslint-plugin-putout/lib/tape-add-new-line-between-tests#readme)
-- [Tape: remove newline before t.end(#readme)]('/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end)
+- [Tape: remove newline before t.end()]('/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end#readme)
 
 ### Safe mode
 
