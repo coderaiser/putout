@@ -267,6 +267,7 @@ const test = createTest(import.meta.url);
 ### `process(filename [, config])`
 
 Works in similar to [transform](#transformfilename--output-plugins) way:
+
 - ✅reads `operator-linebreak.js`;
 - ✅transforms it;
 - ✅checks that transformed is equal to `operator-linebreak-fix.js`;

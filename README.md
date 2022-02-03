@@ -467,20 +467,23 @@ putout(source, {
 #### 🗺 Source map
 
 > *Source maps are embedded in the generated source using a special comment. These comments may contain the entire source map, using a Data URI, or may reference an external URL or file.*
-> 
+>
 > (c) [Source maps in Node.js](https://nodejs.medium.com/source-maps-in-node-js-482872b56116)
 
 In our case `Data URL` used. Here is an example of source map:
-{
-    version : 3,
-    file: "out.js",
-    sourceRoot : "",
-    sources: ["foo.js", "bar.js"],
-    names: ["src", "maps", "are", "fun"],
-    mappings: "AAgBC,SAAQ,CAAEA"
-}
 
-When you need `sourcemap` you can have it easily just pass:
+```json
+{
+    "version": 3,
+    "file": "out.js",
+    "sourceRoot": "",
+    "sources": ["foo.js", "bar.js"],
+    "names": ["src", "maps", "are", "fun"],
+    "mappings": "AAgBC,SAAQ,CAAEA"
+}
+```
+
+To generate **source map** you need to pass:
 
 - ✅ `sourceFileName`;
 - ✅ `sourceMapName`;
@@ -2328,7 +2331,7 @@ import {eslint} from 'putout/eslint';
 ```
 
 To use it simply write:
-   
+
 ```js
 const [source, places] = await eslint({
     name: 'hello.js',
@@ -2356,7 +2359,7 @@ const [source, places] = await eslint({
     },
 });
 ```
-   
+
 If you want to apply 🐊`Putout` transformations using `putout/putout` `ESLint` rule, enable `putout` with the same called flag:
 
 ```js
