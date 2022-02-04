@@ -20,6 +20,16 @@ test('putout: engina-parser: parse + generate = sourcemap', (t) => {
     t.end();
 });
 
+test('putout: engina-parser: parse: sourceFilename passed', (t) => {
+    const source = `const hello = 'world';`;
+    const ast = babel.parse(source, {
+        sourceFilename: 'hello.js',
+    });
+    
+    t.equal(ast.loc.filename, 'hello.js');
+    t.end();
+});
+
 test('putout: engina-parser: parse + print = sourcemap', (t) => {
     const source = `const hello = 'world';`;
     const ast = parse(source, {

@@ -46,3 +46,12 @@ test('putout: parser: custom parser: typescript + jsx: ambiguity', (t) => {
     t.end();
 });
 
+test('putout: parser: custom parser: hermes', (t) => {
+    const source = 'const a = 5';
+    const options = {};
+    const ast = customParser(source, 'hermes', options);
+    
+    t.equal(ast.type, 'File');
+    t.end();
+});
+

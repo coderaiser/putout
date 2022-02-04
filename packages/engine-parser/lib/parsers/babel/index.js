@@ -1,5 +1,7 @@
 'use strict';
 
+const {assign} = Object;
+
 const once = require('once');
 
 // stricter validation to prevent even more invalid ASTs: not only
@@ -23,11 +25,9 @@ const moveOutDirectives = require('./move-out-directives');
 // babel, putout: sourceFilename
 module.exports.parse = function babelParse(source, {sourceFilename, isTS, isJSX = true, isFlow = getFlow(source)}) {
     const {parse} = initBabel();
-    
-    const ast = parse(source, {
+    const parserOptions = {
         sourceType: 'module',
         tokens: true,
-        sourceFilename,
         ...options,
         plugins: clean([
             ...plugins,
@@ -37,7 +37,13 @@ module.exports.parse = function babelParse(source, {sourceFilename, isTS, isJSX 
                 isJSX,
             }),
         ]),
+    };
+    
+    sourceFilename && assign(parserOptions, {
+        sourceFilename,
     });
+    
+    const ast = parse(source, parserOptions);
     
     moveOutDirectives(ast);
     

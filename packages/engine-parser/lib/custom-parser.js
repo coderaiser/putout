@@ -5,6 +5,7 @@ const babel = require('./parsers/babel');
 const espree = require('./parsers/espree');
 const esprima = require('./parsers/esprima');
 const tenko = require('./parsers/tenko');
+const hermes = require('./parsers/hermes');
 const secondChance = require('./second-chance');
 
 const isObject = (a) => typeof a === 'object';
@@ -48,6 +49,9 @@ function customParse(source, {parser, isTS, isFlow, isJSX}) {
     
     if (parser === 'tenko')
         return tenko.parse(source);
+    
+    if (parser === 'hermes')
+        return hermes.parse(source);
     
     return require(parser).parse(source);
 }
