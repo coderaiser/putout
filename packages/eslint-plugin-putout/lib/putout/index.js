@@ -96,6 +96,8 @@ const fix = ({ast, text, node, source, resultOptions}) => (fixer) => {
     transform(ast, text, resultOptions);
     
     const [, last] = lastToken.range;
+    
+    removeParent(ast);
     const code = print(ast);
     
     return fixer.replaceTextRange([0, last], code);
@@ -103,7 +105,6 @@ const fix = ({ast, text, node, source, resultOptions}) => (fixer) => {
 
 const createParser = (node) => {
     const ast = copyAST(node);
-    removeParent(ast);
     
     const parser = {
         parse: returns(ast),

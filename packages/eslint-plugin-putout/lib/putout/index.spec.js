@@ -176,6 +176,30 @@ parserTester.run('putout', rule, {
             column: 7,
             message: `Declare 'reImport' (tape/declare)`,
         }],
+    }, {
+        code: montag`
+            parse1({
+                exit(path) {
+                    const {node} = path;
+                    
+                    convertNodeComments(node);
+                }
+            });
+        `,
+        output: montag`
+            parse1({
+                exit(
+                    {
+                        node
+                    }
+                ) {
+                    convertNodeComments(node);
+                }
+            });
+        `,
+        errors: [{
+            message: `Remove useless variable 'path' (remove-useless-variables/destruct)`,
+        }],
     }],
 });
 
