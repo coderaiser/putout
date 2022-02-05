@@ -5,7 +5,7 @@ function hello(
     }
 ) {}
 
-function no() {
+function no([args]) {
     const {a, b} = args;
 }
 

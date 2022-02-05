@@ -2,7 +2,7 @@ function hello(args) {
     const {a, b} = args;
 }
 
-function no() {
+function no([args]) {
     const {a, b} = args;
 }
 

@@ -32,3 +32,8 @@ test('remove-useless-variables: destruct: transform: not-one', (t) => {
     t.end();
 });
 
+test('remove-useless-variables: destruct: transform: spread', (t) => {
+    t.transform('spread');
+    t.end();
+});
+

@@ -5,11 +5,23 @@ const {
     operator,
 } = require('putout');
 
-const {isIdentifier} = types;
-
+const {
+    isIdentifier,
+    isRestElement,
+} = types;
 const {replaceWith} = operator;
 
-const sum = (a, b) => a + b.key.name.length;
+const getKeyLength = (a) => {
+    const {key} = a;
+    
+    if (isIdentifier(key))
+        return a.key.name.length;
+    
+    if (isRestElement(a) && isIdentifier(a.argument))
+        return a.argument.name.length + 3;
+};
+
+const sum = (a, b) => a + getKeyLength(b);
 
 module.exports.report = (path) => {
     return `Remove useless variable '${path.node.declarations[0].init.name}'`;
