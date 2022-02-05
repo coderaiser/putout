@@ -2,7 +2,8 @@
     "overrides": [{
         "files": "*.md{js}",
         "rules": {
-            "putout/function-declaration-paren-newline": "off"
+            "putout/function-declaration-paren-newline": "off",
+            "function-paren-newline": "off"
         }
     }]
 }

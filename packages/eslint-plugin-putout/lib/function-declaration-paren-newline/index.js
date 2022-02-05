@@ -1,16 +1,26 @@
 'use strict';
 
-const fixNewLines = (text) => {
-    return text
-        .replace(/\(\n\s+/, '(')
-        .replace(/,?\n\s+\)/, ')');
-};
-
 module.exports.report = () => {
     return `Unexpected new lines around arguments`;
 };
 
-module.exports.fix = ({text}) => fixNewLines(text);
+module.exports.fix = ({text, node, getText}) => {
+    const {body} = node.body;
+    node.body.body = [];
+    
+    const paramsText = getText(node);
+    
+    node.body.body = body;
+    
+    const newText = paramsText
+        .replace(/\(\n(\s+)?/, '(')
+        .replace(/,?\n\s+\)/, ')')
+        .replace(/,\n(\s+)?{/, ', {')
+        .replace(/},\n(\s+)?\)/, '})')
+        .replace(/,\n(\s+)?/, ', ');
+    
+    return text.replace(paramsText, newText);
+};
 
 module.exports.include = () => [
     'FunctionDeclaration',

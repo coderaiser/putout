@@ -1,5 +1,11 @@
 'use strict';
 
+const {readFileSync} = require('fs');
+
+const {join} = require('path');
+
+const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');
+
 const {RuleTester} = require('eslint');
 
 const wrap = require('../wrap');
@@ -68,6 +74,12 @@ ruleTester.run('keyword-spacing', rule, {
                 }
             });
             `,
+        errors: [{
+            message: 'Unexpected new lines around arguments',
+        }],
+    }, {
+        code: readFixture('fn'),
+        output: readFixture('fn-fix'),
         errors: [{
             message: 'Unexpected new lines around arguments',
         }],
