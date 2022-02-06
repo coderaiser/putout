@@ -37,3 +37,8 @@ test('remove-useless-variables: destruct: transform: spread', (t) => {
     t.end();
 });
 
+test('remove-useless-variables: destruct: transform: assign', (t) => {
+    t.noTransform('assign');
+    t.end();
+});
+

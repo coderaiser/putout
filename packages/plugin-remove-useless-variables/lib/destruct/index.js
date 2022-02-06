@@ -8,17 +8,22 @@ const {
 const {
     isIdentifier,
     isRestElement,
+    isAssignmentPattern,
 } = types;
 const {replaceWith} = operator;
 
+const MAX_LENGTH = 20;
+
 const getKeyLength = (a) => {
-    const {key} = a;
+    const {key, value} = a;
     
-    if (isIdentifier(key))
+    if (!isAssignmentPattern(value) && isIdentifier(key))
         return a.key.name.length;
     
     if (isRestElement(a) && isIdentifier(a.argument))
         return a.argument.name.length + 3;
+    
+    return MAX_LENGTH;
 };
 
 const sum = (a, b) => a + getKeyLength(b);
@@ -61,7 +66,7 @@ module.exports.match = () => ({
         
         const namesLength = __object.properties.reduce(sum, 0);
         
-        return namesLength < 20;
+        return namesLength < MAX_LENGTH;
     },
 });
 
