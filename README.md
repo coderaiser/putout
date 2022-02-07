@@ -1959,7 +1959,11 @@ Add `putout` as a `peerDependency` to your `packages.json` (>= of version you de
 >
 > **(c) Yamamoto Tsunetomo "Hagakure"**
 
-Let's consider a couple of plugin types that can be used.
+🐊`Putout` plugins are the simplest possible way to transform `AST` and this is for a reason.
+
+And the reason is 🐊[`PutoutScript`](https://github.com/coderaiser/putout/tree/master/packages/compare#readme) `JavaScript`-compatible language which adds additional meaning to identifiers used in `AST`-template.
+
+Let's dive into plugin types that you can use for you next code transformation.
 
 ### Replacer
 
