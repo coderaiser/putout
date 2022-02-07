@@ -161,6 +161,8 @@ async function get() {
 
 ## apply-top-level-await
 
+Applies [top-level-await](https://v8.dev/features/top-level-await).
+
 ### ❌ Incorrect
 
 ```js
