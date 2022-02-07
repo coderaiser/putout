@@ -23,9 +23,7 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {
-    "@putout/plugin-remove-empty-pattern": "^4.0.0"
-  },
+  "dependencies": {},
   "keywords": [
     "putout",
     "putout-plugin",
@@ -41,6 +39,7 @@
     "eslint-plugin-putout": "^13.0.0",
     "lerna": "^4.0.0",
     "madrun": "^8.0.1",
+    "montag": "^1.2.1",
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {

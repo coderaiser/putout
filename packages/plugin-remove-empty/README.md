@@ -33,29 +33,45 @@ npm i @putout/plugin-remove-empty
 }
 ```
 
-## ❌ Incorrect code example
+## block
 
-```js
-import 'hello';
-import world from 'world';
-
-if (2 > 3) {}
-
-if (a > 3) {
-    world();
-}
-
-export {};
+```diff
+-if (2 > 3) {}
 ```
 
-## ✅ Correct code Example
+## pattern
+
+```diff
+-const [] = array;
+-const {} = object;
+```
+
+## export
+
+```diff
+-export {};
+```
+
+## import
+
+```diff
+-import 'abc';
+```
+
+## arguments
+
+### ❌ Incorrect code example
 
 ```js
-import world from 'world';
+module.exports = ({rule, plugin, msg, options}, {}) => {
+};
+```
 
-if (a > 3) {
-    world();
-}
+### ✅ Correct code Example
+
+```js
+module.exports = ({rule, plugin, msg, options}) => {
+};
 ```
 
 ## License
