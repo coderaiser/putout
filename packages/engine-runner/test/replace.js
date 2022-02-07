@@ -596,3 +596,25 @@ test('putout: runner: replace: return: not path, node and string', (t) => {
     t.equal(error.message, expected);
     t.end();
 });
+
+test('putout: runner: replace: match not function', (t) => {
+    const source = `const hello = 'world'`;
+    const [error] = tryCatch(putout, source, {
+        plugins: [{
+            hello: {
+                report: () => 'xxx',
+                replace: () => ({
+                    'const __a = __b': () => '',
+                }),
+                match: () => ({
+                    'const __a = __b': 'xxx',
+                }),
+            },
+        }],
+    });
+    
+    const expected = `☝️ Looks like 'match' property value is not a 'function', but 'string' with value 'xxx'.`;
+    
+    t.equal(error.message, expected);
+    t.end();
+});

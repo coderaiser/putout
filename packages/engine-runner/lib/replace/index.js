@@ -119,7 +119,7 @@ const getFix = (items) => (path) => {
 const getFilter = (match = stubMatch, options) => (path) => {
     const all = entries(match({options}));
     
-    for (const [from, fn] of all) {
+    for (const [from, matchProperty] of all) {
         const nodeFrom = template.ast(from);
         
         if (!compare(path.node, nodeFrom)) {
@@ -134,7 +134,9 @@ const getFilter = (match = stubMatch, options) => (path) => {
             node,
         });
         
-        return fn(values, path);
+        validateMatchProperty(matchProperty);
+        
+        return matchProperty(values, path);
     }
     
     return true;
@@ -153,6 +155,11 @@ function parseTo(to, values, path) {
         throw Error(`☝️ Looks like you passed 'replace' value with a wrong type. Allowed: 'string', 'node' and 'path'. Received: '${typeof toStr}' with value '${toStr}'.`);
     
     return template.ast.fresh(toStr);
+}
+
+function validateMatchProperty(match) {
+    if (!isFn(match))
+        throw Error(`☝️ Looks like 'match' property value is not a 'function', but '${typeof match}' with value '${match}'.`);
 }
 
 const validateTemplateValues = (a, b) => {
