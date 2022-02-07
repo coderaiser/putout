@@ -98,3 +98,13 @@ test('plugin-remove-empty: pattern: no transform: nested array destructuring', (
     t.end();
 });
 
+test('plugin-remove-empty: pattern: transform: fn', (t) => {
+    t.transform('fn');
+    t.end();
+});
+
+test('plugin-remove-empty: pattern: transform: no-args', (t) => {
+    t.noReport('no-args');
+    t.end();
+});
+
