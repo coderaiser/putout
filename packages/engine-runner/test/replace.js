@@ -574,3 +574,25 @@ test('putout: runner: replace: fix: crawl: block', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: runner: replace: return: not path, node and string', (t) => {
+    const source = `const hello = 'world'`;
+    const [error] = tryCatch(putout, source, {
+        plugins: [{
+            hello: {
+                report: () => 'xxx',
+                replace: () => ({
+                    'const __a = __b': () => true,
+                }),
+            },
+        }],
+    });
+    
+    const expected = [
+        `☝️ Looks like you passed 'replace' value with a wrong type.`,
+        `Allowed: 'string', 'node' and 'path'. Received: 'boolean' with value 'true'.`,
+    ].join(' ');
+    
+    t.equal(error.message, expected);
+    t.end();
+});

@@ -1,5 +1,7 @@
 'use strict';
 
+const isString = (a) => typeof a === 'string';
+
 const {template} = require('@putout/engine-parser');
 const {
     remove,
@@ -27,13 +29,6 @@ const stub = () => [];
 const stubMatch = () => ({});
 const packKeys = (a) => () => keys(a);
 const isObj = (a) => typeof a === 'object';
-
-const validateTemplateValues = (a, b) => {
-    for (const key of keys(a)) {
-        if (!b[key])
-            throw Error(`☝️ Looks like template values not linked: ${stringify(keys(b))} -> ${stringify(keys(a))}`);
-    }
-};
 
 module.exports = ({rule, plugin, msg, options}) => {
     const {
@@ -151,9 +146,19 @@ function parseTo(to, values, path) {
     if (!toStr)
         return null;
     
-    if (isObj(toStr))
+    if (isObj(toStr) && toStr.type)
         return toStr;
+    
+    if (!isString(toStr))
+        throw Error(`☝️ Looks like you passed 'replace' value with a wrong type. Allowed: 'string', 'node' and 'path'. Received: '${typeof toStr}' with value '${toStr}'.`);
     
     return template.ast.fresh(toStr);
 }
+
+const validateTemplateValues = (a, b) => {
+    for (const key of keys(a)) {
+        if (!b[key])
+            throw Error(`☝️ Looks like template values not linked: ${stringify(keys(b))} -> ${stringify(keys(a))}`);
+    }
+};
 
