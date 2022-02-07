@@ -1,14 +1,14 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const removeUselessAwait = require('..');
+const removeUselessAwait = require('.');
 
 const test = createTest(__dirname, {
     'remove-useless-await': removeUselessAwait,
 });
 
 test('plugin-remove-useless-await: report', (t) => {
-    t.report('await-await', 'Useless await should be avoided');
+    t.report('await-await', `Avoid useless 'await'`);
     t.end();
 });
 

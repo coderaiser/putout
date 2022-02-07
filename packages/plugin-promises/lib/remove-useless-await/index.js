@@ -3,7 +3,7 @@
 const {operator} = require('putout');
 const {traverse} = operator;
 
-module.exports.report = () => `Useless await should be avoided`;
+module.exports.report = () => `Avoid useless 'await'`;
 
 module.exports.replace = () => ({
     'await await __a': 'await __a',
