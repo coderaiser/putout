@@ -20,6 +20,8 @@ There is a couple plugin types supported by 🐊`Putout`:
 - ✅[`Traverser`](#traverser)
 - ✅[`Finder`](#finder)
 
+All of them supports 🐊`PutoutScript` which is subset of `JavaScript` described in [@putout/compare](https://github.com/coderaiser/putout/tree/master/packages/compare#readme).
+
 They goes from simplest to hardest. Let's start from `Replacer`.
 
 ### Replacer
@@ -160,7 +162,7 @@ module.exports.filter = (path) => {
 const __ = 'hello';
 ```
 
-Where `__` can be any node. All this possible with help of [@putout/compare](https://github.com/coderaiser/putout/tree/master/packages/compare). Templates format supported in `traverse` and `find` plugins as well.
+Where `__` can be any node. All this possible with help of [@putout/compare](https://github.com/coderaiser/putout/tree/master/packages/compare#readme). Templates format supported in `traverse` and `find` plugins as well.
 
 ### Traverser
 
