@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-promises",
-  "version": "6.2.1",
+  "version": "7.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin for promises processing",
