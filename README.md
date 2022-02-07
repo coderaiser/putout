@@ -32,7 +32,7 @@
 - [🌴 Laws of the Jungle](#-laws-of-the-jungle)
 - [🏗 API](#-api)
 - [🏨 Built-in transformations](#-built-in-transformations)
-- [🏟 Plugins](#-plugins-1)
+- [🏟 Plugins](#-plugins)
 - [🦚 Formatters](#-formatters)
 - [🦉 Configuration](#-configuration)
 - [🧬 Plugins API](#-plugins-api)
