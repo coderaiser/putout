@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const removeUselessAsync = require('..');
+const removeUselessAsync = require('.');
 
 const test = createTest(__dirname, {
     'remove-useless-async': removeUselessAsync,

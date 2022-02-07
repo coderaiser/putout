@@ -1,6 +1,5 @@
 'use strict';
 
-const removeUselessAsync = require('@putout/plugin-remove-useless-async');
 const removeUselessAwait = require('@putout/plugin-remove-useless-await');
 
 const getRule = (a) => ({
@@ -12,7 +11,7 @@ module.exports.rules = {
     ...getRule('convert-reject-to-throw'),
     ...getRule('add-missing-await'),
     ...getRule('apply-top-level-await'),
-    'remove-useless-async': removeUselessAsync,
+    ...getRule('remove-useless-async'),
     'remove-useless-await': removeUselessAwait,
 };
 
