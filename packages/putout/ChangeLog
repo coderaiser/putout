@@ -1,3 +1,34 @@
+2022.02.07, v24.6.0
+
+fix:
+- (eslint-plugin-putout) remove parent: after parse -> before print
+- (eslint-plugin-putout) npmignore: add lib/**/*.md
+- chore(madrun) add fresh:fix
+
+feature:
+- (package) @putout/plugin-remove-empty v7.0.0
+- (package) @putout/plugin-promises v7.0.0
+- (@putout/plugin-remove-empty) drop support of 🐊Putout < 24
+- (@putout/plugin-remove-empty) merge remove-empty-pattern
+- (@putout/plugin-promises) merge remove-useless-await
+- (@putout/plugin-promises) merged remove-useless-async
+- (@putout/plugin-promises) drop support of 🐊Putout < 24
+- (@putout/plugin-promises) merged apply-top-level-await
+- (@putout/plugin-remove-useless-variables) destruct: add support of AssignmentPattern
+- (@putout/plugin-remove-useless-variables) destr: add support of RestElement
+- (eslint-plugin-putout) function-declaration-parent-newline: improve support of destructuring
+- (@putout/engine-parser) add support of wasm-based hermes-parser (5 times slower then babel 🤔)
+- (@putout/plugin-remove-unused-variables) add support of ClassProperty (#96)
+- (@putout/plugin-apply-try-catch) await: add support of async
+- (@putout/plugin-putout) check-replace-code: exclude plugins containing match
+- (@putout/plugin-apply-try-catch) add await
+- (eslint-plugin-putout) function-declaration-paren-newline: add FunctionExpression support
+- (@putout/plugin-remove-useless-variables) add destruct
+- (eslint-plugin-putout) safe: disable remove-useless-spread
+- (@putout/eslint-config) operator-linebreak: add ":", "?"
+- (@putout/eslint-config) operand-linebreak: |, || - before, others - after
+
+
 2022.01.26, v24.5.0
 
 fix:
