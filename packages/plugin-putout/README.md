@@ -24,6 +24,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-to-no-transform-code": "on",
         "putout/convert-replace-with": "on",
         "putout/convert-replace-with-multiple": "on",
+        "putout/convert-replace-to-function": "on",
         "putout/convert-babel-types": "on",
         "putout/convert-destructuring-to-identifier": "on",
         "putout/convert-node-to-path-in-get-template-values": "on",
@@ -186,6 +187,24 @@ const {replaceWithMultiple} = require('putout').operator;
 module.exports.fix = (path) => {
     replaceWithMultiple(path, [Identifier('hello')]);
 };
+```
+
+## convert-replace-to-function
+
+### ❌ Incorrect code example
+
+```js
+module.exports.replace = {
+    'let __a = __b': 'const __b = __a',
+};
+```
+
+### ✅ Correct code Example
+
+```js
+module.exports.replace = () => ({
+    'let __a = __b': 'const __b = __a',
+});
 ```
 
 ## convert-babel-types

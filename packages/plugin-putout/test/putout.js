@@ -112,3 +112,8 @@ test('plugin-putout: transform: includer', (t) => {
     t.end();
 });
 
+test('plugin-putout: transform: convert-replace-to-function', (t) => {
+    t.transform('convert-replace-to-function');
+    t.end();
+});
+
