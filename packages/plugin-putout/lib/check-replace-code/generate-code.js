@@ -9,6 +9,7 @@ const {
     ArrayPattern,
     ObjectPattern,
     BlockStatement,
+    ObjectExpression,
 } = types;
 
 module.exports = (rootPath, key) => {
@@ -56,10 +57,7 @@ module.exports = (rootPath, key) => {
                     }
                     
                     if (name === '__object') {
-                        if (path.parentPath.isVariableDeclarator())
-                            replaceWith(path, ObjectPattern([]));
-                        
-                        return;
+                        return objectify(path);
                     }
                     
                     if (name === '__body') {
@@ -84,5 +82,17 @@ function createVarStore(path) {
         
         return store[name];
     };
+}
+
+function objectify(path) {
+    const {parentPath} = path;
+    const isVar = parentPath.isVariableDeclarator();
+    const isAssign = parentPath.isAssignmentExpression();
+    
+    if (isVar && parentPath.get('id') === path)
+        return replaceWith(path, ObjectPattern([]));
+    
+    if (isAssign && parentPath.get('right') === path)
+        return replaceWith(path, ObjectExpression([]));
 }
 
