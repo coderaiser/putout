@@ -15,6 +15,7 @@ module.exports.rules = {
     ...getRule('convert-replace-with'),
     ...getRule('convert-replace-with-multiple'),
     ...getRule('convert-replace-to-function'),
+    ...getRule('convert-match-to-function'),
     ...getRule('convert-babel-types'),
     ...getRule('convert-node-to-path-in-get-template-values'),
     ...getRule('convert-traverse-to-include'),

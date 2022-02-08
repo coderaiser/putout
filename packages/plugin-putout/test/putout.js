@@ -117,3 +117,8 @@ test('plugin-putout: transform: convert-replace-to-function', (t) => {
     t.end();
 });
 
+test('plugin-putout: transform: convert-match-to-function', (t) => {
+    t.transform('convert-match-to-function');
+    t.end();
+});
+

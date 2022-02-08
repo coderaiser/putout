@@ -25,6 +25,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-replace-with": "on",
         "putout/convert-replace-with-multiple": "on",
         "putout/convert-replace-to-function": "on",
+        "putout/convert-match-to-function": "on",
         "putout/convert-babel-types": "on",
         "putout/convert-destructuring-to-identifier": "on",
         "putout/convert-node-to-path-in-get-template-values": "on",
@@ -204,6 +205,24 @@ module.exports.replace = {
 ```js
 module.exports.replace = () => ({
     'let __a = __b': 'const __b = __a',
+});
+```
+
+## convert-match-to-function
+
+### ❌ Incorrect code example
+
+```js
+module.exports.match = {
+    'let __a = __b': () => false,
+};
+```
+
+### ✅ Correct code Example
+
+```js
+module.exports.match = () => ({
+    'let __a = __b': () => false,
 });
 ```
 
