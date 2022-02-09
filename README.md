@@ -20,6 +20,7 @@
 
 ## Table of contents
 
+- [🤷‍♂️ In doubt about using 🐊Putout?](#%EF%B8%8F-in-doubt-about-using-putout)
 - [🙏 Whom should I thank for this project exist?](#-whom-should-i-thank-for-this-project-exist)
 - [🤷‍♂️ Why does this project exist?](#%EF%B8%8F-why-does-this-project-exist)
 - [🚚 Installation](#-installation)
@@ -47,6 +48,29 @@
 - [📻 Versioning policy](#-versioning-policy)
 - [🚀 I want contribute](#-i-want-contribute)
 - [🍄 License](#-license)
+
+
+## 🤷‍♂️ In doubt about using 🐊Putout?
+
+Check out couple variants of plugins that does the same: **removing debugger statement**:
+
+- ❌ ESLint [no-debugger](https://github.com/eslint/eslint/blob/2dc38aa653f1d5137a9abf82024c67a11620bb7c/lib/rules/no-debugger.js): **43** lines;
+- ❌ SWCLint [no-debugger](https://github.com/swc-project/swc/blob/v1.2.138/crates/swc_ecma_lints/src/rules/no_debugger.rs): **49** lines;
+- ❌ Rome [no-debugger](https://github.com/rome/tools/blob/4d5a99ce98e987cbd03f3ab6b38fa22d00bbfe27/packages/%40romejs/js-compiler/transforms/lint/noDebugger.ts): **28** lines;
+- ❌RSLint [no-debugger](https://github.com/rslint/rslint/blob/v0.3.0/crates/rslint_core/src/groups/errors/no_debugger.rs): **48** lines
+- ✅ 🐊Putout [remove-debugger](https://github.com/coderaiser/putout/blob/v24.6.0/packages/plugin-remove-debugger/lib/remove-debugger.js): **7** lines:
+
+*Choose wisely, competitors cannot even fix…* 🤫
+
+```js
+'use strict';
+
+module.exports.report = () => 'Unexpected "debugger" statement';
+
+module.exports.replace = () => ({
+    debugger: '',
+});
+```
 
 ## 🙏 Whom should I thank for this project exist?
 
