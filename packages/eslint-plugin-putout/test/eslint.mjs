@@ -51,6 +51,10 @@ test('eslint-plugin-putout: remove-empty-newline-after-last-specifier', async ({
     await process('remove-empty-newline-after-last-specifier');
 });
 
+test('eslint-plugin-putout: remove-empty-newline-after-last-element', async ({process}) => {
+    await process('remove-empty-newline-after-last-element');
+});
+
 test('eslint-plugin-putout: remove-empty-newline-before-first-specifier', async ({process}) => {
     await process('remove-empty-newline-before-first-specifier');
 });

@@ -10,7 +10,7 @@
 ## Installation
 
 ```
-$ npm i putout eslint eslint-plugin-putout -D
+npm i putout eslint eslint-plugin-putout -D
 ```
 
 **Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `putout` and `eslint-plugin-putout` globally.
@@ -52,6 +52,7 @@ Then configure the rules you want to use under the rules section.
         "putout/remove-newline-from-empty-object": "error",
         "putout/remove-empty-newline-before-first-specifier": "error",
         "putout/remove-empty-newline-after-last-specifier": "error",
+        "putout/remove-empty-newline-after-last-element": "error",
         "putout/remove-empty-newline-after-import": "error",
         "putout/remove-empty-specifiers": "error",
         "putout/objects-braces-inside-array": "error",
@@ -81,6 +82,7 @@ Then configure the rules you want to use under the rules section.
 - [Remove newline from empty object](/packages/eslint-plugin-putout/lib/remove-newline-from-empty-object#readme)
 - [Remove empty newline before first specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-before-first-specifier#readme)
 - [Remove empty newline after last specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-specifier#readme)
+- [Remove empty newline after last element](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-element#readme)
 - [Remove empty newline after import](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-import#readme)
 - [Remove empty specifiers](/packages/eslint-plugin-putout/lib/remove-empty-specifiers#readme)
 - [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array#readme)

@@ -1,10 +1,10 @@
-# Remove empty new line after last specifier(`remove-empty-newline-after-last-specifier`)
+# remove-empty-newline-after-last-specifier
 
 ## Rule Details
 
 This rule aims to remove empty newline after last specifier.
 
-Examples of **incorrect** code for this rule:
+## ❌ Incorrect code example
 
 ```js
 import {
@@ -20,7 +20,7 @@ push({
 });
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Correct code example
 
 ```js
 import {
