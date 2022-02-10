@@ -52,7 +52,7 @@
 
 ## 🤷‍♂️ In doubt about using 🐊Putout?
 
-Check out couple variants of plugins that does the same: **removing debugger statement**:
+Check out couple variants of plugins that does the same: [**linting debugger statement**](https://putout.cloudcmd.io/#/gist/f61ba31fe534868d49eba9b946f3ed4b/5ef6863d9cf4826666782ae0eea5cb5def266bbd):
 
 - ❌ ESLint [no-debugger](https://github.com/eslint/eslint/blob/2dc38aa653f1d5137a9abf82024c67a11620bb7c/lib/rules/no-debugger.js): **43** lines;
 - ❌ SWCLint [no-debugger](https://github.com/swc-project/swc/blob/v1.2.138/crates/swc_ecma_lints/src/rules/no_debugger.rs): **49** lines;
