@@ -1,8 +1,6 @@
 # remove-empty-newline-after-last-element
 
-## Rule Details
-
-This rule aims to remove empty newline after last element.
+Remove empty newline after last element.
 
 ## ❌ Incorrect code example
 
