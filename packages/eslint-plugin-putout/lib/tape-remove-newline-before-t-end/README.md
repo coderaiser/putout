@@ -1,6 +1,7 @@
 # remove-newline-before-t-end
 
 Remove newline before `t.end()`, for [`supertape`](https://github.com/coderaiser/supertape).
+Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
 ## ❌ Incorrect code example
 
