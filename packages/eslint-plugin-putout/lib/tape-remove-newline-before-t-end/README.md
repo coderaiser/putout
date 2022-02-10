@@ -1,12 +1,8 @@
-# Remove newline before `t.end()` (`remove-newline-before-t-end`)
+# remove-newline-before-t-end
 
 Remove newline before `t.end()`, for [`supertape`](https://github.com/coderaiser/supertape).
 
-## Rule Details
-
-This rule aims to remove newline before `t.end()`.
-
-Examples of **incorrect** code for this rule:
+## ❌ Incorrect code example
 
 ```js
 test('lint: do some check', (t) => {
@@ -18,7 +14,7 @@ test('lint: do some check', (t) => {
 });
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Correct code example
 
 ```js
 test('lint: do some check', (t) => {
