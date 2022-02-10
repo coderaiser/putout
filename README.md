@@ -40,7 +40,7 @@
 - [🗿 Using Babel Plugins with Putout](#-using-babel-plugins-with-putout)
 - [🛴 Codemods](#-codemods)
 - [🦕 Integration with ESLint](#-integration-with-eslint)
-- [☄️ Integration with Babel](#-integration-with-babel)
+- [☄️ Integration with Babel](#%EF%B8%8F-integration-with-babel)
 - [🐈 Integration with Yarn PnP](#-integration-with-yarn-pnp)
 - [⛓ Using Putout as Loader](#-using-putout-as-loader)
 - [🚪 Exit Codes](#exit-codes)
