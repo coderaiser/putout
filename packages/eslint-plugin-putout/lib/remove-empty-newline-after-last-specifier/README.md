@@ -1,8 +1,6 @@
 # remove-empty-newline-after-last-specifier
 
-## Rule Details
-
-This rule aims to remove empty newline after last specifier.
+Remove empty newline after last specifier.
 
 ## ❌ Incorrect code example
 
