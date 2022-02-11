@@ -21,13 +21,13 @@ npm i @putout/plugin-apply-filter-boolean
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```ts
 array.filter((a) => a);
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```ts
 array.filter(Boolean);

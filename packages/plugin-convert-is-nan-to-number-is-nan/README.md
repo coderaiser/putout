@@ -33,7 +33,7 @@ npm i @putout/plugin-convert-is-nan-to-number-is-nan -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 if (isNaN(x)) {
@@ -41,7 +41,7 @@ if (isNaN(x)) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 if (Number.isNaN(x)) {

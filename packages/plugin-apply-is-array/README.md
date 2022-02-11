@@ -21,13 +21,13 @@ npm i @putout/plugin-apply-is-array
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 x instanceof Array;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const {isArray} = Array;

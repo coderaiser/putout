@@ -25,7 +25,7 @@ npm i @putout/plugin-apply-try-catch
 
 ## tryCatch
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 try {
@@ -34,7 +34,7 @@ try {
 }
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const [error] = tryCatch(log, 'hello');
@@ -42,7 +42,7 @@ const [error] = tryCatch(log, 'hello');
 
 ## tryToCatch
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 try {
@@ -51,7 +51,7 @@ try {
 }
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const [error] = await tryCatch(log, 'hello');
@@ -59,14 +59,14 @@ const [error] = await tryCatch(log, 'hello');
 
 ## await
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 await tryCatch(a, b);
 tryToCatch(a, b);
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 await tryToCatch(a, b);

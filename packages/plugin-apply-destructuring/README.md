@@ -24,14 +24,14 @@ Rule `apply-destructuring` is enabled by default, to disable add to `.putout.jso
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const first = array[0];
 const name = user.name;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const [first] = array;

@@ -35,13 +35,13 @@ Convert [fs.promises](https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_f
 import {readFile} from 'fs/promises';
 ```
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```js
 const {readFile} = require('fs').promises;
 ```
 
-#### ✅ Correct code Example
+#### ✅ Example of correct code
 
 ```js
 const {readFile} = require('fs/promises');
@@ -49,14 +49,14 @@ const {readFile} = require('fs/promises');
 
 ### convert-promisify-to-fs-promises
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```js
 const fs = require('fs');
 const readFile = promisify(fs.readFile);
 ```
 
-#### ✅ Correct code Example
+#### ✅ Example of correct code
 
 ```js
 const {readFile} = require('fs/promises');
@@ -66,7 +66,7 @@ const {readFile} = require('fs/promises');
 
 Only for `EcmaScript Modules`.
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```js
 import {readFile} from 'fs/promises';
@@ -75,7 +75,7 @@ const file1 = join(__dirname, '../../package.json');
 const file2 = path.join(__dirname, '../../package.json');
 ```
 
-#### ✅ Correct code Example
+#### ✅ Example of correct code
 
 ```js
 import {readFile} from 'fs/promises';
@@ -94,13 +94,13 @@ In most cases `process.exit()` is called from `bin` directory, if not - disable 
 
 ### convert-top-level-return
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```js
 return;
 ```
 
-#### ✅ Correct code Example
+#### ✅ Example of correct code
 
 ```js
 process.exit();

@@ -24,13 +24,13 @@ Rule `convert-any-to-primitive` is enabled by default for `ts` and `tsx` files, 
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```ts
 const x: any = 5;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```ts
 const x: number = 5;

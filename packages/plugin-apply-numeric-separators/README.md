@@ -21,13 +21,13 @@ npm i @putout/plugin-apply-numeric-separators
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const t = 10000000;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const t = 10_000_000;

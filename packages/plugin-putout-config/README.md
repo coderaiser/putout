@@ -24,7 +24,7 @@ npm i @putout/plugin-putout-config -D
 
 ## convert-boolean-to-string
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```json
 {
@@ -35,7 +35,7 @@ npm i @putout/plugin-putout-config -D
 }
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```json
 {
@@ -48,7 +48,7 @@ npm i @putout/plugin-putout-config -D
 
 ## remove-empty
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```json
 {
@@ -62,7 +62,7 @@ npm i @putout/plugin-putout-config -D
 }
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```json
 {

@@ -21,13 +21,13 @@ npm i @putout/plugin-remove-useless-templates
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 console.log(`${str}`);
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 console.log(str);

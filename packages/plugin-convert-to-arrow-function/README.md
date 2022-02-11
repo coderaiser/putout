@@ -21,7 +21,7 @@ npm i @putout/plugin-convert-to-arrow-function
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 module.exports = function(a, b) {
@@ -34,7 +34,7 @@ function x() {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 module.exports = (a, b) => {

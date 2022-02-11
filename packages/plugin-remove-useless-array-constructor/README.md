@@ -31,13 +31,13 @@ npm i @putout/plugin-remove-useless-array-constructor -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const a = Array(1, 2, 3);
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const a = [1, 2, 3];

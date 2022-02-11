@@ -21,7 +21,7 @@ npm i @putout/plugin-simplify-logical-expressions -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const is = !(options && !options.bidirectional);
@@ -29,7 +29,7 @@ const is = !(options && !options.bidirectional);
 if (!left.type === 'UnaryExpression');
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const is = !options || options.bidirectional;

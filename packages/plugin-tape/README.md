@@ -51,7 +51,7 @@ npm i @putout/plugin-tape -D
 
 ## switch-expected-with-result
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
@@ -60,7 +60,7 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
@@ -71,13 +71,13 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
 
 ## convert-tape-to-supertape
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const test = require('tape');
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 const test = require('supertape');
@@ -85,7 +85,7 @@ const test = require('supertape');
 
 ## convert-throws-to-try-catch
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const test = require('supertape');
@@ -96,7 +96,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 const tryCatch = require('try-catch');
@@ -112,7 +112,7 @@ test('some message', (t) => {
 
 ## convert-does-not-throw-to-try-catch
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const test = require('supertape');
@@ -123,7 +123,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 const test = require('supertape');
@@ -139,7 +139,7 @@ test('some test', (t) => {
 
 ## convert-called-with-args
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const test = require('supertape');
@@ -155,7 +155,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 const test = require('supertape');
@@ -175,7 +175,7 @@ test('some message', (t) => {
 
 No need to use [`equal`](https://github.com/coderaiser/supertape#tequalactual-expected-msg), [`supertape`](https://github.com/coderaiser/supertape) supports [`calledOnce`](https://github.com/coderaiser/supertape/tree/master/packages/operator-stub#tcalledoncefn--message).
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const test = require('supertape');
@@ -191,7 +191,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 const test = require('supertape');
@@ -211,7 +211,7 @@ test('some message', (t) => {
 
 Use [`equal`](https://github.com/coderaiser/supertape#tequalactual-expected-msg) when comparing with primitives, [`deepEqual`](https://github.com/coderaiser/supertape#tdeepequalactual-expected-msg) for [`Objects`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) and [`Arrays`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array);
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const test = require('supertape');
@@ -223,7 +223,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 const test = require('supertape');
@@ -237,7 +237,7 @@ test('some message', (t) => {
 
 ## convert-called-with-to-called-with-no-args
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const test = require('supertape');
@@ -253,7 +253,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 const test = require('supertape');
@@ -271,7 +271,7 @@ test('some message', (t) => {
 
 ## convert-called-with-no-args-to-called-with
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const test = require('supertape');
@@ -287,7 +287,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 const test = require('supertape');
@@ -305,7 +305,7 @@ test('some message', (t) => {
 
 ## convert-emitter-to-promise
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('copymitter', (t) => {
@@ -317,7 +317,7 @@ test('copymitter', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 const {once} = require('events');
@@ -332,7 +332,7 @@ test('copymitter', async (t) => {
 
 ## expand-try-catch-arguments
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 import tryCatch from 'try-catch';
@@ -346,7 +346,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 import tryCatch from 'try-catch';
@@ -361,7 +361,7 @@ test('some message', (t) => {
 
 ## apply-stub-operator
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('some message', (t) => {
@@ -370,7 +370,7 @@ test('some message', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 test('some message', (t) => {
@@ -381,7 +381,7 @@ test('some message', (t) => {
 
 ## apply-with-name
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('should call init before show', (t) => {
@@ -393,7 +393,7 @@ test('should call init before show', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 test('should call init before show', (t) => {
@@ -407,7 +407,7 @@ test('should call init before show', (t) => {
 
 ## sync-with-name
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('should call init before show', (t) => {
@@ -419,7 +419,7 @@ test('should call init before show', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 test('should call init before show', (t) => {
@@ -435,7 +435,7 @@ test('should call init before show', (t) => {
 
 ### `mockImport`
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```js
 import {stub} from 'supertape';
@@ -445,7 +445,7 @@ mockImport('fs/promises', {
 });
 ```
 
-##### ✅ Correct code Example
+##### ✅ Example of correct code
 
 ```js
 import {stub} from 'supertape';
@@ -464,7 +464,7 @@ mockImport('fs/promises', {
 
 ### `tape`
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```js
 test('xxx', (t) => {
@@ -473,7 +473,7 @@ test('xxx', (t) => {
 });
 ```
 
-#### ✅ Correct code example
+#### ✅ Example of correct code
 
 ```js
 import {
@@ -489,7 +489,7 @@ test('xxx', (t) => {
 
 ## add-args
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('xxx', () => {
@@ -497,7 +497,7 @@ test('xxx', () => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 test('xxx', (t) => {
@@ -507,14 +507,14 @@ test('xxx', (t) => {
 
 ## add-t-end
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('xxx', () => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 test('xxx', (t) => {
@@ -524,7 +524,7 @@ test('xxx', (t) => {
 
 ## add-await-to-re-import
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('stop-all: should be called', (t) => {
@@ -533,7 +533,7 @@ test('stop-all: should be called', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 test('stop-all: should be called', async (t) => {
@@ -546,7 +546,7 @@ test('stop-all: should be called', async (t) => {
 
 When you write test mocking `ESM` with [`mockImport()`](https://github.com/coderaiser/mock-import#mockimportname-mock) never forget to call [`stopAll()`](https://github.com/coderaiser/mock-import#stopall) when you no longer need it. This leads to bugs in tests which are hard to find, each test should be checked with the one which pass when called alone but fail when called with others.
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('stop-all: should be called', (t) => {
@@ -557,7 +557,7 @@ test('stop-all: should be called', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 test('stop-all: should be called', (t) => {
@@ -572,7 +572,7 @@ test('stop-all: should be called', (t) => {
 
 ## remove-useless-t-end
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('test: remove me', () => {
@@ -581,7 +581,7 @@ test('test: remove me', () => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 test('test: remove me', () => {
@@ -591,13 +591,13 @@ test('test: remove me', () => {
 
 ## convert-ok-to-match
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 t.ok(result.includes('hello'));
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 t.match(result, /hello/);
@@ -605,13 +605,13 @@ t.match(result, /hello/);
 
 ## convert-ok-to-match
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 t.ok(set.calledWith(1, 2));
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 t.calledWith(set, [1, 2]);
@@ -619,13 +619,13 @@ t.calledWith(set, [1, 2]);
 
 ## convert-equal-to-not-ok
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 t.equal(error, null);
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 t.notOk(error);
@@ -633,13 +633,13 @@ t.notOk(error);
 
 ## convert-equal-to-ok
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 t.equal(result, true);
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 t.ok(result);
@@ -647,7 +647,7 @@ t.ok(result);
 
 ## convert-equal-to-deep-equal
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const expected = {
@@ -658,7 +658,7 @@ t.equal(error, expected);
 t.end();
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 const expected = {
@@ -671,13 +671,13 @@ t.end();
 
 ## convert-match-regexp-to-string
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 t.match(result, RegExp('hello'));
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 t.match(result, 'hello');
@@ -688,13 +688,13 @@ t.match(result, 'hello');
 `supertape` will put this information for you, and it is always the same.
 No need to repeat the same information twice on one line, better to avoid it.
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 t.equal(result, expected, 'should equal');
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 t.equal(result, expected);
@@ -702,13 +702,13 @@ t.equal(result, expected);
 
 ## remove-useless-not-called-args
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 t.notCalled(fn, []);
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 t.notCalled(fn);
@@ -716,7 +716,7 @@ t.notCalled(fn);
 
 ## remove-only
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test.only('some test', (t) => {
@@ -725,7 +725,7 @@ test.only('some test', (t) => {
 
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 test('some test', (t) => {
@@ -735,7 +735,7 @@ test('some test', (t) => {
 
 ## remove-skip
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test.skip('some test', (t) => {
@@ -748,7 +748,7 @@ test.skip('some test', (t) => {
 
 When `reImport()` or `reRequire` not called, `stopAll()` is redundant and should be removed.
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('some test', (t) => {
@@ -758,7 +758,7 @@ test('some test', (t) => {
 
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 test('some test', (t) => {

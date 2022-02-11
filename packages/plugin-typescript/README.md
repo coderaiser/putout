@@ -33,13 +33,13 @@ npm i putout @putout/plugin-typescript -D
 
 ### apply-as-type-assertion
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```ts
 const boundaryElement = <HTMLElement>e.target;
 ```
 
-#### ✅ Correct code Example
+#### ✅ Example of correct code
 
 ```ts
 const boundaryElement1 = e.target as HTMLElement;
@@ -47,7 +47,7 @@ const boundaryElement1 = e.target as HTMLElement;
 
 ### apply-utility-types
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```ts
 type SuperType1 = {
@@ -55,7 +55,7 @@ type SuperType1 = {
 };
 ```
 
-#### ✅ Correct code Example
+#### ✅ Example of correct code
 
 ```ts
 type SuperType1 = Partial<Type>;
@@ -65,7 +65,7 @@ type SuperType1 = Partial<Type>;
 
 Convert `generic` to `shorthand` (https://stackoverflow.com/a/36843084/4536327).
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```ts
 interface A {
@@ -74,7 +74,7 @@ interface A {
 }
 ```
 
-#### ✅ Correct code Example
+#### ✅ Example of correct code
 
 ```ts
 interface A {
@@ -85,7 +85,7 @@ interface A {
 
 ### remove-duplicates-from-union
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```ts
 type x = boolean[]
@@ -96,7 +96,7 @@ type x = boolean[]
     | boolean[];
 ```
 
-#### ✅ Correct code Example
+#### ✅ Example of correct code
 
 ```ts
 type x = boolean[]
@@ -107,13 +107,13 @@ type x = boolean[]
 
 ### remove-useless-types-from-constants
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```ts
 const x: any = 5;
 ```
 
-#### ✅ Correct code Example
+#### ✅ Example of correct code
 
 ```ts
 const x = 5;
@@ -121,7 +121,7 @@ const x = 5;
 
 ### remove-unused-types
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```ts
 type n = number;
@@ -130,7 +130,7 @@ type s = string;
 const x: n = 5;
 ```
 
-#### ✅ Correct code Example
+#### ✅ Example of correct code
 
 ```ts
 type n = number;
@@ -140,7 +140,7 @@ const x: n = 5;
 
 ### remove-useless-types
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```ts
 type oldType = {
@@ -156,7 +156,7 @@ const x: newType = {
 };
 ```
 
-#### ✅ Correct code Example
+#### ✅ Example of correct code
 
 ```ts
 type oldType = {
@@ -174,7 +174,7 @@ const x: oldType = {
 
 Rmove useless [mapped types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html).
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```ts
 type SuperType = {
@@ -182,7 +182,7 @@ type SuperType = {
 };
 ```
 
-##### ✅ Correct code Example
+##### ✅ Example of correct code
 
 ```ts
 type SuperType = Type;
@@ -192,7 +192,7 @@ type SuperType = Type;
 
 Remove useless [mapping modifiers](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#mapping-modifiers).
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```ts
 type SuperType = {
@@ -200,7 +200,7 @@ type SuperType = {
 };
 ```
 
-#### ✅ Correct code Example
+#### ✅ Example of correct code
 
 ```ts
 type SuperType = {
@@ -210,7 +210,7 @@ type SuperType = {
 
 ### remove-duplicate-interface-keys
 
-#### ❌ Incorrect code example
+#### ❌ Example of incorrect code
 
 ```ts
 interface Hello {
@@ -219,7 +219,7 @@ interface Hello {
 }
 ```
 
-#### ✅ Correct code Example
+#### ✅ Example of correct code
 
 ```ts
 interface Hello {

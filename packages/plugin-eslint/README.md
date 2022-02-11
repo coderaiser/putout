@@ -44,7 +44,7 @@ npm i @putout/plugin-eslint -D
 
 ## move-putout-to-end-of-extends
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```json
 {
@@ -59,7 +59,7 @@ npm i @putout/plugin-eslint -D
 }
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```json
 {
@@ -76,7 +76,7 @@ npm i @putout/plugin-eslint -D
 
 ## convert-ide-to-safe
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```json
 {
@@ -91,7 +91,7 @@ npm i @putout/plugin-eslint -D
 }
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```json
 {

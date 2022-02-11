@@ -23,13 +23,13 @@ npm i @putout/plugin-apply-replace-all -D
 
 ## Rename
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 'h*ll*'.replace('*', 'x');
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 'h*ll*'.replace(/\*/g, 'x');

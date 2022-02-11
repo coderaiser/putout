@@ -23,14 +23,14 @@ Rule `convert-equal-to-strict-equal` is enabled by default, to disable add to `.
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 if (a == b) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 if (a === b) {

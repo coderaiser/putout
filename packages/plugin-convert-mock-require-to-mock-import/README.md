@@ -23,7 +23,7 @@ Rule `convert-mock-require-to-mock-import` is enabled by default for `*.mjs`, to
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const mockRequire = require('mock-require');
@@ -42,7 +42,7 @@ test('', (t) => {
 });
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 import {createMockImport} from 'mock-import';

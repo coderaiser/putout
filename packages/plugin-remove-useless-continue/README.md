@@ -21,14 +21,14 @@ npm i @putout/plugin-remove-useless-continue
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 for (sign = decpt, i = 0; sign /= 10 !== 0; i++)
     continue;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 for (sign = decpt, i = 0; sign /= 10 !== 0; i++)

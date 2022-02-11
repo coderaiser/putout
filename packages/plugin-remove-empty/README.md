@@ -60,14 +60,14 @@ npm i @putout/plugin-remove-empty
 
 ## arguments
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 module.exports = ({rule, plugin, msg, options}, {}) => {
 };
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 module.exports = ({rule, plugin, msg, options}) => {

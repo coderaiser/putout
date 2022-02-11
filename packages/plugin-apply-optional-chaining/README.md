@@ -21,13 +21,13 @@ npm i @putout/plugin-apply-optional-chaining
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const result = hello && hello.world;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const result = hello?.world;

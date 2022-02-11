@@ -21,7 +21,7 @@ npm i @putout/plugin-remove-duplicate-keys
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const a = {
@@ -31,7 +31,7 @@ const a = {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const a = {

@@ -23,7 +23,7 @@ Rule `convert-for-each-to-for-of` is enabled by default, to disable add to `.put
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 Object.keys(json).forEach((name) => {
@@ -35,7 +35,7 @@ Object.keys(json).forEach((name) => {
 });
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 for (const name of Object.keys(json)) {

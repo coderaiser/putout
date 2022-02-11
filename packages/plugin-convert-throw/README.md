@@ -24,13 +24,13 @@ npm i @putout/plugin-convert-throw -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const fn = () => {throw Error('hello');};
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const fn = () => throw Error('hello');

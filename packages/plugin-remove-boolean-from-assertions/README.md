@@ -21,14 +21,14 @@ npm i @putout/plugin-remove-boolean-from-assertions
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 if (a === true)
     alert();
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 if (a)

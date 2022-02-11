@@ -23,14 +23,14 @@ Rule `remove-unreferenced-variables` enabled by default, to disable add to `.put
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 let a;
 a = 5;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 let a;

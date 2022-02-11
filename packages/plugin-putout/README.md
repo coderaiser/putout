@@ -47,7 +47,7 @@ npm i @putout/plugin-putout -D
 
 ## apply-processors-destructuring
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('', async (t) => {
@@ -56,7 +56,7 @@ test('', async (t) => {
 
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 test('', async ({process}) => {
@@ -66,7 +66,7 @@ test('', async ({process}) => {
 
 ## apply-async-formatter
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('formatter: codeframea', (t) => {
@@ -75,7 +75,7 @@ test('formatter: codeframea', (t) => {
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 test('formatter: codeframea', async ({format}) => {
@@ -85,7 +85,7 @@ test('formatter: codeframea', async ({format}) => {
 
 ## apply-create-test
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const test = require('@putout/test')({
@@ -93,7 +93,7 @@ const test = require('@putout/test')({
 });
 ```
 
-### ✅ Correct code example
+### ✅ Example of correct code
 
 ```js
 const {createTest} = require('@putout/test');
@@ -106,7 +106,7 @@ const test = createTest({
 
 Fixes results of [@putout/convert-commonjs-to-esm](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-commonjs-to-esm) work.
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 import putoutTest from '@putout/test';
@@ -116,7 +116,7 @@ const test = putoutTest(__dirname, {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 import createTest from '@putout/test';
@@ -128,7 +128,7 @@ const test = createTest(__dirname, {
 
 ## convert-to-no-transform-code
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
@@ -139,7 +139,7 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
@@ -152,7 +152,7 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
 
 ## convert-replace-with
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 module.exports.fix = (path) => {
@@ -160,7 +160,7 @@ module.exports.fix = (path) => {
 };
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const {replaceWith} = require('putout').operator;
@@ -172,7 +172,7 @@ module.exports.fix = (path) => {
 
 ## convert-replace-with-multiple
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 module.exports.fix = (path) => {
@@ -180,7 +180,7 @@ module.exports.fix = (path) => {
 };
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const {replaceWithMultiple} = require('putout').operator;
@@ -192,7 +192,7 @@ module.exports.fix = (path) => {
 
 ## convert-replace-to-function
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 module.exports.replace = {
@@ -200,7 +200,7 @@ module.exports.replace = {
 };
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 module.exports.replace = () => ({
@@ -210,7 +210,7 @@ module.exports.replace = () => ({
 
 ## convert-match-to-function
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 module.exports.match = {
@@ -218,7 +218,7 @@ module.exports.match = {
 };
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 module.exports.match = () => ({
@@ -228,7 +228,7 @@ module.exports.match = () => ({
 
 ## convert-babel-types
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const {
@@ -239,7 +239,7 @@ const {
 } = require('@babel/types');
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const {
@@ -252,7 +252,7 @@ const {
 
 ## convert-to-no-transform-code
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 module.exports.replace = () => ({
@@ -263,7 +263,7 @@ module.exports.replace = () => ({
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 module.exports.replace = () => ({
@@ -276,13 +276,13 @@ module.exports.replace = () => ({
 
 ## convert-node-to-path-in-get-template-values
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const {__a, __b} = getTemplateValues(path.node, 'const __a = __b');
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const {__a, __b} = getTemplateValues(path, 'const __a = __b');
@@ -290,13 +290,13 @@ const {__a, __b} = getTemplateValues(path, 'const __a = __b');
 
 ## shorten-imports
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const parseOptions = require('putout/lib/parse-options');
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const parseOptions = require('putout/parse-options');
@@ -304,7 +304,7 @@ const parseOptions = require('putout/parse-options');
 
 ## convert-traverse-to-include
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 module.exports.traverse = ({push}) => ({
@@ -314,7 +314,7 @@ module.exports.traverse = ({push}) => ({
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 module.exports.include = () => [
@@ -324,7 +324,7 @@ module.exports.include = () => [
 
 ## convert-traverse-to-replace
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 module.exports.traverse = () => ({
@@ -332,7 +332,7 @@ module.exports.traverse = () => ({
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 module.exports.replace = () => ({
@@ -342,14 +342,14 @@ module.exports.replace = () => ({
 
 ## convert-process-to-find
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 module.exports.preProcess = () => {};
 module.exports.postProcess = () => {};
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 module.exports.branch = (rawSource) => [];
@@ -361,7 +361,7 @@ module.exports.merge = (processedSource, list) => '';
 - property simpler to work with;
 - support of `convert-destructuring-to-identifier` which is `Replacer`, while `convert-method-to-property` is `Includer` (searches for `ObjectMethod` node);
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 module.exports.match = () => ({
@@ -370,7 +370,7 @@ module.exports.match = () => ({
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 module.exports.match = () => ({
@@ -383,7 +383,7 @@ module.exports.match = () => ({
 
 Checks that [Replacer](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#replacer) transform is possible.
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 module.exports.replace = () => ({
@@ -399,14 +399,14 @@ This is additional tests, if you forget to test some case (from a big list of ru
 Depend on [@putout/convert-esm-to-commonjs](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-esm-to-commonjs) and
 [@putout/declare-undefined-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables)
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 compare(a, 'const __a = __b');
 isIdentifier(a);
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const {operator, types} = require('putout');
@@ -419,7 +419,7 @@ isIdentifier(a);
 
 ## add-args
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 test('', () => {
@@ -427,7 +427,7 @@ test('', () => {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 test('', ({comparePlaces}) => {
@@ -446,7 +446,7 @@ module.exports = addArgument({
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const {operator} = require('putout');
@@ -470,7 +470,7 @@ const test = createTest(__dirname, {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 import {createTest} from '@putout/test';
@@ -492,7 +492,7 @@ const test = createTest(import.meta.url, {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const {createTest} = require('@putout/test');
@@ -505,7 +505,7 @@ const test = createTest(import.meta.url, {
 
 ## move-require-on-top-level
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const test = require('@putout/test')(__dirname, {
@@ -520,7 +520,7 @@ test('remove debugger: report', (t) => {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const removeDebugger = require('..');
@@ -538,7 +538,7 @@ test('remove debugger: report', (t) => {
 
 ## includer
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 module.exports.include = () => 'cons __a = __b';
@@ -551,7 +551,7 @@ module.exports.include = ['cons __a = __b'];
 module.exports.exclude = ['var __a = __b'];
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 module.exports.include = () => ['cons __a = __b'];

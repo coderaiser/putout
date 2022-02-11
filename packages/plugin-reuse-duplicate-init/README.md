@@ -21,7 +21,7 @@ npm i @putout/plugin-reuse-duplicate-init -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const putout = require('putout');
@@ -34,7 +34,7 @@ const {
 const {replaceWith} = operator;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const putout = require('putout');

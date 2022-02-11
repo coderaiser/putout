@@ -21,7 +21,7 @@ npm i @putout/plugin-remove-useless-for-of
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 for (const a of ['hello']) {
@@ -29,7 +29,7 @@ for (const a of ['hello']) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 console.log('hello');

@@ -21,7 +21,7 @@ npm i @putout/plugin-apply-early-return
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 if (x)
@@ -30,7 +30,7 @@ else
     console.log();
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 if (x)

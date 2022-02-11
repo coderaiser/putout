@@ -21,7 +21,7 @@ npm i @putout/plugin-remove-useless-conditions
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 if (zone?.tooltipCallback) {
@@ -34,7 +34,7 @@ else
     alert('hello');
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 zone?.tooltipCallback(e);

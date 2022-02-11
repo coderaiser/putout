@@ -11,13 +11,13 @@ mkdir ~/.putout
 ln -s ~/putout/codemods/convert-tape-to-supertape ~/.putout/convert-tape-to-supertape
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const fullstore = require('fullstore/legacy');
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const fullstore = require('fullstore');

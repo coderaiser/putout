@@ -25,7 +25,7 @@ npm i @putout/plugin-convert-commonjs-to-esm -D
 
 # require
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const {join} = require('path');
@@ -35,7 +35,7 @@ const args = require('minimist')({
 });
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 import {join} from 'path';
@@ -48,14 +48,14 @@ const args = minimist({
 
 # exports
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 module.exports = () => {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 export default () => {
@@ -64,7 +64,7 @@ export default () => {
 
 # Commons
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const {readFile} = require('fs/promises');
@@ -72,7 +72,7 @@ const {readFile} = require('fs/promises');
 await readFile(__filename);
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 import {readFile} from 'fs/promises';

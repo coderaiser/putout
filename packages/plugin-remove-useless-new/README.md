@@ -27,13 +27,13 @@ npm i @putout/plugin-remove-useless-map
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 new Error('Something whent wrong');
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 Error('Something whent wrong');

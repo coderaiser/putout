@@ -21,13 +21,13 @@ npm i @putout/plugin-split-variable-declarations
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 let a, b;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 let a;

@@ -3,7 +3,7 @@
 Remove empty newline after last element.
 Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 push([
@@ -13,7 +13,7 @@ push([
 ]);
 ```
 
-## ✅ Correct code example
+## ✅ Example of correct code
 
 ```js
 push([

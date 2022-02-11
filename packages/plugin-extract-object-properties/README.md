@@ -24,14 +24,14 @@ npm i @putout/plugin-extract-object-properties -D
 
 ## Equal Deep
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const {replaceWith} = a.operate;
 const {isIdentifier} = a.types;
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const {
@@ -45,14 +45,14 @@ const {isIdentifier} = types;
 
 ## Not Equal Deep
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const {replaceWith} = a;
 const {isIdentifier} = a.types;
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const {replaceWith, types} = a;

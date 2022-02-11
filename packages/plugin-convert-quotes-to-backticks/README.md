@@ -21,13 +21,13 @@ npm i @putout/plugin-convert-quotes-to-backticks -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const a = 'hello \'world\'';
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const a = `hello 'world'`;

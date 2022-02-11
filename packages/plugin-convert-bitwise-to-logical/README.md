@@ -21,13 +21,13 @@ npm i @putout/plugin-convert-bitwise-to-logical -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 a | !b;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 a || !b;

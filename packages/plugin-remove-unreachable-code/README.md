@@ -21,7 +21,7 @@ npm i @putout/plugin-remove-unreachable-code
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 function hi() {
@@ -35,7 +35,7 @@ function log() {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 function hi() {

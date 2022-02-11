@@ -21,7 +21,7 @@ npm i @putout/plugin-remove-useless-return
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const traverse = ({push}) => {
@@ -32,7 +32,7 @@ const traverse = ({push}) => {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const traverse = ({push}) => ({

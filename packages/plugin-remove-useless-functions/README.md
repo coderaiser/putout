@@ -23,7 +23,7 @@ npm i @putout/plugin-remove-useless-functions -D
 
 ## Rename
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const y = (...a) => {
@@ -33,7 +33,7 @@ const y = (...a) => {
 [].filter((a) => a);
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const y = alert;

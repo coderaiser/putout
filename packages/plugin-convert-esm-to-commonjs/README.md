@@ -21,13 +21,13 @@ npm i @putout/plugin-convert-esm-to-commonjs
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 import hello from 'world';
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const hello = require('world');

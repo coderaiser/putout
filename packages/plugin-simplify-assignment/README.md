@@ -21,7 +21,7 @@ npm i @putout/plugin-simplify-assignment -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const {a} = {
@@ -31,7 +31,7 @@ const [b] = [5];
 const c = (() => 7)();
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const a = 5;

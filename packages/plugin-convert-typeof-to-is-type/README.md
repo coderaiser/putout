@@ -21,14 +21,14 @@ npm i @putout/plugin-convert-typeof-to-is-type -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 if (typeof a === 'boolean')
     return x;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const isBool = (a) => typeof a === 'boolean';

@@ -21,7 +21,7 @@ npm i @putout/plugin-convert-arguments-to-rest -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 function hello() {
@@ -29,7 +29,7 @@ function hello() {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 function hello(...args) {

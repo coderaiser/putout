@@ -24,7 +24,7 @@ Rule `convert-for-in-to-for-of` is enabled by default, to disable add to `.putou
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 for (const item in object) {
@@ -41,7 +41,7 @@ for (const item in object) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 for (const item of Object.keys(object)) {

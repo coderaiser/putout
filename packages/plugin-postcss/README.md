@@ -23,7 +23,7 @@ npm i @putout/plugin-postcss -D
 
 ## replace-loader-with-creator
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 module.exports = postcss.plugin('postcss-dark-theme-class', (opts = {}) => {
@@ -36,7 +36,7 @@ module.exports = postcss.plugin('postcss-dark-theme-class', (opts = {}) => {
 });
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 module.exports = (opts = {}) => {

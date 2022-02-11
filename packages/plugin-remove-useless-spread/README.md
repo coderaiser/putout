@@ -24,7 +24,7 @@ npm i @putout/plugin-remove-useless-spread
 
 ## Array
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 for (const a of [...b]) {}
@@ -34,7 +34,7 @@ const a = {
 };
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 for (const a of b) {}
@@ -44,13 +44,13 @@ const a = b;
 
 ## Function call
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const places = [...getPlaces()];
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const places = getPlaces();

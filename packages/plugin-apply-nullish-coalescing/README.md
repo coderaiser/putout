@@ -21,14 +21,14 @@ npm i @putout/plugin-apply-nullish-coalescing
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 result = result || 'hello';
 result = typeof result  === 'undefined' ? 'hello' : result;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const result = result ?? 'hello';

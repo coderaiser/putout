@@ -21,7 +21,7 @@ npm i @putout/plugin-remove-double-negations
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 if (!!a) {
@@ -29,7 +29,7 @@ if (!!a) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 if (a) {

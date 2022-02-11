@@ -21,13 +21,13 @@ npm i @putout/plugin-remove-boolean-from-logical-expression -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const t = true && false;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const t = false;

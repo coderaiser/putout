@@ -21,7 +21,7 @@ npm i @putout/plugin-simplify-ternary -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 module.exports = fs.copyFileSync ? fs.copyFileSync : copyFileSync;
@@ -30,7 +30,7 @@ x = y ? y : z;
 x = y ? z : y;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 module.exports = fs.copyFileSync || copyFileSync;

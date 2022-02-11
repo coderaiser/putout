@@ -21,14 +21,14 @@ npm i @putout/plugin-extract-sequence-expressions -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 module.exports.x = 1,
 module.exports.y = 2;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 module.exports.x = 1;

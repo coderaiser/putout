@@ -21,7 +21,7 @@ npm i @putout/plugin-jest -D
 }
 ```
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 jest.addMatchers({
@@ -36,7 +36,7 @@ jest.resetModuleRegistry();
 jest.runTimersToTime(1000);
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 expect.extend({

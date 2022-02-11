@@ -27,7 +27,7 @@ npm i putout @putout/plugin-madrun -D
 
 # add-madrun-to-lint
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 module.exports = {
@@ -35,7 +35,7 @@ module.exports = {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 module.exports = {
@@ -45,7 +45,7 @@ module.exports = {
 
 # rename-predefined-eslint-to-putout
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const {eslint} = predefined;
@@ -64,7 +64,7 @@ module.exports = {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const {putout} = predefined;
@@ -85,7 +85,7 @@ module.exports = {
 
 # add-fresh-lint
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const {run} = require('madrun');
@@ -95,7 +95,7 @@ module.exports = {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const {run} = require('madrun');

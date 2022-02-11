@@ -21,13 +21,13 @@ npm i @putout/plugin-remove-useless-map
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const [str] = lines.map((line) => `hello ${line}`);
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const [line] = lines;

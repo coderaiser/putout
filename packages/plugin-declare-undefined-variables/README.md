@@ -89,7 +89,7 @@ You can `dismiss` variables you don't want to define, or declare using "declarat
 
 # `assign`
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const hello = 'world';
@@ -100,7 +100,7 @@ assign(object, {
 });
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const hello = 'world';
@@ -114,7 +114,7 @@ assign(object, {
 
 # `keys`
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const hello = 'world';
@@ -123,7 +123,7 @@ const object = {};
 const allKeys = keys(object);
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const hello = 'world';
@@ -135,14 +135,14 @@ const allKeys = keys(object);
 
 # `values`
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const object = {};
 const allValues = values(object);
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const {values} = Object;
@@ -153,13 +153,13 @@ const allValues = values(object);
 
 # `readFile`
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 await readFile('./README.md', 'utf8');
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 import {readFile} from 'fs/promises';
@@ -169,13 +169,13 @@ await readFile('./README.md', 'utf8');
 
 # `isArray`
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 isArray(array);
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const {isArray} = Array;
@@ -184,13 +184,13 @@ isArray(array);
 
 # `noop`
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 noop();
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const noop = () => {};
@@ -199,14 +199,14 @@ noop();
 
 # Types
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 if (isFn(fn))
     fn();
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const isFn = (a) => typeof a === 'function';
@@ -217,7 +217,7 @@ if (isFn(fn))
 
 # Maybe
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const a = [
@@ -225,7 +225,7 @@ const a = [
 ];
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const {isArray} = Array;

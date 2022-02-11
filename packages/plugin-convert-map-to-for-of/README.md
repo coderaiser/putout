@@ -21,7 +21,7 @@ npm i @putout/plugin-convert-map-to-for-of -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 names.map((name) => {
@@ -29,7 +29,7 @@ names.map((name) => {
 });
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 for (const name of names) {

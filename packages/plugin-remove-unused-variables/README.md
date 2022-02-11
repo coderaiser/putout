@@ -23,7 +23,7 @@ Rule `remove-unused-variables` is enabled by default, to disable add to `.putout
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const a = 'hello';
@@ -31,7 +31,7 @@ const b = 'world';
 console.log(a);
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const a = 'hello';

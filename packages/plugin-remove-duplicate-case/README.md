@@ -21,7 +21,7 @@ npm i @putout/plugin-remove-duplicate-case
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 switch(x) {
@@ -34,7 +34,7 @@ case 5:
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 switch(x) {

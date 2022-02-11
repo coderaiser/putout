@@ -21,13 +21,13 @@ npm i @putout/plugin-remove-useless-array-from
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 for (const x of Array.from(y)) {}
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 for (const x of y) {}

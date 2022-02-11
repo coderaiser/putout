@@ -29,7 +29,7 @@ npm i @putout/plugin-promises -D
 
 ## Add-return-await
 
-### ❌ Incorrect
+### ❌ Example of incorrect code
 
 ```js
 async function hello() {
@@ -40,7 +40,7 @@ async function world() {
 }
 ```
 
-### ✅ Correct
+### ✅ Example of correct code
 
 ```js
 async function hello() {
@@ -53,7 +53,7 @@ async function world() {
 
 ## remove-useless-resolve
 
-### ❌ Incorrect
+### ❌ Example of incorrect code
 
 ```js
 async function hello() {
@@ -61,7 +61,7 @@ async function hello() {
 }
 ```
 
-### ✅ Correct
+### ✅ Example of correct code
 
 ```js
 async function hello() {
@@ -71,7 +71,7 @@ async function hello() {
 
 ## remove-useless-async
 
-### ❌ Incorrect
+### ❌ Example of incorrect code
 
 ```js
 async function hello() {
@@ -79,7 +79,7 @@ async function hello() {
 }
 ```
 
-### ✅ Correct
+### ✅ Example of correct code
 
 ```js
 function hello() {
@@ -89,13 +89,13 @@ function hello() {
 
 ## remove-useless-await
 
-### ❌ Incorrect
+### ❌ Example of incorrect code
 
 ```js
 await await Promise.resolve();
 ```
 
-### ✅ Correct
+### ✅ Example of correct code
 
 ```js
 await await Promise.resolve();
@@ -103,7 +103,7 @@ await await Promise.resolve();
 
 ## convert-reject-to-throw
 
-### ❌ Incorrect
+### ❌ Example of incorrect code
 
 ```js
 async function hello() {
@@ -111,7 +111,7 @@ async function hello() {
 }
 ```
 
-### ✅ Correct
+### ✅ Example of correct code
 
 ```js
 async function hello() {
@@ -121,7 +121,7 @@ async function hello() {
 
 ## add-missing-await
 
-### ❌ Incorrect
+### ❌ Example of incorrect code
 
 ```js
 runCli();
@@ -130,7 +130,7 @@ async function runCli() {
 }
 ```
 
-### ✅ Correct
+### ✅ Example of correct code
 
 ```js
 await runCli();
@@ -141,7 +141,7 @@ async function runCli() {
 
 ## convert-new-promise-to-async
 
-### ❌ Incorrect
+### ❌ Example of incorrect code
 
 ```js
 function get() {
@@ -151,7 +151,7 @@ function get() {
 }
 ```
 
-### ✅ Correct
+### ✅ Example of correct code
 
 ```js
 async function get() {
@@ -163,7 +163,7 @@ async function get() {
 
 Applies [top-level-await](https://v8.dev/features/top-level-await).
 
-### ❌ Incorrect
+### ❌ Example of incorrect code
 
 ```js
 import {readFile} from 'fs/promises';
@@ -173,7 +173,7 @@ import {readFile} from 'fs/promises';
 })();
 ```
 
-### ✅ Correct
+### ✅ Example of correct code
 
 ```js
 import {readFile} from 'fs/promises';

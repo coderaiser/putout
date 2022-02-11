@@ -21,7 +21,7 @@ npm i @putout/plugin-remove-unused-for-of-variables -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 for (const {a, b} of c) {
@@ -29,7 +29,7 @@ for (const {a, b} of c) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 for (const {a} of c) {

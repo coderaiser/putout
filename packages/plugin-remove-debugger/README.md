@@ -21,14 +21,14 @@ npm i @putout/plugin-remove-debugger
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 debugger;
 console.log('hello');
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 console.log('hello');

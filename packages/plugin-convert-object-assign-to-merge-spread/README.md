@@ -21,7 +21,7 @@ npm i @putout/plugin-convert-object-assign-to-merge-spread -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 function merge(a) {
@@ -31,7 +31,7 @@ function merge(a) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 function merge(a) {

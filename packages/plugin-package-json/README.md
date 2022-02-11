@@ -27,7 +27,7 @@ npm i @putout/plugin-package-json -D
 - additional fields in `package.json` produces more traffic then users of your package really need;
 - [c8](https://github.com/bcoe/c8) uses [same config name and format](https://github.com/bcoe/c8/blob/v7.3.5/lib/parse-args.js#L8) so transition between tools will be much easier;
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 `nyc` section in "package.json":
 
@@ -50,7 +50,7 @@ npm i @putout/plugin-package-json -D
 }
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 File `.nycrc.json`:
 

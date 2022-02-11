@@ -23,13 +23,13 @@ Rule `convert-math-pow` is enabled by default, to disable add to `.putout.json`:
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 Math.pow(2, 4);
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 2 ** 4;

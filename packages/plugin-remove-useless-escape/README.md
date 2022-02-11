@@ -21,7 +21,7 @@ npm i @putout/plugin-remove-useless-escape
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const t = 'hello \"world\"';
@@ -30,7 +30,7 @@ const s = `hello \'world\'`;
 const reg = /\w\:/g;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const t = 'hello "world"';

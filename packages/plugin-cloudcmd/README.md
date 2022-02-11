@@ -34,7 +34,7 @@ Add `.putout.json` with:
 
 # convert-io-mv-to-io-move
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 await IO.mv({
@@ -44,7 +44,7 @@ await IO.mv({
 });
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 await IO.move(dirPath, mp3Dir, mp3Names);
@@ -52,7 +52,7 @@ await IO.move(dirPath, mp3Dir, mp3Names);
 
 # convert-io-cp-to-io-copy
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 await IO.cp({
@@ -62,7 +62,7 @@ await IO.cp({
 });
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 await IO.copy(dirPath, mp3Dir, mp3Names);
@@ -70,14 +70,14 @@ await IO.copy(dirPath, mp3Dir, mp3Names);
 
 # convert-io-write-to-io-create-directory
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 await IO.write(`${mp3Dir}?dir`);
 
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 await IO.createDirectory(mp3Dir);

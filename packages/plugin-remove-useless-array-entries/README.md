@@ -21,7 +21,7 @@ npm i @putout/plugin-remove-useless-array-entries
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 for (const [, element] of array.entries()) {
@@ -29,7 +29,7 @@ for (const [, element] of array.entries()) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 for (const element of array) {

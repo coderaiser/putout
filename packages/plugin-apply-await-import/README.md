@@ -21,13 +21,13 @@ npm i @putout/plugin-apply-await-import
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const {readFile} = import('fs/promises');
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const {readFile} = await import('fs/promises');

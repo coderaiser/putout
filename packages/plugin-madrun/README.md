@@ -36,7 +36,7 @@ npm i putout @putout/plugin-madrun -D
 
 # add-function
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 module.exports = {
@@ -44,7 +44,7 @@ module.exports = {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 module.exports = {
@@ -54,7 +54,7 @@ module.exports = {
 
 # add-fix-lint
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const {run} = require('madrun');
@@ -64,7 +64,7 @@ module.exports = {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const {run} = require('madrun');
@@ -77,7 +77,7 @@ module.exports = {
 
 # add-run
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 module.exports = {
@@ -85,7 +85,7 @@ module.exports = {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const {run} = require('madrun');
@@ -97,7 +97,7 @@ module.exports = {
 
 # convert-run-argument
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 module.exports = {
@@ -105,7 +105,7 @@ module.exports = {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 module.exports = {
@@ -115,7 +115,7 @@ module.exports = {
 
 # convert-run-to-cut-env
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 export default {
@@ -126,7 +126,7 @@ export default {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 export default {
@@ -139,7 +139,7 @@ export default {
 
 # convert-cut-env-to-run
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 export default {
@@ -150,7 +150,7 @@ export default {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 export default {
@@ -163,7 +163,7 @@ export default {
 
 # rename-eslint-to-putout
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 module.exports = {
@@ -171,7 +171,7 @@ module.exports = {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 module.exports = {
@@ -181,7 +181,7 @@ module.exports = {
 
 # set-lint-dot
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 module.exports = {
@@ -189,7 +189,7 @@ module.exports = {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 module.exports = {
@@ -199,7 +199,7 @@ module.exports = {
 
 # convert-to-async
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 module.exports = {
@@ -207,7 +207,7 @@ module.exports = {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 module.exports = {
@@ -217,7 +217,7 @@ module.exports = {
 
 # convert-nyc-to-c8
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 export default {
@@ -226,7 +226,7 @@ export default {
 };
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 export default {
@@ -237,7 +237,7 @@ export default {
 
 # set-report-lcov
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 export default {
@@ -246,7 +246,7 @@ export default {
 
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 export default {
@@ -256,7 +256,7 @@ export default {
 
 # remove-check-duplicates-from-test
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 export default {
@@ -265,7 +265,7 @@ export default {
 
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 export default {
@@ -275,7 +275,7 @@ export default {
 
 # declare
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 export default {
@@ -284,7 +284,7 @@ export default {
 
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 import {cutEnv} from 'madrun';

@@ -21,7 +21,7 @@ npm i @putout/plugin-remove-constant-conditions -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 function hi(a) {
@@ -32,7 +32,7 @@ function hi(a) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 function hi(b) {

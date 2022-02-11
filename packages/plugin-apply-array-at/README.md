@@ -21,13 +21,13 @@ npm i @putout/plugin-apply-array-at
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```ts
 const latest = (a) => a[a.length - 1];
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```ts
 const latest = (a) => a.at(-1);

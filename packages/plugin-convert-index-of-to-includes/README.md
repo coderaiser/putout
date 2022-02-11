@@ -23,14 +23,14 @@ Rule `convert-index-of-to-includes` is enabled by default, to disable add to `.p
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 if (~array.indexOf(element)) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 if (array.includes(element)) {

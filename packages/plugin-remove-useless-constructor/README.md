@@ -25,7 +25,7 @@ npm i @putout/plugin-remove-useless-constructors
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const s = String('hello');
@@ -34,7 +34,7 @@ const n = Number(5);
 
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const s = 'hello';

@@ -21,7 +21,7 @@ npm i @putout/plugin-convert-array-copy-to-slice -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const places = [
@@ -29,7 +29,7 @@ const places = [
 ];
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const places = items.slice();

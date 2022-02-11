@@ -21,7 +21,7 @@ npm i @putout/plugin-merge-if-statements
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 if (a > b) {
@@ -31,7 +31,7 @@ if (a > b) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 if (a > b && b < c) {

@@ -21,7 +21,7 @@ npm i @putout/plugin-add-return-await
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 async function world() {
@@ -29,7 +29,7 @@ async function world() {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 async function world() {

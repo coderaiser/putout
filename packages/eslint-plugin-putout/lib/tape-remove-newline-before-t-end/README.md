@@ -3,7 +3,7 @@
 Remove newline before `t.end()`, for [`supertape`](https://github.com/coderaiser/supertape).
 Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 test('lint: do some check', (t) => {
@@ -15,7 +15,7 @@ test('lint: do some check', (t) => {
 });
 ```
 
-## ✅ Correct code example
+## ✅ Example of correct code
 
 ```js
 test('lint: do some check', (t) => {

@@ -23,7 +23,7 @@ Rule `remove-nested-blocks` is enabled by default, to disable add to `.putout.js
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 for (const x of Object.keys(a)) {
@@ -34,7 +34,7 @@ for (const x of Object.keys(a)) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 for (const x of Object.keys(a)) {

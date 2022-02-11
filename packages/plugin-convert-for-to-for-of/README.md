@@ -24,7 +24,7 @@ Rule `convert-for-to-for-of` is enabled by default, to disable add to `.putout.j
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 for (let i = 0; i < items.length; i++) {
@@ -44,7 +44,7 @@ for (let i = 0; i < items.length; i++) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 for (const item of items) {

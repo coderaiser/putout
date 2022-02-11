@@ -21,7 +21,7 @@ npm i @putout/plugin-remove-unused-expressions -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 function show(error) {
@@ -29,7 +29,7 @@ function show(error) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 function show(error) {

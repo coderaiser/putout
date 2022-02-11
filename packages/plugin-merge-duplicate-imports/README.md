@@ -21,7 +21,7 @@ npm i @putout/plugin-merge-duplicate-imports
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 import {m as b} from 'y';
@@ -29,7 +29,7 @@ import {z} from 'y';
 import x from 'y';
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 import x, {

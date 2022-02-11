@@ -21,13 +21,13 @@ npm i @putout/plugin-remove-duplicates-from-logical-expression -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const t = a && b && a;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const t = a && b;

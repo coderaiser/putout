@@ -29,7 +29,7 @@ npm i @putout/plugin-remove-useless-variables -D
 
 ## Rename
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 function hi(a) {
@@ -37,7 +37,7 @@ function hi(a) {
 }
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 function hi(b) {
@@ -46,7 +46,7 @@ function hi(b) {
 
 ## Destruct
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 function hi(c) {
@@ -54,7 +54,7 @@ function hi(c) {
 }
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 function hi({a, b}) {
@@ -63,7 +63,7 @@ function hi({a, b}) {
 
 ## Remove
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const child_process = require('child_process');
@@ -73,7 +73,7 @@ const {
 } = child_process;
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const {
@@ -84,7 +84,7 @@ const {
 
 ## await
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 async () => {
@@ -101,7 +101,7 @@ async () => {
 };
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 async () => {
@@ -118,7 +118,7 @@ async () => {
 
 ## For-of
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 for (const a of b) {
@@ -126,7 +126,7 @@ for (const a of b) {
 }
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 for (const {c} of b) {

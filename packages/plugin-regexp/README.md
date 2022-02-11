@@ -28,13 +28,13 @@ npm i @putout/plugin-regexp -D
 
 ## regexp/optimize
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const a = /(ab|ab)/;
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const a = /(ab)/;
@@ -42,13 +42,13 @@ const a = /(ab)/;
 
 ## regexp/apply-literal-notation
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const a = new RegExp('hello', 'i');
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const a = /hello/i;
@@ -56,13 +56,13 @@ const a = /hello/i;
 
 ## regexp/convert-to-string
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 'hello'.replace(/hello/, 'world');
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 'hello'.replace('hello', 'world');
@@ -72,13 +72,13 @@ const a = /hello/i;
 
 Simplify code according to [string-replace-all](https://github.com/tc39/proposal-string-replaceall).
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 'hello'.replace(/hello/g, 'world');
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 'hello'.replaceAll('hello', 'world');
@@ -86,13 +86,13 @@ Simplify code according to [string-replace-all](https://github.com/tc39/proposal
 
 ## regexp/remove-useless-group
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 /(hello)/.test(str);
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 /hello/.test(str);
@@ -100,13 +100,13 @@ Simplify code according to [string-replace-all](https://github.com/tc39/proposal
 
 ## regexp/remove-useless-regexp
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const a = /^\.hello$/.test(str);
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const a = str === '.hello';

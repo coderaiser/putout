@@ -21,13 +21,13 @@ npm i @putout/plugin-remove-useless-typeof
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 typeof typeof 'hello';
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 typeof 'hello';

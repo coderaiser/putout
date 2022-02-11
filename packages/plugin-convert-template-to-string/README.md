@@ -21,13 +21,13 @@ npm i @putout/plugin-convert-template-to-string
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const s = `${a + b}`;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const s = String(a + b);

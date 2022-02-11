@@ -22,14 +22,14 @@ npm i @putout/plugin-remove-useless-type-conversion
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const a = !![1].includes(1);
 const b = Boolean([1].includes(1));
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const a = [1].includes(1);

@@ -21,14 +21,14 @@ npm i @putout/plugin-remove-useless-operand
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 a = a + b;
 b += 1;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 a += b;

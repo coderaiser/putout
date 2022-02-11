@@ -21,14 +21,14 @@ npm i @putout/plugin-convert-assignment-to-comparison -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 if (a = 5) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 if (a === 5) {

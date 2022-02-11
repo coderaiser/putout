@@ -25,14 +25,14 @@ Rule `apply-if-condition`:
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 if (2 > 3);
     alert();
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 if (2 > 3)

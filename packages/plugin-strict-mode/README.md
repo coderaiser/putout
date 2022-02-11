@@ -22,7 +22,7 @@ npm i @putout/plugin-strict-mode -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 // ESM
@@ -37,7 +37,7 @@ import a from 'b';
 const a = require('b');
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 // ESM

@@ -21,7 +21,7 @@ npm i @putout/plugin-apply-montag
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const a = montag`
@@ -30,7 +30,7 @@ const a = montag`
 `;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const a = montag`

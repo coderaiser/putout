@@ -21,13 +21,13 @@ npm i @putout/plugin-convert-concat-to-flat -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 [].concat(...array);
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 array.flat();

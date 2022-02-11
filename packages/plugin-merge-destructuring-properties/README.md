@@ -23,14 +23,14 @@ Rule `merge-destructuring-properties` is enabled by default, to disable add to `
 }
 ```
 
-### ❌ Incorrect code example
+### ❌ Example of incorrect code
 
 ```js
 const {one} = require('numbers');
 const {two} = require('numbers');
 ```
 
-### ✅ Correct code Example
+### ✅ Example of correct code
 
 ```js
 const {

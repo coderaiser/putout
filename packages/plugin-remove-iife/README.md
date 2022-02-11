@@ -21,7 +21,7 @@ npm i @putout/plugin-remove-iife
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 (function() {
@@ -29,7 +29,7 @@ npm i @putout/plugin-remove-iife
 })();
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 console.log('hello');

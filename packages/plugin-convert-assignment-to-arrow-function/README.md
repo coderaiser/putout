@@ -21,13 +21,13 @@ npm i @putout/plugin-convert-assignment-to-arrow-function -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const createRegExp = (a) => RegExp(a, 'g');
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const createRegExp = (a) => RegExp(a, 'g');

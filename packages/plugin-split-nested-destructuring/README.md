@@ -21,7 +21,7 @@ npm i @putout/plugin-split-nested-destructuring -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const {a: {b}} = c;
@@ -31,7 +31,7 @@ function f({a: {b}}) {
 }
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const {a} = c;

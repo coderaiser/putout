@@ -22,7 +22,7 @@ npm i @putout/plugin-remove-useless-arguments
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 // destructuring
@@ -42,7 +42,7 @@ sum(a, b, c);
 const sum = (a, b) => {};
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 // destructuring

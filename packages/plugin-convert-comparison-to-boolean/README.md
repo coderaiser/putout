@@ -21,13 +21,13 @@ npm i @putout/plugin-convert-comparison-to-boolean -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const t = 2 < 3;
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const t = false;

@@ -26,7 +26,7 @@ npm i @putout/plugin-apply-shorthand-properties -D
 }
 ```
 
-## ❌ Incorrect code example
+## ❌ Example of incorrect code
 
 ```js
 const AUTH_SESSION = 'xx';
@@ -37,7 +37,7 @@ export const setSession = (session) => ({
 });
 ```
 
-## ✅ Correct code Example
+## ✅ Example of correct code
 
 ```js
 const type = 'xx';
