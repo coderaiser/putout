@@ -1,12 +1,8 @@
-# Add newline between tests (`add-newline-between-tests`)
+# add-newline-between-tests
 
 Add newline between tests, for [`supertape`](https://github.com/coderaiser/supertape).
 
-## Rule Details
-
-This rule aims to add newline between tests.
-
-Examples of **incorrect** code for this rule:
+## ❌ Example of incorrect code
 
 ```js
 test('lint: do some check', (t) => {
@@ -23,7 +19,7 @@ test('lint: do some check', (t) => {
 });
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 test('lint: do some check', (t) => {
