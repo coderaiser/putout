@@ -110,7 +110,7 @@ When using 🐊`Putout` in IDE with `--fix` on save, or when you want to disable
 Disabled `ESLint` rules:
 
 - [`no-useless-return`](https://eslint.org/docs/rules/no-useless-return#readme)
-- [`putout/remove-newline-from-empty-object`](https://eslint.org/docs/rules/no-useless-return#readme)
+- [`putout/remove-newline-from-empty-object`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/remove-newline-from-empty-object#readme)
 
 Disabled 🐊`Putout` rules:
 
