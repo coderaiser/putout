@@ -56,7 +56,10 @@ Then configure the rules you want to use under the rules section.
         "putout/remove-empty-newline-after-import": "error",
         "putout/remove-empty-specifiers": "error",
         "putout/objects-braces-inside-array": "error",
-        "putout/object-init": "error"
+        "putout/object-init": "error",
+        "putout/tape-add-newline-between-tests": "error",
+        "putout/tape-add-newline-before-assertion": "error",
+        "putout/tape-remove-newline-before-t-end": "error"
     }
 }
 ```
@@ -70,8 +73,8 @@ Then configure the rules you want to use under the rules section.
 
 ###  📼 [Supertape](https://github.com/coderaiser/supertape#readme)
 
-- ✅ [add newline before assertion](/packages/eslint-plugin-putout/lib/tape-add-new-line-before-assertion#readme)
-- ✅ [add newline between tests](/packages/eslint-plugin-putout/lib/tape-add-new-line-between-tests#readme)
+- ✅ [add newline before assertion](/packages/eslint-plugin-putout/lib/tape-add-newline-before-assertion#readme)
+- ✅ [add newline between tests](/packages/eslint-plugin-putout/lib/tape-add-newline-between-tests#readme)
 - ✅ [remove newline before t.end()](/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end#readme)
 
 ### TypeScript
