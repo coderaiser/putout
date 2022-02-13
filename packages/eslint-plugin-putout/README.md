@@ -63,34 +63,47 @@ Then configure the rules you want to use under the rules section.
 
 ## Rules
 
-- [Add newlines between types in union](/packages/eslint-plugin-putout/lib/add-newlines-between-types-in-union#readme)
-- [Add newline before function call](/packages/eslint-plugin-putout/lib/add-newline-before-function-call#readme)
-- [Add newline after function call](/packages/eslint-plugin-putout/lib/add-newline-after-function-call#readme)
-- [Align spaces](/packages/eslint-plugin-putout/lib/align-spaces#readme)
-- [Array element newline](/packages/eslint-plugin-putout/lib/array-element-newline#readme)
-- [Evaluate](/packages/eslint-plugin-putout/lib/evaluate#readme)
-- [Putout](lib/putout#readme)
-- [Single property destructuring](/packages/eslint-plugin-putout/lib/single-property-destructuring#readme)
-- [Multiple properties destructuring](/packages/eslint-plugin-putout/lib/multiple-properties-destructuring#readme)
-- [For-of multiple properties destructuring](/packages/eslint-plugin-putout/lib/for-of-multiple-properties-destructuring#readme)
-- [Long properties destructuring](/packages/eslint-plugin-putout/lib/long-properties-destructuring#readme)
-- [Destructuring as function argument](/packages/eslint-plugin-putout/lib/destructuring-as-function-argument#readme)
-- [Keyword spacing](/packages/eslint-plugin-putout/lib/keyword-spacing#readme)
-- [Newline function call arguments](/packages/eslint-plugin-putout/lib/newline-function-call-arguments#readme)
-- [Function declaration paren newline](/packages/eslint-plugin-putout/lib/function-declaration-paren-newline#readme)
-- [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import#readme)
-- [Remove newline from empty object](/packages/eslint-plugin-putout/lib/remove-newline-from-empty-object#readme)
-- [Remove empty newline before first specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-before-first-specifier#readme)
-- [Remove empty newline after last specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-specifier#readme)
-- [Remove empty newline after last element](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-element#readme)
-- [Remove empty newline after import](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-import#readme)
-- [Remove empty specifiers](/packages/eslint-plugin-putout/lib/remove-empty-specifiers#readme)
-- [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array#readme)
-- [Object init](/packages/eslint-plugin-putout/lib/object-init#readme)
-- [No unresolved](/packages/eslint-plugin-putout/lib/no-unresolved#readme)
-- [Tape: add newline before assertion](/packages/eslint-plugin-putout/lib/tape-add-newline-before-assertion#readme)
-- [Tape: add newline between tests](/packages/eslint-plugin-putout/lib/tape-add-newline-between-tests#readme)
-- [Tape: remove newline before t.end()](/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end#readme)
+### 🐊 Putout
+
+- ✅ [Putout](/packages/eslint-plugin-putout/lib/putout#readme);
+- ✅ [Evaluate](/packages/eslint-plugin-putout/lib/evaluate#readme) - evaluate expression started with `__putout_evaluate`;
+
+###  📼 Supertape
+
+-✅ [add newline before assertion](/packages/eslint-plugin-putout/lib/tape-add-new-line-before-assertion#readme)
+-✅ [add newline between tests](/packages/eslint-plugin-putout/lib/tape-add-new-line-between-tests#readme)
+-✅ [remove newline before t.end()](/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end#readme)
+
+### TypeScript
+
+- ✅ [Add newlines between types in union](/packages/eslint-plugin-putout/lib/add-newlines-between-types-in-union#readme)
+
+
+### Formatting
+
+- ✅ [Add newline before function call](/packages/eslint-plugin-putout/lib/add-newline-before-function-call#readme)
+- ✅ [Add newline after function call](/packages/eslint-plugin-putout/lib/add-newline-after-function-call#readme)
+- ✅ [Align spaces](/packages/eslint-plugin-putout/lib/align-spaces#readme)
+- ✅ [Array element newline](/packages/eslint-plugin-putout/lib/array-element-newline#readme)
+- ✅ [Single property destructuring](/packages/eslint-plugin-putout/lib/single-property-destructuring#readme)
+- ✅ [Multiple properties destructuring](/packages/eslint-plugin-putout/lib/multiple-properties-destructuring#readme)
+- ✅ [For-of multiple properties destructuring](/packages/eslint-plugin-putout/lib/for-of-multiple-properties-destructuring#readme)
+- ✅ [Long properties destructuring](/packages/eslint-plugin-putout/lib/long-properties-destructuring#readme)
+- ✅ [Destructuring as function argument](/packages/eslint-plugin-putout/lib/destructuring-as-function-argument#readme)
+- ✅ [Keyword spacing](/packages/eslint-plugin-putout/lib/keyword-spacing#readme)
+- ✅ [Newline function call arguments](/packages/eslint-plugin-putout/lib/newline-function-call-arguments#readme)
+- ✅ [Function declaration paren newline](/packages/eslint-plugin-putout/lib/function-declaration-paren-newline#readme)
+- ✅ [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import#readme)
+- ✅ [Remove newline from empty object](/packages/eslint-plugin-putout/lib/remove-newline-from-empty-object#readme)
+- ✅ [Remove empty newline before first specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-before-first-specifier#readme)
+- ✅ [Remove empty newline after last specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-specifier#readme)
+- ✅ [Remove empty newline after last element](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-last-element#readme)
+- ✅ [Remove empty newline after import](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-import#readme)
+- ✅ [Remove empty specifiers](/packages/eslint-plugin-putout/lib/remove-empty-specifiers#readme)
+- ✅ [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array#readme)
+- ✅ [Object init](/packages/eslint-plugin-putout/lib/object-init#readme)
+- ✅ [No unresolved](/packages/eslint-plugin-putout/lib/no-unresolved#readme)
+
 
 ### Safe mode
 
