@@ -1,12 +1,10 @@
-# Add newline before assertion (`add-newline-before-assertion`)
+# add-newline-before-assertion
 
-Add newline before `t.equal()` etc, for [`supertape`](https://github.com/coderaiser/supertape).
+Add newline before `t.equal()` etc, for 📼[`Supertape`](https://github.com/coderaiser/supertape).
+Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-## Rule Details
+## ❌ Example of incorrect code
 
-This rule aims to add newline before assertion.
-
-Examples of **incorrect** code for this rule:
 
 ```js
 test('lint: do some check', (t) => {
@@ -18,7 +16,7 @@ test('lint: do some check', (t) => {
 });
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 test('lint: do some check', (t) => {
