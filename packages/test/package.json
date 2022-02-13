@@ -39,7 +39,7 @@
     "@putout/engine-processor": "*",
     "currify": "^4.0.0",
     "putout": "*",
-    "supertape": "^6.0.0",
+    "supertape": "^7.0.0",
     "try-catch": "^3.0.0",
     "try-to-catch": "^3.0.0"
   },

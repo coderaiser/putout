@@ -220,7 +220,7 @@
     "nodemon": "^2.0.1",
     "pullout": "^4.0.0",
     "strip-ansi": "^7.0.0",
-    "supertape": "^6.0.0"
+    "supertape": "^7.0.0"
   },
   "license": "MIT",
   "engines": {

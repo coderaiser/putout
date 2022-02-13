@@ -44,7 +44,7 @@
     "husky": "^6.0.0",
     "lerna": "^4.0.0",
     "madrun": "^8.6.0",
-    "supertape": "^6.0.1"
+    "supertape": "^7.0.0"
   },
   "engines": {
     "node": ">=14"

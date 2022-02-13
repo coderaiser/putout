@@ -39,7 +39,7 @@
     "madrun": "^8.0.1",
     "nodemon": "^2.0.1",
     "putout": "*",
-    "supertape": "^6.0.0"
+    "supertape": "^7.0.0"
   },
   "license": "MIT",
   "engines": {
