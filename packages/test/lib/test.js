@@ -409,11 +409,15 @@ function preTest(test, plugin) {
         match,
     }] = entries(plugin).pop();
     
+    const options = {
+        checkDuplicates: false,
+    };
+    
     if (rules) {
         test(`${name}: rules is an object`, (t) => {
             t.equal(typeof rules, 'object', 'should export "rules" object');
             t.end();
-        }, {checkDuplicates: false});
+        }, options);
         
         const entries = Object.entries(rules);
         for (const [entryName, plugin] of entries) {
@@ -424,10 +428,6 @@ function preTest(test, plugin) {
         
         return;
     }
-    
-    const options = {
-        checkDuplicates: false,
-    };
     
     test(`${name}: report: is function`, (t) => {
         t.equal(typeof report, 'function', 'should export "report" function');
