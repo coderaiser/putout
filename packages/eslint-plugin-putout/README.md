@@ -63,16 +63,16 @@ Then configure the rules you want to use under the rules section.
 
 ## Rules
 
-### 🐊 Putout
+### 🐊 [Putout](https://github.com/coderaiser/putout#readme)
 
-- ✅ [Putout](/packages/eslint-plugin-putout/lib/putout#readme);
-- ✅ [Evaluate](/packages/eslint-plugin-putout/lib/evaluate#readme) - evaluate expression started with `__putout_evaluate`;
+- ✅ [Putout](/packages/eslint-plugin-putout/lib/putout#readme)
+- ✅ [Evaluate](/packages/eslint-plugin-putout/lib/evaluate#readme)
 
-###  📼 Supertape
+###  📼 [Supertape](https://github.com/coderaiser/supertape#readme)
 
--✅ [add newline before assertion](/packages/eslint-plugin-putout/lib/tape-add-new-line-before-assertion#readme)
--✅ [add newline between tests](/packages/eslint-plugin-putout/lib/tape-add-new-line-between-tests#readme)
--✅ [remove newline before t.end()](/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end#readme)
+- ✅ [add newline before assertion](/packages/eslint-plugin-putout/lib/tape-add-new-line-before-assertion#readme)
+- ✅ [add newline between tests](/packages/eslint-plugin-putout/lib/tape-add-new-line-between-tests#readme)
+- ✅ [remove newline before t.end()](/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end#readme)
 
 ### TypeScript
 
