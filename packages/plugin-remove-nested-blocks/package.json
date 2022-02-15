@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-nested-blocks",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove nested blocks",
