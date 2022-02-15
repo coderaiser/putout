@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-nested-blocks.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-nested-blocks"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove `empty pattern statements`.
+🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove `nested bocks`.
 
 ## Install
 
@@ -13,12 +13,10 @@ npm i @putout/plugin-remove-nested-blocks
 
 ## Rule
 
-Rule `remove-nested-blocks` is enabled by default, to disable add to `.putout.json`:
-
 ```json
 {
     "rules": {
-        "remove-nested-blocks": "off"
+        "remove-nested-blocks": "on"
     }
 }
 ```
