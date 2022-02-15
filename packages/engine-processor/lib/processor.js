@@ -38,7 +38,7 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     let allPlaces = [];
     let merge = null;
     
-    ({fileList, merge, isProcessed, processedSource, processedPlaces} = await getFiles({
+    ({rawSource, fileList, merge, isProcessed, processedSource, processedPlaces} = await getFiles({
         name,
         fix,
         rawSource,
@@ -134,6 +134,8 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
         const files = await branch(processedSource);
         
         fileList.push(...files);
+        
+        rawSource = processedSource;
     }
     
     return {
@@ -142,6 +144,7 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
         processedSource,
         processedPlaces,
         fileList,
+        rawSource,
     };
 }
 
