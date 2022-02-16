@@ -6,9 +6,9 @@ See [rule syntax](https://github.com/coderaiser/putout/tree/master/packages/comp
 
 ## Pattern matching
 
-Pattern matching searches code for a given pattern. For example, the expression pattern `1 + func(42)` can match a full expression or be part of a subexpression:
+Pattern matching searches code for a given pattern. For example, the expression pattern `say('hello 🐊')` can match a full expression or be part of a subexpression:
 
-`foo(1 + func(42)) + bar()`
+`say('hello 🐊', when())`
 
 In the same way, the statement pattern `return 'now'` can match a top `statement` in a `function` or any nested `statement`:
 
