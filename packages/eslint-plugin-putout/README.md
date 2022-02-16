@@ -130,23 +130,23 @@ Disabled `ESLint` rules:
 
 Disabled 🐊`Putout` rules:
 
-- [`remove-empty`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-empty#readme);
-- [`nodejs/remove-process-exit`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-nodejs#remove-process-exit#readme);
-- [`remove-unused-variables`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-unused-variables#readme);
-- [`typescript/remove-unused-types`](https://github.com/coderaiser/putout/tree/v24.0.2/packages/plugin-typescript#remove-unused-types#readme);
-- [`remove-unused-for-of-variables`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-unused-for-of-variables#readme);
-- [`remove-unused-expressions`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-removeunused-expressions#readme);
-- [`remove-unreferenced-variables`](https://github.com/coderaiser/putout/tree/24.1.0/packages/plugin-remove-unreferenced-variables#readme);
-- [`remove-useless-return`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-return#readme);
-- [`remove-useless-arguments`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-arguments#readme);
-- [`remove-useless-spread`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-spread/#readme#readme);
-- [`remove-useless-variables/rename`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-arguments#rename#readme);
-- [`remove-skip`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-tape#remove-skip);
-- [`remove-only`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-tape#remove-only);
-- [`remove-console`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-console#readme);
-- [`remove-debugger`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-debugger#readme);
-- [`remove-unreachable-code`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-unreachable-code#readme);
-- [`convert-for-to-for-of`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-convert-for-to-for-of#readme);
+- 🐲[`remove-empty`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-empty#readme);
+- 🐲[`nodejs/remove-process-exit`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-nodejs#remove-process-exit#readme);
+- 🐲[`remove-unused-variables`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-unused-variables#readme);
+- 🐲[`typescript/remove-unused-types`](https://github.com/coderaiser/putout/tree/v24.0.2/packages/plugin-typescript#remove-unused-types#readme);
+- 🐲[`remove-unused-for-of-variables`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-unused-for-of-variables#readme);
+- 🐲[`remove-unused-expressions`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-removeunused-expressions#readme);
+- 🐲[`remove-unreferenced-variables`](https://github.com/coderaiser/putout/tree/24.1.0/packages/plugin-remove-unreferenced-variables#readme);
+- 🐲[`remove-useless-return`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-return#readme);
+- 🐲[`remove-useless-arguments`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-arguments#readme);
+- 🐲[`remove-useless-spread`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-spread/#readme#readme);
+- 🐲[`remove-useless-variables/rename`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-arguments#rename#readme);
+- 🐲[`remove-skip`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-tape#remove-skip);
+- 🐲[`remove-only`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-tape#remove-only);
+- 🐲[`remove-console`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-console#readme);
+- 🐲[`remove-debugger`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-debugger#readme);
+- 🐲[`remove-unreachable-code`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-unreachable-code#readme);
+- 🐲[`convert-for-to-for-of`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-convert-for-to-for-of#readme);
 
 ### safe+align
 
