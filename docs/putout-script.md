@@ -1,6 +1,6 @@
-# 🐊 PutoutScript
+# 🦎 PutoutScript
 
-🐊**PutoutScript** — JavaScript-compatible language which adds additional meaning to identifiers used in AST-template. It can be used in all types of supported [plugins](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types). See [rule syntax](https://github.com/coderaiser/putout/tree/master/packages/compare#supported-template-variables) for more information.
+🦎**PutoutScript** — JavaScript-compatible language which adds additional meaning to identifiers used in AST-template. It can be used in all types of supported [plugins](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types). See [rule syntax](https://github.com/coderaiser/putout/tree/master/packages/compare#supported-template-variables) for more information.
 
 ☝️ *In the command line, patterns are specified with the flag `--transform`.*
 
@@ -191,7 +191,7 @@ JavaScript differentiate between expressions and statements. Expressions can app
 - ✅ `say()` is an expression
 - ✅ `say();` is a statement
 
-When you write the expression `foo()` in a pattern, 🐊`PutoutScript` will visit every expression and sub-expression in your program and try to find a match.
+When you write the expression `foo()` in a pattern, 🦎`PutoutScript` will visit every expression and sub-expression in your program and try to find a match.
 
 ## Partial expressions
 
