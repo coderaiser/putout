@@ -64,7 +64,7 @@ const filter = (declarations) => (path, {options}) => {
     if (dismiss.includes(name))
         return false;
     
-    const code = parseCode(name, type, allDeclarations[name]);
+    const code = parseCode(type, allDeclarations[name]);
     
     if (!code)
         return false;
@@ -81,7 +81,7 @@ const fix = (declarations) => (path, {options}) => {
     };
     
     const {name} = path.node;
-    const code = parseCode(name, type, allDeclarations[name]);
+    const code = parseCode(type, allDeclarations[name]);
     
     const scope = path.scope.getProgramParent();
     const programPath = scope.path;
@@ -103,7 +103,7 @@ function isUseStrict(path) {
     });
 }
 
-const parseCode = (name, type, current) => {
+const parseCode = (type, current) => {
     if (isString(current))
         return current;
     
