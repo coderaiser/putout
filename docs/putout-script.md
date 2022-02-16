@@ -201,7 +201,7 @@ Partial expressions are not valid patterns. For example, the following is invali
 '🐊' +
 ```
 
-A complete expression is needed (like `🐊' + __a`)
+A complete expression is needed (like `'🐊' + __a`)
 Same with partial statements.
 
 Find what you needed in this doc? [Create an issue](https://github.com/coderaiser/putout/issues/new) if you need any help 😏!
