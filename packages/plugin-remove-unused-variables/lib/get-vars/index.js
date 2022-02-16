@@ -59,17 +59,13 @@ const addParamsVariable = (allParams) => ({path, params}) => {
 };
 
 function getScopeUID({name, scope}) {
-    let done = false;
-    
-    if (scope.hasOwnBinding(name)) {
-        done = true;
+    if (scope.hasOwnBinding(name))
         return scope.uid;
-    }
     
     while (scope.parent) {
         scope = scope.parent;
         
-        if (!done && scope.hasOwnBinding(name))
+        if (scope.hasOwnBinding(name))
             return scope.uid;
     }
     
