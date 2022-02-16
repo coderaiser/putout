@@ -3,7 +3,7 @@
   "version": "8.7.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "compare ast-nodes",
+  "description": "compare ast-nodes according to 🐊 PutoutScript",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/compare#readme",
   "main": "lib/compare.js",
   "release": false,
