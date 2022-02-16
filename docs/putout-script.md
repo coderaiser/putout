@@ -18,7 +18,7 @@ const when = () => {
         return 'now';
     
     return 'laiter';
-}:
+};
 ```
 
 ## `__` operator
@@ -37,7 +37,6 @@ Use the `__args` operator to search for function calls or function calls with sp
 say('hello 🐊');
 ```
 
-
 ## Method calls
 
 The `__args` operator can also be used to search for method calls. For example, the pattern `__object.say(__args)` matches:
@@ -51,10 +50,10 @@ In that case you can use `__` in place of the name of the function to match name
 
 ```js
 function say(a) {
-  return 'hello 🐊';
+    return 'hello 🐊';
 }
-const talk = function (a) {
-  return 'hello 🐊`;
+const talk = function(a) {
+    return 'hello 🐊';
 };
 ```
 
@@ -115,10 +114,10 @@ if (__a)
 matches:
 
 ```js
-if (friends.includes('🐊')
+if (friends.includes('🐊'))
     return `🐊 friend of 🦛`;
 ```
- 
+
 Template variables can match a conditional or loop body if the body statement information is re-used later. The pattern:
 
 ```js
@@ -129,7 +128,7 @@ if (__a)
 matches:
 
 ```js
-if (friends.includes('🦛')
+if (friends.includes('🦛'))
     return `🦛 friend of 🐊`;
 ```
 
@@ -146,7 +145,7 @@ Template variables look like `__a`, `__b`, etc. They begin with a `__` and can o
 The pattern `__a + __b` matches the following code examples:
 
 ```js
-'🐊' + '📼'
+'🐊' + '📼';
 ```
 
 ## Import template variable
@@ -162,7 +161,6 @@ import fs from 'fs/promises';
 Re-using template variables shows their true power. Detect useless assignments:
 
 ```js
-
 const __a = __b + __b;
 ```
 
@@ -181,7 +179,7 @@ You can use `"__a"` to match any string literal. This is similar to using `__a`,
 Same thing works with `TypeScript` types, such pattern `const __a: __b = __c`, finds:
 
 ```ts
-const answer: number = 42'
+const answer: number = 42;
 ```
 
 ## Statements as expressions
@@ -197,7 +195,7 @@ When you write the expression `foo()` in a pattern, 🦎`PutoutScript` will visi
 
 Partial expressions are not valid patterns. For example, the following is invalid:
 
-```js
+```
 '🐊' +
 ```
 
