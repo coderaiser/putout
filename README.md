@@ -1,4 +1,4 @@
-# Putout ![NPM version][NPMIMGURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
+# Putout ![NPM version][NPMIMGURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL] [![DeepScan][DeepScanIMGURL]][DeepScanURL]
 
 [NPMURL]: https://npmjs.org/package/putout "npm"
 [NPMIMGURL]: https://img.shields.io/npm/v/putout.svg?style=flat&longCache=true
@@ -6,6 +6,8 @@
 [BuildStatusIMGURL]: https://github.com/coderaiser/putout/workflows/Node%20CI/badge.svg
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
+[DeepScanURL]: https://deepscan.io/dashboard#view=project&tid=16903&pid=20211&bid=545558
+[DeepScanIMGURL]: https://deepscan.io/api/teams/16903/projects/20211/branches/545558/badge/grade.svg
 
 > **Perfection is finally attained not when there is no longer anything to add,
 > but when there is no longer anything to take away.**
