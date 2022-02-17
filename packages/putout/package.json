@@ -117,7 +117,7 @@
     "@putout/plugin-promises": "^7.0.0",
     "@putout/plugin-putout": "^10.0.0",
     "@putout/plugin-putout-config": "^2.0.0",
-    "@putout/plugin-regexp": "^4.0.0",
+    "@putout/plugin-regexp": "^5.0.0",
     "@putout/plugin-remove-boolean-from-assertions": "^1.0.0",
     "@putout/plugin-remove-boolean-from-logical-expressions": "^4.0.0",
     "@putout/plugin-remove-console": "^3.0.0",
