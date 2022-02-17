@@ -33,8 +33,8 @@ jobs:
 
     strategy:
       matrix:
--       node-version: [14.x, 15.x]
-+       node-version: [14.x, 16.x]
+-       node-version: [14.x, 16.x, 17.x]
++       node-version: [16.x, 17.x]
 ```
 
 ## set-checkout-version
