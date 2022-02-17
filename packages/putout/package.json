@@ -105,7 +105,7 @@
     "@putout/plugin-eslint": "^2.0.0",
     "@putout/plugin-extract-object-properties": "^7.0.0",
     "@putout/plugin-extract-sequence-expressions": "^2.0.0",
-    "@putout/plugin-github": "^2.0.0",
+    "@putout/plugin-github": "^3.0.0",
     "@putout/plugin-gitignore": "^3.0.0",
     "@putout/plugin-madrun": "^13.0.0",
     "@putout/plugin-merge-destructuring-properties": "^6.0.0",
