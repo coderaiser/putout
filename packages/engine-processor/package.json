@@ -39,7 +39,7 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^13.0.0",
     "lerna": "^4.0.0",
-    "madrun": "^8.0.1",
+    "madrun": "^9.0.0",
     "nodemon": "^2.0.1",
     "putout": "*",
     "supertape": "^7.0.0"

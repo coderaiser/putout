@@ -37,7 +37,7 @@
   "devDependencies": {
     "@putout/test": "^4.3.0",
     "c8": "^7.5.0",
-    "madrun": "^8.0.1",
+    "madrun": "^9.0.0",
     "putout": "*"
   },
   "license": "MIT",

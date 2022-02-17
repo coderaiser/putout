@@ -43,7 +43,7 @@
     "eslint-plugin-putout": "^13.0.0",
     "husky": "^6.0.0",
     "lerna": "^4.0.0",
-    "madrun": "^8.6.0",
+    "madrun": "^9.0.0",
     "supertape": "^7.0.0"
   },
   "engines": {
