@@ -1,3 +1,36 @@
+2022.02.17, v25.0.0
+
+fix:
+- docs(eslint-plugin-putout) safe: add "plugin-" prefix
+
+feature:
+- (package) @putout/plugin-github v3.0.0
+- (putout) drop support of node < 16
+- (@putout/plugin-github) set-node-versions: 14, 16, 17 -> 16, 17
+- (@putout/plugin-github) drop support of putout < 25
+- (package) @putout/operator-declare v4.0.0
+- (package) @putout/plugin-convert-map-to-for-of v2.0.0
+- (package) @putout/plugin-regexp v5.0.0
+- (package) @putout/processor-markdown v6.0.0
+- (@putout/processor-markdown) drop support of putout < 25
+- (@putout/plugin-regexp) drop support of putout < 25
+- (@putout/plugin-convert-map-to-for-of) drop support of putout < 25
+- (@putout/operator-declare) drop support of putout < 25
+- (putout) add @putout/plugin-apply-array-at
+- (@putout/plugin-remove-unused-variables) get-vars: getScopeUID: rm useless done
+- (@putout/operator-declare) parseCode: rm useless name argument
+- (@putout/test) supertape v7.0.0
+- (@putout/test) reuse options
+- (eslint-plugin-putout) add remove-newline-after-last-element (#95)
+- (@putout/plugin-putout) add convert-match-to-function
+- (@putout/plugin-putout) check-replace-code: add support of ObjectExpression
+- (@putout/plugin-putout) add convert-replace-to-function
+- (@putout/engine-runner) replace: add match property value validation: `☝️ Looks like 'match' property value is not a 'function', but 'string' with value 'xxx'.`
+- (@putout/engine-loader) validate-plugin: improve error message: `☝️ Cannot determine type of plugin fn. Here is list of supported plugins: https://git.io/JqcMn`
+- (@putout/plugin-remove-empty) pattern: improve support of function arguments
+- (@putout/engine-runner) add `☝️ Looks like you passed template value with a wrong type. Allowed: string, node and path. Received: true`
+
+
 2022.02.07, v24.6.0
 
 fix:
