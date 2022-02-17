@@ -51,7 +51,6 @@
 - [🚀 I want contribute](#-i-want-contribute)
 - [🍄 License](#-license)
 
-
 ## 🤷‍♂️ In doubt about using 🐊Putout?
 
 Check out couple variants of plugins that does the same: [**linting debugger statement**](https://putout.cloudcmd.io/#/gist/f61ba31fe534868d49eba9b946f3ed4b/5ef6863d9cf4826666782ae0eea5cb5def266bbd):

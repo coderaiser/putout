@@ -5,7 +5,6 @@ Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/maste
 
 ## ❌ Example of incorrect code
 
-
 ```js
 test('lint: do some check', (t) => {
     const expected = 1 + 2;

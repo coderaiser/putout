@@ -71,7 +71,7 @@ Then configure the rules you want to use under the rules section.
 - ✅ [Putout](/packages/eslint-plugin-putout/lib/putout#readme)
 - ✅ [Evaluate](/packages/eslint-plugin-putout/lib/evaluate#readme)
 
-###  📼 [Supertape](https://github.com/coderaiser/supertape#readme)
+### 📼 [Supertape](https://github.com/coderaiser/supertape#readme)
 
 - ✅ [add newline before assertion](/packages/eslint-plugin-putout/lib/tape-add-newline-before-assertion#readme)
 - ✅ [add newline between tests](/packages/eslint-plugin-putout/lib/tape-add-newline-between-tests#readme)
@@ -80,7 +80,6 @@ Then configure the rules you want to use under the rules section.
 ### TypeScript
 
 - ✅ [Add newlines between types in union](/packages/eslint-plugin-putout/lib/add-newlines-between-types-in-union#readme)
-
 
 ### Formatting
 
@@ -106,7 +105,6 @@ Then configure the rules you want to use under the rules section.
 - ✅ [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array#readme)
 - ✅ [Object init](/packages/eslint-plugin-putout/lib/object-init#readme)
 - ✅ [No unresolved](/packages/eslint-plugin-putout/lib/no-unresolved#readme)
-
 
 ### Safe mode
 

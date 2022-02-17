@@ -11,7 +11,7 @@ const {
     isTryStatement,
 } = types;
 
-const tail = (body) => body[body.length - 1];
+const tail = (body) => body.at(-1);
 
 module.exports.report = () => 'Use "for-of" instead of map when "return" absent';
 

@@ -3,7 +3,6 @@
 Add newline between tests, for 📼[`Supertape`](https://github.com/coderaiser/supertape).
 Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-
 ## ❌ Example of incorrect code
 
 ```js

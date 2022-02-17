@@ -32,7 +32,7 @@ module.exports.traverse = ({push}) => ({
         const {raw} = regExpNode.extra;
         const str = cut(raw);
         const [first] = str;
-        const last = str[str.length - 1];
+        const last = str.at(-1);
         
         if (first !== '^' || last !== '$')
             return false;

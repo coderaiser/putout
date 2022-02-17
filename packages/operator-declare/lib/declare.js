@@ -20,7 +20,7 @@ const {keys} = Object;
 const isString = (a) => typeof a === 'string';
 
 const getLastVarPath = (bodyPath) => bodyPath.filter(isVariableDeclaration).pop();
-const isLast = (insertionPath, bodyPath) => bodyPath[bodyPath.length - 1] === insertionPath;
+const isLast = (insertionPath, bodyPath) => bodyPath.at(-1) === insertionPath;
 const isLocalImport = (path) => path.node.source.value.includes('.');
 
 const cutName = (a) => a.split('.').shift();

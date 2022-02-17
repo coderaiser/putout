@@ -122,6 +122,7 @@
         "convert-mock-require-to-mock-import": "off"
     },
     "plugins": [
+        "apply-array-at",
         "apply-await-import",
         "apply-is-array",
         "apply-destructuring",

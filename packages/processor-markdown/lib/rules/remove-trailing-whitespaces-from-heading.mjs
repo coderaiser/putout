@@ -1,7 +1,7 @@
 const report = () => 'Avoid trailing whitespaces';
 
 const fix = (heading, tree) => {
-    const latest = heading.children[heading.children.length - 1];
+    const latest = heading.children.at(-1);
     
     if (latest.type === 'text' && latest.value === ' ')
         heading.children = heading.children.slice(0, -1);
@@ -18,7 +18,7 @@ const traverse = (tree, {push}) => {
     if (heading.type !== 'heading')
         return;
     
-    const latest = heading.children[heading.children.length - 1];
+    const latest = heading.children.at(-1);
     
     if (latest.type === 'text' && / $/.test(latest.value))
         push(heading);
