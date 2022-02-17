@@ -101,7 +101,7 @@ To install 🐊`Putout` as a development dependency, run:
 npm i putout -D
 ```
 
-Make sure that you are running a relatively recent (≥14.8) version of Node.
+Make sure that you are running a relatively recent (≥16) version of Node.
 
 ## 🎙 Usage
 
