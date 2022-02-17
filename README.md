@@ -2500,7 +2500,7 @@ import {OK} from 'putout/exit-codes';
 - [`Stylelint`](https://github.com/stylelint/stylelint/issues/5291#issuecomment-920778090): A mighty, modern linter that helps you avoid errors and enforce conventions in your styles.
 - [`ESTrace`](https://github.com/coderaiser/estrace): Trace functions in EcmaScript Modules.
 - [🎩`ESCover`](https://github.com/coderaiser/escover): Coverage for EcmaScript Modules.
-- [`Speca`](https://github.com/coderaiser/speca): Write [tape](https://github.com/coderaiser/supertape) tests for you.
+- [♨️`Speca`](https://github.com/coderaiser/speca): Write [tape](https://github.com/coderaiser/supertape) tests for you.
 
 Do you use `putout` in your application as well? Please open a Pull Request to include it here. We would love to have it in our list.
 
