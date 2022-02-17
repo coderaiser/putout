@@ -34,7 +34,7 @@
   ],
   "devDependencies": {
     "@putout/plugin-remove-unused-variables": "*",
-    "@putout/test": "^4.0.0",
+    "@putout/test": "^5.0.0",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
     "eslint-formatter-compassion": "^1.1.2",

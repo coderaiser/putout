@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@babel/plugin-syntax-typescript": "^7.12.1",
-    "@putout/test": "^4.3.0",
+    "@putout/test": "^5.0.0",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
     "eslint-plugin-eslint-plugin": "^3.2.0",

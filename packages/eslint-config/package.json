@@ -35,7 +35,7 @@
     "eslint-config"
   ],
   "devDependencies": {
-    "@putout/test": "^4.3.0",
+    "@putout/test": "^5.0.0",
     "c8": "^7.5.0",
     "madrun": "^9.0.0",
     "putout": "*"
