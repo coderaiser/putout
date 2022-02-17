@@ -1666,6 +1666,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 
 | Package | Version |
 |--------|-------|
+| [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) |
 | [`@putout/plugin-apply-is-array`](/packages/plugin-apply-is-array) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-is-array.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-is-array) |
 | [`@putout/plugin-apply-await-import`](/packages/plugin-apply-await-import) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-await-import.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-await-import) |
 | [`@putout/plugin-apply-numeric-separators`](/packages/plugin-apply-numeric-separators) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-numeric-separators.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-numeric-separators) |
@@ -1772,7 +1773,6 @@ Next packages not bundled with `putout` but can be installed separately.
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) |
 | [`@putout/plugin-apply-try-catch`](/packages/plugin-apply-try-catch) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-try-catch.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-try-catch) |
 | [`@putout/plugin-apply-montag`](/packages/plugin-apply-montag) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-montag.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-montag) |
 | [`@putout/plugin-apply-early-return`](/packages/plugin-apply-early-return) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-early-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-early-return) |
