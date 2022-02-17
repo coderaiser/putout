@@ -16,7 +16,7 @@ npm i @putout/plugin-apply-array-at
 ```json
 {
     "rules": {
-        "apply-array-at": "off"
+        "apply-array-at": "on"
     }
 }
 ```
