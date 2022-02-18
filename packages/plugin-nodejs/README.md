@@ -32,10 +32,6 @@ npm i putout @putout/plugin-nodejs -D
 
 Convert [fs.promises](https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api) into form that will be simpler to use and convert from in `ESM` to:
 
-```
-import {readFile} from 'fs/promises';
-```
-
 #### ❌ Example of incorrect code
 
 ```js
