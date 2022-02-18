@@ -1,16 +1,17 @@
 # 🦎 PutoutScript
 
-🦎**PutoutScript** — JavaScript-compatible language which adds additional meaning to identifiers used in AST-template. It can be used in all types of supported [plugins](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types). See [rule syntax](https://github.com/coderaiser/putout/tree/master/packages/compare#supported-template-variables) for more information.
+🦎**PutoutScript** — JavaScript-compatible language which adds additional meaning to identifiers in AST-template. It is supported by all types of [**🐊Putout plugins**](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types).
+Take a look at [rule syntax](https://github.com/coderaiser/putout/tree/master/packages/compare#supported-template-variables) for more information.
 
-☝️ *In the command line, patterns are specified with the flag `--transform`.*
+☝️ *In the command line, patterns are specified with a flag `--transform`.*
 
 ## Pattern matching
 
 Pattern matching searches code for a given pattern. For example, the expression pattern `say('hello 🐊')` can match a full expression or be part of a subexpression:
 
-`say('hello 🐊', when())`
+`loud(say('hello 🐊'))`
 
-In the same way, the statement pattern `return 'now'` can match a top `statement` in a `function` or any nested `statement`:
+In the same way, the statement pattern `return __` can match a top `statement` in a `function` or any nested `statement`:
 
 ```js
 const when = () => {
@@ -31,7 +32,7 @@ The `__args` operator abstracts away a sequence of zero or more arguments.
 
 ## Function calls
 
-Use the `__args` operator to search for function calls or function calls with specific arguments. For example, the pattern `sey(__args)` finds calls regardless of its arguments.
+Use the `__args` operator to search for function calls with arguments. For example, the pattern `sey(__args)` finds calls regardless of its arguments.
 
 ```js
 say('hello 🐊');
