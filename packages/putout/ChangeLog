@@ -1,3 +1,17 @@
+2022.02.18, v25.0.1
+
+fix:
+- (@putout/operator-add-args) avoid using putout directly since it is internal dependency
+
+
+feature:
+- (package) @putout/plugin-nodejs v3.2.0
+- (@putout/plugin-nodejs) add convert-url-to-dirname
+- (@putout/plugin-merge-destructuring-properties) add support of different quotes
+- (@putout/test) drop support of node < 16
+- (package) madrun v9.0.0
+
+
 2022.02.17, v25.0.0
 
 fix:
