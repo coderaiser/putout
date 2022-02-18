@@ -1,10 +1,7 @@
 'use strict';
 
 const {compareAny} = require('@putout/compare');
-const {
-    types,
-    template,
-} = require('putout');
+const {template} = require('@putout/engine-parser');
 
 const {
     ObjectPattern,
@@ -12,7 +9,7 @@ const {
     isBlockStatement,
     isFunction,
     isLabeledStatement,
-} = types;
+} = require('@babel/types');
 
 const {entries} = Object;
 
