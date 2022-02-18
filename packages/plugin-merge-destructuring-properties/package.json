@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-merge-destructuring-properties",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to merge destructuring properties",
