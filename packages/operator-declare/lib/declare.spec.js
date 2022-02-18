@@ -703,3 +703,34 @@ test('putout: operator: declare: couple consts', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operator: declare: merge', (t) => {
+    const declarations = {
+        dirname: `import {dirname} from 'path'`,
+    };
+    
+    const source = montag`
+        const {join} = require('path');
+        join(dirname('/package.json', 'node_modules'));
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 15,
+        plugins: [
+            'merge-destructuring-properties',
+            'convert-esm-to-commonjs',
+            ['declare-undefined-variables', declare(declarations)],
+        ],
+    });
+    
+    const expected = montag`
+       const {
+         join,
+         dirname: dirname
+       } = require('path');
+       join(dirname('/package.json', 'node_modules'));
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

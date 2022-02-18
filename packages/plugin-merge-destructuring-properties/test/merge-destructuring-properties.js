@@ -36,6 +36,11 @@ test('plugin-merge-destructuring-properties: transform: require', (t) => {
     t.end();
 });
 
+test('plugin-merge-destructuring-properties: transform: quotes', (t) => {
+    t.transform('quotes');
+    t.end();
+});
+
 test('plugin-merge-destructuring-properties: transform: putout/declare', (t) => {
     t.transform('putout-declare', {
         'putout/declare': declare,

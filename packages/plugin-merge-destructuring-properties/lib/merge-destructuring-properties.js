@@ -51,9 +51,15 @@ module.exports.traverse = ({push, store}) => {
     };
 };
 
-const addVariable = ({store}) => (path, node) => {
+const createUID = (path) => {
     const {uid} = path.scope;
     const str = `${uid}-${path.get('init').toString()}`;
+    
+    return str.replace(/['"`]/g, '*');
+};
+
+const addVariable = ({store}) => (path, node) => {
+    const str = createUID(path);
     const currentVar = store(str);
     
     if (!currentVar) {
