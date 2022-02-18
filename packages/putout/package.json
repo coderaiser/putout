@@ -111,7 +111,7 @@
     "@putout/plugin-merge-destructuring-properties": "^6.0.0",
     "@putout/plugin-merge-duplicate-imports": "^5.0.0",
     "@putout/plugin-merge-if-statements": "^3.0.0",
-    "@putout/plugin-nodejs": "^2.0.0",
+    "@putout/plugin-nodejs": "^3.2.0",
     "@putout/plugin-npmignore": "^2.0.0",
     "@putout/plugin-package-json": "^3.0.0",
     "@putout/plugin-promises": "^7.0.0",
