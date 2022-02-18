@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/compare.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/compare "npm"
 
-Compare AST-nodes according to 🦎[`PutoutScript`](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript).
+Compare AST-nodes according to 🦎[**PutoutScript**](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript).
 
 ## Install
 
@@ -15,8 +15,10 @@ npm i @putout/compare
 
 ### getTemplateValues(node, template)
 
+Get template values from `node` according to 🦎**PutouScript** `template`.
+
 - `node` - `AST-node` or `code` that will be generated;
-- `template` - template string with template variables;
+- `template` - 🦎**PutouScript**;
 
 ```js
 const {operator} = require('putout');
