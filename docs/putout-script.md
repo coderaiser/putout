@@ -1,5 +1,10 @@
 # 🦎 PutoutScript
 
+>**Among the maxims on Lord Naoshige’s wall there was this one: ”Matters of’ great concern should be treated lightly.”
+>Master lttei commented, “Matters of small concern should be treated seriously.”**
+>
+> **(c) Yamamoto Tsunetomo "Hagakure"**
+
 🦎**PutoutScript** — JavaScript-compatible language which adds additional meaning to identifiers in AST-template. It is supported by all types of [**🐊Putout plugins**](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types).
 Take a look at [rule syntax](https://github.com/coderaiser/putout/tree/master/packages/compare#supported-template-variables) for more information.
 
