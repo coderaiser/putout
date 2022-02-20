@@ -16,7 +16,7 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-🐊`Putout` is a pluggable and configurable code transformer with built-in `ESLint` and `Babel plugins` support for `js`, `jsx` `typescript` and `flow` files. It has [a lot of transformations](#-built-in-transformations) that will keep your codebase in a clean state, transforming any code smell to readable code according to best practices.
+🐊**Putout** is a pluggable and configurable code transformer with built-in ESLint and Babel plugins support for js, jsx, typescript and flow files. It has [a lot of transformations](#-built-in-transformations) that will keep your codebase in a clean state, transforming any code smell to readable code according to best practices.
 
 [![putout](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm.svg)](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm)
 
@@ -58,8 +58,8 @@ Check out couple variants of plugins that does the same: [**linting debugger sta
 - ❌ ESLint [no-debugger](https://github.com/eslint/eslint/blob/2dc38aa653f1d5137a9abf82024c67a11620bb7c/lib/rules/no-debugger.js): **43** lines;
 - ❌ SWCLint [no-debugger](https://github.com/swc-project/swc/blob/v1.2.138/crates/swc_ecma_lints/src/rules/no_debugger.rs): **49** lines;
 - ❌ Rome [no-debugger](https://github.com/rome/tools/blob/4d5a99ce98e987cbd03f3ab6b38fa22d00bbfe27/packages/%40romejs/js-compiler/transforms/lint/noDebugger.ts): **28** lines;
-- ❌RSLint [no-debugger](https://github.com/rslint/rslint/blob/v0.3.0/crates/rslint_core/src/groups/errors/no_debugger.rs): **48** lines
-- ✅ 🐊Putout [remove-debugger](https://github.com/coderaiser/putout/blob/v24.6.0/packages/plugin-remove-debugger/lib/remove-debugger.js): **7** lines:
+- ❌ RSLint [no-debugger](https://github.com/rslint/rslint/blob/v0.3.0/crates/rslint_core/src/groups/errors/no_debugger.rs): **48** lines
+- ✅ 🐊**Putout** [remove-debugger](https://github.com/coderaiser/putout/blob/v24.6.0/packages/plugin-remove-debugger/lib/remove-debugger.js): **7** lines:
 
 *Choose wisely, competitors cannot even fix…* 🤫
 
@@ -91,7 +91,7 @@ module.exports.replace = () => ({
 - [`Prettier`](https://github.com/prettier/prettier) is a formatter.
 - [`jscodeshift`](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
 
-🐊`Putout` on the other hand can make more drastic code transformations that directly affect your codebase making it a better place to code 💻.
+🐊**Putout** on the other hand can make more drastic code transformations that directly affect your codebase making it a better place to code 💻.
 
 ## 🚚 Installation
 
@@ -872,7 +872,7 @@ const putout = require('putout');
 <details><summary>convert <code>typeof</code> to <code>is type</code></summary>
 
 ```diff
-+ const isFn = (a) => typeof a === 'function';
++const isFn = (a) => typeof a === 'function';
 +
 +if (isFn(fn))
 -if (typeof fn === 'function')
