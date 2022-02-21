@@ -135,8 +135,9 @@ Disabled 🐊`Putout` rules:
 - 🐲[`remove-unused-for-of-variables`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-unused-for-of-variables#readme);
 - 🐲[`remove-unused-expressions`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-removeunused-expressions#readme);
 - 🐲[`remove-unreferenced-variables`](https://github.com/coderaiser/putout/tree/24.1.0/packages/plugin-remove-unreferenced-variables#readme);
-- 🐲[`remove-useless-return`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-return#readme);
 - 🐲[`remove-useless-arguments`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-arguments#readme);
+- 🐲[`remove-useless-for-of`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-for-of#readme);
+- 🐲[`remove-useless-return`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-return#readme);
 - 🐲[`remove-useless-spread`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-spread/#readme#readme);
 - 🐲[`remove-useless-variables/rename`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-arguments#rename#readme);
 - 🐲[`remove-skip`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-tape#remove-skip);
