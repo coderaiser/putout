@@ -1,10 +1,6 @@
 # Putout (`putout`)
 
-🐊[`Putout`](https://github.com/coderaiser/putout) used as eslint plugin.
-
-## Rule Details
-
-Rules run [putout rules](https://github.com/coderaiser/putout#built-in-transforms) in `eslint`.
+🐊[`Putout`](https://github.com/coderaiser/putout) used as eslint plugin runs [putout rules](https://github.com/coderaiser/putout#built-in-transforms) in `eslint`.
 
 And can be [configured](https://eslint.org/docs/user-guide/configuring#configuring-rules) according to [putout configuration](https://github.com/coderaiser/putout#configuration).
 
