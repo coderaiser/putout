@@ -1,13 +1,14 @@
-# evaluate
+# Evaluate
 
-Evaluate expression started with `__putout_evaluate: `.
-Provided code is processed with [`@putout/plugin-declare-undefined-variables`](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables). So next code:
+Evaluate expression started with `__putout_evaluate: `. Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules)
+
+Provided code is processed with [`@putout/plugin-declare-undefined-variables`](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables):
 
 ```js
 __putout_evaluate: join("hello", " ", "world");
 ```
 
-Is converted to:
+and converted to:
 
 ```js
 const fn = (__filename, __dirname, require) => {
