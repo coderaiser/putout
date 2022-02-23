@@ -3,10 +3,7 @@
 const applyTryCatch = require('../apply-try-catch');
 module.exports.report = () => 'Use tryCatch instead of try-catch block';
 
-module.exports.fix = applyTryCatch({
-    camel: 'tryCatch',
-    kebab: 'try-catch',
-});
+module.exports.fix = applyTryCatch('tryCatch');
 
 module.exports.include = () => [
     'TryStatement',

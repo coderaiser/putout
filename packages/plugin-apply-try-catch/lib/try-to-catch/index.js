@@ -4,10 +4,7 @@ const applyTryCatch = require('../apply-try-catch');
 
 module.exports.report = () => 'Use await tryToCatch instead of try-to-catch block';
 
-module.exports.fix = applyTryCatch({
-    camel: 'tryToCatch',
-    kebab: 'try-to-catch',
-});
+module.exports.fix = applyTryCatch('tryToCatch');
 
 module.exports.include = () => [
     'TryStatement',

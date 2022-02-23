@@ -17,10 +17,10 @@ const {
     IfStatement,
 } = types;
 
-module.exports = ({camel}) => (path) => {
+module.exports = (tryName) => (path) => {
     const expression = parseExpression(path);
     
-    const callNode = CallExpression(Identifier(camel), [
+    const callNode = CallExpression(Identifier(tryName), [
         expression.callee,
         ...expression.arguments,
     ]);
