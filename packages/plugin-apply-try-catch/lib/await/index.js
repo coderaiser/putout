@@ -7,7 +7,12 @@ const {AwaitExpression} = types;
 module.exports.report = () => `Use await with 'tryToCatch'`;
 
 module.exports.match = () => ({
-    'tryToCatch(__args)': (vars, path) => !path.parentPath.isAwaitExpression(),
+    'tryToCatch(__args)': (vars, path) => {
+        if (path.parentPath.isAwaitExpression())
+            return false;
+        
+        return path.parentPath.isExpressionStatement();
+    },
 });
 
 module.exports.replace = () => ({

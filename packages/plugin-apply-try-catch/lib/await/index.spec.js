@@ -21,3 +21,8 @@ test('plugin-apply-await: await: transform: async', (t) => {
     t.transform('async');
     t.end();
 });
+
+test('plugin-apply-await: await: transform: element', (t) => {
+    t.noTransform('element');
+    t.end();
+});

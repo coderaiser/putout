@@ -28,10 +28,8 @@ npm i @putout/plugin-apply-try-catch
 ### ❌ Example of incorrect code
 
 ```js
-try {
-    log('hello');
-} catch(error) {
-}
+import tryCatch from 'try-catch';
+const [error] = tryCatch(log, 'hello');
 ```
 
 ### ✅ Example of correct code
@@ -45,16 +43,14 @@ const [error] = tryCatch(log, 'hello');
 ### ❌ Example of incorrect code
 
 ```js
-try {
-    await send('hello');
-} catch(error) {
-}
+import tryCatch from 'try-catch';
+const [error] = await tryToCatch(send, 'hello');
 ```
 
 ### ✅ Example of correct code
 
 ```js
-const [error] = await tryCatch(log, 'hello');
+const [error] = await tryToCatch(log, 'hello');
 ```
 
 ## await
@@ -62,8 +58,8 @@ const [error] = await tryCatch(log, 'hello');
 ### ❌ Example of incorrect code
 
 ```js
-await tryCatch(a, b);
-tryToCatch(a, b);
+await tryToCatch(a, b);
+await tryToCatch(a, b);
 ```
 
 ### ✅ Example of correct code
