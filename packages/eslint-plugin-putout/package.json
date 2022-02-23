@@ -61,11 +61,11 @@
     "try-to-catch": "^3.0.0"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "peerDependencies": {
     "eslint": ">=8.0.0",
-    "putout": ">=24"
+    "putout": ">=25"
   },
   "license": "MIT",
   "publishConfig": {
