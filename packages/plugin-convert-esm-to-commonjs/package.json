@@ -32,7 +32,7 @@
     "commonjs"
   ],
   "devDependencies": {
-    "@putout/plugin-declare-undefined-variables": "*",
+    "@putout/plugin-nodejs": "*",
     "@putout/test": "^5.0.0",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",

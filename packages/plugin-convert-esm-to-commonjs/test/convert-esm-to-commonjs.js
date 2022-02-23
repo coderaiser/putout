@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const declareUndefindedVariables = require('@putout/plugin-declare-undefined-variables');
+const nodejsDeclare = require('@putout/plugin-nodejs').rules.declare;
 
 const convert = require('..');
 const test = createTest(__dirname, {
@@ -75,7 +75,7 @@ test('plugin-convert-esm-to-commonjs: transform: export function', (t) => {
 
 test('plugin-convert-esm-to-commonjs: transform: declare', (t) => {
     t.transform('declare', {
-        'declare-undefinded-variables': declareUndefindedVariables,
+        'nodejs/declare': nodejsDeclare,
     });
     t.end();
 });
