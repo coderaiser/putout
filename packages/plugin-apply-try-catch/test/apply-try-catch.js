@@ -27,3 +27,8 @@ test('plugin-apply-try-catch: transform: args', (t) => {
     t.end();
 });
 
+test('plugin-apply-try-catch: transform: declare', (t) => {
+    t.transform('declare');
+    t.end();
+});
+

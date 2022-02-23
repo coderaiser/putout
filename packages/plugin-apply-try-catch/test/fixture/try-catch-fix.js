@@ -1,3 +1,4 @@
+import tryCatch from 'try-catch';
 const [error] = tryCatch(log, a, b, c);
 
 if (error) {

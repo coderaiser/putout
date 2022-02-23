@@ -19,12 +19,13 @@ npm i @putout/plugin-apply-try-catch
         "apply-try-catch/try-catch": "on",
         "apply-try-catch/try-to-catch": "on",
         "apply-try-catch/await": "on",
-        "apply-try-catch/args": "on"
+        "apply-try-catch/args": "on",
+        "apply-try-catch/declare": "on"
     }
 }
 ```
 
-## tryCatch
+## try-catch
 
 ### ❌ Example of incorrect code
 
@@ -42,7 +43,7 @@ import tryCatch from 'try-catch';
 const [error] = tryCatch(log, 'hello');
 ```
 
-## tryToCatch
+## try-to-catch
 
 ### ❌ Example of incorrect code
 
@@ -87,6 +88,21 @@ tryCatch(send('hello'));
 
 ```js
 tryCatch(send, 'hello');
+```
+
+## declare
+
+### ❌ Example of incorrect code
+
+```js
+const [error] = tryCatch(fs.readFileSync, 'hello.txt');
+```
+
+### ✅ Example of correct code
+
+```js
+import tryCatch from 'try-catch';
+const [error] = tryCatch(fs.readFileSync, 'hello.txt');
 ```
 
 ## License

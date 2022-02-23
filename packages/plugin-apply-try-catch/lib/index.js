@@ -9,5 +9,6 @@ module.exports.rules = {
     ...getRule('try-to-catch'),
     ...getRule('await'),
     ...getRule('args'),
+    ...getRule('declare'),
 };
 
