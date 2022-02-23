@@ -14,6 +14,7 @@ const {
     VariableDeclarator,
     CallExpression,
     Identifier,
+    IfStatement,
 } = types;
 
 module.exports = ({camel}) => (path) => {
@@ -29,8 +30,10 @@ module.exports = ({camel}) => (path) => {
         VariableDeclarator(ArrayPattern([param]), maybeAwait(path, callNode)),
     ]);
     
-    replaceWithMultiple(path, [varNode, ...path.get('handler.body').node.body]);
-    //replaceWith(path, varNode);
+    const {body} = path.get('handler').node;
+    const ifNode = body.body.length ? [IfStatement(param, body)] : body.body;
+    
+    replaceWithMultiple(path, [varNode, ...ifNode]);
 };
 
 function parseExpression(path) {

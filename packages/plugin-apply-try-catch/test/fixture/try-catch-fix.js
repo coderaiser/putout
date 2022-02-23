@@ -1,5 +1,8 @@
 const [error] = tryCatch(log, a, b, c);
-console.log(error);
+
+if (error) {
+    console.log(error);
+}
 
 try {
 } catch {
