@@ -1,6 +1,4 @@
 {
-    "version": "import {version} from 'process'",
-    "versions": "import {versions} from 'process'",
     "arch": "import {arch} from 'process'",
     "platform": "import {platform} from 'process'",
     "release": "import {release} from 'process'",
@@ -25,7 +23,6 @@
     "allowedNodeEnvironmentFlags": "import {allowedNodeEnvironmentFlags} from 'process'",
     "assert": "import {assert} from 'process'",
     "features": "import {features} from 'process'",
-    "_fatalException": "import {_fatalException} from 'process'",
     "setUncaughtExceptionCaptureCallback": "import {setUncaughtExceptionCaptureCallback} from 'process'",
     "hasUncaughtExceptionCaptureCallback": "import {hasUncaughtExceptionCaptureCallback} from 'process'",
     "emitWarning": "import {emitWarning} from 'process'",
@@ -53,7 +50,6 @@
     "debugPort": "import {debugPort} from 'process'",
     "hrtime": "import {hrtime} from 'process'",
     "argv0": "import {argv0} from 'process'",
-    "_preload_modules": "import {_preload_modules} from 'process'",
     "throwDeprecation": "import {throwDeprecation} from 'process'",
     "setSourceMapsEnabled": "import {setSourceMapsEnabled} from 'process'",
     "mainModule": "import {mainModule} from 'process'"

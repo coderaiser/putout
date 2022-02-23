@@ -26,15 +26,17 @@ npm i @putout/cli-match
 ## Example
 
 ```js
+import {cwd} from 'process';
 import {
     readFile,
     writeFile,
 } from 'fs/promises';
+
 import match from '@putout/cli-match';
 
 await match({
     pattern,
-    cwd,
+    cwd: cwd(),
     readFile,   // optional
     writeFile,  // optional
 });

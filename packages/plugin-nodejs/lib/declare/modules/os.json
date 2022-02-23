@@ -16,7 +16,6 @@
     "type": "import {type} from 'os'",
     "userInfo": "import {userInfo} from 'os'",
     "uptime": "import {uptime} from 'os'",
-    "version": "import {version} from 'os'",
     "constants": "import {constants} from 'os'",
     "EOL": "import {EOL} from 'os'",
     "devNull": "import {devNull} from 'os'"

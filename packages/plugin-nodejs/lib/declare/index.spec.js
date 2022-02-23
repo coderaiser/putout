@@ -93,8 +93,13 @@ test('putout: plugin: nodejs: declare: node-js: process', (t) => {
     t.end();
 });
 
-test('putout: plugin: nodejs: declare: node-js: no transform', (t) => {
+test('putout: plugin: nodejs: declare: no transform: promises', (t) => {
     t.noTransformCode(`promises.filter();`);
+    t.end();
+});
+
+test('putout: plugin: nodejs: declare: node-js: no transform: version', (t) => {
+    t.noTransformCode(`version;`);
     t.end();
 });
 
