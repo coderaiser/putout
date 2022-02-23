@@ -134,15 +134,19 @@ test('test: transform: rule of a plugin', (t) => {
     test('noTransform: with UPDATE env variable', (t) => {
         const {UPDATE} = process.env;
         process.env.UPDATE = 1;
-        const {writeFileSync} = global.__putout_test_fs;
+        const {writeFileSync, unlinkSync} = global.__putout_test_fs;
         
         const writeFileSyncStub = stub();
+        const unlinkSyncStub = stub();
+        
         global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+        global.__putout_test_fs.unlinkSync = unlinkSyncStub;
         
         t.noTransform('const');
         
         process.env.UPDATE = UPDATE;
         global.__putout_test_fs.writeFileSync = writeFileSync;
+        global.__putout_test_fs.unlinkSync = unlinkSync;
         
         t.notOk(writeFileSyncStub.called, 'should not write fixture');
         t.end();
@@ -151,15 +155,18 @@ test('test: transform: rule of a plugin', (t) => {
     test('transformWithOptions: with UPDATE env variable', (t) => {
         const {UPDATE} = process.env;
         process.env.UPDATE = 1;
-        const {writeFileSync} = global.__putout_test_fs;
+        const {writeFileSync, unlinkSync} = global.__putout_test_fs;
+        const unlinkSyncStub = stub();
         
         const writeFileSyncStub = stub();
         global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+        global.__putout_test_fs.unlinkSync = unlinkSyncStub;
         
         t.transformWithOptions('const', {});
         
         process.env.UPDATE = UPDATE;
         global.__putout_test_fs.writeFileSync = writeFileSync;
+        global.__putout_test_fs.unlinkSync = unlinkSync;
         
         t.ok(writeFileSyncStub.called);
         t.end();

@@ -5,6 +5,7 @@ const {
     readFileSync,
     writeFileSync,
     existsSync,
+    unlinkSync,
 } = require('fs');
 
 const tryCatch = require('try-catch');
@@ -22,6 +23,7 @@ global.__putout_test_fs = {
     readFileSync,
     writeFileSync,
     existsSync,
+    unlinkSync,
 };
 
 const isUpdate = () => Boolean(Number(process.env.UPDATE));
@@ -38,6 +40,16 @@ const readFixture = (name) => {
         return [data, TS.ENABLED];
     
     return [readFileSync(`${name}.js`, 'utf8'), TS.DISABLED];
+};
+
+const rmFixture = (name) => {
+    const {unlinkSync} = global.__putout_test_fs;
+    
+    if (!isUpdate())
+        return;
+    
+    tryCatch(unlinkSync, `${name}.js`);
+    tryCatch(unlinkSync, `${name}.ts`);
 };
 
 module.exports = createTest;
@@ -266,6 +278,8 @@ const noTransformWithOptions = currify(({dir, plugins}, t, name, options) => {
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
     
+    rmFixture(`${full}-fix`);
+    
     const [plugin] = plugins;
     const [rule] = keys(plugin);
     
@@ -281,6 +295,8 @@ const noTransformWithOptions = currify(({dir, plugins}, t, name, options) => {
 const noTransform = currify(({dir, plugins, rules}, t, name, addons = {}) => {
     const full = join(dir, name);
     const [fixture] = readFixture(full);
+    
+    rmFixture(`${full}-fix`);
     
     return transform({dir, plugins, rules}, t, name, fixture, addons);
 });
@@ -307,6 +323,8 @@ const report = currify(({dir, plugins, rules}, t, name, message) => {
 const noReport = currify(({dir, plugins, rules}, t, name) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
+    
+    rmFixture(`${full}-fix`);
     
     return noReportCode({plugins, rules, isTS}, t, source);
 });
@@ -337,6 +355,8 @@ const reportWithOptions = currify(({dir, plugins}, t, name, message, options) =>
 const noReportWithOptions = currify(({dir, plugins}, t, name, options) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
+    
+    rmFixture(`${full}-fix`);
     
     const [plugin] = plugins;
     const [rule] = keys(plugin);
