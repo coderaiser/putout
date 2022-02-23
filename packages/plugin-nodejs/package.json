@@ -35,7 +35,7 @@
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
     "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-putout": "^13.0.0",
+    "eslint-plugin-putout": "^14.0.0",
     "lerna": "^4.0.0",
     "madrun": "^9.0.0",
     "montag": "^1.2.1",
