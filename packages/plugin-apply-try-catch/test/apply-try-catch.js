@@ -22,3 +22,8 @@ test('plugin-apply-try-catch: transform: await', (t) => {
     t.end();
 });
 
+test('plugin-apply-try-catch: transform: args', (t) => {
+    t.transform('args');
+    t.end();
+});
+

@@ -1,0 +1,24 @@
+'use strict';
+
+const {createTest} = require('@putout/test');
+const args = require('.');
+
+const test = createTest(__dirname, {
+    args,
+});
+
+test('plugin-apply-args: args: transform: report', (t) => {
+    t.report('args', `Pass 'fn', then 'args' splited by coma`);
+    t.end();
+});
+
+test('plugin-apply-args: args: transform: args', (t) => {
+    t.transform('args');
+    t.end();
+});
+
+test('plugin-apply-args: args: transform: not-identifier', (t) => {
+    t.noReport('not-identifier');
+    t.end();
+});
+
