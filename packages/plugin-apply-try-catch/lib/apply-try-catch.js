@@ -2,11 +2,10 @@
 
 const {
     types,
-    template,
     operator,
 } = require('putout');
 
-const {replaceWith} = operator;
+const {replaceWithMultiple} = operator;
 
 const {
     AwaitExpression,
@@ -17,16 +16,8 @@ const {
     Identifier,
 } = types;
 
-module.exports = ({kebab, camel}) => (path) => {
+module.exports = ({camel}) => (path) => {
     const expression = parseExpression(path);
-    
-    if (!path.scope.getAllBindings()[camel]) {
-        const importNode = template.ast(`import ${camel} from "${kebab}"`);
-        const programPath = path.scope.getProgramParent().path;
-        const {body} = programPath.node;
-        
-        body.unshift(importNode);
-    }
     
     const callNode = CallExpression(Identifier(camel), [
         expression.callee,
@@ -38,7 +29,8 @@ module.exports = ({kebab, camel}) => (path) => {
         VariableDeclarator(ArrayPattern([param]), maybeAwait(path, callNode)),
     ]);
     
-    replaceWith(path, varNode);
+    replaceWithMultiple(path, [varNode, ...path.get('handler.body').node.body]);
+    //replaceWith(path, varNode);
 };
 
 function parseExpression(path) {
