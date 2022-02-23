@@ -1,3 +1,16 @@
+2022.02.23, v25.0.2
+
+fix:
+- (@putout/plugin-apply-try-catch) do not declare try-catch, try-to-catch
+
+
+feature:
+- (@putout/plugin-apply-try-catch) add
+- (@putout/plugin-apply-try-catch) drop support of putout < 25
+- (@putout/plugin-apply-try-catch) await: include only ExpressionStatements
+- (eslint-plugin-putout) safe: disable remove-useless-for-of
+
+
 2022.02.18, v25.0.1
 
 fix:
