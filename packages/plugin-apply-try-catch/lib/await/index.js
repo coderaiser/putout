@@ -11,7 +11,13 @@ module.exports.match = () => ({
         if (path.parentPath.isAwaitExpression())
             return false;
         
-        return path.parentPath.isExpressionStatement();
+        if (path.parentPath.isVariableDeclarator())
+            return true;
+        
+        if (path.parentPath.isExpressionStatement())
+            return true;
+        
+        return false;
     },
 });
 
