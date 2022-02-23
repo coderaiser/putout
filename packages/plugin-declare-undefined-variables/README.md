@@ -70,8 +70,6 @@ You can `dismiss` variables you don't want to define, or declare using "declarat
                 "keys",
                 "values",
                 "Readable.from",
-                "tryCatch",
-                "tryToCatch",
                 "readFile",
                 "readFileSync",
                 "writeFile",

@@ -54,16 +54,6 @@ test('putout: plugin: declare-undefined-variables: transform: readable-simple', 
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: transform: try-catch', (t) => {
-    t.transform('try-catch');
-    t.end();
-});
-
-test('putout: plugin: declare-undefined-variables: transform: try-to-catch', (t) => {
-    t.transform('try-to-catch');
-    t.end();
-});
-
 test('putout: plugin: declare-undefined-variables: transform: read-file', (t) => {
     t.transform('read-file');
     t.end();
