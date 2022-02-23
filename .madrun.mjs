@@ -18,6 +18,7 @@ const env = {
     FORCE_COLOR: 3,
     TEST: 1,
     CI: 1,
+    SUPERTAPE_PROGRESS_BAR: 1,
     SUPERTAPE_PROGRESS_BAR_STACK: 0,
     KEYPRESS: 1,
 };
