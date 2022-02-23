@@ -103,3 +103,8 @@ test('putout: plugin: nodejs: declare: node-js: no transform: version', (t) => {
     t.end();
 });
 
+test('putout: plugin: nodejs: declare: node-js: no transform: env', (t) => {
+    t.noTransformCode(`env;`);
+    t.end();
+});
+
