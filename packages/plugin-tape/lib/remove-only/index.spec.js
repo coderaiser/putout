@@ -7,7 +7,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-only: report', (t) => {
-    t.report('only', '"test.only" should not be used');
+    t.report('only', `Remove 'test.only'`);
     t.end();
 });
 
@@ -21,12 +21,8 @@ test('plugin-remove-only: transform: options', (t) => {
     t.end();
 });
 
-test('plugin-remove-only: transform: only-only', (t) => {
-    t.transform('only-only');
+test('plugin-remove-only: transform: iife', (t) => {
+    t.transform('iife');
     t.end();
 });
 
-test('plugin-remove-only: transform: not top level', (t) => {
-    t.noTransform('not-top-level');
-    t.end();
-});
