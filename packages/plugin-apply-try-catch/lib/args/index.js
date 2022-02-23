@@ -1,25 +1,33 @@
 'use strict';
 
 const {types} = require('putout');
-const {isIdentifier} = types;
+const {
+    isIdentifier,
+    MemberExpression,
+} = types;
+
+const checkIdentifier = ({__a}) => isIdentifier(__a);
+const checkMemberExpression = () => true;
 
 module.exports.report = () => `Pass 'fn', then 'args' splited by coma`;
 
 module.exports.match = () => ({
-    'tryCatch(__a(__args))': check,
-    'tryToCatch(__a(__args))': check,
+    'tryCatch(__a.__b(__args))': checkMemberExpression,
+    'tryToCatch(__a.__b(__args))': checkMemberExpression,
+    
+    'tryCatch(__a(__args))': checkIdentifier,
+    'tryToCatch(__a(__args))': checkIdentifier,
 });
 
 module.exports.replace = () => ({
-    'tryCatch(__a(__args))': convert,
-    'tryToCatch(__a(__args))': convert,
+    'tryCatch(__a.__b(__args))': convertMemberExpressionCallee,
+    'tryToCatch(__a.__b(__args))': convertMemberExpressionCallee,
+    
+    'tryCatch(__a(__args))': convertIdentifierCallee,
+    'tryToCatch(__a(__args))': convertIdentifierCallee,
 });
 
-function check({__a}) {
-    return isIdentifier(__a);
-}
-
-function convert({__a, __args}, path) {
+function convertIdentifierCallee({__a, __args}, path) {
     path.node.arguments = [
         __a,
         ...__args,
@@ -27,3 +35,13 @@ function convert({__a, __args}, path) {
     
     return path;
 }
+
+function convertMemberExpressionCallee({__a, __b, __args}, path) {
+    path.node.arguments = [
+        MemberExpression(__a, __b),
+        ...__args,
+    ];
+    
+    return path;
+}
+

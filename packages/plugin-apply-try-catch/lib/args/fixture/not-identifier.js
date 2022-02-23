@@ -1,1 +1,1 @@
-tryCatch(a.b.c(x));
+tryCatch(a.b[1](x));
