@@ -38,7 +38,8 @@
             "remove-constant-conditions": "off",
             "remove-console": "off",
             "remove-unreachable-code": "off",
-            "declare-undefined-variables": "off"
+            "declare-undefined-variables": "off",
+            "nodejs/declare": "off"
         },
         "{*rc,*.{json,yml}}": {
             "convert-quotes-to-backticks": "off",
