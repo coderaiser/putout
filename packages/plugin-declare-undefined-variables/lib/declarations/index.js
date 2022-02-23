@@ -1,6 +1,5 @@
 'use strict';
 
-const nodeJS = require('./node-js');
 const object = require('./object');
 const isType = require('./is-type');
 const maybe = require('./maybe');
@@ -9,7 +8,6 @@ const freshImport = require('./fresh-import');
 const fixtures = require('./fixtures');
 
 module.exports = {
-    ...nodeJS,
     ...object,
     ...isType,
     ...maybe,

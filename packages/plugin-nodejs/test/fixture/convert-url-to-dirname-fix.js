@@ -1,3 +1,4 @@
+import {join} from 'path';
 const {readFile} = require('fs/promises');
 
-join(__dirname, '../../package.json');
+new URL('../../package.json', import.meta.url).pathname;

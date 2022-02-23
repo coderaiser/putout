@@ -1,0 +1,19 @@
+'use strict';
+
+const {operator} = require('putout');
+const {declare} = operator;
+
+module.exports = declare({
+    ...require('./modules/fs'),
+    ...require('./modules/fs-promises'),
+    ...require('./modules/path'),
+    ...require('./modules/process'),
+    ...require('./modules/module'),
+    ...require('./modules/stream'),
+    ...require('./modules/os'),
+    ...require('./modules/zlib'),
+    ...require('./modules/url'),
+    ...require('./modules/util'),
+    ...require('./modules/child_process'),
+});
+

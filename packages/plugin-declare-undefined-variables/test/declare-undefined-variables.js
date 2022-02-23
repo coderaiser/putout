@@ -14,11 +14,6 @@ test('putout: plugin: declare-undefined-variables: report: assign', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: report: readable-simple', (t) => {
-    t.report('readable-simple', `Declare 'Readable'`);
-    t.end();
-});
-
 test('putout: plugin: declare-undefined-variables: transform: assign', (t) => {
     t.transform('assign');
     t.end();
@@ -36,26 +31,6 @@ test('putout: plugin: declare-undefined-variables: transform: keys', (t) => {
 
 test('putout: plugin: declare-undefined-variables: transform: values', (t) => {
     t.transform('values');
-    t.end();
-});
-
-test('putout: plugin: declare-undefined-variables: transform: join', (t) => {
-    t.transform('join');
-    t.end();
-});
-
-test('putout: plugin: declare-undefined-variables: transform: readable', (t) => {
-    t.transform('readable');
-    t.end();
-});
-
-test('putout: plugin: declare-undefined-variables: transform: readable-simple', (t) => {
-    t.transform('readable-simple');
-    t.end();
-});
-
-test('putout: plugin: declare-undefined-variables: transform: read-file', (t) => {
-    t.transform('read-file');
     t.end();
 });
 
@@ -83,23 +58,8 @@ test('putout: plugin: declare-undefined-variables: transform: parse', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: no report after transform: join', (t) => {
-    t.noReportAfterTransform('join');
-    t.end();
-});
-
 test('putout: plugin: declare-undefined-variables: no report after transform: assign', (t) => {
     t.noReportAfterTransform('assign');
-    t.end();
-});
-
-test('putout: plugin: declare-undefined-variables: node-js-fs', (t) => {
-    t.transform('node-js-fs');
-    t.end();
-});
-
-test('putout: plugin: declare-undefined-variables: node-js-zlib', (t) => {
-    t.transform('node-js-zlib');
     t.end();
 });
 
@@ -120,26 +80,6 @@ test('putout: plugin: declare-undefined-variables: is-type', (t) => {
 
 test('putout: plugin: declare-undefined-variables: maybe', (t) => {
     t.transform('maybe');
-    t.end();
-});
-
-test('putout: plugin: declare-undefined-variables: module', (t) => {
-    t.transform('module');
-    t.end();
-});
-
-test('putout: plugin: declare-undefined-variables: os', (t) => {
-    t.transform('os');
-    t.end();
-});
-
-test('putout: plugin: declare-undefined-variables: child_process', (t) => {
-    t.transform('child_process');
-    t.end();
-});
-
-test('putout: plugin: declare-undefined-variables: stream', (t) => {
-    t.transform('stream');
     t.end();
 });
 
@@ -239,22 +179,6 @@ test('putout: plugin: declare-undefined-variables: returns', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: nodejs: url', (t) => {
-    t.transformCode(`pathToFileURL(path);`, montag`
-        import {pathToFileURL} from 'url';
-        pathToFileURL(path);
-    `);
-    t.end();
-});
-
-test('putout: plugin: declare-undefined-variables: nodejs: util', (t) => {
-    t.transformCode(`promisify(fn);`, montag`
-        import {promisify} from 'util';
-        promisify(fn);
-    `);
-    t.end();
-});
-
 test('putout: plugin: declare-undefined-variables: readFixture', (t) => {
     t.transform(`fixtures`);
     t.end();
@@ -276,15 +200,3 @@ test('putout: plugin: declare-undefined-variables: table', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: node-js: process', (t) => {
-    t.transformCode(`cwd();`, montag`
-        import {cwd} from 'process';
-        cwd();
-    `);
-    t.end();
-});
-
-test('putout: plugin: declare-undefined-variables: node-js: no transform', (t) => {
-    t.noTransformCode(`promises.filter();`);
-    t.end();
-});

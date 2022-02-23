@@ -10,6 +10,7 @@ module.exports.rules = {
     ...getRule('convert-dirname-to-url'),
     ...getRule('convert-url-to-dirname'),
     ...getRule('convert-top-level-return'),
+    ...getRule('declare'),
     ...getRule('remove-process-exit'),
 };
 

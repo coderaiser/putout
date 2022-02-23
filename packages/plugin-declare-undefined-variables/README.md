@@ -5,16 +5,6 @@
 
 🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to declare variable that was not defined before, including:
 
-- [child_process](https://nodejs.org/dist/latest-v16.x/docs/api/child_process.html);
-- [fs](https://nodejs.org/dist/latest-v16.x/docs/api/fs.html);
-- [path](https://nodejs.org/dist/latest-v16.x/docs/api/path.html);
-- [process](https://nodejs.org/dist/latest-v16.x/docs/api/process.html);
-- [module](https://nodejs.org/dist/latest-v16.x/docs/api/module.html);
-- [stream](https://nodejs.org/dist/latest-v16.x/docs/api/stream.html);
-- [os](https://nodejs.org/dist/latest-v16.x/docs/api/os.html);
-- [url](https://nodejs.org/dist/latest-v16.x/docs/api/url.html);
-- [util](https://nodejs.org/dist/latest-v16.x/docs/api/util.html);
-- [zlib](https://nodejs.org/dist/latest-v16.x/docs/api/zlib.html);
 - is types: `isFn`, `isString`, `isNumber`, `isObject`, `isBool`, `isUndefined`, `isSymbol`;
 - maybe: `maybeArray`, `maybeFn`, `maybeEmptyArray`;
 - wrap: `not`,`id`, `returns`;
@@ -63,17 +53,9 @@ You can `dismiss` variables you don't want to define, or declare using "declarat
                 "defineProperty",
                 "isArray",
                 "noop",
-                "basename",
-                "dirname",
-                "extname",
                 "join",
                 "keys",
                 "values",
-                "Readable.from",
-                "readFile",
-                "readFileSync",
-                "writeFile",
-                "writeFileSync",
                 "stopAll",
                 "montag",
                 "once",
@@ -147,22 +129,6 @@ const {values} = Object;
 
 const object = {};
 const allValues = values(object);
-```
-
-# `readFile`
-
-## ❌ Example of incorrect code
-
-```js
-await readFile('./README.md', 'utf8');
-```
-
-## ✅ Example of correct code
-
-```js
-import {readFile} from 'fs/promises';
-
-await readFile('./README.md', 'utf8');
 ```
 
 # `isArray`
