@@ -30,15 +30,17 @@ module.exports.fix = ({text, node, filename}) => {
 function evaluate({value, filename}) {
     value = value.replace(/__putout_evaluate:\s?/, 'return ');
     const {code} = putout(value, {
+        fix: true,
         rules: {
-            'convert-esm-to-commonjs': 'on',
+            'nodejs/convert-top-level-return': 'off',
         },
         plugins: [
-            'declare-undefined-variables',
+            'nodejs',
             'convert-esm-to-commonjs',
+            'declare-undefined-variables',
         ],
     });
     
     const fn = Function('__filename', '__dirname', 'require', code);
-    return fn(filename, dirname(__filename), require);
+    return fn(filename, dirname(filename), require);
 }
