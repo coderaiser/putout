@@ -77,6 +77,7 @@
     "@putout/plugin-apply-is-array": "^2.0.0",
     "@putout/plugin-apply-numeric-separators": "^1.0.0",
     "@putout/plugin-apply-optional-chaining": "^2.0.0",
+    "@putout/plugin-apply-try-catch": "^2.0.0",
     "@putout/plugin-browserlist": "^1.0.0",
     "@putout/plugin-convert-apply-to-spread": "^3.0.0",
     "@putout/plugin-convert-arguments-to-rest": "^1.0.0",

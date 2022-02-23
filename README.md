@@ -1673,6 +1673,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) |
 | [`@putout/plugin-apply-if-condition`](/packages/plugin-apply-if-condition) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-if-condition.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-if-condition) |
+| [`@putout/plugin-apply-try-catch`](/packages/plugin-apply-try-catch) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-try-catch.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-try-catch) |
 
 ### Splitters
 
@@ -1773,7 +1774,6 @@ Next packages not bundled with `putout` but can be installed separately.
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-apply-try-catch`](/packages/plugin-apply-try-catch) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-try-catch.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-try-catch) |
 | [`@putout/plugin-apply-montag`](/packages/plugin-apply-montag) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-montag.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-montag) |
 | [`@putout/plugin-apply-early-return`](/packages/plugin-apply-early-return) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-early-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-early-return) |
 | [`@putout/plugin-react-hooks`](/packages/plugin-react-hooks) | [![npm](https://img.shields.io/npm/v/@putout/plugin-react-hooks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-react-hooks) |
