@@ -1,3 +1,21 @@
+2022.02.23, v25.0.3
+
+fix:
+- feature(@putout/test) UPDATE: add ability to remove unused fixtures
+
+
+feature:
+- (package) @putout/plugin-tape v9.0.0
+- (@putout/plugin-tape) drop support of putout < 25
+- (@putout/test) UPDATE: add ability to remove unused fixtures
+- (@putout/plugin-tape) remove-only: add support of not top level 'test.only'
+- (@putout/plugin-apply-try-catch) args: add support of MemberExpression
+- (@putout/plugin-apply-try-catch) args: add
+- (@putout/plugin-apply-try-catch) add support of VariableDeclarator
+- (@putout/plugin-try-catch) camel -> tryName
+- (@putout/plugin-apply-try-catch) add support of IfCondition
+
+
 2022.02.23, v25.0.2
 
 fix:
