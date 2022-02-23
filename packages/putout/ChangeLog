@@ -1,3 +1,23 @@
+2022.02.24, v25.0.4
+
+fix:
+- (@putout/plugin-nodejs) declare: process: rm env
+- (@putout/plugin-nodejs) declare: process: rm version
+
+
+feature:
+- (package) eslint-plugin-putout v14.0.0
+- (eslint-plugin-putout) drop support of putout < 25
+- (eslint-plugin-putout) evaluate: add support of @putout/plugin-nodejs
+- (package) @putout/plugin-declare-undefined-variables v7.0.0
+- (package) @putout/plugin-nodejs v4.0.0
+- (@putout/plugin-nodejs) drop support of putout < 25
+- (@putout/plugin-nodejs) declare: add from @putout/plugin-declare-undefined-variables
+- (@putout/plugin-declare-undefined-variables) drop support of putout < 25
+- (@putout/plugin-declare-undefined-variables) try-catch: move to @putout/plugin-apply-try-catch
+- (@putout/plugin-apply-try-catch) declare: add
+
+
 2022.02.23, v25.0.3
 
 fix:
