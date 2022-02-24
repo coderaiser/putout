@@ -7,7 +7,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-skip: report', (t) => {
-    t.report('skip', '"test.skip" should not be used');
+    t.report('skip', 'Remove "test.skip"');
     t.end();
 });
 
@@ -21,13 +21,8 @@ test('plugin-remove-skip: transform: options', (t) => {
     t.end();
 });
 
-test('plugin-remove-skip: transform: skip-skip', (t) => {
-    t.transform('skip-skip');
-    t.end();
-});
-
 test('plugin-remove-skip: transform: not top level', (t) => {
-    t.noTransform('not-top-level');
+    t.transform('not-top-level');
     t.end();
 });
 

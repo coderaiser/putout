@@ -1,15 +1,19 @@
 'use strict';
 
-module.exports.report = () => '"test.skip" should not be used';
+const {types} = require('putout');
+
+const {isIdentifier} = types;
+
+module.exports.report = () => 'Remove "test.skip"';
 
 module.exports.replace = () => ({
     '__a.skip(__b, __c)': '__a(__b, __c)',
     '__a.skip(__b, __c, __d)': '__a(__b, __c, __d)',
-    '__a["skip"](__b, __c)': '__a(__b, __c)',
 });
 
 module.exports.filter = (path) => {
-    const {parentPath} = path.parentPath;
-    return parentPath.isProgram();
+    return isIdentifier(path.node.callee.object, {
+        name: 'test',
+    });
 };
 
