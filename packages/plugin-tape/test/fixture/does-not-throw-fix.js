@@ -1,4 +1,3 @@
-const tryCatch = require('try-catch');
 import {test} from 'supertape';
 test('some test', (t) => {
     const [error] = tryCatch(copymitter);

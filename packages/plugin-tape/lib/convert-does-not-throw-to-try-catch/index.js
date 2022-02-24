@@ -2,8 +2,6 @@
 
 const {template} = require('putout');
 
-const insertRequireTryCatch = require('../insert-require-try-catch');
-
 module.exports.report = () => 'try-catch should be used instead of t.doesNotThrow';
 
 module.exports.replace = () => ({
@@ -13,9 +11,7 @@ module.exports.replace = () => ({
         `);
         
         tryCatchNode.declarations[0].init.arguments[0] = __a;
-        
         path.insertBefore(tryCatchNode);
-        insertRequireTryCatch(path);
         
         return `t.notOk(error, __b)`;
     },
