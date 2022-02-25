@@ -1,6 +1,6 @@
 {
   "name": "@putout/engine-parser",
-  "version": "4.10.2",
+  "version": "5.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout parser",
