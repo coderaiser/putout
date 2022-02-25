@@ -1,10 +1,8 @@
-# Add new line before function call (`add-newline-before-function-call`)
+# add-newline-before-function-call
 
-## Rule Details
+This rule aims to add newline before `function call` and `assignment`. Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-This rule aims to add newline before `function call` and `assignment`.
-
-Examples of **incorrect** code for this rule:
+## ❌ Example of incorrect code
 
 ```js
 export function parse() {
@@ -18,7 +16,7 @@ export function calc() {
 }
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 export function parse() {
