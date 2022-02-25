@@ -36,7 +36,9 @@ Add `.putout.json` with:
 
 ## Rules
 
-You can `dismiss` variables you don't want to define, or declare using "declarations":
+Use options:
+- ✅ `dismiss` for variables you don't want to declare;
+- ✅ `declarations` to declare variables;
 
 ```json
 {
