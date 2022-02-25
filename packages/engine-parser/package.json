@@ -38,7 +38,7 @@
     "@babel/template": "^7.10.4",
     "@babel/types": "^7.12.6",
     "@putout/recast": "^1.1.0",
-    "estree-to-babel": "^4.0.0",
+    "estree-to-babel": "^5.0.0",
     "nano-memoize": "^1.1.8",
     "once": "^1.4.0",
     "try-catch": "^3.0.0"
