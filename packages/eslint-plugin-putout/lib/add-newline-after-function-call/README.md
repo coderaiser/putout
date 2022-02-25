@@ -1,10 +1,8 @@
-# Add new line after function call (`add-newline-after-function-call`)
-
-## Rule Details
+# add-newline-after-function-call
 
 This rule aims to add newline after function call.
 
-Examples of **incorrect** code for this rule:
+## ❌ Example of incorrect code
 
 ```js
 export function parse() {
@@ -15,7 +13,7 @@ export function parse() {
 }
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 export function parse() {
