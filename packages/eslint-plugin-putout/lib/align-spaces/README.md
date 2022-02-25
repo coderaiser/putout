@@ -1,12 +1,8 @@
-# Spaces should be aligned (`aling-spaces`)
+# aling-spaces
 
-After `putout` process files it can remove spaces from empty line, this `rule` fixes it.
+When 🐊**Putout** processes files it can remove spaces from empty line, this `rule` fixes it.
 
-## Rule Details
-
-This rule aims to shorten destricturing of one property.
-
-Examples of **incorrect** code for this rule:
+## ❌ Example of incorrect code
 
 ```js
 function hello() {
@@ -18,7 +14,7 @@ function hello() {
 }
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 function hello() {
