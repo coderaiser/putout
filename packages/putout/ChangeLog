@@ -1,3 +1,14 @@
+2022.02.25, v25.0.5
+
+feature:
+- (package) @putout/engine-parser v5.0.0
+- (package) @putout/engine-parser v5.0.0
+- (@putout/engine-parser) drop support of node < 16
+- (package) estree-to-babel v5.0.0
+- (@putout/plugin-tape) remove-skip: change message
+- (@putout/plugin-tape) rm insert require try catch
+
+
 2022.02.24, v25.0.4
 
 fix:
