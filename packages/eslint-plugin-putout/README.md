@@ -5,7 +5,7 @@
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
-[`ESLint`](https://eslint.org) plugin for 🐊[`Putout`](https://github.com/coderaiser/putout) with built-in rules from [`@putout/eslint-config`](https://github.com/coderaiser/putout/tree/master/packages/eslint-config).
+[**ESLint**](https://eslint.org) plugin for 🐊[**Putout**](https://github.com/coderaiser/putout) with built-in rules from [**@putout/eslint-config**](https://github.com/coderaiser/putout/tree/master/packages/eslint-config).
 
 ## Installation
 
@@ -108,7 +108,7 @@ Then configure the rules you want to use under the rules section.
 
 ### Safe mode
 
-When using 🐊`Putout` in IDE with `--fix` on save, or when you want to disable the most dangerous rules, use:
+When using 🐊**Putout** in IDE with `--fix` on save, or when you want to disable the most dangerous rules, use:
 
 ```json
 {
@@ -121,12 +121,12 @@ When using 🐊`Putout` in IDE with `--fix` on save, or when you want to disable
 }
 ```
 
-Disabled `ESLint` rules:
+Disabled **ESLint** rules:
 
 - [`no-useless-return`](https://eslint.org/docs/rules/no-useless-return#readme)
 - [`putout/remove-newline-from-empty-object`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/remove-newline-from-empty-object#readme)
 
-Disabled 🐊`Putout` rules:
+Disabled 🐊**Putout** rules:
 
 - 🐲[`remove-empty`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-remove-empty#readme);
 - 🐲[`nodejs/remove-process-exit`](https://github.com/coderaiser/putout/tree/v24.0.0/packages/plugin-nodejs#remove-process-exit#readme);
