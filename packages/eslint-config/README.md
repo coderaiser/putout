@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/eslint-config.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/eslint-config "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) config for `eslint`. If `putout` brokes formatting `eslint` will fix it 😉.
+🐊[**Putout**](https://github.com/coderaiser/putout) config for **ESLint**. If 🐊**Putout** brakes formatting **ESLint** will fix it back 😉.
 
 ## Install
 
@@ -34,22 +34,20 @@ Add `scripts` section to `package.json`:
 }
 ```
 
-And create file [madrun file](https://github.com/coderaiser/madrun) `.madrun.js`:
+And create [`.madrun.mjs`](https://github.com/coderaiser/madrun):
 
 ```js
-const {series} = require('madrun');
+import {series} from 'madrun';
 
-module.exports = {
-    'eslint': () => `eslint lib test`,
-    'putout': () => `putout lib test`,
-    'lint': () => series(['putout', 'eslint']),
-    'fix:lint': () => series(['putout', 'eslint'], '--fix'),
+export default {
+    'lint': () => 'putout lib test',
+    'fix:lint': () => run('lint', '--fix'),
 };
 ```
 
 ```sh
 $ npm run lint
-$ npm run lint:fix
+$ npm run fix:lint
 
 ```
 
