@@ -5,7 +5,7 @@
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
-[**ESLint**](https://eslint.org) plugin for 🐊[**Putout**](https://github.com/coderaiser/putout) with built-in rules from [**@putout/eslint-config**](https://github.com/coderaiser/putout/tree/master/packages/eslint-config).
+[**ESLint**](https://eslint.org) plugin for 🐊[**Putout**](https://github.com/coderaiser/putout) with built-in rules from [**@putout/eslint-config**](https://github.com/coderaiser/putout/tree/master/packages/eslint-config#readme).
 
 ## Installation
 
@@ -13,7 +13,7 @@
 npm i putout eslint eslint-plugin-putout -D
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `putout` and `eslint-plugin-putout` globally.
+☝️*If you installed `eslint` globally (using the `-g` flag) then you must also install `putout` and `eslint-plugin-putout` globally.*
 
 ## Usage
 
