@@ -1,12 +1,11 @@
-# Keep curly braces in one line when property is single (`single-property-destructuring`)
+# single-property-destructuring
 
 When 🐊[`Putout`](https://github.com/coderaiser/putout) removes unused variables declared as destructured properties, it keeps one property to take 3 lines, instead of 1.
+This rule aims to shorten destructuring of one property, keeping curly braces in one line.
 
-## Rule Details
+Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-This rule aims to shorten destructuring of one property.
-
-Examples of **incorrect** code for this rule:
+## ❌ Example of incorrect code
 
 ```js
 import {
@@ -19,7 +18,7 @@ const {
 
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 import {password} from './user.js';
