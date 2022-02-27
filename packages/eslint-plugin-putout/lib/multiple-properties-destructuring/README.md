@@ -1,10 +1,11 @@
-# Keep each property on separate line when using multiple destructuring properties (`multiple-properties-destructuring`)
+# multiple-properties-destructuring
 
+Keep each property on separate line when using multiple destructuring properties
 In the same way as eslint [object-property-newline](https://eslint.org/docs/rules/object-property-newline), but for destructuring.
 
-## Rule Details
+Part of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-Examples of **incorrect** code for this rule:
+## ❌ Example of incorrect code
 
 ```js
 const {a, b, c} = user;
@@ -14,7 +15,7 @@ const {a, b, c} = user;
 import {a, b, c} from 'user';
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 const {
@@ -34,7 +35,7 @@ import {
 
 ## Options
 
-`minProperties` - minimum properties count to work with.
+`minProperties` - minimum properties count to work with, defaults: `2`.
 
 ```js
 const {
