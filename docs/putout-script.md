@@ -87,7 +87,7 @@ The `__a` can match arguments to binary operations. The pattern `const __a = __b
 const friends = '🐊' + '🦛';
 ```
 
-Containers
+## Containers
 
 The `__array` and `__object` template values can match container data structures like, arrays, objects.
 
