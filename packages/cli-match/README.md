@@ -15,10 +15,10 @@ npm i @putout/cli-match
 {
 -   "rules": {
 -       "remove-debugger": "on"
-+    "match": {
-+        "*.md": {
-+            "remove-debugger": "on"
-+        }
++   "match": {
++       "*.md": {
++           "remove-debugger": "on"
++       }
     }
 }
 ```
