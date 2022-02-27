@@ -1,10 +1,11 @@
-# Keep all properties in one line when using destructuring in `for-of` (`for-of-multiple-properties-destructuring`)
+# for-of-multiple-properties-destructuring
 
-## Rule Details
+This rule aims to shorten destructuring in `for-of` statements, keeping all properties in one line
+Part of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-This rule aims to shorten destructuring in `for-of` statements
 
-Examples of **incorrect** code for this rule:
+
+## ❌ Example of incorrect code
 
 ```js
 for ({
@@ -14,13 +15,14 @@ for ({
 }
 ```
 
-Examples of **correct** code for this rule:
-
-## Options
-
-`maxProperties` - maximum properties count to work with.
+## ✅ Example of correct code
 
 ```js
 for ({username, password} of users) {
 }
 ```
+
+## Options
+
+`maxProperties` - maximum properties count to work with, defaults to **8**.
+
