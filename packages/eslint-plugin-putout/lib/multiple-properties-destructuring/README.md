@@ -1,7 +1,7 @@
 # multiple-properties-destructuring
 
 Keep each property on separate line when using multiple destructuring properties
-In the same way as eslint [object-property-newline](https://eslint.org/docs/rules/object-property-newline), but for destructuring.
+In the same way as **ESLint** [object-property-newline](https://eslint.org/docs/rules/object-property-newline), but for destructuring.
 
 Part of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
