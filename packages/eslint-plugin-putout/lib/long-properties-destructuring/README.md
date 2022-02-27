@@ -1,18 +1,18 @@
-# Keep each property on separate line when destructuring long properties (`long-properties-destructuring`)
+# long-properties-destructuring
 
-Always add new lines, when property name is longer then 15 characters.
+Keep each property on separate line when destructuring properties with name length **15** characters and more.
 
-## Rule Details
+Part of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-This rule aims to shorten destricturing of one property.
+## ❌ Example of incorrect code
 
-Examples of **incorrect** code for this rule:
+
 
 ```js
 const {isIdentifier} = user;
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 const {
