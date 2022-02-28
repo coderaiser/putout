@@ -157,7 +157,7 @@ npx putout lib test --fix
 
 🐊**Putout** supports the following environment variables:
 
-- `PUTOUT_CONFIG_FILE` - path to [configuration](https://github.com/coderaiser/putout/tree/master/README.md#-configuration) file;
+- `PUTOUT_CONFIG_FILE` - path to [configuration](#-configuration) file;
 - `PUTOUT_FILES` - files that should be processed splitted by ",";
 
 Example:
@@ -168,7 +168,7 @@ PUTOUT_FILES=lib,test putout --fix
 
 ## 📐 What is **Ruler**?
 
-When you need to change [configuration](https://github.com/coderaiser/putout/tree/master/README.md#-configuration) file use **Ruler** insteaod of editing the file manually.
+When you need to change [configuration](#-configuration) file use **Ruler** insteaod of editing the file manually.
 
 **Ruler** can:
 
