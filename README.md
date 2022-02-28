@@ -29,7 +29,7 @@
 - [🎙 Usage](#usage)
 - [📐 What is **Ruler**?](#-what-is-ruler)
 - [✂️ How **Ruler** can help me?](#%EF%B8%8F-how-ruler-can-help-me)
-- [🚁 Converting `CommonJS` to `ESM`](#-converting-commonjs-to-esm)
+- [🚁 Convert `CommonJS` to `ESM`](#-convert-commonjs-to-esm)
 - [🏛 Architecture](#-architecture)
 - [🌲 The Tree of Syntax](#-the-tree-of-syntax)
 - [🌴 Laws of the Jungle](#-laws-of-the-jungle)
@@ -187,7 +187,7 @@ When you need to change [configuration](#-configuration) file use **Ruler** inst
 
 You may want to convert your [`CommonJS`](https://nodejs.org/api/modules.html) to [`ESM`](https://nodejs.org/api/esm.html) since [node v12 supports it without a flag](https://nodejs.org/de/blog/release/v12.17.0/).
 
-### 🚁 Converting `CommonJS` to `ESM`
+### 🚁 Convert `CommonJS` to `ESM`
 
 #### ☝️ I have a `package.json`
 
