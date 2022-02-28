@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-await-import.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-await-import"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to apply `await-import`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to add forgotten **await** to [**dynamic `import()`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports).
 
 ## Install
 
