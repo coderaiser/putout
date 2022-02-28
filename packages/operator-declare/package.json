@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/compare": "^8.6.0",
+    "@putout/compare": "^9.0.0",
     "@putout/operate": "^7.0.0"
   },
   "keywords": [
