@@ -1,7 +1,7 @@
 # 🦎 PutoutScript
 
->**Among the maxims on Lord Naoshige’s wall there was this one: ”Matters of’ great concern should be treated lightly.”
->Master lttei commented, “Matters of small concern should be treated seriously.”**
+> **Among the maxims on Lord Naoshige’s wall there was this one: ”Matters of’ great concern should be treated lightly.”
+> Master lttei commented, “Matters of small concern should be treated seriously.”**
 >
 > **(c) Yamamoto Tsunetomo "Hagakure"**
 

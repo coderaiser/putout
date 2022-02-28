@@ -5,8 +5,6 @@ It exists because [`array-element-newline`](https://eslint.org/docs/rules/array-
 
 Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-
-
 ## ❌ Example of incorrect code
 
 ```js

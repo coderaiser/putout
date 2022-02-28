@@ -212,15 +212,14 @@ async function promise(a) {
 You call `putout --fix index.js` and see that file is changed:
 
 ```js
-
 'use strict';
 
 module.exports = async function() {
     return await promise();
-}
+};
 
 async function promise() {
-   throw Error('x');
+    throw Error('x');
 }
 ```
 
@@ -294,7 +293,7 @@ So in case of `src` directory, it will look like:
 putout src --disable-all && putout src --enable convert-commonjs-to-esm && putout src --fix
 ```
 
-This command will **disable all rules** that 🐊**Putout** can find right now and **enable** a single rule. All built-in rules made for good and highly suggested to be used, all of them are enabled in all my repositories, since they have auto fix. 
+This command will **disable all rules** that 🐊**Putout** can find right now and **enable** a single rule. All built-in rules made for good and highly suggested to be used, all of them are enabled in all my repositories, since they have auto fix.
 
 ☝️*You can always disable what you don't need, so give it a try you wan't regret 🐊.*
 

@@ -6,8 +6,6 @@ Part of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/mas
 
 ## ❌ Example of incorrect code
 
-
-
 ```js
 const {isIdentifier} = user;
 ```
