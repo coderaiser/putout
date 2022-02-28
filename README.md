@@ -209,7 +209,26 @@ async function promise(a) {
 }
 ```
 
-You want to convert it to [ESM](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), and everything else keep untouched. You can do this with a `Ruler`. So you disable all rules that 🐊`Putout` can find right now.
+You call `putout --fix index.js` and see that file is changed:
+
+```js
+
+'use strict';
+
+module.exports = async function() {
+    return await promise();
+}
+
+async function promise() {
+   throw Error('x');
+}
+```
+
+But for some reason you don't want so many changes.
+
+☝️***safe** mode of **[eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#safe-mode)** has the most dengerous rules **disabled**, so it can be used as **auto fix** on each **save** in your **IDE***
+
+So, if you want to convert it to [ESM](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), and keep everything else untouched. You can do this with a `Ruler`. So you disable all rules that 🐊`Putout` can find right now.
 
 `putout index.js --disable-all` will find next errors:
 
@@ -275,7 +294,7 @@ So in case of `src` directory, it will look like:
 putout src --disable-all && putout src --enable convert-commonjs-to-esm && putout src --fix
 ```
 
-This command will disable all rules that `Putout` can find right now and `enables` a single rule. All `Putout` rules made for good and highly suggested to be used, they all enabled in all my repositories. You can always disable what you don't need, so give it a try you wan't regret 🐊.
+This command will **disable all rules** that 🐊**Putout** can find right now and **enable** a single rule. All built-in rules made for good and highly suggested to be used, they all enabled in all my repositories. You can always disable what you don't need, so give it a try you wan't regret 🐊.
 Happy coding 🎈!
 
 ## 🏛 Architecture
