@@ -1,6 +1,6 @@
 {
   "name": "@putout/traverse",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "traverse ast-nodes",
