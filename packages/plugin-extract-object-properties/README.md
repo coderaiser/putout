@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-extract-object-properties.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-extract-object-properties"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert Commonjs to ESM.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert Commonjs to ESM.
 
 ## Install
 

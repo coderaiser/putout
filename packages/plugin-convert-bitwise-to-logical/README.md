@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-bitwise-to-logical.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-bitwise-to-logical "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert `bitwise` to `logical` operator.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `bitwise` to `logical` operator.
 
 ## Install
 

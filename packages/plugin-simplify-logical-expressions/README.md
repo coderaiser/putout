@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-simplify-logical-expressions.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-simplify-logical-expressions "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to simplify `logical-expressions`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to simplify `logical-expressions`.
 
 ## Install
 

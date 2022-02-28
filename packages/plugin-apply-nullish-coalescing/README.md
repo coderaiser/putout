@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-nullish-coalescing.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-nullish-coalescing"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin apply `optional chaining`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin apply `optional chaining`.
 
 ## Install
 

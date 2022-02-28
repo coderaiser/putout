@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-for-each-to-for-of.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-for-each-to-for-of "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert `Math.pow` to `exponentiation operator`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `Math.pow` to `exponentiation operator`.
 
 ## Install
 

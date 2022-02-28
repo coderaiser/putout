@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-boolean-from-logical-expression.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-boolean-from-logical-expression"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove `constant conditions`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove `constant conditions`.
 
 ## Install
 

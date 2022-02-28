@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-template-expressions.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-template-expressions"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to remove useless `template expressions`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `template expressions`.
 
 ## Install
 

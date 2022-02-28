@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-github.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-github"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin helps with [`github actions`](https://github.com/features/actions).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with [`github actions`](https://github.com/features/actions).
 
 ## Install
 

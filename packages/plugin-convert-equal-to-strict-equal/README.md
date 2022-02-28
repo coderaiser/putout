@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-equal-to-strict-equal.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-equal-to-strict-equal "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert `equal` to `strict equal` loop.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `equal` to `strict equal` loop.
 
 ## Install
 

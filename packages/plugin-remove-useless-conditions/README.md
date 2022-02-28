@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-conditions.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-conditions "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to remove useless `conditions`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `conditions`.
 
 ## Install
 

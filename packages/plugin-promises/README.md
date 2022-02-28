@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-promises.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-promises"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to work with promises.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to work with promises.
 
 ## Install
 

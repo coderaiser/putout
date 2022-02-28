@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-concat-to-flat.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-concat-to-flat "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert `concat` to `flat`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `concat` to `flat`.
 
 ## Install
 

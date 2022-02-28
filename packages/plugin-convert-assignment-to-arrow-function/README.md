@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-assignment-to-arrow-function.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-assignment-to-arrow-function"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert assignment to arrow function.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert assignment to arrow function.
 
 ## Install
 

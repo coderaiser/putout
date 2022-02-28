@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-apply-to-spread.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-apply-to-spread "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert `apply` to `spread`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `apply` to `spread`.
 
 ## Install
 

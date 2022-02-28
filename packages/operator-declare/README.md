@@ -13,7 +13,7 @@ npm i putout @putout/operator-declare
 
 ## API
 
-If you want to create 🐊[`Putout`](https://github.com/coderaiser/putout) `plugin` that will declare variables according to your needs just:
+If you want to create 🐊[**Putout**](https://github.com/coderaiser/putout) `plugin` that will declare variables according to your needs just:
 
 ```js
 const {

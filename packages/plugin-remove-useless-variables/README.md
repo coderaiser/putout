@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-variables.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-variables "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove `useless variables`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove `useless variables`.
 
 ## Install
 

@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/test.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/test "npm"
 
-Test runner for 🐊[`Putout`](https://github.com/coderaiser/putout#plugins-api). Basically it is [supercharged `tape`](https://github.com/coderaiser/supertape) with aditional asseritions:
+Test runner for 🐊[**Putout**](https://github.com/coderaiser/putout#plugins-api). Basically it is [supercharged `tape`](https://github.com/coderaiser/supertape) with aditional asseritions:
 
 ## Install
 
@@ -23,8 +23,8 @@ UPDATE=1 tape test/*.js
 
 ## Plugins API
 
-All plugins 🐊`Putout` plugins written in `CommonJS`, since `ESLint` written on `CommonJS` and we have a huge `ESLint`-based ecosystem which is good to reuse.
-🐊`Putout`can be used in all IDE's supported by`ESLint` as [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/packages/eslint-plugin-putout).
+All plugins 🐊**Putout** plugins written in `CommonJS`, since `ESLint` written on `CommonJS` and we have a huge `ESLint`-based ecosystem which is good to reuse.
+🐊**Putout**can be used in all IDE's supported by`ESLint` as [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/packages/eslint-plugin-putout).
 When [async rules will be supported](https://github.com/eslint/eslint/issues/15394) we can switch to `ESM`.
 
 To write test for your plugins you need initialize `test` using `createTest`:

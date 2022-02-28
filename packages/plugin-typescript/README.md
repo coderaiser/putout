@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-typescript.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-typescript "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to transform [`TypeScript`](https://www.typescriptcriptlang.org/) code. Enabled by default for `ts` and `tsx` files.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to transform [`TypeScript`](https://www.typescriptcriptlang.org/) code. Enabled by default for `ts` and `tsx` files.
 
 ## Install
 

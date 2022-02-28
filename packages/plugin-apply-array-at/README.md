@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-array-at "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to apply [array.at](https://github.com/tc39/proposal-relative-indexing-method).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply [array.at](https://github.com/tc39/proposal-relative-indexing-method).
 
 ## Install
 

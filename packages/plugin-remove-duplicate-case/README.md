@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-duplicate-case.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-duplicate-case"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and remove duplecate case.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove duplecate case.
 
 ## Install
 

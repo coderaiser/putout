@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-index-of-to-includes.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-index-of-to-includes "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert `indexOf` to `includes`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `indexOf` to `includes`.
 
 ## Install
 

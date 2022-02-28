@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-destructuring"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to use destructuring on variable declaratoins.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to use destructuring on variable declaratoins.
 
 ## Install
 

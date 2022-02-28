@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-object-assign-to-merge-spread.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-object-assign-to-merge-spread"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert `Object.assign` to `merge spread`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `Object.assign` to `merge spread`.
 
 ## Install
 

@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-array-copy-to-slice.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-array-copy-to-slice"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin convert `spread` to [slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin convert `spread` to [slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice).
 
 ## Install
 

@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-merge-destructuring-properties.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-merge-destructuring-properties"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to merge destructuring properties.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to merge destructuring properties.
 
 ## Install
 

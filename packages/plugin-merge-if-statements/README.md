@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-merge-if-statements.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-merge-if-statements"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to merge if statements.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to merge if statements.
 
 ## Install
 

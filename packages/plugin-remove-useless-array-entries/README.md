@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-array-entries.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-array-entries "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to remove useless [`array.entries()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless [`array.entries()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries).
 
 ## Install
 

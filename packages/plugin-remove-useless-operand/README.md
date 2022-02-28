@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-operand.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-operand "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to remove useless `operand`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `operand`.
 
 ## Install
 

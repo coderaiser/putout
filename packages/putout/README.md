@@ -9,7 +9,7 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-🐊[`Putout`](https://github.com/coderaiser/putout) find and fix problems in your `JavaScript`, `JSX`, `Typescript`, `Flow`, `Yaml, `Json`and`Markdown`. It can:
+🐊[**Putout**](https://github.com/coderaiser/putout) find and fix problems in your `JavaScript`, `JSX`, `Typescript`, `Flow`, `Yaml, `Json`and`Markdown`. It can:
 
 - remove unused `variables`;
 - remove unused `for-of variables`;
@@ -144,7 +144,7 @@ putout lib test --fix
 
 ## Plugins
 
-By default 🐊`Putout` uses all enabled by default plugins, anyways it can be run with a couple mentioned plugins (splitted with ","):
+By default 🐊**Putout** uses all enabled by default plugins, anyways it can be run with a couple mentioned plugins (splitted with ","):
 
 ```sh
 putout lib --plugins remove-debugger,remove-unused-variables
@@ -152,10 +152,10 @@ putout lib --plugins remove-debugger,remove-unused-variables
 
 ## Environment variables
 
-🐊`Putout` supports next `environment variables`:
+🐊**Putout** supports next `environment variables`:
 
 - `PUTOUT_FILES` - files that should be processed by putout, divided by ",";
-- `PUTOUT_CONFIG_FILE` - path to 🐊`Putout` config file;
+- `PUTOUT_CONFIG_FILE` - path to 🐊**Putout** config file;
 - `ESLINT_CONFIG_FILE` - path to `ESLint` config file;
 
 ```sh
@@ -194,9 +194,9 @@ When you need to ignore some routes no metter what, you can use `ignore` section
 
 ## Plugins
 
-🐊`Putout` supports `plugins`, there is two types: with prefix official `@putout/plugin-` and user plugins with prefix `putout-plugin-`. To use your plugin create plugin as `npm` package with keywords `putout`, `putout-plugin` and add it to `.putout.json`.
+🐊**Putout** supports `plugins`, there is two types: with prefix official `@putout/plugin-` and user plugins with prefix `putout-plugin-`. To use your plugin create plugin as `npm` package with keywords `putout`, `putout-plugin` and add it to `.putout.json`.
 
-For example if you need to `remove-something` create 🐊[`Putout`](https://github.com/coderaiser/putout) plugin with name `putout-plugin-remove-something` and it to `package.json`:
+For example if you need to `remove-something` create 🐊[**Putout**](https://github.com/coderaiser/putout) plugin with name `putout-plugin-remove-something` and it to `package.json`:
 
 ```json
 {
@@ -208,7 +208,7 @@ For example if you need to `remove-something` create 🐊[`Putout`](https://gith
 
 ## Codemods
 
-🐊`Putout` supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/master/codemods/plugin-convert-tape-to-supertape) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
+🐊**Putout** supports `codemodes` in the similar to plugins way, just create a directory `~/.putout` and put your plugins there. Here is example: [convert-tape-to-supertape](https://github.com/coderaiser/putout/tree/master/codemods/plugin-convert-tape-to-supertape) and [this is example of work](https://github.com/coderaiser/putout/commit/ad02cebc344ce73cdee668cffc5078bf08830d52).
 
 ## API
 

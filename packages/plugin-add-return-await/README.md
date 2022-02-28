@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-add-return-await.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-add-return-await"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and add `return await`. Part of [@putout/promises](https://github.com/coderaiser/putout/blob/master/packages/plugin-promises/README.md).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and add `return await`. Part of [@putout/promises](https://github.com/coderaiser/putout/blob/master/packages/plugin-promises/README.md).
 
 ## Install
 

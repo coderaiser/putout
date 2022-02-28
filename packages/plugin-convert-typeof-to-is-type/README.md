@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-typeof-to-is-type.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-typeof-to-is-type "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert `typeof` to `is type`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `typeof` to `is type`.
 
 ## Install
 

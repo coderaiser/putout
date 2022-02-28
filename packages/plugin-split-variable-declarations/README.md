@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-split-variable-declarations.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-split-variable-declarations "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to find and split variable declarations.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and split variable declarations.
 
 ## Install
 

@@ -1,6 +1,6 @@
 # @putout/rule-set-homepage
 
-🐊[`Putout`](https://github.com/coderaiser/putout) rule adds ability to set `homepage`.
+🐊[**Putout**](https://github.com/coderaiser/putout) rule adds ability to set `homepage`.
 
 ```diff
   "name": "@putout/plugin-set-homepage",

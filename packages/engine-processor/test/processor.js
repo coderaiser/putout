@@ -235,7 +235,7 @@ test('putout: engine-processor: markdown: no fix: return processed places', asyn
 //
 // Which is hard to maintain.
 // So we should choose between "robotic" format 🤖 and change file with no errors found but
-// easy to maintain plugins similar to ones 🐊`Putout` has.
+// easy to maintain plugins similar to ones 🐊**Putout** has.
 // Or hard to maitain one big blob of processing with one message but change only on --fix.
 test('putout: engine-processor: markdown: no places no fix', async (t) => {
     const name = join(__dirname, 'fixture', 'no-places-no-change.md');

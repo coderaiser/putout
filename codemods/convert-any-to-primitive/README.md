@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-any-to-primitive.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-any-to-primitive "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to convert `any` to primitive.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `any` to primitive.
 Moved to [`@putout/plugin-typescript`](https://github.com/coderaiser/putout/tree/v24.0.2/packages/plugin-typescript).
 
 ## Install

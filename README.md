@@ -95,7 +95,7 @@ module.exports.replace = () => ({
 
 ## 🚚 Installation
 
-To install 🐊`Putout` as a development dependency, run:
+To install 🐊**Putout** as a development dependency, run:
 
 ```
 npm i putout -D
@@ -109,7 +109,7 @@ Make sure that you are running a relatively recent (≥16) version of Node.
 >
 > **(c) Antoine de Saint-Exupéry**
 
-🐊`Putout` tries to be clear and likes a lot to explain things. So when you write `putout --help` most likely you will hear gladly purr :
+🐊**Putout** tries to be clear and likes a lot to explain things. So when you write `putout --help` most likely you will hear gladly purr :
 
 ```
 Usage: putout [options] [path]
@@ -155,10 +155,10 @@ npx putout lib test --fix
 
 ### Environment variables
 
-🐊`Putout` supports the following environment variables:
+🐊**Putout** supports the following environment variables:
 
-- `PUTOUT_CONFIG_FILE` - path to 🐊`Putout` config file;
-- `PUTOUT_FILES` - files that should be processed by 🐊`Putout`, divided by ",";
+- `PUTOUT_CONFIG_FILE` - path to 🐊**Putout** config file;
+- `PUTOUT_FILES` - files that should be processed by 🐊**Putout**, divided by ",";
 
 Example:
 
@@ -170,9 +170,9 @@ PUTOUT_FILES=lib,test putout --fix
 
 When you need to change `.putout.json` you can do it not only editing the file, but also with help of `Ruler`.
 
-`Ruler` can `enable` one rule with `putout --enable [rule]` or `disable` all rules 🐊`Putout` able to find using `putout --disable-all`.
+`Ruler` can `enable` one rule with `putout --enable [rule]` or `disable` all rules 🐊**Putout** able to find using `putout --disable-all`.
 
-*☝️Remember, `Ruler` should never be used with `--fix`, because unclear things makes 🐊 `Putout` angry and you can find him barking at you:*
+*☝️Remember, `Ruler` should never be used with `--fix`, because unclear things makes 🐊 **Putout** angry and you can find him barking at you:*
 
 ```
 🐊 `--fix` cannot be used with ruler toggler (`--enable`, `--disable`)
@@ -301,7 +301,7 @@ Happy coding 🎈!
 
 ## 🏛 Architecture
 
-`Putout` consists of a couple simple parts, here is a workflow representation:
+**Putout** consists of a couple simple parts, here is a workflow representation:
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout.png)
 
@@ -325,7 +325,7 @@ And here is a CLI scheme:
 
 ![Ashvattha](https://github.com/coderaiser/putout/blob/master/images/ashvattha.jpeg)
 
-On the bottom level of 🐊`Putout` layes down `Syntax Tree`. This is data structure that makes possible to do [crazy transformations in a simplest possible way](https://dev.to/viveknayyar/revealing-the-magic-of-ast-by-writing-babel-plugins-1h01). It used mostly in compilers development.
+On the bottom level of 🐊**Putout** layes down `Syntax Tree`. This is data structure that makes possible to do [crazy transformations in a simplest possible way](https://dev.to/viveknayyar/revealing-the-magic-of-ast-by-writing-babel-plugins-1h01). It used mostly in compilers development.
 
 You can read about it in [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md). To understand how things works from the inside take a look at [Super Tiny Compiler](https://github.com/jamiebuilds/the-super-tiny-compiler).
 
@@ -362,7 +362,7 @@ It looks this way in [ESTree](https://github.com/estree/estree) JavaScript synta
 >
 > **(c) Yamamoto Tsunetomo "Hagakure"**
 
-🐊`Putout` based on [Babel AST](https://github.com/babel/babel/blob/main/packages/babel-parser/ast/spec.md). It has a couple differences from `ESTree` which are perfectly handled by [estree-to-babel](https://github.com/coderaiser/estree-to-babel) especially when 🐊`Putout` running as [a plugin for `ESLint`](#integration-with-eslint).
+🐊**Putout** based on [Babel AST](https://github.com/babel/babel/blob/main/packages/babel-parser/ast/spec.md). It has a couple differences from `ESTree` which are perfectly handled by [estree-to-babel](https://github.com/coderaiser/estree-to-babel) especially when 🐊**Putout** running as [a plugin for `ESLint`](#integration-with-eslint).
 
 ### 🌴 Laws of the Jungle
 
@@ -384,7 +384,7 @@ It looks this way in [ESTree](https://github.com/estree/estree) JavaScript synta
 
 ### Processors
 
-With help of [processors](https://github.com/coderaiser/putout/blob/master/packages/engine-processor) 🐊`Putout` can be extended to read any file format and parse `JavaScript` from there.
+With help of [processors](https://github.com/coderaiser/putout/blob/master/packages/engine-processor) 🐊**Putout** can be extended to read any file format and parse `JavaScript` from there.
 
 Here is a list of built-int processors:
 
@@ -484,7 +484,7 @@ As you see, `places` is empty, but the code is changed: there is no `hi` variabl
 
 #### No fix
 
-From the beginning, 🐊`Putout` developed with ability to split the main process into two concepts: `find` (find places that could be fixed) and `fix` (apply the fixes to the files).
+From the beginning, 🐊**Putout** developed with ability to split the main process into two concepts: `find` (find places that could be fixed) and `fix` (apply the fixes to the files).
 It is therefore easy to find sections that could be fixed.
 In the following example reduntand variables are found without making changes to the source file:
 
@@ -1904,7 +1904,7 @@ ESLINT_FORMATTER=pretty putout -f eslint lib
 
 ## 🦉 Configuration
 
-To configure 🐊`Putout` add section `putout` to your `package.json` file or create `.putout.json` file and override any of [default options](/packages/putout/putout.json).
+To configure 🐊**Putout** add section `putout` to your `package.json` file or create `.putout.json` file and override any of [default options](/packages/putout/putout.json).
 
 ### Rules
 
@@ -1979,7 +1979,7 @@ When you need to ignore some routes no matter what, you can use `ignore` section
 
 ### Plugins
 
-There are two types of plugin names supported by 🐊`Putout`, their names in npm start with a prefix:
+There are two types of plugin names supported by 🐊**Putout**, their names in npm start with a prefix:
 
 - `@putout/plugin-` for official plugins
 - `putout-plugin-` for user plugins
@@ -2005,7 +2005,7 @@ Add `putout` as a `peerDependency` to your `packages.json` (>= of version you de
 >
 > **(c) Yamamoto Tsunetomo "Hagakure"**
 
-🐊`Putout` plugins are the simplest possible way to transform `AST` and this is for a reason.
+🐊**Putout** plugins are the simplest possible way to transform `AST` and this is for a reason.
 
 And the reason is `JavaScript`-compatible language 🦎[`PutoutScript`](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) which adds additional meaning to identifiers used in `AST`-template.
 
@@ -2013,7 +2013,7 @@ Let's dive into plugin types that you can use for you next code transformation.
 
 ### Replacer
 
-The simplest 🐊`Putout` plugin type, consits of 2 functions:
+The simplest 🐊**Putout** plugin type, consits of 2 functions:
 
 - `report` - report error message to `putout` cli;
 - `replace` - replace `key` template into `value` template;
@@ -2188,7 +2188,7 @@ To see a more sophisticated example look at [@putout/remove-console](https://git
 
 ### 🤷‍♂️ What if I don't want to publish a plugin?
 
-If you don't want to publish a `plugin` you developed, you can pass it to 🐊`Putout` as an `object` described earler. Here is [how it can look like](https://github.com/coderaiser/mock-import/blob/v1.0.8/lib/convert-imports/index.js#L19-L33):
+If you don't want to publish a `plugin` you developed, you can pass it to 🐊**Putout** as an `object` described earler. Here is [how it can look like](https://github.com/coderaiser/mock-import/blob/v1.0.8/lib/convert-imports/index.js#L19-L33):
 
 ```js
 putout('const a = 5', {
@@ -2241,9 +2241,9 @@ coderaiser@cloudcmd:~$ cat a.js
 const t = [1, 2];
 ```
 
-Using 🐊`Putout` as a runner for `babel` `plugins` you can not only change file content, but also see what exactly will be changed. You can use your already written `babel` `plugins` or reuse work in progress plugins made for `babel`,
+Using 🐊**Putout** as a runner for `babel` `plugins` you can not only change file content, but also see what exactly will be changed. You can use your already written `babel` `plugins` or reuse work in progress plugins made for `babel`,
 
-☝️ *Remember 🐊`Putout` `plugins` gave more accurate information about changing places, and works faster (no need to find information about changes in transformed file).*
+☝️ *Remember 🐊**Putout** `plugins` gave more accurate information about changing places, and works faster (no need to find information about changes in transformed file).*
 
 ### Babel plugins list
 
@@ -2317,11 +2317,11 @@ putout --rulesdir ./rules
 
 This way you can keep rules specific for your project and run them on each lint.
 
-☝️ *Remember: if you want to exclude file from loading, add prefix `not-rule-` and 🐊`Putout` will ignore it (in the same way as he does for `node_modules`).*
+☝️ *Remember: if you want to exclude file from loading, add prefix `not-rule-` and 🐊**Putout** will ignore it (in the same way as he does for `node_modules`).*
 
 ## 🦕 Integration with ESLint
 
-If you see that 🐊`Putout` brokes formatting of your code, use eslint plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#eslint-plugin-putout--).
+If you see that 🐊**Putout** brokes formatting of your code, use eslint plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#eslint-plugin-putout--).
 
 Install `eslint-plugin-putout` with:
 
@@ -2342,7 +2342,7 @@ Then create `.eslintrc.json`:
 }
 ```
 
-And use with 🐊`Putout` this way:
+And use with 🐊**Putout** this way:
 
 ```sh
 putout --fix lib
@@ -2360,11 +2360,11 @@ You can even use only `ESlint`, because `putout` bundled to `eslint-plugin-putou
 eslint --fix lib
 ```
 
-Applies 🐊`Putout` transformations for you :).
+Applies 🐊**Putout** transformations for you :).
 
 ### `ESLint` API
 
-`ESLint` begins his work as a formatter when 🐊`Putout` done his transformations. That's why it used a lot in different parts of application, for testing purpose and using `API` in a simplest possible way. You can access it with:
+`ESLint` begins his work as a formatter when 🐊**Putout** done his transformations. That's why it used a lot in different parts of application, for testing purpose and using `API` in a simplest possible way. You can access it with:
 
 ```js
 import {eslint} from 'putout/eslint';
@@ -2380,9 +2380,9 @@ const [source, places] = await eslint({
 });
 ```
 
-Isn't it looks similar to 🐊`Putout` way? It definitely is! But... It has a couple differences you should remember:
+Isn't it looks similar to 🐊**Putout** way? It definitely is! But... It has a couple differences you should remember:
 
-- ☝️ *[🐊`Putout` returns object with `code` and `places` properties](https://github.com/coderaiser/putout#plugins).*
+- ☝️ *[🐊**Putout** returns object with `code` and `places` properties](https://github.com/coderaiser/putout#plugins).*
 - ☝️ *`ESLint` has a `name` property that is used to calculate configuration file.*
 
 And you can even override any of ESLint ⚙️ options with help of `config` property:
@@ -2400,7 +2400,7 @@ const [source, places] = await eslint({
 });
 ```
 
-If you want to apply 🐊`Putout` transformations using `putout/putout` `ESLint` rule, enable `putout` with the same called flag:
+If you want to apply 🐊**Putout** transformations using `putout/putout` `ESLint` rule, enable `putout` with the same called flag:
 
 ```js
 const [source, places] = await eslint({
@@ -2416,13 +2416,13 @@ const [source, places] = await eslint({
 });
 ```
 
-It is disabled by default, because `ESLint` always runs after 🐊`Putout` transformations, so there is no need to traverse tree again.
+It is disabled by default, because `ESLint` always runs after 🐊**Putout** transformations, so there is no need to traverse tree again.
 
 This `API` doesn't suppose to came in 🌴 Public Space, anyways it is already used in [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout) to [test plugins](https://github.com/coderaiser/putout/blob/master/packages/eslint-plugin-putout/test/test-lint.mjs#L24-L28), so why not :)? Anyways it's signature didn't changed from the beginning.
 
 ## ☄️ Integration with Babel
 
-🐊 `Putout` can be used as [babel plugin](/packages/babel-plugin-putout).
+🐊 **Putout** can be used as [babel plugin](/packages/babel-plugin-putout).
 Just create `.babelrc.json` file with configuration you need.
 
 ```json
@@ -2439,7 +2439,7 @@ Just create `.babelrc.json` file with configuration you need.
 
 ## 🐈 Integration with Yarn PnP
 
-Since 🐊`Putout` has dynamic nature of loading:
+Since 🐊**Putout** has dynamic nature of loading:
 
 - `plugins`;
 - `processors`;
@@ -2456,7 +2456,7 @@ PUTOUT_YARN_PNP=eslint-config-hardcore eslint .
 
 ## ⛓ Using Putout as Loader
 
-🐊`Putout` can be used as [loader](https://nodejs.org/dist/latest-v17.x/docs/api/esm.html#loaders) this way:
+🐊**Putout** can be used as [loader](https://nodejs.org/dist/latest-v17.x/docs/api/esm.html#loaders) this way:
 
 ```sh
 node --no-deprecation --loader putout your-file.js
@@ -2474,7 +2474,7 @@ You can also transform input files using `Babel`. For example if you need to tra
 
 ## 🚪Exit Codes
 
-🐊`Putout` can have one of next [exit codes](https://github.com/coderaiser/putout/blob/master/packages/putout/lib/cli/exit-codes.mjs):
+🐊**Putout** can have one of next [exit codes](https://github.com/coderaiser/putout/blob/master/packages/putout/lib/cli/exit-codes.mjs):
 
 | Code | Name | Description | Example|
 |------|------|-----------------|-------------|
@@ -2526,7 +2526,7 @@ Do you use `putout` in your application as well? Please open a Pull Request to i
 
 ## 📻 Versioning Policy
 
-`Putout` follows semantic versioning ([semver](https://semver.org)) principles, with version numbers being on the format **major**.**minor**.**patch**:
+**Putout** follows semantic versioning ([semver](https://semver.org)) principles, with version numbers being on the format **major**.**minor**.**patch**:
 
 - **patch**: `bug fix`, `dependency update` (`17.0.0 -> 17.0.1`).
 - **minor**: `new features`, `new rules` or `fixes` (`17.0.0 -> 17.1.0`).
@@ -2536,7 +2536,7 @@ Do you use `putout` in your application as well? Please open a Pull Request to i
 
 You can contribute by proposing a feature, fixing a bug or a typo in the documentation.
 If you wish to play with code 🔥, [you can](https://github.com/coderaiser/putout/blob/master/CONTRIBUTING.md) 💪!
-🐊 `Putout` rejoice and wag its tail when see new contributions 👾.
+🐊 **Putout** rejoice and wag its tail when see new contributions 👾.
 
 ## 🍄 License
 

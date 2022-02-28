@@ -1,6 +1,6 @@
 # @putout/rule-add-readme-to-homepage
 
-🐊[`Putout`](https://github.com/coderaiser/putout) rule adds ability to add anchor `#readme` to `homepage` in `package.json`.
+🐊[**Putout**](https://github.com/coderaiser/putout) rule adds ability to add anchor `#readme` to `homepage` in `package.json`.
 
 ```diff
   "name": "@putout/plugin-set-homepage",

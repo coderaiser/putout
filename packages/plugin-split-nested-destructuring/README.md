@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-split-nested-destructuring.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-split-nested-destructuring "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to split nested destructuring.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to split nested destructuring.
 
 ## Install
 

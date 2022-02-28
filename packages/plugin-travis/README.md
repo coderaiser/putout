@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-travis.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-travis"npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin helps with 🐊[`Putout`](https://github.com/coderaiser/putout) plugins development.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with 🐊[**Putout**](https://github.com/coderaiser/putout) plugins development.
 
 ## Install
 

@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-strict-mode.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-strict-mode "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to add or remove `strict mode` directive.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to add or remove `strict mode` directive.
 
 ## Install
 

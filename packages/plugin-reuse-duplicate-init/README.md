@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-reuse-duplicate-init.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-reuse-duplicate-init "npm"
 
-🐊[`Putout`](https://github.com/coderaiser/putout) plugin adds ability to reuse duplicate init.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to reuse duplicate init.
 
 ## Install
 
