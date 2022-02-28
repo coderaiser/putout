@@ -1,3 +1,11 @@
+2022.02.28, v25.0.7
+
+feature:
+- (package) @putout/engine-processor v5.0.0
+- (@putout/engine-processor) drop support of node < 16
+- (package) @putout/engine-loader v6.0.0
+
+
 2022.02.28, v25.0.6
 
 feature:
