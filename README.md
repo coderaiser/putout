@@ -27,7 +27,7 @@
 - [🤷‍♂️ Why does this project exist?](#%EF%B8%8F-why-does-this-project-exist)
 - [🚚 Installation](#-installation)
 - [🎙 Usage](#usage)
-- [📐 What is **Ruler**?](#%EF%B8%8F-what-is-ruler)
+- [📐 What is **Ruler**?](#-what-is-ruler)
 - [✂️ How **Ruler** can help me?](#%EF%B8%8F-how-ruler-can-help-me)
 - [🚁 Converting `CommonJS` to `ESM`](#-converting-commonjs-to-esm)
 - [🏛 Architecture](#-architecture)
