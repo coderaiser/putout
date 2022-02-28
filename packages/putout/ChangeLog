@@ -1,3 +1,26 @@
+2022.02.28, v25.0.6
+
+feature:
+- (package) @putout/compare v9.0.0
+- (package) @putout/compare v9.0.0
+- (package) @putout/compare v9.0.0
+- (package) @putout/traverse v5.0.0
+- (@putout/traverse) drop support of node < 16
+- (package) @putout/compare v9.0.0
+- (package) @putout/engine-loader v6.0.0
+- (@putout/engine-loader) drop support of node < 16
+- (package) @putout/engine-parser v5.0.0
+- (package) @putout/engine-runner v13.0.0
+- (@putout/engine-runner) drop support of node < 16
+- (package) @putout/engine-parser v5.0.0
+- (package) @putout/compare v9.0.0
+- (package) @putout/operator-add-args v3.0.0
+- (package) @putout/engine-parser v5.0.0
+- (@putout/operator-add-args) drop support of putout < 25
+- (@putout/compare) drop support of node < 16
+- (package) @putout/engine-parser v5.0.0
+
+
 2022.02.25, v25.0.5
 
 feature:
