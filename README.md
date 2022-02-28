@@ -180,7 +180,7 @@ When you need to change `.putout.json` you can do it not only editing the file, 
 
 ## ✂️ How **Ruler** can help me?
 
-You may want to convert your [`CommonJS`](https://nodejs.org/api/modules.html) module to [`ESM`](https://nodejs.org/api/esm.html) since [node v12 supports it without a flag](https://nodejs.org/de/blog/release/v12.17.0/).
+You may want to convert your [`CommonJS`](https://nodejs.org/api/modules.html) to [`ESM`](https://nodejs.org/api/esm.html) since [node v12 supports it without a flag](https://nodejs.org/de/blog/release/v12.17.0/).
 
 ### 🚁 Converting `CommonJS` to `ESM`
 
