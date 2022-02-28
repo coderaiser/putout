@@ -28,7 +28,7 @@
 - [🚚 Installation](#-installation)
 - [🎙 Usage](#usage)
 - [📐 What is **Ruler**?](#%EF%B8%8F-what-is-ruler)
-- [✂️ How **Ruler** can be helpful to me?](#%EF%B8%8F-how-ruler-can-be-helpful-to-me)
+- [✂️ How **Ruler** can help me?](#%EF%B8%8F-how-ruler-can-help-me)
 - [🚁 Converting `CommonJS` to `ESM`](#-converting-commonjs-to-esm)
 - [🏛 Architecture](#-architecture)
 - [🌲 The Tree of Syntax](#-the-tree-of-syntax)
@@ -178,9 +178,9 @@ When you need to change `.putout.json` you can do it not only editing the file, 
 🐊 `--fix` cannot be used with ruler toggler (`--enable`, `--disable`)
 ```
 
-## ✂️ How **Ruler** can be helpful to me?
+## ✂️ How **Ruler** can help me?
 
-You may want to convert your [`CommonJS`](https://nodejs.org/api/modules.html) module into [`Ecma Script Modules`](https://nodejs.org/api/esm.html) since [node v12 supports it without a flag](https://nodejs.org/de/blog/release/v12.17.0/).
+You may want to convert your [`CommonJS`](https://nodejs.org/api/modules.html) module to [`ESM`](https://nodejs.org/api/esm.html) since [node v12 supports it without a flag](https://nodejs.org/de/blog/release/v12.17.0/).
 
 ### 🚁 Converting `CommonJS` to `ESM`
 
