@@ -157,7 +157,7 @@ npx putout lib test --fix
 
 🐊**Putout** supports the following environment variables:
 
-- `PUTOUT_CONFIG_FILE` - path to config file;
+- `PUTOUT_CONFIG_FILE` - path to [configuration](https://github.com/coderaiser/putout/edit/master/README.md#-configuration);
 - `PUTOUT_FILES` - files that should be processed splitted by ",";
 
 Example:
@@ -168,9 +168,14 @@ PUTOUT_FILES=lib,test putout --fix
 
 ## 📐 What is **Ruler**?
 
-When you need to change `.putout.json` you can do it not only editing the file, but also with help of **Ruler**.
+When you need to change [config](https://github.com/coderaiser/putout/edit/master/README.md#-configuration) use **Ruler** insteaod of editing the file manually.
 
-**Ruler** can `enable` one rule with `putout --enable [rule]` or `disable` all rules 🐊**Putout** able to find using `putout --disable-all`.
+**Ruler** can:
+
+- ✅ `putout --enable [rule]`;
+- ✅ `putout --disable [rule]`;
+- ✅ `putout --enable-all`;
+- ✅ `putout --disable-all`;
 
 *☝️Remember, **Ruler** should never be used with `--fix`, because unclear things makes 🐊 **Putout** angry and you can find him barking at you:*
 
@@ -225,9 +230,9 @@ async function promise() {
 
 But for some reason you don't want so many changes.
 
-☝️***safe** mode of **[eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#safe-mode)** has the most dengerous rules **disabled**, so it can be used as **auto fix** on each **save** in your **IDE***
+☝️ *Remember, **safe** mode of **[eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#safe-mode)** has the most dengerous rules **disabled**, so it can be used as **auto fix** on each **save** in your **IDE***.
 
-So, if you want to convert it to [ESM](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), and keep everything else untouched. You can do this with a **Ruler**. It can easily disable all rules 🐊**Putout** finds.
+So, if you want to convert it to [`ESM`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) keeping everything else untouched  use **Ruler**: it can easily disable all rules 🐊**Putout** finds.
 
 `putout index.js --disable-all` will find next errors:
 
