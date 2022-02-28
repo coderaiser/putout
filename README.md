@@ -228,7 +228,7 @@ But for some reason you don't want so many changes.
 
 ☝️***safe** mode of **[eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#safe-mode)** has the most dengerous rules **disabled**, so it can be used as **auto fix** on each **save** in your **IDE***
 
-So, if you want to convert it to [ESM](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), and keep everything else untouched. You can do this with a `Ruler`. So you disable all rules that 🐊`Putout` can find right now.
+So, if you want to convert it to [ESM](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), and keep everything else untouched. You can do this with a **Ruler**. So you disable all rules that 🐊**Putout** able to find.
 
 `putout index.js --disable-all` will find next errors:
 
@@ -242,7 +242,7 @@ So, if you want to convert it to [ESM](https://developer.mozilla.org/en-US/docs/
  7:0   error   Useless async should be avoided                           promises/remove-useless-async
 ```
 
-And create config file `.putout.json`:
+It will create config file `.putout.json`:
 
 ```
 {
