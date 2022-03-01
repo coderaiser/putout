@@ -19,6 +19,7 @@ npm i putout @putout/plugin-madrun -D
         "madrun/add-function": "on",
         "madrun/add-fix-lint": "on",
         "madrun/add-run": "on",
+        "madrun/add-cut-env": "on",
         "madrun/call-run": "on",
         "madrun/convert-run-argument": "on",
         "madrun/convert-run-to-cut-env": "on",
@@ -92,6 +93,28 @@ const {run} = require('madrun');
 
 module.exports = {
     lint: 'putout lib test',
+};
+```
+
+# add-cut-env
+
+## ❌ Example of incorrect code
+
+```js
+export default {
+    test: () => [env, 'test:only'],
+    'test:only': () => [env, 'npm test'],
+};
+```
+
+## ✅ Example of correct code
+
+```js
+import {cutEnv} from 'madrun';
+
+export default {
+    test: async () => [testEnv, await cutEnv('test:only')],
+    'test:only': () => [env, 'npm test'],
 };
 ```
 
