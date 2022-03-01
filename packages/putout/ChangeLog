@@ -1,3 +1,16 @@
+2022.03.01, v25.0.8
+
+fix:
+- chore(actions) add auto fix
+- docs(readme) Ruler: auto fix example
+
+
+feature:
+- (package) @putout/plugin-promises v8.0.0
+- (@putout/plugin-promises) drop support of node < 16
+- (@putout/plugin-promises) remove-useless-await: add support of primitives used as argument
+
+
 2022.02.28, v25.0.7
 
 feature:
