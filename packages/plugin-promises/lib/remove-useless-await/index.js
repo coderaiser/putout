@@ -16,8 +16,11 @@ module.exports.filter = (path) => {
     if (argumentPath.isAwaitExpression())
         return true;
     
-    if (!argumentPath.isCallExpression())
+    if (argumentPath.isIdentifier())
         return false;
+    
+    if (!argumentPath.isCallExpression())
+        return true;
     
     const calleePath = argumentPath.get('callee');
     

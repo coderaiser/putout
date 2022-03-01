@@ -57,3 +57,8 @@ test('plugin-remove-useless-await: transform: type-promise', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-await: transform: primitive', (t) => {
+    t.transform('primitive');
+    t.end();
+});
+

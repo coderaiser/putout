@@ -27,7 +27,7 @@ npm i @putout/plugin-promises -D
 }
 ```
 
-## Add-return-await
+## add-return-await
 
 ### ❌ Example of incorrect code
 
@@ -93,12 +93,14 @@ function hello() {
 
 ```js
 await await Promise.resolve();
+const hello = await 'world';
 ```
 
 ### ✅ Example of correct code
 
 ```js
 await await Promise.resolve();
+const hello = 'world';
 ```
 
 ## convert-reject-to-throw
