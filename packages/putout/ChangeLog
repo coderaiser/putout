@@ -1,3 +1,10 @@
+2022.03.01, v25.1.0
+
+feature:
+- (package) @putout/plugin-package-json v4.0.0
+- (@putout/plugin-package-json) drop support of putout < 25
+
+
 2022.03.01, v25.0.9
 
 feature:
