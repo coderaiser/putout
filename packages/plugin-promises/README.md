@@ -148,7 +148,7 @@ async function runCli() {
 ```js
 function get() {
     return new Promise((resolve, reject) => {
-        reject(Error("Cannot get"));
+        reject(Error('Cannot get'));
     });
 }
 ```
@@ -157,7 +157,7 @@ function get() {
 
 ```js
 async function get() {
-    throw Error("Cannot get");
+    throw Error('Cannot get');
 }
 ```
 

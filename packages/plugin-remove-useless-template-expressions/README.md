@@ -24,7 +24,7 @@ npm i @putout/plugin-remove-useless-template-expressions -D
 ## ❌ Example of incorrect code
 
 ```js
-const y = `${"hello"} + ${"world"}`;
+const y = `${'hello'} + ${'world'}`;
 ```
 
 ## ✅ Example of correct code

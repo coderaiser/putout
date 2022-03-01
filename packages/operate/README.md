@@ -136,7 +136,7 @@ traverse({
     '__a.__b': (path) => {
         const [computed, value] = compute(path);
         // returns
-        [true, "typeof __a === 'function'"];
+        [true, `typeof __a === 'function'`];
     },
 });
 ```

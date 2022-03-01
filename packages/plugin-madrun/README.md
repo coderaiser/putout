@@ -102,7 +102,7 @@ module.exports = {
 
 ```js
 export default {
-    test: () => [env, 'test:only'],
+    'test': () => [env, 'test:only'],
     'test:only': () => [env, 'npm test'],
 };
 ```
@@ -113,7 +113,7 @@ export default {
 import {cutEnv} from 'madrun';
 
 export default {
-    test: async () => [testEnv, await cutEnv('test:only')],
+    'test': async () => [testEnv, await cutEnv('test:only')],
     'test:only': () => [env, 'npm test'],
 };
 ```
@@ -264,7 +264,7 @@ export default {
 
 ```js
 export default {
-    'report': () => `c8 report --reporter=text-lcov | coveralls || true`,
+    report: () => `c8 report --reporter=text-lcov | coveralls || true`,
 };
 
 ```
@@ -283,7 +283,7 @@ export default {
 
 ```js
 export default {
-    'test': () => 'tape -d *.js',
+    test: () => 'tape -d *.js',
 };
 
 ```
@@ -292,7 +292,7 @@ export default {
 
 ```js
 export default {
-    'test': () => 'tape *.js',
+    test: () => 'tape *.js',
 };
 ```
 
@@ -302,7 +302,7 @@ export default {
 
 ```js
 export default {
-    'coverage': async () => [env, `c8 ${await cutEnv('test')}`],
+    coverage: async () => [env, `c8 ${await cutEnv('test')}`],
 };
 
 ```
@@ -312,7 +312,7 @@ export default {
 ```js
 import {cutEnv} from 'madrun';
 export default {
-    'coverage': async () => [env, `c8 ${await cutEnv('test')}`],
+    coverage: async () => [env, `c8 ${await cutEnv('test')}`],
 };
 ```
 

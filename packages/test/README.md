@@ -311,12 +311,12 @@ test('test: eslint: noProcess', async ({noProcess}) => {
 ```js
 test('eslint-config: operator-line-break', async ({comparePlaces}) => {
     await comparePlaces('operator-linebreak', [{
-        "message": "There should be no line break before or after '='.",
-        "position": {
-            "column": 1,
-            "line": 2,
+        message: 'There should be no line break before or after \'=\'.',
+        position: {
+            column: 1,
+            line: 2,
         },
-        "rule": "operator-linebreak (eslint)",
+        rule: 'operator-linebreak (eslint)',
     }]);
 });
 ```

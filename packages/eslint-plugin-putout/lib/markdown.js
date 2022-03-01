@@ -8,8 +8,6 @@ const commonRules = {
     'no-multi-spaces': 'off',
     'no-empty': 'off',
     'eol-last': 'off',
-    'quotes': 'off',
-    'quote-props': 'off',
     'no-unreachable': 'off',
     'no-constant-condition': 'off',
     'node/no-extraneous-require': 'off',

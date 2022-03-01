@@ -30,7 +30,7 @@ const yargsConfig = {
         'strip-dashed': true,
     },
     number: [
-        "fix-count",
+        'fix-count',
     ],
     boolean: [
         'fix',

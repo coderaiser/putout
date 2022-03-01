@@ -1,11 +1,10 @@
 # Evaluate
 
-Evaluate expression started with `__putout_evaluate: `. Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules)
-
+Evaluate expression started with `__putout_evaluate: `. Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 Provided code is processed with [`@putout/plugin-declare-undefined-variables`](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables):
 
 ```js
-__putout_evaluate: join("hello", " ", "world");
+__putout_evaluate: join('hello', ' ', 'world');
 ```
 
 and converted to:
@@ -13,7 +12,7 @@ and converted to:
 ```js
 const fn = (__filename, __dirname, require) => {
     const {join} = require('path');
-    return join("hello", " ", "world");
+    return join('hello', ' ', 'world');
 };
 ```
 

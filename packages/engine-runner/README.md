@@ -63,7 +63,7 @@ Simplest remove example:
 module.exports.report = () => 'debugger should not be used';
 
 module.exports.replace = () => ({
-    'debugger': '',
+    debugger: '',
 });
 ```
 
@@ -210,8 +210,8 @@ const {runPlugins} = require('@putout/engine-runner');
 const {parse} = require('@putout/engin-parser');
 
 const plugins = [{
-    rule: "remove-debugger",
-    msg: "",        // optional
+    rule: 'remove-debugger',
+    msg: '',        // optional
     options: {},    // optional
     plugin: {
         include: () => ['debugger'],

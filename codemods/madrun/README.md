@@ -51,7 +51,7 @@ module.exports = {
 const {eslint} = predefined;
 
 module.exports = {
-    'lint': () => {
+    lint: () => {
         const names = [
             'bin',
             'lib',
@@ -70,7 +70,7 @@ module.exports = {
 const {putout} = predefined;
 
 module.exports = {
-    'lint': () => {
+    lint: () => {
         const names = [
             'bin',
             'lib',
