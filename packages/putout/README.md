@@ -156,7 +156,7 @@ putout lib --plugins remove-debugger,remove-unused-variables
 
 - `PUTOUT_FILES` - files that should be processed by putout, divided by ",";
 - `PUTOUT_CONFIG_FILE` - path to 🐊**Putout** config file;
-- `ESLINT_CONFIG_FILE` - path to `ESLint` config file;
+- `ESLINT_CONFIG_FILE` - path to **ESLint** config file;
 
 ```sh
 PUTOUT_FILES=lib,test putout --fix
@@ -194,7 +194,12 @@ When you need to ignore some routes no metter what, you can use `ignore` section
 
 ## Plugins
 
-🐊**Putout** supports `plugins`, there is two types: with prefix official `@putout/plugin-` and user plugins with prefix `putout-plugin-`. To use your plugin create plugin as `npm` package with keywords `putout`, `putout-plugin` and add it to `.putout.json`.
+🐊**Putout** supports two types of `plugins`, prefix with:
+
+- ✅ `@putout/plugin-`;
+- ✅ `putout-plugin-`;
+
+To use your plugin create`npm` package with keywords `putout`, `putout-plugin` and add it to `.putout.json`.
 
 For example if you need to `remove-something` create 🐊[**Putout**](https://github.com/coderaiser/putout) plugin with name `putout-plugin-remove-something` and it to `package.json`:
 
