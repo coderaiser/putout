@@ -18,96 +18,127 @@
 
 [![putout](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm.svg)](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm)
 
-It can:
+## 🤷‍️ In doubt about using 🐊Putout?
 
-- remove unused `variables`;
-- remove unused `for-of variables`;
-- remove unused `typescripts` types;
-- remove unreferenced `variables`;
-- remove unused `private fields`;
-- remove unused `expressions`;
-- remove useless `variables`;
-- remove useless `map`;
-- remove useless `mapped types`;
-- remove useless `mapping modifiers`;
-- remove useless `continue`;
-- remove useless `operand`;
-- remove useless `array constructor`;
-- remove useless `conditions`;
-- remove useless `type conversion`;
-- remove useless `functions`;
-- remove useless `Array.from`;
-- remove useless `spread`;
-- remove useless `arguments`;
-- remove useless `escape`;
-- remove useless `async`;
-- remove useless `await`;
-- remove useless `typeof`;
-- remove useless `template expressions`;
-- remove useless `for-of`;
-- remove useless `array.entries()`;
-- remove `debugger` statement;
-- remove `iife`;
-- remove nested blocks;
-- remove `process.exit` call;
-- remove `console.log` calls;
-- remove `empty block statements`;
-- remove `empty patterns`;
-- remove `strict mode` directive from `esm`;
-- remove `constant conditions`;
-- remove `boolean` from `assertion`;
-- remove `boolean` from `logical expressions`;
-- remove `duplicates` from `logical expressions`;
-- remove `duplicates` from TypeScript `Union`;
-- remove `unreachable code`;
-- remove `duplicate keys`;
-- remove useless `typescripts` types;
-- remove duplicate `typescripts` interface keys;
-- replace `test.only` to `test` calls;
-- replace `test.skip` to `test` calls;
-- reuse duplicate `init`;
-- split `variable declarations`;
-- split `nested destructuring`;
-- simplify `assignment`;
-- simplify `ternary`;
-- simplify `logical expressions`;
-- if absent `strict mode` directive in `commonjs` add it;
-- convert `apply` to `spread`;
-- convert `bitwise` to `logical` operator;
-- convert `concat` to `flat`;
-- convert `esm` to `commonjs` (enabled for `*.cjs`);
-- convert `commonjs` to `esm` (enabled for `*.mjs`);
-- convert `template` with one `expression` to `string`;
-- convert `equal` to `strict equal`;
-- convert `indexOf` to `includes`;
-- convert `replace` to `replaceAll` (disabled, [stage 4](https://github.com/tc39/proposal-string-replaceall));
-- convert `assignment` to `arrow function`;
-- convert `forEach` to `for-of`;
-- convert `map` to `for-of`;
-- extract sequence expressions;
-- extract object properties;
-- add `return await`;
-- remove useless `Promise.resolve`;
-- convert `Promise.reject` to `throw`;
-- declare `undefined variables`;
-- apply `as` type assertions;
-- apply `utility types`;
-- apply `array.at` ([not bundled](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#2021-07-29-version-1660-current-bethgriggs));
-- apply `filter(Boolean)`;
-- apply [isArray](https://web.mit.edu/jwalden/www/isArray.html);
-- apply `if condition`;
-- apply `await import`;
+Check out couple variants of plugins that does the same: [**linting debugger statement**](https://putout.cloudcmd.io/#/gist/f61ba31fe534868d49eba9b946f3ed4b/5ef6863d9cf4826666782ae0eea5cb5def266bbd):
 
-## Why?
+- ❌ ESLint [no-debugger](https://github.com/eslint/eslint/blob/2dc38aa653f1d5137a9abf82024c67a11620bb7c/lib/rules/no-debugger.js): **43** lines;
+- ❌ SWCLint [no-debugger](https://github.com/swc-project/swc/blob/v1.2.138/crates/swc_ecma_lints/src/rules/no_debugger.rs): **49** lines;
+- ❌ Rome [no-debugger](https://github.com/rome/tools/blob/4d5a99ce98e987cbd03f3ab6b38fa22d00bbfe27/packages/%40romejs/js-compiler/transforms/lint/noDebugger.ts): **28** lines;
+- ❌ RSLint [no-debugger](https://github.com/rslint/rslint/blob/v0.3.0/crates/rslint_core/src/groups/errors/no_debugger.rs): **48** lines
+- ✅ 🐊**Putout** [remove-debugger](https://github.com/coderaiser/putout/blob/v24.6.0/packages/plugin-remove-debugger/lib/remove-debugger.js): **7** lines:
 
-- ❌ [eslint](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
-- ❌ [babel](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139);
-- ❌ [pretier](https://github.com/prettier/prettier) it is a formatter;
-- ❌ [jscodeshift](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
+*Choose wisely, competitors cannot even fix…* 🤫
 
-The main difference is:
+```js
+'use strict';
 
-☝️*🐊**Putout saves results of transformations into your codebase.***
+module.exports.report = () => 'Unexpected "debugger" statement';
+
+module.exports.replace = () => ({
+    debugger: '',
+});
+```
+
+## 🙏 Whom should I thank for this project exist?
+
+> **If I have seen further, it is by standing upon the shoulders of giants.**
+>
+> **(c) Isaak Newton**
+
+- 💪 [**ESLint**](https://eslint.org) for stable releases and future proof `API`.
+- 💪 [**Babel**](https://babeljs.io) for amazing `API` documented in [`Handbook`](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#babel-plugin-handbook) and responsiveness of a team.
+- 💪 [**Prettier**](https://github.com/prettier/prettier) for minimalistic options and uniform codestyle.
+- 💪 [**jscodeshift**](https://github.com/facebook/jscodeshift) for making codemods simple and popular.
+
+## 🤷 Why does this project exist?
+
+- ❌ [**ESLint**](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
+- ❌ [**Babel**](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139).
+- ❌ [**Prettier**](https://github.com/prettier/prettier) is a formatter.
+- ❌ [**jscodeshift**](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
+
+☝️ *🐊**Putout** on the other hand can make more drastic code transformations that directly affect your codebase making it a better place to code 💻.*
+
+[It can](https://github.com/coderaiser/putout#-built-in-transformations):
+
+- ✅ remove unused `variables`;
+- ✅ remove unused `for-of variables`;
+- ✅ remove unused `typescripts` types;
+- ✅ remove unreferenced `variables`;
+- ✅ remove unused `private fields`;
+- ✅ remove unused `expressions`;
+- ✅ remove useless `variables`;
+- ✅ remove useless `map`;
+- ✅ remove useless `mapped types`;
+- ✅ remove useless `mapping modifiers`;
+- ✅ remove useless `continue`;
+- ✅ remove useless `operand`;
+- ✅ remove useless `array constructor`;
+- ✅ remove useless `conditions`;
+- ✅ remove useless `type conversion`;
+- ✅ remove useless `functions`;
+- ✅ remove useless `Array.from`;
+- ✅ remove useless `spread`;
+- ✅ remove useless `arguments`;
+- ✅ remove useless `escape`;
+- ✅ remove useless `async`;
+- ✅ remove useless `await`;
+- ✅ remove useless `typeof`;
+- ✅ remove useless `template expressions`;
+- ✅ remove useless `for-of`;
+- ✅ remove useless `array.entries()`;
+- ✅ remove `debugger` statement;
+- ✅ remove `iife`;
+- ✅ remove nested blocks;
+- ✅ remove `process.exit` call;
+- ✅ remove `console.log` calls;
+- ✅ remove `empty block statements`;
+- ✅ remove `empty patterns`;
+- ✅ remove `strict mode` directive from `esm`;
+- ✅ remove `constant conditions`;
+- ✅ remove `boolean` from `assertion`;
+- ✅ remove `boolean` from `logical expressions`;
+- ✅ remove `duplicates` from `logical expressions`;
+- ✅ remove `duplicates` from TypeScript `Union`;
+- ✅ remove `unreachable code`;
+- ✅ remove `duplicate keys`;
+- ✅ remove useless `typescripts` types;
+- ✅ remove duplicate `typescripts` interface keys;
+- ✅ replace `test.only` to `test` calls;
+- ✅ replace `test.skip` to `test` calls;
+- ✅ reuse duplicate `init`;
+- ✅ split `variable declarations`;
+- ✅ split `nested destructuring`;
+- ✅ simplify `assignment`;
+- ✅ simplify `ternary`;
+- ✅ simplify `logical expressions`;
+- ✅ if absent `strict mode` directive in `commonjs` add it;
+- ✅ convert `apply` to `spread`;
+- ✅ convert `bitwise` to `logical` operator;
+- ✅ convert `concat` to `flat`;
+- ✅ convert `esm` to `commonjs` (enabled for `*.cjs`);
+- ✅ convert `commonjs` to `esm` (enabled for `*.mjs`);
+- ✅ convert `template` with one `expression` to `string`;
+- ✅ convert `equal` to `strict equal`;
+- ✅ convert `indexOf` to `includes`;
+- ✅ convert `replace` to `replaceAll` (disabled, [stage 4](https://github.com/tc39/proposal-string-replaceall));
+- ✅ convert `assignment` to `arrow function`;
+- ✅ convert `forEach` to `for-of`;
+- ✅ convert `map` to `for-of`;
+- ✅ extract sequence expressions;
+- ✅ extract object properties;
+- ✅ add `return await`;
+- ✅ remove useless `Promise.resolve`;
+- ✅ convert `Promise.reject` to `throw`;
+- ✅ declare `undefined variables`;
+- ✅ apply `as` type assertions;
+- ✅ apply `utility types`;
+- ✅ apply `array.at` ([not bundled](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#2021-07-29-version-1660-current-bethgriggs));
+- ✅ apply `filter(Boolean)`;
+- ✅ apply [isArray](https://web.mit.edu/jwalden/www/isArray.html);
+- ✅ apply `if condition`;
+- ✅ apply `await import`;
 
 ## Install
 
@@ -141,7 +172,7 @@ Options:
    --no-cache                  disable the cache
 ```
 
-To find erros:
+To find errors:
 
 ```
 putout lib test
