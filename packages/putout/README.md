@@ -100,12 +100,14 @@ It can:
 
 ## Why?
 
-- because [eslint](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
-- because [babel](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139);
-- because [pretier](https://github.com/prettier/prettier) it is a formatter;
-- because [jscodeshift](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
+- ❌ [eslint](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
+- ❌ [babel](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139);
+- ❌ [pretier](https://github.com/prettier/prettier) it is a formatter;
+- ❌ [jscodeshift](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
 
-The main difference of `putout` is saving code transformation results directly into source code in a day-to-day baisis.
+The main difference is:
+
+☝️*🐊**Putout saves results of transformations into your codebase.***
 
 ## Install
 
