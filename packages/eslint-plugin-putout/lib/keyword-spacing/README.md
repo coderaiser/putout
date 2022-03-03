@@ -1,24 +1,22 @@
-# Use spaces around `catch` (`keyword-spacing`)
+# keyword-spacing
 
-When `putout` removes unused variable in `catch` [eslint keyword spacing](https://eslint.org/docs/rules/keyword-spacing) can't handle [optional catch binding](https://github.com/tc39/proposal-optional-catch-binding) correctly.
+When 🐊[**Putout**](https://github.com/coderaiser/putout) removes unused variable in `catch` [eslint keyword spacing](https://eslint.org/docs/rules/keyword-spacing) can't handle [optional catch binding](https://github.com/tc39/proposal-optional-catch-binding) correctly. This rule adds spaces around `catch`.
 
-## Rule Details
+Part of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-This rule aims to add spaces around `catch`
-
-Examples of **incorrect** code for this rule:
+## ❌ Example of incorrect code
 
 ```js
-try {
-} catch {
+try{
+} catch{
 }
 
 try {
-} catch {
+}catch{
 }
 
 try {
-} catch(error) {
+}catch(error) {
 }
 
 if(a) {
@@ -33,7 +31,7 @@ async () => {
 };
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 try {
