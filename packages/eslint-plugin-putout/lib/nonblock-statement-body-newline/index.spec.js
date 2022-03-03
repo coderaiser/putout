@@ -20,6 +20,10 @@ ruleTester.run('nonblock-statement-body-newline', rule, {
     `, `
         if (a) {
         }
+    `, `
+        for (a of b) {
+            a();
+        }
     `],
     
     invalid: [{
@@ -33,7 +37,46 @@ ruleTester.run('nonblock-statement-body-newline', rule, {
                 b();
         `,
         errors: [{
-            message: 'Remove newline',
+            message: 'Remove useless newline',
+        }],
+    }, {
+        code: montag`
+            for(a of b)
+                
+                a();
+        `,
+        output: montag`
+            for(a of b)
+                a();
+        `,
+        errors: [{
+            message: 'Remove useless newline',
+        }],
+    }, {
+        code: montag`
+            for(;;)
+                
+                a();
+        `,
+        output: montag`
+            for(;;)
+                a();
+        `,
+        errors: [{
+            message: 'Remove useless newline',
+        }],
+    }, {
+        code: montag`
+            while(a)
+                
+                a();
+        `,
+        output: montag`
+            while(a)
+                a();
+        `,
+        errors: [{
+            message: 'Remove useless newline',
         }],
     }],
 });

@@ -8,6 +8,18 @@ Remove newline inside statement body. Part of [**eslint-plugin-putout**](https:/
 if (a)
     
     b();
+
+for (a of b)
+    
+    a();
+
+while (a)
+    
+    b();
+
+for (;;)
+    
+    a();
 ```
 
 ## ✅ Example of correct code
@@ -15,4 +27,13 @@ if (a)
 ```js
 if (a)
     b();
+
+for (a of b)
+    a();
+
+while (a)
+    b();
+
+for (;;)
+    a();
 ```
