@@ -42,6 +42,7 @@ module.exports.rules = {
     ...getWrapRule('tape-add-newline-before-assertion'),
     ...getWrapRule('tape-add-newline-between-tests'),
     ...getWrapRule('tape-remove-newline-before-t-end'),
+    ...getWrapRule('nonblock-statement-body-newline'),
     ...getRule('putout'),
     ...getRule('remove-empty-newline-after-import'),
 };
@@ -83,6 +84,7 @@ const recommended = {
         'putout/tape-add-newline-before-assertion': 'error',
         'putout/tape-add-newline-between-tests': 'error',
         'putout/tape-remove-newline-before-t-end': 'error',
+        'putout/nonblock-statement-body-newline': 'error',
         'putout/putout': 'error',
         
         'node/no-unsupported-features/es-syntax': 'off',

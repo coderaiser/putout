@@ -81,6 +81,10 @@ Then configure the rules you want to use under the rules section.
 
 - ✅ [Add newlines between types in union](/packages/eslint-plugin-putout/lib/add-newlines-between-types-in-union#readme)
 
+### ESM
+
+- ✅ [No unresolved](/packages/eslint-plugin-putout/lib/no-unresolved#readme)
+
 ### Formatting
 
 - ✅ [Add newline before function call](/packages/eslint-plugin-putout/lib/add-newline-before-function-call#readme)
@@ -104,7 +108,7 @@ Then configure the rules you want to use under the rules section.
 - ✅ [Remove empty specifiers](/packages/eslint-plugin-putout/lib/remove-empty-specifiers#readme)
 - ✅ [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array#readme)
 - ✅ [Object init](/packages/eslint-plugin-putout/lib/object-init#readme)
-- ✅ [No unresolved](/packages/eslint-plugin-putout/lib/no-unresolved#readme)
+- ✅ [Nonblock statement body newline](/packages/eslint-plugin-putout/lib/non-block-statement-body-newline#readme)
 
 ### Safe mode
 

@@ -130,6 +130,10 @@ test('eslint-plugin-putout: remove-empty-newline-after-import', async ({process}
     await process('remove-empty-newline-after-import');
 });
 
+test('eslint-plugin-putout: nonblock-statement-body-newline', async ({process}) => {
+    await process('nonblock-statement-body-newline');
+});
+
 test('eslint-plugin-putout: strict-mode', async ({process}) => {
     await process('strict-mode', {
         rules: {
