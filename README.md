@@ -1841,7 +1841,7 @@ Next packages not bundled with `putout` but can be installed separately.
 
 ## 🦚 Formatters
 
-`putout` uses formatters similar to [eslint's formatters](https://eslint.org/docs/user-guide/formatters/).
+🐊**Putout** uses formatters similar to [eslint's formatters](https://eslint.org/docs/user-guide/formatters/).
 You can specify a formatter using the `--format` or `-f` flag on the command line. For example, `--format codeframe` uses the `codeframe` formatter.
 
 The built-in formatter options are:
@@ -1891,9 +1891,9 @@ Here is list of options:
 You can avoid any of this and use only what you nead. To make your formatter usable with `putout`, add the prefix `putout-formatter-` to your `npm` package,
 and add the tags `putout`, `formatter`, `putout-formatter`.
 
-### Eslint Formatters
+### ESLint Formatters
 
-`eslint formatters` can be used as well with help of `@putout/formatter-eslint` this way:
+**ESLint** formatters can be used as well with help of `@putout/formatter-eslint` this way:
 
 Install:
 
