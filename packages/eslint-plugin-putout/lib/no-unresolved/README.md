@@ -1,13 +1,17 @@
-# Check if path can be resolved and fix if cannot (`no-unresolved`)
+# no-unresolved
 
+Check if path can be resolved and fix if cannot.
 Similar to [`no-unresolved`](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-unresolved.md) from
 [`eslint-plugin-putout`](https://github.com/import-js/eslint-plugin-import). But supports only `ESM` and have `autofix`.
 
-## Rule Details
+[File extension is mandatory](https://nodejs.org/api/esm.html#esm_mandatory_file_extensions) and will produce an error from `node.js`:
 
-This rule aims to fix `unresolved import`:
+```
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/coderaiser/putout/y' imported from /Users/coderaiser/putout/x.mjs
+Did you mean to import ../y.js?
+```
 
-Examples of **incorrect** code for this rule:
+## ❌ Example of incorrect code
 
 ```js
 import x from './y';
@@ -18,14 +22,7 @@ export * as dir from './dir';
 export {m} from './y';
 ```
 
-[File extension is mandatory](https://nodejs.org/api/esm.html#esm_mandatory_file_extensions) and will produce an error from `node.js`:
-
-```
-Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/coderaiser/putout/y' imported from /Users/coderaiser/putout/x.mjs
-Did you mean to import ../y.js?
-```
-
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 import x from './y.js';
