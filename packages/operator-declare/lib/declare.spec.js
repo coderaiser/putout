@@ -734,3 +734,28 @@ test('putout: operator: declare: merge', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operator: declare: ts', (t) => {
+    const declarations = {
+        open: 'const open = () => {}',
+    };
+    const source = montag`
+        export interface IPublicTerminal extends IDisposable {
+          open(parent: HTMLElement): void;
+        }
+    `;
+    
+    const {places} = putout(source, {
+        fix: false,
+        isTS: true,
+        plugins: [
+            ['declare-undefined-variables', declare(declarations)],
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+

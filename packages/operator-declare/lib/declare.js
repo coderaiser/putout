@@ -43,6 +43,9 @@ const report = (path) => {
 const include = () => ['ReferencedIdentifier'];
 
 const filter = (declarations) => (path, {options}) => {
+    if (path.parentPath.isTSMethodSignature())
+        return false;
+    
     const {dismiss = []} = options;
     const allDeclarations = {
         ...declarations,
