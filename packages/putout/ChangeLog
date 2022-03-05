@@ -1,3 +1,25 @@
+2022.03.05, v25.1.1
+
+feature:
+- (package) @putout/plugin-apply-array-at v2.0.0
+- (@putout/plugin-apply-array-at) drop support of putout < 25
+- (@putout/plugin-apply-array-at) report
+- (@putout/plugin-apply-array-at) exclude left of AssignmentExpression
+- (@putout/plugin-promises) remove-useless-await: add support of OptionalCallExpression
+- (@putout/operator-declare) exclude TSDeclareMethod
+- (@putout/operator-declare) exclude TSFunctionType
+- (@putout/plugin-nodejs) declare: rm type
+- (@putout/operator-declare) exclude TSParameterProperty
+- (@putout/operator-declare) exclude TSMethodSignature
+- (@putout/plugin-promise) remove-useless-await: exclude `new await Promise()`
+- (eslint-plugin-putout) ts: disable warn on unsupported version (https://github.com/typescript-eslint/typescript-eslint/tree/main/packages/parser#parseroptionswarnonunsupportedtypescriptversion)
+- (@putout/plugin-apply-try-catch) try-catch: improve filtering of CallExpression
+- (@putout/plugin-apply-try-catch) try-to-catch: improve filtering Await Expressions
+- (eslint-plugin-putout) nonblock-statement-body-newline: add support of for, for-of, while
+- (eslint-plugin-putout) add nonblock-statement-body-newline
+- (eslint-plugin-putout) *.md{js}: enable quotes, quote-props'
+
+
 2022.03.01, v25.1.0
 
 feature:
