@@ -1,5 +1,9 @@
 'use strict';
 
+const {types} = require('putout');
+
+const {isAwaitExpression} = types;
+
 const applyTryCatch = require('../apply-try-catch');
 
 module.exports.report = () => 'Use await tryToCatch instead of try-to-catch block';
@@ -16,6 +20,7 @@ module.exports.filter = ({node}) => {
         handler,
     } = node;
     const {length} = block.body;
+    const [first] = block.body;
     
     if (length !== 1)
         return false;
@@ -23,6 +28,6 @@ module.exports.filter = ({node}) => {
     if (!handler.param)
         return false;
     
-    return true;
+    return isAwaitExpression(first.expression);
 };
 

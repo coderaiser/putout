@@ -22,3 +22,8 @@ test('plugin-apply-try-catch: try-to-catch: no transform: no-error', (t) => {
     t.end();
 });
 
+test('plugin-apply-try-catch: try-to-catch: no transform: no-await', (t) => {
+    t.noReport('no-await');
+    t.end();
+});
+
