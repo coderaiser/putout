@@ -787,11 +787,35 @@ test('putout: operator: declare: TSParameterProperty', (t) => {
 
 test('putout: operator: declare: TSFunctionType', (t) => {
     const declarations = {
-        id: 'const id= () => {}',
+        id: 'const id = () => {}',
     };
     const source = montag`
         class X {
             public forEach(callback: (id: IServiceIdentifier<any>, instance: any) => any): void {}
+        }
+    `;
+    
+    const {places} = putout(source, {
+        fix: false,
+        isTS: true,
+        plugins: [
+            ['declare-undefined-variables', declare(declarations)],
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
+test('putout: operator: declare: TSDeclareMethod', (t) => {
+    const declarations = {
+        write: 'const write = () => {}',
+    };
+    const source = montag`
+        class X {
+            write(data: string | Uint8Array, callback?: () => void): void
         }
     `;
     

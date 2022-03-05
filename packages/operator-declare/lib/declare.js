@@ -52,6 +52,9 @@ const filter = (declarations) => (path, {options}) => {
     if (path.parentPath.isTSFunctionType())
         return false;
     
+    if (path.parentPath.isTSDeclareMethod())
+        return false;
+    
     const {dismiss = []} = options;
     const allDeclarations = {
         ...declarations,
