@@ -5,6 +5,10 @@ const {traverse} = operator;
 
 module.exports.report = () => `Avoid useless 'await'`;
 
+module.exports.exclude = () => [
+    'await new Promise(__args)',
+];
+
 module.exports.replace = () => ({
     'await await __a': 'await __a',
     'await __a': '__a',
