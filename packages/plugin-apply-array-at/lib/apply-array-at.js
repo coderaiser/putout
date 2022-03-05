@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = () => 'Should be used "Array.at"';
+module.exports.report = () => `Use 'Array.at'`;
 
 module.exports.filter = (path) => {
     const {parentPath} = path;
