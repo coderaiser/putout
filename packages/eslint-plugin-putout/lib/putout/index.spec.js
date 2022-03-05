@@ -96,6 +96,9 @@ const parserTester = new RuleTester({
 
 const tsParserTester = new RuleTester({
     parser: require.resolve('@typescript-eslint/parser'),
+    parserOptions: {
+        warnOnUnsupportedTypeScriptVersion: false,
+    },
 });
 
 parserTester.run('putout', rule, {
