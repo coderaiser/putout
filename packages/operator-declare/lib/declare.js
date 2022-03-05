@@ -49,6 +49,9 @@ const filter = (declarations) => (path, {options}) => {
     if (path.parentPath.isTSParameterProperty())
         return false;
     
+    if (path.parentPath.isTSFunctionType())
+        return false;
+    
     const {dismiss = []} = options;
     const allDeclarations = {
         ...declarations,
