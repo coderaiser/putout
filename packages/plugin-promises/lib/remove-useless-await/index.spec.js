@@ -67,3 +67,8 @@ test('plugin-remove-useless-await: no transform: new', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-await: no transform: member-expression', (t) => {
+    t.noTransform('member-expression');
+    t.end();
+});
+
