@@ -759,3 +759,29 @@ test('putout: operator: declare: ts', (t) => {
     t.end();
 });
 
+test('putout: operator: declare: TSParameterProperty', (t) => {
+    const declarations = {
+        type: 'const type = () => {}',
+    };
+    const source = montag`
+        export class BufferApiView implements IBufferApi {
+            constructor(
+              public readonly type: 'normal' | 'alternate'
+            ) { }
+        }
+    `;
+    
+    const {places} = putout(source, {
+        fix: false,
+        isTS: true,
+        plugins: [
+            ['declare-undefined-variables', declare(declarations)],
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+

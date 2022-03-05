@@ -46,6 +46,9 @@ const filter = (declarations) => (path, {options}) => {
     if (path.parentPath.isTSMethodSignature())
         return false;
     
+    if (path.parentPath.isTSParameterProperty())
+        return false;
+    
     const {dismiss = []} = options;
     const allDeclarations = {
         ...declarations,
