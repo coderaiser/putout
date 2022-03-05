@@ -17,3 +17,8 @@ test('plugin-apply-array-at: transform: object', (t) => {
     t.end();
 });
 
+test('plugin-apply-array-at: no transform: assignment', (t) => {
+    t.noTransform('assignment');
+    t.end();
+});
+
