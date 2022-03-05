@@ -22,3 +22,8 @@ test('plugin-apply-try-catch: try-catch: no transform: no-error', (t) => {
     t.end();
 });
 
+test('plugin-apply-try-catch: try-catch: no transform: no-call', (t) => {
+    t.noTransform('no-call');
+    t.end();
+});
+

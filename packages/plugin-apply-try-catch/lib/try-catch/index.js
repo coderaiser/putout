@@ -1,5 +1,9 @@
 'use strict';
 
+const {types} = require('putout');
+
+const {isCallExpression} = types;
+
 const applyTryCatch = require('../apply-try-catch');
 module.exports.report = () => 'Use tryCatch instead of try-catch block';
 
@@ -14,7 +18,9 @@ module.exports.filter = ({node}) => {
         block,
         handler,
     } = node;
+    
     const {length} = block.body;
+    const [first] = block.body;
     
     if (length !== 1)
         return false;
@@ -22,6 +28,6 @@ module.exports.filter = ({node}) => {
     if (!handler.param)
         return false;
     
-    return true;
+    return isCallExpression(first.expression);
 };
 
