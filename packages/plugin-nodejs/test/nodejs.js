@@ -42,3 +42,7 @@ test('putout: plugin: nodejs: transform: convert-top-level-return', (t) => {
     t.end();
 });
 
+test('putout: plugin: nodejs: no transform: type', (t) => {
+    t.noTransformCode('type()');
+    t.end();
+});

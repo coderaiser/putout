@@ -13,7 +13,6 @@
     "setPriority": "import {setPriority} from 'os'",
     "tmpdir": "import {tmpdir} from 'os'",
     "totalmem": "import {totalmem} from 'os'",
-    "type": "import {type} from 'os'",
     "userInfo": "import {userInfo} from 'os'",
     "uptime": "import {uptime} from 'os'",
     "constants": "import {constants} from 'os'",
