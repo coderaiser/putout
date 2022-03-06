@@ -5,34 +5,50 @@ const {
     operator,
 } = require('putout');
 
-const {replaceWith, isSimpleRegExp} = operator;
+const {
+    replaceWith,
+    isSimpleRegExp,
+    getTemplateValues,
+} = operator;
 const {StringLiteral} = types;
 
-module.exports.report = () => 'String should be used instead of RegExp';
+const decode = (a) => {
+    return a
+        .replace('\\(', '(');
+};
 
-module.exports.match = () => ({
-    '__a.replace(/__b/g, __c)': ({__b}) => {
-        const {flags} = __b;
+module.exports.report = () => `Use 'replaceAll()' instead of 'replace()'`;
+
+module.exports.fix = ({path, pattern}) => {
+    const regExpPath = path.get('arguments.0');
+    const calleePath = path.get('callee.property');
+    
+    replaceWith(regExpPath, StringLiteral(decode(pattern)));
+    calleePath.node.name = 'replaceAll';
+    
+    return path;
+};
+
+module.exports.traverse = ({push}) => ({
+    '__a.replace(/__b/g, __c)': (path) => {
+        const {__b} = getTemplateValues(path, '__a.replace(/__b/g, __c)');
+        const {
+            flags,
+            pattern,
+        } = __b;
         
         if (flags !== 'g')
             return false;
         
         const {raw} = __b.extra;
         
-        return isSimpleRegExp(raw);
-    },
-});
-
-module.exports.replace = () => ({
-    '__a.replace(/__b/g, __c)': ({__b}, path) => {
-        const {pattern} = __b;
-        const regExpPath = path.get('arguments.0');
-        const calleePath = path.get('callee.property');
+        if (!isSimpleRegExp(raw))
+            return;
         
-        replaceWith(regExpPath, StringLiteral(pattern));
-        calleePath.node.name = 'replaceAll';
-        
-        return path;
+        push({
+            path,
+            pattern,
+        });
     },
 });
 

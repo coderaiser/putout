@@ -4,7 +4,8 @@ const tryCatch = require('try-catch');
 
 const {optimize} = require('regexp-tree');
 
-const cutSlashes = (a) => a.split('/').slice(1, -1).join('/');
+const cutSlashes = (a) => a.split('/').slice(1, -1)
+    .join('/');
 
 const whitelist = [];
 const blacklist = [

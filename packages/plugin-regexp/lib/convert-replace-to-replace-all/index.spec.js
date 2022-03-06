@@ -8,12 +8,17 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-regexp/convert-replace-to-replace-all: report', (t) => {
-    t.report('replace', 'String should be used instead of RegExp');
+    t.report('replace', `Use 'replaceAll()' instead of 'replace()'`);
     t.end();
 });
 
 test('plugin-regexp/convert-replace-to-replace-all: transform', (t) => {
     t.transform('replace');
+    t.end();
+});
+
+test('plugin-regexp/convert-replace-to-replace-all: transform: couple', (t) => {
+    t.transform('couple');
     t.end();
 });
 
