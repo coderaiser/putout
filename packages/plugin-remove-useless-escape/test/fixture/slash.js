@@ -1,4 +1,4 @@
 const t = '//"';
 const s = `//"`;
 /\//
-'/hello\\,/'
+replaceAll('/', '\\/');

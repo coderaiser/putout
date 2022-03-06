@@ -60,6 +60,11 @@ test('plugin-remove-useless-escape: transform: quote', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-escape: no report after transform', (t) => {
+    t.noReportAfterTransform('quote');
+    t.end();
+});
+
 test('plugin-remove-useless-escape: transform: emoji', (t) => {
     t.transform('emoji');
     t.end();

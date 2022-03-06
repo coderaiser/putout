@@ -47,8 +47,9 @@ module.exports.traverse = ({push}) => ({
     'RegExpLiteral'(path) {
         const {raw} = path.node;
         
-        if (isEscapedRegExp(raw))
+        if (isEscapedRegExp(raw)) {
             push(path);
+        }
     },
     '"__"'(path) {
         const {raw} = path.node;
@@ -97,6 +98,9 @@ function isEscaped(raw) {
     if (!raw.includes('\\'))
         return false;
     
+    if (/\\\//g.test(raw) && !/\\\\\//g.test(raw))
+        return true;
+    
     if (raw.includes('\\+') && !raw.includes('\\\\+'))
         return true;
     
@@ -120,6 +124,7 @@ const createEncodedRegExp = (a) => RegExp(`\\\\${a}`, 'g');
 function unEscape(raw) {
     raw = raw
         .replace(/\\'/g, `'`)
+        .replace(/\\\//g, '/')
         .replace(/\\\+/g, '+')
         .replace(createEncodedRegExp(`"`), '"')
         .replace(/\\\^/g, '^')
@@ -145,6 +150,9 @@ const isComa = is(',');
 const isRegExpSlash = (a) => a.includes('\\\\\\\\');
 
 function isEscapedRegExp(raw) {
+    if (raw.includes('\\/'))
+        return false;
+    
     return isRegExpColon(raw) || isRegExpSlash(raw) || isComa(raw);
 }
 
