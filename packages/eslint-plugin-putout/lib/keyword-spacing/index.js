@@ -87,13 +87,13 @@ function checkSwitch(text) {
 
 function fixCatch(text) {
     return text
-        .replace(/catch{/g, 'catch {')
-        .replace(/}catch/g, '} catch')
-        .replace(/catch \(/g, 'catch(');
+        .replaceAll('catch{', 'catch {')
+        .replaceAll('}catch', '} catch')
+        .replaceAll('catch (', 'catch(');
 }
 
 function fixSwitch(text) {
     return text
-        .replace(/switch \(/g, 'switch(');
+        .replaceAll('switch (', 'switch(');
 }
 

@@ -98,7 +98,10 @@ function isEscaped(raw) {
     if (!raw.includes('\\'))
         return false;
     
-    if (/\\\//g.test(raw) && !/\\\\\//g.test(raw))
+    if (/\\\\/g.test(raw))
+        return false;
+    
+    if (/\\\//g.test(raw))
         return true;
     
     if (raw.includes('\\+') && !raw.includes('\\\\+'))
@@ -123,11 +126,11 @@ const createEncodedRegExp = (a) => RegExp(`\\\\${a}`, 'g');
 
 function unEscape(raw) {
     raw = raw
-        .replace(/\\'/g, `'`)
-        .replace(/\\\//g, '/')
-        .replace(/\\\+/g, '+')
+        .replaceAll('\\\'', `'`)
+        .replaceAll('\\/', '/')
+        .replaceAll('\\+', '+')
         .replace(createEncodedRegExp(`"`), '"')
-        .replace(/\\\^/g, '^')
+        .replaceAll('\\^', '^')
         .replace(/(\\),/, ',');
     
     for (const emoji of match(raw)) {
@@ -139,9 +142,9 @@ function unEscape(raw) {
 
 function unescapeRegExp(raw) {
     return raw
-        .replace(/\\:/g, ':')
-        .replace(/\+\\\//g, '+/')
-        .replace(/\\,/g, ',');
+        .replaceAll('\\:', ':')
+        .replaceAll('\\+\\/', '+/')
+        .replaceAll('\\,', ',');
 }
 
 const is = (a) => (b) => b.includes(`\\${a}`) && !b.includes(`\\\\${a}`);
