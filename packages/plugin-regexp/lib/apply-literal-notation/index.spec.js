@@ -42,3 +42,11 @@ test('plugin-regexp/apply-literal-notation: transform: /', (t) => {
     t.end();
 });
 
+test('plugin-regexp/apply-literal-notation: transform: \\', (t) => {
+    t.transformCode(
+        `output.match(new RegExp('<div><span> {10}</span></div>', 'g'))`,
+        `output.match(/<div><span> {10}<\\/span><\\/div>/g)`,
+    );
+    t.end();
+});
+
