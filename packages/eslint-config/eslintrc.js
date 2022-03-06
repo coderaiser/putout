@@ -33,6 +33,7 @@ module.exports = {
         }],
         'function-paren-newline': ['error', 'multiline-arguments'],
         'key-spacing': 'error',
+        'newline-per-chained-call': 'error',
         'space-infix-ops': ['error', {
             int32Hint: false,
         }],
