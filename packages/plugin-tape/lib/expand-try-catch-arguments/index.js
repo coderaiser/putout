@@ -35,7 +35,11 @@ module.exports.replace = () => ({
             ...node.arguments,
         ];
         
-        path.node.arguments = newArgs;
+        if (path.node.arguments.length === 1)
+            path.node.arguments = newArgs;
+        else
+            path.node.arguments[0] = node.callee;
+        
         fnPath.remove();
         
         return path;

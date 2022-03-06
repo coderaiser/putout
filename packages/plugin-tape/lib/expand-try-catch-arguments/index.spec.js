@@ -11,8 +11,13 @@ test('plugin-tape: expand-try-catch-arguments: report', (t) => {
     t.end();
 });
 
-test('plugin-tape: expand-try-catch-arguments', (t) => {
+test('plugin-tape: expand-try-catch-arguments: transform', (t) => {
     t.transform('try-catch');
+    t.end();
+});
+
+test('plugin-tape: expand-try-catch-arguments: transform: arg', (t) => {
+    t.transform('arg');
     t.end();
 });
 
