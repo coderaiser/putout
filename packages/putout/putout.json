@@ -119,7 +119,6 @@
         "github": "off",
         "tape": "off",
         "strict-mode": "off",
-        "regexp/convert-replace-to-replace-all": "off",
         "convert-mock-require-to-mock-import": "off"
     },
     "plugins": [
