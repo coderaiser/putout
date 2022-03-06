@@ -14,7 +14,14 @@ const {StringLiteral} = types;
 
 const decode = (a) => {
     return a
-        .replace('\\(', '(');
+        .replaceAll('\\\\/', '\\/')
+        .replaceAll('\\\\(', '\\(')
+        .replaceAll('\\(', '(')
+        .replaceAll('\\\\^', '\\^')
+        .replaceAll('\\\\:', '\\:')
+        .replaceAll('\\\\+', '\\+')
+        .replaceAll('\\\\,', '\\,')
+        .replaceAll('\\\\', '\\');
 };
 
 module.exports.report = () => `Use 'replaceAll()' instead of 'replace()'`;
@@ -35,14 +42,13 @@ module.exports.traverse = ({push}) => ({
         const {
             flags,
             pattern,
+            extra,
         } = __b;
         
         if (flags !== 'g')
             return false;
         
-        const {raw} = __b.extra;
-        
-        if (!isSimpleRegExp(raw))
+        if (!isSimpleRegExp(extra.raw))
             return;
         
         push({

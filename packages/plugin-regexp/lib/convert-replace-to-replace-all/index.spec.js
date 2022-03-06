@@ -22,6 +22,11 @@ test('plugin-regexp/convert-replace-to-replace-all: transform: couple', (t) => {
     t.end();
 });
 
+test('plugin-regexp/convert-replace-to-replace-all: transform: escape', (t) => {
+    t.transform('escape');
+    t.end();
+});
+
 test('plugin-regexp/convert-replace-to-replace-all: no transform: flags', (t) => {
     t.noTransform('replace-all-flags');
     t.end();
