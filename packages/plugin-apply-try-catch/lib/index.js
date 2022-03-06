@@ -5,10 +5,11 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
-    ...getRule('try-catch'),
-    ...getRule('try-to-catch'),
     ...getRule('await'),
     ...getRule('args'),
     ...getRule('declare'),
+    ...getRule('expand-arguments'),
+    ...getRule('try-catch'),
+    ...getRule('try-to-catch'),
 };
 

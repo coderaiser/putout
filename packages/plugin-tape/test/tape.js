@@ -33,11 +33,6 @@ test('plugin-tape: transform: does-not-throw', (t) => {
     t.end();
 });
 
-test('plugin-tape: transform: expand try-catch arguments', (t) => {
-    t.transform('try-catch');
-    t.end();
-});
-
 test('plugin-tape: transform: apply stub operator', (t) => {
     t.transform('called-with');
     t.end();

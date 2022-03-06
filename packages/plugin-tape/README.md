@@ -33,7 +33,6 @@ npm i @putout/plugin-tape -D
         "tape/convert-equal-to-called-once": "on",
         "tape/convert-equal-to-deep-equal": "on",
         "tape/convert-deep-equal-to-equal": "on",
-        "tape/expand-try-catch-arguments": "on",
         "tape/convert-emitter-to-promise": "on",
         "tape/convert-ok-to-match": "on",
         "tape/convert-ok-to-called-with": "on",
@@ -326,35 +325,6 @@ test('copymitter', async (t) => {
     const cp = copymitter(from, to, ['1']);
     
     await once(cp, 'end');
-    t.end();
-});
-```
-
-## expand-try-catch-arguments
-
-### ❌ Example of incorrect code
-
-```js
-import tryCatch from 'try-catch';
-
-test('some message', (t) => {
-    const fn = () => copymitter('/hello');
-    const [error] = tryCatch(fn);
-    
-    t.equal(error.message, 'to should be a string!');
-    t.end();
-});
-```
-
-### ✅ Example of correct code
-
-```js
-import tryCatch from 'try-catch';
-
-test('some message', (t) => {
-    const [error] = tryCatch(copymitter, '/hello');
-    
-    t.equal(error.message, 'to should be a string!');
     t.end();
 });
 ```

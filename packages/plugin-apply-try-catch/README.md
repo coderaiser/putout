@@ -16,11 +16,12 @@ npm i @putout/plugin-apply-try-catch
 ```json
 {
     "rules": {
-        "apply-try-catch/try-catch": "on",
-        "apply-try-catch/try-to-catch": "on",
         "apply-try-catch/await": "on",
         "apply-try-catch/args": "on",
-        "apply-try-catch/declare": "on"
+        "apply-try-catch/declare": "on",
+        "apply-try-catch/expand-arguments": "on",
+        "apply-try-catch/try-catch": "on",
+        "apply-try-catch/try-to-catch": "on"
     }
 }
 ```
@@ -103,6 +104,35 @@ const [error] = tryCatch(fs.readFileSync, 'hello.txt');
 ```js
 import tryCatch from 'try-catch';
 const [error] = tryCatch(fs.readFileSync, 'hello.txt');
+```
+
+## expand-arguments
+
+### ❌ Example of incorrect code
+
+```js
+import tryCatch from 'try-catch';
+
+test('some message', (t) => {
+    const fn = () => copymitter('/hello');
+    const [error] = tryCatch(fn);
+    
+    t.equal(error.message, 'to should be a string!');
+    t.end();
+});
+```
+
+### ✅ Example of correct code
+
+```js
+import tryCatch from 'try-catch';
+
+test('some message', (t) => {
+    const [error] = tryCatch(copymitter, '/hello');
+    
+    t.equal(error.message, 'to should be a string!');
+    t.end();
+});
 ```
 
 ## License

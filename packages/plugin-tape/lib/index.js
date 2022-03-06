@@ -23,7 +23,6 @@ module.exports.rules = {
     ...getRule('convert-equal-to-ok'),
     ...getRule('convert-equal-to-called-once'),
     ...getRule('convert-deep-equal-to-equal'),
-    ...getRule('expand-try-catch-arguments'),
     ...getRule('add-args'),
     ...getRule('declare'),
     ...getRule('remove-default-messages'),
