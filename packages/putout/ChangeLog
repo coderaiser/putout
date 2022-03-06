@@ -1,3 +1,17 @@
+2022.03.06, v25.2.0
+
+fix:
+- (@putout/plugin-apply-try-catch) try-to-catch: report: await
+
+
+feature:
+- (package) @putout/plugin-remove-useless-escape v3.0.0
+- (putout) convert-replace-to-replace-all: enable since node v16 support
+- (@putout/plugin-remove-useless-escape) drop support of putout < 25
+- (@putout/plugin-regexp) apply-literal-notation: add support of \/
+- (@putout/plugin-remove-useless-escape) add support of \/
+
+
 2022.03.05, v25.1.1
 
 feature:
