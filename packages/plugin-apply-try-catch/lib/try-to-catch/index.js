@@ -6,7 +6,7 @@ const {isAwaitExpression} = types;
 
 const applyTryCatch = require('../apply-try-catch');
 
-module.exports.report = () => 'Use await tryToCatch instead of try-to-catch block';
+module.exports.report = () => `Use 'await tryToCatch()' instead of 'await' in 'try-catch' block`;
 
 module.exports.fix = applyTryCatch('tryToCatch');
 

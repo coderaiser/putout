@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-apply-try-catch: try-to-catch: transform: report', (t) => {
-    t.report('try-to-catch', 'Use await tryToCatch instead of try-to-catch block');
+    t.report('try-to-catch', `Use 'await tryToCatch()' instead of 'await' in 'try-catch' block`);
     t.end();
 });
 
