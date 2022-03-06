@@ -1,17 +1,16 @@
-# Remove new line in empty object (`remove-newline-from-empty-object`)
-
-## Rule Details
+# remove-newline-from-empty-object
 
 This rule aims to remove newline from empty object.
+Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-Examples of **incorrect** code for this rule:
+## ❌ Example of incorrect code
 
 ```js
 const a = {
 };
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 const a = {};
