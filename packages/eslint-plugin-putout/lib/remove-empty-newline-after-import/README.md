@@ -1,10 +1,8 @@
-# Remove empty newline after import (`remove-empty-newline-after-import`)
+# remove-empty-newline-after-import
 
-## Rule Details
+This rule aims to remove empty newline after [`import` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import). Part of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-This rule aims to remove empty newline after `import`.
-
-Examples of **incorrect** code for this rule:
+## ❌ Example of incorrect code
 
 ```js
 import {readFile} from 'fs';
@@ -14,7 +12,7 @@ import {promisify} from 'util';
 import index from './index.js';
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 import {readFile} from 'fs';
