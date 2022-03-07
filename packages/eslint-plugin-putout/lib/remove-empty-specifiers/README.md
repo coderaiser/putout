@@ -1,16 +1,15 @@
-# Remove empty specifiers(`remove-empty-specifiers`)
-
-## Rule Details
+# remove-empty-specifiers
 
 This rule aims to remove empty specifiers.
+Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-Examples of **incorrect** code for this rule:
+## ❌ Example of incorrect code
 
 ```js
 import putout, {} from 'putout';
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 import putout from 'putout';
