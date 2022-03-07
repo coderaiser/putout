@@ -1692,28 +1692,28 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) |
-| [`@putout/plugin-apply-is-array`](/packages/plugin-apply-is-array) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-is-array.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-is-array) |
-| [`@putout/plugin-apply-await-import`](/packages/plugin-apply-await-import) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-await-import.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-await-import) |
-| [`@putout/plugin-apply-numeric-separators`](/packages/plugin-apply-numeric-separators) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-numeric-separators.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-numeric-separators) |
-| [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) |
-| [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) |
-| [`@putout/plugin-apply-if-condition`](/packages/plugin-apply-if-condition) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-if-condition.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-if-condition) |
+| [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) |
+| [`@putout/plugin-apply-is-array`](/packages/plugin-apply-is-array#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-is-array.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-is-array) |
+| [`@putout/plugin-apply-await-import`](/packages/plugin-apply-await-import#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-await-import.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-await-import) |
+| [`@putout/plugin-apply-numeric-separators`](/packages/plugin-apply-numeric-separators#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-numeric-separators.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-numeric-separators) |
+| [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) |
+| [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) |
+| [`@putout/plugin-apply-if-condition`](/packages/plugin-apply-if-condition#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-if-condition.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-if-condition) |
 
 ### Splitters
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-split-variable-declarations`](/packages/plugin-split-variable-declarations) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-variable-declarations.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-variable-declarations) |
-| [`@putout/plugin-split-nested-destructuring`](/packages/plugin-split-nested-destructuring) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-nested-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-nested-destructuring) |
+| [`@putout/plugin-split-variable-declarations`](/packages/plugin-split-variable-declarations#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-variable-declarations.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-variable-declarations) |
+| [`@putout/plugin-split-nested-destructuring`](/packages/plugin-split-nested-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-split-nested-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-split-nested-destructuring) |
 
 ### Mergers
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-merge-destructuring-properties`](/packages/plugin-merge-destructuring-properties) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-destructuring-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-destructuring-properties) |
-| [`@putout/plugin-merge-duplicate-imports`](/packages/plugin-merge-duplicate-imports) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-duplicate-imports.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-duplicate-imports) |
-| [`@putout/plugin-merge-if-statements`](/packages/plugin-merge-if-statements) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-if-statements.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-if-statements) |
+| [`@putout/plugin-merge-destructuring-properties`](/packages/plugin-merge-destructuring-properties#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-destructuring-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-destructuring-properties) |
+| [`@putout/plugin-merge-duplicate-imports`](/packages/plugin-merge-duplicate-imports#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-duplicate-imports.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-duplicate-imports) |
+| [`@putout/plugin-merge-if-statements`](/packages/plugin-merge-if-statements#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-if-statements.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-if-statements) |
 
 ### Converters
 
