@@ -1,10 +1,9 @@
-# Remove empty new line before first specifier (`remove-empty-newline-before-first-specifier`)
-
-## Rule Details
+# remove-empty-newline-before-first-specifier
 
 This rule aims to remove empty newline before first specifier.
+Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-Examples of **incorrect** code for this rule:
+## ❌ Example of incorrect code
 
 ```js
 import {
@@ -20,7 +19,7 @@ push({
 });
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 import {
