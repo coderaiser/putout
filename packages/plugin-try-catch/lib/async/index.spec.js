@@ -27,3 +27,8 @@ test('plugin-apply-try-catch: try-to-catch: no transform: no-await', (t) => {
     t.end();
 });
 
+test('plugin-apply-try-catch: try-to-catch: no transform: finalizer', (t) => {
+    t.noReport('finalizer');
+    t.end();
+});
+

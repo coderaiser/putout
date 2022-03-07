@@ -9,7 +9,7 @@ module.exports.rules = {
     ...getRule('args'),
     ...getRule('declare'),
     ...getRule('expand-arguments'),
-    ...getRule('try-catch'),
-    ...getRule('try-to-catch'),
+    ...getRule('sync'),
+    ...getRule('async'),
 };
 

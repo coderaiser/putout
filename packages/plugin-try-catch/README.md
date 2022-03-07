@@ -1,14 +1,14 @@
-# @putout/plugin-apply-try-catch [![NPM version][NPMIMGURL]][NPMURL]
+# @putout/plugin-try-catch [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-try-catch.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-apply-try-catch "npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-try-catch.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-try-catch "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply [tryCatch](https://github.com/coderaiser/try-catch) and [tryToCatch](https://github.com/coderaiser/try-to-catch).
 
 ## Install
 
 ```
-npm i @putout/plugin-apply-try-catch
+npm i @putout/plugin-try-catch
 ```
 
 ## Rule
@@ -16,17 +16,17 @@ npm i @putout/plugin-apply-try-catch
 ```json
 {
     "rules": {
-        "apply-try-catch/await": "on",
-        "apply-try-catch/args": "on",
-        "apply-try-catch/declare": "on",
-        "apply-try-catch/expand-arguments": "on",
-        "apply-try-catch/try-catch": "on",
-        "apply-try-catch/try-to-catch": "on"
+        "try-catch/await": "on",
+        "try-catch/args": "on",
+        "try-catch/declare": "on",
+        "try-catch/expand-arguments": "on",
+        "try-catch/sync": "on",
+        "try-catch/async": "on"
     }
 }
 ```
 
-## try-catch
+## sync
 
 ### ❌ Example of incorrect code
 
@@ -44,7 +44,7 @@ import tryCatch from 'try-catch';
 const [error] = tryCatch(log, 'hello');
 ```
 
-## try-to-catch
+## async
 
 ### ❌ Example of incorrect code
 
