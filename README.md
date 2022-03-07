@@ -367,7 +367,7 @@ It looks this way in [ESTree](https://github.com/estree/estree) JavaScript synta
 >
 > **(c) Yamamoto Tsunetomo "Hagakure"**
 
-🐊**Putout** based on [Babel AST](https://github.com/babel/babel/blob/main/packages/babel-parser/ast/spec.md). It has a couple differences from `ESTree` which are perfectly handled by [estree-to-babel](https://github.com/coderaiser/estree-to-babel) especially when 🐊**Putout** running as [a plugin for `ESLint`](#integration-with-eslint).
+🐊**Putout** based on [Babel AST](https://github.com/babel/babel/blob/main/packages/babel-parser/ast/spec.md#readme). It has a couple differences from `ESTree` which are perfectly handled by [estree-to-babel](https://github.com/coderaiser/estree-to-babel) especially when 🐊**Putout** running as [a plugin for `ESLint`](#integration-with-eslint).
 
 ### 🌴 Laws of the Jungle
 
@@ -382,25 +382,25 @@ It looks this way in [ESTree](https://github.com/estree/estree) JavaScript synta
 
 | Package | Version |
 |--------|-------|
-| [`@putout/engine-parser`](/packages/engine-parser) | [![npm](https://img.shields.io/npm/v/@putout/engine-parser.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-parser) |
-| [`@putout/engine-loader`](/packages/engine-loader) | [![npm](https://img.shields.io/npm/v/@putout/engine-loader.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-loader) |
-| [`@putout/engine-runner`](/packages/engine-runner) | [![npm](https://img.shields.io/npm/v/@putout/engine-runner.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-runner) |
-| [`@putout/engine-processor`](/packages/engine-processor) | [![npm](https://img.shields.io/npm/v/@putout/engine-processor.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-processor) |
+| [`@putout/engine-parser`](/packages/engine-parser#readme) | [![npm](https://img.shields.io/npm/v/@putout/engine-parser.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-parser) |
+| [`@putout/engine-loader`](/packages/engine-loader#readme) | [![npm](https://img.shields.io/npm/v/@putout/engine-loader.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-loader) |
+| [`@putout/engine-runner`](/packages/engine-runner#readme) | [![npm](https://img.shields.io/npm/v/@putout/engine-runner.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-runner) |
+| [`@putout/engine-processor`](/packages/engine-processor#readme) | [![npm](https://img.shields.io/npm/v/@putout/engine-processor.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-processor) |
 
 ### Processors
 
-With help of [processors](https://github.com/coderaiser/putout/blob/master/packages/engine-processor) 🐊**Putout** can be extended to read any file format and parse `JavaScript` from there.
+With help of [processors](https://github.com/coderaiser/putout/blob/master/packages/engine-processor#readme) 🐊**Putout** can be extended to read any file format and parse `JavaScript` from there.
 
 Here is a list of built-int processors:
 
 | Package | Version |
 |--------|-------|
-| [`@putout/processor-javascript`](/packages/processor-javascript) | [![npm](https://img.shields.io/npm/v/@putout/processor-javascript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-javascript) |
-| [`@putout/processor-json`](/packages/processor-json) | [![npm](https://img.shields.io/npm/v/@putout/processor-json.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-json) |
-| [`@putout/processor-markdown`](/packages/processor-markdown) | [![npm](https://img.shields.io/npm/v/@putout/processor-markdown.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-markdown) |
-| [`@putout/processor-ignore`](/packages/processor-ignore) | [![npm](https://img.shields.io/npm/v/@putout/processor-ignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-ignore) |
-| [`@putout/processor-yaml`](/packages/processor-yaml) | [![npm](https://img.shields.io/npm/v/@putout/processor-yaml.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-yaml) |
-| [`@putout/processor-css`](/packages/processor-css) | [![npm](https://img.shields.io/npm/v/@putout/processor-css.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-css) |
+| [`@putout/processor-javascript`](/packages/processor-javascript#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-javascript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-javascript) |
+| [`@putout/processor-json`](/packages/processor-json#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-json.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-json) |
+| [`@putout/processor-markdown`](/packages/processor-markdown#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-markdown.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-markdown) |
+| [`@putout/processor-ignore`](/packages/processor-ignore#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-ignore.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-ignore) |
+| [`@putout/processor-yaml`](/packages/processor-yaml#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-yaml.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-yaml) |
+| [`@putout/processor-css`](/packages/processor-css#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-css.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-css) |
 
 You can disable any of them with:
 
@@ -416,8 +416,8 @@ And not bundled processors:
 
 | Package | Version | Dependencies |
 |--------|-------|------------|
-| [`@putout/processor-typescript`](/packages/processor-typescript) | [![npm](https://img.shields.io/npm/v/@putout/processor-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-typescript) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-typescript)](https://david-dm.org/coderaiser/putout?path=packages/processor-typescript) |
-| [`@putout/processor-html`](/packages/processor-html) | [![npm](https://img.shields.io/npm/v/@putout/processor-html.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-html) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-html)](https://david-dm.org/coderaiser/putout?path=packages/processor-html) |
+| [`@putout/processor-typescript`](/packages/processor-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-typescript) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-typescript)](https://david-dm.org/coderaiser/putout?path=packages/processor-typescript) |
+| [`@putout/processor-html`](/packages/processor-html#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-html.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-html) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-html)](https://david-dm.org/coderaiser/putout?path=packages/processor-html) |
 
 To enable it use:
 
