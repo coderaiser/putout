@@ -1,3 +1,15 @@
+2022.03.07, v25.3.0
+
+feature:
+- (@putout/plugin-try-catch) renamed from @putout/plugin-apply-try-catch
+- (@putout/plugin-apply-try-catch) try-catch: add support of finalizer
+- (@putout/plugin-apply-try-catch) add expand-arguments from @putout/plugin-tape
+- (@putout/plugin-tape) expand-try-catch-arguments: add support of tryCatch with more then one argument
+- (@putout/plugin-regexp) convert-replace-to-replace-all: add support of decoding
+- (@putout/eslint-config) add newline-per-chained-call
+- (@putout/plugin-regexp) convert-replace-to-replace-all: replacer -> traverser: multiple operations on one node
+
+
 2022.03.06, v25.2.0
 
 fix:
