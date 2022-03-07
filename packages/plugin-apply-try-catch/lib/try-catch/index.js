@@ -17,10 +17,14 @@ module.exports.filter = ({node}) => {
     const {
         block,
         handler,
+        finalizer,
     } = node;
     
     const {length} = block.body;
     const [first] = block.body;
+    
+    if (finalizer)
+        return false;
     
     if (length !== 1)
         return false;
