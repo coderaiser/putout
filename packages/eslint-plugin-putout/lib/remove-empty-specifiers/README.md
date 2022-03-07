@@ -1,7 +1,7 @@
 # remove-empty-specifiers
 
 This rule aims to remove empty specifiers.
-Part of [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
+Part of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
 ## ❌ Example of incorrect code
 
