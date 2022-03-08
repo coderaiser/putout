@@ -1,1 +1,1 @@
-`hello'`.replace(/'/, `\\'`);
+`hello'`.replace(/'/, `\\'\\`);

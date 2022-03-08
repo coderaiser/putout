@@ -14,7 +14,7 @@ module.exports.report = () => `Use backticks instead of quotes`;
 
 module.exports.fix = (path) => {
     const value = path.node.value
-        .replace(/\\/, '\\\\')
+        .replace(/\\/g, '\\\\')
         .replace(/\n/g, '\\n');
     
     replaceWith(path, TemplateLiteral([
