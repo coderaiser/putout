@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-quotes-to-backticks.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-quotes-to-backticks "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `quotes` to `backticks`. Related to [@putout/plugin-remove-useless-escape](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-escape).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `quotes` to `backticks`. Related to [@putout/plugin-remove-useless-escape](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-escape#readme).
 
 ## Install
 
