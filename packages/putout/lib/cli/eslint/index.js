@@ -106,12 +106,13 @@ module.exports._noConfigFound = noConfigFound;
 
 const parseRule = (rule) => rule || 'parser';
 
+module.exports.convertToPlace = convertToPlace;
 function convertToPlace({ruleId = 'parser', message, line = 0, column = 0}) {
     const rule = `${parseRule(ruleId)}${eslintId}`;
     
     return {
         rule,
-        message,
+        message: replaceControlChars(message),
         position: {
             line,
             column,
