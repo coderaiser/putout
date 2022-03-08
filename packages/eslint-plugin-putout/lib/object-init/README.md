@@ -1,10 +1,11 @@
-# Keep each property on separate line when initializing an object(`object-init`)
+# object-init
 
-In the same way as eslint [object-property-newline](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/multiple-properties-destructuring) but for initializing variables with `object expression`.
+Keep each property on separate line when initializing an object. In the same way as **ESLint** [`object-property-newline`](https://eslint.org/docs/rules/object-property-newline) but for initializing variables with [**Object Expression**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects).
 
-## Rule Details
+Part of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-Examples of **incorrect** code for this rule:
+## ❌ Example of incorrect code
+
 
 ```js
 const user = {name};
@@ -12,7 +13,7 @@ const user = {name};
 module.exports = {lint: 'putout lint'};
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 const user = {
