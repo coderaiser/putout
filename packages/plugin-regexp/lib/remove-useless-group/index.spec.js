@@ -17,8 +17,8 @@ test('plugin-regexp/remove-useless-group: transform', (t) => {
     t.end();
 });
 
-test('plugin-regexp/remove-useless-group: transform: match', (t) => {
-    t.transform('match');
+test('plugin-regexp/remove-useless-group: no transform: match', (t) => {
+    t.noTransform('match');
     t.end();
 });
 

@@ -7,6 +7,7 @@ const {isDisjunction} = require('../types');
 module.exports.report = ({from, to}) => `Remove useless group from RegExp ${from}, use ${to}`;
 
 module.exports.exclude = () => [
+    '__.match(__)',
     '__.split(__)',
     '__.exec(__)',
     '__.replace(__, __)',
@@ -72,9 +73,6 @@ function removeUselessGroup(str) {
 }
 
 function includes({parentPath}) {
-    if (compare(parentPath, '__.match(/__a/)'))
-        return true;
-    
     if (compare(parentPath.parentPath, '/__a/.test(__b)'))
         return true;
     
