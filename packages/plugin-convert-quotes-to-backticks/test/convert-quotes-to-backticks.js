@@ -22,3 +22,8 @@ test('plugin-convert-quotes-to-backtics: transform: newline', (t) => {
     t.end();
 });
 
+test('plugin-convert-quotes-to-backtics: transform: backslash', (t) => {
+    t.transform('backslash');
+    t.end();
+});
+
