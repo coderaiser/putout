@@ -5,12 +5,11 @@ const {
     operator,
 } = require('putout');
 
+const {StringLiteral} = types;
 const {
     replaceWith,
-    isSimpleRegExp,
     getTemplateValues,
 } = operator;
-const {StringLiteral} = types;
 
 const decode = (a) => {
     return a
@@ -42,14 +41,10 @@ module.exports.traverse = ({push}) => ({
         const {
             flags,
             pattern,
-            extra,
         } = __b;
         
         if (flags !== 'g')
             return false;
-        
-        if (!isSimpleRegExp(extra.raw))
-            return;
         
         push({
             path,

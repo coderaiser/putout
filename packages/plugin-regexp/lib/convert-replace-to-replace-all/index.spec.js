@@ -27,6 +27,11 @@ test('plugin-regexp/convert-replace-to-replace-all: transform: escape', (t) => {
     t.end();
 });
 
+test('plugin-regexp/convert-replace-to-replace-all: transform: chain', (t) => {
+    t.transform('chain');
+    t.end();
+});
+
 test('plugin-regexp/convert-replace-to-replace-all: no transform: flags', (t) => {
     t.noTransform('replace-all-flags');
     t.end();
@@ -38,7 +43,7 @@ test('plugin-regexp/convert-replace-to-replace-all: no transform: replace with f
 });
 
 test('plugin-regexp/convert-replace-to-replace-all: no transform: character-class', (t) => {
-    t.noTransform('character-class');
+    t.transform('character-class');
     t.end();
 });
 
