@@ -1,8 +1,9 @@
-# Keep braces on the same line as brackets (`object-braces-inside-array`)
+# object-braces-inside-array
 
-## Rule Details
+Keep braces on the same line as brackets.
+Part of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#rules).
 
-Examples of **incorrect** code for this rule:
+## ❌ Example of incorrect code
 
 ```js
 const expected = [
@@ -15,7 +16,7 @@ const expected = [
 ];
 ```
 
-Examples of **correct** code for this rule:
+## ✅ Example of correct code
 
 ```js
 const expected = [{
