@@ -61,7 +61,7 @@
     "@putout/formatter-dump": "^3.0.0",
     "@putout/formatter-frame": "^2.0.0",
     "@putout/formatter-json": "^2.0.0",
-    "@putout/formatter-json-lines": "^2.0.0",
+    "@putout/formatter-json-lines": "^3.0.0",
     "@putout/formatter-memory": "^2.0.0",
     "@putout/formatter-progress": "^3.0.0",
     "@putout/formatter-progress-bar": "^2.0.0",
