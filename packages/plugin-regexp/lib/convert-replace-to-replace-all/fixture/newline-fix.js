@@ -1,1 +1,1 @@
-a.replaceAll('\n', '\\n');
+a.replace(/\n/g, '\\n');

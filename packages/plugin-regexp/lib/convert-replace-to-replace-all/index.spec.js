@@ -32,6 +32,11 @@ test('plugin-regexp/convert-replace-to-replace-all: transform: newline', (t) => 
     t.end();
 });
 
+test('plugin-regexp/convert-replace-to-replace-all: transform: backtick', (t) => {
+    t.transform('backtick');
+    t.end();
+});
+
 test('plugin-regexp/convert-replace-to-replace-all: no transform: flags', (t) => {
     t.noTransform('replace-all-flags');
     t.end();
@@ -39,6 +44,11 @@ test('plugin-regexp/convert-replace-to-replace-all: no transform: flags', (t) =>
 
 test('plugin-regexp/convert-replace-to-replace-all: no transform: replace with flags', (t) => {
     t.noTransform('replace-flags');
+    t.end();
+});
+
+test('plugin-regexp/convert-replace-to-replace-all: no transform: wildcard', (t) => {
+    t.noTransform('wildcard');
     t.end();
 });
 

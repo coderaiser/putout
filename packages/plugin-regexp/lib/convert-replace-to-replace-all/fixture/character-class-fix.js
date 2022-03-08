@@ -1,1 +1,1 @@
-'hello'.replaceAll('[abc]', 'world');
+'hello'.replace(/[abc]/g, 'world');

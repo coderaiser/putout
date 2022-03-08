@@ -9,6 +9,7 @@ const {StringLiteral} = types;
 const {
     replaceWith,
     getTemplateValues,
+    isSimpleRegExp,
 } = operator;
 
 const decode = (a) => {
@@ -42,10 +43,14 @@ module.exports.traverse = ({push}) => ({
         const {
             flags,
             pattern,
+            extra,
         } = __b;
         
         if (flags !== 'g')
             return false;
+        
+        if (!isSimpleRegExp(extra.raw))
+            return;
         
         push({
             path,
