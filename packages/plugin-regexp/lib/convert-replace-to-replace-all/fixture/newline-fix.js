@@ -1,0 +1,1 @@
+a.replaceAll('\n', '\\n');

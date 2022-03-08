@@ -27,8 +27,8 @@ test('plugin-regexp/convert-replace-to-replace-all: transform: escape', (t) => {
     t.end();
 });
 
-test('plugin-regexp/convert-replace-to-replace-all: transform: chain', (t) => {
-    t.transform('chain');
+test('plugin-regexp/convert-replace-to-replace-all: transform: newline', (t) => {
+    t.transform('newline');
     t.end();
 });
 

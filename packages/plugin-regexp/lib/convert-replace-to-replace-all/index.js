@@ -16,6 +16,7 @@ const decode = (a) => {
         .replaceAll('\\\\/', '\\/')
         .replaceAll('\\\\(', '\\(')
         .replaceAll('\\(', '(')
+        .replaceAll('\\n', '\n')
         .replaceAll('\\\\^', '\\^')
         .replaceAll('\\\\:', '\\:')
         .replaceAll('\\\\+', '\\+')
