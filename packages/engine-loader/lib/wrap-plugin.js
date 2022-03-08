@@ -9,7 +9,7 @@ const babelTransform = require('./transforms/babel');
 
 const getMessage = (a) => a
     .replace(/@babel\/plugin-|babel-plugin-/, '')
-    .replace(/-/g, ' ');
+    .replaceAll('-', ' ');
 
 const getModulePath = (name) => {
     const [, path] = tryCatch(require.resolve, name);
