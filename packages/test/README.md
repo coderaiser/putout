@@ -15,7 +15,7 @@ npm i @putout/test -D
 
 Set environment variable `UPDATE=1` to update `transform` and `format` fixtures.
 
-☝️ *Remember that `-fix.js` fixtures will be removed when used in noReport, noTransform, noTransformWithOptions*
+☝️ *Remember that `-fix.js` fixtures will be removed when used in `noReport`, `noTransform` and `noTransformWithOptions`*
 
 ```sh
 UPDATE=1 tape test/*.js
