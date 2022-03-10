@@ -27,7 +27,7 @@ The main target is JavaScript, but:
 - ✅ JSON;
 - ✅ Ignore;
 
-Here is how it looks like:
+are also supported. Here is how it looks like:
 
 [![putout](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm.svg)](https://asciinema.org/a/0akg9gkJdbmbGl6BbpaycgKZm)
 
