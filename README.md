@@ -17,7 +17,7 @@
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
 🐊**Putout** is a pluggable and configurable code transformer based on **Babel** with built-in **ESLint**. It has [a lot of transformations](#-built-in-transformations) that will keep your codebase in a clean state, transforming any code smell to readable code according to best practices.
-The main target is JavaScript and:
+The main target is JavaScript, but:
 
 - ✅ JSX;
 - ✅ TypeScript;
