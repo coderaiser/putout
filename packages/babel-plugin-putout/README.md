@@ -1,6 +1,6 @@
 # babel-plugin-putout
 
-Use `putout` as `babel plugin`.
+Use 🐊[**Putout**](https://github.com/coderaiser/putout) as `babel plugin`.
 
 ## Example
 
