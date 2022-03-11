@@ -341,7 +341,7 @@ And here is a CLI scheme:
 
 ![Ashvattha](https://github.com/coderaiser/putout/blob/master/images/ashvattha.jpeg)
 
-On the bottom level of 🐊**Putout** layes down `Syntax Tree`. This is data structure that makes possible to do [crazy transformations in a simplest possible way](https://dev.to/viveknayyar/revealing-the-magic-of-ast-by-writing-babel-plugins-1h01). It used mostly in compilers development.
+On the bottom level of 🐊**Putout** layes down **Syntax Tree**. This is data structure that makes possible to do [crazy transformations in a simplest possible way](https://dev.to/viveknayyar/revealing-the-magic-of-ast-by-writing-babel-plugins-1h01). It used mostly in compilers development.
 
 You can read about it in [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md). To understand how things works from the inside take a look at [Super Tiny Compiler](https://github.com/jamiebuilds/the-super-tiny-compiler).
 
@@ -357,7 +357,7 @@ Consider next peace of code:
 hello = 'world';
 ```
 
-It looks this way in [ESTree](https://github.com/estree/estree) JavaScript syntax format:
+It looks this way in [**ESTree**](https://github.com/estree/estree) JavaScript syntax format:
 
 ```json
 {
@@ -378,7 +378,7 @@ It looks this way in [ESTree](https://github.com/estree/estree) JavaScript synta
 >
 > **(c) Yamamoto Tsunetomo "Hagakure"**
 
-🐊**Putout** based on [Babel AST](https://github.com/babel/babel/blob/main/packages/babel-parser/ast/spec.md#readme). It has a couple differences from `ESTree` which are perfectly handled by [estree-to-babel](https://github.com/coderaiser/estree-to-babel) especially when 🐊**Putout** running as [a plugin for `ESLint`](#integration-with-eslint).
+🐊**Putout** based on [**Babel AST**](https://github.com/babel/babel/blob/main/packages/babel-parser/ast/spec.md#readme). It has a couple differences from **ESTree** which are perfectly handled by [`estree-to-babel`](https://github.com/coderaiser/estree-to-babel) especially when 🐊**Putout** running as [a plugin for **ESLint**](#integration-with-eslint).
 
 ### 🌴 Laws of the Jungle
 
@@ -387,9 +387,9 @@ It looks this way in [ESTree](https://github.com/estree/estree) JavaScript synta
 - 🦒 `processors` chilling with `processors`;
 - 🐃 `operators` chilling with `operators`;
 
-### Engines
+### 💚 Engines
 
-`Engines` is the heart of `putout`: `loader`, `runner` and `parser` run for every processed file. `Processor` runs all the processors.
+**Engines** is the heart of 🐊**Putout**: **Loader**, **Runner** and **Parser** run for every processed file. **Processor** runs all the processors.
 
 | Package | Version |
 |--------|-------|
@@ -398,7 +398,7 @@ It looks this way in [ESTree](https://github.com/estree/estree) JavaScript synta
 | [`@putout/engine-runner`](/packages/engine-runner#readme) | [![npm](https://img.shields.io/npm/v/@putout/engine-runner.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-runner) |
 | [`@putout/engine-processor`](/packages/engine-processor#readme) | [![npm](https://img.shields.io/npm/v/@putout/engine-processor.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-processor) |
 
-### Processors
+### 🧪 Processors
 
 With help of [processors](https://github.com/coderaiser/putout/blob/master/packages/engine-processor#readme) 🐊**Putout** can be extended to read any file format and parse `JavaScript` from there.
 
