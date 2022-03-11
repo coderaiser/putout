@@ -13,3 +13,7 @@ test('eslint-config: padding-import', async ({process}) => {
     await process('padding-import');
 });
 
+test('eslint-config: padding-function', async ({process}) => {
+    await process('padding-function');
+});
+

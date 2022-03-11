@@ -132,6 +132,14 @@ module.exports = {
                 blankLine: 'always',
                 prev: '*',
                 next: 'while',
+            }, {
+                blankLine: 'always',
+                prev: '*',
+                next: 'function',
+            }, {
+                blankLine: 'any',
+                prev: 'cjs-export',
+                next: 'function',
             }],
         'require-atomic-updates': 'off',
         'yoda': 'error',
