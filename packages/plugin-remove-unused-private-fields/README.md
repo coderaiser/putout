@@ -13,27 +13,17 @@ npm i @putout/plugin-remove-unused-private-fields
 
 ## Rule
 
-Rule `remove-unused-private-fields` is enabled by default, to disable add to `.putout.json`:
-
 ```json
 {
     "rules": {
-        "remove-unused-private-fields": "off"
+        "remove-unused-private-fields": "on"
     }
 }
 ```
 
-## Code Example
+## ❌ Incorrect code example
 
 ```js
-const {readFileSync} = require('fs');
-const source = readFileSync('./1.js', 'utf8');
-
-const putout = require('putout');
-
-console.log(source);
-// outputs
-`
 class Hello {
     #a = 5;
     #b = 3;
@@ -41,22 +31,17 @@ class Hello {
         return this.#a;
     };
 }
-`;
+```
 
-const result = putout(source, {
-    plugins: [
-        'remove-unused-private-fields',
-    ],
-});
-// returns
-`
+## ✅ Correct code Example
+
+```js
 class Hello {
     #a = 5;
     get() {
         return this.#a;
     };
 }
-`;
 ```
 
 ## License
