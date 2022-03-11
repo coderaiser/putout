@@ -3,7 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-regexp.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-regexp"npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with `Regular Expressions`.
+> Regular expressions are patterns used to match character combinations in strings.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with **Regular Expressions**.
 
 ## Install
 
