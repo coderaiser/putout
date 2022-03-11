@@ -3,7 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-typescript.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-typescript "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to transform [`TypeScript`](https://www.typescriptcriptlang.org/) code. Enabled by default for `ts` and `tsx` files.
+> TypeScript is JavaScript with syntax for types.
+>
+> (c) [typescriptcriptlang.org](https://www.typescriptcriptlang.org)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to transform **TypeScript** code. Enabled by default for `ts` and `tsx` files.
 
 ## Install
 
@@ -63,7 +67,11 @@ type SuperType1 = Partial<Type>;
 
 ### convert-generic-to-shorthand
 
-Convert `generic` to `shorthand` (https://stackoverflow.com/a/36843084/4536327).
+> There is no difference at all. `Type[]` is the shorthand syntax for an `array` of `Type`. `Array<Type>` is the generic syntax. They are completely equivalent.
+>
+> (c) https://stackoverflow.com/a/36843084/4536327
+
+Convert `generic` to `shorthand`.
 
 #### ❌ Example of incorrect code
 
