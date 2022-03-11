@@ -389,7 +389,7 @@ It looks this way in [**ESTree**](https://github.com/estree/estree) JavaScript s
 
 ### 💚 Engines
 
-**Engines** is the heart of 🐊**Putout**: **Loader**, **Runner** and **Parser** run for every processed file. **Processor** runs all the processors.
+**Engines** is the heart of 🐊**Putout**: **Parser**, **Loader** and **Runner** are running for every processed file. **Processor** runs all the processors.
 
 | Package | Version |
 |--------|-------|
