@@ -3,7 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-nodejs.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-nodejs "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to transform to new [nodejs](https://nodejs.org/en/) API and apply best practices.
+> **Node.js** is an open-source, cross-platform, **JavaScript** runtime environment.
+>
+> (c) [nodejs.org](https://nodejs.org/en/)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to transform to new **Node.js** API and apply best practices.
 
 ## Install
 
@@ -30,7 +34,7 @@ npm i putout @putout/plugin-nodejs -D
 
 ### convert-fs-promises
 
-Convert [fs.promises](https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api) into form that will be simpler to use and convert from in `ESM` to:
+Convert [fs.promises](https://nodejs.org/dist/latest-v15.x/docs/api/fs.html#fs_fs_promises_api) into form that will be simpler to use and convert to and from **ESM**.
 
 #### ❌ Example of incorrect code
 
@@ -81,7 +85,7 @@ const file1 = new URL('../../package.json', import.meta.url);
 const file2 = new URL('../../package.json', import.meta.url);
 ```
 
-### convert-dirname-to-url
+### convert-url-to-dirname 
 
 Only for `CommonJS`.
 
