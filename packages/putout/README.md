@@ -122,7 +122,7 @@ module.exports.replace = () => ({
 - ✅ convert `template` with one `expression` to `string`;
 - ✅ convert `equal` to `strict equal`;
 - ✅ convert `indexOf` to `includes`;
-- ✅ convert `replace` to `replaceAll` (disabled, [stage 4](https://github.com/tc39/proposal-string-replaceall));
+- ✅ convert `replace` to `replaceAll`;
 - ✅ convert `assignment` to `arrow function`;
 - ✅ convert `forEach` to `for-of`;
 - ✅ convert `map` to `for-of`;
@@ -134,7 +134,7 @@ module.exports.replace = () => ({
 - ✅ declare `undefined variables`;
 - ✅ apply `as` type assertions;
 - ✅ apply `utility types`;
-- ✅ apply `array.at` ([not bundled](https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#2021-07-29-version-1660-current-bethgriggs));
+- ✅ apply `array.at`;
 - ✅ apply `filter(Boolean)`;
 - ✅ apply [isArray](https://web.mit.edu/jwalden/www/isArray.html);
 - ✅ apply `if condition`;
