@@ -1,3 +1,23 @@
+2022.03.12, v25.5.0
+
+fix:
+- feature(@putout/engine-runner) validate absent fix
+- (@putout/plugin-regexp) get isSimpleRegexp check back
+
+
+feature:
+- (@putout/plugin-promises) merge @putout/plugin-apply-await-import
+- (@putout/engine-runner) validate absent fix
+- (@putout/engine-runner) include: add report validation
+- (eslint-plugin-putout) @typescript-eslint/lines-between-class-members: turn off
+- (@putout/eslint-config) disable lines-between-property-members
+- (@putout/eslint-config) padding-line-between-statements: add functions
+- (@putout/engine-loader) replace -> replaceAll
+- (@putout/plugin-regexp) improve support of newlines
+- (@putout/plugin-convert-quotes-to-backticks) improve support of multiple backslashes
+- (@putout/plugin-regexp) convert-replace-to-replace-all: improve RegExp support
+
+
 2022.03.08, v25.4.1
 
 feature:
