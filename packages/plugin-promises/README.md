@@ -3,6 +3,10 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-promises.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-promises"npm"
 
+> The `Promise` object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to work with promises.
 
 ## Install
