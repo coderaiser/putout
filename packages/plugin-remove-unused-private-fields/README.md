@@ -26,7 +26,6 @@ npm i @putout/plugin-remove-unused-private-fields
 ```js
 class Hello {
     #a = 5;
-    
     #b = 3;
     
     get() {

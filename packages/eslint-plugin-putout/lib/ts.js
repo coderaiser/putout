@@ -25,9 +25,7 @@ const extensionRules = {
     // broken
     '@typescript-eslint/indent': 'off',
     
-    'lines-between-class-members': 'off',
-    '@typescript-eslint/lines-between-class-members': 'error',
-    
+    '@typescript-eslint/lines-between-class-members': 'off',
     '@typescript-eslint/no-array-constructor': 'off',
     
     'no-extra-parens': 'off',

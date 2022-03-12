@@ -164,3 +164,7 @@ test('eslint-plugin-putout: esm-to-cjs', async ({process}) => {
     });
 });
 
+test('eslint-plugin-putout: typescript: disable padding-between-private-members', async ({noProcess}) => {
+    await noProcess('padding-between-private-members');
+});
+
