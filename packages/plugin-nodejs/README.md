@@ -65,7 +65,7 @@ const {readFile} = require('fs/promises');
 
 ### convert-dirname-to-url
 
-Only for `EcmaScript Modules`.
+Only for **ESM**.
 
 #### ❌ Example of incorrect code
 
@@ -87,7 +87,7 @@ const file2 = new URL('../../package.json', import.meta.url);
 
 ### convert-url-to-dirname 
 
-Only for `CommonJS`.
+Only for **CommonJS**.
 
 #### ❌ Example of incorrect code
 
