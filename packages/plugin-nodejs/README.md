@@ -85,7 +85,7 @@ const file1 = new URL('../../package.json', import.meta.url);
 const file2 = new URL('../../package.json', import.meta.url);
 ```
 
-### convert-url-to-dirname 
+### convert-url-to-dirname
 
 Only for **CommonJS**.
 
