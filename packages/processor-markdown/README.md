@@ -3,7 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/processor-markdown.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/processor-markdown "npm"
 
-`putout` processor adds ability to get `js`, `json` and `ts` code from markdown files.
+> **Markdown**, the simple and easy-to-use markup language you can use to format virtually any document.
+>
+> (c) [markdownguide.org](https://www.markdownguide.org/)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) processor adds ability to get **JavaScript**, **JSON** and **TypeScript** code from markdown files.
 
 ## Install
 
