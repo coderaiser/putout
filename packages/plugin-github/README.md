@@ -7,7 +7,7 @@
 >
 > (c) [github.com](https://docs.github.com/en/actions)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with [`github actions`](https://github.com/features/actions).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with [**Github Actions**](https://github.com/features/actions).
 
 ## Install
 
