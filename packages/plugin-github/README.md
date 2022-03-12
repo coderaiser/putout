@@ -3,6 +3,10 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-github.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-github"npm"
 
+> Automate, customize, and execute your software development workflows right in your repository with **GitHub Actions**.
+>
+> (c) [github.com](https://docs.github.com/en/actions)
+
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with [`github actions`](https://github.com/features/actions).
 
 ## Install
