@@ -1705,7 +1705,6 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 |--------|-------|
 | [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) |
 | [`@putout/plugin-apply-is-array`](/packages/plugin-apply-is-array#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-is-array.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-is-array) |
-| [`@putout/plugin-apply-await-import`](/packages/plugin-apply-await-import#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-await-import.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-await-import) |
 | [`@putout/plugin-apply-numeric-separators`](/packages/plugin-apply-numeric-separators#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-numeric-separators.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-numeric-separators) |
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) |
@@ -2148,7 +2147,7 @@ Where `__` is a placeholder for anything.
 
 *☝️Remember: template key should be valid JavaScript, or Type name like in previous example.*
 
-You can also use `include` and/or `exclude` insead of `traverse` and `filter` ([more sophisticated example](https://github.com/coderaiser/putout/blob/master/packages/plugin-add-return-await/lib/add-return-await.js)):
+You can also use `include` and/or `exclude` insead of `traverse` and `filter` ([more sophisticated example](https://github.com/coderaiser/putout/blob/v25.4.1/packages/plugin-add-return-await/lib/add-return-await.js)):
 
 ```js
 // should be always used include/or exclude, when traverse not used

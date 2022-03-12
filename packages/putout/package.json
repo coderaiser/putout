@@ -71,7 +71,6 @@
     "@putout/operator-declare": "^4.0.0",
     "@putout/operator-regexp": "^1.0.0",
     "@putout/plugin-apply-array-at": "^2.0.0",
-    "@putout/plugin-apply-await-import": "^1.0.0",
     "@putout/plugin-apply-destructuring": "^5.0.0",
     "@putout/plugin-apply-if-condition": "^1.0.0",
     "@putout/plugin-apply-is-array": "^2.0.0",

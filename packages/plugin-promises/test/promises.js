@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-promises: transform: report', (t) => {
-    t.report('await', 'Async functions should be called using await');
+    t.report('await', `Call async functions using 'await'`);
     t.end();
 });
 
@@ -34,6 +34,11 @@ test('plugin-promises: transform: return-useless-await', (t) => {
 
 test('plugin-promises: transform: apply-top-level-await', (t) => {
     t.transform('apply-top-level-await');
+    t.end();
+});
+
+test('plugin-promises: transform: apply-await-import', (t) => {
+    t.transform('apply-await-import');
     t.end();
 });
 

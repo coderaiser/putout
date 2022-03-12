@@ -7,7 +7,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-add-missing-await: exports: transform: report', (t) => {
-    t.report('async', 'Async functions should be called using await');
+    t.report('async', `Call async functions using 'await'`);
     t.end();
 });
 

@@ -7,7 +7,7 @@ const {
     AwaitExpression,
 } = types;
 
-module.exports.report = () => 'Async functions should be called using await';
+module.exports.report = () => `Call async functions using 'await'`;
 
 module.exports.match = () => ({
     '__a(__args)': ({__a}, path) => {

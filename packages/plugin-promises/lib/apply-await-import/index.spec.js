@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const awaitImport = require('..');
+const awaitImport = require('.');
 
 const test = createTest(__dirname, {
     'await-import': awaitImport,

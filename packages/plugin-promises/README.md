@@ -21,38 +21,31 @@ npm i @putout/plugin-promises -D
 {
     "rules": {
         "promises/add-missing-await": "on",
+        "promises/apply-await-import": "on",
+        "promises/apply-top-level-await": "on",
         "promises/remove-useless-resolve": "on",
         "promises/remove-useless-async": "on",
         "promises/remove-useless-await": "on",
         "promises/convert-reject-to-throw": "on",
-        "promises/convert-new-promise-to-async": "on",
-        "promises/apply-top-level-await": "on"
+        "promises/convert-new-promise-to-async": "on"
     }
 }
 ```
 
-## add-return-await
+## apply-await-import
+
+add forgotten **await** to [**dynamic `import()`**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports).
 
 ### ❌ Example of incorrect code
 
 ```js
-async function hello() {
-    return world();
-}
-
-async function world() {
-}
+const {readFile} = import('fs/promises');
 ```
 
 ### ✅ Example of correct code
 
 ```js
-async function hello() {
-    return await world();
-}
-
-async function world() {
-}
+const {readFile} = await import('fs/promises');
 ```
 
 ## remove-useless-resolve

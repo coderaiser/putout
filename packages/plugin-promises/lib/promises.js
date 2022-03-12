@@ -8,6 +8,8 @@ module.exports.rules = {
     ...getRule('remove-useless-resolve'),
     ...getRule('convert-reject-to-throw'),
     ...getRule('add-missing-await'),
+    //    ...getRule('add-return-await'),
+    ...getRule('apply-await-import'),
     ...getRule('apply-top-level-await'),
     ...getRule('remove-useless-async'),
     ...getRule('remove-useless-await'),
