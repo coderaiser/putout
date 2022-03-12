@@ -51,7 +51,7 @@ test('putout: runner: include: not a function', (t) => {
         }],
     });
     
-    t.equal(error.message, '☝️ Looks like "include" is not a function: ["debugger"]. More on using Includer: https://git.io/JqcMn');
+    t.equal(error.message, `☝️ Looks like 'include' is not a 'function': but 'object' with value '["debugger"]'. More on using Includer: https://git.io/JqcMn`);
     t.end();
 });
 
@@ -82,3 +82,23 @@ test('putout: runner: include: fix: options', (t) => {
     t.equal(code, `'world';`);
     t.end();
 });
+
+test('putout: runner: include: only', (t) => {
+    const source = `import type { Query } from 'assets/core_api/types/query'`;
+    const [error] = tryCatch(putout, source, {
+        isTS: true,
+        plugins: [{
+            hello: {
+                include: () => [
+                    'import type {Query} from "assets/core_api/types/query"',
+                ],
+            },
+        }],
+    });
+    
+    const expected = `☝️ Looks like 'report' is not a 'function' but 'undefined' with value: 'undefined'. More on using Includer: https://git.io/JqcMn`;
+    
+    t.equal(error.message, expected);
+    t.end();
+});
+

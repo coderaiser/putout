@@ -618,3 +618,4 @@ test('putout: runner: replace: match not function', (t) => {
     t.equal(error.message, expected);
     t.end();
 });
+
