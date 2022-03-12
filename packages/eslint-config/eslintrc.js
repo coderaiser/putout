@@ -92,7 +92,7 @@ module.exports = {
         'no-useless-return': 'error',
         'nonblock-statement-body-position': ['error', 'below'],
         'lines-around-directive': 'error',
-        'lines-between-class-members': 'error',
+        'lines-between-class-members': 'off',
         'linebreak-style': ['error', 'unix'],
         'padded-blocks': ['error', 'never'],
         'padding-line-between-statements': ['error',

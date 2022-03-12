@@ -17,3 +17,7 @@ test('eslint-config: padding-function', async ({process}) => {
     await process('padding-function');
 });
 
+test('eslint-config: lines-class-members', async ({noProcess}) => {
+    await noProcess('lines-class-members');
+});
+
