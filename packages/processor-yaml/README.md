@@ -8,7 +8,7 @@
 > (c) [yaml.org](https://yaml.org/)
 
 
-`putout` processor adds ability to transform `yaml` as `json`.
+🐊[**Putout**](https://github.com/coderaiser/putout) processor adds ability to transform `yaml` as `json`.
 
 ## Install
 
