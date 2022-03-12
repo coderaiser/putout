@@ -3,7 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-eslint.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-eslint"npm"
 
-[`putout`](https://github.com/coderaiser/putout) plugin helps to automate fixing `ESLint` config.
+> Find and fix problems in your JavaScript code
+>
+> (c) [eslint.org](https://eslint.org/)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps to automate fixing **ESLint** config.
 
 ## Install
 
