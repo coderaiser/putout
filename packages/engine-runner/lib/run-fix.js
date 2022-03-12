@@ -3,6 +3,8 @@
 const tryCatch = require('try-catch');
 const debug = require('debug')('putout:runner:fix');
 const {enabled} = debug;
+const {stringify} = JSON;
+const isFn = (a) => typeof a === 'function';
 
 const tryToFix = (fix, {path, position, options}) => {
     const [e] = tryCatch(fix, path, {options});
@@ -25,6 +27,7 @@ module.exports = (is, fix, {path, rule, position, options}) => {
         return;
     
     enabled && debug(`fix: ${rule}`, position, path.toString());
+    validate('fix', fix);
     
     tryToFix(fix, {
         path,
@@ -32,4 +35,9 @@ module.exports = (is, fix, {path, rule, position, options}) => {
         options,
     });
 };
+
+function validate(name, fn) {
+    if (!isFn(fn))
+        throw Error(`☝️ Looks like '${name}' is not a 'function' but '${typeof fn}' with value: '${stringify(fn)}'. More on writing 🐊Putout Plugins: https://git.io/JqcMn`);
+}
 

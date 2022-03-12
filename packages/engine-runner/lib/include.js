@@ -17,11 +17,8 @@ module.exports = ({rule, plugin, msg, options}) => {
         filter = good,
     } = plugin;
     
-    if (!isFn(include))
-        throw Error(`☝️ Looks like 'include' is not a 'function': but '${typeof include}' with value '${stringify(include)}'. More on using Includer: https://git.io/JqcMn`);
-    
-    if (!isFn(report))
-        throw Error(`☝️ Looks like 'report' is not a 'function' but '${typeof report}' with value: '${stringify(report)}'. More on using Includer: https://git.io/JqcMn`);
+    validate('include', include);
+    validate('report', report);
     
     const traverse = getTraverse(include(), filter, rule);
     
@@ -67,3 +64,7 @@ const getTraverse = (include, filter, rule) => ({push, options}) => {
     return result;
 };
 
+function validate(name, fn) {
+    if (!isFn(fn))
+        throw Error(`☝️ Looks like '${name}' is not a 'function' but '${typeof fn}' with value: '${stringify(fn)}'. More on using Includer: https://git.io/JqcMn`);
+}
