@@ -27,6 +27,8 @@ npm i @putout/plugin-remove-unused-private-fields
 class Hello {
     #a = 5;
     
+    #b = 3;
+    
     get() {
         return this.#a;
     }
