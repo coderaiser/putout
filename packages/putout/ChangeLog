@@ -1,3 +1,10 @@
+2022.03.13, v25.6.0
+
+feature:
+- (@putout/plugin-montag) rename from @putout/plugin-apply-montag
+- (package) @putout/plugin-apply-early-return v1.0.1
+
+
 2022.03.12, v25.5.0
 
 fix:
