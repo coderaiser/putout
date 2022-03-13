@@ -1697,7 +1697,7 @@ const x: n = 5;
 
 ## 🏟 Plugins
 
-The `putout` repo is comprised of many npm packages. It is a [lerna](https://github.com/lerna/lerna) monorepo similar to [babel](https://github.com/babel/babel).
+The 🐊**Putout** repo is comprised of many npm packages. It is a [lerna](https://github.com/lerna/lerna) monorepo similar to [babel](https://github.com/babel/babel).
 
 ### Appliers
 
