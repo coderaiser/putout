@@ -3,7 +3,12 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-montag.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-montag"npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply [montag](https://github.com/coderaiser/montag).
+
+> Format multiline strings using tagged templates, instead of puting all lines into an array and joining to a string.
+>
+> (c) [**Montag**](https://github.com/coderaiser/montag)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply [**Montag**](https://github.com/coderaiser/montag).
 
 ## Install
 
