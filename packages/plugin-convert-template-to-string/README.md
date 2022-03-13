@@ -10,7 +10,7 @@
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and convert **Template Literals** to calling of `String` constructor.
 
-##  Install
+## Install
 
 ```
 npm i @putout/plugin-convert-template-to-string
