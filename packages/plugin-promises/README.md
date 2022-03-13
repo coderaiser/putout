@@ -96,7 +96,7 @@ const hello = await 'world';
 ### ✅ Example of correct code
 
 ```js
-await await Promise.resolve();
+await Promise.resolve();
 const hello = 'world';
 ```
 
