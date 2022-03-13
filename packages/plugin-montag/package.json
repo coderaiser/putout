@@ -1,11 +1,11 @@
 {
-  "name": "@putout/plugin-apply-montag",
-  "version": "1.1.0",
+  "name": "@putout/plugin-montag",
+  "version": "1.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability apply 'montag'",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-montag#readme",
-  "main": "lib/apply-montag.js",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-montag#readme",
+  "main": "lib/index.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -42,11 +42,11 @@
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {
-    "putout": ">=19"
+    "putout": ">=25"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "publishConfig": {
     "access": "public"

@@ -32,3 +32,8 @@ test('plugin-apply-montag: no transform: not-str', (t) => {
     t.end();
 });
 
+test('plugin-apply-montag: transform: declare', (t) => {
+    t.transform('declare');
+    t.end();
+});
+

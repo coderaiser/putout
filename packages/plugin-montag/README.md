@@ -8,7 +8,7 @@
 >
 > (c) [**Montag**](https://github.com/coderaiser/montag)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply [**Montag**](https://github.com/coderaiser/montag).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply [**Montag**](https://github.com/coderaiser/montag). Renamed to [@putout/plugin-montag](https://www.npmjs.com/package/@putout/plugin-montag).
 
 ## Install
 
@@ -21,12 +21,15 @@ npm i @putout/plugin-apply-montag
 ```json
 {
     "rules": {
-        "apply-montag": "on"
+        "montag/apply": "on",
+        "montag/declare": "on"
     }
 }
 ```
 
-## ❌ Example of incorrect code
+## apply
+
+### ❌ Example of incorrect code
 
 ```js
 const a = [
@@ -35,9 +38,30 @@ const a = [
 ].join('\n');
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
+const a = montag`
+    hello
+    world
+`;
+```
+
+## declare
+
+### ❌ Example of incorrect code
+
+```js
+const a = montag`
+    hello
+    world
+`;
+```
+
+### ✅ Example of correct code
+
+```js
+import montag from 'montag';
 const a = montag`
     hello
     world

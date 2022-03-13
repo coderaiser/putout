@@ -60,7 +60,6 @@ Use options:
                 "keys",
                 "values",
                 "stopAll",
-                "montag",
                 "once",
                 "putout",
                 "simport"

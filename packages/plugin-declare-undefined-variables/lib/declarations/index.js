@@ -22,7 +22,6 @@ module.exports = {
     
     noop: 'const noop = () => {}',
     
-    montag: `import montag from 'montag'`,
     once: `import once from 'once'`,
     putout: `import putout from 'putout'`,
     eslint: `import eslint from 'putout/eslint'`,

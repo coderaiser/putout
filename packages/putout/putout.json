@@ -216,7 +216,8 @@
         "github",
         "tape",
         "try-catch",
-        "nodejs"
+        "nodejs",
+        "montag"
     ]
 }
 
