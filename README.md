@@ -1709,7 +1709,9 @@ The 🐊**Putout** repo is comprised of many npm packages. It is a [lerna](https
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) |
 | [`@putout/plugin-apply-if-condition`](/packages/plugin-apply-if-condition#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-if-condition.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-if-condition) |
-
+| [`@putout/plugin-apply-montag`](/packages/plugin-apply-montag#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-montag.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-montag) |
+| [`@putout/plugin-apply-early-return`](/packages/plugin-apply-early-return#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-early-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-early-return) |
+    
 ### Splitters
 
 | Package | Version |
@@ -1809,13 +1811,10 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-apply-montag`](/packages/plugin-apply-montag#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-montag.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-montag) |
-| [`@putout/plugin-apply-early-return`](/packages/plugin-apply-early-return#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-early-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-early-return) |
 | [`@putout/plugin-react-hooks`](/packages/plugin-react-hooks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-react-hooks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-react-hooks) |
 | [`@putout/plugin-convert-is-nan-to-number-is-nan`](/packages/plugin-convert-is-nan-to-number-is-nan#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-is-nan-to-number-is-nan.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-is-nan-to-number-is-nan) |
 | [`@putout/plugin-convert-spread-to-array-from`](/packages/plugin-convert-spread-to-array-from#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-spread-to-array-from.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-spread-to-array-from) |
 | [`@putout/plugin-apply-shorthand-properties`](/packages/plugin-apply-shorthand-properties#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-shorthand-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-shorthand-properties) |
-| [`@putout/plugin-apply-top-level-await`](/packages/plugin-apply-top-level-await#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-top-level-await.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-top-level-await) |
 | [`@putout/plugin-apply-nullish-coalescing`](/packages/plugin-apply-nullish-coalescing#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-nullish-coalescing.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-nullish-coalescing) |
 | [`@putout/plugin-cloudcmd`](/packages/plugin-cloudcmd#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-cloudcmd.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-cloudcmd) |
 | [`@putout/plugin-postcss`](/packages/plugin-postcss#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-postcss.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-postcss) |
