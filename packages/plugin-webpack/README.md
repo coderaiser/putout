@@ -7,7 +7,6 @@
 >
 > (c) [webpack.js.org](https://webpack.js.org/)
 
-
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps to migrate to latest **webpack** version.
 
 ## Install
