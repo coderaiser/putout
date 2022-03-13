@@ -29,10 +29,10 @@ npm i @putout/plugin-apply-montag
 ## ❌ Example of incorrect code
 
 ```js
-const a = montag`
-    hello
-    world
-`;
+const a = [
+    'hello',
+    'world',
+].join('\n');
 ```
 
 ## ✅ Example of correct code
