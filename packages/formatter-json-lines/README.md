@@ -3,7 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-json-lines.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/formatter-json-lines "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) formatter output [json lines](https://jsonlines.org/).
+> **JSON Lines** is a convenient format for storing structured data that may be processed one record at a time. It works well with unix-style text processing tools and shell pipelines. It's a great format for log files. It's also a flexible format for passing messages between cooperating processes.
+>
+> (c) [jsonlines.org](https://jsonlines.org/)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) formatter output **JSON Lines**.
 
 ## Install
 
