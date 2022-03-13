@@ -3,7 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-json.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/formatter-json "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) formatter output json on end.
+> **JSON** is a syntax for serializing `objects`, `arrays`, `numbers`, `strings`, `booleans`, and `null`. It is based upon **JavaScript** syntax but is distinct from it: some **JavaScript** is *not* **JSON**.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) formatter outputs **JSON**, when done.
 
 ## Install
 
