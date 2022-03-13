@@ -1805,7 +1805,7 @@ The `putout` repo is comprised of many npm packages. It is a [lerna](https://git
 
 ### Not bundled
 
-Next packages not bundled with `putout` but can be installed separately.
+Next packages not bundled with 🐊**Putout** but can be installed separately.
 
 | Package | Version |
 |--------|-------|
