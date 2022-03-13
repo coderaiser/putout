@@ -1711,7 +1711,7 @@ The 🐊**Putout** repo is comprised of many npm packages. It is a [lerna](https
 | [`@putout/plugin-apply-if-condition`](/packages/plugin-apply-if-condition#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-if-condition.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-if-condition) |
 | [`@putout/plugin-apply-montag`](/packages/plugin-apply-montag#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-montag.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-montag) |
 | [`@putout/plugin-apply-early-return`](/packages/plugin-apply-early-return#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-early-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-early-return) |
-    
+
 ### Splitters
 
 | Package | Version |

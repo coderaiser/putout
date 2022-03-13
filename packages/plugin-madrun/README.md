@@ -7,7 +7,7 @@
 >
 > (c) [**Madrun**](https://github.com/coderaiser/madrun)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to fix issues with 
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to fix issues with
 **Madrun** config file.
 
 ## Install
