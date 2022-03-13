@@ -72,6 +72,7 @@
     "@putout/operator-regexp": "^1.0.0",
     "@putout/plugin-apply-array-at": "^2.0.0",
     "@putout/plugin-apply-destructuring": "^5.0.0",
+    "@putout/plugin-apply-early-return": "^1.0.1",
     "@putout/plugin-apply-if-condition": "^1.0.0",
     "@putout/plugin-apply-is-array": "^2.0.0",
     "@putout/plugin-apply-numeric-separators": "^1.0.0",

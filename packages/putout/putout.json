@@ -123,6 +123,7 @@
     },
     "plugins": [
         "apply-array-at",
+        "apply-early-return",
         "apply-is-array",
         "apply-destructuring",
         "apply-optional-chaining",
