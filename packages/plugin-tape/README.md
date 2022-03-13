@@ -3,7 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-tape.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-tape"npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps to apply best parctises for tests written with 📼[`Supertape`](https://github.com/coderaiser/supertape).
+> Tape-inspired TAP-compatible simplest high speed test runner with superpowers.
+>
+> (c) 📼[**Supertape**](https://github.com/coderaiser/supertape)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps to apply best parctises for tests written with 📼[**Supertape**](https://github.com/coderaiser/supertape).
 
 ## Install
 
