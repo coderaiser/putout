@@ -3,7 +3,12 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-math-pow.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-math-pow "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `Math.pow` to `exponentiation operator`.
+> - The [`Math.pow()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow) static method, given two arguments, base and exponent, returns baseexponent.
+> - The [**exponentiation operator**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation) (`**`) returns the result of raising the first operand to the power of the second operand. It is equivalent to `Math.pow`, except it also accepts BigInts as operands.
+>
+> (c) MDN
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `Math.pow` to **exponentiation operator**.
 
 ## Install
 
