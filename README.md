@@ -1709,7 +1709,6 @@ The 🐊**Putout** repo is comprised of many npm packages. It is a [lerna](https
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) |
 | [`@putout/plugin-apply-if-condition`](/packages/plugin-apply-if-condition#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-if-condition.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-if-condition) |
-| [`@putout/plugin-apply-montag`](/packages/plugin-apply-montag#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-montag.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-montag) |
 | [`@putout/plugin-apply-early-return`](/packages/plugin-apply-early-return#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-early-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-early-return) |
 
 ### Splitters
@@ -1847,6 +1846,7 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 | [`@putout/plugin-nodejs`](/packages/plugin-nodejs#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-nodejs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-nodejs) |
 | [`@putout/plugin-typescript`](/packages/plugin-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-typescript) |
 | [`@putout/plugin-try-catch`](/packages/plugin-try-catch#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-try-catch.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-try-catch) |
+| [`@putout/plugin-montag`](/packages/plugin-montag#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-montag.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-montag) |
 
 ## 🦚 Formatters
 
