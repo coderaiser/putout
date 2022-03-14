@@ -143,6 +143,7 @@
     "@putout/plugin-remove-useless-conditions": "^1.0.0",
     "@putout/plugin-remove-useless-constructor": "^1.0.0",
     "@putout/plugin-remove-useless-continue": "^1.0.0",
+    "@putout/plugin-remove-useless-else": "^1.0.0",
     "@putout/plugin-remove-useless-escape": "^3.0.0",
     "@putout/plugin-remove-useless-for-of": "^2.0.0",
     "@putout/plugin-remove-useless-functions": "^2.0.0",

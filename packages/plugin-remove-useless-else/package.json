@@ -1,0 +1,54 @@
+{
+  "name": "@putout/plugin-remove-useless-else",
+  "version": "1.0.1",
+  "type": "commonjs",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "putout plugin adds ability use apply early return",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-else#readme",
+  "main": "lib/remove-useless-else.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {},
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "putout-plugin-remove",
+    "putout-plugin-remove-useless",
+    "plugin"
+  ],
+  "devDependencies": {
+    "@putout/test": "^5.0.0",
+    "c8": "^7.5.0",
+    "eslint": "^8.0.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^14.0.0",
+    "lerna": "^4.0.0",
+    "madrun": "^9.0.0",
+    "nodemon": "^2.0.1"
+  },
+  "peerDependencies": {
+    "putout": ">=25"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

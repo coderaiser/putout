@@ -145,6 +145,7 @@
         "remove-unused-private-fields",
         "remove-unused-expressions",
         "remove-useless-variables",
+        "remove-useless-else",
         "remove-useless-map",
         "remove-useless-new",
         "remove-useless-constructor",
