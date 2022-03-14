@@ -400,7 +400,7 @@ It looks this way in [**ESTree**](https://github.com/estree/estree) JavaScript s
 
 ### 🧪 Processors
 
-With help of [processors](https://github.com/coderaiser/putout/blob/master/packages/engine-processor#readme) 🐊**Putout** can be extended to read any file format and parse `JavaScript` from there.
+With help of [processors](https://github.com/coderaiser/putout/blob/master/packages/engine-processor#readme) 🐊**Putout** can be extended to read any file format and parse **JavaScript** from there.
 
 Here is a list of built-int processors:
 
