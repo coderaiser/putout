@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-montag.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-montag"npm"
 
-> Format multiline strings using tagged templates, instead of puting all lines into an array and joining to a string.
+> Format multiline strings using tagged templates, instead of putting all lines into an array and joining to a string.
 >
 > (c) [**Montag**](https://github.com/coderaiser/montag)
 
