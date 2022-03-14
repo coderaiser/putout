@@ -7,7 +7,6 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
 
-
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert assignment to comparison.
 
 ## Install
