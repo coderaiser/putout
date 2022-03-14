@@ -3,7 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-numeric-separators.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-numeric-separators"npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin apply `numeric separators`.
+> To improve readability for numeric literals, underscores (`_`) can be used as separators.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin apply **numeric separators**.
 
 ## Install
 
