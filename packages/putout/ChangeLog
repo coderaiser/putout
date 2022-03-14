@@ -1,3 +1,12 @@
+2022.03.14, v25.7.0
+
+feature:
+- (package) @putout/plugin-apply-early-return v2.0.0
+- (@putout/plugin-apply-early-return) drop support of 🐊 < 25
+- (@putout/plugin-apply-eary-return) improve
+- (@putout/plugin-remove-useless-else) add
+
+
 2022.03.13, v25.6.0
 
 feature:
