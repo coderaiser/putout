@@ -3,6 +3,10 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-if-condition.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-if-condition"npm"
 
+> The if statement executes a statement if a specified condition is truthy.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
+
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply `if condition`
 
 ## Install
