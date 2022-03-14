@@ -1,9 +1,10 @@
-{
-    if (x) {
-        return 5;
-    };
+function get(a) {
+    let b = 0;
 
     {
-        console.log();
-    };
+        if (a > 0)
+            return 5;
+
+        return 7;
+    }
 }

@@ -28,19 +28,27 @@ npm i @putout/plugin-apply-early-return
 ## ❌ Example of incorrect code
 
 ```js
-if (x)
-    return;
-else
-    console.log();
+function get(a) {
+    let b = 0;
+    
+    if (a > 0)
+        b = 5;
+    else
+        b = 7;
+    
+    return b;
+}
 ```
 
 ## ✅ Example of correct code
 
 ```js
-if (x)
-    return;
-
-console.log();
+function get(a) {
+    if (a > 0)
+        return 5;
+    
+    return 7;
+}
 ```
 
 ## License
