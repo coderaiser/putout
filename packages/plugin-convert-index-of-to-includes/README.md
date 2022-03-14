@@ -17,12 +17,10 @@ npm i @putout/plugin-convert-index-of-to-includes -D
 
 ## Rule
 
-Rule `convert-index-of-to-includes` is enabled by default, to disable add to `.putout.json`:
-
 ```json
 {
     "rules": {
-        "convert-index-of-to-includes": "off"
+        "convert-index-of-to-includes": "on"
     }
 }
 ```
