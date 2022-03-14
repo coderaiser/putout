@@ -3,6 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-is-array.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-is-array "npm"
 
+> The `Array.isArray()` method determines whether the passed value is an `Array`.
+> When checking for `Array` instance, `Array.isArray()` is preferred over `instanceof` because it works through `iframes`.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
+
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply `Array.isArray()`. Fits good with [@putout/plugin-declare-undefined-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables).
 
 ## Install
