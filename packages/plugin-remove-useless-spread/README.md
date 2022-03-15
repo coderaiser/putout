@@ -49,7 +49,6 @@ const places = getPlaces();
 ### ❌ Example of incorrect code
 
 ```js
-
 const a = {
     ...b,
 };
