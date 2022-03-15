@@ -1,3 +1,16 @@
+2022.03.15, v25.7.1
+
+feature:
+- (package) @putout/plugin-extract-sequence-expressions v3.0.0
+- (@putout/plugin-extract-sequence-expressions) drop support of 🐊 < 25
+- (@putout/plugin-extract-sequence-expressions) add support of arguments
+- (package) @putout/plugin-convert-commonjs-to-esm v9.0.0
+- (package) @putout/plugin-putout v11.0.0
+- (@putout/plugin-putout) drop support of 🐊 < 25
+- (@putout/plugin-convert-commonjs-to-esm) drop support of 🐊 < 25
+- (@putout/plugin-convert-commonjs-to-esm) add support of babel v7.17.7 (https://github.com/babel/babel/releases/tag/v7.17.7)
+
+
 2022.03.14, v25.7.0
 
 feature:
