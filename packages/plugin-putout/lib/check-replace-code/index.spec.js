@@ -63,7 +63,7 @@ test('plugin-putout: check-replace-code: no report: member', (t) => {
 });
 
 test('plugin-putout: check-replace-code: report: invalid', (t) => {
-    t.report('invalid', `Unexpected token (1:10)`);
+    t.report('invalid', 'Missing initializer in const declaration. (1:9)');
     t.end();
 });
 
