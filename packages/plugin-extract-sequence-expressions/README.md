@@ -7,7 +7,7 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert Commonjs to ESM.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to extract **sequence expressions**.
 
 ## Install
 
