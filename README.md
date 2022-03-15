@@ -2339,7 +2339,7 @@ This way you can keep rules specific for your project and run them on each lint.
 > Find and fix problems in your **JavaScript** code
 >
 > (c) [eslint.org](https://eslint.org/)
-    
+
 If you see that 🐊**Putout** brokes formatting of your code, use **ESLint** plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#eslint-plugin-putout--).
 
 Install `eslint-plugin-putout` with:
