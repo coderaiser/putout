@@ -6,7 +6,7 @@
 > **EcmaScript module** syntax is the standard way to import and export values between files in **JavaScript**. The `import` statement can be used to reference a value exposed by the `export` statement in another file.
 >
 > **CommonJS** is a module system supported in Node, it provides a `require` function, which can be used to access the `exports` object exposed by another file.
-> 
+>
 > (c) [parceljs](https://parceljs.org/languages/javascript/)
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert **EcmaScript Modules** to **CommonJS**.
