@@ -2336,7 +2336,11 @@ This way you can keep rules specific for your project and run them on each lint.
 
 ## 🦕 Integration with ESLint
 
-If you see that 🐊**Putout** brokes formatting of your code, use eslint plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#eslint-plugin-putout--).
+> Find and fix problems in your **JavaScript** code
+>
+> (c) [eslint.org](https://eslint.org/)
+    
+If you see that 🐊**Putout** brokes formatting of your code, use **ESLint** plugin [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#eslint-plugin-putout--).
 
 Install `eslint-plugin-putout` with:
 
@@ -2363,13 +2367,13 @@ And use with 🐊**Putout** this way:
 putout --fix lib
 ```
 
-To set custom `eslint config file` use `ESLINT_CONFIG_FILE` env variable:
+To set custom config file for **ESLint** use `ESLINT_CONFIG_FILE` env variable:
 
 ```sh
 ESLINT_CONFIG_FILE=test.eslintrc.json putout --fix lib
 ```
 
-You can even use only `ESlint`, because `putout` bundled to `eslint-plugin-putout` with:
+You can even lint without 🐊**Putout** **CLI** using **ESlin** only, since 🐊**Putout** is bundled to `eslint-plugin-putout`:
 
 ```
 eslint --fix lib
@@ -2377,9 +2381,9 @@ eslint --fix lib
 
 Applies 🐊**Putout** transformations for you :).
 
-### `ESLint` API
+### ESLint API
 
-`ESLint` begins his work as a formatter when 🐊**Putout** done his transformations. That's why it used a lot in different parts of application, for testing purpose and using `API` in a simplest possible way. You can access it with:
+**ESLint** begins his work as a formatter when 🐊**Putout** done his transformations. That's why it used a lot in different parts of application, for testing purpose and using **API** in a simplest possible way. You can access it with:
 
 ```js
 import {eslint} from 'putout/eslint';
@@ -2398,9 +2402,9 @@ const [source, places] = await eslint({
 Isn't it looks similar to 🐊**Putout** way? It definitely is! But... It has a couple differences you should remember:
 
 - ☝️ *[🐊**Putout** returns object with `code` and `places` properties](https://github.com/coderaiser/putout#plugins).*
-- ☝️ *`ESLint` has a `name` property that is used to calculate configuration file.*
+- ☝️ **ESLint** has a `name` property that is used to calculate configuration file.*
 
-And you can even override any of ESLint ⚙️ options with help of `config` property:
+And you can even override any of **ESLint** ⚙️ options with help of `config` property:
 
 ```js
 const [source, places] = await eslint({
@@ -2415,7 +2419,7 @@ const [source, places] = await eslint({
 });
 ```
 
-If you want to apply 🐊**Putout** transformations using `putout/putout` `ESLint` rule, enable `putout` with the same called flag:
+If you want to apply 🐊**Putout** transformations using `putout/putout` **ESLint** rule, enable 🐊**Putout** with the same called flag lowercased:
 
 ```js
 const [source, places] = await eslint({
@@ -2431,7 +2435,7 @@ const [source, places] = await eslint({
 });
 ```
 
-It is disabled by default, because `ESLint` always runs after 🐊**Putout** transformations, so there is no need to traverse tree again.
+It is disabled by default, because **ESLint** always runs after 🐊**Putout** transformations, so there is no need to traverse tree again.
 
 This `API` doesn't suppose to came in 🌴 Public Space, anyways it is already used in [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout) to [test plugins](https://github.com/coderaiser/putout/blob/master/packages/eslint-plugin-putout/test/test-lint.mjs#L24-L28), so why not :)? Anyways it's signature didn't changed from the beginning.
 
