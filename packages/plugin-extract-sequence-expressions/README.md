@@ -26,6 +26,8 @@ npm i @putout/plugin-extract-sequence-expressions -D
 ```js
 module.exports.x = 1,
 module.exports.y = 2;
+
+fn((a, b));
 ```
 
 ## ✅ Example of correct code
@@ -33,6 +35,8 @@ module.exports.y = 2;
 ```js
 module.exports.x = 1;
 module.exports.y = 2;
+
+fn(a, b);
 ```
 
 ## License

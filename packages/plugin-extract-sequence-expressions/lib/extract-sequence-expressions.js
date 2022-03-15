@@ -16,10 +16,15 @@ const {
     isAwaitExpression,
 } = types;
 
-module.exports.report = () => 'Sequence expressions should not be used';
+module.exports.report = () => 'Avoid sequence expressions';
 
 module.exports.fix = (path) => {
     const {parentPath} = path;
+    
+    if (isArgs(path)) {
+        path.parentPath.node.arguments = path.node.expressions;
+        return;
+    }
     
     if (isFn(path)) {
         const expressions = parentPath.node.body.expressions.map(toExpression);
@@ -66,6 +71,9 @@ module.exports.traverse = ({push}) => ({
         
         if (isBlock(path) || isFn(path) || isExpr(path) || isCallee(path) || isRet(path))
             push(path);
+        
+        if (isArgs(path))
+            push(path);
     },
 });
 
@@ -82,3 +90,14 @@ function isCallee(path) {
     return isCall && isSame;
 }
 
+function isArgs(path) {
+    const {parentPath} = path;
+    
+    if (!parentPath.isCallExpression())
+        return false;
+    
+    if (parentPath.node.arguments.length !== 1)
+        return false;
+    
+    return path === parentPath.get('arguments.0');
+}

@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-extract-sequence-expressions: report', (t) => {
-    t.report('sequence', 'Sequence expressions should not be used');
+    t.report('sequence', 'Avoid sequence expressions');
     t.end();
 });
 
@@ -39,6 +39,11 @@ test('plugin-extract-sequence-expressions: transform return', (t) => {
 
 test('plugin-extract-sequence-expressions: transform layers', (t) => {
     t.transform('layers');
+    t.end();
+});
+
+test('plugin-extract-sequence-expressions: transform: args', (t) => {
+    t.transform('args');
     t.end();
 });
 
