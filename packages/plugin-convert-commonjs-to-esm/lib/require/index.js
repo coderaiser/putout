@@ -68,6 +68,7 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
+    'const __a = require(__b).default': 'import __a from "__b"',
     'const __a = require(__b).__c': `{
         const {__c} = require(__b);
         const __a = __c;
@@ -95,9 +96,8 @@ module.exports.replace = () => ({
         if (isObjectPattern(__a)) {
             const imports = [];
             
-            for (const {key, value} of __a.properties) {
+            for (const {key, value} of __a.properties)
                 imports.push(`${key.name} as ${value.name}`);
-            }
             
             const importsStr = imports.join(',');
             

@@ -1,4 +1,1 @@
-{
-  import {default} from 'jest-diff';
-  const diff = default;
-}
+import diff from 'jest-diff';
