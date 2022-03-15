@@ -3,6 +3,10 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-commonjs-to-esm.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-commonjs-to-esm"npm"
 
+> **ECMAScript modules** are the official standard format to package JavaScript code for reuse. Modules are defined using a variety of import and export statements.
+>
+> (c) [nodejs.org](https://nodejs.org/api/esm.html#modules-ecmascript-modules)
+
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert Commonjs to ESM.
 
 ## Install
