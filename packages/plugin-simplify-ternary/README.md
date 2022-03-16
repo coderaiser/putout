@@ -3,7 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-simplify-ternary "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to simplify `ternary`.
+> The **ternary** operator takes three operands: a condition followed by a question mark (`?`), then an expression to execute if the condition is truthy followed by a colon (`:`), and finally the expression to execute if the condition is falsy. This operator is frequently used as an alternative to an `if...else` statement.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to simplify **ternary** to **logical expression** when first and second operands are the same.
 
 ## Install
 
