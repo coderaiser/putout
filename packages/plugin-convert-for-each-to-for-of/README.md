@@ -3,7 +3,13 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-for-each-to-for-of.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-for-each-to-for-of "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `Math.pow` to `exponentiation operator`.
+> The [`forEach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) method executes a provided function once for each array element.
+>
+> The [`for...of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) statement creates a loop iterating over iterable objects, including: built-in `String`, `Array`, array-like objects and user-defined iterables. It invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object.
+>
+> (c) MDN
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `forEach()` to `for...of`.
 
 ## Install
 
@@ -13,12 +19,10 @@ npm i @putout/plugin-convert-for-each-to-for-of -D
 
 ## Rule
 
-Rule `convert-for-each-to-for-of` is enabled by default, to disable add to `.putout.json`:
-
 ```json
 {
     "rules": {
-        "convert-for-each-to-for-of": "off"
+        "convert-for-each-to-for-of": "on"
     }
 }
 ```
