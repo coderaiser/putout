@@ -57,13 +57,7 @@ function checkStub(node, path) {
     const {name} = node;
     const binding = bindings[name];
     
-    if (!binding)
-        return false;
-    
-    const initPath = binding.path.get('init');
-    const calleePath = initPath.get('callee');
-    
-    return !calleePath.isMemberExpression();
+    return binding;
 }
 
 function applyWithNameToNode(node, path) {
@@ -76,9 +70,12 @@ function applyWithNameToNode(node, path) {
     
     const initPath = binding.path.get('init');
     const calleePath = initPath.get('callee');
+    const str = initPath.toString();
     
-    if (calleePath.isMemberExpression())
+    if (calleePath.isMemberExpression() && !str.includes('withName')) {
+        replaceWith(initPath, template.ast(`${initPath}.withName('${name}')`));
         return;
+    }
     
     replaceWith(initPath, template.ast(`stub().withName('${name}')`));
 }

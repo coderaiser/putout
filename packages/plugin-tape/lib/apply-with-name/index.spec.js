@@ -27,13 +27,13 @@ test('plugin-tape: apply-with-name: transform: called-in-order', (t) => {
     t.end();
 });
 
-test('plugin-tape: apply-with-name: no transform: returns', (t) => {
-    t.noTransform('returns');
+test('plugin-tape: apply-with-name: transform: not-declared', (t) => {
+    t.transform('not-declared');
     t.end();
 });
 
-test('plugin-tape: apply-with-name: no transform: not-declared', (t) => {
-    t.transform('not-declared');
+test('plugin-tape: apply-with-name: transform: chain', (t) => {
+    t.transform('chain');
     t.end();
 });
 
