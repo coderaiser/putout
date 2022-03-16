@@ -3,6 +3,10 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-continue.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-continue "npm"
 
+> The `continue` statement terminates execution of the statements in the current iteration of loop.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue)
+
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `continue`.
 
 ## Install
