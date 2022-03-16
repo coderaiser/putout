@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-quotes-to-backticks.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-quotes-to-backticks "npm"
 
-> Template literals are delimited with **backticks** (`), allowing embedded expressions called substitutions.
+> Template literals are literals delimited with **backticks** (`).
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
