@@ -3,7 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-to-arrow-function.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-to-arrow-function"npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin convert `anonymous` to `arrow function`.
+> An **arrow function** expression is a compact alternative to **anonymous function**.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin convert **anonymous** to **arrow function**.
 
 ## Install
 
