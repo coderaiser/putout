@@ -37,3 +37,8 @@ test('plugin-tape: apply-with-name: transform: chain', (t) => {
     t.end();
 });
 
+test('plugin-tape: apply-with-name: no report after transform: chain', (t) => {
+    t.noReportAfterTransform('chain');
+    t.end();
+});
+

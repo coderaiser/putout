@@ -57,7 +57,17 @@ function checkStub(node, path) {
     const {name} = node;
     const binding = bindings[name];
     
-    return binding;
+    if (!binding)
+        return false;
+    
+    const initPath = binding.path.get('init');
+    const calleePath = initPath.get('callee');
+    const str = initPath.toString();
+    
+    if (calleePath.isMemberExpression() && str.includes('withName'))
+        return false;
+    
+    return true;
 }
 
 function applyWithNameToNode(node, path) {
