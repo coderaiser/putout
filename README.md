@@ -1851,7 +1851,7 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 
 ## 🦚 Formatters
 
-🐊**Putout** uses formatters similar to [eslint's formatters](https://eslint.org/docs/user-guide/formatters/).
+🐊**Putout** uses formatters similar to [**ESLint's** formatters](https://eslint.org/docs/user-guide/formatters/).
 You can specify a formatter using the `--format` or `-f` flag on the command line. For example, `--format codeframe` uses the `codeframe` formatter.
 
 The built-in formatter options are:
