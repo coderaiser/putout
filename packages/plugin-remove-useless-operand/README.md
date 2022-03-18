@@ -9,7 +9,7 @@
 >
 > (c) MDN
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `operand`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless **operand**.
 
 ## Install
 
