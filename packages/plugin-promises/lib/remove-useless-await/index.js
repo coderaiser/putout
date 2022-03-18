@@ -24,6 +24,9 @@ module.exports.filter = (path) => {
     if (argumentPath.isIdentifier())
         return false;
     
+    if (argumentPath.isLogicalExpression())
+        return false;
+    
     if (!argumentPath.isCallExpression())
         return true;
     

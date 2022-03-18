@@ -72,3 +72,8 @@ test('plugin-remove-useless-await: no transform: member-expression', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-await: no transform: logical', (t) => {
+    t.noTransform('logical');
+    t.end();
+});
+
