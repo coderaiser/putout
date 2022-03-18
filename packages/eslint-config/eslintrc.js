@@ -122,6 +122,10 @@ module.exports = {
                 next: 'const',
             }, {
                 blankLine: 'always',
+                prev: 'if',
+                next: 'throw',
+            }, {
+                blankLine: 'always',
                 prev: 'for',
                 next: 'return',
             }, {
