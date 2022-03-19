@@ -5,7 +5,7 @@
 
 > The [`for...in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in) statement iterates over all enumerable properties of an object that are keyed by strings.
 >
-> The [`for...of`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/for...of) statement creates a loop iterating over iterable objects.
+> The [`for...of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) statement creates a loop which invokes a custom iteration hook with statements to be executed for the value of each element of an array.
 >
 > (c) MDN
 
