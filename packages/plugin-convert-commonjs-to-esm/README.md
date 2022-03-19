@@ -1,11 +1,14 @@
 # @putout/plugin-convert-commonjs-to-esm [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-commonjs-to-esm.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-convert-commonjs-to-esm"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-convert-commonjs-to-esm "npm"
 
-> **ECMAScript modules** are the official standard format to package JavaScript code for reuse. Modules are defined using a variety of import and export statements.
+> **CommonJS** is a module system supported in Node, it provides a `require` function, which can be used to access the `exports` object exposed by another file.
 >
-> (c) [nodejs.org](https://nodejs.org/api/esm.html#modules-ecmascript-modules)
+> **EcmaScript module** syntax is the standard way to import and export values between files in **JavaScript**. The `import` statement can be used to reference a value exposed by the `export` statement in another file.
+>
+> (c) [parceljs](https://parceljs.org/languages/javascript/)
+
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert Commonjs to ESM.
 
