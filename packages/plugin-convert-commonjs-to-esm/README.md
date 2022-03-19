@@ -9,7 +9,6 @@
 >
 > (c) [parceljs](https://parceljs.org/languages/javascript/)
 
-
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert Commonjs to ESM.
 
 ## Install
