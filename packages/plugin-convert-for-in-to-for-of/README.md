@@ -3,7 +3,13 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-for-in-to-for-of.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-convert-for-in-to-for-of "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `for` to `for-of` loop.
+> The [`for...in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in) statement iterates over all enumerable properties of an object that are keyed by strings.
+>
+> The [`for...of`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/for...of) statement creates a loop iterating over iterable objects.
+>
+> (c) MDN
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `for...in` to `for...of` loop.
 
 ## Install
 
@@ -13,13 +19,11 @@ npm i @putout/plugin-convert-for-in-to-for-of -D
 
 ## Rule
 
-Rule `convert-for-in-to-for-of` is enabled by default, to disable add to `.putout.json`:
-
 ```json
 {
     "rules": {
-        "convert-for-in-to-for-of/positive": "off",
-        "convert-for-in-to-for-of/negative": "off"
+        "convert-for-in-to-for-of/positive": "on",
+        "convert-for-in-to-for-of/negative": "on"
     }
 }
 ```
