@@ -18,8 +18,6 @@ const {
     isCallExpression,
 } = types;
 
-const {keys} = Object;
-
 module.exports.report = () => `Object properties should be extracted into variables`;
 
 const buildAst = template(`
@@ -49,69 +47,41 @@ module.exports.fix = ({items}) => {
     }
 };
 
-module.exports.find = (ast, {traverse}) => {
-    const items = [];
-    
-    traverse(ast, {
-        'const __object = __a.__b'(fullPath) {
-            const {__a, __b} = getTemplateValues(fullPath, 'const __object = __a.__b');
-            const path = fullPath.get('declarations.0.init');
-            
-            if (findBinding(fullPath, __b.name))
-                return;
-            
-            if (isIdentifier(__a))
-                return add({
-                    name: generate(__a).code,
-                    items,
-                    path,
-                });
-            
-            if (isCallExpression(__a))
-                return add({
-                    name: generate(__a).code,
-                    items,
-                    path,
-                });
-        },
-    });
-    
-    const processed = process(Object.values(items));
-    
-    return processed;
-};
-
-function process(items) {
-    const result = [];
-    
-    for (const item of items) {
-        for (const name of keys(item)) {
-            if (item[name].length < 2)
-                continue;
-            
-            const index = item[name].length - 1;
-            const path = item[name][index];
-            
-            result.push({
-                name,
-                path,
-                items: item[name],
-            });
+module.exports.traverse = ({uplist, push}) => ({
+    'const __object = __a.__b': (fullPath) => {
+        const {__a, __b} = getTemplateValues(fullPath, 'const __object = __a.__b');
+        const path = fullPath.get('declarations.0.init');
+        const {uid} = path.scope;
+        
+        if (findBinding(fullPath, __b.name)) {
+            return;
         }
-    }
-    
-    return result;
-}
-
-function add({name, path, items}) {
-    const {uid} = path.scope;
-    
-    if (!items[uid])
-        items[uid] = {};
-    
-    if (!items[uid][name])
-        items[uid][name] = [];
-    
-    items[uid][name].push(path);
-}
+        
+        if (isIdentifier(__a) || isCallExpression(__a)) {
+            const {code} = generate(__a);
+            const id = `${uid}-${code}`;
+            
+            return uplist(id, path);
+        }
+    },
+    'Program': {
+        exit: () => {
+            for (const items of uplist()) {
+                if (items.length < 2)
+                    continue;
+                
+                const index = items.length - 1;
+                const path = items[index];
+                
+                if (path.isIdentifier())
+                    continue;
+                
+                push({
+                    path,
+                    items,
+                });
+            }
+        },
+    },
+});
 
