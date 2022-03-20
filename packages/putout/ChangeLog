@@ -1,3 +1,18 @@
+2022.03.20, v25.8.0
+
+fix:
+- (@putout/plugin-tape) apply-with-name: report after transform
+
+
+feature:
+- (@putout/plugin-extract-object-properties) drop support of 🐊Putout < 25
+- (@putout/plugin-extract-object-properties) equal-deep: convert to traverse, apply uplist
+- (@putout/engine-runner) add uplist
+- (@putout/eslint-config) add blank line between if and throw
+- (@putout/plugin-promises) remove-useless-await: exclude logical expressions
+- (@putout/plugin-tape) apply-with-name: add support of chain
+
+
 2022.03.15, v25.7.1
 
 feature:
