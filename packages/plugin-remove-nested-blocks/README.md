@@ -1,7 +1,12 @@
 # @putout/plugin-remove-nested-blocks [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-nested-blocks.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-nested-blocks"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-nested-blocks "npm"
+
+
+> Delimited by a pair of curly brackets **block statement** is used to group zero or more statements.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block)
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove `nested bocks`.
 
