@@ -86,6 +86,10 @@ function hello() {
 
 ## remove-useless-await
 
+> If a handler function returns another pending promise object, the resolution of the **promise** returned by `then` will be subsequent to the resolution of the promise returned by the handler. Also, the resolved value of the **promise** returned by `then` will be the same as the resolved value of the **promise** returned by the handler.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then#return_value)
+
 ### ❌ Example of incorrect code
 
 ```js
