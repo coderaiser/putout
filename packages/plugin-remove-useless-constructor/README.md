@@ -1,11 +1,11 @@
 # @putout/plugin-remove-useless-constructors [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-constructors.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-constructors "npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-constructor.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-constructor "npm"
 
 > Wrapper classes have surprising behaviour, such as `new Boolean(false)` evaluating to `true`.
 >
-> https://google.github.io/styleguide/tsguide.html#primitive-types-wrapper-classes
+> (c) [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html#primitive-types-wrapper-classes)
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `constructors`. Use with [remove-useless-new](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-new#readme).
 
