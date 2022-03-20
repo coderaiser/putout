@@ -6,6 +6,8 @@ const {
     assign,
 } = Object;
 
+const toArray = (a) => Array.from(a);
+
 module.exports.listStore = (list = []) => {
     const fn = (...args) => {
         if (!args.length)
@@ -27,23 +29,39 @@ module.exports.listStore = (list = []) => {
 };
 
 module.exports.mapStore = createStore({
+    get(map) {
+        return values(map);
+    },
     set(map, name, data) {
         map[name] = data;
     },
 });
 
 module.exports.upStore = createStore({
+    get(map) {
+        return values(map);
+    },
     set(map, name, data) {
         map[name] = map[name] || {};
         assign(map[name], data);
     },
 });
 
-function createStore({set}) {
+module.exports.upListStore = createStore({
+    get(map) {
+        return values(map).map(toArray);
+    },
+    set(map, name, data) {
+        map[name] = map[name] || new Set();
+        map[name].add(data);
+    },
+});
+
+function createStore({set, get}) {
     return (map = {}) => {
         const fn = (...args) => {
             if (!args.length)
-                return values(map);
+                return get(map);
             
             const [name, data] = args;
             

@@ -199,3 +199,50 @@ test('putout: runner: plugins: traverse: store: object', (t) => {
     t.deepEqual(result, expected, 'should equal');
     t.end();
 });
+
+test('putout: runner: plugins: traverse: store: uplist', (t) => {
+    let result = [];
+    
+    const addVar = {
+        report: () => '',
+        traverse: ({uplist}) => ({
+            'debugger'() {
+                uplist('x', {
+                    hello: 'world',
+                });
+                
+                uplist('x', {
+                    how: 'come',
+                });
+            },
+            Program: {
+                exit() {
+                    result = uplist();
+                },
+            },
+        }),
+    };
+    
+    putout('debugger', {
+        runPlugins,
+        plugins: [{
+            'add-variable': addVar,
+        }],
+    });
+    
+    putout('debugger', {
+        runPlugins,
+        plugins: [{
+            'add-variable': addVar,
+        }],
+    });
+    
+    const expected = [[{
+        hello: 'world',
+    }, {
+        how: 'come',
+    }]];
+    
+    t.deepEqual(result, expected, 'should equal');
+    t.end();
+});

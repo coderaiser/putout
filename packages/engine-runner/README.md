@@ -239,6 +239,7 @@ of handling variables will most likely will lead to bugs. There is 3 store types
 - ✅`listStore`;
 - ✅`store`;
 - ✅`upstore`;
+- ✅`uplist`;
 
 Let's talk about each of them.
 
@@ -334,6 +335,43 @@ module.exports.traverse = ({push, store}) => ({
                     continue;
                 
                 push(path);
+            }
+        },
+    },
+});
+```
+
+### `uplist`
+
+When you need to update named arrays:
+
+```js
+module.exports.traverse = ({uplist, push}) => ({
+    'const __object = __a.__b': (fullPath) => {
+        const {__a, __b} = getTemplateValues(fullPath, 'const __object = __a.__b');
+        const path = fullPath.get('declarations.0.init');
+        const {uid} = path.scope;
+        
+        if (isIdentifier(__a) || isCallExpression(__a)) {
+            const {code} = generate(__a);
+            const id = `${uid}-${code}`;
+            
+            return uplist(id, path);
+        }
+    },
+    'Program': {
+        exit: () => {
+            for (const items of uplist()) {
+                if (items.length < 2)
+                    continue;
+                
+                const index = items.length - 1;
+                const path = items[index];
+                
+                push({
+                    path,
+                    items,
+                });
             }
         },
     },
