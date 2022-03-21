@@ -5,7 +5,7 @@
 >
 > **(c) Yamamoto Tsunetomo "Hagakure"**
 
-🦎**PutoutScript** — JavaScript-compatible language which adds additional meaning to identifiers in AST-template. It is supported by all types of [**🐊Putout plugins**](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types).
+🦎**PutoutScript** — **JavaScript**-compatible language which adds additional meaning to `Identifiers` in AST-template. It is supported by all types of [**🐊Putout plugins**](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types).
 Take a look at [rule syntax](https://github.com/coderaiser/putout/tree/master/packages/compare#supported-template-variables) for more information.
 
 ☝️ *In the command line, patterns are specified with a flag `--transform`.*
