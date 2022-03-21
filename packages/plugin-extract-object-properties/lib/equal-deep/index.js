@@ -73,9 +73,6 @@ module.exports.traverse = ({uplist, push}) => ({
                 const index = items.length - 1;
                 const path = items[index];
                 
-                if (path.isIdentifier())
-                    continue;
-                
                 push({
                     path,
                     items,
