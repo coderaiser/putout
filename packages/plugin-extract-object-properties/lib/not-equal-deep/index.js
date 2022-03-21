@@ -15,25 +15,26 @@ module.exports.fix = ({path, expandPath, property}) => {
 };
 
 module.exports.traverse = ({listStore, push}) => ({
-    VariableDeclarator(path) {
-        const idPath = path.get('id');
-        const initPath = path.get('init');
-        
-        if (!idPath.isObjectPattern())
-            return;
-        
-        if (!initPath.isMemberExpression() && !initPath.isCallExpression())
-            return;
-        
-        listStore([initPath, idPath]);
-    },
-    Program: {
+    'const __object = __a.__b': save({
+        listStore,
+    }),
+    'const __object = __a(__args)': save({
+        listStore,
+    }),
+    'Program': {
         exit: exit({
             push,
             items: listStore(),
         }),
     },
 });
+
+const save = ({listStore}) => (path) => {
+    const idPath = path.get('declarations.0.id');
+    const initPath = path.get('declarations.0.init');
+    
+    listStore([initPath, idPath]);
+};
 
 const exit = ({push, items}) => () => {
     for (const [initPath] of items) {
@@ -45,9 +46,6 @@ const exit = ({push, items}) => () => {
             
             const propertyPath = initPath.get('property');
             const property = propertyPath.node;
-            
-            if (!propertyPath.isIdentifier())
-                continue;
             
             const current = currentPath.node;
             const {object} = initPath.node;
