@@ -17,7 +17,7 @@
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
 🐊**Putout** is a pluggable and configurable code transformer based on **Babel** with built-in **ESLint**. It has [a lot of transformations](#-built-in-transformations) that will keep your codebase in a clean state, transforming any code smell to readable code according to best practices.
-The main target is JavaScript, but:
+The main target is **JavaScript**, but:
 
 - ✅ JSX;
 - ✅ TypeScript;
@@ -357,7 +357,7 @@ Consider next peace of code:
 hello = 'world';
 ```
 
-It looks this way in [**ESTree**](https://github.com/estree/estree) JavaScript syntax format:
+It looks this way in [**ESTree**](https://github.com/estree/estree) **JavaScript** syntax format:
 
 ```json
 {
@@ -2022,7 +2022,7 @@ Add `putout` as a `peerDependency` to your `packages.json` (>= of version you de
 
 🐊**Putout** plugins are the simplest possible way to transform `AST` and this is for a reason.
 
-And the reason is `JavaScript`-compatible language 🦎[`PutoutScript`](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) which adds additional meaning to identifiers used in `AST`-template.
+And the reason is **JavaScript**-compatible language 🦎[`PutoutScript`](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) which adds additional meaning to identifiers used in `AST`-template.
 
 Let's dive into plugin types that you can use for you next code transformation.
 
@@ -2145,7 +2145,7 @@ module.exports.traverse = ({push}) => ({
 
 Where `__` is a placeholder for anything.
 
-*☝️Remember: template key should be valid JavaScript, or Type name like in previous example.*
+*☝️Remember: template key should be valid **JavaScript**, or **Node Type**, like in previous example.*
 
 You can also use `include` and/or `exclude` insead of `traverse` and `filter` ([more sophisticated example](https://github.com/coderaiser/putout/blob/v25.4.1/packages/plugin-add-return-await/lib/add-return-await.js)):
 
