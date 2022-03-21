@@ -1,5 +1,7 @@
 'use strict';
 
+const tryCatch = require('try-catch');
+
 const test = require('supertape');
 const putout = require('putout');
 const {runPlugins} = require('..');
@@ -244,5 +246,41 @@ test('putout: runner: plugins: traverse: store: uplist', (t) => {
     }]];
     
     t.deepEqual(result, expected, 'should equal');
+    t.end();
+});
+
+test('putout: runner: plugins: traverse: store: uplist: clear', (t) => {
+    let result = [];
+    
+    const addVar = {
+        report: () => '',
+        traverse: ({uplist, push}) => ({
+            'debugger'() {
+                uplist('x', {
+                    hello: 'world',
+                });
+                
+                uplist('x', {
+                    how: 'come',
+                });
+            },
+            Program: {
+                exit() {
+                    push(result);
+                    result = uplist();
+                },
+            },
+        }),
+    };
+    
+    const [error] = tryCatch(putout, 'debugger', {
+        fixCount: 10,
+        runPlugins,
+        plugins: [{
+            'add-variable': addVar,
+        }],
+    });
+    
+    t.equal(error.message, `☝️ Looks like 'push' called without a 'path' argument.`);
     t.end();
 });

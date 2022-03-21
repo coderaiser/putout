@@ -4,7 +4,11 @@ const getPath = (item) => item.path || item;
 
 module.exports.getPath = getPath;
 module.exports.getPosition = (path, shebang) => {
-    const {node} = getPath(path);
+    const parsedPath = getPath(path);
+    
+    validatePath(parsedPath);
+    
+    const {node} = parsedPath;
     const {loc} = node;
     
     if (!loc)
@@ -24,3 +28,7 @@ module.exports.getPosition = (path, shebang) => {
     };
 };
 
+function validatePath(path) {
+    if (!path.node)
+        throw Error(`☝️ Looks like 'push' called without a 'path' argument.`);
+}
