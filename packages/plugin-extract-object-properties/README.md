@@ -1,9 +1,13 @@
 # @putout/plugin-extract-object-properties [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-extract-object-properties.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-extract-object-properties"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-extract-object-properties "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert Commonjs to ESM.
+> The **destructuring assignment** makes possible to unpack values from objects into distinct variables.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply destructuring to extract object properties.
 
 ## Install
 
