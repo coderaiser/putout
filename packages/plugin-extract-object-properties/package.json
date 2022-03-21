@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-extract-object-properties",
-  "version": "8.1.0",
+  "version": "8.2.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to extract object properties into variable",
