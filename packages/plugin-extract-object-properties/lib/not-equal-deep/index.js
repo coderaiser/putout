@@ -14,53 +14,58 @@ module.exports.fix = ({path, expandPath, property}) => {
     replaceWith(path, property);
 };
 
-module.exports.traverse = ({push}) => {
-    const members = [];
-    
-    return {
-        VariableDeclarator(path) {
-            const idPath = path.get('id');
-            const initPath = path.get('init');
-            
-            if (!idPath.isObjectPattern())
-                return;
-            
-            if (!initPath.isMemberExpression() && !initPath.isCallExpression())
-                return;
-            
-            members.push([initPath.node, idPath]);
-            
+module.exports.traverse = ({listStore, push}) => ({
+    VariableDeclarator(path) {
+        const idPath = path.get('id');
+        const initPath = path.get('init');
+        
+        if (!idPath.isObjectPattern())
+            return;
+        
+        if (!initPath.isMemberExpression() && !initPath.isCallExpression())
+            return;
+        
+        listStore([initPath, idPath]);
+    },
+    Program: {
+        exit: exit({
+            push,
+            items: listStore(),
+        }),
+    },
+});
+
+const exit = ({push, items}) => () => {
+    for (const [initPath] of items) {
+        for (const [currentPath, expandPath] of items) {
             const objectPath = initPath.get('object');
             
             if (!objectPath.isMemberExpression() && !objectPath.isCallExpression())
-                return;
+                continue;
             
             const propertyPath = initPath.get('property');
             const property = propertyPath.node;
             
             if (!propertyPath.isIdentifier())
-                return;
+                continue;
             
+            const current = currentPath.node;
             const {object} = initPath.node;
+            const {name} = property;
             
-            for (const [current, expandPath] of members) {
-                const {name} = property;
-                
-                if (expandPath.scope.bindings[name])
-                    continue;
-                
-                if (expandPath.scope.uid !== initPath.scope.uid)
-                    continue;
-                
-                if (compare(object, current)) {
-                    push({
-                        expandPath,
-                        path: initPath,
-                        property,
-                    });
-                }
+            if (expandPath.scope.bindings[name])
+                continue;
+            
+            if (expandPath.scope.uid !== initPath.scope.uid)
+                continue;
+            
+            if (compare(object, current)) {
+                push({
+                    expandPath,
+                    path: initPath,
+                    property,
+                });
             }
-        },
-    };
+        }
+    }
 };
-
