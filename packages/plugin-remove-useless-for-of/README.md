@@ -3,7 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-for-of.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-for-of "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `for-of` statements.
+> The `Array` enables storing a collection of multiple items under a single variable name.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `for...of` statements.
 
 ## Install
 
