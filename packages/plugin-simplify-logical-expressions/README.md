@@ -3,7 +3,11 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-simplify-logical-expressions.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-simplify-logical-expressions "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to simplify `logical-expressions`.
+> The logical NOT (`!`) operator takes truth to falsity and vice versa.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to simplify **logical expressions**.
 
 ## Install
 
