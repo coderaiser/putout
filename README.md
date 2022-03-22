@@ -179,7 +179,7 @@ PUTOUT_FILES=lib,test putout --fix
 
 ## 📐 What is **Ruler**?
 
-When you need to change [configuration](#-configuration) file use **Ruler** insteaod of editing the file manually.
+When you need to change [configuration](#-configuration) file use **Ruler** instead of editing the file manually.
 
 **Ruler** can:
 
