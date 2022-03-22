@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const removeDoubleNegations = require('..');
+const removeDoubleNegations = require('.');
 
 const test = createTest(__dirname, {
     'remove-double-negations': removeDoubleNegations,
