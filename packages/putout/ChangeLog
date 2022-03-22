@@ -1,3 +1,21 @@
+2022.03.22, v25.9.0
+
+fix:
+- (@putout/plugin-extract-object-properties) equal-deep: rm useless isIdentifier check
+- (@putout/engine-runner) uplist: clear
+
+
+feature:
+- (package) @putout/plugin-remove-useless-type-conversion v2.0.0
+- (@putout/plugin-remove-useless-type-conversion) drop support of 🐊 < 25
+- (@putout/plugin-remove-useless-type-convertion) merge @putout/plugin-remove-double-negations
+- (@putout/plugin-remove-double-negations) drop support of 🐊 < 25
+- (@putout/plugin-remove-double-negations) "Double negation should not be used in conditions" -> "Avoid using double negations in conditions"
+- (@putout/plugin-extract-object-properties) not-equal-deep: apply 🦎PutoutScript
+- (@putout/plugin-extract-object-properties) not-equal-deep: apply listStore
+- (@putout/engine-runner) traverse: ☝️ add ability to validate path
+
+
 2022.03.20, v25.8.0
 
 fix:
