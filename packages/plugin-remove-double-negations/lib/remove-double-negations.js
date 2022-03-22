@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = () => `Double negation should not be used in conditions`;
+module.exports.report = () => `Avoid using double negations in conditions`;
 
 module.exports.replace = () => ({
     'if (!!__a) __b': 'if (__a) __b',
