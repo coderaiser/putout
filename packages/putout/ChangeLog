@@ -4731,8 +4731,6 @@ fix:
 - (@putout/engine-parser) rm unused export to getParser
 - (@putout/engine-parser) custom-parser: rm unused isObject check
 - (@putout/apply-optional-chaining) function support
-- chore(@putout/plugin-remove-useless-spread) fixture
-- chore(@putout/plugin-remove-double-negations) fixture
 - (@putout/compare) extract expression
 - (@putout/plugin-apply-top-level-await) rm unused check
 
