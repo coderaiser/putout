@@ -158,7 +158,7 @@
     "@putout/plugin-remove-useless-variables": "^6.0.0",
     "@putout/plugin-reuse-duplicate-init": "^3.0.0",
     "@putout/plugin-simplify-assignment": "^1.0.0",
-    "@putout/plugin-simplify-logical-expressions": "^1.0.0",
+    "@putout/plugin-simplify-logical-expressions": "^2.0.0",
     "@putout/plugin-simplify-ternary": "^2.0.0",
     "@putout/plugin-split-nested-destructuring": "^1.0.0",
     "@putout/plugin-split-variable-declarations": "^2.0.0",
