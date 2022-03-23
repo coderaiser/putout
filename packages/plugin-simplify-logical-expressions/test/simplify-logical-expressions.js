@@ -22,3 +22,13 @@ test('plugin-simplify-logical-expression: transform: wrong-not', (t) => {
     t.end();
 });
 
+test('plugin-simplify-logical-expression: transform: instanceof', (t) => {
+    t.transform('instanceof');
+    t.end();
+});
+
+test('plugin-simplify-logical-expression: transform: in', (t) => {
+    t.transform('in');
+    t.end();
+});
+

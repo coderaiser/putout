@@ -31,6 +31,12 @@ npm i @putout/plugin-simplify-logical-expressions -D
 const is = !(options && !options.bidirectional);
 
 if (!left.type === 'UnaryExpression');
+
+!a instanceof b;
+a instanceof !b;
+!a instanceof !b;
+!a in b;
+a in !b;
 ```
 
 ## ✅ Example of correct code
@@ -39,6 +45,9 @@ if (!left.type === 'UnaryExpression');
 const is = !options || options.bidirectional;
 
 if (left.type !== 'UnaryExpression');
+
+!(a instanceof b);
+!(a in b);
 ```
 
 ## License
