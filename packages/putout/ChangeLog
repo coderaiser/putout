@@ -1,3 +1,16 @@
+2022.03.23, v25.9.1
+
+fix:
+- feature(@putout/plugin-eslint-config) turn no-unsafe-negation off since @putout/plugin-simplify-logical-expressions handles and fixes this case
+
+
+feature:
+- (package) @putout/plugin-simplify-logical-expressions v2.0.0
+- (@putout/plugin-simplify-logical-expressions) drop support of 🐊 < 25
+- (@putout/plugin-simplify-logical-expressions) add support of in, instanceof
+- (@putout/plugin-eslint-config) turn no-unsafe-negation off since @putout/plugin-simplify-logical-expressions handles and fixes this case
+
+
 2022.03.22, v25.9.0
 
 fix:
