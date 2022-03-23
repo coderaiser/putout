@@ -66,6 +66,7 @@ module.exports = {
         'no-implicit-coercion': ['error', {
             allow: ['~'],
         }],
+        'no-unsafe-negation': 'off',
         'no-duplicate-case': 'off',
         'no-cond-assign': 'off',
         'no-empty-pattern': 'off',
