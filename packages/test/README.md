@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/test.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/test "npm"
 
-Test runner for 🐊[**Putout**](https://github.com/coderaiser/putout#plugins-api). Basically it is [supercharged `tape`](https://github.com/coderaiser/supertape) with aditional asseritions:
+Test runner for 🐊[**Putout**](https://github.com/coderaiser/putout#plugins-api). Basically it is [supercharged **tape**](https://github.com/coderaiser/supertape) with aditional asseritions:
 
 ## Install
 
