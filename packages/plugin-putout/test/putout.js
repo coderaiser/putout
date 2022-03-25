@@ -82,6 +82,11 @@ test('plugin-putout: convert-method-to-property: complex: transform: add-args', 
     t.end();
 });
 
+test('plugin-putout: transform: add-push', (t) => {
+    t.transform('add-push');
+    t.end();
+});
+
 test('plugin-putout: convert-add-argument-to-add-args', (t) => {
     t.transform('convert-add-argument-to-add-args');
     t.end();

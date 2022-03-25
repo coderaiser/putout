@@ -32,3 +32,7 @@ test('plugin-putout: convert-traverse-to-replace: transform: with options', (t) 
     t.end();
 });
 
+test('plugin-putout: convert-traverse-to-replace: no transform: push', (t) => {
+    t.noTransform('push');
+    t.end();
+});

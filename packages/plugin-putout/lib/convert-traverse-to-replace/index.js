@@ -1,7 +1,10 @@
 'use strict';
 
 const {operator} = require('putout');
-const {contains} = operator;
+const {
+    contains,
+    traverse,
+} = operator;
 
 module.exports.report = () => 'Replacer should be used instead of Traverser (https://git.io/JqcMn)';
 
@@ -15,12 +18,18 @@ module.exports.match = () => ({
         if (withFix)
             return false;
         
+        if (hasPushCall(path))
+            return false;
+        
         if (!__args.length)
             return true;
         
         const withPush = contains(__args[0], [
             'push',
         ]);
+        
+        if (withPush)
+            return false;
         
         return !withPush;
     },
@@ -29,4 +38,17 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     'module.exports.traverse = (__args) => __a': 'module.exports.replace = (__args) => __a',
 });
+
+function hasPushCall(path) {
+    let is = false;
+    
+    traverse(path, {
+        'push(__a)': (path) => {
+            is = true;
+            path.stop();
+        },
+    });
+    
+    return is;
+}
 

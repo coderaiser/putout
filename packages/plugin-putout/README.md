@@ -20,6 +20,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-processors-destructuring": "on",
         "putout/apply-async-formatter": "on",
         "putout/add-args": "on",
+        "putout/add-push": "on",
         "putout/convert-putout-test-to-create-test": "on",
         "putout/convert-to-no-transform-code": "on",
         "putout/convert-replace-with": "on",
@@ -432,6 +433,28 @@ test('', () => {
 ```js
 test('', ({comparePlaces}) => {
     comparePlaces();
+});
+```
+
+## add-push
+
+### ❌ Example of incorrect code
+
+```js
+module.exports.traverse = () => ({
+    '__a.replace(/__b/g, __c)': (path) => {
+        push(path);
+    },
+});
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports.traverse = ({push}) => ({
+    '__a.replace(/__b/g, __c)': (path) => {
+        push(path);
+    },
 });
 ```
 

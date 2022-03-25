@@ -31,6 +31,7 @@ module.exports.rules = {
     ...getRule('check-replace-code'),
     ...getRule('declare'),
     ...getRule('add-args'),
+    ...getRule('add-push'),
     ...getRule('move-require-on-top-level'),
     ...getRule('includer'),
 };
