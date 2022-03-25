@@ -833,3 +833,25 @@ test('putout: operator: declare: TSDeclareMethod', (t) => {
     t.end();
 });
 
+test('putout: operator: declare: TSDeclareFunction', (t) => {
+    const declarations = {
+        title: `import {title} from 'process'`,
+    };
+    const source = montag`
+        declare function parse(title: Title): void
+    `;
+    
+    const {places} = putout(source, {
+        fix: false,
+        isTS: true,
+        plugins: [
+            ['declare-undefined-variables', declare(declarations)],
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+

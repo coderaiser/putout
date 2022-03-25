@@ -26,6 +26,14 @@ const isLocalImport = (path) => path.node.source.value.includes('.');
 const cutName = (a) => a.split('.').shift();
 const parseType = (path) => isESM(path) ? 'esm' : 'commonjs';
 
+const TS_EXCLUDE = [
+    'TSMethodSignature',
+    'TSParameterProperty',
+    'TSFunctionType',
+    'TSDeclareMethod',
+    'TSDeclareFunction',
+];
+
 module.exports.declare = (declarations) => ({
     report,
     include,
@@ -43,16 +51,7 @@ const report = (path) => {
 const include = () => ['ReferencedIdentifier'];
 
 const filter = (declarations) => (path, {options}) => {
-    if (path.parentPath.isTSMethodSignature())
-        return false;
-    
-    if (path.parentPath.isTSParameterProperty())
-        return false;
-    
-    if (path.parentPath.isTSFunctionType())
-        return false;
-    
-    if (path.parentPath.isTSDeclareMethod())
+    if (TS_EXCLUDE.includes(path.parentPath.type))
         return false;
     
     const {dismiss = []} = options;
@@ -182,3 +181,4 @@ const getLastImportPath = (bodyPath) => {
     
     return imports.pop() || localImports.pop();
 };
+
