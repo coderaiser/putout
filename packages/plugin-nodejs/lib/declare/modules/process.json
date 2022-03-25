@@ -40,7 +40,6 @@
     "seteuid": "import {seteuid} from 'process'",
     "setgid": "import {setgid} from 'process'",
     "setuid": "import {setuid} from 'process'",
-    "title": "import {title} from 'process'",
     "argv": "import {argv} from 'process'",
     "execArgv": "import {execArgv} from 'process'",
     "pid": "import {pid} from 'process'",
