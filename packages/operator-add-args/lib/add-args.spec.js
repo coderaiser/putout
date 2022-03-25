@@ -242,6 +242,31 @@ test('putout: operator: add-argument: wrong place', (t) => {
     t.end();
 });
 
+test('putout: operator: add-argument: arg exist', (t) => {
+    const args = {
+        push: ['{push}', [
+            'module.exports.traverse = (__args) => __a',
+        ]],
+    };
+    
+    const source = montag`
+        module.exports.traverse = () => ({
+            '__a.replace(/__b/g, __c)': (path) => {
+                push(path);
+            }
+        });
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['addArgs-undefined-variables', addArgs(args)],
+        ],
+    });
+    
+    t.equal(code, source);
+    t.end();
+});
+
 test('putout: operator: add-argument: not a function', (t) => {
     const args = {
         t: ['t', 'test("__a", (__args) => __body)'],

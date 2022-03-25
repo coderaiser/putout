@@ -9,6 +9,7 @@ const {
     isBlockStatement,
     isFunction,
     isLabeledStatement,
+    isObjectPattern,
 } = require('@babel/types');
 
 const {entries} = Object;
@@ -63,6 +64,11 @@ const traverse = (args) => ({push, options}) => {
                     continue;
                 
                 if (!compareAny(path.scope.path.parentPath, pattern))
+                    continue;
+                
+                const {params} = path.scope.block;
+                
+                if (params.length && !isObjectPattern(params[0]))
                     continue;
                 
                 push({
