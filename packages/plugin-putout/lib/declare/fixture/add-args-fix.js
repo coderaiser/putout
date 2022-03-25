@@ -1,7 +1,7 @@
 import {operator} from 'putout';
 
 const {
-  addArgument
+  addArgs
 } = operator;
 
-addArgument(args);
+addArgs(args);
