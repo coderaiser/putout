@@ -2,6 +2,7 @@
 
 const {createTest} = require('@putout/test');
 const optimize = require('.');
+const convertReplaceToReplaceAll = require('../convert-replace-to-replace-all');
 
 const test = createTest(__dirname, {
     'regexp/optimize': optimize,
@@ -29,6 +30,13 @@ test('plugin-regexp/optimize: transform: crash', (t) => {
 
 test('plugin-regexp/optimize: transform: flags', (t) => {
     t.transform('flags');
+    t.end();
+});
+
+test('plugin-regexp/optimize: transform: replace-all', (t) => {
+    t.transform('replace-all', {
+        'regexp/convert-replace-to-replace-all': convertReplaceToReplaceAll,
+    });
     t.end();
 });
 

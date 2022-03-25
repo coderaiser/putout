@@ -1,7 +1,9 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
+
 const convertReplaceToReplaceAll = require('.');
+const optimize = require('../optimize');
 
 const test = createTest(__dirname, {
     'regexp/convert-replace-to-replace-all': convertReplaceToReplaceAll,
@@ -54,6 +56,13 @@ test('plugin-regexp/convert-replace-to-replace-all: no transform: wildcard', (t)
 
 test('plugin-regexp/convert-replace-to-replace-all: no transform: character-class', (t) => {
     t.transform('character-class');
+    t.end();
+});
+
+test('plugin-regexp/convert-replace-to-replace-all:: transform: optimize', (t) => {
+    t.transform('optimize', {
+        'regexp/optimize': optimize,
+    });
     t.end();
 });
 

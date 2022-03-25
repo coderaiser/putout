@@ -42,20 +42,22 @@ module.exports.traverse = ({push}) => ({
         const {__b} = getTemplateValues(path, '__a.replace(/__b/g, __c)');
         const {
             flags,
+            raw,
             pattern,
-            extra,
         } = __b;
         
         if (flags !== 'g')
             return false;
         
-        if (!isSimpleRegExp(extra.raw))
+        if (!isSimpleRegExp(raw))
             return;
         
         push({
             path,
             pattern,
         });
+        
+        return;
     },
 });
 
