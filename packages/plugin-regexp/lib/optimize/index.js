@@ -18,9 +18,9 @@ const options = {
 
 module.exports.report = ({pattern, to}) => `RegExp /${pattern}/ can be optimized to /${to}/`;
 
-module.exports.fix = ({path, to}) => {
-    path.node.extra.raw = to;//`${to}${flags}`;
-    path.node.pattern = to;//.slice(1, -1);
+module.exports.fix = ({path, to, flags}) => {
+    path.node.raw = `/${to}${flags}/`;
+    path.node.pattern = to;
 };
 
 module.exports.traverse = ({push}) => ({

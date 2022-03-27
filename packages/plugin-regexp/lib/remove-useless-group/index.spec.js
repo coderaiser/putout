@@ -2,6 +2,7 @@
 
 const {createTest} = require('@putout/test');
 const removeUselessGroup = require('.');
+const optimize = require('../optimize');
 
 const test = createTest(__dirname, {
     'regexp/remove-useless-group': removeUselessGroup,
@@ -9,6 +10,13 @@ const test = createTest(__dirname, {
 
 test('plugin-regexp/remove-useless-group: report', (t) => {
     t.report('regexp', `Remove useless group from RegExp /(ab)/, use /ab/`);
+    t.end();
+});
+
+test('plugin-regexp/remove-useless-group: no report: decimal', (t) => {
+    t.transform('decimal', {
+        'regexp/optimize': optimize,
+    });
     t.end();
 });
 

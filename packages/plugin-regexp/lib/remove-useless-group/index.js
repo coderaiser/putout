@@ -17,7 +17,7 @@ module.exports.exclude = () => [
 
 module.exports.fix = ({path, to}) => {
     path.node.pattern = to.slice(1, -1);
-    path.node.extra.raw = to;
+    path.node.raw = to;
 };
 
 module.exports.traverse = ({push}) => ({
@@ -25,7 +25,7 @@ module.exports.traverse = ({push}) => ({
         if (!includes(path))
             return;
         
-        const from = path.node.extra.raw;
+        const from = path.node.raw;
         const [is, to] = removeUselessGroup(from);
         
         if (is)
