@@ -23,12 +23,8 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    'if (__a) __b; else __c': (vars, path) => {
-        delete path.node.alternate;
-        
-        return `{
-            if (__a) __b;
-            __c;
-        }`;
-    },
+    'if (__a) __b; else __c': `{
+        if (__a) __b;
+        __c;
+    }`,
 });
