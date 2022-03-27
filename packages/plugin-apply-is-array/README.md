@@ -8,7 +8,7 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply `Array.isArray()`. Fits good with [@putout/plugin-declare-undefined-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply `Array.isArray()`. Fits good with [@putout/plugin-declare-undefined-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables#readme).
 
 ## Install
 
