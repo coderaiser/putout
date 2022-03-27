@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-useless-else",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability use apply early return",
