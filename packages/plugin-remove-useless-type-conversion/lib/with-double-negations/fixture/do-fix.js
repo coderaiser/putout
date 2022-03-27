@@ -1,3 +1,2 @@
 do
-  {alert();};
-while (x);
+  {alert();} while (x);

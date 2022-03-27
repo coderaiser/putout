@@ -49,7 +49,7 @@ test('remove usless variables: for-of: no transform: assignment', (t) => {
     t.end();
 });
 
-test('remove usless variables: for-of: transform with options', (t) => {
+test('remove usless variables: for-of: transform with: array-from', (t) => {
     t.transform('array-from', {
         'remove-useless-array-from': removeUselessArrayFrom,
     });

@@ -43,7 +43,7 @@ test('putout: compare: vars: getTemplateValues', (t) => {
         }],
     });
     
-    const expected = 'for (const item of items) {\n  log(item);\n};';
+    const expected = 'for (const item of items) {\n  log(item);\n}';
     
     t.deepEqual(code, expected, 'should equal');
     t.end();
