@@ -27,7 +27,7 @@ function compute(path) {
     
     const initPath = bindingPath.get('init');
     
-    if (initPath.isObjectExpression())
+    if (initPath.isObjectExpression() && path.isMemberExpression())
         return parseObjectExpression(path, initPath);
     
     return [NOT_COMPUTED];
