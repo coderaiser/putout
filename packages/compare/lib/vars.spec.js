@@ -49,6 +49,51 @@ test('putout: compare: vars: getTemplateValues', (t) => {
     t.end();
 });
 
+test('putout: compare: vars: getTemplateValues: setValues: BlockStatement', (t) => {
+    const addVar = {
+        report: () => '',
+        replace: () => ({
+            'if (__a) __b': 'if (1) if (__a) __b',
+        }),
+    };
+    
+    const input = 'if (1) {hello();}';
+    
+    const {code} = putout(input, {
+        plugins: [{
+            'convert-for-to-for-of': addVar,
+        }],
+    });
+    
+    const expected = 'if (1) if (1)\n  {hello();}';
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
+test('putout: compare: vars: getTemplateValues: setValues: Statement', (t) => {
+    const addVar = {
+        report: () => '',
+        replace: () => ({
+            'if (__a) __b': 'if (1) if (__a) __b',
+        }),
+    };
+    
+    const input = 'if (1) if (2) 3';
+    
+    const {parse, transform} = putout;
+    const ast = parse(input);
+    
+    transform(ast, input, {
+        plugins: [{
+            'convert-for-to-for-of': addVar,
+        }],
+    });
+    
+    t.equal(ast.program.body[0].consequent.consequent.type, 'IfStatement');
+    t.end();
+});
+
 test('putout: compare: vars: getTemplateValues: no template', (t) => {
     const node = template.ast('const [] = array');
     const [error] = tryCatch(getTemplateValues, node);

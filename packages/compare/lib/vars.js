@@ -7,7 +7,7 @@ const {template} = require('@putout/engine-parser');
 const {replaceWith, extract} = require('@putout/operate');
 const {
     isIdentifier,
-    isBlockStatement,
+    isStatement,
 } = require('@babel/types');
 
 const {
@@ -114,7 +114,7 @@ function setValues({waysTo, values, path}) {
             if (isArgsStr(name))
                 way = way.replace(/\.0$/, '');
             
-            if (isBlockStatement(values[name]))
+            if (isStatement(values[name]))
                 way = way.replace(/\.expression$/, '');
             
             nessy(way, values[name], node);

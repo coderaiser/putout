@@ -1,7 +1,7 @@
 {
     if (a)
-        return;;
+        return;
 
     if (b)
-        return;;
+        return;
 }

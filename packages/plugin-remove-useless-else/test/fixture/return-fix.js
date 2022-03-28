@@ -1,7 +1,7 @@
 {
     if (x)
-        return;;
+        return;
 
-    console.log();;
+    console.log();
 }
 
