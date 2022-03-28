@@ -379,7 +379,7 @@ test('operate: compute: MemberExpression: nested: computed', (t) => {
             c: items.length,
         }
         const x = a.b + a.c;
-        `);
+    `);
     
     traverse(ast, {
         BinaryExpression: (path) => {
@@ -388,5 +388,23 @@ test('operate: compute: MemberExpression: nested: computed', (t) => {
     });
     
     t.deepEqual(result, [true, 15]);
+    t.end();
+});
+
+test('operate: compute: spread: not computed', (t) => {
+    let result = [];
+    
+    const ast = parse(`
+        const { state, navEnabled } = { ...props };
+        const isNavEnabled = navEnabled && state === STEP_STATE.ENABLED;
+    `);
+    
+    traverse(ast, {
+        BinaryExpression: (path) => {
+            result = compute(path);
+        },
+    });
+    
+    t.deepEqual(result, [NOT_COMPUTED]);
     t.end();
 });
