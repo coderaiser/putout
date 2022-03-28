@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@putout/compare": "^9.0.0",
-    "@putout/operate": "^7.0.0"
+    "@putout/operate": "^8.0.0"
   },
   "keywords": [
     "putout",
