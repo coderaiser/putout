@@ -1,3 +1,27 @@
+2022.03.28, v25.10.0
+
+fix:
+- (@putout/operator-add-args) skip adding args when params exists and not ObjectPattern
+- (@putout/plugin-putout) declare: addArgument -> addArgs
+- (@putout/plugin-regexp) convert-replace-to-replace-with: extra.raw -> raw (#100)
+
+
+feature:
+- (package) @putout/operate v8.0.0
+- (package) @putout/operate v8.0.0
+- (package) @putout/operate v8.0.0
+- (package) @putout/operate v8.0.0
+- (@putout/operate) drop support of node < 16
+- (@putout/operate) compute: exclude Identifiers from parsing of ObjectExpressions (#100)
+- (@putout/compare) setVars: BlockStatement -> Statement: improve node building
+- (@putout/plugin-remove-useless-else) simplify
+- (@putout/compare) setValues: add ability to handle BlockStatement
+- (@putout/plugin-remove-useless-group) extra.raw -> raw (#100)
+- (@putout/plugin-putout) add add-push
+- (@putout/operator-declare) exclude: TSDeclareFunction
+- (@putout/plugin-nodejs) declare: exclude title
+
+
 2022.03.23, v25.9.1
 
 fix:
