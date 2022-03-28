@@ -3,7 +3,7 @@
   "version": "7.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "operate on ast",
+  "description": "Operate on AST for 🐊 Putout",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operate#readme",
   "main": "lib/operate.js",
   "release": false,
