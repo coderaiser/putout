@@ -1172,7 +1172,7 @@ function world(a) {
 
 </details>
 
-<details><summary>convert <code>replace</code> to <code>replaceAll</code> (disabled, <a href=https://github.com/tc39/proposal-string-replaceall>stage-4</a>)</summary>
+<details><summary>convert <code>replace</code> to <code>replaceAll</code> (<a href=https://github.com/tc39/proposal-string-replaceall>stage-4</a>)</summary>
 
 ```diff
 -'hello'.replace(/hello/g, 'world');
