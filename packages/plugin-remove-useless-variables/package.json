@@ -35,8 +35,8 @@
     "for-of"
   ],
   "devDependencies": {
-    "@putout/plugin-remove-useless-array-from": "^2.0.0",
-    "@putout/plugin-reuse-duplicate-init": "^2.0.0",
+    "@putout/plugin-remove-useless-array-from": "*",
+    "@putout/plugin-reuse-duplicate-init": "*",
     "@putout/test": "^5.0.0",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
