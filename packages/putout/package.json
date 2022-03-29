@@ -59,7 +59,7 @@
     "@putout/engine-runner": "^13.0.0",
     "@putout/formatter-codeframe": "^4.0.0",
     "@putout/formatter-dump": "^4.0.0",
-    "@putout/formatter-frame": "^2.0.0",
+    "@putout/formatter-frame": "^3.0.0",
     "@putout/formatter-json": "^2.0.0",
     "@putout/formatter-json-lines": "^3.0.0",
     "@putout/formatter-memory": "^3.0.0",
