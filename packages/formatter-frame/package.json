@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/formatter-codeframe": "^3.0.0"
+    "@putout/formatter-codeframe": "^4.0.0"
   },
   "keywords": [
     "putout",
@@ -42,11 +42,11 @@
     "madrun": "^9.0.0"
   },
   "peerDependencies": {
-    "putout": ">=22.5"
+    "putout": ">=25"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "publishConfig": {
     "access": "public"
