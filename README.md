@@ -2467,7 +2467,7 @@ Since 🐊**Putout** has dynamic nature of loading:
 It was a nice adventure to have support of such a nice feature of `Yarn` as [`Plug'n'Play`](https://yarnpkg.com/features/pnp).
 For this purpose new `env variable` was added to help to [load external extensions](https://yarnpkg.com/advanced/rulebook/#modules-shouldnt-hardcode-node_modules-paths-to-access-other-modules): `PUTOUT_YARN_PNP`.
 
-So if you package `eslint-config-hardcore` you should run `ESLint` this way:
+So if you package **eslint-config-hardcore** you should run **ESLint** this way:
 
 ```sh
 PUTOUT_YARN_PNP=eslint-config-hardcore eslint .
@@ -2478,7 +2478,7 @@ PUTOUT_YARN_PNP=eslint-config-hardcore eslint .
 🐊**Putout** can be used as [loader](https://nodejs.org/dist/latest-v17.x/docs/api/esm.html#loaders) this way:
 
 ```sh
-node --no-deprecation --loader putout your-file.js
+node --loader putout your-file.js
 ```
 
 You can also transform input files using `Babel`. For example if you need to transform `jsx` with `@babel/plugin-transform-react-jsx` you can use `.putout.json`:
