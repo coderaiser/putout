@@ -32,8 +32,8 @@
     "madrun"
   ],
   "devDependencies": {
-    "@putout/plugin-remove-unused-expressions": "^4.2.0",
-    "@putout/plugin-strict-mode": "^2.0.0",
+    "@putout/plugin-remove-unused-expressions": "*",
+    "@putout/plugin-strict-mode": "*",
     "@putout/test": "^5.0.0",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
