@@ -1,6 +1,6 @@
 {
   "name": "@putout/formatter-stream",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout formatter streams output",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-stream#readme",
