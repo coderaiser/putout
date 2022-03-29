@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@putout/formatter-dump": "^3.0.0",
-    "chalk": "^4.1.0",
+    "chalk": "^5.0.1",
     "cli-progress": "^3.8.2",
     "format-io": "^2.0.0",
     "montag": "^1.1.0",
