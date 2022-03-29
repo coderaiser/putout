@@ -1,3 +1,38 @@
+2022.03.29, v25.11.0
+
+feature:
+- (package) @putout/formatter-frame v3.0.0
+- (package) @putout/formatter-codeframe v4.0.0
+- (package) @putout/formatter-progress v3.0.1
+- (@putout/formatter-progress) drop support of putout < 25
+- (package) @putout/formatter-codeframe v4.0.0
+- (@putout/formatter-codeframe) drop support of Putout < 25
+- (package) @putout/formatter-memory v3.0.0
+- (@putout/formatter-memory) drop support of Putout < 25
+- (package) @putout/formatter-dump v4.0.0
+- (package) @putout/formatter-dump v4.0.0
+- (@putout/formatter-dump) drop support of Putout < 25
+- (package) @putout/formatter-progress-bar v3.0.0
+- (@putout/formatter-progress-bar) drop support of putout < 25
+- (package) @putout/formatter-stream v4.0.0
+- (@putout/formatter-stream) drop support of putout < 25
+- (package) ts-morph v14.0.0
+- (package) hermes-parser v0.6.0
+- (package) eslint-plugin-eslint-plugin v4.1.0
+- (package) escover v2.1.0
+- (package) escover v2.1.0
+- (package) emoji-regex v10.0.1
+- (package) chalk v5.0.1
+- (package) stylelint-config-standard v25.0.0
+- (package) chalk v5.0.1
+- (package) @putout/operate v8.0.0
+- (package) @putout/operate v8.0.0
+- (package) @putout/operate v8.0.0
+- (package) @putout/operate v8.0.0
+- (@putout/operate) drop support of node < 16
+- (@putout/operate) compute: exclude Identifiers from parsing of ObjectExpressions (#100)
+
+
 2022.03.28, v25.10.0
 
 fix:
