@@ -63,7 +63,7 @@
     "@putout/formatter-json": "^2.0.0",
     "@putout/formatter-json-lines": "^3.0.0",
     "@putout/formatter-memory": "^3.0.0",
-    "@putout/formatter-progress": "^3.0.0",
+    "@putout/formatter-progress": "^3.0.1",
     "@putout/formatter-progress-bar": "^3.0.0",
     "@putout/formatter-stream": "^4.0.0",
     "@putout/operate": "^8.0.0",
