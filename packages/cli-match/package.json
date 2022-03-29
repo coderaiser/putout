@@ -33,7 +33,7 @@
   "devDependencies": {
     "@putout/test": "^5.0.0",
     "c8": "^7.5.0",
-    "escover": "^1.5.0",
+    "escover": "^2.1.0",
     "eslint": "^8.0.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^14.0.0",
