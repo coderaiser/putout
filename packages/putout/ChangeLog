@@ -1,3 +1,12 @@
+2022.03.29, v25.11.1
+
+feature:
+- (package) @putout/processor-css v4.0.0
+- (@putout/processor-html) drop support of putout < 25
+- (@putout/processor-css) drop support of putout < 25
+- (@putout/processor-typescript) drop support of putout < 25
+
+
 2022.03.29, v25.11.0
 
 feature:
