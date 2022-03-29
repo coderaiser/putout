@@ -12,7 +12,6 @@ const test = require('supertape');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
 const tryCatch = require('try-catch');
-const {red} = require('chalk');
 const tryToCatch = require('try-to-catch');
 const {simpleImportDefault} = require('./simple-import');
 
@@ -887,8 +886,13 @@ test('putout: cli: ruler: --enable', async (t) => {
         ruler,
     });
     
+    const simpleImportDefault = stub().returns({
+        red: stub(),
+    });
+    
     mockRequire('./simple-import', {
         simpleImport,
+        simpleImportDefault,
     });
     
     const cli = reRequire('.');
@@ -923,8 +927,11 @@ test('putout: cli: ruler: --enable-all', async (t) => {
     ];
     
     const simpleImport = stub().returns({ruler});
+    const simpleImportDefault = stub().returns({
+        red: stub(),
+    });
     
-    mockRequire('./simple-import', {simpleImport});
+    mockRequire('./simple-import', {simpleImport, simpleImportDefault});
     
     const cli = reRequire('.');
     await runCli({
@@ -950,11 +957,15 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
     const rulerError = Error('should call ruler with await');
     const ruler = stub().rejects(rulerError);
     
+    const simpleImportDefault = stub().returns({
+        red: stub(),
+    });
+    
     const simpleImport = stub().returns({
         ruler,
     });
     
-    mockRequire('./simple-import', {simpleImport});
+    mockRequire('./simple-import', {simpleImport, simpleImportDefault});
     const cli = reRequire('.');
     
     const [error] = await tryToCatch(runCli, {
@@ -985,6 +996,7 @@ test('putout: cli: ruler processor: --enable-all: no path', async (t) => {
     
     stopAll();
     
+    const {red} = await simpleImportDefault('chalk');
     const expected = red('🐊 `path` is missing for ruler toggler (`--enable-all`, `--disable-all`)');
     
     t.calledWith(logError, [expected]);
@@ -1060,6 +1072,7 @@ test('putout: cli: ruler processor: --enable --fix: log', async (t) => {
     
     stopAll();
     
+    const {red} = await simpleImportDefault('chalk');
     const expected = red('🐊 `--fix` cannot be used with ruler toggler (`--enable`, `--disable`)');
     
     t.calledWith(logError, [expected]);
@@ -1750,6 +1763,7 @@ test('putout: cli: invalid option: message', async (t) => {
     
     stopAll();
     
+    const {red} = await simpleImportDefault('chalk');
     const expected = red('🐊 Invalid option `--hello-world`. Perhaps you meant `--help`');
     
     t.calledWith(logError, [expected], 'should show message about invalid option');
@@ -1772,6 +1786,7 @@ test('putout: cli: invalid option: message: one char', async (t) => {
     
     stopAll();
     
+    const {red} = await simpleImportDefault('chalk');
     const expected = red(`🐊 Invalid option '-z'`);
     
     t.calledWith(logError, [expected], 'should show message about invalid option');
@@ -1827,6 +1842,7 @@ test('putout: cli: cannot load processor: not found', async (t) => {
     
     stopAll();
     
+    const {red} = await simpleImportDefault('chalk');
     const expected = red(`🐊 Processor "putout-processor-hello" could not be found!`);
     
     t.calledWith(logError, [expected], 'should show message about invalid option');

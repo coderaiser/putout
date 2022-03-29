@@ -1,6 +1,5 @@
 'use strict';
 
-const {red} = require('chalk');
 const yargsParser = require('yargs-parser');
 const {isCI} = require('ci-info');
 const memo = require('nano-memoize');
@@ -10,7 +9,10 @@ const fullstore = require('fullstore');
 
 const keyPress = require('@putout/cli-keypress');
 const {version} = require('../../package.json');
-const {simpleImport} = require('./simple-import');
+const {
+    simpleImport,
+    simpleImportDefault,
+} = require('./simple-import');
 const {run} = require('./runner/runner.js');
 
 const {
@@ -140,7 +142,9 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         plugins,
     } = args;
     
+    const {red} = await simpleImportDefault('chalk');
     const exit = getExit({
+        red,
         raw,
         halt,
         logError,
@@ -324,7 +328,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     exit(exitCode);
 };
 
-const getExit = ({halt, raw, logError}) => (code, e) => {
+const getExit = ({red, halt, raw, logError}) => (code, e) => {
     if (!code)
         return halt(0);
     
