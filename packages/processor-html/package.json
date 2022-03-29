@@ -21,7 +21,7 @@
     "coverage": "madrun coverage"
   },
   "dependencies": {
-    "@putout/processor-css": "^3.0.0",
+    "@putout/processor-css": "^4.0.0",
     "svelte": "^3.29.7"
   },
   "keywords": [
@@ -41,11 +41,11 @@
     "putout": "*"
   },
   "peerDependencies": {
-    "putout": ">=18"
+    "putout": ">=25"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "publishConfig": {
     "access": "public"
