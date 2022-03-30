@@ -155,7 +155,7 @@
     "@putout/plugin-remove-useless-template-expressions": "^1.0.0",
     "@putout/plugin-remove-useless-type-conversion": "^2.0.0",
     "@putout/plugin-remove-useless-typeof": "^1.0.0",
-    "@putout/plugin-remove-useless-variables": "^6.0.0",
+    "@putout/plugin-remove-useless-variables": "^7.0.0",
     "@putout/plugin-reuse-duplicate-init": "^3.0.0",
     "@putout/plugin-simplify-assignment": "^1.0.0",
     "@putout/plugin-simplify-logical-expressions": "^2.0.0",
