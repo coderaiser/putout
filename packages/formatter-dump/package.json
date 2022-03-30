@@ -1,6 +1,6 @@
 {
   "name": "@putout/formatter-dump",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout formatter stores output and dump it on end",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-dump#readme",
