@@ -49,7 +49,12 @@ function parseObjectExpression(path, initPath) {
     const keyPropertyValue = extract(path.node.property);
     
     for (const propertyPath of initPath.get('properties')) {
-        const keyValue = extract(propertyPath.node.key);
+        const keyPath = propertyPath.get('key');
+        
+        if (!isExtractable(keyPath))
+            return [NOT_COMPUTED];
+        
+        const keyValue = extract(keyPath);
         
         if (keyValue !== keyPropertyValue)
             continue;

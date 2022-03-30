@@ -65,6 +65,11 @@ test('plugin-convert-comparison-to-boolean: no transform: object', (t) => {
     t.end();
 });
 
+test('plugin-convert-comparison-to-boolean: no transform: spread', (t) => {
+    t.noTransform('spread');
+    t.end();
+});
+
 test('plugin-convert-comparison-to-boolean: transform: with convert-for-each-to-for-of', (t) => {
     t.transform('convert-for-each-to-for-of', {
         'convert-for-each-to-for-of': convertForEachToForOf,
