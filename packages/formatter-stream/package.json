@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "chalk": "^5.0.1",
+    "chalk": "^4.0.0",
     "table": "^6.0.1"
   },
   "keywords": [
