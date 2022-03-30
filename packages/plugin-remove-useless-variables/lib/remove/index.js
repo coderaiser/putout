@@ -25,6 +25,9 @@ module.exports.traverse = ({push}) => ({
         if (!binding)
             return;
         
+        if (binding.constantViolations.length)
+            return;
+        
         if (binding.references > 1)
             return;
         

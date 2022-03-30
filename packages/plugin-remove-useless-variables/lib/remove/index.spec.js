@@ -23,6 +23,11 @@ test('remove usless variables: remove: no transform: react', (t) => {
     t.end();
 });
 
+test('remove usless variables: remove: no transform: if', (t) => {
+    t.noTransform('if');
+    t.end();
+});
+
 test('plugin-reuse-duplicate-init: transform: with-remove-useless', (t) => {
     t.transform('with-reuse', {
         'reuse-duplicate-init': reuseDuplicateInit,
