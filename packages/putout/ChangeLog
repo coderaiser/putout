@@ -1,3 +1,13 @@
+2022.03.30, v25.11.2
+
+fix:
+- (putout) get back chalk v4: berry support + deduplication
+
+
+feature:
+- (@putout/eslint-config) padding-line-between-statements: add new line before and after for
+
+
 2022.03.29, v25.11.1
 
 feature:
