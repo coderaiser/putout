@@ -1,3 +1,13 @@
+2022.03.30, v25.11.4
+
+feature:
+- (package) @putout/plugin-remove-useless-variables v7.0.0
+- (@putout/plugin-remove-useless-variables) drop support of putout < 25
+- (@putout/plugin-remove-useless-variables) remove: exclude bindings with constant violations (#100)
+- (@putout/operate) remove: preserve only top-level comments, remove other (#100)
+- (@putout/operate) compute: exclude SpreadElement from extracting (#100)
+
+
 2022.03.30, v25.11.3
 
 feature:
