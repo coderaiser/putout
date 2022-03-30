@@ -118,13 +118,10 @@ const getComments = (path) => {
 
 module.exports.remove = (path) => {
     const comments = getComments(path);
-    const nextPath = path.getNextSibling();
-    const {block} = path.scope.getProgramParent();
+    const programBlock = path.scope.getProgramParent().block;
     
-    if (nextPath.node)
-        nextPath.node.comments = comments;
-    else
-        block.comments = comments;
+    if (path.scope.block === programBlock)
+        programBlock.comments = comments;
     
     path.remove();
 };

@@ -1,8 +1,6 @@
-function objectPattern2(
-    {
-        b
-    }
-) {
+function objectPattern2({
+    b
+}) {
     return b;
 }
 

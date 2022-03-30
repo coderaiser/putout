@@ -2,6 +2,7 @@ const {
     types,
     operator
 } = require('putout');
+
 const {
     replaceWith
 } = operator;

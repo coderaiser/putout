@@ -57,6 +57,8 @@ const fixture = readFixtures([
     'exports-fix',
     'comments',
     'comments-fix',
+    'comments-if',
+    'comments-if-fix',
 ]);
 
 test('remove-unused-variables: putout: no vars', (t) => {
@@ -245,7 +247,7 @@ test('remove-unused-variables: putout: exports', (t) => {
     const {code} = putout(fixture.exports);
     const expected = fixture.exportsFix;
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -253,7 +255,15 @@ test('remove-unused-variables: putout: comments', (t) => {
     const {code} = putout(fixture.comments);
     const expected = fixture.commentsFix;
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
+    t.end();
+});
+
+test('remove-unused-variables: putout: comments: if', (t) => {
+    const {code} = putout(fixture.commentsIf);
+    const expected = fixture.commentsIfFix;
+    
+    t.equal(code, expected);
     t.end();
 });
 

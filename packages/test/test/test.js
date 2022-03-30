@@ -74,7 +74,7 @@ test('test: transform: plugin', (t) => {
     t.end();
 });
 
-test('test: transform: rule of a plugin', (t) => {
+test('test: transform: rule of a plugin: remove-unused-variables', (t) => {
     t.transform('remove-unused-variables', {
         'extract-object-properties': require('@putout/plugin-extract-object-properties'),
         'remove': require('@putout/plugin-remove-unused-variables'),

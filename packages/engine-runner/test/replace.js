@@ -196,11 +196,9 @@ test('putout: runner: replace: remove: comments', (t) => {
     });
     
     const expected = montag`
-        // some loop
-    
     `;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.equal(code, expected);
     t.end();
 });
 
