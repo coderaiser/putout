@@ -35,6 +35,7 @@ module.exports.fix = (path) => {
 module.exports.traverse = ({push}) => ({
     ObjectExpression(path) {
         const properties = path.get('properties');
+        
         for (const propPath of properties) {
             const {node} = propPath;
             const {key, value} = node;

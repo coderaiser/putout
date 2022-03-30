@@ -16,6 +16,7 @@ module.exports.traverse = ({push}) => ({
         
         const name = 'Component';
         const specifiersPaths = path.get('specifiers');
+        
         for (const specPath of specifiersPaths) {
             if (!specPath.isImportSpecifier())
                 continue;

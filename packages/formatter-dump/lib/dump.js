@@ -27,6 +27,7 @@ export default ({name, places, index, count, filesCount, errorsCount}) => {
         return '';
     
     const output = [];
+    
     for (const {name, places} of json.errors) {
         const line = buildLine(places);
         

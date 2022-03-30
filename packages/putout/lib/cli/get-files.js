@@ -43,6 +43,7 @@ const addExt = (options) => async function addExt(a) {
     
     const jsFiles = [];
     const promises = [];
+    
     for (const file of files) {
         const info = await lstat(file);
         

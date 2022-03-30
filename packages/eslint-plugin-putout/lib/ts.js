@@ -104,6 +104,7 @@ module.exports = [
 
 function convertPaddingLines([state, ...lines]) {
     const newLines = [];
+    
     for (const line of lines) {
         let {prev, next} = line;
         

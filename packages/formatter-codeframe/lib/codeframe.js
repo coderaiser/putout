@@ -22,6 +22,7 @@ export default ({name, source, places, index, count, filesCount, errorsCount}) =
         return '';
     
     const output = [];
+    
     for (const {name, places, source} of json.errors) {
         for (const {rule, position, message} of places) {
             const {line, column} = position;

@@ -30,6 +30,7 @@ function getChangedLines(lines) {
     let i = 0;
     const changedLines = [];
     let prevState = 0;
+    
     for (const [state, line] of lines) {
         if (state === NOT_CHANGED) {
             ++i;

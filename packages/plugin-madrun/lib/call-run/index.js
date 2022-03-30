@@ -37,6 +37,7 @@ module.exports.fix = ({path, value}) => {
     const scripts = getScripts(line);
     
     const strs = [];
+    
     for (const script of scripts) {
         strs.push(stringLiteral(script));
     }

@@ -65,8 +65,10 @@ function runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge}) {
     traverse(ast, visitor);
     
     const places = [];
+    
     for (const [rule, pull] of entries) {
         const items = pull();
+        
         for (const {message, position} of items) {
             places.push({
                 rule,

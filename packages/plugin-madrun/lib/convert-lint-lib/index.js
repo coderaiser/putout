@@ -47,6 +47,7 @@ function parseObject(path) {
     let fixLint = null;
     
     const properties = path.get('properties');
+    
     for (const property of properties) {
         const key = property.get('key');
         

@@ -12,6 +12,7 @@ export default async ({name, source, places, index, count, filesCount, errorsCou
         return '';
     
     const output = [];
+    
     for (const {name, places} of json.errors) {
         const messages = places.map(convertPlace);
         

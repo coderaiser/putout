@@ -60,9 +60,10 @@ function replace({__a}, path) {
     
     const arg = path.get('arguments.1').node;
     arg.async = true;
-    const {body} = arg.body;
     
+    const {body} = arg.body;
     const n = body.length;
+    
     for (let i = 0; i < n; i++) {
         let nodes = [];
         

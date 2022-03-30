@@ -16,6 +16,7 @@ function trim(str) {
 }
 
 const fixturesDir = path.join(__dirname, 'fixture');
+
 for (const caseName of fs.readdirSync(fixturesDir)) {
     test(`babel plugin for putout: should ${caseName.split('-').join(' ')}`, (t) => {
         const fixtureDir = path.join(fixturesDir, caseName);

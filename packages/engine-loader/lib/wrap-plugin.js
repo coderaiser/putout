@@ -42,6 +42,7 @@ const getPlugin = ({name, transform, message}) => ({
             return;
         
         const positions = getPositions(oldCode, newCode);
+        
         for (const start of positions) {
             const node = {
                 loc: {

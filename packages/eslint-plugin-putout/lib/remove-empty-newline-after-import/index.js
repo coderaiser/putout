@@ -68,6 +68,7 @@ module.exports = {
 
 function getImports(node) {
     const imports = [];
+    
     for (const current of node.body) {
         if (current.type === 'ImportDeclaration')
             imports.push(current);

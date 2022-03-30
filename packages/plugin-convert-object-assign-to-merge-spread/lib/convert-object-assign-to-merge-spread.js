@@ -22,6 +22,7 @@ module.exports.report = () => 'Merge spread should be used instead of Object.ass
 module.exports.fix = (path) => {
     let properties = [];
     const args = path.node.arguments;
+    
     for (const arg of args) {
         if (isObjectExpression(arg)) {
             properties = properties.concat(arg.properties);

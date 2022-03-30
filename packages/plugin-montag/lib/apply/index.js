@@ -30,6 +30,7 @@ function evaluate({__array}, path) {
     const column = getColumn(path);
     const aligned = [];
     const aligner = createAligner(column);
+    
     for (const line of lines) {
         aligned.push(`${aligner}${line}`.replace(/\n/g, '\\n'));
     }

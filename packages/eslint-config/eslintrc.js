@@ -103,10 +103,6 @@ module.exports = {
             ...getPaddingCjsImport(),
             {
                 blankLine: 'always',
-                prev: 'block-like',
-                next: 'for',
-            }, {
-                blankLine: 'always',
                 prev: '*',
                 next: 'if',
             }, {
@@ -129,6 +125,18 @@ module.exports = {
                 blankLine: 'always',
                 prev: 'for',
                 next: 'return',
+            }, {
+                blankLine: 'always',
+                prev: 'block-like',
+                next: 'for',
+            }, {
+                blankLine: 'always',
+                prev: ['const', 'let'],
+                next: 'for',
+            }, {
+                blankLine: 'always',
+                prev: 'for',
+                next: ['const', 'let'],
             }, {
                 blankLine: 'always',
                 prev: 'while',

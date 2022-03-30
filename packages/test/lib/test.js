@@ -137,6 +137,7 @@ const formatMany = currify(({dir, plugins, rules}, t) => async (formatter, names
     
     const count = names.length;
     const report = putout.initReport();
+    
     for (let index = 0; index < count; index++) {
         const name = names[index];
         const full = fullNames[index];
@@ -440,6 +441,7 @@ function preTest(test, plugin) {
         }, options);
         
         const entries = Object.entries(rules);
+        
         for (const [entryName, plugin] of entries) {
             preTest(test, {
                 [`${name}/${entryName}`]: plugin,
