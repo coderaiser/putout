@@ -32,3 +32,8 @@ test('plugin-simplify-logical-expression: transform: in', (t) => {
     t.end();
 });
 
+test('plugin-simplify-logical-expression: transform: same', (t) => {
+    t.transform('same');
+    t.end();
+});
+

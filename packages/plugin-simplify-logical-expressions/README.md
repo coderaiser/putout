@@ -37,6 +37,9 @@ a instanceof !b;
 !a instanceof !b;
 !a in b;
 a in !b;
+
+const oneOf = a || a;
+const same = a === a;
 ```
 
 ## ✅ Example of correct code
@@ -48,6 +51,9 @@ if (left.type !== 'UnaryExpression');
 
 !(a instanceof b);
 !(a in b);
+
+const oneOf = a;
+const same = true;
 ```
 
 ## License

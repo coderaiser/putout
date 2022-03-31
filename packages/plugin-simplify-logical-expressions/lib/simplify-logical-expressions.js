@@ -14,5 +14,14 @@ module.exports.replace = () => ({
     '!__a in __b': '!(__a in __b)',
     '__a in !__b': '!(__a in __b)',
     '!__a in !__b': '!(__a in __b)',
+    
+    '__a || __a': '__a',
+    '__a && __a': '__a',
+    '__a = __a': '__a',
+    
+    '__a === __a': 'true',
+    '__a == __a': 'true',
+    '__a !== __a': 'false',
+    '__a != __a': 'false',
 });
 
