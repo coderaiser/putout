@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/processor-css.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/processor-css "npm"
 
-`putout` processor adds ability to lint `css` files.
+🐊**Putout** processor adds ability to lint `css` files.
 
 ## Install
 
