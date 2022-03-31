@@ -3,16 +3,18 @@
 const {
     types,
     operator,
-    template,
 } = require('putout');
 
 const {replaceWith, compute} = operator;
-const {isIdentifier} = types;
+const {
+    isIdentifier,
+    BooleanLiteral,
+} = types;
 
 module.exports.report = () => 'constant conditions should be avoided';
 
 module.exports.fix = ({path, value}) => {
-    replaceWith(path, template.ast(String(value)));
+    replaceWith(path, BooleanLiteral(value));
 };
 
 module.exports.traverse = ({push}) => ({
