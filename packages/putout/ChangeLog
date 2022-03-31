@@ -1,3 +1,12 @@
+2022.03.31, v25.12.0
+
+feature:
+- (package) @putout/plugin-convert-comparison-to-boolean v3.0.0
+- (@putout/plugin-convert-comparison-to-boolean) drop support of putout < 25
+- (@putout/plugin-simplify-logical-expressions) add more cases
+- (@putout/plugin-convert-comparison-to-boolean) template.ast -> BooleanLiteral
+
+
 2022.03.30, v25.11.4
 
 feature:
