@@ -95,7 +95,7 @@
     "@putout/plugin-convert-index-of-to-includes": "^1.0.0",
     "@putout/plugin-convert-map-to-for-of": "^2.0.0",
     "@putout/plugin-convert-math-pow": "^4.0.0",
-    "@putout/plugin-convert-mock-require-to-mock-import": "^2.0.0",
+    "@putout/plugin-convert-mock-require-to-mock-import": "^3.0.0",
     "@putout/plugin-convert-object-assign-to-merge-spread": "^5.0.0",
     "@putout/plugin-convert-quotes-to-backticks": "^2.0.0",
     "@putout/plugin-convert-template-to-string": "^1.0.0",
