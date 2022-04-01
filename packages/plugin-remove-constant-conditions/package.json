@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-constant-conditions",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove test.constant-conditions calls",
