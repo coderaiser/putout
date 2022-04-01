@@ -165,7 +165,7 @@
     "@putout/plugin-strict-mode": "^3.0.0",
     "@putout/plugin-tape": "^9.0.0",
     "@putout/plugin-try-catch": "^1.0.0",
-    "@putout/plugin-typescript": "^1.0.0",
+    "@putout/plugin-typescript": "^2.0.0",
     "@putout/plugin-webpack": "^1.0.0",
     "@putout/processor-css": "^4.0.0",
     "@putout/processor-ignore": "^2.0.0",
