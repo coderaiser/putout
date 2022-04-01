@@ -1,3 +1,13 @@
+2022.04.01, v25.13.0
+
+feature:
+- (package) @putout/plugin-typescript v2.0.0
+- (@putout/plugin-typescript) drop support of 🐊 < 16
+- (@putout/plugin-typescript) remove-duplicates-from-union: avoid duplicates reporting
+- (@putout/plugin-extract-object-properties) not-equal-deep: link to listStore() results -> call linkStore() when neaded
+- (@putout/engine-runner) store: listStore: use Set() inside to prevent duplicates and return array
+
+
 2022.03.31, v25.12.0
 
 feature:
