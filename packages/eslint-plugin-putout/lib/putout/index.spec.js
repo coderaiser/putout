@@ -311,7 +311,7 @@ tsParserTester.run('typescript-eslint-parser-error', rule, {
             alert(a);
         `,
         errors: [{
-            message: 'Parser error (putout)',
+            message: `Identifier 'Stub' has already been declared. (3:20) (putout)`,
             line: 2,
             column: 13,
         }],
