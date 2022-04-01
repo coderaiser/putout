@@ -617,3 +617,22 @@ test('putout: runner: replace: match not function', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: return nothing', (t) => {
+    const addVar = {
+        report: () => {},
+        replace: () => ({
+            Program() {
+            },
+        }),
+    };
+    
+    const [error] = tryCatch(putout, 'debugger', {
+        runPlugins,
+        plugins: [{
+            'add-variable': addVar,
+        }],
+    });
+    
+    t.notOk(error);
+    t.end();
+});

@@ -284,3 +284,4 @@ test('putout: runner: plugins: traverse: store: uplist: clear', (t) => {
     t.equal(error.message, `☝️ Looks like 'push' called without a 'path' argument.`);
     t.end();
 });
+

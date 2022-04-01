@@ -14,7 +14,7 @@ module.exports = (from, to, path) => {
         highWatermark,
     } = create(from, to, path);
     
-    const program = path.findParent(isProgram);
+    const program = path.findParent(isProgram) || path;
     
     const options = {
         watermark,
