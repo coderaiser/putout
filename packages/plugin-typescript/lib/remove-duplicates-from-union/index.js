@@ -25,9 +25,9 @@ module.exports.traverse = ({push, listStore}) => ({
     Program: {
         exit() {
             for (const path of listStore())
-                push(path)
-        }
-    }
+                push(path);
+        },
+    },
 });
 
 function contains(type, types) {
