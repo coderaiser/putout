@@ -1,3 +1,11 @@
+2022.04.01, v25.13.1
+
+feature:
+- (package) @putout/plugin-strict-mode v4.0.0
+- (@putout/plugin-strict-mode) drop support of 🐊 < 25
+- (@putout/plugin-strict-mode) add support of @putout/plugin-typescript
+
+
 2022.04.01, v25.13.0
 
 feature:
