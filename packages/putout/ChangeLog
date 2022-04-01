@@ -1,3 +1,39 @@
+2022.04.02, v25.14.0
+
+fix:
+- (eslint-plugin-putout) get back ability to catch error during transform
+
+
+feature:
+- (package) @putout/plugin-convert-mock-require-to-mock-import v3.0.0
+- (@putout/plugin-convert-mock-require-to-mock-import) drop support of putout < 25
+- (package) @putout/plugin-merge-duplicate-imports v6.0.0
+- (@putout/plugin-merge-duplicate-imports) drop support of putout < 25
+- (@putout/plugin-react-hooks) drop support of putout < 25
+- (package) @putout/plugin-remove-console v4.0.0
+- (@putout/plugin-remove-console) drop support of putout < 25
+- (package) @putout/plugin-remove-constant-conditions v4.0.0
+- (@putout/plugin-remove-constant-conditions) drop support of 🐊 < 25
+- (package) @putout/plugin-remove-duplicate-case v2.0.0
+- (@putout/plugin-remove-duplicate-case) drop support of 🐊 < 25
+- (package) @putout/plugin-remove-empty v8.0.0
+- (@putout/plugin-remove-empty) drop support of 🐊 < 25
+- (package) @putout/plugin-remove-unreferenced-variables v2.0.0
+- (@putout/plugin-remove-unreferenced-variables) drop support of 🐊 < 25
+- (package) @putout/plugin-remove-unused-expressions v5.0.0
+- (@putout/plugin-remove-unused-expressions) drop support of 🐊 < 25
+- (package) @putout/plugin-remove-unused-private-fields v2.0.0
+- (@putout/plugin-remove-unused-private-fields) drop support of 🐊 < 25
+- (package) @putout/plugin-remove-useless-arguments v6.0.0
+- (@putout/plugin-remove-useless-arguments) drop support of 🐊 < 25
+- (@putout/plugin-declare-before-reference) add
+- (@putout/plugin-putout) apply-remove: add
+- (@putout/plugin-putout) declare: operator: add support of remove()
+- (@putout/engine-runner) add ability to handle case with replace that returns nothing
+- (eslint-plugin-putout) speed up 🐊 Putout rule: 5.112s -> 3.661s on 2000 loc file
+- (eslint-plugin-putout) improve typescript support
+
+
 2022.04.01, v25.13.1
 
 feature:
