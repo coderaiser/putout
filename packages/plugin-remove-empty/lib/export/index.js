@@ -1,9 +1,12 @@
 'use strict';
 
+const {operator} = require('putout');
+const {remove} = operator;
+
 module.exports.report = () => 'Remove empty export';
 
 module.exports.fix = (path) => {
-    path.remove();
+    remove(path);
 };
 
 module.exports.include = () => [

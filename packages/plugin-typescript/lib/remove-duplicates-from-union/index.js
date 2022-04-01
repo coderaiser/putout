@@ -1,12 +1,15 @@
 'use strict';
 
 const {operator} = require('putout');
-const {compare} = operator;
+const {
+    compare,
+    remove,
+} = operator;
 
 module.exports.report = () => 'Avoid using duplicates in Union';
 
 module.exports.fix = (path) => {
-    path.remove();
+    remove(path);
 };
 
 module.exports.traverse = ({push, listStore}) => ({

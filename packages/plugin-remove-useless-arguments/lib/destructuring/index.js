@@ -12,6 +12,7 @@ const {
 const {
     compareAny,
     findBinding,
+    remove,
 } = operator;
 
 const getKey = ({key}) => key;
@@ -24,7 +25,7 @@ module.exports.report = ({path, name}) => {
 };
 
 module.exports.fix = ({path}) => {
-    path.remove();
+    remove(path);
 };
 
 module.exports.traverse = ({push}) => ({

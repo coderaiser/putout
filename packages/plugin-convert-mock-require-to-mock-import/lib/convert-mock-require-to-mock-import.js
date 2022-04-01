@@ -4,7 +4,10 @@ const {
     template,
     operator,
 } = require('putout');
-const {getPathAfterImports} = operator;
+const {
+    getPathAfterImports,
+    remove,
+} = operator;
 
 const importMockImport = template.ast(`import {createMockImport} from 'mock-import'`);
 const initMockImport = template.ast(`const {mockImport, reImport, stopAll} = createMockImport(import.meta.url)`);
@@ -44,5 +47,5 @@ function maybeRemoveOldStopAll(scope) {
     const {path} = binding;
     
     if (path)
-        path.remove();
+        remove(path);
 }

@@ -4,7 +4,10 @@ const {
     types,
     operator,
 } = require('putout');
-const {replaceWith} = operator;
+const {
+    replaceWith,
+    remove,
+} = operator;
 
 const {isAssignmentPattern} = types;
 
@@ -15,7 +18,7 @@ module.exports.report = () => `Destructuring should be used in the head of for-o
 
 module.exports.fix = ({path, varPath}) => {
     replaceWith(varPath, path.node.id);
-    path.remove();
+    remove(path);
 };
 
 module.exports.traverse = ({push, options}) => ({

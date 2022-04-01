@@ -1,11 +1,18 @@
 'use strict';
 
 const {
+    operator,
+    types,
+} = require('putout');
+
+const {remove} = operator;
+
+const {
     isIdentifier,
     isMemberExpression,
     isThisExpression,
     isAssignmentExpression,
-} = require('putout').types;
+} = types;
 
 const {traverseClass} = require('../common');
 const stateToHooks = require('./state-to-hooks');
@@ -26,7 +33,7 @@ module.exports.fix = (path) => {
         return stateToHooks(path);
     
     if (isVarFromState(path))
-        return path.remove();
+        return remove(path);
     
     return setStateToHooks(path);
 };

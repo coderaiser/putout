@@ -1,10 +1,16 @@
 'use strict';
 
-const {isProgram} = require('putout').types;
+const {
+    operator,
+    types,
+} = require('putout');
+
+const {remove} = operator;
+const {isProgram} = types;
 
 module.exports.report = () => '"use strict" is redundant in ESM';
 
-module.exports.fix = (path) => path.remove();
+module.exports.fix = (path) => remove(path);
 
 module.exports.traverse = ({push, store}) => ({
     'await __a(__args)'({scope}) {

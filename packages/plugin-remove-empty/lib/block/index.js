@@ -5,7 +5,10 @@ const {
     operator,
 } = require('putout');
 
-const {replaceWith} = operator;
+const {
+    replaceWith,
+    remove,
+} = operator;
 
 const {
     UnaryExpression,
@@ -27,13 +30,13 @@ module.exports.fix = (path) => {
     const {alternate} = path.node;
     
     if (!path.isIfStatement())
-        return path.remove();
+        return remove(path);
     
     if (!alternate) {
         if (!testPath.isBinaryExpression() && !testPath.isLiteral())
             return replaceWith(path, testPath);
         
-        return path.remove();
+        return remove(path);
     }
     
     if (alternatePath.isBlock() && !alternate.body.length) {

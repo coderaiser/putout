@@ -1,9 +1,12 @@
 'use strict';
 
+const {operator} = require('putout');
+const {remove} = operator;
+
 module.exports.report = ({node}) => `"${node.id.name}" is defined but never used`;
 
 module.exports.fix = (path) => {
-    path.remove();
+    remove(path);
 };
 
 module.exports.traverse = ({push, upstore}) => ({

@@ -1,6 +1,11 @@
 'use strict';
 
-const {types} = require('putout');
+const {
+    types,
+    operator,
+} = require('putout');
+
+const {remove} = operator;
 
 const {values} = Object;
 const {
@@ -19,7 +24,7 @@ module.exports.fix = ({path, imports}) => {
         const {specifiers} = path.node;
         
         all.push(...specifiers);
-        path.remove();
+        remove(path);
     }
 };
 

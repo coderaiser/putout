@@ -1,5 +1,8 @@
 'use strict';
 
+const {operator} = require('putout');
+const {remove} = operator;
+
 module.exports.report = () => `Avoid useless type declaration`;
 
 module.exports.fix = ({name, path, nodes}) => {
@@ -7,7 +10,7 @@ module.exports.fix = ({name, path, nodes}) => {
         node.name = name;
     }
     
-    path.remove();
+    remove(path);
 };
 
 module.exports.traverse = ({push, store}) => ({

@@ -37,9 +37,8 @@ function onIfStatement({push}) {
 }
 
 // arguments
+const sum = (a, b) => {};// destructuring
 sum(a, b, c);
-
-const sum = (a, b) => {};
 ```
 
 ## ✅ Example of correct code
@@ -54,9 +53,8 @@ function onIfStatement({push}) {
 }
 
 // arguments
+const sum = (a, b) => {};// destructuring
 sum(a, b, c);
-
-const sum = (a, b) => {};
 ```
 
 ## License

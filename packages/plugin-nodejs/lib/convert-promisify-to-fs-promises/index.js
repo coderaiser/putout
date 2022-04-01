@@ -5,7 +5,10 @@ const {
     operator,
 } = require('putout');
 
-const {replaceWith} = operator;
+const {
+    replaceWith,
+    remove,
+} = operator;
 
 const NOT_COMPUTED = false;
 const SHORTHAND = true;
@@ -20,7 +23,7 @@ module.exports.fix = ({path, promisified}) => {
         const {name} = declarator.id;
         
         props.push(t.ObjectProperty(t.Identifier(name), t.Identifier(name), NOT_COMPUTED, SHORTHAND));
-        path.remove();
+        remove(path);
     }
     
     const {init} = path.node;

@@ -1,6 +1,11 @@
 'use strict';
 
-const {traverse} = require('putout');
+const {
+    traverse,
+    operator,
+} = require('putout');
+
+const {remove} = operator;
 
 module.exports.report = ({name}) => `private field "#${name}" declared by not used`;
 
@@ -35,7 +40,7 @@ module.exports.find = (ast) => {
 };
 
 module.exports.fix = ({path}) => {
-    path.remove();
+    remove(path);
 };
 
 function findClassName(path) {

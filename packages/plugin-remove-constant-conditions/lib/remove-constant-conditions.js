@@ -8,6 +8,7 @@ const {
 const {
     replaceWith,
     replaceWithMultiple,
+    remove,
 } = operator;
 
 const {runInNewContext} = require('vm');
@@ -29,7 +30,7 @@ module.exports.fix = ({path, result}) => {
         return replaceWithMultiple(path, body);
     
     if (!alternate)
-        return path.remove();
+        return remove(path);
     
     replaceWith(path, alternate);
 };

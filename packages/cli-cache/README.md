@@ -22,12 +22,12 @@ const fileCache = await createCache({
     fresh,
 });
 
+const places = fileCache.getPlaces(name);
+
 fileCache.canUseCache(name, options);
 fileCache.removeEntry(name);
 fileCache.setInfo(name, places, options);
 fileCache.reconcile();
-
-const places = fileCache.getPlaces(name);
 ```
 
 ## License

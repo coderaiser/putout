@@ -2,12 +2,15 @@
 
 const {operator} = require('putout');
 
-const {traverse} = operator;
+const {
+    traverse,
+    remove,
+} = operator;
 
 module.exports.report = () => `Avoid useless 't.end()'`;
 
 module.exports.fix = (path) => {
-    path.remove();
+    remove(path);
 };
 
 const TEST = 'test("__a", (t) => __body)';

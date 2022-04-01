@@ -1,9 +1,12 @@
 'use strict';
 
+const {operator} = require('putout');
+const {remove} = operator;
+
 module.exports.report = () => 'Duplicate interface keys should be avoided';
 
 module.exports.fix = (path) => {
-    path.remove();
+    remove(path);
 };
 
 module.exports.traverse = ({push}) => ({

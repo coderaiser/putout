@@ -1,9 +1,12 @@
 'use strict';
 
+const {operator} = require('putout');
+const {remove} = operator;
+
 module.exports.report = () => 'Empty import statement';
 
 module.exports.fix = (path) => {
-    path.remove();
+    remove(path);
 };
 
 const isCSS = (a) => /\.css/.test(a);

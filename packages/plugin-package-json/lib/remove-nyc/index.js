@@ -1,11 +1,15 @@
 'use strict';
 
-const {getProperties} = require('putout').operator;
+const {operator} = require('putout');
+const {
+    remove,
+    getProperties,
+} = operator;
 
 module.exports.report = () => `Remove 'nyc' section of 'package.json', use file '.nycrc.json' intead`;
 
 module.exports.fix = (path) => {
-    path.remove();
+    remove(path);
 };
 
 module.exports.traverse = ({push}) => ({

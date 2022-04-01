@@ -6,7 +6,10 @@ const {
 } = require('putout');
 
 const {isFunction} = types;
-const {findBinding} = operator;
+const {
+    findBinding,
+    remove,
+} = operator;
 
 module.exports.report = ({node}) => {
     if (isFunction(node))
@@ -16,7 +19,7 @@ module.exports.report = ({node}) => {
 };
 
 module.exports.fix = (path) => {
-    path.remove();
+    remove(path);
 };
 
 module.exports.traverse = ({push}) => ({

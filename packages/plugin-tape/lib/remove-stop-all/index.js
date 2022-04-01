@@ -11,12 +11,15 @@ const {
     TEST_ASYNC_SKIP,
 } = require('../test-signatures');
 
-const {traverse} = operator;
+const {
+    traverse,
+    remove,
+} = operator;
 
 module.exports.report = () => `Remove 'stopAll()' when you not calling 'reImport()'`;
 
 module.exports.fix = (path) => {
-    path.remove();
+    remove(path);
 };
 
 module.exports.traverse = ({push}) => ({

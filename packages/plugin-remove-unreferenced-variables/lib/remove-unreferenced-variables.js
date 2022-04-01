@@ -1,8 +1,11 @@
 'use strict';
 
+const {operator} = require('putout');
+const {remove} = operator;
+
 module.exports.report = () => `Unreferenced variables should be avoided`;
 
-module.exports.fix = (path) => path.remove();
+module.exports.fix = (path) => remove(path);
 
 module.exports.traverse = ({push}) => ({
     '__identifier = __a'(path) {
