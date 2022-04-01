@@ -318,7 +318,6 @@ tsParserTester.run('typescript-eslint-parser-error', rule, {
     }],
 });
 
-
 tsParserTester.run('typescript-eslint-parser-error', rule, {
     valid: [`
         import {Stub} from 'supertape';
