@@ -125,7 +125,7 @@
     "@putout/plugin-remove-console": "^3.0.0",
     "@putout/plugin-remove-constant-conditions": "^3.0.0",
     "@putout/plugin-remove-debugger": "^4.0.0",
-    "@putout/plugin-remove-duplicate-case": "^1.0.0",
+    "@putout/plugin-remove-duplicate-case": "^2.0.0",
     "@putout/plugin-remove-duplicate-keys": "^2.0.0",
     "@putout/plugin-remove-duplicates-from-logical-expressions": "^1.0.0",
     "@putout/plugin-remove-empty": "^8.0.0",
