@@ -131,3 +131,15 @@ test('plugin-putout: declare: transform: properties', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: remove', (t) => {
+    t.transformCode('remove();', montag`
+        import {operator} from 'putout';
+        
+        const {
+          remove
+        } = operator;
+        
+        remove();
+    `);
+    t.end();
+});
