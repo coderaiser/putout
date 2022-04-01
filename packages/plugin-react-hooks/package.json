@@ -32,7 +32,7 @@
     "react-hooks"
   ],
   "peerDependencies": {
-    "putout": ">=7.17"
+    "putout": ">=25"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -47,7 +47,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=16"
   },
   "publishConfig": {
     "access": "public"
