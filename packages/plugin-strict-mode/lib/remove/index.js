@@ -25,8 +25,6 @@ module.exports.traverse = ({push, store}) => ({
             
             if (strictPath.isExpressionStatement() && strictPath.node.expression.value === 'use strict')
                 push(strictPath);
-            
-            path.stop();
         },
     },
 });

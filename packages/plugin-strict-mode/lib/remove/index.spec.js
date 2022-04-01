@@ -1,6 +1,8 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
+const typescript = require('@putout/plugin-typescript');
+
 const remove = require('.');
 
 const test = createTest(__dirname, {
@@ -29,6 +31,13 @@ test('plugin-strict-mode: remove: export all', (t) => {
 
 test('plugin-strict-mode: remove: transform: top-level-await', (t) => {
     t.transform('top-level-await');
+    t.end();
+});
+
+test('plugin-strict-mode: remove: transform: typescript', (t) => {
+    t.transform('typescript', {
+        typescript,
+    });
     t.end();
 });
 
