@@ -2,7 +2,7 @@
  * Copyright (c) 2016 The xterm.js authors. All rights reserved.
  * @license MIT
  */
-import {ICircularList} from 'common/Types';
+import { ICircularList } from 'common/Types';
 
 /**
  * Represents a circular list; a list with a maximum size that wraps around when push is called,

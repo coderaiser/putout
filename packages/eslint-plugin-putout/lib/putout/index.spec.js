@@ -262,7 +262,7 @@ parserTester.run('putout', rule, {
     }],
 });
 
-tsParserTester.run('typescript-eslint-comments', rule, {
+tsParserTester.run('typescript-eslint: comments', rule, {
     valid: [`
         // valid case
         const noop = () => {};
@@ -276,10 +276,25 @@ tsParserTester.run('typescript-eslint-comments', rule, {
             column: 9,
             message: 'Avoid constant conditions (remove-constant-conditions)',
         }],
+    }, {
+        code: readFixture('typescript-eslint-parent'),
+        output: readFixture('typescript-eslint-parent-fix'),
+        options: [{
+            rules: {
+                'remove-unused-variables': 'off',
+                'typescript/remove-unused-types': 'off',
+                'typescript/remove-duplicates-from-union': 'on',
+            },
+        }],
+        errors: [{
+            line: 5,
+            column: 5,
+            message: 'Avoid using duplicates in Union (typescript/remove-duplicates-from-union)',
+        }],
     }],
 });
 
-tsParserTester.run('typescript-eslint-comments', rule, {
+tsParserTester.run('typescript-eslint-parser-error', rule, {
     valid: [`
         import {Stub} from 'supertape';
         const a: Stub = {};

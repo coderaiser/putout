@@ -58,6 +58,9 @@ module.exports = {
             parser: createParser(node),
         });
         
+        // remove parent nodes that was ignored before converting to babel
+        removeParent(ast);
+        
         const [error, places = []] = tryCatch(findPlaces, ast, text, resultOptions);
         
         if (error)
@@ -97,14 +100,20 @@ const fix = ({ast, text, node, source, resultOptions}) => (fixer) => {
     
     const [, last] = lastToken.range;
     
-    removeParent(ast);
     const code = print(ast);
     
     return fixer.replaceTextRange([0, last], code);
 };
 
+// 1. We cannot modify ESLint AST
+// 2. Parent nodes makes Recast go crazy, so they should be removed
+// 3. Recast creates original nodes with copies of each nodes
+// 4. Parser does nothing but returns original AST before estree to babel
+// 5. All this stuff made to gain performance benefit of avoiding a duble parsing: ESLint, and then Babel
+// 6. Always can be removed and switched to direct parsing by Putout, when benefits outweight supporting all of this magic
 const createParser = (node) => {
     const ast = copyAST(node);
+    removeParent(ast);
     
     const parser = {
         parse: returns(ast),
@@ -115,7 +124,7 @@ const createParser = (node) => {
 
 // ESLint adds parent to each node
 // it makes recase go crazy
-// so we better drop them
+// so we better drop them out
 //
 // https://github.com/eslint/eslint/blob/v8.4.0/lib/linter/linter.js#L964
 function removeParent(ast) {
