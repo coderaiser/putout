@@ -40,7 +40,7 @@ const test = createTest(import.meta.url, {
 
 ### `report(filename, message | []messages)`
 
-checks error message (or messages) of a plugin
+Check error message (or messages) of a plugin:
 
 ```js
 test('remove usless variables: for-of', (t) => {
@@ -49,9 +49,18 @@ test('remove usless variables: for-of', (t) => {
 });
 ```
 
+When you want to check that report called exact count of times pass an array of messages:
+
+```js
+test('remove usless variables: for-of', (t) => {
+    t.report('dot', ['Dot files should be added to .gitignore']);
+    t.end();
+});
+```
+
 ### `reportCode(input, message)`
 
-checks error message of a plugin from `input` code
+Check error message of a plugin from `input` code:
 
 ```js
 test('remove debugger: report', (t) => {
@@ -62,7 +71,7 @@ test('remove debugger: report', (t) => {
 
 ### `transform(filename [, output, plugins])`
 
-check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory
+Check transform of `filename.js` -> `filename-fix.js` in `test/fixtures` directory:
 
 ```js
 test('remove usless variables: for-of', (t) => {
@@ -75,7 +84,7 @@ test('remove usless variables: for-of', (t) => {
 
 ### `transformCode(input, output)`
 
-check transform of `input` -> `output` code
+Check transform of `input` -> `output` code:
 
 ```js
 test('remove-console: property identifier: code', (t) => {
@@ -86,7 +95,7 @@ test('remove-console: property identifier: code', (t) => {
 
 ### `reportWithOptions(filename, options)`
 
-check report of `filename.js` with `options`
+Check report of `filename.js` with `options`:
 
 ```js
 test('putout: test: reportWithOptions', (t) => {
@@ -102,7 +111,7 @@ test('putout: test: reportWithOptions', (t) => {
 
 ### `noReportWithOptions(filename, options)`
 
-check no report of `filename.js` with `options`
+Check no report of `filename.js` with `options`:
 
 ```js
 test('putout: test: noReportWithOptions', (t) => {
@@ -117,7 +126,7 @@ test('putout: test: noReportWithOptions', (t) => {
 
 ### `transformWithOptions(filename, options)`
 
-check transform of `filename.js` with `options`
+Check transform of `filename.js` with `options`:
 
 ```js
 test('putout: plugin: declare-undefined-variables: transform: parse', (t) => {
@@ -141,7 +150,7 @@ test('test: declared', (t) => {
 
 ### `noTransformWithOptions(filename, options)`
 
-check transform of `filename.js` with `options`
+Check transform of `filename.js` with `options`:
 
 ```js
 test('putout: plugin: declare-undefined-variables: transform: assign: dismiss', (t) => {
@@ -154,7 +163,7 @@ test('putout: plugin: declare-undefined-variables: transform: assign: dismiss', 
 
 ### `noReport(filename)`
 
-checks error message of a plugin not produces
+Check error message of a plugin not produces
 
 ```js
 test('plugin-putout: check-replace-code: no report: typescript', (t) => {
@@ -165,7 +174,7 @@ test('plugin-putout: check-replace-code: no report: typescript', (t) => {
 
 ### `noReportAfterTransform(filename)`
 
-checks error message of a plugin not produced
+Check error message of a plugin not produced
 
 ```js
 test('test: no report after transform', (t) => {
@@ -176,7 +185,7 @@ test('test: no report after transform', (t) => {
 
 ### `noTransform(filename)`
 
-check transform of `filename.js` produce nothing
+Check transform of `filename.js` produce nothing
 
 ```js
 test('plugin-apply-numeric-separators: no transform: hex', (t) => {
@@ -200,7 +209,7 @@ const test = createTest(import.meta.url, {
 
 ### `format(formatter, filename)`
 
-check file name formatting (pass `process.env.UPDATE=1` to save fixture)
+Check file name formatting (pass `process.env.UPDATE=1` to save `fixture`):
 
 ```js
 test('formatter: codeframe', async ({format}) => {
@@ -210,7 +219,7 @@ test('formatter: codeframe', async ({format}) => {
 
 ### `noFormat`
 
-check that there is no formatting for for such file
+Check that there is no formatting for for such file:
 
 ```js
 test('formatter: codeframe: no', async ({noFormat}) => {
@@ -220,7 +229,7 @@ test('formatter: codeframe: no', async ({noFormat}) => {
 
 ### `formatMany(formatter, [filename1, filename2])`
 
-check file name formatting (pass `process.env.UPDATE=1` to save fixture)
+Check file name formatting (pass `process.env.UPDATE=1` to save `fixture`):
 
 ```js
 test('formatter: dump: many', async ({formatMany}) => {
@@ -272,7 +281,7 @@ Works in similar to [transform](#transformfilename--output-plugins) way:
 
 - ✅ reads `operator-linebreak.js`;
 - ✅ transforms it;
-- ✅ checks that transformed is equal to `operator-linebreak-fix.js`;
+- ✅ check that transformed is equal to `operator-linebreak-fix.js`;
 
 Example:
 
