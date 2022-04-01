@@ -245,7 +245,7 @@ Let's talk about each of them.
 
 ### `listStore`
 
-To save things as a list use `listStore`.
+To save things as a list without duplicates use `listStore`.
 Let's suppose you have such code:
 
 ```js
@@ -260,14 +260,14 @@ Let's process it!
 ```js
 module.exports.traverse = ({listStore}) => ({
     'debugger'(path) {
-        listStore('x');
+        listStore(path);
     },
     
     Program: {
         exit() {
             console.log(listStore());
             // returns
-            ['x', 'x'];
+            [{type: 'DebuggerStatement'}, {type: 'DebuggerStatement'}];
             // for code
             'debugger; debugger';
         },

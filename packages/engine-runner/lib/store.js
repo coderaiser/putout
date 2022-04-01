@@ -8,21 +8,21 @@ const {
 
 const toArray = (a) => Array.from(a);
 
-module.exports.listStore = (list = []) => {
+module.exports.listStore = (list = new Set()) => {
     const fn = (...args) => {
         if (!args.length)
-            return list;
+            return Array.from(list);
         
         const [a] = args;
-        list.push(a);
+        list.add(a);
         
-        return list;
+        return Array.from(list);
     };
     
     fn.clear = () => {
         const a = list;
-        list = [];
-        return a;
+        list = new Set();
+        return Array.from(a);
     };
     
     return fn;
