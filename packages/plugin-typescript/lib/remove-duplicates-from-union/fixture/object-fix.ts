@@ -1,5 +1,5 @@
-type x = {
-    a: string;
-} | {
-    a: string;
+type Y = () => void;
+
+type X = {
+    a?: Y;
 }
