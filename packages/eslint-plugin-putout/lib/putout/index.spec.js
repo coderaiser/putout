@@ -318,3 +318,25 @@ tsParserTester.run('typescript-eslint-parser-error', rule, {
     }],
 });
 
+
+tsParserTester.run('typescript-eslint-parser-error', rule, {
+    valid: [`
+        import {Stub} from 'supertape';
+        const a: Stub = {};
+        
+        alert(a);
+    `],
+    invalid: [{
+        code: 'const a = 5',
+        output: 'const a = 5',
+        options: [{
+            plugins: [
+                ['throw', {}],
+            ],
+        }],
+        errors: [{
+            message: `☝️ Cannot determine type of plugin 'throw'. Here is list of supported plugins: https://git.io/JqcMn (putout)`,
+        }],
+    }],
+});
+

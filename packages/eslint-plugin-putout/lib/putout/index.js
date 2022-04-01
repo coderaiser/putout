@@ -60,7 +60,16 @@ module.exports = {
             return EMPTY_VISITORS;
         }
         
-        const places = findPlaces(ast, text, resultOptions);
+        const [error, places = []] = tryCatch(findPlaces, ast, text, resultOptions);
+        
+        if (error) {
+            context.report({
+                message: `${parseError(error)} (putout)`,
+                node,
+            });
+            
+            return EMPTY_VISITORS;
+        }
         
         for (const {rule, message, position} of places) {
             context.report({
