@@ -17,3 +17,8 @@ test('plugin-remove-duplicates-from-union: transform: union', (t) => {
     t.end();
 });
 
+test('plugin-remove-duplicates-from-union: transform: object', (t) => {
+    t.report('object', ['Avoid using duplicates in Union']);
+    t.end();
+});
+

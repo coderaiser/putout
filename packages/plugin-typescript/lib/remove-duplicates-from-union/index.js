@@ -9,31 +9,31 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.traverse = ({push}) => ({
+module.exports.traverse = ({push, listStore}) => ({
     TSUnionType(path) {
         const types = path.get('types');
         
         for (const type of types) {
             const foundTypes = contains(type, types);
             
-            if (!foundTypes.length)
-                continue;
-            
             if (foundTypes.length === 1)
                 continue;
             
-            push(foundTypes.pop());
+            listStore(foundTypes.pop());
         }
     },
+    Program: {
+        exit() {
+            for (const path of listStore())
+                push(path)
+        }
+    }
 });
 
 function contains(type, types) {
     const result = [];
     
     for (const currentType of types) {
-        if (!currentType.node)
-            continue;
-        
         if (compare(type, currentType))
             result.push(currentType);
     }

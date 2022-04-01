@@ -24,7 +24,7 @@ module.exports.traverse = ({listStore, push}) => ({
     'Program': {
         exit: exit({
             push,
-            items: listStore(),
+            listStore,
         }),
     },
 });
@@ -36,7 +36,9 @@ const save = ({listStore}) => (path) => {
     listStore([initPath, idPath]);
 };
 
-const exit = ({push, items}) => () => {
+const exit = ({push, listStore}) => () => {
+    const items = listStore();
+    
     for (const [initPath] of items) {
         for (const [currentPath, expandPath] of items) {
             const objectPath = initPath.get('object');
