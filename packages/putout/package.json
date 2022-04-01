@@ -135,7 +135,7 @@
     "@putout/plugin-remove-unreferenced-variables": "^1.0.0",
     "@putout/plugin-remove-unused-expressions": "^4.0.0",
     "@putout/plugin-remove-unused-for-of-variables": "^2.0.0",
-    "@putout/plugin-remove-unused-private-fields": "^1.0.0",
+    "@putout/plugin-remove-unused-private-fields": "^2.0.0",
     "@putout/plugin-remove-unused-variables": "*",
     "@putout/plugin-remove-useless-arguments": "^6.0.0",
     "@putout/plugin-remove-useless-array-constructor": "^1.0.0",
