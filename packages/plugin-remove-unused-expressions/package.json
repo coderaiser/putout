@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-unused-expressions",
-  "version": "4.2.0",
+  "version": "5.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove unused expressions",
