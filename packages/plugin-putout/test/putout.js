@@ -127,3 +127,8 @@ test('plugin-putout: transform: convert-match-to-function', (t) => {
     t.end();
 });
 
+test('plugin-putout: transform: apply-remove', (t) => {
+    t.transform('apply-remove');
+    t.end();
+});
+

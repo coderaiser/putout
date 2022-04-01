@@ -19,6 +19,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-create-test": "on",
         "putout/apply-processors-destructuring": "on",
         "putout/apply-async-formatter": "on",
+        "putout/apply-remove": "on",
         "putout/add-args": "on",
         "putout/add-push": "on",
         "putout/convert-putout-test-to-create-test": "on",
@@ -63,6 +64,30 @@ test('', async (t) => {
 test('', async ({process}) => {
     await process({});
 });
+```
+
+## apply-remove
+
+Better to use [`remove(path)`](https://github.com/coderaiser/putout/tree/master/packages/operate#removepath) method of `operator`.
+It helps to preserve comments.
+
+### ❌ Example of incorrect code
+
+```js
+export const fix = (path) => {
+    path.remove();
+};
+```
+
+### ✅ Example of correct code
+
+```js
+import {operator} from 'putout';
+const {remove} = operator;
+
+export const fix = (path) => {
+    remove(path);
+};
 ```
 
 ## apply-async-formatter
