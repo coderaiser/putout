@@ -2177,7 +2177,7 @@ There is predefined placeholders:
 
 ### 📼 Testing
 
-That was the simplest module to remove `debugger` statements in your code. Let's look how to test it using [@putout/test](https://github.com/coderaiser/putout/tree/master/packages/test):
+That was the simplest module to remove `debugger` statements in your code. Let's look how to test it using [@putout/test](https://github.com/coderaiser/putout/tree/master/packages/test#readme):
 
 ```js
 const removeDebugger = require('..');
