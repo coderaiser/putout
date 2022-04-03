@@ -13,6 +13,11 @@ test('plugin-declaration-before-reference: report', (t) => {
     t.end();
 });
 
+test('plugin-declaration-before-reference: no report: class', (t) => {
+    t.noReport('class');
+    t.end();
+});
+
 test('plugin-declaration-before-reference: transform', (t) => {
     t.transform('declaration');
     t.end();
