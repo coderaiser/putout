@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-declare.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/operator-declare "npm"
 
-`putout` operator adds ability to declare variable that was not defined before:
+🐊[**Putout**](https://github.com/coderaiser/putout) operator adds ability to declare variable that was not defined before:
 
 ## Install
 
@@ -60,9 +60,15 @@ Plugin supports options, so you can pass it in `.putout.json`:
 }
 ```
 
+### Used in
+
+- ✅ [declare-undefined-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables#readme)
+- ✅ [tape/declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-tape#declare)
+- ✅ [putout/declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-putout#declare)
+
 ### Evaluate
 
-Can be used with [eslint-plugin-putout/evaluate](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/evaluate):
+Can be used with **ESLint's** [putout/evaluate](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/evaluate#readme):
 
 ```json
 {
