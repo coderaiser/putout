@@ -9,6 +9,15 @@
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply declare before reference to avoid `ReferenceError`.
 
+The rule is similar to **ESLint's** [no-use-before-define](https://eslint.org/docs/rules/no-use-before-define), but it's auto fixable,
+and ignores:
+- Function declarations
+- Class declarations
+- Different scopes
+
+Also it works only on top level and helps to [@operator/declare](https://github.com/coderaiser/putout/tree/master/packages/operator-declare#readme) with a bunch of nested declarations.
+
+
 ## Install
 
 ```
