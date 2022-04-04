@@ -154,3 +154,7 @@ Disabled 🐊**Putout** rules:
 ### safe+align
 
 When you want to enable ability to align spaces on empty lines, while have all benefits of `safe` preset: use `safe+align`.
+
+## License
+
+MIT
