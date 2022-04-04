@@ -2117,11 +2117,11 @@ When you work on a `plugin` or `codemod` please add rule `putout` into `.putout.
 }
 ```
 
-[@putout/plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/plugin-putout) will handle plugin-specific cases for you :).
+[@putout/plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/plugin-putout#readme) will handle plugin-specific cases for you :).
 
 ### Example
 
-Let's consider simplest possible plugin for removing `debugger statements` [@putout/plugin-remove-debugger](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-debugger):
+Let's consider simplest possible plugin for removing `debugger statements` [@putout/plugin-remove-debugger](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-debugger#readme):
 
 ```js
 // this is a message to show in putout cli
