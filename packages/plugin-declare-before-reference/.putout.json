@@ -1,7 +1,7 @@
 {
     "match": {
         "README.md": {
-            "apply-is-array": "off"
+            "declare-before-reference": "off"
         }
     }
 }
