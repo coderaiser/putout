@@ -481,7 +481,7 @@ const source = `
 
 #### Plugins
 
-Putout supports dynamic loading of plugins from `node_modules`. Let's consider the example of using the [remove-unused-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables/README.md) plugin:
+Putout supports dynamic loading of plugins from `node_modules`. Let's consider the example of using the [remove-unused-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables/README.md#readme) plugin:
 
 ```js
 putout(source, {
@@ -2200,7 +2200,7 @@ test('remove debugger: transformCode', (t) => {
 ```
 
 As you see test runner it is little bit extended 📼[**Supertape**](https://github.com/coderaiser/supertape#readme).
-To see a more sophisticated example look at [@putout/plugin-remove-console](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-console).
+To see a more sophisticated example look at [@putout/plugin-remove-console](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-console#readme).
 
 ### 🤷‍♂️ What if I don't want to publish a plugin?
 
