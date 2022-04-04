@@ -37,12 +37,13 @@ npm i @putout/plugin-declare-before-reference
 ## ❌ Example of incorrect code
 
 ```js
+
+const {remove} = operator;
+
 const {
     types,
     operator,
 } = require('putout');
-
-const {remove} = operator;
 ```
 
 ## ✅ Example of correct code
