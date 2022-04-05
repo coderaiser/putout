@@ -54,7 +54,7 @@ case 1: {
 }
 ```
 
-## Comparisson
+## Comparison
 
 Linter | Rule | Fix
 --------|-------|------------|

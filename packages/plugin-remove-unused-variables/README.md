@@ -47,7 +47,7 @@ console.log(a);
 const a = 'hello';
 console.log(a);
 ```
-## Comparisson
+## Comparison
 
 Linter | Rule | Fix
 --------|-------|------------|
