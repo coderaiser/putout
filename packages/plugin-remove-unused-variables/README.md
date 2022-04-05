@@ -13,7 +13,7 @@
 
 That is **unused variables**. Most likely it is a leftovers due to incomplete transforming of the code. Such variables take up space and gives no value so they must be removed.
 
-☝️*Remember, when you [writing a transform](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#readme) you can skip all parts related to **removing unused variables** and just reuse current **plugin** it will make your code simpler and less error prone, since it applies [**DRY Principle**](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) in action.*
+☝️*Remember, when you [writing a transform](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#readme) you can skip all parts related to **removing unused variables** and just reuse current **plugin** it will make your code simpler and less error prone.
 
 ## Install
 
