@@ -11,7 +11,6 @@
 
 ☝️*Remember, when you [writing a transform](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#readme) you can skip all parts related to **extracting sequence expressions** and just reuse current **plugin** it will make your code simpler and less error prone.*
 
-
 ## Install
 
 ```
@@ -45,7 +44,6 @@ module.exports.y = 2;
 
 fn(a, b);
 ```
-
 
 ## Comparison
 
