@@ -38,6 +38,15 @@ console.log('hello');
 console.log('hello');
 ```
 
+## Alternatives
+
+🐊**Putout** rule `remove-debugger` has alternatives, but none of them can fix.
+
+Linter | Rule | Fix
+|--------|-------|------------|
+**ESLint** | [`no-debugger`](https://eslint.org/docs/rules/no-debugger) | ❌
+**RSLint** | [`no-debugger`](https://rslint.org/rules/errors/no-debugger.html#invalid-code-examples) | ❌
+
 ## License
 
 MIT
