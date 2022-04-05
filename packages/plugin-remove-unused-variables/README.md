@@ -8,12 +8,12 @@
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables)
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove the variables that are declared, but:
-- not passed as argument to a function;
-- not used as operand in expression;
+- not passed as **argument** to a **function**;
+- not used as **operand** in **expression**;
 
 That is **unused variables**. Most likely it is a leftovers due to incomplete transforming of the code. Such variables take up space and gives no value so they must be removed.
 
-☝️*Remember, when you [writing a transform](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#readme) you can skip all parts related to **removing unused variables** and just reuse current **plugin** it will make your code simpler, since it applies [**DRY Principle**](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) in action.*
+☝️*Remember, when you [writing a transform](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#readme) you can skip all parts related to **removing unused variables** and just reuse current **plugin** it will make your code simpler and less error prone, since it applies [**DRY Principle**](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) in action.*
 
 ## Install
 
