@@ -8,6 +8,7 @@
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables)
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove the variables that are declared, but:
+
 - not passed as **argument** to a **function**;
 - not used as **operand** in **expression**;
 
@@ -47,6 +48,7 @@ console.log(a);
 const a = 'hello';
 console.log(a);
 ```
+
 ## Comparison
 
 Linter | Rule | Fix

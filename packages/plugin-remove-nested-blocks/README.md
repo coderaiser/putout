@@ -11,7 +11,6 @@
 
 ☝️*Remember, when you [writing a transform](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#readme) you can skip all parts related to **removing nested blocks** and just reuse current **plugin** it will make your code simpler and less error prone.*
 
-
 ## Install
 
 ```
