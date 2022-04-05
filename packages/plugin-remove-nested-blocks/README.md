@@ -7,7 +7,10 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove `nested bocks`.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove **nested bocks**.
+
+☝️*Remember, when you [writing a transform](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#readme) you can skip all parts related to **removing nested blocks** and just reuse current **plugin** it will make your code simpler and less error prone.*
+
 
 ## Install
 
@@ -50,6 +53,13 @@ case 1: {
 }
 }
 ```
+
+## Comparisson
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout**| [`remove-nested-blocks`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-nested-blocks#readme)| ✅
+🦕 **ESLint** | [`no-lone-blocks`](https://eslint.org/docs/rules/no-lone-blocks) | ❌
 
 ## License
 
