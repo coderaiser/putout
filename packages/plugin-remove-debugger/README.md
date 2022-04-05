@@ -44,7 +44,7 @@ Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout**| [`remove-debugger`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-debugger#readme)| ✅
 🦕 **ESLint** | [`no-debugger`](https://eslint.org/docs/rules/no-debugger) | ❌
-🦀 **RSLint** | [`no-debugger`](https://rslint.org/rules/errors/no-debugger.html#invalid-code-examples) | ❌
+🦀 **RSLint** | [`no-debugger`](https://rslint.org/rules/errors/no-debugger.html) | ❌
 
 ## License
 
