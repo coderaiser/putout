@@ -9,6 +9,9 @@
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to extract **sequence expressions**.
 
+☝️*Remember, when you [writing a transform](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#readme) you can skip all parts related to **extracting sequence expressions** and just reuse current **plugin** it will make your code simpler and less error prone.*
+
+
 ## Install
 
 ```
@@ -42,6 +45,14 @@ module.exports.y = 2;
 
 fn(a, b);
 ```
+
+
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout**| [`extract-sequence-expressions`](https://github.com/coderaiser/putout/tree/master/packages/plugin-extract-sequence-expressions#readme)| ✅
+🦕 **ESLint** | [`no-sequences `](https://eslint.org/docs/rules/no-sequences) | ❌
 
 ## License
 
