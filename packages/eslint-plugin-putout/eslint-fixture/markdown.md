@@ -1,5 +1,6 @@
 ```js
 throw Error('hi');
+() => throw Error('hi');
 
 const hello = 'world';
 
