@@ -50,7 +50,7 @@ fn(a, b);
 Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout**| [`extract-sequence-expressions`](https://github.com/coderaiser/putout/tree/master/packages/plugin-extract-sequence-expressions#readme)| ✅
-🦕 **ESLint** | [`no-sequences `](https://eslint.org/docs/rules/no-sequences) | ❌
+🦕 **ESLint** | [`no-sequences`](https://eslint.org/docs/rules/no-sequences) | ❌
 
 ## License
 
