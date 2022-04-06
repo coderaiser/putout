@@ -38,6 +38,11 @@ test('plugin-tape: transform: apply stub operator', (t) => {
     t.end();
 });
 
+test('plugin-tape: transform: apply stub', (t) => {
+    t.transform('apply-stub');
+    t.end();
+});
+
 test('plugin-tape: transform: convert calledWith to calledWithNoArgs', (t) => {
     t.transform('no-args');
     t.end();

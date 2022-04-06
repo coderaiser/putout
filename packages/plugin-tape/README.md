@@ -20,6 +20,7 @@ npm i @putout/plugin-tape -D
 ```json
 {
     "rules": {
+        "tape/apply-stub": "on",
         "tape/apply-stub-operator": "on",
         "tape/apply-with-name": "on",
         "tape/add-t-end": "on",
@@ -331,6 +332,32 @@ test('copymitter', async (t) => {
     await once(cp, 'end');
     t.end();
 });
+```
+
+## apply-stub
+
+Apply [stub](https://github.com/cloudcmd/stub) functions created. Look how it works in [Putout Editor](https://putout.cloudcmd.io/#/gist/d098a8c8d03a072a7f3981e3cfb1d7af/f1542bfa39513ac625b2a9cd9243cc06dee286c0).
+
+### ❌ Example of incorrect code
+
+```js
+const a = async () => true;
+const b = async () => {};
+
+const c = async () => throw Error('hello');
+const d = async () => {
+    throw Error('hello');
+};
+```
+
+### ✅ Example of correct code
+
+```js
+const a = stub().resolves(true);
+const b =  stub().resolves();
+
+const c = stub().rejects(Error('hello'));
+const d = stub().rejects(Error('hello'));
 ```
 
 ## apply-stub-operator

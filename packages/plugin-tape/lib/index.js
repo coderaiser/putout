@@ -5,6 +5,7 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
+    ...getRule('apply-stub'),
     ...getRule('apply-with-name'),
     ...getRule('add-await-to-re-import'),
     ...getRule('sync-with-name'),

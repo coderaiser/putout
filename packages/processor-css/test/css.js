@@ -55,7 +55,7 @@ test('putout: processor: css: found config', async (t) => {
         ],
     };
     
-    const load = async () => {};
+    const load = stub().resolves();
     const search = stub().returns({
         config: {
             rules: {
@@ -114,7 +114,7 @@ test('putout: processor: css: merge user config with default', async (t) => {
         ],
     };
     
-    const load = async () => {};
+    const load = stub().resolves();
     const search = stub().returns({
         config: {
             rules: {
