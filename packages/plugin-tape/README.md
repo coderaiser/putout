@@ -336,7 +336,7 @@ test('copymitter', async (t) => {
 
 ## apply-stub
 
-Apply [stub](https://github.com/cloudcmd/stub) functions created. Look how it works in [Putout Editor](https://putout.cloudcmd.io/#/gist/d098a8c8d03a072a7f3981e3cfb1d7af/f1542bfa39513ac625b2a9cd9243cc06dee286c0).
+Apply [stub](https://github.com/cloudcmd/stub) functions created. Look how it works in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d098a8c8d03a072a7f3981e3cfb1d7af/f1542bfa39513ac625b2a9cd9243cc06dee286c0).
 
 ### ❌ Example of incorrect code
 
