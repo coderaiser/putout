@@ -43,6 +43,13 @@ x = y || z;
 x = y && z;
 ```
 
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout**| [`simplify-ternary`](https://github.com/coderaiser/putout/tree/master/packages/plugin-simplify-ternary#readme)| ✅
+🦕 **ESLint** | [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary) | ⚠️ (partially: no [MemberExpression](https://babeljs.io/docs/en/babel-types#memberexpression) support)
+
 ## License
 
 MIT
