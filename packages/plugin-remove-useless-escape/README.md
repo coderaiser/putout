@@ -39,6 +39,13 @@ const s = `hello 'world'`;
 const reg = /\w:/g;
 ```
 
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout**| [`remove-useless-escape`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-escape#readme)| ✅
+🦕 **ESLint** | [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape) | ❌
+
 ## License
 
 MIT
