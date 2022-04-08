@@ -425,10 +425,10 @@ You can disable any of them with:
 
 And not bundled processors:
 
-| Package | Version | Dependencies |
-|--------|-------|------------|
-| [`@putout/processor-typescript`](/packages/processor-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-typescript#readme) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-typescript)](https://david-dm.org/coderaiser/putout?path=packages/processor-typescript) |
-| [`@putout/processor-html`](/packages/processor-html#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-html.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-html#readme) | [![Dependency Status](https://david-dm.org/coderaiser/putout.svg?path=packages/processor-html)](https://david-dm.org/coderaiser/putout?path=packages/processor-html) |
+| Package | Version |
+|--------|-------|
+| [`@putout/processor-typescript`](/packages/processor-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-typescript#readme) |
+| [`@putout/processor-html`](/packages/processor-html#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-html.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-html#readme) |
 
 To enable it use:
 
