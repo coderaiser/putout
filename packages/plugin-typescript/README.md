@@ -180,7 +180,7 @@ const x: oldType = {
 
 ### remove-useless-mapped-types
 
-Rmove useless [mapped types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html).
+Remove useless [mapped types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html).
 
 #### ❌ Example of incorrect code
 
