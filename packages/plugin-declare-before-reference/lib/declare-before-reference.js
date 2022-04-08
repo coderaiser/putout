@@ -42,18 +42,20 @@ module.exports.traverse = ({push}) => ({
                 if (referencePath.parentPath.isExportDefaultDeclaration())
                     break;
                 
-                if (!path.node.loc || !referencePath.node.loc) {
+                const [, pathLoc] = getLoc(path);
+                const [referenceOwn, referenceLoc] = getLoc(referencePath);
+                
+                const declarationLine = pathLoc.start.line;
+                const referenceLine = referenceLoc.start.line;
+                
+                if (declarationLine > referenceLine) {
                     push({
                         name,
                         path,
                     });
-                    break;
                 }
                 
-                const declarationLine = path.node.loc.start.line;
-                const referenceLine = referencePath.node.loc.start.line;
-                
-                if (declarationLine > referenceLine) {
+                if (!referenceOwn && declarationLine === referenceLine) {
                     push({
                         name,
                         path,
@@ -63,3 +65,15 @@ module.exports.traverse = ({push}) => ({
         }
     },
 });
+
+function getLoc(path) {
+    let loc = null;
+    let own = true;
+    
+    while (!(loc = path.node.loc)) {
+        path = path.parentPath;
+        own = false;
+    }
+    
+    return [own, loc];
+}

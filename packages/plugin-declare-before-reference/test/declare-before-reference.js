@@ -3,6 +3,8 @@
 const {createTest} = require('@putout/test');
 const apply = require('..');
 const putout = require('@putout/plugin-putout');
+const tryCatch = require('@putout/plugin-try-catch');
+const promises = require('@putout/plugin-promises');
 
 const test = createTest(__dirname, {
     'declaration-before-reference': apply,
@@ -30,6 +32,14 @@ test('plugin-declaration-before-reference: transform: putout', (t) => {
     t.end();
 });
 
+test('plugin-declaration-before-reference: transform: try-to-catch', (t) => {
+    t.transform('try-to-catch', {
+        tryCatch,
+        'promises/apply-to-level-await': promises.rules['apply-top-level-await'],
+    });
+    t.end();
+});
+
 test('plugin-declaration-before-reference: no transform: function', (t) => {
     t.noTransform('function');
     t.end();
@@ -42,6 +52,11 @@ test('plugin-declaration-before-reference: no transform: scopes', (t) => {
 
 test('plugin-declaration-before-reference: no transform: export', (t) => {
     t.noTransform('export');
+    t.end();
+});
+
+test('plugin-declaration-before-reference: no transform: same-line', (t) => {
+    t.noTransform('same-line');
     t.end();
 });
 
