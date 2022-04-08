@@ -1,3 +1,15 @@
+2022.04.08, v25.14.1
+
+fix:
+- (putout) cli: get-files: 🐊 No files matching the pattern "package" were found -> 🐊 No files matching the 'pattern' package were found
+
+
+feature:
+- (@putout/plugin-tape) add apply-stub
+- (eslint-plugin-putout) markdown: add support of babel parser plugins
+- (putout) images: logo: white eye
+
+
 2022.04.02, v25.14.0
 
 fix:
