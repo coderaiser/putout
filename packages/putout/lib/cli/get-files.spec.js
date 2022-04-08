@@ -16,14 +16,14 @@ const rmStart = (a) => a.replace('lib/', '');
 test('putout: getFiles: error', async (t) => {
     const [e] = await getFiles(['*.xxx']);
     
-    t.equal(e.message, 'No files matching the pattern "*.xxx" were found');
+    t.equal(e.message, `No files matching the pattern '*.xxx' were found`);
     t.end();
 });
 
 test('putout: getFiles: error: not first', async (t) => {
     const [e] = await getFiles(['**/*.js', '*.xxx']);
     
-    t.equal(e.message, 'No files matching the pattern "*.xxx" were found');
+    t.equal(e.message, `No files matching the pattern '*.xxx' were found`);
     t.end();
 });
 

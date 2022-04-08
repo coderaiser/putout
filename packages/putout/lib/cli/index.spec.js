@@ -864,7 +864,7 @@ test('putout: cli: --staged --fix', async (t) => {
     
     const stripAnsi = await simpleImportDefault('strip-ansi');
     const output = stripAnsi(arg);
-    const message = '🐊 No files matching the pattern "./xxx.js" were found';
+    const message = `🐊 No files matching the pattern './xxx.js' were found`;
     
     stopAll();
     

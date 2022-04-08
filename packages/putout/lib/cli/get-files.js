@@ -67,7 +67,7 @@ const addExt = (options) => async function addExt(a) {
 };
 
 function throwNotFound(a) {
-    throw Error(`No files matching the pattern "${a}" were found`);
+    throw Error(`No files matching the pattern '${a}' were found`);
 }
 
 async function safeGlob(glob, options) {
