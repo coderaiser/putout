@@ -1073,7 +1073,7 @@ test('putout: cli: ruler processor: --enable --fix: log', async (t) => {
     stopAll();
     
     const {red} = await simpleImportDefault('chalk');
-    const expected = red('🐊 `--fix` cannot be used with ruler toggler (`--enable`, `--disable`)');
+    const expected = red(`🐊 '--fix' cannot be used with ruler toggler ('--enable', '--disable')`);
     
     t.calledWith(logError, [expected]);
     t.end();

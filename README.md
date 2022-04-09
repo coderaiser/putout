@@ -191,7 +191,7 @@ When you need to change [configuration](#-configuration) file use **Ruler** inst
 *☝️Remember, **Ruler** should never be used with `--fix`, because unclear things makes 🐊 **Putout** angry and you can find him barking at you:*
 
 ```
-🐊 `--fix` cannot be used with ruler toggler (`--enable`, `--disable`)
+🐊 '--fix' cannot be used with ruler toggler ('--enable', '--disable')
 ```
 
 ## ✂️ How **Ruler** can help me?
