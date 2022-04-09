@@ -1,7 +1,7 @@
-# @putout/plugin-remove-useless-map [![NPM version][NPMIMGURL]][NPMURL]
+# @putout/plugin-remove-useless-new [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-map.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-map"npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-new.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-new "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless operator `new`. Which has no sense for `Boolean`, `String`, `Number`, `Error`:
 
@@ -14,7 +14,7 @@
 ## Install
 
 ```
-npm i @putout/plugin-remove-useless-map
+npm i @putout/plugin-remove-useless-new
 ```
 
 ## Rule
@@ -22,7 +22,7 @@ npm i @putout/plugin-remove-useless-map
 ```json
 {
     "rules": {
-        "remove-useless-map": "on"
+        "remove-useless-new": "on"
     }
 }
 ```
