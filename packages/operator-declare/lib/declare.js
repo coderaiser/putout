@@ -32,6 +32,7 @@ const TS_EXCLUDE = [
     'TSFunctionType',
     'TSDeclareMethod',
     'TSDeclareFunction',
+    'TSTypeAliasDeclaration',
 ];
 
 module.exports.declare = (declarations) => ({

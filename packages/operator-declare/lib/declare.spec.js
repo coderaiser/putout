@@ -855,3 +855,28 @@ test('putout: operator: declare: TSDeclareFunction', (t) => {
     t.end();
 });
 
+test('putout: operator: declare: export type: TSTypeAliasDeclaration', (t) => {
+    const declarations = {
+        Transform: `import {Transform} from 'abc'`,
+    };
+    const source = montag`
+        export type Transform = (
+          fileInfo: FileInfo,
+          { jscodeshift: j }: API,
+          options: Options,
+        ) => string;
+    `;
+    
+    const {places} = putout(source, {
+        fix: false,
+        isTS: true,
+        plugins: [
+            ['declare-undefined-variables', declare(declarations)],
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
