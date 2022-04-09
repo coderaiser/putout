@@ -1,3 +1,15 @@
+2022.04.09, v25.14.2
+
+fix:
+- (putout) `--fix` -> 'fix'
+
+
+feature:
+- (@putout/plugin-try-catch) skip transformation when there is already exists binding error
+- (@putout/operator-declare) exclude TSTypeAliasDeclaration
+- (@putout/plugin-declare-before-reference) improve support of newly created nodes
+
+
 2022.04.08, v25.14.1
 
 fix:
