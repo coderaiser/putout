@@ -13,7 +13,8 @@ module.exports.include = () => [
     'TryStatement',
 ];
 
-module.exports.filter = ({node}) => {
+module.exports.filter = (path) => {
+    const {node} = path;
     const {
         block,
         handler,
@@ -22,6 +23,9 @@ module.exports.filter = ({node}) => {
     
     const {length} = block.body;
     const [first] = block.body;
+    
+    if (path.parentPath.scope.bindings.error)
+        return false;
     
     if (finalizer)
         return false;
