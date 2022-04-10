@@ -6,7 +6,7 @@
             "places": [
                 {
                     "rule": "remove-unused-variables",
-                    "message": "\"t\" is defined but never used",
+                    "message": "'t' is defined but never used",
                     "position": {
                         "line": 1,
                         "column": 6
@@ -20,7 +20,7 @@
             "places": [
                 {
                     "rule": "remove-unused-variables",
-                    "message": "\"t\" is defined but never used",
+                    "message": "'t' is defined but never used",
                     "position": {
                         "line": 1,
                         "column": 6

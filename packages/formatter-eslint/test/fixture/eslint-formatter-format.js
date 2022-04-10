@@ -1,5 +1,5 @@
 
-[31merror[39m: [1m"t" is defined but never used[22m at [32meslint-formatter:1:6[39m
+[31merror[39m: [1m't' is defined but never used[22m at [32meslint-formatter:1:6[39m
 [90mRule: remove-unused-variables[39m
 > 1 | const t = 'hello';
     |      ^

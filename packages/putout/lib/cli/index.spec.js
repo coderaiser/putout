@@ -1304,14 +1304,14 @@ test('putout: cli: --plugins', async (t) => {
             source,
             places: [{
                 rule: 'remove-unused-variables',
-                message: '"a" is defined but never used',
+                message: `'a' is defined but never used`,
                 position: {
                     line: 1,
                     column: 6,
                 },
             }, {
                 rule: 'remove-debugger',
-                message: `Unexpected "debugger" statement`,
+                message: `Unexpected 'debugger' statement`,
                 position: {
                     line: 2,
                     column: 0,

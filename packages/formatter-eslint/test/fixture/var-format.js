@@ -6,7 +6,7 @@
             {
                 "ruleId": "remove-unused-variables",
                 "severity": 2,
-                "message": "\"t\" is defined but never used",
+                "message": "'t' is defined but never used",
                 "line": 1,
                 "column": 6,
                 "nodeType": ""

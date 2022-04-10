@@ -248,7 +248,7 @@ test('putout: export default declaration: espree: places: shebang', (t) => {
     
     const expected = [{
         rule: 'remove-unused-variables',
-        message: '"b" is defined but never used',
+        message: `'b' is defined but never used`,
         position: {
             line: 8,
             column: 4,

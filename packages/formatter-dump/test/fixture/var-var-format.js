@@ -1,8 +1,8 @@
 [4mvar[24m
- [90m1:6[39m  [31merror[39m   "t" is defined but never used  [90mremove-unused-variables[39m 
+ [90m1:6[39m  [31merror[39m   't' is defined but never used  [90mremove-unused-variables[39m 
 
 [4mvar[24m
- [90m1:6[39m  [31merror[39m   "t" is defined but never used  [90mremove-unused-variables[39m 
+ [90m1:6[39m  [31merror[39m   't' is defined but never used  [90mremove-unused-variables[39m 
 
 [1m[91m✖ 2 errors in 2 files[39m[22m
 [1m[91m  fixable with the `--fix` option[39m[22m
