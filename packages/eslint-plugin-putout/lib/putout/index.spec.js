@@ -44,7 +44,7 @@ ruleTester.run('putout', rule, {
         code: `const m = 'hi'`,
         output: '',
         errors: [{
-            message: '"m" is defined but never used (remove-unused-variables)',
+            message: `'m' is defined but never used (remove-unused-variables)`,
         }],
     }, {
         code: `const t = 'hi'`,
@@ -55,9 +55,9 @@ ruleTester.run('putout', rule, {
         }],
         output: `'use strict';`,
         errors: [{
-            message: '"use strict" directive should be on top of CommonJS file (strict-mode/add)',
+            message: `'use strict' directive should be on top of CommonJS (strict-mode/add)`,
         }, {
-            message: '"t" is defined but never used (remove-unused-variables)',
+            message: `'t' is defined but never used (remove-unused-variables)`,
         }],
     }, {
         options: [{
@@ -79,7 +79,7 @@ ruleTester.run('putout', rule, {
         errors: [{
             line: 2,
             column: 7,
-            message: '"m" is defined but never used (remove-unused-variables)',
+            message: `'m' is defined but never used (remove-unused-variables)`,
         }],
     }],
 });
@@ -127,7 +127,7 @@ parserTester.run('putout', rule, {
         errors: [{
             line: 1,
             column: 1,
-            message: '"A" is defined but never used (remove-unused-variables)',
+            message: `'A' is defined but never used (remove-unused-variables)`,
         }, {
             line: 2,
             column: 8,
