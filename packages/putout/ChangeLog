@@ -1,3 +1,15 @@
+2022.04.10, v25.14.3
+
+feature:
+- (package) @putout/plugin-remove-unused-variables v4.0.0
+- (@putout/plugin-remove-unused-variables) drop support of 🐊 < 25
+- (@putout/plugin-remove-unused-variables) quotes: double -> single
+- (@putout/plugin-strict-mode) quotes: double -> single
+- (package) @putout/plugin-remove-debugger v5.0.0
+- (@putout/plugin-remove-debugger) drop support of 🐊 < 25
+- (@putout/plugin-remove-debugger) quotes: double -> single
+
+
 2022.04.09, v25.14.2
 
 fix:
