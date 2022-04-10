@@ -7,7 +7,7 @@ const test = createTest(__dirname, {
 });
 
 test('remove debugger: report', (t) => {
-    t.reportCode('debugger', 'Unexpected "debugger" statement');
+    t.reportCode('debugger', `Unexpected 'debugger' statement`);
     t.end();
 });
 
