@@ -11,7 +11,7 @@ const getVars = require('./get-vars');
 const transform = require('./transform');
 const getUnused = require('./get-unused');
 
-module.exports.report = ({name}) => `"${name}" is defined but never used`;
+module.exports.report = ({name}) => `'${name}' is defined but never used`;
 
 module.exports.fix = ({path}) => {
     if (compare(path, 'const __a = __b = __c'))
