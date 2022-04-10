@@ -7,7 +7,7 @@ const {
     isProgram,
 } = require('putout').types;
 
-module.exports.report = () => '"use strict" directive should be on top of CommonJS file';
+module.exports.report = () => `'use strict' directive should be on top of CommonJS`;
 
 module.exports.fix = ({node}) => {
     node.body.unshift(ExpressionStatement(StringLiteral('use strict')));

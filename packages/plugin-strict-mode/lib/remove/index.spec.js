@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-strict-mode: remove: report', (t) => {
-    t.report('esm', '"use strict" is redundant in ESM');
+    t.report('esm', `Avoid 'use strict' in ESM`);
     t.end();
 });
 

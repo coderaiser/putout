@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-strict-mode: add: report', (t) => {
-    t.report('commonjs', '"use strict" directive should be on top of CommonJS file');
+    t.report('commonjs', `'use strict' directive should be on top of CommonJS`);
     t.end();
 });
 

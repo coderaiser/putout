@@ -8,7 +8,7 @@ const {
 const {remove} = operator;
 const {isProgram} = types;
 
-module.exports.report = () => '"use strict" is redundant in ESM';
+module.exports.report = () => `Avoid 'use strict' in ESM`;
 
 module.exports.fix = (path) => remove(path);
 
