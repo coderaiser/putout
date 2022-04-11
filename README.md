@@ -77,7 +77,7 @@ Check out couple variants of plugins that does the same: [**linting debugger sta
 ```js
 'use strict';
 
-module.exports.report = () => 'Unexpected "debugger" statement';
+module.exports.report = () => `Unexpected 'debugger' statement`;
 
 module.exports.replace = () => ({
     debugger: '',
