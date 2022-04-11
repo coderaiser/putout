@@ -82,7 +82,7 @@ Remove `node`, preserve comments.
 Get next `path` after latest `ImportDeclaration`:
 
 ```js
-const programPath =  path.scope.getProgramParent().path;
+const programPath = path.scope.getProgramParent().path;
 const afterImportsPath = getPathAfterImports(programPath.get('body'));
 ```
 

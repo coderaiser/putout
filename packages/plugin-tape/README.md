@@ -354,7 +354,7 @@ const d = async () => {
 
 ```js
 const a = stub().resolves(true);
-const b =  stub().resolves();
+const b = stub().resolves();
 
 const c = stub().rejects(Error('hello'));
 const d = stub().rejects(Error('hello'));

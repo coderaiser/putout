@@ -211,8 +211,8 @@ const {parse} = require('@putout/engin-parser');
 
 const plugins = [{
     rule: 'remove-debugger',
-    msg: '',        // optional
-    options: {},    // optional
+    msg: '', // optional
+    options: {}, // optional
     plugin: {
         include: () => ['debugger'],
         fix: (path) => path.remove(),
@@ -223,11 +223,11 @@ const plugins = [{
 const ast = parse('const m = "hi"; debugger');
 const places = runPlugins({
     ast,
-    shebang: false,     // default
-    fix: true,          // default
-    fixCount: 1,        // default
+    shebang: false, // default
+    fix: true, // default
+    fixCount: 1, // default
     plugins,
-    parser: 'babel',    // default
+    parser: 'babel', // default
 });
 ```
 

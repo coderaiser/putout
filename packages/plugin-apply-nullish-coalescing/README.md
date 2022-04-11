@@ -30,7 +30,7 @@ npm i @putout/plugin-apply-nullish-coalescing
 
 ```js
 result = result || 'hello';
-result = typeof result  === 'undefined' ? 'hello' : result;
+result = typeof result === 'undefined' ? 'hello' : result;
 ```
 
 ## ✅ Example of correct code

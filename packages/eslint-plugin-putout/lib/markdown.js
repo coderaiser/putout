@@ -6,7 +6,6 @@ const [ts] = require('./ts');
 
 const commonRules = {
     'no-undef': 'off',
-    'no-multi-spaces': 'off',
     'no-empty': 'off',
     'eol-last': 'off',
     'no-unreachable': 'off',

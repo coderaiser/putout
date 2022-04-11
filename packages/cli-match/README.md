@@ -37,8 +37,8 @@ import match from '@putout/cli-match';
 await match({
     pattern,
     cwd: cwd(),
-    readFile,   // optional
-    writeFile,  // optional
+    readFile, // optional
+    writeFile, // optional
 });
 ```
 
