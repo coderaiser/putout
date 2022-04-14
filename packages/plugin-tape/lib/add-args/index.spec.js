@@ -22,6 +22,16 @@ test('plugin-tape: add-args: transform: async', (t) => {
     t.end();
 });
 
+test('plugin-tape: add-args: transform: only', (t) => {
+    t.transform('only');
+    t.end();
+});
+
+test('plugin-tape: add-args: transform: skip', (t) => {
+    t.transform('skip');
+    t.end();
+});
+
 test('plugin-tape: add-args: no transform', (t) => {
     t.noTransform('upper-scope');
     t.end();
