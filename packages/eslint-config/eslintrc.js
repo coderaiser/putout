@@ -101,43 +101,9 @@ module.exports = {
             ...getPaddingCjsExport(),
             ...getPaddingImport(),
             ...getPaddingCjsImport(),
+            ...getPaddingIf(),
+            ...getPaddingFor(),
             {
-                blankLine: 'always',
-                prev: '*',
-                next: 'if',
-            }, {
-                blankLine: 'always',
-                prev: 'if',
-                next: 'return',
-            }, {
-                blankLine: 'always',
-                prev: 'if',
-                next: 'expression',
-            }, {
-                blankLine: 'always',
-                prev: 'if',
-                next: 'const',
-            }, {
-                blankLine: 'always',
-                prev: 'if',
-                next: 'throw',
-            }, {
-                blankLine: 'always',
-                prev: 'for',
-                next: 'return',
-            }, {
-                blankLine: 'always',
-                prev: 'block-like',
-                next: 'for',
-            }, {
-                blankLine: 'always',
-                prev: ['const', 'let'],
-                next: 'for',
-            }, {
-                blankLine: 'always',
-                prev: 'for',
-                next: '*',
-            }, {
                 blankLine: 'always',
                 prev: 'while',
                 next: 'return',
@@ -207,6 +173,50 @@ function getPaddingCjsExport() {
         blankLine: 'always',
         prev: 'export',
         next: 'const',
+    }];
+}
+
+function getPaddingIf() {
+    return [{
+        blankLine: 'always',
+        prev: '*',
+        next: 'if',
+    }, {
+        blankLine: 'always',
+        prev: 'if',
+        next: 'return',
+    }, {
+        blankLine: 'always',
+        prev: 'if',
+        next: 'expression',
+    }, {
+        blankLine: 'always',
+        prev: 'if',
+        next: 'const',
+    }, {
+        blankLine: 'always',
+        prev: 'if',
+        next: 'throw',
+    }];
+}
+
+function getPaddingFor() {
+    return [{
+        blankLine: 'always',
+        prev: 'for',
+        next: 'return',
+    }, {
+        blankLine: 'always',
+        prev: 'block-like',
+        next: 'for',
+    }, {
+        blankLine: 'always',
+        prev: ['const', 'let'],
+        next: 'for',
+    }, {
+        blankLine: 'always',
+        prev: 'for',
+        next: '*',
     }];
 }
 
