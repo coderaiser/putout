@@ -136,7 +136,7 @@ module.exports = {
             }, {
                 blankLine: 'always',
                 prev: 'for',
-                next: ['const', 'let'],
+                next: '*',
             }, {
                 blankLine: 'always',
                 prev: 'while',

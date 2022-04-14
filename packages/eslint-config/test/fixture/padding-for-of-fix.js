@@ -7,3 +7,5 @@ const e = [];
 
 for (const f of g) {
 }
+
+m();

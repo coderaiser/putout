@@ -1,6 +1,10 @@
 const a = [];
+
 for (const b of c) {
 }
-let e = [];
+
+const e = [];
+
 for (const f of g) {
 }
+m();
