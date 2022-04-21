@@ -12,6 +12,9 @@ module.exports.report = () => 'Add newlines between array elements';
 const regexp = /['\da-zA-Z]+, ['\da-zA-Z]/;
 
 const isSupportedNode = (a) => {
+    if (!a)
+        return false;
+    
     if (a.type === 'Literal')
         return true;
     
