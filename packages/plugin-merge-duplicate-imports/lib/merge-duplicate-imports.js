@@ -17,10 +17,8 @@ module.exports.report = () => `Avoid duplicate imports`;
 
 module.exports.fix = ({path, imports}) => {
     const all = path.node.specifiers;
-    convertImportKind(path);
     
     for (const path of imports) {
-        convertImportKind(path);
         const {specifiers} = path.node;
         
         all.push(...specifiers);
@@ -89,12 +87,3 @@ function duplicatesStore() {
     };
 }
 
-function convertImportKind(path) {
-    if (path.node.importKind !== 'type')
-        return;
-    
-    for (const spec of path.node.specifiers)
-        spec.importKind = 'type';
-    
-    path.node.importKind = 'value';
-}
