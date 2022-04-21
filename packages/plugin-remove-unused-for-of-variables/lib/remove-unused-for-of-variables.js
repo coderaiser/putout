@@ -87,6 +87,7 @@ function isReferenced({scope}, path) {
         return true;
     
     const {name} = path.node;
+    
     return bindings[name].referenced;
 }
 
@@ -112,7 +113,7 @@ function getElements({node}) {
     if (elements)
         return elements.filter(Boolean);
     
-    return properties.map(getValue);
+    return properties.map(getValue).filter(Boolean);
 }
 
 function getPathElements(path) {

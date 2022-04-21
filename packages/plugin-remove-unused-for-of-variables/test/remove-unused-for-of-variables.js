@@ -58,6 +58,11 @@ test('remove unused for-of-variables: transform: array-sparse', (t) => {
     t.end();
 });
 
+test('remove unused for-of-variables: transform: spread', (t) => {
+    t.noTransform('spread');
+    t.end();
+});
+
 test('remove unused for-of-variables: transform: remove-useless-variables: for-of', (t) => {
     t.transform('for-of', {
         'remove-useless-variables/for-of': removeUselessVariables,
