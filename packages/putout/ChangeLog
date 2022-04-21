@@ -1,3 +1,19 @@
+2022.04.21, v25.15.0
+
+feature:
+- (package) @putout/plugin-remove-unused-for-of-variables v3.0.0
+- (@putout/plugin-remove-unused-for-of-variables) drop support of putout < 25
+- (@putout/plugin-remove-unused-for-of-variables) exclude spread
+- (eslint-plugin-putout) array-element-newline: exclude sparse arrays
+- (@putout/plugin-merde-duplicate-imports) rm converting of import kind, since it handled by babel
+- (eslint-plugin-putout) add remove-duplicate-extensions
+- (package) @putout/eslint-config v7.0.0
+- (@putout/eslint-config) drop support of node < 16
+- (@putout/eslint-config) add ability to always add newline after for
+- (@putout/plugin-tape) add-args: add support of only/skip
+- (eslint-plugin-putout) markdown: rm no-multi-spaces: off
+
+
 2022.04.10, v25.14.3
 
 feature:
