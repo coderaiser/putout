@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-github",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin helps with github actions",
