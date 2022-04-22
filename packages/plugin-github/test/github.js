@@ -7,8 +7,8 @@ const test = createTest(__dirname, {
     github,
 });
 
-test('plugin-github: transform', (t) => {
-    t.transform('github');
+test('plugin-github: transform: set-node-version', (t) => {
+    t.transform('set-node-version');
     t.end();
 });
 

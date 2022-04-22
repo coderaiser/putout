@@ -11,15 +11,11 @@ const {traverseProperty} = require('../traverse-property');
 
 const nodeVersions = [
     '16.x',
-    '17.x',
+    '18.x',
 ];
 
-const nodeVersionsNode = template.ast(`[
-  "16.x",
-  "17.x",
-]`);
-
-const {parse} = JSON;
+const {parse, stringify} = JSON;
+const nodeVersionsNode = template.ast(stringify(nodeVersions));
 
 module.exports.report = () => 'Latest version of node is missing';
 
