@@ -7,7 +7,8 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to simplify **logical expressions**.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to simplify **logical expressions** containing
+comparisons which will always evaluate to `true` or `false` since it's  likely indications of programmer error.
 
 ## Install
 
@@ -55,6 +56,13 @@ if (left.type !== 'UnaryExpression');
 const oneOf = a;
 const same = true;
 ```
+
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout**| [`simplify-logical-expressions`](https://github.com/coderaiser/putout/tree/master/packages/plugin-simplify-logical-expressions#readme)| ✅
+🦕 **ESLint** | [`no-constant-binary-expression`](https://eslint.org/docs/rules/no-constant-binary-expression) | ❌
 
 ## License
 
