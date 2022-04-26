@@ -1,13 +1,13 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const removeDebugger = require('..');
+const removeDuplicateKeys = require('..');
 const test = createTest(__dirname, {
-    'remove-duplicate-keys': removeDebugger,
+    'remove-duplicate-keys': removeDuplicateKeys,
 });
 
 test('remove duplicate-keys: report', (t) => {
-    t.report('duplicate', 'Duplicate keys should be avoided');
+    t.report('duplicate', 'Avoid duplicate keys');
     t.end();
 });
 

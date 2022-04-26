@@ -15,7 +15,7 @@ const isObjectPropertyLiteral = (value) => (a) => isObjectProperty(a) && isStrin
 
 const store = fullstore([]);
 
-module.exports.report = () => 'Duplicate keys should be avoided';
+module.exports.report = () => 'Avoid duplicate keys';
 
 module.exports.replace = () => ({
     __object: ({__object}) => {
