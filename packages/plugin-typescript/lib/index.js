@@ -10,6 +10,7 @@ module.exports.rules = {
     ...getRule('convert-generic-to-shorthand'),
     ...getRule('remove-duplicates-from-union'),
     ...getRule('remove-duplicate-interface-keys'),
+    ...getRule('remove-duplicate-exports'),
     ...getRule('remove-useless-types-from-constants'),
     ...getRule('remove-useless-types'),
     ...getRule('remove-unused-types'),

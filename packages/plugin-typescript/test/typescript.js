@@ -56,3 +56,9 @@ test('putout: plugin: typescript: transform: remove-unused-types', (t) => {
     t.transform('remove-unused-types', '\n\n');
     t.end();
 });
+
+test('putout: plugin: typescript: transform: remove-duplicate-exports', (t) => {
+    t.transform('remove-duplicate-exports');
+    t.end();
+});
+

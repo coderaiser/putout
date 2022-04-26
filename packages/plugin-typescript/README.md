@@ -25,6 +25,7 @@ npm i putout @putout/plugin-typescript -D
         "typescript/convert-generic-to-shorthand": "on",
         "typescript/remove-duplicates-from-union": "on",
         "typescript/remove-duplicates-interface-keys": "on",
+        "typescript/remove-duplicates-exports": "on",
         "typescript/remove-useless-types-from-constants": "on",
         "typescript/remove-unused-types": "on",
         "typescript/remove-useless-types": "on",
@@ -111,6 +112,29 @@ type x = boolean[]
     | A
     | string
     | string[];
+```
+
+### remove-duplicates-exports
+
+#### ❌ Example of incorrect code
+
+```ts
+export {
+    a,
+    hello,
+    a,
+    world,
+};
+```
+
+#### ✅ Example of correct code
+
+```ts
+export {
+    hello,
+    a,
+    world,
+};
 ```
 
 ### remove-useless-types-from-constants
