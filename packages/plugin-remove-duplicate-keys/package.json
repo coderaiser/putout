@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-duplicate-keys",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove duplicate keys",
