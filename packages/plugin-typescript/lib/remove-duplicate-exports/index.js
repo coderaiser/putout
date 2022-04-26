@@ -17,7 +17,12 @@ module.exports.traverse = ({push}) => ({
         const map = {};
         
         for (const spec of specs) {
-            const {name} = spec.node.local;
+            const {local} = spec.node;
+            
+            if (!local)
+                continue;
+            
+            const {name} = local;
             map[name] = map[name] || {
                 count: 0,
                 path: spec,
