@@ -168,6 +168,10 @@ test('eslint-plugin-putout: typescript: disable padding-between-private-members'
     await noProcess('padding-between-private-members');
 });
 
-test('eslint-plugin-putout: remove-duplicate-extension: fix', async ({process}) => {
+test('eslint-plugin-putout: remove-duplicate-extension', async ({process}) => {
     await process('remove-duplicate-extensions');
+});
+
+test('eslint-plugin-putout: add-newlines-between-specifiers', async ({process}) => {
+    await process('add-newlines-between-specifiers');
 });
