@@ -1,7 +1,5 @@
 'use strict';
 
-const regExp = /, +?[A-z]/g;
-
 module.exports.category = 'layout';
 module.exports.report = () => 'Add newlines between specifiers';
 
@@ -19,6 +17,8 @@ module.exports.fix = ({text}) => {
 };
 
 module.exports.filter = ({text, node}) => {
+    const regExp = /, +?[a-zA-Z]/g;
+    
     if (node.specifiers.length < 4)
         return false;
     
