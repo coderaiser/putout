@@ -1,3 +1,12 @@
+2022.04.26, v25.15.1
+
+feature:
+- (package) @putout/plugin-remove-duplicate-keys v3.0.0
+- (@putout/plugin-typescript) add remove-duplicate-exports
+- (@putout/plugin-remove-duplicate-keys) drop support of Putout < 25
+- (@putout/plugin-github) set-node-version: update to v18 (https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V18.md#18.0.0)
+
+
 2022.04.21, v25.15.0
 
 feature:
