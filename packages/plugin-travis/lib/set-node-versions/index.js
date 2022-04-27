@@ -10,8 +10,8 @@ const getValue = ({value}) => value;
 const one = (f) => (a) => f(a);
 
 const defaultVersions = [
-    15,
-    14,
+    16,
+    18,
 ];
 
 module.exports.report = () => 'Latest version of node is missing';

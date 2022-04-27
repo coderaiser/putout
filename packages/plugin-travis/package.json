@@ -3,7 +3,7 @@
   "version": "1.2.2",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin helps with .travis",
+  "description": "🐊Putout plugin helps with Travis CI",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-travis#readme",
   "main": "lib/index.js",
   "release": false,
@@ -43,11 +43,11 @@
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {
-    "putout": ">=11"
+    "putout": ">=25"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=12"
+    "node": ">=16"
   },
   "publishConfig": {
     "access": "public"

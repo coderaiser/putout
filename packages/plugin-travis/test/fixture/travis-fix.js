@@ -1,8 +1,8 @@
 __putout_processor_json({
     "language": "node_js",
     "node_js": [
-        15,
-        14
+        16,
+        18
     ],
     "script": [
         "npm run lint",
