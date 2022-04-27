@@ -143,7 +143,6 @@ export {
 
 *☝️ The rule fits good with [`putout/add-newlines-between-specifiers`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/add-newlines-between-specifiers#readme) of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/#readme).*
 
-
 ### remove-useless-types-from-constants
 
 #### ❌ Example of incorrect code
