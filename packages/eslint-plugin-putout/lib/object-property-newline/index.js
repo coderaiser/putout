@@ -55,7 +55,7 @@ module.exports.filter = ({node}) => {
 
 module.exports.fix = ({text}) => {
     return text
-        .replace(/,/g, ',\n    ')
+        .replace(/,(\s+)?/g, ',\n    ')
         .replace(/{/g, '{\n    ')
         .replace(/}/g, '\n}')
         .replace(/\n(\s+)?\n/g, '\n');

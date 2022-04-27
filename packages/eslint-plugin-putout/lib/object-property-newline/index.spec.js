@@ -89,7 +89,7 @@ babelParserTester.run('object-property-newline: babel: ts', rule, {
                 d: any,
             }
         `,
-        output: 'type a = {\n    b,\n     c,\n    d: any,\n}',
+        output: 'type a = {\n    b,\n    c,\n    d: any,\n}',
         errors: [{
             message,
             type: 'TSTypeAliasDeclaration',
