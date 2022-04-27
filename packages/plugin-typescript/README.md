@@ -116,6 +116,10 @@ type x = boolean[]
 
 ### remove-duplicates-exports
 
+In **JavaScript** duplicate exports leads to [`SyntaxError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError), anyways **TypeScript** parses such code and reports [`Duplicates Identifier`](https://github.com/Microsoft/TypeScript/blob/v1.8.5/src/compiler/diagnosticMessages.json#L826-L829) diagnostic.
+
+It gives us ability to automate fixing of such code 😏.
+
 #### ❌ Example of incorrect code
 
 ```ts
@@ -136,6 +140,9 @@ export {
     world,
 };
 ```
+
+*☝️ The rule fits good with [`putout/add-newlines-between-specifiers`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/add-newlines-between-specifiers#readme) of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/#readme).*
+
 
 ### remove-useless-types-from-constants
 
