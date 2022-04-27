@@ -1,5 +1,7 @@
 'use strict';
 
+const montag = require('montag');
+
 const {RuleTester} = require('eslint');
 
 const wrap = require('../wrap');
@@ -76,6 +78,18 @@ babelParserTester.run('object-property-newline: babel: ts', rule, {
     invalid: [{
         code: `type a = {b}`,
         output: `type a = {\n    b\n}`,
+        errors: [{
+            message,
+            type: 'TSTypeAliasDeclaration',
+        }],
+    }, {
+        code: montag`
+            type a = {
+                b, c,
+                d: any,
+            }
+        `,
+        output: 'type a = {\n    b,\n     c,\n    d: any,\n}',
         errors: [{
             message,
             type: 'TSTypeAliasDeclaration',
