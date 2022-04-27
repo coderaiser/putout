@@ -118,7 +118,7 @@ type x = boolean[]
 
 In **JavaScript** duplicate exports leads to [`SyntaxError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError), anyways **TypeScript** parses such code and reports [`Duplicates Identifier`](https://github.com/Microsoft/TypeScript/blob/v1.8.5/src/compiler/diagnosticMessages.json#L826-L829) diagnostic.
 
-It gives us ability to automate fixing of such code 😏.
+It gives us ability to automate fixing of such code 😏. Check it out in [🐊**Putout Editor**](https://putout.cloudcmd.io/#/gist/e8d02b3d1c91b4b3b6b9636e22dd03ed/8be7b4c8d0f6c28440f36d03341a1153c18549a7).
 
 #### ❌ Example of incorrect code
 
