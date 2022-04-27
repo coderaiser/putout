@@ -2,7 +2,7 @@
   "name": "eslint-plugin-putout",
   "version": "14.12.0",
   "type": "commonjs",
-  "description": "eslint plugin for putout",
+  "description": "ESLint plugin for 🐊Putout",
   "release": false,
   "tag": false,
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme",

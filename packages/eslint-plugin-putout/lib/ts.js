@@ -7,8 +7,8 @@ const extensionRules = {
     'no-undef': 'off',
     'no-var': 'off',
     
-    'brace-style': 'off',
-    '@typescript-eslint/brace-style': ['error'],
+    // putout/object-property-newline instead
+    '@typescript-eslint/brace-style': 'off',
     
     'comma-dangle': 'off',
     '@typescript-eslint/comma-dangle': rules['comma-dangle'],

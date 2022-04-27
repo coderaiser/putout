@@ -1,0 +1,8 @@
+{
+    "overrides": [{
+        "files": "*.md{ts}",
+        "rules": {
+            "putout/object-property-newline": "off"
+        }
+    }]
+}

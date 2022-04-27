@@ -3,7 +3,11 @@
 const {types} = require('putout');
 const {isCorrectLoc} = require('../common');
 
-const {isVariableDeclarator} = types;
+const {
+    isVariableDeclarator,
+    isAssignmentExpression,
+    isTSTypeAliasDeclaration,
+} = types;
 
 module.exports.category = 'destructuring';
 module.exports.report = () => 'Keep each property on separate line';
@@ -11,6 +15,8 @@ module.exports.report = () => 'Keep each property on separate line';
 module.exports.include = () => [
     `VariableDeclarator[init.type="ObjectExpression"]`,
     `AssignmentExpression[right.type="ObjectExpression"]`,
+    `TSTypeAliasDeclaration[typeAnnotation.type="TSTypeLiteral"]`,
+    `TSInterfaceDeclaration`,
 ];
 
 module.exports.filter = ({node}) => {
@@ -27,16 +33,30 @@ module.exports.filter = ({node}) => {
         return !isCorrectLoc(line, properties);
     }
     
-    const {properties} = right;
+    if (isAssignmentExpression(node)) {
+        const {properties} = right;
+        const {line} = loc.start;
+        
+        return !isCorrectLoc(line, properties);
+    }
+    
+    if (isTSTypeAliasDeclaration(node)) {
+        const {members} = node.typeAnnotation;
+        const {line} = loc.start;
+        
+        return !isCorrectLoc(line, members);
+    }
+    
+    const {body} = node.body;
     const {line} = loc.start;
     
-    return !isCorrectLoc(line, properties);
+    return !isCorrectLoc(line, body);
 };
 
 module.exports.fix = ({text}) => {
     return text
-        .replace(/,/g, ',\n')
-        .replace(/{/g, '{\n')
+        .replace(/,/g, ',\n    ')
+        .replace(/{/g, '{\n    ')
         .replace(/}/g, '\n}');
 };
 

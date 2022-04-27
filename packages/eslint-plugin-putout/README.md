@@ -57,7 +57,7 @@ Then configure the rules you want to use under the rules section.
         "putout/remove-empty-newline-after-import": "error",
         "putout/remove-empty-specifiers": "error",
         "putout/objects-braces-inside-array": "error",
-        "putout/object-init": "error",
+        "putout/object-property-newline": "error",
         "putout/tape-add-newline-between-tests": "error",
         "putout/tape-add-newline-before-assertion": "error",
         "putout/tape-remove-newline-before-t-end": "error"
@@ -81,6 +81,7 @@ Then configure the rules you want to use under the rules section.
 ### TypeScript
 
 - ✅ [Add newlines between types in union](/packages/eslint-plugin-putout/lib/add-newlines-between-types-in-union#readme)
+- ✅ [Object property newline](/packages/eslint-plugin-putout/lib/object-property-newline#readme)
 
 ### ESM
 
@@ -110,7 +111,6 @@ Then configure the rules you want to use under the rules section.
 - ✅ [Remove empty newline after import](/packages/eslint-plugin-putout/lib/remove-empty-newline-after-import#readme)
 - ✅ [Remove empty specifiers](/packages/eslint-plugin-putout/lib/remove-empty-specifiers#readme)
 - ✅ [Objects braces inside array](/packages/eslint-plugin-putout/lib/objects-braces-inside-array#readme)
-- ✅ [Object init](/packages/eslint-plugin-putout/lib/object-init#readme)
 - ✅ [Nonblock statement body newline](/packages/eslint-plugin-putout/lib/non-block-statement-body-newline#readme)
 
 ### Safe mode

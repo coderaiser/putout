@@ -175,3 +175,7 @@ test('eslint-plugin-putout: remove-duplicate-extension', async ({process}) => {
 test('eslint-plugin-putout: add-newlines-between-specifiers', async ({process}) => {
     await process('add-newlines-between-specifiers');
 });
+
+test('eslint-plugin-putout: object-property-newline', async ({process}) => {
+    await process('object-property-newline');
+});
