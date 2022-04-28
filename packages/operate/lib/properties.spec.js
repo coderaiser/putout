@@ -22,7 +22,7 @@ test('operate: properties: getProperties', (t) => {
     });
     
     const result = print(ast);
-    const expected = '(({}))';
+    const expected = '({})';
     
     t.deepEqual(result, expected);
     t.end();
@@ -39,7 +39,7 @@ test('operate: properties: getProperties: Identifier', (t) => {
     });
     
     const result = print(ast);
-    const expected = '(({}))';
+    const expected = '({})';
     
     t.deepEqual(result, expected);
     t.end();
@@ -56,7 +56,7 @@ test('operate: properties: getProperty', (t) => {
     });
     
     const result = print(ast);
-    const expected = '(({}))';
+    const expected = '({})';
     
     t.deepEqual(result, expected);
     t.end();

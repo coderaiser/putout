@@ -1,4 +1,4 @@
-module.exports.traverse = ({push}) => (({
+module.exports.traverse = ({push}) => ({
     ObjectExpression(path) {
     }
-}));
+});

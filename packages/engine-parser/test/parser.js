@@ -1,5 +1,7 @@
 'use strict';
 
+const montag = require('montag');
+
 const test = require('supertape');
 const putout = require('putout');
 const tryCatch = require('try-catch');
@@ -315,7 +317,11 @@ test('putout: print: recast: object expressions', (t) => {
     });
     
     const result = print(ast);
-    const expected = `b => ({a: 'b'})`;
+    const expected = montag`
+        b => ({
+          a: 'b'
+        })
+    `;
     
     t.equal(result, expected);
     t.end();

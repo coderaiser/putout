@@ -11,10 +11,10 @@ function FormLoginContainer() {
     }
 
     return (
-        <FormLogin
+        (<FormLogin
             onClick={ onClick }
             loading={ loading }
-        />
+        />)
     );
 }
 

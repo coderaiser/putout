@@ -225,11 +225,11 @@ test('putout: compare: vars: vars: findVarsWays: __object', (t) => {
     `;
     
     const expected = montag`
-        fn(({
+        fn({
           a,
           b,
           c
-        }))
+        })
     `;
     
     const {code} = putout(source, {

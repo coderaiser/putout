@@ -35,7 +35,7 @@ test('plugin-react-hooks: remove-this: transform: code', (t) => {
         
         class Hello extends Component {
             render() {
-                return <button onClick={setEnabled}/>;
+                return (<button onClick={setEnabled}/>);
             }
         }
     `;

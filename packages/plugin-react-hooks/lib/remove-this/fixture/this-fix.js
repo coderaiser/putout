@@ -11,9 +11,9 @@ class FormLoginContainer extends React.Component {
     
     render() {
         return (
-            <FormLogin
+            (<FormLogin
                 submit={submit}
-            />
+            />)
         );
     }
 }

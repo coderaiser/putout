@@ -1,4 +1,4 @@
-export const traverse = ({push}) => (({
+export const traverse = ({push}) => ({
     ObjectExpression: (path) => {
     }
-}));
+});
