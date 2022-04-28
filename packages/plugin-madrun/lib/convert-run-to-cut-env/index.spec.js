@@ -17,6 +17,11 @@ test('madrun: convert-run-to-cut-env: transform', (t) => {
     t.end();
 });
 
+test('madrun: convert-run-to-cut-env: transform: no-env', (t) => {
+    t.transform('no-env');
+    t.end();
+});
+
 test('madrun: convert-run-to-cut-env: no transform: no export default', (t) => {
     t.noTransformCode(`export const hello = 'world'; run('hello')`);
     t.end();
