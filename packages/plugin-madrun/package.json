@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-madrun",
-  "version": "14.1.0",
+  "version": "14.2.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "putout plugin adds ability to find and remove process.exit",
