@@ -66,7 +66,7 @@ const a = /hello/i;
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
 
-**RegExp** is overkill for such a simple task as determining that string located at the beginning. Check it out in 🐊 [**Putout Editor**](https://putout.cloudcmd.io/#/gist/79e3e41c3491fb8c45fb03580e42ef20/89971d2d6528ee78df4c2a0d6271179560f76cc1)*
+**RegExp** is overkill for such a simple task as determining that string located at the beginning. Check it out in 🐊 [**Putout Editor**](https://putout.cloudcmd.io/#/gist/79e3e41c3491fb8c45fb03580e42ef20/89971d2d6528ee78df4c2a0d6271179560f76cc1).
 
 ### ❌ Example of incorrect code
 
@@ -79,6 +79,14 @@ const a = /hello/i;
 ```js
 a.startsWith('hello');
 ```
+
+### Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout**| [`regexp/apply-starts-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#regexpapply-starts-with)| ✅
+🦕 **TypeScript ESLint** | [`prefer-string-starts-ends-with`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md#prefer-string-starts-ends-with) | ✅
+
 
 ## regexp/apply-ends-with
 
@@ -99,6 +107,14 @@ a.startsWith('hello');
 ```js
 a.endsWith('hello');
 ```
+
+### Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout**| [`regexp/apply-ends-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#regexpapply-ends-with)| ✅
+🦕 **TypeScript ESLint** | [`prefer-string-starts-ends-with`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md#prefer-string-starts-ends-with) | ✅
+
 
 ## regexp/convert-to-string
 
