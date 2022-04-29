@@ -87,7 +87,6 @@ Linter | Rule | Fix
 🐊 **Putout**| [`regexp/apply-starts-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#regexpapply-starts-with)| ✅
 🦕 **TypeScript ESLint** | [`prefer-string-starts-ends-with`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md#prefer-string-starts-ends-with) | ✅
 
-
 ## regexp/apply-ends-with
 
 > The `startsWith()` method determines whether a string ends with the characters of a specified string, returning `true` or `false` as appropriate.
@@ -114,7 +113,6 @@ Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout**| [`regexp/apply-ends-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#regexpapply-ends-with)| ✅
 🦕 **TypeScript ESLint** | [`prefer-string-starts-ends-with`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md#prefer-string-starts-ends-with) | ✅
-
 
 ## regexp/convert-to-string
 
