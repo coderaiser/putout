@@ -6,7 +6,7 @@ const fix = (heading, tree) => {
     if (latest.type === 'text' && latest.value === ' ')
         heading.children = heading.children.slice(0, -1);
     
-    if (latest.type === 'text' && / $/.test(latest.value))
+    if (latest.type === 'text' && latest.value.endsWith(' '))
         latest.value = latest.value.slice(0, -1);
     
     tree.children[0].children = heading.children;
@@ -20,7 +20,7 @@ const traverse = (tree, {push}) => {
     
     const latest = heading.children.at(-1);
     
-    if (latest.type === 'text' && / $/.test(latest.value))
+    if (latest.type === 'text' && latest.value.endsWith(' '))
         push(heading);
 };
 

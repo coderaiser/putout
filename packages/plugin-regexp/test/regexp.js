@@ -42,3 +42,8 @@ test('plugin-regexp: transform: apply-starts-with', (t) => {
     t.end();
 });
 
+test('plugin-regexp: transform: apply-ends-with', (t) => {
+    t.transform('apply-ends-with');
+    t.end();
+});
+

@@ -22,6 +22,7 @@ npm i @putout/plugin-regexp -D
     "rules": {
         "regexp/apply-literal-notation": "on",
         "regexp/apply-starts-with": "on",
+        "regexp/apply-ends-with": "on",
         "regexp/optimize": "on",
         "regexp/convert-to-string": "on",
         "regexp/convert-replace-to-replace-all": "on",
@@ -77,6 +78,26 @@ const a = /hello/i;
 
 ```js
 a.startsWith('hello');
+```
+
+## regexp/apply-ends-with
+
+> The `startsWith()` method determines whether a string ends with the characters of a specified string, returning `true` or `false` as appropriate.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
+
+**RegExp** is overkill for such a simple task as determining that string located at the end.
+
+### ❌ Example of incorrect code
+
+```js
+/hello$/.test(a);
+```
+
+### ✅ Example of correct code
+
+```js
+a.endsWith('hello');
 ```
 
 ## regexp/convert-to-string

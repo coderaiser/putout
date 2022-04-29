@@ -4,10 +4,10 @@ module.exports.report = () => 'IO.createDirectory should be used instead of IO.w
 
 module.exports.match = () => ({
     'IO.write("__a")': ({__a}) => {
-        return /\?dir$/.test(__a.value);
+        return __a.value.endsWith('?dir');
     },
     'IO.write(`__a`)': ({__a}) => {
-        return /\?dir$/.test(__a.value.raw);
+        return __a.value.raw.endsWith('?dir');
     },
 });
 

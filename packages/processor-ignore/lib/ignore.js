@@ -1,7 +1,7 @@
 'use strict';
 
 const {stringify} = JSON;
-const rmLast = (a) => !/\n$/.test(a) ? a : a.slice(0, -1);
+const rmLast = (a) => !a.endsWith('\n') ? a : a.slice(0, -1);
 
 const prefix = '__putout_processor_ignore(';
 const sufix = ');';
