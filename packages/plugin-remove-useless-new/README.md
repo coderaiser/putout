@@ -49,8 +49,10 @@ Error('Something whent wrong');
 
 Linter | Rule | Fix
 --------|-------|------------|
-🐊 **Putout**| [`remove-useless-new`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-new#readme)| ✅
+🐊 **Putout** | [`remove-useless-new`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-new#readme)| ✅
 🦕 **ESLint** | [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers) | ❌
+              | [`no-new-object`](https://eslint.org/docs/rules/no-new-object) | ❌
+              | [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor) | ❌
 
 ## License
 

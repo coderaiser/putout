@@ -22,3 +22,8 @@ test('plugin-remove-useless-new: transform: regexp', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-new: transform: object', (t) => {
+    t.transform('object');
+    t.end();
+});
+

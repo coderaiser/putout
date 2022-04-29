@@ -1,5 +1,8 @@
 'use strict';
 
+const {types} = require('putout');
+const {ObjectExpression} = types;
+
 module.exports.report = () => `Avoid useless operator 'new'`;
 
 module.exports.replace = () => ({
@@ -10,5 +13,6 @@ module.exports.replace = () => ({
     'new Array(__args)': 'Array(__args)',
     'new Symbol(__a)': 'Symbol(__a)',
     'new RegExp(__a)': 'RegExp(__a)',
+    'new Object()': () => ObjectExpression([]),
 });
 
