@@ -61,6 +61,13 @@ if (a) {
 }
 ```
 
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`remove-useless-type-conversion`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-type-conversion#readme)| ✅
+🦕 **ESLint** | [`no-implicit-coercion`](https://eslint.org/docs/rules/no-implicit-coercion) | ✅
+
 ## License
 
 MIT
