@@ -38,7 +38,7 @@ runProcessors({
 
 ## Processor Example
 
-Simplest possible procesor exampmle can look like this:
+Simplest possible procesor example can look like this:
 
 ```js
 module.exports.files = [
