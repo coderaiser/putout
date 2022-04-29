@@ -17,7 +17,7 @@ module.exports.traverse = ({push}) => ({
         node.raw = node.raw || String(node.value);
         const {raw, value} = path.node;
         
-        if (/^0x/.test(raw))
+        if (raw.startsWith('0x'))
             return;
         
         if (raw.includes('_'))

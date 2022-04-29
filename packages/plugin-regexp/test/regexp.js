@@ -36,3 +36,9 @@ test('plugin-regexp: remove-useless-regexp: transform', (t) => {
     t.transform('remove-useless-regexp');
     t.end();
 });
+
+test('plugin-regexp: transform: apply-starts-with', (t) => {
+    t.transform('apply-starts-with');
+    t.end();
+});
+

@@ -18,7 +18,7 @@ const {
 } = require('../exit-codes.js');
 const ignores = require('../../ignores.js');
 
-const isParser = (rule) => /^parser/.test(rule);
+const isParser = (rule) => rule.startsWith('parser');
 const isParsingError = ({rule}) => isParser(rule);
 const chooseName = (name, resolvedName) => !isIDE ? name : resolvedName;
 const isIDE = /JetBrains/.test(env.TERMINAL_EMULATOR) || env.TERM_PROGRAM === 'vscode';

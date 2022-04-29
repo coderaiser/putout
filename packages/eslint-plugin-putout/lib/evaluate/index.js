@@ -10,7 +10,7 @@ module.exports.include = () => ['ImportDeclaration'];
 module.exports.filter = ({node}) => {
     const {value} = node.source;
     
-    if (!/^__putout_evaluate:/.test(value))
+    if (!value.startsWith('__putout_evaluate:'))
         return false;
     
     return true;

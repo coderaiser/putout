@@ -55,7 +55,7 @@ export default ({name, options, places, index, count, filesCount, errorsCount}) 
 };
 
 const getColorFn = (color) => {
-    if (/^#/.test(color))
+    if (color.startsWith('#'))
         return chalk.hex(color);
     
     return chalk[color];

@@ -21,6 +21,7 @@ npm i @putout/plugin-regexp -D
 {
     "rules": {
         "regexp/apply-literal-notation": "on",
+        "regexp/apply-starts-with": "on",
         "regexp/optimize": "on",
         "regexp/convert-to-string": "on",
         "regexp/convert-replace-to-replace-all": "on",
@@ -56,6 +57,26 @@ const a = new RegExp('hello', 'i');
 
 ```js
 const a = /hello/i;
+```
+
+## regexp/apply-starts-with
+
+> The `startsWith()` method determines whether a string begins with the characters of a specified string, returning `true` or `false` as appropriate.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
+
+**RegExp** is overkill for such a simple task as determining that string located at the beginning. Check it out in 🐊 [**Putout Editor**](https://putout.cloudcmd.io/#/gist/79e3e41c3491fb8c45fb03580e42ef20/89971d2d6528ee78df4c2a0d6271179560f76cc1)*
+
+### ❌ Example of incorrect code
+
+```js
+/^hello/.test(a);
+```
+
+### ✅ Example of correct code
+
+```js
+a.startsWith('hello');
 ```
 
 ## regexp/convert-to-string

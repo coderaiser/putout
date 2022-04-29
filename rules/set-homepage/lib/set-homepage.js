@@ -19,7 +19,7 @@ module.exports.traverse = ({push}) => ({
         const name = namePath.node.value;
         const homepage = homepagePath.node.value;
         
-        if (!/^@putout/.test(name.value))
+        if (!name.value.startsWith('@putout'))
             return;
         
         if (name.value.includes('codemod'))

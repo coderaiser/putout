@@ -9,7 +9,7 @@ const {isArray} = Array;
 const isTuple = (a) => isArray(a);
 
 const isPutoutRule = (rule) => {
-    if (/^parser/.test(rule))
+    if (rule.startsWith('parser'))
         return false;
     
     if (rule.includes('('))

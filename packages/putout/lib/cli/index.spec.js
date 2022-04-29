@@ -131,6 +131,7 @@ test('putout: cli: --format: ci', async (t) => {
     
     const process = stub().returns({
         places: [{
+            rule: 'remove-unused-variables',
             message: 'hello',
             position: {
                 line: 1,

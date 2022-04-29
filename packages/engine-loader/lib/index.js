@@ -122,7 +122,7 @@ function splitRule(rule) {
     const name = rule
         .replace('babel/', '');
     
-    if (/^babel/.test(rule))
+    if (rule.startsWith('babel'))
         return [
             name,
             'babel',

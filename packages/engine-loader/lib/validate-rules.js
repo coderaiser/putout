@@ -1,7 +1,7 @@
 'use strict';
 
 const parse = (rule) => {
-    if (/^babel\//.test(rule))
+    if (rule.startsWith('babel/'))
         return rule;
     
     if (rule.includes('/'))

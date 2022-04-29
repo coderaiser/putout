@@ -105,7 +105,7 @@ function readRules(dirOpt, rulesDir) {
     
     let dir = join(dirOpt, rulesDir);
     
-    if (!/^\//.test(dir))
+    if (!dir.startsWith('/'))
         dir = join(process.cwd(), rulesDir);
     
     const [e, names] = tryCatch(readdirSync, dir);
