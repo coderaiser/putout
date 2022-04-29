@@ -9,6 +9,12 @@
 >
 > (c) https://262.ecma-international.org/12.0/#sec-error-constructor
 
+Same for `RegExp`:
+
+> Thus the function call `RegExp(…)` is equivalent to the object creation expression `new RegExp(…)` with the same arguments.
+>
+> (c) https://tc39.es/ecma262/multipage/text-processing.html#sec-regexp-constructor
+
 [`Symbol`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) cannot be used with `new`, as it is primitive.
 
 ## Install

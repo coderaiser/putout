@@ -17,3 +17,8 @@ test('plugin-remove-useless-new: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-new: transform: regexp', (t) => {
+    t.transform('regexp');
+    t.end();
+});
+

@@ -9,5 +9,6 @@ module.exports.replace = () => ({
     'new String(__a)': 'String(__a)',
     'new Array(__args)': 'Array(__args)',
     'new Symbol(__a)': 'Symbol(__a)',
+    'new RegExp(__a)': 'RegExp(__a)',
 });
 

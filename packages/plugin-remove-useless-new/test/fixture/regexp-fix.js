@@ -1,0 +1,1 @@
+RegExp('^hello\sworld$');
