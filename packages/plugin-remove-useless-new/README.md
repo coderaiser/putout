@@ -9,13 +9,13 @@
 >
 > (c) https://262.ecma-international.org/12.0/#sec-error-constructor
 
-Same for `RegExp`:
+Same with `RegExp`:
 
 > Thus the function call `RegExp(…)` is equivalent to the object creation expression `new RegExp(…)` with the same arguments.
 >
 > (c) https://tc39.es/ecma262/multipage/text-processing.html#sec-regexp-constructor
 
-[`Symbol`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) cannot be used with `new`, as it is primitive.
+And [`Symbol`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) cannot be used with `new`, as it is primitive.
 
 ## Install
 
@@ -44,6 +44,15 @@ new Error('Something whent wrong');
 ```js
 Error('Something whent wrong');
 ```
+
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout**| [`remove-useless-new`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-new#readme)| ✅
+🦕 **ESLint** | [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor) | ❌
+🦕 **ESLint** | [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers) | ❌
+
 
 ## License
 
