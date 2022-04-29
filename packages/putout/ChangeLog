@@ -1,3 +1,26 @@
+2022.04.29, v25.16.0
+
+fix:
+- (eslint-plugin-putout) object-property-newline: additional spaces
+
+
+feature:
+- (@putout/plugin-remove-useless-new) add support of new Object()
+- (package) @putout/plugin-remove-useless-new v2.0.0
+- (@putout/plugin-remove-useless-new) drop support of 🐊 < 25
+- (@putout/plugin-remove-useless-new) add support of RegExp
+- (@putout/plugin-tape) convert-ok-to-match: add support of .test()
+- (@putout/plugin-regexp) add apply-ends-with
+- (@putout/plugin-regexp) add apply-starts-with
+- (@putout/plugin-madrun) convert-run-to-cut-env: add ability to convert body to array
+- (@putout/plugin-travis) drop support of Putout < 25
+- (eslint-plugin-putout) object-property-newline: avoid empty lines
+- (package) eslint-plugin-putout v15.0.0
+- (eslint-plugin-putout) object-init -> object-property-newline: add TS support
+- (@putout/plugin-typescript) remove-duplicate-exports: exclude namespaces
+- (eslint-plugin-putout) add add-newlines-betweens-specifieres
+
+
 2022.04.26, v25.15.1
 
 feature:
