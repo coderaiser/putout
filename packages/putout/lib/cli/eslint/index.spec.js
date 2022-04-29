@@ -68,7 +68,7 @@ test('putout: eslint: config file', async (t) => {
     
     stopAll();
     
-    t.ok(/^Cannot read config file/.test(message));
+    t.match(message, /^Cannot read config file/);
     t.end();
 });
 

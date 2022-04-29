@@ -17,6 +17,11 @@ test('plugin-tape: convert-ok-to-match: transform', (t) => {
     t.end();
 });
 
+test('plugin-tape: convert-ok-to-match: transform: test', (t) => {
+    t.transform('test');
+    t.end();
+});
+
 test('plugin-tape: convert-ok-to-match: transform: message', (t) => {
     t.transform('message');
     t.end();
