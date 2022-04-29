@@ -43,6 +43,13 @@ const a = Array(1, 2, 3);
 const a = [1, 2, 3];
 ```
 
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout**| [`remove-useless-array-constructor`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-array-constructor#readme)| ✅
+🦕 **ESLint** | [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor) | ❌
+
 ## License
 
 MIT
