@@ -1,9 +1,9 @@
 {
   "name": "@putout/plugin-remove-useless-operand",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to remove useless operand",
+  "description": "🐊Putout plugin adds ability to remove useless operand",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-operand#readme",
   "main": "lib/remove-useless-operand.js",
   "release": false,
