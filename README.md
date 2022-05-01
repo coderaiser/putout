@@ -599,7 +599,7 @@ putout(source, {
 
 </details>
 
-<details><summary>remove unused <code>for-of variables</code></summary>
+<details><summary>remove unused <code>for...of</code>variables</summary>
 
 ```diff
 -for (const {a, b} of c) {
@@ -846,7 +846,7 @@ function onIfStatement({push}) {
 
 </details>
 
-<details><summary>remove useless <code>for-of</code></summary>
+<details><summary>remove useless <code>for...of</code></summary>
 
 ```diff
 -for (const a of ['hello']) {
@@ -1320,7 +1320,7 @@ result = result ?? 'hello';
 
 </details>
 
-<details><summary>convert <code>for</code> to <code>for-of</code></summary>
+<details><summary>convert <code>for</code> to <code>for...of</code></summary>
 
 ```diff
 -for (let i = 0; i < items.length; i++) {
@@ -1332,7 +1332,7 @@ result = result ?? 'hello';
 
 </details>
 
-<details><summary>convert <code>forEach</code> to <code>for-of</code></summary>
+<details><summary>convert <code>forEach</code> to <code>for...of</code></summary>
 
 ```diff
 -Object.keys(json).forEach((name) => {
@@ -1344,7 +1344,7 @@ result = result ?? 'hello';
 
 </details>
 
-<details><summary>convert <code>for-in</code> to <code>for-of</code></summary>
+<details><summary>convert <code>for...in</code> to <code>for...of</code></summary>
 
 ```diff
 -for (const name in object) {
@@ -1357,7 +1357,7 @@ result = result ?? 'hello';
 
 </details>
 
-<details><summary>convert <code>map</code> to <code>for-of</code></summary>
+<details><summary>convert <code>map</code> to <code>for...of</code></summary>
 
 ```diff
 -names.map((name) => {
@@ -1365,6 +1365,18 @@ result = result ?? 'hello';
     alert(`hello ${name}`);
 +}
 -});
+```
+
+</details>
+
+<details><summary>convert <code>reduce</code> to <code>for...of</code></summary>
+
+```diff
+-const result = list.reduce((a, b) => a + b, 1);
++let sum = 1;
++for (const a of list) {
++   sum += a;
++}
 ```
 
 </details>
@@ -1747,6 +1759,7 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-convert-for-each-to-for-of`](/packages/plugin-convert-for-each-to-for-of#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-for-each-to-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-for-each-to-for-of) |
 | [`@putout/plugin-convert-for-in-to-for-of`](/packages/plugin-convert-for-in-to-for-of#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-for-in-to-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-for-in-to-for-of) |
 | [`@putout/plugin-convert-map-to-for-of`](/packages/plugin-convert-map-to-for-of#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-map-to-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-map-to-for-of) |
+| [`@putout/plugin-convert-reduce-to-for-of`](/packages/plugin-convert-reduce-to-for-of#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-reduce-to-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-reduce-to-for-of) |
 | [`@putout/plugin-convert-object-assign-to-merge-spread`](/packages/plugin-convert-object-assign-to-merge-spread#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-object-assign-to-merge-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-object-assign-to-merge-spread) |
 | [`@putout/plugin-convert-comparison-to-boolean`](/packages/plugin-convert-comparison-to-boolean#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-comparison-to-boolean.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-comparison-to-boolean) |
 | [`@putout/plugin-convert-typeof-to-is-type`](/packages/plugin-convert-typeof-to-is-type#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-typeof-to-is-type.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-typeof-to-is-type) |

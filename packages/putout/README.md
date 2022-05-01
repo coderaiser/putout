@@ -124,8 +124,9 @@ module.exports.replace = () => ({
 - ✅ convert `indexOf` to `includes`;
 - ✅ convert `replace` to `replaceAll`;
 - ✅ convert `assignment` to `arrow function`;
-- ✅ convert `forEach` to `for-of`;
-- ✅ convert `map` to `for-of`;
+- ✅ convert `forEach` to `for...of`;
+- ✅ convert `map` to `for...of`;
+- ✅ convert `reduce` to `for...of`;
 - ✅ extract sequence expressions;
 - ✅ extract object properties;
 - ✅ add `return await`;
