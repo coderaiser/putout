@@ -9,8 +9,12 @@
 >
 > (c) MDN
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `reduce` to `for...of` loop.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `.reduce()` to `for...of` loop.
 You should always look at second argument of a **reducer** since it changes logic drastically and should read back and forth a couple times to understand what is going on.
+
+> Recursive functions like `.reduce()` can be powerful but sometimes difficult to understand, especially for less experienced **JavaScript** developers. If code becomes clearer when using other array methods, developers must weigh the readability tradeoff against the other benefits of using `.reduce()`. In cases where `.reduce()` is the best choice, documentation and semantic variable naming can help mitigate readability drawbacks.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce#when_to_not_use_reduce)
 
 Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/107751499a4bbdd83b9181444d8bdbbd/8d3b646a3df0025d564e2bb141cc7f6a6bb1b3a5).
 
