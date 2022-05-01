@@ -13,7 +13,7 @@ const {
 
 const tail = (body) => body.at(-1);
 
-module.exports.report = () => 'Use "for-of" instead of map when "return" absent';
+module.exports.report = () => `Use 'for...of' instead of map when 'return' absent`;
 
 module.exports.match = () => ({
     '__a.map((__b) => __c)': ({__c}, path) => {

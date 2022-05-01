@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-convert-map-to-for-of: report', (t) => {
-    t.report('map', 'Use "for-of" instead of map when "return" absent');
+    t.report('map', `Use 'for...of' instead of map when 'return' absent`);
     t.end();
 });
 
