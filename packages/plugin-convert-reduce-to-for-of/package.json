@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-convert-reduce-to-for-of",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to convert '.reduce()' to 'for...of'",
