@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-useless-operand: report', (t) => {
-    t.report('operand', 'Useless operand should be avoided');
+    t.report('operand', 'Avoid useless operand');
     t.end();
 });
 
@@ -24,6 +24,11 @@ test('plugin-remove-useless-operand: transform: add-one', (t) => {
 
 test('plugin-remove-useless-operand: transform: sub-one', (t) => {
     t.transform('sub-one');
+    t.end();
+});
+
+test('plugin-remove-useless-operand: transform: right', (t) => {
+    t.transform('right');
     t.end();
 });
 

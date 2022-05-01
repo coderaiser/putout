@@ -31,6 +31,7 @@ npm i @putout/plugin-remove-useless-operand
 
 ```js
 a = a + b;
+a = b + a;
 b += 1;
 ```
 
