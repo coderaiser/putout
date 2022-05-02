@@ -9,7 +9,7 @@
 >
 > (c) MDN
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `Object.assign()` to merge **spread**.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `Object.assign()` to merge **spread** since it shorter but does (mostly) the same.
 
 ## Install
 
@@ -47,6 +47,13 @@ function merge(a) {
     };
 }
 ```
+
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`convert-object-assign-to-merge-spread`](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-object-assign-to-merge-spread#readme) | ✅
+🦕 **ESLint** | [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread) | ✅
 
 ## License
 
