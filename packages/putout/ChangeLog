@@ -1,3 +1,12 @@
+2022.05.02, v25.17.1
+
+feature:
+- (@putout/rule-set-description) add
+- (package) @putout/plugin-convert-object-assign-to-merge-spread v6.0.0
+- (@putout/plugin-convert-object-assign-to-merge-spread) drop support of 🐊 < 25
+- (@putout/plugin-convert-object-assign-to-merge-spread) change report message
+
+
 2022.05.01, v25.17.0
 
 fix:
