@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-convert-object-assign-to-merge-spread: report', (t) => {
-    t.report('object', 'Merge spread should be used instead of Object.assign');
+    t.report('object', `Use merge spread instead of 'Object.assign()'`);
     t.end();
 });
 

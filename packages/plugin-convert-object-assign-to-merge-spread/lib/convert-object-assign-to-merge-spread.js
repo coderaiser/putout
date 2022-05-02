@@ -17,7 +17,7 @@ const {
     isSpreadElement,
 } = types;
 
-module.exports.report = () => 'Merge spread should be used instead of Object.assign';
+module.exports.report = () => `Use merge spread instead of 'Object.assign()'`;
 
 module.exports.fix = (path) => {
     let properties = [];
