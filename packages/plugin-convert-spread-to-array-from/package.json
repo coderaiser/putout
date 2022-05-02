@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to convert spread to Array.from",
+  "description": "🐊Putout plugin adds ability to convert spread to Array.from",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-spread-to-array-from#readme",
   "main": "lib/convert-spread-to-array-from.js",
   "release": false,

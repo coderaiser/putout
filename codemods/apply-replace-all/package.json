@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to find and cut useless functions",
+  "description": "🐊Putout plugin adds ability to find and cut useless functions",
   "homepage": "http://github.com/coderaiser/putout#readme",
   "main": "lib/apply-replace-all.js",
   "release": false,

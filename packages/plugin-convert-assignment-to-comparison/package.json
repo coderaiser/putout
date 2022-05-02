@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability convert assignment to comparison",
+  "description": "🐊Putout plugin adds ability convert assignment to comparison",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-assignment-to-comparison#readme",
   "main": "lib/convert-assignment-to-comparison.js",
   "release": false,

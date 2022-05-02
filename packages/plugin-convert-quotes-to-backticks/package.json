@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to convert quotes to backticks",
+  "description": "🐊Putout plugin adds ability to convert quotes to backticks",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-quotes-to-backticks#readme",
   "main": "lib/convert-quotes-to-backticks.js",
   "release": false,

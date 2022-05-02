@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin helps with .browserlistrc",
+  "description": "🐊Putout plugin helps with .browserlistrc",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-browserlist#readme",
   "main": "lib/index.js",
   "release": false,

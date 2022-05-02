@@ -3,7 +3,7 @@
   "version": "2.0.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin helps with .npmignore",
+  "description": "🐊Putout plugin helps with .npmignore",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-npmignore#readme",
   "main": "lib/npmignore.js",
   "release": false,

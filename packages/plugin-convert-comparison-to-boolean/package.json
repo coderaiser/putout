@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to convert comparison to boolean",
+  "description": "🐊Putout plugin adds ability to convert comparison to boolean",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-comparison-to-boolean#readme",
   "main": "lib/convert-comparison-to-boolean.js",
   "release": false,

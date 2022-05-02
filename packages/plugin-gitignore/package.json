@@ -3,7 +3,7 @@
   "version": "3.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin helps with .gitignore",
+  "description": "🐊Putout plugin helps with .gitignore",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-gitignore#readme",
   "main": "lib/gitignore.js",
   "release": false,

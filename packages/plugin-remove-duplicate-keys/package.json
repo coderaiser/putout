@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to find and remove duplicate keys",
+  "description": "🐊Putout plugin adds ability to find and remove duplicate keys",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-duplicate-keys#readme",
   "main": "lib/remove-duplicate-keys.js",
   "release": false,

@@ -3,7 +3,7 @@
   "version": "4.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to find and remove test.boolean-from-logical-expressions calls",
+  "description": "🐊Putout plugin adds ability to find and remove test.boolean-from-logical-expressions calls",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-boolean-from-logical-expressions#readme",
   "main": "lib/remove-boolean-from-logical-expressions.js",
   "release": false,

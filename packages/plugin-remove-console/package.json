@@ -3,7 +3,7 @@
   "version": "4.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to find and remove console.log calls",
+  "description": "🐊Putout plugin adds ability to find and remove console.log calls",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-console#readme",
   "main": "lib/remove-console.js",
   "release": false,

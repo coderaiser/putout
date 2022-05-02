@@ -3,7 +3,7 @@
   "version": "9.6.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin helps with tests",
+  "description": "🐊Putout plugin helps with tests",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-tape#readme",
   "main": "lib/index.js",
   "release": false,

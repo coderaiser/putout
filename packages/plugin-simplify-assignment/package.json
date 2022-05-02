@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to simplify assignment",
+  "description": "🐊Putout plugin adds ability to simplify assignment",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-simplify-assignment#readme",
   "main": "lib/simplify-assignment.js",
   "release": false,

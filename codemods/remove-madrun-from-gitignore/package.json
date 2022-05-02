@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin helps with removing madrun from gitiginore",
+  "description": "🐊Putout plugin helps with removing madrun from gitiginore",
   "homepage": "http://github.com/coderaiser/putout#readme",
   "main": "lib/remove-legacy-from-gitignore.js",
   "release": false,

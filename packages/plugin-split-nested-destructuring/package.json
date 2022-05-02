@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to split nested destructuring",
+  "description": "🐊Putout plugin adds ability to split nested destructuring",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-split-nested-destructuring#readme",
   "main": "./lib/split-nested-destructuring.js",
   "exports": "./lib/split-nested-destructuring.js",

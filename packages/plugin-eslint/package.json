@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin for eslint config",
+  "description": "🐊Putout plugin for eslint config",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-eslint#readme",
   "main": "lib/index.js",
   "release": false,

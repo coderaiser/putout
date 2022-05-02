@@ -3,7 +3,7 @@
   "version": "5.2.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability use destructuring on variable declarations",
+  "description": "🐊Putout plugin adds ability use destructuring on variable declarations",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-destructuring#readme",
   "main": "lib/apply-destructuring.js",
   "release": false,

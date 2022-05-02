@@ -3,7 +3,7 @@
   "version": "5.0.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to find and remove nested blocks",
+  "description": "🐊Putout plugin adds ability to find and remove nested blocks",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-nested-blocks#readme",
   "main": "lib/remove-nested-blocks.js",
   "release": false,

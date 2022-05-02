@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin helps with migration to latest jest",
+  "description": "🐊Putout plugin helps with migration to latest jest",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-jest#readme",
   "main": "lib/jest.js",
   "release": false,

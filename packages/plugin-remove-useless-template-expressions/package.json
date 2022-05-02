@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to remove useless template expressions",
+  "description": "🐊Putout plugin adds ability to remove useless template expressions",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-template-expressions#readme",
   "main": "lib/remove-useless-template-expressions.js",
   "release": false,

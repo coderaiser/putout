@@ -3,7 +3,7 @@
   "version": "8.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to find and remove blocks with empty body",
+  "description": "🐊Putout plugin adds ability to find and remove blocks with empty body",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-empty#readme",
   "main": "lib/remove-empty.js",
   "release": false,

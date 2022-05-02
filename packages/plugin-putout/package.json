@@ -3,7 +3,7 @@
   "version": "11.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin helps with plugins development",
+  "description": "🐊Putout plugin helps with plugins development",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-putout#readme",
   "main": "lib/index.js",
   "release": false,

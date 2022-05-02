@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to find and remove duplicate case",
+  "description": "🐊Putout plugin adds ability to find and remove duplicate case",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-duplicate-case#readme",
   "main": "lib/remove-duplicate-case.js",
   "release": false,

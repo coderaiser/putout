@@ -3,7 +3,7 @@
   "version": "2.6.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to simplify ternary operator",
+  "description": "🐊Putout plugin adds ability to simplify ternary operator",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-simplify-ternary#readme",
   "main": "lib/simplify-ternary.js",
   "release": false,

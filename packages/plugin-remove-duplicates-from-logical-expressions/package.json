@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to find and remove duplicates from logical-expressions",
+  "description": "🐊Putout plugin adds ability to find and remove duplicates from logical-expressions",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-duplicates-from-logical-expressions#readme",
   "main": "lib/remove-duplicates-from-logical-expressions.js",
   "release": false,

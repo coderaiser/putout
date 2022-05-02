@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout plugin adds ability to transform code to new API of Cloud Commander",
+  "description": "🐊Putout plugin adds ability to transform code to new API of Cloud Commander",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-cloudcmd#readme",
   "main": "lib/index.js",
   "release": false,
