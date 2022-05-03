@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-convert-for-to-for-of: entries-n: report', (t) => {
-    t.report('entries-n', 'for-of should be used instead of for');
+    t.report('entries-n', `Use 'for...of' instead of 'for'`);
     t.end();
 });
 

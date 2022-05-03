@@ -9,7 +9,7 @@
 >
 > (c) MDN
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `for` to `for-of` loop.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `for` to `for...of` loop.
 
 ## Install
 

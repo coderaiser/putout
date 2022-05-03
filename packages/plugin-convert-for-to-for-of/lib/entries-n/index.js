@@ -12,7 +12,7 @@ const {
 
 const {isBlockStatement} = types;
 
-module.exports.report = () => 'for-of should be used instead of for';
+module.exports.report = () => `Use 'for...of' instead of 'for'`;
 
 const forLoopToN = 'for (let __i = 0; __i < __n; __i++) __c';
 const getForOfLoop = template(`for (const [INDEX, LEFT] of RIGHT.entries()) BODY`);

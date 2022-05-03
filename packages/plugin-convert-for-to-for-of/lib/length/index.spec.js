@@ -15,3 +15,4 @@ test('plugin-convert-for-to-for-of: length: transform: remove-useless-arguments'
     });
     t.end();
 });
+
