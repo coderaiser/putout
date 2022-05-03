@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-apply-is-array: transform: report', (t) => {
-    t.report('instanceof', 'Use Array.isArray() instead of instanceof');
+    t.report('instanceof', `Use 'Array.isArray()' instead of 'instanceof'`);
     t.end();
 });
 
