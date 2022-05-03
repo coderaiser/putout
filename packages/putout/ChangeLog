@@ -1,3 +1,12 @@
+2022.05.03, v25.17.2
+
+feature:
+- (@putout/rule-set-description) extend to all descriptions
+- (package) @putout/plugin-convert-for-to-for-of v4.0.0
+- (@putout/plugin-convert-for-to-for-of) drop support of 🐊 < 25
+- (@putout/plugin-convert-for-to-for-of) change report
+
+
 2022.05.02, v25.17.1
 
 feature:
