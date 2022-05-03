@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-convert-for-to-for-of",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to convert for to for-of",
