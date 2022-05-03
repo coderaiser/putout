@@ -2,7 +2,7 @@
   "name": "@putout/formatter-json-lines",
   "version": "3.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout formatter output json-lines",
+  "description": "🐊Putout formatter output json-lines",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-json-lines#readme",
   "main": "lib/json-lines.js",
   "release": false,

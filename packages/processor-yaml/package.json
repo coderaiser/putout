@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout processor adds ability to parse yaml files and lint js snippets",
+  "description": "🐊Putout processor adds ability to parse yaml files and lint js snippets",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-yaml#readme",
   "main": "lib/yaml.js",
   "release": false,

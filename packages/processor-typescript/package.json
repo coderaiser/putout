@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout processor adds ability to typecheck typescript",
+  "description": "🐊Putout processor adds ability to typecheck typescript",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-typescript#readme",
   "main": "lib/typescript.js",
   "release": false,

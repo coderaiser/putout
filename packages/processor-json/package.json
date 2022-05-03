@@ -3,7 +3,7 @@
   "version": "3.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout processor adds ability to lint json",
+  "description": "🐊Putout processor adds ability to lint json",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-json#readme",
   "main": "lib/json.js",
   "release": false,

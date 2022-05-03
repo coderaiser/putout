@@ -3,7 +3,7 @@
   "version": "5.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout parser",
+  "description": "🐊Putout parser",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/engine-parser#readme",
   "main": "./lib/parser.js",
   "release": false,

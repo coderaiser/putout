@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "putout operator adds ability to check if provided regexp can be converted to string without loosing it's sense",
+  "description": "🐊Putout operator adds ability to check if provided regexp can be converted to string without loosing it's sense",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-regexp#readme",
   "main": "lib/regexp.js",
   "release": false,

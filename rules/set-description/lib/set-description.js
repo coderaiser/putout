@@ -16,7 +16,7 @@ module.exports.traverse = ({push}) => ({
         
         const description = descriptionPath.node.value;
         
-        if (!description.value.startsWith('putout plugin'))
+        if (!description.value.startsWith('putout'))
             return;
         
         push(descriptionPath);
@@ -24,6 +24,6 @@ module.exports.traverse = ({push}) => ({
 });
 
 module.exports.fix = (path) => {
-    path.node.value.value = path.node.value.value.replace('putout plugin', '🐊Putout plugin');
+    path.node.value.value = path.node.value.value.replace('putout', '🐊Putout');
 };
 
