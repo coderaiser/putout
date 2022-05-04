@@ -49,11 +49,10 @@ module.exports.replace = () => ({
     
     'const __a = __b.reduce((__c, __d) => __e, __f)': () => {
         return `{
-            let __d = __f;
+            let __a = __f;
             for (const __c of __b) {
-                __d = __e;
+                __a = __e;
             }
-            const __a = __d;
         }`;
     },
 });

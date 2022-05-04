@@ -17,3 +17,8 @@ test('plugin-convert-reduce-to-for-of: transform', (t) => {
     t.end();
 });
 
+test('plugin-convert-reduce-to-for-of: transform: initial', (t) => {
+    t.transform('initial');
+    t.end();
+});
+

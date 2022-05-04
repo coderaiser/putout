@@ -1,12 +1,10 @@
 const initialValue = 0;
 {
-  let currentValue = initialValue;
+  let sumWithInitial = initialValue;
 
   for (const previousValue of array1) {
-    currentValue = previousValue + currentValue;
+    sumWithInitial = previousValue + currentValue;
   }
-
-  const sumWithInitial = currentValue;
 }
 
 // .reduceRight();
