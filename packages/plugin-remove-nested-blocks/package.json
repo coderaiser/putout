@@ -33,6 +33,7 @@
     "blocks"
   ],
   "devDependencies": {
+    "@putout/plugin-convert-reduce-to-for-of": "*",
     "@putout/plugin-tape": "*",
     "@putout/test": "^5.0.0",
     "c8": "^7.5.0",

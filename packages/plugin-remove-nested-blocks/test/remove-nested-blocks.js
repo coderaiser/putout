@@ -1,8 +1,11 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const removeNestedBlocks = require('..');
+
 const {declare} = require('@putout/plugin-tape').rules;
+const convertReduceToForOf = require('@putout/plugin-convert-reduce-to-for-of');
+
+const removeNestedBlocks = require('..');
 
 const test = createTest(__dirname, {
     'remove-nested-blocks': removeNestedBlocks,
@@ -32,6 +35,13 @@ test('plugin-remove-nested-blocks: transform: crawl', (t) => {
 
 test('plugin-remove-nested-blocks: transform: vars', (t) => {
     t.transform('vars');
+    t.end();
+});
+
+test('plugin-remove-nested-blocks: transform: reduce', (t) => {
+    t.transform('reduce', {
+        'convert-reduce-to-for-of': convertReduceToForOf,
+    });
     t.end();
 });
 
