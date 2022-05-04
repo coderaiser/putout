@@ -4,7 +4,7 @@
     for (const c of b) {
         a = ({
             ...c,
-            d
+            [a.name]: 'hello'
         });
     }
 }

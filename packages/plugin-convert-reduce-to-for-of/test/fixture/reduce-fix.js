@@ -3,7 +3,7 @@ const initialValue = 0;
   let sumWithInitial = initialValue;
 
   for (const previousValue of array1) {
-    sumWithInitial = previousValue + currentValue;
+    sumWithInitial = previousValue + sumWithInitial;
   }
 }
 

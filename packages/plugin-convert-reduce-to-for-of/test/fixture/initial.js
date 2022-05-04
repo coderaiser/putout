@@ -1,4 +1,4 @@
 const a = b.reduce((c, d) => ({
     ...c,
-    d,
+    [d.name]: 'hello',
 }), {});
