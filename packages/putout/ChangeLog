@@ -1,3 +1,18 @@
+2022.05.04, v25.17.4
+
+fix:
+- (@putout/plugin-convert-reduce-to-for-of) drop crawl
+- (@putout/plugin-convert-reduce-to-for-of) add crawl
+- (@putout/plugin-convert-reduce-to-for-of) rename missing
+
+
+feature:
+- (package) @putout/plugin-remove-nested-blocks v6.0.0
+- (@putout/plugin-remove-nested-blocks) drop support of 🐊 < 25
+- (@putout/plugin-remove-nested-blocks) add crawl before checking intersect
+- (@putout/plugin-convert-reduce-to-for-of) improve support of initial value
+
+
 2022.05.03, v25.17.3
 
 feature:
