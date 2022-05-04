@@ -1,6 +1,8 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
+const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
+
 const convertMapToForOf = require('..');
 
 const test = createTest(__dirname, {
@@ -18,7 +20,9 @@ test('plugin-convert-reduce-to-for-of: transform', (t) => {
 });
 
 test('plugin-convert-reduce-to-for-of: transform: initial', (t) => {
-    t.transform('initial');
+    t.transform('initial', {
+        'remove-nested-blocks': removeNestedBlocks,
+    });
     t.end();
 });
 
