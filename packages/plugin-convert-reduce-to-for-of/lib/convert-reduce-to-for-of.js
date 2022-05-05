@@ -62,5 +62,6 @@ module.exports.replace = () => ({
 function rename(path, from, to) {
     const fnScope = path.get('declarations.0.init.arguments.0').scope;
     fnScope.rename(from.name, to.name);
+    delete path.scope.bindings[from.name];
 }
 
