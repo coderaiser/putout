@@ -1,3 +1,17 @@
+2022.05.08, v25.18.0
+
+fix:
+- (@putout/plugin-putout) convert-putout-test-to-create-test: ImportDefaultSpecifier -> ImportSpecifier
+
+
+feature:
+- (@putout/plugin-add-missing-new) add
+- (@putout/plugin-remove-useless-new) add support of BigInt
+- (@putout/plugin-remove-useless-new) add support of "new new __a"
+- (@putout/plugin-remove-nested-blocks) rm useless crawl
+- (@putout/plugin-convert-reduce-to-for-of) delete binding after rename
+
+
 2022.05.04, v25.17.4
 
 fix:
