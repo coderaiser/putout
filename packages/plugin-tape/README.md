@@ -55,6 +55,13 @@ npm i @putout/plugin-tape -D
 
 ## switch-expected-with-result
 
+📼**Supertape** uses more natural way of
+comparing: first you pass `result` and then `expected`.
+
+It gives you ability to use value instead of `expected` and
+understand code faster: no need to search for a second argument.
+While `result` is always a variable, so it most likely much shorter.
+
 ### ❌ Example of incorrect code
 
 ```js
@@ -463,7 +470,7 @@ mockImport('fs/promises', {
 });
 ```
 
-### `tape`
+### `test`
 
 #### ❌ Example of incorrect code
 
@@ -604,7 +611,7 @@ t.ok(result.includes('hello'));
 t.match(result, /hello/);
 ```
 
-## convert-ok-to-match
+## convert-ok-to-called-with
 
 ### ❌ Example of incorrect code
 
@@ -686,7 +693,7 @@ t.match(result, 'hello');
 
 ## remove-default-messages
 
-`supertape` will put this information for you, and it is always the same.
+📼**Supertape** will put this information for you, and it is always the same.
 No need to repeat the same information twice on one line, better to avoid it.
 
 ### ❌ Example of incorrect code
@@ -742,7 +749,14 @@ test('some test', (t) => {
 test.skip('some test', (t) => {
     t.end();
 });
+```
 
+### ✅ Example of correct code
+
+```js
+test('some test', (t) => {
+    t.end();
+});
 ```
 
 ## remove-stop-all
