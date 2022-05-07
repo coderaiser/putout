@@ -17,3 +17,8 @@ test('plugin-add-missing-new: transform', (t) => {
     t.end();
 });
 
+test('plugin-add-missing-new: no report: new-exist', (t) => {
+    t.noReport('new-exist');
+    t.end();
+});
+
