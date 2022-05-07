@@ -485,6 +485,8 @@ module.exports.traverse = ({push}) => ({
 
 ## convert-add-argument-to-add-args
 
+### ❌ Example of incorrect code
+
 ```js
 const {operator} = require('putout');
 const {addArgument} = operator;
@@ -506,6 +508,8 @@ module.exports = addArgs({
 ```
 
 ## convert-dirname-to-url
+
+### ❌ Example of incorrect code
 
 ```js
 import {createTest} from '@putout/test';
@@ -531,11 +535,13 @@ const test = createTest(import.meta.url, {
 
 ## convert-url-to-dirname-
 
+### ❌ Example of incorrect code
+
 ```js
 const {createTest} = require('@putout/test');
 const plugin = require('@putout/plugin-debugger');
 
-const test = createTest(import.meta.url, {
+const test = createTest(__dirname, {
     'remove-debugger': plugin,
 });
 ```
