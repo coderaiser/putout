@@ -49,6 +49,7 @@ Linter | Rule | Fix
 🦕 **ESLint** | [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers) | ❌
 ⠀| [`no-new-object`](https://eslint.org/docs/rules/no-new-object) | ❌
 ⠀| [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor) | ❌
+⠀| [`no-new-symbol`](https://eslint.org/docs/rules/no-new-symbol) | ❌
 
 ## License
 
