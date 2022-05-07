@@ -15,5 +15,7 @@ module.exports.replace = () => ({
     'new Symbol(__a)': 'Symbol(__a)',
     'new RegExp(__a)': 'RegExp(__a)',
     'new Object()': () => ObjectExpression([]),
+    'new Object(__a)': 'Object(__a)',
+    'new BigInt(__a)': 'BigInt(__a)',
 });
 

@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-new.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-new "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless operator `new`. Which has no sense for `Boolean`, `String`, `Number`, `Object`, `RegExp`, `Error`:
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless operator `new`. Which has no sense for `BigInt`, `Boolean`, `String`, `Number`, `Object`, `RegExp`, `Error`:
 
 > Thus the function call `Error(…)` is equivalent to the object creation expression `new Error(…)` with the same arguments.
 >

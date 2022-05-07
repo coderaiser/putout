@@ -32,3 +32,8 @@ test('plugin-remove-useless-new: transform: new-new', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-new: transform: big-int', (t) => {
+    t.transform('big-int');
+    t.end();
+});
+
