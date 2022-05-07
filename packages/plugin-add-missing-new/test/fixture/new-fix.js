@@ -1,0 +1,15 @@
+new Map();
+new WeakMap();
+new Set();
+new WeakSet();
+new Int8Array(arg1, arg2);
+new Uint8Array(arg1, arg2);
+new Uint8ClampedArray(arg1, arg2);
+new Int16Array(arg1, arg2);
+new Uint16Array(arg1, arg2);
+new Int32Array(arg1, arg2);
+new Uint32Array(arg1, arg2);
+new Float32Array(arg1, arg2);
+new Float64Array(arg1, arg2);
+new BigInt64Array(arg1, arg2);
+new BigUint64Array(arg1, arg2);

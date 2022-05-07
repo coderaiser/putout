@@ -122,6 +122,7 @@
         "convert-mock-require-to-mock-import": "off"
     },
     "plugins": [
+        "add-missing-new",
         "apply-array-at",
         "apply-early-return",
         "apply-is-array",

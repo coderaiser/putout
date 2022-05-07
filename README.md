@@ -695,6 +695,15 @@ switch (x) {
 
 </details>
 
+<details><summary>add missing <code>new</code></summary>
+
+```diff
+-const map = Map();
++const map = new Map();
+```
+
+</details>
+
 <details><summary>remove useless <code>constructor</code>(<a href=https://google.github.io/styleguide/tsguide.html#primitive-types-wrapper-classes>why</a>)</summary>
 
 ```diff
@@ -1862,6 +1871,7 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 | [`@putout/plugin-typescript`](/packages/plugin-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-typescript) |
 | [`@putout/plugin-try-catch`](/packages/plugin-try-catch#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-try-catch.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-try-catch) |
 | [`@putout/plugin-montag`](/packages/plugin-montag#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-montag.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-montag) |
+| [`@putout/plugin-add-missing-new`](/packages/plugin-add-missing-new#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-add-missing-new.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-add-missing-new) |
 
 ## 🦚 Formatters
 
