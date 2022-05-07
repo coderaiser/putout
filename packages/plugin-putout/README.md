@@ -145,7 +145,7 @@ const test = putoutTest(__dirname, {
 ### ✅ Example of correct code
 
 ```js
-import createTest from '@putout/test';
+import {createTest} from '@putout/test';
 
 const test = createTest(__dirname, {
     'remove-unused-variables': rmVars,
