@@ -27,3 +27,8 @@ test('plugin-remove-useless-new: transform: object', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-new: transform: new-new', (t) => {
+    t.transform('new-new');
+    t.end();
+});
+

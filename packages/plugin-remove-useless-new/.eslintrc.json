@@ -1,4 +1,10 @@
 {
+    "overrides": [{
+        "files": "*.md{js}",
+        "rules": {
+            "function-paren-newline": "off"
+        }
+    }],
     "extends": [
         "plugin:node/recommended",
         "plugin:putout/recommended"

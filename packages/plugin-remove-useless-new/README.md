@@ -31,12 +31,14 @@ npm i @putout/plugin-remove-useless-new
 
 ```js
 new Error('Something whent wrong');
+new new Boolean();
 ```
 
 ## ✅ Example of correct code
 
 ```js
 Error('Something whent wrong');
+Boolean();
 ```
 
 ## Comparison
