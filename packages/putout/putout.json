@@ -13,8 +13,8 @@
     ],
     "match": {
         "*.{mjs,ts,tsx}": {
-            "strict-mode/remove": "on",
-            "strict-mode/add": "off"
+            "strict-mode/remove-useless": "on",
+            "strict-mode/add-missing": "off"
         },
         "*.{jsx,js,cjs}": {
             "strict-mode": "on"
