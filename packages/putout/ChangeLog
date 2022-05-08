@@ -1,3 +1,11 @@
+2022.05.08, v26.0.0
+
+feature:
+- (package) @putout/plugin-strict-mode v5.0.0
+- (@putout/plugin-new) merge: add-missing-new, remove-useless-new
+- (@putout/plugin-strict-mode) add, remove -> add-missing, remove-useless
+
+
 2022.05.08, v25.18.0
 
 fix:
