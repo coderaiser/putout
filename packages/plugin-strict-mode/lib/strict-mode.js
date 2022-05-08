@@ -5,7 +5,7 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
-    ...getRule('add'),
-    ...getRule('remove'),
+    ...getRule('add-missing'),
+    ...getRule('remove-useless'),
 };
 

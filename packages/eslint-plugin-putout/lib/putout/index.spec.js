@@ -55,7 +55,7 @@ ruleTester.run('putout', rule, {
         }],
         output: `'use strict';`,
         errors: [{
-            message: `'use strict' directive should be on top of CommonJS (strict-mode/add)`,
+            message: `'use strict' directive should be on top of CommonJS (strict-mode/add-missing)`,
         }, {
             message: `'t' is defined but never used (remove-unused-variables)`,
         }],

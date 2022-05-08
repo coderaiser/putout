@@ -24,8 +24,8 @@ npm i @putout/plugin-strict-mode -D
 ```json
 {
     "rules": {
-        "strict-mode/add": "on",
-        "strict-mode/remove": "on"
+        "strict-mode/add-missing": "on",
+        "strict-mode/remove-useless": "on"
     }
 }
 ```

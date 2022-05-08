@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
     'add-run': addRun,
 });
 
-const {add} = strictMode.rules;
+const {'add-missing': addMissing} = strictMode.rules;
 
 test('madrun: add run: report', (t) => {
     t.report('no-run', 'run should be declared');
@@ -33,7 +33,7 @@ test('madrun: add run: transform: no run used', (t) => {
 
 test('madrun: add run: transform: strict', (t) => {
     t.transform('strict', {
-        add,
+        addMissing,
         removeUnusedExpressions,
     });
     t.end();
