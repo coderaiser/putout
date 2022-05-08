@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const removeUselessNew = require('..');
+const removeUselessNew = require('.');
 
 const test = createTest(__dirname, {
     'add-missing-new': removeUselessNew,

@@ -1790,7 +1790,6 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-remove-useless-variables`](/packages/plugin-remove-useless-variables#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-variables) |
 | [`@putout/plugin-remove-useless-else`](/packages/plugin-remove-useless-else#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-else.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-else) |
 | [`@putout/plugin-remove-useless-map`](/packages/plugin-remove-useless-map#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-map.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-map) |
-| [`@putout/plugin-remove-useless-new`](/packages/plugin-remove-useless-new#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-new.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-new) |
 | [`@putout/plugin-remove-useless-constructor`](/packages/plugin-remove-useless-constructor#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-constructor.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-constructor) |
 | [`@putout/plugin-remove-useless-return`](/packages/plugin-remove-useless-return#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-return) |
 | [`@putout/plugin-remove-useless-continue`](/packages/plugin-remove-useless-continue#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-continue.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-continue) |
@@ -1871,7 +1870,7 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 | [`@putout/plugin-typescript`](/packages/plugin-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-typescript) |
 | [`@putout/plugin-try-catch`](/packages/plugin-try-catch#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-try-catch.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-try-catch) |
 | [`@putout/plugin-montag`](/packages/plugin-montag#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-montag.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-montag) |
-| [`@putout/plugin-add-missing-new`](/packages/plugin-add-missing-new#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-add-missing-new.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-add-missing-new) |
+| [`@putout/plugin-new`](/packages/plugin-new#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-new.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-new) |
 
 ## 🦚 Formatters
 

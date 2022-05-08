@@ -1,11 +1,11 @@
 {
-  "name": "@putout/plugin-add-missing-new",
-  "version": "1.0.0",
+  "name": "@putout/plugin-new",
+  "version": "1.0.2",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout plugin adds ability to add missing operator 'new'",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-add-missing-new#readme",
-  "main": "lib/add-missing-new.js",
+  "description": "🐊Putout plugin adds ability to remove useless and add missing operator 'new'",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-new#readme",
+  "main": "lib/new.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -30,6 +30,7 @@
     "putout-plugin",
     "plugin",
     "new",
+    "useless",
     "missing"
   ],
   "devDependencies": {
@@ -40,7 +41,7 @@
     "madrun": "^9.0.0"
   },
   "peerDependencies": {
-    "putout": ">=25"
+    "putout": ">=26"
   },
   "license": "MIT",
   "engines": {

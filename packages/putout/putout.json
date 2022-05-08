@@ -122,7 +122,6 @@
         "convert-mock-require-to-mock-import": "off"
     },
     "plugins": [
-        "add-missing-new",
         "apply-array-at",
         "apply-early-return",
         "apply-is-array",
@@ -148,7 +147,6 @@
         "remove-useless-variables",
         "remove-useless-else",
         "remove-useless-map",
-        "remove-useless-new",
         "remove-useless-constructor",
         "remove-useless-array-constructor",
         "remove-useless-continue",
@@ -221,7 +219,8 @@
         "tape",
         "try-catch",
         "nodejs",
-        "montag"
+        "montag",
+        "new"
     ]
 }
 

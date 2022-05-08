@@ -1,7 +1,0 @@
-{
-    "match": {
-        "*.md": {
-            "add-missing-new": "off"
-        }
-    }
-}
