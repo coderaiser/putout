@@ -1,3 +1,16 @@
+2022.05.09, v26.0.1
+
+fix:
+- (@putout/plugin-convert-commonjs-to-esm) report
+- (putout) help: localy -> locally
+
+
+feature:
+- (package) @putout/plugin-convert-esm-to-commonjs v5.0.0
+- (@putout/plugin-convert-esm-to-commonjs) drop support of 🐊 < 26
+- (@putout/plugin-convert-esm-to-commonjs) change report
+
+
 2022.05.08, v26.0.0
 
 feature:
