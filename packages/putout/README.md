@@ -154,7 +154,7 @@ Usage: putout [options] [path]
 Options:
    -h, --help                  display this help and exit
    -v, --version               output version information and exit
-   -f, --format [formatter]    use a specific output format, the default is: 'progress-bar' localy and 'dump' on CI
+   -f, --format [formatter]    use a specific output format, the default is: 'progress-bar' locally and 'dump' on CI
    -s, --staged                add staged files when in git repository
    --fix                       apply fixes of errors to code
    --fix-count [count = 10]    count of fixes rounds
