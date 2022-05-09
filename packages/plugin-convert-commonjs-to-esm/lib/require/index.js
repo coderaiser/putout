@@ -22,7 +22,7 @@ const {
 
 const camelCase = (a) => justCamelCase(a.replace('@', ''));
 
-module.exports.report = () => 'ESM should be used instead of CommonJS';
+module.exports.report = () => `Use 'ESM' instead of 'CommonJS'`;
 
 const __B = 'declarations.0.init.arguments.0';
 

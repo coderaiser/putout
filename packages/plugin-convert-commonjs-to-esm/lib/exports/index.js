@@ -12,7 +12,7 @@ const {
     ExportNamedDeclaration,
 } = types;
 
-module.exports.report = () => 'ESM should be used instead of CommonJS';
+module.exports.report = () => `Use 'ESM' instead of 'CommonJS'`;
 
 module.exports.exclude = () => [
     '__, __',
