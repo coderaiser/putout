@@ -1,5 +1,5 @@
   1 |
-> 2 |       fonction(a) {
+> 2 |       function(a) {
     |        ^ some error is here
   3 |         return a;
   4 |       }

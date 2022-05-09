@@ -228,7 +228,7 @@ test('putout: engine-processor: markdown: no fix: return processed places', asyn
 //
 // In this case we can benefit from:
 // - simplifiyng format of remark rules (which are splited on fix/report with help of options(!));
-// - spliting one big rule on a couple small rules;
+// - splitting one big rule on a couple small rules;
 //
 // Otherwise it will mutate the tree and report all found errors, so only one big rule with
 // "filter" + "fix" joined and one message is supported ☝️.
@@ -236,7 +236,7 @@ test('putout: engine-processor: markdown: no fix: return processed places', asyn
 // Which is hard to maintain.
 // So we should choose between "robotic" format 🤖 and change file with no errors found but
 // easy to maintain plugins similar to ones 🐊**Putout** has.
-// Or hard to maitain one big blob of processing with one message but change only on --fix.
+// Or hard to maintain one big blob of processing with one message but change only on --fix.
 test('putout: engine-processor: markdown: no places no fix', async (t) => {
     const name = join(__dirname, 'fixture', 'no-places-no-change.md');
     const options = {

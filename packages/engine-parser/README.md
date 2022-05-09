@@ -19,7 +19,7 @@ npm i @putout/engine-parser
 - [esprima](https://esprima.org/)
 - [tenko](https://github.com/pvdz/tenko)
 
-Any parser should be installed before use, but you can be shure that `@babel/parse` always installed.
+Any parser should be installed before use, but you can be sure that `@babel/parse` always installed.
 
 ## API
 
@@ -50,7 +50,7 @@ You have two ways to benefit from source map generation:
 - using `Recast` print;
 - using `Babel` generator;
 
-#### Generate sourcemaps usign Recast
+#### Generate sourcemaps using Recast
 
 ```js
 const source = `const hello = 'world';`;
@@ -63,9 +63,9 @@ print(ast, {sourceMapName: 'hello.map'});
 {"version":3,"sources":["hello.js"],"names":[],"mappings":"AAAA...","file":"hello.map","sourcesContent":["const hello = 'world';"]}`;
 ```
 
-#### Generate sourcemaps usign Bebel
+#### Generate sourcemaps using Babel
 
-To generate sourcemap usig babel generator, you should use babel parser before.
+To generate sourcemap using babel generator, you should use babel parser before.
 This is low level transformation, because `Babel` doesn't preserve any formatting.
 
 ```js

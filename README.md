@@ -127,7 +127,7 @@ Usage: putout [options] [path]
 Options:
    -h, --help                  display this help and exit
    -v, --version               output version information and exit
-   -f, --format [formatter]    use a specific output format, the default is: 'progress-bar' localy and 'dump' on CI
+   -f, --format [formatter]    use a specific output format, the default is: 'progress-bar' locally and 'dump' on CI
    -s, --staged                add staged files when in git repository
    --fix                       apply fixes of errors to code
    --fix-count [count = 10]    count of fixes rounds
@@ -241,7 +241,7 @@ async function promise() {
 
 But for some reason you don't want so many changes.
 
-☝️ *Remember, **safe** mode of **[eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#safe-mode)** has the most dengerous rules **disabled**, so it can be used as **auto fix** on each **save** in your **IDE***.
+☝️ *Remember, **safe** mode of **[eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#safe-mode)** has the most dangerous rules **disabled**, so it can be used as **auto fix** on each **save** in your **IDE***.
 
 So, if you want to convert it to [`ESM`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) keeping everything else untouched  use **Ruler**: it can easily disable all rules 🐊**Putout** finds.
 
@@ -311,7 +311,7 @@ putout src --disable-all && putout src --enable convert-commonjs-to-esm && putou
 
 This command will **disable all rules** that 🐊**Putout** can find right now and **enable** a single rule. All built-in rules made for good and highly suggested to be used, all of them are enabled in all my repositories, since they have auto fix.
 
-☝️*You can always disable what you don't need, so give it a try you wan't regret 🐊.*
+☝️*You can always disable what you don't need, so give it a try. You won't regret 🐊.*
 
 Happy coding 🎈!
 
@@ -502,7 +502,7 @@ As you see, `places` is empty, but the code is changed: there is no `hi` variabl
 
 From the beginning, 🐊**Putout** developed with ability to split the main process into two concepts: `find` (find places that could be fixed) and `fix` (apply the fixes to the files).
 It is therefore easy to find sections that could be fixed.
-In the following example reduntand variables are found without making changes to the source file:
+In the following example redundant variables are found without making changes to the source file:
 
 ```js
 putout(source, {
@@ -1921,7 +1921,7 @@ Here is list of options:
 - `filesCount` - count of files with errors
 - `errorsCount` count of errors
 
-You can avoid any of this and use only what you nead. To make your formatter usable with `putout`, add the prefix `putout-formatter-` to your `npm` package,
+You can avoid any of this and use only what you need. To make your formatter usable with `putout`, add the prefix `putout-formatter-` to your `npm` package,
 and add the tags `putout`, `formatter`, `putout-formatter`.
 
 ### ESLint Formatters
@@ -2051,7 +2051,7 @@ Let's dive into plugin types that you can use for you next code transformation.
 
 ### Replacer
 
-The simplest 🐊**Putout** plugin type, consits of 2 functions:
+The simplest 🐊**Putout** plugin type consists of 2 functions:
 
 - `report` - report error message to `putout` cli;
 - `replace` - replace `key` template into `value` template;
@@ -2170,7 +2170,7 @@ Where `__` is a placeholder for anything.
 
 *☝️Remember: template key should be valid **JavaScript**, or **Node Type**, like in previous example.*
 
-You can also use `include` and/or `exclude` insead of `traverse` and `filter` ([more sophisticated example](https://github.com/coderaiser/putout/blob/v25.4.1/packages/plugin-add-return-await/lib/add-return-await.js)):
+You can also use `include` and/or `exclude` instead of `traverse` and `filter` ([more sophisticated example](https://github.com/coderaiser/putout/blob/v25.4.1/packages/plugin-add-return-await/lib/add-return-await.js)):
 
 ```js
 // should be always used include/or exclude, when traverse not used
@@ -2214,7 +2214,7 @@ test('remove debugger: report', (t) => {
     t.end();
 });
 
-// stetement should be removed so result is empty
+// statement should be removed so result is empty
 test('remove debugger: transformCode', (t) => {
     t.transformCode('debugger', '');
     t.end();
@@ -2226,7 +2226,7 @@ To see a more sophisticated example look at [@putout/plugin-remove-console](http
 
 ### 🤷‍♂️ What if I don't want to publish a plugin?
 
-If you don't want to publish a **plugin** you developed, you can pass it to 🐊**Putout** as an `object` described earler. Here is [how it can look like](https://github.com/coderaiser/mock-import/blob/v1.0.8/lib/convert-imports/index.js#L19-L33):
+If you don't want to publish a **plugin** you developed, you can pass it to 🐊**Putout** as an `object` described earlier. Here is [how it can look like](https://github.com/coderaiser/mock-import/blob/v1.0.8/lib/convert-imports/index.js#L19-L33):
 
 ```js
 putout('const a = 5', {

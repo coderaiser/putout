@@ -66,7 +66,7 @@ While `result` is always a variable, so it most likely much shorter.
 
 ```js
 test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
-    t.eqaul(expected, result);
+    t.equal(expected, result);
     t.end();
 });
 ```
@@ -75,7 +75,7 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
 
 ```js
 test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
-    t.eqaul(result, expected);
+    t.equal(result, expected);
     t.end();
 });
 ```

@@ -46,7 +46,7 @@ test('putout: codeframe: not highlited', async (t) => {
         loc,
     };
     const source = `
-      fonction(a) {
+      function(a) {
         return a;
       }
     `;
