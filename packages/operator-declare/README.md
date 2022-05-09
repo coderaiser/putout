@@ -39,7 +39,7 @@ const {
 module.exports = declare({
     fs: {
         esm: `import fs from 'fs/promises'`,
-        comomnjs: `const fs = require('fs')`, // drop when not neaded
+        comomnjs: `const fs = require('fs')`, // drop when not needed
     },
 });
 ```

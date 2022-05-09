@@ -4,7 +4,7 @@
 [NPMURL]: https://npmjs.org/package/@putout/operator-regexp "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) operator adds ability to determine that provided [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) can be
-converted to [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) without loosing it's sense.
+converted to [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) without losing it's sense.
 
 It is used for example in [regexp/convert-replace-to-relace-all](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#regexpconvert-replace-to-replace-all):
 
