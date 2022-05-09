@@ -3,7 +3,7 @@
 const {types, template} = require('putout');
 const {isImportDefaultSpecifier} = types;
 
-module.exports.report = () => 'CommonJS should be used instead of ESM';
+module.exports.report = () => `Use 'CommonJS' instead of 'ESM'`;
 
 module.exports.replace = () => ({
     'export default __a': 'module.exports = __a',

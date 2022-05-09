@@ -9,7 +9,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-convert-esm-to-commonjs: transform: report', (t) => {
-    t.report('export', 'CommonJS should be used instead of ESM');
+    t.report('export', `Use 'CommonJS' instead of 'ESM'`);
     t.end();
 });
 
@@ -49,7 +49,7 @@ test('plugin-convert-esm-to-commonjs: transform: specifiers', (t) => {
 });
 
 test('plugin-convert-esm-to-commonjs: report: import default', (t) => {
-    t.report('import-default', ['CommonJS should be used instead of ESM']);
+    t.report('import-default', [`Use 'CommonJS' instead of 'ESM'`]);
     t.end();
 });
 
