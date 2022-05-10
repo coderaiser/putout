@@ -5,16 +5,16 @@ const {
     operator,
 } = require('putout');
 
-const {replaceWith} = operator;
+const {replaceWith, getProperty} = operator;
 const {StringLiteral} = types;
 
-module.exports.report = () => `"lint" should be used instead of "lint:lib"`;
+module.exports.report = () => `'lint' should be used instead of 'lint:lib'`;
 
 module.exports.fix = ({lintLib, fixLint, lint}) => {
-    replaceWith(lintLib, lint.node);
-    lint.parentPath.remove();
+    replaceWith(lintLib.get('key'), lint.node.key);
+    lint.remove();
     
-    const {body} = fixLint.parentPath.node.value;
+    const {body} = fixLint.node.value;
     
     body.arguments[0] = StringLiteral('lint');
 };
@@ -23,11 +23,9 @@ module.exports.traverse = ({push}) => ({
     'module.exports = __object'(path) {
         const rightPath = path.get('right');
         
-        const {
-            lint,
-            lintLib,
-            fixLint,
-        } = parseObject(rightPath);
+        const lint = getProperty(rightPath, 'lint');
+        const lintLib = getProperty(rightPath, 'lint:lib');
+        const fixLint = getProperty(rightPath, 'fix:lint');
         
         if (!lint || !lintLib || !fixLint)
             return;
@@ -40,37 +38,4 @@ module.exports.traverse = ({push}) => ({
         });
     },
 });
-
-function parseObject(path) {
-    let lintLib = null;
-    let lint = null;
-    let fixLint = null;
-    
-    const properties = path.get('properties');
-    
-    for (const property of properties) {
-        const key = property.get('key');
-        
-        if (key.isStringLiteral({value: 'lint:lib'})) {
-            lintLib = key;
-            continue;
-        }
-        
-        if (key.isStringLiteral({value: 'lint'})) {
-            lint = key;
-            continue;
-        }
-        
-        if (key.isStringLiteral({value: 'fix:lint'})) {
-            fixLint = key;
-            continue;
-        }
-    }
-    
-    return {
-        lintLib,
-        lint,
-        fixLint,
-    };
-}
 
