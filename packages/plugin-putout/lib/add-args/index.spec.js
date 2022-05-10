@@ -17,6 +17,11 @@ test('plugin-putout: add-args: transform', (t) => {
     t.end();
 });
 
+test('plugin-putout: add-args: process', (t) => {
+    t.transform('process');
+    t.end();
+});
+
 test('plugin-putout: add-args: no transform: has binding', (t) => {
     t.noTransform('has-binding');
     t.end();

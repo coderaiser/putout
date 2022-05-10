@@ -1,3 +1,3 @@
-test('', () => {
-    comparePlaces();
+test('', async () => {
+    await comparePlaces();
 });

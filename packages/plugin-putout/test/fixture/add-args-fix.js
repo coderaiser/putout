@@ -1,7 +1,7 @@
-test('', (
+test('', async (
     {
         comparePlaces
     }
 ) => {
-    comparePlaces();
+    await comparePlaces();
 });

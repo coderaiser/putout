@@ -1,7 +1,19 @@
-test('', (
+test('', async (
     {
         comparePlaces
     }
 ) => {
-    comparePlaces();
+    await comparePlaces();
+});
+
+test.skip('', async ({
+    comparePlaces
+}) => {
+    await comparePlaces();
+});
+
+test.only('', async ({
+    comparePlaces
+}) => {
+    await comparePlaces();
 });
