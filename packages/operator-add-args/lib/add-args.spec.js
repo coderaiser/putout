@@ -286,3 +286,24 @@ test('putout: operator: add-argument: not a function', (t) => {
     t.end();
 });
 
+test('putout: operator: add-argument: not called', (t) => {
+    const args = {
+        process: ['process', 'test("__a", (__args) => __body)'],
+    };
+    
+    const source = montag`
+        test('hello', () => {
+            const {a} = process.env;
+        });
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['addArgs-undefined-variables', addArgs(args)],
+        ],
+    });
+    
+    t.equal(code, source);
+    t.end();
+});
+
