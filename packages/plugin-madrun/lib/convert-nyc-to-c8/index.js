@@ -17,15 +17,19 @@ module.exports.fix = ({path, line}) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    'export default __object'(path) {
-        const rightPath = path.get('declaration');
-        const coveragePath = getProperty(rightPath, 'coverage');
-        const reportPath = getProperty(rightPath, 'report');
-        
-        add(coveragePath, {push});
-        add(reportPath, {push});
-    },
+    'module.exports = __object': addAll('right', push),
+    'export default __object': addAll('declaration', push),
 });
+
+const addAll = (name, push) => (path) => {
+    const rightPath = path.get(name);
+    
+    const coveragePath = getProperty(rightPath, 'coverage');
+    const reportPath = getProperty(rightPath, 'report');
+    
+    add(coveragePath, {push});
+    add(reportPath, {push});
+};
 
 function add(currentPath, {push}) {
     if (!currentPath)

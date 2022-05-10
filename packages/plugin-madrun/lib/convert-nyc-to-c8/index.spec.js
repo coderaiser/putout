@@ -27,6 +27,11 @@ test('madrun: convert-nyc-to-c8: transform: coverage', (t) => {
     t.end();
 });
 
+test('madrun: convert-nyc-to-c8: transform: commonjs', (t) => {
+    t.transform('commonjs');
+    t.end();
+});
+
 test('madrun: convert-nyc-to-c8: no transform: no nyc', (t) => {
     t.noTransform('no-coverage');
     t.end();
