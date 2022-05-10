@@ -53,8 +53,8 @@ test('putout: cli: staged: get: statusMatrix', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     const statusMatrix = stub().returns([
-        [ 'packages/putout/lib/cli/index.js', 1, 2, 2 ],
-        [ 'packages/putout/lib/cli/staged.js', 1, 2, 3 ],
+        ['packages/putout/lib/cli/index.js', 1, 2, 2],
+        ['packages/putout/lib/cli/staged.js', 1, 2, 3],
     ]);
     
     mockRequire('isomorphic-git', {
@@ -80,7 +80,7 @@ test('putout: cli: staged: get: statusMatrix: result', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     const statusMatrix = stub().returns([
-        [ 'packages/putout/lib/cli/index.js', 1, 2, 2 ],
+        ['packages/putout/lib/cli/index.js', 1, 2, 2],
     ]);
     
     mockRequire('isomorphic-git', {
@@ -104,7 +104,7 @@ test('putout: cli: staged: set: findUp', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     const statusMatrix = stub().returns([
-        [ 'packages/putout/lib/cli/index.js', 1, 2, 2 ],
+        ['packages/putout/lib/cli/index.js', 1, 2, 2],
     ]);
     
     mockRequire('isomorphic-git', {
@@ -126,7 +126,7 @@ test('putout: cli: staged: set: findUp: not found', async (t) => {
     const dir = '';
     const findUp = stub().returns(dir);
     const statusMatrix = stub().returns([
-        [ 'packages/putout/lib/cli/index.js', 1, 2, 2 ],
+        ['packages/putout/lib/cli/index.js', 1, 2, 2],
     ]);
     
     mockRequire('isomorphic-git', {
@@ -148,7 +148,7 @@ test('putout: cli: staged: add', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     const statusMatrix = stub().returns([
-        [ 'packages/putout/lib/cli/index.js', 1, 2, 2 ],
+        ['packages/putout/lib/cli/index.js', 1, 2, 2],
     ]);
     
     const add = stub();

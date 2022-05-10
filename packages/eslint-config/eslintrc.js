@@ -14,6 +14,7 @@ module.exports = {
         },
     },
     rules: {
+        'array-bracket-spacing': 'error',
         'arrow-parens': ['error', 'always'],
         'arrow-spacing': 'error',
         'brace-style': 'error',

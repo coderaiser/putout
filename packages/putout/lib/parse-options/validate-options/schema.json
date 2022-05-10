@@ -49,7 +49,7 @@
         "ruleToggle": {
             "oneOf": [{
                 "description": "🐊Putout rule\n\n\"off\" means rule is off\n\"on\" means it is a on\n",
-                "enum": [ "on", "off"]
+                "enum": ["on", "off"]
             }, {
                 "enum": [true, false]
             }]

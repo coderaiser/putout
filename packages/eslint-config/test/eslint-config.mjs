@@ -33,3 +33,7 @@ test('eslint-config: no-unsafe-negation', async ({comparePlaces}) => {
     await comparePlaces('no-unsafe-negation', []);
 });
 
+test('eslint-config: array-bracket-spacing', async ({process}) => {
+    await process('array-bracket-spacing');
+});
+
