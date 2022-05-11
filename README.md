@@ -251,7 +251,7 @@ So, if you want to convert it to [`ESM`](https://developer.mozilla.org/en-US/doc
  1:4   error   'unused' is defined but never used                        remove-unused-variables
  7:23  error   'a' is defined but never used                             remove-unused-variables
  3:0   error   Arrow functions should be used                            convert-to-arrow-function
- 1:0   error   'use strict' directive should be on top of commonjs file  strict-mode/add
+ 1:0   error   'use strict' directive should be on top of commonjs file  strict-mode/add-missing
  8:4   error   Reject is useless in async functions, use throw instead   promises/convert-reject-to-throw
  4:11  error   Async functions should be called using await              promises/add-missing-await
  7:0   error   Useless async should be avoided                           promises/remove-useless-async
@@ -264,7 +264,7 @@ It will create config file `.putout.json`:
     "rules": {
         "remove-unused-variables": "off",
         "convert-to-arrow-function": "off",
-        "strict-mode/add": "off",
+        "strict-mode/add-missing": "off",
         "promises/convert-reject-to-throw": "off",
         "promises/add-missing-await": "off",
         "promises/remove-useless-async": "off"
@@ -279,7 +279,7 @@ Then running `putout index.js --enable convert-commonjs-to-esm` will update conf
     "rules": {
         "remove-unused-variables": "off",
         "convert-to-arrow-function": "off",
-        "strict-mode/add": "off",
+        "strict-mode/add-missing": "off",
         "promises/convert-reject-to-throw": "off",
         "promises/add-missing-await": "off",
 -       "promises/remove-useless-async": "off"
