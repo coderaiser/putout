@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-apply-array-at: transform: report', (t) => {
-    t.report('array', `Use 'Array.at'`);
+    t.report('array', `Use 'Array.at()'`);
     t.end();
 });
 
