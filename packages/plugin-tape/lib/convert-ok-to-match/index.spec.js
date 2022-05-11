@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-tape: convert-ok-to-match: report', (t) => {
-    t.report('ok', 't.match should be used instead of t.ok with includes');
+    t.report('ok', `Use 't.match()' instead of 't.ok()'`);
     t.end();
 });
 
