@@ -32,3 +32,13 @@ test('plugin-remove-useless-operand: transform: right', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-operand: transform: number', (t) => {
+    t.transform('number');
+    t.end();
+});
+
+test('plugin-remove-useless-operand: transform: declaration', (t) => {
+    t.transform('declaration');
+    t.end();
+});
+
