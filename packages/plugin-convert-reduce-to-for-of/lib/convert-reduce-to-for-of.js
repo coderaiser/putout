@@ -5,6 +5,7 @@ const {types} = require('putout');
 const {
     isBlockStatement,
     isArrayExpression,
+    isCallExpression,
 } = types;
 
 module.exports.report = () => `Use 'for...of' instead of '.reduce()'`;
@@ -12,6 +13,9 @@ module.exports.report = () => `Use 'for...of' instead of '.reduce()'`;
 module.exports.match = () => ({
     'const __a = __b.reduce((__c, __d) => __e)': ({__b, __e}) => {
         if (isArrayExpression(__b))
+            return false;
+        
+        if (isCallExpression(__b))
             return false;
         
         return !isBlockStatement(__e);

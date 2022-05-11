@@ -26,3 +26,7 @@ test('plugin-convert-reduce-to-for-of: transform: initial', (t) => {
     t.end();
 });
 
+test('plugin-convert-reduce-to-for-of: no transform: call-expression', (t) => {
+    t.noTransform('call-expression');
+    t.end();
+});
