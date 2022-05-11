@@ -22,22 +22,22 @@ test('plugin-convert-object-assign-to-merge-spread: transform: create', (t) => {
     t.end();
 });
 
-test('plugin-convert-object-assign-to-merge-spread: transform: call', (t) => {
+test('plugin-convert-object-assign-to-merge-spread: no transform: call', (t) => {
     t.noTransform('call');
     t.end();
 });
 
-test('plugin-convert-object-assign-to-merge-spread: transform: first', (t) => {
+test('plugin-convert-object-assign-to-merge-spread: no transform: first', (t) => {
     t.noTransform('first');
     t.end();
 });
 
-test('plugin-convert-object-assign-to-merge-spread: transform: spread', (t) => {
+test('plugin-convert-object-assign-to-merge-spread: no transform: spread', (t) => {
     t.noTransform('spread');
     t.end();
 });
 
-test('plugin-convert-object-assign-to-merge-spread: transform: empty', (t) => {
+test('plugin-convert-object-assign-to-merge-spread: no transform: empty', (t) => {
     t.noTransform('empty');
     t.end();
 });

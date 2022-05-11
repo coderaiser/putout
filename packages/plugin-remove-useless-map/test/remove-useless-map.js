@@ -27,17 +27,17 @@ test('plugin-remove-useless-map: no transform: not-same', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-map: transform: not-identifier', (t) => {
+test('plugin-remove-useless-map: no transform: not-identifier', (t) => {
     t.noTransform('not-identifier');
     t.end();
 });
 
-test('plugin-remove-useless-map: transform: not-identifier: argument', (t) => {
+test('plugin-remove-useless-map: no transform: not-identifier: argument', (t) => {
     t.noTransform('not-identifier-argument');
     t.end();
 });
 
-test('plugin-remove-useless-map: transform: bindings', (t) => {
+test('plugin-remove-useless-map: no transform: bindings', (t) => {
     t.noTransform('bindings');
     t.end();
 });

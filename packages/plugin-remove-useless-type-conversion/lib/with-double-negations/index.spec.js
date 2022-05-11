@@ -17,17 +17,17 @@ test('plugin-remove-double-negations: transform: if', (t) => {
     t.end();
 });
 
-test('plugin-remove-double-negations: transform: var', (t) => {
+test('plugin-remove-double-negations: no transform: var', (t) => {
     t.noTransform('var');
     t.end();
 });
 
-test('plugin-remove-double-negations: transform: bitwise', (t) => {
+test('plugin-remove-double-negations: no transform: bitwise', (t) => {
     t.noTransform('bitwise');
     t.end();
 });
 
-test('plugin-remove-double-negations: transform: not bitwise', (t) => {
+test('plugin-remove-double-negations: no transform: not bitwise', (t) => {
     t.noTransform('not-bitwise');
     t.end();
 });

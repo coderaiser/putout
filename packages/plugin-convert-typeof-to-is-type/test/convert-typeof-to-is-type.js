@@ -22,7 +22,7 @@ test('plugin-convert-typeof-to-is-type: transform: fn', (t) => {
     t.end();
 });
 
-test('plugin-convert-typeof-to-is-type: transform: declaration', (t) => {
+test('plugin-convert-typeof-to-is-type: no transform: declaration', (t) => {
     t.noTransform('declaration');
     t.end();
 });

@@ -22,7 +22,7 @@ test('madrun: rename-eslint-to-putout: transform: template', (t) => {
     t.end();
 });
 
-test('madrun: rename-eslint-to-putout: transform: eslintrc', (t) => {
+test('madrun: rename-eslint-to-putout: no transform: eslintrc', (t) => {
     t.noTransform('eslintrc');
     t.end();
 });

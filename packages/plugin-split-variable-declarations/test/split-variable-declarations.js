@@ -28,7 +28,7 @@ test('plugin-split-variable-declarations: transform: comment', (t) => {
     t.end();
 });
 
-test('plugin-split-variable-declarations: transform: export', (t) => {
+test('plugin-split-variable-declarations: no transform: export', (t) => {
     t.noTransform('export');
     t.end();
 });

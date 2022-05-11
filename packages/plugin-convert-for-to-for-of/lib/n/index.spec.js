@@ -7,12 +7,12 @@ const test = createTest(__dirname, {
     'convert-for-to-for-of/n': n,
 });
 
-test('plugin-convert-for-to-for-of: n: report', (t) => {
+test('plugin-convert-for-to-for-of: n: no report', (t) => {
     t.noReport('no-length');
     t.end();
 });
 
-test('plugin-convert-for-to-for-of: n: transform', (t) => {
+test('plugin-convert-for-to-for-of: n: no transform', (t) => {
     t.noTransform('no-length');
     t.end();
 });
@@ -27,7 +27,7 @@ test('plugin-convert-for-to-for-of: n: no transform: more i references', (t) => 
     t.end();
 });
 
-test('plugin-convert-for-to-for-of: n: transform: no-name', (t) => {
+test('plugin-convert-for-to-for-of: n: no transform: no-name', (t) => {
     t.noTransform('no-name');
     t.end();
 });

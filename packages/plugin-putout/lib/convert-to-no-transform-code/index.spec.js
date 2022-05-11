@@ -12,7 +12,7 @@ test('plugin-putout: convert-to-no-transform-code: transform', (t) => {
     t.end();
 });
 
-test('plugin-putout: convert-to-no-transform-code: transform: not same', (t) => {
+test('plugin-putout: convert-to-no-no transform-code: no transform: not same', (t) => {
     t.noTransform('not-same');
     t.end();
 });

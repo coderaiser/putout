@@ -46,12 +46,12 @@ test('plugin-convert-commonjs-to-esm: require: transform: lonely', (t) => {
     t.end();
 });
 
-test('plugin-convert-commonjs-to-esm: require: transform: no require', (t) => {
+test('plugin-convert-commonjs-to-esm: require: no transform: no require', (t) => {
     t.noTransform('no-require');
     t.end();
 });
 
-test('plugin-convert-commonjs-to-esm: require: transform: no call', (t) => {
+test('plugin-convert-commonjs-to-esm: require: no transform: no call', (t) => {
     t.noTransform('no-call');
     t.end();
 });

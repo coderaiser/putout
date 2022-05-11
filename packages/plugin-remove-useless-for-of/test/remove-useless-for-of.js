@@ -22,17 +22,17 @@ test('plugin-remove-useless-for-of: transform: one', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-for-of: transform: many', (t) => {
+test('plugin-remove-useless-for-of: no transform: many', (t) => {
     t.noTransform('many');
     t.end();
 });
 
-test('plugin-remove-useless-for-of: transform: not identifier', (t) => {
+test('plugin-remove-useless-for-of: no transform: not identifier', (t) => {
     t.noTransform('not-id');
     t.end();
 });
 
-test('plugin-remove-useless-for-of: transform: refs', (t) => {
+test('plugin-remove-useless-for-of: no transform: refs', (t) => {
     t.noTransform('refs');
     t.end();
 });

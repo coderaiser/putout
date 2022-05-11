@@ -55,22 +55,22 @@ test('plugin-convert-for-each-to-for-of: no transform: not this', (t) => {
     t.end();
 });
 
-test('plugin-convert-for-each-to-for-of: no transform: var not bound', (t) => {
+test('plugin-convert-for-each-to-for-of: transform: var not bound', (t) => {
     t.transform('not-bound');
     t.end();
 });
 
-test('plugin-convert-for-each-to-for-of: no transform: call', (t) => {
+test('plugin-convert-for-each-to-for-of: transform: call', (t) => {
     t.transform('call');
     t.end();
 });
 
-test('plugin-convert-for-each-to-for-of: no transform: member-expression', (t) => {
+test('plugin-convert-for-each-to-for-of: transform: member-expression', (t) => {
     t.transform('member-expression');
     t.end();
 });
 
-test('plugin-convert-for-each-to-for-of: no transform: inner-block', (t) => {
+test('plugin-convert-for-each-to-for-of: transform: inner-block', (t) => {
     t.transform('inner-block');
     t.end();
 });

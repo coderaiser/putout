@@ -42,7 +42,8 @@ npm i @putout/plugin-putout -D
         "putout/check-replace-code": "on",
         "putout/declare": "on",
         "putout/includer": "on",
-        "putout/move-require-on-top-level": "on"
+        "putout/move-require-on-top-level": "on",
+        "putout/replace-test-message": "on"
     }
 }
 ```
@@ -616,6 +617,39 @@ module.exports.exclude = () => ['var __a = __b'];
 
 module.exports.include = () => ['cons __a = __b'];
 module.exports.exclude = () => ['var __a = __b'];
+```
+
+## replace-test-message
+
+Checks that `test message` and used `operator` are synchronized.
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d9c6972ea848ba8e7e745d2479727b65/199c30b986ce7d544397c344ebfc5031c4b53181).
+
+### ❌ Example of incorrect code
+
+```js
+test('plugin-putout: rename-operate-to-operator: transform: operator exist', (t) => {
+    t.noTransform('operator');
+    t.end();
+});
+
+test('plugin-putout: rename-operate-to-operator: report: operator exist', (t) => {
+    t.noReport('operator');
+    t.end();
+});
+```
+
+### ✅ Example of correct code
+
+```js
+test('plugin-putout: rename-operate-to-operator: no transform: operator exist', (t) => {
+    t.noTransform('operator');
+    t.end();
+});
+
+test('plugin-putout: rename-operate-to-operator: no report: operator exist', (t) => {
+    t.noReport('operator');
+    t.end();
+});
 ```
 
 ## License

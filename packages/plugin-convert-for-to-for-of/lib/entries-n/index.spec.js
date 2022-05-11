@@ -17,12 +17,12 @@ test('plugin-convert-for-to-for-of: entries-n: transform: entries-n', (t) => {
     t.end();
 });
 
-test('plugin-convert-for-to-for-of: entries-n: transform: used-n', (t) => {
+test('plugin-convert-for-to-for-of: entries-n: no transform: used-n', (t) => {
     t.noTransform('used-n');
     t.end();
 });
 
-test('plugin-convert-for-to-for-of: entries-n: transform: not-declered-n', (t) => {
+test('plugin-convert-for-to-for-of: entries-n: no report: not-declered-n', (t) => {
     t.noReport('not-declered-n');
     t.end();
 });

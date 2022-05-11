@@ -17,12 +17,12 @@ test('madrun: convert run argument: transform: run', (t) => {
     t.end();
 });
 
-test('madrun: convert run argument: transform: run more', (t) => {
+test('madrun: convert run argument: no transform: run more', (t) => {
     t.noTransform('run-more');
     t.end();
 });
 
-test('madrun: convert run argument: transform: not-run', (t) => {
+test('madrun: convert run argument: no transform: not-run', (t) => {
     t.noTransform('not-run');
     t.end();
 });

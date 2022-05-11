@@ -42,12 +42,12 @@ test('plugin-remove-useless-return: transform: nested', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-return: transform: chain-call', (t) => {
+test('plugin-remove-useless-return: no transform: chain-call', (t) => {
     t.noTransform('chain-call');
     t.end();
 });
 
-test('plugin-remove-useless-return: transform: await', (t) => {
+test('plugin-remove-useless-return: no transform: await', (t) => {
     t.noTransform('await');
     t.end();
 });

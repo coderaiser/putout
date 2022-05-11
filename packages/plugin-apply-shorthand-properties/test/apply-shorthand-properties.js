@@ -14,7 +14,7 @@ test('plugin-apply-shorthand-properties: report', (t) => {
     t.end();
 });
 
-test('plugin-apply-shorthand-properties: no transform: shorthand', (t) => {
+test('plugin-apply-shorthand-properties: no report: shorthand', (t) => {
     t.noReport('shorthand');
     t.end();
 });

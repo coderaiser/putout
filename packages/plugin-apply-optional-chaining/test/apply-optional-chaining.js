@@ -37,7 +37,7 @@ test('plugin-apply-optional-chaining: transform: computed', (t) => {
     t.end();
 });
 
-test('plugin-apply-optional-chaining: transform: continue', (t) => {
+test('plugin-apply-optional-chaining: no transform: continue', (t) => {
     t.noTransform('continue');
     t.end();
 });

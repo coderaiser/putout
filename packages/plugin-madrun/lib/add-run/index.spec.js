@@ -16,17 +16,17 @@ test('madrun: add run: report', (t) => {
     t.end();
 });
 
-test('madrun: add run: no transform: no exists', (t) => {
+test('madrun: add run: transform: no exists', (t) => {
     t.transform('no-run');
     t.end();
 });
 
-test('madrun: add run: transform: exists', (t) => {
+test('madrun: add run: no transform: exists', (t) => {
     t.noTransform('run');
     t.end();
 });
 
-test('madrun: add run: transform: no run used', (t) => {
+test('madrun: add run: no transform: no run used', (t) => {
     t.noTransform('no-run-used');
     t.end();
 });

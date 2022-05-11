@@ -132,3 +132,8 @@ test('plugin-putout: transform: apply-remove', (t) => {
     t.end();
 });
 
+test('plugin-putout: transform: replace-test-message', (t) => {
+    t.transform('replace-test-message');
+    t.end();
+});
+

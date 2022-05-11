@@ -21,12 +21,12 @@ test('rules: set-hompeage: no report', (t) => {
     t.end();
 });
 
-test('rules: set-hompeage: transform: codemod', (t) => {
+test('rules: set-hompeage: no transform: codemod', (t) => {
     t.noTransform('codemod');
     t.end();
 });
 
-test('rules: set-hompeage: transform: rule', (t) => {
+test('rules: set-hompeage: no transform: rule', (t) => {
     t.noTransform('rule');
     t.end();
 });

@@ -17,7 +17,7 @@ test('plugin-putout: convert find to traverse: transform', (t) => {
     t.end();
 });
 
-test('plugin-putout: convert find to traverse: transform: assign', (t) => {
+test('plugin-putout: convert find to traverse: no transform: assign', (t) => {
     t.noTransform('assign');
     t.end();
 });

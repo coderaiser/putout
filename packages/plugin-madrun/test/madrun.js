@@ -12,7 +12,7 @@ test('plugin-madrun: transform', (t) => {
     t.end();
 });
 
-test('plugin-madrun: transform: no module.exports', (t) => {
+test('plugin-madrun: no transform: no module.exports', (t) => {
     t.noTransform('no-module-exports');
     t.end();
 });

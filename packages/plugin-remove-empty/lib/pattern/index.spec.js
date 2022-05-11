@@ -103,7 +103,7 @@ test('plugin-remove-empty: pattern: transform: fn', (t) => {
     t.end();
 });
 
-test('plugin-remove-empty: pattern: transform: no-args', (t) => {
+test('plugin-remove-empty: pattern: no report: no-args', (t) => {
     t.noReport('no-args');
     t.end();
 });

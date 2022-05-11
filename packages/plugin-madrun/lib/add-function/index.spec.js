@@ -16,7 +16,7 @@ test('madrun: add function: transform: string', (t) => {
     t.end();
 });
 
-test('madrun: add function: transform: exports', (t) => {
+test('madrun: add function: no transform: exports', (t) => {
     t.noTransform('exports');
     t.end();
 });

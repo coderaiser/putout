@@ -27,12 +27,12 @@ test('plugin-apply-try-catch: try-to-catch: no transform: no-error', (t) => {
     t.end();
 });
 
-test('plugin-apply-try-catch: try-to-catch: no transform: no-await', (t) => {
+test('plugin-apply-try-catch: try-to-catch: no report: no-await', (t) => {
     t.noReport('no-await');
     t.end();
 });
 
-test('plugin-apply-try-catch: try-to-catch: no transform: finalizer', (t) => {
+test('plugin-apply-try-catch: try-to-catch: no report: finalizer', (t) => {
     t.noReport('finalizer');
     t.end();
 });

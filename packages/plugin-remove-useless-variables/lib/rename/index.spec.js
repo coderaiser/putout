@@ -17,7 +17,7 @@ test('remove-useless-variables: rename: transform', (t) => {
     t.end();
 });
 
-test('remove-useless-variables: rename: transform: global', (t) => {
+test('remove-useless-variables: rename: no transform: global', (t) => {
     t.noTransform('global');
     t.end();
 });
@@ -42,22 +42,22 @@ test('remove-useless-variables: rename: transform: upper case', (t) => {
     t.end();
 });
 
-test('remove-useless-variables: rename: transform: not declared', (t) => {
+test('remove-useless-variables: rename: no transform: not declared', (t) => {
     t.noTransform('not-declared');
     t.end();
 });
 
-test('remove-useless-variables: rename: transform: argument', (t) => {
+test('remove-useless-variables: rename: no transform: argument', (t) => {
     t.noTransform('argument');
     t.end();
 });
 
-test('remove-useless-variables: rename: transform: export', (t) => {
+test('remove-useless-variables: rename: no transform: export', (t) => {
     t.noTransform('export');
     t.end();
 });
 
-test('remove-useless-variables: rename: transform: var', (t) => {
+test('remove-useless-variables: rename: no transform: var', (t) => {
     t.noTransform('var');
     t.end();
 });

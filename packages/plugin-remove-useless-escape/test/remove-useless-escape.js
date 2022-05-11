@@ -80,7 +80,7 @@ test('plugin-remove-useless-escape: transform: regexp: colon', (t) => {
     t.end();
 });
 
-test('plugin-remove-useless-escape: transform: regexp', (t) => {
+test('plugin-remove-useless-escape: no transform: regexp', (t) => {
     t.noTransform('regexp-slash');
     t.end();
 });

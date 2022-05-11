@@ -27,7 +27,7 @@ test('plugin-apply-args: args: no report: not-identifier', (t) => {
     t.end();
 });
 
-test('plugin-apply-args: args: transform: not-identifier', (t) => {
+test('plugin-apply-args: args: no transform: not-identifier', (t) => {
     t.noTransform('not-identifier');
     t.end();
 });

@@ -27,12 +27,12 @@ test('merge duplicate imports: transform: tape: declare', (t) => {
     t.end();
 });
 
-test('merge duplicate imports: transform: a couple defaultImportSpecifiers', (t) => {
+test('merge duplicate imports: no transform: a couple defaultImportSpecifiers', (t) => {
     t.noTransform('couple-defaults');
     t.end();
 });
 
-test('merge duplicate imports: transform: namespace', (t) => {
+test('merge duplicate imports: no transform: namespace', (t) => {
     t.noTransform('namespace');
     t.end();
 });

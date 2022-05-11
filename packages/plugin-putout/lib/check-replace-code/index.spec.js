@@ -12,7 +12,7 @@ test('plugin-putout: check-replace-code: report', (t) => {
     t.end();
 });
 
-test('plugin-putout: check-replace-code: transform', (t) => {
+test('plugin-putout: check-replace-code: no transform', (t) => {
     t.noTransform('valid');
     t.end();
 });

@@ -22,32 +22,32 @@ test('plugin-extract-object-properties: transform: fn', (t) => {
     t.end();
 });
 
-test('plugin-extract-object-properties: transform: fn-args', (t) => {
+test('plugin-extract-object-properties: no transform: fn-args', (t) => {
     t.noTransform('fn-args');
     t.end();
 });
 
-test('plugin-extract-object-properties: transform: not-var', (t) => {
+test('plugin-extract-object-properties: no transform: not-var', (t) => {
     t.noTransform('not-var');
     t.end();
 });
 
-test('plugin-extract-object-properties: transform: one property', (t) => {
+test('plugin-extract-object-properties: no transform: one property', (t) => {
     t.noTransform('one-prop');
     t.end();
 });
 
-test('plugin-extract-object-properties: transform: var exist', (t) => {
+test('plugin-extract-object-properties: no transform: var exist', (t) => {
     t.noTransform('var-exist');
     t.end();
 });
 
-test('plugin-extract-object-properties: transform: default', (t) => {
+test('plugin-extract-object-properties: no transform: default', (t) => {
     t.noTransform('default');
     t.end();
 });
 
-test('plugin-extract-object-properties: transform: no destructuring', (t) => {
+test('plugin-extract-object-properties: no transform: no destructuring', (t) => {
     t.noTransform('no-destr');
     t.end();
 });

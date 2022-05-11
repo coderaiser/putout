@@ -42,17 +42,17 @@ test('plugin-apply-destructuring: transform: array: type', (t) => {
     t.end();
 });
 
-test('plugin-apply-destructuring: transform: array: nested', (t) => {
+test('plugin-apply-destructuring: no transform: array: nested', (t) => {
     t.noTransform('nested');
     t.end();
 });
 
-test('plugin-apply-destructuring: transform: array: nested assign', (t) => {
+test('plugin-apply-destructuring: no transform: array: nested assign', (t) => {
     t.noTransform('nested-assign');
     t.end();
 });
 
-test('plugin-apply-destructuring: transform: array: object', (t) => {
+test('plugin-apply-destructuring: no transform: array: object', (t) => {
     t.noTransform('object');
     t.end();
 });

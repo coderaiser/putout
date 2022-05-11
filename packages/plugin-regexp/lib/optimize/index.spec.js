@@ -23,7 +23,7 @@ test('plugin-regexp/optimize: no transform: same-length', (t) => {
     t.end();
 });
 
-test('plugin-regexp/optimize: transform: crash', (t) => {
+test('plugin-regexp/optimize: no transform: crash', (t) => {
     t.noTransform('crash');
     t.end();
 });

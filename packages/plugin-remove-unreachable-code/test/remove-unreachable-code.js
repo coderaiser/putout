@@ -22,7 +22,7 @@ test('plugin-remove-unreachable-code: transform: throw', (t) => {
     t.end();
 });
 
-test('plugin-remove-unreachable-code: transform: hoist', (t) => {
+test('plugin-remove-unreachable-code: no transform: hoist', (t) => {
     t.noTransform('hoist');
     t.end();
 });

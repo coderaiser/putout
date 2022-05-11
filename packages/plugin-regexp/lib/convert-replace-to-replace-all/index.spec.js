@@ -54,7 +54,7 @@ test('plugin-regexp/convert-replace-to-replace-all: no transform: wildcard', (t)
     t.end();
 });
 
-test('plugin-regexp/convert-replace-to-replace-all: no transform: character-class', (t) => {
+test('plugin-regexp/convert-replace-to-replace-all: transform: character-class', (t) => {
     t.transform('character-class');
     t.end();
 });

@@ -22,7 +22,7 @@ test('plugin-remove-boolean-from-logical-expressions: transform: return', (t) =>
     t.end();
 });
 
-test('plugin-remove-boolean-from-logical-expressions: transform: or', (t) => {
+test('plugin-remove-boolean-from-logical-expressions: no transform: or', (t) => {
     t.noTransform('or');
     t.end();
 });

@@ -22,7 +22,7 @@ test('plugin-simplify-ternary: transform: object', (t) => {
     t.end();
 });
 
-test('plugin-simplify-ternary: transform: no duplicate', (t) => {
+test('plugin-simplify-ternary: no transform: no duplicate', (t) => {
     t.noTransform('duplicate');
     t.end();
 });

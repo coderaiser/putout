@@ -12,7 +12,7 @@ test('madrun: remove-check-duplicates-from-test: report', (t) => {
     t.end();
 });
 
-test('madrun: remove-check-duplicates-from-test: no transform', (t) => {
+test('madrun: remove-check-duplicates-from-test: transform', (t) => {
     t.transform('check-duplicates');
     t.end();
 });

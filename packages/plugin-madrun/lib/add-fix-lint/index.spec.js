@@ -17,7 +17,7 @@ test('madrun: add fix:lint: transform: string', (t) => {
     t.end();
 });
 
-test('madrun: add fix:lint: transform: exists', (t) => {
+test('madrun: add fix:lint: no transform: exists', (t) => {
     t.noTransform('exists');
     t.end();
 });

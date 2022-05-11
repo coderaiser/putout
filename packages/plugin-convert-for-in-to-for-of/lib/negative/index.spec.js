@@ -17,7 +17,7 @@ test('plugin-convert-for-in-to-for-of: negative: transform', (t) => {
     t.end();
 });
 
-test('plugin-convert-for-in-to-for-of: negative: no transform: for-in-body', (t) => {
+test('plugin-convert-for-in-to-for-of: negative: transform: for-in-body', (t) => {
     t.transform('for-in-body');
     t.end();
 });

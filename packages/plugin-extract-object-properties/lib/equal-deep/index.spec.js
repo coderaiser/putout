@@ -22,27 +22,27 @@ test('plugin-extract-object-properties: equal-deep: transform: fn', (t) => {
     t.end();
 });
 
-test('plugin-extract-object-properties: equal-deep: transform: fn-args', (t) => {
+test('plugin-extract-object-properties: equal-deep: no transform: fn-args', (t) => {
     t.noTransform('fn-args');
     t.end();
 });
 
-test('plugin-extract-object-properties: equal-deep: transform: no var', (t) => {
+test('plugin-extract-object-properties: equal-deep: no transform: no var', (t) => {
     t.noTransform('not-var');
     t.end();
 });
 
-test('plugin-extract-object-properties: equal-deep: transform: one property', (t) => {
+test('plugin-extract-object-properties: equal-deep: no transform: one property', (t) => {
     t.noTransform('one-prop');
     t.end();
 });
 
-test('plugin-extract-object-properties: equal-deep: transform: var exist', (t) => {
+test('plugin-extract-object-properties: equal-deep: no transform: var exist', (t) => {
     t.noTransform('var-exist');
     t.end();
 });
 
-test('plugin-extract-object-properties: equal-deep: transform: default', (t) => {
+test('plugin-extract-object-properties: equal-deep: no transform: default', (t) => {
     t.noTransform('default');
     t.end();
 });
@@ -62,7 +62,7 @@ test('plugin-extract-object-properties: equal-deep: transform: same', (t) => {
     t.end();
 });
 
-test('plugin-extract-object-properties: equal-deep: transform: scope', (t) => {
+test('plugin-extract-object-properties: equal-deep: no transform: scope', (t) => {
     t.noTransform('scope');
     t.end();
 });

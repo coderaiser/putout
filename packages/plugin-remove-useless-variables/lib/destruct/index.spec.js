@@ -17,17 +17,17 @@ test('remove-useless-variables: destruct: transform', (t) => {
     t.end();
 });
 
-test('remove-useless-variables: destruct: transform: references', (t) => {
+test('remove-useless-variables: destruct: no transform: references', (t) => {
     t.noTransform('references');
     t.end();
 });
 
-test('remove-useless-variables: destruct: transform: not-first', (t) => {
+test('remove-useless-variables: destruct: no transform: not-first', (t) => {
     t.noTransform('not-first');
     t.end();
 });
 
-test('remove-useless-variables: destruct: transform: not-one', (t) => {
+test('remove-useless-variables: destruct: no transform: not-one', (t) => {
     t.noTransform('not-one');
     t.end();
 });
@@ -37,7 +37,7 @@ test('remove-useless-variables: destruct: transform: spread', (t) => {
     t.end();
 });
 
-test('remove-useless-variables: destruct: transform: assign', (t) => {
+test('remove-useless-variables: destruct: no transform: assign', (t) => {
     t.noTransform('assign');
     t.end();
 });

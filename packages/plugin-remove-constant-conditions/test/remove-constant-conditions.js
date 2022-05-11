@@ -22,7 +22,7 @@ test('plugin-remove-constant-conditions: transform: negative', (t) => {
     t.end();
 });
 
-test('plugin-remove-constant-conditions: transform: identifier', (t) => {
+test('plugin-remove-constant-conditions: no transform: identifier', (t) => {
     t.noTransform('identifier');
     t.end();
 });
