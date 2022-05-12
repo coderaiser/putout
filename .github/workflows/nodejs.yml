@@ -43,8 +43,8 @@ jobs:
         run: cargo install typos-cli || echo 'already installed'
       
       - name: Typos
-        run: typos --write-changes || true
-
+        run: typos --write-changes
+      
       - name: Commit fixes
         uses: EndBug/add-and-commit@v7
         with:
