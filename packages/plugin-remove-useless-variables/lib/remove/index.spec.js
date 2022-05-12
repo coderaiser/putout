@@ -13,8 +13,13 @@ test('remove usless variables: remove: report', (t) => {
     t.end();
 });
 
-test('remove usless variables: remove: transform', (t) => {
+test('remove usless variables: remove: transform: require', (t) => {
     t.transform('require');
+    t.end();
+});
+
+test('remove usless variables: remove: transform: assign', (t) => {
+    t.transform('assign');
     t.end();
 });
 

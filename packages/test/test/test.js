@@ -87,9 +87,8 @@ test('test: transform: rule of a plugin: remove-unused-variables', (t) => {
     const fs = require('fs');
     const {reRequire} = require('mock-require');
     const {writeFileSync} = fs;
-    const writeFileSyncStub = stub();
     
-    fs.writeFileSync = writeFileSyncStub;
+    fs.writeFileSync = stub();
     
     process.env.UPDATE = 1;
     

@@ -18,7 +18,6 @@ npm i @putout/plugin-remove-useless-variables -D
     "rules": {
         "remove-useless-variables/rename": "on",
         "remove-useless-variables/destruct": "on",
-        "remove-useless-variables/remove": "on",
         "remove-useless-variables/await": "on",
         "remove-useless-variables/for-of": ["on", {
             "maxProperties": 4
@@ -27,7 +26,7 @@ npm i @putout/plugin-remove-useless-variables -D
 }
 ```
 
-## Rename
+## rename
 
 ### ❌ Example of incorrect code
 
@@ -44,7 +43,7 @@ function hi(b) {
 }
 ```
 
-## Destruct
+## destruct
 
 ### ❌ Example of incorrect code
 
@@ -61,7 +60,7 @@ function hi({a, b}) {
 }
 ```
 
-## Remove
+## remove
 
 ### ❌ Example of incorrect code
 
@@ -116,7 +115,7 @@ async () => {
 };
 ```
 
-## For-of
+## for-of
 
 ### ❌ Example of incorrect code
 
@@ -131,6 +130,28 @@ for (const a of b) {
 ```js
 for (const {c} of b) {
 }
+```
+
+### remove
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/041767876a6d41c82260b293a06c2b6b/addf2b49cf9235d9b7a1017065cec5dece232660).
+
+### ❌ Example of incorrect code
+
+```js
+const a = 5;
+const b = a;
+
+const c = 5;
+d = c;
+```
+
+### ✅ Example of correct code
+
+```js
+const b = 5;
+
+d = 5;
 ```
 
 ## License

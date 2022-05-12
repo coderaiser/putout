@@ -117,12 +117,10 @@ const dutify = (obj) => {
     const entries = Object.entries(obj);
     
     for (const [name, {declared, used}] of entries) {
-        const str = [
+        result[name] = [
             declared ? 'd' : '_',
             used ? 'u' : '_',
         ].join('');
-        
-        result[name] = str;
     }
     
     return result;

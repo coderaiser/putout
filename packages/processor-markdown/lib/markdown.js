@@ -176,24 +176,19 @@ const apply = ({list, visit, jsonProcessor}) => (node) => {
         const {lang} = node;
         
         if (/^(js|javascript)$/.test(lang)) {
-            const source = list.shift();
-            
-            node.value = source;
+            node.value = list.shift();
             return;
         }
         
         if (/^(ts|typescript)$/.test(lang)) {
-            const source = list.shift();
-            
-            node.value = source;
+            node.value = list.shift();
             return;
         }
         
         if (lang === 'json') {
             const code = list.shift();
-            const source = jsonProcessor.fromJS(code);
             
-            node.value = source;
+            node.value = jsonProcessor.fromJS(code);
         }
     });
 };
