@@ -1,7 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {remove} = operator;
+const {remove, compare} = operator;
 
 const isNestedMemberExpression = (path) => {
     return path.isMemberExpression() && path.get('object').isMemberExpression();
@@ -23,38 +23,42 @@ module.exports.fix = ({mainPath, path}) => {
 
 module.exports.traverse = ({push}) => ({
     AssignmentExpression(mainPath) {
-        const initPath = mainPath.get('right');
         const leftPath = mainPath.get('left');
+        const rightPath = mainPath.get('right');
         
         if (isNestedMemberExpression(leftPath))
             return;
         
         check({
             mainPath,
-            initPath,
+            rightPath,
+            leftPath,
             push,
         });
     },
     VariableDeclarator(mainPath) {
-        const initPath = mainPath.get('init');
+        const leftPath = mainPath.get('id');
+        const rightPath = mainPath.get('init');
+        
         check({
             mainPath,
-            initPath,
+            leftPath,
+            rightPath,
             push,
         });
     },
 });
 
-function check({mainPath, initPath, push}) {
-    if (!initPath.isIdentifier())
+function check({mainPath, leftPath, rightPath, push}) {
+    if (!rightPath.isIdentifier())
         return;
     
-    const {name} = initPath.node;
+    const {name} = rightPath.node;
     
     if (name === 'React')
         return;
     
-    const binding = initPath.scope.bindings[name];
+    const binding = rightPath.scope.bindings[name];
     
     if (!binding)
         return;
@@ -69,6 +73,9 @@ function check({mainPath, initPath, push}) {
         return;
     
     if (!binding.path.get('id').isIdentifier())
+        return;
+    
+    if (compare(leftPath, binding.path.node.init))
         return;
     
     const idName = binding.path.node.id.name;
