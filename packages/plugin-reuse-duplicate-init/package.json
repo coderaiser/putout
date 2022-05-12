@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout plugin adds ability to resue duplicate init",
+  "description": "🐊Putout plugin adds ability to reuse duplicate init",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-reuse-duplicate-init#readme",
   "main": "lib/reuse-duplicate-init.js",
   "release": false,
