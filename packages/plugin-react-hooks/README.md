@@ -48,9 +48,8 @@ Consider example using `class`:
 import React, {
     Component,
 } from 'react';
-export default Button;
 
-class Button extends Component {
+export default class Button extends Component {
     constructor() {
         super();
         
@@ -58,7 +57,7 @@ class Button extends Component {
             enabled: true,
         };
         
-        this.toogle = this._toggle.bind(this);
+        this.toggle = this._toggle.bind(this);
     }
     
     _toggle() {
@@ -86,13 +85,11 @@ After `putout --fix` transform, you will receive:
 import React, {
     useState,
 } from 'react';
-export default Button;
 
-function Button() {
+export default function Button() {
     const [enabled, setEnabled] = useState(true);
-    const toggle = _toogle;
     
-    function toogle() {
+    function toggle() {
         setEnabled(false);
     }
     
