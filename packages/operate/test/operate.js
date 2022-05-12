@@ -299,6 +299,19 @@ test('putout: operate: remove: comment', (t) => {
     t.end();
 });
 
+test('putout: operate: remove: not-top-comment', (t) => {
+    const {code} = putout(fixture.notTopComments, {
+        plugins: [
+            'remove-useless-variables',
+        ],
+    });
+    
+    const expected = fixture.notTopCommentsFix;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: operate: remove: comment: if', (t) => {
     const {code} = putout(fixture.commentIf, {
         plugins: [

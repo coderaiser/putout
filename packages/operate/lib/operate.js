@@ -116,12 +116,19 @@ const getComments = (path) => {
     return [];
 };
 
-module.exports.remove = (path) => {
-    const comments = getComments(path);
-    const programBlock = path.scope.getProgramParent().block;
+const getPrevSibling = (path) => {
+    if (!path.isVariableDeclarator())
+        return path.getPrevSibling();
     
-    if (path.scope.block === programBlock)
-        programBlock.comments = comments;
+    return path.parentPath.getPrevSibling();
+};
+
+module.exports.remove = (path) => {
+    const programBlock = path.scope.getProgramParent().block;
+    const prev = getPrevSibling(path);
+    
+    if (path.scope.block === programBlock && !prev.node)
+        programBlock.comments = getComments(path);
     
     path.remove();
 };
