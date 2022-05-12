@@ -3,7 +3,7 @@
 const {operator} = require('putout');
 const {replaceWith} = operator;
 
-module.exports.report = () => 'Duplicate init should be reused';
+module.exports.report = () => 'Reuse duplicate init';
 
 module.exports.fix = ({path, newPath}) => {
     replaceWith(path.get('declarations.0.init'), newPath);

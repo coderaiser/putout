@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-reuse-duplicate-init: report', (t) => {
-    t.report('init', 'Duplicate init should be reused');
+    t.report('init', 'Reuse duplicate init');
     t.end();
 });
 
