@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = () => `Promise.resolve has no sense in async function`;
+module.exports.report = () => `'Promise.resolve()' has no sense in async function`;
 
 module.exports.fix = (path) => {
     const {node} = path;
@@ -38,3 +38,4 @@ function parseParent(path) {
         path.parentPath.parentPath,
     ];
 }
+

@@ -7,7 +7,7 @@ const test = createTest(__dirname, {
 });
 
 test('remove usless variables: await: report', (t) => {
-    t.report('await', 'Promise.resolve has no sense in async function');
+    t.report('await', `'Promise.resolve()' has no sense in async function`);
     t.end();
 });
 
