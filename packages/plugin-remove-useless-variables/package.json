@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-useless-variables",
-  "version": "7.1.0",
+  "version": "7.2.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to find and remove useless",
