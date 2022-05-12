@@ -44,9 +44,9 @@ module.exports.declare = (declarations) => ({
 
 const report = (path) => {
     const {name} = path.node;
-    const cutedName = cutName(name);
+    const peaceOfName = cutName(name);
     
-    return `Declare '${cutedName}'`;
+    return `Declare '${peaceOfName}'`;
 };
 
 const include = () => ['ReferencedIdentifier'];

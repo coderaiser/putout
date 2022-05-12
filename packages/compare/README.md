@@ -44,11 +44,11 @@ getTemplateValues(node, 'const __array = array');
 
 ### compareAll(node: string | Node, templates: string[] | Node|Nodes[], [, options: Options])
 
-Compare nodes feets `templates`.
+Compare nodes feats `templates`.
 
 ### compareAny(node: string | Node, templates: string[] | Node|Nodes[], [, options: Options])
 
-Compare any nodes that feets one of `templates `
+Compare any nodes that feats one of `templates `
 
 ```js
 compareAny(path, 'const __a = __b', {

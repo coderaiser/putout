@@ -246,7 +246,7 @@ feature:
 - (package) @putout/plugin-typescript v2.0.0
 - (@putout/plugin-typescript) drop support of 🐊 < 16
 - (@putout/plugin-typescript) remove-duplicates-from-union: avoid duplicates reporting
-- (@putout/plugin-extract-object-properties) not-equal-deep: link to listStore() results -> call linkStore() when neaded
+- (@putout/plugin-extract-object-properties) not-equal-deep: link to listStore() results -> call linkStore() when needed
 - (@putout/engine-runner) store: listStore: use Set() inside to prevent duplicates and return array
 
 
@@ -2216,7 +2216,7 @@ feature:
 
 fix:
 - (@putout/compare) exclude: range, parent (#67)
-- (@putout/plugin-regexp) remove-useless-group: exlude named capturing groups (#67)
+- (@putout/plugin-regexp) remove-useless-group: exclude named capturing groups (#67)
 
 feature:
 - (ruler) exclude rules not related to putout
@@ -5204,7 +5204,7 @@ feature:
 2020.01.17, v7.6.1
 
 fix:
-- feature(@putout/eslint-config) disable no-empty-pattern: no 
+- feature(@putout/eslint-config) disable no-empty-pattern: no
 - (putout) parseOptions: custom optionsmore important then merged options, custom match more important then custom options
 
 feature:
@@ -7270,7 +7270,7 @@ fix:
 
 fix:
 - (run-plugins) add early return when no need to apply changes
-- docs(changelog) rm 
+- docs(changelog) rm
 
 
 2019.02.22, v4.3.0
@@ -7393,7 +7393,7 @@ feature:
 
 fix:
 - (@putout/plugin-madrun) add .spec.js to ignore
-- (@putout/test) report/reportCode: disable 
+- (@putout/test) report/reportCode: disable
 
 feature:
 - (@putout/plugin-madrun) add
@@ -7785,7 +7785,7 @@ feature:
 
 fix:
 - (plugin-remove-only) description
-- feature(putout) change plugin structure: find, 
+- feature(putout) change plugin structure: find,
 
 feature:
 - (parse-match) move out from bin/putout.js
@@ -8105,7 +8105,7 @@ feature:
 2018.12.21, v2.1.0
 
 fix:
-- test(putout) fn vars 
+- test(putout) fn vars
 - test(putout) arrow-vars-
 
 feature:
