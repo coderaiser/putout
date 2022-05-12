@@ -13,7 +13,7 @@ npm i @putout/plugin-gitignore -D
 
 ## Rules
 
-By default, all files enebled, if you want disable some of them use `dissmiss` property:
+By default, all files enebled, if you want disable some of them use `dismiss` property:
 
 ```json
 {

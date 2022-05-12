@@ -23,7 +23,7 @@ const when = () => {
     if (isTime())
         return 'now';
     
-    return 'laiter';
+    return 'later';
 };
 ```
 

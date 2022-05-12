@@ -27,7 +27,7 @@ test('putout: plugin: typescript: transform: remove-duplicates-from-union', (t) 
     t.end();
 });
 
-test('putout: plugin: typescript: transform: remove-duplicate-inteface-keys', (t) => {
+test('putout: plugin: typescript: transform: remove-duplicate-interface-keys', (t) => {
     t.transform('remove-duplicate-interface-keys');
     t.end();
 });

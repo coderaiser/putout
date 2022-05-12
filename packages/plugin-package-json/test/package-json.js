@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('putout: plugin-package-json: remove-nyc: complex: report', (t) => {
-    t.report('nyc', `Remove 'nyc' section of 'package.json', use file '.nycrc.json' intead`);
+    t.report('nyc', `Remove 'nyc' section of 'package.json', use file '.nycrc.json' instead`);
     t.end();
 });
 

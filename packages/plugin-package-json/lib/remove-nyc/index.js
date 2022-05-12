@@ -6,7 +6,7 @@ const {
     getProperties,
 } = operator;
 
-module.exports.report = () => `Remove 'nyc' section of 'package.json', use file '.nycrc.json' intead`;
+module.exports.report = () => `Remove 'nyc' section of 'package.json', use file '.nycrc.json' instead`;
 
 module.exports.fix = (path) => {
     remove(path);

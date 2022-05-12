@@ -13,7 +13,7 @@ const {
 
 const {assign} = Object;
 
-test('putout: engine-loader: laod: yarn PnP support', (t) => {
+test('putout: engine-loader: load: yarn PnP support', (t) => {
     const customRequire = stub().returns('plugin');
     
     assign(customRequire, {
@@ -40,7 +40,7 @@ test('putout: engine-loader: laod: yarn PnP support', (t) => {
     t.end();
 });
 
-test('putout: engine-loader: laod: env: PUTOUT_YARN_PNP', (t) => {
+test('putout: engine-loader: load: env: PUTOUT_YARN_PNP', (t) => {
     const customRequire = stub().returns('plugin');
     
     assign(customRequire, {
@@ -69,7 +69,7 @@ test('putout: engine-loader: laod: env: PUTOUT_YARN_PNP', (t) => {
     t.end();
 });
 
-test('putout: engine-loader: laod: createRequire', (t) => {
+test('putout: engine-loader: load: createRequire', (t) => {
     const customRequire = stub().returns('plugin');
     
     assign(customRequire, {

@@ -187,7 +187,7 @@ putout lib test --fix
 
 ## Plugins
 
-By default 🐊**Putout** uses all enabled by default plugins, anyways it can be run with a couple mentioned plugins (splitted with ","):
+By default 🐊**Putout** uses all enabled by default plugins, anyways it can be run with a couple mentioned plugins (split with ","):
 
 ```sh
 putout lib --plugins remove-debugger,remove-unused-variables

@@ -27,7 +27,7 @@ test('putout: plugin-package-json: add-type: no transform: commonjs', (t) => {
     t.end();
 });
 
-test('putout: plugin-package-json: add-type: no transform: no-vesion', (t) => {
+test('putout: plugin-package-json: add-type: no transform: no-version', (t) => {
     t.noTransform('no-version');
     t.end();
 });

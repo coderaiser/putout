@@ -169,7 +169,7 @@ npx putout lib test --fix
 🐊**Putout** supports the following environment variables:
 
 - `PUTOUT_CONFIG_FILE` - path to [configuration](#-configuration) file;
-- `PUTOUT_FILES` - files that should be processed splitted by ",";
+- `PUTOUT_FILES` - files that should be processed split by ",";
 
 Example:
 
