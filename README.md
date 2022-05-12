@@ -2285,7 +2285,7 @@ Using 🐊**Putout** as a runner for `babel` `plugins` you can not only change f
 
 ### Babel plugins list
 
-Here you can find `babel plugins` which feets the most main purpose of `putout` and advised to use:
+Here you can find `babel plugins` which feats the most main purpose of 🐊**Putout** and advised to use:
 
 <details><summary><a href="https://babeljs.io/docs/en/babel-plugin-transform-inline-consecutive-adds">transform-inline-consecutive-adds</a></summary>
 

@@ -23,13 +23,13 @@ module.exports.filter = ({node, text}) => {
             return false;
     }
     
-    const cutedText = text.replace(name, '');
+    const textPeace = text.replace(name, '');
     
-    if (cutedText.length < 60)
+    if (textPeace.length < 60)
         return false;
     
-    const isOpenBracket = /^\(\n/.test(cutedText);
-    const isCloseBracket = /\n\s*\)$/.test(cutedText);
+    const isOpenBracket = /^\(\n/.test(textPeace);
+    const isCloseBracket = /\n\s*\)$/.test(textPeace);
     
     if (isOpenBracket && isCloseBracket)
         return false;

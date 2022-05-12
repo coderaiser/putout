@@ -9,7 +9,7 @@ Part of [**eslint-plugin-putout**](https://github.com/coderaiser/putout/tree/mas
 
 ```js
 const onConnectError = squad(superFn(connect_error),
-    logWraped(isLog, importStr),
+    logWrapped(isLog, importStr),
     addUrl(colorUrl),
     getDescription);
 ```
@@ -19,7 +19,7 @@ const onConnectError = squad(superFn(connect_error),
 ```js
 const onConnectError = squad(
     superFn(connect_error),
-    logWraped(isLog, importStr),
+    logWrapped(isLog, importStr),
     addUrl(colorUrl),
     getDescription,
 );

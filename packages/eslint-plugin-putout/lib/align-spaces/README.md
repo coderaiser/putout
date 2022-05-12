@@ -1,4 +1,4 @@
-# aling-spaces
+# align-spaces
 
 When 🐊**Putout** processes files it can remove spaces from empty line, this `rule` fixes it.
 

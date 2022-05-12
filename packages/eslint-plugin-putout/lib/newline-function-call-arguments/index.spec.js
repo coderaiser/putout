@@ -23,7 +23,7 @@ ruleTester.run('new-line-function-call-arguments', rule, {
     `console.log('a', 'b', 'c');`,
     `const onConnectError = squad(
             superFn('connect_error'),
-            logWraped(isLog, importStr),
+            logWrapped(isLog, importStr),
             addUrl(colorUrl),
             getDescription,
         );`,
@@ -78,14 +78,14 @@ ruleTester.run('new-line-function-call-arguments', rule, {
     invalid: [{
         code: `
         const onConnectError = squad(superFn(connect_error),
-        logWraped(isLog, importStr),
+        logWrapped(isLog, importStr),
         addUrl(colorUrl),
         getDescription);
         `,
         output:
         '\n        const onConnectError = squad(\n' +
         `superFn(connect_error),
-        logWraped(isLog,
+        logWrapped(isLog,
 ` +
         'importStr),\n        addUrl(colorUrl),\n        ' +
         'getDescription\n);\n        ',
