@@ -24,6 +24,19 @@ jobs:
         run: lerna bootstrap
       - name: Lint
         run: redrun fix:lint
+    
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          
+      - uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: typos-cli
+
+      - name: Typos
+        run: typos --write-changes || true
+
       - name: Commit fixes
         uses: EndBug/add-and-commit@v7
         with:
@@ -34,5 +47,3 @@ jobs:
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: typos-action
-        uses: crate-ci/typos@v1.0.4
