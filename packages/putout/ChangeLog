@@ -1,3 +1,28 @@
+2022.05.12, v26.0.2
+
+fix:
+- (@putout/plugin-reuse-deuplicate-init) description
+
+
+feature:
+- (package) @putout/plugin-reuse-duplicate-init v4.0.0
+- (@putout/plugin-reuse-duplicate-init) drop support of 🐊 < 26
+- (@putout/plugin-reuse-duplicate-init) report message: simplify
+- (@putout/plugin-remove-useless-variables) remove: add support of AssignmentExpression
+- (@putout/operate) remove: improve comments support
+- (@putout/plugin-remove-useless-variables) await: improve report message
+- (@putout/plugin-putout) add: replace-test-message
+- (@putout/plugin-apply-array-at) improve report
+- (@putout/plugin-convert-reduce-to-for-of) exclude CallExpression
+- (@putout/plugin-tape) convert-ok-to-match: test: add support of message
+- (@putout/plugin-remove-useless-operand) check operand type when string could be used
+- (@putout/plugin-madrun) convert-lint-lib: parseObject -> getProperty
+- (@putout/plugin-madrun) convert-nyc-to-c8: add support of CommonJS
+- (@putout/operator-add-args) exclude not calls
+- (@putout/eslint-config) add array-bracket-spacing
+- (@putout/plugin-putout) add-args: add support of process
+
+
 2022.05.09, v26.0.1
 
 fix:
