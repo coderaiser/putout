@@ -61,17 +61,29 @@ const plugins = loadPlugins({
 });
 ```
 
-### loadProcessors
+### loadProcessorsAsync
 
 ```js
 const {loadProcessors} = require('@putout/engine-loader');
 
-const plugins = loadProcessors({
+const plugins = await loadProcessorsAsync({
     processors: [
         ['javascript', 'on'],
         ['markdown', 'off'],
     ],
 });
+```
+
+### createAsyncLoader
+
+Gives ability to create loader for `processor` or `formatter`.
+
+```js
+const {createAsyncLoader} = require('@putout/engine-loader');
+const {loadProcessor} = createAsyncLoader('processor');
+
+await loadProcessors('markdown');
+// loads @putout/processor-markdown
 ```
 
 ## License

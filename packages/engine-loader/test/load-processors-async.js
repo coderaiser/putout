@@ -3,12 +3,12 @@
 const test = require('supertape');
 
 const markdown = require('@putout/processor-markdown');
-const {loadProcessors} = require('..');
+const {loadProcessorsAsync} = require('..');
 
-test('putout: engine-loader: load processors', (t) => {
+test('putout: engine-loader: load processors', async (t) => {
     const processorJavascript = require('@putout/processor-javascript');
     
-    const list = loadProcessors({
+    const list = await loadProcessorsAsync({
         processors: [
             'javascript',
         ],
@@ -22,21 +22,21 @@ test('putout: engine-loader: load processors', (t) => {
     t.end();
 });
 
-test('putout: engine-loader: load processors: no processors', (t) => {
-    const list = loadProcessors({});
+test('putout: engine-loader: load processors: no processors', async (t) => {
+    const list = await loadProcessorsAsync({});
     
     t.deepEqual(list, []);
     t.end();
 });
 
-test('putout: engine-loader: load processors: function', (t) => {
+test('putout: engine-loader: load processors: function', async (t) => {
     const throwProcessor = {
         preProcess() {
             throw'Preprocess error';
         },
     };
     
-    const list = loadProcessors({
+    const list = await loadProcessorsAsync({
         processors: [
             ['throwProcessor', throwProcessor],
         ],
@@ -50,8 +50,8 @@ test('putout: engine-loader: load processors: function', (t) => {
     t.end();
 });
 
-test('putout: engine-loader: load processors: off', (t) => {
-    const list = loadProcessors({
+test('putout: engine-loader: load processors: off', async (t) => {
+    const list = await loadProcessorsAsync({
         processors: [
             ['markdown', 'off'],
         ],
@@ -64,8 +64,8 @@ test('putout: engine-loader: load processors: off', (t) => {
     t.end();
 });
 
-test('putout: engine-loader: load processors: on', (t) => {
-    const list = loadProcessors({
+test('putout: engine-loader: load processors: on', async (t) => {
+    const list = await loadProcessorsAsync({
         processors: [
             ['markdown', 'on'],
         ],

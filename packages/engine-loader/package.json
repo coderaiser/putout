@@ -29,7 +29,8 @@
     "diff-match-patch": "^1.0.4",
     "nano-memoize": "^1.1.8",
     "once": "^1.4.0",
-    "try-catch": "^3.0.0"
+    "try-catch": "^3.0.0",
+    "try-to-catch": "^3.0.1"
   },
   "keywords": [
     "putout",
@@ -39,6 +40,7 @@
   "devDependencies": {
     "@babel/plugin-codemod-object-assign-to-object-spread": "^7.7.4",
     "@cloudcmd/stub": "^3.0.0",
+    "@putout/formatter-progress": "*",
     "@putout/plugin-convert-commonjs-to-esm": "*",
     "@putout/plugin-remove-unused-variables": "*",
     "@putout/processor-javascript": "*",

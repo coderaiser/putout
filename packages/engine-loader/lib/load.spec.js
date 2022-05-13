@@ -1,9 +1,7 @@
 'use strict';
 
 const tryCatch = require('try-catch');
-
 const mockRequire = require('mock-require');
-
 const {test, stub} = require('supertape');
 
 const {

@@ -3,10 +3,8 @@
 const memo = require('nano-memoize');
 
 const isEnabled = require('./is-enabled');
-const {
-    loadPlugin,
-    loadProcessor,
-} = require('./load');
+const {loadPlugin} = require('./load');
+const {createAsyncLoader} = require('./async-loader');
 const parsePluginNames = require('./parse-plugin-names');
 const parseProcessorNames = require('./parse-processor-names');
 const parseRules = require('./parse-rules');
@@ -40,7 +38,7 @@ const mergeRules = ([rule, plugin], rules) => {
     };
 };
 
-module.exports.loadProcessors = memo((options) => {
+module.exports.loadProcessorsAsync = memo(async (options) => {
     check(options);
     
     const {
@@ -48,9 +46,9 @@ module.exports.loadProcessors = memo((options) => {
     } = options;
     
     const parsedProcessors = parseProcessorNames(processors);
+    const loadProcessor = createAsyncLoader('processor');
     
     const list = [];
-    const namespace = 'putout';
     
     for (const [name, fn] of parsedProcessors) {
         if (fn) {
@@ -58,11 +56,13 @@ module.exports.loadProcessors = memo((options) => {
             continue;
         }
         
-        list.push(loadProcessor({name, namespace}));
+        list.push(loadProcessor(name));
     }
     
-    return list;
+    return await Promise.all(list);
 });
+
+module.exports.createAsyncLoader = createAsyncLoader;
 
 module.exports.loadPlugins = (options) => {
     check(options);
