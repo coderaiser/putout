@@ -1,9 +1,13 @@
-'use strict';
+import jsonProcessor from '@putout/processor-json';
+import stringify from 'remark-stringify';
+import preset from 'remark-preset-lint-consistent';
 
-const once = require('once');
+import {run} from './rules/index.mjs';
+import {visit} from 'unist-util-visit';
+import {unified} from 'unified';
 
-const {toPlace} = require('./parse-place');
-const {initParseStore} = require('./parse-store');
+import {toPlace} from './parse-place.js';
+import {initParseStore} from './parse-store.js';
 
 const parseStore = initParseStore();
 
@@ -18,36 +22,11 @@ const stringifyOptions = {
     },
 };
 
-module.exports.files = [
+export const files = [
     '*.md',
 ];
 
-const loadDependencies = once(async () => {
-    const {default: stringify} = await import('remark-stringify');
-    const {default: preset} = await import('remark-preset-lint-consistent');
-    const {default: jsonProcessor} = await import('@putout/processor-json');
-    const {run} = await import('./rules/index.mjs');
-    const {visit} = await import('unist-util-visit');
-    const {unified} = await import('unified');
-    
-    return {
-        unified,
-        stringify,
-        visit,
-        preset,
-        jsonProcessor,
-        run,
-    };
-});
-
-module.exports.find = async (rawSource) => {
-    const {
-        unified,
-        stringify,
-        preset,
-        run,
-    } = await loadDependencies();
-    
+export const find = async (rawSource) => {
     await parseStore.init();
     
     const {messages} = await unified()
@@ -61,14 +40,7 @@ module.exports.find = async (rawSource) => {
         .map(toPlace);
 };
 
-module.exports.fix = async (rawSource) => {
-    const {
-        unified,
-        stringify,
-        preset,
-        run,
-    } = await loadDependencies();
-    
+export const fix = async (rawSource) => {
     await parseStore.init();
     
     const {value} = await unified()
@@ -81,14 +53,7 @@ module.exports.fix = async (rawSource) => {
     return value;
 };
 
-module.exports.branch = async (rawSource) => {
-    const {
-        unified,
-        stringify,
-        visit,
-        jsonProcessor,
-    } = await loadDependencies();
-    
+export const branch = async (rawSource) => {
     const list = [];
     
     await unified()
@@ -96,7 +61,6 @@ module.exports.branch = async (rawSource) => {
         .use(collect, {
             list,
             visit,
-            jsonProcessor,
         })
         .use(stringify)
         .process(rawSource);
@@ -104,14 +68,7 @@ module.exports.branch = async (rawSource) => {
     return list;
 };
 
-module.exports.merge = async (rawSource, list) => {
-    const {
-        unified,
-        stringify,
-        visit,
-        jsonProcessor,
-    } = await loadDependencies();
-    
+export const merge = async (rawSource, list) => {
     const newList = list.slice();
     
     const {value} = await unified()
@@ -120,7 +77,6 @@ module.exports.merge = async (rawSource, list) => {
             list: newList,
             rawSource,
             visit,
-            jsonProcessor,
         })
         .use(stringify, stringifyOptions)
         .process(rawSource);
@@ -130,48 +86,44 @@ module.exports.merge = async (rawSource, list) => {
     return value;
 };
 
-const collect = ({list, visit}) => {
-    const jsonProcessor = require('@putout/processor-json');
-    
-    return (node) => {
-        visit(node, 'code', (node) => {
-            const {lang, value} = node;
-            const startLine = node.position.start.line;
+const collect = ({list, visit}) => (node) => {
+    visit(node, 'code', (node) => {
+        const {lang, value} = node;
+        const startLine = node.position.start.line;
+        
+        if (/^(js|javascript)$/.test(lang)) {
+            list.push({
+                startLine,
+                source: value,
+                extension: 'js',
+            });
             
-            if (/^(js|javascript)$/.test(lang)) {
-                list.push({
-                    startLine,
-                    source: value,
-                    extension: 'js',
-                });
-                
-                return;
-            }
+            return;
+        }
+        
+        if (/^(ts|typescript)$/.test(lang)) {
+            list.push({
+                startLine,
+                source: value,
+                extension: 'ts',
+            });
             
-            if (/^(ts|typescript)$/.test(lang)) {
-                list.push({
-                    startLine,
-                    source: value,
-                    extension: 'ts',
-                });
-                
-                return;
-            }
+            return;
+        }
+        
+        if (lang === 'json') {
+            const source = jsonProcessor.toJS(value);
             
-            if (lang === 'json') {
-                const source = jsonProcessor.toJS(value);
-                
-                list.push({
-                    startLine,
-                    source,
-                    extension: 'json',
-                });
-            }
-        });
-    };
+            list.push({
+                startLine,
+                source,
+                extension: 'json',
+            });
+        }
+    });
 };
 
-const apply = ({list, visit, jsonProcessor}) => (node) => {
+const apply = ({list, visit}) => (node) => {
     visit(node, 'code', (node) => {
         const {lang} = node;
         

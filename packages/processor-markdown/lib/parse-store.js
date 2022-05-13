@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.initParseStore = () => {
+export const initParseStore = () => {
     let cache = null;
     let parse = null;
     

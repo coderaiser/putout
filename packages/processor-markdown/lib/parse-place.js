@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.toPlace = function toPlace({reason, line, column, source, ruleId}) {
+export function toPlace({reason, line, column, source, ruleId}) {
     const {message, rule} = parseWatermark({
         reason,
         ruleId,
@@ -15,7 +13,7 @@ module.exports.toPlace = function toPlace({reason, line, column, source, ruleId}
             column,
         },
     };
-};
+}
 
 function parseWatermark({reason, ruleId, source}) {
     const [watermark, remarkRule, message] = reason.split(': ');
