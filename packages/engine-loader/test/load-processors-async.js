@@ -2,7 +2,6 @@
 
 const test = require('supertape');
 
-const markdown = require('@putout/processor-markdown');
 const {loadProcessorsAsync} = require('..');
 
 test('putout: engine-loader: load processors', async (t) => {
@@ -65,6 +64,7 @@ test('putout: engine-loader: load processors: off', async (t) => {
 });
 
 test('putout: engine-loader: load processors: on', async (t) => {
+    const markdown = await import('@putout/processor-markdown');
     const list = await loadProcessorsAsync({
         processors: [
             ['markdown', 'on'],
