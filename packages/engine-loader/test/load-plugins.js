@@ -23,6 +23,8 @@ const fixture = readFixtures([
     'babel-plugin-fix',
     'babel-plugin-namespace',
     'babel-plugin-namespace-fix',
+    'babel-plugin-no-change',
+    'babel-plugin-no-change-fix',
 ]);
 
 test('putout: loader: user plugin', (t) => {
@@ -189,6 +191,18 @@ test('putout: loader: babelPlugins: namespace', (t) => {
     });
     
     t.deepEqual(code, fixture.babelPluginNamespaceFix);
+    t.end();
+});
+
+test('putout: loader: babelPlugins: namespace: no change', (t) => {
+    const {code} = putout(fixture.babelPluginNoChange, {
+        loadPlugins,
+        plugins: [
+            'babel/codemod-object-assign-to-object-spread',
+        ],
+    });
+    
+    t.deepEqual(code, fixture.babelPluginNoChangeFix);
     t.end();
 });
 
