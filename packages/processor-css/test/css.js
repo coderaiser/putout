@@ -131,8 +131,8 @@ test('putout: processor: css: merge user config with default', async (t) => {
     mockRequire('cosmiconfig', {
         cosmiconfig,
     });
-    
     reRequire('../lib/css');
+    
     const {runProcessors} = reRequire('@putout/engine-processor');
     
     const fix = false;

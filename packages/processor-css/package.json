@@ -26,7 +26,6 @@
   "dependencies": {
     "cosmiconfig": "^7.0.0",
     "deepmerge": "^4.2.2",
-    "once": "^1.4.0",
     "stylelint": "^14.1.0",
     "stylelint-config-standard": "^25.0.0"
   },

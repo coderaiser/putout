@@ -1,13 +1,12 @@
 'use strict';
 
-const once = require('once');
 const deepmerge = require('deepmerge');
 
 module.exports.files = [
     '*.css',
 ];
 
-const loadConfig = once(async () => {
+const loadConfig = async () => {
     const {cosmiconfig} = require('cosmiconfig');
     const config = require('../stylelintrc');
     
@@ -22,7 +21,7 @@ const loadConfig = once(async () => {
         config,
         newConfig,
     ]);
-});
+};
 
 module.exports.find = async (code) => {
     const stylelint = require('stylelint');
