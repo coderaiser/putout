@@ -1,3 +1,19 @@
+2022.05.13, v26.1.0
+
+fix:
+- (@putout/processor-css) rm once
+
+
+feature:
+- (package) @putout/engine-processor v6.0.0
+- (package) @putout/engine-loader v7.0.0
+- (package) @putout/engine-loader v7.0.0
+- (@putout/engine-processor) getProcessorRunners: sync -> async
+- (putout) getProcessors: sync -> async
+- (@putout/engine-loader) loadProcessors -> loadProcessorsAsync
+- (@putout/plugin-remove-useless-variables) exclude mirrored renames (used in tests)
+
+
 2022.05.12, v26.0.2
 
 fix:
