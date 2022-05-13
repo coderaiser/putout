@@ -1,6 +1,6 @@
 'use strict';
 
-const {loadProcessors} = require('@putout/engine-loader');
+const {loadProcessorsAsync} = require('@putout/engine-loader');
 const picomatch = require('picomatch');
 
 const defaultProcessors = [
@@ -29,7 +29,7 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         processors = defaultProcessors,
     } = options;
     
-    processorRunners = processorRunners || getProcessorRunners(processors);
+    processorRunners = processorRunners || await getProcessorRunners(processors);
     
     let processedSource = '';
     let processedPlaces = [];
@@ -146,10 +146,12 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
 }
 
 module.exports.getProcessorRunners = getProcessorRunners;
-function getProcessorRunners(processors) {
-    return loadProcessors({
+async function getProcessorRunners(processors) {
+    const readyProcessors = await loadProcessorsAsync({
         processors,
-    }).map(addGlobs);
+    });
+    
+    return readyProcessors.map(addGlobs);
 }
 
 function addGlobs(processor) {

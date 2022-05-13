@@ -222,12 +222,12 @@ test('putout: engine-processor: markdown: no fix: return processed places', asyn
 });
 
 // remark-lint cannot generate the same result as it was before parse,
-// it cannot distinguish "fix" and "report" ieither.
+// it cannot distinguish "fix" and "report" either.
 // So at first run with "--fix" on markdown file it will change it to simplified format.
 // even if nothing found 🤦🤷
 //
 // In this case we can benefit from:
-// - simplifiyng format of remark rules (which are splited on fix/report with help of options(!));
+// - simplifying format of remark rules (which are split on fix/report with help of options(!));
 // - splitting one big rule on a couple small rules;
 //
 // Otherwise it will mutate the tree and report all found errors, so only one big rule with

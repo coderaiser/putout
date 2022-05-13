@@ -17,7 +17,7 @@ const {
     runProcessors,
 } = require('@putout/engine-processor');
 
-const processorRunners = getProcessorRunners(processors);
+const processorRunners = await getProcessorRunners(processors);
 
 runProcessors({
     name,
