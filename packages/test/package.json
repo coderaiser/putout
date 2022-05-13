@@ -14,7 +14,10 @@
       "require": "./lib/test.js",
       "import": "./lib/test.mjs"
     },
-    "./processor": "./lib/processor/index.js",
+    "./processor": {
+      "require": "./lib/processor/index.js",
+      "import": "./lib/processor/index.mjs"
+    },
     "./formatter": "./lib/formatter/index.mjs",
     "./eslint": "./lib/eslint/eslint.mjs"
   },
