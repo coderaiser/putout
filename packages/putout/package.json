@@ -173,7 +173,7 @@
     "@putout/processor-ignore": "^2.0.0",
     "@putout/processor-javascript": "^3.0.0",
     "@putout/processor-json": "^3.0.0",
-    "@putout/processor-markdown": "^6.0.0",
+    "@putout/processor-markdown": "^7.0.0",
     "@putout/processor-yaml": "^3.0.0",
     "@putout/traverse": "^5.0.0",
     "ajv": "^8.8.2",
