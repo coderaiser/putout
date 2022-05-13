@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/engine-loader": "^6.0.0",
+    "@putout/engine-loader": "^7.0.0",
     "nano-memoize": "^1.2.1",
     "once": "^1.4.0",
     "picomatch": "^2.2.2"
