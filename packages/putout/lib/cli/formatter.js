@@ -1,72 +1,28 @@
 'use strict';
 
 const tryToCatch = require('try-to-catch');
+const {createAsyncLoader} = require('@putout/engine-loader');
 
 const {
     NO_FORMATTER,
     CANNOT_LOAD_FORMATTER,
 } = require('./exit-codes');
 
-const {simpleImportDefault} = require('./simple-import');
-
-const stub = () => () => {};
-
 const {isArray} = Array;
-const {assign} = Object;
 const maybeArray = (a) => isArray(a) ? a : [a, {}];
 
-module.exports.getFormatter = async (formatter, exit) => {
-    const [name, formatterOptions] = maybeArray(formatter);
+module.exports.getFormatter = async (formatterOptional, exit) => {
+    const [formatterName, formatterOptions] = maybeArray(formatterOptional);
+    const loadFormatter = createAsyncLoader('formatter');
     
-    return [
-        await getReporter(name, exit),
-        formatterOptions,
-    ];
-};
-
-module.exports.getReporter = getReporter;
-async function getReporter(name, exit) {
-    if (name === 'none')
-        return stub();
+    const [error, formatter] = await tryToCatch(loadFormatter, formatterName, exit);
     
-    const [error, reporter] = await loadFormatter([
-        `@putout/formatter-${name}`,
-        `putout-formatter-${name}`,
-    ]);
-    
-    if (reporter)
-        return reporter;
+    if (formatter)
+        return [formatter, formatterOptions];
     
     if (error.code === 'ERR_MODULE_NOT_FOUND')
         return exit(NO_FORMATTER, error);
     
     exit(CANNOT_LOAD_FORMATTER, error);
-}
-
-async function loadFormatter(names) {
-    let e;
-    let reporter;
-    
-    for (const name of names) {
-        [e, reporter] = await tryToCatch(simpleImportDefault, name);
-        
-        if (!e)
-            return [null, reporter];
-        
-        if (e.code === 'ERR_MODULE_NOT_FOUND')
-            continue;
-        
-        assign(e, {
-            message: `${name}: ${e.message}`,
-        });
-        
-        return [e];
-    }
-    
-    assign(e, {
-        message: e.message.replace(/\simported.*/, ''),
-    });
-    
-    return [e];
-}
+};
 

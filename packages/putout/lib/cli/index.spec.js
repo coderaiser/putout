@@ -1446,12 +1446,14 @@ test('putout: cli: not fixable', async (t) => {
     const fileCache = stub().returns({
         setInfo,
     });
+    const {getProcessorRunners} = reRequire('@putout/engine-processor');
     
     mockRequire('./get-options', getOptions);
     mockRequire('./file-cache', fileCache);
     mockRequire('@putout/engine-processor', {
         runProcessors,
         getFilePatterns,
+        getProcessorRunners,
     });
     
     const cli = reRequire('.');
@@ -1499,11 +1501,14 @@ test('putout: cli: setInfo: crash', async (t) => {
         setInfo,
     });
     
+    const {getProcessorRunners} = require('@putout/engine-processor');
+    
     mockRequire('./get-options', getOptions);
     mockRequire('./file-cache', fileCache);
     mockRequire('@putout/engine-processor', {
         runProcessors,
         getFilePatterns,
+        getProcessorRunners,
     });
     
     const cli = reRequire('.');
@@ -1827,12 +1832,13 @@ test('putout: cli: cannot load processor: not found', async (t) => {
     const argv = [];
     
     const logError = stub();
-    const loadProcessors = stub().throws(Error(`Processor "putout-processor-hello" could not be found!`));
+    const loadProcessorsAsync = stub().rejects(Error(`Processor "putout-processor-hello" could not be found!`));
     
     mockRequire('@putout/engine-loader', {
-        loadProcessors,
+        loadProcessorsAsync,
     });
     
+    reRequire('@putout/engine-processor');
     const cli = reRequire('.');
     
     await runCli({
@@ -1884,6 +1890,8 @@ test('putout: processor throw', async (t) => {
         ],
     });
     
+    reRequire('@putout/engine-processor');
+    
     mockRequire('./get-options', getOptions);
     
     reRequire('./runner/worker.js');
@@ -1927,6 +1935,8 @@ test('putout: processor throw: raw', async (t) => {
             ['throw-processor', throwProcessor],
         ],
     });
+    
+    reRequire('@putout/engine-processor');
     
     mockRequire('./get-options', getOptions);
     
@@ -2014,6 +2024,7 @@ test('putout: processor: invalid config: message', async (t) => {
         };
     });
     
+    reRequire('@putout/engine-processor');
     reRequire('./runner/worker.js');
     reRequire('./runner/runner.js');
     

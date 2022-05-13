@@ -12,8 +12,6 @@ const {getFormatter} = require('./formatter');
 
 const {reRequire, stopAll} = mockRequire;
 
-const {assign} = Object;
-
 test('putout: cli: formatter: get formatter', async (t) => {
     const exit = stub();
     
@@ -42,88 +40,10 @@ test('putout: cli: formatter: get formatter: options', async (t) => {
     t.end();
 });
 
-test('putout: cli: formatter: get reporter', async (t) => {
-    const formatter = stub();
-    const simpleImportDefault = stub().returns(formatter);
-    
-    mockRequire('./simple-import', {
-        simpleImportDefault,
-    });
-    
-    const {getReporter} = reRequire('./formatter');
-    
-    const result = await getReporter('xxx', stub());
-    
-    stopAll();
-    reRequire('./formatter');
-    
-    t.equal(result, formatter);
-    t.end();
-});
-
-test('putout: cli: formatter: calls', async (t) => {
-    const simpleImportDefault = stub()
-        .rejects(assign(Error('not found'), {
-            code: 'ERR_MODULE_NOT_FOUND',
-        }));
-    
-    mockRequire('./simple-import', {
-        simpleImportDefault,
-    });
-    
-    const {getReporter} = reRequire('./formatter');
-    
-    const exit = stub();
-    await getReporter('xxx', exit);
-    const expected = [
-        ['@putout/formatter-xxx'],
-        ['putout-formatter-xxx'],
-    ];
-    
-    stopAll();
-    reRequire('./formatter');
-    
-    t.deepEqual(simpleImportDefault.args, expected);
-    t.end();
-});
-
-test('putout: cli: formatter: second import', async (t) => {
-    let called = false;
-    
-    const simpleImportDefault = async () => {
-        if (!called) {
-            called = true;
-            const error = assign(Error('not found from test'), {
-                code: 'ERR_MODULE_NOT_FOUND',
-            });
-            
-            throw error;
-        }
-        
-        return 'found from test';
-    };
-    
-    mockRequire('./simple-import', {
-        simpleImportDefault,
-    });
-    
-    const {getReporter} = reRequire('./formatter');
-    
-    const exit = stub();
-    const result = await getReporter('xxx', exit);
-    const expected = 'found from test';
-    
-    stopAll();
-    reRequire('./formatter');
-    
-    t.deepEqual(result, expected);
-    t.end();
-});
-
 test('putout: cli: formatter: get reporter: exit: NO_FORMATTER', async (t) => {
     const exit = stub();
-    const {getReporter} = reRequire('./formatter');
-    await getReporter('xxx', exit);
+    const {getFormatter} = reRequire('./formatter');
+    await getFormatter('xxx', exit);
     
     const expected = [
         NO_FORMATTER,
@@ -139,14 +59,14 @@ test('putout: cli: formatter: get reporter: exit: NO_FORMATTER', async (t) => {
 
 test('putout: cli: formatter: get reporter: exit: CANNOT_LOAD_FORMATTER', async (t) => {
     const exit = stub();
-    const simpleImportDefault = stub().rejects(Error('Syntax error'));
+    const createAsyncLoader = stub().returns(stub().rejects(Error('@putout/formatter-xxx: Syntax error')));
     
-    mockRequire('./simple-import', {
-        simpleImportDefault,
+    mockRequire('@putout/engine-loader', {
+        createAsyncLoader,
     });
     
-    const {getReporter} = reRequire('./formatter');
-    await getReporter('xxx', exit);
+    const {getFormatter} = reRequire('./formatter');
+    await getFormatter('xxx', exit);
     
     const expected = [
         CANNOT_LOAD_FORMATTER,

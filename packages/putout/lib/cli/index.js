@@ -1,5 +1,7 @@
 'use strict';
 
+const tryToCatch = require('try-to-catch');
+
 const yargsParser = require('yargs-parser');
 const {isCI} = require('ci-info');
 const memo = require('nano-memoize');
@@ -213,7 +215,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     } = config;
     
     const [currentFormat, formatterOptions] = await getFormatter(format || formatter, exit);
-    const [error, processorRunners] = tryCatch(getProcessorRunners, processors);
+    const [error, processorRunners] = await tryToCatch(getProcessorRunners, processors);
     
     if (error)
         return exit(CANNOT_LOAD_PROCESSOR, error);
@@ -350,3 +352,4 @@ function addOnce(emitter, name, fn) {
     if (!emitter.listenerCount(name))
         emitter.on(name, fn);
 }
+
