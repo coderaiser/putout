@@ -1,5 +1,3 @@
-'use strict';
-
 const {stringify} = JSON;
 const rmLast = (a) => !a.endsWith('\n') ? a : a.slice(0, -1);
 
@@ -10,12 +8,12 @@ const parse = (a) => {
     return fn();
 };
 
-module.exports.files = [
+export const files = [
     '*ignore',
     '*rc',
 ];
 
-module.exports.branch = (rawSource) => {
+export const branch = (rawSource) => {
     const array = convertToArray(rawSource);
     const source = `${prefix}${array}${sufix}`;
     
@@ -26,7 +24,7 @@ module.exports.branch = (rawSource) => {
     }];
 };
 
-module.exports.merge = (rawSource, list) => {
+export const merge = (rawSource, list) => {
     const [source] = list;
     const length = source.length - sufix.length;
     const str = source.slice(prefix.length, length);
