@@ -1,7 +1,7 @@
 {
   "name": "@putout/processor-yaml",
   "version": "3.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout processor adds ability to parse yaml files and lint js snippets",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-yaml#readme",
@@ -24,8 +24,8 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/processor-json": "^3.0.0",
-    "just-kebab-case": "^3.0.0",
+    "@putout/processor-json": "^5.0.0",
+    "just-kebab-case": "^4.0.2",
     "try-catch": "^3.0.0",
     "yaml": "^1.10.2"
   },
@@ -46,11 +46,11 @@
     "putout": "*"
   },
   "peerDependencies": {
-    "putout": ">=20"
+    "putout": ">=26"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "publishConfig": {
     "access": "public"

@@ -1,20 +1,17 @@
-'use strict';
-
-const tryCatch = require('try-catch');
-const justKebabCase = require('just-kebab-case');
+import tryCatch from 'try-catch';
+import justKebabCase from 'just-kebab-case';
+import yaml from 'yaml';
+import * as jsonProcessor from '@putout/processor-json';
 
 const parseRule = (a) => justKebabCase(a.replace('YAML', 'Yaml'));
 const {stringify, parse} = JSON;
 
-module.exports.files = [
+export const files = [
     '*.yml',
     '*.yaml',
 ];
 
-module.exports.branch = (rawSource) => {
-    const yaml = require('yaml');
-    const jsonProcessor = require('@putout/processor-json');
-    
+export const branch = (rawSource) => {
     const list = [];
     const [error, value] = tryCatch(yaml.parse, rawSource);
     
@@ -32,9 +29,7 @@ module.exports.branch = (rawSource) => {
     return list;
 };
 
-module.exports.find = (rawSource) => {
-    const yaml = require('yaml');
-    
+export const find = (rawSource) => {
     const [error] = tryCatch(yaml.parse, rawSource);
     const places = parsePlaces({
         error,
@@ -44,9 +39,7 @@ module.exports.find = (rawSource) => {
     return places;
 };
 
-module.exports.merge = (rawSource, list) => {
-    const yaml = require('yaml');
-    const jsonProcessor = require('@putout/processor-json');
+export const merge = (rawSource, list) => {
     const source = jsonProcessor.merge(rawSource, list);
     
     return yaml.stringify(parse(source));
