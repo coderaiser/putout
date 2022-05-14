@@ -51,7 +51,7 @@
     "supertape": "^7.0.0"
   },
   "peerDependencies": {
-    "putout": ">=25"
+    "putout": ">=26"
   },
   "engines": {
     "node": ">=16"
