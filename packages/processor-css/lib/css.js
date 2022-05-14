@@ -1,30 +1,18 @@
 'use strict';
 
-const deepmerge = require('deepmerge');
+const stylelint = require('stylelint');
+const {cosmiconfig} = require('cosmiconfig');
+const {createConfigLoader} = require('./config-loader');
+
+const loadConfig = createConfigLoader({
+    cosmiconfig,
+});
 
 module.exports.files = [
     '*.css',
 ];
 
-const loadConfig = async () => {
-    const {cosmiconfig} = require('cosmiconfig');
-    const config = require('../stylelintrc');
-    
-    const explorer = cosmiconfig('stylelint');
-    const result = await explorer.search();
-    const newConfig = result?.config;
-    
-    if (!newConfig)
-        return config;
-    
-    return deepmerge.all([
-        config,
-        newConfig,
-    ]);
-};
-
 module.exports.find = async (code) => {
-    const stylelint = require('stylelint');
     const config = await loadConfig();
     const {results} = await stylelint.lint({
         code,

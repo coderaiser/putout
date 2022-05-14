@@ -45,7 +45,8 @@
     "madrun": "^9.0.0",
     "mock-require": "^3.0.3",
     "nodemon": "^2.0.1",
-    "putout": "*"
+    "putout": "*",
+    "supertape": "^7.2.3"
   },
   "peerDependencies": {
     "putout": ">=25"
