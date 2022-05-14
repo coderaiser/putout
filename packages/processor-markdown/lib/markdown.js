@@ -1,4 +1,7 @@
-import jsonProcessor from '@putout/processor-json';
+import {
+    toJS,
+    fromJS,
+} from '@putout/processor-json';
 import stringify from 'remark-stringify';
 import preset from 'remark-preset-lint-consistent';
 
@@ -112,7 +115,7 @@ const collect = ({list, visit}) => (node) => {
         }
         
         if (lang === 'json') {
-            const source = jsonProcessor.toJS(value);
+            const source = toJS(value);
             
             list.push({
                 startLine,
@@ -140,7 +143,7 @@ const apply = ({list, visit}) => (node) => {
         if (lang === 'json') {
             const code = list.shift();
             
-            node.value = jsonProcessor.fromJS(code);
+            node.value = fromJS(code);
         }
     });
 };
