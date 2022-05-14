@@ -1,8 +1,6 @@
-'use strict';
+import {createTest} from '@putout/test/processor';
 
-const {createTest} = require('@putout/test/processor');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     extension: 'css',
     processors: [
         'css',

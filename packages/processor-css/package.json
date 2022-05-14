@@ -1,7 +1,7 @@
 {
   "name": "@putout/processor-css",
   "version": "4.1.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout processor adds ability to parse css files",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-css#readme",
@@ -49,7 +49,7 @@
     "supertape": "^7.2.3"
   },
   "peerDependencies": {
-    "putout": ">=25"
+    "putout": ">=26"
   },
   "license": "MIT",
   "engines": {

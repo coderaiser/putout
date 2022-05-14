@@ -1,18 +1,16 @@
-'use strict';
-
-const stylelint = require('stylelint');
-const {cosmiconfig} = require('cosmiconfig');
-const {createConfigLoader} = require('./config-loader');
+import stylelint from 'stylelint';
+import {cosmiconfig} from 'cosmiconfig';
+import {createConfigLoader} from './config-loader.js';
 
 const loadConfig = createConfigLoader({
     cosmiconfig,
 });
 
-module.exports.files = [
+export const files = [
     '*.css',
 ];
 
-module.exports.find = async (code) => {
+export const find = async (code) => {
     const config = await loadConfig();
     const {results} = await stylelint.lint({
         code,
@@ -25,8 +23,7 @@ module.exports.find = async (code) => {
     return places;
 };
 
-module.exports.fix = async (code) => {
-    const stylelint = require('stylelint');
+export const fix = async (code) => {
     const config = await loadConfig();
     const {output} = await stylelint.lint({
         fix: true,

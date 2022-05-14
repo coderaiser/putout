@@ -1,8 +1,11 @@
-'use strict';
-
-const {test, stub} = require('supertape');
-const {createConfigLoader} = require('./config-loader');
-const defaultConfig = require('../stylelintrc');
+import {
+    test,
+    stub,
+} from 'supertape';
+import {
+    createConfigLoader,
+    defaultConfig,
+} from './config-loader.js';
 
 test('putout: processor: css: config-loader: no config found', async (t) => {
     const cosmiconfig = stub().returns({
