@@ -1,3 +1,21 @@
+2022.05.14, v26.1.2
+
+fix:
+- (@putout/processor-markdown) minimum 🐊Putout version
+
+
+feature:
+- (package) @putout/processor-yaml v4.0.0
+- (@putout/processor-yaml) convert to ESM
+- (package) @putout/processor-json v5.0.0
+- (package) @putout/processor-json v5.0.0
+- (@putout/processor-json) convert to ESM
+- (package) @putout/processor-ignore v3.0.0
+- (@putout/processor-ignore) convert to ESM
+- (package) @putout/processor-javascript v4.0.0
+- (@putout/processor-javascript) convert to ESM
+
+
 2022.05.13, v26.1.1
 
 fix:
