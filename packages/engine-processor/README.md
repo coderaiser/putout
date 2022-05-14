@@ -19,7 +19,7 @@ const {
 
 const processorRunners = await getProcessorRunners(processors);
 
-runProcessors({
+await runProcessors({
     name,
     process,
     options,
@@ -38,29 +38,30 @@ runProcessors({
 
 ## Processor Example
 
-Simplest possible processor example can look like this:
+Simplest possible processor example can be written in both
+**CommonJS** or **ESM** and look like this:
 
 ```js
-module.exports.files = [
+export const files = [
     '*.js',
 ];
 
-module.exports.find = (source) => {
+export const find = (source) => {
     return places;
 };
 
-module.exports.fix = (source) => {
+export const fix = (source) => {
     return `modified ${source}`;
 };
 
-module.exports.branch = (source) => {
+export const branch = (source) => {
     return [{
         source,
         startLine: 0,
     }];
 };
 
-module.exports.merge = (source, list) => {
+export const merge = (source, list) => {
     return list[0];
 };
 ```
