@@ -338,9 +338,9 @@ With `processors api` you can test `processors` in a simplest possible way.
 First things first, init `test` with:
 
 ```js
-const {createTest} = require('@putout/test/processor');
+import {createTest} from '@putout/test/processor';
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     extension: 'json',
     processors: [
         'json',
