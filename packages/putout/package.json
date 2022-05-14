@@ -170,7 +170,7 @@
     "@putout/plugin-typescript": "^2.0.0",
     "@putout/plugin-webpack": "^1.0.0",
     "@putout/processor-css": "^4.0.0",
-    "@putout/processor-ignore": "^2.0.0",
+    "@putout/processor-ignore": "^3.0.0",
     "@putout/processor-javascript": "^4.0.0",
     "@putout/processor-json": "^3.0.0",
     "@putout/processor-markdown": "^7.0.0",
