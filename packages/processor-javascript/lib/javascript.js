@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.files = [
+export const files = [
     '*.js',
     '*.mjs',
     '*.cjs',
@@ -9,10 +7,10 @@ module.exports.files = [
     '*.tsx',
 ];
 
-module.exports.branch = (source) => [{
+export const branch = (source) => [{
     source,
     startLine: 0,
 }];
 
-module.exports.merge = (source, list) => list[0];
+export const merge = (source, list) => list[0];
 
