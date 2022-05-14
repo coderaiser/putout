@@ -1,16 +1,7 @@
 import {lintRule} from 'unified-lint-rule';
-import removeDependenciesStatusBadge from './remove-dependencies-status-badge.mjs';
-import removeTrailingWhitespacesFromHeading from './remove-trailing-whitespaces-from-heading.mjs';
-import mergeHeadingSpceces from './merge-heading-spaces.mjs';
-
-const plugins = [
-    removeDependenciesStatusBadge,
-    removeTrailingWhitespacesFromHeading,
-    mergeHeadingSpceces,
-];
 
 export const run = lintRule('remark-lint:run', (tree, file, options) => {
-    for (const {fix, traverse, report, name} of plugins) {
+    for (const {fix, traverse, report, name} of options.plugins) {
         const nodes = [];
         const push = nodes.push.bind(nodes);
         
@@ -29,8 +20,4 @@ export const run = lintRule('remark-lint:run', (tree, file, options) => {
         }
     }
 });
-
-export const rules = {
-    plugins,
-};
 

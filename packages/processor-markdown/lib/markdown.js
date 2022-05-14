@@ -5,7 +5,17 @@ import {
 import stringify from 'remark-stringify';
 import preset from 'remark-preset-lint-consistent';
 
-import {run} from './rules/index.mjs';
+import removeDependenciesStatusBadge from './rules/remove-dependencies-status-badge.js';
+import removeTrailingWhitespacesFromHeading from './rules/remove-trailing-whitespaces-from-heading.js';
+import mergeHeadingSpceces from './rules/merge-heading-spaces.js';
+
+const plugins = [
+    removeDependenciesStatusBadge,
+    removeTrailingWhitespacesFromHeading,
+    mergeHeadingSpceces,
+];
+
+import {run} from './rules/index.js';
 import {visit} from 'unist-util-visit';
 import {unified} from 'unified';
 
@@ -35,7 +45,7 @@ export const find = async (rawSource) => {
     const {messages} = await unified()
         .use(parseStore)
         .use(preset)
-        .use(run, {fix: false})
+        .use(run, {plugins, fix: false})
         .use(stringify, stringifyOptions)
         .process(rawSource);
     
@@ -49,7 +59,7 @@ export const fix = async (rawSource) => {
     const {value} = await unified()
         .use(parseStore)
         .use(preset)
-        .use(run, {fix: true})
+        .use(run, {plugins, fix: true})
         .use(stringify, stringifyOptions)
         .process(rawSource);
     
