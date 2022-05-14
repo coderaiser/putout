@@ -5,7 +5,7 @@ const test = require('supertape');
 const {loadProcessorsAsync} = require('..');
 
 test('putout: engine-loader: load processors', async (t) => {
-    const processorJavascript = require('@putout/processor-javascript');
+    const processorJavascript = await import('@putout/processor-javascript');
     
     const list = await loadProcessorsAsync({
         processors: [
