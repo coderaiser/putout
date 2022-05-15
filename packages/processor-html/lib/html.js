@@ -1,17 +1,15 @@
-'use strict';
-
-const processorCSS = require('@putout/processor-css');
+import processorCSS from '@putout/processor-css';
 
 const createSpaceLine = (a) => Array(a).join(' ');
 const addSpaces = (spacesCount) => (a) => createSpaceLine(spacesCount) + a;
 const cutSpaces = (spacesCount) => (a) => a.slice(spacesCount);
 
-module.exports.files = [
+export const files = [
     '*.html',
 ];
 
-module.exports.fix = async (rawSource) => {
-    const svelte = require('svelte/compiler');
+export const fix = async (rawSource) => {
+    const svelte = await import('svelte/compiler');
     
     const {code} = await svelte.preprocess(rawSource, {
         async style({content}) {
@@ -37,8 +35,8 @@ module.exports.fix = async (rawSource) => {
     return code;
 };
 
-module.exports.find = async (rawSource) => {
-    const svelte = require('svelte/compiler');
+export const find = async (rawSource) => {
+    const svelte = await import('svelte/compiler');
     const allPlaces = [];
     
     await svelte.preprocess(rawSource, {
@@ -79,9 +77,9 @@ module.exports.find = async (rawSource) => {
     return allPlaces;
 };
 
-module.exports.branch = async (rawSource) => {
+export const branch = async (rawSource) => {
     const list = [];
-    const svelte = require('svelte/compiler');
+    const svelte = await import('svelte/compiler');
     
     await svelte.preprocess(rawSource, {
         async script({content}) {
@@ -108,8 +106,8 @@ module.exports.branch = async (rawSource) => {
     return list;
 };
 
-module.exports.merge = async (rawSource, list) => {
-    const svelte = require('svelte/compiler');
+export const merge = async (rawSource, list) => {
+    const svelte = await import('svelte/compiler');
     
     const {code} = await svelte.preprocess(rawSource, {
         script({content}) {
