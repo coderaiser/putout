@@ -115,7 +115,6 @@ npm i @putout/plugin-eslint -D
 
 `node/no-missing-require` has no sense when `type=module` in `package.json`.
 
-
 ```diff
 {
     "overrides": [{
