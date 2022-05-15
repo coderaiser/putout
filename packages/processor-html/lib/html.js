@@ -1,4 +1,4 @@
-import processorCSS from '@putout/processor-css';
+import * as processorCSS from '@putout/processor-css';
 
 const createSpaceLine = (a) => Array(a).join(' ');
 const addSpaces = (spacesCount) => (a) => createSpaceLine(spacesCount) + a;
