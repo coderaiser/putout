@@ -1,12 +1,10 @@
-'use strict';
-
-module.exports.files = [
+export const files = [
     '*.ts',
     '*.tsx',
 ];
 
-module.exports.find = (rawSource) => {
-    const {Project} = require('ts-morph');
+export const find = async (rawSource) => {
+    const {Project} = await import('ts-morph');
     const project = new Project();
     
     const sourceFile = project.createSourceFile('__putout_processor_typescript.ts', rawSource);
