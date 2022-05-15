@@ -63,7 +63,8 @@
             ".browserlistrc": "on"
         },
         ".eslintrc.json": {
-            "eslint": "on"
+            "eslint": "on",
+            "eslint/convert-require-to-import": "off"
         },
         "package.json": {
             "package-json": "on"

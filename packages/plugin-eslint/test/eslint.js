@@ -27,3 +27,8 @@ test('putout: plugin-eslint: transform: apply-safe-align', (t) => {
     t.end();
 });
 
+test('putout: plugin-eslint: transform: convert-require-to-import', (t) => {
+    t.transform('convert-require-to-import');
+    t.end();
+});
+

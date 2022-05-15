@@ -17,6 +17,10 @@ test('putout: parse-options: apply module type rules: module', (t) => {
             '*.js': {
                 'convert-commonjs-to-esm': 'on',
             },
+            '.eslintrc.json': {
+                'eslint': 'on',
+                'eslint/convert-require-to-import': 'on',
+            },
         },
     };
     
@@ -38,6 +42,10 @@ test('putout: parse-options: apply module type rules: commonjs', (t) => {
             '*.js': {
                 'convert-esm-to-commonjs': 'on',
             },
+            '.eslintrc.json': {
+                'eslint': 'on',
+                'eslint/convert-require-to-import': 'off',
+            },
         },
     };
     
@@ -55,6 +63,10 @@ test('putout: parse-options: apply module type rules: no type', (t) => {
         match: {
             '*.js': {
                 'convert-esm-to-commonjs': 'on',
+            },
+            '.eslintrc.json': {
+                'eslint': 'on',
+                'eslint/convert-require-to-import': 'off',
             },
         },
     };
@@ -80,6 +92,10 @@ test('putout: parse-options: apply module type rules: match exists', (t) => {
             '*.js': {
                 'convert-esm-to-commonjs': 'on',
                 'remove-unused-variables': 'off',
+            },
+            '.eslintrc.json': {
+                'eslint': 'on',
+                'eslint/convert-require-to-import': 'off',
             },
         },
     };

@@ -8,5 +8,6 @@ module.exports.rules = {
     ...getRule('apply-safe-align'),
     ...getRule('move-putout-to-end-of-extends'),
     ...getRule('convert-ide-to-safe'),
+    ...getRule('convert-require-to-import'),
 };
 

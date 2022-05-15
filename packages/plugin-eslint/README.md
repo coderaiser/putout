@@ -22,7 +22,8 @@ npm i @putout/plugin-eslint -D
     "rules": {
         "eslint/apply-safe-align": "on",
         "eslint/move-putout-to-end-of-extends": "on",
-        "eslint/convert-ide-to-safe": "on"
+        "eslint/convert-ide-to-safe": "on",
+        "eslint/convert-require-to-import": "on"
     }
 }
 ```
@@ -108,6 +109,31 @@ npm i @putout/plugin-eslint -D
         "node"
     ]
 }
+```
+
+## convert-require-to-import
+
+`node/no-missing-require` has no sence when `type=module` in `package.json`.
+
+
+```diff
+{
+    "overrides": [{
+        "files": "test/*.js",
+        "rules": {
+-           "node/no-missing-require": "off"
++           "node/no-missing-import": "off"
+        }
+    }],
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:putout/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ]
+};
 ```
 
 ## License

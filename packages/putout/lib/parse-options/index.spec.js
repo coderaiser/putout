@@ -840,6 +840,10 @@ test('putout: parseOptions: readOptions: package.json', (t) => {
             '*.js': {
                 'convert-esm-to-commonjs': 'on',
             },
+            '.eslintrc.json': {
+                'eslint': 'on',
+                'eslint/convert-require-to-import': 'off',
+            },
             '*.spec.js': {
                 'remove-only': 'on',
             },
@@ -886,6 +890,10 @@ test('putout: parseOptions: readOptions: no options but package.json', (t) => {
         match: {
             '*.js': {
                 'convert-commonjs-to-esm': 'on',
+            },
+            '.eslintrc.json': {
+                'eslint': 'on',
+                'eslint/convert-require-to-import': 'on',
             },
         },
         rules: {
