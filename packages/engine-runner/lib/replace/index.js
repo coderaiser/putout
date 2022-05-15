@@ -1,7 +1,5 @@
 'use strict';
 
-const isString = (a) => typeof a === 'string';
-
 const {template} = require('@putout/engine-parser');
 const {
     remove,
@@ -17,6 +15,9 @@ const debug = require('debug')('putout:runner:replace');
 
 const maybeArray = require('../maybe-array');
 const watermark = require('./watermark');
+
+const isUndefined = (a) => typeof a === 'undefined';
+const isString = (a) => typeof a === 'string';
 
 const log = (from, path) => {
     debug.enabled && debug(`${from} -> ${path}\n`);
@@ -145,6 +146,8 @@ const getFilter = (match = stubMatch, options) => (path) => {
 function parseTo(to, values, path) {
     const toStr = isFn(to) ? to(values, path) : to;
     
+    validateToStr(toStr);
+    
     if (!toStr)
         return null;
     
@@ -160,6 +163,11 @@ function parseTo(to, values, path) {
 function validateMatchProperty(match) {
     if (!isFn(match))
         throw Error(`☝️ Looks like 'match' property value is not a 'function', but '${typeof match}' with value '${match}'.`);
+}
+
+function validateToStr(value) {
+    if (isUndefined(value))
+        throw Error(`☝️ Looks like 'to' node value has type 'undefined', most likely 'return' value is missing. More on using Replacer https://git.io/JqcMn`);
 }
 
 const validateTemplateValues = (a, b) => {

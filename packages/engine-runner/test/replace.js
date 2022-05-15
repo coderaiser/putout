@@ -636,3 +636,27 @@ test('putout: runner: replace: return nothing', (t) => {
     t.notOk(error);
     t.end();
 });
+
+test('putout: runner: plugins: traverse: throw : no fix', (t) => {
+    const noFix = {
+        report: () => '',
+        replace: () => ({
+            '__putout_processor_json'() {
+            },
+        }),
+    };
+    
+    const source = '__putout_processor_json({})';
+    
+    const [error] = tryCatch(putout, source, {
+        fixCount: 1,
+        runPlugins,
+        plugins: [
+            ['no-fix', noFix],
+        ],
+    });
+    
+    t.equal(error.message, `☝️ Looks like 'to' node value has type 'undefined', most likely 'return' value is missing. More on using Replacer https://git.io/JqcMn`);
+    t.end();
+});
+
