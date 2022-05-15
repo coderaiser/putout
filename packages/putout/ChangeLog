@@ -1,3 +1,12 @@
+2022.05.15, v26.2.0
+
+feature:
+- (@putout/processor-typescript) convert to ESM
+- (package) @putout/plugin-eslint v3.0.0
+- (@putout/eslint-plugin-putout) drop support of 🐊 < 26
+- (@putout/plugin-eslint) add convert-require-to-import
+
+
 2022.05.14, v26.1.3
 
 feature:
