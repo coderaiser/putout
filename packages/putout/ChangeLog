@@ -1,7 +1,7 @@
 2022.05.16, v26.2.1
 
 feature:
-- (putout) parse-optios: apply-module-type-rules: simplify
+- (putout) parse-options: apply-module-type-rules: simplify
 - (package) @putout/processor-css v5.0.0
 - (@putout/processor-html) convert to ESM
 
