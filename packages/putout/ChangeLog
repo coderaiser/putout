@@ -1,3 +1,13 @@
+2022.05.17, v26.3.0
+
+feature:
+- (@putout/engine-loader) add ability to pass loader
+- (@putout/engine-processor) add ability to pass load
+- (@putout/engine-loader) add support of load
+- (putout) cli: formatter: add support of load
+- (putout) worker: add ability to pass load to getProcessors
+
+
 2022.05.16, v26.2.1
 
 feature:
