@@ -84,6 +84,11 @@ const {loadProcessor} = createAsyncLoader('processor');
 
 await loadProcessors('markdown');
 // loads @putout/processor-markdown
+
+await loadProcess('json', () => {
+    return Promise.resolve(`will be called instead of 'import'`);
+});
+// loads @putout/processor-json using custom loader
 ```
 
 ## License

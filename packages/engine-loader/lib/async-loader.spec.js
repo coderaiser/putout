@@ -20,13 +20,13 @@ test('putout: loader: async-loader: none', async (t) => {
 });
 
 test('putout: loader: async-loader: calls', async (t) => {
-    const simpleImportDefault = stub()
+    const simpleImport = stub()
         .rejects(assign(Error('not found'), {
             code: 'ERR_MODULE_NOT_FOUND',
         }));
     
     mockRequire('./simple-import', {
-        simpleImportDefault,
+        simpleImport,
     });
     
     const {createAsyncLoader} = reRequire('./async-loader');
@@ -41,18 +41,18 @@ test('putout: loader: async-loader: calls', async (t) => {
     stopAll();
     reRequire('./async-loader');
     
-    t.deepEqual(simpleImportDefault.args, expected);
+    t.deepEqual(simpleImport.args, expected);
     t.end();
 });
 
 test('putout: loader: async-loader: rejects', async (t) => {
-    const simpleImportDefault = stub()
+    const simpleImport = stub()
         .rejects(assign(Error('not found'), {
             code: 'Syntax Error',
         }));
     
     mockRequire('./simple-import', {
-        simpleImportDefault,
+        simpleImport,
     });
     
     const {createAsyncLoader} = reRequire('./async-loader');
@@ -65,5 +65,20 @@ test('putout: loader: async-loader: rejects', async (t) => {
     reRequire('./async-loader');
     
     t.deepEqual(error, expected);
+    t.end();
+});
+
+test('putout: loader: async-loader: calls load', async (t) => {
+    const load = stub().rejects(Error('LOAD USED'));
+    
+    const {createAsyncLoader} = reRequire('./async-loader');
+    const loadAsync = createAsyncLoader('formatter');
+    
+    const [error] = await tryToCatch(loadAsync, 'xxx', load);
+    
+    stopAll();
+    reRequire('./async-loader');
+    
+    t.deepEqual(error, Error('@putout/formatter-xxx: LOAD USED'));
     t.end();
 });
