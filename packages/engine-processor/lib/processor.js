@@ -24,12 +24,12 @@ module.exports.getFilePatterns = (processors) => {
     return result;
 };
 
-module.exports.runProcessors = async ({name, fix, processFile, options, rawSource, processorRunners}) => {
+module.exports.runProcessors = async ({name, fix, processFile, options, rawSource, processorRunners, load}) => {
     const {
         processors = defaultProcessors,
     } = options;
     
-    processorRunners = processorRunners || await getProcessorRunners(processors);
+    processorRunners = processorRunners || await getProcessorRunners(processors, load);
     
     let processedSource = '';
     let processedPlaces = [];
@@ -146,10 +146,10 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
 }
 
 module.exports.getProcessorRunners = getProcessorRunners;
-async function getProcessorRunners(processors) {
+async function getProcessorRunners(processors, load) {
     const readyProcessors = await loadProcessorsAsync({
         processors,
-    });
+    }, load);
     
     return readyProcessors.map(addGlobs);
 }

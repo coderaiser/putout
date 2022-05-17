@@ -1,5 +1,7 @@
 'use strict';
 
+const tryToCatch = require('try-to-catch');
+
 const {readFile} = require('fs/promises');
 const {join} = require('path');
 
@@ -52,6 +54,29 @@ test('putout: engine-processor: javascript', async (t) => {
     };
     
     t.calledWith(processFile, [expected], 'should not process');
+    t.end();
+});
+
+test('putout: engine-processor: javascript: load', async (t) => {
+    const name = 'hello.js';
+    const options = {};
+    const rawSource = `const a = 'hello'`;
+    const processFile = stub().returns({
+        source: rawSource,
+        places: [],
+    });
+    
+    const load = stub().rejects('ERROR LOAD');
+    
+    const [error] = await tryToCatch(runProcessors, {
+        name,
+        processFile,
+        options,
+        rawSource,
+        load,
+    });
+    
+    t.equal(error, 'ERROR LOAD');
     t.end();
 });
 

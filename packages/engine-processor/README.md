@@ -19,6 +19,9 @@ const {
 
 const processorRunners = await getProcessorRunners(processors);
 
+const optionalLoader = async (a) => await import(a);
+await getProcessorRunners(processors, optionalLoader);
+
 await runProcessors({
     name,
     process,
@@ -27,6 +30,7 @@ await runProcessors({
     index,
     length,
     processorRunners, // optional
+    load, // when you need to override 'import()'
 });
 // returns
 ({
