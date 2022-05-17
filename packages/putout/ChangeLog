@@ -1,3 +1,9 @@
+2022.05.17, v26.3.1
+
+feature:
+- (putout) add ability to override import of processors for yarn pnp
+
+
 2022.05.17, v26.3.0
 
 feature:
