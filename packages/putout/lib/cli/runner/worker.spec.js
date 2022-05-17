@@ -6,7 +6,7 @@ const test = require('supertape');
 const {join} = require('path');
 const stub = require('@cloudcmd/stub');
 
-const {simpleImportDefault} = require('../simple-import');
+const {simpleImport} = require('../simple-import');
 
 const {
     reRequire,
@@ -18,7 +18,7 @@ test('putout: cli: runner: processor throw: raw', async (t) => {
     const throwProcessor = require('./fixture/processor-throw');
     
     mockRequire('../get-options', stub().returns({
-        formatter: await simpleImportDefault('@putout/formatter-json'),
+        formatter: await simpleImport('@putout/formatter-json'),
         dir: '.',
         processors: [
             ['throw-processor', throwProcessor],
@@ -44,6 +44,39 @@ test('putout: cli: runner: processor throw: raw', async (t) => {
     }]];
     
     t.deepEqual(rawPlaces, expected);
+    t.end();
+});
+
+test('putout: cli: runner: processor: load', async (t) => {
+    const name = join(__dirname, 'fixture/processor.throw');
+    const processor = await import('@putout/processor-javascript');
+    
+    mockRequire('../get-options', stub().returns({
+        formatter: await simpleImport('@putout/formatter-json'),
+        dir: '.',
+        processors: [
+            ['processor-javascript', processor],
+        ],
+    }));
+    
+    const runProcessors = stub().resolves([Error('test')]);
+    
+    mockRequire('@putout/engine-processor', {
+        runProcessors,
+    });
+    
+    await runWorker({
+        names: [name],
+        currentFormat: 'json-lines',
+        formatterOptions: {},
+        processorRunners: [processor],
+    });
+    
+    stopAll();
+    
+    const [args] = runProcessors.args[0];
+    
+    t.equal(args.load, simpleImport);
     t.end();
 });
 

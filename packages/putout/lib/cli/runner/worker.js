@@ -12,6 +12,7 @@ const {runProcessors} = require('@putout/engine-processor');
 
 const parseError = require('../parse-error.js');
 const getOptions = require('../get-options.js');
+const {simpleImport} = require('../simple-import');
 const {
     INVALID_CONFIG,
     NO_PROCESSORS,
@@ -92,6 +93,7 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
             options,
             rawSource,
             processorRunners,
+            load: simpleImport,
         });
         
         if (error) {
