@@ -38,7 +38,7 @@ const mergeRules = ([rule, plugin], rules) => {
     };
 };
 
-module.exports.loadProcessorsAsync = memo(async (options) => {
+module.exports.loadProcessorsAsync = memo(async (options, load) => {
     check(options);
     
     const {
@@ -56,7 +56,7 @@ module.exports.loadProcessorsAsync = memo(async (options) => {
             continue;
         }
         
-        list.push(loadProcessor(name));
+        list.push(loadProcessor(name, load));
     }
     
     return await Promise.all(list);

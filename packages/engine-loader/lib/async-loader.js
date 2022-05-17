@@ -20,6 +20,7 @@ module.exports.createAsyncLoader = (type) => async (name, load) => {
     
     return reporter;
 };
+
 async function cleverLoad(names, load = simpleImport) {
     let e;
     let reporter;

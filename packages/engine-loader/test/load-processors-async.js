@@ -1,6 +1,7 @@
 'use strict';
 
-const test = require('supertape');
+const {test, stub} = require('supertape');
+const tryToCatch = require('try-to-catch');
 
 const {loadProcessorsAsync} = require('..');
 
@@ -76,6 +77,18 @@ test('putout: engine-loader: load processors: on', async (t) => {
     ];
     
     t.deepEqual(list, expected);
+    t.end();
+});
+
+test('putout: engine-loader: load processors: load', async (t) => {
+    const load = stub().rejects(Error('LOAD USED'));
+    const [error] = await tryToCatch(loadProcessorsAsync, {
+        processors: [
+            'markdown',
+        ],
+    }, load);
+    
+    t.deepEqual(error, Error('@putout/processor-markdown: LOAD USED'));
     t.end();
 });
 
