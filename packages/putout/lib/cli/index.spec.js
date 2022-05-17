@@ -339,6 +339,27 @@ test('putout: cli: ide: web storm', async (t) => {
     mockRequire('./get-files', getFiles);
     mockRequire('@putout/cli-cache', {createCache});
     
+    const simpleImport = async (url) => {
+        /*
+        if (url.includes('ruler'))
+            return {
+                ruler,
+            };
+            */
+        
+        if (url === 'chalk')
+            return {
+                red: stub(),
+            };
+        
+        if (url.includes('processor'))
+            return await import(url);
+    };
+    
+    mockRequire('./simple-import.js', {
+        simpleImport,
+    });
+    
     reRequire('./runner/worker.js');
     reRequire('./runner/runner.js');
     const cli = reRequire('.');
@@ -883,9 +904,20 @@ test('putout: cli: ruler: --enable', async (t) => {
         'convert-index-of-to-includes',
     ];
     
-    const simpleImport = stub().returns({
-        ruler,
-    });
+    const simpleImport = async (url) => {
+        if (url.includes('ruler'))
+            return {
+                ruler,
+            };
+        
+        if (url === 'chalk')
+            return {
+                red: stub(),
+            };
+        
+        if (url.includes('processor'))
+            return await import(url);
+    };
     
     mockRequire('./simple-import', {
         simpleImport,
@@ -922,7 +954,20 @@ test('putout: cli: ruler: --enable-all', async (t) => {
         __filename,
     ];
     
-    const simpleImport = stub().returns({ruler});
+    const simpleImport = async (url) => {
+        if (url.includes('ruler'))
+            return {
+                ruler,
+            };
+        
+        if (url === 'chalk')
+            return {
+                red: stub(),
+            };
+        
+        if (url.includes('processor'))
+            return await import(url);
+    };
     
     mockRequire('./simple-import', {
         simpleImport,
@@ -952,13 +997,25 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
     const rulerError = Error('should call ruler with await');
     const ruler = stub().rejects(rulerError);
     
-    const simpleImport = stub().returns({
-        ruler,
-    });
+    const simpleImport = async (url) => {
+        if (url.includes('ruler'))
+            return {
+                ruler,
+            };
+        
+        if (url === 'chalk')
+            return {
+                red: stub(),
+            };
+        
+        if (url.includes('processor'))
+            return await import(url);
+    };
     
     mockRequire('./simple-import', {
         simpleImport,
     });
+    
     const cli = reRequire('.');
     
     const [error] = await tryToCatch(runCli, {

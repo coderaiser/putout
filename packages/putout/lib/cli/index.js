@@ -212,7 +212,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     } = config;
     
     const [currentFormat, formatterOptions] = await getFormatter(format || formatter, exit);
-    const [error, processorRunners] = await tryToCatch(getProcessorRunners, processors);
+    const [error, processorRunners] = await tryToCatch(getProcessorRunners, processors, simpleImport);
     
     if (error)
         return exit(CANNOT_LOAD_PROCESSOR, error);
