@@ -80,3 +80,26 @@ test('putout: cli: formatter: get reporter: exit: CANNOT_LOAD_FORMATTER', async 
     t.end();
 });
 
+test('putout: cli: formatter: get reporter: pass load', async (t) => {
+    const exit = stub();
+    const simpleImport = stub().rejects(Error('simple import'));
+    
+    mockRequire('./simple-import', {
+        simpleImport,
+    });
+    
+    const {getFormatter} = reRequire('./formatter');
+    await getFormatter('xxx', exit);
+    
+    const expected = [
+        CANNOT_LOAD_FORMATTER,
+        Error(`@putout/formatter-xxx: simple import`),
+    ];
+    
+    stopAll();
+    reRequire('./formatter');
+    
+    t.calledWith(exit, expected, 'should call exit');
+    t.end();
+});
+

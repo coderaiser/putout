@@ -11,10 +11,7 @@ const fullstore = require('fullstore');
 
 const keyPress = require('@putout/cli-keypress');
 const {version} = require('../../package.json');
-const {
-    simpleImport,
-    simpleImportDefault,
-} = require('./simple-import');
+const {simpleImport} = require('./simple-import');
 const {run} = require('./runner/runner.js');
 
 const {
@@ -144,7 +141,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         plugins,
     } = args;
     
-    const {red} = await simpleImportDefault('chalk');
+    const {red} = await simpleImport('chalk');
     const exit = getExit({
         red,
         raw,

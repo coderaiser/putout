@@ -3,7 +3,7 @@
 const montag = require('montag');
 const test = require('supertape');
 const stub = require('@cloudcmd/stub');
-const {simpleImportDefault} = require('./simple-import');
+const {simpleImport} = require('./simple-import');
 
 const {initReport} = require('../putout');
 
@@ -53,7 +53,7 @@ test('putout: report: dump', async (t) => {
         rule,
     }];
     
-    const formatter = await simpleImportDefault('@putout/formatter-dump');
+    const formatter = await simpleImport('@putout/formatter-dump');
     
     const report = initReport();
     const formatted = await report(formatter, {
@@ -61,7 +61,7 @@ test('putout: report: dump', async (t) => {
         places,
     });
     
-    const stripAnsi = await simpleImportDefault('strip-ansi');
+    const stripAnsi = await simpleImport('strip-ansi');
     const result = stripAnsi(formatted);
     
     const expected = montag`

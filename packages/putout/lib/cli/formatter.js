@@ -2,6 +2,7 @@
 
 const tryToCatch = require('try-to-catch');
 const {createAsyncLoader} = require('@putout/engine-loader');
+const {simpleImport} = require('./simple-import');
 
 const {
     NO_FORMATTER,
@@ -15,7 +16,7 @@ module.exports.getFormatter = async (formatterOptional, exit) => {
     const [formatterName, formatterOptions] = maybeArray(formatterOptional);
     const loadFormatter = createAsyncLoader('formatter');
     
-    const [error, formatter] = await tryToCatch(loadFormatter, formatterName, exit);
+    const [error, formatter] = await tryToCatch(loadFormatter, formatterName, simpleImport);
     
     if (formatter)
         return [formatter, formatterOptions];

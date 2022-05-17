@@ -13,7 +13,7 @@ const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
 const tryCatch = require('try-catch');
 const tryToCatch = require('try-to-catch');
-const {simpleImportDefault} = require('./simple-import');
+const {simpleImport} = require('./simple-import');
 
 const _cli = require('.');
 const {version} = require('../../package');
@@ -863,7 +863,7 @@ test('putout: cli: --staged --fix', async (t) => {
     const [allArgCalls] = logError.args;
     const [arg] = allArgCalls;
     
-    const stripAnsi = await simpleImportDefault('strip-ansi');
+    const stripAnsi = await simpleImport('strip-ansi');
     const output = stripAnsi(arg);
     const message = `🐊 No files matching the pattern './xxx.js' were found`;
     
@@ -887,13 +887,8 @@ test('putout: cli: ruler: --enable', async (t) => {
         ruler,
     });
     
-    const simpleImportDefault = stub().returns({
-        red: stub(),
-    });
-    
     mockRequire('./simple-import', {
         simpleImport,
-        simpleImportDefault,
     });
     
     const cli = reRequire('.');
@@ -928,11 +923,10 @@ test('putout: cli: ruler: --enable-all', async (t) => {
     ];
     
     const simpleImport = stub().returns({ruler});
-    const simpleImportDefault = stub().returns({
-        red: stub(),
-    });
     
-    mockRequire('./simple-import', {simpleImport, simpleImportDefault});
+    mockRequire('./simple-import', {
+        simpleImport,
+    });
     
     const cli = reRequire('.');
     await runCli({
@@ -958,15 +952,13 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
     const rulerError = Error('should call ruler with await');
     const ruler = stub().rejects(rulerError);
     
-    const simpleImportDefault = stub().returns({
-        red: stub(),
-    });
-    
     const simpleImport = stub().returns({
         ruler,
     });
     
-    mockRequire('./simple-import', {simpleImport, simpleImportDefault});
+    mockRequire('./simple-import', {
+        simpleImport,
+    });
     const cli = reRequire('.');
     
     const [error] = await tryToCatch(runCli, {
@@ -997,7 +989,7 @@ test('putout: cli: ruler processor: --enable-all: no path', async (t) => {
     
     stopAll();
     
-    const {red} = await simpleImportDefault('chalk');
+    const {red} = await simpleImport('chalk');
     const expected = red('🐊 `path` is missing for ruler toggler (`--enable-all`, `--disable-all`)');
     
     t.calledWith(logError, [expected]);
@@ -1073,7 +1065,7 @@ test('putout: cli: ruler processor: --enable --fix: log', async (t) => {
     
     stopAll();
     
-    const {red} = await simpleImportDefault('chalk');
+    const {red} = await simpleImport('chalk');
     const expected = red(`🐊 '--fix' cannot be used with ruler toggler ('--enable', '--disable')`);
     
     t.calledWith(logError, [expected]);
@@ -1769,7 +1761,7 @@ test('putout: cli: invalid option: message', async (t) => {
     
     stopAll();
     
-    const {red} = await simpleImportDefault('chalk');
+    const {red} = await simpleImport('chalk');
     const expected = red('🐊 Invalid option `--hello-world`. Perhaps you meant `--help`');
     
     t.calledWith(logError, [expected], 'should show message about invalid option');
@@ -1792,7 +1784,7 @@ test('putout: cli: invalid option: message: one char', async (t) => {
     
     stopAll();
     
-    const {red} = await simpleImportDefault('chalk');
+    const {red} = await simpleImport('chalk');
     const expected = red(`🐊 Invalid option '-z'`);
     
     t.calledWith(logError, [expected], 'should show message about invalid option');
@@ -1849,7 +1841,7 @@ test('putout: cli: cannot load processor: not found', async (t) => {
     
     stopAll();
     
-    const {red} = await simpleImportDefault('chalk');
+    const {red} = await simpleImport('chalk');
     const expected = red(`🐊 Processor "putout-processor-hello" could not be found!`);
     
     t.calledWith(logError, [expected], 'should show message about invalid option');
@@ -1883,7 +1875,7 @@ test('putout: processor throw', async (t) => {
     ];
     
     const getOptions = stub().returns({
-        formatter: await simpleImportDefault('@putout/formatter-json'),
+        formatter: await simpleImport('@putout/formatter-json'),
         dir: '.',
         processors: [
             ['throw-processor', throwProcessor],
@@ -1929,7 +1921,7 @@ test('putout: processor throw: raw', async (t) => {
     ];
     
     const getOptions = stub().returns({
-        formatter: await simpleImportDefault('@putout/formatter-json'),
+        formatter: await simpleImport('@putout/formatter-json'),
         dir: '.',
         processors: [
             ['throw-processor', throwProcessor],
@@ -2043,7 +2035,7 @@ test('putout: processor: invalid config: message', async (t) => {
     const [allArgCalls] = logError.args;
     const [arg] = allArgCalls;
     
-    const stripAnsi = await simpleImportDefault('strip-ansi');
+    const stripAnsi = await simpleImport('strip-ansi');
     const result = stripAnsi(arg);
     const expected = '🐊 .putout.json: exclude: must NOT have additional properties';
     
