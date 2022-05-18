@@ -145,6 +145,7 @@
         "remove-unused-for-of-variables",
         "remove-unused-private-fields",
         "remove-unused-expressions",
+        "remove-useless-assign",
         "remove-useless-variables",
         "remove-useless-else",
         "remove-useless-map",
