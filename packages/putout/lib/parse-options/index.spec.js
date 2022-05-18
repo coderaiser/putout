@@ -6,8 +6,10 @@ const fs = require('fs');
 const os = require('os');
 const {join} = require('path');
 
-const test = require('supertape');
-const stub = require('@cloudcmd/stub');
+const {
+    test,
+    stub,
+} = require('supertape');
 const mockRequire = require('mock-require');
 
 const {reRequire, stopAll} = mockRequire;

@@ -8,8 +8,10 @@ const {join, basename} = require('path');
 const {readFile} = require('fs/promises');
 const {EventEmitter} = require('events');
 
-const test = require('supertape');
-const stub = require('@cloudcmd/stub');
+const {
+    test,
+    stub,
+} = require('supertape');
 const mockRequire = require('mock-require');
 const tryCatch = require('try-catch');
 const tryToCatch = require('try-to-catch');

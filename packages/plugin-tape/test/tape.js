@@ -176,3 +176,8 @@ test('plugin-tape: transform: add-await-to-re-import', (t) => {
     t.end();
 });
 
+test('plugin-tape: transform: apply-destructuring', (t) => {
+    t.transform('apply-destructuring');
+    t.end();
+});
+

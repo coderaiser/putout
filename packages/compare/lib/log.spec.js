@@ -1,9 +1,11 @@
 'use strict';
 
-const test = require('supertape');
+const {
+    test,
+    stub,
+} = require('supertape');
 const mockRequire = require('mock-require');
 const {Identifier} = require('putout').types;
-const stub = require('@cloudcmd/stub');
 
 const {_parseValue} = require('./log');
 

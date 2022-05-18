@@ -39,7 +39,6 @@
   ],
   "devDependencies": {
     "@babel/plugin-codemod-object-assign-to-object-spread": "^7.7.4",
-    "@cloudcmd/stub": "^3.0.0",
     "@putout/formatter-progress": "*",
     "@putout/plugin-convert-commonjs-to-esm": "*",
     "@putout/plugin-remove-unused-variables": "*",

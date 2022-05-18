@@ -21,6 +21,7 @@ npm i @putout/plugin-tape -D
 {
     "rules": {
         "tape/apply-stub": "on",
+        "tape/apply-destructuring": "on",
         "tape/apply-stub-operator": "on",
         "tape/apply-with-name": "on",
         "tape/add-t-end": "on",
@@ -339,6 +340,26 @@ test('copymitter', async (t) => {
     await once(cp, 'end');
     t.end();
 });
+```
+
+## apply-destructuring
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/adf238850271c0a4ad917e71bab8757c/4ff416c3d9f3de0930339c7a4929eb4b62461d1a).
+
+### ❌ Example of incorrect code
+
+```js
+const test = require('supertape');
+const {stub} = test;
+```
+
+### ✅ Example of correct code
+
+```js
+const {
+    test,
+    stub,
+} = require('supertape');
 ```
 
 ## apply-stub

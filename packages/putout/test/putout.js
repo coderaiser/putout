@@ -2,9 +2,11 @@
 
 const montag = require('montag');
 
-const test = require('supertape');
+const {
+    test,
+    stub,
+} = require('supertape');
 const tryCatch = require('try-catch');
-const stub = require('@cloudcmd/stub');
 
 const putout = require('..');
 const {readFixtures} = require('./fixture');

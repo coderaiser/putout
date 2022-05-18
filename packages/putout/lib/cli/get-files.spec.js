@@ -3,9 +3,11 @@
 const {join} = require('path');
 const fs = require('fs/promises');
 
-const test = require('supertape');
+const {
+    test,
+    stub,
+} = require('supertape');
 const mockRequire = require('mock-require');
-const stub = require('@cloudcmd/stub');
 
 const getFiles = require('./get-files');
 

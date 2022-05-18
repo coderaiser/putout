@@ -1,9 +1,11 @@
 'use strict';
 
-const test = require('supertape');
+const {
+    test,
+    stub,
+} = require('supertape');
 const putout = require('putout');
 const mockRequire = require('mock-require');
-const stub = require('@cloudcmd/stub');
 
 const {runPlugins} = require('..');
 

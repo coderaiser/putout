@@ -4,9 +4,11 @@ const montag = require('montag');
 
 const tryCatch = require('try-catch');
 
-const test = require('supertape');
+const {
+    test,
+    stub,
+} = require('supertape');
 const putout = require('putout');
-const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
 const {reRequire, stopAll} = mockRequire;
 

@@ -2,8 +2,10 @@
 
 const fs = require('fs');
 
-const test = require('supertape');
-const stub = require('@cloudcmd/stub');
+const {
+    test,
+    stub,
+} = require('supertape');
 const mockRequire = require('mock-require');
 
 const {isSupported} = require('./supported-files');

@@ -2,9 +2,11 @@
 
 const mockRequire = require('mock-require');
 
-const test = require('supertape');
+const {
+    test,
+    stub,
+} = require('supertape');
 const {join} = require('path');
-const stub = require('@cloudcmd/stub');
 
 const {simpleImport} = require('../simple-import');
 

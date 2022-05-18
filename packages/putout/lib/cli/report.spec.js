@@ -1,8 +1,10 @@
 'use strict';
 
 const montag = require('montag');
-const test = require('supertape');
-const stub = require('@cloudcmd/stub');
+const {
+    test,
+    stub,
+} = require('supertape');
 const {simpleImport} = require('./simple-import');
 
 const {initReport} = require('../putout');
