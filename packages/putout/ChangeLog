@@ -1,3 +1,10 @@
+2022.05.18, v26.4.0
+
+feature:
+- (@putout/plugin-tape) add apply-destructuring
+- (@putout/plugin-remove-useless-assign) add
+
+
 2022.05.17, v26.3.1
 
 feature:
