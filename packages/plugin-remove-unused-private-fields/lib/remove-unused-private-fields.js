@@ -29,10 +29,27 @@ module.exports.find = (ast) => {
             const {parentPath} = path;
             const propertyPath = parentPath.get('property');
             
-            if (!propertyPath.isPrivateName())
+            if (propertyPath.isPrivateName()) {
+                rmVar(path, propertyPath.node.id.name);
                 return;
+            }
             
-            rmVar(path, propertyPath.node.id.name);
+            if (!parentPath.isVariableDeclarator()) {
+                return;
+            }
+            
+            const idPath = parentPath.get('id');
+            
+            if (!idPath.isObjectPattern()) {
+                return;
+            }
+            
+            for (const propertyPath of idPath.get('properties')) {
+                const keyPath = propertyPath.get('key');
+                
+                if (keyPath.isPrivateName())
+                    rmVar(path, keyPath.node.id.name);
+            }
         },
     });
     

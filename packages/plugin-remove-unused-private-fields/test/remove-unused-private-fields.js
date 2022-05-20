@@ -31,3 +31,8 @@ test('plugin-remove-unused-private-fields: transform: private method', (t) => {
     t.end();
 });
 
+test('plugin-remove-unused-private-fields: no transform: no destructuring', (t) => {
+    t.noTransform('destructuring');
+    t.end();
+});
+
