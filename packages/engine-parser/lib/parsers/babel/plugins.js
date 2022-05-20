@@ -14,7 +14,6 @@ module.exports = [
     'exportDefaultFrom',
     'throwExpressions',
     ['recordAndTuple', {
-        recordAndTupleSyntaxType: 'hash',
         syntaxType: 'hash',
     }],
 ];
