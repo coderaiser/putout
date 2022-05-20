@@ -5,7 +5,7 @@
 
 > The `replace()` method returns a new string with some or all matches of a `pattern` replaced by a `replacement`. The original string is left unchanged.
 >
-> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/replace)
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `replace`.
 Check it out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/a7697acfe3a2f9fcac07a205a420ea83/3b5a99fa1be2ce5268c33bfe51826eeb6def1ed0).
