@@ -70,6 +70,7 @@ module.exports.replace = () => ({
 - ✅ remove unused `expressions`;
 - ✅ remove useless `variables`;
 - ✅ remove useless `Object.assign()`;
+- ✅ remove useless `replace()`;
 - ✅ remove useless `map`;
 - ✅ remove useless `mapped types`;
 - ✅ remove useless `mapping modifiers`;

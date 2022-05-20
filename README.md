@@ -695,6 +695,15 @@ switch (x) {
 
 </details>
 
+<details><summary>remove useless <code>Object.assign()</code></summary>
+
+```diff
+-const a = 'hello'.replace(world, world);
++const a = 'hello';
+```
+
+</details>
+
 <details><summary>remove useless <code>new</code>(<a href=https://262.ecma-international.org/12.0/#sec-error-constructor>why</a>)</summary>
 
 ```diff
@@ -1796,6 +1805,7 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-remove-unused-private-fields`](/packages/plugin-remove-unused-private-fields#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-unused-private-fields.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-unused-private-fields) |
 | [`@putout/plugin-remove-useless-variables`](/packages/plugin-remove-useless-variables#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-variables) |
 | [`@putout/plugin-remove-useless-assign`](/packages/plugin-remove-useless-assign#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-assign.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-assign) |
+| [`@putout/plugin-remove-useless-replace`](/packages/plugin-remove-useless-replace#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-replace.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-replace) |
 | [`@putout/plugin-remove-useless-else`](/packages/plugin-remove-useless-else#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-else.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-else) |
 | [`@putout/plugin-remove-useless-map`](/packages/plugin-remove-useless-map#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-map.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-map) |
 | [`@putout/plugin-remove-useless-constructor`](/packages/plugin-remove-useless-constructor#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-useless-constructor.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-useless-constructor) |
