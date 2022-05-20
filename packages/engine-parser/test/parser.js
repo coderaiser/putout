@@ -35,6 +35,7 @@ const fixture = readFixtures([
     'record',
     'strict-mode',
     'strict-mode-fix',
+    'destructuring-private',
 ]);
 
 test('putout: parser: export default declaration: acorn', (t) => {
@@ -361,6 +362,15 @@ test('putout: parser: typescrip with jsx: ambiguity syntax', (t) => {
     });
     
     t.notOk(error, 'should give second chance');
+    t.end();
+});
+
+test('putout: parser: babel: destructuring private', (t) => {
+    const source = fixture.destructuringPrivate;
+    
+    const [error] = tryCatch(putout, source);
+    
+    t.notOk(error, 'should parse destructuring private');
     t.end();
 });
 
