@@ -1,3 +1,15 @@
+2022.05.20, v26.5.0
+
+fix:
+- (@putout/engine-parser) babel: plugins: rm useless options in recordAndTuple
+
+
+feature:
+- (@putout/plugin-remove-useless-replace) add
+- (@putout/plugin-remove-unused-private-fields) add support of destructuring
+- (@putout/engine-parser) babel: add ability to parse private destructuring (https://babeljs.io/blog/2022/05/19/7.18.0)
+
+
 2022.05.18, v26.4.0
 
 feature:
