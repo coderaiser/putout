@@ -8,7 +8,7 @@
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/replace)
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `replace`.
-Check it out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/04c18d7d2302e0a3cc543c7c83adeaf2/ddb38d94dcc6425fc944e3b130837739f916c7df).
+Check it out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/a7697acfe3a2f9fcac07a205a420ea83/3b5a99fa1be2ce5268c33bfe51826eeb6def1ed0).
 
 ## Install
 
