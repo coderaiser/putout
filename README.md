@@ -693,6 +693,8 @@ switch (x) {
 +const load = stub().rejects(Error('LOAD USED'));
 ```
 
+</details>
+
 <details><summary>remove useless <code>new</code>(<a href=https://262.ecma-international.org/12.0/#sec-error-constructor>why</a>)</summary>
 
 ```diff
@@ -824,13 +826,11 @@ switch (x) {
 <details><summary>declare undefined variables</summary>
 
 ```diff
-const fs = import 'fs/promises';
-const {stub} = import 'supertape';
-
++const fs = import 'fs/promises';
++const {stub} = import 'supertape';
 +const {assign} = Object;
 
 const readFile = stub();
-
 assign(fs, {
     readFile,
 });
