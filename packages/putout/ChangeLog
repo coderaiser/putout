@@ -1,3 +1,13 @@
+2022.05.21, v26.6.0
+
+feature:
+- (@putout/plugin-convert-sqrt-to-hypot) add
+- (package) @putout/plugin-convert-math-pow v5.0.0
+- (@putout/plugin-convert-math-pow) drop support of 🐊 < 26
+- (@putout/plugin-convert-math-pow) add support of __a * __a
+- (@putout/engine-runner) replace: speed up: prevent find up
+
+
 2022.05.20, v26.5.0
 
 fix:
