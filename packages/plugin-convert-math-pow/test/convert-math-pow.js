@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-convert-math-pow: report', (t) => {
-    t.report('pow', 'operator "**" should be used instead of Math.pow');
+    t.report('pow', `Use operator '**' instead of 'Math.pow()'`);
     t.end();
 });
 
@@ -19,6 +19,11 @@ test('plugin-convert-math-pow: transform', (t) => {
 
 test('plugin-convert-math-pow: transform: identifier', (t) => {
     t.transform('identifier');
+    t.end();
+});
+
+test('plugin-convert-math-pow: transform: duplicate', (t) => {
+    t.transform('duplicate');
     t.end();
 });
 
