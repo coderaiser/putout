@@ -636,3 +636,25 @@ test('putout: runner: replace: return nothing', (t) => {
     t.notOk(error);
     t.end();
 });
+
+test('putout: runner: replace: **', (t) => {
+    const plugin = {
+        report: () => '',
+        replace: () => ({
+            '__a * __a': '__a ** 2',
+            'Math.sqrt(__a ** 2 + __b ** 2)': 'Math.hypot(__a, __b)',
+        }),
+    };
+    
+    const {code} = putout('Math.sqrt(1 * 1 + 2 * 2);', {
+        runPlugins,
+        plugins: [
+            ['plugin', plugin],
+        ],
+    });
+    
+    const expected = 'Math.hypot(1, 2);';
+    
+    t.equal(code, expected);
+    t.end();
+});

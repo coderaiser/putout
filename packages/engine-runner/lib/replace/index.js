@@ -76,7 +76,7 @@ const fix = (from, to, path) => {
     if (mark.has())
         return;
     
-    if (!compare(path, nodeFrom))
+    if (!compare(path, nodeFrom, {findUp: false}))
         return;
     
     const waysFrom = findVarsWays(nodeFrom);
