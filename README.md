@@ -16,7 +16,7 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-🐊**Putout** is a pluggable and configurable code transformer based on **Babel** with built-in **ESLint**. It has [a lot of transformations](#-built-in-transformations) that will keep your codebase in a clean state, removing any code smell and making code readable according to best practices.
+🐊**Putout** is a pluggable and configurable code transformer based on **Babel** with built-in **ESLint**. It has [a lot of transformations](#-built-in-transformations) that keeps your codebase in a clean state, removing any code smell and making code readable according to best practices.
 The main target is **JavaScript**, but:
 
 - ✅ JSX;
@@ -1965,7 +1965,7 @@ To configure 🐊**Putout** add a section named `putout` to your `package.json` 
 ### Rules
 
 All rules located in `plugins` section and built-in rules are enabled by default.
-You can disable rules using "off", or enable them (in `match` section) using "on".
+You can disable rules using `"off"`, or enable them (in `match` section) using `"on"`.
 
 ```json
 {
@@ -2053,7 +2053,7 @@ If you need to `remove-something` create `putout` plugin with a name `putout-plu
 
 Add `putout` as a `peerDependency` to your `packages.json` (>= of version you developing for).
 
-*Always add keywords `putout`, `putout-plugin` when publish putout plugin to `npm` so others can easily find it.*
+☝️ *Always add keywords `putout`, `putout-plugin` when publish putout plugin to `npm` so others can easily find it.*
 
 ## 🧬 Plugins API
 
