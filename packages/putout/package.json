@@ -99,6 +99,7 @@
     "@putout/plugin-convert-object-assign-to-merge-spread": "^6.0.0",
     "@putout/plugin-convert-quotes-to-backticks": "^2.0.0",
     "@putout/plugin-convert-reduce-to-for-of": "^1.0.0",
+    "@putout/plugin-convert-sqrt-to-hypot": "^1.0.0",
     "@putout/plugin-convert-template-to-string": "^1.0.0",
     "@putout/plugin-convert-to-arrow-function": "^3.0.0",
     "@putout/plugin-convert-typeof-to-is-type": "^2.0.0",

@@ -129,6 +129,7 @@ module.exports.replace = () => ({
 - ✅ convert `forEach` to `for...of`;
 - ✅ convert `map` to `for...of`;
 - ✅ convert `reduce` to `for...of`;
+- ✅ convert `Math.sqrt()` to `Math.hypot()`;
 - ✅ extract sequence expressions;
 - ✅ extract object properties;
 - ✅ add `return await`;
