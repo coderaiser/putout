@@ -317,7 +317,7 @@ Happy coding 🎈!
 
 ## 🏛 Architecture
 
-**Putout** consists of a couple simple parts, here is a workflow representation:
+🐊**Putout** consists of a couple simple parts, here is a workflow representation:
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout.png)
 
