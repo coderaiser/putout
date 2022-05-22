@@ -1,3 +1,10 @@
+2022.05.22, v26.8.0
+
+feature:
+- (@putout/plugin-new) add support of Math, Reflect
+- (@putout/plugin-convert-imul-to-multiplication) add
+
+
 2022.05.22, v26.7.0
 
 feature:
