@@ -1,0 +1,1 @@
+const duck = new Reflect();

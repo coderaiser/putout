@@ -37,3 +37,13 @@ test('plugin-remove-useless-new: transform: big-int', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-new: transform: reflect', (t) => {
+    t.transform('reflect');
+    t.end();
+});
+
+test('plugin-remove-useless-new: transform: math', (t) => {
+    t.transform('math');
+    t.end();
+});
+
