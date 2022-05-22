@@ -40,6 +40,13 @@ Math.pow(2, 4);
 2 ** 4;
 ```
 
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`convert-math-pow`](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-math-pow#readme) | ✅
+🦕 **ESLint** | [`prefer-exponentiation-operator`](https://eslint.org/docs/rules/prefer-exponentiation-operator) | ✅
+
 ## License
 
 MIT
