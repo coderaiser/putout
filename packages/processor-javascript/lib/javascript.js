@@ -5,6 +5,8 @@ export const files = [
     '*.jsx',
     '*.ts',
     '*.tsx',
+    '*.mts',
+    '*.cts',
 ];
 
 export const branch = (source) => [{
