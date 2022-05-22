@@ -92,6 +92,7 @@
     "@putout/plugin-convert-for-each-to-for-of": "^7.0.0",
     "@putout/plugin-convert-for-in-to-for-of": "^2.0.0",
     "@putout/plugin-convert-for-to-for-of": "^4.0.0",
+    "@putout/plugin-convert-imul-to-multiplication": "^1.0.0",
     "@putout/plugin-convert-index-of-to-includes": "^1.0.0",
     "@putout/plugin-convert-map-to-for-of": "^2.0.0",
     "@putout/plugin-convert-math-pow": "^5.0.0",

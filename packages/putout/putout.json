@@ -205,6 +205,7 @@
         "convert-assignment-to-comparison",
         "convert-quotes-to-backticks",
         "convert-sqrt-to-hypot",
+        "convert-imul-to-multiplication",
         "merge-destructuring-properties",
         "merge-duplicate-imports",
         "merge-if-statements",

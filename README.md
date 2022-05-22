@@ -974,9 +974,17 @@ const putout = require('putout');
 <details><summary>convert <code>Math.sqrt()</code> to <code>Math.hypot()</code></summary>
 
 ```diff
--if (~array.indexOf(element)) {
-+if (array.includes(element)) {
-}
+-const a = Math.sqrt(b ** 2 + c ** 2);
++const a = Math.hypot(a, b);
+```
+
+</details>
+
+<details><summary>convert <code>Math.imul()</code> to <code>multiplication</code></summary>
+
+```diff
+- const a = Math.imul(b, c);
++ const a = a * b;
 ```
 
 </details>
@@ -1782,6 +1790,7 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-convert-bitwise-to-logical`](/packages/plugin-convert-bitwise-to-logical#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-bitwise-to-logical.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-bitwise-to-logical) |
 | [`@putout/plugin-convert-concat-to-flat`](/packages/plugin-convert-concat-to-flat#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-concat-to-flat.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-concat-to-flat) |
 | [`@putout/plugin-convert-sqrt-to-hypot`](/packages/plugin-convert-sqrt-to-hypot#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-sqrt-to-hypot.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-sqrt-to-hypot) |
+| [`@putout/plugin-convert-imul-to-multiplication`](/packages/plugin-convert-imul-to-multiplication#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-imul-to-multiplication.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-imul-to-multiplication) |
 | [`@putout/plugin-convert-esm-to-commonjs`](/packages/plugin-convert-esm-to-commonjs#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-esm-to-commonjs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-esm-to-commonjs) |
 | [`@putout/plugin-convert-commonjs-to-esm`](/packages/plugin-convert-commonjs-to-esm#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-commonjs-to-esm.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-commonjs-to-esm) |
 | [`@putout/plugin-convert-array-copy-to-slice`](/packages/plugin-convert-array-copy-to-slice#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-array-copy-to-slice.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-array-copy-to-slice) |
