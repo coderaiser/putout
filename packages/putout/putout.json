@@ -12,7 +12,7 @@
         "css"
     ],
     "match": {
-        "*.{mjs,ts,tsx}": {
+        "*.{mjs,ts,tsx,mts}": {
             "strict-mode/remove-useless": "on",
             "strict-mode/add-missing": "off"
         },
@@ -85,7 +85,7 @@
         "*.cjs": {
             "convert-esm-to-commonjs": "on"
         },
-        "*.{ts,tsx}": {
+        "*.{ts,tsx,mts,cts}": {
             "typescript": "on"
         },
         "*.d.ts": {
