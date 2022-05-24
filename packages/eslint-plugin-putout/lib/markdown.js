@@ -2,7 +2,7 @@
 
 const parserOpts = require('@putout/engine-parser/babel/options');
 const parserPlugins = require('@putout/engine-parser/babel/plugins');
-const [ts] = require('./ts');
+const [ts, tsx] = require('./ts');
 
 const commonRules = {
     'no-undef': 'off',
@@ -19,26 +19,38 @@ const commonRules = {
     'node/no-unsupported-features/es-syntax': 'off',
     'node/no-unsupported-features/node-builtins': 'off',
 };
-
-module.exports = [{
-    files: '*.md{js}',
-    rules: commonRules,
-    parser: '@babel/eslint-parser/experimental-worker',
-    parserOptions: {
-        requireConfigFile: false,
-        babelOptions: {
-            sourceType: 'module',
-            parserOpts: {
-                ...parserOpts,
-                plugins: [
-                    'jsx',
-                    ...parserPlugins,
-                ],
-            },
+const parserOptions = {
+    requireConfigFile: false,
+    babelOptions: {
+        sourceType: 'module',
+        parserOpts: {
+            ...parserOpts,
             plugins: [
-                '@babel/plugin-syntax-class-properties',
+                'jsx',
+                ...parserPlugins,
             ],
         },
+        plugins: [
+            '@babel/plugin-syntax-class-properties',
+        ],
+    },
+};
+
+module.exports = [{
+    files: ['*.md{js}', '*.md{jsx}'],
+    rules: commonRules,
+    parser: '@babel/eslint-parser/experimental-worker',
+    parserOptions,
+}, {
+    ...tsx,
+    files: '*.md{tsx}',
+    rules: {
+        ...commonRules,
+        ...ts.rules,
+        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-inferrable-types': 'off',
+        '@typescript-eslint/array-type': 'off',
     },
 }, {
     ...ts,

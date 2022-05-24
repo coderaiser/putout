@@ -44,7 +44,7 @@ Here is list of rules:
 
 Consider example using `class`:
 
-```js
+```jsx
 import React, {
     Component,
 } from 'react';
@@ -81,7 +81,7 @@ export default class Button extends Component {
 
 After `putout --fix` transform, you will receive:
 
-```js
+```jsx
 import React, {
     useState,
 } from 'react';
