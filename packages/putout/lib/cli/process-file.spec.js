@@ -93,6 +93,36 @@ test('putout: cli: process-file: ts from preProcessor', async (t) => {
     t.end();
 });
 
+test('putout: cli: process-file: tsx from preProcessor', async (t) => {
+    const source = 'const x: number = <hello></hello>;';
+    const fix = false;
+    const name = 'example.md{tsx}';
+    const log = stub();
+    const write = stub();
+    
+    const options = {
+        dir: '.',
+    };
+    
+    const processFile = reRequire('./process-file');
+    const fn = processFile({
+        fix,
+        log,
+        write,
+    });
+    
+    const {places} = await fn({
+        name,
+        source,
+        index: 0,
+        length: 1,
+        options,
+    });
+    
+    t.deepEqual(places, []);
+    t.end();
+});
+
 test('putout: cli: process-file: options for inner data', async (t) => {
     const source = `__putout_processor_json(${stringify({
         rules: {

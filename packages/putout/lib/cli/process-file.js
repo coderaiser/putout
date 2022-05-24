@@ -17,7 +17,7 @@ const getMatchedOptions = (name, options) => {
 };
 
 module.exports = ({fix, fixCount, isFlow, ruler = {}, logError, raw}) => async ({name, source, startLine, options}) => {
-    const isTS = /\.tsx?$/.test(name) || /{ts}$/.test(name);
+    const isTS = /\.tsx?$/.test(name) || /{tsx?}$/.test(name);
     const matchedOptions = getMatchedOptions(name, options);
     
     const [e, result] = tryCatch(putout, source, {
