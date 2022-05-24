@@ -2524,7 +2524,7 @@ Since 🐊**Putout** has dynamic nature of loading:
 - `processors`;
 - `formatters`;
 
-It was a nice adventure to have support of such a nice feature of `Yarn` as [`Plug'n'Play`](https://yarnpkg.com/features/pnp).
+It was a nice adventure to have support of such a wonderful feature of `Yarn` as [`Plug'n'Play`](https://yarnpkg.com/features/pnp).
 For this purpose new `env variable` was added to help to [load external extensions](https://yarnpkg.com/advanced/rulebook/#modules-shouldnt-hardcode-node_modules-paths-to-access-other-modules): `PUTOUT_YARN_PNP`.
 
 So if you package **eslint-config-hardcore** you should run **ESLint** this way:
