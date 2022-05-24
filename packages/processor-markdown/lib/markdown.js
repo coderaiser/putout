@@ -114,11 +114,31 @@ const collect = ({list, visit}) => (node) => {
             return;
         }
         
+        if (lang === 'jsx') {
+            list.push({
+                startLine,
+                source: value,
+                extension: 'jsx',
+            });
+            
+            return;
+        }
+        
         if (/^(ts|typescript)$/.test(lang)) {
             list.push({
                 startLine,
                 source: value,
                 extension: 'ts',
+            });
+            
+            return;
+        }
+        
+        if (lang === 'tsx') {
+            list.push({
+                startLine,
+                source: value,
+                extension: 'tsx',
             });
             
             return;
@@ -140,12 +160,12 @@ const apply = ({list, visit}) => (node) => {
     visit(node, 'code', (node) => {
         const {lang} = node;
         
-        if (/^(js|javascript)$/.test(lang)) {
+        if (/^(jsx?|javascript)$/.test(lang)) {
             node.value = list.shift();
             return;
         }
         
-        if (/^(ts|typescript)$/.test(lang)) {
+        if (/^(tsx?|typescript)$/.test(lang)) {
             node.value = list.shift();
             return;
         }

@@ -20,6 +20,10 @@ test('putout: processor: markdown: ts', async ({process}) => {
     await process('ts');
 });
 
+test('putout: processor: markdown: jsx', async ({process}) => {
+    await process('jsx');
+});
+
 test('putout: processor: markdown: json', async ({process}) => {
     await process('json');
 });
