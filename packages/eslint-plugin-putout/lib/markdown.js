@@ -30,7 +30,10 @@ module.exports = [{
             sourceType: 'module',
             parserOpts: {
                 ...parserOpts,
-                plugins: parserPlugins,
+                plugins: [
+                    'jsx',
+                    ...parserPlugins,
+                ],
             },
             plugins: [
                 '@babel/plugin-syntax-class-properties',
