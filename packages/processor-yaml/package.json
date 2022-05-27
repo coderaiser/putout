@@ -27,7 +27,7 @@
     "@putout/processor-json": "^5.0.0",
     "just-kebab-case": "^4.0.2",
     "try-catch": "^3.0.0",
-    "yaml": "^1.10.2"
+    "yaml": "^2.1.0"
   },
   "keywords": [
     "putout",

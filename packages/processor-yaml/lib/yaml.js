@@ -33,7 +33,6 @@ export const find = (rawSource) => {
     const [error] = tryCatch(yaml.parse, rawSource);
     const places = parsePlaces({
         error,
-        rawSource,
     });
     
     return places;
@@ -45,38 +44,33 @@ export const merge = (rawSource, list) => {
     return yaml.stringify(parse(source));
 };
 
-function parsePlaces({error, rawSource}) {
+function parseMessage(message) {
+    const [first] = message.split('\n');
+    return first.replace(/\sat.*/g, '');
+}
+
+function parsePlaces({error}) {
     if (!error)
         return [];
     
-    const {message, source} = error;
-    const {start} = source.range;
+    const {
+        message,
+        linePos,
+    } = error;
     const [rule] = String(error).split(':');
     const place = {
-        message,
+        message: parseMessage(message),
         rule: `${parseRule(rule)} (yaml)`,
-        position: parsePosition({
-            start,
-            rawSource,
-        }),
+        position: parsePosition(linePos),
     };
     
     return [place];
 }
 
-function parsePosition({start, rawSource}) {
-    let line = 1;
-    let lastLineStart = 0;
-    
-    for (let i = 0; i <= start; i++) {
-        if (rawSource[i] === '\n') {
-            ++line;
-            lastLineStart = i;
-        }
-    }
-    
+function parsePosition(linePos) {
+    const [{line, col}] = linePos;
     return {
         line,
-        column: start - lastLineStart,
+        column: col,
     };
 }

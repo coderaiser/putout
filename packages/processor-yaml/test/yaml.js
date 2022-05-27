@@ -17,10 +17,10 @@ test('putout: processor: yaml: duplicate', async ({comparePlaces}) => {
     await comparePlaces('duplicate.yml', [{
         position: {
             column: 3,
-            line: 2,
+            line: 4,
         },
-        message: `Map keys must be unique; "only" is repeated`,
-        rule: 'yaml-semantic-error (yaml)',
+        message: 'Map keys must be unique',
+        rule: 'yaml-parse-error (yaml)',
     }]);
 });
 
