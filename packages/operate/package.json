@@ -39,7 +39,7 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^15.0.0",
     "just-camel-case": "^4.0.2",
-    "lerna": "^4.0.0",
+    "lerna": "^5.0.0",
     "madrun": "^9.0.0",
     "montag": "^1.0.0",
     "nodemon": "^2.0.1",
