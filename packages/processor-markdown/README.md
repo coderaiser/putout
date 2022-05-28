@@ -7,7 +7,7 @@
 >
 > (c) [markdownguide.org](https://www.markdownguide.org/)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) processor adds ability to get **JavaScript**, **JSON** and **TypeScript** code from markdown files.
+🐊[**Putout**](https://github.com/coderaiser/putout) processor adds ability to get **JavaScript**, **JSON** and **TypeScript** code from **Markdown** files.
 
 ## Install
 
