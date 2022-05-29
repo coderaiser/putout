@@ -83,7 +83,12 @@ const setInfo = ({fileCache, getOptionsHash}) => (name, places, options) => {
 };
 
 const canUseCache = ({fileCache, getOptionsHash}) => (name, options) => {
-    const {changed, meta} = fileCache.getFileDescriptor(name);
+    const descriptor = fileCache.getFileDescriptor(name);
+    
+    if (!descriptor)
+        return false;
+    
+    const {changed, meta} = descriptor;
     const {
         places,
         optionsHash,
