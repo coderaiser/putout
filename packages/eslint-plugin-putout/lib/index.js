@@ -92,6 +92,8 @@ const recommended = {
         'putout/putout': 'error',
         
         'node/no-unsupported-features/es-syntax': 'off',
+        'node/no-missing-import': 'off',
+        'node/no-missing-require': 'off',
     },
     overrides: [
         ...markdown,
