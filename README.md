@@ -444,7 +444,7 @@ Processors can be tested using [@putout/test/processors](https://github.com/code
 
 ## 🏗 API
 
-> **In one’s life. there are levels in the pursuit of study. In the lowest level, a person studies but nothing comes of it, and he feels that both he and others are unskillful. At this point he is worthless. In the middle level he is still useless but is aware of his own insufficiencies and can also see the insufficiencies of others. At a higher level, he has pride concerning his own ability, rejoices in praise from others, and laments the lack of ability in his fellows. This man has worth. At the highest level a man has the look of knowing nothing.**
+> **In one’s life there are levels in the pursuit of study. In the lowest level, a person studies but nothing comes of it, and he feels that both he and others are unskillful. At this point he is worthless. In the middle level he is still useless but is aware of his own insufficiencies and can also see the insufficiencies of others. At a higher level, he has pride concerning his own ability, rejoices in praise from others, and laments the lack of ability in his fellows. This man has worth. At the highest level a man has the look of knowing nothing.**
 >
 > **(c) Yamamoto Tsunetomo "Hagakure"**
 
