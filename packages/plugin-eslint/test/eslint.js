@@ -37,3 +37,8 @@ test('putout: plugin-eslint: transform: remove-no-unpublished-require', (t) => {
     t.end();
 });
 
+test('putout: plugin-eslint: transform: remove-overrides-with-empty-rules', (t) => {
+    t.transform('remove-overrides-with-empty-rules');
+    t.end();
+});
+

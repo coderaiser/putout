@@ -25,7 +25,8 @@ npm i @putout/plugin-eslint -D
         "eslint/convert-ide-to-safe": "on",
         "eslint/convert-require-to-import": "on",
         "eslint/convert-import-to-require": "on",
-        "eslint/remove-no-unpublished-require": "on"
+        "eslint/remove-no-unpublished-require": "on",
+        "eslint/remove-overrides-with-empty-rules": "on"
     }
 }
 ```
@@ -141,7 +142,6 @@ Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1ac
 ## remove-no-unpublished-require
 
 `node/remove-no-unpublished-require` should be enabled, since this is a very useful rule already disabled in [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme).
-Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1acad4ce8d999ff9311126c1ed69f/68f98adff1c9b650d51e816e72142b2f86deeb87).
 
 ```diff
 {
@@ -151,6 +151,30 @@ Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1ac
 -           "node/no-unpublished-require": "off"
         }
     }],
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:putout/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ]
+};
+```
+
+## remove-overrides-with-empty-rules
+
+`overrides` with `rules: {}` has no sense.
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1acad4ce8d999ff9311126c1ed69f/68f98adff1c9b650d51e816e72142b2f86deeb87).
+
+```diff
+{
+-   "overrides": [{
+-       "files": "test/*.js",
+-       "rules": {
+-       }
+-   }],
     "extends": [
         "plugin:node/recommended",
         "plugin:putout/recommended"
