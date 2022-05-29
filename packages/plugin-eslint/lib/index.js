@@ -9,5 +9,6 @@ module.exports.rules = {
     ...getRule('move-putout-to-end-of-extends'),
     ...getRule('convert-ide-to-safe'),
     ...getRule('convert-require-to-import'),
+    ...getRule('remove-no-unpublished-require'),
 };
 

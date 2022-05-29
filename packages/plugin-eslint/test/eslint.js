@@ -32,3 +32,8 @@ test('putout: plugin-eslint: transform: convert-require-to-import', (t) => {
     t.end();
 });
 
+test('putout: plugin-eslint: transform: remove-no-unpublished-require', (t) => {
+    t.transform('remove-no-unpublished-require');
+    t.end();
+});
+

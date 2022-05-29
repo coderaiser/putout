@@ -1,13 +1,8 @@
-{
+__putout_processor_json({
     "overrides": [{
-        "files": "lib/parsers/*",
+        "files": "test/*.js",
         "rules": {
             "node/no-unpublished-require": "off"
-        }
-    }, {
-        "files": "test/**",
-        "rules": {
-            "node/no-missing-require": "off"
         }
     }],
     "extends": [
@@ -18,4 +13,4 @@
         "putout",
         "node"
     ]
-}
+});

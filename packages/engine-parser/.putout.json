@@ -3,5 +3,8 @@
         "*.js": {
             "convert-esm-to-commonjs": "on"
         }
+    },
+    "rules": {
+        "eslint/remove-no-unpublished-require": "off"
     }
 }

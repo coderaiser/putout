@@ -1,0 +1,5 @@
+{
+    "rules": {
+        "eslint/remove-no-unpublished-require": "off"
+    }
+}
