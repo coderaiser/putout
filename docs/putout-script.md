@@ -73,7 +73,7 @@ crocodile.say('hello 🐊');
 
 This also works with constant propagation.
 
-In languages where regular expressions use a special syntax (e.g., Javascript), the pattern `/__a/` will match any regular expression construct:
+T he pattern `/__a/` will match any regular expression construct:
 
 ```js
 const animalRegExp = /🐊|🦛/;
