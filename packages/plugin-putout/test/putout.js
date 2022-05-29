@@ -137,3 +137,8 @@ test('plugin-putout: transform: replace-test-message', (t) => {
     t.end();
 });
 
+test('plugin-putout: transform: convert-report-to-function', (t) => {
+    t.transform('convert-report-to-function');
+    t.end();
+});
+

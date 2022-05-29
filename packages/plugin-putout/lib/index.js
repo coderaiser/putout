@@ -26,6 +26,7 @@ module.exports.rules = {
     ...getRule('convert-add-argument-to-add-args'),
     ...getRule('convert-dirname-to-url'),
     ...getRule('convert-url-to-dirname'),
+    ...getRule('convert-report-to-function'),
     ...getRule('replace-test-message'),
     ...getRule('rename-operate-to-operator'),
     ...getRule('replace-operate-with-operator'),

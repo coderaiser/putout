@@ -38,6 +38,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-add-argument-to-add-args": "on",
         "putout/convert-dirname-to-url": "on",
         "putout/convert-url-to-dirname": "on",
+        "putout/convert-report-to-function": "on",
         "putout/shorten-imports": "on",
         "putout/check-replace-code": "on",
         "putout/declare": "on",
@@ -556,6 +557,20 @@ const plugin = require('@putout/plugin-debugger');
 const test = createTest(import.meta.url, {
     'remove-debugger': plugin,
 });
+```
+
+## convert-report-to-function
+
+### ❌ Example of incorrect code
+
+```js
+module.exports.report = `'report' should be a 'function'`;
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports.report = () => `'report' should be a 'function'`;
 ```
 
 ## move-require-on-top-level
