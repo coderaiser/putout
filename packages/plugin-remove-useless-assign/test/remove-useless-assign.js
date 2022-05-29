@@ -17,3 +17,8 @@ test('plugin-remove-useless-assign: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-assign: no transform: spread', (t) => {
+    t.noTransform('spread');
+    t.end();
+});
+
