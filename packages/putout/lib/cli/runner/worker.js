@@ -36,16 +36,12 @@ const createFormatterProxy = (options) => {
     });
 };
 
-module.exports = async ({readFile, report, writeFile, exit, raw, write, log, currentFormat, rulesdir, formatterOptions, noConfig, transform, plugins, index, fix, processFile, processorRunners, fileCache, rawPlaces, wasStop, isStop, names, length}) => {
-    wasStop(isStop());
-    
-    const currentIndex = isStop() ? length - 1 : index;
-    const name = names[index];
+module.exports = async ({readFile, report, writeFile, exit, raw, write, log, currentFormat, rulesdir, formatterOptions, noConfig, transform, plugins, index, fix, processFile, processorRunners, fileCache, rawPlaces, name, count}) => {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
     const [configError, options] = tryCatch(getOptions, {
-        name: resolvedName,
+        name,
         rulesdir,
         noConfig,
         transform,
@@ -56,27 +52,24 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
         return exit(INVALID_CONFIG, configError);
     
     const {dir} = options;
+    const success = await runCache({
+        options,
+        fileCache,
+        report,
+        write,
+        formatterOptions,
+        currentFormat,
+        name,
+        resolvedName,
+        index,
+        count,
+        rawPlaces,
+    });
     
-    if (fileCache.canUseCache(name, options)) {
-        const places = fileCache.getPlaces(name);
-        const formatterProxy = createFormatterProxy({
-            report,
-            formatterOptions,
-            name: chooseName(name, resolvedName),
-            places,
-            index: currentIndex,
-            count: length,
-        });
-        
-        const line = await report(currentFormat, formatterProxy);
-        
-        write(line || '');
-        rawPlaces.push(places);
-        
+    if (success)
         return {
-            success: true,
+            success,
         };
-    }
     
     let isProcessed = true;
     let places = [];
@@ -119,8 +112,8 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
         name: chooseName(name, resolvedName),
         source: rawSource,
         places,
-        index: currentIndex,
-        count: length,
+        index,
+        count,
     });
     
     write(line || '');
@@ -145,4 +138,26 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
         success: true,
     };
 };
+
+async function runCache({fileCache, report, write, formatterOptions, currentFormat, name, resolvedName, index, count, rawPlaces, options}) {
+    if (!fileCache.canUseCache(name, options))
+        return false;
+    
+    const places = fileCache.getPlaces(name);
+    const formatterProxy = createFormatterProxy({
+        report,
+        formatterOptions,
+        name: chooseName(name, resolvedName),
+        places,
+        index,
+        count,
+    });
+    
+    const line = await report(currentFormat, formatterProxy);
+    
+    write(line || '');
+    rawPlaces.push(places);
+    
+    return true;
+}
 

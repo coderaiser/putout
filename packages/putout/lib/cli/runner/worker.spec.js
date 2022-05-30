@@ -28,7 +28,7 @@ test('putout: cli: runner: processor throw: raw', async (t) => {
     }));
     
     const {rawPlaces} = await runWorker({
-        names: [name],
+        name,
         currentFormat: 'json-lines',
         formatterOptions: {},
         processorRunners: [throwProcessor],
@@ -68,7 +68,7 @@ test('putout: cli: runner: processor: load', async (t) => {
     });
     
     await runWorker({
-        names: [name],
+        name,
         currentFormat: 'json-lines',
         formatterOptions: {},
         processorRunners: [processor],
@@ -94,15 +94,13 @@ async function runWorker(options) {
         fix = false,
         processorRunners = [],
         rawPlaces = [],
-        names = [],
+        name = '',
         length = 1,
         processFile = stub(),
         log = stub(),
         currentFormat = stub(),
         write = stub(),
         exit = stub(),
-        wasStop = stub(),
-        isStop = stub(),
         readFile = stub().returns(''),
         writeFile = stub(),
         report = stub(),
@@ -128,9 +126,7 @@ async function runWorker(options) {
         processorRunners,
         fileCache,
         rawPlaces,
-        wasStop,
-        isStop,
-        names,
+        name,
         length,
         readFile,
         writeFile,

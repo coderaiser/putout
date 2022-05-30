@@ -15,20 +15,22 @@ module.exports.run = async ({transform, plugins, noConfig, readFile, writeFile, 
         if (wasStop())
             break;
         
+        wasStop(isStop());
+        const currentIndex = isStop() ? length - 1 : index;
+        const name = names[index];
+        
         const {exited} = await runWorker({
             readFile,
             writeFile,
             exit,
-            isStop,
-            wasStop,
             fix,
             processorRunners,
             rulesdir,
             currentFormat,
             formatterOptions,
-            index,
-            names,
-            length,
+            index: currentIndex,
+            name,
+            count: length,
             rawPlaces,
             processFile,
             fileCache,
