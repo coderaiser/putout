@@ -7,17 +7,13 @@ const {
 } = require('process');
 const tryCatch = require('try-catch');
 const {readFileSync} = require('fs');
-const tryToCatch = require('try-to-catch');
-const {runProcessors} = require('@putout/engine-processor');
 
-const parseError = require('../parse-error.js');
 const getOptions = require('../get-options.js');
-const {simpleImport} = require('../simple-import');
 const {
     INVALID_CONFIG,
     NO_PROCESSORS,
 } = require('../exit-codes.js');
-const ignores = require('../../ignores.js');
+const {lint} = require('./lint.js');
 
 const isParser = (rule) => rule.startsWith('parser');
 const isParsingError = ({rule}) => isParser(rule);
@@ -71,40 +67,22 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
             success,
         };
     
-    let isProcessed = true;
-    let places = [];
-    let rawSource = '';
-    let processedSource = '';
-    
-    if (!ignores(dir, resolvedName, options)) {
-        rawSource = await readFile(resolvedName, 'utf8');
-        
-        const [error, result] = await tryToCatch(runProcessors, {
-            name: resolvedName,
-            fix,
-            processFile,
-            options,
-            rawSource,
-            processorRunners,
-            load: simpleImport,
-        });
-        
-        if (error) {
-            places = parseError(error);
-            
-            isProcessed = true;
-            processedSource = rawSource;
-            
-            if (raw)
-                log(error);
-        } else {
-            ({
-                isProcessed,
-                places,
-                processedSource,
-            } = result);
-        }
-    }
+    const {
+        places,
+        isProcessed,
+        rawSource,
+        processedSource,
+    } = await lint({
+        raw,
+        dir,
+        fix,
+        options,
+        processorRunners,
+        log,
+        readFile,
+        processFile,
+        resolvedName,
+    });
     
     const line = await report(currentFormat, {
         report,

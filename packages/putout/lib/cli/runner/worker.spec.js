@@ -49,6 +49,29 @@ test('putout: cli: runner: processor throw: raw', async (t) => {
     t.end();
 });
 
+test('putout: cli: runner: ignores', async (t) => {
+    mockRequire('../get-options', stub().returns({
+        formatter: await simpleImport('@putout/formatter-json'),
+        dir: '.',
+        ignore: [
+            'fixture',
+        ],
+    }));
+    
+    const {rawPlaces} = await runWorker({
+        name: 'fixture/1.js',
+        currentFormat: 'json-lines',
+        formatterOptions: {},
+    });
+    
+    stopAll();
+    
+    const expected = [[]];
+    
+    t.deepEqual(rawPlaces, expected);
+    t.end();
+});
+
 test('putout: cli: runner: processor: load', async (t) => {
     const name = join(__dirname, 'fixture/processor.throw');
     const processor = await import('@putout/processor-javascript');
@@ -66,6 +89,8 @@ test('putout: cli: runner: processor: load', async (t) => {
     mockRequire('@putout/engine-processor', {
         runProcessors,
     });
+    
+    reRequire('./lint');
     
     await runWorker({
         name,
