@@ -42,3 +42,8 @@ test('putout: plugin-eslint: transform: remove-overrides-with-empty-rules', (t) 
     t.end();
 });
 
+test('putout: plugin-eslint: transform: remove-no-missing', (t) => {
+    t.transform('remove-no-missing');
+    t.end();
+});
+

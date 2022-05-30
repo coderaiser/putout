@@ -11,5 +11,6 @@ module.exports.rules = {
     ...getRule('convert-require-to-import'),
     ...getRule('remove-no-unpublished-require'),
     ...getRule('remove-overrides-with-empty-rules'),
+    ...getRule('remove-no-missing'),
 };
 

@@ -25,6 +25,7 @@ npm i @putout/plugin-eslint -D
         "eslint/convert-ide-to-safe": "on",
         "eslint/convert-require-to-import": "on",
         "eslint/convert-import-to-require": "on",
+        "eslint/remove-no-missing": "on",
         "eslint/remove-no-unpublished-require": "on",
         "eslint/remove-overrides-with-empty-rules": "on"
     }
@@ -141,8 +142,7 @@ Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1ac
 
 ## remove-no-unpublished-require
 
-`node/remove-no-unpublished-require` should be enabled, since this is a very useful rule already disabled in [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme).
-
+`node/remove-no-unpublished-require` should be enabled, since this is a very useful rule, which shows what files should be add to `.npmignore`.
 ```diff
 {
     "overrides": [{
@@ -175,6 +175,31 @@ Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1ac
 -       "rules": {
 -       }
 -   }],
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:putout/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ]
+};
+```
+
+## remove-no-missing
+
+`node/remove-no-missing-require` and `node/remove-no-missing-import` doesn't supports [`exports`](https://nodejs.org/dist/latest-v18.x/docs/api/packages.html#exports)
+and already disabled by [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme).
+
+```diff
+{
+    "overrides": [{
+        "files": "test/*.js",
+        "rules": {
+-           "node/no-missing-require": "off",
+-           "node/no-missing-import": "off"
+        }
+    }],
     "extends": [
         "plugin:node/recommended",
         "plugin:putout/recommended"
