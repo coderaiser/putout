@@ -11,17 +11,7 @@ __putout_processor_json({});
 
 __putout_processor_json({});
 
-__putout_processor_json({
-    "overrides": [{
-        "files": ["lib/**/*.spec.js"],
-        "rules": {
-        },
-    }, {
-        "files": ["lib/**/*.spec.js"],
-        "rules": {
-        },
-    }]
-});
+__putout_processor_json({});
 
 __putout_processor_json({
     "other": [{

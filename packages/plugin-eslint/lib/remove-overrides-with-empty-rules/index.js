@@ -27,8 +27,10 @@ module.exports.traverse = ({push}) => ({
         if (overridesPath.node.key.value !== 'overrides')
             return;
         
-        if (overridesPath.node.value.elements.length > 1)
+        if (overridesPath.node.value.elements.length > 1) {
+            push(path.parentPath);
             return;
+        }
         
         push(overridesPath);
     },

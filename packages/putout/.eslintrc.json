@@ -1,10 +1,4 @@
 {
-    "overrides": [{
-        "files": "test/exports.mjs",
-        "rules": {
-            "node/no-missing-import": "off"
-        }
-    }],
     "rules": {
         "node/no-unsupported-features/es-syntax": "off"
     },

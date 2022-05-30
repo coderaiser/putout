@@ -1,5 +1,5 @@
-{
-    "overrides": [{
+__putout_processor_json({
+  "overrides": [{
         "files": "eslint-fixture/**/*.js",
         "rules": {
             "no-unreachable": "off"
@@ -12,14 +12,8 @@
             "@typescript-eslint/no-inferrable-types": "off"
         }
     }],
-    "extends": [
-        "plugin:node/recommended",
-        "plugin:eslint-plugin/recommended",
-        "plugin:putout/safe+align"
-    ],
-    "plugins": [
-        "eslint-plugin",
-        "node",
-        "putout"
-    ]
-}
+});
+
+__putout_processor_json({});
+
+__putout_processor_json({});

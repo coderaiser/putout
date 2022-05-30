@@ -143,6 +143,7 @@ Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1ac
 ## remove-no-unpublished-require
 
 `node/remove-no-unpublished-require` should be enabled, since this is a very useful rule, which shows what files should be add to `.npmignore`.
+
 ```diff
 {
     "overrides": [{
@@ -164,9 +165,12 @@ Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1ac
 
 ## remove-overrides-with-empty-rules
 
-`overrides` with `rules: {}` has no sense.
+`overrides` with `rules: {}` has no sense. Check out in 🐊[**Putout Editor**]:
 
-Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1acad4ce8d999ff9311126c1ed69f/68f98adff1c9b650d51e816e72142b2f86deeb87).
+- [remove empty `rules`](https://putout.cloudcmd.io/#/gist/a3f1acad4ce8d999ff9311126c1ed69f/68f98adff1c9b650d51e816e72142b2f86deeb87);
+- [remove empty `overrides`](https://putout.cloudcmd.io/#/gist/46159f43d94f97ecbf131c850a39f711/a1aa918bec1019d7d33996ade0237ee4a5ceb390);
+
+Remove `overrides` with one element with empty `rules`:
 
 ```diff
 {
@@ -182,6 +186,47 @@ Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1ac
     "plugins": [
         "putout",
         "node"
+    ]
+};
+```
+
+Or remove empty `overrides`:
+
+```diff
+{
+-   "overrides": [],
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:putout/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ]
+};
+```
+
+And ofcourse remove only elements with empty `rules`:
+
+```diff
+{
+  "overrides": [{
+-   "files": "test/*.js",
+-   "rules": {
+-   }
+- }, {
+    "files": "test/*.js",
+    "rules": {
+      "no-semi": "off"
+    }
+  }],
+    "extends": [
+      "plugin:node/recommended",
+      "plugin:putout/recommended"
+    ],
+    "plugins": [
+      "putout",
+      "node"
     ]
 };
 ```

@@ -4,11 +4,6 @@
         "rules": {
             "node/no-unpublished-require": "off"
         }
-    }, {
-        "files": "test/**",
-        "rules": {
-            "node/no-missing-require": "off"
-        }
     }],
     "extends": [
         "plugin:node/recommended",
