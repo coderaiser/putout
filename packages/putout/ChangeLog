@@ -1,3 +1,18 @@
+2022.05.31, v26.9.2
+
+feature:
+- (putout) cli: runner: move out lint
+- (putout) cli: runner: move out runCache
+- (@putout/plugin-eslint) remove-overrides-with-empty-rules: improve support of empty overrides
+- (@putout/plugin-eslint) add remove-no-missing
+- (@putout/plugin-remove-useless-assign) exclude SpreadElement
+- (@putout/cli-cache) canUseCache: add ability to handle empty descriptor
+- (eslint-plugin-putout) turn off node/no-missing-require, node/no-missing-import: does not support namespaces
+- (@putout/plugin-eslint) add remove-overrides-with-empty-rules
+- (@putout/plugin-putout) add convert-report-to-function
+- (@putout/plugin-eslint) add remove-no-unpublished-require
+
+
 2022.05.29, v26.9.1
 
 fix:
