@@ -32,7 +32,7 @@ const createFormatterProxy = (options) => {
     });
 };
 
-module.exports = async ({readFile, report, writeFile, exit, raw, write, log, currentFormat, rulesdir, formatterOptions, noConfig, transform, plugins, index, fix, processFile, processorRunners, fileCache, rawPlaces, name, count}) => {
+module.exports = async ({readFile, report, writeFile, exit, raw, write, log, currentFormat, rulesdir, formatterOptions, noConfig, transform, plugins, index, fix, processFile, processorRunners, fileCache, name, count}) => {
     const resolvedName = resolve(name)
         .replace(/^\./, cwd);
     
@@ -48,7 +48,7 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
         return exit(INVALID_CONFIG, configError);
     
     const {dir} = options;
-    const success = await runCache({
+    const [success, currentPlaces] = await runCache({
         options,
         fileCache,
         report,
@@ -59,11 +59,11 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
         resolvedName,
         index,
         count,
-        rawPlaces,
     });
     
     if (success)
         return {
+            places: currentPlaces,
             success,
         };
     
@@ -109,17 +109,15 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
     if (fixable)
         fileCache.setInfo(name, places, options);
     
-    rawPlaces.push(places);
-    
     return {
-        rawPlaces,
+        places,
         success: true,
     };
 };
 
-async function runCache({fileCache, report, write, formatterOptions, currentFormat, name, resolvedName, index, count, rawPlaces, options}) {
+async function runCache({fileCache, report, write, formatterOptions, currentFormat, name, resolvedName, index, count, options}) {
     if (!fileCache.canUseCache(name, options))
-        return false;
+        return [false, []];
     
     const places = fileCache.getPlaces(name);
     const formatterProxy = createFormatterProxy({
@@ -134,8 +132,7 @@ async function runCache({fileCache, report, write, formatterOptions, currentForm
     const line = await report(currentFormat, formatterProxy);
     
     write(line || '');
-    rawPlaces.push(places);
     
-    return true;
+    return [true, places];
 }
 

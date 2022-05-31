@@ -9,7 +9,7 @@ const report = Report();
 module.exports.run = async ({transform, plugins, noConfig, readFile, writeFile, exit, isStop, wasStop, names, write, log, rulesdir, fix, processorRunners, fileCache, currentFormat, formatterOptions, options, raw}) => {
     const processFile = initProcessFile(options);
     const {length} = names;
-    const rawPlaces = [];
+    const places = [];
     
     for (let index = 0; index < length; index++) {
         if (wasStop())
@@ -19,7 +19,7 @@ module.exports.run = async ({transform, plugins, noConfig, readFile, writeFile, 
         const currentIndex = isStop() ? length - 1 : index;
         const name = names[index];
         
-        const {exited} = await runWorker({
+        const {exited, places: currentPlaces = []} = await runWorker({
             readFile,
             writeFile,
             exit,
@@ -31,7 +31,6 @@ module.exports.run = async ({transform, plugins, noConfig, readFile, writeFile, 
             index: currentIndex,
             name,
             count: length,
-            rawPlaces,
             processFile,
             fileCache,
             raw,
@@ -43,9 +42,11 @@ module.exports.run = async ({transform, plugins, noConfig, readFile, writeFile, 
             transform,
         });
         
+        places.push(...currentPlaces);
+        
         if (exited)
-            return {exited, rawPlaces};
+            return {exited, places};
     }
     
-    return {rawPlaces};
+    return {places};
 };

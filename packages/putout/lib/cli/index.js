@@ -20,8 +20,6 @@ const {
     defaultProcessors,
 } = require('@putout/engine-processor');
 
-const merge = require('../merge');
-
 const getFiles = require('./get-files');
 const {createCache} = require('@putout/cli-cache');
 const supportedFiles = require('./supported-files');
@@ -277,7 +275,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         plugins,
     };
     
-    const {rawPlaces, exited} = await run({
+    const {places, exited} = await run({
         fix,
         exit,
         readFile,
@@ -301,13 +299,11 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (exited)
         return;
     
-    const mergedPlaces = merge(...rawPlaces);
-    
     fileCache.reconcile();
     
     if (enableAll || disableAll) {
         const {ruler} = await simpleImport('@putout/cli-ruler');
-        await ruler({enableAll, disableAll, readFile, writeFile}, mergedPlaces);
+        await ruler({enableAll, disableAll, readFile, writeFile}, places);
     }
     
     if (fix && staged) {
@@ -319,7 +315,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             return exit(STAGE);
     }
     
-    if (mergedPlaces.length)
+    if (places.length)
         return exit(PLACE);
     
     const exitCode = getExitCode(wasStop);

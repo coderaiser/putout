@@ -27,7 +27,7 @@ test('putout: cli: runner: processor throw: raw', async (t) => {
         ],
     }));
     
-    const {rawPlaces} = await runWorker({
+    const {places} = await runWorker({
         name,
         currentFormat: 'json-lines',
         formatterOptions: {},
@@ -36,16 +36,16 @@ test('putout: cli: runner: processor throw: raw', async (t) => {
     
     stopAll();
     
-    const expected = [[{
+    const expected = [{
         message: 'preProcess',
         position: {
             column: 1,
             line: 1,
         },
         rule: 'parser',
-    }]];
+    }];
     
-    t.deepEqual(rawPlaces, expected);
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -58,7 +58,7 @@ test('putout: cli: runner: ignores', async (t) => {
         ],
     }));
     
-    const {rawPlaces} = await runWorker({
+    const {places} = await runWorker({
         name: 'fixture/1.js',
         currentFormat: 'json-lines',
         formatterOptions: {},
@@ -66,9 +66,9 @@ test('putout: cli: runner: ignores', async (t) => {
     
     stopAll();
     
-    const expected = [[]];
+    const expected = [];
     
-    t.deepEqual(rawPlaces, expected);
+    t.deepEqual(places, expected);
     t.end();
 });
 
