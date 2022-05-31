@@ -2127,10 +2127,11 @@ module.exports.fix = (path) => {
 };
 ```
 
-More information about supported plugin types you can find at [@putout/engine-runner](https://github.com/coderaiser/putout/tree/master/packages/engine-runner).
-About the process of plugins loading you can find at [@putout/engine-loader](https://github.com/coderaiser/putout/tree/master/packages/engine-loader).
+☝️ *More information about supported plugin types you can find in [@putout/engine-runner](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#readme).*
 
-When you need, you can use [@babel/types](https://babeljs.io/docs/en/next/babel-types.html), [template](https://babeljs.io/docs/en/next/babel-template.html) and [generate](https://babeljs.io/docs/en/babel-generator). All of this can be gotten from `putout`:
+☝️ *Find out about the way plugins load in [@putout/engine-loader](https://github.com/coderaiser/putout/tree/master/packages/engine-loader#readme).*
+
+☝️ *When you need, you can use [@babel/types](https://babeljs.io/docs/en/next/babel-types.html), [template](https://babeljs.io/docs/en/next/babel-template.html) and [generate](https://babeljs.io/docs/en/babel-generator). All of this can be gotten from **🐊Putout**:*
 
 ```js
 const {
@@ -2164,7 +2165,7 @@ module.exports.fix = (path) => {
 This should be done to preserve `loc` and `comments` information, which is different in `babel` and `recast`. `putout` will handle this case for you :),
 just use the methods of `operator`.
 
-### Putout Plugin
+### 🐊 Putout Plugin
 
 When you work on a `plugin` or `codemod` please add rule `putout` into `.putout.json`:
 
