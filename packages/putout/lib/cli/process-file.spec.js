@@ -187,12 +187,20 @@ test('putout: cli: process-file: ruler', async (t) => {
         rules: {
             'putout-config': true,
         },
-    })})`;
+    })})`.replace(/"/g, `'`);
+    
     const fix = false;
     const name = 'example.md{json}';
     const log = stub();
     const write = stub();
-    const eslint = stub().returns(['', []]);
+    const eslint = stub().returns(['', [{
+        message: 'Missing semicolon.',
+        position: {
+            column: 58,
+            line: 2,
+        },
+        rule: 'semi (eslint)',
+    }]]);
     
     const options = {
         dir: '.',
@@ -240,6 +248,13 @@ test('putout: cli: process-file: ruler', async (t) => {
             line: 2,
         },
         rule: 'putout-config/convert-boolean-to-string',
+    }, {
+        message: 'Missing semicolon.',
+        position: {
+            column: 58,
+            line: 3,
+        },
+        rule: 'semi (eslint)',
     }];
     
     t.deepEqual(places, expected);

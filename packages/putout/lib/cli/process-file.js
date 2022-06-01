@@ -16,7 +16,7 @@ const getMatchedOptions = (name, options) => {
     return merge(options, parseMatch(name, options.match));
 };
 
-module.exports = ({fix, fixCount, isFlow, ruler = {}, logError, raw}) => async ({name, source, startLine, options}) => {
+module.exports = ({fix, fixCount, isFlow, logError, raw}) => async ({name, source, startLine, options}) => {
     const isTS = /\.tsx?$/.test(name) || /{tsx?}$/.test(name);
     const matchedOptions = getMatchedOptions(name, options);
     
@@ -34,12 +34,6 @@ module.exports = ({fix, fixCount, isFlow, ruler = {}, logError, raw}) => async (
     
     const {code = source} = result || {};
     const allPlaces = result ? result.places : parseError(e);
-    
-    if (ruler.disable || ruler.enable || ruler.disableAll || ruler.enableAll)
-        return {
-            places: formatPlaces(startLine, allPlaces),
-            code,
-        };
     
     const [newCode, newPlaces] = await eslint({
         name,
