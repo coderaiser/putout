@@ -1,3 +1,14 @@
+2022.06.01, v26.10.0
+
+fix:
+- (@putout/cli-cache) canUseCache: no when places.length
+
+feature:
+- (putout) process-file: --disalble-all show places found by parsers other then javascript
+- (package) @putout/cli-cache v1.1.0
+- (@putout/cli-cache) drop support of node < 16
+- (@putout/cli-cache) canUseCache: can even if places found
+
 2022.05.31, v26.9.3
 
 feature:
