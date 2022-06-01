@@ -89,10 +89,7 @@ const canUseCache = ({fileCache, getOptionsHash}) => (name, options) => {
         return false;
     
     const {changed, meta} = descriptor;
-    const {
-        places,
-        optionsHash,
-    } = meta;
+    const {optionsHash} = meta;
     
     if (changed)
         return false;
@@ -100,7 +97,7 @@ const canUseCache = ({fileCache, getOptionsHash}) => (name, options) => {
     if (optionsHash !== getOptionsHash(options))
         return false;
     
-    return !places.length;
+    return true;
 };
 
 const hash = (a) => murmur(a).result()

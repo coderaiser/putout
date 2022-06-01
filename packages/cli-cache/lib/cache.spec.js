@@ -383,7 +383,7 @@ test('putout: cli: cache: enabled: canUseCache: not fix', async (t) => {
     const result = fileCache.canUseCache(name, options);
     stopAll();
     
-    t.notOk(result);
+    t.ok(result);
     t.end();
 });
 

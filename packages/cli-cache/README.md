@@ -24,7 +24,9 @@ const fileCache = await createCache({
 
 const places = fileCache.getPlaces(name);
 
+// when file have places returns false
 fileCache.canUseCache(name, options);
+
 fileCache.removeEntry(name);
 fileCache.setInfo(name, places, options);
 fileCache.reconcile();
