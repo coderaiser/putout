@@ -48,7 +48,7 @@ x = y && z;
 
 ## spread
 
-No need to use `ternary` when you can use logical expression (`&&`) it behaves in the same way, but simpler. 
+No need to use `ternary` when you can use logical expression (`&&`) it behaves in the same way, but simpler.
 
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8bbef76b11de45eb97e4f5647d9266bb/06840d9788ea4a2d48656331283f8da123d1e8fa).
 
