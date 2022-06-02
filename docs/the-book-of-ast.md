@@ -1,6 +1,6 @@
 # The book of AST
 
-Once upon a time 🐊**Putout** swim 
+Once upon a time 🐊**Putout** swim
 over the river of Code and suddenly...
 
 ## MemberExpression
