@@ -1,3 +1,15 @@
+2022.06.02, v26.11.0
+
+fix:
+- (putout) resolve name before parsing options
+
+
+feature:
+- (package) @putout/plugin-simplify-ternary v3.0.0
+- (@putout/plugin-simplify-ternary) drop support of 🐊 < 26
+- (@putout/plugin-simplify-ternary) add support of spread
+
+
 2022.06.01, v26.10.0
 
 fix:
