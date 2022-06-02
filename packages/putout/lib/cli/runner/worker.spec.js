@@ -1,5 +1,7 @@
 'use strict';
 
+const tryToCatch = require('try-to-catch');
+
 const mockRequire = require('mock-require');
 
 const {
@@ -46,6 +48,26 @@ test('putout: cli: runner: processor throw: raw', async (t) => {
     }];
     
     t.deepEqual(places, expected);
+    t.end();
+});
+
+test('putout: cli: runner: getOptions: resolve called', async (t) => {
+    const getOptions = stub().throws(Error('getOptions error'));
+    
+    mockRequire('../get-options', getOptions);
+    const runWorker = reRequire('./worker.js');
+    
+    await tryToCatch(runWorker, {
+        name: '1.js',
+        currentFormat: 'json-lines',
+        formatterOptions: {},
+    });
+    
+    stopAll();
+    
+    const [args] = getOptions.args[0];
+    
+    t.match(args.name, '/');
     t.end();
 });
 

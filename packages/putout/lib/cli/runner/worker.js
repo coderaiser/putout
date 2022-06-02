@@ -37,7 +37,7 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
         .replace(/^\./, cwd);
     
     const [configError, options] = tryCatch(getOptions, {
-        name,
+        name: resolvedName,
         rulesdir,
         noConfig,
         transform,
