@@ -3,5 +3,8 @@
         "*.md": {
             "simplify-ternary": "off"
         }
+    },
+    "rules": {
+        "remove-useless-spread/object": "off"
     }
 }

@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-simplify-ternary: report', (t) => {
-    t.report('identifier', 'Ternary should be simplified');
+    t.report('identifier', 'Simplify ternary');
     t.end();
 });
 
@@ -49,6 +49,11 @@ test('plugin-simplify-ternary: transform: boolean', (t) => {
 
 test('plugin-simplify-ternary: transform: same', (t) => {
     t.transform('same');
+    t.end();
+});
+
+test('plugin-simplify-ternary: transform: spread', (t) => {
+    t.transform('spread');
     t.end();
 });
 

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = () => 'Ternary should be simplified';
+module.exports.report = () => 'Simplify ternary';
 
 module.exports.replace = () => ({
     '__a ? __a : __b': '__a || __b',

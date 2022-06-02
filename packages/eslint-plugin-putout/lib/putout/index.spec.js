@@ -257,7 +257,7 @@ parserTester.run('putout', rule, {
         errors: [{
             line: 1,
             column: 1,
-            message: `Ternary should be simplified (simplify-ternary)`,
+            message: `Simplify ternary (simplify-ternary/value)`,
         }],
     }],
 });

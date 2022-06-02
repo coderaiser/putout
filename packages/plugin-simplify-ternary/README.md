@@ -20,12 +20,15 @@ npm i @putout/plugin-simplify-ternary -D
 ```json
 {
     "rules": {
-        "simplify-ternary": "on"
+        "simplify-ternary/value": "on",
+        "simplify-ternary/spread": "on"
     }
 }
 ```
 
-## ❌ Example of incorrect code
+## value
+
+### ❌ Example of incorrect code
 
 ```js
 module.exports = fs.copyFileSync ? fs.copyFileSync : copyFileSync;
@@ -34,13 +37,36 @@ x = y ? y : z;
 x = y ? z : y;
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 module.exports = fs.copyFileSync || copyFileSync;
 
 x = y || z;
 x = y && z;
+```
+
+## spread
+
+### ❌ Example of incorrect code
+
+```js
+const a = {
+    ...DEV ? {
+        devtool: 'eval',
+    } : {},
+};
+```
+
+### ✅ Example of correct code
+
+```js
+const a = {
+    ...DEV && {
+        devtool: 'eval',
+    },
+};
+
 ```
 
 ## Comparison
