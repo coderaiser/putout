@@ -49,6 +49,17 @@ Once upon a time 🐊Putout swim over the river of Code and suddenly...
 
 ## MemberExpression
 
+<details><summary>🤿 deep dive</summary>
+
+```ts
+memberExpression(object: Expression, property: Expression | Identifier, computed: boolean, optional: boolean);
+```
+
+> `MemberExpression` always has `object` and `property` fields.
+> If `computed` enabled then `property` is [`Expression`](#expression-and-statement) otherwise it is [`Identifier`](#identifier).
+
+</details>
+
 ...he was interrupted by writings on the water:
 
 ```js
@@ -58,7 +69,7 @@ Friends.elephant; // has not computed value 'elephant'
 
 "Anytime you access a **property** in **object** or **index** of an **array** you using **MemberExpression**", thought the crocodile wagging his tail.
 
-## Identifiers
+## Identifier
 
 <details><summary>🤿 deep dive</summary>
 
@@ -70,7 +81,7 @@ identifier(name: string);
 > - ✅ not part of `Statement`;
 > - starts from `[a-zA-Z]` and contains characters `[a-zA-Z\d]`;
 > 
-> It's `Identifier` and most likely (but not necessarily) it's used as part of an `Expression`.
+> It's `Identifier` and most likely (but not necessarily) it's used as part of an [`Expression`](#expression-and-statement).
 
 </details>
 
@@ -89,11 +100,11 @@ const apple = '🍎';
 - ✅`apple` - is **Identifier**;
 - ✅`'🍎'` - is **StringLiteral**;
 
-But the most interesting thing is **const**, because it is a **Statement**, and other parts of this code is **Expressions**".
+But the most interesting thing is **const**, because it is a [**Statement**](#expression-and-statement), and other parts of this code are [**Expressions**](#expression-and-statement)".
 
-## Expressions and Statements
+## Expression and Statement
 
-"**Expressions** and **Statements** it's like an apples 🍎 and a tree 🌳", 🐊**Putout** said to his
+"**Expression** and **Statement** it's like an apple 🍎 and a tree 🌳", 🐊**Putout** said to his
 friend.
 
 ```js
@@ -117,8 +128,8 @@ if (fruit === '🍎') // 🌳(🍎)
 ```
 
 > Both `ArrayExpression` and `ArrayPattern` takes `properties`, both of which takes `ObjectProperty`, but
-> - `ArrayExpression` takes as `elements`: `null`, `Expression` and `SpreadElement`;
-> - `ArrayPattern` takes as `elements`: `ArrayPattern`, `AssignmentPattern`, [`Identifier`](#identifiers), `ObjectPattern` and `RestElement`;
+> - `ArrayExpression` takes as `elements`: `null`, [`Expression`](#expression-and-statement) and `SpreadElement`;
+> - `ArrayPattern` takes as `elements`: `ArrayPattern`, `AssignmentPattern`, [`Identifier`](#identifier), `ObjectPattern` and `RestElement`;
 
 
 </details>
@@ -137,7 +148,7 @@ const [owl] = birds;
 
 "What the difference between this two lines?", 🦉Owl asked.
 
-"First one is **ArrayExpression** with one element that is **StringLiteral** `'🦉'`", started 🐊Putout. "And second one is **ArrayPattern** with one element that is [**Identifier**](#identifiers) `owl`.
+"First one is **ArrayExpression** with one element that is **StringLiteral** `'🦉'`", started 🐊Putout. "And second one is **ArrayPattern** with one element that is [**Identifier**](#identifier) `owl`.
 
 "So pattern always on the left side, and expression on the right side?", the owl asked thoughtfully.
 
