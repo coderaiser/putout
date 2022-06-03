@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-simplify-logical-expression: report', (t) => {
-    t.report('not', 'Logical expression should be simplified');
+    t.report('not', 'Simplify logical expression');
     t.end();
 });
 

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = () => 'Logical expression should be simplified';
+module.exports.report = () => 'Simplify logical expression';
 
 module.exports.replace = () => ({
     '!(__a && !__b)': '!__a || __b',
