@@ -27,20 +27,20 @@ In AST world animals like to code, but they does it in a new way. They read othe
 For example here is the simplest transformation written in 🦎**PutoutScript**, all animals familiar with:
 
 ```sh
-__a = __b * __c + __b * __d-> __a = __b * (__c + __d);
+__a = __b * __c + __b * __d -> __a = __b * (__c + __d);
 ```
 
 All it does is switching places of variables, so the code:
 
 ```js
 
-animals = 🦉 * 🦏 + 🦉 * 🦛 
+animals = '🦉' * '🦏' + '🦉' * '🦛' 
 ```
 
 Will be transformed to:
 
 ```js
-animals = 🦉 * (🦏 + 🦛)
+animals = '🦉' * ('🦏' + '🦛')
 ```
 
 That was introduction part, and now let's go to the point!
@@ -59,7 +59,7 @@ Friends.elephant; // has not computed value 'elephant'
 
 ## Identifiers
 
-"Interesting that both **object** and **property**, **array** and **index** can be **Identifier**, or any other **Expressions**", continued his thought 🐊**Putout**".
+"Interesting that both **object** and **property**, **array** and **index** can be **Identifier**, or any other **Expressions**", continued his thought 🐊Putout".
 
 When the crocodile came ashore he saw his friend 🦏Rhino chewing the apples 🍎 and looking at code on the tree 🌳:
 
@@ -131,4 +131,4 @@ And sayed, "Here is the other code I saw in the cloud, is it similar on any kind
 
 "That's so simple!", Owl said, "Thank you so much 🐊Putout! These notations can be confusing, but you always know how to unravel this tangle"!
 
-"Always welcome!", **🐊Putout** said, merrily waving his tail.
+"Always welcome!", 🐊Putout said, merrily waving his tail.
