@@ -33,13 +33,6 @@ const is = !(options && !options.bidirectional);
 
 if (!left.type === 'UnaryExpression');
 
-!a instanceof b;
-a instanceof !b;
-!a instanceof !b;
-
-!a in b;
-a in !b;
-
 const oneOf = a || a;
 const same = a === a;
 ```
@@ -51,9 +44,6 @@ const is = !options || options.bidirectional;
 
 if (left.type !== 'UnaryExpression');
 
-!(a instanceof b);
-!(a in b);
-
 const oneOf = a;
 const same = true;
 ```
@@ -64,6 +54,23 @@ The rule also simplify duplication use:
 -if (a && b || a && c) {
 +if (a && (b || c)) {
 }
+```
+
+Wrong cases with `instanceof`:
+
+```diff
+-!a instanceof b;
+-a instanceof !b;
+-!a instanceof !b;
++!(a instanceof b);
+```
+
+Wrong cases with `in`:
+
+```diff
+-!a in b;
+-a in !b;
++!(a in b);
 ```
 
 ## Comparison
