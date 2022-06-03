@@ -9,10 +9,11 @@ During development of 🎩[**ESCover**](https://github.com/coderaiser/escover#re
 With this guide I'm trying to supplement **ESTree** and **Babel** to make things a little bit easier for beginners.
 
 Of course while using 🦎[**PutoutScript**](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) you don't deal with **AST** directly most of the time.
-But for edge cases this information will be useful. Also 🐊[PutoutEditor](https://putout.cloudcmd.io) will help to jump in transformations on the speed of light 😏.
-Have fun 🎈!
+But for edge cases this information will be useful. Also 🐊[PutoutEditor](https://putout.cloudcmd.io) will help you to jump in transformations on the speed of light 😏.
 
-## Let's the journey begin!
+Have fun 🎈 and...
+
+## ...let's the journey begin!
 
 The river of Code is a long pool of code written in water. The best place to swim for 🐊Putout. And when he not solving programming questions from friends, he usually swim or laying in the sun.
 
@@ -21,7 +22,7 @@ Green crocodile has friends, who makes first steps exploring the world of AST:
 - 🦏 Rhino likes to eat apples and read code from an apple tree.
 - 🦉 Owl likes to fly and read code from clouds.
 
-🐊Putout was in the AST world for a long time, so he got some experience and had a wish to share his knowledge with his friends so they was on the same wave.
+🐊Putout was in the AST world for a long time, so he got some experience and had a wish to share his knowledge with his friends so they was on the same level.
 
 In AST world animals like to code, but they does it in a new way. They read others code most of the time and search for a way of transforming one peace of code to another.
 
