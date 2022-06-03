@@ -37,3 +37,8 @@ test('plugin-simplify-logical-expression: transform: same', (t) => {
     t.end();
 });
 
+test('plugin-simplify-logical-expression: transform: duplicate', (t) => {
+    t.transform('duplicate');
+    t.end();
+});
+

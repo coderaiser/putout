@@ -36,6 +36,7 @@ if (!left.type === 'UnaryExpression');
 !a instanceof b;
 a instanceof !b;
 !a instanceof !b;
+
 !a in b;
 a in !b;
 
@@ -55,6 +56,14 @@ if (left.type !== 'UnaryExpression');
 
 const oneOf = a;
 const same = true;
+```
+
+The rule also simplify duplication use:
+
+```diff
+-if (a && b || a && c) {
++if (a && (b || c)) {
+}
 ```
 
 ## Comparison
