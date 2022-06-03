@@ -24,7 +24,7 @@ friend 🦏 Rhino, when they meat early in the morning near river of Code.
 
 ```js
 if (fruit === '🍎') // 🌳(🍎)
-    eat('🍎');      // 🦏 ❤️ 🍎
+    eat('🍎'); // 🦏 ❤️ 🍎
 ```
 
 "An apple can grow on a branch, but branch canno grow on apple, the same goes to **Expressions** and **Statements**", continued 🐊**Putout**.
