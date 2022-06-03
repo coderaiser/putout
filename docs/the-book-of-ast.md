@@ -60,6 +60,20 @@ Friends.elephant; // has not computed value 'elephant'
 
 ## Identifiers
 
+<details><summary>🤿 deep dive</summary>
+
+```ts
+identifier(name: string);
+```
+> When it's
+> - ✅ not `Literal`;
+> - ✅ not part of `Statement`;
+> - starts from `[a-zA-Z]` and contains characters `[a-zA-Z\d]`;
+> 
+> It's `Identifier` and most likely (but not necessarily) it's used as part of an `Expression`.
+
+</details>
+
 "Interesting that both **object** with **properties** and **array** with **indexes** can be **Identifiers**, or any other **Expressions**", continued his thought 🐊Putout".
 
 When the crocodile came ashore he saw his friend 🦏Rhino chewing the apples 🍎 and staring at code on the tree 🌳:
@@ -95,6 +109,21 @@ if (fruit === '🍎') // 🌳(🍎)
 
 ## ArrayExpression and ArrayPattern
 
+<details><summary>🤿 deep dive</summary>
+
+```ts
+ arrayExpression(elements: Array<null | Expression | SpreadElement>);
+ arrayPattern(elements: Array<null | PatternLike>);
+```
+
+> Both `ArrayExpression` and `ArrayPattern` takes `properties`, both of which takes `ObjectProperty`, but
+> - `ArrayExpression` takes as `elements`: `null`, `Expression` and `SpreadElement`;
+> - `ArrayPattern` takes as `elements`: `ArrayPattern`, `AssignmentPattern`, [`Identifier`](#identifiers), `ObjectPattern` and `RestElement`;
+
+
+</details>
+
+
 Once the 🦉Owl flied to 🐊Putout when he leying in the sun after lunch.
 
 "Hi greany!", owl said, "I just saw a very strange thing on the cloud! Need you help, it drives me crazy!"
@@ -108,13 +137,28 @@ const [owl] = birds;
 
 "What the difference between this two lines?", 🦉Owl asked.
 
-"First one is **ArrayExpression** with one element that is **StringLiteral** `'🦉'`", started 🐊Putout. "And second one is **ArrayPattern** with one element that is **Identifier** `owl`.
+"First one is **ArrayExpression** with one element that is **StringLiteral** `'🦉'`", started 🐊Putout. "And second one is **ArrayPattern** with one element that is [**Identifier**](#identifiers) `owl`.
 
 "So pattern always on the left side, and expression on the right side?", the owl asked thoughtfully.
 
 "Exactly! For destructuring we always use patterns", answered 🐊Putout, "same goes to **ObjectExpression** and **ObjectPattern**".
 
 ## ObjectExpression and ObjectPattern
+
+
+<details><summary>🤿 deep dive</summary>
+
+```ts
+objectExpression(properties: (ObjectMethod | ObjectProperty | SpreadElement)[]);
+objectPattern(properties: (RestElement | ObjectProperty)[]);
+```
+
+> Both `ObjectExpression` and `ObjectPattern` takes `properties`, both of which takes `ObjectProperty`, but
+> - `ObjectExpression` takes as `properties`: `ObjectMethod` and `SpreadElement`;
+> - `ObjectPattern` takes as `properties`: `RestElement` only;
+
+</details>
+
 
 Owl scratched her paw on the ground:
 
