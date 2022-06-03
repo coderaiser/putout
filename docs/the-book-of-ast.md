@@ -6,7 +6,11 @@ So gradually I started admit some logic behind all of this. During development o
 
 During development of 🎩[**ESCover**](https://github.com/coderaiser/escover#readme) I found out that a lot of nodes can be handled in the similar way, so there is a groups of them. Also it was unexpectedly for me that half a dozen nodes (with repeating structures in some of them) are enough to make a coverage tool!
 
-With this guide I'm trying to supplement **ESTree** and **Babel** to make things a little bit easier for beginners. Have fun 🎈!
+With this guide I'm trying to supplement **ESTree** and **Babel** to make things a little bit easier for beginners.
+
+Of course while using 🦎[**PutoutScript**](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) you don't deal with **AST** directly most of the time.
+But for edge cases this information will help you. Also 🐊[PutoutEditor](https://putout.cloudcmd.io) will help to jump in transformations on the speed of light 😏.
+Have fun 🎈!
 
 ## Let's the journey begin!
 
@@ -87,12 +91,13 @@ Owl scratched her paw on the ground:
 const birds = {
     owl: '🦉',
 };
+
 const {owl} = birds;
 ```
 
 And sayed, this is the other code I saw in the cloud, is it similar on any kind?"
 
-"Sure!", purred crocodile, "Now `owl` is an **ObjectProperty** of **ObjectExpression** in the first line, and second line have **ObjectPattern**."
+"Sure!", purred crocodile, "Now `owl` is a `key` of **ObjectProperty** of **ObjectExpression** in the first line, and second line have **ObjectPattern**."
 
 "That's so simple!", Owl said, "Thank you so much 🐊Putout! These notations can be confusing, but you always know how to unravel this tangle"!
 
