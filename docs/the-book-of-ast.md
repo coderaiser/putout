@@ -4,7 +4,7 @@ When I started dealing with **AST** I have a lot problems in understanding basic
 
 So gradually I started admit some logic behind all of this. During development of 🐊**Putout** and [@putout/plugin-remove-unused-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables#putoutplugin-remove-unused-variables-), I learned to work with all **AST** nodes. I thought I never finish and quit, but suddenly I covered all of them.
 
-During development of 🎩[**ESCover**](https://github.com/coderaiser/escover#readme) I found out that a lot of nodes can be handled in the similar way, so there is a groups of them. Also it was unexpectedly for me that half a dozen nodes (with repeating structures in some of them) are enaugh to make a coverage tool!
+During development of 🎩[**ESCover**](https://github.com/coderaiser/escover#readme) I found out that a lot of nodes can be handled in the similar way, so there is a groups of them. Also it was unexpectedly for me that half a dozen nodes (with repeating structures in some of them) are enough to make a coverage tool!
 
 With this guide I'm trying to supplement **ESTree** and **Babel** to make things a little bit easier for beginners. Have fun 🎈!
 
@@ -35,7 +35,7 @@ const apple = '🍎';
 
 "Hi Pal!", Rhino said, "I can't understand the difference between **Identifiers** and **Literals** could you please help me?"
 
-"Hi, Rhino!", answered 🐊**Putout**, sure! Look 
+"Hi, Rhino!", answered 🐊**Putout**, sure! Look
 
 - ✅`apple` - is **Identifier**
 - ✅`'🍎'` - is **StringLiteral**
@@ -85,7 +85,7 @@ Owl scratched her paw on the ground:
 
 ```js
 const birds = {
-    owl: '🦉'
+    owl: '🦉',
 };
 const {owl} = birds;
 ```
@@ -97,4 +97,3 @@ And sayed, this is the other code I saw in the cloud, is it similar on any kind?
 "That's so simple!", Owl said, "Thank you so much 🐊Putout! These notations can be confusing, but you always know how to unravel this tangle"!
 
 "Always welcome!", **🐊Putout** said, merrily waving his tail.
-
