@@ -130,6 +130,6 @@ And sayed, "Here is the other code I saw in the cloud, is it similar on any kind
 
 "Sure!", purred crocodile, "Now `owl` is a `key` of **ObjectProperty** of **ObjectExpression** in the first line, and second line have **ObjectPattern**."
 
-"That's so simple!", Owl said, "Thank you so much 🐊Putout! These notations can be confusing, but you always know how to unravel this tangle"!
+"That's so simple!", Owl said, "Thank you so much 🐊Putout! These notations can be confusing, but you always know how to unravel this tangle 🧶"!
 
 "Always welcome!", 🐊Putout said, merrily waving his tail.
