@@ -55,13 +55,13 @@ Friends['🐘']; // has computed value '🐘'
 Friends.elephant; // has not computed value 'elephant'
 ```
 
-"Anytime you access a **property** in **object** or **index** of an **array** you using **MemberExpression**, thought the crocodile wagging his tail.
+"Anytime you access a **property** in **object** or **index** of an **array** you using **MemberExpression**", thought the crocodile wagging his tail.
 
 ## Identifiers
 
-"Interesting that both **object** and **property**, **array** and **index** can be **Identifier**, or any other **Expressions**", continued his thought 🐊Putout".
+"Interesting that both **object** with **properties** and **array** with **indexes** can be **Identifiers**, or any other **Expressions**", continued his thought 🐊Putout".
 
-When the crocodile came ashore he saw his friend 🦏Rhino chewing the apples 🍎 and looking at code on the tree 🌳:
+When the crocodile came ashore he saw his friend 🦏Rhino chewing the apples 🍎 and staring at code on the tree 🌳:
 
 ```js
 const apple = '🍎';
@@ -71,8 +71,8 @@ const apple = '🍎';
 
 "Hi, Rhino!", answered 🐊Putout, sure! Look
 
-- ✅`apple` - is **Identifier**
-- ✅`'🍎'` - is **StringLiteral**
+- ✅`apple` - is **Identifier**;
+- ✅`'🍎'` - is **StringLiteral**;
 
 But the most interesting thing is **const**, because it is a **Statement**, and other parts of this code is **Expressions**".
 
@@ -98,20 +98,20 @@ Once the 🦉Owl flied to 🐊Putout when he leying in the sun after lunch.
 
 "Hi greany!", owl said, "I just saw a very strange thing on the cloud! Need you help, it drives me crazy!"
 
-"Hi feathered! Tell me what the deal?", crocodile answered rolled over to the other side.
+"Hi feathered! Tell me what the deal?", crocodile answered and rolled over to the other side.
 
 ```js
 const birds = ['🦉'];
 const [owl] = birds;
 ```
 
-"What the difference between this two lines?", owl asked.
+"What the difference between this two lines?", 🦉Owl asked.
 
 "First one is **ArrayExpression** with one element that is **StringLiteral** `'🦉'`", started 🐊Putout. "And second one is **ArrayPattern** with one element that is **Identifier** `owl`.
 
 "So pattern always on the left side, and expression on the right side?", the owl asked thoughtfully.
 
-"Exactly! For destructuring we always use patterns", answered 🐊Putout, "Same goes to **ObjectExpression** and **ObjectPattern**".
+"Exactly! For destructuring we always use patterns", answered 🐊Putout, "same goes to **ObjectExpression** and **ObjectPattern**".
 
 ## ObjectExpression and ObjectPattern
 
