@@ -17,6 +17,7 @@ Have fun 🎈!
 The river of Code is a long pool of code written in water. The best place to swim for 🐊Putout. And when he not solving programming questions from friends, he usually swim or laying in the sun.
 
 Green crocodile has friends, who makes first steps exploring the world of AST:
+
 - 🦏 Rhino likes to eat apples and read code from an apple tree.
 - 🦉 Owl likes to fly and read code from clouds.
 
@@ -33,14 +34,13 @@ __a = __b * __c + __b * __d -> __a = __b * (__c + __d);
 All it does is switching places of variables, so the code:
 
 ```js
-
-animals = '🦉' * '🦏' + '🦉' * '🦛' 
+animals = '🦉' * '🦏' + '🦉' * '🦛';
 ```
 
 Will be transformed to:
 
 ```js
-animals = '🦉' * ('🦏' + '🦛')
+animals = '🦉' * ('🦏' + '🦛');
 ```
 
 That was introduction part, and now let's go to the point!
