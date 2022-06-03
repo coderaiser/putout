@@ -52,7 +52,7 @@ Once upon a time 🐊Putout swim over the river of Code and suddenly...
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-memberExpression(object: Expression, property: Expression | Identifier, computed: boolean, optional: boolean);
+function memberExpression(object: Expression, property: Expression | Identifier, computed: boolean, optional: boolean): MemberExpression;
 ```
 
 > `MemberExpression` always has `object` and `property` fields.
@@ -74,13 +74,15 @@ Friends.elephant; // has not computed value 'elephant'
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-identifier(name: string);
+function identifier(name: string): Identifier;
 ```
+
 > When it's
+>
 > - ✅ not `Literal`;
 > - ✅ not part of `Statement`;
 > - starts from `[a-zA-Z]` and contains characters `[a-zA-Z\d]`;
-> 
+>
 > It's `Identifier` and most likely (but not necessarily) it's used as part of an [`Expression`](#expression-and-statement).
 
 </details>
@@ -123,17 +125,16 @@ if (fruit === '🍎') // 🌳(🍎)
 <details><summary>🤿 deep dive</summary>
 
 ```ts
- arrayExpression(elements: Array<null | Expression | SpreadElement>);
- arrayPattern(elements: Array<null | PatternLike>);
+function arrayExpression(elements: (null | Expression | SpreadElement)[]): ArrayExpression;
+function arrayPattern(elements: (null | PatternLike)[]): ArrayPattern;
 ```
 
 > Both `ArrayExpression` and `ArrayPattern` takes `properties`, both of which takes `ObjectProperty`, but
+>
 > - `ArrayExpression` takes as `elements`: `null`, [`Expression`](#expression-and-statement) and `SpreadElement`;
 > - `ArrayPattern` takes as `elements`: `ArrayPattern`, `AssignmentPattern`, [`Identifier`](#identifier), `ObjectPattern` and `RestElement`;
 
-
 </details>
-
 
 Once the 🦉Owl flied to 🐊Putout when he leying in the sun after lunch.
 
@@ -156,20 +157,19 @@ const [owl] = birds;
 
 ## ObjectExpression and ObjectPattern
 
-
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-objectExpression(properties: (ObjectMethod | ObjectProperty | SpreadElement)[]);
-objectPattern(properties: (RestElement | ObjectProperty)[]);
+function objectExpression(properties: (ObjectMethod | ObjectProperty | SpreadElement)[]): ObjectExpression;
+function objectPattern(properties: (RestElement | ObjectProperty)[]): ObjectPattern;
 ```
 
 > Both `ObjectExpression` and `ObjectPattern` takes `properties`, both of which takes `ObjectProperty`, but
+>
 > - `ObjectExpression` takes as `properties`: `ObjectMethod` and `SpreadElement`;
 > - `ObjectPattern` takes as `properties`: `RestElement` only;
 
 </details>
-
 
 Owl scratched her paw on the ground:
 

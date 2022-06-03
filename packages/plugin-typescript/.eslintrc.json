@@ -1,6 +1,7 @@
 {
     "rules": {
-        "no-useless-return": "off"
+        "no-useless-return": "off",
+        "@typescript-eslint/array-type": "off"
     },
     "extends": [
         "plugin:node/recommended",
