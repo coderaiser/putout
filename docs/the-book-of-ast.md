@@ -24,10 +24,10 @@ Green crocodile has friends, who makes first steps exploring the world of AST:
 
 In AST world animals like to code, but they does it in a new way. They read others code most of the time and search for a way of transforming one peace of code to another.
 
-For example here is the simplest transformation all animals familiar with:
+For example here is the simplest transformation written in 🦎**PutoutScript**, all animals familiar with:
 
 ```sh
-__a = __b * __c + __b*__d-> __a = __b * (__c + __d);
+__a = __b * __c + __b * __d-> __a = __b * (__c + __d);
 ```
 
 All it does is switching places of variables, so the code:
