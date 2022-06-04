@@ -78,7 +78,7 @@ const a = {
 Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout**| [`simplify-ternary`](https://github.com/coderaiser/putout/tree/master/packages/plugin-simplify-ternary#readme)| ✅
-🦕 **ESLint** | [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary) | ⚠️ (partially: no [MemberExpression](https://babeljs.io/docs/en/babel-types#memberexpression), [SpreadElement](https://babeljs.io/docs/en/babel-types#spreadelement) support)
+🦕 **ESLint** | [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary) | ⚠️ (partially: no [MemberExpression](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#memberexpression), [SpreadElement](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#spreadelement)) support)
 
 ## License
 
