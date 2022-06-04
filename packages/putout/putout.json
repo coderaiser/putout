@@ -85,7 +85,7 @@
         "*.cjs": {
             "convert-esm-to-commonjs": "on"
         },
-        "*.{ts,tsx,mts,cts}": {
+        "*.{ts,tsx,mts,cts,md{ts}}": {
             "typescript": "on"
         },
         "*.d.ts": {

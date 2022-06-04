@@ -25,7 +25,7 @@ test('putout: config: ignore: .pnp.*', (t) => {
 
 test('putout: config: match: typescript', (t) => {
     const {match} = putoutConfig;
-    const result = keys(match).includes('*.{ts,tsx,mts,cts}');
+    const result = keys(match).includes('*.{ts,tsx,mts,cts,md{ts}}');
     
     t.ok(result);
     t.end();

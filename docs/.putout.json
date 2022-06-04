@@ -1,0 +1,5 @@
+{
+    "rules": {
+        "typescript/remove-useless-types-from-constants": "off"
+    }
+}

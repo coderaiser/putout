@@ -1,6 +1,6 @@
 {
     "rules": {
-        "putout": "on"
+        "putout": "off"
     },
     "match": {
         "*.js": {
@@ -25,7 +25,8 @@
             "tape/remove-only": "off",
             "remove-console": "off",
             "remove-debugger": "off",
-            "convert-for-to-for-of": "off"
+            "convert-for-to-for-of": "off",
+            "typescript/remove-useless-types-from-constants": "off"
         }
     }
 }
