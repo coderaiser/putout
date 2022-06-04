@@ -81,7 +81,6 @@ const ts = {
     rules: {
         ...extensionRules,
         'putout/no-unresolved': 'off',
-        '@typescript-eslint/array-type': 'error',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/ban-types': 'off',
         '@typescript-eslint/no-empty-function': 'off',
