@@ -79,7 +79,7 @@ Convert `generic` to `shorthand`.
 ```ts
 interface A {
     x: Array<X>;
-    y: Array<Y>;
+    y: Array<X | Y>;
 }
 ```
 
@@ -88,7 +88,7 @@ interface A {
 ```ts
 interface A {
     x: X[];
-    y: Y[];
+    y: X[] | Y[];
 }
 ```
 

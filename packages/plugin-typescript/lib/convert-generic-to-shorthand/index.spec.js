@@ -17,8 +17,8 @@ test('plugin-convert-generic-to-shorthand: transform: array', (t) => {
     t.end();
 });
 
-test('plugin-convert-generic-to-shorthand: no transform: multiple', (t) => {
-    t.noTransform('multiple');
+test('plugin-convert-generic-to-shorthand: transform: multiple', (t) => {
+    t.transform('multiple');
     t.end();
 });
 

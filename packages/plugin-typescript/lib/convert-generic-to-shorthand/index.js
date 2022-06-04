@@ -11,6 +11,13 @@ const {
 module.exports.report = () => 'Shorthand [] should be used instead of Array';
 
 module.exports.fix = ({path, typeReference}) => {
+    if (isTSUnionType(typeReference)) {
+        const {types} = typeReference;
+        typeReference.types = types.map(tSArrayType);
+        replaceWith(path, typeReference);
+        return;
+    }
+    
     replaceWith(path, tSArrayType(typeReference));
 };
 
@@ -30,9 +37,6 @@ module.exports.traverse = ({push}) => ({
             return;
         
         const [typeReference] = params;
-        
-        if (isTSUnionType(typeReference))
-            return;
         
         push({
             path,
