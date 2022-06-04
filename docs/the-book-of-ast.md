@@ -131,7 +131,7 @@ function arrayPattern(elements: null[] | PatternLike[]): ArrayPattern;
 
 > Both `ArrayExpression` and `ArrayPattern` takes `properties`, both of which takes `ObjectProperty`, but
 >
-> - `ArrayExpression` takes as `elements`: `null`, [`Expression`](#expression-and-statement) and `SpreadElement`;
+> - `ArrayExpression` takes as `elements`: `null`, [`Expression`](#expression-and-statement) and [`SpreadElement`](#spreadelement);
 > - `ArrayPattern` takes as `elements`: `ArrayPattern`, `AssignmentPattern`, [`Identifier`](#identifier), `ObjectPattern` and `RestElement`;
 
 </details>
@@ -166,7 +166,7 @@ function objectPattern(properties: RestElement[] | ObjectProperty[]): ObjectPatt
 
 > Both `ObjectExpression` and `ObjectPattern` takes `properties`, both of which takes `ObjectProperty`, but
 >
-> - `ObjectExpression` takes as `properties`: `ObjectMethod` and `SpreadElement`;
+> - `ObjectExpression` takes as `properties`: `ObjectMethod` and [`SpreadElement`](#spreadelement);
 > - `ObjectPattern` takes as `properties`: `RestElement` only;
 
 </details>
@@ -187,4 +187,43 @@ And sayed, "Here is the other code I saw in the cloud, is it similar on any kind
 
 "That's so simple!", Owl said, "Thank you so much 🐊Putout! These notations can be confusing, but you always know how to unravel this tangle 🧶"!
 
-"Always welcome!", 🐊Putout said, merrily waving his tail.
+"Always welcome!", 🐊Putout said, merrily waving his tail, he did not yet know that a rabbit would appear in a few moments ...
+
+## SpreadElement
+
+<details><summary>🤿 deep dive</summary>
+
+```ts
+function spreadElement(argument: Expression): SpreadElement;
+```
+    
+>**Spread** syntax (`...`) usualy takes [`ArrayExpression`](#arrayexpression-and-arraypattern) or [`ObjectExpression`](#objectexpression-and-objectpattern) to be expanded in places where zero or more items are expected.
+>
+> (c)[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+</details>
+
+"Hi pal!", 🐇 Rabbit  with a full mouth of carrots 🥕 says.
+
+"Hi Rabbit"!, said Putout, "What a surprise!".
+
+"Today I saw the code placed from carrots that looks this way", said Rabbit and started to placing carrots. "Look!", he said when over:
+
+```js
+const funny = {
+    ...animals
+};
+
+say(...['🐇', '🥕']);
+
+function say(...vegatables) {
+}
+```
+
+"Tell me please something about it!".
+
+"Well, **SpreadElement** takes any [**Expression**](#expression-and-statement) as an `argument`, and used to take items that metters from `animals` and put them to `funny`, or call a **FunctionExpression** `say` and passing `vegatables` as an `arguments`. It can even collect all `arguments` into a variable `vegatable` using [**ObjectPattern**](#objectexpression-and-objectpattern)".
+
+"Nice!", said Rabbit keeping eating carrots, "Now things got more clear to me! Take a carrot, friend, they so sweet I can't break away!".
+
+"Thank you to, Rabbit", Putout answered and take carrot, he loved fruits and vegatables and was always happy to eat it.
