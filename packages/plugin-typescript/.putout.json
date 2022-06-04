@@ -1,6 +1,6 @@
 {
     "match": {
-        "*.md": {
+        "*.md{ts}": {
             "typescript": "off"
         }
     }

@@ -8,7 +8,7 @@ const {
     isTSUnionType,
 } = types;
 
-module.exports.report = () => 'Shorthand [] should be used instead of Array';
+module.exports.report = () => `Use shorthand '[]' instead of generic 'Array'`;
 
 module.exports.fix = ({path, typeReference}) => {
     if (isTSUnionType(typeReference)) {

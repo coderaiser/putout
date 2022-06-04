@@ -131,7 +131,7 @@ parserTester.run('putout', rule, {
         }, {
             line: 2,
             column: 8,
-            message: 'Shorthand [] should be used instead of Array (typescript/convert-generic-to-shorthand)',
+            message: `Use shorthand '[]' instead of generic 'Array' (typescript/convert-generic-to-shorthand)`,
         }],
     }],
 });

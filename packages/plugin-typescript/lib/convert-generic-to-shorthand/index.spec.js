@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-convert-generic-to-shorthand: report', (t) => {
-    t.report('array', 'Shorthand [] should be used instead of Array');
+    t.report('array', `Use shorthand '[]' instead of generic 'Array'`);
     t.end();
 });
 
