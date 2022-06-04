@@ -21,6 +21,7 @@ Green crocodile has friends, who makes first steps exploring the world of AST:
 
 - 🦏 Rhino likes to eat apples and read code from an apple tree.
 - 🦉 Owl likes to fly and read code from clouds.
+- 🐇 Rabbit likes to eat carrots.
 
 🐊Putout was in the AST world for a long time, so he got some experience and had a wish to share his knowledge with his friends so they was on the same level.
 
@@ -196,8 +197,8 @@ And sayed, "Here is the other code I saw in the cloud, is it similar on any kind
 ```ts
 function spreadElement(argument: Expression): SpreadElement;
 ```
-    
->**Spread** syntax (`...`) usualy takes [`ArrayExpression`](#arrayexpression-and-arraypattern) or [`ObjectExpression`](#objectexpression-and-objectpattern) to be expanded in places where zero or more items are expected.
+
+> **Spread** syntax (`...`) usually takes [`ArrayExpression`](#arrayexpression-and-arraypattern) or [`ObjectExpression`](#objectexpression-and-objectpattern) to be expanded in places where zero or more items are expected.
 >
 > (c)[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
@@ -210,9 +211,7 @@ function spreadElement(argument: Expression): SpreadElement;
 "Today I saw the code placed from carrots that looks this way", said Rabbit and started to placing carrots. "Look!", he said when over:
 
 ```js
-const funny = {
-    ...animals
-};
+const funny = animals;
 
 say(...['🐇', '🥕']);
 
