@@ -125,8 +125,8 @@ if (fruit === '🍎') // 🌳(🍎)
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function arrayExpression(elements: (null | Expression | SpreadElement)[]): ArrayExpression;
-function arrayPattern(elements: (null | PatternLike)[]): ArrayPattern;
+function arrayExpression(elements: null[] | Expression[] | SpreadElement[]): ArrayExpression;
+function arrayPattern(elements: null[] | PatternLike[]): ArrayPattern;
 ```
 
 > Both `ArrayExpression` and `ArrayPattern` takes `properties`, both of which takes `ObjectProperty`, but
@@ -160,8 +160,8 @@ const [owl] = birds;
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function objectExpression(properties: (ObjectMethod | ObjectProperty | SpreadElement)[]): ObjectExpression;
-function objectPattern(properties: (RestElement | ObjectProperty)[]): ObjectPattern;
+function objectExpression(properties: ObjectMethod[] | ObjectProperty[] | SpreadElement[]): ObjectExpression;
+function objectPattern(properties: RestElement[] | ObjectProperty[]): ObjectPattern;
 ```
 
 > Both `ObjectExpression` and `ObjectPattern` takes `properties`, both of which takes `ObjectProperty`, but

@@ -62,3 +62,8 @@ test('putout: plugin: typescript: transform: remove-duplicate-exports', (t) => {
     t.end();
 });
 
+test('putout: plugin: typescript: transform: remove-useless-parens', (t) => {
+    t.transform('remove-useless-parens');
+    t.end();
+});
+

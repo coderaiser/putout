@@ -29,6 +29,7 @@ npm i putout @putout/plugin-typescript -D
         "typescript/remove-useless-types-from-constants": "on",
         "typescript/remove-unused-types": "on",
         "typescript/remove-useless-types": "on",
+        "typescript/remove-useless-parens": "on",
         "typescript/remove-useless-mapped-types": "on"
     }
 }
@@ -125,7 +126,7 @@ type x = boolean[]
 
 In **JavaScript** duplicate exports leads to [`SyntaxError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError), anyways **TypeScript** parses such code and reports [`Duplicates Identifier`](https://github.com/Microsoft/TypeScript/blob/v1.8.5/src/compiler/diagnosticMessages.json#L826-L829) diagnostic.
 
-It gives us ability to automate fixing of such code 😏. Check it out in [🐊**Putout Editor**](https://putout.cloudcmd.io/#/gist/e8d02b3d1c91b4b3b6b9636e22dd03ed/8be7b4c8d0f6c28440f36d03341a1153c18549a7).
+It gives us ability to automate fixing of such code 😏. Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e8d02b3d1c91b4b3b6b9636e22dd03ed/8be7b4c8d0f6c28440f36d03341a1153c18549a7).
 
 #### ❌ Example of incorrect code
 
@@ -213,6 +214,28 @@ const x: oldType = {
     a: 5,
     b: 'hello',
 };
+```
+
+### remove-useless-parens
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6c8717114f7285639a5f24b5a6fdb9dc/583e438a61aae156c79b66dbf418e1e5f251bf87).
+
+#### ❌ Example of incorrect code
+
+```ts
+const x: (X | Y)[] = [];
+const m: (X)[] = [];
+const z: (X | Y) = 5;
+const f: (X) = 5;
+```
+
+#### ✅ Example of correct code
+
+```ts
+const x: X[] | Y[] = [];
+const m: X[] = [];
+const z: X | Y = 5;
+const f: X = 5;
 ```
 
 ### remove-useless-mapped-types
