@@ -1,3 +1,15 @@
+2022.06.04, v26.12.0
+
+feature:
+- (putout) improve support of processing typescript in markdown
+- (@putout/plugin-typescript) add remove-useless-parens
+- (@putout/plugin-typescript) convert-generic-to-shorthand: report
+- (@putout/plugin-typescript) convert-generic-to-shorthand: improve support of UnionType
+- (eslint-plugin-putout) markdown{ts}: enable @typescript-eslint/array-type
+- (@putout/plugin-simplify-logical-expressions) add cases of duplication operand
+- (@putout/plugin-simplify-logical-expression) report message
+
+
 2022.06.02, v26.11.0
 
 fix:
