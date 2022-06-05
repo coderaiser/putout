@@ -132,8 +132,8 @@ function arrayPattern(elements: null[] | PatternLike[]): ArrayPattern;
 
 > Both `ArrayExpression` and `ArrayPattern` takes `properties`, both of which takes `ObjectProperty`, but
 >
-> - `ArrayExpression` takes as `elements`: `null`, [`Expression`](#expression-and-statement) and [`SpreadElement`](#spreadelement);
-> - `ArrayPattern` takes as `elements`: `ArrayPattern`, `AssignmentPattern`, [`Identifier`](#identifier), `ObjectPattern` and `RestElement`;
+> - `ArrayExpression` takes as `elements`: `null`, [`Expression`](#expression-and-statement) and [`SpreadElement`](#spreadelement-and-restelement);
+> - `ArrayPattern` takes as `elements`: `ArrayPattern`, `AssignmentPattern`, [`Identifier`](#identifier), `ObjectPattern` and [`RestElement`](#spreadelement-and-restelement);
 
 </details>
 
@@ -168,7 +168,7 @@ function objectPattern(properties: RestElement[] | ObjectProperty[]): ObjectPatt
 > Both `ObjectExpression` and `ObjectPattern` takes `properties`, both of which takes `ObjectProperty`, but
 >
 > - `ObjectExpression` takes as `properties`: `ObjectMethod` and [`SpreadElement`](#spreadelement);
-> - `ObjectPattern` takes as `properties`: `RestElement` only;
+> - `ObjectPattern` takes as `properties`: [`RestElement`](spreadelement-and-restelement) only;
 
 </details>
 
@@ -190,17 +190,20 @@ And sayed, "Here is the other code I saw in the cloud, is it similar on any kind
 
 "Always welcome!", 🐊Putout said, merrily waving his tail, he did not yet know that a rabbit would appear in a few moments ...
 
-## SpreadElement
+## SpreadElement and RestElement
 
 <details><summary>🤿 deep dive</summary>
 
 ```ts
 function spreadElement(argument: Expression): SpreadElement;
+function restElement(argument: Expression): RestElement;
 ```
 
-> **Spread** syntax (`...`) usually takes [`ArrayExpression`](#arrayexpression-and-arraypattern) or [`ObjectExpression`](#objectexpression-and-objectpattern) to be expanded in places where zero or more items are expected.
+> [**Spread**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) syntax (`...`) usually takes [`ArrayExpression`](#arrayexpression-and-arraypattern) or [`ObjectExpression`](#objectexpression-and-objectpattern) to be expanded in places where zero or more items are expected.
 >
-> (c)[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+> The [**rest**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) parameter syntax allows a function to accept an indefinite number of arguments as an `array`.
+>
+> (c) MDN
 
 </details>
 
@@ -221,8 +224,9 @@ function say(...vegatables) {
 
 "Tell me please something about it!".
 
-"Well, **SpreadElement** takes any [**Expression**](#expression-and-statement) as an `argument`, and used to take items that metters from `animals` and put them to `funny`, or call a **FunctionExpression** `say` and passing `vegatables` as an `arguments`. It can even collect all `arguments` into a variable `vegatable` using [**ObjectPattern**](#objectexpression-and-objectpattern)".
-
+"Well, **SpreadElement** takes any [**Expression**](#expression-and-statement) as an `argument`, and takes items that metters from `animals` and put them to `funny`, or call a **FunctionExpression** `say` and passing `vegatables` as an `arguments`. It can even collect all `arguments` into a variable `vegatable` with help of **RestElement**.
 "Nice!", said Rabbit keeping eating carrots, "Now things got more clear to me! Take a carrot, friend, they so sweet I can't break away!".
 
 "Thank you to, Rabbit", Putout answered and take carrot, he loved fruits and vegatables and was always happy to eat it.
+
+Unexpectedly a Wise turtule 🐢 appeared from the bush...
