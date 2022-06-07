@@ -18,21 +18,21 @@ test('compare: base is string', (t) => {
     
     const result = compare(a, b);
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
 test('compare: false property', (t) => {
     const result = compare('async () => {}', '() => {}');
     
-    t.notOk(result, 'should not equal');
+    t.notOk(result);
     t.end();
 });
 
 test('compare: identifier', (t) => {
     const result = compare('hello', '__');
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
@@ -42,14 +42,14 @@ test('compare: string literal: raw', (t) => {
     
     const result = compare(ast1, ast2);
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
 test('compare: literal', (t) => {
     const result = compare('"hi"', '"__"');
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
@@ -59,7 +59,7 @@ test('compare: base is string: path', (t) => {
     
     const result = compare({node}, b);
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
@@ -69,7 +69,7 @@ test('compare: path: parent', (t) => {
     
     const result = compare(subPath, 'const a = "__"');
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
@@ -115,7 +115,7 @@ test('compare: base is string: no', (t) => {
     
     const result = compare(a, b);
     
-    t.notOk(result, 'should equal');
+    t.notOk(result);
     t.end();
 });
 
@@ -125,14 +125,14 @@ test('compare: base is any', (t) => {
     
     const result = compare(a, b);
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
 test('compare: strings', (t) => {
     const result = compare('const a = {}', 'if (2 > 3)__');
     
-    t.notOk(result, 'should equal');
+    t.notOk(result);
     t.end();
 });
 
@@ -141,14 +141,14 @@ test('compare: all: base is all', (t) => {
         'const a  = __',
     ]);
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
 test('compare: all: not array', (t) => {
     const result = compareAll('const a = {}', 'const a  = __');
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
@@ -159,7 +159,7 @@ test('compare: all: base is all: no', (t) => {
         'const a  = __',
     ]);
     
-    t.notOk(result, 'should equal');
+    t.notOk(result);
     t.end();
 });
 
@@ -170,14 +170,14 @@ test('compare: any: base is any', (t) => {
         'const a  = __',
     ]);
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
 test('compare: any: not an array', (t) => {
     const result = compareAny('const a = {}', 'const a  = __');
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
@@ -198,7 +198,7 @@ test('compare: any: base is any: no', (t) => {
         'const a  = "__"',
     ]);
     
-    t.notOk(result, 'should equal');
+    t.notOk(result);
     t.end();
 });
 
@@ -208,7 +208,7 @@ test('compare: template var', (t) => {
     
     const result = compare(a, b);
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
@@ -502,7 +502,7 @@ test('compare: expressions', (t) => {
     
     const result = compare(a, b);
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
@@ -512,7 +512,7 @@ test('compare: __body', (t) => {
     
     const result = compare(a, b);
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
@@ -522,7 +522,7 @@ test('compare: __body: no body', (t) => {
     
     const result = compare(a, b);
     
-    t.notOk(result, 'should equal');
+    t.notOk(result);
     t.end();
 });
 
@@ -532,7 +532,7 @@ test('compare: block', (t) => {
     
     const result = compare(a, b);
     
-    t.notOk(result, 'should not equal');
+    t.notOk(result);
     t.end();
 });
 
@@ -542,7 +542,7 @@ test('compare: __nop', (t) => {
     
     const result = compare(a, b);
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
@@ -552,7 +552,7 @@ test('compare: __nop: async', (t) => {
     
     const result = compare(a, b);
     
-    t.ok(result, 'should equal');
+    t.ok(result);
     t.end();
 });
 
