@@ -143,3 +143,16 @@ test('plugin-putout: declare: transform: remove', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: extract', (t) => {
+    t.transformCode('extract();', montag`
+        import {operator} from 'putout';
+        
+        const {
+          extract
+        } = operator;
+        
+        extract();
+    `);
+    t.end();
+});
