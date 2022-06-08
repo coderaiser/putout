@@ -5,7 +5,10 @@ const {
     operator,
 } = require('putout');
 
-const {replaceWith} = operator;
+const {
+    replaceWith,
+    extract,
+} = operator;
 
 const {
     isLiteral,
@@ -45,7 +48,7 @@ function traverseProperties({properties, push}) {
         
         if (isLiteral(node.value) || isCallExpression(node.value)) {
             push({
-                name: node.key.value,
+                name: extract(node.key),
                 path: propPath.get('value'),
             });
         }
