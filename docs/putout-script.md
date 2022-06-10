@@ -5,10 +5,11 @@
 >
 > **(c) Yamamoto Tsunetomo "Hagakure"**
 
-🦎**PutoutScript** — **JavaScript**-compatible language which adds additional meaning to `Identifiers` in AST-template. It is supported by all types of [**🐊Putout plugins**](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types).
+🦎**PutoutScript** — **JavaScript**-compatible language which adds additional meaning to [`Identifiers`](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#identifier) in AST-template. It is supported by all types of [**🐊Putout plugins**](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types).
 Take a look at [rule syntax](https://github.com/coderaiser/putout/tree/master/packages/compare#supported-template-variables) for more information.
 
-☝️ *In the command line, patterns are specified with a flag `--transform`.*
+- ☝️ *In the command line, patterns are specified with a flag `--transform`.*
+- ☝️ *Read more about AST nodes in [**The Book of AST**](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#the-book-of-ast)*.
 
 ## Pattern matching
 
