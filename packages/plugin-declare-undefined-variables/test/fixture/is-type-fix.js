@@ -1,3 +1,4 @@
+const isNull = a => typeof a === null;
 const isSymbol = a => typeof a === 'symbol';
 const isUndefined = a => typeof a === 'undefined';
 const isBool = a => typeof a === 'boolean';
@@ -12,3 +13,4 @@ isFn(a);
 isBool(a);
 isUndefined(a);
 isSymbol(a);
+isNull(a);

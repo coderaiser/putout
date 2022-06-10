@@ -8,5 +8,6 @@ module.exports = {
     isObject: `const isObject = (a) => a && typeof a === 'object'`,
     isUndefined: `const isUndefined = (a) => typeof a === 'undefined'`,
     isSymbol: `const isSymbol = (a) => typeof a === 'symbol'`,
+    isNull: `const isNull = (a) => typeof a === null`,
 };
 
