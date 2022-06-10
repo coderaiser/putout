@@ -115,7 +115,7 @@ if (fruit === '🍎') // 🌳(🍎)
     eat('🍎'); // 🦏 ❤️ 🍎
 ```
 
-"An apple can grow on a branch, but branch canno grow on apple, the same goes to **Expressions** and **Statements**", continued 🐊**Putout**.
+"An apple can grow on a branch, but branch cannot grow on apple, the same goes to **Expressions** and **Statements**", continued 🐊**Putout**.
 
 "I like red apples", Rhino answered champing apples, "And now I understand the difference! Thank's a lot!"
 
@@ -209,7 +209,7 @@ function restElement(argument: Expression): RestElement;
 
 "Hi pal!", 🐇 Rabbit  with a full mouth of carrots 🥕 says.
 
-"Hi Rabbit"!, said Putout, "What a surprise!".
+"Hi Rabbit!", said Putout, "What a surprise!".
 
 "Today I saw the code placed from carrots that looks this way", said Rabbit and started to placing carrots. "Look!", he said when over:
 
