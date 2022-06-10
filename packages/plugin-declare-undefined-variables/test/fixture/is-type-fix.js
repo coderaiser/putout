@@ -1,4 +1,4 @@
-const isNull = a => typeof a === null;
+const isNull = a => !a && typeof a === 'object';
 const isSymbol = a => typeof a === 'symbol';
 const isUndefined = a => typeof a === 'undefined';
 const isBool = a => typeof a === 'boolean';
