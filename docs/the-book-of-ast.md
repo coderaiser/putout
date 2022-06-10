@@ -1,6 +1,6 @@
 # The book of AST
 
-When I started dealing with **AST** I have a lot problems in understanding basic parts. I read [**ESTree**](https://github.com/estree/estree#readme) standard, I read [**Babel**](https://babeljs.io/docs/en/babel-types#) standard. They are very good! Anyways they put the information in a very hurd to understand for novice way.
+When I started dealing with **AST** I had a lot of problems in understanding basic parts. I read [**ESTree**](https://github.com/estree/estree#readme) standard, I read [**Babel**](https://babeljs.io/docs/en/babel-types#) standard. They are very good! Anyways they put the information in a very hurd to understand for novice way.
 
 So gradually I started admit some logic behind all of this. During development of 🐊**Putout** and especially [@putout/plugin-remove-unused-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables#putoutplugin-remove-unused-variables-), I learned to work with all **AST** nodes. I thought I never finish and quit, but suddenly I covered all of them.
 
