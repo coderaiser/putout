@@ -108,3 +108,10 @@ test('putout: plugin: nodejs: declare: node-js: no transform: env', (t) => {
     t.end();
 });
 
+test('putout: plugin: nodejs: declare: node-js: events', (t) => {
+    t.transformCode(`new EventEmitter();`, montag`
+        import {EventEmitter} from 'events';
+        new EventEmitter();
+    `);
+    t.end();
+});
