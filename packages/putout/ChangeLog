@@ -1,3 +1,23 @@
+2022.06.11, v26.14.0
+
+fix:
+- (@putout/plugin-declare-undefined-variables) improve isNull check
+
+
+feature:
+- (package) @putout/plugin-remove-useless-spread v6.0.0
+- (@putout/plugin-remove-useless-spread) object: make stricter
+- (@putout/plugin-remove-useless-spread) report message
+- (@putout/plugin-remove-useless-spread) drop support of 🐊 < 26
+- (@putout/plugin-declare-undefined-variables) add support of isNull
+- (@putout/plugin-madrun) add-function: add support of Identifier
+- (@putout/plugin-putout) declare: add extract
+- (package) hermes-parser v0.7.0
+- (@putout/processor-wasm) add
+- (@putout/plugin-putout) add-args: add support of noProcess
+- (eslint-plugin-putout) ts: removed type-array in favour of typescript/convert-generic-to-shorthand (https://github.com/coderaiser/putout/blob/master/packages/plugin-typescript/README.md#convert-generic-to-shorthand)
+
+
 2022.06.04, v26.13.0
 
 feature:
