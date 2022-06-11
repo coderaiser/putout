@@ -1,6 +1,7 @@
 'use strict';
 
 const {template} = require('@putout/engine-parser');
+
 const {
     isIdentifier,
     isExpressionStatement,
@@ -30,6 +31,7 @@ const {
 
 const {keys} = Object;
 const {isArray} = Array;
+const noop = () => {};
 
 const compareType = (type) => (path) => path.type === type;
 const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
@@ -64,7 +66,7 @@ module.exports.getValues = getValues;
 module.exports.setValues = setValues;
 module.exports.getTemplateValues = getTemplateValues;
 
-function compare(path, template, options = {}) {
+function compare(path, template, options = {}, equal = noop) {
     const {findUp = true} = options;
     
     if (!path && !template)
@@ -78,6 +80,8 @@ function compare(path, template, options = {}) {
     
     const node = extractExpression(parseNode(path));
     const templateNode = extractExpression(parseNode(template));
+    
+    equal(node, templateNode);
     
     if (node.type === template)
         return true;

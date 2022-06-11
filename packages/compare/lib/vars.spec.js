@@ -45,7 +45,7 @@ test('putout: compare: vars: getTemplateValues', (t) => {
     
     const expected = 'for (const item of items) {\n  log(item);\n}';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -67,7 +67,7 @@ test('putout: compare: vars: getTemplateValues: setValues: BlockStatement', (t) 
     
     const expected = 'if (1) if (1)\n  {hello();}';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -205,7 +205,7 @@ test('putout: compare: vars: vars: identifier', (t) => {
     
     const expected = 'if (y) fn()';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -238,7 +238,7 @@ test('putout: compare: vars: vars: findVarsWays: __object', (t) => {
         ],
     });
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -260,7 +260,7 @@ test('putout: compare: vars: __args__a', (t) => {
         }],
     });
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -288,7 +288,7 @@ test('putout: compare: vars: regexp', (t) => {
         }],
     });
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -320,7 +320,7 @@ test('putout: compare: vars: "__a"', (t) => {
         ],
     });
     
-    t.deepEqual(code, input, 'should equal');
+    t.deepEqual(code, input);
     t.end();
 });
 
