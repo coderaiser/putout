@@ -2,10 +2,10 @@
 
 const {createTest} = require('@putout/test');
 const {declare} = require('@putout/plugin-putout').rules;
+const tape = require('@putout/plugin-tape');
+const convert = require('@putout/plugin-convert-commonjs-to-esm');
 
 const mergeDestructuringProperties = require('..');
-
-const convert = require('@putout/plugin-convert-commonjs-to-esm');
 
 const test = createTest(__dirname, {
     'merge-destructuring-properties': mergeDestructuringProperties,
@@ -44,6 +44,13 @@ test('plugin-merge-destructuring-properties: transform: quotes', (t) => {
 test('plugin-merge-destructuring-properties: transform: putout/declare', (t) => {
     t.transform('putout-declare', {
         'putout/declare': declare,
+    });
+    t.end();
+});
+
+test('plugin-merge-destructuring-properties: transform: tape', (t) => {
+    t.transform('tape', {
+        'putout/tape': tape,
     });
     t.end();
 });
