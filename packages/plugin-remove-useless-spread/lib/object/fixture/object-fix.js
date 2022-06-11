@@ -1,3 +1,3 @@
 const a = (b) => {
-    return b;
+    return fn();
 };

@@ -1,9 +1,18 @@
 'use strict';
 
+const {types} = require('putout');
+
+const {isCallExpression} = types;
+
 module.exports.report = () => `Avoid useless spread '...'`;
 
 module.exports.filter = (path) => {
-    const {comments} = path.node.properties[0];
+    const [first] = path.node.properties;
+    const {comments} = first;
+    
+    if (!isCallExpression(first.argument))
+        return false;
+    
     return !comments?.length;
 };
 

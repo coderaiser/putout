@@ -31,3 +31,8 @@ test('plugin-remove-useless-spread: object: no transform: comment', (t) => {
     t.noTransform('comment');
     t.end();
 });
+
+test('plugin-remove-useless-spread: object: no transform: not call', (t) => {
+    t.noTransform('not-call');
+    t.end();
+});

@@ -50,14 +50,14 @@ const places = getPlaces();
 
 ```js
 const a = {
-    ...b,
+    ...fn(),
 };
 ```
 
 ### ✅ Example of correct code
 
 ```js
-const a = b;
+const a = fn();
 ```
 
 ## License
