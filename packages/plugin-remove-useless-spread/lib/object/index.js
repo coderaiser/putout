@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = () => `Useless spread should be avoided`;
+module.exports.report = () => `Avoid useless spread '...'`;
 
 module.exports.filter = (path) => {
     const {comments} = path.node.properties[0];

@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-useless-spread: object: report', (t) => {
-    t.report('object', 'Useless spread should be avoided');
+    t.report('object', `Avoid useless spread '...'`);
     t.end();
 });
 
