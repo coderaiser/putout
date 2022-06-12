@@ -73,7 +73,7 @@ const addVariable = ({store}) => (path, node) => {
     
     const currentPath = currentVar.path;
     
-    if (path === currentPath || !currentPath.node)
+    if (path === currentPath || currentPath.removed)
         return;
     
     const is = compare(currentPath.node.init, node);
