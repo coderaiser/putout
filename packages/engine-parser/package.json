@@ -41,7 +41,9 @@
     "estree-to-babel": "^5.0.0",
     "nano-memoize": "^1.1.8",
     "once": "^1.4.0",
-    "try-catch": "^3.0.0"
+    "try-catch": "^3.0.0",
+    "swc-to-babel": "^1.0.2",
+    "@swc/core": "^1.2.197"
   },
   "keywords": [
     "putout",

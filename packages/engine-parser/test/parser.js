@@ -52,6 +52,23 @@ test('putout: parser: export default declaration: acorn', (t) => {
     t.end();
 });
 
+test.only('putout: parser: export default declaration: swc', (t) => {
+    const {code, places} = putout(fixture.exportDefaultDeclaration, {
+        parser: 'swc',
+        fix: true,
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    console.log(places, code);
+    
+    const expected = fixture.exportDefaultDeclarationFix;
+    
+    t.deepEqual(code, expected, 'should equal');
+    t.end();
+});
+
 test('putout: parser: export default declaration: esprima', (t) => {
     const {code} = putout(fixture.exportDefaultDeclaration, {
         parser: 'esprima',

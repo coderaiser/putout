@@ -1,7 +1,11 @@
 'use strict';
 
-const template = require('@babel/template').default;
+const tryCatch = require('try-catch');
 const memo = require('nano-memoize');
+
+const template = require('@babel/template').default;
+const swcToBabel = require('swc-to-babel');
+const {parseSync} = require('@swc/core');
 
 const plugins = require('./parsers/babel/plugins');
 const options = require('./parsers/babel/options');
@@ -23,14 +27,7 @@ module.exports = memo((value, options) => {
     return fn;
 });
 
-module.exports.ast = memo((value, options) => {
-    const result = template.ast(value, {
-        ...defaults,
-        ...options,
-    });
-    
-    return result.expression || result;
-});
+module.exports.ast = memo(fresh);
 
 module.exports.program = memo((value, options) => {
     const result = template.program(value, {
@@ -50,12 +47,26 @@ module.exports.program.ast = memo((value, options) => {
     return result;
 });
 
-module.exports.ast.fresh = (value, options) => {
-    const result = template.ast(value, {
-        ...defaults,
-        ...options,
-    });
-    
+module.exports.ast.fresh = fresh;
+
+function fresh(source, options) {
+    const result = parse(source, options);
     return result.expression || result;
 };
+
+function parse(source, options) {
+    const [error, ast] = tryCatch(parseSync, source, {
+        syntax: 'typescript',
+        target: 'es2022',
+    });
+    
+    if (error) {
+        return template.ast(source, {
+            ...defaults,
+            ...options,
+        });
+    }
+    
+    return swcToBabel(ast, source).program.body[0];
+}
 
