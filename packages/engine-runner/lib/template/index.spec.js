@@ -38,7 +38,7 @@ test('putout: plugin: traverse: template', (t) => {
         },
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -76,7 +76,7 @@ test('putout: plugin: traverse: template: expression', (t) => {
         },
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -107,7 +107,7 @@ test('putout: plugin: traverse: template: literal', (t) => {
         },
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -141,7 +141,7 @@ test('putout: plugin: traverse: similar', (t) => {
         },
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -172,7 +172,7 @@ test('putout: plugin: traverse: template: null', (t) => {
         },
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -203,7 +203,7 @@ test('putout: plugin: traverse: template: word', (t) => {
         },
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -234,7 +234,7 @@ test('putout: plugin: traverse: template: __', (t) => {
         },
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -267,7 +267,7 @@ test('putout: plugin: find: template: __', (t) => {
         },
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -291,7 +291,7 @@ test('putout: plugin: traverse: template: different', (t) => {
     
     const expected = [];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -324,7 +324,7 @@ test('putout: plugin: find: template: exclude: node type', (t) => {
     
     const expected = [];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -353,7 +353,7 @@ test('putout: plugin: traverse: template: exclude: places', (t) => {
         rule: 'remove-unused-variables',
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -376,7 +376,7 @@ test('putout: plugin: traverse: template: exclude: multiple', (t) => {
     
     const expected = [];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -398,7 +398,7 @@ test('putout: plugin: traverse: template: exclude: fn', (t) => {
     
     const expected = [];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -427,7 +427,7 @@ test('putout: plugin: traverse: template: exclude: fn: FunctionDeclaration', (t)
         rule: 'remove-unused-variables',
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -456,7 +456,7 @@ test('putout: plugin: traverse: template: log', (t) => {
         rule: 'remove-unused-variables',
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 

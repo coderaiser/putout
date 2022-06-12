@@ -38,7 +38,7 @@ test('putout: runner: run plugins', (t) => {
     
     const expected = '\n';
     
-    t.deepEqual(result.code, expected, 'should equal');
+    t.deepEqual(result.code, expected);
     t.end();
 });
 
@@ -57,7 +57,7 @@ test('putout: runner: run plugins: disable, using "off"', (t) => {
     
     const expected = fixture.import;
     
-    t.deepEqual(result.code, expected, 'should equal');
+    t.deepEqual(result.code, expected);
     t.end();
 });
 
@@ -94,7 +94,7 @@ test('putout: runner: filter: options', (t) => {
         },
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -124,7 +124,7 @@ test('putout: runner: filter: options: no filter call', (t) => {
     
     const expected = [];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -145,7 +145,7 @@ test('putout: runner: plugins: replace', (t) => {
     
     const expected = 'const a = 1;';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -167,7 +167,7 @@ test('putout: runner: plugins: replace: a couple', (t) => {
     
     const expected = 'const x = 1;';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -188,7 +188,7 @@ test('putout: runner: plugins: replace: remove', (t) => {
     
     const expected = '';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -214,7 +214,7 @@ test('putout: runner: plugins: replace: remove: exclude', (t) => {
     
     const expected = 'debugger';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -236,7 +236,7 @@ test('putout: runner: plugins: replace: template', (t) => {
     
     const expected = 'const hello = 5;';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -259,7 +259,7 @@ test('putout: runner: plugins: replace: template: a couple vars', (t) => {
     
     const expected = 'const world = hello;';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -281,7 +281,7 @@ test('putout: runner: plugins: replace: template: array', (t) => {
     
     const expected = 'const [first] = elements;';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -303,7 +303,7 @@ test('putout: runner: plugins: replace: template: identifier', (t) => {
     
     const expected = 'if (y) fn()';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -325,7 +325,7 @@ test('putout: runner: plugins: replace: template: ifCondition', (t) => {
     
     const expected = 'if (y)\n  fn();';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -347,7 +347,7 @@ test('putout: runner: plugins: replace: template: ifCondition: body', (t) => {
     
     const expected = 'if (y)\n  {fn()}';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -369,7 +369,7 @@ test('putout: runner: plugins: replace: template: object pattern', (t) => {
     
     const expected = 'const {\n  hello\n} = world;';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -392,7 +392,7 @@ test('putout: runner: plugins: replace: template: infinite loop', (t) => {
     
     const expected = 'const world = hello;';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -632,7 +632,7 @@ test('putout: runner: root vars: no parent', (t) => {
         places: [],
     };
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -663,7 +663,7 @@ test('putout: runner: parser: no loc', (t) => {
         },
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -675,7 +675,7 @@ test('putout: runner: shebang', (t) => {
     });
     const expected = fixture.shebangFix;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -706,7 +706,7 @@ test('putout: runner: debug', (t) => {
     
     stopAll();
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 

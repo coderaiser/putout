@@ -7,7 +7,7 @@ test('remove-unused-variables: transform: empty', (t) => {
     const result = transform([]);
     const expected = [];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -23,7 +23,7 @@ test('remove-unused-variables: transform: 1', (t) => {
         count: 1,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -52,7 +52,7 @@ test('transform: couple', (t) => {
         count: 3,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 

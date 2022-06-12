@@ -48,7 +48,7 @@ test('putout: parser: export default declaration: acorn', (t) => {
     
     const expected = fixture.exportDefaultDeclarationFix;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -62,7 +62,7 @@ test('putout: parser: export default declaration: esprima', (t) => {
     
     const expected = fixture.exportDefaultDeclarationFix;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -89,7 +89,7 @@ test('putout: parser: use strict: parser: espree: debugger', (t) => {
     
     const expected = fixture.debuggerFix;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -103,7 +103,7 @@ test('putout: parser: export default declaration: tenko: export default', (t) =>
     
     const expected = fixture.exportDefaultDeclarationFix;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 

@@ -32,7 +32,7 @@ test('putout: runner: replace: same', (t) => {
     
     const expected = `test('', t => {});`;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -67,7 +67,7 @@ test('putout: runner: replace: same path, new transform', (t) => {
         };
     `;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -94,7 +94,7 @@ test('putout: runner: replace: recursive overflow', (t) => {
         test.only()
     `;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -128,7 +128,7 @@ test('putout: runner: replace: __object', (t) => {
         ],
     });
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -151,7 +151,7 @@ test('putout: runner: replace: return __object', (t) => {
         ],
     });
     
-    t.deepEqual(code, source, 'should equal');
+    t.deepEqual(code, source);
     t.end();
 });
 
@@ -172,7 +172,7 @@ test('putout: runner: replace: remove', (t) => {
     
     const expected = '';
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 

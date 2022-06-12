@@ -208,7 +208,7 @@ test('putout: engine-processor: markdown: fix: do not return processed places', 
     
     const expected = [];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -242,7 +242,7 @@ test('putout: engine-processor: markdown: no fix: return processed places', asyn
         rule: 'code-block-style (remark-lint)',
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -314,7 +314,7 @@ test('putout: engine-processor: markdown: no fix: processed places', async (t) =
         position: {line: 11, column: 1},
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -427,7 +427,7 @@ test('putout: engine-processor: yaml: no startLine', async (t) => {
     
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -481,7 +481,7 @@ test('putout: engine-processor: getFilePatterns', (t) => {
         '*.css',
     ];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -588,7 +588,7 @@ test('putout: engine-processor: md: json: options', async (t) => {
         rule: 'putout-config/convert-boolean-to-string',
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 

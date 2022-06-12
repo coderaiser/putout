@@ -20,7 +20,7 @@ test('remove-unused-variables: get-unused', (t) => {
         used: false,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 

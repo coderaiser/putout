@@ -47,7 +47,7 @@ test('putout: no vars', (t) => {
         places: [],
     };
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -63,7 +63,7 @@ test('putout: root vars', (t) => {
         places: [],
     };
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -79,7 +79,7 @@ test('putout: root vars: no parent', (t) => {
         places: [],
     };
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -95,7 +95,7 @@ test('putout: await outside function', (t) => {
         places: [],
     };
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -109,7 +109,7 @@ test('putout: run plugins', (t) => {
     
     const expected = '\n';
     
-    t.deepEqual(result.code, expected, 'should equal');
+    t.deepEqual(result.code, expected);
     t.end();
 });
 
@@ -127,7 +127,7 @@ test('putout: run plugins: disable, using "off"', (t) => {
     
     const expected = fixture.import;
     
-    t.deepEqual(result.code, expected, 'should equal');
+    t.deepEqual(result.code, expected);
     t.end();
 });
 
@@ -140,7 +140,7 @@ test('putout: fix count', (t) => {
         ],
     });
     
-    t.deepEqual(result.code, fixture.fixCountFix, 'should equal');
+    t.deepEqual(result.code, fixture.fixCountFix);
     t.end();
 });
 
@@ -153,7 +153,7 @@ test('putout: comment', (t) => {
     
     const expected = fixture.commentFix;
     
-    t.deepEqual(result.code, expected, 'should equal');
+    t.deepEqual(result.code, expected);
     t.end();
 });
 
@@ -165,7 +165,7 @@ test('putout: shebang', (t) => {
     });
     const expected = fixture.shebangFix;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -178,7 +178,7 @@ test('putout: flow', (t) => {
     
     const expected = [];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -208,7 +208,7 @@ test('putout: shebang: message', (t) => {
         column: 4,
     };
     
-    t.deepEqual(position, expected, 'should equal');
+    t.deepEqual(position, expected);
     t.end();
 });
 
@@ -221,7 +221,7 @@ test('putout: export default declaration', (t) => {
     
     const expected = fixture.exportDefaultDeclarationFix;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -235,7 +235,7 @@ test('putout: export default declaration: espree', (t) => {
     
     const expected = fixture.exportDefaultDeclarationFix;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -271,7 +271,7 @@ test('putout: use strict', (t) => {
     
     const expected = fixture.strictModeFix;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -285,7 +285,7 @@ test('putout: use strict: fixCount', (t) => {
     
     const expected = fixture.strictModeFixCount;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -296,7 +296,7 @@ test('putout: use strict: no fix', (t) => {
     
     const expected = fixture.strictMode;
     
-    t.deepEqual(code, expected, 'should equal');
+    t.deepEqual(code, expected);
     t.end();
 });
 
@@ -329,7 +329,7 @@ test('putout: traverse: shebang', (t) => {
         },
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -366,7 +366,7 @@ test('putout: no loc', (t) => {
         },
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -399,7 +399,7 @@ test('putout: plugin: find: no return', (t) => {
         },
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -432,7 +432,7 @@ test('putout: plugin: return push in traverse', (t) => {
         },
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -443,7 +443,7 @@ test('putout: recast destructuring assign', (t) => {
         ],
     });
     
-    t.deepEqual(result.code, fixture.recastDestructuringAssignFix, 'should equal');
+    t.deepEqual(result.code, fixture.recastDestructuringAssignFix);
     t.end();
 });
 
@@ -456,7 +456,7 @@ test('putout: overlap', (t) => {
         ],
     });
     
-    t.deepEqual(result.code, fixture.overlapFix, 'should equal');
+    t.deepEqual(result.code, fixture.overlapFix);
     t.end();
 });
 
@@ -582,7 +582,7 @@ test('putout: transform', (t) => {
     const result = putout.print(ast);
     const expected = fixture.commentFix;
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -614,7 +614,7 @@ test('putout: plugin: no options (find, push)', (t) => {
         rule: 'find/push',
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -647,7 +647,7 @@ test('putout: plugin: options', (t) => {
     
     const expected = [];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -679,7 +679,7 @@ test('putout: plugin: options: off', (t) => {
     
     const expected = [];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -707,7 +707,7 @@ test('putout: plugin: include', (t) => {
         rule: 'include',
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -728,7 +728,7 @@ test('putout: plugin: include: fix', (t) => {
     
     const expected = [];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -747,7 +747,7 @@ test('putout: plugin: include: empty: fix', (t) => {
     
     const expected = [];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -766,7 +766,7 @@ test('putout: plugin: exclude', (t) => {
     
     const expected = [];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -797,7 +797,7 @@ test('putout: find: template', (t) => {
         rule: 'include',
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -820,7 +820,7 @@ test('putout: filter', (t) => {
     
     const expected = [];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 

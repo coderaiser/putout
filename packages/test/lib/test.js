@@ -381,7 +381,7 @@ const reportCode = currify(({plugins, rules, isTS}, t, source, message) => {
     const resultMessages = places.map(getMessage);
     
     if (isArray(message))
-        return t.deepEqual(resultMessages, message, 'should equal');
+        return t.deepEqual(resultMessages, message);
     
     return t.equal(resultMessages[0], message);
 });

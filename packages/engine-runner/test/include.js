@@ -31,7 +31,7 @@ test('putout: runner: include', (t) => {
         rule: 'include',
     }];
     
-    t.deepEqual(places, expected, 'should equal');
+    t.deepEqual(places, expected);
     t.end();
 });
 

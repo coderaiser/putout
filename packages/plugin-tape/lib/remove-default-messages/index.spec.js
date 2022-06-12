@@ -17,3 +17,8 @@ test('plugin-tape: remove-default-messages: transform', (t) => {
     t.end();
 });
 
+test('plugin-tape: remove-default-messages: transform: deep-equal', (t) => {
+    t.transform('deep-equal');
+    t.end();
+});
+

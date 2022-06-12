@@ -41,7 +41,7 @@ test('putout: runner: plugins: traverse: listStore', (t) => {
         'x',
     ];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -78,7 +78,7 @@ test('putout: runner: plugins: traverse: store: value', (t) => {
     
     const expected = 'hello';
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -115,7 +115,7 @@ test('putout: runner: plugins: traverse: store: entries', (t) => {
     
     const expected = [['x', 'hello']];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -152,7 +152,7 @@ test('putout: runner: plugins: traverse: store: values', (t) => {
     
     const expected = ['hello'];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -198,7 +198,7 @@ test('putout: runner: plugins: traverse: store: object', (t) => {
         how: 'come',
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -245,7 +245,7 @@ test('putout: runner: plugins: traverse: store: uplist', (t) => {
         how: 'come',
     }]];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 

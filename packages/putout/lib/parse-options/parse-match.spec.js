@@ -11,7 +11,7 @@ test('putout: parse-match: empty', (t) => {
     const result = parseMatch();
     const expected = {};
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -26,7 +26,7 @@ test('putout: parse-match: find', (t) => {
         rules,
     };
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -41,7 +41,7 @@ test('putout: parse-match: not found', (t) => {
         rules,
     };
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -68,7 +68,7 @@ test('putout: parse-match: merge', (t) => {
     
     const result = parseMatch('lib/cli/putout.spec.js', match);
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -150,7 +150,7 @@ test('putout: parse-match: encoding', (t) => {
         rules: {},
     };
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -168,7 +168,7 @@ test('putout: parse-match: couple', (t) => {
         rules,
     };
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -186,7 +186,7 @@ test('putout: parse-match: extension', (t) => {
         rules,
     };
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -204,7 +204,7 @@ test('putout: parse-match: extension: long path', (t) => {
         rules,
     };
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -226,7 +226,7 @@ test('putout: parse-match: similar matches', (t) => {
     
     const result = parseMatch('packages/plugin-putout/README.md', match);
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -245,7 +245,7 @@ test('putout: parse-match: absolute', (t) => {
     
     const result = parseMatch('/putout/packages/process-css/test/css.js', match);
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 

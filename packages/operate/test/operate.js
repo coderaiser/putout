@@ -371,7 +371,7 @@ test('putout: operate: replaceWithMultiple: empty array', (t) => {
     
     const newPath = operate.replaceWithMultiple(path, []);
     
-    t.deepEqual(newPath, [], 'should equal');
+    t.deepEqual(newPath, []);
     t.end();
 });
 

@@ -131,7 +131,7 @@ test('remove-unused-variables: get-vars: no', (t) => {
     const result = getVars(ast);
     const expected = [];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -151,7 +151,7 @@ test('remove-unused-variables: get-vars: logical expression', (t) => {
         protocol: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -167,7 +167,7 @@ test('remove-unused-variables: get-vars: arguments nested', (t) => {
         b: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -185,7 +185,7 @@ test('remove-unused-variables: get-vars: array expression', (t) => {
         template: d_,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -203,7 +203,7 @@ test('remove-unused-variables: get-vars: array pattern', (t) => {
         console: _u,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -238,7 +238,7 @@ test('remove-unused-variables: get-vars: arrow function expression', (t) => {
         source: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -265,7 +265,7 @@ test('remove-unused-variables: get-vars: function declaration', (t) => {
         b: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -279,7 +279,7 @@ test('remove-unused-variables: get-vars: function as argument', (t) => {
         Hello: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -292,7 +292,7 @@ test('remove-unused-variables: get-vars: call expression', (t) => {
         console: _u,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -317,7 +317,7 @@ test('remove-unused-variables: get-vars: conditional expression', (t) => {
         add: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -332,7 +332,7 @@ test('remove-unused-variables: get-vars: assignment expression', (t) => {
         obj: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -352,7 +352,7 @@ test('remove-unused-variables: get-vars: assignment pattern', (t) => {
         fn: d_,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -366,7 +366,7 @@ test('remove-unused-variables: get-vars: assignment function', (t) => {
         Hello: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -379,7 +379,7 @@ test('remove-unused-variables: get-vars: binary expression', (t) => {
         result: d_,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -392,7 +392,7 @@ test('remove-unused-variables: get-vars: member expression', (t) => {
         obj: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -412,7 +412,7 @@ test('remove-unused-variables: get-vars: new expression', (t) => {
         Hello: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -446,7 +446,7 @@ test('remove-unused-variables: get-vars: object expression', (t) => {
         computedKey: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -462,7 +462,7 @@ test('remove-unused-variables: get-vars: object method', (t) => {
         property: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -480,7 +480,7 @@ test('remove-unused-variables: get-vars: optional member expression', (t) => {
         b: 'du',
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -493,7 +493,7 @@ test('remove-unused-variables: get-vars: optional call expression', (t) => {
         y: _u,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -508,7 +508,7 @@ test('remove-unused-variables: get-vars: unary expression', (t) => {
         b: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -520,7 +520,7 @@ test('remove-unused-variables: get-vars: update expression', (t) => {
         i: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -543,7 +543,7 @@ test('remove-unused-variables: get-vars: root vars', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -566,7 +566,7 @@ test('remove-unused-variables: get-vars: condition vars', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -582,7 +582,7 @@ test('remove-unused-variables: get-vars: destr vars', (t) => {
         console: _u,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -596,7 +596,7 @@ test('remove-unused-variables: get-vars: destr assignment', (t) => {
         options: _u,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -610,7 +610,7 @@ test('remove-unused-variables: get-vars: destr-computed', (t) => {
         z: _u,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -624,7 +624,7 @@ test('remove-unused-variables: get-vars: destr assignment: array', (t) => {
         get: _u,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -641,7 +641,7 @@ test('remove-unused-variables: get-vars: destr nested vars', (t) => {
         world: d_,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -664,7 +664,7 @@ test('remove-unused-variables: get-vars: destr fn vars', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -681,7 +681,7 @@ test('remove-unused-variables: get-vars: decorator', (t) => {
         fn: _u,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -709,7 +709,7 @@ test('remove-unused-variables: get-vars: import', (t) => {
         writeFileSync: d_,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -724,7 +724,7 @@ test('remove-unused-variables: get-vars: export default function', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -734,7 +734,7 @@ test('remove-unused-variables: get-vars: export default anonymous function', (t)
     
     const expected = [];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -749,7 +749,7 @@ test('remove-unused-variables: get-vars: export default identifier', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -764,7 +764,7 @@ test('remove-unused-variables: get-vars: export default object expression', (t) 
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -779,7 +779,7 @@ test('remove-unused-variables: get-vars: export default class', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -795,7 +795,7 @@ test('remove-unused-variables: get-vars: export named declaration', (t) => {
         Hello: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -815,7 +815,7 @@ test('remove-unused-variables: get-vars: no root vars', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -842,7 +842,7 @@ test('remove-unused-variables: get-vars: fn call', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -857,7 +857,7 @@ test('remove-unused-variables: get-vars: fn as element', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -876,7 +876,7 @@ test('remove-unused-variables: get-vars: fn call shorthand vars', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -899,7 +899,7 @@ test('remove-unused-variables: get-vars: fn call: vars', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -923,7 +923,7 @@ test('remove-unused-variables: get-vars: fn vars', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -945,7 +945,7 @@ test('remove-unused-variables: get-vars: return statement', (t) => {
         hello: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -959,7 +959,7 @@ test('remove-unused-variables: get-vars: switch statement', (t) => {
         hello: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -973,7 +973,7 @@ test('remove-unused-variables: get-vars: expression statement', (t) => {
         error: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -986,7 +986,7 @@ test('remove-unused-variables: get-vars: throw statement', (t) => {
         Error: _u,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1002,7 +1002,7 @@ test('remove-unused-variables: get-vars: try-catch', (t) => {
         error: d_,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1030,7 +1030,7 @@ test('remove-unused-variables: get-vars: fn args vars', (t) => {
         fn: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1048,7 +1048,7 @@ test('remove-unused-variables: get-vars: fn destr args vars', (t) => {
         restVar: d_,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1063,7 +1063,7 @@ test('remove-unused-variables: get-vars: fn hoisted vars', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1082,7 +1082,7 @@ test('remove-unused-variables: get-vars: arrow vars', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1102,7 +1102,7 @@ test('remove-unused-variables: get-vars: scope vars', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1121,7 +1121,7 @@ test('remove-unused-variables: get-vars: shorthand vars', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1139,7 +1139,7 @@ test('remove-unused-variables: get-vars: for of statement', (t) => {
         item: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1153,7 +1153,7 @@ test('remove-unused-variables: get-vars: for in', (t) => {
         jqCache: _u,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1168,7 +1168,7 @@ test('remove-unused-variables: get-vars: obj prop', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1191,7 +1191,7 @@ test('remove-unused-variables: get-vars: spread vars', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1205,7 +1205,7 @@ test('remove-unused-variables: get-vars: tuple', (t) => {
         z: d_,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1219,7 +1219,7 @@ test('remove-unused-variables: get-vars: record', (t) => {
         z: d_,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1243,7 +1243,7 @@ test('remove-unused-variables: get-vars: template literal', (t) => {
         password: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1260,7 +1260,7 @@ test('remove-unused-variables: get-vars: tagged template expression', (t) => {
         a: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1275,7 +1275,7 @@ test('remove-unused-variables: get-vars: undeclared vars', (t) => {
         },
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1297,7 +1297,7 @@ test('remove-unused-variables: get-vars: variable declarator', (t) => {
         Hello: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1311,7 +1311,7 @@ test('remove-unused-variables: get-vars: class declarator', (t) => {
         C: d_,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1325,7 +1325,7 @@ test('remove-unused-variables: get-vars: class property', (t) => {
         thing: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1338,7 +1338,7 @@ test('remove-unused-variables: get-vars: class import', (t) => {
         wrap: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1357,7 +1357,7 @@ test('remove-unused-variables: get-vars: class return', (t) => {
         Hello: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1374,7 +1374,7 @@ test('remove-unused-variables: get-vars: jsx opening element', (t) => {
         str: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1390,7 +1390,7 @@ test('remove-unused-variables: get-vars: jsx template', (t) => {
         isOpen: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1404,7 +1404,7 @@ test('remove-unused-variables: get-vars: jsx fragment', (t) => {
         require: _u,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1418,7 +1418,7 @@ test('remove-unused-variables: get-vars: jsx member expression', (t) => {
         a: _u,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1437,7 +1437,7 @@ test('remove-unused-variables: get-vars: jsx spread attribute', (t) => {
         props: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1451,7 +1451,7 @@ test('remove-unused-variables: get-vars: await', (t) => {
         world: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1465,7 +1465,7 @@ test('remove-unused-variables: get-vars: yield', (t) => {
         world: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1488,7 +1488,7 @@ test('remove-unused-variables: get-vars: template: no loc', (t) => {
         hello: d_,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1505,7 +1505,7 @@ test('remove-unused-variables: get-vars: flow', (t) => {
         IInputHandlingTerminal: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1528,7 +1528,7 @@ test('remove-unused-variables: get-vars: typescript', (t) => {
         options: d_,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1540,7 +1540,7 @@ test('remove-unused-variables: get-vars: typescript: namespace', (t) => {
         children: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1552,7 +1552,7 @@ test('remove-unused-variables: get-vars: typescript: module', (t) => {
         children: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1565,7 +1565,7 @@ test('remove-unused-variables: get-vars: typescript: as', (t) => {
         cms: _u,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1577,7 +1577,7 @@ test('remove-unused-variables: get-vars: typescript: declare function', (t) => {
         args: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1590,7 +1590,7 @@ test('remove-unused-variables: get-vars: typescript: type query', (t) => {
         cms: _u,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1604,7 +1604,7 @@ test('remove-unused-variables: get-vars: typescript: function type parameter', (
         x: du,
     }];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
@@ -1613,7 +1613,7 @@ test('remove-unused-variables: get-vars: typescript: types', (t) => {
     const result = getVars(ast).map(dutify);
     const expected = [];
     
-    t.deepEqual(result, expected, 'should equal');
+    t.deepEqual(result, expected);
     t.end();
 });
 
