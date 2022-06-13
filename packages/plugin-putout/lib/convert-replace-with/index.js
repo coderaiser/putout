@@ -6,17 +6,17 @@ const {
     types,
 } = require('putout');
 
-const {
-    replaceWith,
-    insertAfter,
-} = operator;
+const fullstore = require('fullstore');
 
 const {
     Identifier,
     ObjectProperty,
 } = types;
 
-const fullstore = require('fullstore');
+const {
+    replaceWith,
+    insertAfter,
+} = operator;
 
 module.exports.report = () => {
     return `"operator.replaceWith" should be called instead of "path.replaceWith"`;

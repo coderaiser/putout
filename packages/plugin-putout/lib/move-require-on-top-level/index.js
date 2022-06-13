@@ -21,13 +21,14 @@ const TRANSFORM = `
 const {
     Identifier,
     isIdentifier,
+    isObjectExpression,
 } = types;
 
 module.exports.report = () => 'Move require on top level';
 
 module.exports.match = () => ({
     [TEST]: ({__b}) => !isIdentifier(__b),
-    [TRANSFORM]: ({__b}) => !isIdentifier(__b),
+    [TRANSFORM]: ({__b}) => !isIdentifier(__b) && !isObjectExpression(__b),
 });
 
 module.exports.replace = () => ({
