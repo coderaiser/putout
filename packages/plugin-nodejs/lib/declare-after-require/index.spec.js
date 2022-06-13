@@ -65,6 +65,11 @@ test('plugin-declare-after-require: transform: putout', (t) => {
     t.end();
 });
 
+test('plugin-declare-after-require: transform: reference', (t) => {
+    t.transform('reference');
+    t.end();
+});
+
 test('plugin-declare-after-require: transform: removed', (t) => {
     t.transform('removed', {
         remove: {

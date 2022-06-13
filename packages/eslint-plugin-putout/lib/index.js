@@ -6,7 +6,6 @@ const json = require('./json');
 const yaml = require('./yaml');
 const html = require('./html');
 const ts = require('./ts');
-const config = require('@putout/eslint-config');
 
 const getRule = (a) => ({
     [a]: require(`./${a}`),
@@ -50,6 +49,7 @@ module.exports.rules = {
     ...getRule('remove-empty-newline-after-import'),
 };
 
+const config = require('@putout/eslint-config');
 const {rules} = config;
 
 const recommended = {
