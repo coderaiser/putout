@@ -5,18 +5,18 @@ const {
     types,
 } = require('putout');
 
-const {remove} = operator;
+const {traverseClass} = require('../common');
 
+const stateToHooks = require('./state-to-hooks');
+
+const setStateToHooks = require('./set-state-to-hooks');
 const {
     isIdentifier,
     isMemberExpression,
     isThisExpression,
     isAssignmentExpression,
 } = types;
-
-const {traverseClass} = require('../common');
-const stateToHooks = require('./state-to-hooks');
-const setStateToHooks = require('./set-state-to-hooks');
+const {remove} = operator;
 
 module.exports.report = (path) => {
     if (isAssignmentExpression(path))

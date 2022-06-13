@@ -10,13 +10,13 @@ const mockRequire = require('mock-require');
 const putout = require('putout');
 const montag = require('montag');
 
+const {readFixtures} = require('./fixture');
+
+const {loadPlugins} = require('..');
 const {
     reRequire,
     stopAll,
 } = mockRequire;
-
-const {readFixtures} = require('./fixture');
-const {loadPlugins} = require('..');
 
 const fixture = readFixtures([
     'shebang',

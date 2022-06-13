@@ -37,6 +37,11 @@ test('putout: plugin: nodejs: transform: declare', (t) => {
     t.end();
 });
 
+test('putout: plugin: nodejs: transform: declare-after-require', (t) => {
+    t.transform('declare-after-require');
+    t.end();
+});
+
 test('putout: plugin: nodejs: transform: convert-top-level-return', (t) => {
     t.transform('convert-top-level-return', '\n');
     t.end();

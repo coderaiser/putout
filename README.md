@@ -835,6 +835,16 @@ switch (x) {
 
 </details>
 
+<details><summary>declare before <code>reference</code></summary>
+
+```diff
+-const {compare} = operator;
+import {operator} from 'putout';
++const {compare} = operator
+```
+
+</details>
+
 <details><summary>declare undefined variables</summary>
 
 ```diff
@@ -1887,8 +1897,8 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-declare-undefined-variables`](/packages/plugin-declare-undefined-variables#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare-undefined-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare-undefined-variables) |
 | [`@putout/plugin-declare-before-reference`](/packages/plugin-declare-before-reference#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare-before-reference.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare-before-reference) |
+| [`@putout/plugin-declare-undefined-variables`](/packages/plugin-declare-undefined-variables#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare-undefined-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare-undefined-variables) |
 | [`@putout/plugin-reuse-duplicate-init`](/packages/plugin-reuse-duplicate-init#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-reuse-duplicate-init.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-reuse-duplicate-init) |
 | [`@putout/plugin-madrun`](/packages/plugin-madrun#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-madrun.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-madrun) |
 | [`@putout/plugin-strict-mode`](/packages/plugin-strict-mode#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-strict-mode.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-strict-mode) |

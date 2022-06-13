@@ -1,9 +1,9 @@
 'use strict';
 
-const {keys} = Object;
-
 const test = require('supertape');
+
 const putoutConfig = require('../putout.json');
+const {keys} = Object;
 
 test('putout: config: ignore: .yarn', (t) => {
     const {ignore} = putoutConfig;

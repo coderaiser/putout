@@ -1,15 +1,15 @@
 'use strict';
 
 const {operator} = require('putout');
+const getVars = require('./get-vars');
+
+const transform = require('./transform');
+const getUnused = require('./get-unused');
 const {
     replaceWith,
     compare,
     remove,
 } = operator;
-
-const getVars = require('./get-vars');
-const transform = require('./transform');
-const getUnused = require('./get-unused');
 
 module.exports.report = ({name}) => `'${name}' is defined but never used`;
 

@@ -20,11 +20,11 @@ const {
     traverseTemplateLiteral,
 } = require('./traverse');
 
-const {assign} = Object;
-
 const jsx = require('./jsx');
+
 const flow = require('./flow');
 const typescript = require('./typescript');
+const {assign} = Object;
 
 module.exports = ({use, declare, addParams}) => {
     const traverseObj = traverseObjectExpression(use);

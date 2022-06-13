@@ -12,9 +12,9 @@ const {
 } = require('supertape');
 const mockRequire = require('mock-require');
 
-const {reRequire, stopAll} = mockRequire;
-
 const parseOptions = require('.');
+
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: parse-options: custom options rules overrides default match', (t) => {
     const customOptions = {

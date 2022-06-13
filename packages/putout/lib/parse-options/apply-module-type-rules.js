@@ -1,7 +1,7 @@
 'use strict';
 
-const {assign} = Object;
 const merge = require('../merge');
+const {assign} = Object;
 
 module.exports = ({type}, options) => {
     const rules = type === 'module' ? esm() : commonjs();

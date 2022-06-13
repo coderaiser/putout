@@ -2,9 +2,9 @@
 
 const {types} = require('putout');
 
-const {isAwaitExpression} = types;
-
 const applyTryCatch = require('../apply-try-catch');
+
+const {isAwaitExpression} = types;
 
 module.exports.report = () => `Use 'await tryToCatch()' instead of 'await' in 'try-catch' block`;
 

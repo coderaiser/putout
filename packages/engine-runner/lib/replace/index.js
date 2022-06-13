@@ -1,8 +1,7 @@
 'use strict';
 
-const isString = (a) => typeof a === 'string';
-
 const {template} = require('@putout/engine-parser');
+
 const {
     remove,
     replaceWith,
@@ -14,9 +13,10 @@ const {
     setValues,
 } = require('@putout/compare');
 const debug = require('debug')('putout:runner:replace');
-
 const maybeArray = require('../maybe-array');
+
 const watermark = require('./watermark');
+const isString = (a) => typeof a === 'string';
 
 const log = (from, path) => {
     debug.enabled && debug(`${from} -> ${path}\n`);

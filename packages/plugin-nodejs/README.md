@@ -25,6 +25,7 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/convert-dirname-to-url": "on",
         "nodejs/convert-url-to-dirname": "on",
         "nodejs/convert-top-level-return": "on",
+        "nodejs/declare-after-require": "on",
         "nodejs/remove-process-exit": "on"
     }
 }
@@ -152,6 +153,28 @@ await readFile('hello.txt', 'utf8');
 ```js
 import {readFile} from 'fs/promises';
 await readFile('hello.txt', 'utf8');
+```
+
+### declare-after-require
+
+> **Node.js** follows the **CommonJS** module system, and the builtin `require` function is the easiest way to include modules that exist in separate files. The basic functionality of `require` is that it reads a JavaScript file, executes the file, and then proceeds to return the `exports` object.
+>
+> (c) [Nodejs.org](https://nodejs.org/en/knowledge/getting-started/what-is-require/)
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/https://putout.cloudcmd.io/#/gist/ddf5731ae829beec4d3018d4d9ac2150/342738b63337bfa9b4fc08c5b301483ea2b5ba9c).
+
+#### ❌ Example of incorrect code
+
+```js
+const name = 'hello.txt';
+const {readFile} = require('fs/promises');
+```
+
+#### ✅ Example of correct code
+
+```js
+const {readFile} = require('fs/promises');
+const name = 'hello.txt';
 ```
 
 ## License

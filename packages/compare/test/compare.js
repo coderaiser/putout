@@ -3,14 +3,14 @@
 const test = require('supertape');
 const {template, parse} = require('@putout/engine-parser');
 const {traverse, types} = require('putout');
-const {ExpressionStatement} = types;
-
 const {
     compare,
     compareAll,
     compareAny,
     parseTemplate,
 } = require('..');
+
+const {ExpressionStatement} = types;
 
 test('compare: base is string', (t) => {
     const a = template.ast('const a = "hello"');

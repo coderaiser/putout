@@ -6,9 +6,9 @@ const {readFileSync} = require('fs');
 const {RuleTester} = require('eslint');
 const montag = require('montag');
 
-const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.ts`), 'utf8');
-
 const rule = require('.');
+
+const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.ts`), 'utf8');
 
 const ruleTester = new RuleTester({
     parserOptions: {

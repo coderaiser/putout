@@ -23,9 +23,7 @@ const {
 const getFiles = require('./get-files');
 const {createCache} = require('@putout/cli-cache');
 const supportedFiles = require('./supported-files');
-const getFormatter = memo(require('./formatter').getFormatter);
 const getOptions = require('./get-options');
-
 const validateArgs = require('@putout/cli-validate-args');
 
 const {
@@ -41,6 +39,8 @@ const {
     RULLER_NO_FILES,
     INVALID_CONFIG,
 } = require('./exit-codes');
+
+const getFormatter = memo(require('./formatter').getFormatter);
 
 const cwd = process.cwd();
 const {PUTOUT_FILES = ''} = process.env;

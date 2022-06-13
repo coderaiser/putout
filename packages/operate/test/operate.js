@@ -7,6 +7,10 @@ const {
 const putout = require('putout');
 const montag = require('montag');
 
+const operate = require('..');
+
+const {readFixtures} = require('./fixture');
+
 const {
     traverse,
     parse,
@@ -14,10 +18,6 @@ const {
     print,
     template,
 } = putout;
-
-const operate = require('..');
-
-const {readFixtures} = require('./fixture');
 const fixture = readFixtures();
 
 const {

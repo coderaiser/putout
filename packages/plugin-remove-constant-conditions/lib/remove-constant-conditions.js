@@ -5,13 +5,13 @@ const {
     operator,
 } = require('putout');
 
+const {runInNewContext} = require('vm');
+
 const {
     replaceWith,
     replaceWithMultiple,
     remove,
 } = operator;
-
-const {runInNewContext} = require('vm');
 const {isIdentifier} = types;
 
 module.exports.report = () => 'Avoid constant conditions';

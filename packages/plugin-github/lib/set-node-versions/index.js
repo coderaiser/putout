@@ -1,13 +1,13 @@
 'use strict';
 
 const {operator, template} = require('putout');
+const deepEqual = require('fast-deep-equal');
+const {traverseProperty} = require('../traverse-property');
+
 const {
     replaceWith,
     getTemplateValues,
 } = operator;
-const deepEqual = require('fast-deep-equal');
-
-const {traverseProperty} = require('../traverse-property');
 
 const nodeVersions = [
     '16.x',

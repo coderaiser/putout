@@ -1,9 +1,9 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const nodejsDeclare = require('@putout/plugin-nodejs').rules.declare;
-
 const convert = require('..');
+
+const nodejsDeclare = require('@putout/plugin-nodejs').rules.declare;
 const test = createTest(__dirname, {
     'convert-esm-to-commonjs': convert,
 });

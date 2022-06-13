@@ -4,9 +4,9 @@ const {parse, operator} = require('putout');
 const {test} = require('supertape');
 const montag = require('montag');
 
-const {traverse} = operator;
-
 const {getBinding, getBindingPath} = require('./get-binding');
+
+const {traverse} = operator;
 
 test('operate: getBinding: current scope', (t) => {
     let result;

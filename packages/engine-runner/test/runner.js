@@ -10,10 +10,10 @@ const {
 } = require('supertape');
 const putout = require('putout');
 const mockRequire = require('mock-require');
-const {reRequire, stopAll} = mockRequire;
-
 const {readFixtures} = require('./fixture');
+
 const {runPlugins} = require('..');
+const {reRequire, stopAll} = mockRequire;
 
 const fixture = readFixtures([
     'import',

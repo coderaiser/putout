@@ -1,7 +1,5 @@
 'use strict';
 
-const {assign} = Object;
-
 const once = require('once');
 
 // stricter validation to prevent even more invalid ASTs: not only
@@ -11,14 +9,15 @@ const once = require('once');
 // not a valid identifier.
 process.env.BABEL_TYPES_8_BREAKING = true;
 
-const initBabel = once(() => require('@babel/parser'));
-const clean = (a) => a.filter(Boolean);
-const getFlow = (a) => a.includes('// @flow');
-
 const plugins = require('./plugins');
 const options = require('./options');
 
 const moveOutDirectives = require('./move-out-directives');
+
+const getFlow = (a) => a.includes('// @flow');
+const clean = (a) => a.filter(Boolean);
+const initBabel = once(() => require('@babel/parser'));
+const {assign} = Object;
 
 // There is a difference in options naming for babel and recast
 // recast -> sourceFileName

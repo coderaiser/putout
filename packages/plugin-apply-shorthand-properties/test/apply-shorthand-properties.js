@@ -3,11 +3,11 @@
 const {createTest} = require('@putout/test');
 const applyShorthandProperties = require('..');
 
+const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
+
 const test = createTest(__dirname, {
     'apply-shorthand-properties': applyShorthandProperties,
 });
-
-const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
 
 test('plugin-apply-shorthand-properties: report', (t) => {
     t.report('object', 'Shorthand properties should be used');

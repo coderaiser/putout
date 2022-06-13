@@ -2,16 +2,16 @@
 
 const {types} = require('putout');
 
-const {
-    isClassDeclaration,
-    isFunctionDeclaration,
-} = types;
-
 const getVars = require('./get-vars');
+
 const {
     useParamsBeforeLastUsed,
     usePropertiesBeforeRest,
 } = require('./use-params');
+const {
+    isClassDeclaration,
+    isFunctionDeclaration,
+} = types;
 
 module.exports = (ast, opts) => {
     const vars = {};

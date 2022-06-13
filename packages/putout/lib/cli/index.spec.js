@@ -20,10 +20,6 @@ const {simpleImport} = require('./simple-import');
 const _cli = require('.');
 const {version} = require('../../package');
 
-const {reRequire, stopAll} = mockRequire;
-const {parse} = JSON;
-const {assign} = Object;
-
 const {
     OK,
     PLACE,
@@ -35,6 +31,10 @@ const {
     RULLER_WITH_FIX,
     INVALID_CONFIG,
 } = require('./exit-codes');
+const {assign} = Object;
+const {parse} = JSON;
+
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: --raw', async (t) => {
     const logError = stub();

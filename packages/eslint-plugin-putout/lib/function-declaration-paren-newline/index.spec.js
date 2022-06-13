@@ -4,11 +4,11 @@ const {readFileSync} = require('fs');
 
 const {join} = require('path');
 
-const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');
-
 const {RuleTester} = require('eslint');
 
 const wrap = require('../wrap');
+
+const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');
 const rule = wrap(require('.'));
 
 const ruleTester = new RuleTester({

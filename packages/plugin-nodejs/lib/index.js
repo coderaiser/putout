@@ -11,6 +11,7 @@ module.exports.rules = {
     ...getRule('convert-url-to-dirname'),
     ...getRule('convert-top-level-return'),
     ...getRule('declare'),
+    ...getRule('declare-after-require'),
     ...getRule('remove-process-exit'),
 };
 
