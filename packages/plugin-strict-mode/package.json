@@ -31,6 +31,8 @@
     "strict-mode"
   ],
   "devDependencies": {
+    "@putout/plugin-declare-undefined-variables": "*",
+    "@putout/plugin-nodejs": "*",
     "@putout/plugin-typescript": "*",
     "@putout/test": "^5.0.0",
     "c8": "^7.5.0",

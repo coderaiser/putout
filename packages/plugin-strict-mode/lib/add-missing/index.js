@@ -25,10 +25,9 @@ module.exports.traverse = ({push, store}) => ({
     },
     Program: {
         exit(path) {
-            const [first] = path.node.body;
-            
-            if (isExpressionStatement(first) && first.expression.value === 'use strict')
-                return;
+            for (const node of path.node.body)
+                if (isExpressionStatement(node) && node.expression.value === 'use strict')
+                    return;
             
             if (store('is-module'))
                 return;

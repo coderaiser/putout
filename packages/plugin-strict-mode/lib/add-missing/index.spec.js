@@ -1,6 +1,8 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
+const nodejs = require('@putout/plugin-nodejs');
+const declare = require('@putout/plugin-declare-undefined-variables');
 const add = require('.');
 
 process.on('unhandledRejection', () => {});
@@ -44,3 +46,10 @@ test('plugin-strict-mode: add: no transform: top-level-await', (t) => {
     t.end();
 });
 
+test('plugin-strict-mode: add: nodejs', (t) => {
+    t.transform('nodejs', {
+        nodejs,
+        declare,
+    });
+    t.end();
+});
