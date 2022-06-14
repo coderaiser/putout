@@ -24,7 +24,13 @@ module.exports.traverse = ({push, store}) => ({
     },
     Program: {
         exit(path) {
-            const strictPath = path.get('body.0');
+            const [strictPath, ...paths] = path.get('body');
+            
+            for (const path of paths) {
+                if (path.isExpressionStatement() && path.node.expression.value === 'use strict') {
+                    push(path);
+                }
+            }
             
             if (!store('is-module'))
                 return;

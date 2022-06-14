@@ -34,6 +34,11 @@ test('plugin-strict-mode: remove: transform: top-level-await', (t) => {
     t.end();
 });
 
+test('plugin-strict-mode: remove: transform: couple', (t) => {
+    t.transform('couple');
+    t.end();
+});
+
 test('plugin-strict-mode: remove: transform: typescript', (t) => {
     t.transform('typescript', {
         typescript,
