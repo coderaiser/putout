@@ -80,6 +80,11 @@ test('plugin-declare-after-require: no transform: call', (t) => {
     t.end();
 });
 
+test('plugin-declare-after-require: no report: expression', (t) => {
+    t.noReport('expression');
+    t.end();
+});
+
 test('plugin-declare-after-require: transform: removed', (t) => {
     t.transform('removed', {
         remove: {

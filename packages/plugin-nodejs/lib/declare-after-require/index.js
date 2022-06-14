@@ -81,7 +81,7 @@ module.exports.traverse = ({push, listStore}) => ({
                 const {loc} = path.node;
                 const line = !loc ? 0 : loc.start.line;
                 
-                if (line < lastRequireLine && lastRequireLine < getReferenceLine(path, constPaths)) {
+                if (line < lastRequireLine && lastRequireLine < getReferenceLine(path)) {
                     push({
                         path,
                         firstRequire,
@@ -105,7 +105,7 @@ function getName(path) {
     return null;
 }
 
-function getReferenceLine(path, constPaths) {
+function getReferenceLine(path) {
     const name = getName(path);
     const binding = path.scope.bindings[name];
     
@@ -117,9 +117,8 @@ function getReferenceLine(path, constPaths) {
     if (!referencePaths.length)
         return Infinity;
     
-    if (compareAny(referencePaths[0], constPaths))
-        return Infinity;
+    const [firstReference] = referencePaths;
     
-    return referencePaths[0].node.loc.start.line;
+    return firstReference.node.loc.start.line;
 }
 
