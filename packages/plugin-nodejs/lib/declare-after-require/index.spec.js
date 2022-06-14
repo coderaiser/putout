@@ -24,6 +24,11 @@ test('plugin-declare-after-require: report: destructuring', (t) => {
     t.end();
 });
 
+test('plugin-declare-after-require: transform: destructuring', (t) => {
+    t.transform('destructuring');
+    t.end();
+});
+
 test('plugin-declare-after-require: transform', (t) => {
     t.transform('require');
     t.end();
