@@ -75,7 +75,7 @@ module.exports.traverse = ({push, listStore}) => ({
             if (!lastRequire.node.loc)
                 return;
             
-            const lastRequireLine = lastRequire.node.loc.start.line;
+            const lastRequireLine = lastRequire.node.loc.end.line;
             
             for (const path of constPaths) {
                 const {loc} = path.node;

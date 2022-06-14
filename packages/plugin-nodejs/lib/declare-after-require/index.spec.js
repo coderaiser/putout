@@ -70,6 +70,11 @@ test('plugin-declare-after-require: transform: reference', (t) => {
     t.end();
 });
 
+test('plugin-declare-after-require: no transform: call', (t) => {
+    t.noTransform('call');
+    t.end();
+});
+
 test('plugin-declare-after-require: transform: removed', (t) => {
     t.transform('removed', {
         remove: {
