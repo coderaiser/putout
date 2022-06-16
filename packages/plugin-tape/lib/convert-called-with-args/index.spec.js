@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-tape: convert-called-with-arguments: report', (t) => {
-    t.report('args', `Use 'array' as calledWith 'args'`);
+    t.report('args', `Use an array as args to 'calledWith()'`);
     t.end();
 });
 
