@@ -17,7 +17,8 @@ npm i @putout/plugin-remove-useless-arguments
 {
     "rules": {
         "remove-useless-arguments/arguments": "on",
-        "remove-useless-arguments/destructuring": "on"
+        "remove-useless-arguments/destructuring": "on",
+        "remove-useless-arguments/method": "on"
     }
 }
 ```
@@ -62,6 +63,34 @@ onIfStatement({
 });
 
 function onIfStatement({push}) {
+}
+```
+
+### method
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/362c37e9f533299a7e721ac46f936801/0a47d094bd2a048eb6dcc224b808a63f2d076ccb).
+
+### ❌ Example of incorrect code
+
+```js
+class Parser {
+    parseStatement(context, topLevel, exports) {
+        this.parseGuard(a, b);
+    }
+    parseGuard() {
+    }
+}
+```
+
+### ✅ Example of correct code
+
+```js
+class Parser {
+    parseStatement(context, topLevel, exports) {
+        this.parseGuard();
+    }
+    parseGuard() {
+    }
 }
 ```
 

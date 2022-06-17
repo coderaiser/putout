@@ -57,3 +57,7 @@ test('plugin-remove-useless-arguments: no transform: not defined', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-arguments: transform: method', (t) => {
+    t.transform('method');
+    t.end();
+});
