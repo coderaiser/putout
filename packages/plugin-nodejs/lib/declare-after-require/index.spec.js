@@ -5,6 +5,7 @@ const {createTest} = require('@putout/test');
 
 const declare = require('../declare/index.js');
 const convertEsmToCommonjs = require('@putout/plugin-convert-esm-to-commonjs');
+const convertCommonjsToEsm = require('@putout/plugin-convert-commonjs-to-esm');
 const putout = require('@putout/plugin-putout');
 const plugin = require('.');
 
@@ -26,6 +27,13 @@ test('plugin-declare-after-require: report: destructuring', (t) => {
 
 test('plugin-declare-after-require: transform: destructuring', (t) => {
     t.transform('destructuring');
+    t.end();
+});
+
+test('plugin-declare-after-require: transform: destructuring-require', (t) => {
+    t.transform('destructuring-require', {
+        convertCommonjsToEsm,
+    });
     t.end();
 });
 
