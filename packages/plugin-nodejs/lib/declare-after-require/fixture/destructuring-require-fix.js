@@ -7,4 +7,6 @@ const {
     createConfig,
 } = require(DIR + 'config');
 
+export const configPath = require(DIR + 'config');
+
 export const createConfigManager = createConfig;

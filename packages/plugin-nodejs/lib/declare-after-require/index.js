@@ -55,7 +55,7 @@ module.exports.traverse = ({push, listStore}) => ({
                 if (path.node.__putoutNodeDeclareAfterRequire)
                     continue;
                 
-                if (path.node.declarations[0].id.name === 'require')
+                if (path.isVariableDeclaration() && path.node.declarations[0].id.name === 'require')
                     continue;
                 
                 if (compareAny(path, REQUIRE_LIST)) {
