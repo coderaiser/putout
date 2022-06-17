@@ -21,7 +21,7 @@ feature:
 - (@putout/plugin-nodejs) add declare-after-require
 - (@putout/plugin-putout) move-require-on-top-level: exclude ObjectExpression
 - (@putout/plugin-tape) remove-default-messages: add more cases to deepEqual
-- (@putout/plugin-merge-destructuring-properties) add ability to handle absent node recived after @putout/plugin-tape
+- (@putout/plugin-merge-destructuring-properties) add ability to handle absent node received after @putout/plugin-tape
 - (@putout/plugin-nodejs) declare: add support of events
 
 
