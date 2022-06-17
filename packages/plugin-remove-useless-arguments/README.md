@@ -22,10 +22,27 @@ npm i @putout/plugin-remove-useless-arguments
 }
 ```
 
-## ❌ Example of incorrect code
+## arguments
+
+### ❌ Example of incorrect code
 
 ```js
-// destructuring
+const sum = (a, b) => {};// destructuring
+sum(a, b, c);
+```
+
+### ✅ Example of correct code
+
+```js
+const sum = (a, b) => {};
+sum(a, b, c);
+```
+
+### destructuring
+
+### ❌ Example of incorrect code
+
+```js
 onIfStatement({
     push,
     generate,
@@ -35,26 +52,17 @@ onIfStatement({
 
 function onIfStatement({push}) {
 }
-
-// arguments
-const sum = (a, b) => {};// destructuring
-sum(a, b, c);
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
-// destructuring
 onIfStatement({
     push,
 });
 
 function onIfStatement({push}) {
 }
-
-// arguments
-const sum = (a, b) => {};// destructuring
-sum(a, b, c);
 ```
 
 ## License

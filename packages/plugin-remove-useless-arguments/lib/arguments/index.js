@@ -13,9 +13,9 @@ const {
 
 module.exports.report = ({node}) => {
     if (isFunction(node))
-        return 'Function argument is useless';
+        return 'Remove useless argument';
     
-    return `Argument "${node.name}" is useless`;
+    return `Remove useless argument '${node.name}'`;
 };
 
 module.exports.fix = (path) => {
