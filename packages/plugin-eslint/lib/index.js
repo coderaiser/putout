@@ -10,6 +10,7 @@ module.exports.rules = {
     ...getRule('convert-ide-to-safe'),
     ...getRule('convert-require-to-import'),
     ...getRule('remove-no-unpublished-require'),
+    ...getRule('remove-no-unsupported-features'),
     ...getRule('remove-overrides-with-empty-rules'),
     ...getRule('remove-no-missing'),
 };

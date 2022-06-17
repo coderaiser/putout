@@ -27,6 +27,7 @@ npm i @putout/plugin-eslint -D
         "eslint/convert-import-to-require": "on",
         "eslint/remove-no-missing": "on",
         "eslint/remove-no-unpublished-require": "on",
+        "eslint/remove-no-unsupported-features": "on",
         "eslint/remove-overrides-with-empty-rules": "on"
     }
 }
@@ -143,6 +144,29 @@ Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1ac
 ## remove-no-unpublished-require
 
 `node/remove-no-unpublished-require` should be enabled, since this is a very useful rule, which shows what files should be add to `.npmignore`.
+
+```diff
+{
+    "overrides": [{
+        "files": "test/*.js",
+        "rules": {
+-           "node/no-unpublished-require": "off"
+        }
+    }],
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:putout/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ]
+};
+```
+
+## remove-no-unsupported-features
+
+`node/remove-no-unsupported-features` is already disabled in [eslint-plugin-putout](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme).
 
 ```diff
 {
