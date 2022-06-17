@@ -119,6 +119,9 @@ function getReferenceLine(path) {
     
     const [firstReference] = referencePaths;
     
+    if (!firstReference.node.loc)
+        return -1;
+    
     return firstReference.node.loc.start.line;
 }
 

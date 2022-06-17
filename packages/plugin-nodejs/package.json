@@ -31,6 +31,7 @@
     "nodejs"
   ],
   "devDependencies": {
+    "@putout/plugin-convert-commonjs-to-esm": "*",
     "@putout/plugin-convert-esm-to-commonjs": "*",
     "@putout/plugin-putout": "*",
     "@putout/test": "^5.0.0",
