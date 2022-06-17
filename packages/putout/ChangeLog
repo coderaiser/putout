@@ -1,3 +1,30 @@
+2022.06.17, v26.15.0
+
+fix:
+- (@putout/plugin-tape) convert-called-with-args: report messages
+- (@putout/plugin-nodejs) declare-after-require: last require loc: start -> end
+- (@putout/plugin-declare-before-reference) description
+- (@putout/plugin-merge-destructuring-properties) !currentPath.node -> currentPath.removed
+
+
+feature:
+- (package) @putout/plugin-eslint v4.0.0
+- (@putout/plugin-eslint) drop support of 🐊 < 26
+- (@putout/plugin-eslint) add remove-no-unsupported-features
+- (@putout/plugin-nodejs) declare-after-require: add support of ExportDeclaration
+- (@putout/plugin-nodejs) declare-after-require: improve support of references
+- (@putout/plugin-strict-mode) remove-useless: improve handling of couple strict modes
+- (@putout/plugin-strict-mode) add-missing: improve check
+- (@putout/plugin-nodejs) declare-after-require: simplify
+- (@putout/plugin-nodejs) declare-after-require: improve reference check
+- (@putout/plugin-nodejs) declare-after-require: check references
+- (@putout/plugin-nodejs) add declare-after-require
+- (@putout/plugin-putout) move-require-on-top-level: exclude ObjectExpression
+- (@putout/plugin-tape) remove-default-messages: add more cases to deepEqual
+- (@putout/plugin-merge-destructuring-properties) add ability to handle absent node recived after @putout/plugin-tape
+- (@putout/plugin-nodejs) declare: add support of events
+
+
 2022.06.11, v26.14.0
 
 fix:
