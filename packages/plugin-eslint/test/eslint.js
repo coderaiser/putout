@@ -47,3 +47,8 @@ test('putout: plugin-eslint: transform: remove-no-missing', (t) => {
     t.end();
 });
 
+test('putout: plugin-eslint: transform: remove-no-unsupported-features', (t) => {
+    t.transform('remove-no-unsupported-features');
+    t.end();
+});
+
