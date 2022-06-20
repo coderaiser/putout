@@ -68,6 +68,7 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
+    'const __a = require(".")': 'import __a from "./index.js"',
     'const __a = require(__b).default': 'import __a from "__b"',
     'const __a = require(__b).__c': `{
         const {__c} = require(__b);

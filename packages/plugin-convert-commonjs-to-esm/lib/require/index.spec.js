@@ -150,3 +150,9 @@ test('plugin-convert-commonjs-to-esm: require: no transform: package-json', (t) 
     t.noTransform('package-json');
     t.end();
 });
+
+test('plugin-convert-commonjs-to-esm: require: transform: dot', (t) => {
+    t.transform('dot');
+    t.end();
+});
+
