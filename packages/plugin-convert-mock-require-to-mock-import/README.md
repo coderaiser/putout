@@ -14,6 +14,7 @@ npm i @putout/plugin-convert-mock-require-to-mock-import -D
 ## Rule
 
 Rule `convert-mock-require-to-mock-import` is enabled by default for `*.mjs`, to disable add to `.putout.json`:
+Good complement of [@putout/plugin-tape](https://github.com/coderaiser/putout/tree/master/packages/plugin-tape#putoutplugin-tape-)
 
 ```json
 {

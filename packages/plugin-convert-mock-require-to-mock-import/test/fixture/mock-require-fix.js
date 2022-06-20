@@ -1,11 +1,3 @@
-import {createMockImport} from 'mock-import';
-
-const {
-    mockImport,
-    reImport,
-    stopAll
-} = createMockImport(import.meta.url);
-
 const mockRequire = require('mock-require');
 
 test('', async t => {
