@@ -1,3 +1,14 @@
+2022.06.20, v26.16.1
+
+feature:
+- (package) stylelint-config-standard v26.0.0
+- (package) @putout/cli-cache v2.0.1
+- (@putout/plugin-convert-mock-require-to-mock-import) improve support of stopAll
+- (@putout/plugin-putout) declare: add getPathAfterImports
+- (@putout/plugin-convert-commonjs-to-esm) improve support of dot-dot
+- (@putout/plugin-convert-commonjs-to-esm) add support of require(".")
+
+
 2022.06.20, v26.16.0
 
 fix:
