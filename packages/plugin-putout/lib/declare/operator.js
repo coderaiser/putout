@@ -8,6 +8,7 @@ module.exports = {
     contains: `const {contains} = operator`,
     declare: `const {declare} = operator`,
     extract: `const {extract} = operator`,
+    getPathAfterImports: `const {getPathAfterImports} = operator`,
     traverse: `const {traverse} = operator`,
     isSimpleRegExp: `const {isSimpleRegExp} = operator`,
     getTemplateValues: `const {getTemplateValues} = operator`,

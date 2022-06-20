@@ -156,3 +156,16 @@ test('plugin-putout: declare: transform: extract', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: getPathAfterImports', (t) => {
+    t.transformCode('getPathAfterImports();', montag`
+        import {operator} from 'putout';
+        
+        const {
+          getPathAfterImports
+        } = operator;
+        
+        getPathAfterImports();
+    `);
+    t.end();
+});
