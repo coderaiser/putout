@@ -1275,7 +1275,7 @@ function world(a) {
 
 </details>
 
-<details><summary>apply <code>Array.at</code>(<a href=https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#2021-07-29-version-1660-current-bethgriggs>not bundled</a>)</summary>
+<details><summary>apply <a href=https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#2021-07-29-version-1660-current-bethgriggs><code>Array.at()</code></a></summary>
 
 ```diff
 -const latest = (a) => a[a.length - 1];
