@@ -1015,7 +1015,7 @@ const putout = require('putout');
 
 </details>
 
-<details><summary>remove useless <code>Array.from</code></summary>
+<details><summary>remove useless <code>Array.from()</code></summary>
 
 ```diff
 -for (const x of Array.from(y)) {}
