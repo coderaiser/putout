@@ -78,7 +78,7 @@ module.exports.replace = () => ({
     'const __a = require(__b)': ({__a}, path) => {
         let {value} = path.get(__B).evaluate();
         
-        if (value.includes('./') && !/\.js(on)?$/.test(value))
+        if (value.includes('./') && !/\.js(on)?$/.test(value) && !value.endsWith('..'))
             value += '.js';
         
         const fnPath = path.findParent(isFunction);
