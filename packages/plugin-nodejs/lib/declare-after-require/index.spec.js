@@ -105,3 +105,4 @@ test('plugin-declare-after-require: transform: removed', (t) => {
     });
     t.end();
 });
+
