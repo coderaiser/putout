@@ -1,8 +1,15 @@
 'use strict';
 
-const {operator} = require('putout');
+const {
+    operator,
+    template,
+} = require('putout');
+const {
+    remove,
+    getPathAfterImports,
+} = operator;
 
-const {remove} = operator;
+const initStopAll = template.ast(`const {stopAll} = createMockImport(import.meta.url)`);
 
 module.exports.report = () => '"mockImport" should be used instead of "mockRequire"';
 
@@ -15,8 +22,15 @@ module.exports.replace = () => ({
         if (!block.async)
             block.async = true;
         
-        if (!scope.hasBinding('createMockImport'))
+        if (!scope.hasBinding('createMockImport')) {
+            const programScope = scope.getProgramParent();
+            const programPath = programScope.path;
+            
             maybeRemoveOldStopAll(scope);
+            
+            const endOfImportPath = getPathAfterImports(programPath.get('body'));
+            endOfImportPath.insertBefore(initStopAll);
+        }
         
         return 'await reImport(__a)';
     },
@@ -30,6 +44,8 @@ function maybeRemoveOldStopAll(scope) {
     
     const {path} = binding;
     
-    if (path)
+    if (path) {
         remove(path);
+        path.scope.crawl();
+    }
 }
