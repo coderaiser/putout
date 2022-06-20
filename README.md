@@ -1583,7 +1583,7 @@ import fs from 'fs';
 
 </details>
 
-<details><summary>remove useless <code>Promise.resolve</code></summary>
+<details><summary>remove useless <code>Promise.resolve()</code></summary>
 
 ```diff
 async () => {
@@ -1594,7 +1594,7 @@ async () => {
 
 </details>
 
-<details><summary>convert <code>Promise.reject</code> to <code>throw</code></summary>
+<details><summary>convert <code>Promise.reject()</code> to <code>throw</code></summary>
 
 ```diff
 async () => {
