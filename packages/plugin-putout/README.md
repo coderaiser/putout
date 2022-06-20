@@ -278,7 +278,7 @@ const {
 } = require('putout').types;
 ```
 
-## convert-to-no-transform-code
+## convert-destructuring-to-identifier
 
 ### ❌ Example of incorrect code
 
