@@ -1500,7 +1500,7 @@ result = result ?? 'hello';
 
 </details>
 
-<details><summary>convert <code>Object.assign</code> to <code>merge spread</code></summary>
+<details><summary>convert <code>Object.assign()</code> to <code>merge spread</code></summary>
 
 ```diff
 function merge(a) {
