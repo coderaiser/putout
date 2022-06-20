@@ -1,3 +1,22 @@
+2022.06.20, v26.16.0
+
+fix:
+- (@putout/plugin-nodejs) declare-fafter-require: exports
+
+
+feature:
+- (package) @putout/plugin-convert-mock-require-to-mock-import v4.0.0
+- (@putout/plugin-convert-mock-require-to-mock-import) drop support of 🐊 < 26
+- (@putout/plugin-convert-mock-require-to-mock-import) do not declare, keep it for tape/declare
+- (@putout/plugin-remove-useless-arguments) add support of method
+- (@putout/plugin-remove-useless-arguments) report
+- (package) @putout/plugin-eslint v4.0.0
+- (@putout/plugin-eslint) drop support of 🐊 < 26
+- (@putout/plugin-eslint) add remove-no-unsupported-features
+- (@putout/plugin-nodejs) declare-after-require: add support of ExportDeclaration
+- (@putout/plugin-nodejs) declare-after-require: improve support of references
+
+
 2022.06.17, v26.15.0
 
 fix:
