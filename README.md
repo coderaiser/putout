@@ -997,7 +997,7 @@ const putout = require('putout');
 
 ```diff
 - const a = Math.imul(b, c);
-+ const a = a * b;
++ const a = b * c;
 ```
 
 </details>
