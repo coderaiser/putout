@@ -32,7 +32,7 @@ To write test for your plugins you need initialize `test` using `createTest`:
 
 ```js
 import {createTest} from '@putout/test';
-const rmVars = require('@putout/plugin-remove-unused-variables');
+import rmVars from '@putout/plugin-remove-unused-variables';
 
 const test = createTest(import.meta.url, {
     'remove-unused-variables': rmVars,
