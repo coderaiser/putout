@@ -892,6 +892,7 @@ test('putout: parseOptions: readOptions: no options but package.json', (t) => {
         match: {
             '*.js': {
                 'convert-commonjs-to-esm': 'on',
+                'strict-mode/add-missing': 'off',
             },
             '.eslintrc.json': {
                 'eslint': 'on',
@@ -900,6 +901,7 @@ test('putout: parseOptions: readOptions: no options but package.json', (t) => {
         },
         rules: {
             'convert-commonjs-to-esm': 'on',
+            'strict-mode/add-missing': 'off',
         },
     };
     

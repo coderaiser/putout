@@ -27,6 +27,7 @@ function esm() {
         match: {
             '*.js': {
                 'convert-commonjs-to-esm': 'on',
+                'strict-mode/add-missing': 'off',
             },
             '.eslintrc.json': {
                 'eslint': 'on',
