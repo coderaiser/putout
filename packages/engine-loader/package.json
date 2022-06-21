@@ -37,6 +37,9 @@
     "putout-engine",
     "loader"
   ],
+  "peerDependencies": {
+    "putout": "*"
+  },
   "devDependencies": {
     "@babel/plugin-codemod-object-assign-to-object-spread": "^7.7.4",
     "@putout/formatter-progress": "*",
