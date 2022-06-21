@@ -32,3 +32,7 @@ test('plugin-apply-args: args: no transform: not-identifier', (t) => {
     t.end();
 });
 
+test('plugin-apply-args: args: no transform: bind', (t) => {
+    t.noTransform('bind');
+    t.end();
+});
