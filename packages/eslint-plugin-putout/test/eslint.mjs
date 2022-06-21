@@ -179,3 +179,7 @@ test('eslint-plugin-putout: add-newlines-between-specifiers', async ({process}) 
 test('eslint-plugin-putout: object-property-newline', async ({process}) => {
     await process('object-property-newline');
 });
+
+test('eslint-plugin-putout: add-newline-before-return', async ({process}) => {
+    await process('add-newline-before-return');
+});

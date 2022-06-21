@@ -24,6 +24,7 @@ module.exports.fix = ({path, __aPath, init}) => {
     if (compare(path, GET_TEMPLATE_VALUES_NODE)) {
         const {__a} = getTemplateValues(path, GET_TEMPLATE_VALUES_NODE);
         replaceWith(__aPath, __a);
+        
         return;
     }
     

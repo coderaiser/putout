@@ -168,6 +168,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (args.help) {
         const help = require('./help');
         log(help());
+        
         return exit();
     }
     

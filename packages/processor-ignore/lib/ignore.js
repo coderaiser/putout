@@ -36,6 +36,7 @@ export const merge = (rawSource, list) => {
 function convertToArray(str) {
     const safeStr = str.replace(/\r/g, '');
     const lines = rmLast(safeStr).split(/\n/g);
+    
     return stringify(lines);
 }
 

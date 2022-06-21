@@ -26,12 +26,14 @@ function checkStubs({__a, __b}, path) {
     const __array = {
         elements,
     };
+    
     return checkStubsArray({__array}, path);
 }
 
 function applyWithName({__a, __b}, path) {
     applyWithNameToNode(__a, path);
     applyWithNameToNode(__b, path);
+    
     return path;
 }
 

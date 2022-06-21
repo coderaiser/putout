@@ -16,6 +16,7 @@ module.exports.fix = (path) => {
     if (path.isStringLiteral()) {
         const {raw} = path.node;
         path.node.raw = unEscape(raw);
+        
         return;
     }
     

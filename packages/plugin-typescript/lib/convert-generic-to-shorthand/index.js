@@ -15,6 +15,7 @@ module.exports.fix = ({path, typeReference}) => {
         const {types} = typeReference;
         typeReference.types = types.map(tSArrayType);
         replaceWith(path, typeReference);
+        
         return;
     }
     

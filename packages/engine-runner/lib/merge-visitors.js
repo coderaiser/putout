@@ -117,6 +117,7 @@ function getStore(plugin, {fix, rule, shebang, msg, options}) {
         list.clear();
         upstore.clear();
         uplist.clear();
+        
         return placesStore.clear();
     };
     

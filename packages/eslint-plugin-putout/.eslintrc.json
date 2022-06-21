@@ -11,6 +11,14 @@
             "@typescript-eslint/no-namespace": "off",
             "@typescript-eslint/no-inferrable-types": "off"
         }
+    }, {
+        "files": [
+            "eslint-fixture/**/*.md{js}",
+            "eslint-fixture/**/*.md{ts}"
+        ],
+        "rules": {
+            "putout/add-newline-before-return": "off"
+        }
     }],
     "extends": [
         "plugin:node/recommended",

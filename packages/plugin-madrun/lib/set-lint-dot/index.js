@@ -23,6 +23,7 @@ module.exports.fix = ({lintPath}) => {
     if (isStringLiteral(node)) {
         node.value = dotLine;
         node.raw = dotLine;
+        
         return;
     }
     

@@ -37,6 +37,7 @@ Then configure the rules you want to use under the rules section.
     "rules": {
         "putout/add-newlines-between-types-in-union": "error",
         "putout/add-newlines-between-specifiers": "error",
+        "putout/add-newline-before-return": "error",
         "putout/add-newline-before-function-call": "error",
         "putout/add-newline-after-function-call": "error",
         "putout/putout": "error",
@@ -91,6 +92,7 @@ Then configure the rules you want to use under the rules section.
 
 ### Formatting
 
+- ✅ [Add newline before return](/packages/eslint-plugin-putout/lib/add-newline-before-return#readme)
 - ✅ [Add newline before function call](/packages/eslint-plugin-putout/lib/add-newline-before-function-call#readme)
 - ✅ [Add newline after function call](/packages/eslint-plugin-putout/lib/add-newline-after-function-call#readme)
 - ✅ [Align spaces](/packages/eslint-plugin-putout/lib/align-spaces#readme)

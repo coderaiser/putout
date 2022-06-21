@@ -10,7 +10,6 @@ const {
 
 const regExp = /^\n( +)?\n +$/;
 
-module.exports.category = 'typescript';
 module.exports.report = () => 'Add newline before expression';
 
 module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) => {
@@ -57,8 +56,6 @@ module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) =
         
         return true;
     }
-    
-    return false;
 };
 
 module.exports.fix = ({text}) => {
@@ -68,4 +65,5 @@ module.exports.fix = ({text}) => {
 module.exports.include = () => [
     'CallExpression',
     'AssignmentExpression',
+    'ReturnStatement',
 ];

@@ -3,7 +3,6 @@ throw Error('hi');
 () => throw Error('hi');
 
 const hello = 'world';
-
 return hello;
 ```
 
@@ -11,6 +10,5 @@ return hello;
 throw Error('hi');
 
 const hello: string = 'world';
-
 return hello;
 ```

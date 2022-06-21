@@ -22,6 +22,7 @@ module.exports.listStore = (list = new Set()) => {
     fn.clear = () => {
         const a = list;
         list = new Set();
+        
         return Array.from(a);
     };
     

@@ -16,6 +16,7 @@ module.exports.fix = ({path, parentPath, typeAnnotation}) => {
         const {types} = typeAnnotation;
         typeAnnotation.types = types.map(tSArrayType);
         replaceWith(parentPath, typeAnnotation);
+        
         return;
     }
     
