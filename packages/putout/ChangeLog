@@ -1,3 +1,15 @@
+2022.06.22, v26.18.0
+
+fix:
+- (@putout/engine-loader) add putout to peerDependencies to make putout work when installed with pnpm (#106)
+
+
+feature:
+- (@putout/plugin-declare-imports-ifrst) add
+- (@putout/plugin-try-catch) args: exclude bind
+- (eslint-plugin-putout) add add-newline-before-return
+
+
 2022.06.21, v26.17.0
 
 feature:
