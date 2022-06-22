@@ -1,6 +1,9 @@
 'use strict';
 
-const {entries} = Object;
+const {
+    entries,
+    assign,
+} = Object;
 
 module.exports.report = ({name}) => {
     return `'${name}' should be declared before referencing to avoid 'ReferenceError'`;
@@ -44,6 +47,9 @@ module.exports.traverse = ({push}) => ({
                 
                 const [, pathLoc] = getLoc(path);
                 const [referenceOwn, referenceLoc] = getLoc(referencePath);
+                
+                if (path.getAncestry().includes(referencePath))
+                    assign(pathLoc, referenceLoc);
                 
                 const declarationLine = pathLoc.start.line;
                 const referenceLine = referenceLoc.start.line;

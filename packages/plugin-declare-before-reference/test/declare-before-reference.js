@@ -60,3 +60,7 @@ test('plugin-declaration-before-reference: no transform: same-line', (t) => {
     t.end();
 });
 
+test('plugin-declaration-before-reference: no report: assign', (t) => {
+    t.noReport('assign');
+    t.end();
+});
