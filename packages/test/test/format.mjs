@@ -6,12 +6,12 @@ import removeConsole from '@putout/plugin-remove-console';
 import removeConsoleFixture from './fixture/remove-console.js';
 import {createTest} from '../lib/test.mjs';
 
+import formatter from '@putout/formatter-dump';
+import formatterProgress from '@putout/formatter-progress';
+
 const test = createTest(import.meta.url, {
     'remove-console': removeConsoleFixture,
 });
-
-import formatter from '@putout/formatter-dump';
-import formatterProgress from '@putout/formatter-progress';
 
 test('test: format', async ({format}) => {
     await format(formatter, 'var');

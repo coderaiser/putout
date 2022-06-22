@@ -135,7 +135,9 @@ module.exports.replace = () => ({
 - ✅ add `return await`;
 - ✅ remove useless `Promise.resolve`;
 - ✅ convert `Promise.reject` to `throw`;
+- ✅ declare before `reference`;
 - ✅ declare `undefined variables`;
+- ✅ declare `imports` first;
 - ✅ apply `as` type assertions;
 - ✅ apply `utility types`;
 - ✅ apply `array.at`;

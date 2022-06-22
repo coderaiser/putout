@@ -8,19 +8,18 @@ import preset from 'remark-preset-lint-consistent';
 import removeDependenciesStatusBadge from './rules/remove-dependencies-status-badge.js';
 import removeTrailingWhitespacesFromHeading from './rules/remove-trailing-whitespaces-from-heading.js';
 import mergeHeadingSpceces from './rules/merge-heading-spaces.js';
-
-const plugins = [
-    removeDependenciesStatusBadge,
-    removeTrailingWhitespacesFromHeading,
-    mergeHeadingSpceces,
-];
-
 import {run} from './rules/index.js';
 import {visit} from 'unist-util-visit';
 import {unified} from 'unified';
 
 import {toPlace} from './parse-place.js';
 import {initParseStore} from './parse-store.js';
+
+const plugins = [
+    removeDependenciesStatusBadge,
+    removeTrailingWhitespacesFromHeading,
+    mergeHeadingSpceces,
+];
 
 const parseStore = initParseStore();
 

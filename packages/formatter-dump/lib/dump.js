@@ -5,6 +5,8 @@ import {
 
 import chalk from 'chalk';
 
+import {jsonFormatter} from '@putout/formatter-json';
+
 const {
     underline,
     red,
@@ -12,8 +14,6 @@ const {
     bold,
     redBright,
 } = chalk;
-
-import {jsonFormatter} from '@putout/formatter-json';
 
 export default ({name, places, index, count, filesCount, errorsCount}) => {
     const json = jsonFormatter({
