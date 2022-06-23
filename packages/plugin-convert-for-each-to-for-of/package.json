@@ -29,6 +29,7 @@
   ],
   "devDependencies": {
     "@putout/plugin-convert-comparison-to-boolean": "*",
+    "@putout/plugin-convert-const-to-let": "*",
     "@putout/plugin-remove-useless-variables": "*",
     "@putout/test": "^5.0.0",
     "c8": "^7.5.0",

@@ -10,6 +10,7 @@
 > (c) MDN
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `forEach()` to `for...of`.
+Complements [`@putout/plugin-convert-const-to-let`](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-const-to-let#readme).
 
 ## Install
 

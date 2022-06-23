@@ -1,0 +1,3 @@
+[].forEach((str) => {
+    str = 'hello';
+});

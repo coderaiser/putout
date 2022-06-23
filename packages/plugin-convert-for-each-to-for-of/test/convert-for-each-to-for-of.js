@@ -5,6 +5,7 @@ const convertForEachToForOf = require('..');
 
 const convertComparisonToBoolean = require('@putout/plugin-convert-comparison-to-boolean');
 const removeUselessVariables = require('@putout/plugin-remove-useless-variables');
+const convertConstToLet = require('@putout/plugin-convert-const-to-let');
 
 const test = createTest(__dirname, {
     'convert-for-each-to-for-of': convertForEachToForOf,
@@ -102,6 +103,13 @@ test('plugin-convert-for-each-to-for-of: no transform: same name', (t) => {
 
 test('plugin-convert-for-each-to-for-of: transform: this i', (t) => {
     t.transform('this-i');
+    t.end();
+});
+
+test('plugin-convert-for-each-to-for-of: transform: not-constant', (t) => {
+    t.transform('not-const', {
+        convertConstToLet,
+    });
     t.end();
 });
 
