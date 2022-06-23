@@ -1535,6 +1535,16 @@ function merge(a) {
 
 </details>
 
+<details><summary>convert <code>const</code> to <code>let</code></summary>
+
+```diff
+-   const a = 5;
++   let a = 5;
+    a = 3;
+```
+
+</details>
+
 ### Promises
 
 <details><summary>remove useless <code>await</code></summary>
@@ -1833,6 +1843,7 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-convert-mock-require-to-mock-import`](/packages/plugin-convert-mock-require-to-mock-import#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-mock-require-to-mock-import.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-mock-require-to-mock-import) |
 | [`@putout/plugin-convert-assignment-to-arrow-function`](/packages/plugin-convert-assignment-to-arrow-function#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-assignment-to-arrow-function.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-assignment-to-arrow-function) |
 | [`@putout/plugin-convert-assignment-to-comparison`](/packages/plugin-convert-assignment-to-comparison#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-assignment-to-comparison.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-assignment-to-comparison) |
+| [`@putout/plugin-convert-const-to-let`](/packages/plugin-convert-const-to-let#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-const-to-let.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-const-to-let) |
 
 ### Removers
 

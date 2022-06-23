@@ -116,6 +116,7 @@ module.exports.replace = () => ({
 - ✅ simplify `ternary`;
 - ✅ simplify `logical expressions`;
 - ✅ if absent `strict mode` directive in `commonjs` add it;
+- ✅ convert `const` to `let` (when needed to avoid `TypeError`);
 - ✅ convert `apply` to `spread`;
 - ✅ convert `bitwise` to `logical` operator;
 - ✅ convert `concat` to `flat`;

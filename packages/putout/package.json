@@ -87,6 +87,7 @@
     "@putout/plugin-convert-commonjs-to-esm": "^9.0.0",
     "@putout/plugin-convert-comparison-to-boolean": "^3.0.0",
     "@putout/plugin-convert-concat-to-flat": "^1.0.0",
+    "@putout/plugin-convert-const-to-let": "^1.0.0",
     "@putout/plugin-convert-equal-to-strict-equal": "^1.0.0",
     "@putout/plugin-convert-esm-to-commonjs": "^5.0.0",
     "@putout/plugin-convert-for-each-to-for-of": "^7.0.0",

@@ -180,6 +180,7 @@
         "simplify-assignment",
         "simplify-logical-expressions",
         "simplify-ternary",
+        "convert-const-to-let",
         "convert-bitwise-to-logical",
         "convert-esm-to-commonjs",
         "convert-commonjs-to-esm",

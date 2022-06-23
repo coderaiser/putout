@@ -1,0 +1,13 @@
+{
+    "rules": {
+        "no-const-assign": "off"
+    },
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:putout/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "node"
+    ]
+}

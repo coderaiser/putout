@@ -1,0 +1,10 @@
+{
+    "match": {
+        "README.md": {
+            "convert-const-to-let": "off"
+        },
+        "*.md": {
+            "remove-unreferenced-variables": "off"
+        }
+    }
+}
