@@ -1,3 +1,11 @@
+2022.06.23, v26.19.0
+
+feature:
+- (@putout/plugin-convert-const-to-let) add
+- (@putout/plugin-convert-for-each-to-for-of) add support of index
+- (@putout/plugin-declare-before-reference) improve support of ancestry
+
+
 2022.06.22, v26.18.0
 
 fix:
