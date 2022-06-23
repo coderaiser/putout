@@ -8,7 +8,7 @@
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `const` to `let` to avoid `TypeError`.
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/61ffff64a356c47e66af4ea17a9a755d/954bb501244e7653d26e54f11502105bd6d25462).
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/61ffff64a356c47e66af4ea17a9a755d/e7f5fa455c208a7faa9319d94130996d39afcbf7).
 
 ## Install
 
