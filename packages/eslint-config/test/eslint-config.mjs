@@ -25,6 +25,10 @@ test('eslint-config: padding-for-of', async ({process}) => {
     await process('padding-for-of');
 });
 
+test('eslint-config: padding-if', async ({process}) => {
+    await process('padding-if');
+});
+
 test('eslint-config: lines-class-members', async ({noProcess}) => {
     await noProcess('lines-class-members');
 });

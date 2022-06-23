@@ -185,19 +185,7 @@ function getPaddingIf() {
     }, {
         blankLine: 'always',
         prev: 'if',
-        next: 'return',
-    }, {
-        blankLine: 'always',
-        prev: 'if',
-        next: 'expression',
-    }, {
-        blankLine: 'always',
-        prev: 'if',
-        next: 'const',
-    }, {
-        blankLine: 'always',
-        prev: 'if',
-        next: 'throw',
+        next: '*',
     }];
 }
 
