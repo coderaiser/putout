@@ -90,8 +90,8 @@ test('plugin-convert-for-each-to-for-of: no transform: if', (t) => {
     t.end();
 });
 
-test('plugin-convert-for-each-to-for-of: no transform: i', (t) => {
-    t.noTransform('i');
+test('plugin-convert-for-each-to-for-of: transform: i', (t) => {
+    t.transform('i');
     t.end();
 });
 
@@ -100,8 +100,8 @@ test('plugin-convert-for-each-to-for-of: no transform: same name', (t) => {
     t.end();
 });
 
-test('plugin-convert-for-each-to-for-of: no transform: this i', (t) => {
-    t.noTransform('this-i');
+test('plugin-convert-for-each-to-for-of: transform: this i', (t) => {
+    t.transform('this-i');
     t.end();
 });
 

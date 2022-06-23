@@ -17,7 +17,15 @@ const forOfTemplate = template(`
     %%body%%
 `);
 
-const {ContinueStatement} = types;
+const forOfEntriesTemplate = template(`
+  for (const [%%index%%, %%item%%] of %%items%%.entries())
+    %%body%%
+`);
+
+const {
+    ContinueStatement,
+    isIdentifier,
+} = types;
 const {keys} = Object;
 const isRoot = (path) => path.isFunction() || path.isProgram();
 
@@ -30,14 +38,31 @@ module.exports.replace = () => ({
         const item = getItem(params);
         
         delete item.typeAnnotation;
+        const {length} = params;
+        const thisPassed = isIdentifier(params[0], {name: 'this'});
         
-        const newPath = replaceWith(path.parentPath, forOfTemplate({
-            item,
-            items: path.node.callee.object,
-            body,
-        }));
+        if (length === 1 || length === 2 && thisPassed) {
+            const newPath = replaceWith(path.parentPath, forOfTemplate({
+                item,
+                items: path.node.callee.object,
+                body,
+            }));
+            
+            fixReturn(newPath);
+            return;
+        }
         
-        fixReturn(newPath);
+        if (params.length === 2) {
+            const [, index] = params;
+            const newPath = replaceWith(path.parentPath, forOfEntriesTemplate({
+                index,
+                item,
+                items: path.node.callee.object,
+                body,
+            }));
+            
+            fixReturn(newPath);
+        }
     },
 });
 
@@ -58,11 +83,6 @@ module.exports.match = () => ({
             return false;
         
         if (path.node.arguments.length === 2 && !path.get('arguments.1').isThisExpression())
-            return false;
-        
-        // that's right, when we have two arguments, and first is this
-        // we actually have one argument + typescript typings
-        if (params.length > 1 && !params[0].isIdentifier({name: 'this'}))
             return false;
         
         // this is the case when "i" declared and "this"
