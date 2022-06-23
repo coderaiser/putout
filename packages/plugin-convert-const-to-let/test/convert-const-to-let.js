@@ -22,6 +22,11 @@ test('plugin-convert-const-to-let: transform: multiple', (t) => {
     t.end();
 });
 
+test('plugin-convert-const-to-let: no report after transform: multiple', (t) => {
+    t.noReportAfterTransform('multiple');
+    t.end();
+});
+
 test('plugin-convert-const-to-let: no report: no-reassign', (t) => {
     t.noReport('no-reassign');
     t.end();
