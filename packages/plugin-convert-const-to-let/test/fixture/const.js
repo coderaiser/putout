@@ -9,3 +9,4 @@ b = 33;
 for (const z of []) {
     z = 3;
 }
+

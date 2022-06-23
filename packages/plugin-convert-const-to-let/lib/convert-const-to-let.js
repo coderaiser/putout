@@ -12,11 +12,10 @@ module.exports.traverse = ({push}) => ({
     VariableDeclaration: (path) => {
         for (const binding of values(path.scope.bindings)) {
             if (binding.constant)
-                return;
+                continue;
             
-            if (binding.path.isVariableDeclarator() && binding.path.parentPath.node.kind === 'const') {
+            if (binding.path.isVariableDeclarator() && binding.kind === 'const')
                 push(binding.path.parentPath);
-            }
         }
     },
 });
