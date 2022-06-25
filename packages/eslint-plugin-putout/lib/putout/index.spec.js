@@ -339,3 +339,22 @@ tsParserTester.run('typescript-eslint-parser-error', rule, {
     }],
 });
 
+ruleTester.run('putout: declare-before-reference: no loc', rule, {
+    valid: [`
+        const hello = () => 'world'
+        hello()
+    `],
+    invalid: [{
+        code: montag`
+            hello()
+            const hello = () => 'world'
+        `,
+        output: montag`
+            const hello = () => 'world'
+            hello()
+        `,
+        errors: [{
+            message: `'hello' should be declared before referencing to avoid 'ReferenceError' (declare-before-reference)`,
+        }],
+    }],
+});

@@ -25,6 +25,11 @@ test('plugin-declaration-before-reference: transform', (t) => {
     t.end();
 });
 
+test('plugin-declaration-before-reference: transform: no lock', (t) => {
+    t.transform('no-lock');
+    t.end();
+});
+
 test('plugin-declaration-before-reference: transform: putout', (t) => {
     t.transform('putout', {
         putout,

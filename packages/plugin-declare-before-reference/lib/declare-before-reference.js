@@ -11,17 +11,14 @@ module.exports.report = ({name}) => {
 
 module.exports.fix = ({path}) => {
     const programPath = path.scope.getProgramParent().path;
-    const {body} = programPath.node;
+    const {node} = path.parentPath;
     
-    for (const [index, node] of entries(body)) {
-        if (node === path.parentPath.node) {
-            body.splice(index, 1);
-            break;
-        }
-    }
+    delete node.loc;
+    
+    path.parentPath.remove();
     
     path.__putout_declare_before_reference = true;
-    programPath.node.body.unshift(path.parentPath.node);
+    programPath.node.body.unshift(node);
 };
 
 module.exports.traverse = ({push}) => ({
@@ -35,12 +32,12 @@ module.exports.traverse = ({push}) => ({
             if (path.isFunctionDeclaration())
                 continue;
             
+            if (path.__putout_declare_before_reference)
+                break;
+            
             for (const referencePath of referencePaths) {
                 if (uid !== referencePath.scope.uid)
                     continue;
-                
-                if (path.__putout_declare_before_reference)
-                    break;
                 
                 if (referencePath.parentPath.isExportDefaultDeclaration())
                     break;
