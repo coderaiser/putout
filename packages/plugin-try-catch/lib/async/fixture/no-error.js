@@ -1,4 +1,4 @@
 try {
-    log();
+    await log();
 } catch {
 }

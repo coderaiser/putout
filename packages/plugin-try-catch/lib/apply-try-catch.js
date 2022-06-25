@@ -26,12 +26,18 @@ module.exports = (tryName) => (path) => {
     ]);
     
     const {param} = path.node.handler;
-    const varNode = VariableDeclaration('const', [
-        VariableDeclarator(ArrayPattern([param]), maybeAwait(path, callNode)),
-    ]);
     
     const {body} = path.get('handler').node;
     const ifNode = body.body.length ? [IfStatement(param, body)] : body.body;
+    
+    if (!param) {
+        replaceWithMultiple(path, [maybeAwait(path, callNode), ...ifNode]);
+        return;
+    }
+    
+    const varNode = VariableDeclaration('const', [
+        VariableDeclarator(ArrayPattern([param]), maybeAwait(path, callNode)),
+    ]);
     
     replaceWithMultiple(path, [varNode, ...ifNode]);
 };

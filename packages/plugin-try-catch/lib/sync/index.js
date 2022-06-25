@@ -17,7 +17,6 @@ module.exports.filter = (path) => {
     const {node} = path;
     const {
         block,
-        handler,
         finalizer,
     } = node;
     
@@ -31,9 +30,6 @@ module.exports.filter = (path) => {
         return false;
     
     if (length !== 1)
-        return false;
-    
-    if (!handler.param)
         return false;
     
     return isCallExpression(first.expression);

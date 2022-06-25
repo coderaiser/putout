@@ -18,9 +18,9 @@ module.exports.filter = (path) => {
     const {node} = path;
     const {
         block,
-        handler,
         finalizer,
     } = node;
+    
     const {length} = block.body;
     const [first] = block.body;
     
@@ -31,9 +31,6 @@ module.exports.filter = (path) => {
         return false;
     
     if (length !== 1)
-        return false;
-    
-    if (!handler.param)
         return false;
     
     return isAwaitExpression(first.expression);
