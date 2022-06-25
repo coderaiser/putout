@@ -4,7 +4,9 @@ const tryCatch = require('try-catch');
 const debug = require('debug')('putout:runner:fix');
 const {enabled} = debug;
 const {stringify} = JSON;
+
 const isFn = (a) => typeof a === 'function';
+const getPath = (path) => path.path || path;
 
 const tryToFix = (fix, {path, position, options}) => {
     const [e] = tryCatch(fix, path, {options});
@@ -26,7 +28,9 @@ module.exports = (is, fix, {path, rule, position, options}) => {
     if (!is)
         return;
     
-    enabled && debug(`fix: ${rule}`, position, path.toString());
+    if (enabled)
+        debug(`fix: ${rule}`, position, getPath(path).toString());
+    
     validate('fix', fix);
     
     tryToFix(fix, {
