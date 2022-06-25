@@ -880,3 +880,48 @@ test('putout: operator: declare: export type: TSTypeAliasDeclaration', (t) => {
     t.deepEqual(places, expected);
     t.end();
 });
+
+test('putout: operator: declare: export type: get while find', (t) => {
+    const declarations = {
+        mockRequire: `import mockRequire from 'mock-require'`,
+        stopAll: {
+            esm: `const {stopAll} = createMockImport(import.meta.url)`,
+            commonjs: `const {stopAll} = mockRequire`,
+        },
+    };
+    const source = montag`
+        test('hello', (t) => {
+            mockRequire('hello', world);
+            t.end();
+        });
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['declare-undefined-variables', declare(declarations)],
+            'convert-esm-to-commonjs',
+            'tape',
+        ],
+    });
+    
+    const expected = montag`
+        const {
+            test: test
+        } = require('supertape');
+        
+        const mockRequire = require('mock-require');
+        
+        const {
+            stopAll
+        } = mockRequire;
+        
+        test('hello', (t) => {
+            mockRequire('hello', world);
+            stopAll();
+            t.end();
+        });
+    `;
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
