@@ -42,3 +42,13 @@ test('plugin-simplify-logical-expression: transform: duplicate', (t) => {
     t.end();
 });
 
+test('plugin-simplify-logical-expression: transform: array', (t) => {
+    t.transform('array');
+    t.end();
+});
+
+test('plugin-simplify-logical-expression: transform: object', (t) => {
+    t.transform('object');
+    t.end();
+});
+
