@@ -74,6 +74,13 @@ ruleTester.run('add-newline-before-return', rule, {
             message: `Add newline before 'return'`,
             type: 'ReturnStatement',
         }],
+    }, {
+        code: readFixture('assign'),
+        output: readFixture('assign-fix'),
+        errors: [{
+            message: `Add newline before 'return'`,
+            type: 'ReturnStatement',
+        }],
     }],
 });
 

@@ -33,6 +33,7 @@ module.exports.fix = (path) => {
         
         expressions[n] = ReturnStatement(expression);
         parentPath.node.body = BlockStatement(expressions);
+        
         return;
     }
     
@@ -42,6 +43,7 @@ module.exports.fix = (path) => {
         
         parentPath.insertBefore(expressions);
         parentPath.node.callee = expression;
+        
         return;
     }
     

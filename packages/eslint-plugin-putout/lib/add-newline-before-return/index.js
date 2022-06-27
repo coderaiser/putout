@@ -24,13 +24,21 @@ module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) =
     if (regExp.test(spaces))
         return false;
     
-    for (let i = 2; i < n; i++) {
-        const prevA = body[i - 1];
+    let i = n - 1;
+    let count = 0;
+    
+    while(--i) {
+        const prevA = body[i];
         const spaces = getSpacesBeforeNode(prevA);
         
         if (regExp.test(spaces))
-            return false;
+            break;
+        
+        ++count;
     }
+    
+    if (count < 1)
+        return false;
     
     return true;
 };

@@ -19,6 +19,7 @@ module.exports.fix = ({node}) => {
         
         node.value = result;
         node.raw = result;
+        
         return;
     }
     
