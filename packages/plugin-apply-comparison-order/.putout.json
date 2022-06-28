@@ -1,0 +1,7 @@
+{
+    "match": {
+        "*.md": {
+            "apply-comparison-order": "off"
+        }
+    }
+}

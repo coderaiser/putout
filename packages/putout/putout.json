@@ -130,6 +130,7 @@
         "apply-optional-chaining",
         "apply-numeric-separators",
         "apply-if-condition",
+        "apply-comparison-order",
         "extract-object-properties",
         "extract-sequence-expressions",
         "madrun",

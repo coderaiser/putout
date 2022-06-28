@@ -146,6 +146,7 @@ module.exports.replace = () => ({
 - ✅ apply [isArray](https://web.mit.edu/jwalden/www/isArray.html);
 - ✅ apply `if condition`;
 - ✅ apply `await import`;
+- ✅ apply comparison order;
 
 ## Install
 
