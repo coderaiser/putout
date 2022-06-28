@@ -1965,6 +1965,8 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 
 ### Reusers
 
+| Package | Version |
+|--------|-------|
 | [`@putout/plugin-reuse-duplicate-init`](/packages/plugin-reuse-duplicate-init#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-reuse-duplicate-init.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-reuse-duplicate-init) |
 
 ## 🦚 Formatters
