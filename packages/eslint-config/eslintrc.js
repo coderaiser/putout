@@ -122,7 +122,7 @@ module.exports = {
                 next: 'function',
             }],
         'require-atomic-updates': 'off',
-        'yoda': 'error',
+        'yoda': 'off',
     },
     extends: [
         'eslint:recommended',
