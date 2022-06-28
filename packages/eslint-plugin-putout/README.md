@@ -77,7 +77,7 @@ Then configure the rules you want to use under the rules section.
 
 - ✅ [add newline before assertion](/packages/eslint-plugin-putout/lib/tape-add-newline-before-assertion#readme)
 - ✅ [add newline between tests](/packages/eslint-plugin-putout/lib/tape-add-newline-between-tests#readme)
-- ✅ [remove newline before t.end()](/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end#readme)
+- ✅ [remove newline before `t.end()`](/packages/eslint-plugin-putout/lib/tape-remove-newline-before-t-end#readme)
 
 ### TypeScript
 
