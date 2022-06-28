@@ -59,14 +59,17 @@ export const createTest = (url) => {
             
             return operator.equal(source, code);
         },
-        comparePlaces: (operator) => async (name, expected) => {
+        comparePlaces: (operator) => async (name, expected, override) => {
             const full = join(fixtureDir, name);
             const [resolvedName, code] = await read(full);
             
             const [, places] = await eslint({
-                config,
                 name: resolvedName,
                 code,
+                config: {
+                    ...config,
+                    ...override,
+                },
             });
             
             return operator.deepEqual(places, expected);

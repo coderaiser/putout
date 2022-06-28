@@ -27,6 +27,15 @@ test('test: eslint: comparePlaces', async ({comparePlaces}) => {
     }]);
 });
 
+test('test: eslint: comparePlaces: overrides', async ({comparePlaces}) => {
+    const overrides = {
+        rules: {
+            'operator-linebreak': 'off',
+        },
+    };
+    await comparePlaces('operator-linebreak', [], overrides);
+});
+
 test('test: eslint: ts: semi', async ({process}) => {
     await process('semi');
 });

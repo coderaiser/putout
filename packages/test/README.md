@@ -316,7 +316,7 @@ test('test: eslint: noProcess', async ({noProcess}) => {
 });
 ```
 
-### `comparePlaces(filename, places)`
+### `comparePlaces(filename, places[, overrides])`
 
 ```js
 test('eslint-config: operator-line-break', async ({comparePlaces}) => {
@@ -328,6 +328,27 @@ test('eslint-config: operator-line-break', async ({comparePlaces}) => {
         },
         rule: 'operator-linebreak (eslint)',
     }]);
+});
+```
+
+with `overrides`:
+
+```js
+test('eslint-config: operator-line-break', async ({comparePlaces}) => {
+    const overrides = {
+        extends: [
+            'plugin:putout/safe',
+        ],
+    };
+    
+    await comparePlaces('operator-linebreak', [{
+        message: 'There should be no line break before or after \'=\'.',
+        position: {
+            column: 1,
+            line: 2,
+        },
+        rule: 'operator-linebreak (eslint)',
+    }], overrides);
 });
 ```
 
