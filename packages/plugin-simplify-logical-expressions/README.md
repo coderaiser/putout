@@ -9,6 +9,7 @@
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to simplify **logical expressions** containing
 comparisons which will always evaluate to `true` or `false` since it's  likely indications of programmer error.
+Complements [`@putout/plugin-apply-comparison-order`](https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-comparison-order#readme).
 
 ## Install
 
