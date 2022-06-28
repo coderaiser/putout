@@ -1,3 +1,26 @@
+2022.06.28, v26.20.0
+
+fix:
+- feature(@putout/engine-runner) run improve logging: determine nested level of path
+- (@putout/operator-declare) module type get while find
+- (@putout/plugin-declare-before-reference) no new line
+- (@putout/plugin-convert-const-to-let) simplify
+- (@putout/plugin-convert-const-to-let) report after transform
+
+
+feature:
+- (package) @putout/plugin-simplify-logical-expressions v3.0.0
+- (@putout/plugin-simplify-logical-expressions) drop support of 🐊 < 26
+- (@putout/eslint-config) yoda: disabled, @putout/apply-comparison-order used instead
+- (@putout/plugin-apply-comparison-order) add
+- (@putout/plugin-simplify-logical-expressions) add support of comparison with [], {}
+- (eslint-plugin-putout) add-newline-before-return: improve loop: for begin -> from end
+- (@putout/plugin-try-catch) add support of no error param
+- (@putout/engine-runner) run fix: improve logging: determine nested level of path
+- (@putout/eslint-config) padding-if: always: before and after
+- (@putout/plugin-convert-const-to-let) improve support of multiple
+
+
 2022.06.23, v26.19.0
 
 feature:
