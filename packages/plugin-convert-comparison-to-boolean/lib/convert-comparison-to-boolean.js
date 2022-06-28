@@ -11,7 +11,7 @@ const {
     BooleanLiteral,
 } = types;
 
-module.exports.report = () => 'constant conditions should be avoided';
+module.exports.report = () => 'Avoid constant conditions';
 
 module.exports.fix = ({path, value}) => {
     replaceWith(path, BooleanLiteral(value));

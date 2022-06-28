@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-convert-comparison-to-boolean: report', (t) => {
-    t.report('binary', 'constant conditions should be avoided');
+    t.report('binary', 'Avoid constant conditions');
     t.end();
 });
 
