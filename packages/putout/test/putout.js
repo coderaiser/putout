@@ -842,3 +842,9 @@ test('putout: source map', (t) => {
     t.end();
 });
 
+test('putout: no source', (t) => {
+    const [error] = tryCatch(putout);
+    
+    t.equal(error.message, `☝️ Looks like 'source' has type 'undefined', expected: 'string'`);
+    t.end();
+});

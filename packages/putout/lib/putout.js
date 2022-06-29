@@ -13,6 +13,7 @@ const {
 } = require('@putout/engine-parser');
 
 const cutShebang = require('./cut-shebang');
+const isString = (a) => typeof a === 'string';
 
 const defaultOpts = (opts = {}) => {
     const {
@@ -34,6 +35,8 @@ const defaultOpts = (opts = {}) => {
 };
 
 module.exports = (source, opts) => {
+    check(source);
+    
     opts = defaultOpts(opts);
     const {
         parser,
@@ -131,3 +134,7 @@ module.exports.operator = {
 module.exports.ignores = require('./ignores');
 module.exports.codeframe = require('./codeframe');
 
+function check(source) {
+    if (!isString(source))
+        throw Error(`☝️ Looks like 'source' has type '${typeof source}', expected: 'string'`);
+}
