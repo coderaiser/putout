@@ -1,3 +1,14 @@
+2022.06.29, v26.21.0
+
+fix:
+- (@putout/plugin-convert-comparison-to-boolean) report message
+
+
+feature:
+- (putout) check that source has type string
+- (@putout/test) eslint: comparePlaces: add support of overrides
+
+
 2022.06.28, v26.20.0
 
 fix:
