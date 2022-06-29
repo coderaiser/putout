@@ -38,7 +38,7 @@ are also supported. Here is how it looks like:
 - [🤷‍♂️ Why does this project exist?](#%EF%B8%8F-why-does-this-project-exist)
 - [🚚 Installation](#-installation)
 - [🎙 Usage](#usage)
-- [🦖 Usage with Deno](#usage-with-deno)
+- [🦕 Usage with Deno](#usage-with-deno)
 - [📐 What is **Ruler**?](#-what-is-ruler)
 - [✂️ How **Ruler** can help me?](#%EF%B8%8F-how-ruler-can-help-me)
 - [🚁 Convert `CommonJS` to `ESM`](#-convert-commonjs-to-esm)
@@ -53,7 +53,7 @@ are also supported. Here is how it looks like:
 - [🧬 Plugins API](#-plugins-api)
 - [🗿 Using Babel Plugins with Putout](#-using-babel-plugins-with-putout)
 - [🛴 Codemods](#-codemods)
-- [🦕 Integration with ESLint](#-integration-with-eslint)
+- [⏣ Integration with ESLint](#-integration-with-eslint)
 - [☄️ Integration with Babel](#%EF%B8%8F-integration-with-babel)
 - [🐈 Integration with Yarn PnP](#-integration-with-yarn-pnp)
 - [⛓ Using Putout as Loader](#-using-putout-as-loader)
@@ -178,7 +178,7 @@ Example:
 PUTOUT_FILES=lib,test putout --fix
 ```
 
-## 🦖 Usage with **Deno**
+## 🦕 Usage with **Deno**
 
 When you need to run 🐊**Putout** in [**Deno**](https://deno.land/), use [`@putout/bundle`](https://github.com/putoutjs/bundle):
 
@@ -2478,7 +2478,7 @@ This way you can keep rules specific for your project and run them on each lint.
 
 ☝️ *Remember: if you want to exclude file from loading, add prefix `not-rule-` and 🐊**Putout** will ignore it (in the same way as he does for `node_modules`).*
 
-## 🦕 Integration with ESLint
+## ⏣ Integration with ESLint
 
 > Find and fix problems in your **JavaScript** code
 >
@@ -2639,22 +2639,22 @@ You can also transform input files using `Babel`. For example if you need to tra
 
 🐊**Putout** can have one of next [exit codes](https://github.com/coderaiser/putout/blob/master/packages/putout/lib/cli/exit-codes.mjs):
 
-| Code | Name | Description | Example|
-|------|------|-----------------|-------------|
-| 0    | `OK` | no errors found | `<empty>` |
-| 1    | `PLACE` | found places with errors | `<violations of rules>` |
-| 2    | `STAGE` | nothing in stage  | `no output` |
-| 3    | `NO_FILES`| no files found | `🐊 No files matching the pattern "hello" were found` |
-| 4    | `NO_PROCESSORS` | no processor found | `🐊 No processors found for hello.abc` |
-| 5    | `NO_FORMATTER` | no formatter found | ` 🐊 Cannot find module 'putout-formatter-hello'` |
-| 6    | `WAS_STOP` | was stop | `<empty or violations of rules>` |
-| 7    | `INVALID_OPTION`| invalid option|  `🐊 Invalid option '--hello'. Perhaps you meant '--help'`
-| 8    | `CANNOT_LOAD_PROCESSOR`| processor has errors| `<unhandled exception>`
-| 9    | `UNHANDLED` | unhandled exception | `<unhandled exception>`
-| 10   | `RULLER_WITH_FIX` | ruller used with `--fix` | `🐊 '--fix' cannot be used with ruler toggler ('--enable', '--disable')`
-| 11   | `RULLER_NO_FILES` | ruller used without files | `🐊 'path' is missing for ruler toggler ('--enable-all', '--disable-all')`
-| 12   | `INVALID_CONFIG` | config has invalid properties| `🐊 .putout.json: exclude: must NOT have additional properties`
-| 13   | `CANNOT_LOAD_FORMATTER` | formatter has errors | `🐊 @putout/formatter-dump: Syntax error`
+| Code | Name                    | Description                   | Example                                                                    |
+|------|-------------------------|-------------------------------|----------------------------------------------------------------------------|
+| 0    | `OK`                    | no errors found               | `<empty>`                                                                  |
+| 1    | `PLACE`                 | found places with errors      | `<violations of rules>`                                                    |
+| 2    | `STAGE`                 | nothing in stage              | `no output`                                                                |
+| 3    | `NO_FILES`              | no files found                | `🐊 No files matching the pattern "hello" were found`                      |
+| 4    | `NO_PROCESSORS`         | no processor found            | `🐊 No processors found for hello.abc`                                     |
+| 5    | `NO_FORMATTER`          | no formatter found            | ` 🐊 Cannot find module 'putout-formatter-hello'`                          |
+| 6    | `WAS_STOP`              | was stop                      | `<empty or violations of rules>`                                           |
+| 7    | `INVALID_OPTION`        | invalid option                | `🐊 Invalid option '--hello'. Perhaps you meant '--help'`                  |
+| 8    | `CANNOT_LOAD_PROCESSOR` | processor has errors          | `<unhandled exception>`                                                    |
+| 9    | `UNHANDLED`             | unhandled exception           | `<unhandled exception>`                                                    |
+| 10   | `RULLER_WITH_FIX`       | ruller used with `--fix`      | `🐊 '--fix' cannot be used with ruler toggler ('--enable', '--disable')`   |
+| 11   | `RULLER_NO_FILES`       | ruller used without files     | `🐊 'path' is missing for ruler toggler ('--enable-all', '--disable-all')` |
+| 12   | `INVALID_CONFIG`        | config has invalid properties | `🐊 .putout.json: exclude: must NOT have additional properties`            |
+| 13   | `CANNOT_LOAD_FORMATTER` | formatter has errors          | `🐊 @putout/formatter-dump: Syntax error`                                  |
 
 Example of providing invalid option:
 

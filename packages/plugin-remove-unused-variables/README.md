@@ -54,7 +54,7 @@ console.log(a);
 Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout**| [`remove-unused-variables`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables#readme)| ✅
-🦕 **ESLint** | [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars) | ❌
+⏣ **ESLint** | [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars) | ❌
 
 ## License
 

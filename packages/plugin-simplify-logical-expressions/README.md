@@ -79,7 +79,7 @@ Wrong cases with `in`:
 Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout**| [`simplify-logical-expressions`](https://github.com/coderaiser/putout/tree/master/packages/plugin-simplify-logical-expressions#readme)| ✅
-🦕 **ESLint** | [`no-constant-binary-expression`](https://eslint.org/docs/rules/no-constant-binary-expression) | ❌
+⏣ **ESLint** | [`no-constant-binary-expression`](https://eslint.org/docs/rules/no-constant-binary-expression) | ❌
 
 ## License
 

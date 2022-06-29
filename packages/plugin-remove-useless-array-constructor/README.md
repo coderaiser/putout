@@ -48,7 +48,7 @@ const a = [1, 2, 3];
 Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout**| [`remove-useless-array-constructor`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-array-constructor#readme)| ✅
-🦕 **ESLint** | [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor) | ❌
+⏣ **ESLint** | [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor) | ❌
 
 ## License
 

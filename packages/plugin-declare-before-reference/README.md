@@ -61,7 +61,7 @@ const {remove} = operator;
 Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout** | [`declare-before-reference`](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-before-reference#readme) | ✅
-🦕 **ESLint** | [`no-use-before-define`](https://eslint.org/docs/rules/no-use-before-define) | ❌
+⏣ **ESLint** | [`no-use-before-define`](https://eslint.org/docs/rules/no-use-before-define) | ❌
 
 ## License
 

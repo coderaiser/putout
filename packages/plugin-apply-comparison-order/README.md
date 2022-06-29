@@ -43,7 +43,7 @@ a === 3;
 Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout**| [`apply-comparison-order`](https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-comparison-order#readme)| ✅
-🦕 **ESLint** | [`yoda`](https://eslint.org/docs/rules/yoda) | ½
+⏣ **ESLint** | [`yoda`](https://eslint.org/docs/rules/yoda) | ½
 
 ## License
 

@@ -58,7 +58,7 @@ case 1: {
 Linter | Rule | Fix
 --------|-------|------------|
 🐊 **Putout**| [`remove-nested-blocks`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-nested-blocks#readme)| ✅
-🦕 **ESLint** | [`no-lone-blocks`](https://eslint.org/docs/rules/no-lone-blocks) | ❌
+⏣ **ESLint** | [`no-lone-blocks`](https://eslint.org/docs/rules/no-lone-blocks) | ❌
 
 ## License
 
