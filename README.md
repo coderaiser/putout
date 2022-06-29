@@ -191,12 +191,12 @@ putout('isFn(fn, "hello"); debugger', {
     plugins: [
         ['remove-debugger', removeDebugger],
         ['declare-undefined-variables', declare],
-    ]
+    ],
 });
 // returns
 ({
-  code: `const isFn = a => typeof a === 'function';\nisFn(fn, "hello");`,
-  places: []
+    code: `const isFn = a => typeof a === 'function';\nisFn(fn, "hello");`,
+    places: [],
 });
 ```
 
