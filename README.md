@@ -38,6 +38,7 @@ are also supported. Here is how it looks like:
 - [🤷‍♂️ Why does this project exist?](#%EF%B8%8F-why-does-this-project-exist)
 - [🚚 Installation](#-installation)
 - [🎙 Usage](#usage)
+- [🦖 Usage with Deno](#usage-with-deno)
 - [📐 What is **Ruler**?](#-what-is-ruler)
 - [✂️ How **Ruler** can help me?](#%EF%B8%8F-how-ruler-can-help-me)
 - [🚁 Convert `CommonJS` to `ESM`](#-convert-commonjs-to-esm)
@@ -175,6 +176,28 @@ Example:
 
 ```
 PUTOUT_FILES=lib,test putout --fix
+```
+
+## 🦖 Usage with **Deno**
+
+When you need to run 🐊**Putout** in [**Deno**](https://deno.land/), use [`@putout/bundle`](https://github.com/putoutjs/bundle):
+
+```js
+import putout from 'https://esm.sh/@putout/bundle';
+import removeDebugger from 'https://esm.sh/@putout/plugin-remove-debugger?alias=putout:@putout/bundle';
+import declare from 'https://esm.sh/@putout/plugin-declare-undefined-variables?alias=putout:@putout/bundle';
+
+putout('isFn(fn, "hello"); debugger', {
+    plugins: [
+        ['remove-debugger', removeDebugger],
+        ['declare-undefined-variables', declare],
+    ]
+});
+// returns
+({
+  code: `const isFn = a => typeof a === 'function';\nisFn(fn, "hello");`,
+  places: []
+});
 ```
 
 ## 📐 What is **Ruler**?
