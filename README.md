@@ -89,7 +89,7 @@ module.exports.replace = () => ({
 
 > **If I have seen further, it is by standing upon the shoulders of giants.**
 >
-> **(c) Isaak Newton**
+> **(c) Isaac Newton**
 
 - [**ESLint**](https://eslint.org) for stable releases and future proof **API**.
 - [**Babel**](https://babeljs.io) for amazing **API** documented in [**Handbook**](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#babel-plugin-handbook) and responsiveness of a team.
