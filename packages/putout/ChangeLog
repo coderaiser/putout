@@ -1,3 +1,9 @@
+2022.06.30, v26.23.0
+
+feature:
+- (putout) svelte: disable remove-unused-variables: since variables can be used in markup
+
+
 2022.06.30, v26.22.0
 
 feature:
