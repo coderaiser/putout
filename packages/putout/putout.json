@@ -41,6 +41,9 @@
             "declare-undefined-variables": "off",
             "nodejs/declare": "off"
         },
+        "*.svelte": {
+            "remove-unused-variables": "off"
+        },
         "{*rc,*.{json,yml}}": {
             "convert-quotes-to-backticks": "off",
             "remove-useless-escape": "off",

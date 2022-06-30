@@ -39,3 +39,15 @@ test('putout: config: match: strict mode: disable', (t) => {
     t.end();
 });
 
+test('putout: config: match: svelte', (t) => {
+    const {match} = putoutConfig;
+    const result = match['*.svelte'];
+    
+    const expected = {
+        'remove-unused-variables': 'off',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
