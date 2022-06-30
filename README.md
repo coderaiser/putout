@@ -878,7 +878,7 @@ import esbuild from 'esbuild';
 
 </details>
 
-<details><summary>declare undefined variables</summary>
+<details><summary>declare undefined <code>variables</code></summary>
 
 ```diff
 +const fs = import 'fs/promises';
@@ -1137,7 +1137,7 @@ function hi() {
 
 </details>
 
-<details><summary>split nested destructuring</summary>
+<details><summary>split nested <code>destructuring</code></summary>
 
 ```diff
 -const {a: {b}} = c;
@@ -2684,6 +2684,8 @@ import {OK} from 'putout/exit-codes';
 - [`ESTrace`](https://github.com/coderaiser/estrace): Trace functions in EcmaScript Modules.
 - [🎩`ESCover`](https://github.com/coderaiser/escover): Coverage for EcmaScript Modules.
 - [♨️`Speca`](https://github.com/coderaiser/speca): Write [tape](https://github.com/coderaiser/supertape) tests for you.
+- Modules.
+- [`Goldstein`](https://github.com/coderaiser/goldstein): JavaScript with no limits 🤫.
 
 Do you use `putout` in your application as well? Please open a Pull Request to include it here. We would love to have it in our list.
 
