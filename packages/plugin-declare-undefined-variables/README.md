@@ -10,6 +10,7 @@
 - wrap: `not`,`id`, `returns`;
 - fresh-import: `freshImport`, `freshImportDefault`;
 - `fixtures`: `readFixture(name)`;
+- properties of `Object`;
 - [wraptile](https://github.com/coderaiser/wraptile);
 - [currify](https://github.com/coderaiser/currify);
 - [pipe-io](https://github.com/coderaiser/pipe-io);

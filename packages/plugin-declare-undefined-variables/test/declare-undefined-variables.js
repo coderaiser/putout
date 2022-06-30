@@ -34,8 +34,8 @@ test('putout: plugin: declare-undefined-variables: transform: values', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: transform: assign: dismiss', (t) => {
-    t.noTransformWithOptions('assign', {
+test('putout: plugin: declare-undefined-variables: transform: assign-dismiss', (t) => {
+    t.noTransformWithOptions('assign-dismiss', {
         dismiss: ['assign', 'stringify'],
     });
     t.end();
