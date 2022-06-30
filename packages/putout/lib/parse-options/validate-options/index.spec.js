@@ -52,7 +52,7 @@ test('putout: parse-options: validateOptions: formatter', (t) => {
     t.end();
 });
 
-test('putout: parse-options: validateOptions: processors', (t) => {
+test('putout: parse-options: validateOptions: processors: not array', (t) => {
     const [error] = tryCatch(validateOptions, {
         processors: {},
     });
@@ -69,7 +69,7 @@ test('putout: parse-options: validateOptions: processors: duplicates', (t) => {
         ],
     });
     
-    t.equal(error.message, '.putout.json: processors: must NOT have duplicate items (items ## 1 and 0 are identical)');
+    t.equal(error.message, '.putout.json: processors: must NOT have duplicate items (items ## 0 and 1 are identical)');
     t.end();
 });
 
@@ -78,7 +78,7 @@ test('putout: parse-options: validateOptions: processors: items', (t) => {
         processors: [1, 2],
     });
     
-    t.equal(error.message, '.putout.json: processors/0: must be string');
+    t.equal(error.message, '.putout.json: processors/0: must be array');
     t.end();
 });
 
@@ -192,6 +192,28 @@ test('putout: parse-options: validateOptions: rules: match: options', (t) => {
     });
     
     t.equal(error.message, '.putout.json: match/*.md/remove-unused-variables: must be equal to one of the allowed values (on/off)');
+    t.end();
+});
+
+test('putout: parse-options: validateOptions: processors: not on/off', (t) => {
+    const [error] = tryCatch(validateOptions, {
+        processors: [
+            ['html', 'abc'],
+        ],
+    });
+    
+    t.equal(error.message, '.putout.json: processors/0/1: must be equal to one of the allowed values (on/off)');
+    t.end();
+});
+
+test('putout: parse-options: validateOptions: processors', (t) => {
+    const [error] = tryCatch(validateOptions, {
+        processors: [
+            ['html', 'off'],
+        ],
+    });
+    
+    t.notOk(error);
     t.end();
 });
 

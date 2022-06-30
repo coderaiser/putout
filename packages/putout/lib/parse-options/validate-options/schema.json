@@ -53,6 +53,17 @@
             }, {
                 "enum": [true, false]
             }]
+        },
+        "processorToggle": {
+            "type": "array",
+            "items": [{
+                "type": "string"
+            }, {
+                "description": "🐊Putout processor\n\n\"off\" means rule is off\n\"on\" means it is a on\n",
+                "enum": ["on", "off"]
+            }],
+            "minItems": 2,
+            "maxItems": 2
         }
     },
     "properties": {
@@ -69,7 +80,11 @@
             "type": "array",
             "uniqueItems": true,
             "items": {
-                "type": "string"
+                "oneOf": [{
+                    "$ref": "#/definitions/processorToggle"
+                }, {
+                    "type": "string"
+                }]
             }
         },
         "ignore": {
