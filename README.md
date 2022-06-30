@@ -721,7 +721,7 @@ switch (x) {
 
 </details>
 
-<details><summary>remove useless <code>Object.assign()</code></summary>
+<details><summary>remove useless <code>replace()</code></summary>
 
 ```diff
 -const a = 'hello'.replace(world, world);
