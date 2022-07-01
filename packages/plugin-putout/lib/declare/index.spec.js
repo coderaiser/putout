@@ -169,3 +169,16 @@ test('plugin-putout: declare: transform: getPathAfterImports', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: compute', (t) => {
+    t.transformCode('compute();', montag`
+        import {operator} from 'putout';
+        
+        const {
+          compute
+        } = operator;
+        
+        compute();
+    `);
+    t.end();
+});

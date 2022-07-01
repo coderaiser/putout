@@ -5,6 +5,7 @@ module.exports = {
     compare: `const {compare} = operator`,
     compareAll: `const {compareAll} = operator`,
     compareAny: `const {compareAny} = operator`,
+    compute: `const {compute} = operator`,
     contains: `const {contains} = operator`,
     declare: `const {declare} = operator`,
     extract: `const {extract} = operator`,
