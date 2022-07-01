@@ -48,3 +48,7 @@ test('putout: processor: html: empty script', async ({noProcess}) => {
     await noProcess('empty-script');
 });
 
+test('putout: processor: html: svelte', async ({process}) => {
+    await process('svelte.svelte', ['apply-destructuring']);
+});
+

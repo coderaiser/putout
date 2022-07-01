@@ -6,6 +6,7 @@ const cutSpaces = (spacesCount) => (a) => a.slice(spacesCount);
 
 export const files = [
     '*.html',
+    '*.svelte',
 ];
 
 export const fix = async (rawSource) => {
