@@ -27,3 +27,8 @@ test('plugin-apply-comparison-order: no transform: simple-right', (t) => {
     t.end();
 });
 
+test('plugin-apply-comparison-order: no transform: chain', (t) => {
+    t.noTransform('chain');
+    t.end();
+});
+

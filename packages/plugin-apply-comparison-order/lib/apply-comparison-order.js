@@ -24,7 +24,7 @@ module.exports.traverse = ({push}) => ({
         const leftPath = path.get('left');
         const rightPath = path.get('right');
         
-        if (leftPath.isIdentifier() || leftPath.isMemberExpression() || leftPath.isCallExpression())
+        if (!isLeftValid(leftPath))
             return;
         
         if (!rightPath.isIdentifier() && !rightPath.isMemberExpression() && !rightPath.isCallExpression())
@@ -38,3 +38,12 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
+function isLeftValid(leftPath) {
+    if (leftPath.isIdentifier() || leftPath.isMemberExpression() || leftPath.isCallExpression())
+        return false;
+    
+    if (leftPath.isOptionalMemberExpression())
+        return false;
+    
+    return true;
+}
