@@ -38,7 +38,7 @@ test('putout: runner: run plugins', (t) => {
     
     const expected = '\n';
     
-    t.deepEqual(result.code, expected);
+    t.equal(result.code, expected);
     t.end();
 });
 
@@ -145,7 +145,7 @@ test('putout: runner: plugins: replace', (t) => {
     
     const expected = 'const a = 1;';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -167,7 +167,7 @@ test('putout: runner: plugins: replace: a couple', (t) => {
     
     const expected = 'const x = 1;';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -188,7 +188,7 @@ test('putout: runner: plugins: replace: remove', (t) => {
     
     const expected = '';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -214,7 +214,7 @@ test('putout: runner: plugins: replace: remove: exclude', (t) => {
     
     const expected = 'debugger';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -236,7 +236,7 @@ test('putout: runner: plugins: replace: template', (t) => {
     
     const expected = 'const hello = 5;';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -259,7 +259,7 @@ test('putout: runner: plugins: replace: template: a couple vars', (t) => {
     
     const expected = 'const world = hello;';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -281,7 +281,7 @@ test('putout: runner: plugins: replace: template: array', (t) => {
     
     const expected = 'const [first] = elements;';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -303,7 +303,7 @@ test('putout: runner: plugins: replace: template: identifier', (t) => {
     
     const expected = 'if (y) fn()';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -325,7 +325,7 @@ test('putout: runner: plugins: replace: template: ifCondition', (t) => {
     
     const expected = 'if (y)\n  fn();';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -347,7 +347,7 @@ test('putout: runner: plugins: replace: template: ifCondition: body', (t) => {
     
     const expected = 'if (y)\n  {fn()}';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -369,7 +369,7 @@ test('putout: runner: plugins: replace: template: object pattern', (t) => {
     
     const expected = 'const {\n  hello\n} = world;';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -392,7 +392,7 @@ test('putout: runner: plugins: replace: template: infinite loop', (t) => {
     
     const expected = 'const world = hello;';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -414,7 +414,7 @@ test('putout: runner: plugins: replace: template: same', (t) => {
     
     const expected = 'console.log(...lines)';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -436,7 +436,7 @@ test('putout: runner: plugins: replace: template: linked literal node', (t) => {
     
     const expected = 'const hello = require("world");';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -467,7 +467,7 @@ test('putout: runner: plugins: replace: template: function: __imports', (t) => {
     
     const expected = `const {\n  hello\n} = require('world');`;
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -488,7 +488,7 @@ test('putout: runner: plugins: replace: template: function: __args', (t) => {
     
     const expected = 'const hello = (a, b, c) => {};';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -509,7 +509,7 @@ test('putout: runner: plugins: replace: template: expression', (t) => {
     
     const expected = `if (true)\n  {console.log('sh');}`;
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -531,7 +531,7 @@ test('putout: runner: plugins: replace: template: filter', (t) => {
     
     const expected = 'return x';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -555,7 +555,7 @@ test('putout: runner: plugins: replace: path', (t) => {
     
     const expected = 'return x;';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -582,7 +582,7 @@ test('putout: runner: plugins: replace: match', (t) => {
     
     const expected = '';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -609,7 +609,7 @@ test('putout: runner: plugins: replace: match: not found', (t) => {
     
     const expected = '';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -706,7 +706,7 @@ test('putout: runner: debug', (t) => {
     
     stopAll();
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -886,7 +886,7 @@ test('putout: runner: fix: crawl', (t) => {
         log(readFile, writeFile);
     `;
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 

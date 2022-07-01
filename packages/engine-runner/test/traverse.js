@@ -78,7 +78,7 @@ test('putout: runner: plugins: traverse: store: value', (t) => {
     
     const expected = 'hello';
     
-    t.deepEqual(result, expected);
+    t.equal(result, expected);
     t.end();
 });
 

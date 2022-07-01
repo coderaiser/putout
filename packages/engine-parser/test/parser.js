@@ -136,7 +136,7 @@ test('putout: parser: babel: optional chaining', (t) => {
     
     const expected = 'hello?.world;';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -156,7 +156,7 @@ test('putout: parser: babel: nullish coalescing operator', (t) => {
     
     const expected = 'const hello = world ?? "world";';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 

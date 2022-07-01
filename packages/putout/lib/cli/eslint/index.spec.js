@@ -83,7 +83,7 @@ test('putout: eslint: fix', async (t) => {
     
     const expected = `const t = 'hi'\n`;
     
-    t.deepEqual(result, expected);
+    t.equal(result, expected);
     t.end();
 });
 
@@ -96,7 +96,7 @@ test('putout: eslint: fix: same', async (t) => {
     
     const expected = `const t = 'hi';`;
     
-    t.deepEqual(result, expected);
+    t.equal(result, expected);
     t.end();
 });
 
@@ -109,7 +109,7 @@ test('putout: eslint: fix: cache', async (t) => {
     
     const expected = `const t = 'hi';\n`;
     
-    t.deepEqual(result, expected);
+    t.equal(result, expected);
     t.end();
 });
 

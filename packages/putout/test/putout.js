@@ -109,7 +109,7 @@ test('putout: run plugins', (t) => {
     
     const expected = '\n';
     
-    t.deepEqual(result.code, expected);
+    t.equal(result.code, expected);
     t.end();
 });
 

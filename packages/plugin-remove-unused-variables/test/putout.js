@@ -76,7 +76,7 @@ test('remove-unused-variables: putout: root vars', (t) => {
     const {code} = putout(fixture.rootVars);
     const expected = '\n';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -100,7 +100,7 @@ test('remove-unused-variables: putout: arrow vars', (t) => {
     const {code} = putout(fixture.arrowVars);
     const expected = '\n\n';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -116,7 +116,7 @@ test('remove-unused-variables: putout: destr nested vars', (t) => {
     const {code} = putout(fixture.destrNestedVars);
     const expected = 'const [, {}] = getOptions();\n';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -156,7 +156,7 @@ test('remove-unused-variables: putout: fn destr args vars', (t) => {
     const {code} = putout(fixture.fnDestrArgsVars);
     const expected = '\n';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 
@@ -164,7 +164,7 @@ test('remove-unused-variables: putout: return statement', (t) => {
     const {code} = putout(fixture.returnStatement);
     const expected = '\n\n';
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
 

@@ -29,7 +29,7 @@ test('putout: runner: traverse: exclude', (t) => {
         ],
     });
     
-    t.deepEqual(code, input);
+    t.equal(code, input);
     t.end();
 });
 
@@ -55,7 +55,7 @@ test('putout: runner: traverse: exclude: not an array', (t) => {
         ],
     });
     
-    t.deepEqual(code, input);
+    t.equal(code, input);
     t.end();
 });
 

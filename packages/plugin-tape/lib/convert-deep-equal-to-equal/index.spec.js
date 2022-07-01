@@ -22,3 +22,13 @@ test('plugin-tape: convert-deep-equal-to-equal: no transform: regexp', (t) => {
     t.end();
 });
 
+test('plugin-tape: convert-deep-equal-to-equal: transform: string', (t) => {
+    t.transform('string');
+    t.end();
+});
+
+test('plugin-tape: convert-deep-equal-to-equal: no transform: expected', (t) => {
+    t.noTransform('expected');
+    t.end();
+});
+

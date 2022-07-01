@@ -24,7 +24,7 @@ test('operate: getExportDefault', (t) => {
     const result = print(ast);
     const expected = '';
     
-    t.deepEqual(result, expected);
+    t.equal(result, expected);
     t.end();
 });
 

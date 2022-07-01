@@ -922,6 +922,6 @@ test('putout: operator: declare: export type: get while find', (t) => {
         });
     `;
     
-    t.deepEqual(code, expected);
+    t.equal(code, expected);
     t.end();
 });
