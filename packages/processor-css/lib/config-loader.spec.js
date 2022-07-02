@@ -38,7 +38,7 @@ test('putout: processor: css: config-loader: config found', async (t) => {
     const result = await loadConfig();
     const expected = 3;
     
-    t.deepEqual(result.rules.indentation, expected);
+    t.equal(result.rules.indentation, expected);
     t.end();
 });
 

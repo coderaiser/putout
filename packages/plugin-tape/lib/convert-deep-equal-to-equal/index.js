@@ -5,6 +5,8 @@ const {
     operator,
 } = require('putout');
 
+const isNumber = (a) => typeof a === 'number';
+
 const isString = (a) => typeof a === 'string';
 
 const {compute} = operator;
@@ -31,9 +33,9 @@ const check = ({__b}, path) => {
         return true;
     
     const expectedPath = path.get('arguments.1');
-    const [, value] = compute(expectedPath);
+    const [is, value] = compute(expectedPath);
     
-    if (isString(value))
+    if (is && isString(value) || isNumber(value))
         return true;
     
     if (checkExpected(expectedPath))
