@@ -22,10 +22,10 @@ jobs:
       - name: Install Redrun, Lerna
         run: npm i redrun lerna -g
      
-     - name: Bootstrap
+      - name: Bootstrap
         run: lerna bootstrap
      
-     - name: Lint
+      - name: Lint
         run: redrun lint
     
       - uses: actions-rs/toolchain@v1
