@@ -1,6 +1,6 @@
 'use strict';
 
-const {getExtends} = require('../get-extends');
+const {getExtends} = require('../get');
 
 module.exports.report = () => '"putout" should be in the end of the "extends" list';
 

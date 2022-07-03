@@ -1,6 +1,6 @@
 'use strict';
 
-const {getExtends} = require('../get-extends');
+const {getExtends} = require('../get');
 
 module.exports.report = () => 'Use "putout/safe" instead of "putout/ide"';
 

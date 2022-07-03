@@ -1,7 +1,6 @@
 'use strict';
 
-const {getExtends} = require('../get-extends');
-const {getRules} = require('../get-rules');
+const {getRules, getExtends} = require('../get');
 
 module.exports.report = () => 'Use "putout/safe+align" instead of "putout/safe"';
 
