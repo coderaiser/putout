@@ -32,6 +32,16 @@ test('plugin-tape: convert-deep-equal-to-equal: transform: number', (t) => {
     t.end();
 });
 
+test('plugin-tape: convert-deep-equal-to-equal: transform: null', (t) => {
+    t.transform('null');
+    t.end();
+});
+
+test('plugin-tape: convert-deep-equal-to-equal: transform: bool', (t) => {
+    t.transform('bool');
+    t.end();
+});
+
 test('plugin-tape: convert-deep-equal-to-equal: no transform: expected', (t) => {
     t.noTransform('expected');
     t.end();
