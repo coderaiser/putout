@@ -6,8 +6,11 @@ const {
     isArrayExpression,
 } = types;
 
-module.exports.getPlugins = get();
-module.exports.getExtends = get();
+module.exports.isPlugins = (node) => node.properties.find(is('plugins'));
+module.exports.isExtends = (node) => node.properties.find(is('extends'));
+
+module.exports.getPlugins = get('plugins');
+module.exports.getExtends = get('extends');
 
 module.exports.getRules = (node) => {
     const x = node.properties.find(is('rules'));
@@ -18,9 +21,9 @@ module.exports.getRules = (node) => {
     return x.value.properties;
 };
 
-function get() {
+function get(name) {
     return (node) => {
-        const x = node.properties.find(is('extends'));
+        const x = node.properties.find(is(name));
         
         if (!x)
             return [];
@@ -32,9 +35,11 @@ function get() {
     };
 }
 
-const is = (name) => ({key}) => {
-    return isStringLiteral(key, {
-        value: name,
-    });
-};
+function is(name) {
+    return ({key}) => {
+        return isStringLiteral(key, {
+            value: name,
+        });
+    };
+}
 

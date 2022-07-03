@@ -5,6 +5,7 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
+    ...getRule('add-putout'),
     ...getRule('apply-safe-align'),
     ...getRule('move-putout-to-end-of-extends'),
     ...getRule('convert-ide-to-safe'),

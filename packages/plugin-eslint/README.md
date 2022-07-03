@@ -20,6 +20,7 @@ npm i @putout/plugin-eslint -D
 ```json
 {
     "rules": {
+        "eslint/add-putout": "on",
         "eslint/apply-safe-align": "on",
         "eslint/move-putout-to-end-of-extends": "on",
         "eslint/convert-ide-to-safe": "on",
@@ -30,6 +31,21 @@ npm i @putout/plugin-eslint -D
         "eslint/remove-no-unsupported-features": "on",
         "eslint/remove-overrides-with-empty-rules": "on"
     }
+}
+```
+
+## add-putout
+
+```diff
+{
+    "extends": [
++       "plugin:putout/safe+align",
+        "plugin:node/recommended"
+    ],
+    "plugins": [
++       "putout",
+        "node"
+    ]
 }
 ```
 

@@ -52,3 +52,8 @@ test('putout: plugin-eslint: transform: remove-no-unsupported-features', (t) => 
     t.end();
 });
 
+test('putout: plugin-eslint: transform: add-putout', (t) => {
+    t.transform('add-putout');
+    t.end();
+});
+
