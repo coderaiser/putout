@@ -1,6 +1,6 @@
 {
   "name": "@putout/processor-wasm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout processor adds ability to parse wasm files and lint js *.wast files",
