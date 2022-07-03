@@ -24,9 +24,9 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@webassemblyjs/ast": "^1.11.1",
-    "@webassemblyjs/wast-parser": "^1.11.1",
-    "@webassemblyjs/wast-printer": "^1.11.1",
+    "@webassemblyjs/ast": "1.11.1",
+    "@webassemblyjs/wast-parser": "1.11.1",
+    "@webassemblyjs/wast-printer": "1.11.1",
     "just-kebab-case": "^4.0.2",
     "try-catch": "^3.0.0"
   },
