@@ -12,7 +12,7 @@ test('plugin-putout: convert-number-to-numeric: report', (t) => {
     t.end();
 });
 
-test('plugin-putout: convert-numeber-to-numeric: transform', (t) => {
+test('plugin-putout: convert-number-to-numeric: transform', (t) => {
     t.transform('convert-number-to-numeric');
     t.end();
 });
