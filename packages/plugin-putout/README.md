@@ -133,6 +133,8 @@ const test = createTest({
 
 ## convert-number-to-numeric
 
+Prevent `Babel` warning: `The node type NumberLiteral has been renamed to NumericLiteral`.
+
 ### ❌ Example of incorrect code
 
 ```js
