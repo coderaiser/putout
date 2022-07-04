@@ -17,3 +17,12 @@ test('plugin-tape: convert-equal-to-ok: transform', (t) => {
     t.end();
 });
 
+test('plugin-tape: convert-equal-to-ok: transform: expected', (t) => {
+    t.transform('expected');
+    t.end();
+});
+
+test('plugin-tape: convert-equal-to-ok: no transform: false', (t) => {
+    t.noTransform('false');
+    t.end();
+});
