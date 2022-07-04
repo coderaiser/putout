@@ -24,6 +24,7 @@ npm i @putout/plugin-putout -D
         "putout/add-push": "on",
         "putout/convert-putout-test-to-create-test": "on",
         "putout/convert-to-no-transform-code": "on",
+        "putout/convert-number-to-numeric": "on",
         "putout/convert-replace-with": "on",
         "putout/convert-replace-with-multiple": "on",
         "putout/convert-replace-to-function": "on",
@@ -128,6 +129,22 @@ const {createTest} = require('@putout/test');
 const test = createTest({
     'remove-debugger': plugin,
 });
+```
+
+## convert-number-to-numeric
+
+### ❌ Example of incorrect code
+
+```js
+const {isNumberLiteral} = types;
+isNumberLiteral(node);
+```
+
+### ✅ Example of correct code
+
+```js
+const {isNumericLiteral} = types;
+isNumericLiteral(node);
 ```
 
 ## convert-putout-test-to-create-test

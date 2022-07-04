@@ -13,6 +13,7 @@ module.exports.rules = {
     ...getRule('convert-to-no-transform-code'),
     ...getRule('convert-find-to-traverse'),
     ...getRule('convert-destructuring-to-identifier'),
+    ...getRule('convert-number-to-numeric'),
     ...getRule('convert-replace-with'),
     ...getRule('convert-replace-with-multiple'),
     ...getRule('convert-replace-to-function'),

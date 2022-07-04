@@ -142,3 +142,8 @@ test('plugin-putout: transform: convert-report-to-function', (t) => {
     t.end();
 });
 
+test('plugin-putout: transform: convert-number-to-numeric', (t) => {
+    t.transform('convert-number-to-numeric');
+    t.end();
+});
+
