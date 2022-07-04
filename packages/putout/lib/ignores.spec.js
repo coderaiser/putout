@@ -28,9 +28,8 @@ test('putout: ignores: the "from" argument must be of type string error', (t) =>
 
 test('putout: ignores: relative path', (t) => {
     const result = ignores('/x/y', '/x/y/z', {ignore: ['*.js']});
-    const expected = false;
     
-    t.equal(result, expected);
+    t.notOk(result);
     t.end();
 });
 

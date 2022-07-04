@@ -10,9 +10,8 @@ test('putout: codeframe: undefined', (t) => {
     const result = codeframe({
         source: '', error: {},
     });
-    const expected = undefined;
     
-    t.equal(result, expected);
+    t.notOk(result);
     t.end();
 });
 

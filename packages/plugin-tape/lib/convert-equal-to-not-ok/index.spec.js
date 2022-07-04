@@ -42,3 +42,17 @@ test('plugin-tape: convert-equal-to-not-ok: transform: not-ok', (t) => {
     t.end();
 });
 
+test('plugin-tape: convert-equal-to-not-ok: transform: expected', (t) => {
+    t.transform('expected');
+    t.end();
+});
+
+test('plugin-tape: convert-equal-to-not-ok: no transform: string', (t) => {
+    t.noTransform('string');
+    t.end();
+});
+
+test('plugin-tape: convert-equal-to-not-ok: no transform: number', (t) => {
+    t.noTransform('number');
+    t.end();
+});
