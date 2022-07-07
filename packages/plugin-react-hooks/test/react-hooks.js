@@ -26,3 +26,8 @@ test('plugin-react-hooks: transform: not react', (t) => {
     t.end();
 });
 
+test('plugin-react-hooks: transform: declare', (t) => {
+    t.transform('declare');
+    t.end();
+});
+

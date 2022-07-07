@@ -5,6 +5,7 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
+    ...getRule('declare'),
     ...getRule('remove-bind'),
     ...getRule('rename-method-under-score'),
     ...getRule('convert-state-to-hooks'),

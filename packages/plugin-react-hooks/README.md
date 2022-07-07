@@ -29,6 +29,7 @@ Here is list of rules:
 ```json
 {
     "rules": {
+        "react-hooks/declare": "on",
         "react-hooks/remove-bind": "on",
         "react-hooks/rename-method-under-score": "on",
         "react-hooks/convert-state-to-hooks": "on",
@@ -37,6 +38,36 @@ Here is list of rules:
         "react-hooks/convert-component-to-use-state": "on",
         "react-hooks/convert-import-component-to-use-state": "on"
     }
+}
+```
+
+## declare
+
+Declare hooks according to [Hooks API Reference](https://reactjs.org/docs/hooks-reference.html).
+
+### ❌ Example of incorrect code
+
+```jsx
+function Example() {
+    const [count, setCount] = useState(0);
+    
+    return (
+        <div/>
+    );
+}
+```
+
+### ✅ Example of correct code
+
+```jsx
+import {useState} from 'react';
+
+function Example() {
+    const [count, setCount] = useState(0);
+    
+    return (
+        <div/>
+    );
 }
 ```
 
