@@ -5,6 +5,7 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
+    ...getRule('apply-short-fragment'),
     ...getRule('declare'),
     ...getRule('remove-bind'),
     ...getRule('rename-method-under-score'),

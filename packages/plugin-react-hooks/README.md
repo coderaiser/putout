@@ -29,6 +29,7 @@ Here is list of rules:
 ```json
 {
     "rules": {
+        "react-hooks/apply-short-fragment": "on",
         "react-hooks/declare": "on",
         "react-hooks/remove-bind": "on",
         "react-hooks/rename-method-under-score": "on",
@@ -38,6 +39,37 @@ Here is list of rules:
         "react-hooks/convert-component-to-use-state": "on",
         "react-hooks/convert-import-component-to-use-state": "on"
     }
+}
+```
+
+## apply-short-fragment
+
+Apply shorthand syntax of [`Fragment`](https://reactjs.org/docs/fragments.html#short-syntax).
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/c809eeaa9d7e8e11e14ad2df7eaad8bf/0ee504f4dd52bfa48ffeda2de7b919ec30550e4b).
+
+### ❌ Example of incorrect code
+
+```jsx
+function Columns() {
+    return (
+        <Fragment>
+            <td>Hello</td>
+            <td>World</td>
+        </Fragment>
+    );
+}
+```
+
+### ✅ Example of correct code
+
+```jsx
+function Columns() {
+    return (
+        <>
+            <td>Hello</td>
+            <td>World</td>
+        </>
+    );
 }
 ```
 

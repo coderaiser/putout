@@ -31,3 +31,8 @@ test('plugin-react-hooks: transform: declare', (t) => {
     t.end();
 });
 
+test('plugin-react-hooks: transform: apply-short-fragment', (t) => {
+    t.transform('apply-short-fragment');
+    t.end();
+});
+
