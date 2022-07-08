@@ -73,6 +73,13 @@ function Columns() {
 }
 ```
 
+### Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`react-hooks/apply-short-fragment`](https://github.com/coderaiser/putout/tree/master/packages/plugin-react-hooks#apply-short-fragment) | ✅
+⏣ **ESLint** | [`react/jsx-fragments`](https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-fragments.md) | ✅
+
 ## declare
 
 Declare hooks according to [Hooks API Reference](https://reactjs.org/docs/hooks-reference.html).
