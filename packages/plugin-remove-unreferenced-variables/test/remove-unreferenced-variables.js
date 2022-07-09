@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-unreferenced-variables: report', (t) => {
-    t.report('unreferenced', 'Unreferenced variables should be avoided');
+    t.report('unreferenced', 'Avoid unreferenced variables');
     t.end();
 });
 

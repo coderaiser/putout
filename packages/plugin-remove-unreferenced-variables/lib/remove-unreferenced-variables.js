@@ -3,7 +3,7 @@
 const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => `Unreferenced variables should be avoided`;
+module.exports.report = () => 'Avoid unreferenced variables';
 
 module.exports.fix = (path) => remove(path);
 
