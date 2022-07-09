@@ -10,7 +10,7 @@ module.exports.fix = (path) => remove(path);
 module.exports.traverse = ({push}) => ({
     '__identifier = __a'(path) {
         const {name} = path.node.left;
-        const binding = path.scope.bindings[name];
+        const binding = path.scope.getAllBindings()[name];
         
         if (!binding)
             return;

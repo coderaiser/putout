@@ -27,6 +27,11 @@ test('plugin-remove-unreferenced-variables: transform: destr-rename', (t) => {
     t.end();
 });
 
+test('plugin-remove-unreferenced-variables: transform: upper-scope', (t) => {
+    t.transform('upper-scope');
+    t.end();
+});
+
 test('plugin-remove-unreferenced-variables: no transform', (t) => {
     t.noTransform('referenced');
     t.end();
