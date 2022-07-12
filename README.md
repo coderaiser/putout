@@ -165,6 +165,12 @@ To apply the transforms, use `--fix`:
 npx putout lib test --fix
 ```
 
+#### *☝️Commit your code before running 🐊Putout* 
+
+*Developers, myself included, usually prefer to make all code changes manually, so that nothing happens to our code without reviewing it first. That is until we trust a tool to make those changes safely for us. An example is **WebStorm**, which we trust when renaming a `class` or a `method`. Since 🐊**Putout** may still feel like a new tool, not all of us will be able to trust it immediately.*
+
+*A good way to gain trust is two run without `--fix` option, and observe error messages. Another way is to use traditional version control tactics. Before running 🐊**Putout** you should do a `git commit`. Then after running 🐊**Putout**, you’ll be able to inspect the changes it made using `git diff` and `git status`. You still have the chance to run `git checkout -- .` at any time to revert all the changes that 🐊**Putout** has made. If you need more fine-grained control, you can also use `git add -p` or `git add -i` to interactively stage only the changes you want to keep.*
+
 ### Environment variables
 
 🐊**Putout** supports the following environment variables:
