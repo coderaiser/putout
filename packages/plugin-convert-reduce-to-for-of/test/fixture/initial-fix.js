@@ -1,10 +1,10 @@
 button.addEventListener('click', () => {
     let a = {};
 
-    for (const c of b) {
+    for (const d of b) {
         a = ({
             ...c,
-            [a.name]: 'hello'
+            [d.name]: 'hello'
         });
     }
 });

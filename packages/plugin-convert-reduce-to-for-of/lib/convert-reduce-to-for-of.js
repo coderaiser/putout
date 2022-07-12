@@ -51,12 +51,10 @@ module.exports.replace = () => ({
         }`;
     },
     
-    'const __a = __b.reduce((__c, __d) => __e, __f)': ({__a, __d}, path) => {
-        rename(path, __d, __a);
-        
+    'const __a = __b.reduce((__c, __d) => __e, __f)': () => {
         return `{
             let __a = __f;
-            for (const __c of __b) {
+            for (const __d of __b) {
                 __a = __e;
             }
         }`;
