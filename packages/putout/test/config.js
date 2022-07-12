@@ -51,6 +51,18 @@ test('putout: config: match: svelte', (t) => {
     t.end();
 });
 
+test('putout: config: match: create-react-app: setupTests', (t) => {
+    const {match} = putoutConfig;
+    const result = match['setupTests.*'];
+    
+    const expected = {
+        'remove-empty/import': 'off',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
 test('putout: config: ignore: .idea', (t) => {
     const {ignore} = putoutConfig;
     const is = ignore.includes('**/.idea');

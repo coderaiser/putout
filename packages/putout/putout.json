@@ -25,6 +25,9 @@
         ".madrun.{js,cjs,mjs}": {
             "madrun": "on"
         },
+        "setupTests.*": {
+            "remove-empty/import": "off"
+        },
         "*.md": {
             "convert-quotes-to-backticks": "off",
             "convert-comparison-to-boolean": "off",
