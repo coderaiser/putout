@@ -105,7 +105,8 @@
         "**/dist",
         "**/dist-dev",
         "**/build",
-        "**/package-lock.json"
+        "**/package-lock.json",
+        "**/.idea"
     ],
     "rules": {
         "typescript": "off",

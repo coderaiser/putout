@@ -51,3 +51,11 @@ test('putout: config: match: svelte', (t) => {
     t.end();
 });
 
+test('putout: config: ignore: .idea', (t) => {
+    const {ignore} = putoutConfig;
+    const is = ignore.includes('**/.idea');
+    
+    t.ok(is);
+    t.end();
+});
+
