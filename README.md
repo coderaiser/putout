@@ -165,7 +165,7 @@ To apply the transforms, use `--fix`:
 npx putout lib test --fix
 ```
 
-#### *☝️Commit your code before running 🐊Putout* 
+#### *☝️Commit your code before running 🐊Putout*
 
 *Developers, myself included, usually prefer to make all code changes manually, so that nothing happens to our code without reviewing it first. That is until we trust a tool to make those changes safely for us. An example is **WebStorm**, which we trust when renaming a `class` or a `method`. Since 🐊**Putout** may still feel like a new tool, not all of us will be able to trust it immediately.*
 
