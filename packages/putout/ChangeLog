@@ -1,3 +1,29 @@
+2022.07.12, v26.24.0
+
+feature:
+- (putout) config: create-react-app: setupTests: improve support
+- (putout) config: ignore: add .idea
+- (@putout/plugin-react-hooks) declare: add useCallback
+- (@putout/plugin-react-hooks) declare: add useReducer
+- (@putout/plugin-remove-unreferenced-variables) report
+- (@putout/plugin-remove-unreferenced-variables) add support of upper scope
+- (@putout/plugin-react-hooks) add apply-short-fragment
+- (@putout/plugin-react-hooks) add declare
+- (@putout/plugin-putout) convert-number-to-numeric: add support of NumberLiteral
+- (@putout/plugin-putout) add convert-number-to-numeric
+- (@putout/plugin-tape) convert-equal-to-not-ok: add support of compute
+- (@putout/plugin-tape) convert-equal-to-ok: add compute
+- (@putout/processor-wasm) lock versions (xtuc/webassemblyjs#1132)
+- (@putout/plugin-eslint) add add-putout
+- (@putout/plugin-eslint) get
+- (@putout/plugin-tape) convert-deep-equal-to-equal: add support of null, undefined and boolean
+- (@putout/plugin-tape) convert-deep-equal-to-equal: add support of number
+- (@putout/plugin-tape) convert-deepe-qual-to-equal: add support of Strings
+- (@putout/plugin-putout) declare: add support of "compute"
+- (@putout/plugin-apply-comparison-order) exclude OptionalMemberExpression
+- (@putout/processor-html) add support of svelte
+
+
 2022.06.30, v26.23.0
 
 feature:
