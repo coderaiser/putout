@@ -27,3 +27,8 @@ test('plugin-react-hooks: declare: transform: use-context', (t) => {
     t.end();
 });
 
+test('plugin-react-hooks: declare: transform: use-reducer', (t) => {
+    t.transform('use-reducer');
+    t.end();
+});
+
