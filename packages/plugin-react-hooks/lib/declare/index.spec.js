@@ -32,3 +32,8 @@ test('plugin-react-hooks: declare: transform: use-reducer', (t) => {
     t.end();
 });
 
+test('plugin-react-hooks: declare: transform: use-callback', (t) => {
+    t.transform('use-callback');
+    t.end();
+});
+

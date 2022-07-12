@@ -5,4 +5,5 @@ module.exports = {
     useEffect: 'import {useEffect} from "react"',
     useContext: 'import {useContext} from "react"',
     useReducer: 'import {useReducer} from "react"',
+    useCallback: 'import {useCallback} from "react"',
 };
