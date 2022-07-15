@@ -22,3 +22,8 @@ test('plugin-react-hooks: convert state to hooks: no transform: assignment', (t)
     t.end();
 });
 
+test('plugin-react-hooks: convert state to hooks: no transform: declare', (t) => {
+    t.noTransform('declare');
+    t.end();
+});
+

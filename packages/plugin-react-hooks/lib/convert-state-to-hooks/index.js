@@ -42,8 +42,17 @@ module.exports.fix = (path) => {
 module.exports.find = (ast, {push, traverse}) => {
     traverseClass(traverse, ast, {
         AssignmentExpression: (path) => {
-            if (path.get('left').isMemberExpression())
-                push(path);
+            if (!path.get('left').isMemberExpression())
+                return;
+            
+            const {right} = path.node;
+            
+            for (const {shorthand} of right.properties) {
+                if (shorthand)
+                    return;
+            }
+            
+            push(path);
         },
         VariableDeclarator: VariableDeclarator(push),
         CallExpression: CallExpression(push),
