@@ -71,7 +71,7 @@ function resolveSource({dir, value}) {
     const [error] = tryCatch(accessSync, name);
     
     if (!error)
-        return join(value, 'index.js');
+        return `${value}/index.js`;
     
     return `${value}.js`;
 }
