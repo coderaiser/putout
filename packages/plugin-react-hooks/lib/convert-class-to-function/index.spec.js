@@ -17,3 +17,7 @@ test('plugin-react-hooks: convert-class-to-function: transform', (t) => {
     t.end();
 });
 
+test('plugin-react-hooks: convert-class-to-function: no transform: will-mount', (t) => {
+    t.noTransform('will-mount');
+    t.end();
+});
