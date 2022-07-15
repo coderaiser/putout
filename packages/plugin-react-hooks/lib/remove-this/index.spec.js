@@ -17,6 +17,11 @@ test('plugin-react-hooks: remove-this: transform', (t) => {
     t.end();
 });
 
+test('plugin-react-hooks: remove-this: no transform: not-member', (t) => {
+    t.noTransform('not-member');
+    t.end();
+});
+
 test('plugin-react-hooks: remove-this: transform: code', (t) => {
     const from = `
         const {Component} = require('react');

@@ -15,7 +15,11 @@ module.exports.find = (ast, {push, traverse}) => {
         ThisExpression({parentPath}) {
             const propertyPath = parentPath.get('property');
             
+            if (!parentPath.isMemberExpression())
+                return;
+            
             const {name} = propertyPath.node;
+            
             push({
                 name,
                 path: parentPath,
