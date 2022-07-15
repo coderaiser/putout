@@ -8,14 +8,15 @@ const {
 const {traverseClass} = require('../common');
 
 const stateToHooks = require('./state-to-hooks');
-
 const setStateToHooks = require('./set-state-to-hooks');
+
 const {
     isIdentifier,
     isMemberExpression,
     isThisExpression,
     isAssignmentExpression,
 } = types;
+
 const {remove} = operator;
 
 module.exports.report = (path) => {
@@ -40,7 +41,10 @@ module.exports.fix = (path) => {
 
 module.exports.find = (ast, {push, traverse}) => {
     traverseClass(traverse, ast, {
-        AssignmentExpression: push,
+        AssignmentExpression: (path) => {
+            if (path.get('left').isMemberExpression())
+                push(path);
+        },
         VariableDeclarator: VariableDeclarator(push),
         CallExpression: CallExpression(push),
     });

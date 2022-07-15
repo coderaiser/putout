@@ -17,3 +17,8 @@ test('plugin-react-hooks: convert state to hooks: transform', (t) => {
     t.end();
 });
 
+test('plugin-react-hooks: convert state to hooks: no transform: assignment', (t) => {
+    t.noTransform('assignment');
+    t.end();
+});
+
