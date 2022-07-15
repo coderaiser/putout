@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-react-hooks",
-  "version": "4.4.0",
+  "version": "4.5.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability convert class components to hooks",
