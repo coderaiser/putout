@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-jest.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-jest"npm"
 
-`jest` plugin helps to migrate to [latest](https://jestjs.io/blog/2021/05/25/jest-27) [jest](https://jestjs.io/) API.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps to migrate to [latest](https://jestjs.io/blog/2021/05/25/jest-27) [jest](https://jestjs.io/) API.
 
 ## Install
 
