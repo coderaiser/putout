@@ -1,12 +1,12 @@
 ```json
 {
     "extends": [
-        "plugin:node/recommended",
+        "plugin:n/recommended",
         "plugin:putout/recommended"
     ],
     "plugins": [
         "putout",
-        "node"
+        "n"
     ]
 }
 ```

@@ -7,7 +7,7 @@ import {extend} from 'supertape';
 
 const config = {
     extends: [
-        'plugin:node/recommended',
+        'plugin:n/recommended',
         'plugin:eslint-plugin/recommended',
         'plugin:putout/recommended',
     ],

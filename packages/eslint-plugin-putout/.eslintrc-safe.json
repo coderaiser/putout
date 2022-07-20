@@ -5,11 +5,11 @@
         "@typescript-eslint/no-unused-vars": "off"
     },
     "extends": [
-        "plugin:node/recommended",
-        "plugin:putout/safe"
+        "plugin:n/recommended",
+        "plugin:putout/safe+align"
     ],
     "plugins": [
-        "node",
+        "n",
         "putout"
     ]
 }
