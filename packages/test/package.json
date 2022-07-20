@@ -1,6 +1,6 @@
 {
   "name": "@putout/test",
-  "version": "5.3.0",
+  "version": "5.4.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "test runner for putout plugins ",
