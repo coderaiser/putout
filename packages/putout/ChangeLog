@@ -1,3 +1,24 @@
+2022.07.20, v26.25.0
+
+fix:
+- (eslint-plugin-putout) no-unresolved: missing ./ after transform
+- (@putout/plugin-react-hooks) remove-this: exclude not MemberExpressions
+
+
+feature:
+- (package) eslint-plugin-putout v16.0.0
+- (@putout/test) eslint-plugin-node -> eslint-plugin-n
+- (putout) match: .eslintrc.json -> .eslintrc.*
+- (@putout/cli-cache) add ability to handle case where meta is null (while rebasing)
+- (eslint-plugin-putout) eslint-plugin-node -> eslint-plugin-n
+- (@putout/plugin-eslint) add convert-node-to-n
+- (@putout/plugin-react-hooks) convert-state-to-hook: exclude shorthand properties
+- (@putout/plugin-react-hooks) convert-class-to-function: exclude classes with lifecycle
+- (@putout/plugin-react-hooks) convert-state-to-hooks: exclude AssignmentExpression not related to MemberExpression
+- (@putout/plugin-remove-nested-blocks) improve support of reduce
+- (@putout/plugin-convert-reduce-to-for-of) improve support of reduce
+
+
 2022.07.12, v26.24.0
 
 feature:
