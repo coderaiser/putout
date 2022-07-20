@@ -73,7 +73,7 @@ test('putout: config: ignore: .idea', (t) => {
 
 test('putout: config: eslint', (t) => {
     const {match} = putoutConfig;
-    const is = match['.eslintrc*'];
+    const is = match['.eslintrc{*,.json}'];
     
     t.ok(is);
     t.end();
