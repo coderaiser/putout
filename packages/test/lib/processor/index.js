@@ -15,7 +15,7 @@ const processFile = require('putout/process-file');
 const {runProcessors} = require('@putout/engine-processor');
 
 const isStr = (a) => typeof a === 'string';
-const isUpdate = () => global.process.env.UPDATE;
+const isUpdate = () => Number(global.process.env.UPDATE);
 const update = async (a, b) => {
     const write = global.writeFile || writeFile;
     await write(a, b);

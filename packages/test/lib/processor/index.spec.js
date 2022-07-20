@@ -57,6 +57,28 @@ test('putout: test: processor: UPDATE', async ({process, calledWith}) => {
     calledWith(writeFile, [name, data]);
 }, {checkAssertionsCount: false});
 
+test('putout: test: processor: UPDATE: not a number', async ({process, notCalled}) => {
+    const {env} = global.process;
+    const {UPDATE} = env;
+    
+    env.UPDATE = 'hello';
+    
+    const writeFile = stub();
+    
+    global.writeFile = writeFile;
+    
+    await process('eslintrc');
+    
+    if (UPDATE)
+        env.UPDATE = UPDATE;
+    else
+        delete env.UPDATE;
+    
+    delete global.writeFile;
+    
+    notCalled(writeFile);
+}, {checkAssertionsCount: false});
+
 test('putout: test: processor: process: no filename', (t) => {
     const fail = stub();
     const createRunner = _createProcess();
