@@ -30,6 +30,20 @@ test('putout: test: processor: no process', async ({noProcess}) => {
     ]);
 });
 
+test('putout: test: processor: UPDATE', async ({process}) => {
+    const {env} = global.process;
+    const {UPDATE} = env;
+    
+    env.UPDATE = 1;
+    
+    await process('eslintrc');
+    
+    if (UPDATE)
+        env.UPDATE = UPDATE;
+    else
+        delete env.UPDATE;
+});
+
 test('putout: test: processor: process: no filename', (t) => {
     const fail = stub();
     const createRunner = _createProcess();

@@ -1,6 +1,9 @@
 'use strict';
 
-const {readFile} = require('fs/promises');
+const {
+    readFile,
+    writeFile,
+} = require('fs/promises');
 const {
     join,
     extname,
@@ -12,6 +15,8 @@ const processFile = require('putout/process-file');
 const {runProcessors} = require('@putout/engine-processor');
 
 const isStr = (a) => typeof a === 'string';
+const isUpdate = () => global.process.env.UPDATE;
+
 const buildOptions = ({options, plugins, processors}) => ({
     ...options,
     plugins: plugins || options.plugins,
@@ -109,6 +114,9 @@ async function process(filename, dir, {processors, plugins, extension, fix = tru
         options,
         rawSource,
     });
+    
+    if (isUpdate() && !noChange)
+        await writeFile(outputName, processedSource);
     
     return {
         processedSource,
