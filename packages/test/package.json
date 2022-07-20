@@ -3,7 +3,7 @@
   "version": "5.5.2",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "test runner for putout plugins ",
+  "description": "Test runner for 🐊Putout plugins ",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/test#readme",
   "main": "lib/test.js",
   "bin": {
