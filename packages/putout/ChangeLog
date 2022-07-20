@@ -15,7 +15,7 @@ fix:
 feature:
 - (package) hermes-parser v0.9.0
 - (@putout/test) processor: improve testing
-- (@putout/test) processsor: add support of UPDATE
+- (@putout/test) processors: add support of UPDATE
 
 
 2022.07.20, v26.25.0
