@@ -57,3 +57,8 @@ test('putout: plugin-eslint: transform: add-putout', (t) => {
     t.end();
 });
 
+test('putout: plugin-eslint: transform: convert-node-to-n', (t) => {
+    t.transform('convert-node-to-n');
+    t.end();
+});
+

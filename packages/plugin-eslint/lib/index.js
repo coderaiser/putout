@@ -10,6 +10,7 @@ module.exports.rules = {
     ...getRule('move-putout-to-end-of-extends'),
     ...getRule('convert-ide-to-safe'),
     ...getRule('convert-require-to-import'),
+    ...getRule('convert-node-to-n'),
     ...getRule('remove-no-unpublished-require'),
     ...getRule('remove-no-unsupported-features'),
     ...getRule('remove-overrides-with-empty-rules'),

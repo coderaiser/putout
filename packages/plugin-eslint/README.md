@@ -25,7 +25,7 @@ npm i @putout/plugin-eslint -D
         "eslint/move-putout-to-end-of-extends": "on",
         "eslint/convert-ide-to-safe": "on",
         "eslint/convert-require-to-import": "on",
-        "eslint/convert-import-to-require": "on",
+        "eslint/convert-node-to-n": "on",
         "eslint/remove-no-missing": "on",
         "eslint/remove-no-unpublished-require": "on",
         "eslint/remove-no-unsupported-features": "on",
@@ -269,6 +269,25 @@ And ofcourse remove only elements with empty `rules`:
       "node"
     ]
 };
+```
+
+## convert-node-to-n
+
+`eslint-plugin-node` [is no longer supported](https://github.com/mysticatea/eslint-plugin-node/issues/300). Better to use [`eslint-plugin-n`](https://github.com/weiran-zsd/eslint-plugin-node).
+
+```diff
+{
+    "extends": [
+        "plugin:putout/safe+align",
+-       "plugin:node/recommended"
++       "plugin:n/recommended"
+    ],
+    "plugins": [
+        "putout",
+-       "node"
++       "n"
+    ]
+}
 ```
 
 ## remove-no-missing

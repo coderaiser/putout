@@ -1,10 +1,10 @@
 __putout_processor_json({
     "extends": [
-        'plugin:n/recommended',
-        'plugin:putout/safe+align',
+        "plugin:node/recommended",
+        "plugin:putout/ide",
     ],
     "plugins": [
         "putout",
-        'n'
+        "node"
     ]
 });
