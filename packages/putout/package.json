@@ -3,7 +3,7 @@
   "version": "26.25.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊 Pluggable and configurable code transformer with built-in eslint and babel plugins support of js, jsx typescript, flow files, markdown, yaml and json",
+  "description": "🐊 Pluggable and configurable code transformer with built-in ESLint, Babel and support of js, jsx, typescript, flow, markdown, yaml and json",
   "homepage": "http://github.com/coderaiser/putout#readme",
   "main": "./lib/putout.js",
   "exports": {
@@ -109,7 +109,7 @@
     "@putout/plugin-declare-before-reference": "^1.0.0",
     "@putout/plugin-declare-imports-first": "^1.0.0",
     "@putout/plugin-declare-undefined-variables": "^7.0.0",
-    "@putout/plugin-eslint": "^4.0.0",
+    "@putout/plugin-eslint": "4.1.0",
     "@putout/plugin-extract-object-properties": "^8.0.0",
     "@putout/plugin-extract-sequence-expressions": "^3.0.0",
     "@putout/plugin-github": "^3.0.0",
