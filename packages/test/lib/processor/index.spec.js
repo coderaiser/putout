@@ -1,5 +1,6 @@
 'use strict';
 
+const {join} = require('path');
 const {stub} = require('supertape');
 
 const {
@@ -30,11 +31,16 @@ test('putout: test: processor: no process', async ({noProcess}) => {
     ]);
 });
 
-test('putout: test: processor: UPDATE', async ({process}) => {
+test('putout: test: processor: UPDATE', async ({process, calledWith}) => {
     const {env} = global.process;
     const {UPDATE} = env;
     
     env.UPDATE = 1;
+    
+    const {readFile} = require('fs/promises');
+    const writeFile = stub();
+    
+    global.writeFile = writeFile;
     
     await process('eslintrc');
     
@@ -42,7 +48,14 @@ test('putout: test: processor: UPDATE', async ({process}) => {
         env.UPDATE = UPDATE;
     else
         delete env.UPDATE;
-});
+    
+    delete global.writeFile;
+    
+    const name = join(__dirname, 'fixture/eslintrc-fix.json');
+    const data = await readFile(name, 'utf8');
+    
+    calledWith(writeFile, [name, data]);
+}, {checkAssertionsCount: false});
 
 test('putout: test: processor: process: no filename', (t) => {
     const fail = stub();

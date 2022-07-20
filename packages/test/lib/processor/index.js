@@ -16,6 +16,10 @@ const {runProcessors} = require('@putout/engine-processor');
 
 const isStr = (a) => typeof a === 'string';
 const isUpdate = () => global.process.env.UPDATE;
+const update = async (a, b) => {
+    const write = global.writeFile || writeFile;
+    await write(a, b);
+};
 
 const buildOptions = ({options, plugins, processors}) => ({
     ...options,
@@ -116,7 +120,7 @@ async function process(filename, dir, {processors, plugins, extension, fix = tru
     });
     
     if (isUpdate() && !noChange)
-        await writeFile(outputName, processedSource);
+        await update(outputName, processedSource);
     
     return {
         processedSource,
