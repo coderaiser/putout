@@ -89,6 +89,10 @@ const canUseCache = ({fileCache, getOptionsHash}) => (name, options) => {
         return false;
     
     const {changed, meta} = descriptor;
+    
+    if (!meta)
+        return false;
+    
     const {
         places,
         optionsHash,

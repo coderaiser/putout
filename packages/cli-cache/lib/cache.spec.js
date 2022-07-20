@@ -270,6 +270,44 @@ test('putout: cli: cache: enabled: canUseCache: changed', async (t) => {
     t.end();
 });
 
+test('putout: cli: cache: enabled: canUseCache: no meta', async (t) => {
+    const meta = null;
+    
+    const changed = true;
+    
+    const getFileDescriptor = stub().returns({
+        meta,
+        changed,
+    });
+    
+    const createFromFile = stub().returns({
+        getFileDescriptor,
+        reconcile: stub(),
+    });
+    
+    const fileEntryCache = {
+        createFromFile,
+    };
+    
+    mockRequire('./is-changed', stub());
+    mockRequire('file-entry-cache', fileEntryCache);
+    const {createCache} = reRequire('./cache');
+    
+    const fileCache = await createCache({
+        cache: true,
+        files: [],
+    });
+    
+    const name = 'hello';
+    const options = {};
+    
+    const result = fileCache.canUseCache(name, options);
+    stopAll();
+    
+    t.notOk(result);
+    t.end();
+});
+
 test('putout: cli: cache: enabled: canUseCache: no descriptor', async (t) => {
     const getFileDescriptor = stub().returns(null);
     
