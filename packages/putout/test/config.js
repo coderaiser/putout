@@ -71,3 +71,11 @@ test('putout: config: ignore: .idea', (t) => {
     t.end();
 });
 
+test('putout: config: eslint', (t) => {
+    const {match} = putoutConfig;
+    const is = match['.eslintrc*'];
+    
+    t.ok(is);
+    t.end();
+});
+

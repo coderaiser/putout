@@ -68,7 +68,7 @@
         "browserlist": {
             ".browserlistrc": "on"
         },
-        ".eslintrc.json": {
+        ".eslintrc*": {
             "eslint": "on",
             "eslint/convert-require-to-import": "off"
         },
