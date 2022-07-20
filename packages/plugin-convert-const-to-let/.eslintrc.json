@@ -3,11 +3,11 @@
         "no-const-assign": "off"
     },
     "extends": [
-        "plugin:node/recommended",
+        "plugin:n/recommended",
         "plugin:putout/recommended"
     ],
     "plugins": [
         "putout",
-        "node"
+        "n"
     ]
 }

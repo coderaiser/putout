@@ -49,7 +49,7 @@
     "@putout/processor-markdown": "*",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
-    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-n": "^15.2.4",
     "eslint-plugin-putout": "^15.0.0",
     "estrace": "*",
     "just-camel-case": "^4.0.2",

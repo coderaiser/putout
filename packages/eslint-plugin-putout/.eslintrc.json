@@ -21,13 +21,13 @@
         }
     }],
     "extends": [
-        "plugin:node/recommended",
+        "plugin:n/recommended",
         "plugin:eslint-plugin/recommended",
         "plugin:putout/safe+align"
     ],
     "plugins": [
         "eslint-plugin",
-        "node",
+        "n",
         "putout"
     ]
 }

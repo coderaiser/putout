@@ -3,11 +3,11 @@
         "no-useless-return": "off"
     },
     "extends": [
-        "plugin:node/recommended",
+        "plugin:n/recommended",
         "plugin:putout/recommended"
     ],
     "plugins": [
-        "node",
+        "n",
         "putout"
     ]
 }

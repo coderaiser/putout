@@ -6,11 +6,11 @@
         }
     }],
     "extends": [
-        "plugin:node/recommended",
+        "plugin:n/recommended",
         "plugin:putout/safe+align"
     ],
     "plugins": [
-        "node",
+        "n",
         "putout",
         "import"
     ]

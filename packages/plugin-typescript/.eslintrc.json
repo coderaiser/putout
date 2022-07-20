@@ -4,11 +4,11 @@
         "@typescript-eslint/array-type": "off"
     },
     "extends": [
-        "plugin:node/recommended",
+        "plugin:n/recommended",
         "plugin:putout/recommended"
     ],
     "plugins": [
         "putout",
-        "node"
+        "n"
     ]
 }
