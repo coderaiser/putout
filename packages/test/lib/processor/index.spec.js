@@ -21,6 +21,17 @@ const test = createTest(__dirname, {
     ],
 });
 
+const getBackEnv = (update) => {
+    const {env} = global.process;
+    
+    if (update) {
+        env.UPDATE = update;
+        return;
+    }
+    
+    delete env.UPDATE;
+};
+
 test('putout: test: processor: process', async ({process}) => {
     await process('eslintrc');
 });
@@ -44,17 +55,24 @@ test('putout: test: processor: UPDATE', async ({process, calledWith}) => {
     
     await process('eslintrc');
     
-    if (UPDATE)
-        env.UPDATE = UPDATE;
-    else
-        delete env.UPDATE;
-    
+    getBackEnv(UPDATE);
     delete global.writeFile;
     
     const name = join(__dirname, 'fixture/eslintrc-fix.json');
     const data = await readFile(name, 'utf8');
     
     calledWith(writeFile, [name, data]);
+}, {checkAssertionsCount: false});
+
+test('putout: test: processor: UPDATE: no global', async ({process}) => {
+    const {env} = global.process;
+    const {UPDATE} = env;
+    
+    env.UPDATE = 1;
+    
+    await process('eslintrc');
+    
+    getBackEnv(UPDATE);
 }, {checkAssertionsCount: false});
 
 test('putout: test: processor: UPDATE: not a number', async ({process, notCalled}) => {
@@ -69,11 +87,7 @@ test('putout: test: processor: UPDATE: not a number', async ({process, notCalled
     
     await process('eslintrc');
     
-    if (UPDATE)
-        env.UPDATE = UPDATE;
-    else
-        delete env.UPDATE;
-    
+    getBackEnv(UPDATE);
     delete global.writeFile;
     
     notCalled(writeFile);
