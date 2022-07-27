@@ -38,7 +38,7 @@ are also supported. Here is how it looks like:
 - [🤷‍♂️ Why does this project exist?](#%EF%B8%8F-why-does-this-project-exist)
 - [🚚 Installation](#-installation)
 - [🎙 Usage](#usage)
-- [🦕 Usage with Deno](#usage-with-deno)
+- [🦕 Usage with Deno](#-usage-with-deno)
 - [📐 What is **Ruler**?](#-what-is-ruler)
 - [✂️ How **Ruler** can help me?](#%EF%B8%8F-how-ruler-can-help-me)
 - [🚁 Convert `CommonJS` to `ESM`](#-convert-commonjs-to-esm)
