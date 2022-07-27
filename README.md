@@ -2536,7 +2536,7 @@ Applies 🐊**Putout** transformations for you :).
 **ESLint** begins his work as a formatter when 🐊**Putout** done his transformations. That's why it used a lot in different parts of application, for testing purpose and using **API** in a simplest possible way. You can access it with:
 
 ```js
-import {eslint} from 'putout/eslint';
+import eslint from 'putout/eslint';
 ```
 
 To use it simply write:
