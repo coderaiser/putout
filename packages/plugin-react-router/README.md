@@ -13,7 +13,7 @@
 npm i putout @putout/plugin-react-router -D
 ```
 
-Add `.putout.json` with:
+Update `.putout.json` with:
 
 ```json
 {
@@ -30,7 +30,8 @@ Here is list of rules:
 ```json
 {
     "rules": {
-        "react-router/convert-switch-to-routers": "on"
+        "react-router/convert-switch-to-routers": "on",
+        "react-router/convert-component-to-element": "on"
     }
 }
 ```
@@ -59,6 +60,22 @@ const routes = () => <Routes>
     <Route exact path="/login" component={ Login }/>
     <Route exact path="/join" component={ Join }/>
 </Routes>;
+```
+
+## convert-component-to-element
+
+`ReactRouter v6` [uses `element` instead of `component`](https://reactrouter.com/docs/en/v6/components/route).
+
+### ❌ Example of incorrect code
+
+```jsx
+<Route path="/" component ={Home} />;
+```
+
+### ✅ Example of correct code
+
+```jsx
+<Route path="/" element ={<Home />} />;
 ```
 
 ## License

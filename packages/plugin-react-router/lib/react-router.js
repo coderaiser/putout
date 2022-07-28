@@ -6,5 +6,6 @@ const getRule = (a) => ({
 
 module.exports.rules = {
     ...getRule('convert-switch-to-routes'),
+    ...getRule('convert-component-to-element'),
 };
 
