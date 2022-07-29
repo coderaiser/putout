@@ -3,9 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-react-router.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-react-router "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to migrate to latest version of [react router](https://reactrouter.com/docs/en/v6/upgrading/v5).
-
-*Not installed with putout by default*.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to migrate to latest version of [react router](https://reactrouter.com/docs/en/v6/upgrading/v5). *Not bundled*.
 
 ## Install
 
