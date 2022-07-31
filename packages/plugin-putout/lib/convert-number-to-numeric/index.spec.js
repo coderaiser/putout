@@ -17,6 +17,11 @@ test('plugin-putout: convert-number-to-numeric: transform', (t) => {
     t.end();
 });
 
+test('plugin-putout: convert-number-to-numeric: transform: twice', (t) => {
+    t.transform('twice');
+    t.end();
+});
+
 test('plugin-putout: convert-number-to-numeric: transform: create-node', (t) => {
     t.transform('create-node');
     t.end();
