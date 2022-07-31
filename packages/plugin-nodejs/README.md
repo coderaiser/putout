@@ -104,7 +104,8 @@ Only for **ESM**.
 #### ❌ Example of incorrect code
 
 ```js
-import {readFile} from 'fs/promises';
+const {join} = require('path');
+const path = require('path');
 
 const file1 = join(__dirname, '../../package.json');
 const file2 = path.join(__dirname, '../../package.json');
@@ -113,8 +114,6 @@ const file2 = path.join(__dirname, '../../package.json');
 #### ✅ Example of correct code
 
 ```js
-import {readFile} from 'fs/promises';
-
 const file1 = new URL('../../package.json', import.meta.url);
 const file2 = new URL('../../package.json', import.meta.url);
 ```
@@ -134,6 +133,7 @@ const file = new URL('../../package.json', import.meta.url);
 
 ```js
 const {readFile} = require('fs/promises');
+const {join} = require('path');
 const file = join(__dirname, '../../package.json');
 ```
 
