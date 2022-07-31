@@ -56,3 +56,8 @@ test('putout: plugin: nodejs: no transform: title', (t) => {
     t.noTransform('title');
     t.end();
 });
+
+test('putout: plugin: nodejs: transform: convert-buffer-to-buffer-alloc', (t) => {
+    t.transform('convert-buffer-to-buffer-alloc');
+    t.end();
+});

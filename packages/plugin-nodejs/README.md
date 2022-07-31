@@ -20,6 +20,7 @@ npm i putout @putout/plugin-nodejs -D
 ```json
 {
     "rules": {
+        "nodejs/convert-buffer-to-buffer-alloc": "on",
         "nodejs/convert-fs-promises": "on",
         "nodejs/convert-promisify-to-fs-promises": "on",
         "nodejs/convert-dirname-to-url": "on",
@@ -32,6 +33,38 @@ npm i putout @putout/plugin-nodejs -D
 ```
 
 ## Rules
+
+### convert-buffer-to-buffer-alloc
+
+According to [DEP0005](https://nodejs.org/api/deprecations.html#deprecations_dep0005_buffer_constructor). Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/5379bcdfa3d76f7b7121c9671ae48375/2fc2c7f96fc8284788c00914a9b29bfeea8b13d4).
+
+#### ❌ Example of incorrect code
+
+```js
+const n = 100;
+const buf = [];
+
+new Buffer(123);
+new Buffer(n);
+new Buffer('hello');
+
+new Buffer([]);
+new Buffer(buf);
+```
+
+#### ✅ Example of correct code
+
+```js
+const n = 100;
+const buf = [];
+
+Buffer.alloc(123);
+Buffer.alloc(n);
+Buffer.from('hello');
+
+Buffer.from([]);
+Buffer.from(buf);
+```
 
 ### convert-fs-promises
 
