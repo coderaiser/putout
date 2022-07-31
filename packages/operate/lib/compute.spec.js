@@ -1,5 +1,7 @@
 'use strict';
 
+const tryCatch = require('try-catch');
+
 const {parse, operator} = require('putout');
 const {test} = require('supertape');
 const {compute} = require('./compute');
@@ -432,5 +434,29 @@ test('operate: no compute: spread: chain', (t) => {
     });
     
     t.deepEqual(result, [NOT_COMPUTED]);
+    t.end();
+});
+
+test('operate: compute: not path', (t) => {
+    const ast = parse(`
+        const ReviewField = (props) => {
+            const {
+                errors,
+            } = {
+                ...props,
+            };
+            
+            if (errors.length > 1) {
+            }
+        };
+    `);
+    
+    const [error] = tryCatch(traverse, ast, {
+        BinaryExpression: (path) => {
+            compute(path.node);
+        },
+    });
+    
+    t.equal(error.message, `☝️ Looks like argument of 'compute' is not 'path'`);
     t.end();
 });

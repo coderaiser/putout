@@ -9,6 +9,10 @@ const COMPUTED = true;
 module.exports.compute = compute;
 function compute(path) {
     const {node} = path;
+    
+    if (!path.evaluate)
+        throw Error(`☝️ Looks like argument of 'compute' is not 'path'`);
+    
     const {confident, value} = path.evaluate();
     
     if (confident)
