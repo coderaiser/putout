@@ -36,7 +36,11 @@ npm i putout @putout/plugin-nodejs -D
 
 ### convert-buffer-to-buffer-alloc
 
-According to [DEP0005](https://nodejs.org/api/deprecations.html#deprecations_dep0005_buffer_constructor). Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/5379bcdfa3d76f7b7121c9671ae48375/2fc2c7f96fc8284788c00914a9b29bfeea8b13d4).
+> The `Buffer()` function and `new Buffer()` constructor are **deprecated** due to API usability issues that can lead to accidental security issues.
+>
+> (c) [DEP0005](https://nodejs.org/api/deprecations.html#deprecations_dep0005_buffer_constructor)
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/5379bcdfa3d76f7b7121c9671ae48375/2fc2c7f96fc8284788c00914a9b29bfeea8b13d4).
 
 #### ❌ Example of incorrect code
 
