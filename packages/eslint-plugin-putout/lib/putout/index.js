@@ -29,6 +29,7 @@ module.exports = {
             category: 'putout',
             recommended: true,
         },
+        schema: {},
         fixable: 'code',
     },
     
