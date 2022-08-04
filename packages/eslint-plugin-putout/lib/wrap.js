@@ -90,6 +90,7 @@ function getMeta(plugin) {
         docs: {
             recommended,
         },
+        schema: {},
         fixable,
     };
 }
