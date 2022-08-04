@@ -2252,7 +2252,7 @@ module.exports.fix = (path) => {
 };
 ```
 
-This should be done to preserve `loc` and `comments` information, which is different in `babel` and `recast`. `putout` will handle this case for you :),
+This should be done to preserve `loc` and `comments` information, which is different in **Babel** and **[Recast](https://github.com/putoutjs/putout)**. 🐊**Putout** will handle this case for you :),
 just use the methods of `operator`.
 
 ### 🐊 Putout Plugin
