@@ -4,6 +4,9 @@ const {replaceWithMultiple} = require('putout').operator;
 const {keys} = Object;
 
 const isIntersect = (bindingsA, path) => {
+    if (path.removed)
+        return false;
+    
     path.scope.crawl();
     
     const keysA = keys(bindingsA);

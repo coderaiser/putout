@@ -2,6 +2,7 @@
 
 const {createTest} = require('@putout/test');
 const removeEmptyBlock = require('.');
+const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
 
 const test = createTest(__dirname, {
     'remove-empty-block': removeEmptyBlock,
@@ -82,3 +83,9 @@ test('plugin-remove-empty: block: block-fn', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: block: transform: remove-nested-blocks', (t) => {
+    t.transform('remove-nested-blocks', {
+        removeNestedBlocks,
+    });
+    t.end();
+});

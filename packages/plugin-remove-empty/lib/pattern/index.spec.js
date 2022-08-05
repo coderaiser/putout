@@ -111,7 +111,7 @@ test('plugin-remove-empty: pattern: no report: no-args', (t) => {
     t.end();
 });
 
-test('plugin-remove-nested-blocks: transform: remove-unused-for-of-variables', (t) => {
+test('plugin-remove-empty: pattern: transform: remove-unused-for-of-variables', (t) => {
     t.transform('remove-unused-for-of-variables', {
         removeUnusedForOfVariables,
     });

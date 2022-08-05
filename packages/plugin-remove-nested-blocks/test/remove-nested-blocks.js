@@ -54,3 +54,4 @@ test('plugin-remove-nested-blocks: no transform: declared', (t) => {
     t.noTransform('declared');
     t.end();
 });
+
