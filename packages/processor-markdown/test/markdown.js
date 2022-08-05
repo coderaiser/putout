@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test/processor';
+import montag from 'montag';
 
 const test = createTest(import.meta.url, {
     extension: 'md',
@@ -80,6 +81,58 @@ test('putout: processor: markdown: compare places', async ({comparePlaces}) => {
 
 test('putout: processor: markdown: merge-heading-spaces: process', async ({process}) => {
     await process('merge-heading-spaces');
+});
+
+test('putout: processor: markdown: fix: options', async (t) => {
+    const {fix} = await import('../lib/markdown.js');
+    const source = montag`
+        # Hello
+        ## World
+    `;
+    
+    const result = await fix(source, {
+        plugins: [
+            (await import('madcut/plugin')).default,
+        ],
+    });
+    
+    const expected = montag`
+        # Hello
+        
+        -- good place for cut --
+        
+        ## World
+    
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('putout: processor: markdown: find: options', async (t) => {
+    const {find} = await import('../lib/markdown.js');
+    const source = montag`
+        # Hello
+        ## World
+    `;
+    
+    const result = await find(source, {
+        plugins: [
+            (await import('madcut/plugin')).default,
+        ],
+    });
+    
+    const expected = [{
+        message: 'World',
+        position: {
+            column: 1,
+            line: 1,
+        },
+        rule: 'madcut (remark-lint)',
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
 });
 
 test('putout: processor: markdown: merge-heading-spaces: comparePlaces', async ({comparePlaces}) => {

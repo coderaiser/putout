@@ -38,13 +38,19 @@ export const files = [
     '*.md',
 ];
 
-export const find = async (rawSource) => {
+export const find = async (rawSource, options = {}) => {
     await parseStore.init();
     
     const {messages} = await unified()
         .use(parseStore)
         .use(preset)
-        .use(run, {plugins, fix: false})
+        .use(run, {
+            fix: false,
+            plugins: [
+                ...plugins,
+                ...options.plugins || [],
+            ],
+        })
         .use(stringify, stringifyOptions)
         .process(rawSource);
     
@@ -52,13 +58,19 @@ export const find = async (rawSource) => {
         .map(toPlace);
 };
 
-export const fix = async (rawSource) => {
+export const fix = async (rawSource, options = {}) => {
     await parseStore.init();
     
     const {value} = await unified()
         .use(parseStore)
         .use(preset)
-        .use(run, {plugins, fix: true})
+        .use(run, {
+            fix: true,
+            plugins: [
+                ...plugins,
+                ...options.plugins || [],
+            ],
+        })
         .use(stringify, stringifyOptions)
         .process(rawSource);
     
