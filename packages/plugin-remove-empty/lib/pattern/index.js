@@ -16,6 +16,7 @@ module.exports.match = () => ({
     '__array = __': check,
     'function __a(__args) {}': checkArgs,
     '(__args) => __a': checkArgs,
+    'async (__args) => __a': checkArgs,
 });
 
 module.exports.replace = () => ({
@@ -28,6 +29,7 @@ module.exports.replace = () => ({
     '(__array) => __a': '() => __a',
     'function __a(__args) {}': replaceArgs,
     '(__args) => __a': replaceArgs,
+    'async (__args) => __a': replaceArgs,
 });
 
 const check = ({__array}, path) => {

@@ -5,3 +5,4 @@ function splitPlugins(plugins, {}) {
 const f1 = (a, b, c, {}) =>{
 };
 
+export default async ({}) => {};
