@@ -30,8 +30,12 @@ module.exports.replace = () => ({
     '(__args) => __a': replaceArgs,
 });
 
-const check = ({__array}) => {
+const check = ({__array}, path) => {
+    if (path.parentPath.isForOfStatement())
+        return false;
+    
     const {elements} = __array;
+    
     return elements.every(isFixable);
 };
 

@@ -4,6 +4,8 @@ const {createTest} = require('@putout/test');
 const removeUnusedForOfVariables = require('..');
 
 const removeUselessVariables = require('@putout/plugin-remove-useless-variables');
+const removeEmpty = require('@putout/plugin-remove-empty');
+
 const test = createTest(__dirname, {
     'remove-unused-for-of-variables': removeUnusedForOfVariables,
 });
@@ -66,6 +68,13 @@ test('remove unused for-of-variables: no transform: spread', (t) => {
 test('remove unused for-of-variables: transform: remove-useless-variables: for-of', (t) => {
     t.transform('for-of', {
         'remove-useless-variables/for-of': removeUselessVariables,
+    });
+    t.end();
+});
+
+test('remove unused for-of-variables: transform: remove-empty', (t) => {
+    t.transform('remove-empty', {
+        removeEmpty,
     });
     t.end();
 });

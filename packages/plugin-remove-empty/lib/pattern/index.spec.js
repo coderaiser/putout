@@ -3,6 +3,9 @@
 const {createTest} = require('@putout/test');
 const montag = require('montag');
 const removeEmptyPattern = require('.');
+
+const removeUnusedForOfVariables = require('@putout/plugin-remove-unused-for-of-variables');
+
 const test = createTest(__dirname, {
     'remove-empty-pattern': removeEmptyPattern,
 });
@@ -108,3 +111,9 @@ test('plugin-remove-empty: pattern: no report: no-args', (t) => {
     t.end();
 });
 
+test('plugin-remove-nested-blocks: transform: remove-unused-for-of-variables', (t) => {
+    t.transform('remove-unused-for-of-variables', {
+        removeUnusedForOfVariables,
+    });
+    t.end();
+});
