@@ -44,3 +44,14 @@ test('merge duplicate imports: transform: declare', (t) => {
     t.end();
 });
 
+test.only('merge duplicate imports: transform: remove', (t) => {
+    t.transform('remove', {
+        'remove': {
+            report: () => {},
+            include: () => ['ImportDeclaration'],
+            fix: (path) => path.remove(),
+        }
+    });
+    t.end();
+});
+
