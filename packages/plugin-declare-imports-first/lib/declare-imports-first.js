@@ -10,8 +10,8 @@ module.exports.fix = ({path, importPath}) => {
     
     while(--preventInfiniteLoop) {
         const {node} = importPath;
-        replaceWith(importPath, prev.node);
         
+        replaceWith(importPath, prev.node);
         replaceWith(prev, node);
         
         importPath = prev;
@@ -32,7 +32,7 @@ module.exports.traverse = ({push, listStore}) => ({
                 if (importPath) {
                     const path = importPath.getPrevSibling();
                     
-                    if (path.node && !path.isImportDeclaration())
+                    if (path.node && !path.isImportDeclaration() && importPath.node)
                         push({
                             path,
                             importPath,
