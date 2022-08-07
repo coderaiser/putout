@@ -36,22 +36,19 @@ module.exports.fix = ({path, firstRequire, lastRequire}) => {
     lastRequire.insertAfter(node);
 };
 
-module.exports.traverse = ({push, listStore}) => ({
+module.exports.traverse = ({push, pathStore}) => ({
     'const __a = __b': (path) => {
         if (!path.parentPath.isProgram())
             return;
         
-        listStore(path);
+        pathStore(path);
     },
     'Program': {
         exit() {
             const requirePaths = [];
             const constPaths = [];
             
-            for (const path of listStore()) {
-                if (!path.node)
-                    continue;
-                
+            for (const path of pathStore()) {
                 if (path.node.__putoutNodeDeclareAfterRequire)
                     continue;
                 
