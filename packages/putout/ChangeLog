@@ -1,3 +1,37 @@
+2022.08.08, v27.1.0
+
+fix:
+- feature: processor-markdown: find, add ability to pass additional plugins from options
+- (eslint-plugin-putout) wrap: add schema
+- (eslint-plugin-putout) putout: schema (close typescript-eslint/typescript-eslint#5420)
+
+feature:
+- (package) @putout/plugin-declare-imports-first v2.0.0
+- (package) @putout/plugin-merge-duplicate-imports v7.0.0
+- (package) @putout/plugin-nodejs v5.0.0
+- (package) @putout/plugin-typescript v3.0.0
+- (package) @putout/engine-runner v14.0.0
+- (@putout/plugin-typescript) drop support of 🐊 < 27
+- (@putout/plugin-typescript) remove-duplicates-from-union: listStore -> pathStore
+- (@putout/test) UPDATE: add support of TypeScript fixtures
+- (@putout/plugin-nodejs) drop support of 🐊 < 27
+- (@putout/plugin-nodejs) declare-after-require: listStore -> pathStore
+- (@putout/plugin-merge-duplicate-imports) listStore -> pathStore
+- (@putout/plugin-merge-duplicate-imports) drop support of 🐊 < 27
+- (@putout/plugin-declare-imports-first) drop support of 🐊 < 27
+- (@putout/plugin-declare-imports-first) listStore -> pathStore
+- (@putout/engine-runner) store: add pathStore: with additional check that path not removed
+- (@putout/plugin-declare-imports-first) improve support of removed ImportDeclarations
+- (@putout/plugin-remove-empty) pattern: improve support of AsyncFunctionExpression
+- (@putout/plugin-remove-nested-blocks) improve support of @putout/plugin-remove-empty
+- (@putout/plugin-remove-empty) improve support of @putout/plugin-remove-unused-for-of-variables
+- processor-markdown: find, fix: add ability to pass additional plugins from options
+- (@putout/plugin-nodejs) add convert-buffer-to-buffer-alloc
+- (@putout/operate) improve compute check
+- (@putout/plugin-putout) convert-number-to-numeric: improve support cases when both Number and Numeric declared
+- (@putout/plugin-react-router) add convert-component-to-element
+- (@putout/plugin-react-router) add
+
 2022.07.20, v27.0.1
 
 fix:
