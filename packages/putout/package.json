@@ -120,7 +120,7 @@
     "@putout/plugin-merge-if-statements": "^3.0.0",
     "@putout/plugin-montag": "^1.0.0",
     "@putout/plugin-new": "^1.0.0",
-    "@putout/plugin-nodejs": "^4.0.0",
+    "@putout/plugin-nodejs": "^5.0.0",
     "@putout/plugin-npmignore": "^2.0.0",
     "@putout/plugin-package-json": "^4.0.0",
     "@putout/plugin-promises": "^8.0.0",
