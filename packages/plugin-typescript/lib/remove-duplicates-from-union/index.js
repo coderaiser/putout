@@ -12,7 +12,7 @@ module.exports.fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push, listStore}) => ({
+module.exports.traverse = ({push, pathStore}) => ({
     TSUnionType(path) {
         const types = path.get('types');
         
@@ -22,12 +22,12 @@ module.exports.traverse = ({push, listStore}) => ({
             if (foundTypes.length === 1)
                 continue;
             
-            listStore(foundTypes.pop());
+            pathStore(foundTypes.pop());
         }
     },
     Program: {
         exit() {
-            for (const path of listStore())
+            for (const path of pathStore())
                 push(path);
         },
     },

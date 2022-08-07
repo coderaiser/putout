@@ -1,7 +1,11 @@
 'use strict';
 
+const {operator} = require('putout');
+
 const {createTest} = require('@putout/test');
+
 const removeDuplicatesFromUnion = require('.');
+const {remove} = operator;
 
 const test = createTest(__dirname, {
     'remove-duplicates-from-union': removeDuplicatesFromUnion,
@@ -24,6 +28,17 @@ test('plugin-remove-duplicates-from-union: report: object', (t) => {
 
 test('plugin-remove-duplicates-from-union: transform: object', (t) => {
     t.transform('object');
+    t.end();
+});
+
+test('plugin-remove-duplicates-from-union: transform: remove', (t) => {
+    t.transform('remove', {
+        remove: {
+            report: () => {},
+            include: () => ['TSTypeLiteral'],
+            fix: (path) => remove(path),
+        },
+    });
     t.end();
 });
 
