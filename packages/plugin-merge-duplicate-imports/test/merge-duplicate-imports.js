@@ -1,11 +1,14 @@
 'use strict';
 
+const {operator} = require('putout');
 const declareUndefinedVariables = require('@putout/plugin-declare-undefined-variables');
 
 const {createTest} = require('@putout/test');
 const {declare} = require('@putout/plugin-tape').rules;
 
 const mergeDebugger = require('..');
+
+const {remove} = operator;
 const test = createTest(__dirname, {
     'merge-duplicate-imports': mergeDebugger,
 });
@@ -44,13 +47,13 @@ test('merge duplicate imports: transform: declare', (t) => {
     t.end();
 });
 
-test.only('merge duplicate imports: transform: remove', (t) => {
+test('merge duplicate imports: transform: remove', (t) => {
     t.transform('remove', {
-        'remove': {
+        remove: {
             report: () => {},
             include: () => ['ImportDeclaration'],
-            fix: (path) => path.remove(),
-        }
+            fix: (path) => remove(path),
+        },
     });
     t.end();
 });

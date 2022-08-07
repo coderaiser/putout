@@ -26,14 +26,14 @@ module.exports.fix = ({path, imports}) => {
     }
 };
 
-module.exports.traverse = ({push, listStore}) => ({
+module.exports.traverse = ({push, pathStore}) => ({
     ImportDeclaration(path) {
-        listStore(path);
+        pathStore(path);
     },
     
     Program: {
         exit: () => {
-            processImports(push, listStore());
+            processImports(push, pathStore());
         },
     },
 });
