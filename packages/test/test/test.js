@@ -113,6 +113,23 @@ test('test: transform: rule of a plugin: remove-unused-variables', (t) => {
         t.end();
     }, {checkAssertionsCount: false});
     
+    test('transform: with UPDATE env variable: js', (t) => {
+        const {UPDATE} = process.env;
+        process.env.UPDATE = 1;
+        const {writeFileSync} = global.__putout_test_fs;
+        
+        const writeFileSyncStub = stub();
+        global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+        
+        t.transform('update');
+        
+        process.env.UPDATE = UPDATE;
+        global.__putout_test_fs.writeFileSync = writeFileSync;
+        
+        t.ok(writeFileSyncStub.called, 'should write fixture');
+        t.end();
+    }, {checkAssertionsCount: false});
+    
     test('transform: with UPDATE env variable: with arg', (t) => {
         const {UPDATE} = process.env;
         process.env.UPDATE = 1;

@@ -42,6 +42,15 @@ const readFixture = (name) => {
     return [readFileSync(`${name}.js`, 'utf8'), TS.DISABLED];
 };
 
+const writeFixture = ({full, code, isTS}) => {
+    const {writeFileSync} = global.__putout_test_fs;
+    
+    if (!isTS)
+        return writeFileSync(`${full}-fix.js`, code);
+    
+    writeFileSync(`${full}-fix.ts`, code);
+};
+
 const rmFixture = (name) => {
     const {unlinkSync} = global.__putout_test_fs;
     
@@ -225,8 +234,6 @@ const formatSave = currify(({dir, plugins, rules}, t) => async (formatter, name,
 });
 
 const transform = currify(({dir, plugins, rules}, t, name, transformed = null, addons = {}) => {
-    const {writeFileSync} = global.__putout_test_fs;
-    
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
     const isStr = isString(transformed);
@@ -248,7 +255,11 @@ const transform = currify(({dir, plugins, rules}, t, name, transformed = null, a
     });
     
     if (isUpdate() && !isStr) {
-        writeFileSync(`${full}-fix.js`, code);
+        writeFixture({
+            full,
+            code,
+            isTS,
+        });
     }
     
     return t.equal(code, output);
