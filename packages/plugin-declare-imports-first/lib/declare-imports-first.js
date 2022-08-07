@@ -1,8 +1,8 @@
 'use strict';
 
-module.exports.report = () => `Declare imports first`;
-
 const {replaceWith} = require('putout').operator;
+
+module.exports.report = () => `Declare imports first`;
 
 module.exports.fix = ({path, importPath}) => {
     let prev = path;
@@ -22,17 +22,17 @@ module.exports.fix = ({path, importPath}) => {
     }
 };
 
-module.exports.traverse = ({push, listStore}) => ({
+module.exports.traverse = ({push, pathStore}) => ({
     ImportDeclaration: (path) => {
-        listStore(path);
+        pathStore(path);
     },
     Program: {
         exit: () => {
-            for (const importPath of listStore()) {
+            for (const importPath of pathStore()) {
                 if (importPath) {
                     const path = importPath.getPrevSibling();
                     
-                    if (path.node && !path.isImportDeclaration() && importPath.node)
+                    if (path.node && !path.isImportDeclaration())
                         push({
                             path,
                             importPath,
