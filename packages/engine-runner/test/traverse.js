@@ -285,3 +285,33 @@ test('putout: runner: plugins: traverse: store: uplist: clear', (t) => {
     t.end();
 });
 
+test('putout: runner: plugins: traverse: pathStore', (t) => {
+    let result = [];
+    
+    const addVar = {
+        report: () => '',
+        traverse: ({pathStore}) => ({
+            'debugger'(path) {
+                pathStore(path);
+                path.remove();
+            },
+            Program: {
+                exit() {
+                    result = pathStore();
+                },
+            },
+        }),
+    };
+    
+    putout('debugger', {
+        runPlugins,
+        plugins: [{
+            'add-variable': addVar,
+        }],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

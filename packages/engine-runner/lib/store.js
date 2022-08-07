@@ -7,27 +7,12 @@ const {
 } = Object;
 
 const toArray = (a) => Array.from(a);
+const isNotRemoved = (a) => a.node;
+const notRemoved = (a) => toArray(a).filter(isNotRemoved);
+const id = (a) => a;
 
-module.exports.listStore = (list = new Set()) => {
-    const fn = (...args) => {
-        if (!args.length)
-            return Array.from(list);
-        
-        const [a] = args;
-        list.add(a);
-        
-        return Array.from(list);
-    };
-    
-    fn.clear = () => {
-        const a = list;
-        list = new Set();
-        
-        return Array.from(a);
-    };
-    
-    return fn;
-};
+module.exports.listStore = createListStore();
+module.exports.pathStore = createListStore(notRemoved);
 
 module.exports.mapStore = createStore({
     get(map) {
@@ -82,3 +67,23 @@ function createStore({set, get}) {
     };
 }
 
+function createListStore(returns = id) {
+    return (list = new Set()) => {
+        const fn = (...args) => {
+            if (!args.length)
+                return returns(toArray(list));
+            
+            const [a] = args;
+            list.add(a);
+        };
+        
+        fn.clear = () => {
+            const a = list;
+            list = new Set();
+            
+            return returns(toArray(a));
+        };
+        
+        return fn;
+    };
+}

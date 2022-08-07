@@ -237,6 +237,7 @@ Stores is preferred way of keeping 🐊**Putout** data, `traverse` init function
 of handling variables will most likely will lead to bugs. There is 3 store types:
 
 - ✅`listStore`;
+- ✅`pathStore`;
 - ✅`store`;
 - ✅`upstore`;
 - ✅`uplist`;
@@ -270,6 +271,34 @@ module.exports.traverse = ({listStore}) => ({
             [{type: 'DebuggerStatement'}, {type: 'DebuggerStatement'}];
             // for code
             'debugger; debugger';
+        },
+    },
+});
+```
+
+### `pathStore`
+
+When you want additional check that `path` not removed.
+
+```js
+debugger;
+const hello = '';
+```
+
+Let's process it!
+
+```js
+module.exports.traverse = ({pathStore}) => ({
+    'debugger'(path) {
+        pathStore(path);
+        path.remove();
+    },
+    
+    Program: {
+        exit() {
+            console.log(listStore());
+            // returns
+            [];
         },
     },
 });

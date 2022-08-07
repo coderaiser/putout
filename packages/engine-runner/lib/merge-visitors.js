@@ -11,6 +11,7 @@ const {
     mapStore,
     upStore,
     upListStore,
+    pathStore,
 } = require('./store');
 
 const shouldSkip = (a) => !a.parent;
@@ -40,6 +41,7 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
             store,
             upstore,
             listStore,
+            pathStore,
             uplist,
         } = getStore(plugin, {
             fix,
@@ -55,6 +57,7 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
             push,
             store,
             listStore,
+            pathStore,
             upstore,
             uplist,
             generate,
@@ -94,6 +97,7 @@ function getStore(plugin, {fix, rule, shebang, msg, options}) {
     const upstore = upStore();
     const placesStore = listStore();
     const uplist = upListStore();
+    const paths = pathStore();
     
     const push = (path) => {
         const position = getPosition(path, shebang);
@@ -117,6 +121,7 @@ function getStore(plugin, {fix, rule, shebang, msg, options}) {
         list.clear();
         upstore.clear();
         uplist.clear();
+        paths.clear();
         
         return placesStore.clear();
     };
@@ -128,6 +133,7 @@ function getStore(plugin, {fix, rule, shebang, msg, options}) {
         listStore: list,
         upstore,
         uplist,
+        pathStore: paths,
     };
 }
 
