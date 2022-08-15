@@ -273,9 +273,9 @@ For example if you need to `remove-something` create 🐊[**Putout**](https://gi
 const putout = require('putout');
 
 const source = `
-const t = 'hello';
-const m = t + '!';
-console.log(t);
+    const t = 'hello';
+    const m = t + '!';
+    console.log(t);
 `;
 
 putout(source, {
