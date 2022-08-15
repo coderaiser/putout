@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/cli-cache.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/cli-cache "npm"
 
-Create `cache` of places found by [putout](https://github.com/coderaiser/putout).
+Create `cache` of places found by 🐊[Putout](https://github.com/coderaiser/putout).
 
 ## Install
 
