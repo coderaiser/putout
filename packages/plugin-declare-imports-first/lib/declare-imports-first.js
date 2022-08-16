@@ -26,17 +26,36 @@ module.exports.traverse = ({push, pathStore}) => ({
     ImportDeclaration: (path) => {
         pathStore(path);
     },
+    ExportNamedDeclaration: (path) => {
+        const {source} = path.node;
+        
+        if (!source)
+            return;
+        
+        pathStore(path);
+    },
+    ExportAllDeclaration: (path) => {
+        pathStore(path);
+    },
     Program: {
         exit: () => {
             for (const importPath of pathStore()) {
                 if (importPath) {
                     const path = importPath.getPrevSibling();
                     
-                    if (path.node && !path.isImportDeclaration())
-                        push({
-                            path,
-                            importPath,
-                        });
+                    if (!path.node)
+                        continue;
+                    
+                    if (path.isImportDeclaration())
+                        continue;
+                    
+                    if (path.isExportDeclaration())
+                        continue;
+                    
+                    push({
+                        path,
+                        importPath,
+                    });
                 }
             }
         },

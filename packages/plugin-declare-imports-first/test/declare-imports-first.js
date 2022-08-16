@@ -21,6 +21,16 @@ test('plugin-declaration-imports-first: transform', (t) => {
     t.end();
 });
 
+test('plugin-declaration-imports-first: transform: export-from', (t) => {
+    t.transform('export-from');
+    t.end();
+});
+
+test('plugin-declaration-imports-first: no report: no-vars', (t) => {
+    t.noReport('no-vars');
+    t.end();
+});
+
 test('plugin-declaration-imports-first: transform: remove', (t) => {
     t.transform('remove', {
         remove: {
