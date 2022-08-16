@@ -1014,7 +1014,7 @@ const putout = require('putout');
 
 </details>
 
-<details><summary>convert <code>indexOf()</code> to <code>includes()</code></summary>
+<details><summary>convert <code>sqrt()</code> to <code>hypot()</code></summary>
 
 ```diff
 -Math.sqrt(a ** 2 + b ** 2);
