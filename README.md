@@ -2691,7 +2691,6 @@ import {OK} from 'putout/exit-codes';
 - [**ESTrace**](https://github.com/coderaiser/estrace): Trace functions in EcmaScript Modules.
 - 🎩[**ESCover**](https://github.com/coderaiser/escover): Coverage for EcmaScript Modules.
 - ♨️ [**Speca**](https://github.com/coderaiser/speca): Write [tape](https://github.com/coderaiser/supertape) tests for you.
-- Modules.
 - [**Goldstein**](https://github.com/coderaiser/goldstein): JavaScript with no limits 🤫.
 - [🎬**MadCut**](https://github.com/coderaiser/goldstein): CLI tool to cut markdown into peaces.
 
