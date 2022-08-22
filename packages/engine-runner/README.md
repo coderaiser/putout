@@ -65,6 +65,8 @@ module.exports.report = () => 'debugger should not be used';
 module.exports.replace = () => ({
     debugger: '',
 });
+
+// debugger; alert(); -> alert();
 ```
 
 Templates:
@@ -75,6 +77,8 @@ module.exports.report = () => 'any message here';
 module.exports.replace = () => ({
     'var __a = 1': 'const __a = 1',
 });
+
+// var x = 1; -> const x = 1;
 ```
 
 A couple variables example:
@@ -85,6 +89,8 @@ module.exports.report = () => 'any message here';
 module.exports.replace = () => ({
     'const __a = __b': 'const __b = __a',
 });
+
+// const hello = world; -> const world = hello;
 ```
 
 #### Processing of node using functions
@@ -102,6 +108,8 @@ module.exports.replace = () => ({
         return '';
     },
 });
+
+// for (a of b) {}; alert(); -> alert();
 ```
 
 Update node:
@@ -111,11 +119,13 @@ module.exports.report = () => 'any message here';
 
 module.exports.replace = () => ({
     'for (const __a of __array) __c': ({__a, __array, __c}, path) => {
-        // update __array elements count
+        // update __array elements
         path.node.right.elements = [];
         return path;
     },
 });
+
+// for (const a of [1, 2, 3]) {}; -> for (const a of []) {};
 ```
 
 Update node using template variables:
@@ -129,6 +139,8 @@ module.exports.replace = () => ({
         return 'for (const x of y) z';
     },
 });
+
+// for (const item of array) {}; -> for (const x of y) z;
 ```
 
 ### Includer
