@@ -224,8 +224,8 @@ const ast = parse('const m = "hi"; debugger');
 const places = runPlugins({
     ast,
     shebang: false, // default
-    fix: true, // default
-    fixCount: 1, // default
+    fix: false, // default
+    fixCount: 0, // default
     plugins,
     parser: 'babel', // default
 });
@@ -234,7 +234,7 @@ const places = runPlugins({
 ## Stores
 
 Stores is preferred way of keeping 🐊**Putout** data, `traverse` init function called only once, and any other way
-of handling variables will most likely will lead to bugs. There is 3 store types:
+of handling variables will most likely will lead to bugs. There is a couple store types:
 
 - ✅`listStore`;
 - ✅`pathStore`;
