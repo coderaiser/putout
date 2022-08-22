@@ -378,14 +378,14 @@ When you need to update named arrays:
 module.exports.traverse = ({uplist, push}) => ({
     'const __object = __a.__b': (fullPath) => {
         const {__a, __b} = getTemplateValues(fullPath, 'const __object = __a.__b');
-        const path = fullPath.get('declarations.0.init');
-        const {uid} = path.scope;
+        const initPath = fullPath.get('declarations.0.init');
+        const {uid} = initPath.scope;
         
         if (isIdentifier(__a) || isCallExpression(__a)) {
             const {code} = generate(__a);
             const id = `${uid}-${code}`;
             
-            return uplist(id, path);
+            return uplist(id, initPath);
         }
     },
     'Program': {
