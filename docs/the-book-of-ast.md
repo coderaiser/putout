@@ -68,7 +68,7 @@ Friends['🐘']; // has computed value '🐘'
 Friends.elephant; // has not computed value 'elephant'
 ```
 
-"Anytime you access a **property** of **object** or **index** of an **array** you using **MemberExpression**", thought the crocodile wagging his tail.
+"Anytime you access a **property** of **object** or **index** of **array** you using **MemberExpression**", thought the crocodile wagging his tail.
 
 ## Identifier
 
