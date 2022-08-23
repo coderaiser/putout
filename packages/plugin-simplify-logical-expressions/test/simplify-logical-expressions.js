@@ -52,3 +52,8 @@ test('plugin-simplify-logical-expression: transform: object', (t) => {
     t.end();
 });
 
+test('plugin-simplify-logical-expressions: transform: duplicates', (t) => {
+    t.transform('duplicates');
+    t.end();
+});
+

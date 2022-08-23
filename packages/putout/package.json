@@ -134,7 +134,6 @@
     "@putout/plugin-remove-debugger": "^5.0.0",
     "@putout/plugin-remove-duplicate-case": "^2.0.0",
     "@putout/plugin-remove-duplicate-keys": "^3.0.0",
-    "@putout/plugin-remove-duplicates-from-logical-expressions": "^1.0.0",
     "@putout/plugin-remove-empty": "^8.0.0",
     "@putout/plugin-remove-iife": "^1.0.0",
     "@putout/plugin-remove-nested-blocks": "^6.0.0",
