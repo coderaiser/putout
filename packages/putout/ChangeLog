@@ -1,3 +1,12 @@
+2022.08.24, v27.2.0
+
+feature:
+- (package) @putout/plugin-simplify-logical-expressions v4.0.0
+- (@putout/plugin-simplify-logical-expressions) merge @putout/plugin-remove-duplicates-from-logical-expressions
+- (@putout/plugin-convert-const-to-let) improve support of split-variable-declarations
+- (@putout/plugin-extract-object-properties) deep-equal: traverse: path -> initPath
+- (@putout/plugin-declare-imports-first) add support of export from
+
 2022.08.08, v27.1.0
 
 fix:
