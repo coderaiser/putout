@@ -622,15 +622,6 @@ putout(source, {
 
 </details>
 
-<details><summary>remove duplicates from <code>logical expressions</code></summary>
-
-```diff
--a && b && a
-+a && b
-```
-
-</details>
-
 <details><summary>remove unused <code>for...of</code>variables</summary>
 
 ```diff
@@ -1925,7 +1916,6 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-remove-constant-conditions`](/packages/plugin-remove-constant-conditions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-constant-conditions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-constant-conditions) |
 | [`@putout/plugin-remove-boolean-from-assertions`](/packages/plugin-remove-boolean-from-assertions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-boolean-from-assertions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-boolean-from-assertions) |
 | [`@putout/plugin-remove-boolean-from-logical-expressions`](/packages/plugin-remove-boolean-from-logical-expressions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-boolean-from-logical-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-boolean-from-logical-expressions) |
-| [`@putout/plugin-remove-duplicates-from-logical-expressions`](/packages/plugin-remove-duplicates-from-logical-expressions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-duplicates-from-logical-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-duplicates-from-logical-expressions) |
 | [`@putout/plugin-remove-nested-blocks`](/packages/plugin-remove-nested-blocks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-nested-blocks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-nested-blocks) |
 
 ### Simplifiers

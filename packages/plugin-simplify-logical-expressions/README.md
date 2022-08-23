@@ -74,6 +74,13 @@ Wrong cases with `in`:
 +!(a in b);
 ```
 
+In case of duplicates:
+
+```diff
+-a && b && a
++a && b
+```
+
 ## Comparison
 
 Linter | Rule | Fix

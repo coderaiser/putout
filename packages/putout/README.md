@@ -101,7 +101,6 @@ module.exports.replace = () => ({
 - ✅ remove `constant conditions`;
 - ✅ remove `boolean` from `assertion`;
 - ✅ remove `boolean` from `logical expressions`;
-- ✅ remove `duplicates` from `logical expressions`;
 - ✅ remove `duplicates` from TypeScript `Union`;
 - ✅ remove `unreachable code`;
 - ✅ remove `duplicate keys`;
