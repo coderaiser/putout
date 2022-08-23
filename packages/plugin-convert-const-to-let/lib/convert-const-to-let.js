@@ -16,6 +16,9 @@ module.exports.traverse = ({push}) => ({
             
             const {parentPath} = binding.path;
             
+            if (!parentPath.node)
+                continue;
+            
             if (binding.path.isVariableDeclarator() && parentPath.node.kind === 'const') {
                 push(binding.path.parentPath);
             }

@@ -1,6 +1,8 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
+const splitVariableDeclarations = require('@putout/plugin-split-variable-declarations');
+
 const plugin = require('..');
 
 const test = createTest(__dirname, {
@@ -34,6 +36,13 @@ test('plugin-convert-const-to-let: no report after transform: multiple', (t) => 
 
 test('plugin-convert-const-to-let: no report: no-reassign', (t) => {
     t.noReport('no-reassign');
+    t.end();
+});
+
+test('plugin-convert-const-to-let: transform: split-variable-declarations', (t) => {
+    t.transform('split-variable-declarations', {
+        'split-variable-declaration': splitVariableDeclarations,
+    });
     t.end();
 });
 
