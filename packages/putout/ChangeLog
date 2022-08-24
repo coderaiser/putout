@@ -1,3 +1,14 @@
+2022.08.24, v27.3.0
+
+fix:
+- @putout/plugin-madrun: description
+
+feature:
+- @putout/plugin-logical-expressions: add remove-duplicates
+- @putout/plugin-logical-expressions: add
+- (package) @putout/plugin-simplify-logical-expressions v4.0.0
+- (@putout/plugin-simplify-logical-expressions) merge @putout/plugin-remove-duplicates-from-logical-expressions
+
 2022.08.24, v27.2.0
 
 feature:
