@@ -4,7 +4,7 @@ const {createTest} = require('@putout/test');
 const logicalExpressions = require('..');
 
 const test = createTest(__dirname, {
-    logicalExpressions,
+    'logical-expressions': logicalExpressions,
 });
 
 test('plugin-logical-expressions: transform: simplify', (t) => {
@@ -14,6 +14,11 @@ test('plugin-logical-expressions: transform: simplify', (t) => {
 
 test('plugin-logical-expressions: transform: remove-boolean', (t) => {
     t.transform('remove-boolean');
+    t.end();
+});
+
+test('plugin-logical-expressions: transform: remove-duplicates', (t) => {
+    t.transform('remove-duplicates');
     t.end();
 });
 

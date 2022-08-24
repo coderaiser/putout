@@ -25,6 +25,7 @@ npm i @putout/plugin-logical-expressions -D
     "rules": {
         "logical-expressions/simplify": "on",
         "logical-expressions/remove-boolean": "on",
+        "logical-expressions/remove-duplicates": "on",
         "logical-expressions/convert-bitwise-to-logical": "on"
     }
 }
@@ -102,6 +103,20 @@ const t = true && false;
 
 ```js
 const t = false;
+```
+
+## remove-duplicates
+
+### ❌ Example of incorrect code
+
+```js
+const t = a && b && a;
+```
+
+### ✅ Example of correct code
+
+```js
+const t = a && b;
 ```
 
 ## convert-bitwise-to-logical

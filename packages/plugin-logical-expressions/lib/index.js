@@ -7,6 +7,7 @@ const getRule = (a) => ({
 module.exports.rules = {
     ...getRule('simplify'),
     ...getRule('remove-boolean'),
+    ...getRule('remove-duplicates'),
     ...getRule('convert-bitwise-to-logical'),
 };
 
