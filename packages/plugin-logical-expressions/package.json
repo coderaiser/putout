@@ -1,11 +1,11 @@
 {
-  "name": "@putout/plugin-simplify-logical-expressions",
-  "version": "4.0.0",
+  "name": "@putout/plugin-logical-expressions",
+  "version": "1.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout plugin adds ability to simplify logical expressions",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-simplify-logical-expressions#readme",
-  "main": "lib/simplify-logical-expressions.js",
+  "description": "🐊Putout plugin adds ability to transform logical expressions",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-logical-expressions#readme",
+  "main": "lib/index.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -28,8 +28,7 @@
     "putout",
     "putout-plugin",
     "plugin",
-    "logical-expressions",
-    "simplify"
+    "logical-expressions"
   ],
   "devDependencies": {
     "@putout/test": "^5.0.0",
@@ -37,10 +36,12 @@
     "eslint": "^8.0.1",
     "eslint-plugin-n": "^15.2.4",
     "eslint-plugin-putout": "^16.0.0",
-    "madrun": "^9.0.0"
+    "lerna": "^5.0.0",
+    "madrun": "^9.0.0",
+    "nodemon": "^2.0.1"
   },
   "peerDependencies": {
-    "putout": ">=27"
+    "putout": ">=27.3"
   },
   "license": "MIT",
   "engines": {

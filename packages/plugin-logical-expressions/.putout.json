@@ -1,0 +1,10 @@
+{
+    "match": {
+        "*.md": {
+            "logical-expressions": "off"
+        }
+    },
+    "rules": {
+        "apply-if-condition": "off"
+    }
+}

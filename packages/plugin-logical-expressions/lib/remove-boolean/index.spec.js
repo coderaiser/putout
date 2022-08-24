@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const removeBooleanFromLogicalExpressions = require('..');
+const removeBooleanFromLogicalExpressions = require('.');
 
 const test = createTest(__dirname, {
     'remove-boolean-from-logical-expressions': removeBooleanFromLogicalExpressions,

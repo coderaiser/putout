@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const simplifyLogicalExpression = require('..');
+const simplifyLogicalExpression = require('.');
 
 const test = createTest(__dirname, {
     'simplify-logical-expression': simplifyLogicalExpression,

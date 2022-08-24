@@ -176,7 +176,6 @@
         "remove-useless-array-entries",
         "remove-constant-conditions",
         "remove-boolean-from-assertions",
-        "remove-boolean-from-logical-expressions",
         "remove-duplicate-case",
         "remove-nested-blocks",
         "remove-unreachable-code",
@@ -185,10 +184,8 @@
         "split-variable-declarations",
         "split-nested-destructuring",
         "simplify-assignment",
-        "simplify-logical-expressions",
         "simplify-ternary",
         "convert-const-to-let",
-        "convert-bitwise-to-logical",
         "convert-esm-to-commonjs",
         "convert-commonjs-to-esm",
         "convert-apply-to-spread",
@@ -234,7 +231,8 @@
         "try-catch",
         "nodejs",
         "montag",
-        "new"
+        "new",
+        "logical-expressions"
     ]
 }
 

@@ -1,8 +1,0 @@
-{
-    "match": {
-        "*.md": {
-            "simplify-logical-expressions": "off",
-            "apply-if-condition": "off"
-        }
-    }
-}

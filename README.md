@@ -1850,7 +1850,6 @@ It has a lot plugins divided by groups:
 |--------|-------|
 | [`@putout/plugin-convert-apply-to-spread`](/packages/plugin-convert-apply-to-spread#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-apply-to-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-apply-to-spread) |
 | [`@putout/plugin-convert-quotes-to-backticks`](/packages/plugin-convert-quotes-to-backticks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-quotes-to-backticks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-quotes-to-backticks) |
-| [`@putout/plugin-convert-bitwise-to-logical`](/packages/plugin-convert-bitwise-to-logical#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-bitwise-to-logical.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-bitwise-to-logical) |
 | [`@putout/plugin-convert-concat-to-flat`](/packages/plugin-convert-concat-to-flat#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-concat-to-flat.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-concat-to-flat) |
 | [`@putout/plugin-convert-sqrt-to-hypot`](/packages/plugin-convert-sqrt-to-hypot#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-sqrt-to-hypot.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-sqrt-to-hypot) |
 | [`@putout/plugin-convert-imul-to-multiplication`](/packages/plugin-convert-imul-to-multiplication#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-imul-to-multiplication.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-imul-to-multiplication) |
@@ -1915,7 +1914,6 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-remove-empty-pattern`](/packages/plugin-remove-empty-pattern#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-empty-pattern.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-empty-pattern) |
 | [`@putout/plugin-remove-constant-conditions`](/packages/plugin-remove-constant-conditions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-constant-conditions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-constant-conditions) |
 | [`@putout/plugin-remove-boolean-from-assertions`](/packages/plugin-remove-boolean-from-assertions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-boolean-from-assertions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-boolean-from-assertions) |
-| [`@putout/plugin-remove-boolean-from-logical-expressions`](/packages/plugin-remove-boolean-from-logical-expressions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-boolean-from-logical-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-boolean-from-logical-expressions) |
 | [`@putout/plugin-remove-nested-blocks`](/packages/plugin-remove-nested-blocks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-remove-nested-blocks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-remove-nested-blocks) |
 
 ### Simplifiers
@@ -1923,7 +1921,6 @@ It has a lot plugins divided by groups:
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-simplify-assignment`](/packages/plugin-simplify-assignment#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-assignment.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-assignment) |
-| [`@putout/plugin-simplify-logical-expressions`](/packages/plugin-simplify-logical-expressions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-logical-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-logical-expressions) |
 | [`@putout/plugin-simplify-ternary`](/packages/plugin-simplify-ternary#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-ternary) |
 
 ### Declarators
@@ -1975,6 +1972,7 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 | [`@putout/plugin-try-catch`](/packages/plugin-try-catch#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-try-catch.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-try-catch) |
 | [`@putout/plugin-montag`](/packages/plugin-montag#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-montag.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-montag) |
 | [`@putout/plugin-new`](/packages/plugin-new#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-new.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-new) |
+| [`@putout/plugin-logical-expressions`](/packages/plugin-logical-expressions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-logical-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-logical-expressions) |
 
 ### Extractors
 

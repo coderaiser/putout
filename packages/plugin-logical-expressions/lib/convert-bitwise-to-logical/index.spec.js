@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const convertBitwiseToLogical = require('..');
+const convertBitwiseToLogical = require('.');
 
 const test = createTest(__dirname, {
     'convert-bitwise-to-logical': convertBitwiseToLogical,

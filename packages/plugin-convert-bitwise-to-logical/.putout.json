@@ -1,7 +1,0 @@
-{
-    "match": {
-        "*.md": {
-            "convert-bitwise-to-logical": "off"
-        }
-    }
-}
