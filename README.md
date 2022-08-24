@@ -2645,11 +2645,11 @@ You can also transform input files using `Babel`. For example if you need to tra
 | 6    | `WAS_STOP`              | was stop                      | `<empty or violations of rules>`                                           |
 | 7    | `INVALID_OPTION`        | invalid option                | `🐊 Invalid option '--hello'. Perhaps you meant '--help'`                  |
 | 8    | `CANNOT_LOAD_PROCESSOR` | processor has errors          | `<unhandled exception>`                                                    |
-| 9    | `UNHANDLED`             | unhandled exception           | `<unhandled exception>`                                                    |
+| 9    | `CANNOT_LOAD_FORMATTER` | formatter has errors          | `🐊 @putout/formatter-dump: Syntax error`                                  |
 | 10   | `RULLER_WITH_FIX`       | ruller used with `--fix`      | `🐊 '--fix' cannot be used with ruler toggler ('--enable', '--disable')`   |
 | 11   | `RULLER_NO_FILES`       | ruller used without files     | `🐊 'path' is missing for ruler toggler ('--enable-all', '--disable-all')` |
 | 12   | `INVALID_CONFIG`        | config has invalid properties | `🐊 .putout.json: exclude: must NOT have additional properties`            |
-| 13   | `CANNOT_LOAD_FORMATTER` | formatter has errors          | `🐊 @putout/formatter-dump: Syntax error`                                  |
+| 13   | `UNHANDLED`             | unhandled exception           | `<unhandled exception>`                                                    |
 
 Example of providing invalid option:
 
