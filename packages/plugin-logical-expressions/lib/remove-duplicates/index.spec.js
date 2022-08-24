@@ -17,7 +17,7 @@ test('plugin-logical-expression: remove-duplicates: transform: duplicates', (t) 
     t.end();
 });
 
-test('plugin-logical-expression: transform: remove-duplicats: same', (t) => {
+test('plugin-logical-expression: transform: remove-duplicates: same', (t) => {
     t.transform('same');
     t.end();
 });
