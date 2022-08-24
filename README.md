@@ -1296,7 +1296,7 @@ function world(a) {
 
 </details>
 
-<details><summary>apply <code><a href=https://web.mit.edu/jwalden/www/isArray.html>isArray</a></code></summary>
+<details><summary>apply <code><a href=https://web.mit.edu/jwalden/www/isArray.html>isArray()</a></code></summary>
 
 ```diff
 -x instanceof Array;
