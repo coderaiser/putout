@@ -1,3 +1,11 @@
+2022.08.25, v27.4.0
+
+feature:
+- package: @putout/plugin-remove-console v5.0.0
+- @putout/plugin-remove-console: drop support of 🐊 < 27
+- @putout/plugin-remove-console: simplify a bit
+- @putout/rule-set-commit-type: add
+
 2022.08.24, v27.3.1
 
 fix:
