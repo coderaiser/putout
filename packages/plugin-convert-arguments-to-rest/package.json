@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to convert arguments to rest",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-arguments-to-rest#readme",
   "main": "lib/convert-arguments-to-rest.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to convert mockRequire to mockImport",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-mock-require-to-mock-import#readme",
   "main": "lib/convert-mock-require-to-mock-import.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

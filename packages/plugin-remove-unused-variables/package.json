@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to find and remove unused variables",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables#readme",
   "main": "lib/remove-unused-variables.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to find and remove useless return",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-return#readme",
   "main": "lib/remove-useless-return.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

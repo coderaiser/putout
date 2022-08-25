@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to convert 'Math.imul()' to operator '*'",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-imul-to-multiplication#readme",
   "main": "lib/convert-imul-to-multiplication.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

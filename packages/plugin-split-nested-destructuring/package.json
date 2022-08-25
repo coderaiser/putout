@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to split nested destructuring",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-split-nested-destructuring#readme",
   "main": "./lib/split-nested-destructuring.js",
+  "commitType": "colon",
   "exports": "./lib/split-nested-destructuring.js",
   "release": false,
   "tag": false,

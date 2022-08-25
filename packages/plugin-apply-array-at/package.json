@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability apply array.at",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-array-at#readme",
   "main": "lib/apply-array-at.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

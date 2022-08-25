@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to add or remove strict mode directive",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-strict-mode#readme",
   "main": "lib/strict-mode.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

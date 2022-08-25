@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to remove useless assign",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-assign#readme",
   "main": "lib/remove-useless-assign.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

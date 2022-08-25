@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin helps with regexp",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#readme",
   "main": "lib/index.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

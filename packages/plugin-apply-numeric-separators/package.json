@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability apply numeric separators",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-numeric-separators#readme",
   "main": "lib/apply-numeric-separators.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

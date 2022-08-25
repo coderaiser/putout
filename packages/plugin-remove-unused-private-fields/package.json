@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to remove unused private fields",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-private-fields#readme",
   "main": "lib/remove-unused-private-fields.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

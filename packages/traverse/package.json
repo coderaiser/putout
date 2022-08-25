@@ -6,6 +6,7 @@
   "description": "traverse ast-nodes",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/traverse#readme",
   "main": "lib/traverse.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

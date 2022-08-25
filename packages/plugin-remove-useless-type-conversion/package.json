@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to remove useless type conversion",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-type-conversion#readme",
   "main": "lib/index.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

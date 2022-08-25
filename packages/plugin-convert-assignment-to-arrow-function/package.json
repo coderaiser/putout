@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability convert assignment to arrow function",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-assignment-to-arrow-function#readme",
   "main": "lib/convert-assignment-to-arrow-function.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

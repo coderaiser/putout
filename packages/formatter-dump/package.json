@@ -5,6 +5,7 @@
   "description": "🐊Putout formatter stores output and dump it on end",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-dump#readme",
   "main": "lib/dump.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

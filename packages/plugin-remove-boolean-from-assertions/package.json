@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to remove boolean from assertions",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-boolean-from-assertions#readme",
   "main": "lib/remove-boolean-from-assertions.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

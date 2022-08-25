@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to find and remove useless functions",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-functions#readme",
   "main": "lib/remove-useless-functions.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin for package.json",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-package-json#readme",
   "main": "lib/index.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

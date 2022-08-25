@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to convert apply to spread",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-apply-to-spread#readme",
   "main": "lib/convert-apply-to-spread.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

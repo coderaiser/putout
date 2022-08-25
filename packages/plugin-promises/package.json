@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin for promises processing",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-promises#readme",
   "main": "lib/promises.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

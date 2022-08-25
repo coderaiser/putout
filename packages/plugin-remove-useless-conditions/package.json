@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to remove useless conditions",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-conditions#readme",
   "main": "lib/remove-useless-conditions.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

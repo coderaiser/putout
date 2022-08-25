@@ -6,6 +6,7 @@
   "description": "Test runner for 🐊Putout plugins ",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/test#readme",
   "main": "lib/test.js",
+  "commitType": "colon",
   "bin": {
     "tape": "bin/test.mjs"
   },

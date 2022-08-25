@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin helps with migration to latest jest",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-jest#readme",
   "main": "lib/jest.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

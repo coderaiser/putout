@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to convert 'Math.sqrt()' to 'Math.hypot()'",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-sqrt-to-hypot#readme",
   "main": "lib/convert-sqrt-to-hypot.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

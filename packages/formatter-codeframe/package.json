@@ -5,6 +5,7 @@
   "description": "🐊Putout formatter shows code frame with an error",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-codeframe#readme",
   "main": "lib/codeframe.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

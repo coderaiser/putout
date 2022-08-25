@@ -5,6 +5,7 @@
   "description": "🐊Putout formatter shows progress and shows result at the end",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-progress#readme",
   "main": "lib/progress.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

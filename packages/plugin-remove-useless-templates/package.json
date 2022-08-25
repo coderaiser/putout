@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to find and remove useless template string",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-templates#readme",
   "main": "lib/remove-useless-templates.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin helps with .browserlistrc",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-browserlist#readme",
   "main": "lib/index.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

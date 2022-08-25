@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to find and remove unused for-of variables",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-for-of-variables#readme",
   "main": "lib/remove-unused-for-of-variables.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

@@ -7,6 +7,7 @@
   "description": "🐊Putout plugin helps with removing madrun from gitiginore",
   "homepage": "http://github.com/coderaiser/putout#readme",
   "main": "lib/remove-legacy-from-gitignore.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

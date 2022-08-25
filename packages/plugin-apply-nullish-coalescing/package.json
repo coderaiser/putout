@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin add ability to apply nullish coalescing operator (??)",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-nullish-coalescing#readme",
   "main": "lib/apply-nullish-coalescing.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

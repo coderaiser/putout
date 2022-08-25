@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to convert forEach to for-of",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-for-each-to-for-of#readme",
   "main": "lib/convert-for-each-to-for-of.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

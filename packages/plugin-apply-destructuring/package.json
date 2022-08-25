@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability use destructuring on variable declarations",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-destructuring#readme",
   "main": "lib/apply-destructuring.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

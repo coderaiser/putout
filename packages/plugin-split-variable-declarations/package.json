@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to find and remove process.exit",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-split-variable-declarations#readme",
   "main": "lib/split-variable-declarations.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

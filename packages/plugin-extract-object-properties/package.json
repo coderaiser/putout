@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to extract object properties into variable",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-extract-object-properties#readme",
   "main": "lib/extract-object-properties.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin helps with tests",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-tape#readme",
   "main": "lib/index.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

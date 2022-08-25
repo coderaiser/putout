@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to convert 'const' to 'let'",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-const-to-let#readme",
   "main": "lib/convert-const-to-let.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

@@ -7,6 +7,7 @@
   "description": "🐊Putout plugin adds ability to set homepage",
   "homepage": "https://github.com/coderaiser/putout/tree/master/rules/set-homepage#readme",
   "main": "lib/set-homepage.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

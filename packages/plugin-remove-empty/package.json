@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to find and remove blocks with empty body",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-empty#readme",
   "main": "lib/remove-empty.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

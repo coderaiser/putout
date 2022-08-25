@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to find and remove process.exit",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-debugger#readme",
   "main": "lib/remove-debugger.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

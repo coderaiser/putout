@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability to find and remove useless arguments",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-arguments#readme",
   "main": "lib/remove-useless-arguments.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

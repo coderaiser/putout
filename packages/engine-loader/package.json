@@ -6,6 +6,7 @@
   "description": "load plugins and prepare them to run",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/engine-loader#readme",
   "main": "lib/index.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

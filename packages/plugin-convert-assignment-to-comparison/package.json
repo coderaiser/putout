@@ -6,6 +6,7 @@
   "description": "🐊Putout plugin adds ability convert assignment to comparison",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-assignment-to-comparison#readme",
   "main": "lib/convert-assignment-to-comparison.js",
+  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,
