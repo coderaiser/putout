@@ -129,7 +129,7 @@
     "@putout/plugin-putout-config": "^2.0.0",
     "@putout/plugin-regexp": "^5.0.0",
     "@putout/plugin-remove-boolean-from-assertions": "^1.0.0",
-    "@putout/plugin-remove-console": "^4.0.0",
+    "@putout/plugin-remove-console": "^5.0.0",
     "@putout/plugin-remove-constant-conditions": "^4.0.0",
     "@putout/plugin-remove-debugger": "^5.0.0",
     "@putout/plugin-remove-duplicate-case": "^2.0.0",
