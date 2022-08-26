@@ -1,11 +1,15 @@
 'use strict';
 
+const getRule = (a) => ({
+    [a]: require(`./${a}`),
+});
+
 module.exports.rules = {
-    'block': require(`./block`),
-    'pattern': require('./pattern'),
-    'nested-pattern': require('./nested-pattern'),
-    'argument': require('./argument'),
-    'import': require('./import'),
-    'export': require('./export'),
+    ...getRule('block'),
+    ...getRule('pattern'),
+    ...getRule('nested-pattern'),
+    ...getRule('argument'),
+    ...getRule('import'),
+    ...getRule('export'),
 };
 
