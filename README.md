@@ -16,7 +16,7 @@
 
 ![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
-🐊**Putout** is JavaScript Linter and pluggable and configurable code transformer based on **Babel** with built-in **ESLint**. It has [a lot of transformations](#-built-in-transformations) that keeps your codebase in a clean state, removing any code smell and making code readable according to best practices.
+🐊**Putout** is JavaScript Linter, pluggable and configurable code transformer based on **Babel** with built-in **ESLint**. It has [a lot of transformations](#-built-in-transformations) that keeps your codebase in a clean state, removing any code smell and making code readable according to best practices.
 The main target is **JavaScript**, but:
 
 - ✅ JSX;
@@ -491,7 +491,7 @@ First things first, `require` putout:
 const putout = require('putout');
 ```
 
-Let's consider the next `source` with two `variables` and one `call expression`:
+Let's consider the next `source` with two `VariableDeclarations` and one `CallExpression`:
 
 ```js
 const hello = 'world';
@@ -513,7 +513,7 @@ const source = `
 
 #### Plugins
 
-Putout supports dynamic loading of plugins from `node_modules`. Let's consider the example of using the [remove-unused-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables/README.md#readme) plugin:
+🐊**Putout** supports dynamic loading of plugins from `node_modules`. Let's consider example of using the [remove-unused-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unused-variables/README.md#readme) plugin:
 
 ```js
 putout(source, {
