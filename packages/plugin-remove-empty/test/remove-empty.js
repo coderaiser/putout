@@ -31,6 +31,11 @@ test('plugin-remove-empty: transform: pattern', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: transform: nested-pattern', (t) => {
+    t.transform('nested-pattern');
+    t.end();
+});
+
 test('plugin-remove-empty: transform: export', (t) => {
     t.transformCode('export {}', '');
     t.end();

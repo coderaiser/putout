@@ -24,6 +24,7 @@ npm i @putout/plugin-remove-empty
     "rules": {
         "remove-empty/block": "on",
         "remove-empty/pattern": "on",
+        "remove-empty/nested-pattern": "on",
         "remove-empty/argument": "on",
         "remove-empty/export": "on",
         "remove-empty/import": ["on", {
@@ -44,6 +45,26 @@ npm i @putout/plugin-remove-empty
 ```diff
 -const [] = array;
 -const {} = object;
+```
+
+## nested-pattern
+
+### ❌ Example of incorrect code
+
+```js
+export const func = (param) => {
+    const {a: {}, c} = param;
+    return c;
+};
+```
+
+### ✅ Example of correct code
+
+```js
+export const func = (param) => {
+    const {c} = param;
+    return c;
+};
 ```
 
 ## export
