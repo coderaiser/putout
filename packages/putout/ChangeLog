@@ -1,3 +1,11 @@
+2022.08.26, v27.5.0
+
+feature:
+- package: @putout/plugin-remove-empty v9.0.0
+- @putout/plugin-remove-empty: apply getRule
+- @putout/plugin-remove-empty: drop support of 🐊 < 27
+- @putout/plugin-remove-empty: add support of nested patterns (#109)
+
 2022.08.25, v27.4.0
 
 feature:
