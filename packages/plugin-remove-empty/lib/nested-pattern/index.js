@@ -4,17 +4,17 @@ module.exports.report = () => `Avoid empty nested patterns`;
 
 module.exports.fix = (path) => path.parentPath.remove();
 
-module.exports.traverse = ({push}) => ({
-    'ArrayPattern'(path) {
-        if (path.node.elements.length)
-            return;
-        
-        push(path);
-    },
-    'ObjectPattern'(path) {
-        if (path.node.properties.length)
-            return;
-        
-        push(path);
-    },
-});
+module.exports.filter = (path) => {
+    if (path.isArrayPattern() && path.node.elements.length)
+        return false;
+    
+    if (path.isObjectPattern() && path.node.properties.length)
+        return false;
+    
+    return path.parentPath.isObjectProperty();
+};
+
+module.exports.include = () => [
+    'ArrayPattern',
+    'ObjectPattern',
+];
