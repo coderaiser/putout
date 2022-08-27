@@ -65,7 +65,7 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
         });
         
         if (!visitor)
-            throw Error(`Visitors cannot be empty in "${rule}"`);
+            throw Error(`☝️ Visitors cannot be empty in "${rule}"`);
         
         assign(options, {
             include: parse('include', plugin, options),

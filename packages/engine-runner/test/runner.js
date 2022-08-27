@@ -769,7 +769,7 @@ test('putout: runner: traverse: no visitors', (t) => {
         ],
     });
     
-    t.equal(error.message, 'Visitors cannot be empty in "no-visitors"');
+    t.equal(error.message, '☝️ Visitors cannot be empty in "no-visitors"');
     t.end();
 });
 
