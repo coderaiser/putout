@@ -1,15 +1,11 @@
 'use strict';
 
-const tryCatch = require('try-catch');
+const {simpleImport} = require('../simple-import.js');
 const tryToCatch = require('try-to-catch');
 
-const [, eslint] = tryCatch(require, 'eslint');
-const {ESLint} = eslint || {};
-
 const {keys} = Object;
-const overrideConfigFile = process.env.ESLINT_CONFIG_FILE;
-
 const eslintId = ' (eslint)';
+const overrideConfigFile = process.env.ESLINT_CONFIG_FILE;
 
 const noConfigFound = (config, configError) => {
     if (configError && configError.messageTemplate === 'no-config-found')
@@ -28,39 +24,22 @@ const cutNewLine = ({message}) => ({
     message: message.replace(/\n.*/, ''),
 });
 
-const getESLint = ({fix, config}) => {
-    const eslint = new ESLint({
-        fix,
-        overrideConfig: {
-            ignorePatterns: [
-                '!.*',
-            ],
-            ...config,
-        },
-        ...overrideConfigFile && {
-            overrideConfigFile,
-            useEslintrc: false,
-        },
-    });
-    
-    return {
-        calculateConfigForFile: eslint.calculateConfigForFile.bind(eslint),
-        lintText: eslint.lintText.bind(eslint),
-    };
-};
-
 module.exports = async ({name, code, fix, config, putout = false}) => {
     const noChanges = [
         code,
         [],
     ];
     
+    const [, ESLint] = await tryToCatch(simpleImport, './eslint/get-eslint.mjs');
+    
     if (!ESLint)
         return noChanges;
     
+    const {getESLint} = ESLint;
     const [eslintError, eslint] = await tryToCatch(getESLint, {
         fix,
         config,
+        overrideConfigFile,
     });
     
     if (eslintError)
