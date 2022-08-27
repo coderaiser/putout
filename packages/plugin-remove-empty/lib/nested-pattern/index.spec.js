@@ -17,3 +17,8 @@ test('plugin-remove-empty: nested-pattern: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: nested-pattern: transform: array', (t) => {
+    t.transform('array');
+    t.end();
+});
+
