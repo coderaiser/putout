@@ -41,7 +41,7 @@ jobs:
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
         
       - name: Typos Install
-        run: cargo install typos-cli || echo 'already installed'
+        run: which typos || cargo install typos-cli
       
       - name: Typos
         run: typos --write-changes
