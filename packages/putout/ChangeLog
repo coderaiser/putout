@@ -1,3 +1,13 @@
+2022.08.27, v27.6.0
+
+fix:
+- @putout/engine-runner:  merge-visitors: add ☝️
+
+feature:
+- putout: cli: eslint: move out getESLint
+- @putout/plugin-remove-empty: nested-pattern: Traverser -> Includer
+- @putout/plugin-remove-empty: nested-pattern: add support of ArrayPattern
+
 2022.08.26, v27.5.0
 
 feature:
