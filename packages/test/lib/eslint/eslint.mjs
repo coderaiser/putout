@@ -1,7 +1,7 @@
 import {readFile} from 'fs/promises';
 import {join} from 'path';
 
-import eslint from 'putout/eslint';
+import eslint from '@putout/eslint';
 import tryToCatch from 'try-to-catch';
 import {extend} from 'supertape';
 

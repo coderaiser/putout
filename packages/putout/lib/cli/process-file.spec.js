@@ -18,7 +18,7 @@ test('putout: cli: process-file: eslint', async (t) => {
     const log = stub();
     const write = stub();
     
-    mockRequire('./eslint', eslint);
+    mockRequire('@putout/eslint', eslint);
     
     const options = {
         dir: '.',
@@ -60,7 +60,7 @@ test('putout: cli: process-file: ts from preProcessor', async (t) => {
     const log = stub();
     const write = stub();
     
-    mockRequire('./eslint', eslint);
+    mockRequire('@putout/eslint', eslint);
     
     const options = {
         dir: '.',
@@ -150,7 +150,7 @@ test('putout: cli: process-file: options for inner data', async (t) => {
         ],
     };
     
-    mockRequire('./eslint', eslint);
+    mockRequire('@putout/eslint', eslint);
     
     const processFile = reRequire('./process-file');
     const fn = processFile({
@@ -217,7 +217,7 @@ test('putout: cli: process-file: ruler', async (t) => {
         ],
     };
     
-    mockRequire('./eslint', eslint);
+    mockRequire('@putout/eslint', eslint);
     
     const ruler = {
         enableAll: true,

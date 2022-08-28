@@ -1,6 +1,6 @@
 'use strict';
 
-const {simpleImport} = require('../simple-import.js');
+const {simpleImport} = require('./simple-import.js');
 const tryToCatch = require('try-to-catch');
 
 const {keys} = Object;
@@ -30,7 +30,7 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
         [],
     ];
     
-    const [, ESLint] = await tryToCatch(simpleImport, './eslint/get-eslint.mjs');
+    const [, ESLint] = await tryToCatch(simpleImport, './get-eslint.mjs');
     
     if (!ESLint)
         return noChanges;

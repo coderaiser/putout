@@ -19,7 +19,6 @@
     "./cli": "./lib/cli/index.js",
     "./cli/run": "./lib/cli/runner/work",
     "./loader": "./lib/loader.mjs",
-    "./eslint": "./lib/cli/eslint/index.js",
     "./package.json": "./package.json"
   },
   "bin": {
@@ -58,6 +57,7 @@
     "@putout/engine-parser": "^5.0.0",
     "@putout/engine-processor": "^6.0.0",
     "@putout/engine-runner": "^14.0.0",
+    "@putout/eslint": "^1.0.0",
     "@putout/formatter-codeframe": "^4.0.0",
     "@putout/formatter-dump": "^4.0.0",
     "@putout/formatter-frame": "^3.0.0",

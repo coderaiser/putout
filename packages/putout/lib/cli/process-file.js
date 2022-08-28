@@ -6,7 +6,7 @@ const putout = require('../..');
 const merge = require('../merge');
 const parseMatch = require('../parse-options/parse-match');
 
-const eslint = require('./eslint');
+const eslint = require('@putout/eslint');
 const parseError = require('./parse-error');
 
 const getMatchedOptions = (name, options) => {

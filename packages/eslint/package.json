@@ -1,0 +1,56 @@
+{
+  "name": "@putout/eslint",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "Wrapper that simplifies ESLint API and makes it compatible with 🐊Putout",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/eslint#readme",
+  "main": "lib/eslint.js",
+  "commitType": "colon",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {
+    "try-to-catch": "^3.0.1"
+  },
+  "keywords": [
+    "putout",
+    "eslint"
+  ],
+  "devDependencies": {
+    "c8": "^7.5.0",
+    "eslint": "^8.0.1",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-putout": "^16.0.0",
+    "just-camel-case": "^4.0.2",
+    "lerna": "^5.0.0",
+    "madrun": "^9.0.0",
+    "mock-require": "^3.0.3",
+    "montag": "^1.0.0",
+    "nodemon": "^2.0.1",
+    "putout": "*",
+    "supertape": "^7.0.0",
+    "try-catch": "^3.0.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

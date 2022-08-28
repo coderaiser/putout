@@ -1,0 +1,13 @@
+{
+    "rules": {
+        "n/no-unpublished-import": "off"
+    },
+    "extends": [
+        "plugin:n/recommended",
+        "plugin:putout/recommended"
+    ],
+    "plugins": [
+        "putout",
+        "n"
+    ]
+}

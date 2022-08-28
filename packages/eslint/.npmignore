@@ -1,0 +1,6 @@
+.*
+*.spec.*
+test
+yarn-error.log
+
+coverage

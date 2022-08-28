@@ -2524,7 +2524,7 @@ Applies 🐊**Putout** transformations for you :).
 **ESLint** begins his work as a formatter when 🐊**Putout** done his transformations. That's why it used a lot in different parts of application, for testing purpose and using **API** in a simplest possible way. You can access it with:
 
 ```js
-import eslint from 'putout/eslint';
+import eslint from '@putout/eslint';
 ```
 
 To use it simply write:
@@ -2540,7 +2540,7 @@ const [source, places] = await eslint({
 Isn't it looks similar to 🐊**Putout** way? It definitely is! But... It has a couple differences you should remember:
 
 - ☝️ *[🐊**Putout** returns object with `code` and `places` properties](https://github.com/coderaiser/putout#plugins).*
-- ☝️ **ESLint** has a `name` property that is used to calculate configuration file.*
+- ☝️ ***ESLint** has a `name` property that is used to calculate configuration file.*
 
 And you can even override any of **ESLint** ⚙️ options with help of `config` property:
 
@@ -2574,8 +2574,6 @@ const [source, places] = await eslint({
 ```
 
 It is disabled by default, because **ESLint** always runs after 🐊**Putout** transformations, so there is no need to traverse tree again.
-
-This `API` doesn't suppose to came in 🌴 Public Space, anyways it is already used in [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout) to [test plugins](https://github.com/coderaiser/putout/blob/master/packages/eslint-plugin-putout/test/test-lint.mjs#L24-L28), so why not :)? Anyways it's signature didn't changed from the beginning.
 
 ## ☄️ Integration with Babel
 

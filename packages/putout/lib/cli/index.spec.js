@@ -1274,7 +1274,7 @@ test('putout: cli: --transform', async (t) => {
         '--no-cache',
     ];
     
-    mockRequire('./eslint', eslint);
+    mockRequire('@putout/eslint', eslint);
     
     reRequire('./process-file');
     reRequire('./runner/worker.js');
