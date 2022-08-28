@@ -1,3 +1,9 @@
+2022.08.28, v27.7.0
+
+feature:
+- @putout/eslint: add
+- package: @putout/eslint v1.0.0
+
 2022.08.27, v27.6.0
 
 fix:
