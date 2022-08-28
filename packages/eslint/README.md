@@ -49,7 +49,7 @@ const [source, places] = await eslint({
 });
 ```
 
-If you want to apply 🐊**Putout** transformations using `putout/putout` **ESLint** rule, enable 🐊**Putout** with the same called flag lowercased:
+If you want to apply 🐊**Putout** transformations using [`putout/putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme) **ESLint** rule, enable 🐊**Putout** with the same called flag lowercased:
 
 ```js
 const [source, places] = await eslint({
