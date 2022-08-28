@@ -1,19 +1,16 @@
 {
-  "name": "@putout/eslint",
-  "version": "1.0.1",
+  "name": "@putout/convert-wrap-to-create-plugin",
+  "version": "1.0.0",
   "type": "commonjs",
+  "private": true,
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "Wrapper that simplifies ESLint API and makes it compatible with 🐊Putout",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/eslint#readme",
-  "main": "./lib/eslint.js",
+  "description": "🐊Putout plugin adds ability to convert 'wrap()' to 'createPlugin()'",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/convert-wrap-to-create-plugin#readme",
   "commitType": "colon",
+  "main": "lib/convert-wrap-to-create-plugin.js",
   "release": false,
   "tag": false,
   "changelog": false,
-  "exports": {
-    ".": "./lib/eslint.js",
-    "./create-plugin": "./lib/create-plugin/index.js"
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/coderaiser/putout.git"
@@ -28,27 +25,23 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {
-    "try-to-catch": "^3.0.1"
-  },
+  "dependencies": {},
   "keywords": [
     "putout",
-    "eslint"
+    "putout-rule"
   ],
   "devDependencies": {
+    "@putout/test": "^5.0.0",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
     "eslint-plugin-n": "^15.2.4",
     "eslint-plugin-putout": "^16.0.0",
-    "just-camel-case": "^4.0.2",
     "lerna": "^5.0.0",
     "madrun": "^9.0.0",
-    "mock-require": "^3.0.3",
-    "montag": "^1.0.0",
-    "nodemon": "^2.0.1",
-    "putout": "*",
-    "supertape": "^7.0.0",
-    "try-catch": "^3.0.0"
+    "nodemon": "^2.0.1"
+  },
+  "peerDependencies": {
+    "putout": ">=27"
   },
   "license": "MIT",
   "engines": {

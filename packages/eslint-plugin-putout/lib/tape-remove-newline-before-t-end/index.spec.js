@@ -7,8 +7,8 @@ const {readFileSync} = require('fs');
 const {RuleTester} = require('eslint');
 const montag = require('montag');
 
-const wrap = require('../wrap');
-const rule = wrap(require('.'));
+const {createPlugin} = require('@putout/eslint/create-plugin');
+const rule = createPlugin(require('.'));
 
 const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');
 

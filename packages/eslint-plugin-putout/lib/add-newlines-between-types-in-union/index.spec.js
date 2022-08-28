@@ -3,8 +3,8 @@
 const {RuleTester} = require('eslint');
 const montag = require('montag');
 
-const wrap = require('../wrap');
-const rule = wrap(require('.'));
+const {createPlugin} = require('@putout/eslint/create-plugin');
+const rule = createPlugin(require('.'));
 
 const ruleTester = new RuleTester({
     parser: require.resolve('@babel/eslint-parser/experimental-worker'),

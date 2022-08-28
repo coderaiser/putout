@@ -1,8 +1,8 @@
 'use strict';
 
-const wrap = require('../wrap');
+const {createPlugin} = require('@putout/eslint/create-plugin');
 const {RuleTester} = require('eslint');
-const rule = wrap(require('.'));
+const rule = createPlugin(require('.'));
 
 const ruleTester = new RuleTester({
     parserOptions: {

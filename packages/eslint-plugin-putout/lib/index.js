@@ -1,6 +1,6 @@
 'use strict';
 
-const wrap = require('./wrap');
+const {createPlugin} = require('@putout/eslint/create-plugin');
 const markdown = require('./markdown');
 const json = require('./json');
 const yaml = require('./yaml');
@@ -12,7 +12,7 @@ const getRule = (a) => ({
 });
 
 const getWrapRule = (a) => ({
-    [a]: wrap(require(`./${a}`)),
+    [a]: createPlugin(require(`./${a}`)),
 });
 
 module.exports.rules = {

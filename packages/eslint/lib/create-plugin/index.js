@@ -63,7 +63,7 @@ const prepareFix = (fix, {node, text, getText, filename}) => (fixer) => {
     ];
 };
 
-module.exports = (plugin) => {
+module.exports.createPlugin = (plugin) => {
     const meta = getMeta(plugin);
     
     return {
@@ -114,6 +114,7 @@ const createGetSpacesBeforeNode = ({getText}) => (node, text = getText(node)) =>
     
     return spaces.slice(1);
 };
+module.exports.createGetSpaceBeforeNode = createGetSpacesBeforeNode;
 
 const createGetSpacesAfterNode = ({getText}) => (node, {text = getText(node)}) => {
     let spaces = '';
@@ -125,4 +126,4 @@ const createGetSpacesAfterNode = ({getText}) => (node, {text = getText(node)}) =
     
     return spaces.slice(0, -1);
 };
-
+module.exports.createGetSpacesAfterNode = createGetSpacesAfterNode;

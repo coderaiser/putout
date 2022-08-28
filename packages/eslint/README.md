@@ -13,6 +13,8 @@ npm i @putout/eslint
 
 ## API
 
+### `eslint(options)`
+
 **ESLint** begins his work as a formatter when 🐊**Putout** done his transformations. That's why it used a lot in different parts of application, for testing purpose and using **API** in a simplest possible way. You can access it with:
 
 ```js
@@ -32,7 +34,7 @@ const [source, places] = await eslint({
 Isn't it looks similar to 🐊**Putout** way? It definitely is! But... It has a couple differences you should remember:
 
 - ☝️ *[🐊**Putout** returns object with `code` and `places` properties](https://github.com/coderaiser/putout#plugins).*
-- ☝️ ***ESLint** has a `name` property that is used to calculate configuration file.*
+- ☝️ * **ESLint** has a `name` property that is used to calculate configuration file. *
 
 And you can even override any of **ESLint** ⚙️ options with help of `config` property:
 
@@ -66,6 +68,76 @@ const [source, places] = await eslint({
 ```
 
 It is disabled by default, because **ESLint** always runs after 🐊**Putout** transformations, so there is no need to traverse tree again.
+
+### `createPlugin(options)`
+
+You can also simplify creating of plugins for **ESLint** with help of `createPlugin`.
+🐊**Putout**-based **ESLint** plugin are highly inspired by [**Putout Plugins API**](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#readme) of [**Includer**](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#includer).
+
+So it must contain classic `4` methods:
+
+```js
+module.exports.report = () => 'debugger statement should not be used';
+
+module.exports.fix = (path) => {
+    return '';
+};
+
+module.exports.include = () => [
+    'DebuggerStatement',
+];
+
+module.exports.filter = (path) => {
+    return true;
+};
+```
+
+Take a look at more sophisticated example, rule [`remove-duplicate-extensions`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/remove-duplicate-extensions#readme):
+
+```js
+const getValue = ({source}) => source?.value;
+
+module.exports.report = () => 'Avoid duplicate extensions in relative imports';
+module.exports.include = () => [
+    'ImportDeclaration',
+    'ImportExpression',
+    'ExportAllDeclaration',
+    'ExportNamedDeclaration',
+];
+
+module.exports.fix = ({text}) => {
+    return text.replace('.js.js', '.js');
+};
+
+module.exports.filter = ({node}) => {
+    const value = getValue(node);
+    return /\.js\.js/.test(value);
+};
+```
+
+To use it just add couple lines to your main plugin file:
+
+```js
+const {createPlugin} = require('@putout/eslint/create-plugin');
+
+const createRule = (a) => ({
+    [a]: createPlugin(require(`./${a}`)),
+});
+
+module.exports.rules = {
+    ...createRule('remove-duplicate-extensions'),
+};
+```
+
+Or just:
+
+```js
+const {createPlugin} = require('@putout/eslint/create-plugin');
+
+module.exports.rules = {
+    'remove-duplicate-extensions': createPlugin('remove-duplicate-extensions'),
+};
+```
 
 ## License
 
