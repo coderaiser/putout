@@ -34,7 +34,7 @@ const [source, places] = await eslint({
 Isn't it looks similar to 🐊**Putout** way? It definitely is! But... It has a couple differences you should remember:
 
 - ☝️ *[🐊**Putout** returns object with `code` and `places` properties](https://github.com/coderaiser/putout#plugins).*
-- ☝️ * **ESLint** has a `name` property that is used to calculate configuration file. *
+- ☝️ ***ESLint** has a `name` property that is used to calculate configuration file.*
 
 And you can even override any of **ESLint** ⚙️ options with help of `config` property:
 
