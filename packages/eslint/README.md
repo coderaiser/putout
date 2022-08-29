@@ -145,7 +145,9 @@ module.exports.rules = {
 };
 ```
 
-### `lint(code, {fix, plugins})`
+### `lint(source, {fix, plugins})`
+
+When you need to run **ESLint** with one plugin (*rule*), just use `lint` it will do the thing.
 
 ```js
 const lint = require('@putout/eslint/lint');
