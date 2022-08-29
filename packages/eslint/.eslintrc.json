@@ -1,6 +1,7 @@
 {
     "rules": {
-        "n/no-unpublished-import": "off"
+        "n/no-unpublished-import": "off",
+        "n/no-unpublished-require": "off"
     },
     "extends": [
         "plugin:n/recommended",

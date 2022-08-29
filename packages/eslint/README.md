@@ -139,6 +139,20 @@ module.exports.rules = {
 };
 ```
 
+### `lint(code, {fix, plugins})`
+
+```js
+const lint = require('@putout/eslint/lint');
+const removeDebugger = require('./remove-debugger');
+
+const [code, places] = lint('debugger', {
+    fix: true, // default
+    plugins: [
+        ['remove-debugger', createPlugin(removeDebugger)],
+    ],
+});
+```
+
 ## License
 
 MIT

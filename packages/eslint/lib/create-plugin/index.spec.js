@@ -74,3 +74,4 @@ test('@putout/eslint: create-plugin: createGetSpacesAfterNode', (t) => {
     t.equal(result, 'hell');
     t.end();
 });
+

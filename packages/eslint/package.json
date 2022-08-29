@@ -12,7 +12,8 @@
   "changelog": false,
   "exports": {
     ".": "./lib/eslint.js",
-    "./create-plugin": "./lib/create-plugin/index.js"
+    "./create-plugin": "./lib/create-plugin/index.js",
+    "./lint": "./lib/lint/index.js"
   },
   "repository": {
     "type": "git",
