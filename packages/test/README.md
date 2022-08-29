@@ -352,6 +352,24 @@ test('eslint-config: operator-line-break', async ({comparePlaces}) => {
 });
 ```
 
+### `transform(name)`
+
+```js
+test('test: eslint: transform', (t) => {
+    t.transform('remove-debugger');
+    t.end();
+});
+```
+
+### `report(filename, message | []messages)`
+
+```js
+test('test: eslint: transform', (t) => {
+    t.report('remove-debugger', `Avoid 'debugger' statement`);
+    t.end();
+});
+```
+
 ## Processors API
 
 With `processors api` you can test `processors` in a simplest possible way.

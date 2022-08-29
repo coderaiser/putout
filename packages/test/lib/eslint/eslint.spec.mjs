@@ -1,3 +1,4 @@
+import {stub} from 'supertape';
 import {createTest} from './eslint.mjs';
 const test = createTest(import.meta.url);
 
@@ -39,4 +40,34 @@ test('test: eslint: comparePlaces: overrides', async ({comparePlaces}) => {
 test('test: eslint: ts: semi', async ({process}) => {
     await process('semi');
 });
+
+test('test: eslint: report: no plugins', (t) => {
+    const failStub = stub().returns({
+        is: true,
+    });
+    
+    t.report('report', 'message', failStub);
+    
+    const expected = [
+        '☝️ Looks like plugins not passed',
+    ];
+    
+    t.calledWith(failStub, expected);
+    t.end();
+}, {checkAssertionsCount: false});
+
+test('test: eslint: transform: no plugins', (t) => {
+    const failStub = stub().returns({
+        is: true,
+    });
+    
+    t.transform('transform', failStub);
+    
+    const expected = [
+        '☝️ Looks like plugins not passed',
+    ];
+    
+    t.calledWith(failStub, expected);
+    t.end();
+}, {checkAssertionsCount: false});
 

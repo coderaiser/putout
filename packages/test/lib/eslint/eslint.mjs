@@ -1,16 +1,33 @@
 import {readFile} from 'fs/promises';
+import {readFileSync} from 'fs';
 import {join} from 'path';
 
 import eslint from '@putout/eslint';
 import tryToCatch from 'try-to-catch';
 import {extend} from 'supertape';
+import {lint} from '@putout/eslint/lint';
 
+import tryCatch from 'try-catch';
+
+const {keys} = Object;
+const {isArray} = Array;
+
+const getMessage = ({message}) => message;
 const config = {
     extends: [
         'plugin:n/recommended',
         'plugin:eslint-plugin/recommended',
         'plugin:putout/recommended',
     ],
+};
+
+const readSync = (name) => {
+    const [, data] = tryCatch(readFileSync, `${name}.js`, 'utf8');
+    
+    if (data)
+        return [`${name}.js`, data];
+    
+    return [`${name}.ts`, readFileSync(`${name}.ts`, 'utf8')];
 };
 
 const read = async (name) => {
@@ -22,7 +39,7 @@ const read = async (name) => {
     return [`${name}.ts`, await readFile(`${name}.ts`, 'utf8')];
 };
 
-export const createTest = (url) => {
+export const createTest = (url, plugins = {}) => {
     const fixtureDir = new URL('fixture', url).pathname;
     
     return extend({
@@ -73,6 +90,40 @@ export const createTest = (url) => {
             });
             
             return operator.deepEqual(places, expected);
+        },
+        report: (t) => (name, message, fail = t.fail) => {
+            if (!keys(plugins).length)
+                return fail('☝️ Looks like plugins not passed');
+            
+            const full = join(fixtureDir, name);
+            const [, source] = readSync(full);
+            
+            const [, places] = lint(source, {
+                fix: false,
+                plugins,
+            });
+            
+            const resultMessages = places.map(getMessage);
+            
+            if (isArray(message))
+                return t.deepEqual(resultMessages, message);
+            
+            return t.equal(resultMessages[0], message);
+        },
+        transform: (t) => (name, fail = t.fail) => {
+            if (!keys(plugins).length)
+                return fail('☝️ Looks like plugins not passed');
+            
+            const full = join(fixtureDir, name);
+            const [, source] = readSync(full);
+            const [, fixture] = readSync(`${full}-fix`);
+            
+            const [code] = lint(source, {
+                fix: true,
+                plugins,
+            });
+            
+            return t.equal(code, fixture);
         },
     });
 };
