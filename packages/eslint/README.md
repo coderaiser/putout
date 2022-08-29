@@ -135,7 +135,7 @@ Or just:
 const {createPlugin} = require('@putout/eslint/create-plugin');
 
 module.exports.rules = {
-    'remove-duplicate-extensions': createPlugin('remove-duplicate-extensions'),
+    'remove-duplicate-extensions': createPlugin(require('./remove-duplicate-extensions')),
 };
 ```
 
