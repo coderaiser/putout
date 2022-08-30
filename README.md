@@ -2204,6 +2204,8 @@ module.exports.fix = (path) => {
 };
 ```
 
+☝️ *Use [yoeman generator](https://yeoman.io/) [`yo putout`](https://github.com/putoutjs/generator-putout) will generate most of the plugin for you.*
+
 ☝️ *More information about supported plugin types you can find in [@putout/engine-runner](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#readme).*
 
 ☝️ *Find out about the way plugins load in [@putout/engine-loader](https://github.com/coderaiser/putout/tree/master/packages/engine-loader#readme).*
