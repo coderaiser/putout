@@ -8,7 +8,8 @@
         "**/.*.*",
         "packages/*/coverage",
         "packages/*/bin",
-        "packages/*/test"
+        "packages/*/test",
+        "**/eslint.config.js"
     ],
     "branches": 100,
     "lines": 100,
