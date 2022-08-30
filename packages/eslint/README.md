@@ -165,7 +165,6 @@ When you want to skip plugins, and just provide `options` and `filename` you can
 
 ```js
 const lint = require('@putout/eslint/lint');
-const removeDebugger = require('./remove-debugger');
 
 const [code, places] = lint('debugger', {
     filename: 'index.js',
