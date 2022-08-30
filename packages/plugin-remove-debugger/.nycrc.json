@@ -5,7 +5,8 @@
         "**/*.spec.*",
         "**/fixture",
         "test",
-        ".*.*"
+        ".*.*",
+        "eslint.config.js"
     ],
     "branches": 100,
     "lines": 100,
