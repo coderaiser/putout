@@ -160,6 +160,18 @@ Disabled 🐊**Putout** rules:
 
 When you want to enable ability to align spaces on empty lines, while have all benefits of `safe` preset: use `safe+align`.
 
+## Flat
+
+The time is came for a [FlatConfig](https://eslint.org/blog/2022/08/new-config-system-part-2/). To use it with `eslint-plugin-putout` add to `eslint.config.js`:
+
+```js
+const flatPutout = require('eslint-plugin-putout/flat');
+module.exports = [
+    ...flatPutout, {
+    },
+];
+```
+
 ## License
 
 MIT

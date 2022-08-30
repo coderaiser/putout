@@ -11,6 +11,10 @@
     "type": "git",
     "url": "git://github.com/coderaiser/putout.git"
   },
+  "exports": {
+    ".": "./lib/index.js",
+    "./flat": "./lib/flat/index.js"
+  },
   "keywords": [
     "putout",
     "eslint",
@@ -39,8 +43,9 @@
     "@babel/eslint-parser": "^7.15.0",
     "@babel/plugin-syntax-class-properties": "^7.12.1",
     "@babel/traverse": "^7.16.3",
+    "@eslint/eslintrc": "^1.3.1",
     "@putout/engine-parser": "^5.0.0",
-    "@putout/eslint": "^1.1.0",
+    "@putout/eslint": "^1.3.0",
     "@putout/eslint-config": "^7.0.0",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.4.0",

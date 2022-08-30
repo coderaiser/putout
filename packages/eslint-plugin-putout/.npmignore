@@ -1,5 +1,5 @@
 .*
-*.spec.js
+*.spec.*
 *.md
 yarn-error.log
 
