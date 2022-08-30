@@ -57,3 +57,19 @@ test('@putout/eslint: lint', (t) => {
     t.end();
 });
 
+test('@putout/eslint: lint: options', (t) => {
+    const [code] = lint('debugger', {
+        filename: 'hello.js',
+        options: [{
+            rules: {
+                semi: 'error',
+            },
+        }],
+    });
+    
+    const expected = 'debugger;';
+    
+    t.equal(code, expected);
+    t.end();
+});
+

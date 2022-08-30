@@ -145,7 +145,7 @@ module.exports.rules = {
 };
 ```
 
-### `lint(source, {fix, plugins})`
+### `lint(source, {fix, plugins, options, filename})`
 
 When you need to run **ESLint** with one plugin (*rule*), just use `lint` it will do the thing.
 
@@ -158,6 +158,22 @@ const [code, places] = lint('debugger', {
     plugins: [
         ['remove-debugger', createPlugin(removeDebugger)],
     ],
+});
+```
+
+When you want to skip plugins, and just provide `options` and `filename` you can:
+
+```js
+const lint = require('@putout/eslint/lint');
+const removeDebugger = require('./remove-debugger');
+
+const [code, places] = lint('debugger', {
+    filename: 'index.js',
+    options: [{
+        rules: {
+            semi: 'error',
+        },
+    }],
 });
 ```
 
