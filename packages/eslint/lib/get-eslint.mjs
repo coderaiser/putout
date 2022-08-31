@@ -1,6 +1,45 @@
 import {ESLint} from 'eslint';
+import FlatESLintExports from 'eslint/use-at-your-own-risk';
+import {findUpSync} from 'find-up';
 
-export const getESLint = ({fix, config, overrideConfigFile, ESLintOverride = ESLint}) => {
+const {FlatESLint} = FlatESLintExports;
+
+export const getESLint = ({name, fix, config, overrideConfigFile, ESLintOverride, find = findUpSync}) => {
+    const eslint = chooseESLint({
+        fix,
+        name,
+        config,
+        overrideConfigFile,
+        ESLintOverride,
+        find,
+    });
+    
+    return {
+        calculateConfigForFile: eslint.calculateConfigForFile.bind(eslint),
+        lintText: eslint.lintText.bind(eslint),
+    };
+};
+
+function chooseESLint({name, config, fix, overrideConfigFile, ESLintOverride, find}) {
+    if (find('eslint.config.js'))
+        return getFlatESLint({
+            ESLintOverride,
+            name,
+            config,
+            overrideConfigFile,
+            fix,
+        });
+    
+    return getOldESLint({
+        name,
+        config,
+        ESLintOverride,
+        overrideConfigFile,
+        fix,
+    });
+}
+
+function getOldESLint({fix, config, overrideConfigFile, ESLintOverride = ESLint}) {
     const eslint = new ESLintOverride({
         fix,
         overrideConfig: {
@@ -15,9 +54,23 @@ export const getESLint = ({fix, config, overrideConfigFile, ESLintOverride = ESL
         },
     });
     
-    return {
-        calculateConfigForFile: eslint.calculateConfigForFile.bind(eslint),
-        lintText: eslint.lintText.bind(eslint),
-    };
-};
+    return eslint;
+}
+
+function getFlatESLint({fix, config, overrideConfigFile, ESLintOverride = FlatESLint}) {
+    const eslint = new ESLintOverride({
+        fix,
+        overrideConfig: {
+            ignores: [
+                '!.*',
+            ],
+            ...config,
+        },
+        ...overrideConfigFile && {
+            overrideConfigFile,
+        },
+    });
+    
+    return eslint;
+}
 

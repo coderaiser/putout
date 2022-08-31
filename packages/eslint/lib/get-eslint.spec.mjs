@@ -19,6 +19,7 @@ test('putout: eslint: get-eslint: config: putout', (t) => {
     });
     
     getESLint({
+        name: 'index.js',
         fix: false,
         ESLintOverride,
     });
@@ -46,6 +47,7 @@ test('putout: eslint: get-eslint: config: putout: new', (t) => {
     });
     
     getESLint({
+        name: 'index.js',
         ESLintOverride,
     });
     
@@ -64,12 +66,68 @@ test('putout: eslint: get-eslint: no config found', async (t) => {
     });
     
     const eslint = getESLint({
+        name: 'index.js',
         ESLintOverride,
     });
     
     const [configError] = await tryToCatch(eslint.calculateConfigForFile, 'hello');
     
     t.equal(configError, error);
+    t.end();
+});
+
+test('putout: eslint: get-eslint: flat', async (t) => {
+    const lintText = stub();
+    const error = Error('hello');
+    const calculateConfigForFile = stub().rejects(error);
+    const find = stub().returns('/eslint.config.js');
+    
+    const ESLintOverride = stub().returns({
+        calculateConfigForFile,
+        lintText,
+    });
+    
+    const eslint = getESLint({
+        name: 'index.js',
+        ESLintOverride,
+        find,
+    });
+    
+    const [configError] = await tryToCatch(eslint.calculateConfigForFile, 'hello');
+    
+    t.equal(configError, error);
+    t.end();
+});
+
+test('putout: eslint: get-eslint: flat: overrideConfigFile', (t) => {
+    const lintText = stub();
+    const error = Error('hello');
+    const calculateConfigForFile = stub().rejects(error);
+    
+    const ESLintOverride = stub().returns({
+        calculateConfigForFile,
+        lintText,
+    });
+    
+    const find = stub().returns('/eslint.config.js');
+    getESLint({
+        name: 'index.js',
+        ESLintOverride,
+        find,
+        fix: false,
+        overrideConfigFile: 'other.config.js',
+    });
+    
+    const expected = [{
+        fix: false,
+        overrideConfig: {
+            ignores: ['!.*',
+            ],
+        },
+        overrideConfigFile: 'other.config.js',
+    }];
+    
+    t.calledWith(ESLintOverride, expected);
     t.end();
 });
 

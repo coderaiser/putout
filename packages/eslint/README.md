@@ -5,6 +5,8 @@
 
 Wrapper that simplifies [**ESLint**](https://eslint.org/) API and makes it compatible with 🐊[**Putout**](https://github.com/coderaiser/putout).
 
+☝️ *[FlatConfig](https://eslint.org/blog/2022/08/new-config-system-part-2/) supported from the box.*
+
 ## Install
 
 ```
