@@ -21,12 +21,14 @@ export const getESLint = ({name, fix, config, overrideConfigFile, ESLintOverride
 };
 
 function chooseESLint({name, config, fix, overrideConfigFile, ESLintOverride, find}) {
-    if (find('eslint.config.js'))
+    const flatConfigPath = find('eslint.config.js');
+    
+    if (flatConfigPath)
         return getFlatESLint({
             ESLintOverride,
             name,
             config,
-            overrideConfigFile,
+            overrideConfigFile: overrideConfigFile || flatConfigPath,
             fix,
         });
     
