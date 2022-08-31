@@ -13,7 +13,7 @@
   },
   "exports": {
     ".": "./lib/index.js",
-    "./flat": "./lib/flat/index.js"
+    "./config": "./lib/config/index.js"
   },
   "keywords": [
     "putout",
