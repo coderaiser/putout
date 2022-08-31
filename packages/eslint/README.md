@@ -35,7 +35,7 @@ const [source, places] = await eslint({
 
 Isn't it looks similar to 🐊**Putout** way? It definitely is! But... It has a couple differences you should remember:
 
-- ☝️ *[🐊**Putout** returns object with `code` and `places` properties](https://github.com/coderaiser/putout#plugins).*
+- ☝️ *[🐊**Putout** returns object with `code` and `places` properties](https://github.com/coderaiser/putout#plugins), and **ESLint* returns a tuple**
 - ☝️ ***ESLint** has a `name` property that is used to calculate configuration file.*
 
 And you can even override any of **ESLint** ⚙️ options with help of `config` property:
@@ -53,7 +53,7 @@ const [source, places] = await eslint({
 });
 ```
 
-If you want to apply 🐊**Putout** transformations using [`putout/putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme) **ESLint** rule, enable 🐊**Putout** with the same called flag lowercased:
+If you want to apply 🐊**Putout** transformations using [`putout/putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme) **ESLint** rule, enable 🐊**Putout** with the same called but lowercased flag:
 
 ```js
 const [source, places] = await eslint({
