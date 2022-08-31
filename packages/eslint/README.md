@@ -153,6 +153,7 @@ When you need to run **ESLint** with one plugin (*rule*), just use `lint` it wil
 
 ```js
 const lint = require('@putout/eslint/lint');
+const {createPlugin} = require('@putout/eslint/create-plugin');
 const removeDebugger = require('./remove-debugger');
 
 const [code, places] = lint('debugger', {
