@@ -407,7 +407,7 @@ It looks this way in [**ESTree**](https://github.com/estree/estree) **JavaScript
 >
 > **(c) Yamamoto Tsunetomo "Hagakure"**
 
-🐊**Putout** based on [**Babel AST**](https://github.com/babel/babel/blob/main/packages/babel-parser/ast/spec.md#readme). It has a couple differences from **ESTree** which are perfectly handled by [`estree-to-babel`](https://github.com/coderaiser/estree-to-babel) especially when 🐊**Putout** running as [a plugin for **ESLint**](#-integration-with-eslint).
+🐊**Putout** based on [**Babel AST**](https://github.com/babel/babel/blob/main/packages/babel-parser/ast/spec.md#readme). It has a couple differences from **ESTree** which are perfectly handled by [`estree-to-babel`](https://github.com/coderaiser/estree-to-babel).
 
 ☝️ *You can get more information about **AST** in [The Book of AST](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#the-book-of-ast).*
 
