@@ -34,10 +34,10 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@babel/generator": "^7.12.5",
-    "@babel/parser": "^7.15.0",
-    "@babel/template": "^7.10.4",
-    "@babel/types": "^7.12.6",
+    "@babel/generator": "^7.19.0",
+    "@babel/parser": "^7.19.0",
+    "@babel/template": "^7.18.10",
+    "@babel/types": "^7.19.0",
     "@putout/recast": "^1.1.0",
     "estree-to-babel": "^5.0.0",
     "nano-memoize": "^1.1.8",

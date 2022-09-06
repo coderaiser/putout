@@ -13,8 +13,6 @@ module.exports = [
     'numericSeparator',
     'exportDefaultFrom',
     'throwExpressions',
-    ['recordAndTuple', {
-        syntaxType: 'hash',
-    }],
+    'recordAndTuple',
 ];
 
