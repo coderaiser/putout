@@ -12,3 +12,8 @@ test('plugin-apply-destructuring: no transform: member expression', (t) => {
     t.end();
 });
 
+test('plugin-apply-destructuring: no transform: objec-texpression', (t) => {
+    t.noTransform('object-expression');
+    t.end();
+});
+

@@ -4,6 +4,7 @@ module.exports.report = () => 'Object destructuring should be used';
 
 module.exports.exclude = () => [
     'const __a = __b.__a || __c.__d',
+    'const __a = __b || __c(__object)',
     'let __a = __b.__a || __c.__d',
 ];
 
