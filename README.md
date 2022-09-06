@@ -2374,7 +2374,7 @@ Let's add `babel-plugin-transform-inline-consecutive-adds` to `.putout.json`:
 }
 ```
 
-Then create a file and process it with the help of `babel plugin`.
+Then create a file and process it with the help of **Babel Plugin**.
 
 ```sh
 coderaiser@cloudcmd:~$ cat > a.js
@@ -2402,7 +2402,7 @@ Using 🐊**Putout** as a runner for `babel` `plugins` you can not only change f
 
 ### Babel plugins list
 
-Here you can find `babel plugins` which feats the most main purpose of 🐊**Putout** and advised to use:
+Here you can find **Babel Plugins** which feats the most main purpose of 🐊**Putout** and advised to use:
 
 <details><summary><a href="https://babeljs.io/docs/en/babel-plugin-transform-inline-consecutive-adds">transform-inline-consecutive-adds</a></summary>
 
@@ -2456,7 +2456,7 @@ try {
 
 </details>
 
-Please send pull requests with `babel plugins` which can be used as codemods, or simplify, fix, makes code more readable.
+Please send pull requests with **Babel Plugins** which can be used as codemods, or simplify, fix, makes code more readable.
 
 ## 🛴 Codemods
 
@@ -2681,7 +2681,7 @@ import {OK} from 'putout/exit-codes';
 - [**Goldstein**](https://github.com/coderaiser/goldstein): JavaScript with no limits 🤫.
 - [🎬**MadCut**](https://github.com/coderaiser/goldstein): CLI tool to cut markdown into peaces.
 
-Do you use `putout` in your application as well? Please open a Pull Request to include it here. We would love to have it in our list.
+Do you use 🐊**Putout** in your application as well? Please open a Pull Request to include it here. We would love to have it in our list.
 
 ## 📻 Versioning Policy
 
