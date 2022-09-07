@@ -64,7 +64,7 @@
     "mocha": "^10.0.0",
     "montag": "^1.0.0",
     "simport": "^1.2.0",
-    "supertape": "^7.0.0",
+    "supertape": "^8.0.0",
     "try-to-catch": "^3.0.0"
   },
   "engines": {

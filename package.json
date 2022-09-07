@@ -1,6 +1,7 @@
 {
   "name": "root",
   "private": true,
+  "commitType": "colon",
   "scripts": {
     "test": "madrun test",
     "test:inspect": "madrun test:inspect",
@@ -44,7 +45,7 @@
     "husky": "^6.0.0",
     "lerna": "^5.0.0",
     "madrun": "^9.0.0",
-    "supertape": "^7.0.0"
+    "supertape": "^8.0.0"
   },
   "engines": {
     "node": ">=16"

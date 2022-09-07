@@ -44,7 +44,7 @@
     "madrun": "^9.0.0",
     "montag": "^1.2.1",
     "nodemon": "^2.0.1",
-    "supertape": "^7.0.0",
+    "supertape": "^8.0.0",
     "try-catch": "^3.0.0"
   },
   "peerDependencies": {

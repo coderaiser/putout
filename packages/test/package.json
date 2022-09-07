@@ -44,7 +44,7 @@
     "@putout/eslint": "^1.2.0",
     "currify": "^4.0.0",
     "putout": "*",
-    "supertape": "^7.0.0",
+    "supertape": "^8.0.0",
     "try-catch": "^3.0.0",
     "try-to-catch": "^3.0.0"
   },
