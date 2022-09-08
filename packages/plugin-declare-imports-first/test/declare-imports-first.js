@@ -31,6 +31,11 @@ test('plugin-declaration-imports-first: no report: no-vars', (t) => {
     t.end();
 });
 
+test('plugin-declaration-imports-first: no report: export-star', (t) => {
+    t.transform('export-star');
+    t.end();
+});
+
 test('plugin-declaration-imports-first: transform: remove', (t) => {
     t.transform('remove', {
         remove: {
