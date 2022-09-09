@@ -52,3 +52,8 @@ test('remove usless functions: no transform: different args', (t) => {
     t.end();
 });
 
+test('remove usless functions: transform: call', (t) => {
+    t.transform('call');
+    t.end();
+});
+

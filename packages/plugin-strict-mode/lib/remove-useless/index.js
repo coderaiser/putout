@@ -10,7 +10,7 @@ const {isProgram} = types;
 
 module.exports.report = () => `Avoid 'use strict' in ESM`;
 
-module.exports.fix = (path) => remove(path);
+module.exports.fix = remove;
 
 module.exports.traverse = ({push, store}) => ({
     'await __a(__args)'({scope}) {

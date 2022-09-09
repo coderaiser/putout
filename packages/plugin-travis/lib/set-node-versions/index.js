@@ -7,7 +7,7 @@ const {NumericLiteral} = types;
 
 const isNodeJS = (property) => property.key.value === 'node_js';
 const getValue = ({value}) => value;
-const one = (f) => (a) => f(a);
+const one = (f) => f;
 
 const defaultVersions = [
     16,

@@ -52,7 +52,7 @@ test('merge duplicate imports: transform: remove', (t) => {
         remove: {
             report: () => {},
             include: () => ['ImportDeclaration'],
-            fix: (path) => remove(path),
+            fix: remove,
         },
     });
     t.end();

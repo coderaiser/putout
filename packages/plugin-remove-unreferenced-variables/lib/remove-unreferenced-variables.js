@@ -5,7 +5,7 @@ const {remove} = operator;
 
 module.exports.report = () => 'Avoid unreferenced variables';
 
-module.exports.fix = (path) => remove(path);
+module.exports.fix = remove;
 
 module.exports.traverse = ({push}) => ({
     '__identifier = __a'(path) {

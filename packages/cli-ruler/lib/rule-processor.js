@@ -6,7 +6,7 @@ const initRules = (config) => {
 const {keys} = Object;
 const {isArray} = Array;
 
-const isTuple = (a) => isArray(a);
+const isTuple = isArray;
 
 const isPutoutRule = (rule) => {
     if (rule.startsWith('parser'))

@@ -29,6 +29,8 @@ const y = (...a) => {
 };
 
 [].filter((a) => a);
+
+((a) => fn(a))(value);
 ```
 
 ## ✅ Example of correct code
@@ -36,6 +38,8 @@ const y = (...a) => {
 ```js
 const y = alert;
 [].filter(Boolean);
+
+fn(value);
 ```
 
 ## Open Questions

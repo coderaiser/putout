@@ -41,7 +41,7 @@ test('plugin-declaration-imports-first: transform: remove', (t) => {
         remove: {
             report: () => '',
             include: () => ['ImportDeclaration'],
-            fix: (path) => remove(path),
+            fix: remove,
         },
     });
     t.end();
