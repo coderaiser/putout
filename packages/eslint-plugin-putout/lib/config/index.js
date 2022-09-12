@@ -1,42 +1,39 @@
 'use strict';
 
-const putoutPlugin = require('..');
 const nPlugin = require('eslint-plugin-n');
-
 const {FlatCompat} = require('@eslint/eslintrc');
+const putoutPlugin = require('..');
+
+const getPutoutConfig = (name) => compat.config(putoutPlugin.configs[name]);
 
 const compat = new FlatCompat({
     baseDirectory: __dirname,
 });
 
-const rmPlugins = (a) => {
-    delete a.plugins;
-    return a;
-};
+const n = compat.config(nPlugin.configs.recommended);
 
-const nPluginReady = compat.config(nPlugin.configs.recommended).map(rmPlugins);
-
-const config = [{
+const plugins = [{
     plugins: {
         putout: putoutPlugin,
     },
 }];
 
 module.exports.recommended = [
-    ...nPluginReady,
-    ...compat.config(putoutPlugin.configs.recommended),
-    ...config,
+    ...n,
+    ...getPutoutConfig('recommended'),
+    ...plugins,
 ];
 
 module.exports.safe = [
-    ...nPluginReady,
+    ...n,
     ...compat.config(putoutPlugin.configs.safe),
-    ...config,
+    ...getPutoutConfig('safe'),
+    ...plugins,
 ];
 
 module.exports.safeAlign = [
-    ...nPluginReady,
-    ...compat.config(putoutPlugin.configs['safe+align']),
-    ...config,
+    ...n,
+    ...getPutoutConfig('safe+align'),
+    ...plugins,
 ];
 

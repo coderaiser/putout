@@ -2,8 +2,8 @@ import {run} from 'madrun';
 
 export default {
     'wisdom': () => run(['lint:all', 'coverage']),
-    'test': () => 'tape test/*.mjs',
-    'test:all': () => `mocha 'lib/**/*.spec.js' test/*.mjs`,
+    'test': () => 'tape test/*.mjs "lib/config/*.spec.*"',
+    'test:all': () => `mocha 'lib/**/*.spec{.js,.mjs}' test/*.mjs`,
     'watch:test': async () => `nodemon -w rules -x ${await run('test')}`,
     'lint': () => 'putout .',
     'lint:all': () => run(['lint', 'lint:safe']),
