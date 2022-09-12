@@ -8,6 +8,7 @@
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove **IIFE**.
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e4c8fb3bdf6beb33b693a4ee0892d9aa/93296ca2fd22e502a584f95ce5c5e3a7ae838e2f).
 
 ## Install
 
