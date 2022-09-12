@@ -17,6 +17,11 @@ test('remove iife: transform', (t) => {
     t.end();
 });
 
+test('remove iife: transform: arrow', (t) => {
+    t.transform('arrow');
+    t.end();
+});
+
 test('remove iife: no transform: return', (t) => {
     t.noTransform('return');
     t.end();

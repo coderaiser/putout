@@ -31,12 +31,19 @@ npm i @putout/plugin-remove-iife
 (function() {
     console.log('hello');
 })();
+
+((a) => fn(a))(value);
+((a, b) => fn(a, b))(value, value2);
 ```
 
 ## ✅ Example of correct code
 
 ```js
 console.log('hello');
+
+fn(value);
+fn(value, value2);
+
 ```
 
 ## License
