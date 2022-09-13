@@ -27,8 +27,7 @@ module.exports.filter = (path) => {
 };
 
 module.exports.replace = () => ({
-    '(__a => __b(__a))(__c)': '__b(__c)',
-    '((__a, __b) => __c(__a, __b))(__d, __e)': '__c(__d, __e)',
+    '((__args__a) => __c(__args__a))(__args__b)': '__c(__args__b)',
     '(function() {})()': (vars, path) => {
         const {body} = path.node.callee.body;
         replaceWithMultiple(path.parentPath, body);
