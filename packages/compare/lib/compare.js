@@ -21,6 +21,7 @@ const {
     isStr,
     isPath,
     isEqualType,
+    isEqualBody,
     isEqualAnyObject,
     isEqualAnyArray,
     isLinkedNode,
@@ -99,6 +100,9 @@ function compare(path, template, options = {}, equal = noop) {
         return true;
     
     if (isStringLiteral(node) && isLinkedNode(templateNode))
+        return true;
+    
+    if (isEqualBody(node, templateNode))
         return true;
     
     if (findUp && isPath(path) && !isEqualType(node, templateNode)) {

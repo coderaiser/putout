@@ -516,6 +516,16 @@ test('compare: __body', (t) => {
     t.end();
 });
 
+test('compare: __body: only', (t) => {
+    const a = '{}';
+    const b = '__body';
+    
+    const result = compare(a, b);
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: __body: no body', (t) => {
     const a = template.ast('() => x');
     const b = template.ast('() => __body');
