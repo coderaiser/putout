@@ -28,17 +28,17 @@ const when = () => {
 };
 ```
 
-## `__` template value
+## `__`
 
 The double low dush template value (`__`) abstracts away `Identifiers`, `Expressions` and `Literals`.
 
 ## `__a`
 
-**Linked template value** (`__a`) abstracts away `Identifiers`, `Expressions` and `Literals`.
+**Linked Value** (`__a`) abstracts away `Identifiers`, `Expressions` and `Literals`.
 
-## `__args` template value
+## `__args`
 
-The `__args` template value abstracts away a sequence of zero or more arguments, for `(__args) => __a`:
+The `__args` value abstracts away a sequence of zero or more arguments, for `(__args) => __a`:
 
 ```js
 (a, b, c) => a + b + c;
