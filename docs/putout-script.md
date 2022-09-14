@@ -32,6 +32,10 @@ const when = () => {
 
 The double low dush template value (`__`) abstracts away `Identifiers`, `Expressions` and `Literals`.
 
+## `__a`
+
+**Linked template value** (`__a`) abstracts away `Identifiers`, `Expressions` and `Literals`.
+
 ## `__args` template value
 
 The `__args` template value abstracts away a sequence of zero or more arguments, for `(__args) => __a`:
@@ -40,7 +44,9 @@ The `__args` template value abstracts away a sequence of zero or more arguments,
 (a, b, c) => a + b + c;
 ```
 
-`__args` can be linked. For example, the rule `((__args__a) => __c(__args__a))(__args__b)` will find:
+## `__args__a`
+
+`__args` can be linked. **Linked args** can be used to link to values with the same `Expressions`, `Identifiers` or `Literals`): `((__args__a) => __c(__args__a))(__args__b)` will find:
 
 ```js
 fn(value);
