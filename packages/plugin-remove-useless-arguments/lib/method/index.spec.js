@@ -21,3 +21,8 @@ test('plugin-remove-useless-method: method: no transform: not-class', (t) => {
     t.noTransform('not-class');
     t.end();
 });
+
+test('plugin-remove-useless-method: method: no report: class-property', (t) => {
+    t.noReport('class-property');
+    t.end();
+});

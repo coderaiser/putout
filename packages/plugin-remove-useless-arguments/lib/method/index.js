@@ -12,6 +12,7 @@ const {
     isThisExpression,
     isSuper,
     isClass,
+    isClassProperty,
 } = types;
 
 module.exports.report = ({methodNode}) => {
@@ -42,6 +43,9 @@ module.exports.traverse = ({push}) => ({
             return;
         
         for (const methodNode of parentPath.node.body.body) {
+            if (isClassProperty(methodNode))
+                continue;
+            
             if (isRestElement(methodNode.params.at(-1)))
                 continue;
             
