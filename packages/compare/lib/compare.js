@@ -33,6 +33,7 @@ const {
 const {keys} = Object;
 const {isArray} = Array;
 const noop = () => {};
+const isEmptyArray = (a) => isArray(a) && !a.length;
 
 const compareType = (type) => (path) => path.type === type;
 const extractExpression = (a) => isExpressionStatement(a) ? a.expression : a;
@@ -165,7 +166,7 @@ function superCompareIterate(node, template) {
     while (item = array.pop()) {
         const [node, template] = item;
         
-        if (!node)
+        if (!node || isEmptyArray(node) && !isEmptyArray(template))
             return false;
         
         for (const key of keys(template)) {

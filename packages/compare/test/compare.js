@@ -778,7 +778,26 @@ test('compare: typescript: arrow function type', (t) => {
     const template = `(__args__a) => __a.__b(__args__a)`;
     const result = compare(node, template);
     
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: typescript: arrow function type: no args', (t) => {
+    const node = `(): boolean => name.startsWith()`;
+    const template = `() => __a.__b()`;
+    
+    const result = compare(node, template);
+    
     t.ok(result);
+    t.end();
+});
+
+test('compare: __args__a', (t) => {
+    const node = '((a) => fn(42))(value)';
+    const template = '((__args__a) => __c(__args__a))(__args__b)';
+    const result = compare(node, template);
+    
+    t.notOk(result);
     t.end();
 });
 

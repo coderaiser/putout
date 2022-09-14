@@ -27,3 +27,8 @@ test('remove iife: no transform: return', (t) => {
     t.end();
 });
 
+test('remove iife: no transform: not used', (t) => {
+    t.noTransform('not-used');
+    t.end();
+});
+

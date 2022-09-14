@@ -93,7 +93,7 @@ compare('const hello = [data]', 'const __ = __array');
 true;
 ```
 
-##### __args, __args_a
+##### __args, __args__a
 
 Any count of `arguments`:
 
@@ -103,6 +103,18 @@ compare('(a, b) => {}', '(__args) => {}');
 compare('() => {}', '(__args) => {}');
 // returns
 true;
+```
+
+Or linked `arguments`:
+
+```js
+compare('((a) => fn(a))(value)', '((__args__a) => __c(__args__a))(__args__b)');
+// returns
+true;
+
+compare('((a) => fn(42))(value)', '((__args__a) => __c(__args__a))(__args__b)');
+// returns
+false;
 ```
 
 ##### __imports

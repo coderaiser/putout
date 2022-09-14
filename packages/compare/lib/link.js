@@ -6,9 +6,8 @@ const {
     isStringLiteral,
 } = require('@babel/types');
 
-const {isArray} = Array;
-
 const parseName = (node) => {
+    node = node[0] || node;
     const {name, value} = node;
     
     if (isIdentifier(node))
@@ -29,8 +28,7 @@ module.exports = ({add, value, nodeValue, templateStore}) => {
         return true;
     }
     
-    if (!isArray(nodeValue))
-        add(templateStore[name], nodeValue);
+    add(templateStore[name], nodeValue);
     
     return true;
 };
