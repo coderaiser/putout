@@ -6,12 +6,14 @@ module.exports.report = ({leftPath, rightPath}) => {
 
 const {replaceWith} = require('putout').operator;
 
-module.exports.fix = ({leftPath, rightPath}) => {
+module.exports.fix = ({path, leftPath, rightPath, operator}) => {
     const leftNode = leftPath.node;
     const rightNode = rightPath.node;
     
     replaceWith(rightPath, leftNode);
     replaceWith(leftPath, rightNode);
+    
+    path.node.operator = convertOperator(operator);
 };
 
 module.exports.traverse = ({push}) => ({
@@ -32,6 +34,7 @@ module.exports.traverse = ({push}) => ({
         
         push({
             path,
+            operator,
             leftPath,
             rightPath,
         });
@@ -46,4 +49,14 @@ function isLeftValid(leftPath) {
         return false;
     
     return true;
+}
+
+function convertOperator(operator) {
+    if (operator.includes('>'))
+        return operator.replace('>', '<');
+    
+    if (operator.includes('<'))
+        return operator.replace('<', '>');
+    
+    return operator;
 }

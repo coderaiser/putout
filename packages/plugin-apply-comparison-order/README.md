@@ -30,12 +30,14 @@ npm i @putout/plugin-apply-comparison-order
 
 ```js
 3 === a;
+3 < b;
 ```
 
 ## ✅ Example of correct code
 
 ```js
 a === 3;
+b > 3;
 ```
 
 ## Comparison
