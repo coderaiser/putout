@@ -53,7 +53,7 @@ Once upon a time 🐊Putout swim over the river of Code and suddenly...
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function memberExpression(object: Expression, property: Expression | Identifier, computed: boolean, optional: boolean): MemberExpression;
+function MemberExpression(object: Expression, property: Expression | Identifier, computed: boolean, optional: boolean);
 ```
 
 > `MemberExpression` always has `object` and `property` fields.
@@ -70,12 +70,43 @@ Friends.elephant; // has not computed value 'elephant'
 
 "Anytime you access a **property** of **object** or **index** of **array** you using **MemberExpression**", thought the crocodile wagging his tail.
 
+## Literal
+
+<details><summary>🤿 deep dive</summary>
+
+```ts
+function Literal(value: primitive)
+```
+
+> `Literal` always has a `value` field.
+> If `computed` enabled then `property` is [`Expression`](#expression-and-statement) otherwise it is [`Identifier`](#identifier).
+
+</details>
+
+"Anything can be expressed with `Identifier` or `Literal`!", - the voice said.
+
+"Who is here?", - crocodile ask.
+
+"I'm a big turtule 🐢, don't you remember me?"
+
+"Why I should?"
+
+"Maybe because you came here in your dreams?"
+
+"I don't remember my dreams, anyways I'm here, and I don't agree with you!"
+
+"About what?", - the turtle asked.
+
+"Almost every other node depends on `Identifiers` and `Literals`"
+
+"That's right!", - turtle said with a smile in her face. 
+
 ## Identifier
 
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function identifier(name: string): Identifier;
+function Identifier(name: string): Identifier;
 ```
 
 > When it's
@@ -126,8 +157,8 @@ if (fruit === '🍎') // 🌳(🍎)
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function arrayExpression(elements: null[] | Expression[] | SpreadElement[]): ArrayExpression;
-function arrayPattern(elements: null[] | PatternLike[]): ArrayPattern;
+function ArrayExpression(elements: null[] | Expression[] | SpreadElement[])
+function ArrayPattern(elements: null[] | PatternLike[]): ArrayPattern;
 ```
 
 > Both `ArrayExpression` and `ArrayPattern` takes `properties`, both of which takes `ObjectProperty`, but
@@ -161,8 +192,8 @@ const [owl] = birds;
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function objectExpression(properties: ObjectMethod[] | ObjectProperty[] | SpreadElement[]): ObjectExpression;
-function objectPattern(properties: RestElement[] | ObjectProperty[]): ObjectPattern;
+function ObjectExpression(properties: ObjectMethod[] | ObjectProperty[] | SpreadElement[]);
+function ObjectPattern(properties: RestElement[] | ObjectProperty[]);
 ```
 
 > Both `ObjectExpression` and `ObjectPattern` takes `properties`, both of which takes `ObjectProperty`, but
@@ -195,8 +226,8 @@ And sayed, "Here is the other code I saw in the cloud, is it similar on any kind
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function spreadElement(argument: Expression): SpreadElement;
-function restElement(argument: Expression): RestElement;
+function SpreadElement(argument: Expression): SpreadElement;
+function RestElement(argument: Expression): RestElement;
 ```
 
 > [**Spread**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) syntax (`...`) usually takes [`ArrayExpression`](#arrayexpression-and-arraypattern) or [`ObjectExpression`](#objectexpression-and-objectpattern) to be expanded in places where zero or more items are expected.
