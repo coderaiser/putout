@@ -308,7 +308,7 @@ module.exports.traverse = ({pathStore}) => ({
     
     Program: {
         exit() {
-            console.log(listStore());
+            console.log(pathStore());
             // returns
             [];
         },
