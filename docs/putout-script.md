@@ -37,19 +37,19 @@ The double low dush template value (`__`) abstracts away `Identifiers`, `Express
 The `__args` template value abstracts away a sequence of zero or more arguments, for `(__args) => __a`:
 
 ```js
-(a, b, c) => a + b + c
+(a, b, c) => a + b + c;
 ```
 
 `__args` can be linked. For example, the rule `((__args__a) => __c(__args__a))(__args__b)` will find:
 
 ```js
-((a) => fn(a))(value)
+fn(value);
 ```
 
 But not:
 
 ```js
-((a) => fn(42))(value)
+((a) => fn(42))(value);
 ```
 
 ## Function calls
