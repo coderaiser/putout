@@ -75,7 +75,7 @@ Friends.elephant; // has not computed value 'elephant'
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function Literal(value: primitive)
+function Literal(value: primitive);
 ```
 
 > `Literal` always has a `value` field.
@@ -99,7 +99,7 @@ function Literal(value: primitive)
 
 "Almost every other node depends on `Identifiers` and `Literals`"
 
-"That's right!", - turtle said with a smile in her face. 
+"That's right!", - turtle said with a smile in her face.
 
 ## Identifier
 
@@ -157,7 +157,7 @@ if (fruit === '🍎') // 🌳(🍎)
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function ArrayExpression(elements: null[] | Expression[] | SpreadElement[])
+function ArrayExpression(elements: null[] | Expression[] | SpreadElement[]);
 function ArrayPattern(elements: null[] | PatternLike[]): ArrayPattern;
 ```
 
