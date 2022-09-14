@@ -75,7 +75,7 @@ Friends.elephant; // has not computed value 'elephant'
 <details><summary>🤿 deep dive</summary>
 
 ```ts
-function Literal(value: boolean|string|number|bigint|undefined|null);
+function Literal(value: boolean | string | number | bigint | undefined | null);
 ```
 
 > `Literal` always has a `value` field.
