@@ -36,3 +36,18 @@ test('plugin-putout: convert-traverse-to-replace: no transform: push', (t) => {
     t.noTransform('push');
     t.end();
 });
+
+test('plugin-putout: convert-traverse-to-replace: no transform: identifier', (t) => {
+    t.noTransform('identifier');
+    t.end();
+});
+
+test('plugin-putout: convert-traverse-to-replace: no transform: property', (t) => {
+    t.noTransform('property');
+    t.end();
+});
+
+test('plugin-putout: convert-traverse-to-replace: transform: string', (t) => {
+    t.transform('string');
+    t.end();
+});
