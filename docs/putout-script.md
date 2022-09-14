@@ -30,11 +30,11 @@ const when = () => {
 
 ## `__`
 
-The double low dush template value (`__`) abstracts away `Identifiers`, `Expressions` and `Literals`.
+The double low dush template value (`__`) abstracts away [`Identifiers`](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#identifier), [`Expressions`](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#expression-and-statement) and [`Literals`](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#literal).
 
 ## `__a`
 
-**Linked Value** (`__a`) abstracts away `Identifiers`, `Expressions` and `Literals`.
+**Linked Value** (`__a`) abstracts away [`Identifiers`](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#identifier), [`Expressions`](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#expression-and-statement) and [`Literals`](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#literal).
 
 ## `__args`
 
@@ -46,7 +46,7 @@ The `__args` value abstracts away a sequence of zero or more arguments, for `(__
 
 ## `__args__a`
 
-`__args` can be linked. **Linked args** can be used to link to values with the same `Expressions`, `Identifiers` or `Literals`): `((__args__a) => __c(__args__a))(__args__b)` will find:
+`__args` can be linked. **Linked args** can be used to link to values with the same [`Expressions`](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#expression-and-statement), `Identifiers`(https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#identifier) or [`Literals`](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#literal)): `((__args__a) => __c(__args__a))(__args__b)` will find:
 
 ```js
 fn(value);
@@ -214,8 +214,8 @@ const answer: number = 42;
 
 JavaScript differentiate between expressions and statements. Expressions can appear inside `if` conditions, in `function` call `arguments`, etc. Statements can not appear everywhere; they are sequence of operations (using `;` as a separator/terminator) or special control flow constructs (`if`, `while`, etc.):
 
-- ✅ `say()` is an expression
-- ✅ `say();` is a statement
+- ✅ `say()` is an expression;
+- ✅ `say();` is a statement;
 
 When you write the expression `foo()` in a pattern, 🦎`PutoutScript` will visit every expression and sub-expression in your program and try to find a match.
 
