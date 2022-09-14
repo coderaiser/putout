@@ -1,4 +1,4 @@
-# The book of AST
+# The Book of AST
 
 When I started dealing with **AST** I had a lot of problems in understanding basic parts. I read [**ESTree**](https://github.com/estree/estree#readme) standard, I read [**Babel**](https://babeljs.io/docs/en/babel-types#) standard. They are very good! Anyways they put the information in a very hurd to understand for novice way.
 
