@@ -32,7 +32,7 @@ npm i @putout/plugin-regexp -D
 }
 ```
 
-## regexp/optimize
+## optimize
 
 ### ❌ Example of incorrect code
 
@@ -46,7 +46,7 @@ const a = /(ab|ab)/;
 const a = /(ab)/;
 ```
 
-## regexp/apply-literal-notation
+## apply-literal-notation
 
 ### ❌ Example of incorrect code
 
@@ -60,7 +60,7 @@ const a = new RegExp('hello', 'i');
 const a = /hello/i;
 ```
 
-## regexp/apply-starts-with
+## apply-starts-with
 
 > The `startsWith()` method determines whether a string begins with the characters of a specified string, returning `true` or `false` as appropriate.
 >
@@ -84,10 +84,10 @@ a.startsWith('hello');
 
 Linter | Rule | Fix
 --------|-------|------------|
-🐊 **Putout**| [`regexp/apply-starts-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#regexpapply-starts-with)| ✅
+🐊 **Putout**| [`regexp/apply-starts-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#apply-starts-with)| ✅
 🦕 **TypeScript ESLint** | [`prefer-string-starts-ends-with`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md#prefer-string-starts-ends-with) | ✅
 
-## regexp/apply-ends-with
+## apply-ends-with
 
 > The `startsWith()` method determines whether a string ends with the characters of a specified string, returning `true` or `false` as appropriate.
 >
@@ -111,10 +111,10 @@ a.endsWith('hello');
 
 Linter | Rule | Fix
 --------|-------|------------|
-🐊 **Putout**| [`regexp/apply-ends-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#regexpapply-ends-with)| ✅
+🐊 **Putout**| [`regexp/apply-ends-with`](https://github.com/coderaiser/putout/tree/master/packages/plugin-regexp#apply-ends-with)| ✅
 🦕 **TypeScript ESLint** | [`prefer-string-starts-ends-with`](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/prefer-string-starts-ends-with.md#prefer-string-starts-ends-with) | ✅
 
-## regexp/convert-to-string
+## convert-to-string
 
 ### ❌ Example of incorrect code
 
@@ -128,7 +128,7 @@ Linter | Rule | Fix
 'hello'.replace('hello', 'world');
 ```
 
-## regexp/convert-replace-to-replace-all
+## convert-replace-to-replace-all
 
 Simplify code according to [string-replace-all](https://github.com/tc39/proposal-string-replaceall).
 
@@ -144,7 +144,7 @@ Simplify code according to [string-replace-all](https://github.com/tc39/proposal
 'hello'.replaceAll('hello', 'world');
 ```
 
-## regexp/remove-useless-group
+## remove-useless-group
 
 ### ❌ Example of incorrect code
 
@@ -158,7 +158,7 @@ Simplify code according to [string-replace-all](https://github.com/tc39/proposal
 /hello/.test(str);
 ```
 
-## regexp/remove-useless-regexp
+## remove-useless-regexp
 
 ### ❌ Example of incorrect code
 
