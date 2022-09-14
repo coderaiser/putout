@@ -32,3 +32,8 @@ test('plugin-apply-comparison-order: no transform: chain', (t) => {
     t.end();
 });
 
+test('plugin-apply-comparison-order: no report: shift', (t) => {
+    t.noReport('shift');
+    t.end();
+});
+

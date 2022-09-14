@@ -23,6 +23,9 @@ module.exports.traverse = ({push}) => ({
         if (!/^[<>]=?|===?$/.test(operator))
             return;
         
+        if (operator.includes('>>') || operator.includes('<<'))
+            return;
+        
         const leftPath = path.get('left');
         const rightPath = path.get('right');
         
