@@ -9,6 +9,7 @@
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove **IIFE**.
 Check out in 🐊**Putout Editor**:
+
 - ✅ [getting read of `IIFE`](https://putout.cloudcmd.io/#/gist/e4c8fb3bdf6beb33b693a4ee0892d9aa/93296ca2fd22e502a584f95ce5c5e3a7ae838e2f) using **Linked Template Values**[(`__a`](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#__a));
 - ✅ [getting read of `IIFE`](https://putout.cloudcmd.io/#/gist/42c19f103b40d86b1d20d7201306c5e3/c752dcc2d80fe90ca2431ad952a5fdc32a780492) using **Linked Args** [(`__args__a`)](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#__args__a);
 
