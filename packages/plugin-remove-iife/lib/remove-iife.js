@@ -25,7 +25,7 @@ module.exports.filter = (path) => {
 };
 
 module.exports.replace = () => ({
-    '((__args__a) => __c(__args__a))(__args__b)': '__c(__args__b)',
+    '((__args__a) => __f(__args__a))(__args__b)': '__f(__args__b)',
     '(() => __body)()': '__body',
     '(function() {})()': (vars, path) => {
         const {body} = path.node.callee.body;
