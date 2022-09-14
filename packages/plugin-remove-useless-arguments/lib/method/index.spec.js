@@ -26,3 +26,8 @@ test('plugin-remove-useless-method: method: no report: class-property', (t) => {
     t.noReport('class-property');
     t.end();
 });
+
+test('plugin-remove-useless-method: method: no report: getter', (t) => {
+    t.noReport('getter');
+    t.end();
+});

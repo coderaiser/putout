@@ -49,6 +49,9 @@ module.exports.traverse = ({push}) => ({
             if (isRestElement(methodNode.params.at(-1)))
                 continue;
             
+            if (methodNode.kind === 'get')
+                continue;
+            
             if (!compare(methodNode.key, path.node.callee.property))
                 continue;
             
