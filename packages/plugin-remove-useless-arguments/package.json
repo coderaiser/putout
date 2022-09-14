@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-remove-useless-arguments",
-  "version": "6.2.0",
+  "version": "6.3.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to find and remove useless arguments",
