@@ -63,13 +63,13 @@ module.exports.traverse = ({push}) => ({
         for (const tmpl of path.node.quasis) {
             const {raw} = tmpl.value;
             
-            if (hasQuote(raw))
-                return push(path);
-            
             if (isEscaped(raw))
                 return push(path);
             
-            if (raw.includes('\\\''))
+            if (hasQuote(raw))
+                return push(path);
+            
+            if (raw.includes(`\\'`) && !raw.includes(`\\\\'`))
                 return push(path);
         }
     },
