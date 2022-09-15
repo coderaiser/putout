@@ -260,6 +260,8 @@ const transform = currify(({dir, plugins, rules}, t, name, transformed = null, a
             code,
             isTS,
         });
+        
+        return t.pass('fixture updated');
     }
     
     return t.equal(code, output);
@@ -280,8 +282,10 @@ const transformWithOptions = currify(({dir, plugins}, t, name, options) => {
     
     const {code} = putout(input, {isTS, plugins, rules});
     
-    if (isUpdate())
+    if (isUpdate()) {
         writeFileSync(`${full}-fix.js`, code);
+        return t.pass('fixture updated');
+    }
     
     return t.equal(code, output);
 });

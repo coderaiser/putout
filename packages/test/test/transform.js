@@ -31,6 +31,23 @@ test('transform: with UPDATE env variable', (t) => {
     t.end();
 }, {checkAssertionsCount: false});
 
+test('transform: with UPDATE env variable: pass', (t) => {
+    const {UPDATE} = process.env;
+    process.env.UPDATE = 1;
+    const {writeFileSync} = global.__putout_test_fs;
+    
+    const writeFileSyncStub = stub();
+    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    
+    const result = t.transform('typescript');
+    
+    process.env.UPDATE = UPDATE;
+    global.__putout_test_fs.writeFileSync = writeFileSync;
+    
+    t.equal(result.message, 'fixture updated');
+    t.end();
+}, {checkAssertionsCount: false});
+
 test('transform: with UPDATE env variable: js', (t) => {
     const {UPDATE} = process.env;
     process.env.UPDATE = 1;
@@ -103,6 +120,26 @@ test('transformWithOptions: with UPDATE env variable', (t) => {
     global.__putout_test_fs.unlinkSync = unlinkSync;
     
     t.ok(writeFileSyncStub.called);
+    t.end();
+}, {checkAssertionsCount: false});
+
+test('transformWithOptions: with UPDATE env variable: pass', (t) => {
+    const {UPDATE} = process.env;
+    process.env.UPDATE = 1;
+    const {writeFileSync, unlinkSync} = global.__putout_test_fs;
+    const unlinkSyncStub = stub();
+    
+    const writeFileSyncStub = stub();
+    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    global.__putout_test_fs.unlinkSync = unlinkSyncStub;
+    
+    const result = t.transformWithOptions('const', {});
+    
+    process.env.UPDATE = UPDATE;
+    global.__putout_test_fs.writeFileSync = writeFileSync;
+    global.__putout_test_fs.unlinkSync = unlinkSync;
+    
+    t.equal(result.message, 'fixture updated');
     t.end();
 }, {checkAssertionsCount: false});
 
