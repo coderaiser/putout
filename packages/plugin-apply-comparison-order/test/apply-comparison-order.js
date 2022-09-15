@@ -17,6 +17,11 @@ test('plugin-apply-comparison-order: transform', (t) => {
     t.end();
 });
 
+test('plugin-apply-comparison-order: no transform: inc', (t) => {
+    t.noTransform('inc');
+    t.end();
+});
+
 test('plugin-apply-comparison-order: no transform: not-logical', (t) => {
     t.noTransform('not-logical');
     t.end();

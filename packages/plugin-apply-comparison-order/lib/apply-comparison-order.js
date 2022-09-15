@@ -29,6 +29,9 @@ module.exports.traverse = ({push}) => ({
         const leftPath = path.get('left');
         const rightPath = path.get('right');
         
+        if (leftPath.isUpdateExpression())
+            return;
+        
         if (!isLeftValid(leftPath))
             return;
         
