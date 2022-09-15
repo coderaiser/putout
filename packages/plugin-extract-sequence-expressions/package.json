@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-extract-sequence-expressions",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to extract sequence expressions",
