@@ -22,13 +22,11 @@
 
 Check out couple variants of plugins that does the same: [**linting debugger statement**](https://putout.cloudcmd.io/#/gist/f61ba31fe534868d49eba9b946f3ed4b/5ef6863d9cf4826666782ae0eea5cb5def266bbd):
 
-- ❌ ESLint [no-debugger](https://github.com/eslint/eslint/blob/2dc38aa653f1d5137a9abf82024c67a11620bb7c/lib/rules/no-debugger.js): **43** lines;
 - ❌ SWCLint [no-debugger](https://github.com/swc-project/swc/blob/v1.2.138/crates/swc_ecma_lints/src/rules/no_debugger.rs): **49** lines;
+- ❌ RSLint [no-debugger](https://github.com/rslint/rslint/blob/v0.3.0/crates/rslint_core/src/groups/errors/no_debugger.rs): **48** lines;
+- ❌ ESLint [no-debugger](https://github.com/eslint/eslint/blob/2dc38aa653f1d5137a9abf82024c67a11620bb7c/lib/rules/no-debugger.js): **43** lines;
 - ❌ Rome [no-debugger](https://github.com/rome/tools/blob/4d5a99ce98e987cbd03f3ab6b38fa22d00bbfe27/packages/%40romejs/js-compiler/transforms/lint/noDebugger.ts): **28** lines;
-- ❌ RSLint [no-debugger](https://github.com/rslint/rslint/blob/v0.3.0/crates/rslint_core/src/groups/errors/no_debugger.rs): **48** lines
 - ✅ 🐊**Putout** [remove-debugger](https://github.com/coderaiser/putout/blob/v24.6.0/packages/plugin-remove-debugger/lib/remove-debugger.js): **7** lines:
-
-*Choose wisely, competitors cannot even fix…* 🤫
 
 ```js
 'use strict';
@@ -39,6 +37,8 @@ module.exports.replace = () => ({
     debugger: '',
 });
 ```
+
+*Choose wisely, competitors cannot even fix…* 🤫
 
 ## 🙏 Whom should I thank for this project exist?
 
