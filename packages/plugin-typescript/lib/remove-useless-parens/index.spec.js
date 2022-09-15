@@ -17,6 +17,11 @@ test('plugin-remove-useless-parens: transform', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-parens: transform: nested', (t) => {
+    t.transform('nested');
+    t.end();
+});
+
 test('plugin-remove-useless-parens: no transform: generic', (t) => {
     t.noTransform('generic');
     t.end();
