@@ -8,6 +8,7 @@ const {
 const {
     replaceWithMultiple,
     toExpression,
+    compare,
 } = operator;
 
 const {
@@ -55,6 +56,16 @@ module.exports.fix = (path) => {
             ...expressions,
             ReturnStatement(argument),
         ]);
+        return;
+    }
+    
+    if (compare(path, '__a(__args), __b')) {
+        const callPath = path.get('expressions.0');
+        const argPath = path.get('expressions.1');
+        
+        callPath.node.arguments.push(argPath.node);
+        argPath.remove();
+        
         return;
     }
     

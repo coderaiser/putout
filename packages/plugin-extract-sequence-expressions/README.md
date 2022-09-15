@@ -7,7 +7,7 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to extract **sequence expressions**.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to extract **sequence expressions**. Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/785d072fc20d0a3854f6ced093918b06/483b359357ebc04232f4a321bd3db627dc6a15cb).
 
 ☝️*Remember, when you [writing a transform](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#readme) you can skip all parts related to **extracting sequence expressions** and just reuse current **plugin** it will make your code simpler and less error prone.*
 
