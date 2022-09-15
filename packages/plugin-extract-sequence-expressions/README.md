@@ -34,6 +34,7 @@ module.exports.x = 1,
 module.exports.y = 2;
 
 fn((a, b));
+fn(a), 'hello';
 ```
 
 ## ✅ Example of correct code
@@ -43,6 +44,7 @@ module.exports.x = 1;
 module.exports.y = 2;
 
 fn(a, b);
+fn(a, 'hello');
 ```
 
 ## Comparison
