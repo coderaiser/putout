@@ -15,17 +15,22 @@ const traverseObjectPattern = ({use, declare}) => {
     
     return (propertiesPaths) => {
         for (const path of propertiesPaths) {
-            const {key} = path.node;
+            const {key, value} = path.node;
             const valuePath = path.get('value');
             
-            switch(key.type) {
+            switch(value.type) {
             case 'Identifier':
-                declare(path, key.name);
-            }
+                declare(path, value.name);
+                break;
             
-            switch(valuePath.type) {
             case 'AssignmentPattern':
+                if (path.node.shorthand)
+                    declare(path, key.name);
+                else
+                    declare(path, valuePath.node.left.name);
+                
                 traverseAssign(valuePath);
+                break;
             }
         }
     };

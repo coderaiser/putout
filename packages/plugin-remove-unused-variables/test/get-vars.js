@@ -346,10 +346,13 @@ test('remove-unused-variables: get-vars: assignment pattern', (t) => {
         def: d_,
         getName: _u,
         name: d_,
+        rename: d_,
     }, {
         f: d_,
     }, {
         fn: d_,
+    }, {
+        obj2: du,
     }];
     
     t.deepEqual(result, expected);
