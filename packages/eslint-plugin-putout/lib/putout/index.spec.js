@@ -327,7 +327,7 @@ tsParserTester.run('typescript-eslint-parser-error', rule, {
     `],
     invalid: [{
         code: 'const a = 5',
-        output: 'const a = 5',
+        output: null,
         options: [{
             plugins: [
                 ['throw', {}],
