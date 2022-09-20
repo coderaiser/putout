@@ -42,7 +42,7 @@
     "putout": "*"
   },
   "peerDependencies": {
-    "putout": ">=26"
+    "putout": ">=27"
   },
   "license": "MIT",
   "engines": {
