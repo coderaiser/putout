@@ -3,7 +3,7 @@
   "version": "14.0.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "run putout plugins",
+  "description": "Run 🐊Putout plugins",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/engine-runner#readme",
   "main": "lib/index.js",
   "commitType": "colon",
