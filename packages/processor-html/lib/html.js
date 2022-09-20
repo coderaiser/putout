@@ -1,4 +1,4 @@
-import * as processorCSS from '@putout/processor-css';
+import {lint} from '@putout/processor-css';
 
 const createSpaceLine = (a) => Array(a).join(' ');
 const addSpaces = (spacesCount) => (a) => createSpaceLine(spacesCount) + a;
@@ -15,7 +15,9 @@ export const fix = async (rawSource) => {
     const {code} = await svelte.preprocess(rawSource, {
         async style({content}) {
             const source = removePrefixSpaces(content);
-            const currentSource = await processorCSS.fix(source);
+            const [currentSource] = await lint(source, {
+                fix: true,
+            });
             
             if (currentSource.includes('errored'))
                 return {
@@ -43,10 +45,9 @@ export const find = async (rawSource) => {
     await svelte.preprocess(rawSource, {
         async style({content}) {
             const source = removePrefixSpaces(content);
-            const [currentSource, places] = await Promise.all([
-                processorCSS.fix(source),
-                processorCSS.find(source),
-            ]);
+            const [currentSource, places] = await lint(source, {
+                fix: false,
+            });
             
             const code = addPrefixSpaces({
                 currentSource: currentSource.slice(0, -1),
