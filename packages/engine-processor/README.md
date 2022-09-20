@@ -70,9 +70,11 @@ export const merge = (source, list) => {
 };
 ```
 
-Instead of `find` and `fix` you can use `lint`:
+Instead of `find` and `fix` you can export `lint`:
 
 ```js
+import eslint from '@putout/eslint';
+
 export const files = [
     '*.js',
 ];
