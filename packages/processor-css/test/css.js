@@ -22,6 +22,10 @@ test('putout: processor: css: places', async ({comparePlaces}) => {
     }]);
 });
 
+test('putout: processor: css: selector-class-pattern', async ({comparePlaces}) => {
+    await comparePlaces('selector-class-pattern', []);
+});
+
 test('putout: processor: css: template', async ({comparePlaces}) => {
     await comparePlaces('template', [{
         message: 'Unknown word (CssSyntaxError)',

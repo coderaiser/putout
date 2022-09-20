@@ -2,6 +2,7 @@
     "extends": "stylelint-config-standard",
     "rules": {
         "indentation": 4,
+        "selector-class-pattern": null,
         "declaration-block-trailing-semicolon": "always",
         "declaration-colon-space-before": null,
         "selector-list-comma-newline-after": null,
