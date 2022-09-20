@@ -1,6 +1,6 @@
 {
   "name": "@putout/processor-html",
-  "version": "4.1.0",
+  "version": "5.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout processor adds ability to parse html files and lint js snippets",
