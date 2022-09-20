@@ -2,6 +2,21 @@
 
 module.exports.report = () => 'Assignment should be simplified';
 
+module.exports.match = () => ({
+    'const __a = (() => __b)()': (vars, path) => {
+        let is = true;
+        
+        path.traverse({
+            VariableDeclaration(path) {
+                is = false;
+                path.stop();
+            },
+        });
+        
+        return is;
+    },
+});
+
 module.exports.replace = () => ({
     'const {__a} = {__a: __b}': 'const __a = __b',
     'const [__a] = [__b]': 'const __a = __b',

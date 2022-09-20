@@ -17,3 +17,8 @@ test('plugin-simplify-assignment: transform', (t) => {
     t.end();
 });
 
+test('plugin-simplify-assignment: no transform: declaration', (t) => {
+    t.noTransform('declaration');
+    t.end();
+});
+
