@@ -42,7 +42,8 @@
             "remove-console": "off",
             "remove-unreachable-code": "off",
             "declare-undefined-variables": "off",
-            "nodejs/declare": "off"
+            "nodejs/declare": "off",
+            "typescript/remove-unused-types": "off"
         },
         "*.svelte": {
             "remove-unused-variables": "off"

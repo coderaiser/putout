@@ -79,3 +79,27 @@ test('putout: config: eslint', (t) => {
     t.end();
 });
 
+test('putout: config: markdown', (t) => {
+    const {match} = putoutConfig;
+    const result = match['*.md'];
+    const expected = {
+        'convert-quotes-to-backticks': 'off',
+        'convert-comparison-to-boolean': 'off',
+        'remove-unused-expressions': 'off',
+        'remove-unused-variables': 'off',
+        'remove-useless-escape': 'off',
+        'remove-useless-variables': 'off',
+        'remove-useless-return': 'off',
+        'remove-empty': 'off',
+        'remove-unused-for-of-variables': 'off',
+        'remove-constant-conditions': 'off',
+        'remove-console': 'off',
+        'remove-unreachable-code': 'off',
+        'declare-undefined-variables': 'off',
+        'nodejs/declare': 'off',
+        'typescript/remove-unused-types': 'off',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
