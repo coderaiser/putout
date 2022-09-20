@@ -1,3 +1,17 @@
+2022.09.20, v27.11.0
+
+fix:
+- feature: @putout/processor-css: find()/() -> lint()
+
+feature:
+- @putout/processor-html: drop support of 🐊 < 27
+- package: @putout/processor-css v6.0.0
+- package: @putout/processor-css v6.0.0
+- @putout/processor-css: drop support of 🐊 < 27
+- @putout/processor-css: find()/fix() -> lint()
+- @putout/engine-processor: add support of 'lint()' export in processors
+- @putout/processor-css: disable selector-class-pattern
+
 2022.09.20, v27.10.0
 
 feature:
