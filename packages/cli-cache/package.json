@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "cache of places found by putout",
+  "description": "The cache of Places found by 🐊Putout",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-cache#readme",
   "main": "lib/cache.js",
   "commitType": "colon",
