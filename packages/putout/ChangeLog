@@ -1,3 +1,29 @@
+2022.09.20, v27.9.0
+
+feature:
+- package: @putout/plugin-simplify-assignment v2.0.0
+- @putout/plugin-simplify-assignment: report
+- @putout/plugin-simplify-assignment: drop support of 🐊 < 27
+- @putout/plugin-simplify-assignmet: exclude variable declarations
+- package: ts-morph v16.0.0
+- package: stylelint-config-standard v28.0.0
+- package: eslint-plugin-eslint-plugin v5.0.6
+- @putout/plugin-remove-unused-variables: improve support of ObjectPattern property shorthand used with AssignmntPattern
+- @putout/plugin-apply-comparison-order: exclude UpdateExpressions: inc, dec
+- @putout/plugin-exptrace-sequence-expressions: add support of lost args
+- @putout/plugin-remove-useless-parens: improve support of nested TsArrayType
+- @putout/plugin-remove-useless-escape: improve support slash quote
+- @putout/test: pass test when updating the fixture
+- @putout/plugin-remove-useless-arguments: method: exclude getter
+- @putout/plugin-apply-comparison-order: exclude "<<" and ">>"
+- @putout/plugin-apply-comparison-order: reverse ">" and "<"
+- @putout/plugin-remove-useless-arguments: method: TS: add ability to handle ClassProperty
+- @putout/plugin-putout: convert-traverse-to-replace: check for Identifiers in property keys
+- @putout/compare: improve support of __args__a (#113)
+- @putout/plugin-remove-iife: arrow: add support of no args
+- @putout/compare: improve support of __body
+- @putout/plugin-remove-iife: add support of any count of args
+
 2022.09.12, v27.8.0
 
 fix:
