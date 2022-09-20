@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-simplify-assignment: report', (t) => {
-    t.report('assignment', 'Assignment should be simplified');
+    t.report('assignment', 'Simplify assignment');
     t.end();
 });
 

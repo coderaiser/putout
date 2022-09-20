@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = () => 'Assignment should be simplified';
+module.exports.report = () => 'Simplify assignment';
 
 module.exports.match = () => ({
     'const __a = (() => __b)()': (vars, path) => {
