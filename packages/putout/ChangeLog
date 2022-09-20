@@ -1,3 +1,8 @@
+2022.09.20, v27.10.0
+
+feature:
+- putout: *.md: typescript/remove-unused-types: off
+
 2022.09.20, v27.9.0
 
 feature:
