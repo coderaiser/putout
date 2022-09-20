@@ -10,9 +10,10 @@ export const files = [
     '*.css',
 ];
 
-export const find = async (code) => {
+export const lint = async (code, {fix}) => {
     const config = await loadConfig();
-    const {results} = await stylelint.lint({
+    const {output, results} = await stylelint.lint({
+        fix,
         code,
         config,
     });
@@ -20,18 +21,7 @@ export const find = async (code) => {
     const {warnings} = results[0];
     const places = warnings.map(toPlace);
     
-    return places;
-};
-
-export const fix = async (code) => {
-    const config = await loadConfig();
-    const {output} = await stylelint.lint({
-        fix: true,
-        code,
-        config,
-    });
-    
-    return output;
+    return [output, places];
 };
 
 function toPlace({line, column, rule, text}) {
