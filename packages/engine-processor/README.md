@@ -70,6 +70,23 @@ export const merge = (source, list) => {
 };
 ```
 
+Instead of `find` and `fix` you can use `lint`:
+
+```js
+export const files = [
+    '*.js',
+];
+
+export const lint = async (source, {fix}) => {
+    const [code, places] = await eslint(source, {fix});
+    return [code, places];
+};
+```
+
+## License
+
+MIT
+
 ## License
 
 MIT

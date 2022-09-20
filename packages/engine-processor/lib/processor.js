@@ -114,6 +114,7 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
             find = stubFind,
             fix: fixFind = id,
             merge: runnersMerge = id,
+            lint,
         } = currentRunner;
         
         if (!isMatch(name))
@@ -123,7 +124,9 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
         
         isProcessed = true;
         
-        if (fix)
+        if (lint)
+            [processedSource, processedPlaces] = await lint(rawSource, {fix});
+        else if (fix)
             processedSource = await fixFind(rawSource);
         else
             processedPlaces = await find(rawSource);
