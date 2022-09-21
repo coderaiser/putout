@@ -13,3 +13,20 @@ test('test: exported: processor: createTest', (t) => {
     t.equal(typeof createTest(import.meta.url), 'function');
     t.end();
 });
+
+const typos = {
+    files: '*.md',
+    lint: () => ['target\n', []],
+};
+
+const testProcessor = createTest(import.meta.url, {
+    extension: 'md',
+    processorRunners: [
+        typos,
+    ],
+});
+
+testProcessor('test: processor: processorRunners', async ({process}) => {
+    await process('typos', []);
+});
+
