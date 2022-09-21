@@ -102,6 +102,7 @@ async function iterate({name, rawSource, fileList, merge, processFile, processed
 
 async function getFiles({name, fix, rawSource, processorRunners}) {
     const fileList = [];
+    const allPlaces = [];
     
     let isProcessed = false;
     let processedSource = '';
@@ -135,6 +136,8 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
         if (!processedSource)
             processedSource = rawSource;
         
+        allPlaces.push(...processedPlaces);
+        
         const files = await branch(processedSource);
         
         fileList.push(...files);
@@ -144,7 +147,7 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
         merge,
         isProcessed,
         processedSource,
-        processedPlaces,
+        processedPlaces: allPlaces,
         fileList,
     };
 }
