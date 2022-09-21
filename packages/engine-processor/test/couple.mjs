@@ -5,7 +5,7 @@ const typos = {
     files: '*.css',
     lint: (code) => [code, [{
         rule: 'typo (typos)',
-        message: 'Typo: taget -> target',
+        message: 'Typo: target -> target',
         position: {
             line: 1,
             column: 0,
@@ -23,14 +23,14 @@ const test = createTest(import.meta.url, {
 
 test('putout: engine: processor: couple', async ({comparePlaces}) => {
     await comparePlaces('couple', [{
-        message: 'Typo: taget -> target',
+        message: 'Typo: target -> target',
         position: {
             column: 0,
             line: 1,
         },
         rule: 'typo (typos)',
     }, {
-        message: 'Unexpected unknown type selector "taget" (selector-type-no-unknown)',
+        message: 'Unexpected unknown type selector "target" (selector-type-no-unknown)',
         position: {
             column: 1,
             line: 1,
