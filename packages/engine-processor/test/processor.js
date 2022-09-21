@@ -596,7 +596,7 @@ test('putout: engine-processor: lint + js', async (t) => {
     const options = {};
     
     const processorRunners = [{
-        isMatch: stub().returns(true),
+        files: '*.md',
         fix: () => 'hello',
         branch: () => [{
             source: 'var a',
@@ -627,7 +627,7 @@ test('putout: engine-processor: no fix', async (t) => {
     const options = {};
     
     const processorRunners = [{
-        isMatch: stub().returns(true),
+        files: '*.md',
         branch: () => [{
             source: 'var a',
             startLine: 0,
@@ -677,6 +677,37 @@ test('putout: engine-processor: call merge once', async (t) => {
     });
     
     t.equal(processedSource, fixedSource);
+    t.end();
+});
+
+test('putout: engine-processor: processorRunners', async (t) => {
+    const name = join(__dirname, 'fixture/call-merge-once.md');
+    
+    const typos = {
+        files: [
+            '*.*',
+        ],
+        
+        lint: (code) => [code, []],
+    };
+    
+    const rawSource = await readFile(name, 'utf8');
+    
+    const {places} = await runProcessors({
+        fix: true,
+        name,
+        processFile: processFile({
+            name: `${name}{js}`,
+            fix: true,
+        }),
+        rawSource,
+        options: {},
+        processorRunners: [
+            typos,
+        ],
+    });
+    
+    t.deepEqual(places, []);
     t.end();
 });
 

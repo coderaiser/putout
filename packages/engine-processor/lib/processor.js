@@ -30,6 +30,7 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     } = options;
     
     processorRunners = processorRunners || await getProcessorRunners(processors, load);
+    processorRunners = processorRunners.map(addGlobs);
     
     let processedSource = '';
     let processedPlaces = [];
@@ -154,7 +155,7 @@ async function getProcessorRunners(processors, load) {
         processors,
     }, load);
     
-    return readyProcessors.map(addGlobs);
+    return readyProcessors;
 }
 
 function addGlobs(processor) {
