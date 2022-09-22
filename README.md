@@ -468,7 +468,6 @@ External processors:
 |--------|-------|
 | [`putout-processor-typos`](https://github.com/putoutjs/putout-processor-typos) | [![npm](https://img.shields.io/npm/v/putout-processor-typos.svg?maxAge=86400)](https://www.npmjs.com/package/putout-processor-typos) |
 
-
 To enable, install and use:
 
 ```json
