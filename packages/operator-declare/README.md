@@ -16,10 +16,8 @@ npm i putout @putout/operator-declare
 If you want to create 🐊[**Putout**](https://github.com/coderaiser/putout) `plugin` that will declare variables according to your needs just:
 
 ```js
-const {
-    operator,
-    declare,
-} = require('putout');
+const {operator} = require('putout');
+const {declare} = operator;
 
 module.exports = declare({
     fs: `import fs from 'fs/promises'`,
@@ -31,10 +29,8 @@ module.exports = declare({
 When you need different declarations for `ESM` and `CommonJS` you can use:
 
 ```js
-const {
-    operator,
-    declare,
-} = require('putout');
+const {operator} = require('putout');
+const {declare} = operator;
 
 module.exports = declare({
     fs: {
