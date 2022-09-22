@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/formatter-eslint.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/formatter-eslint "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) formatter for using `eslint-formatters`.
+🐊[**Putout**](https://github.com/coderaiser/putout) formatter for using **ESLint** formatters.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm i putout @putout/formatter-eslint
 
 ## Usage
 
-To output results in `eslint` format use:
+To output results in **ESLint** format use:
 
 ```sh
 putout --format eslint lib
