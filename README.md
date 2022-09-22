@@ -454,15 +454,22 @@ You can disable any of them with:
 }
 ```
 
-And not bundled processors:
+Not bundled processors:
 
 | Package | Version |
 |--------|-------|
-| [`@putout/processor-typescript`](/packages/processor-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-typescript#readme) |
-| [`@putout/processor-html`](/packages/processor-html#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-html.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-html#readme) |
+| [`@putout/processor-typescript`](/packages/processor-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-typescript) |
+| [`@putout/processor-html`](/packages/processor-html#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-html.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-html) |
 | [`@putout/processor-wasm`](/packages/processor-wasm#readme) | [![npm](https://img.shields.io/npm/v/@putout/processor-wasm.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/processor-wasm) |
 
-To enable it use:
+External processors:
+
+| Package | Version |
+|--------|-------|
+| [`putout-processor-typos`](https://github.com/putoutjs/putout-processor-typos) | [![npm](https://img.shields.io/npm/v/putout-processor-typos.svg?maxAge=86400)](https://www.npmjs.com/package/putout-processor-typos) |
+
+
+To enable, install and use:
 
 ```json
 {
