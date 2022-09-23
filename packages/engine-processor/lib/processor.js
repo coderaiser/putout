@@ -102,14 +102,15 @@ async function iterate({name, rawSource, fileList, merge, processFile, processed
 
 async function getFiles({name, fix, rawSource, processorRunners}) {
     const fileList = [];
-    const allPlaces = [];
+    const processedPlaces = [];
     
     let isProcessed = false;
     let processedSource = '';
-    let processedPlaces = [];
     let merge = null;
     
     for (const currentRunner of processorRunners) {
+        let places = [];
+        
         const {
             isMatch,
             branch = stubSplit,
@@ -127,16 +128,16 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
         isProcessed = true;
         
         if (lint)
-            [processedSource, processedPlaces] = await lint(rawSource, {fix});
+            [processedSource, places] = await lint(rawSource, {fix});
         else if (fix)
             processedSource = await fixFind(rawSource);
         else
-            processedPlaces = await find(rawSource);
+            places = await find(rawSource);
         
         if (!processedSource)
             processedSource = rawSource;
         
-        allPlaces.push(...processedPlaces);
+        processedPlaces.push(...places);
         
         const files = await branch(processedSource);
         
@@ -147,7 +148,7 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
         merge,
         isProcessed,
         processedSource,
-        processedPlaces: allPlaces,
+        processedPlaces,
         fileList,
     };
 }
