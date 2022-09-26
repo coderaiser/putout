@@ -15,10 +15,10 @@ npm i @putout/engine-runner
 
 There is a couple plugin types supported by 🐊**Putout**:
 
-- ✅[`Replacer`](#replacer)
-- ✅[`Includer`](#includer)
-- ✅[`Traverser`](#traverser)
-- ✅[`Finder`](#finder)
+- ✅[**Replacer**](#replacer)
+- ✅[**Includer**](#includer)
+- ✅[**Traverser**](#traverser)
+- ✅[**Finder**](#finder)
 
 All of them supports subset of **JavaScript** 🦎[**PutoutScript**](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) described in [`@putout/compare`](https://github.com/coderaiser/putout/tree/master/packages/compare#readme).
 
@@ -145,7 +145,7 @@ module.exports.replace = () => ({
 
 ### Includer
 
-`includer` is the most preferable format of a plugin, simplest to use (after `replacer`)
+**Includer** is the most preferable format of a plugin, simplest to use (after `Replacer`):
 
 ```js
 module.exports.report = () => 'debugger statement should not be used';
@@ -178,7 +178,7 @@ Where `__` can be any node. All this possible with help of [@putout/compare](htt
 
 ### Traverser
 
-`Traverse plugins` gives you more power to `filter` and `fix` nodes you need.
+**Traverser** gives you more power to `filter` and `fix` nodes you need.
 
 ```js
 module.exports.report = () => 'debugger statement should not be used';
@@ -196,7 +196,7 @@ module.exports.traverse = ({push}) => ({
 
 ### Finder
 
-`Find plugins` gives you all the control over traversing, but it's the slowest format.
+**Finder** gives you all the control over traversing, but it's the slowest format.
 Because `traversers` not merged in contrast with other plugin formats.
 
 ```js
