@@ -3,6 +3,10 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-new.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-new "npm"
 
+> The `new` operator lets developers create an instance of a user-defined object type or of one of the built-in object types that has a constructor function.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new)
+
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to add missing and remove useless operator `new`.
 
 ## Install
@@ -97,6 +101,7 @@ Linter | Rule | Fix
 ⠀| [`no-new-object`](https://eslint.org/docs/rules/no-new-object) | ❌
 ⠀| [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor) | ❌
 ⠀| [`no-new-symbol`](https://eslint.org/docs/rules/no-new-symbol) | ❌
+ | [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers) | ❌
 
 ## License
 
