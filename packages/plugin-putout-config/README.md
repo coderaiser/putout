@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-putout-config.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-putout-config"npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with [`putout`](https://github.com/coderaiser/putout) plugins development.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with 🐊[**Putout Config**](https://github.com/coderaiser/putout#-configuration).
 
 ## Install
 
