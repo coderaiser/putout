@@ -406,7 +406,7 @@ module.exports.merge = (processedSource, list) => '';
 ## convert-method-to-property
 
 - property simpler to work with;
-- support of `convert-destructuring-to-identifier` which is `Replacer`, while `convert-method-to-property` is `Includer` (searches for `ObjectMethod` node);
+- support of [`convert-destructuring-to-identifier`](#convert-destructuring-to-identifier) which is `Replacer`, while `convert-method-to-property` is `Includer` (searches for `ObjectMethod` node);
 
 ### ❌ Example of incorrect code
 
