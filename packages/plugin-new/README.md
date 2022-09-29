@@ -24,13 +24,13 @@ npm i @putout/plugin-new
 
 ## remove-useless
 
-Operator `new` has no sense for `BigInt`, `Boolean`, `String`, `Number`, `Object`, `RegExp`, `Math`, `Reflect`, `Error`:
+Operator `new` has no sense for `Boolean`, `String`, `Number`, `Object`, `RegExp`, `Math`, `Reflect`, `Error`:
 
 > Thus the function call `Error(…)` is equivalent to the object creation expression `new Error(…)` with the same arguments.
 >
 > (c) https://262.ecma-international.org/12.0/#sec-error-constructor
 
-And [`Symbol`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) cannot be used with `new`, as it is primitive.
+And [`Symbol`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol), [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) cannot be used with `new`, as it is primitive.
 
 ### ❌ Example of incorrect code
 
@@ -46,7 +46,7 @@ Error('Something whent wrong');
 Boolean();
 ```
 
-## add-missing-new
+## add-missing
 
 > The `Set` constructor lets you create Set objects that store unique values of any type, whether primitive values or object references.
 >
