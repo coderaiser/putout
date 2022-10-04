@@ -2679,7 +2679,7 @@ import {OK} from 'putout/exit-codes';
 - [**Eslint Config Hardcore**](https://github.com/EvgenyOrekhov/eslint-config-hardcore): The most strict (but practical) ESLint config out there.
 - [**Mock Import**](https://github.com/coderaiser/mock-import): Mocking of Node.js EcmaScript Modules.
 - [🏎 **Madrun**](https://github.com/coderaiser/madrun): CLI tool to run multiple npm-scripts in a madly comfortable way.
-- [**Xterm.js**](https://github.com/xtermjs/xterm.js/pull/3674): A terminal for the web.
+- [**Xterm.js**](https://github.com/xtermjs/xterm.js/pull/4118): A terminal for the web.
 - [**Stylelint**](https://github.com/stylelint/stylelint/issues/5291#issuecomment-920778090): A mighty, modern linter that helps you avoid errors and enforce conventions in your styles.
 - [**ESTrace**](https://github.com/coderaiser/estrace): Trace functions in EcmaScript Modules.
 - 🎩[**ESCover**](https://github.com/coderaiser/escover): Coverage for EcmaScript Modules.
