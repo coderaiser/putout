@@ -7,7 +7,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-empty: complex: report: block', (t) => {
-    t.report('not-function', 'Empty block statement');
+    t.report('not-function', 'Avoid useless empty blocks');
     t.end();
 });
 

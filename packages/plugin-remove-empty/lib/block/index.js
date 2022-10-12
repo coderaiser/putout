@@ -22,7 +22,7 @@ const {
     isTryStatement,
 } = types;
 
-module.exports.report = () => 'Empty block statement';
+module.exports.report = () => 'Avoid useless empty blocks';
 
 module.exports.fix = (path) => {
     const alternatePath = path.get('alternate');
