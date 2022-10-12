@@ -634,7 +634,7 @@ feature:
 
 fix:
 - (@putout/plugin-convert-commonjs-to-esm) report
-- (putout) help: localy -> locally
+- (putout) help: locally -> locally
 
 
 feature:
@@ -2543,7 +2543,7 @@ feature:
 - (@putout/plugin-declare-undefined-variables) add support of montag
 - (@putout/compare) isTemplate: add support of "."
 - (package) @putout/plugin-remove-empty v6.0.0
-- (@putout/plugin-remove-empty) drop suppot of putout < 19
+- (@putout/plugin-remove-empty) drop support of putout < 19
 - (package) @putout/plugin-remove-empty-pattern v4.0.0
 - (@putout/plugin-remove-empty-pattern) drop support of node < 14
 - (@putout/plugin-remove-empty-pattern) add support of let declaration and assignment
