@@ -36,6 +36,11 @@ test('plugin-remove-empty: transform: nested-pattern', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: transform: static-block', (t) => {
+    t.transform('static-block');
+    t.end();
+});
+
 test('plugin-remove-empty: transform: export', (t) => {
     t.transformCode('export {}', '');
     t.end();

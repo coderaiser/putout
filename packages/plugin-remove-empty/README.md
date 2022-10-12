@@ -5,7 +5,8 @@
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to find and remove:
 
-- `empty block statements`;
+- `empty blocks`;
+- `empty static blocks`;
 - `empty patterns`;
 - `empty imports`;
 - `empty arguments`;
@@ -23,6 +24,7 @@ npm i @putout/plugin-remove-empty
 {
     "rules": {
         "remove-empty/block": "on",
+        "remove-empty/static-block": "on",
         "remove-empty/pattern": "on",
         "remove-empty/nested-pattern": "on",
         "remove-empty/argument": "on",
@@ -38,6 +40,17 @@ npm i @putout/plugin-remove-empty
 
 ```diff
 -if (2 > 3) {}
+```
+
+## static-block
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/8d55df306ea7a3c74b494d37bd45f320/634cc2cf40fe7b691d969bb2bbfceecd1668b004).
+
+```diff
+class Hello {
+-    static {
+-    }
+}
 ```
 
 ## pattern

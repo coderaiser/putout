@@ -6,6 +6,7 @@ const getRule = (a) => ({
 
 module.exports.rules = {
     ...getRule('block'),
+    ...getRule('static-block'),
     ...getRule('pattern'),
     ...getRule('nested-pattern'),
     ...getRule('argument'),
