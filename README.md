@@ -1283,15 +1283,6 @@ function world(a) {
 
 </details>
 
-<details><summary>apply <code>await import</code></summary>
-
-```diff
--const {readFile} = import('fs/promises');
-+const {readFile} = await import('fs/promises');
-```
-
-</details>
-
 <details><summary>apply <code>if condition</code></summary>
 
 ```diff
@@ -1656,6 +1647,15 @@ async () => {
 -    return Promise.reject('x');
 +    throw 'x';
 }
+```
+
+</details>
+
+<details><summary>apply <code>await import</code></summary>
+
+```diff
+-const {readFile} = import('fs/promises');
++const {readFile} = await import('fs/promises');
 ```
 
 </details>
