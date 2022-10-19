@@ -60,7 +60,7 @@
     "esprima": "^4.0.1",
     "hermes-parser": "^0.9.0",
     "just-camel-case": "^4.0.2",
-    "lerna": "^5.0.0",
+    "lerna": "^6.0.1",
     "madrun": "^9.0.0",
     "montag": "^1.0.0",
     "nodemon": "^2.0.1",
