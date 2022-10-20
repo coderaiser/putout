@@ -1,18 +1,18 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const convertMathPow = require('..');
+const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'convert-imul-to-multiplication': convertMathPow,
+    'math/apply-multiplication': plugin,
 });
 
-test('plugin-convert-imul-to-multiplication: report', (t) => {
+test('plugin-math: apply-multiplication: report', (t) => {
     t.report('imul', `Use '*' instead of 'Math.imul()'`);
     t.end();
 });
 
-test('plugin-convert-imul-to-multiplication: transform', (t) => {
+test('plugin-math: apply-multiplication: transform', (t) => {
     t.transform('imul');
     t.end();
 });

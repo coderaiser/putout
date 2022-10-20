@@ -215,7 +215,6 @@
         "convert-assignment-to-arrow-function",
         "convert-assignment-to-comparison",
         "convert-quotes-to-backticks",
-        "convert-imul-to-multiplication",
         "merge-destructuring-properties",
         "merge-duplicate-imports",
         "merge-if-statements",

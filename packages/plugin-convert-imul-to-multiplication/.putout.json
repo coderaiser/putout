@@ -1,7 +1,0 @@
-{
-    "match": {
-        "*.md": {
-            "convert-imul-to-multiplication": "off"
-        }
-    }
-}

@@ -16,6 +16,8 @@ npm i @putout/plugin-math -D
 ```json
 {
     "rules": {
+        "math/apply-exponentiation": "on",
+        "math/apply-multiplication": "on",
         "math/convert-sqrt-to-hypot": "on"
     }
 }
@@ -67,9 +69,26 @@ Linter | Rule | Fix
 🐊 **Putout** | [`convert-math-pow`](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-math-pow#readme) | ✅
 ⏣ **ESLint** | [`prefer-exponentiation-operator`](https://eslint.org/docs/rules/prefer-exponentiation-operator) | ✅
 
-## License
+## apply-multiplication
 
-MIT
+> Multiplying two numbers stored internally as integers (which is only possible with **AsmJS** with imul is the only potential circumstance where `Math.imul()` may prove performant in current browsers.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul)
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/cef45d5cc2bfd0156ed8d483cb6104d9/89ab39b05d3093d399e718f5615efe92f484c538).
+
+### ❌ Example of incorrect code
+
+```js
+const a = Math.imul(b, c);
+
+```
+
+### ✅ Example of correct code
+
+```js
+const a = b * c;
+```
 
 ## License
 

@@ -16,3 +16,8 @@ test('plugin-math: transform: apply-exponentiation', (t) => {
     t.transform('apply-exponentiation');
     t.end();
 });
+
+test('plugin-math: transform: apply-multiplication', (t) => {
+    t.transform('apply-multiplication');
+    t.end();
+});
