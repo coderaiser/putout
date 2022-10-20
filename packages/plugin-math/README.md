@@ -18,6 +18,7 @@ npm i @putout/plugin-math -D
     "rules": {
         "math/apply-exponentiation": "on",
         "math/apply-multiplication": "on",
+        "math/apply-numeric-separators": "on",
         "math/convert-sqrt-to-hypot": "on"
     }
 }
@@ -88,6 +89,24 @@ const a = Math.imul(b, c);
 
 ```js
 const a = b * c;
+```
+
+## apply-numeric-separators
+
+> To improve readability for numeric literals, underscores (`_`) can be used as separators.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar)
+
+### ❌ Example of incorrect code
+
+```js
+const t = 10000000;
+```
+
+### ✅ Example of correct code
+
+```js
+const t = 10_000_000;
 ```
 
 ## License

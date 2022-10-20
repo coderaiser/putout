@@ -33,6 +33,7 @@
     "config"
   ],
   "devDependencies": {
+    "@putout/plugin-webpack": "*",
     "@putout/test": "^5.0.0",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",

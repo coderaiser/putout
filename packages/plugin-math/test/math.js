@@ -21,3 +21,8 @@ test('plugin-math: transform: apply-multiplication', (t) => {
     t.transform('apply-multiplication');
     t.end();
 });
+
+test('plugin-math: transform: apply-numeric-separators', (t) => {
+    t.transform('apply-numeric-separators');
+    t.end();
+});

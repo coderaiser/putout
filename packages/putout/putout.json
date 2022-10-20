@@ -51,7 +51,7 @@
         "{*rc,*.{json,yml}}": {
             "convert-quotes-to-backticks": "off",
             "remove-useless-escape": "off",
-            "apply-numeric-separators": "off"
+            "math/apply-numeric-separators": "off"
         },
         ".github/**/*.yml": {
             "github": "on",
@@ -142,7 +142,6 @@
         "apply-is-array",
         "apply-destructuring",
         "apply-optional-chaining",
-        "apply-numeric-separators",
         "apply-if-condition",
         "apply-comparison-order",
         "extract-object-properties",

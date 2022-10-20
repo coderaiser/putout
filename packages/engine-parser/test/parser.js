@@ -342,7 +342,7 @@ test('putout: parser: json modules', (t) => {
 test('putout: parser: Literal: node.raw', (t) => {
     const {code} = putout('10000', {
         plugins: [
-            ['apply-numeric-separators'],
+            ['math'],
         ],
     });
     
