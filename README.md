@@ -942,7 +942,7 @@ function onIfStatement({push}) {
 
 </details>
 
-<details><summary>reuse duplicate<code>init</code></summary>
+<details><summary>reuse duplicate init</summary>
 
 ```diff
 const putout = require('putout');
@@ -1007,33 +1007,6 @@ const putout = require('putout');
 -if (a == b) {
 +if (a === b) {
 }
-```
-
-</details>
-
-<details><summary>convert <code>sqrt()</code> to <code>hypot()</code></summary>
-
-```diff
--Math.sqrt(a ** 2 + b ** 2);
-+Math.hypot(a, b);
-```
-
-</details>
-
-<details><summary>convert <code>Math.sqrt()</code> to <code>Math.hypot()</code></summary>
-
-```diff
--const a = Math.sqrt(b ** 2 + c ** 2);
-+const a = Math.hypot(a, b);
-```
-
-</details>
-
-<details><summary>convert <code>Math.imul()</code> to <code>multiplication</code></summary>
-
-```diff
-- const a = Math.imul(b, c);
-+ const a = b * c;
 ```
 
 </details>
@@ -1311,15 +1284,6 @@ function world(a) {
 
 </details>
 
-<details><summary>apply numeric separators(<a href=https://github.com/tc39/proposal-numeric-separator>proposal-numeric-separator</a>)</summary>
-
-```diff
--const a = 100000000;
-+const a = 100_000_000;
-```
-
-</details>
-
 <details><summary>apply optional chaining (<a href=https://github.com/tc39/proposal-optional-chaining>proposal-optional-chaining</a>)</summary>
 
 ```diff
@@ -1379,15 +1343,6 @@ result = result ?? 'hello';
 -        console.log('hi');
 +if (a > b && b < c)
 +    console.log('hi');
-```
-
-</details>
-
-<details><summary>convert <code>Math.pow</code> to <code>exponentiation operator</code></summary>
-
-```diff
--Math.pow(2, 4);
-+2 ** 4;
 ```
 
 </details>
@@ -1651,11 +1606,49 @@ async () => {
 
 </details>
 
-<details><summary>apply <code>await import</code></summary>
+<details><summary>apply <code>await import()</code></summary>
 
 ```diff
 -const {readFile} = import('fs/promises');
 +const {readFile} = await import('fs/promises');
+```
+
+</details>
+
+### Math
+
+<details><summary>apply numeric separators(<a href=https://github.com/tc39/proposal-numeric-separator>proposal-numeric-separator</a>)</summary>
+
+```diff
+-const a = 100000000;
++const a = 100_000_000;
+```
+
+</details>
+
+<details><summary>convert <code>Math.sqrt()</code> to <code>Math.hypot()</code></summary>
+
+```diff
+-const a = Math.sqrt(b ** 2 + c ** 2);
++const a = Math.hypot(a, b);
+```
+
+</details>
+
+<details><summary>convert <code>Math.imul()</code> to <code>multiplication</code></summary>
+
+```diff
+- const a = Math.imul(b, c);
++ const a = b * c;
+```
+
+</details>
+
+<details><summary>convert <code>Math.pow</code> to <code>exponentiation operator</code></summary>
+
+```diff
+-Math.pow(2, 4);
++2 ** 4;
 ```
 
 </details>
@@ -1828,7 +1821,6 @@ It has a lot plugins divided by groups:
 |--------|-------|
 | [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) |
 | [`@putout/plugin-apply-is-array`](/packages/plugin-apply-is-array#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-is-array.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-is-array) |
-| [`@putout/plugin-apply-numeric-separators`](/packages/plugin-apply-numeric-separators#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-numeric-separators.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-numeric-separators) |
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) |
 | [`@putout/plugin-apply-if-condition`](/packages/plugin-apply-if-condition#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-if-condition.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-if-condition) |
@@ -1857,15 +1849,12 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-convert-apply-to-spread`](/packages/plugin-convert-apply-to-spread#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-apply-to-spread.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-apply-to-spread) |
 | [`@putout/plugin-convert-quotes-to-backticks`](/packages/plugin-convert-quotes-to-backticks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-quotes-to-backticks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-quotes-to-backticks) |
 | [`@putout/plugin-convert-concat-to-flat`](/packages/plugin-convert-concat-to-flat#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-concat-to-flat.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-concat-to-flat) |
-| [`@putout/plugin-convert-sqrt-to-hypot`](/packages/plugin-convert-sqrt-to-hypot#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-sqrt-to-hypot.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-sqrt-to-hypot) |
-| [`@putout/plugin-convert-imul-to-multiplication`](/packages/plugin-convert-imul-to-multiplication#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-imul-to-multiplication.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-imul-to-multiplication) |
 | [`@putout/plugin-convert-esm-to-commonjs`](/packages/plugin-convert-esm-to-commonjs#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-esm-to-commonjs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-esm-to-commonjs) |
 | [`@putout/plugin-convert-commonjs-to-esm`](/packages/plugin-convert-commonjs-to-esm#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-commonjs-to-esm.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-commonjs-to-esm) |
 | [`@putout/plugin-convert-array-copy-to-slice`](/packages/plugin-convert-array-copy-to-slice#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-array-copy-to-slice.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-array-copy-to-slice) |
 | [`@putout/plugin-convert-template-to-string`](/packages/plugin-convert-template-to-string#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-template-to-string.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-template-to-string) |
 | [`@putout/plugin-convert-equal-to-strict-equal`](/packages/plugin-convert-equal-to-strict-equal#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-equal-to-strict-equal.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-equal-to-strict-equal) |
 | [`@putout/plugin-convert-index-of-to-includes`](/packages/plugin-convert-index-of-to-includes#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-index-of-to-includes.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-index-of-to-includes) |
-| [`@putout/plugin-convert-math-pow`](/packages/plugin-convert-math-pow#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-math-pow.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-math-pow) |
 | [`@putout/plugin-convert-to-arrow-function`](/packages/plugin-convert-to-arrow-function#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-to-arrow-function.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-to-arrow-function) |
 | [`@putout/plugin-convert-for-to-for-of`](/packages/plugin-convert-for-to-for-of#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-for-to-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-for-to-for-of) |
 | [`@putout/plugin-convert-for-each-to-for-of`](/packages/plugin-convert-for-each-to-for-of#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-for-each-to-for-of.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-for-each-to-for-of) |
@@ -1958,6 +1947,7 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 
 | Package | Version |
 |--------|-------|
+| [`@putout/plugin-math`](/packages/plugin-math#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-math.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-math) |
 | [`@putout/plugin-madrun`](/packages/plugin-madrun#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-madrun.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-madrun) |
 | [`@putout/plugin-strict-mode`](/packages/plugin-strict-mode#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-strict-mode.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-strict-mode) |
 | [`@putout/plugin-putout`](/packages/plugin-putout#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-putout.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-putout) |
