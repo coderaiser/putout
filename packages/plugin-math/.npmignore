@@ -1,5 +1,7 @@
 .*
+*.spec.js
 test
+fixture
 yarn-error.log
 
 coverage
