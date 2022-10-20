@@ -1,3 +1,15 @@
+2022.10.20, v28.0.0
+
+feature:
+- @putout/plugin-math: add apply-numeric-separators
+- @putout/plugin-math: add apply-multiplication
+- @putout/plugin-math: add apply-exponentiation
+- @putout/plugin-math: add convert-sqrt-to-hypot
+- putout: add @putout/plugin-math
+- package: lerna v6.0.1
+- @putout/plugin-remove-empty: block: report
+- @putout/plugin-remove-empty: add static-block
+
 2022.09.22, v27.13.0
 
 feature:
