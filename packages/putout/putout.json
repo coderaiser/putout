@@ -200,7 +200,6 @@
         "convert-arguments-to-rest",
         "convert-object-assign-to-merge-spread",
         "convert-comparison-to-boolean",
-        "convert-math-pow",
         "convert-to-arrow-function",
         "convert-for-to-for-of",
         "convert-for-each-to-for-of",

@@ -97,7 +97,6 @@
     "@putout/plugin-convert-imul-to-multiplication": "^1.0.0",
     "@putout/plugin-convert-index-of-to-includes": "^1.0.0",
     "@putout/plugin-convert-map-to-for-of": "^2.0.0",
-    "@putout/plugin-convert-math-pow": "^5.0.0",
     "@putout/plugin-convert-mock-require-to-mock-import": "^4.0.0",
     "@putout/plugin-convert-object-assign-to-merge-spread": "^6.0.0",
     "@putout/plugin-convert-quotes-to-backticks": "^2.0.0",

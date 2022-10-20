@@ -41,6 +41,36 @@ Math.sqrt(a ** 2, b ** 2);
 Math.hypot(a, b);
 ```
 
+## apply-exponentiation
+
+> - The [`Math.pow()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow) static method, given two arguments, base and exponent, returns baseexponent.
+> - The [**exponentiation operator**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation) (`**`) returns the result of raising the first operand to the power of the second operand. It is equivalent to `Math.pow`, except it also accepts BigInts as operands.
+>
+> (c) MDN
+
+### ❌ Example of incorrect code
+
+```js
+Math.pow(2, 4);
+```
+
+### ✅ Example of correct code
+
+```js
+2 ** 4;
+```
+
+### Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`convert-math-pow`](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-math-pow#readme) | ✅
+⏣ **ESLint** | [`prefer-exponentiation-operator`](https://eslint.org/docs/rules/prefer-exponentiation-operator) | ✅
+
+## License
+
+MIT
+
 ## License
 
 MIT
