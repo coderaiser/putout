@@ -23,7 +23,7 @@ Problems can be anything from [potential runtime bugs, to not following best pra
 
 ## What logo means?
 
-![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg).
+![putout](https://github.com/coderaiser/putout/blob/master/images/putout-logo.svg)
 
 Crocodile is dengerous beast that can make drastic changes to environment it lives in.
 Balk signifies borders that makes crocodile act in a predictable way. Tamed beast can be a good friend 😏.
