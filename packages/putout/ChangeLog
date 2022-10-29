@@ -1,3 +1,10 @@
+2022.10.30, v28.0.1
+
+feature:
+- package: @putout/plugin-github v4.0.0
+- @putout/plugin-nodejs: set-node-versions: add support of node v19
+- @putout/plugin-github: drop support of 🐊 < 28
+
 2022.10.20, v28.0.0
 
 feature:
