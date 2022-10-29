@@ -9,7 +9,7 @@ __putout_processor_json({
          "runs-on": "ubuntu-latest",
          "steps": [
             {
-               "uses": 'actions/checkout@v2'
+               "uses": 'actions/checkout@v3'
             },
             {
                "name": "Use Node.js ${{ matrix.node-version }}",

@@ -8,12 +8,17 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-github: set checkout versions: report', (t) => {
-    t.report('checkout', 'Latest version of actions/checkout is missing');
+    t.report('v2', 'Latest version of actions/checkout is missing');
     t.end();
 });
 
 test('plugin-github: set checkout versions: transform', (t) => {
     t.transform('checkout');
+    t.end();
+});
+
+test('plugin-github: set checkout versions: transform: v2', (t) => {
+    t.transform('v2');
     t.end();
 });
 

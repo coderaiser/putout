@@ -45,8 +45,8 @@ jobs:
 
 ```diff
   steps:
--      - uses: actions/checkout@v1
-+      - uses: actions/checkout@v2
+-      - uses: actions/checkout@v2
++      - uses: actions/checkout@v3
 ```
 
 ## set-checkout-version

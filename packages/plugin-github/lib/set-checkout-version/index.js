@@ -13,7 +13,7 @@ const {
 } = operator;
 
 const {StringLiteral} = types;
-const checkoutNode = StringLiteral('actions/checkout@v2');
+const checkoutNode = StringLiteral('actions/checkout@v3');
 
 module.exports.report = () => 'Latest version of actions/checkout is missing';
 
@@ -29,10 +29,13 @@ module.exports.traverse = ({push}) => ({
             const valuePath = propertyPath.get('value');
             const {value} = valuePath.node;
             
-            if (value === 'actions/checkout@v2')
+            if (value === 'actions/checkout@v3')
                 continue;
             
             if (value === 'actions/checkout@v1')
+                push(valuePath);
+            
+            if (value === 'actions/checkout@v2')
                 push(valuePath);
         }
     },
