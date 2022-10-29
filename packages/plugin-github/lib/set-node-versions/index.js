@@ -12,6 +12,7 @@ const {
 const nodeVersions = [
     '16.x',
     '18.x',
+    '19.x',
 ];
 
 const {parse, stringify} = JSON;
