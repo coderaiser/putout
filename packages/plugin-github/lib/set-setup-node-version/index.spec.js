@@ -17,6 +17,11 @@ test('plugin-github: set-setup-node-versions: transform', (t) => {
     t.end();
 });
 
+test('plugin-github: set-setup-node-versions: transform: v2', (t) => {
+    t.transform('v2');
+    t.end();
+});
+
 test('plugin-github: set-setup-node-version: no report: latest', (t) => {
     t.noReport('latest');
     t.end();

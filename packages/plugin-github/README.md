@@ -49,12 +49,12 @@ jobs:
 +      - uses: actions/checkout@v3
 ```
 
-## set-checkout-version
+## set-setup-node-version
 
 ```diff
   steps:
--      - uses: actions/setup-node@v1
-+      - uses: actions/setup-node@v2
+-      - uses: actions/setup-node@v2
++      - uses: actions/setup-node@v3
 ```
 
 ## License

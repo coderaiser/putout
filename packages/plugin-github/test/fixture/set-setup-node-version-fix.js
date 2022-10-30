@@ -13,7 +13,7 @@ __putout_processor_json({
             },
             {
                "name": "Use Node.js ${{ matrix.node-version }}",
-               "uses": 'actions/setup-node@v2',
+               "uses": 'actions/setup-node@v3',
                "with": {
                   "node-version": "${{ matrix.node-version }}"
                }
