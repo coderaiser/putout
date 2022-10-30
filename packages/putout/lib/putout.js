@@ -34,6 +34,60 @@ const defaultOpts = (opts = {}) => {
     };
 };
 
+/**
+    based on @putout/engine-parser/lib/custom-parser.js
+
+    @typedef {any} AST
+
+    @typedef {{
+        parse: (
+            source: string,
+            options?: {
+                isTS: boolean,
+                isFlow: boolean,
+                isJSX: boolean,
+            }
+        ) => AST
+    }} ParserObject
+
+    @typedef {
+        "babel" |
+        "espree" |
+        "acorn" |
+        "esprima" |
+        "tenko" |
+        "hermes"
+    } ParserName
+
+    @typedef {string} RequirePath
+
+    @typedef {{
+        parser?: ParserName | ParserObject | RequirePath,
+        fix?: boolean = true,
+        fixCount?: number = 2,
+        isTS?: boolean,
+        isFlow?: boolean,
+        isJSX?: boolean,
+        sourceFileName?: string,
+        sourceMapName?: string,
+    }} PutoutOptions
+*/
+
+// TODO type places
+
+/**
+    putout: transform a source string
+
+    @param {string} source
+
+    @param {PutoutOptions} [opts]
+
+    @return {{
+        code: string,
+        places: any,
+    }}
+*/
+
 module.exports = (source, opts) => {
     check(source);
     
