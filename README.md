@@ -38,7 +38,7 @@ are also supported. Here is how it looks like:
 - [🤷‍♂️ Why does this project exist?](#%EF%B8%8F-why-does-this-project-exist)
 - [🪬Core Concepts](https://github.com/coderaiser/putout/blob/master/docs/core-concepts.md#-core-concepts)
 - [🚚 Installation](#-installation)
-- [🎙 Usage](#usage)
+- [🎙 Usage](#-usage)
 - [🦕 Usage with Deno](#-usage-with-deno)
 - [📐 What is **Ruler**?](#-what-is-ruler)
 - [✂️ How **Ruler** can help me?](#%EF%B8%8F-how-ruler-can-help-me)
