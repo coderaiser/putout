@@ -21,3 +21,9 @@ test('plugin-github: set-set-add-and-commit: no report: latest', (t) => {
     t.noReport('latest');
     t.end();
 });
+
+test('plugin-github: set-set-add-and-commit: no report: more', (t) => {
+    t.noReport('more');
+    t.end();
+});
+
