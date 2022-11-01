@@ -22,7 +22,8 @@ npm i @putout/plugin-github -D
     "rules": {
         "github/set-node-versions": "on",
         "github/set-checkout-version": "on",
-        "github/set-setup-node-version": "on"
+        "github/set-setup-node-version": "on",
+        "github/set-add-and-commit": "on"
     }
 }
 ```
@@ -55,6 +56,14 @@ jobs:
   steps:
 -      - uses: actions/setup-node@v2
 +      - uses: actions/setup-node@v3
+```
+
+## set-add-and-commit
+
+```diff
+  steps:
+-      uses: EndBug/add-and-commit@v7
++      uses: EndBug/add-and-commit@v9
 ```
 
 ## License

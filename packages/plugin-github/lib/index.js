@@ -8,5 +8,6 @@ module.exports.rules = {
     ...getRule('set-node-versions'),
     ...getRule('set-checkout-version'),
     ...getRule('set-setup-node-version'),
+    ...getRule('set-add-and-commit'),
 };
 

@@ -42,7 +42,7 @@ jobs:
       - name: Typos
         run: typos --write-changes
       - name: Commit fixes
-        uses: EndBug/add-and-commit@v7
+        uses: EndBug/add-and-commit@v9
         with:
           message: "chore: ${{ env.NAME }}: actions: lint ☘️"
       - name: Coverage

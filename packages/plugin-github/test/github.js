@@ -22,3 +22,7 @@ test('plugin-github: transform: set-setup-node-version', (t) => {
     t.end();
 });
 
+test('plugin-github: transform: set-add-and-commit', (t) => {
+    t.transform('set-add-and-commit');
+    t.end();
+});
