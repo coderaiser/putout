@@ -7,6 +7,7 @@ const {
     isRegExpLiteral,
     isClassMethod,
     isTemplateLiteral,
+    isJSXText,
 } = require('@babel/types');
 
 module.exports.extract = extract;
@@ -29,9 +30,12 @@ function extract(node) {
     if (isTemplateElement(node))
         return node.value.raw;
     
+    if (isJSXText(node))
+        return node.value;
+    
     if (isClassMethod(node))
         return extract(node.key);
     
-    throw Error(`"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement and RegExpLiteral  🤷, found: ${node.type}`);
+    throw Error(`"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral and JSXText 🤷, found: ${node.type}`);
 }
 

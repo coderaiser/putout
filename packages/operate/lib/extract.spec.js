@@ -18,6 +18,19 @@ test('operate: extract: Identifier', (t) => {
     t.end();
 });
 
+test('operate: extract: JSXText', (t) => {
+    const value = 'hello';
+    const node = {
+        type: 'JSXText',
+        value,
+    };
+    
+    const result = extract(node);
+    
+    t.equal(result, value);
+    t.end();
+});
+
 test('operate: extract: path', (t) => {
     const name = 'hello';
     const node = {
@@ -130,7 +143,7 @@ test('operate: extract: unknown', (t) => {
     };
     
     const [error] = tryCatch(extract, node);
-    const expected = '"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement and RegExpLiteral  🤷, found: UnknownStatement';
+    const expected = '"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral and JSXText 🤷, found: UnknownStatement';
     
     t.equal(error.message, expected);
     t.end();
