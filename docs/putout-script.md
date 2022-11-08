@@ -107,7 +107,7 @@ const animalRegExp = /🐊|🦛/;
 There is a base support of JSX in template values, this template `<h1>__a</h1>` will find:
 
 ```js
-<h1>hello world</h1>
+<h1>hello world</h1>;
 ```
 
 ## Binary operations
