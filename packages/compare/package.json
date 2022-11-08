@@ -1,6 +1,6 @@
 {
   "name": "@putout/compare",
-  "version": "9.6.2",
+  "version": "9.7.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "compare AST-nodes according to 🦎 PutoutScript",
