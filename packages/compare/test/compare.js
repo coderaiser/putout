@@ -764,6 +764,13 @@ test('compare: both values are empty', (t) => {
     t.end();
 });
 
+test('compare: jsx', (t) => {
+    const result = compare('<h1>hello</h1>', '<h1>__a</h1>');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: typescript: keyof', (t) => {
     const node = 'type R = {[P in keyof Todo]: Todo[P];}';
     const template = 'type __a = {[__b in keyof __c]: __c[__b];}';

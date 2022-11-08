@@ -209,7 +209,7 @@ test('putout: compare: vars: vars: identifier', (t) => {
     t.end();
 });
 
-test('putout: compare: vars: vars: findVarsWays: __object', (t) => {
+test('putout: compare: vars: findVarsWays: __object', (t) => {
     const convert = {
         report: () => '',
         replace: () => ({
@@ -231,6 +231,27 @@ test('putout: compare: vars: vars: findVarsWays: __object', (t) => {
           c
         })
     `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: compare: vars: findVarsWays: jsx', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            '<h1>__a</h1>': '<h2>__a</h2>',
+        }),
+    };
+    
+    const source = '<h1>hello</h1>;';
+    const expected = '<h2>hello</h2>;';
     
     const {code} = putout(source, {
         plugins: [

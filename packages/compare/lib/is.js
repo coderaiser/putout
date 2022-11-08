@@ -10,6 +10,7 @@ const {
     isImportDefaultSpecifier,
     isRegExpLiteral,
     isTSTypeParameter,
+    isJSXText,
 } = require('@babel/types');
 
 const isStr = (a) => typeof a === 'string';
@@ -203,6 +204,9 @@ module.exports.isLinkedNode = (a) => {
         return true;
     
     if (isLiteral(a) && LINKED_NODE.test(a.value))
+        return true;
+    
+    if (isJSXText(a) && LINKED_NODE.test(a.value))
         return true;
     
     if (isTemplateElement(a) && LINKED_NODE.test(a.value.raw))
