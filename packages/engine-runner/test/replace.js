@@ -658,3 +658,25 @@ test('putout: runner: replace: **', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: runner: replace: jsx', (t) => {
+    const plugin = {
+        report: () => '',
+        replace: () => ({
+            '<h1>__a</h1>': '<h2>__a</h2>',
+        }),
+    };
+    
+    const {code} = putout('<h1>hello</h1>', {
+        runPlugins,
+        plugins: [
+            ['plugin', plugin],
+        ],
+    });
+    
+    const expected = '<h2>hello</h2>;';
+    
+    t.equal(code, expected);
+    t.end();
+});
+
