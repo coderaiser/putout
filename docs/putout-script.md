@@ -102,6 +102,14 @@ T he pattern `/__a/` will match any regular expression construct:
 const animalRegExp = /🐊|🦛/;
 ```
 
+## JSX
+
+There is a base support of JSX in template values, this template `<h1>__a</h1>` will find:
+
+```js
+<h1>hello world</h1>
+```
+
 ## Binary operations
 
 The `__a` can match arguments to binary operations. The pattern `const __a = __b + __c` matches:
