@@ -39,8 +39,7 @@ npm i putout @putout/plugin-typescript -D
 
 ### apply-as-type-assertion
 
-According to [best practives](https://stackoverflow.com/questions/36842158/arraytype-vs-type-in-typescript/36843084#36843084).
-
+According to [best practise](https://stackoverflow.com/questions/36842158/arraytype-vs-type-in-typescript/36843084#36843084).
 
 #### ❌ Example of incorrect code
 
