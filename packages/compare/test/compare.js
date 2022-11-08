@@ -764,8 +764,22 @@ test('compare: both values are empty', (t) => {
     t.end();
 });
 
-test('compare: jsx', (t) => {
+test('compare: jsx: JSXText', (t) => {
     const result = compare('<h1>hello</h1>', '<h1>__a</h1>');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: jsx: children', (t) => {
+    const result = compare('<div className="abc"><span>hello</span></div>', '<div className="__a">__children</div>');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: jsx: children: no', (t) => {
+    const result = compare('<div className="abc"></div>', '<div className="__a">__children</div>');
     
     t.ok(result);
     t.end();

@@ -20,6 +20,7 @@ const ANY_ARRAY = '__array';
 const ARGS = '__args';
 const IMPORTS = '__imports';
 const BODY = '__body';
+const CHILDREN = '__children';
 const NOP = '__nop';
 const ANY = '__';
 const ID = '__identifier';
@@ -108,6 +109,14 @@ module.exports.isArgs = (a) => {
 module.exports.isLinkedArgs = (a) => {
     const b = !isArray(a) ? a : a[0];
     return isIdentifier(b) && LINKED_ARGS.test(b.name);
+};
+
+module.exports.isChildren = (a) => {
+    const b = !isArray(a) ? a : a[0];
+    
+    return isJSXText(b, {
+        value: CHILDREN,
+    });
 };
 
 module.exports.isLinkedId = (a, b) => {

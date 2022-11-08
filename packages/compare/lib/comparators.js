@@ -10,6 +10,7 @@ const {
     isAny,
     isAnyLiteral,
     isArgs,
+    isChildren,
     isLinkedArgs,
     isLinkedId,
     isImports,
@@ -46,6 +47,7 @@ const comparators = [
     isAnyLiteral,
     second(isImports),
     second(isArgs),
+    second(isChildren),
     addObject,
     compareArrays,
 ];

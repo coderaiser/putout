@@ -242,7 +242,7 @@ test('putout: compare: vars: findVarsWays: __object', (t) => {
     t.end();
 });
 
-test('putout: compare: vars: findVarsWays: jsx', (t) => {
+test('putout: compare: vars: findVarsWays: jsx: JSXName', (t) => {
     const convert = {
         report: () => '',
         replace: () => ({
@@ -252,6 +252,27 @@ test('putout: compare: vars: findVarsWays: jsx', (t) => {
     
     const source = '<h1>hello</h1>;';
     const expected = '<h2>hello</h2>;';
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: compare: vars: findVarsWays: jsx: JSXAttribute', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            '<h1 className="__a">__b</h1>': '<h1 class="__a">__b</h1>',
+        }),
+    };
+    
+    const source = '<h1 className="abc">hello</h1>;';
+    const expected = '<h1 class="abc">hello</h1>;';
     
     const {code} = putout(source, {
         plugins: [

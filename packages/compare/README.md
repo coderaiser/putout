@@ -173,6 +173,20 @@ compare('const a = () => {}', 'const a = () => __body');
 true;
 ```
 
+##### __children
+
+Any `JSXElement`:
+
+```js
+compare('<div hello="world"></div>', '<div hello="world">__children</div>');
+// returns
+true;
+
+compare('<div hello="world"><span>hi</span></div>', '<div hello="world">__children</div>');
+// returns
+true;
+```
+
 ##### __nop
 
 Any `Function` with no `arguments` and empty body;
