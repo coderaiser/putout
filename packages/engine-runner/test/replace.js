@@ -680,3 +680,24 @@ test('putout: runner: replace: jsx', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: jsx: children', (t) => {
+    const plugin = {
+        report: () => '',
+        replace: () => ({
+            '<h1 className="y">__jsx_children</h1>': '<h1 class="y">__jsx_children</h1>',
+        }),
+    };
+    
+    const {code} = putout('<h1 className="y">hello</h1>', {
+        runPlugins,
+        plugins: [
+            ['plugin', plugin],
+        ],
+    });
+    
+    const expected = `<h1 class='y'>hello</h1>;`;
+    
+    t.equal(code, expected);
+    t.end();
+});
+

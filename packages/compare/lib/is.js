@@ -33,6 +33,7 @@ const ALL = [
     ANY_OBJECT,
     ANY_ARRAY,
     ARGS,
+    JSX_CHILDREN,
     IMPORTS,
     BODY,
     ANY,
