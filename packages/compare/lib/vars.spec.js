@@ -305,6 +305,27 @@ test('putout: compare: vars: findVarsWays: jsx: children', (t) => {
     t.end();
 });
 
+test('putout: compare: vars: findVarsWays: jsx: expression', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            '<h1 className={__a}>{__b}</h1>': '<h1 className={__a}></h1>',
+        }),
+    };
+    
+    const source = '<h1 className={name}>{hello}</h1>;';
+    const expected = '<h1 className={name}></h1>;';
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: compare: vars: __args__a', (t) => {
     const varToConst = {
         report: () => '',

@@ -8,6 +8,7 @@ const {replaceWith, extract} = require('@putout/operate');
 const {
     isIdentifier,
     isStatement,
+    isJSXElement,
 } = require('@babel/types');
 
 const {
@@ -90,7 +91,9 @@ function getValues({waysFrom, node}) {
             else if (isArgsStr(name))
                 way = way.replace(/\.0$/, '');
             
-            way = way.replace(/\.expression$/, '');
+            if (!isJSXElement(node)) {
+                way = way.replace(/\.expression$/, '');
+            }
             
             result[name] = result[name] || jessy(way, node);
         }

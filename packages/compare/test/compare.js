@@ -771,6 +771,13 @@ test('compare: jsx: JSXText', (t) => {
     t.end();
 });
 
+test('compare: jsx: expression', (t) => {
+    const result = compare('<div className={x}></div>', '<div className={__a}></div>');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: jsx: children', (t) => {
     const result = compare('<div className="abc"><span>hello</span></div>', '<div className="__a">__jsx_children</div>');
     
