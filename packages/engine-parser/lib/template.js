@@ -11,6 +11,7 @@ const defaults = {
     plugins: [
         ...plugins,
         'typescript',
+        'jsx',
     ],
 };
 

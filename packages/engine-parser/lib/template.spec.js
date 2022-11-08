@@ -55,6 +55,13 @@ test('parser: template: ast', (t) => {
     t.end();
 });
 
+test('parser: template: ast: jsx', (t) => {
+    const [error] = tryCatch(template.ast, '<h1>hello</h1>');
+    
+    t.notOk(error);
+    t.end();
+});
+
 test('parser: template: import in block', (t) => {
     const [error] = tryCatch(template.ast, `
     {
