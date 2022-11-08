@@ -173,16 +173,16 @@ compare('const a = () => {}', 'const a = () => __body');
 true;
 ```
 
-##### __children
+##### __jsx_children
 
-Any `JSXElement`:
+Any count of children of `JSXElement`:
 
 ```js
-compare('<div hello="world"></div>', '<div hello="world">__children</div>');
+compare('<div hello="world"></div>', '<div hello="world">__jsx_children</div>');
 // returns
 true;
 
-compare('<div hello="world"><span>hi</span></div>', '<div hello="world">__children</div>');
+compare('<div hello="world"><span>hi</span></div>', '<div hello="world">__jsx_children</div>');
 // returns
 true;
 ```

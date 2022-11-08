@@ -10,7 +10,7 @@ const {
     isAny,
     isAnyLiteral,
     isArgs,
-    isChildren,
+    isJSXChildren,
     isLinkedArgs,
     isLinkedId,
     isImports,
@@ -47,7 +47,7 @@ const comparators = [
     isAnyLiteral,
     second(isImports),
     second(isArgs),
-    second(isChildren),
+    second(isJSXChildren),
     addObject,
     compareArrays,
 ];

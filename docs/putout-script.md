@@ -110,6 +110,13 @@ There is a base support of JSX in template values, this template `<h1>__a</h1>` 
 <h1>hello world</h1>;
 ```
 
+When you need to find one or more children, `<h1>__jsx_children</h1>` will find:
+
+```js
+<h1>hello world</h1>;
+<h1></h1>;
+```
+
 ## Binary operations
 
 The `__a` can match arguments to binary operations. The pattern `const __a = __b + __c` matches:

@@ -772,14 +772,14 @@ test('compare: jsx: JSXText', (t) => {
 });
 
 test('compare: jsx: children', (t) => {
-    const result = compare('<div className="abc"><span>hello</span></div>', '<div className="__a">__children</div>');
+    const result = compare('<div className="abc"><span>hello</span></div>', '<div className="__a">__jsx_children</div>');
     
     t.ok(result);
     t.end();
 });
 
 test('compare: jsx: children: no', (t) => {
-    const result = compare('<div className="abc"></div>', '<div className="__a">__children</div>');
+    const result = compare('<div className="abc"></div>', '<div className="__a">__jsx_children</div>');
     
     t.ok(result);
     t.end();
