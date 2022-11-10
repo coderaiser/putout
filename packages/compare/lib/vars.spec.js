@@ -284,7 +284,7 @@ test('putout: compare: vars: findVarsWays: jsx: JSXAttribute', (t) => {
     t.end();
 });
 
-test('putout: compare: vars: findVarsWays: jsx: children', (t) => {
+test('putout: compare: vars: findVarsWays: jsx: children: JSXText', (t) => {
     const convert = {
         report: () => '',
         replace: () => ({
@@ -294,6 +294,27 @@ test('putout: compare: vars: findVarsWays: jsx: children', (t) => {
     
     const source = '<h1 className="abc">hello</h1>;';
     const expected = '<h1 class="abc">hello</h1>;';
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: compare: vars: findVarsWays: jsx: children', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            '<h1 className="__a">__jsx_children</h1>': '<h1 class="__a">__jsx_children</h1>',
+        }),
+    };
+    
+    const source = '<h1 className="abc"><a>hello</a> <a>world</a></h1>;';
+    const expected = '<h1 class="abc"><a>hello</a> <a>world</a></h1>;';
     
     const {code} = putout(source, {
         plugins: [
