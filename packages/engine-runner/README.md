@@ -248,11 +248,11 @@ const places = runPlugins({
 Stores is preferred way of keeping 🐊**Putout** data, `traverse` init function called only once, and any other way
 of handling variables will most likely will lead to bugs. There is a couple store types:
 
-- ✅`listStore`;
-- ✅`pathStore`;
-- ✅`store`;
-- ✅`upstore`;
-- ✅`uplist`;
+- ✅ [`listStore`](#liststore);
+- ✅ [`pathStore`](#pathstore);
+- ✅ [`store`](#store);
+- ✅ [`upstore`](#upstore);
+- ✅ [`uplist`](#uplist);
 
 Let's talk about each of them.
 
