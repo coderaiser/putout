@@ -15,10 +15,10 @@ npm i @putout/engine-runner
 
 There is a couple plugin types supported by 🐊**Putout**:
 
-- ✅[**Replacer**](#replacer)
-- ✅[**Includer**](#includer)
-- ✅[**Traverser**](#traverser)
-- ✅[**Finder**](#finder)
+- ✅ [**Replacer**](#replacer)
+- ✅ [**Includer**](#includer)
+- ✅ [**Traverser**](#traverser)
+- ✅ [**Finder**](#finder)
 
 All of them supports subset of **JavaScript** 🦎[**PutoutScript**](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) described in [`@putout/compare`](https://github.com/coderaiser/putout/tree/master/packages/compare#readme).
 
