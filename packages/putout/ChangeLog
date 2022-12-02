@@ -1,3 +1,26 @@
+2022.12.02, v28.1.0
+
+fix:
+- @putout/compare: __children -> __jsx_children
+
+feature:
+- package: @putout/cli-match v2.0.0
+- @putout/cli-match: drop support of node < 16
+- @putout/cli-match: change "match()" return signature: code -> {code, message}
+- @putout/plugin-remove-useless-spread: add support of sparse arrays (#119)
+- @putout/compare: __jsx_children: improve support
+- @putout/compare: improve support of jsx expressions
+- @putout/compare: improve __jsx_children support
+- @putout/compare: add support of JSXElement (#116)
+- @putout/engine-parser: template: add support of jsx
+- @putout/engine-runner: replacer: add support of jsx (#116)
+- @putout/compare: add support of JSXText (#116)
+- @putout/operate: extract: add support of JSXText (#116)
+- @putout/plugin-github: create-uses-fixer
+- @putout/plugin-github: add set-add-and-commit (EndBug/add-and-commit#448)
+- @putout/plugin-github: set-setup-node: set v3
+- @putout/plugin-nodejs: set-checkout-version: add support of actions/checkout v3
+
 2022.10.30, v28.0.1
 
 feature:
