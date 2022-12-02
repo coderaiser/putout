@@ -34,13 +34,16 @@ import {
 
 import match from '@putout/cli-match';
 
-await match({
+const {code, message} = await match({
     pattern,
     cwd: cwd(),
     readFile, // optional
     writeFile, // optional
 });
 ```
+
+console.log(message);
+process.exit(code);
 
 ## License
 

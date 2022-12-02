@@ -173,15 +173,15 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     }
     
     if (isStr(args.match)) {
-        const {match, matchErrors} = await simpleImport('@putout/cli-match');
-        const code = await match({
+        const {match} = await simpleImport('@putout/cli-match');
+        const {code, message} = await match({
             pattern: args.match,
             cwd,
             readFile,
             writeFile,
         });
         
-        return exit(code, `--match: ${matchErrors[code]}`);
+        return exit(code, `--match: ${message}`);
     }
     
     if (fix && (enable || disable || enableAll || disableAll))

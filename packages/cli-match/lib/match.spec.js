@@ -11,12 +11,15 @@ import {
     NO_RULES,
 } from './codes.js';
 
-import {match} from './match.js';
+import {
+    match,
+    runMatch,
+} from './match.js';
 
 const {stringify} = JSON;
 
 test('putout: match: pattern', async (t) => {
-    const code = await match({
+    const {code} = await match({
         cwd: '/',
     });
     
@@ -25,7 +28,7 @@ test('putout: match: pattern', async (t) => {
 });
 
 test('putout: match: read error: no pass readFile', async (t) => {
-    const code = await match({
+    const {code} = await match({
         pattern: '*.md',
         cwd: '/',
     });
@@ -38,7 +41,7 @@ test('putout: match: read error', async (t) => {
     const noEntryError = Error('ENOENT');
     const readFile = stub().rejects(noEntryError);
     
-    const code = await match({
+    const {code} = await match({
         pattern: '*.md',
         cwd: '/',
         readFile,
@@ -51,7 +54,7 @@ test('putout: match: read error', async (t) => {
 test('putout: match: parse error', async (t) => {
     const readFile = stub().resolves('hello');
     
-    const code = await match({
+    const {code} = await match({
         pattern: '*.md',
         cwd: '/',
         readFile,
@@ -64,7 +67,7 @@ test('putout: match: parse error', async (t) => {
 test('putout: match: no rules', async (t) => {
     const readFile = stub().resolves(stringify({}));
     
-    const code = await match({
+    const {code} = await match({
         pattern: '*.md',
         cwd: '/',
         readFile,
@@ -84,7 +87,7 @@ test('putout: match: write error', async (t) => {
         },
     }));
     
-    const code = await match({
+    const code = await runMatch({
         pattern: '*.md',
         cwd: '/',
         readFile,
@@ -203,7 +206,7 @@ test('putout: match: pass readFile and writeFile', async (t) => {
         },
     }));
     
-    await match({
+    await runMatch({
         pattern: '*.md',
         cwd: '/',
         readFile,

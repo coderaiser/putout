@@ -29,7 +29,21 @@ export {
     matchErrors,
 };
 
-export const match = async ({pattern, cwd, readFile = _readFile, writeFile = _writeFile}) => {
+export async function match({pattern, cwd, readFile = _readFile, writeFile = _writeFile}) {
+    const code = await runMatch({
+        pattern,
+        cwd,
+        readFile,
+        writeFile,
+    });
+    
+    return {
+        code,
+        message: matchErrors[code],
+    };
+}
+
+export async function runMatch({pattern, cwd, readFile, writeFile}) {
     if (!pattern)
         return NO_PATTERN;
     
@@ -65,5 +79,5 @@ export const match = async ({pattern, cwd, readFile = _readFile, writeFile = _wr
         return WRITE_ERROR;
     
     return SUCCESS;
-};
+}
 
