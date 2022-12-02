@@ -2650,8 +2650,8 @@ You can also transform input files using `Babel`. For example if you need to tra
 Example of providing invalid option:
 
 ```sh
-coderaiser@localcmd:~/putout$ putout --helo
-🐊 Invalid option `--helo`. Perhaps you meant `--help`
+coderaiser@localcmd:~/putout$ putout --hello
+🐊 Invalid option `--hello`. Perhaps you meant `--help`
 coderaiser@localcmd:~/putout$ echo $?
 7
 ```

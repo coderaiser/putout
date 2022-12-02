@@ -29,6 +29,7 @@ npm i @putout/plugin-remove-useless-spread
 ## array
 
 The thing is `[...b]` can be used for:
+
 - copying an array;
 - converting different value type like `string` to an `array`.
 
