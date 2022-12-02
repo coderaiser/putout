@@ -37,6 +37,11 @@ test('plugin-remove-useless-spread: array: no transform: map', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-spread: array: transform: constructor', (t) => {
+    t.transform('constructor');
+    t.end();
+});
+
 test('plugin-remove-useless-spread: array: transform: multiple', (t) => {
     t.transform('multiple');
     t.end();

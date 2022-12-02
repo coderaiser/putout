@@ -50,6 +50,9 @@ const places = [...getPlaces()];
 for (const a of b) {}
 
 const places = getPlaces();
+
+// Array constructor creates sparse array
+[...Array(5)].map(Number);
 ```
 
 ## object
