@@ -1,6 +1,6 @@
 {
   "name": "@putout/cli-match",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "convert \"rules\" section to \"match\" in .putout.json",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-match#readme",
