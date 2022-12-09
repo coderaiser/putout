@@ -26,7 +26,6 @@
   },
   "dependencies": {
     "@putout/engine-loader": "^7.0.0",
-    "nano-memoize": "^1.2.1",
     "once": "^1.4.0",
     "picomatch": "^2.2.2",
     "try-to-catch": "^3.0.1"
