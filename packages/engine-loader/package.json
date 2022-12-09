@@ -28,7 +28,7 @@
     "@babel/core": "^7.12.3",
     "@putout/engine-parser": "^5.0.0",
     "diff-match-patch": "^1.0.4",
-    "nano-memoize": "^1.1.8",
+    "nano-memoize": "^2.0.0",
     "once": "^1.4.0",
     "try-catch": "^3.0.0",
     "try-to-catch": "^3.0.1"
