@@ -56,6 +56,23 @@ Plugin supports options, so you can pass it in `.putout.json`:
 }
 ```
 
+If for some reason you don't need some kind of declaration, add `dismiss` field and it will be ignored:
+
+```json
+{
+    "rules": {
+        "putout/declare-undefined-variables": ["on", {
+            "declarations": {
+                "fs": "import fs from 'fs/promises'"
+            },
+            "dismiss": [
+                "fs"
+            ]
+        }]
+    }
+}
+```
+
 ### Used in
 
 - ✅ [declare-undefined-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables#readme)
