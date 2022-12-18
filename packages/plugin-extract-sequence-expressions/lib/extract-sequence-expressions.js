@@ -59,10 +59,11 @@ module.exports.fix = (path) => {
         return;
     }
     
-    if (compare(path, '__a(__args), __b')) {
-        const callPath = path.get('expressions.0');
-        const argPath = path.get('expressions.1');
-        
+    const isExpressionAfterCall = compare(path, '__a(__args), __b');
+    const callPath = path.get('expressions.0');
+    const argPath = path.get('expressions.1');
+    
+    if (isExpressionAfterCall && !argPath.isAssignmentExpression()) {
         callPath.node.arguments.push(argPath.node);
         argPath.remove();
         

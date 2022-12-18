@@ -35,6 +35,8 @@ module.exports.y = 2;
 
 fn((a, b));
 fn(a), 'hello';
+
+fn(a), b = 3;
 ```
 
 ## ✅ Example of correct code
@@ -45,6 +47,9 @@ module.exports.y = 2;
 
 fn(a, b);
 fn(a, 'hello');
+
+fn(a);
+b = 3;
 ```
 
 ## Comparison

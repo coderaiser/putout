@@ -52,6 +52,11 @@ test('plugin-extract-sequence-expressions: transform: lost-arg', (t) => {
     t.end();
 });
 
+test('plugin-extract-sequence-expressions: transform: assign', (t) => {
+    t.transform('assign');
+    t.end();
+});
+
 test('plugin-extract-sequence-expressions: no transform: for', (t) => {
     t.noTransform('for');
     t.end();
