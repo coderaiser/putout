@@ -26,6 +26,7 @@ npm i putout @putout/plugin-nodejs -D
         "nodejs/convert-dirname-to-url": "on",
         "nodejs/convert-url-to-dirname": "on",
         "nodejs/convert-top-level-return": "on",
+        "nodejs/declare": "on",
         "nodejs/declare-after-require": "on",
         "nodejs/remove-process-exit": "on"
     }
@@ -179,6 +180,8 @@ Add declarations to built-in node.js modules:
 - [util](https://nodejs.org/dist/latest-v18.x/docs/api/util.html);
 - [zlib](https://nodejs.org/dist/latest-v18.x/docs/api/zlib.html);
 
+Based on [`@putout/operator-declare`](https://github.com/coderaiser/putout/tree/master/packages/operator-declare#putoutoperator-declare-).
+
 #### ❌ Example of incorrect code
 
 ```js
@@ -190,6 +193,20 @@ await readFile('hello.txt', 'utf8');
 ```js
 import {readFile} from 'fs/promises';
 await readFile('hello.txt', 'utf8');
+```
+
+When you want ot skip some declaration use `dismiss`:
+
+```json
+{
+    "rules": {
+        "nodejs/declare": ["on", {
+            "dismiss": [
+                "readFile"
+            ]
+        }]
+    }
+}
 ```
 
 ### declare-after-require
