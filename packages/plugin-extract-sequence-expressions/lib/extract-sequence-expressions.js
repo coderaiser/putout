@@ -14,7 +14,6 @@ const {
 const {
     ReturnStatement,
     BlockStatement,
-    isAwaitExpression,
 } = types;
 
 module.exports.report = () => 'Avoid sequence expressions';
@@ -70,9 +69,6 @@ const isRet = ({parentPath}) => parentPath.isReturnStatement();
 
 module.exports.traverse = ({push}) => ({
     SequenceExpression(path) {
-        if (containsAwait(path))
-            return;
-        
         if (isBlock(path) || isFn(path) || isExpr(path) || isCallee(path) || isRet(path))
             push(path);
         
@@ -80,11 +76,6 @@ module.exports.traverse = ({push}) => ({
             push(path);
     },
 });
-
-function containsAwait({node}) {
-    const {expressions} = node;
-    return expressions.some(isAwaitExpression);
-}
 
 function isCallee(path) {
     const {parentPath} = path;

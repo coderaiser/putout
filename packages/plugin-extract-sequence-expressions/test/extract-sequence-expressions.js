@@ -72,7 +72,7 @@ test('plugin-extract-sequence-expressions: no transform: while', (t) => {
     t.end();
 });
 
-test('plugin-extract-sequence-expressions: no transform: await', (t) => {
-    t.noTransform('await');
+test('plugin-extract-sequence-expressions: transform: await', (t) => {
+    t.transform('await');
     t.end();
 });
