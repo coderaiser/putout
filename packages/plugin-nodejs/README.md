@@ -195,7 +195,7 @@ import {readFile} from 'fs/promises';
 await readFile('hello.txt', 'utf8');
 ```
 
-When you want ot skip some declaration use `dismiss`:
+When you want to skip some declaration use `dismiss`:
 
 ```json
 {
