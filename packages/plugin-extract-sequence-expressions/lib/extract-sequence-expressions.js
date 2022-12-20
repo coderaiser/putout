@@ -38,16 +38,6 @@ module.exports.fix = (path) => {
         return;
     }
     
-    if (isCallee(path)) {
-        const expressions = path.node.expressions.map(toExpression);
-        const {expression} = expressions.pop();
-        
-        parentPath.insertBefore(expressions);
-        parentPath.node.callee = expression;
-        
-        return;
-    }
-    
     if (isRet(path)) {
         const {expressions} = path.node;
         const argument = expressions.pop();
@@ -63,7 +53,7 @@ module.exports.fix = (path) => {
     const callPath = path.get('expressions.0');
     const argPath = path.get('expressions.1');
     
-    if (isExpressionAfterCall && !argPath.isAssignmentExpression()) {
+    if (isExpressionAfterCall && argPath.isLiteral()) {
         callPath.node.arguments.push(argPath.node);
         argPath.remove();
         
@@ -108,9 +98,6 @@ function isArgs(path) {
     const {parentPath} = path;
     
     if (!parentPath.isCallExpression())
-        return false;
-    
-    if (parentPath.node.arguments.length !== 1)
         return false;
     
     return path === parentPath.get('arguments.0');

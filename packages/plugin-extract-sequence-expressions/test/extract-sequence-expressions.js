@@ -62,6 +62,11 @@ test('plugin-extract-sequence-expressions: no transform: for', (t) => {
     t.end();
 });
 
+test('plugin-extract-sequence-expressions: transform: call', (t) => {
+    t.transform('call');
+    t.end();
+});
+
 test('plugin-extract-sequence-expressions: no transform: while', (t) => {
     t.noTransform('while');
     t.end();

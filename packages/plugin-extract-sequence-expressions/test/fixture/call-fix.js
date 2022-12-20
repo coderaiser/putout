@@ -1,3 +1,2 @@
-0;
-(add)(1, 2);
-
+this.process();
+this.update();

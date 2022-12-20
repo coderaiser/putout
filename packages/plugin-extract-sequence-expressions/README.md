@@ -37,6 +37,7 @@ fn((a, b));
 fn(a), 'hello';
 
 fn(a), b = 3;
+fn(a), fn(b);
 ```
 
 ## ✅ Example of correct code
@@ -50,6 +51,9 @@ fn(a, 'hello');
 
 fn(a);
 b = 3;
+
+fn(a);
+fn(b);
 ```
 
 ## Comparison
