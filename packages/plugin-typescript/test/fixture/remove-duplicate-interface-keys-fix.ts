@@ -1,3 +1,3 @@
 interface Hello {
-    hello: string
+    hello: string;
 }

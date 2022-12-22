@@ -1,4 +1,4 @@
 interface Hello {
-    'hello': string
-    [hello]: 'world'
+    'hello': string;
+    [hello]: 'world';
 }
