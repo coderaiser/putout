@@ -39,7 +39,7 @@ You can set the rule to always require `array.at()`.
 
 ## Configuration Files
 
-A 🐊**Putout** configuration file is a place where you put the configuration for 🐊**Putout** in your project. You can include [built-in rules](https://github.com/coderaiser/putout#-built-in-transformations), how you want them enforced, plugins with custom rules,
+🐊**Putout** uses configuration file to learn it's limits. You can include [built-in rules](https://github.com/coderaiser/putout#-built-in-transformations), how you want them enforced, plugins with custom rules,
 which files you want rules to apply to, and more.
 
 For more information, refer to [Configuration]([./configuring/configuration-files]\(https://github.com/coderaiser/putout#-configuration\)).
