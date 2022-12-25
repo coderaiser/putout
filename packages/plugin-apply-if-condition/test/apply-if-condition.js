@@ -17,3 +17,7 @@ test('plugin-apply-if-condition: transform', (t) => {
     t.end();
 });
 
+test('plugin-apply-if-condition: no transform: empty', (t) => {
+    t.noTransform('empty');
+    t.end();
+});
