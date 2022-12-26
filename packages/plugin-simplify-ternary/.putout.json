@@ -1,10 +1,9 @@
 {
     "match": {
         "*.md": {
-            "simplify-ternary": "off"
+            "simplify-ternary": "off",
+            "remove-useless-spread/object": "off",
+            "putout/declare": "off"
         }
-    },
-    "rules": {
-        "remove-useless-spread/object": "off"
     }
 }

@@ -57,3 +57,8 @@ test('plugin-simplify-ternary: transform: spread', (t) => {
     t.end();
 });
 
+test('plugin-simplify-ternary: transform: distribute', (t) => {
+    t.transform('distribute');
+    t.end();
+});
+

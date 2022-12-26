@@ -28,6 +28,8 @@ npm i @putout/plugin-simplify-ternary -D
 
 ## value
 
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9dd4b87daa121c4fffbb63cab83b7f97/b90459bd06f8c7f71943791ee1bcb6970ade5a75).
+
 ### ❌ Example of incorrect code
 
 ```js
@@ -35,6 +37,8 @@ module.exports = fs.copyFileSync ? fs.copyFileSync : copyFileSync;
 
 x = y ? y : z;
 x = y ? z : y;
+
+m = is ? a && b : a && c;
 ```
 
 ### ✅ Example of correct code
@@ -44,6 +48,8 @@ module.exports = fs.copyFileSync || copyFileSync;
 
 x = y || z;
 x = y && z;
+
+m = a && is ? b : c;
 ```
 
 ## spread
