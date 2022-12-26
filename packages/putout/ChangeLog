@@ -1,3 +1,21 @@
+2022.12.26, v28.2.0
+
+feature:
+- package: @putout/plugin-simplify-ternary v4.0.0
+- @putout/plugin-simplify-ternary: drop support of 🐊 < 28
+- @putout/plugin-simplify-ternary: add support of distribute
+- @putout/plugin-apply-if-condition: exclude next empty sibling (#125)
+- package: @putout/recast v1.11.0
+- @putout/plugin-extract-sequence-expressions: add support of await (#124)
+- @putout/plugin-extract-sequence-expressions: exclude call expressions (#124)
+- @putout/plugin-extract-sequence-expressions: when assignment goes after call split into two expressions (#124)
+- @putout/engine-loader: nano-memoize v2
+- @putout/engine-parser: nano-memoize v2
+- @putout/engine-processor: rm unused nano-memoize
+- package: stylelint-config-standard v29.0.0
+- @putout/processor-typescript: drop support of putout < 28
+- package: ts-morph v17.0.1
+
 2022.12.02, v28.1.0
 
 fix:
