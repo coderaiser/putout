@@ -39,6 +39,12 @@ module.exports = ({use, declare, addParams}) => {
         'ObjectExpression|RecordExpression'(path) {
             traverseObj(path.get('properties'));
         },
+        SequenceExpression(path) {
+            for (const exprPath of path.get('expressions')) {
+                if (exprPath.isIdentifier())
+                    use(exprPath, exprPath.node.name);
+            }
+        },
         
         'AwaitExpression|YieldExpression|SpreadElement'(path) {
             const {argument} = path.node;

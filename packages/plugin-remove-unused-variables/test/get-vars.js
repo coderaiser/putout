@@ -66,6 +66,7 @@ const fixture = readFixtures([
     'record',
     'scope-vars',
     'root-vars',
+    'sequence',
     'shorthand-vars',
     'expression-statement',
     'obj-prop',
@@ -543,6 +544,25 @@ test('remove-unused-variables: get-vars: root vars', (t) => {
         str3: {
             declared: true,
             used: false,
+        },
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: sequence', (t) => {
+    const ast = parse(fixture.sequence);
+    const result = getVars(ast);
+    
+    const expected = [{
+        a: {
+            declared: true,
+            used: true,
+        },
+        console: {
+            declared: false,
+            used: true,
         },
     }];
     
