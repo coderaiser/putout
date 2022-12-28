@@ -38,6 +38,8 @@ fn(a), 'hello';
 
 fn(a), b = 3;
 fn(a), fn(b);
+
+if (a, b, c) {}
 ```
 
 ## ✅ Example of correct code
@@ -54,6 +56,11 @@ b = 3;
 
 fn(a);
 fn(b);
+
+a;
+b;
+
+if (c) {}
 ```
 
 ## Comparison

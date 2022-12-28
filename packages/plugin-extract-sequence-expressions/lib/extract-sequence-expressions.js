@@ -14,6 +14,7 @@ const {
 const {
     ReturnStatement,
     BlockStatement,
+    ExpressionStatement,
 } = types;
 
 module.exports.report = () => 'Avoid sequence expressions';
@@ -48,6 +49,14 @@ module.exports.fix = (path) => {
         return;
     }
     
+    if (isIfTest(path)) {
+        while (path.node.expressions.length > 1) {
+            path.parentPath.insertBefore(ExpressionStatement(path.node.expressions.shift()));
+        }
+        
+        return;
+    }
+    
     const isExpressionAfterCall = compare(path, '__a(__args), __b');
     const callPath = path.get('expressions.0');
     const argPath = path.get('expressions.1');
@@ -69,11 +78,19 @@ const isRet = ({parentPath}) => parentPath.isReturnStatement();
 
 module.exports.traverse = ({push}) => ({
     SequenceExpression(path) {
-        if (isBlock(path) || isFn(path) || isExpr(path) || isCallee(path) || isRet(path))
+        if (isBlock(path) || isFn(path) || isExpr(path) || isCallee(path) || isRet(path)) {
             push(path);
+            return;
+        }
         
-        if (isArgs(path))
+        if (isArgs(path)) {
             push(path);
+            return;
+        }
+        
+        if (isIfTest(path)) {
+            push(path);
+        }
     },
 });
 
@@ -83,6 +100,16 @@ function isCallee(path) {
     const isSame = parentPath.get('callee') === path;
     
     return isCall && isSame;
+}
+
+function isIfTest(path) {
+    const {parentPath} = path;
+    const pathTest = parentPath.get('test');
+    
+    if (!parentPath.isIfStatement())
+        return false;
+    
+    return pathTest === path;
 }
 
 function isArgs(path) {
