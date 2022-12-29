@@ -1,3 +1,11 @@
+2022.12.29, v28.3.0
+
+feature:
+- package: nano-memoize v2.0.0
+- @putout/plugin-logical-expressions: simplify: add support of OptionalChaining
+- @putout/plugin-extract-sequence-expressions: add support of IfStatement test (#126)
+- @putout/plugin-remove-unused-variables: add support of SequenceExpressions (#126)
+
 2022.12.26, v28.2.0
 
 feature:
