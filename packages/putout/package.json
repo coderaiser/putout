@@ -190,7 +190,7 @@
     "ignore": "^5.0.4",
     "is-relative": "^1.0.0",
     "isomorphic-git": "^1.4.0",
-    "nano-memoize": "^1.1.11",
+    "nano-memoize": "^2.0.0",
     "once": "^1.4.0",
     "picomatch": "^2.2.2",
     "try-catch": "^3.0.0",
