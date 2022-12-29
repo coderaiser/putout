@@ -51,3 +51,9 @@ test('plugin-simplify-logical-expression: transform: same', (t) => {
     t.transform('same');
     t.end();
 });
+
+test('plugin-simplify-logical-expression: transform: optional', (t) => {
+    t.transform('optional');
+    t.end();
+});
+

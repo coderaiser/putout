@@ -42,6 +42,8 @@ if (!left.type === 'UnaryExpression') {}
 
 const oneOf = a || a;
 const same = a === a;
+
+hello?.world || hello;
 ```
 
 ### ✅ Example of correct code
@@ -53,6 +55,8 @@ if (left.type !== 'UnaryExpression') {}
 
 const oneOf = a;
 const same = true;
+
+hello?.world;
 ```
 
 The rule also simplify duplication use:
