@@ -40,7 +40,7 @@ module.exports.traverse = ({push, pathStore}) => ({
 
 function processImports(push, imports) {
     const {get, add} = duplicatesStore();
-    let importDefaultCount = 0;
+    const importDefaults = new Map();
     
     for (const path of imports) {
         const {
@@ -53,12 +53,28 @@ function processImports(push, imports) {
         if (specifiers.find(isImportNamespaceSpecifier))
             continue;
         
-        add(value, path);
-        importDefaultCount += specifiers.filter(isImportDefaultSpecifier).length;
+        const count = importDefaults.get(value) || 0;
+        const importDefaultCount = count + specifiers.filter(isImportDefaultSpecifier).length;
+        
+        importDefaults.set(value, importDefaultCount);
     }
     
-    if (importDefaultCount > 1)
-        return;
+    for (const path of imports) {
+        const {
+            source,
+            specifiers,
+        } = path.node;
+        
+        const {value} = source;
+        
+        if (specifiers.find(isImportNamespaceSpecifier))
+            continue;
+        
+        if (importDefaults.get(value) > 1)
+            continue;
+        
+        add(value, path);
+    }
     
     for (const list of get()) {
         if (list.length === 1)
