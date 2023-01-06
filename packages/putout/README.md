@@ -146,6 +146,7 @@ module.exports.replace = () => ({
 - ✅ apply `if condition`;
 - ✅ apply `await import`;
 - ✅ apply comparison order;
+- ✅ apply `flatMap()`;
 
 ## Install
 

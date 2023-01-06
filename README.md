@@ -1257,6 +1257,15 @@ function world(a) {
 
 </details>
 
+<details><summary>apply <code>flatMap()</code></summary>
+
+```diff
+-array.map(getId).flat();
++array.flatMap(getId);
+```
+
+</details>
+
 <details><summary>apply <code>if condition</code></summary>
 
 ```diff
@@ -1822,6 +1831,7 @@ It has a lot plugins divided by groups:
 |--------|-------|
 | [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) |
 | [`@putout/plugin-apply-is-array`](/packages/plugin-apply-is-array#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-is-array.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-is-array) |
+| [`@putout/plugin-apply-flat-map`](/packages/plugin-apply-flat-map#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-flat-map.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-flat-map) |
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) |
 | [`@putout/plugin-apply-if-condition`](/packages/plugin-apply-if-condition#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-if-condition.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-if-condition) |
