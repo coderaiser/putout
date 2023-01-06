@@ -1,4 +1,5 @@
-import {m as b} from 'y';
-import {z} from 'y';
-import x from 'y';
-import y from 'y';
+import test from 'supertape';
+import {stub} from 'supertape';
+import putout, {
+    load,
+} from './putout.mjs';

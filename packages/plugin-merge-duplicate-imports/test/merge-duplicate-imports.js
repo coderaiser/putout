@@ -23,6 +23,11 @@ test('merge duplicate imports: transform', (t) => {
     t.end();
 });
 
+test('merge duplicate imports: transform: couple-defaults', (t) => {
+    t.transform('couple-defaults');
+    t.end();
+});
+
 test('merge duplicate imports: transform: tape: declare', (t) => {
     t.transform('tape', {
         'tape/declare': declare,
@@ -31,7 +36,7 @@ test('merge duplicate imports: transform: tape: declare', (t) => {
 });
 
 test('merge duplicate imports: no transform: a couple defaultImportSpecifiers', (t) => {
-    t.noTransform('couple-defaults');
+    t.noTransform('couple-same-defaults');
     t.end();
 });
 
