@@ -3,7 +3,7 @@
   "version": "7.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout plugin adds ability to find and remove process.exit",
+  "description": "🐊Putout plugin adds ability to merge duplicate-imports",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-merge-duplicate-imports#readme",
   "main": "lib/merge-duplicate-imports.js",
   "commitType": "colon",
@@ -47,7 +47,7 @@
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {
-    "putout": ">=27"
+    "putout": ">=28"
   },
   "license": "MIT",
   "engines": {
