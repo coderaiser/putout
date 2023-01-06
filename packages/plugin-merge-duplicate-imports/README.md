@@ -28,18 +28,16 @@ npm i @putout/plugin-merge-duplicate-imports
 ## ❌ Example of incorrect code
 
 ```js
-import {m as b} from 'y';
-import {z} from 'y';
-import x from 'y';
+import test from 'supertape';
+import {stub} from 'supertape';
 ```
 
 ## ✅ Example of correct code
 
 ```js
-import x, {
-    m as b,
-    z,
-} from 'y';
+import test, {
+    stub,
+} from 'supertape';
 ```
 
 ## License
