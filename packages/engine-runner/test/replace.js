@@ -701,3 +701,39 @@ test('putout: runner: replace: jsx: children', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: jsx: attribute', (t) => {
+    const from = montag`
+        <Link href="__a">
+            <a>__b</a>
+        </Link>
+    `;
+    
+    const plugin = {
+        report: () => '',
+        replace: () => ({
+            [from]: ({__b}) => {
+                __b.type = 'StringLiteral';
+                return __b;
+            },
+        }),
+    };
+    
+    const source = montag`
+        <Link href="/about">
+            <a>About</a>
+        </Link>
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['plugin', plugin],
+        ],
+    });
+    
+    const expected = `'About';`;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
