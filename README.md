@@ -1943,6 +1943,7 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-react-hooks`](/packages/plugin-react-hooks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-react-hooks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-react-hooks) |
+| [`@putout/plugin-nextjs`](/packages/plugin-nextjs#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-nextjs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-nextjs) |
 | [`@putout/plugin-react-router`](/packages/plugin-react-router#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-react-router.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-react-router) |
 | [`@putout/plugin-convert-is-nan-to-number-is-nan`](/packages/plugin-convert-is-nan-to-number-is-nan#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-is-nan-to-number-is-nan.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-is-nan-to-number-is-nan) |
 | [`@putout/plugin-convert-spread-to-array-from`](/packages/plugin-convert-spread-to-array-from#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-spread-to-array-from.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-spread-to-array-from) |
