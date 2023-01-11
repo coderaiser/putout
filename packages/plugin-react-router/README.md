@@ -67,13 +67,13 @@ const routes = () => <Routes>
 ### ❌ Example of incorrect code
 
 ```jsx
-<Route path="/" component ={Home} />;
+<Route path="/" component={Home} />;
 ```
 
 ### ✅ Example of correct code
 
 ```jsx
-<Route path="/" element ={<Home />} />;
+<Route path="/" element={<Home />} />;
 ```
 
 ## License
