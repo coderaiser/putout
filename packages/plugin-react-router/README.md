@@ -36,7 +36,7 @@ Here is list of rules:
 
 ## convert-switch-to-routes
 
-`ReactRouter v6` [uses `Routers` instead of `Switch`](https://reactrouter.com/docs/en/v6/upgrading/v5#upgrade-all-switch-elements-to-routes). Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/2030cd7141bf5f02bef896b19b9400ea/a1364326157c85b9e8fa33b6c87cb77ca5a2792f).
+`ReactRouter v6` [uses `Routers` instead of `Switch`](https://reactrouter.com/en/6.6.2/components/routes#routes). Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/2030cd7141bf5f02bef896b19b9400ea/a1364326157c85b9e8fa33b6c87cb77ca5a2792f).
 
 ### ❌ Example of incorrect code
 
@@ -62,7 +62,7 @@ const routes = () => <Routes>
 
 ## convert-component-to-element
 
-`ReactRouter v6` [uses `element` instead of `component`](https://reactrouter.com/docs/en/v6/components/route). Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/7fb5cf000b6a61d4003fccf2fcb39da3/1de6534c6151a20e021b3508e027fb0ee2449b0c).
+`ReactRouter v6` [uses `element` instead of `component`](https://reactrouter.com/en/6.6.2/route/route#dynamic-segments). Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/7fb5cf000b6a61d4003fccf2fcb39da3/1de6534c6151a20e021b3508e027fb0ee2449b0c).
 
 ### ❌ Example of incorrect code
 
