@@ -24,6 +24,7 @@ const {
 const {
     isClassBody,
     isBlock,
+    isJSXText,
 } = require('@babel/types');
 
 const isEmptyBlock = (a) => isBlock(a) && !a.body.length;
@@ -32,6 +33,7 @@ const isPrimitive = (a) => typeof a !== 'object' || a === null;
 const second = (f) => (a, b) => f(b);
 
 const comparators = [
+    compareJSXTexts,
     compareAny,
     comparePrimitives,
     second(isClassBody),
@@ -103,5 +105,12 @@ function addObject(node, template, {add}) {
         add(node, template);
     
     return is;
+}
+
+function compareJSXTexts(node, template) {
+    if (!isJSXText(node) || !isJSXText(template))
+        return false;
+    
+    return /^\s+$/.test(template.value) && /^\s+$/.test(node.value);
 }
 

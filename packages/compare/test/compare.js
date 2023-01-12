@@ -1,6 +1,8 @@
 'use strict';
 
 const test = require('supertape');
+const montag = require('montag');
+
 const {template, parse} = require('@putout/engine-parser');
 const {traverse, types} = require('putout');
 const {
@@ -766,6 +768,24 @@ test('compare: both values are empty', (t) => {
 
 test('compare: jsx: JSXText', (t) => {
     const result = compare('<h1>hello</h1>', '<h1>__a</h1>');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: jsx: JSXText: whitespaces', (t) => {
+    const template = montag`
+        <Link href="/about">
+            <a>About</a>
+        </Link>
+    `;
+    
+    const node = montag`
+        <Link href="/about">
+          <a>About</a>
+        </Link>
+    `;
+    const result = compare(node, template);
     
     t.ok(result);
     t.end();

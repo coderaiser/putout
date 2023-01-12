@@ -704,7 +704,7 @@ test('putout: runner: replace: jsx: children', (t) => {
 test('putout: runner: replace: jsx: attribute', (t) => {
     const from = montag`
         <Link href="__a">
-            <a>__b</a>
+          <a>__b</a>
         </Link>
     `;
     
