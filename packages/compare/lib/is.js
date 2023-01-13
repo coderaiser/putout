@@ -98,7 +98,9 @@ const {isArray} = Array;
 module.exports.isId = isId;
 module.exports.isEqualType = isEqualType;
 module.exports.isStr = (a) => typeof a === 'string';
-module.exports.isAny = (a) => isIdentifier(a, {name: ANY});
+module.exports.isAny = (a) => {
+    return isIdentifier(a, {name: ANY}) || isJSXText(a, {value: ANY});
+};
 module.exports.isAnyLiteral = (a, b) => isLiteral(b, {value: ANY}) && isEqualType(a, b);
 module.exports.isArgs = (a) => {
     const b = !isArray(a) ? a : a[0];

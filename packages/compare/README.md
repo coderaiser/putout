@@ -66,6 +66,7 @@ Any node.
 compare('const x = data', 'const __ = __');
 compare('const {x} = data', 'const __ = __');
 compare('const x = {data}', 'const __ = __');
+compare('<h1>hello</h1>', '<h1>__</h1>');
 // returns
 true;
 ```

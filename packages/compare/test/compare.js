@@ -773,6 +773,13 @@ test('compare: jsx: JSXText', (t) => {
     t.end();
 });
 
+test('compare: jsx: inner', (t) => {
+    const result = compare('<Head><title>My page title</title></Head>', '<Head>__</Head>');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: jsx: JSXText: whitespaces', (t) => {
     const template = montag`
         <Link href="/about">
