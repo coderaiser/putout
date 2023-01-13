@@ -11,3 +11,7 @@ test('plugin-nextjs: transform: remove-a-from-link', (t) => {
     t.end();
 });
 
+test('plugin-nextjs: transform: convert-page-to-head', (t) => {
+    t.transform('convert-page-to-head');
+    t.end();
+});

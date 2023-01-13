@@ -11,12 +11,18 @@
             }
         }
     }],
+    "rules": {
+        "indent": "off",
+        "react/jsx-one-expression-per-line": "error",
+        "react/jsx-indent": "error"
+    },
     "extends": [
         "plugin:n/recommended",
         "plugin:putout/recommended"
     ],
     "plugins": [
         "n",
-        "putout"
+        "putout",
+        "react"
     ]
 }
