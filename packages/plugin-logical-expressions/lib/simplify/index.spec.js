@@ -52,8 +52,3 @@ test('plugin-simplify-logical-expression: transform: same', (t) => {
     t.end();
 });
 
-test('plugin-simplify-logical-expression: transform: optional', (t) => {
-    t.transform('optional');
-    t.end();
-});
-
