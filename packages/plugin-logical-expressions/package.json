@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-logical-expressions",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to transform logical expressions",
