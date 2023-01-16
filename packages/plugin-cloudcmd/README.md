@@ -27,7 +27,8 @@ Add `.putout.json` with:
 {
     "rules": {
         "cloudcmd/convert-io-mv-to-io-move": "on",
-        "cloudcmd/convert-io-cp-to-io-copy": "on"
+        "cloudcmd/convert-io-cp-to-io-copy": "on",
+        "cloudcmd/convert-load-dir-to-change-dir": "on"
     }
 }
 ```
@@ -81,6 +82,28 @@ await IO.write(`${mp3Dir}?dir`);
 
 ```js
 await IO.createDirectory(mp3Dir);
+```
+
+# convert-load-dir-to-change-dir
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/c840227d624971e9f3a9c5f368f1dd53/9c488f0809b4684a78866bc252a115cf83a65a79).
+
+## ❌ Example of incorrect code
+
+```js
+await CloudCmd.loadDir({
+    path: '/',
+    panel,
+});
+
+```
+
+## ✅ Example of correct code
+
+```js
+await CloudCmd.changeDir(path, {
+    panel,
+});
 ```
 
 ## License

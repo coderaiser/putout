@@ -1,0 +1,4 @@
+await loadDir({
+    path: '/',
+    panel,
+});
