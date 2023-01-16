@@ -101,7 +101,7 @@ await CloudCmd.loadDir({
 ## ✅ Example of correct code
 
 ```js
-await CloudCmd.changeDir(path, {
+await CloudCmd.changeDir('/', {
     panel,
 });
 ```
