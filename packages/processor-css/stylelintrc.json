@@ -10,7 +10,6 @@
         "number-leading-zero": null,
         "number-no-trailing-zeros": null,
         "string-quotes": "single",
-        "function-url-quotes": "never",
         "no-eol-whitespace": null,
         "font-family-name-quotes": "always-unless-keyword",
         "font-family-no-missing-generic-family-keyword": null,
