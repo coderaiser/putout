@@ -6,6 +6,7 @@ module.exports.report = () => `Use 'CloudCmd.changeDir()' instead of 'CloudCmd.l
 
 module.exports.replace = () => ({
     'CloudCmd.loadDir({path})': 'CloudCmd.changeDir(path)',
+    'CloudCmd.loadDir({path: __a})': 'CloudCmd.changeDir(__a)',
     'CloudCmd.loadDir(__object)': (vars, path) => {
         convert(vars, path);
         path.node.callee.property.name = 'changeDir';

@@ -22,6 +22,11 @@ test('cloudcmd/convert-load-dir-to-change-dir: transform: not-member', (t) => {
     t.end();
 });
 
+test('cloudcmd/convert-load-dir-to-change-dir: transform: member-one-property', (t) => {
+    t.transform('member-one-property');
+    t.end();
+});
+
 test('cloudcmd/convert-load-dir-to-change-dir: transform: first-object', (t) => {
     t.transform('first-object');
     t.end();
