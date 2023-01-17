@@ -15,11 +15,11 @@ export const fix = async (rawSource) => {
     const {code} = await svelte.preprocess(rawSource, {
         async style({content}) {
             const source = removePrefixSpaces(content);
-            const [currentSource] = await lint(source, {
+            const [currentSource, places] = await lint(source, {
                 fix: true,
             });
             
-            if (currentSource.includes('errored'))
+            if (/CssSyntaxError/.test(places[0]?.rule))
                 return {
                     code: content,
                 };
