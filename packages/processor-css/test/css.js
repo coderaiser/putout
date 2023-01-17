@@ -37,3 +37,7 @@ test('putout: processor: css: template', async ({comparePlaces}) => {
     }]);
 });
 
+test('putout: processor: css: process: template', async ({process}) => {
+    await process('template');
+});
+
