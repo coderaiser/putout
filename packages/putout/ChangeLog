@@ -1,3 +1,29 @@
+2023.01.18, v28.6.0
+
+fix:
+- @putout/processor-css: get back url quotes
+- @putout/plugin-logical-expressions: simplify: get rid of incorrect optional transformation: a?.b || a -> a?.b'
+
+feature:
+- package: @putout/plugin-remove-iife v3.0.0
+- @putout/plugin-remove-iife: drop support of ✍🐊 < 28
+- @putout/plugin-remove-iife: improve support of nested iife
+- package: @putout/processor-css v6.2.0
+- @putout/process-html: css
+- @putout/processor-css: improve support of parsing error
+- @putout/plugin-putout: convert-load-dir-to-change-dir: improve support of named properties
+- @putout/processor-css: remove function-url-quotes
+- @putout/plugin-cloudcmd: drop support of 🐊 < 28
+- @putout/plugin-cloudcmd: drop support of node < 16
+- @putout/plugin-cloudcmd: add convert-load-dir-to-change-dir
+- @putout/plugin-nextjs: add convert-page-to-head
+- @putout/compare: __: improve support of jsx
+- @putout/compare: improve support of JSXText between tags
+- @putout/plugin-nextjs: add
+- package: @putout/plugin-merge-duplicate-imports v8.0.0
+- @putout/plugin-merge-duplicate-imports: drop support of 🐊 < 28
+- @putout/plugin-merge-duplicate-imports: improve support of duplicate imports
+
 2023.01.06, v28.5.0
 
 feature:
