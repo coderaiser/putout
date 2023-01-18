@@ -6,7 +6,6 @@ const {
 } = require('putout');
 
 const {replaceWithMultiple} = operator;
-
 const {isReturnStatement} = types;
 
 module.exports.report = () => 'IIFE should be removed';
@@ -29,9 +28,11 @@ module.exports.replace = () => ({
     '(() => __body)()': '__body',
     '(function() {})()': (vars, path) => {
         const {body} = path.node.callee.body;
+        const [first] = body;
+        
         replaceWithMultiple(path.parentPath, body);
         
-        return path;
+        return first;
     },
 });
 
