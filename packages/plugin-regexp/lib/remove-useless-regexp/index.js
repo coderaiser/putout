@@ -64,7 +64,7 @@ function isOnlyChars(str) {
         RegExp({node}) {
             const {body} = node;
             
-            if (isChar(body)) {
+            if (isChar(body) && !body.value.includes('\\')) {
                 is = true;
                 return;
             }
