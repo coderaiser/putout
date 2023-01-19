@@ -27,6 +27,11 @@ test('remove iife: transform: else', (t) => {
     t.end();
 });
 
+test('remove iife: no transform: sequence', (t) => {
+    t.noTransform('sequence');
+    t.end();
+});
+
 test('remove iife: no transform: return', (t) => {
     t.noTransform('return');
     t.end();

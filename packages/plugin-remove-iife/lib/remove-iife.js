@@ -17,6 +17,9 @@ module.exports.filter = (path) => {
     if (!body)
         return true;
     
+    if (path.parentPath.isSequenceExpression())
+        return false;
+    
     const n = body.length;
     const latest = body[n - 1];
     
