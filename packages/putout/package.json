@@ -105,7 +105,7 @@
     "@putout/plugin-convert-typeof-to-is-type": "^2.0.0",
     "@putout/plugin-declare-before-reference": "^1.0.0",
     "@putout/plugin-declare-imports-first": "^2.0.0",
-    "@putout/plugin-declare-undefined-variables": "^7.0.0",
+    "@putout/plugin-declare-undefined-variables": "^8.0.0",
     "@putout/plugin-eslint": "^4.2.0",
     "@putout/plugin-extract-object-properties": "^8.0.0",
     "@putout/plugin-extract-sequence-expressions": "^3.0.0",
