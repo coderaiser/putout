@@ -190,3 +190,11 @@ test('putout: plugin: declare-undefined-variables: table', (t) => {
     t.end();
 });
 
+test('putout: plugin: declare-undefined-variables: fullstore', (t) => {
+    t.transformCode(`fullstore(data);`, montag`
+        import fullstore from 'fullstore';
+        fullstore(data);
+    `);
+    t.end();
+});
+

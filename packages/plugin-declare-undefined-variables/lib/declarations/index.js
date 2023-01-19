@@ -27,6 +27,7 @@ module.exports = {
     eslint: `import eslint from 'putout/eslint'`,
     currify: `import currify from 'currify'`,
     wraptile: `import wraptile from 'wraptile'`,
+    fullstore: `import fullstore from 'fullstore'`,
     pipe: `import pipe from 'pipe-io'`,
     pullout: `import pullout from 'pullout'`,
     chalk: `import chalk from 'chalk'`,
