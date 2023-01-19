@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('remove iife: report', (t) => {
-    t.report('iife', 'IIFE should be removed');
+    t.report('iife', 'Avoid IIFE');
     t.end();
 });
 

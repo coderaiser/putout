@@ -8,7 +8,7 @@ const {
 const {replaceWithMultiple} = operator;
 const {isReturnStatement} = types;
 
-module.exports.report = () => 'IIFE should be removed';
+module.exports.report = () => 'Avoid IIFE';
 
 module.exports.filter = (path) => {
     const {callee} = path.node;
