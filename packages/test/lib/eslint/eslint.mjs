@@ -1,6 +1,14 @@
 import {readFile} from 'fs/promises';
-import {readFileSync} from 'fs';
-import {join} from 'path';
+import {
+    readFileSync,
+    writeFileSync,
+    unlinkSync,
+} from 'fs';
+import {
+    join,
+    extname,
+    basename,
+} from 'path';
 
 import eslint from '@putout/eslint';
 import tryToCatch from 'try-to-catch';
@@ -11,6 +19,21 @@ import tryCatch from 'try-catch';
 
 const {keys} = Object;
 const {isArray} = Array;
+
+const isUpdate = () => process.env.UPDATE === '1';
+const update = (name, data) => {
+    const fn = global.writeFileSync || writeFileSync;
+    fn(name, data);
+};
+
+const remove = (name) => {
+    const ext = extname(name);
+    const base = basename(name, ext);
+    const fixtureName = name.replace(base, `${base}-fix`);
+    
+    const fn = global.unlinkSync || unlinkSync;
+    tryCatch(fn, String(fixtureName));
+};
 
 const getMessage = ({message}) => message;
 const config = {
@@ -46,7 +69,7 @@ export const createTest = (url, plugins = {}) => {
         process: (operator) => async (name, override) => {
             const full = join(fixtureDir, name);
             const [resolvedName, code] = await read(full);
-            const [, fixture] = await read(`${full}-fix`);
+            const [fixturePath, fixture] = await read(`${full}-fix`);
             const fix = true;
             
             const [source] = await eslint({
@@ -59,6 +82,11 @@ export const createTest = (url, plugins = {}) => {
                     ...override,
                 },
             });
+            
+            if (isUpdate()) {
+                update(fixturePath, source);
+                return operator.pass('fixture updated');
+            }
             
             return operator.equal(source, fixture);
         },
@@ -73,6 +101,11 @@ export const createTest = (url, plugins = {}) => {
                 code,
                 fix,
             });
+            
+            if (isUpdate()) {
+                remove(resolvedName);
+                return operator.pass('fixture updated');
+            }
             
             return operator.equal(source, code);
         },
