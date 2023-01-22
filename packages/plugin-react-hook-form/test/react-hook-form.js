@@ -1,0 +1,13 @@
+'use strict';
+
+const {createTest} = require('@putout/test');
+const reactHookForm = require('..');
+const test = createTest(__dirname, {
+    'react-hook-form': reactHookForm,
+});
+
+test('plugin-react-hook-form: transform: remove-value-from-control', (t) => {
+    t.transform('remove-value-from-control');
+    t.end();
+});
+
