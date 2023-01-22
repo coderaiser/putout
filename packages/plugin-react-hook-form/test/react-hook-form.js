@@ -11,3 +11,7 @@ test('plugin-react-hook-form: transform: remove-value-from-control', (t) => {
     t.end();
 });
 
+test('plugin-react-hook-form: transform: apply-clear-errors', (t) => {
+    t.transform('apply-clear-errors');
+    t.end();
+});

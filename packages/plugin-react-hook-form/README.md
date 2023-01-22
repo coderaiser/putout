@@ -28,9 +28,37 @@ Here is list of rules:
 ```json
 {
     "rules": {
+        "react-hook-form/apply-clear-errors": "on",
         "react-hook-form/remove-value-from-control": "on"
     }
 }
+```
+
+## apply-clear-errors
+
+`clearError` was renamed to `clearErrors` in [`react-hook-form v6.0.0`](https://github.com/react-hook-form/react-hook-form/releases/tag/v6.0.0-rc.5).
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/4b8ae81c6604f62dfe76fdcc644cf814/ecdf5fe389be5c9517a8a9a67fbc2396c233c131).
+
+### ❌ Example of incorrect code
+
+```ts
+const {
+    register,
+    setError,
+    clearError,
+    errors,
+} = useForm<{}>;
+```
+
+### ✅ Example of correct code
+
+```ts
+const {
+    register,
+    setError,
+    clearErrors,
+    errors,
+} = useForm<{}>;
 ```
 
 ## remove-value-from-control

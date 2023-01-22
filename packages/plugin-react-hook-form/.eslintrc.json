@@ -10,12 +10,14 @@
                 ]
             }
         }
+    }, {
+        "files": "*.md{jsx}",
+        "rules": {
+            "indent": "off",
+            "react/jsx-one-expression-per-line": "error",
+            "react/jsx-indent": "error"
+        }
     }],
-    "rules": {
-        "indent": "off",
-        "react/jsx-one-expression-per-line": "error",
-        "react/jsx-indent": "error"
-    },
     "extends": [
         "plugin:n/recommended",
         "plugin:putout/recommended"
