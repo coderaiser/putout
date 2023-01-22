@@ -183,3 +183,8 @@ test('eslint-plugin-putout: object-property-newline', async ({process}) => {
 test('eslint-plugin-putout: add-newline-before-return', async ({process}) => {
     await process('add-newline-before-return');
 });
+
+test('eslint-plugin-putout: multiple-properties-destructuring', async ({process}) => {
+    await process('multiple-properties-destructuring');
+});
+
