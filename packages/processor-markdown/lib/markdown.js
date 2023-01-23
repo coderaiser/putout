@@ -39,6 +39,9 @@ export const files = [
 ];
 
 export const find = async (rawSource, options = {}) => {
+    if (!rawSource.length)
+        return [];
+    
     await parseStore.init();
     
     const {messages} = await unified()
