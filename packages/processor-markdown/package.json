@@ -1,6 +1,6 @@
 {
   "name": "@putout/processor-markdown",
-  "version": "7.3.0",
+  "version": "8.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout processor adds ability to parse markdown files and lint JavaScript, JSX, TypeScript and JSON snippets",
