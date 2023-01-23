@@ -15,3 +15,8 @@ test('plugin-react-hook-form: transform: apply-clear-errors', (t) => {
     t.transform('apply-clear-errors');
     t.end();
 });
+
+test('plugin-react-hook-form: transform: convert-as-to-render', (t) => {
+    t.transform('convert-as-to-render');
+    t.end();
+});

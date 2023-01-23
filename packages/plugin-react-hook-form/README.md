@@ -29,6 +29,7 @@ Here is list of rules:
 {
     "rules": {
         "react-hook-form/apply-clear-errors": "on",
+        "react-hook-form/convert-as-to-render": "on",
         "react-hook-form/remove-value-from-control": "on"
     }
 }
@@ -59,6 +60,32 @@ const {
     clearErrors,
     errors,
 } = useForm<{}>;
+```
+
+## convert-as-to-render
+
+`Control` has no `as`, it uses `render` starting from [`v6`](https://github.com/react-hook-form/react-hook-form/releases/tag/v6.0.0-rc.2).
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/8493358f36c009f2d4f7ac0bf447d645/cdbe2eaaeab29791c9266345b0295ed706ef3ba0).
+
+### ❌ Example of incorrect code
+
+```jsx
+const a = <Controller
+  as={CustomInput}
+  valueName="textValue"
+  onChangeName="onTextChange"
+  control={control}
+  name="test"
+/>;
+```
+
+### ✅ Example of correct code
+
+```jsx
+const a = <Controller
+  render={({onChange, onBlur, value}) => <CustomInput onTextChange={onChange} onBlur={onBlur} textValue={value} />}
+  control={control}
+  name="test" />;
 ```
 
 ## remove-value-from-control

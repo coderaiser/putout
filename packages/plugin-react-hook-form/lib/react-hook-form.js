@@ -5,7 +5,8 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
-    ...getRule('remove-value-from-control'),
     ...getRule('apply-clear-errors'),
+    ...getRule('convert-as-to-render'),
+    ...getRule('remove-value-from-control'),
 };
 
