@@ -3,7 +3,7 @@
   "version": "7.3.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout processor adds ability to parse markdown files and lint js snippets",
+  "description": "🐊Putout processor adds ability to parse markdown files and lint JavaScript, JSX, TypeScript and JSON snippets",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-markdown#readme",
   "main": "./lib/markdown.js",
   "commitType": "colon",
