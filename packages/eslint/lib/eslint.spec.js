@@ -384,6 +384,25 @@ test('putout: eslint: get-eslint: config file', async (t) => {
     t.end();
 });
 
+test('putout: eslint: NO_ESLINT', async (t) => {
+    process.env.NO_ESLINT = '1';
+    
+    const eslint = reRequire('./eslint.js');
+    
+    const [, places] = await eslint({
+        name: 'hello.js',
+        code: `const t = 'hi'\n`,
+        fix: false,
+    });
+    
+    delete process.env.NO_ESLINT;
+    
+    reRequire('./eslint.js');
+    
+    t.notOk(places.length);
+    t.end();
+});
+
 test('putout: eslint: config: remove putout', async (t) => {
     const calculateConfigForFile = stub().resolves({
         rules: {

@@ -6,6 +6,7 @@ const tryToCatch = require('try-to-catch');
 const {keys} = Object;
 const eslintId = ' (eslint)';
 const overrideConfigFile = process.env.ESLINT_CONFIG_FILE;
+const noESLint = process.env.NO_ESLINT;
 
 const noConfigFound = (config, configError) => {
     if (configError && configError.messageTemplate === 'no-config-found')
@@ -29,6 +30,9 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
         code,
         [],
     ];
+    
+    if (noESLint)
+        return noChanges;
     
     const [, ESLint] = await tryToCatch(simpleImport, './get-eslint.mjs');
     

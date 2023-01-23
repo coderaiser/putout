@@ -2522,6 +2522,12 @@ To set custom config file for **ESLint** use `ESLINT_CONFIG_FILE` env variable:
 ESLINT_CONFIG_FILE=test.eslintrc.json putout --fix lib
 ```
 
+To disable **ESLint** support use `NO_ESLINT` env variable:
+
+```sh
+NO_ESLINT=1 putout --fix lib
+```
+
 You can even lint without **CLI** using **ESlint** only, since 🐊**Putout** is bundled to `eslint-plugin-putout`:
 
 ```
