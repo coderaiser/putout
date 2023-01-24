@@ -13,25 +13,25 @@ module.exports.replace = () => ({
     />
     `]: ({__a, __b, __c}) => {
         return `
-            <Controller 
+            <Controller
                 render={({onChange, onBlur, value}) => (
                     <${__a.name} ${__c.value}={onChange} onBlur={onBlur} ${__b.value}={value} />
                 )}
-              control={__d} 
-              name="__e"  
+              control={__d}
+              name="__e"
             />
         `;
     },
     
     [`
-    <Controller 
+    <Controller
       as={__a} 
       rules={__b}
       name={__e}
     />
     `]: () => {
         return `
-            <Controller 
+            <Controller
                name={__e}
                 rules={__b}
                 render={() => (
@@ -50,7 +50,7 @@ module.exports.replace = () => ({
     />
     `]: () => {
         return `
-            <Controller 
+            <Controller
                name={__e}
                 rules={__b}
                   onChange={__f}
@@ -62,8 +62,8 @@ module.exports.replace = () => ({
     },
     
     [`
-    <Controller 
-      as={__a} 
+    <Controller
+      as={__a}
       rules={__b}
       name={__e}
       onChange={__f}
@@ -71,11 +71,11 @@ module.exports.replace = () => ({
     />
     `]: () => {
         return `
-            <Controller 
+            <Controller
                name={__e}
                 rules={__b}
-                  onChange={__f}
-                  onBlur ={__c}
+                onChange={__f}
+                onBlur ={__c}
                 render={() => (
                     __a
                 )}

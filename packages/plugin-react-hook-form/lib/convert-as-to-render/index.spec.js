@@ -17,3 +17,7 @@ test('plugin-nextjs: convert-as-to-render: transform', (t) => {
     t.end();
 });
 
+test('plugin-nextjs: convert-as-to-render: transform: nested', (t) => {
+    t.transform('nested');
+    t.end();
+});
