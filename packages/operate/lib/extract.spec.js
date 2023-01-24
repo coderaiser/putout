@@ -135,6 +135,22 @@ test('operate: extract: ClassMethod: Literal', (t) => {
     t.end();
 });
 
+test('operate: extract: JSXAttribute: name', (t) => {
+    const name = 'hello';
+    const node = {
+        type: 'JSXAttribute',
+        name: {
+            type: 'JSXIdentifier',
+            name,
+        },
+    };
+    
+    const result = extract(node);
+    
+    t.equal(result, name);
+    t.end();
+});
+
 test('operate: extract: unknown', (t) => {
     const value = 'hello';
     const node = {

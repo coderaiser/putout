@@ -23,7 +23,7 @@ If you write plugin for `putout` you already have `operator` in `putout`, all ex
 
 Extract node value according to it's type::
 
-- if it is `Identifier` return `name`;
+- if it is `Identifier` or `JSXIdentifier` or `JSXAttribute` return `name`;
 - if it is any type of `Literal` or `JSXText` return `value`;
 - if it is `RegExp` return `pattern`;
 - if it is `TemplateLiteral` return `qusis[0].value.raw`;

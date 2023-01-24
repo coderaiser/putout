@@ -8,6 +8,7 @@ const {
     isClassMethod,
     isTemplateLiteral,
     isJSXText,
+    isJSXAttribute,
 } = require('@babel/types');
 
 module.exports.extract = extract;
@@ -32,6 +33,9 @@ function extract(node) {
     
     if (isJSXText(node))
         return node.value;
+    
+    if (isJSXAttribute(node))
+        return node.name.name;
     
     if (isClassMethod(node))
         return extract(node.key);
