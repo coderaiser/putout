@@ -40,6 +40,6 @@ function extract(node) {
     if (isClassMethod(node))
         return extract(node.key);
     
-    throw Error(`"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral and JSXText 🤷, found: ${node.type}`);
+    throw Error(`"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral, JSXAttribute and JSXText 🤷, found: ${node.type}`);
 }
 
