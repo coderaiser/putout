@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = () => `Use 'render' instead of 'as' in '<Control>' elements`;
+module.exports.report = () => `Use 'render' instead of 'as' in '<Control/>' elements`;
 
 module.exports.replace = () => ({
     [`
@@ -82,4 +82,22 @@ module.exports.replace = () => ({
             />
         `;
     },
+    [`
+        <Controller
+            name={__a}
+            control={__b}
+            rules={__c}
+            as={__d}
+        />
+    `]: () => `
+        <Controller
+            name={__a}
+            control={__b}
+            rules={__c}
+            render={() => (
+                __d
+            )}
+        />
+    `,
 });
+
