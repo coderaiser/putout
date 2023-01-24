@@ -305,6 +305,27 @@ test('putout: compare: vars: findVarsWays: jsx: children: JSXText', (t) => {
     t.end();
 });
 
+test('putout: compare: vars: findVarsWays: jsx: attributes', (t) => {
+    const convert = {
+        report: () => '',
+        replace: () => ({
+            '<__a __jsx_attributes/>': '<span __jsx_attributes/>',
+        }),
+    };
+    
+    const source = '<div className="abc"/>;';
+    const expected = '<span className="abc" />;';
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: compare: vars: findVarsWays: jsx: children', (t) => {
     const convert = {
         report: () => '',

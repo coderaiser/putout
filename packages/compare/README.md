@@ -188,6 +188,17 @@ compare('<div hello="world"><span>hi</span></div>', '<div hello="world">__jsx_ch
 true;
 ```
 
+##### __jsx_attributes
+
+Any count of attributes of `JSXElement`:
+
+```js
+compare('<div hello="world"></div>', '<__a __jsx_attributes/>');
+// returns
+true;
+```
+
+
 ##### __nop
 
 Any `Function` with no `arguments` and empty body;

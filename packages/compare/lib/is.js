@@ -11,6 +11,8 @@ const {
     isRegExpLiteral,
     isTSTypeParameter,
     isJSXText,
+    isJSXIdentifier,
+    isJSXAttribute,
 } = require('@babel/types');
 
 const isStr = (a) => typeof a === 'string';
@@ -21,6 +23,7 @@ const ARGS = '__args';
 const IMPORTS = '__imports';
 const BODY = '__body';
 const JSX_CHILDREN = '__jsx_children';
+const JSX_ATTRIBUTES = '__jsx_attributes';
 const NOP = '__nop';
 const ANY = '__';
 const ID = '__identifier';
@@ -34,6 +37,7 @@ const ALL = [
     ANY_ARRAY,
     ARGS,
     JSX_CHILDREN,
+    JSX_ATTRIBUTES,
     IMPORTS,
     BODY,
     ANY,
@@ -120,6 +124,15 @@ module.exports.isJSXChildren = (a) => {
     
     return isJSXText(b, {
         value: JSX_CHILDREN,
+    });
+};
+
+module.exports.isJSXAttributes = (a) => {
+    if (!isJSXAttribute(a))
+        return false;
+    
+    return isJSXIdentifier(a.name, {
+        name: JSX_ATTRIBUTES,
     });
 };
 
@@ -220,6 +233,9 @@ module.exports.isLinkedNode = (a) => {
         return true;
     
     if (isJSXText(a) && LINKED_NODE.test(a.value))
+        return true;
+    
+    if (isJSXIdentifier(a) && LINKED_NODE.test(a.name))
         return true;
     
     if (isTemplateElement(a) && LINKED_NODE.test(a.value.raw))

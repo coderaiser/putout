@@ -11,6 +11,7 @@ const {
     isAnyLiteral,
     isArgs,
     isJSXChildren,
+    isJSXAttributes,
     isLinkedArgs,
     isLinkedId,
     isImports,
@@ -50,6 +51,7 @@ const comparators = [
     second(isImports),
     second(isArgs),
     second(isJSXChildren),
+    second(isJSXAttributes),
     addObject,
     compareArrays,
 ];

@@ -780,6 +780,27 @@ test('compare: jsx: inner', (t) => {
     t.end();
 });
 
+test('compare: jsx: tag', (t) => {
+    const result = compare('<title>My page title</title>', '<__a>__</__a>');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: jsx: __jsx_attributes', (t) => {
+    const result = compare('<title as={Input}>My page title</title>', '<__a __jsx_attributes>__</__a>');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: jsx: __jsx_attributes: no children', (t) => {
+    const result = compare('<title as={Input}/>', '<__a __jsx_attributes/>');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: jsx: JSXText: whitespaces', (t) => {
     const template = montag`
         <Link href="/about">
