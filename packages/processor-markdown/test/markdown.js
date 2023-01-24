@@ -1,5 +1,9 @@
 import {createTest} from '@putout/test/processor';
 import montag from 'montag';
+import {
+    find,
+    branch,
+} from '../lib/markdown.js';
 
 const test = createTest(import.meta.url, {
     extension: 'md',
@@ -11,6 +15,13 @@ const test = createTest(import.meta.url, {
         'remove-unused-variables',
         'eslint',
     ],
+});
+
+test('putout: processor: markdown: empty: no process', async ({pass}) => {
+    await find('');
+    await branch('');
+    
+    pass('no throw');
 });
 
 test('putout: processor: markdown', async ({process}) => {

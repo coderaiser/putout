@@ -39,10 +39,10 @@ export const files = [
 ];
 
 export const find = async (rawSource, options = {}) => {
+    await parseStore.init();
+    
     if (!rawSource.length)
         return [];
-    
-    await parseStore.init();
     
     const {messages} = await unified()
         .use(parseStore)
@@ -186,7 +186,6 @@ const apply = ({list, visit}) => (node) => {
         
         if (lang === 'json') {
             const code = list.shift();
-            
             node.value = fromJS(code);
         }
     });
