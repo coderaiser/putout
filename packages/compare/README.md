@@ -198,7 +198,6 @@ compare('<div hello="world"></div>', '<__a __jsx_attributes/>');
 true;
 ```
 
-
 ##### __nop
 
 Any `Function` with no `arguments` and empty body;
