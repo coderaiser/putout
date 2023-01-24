@@ -128,10 +128,12 @@ module.exports.isJSXChildren = (a) => {
 };
 
 module.exports.isJSXAttributes = (a) => {
-    if (!isJSXAttribute(a))
+    const b = !isArray(a) ? a : a[0];
+    
+    if (!isJSXAttribute(b))
         return false;
     
-    return isJSXIdentifier(a.name, {
+    return isJSXIdentifier(b.name, {
         name: JSX_ATTRIBUTES,
     });
 };

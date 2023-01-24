@@ -794,6 +794,13 @@ test('compare: jsx: __jsx_attributes', (t) => {
     t.end();
 });
 
+test('compare: jsx: __jsx_attributes: couple', (t) => {
+    const result = compare('<title as={Input} name={name}>My page title</title>', '<__a __jsx_attributes>__</__a>');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: jsx: __jsx_attributes: no children', (t) => {
     const result = compare('<title as={Input}/>', '<__a __jsx_attributes/>');
     
