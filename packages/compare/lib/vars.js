@@ -15,6 +15,7 @@ const {
     is,
     isArgsStr,
     isJSXChildrenStr,
+    isJSXAttributesStr,
     isImportsStr,
 } = require('./is');
 
@@ -89,7 +90,7 @@ function getValues({waysFrom, node}) {
             if (isImportsStr(name))
                 way = way.replace(/\.0.local$/, '');
             
-            else if (isArgsStr(name) || isJSXChildrenStr(name))
+            else if (isArgsStr(name) || isJSXChildrenStr(name) || isJSXAttributesStr(name))
                 way = way.replace(/\.0$/, '');
             
             if (!isJSXElement(node)) {
@@ -115,7 +116,7 @@ function setValues({waysTo, values, path}) {
                 continue;
             }
             
-            if (isArgsStr(name) || isJSXChildrenStr(name))
+            if (isArgsStr(name) || isJSXChildrenStr(name) || isJSXAttributesStr(name))
                 way = way.replace(/\.0$/, '');
             
             if (isStatement(values[name]))

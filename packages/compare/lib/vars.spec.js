@@ -313,8 +313,8 @@ test('putout: compare: vars: findVarsWays: jsx: attributes', (t) => {
         }),
     };
     
-    const source = '<div className="abc"/>;';
-    const expected = '<span className="abc" />;';
+    const source = '<div className="abc" name="hello"/>;';
+    const expected = '<span className="abc" name="hello" />;';
     
     const {code} = putout(source, {
         plugins: [

@@ -69,6 +69,7 @@ module.exports.isNameStr = (a) => LINKED_NODE.test(a);
 module.exports.isImportsStr = (a) => a === IMPORTS;
 module.exports.isArgsStr = (a) => a === ARGS || LINKED_ARGS.test(a);
 module.exports.isJSXChildrenStr = (a) => a === JSX_CHILDREN;
+module.exports.isJSXAttributesStr = (a) => a === JSX_ATTRIBUTES;
 module.exports.isObjectStr = (a) => a === ANY_OBJECT;
 module.exports.isArrayStr = (a) => a === ANY_ARRAY;
 module.exports.isAnyStr = (a) => a === ANY;
