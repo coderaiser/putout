@@ -65,7 +65,7 @@ const {
 ## convert-as-to-render
 
 `Control` has no `as`, it uses `render` starting from [`v6`](https://github.com/react-hook-form/react-hook-form/releases/tag/v6.0.0-rc.2).
-Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/8493358f36c009f2d4f7ac0bf447d645/cdbe2eaaeab29791c9266345b0295ed706ef3ba0).
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/8493358f36c009f2d4f7ac0bf447d645/79f67bcdbc597f273e7d5cd131dd20a86649c63e).
 
 ### ❌ Example of incorrect code
 

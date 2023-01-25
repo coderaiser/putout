@@ -12,6 +12,11 @@ test('plugin-nextjs: convert-as-to-render: report', (t) => {
     t.end();
 });
 
+test('plugin-nextjs: convert-as-to-render: no report: no-as', (t) => {
+    t.noReport('no-as');
+    t.end();
+});
+
 test('plugin-nextjs: convert-as-to-render: transform', (t) => {
     t.transform('convert-as-to-render');
     t.end();

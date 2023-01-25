@@ -11,13 +11,28 @@ const a = <Controller
       
 
 const b = <Controller 
-  as={<CustomInput/>} 
+  render={() => <CustomInput/>} 
   name={name}
 />;
       
-const c = <Controller name={name} rules={rules} render={() => <CustomInput/>} />;
+const c = <Controller 
+  render={() => <CustomInput/>} 
+  rules={rules}
+  name={name}
+/>;
       
   
-const d = <Controller name={name} rules={rules} onChange={onChange} render={() => <CustomInput/>} />;
+const d = <Controller 
+  render={() => <CustomInput/>} 
+  rules={rules}
+  name={name}
+  onChange={onChange}
+/>;
       
-const e = <Controller name={name} rules={rules} onChange={onChange} onBlur={onBlur} render={() => <CustomInput/>} />;
+const e = <Controller 
+  render={() => <CustomInput/>} 
+  rules={rules}
+  name={name}
+  onChange={onChange}
+  onBlur={onBlur}
+/>;

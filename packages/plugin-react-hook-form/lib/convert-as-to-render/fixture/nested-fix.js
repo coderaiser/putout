@@ -1,5 +1,9 @@
 const b = (
     <Hello>
-        <Controller name={name} rules={rules} render={() => <CustomInput/>} />
+        <Controller 
+          render={() => <CustomInput/>}
+          rules={rules}
+          name={name}
+        />
     </Hello>
 );
