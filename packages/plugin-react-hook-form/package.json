@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-react-hook-form",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to migrate to latest version of React Hook Form",
