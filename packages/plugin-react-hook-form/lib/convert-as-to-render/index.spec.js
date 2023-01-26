@@ -27,6 +27,11 @@ test('plugin-nextjs: convert-as-to-render: transform: nested', (t) => {
     t.end();
 });
 
+test('plugin-nextjs: convert-as-to-render: transform: spread', (t) => {
+    t.transform('spread');
+    t.end();
+});
+
 test('plugin-nextjs: convert-as-to-render: transform: name-control-rules-as', (t) => {
     t.transform('name-control-rules-as');
     t.end();

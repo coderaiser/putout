@@ -1,15 +1,23 @@
 'use strict';
 
 const {types} = require('putout');
-const {ArrowFunctionExpression} = types;
+const {
+    ArrowFunctionExpression,
+    isJSXSpreadAttribute,
+} = types;
 
 module.exports.report = () => `Use 'render' instead of 'as' in '<Control/>' elements`;
 
 module.exports.match = () => ({
     '<Controller __jsx_attributes/>': ({__jsx_attributes}) => {
-        for (const attr of __jsx_attributes)
+        for (const attr of __jsx_attributes) {
+            if (isJSXSpreadAttribute(attr)) {
+                continue;
+            }
+            
             if (attr.name.name === 'as')
                 return true;
+        }
         
         return false;
     },
@@ -35,6 +43,9 @@ module.exports.replace = () => ({
     `,
     '<Controller __jsx_attributes/>': ({__jsx_attributes}, path) => {
         for (const attr of __jsx_attributes) {
+            if (isJSXSpreadAttribute(attr))
+                continue;
+            
             if (attr.name.name === 'as') {
                 attr.name.name = 'render';
                 const {expression} = attr.value;
