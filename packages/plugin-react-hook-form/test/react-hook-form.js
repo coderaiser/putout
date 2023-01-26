@@ -20,3 +20,9 @@ test('plugin-react-hook-form: transform: convert-as-to-render', (t) => {
     t.transform('convert-as-to-render');
     t.end();
 });
+
+test('plugin-react-hook-form: transform: convert-trigger-validation-to-trigger', (t) => {
+    t.transform('convert-trigger-validation-to-trigger');
+    t.end();
+});
+

@@ -30,6 +30,7 @@ Here is list of rules:
     "rules": {
         "react-hook-form/apply-clear-errors": "on",
         "react-hook-form/convert-as-to-render": "on",
+        "react-hook-form/convert-trigger-validation-to-trigger": "on",
         "react-hook-form/remove-value-from-control": "on"
     }
 }
@@ -86,6 +87,37 @@ const a = <Controller
   render={({onChange, onBlur, value}) => <CustomInput onTextChange={onChange} onBlur={onBlur} textValue={value} />}
   control={control}
   name="test" />;
+```
+
+## convert-trigger-validation-to-trigger
+
+`triggerValidation` was renamed no `trigger`, starting from [`v6`](https://github.com/react-hook-form/react-hook-form/releases/tag/v6.0.0-rc.1).
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/ff41e995b958caf46aa53b3cd7eabf9f/84cd2eaf0803c45bbbe22df661e126488237ca9c).
+
+### ❌ Example of incorrect code
+
+```jsx
+import {useForm} from 'react-hook-form';
+
+const {
+ register,
+ triggerValidation,
+ errors,
+} = useForm();
+triggerValidation();
+```
+
+### ✅ Example of correct code
+
+```jsx
+import {useForm} from 'react-hook-form';
+
+const {
+ register,
+ trigger,
+ errors,
+} = useForm();
+trigger();
 ```
 
 ## remove-value-from-control
