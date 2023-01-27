@@ -28,18 +28,18 @@ Here is list of rules:
 ```json
 {
     "rules": {
-        "react-hook-form/apply-clear-errors": "on",
-        "react-hook-form/convert-as-to-render": "on",
-        "react-hook-form/convert-form-context-to-form-provider": "on",
-        "react-hook-form/convert-trigger-validation-to-trigger": "on",
-        "react-hook-form/remove-value-from-control": "on"
+        "react-hook-form/v6-apply-clear-errors": "on",
+        "react-hook-form/v6-convert-as-to-render": "on",
+        "react-hook-form/v6-convert-form-context-to-form-provider": "on",
+        "react-hook-form/v6-convert-trigger-validation-to-trigger": "on",
+        "react-hook-form/v5-remove-value-from-control": "on"
     }
 }
 ```
 
 ## apply-clear-errors
 
-`clearError` was renamed to `clearErrors` in [`react-hook-form v6.0.0`](https://github.com/react-hook-form/react-hook-form/releases/tag/v6.0.0-rc.5).
+`clearError` was renamed to `clearErrors` in [`v6`](https://github.com/react-hook-form/react-hook-form/releases/tag/v6.0.0-rc.5).
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/4b8ae81c6604f62dfe76fdcc644cf814/ecdf5fe389be5c9517a8a9a67fbc2396c233c131).
 
 ### ❌ Example of incorrect code
@@ -146,7 +146,7 @@ trigger();
 
 ## remove-value-from-control
 
-Return value of `control` attribute function no longer has `value` property in [`react-hook-form v5.0.0`](https://github.com/react-hook-form/react-hook-form/releases/tag/v5.0.0).
+Return value of `control` attribute function no longer has `value` property in [`v5`](https://github.com/react-hook-form/react-hook-form/releases/tag/v5.0.0).
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/5a578777e666ccd5173b5961f1a05252/9d6a7f54cfb0eea487ece3aae0daec147c72385c).
 
 ### ❌ Example of incorrect code
