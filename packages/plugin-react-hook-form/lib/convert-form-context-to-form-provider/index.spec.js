@@ -22,3 +22,8 @@ test('plugin-nextjs: convert-form-context-to-form-provider: transform', (t) => {
     t.end();
 });
 
+test('plugin-nextjs: convert-form-context-to-form-provider: transform: attributes', (t) => {
+    t.transform('attributes');
+    t.end();
+});
+

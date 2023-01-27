@@ -7,7 +7,7 @@ module.exports.fix = (path) => {
 };
 
 module.exports.include = () => [
-    '<FormContext>__jsx_children</FormContext>',
+    '<FormContext __jsx_attributes>__jsx_children</FormContext>',
 ];
 
 module.exports.filter = (path) => path.scope.getAllBindings().FormContext;
