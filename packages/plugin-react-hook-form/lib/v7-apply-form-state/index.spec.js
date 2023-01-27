@@ -22,13 +22,17 @@ test('plugin-nextjs: v7-apply-form-state: transform', (t) => {
     t.end();
 });
 
-test('plugin-nextjs: v7-apply-form-state: couple', (t) => {
+test('plugin-nextjs: v7-apply-form-state: transform: couple', (t) => {
     t.transform('couple');
     t.end();
 });
 
-test('plugin-nextjs: v7-apply-form-state: rest', (t) => {
+test('plugin-nextjs: v7-apply-form-state: transform: rest', (t) => {
     t.transform('rest');
     t.end();
 });
 
+test('plugin-nextjs: v7-apply-form-state: no transform: form-state', (t) => {
+    t.noTransform('form-state');
+    t.end();
+});

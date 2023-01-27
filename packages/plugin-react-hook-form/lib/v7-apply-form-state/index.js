@@ -13,8 +13,12 @@ module.exports.report = () => `Use 'formState.errors' instead of 'errors'`;
 const COMPUTED = false;
 const SHORTHAND = true;
 
+module.exports.exclude = () => [
+    'const __object = formState',
+];
+
 module.exports.match = () => ({
-    'const __object = __': ({__object}, path) => {
+    'const __object = __a': ({__object}, path) => {
         const bindings = path.scope.getAllBindings();
         
         if (!bindings.useFormContext && !bindings.useForm)
