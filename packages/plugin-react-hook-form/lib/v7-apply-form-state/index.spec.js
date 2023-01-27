@@ -17,3 +17,8 @@ test('plugin-nextjs: v7-apply-form-state: transform', (t) => {
     t.end();
 });
 
+test('plugin-nextjs: v7-apply-form-state: couple', (t) => {
+    t.transform('couple');
+    t.end();
+});
+
