@@ -28,6 +28,7 @@ Here is list of rules:
 ```json
 {
     "rules": {
+        "react-hook-form/v7-apply-form-state": "on",
         "react-hook-form/v6-apply-clear-errors": "on",
         "react-hook-form/v6-convert-as-to-render": "on",
         "react-hook-form/v6-convert-form-context-to-form-provider": "on",
@@ -37,7 +38,25 @@ Here is list of rules:
 }
 ```
 
-## apply-clear-errors
+## v7-apply-form-state
+
+`erorrs` located in `formState` in [`v7`](https://github.com/react-hook-form/react-hook-form/releases/tag/v6.0.0-rc.5).
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/85492a250ccd3d679b1b26b72ae9c98d/34ea479cc7a0ed74c9fe49a965a79ebbf9e454b6).
+
+### ❌ Example of incorrect code
+
+```js
+const {errors} = useForm();
+```
+
+### ✅ Example of correct code
+
+```js
+const {formState} = useForm();
+const {errors} = formState;
+```
+
+## v6-apply-clear-errors
 
 `clearError` was renamed to `clearErrors` in [`v6`](https://github.com/react-hook-form/react-hook-form/releases/tag/v6.0.0-rc.5).
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/4b8ae81c6604f62dfe76fdcc644cf814/ecdf5fe389be5c9517a8a9a67fbc2396c233c131).
@@ -64,7 +83,7 @@ const {
 } = useForm<{}>;
 ```
 
-## convert-as-to-render
+## v6-convert-as-to-render
 
 `Control` has no `as`, it uses `render` starting from [`v6`](https://github.com/react-hook-form/react-hook-form/releases/tag/v6.0.0-rc.2).
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/8493358f36c009f2d4f7ac0bf447d645/79f67bcdbc597f273e7d5cd131dd20a86649c63e).
@@ -90,7 +109,7 @@ const a = <Controller
   name="test" />;
 ```
 
-## convert-form-context-to-form-provider
+## v6-convert-form-context-to-form-provider
 
 `FormContext` was renamed to `FormProvider` starting from [`v6`](https://github.com/react-hook-form/react-hook-form/releases/tag/v6.0.0-rc.1).
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/ff41e995b958caf46aa53b3cd7eabf9f/b7bd96bbba0b2ecd8a532e8749d87a0e0ad347d1).
@@ -113,7 +132,7 @@ export default () => <FormProvider></FormProvider>
 ;
 ```
 
-## convert-trigger-validation-to-trigger
+## v6-convert-trigger-validation-to-trigger
 
 `triggerValidation` was renamed no `trigger`, starting from [`v6`](https://github.com/react-hook-form/react-hook-form/releases/tag/v6.0.0-rc.1).
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/ff41e995b958caf46aa53b3cd7eabf9f/84cd2eaf0803c45bbbe22df661e126488237ca9c).
@@ -144,7 +163,7 @@ const {
 trigger();
 ```
 
-## remove-value-from-control
+## v5-remove-value-from-control
 
 Return value of `control` attribute function no longer has `value` property in [`v5`](https://github.com/react-hook-form/react-hook-form/releases/tag/v5.0.0).
 Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/5a578777e666ccd5173b5961f1a05252/9d6a7f54cfb0eea487ece3aae0daec147c72385c).

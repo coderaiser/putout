@@ -6,28 +6,33 @@ const test = createTest(__dirname, {
     'react-hook-form': reactHookForm,
 });
 
-test('plugin-react-hook-form: transform: remove-value-from-control', (t) => {
-    t.transform('remove-value-from-control');
+test('plugin-react-hook-form: transform: v7-apply-form-state', (t) => {
+    t.transform('v7-apply-form-state');
     t.end();
 });
 
-test('plugin-react-hook-form: transform: apply-clear-errors', (t) => {
-    t.transform('apply-clear-errors');
+test('plugin-react-hook-form: transform: v6-apply-clear-errors', (t) => {
+    t.transform('v6-apply-clear-errors');
     t.end();
 });
 
-test('plugin-react-hook-form: transform: convert-as-to-render', (t) => {
-    t.transform('convert-as-to-render');
+test('plugin-react-hook-form: transform: v6-convert-as-to-render', (t) => {
+    t.transform('v6-convert-as-to-render');
     t.end();
 });
 
-test('plugin-react-hook-form: transform: convert-form-context-to-form-provider', (t) => {
-    t.transform('convert-form-context-to-form-provider');
+test('plugin-react-hook-form: transform: v6-convert-form-context-to-form-provider', (t) => {
+    t.transform('v6-convert-form-context-to-form-provider');
     t.end();
 });
 
-test('plugin-react-hook-form: transform: convert-trigger-validation-to-trigger', (t) => {
-    t.transform('convert-trigger-validation-to-trigger');
+test('plugin-react-hook-form: transform: v6-convert-trigger-validation-to-trigger', (t) => {
+    t.transform('v6-convert-trigger-validation-to-trigger');
+    t.end();
+});
+
+test('plugin-react-hook-form: transform: v5-remove-value-from-control', (t) => {
+    t.transform('v5-remove-value-from-control');
     t.end();
 });
 

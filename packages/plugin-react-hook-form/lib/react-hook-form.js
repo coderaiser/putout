@@ -5,6 +5,7 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
+    ...getRule('v7-apply-form-state'),
     ...getRule('v6-apply-clear-errors'),
     ...getRule('v6-convert-as-to-render'),
     ...getRule('v6-convert-form-context-to-form-provider'),
