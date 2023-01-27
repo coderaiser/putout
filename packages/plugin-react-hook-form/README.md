@@ -30,6 +30,7 @@ Here is list of rules:
     "rules": {
         "react-hook-form/apply-clear-errors": "on",
         "react-hook-form/convert-as-to-render": "on",
+        "react-hook-form/convert-form-context-to-form-provider": "on",
         "react-hook-form/convert-trigger-validation-to-trigger": "on",
         "react-hook-form/remove-value-from-control": "on"
     }
@@ -87,6 +88,29 @@ const a = <Controller
   render={({onChange, onBlur, value}) => <CustomInput onTextChange={onChange} onBlur={onBlur} textValue={value} />}
   control={control}
   name="test" />;
+```
+
+## convert-form-context-to-form-provider
+
+`FormContext` was renamed to `FormProvider` starting from [`v6`](https://github.com/react-hook-form/react-hook-form/releases/tag/v6.0.0-rc.1).
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/ff41e995b958caf46aa53b3cd7eabf9f/b7bd96bbba0b2ecd8a532e8749d87a0e0ad347d1).
+
+### ❌ Example of incorrect code
+
+```jsx
+import {FormContext} from 'react-hook-form';
+
+export default () => <FormContext></FormContext>
+;
+```
+
+### ✅ Example of correct code
+
+```jsx
+import {FormProvider} from 'react-hook-form';
+
+export default () => <FormProvider></FormProvider>
+;
 ```
 
 ## convert-trigger-validation-to-trigger

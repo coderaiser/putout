@@ -21,6 +21,11 @@ test('plugin-react-hook-form: transform: convert-as-to-render', (t) => {
     t.end();
 });
 
+test('plugin-react-hook-form: transform: convert-form-context-to-form-provider', (t) => {
+    t.transform('convert-form-context-to-form-provider');
+    t.end();
+});
+
 test('plugin-react-hook-form: transform: convert-trigger-validation-to-trigger', (t) => {
     t.transform('convert-trigger-validation-to-trigger');
     t.end();
