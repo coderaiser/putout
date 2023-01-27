@@ -41,7 +41,7 @@ Here is list of rules:
 ## v7-apply-form-state
 
 `errors` located in `formState` in [`v7`](https://github.com/react-hook-form/react-hook-form/releases/tag/v6.0.0-rc.5).
-Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/85492a250ccd3d679b1b26b72ae9c98d/34ea479cc7a0ed74c9fe49a965a79ebbf9e454b6).
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/85492a250ccd3d679b1b26b72ae9c98d/22399df9c790d04d8d72ffd47f75d359a1544f84).
 
 ### ❌ Example of incorrect code
 
