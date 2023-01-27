@@ -12,6 +12,11 @@ test('plugin-nextjs: v7-apply-form-state: report', (t) => {
     t.end();
 });
 
+test('plugin-nextjs: v7-apply-form-state: no report', (t) => {
+    t.noReport('no-use-form-context');
+    t.end();
+});
+
 test('plugin-nextjs: v7-apply-form-state: transform', (t) => {
     t.transform('v7-apply-form-state');
     t.end();
@@ -19,6 +24,11 @@ test('plugin-nextjs: v7-apply-form-state: transform', (t) => {
 
 test('plugin-nextjs: v7-apply-form-state: couple', (t) => {
     t.transform('couple');
+    t.end();
+});
+
+test('plugin-nextjs: v7-apply-form-state: rest', (t) => {
+    t.transform('rest');
     t.end();
 });
 

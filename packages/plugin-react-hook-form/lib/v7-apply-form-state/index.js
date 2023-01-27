@@ -5,6 +5,7 @@ const {types} = require('putout');
 const {
     ObjectProperty,
     ObjectPattern,
+    isRestElement,
 } = types;
 
 module.exports.report = () => `Use 'formState.errors' instead of 'errors'`;
@@ -13,8 +14,16 @@ const COMPUTED = false;
 const SHORTHAND = true;
 
 module.exports.match = () => ({
-    'const __object = useForm()': ({__object}) => {
+    'const __object = __': ({__object}, path) => {
+        const bindings = path.scope.getAllBindings();
+        
+        if (!bindings.useFormContext && !bindings.useForm)
+            return false;
+        
         for (const property of __object.properties) {
+            if (isRestElement(property))
+                continue;
+            
             if (property.key.name === 'errors') {
                 return true;
             }
@@ -25,9 +34,11 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    'const { errors } = useForm()': 'const { formState: { errors } } = useForm()',
-    'const __object = useForm()': ({__object}, path) => {
+    'const __object = __': ({__object}, path) => {
         for (const property of __object.properties) {
+            if (isRestElement(property))
+                continue;
+            
             if (property.key.name === 'errors') {
                 const key = {
                     ...property.key,

@@ -1,6 +1,4 @@
-const { register, setError, clearErrors, formState: {
-  errors
-} } = useForm<{}>();
+const { register, setError, clearErrors, errors } = useForm<{}>();
 
 clearErrors();
 clearErrors();

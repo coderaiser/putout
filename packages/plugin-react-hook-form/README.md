@@ -46,12 +46,16 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/85492a250ccd3
 ### ❌ Example of incorrect code
 
 ```js
+import {useForm} from 'react-hook-form';
+
 const {errors} = useForm();
 ```
 
 ### ✅ Example of correct code
 
 ```js
+import {useForm} from 'react-hook-form';
+
 const {formState} = useForm();
 const {errors} = formState;
 ```
