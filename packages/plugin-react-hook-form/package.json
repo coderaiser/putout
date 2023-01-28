@@ -30,6 +30,7 @@
     "putout-plugin",
     "plugin",
     "react",
+    "react-hooks",
     "react-hook-form"
   ],
   "peerDependencies": {
