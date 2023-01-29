@@ -1,3 +1,32 @@
+2023.01.29, v28.9.0
+
+fix:
+- @putout/plugin-react-hook-form: v7-apply-form-state: exclude destructuring from formState
+- @putout/plugin-react-hook-form: v7-apply-form-state: check for declarations
+- @putout/compare: __jsx_attributes: multiple
+- @putout/operate: extract: throw
+- @putout/plugin-react-hook-form: trim trailing whitespaces
+- @putout/processor-markdown: branch: empty
+
+feature:
+- package: @putout/plugin-webpack v2.0.0
+- @putout/plugin-webpack: drop support of node < 16
+- @putout/plugin-webpack: drop support of 🐊 < 28
+- @putout/plugin-webpack: add apply-externals
+- @putout/plugin-react-hook-form: v7-apply-form-state: add support of couple properties destructuring
+- @putout/plugin-react-hook-form: add v7-apply-form-state
+- @putout/plugin-react-hook-form: add version number
+- @putout/plugin-react-hook-form: convert-form-context-to-form-provider: add support of attributes
+- @putout/plugin-react-hook-form: convert-form-context-to-form-provider: add
+- @putout/plugin-convert-as-to-render: add support of JSXSpreadAttribute
+- @putout/plugin-react-hook-form: add convert-trigger-to-trigger-validation
+- @putout/plugin-react-hook-form: convert-as-to-render: use __jsx_attributes: shorten code
+- @putout/compare: __jsx_attributes: add support of any count
+- @putout/compare: add support of __jsx_attributes
+- @putout/operate: extract: add support of JSXAttribute
+- @putout/plugin-react-hook-form: convert-as-to-render: report
+- @putout/plugin-react-hook-form: add convert-as-to-render
+
 2023.01.23, v28.8.0
 
 feature:
