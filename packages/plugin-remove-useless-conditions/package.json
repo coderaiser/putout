@@ -1,11 +1,11 @@
 {
   "name": "@putout/plugin-remove-useless-conditions",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to remove useless conditions",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-conditions#readme",
-  "main": "lib/remove-useless-conditions.js",
+  "main": "lib/index.js",
   "commitType": "colon",
   "release": false,
   "tag": false,

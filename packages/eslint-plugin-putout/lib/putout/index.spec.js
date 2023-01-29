@@ -274,6 +274,10 @@ tsParserTester.run('typescript-eslint: comments', rule, {
         errors: [{
             line: 13,
             column: 9,
+            message: 'Avoid useless conditions (remove-useless-conditions/evaluate)',
+        }, {
+            line: 13,
+            column: 9,
             message: 'Avoid constant conditions (remove-constant-conditions)',
         }],
     }, {

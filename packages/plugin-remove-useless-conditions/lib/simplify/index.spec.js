@@ -7,23 +7,18 @@ const test = createTest(__dirname, {
     'remove-useless-conditions': removeUselessConditions,
 });
 
-test('plugin-remove-useless-conditions: report', (t) => {
+test('plugin-remove-useless-conditions: simplify: report', (t) => {
     t.report('conditions', 'Avoid useless conditions');
     t.end();
 });
 
-test('plugin-remove-useless-conditions: transform: array', (t) => {
+test('plugin-remove-useless-conditions: simplify: transform: array', (t) => {
     t.transform('conditions');
     t.end();
 });
 
-test('plugin-remove-useless-conditions: transform: duplicate', (t) => {
+test('plugin-remove-useless-conditions: simplify: transform: duplicate', (t) => {
     t.transform('duplicate');
-    t.end();
-});
-
-test('plugin-remove-useless-conditions: transform: true', (t) => {
-    t.transform('true');
     t.end();
 });
 

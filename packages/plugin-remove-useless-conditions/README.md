@@ -20,10 +20,35 @@ npm i @putout/plugin-remove-useless-conditions
 ```json
 {
     "rules": {
-        "remove-useless-conditions": "on"
+        "remove-useless-conditions/evaluate": "on",
+        "remove-useless-conditions/simplify": "on"
     }
 }
 ```
+
+### Evaluate
+
+## ❌ Example of incorrect code
+
+```js
+const a = [];
+const c = a;
+
+if (a) {
+    console.log(a);
+}
+```
+
+## ✅ Example of correct code
+
+```js
+const a = [];
+const c = a;
+
+console.log(a);
+```
+
+### Simplify
 
 ## ❌ Example of incorrect code
 
