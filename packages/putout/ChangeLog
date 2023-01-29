@@ -1,3 +1,11 @@
+2023.01.29, v28.10.0
+
+feature:
+- package: @putout/plugin-remove-useless-conditions v3.0.0
+- @putout/plugin-remove-useless-conditions: drop support of 🐊 < 28
+- @putout/plugin-remove-useless-conditions: drop support of node < 16
+- @putout/plugin-remove-useless-conditions: add evaluate
+
 2023.01.29, v28.9.0
 
 fix:
