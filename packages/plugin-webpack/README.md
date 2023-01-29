@@ -20,6 +20,7 @@ npm i @putout/plugin-webpack -D
 ```json
 {
     "rules": {
+        "webpack/apply-externals": "on",
         "webpack/convert-loader-to-use": "on",
         "webpack/convert-query-loader-to-use": "on",
         "webpack/convert-node-to-resolve-fallback": "on"
@@ -111,6 +112,42 @@ module.exports = {
         },
     },
 };
+```
+
+## convert-externals
+
+Fixes webpack comilation error:
+
+```
+[DEP_WEBPACK_EXTERNALS_FUNCTION_PARAMETERS] DeprecationWarning: The externals-function should be defined like ({context, request}, cb) => { ... }
+```
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/23655fb64dcffb452f4b3a9f25ef3efd/6d0bc56cb4f0a439e26e6698694399918dd51a13).
+
+### ❌ Example of incorrect code
+
+```js
+module.exports = {
+    externals: [
+        externals,
+    ],
+};
+
+function externals(context, request, callback) {
+}
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports = {
+    externals: [
+        externals,
+    ],
+};
+
+function externals({context, request}, callback) {
+}
 ```
 
 ## License

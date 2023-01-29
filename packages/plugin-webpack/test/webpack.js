@@ -17,3 +17,7 @@ test('plugin-webpack: transform: convert-node-to-resolve-fallback', (t) => {
     t.end();
 });
 
+test('plugin-webpack: transform: apply-externals', (t) => {
+    t.transform('apply-externals');
+    t.end();
+});
