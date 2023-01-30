@@ -154,9 +154,6 @@ const ignore = [
     'trailingComments',
     'importKind',
     'exportKind',
-    'tail',
-    'cooked',
-    'raw',
 ];
 
 function superCompareIterate(node, template) {

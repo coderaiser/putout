@@ -4,6 +4,7 @@ const {
     isIdentifier,
     isLiteral,
     isStringLiteral,
+    isTemplateElement,
 } = require('@babel/types');
 
 const parseName = (node) => {
@@ -15,6 +16,9 @@ const parseName = (node) => {
     
     if (isLiteral(node))
         return value;
+    
+    if (isTemplateElement(node))
+        return node.value.cooked;
 };
 
 module.exports = ({add, value, nodeValue, templateStore}) => {

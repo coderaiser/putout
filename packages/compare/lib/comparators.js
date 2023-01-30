@@ -26,6 +26,7 @@ const {
     isClassBody,
     isBlock,
     isJSXText,
+    isTemplateElement,
 } = require('@babel/types');
 
 const isEmptyBlock = (a) => isBlock(a) && !a.body.length;
@@ -34,6 +35,7 @@ const isPrimitive = (a) => typeof a !== 'object' || a === null;
 const second = (f) => (a, b) => f(b);
 
 const comparators = [
+    compareTemplateElements,
     compareJSXTexts,
     compareAny,
     comparePrimitives,
@@ -86,6 +88,17 @@ function compareArrays(node, template, {add}) {
         add(node, template);
     
     return is;
+}
+
+function compareTemplateElements(node, template) {
+    if (!isTemplateElement(node) || !isTemplateElement(template))
+        return false;
+    
+    const isValue = node.value.raw === template.value.raw;
+    const isCooked = node.value.cooked === template.value.cooked;
+    const isTail = node.tail === template.tail;
+    
+    return isValue && isCooked && isTail;
 }
 
 function linkNodes(node, template, {add, templateStore}) {

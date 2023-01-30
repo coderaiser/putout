@@ -900,6 +900,20 @@ test('compare: template literal', (t) => {
     t.end();
 });
 
+test('compare: template literal: different', (t) => {
+    const result = compare('`hello${abc}`', '`${__identifier__b}`');
+    
+    t.notOk(result);
+    t.end();
+});
+
+test('compare: template literal: __a', (t) => {
+    const result = compare('`hello${_temp}world`', '`__a${__identifier__b}__c`');
+    
+    t.ok(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);
