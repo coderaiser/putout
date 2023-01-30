@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout plugin adds ability to apply flatMap()",
+  "description": "🐊Putout plugin adds ability to apply 'flatMap()'",
   "homepage": "http://github.com/coderaiser/putout/tree/master/packages/plugin-apply-flat-map#readme",
   "main": "lib/apply-flat-map.js",
   "commitType": "colon",
@@ -43,7 +43,7 @@
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {
-    "putout": ">=25"
+    "putout": ">=28"
   },
   "license": "MIT",
   "engines": {
