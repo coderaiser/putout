@@ -33,7 +33,12 @@ module.exports = (rootPath, key) => {
                     } = node;
                     
                     if (path.isStringLiteral() && /^__[a-z]$/.test(value)) {
-                        path.node.value = getVar(value);
+                        path.node.value = getVar(name);
+                        return;
+                    }
+                    
+                    if (/^__identifier__[a-z]$/.test(name)) {
+                        path.node.name = getVar(name);
                         return;
                     }
                     
