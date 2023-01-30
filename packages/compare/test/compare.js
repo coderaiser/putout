@@ -893,6 +893,13 @@ test('compare: no template', (t) => {
     t.end();
 });
 
+test('compare: template literal', (t) => {
+    const result = compare('`__a${_temp}__c`', '`__a${__identifier__b}__c`');
+    
+    t.ok(result);
+    t.end();
+});
+
 function getProgramPath(str) {
     let result;
     const ast = parse(str);
