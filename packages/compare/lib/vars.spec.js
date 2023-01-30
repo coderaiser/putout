@@ -475,3 +475,23 @@ test('putout: compare: vars: `__a`', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: compare: vars: template literal', (t) => {
+    const addVar = {
+        report: () => '',
+        replace: () => ({
+            '__a + "__b"': '`${__a}__b`',
+        }),
+    };
+    
+    const {code} = putout('a + "hello"', {
+        plugins: [{
+            'add-variable': addVar,
+        }],
+    });
+    
+    const expected = '`${a}hello`;';
+    
+    t.equal(code, expected);
+    t.end();
+});

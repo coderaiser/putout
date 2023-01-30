@@ -9,6 +9,9 @@ const {
     isIdentifier,
     isStatement,
     isJSXElement,
+    isLiteral,
+    isTemplateLiteral,
+    TemplateElement,
 } = require('@babel/types');
 
 const {
@@ -121,6 +124,12 @@ function setValues({waysTo, values, path}) {
             
             if (isStatement(values[name]))
                 way = way.replace(/\.expression$/, '');
+            
+            if (isLiteral(values[name]) && isTemplateLiteral(node)) {
+                const {value} = values[name];
+                nessy(way, TemplateElement({raw: value}), node);
+                continue;
+            }
             
             nessy(way, values[name], node);
         }
