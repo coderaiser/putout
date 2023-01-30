@@ -145,6 +145,7 @@
         "apply-optional-chaining",
         "apply-if-condition",
         "apply-comparison-order",
+        "apply-template-literals",
         "extract-object-properties",
         "extract-sequence-expressions",
         "madrun",

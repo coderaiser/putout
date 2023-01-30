@@ -147,6 +147,7 @@ module.exports.replace = () => ({
 - ✅ apply `await import`;
 - ✅ apply comparison order;
 - ✅ apply `flatMap()`;
+- ✅ apply `template literals`;
 
 ## Install
 
