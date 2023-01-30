@@ -17,3 +17,7 @@ test('plugin-template-to-string: transform', (t) => {
     t.end();
 });
 
+test('plugin-template-to-string: no transform: couple', (t) => {
+    t.noTransform('couple');
+    t.end();
+});
