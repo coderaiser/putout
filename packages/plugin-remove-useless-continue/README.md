@@ -28,15 +28,18 @@ npm i @putout/plugin-remove-useless-continue
 ## ❌ Example of incorrect code
 
 ```js
-for (sign = decpt, i = 0; sign /= 10 !== 0; i++)
+for (sign = decpt, i = 0; sign /= 10 !== 0; i++) {
+    console.log('hello');
     continue;
+}
 ```
 
 ## ✅ Example of correct code
 
 ```js
-for (sign = decpt, i = 0; sign /= 10 !== 0; i++)
-    ;
+for (sign = decpt, i = 0; sign /= 10 !== 0; i++) {
+    console.log('hello');
+}
 ```
 
 ## License
