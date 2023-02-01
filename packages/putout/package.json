@@ -1,6 +1,6 @@
 {
   "name": "putout",
-  "version": "28.12.0",
+  "version": "28.13.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊 Pluggable and configurable code transformer with built-in ESLint, Babel and support of js, jsx, typescript, flow, markdown, yaml and json",
@@ -92,7 +92,7 @@
     "@putout/plugin-convert-const-to-let": "^1.0.0",
     "@putout/plugin-convert-equal-to-strict-equal": "^1.0.0",
     "@putout/plugin-convert-esm-to-commonjs": "^5.0.0",
-    "@putout/plugin-convert-for-each-to-for-of": "^7.0.0",
+    "@putout/plugin-convert-for-each-to-for-of": "^8.0.0",
     "@putout/plugin-convert-for-in-to-for-of": "^2.0.0",
     "@putout/plugin-convert-for-to-for-of": "^4.0.0",
     "@putout/plugin-convert-index-of-to-includes": "^1.0.0",
