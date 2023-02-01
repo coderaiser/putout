@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout plugin adds ability to remove useless continue",
+  "description": "🐊Putout plugin adds ability to remove useless 'continue'",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-continue#readme",
   "main": "lib/remove-useless-continue.js",
   "commitType": "colon",
@@ -42,7 +42,7 @@
     "madrun": "^9.0.0"
   },
   "peerDependencies": {
-    "putout": ">=16"
+    "putout": ">=28"
   },
   "license": "MIT",
   "engines": {
