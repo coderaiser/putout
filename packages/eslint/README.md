@@ -13,14 +13,13 @@ Wrapper that simplifies [**ESLint**](https://eslint.org/) API and makes it compa
 npm i @putout/eslint
 ```
 
-## Environemnt Variables
+## Environment Variables
 
 - ☝️ To set custom config file for **ESLint** use `ESLINT_CONFIG_FILE` env variable:
 - ☝️ To disable **ESLint** support use `NO_ESLINT=1` env variable:
 - ☝️ If you want to ignore **ESLint** warnings (which is unfixable errors in 🐊**Putout** language) use `NO_ESLINT_WARNINGS=1`:
 
-
-```sh
+````sh
 NO_ESLINT_WARNINGS=1 putout --fix lib
 
 ## API
@@ -31,7 +30,7 @@ NO_ESLINT_WARNINGS=1 putout --fix lib
 
 ```js
 import eslint from '@putout/eslint';
-```
+````
 
 To use it simply write:
 

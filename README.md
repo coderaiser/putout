@@ -2540,7 +2540,6 @@ NO_ESLINT=1 putout --fix lib
 
 If you want to ignore **ESLint** warnings (if you for some reason have annoying unfixable errors 🤷) use `NO_ESLINT_WARNINGS=1`:
 
-
 ```sh
 NO_ESLINT_WARNINGS=1 putout --fix lib
 ```
