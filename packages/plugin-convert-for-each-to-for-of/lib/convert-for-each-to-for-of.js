@@ -7,10 +7,8 @@ const {
 } = require('putout');
 
 const {
-    ExpressionStatement,
     ContinueStatement,
     isIdentifier,
-    BlockStatement,
 } = types;
 
 const {
@@ -43,10 +41,10 @@ module.exports.replace = () => ({
         delete item.typeAnnotation;
         const {length} = params;
         const thisPassed = isIdentifier(params[0], {name: 'this'});
-        const {items, currentPath} = maybeBody(path);
+        const items = path.node.callee.object;
         
         if (length === 1 || length === 2 && thisPassed) {
-            const newPath = replaceWith(currentPath, forOfTemplate({
+            const newPath = replaceWith(path, forOfTemplate({
                 item,
                 items,
                 body,
@@ -58,7 +56,7 @@ module.exports.replace = () => ({
         
         if (params.length === 2) {
             const [, index] = params;
-            const newPath = replaceWith(currentPath, forOfEntriesTemplate({
+            const newPath = replaceWith(path, forOfEntriesTemplate({
                 index,
                 item,
                 items,
@@ -185,26 +183,5 @@ function isForBeforeFnUp(path) {
     }
     
     return true;
-}
-
-function maybeBody(path) {
-    const {parentPath} = path;
-    const bodyPath = parentPath.get('body');
-    const {node} = bodyPath;
-    
-    const items = path.node.callee.object;
-    
-    if (!bodyPath.isExpression())
-        return {
-            items,
-            currentPath: path,
-        };
-    
-    parentPath.node.body = BlockStatement([ExpressionStatement(node)]);
-    
-    return {
-        items,
-        currentPath: parentPath.get('body.body.0'),
-    };
 }
 
