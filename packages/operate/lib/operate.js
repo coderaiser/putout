@@ -69,7 +69,8 @@ module.exports.replaceWithMultiple = (path, nodes) => {
         .filter(Boolean)
         .map(toExpression);
     
-    const newPath = path.replaceWithMultiple(newNodes);
+    const {currentPath} = maybeBody(path);
+    const newPath = currentPath.replaceWithMultiple(newNodes);
     
     if (!newPath.length)
         return newPath;

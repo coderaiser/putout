@@ -52,22 +52,6 @@ test('putout: operate: replaceWith', (t) => {
     t.end();
 });
 
-test('putout: operate: replaceWith: body of ArrowFunctionExpression: Expression -> Statement', (t) => {
-    const ast = parse(fixture.arrowFunction);
-    
-    traverse(ast, {
-        CallExpression(path) {
-            operate.replaceWith(path, ContinueStatement());
-            path.stop();
-        },
-    });
-    
-    const result = print(ast);
-    
-    t.equal(result, fixture.arrowFunctionFix);
-    t.end();
-});
-
 test('putout: operate: replaceWith: no parentPath', (t) => {
     const node = {};
     const replaceWith = stub();
@@ -802,3 +786,36 @@ test('putout: operate: toExpression', (t) => {
     t.equal(result.type, 'ExpressionStatement');
     t.end();
 });
+
+test('putout: operate: replaceWith: body of ArrowFunctionExpression: Expression -> Statement', (t) => {
+    const ast = parse(fixture.arrowFunction);
+    
+    traverse(ast, {
+        CallExpression(path) {
+            operate.replaceWith(path, ContinueStatement());
+            path.stop();
+        },
+    });
+    
+    const result = print(ast);
+    
+    t.equal(result, fixture.arrowFunctionFix);
+    t.end();
+});
+
+test('putout: operate: replaceWithMultiple: body of ArrowFunctionExpression: Expression -> Statement', (t) => {
+    const ast = parse(fixture.arrowFunction);
+    
+    traverse(ast, {
+        CallExpression(path) {
+            operate.replaceWithMultiple(path, [ContinueStatement()]);
+            path.stop();
+        },
+    });
+    
+    const result = print(ast);
+    
+    t.equal(result, fixture.arrowFunctionFix);
+    t.end();
+});
+
