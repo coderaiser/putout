@@ -7,6 +7,7 @@ const {
     isImportDeclaration,
     isExportDeclaration,
     isExpression,
+    BlockStatement,
 } = require('@babel/types');
 
 const {getBinding, getBindingPath} = require('./get-binding');
@@ -48,15 +49,16 @@ function replaceWith(path, node) {
         path = path.parentPath;
     
     const {comments, loc} = path.node;
+    const {currentPath} = maybeBody(path);
     
-    path.replaceWith(node);
+    currentPath.replaceWith(node);
     
-    assign(path.node, {
+    assign(currentPath.node, {
         comments,
         loc,
     });
     
-    return path;
+    return currentPath;
 }
 
 module.exports.replaceWithMultiple = (path, nodes) => {
@@ -158,3 +160,17 @@ module.exports.isESM = (path) => {
     return false;
 };
 
+function maybeBody(path) {
+    const {parentPath} = path;
+    
+    if (!parentPath?.isArrowFunctionExpression?.())
+        return {
+            currentPath: path,
+        };
+    
+    parentPath.node.body = BlockStatement([ExpressionStatement(path.node)]);
+    
+    return {
+        currentPath: parentPath.get('body.body.0'),
+    };
+}
