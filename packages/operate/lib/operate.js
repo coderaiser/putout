@@ -7,6 +7,7 @@ const {
     isImportDeclaration,
     isExportDeclaration,
     isExpression,
+    isStatement,
     BlockStatement,
 } = require('@babel/types');
 
@@ -49,7 +50,7 @@ function replaceWith(path, node) {
         path = path.parentPath;
     
     const {comments, loc} = path.node;
-    const {currentPath} = maybeBody(path);
+    const {currentPath} = maybeBody(path, node);
     
     currentPath.replaceWith(node);
     
@@ -161,10 +162,10 @@ module.exports.isESM = (path) => {
     return false;
 };
 
-function maybeBody(path) {
+function maybeBody(path, node) {
     const {parentPath} = path;
     
-    if (!parentPath?.isArrowFunctionExpression?.())
+    if (node && !isStatement(node) || !parentPath?.isArrowFunctionExpression?.())
         return {
             currentPath: path,
         };
@@ -175,3 +176,4 @@ function maybeBody(path) {
         currentPath: parentPath.get('body.body.0'),
     };
 }
+

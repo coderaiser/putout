@@ -803,6 +803,22 @@ test('putout: operate: replaceWith: body of ArrowFunctionExpression: Expression 
     t.end();
 });
 
+test('putout: operate: replaceWith: body of ArrowFunctionExpression: Expression -> Expression', (t) => {
+    const ast = parse(fixture.arrowFunctionWithExpression);
+    
+    traverse(ast, {
+        CallExpression(path) {
+            operate.replaceWith(path, Identifier('hello'));
+            path.stop();
+        },
+    });
+    
+    const result = print(ast);
+    
+    t.equal(result, fixture.arrowFunctionWithExpressionFix);
+    t.end();
+});
+
 test('putout: operate: replaceWithMultiple: body of ArrowFunctionExpression: Expression -> Statement', (t) => {
     const ast = parse(fixture.arrowFunction);
     
