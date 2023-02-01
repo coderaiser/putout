@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-useless-continue: report', (t) => {
-    t.report('continue', 'Useless continue should be avoided');
+    t.report('continue', `Avoid useless 'continue'`);
     t.end();
 });
 
@@ -19,6 +19,11 @@ test('plugin-remove-useless-continue: no report: if', (t) => {
 
 test('plugin-remove-useless-continue: transform', (t) => {
     t.transform('continue');
+    t.end();
+});
+
+test('plugin-remove-useless-continue: transform: for-of', (t) => {
+    t.transform('for-of');
     t.end();
 });
 

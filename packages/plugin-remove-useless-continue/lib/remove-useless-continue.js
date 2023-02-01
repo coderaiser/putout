@@ -1,13 +1,15 @@
 'use strict';
 
-const {EmptyElement} = require('putout').types;
+const {operator} = require('putout');
+
+const {remove} = operator;
 
 const isLoop = (path) => path.isLoop() || path.parentPath.isLoop();
 
-module.exports.report = () => 'Useless continue should be avoided';
+module.exports.report = () => `Avoid useless 'continue'`;
 
 module.exports.fix = (path) => {
-    path.parentPath.node.body = EmptyElement;
+    remove(path);
 };
 
 module.exports.traverse = ({push}) => ({
@@ -23,7 +25,7 @@ module.exports.traverse = ({push}) => ({
         }
         
         if (parentPath.isBlockStatement()) {
-            push(parentPath);
+            push(path);
             return;
         }
     },
