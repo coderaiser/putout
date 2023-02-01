@@ -7,6 +7,13 @@ const {
 } = require('putout');
 
 const {
+    ExpressionStatement,
+    ContinueStatement,
+    isIdentifier,
+    BlockStatement,
+} = types;
+
+const {
     replaceWith,
     replaceWithMultiple,
     traverse,
@@ -22,10 +29,6 @@ const forOfEntriesTemplate = template(`
     %%body%%
 `);
 
-const {
-    ContinueStatement,
-    isIdentifier,
-} = types;
 const {keys} = Object;
 const isRoot = (path) => path.isFunction() || path.isProgram();
 
@@ -40,11 +43,12 @@ module.exports.replace = () => ({
         delete item.typeAnnotation;
         const {length} = params;
         const thisPassed = isIdentifier(params[0], {name: 'this'});
+        const {items, currentPath} = maybeBody(path);
         
         if (length === 1 || length === 2 && thisPassed) {
-            const newPath = replaceWith(path.parentPath, forOfTemplate({
+            const newPath = replaceWith(currentPath, forOfTemplate({
                 item,
-                items: path.node.callee.object,
+                items,
                 body,
             }));
             
@@ -54,10 +58,10 @@ module.exports.replace = () => ({
         
         if (params.length === 2) {
             const [, index] = params;
-            const newPath = replaceWith(path.parentPath, forOfEntriesTemplate({
+            const newPath = replaceWith(currentPath, forOfEntriesTemplate({
                 index,
                 item,
-                items: path.node.callee.object,
+                items,
                 body,
             }));
             
@@ -181,5 +185,26 @@ function isForBeforeFnUp(path) {
     }
     
     return true;
+}
+
+function maybeBody(path) {
+    const {parentPath} = path;
+    const bodyPath = parentPath.get('body');
+    const {node} = bodyPath;
+    
+    const items = path.node.callee.object;
+    
+    if (!bodyPath.isExpression())
+        return {
+            items,
+            currentPath: path,
+        };
+    
+    parentPath.node.body = BlockStatement([ExpressionStatement(node)]);
+    
+    return {
+        items,
+        currentPath: parentPath.get('body.body.0'),
+    };
 }
 

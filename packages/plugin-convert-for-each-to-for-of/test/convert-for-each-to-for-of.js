@@ -107,6 +107,11 @@ test('plugin-convert-for-each-to-for-of: transform: this i', (t) => {
     t.end();
 });
 
+test('plugin-convert-for-each-to-for-of: transform: body-expression', (t) => {
+    t.transform('body-expression');
+    t.end();
+});
+
 test('plugin-convert-for-each-to-for-of: transform: end-return', (t) => {
     t.transform('end-return', {
         'remove-useless-continue': removeUselessContinue,
