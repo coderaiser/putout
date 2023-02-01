@@ -1,3 +1,11 @@
+2023.02.01, v28.12.0
+
+feature:
+- package: @putout/plugin-remove-useless-continue v2.0.0
+- @putout/plugin-remove-useless-continue: drop support of 🐊 < 28
+- @putout/plugin-remove-useless-continue: drop support of node < 16
+- @putout/plugin-remove-useless-contiue: remove only ContinueStatement
+
 2023.01.30, v28.11.0
 
 feature:
