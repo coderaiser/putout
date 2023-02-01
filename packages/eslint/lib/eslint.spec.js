@@ -384,22 +384,57 @@ test('putout: eslint: get-eslint: config file', async (t) => {
     t.end();
 });
 
-test('putout: eslint: NO_ESLINT', async (t) => {
-    process.env.NO_ESLINT = '1';
+test('putout: eslint: convert places', async (t) => {
+    const WARNING = 1;
+    const calculateConfigForFile = stub().resolves({
+        rules: {
+            'no-unused-vars': 'error',
+        },
+    });
     
-    const eslint = reRequire('./eslint.js');
+    const lintText = stub().resolves([{
+        messages: [{
+            ruleId: 'no-unused-vars',
+            message: `'t' is declared but never used.`,
+            line: 1,
+            column: 1,
+            severity: WARNING,
+        }],
+    }]);
+    
+    const ESLint = {
+        calculateConfigForFile,
+        lintText,
+    };
+    
+    const getESLint = stub().returns(ESLint);
+    
+    mockRequire('./simple-import.js', {
+        simpleImport: stub().returns({
+            getESLint,
+        }),
+    });
+    
+    const eslint = reRequire('./eslint');
     
     const [, places] = await eslint({
         name: 'hello.js',
-        code: `const t = 'hi'\n`,
+        code: `const t = 5`,
         fix: false,
     });
     
-    delete process.env.NO_ESLINT;
+    const expected = [{
+        message: `'t' is declared but never used.`,
+        position: {
+            column: 1,
+            line: 1,
+        },
+        rule: 'no-unused-vars (eslint)',
+    }];
     
-    reRequire('./eslint.js');
+    stopAll();
     
-    t.notOk(places.length);
+    t.deepEqual(places, expected);
     t.end();
 });
 
@@ -437,5 +472,74 @@ test('putout: eslint: config: remove putout', async (t) => {
     stopAll();
     
     t.deepEqual(places, expected);
+    t.end();
+});
+
+test('putout: eslint: NO_ESLINT_WARNINGS', async (t) => {
+    const WARNING = 1;
+    const calculateConfigForFile = stub().resolves({
+        rules: {
+            'no-unused-vars': 'error',
+        },
+    });
+    
+    const lintText = stub().resolves([{
+        messages: [{
+            ruleId: 'no-unused-vars',
+            message: `'t' is declared but never used.`,
+            line: 1,
+            column: 1,
+            severity: WARNING,
+        }],
+    }]);
+    
+    const ESLint = {
+        calculateConfigForFile,
+        lintText,
+    };
+    
+    const getESLint = stub().returns(ESLint);
+    
+    mockRequire('./simple-import.js', {
+        simpleImport: stub().returns({
+            getESLint,
+        }),
+    });
+    
+    process.env.NO_ESLINT_WARNINGS = '1';
+    
+    const eslint = reRequire('./eslint');
+    
+    const [, places] = await eslint({
+        name: 'hello.js',
+        code: `const t = 5`,
+        fix: false,
+    });
+    
+    const expected = [];
+    delete process.env.NO_ESLINT_WARNINGS;
+    
+    stopAll();
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
+test('putout: eslint: NO_ESLINT', async (t) => {
+    process.env.NO_ESLINT = '1';
+    
+    const eslint = reRequire('./eslint.js');
+    
+    const [, places] = await eslint({
+        name: 'hello.js',
+        code: `const t = 'hi'\n`,
+        fix: false,
+    });
+    
+    delete process.env.NO_ESLINT;
+    
+    reRequire('./eslint.js');
+    
+    t.notOk(places.length);
     t.end();
 });

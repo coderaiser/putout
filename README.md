@@ -2538,6 +2538,13 @@ To disable **ESLint** support use `NO_ESLINT` env variable:
 NO_ESLINT=1 putout --fix lib
 ```
 
+If you want to ignore **ESLint** warnings (if you for some reason have annoying unfixable errors 🤷) use `NO_ESLINT_WARNINGS=1`:
+
+
+```sh
+NO_ESLINT_WARNINGS=1 putout --fix lib
+```
+
 You can even lint without **CLI** using **ESlint** only, since 🐊**Putout** is bundled to `eslint-plugin-putout`:
 
 ```
