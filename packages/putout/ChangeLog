@@ -1,3 +1,16 @@
+2023.02.02, v28.14.0
+
+feature:
+- package: @putout/plugin-split-nested-destructuring v2.0.0
+- @putout/plugin-split-nested-destructuring: drup support of 🐊 < 28
+- @putout/plugin-split-nested-destructuring: drup support of node < 16
+- @putout/plugin-split-nested-destructuring: exclude declared variables
+- @putout/eslint: add ability to ignore ESLint warnings with NO_ESLINT_WARNINGS
+- @putout/operate: replace, replaceWith: check if node is statement
+- @putout/plugin-convert-for-each-to-for-of: simplify: use default behaviour of replaceWith instead of maybeBody
+- @putout/operate: replaceWithMultiple: add ability to replace Expression with Statement when body of ArrowFunctionExpression is Expression
+- @putout/operate: replaceWith: add ability to replace Expression with Statement when body of ArrowFunctionExpression is Expression
+
 2023.02.01, v28.13.0
 
 feature:
