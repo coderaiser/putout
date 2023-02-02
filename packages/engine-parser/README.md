@@ -86,7 +86,7 @@ generate(ast, {sourceMaps: true}, {
 ## Example
 
 ```js
-const {parse} = require('@putout/engin-parser');
+const {parse} = require('@putout/engine-parser');
 const parser = 'acorn';
 
 const code = parse('var t = "hello"', {
