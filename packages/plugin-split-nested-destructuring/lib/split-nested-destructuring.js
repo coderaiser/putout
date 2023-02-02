@@ -12,6 +12,13 @@ const buildDeclaration = template(`
 
 module.exports.report = () => 'Avoid nested destructuring';
 
+module.exports.match = () => ({
+    'const {__a: {__b}} = __c': ({__a}, path) => {
+        const bindings = path.scope.getAllBindings();
+        return !bindings[__a.name];
+    },
+});
+
 module.exports.replace = () => ({
     'const {__a: {__b}} = __c': 'const {__a} = __c, {__b} = __a',
     'function f({ __a: { __b } }) {}': ({__a, __b}, path) => {
