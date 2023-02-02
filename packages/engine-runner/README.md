@@ -219,7 +219,7 @@ module.exports.find = (ast, {push, traverse}) => {
 
 ```js
 const {runPlugins} = require('@putout/engine-runner');
-const {parse} = require('@putout/engin-parser');
+const {parse} = require('@putout/engine-parser');
 
 const plugins = [{
     rule: 'remove-debugger',
