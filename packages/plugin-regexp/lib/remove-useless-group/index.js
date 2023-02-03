@@ -20,6 +20,7 @@ module.exports.fix = ({path, to}) => {
     
     path.node.pattern = pattern;
     path.node.raw = to;
+    path.node.extra.raw = to;
 };
 
 module.exports.traverse = ({push}) => ({
