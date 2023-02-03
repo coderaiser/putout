@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-regexp/apply-literal-notation: report', (t) => {
-    t.reportCode(`new RegExp('hello')`, 'Literal notation of RegExp should be used');
+    t.reportCode(`new RegExp('hello')`, 'Use RegExp literal notation');
     t.end();
 });
 

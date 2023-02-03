@@ -14,7 +14,7 @@ const {
 
 const match = ({__a}) => isStringLiteral(__a);
 
-module.exports.report = () => `Literal notation of RegExp should be used`;
+module.exports.report = () => `Use RegExp literal notation`;
 
 module.exports.match = () => ({
     'new RegExp(__a)': match,
