@@ -2,6 +2,7 @@
 
 const {createTest} = require('@putout/test');
 const applyLiteralNotation = require('.');
+const removeUselessGroup = require('../remove-useless-group');
 
 const test = createTest(__dirname, {
     'regexp/apply-literal-notation': applyLiteralNotation,
@@ -47,6 +48,13 @@ test('plugin-regexp/apply-literal-notation: transform: \\', (t) => {
         `output.match(new RegExp('<div><span> {10}</span></div>', 'g'))`,
         `output.match(/<div><span> {10}<\\/span><\\/div>/g)`,
     );
+    t.end();
+});
+
+test('plugin-regexp/apply-literal-notation: transform: remove-useless-group', (t) => {
+    t.transform('remove-useless-group', {
+        'regexp/remove-useless-group': removeUselessGroup,
+    });
     t.end();
 });
 

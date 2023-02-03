@@ -2,6 +2,8 @@
 
 const {createTest} = require('@putout/test');
 const removeUselessGroup = require('.');
+const applyLiteralNotation = require('../apply-literal-notation');
+
 const optimize = require('../optimize');
 
 const test = createTest(__dirname, {
@@ -109,3 +111,11 @@ test('plugin-regexp/remove-useless-group: no transform: replaceAll', (t) => {
     t.noTransform('replace-all');
     t.end();
 });
+
+test('plugin-regexp/remove-useless-group: transform: apply-literal-notation', (t) => {
+    t.transform('apply-literal-notation', {
+        'regexp/apply-literal-notation': applyLiteralNotation,
+    });
+    t.end();
+});
+

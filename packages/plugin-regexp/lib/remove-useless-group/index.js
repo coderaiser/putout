@@ -16,7 +16,8 @@ module.exports.exclude = () => [
 ];
 
 module.exports.fix = ({path, to}) => {
-    path.node.pattern = to.slice(1, -1);
+    const [, pattern] = to.split('/');
+    path.node.pattern = pattern;
     path.node.raw = to;
 };
 
@@ -25,7 +26,7 @@ module.exports.traverse = ({push}) => ({
         if (!includes(path))
             return;
         
-        const from = path.node.raw;
+        const from = path.node.extra.raw;
         const [is, to] = removeUselessGroup(from);
         
         if (is)
