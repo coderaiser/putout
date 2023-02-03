@@ -17,7 +17,7 @@ const add = ({push, isImports, isExports}) => (path) => {
     push(path);
 };
 
-module.exports.report = () => 'Top-level-await should be used';
+module.exports.report = () => `Use top level 'await'`;
 
 module.exports.fix = (path) => {
     const {body} = path.get('callee.body').node;

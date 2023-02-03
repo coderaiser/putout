@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-apply-top-level-await: transform: report', (t) => {
-    t.report('esm', 'Top-level-await should be used');
+    t.report('esm', `Use top level 'await'`);
     t.end();
 });
 
