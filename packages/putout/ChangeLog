@@ -1,3 +1,11 @@
+2023.02.03, v28.15.0
+
+feature:
+- package: @putout/plugin-promises v9.0.0
+- @putout/plugin-promises: drop support of 🐊 < 28
+- @putout/plugin-promises: apply-top-level-await: report: improve message
+- @putout/plugin-promises: apply-top-level-await: exclude not async parent functions
+
 2023.02.02, v28.14.0
 
 feature:
