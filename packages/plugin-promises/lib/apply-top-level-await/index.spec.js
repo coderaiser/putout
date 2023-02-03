@@ -46,3 +46,13 @@ test('plugin-apply-top-level-await: no report: params', (t) => {
     t.noReport('params');
     t.end();
 });
+
+test('plugin-apply-top-level-await: no report: iife', (t) => {
+    t.noReport('iife');
+    t.end();
+});
+
+test('plugin-apply-top-level-await: transform: iife-async', (t) => {
+    t.transform('iife-async');
+    t.end();
+});

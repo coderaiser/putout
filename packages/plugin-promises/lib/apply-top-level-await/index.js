@@ -43,8 +43,30 @@ module.exports.traverse = ({push}) => {
         ExportDefaultDeclaration() {
             isExports(true);
         },
-        '(async function __() {})()': addPath,
-        '(async () => __)()': addPath,
+        '(async function __() {})()': (path) => {
+            if (!isAsyncParent(path))
+                return;
+            
+            addPath(path);
+        },
+        '(async () => __)()': (path) => {
+            if (!isAsyncParent(path))
+                return;
+            
+            addPath(path);
+        },
     };
 };
+
+function isAsyncParent(path) {
+    const {parentPath} = path.parentPath.parentPath;
+    
+    if (!parentPath)
+        return true;
+    
+    if (parentPath.isFunction() && !parentPath.node.async)
+        return false;
+    
+    return true;
+}
 
