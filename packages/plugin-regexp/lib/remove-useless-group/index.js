@@ -17,6 +17,7 @@ module.exports.exclude = () => [
 
 module.exports.fix = ({path, to}) => {
     const [, pattern] = to.split('/');
+    
     path.node.pattern = pattern;
     path.node.raw = to;
 };

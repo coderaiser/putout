@@ -4,6 +4,8 @@ const {createTest} = require('@putout/test');
 const removeUselessEscape = require('..');
 
 const madrun = require('@putout/plugin-madrun');
+const regexp = require('@putout/plugin-regexp');
+
 const addFixLint = madrun.rules['add-fix-lint'];
 
 const test = createTest(__dirname, {
@@ -103,6 +105,13 @@ test('plugin-remove-useless-escape: transform: coma', (t) => {
 test('plugin-remove-useless-escape: no transform: no raw', (t) => {
     t.transform('no-raw', {
         addFixLint,
+    });
+    t.end();
+});
+
+test('plugin-remove-useless-escape: transform: regexp', (t) => {
+    t.transform('regexp', {
+        regexp,
     });
     t.end();
 });

@@ -37,20 +37,24 @@ const encode = (a) => a
 
 function oneArgumentReplace({__a}, path) {
     const {value} = __a;
+    const raw = `/${encode(value)}/`;
     
     return replaceWith(path, {
         ...RegExpLiteral(value),
+        raw,
         extra: {
-            raw: `/${encode(value)}/`,
+            raw,
         },
     });
 }
 
 function twoArgumentsReplace({__a, __b}, path) {
+    const raw = `/${encode(__a.value)}/${__b.value}`;
     return replaceWith(path, {
         ...RegExpLiteral(encode(__a.value), __b.value),
+        raw,
         extra: {
-            raw: `/${encode(__a.value)}/${__b.value}`,
+            raw,
         },
     });
 }
