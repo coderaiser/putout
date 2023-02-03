@@ -3,7 +3,7 @@
   "version": "8.4.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout plugin for promises processing",
+  "description": "🐊Putout plugin helps with Promises",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-promises#readme",
   "main": "lib/promises.js",
   "commitType": "colon",
