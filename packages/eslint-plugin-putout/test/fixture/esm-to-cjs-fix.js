@@ -1,5 +1,6 @@
 'use strict';
 
+const noop = () => {};
 module.exports = 'hello';
-module.exports.m = () => {};
+module.exports.m = noop;
 

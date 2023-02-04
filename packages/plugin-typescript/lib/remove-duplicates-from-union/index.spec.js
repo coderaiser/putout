@@ -5,6 +5,7 @@ const {operator} = require('putout');
 const {createTest} = require('@putout/test');
 
 const removeDuplicatesFromUnion = require('.');
+const noop = () => {};
 const {remove} = operator;
 
 const test = createTest(__dirname, {
@@ -34,7 +35,7 @@ test('plugin-remove-duplicates-from-union: transform: object', (t) => {
 test('plugin-remove-duplicates-from-union: transform: remove', (t) => {
     t.transform('remove', {
         remove: {
-            report: () => {},
+            report: noop,
             include: () => ['TSTypeLiteral'],
             fix: (path) => remove(path),
         },

@@ -3,6 +3,8 @@
 const putout = require('putout');
 const tryCatch = require('try-catch');
 
+const noop = () => {};
+
 const {types, operator} = putout;
 const {replaceWith} = operator;
 const {
@@ -19,7 +21,7 @@ module.exports = (rootPath, key) => {
         isTS: true,
         plugins: [
             ['generate', {
-                report: () => {},
+                report: noop,
                 include: () => [
                     'Identifier',
                     'StringLiteral',

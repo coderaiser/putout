@@ -6,7 +6,7 @@
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to declare variable that was not defined before, including:
 
 - is types: `isFn`, `isString`, `isNumber`, `isObject`, `isBool`, `isUndefined`, `isSymbol` and `isNull`;
-- maybe: `maybeArray`, `maybeFn`, `maybeEmptyArray`;
+- [maybe](https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-maybe#readme): `maybeArray`, `maybeFn`, `maybeEmptyArray`;
 - wrap: `not`,`id`, `returns`;
 - fresh-import: `freshImport`, `freshImportDefault`;
 - `fixtures`: `readFixture(name)`;

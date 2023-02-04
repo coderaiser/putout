@@ -5,8 +5,6 @@ const nodejs = require('@putout/plugin-nodejs');
 const declare = require('@putout/plugin-declare-undefined-variables');
 const add = require('.');
 
-process.on('unhandledRejection', () => {});
-
 const test = createTest(__dirname, {
     'strict-mode/add': add,
 });

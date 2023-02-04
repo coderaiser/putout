@@ -9,6 +9,8 @@ const convertCommonjsToEsm = require('@putout/plugin-convert-commonjs-to-esm');
 const putout = require('@putout/plugin-putout');
 const plugin = require('.');
 
+const noop = () => {};
+
 const {remove} = operator;
 
 const test = createTest(__dirname, {
@@ -96,7 +98,7 @@ test('plugin-declare-after-require: no report: expression', (t) => {
 test('plugin-declare-after-require: transform: removed', (t) => {
     t.transform('removed', {
         remove: {
-            report: () => {},
+            report: noop,
             include: () => ['const a = 5'],
             fix: (path) => {
                 remove(path);

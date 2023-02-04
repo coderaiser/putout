@@ -8,6 +8,8 @@ const {declare} = require('@putout/plugin-tape').rules;
 
 const mergeDebugger = require('..');
 
+const noop = () => {};
+
 const {remove} = operator;
 const test = createTest(__dirname, {
     'merge-duplicate-imports': mergeDebugger,
@@ -55,7 +57,7 @@ test('merge duplicate imports: transform: declare', (t) => {
 test('merge duplicate imports: transform: remove', (t) => {
     t.transform('remove', {
         remove: {
-            report: () => {},
+            report: noop,
             include: () => ['ImportDeclaration'],
             fix: (path) => remove(path),
         },

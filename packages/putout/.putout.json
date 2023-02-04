@@ -1,4 +1,7 @@
 {
+    "rules": {
+        "apply-maybe/noop": "off"
+    },
     "match": {
         ".madrun.*": {
             "madrun/add-madrun-to-lint": "off",

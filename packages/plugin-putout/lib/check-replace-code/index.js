@@ -5,6 +5,8 @@ const tryCatch = require('try-catch');
 
 const generateCode = require('./generate-code');
 
+const noop = () => {};
+
 const {operator} = putout;
 
 const {
@@ -80,7 +82,7 @@ module.exports.traverse = ({push}) => ({
                 isTS: true,
                 plugins: [
                     ['evaluate', {
-                        report: () => {},
+                        report: noop,
                         replace: () => ({
                             [key]: template,
                         }),

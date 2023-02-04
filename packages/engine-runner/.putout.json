@@ -8,6 +8,7 @@
         }
     },
     "rules": {
-        "putout/convert-babel-types": "off"
+        "putout/convert-babel-types": "off",
+        "apply-maybe/noop": "off"
     }
 }

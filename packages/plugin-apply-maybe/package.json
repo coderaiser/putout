@@ -1,0 +1,57 @@
+{
+  "name": "@putout/plugin-apply-maybe",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "🐊Putout plugin applies Maybe monad",
+  "homepage": "https://github.com/coderaiser/apply-maybe/tree/master/packages/plugin-apply-maybe#readme",
+  "main": "lib/index.js",
+  "commitType": "colon",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/apply-maybe.git"
+  },
+  "scripts": {
+    "wisdom": "madrun wisdom",
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {
+  },
+  "keywords": [
+    "putout",
+    "apply-maybe-plugin",
+    "plugin",
+    "apply-maybe"
+  ],
+  "devDependencies": {
+    "@putout/test": "^5.0.0",
+    "c8": "^7.5.0",
+    "eslint": "^8.0.1",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-putout": "^16.0.0",
+    "lerna": "^6.0.1",
+    "madrun": "^9.0.0",
+    "montag": "^1.2.1",
+    "nodemon": "^2.0.1"
+  },
+  "peerDependencies": {
+    "putout": ">=28"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1847,6 +1847,7 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-apply-early-return`](/packages/plugin-apply-early-return#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-early-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-early-return) |
 | [`@putout/plugin-apply-comparison-order`](/packages/plugin-apply-comparison-order#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-comparison-order.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-comparison-order) |
 | [`@putout/plugin-apply-template-literals`](/packages/plugin-apply-template-literals#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-template-literals.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-template-literals) |
+| [`@putout/plugin-apply-maybe`](/packages/plugin-apply-maybe#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-maybe.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-maybe) |
 
 ### Splitters
 
