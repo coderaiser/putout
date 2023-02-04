@@ -29,7 +29,7 @@ Nested can contain one or more rules:
 ```js
 module.exports.rules = {
     'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
-}
+};
 ```
 
 ## Env Variables
