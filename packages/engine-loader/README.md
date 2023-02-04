@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/engine-loader.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/engine-loader"npm"
 
-Load 🐊[**Putout**](https://github.com/coderaiser/putout) `Plugins` and `Processors`.
+🐊[**Putout**](https://github.com/coderaiser/putout) loader for `plugins` and `processors`.
 
 ## Install
 
@@ -11,12 +11,33 @@ Load 🐊[**Putout**](https://github.com/coderaiser/putout) `Plugins` and `Proce
 npm i @putout/engine-loader
 ```
 
+## Plugins
+
+Loader supports two kinds of plugins:
+
+- ☝️ [**Simple Plugin**](#simple-plugin)
+- ☝️ [**Nested Plugin**](#nested-plugin)
+
+### Simple Plugin
+
+Simple is one of plugins support by [`@putout/engine-runner`](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types).
+
+### Nested Plugin
+
+Nested can contain one or more rules:
+
+```js
+module.exports.rules = {
+    'remove-unused-variables': require('@putout/plugin-remove-unused-variables'),
+}
+```
+
 ## Env Variables
 
 When you need to get things working with Yarn PnP, and using custom `plugins` `formatters` or `processers`, add env variable
 `PUTOUT_YARN_PNP` with name of a package that contains dependencies you need.
 
-## Code Example
+## API
 
 ### loadPlugins
 
