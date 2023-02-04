@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-apply-maybe",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin applies Maybe monad",
@@ -25,8 +25,7 @@
     "coverage": "madrun coverage",
     "report": "madrun report"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "keywords": [
     "putout",
     "apply-maybe-plugin",
