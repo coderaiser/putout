@@ -1,3 +1,14 @@
+2023.02.04, v28.16.0
+
+fix:
+- @putout/plugin-regexp: remove-useless-group: report after transform
+
+feature:
+- @putout/plugin-apply-maybe: add
+- @putout/plugin-regexp: apply-literal-notation: report: message
+- @putout/plugin-regexp: apply-literal-notation: improve support of @putout/plugin-remove-useless-escape
+- @putout/plugin-regexp: remove-useless-group: improve support of apply-literal-notation
+
 2023.02.03, v28.15.0
 
 feature:
