@@ -2476,6 +2476,15 @@ try {
 
 </details>
 
+<details><summary><a href="https://github.com/schmod/babel-plugin-angularjs-annotate">angularjs-annotate</a></summary>
+
+```diff
+-angular.module("MyMod").controller("MyCtrl", ($scope, $timeout) => {});
++angular.module("MyMod").controller("MyCtrl", ["$scope", "$timeout", ($scope, $timeout) => {}]);
+```
+
+</details>
+
 Please send pull requests with **Babel Plugins** which can be used as codemods, or simplify, fix, makes code more readable.
 
 ## 🛴 Codemods
