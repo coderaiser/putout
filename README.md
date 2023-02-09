@@ -2476,7 +2476,7 @@ try {
 
 </details>
 
-<details><summary><a href="https://github.com/schmod/babel-plugin-angularjs-annotate">angularjs-annotate</a></summary>
+<details><summary><a href="https://github.com/putoutjs/babel-plugin-angularjs-annotate">angularjs-annotate</a></summary>
 
 ```diff
 -angular.module("MyMod").controller("MyCtrl", ($scope, $timeout) => {});
