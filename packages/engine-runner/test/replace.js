@@ -737,3 +737,31 @@ test('putout: runner: replace: jsx: attribute', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: comments', (t) => {
+    const plugin = {
+        report: () => '',
+        replace: () => ({
+            'testFunc (__args)': ({__args}, path) => {
+                __args.unshift(__args[1]);
+                return path;
+            },
+        }),
+    };
+    
+    const source = montag`
+        testFunc (/** @type {string} */ (a), b);
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['plugin', plugin],
+        ],
+    });
+    
+    const expected = `testFunc(b, /** @type {string} */ a, b);`;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
