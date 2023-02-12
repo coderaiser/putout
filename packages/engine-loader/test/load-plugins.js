@@ -23,6 +23,8 @@ const fixture = readFixtures([
     'shebang-fix',
     'babel-plugin',
     'babel-plugin-fix',
+    'babel-plugin-angularjs-annotate',
+    'babel-plugin-angularjs-annotate-fix',
     'babel-plugin-namespace',
     'babel-plugin-namespace-fix',
     'babel-plugin-no-change',
@@ -181,6 +183,17 @@ test('putout: loader: babelPlugins', (t) => {
     });
     
     t.deepEqual(code, fixture.babelPluginFix);
+    t.end();
+});
+
+test('putout: loader: babelPlugins: angularjs annotate', (t) => {
+    const {code} = putout(fixture.babelPluginAngularjsAnnotate, {
+        plugins: [
+            'babel/angularjs-annotate',
+        ],
+    });
+    
+    t.deepEqual(code, fixture.babelPluginAngularjsAnnotateFix);
     t.end();
 });
 
