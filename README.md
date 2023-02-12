@@ -423,6 +423,9 @@ It looks this way in [**ESTree**](https://github.com/estree/estree) **JavaScript
 
 **Engines** is the heart of 🐊**Putout**: **Parser**, **Loader** and **Runner** are running for every processed file. **Processor** runs all the processors.
 
+**Note** that currently putout relies on its fork of [recast](https://github.com/putoutjs/recast) to do the parsing and printing. Output therefore somestimes gets screwed in forms of whitespaces or indentations (e.g. [issue#118](https://github.com/coderaiser/putout/issues/118) and [issue#129](https://github.com/coderaiser/putout/issues/129)). PR and feedback to both the original [recast](https://github.com/putoutjs/recast) project and here are encouraged.
+
+
 | Package | Version |
 |--------|-------|
 | [`@putout/engine-parser`](/packages/engine-parser#readme) | [![npm](https://img.shields.io/npm/v/@putout/engine-parser.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/engine-parser) |
@@ -513,7 +516,7 @@ We can declare it as `source`:
 const source = `
     const hello = 'world';
     const hi = 'there';
-    
+
     console.log(hello);
 `;
 ```
@@ -2255,7 +2258,7 @@ const ast = template.ast(`
 module.exports.fix = (path) => {
     // wrong
     path.replaceWith(ast);
-    
+
     // correct
     replaceWith(path, ast);
 };
