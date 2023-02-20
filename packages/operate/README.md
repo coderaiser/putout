@@ -7,7 +7,7 @@
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
-`operate` provide you a way to manipulate `path` nodes and keep `comments` and `loc` information.
+Manipulate with `path` nodes and keep `comments` and `loc` information.
 
 ## Install
 
