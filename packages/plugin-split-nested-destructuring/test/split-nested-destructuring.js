@@ -22,6 +22,11 @@ test('plugin-split-destructuring: transform: fn', (t) => {
     t.end();
 });
 
+test('plugin-split-destructuring: transform: rename', (t) => {
+    t.transform('rename');
+    t.end();
+});
+
 test('plugin-split-destructuring: no transform: declared', (t) => {
     t.noTransform('declared');
     t.end();

@@ -29,7 +29,10 @@ npm i @putout/plugin-split-nested-destructuring -D
 ## ❌ Example of incorrect code
 
 ```js
-const {a: {b}} = c;
+const {
+    a: {b},
+    a: {b: x},
+} = c;
 
 function f({a: {b}}) {
     console.log(b);
@@ -40,7 +43,10 @@ function f({a: {b}}) {
 
 ```js
 const {a} = c;
-const {b} = a;
+const {
+    b,
+    b: x,
+} = a;
 
 function f({a}) {
     const {b} = a;
