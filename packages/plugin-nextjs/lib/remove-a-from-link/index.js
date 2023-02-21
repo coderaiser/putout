@@ -1,7 +1,6 @@
 'use strict';
 
 const {types} = require('putout');
-
 const {isJSXElement} = types;
 
 module.exports.report = () => `Remove '<a>' from <Link>, it always renders under the hood`;

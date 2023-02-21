@@ -1,7 +1,6 @@
 'use strict';
 
 const {types} = require('putout');
-
 const {isCallExpression} = types;
 
 module.exports.report = ({correct, operatorPath}) => {

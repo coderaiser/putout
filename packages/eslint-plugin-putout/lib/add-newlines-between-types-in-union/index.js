@@ -1,7 +1,6 @@
 'use strict';
 
 const {types} = require('putout');
-
 const {isTSTypeAliasDeclaration} = types;
 
 module.exports.category = 'typescript';

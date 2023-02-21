@@ -48,6 +48,7 @@ module.exports.rules = {
     ...getWrapRule('nonblock-statement-body-newline'),
     ...getRule('putout'),
     ...getRule('remove-empty-newline-after-import'),
+    ...getRule('remove-empty-newline-between-declarations'),
 };
 
 const config = require('@putout/eslint-config');
@@ -81,6 +82,7 @@ const recommended = {
         'putout/remove-empty-newline-after-last-specifier': 'error',
         'putout/remove-empty-newline-after-last-element': 'error',
         'putout/remove-empty-newline-after-import': 'error',
+        'putout/remove-empty-newline-between-declarations': 'error',
         'putout/remove-empty-specifiers': 'error',
         'putout/objects-braces-inside-array': 'error',
         'putout/object-property-newline': 'error',

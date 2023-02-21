@@ -1,7 +1,6 @@
 'use strict';
 
 const {types} = require('putout');
-
 const {AwaitExpression} = types;
 
 module.exports.report = () => `Use await with 'tryToCatch'`;

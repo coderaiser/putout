@@ -1,7 +1,6 @@
 'use strict';
 
 const {types} = require('putout');
-
 const {isBlockStatement} = types;
 
 module.exports.report = () => `Use 'noop()'`;

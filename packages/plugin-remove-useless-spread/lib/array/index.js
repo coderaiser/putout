@@ -1,7 +1,6 @@
 'use strict';
 
 const {types} = require('putout');
-
 const {isNumericLiteral} = types;
 
 module.exports.report = () => `Avoid useless spread '...'`;

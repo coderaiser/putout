@@ -1,7 +1,6 @@
 'use strict';
 
 const {types} = require('putout');
-
 const {isFunction} = types;
 
 module.exports.report = () => `Call 'reImport()' using await`;

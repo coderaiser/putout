@@ -1,7 +1,6 @@
 'use strict';
 
 const {operator} = require('putout');
-
 const {remove} = operator;
 
 const isLoop = (path) => path.isLoop() || path.parentPath.isLoop();

@@ -1,7 +1,6 @@
 'use strict';
 
 const {types} = require('putout');
-
 const {isIdentifier} = types;
 
 module.exports.report = () => 'Useless functions should be avoided';

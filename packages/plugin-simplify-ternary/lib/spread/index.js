@@ -1,7 +1,6 @@
 'use strict';
 
 const {types} = require('putout');
-
 const {
     isNullLiteral,
     isObjectExpression,

@@ -1,7 +1,6 @@
 'use strict';
 
 const {operator} = require('putout');
-
 const {
     remove,
     traverse,

@@ -188,3 +188,7 @@ test('eslint-plugin-putout: multiple-properties-destructuring', async ({process}
     await process('multiple-properties-destructuring');
 });
 
+test('eslint-plugin-putout: remove-newline-between-declarations', async ({process}) => {
+    await process('remove-newline-between-declarations');
+});
+

@@ -8,7 +8,6 @@ const generateCode = require('./generate-code');
 const noop = () => {};
 
 const {operator} = putout;
-
 const {
     compare,
     extract,

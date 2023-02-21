@@ -51,6 +51,7 @@ Then configure the rules you want to use under the rules section.
         "putout/newline-function-call-arguments": "error",
         "putout/function-declaration-paren-newline": "error",
         "putout/remove-newline-after-default-import": "error",
+        "putout/remove-newline-between-declarations": "error",
         "putout/remove-newline-from-empty-object": "error",
         "putout/remove-empty-newline-before-first-specifier": "error",
         "putout/remove-empty-newline-after-last-specifier": "error",
@@ -105,6 +106,7 @@ Then configure the rules you want to use under the rules section.
 - ✅ [Keyword spacing](/packages/eslint-plugin-putout/lib/keyword-spacing#readme)
 - ✅ [Newline function call arguments](/packages/eslint-plugin-putout/lib/newline-function-call-arguments#readme)
 - ✅ [Function declaration paren newline](/packages/eslint-plugin-putout/lib/function-declaration-paren-newline#readme)
+- ✅ [Remove newline between declarations](/packages/eslint-plugin-putout/lib/remove-newline-between-declarations#readme)
 - ✅ [Remove newline after default import](/packages/eslint-plugin-putout/lib/remove-newline-after-default-import#readme)
 - ✅ [Remove newline from empty object](/packages/eslint-plugin-putout/lib/remove-newline-from-empty-object#readme)
 - ✅ [Remove empty newline before first specifier](/packages/eslint-plugin-putout/lib/remove-empty-newline-before-first-specifier#readme)
