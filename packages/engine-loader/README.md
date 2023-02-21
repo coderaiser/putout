@@ -15,16 +15,16 @@ npm i @putout/engine-loader
 
 Loader supports two kinds of plugins:
 
-- ☝️ [**Simple Plugin**](#simple-plugin)
-- ☝️ [**Nested Plugin**](#nested-plugin)
+- ☝️ [**Onerule Plugin**](#simple-plugin)
+- ☝️ [**Multirule Plugin**](#multirule-plugin)
 
-### Simple Plugin
+### Onerule Plugin
 
-Simple is one of plugins support by [`@putout/engine-runner`](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types).
+Simplest type of plugin support by [`@putout/engine-runner`](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#supported-plugin-types), contains one rule.
 
-### Nested Plugin
+### Multirule Plugin
 
-Nested can contain one or more rules:
+Nested contains one or more rules:
 
 ```js
 module.exports.rules = {
