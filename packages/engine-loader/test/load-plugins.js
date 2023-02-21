@@ -11,8 +11,8 @@ const putout = require('putout');
 const montag = require('montag');
 
 const {readFixtures} = require('./fixture');
-
 const {loadPlugins} = require('..');
+
 const {
     reRequire,
     stopAll,
@@ -148,6 +148,30 @@ test('putout: loader: disabled rule', (t) => {
     stopAll();
     
     t.equal(code, `const t = 'hello'`);
+    t.end();
+});
+
+test('putout: loader: disabled rule from multi rule plugin', (t) => {
+    const source = `montag
+        const t = async () => {
+            return 'hello'
+        }
+    `;
+    
+    const {places} = putout(source, {
+        fix: false,
+        rules: {
+            'promises/remove-useless-async': 'off',
+            'promises/remove-useless-resolve': 'on',
+        },
+        plugins: [
+            'promises',
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(places, expected);
     t.end();
 });
 

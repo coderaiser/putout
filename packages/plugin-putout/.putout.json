@@ -1,7 +1,7 @@
 {
     "match": {
         "*.md{js}": {
-            "putout/*": "off"
+            "putout": "off"
         }
     }
 }

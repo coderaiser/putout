@@ -93,11 +93,11 @@ module.exports.loadPlugins = (options) => {
     // but we can't because of a way multi-rule plugins
     // works. We can't determine count and names of all
     // rules of a plugin before load.
-    for (const plugin of plugins) {
-        if (!isEnabled(plugin, cookedRules))
+    for (const [name, plugin] of plugins) {
+        if (!isEnabled(name, cookedRules))
             continue;
         
-        result.push(mergeRules(plugin, cookedRules));
+        result.push(mergeRules([name, plugin], cookedRules));
     }
     
     return result;
