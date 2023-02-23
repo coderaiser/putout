@@ -1,3 +1,15 @@
+2023.02.23, v28.17.0
+
+feature:
+- package: @putout/plugin-apply-destructuring v6.0.0
+- @putout/plugin-apply-destructuring: drop support of 🐊 < 28
+- @putout/plugin-apply-destructuring: drop support of node < 16
+- @putout/plugin-apply-destructuring: object: get rid off `const a = b.a || c -> const {a = c} = b` since it works only for `b.a = undefined` not for: 0, null, undefined, '', etc
+- eslint-plugin-putout: add remove-empty-newline-between-declarations
+- @putout/plugin-split-nested-destructuring: add support of rename
+- @putout/engine-loader: is-enabled: improve handling of disabled rules of Multirule Plugin
+- package: @putout/recast v1.12.1 (#129)
+
 2023.02.04, v28.16.0
 
 fix:
