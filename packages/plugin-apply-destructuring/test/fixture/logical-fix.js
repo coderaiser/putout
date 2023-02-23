@@ -1,4 +1,0 @@
-const {
-  statementIndentUnit = indentUnit
-} = parserConfig;
-

@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-apply-destructuring: transform: report', (t) => {
-    t.report('object', 'Object destructuring should be used');
+    t.report('object', 'Use object destructuring');
     t.end();
 });
 
@@ -34,11 +34,6 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
 
 test('plugin-apply-destructuring: transform: vars', (t) => {
     t.transform('vars');
-    t.end();
-});
-
-test('plugin-apply-destructuring: transform: logical', (t) => {
-    t.transform('logical');
     t.end();
 });
 

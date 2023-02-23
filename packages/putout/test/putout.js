@@ -11,6 +11,8 @@ const tryCatch = require('try-catch');
 const putout = require('..');
 const {readFixtures} = require('./fixture');
 
+const noop = () => {};
+
 const fixture = readFixtures([
     'await-outside-func',
     'comment',
@@ -439,7 +441,12 @@ test('putout: plugin: return push in traverse', (t) => {
 test('putout: recast destructuring assign', (t) => {
     const result = putout(fixture.recastDestructuringAssign, {
         plugins: [
-            'apply-destructuring',
+            ['apply-destructuring', {
+                report: noop,
+                replace: () => ({
+                    'const __a = __b.__a || __c': 'const {__a = __c} = __b',
+                }),
+            }],
         ],
     });
     

@@ -1,8 +1,6 @@
 'use strict';
 
-module.exports.report = () => {
-    return `Array destructuring should be used`;
-};
+module.exports.report = () => `Use array destructuring`;
 
 module.exports.exclude = () => [
     'const __object = __[0]',

@@ -8,12 +8,12 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-apply-destructuring: report: assignment', (t) => {
-    t.report('assignment', 'Array destructuring should be used');
+    t.report('assignment', 'Use array destructuring');
     t.end();
 });
 
 test('plugin-apply-destructuring: report: variable-declarator', (t) => {
-    t.report('variable-declarator', 'Array destructuring should be used');
+    t.report('variable-declarator', 'Use array destructuring');
     t.end();
 });
 
