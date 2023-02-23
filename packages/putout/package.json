@@ -73,7 +73,7 @@
     "@putout/operator-regexp": "^1.0.0",
     "@putout/plugin-apply-array-at": "^2.0.0",
     "@putout/plugin-apply-comparison-order": "^1.0.0",
-    "@putout/plugin-apply-destructuring": "^5.0.0",
+    "@putout/plugin-apply-destructuring": "^6.0.0",
     "@putout/plugin-apply-early-return": "^2.0.0",
     "@putout/plugin-apply-flat-map": "^2.0.0",
     "@putout/plugin-apply-if-condition": "^1.0.0",
