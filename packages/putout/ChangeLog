@@ -1,3 +1,12 @@
+2023.03.02, v28.18.0
+
+feature:
+- @putout/eslint-config: add config from npm (https://eslint.org/blog/2023/02/eslint-v8.35.0-released/)
+- package: @putout/plugin-tape v10.0.0
+- @putout/plugin-tape: jest: add
+- @putout/plugin-tape: drop support of 🐊 < 28
+- @putout/plugin-apply-destructuring: drop useless match
+
 2023.02.23, v28.17.0
 
 feature:
