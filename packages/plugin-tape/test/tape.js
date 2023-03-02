@@ -181,3 +181,8 @@ test('plugin-tape: transform: apply-destructuring', (t) => {
     t.end();
 });
 
+test('plugin-tape: transform: jest', (t) => {
+    t.transform('jest');
+    t.end();
+});
+

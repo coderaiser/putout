@@ -9,6 +9,7 @@ module.exports.rules = {
     ...getRule('apply-destructuring'),
     ...getRule('apply-with-name'),
     ...getRule('add-await-to-re-import'),
+    ...getRule('jest'),
     ...getRule('sync-with-name'),
     ...getRule('convert-tape-to-supertape'),
     ...getRule('convert-throws-to-try-catch'),

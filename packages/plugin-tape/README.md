@@ -20,6 +20,7 @@ npm i @putout/plugin-tape -D
 ```json
 {
     "rules": {
+        "tape/jest": "on",
         "tape/apply-stub": "on",
         "tape/apply-destructuring": "on",
         "tape/apply-stub-operator": "on",
@@ -52,6 +53,29 @@ npm i @putout/plugin-tape -D
         "tape/remove-stop-all": "on"
     }
 }
+```
+
+## jest
+
+🐊**Putout** gives ability to switch easily from [**Jest**](https://github.com/coderaiser/putout/blob/master/packages/plugin-jest/README.md#putoutplugin-jest-) to 📼**Supertape**. Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e610ded68d5808c2dbc09a1f84be8a96/d70f52e44d6c3ffb9387772ee9ad61fd2ca01dcd).
+
+### ❌ Example of incorrect code
+
+```js
+it('should equal', () => {
+    expect(a).toEqual(b);
+});
+```
+
+### ✅ Example of correct code
+
+```js
+import {test} from 'supertape';
+
+test('should equal', () => {
+    t.equal(a, b);
+    t.end();
+});
 ```
 
 ## switch-expected-with-result
