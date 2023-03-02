@@ -24,7 +24,9 @@
     "fix:lint": "madrun fix:lint",
     "prepublishOnly": "madrun prepublishOnly"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@eslint/js": "^8.35.0"
+  },
   "peerDependencies": {
     "eslint": ">=8.0.0"
   },

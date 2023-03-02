@@ -1,5 +1,7 @@
 'use strict';
 
+const js = require('@eslint/js');
+
 module.exports = {
     env: {
         es6: true,
@@ -14,6 +16,7 @@ module.exports = {
         },
     },
     rules: {
+        ...js.configs.recommended.rules,
         'array-bracket-spacing': 'error',
         'arrow-parens': ['error', 'always'],
         'arrow-spacing': 'error',
@@ -124,9 +127,6 @@ module.exports = {
         'require-atomic-updates': 'off',
         'yoda': 'off',
     },
-    extends: [
-        'eslint:recommended',
-    ],
 };
 
 function getPaddingExport() {
