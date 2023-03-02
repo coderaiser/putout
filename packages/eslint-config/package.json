@@ -1,6 +1,6 @@
 {
   "name": "@putout/eslint-config",
-  "version": "7.3.0",
+  "version": "7.4.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout config for ESLint",
