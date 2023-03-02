@@ -1,9 +1,13 @@
 # @putout/plugin-jest [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-jest.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-jest"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-jest "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps to migrate to [latest](https://jestjs.io/blog/2021/05/25/jest-27) [jest](https://jestjs.io/) API.
+> Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
+>
+> (c) [jestjs.io](https://jestjs.io/)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps to migrate to [latest](https://jestjs.io/blog/2021/05/25/jest-27) **Jest** API.
 
 ## Install
 
