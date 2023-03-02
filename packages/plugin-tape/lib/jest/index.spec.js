@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-tape: jest: report', (t) => {
-    t.report('jest', `Use '📼Supertape' instead of 'Jest'`);
+    t.report('jest', `Use 📼 Supertape instead of 🃏Jest`);
     t.end();
 });
 

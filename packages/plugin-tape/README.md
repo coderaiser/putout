@@ -57,7 +57,7 @@ npm i @putout/plugin-tape -D
 
 ## jest
 
-🐊**Putout** gives ability to switch easily from [**Jest**](https://github.com/coderaiser/putout/blob/master/packages/plugin-jest/README.md#putoutplugin-jest-) to 📼**Supertape**. Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e610ded68d5808c2dbc09a1f84be8a96/d70f52e44d6c3ffb9387772ee9ad61fd2ca01dcd).
+🐊**Putout** gives ability to switch easily from [**Jest**](https://github.com/coderaiser/putout/blob/master/packages/plugin-jest/README.md#putoutplugin-jest-) to 📼**Supertape**. Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e610ded68d5808c2dbc09a1f84be8a96/c8f515668b5bdf16b58ef85c3ca13d93682f3ccb).
 
 ### ❌ Example of incorrect code
 

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = () => `Use '📼Supertape' instead of 'Jest'`;
+module.exports.report = () => `Use 📼 Supertape instead of 🃏Jest`;
 
 module.exports.replace = () => ({
     'it': 'test',
