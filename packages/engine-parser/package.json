@@ -62,6 +62,7 @@
     "just-camel-case": "^4.0.2",
     "lerna": "^6.0.1",
     "madrun": "^9.0.0",
+    "mock-require": "^3.0.3",
     "montag": "^1.0.0",
     "nodemon": "^2.0.1",
     "putout": "*",
