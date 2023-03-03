@@ -27,6 +27,16 @@ test('plugin-split-destructuring: transform: rename', (t) => {
     t.end();
 });
 
+test('plugin-split-destructuring: transform: default', (t) => {
+    t.transform('default');
+    t.end();
+});
+
+test('plugin-split-destructuring: no transform: couple', (t) => {
+    t.noTransform('couple');
+    t.end();
+});
+
 test('plugin-split-destructuring: no transform: declared', (t) => {
     t.noTransform('declared');
     t.end();

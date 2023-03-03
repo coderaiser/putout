@@ -4,6 +4,7 @@ const {types, template} = require('putout');
 const {
     ObjectPattern,
     ObjectProperty,
+    isObjectPattern,
 } = types;
 
 const buildDeclaration = template(`
@@ -20,13 +21,21 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     'const {__a: {__b}} = __c': 'const {__a} = __c, {__b} = __a',
     'const {__a: {__b: __c}} = __d': 'const {__a} = __c, {__b: __c} = __a',
+    'const {__a: {__b = __c}} = __d': 'const {__a} = __d, {__b = __c} = __a',
     'function f({ __a: { __b } }) {}': replaceArg,
     'function f({ __a: { __b: __c } }) {}': replaceArg,
 });
 
-function matchConst({__a}, path) {
+function matchConst({__a, __c}, path) {
     const bindings = path.scope.getAllBindings();
-    return !bindings[__a.name];
+    
+    if (bindings[__a.name])
+        return false;
+    
+    if (isObjectPattern(__c))
+        return false;
+    
+    return true;
 }
 
 function replaceArg({__a, __b, __c}, path) {
