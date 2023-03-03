@@ -37,7 +37,7 @@ jest.addMatchers({
 });
 
 jest.resetModuleRegistry();
-jest.runTimersToTime(1000);
+jest.runTimersToTime(1_000);
 ```
 
 ### ✅ Example of correct code
@@ -52,7 +52,7 @@ expect.extend({
 });
 
 jest.resetModules();
-jest.advanceTimersByTime(1000);
+jest.advanceTimersByTime(1_000);
 ```
 
 ## License

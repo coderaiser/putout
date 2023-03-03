@@ -15,7 +15,7 @@ module.exports.parse = function acornParse(source) {
     const options = {
         locations: true,
         comment: true,
-        ecmaVersion: 2020,
+        ecmaVersion: 2_020,
         sourceType: 'module',
         allowAwaitOutsideFunction: true,
         allowReturnOutsideFunction: true,

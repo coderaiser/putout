@@ -2,8 +2,6 @@
 
 module.exports.report = () => `Numeric separators should be used`;
 
-const MIN = 9999;
-
 module.exports.fix = ({node}) => {
     const {raw} = node;
     
@@ -15,15 +13,15 @@ module.exports.traverse = ({push}) => ({
     NumericLiteral(path) {
         const {node} = path;
         node.raw = node.raw || String(node.value);
-        const {raw, value} = path.node;
+        const {raw} = path.node;
+        
+        if (raw.length < 4)
+            return;
         
         if (raw.startsWith('0x'))
             return;
         
         if (raw.includes('_'))
-            return;
-        
-        if (value <= MIN)
             return;
         
         push(path);

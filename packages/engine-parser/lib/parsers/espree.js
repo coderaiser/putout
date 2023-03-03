@@ -11,7 +11,7 @@ module.exports.parse = function espreeParse(source) {
         loc: true,
         tokens: preventUsingEsprima,
         comment: true,
-        ecmaVersion: 2020,
+        ecmaVersion: 2_020,
         sourceType: 'module',
         ecmaFeatures: {
             jsx: true,

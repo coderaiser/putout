@@ -33,6 +33,11 @@ test('plugin-math: apply-numeric-separators: no transform: hex', (t) => {
     t.end();
 });
 
+test('plugin-math: apply-numeric-separators: no report: e', (t) => {
+    t.noReport('e');
+    t.end();
+});
+
 test('plugin-math: apply-numeric-separators: transform: webpack', (t) => {
     t.transform('webpack', {
         webpack,
