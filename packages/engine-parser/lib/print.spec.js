@@ -83,3 +83,12 @@ test('putout: parser: print: empty', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: parser: print: balanced braces', (t) => {
+    const source = '((a) => fn(42))(value)';
+    const ast = parse(source);
+    const result = print(ast);
+    
+    t.equal(result, source);
+    t.end();
+});

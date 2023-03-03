@@ -54,6 +54,10 @@ function checkBrackets(source) {
             continue;
         }
     }
+    const current = source[i];
+    
+    if (current === '(')
+        brackets.pop();
     
     return brackets.length;
 }
