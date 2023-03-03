@@ -1,4 +1,5 @@
 import {Writable} from 'stream';
+import {hrtime} from 'process';
 
 import dump from '@putout/formatter-dump';
 import cliProgress from 'cli-progress';
@@ -7,9 +8,8 @@ import once from 'once';
 import format from 'format-io';
 import montag from 'montag';
 
-import {hrtime} from 'node:process';
-
-const start = hrtime.bigint();
+const start = once(() => hrtime.bigint());
+const end = once(() => hrtime.bigint());
 
 const OK = '👌';
 const {
@@ -27,6 +27,8 @@ const {
 } = process.env;
 
 export default ({name, options, places, index, count, filesCount, errorsCount}) => {
+    start();
+    
     const {
         color = '#ea4336',
         minCount = 0,
@@ -133,8 +135,7 @@ function getInfo(memory) {
 }
 
 function calcTime() {
-    const end = hrtime.bigint();
-    const time = Math.round(Number(end - start) / 1e9);
+    const time = Math.round(Number(end() - start()) / 1e9);
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
     
