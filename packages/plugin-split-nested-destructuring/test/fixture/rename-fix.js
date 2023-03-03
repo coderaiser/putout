@@ -8,7 +8,7 @@ function f({ a: a }) {
 
 const {
         a
-      } = c,
+      } = x,
       {
         b: c
       } = a;

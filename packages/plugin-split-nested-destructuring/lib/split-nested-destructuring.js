@@ -20,7 +20,7 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     'const {__a: {__b}} = __c': 'const {__a} = __c, {__b} = __a',
-    'const {__a: {__b: __c}} = __d': 'const {__a} = __c, {__b: __c} = __a',
+    'const {__a: {__b: __c}} = __d': 'const {__a} = __d, {__b: __c} = __a',
     'const {__a: {__b = __c}} = __d': 'const {__a} = __d, {__b = __c} = __a',
     'function f({ __a: { __b } }) {}': replaceArg,
     'function f({ __a: { __b: __c } }) {}': replaceArg,

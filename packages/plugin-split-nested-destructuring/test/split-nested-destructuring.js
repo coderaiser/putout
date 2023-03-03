@@ -32,6 +32,11 @@ test('plugin-split-destructuring: transform: default', (t) => {
     t.end();
 });
 
+test('plugin-split-destructuring: transform: rename-assign', (t) => {
+    t.transform('rename-assign');
+    t.end();
+});
+
 test('plugin-split-destructuring: no transform: couple', (t) => {
     t.noTransform('couple');
     t.end();
