@@ -85,7 +85,6 @@ const filter = (declarations) => (path, {options}) => {
 };
 
 const fix = (declarations) => (path, {options}) => {
-    //const type = setModuleType(parseType(path), path);
     const type = getModuleType(path);
     
     const allDeclarations = {
