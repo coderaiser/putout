@@ -7,11 +7,16 @@ import once from 'once';
 import format from 'format-io';
 import montag from 'montag';
 
+import {hrtime} from 'node:process';
+
+const start = hrtime.bigint();
+
 const OK = '👌';
 const {
     green,
     yellow,
     red,
+    blueBright,
 } = chalk;
 const formatErrorsCount = (a) => a ? red(a) : OK;
 
@@ -121,8 +126,17 @@ function getInfo(memory) {
     return montag`
         heap used: ${green(heapUsed)}
         heap total: ${yellow(heapTotal)}
-        rss: ${red(rss)}
+        rss: ${red(rss)},
+        time: ${blueBright(calcTime())}
     
     `;
 }
 
+function calcTime() {
+    const end = hrtime.bigint();
+    const time = Math.round(Number(end - start) / 1e9);
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    
+    return `0${minutes}:${seconds <= 9 ? '0' : ''}${seconds}`;
+}
