@@ -57,6 +57,11 @@ testUpdate('test: formatSave', async ({ok, formatSave}) => {
     ok(writeFileSyncStub.called);
 }, {checkAssertionsCount: false});
 
+testUpdate('test: formatSave: success', async ({equal, formatSave}) => {
+    const {message} = await formatSave(formatter, 'var');
+    equal(message, 'fixture updated');
+}, {checkAssertionsCount: false});
+
 testUpdate('test: format: with UPDATE env variable', async ({ok, format}) => {
     global.__putout_test_update = true;
     await format(formatter, 'var');

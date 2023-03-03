@@ -219,18 +219,11 @@ const formatSave = currify(({dir, plugins, rules}, t) => async (formatter, name,
         rules,
     }, t);
     
-    const {
-        is,
-        output,
-        result,
-    } = await runFormat(formatter, name, options);
+    const {result} = await runFormat(formatter, name, options);
     
     writeFileSync(outputName, result);
     
-    return {
-        is,
-        output,
-    };
+    return t.pass('fixture updated');
 });
 
 const transform = currify(({dir, plugins, rules}, t, name, transformed = null, addons = {}) => {
