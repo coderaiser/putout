@@ -62,6 +62,11 @@ test('plugin-remove-useless-await: transform: primitive', (t) => {
     t.end();
 });
 
+test('plugin-remove-useless-await: no transform: optional', (t) => {
+    t.noTransform('optional');
+    t.end();
+});
+
 test('plugin-remove-useless-await: no transform: new', (t) => {
     t.noTransform('new');
     t.end();
