@@ -28,6 +28,11 @@ test('plugin-math: apply-numeric-separators: no transform: min', (t) => {
     t.end();
 });
 
+test('plugin-math: apply-numeric-separators: no report: min', (t) => {
+    t.noReport('min');
+    t.end();
+});
+
 test('plugin-math: apply-numeric-separators: no transform: hex', (t) => {
     t.noTransform('hex');
     t.end();

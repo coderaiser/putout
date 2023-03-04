@@ -15,7 +15,7 @@ module.exports.traverse = ({push}) => ({
         node.raw = node.raw || String(node.value);
         const {raw} = path.node;
         
-        if (raw.length < 4)
+        if (raw.length < 5)
             return;
         
         if (raw.startsWith('0x'))

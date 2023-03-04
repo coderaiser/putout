@@ -13,7 +13,7 @@ const dirs = getDirs(workspaces);
 const env = {
     TERM_PROGRAM: 0,
     TERMINAL_EMULATOR: 0,
-    SUPERTAPE_TIMEOUT: 7_000,
+    SUPERTAPE_TIMEOUT: 7000,
     PUTOUT_PROGRESS_BAR: 0,
     FORCE_COLOR: 3,
     TEST: 1,
