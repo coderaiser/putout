@@ -128,9 +128,8 @@ function getInfo(memory) {
     return montag`
         heap used: ${green(heapUsed)}
         heap total: ${yellow(heapTotal)}
-        rss: ${red(rss)},
+        rss: ${red(rss)}
         time: ${blueBright(calcTime())}
-    
     `;
 }
 
