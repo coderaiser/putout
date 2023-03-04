@@ -1,7 +1,9 @@
 import {createTest} from '@putout/test';
 import rmUnused from '@putout/plugin-remove-unused-variables';
 
-import progress from '../lib/memory.js';
+import progress, {
+    maybeZero,
+} from '../lib/memory.js';
 
 const test = createTest(import.meta.url, {
     'remove-unused-variables': rmUnused,
@@ -81,6 +83,22 @@ test('formatter: memory: parse memory: no CI', async (t) => {
     process.env.TEST = TEST;
     
     t.equal(result, memory);
+    t.end();
+});
+
+test('formatter: memory: maybeZero: no', (t) => {
+    const result = maybeZero(60);
+    const expected = '';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('formatter: memory: maybeZero: yes', (t) => {
+    const result = maybeZero(5);
+    const expected = '0';
+    
+    t.equal(result, expected);
     t.end();
 });
 

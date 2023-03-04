@@ -134,10 +134,12 @@ function getInfo(memory) {
     `;
 }
 
+export const maybeZero = (a) => a <= 9 ? '0' : '';
+
 function calcTime() {
     const time = Math.round(Number(end() - start()) / 1e9);
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
     
-    return `0${minutes}:${seconds <= 9 ? '0' : ''}${seconds}`;
+    return `${maybeZero(minutes)}${minutes}:${maybeZero(seconds)}${seconds}`;
 }
