@@ -21,6 +21,7 @@ const {
 const fixture = readFixtures();
 
 const {
+    BlockStatement,
     ContinueStatement,
     ReturnStatement,
     ExpressionStatement,
@@ -833,6 +834,22 @@ test('putout: operate: replaceWithMultiple: body of ArrowFunctionExpression: Exp
     const result = print(ast);
     
     t.equal(result, fixture.arrowFunctionFix);
+    t.end();
+});
+
+test('putout: operate: replaceWith: body of ArrowFunctionExpression: BlockStatement -> Statement', (t) => {
+    const ast = parse(fixture.block);
+    
+    traverse(ast, {
+        BlockStatement(path) {
+            operate.replaceWith(path, BlockStatement([]));
+            path.stop();
+        },
+    });
+    
+    const result = print(ast);
+    
+    t.equal(result, fixture.blockFix);
     t.end();
 });
 

@@ -4,6 +4,7 @@ const {
     ExpressionStatement,
     toStatement,
     matchesPattern,
+    isBlockStatement,
     isImportDeclaration,
     isExportDeclaration,
     isExpression,
@@ -165,7 +166,7 @@ module.exports.isESM = (path) => {
 function maybeBody(path, node) {
     const {parentPath} = path;
     
-    if (node && !isStatement(node) || !parentPath?.isArrowFunctionExpression?.())
+    if (node && !isStatement(node) || isBlockStatement(node) || !parentPath?.isArrowFunctionExpression?.())
         return {
             currentPath: path,
         };
