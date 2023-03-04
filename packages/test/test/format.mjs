@@ -1,5 +1,6 @@
 import fs from 'fs';
 import {stub} from 'supertape';
+import tryToCatch from 'try-to-catch';
 
 import removeConsole from '@putout/plugin-remove-console';
 
@@ -60,6 +61,21 @@ testUpdate('test: formatSave', async ({ok, formatSave}) => {
 testUpdate('test: formatSave: success', async ({equal, formatSave}) => {
     const {message} = await formatSave(formatter, 'var');
     equal(message, 'fixture updated');
+}, {checkAssertionsCount: false});
+
+testUpdate('test: formatManySave: success', async ({equal, formatManySave}) => {
+    const {message} = await formatManySave(formatter, ['var']);
+    equal(message, 'fixture updated');
+}, {checkAssertionsCount: false});
+
+testUpdate('test: formatManySave: not array', async ({equal, formatManySave}) => {
+    const [error] = await tryToCatch(formatManySave, formatter, 'var');
+    equal(error.message, `☝️ Looks like 'formatManySave()' received 'names' with type: 'string', expected: 'array'`);
+}, {checkAssertionsCount: false});
+
+testUpdate('test: formatMany: not array', async ({equal, formatMany}) => {
+    const [error] = await tryToCatch(formatMany, formatter, 'var');
+    equal(error.message, `☝️ Looks like 'formatMany()' received 'names' with type: 'string', expected: 'array'`);
 }, {checkAssertionsCount: false});
 
 testUpdate('test: format: with UPDATE env variable', async ({ok, format}) => {

@@ -140,6 +140,10 @@ const noFormat = currify(({dir, plugins, rules}, t) => async (formatter, name, f
 
 const formatMany = currify(({dir, plugins, rules}, t) => async (formatter, names, formatterOptions = {}) => {
     const joinTwo = (a) => (b) => join(a, b);
+    
+    if (!isArray(names))
+        throw Error(`☝️ Looks like 'formatMany()' received 'names' with type: '${typeof names}', expected: 'array'`);
+    
     const fullNames = names.map(joinTwo(dir));
     
     let result = '';
@@ -182,6 +186,9 @@ const formatManySave = currify(({dir, plugins, rules}, t) => async (formatter, n
         writeFileSync,
     } = global.__putout_test_fs;
     
+    if (!isArray(names))
+        throw Error(`☝️ Looks like 'formatManySave()' received 'names' with type: '${typeof names}', expected: 'array'`);
+    
     const name = `${names.join('-')}-format.js`;
     const outputName = join(dir, name);
     
@@ -189,16 +196,11 @@ const formatManySave = currify(({dir, plugins, rules}, t) => async (formatter, n
         writeFileSync(outputName, '');
     
     const runFormat = await formatMany({dir, plugins, rules}, t);
-    
-    const {
-        is,
-        output,
-        result,
-    } = await runFormat(formatter, names, options);
+    const {result} = await runFormat(formatter, names, options);
     
     writeFileSync(outputName, result);
     
-    return {is, output, result};
+    return t.pass('fixture updated');
 });
 
 const formatSave = currify(({dir, plugins, rules}, t) => async (formatter, name, options = {}) => {
