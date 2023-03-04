@@ -1,6 +1,6 @@
 {
   "name": "@putout/formatter-memory",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout formatter shows memory usage",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-memory#readme",
