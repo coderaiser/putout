@@ -1,3 +1,3 @@
 const fn = () => {
-  continue;
+  return;
 };

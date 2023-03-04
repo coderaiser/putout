@@ -22,6 +22,7 @@ const fixture = readFixtures();
 
 const {
     ContinueStatement,
+    ReturnStatement,
     ExpressionStatement,
     Identifier,
     StringLiteral,
@@ -792,7 +793,7 @@ test('putout: operate: replaceWith: body of ArrowFunctionExpression: Expression 
     
     traverse(ast, {
         CallExpression(path) {
-            operate.replaceWith(path, ContinueStatement());
+            operate.replaceWith(path, ReturnStatement());
             path.stop();
         },
     });
@@ -824,7 +825,7 @@ test('putout: operate: replaceWithMultiple: body of ArrowFunctionExpression: Exp
     
     traverse(ast, {
         CallExpression(path) {
-            operate.replaceWithMultiple(path, [ContinueStatement()]);
+            operate.replaceWithMultiple(path, [ReturnStatement()]);
             path.stop();
         },
     });

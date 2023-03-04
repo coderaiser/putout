@@ -2,11 +2,15 @@
 
 const {print} = require('@putout/recast');
 const generate = require('@babel/generator').default;
-const fixStrictMode = (a) => a.replace(`\n\n\n'use strict'`, `\n\n'use strict'`);
-const btoa = (a) => Buffer.from(a, 'binary').toString('base64');
-const addSourceMap = (sourceMapName, {code, map}) => !sourceMapName ? code : `${code}\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,${btoa(stringify(map))}\n`;
+const tryCatch = require('try-catch');
+
+const parse = require('./parse');
 const {stringify} = JSON;
+const btoa = (a) => Buffer.from(a, 'binary').toString('base64');
 const {assign} = Object;
+const addSourceMap = (sourceMapName, {code, map}) => !sourceMapName ? code : `${code}\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,${btoa(stringify(map))}\n`;
+const fixStrictMode = (a) => a.replace(`\n\n\n'use strict'`, `\n\n'use strict'`);
+
 module.exports = (ast, options = {}) => {
     const {sourceMapName} = options;
     const printOptions = {
@@ -17,7 +21,7 @@ module.exports = (ast, options = {}) => {
     };
     const printed = print(ast, printOptions);
     
-    if (checkBrackets(printed.code))
+    if (!canParse(printed.code))
         assign(printed, {
             code: generate(ast, {
                 indent: {
@@ -34,30 +38,10 @@ module.exports = (ast, options = {}) => {
         map,
     });
 };
-function checkBrackets(source) {
-    const brackets = [];
-    let i = source.length;
-    
-    if (!i)
-        return false;
-    
-    while (--i) {
-        const current = source[i];
-        
-        if (current === ')') {
-            brackets.push(current);
-            continue;
-        }
-        
-        if (current === '(') {
-            brackets.pop();
-            continue;
-        }
-    }
-    const current = source[i];
-    
-    if (current === '(')
-        brackets.pop();
-    
-    return brackets.length;
+
+function canParse(source) {
+    const [error] = tryCatch(parse, source, {
+        isTS: true,
+    });
+    return !error;
 }

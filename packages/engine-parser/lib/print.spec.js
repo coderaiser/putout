@@ -92,3 +92,23 @@ test('putout: parser: print: balanced braces', (t) => {
     t.equal(result, source);
     t.end();
 });
+
+test('putout: parser: print: balanced braces: string', (t) => {
+    const source = montag`
+        const newText = paramsText
+            .replace(a, ')')
+            .replace(b, '(');
+        
+        const a = [
+            'hello',
+            'world',
+        ];
+        
+        const {b, c} = y;
+    `;
+    const ast = parse(source);
+    const result = print(ast);
+    
+    t.equal(result, source);
+    t.end();
+});
