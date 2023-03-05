@@ -130,6 +130,7 @@ function getInfo(memory) {
         heap total: ${yellow(heapTotal)}
         rss: ${red(rss)}
         time: ${blueBright(calcTime())}
+    
     `;
 }
 
