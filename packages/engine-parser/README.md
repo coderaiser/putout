@@ -23,11 +23,23 @@ Any parser should be installed before use, but you can be sure that `@babel/pars
 
 ## API
 
-### print(ast)
+You can avoid using [`recast`](https://github.com/putoutjs/recast) and speed up parsing and printing a bit using only Babel using:
+
+```js
+const ast = parse(source, {
+    recast: false,
+});
+
+const code = print(ast, {
+    recast: false,
+});
+```
+
+### print(ast [, options])
 
 Print code from `ast`
 
-### parse(code)
+### parse(code, [, options])
 
 You can add `default options` for custom `parser` you use.
 
@@ -57,6 +69,7 @@ const source = `const hello = 'world';`;
 const ast = parse(source, {
     sourceFileName: 'hello.js',
 });
+
 print(ast, {sourceMapName: 'hello.map'});
 // returns
 `const hello = 'world';

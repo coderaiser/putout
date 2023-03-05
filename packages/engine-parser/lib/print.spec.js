@@ -56,6 +56,7 @@ test('putout: parser: print: bad recast output', (t) => {
         export default (() => {
           return <h1>hello</h1>;
         });
+    
     `;
     const recastPrint = stub().returns({
         code: invalid,
@@ -110,5 +111,30 @@ test('putout: parser: print: balanced braces: string', (t) => {
     const result = print(ast);
     
     t.equal(result, source);
+    t.end();
+});
+
+test('putout: parser: print: recast: disabled', (t) => {
+    const source = montag`
+        export default () => {
+          return (
+            <h1>hello</h1>
+          );
+        }
+    `;
+    
+    const expected = montag`
+        export default (() => {
+          return <h1>hello</h1>;
+        });
+    
+    `;
+    
+    const ast = parse(source);
+    const result = print(ast, {
+        recast: false,
+    });
+    
+    t.equal(result, expected);
     t.end();
 });

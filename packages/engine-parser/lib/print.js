@@ -12,7 +12,11 @@ const addSourceMap = (sourceMapName, {code, map}) => !sourceMapName ? code : `${
 const fixStrictMode = (a) => a.replace(`\n\n\n'use strict'`, `\n\n'use strict'`);
 
 module.exports = (ast, options = {}) => {
-    const {sourceMapName} = options;
+    const {
+        recast = true,
+        sourceMapName,
+    } = options;
+    
     const printOptions = {
         quote: 'single',
         objectCurlySpacing: false,
@@ -21,13 +25,9 @@ module.exports = (ast, options = {}) => {
     };
     const printed = print(ast, printOptions);
     
-    if (!canParse(printed.code))
+    if (!recast || !canParse(printed.code))
         assign(printed, {
-            code: generate(ast, {
-                indent: {
-                    style: '    ',
-                },
-            }).code,
+            code: babelPrint(ast),
         });
     
     const {map} = printed;
@@ -45,4 +45,14 @@ function canParse(source) {
     });
     
     return !error;
+}
+
+function babelPrint(ast) {
+    const {code} = generate(ast, {
+        indent: {
+            style: '    ',
+        },
+    });
+    
+    return `${code}\n`;
 }

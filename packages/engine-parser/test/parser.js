@@ -32,6 +32,8 @@ const fixture = readFixtures([
     'jsx-template',
     'jsx-template-fix',
     'jsx-not-react',
+    'no-recast',
+    'no-recast-fix',
     'record',
     'strict-mode',
     'strict-mode-fix',
@@ -367,7 +369,6 @@ test('putout: parser: typescrip with jsx: ambiguity syntax', (t) => {
 
 test('putout: parser: babel: destructuring private', (t) => {
     const source = fixture.destructuringPrivate;
-    
     const [error] = tryCatch(putout, source);
     
     t.notOk(error, 'should parse destructuring private');
@@ -419,6 +420,20 @@ test('putout: parser: esprima', (t) => {
     const expected = require('../lib/parsers/esprima');
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('putout: parser: recast: no', (t) => {
+    const {code} = putout(fixture.noRecast, {
+        recast: false,
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = fixture.noRecastFix;
+    
+    t.equal(code, expected);
     t.end();
 });
 
