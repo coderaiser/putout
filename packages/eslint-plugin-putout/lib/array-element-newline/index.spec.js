@@ -1,22 +1,17 @@
 'use strict';
 
 const {RuleTester} = require('eslint');
-
 const montag = require('montag');
 const {createPlugin} = require('@putout/eslint/create-plugin');
 const rule = createPlugin(require('.'));
-
 const ruleTester = new RuleTester({
     parserOptions: {
-        ecmaVersion: 2022,
+        ecmaVersion: 2023,
+        sourceType: 'module',
     },
 });
-
 ruleTester.run('array-element-newline', rule, {
-    valid: [
-        `const a = ['a', 'b', 'c', 'd'];`,
-        `const a = ['a', 'b', 'c', 'd',,,];`,
-        montag`
+    valid: [`const a = ['a', 'b', 'c', 'd'];`, `const a = ['a', 'b', 'c', 'd',,,];`, montag`
             ['a', 'b', 'c', 'd', 'e'].map();
         `, montag`
             const a = [{
@@ -32,9 +27,13 @@ ruleTester.run('array-element-newline', rule, {
                 4,
             ];
         `, montag`
-            const a = [{a: 1}, {b: 2}, {c: 3}, {
-                b: [1, 2, 3, 4, 5]
-            }];
+            export default {
+                'wisdom': () => run(['lint:all', 'coverage']),
+            }
+        `, montag`
+            export default {
+                'test': () => [env, 'test:only'],
+            }
         `, montag`
             const argv = [
                 join(__dirname, 'fixture/parse-error.js'),
@@ -43,13 +42,36 @@ ruleTester.run('array-element-newline', rule, {
                 '--format',
                 'none',
             ];
+        `, montag`
+            module.exports = {
+                files: ['*.json', '*{json}'],
+                rules: {
+                    'quotes': ['error', 'double'],
+                }
+            }
+        `, montag`
+            for (const ext of ['js', 'mjs', 'cjs']) {}
+        `, montag`
+             const expected = [COMPUTED, 'debugger'];
+        `, montag`
+             const expected = [true, 'hello'];
+         `, montag`
+             const statusMatrix = stub().returns([
+                 ['packages/putout/lib/cli/index.js', 1, 2, 2],
+                 ['packages/putout/lib/cli/staged.js', 1, 2, 3],
+             ]);
+        `, montag`
+            putout('isFn(fn, "hello"); debugger', {
+                plugins: [
+                    ['remove-debugger', removeDebugger],
+                    ['declare-undefined-variables', declare],
+                ],
+            });
         `],
-    
     invalid: [{
         code: montag`
             const a = [1, 2, 3, 4, 5];
         `,
-        
         output: montag`
             const a = [
             1,
@@ -59,7 +81,6 @@ ruleTester.run('array-element-newline', rule, {
              5
             ];
         `,
-        
         errors: [{
             message: 'Add newlines between array elements',
             type: 'ArrayExpression',
@@ -68,9 +89,7 @@ ruleTester.run('array-element-newline', rule, {
         code: montag`
             const a = ['a', 'b', 'c', 'd', 'e'];
         `,
-        
         output: `const a = [\n'a',\n 'b',\n 'c',\n 'd',\n 'e'\n];`,
-        
         errors: [{
             message: 'Add newlines between array elements',
             type: 'ArrayExpression',
@@ -79,13 +98,30 @@ ruleTester.run('array-element-newline', rule, {
         code: montag`
             const a = [a, b, c, d, e];
         `,
-        
         output: `const a = [\na,\n b,\n c,\n d,\n e\n];`,
-        
+        errors: [{
+            message: 'Add newlines between array elements',
+            type: 'ArrayExpression',
+        }],
+    }, {
+        code: montag`
+         module.exports.include = () => ['FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression'];
+     `,
+        output: `module.exports.include = () => [\n'FunctionDeclaration',\n 'FunctionExpression',\n 'ArrowFunctionExpression'\n];`,
+        errors: [{
+            message: 'Add newlines between array elements',
+            type: 'ArrayExpression',
+        }],
+    }, {
+        code: montag`
+            const a = {
+                "plugins": ["n", "putout"]
+            };
+     `,
+        output: 'const a = {\n    "plugins": [\n"n",\n "putout"\n]\n};',
         errors: [{
             message: 'Add newlines between array elements',
             type: 'ArrayExpression',
         }],
     }],
 });
-

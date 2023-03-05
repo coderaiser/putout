@@ -247,7 +247,10 @@ function RestElement(argument: Expression): RestElement;
 ```js
 const funny = animals;
 
-say(...['🐇', '🥕']);
+say(...[
+    '🐇',
+    '🥕',
+]);
 
 function say(...vegatables) {
 }

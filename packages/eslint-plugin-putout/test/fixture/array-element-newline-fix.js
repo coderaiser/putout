@@ -5,3 +5,9 @@ const a = [
     4,
     5,
 ];
+
+module.exports.include = () => [
+    'FunctionDeclaration',
+    'FunctionExpression',
+    'ArrowFunctionExpression',
+];

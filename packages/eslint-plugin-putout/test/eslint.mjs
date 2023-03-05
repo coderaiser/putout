@@ -138,9 +138,7 @@ test('eslint-plugin-putout: strict-mode', async ({process}) => {
     await process('strict-mode', {
         rules: {
             'putout/putout': ['error', {
-                ignore: [
-                    '!**/fixture',
-                ],
+                ignore: ['!**/fixture'],
                 rules: {
                     'remove-unused-expressions': 'on',
                 },
@@ -153,9 +151,7 @@ test('eslint-plugin-putout: esm-to-cjs', async ({process}) => {
     await process('esm-to-cjs', {
         rules: {
             'putout/putout': ['error', {
-                ignore: [
-                    '!**/fixture',
-                ],
+                ignore: ['!**/fixture'],
                 rules: {
                     'convert-esm-to-commonjs': 'on',
                 },
@@ -191,4 +187,3 @@ test('eslint-plugin-putout: multiple-properties-destructuring', async ({process}
 test('eslint-plugin-putout: remove-newline-between-declarations', async ({process}) => {
     await process('remove-newline-between-declarations');
 });
-

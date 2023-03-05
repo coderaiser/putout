@@ -6,7 +6,10 @@ module.exports.fix = (path) => {
     path.parentPath.remove();
 };
 
-module.exports.include = () => ['ObjectExpression', 'ArrayExpression'];
+module.exports.include = () => [
+    'ObjectExpression',
+    'ArrayExpression',
+];
 module.exports.filter = (path) => {
     const {parentPath, node} = path;
     const {properties, elements} = node;
