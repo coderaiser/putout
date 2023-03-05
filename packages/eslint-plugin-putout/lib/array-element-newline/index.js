@@ -82,7 +82,7 @@ function isShortValues(elements) {
 
 function isLongValues(elements) {
     for (const {type, value} of elements) {
-        if (type === 'Literal' && value.length > 25)
+        if (type === 'Literal' && isString(value) && value.includes(','))
             return true;
     }
     
