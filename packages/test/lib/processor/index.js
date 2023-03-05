@@ -55,6 +55,9 @@ const createProcess = (dir, options) => (operator) => async (filename, plugins, 
         }),
     );
     
+    if (isUpdate())
+        return operator.pass('fixtures updated');
+    
     return operator.equal(processedSource, output, 'fixtures should equal');
 };
 
@@ -120,7 +123,7 @@ async function process(filename, dir, {processors, plugins, extension, fix = tru
         processorRunners,
     });
     
-    if (isUpdate() && !noChange)
+    if (isUpdate() && !noChange && fix)
         await update(outputName, processedSource);
     
     return {
