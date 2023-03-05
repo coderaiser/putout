@@ -36,8 +36,8 @@ const defaultOpts = (opts = {}) => {
 
 module.exports = (source, opts) => {
     check(source);
-    
     opts = defaultOpts(opts);
+    
     const {
         parser,
         isTS,
@@ -45,8 +45,9 @@ module.exports = (source, opts) => {
         isJSX,
         sourceFileName,
         sourceMapName,
-        recast = opts.fix,
     } = opts;
+    
+    const recast = opts.recast ?? opts.fix;
     
     const [clearSource, shebang] = cutShebang(source);
     const ast = parse(clearSource, {

@@ -88,6 +88,50 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     t.end();
 });
 
+test('putout: cli: env: RECAST', async (t) => {
+    process.env.RECAST = 1;
+    
+    const argv = [
+        __filename,
+        '--no-config',
+        '--format',
+        'none',
+        '--no-ci',
+        '--no-cache',
+    ];
+    
+    const putout = stub().returns({
+        code: '',
+        places: [],
+    });
+    
+    mockRequire('../..', putout);
+    
+    reRequire('./process-file');
+    reRequire('./runner/runner.js');
+    
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+    });
+    
+    stopAll();
+    delete process.env.RECAST;
+    
+    reRequire('./process-file');
+    reRequire('./runner/runner.js');
+    reRequire('.');
+    
+    const [arg] = putout.args;
+    const [, options] = arg;
+    const {recast} = options;
+    
+    t.ok(recast);
+    t.end();
+});
+
 test('putout: cli: --raw: parse error', async (t) => {
     const logError = stub();
     const argv = [

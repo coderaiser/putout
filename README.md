@@ -143,6 +143,7 @@ Options:
    --match [pattern]           read '.putout.json' and convert 'rules' to 'match' according to 'pattern'
    --flow                      enable flow
    --fresh                     generate a fresh cache
+   --recast                    force putout to use recast to find transform places, useful when use babel plugins to make locations more accurate
    --no-config                 avoid reading '.putout.json'
    --no-ci                     disable the CI detection
    --no-cache                  disable the cache
@@ -2402,7 +2403,7 @@ const t = [];
 t.push(1);
 t.push(2);
 
-coderaiser@cloudcmd:~$ putout a.js -f codeframe
+coderaiser@cloudcmd:~$ RECAST=1 putout a.js -f codeframe
 /home/coderaiser/a.js:4:0
   2 | t.push(1);
   3 | t.push(2);

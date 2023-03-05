@@ -176,6 +176,7 @@ Options:
    --match [pattern]           read '.putout.json' and convert 'rules' to 'match' according to 'pattern'
    --flow                      enable flow
    --fresh                     generate a fresh cache
+   --recast                    force putout to use recast to find transform places, useful when use babel plugins to make locations more accurate
    --no-config                 avoid reading '.putout.json'
    --no-ci                     disable the CI detection
    --no-cache                  disable the cache
@@ -208,6 +209,9 @@ putout lib --plugins remove-debugger,remove-unused-variables
 - `PUTOUT_FILES` - files that should be processed by putout, divided by ",";
 - `PUTOUT_CONFIG_FILE` - path to 🐊**Putout** config file;
 - `ESLINT_CONFIG_FILE` - path to **ESLint** config file;
+- `NO_ESLINT` - do not run **ESLint** after 🐊**Putout**;
+- `NO_ESLINT_WARNINGS` - do not show **ESLint** warnings;
+- `RECAST` - force 🐊**Putout** to use [`@putout/recast`](https://github.com/putoutjs/recast) to `parse()` and `print()`, useful for Babel Plugins to make locations output more accurate.
 
 ```sh
 PUTOUT_FILES=lib,test putout --fix

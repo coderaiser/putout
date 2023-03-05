@@ -179,6 +179,7 @@ test('putout: getFiles: getSupportedGlob: call', async (t) => {
     
     fs.lstat = lstat;
     stopAll();
+    reRequire('./get-files');
     
     t.calledWith(getSupportedGlob, ['get-files']);
     t.end();
@@ -243,6 +244,7 @@ test('putout: getFiles: options', async (t) => {
     
     fs.lstat = lstat;
     stopAll();
+    reRequire('./get-files');
     
     t.calledWith(fastGlob, expected);
     t.end();
@@ -276,6 +278,7 @@ test('putout: getFiles: windows', async (t) => {
     
     fs.lstat = lstat;
     stopAll();
+    reRequire('./get-files');
     
     t.calledWith(fastGlob, expected);
     t.end();

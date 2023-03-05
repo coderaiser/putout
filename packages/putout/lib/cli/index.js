@@ -43,7 +43,11 @@ const {
 const getFormatter = memo(require('./formatter').getFormatter);
 
 const cwd = process.cwd();
-const {PUTOUT_FILES = ''} = process.env;
+const {
+    PUTOUT_FILES = '',
+    RECAST,
+} = process.env;
+
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
 const maybeFirst = (a) => isArray(a) ? a.pop() : a;
@@ -274,6 +278,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         write,
         transform,
         plugins,
+        recast: RECAST,
     };
     
     const {places, exited} = await run({
