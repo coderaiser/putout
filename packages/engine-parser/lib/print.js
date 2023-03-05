@@ -43,5 +43,6 @@ function canParse(source) {
     const [error] = tryCatch(parse, source, {
         isTS: true,
     });
+    
     return !error;
 }
