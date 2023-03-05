@@ -56,6 +56,8 @@ ruleTester.run('array-element-newline', rule, {
              const expected = [COMPUTED, 'debugger'];
         `, montag`
              const expected = [true, 'hello'];
+        `, montag`
+             const expected = ['Only one assertion per test allowed, looks like you have more', 'at'];
          `, montag`
              const statusMatrix = stub().returns([
                  ['packages/putout/lib/cli/index.js', 1, 2, 2],

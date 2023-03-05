@@ -54,6 +54,9 @@ module.exports.filter = ({text, node}) => {
     if (/Statement/.test(node.parent.type))
         return false;
     
+    if (isLongValues(node.elements))
+        return false;
+    
     if (node.elements.length < 5 && isShortValues(node.elements))
         return false;
     
@@ -75,6 +78,15 @@ function isShortValues(elements) {
     }
     
     return true;
+}
+
+function isLongValues(elements) {
+    for (const {type, value} of elements) {
+        if (type === 'Literal' && value.length > 25)
+            return true;
+    }
+    
+    return false;
 }
 
 function differentTypes({elements}) {
