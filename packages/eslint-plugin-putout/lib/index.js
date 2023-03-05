@@ -13,6 +13,7 @@ const getRule = (a) => ({
 const getWrapRule = (a) => ({
     [a]: createPlugin(require(`./${a}`)),
 });
+
 module.exports.rules = {
     ...getWrapRule('array-element-newline'),
     ...getWrapRule('single-property-destructuring'),
@@ -128,6 +129,7 @@ const safe = {
         }],
     },
 };
+
 module.exports.configs = {
     recommended,
     'jsx': jsx.jsx,

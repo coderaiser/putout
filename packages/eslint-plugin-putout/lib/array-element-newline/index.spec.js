@@ -10,6 +10,7 @@ const ruleTester = new RuleTester({
         sourceType: 'module',
     },
 });
+
 ruleTester.run('array-element-newline', rule, {
     valid: [`const a = ['a', 'b', 'c', 'd'];`, `const a = ['a', 'b', 'c', 'd',,,];`, montag`
             ['a', 'b', 'c', 'd', 'e'].map();

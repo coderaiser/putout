@@ -1,7 +1,6 @@
 'use strict';
 
 const {join} = require('path');
-
 const {readFileSync} = require('fs');
 
 const {RuleTester} = require('eslint');
@@ -12,7 +11,7 @@ const rule = createPlugin(require('.'));
 
 const ruleTester = new RuleTester({
     parserOptions: {
-        ecmaVersion: 2022,
+        ecmaVersion: 2023,
         sourceType: 'module',
     },
 });
@@ -22,6 +21,16 @@ const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), '
 ruleTester.run('add-newline-before-function-call', rule, {
     valid: [
         montag`
+            fn();
+            fn();
+            fn();
+        `,
+        montag`
+            const a = 5;
+            const b = 6;
+            
+            fn(a, b);
+    `, montag`
             test('hello: world', (t) => {
                 const a = 5;
                 twoStatements();
@@ -150,6 +159,13 @@ ruleTester.run('add-newline-before-function-call', rule, {
     }, {
         code: readFixture('before-newline'),
         output: readFixture('before-newline-fix'),
+        errors: [{
+            message: 'Add newline before expression',
+            type: 'CallExpression',
+        }],
+    }, {
+        code: readFixture('top-level'),
+        output: readFixture('top-level-fix'),
         errors: [{
             message: 'Add newline before expression',
             type: 'CallExpression',

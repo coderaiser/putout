@@ -13,6 +13,13 @@ test('putout: processor: html', async ({process}) => {
 
 test('putout: processor: html: css: no fix', async ({comparePlaces}) => {
     await comparePlaces('style', [{
+        message: 'Add newline before expression',
+        position: {
+            column: 1,
+            line: 13,
+        },
+        rule: 'putout/add-newline-before-function-call (eslint)',
+    }, {
         message: `'log' is not defined.`,
         position: {
             column: 1,

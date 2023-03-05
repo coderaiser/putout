@@ -39,6 +39,7 @@ Rule `remove-unused-variables` is enabled by default, to disable add to `.putout
 ```js
 const a = 'hello';
 const b = 'world';
+
 console.log(a);
 ```
 

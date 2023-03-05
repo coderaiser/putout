@@ -26,6 +26,7 @@ const isSupportedNode = (a) => {
     
     return false;
 };
+
 module.exports.filter = ({text, node}) => {
     if (isMemberExpression(node.parent))
         return false;
