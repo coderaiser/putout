@@ -131,6 +131,7 @@ function getInfo(memory) {
         rss: ${red(rss)}
         time: ${blueBright(calcTime())}
     
+    
     `;
 }
 
