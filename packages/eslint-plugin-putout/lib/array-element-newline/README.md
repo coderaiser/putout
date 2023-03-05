@@ -1,4 +1,4 @@
-# array-elements-newline
+# array-element-newline
 
 This rule aims to add newlines between array elements.
 It exists because [`array-element-newline`](https://eslint.org/docs/rules/array-element-newline) requires [`array-bracket-newline`](https://eslint.org/docs/rules/array-bracket-newline) which conflicts with [`object-braces-inside-array`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout/lib/objects-braces-inside-array#readme).
