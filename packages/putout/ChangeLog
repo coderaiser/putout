@@ -1,3 +1,34 @@
+2023.03.05, v28.19.0
+
+fix:
+- @putout/formatter-memory: add one more \n to output
+- @putout/formatter-memory: add \n in output
+- @putout/formatter-memory: drop comma
+- @putout/plugin-math: apply-numeric-separators: get back 5 digits min
+- @putout/engine-parser: print: switch to babel/generate only when recast break code
+- @putout/plugin-split-nested-destructuring: property instead of source
+
+feature:
+- putout: add --recast option
+- putout: add ability to avoid using recast when fix false
+- @putout/engine-parser: add ability to disable recast
+- eslint-plugin-putout: add-newline-before-function-call: add support of Program body
+- @putout/eslint: createPlugin: improve getSpacesBeforeNode: first node in Program body
+- @putout/test: processor: improve support of UPDATE
+- eslint-plugin-putout: add support of jsx
+- eslint-plugin-putout: array-element-newline: improve support of ArrayExpressions full of Literals with length < 5
+- @putout/test: formatMany: when UPDATE used pass
+- @putout/operate: replaceWith, replaceWithMultiple: improve handling of BlockStatement
+- @putout/formatter-memory: move out maybeZero
+- @putout/engine-parser: switch balanced brackets check to parse
+- @putout/test: when format used with UPDATE pass
+- @putout/formatter-memory: add support of time
+- @putout/plugin-math: apply-numeric-separators: exclude 1e9
+- @putout/engine-parser: try to use babel/generate, when recast produces broken code with additional brace (https://github.com/benjamn/recast/issues/1248)
+- @putout/operator-declare: rm dead code
+- @putout/plugin-promises: remove-useless-await: exclude optional chaining call
+- @putout/plugin-split-nested-destructuring: exclude cases where couple properties used
+
 2023.03.02, v28.18.0
 
 feature:
