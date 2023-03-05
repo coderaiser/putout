@@ -40,6 +40,8 @@ const fixture = readFixtures([
     'jsx',
     'babel-plugins',
     'babel-plugins-fix',
+    'no-recast',
+    'no-recast-fix',
 ]);
 
 test('putout: no vars', (t) => {
@@ -522,6 +524,7 @@ test('putout: babelPlugins: espree: shebang', (t) => {
 test('putout: babelPlugins: position: shebang', (t) => {
     const {places} = putout(fixture.babelPlugins, {
         fix: false,
+        recast: true,
         plugins: [
             'babel/transform-inline-consecutive-adds',
         ],
@@ -545,6 +548,7 @@ test('putout: babelPlugins: custom message', (t) => {
     const enabled = true;
     const {places} = putout(fixture.babelPlugins, {
         fix: false,
+        recast: true,
         rules: {
             'babel/transform-inline-consecutive-adds': [enabled, message],
         },
@@ -853,5 +857,19 @@ test('putout: no source', (t) => {
     const [error] = tryCatch(putout);
     
     t.equal(error.message, `☝️ Looks like 'source' has type 'undefined', expected: 'string'`);
+    t.end();
+});
+
+test('putout: recast: no', (t) => {
+    const {code} = putout(fixture.noRecast, {
+        recast: false,
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = fixture.noRecastFix;
+    
+    t.equal(code, expected);
     t.end();
 });

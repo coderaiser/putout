@@ -273,6 +273,7 @@ test('putout: loader: babelPlugins: espree: shebang', (t) => {
 test('putout: loader: babelPlugins: position: shebang', (t) => {
     const {places} = putout(fixture.babelPlugin, {
         fix: false,
+        recast: true,
         plugins: [
             'babel/transform-inline-consecutive-adds',
         ],
@@ -296,6 +297,7 @@ test('putout: loader: babelPlugins: custom message', (t) => {
     const enabled = true;
     const {places} = putout(fixture.babelPlugin, {
         fix: false,
+        recast: true,
         rules: {
             'babel/transform-inline-consecutive-adds': [enabled, message],
         },
@@ -322,6 +324,7 @@ test('putout: loader: babelPlugins: custom message: on', (t) => {
     const enabled = 'on';
     const {places} = putout(fixture.babelPlugin, {
         fix: false,
+        recast: true,
         rules: {
             'babel/transform-inline-consecutive-adds': [enabled, message],
         },
@@ -347,6 +350,7 @@ test('putout: loader: babelPlugins: no message: first options', (t) => {
     const message = 'transform inline consecutive adds';
     const {places} = putout(fixture.babelPlugin, {
         fix: false,
+        recast: true,
         rules: {
             'babel/transform-inline-consecutive-adds': [{}],
         },

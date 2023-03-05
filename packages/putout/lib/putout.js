@@ -45,6 +45,7 @@ module.exports = (source, opts) => {
         isJSX,
         sourceFileName,
         sourceMapName,
+        recast = opts.fix,
     } = opts;
     
     const [clearSource, shebang] = cutShebang(source);
@@ -54,6 +55,7 @@ module.exports = (source, opts) => {
         isTS,
         isFlow,
         isJSX,
+        recast,
     });
     
     const places = transform(ast, source, opts);
@@ -66,6 +68,7 @@ module.exports = (source, opts) => {
     
     const printed = print(ast, {
         sourceMapName,
+        recast,
     });
     const code = `${shebang}${printed}`;
     
@@ -94,6 +97,7 @@ function transform(ast, source, opts) {
         fixCount,
         loadPlugins,
         runPlugins,
+        recast = true,
     } = opts;
     
     const [, shebang] = cutShebang(source);
@@ -101,6 +105,7 @@ function transform(ast, source, opts) {
         pluginNames,
         cache,
         rules,
+        recast,
     });
     
     const places = runPlugins({
