@@ -187,3 +187,16 @@ test('eslint-plugin-putout: multiple-properties-destructuring', async ({process}
 test('eslint-plugin-putout: remove-newline-between-declarations', async ({process}) => {
     await process('remove-newline-between-declarations');
 });
+
+test('eslint-plugin-putout: jsx-parens', async ({process}) => {
+    await process('jsx-parens', {
+        extends: ['plugin:putout/jsx'],
+    });
+});
+
+test('eslint-plugin-putout: jsx-parens: ts', async ({process}) => {
+    await process('jsx-parens-ts', {
+        extends: ['plugin:putout/jsx'],
+    });
+});
+

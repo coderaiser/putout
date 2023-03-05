@@ -3,6 +3,7 @@
 const parserOpts = require('@putout/engine-parser/babel/options');
 const parserPlugins = require('@putout/engine-parser/babel/plugins');
 const [ts, tsx] = require('./ts');
+const {jsx} = require('./jsx');
 
 const commonRules = {
     'no-undef': 'off',
@@ -38,20 +39,35 @@ const parserOptions = {
 };
 
 module.exports = [{
-    files: ['*.md{js}', '*.md{jsx}'],
+    files: ['*.md{js}'],
     rules: commonRules,
     parser: '@babel/eslint-parser/experimental-worker',
     parserOptions,
 }, {
+    files: ['*.md{jsx}'],
+    rules: {
+        ...commonRules,
+        ...jsx.rules,
+    },
+    plugins: jsx.plugins,
+    parser: '@babel/eslint-parser/experimental-worker',
+    parserOptions,
+}, {
     ...tsx,
+    ...jsx,
     files: '*.md{tsx}',
     rules: {
         ...commonRules,
         ...ts.rules,
+        ...jsx.rules,
         '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-inferrable-types': 'off',
     },
+    plugins: [
+        ...tsx.plugins,
+        ...jsx.plugins,
+    ],
 }, {
     ...ts,
     files: '*.md{ts}',

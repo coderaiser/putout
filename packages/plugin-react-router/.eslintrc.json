@@ -1,16 +1,4 @@
 {
-    "overrides": [{
-        "files": "*.md{js}",
-        "parser": "@babel/eslint-parser",
-        "parserOptions": {
-            "requireConfigFile": false,
-            "babelOptions": {
-                "presets": [
-                    "@babel/preset-react"
-                ]
-            }
-        }
-    }],
     "extends": [
         "plugin:n/recommended",
         "plugin:putout/recommended"

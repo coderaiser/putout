@@ -51,6 +51,7 @@
     "@typescript-eslint/parser": "^5.4.0",
     "align-spaces": "^1.0.0",
     "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-react": "^7.32.2",
     "try-catch": "^3.0.0",
     "typescript": "^4.5.2"
   },

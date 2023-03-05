@@ -1,6 +1,8 @@
 'use strict';
 
 const {rules} = require('@putout/eslint-config');
+const jsx = require('./jsx');
+
 const warnOnUnsupportedTypeScriptVersion = false;
 
 const extensionRules = {
@@ -91,6 +93,7 @@ const ts = {
 module.exports = [
     ts, {
         ...ts,
+        ...jsx.jsx,
         files: '*.tsx',
         parserOptions: {
             warnOnUnsupportedTypeScriptVersion,

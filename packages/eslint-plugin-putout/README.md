@@ -21,12 +21,8 @@ Add `putout` to the plugins section of your `.eslintrc.json` configuration file.
 
 ```json
 {
-    "extends": [
-        "plugin:putout/recommended"
-    ],
-    "plugins": [
-        "putout"
-    ]
+    "extends": ["plugin:putout/recommended"],
+    "plugins": ["putout"]
 }
 ```
 
@@ -123,12 +119,8 @@ When using 🐊**Putout** in IDE with `--fix` on save, or when you want to disab
 
 ```json
 {
-    "extends": [
-        "plugin:putout/safe"
-    ],
-    "plugins": [
-        "putout"
-    ]
+    "extends": ["plugin:putout/safe"],
+    "plugins": ["putout"]
 }
 ```
 
@@ -162,16 +154,28 @@ Disabled 🐊**Putout** rules:
 
 When you want to enable ability to align spaces on empty lines, while have all benefits of `safe` preset: use `safe+align`.
 
+### jsx
+
+When you need to support `jsx` in files using `js` extension,  use:
+
+```json
+{
+    "extends": [
+        "plugin:putout/jsx"
+    ],
+    "plugins": [
+        "putout"
+    ]
+}
+```
+
 ## Flat
 
 The time is came for a [FlatConfig](https://eslint.org/blog/2022/08/new-config-system-part-2/). To use it with `eslint-plugin-putout` add to `eslint.config.js`:
 
 ```js
 const {recommended} = require('eslint-plugin-putout/config');
-module.exports = [
-    ...recommended, {
-    },
-];
+module.exports = [...recommended, {}];
 ```
 
 `safe` and `safeAlign` supported as well.

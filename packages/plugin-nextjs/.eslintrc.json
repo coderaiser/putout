@@ -1,21 +1,4 @@
 {
-    "overrides": [{
-        "files": "*.md{js}",
-        "parser": "@babel/eslint-parser",
-        "parserOptions": {
-            "requireConfigFile": false,
-            "babelOptions": {
-                "presets": [
-                    "@babel/preset-react"
-                ]
-            }
-        }
-    }],
-    "rules": {
-        "indent": "off",
-        "react/jsx-one-expression-per-line": "error",
-        "react/jsx-indent": "error"
-    },
     "extends": [
         "plugin:n/recommended",
         "plugin:putout/recommended"

@@ -6,15 +6,13 @@ const json = require('./json');
 const yaml = require('./yaml');
 const html = require('./html');
 const ts = require('./ts');
-
+const jsx = require('./jsx');
 const getRule = (a) => ({
     [a]: require(`./${a}`),
 });
-
 const getWrapRule = (a) => ({
     [a]: createPlugin(require(`./${a}`)),
 });
-
 module.exports.rules = {
     ...getWrapRule('array-element-newline'),
     ...getWrapRule('single-property-destructuring'),
@@ -50,17 +48,14 @@ module.exports.rules = {
     ...getRule('remove-empty-newline-after-import'),
     ...getRule('remove-empty-newline-between-declarations'),
 };
-
 const config = require('@putout/eslint-config');
 const {rules} = config;
-
 const recommended = {
     ...config,
     rules: {
         ...rules,
         'no-debugger': 'off',
         'no-unused-vars': 'off',
-        
         'putout/array-element-newline': 'error',
         'putout/single-property-destructuring': 'error',
         'putout/multiple-properties-destructuring': 'error',
@@ -94,24 +89,14 @@ const recommended = {
         'putout/tape-remove-newline-before-t-end': 'error',
         'putout/nonblock-statement-body-newline': 'error',
         'putout/putout': 'error',
-        
         'n/no-unsupported-features/es-syntax': 'off',
         'n/no-missing-import': 'off',
         'n/no-missing-require': 'off',
         'n/no-process-exit': 'off',
     },
-    overrides: [
-        ...markdown,
-        ...json,
-        ...yaml,
-        ...html,
-        ...ts,
-    ],
-    plugins: [
-        'n',
-    ],
+    overrides: [...markdown, ...json, ...yaml, ...html, ...ts, ...jsx],
+    plugins: ['n'],
 };
-
 const safe = {
     ...recommended,
     rules: {
@@ -143,9 +128,9 @@ const safe = {
         }],
     },
 };
-
 module.exports.configs = {
     recommended,
+    'jsx': jsx.jsx,
     safe,
     'safe+align': {
         ...safe,
@@ -155,4 +140,3 @@ module.exports.configs = {
         },
     },
 };
-

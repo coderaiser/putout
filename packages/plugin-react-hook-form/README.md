@@ -96,11 +96,11 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/8493358f36c00
 
 ```jsx
 const a = <Controller
-  as={CustomInput}
-  valueName="textValue"
-  onChangeName="onTextChange"
-  control={control}
-  name="test"
+    as={CustomInput}
+    valueName="textValue"
+    onChangeName="onTextChange"
+    control={control}
+    name="test"
 />;
 ```
 
@@ -108,9 +108,9 @@ const a = <Controller
 
 ```jsx
 const a = <Controller
-  render={({onChange, onBlur, value}) => <CustomInput onTextChange={onChange} onBlur={onBlur} textValue={value} />}
-  control={control}
-  name="test" />;
+    render={({onChange, onBlur, value}) => <CustomInput onTextChange={onChange} onBlur={onBlur} textValue={value} />}
+    control={control}
+    name="test" />;
 ```
 
 ## v6-convert-form-context-to-form-provider
@@ -147,9 +147,9 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/ff41e995b958c
 import {useForm} from 'react-hook-form';
 
 const {
- register,
- triggerValidation,
- errors,
+    register,
+    triggerValidation,
+    errors,
 } = useForm();
 triggerValidation();
 ```
@@ -160,9 +160,9 @@ triggerValidation();
 import {useForm} from 'react-hook-form';
 
 const {
- register,
- trigger,
- errors,
+    register,
+    trigger,
+    errors,
 } = useForm();
 trigger();
 ```
@@ -178,12 +178,12 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/5a578777e666c
 import {TextInput} from 'react-native';
 
 const a = <Controller
-  as={<TextInput style={{borderWidth: 2, borderColor: 'black'}} />}
-  name="text"
-  control={(args) => ({
-    value: args[0].nativeEvent.text,
-  })}
-  onChange={onChange}
+    as={<TextInput style={{borderWidth: 2, borderColor: 'black'}} />}
+    name="text"
+    control={(args) => ({
+        value: args[0].nativeEvent.text,
+    })}
+    onChange={onChange}
 />;
 
 ```
@@ -194,10 +194,10 @@ const a = <Controller
 import {TextInput} from 'react-native';
 
 const a = <Controller
-  as={<TextInput style={{borderWidth: 2, borderColor: 'black'}} />}
-  name="text"
-  control={(args) => args[0].nativeEvent.text}
-  onChange={onChange}
+    as={<TextInput style={{borderWidth: 2, borderColor: 'black'}} />}
+    name="text"
+    control={(args) => args[0].nativeEvent.text}
+    onChange={onChange}
 />;
 ```
 
