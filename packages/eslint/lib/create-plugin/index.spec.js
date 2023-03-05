@@ -60,6 +60,31 @@ test('@putout/eslint: create-plugin: createGetSpacesBeforeNode', (t) => {
     t.end();
 });
 
+test('@putout/eslint: create-plugin: createGetSpacesBeforeNode: first', (t) => {
+    const getText = stub().returns('hello');
+    const fn = createGetSpaceBeforeNode({
+        getText,
+    });
+    
+    const body = [];
+    const node = {
+        parent: {
+            body,
+        },
+    };
+    
+    body.push({
+        expression: node,
+    });
+    
+    const result = fn(node, {
+        text: 'hello',
+    });
+    
+    t.equal(result, '');
+    t.end();
+});
+
 test('@putout/eslint: create-plugin: createGetSpacesAfterNode', (t) => {
     const getText = stub().returns('hello');
     const fn = createGetSpacesAfterNode({

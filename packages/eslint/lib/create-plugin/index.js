@@ -108,6 +108,9 @@ const createGetSpacesBeforeNode = ({getText}) => (node, text = getText(node)) =>
     let spaces = '';
     let i = 0;
     
+    if (node === node.parent?.body?.[0].expression)
+        return '';
+    
     while (!spaces || /^[ \n]+$/.test(spaces))
         spaces = getText(node, ++i)
             .replace(text, '');
