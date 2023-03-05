@@ -6,7 +6,7 @@ const {isBlockStatement} = types;
 module.exports.report = () => `Use 'noop()'`;
 
 module.exports.exclude = () => [
-    'const noop = () => {}',
+    'const __a = () => {}',
 ];
 
 module.exports.match = () => ({

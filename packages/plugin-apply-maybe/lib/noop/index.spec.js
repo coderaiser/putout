@@ -20,3 +20,8 @@ test('plugin-apply-maybe: noop: no transform', (t) => {
     t.noTransform('declared');
     t.end();
 });
+
+test('plugin-apply-maybe: noop: no transform: declaration', (t) => {
+    t.noTransform('declaration');
+    t.end();
+});
