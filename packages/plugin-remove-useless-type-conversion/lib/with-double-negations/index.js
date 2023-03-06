@@ -2,6 +2,8 @@
 
 module.exports.report = () => `Avoid using double negations in conditions`;
 
+module.exports.filter = ({parentPath}) => !parentPath.isJSXExpressionContainer();
+
 module.exports.replace = () => ({
     'if (!!__a) __b': 'if (__a) __b',
     '!!__a ? __b : __c': '__a ? __b : __c',
