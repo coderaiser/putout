@@ -48,7 +48,7 @@
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {
-    "putout": ">=25"
+    "putout": ">=29"
   },
   "license": "MIT",
   "engines": {

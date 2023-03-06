@@ -22,13 +22,14 @@ const {
     Identifier,
     isIdentifier,
     isObjectExpression,
+    isMemberExpression,
 } = types;
 
 module.exports.report = () => 'Move require on top level';
 
 module.exports.match = () => ({
     [TEST]: ({__b}) => !isIdentifier(__b),
-    [TRANSFORM]: ({__b}) => !isIdentifier(__b) && !isObjectExpression(__b),
+    [TRANSFORM]: ({__b}) => !isIdentifier(__b) && !isObjectExpression(__b) && !isMemberExpression(__b),
 });
 
 module.exports.replace = () => ({

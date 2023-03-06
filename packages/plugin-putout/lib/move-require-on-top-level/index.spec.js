@@ -27,6 +27,11 @@ test('plugin-putout: move-require-on-top-level: no transform: top-level', (t) =>
     t.end();
 });
 
+test('plugin-putout: move-require-on-top-level: no transform: member-expression', (t) => {
+    t.noTransform('member-expression');
+    t.end();
+});
+
 test('plugin-putout: move-require-on-top-level: no transform: not-require', (t) => {
     t.noTransform('not-require');
     t.end();
