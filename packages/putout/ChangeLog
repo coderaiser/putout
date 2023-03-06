@@ -1,3 +1,12 @@
+2023.03.06, v29.0.0
+
+feature:
+- package: @putout/plugin-merge-destructuring-properties v7.0.0
+- @putout/plugin-merge-destructuring-properties: drop support of 🐊 < 28
+- @putout/plugin-merge-destructuring-properties: drop support of node < 16
+- @putout/plugin-merge-destructuring-properties: exclude ObjectPattern with RestElement
+- @putout/plugin-math: apply-numeric-separators: exclude float
+
 2023.03.06, v28.19.2
 
 feature:
