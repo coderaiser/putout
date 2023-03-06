@@ -29,10 +29,18 @@ ruleTester.run('single-property-destructuring', rule, {
             } from './user.js';
         `,
         montag`
+                const {
+            //  parentPath,
+                node,
+            } = path;
+        `, montag`
+            const noop = () => {};
+            
             const {
-        //  parentPath,
-            node,
-        } = path;
+                c4 = {
+                    init: noop,
+                },
+            } = options;
         `,
     ],
     

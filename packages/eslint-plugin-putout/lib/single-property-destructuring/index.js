@@ -9,6 +9,7 @@ const {
     isRestElement,
     isImportDeclaration,
     isVariableDeclarator,
+    isAssignmentPattern,
 } = types;
 
 const NewLinesReg = /([\s,]+)?\n(\s+)?/g;
@@ -41,8 +42,15 @@ module.exports.filter = ({node, text, getText, getCommentsInside}) => {
     if (AssignRegExp.test(parentText))
         return false;
     
-    if (isVariableDeclarator(node) && /(const|let|var) {\n/.test(parentText))
+    if (isVariableDeclarator(node) && /(const|let|var) {\n/.test(parentText)) {
+        const [property] = node.id.properties;
+        const {value} = property;
+        
+        if (isAssignmentPattern(value))
+            return false;
+        
         return true;
+    }
     
     return false;
 };
