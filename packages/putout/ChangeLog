@@ -1,3 +1,11 @@
+2023.03.06, v29.0.1
+
+feature:
+- eslint-plugin-putout: single-property-destructuring: exclude AssignmentPattern used as value of ObjectPatterns Property
+- package: @putout/plugin-putout v12.0.0
+- @putout/plugin-putout: drop support of 🐊 < 29
+- @putout/plugin-declare: renamed from @putout/plugin-declare-undefined-variables
+
 2023.03.06, v29.0.0
 
 feature:
