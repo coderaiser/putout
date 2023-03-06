@@ -6,7 +6,10 @@ const {
 } = require('putout');
 
 const {compare} = operator;
-const {isObjectPattern} = types;
+const {
+    isObjectPattern,
+    isRestElement,
+} = types;
 const notEmptyPlaces = (a) => a.places.length;
 
 module.exports.report = () => 'Object properties should be merged when destructuring';
@@ -38,6 +41,11 @@ module.exports.traverse = ({push, store}) => {
             
             if (!isObjectPattern(id))
                 return;
+            
+            for (const property of id.properties) {
+                if (isRestElement(property))
+                    return;
+            }
             
             add(path, init);
         },
