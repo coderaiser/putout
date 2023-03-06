@@ -42,27 +42,27 @@ test('plugin-remove-useless-type-conversion: with-double-negations: transform: c
     t.end();
 });
 
-test('plugin-remove-useless-type-conversin: with-double-negations: transform: includes', (t) => {
+test('plugin-remove-useless-type-conversions: with-double-negations: transform: includes', (t) => {
     t.transform('includes');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversin: with-double-negations: transform: while', (t) => {
+test('plugin-remove-useless-type-conversions: with-double-negations: transform: while', (t) => {
     t.transform('while');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversin: with-double-negations: transform: do', (t) => {
+test('plugin-remove-useless-type-conversions: with-double-negations: transform: do', (t) => {
     t.transform('do');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversin: with-double-negations: transform: for', (t) => {
+test('plugin-remove-useless-type-conversions: with-double-negations: transform: for', (t) => {
     t.transform('for');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversin: with-double-negations: no transform: return', (t) => {
+test('plugin-remove-useless-type-conversions: with-double-negations: no transform: return', (t) => {
     t.noTransform('return');
     t.end();
 });
