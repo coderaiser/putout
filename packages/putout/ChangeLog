@@ -1,3 +1,13 @@
+2023.03.06, v28.19.2
+
+feature:
+- package: @putout/plugin-remove-useless-type-conversion v3.0.0
+- @putout/plugin-remove-useless-type-conversion: drop support of 🐊 < 28
+- @putout/plugin-remove-useless-type-conversion: with-double-negations: exclude jsx expressions
+- eslint-plugin-putout: array-element-newline: 30 characters -> includes ","
+- eslint-plugin-putout: array-element-newline: exclude to long lines with lots of spaces
+- @putout/plugin-apply-maybe: avoid transforming declarations
+
 2023.03.05, v28.19.1
 
 fix:
