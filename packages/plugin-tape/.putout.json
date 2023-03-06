@@ -1,7 +1,7 @@
 {
     "match": {
         "README.md": {
-            "declare-undefined-variables": "off",
+            "declare": "off",
             "regexp/apply-literal-notation": "off"
         }
     }

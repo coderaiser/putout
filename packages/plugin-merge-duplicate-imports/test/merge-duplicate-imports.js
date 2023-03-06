@@ -1,16 +1,15 @@
 'use strict';
 
 const {operator} = require('putout');
-const declareUndefinedVariables = require('@putout/plugin-declare-undefined-variables');
-
+const declare = require('@putout/plugin-declare');
+const tape = require('@putout/plugin-tape');
 const {createTest} = require('@putout/test');
-const {declare} = require('@putout/plugin-tape').rules;
 
 const mergeDebugger = require('..');
 
+const {remove} = operator;
 const noop = () => {};
 
-const {remove} = operator;
 const test = createTest(__dirname, {
     'merge-duplicate-imports': mergeDebugger,
 });
@@ -32,7 +31,7 @@ test('merge duplicate imports: transform: couple-defaults', (t) => {
 
 test('merge duplicate imports: transform: tape: declare', (t) => {
     t.transform('tape', {
-        'tape/declare': declare,
+        'tape/declare': tape.rules.declare,
     });
     t.end();
 });
@@ -49,7 +48,7 @@ test('merge duplicate imports: no transform: namespace', (t) => {
 
 test('merge duplicate imports: transform: declare', (t) => {
     t.transform('declare', {
-        'declare-undefined-variables': declareUndefinedVariables,
+        declare,
     });
     t.end();
 });

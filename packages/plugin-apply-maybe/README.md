@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-maybe.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-apply-maybe"npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with `maybe` monad. Depends on [`@putout/declare-undefined-variables`](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables#readme).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with `maybe` monad. Depends on [`@putout/declare`](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare#readme).
 
 ## Install
 

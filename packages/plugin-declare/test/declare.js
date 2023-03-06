@@ -6,94 +6,94 @@ const declareUndefinedVariables = require('..');
 const montag = require('montag');
 
 const test = createTest(__dirname, {
-    'declare-undefined-variables': declareUndefinedVariables,
+    declare: declareUndefinedVariables,
 });
 
-test('putout: plugin: declare-undefined-variables: report: assign', (t) => {
+test('putout: plugin: declare: report: assign', (t) => {
     t.report('assign', `Declare 'assign'`);
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: transform: assign', (t) => {
+test('putout: plugin: declare: transform: assign', (t) => {
     t.transform('assign');
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: transform: is-array', (t) => {
+test('putout: plugin: declare: transform: is-array', (t) => {
     t.transform('is-array');
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: transform: keys', (t) => {
+test('putout: plugin: declare: transform: keys', (t) => {
     t.transform('keys');
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: transform: values', (t) => {
+test('putout: plugin: declare: transform: values', (t) => {
     t.transform('values');
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: transform: assign-dismiss', (t) => {
+test('putout: plugin: declare: transform: assign-dismiss', (t) => {
     t.noTransformWithOptions('assign-dismiss', {
         dismiss: ['assign', 'stringify'],
     });
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: transform: parse', (t) => {
+test('putout: plugin: declare: transform: parse', (t) => {
     t.transformWithOptions('parse', {
         dismiss: ['assign', 'stringify'],
     });
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: no report after transform: assign', (t) => {
+test('putout: plugin: declare: no report after transform: assign', (t) => {
     t.noReportAfterTransform('assign');
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: object', (t) => {
+test('putout: plugin: declare: object', (t) => {
     t.transform('object');
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: putout', (t) => {
+test('putout: plugin: declare: putout', (t) => {
     t.transform('putout');
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: is-type', (t) => {
+test('putout: plugin: declare: is-type', (t) => {
     t.transform('is-type');
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: maybe', (t) => {
+test('putout: plugin: declare: maybe', (t) => {
     t.transform('maybe');
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: currify', (t) => {
+test('putout: plugin: declare: currify', (t) => {
     t.transform('currify');
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: wraptile', (t) => {
+test('putout: plugin: declare: wraptile', (t) => {
     t.transform('wraptile');
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: wrap', (t) => {
+test('putout: plugin: declare: wrap', (t) => {
     t.transform('wrap');
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: fresh-import', (t) => {
+test('putout: plugin: declare: fresh-import', (t) => {
     t.transform('fresh-import');
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: noop', (t) => {
+test('putout: plugin: declare: noop', (t) => {
     t.transformCode('noop();', montag`
         const noop = () => {};
         noop();
@@ -101,7 +101,7 @@ test('putout: plugin: declare-undefined-variables: noop', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: eslint', (t) => {
+test('putout: plugin: declare: eslint', (t) => {
     t.transformCode('eslint();', montag`
         import eslint from 'putout/eslint';
         eslint();
@@ -109,7 +109,7 @@ test('putout: plugin: declare-undefined-variables: eslint', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: once', (t) => {
+test('putout: plugin: declare: once', (t) => {
     t.transformCode('once();', montag`
         import once from 'once';
         once();
@@ -117,7 +117,7 @@ test('putout: plugin: declare-undefined-variables: once', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: options-declarations', (t) => {
+test('putout: plugin: declare: options-declarations', (t) => {
     t.transformWithOptions('options-declarations', {
         declarations: {
             custom: `const custom= require('custom')`,
@@ -126,7 +126,7 @@ test('putout: plugin: declare-undefined-variables: options-declarations', (t) =>
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: pipe', (t) => {
+test('putout: plugin: declare: pipe', (t) => {
     t.transformCode('await pipe([stream]);', montag`
         import pipe from 'pipe-io';
         await pipe([stream]);
@@ -134,7 +134,7 @@ test('putout: plugin: declare-undefined-variables: pipe', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: pullout', (t) => {
+test('putout: plugin: declare: pullout', (t) => {
     t.transformCode('await pullout(stream);', montag`
         import pullout from 'pullout';
         await pullout(stream);
@@ -142,7 +142,7 @@ test('putout: plugin: declare-undefined-variables: pullout', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: simport: commonjs', (t) => {
+test('putout: plugin: declare: simport: commonjs', (t) => {
     t.transformCode(`await simport('fs');`, montag`
         import {createSimport} from 'simport';
         const simport = createSimport(__filename);
@@ -151,7 +151,7 @@ test('putout: plugin: declare-undefined-variables: simport: commonjs', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: simport: esm', (t) => {
+test('putout: plugin: declare: simport: esm', (t) => {
     t.transformCode(`import {readFile} from 'fs'; await simport('fs');`, montag`
         import {readFile} from 'fs';
         import {createSimport} from 'simport';
@@ -161,7 +161,7 @@ test('putout: plugin: declare-undefined-variables: simport: esm', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: returns', (t) => {
+test('putout: plugin: declare: returns', (t) => {
     t.transformCode(`returns('hello');`, montag`
         const returns = a => () => a;
         returns('hello');
@@ -169,12 +169,12 @@ test('putout: plugin: declare-undefined-variables: returns', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: readFixture', (t) => {
+test('putout: plugin: declare: readFixture', (t) => {
     t.transform(`fixtures`);
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: chalk', (t) => {
+test('putout: plugin: declare: chalk', (t) => {
     t.transformCode(`chalk.red('hello');`, montag`
         import chalk from 'chalk';
         chalk.red('hello');
@@ -182,7 +182,7 @@ test('putout: plugin: declare-undefined-variables: chalk', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: table', (t) => {
+test('putout: plugin: declare: table', (t) => {
     t.transformCode(`table(data);`, montag`
         import table from 'table';
         table(data);
@@ -190,7 +190,7 @@ test('putout: plugin: declare-undefined-variables: table', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare-undefined-variables: fullstore', (t) => {
+test('putout: plugin: declare: fullstore', (t) => {
     t.transformCode(`fullstore(data);`, montag`
         import fullstore from 'fullstore';
         fullstore(data);

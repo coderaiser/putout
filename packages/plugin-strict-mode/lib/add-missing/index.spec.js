@@ -2,7 +2,7 @@
 
 const {createTest} = require('@putout/test');
 const nodejs = require('@putout/plugin-nodejs');
-const declare = require('@putout/plugin-declare-undefined-variables');
+const declare = require('@putout/plugin-declare');
 const add = require('.');
 
 const test = createTest(__dirname, {

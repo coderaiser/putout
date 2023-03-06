@@ -37,7 +37,7 @@ function evaluate({value, filename}) {
         plugins: [
             'nodejs',
             'convert-esm-to-commonjs',
-            'declare-undefined-variables',
+            'declare',
         ],
     });
     

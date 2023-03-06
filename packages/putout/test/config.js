@@ -96,7 +96,7 @@ test('putout: config: markdown', (t) => {
         'remove-constant-conditions': 'off',
         'remove-console': 'off',
         'remove-unreachable-code': 'off',
-        'declare-undefined-variables': 'off',
+        'declare': 'off',
         'nodejs/declare': 'off',
         'typescript/remove-unused-types': 'off',
     };

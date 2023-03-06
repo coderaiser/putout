@@ -67,7 +67,7 @@ ruleTester.run('array-element-newline', rule, {
             putout('isFn(fn, "hello"); debugger', {
                 plugins: [
                     ['remove-debugger', removeDebugger],
-                    ['declare-undefined-variables', declare],
+                    ['declare', declare],
                 ],
             });
         `],

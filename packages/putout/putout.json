@@ -42,7 +42,7 @@
             "remove-constant-conditions": "off",
             "remove-console": "off",
             "remove-unreachable-code": "off",
-            "declare-undefined-variables": "off",
+            "declare": "off",
             "nodejs/declare": "off",
             "typescript/remove-unused-types": "off"
         },
@@ -97,7 +97,7 @@
             "typescript": "on"
         },
         "*.d.ts": {
-            "declare-undefined-variables": "off"
+            "declare": "off"
         }
     },
     "ignore": [
@@ -223,7 +223,7 @@
         "merge-if-statements",
         "declare-imports-first",
         "declare-before-reference",
-        "declare-undefined-variables",
+        "declare",
         "strict-mode",
         "math",
         "putout",

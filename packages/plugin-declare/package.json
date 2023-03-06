@@ -1,10 +1,10 @@
 {
-  "name": "@putout/plugin-declare-undefined-variables",
-  "version": "8.0.0",
+  "name": "@putout/plugin-declare",
+  "version": "1.0.2",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout plugin adds ability to declare undefined variables",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables#readme",
+  "description": "🐊Putout plugin adds ability to declare variables",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-declare#readme",
   "main": "lib/index.js",
   "commitType": "colon",
   "release": false,
@@ -46,7 +46,7 @@
     "supertape": "^8.0.0"
   },
   "peerDependencies": {
-    "putout": ">=28"
+    "putout": ">=29"
   },
   "license": "MIT",
   "engines": {

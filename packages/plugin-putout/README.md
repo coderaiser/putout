@@ -444,7 +444,7 @@ This is additional tests, if you forget to test some case (from a big list of ru
 ## declare
 
 Depends on [@putout/convert-esm-to-commonjs](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-esm-to-commonjs#readme) and
-[@putout/declare-undefined-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables#readme).
+[@putout/declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare#readme).
 
 ### ❌ Example of incorrect code
 

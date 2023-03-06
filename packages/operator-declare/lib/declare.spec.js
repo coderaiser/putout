@@ -13,7 +13,7 @@ test('putout: operator: declare: declare', (t) => {
     
     const {code} = putout('const {compare} = operator;', {
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
         ],
     });
     
@@ -33,7 +33,7 @@ test('putout: operator: declare: declare: spread', (t) => {
     
     const {code} = putout('const a = [...maybeArray(b)];', {
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
         ],
     });
     
@@ -62,7 +62,7 @@ test('putout: operator: declare: declare: variable', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
         ],
     });
     
@@ -100,7 +100,7 @@ test('putout: operator: declare: cache', (t) => {
     
     const {code: secondAttempt} = putout(source, {
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
             'merge-duplicate-imports',
         ],
     });
@@ -136,7 +136,7 @@ test('putout: operator: declare: strict mode', (t) => {
     
     const {code: secondAttempt} = putout(source, {
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
             'merge-duplicate-imports',
         ],
     });
@@ -527,7 +527,7 @@ test('putout: operator: declare: imports order', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
         ],
     });
     
@@ -555,7 +555,7 @@ test('putout: operator: declare: vars order', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
         ],
     });
     
@@ -618,7 +618,7 @@ test('putout: operator: declare: local import', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
         ],
     });
     
@@ -650,13 +650,13 @@ test('putout: operator: declare: couple imports', (t) => {
     
     let {code} = putout(source, {
         plugins: [
-            ['declare-undefined-variables', declare(declarations1)],
+            ['declare', declare(declarations1)],
         ],
     });
     
     ({code} = putout(code, {
         plugins: [
-            ['declare-undefined-variables', declare(declarations2)],
+            ['declare', declare(declarations2)],
         ],
     }));
     
@@ -687,7 +687,7 @@ test('putout: operator: declare: couple consts', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['declare-undefined-variables', declare(declarations1)],
+            ['declare', declare(declarations1)],
         ],
     });
     
@@ -719,7 +719,7 @@ test('putout: operator: declare: merge', (t) => {
         plugins: [
             'merge-destructuring-properties',
             'convert-esm-to-commonjs',
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
         ],
     });
     
@@ -749,7 +749,7 @@ test('putout: operator: declare: ts', (t) => {
         fix: false,
         isTS: true,
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
         ],
     });
     
@@ -775,7 +775,7 @@ test('putout: operator: declare: TSParameterProperty', (t) => {
         fix: false,
         isTS: true,
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
         ],
     });
     
@@ -799,7 +799,7 @@ test('putout: operator: declare: TSFunctionType', (t) => {
         fix: false,
         isTS: true,
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
         ],
     });
     
@@ -823,7 +823,7 @@ test('putout: operator: declare: TSDeclareMethod', (t) => {
         fix: false,
         isTS: true,
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
         ],
     });
     
@@ -845,7 +845,7 @@ test('putout: operator: declare: TSDeclareFunction', (t) => {
         fix: false,
         isTS: true,
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
         ],
     });
     
@@ -871,7 +871,7 @@ test('putout: operator: declare: export type: TSTypeAliasDeclaration', (t) => {
         fix: false,
         isTS: true,
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
         ],
     });
     
@@ -898,7 +898,7 @@ test('putout: operator: declare: export type: get while find', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['declare-undefined-variables', declare(declarations)],
+            ['declare', declare(declarations)],
             'convert-esm-to-commonjs',
             'tape',
         ],

@@ -462,7 +462,7 @@ test('putout: runner: replace: watermark: when function used', (t) => {
         runPlugins,
         plugins: [
             'convert-esm-to-commonjs',
-            'declare-undefined-variables',
+            'declare',
             'putout',
         ],
     });

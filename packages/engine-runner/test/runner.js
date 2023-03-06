@@ -875,7 +875,7 @@ test('putout: runner: fix: crawl', (t) => {
     const {code} = putout(source, {
         runPlugins,
         plugins: [
-            'declare-undefined-variables',
+            'declare',
             'merge-duplicate-imports',
         ],
     });

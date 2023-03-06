@@ -1,7 +1,7 @@
-# @putout/plugin-declare-undefined-variables [![NPM version][NPMIMGURL]][NPMURL]
+# @putout/plugin-declare [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-declare-undefined-variables.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-declare-undefined-variables"npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-declare.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-declare "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to declare variable that was not defined before, including:
 
@@ -23,7 +23,7 @@
 ## Install
 
 ```
-npm i putout @putout/plugin-declare-undefined-variables -D
+npm i putout @putout/plugin-declare -D
 ```
 
 Add `.putout.json` with:
@@ -31,7 +31,7 @@ Add `.putout.json` with:
 ```json
 {
     "plugins": {
-        "declare-undefined-variables": "on"
+        "declare": "on"
     }
 }
 ```
@@ -46,7 +46,7 @@ Use options:
 ```json
 {
     "rules": {
-        "declare-undefined-variables": ["on", {
+        "declare": ["on", {
             "declarations": {
                 "hello": "import {hello} from 'world'"
             },

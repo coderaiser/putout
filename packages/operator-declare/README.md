@@ -47,7 +47,7 @@ Plugin supports options, so you can pass it in `.putout.json`:
 ```json
 {
     "rules": {
-        "putout/declare-undefined-variables": ["on", {
+        "putout/declare": ["on", {
             "declarations": {
                 "fs": "import fs from 'fs/promises'"
             }
@@ -61,7 +61,7 @@ If for some reason you don't need some kind of declaration, add `dismiss` field 
 ```json
 {
     "rules": {
-        "putout/declare-undefined-variables": ["on", {
+        "putout/declare": ["on", {
             "declarations": {
                 "fs": "import fs from 'fs/promises'"
             },
@@ -75,7 +75,7 @@ If for some reason you don't need some kind of declaration, add `dismiss` field 
 
 ### Used in
 
-- ✅ [declare-undefined-variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-undefined-variables#readme)
+- ✅ [declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare#readme)
 - ✅ [tape/declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-tape#declare)
 - ✅ [putout/declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-putout#declare)
 
@@ -86,7 +86,7 @@ Can be used with **ESLint's** [putout/evaluate](https://github.com/coderaiser/pu
 ```json
 {
     "rules": {
-        "putout/declare-undefined-variables": ["on", {
+        "putout/declare": ["on", {
             "declarations": {
                 "superMethod": "import superMethod from '__putout_evaluate: join(`./`, basename(__filename), `.js`)'"
             }

@@ -192,12 +192,12 @@ When you need to run 🐊**Putout** in [**Deno**](https://deno.land/), use [`@pu
 ```js
 import putout from 'https://esm.sh/@putout/bundle';
 import removeDebugger from 'https://esm.sh/@putout/plugin-remove-debugger?alias=putout:@putout/bundle';
-import declare from 'https://esm.sh/@putout/plugin-declare-undefined-variables?alias=putout:@putout/bundle';
+import declare from 'https://esm.sh/@putout/plugin-declare?alias=putout:@putout/bundle';
 
 putout('isFn(fn, "hello"); debugger', {
     plugins: [
         ['remove-debugger', removeDebugger],
-        ['declare-undefined-variables', declare],
+        ['declare', declare],
     ],
 });
 // returns
@@ -1943,7 +1943,7 @@ It has a lot plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-declare-undefined-variables`](/packages/plugin-declare-undefined-variables#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare-undefined-variables.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare-undefined-variables) |
+| [`@putout/plugin-declare`](/packages/plugin-declare#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare) |
 | [`@putout/plugin-declare-imports-first`](/packages/plugin-declare-imports-first#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare-imports-first.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare-imports-first) |
 | [`@putout/plugin-declare-before-reference`](/packages/plugin-declare-before-reference#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare-before-reference.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare-before-reference) |
 
