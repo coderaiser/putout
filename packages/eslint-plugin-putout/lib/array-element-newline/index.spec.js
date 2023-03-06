@@ -12,7 +12,14 @@ const ruleTester = new RuleTester({
 });
 
 ruleTester.run('array-element-newline', rule, {
-    valid: [`const a = ['a', 'b', 'c', 'd'];`, `const a = ['a', 'b', 'c', 'd',,,];`, montag`
+    valid: [
+        montag`
+            const a = [1, 2, 3, 'pipe'];
+        `, montag`
+            const a = ['a', 'b', 'c', 'd'];
+        `, montag` 
+            const a = ['a', 'b', 'c', 'd',,,];
+        `, montag`
             ['a', 'b', 'c', 'd', 'e'].map();
         `, montag`
             const a = [{

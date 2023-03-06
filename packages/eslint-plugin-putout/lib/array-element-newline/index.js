@@ -9,6 +9,7 @@ const {
 
 const isString = (a) => typeof a === 'string';
 const isBool = (a) => typeof a === 'boolean';
+const isNumber = (a) => typeof a === 'number';
 
 module.exports.category = 'array';
 module.exports.report = () => 'Add newlines between array elements';
@@ -94,6 +95,7 @@ function differentTypes({elements}) {
     let hasIdentifier = false;
     let hasBool = false;
     let hasStr = false;
+    let hasNumber = false;
     
     for (const {type, value} of elements) {
         if (type === 'Literal') {
@@ -105,7 +107,13 @@ function differentTypes({elements}) {
             if (isBool(value))
                 hasBool = true;
             
+            if (isNumber(value))
+                hasNumber = true;
+            
             if (hasStr && hasBool)
+                return true;
+            
+            if (hasStr && hasNumber)
                 return true;
         }
         
