@@ -125,7 +125,7 @@
     "@putout/plugin-npmignore": "^2.0.0",
     "@putout/plugin-package-json": "^4.0.0",
     "@putout/plugin-promises": "^9.0.0",
-    "@putout/plugin-putout": "^11.0.0",
+    "@putout/plugin-putout": "^12.0.0",
     "@putout/plugin-putout-config": "^2.0.0",
     "@putout/plugin-regexp": "^6.0.0",
     "@putout/plugin-remove-boolean-from-assertions": "^1.0.0",
