@@ -24,6 +24,9 @@ module.exports.traverse = ({push}) => ({
         if (raw.includes('_'))
             return;
         
+        if (raw.includes('.'))
+            return;
+        
         push(path);
     },
 });
