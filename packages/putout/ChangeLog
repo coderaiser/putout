@@ -1,3 +1,9 @@
+2023.03.07, v29.0.2
+
+feature:
+- e4e4435b3 @putout/plugin-maybe: renamed from @putout/plugin-apply-maybe
+- be39dd68a eslint-plugin-putout: array-element-newline: exclude arrays with string and number
+
 2023.03.06, v29.0.1
 
 feature:
