@@ -1,6 +1,6 @@
 {
     "rules": {
-        "apply-maybe/noop": "off"
+        "maybe/noop": "off"
     },
     "match": {
         ".madrun.*": {

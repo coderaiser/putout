@@ -1,6 +1,6 @@
 {
     "rules": {
         "eslint/remove-no-unpublished-require": "off",
-        "apply-maybe/noop": "off"
+        "maybe/noop": "off"
     }
 }

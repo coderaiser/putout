@@ -29,7 +29,7 @@
             "remove-empty/import": "off"
         },
         "*.md": {
-            "apply-maybe": "off",
+            "maybe": "off",
             "convert-quotes-to-backticks": "off",
             "convert-comparison-to-boolean": "off",
             "remove-unused-expressions": "off",
@@ -147,10 +147,10 @@
         "apply-if-condition",
         "apply-comparison-order",
         "apply-template-literals",
-        "apply-maybe",
         "extract-object-properties",
         "extract-sequence-expressions",
         "madrun",
+        "maybe",
         "webpack",
         "eslint",
         "package-json",

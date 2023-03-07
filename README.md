@@ -1847,7 +1847,6 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-apply-early-return`](/packages/plugin-apply-early-return#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-early-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-early-return) |
 | [`@putout/plugin-apply-comparison-order`](/packages/plugin-apply-comparison-order#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-comparison-order.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-comparison-order) |
 | [`@putout/plugin-apply-template-literals`](/packages/plugin-apply-template-literals#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-template-literals.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-template-literals) |
-| [`@putout/plugin-apply-maybe`](/packages/plugin-apply-maybe#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-maybe.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-maybe) |
 
 ### Splitters
 
@@ -1947,26 +1946,6 @@ It has a lot plugins divided by groups:
 | [`@putout/plugin-declare-imports-first`](/packages/plugin-declare-imports-first#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare-imports-first.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare-imports-first) |
 | [`@putout/plugin-declare-before-reference`](/packages/plugin-declare-before-reference#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-declare-before-reference.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-declare-before-reference) |
 
-### Not bundled
-
-Next packages not bundled with 🐊**Putout** but can be installed separately.
-
-| Package | Version |
-|--------|-------|
-| [`@putout/plugin-react-hooks`](/packages/plugin-react-hooks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-react-hooks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-react-hooks) |
-| [`@putout/plugin-react-hook-form`](/packages/plugin-react-hook-form#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-react-hook-form.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-react-hook-form) |
-| [`@putout/plugin-nextjs`](/packages/plugin-nextjs#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-nextjs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-nextjs) |
-| [`@putout/plugin-react-router`](/packages/plugin-react-router#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-react-router.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-react-router) |
-| [`@putout/plugin-convert-is-nan-to-number-is-nan`](/packages/plugin-convert-is-nan-to-number-is-nan#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-is-nan-to-number-is-nan.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-is-nan-to-number-is-nan) |
-| [`@putout/plugin-convert-spread-to-array-from`](/packages/plugin-convert-spread-to-array-from#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-spread-to-array-from.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-spread-to-array-from) |
-| [`@putout/plugin-apply-shorthand-properties`](/packages/plugin-apply-shorthand-properties#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-shorthand-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-shorthand-properties) |
-| [`@putout/plugin-apply-nullish-coalescing`](/packages/plugin-apply-nullish-coalescing#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-nullish-coalescing.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-nullish-coalescing) |
-| [`@putout/plugin-cloudcmd`](/packages/plugin-cloudcmd#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-cloudcmd.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-cloudcmd) |
-| [`@putout/plugin-postcss`](/packages/plugin-postcss#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-postcss.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-postcss) |
-| [`@putout/plugin-jest`](/packages/plugin-jest#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-jest.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-jest) |
-| [`@putout/plugin-travis`](/packages/plugin-travis#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-travis.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-travis) |
-| [`@putout/plugin-convert-throw`](/packages/plugin-convert-throw#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-throw.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-throw) |
-
 ### Groups
 
 | Package | Version |
@@ -1990,6 +1969,7 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 | [`@putout/plugin-typescript`](/packages/plugin-typescript#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-typescript.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-typescript) |
 | [`@putout/plugin-try-catch`](/packages/plugin-try-catch#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-try-catch.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-try-catch) |
 | [`@putout/plugin-montag`](/packages/plugin-montag#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-montag.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-montag) |
+| [`@putout/plugin-maybe`](/packages/plugin-maybe#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-maybe.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-maybe) |
 | [`@putout/plugin-new`](/packages/plugin-new#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-new.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-new) |
 | [`@putout/plugin-logical-expressions`](/packages/plugin-logical-expressions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-logical-expressions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-logical-expressions) |
 
@@ -2005,6 +1985,26 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-reuse-duplicate-init`](/packages/plugin-reuse-duplicate-init#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-reuse-duplicate-init.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-reuse-duplicate-init) |
+
+### Not bundled
+
+Next packages not bundled with 🐊**Putout** but can be installed separately.
+
+| Package | Version |
+|--------|-------|
+| [`@putout/plugin-react-hooks`](/packages/plugin-react-hooks#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-react-hooks.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-react-hooks) |
+| [`@putout/plugin-react-hook-form`](/packages/plugin-react-hook-form#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-react-hook-form.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-react-hook-form) |
+| [`@putout/plugin-nextjs`](/packages/plugin-nextjs#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-nextjs.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-nextjs) |
+| [`@putout/plugin-react-router`](/packages/plugin-react-router#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-react-router.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-react-router) |
+| [`@putout/plugin-convert-is-nan-to-number-is-nan`](/packages/plugin-convert-is-nan-to-number-is-nan#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-is-nan-to-number-is-nan.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-is-nan-to-number-is-nan) |
+| [`@putout/plugin-convert-spread-to-array-from`](/packages/plugin-convert-spread-to-array-from#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-spread-to-array-from.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-spread-to-array-from) |
+| [`@putout/plugin-apply-shorthand-properties`](/packages/plugin-apply-shorthand-properties#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-shorthand-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-shorthand-properties) |
+| [`@putout/plugin-apply-nullish-coalescing`](/packages/plugin-apply-nullish-coalescing#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-nullish-coalescing.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-nullish-coalescing) |
+| [`@putout/plugin-cloudcmd`](/packages/plugin-cloudcmd#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-cloudcmd.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-cloudcmd) |
+| [`@putout/plugin-postcss`](/packages/plugin-postcss#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-postcss.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-postcss) |
+| [`@putout/plugin-jest`](/packages/plugin-jest#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-jest.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-jest) |
+| [`@putout/plugin-travis`](/packages/plugin-travis#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-travis.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-travis) |
+| [`@putout/plugin-convert-throw`](/packages/plugin-convert-throw#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-throw.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-throw) |
 
 ## 🦚 Formatters
 

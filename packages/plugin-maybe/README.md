@@ -1,14 +1,14 @@
-# @putout/plugin-apply-maybe [![NPM version][NPMIMGURL]][NPMURL]
+# @putout/plugin-maybe [![NPM version][NPMIMGURL]][NPMURL]
 
-[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-apply-maybe.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-apply-maybe"npm"
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-maybe.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-maybe"npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with `maybe` monad. Depends on [`@putout/declare`](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare#readme).
 
 ## Install
 
 ```
-npm i @putout/plugin-apply-maybe -D
+npm i @putout/plugin-maybe -D
 ```
 
 ## Rules
@@ -16,9 +16,10 @@ npm i @putout/plugin-apply-maybe -D
 ```json
 {
     "rules": {
-        "apply-maybe/array": "on",
-        "apply-maybe/empty-array": "on",
-        "apply-maybe/fn": "on"
+        "maybe/array": "on",
+        "maybe/empty-array": "on",
+        "maybe/fn": "on",
+        "maybe/noop": "on"
     }
 }
 ```

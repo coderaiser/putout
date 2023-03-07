@@ -83,7 +83,7 @@ test('putout: config: markdown', (t) => {
     const {match} = putoutConfig;
     const result = match['*.md'];
     const expected = {
-        'apply-maybe': 'off',
+        'maybe': 'off',
         'convert-quotes-to-backticks': 'off',
         'convert-comparison-to-boolean': 'off',
         'remove-unused-expressions': 'off',

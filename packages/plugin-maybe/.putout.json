@@ -1,7 +1,7 @@
 {
     "match": {
         "*.md{js}": {
-            "apply-maybe": "off"
+            "maybe": "off"
         }
     }
 }

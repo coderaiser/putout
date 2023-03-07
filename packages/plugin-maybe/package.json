@@ -1,10 +1,10 @@
 {
-  "name": "@putout/plugin-apply-maybe",
-  "version": "1.2.0",
+  "name": "@putout/plugin-maybe",
+  "version": "1.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin applies Maybe monad",
-  "homepage": "https://github.com/coderaiser/apply-maybe/tree/master/packages/plugin-apply-maybe#readme",
+  "homepage": "https://github.com/coderaiser/maybe/tree/v28.19.2/packages/plugin-maybe#readme",
   "main": "lib/index.js",
   "commitType": "colon",
   "release": false,
@@ -12,7 +12,7 @@
   "changelog": false,
   "repository": {
     "type": "git",
-    "url": "git://github.com/coderaiser/apply-maybe.git"
+    "url": "git://github.com/coderaiser/maybe.git"
   },
   "scripts": {
     "wisdom": "madrun wisdom",
@@ -27,10 +27,10 @@
   },
   "dependencies": {},
   "keywords": [
+    "putout-plugin",
     "putout",
-    "apply-maybe-plugin",
     "plugin",
-    "apply-maybe"
+    "maybe"
   ],
   "devDependencies": {
     "@putout/test": "^5.0.0",
@@ -44,7 +44,7 @@
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {
-    "putout": ">=28"
+    "putout": ">=29"
   },
   "license": "MIT",
   "engines": {
