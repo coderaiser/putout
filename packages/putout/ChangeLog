@@ -1,3 +1,10 @@
+2023.03.08, v29.0.4
+
+feature:
+- 5492a6459 (package) @putout/plugin-math v2.0.0
+- d46d5778a @putout/plugin-math: drop support of 🐊 < 29
+- 0e789e6d9 @putout/plugin-math: apply-numeric-separators: exclude octal
+
 2023.03.08, v29.0.3
 
 feature:
