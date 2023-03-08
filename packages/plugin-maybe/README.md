@@ -19,7 +19,8 @@ npm i @putout/plugin-maybe -D
         "maybe/array": "on",
         "maybe/empty-array": "on",
         "maybe/fn": "on",
-        "maybe/noop": "on"
+        "maybe/noop": "on",
+        "maybe/declare": "on"
     }
 }
 ```
@@ -83,6 +84,22 @@ const fn = f || (() => {});
 ```js
 const noop = () => {};
 const fn = fn || noop;
+```
+
+## declare
+
+### ❌ Example of incorrect code
+
+```js
+const fn = maybeFn(f);
+```
+
+### ✅ Example of correct code
+
+```js
+const noop = () => {};
+const maybeFn = isFn(a) ? a : noop;
+const fn = maybeFn(f);
 ```
 
 ## License

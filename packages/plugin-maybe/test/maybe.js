@@ -26,3 +26,8 @@ test('plugin-maybe: transform: noop', (t) => {
     t.transform('noop');
     t.end();
 });
+
+test('plugin-maybe: transform: declare', (t) => {
+    t.transform('declare');
+    t.end();
+});

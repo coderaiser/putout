@@ -9,5 +9,6 @@ module.exports.rules = {
     ...getRule('empty-array'),
     ...getRule('fn'),
     ...getRule('noop'),
+    ...getRule('declare'),
 };
 
