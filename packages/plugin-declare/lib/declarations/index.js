@@ -2,7 +2,6 @@
 
 const object = require('./object');
 const isType = require('./is-type');
-const maybe = require('./maybe');
 const wrap = require('./wrap');
 const freshImport = require('./fresh-import');
 const fixtures = require('./fixtures');
@@ -10,7 +9,6 @@ const fixtures = require('./fixtures');
 module.exports = {
     ...object,
     ...isType,
-    ...maybe,
     ...wrap,
     ...freshImport,
     ...fixtures,

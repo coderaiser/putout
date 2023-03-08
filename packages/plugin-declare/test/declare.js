@@ -68,11 +68,6 @@ test('putout: plugin: declare: is-type', (t) => {
     t.end();
 });
 
-test('putout: plugin: declare: maybe', (t) => {
-    t.transform('maybe');
-    t.end();
-});
-
 test('putout: plugin: declare: currify', (t) => {
     t.transform('currify');
     t.end();
