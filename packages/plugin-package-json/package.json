@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin for package.json",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-package-json#readme",
   "main": "lib/index.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -42,7 +41,7 @@
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {
-    "putout": ">=25"
+    "putout": ">=29"
   },
   "license": "MIT",
   "engines": {
