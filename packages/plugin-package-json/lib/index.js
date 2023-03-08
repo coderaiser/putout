@@ -5,7 +5,8 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
-    ...getRule('remove-nyc'),
     ...getRule('add-type'),
+    ...getRule('remove-nyc'),
+    ...getRule('remove-commit-type'),
 };
 
