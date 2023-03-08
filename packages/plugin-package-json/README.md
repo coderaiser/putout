@@ -87,6 +87,7 @@ File `.nycrc.json`:
 ## remove-commit-type
 
 Since 🎁**Wisdom** [v14](https://github.com/coderaiser/wisdom/releases/tag/v14.0.0) `commitType` set to `colon` be default, so it can be dropped from `package.json` if it's value not `paren`:
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/eb12c902c8e99effc91ae44119d625d7/8e60d60b2c2e7bb28ca5b2eba61715a062ac5319).
 
 ```diff
 {
