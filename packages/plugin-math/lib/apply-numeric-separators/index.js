@@ -27,6 +27,9 @@ module.exports.traverse = ({push}) => ({
         if (raw.includes('.'))
             return;
         
+        if (raw.includes('o'))
+            return;
+        
         push(path);
     },
 });
