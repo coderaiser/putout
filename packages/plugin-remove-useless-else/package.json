@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability use apply early return",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-else#readme",
   "main": "lib/remove-useless-else.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

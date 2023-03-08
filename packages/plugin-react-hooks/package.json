@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability convert class components to hooks",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-react-hooks#readme",
   "main": "lib/react-hooks.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

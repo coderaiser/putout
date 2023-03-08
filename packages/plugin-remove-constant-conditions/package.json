@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to find and remove test.constant-conditions calls",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-constant-conditions#readme",
   "main": "lib/remove-constant-conditions.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

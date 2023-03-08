@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to find and remove unreferenced variables",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unreferenced-variables#readme",
   "main": "lib/remove-unreferenced-variables.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability move declarations before references",
   "homepage": "http://github.com/coderaiser/putout/tree/master/packages/plugin-declare-before-reference#readme",
   "main": "lib/declare-before-reference.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

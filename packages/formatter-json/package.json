@@ -5,7 +5,6 @@
   "description": "🐊Putout formatter output json on end",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-json#readme",
   "main": "lib/json.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

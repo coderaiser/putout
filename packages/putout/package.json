@@ -6,7 +6,6 @@
   "description": "🐊 Pluggable and configurable code transformer with built-in ESLint, Babel and support of js, jsx, typescript, flow, markdown, yaml and json",
   "homepage": "http://github.com/coderaiser/putout#readme",
   "main": "./lib/putout.js",
-  "commitType": "colon",
   "exports": {
     ".": {
       "require": "./lib/putout.js",

@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to find and remove useless template string",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-template-to-string#readme",
   "main": "lib/convert-template-to-string.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

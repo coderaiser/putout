@@ -6,7 +6,6 @@
   "description": "handle keypress",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-keypress#readme",
   "main": "lib/keypress.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

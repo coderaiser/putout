@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('putout: plugin-package-json: remove-commit-type: report', (t) => {
-    t.report('commit-type', `Remove 'commitType=colon' field of 'package.json', it's colon by default`);
+    t.report('commit-type', `Remove 'commitType=colon' field of 'package.json', it is 'colon' by default`);
     t.end();
 });
 

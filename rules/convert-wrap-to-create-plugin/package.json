@@ -6,7 +6,6 @@
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to convert 'wrap()' to 'createPlugin()'",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/convert-wrap-to-create-plugin#readme",
-  "commitType": "colon",
   "main": "lib/convert-wrap-to-create-plugin.js",
   "release": false,
   "tag": false,

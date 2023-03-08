@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin for transforming TypeScript code ",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-typescript#readme",
   "main": "lib/index.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

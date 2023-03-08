@@ -1,7 +1,6 @@
 {
   "name": "root",
   "private": true,
-  "commitType": "colon",
   "scripts": {
     "test": "madrun test",
     "test:inspect": "madrun test:inspect",

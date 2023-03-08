@@ -6,7 +6,6 @@
   "repository": "coderaiser/babel-plugin-putout",
   "author": "Coderaiser <coderaiser@cloudcmd.io>",
   "main": "lib/index.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

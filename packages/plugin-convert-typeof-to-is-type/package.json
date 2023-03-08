@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to convert typeof to is type",
   "homepage": "http://github.com/coderaiser/putout/tree/master/packages/plugin-convert-typeof-to-is-type#readme",
   "main": "lib/convert-typeof-to-is-type.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

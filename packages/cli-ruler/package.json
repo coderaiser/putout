@@ -5,7 +5,6 @@
   "description": "toggle rules in .putout.json",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-ruler#readme",
   "main": "lib/index.js",
-  "commitType": "colon",
   "type": "module",
   "release": false,
   "tag": false,

@@ -23,7 +23,6 @@
   ],
   "author": "coderaiser",
   "main": "lib/index.js",
-  "commitType": "colon",
   "scripts": {
     "wisdom": "madrun wisdom",
     "test": "madrun test",

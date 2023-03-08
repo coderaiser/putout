@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to declare variables",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-declare#readme",
   "main": "lib/index.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

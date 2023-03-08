@@ -6,7 +6,6 @@
   "description": "🐊Putout processor adds ability to lint ignore",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-ignore#readme",
   "main": "lib/ignore.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

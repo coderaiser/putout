@@ -6,7 +6,6 @@
   "description": "🐊Putout engine processor runner",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/engine-processor#readme",
   "main": "lib/processor.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

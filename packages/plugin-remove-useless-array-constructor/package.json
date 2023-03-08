@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to remove useless Array constructor",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-array-constructor#readme",
   "main": "lib/remove-useless-array-constructor.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

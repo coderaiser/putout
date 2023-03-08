@@ -6,7 +6,6 @@
   "description": "compare AST-nodes according to 🦎 PutoutScript",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/compare#readme",
   "main": "lib/compare.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

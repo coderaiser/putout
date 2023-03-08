@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to apply 'flatMap()'",
   "homepage": "http://github.com/coderaiser/putout/tree/master/packages/plugin-apply-flat-map#readme",
   "main": "lib/apply-flat-map.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

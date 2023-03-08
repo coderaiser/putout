@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to remove useless constructor",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-constructor#readme",
   "main": "lib/remove-useless-constructor.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

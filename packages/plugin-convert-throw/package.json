@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to convert throw statement into throw expression",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-throw#readme",
   "main": "lib/convert-throw.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

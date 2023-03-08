@@ -6,7 +6,6 @@
   "description": "Wrapper that simplifies ESLint API and makes it compatible with 🐊Putout",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/eslint#readme",
   "main": "./lib/eslint.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

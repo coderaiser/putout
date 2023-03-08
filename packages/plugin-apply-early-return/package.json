@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability use apply early return",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-early-return#readme",
   "main": "lib/apply-early-return.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

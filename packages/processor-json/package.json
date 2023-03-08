@@ -6,7 +6,6 @@
   "description": "🐊Putout processor adds ability to lint json",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-json#readme",
   "main": "lib/json.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

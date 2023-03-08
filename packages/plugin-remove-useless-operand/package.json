@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to remove useless operand",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-operand#readme",
   "main": "lib/remove-useless-operand.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,
