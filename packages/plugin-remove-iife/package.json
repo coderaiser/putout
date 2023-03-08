@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to find and remove iife",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-iife#readme",
   "main": "lib/remove-iife.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

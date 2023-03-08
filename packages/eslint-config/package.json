@@ -6,7 +6,6 @@
   "description": "🐊Putout config for ESLint",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/eslint-config#readme",
   "main": "./eslintrc.js",
-  "commitType": "colon",
   "exports": "./eslintrc.js",
   "release": false,
   "tag": false,

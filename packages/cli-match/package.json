@@ -5,7 +5,6 @@
   "description": "convert \"rules\" section to \"match\" in .putout.json",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-match#readme",
   "main": "lib/match.js",
-  "commitType": "colon",
   "type": "module",
   "release": false,
   "tag": false,

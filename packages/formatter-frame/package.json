@@ -5,7 +5,6 @@
   "description": "🐊Putout formatter shows progress and codeframe at the end",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-frame#readme",
   "main": "lib/frame.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

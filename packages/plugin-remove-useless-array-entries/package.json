@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to remove useless array.entries()",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-array-entries#readme",
   "main": "lib/remove-useless-array-entries.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

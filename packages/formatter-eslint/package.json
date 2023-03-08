@@ -5,7 +5,6 @@
   "description": "🐊Putout formatter for using ESLint formatters",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-eslint#readme",
   "main": "lib/eslint.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

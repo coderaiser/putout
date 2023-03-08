@@ -6,7 +6,6 @@
   "description": "The cache of Places found by 🐊Putout",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-cache#readme",
   "main": "lib/cache.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

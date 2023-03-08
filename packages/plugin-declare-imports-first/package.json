@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to declare imports first",
   "homepage": "http://github.com/coderaiser/putout/tree/master/packages/plugin-declare-imports-first#readme",
   "main": "lib/declare-imports-first.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

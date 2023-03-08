@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin helps with migration to latest postcss",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-postcss#readme",
   "main": "lib/index.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

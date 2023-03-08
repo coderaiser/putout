@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin applies Maybe monad",
   "homepage": "https://github.com/coderaiser/maybe/tree/v28.19.2/packages/plugin-maybe#readme",
   "main": "lib/index.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

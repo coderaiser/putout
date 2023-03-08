@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin helps with .npmignore",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-npmignore#readme",
   "main": "lib/npmignore.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

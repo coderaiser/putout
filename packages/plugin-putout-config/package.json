@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin helps to maintain putout config",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-putout-config#readme",
   "main": "lib/index.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

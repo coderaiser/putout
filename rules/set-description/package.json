@@ -7,7 +7,6 @@
   "homepage": "https://github.com/coderaiser/putout/tree/master/rules/set-description#readme",
   "description": "🐊Putout plugin adds ability to set description",
   "main": "lib/set-description.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

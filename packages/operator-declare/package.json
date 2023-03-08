@@ -6,7 +6,6 @@
   "description": "🐊Putout operator adds ability to declare referenced variables that was not defined",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-declare#readme",
   "main": "lib/declare.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

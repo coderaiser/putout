@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to find and remove unreachable code",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-unreachable-code#readme",
   "main": "lib/remove-unreachable-code.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

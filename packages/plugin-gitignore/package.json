@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin helps with .gitignore",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-gitignore#readme",
   "main": "lib/gitignore.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to migrate to latest version of Next.js",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-nextjs#readme",
   "main": "lib/nextjs.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

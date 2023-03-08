@@ -6,7 +6,6 @@
   "description": "🐊Putout processor adds ability to parse wasm files and lint js *.wast files",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-wasm#readme",
   "main": "lib/wasm.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

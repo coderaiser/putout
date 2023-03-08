@@ -5,7 +5,6 @@
   "description": "🐊Putout formatter shows memory usage",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/formatter-memory#readme",
   "main": "lib/memory.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

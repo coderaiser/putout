@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to merge duplicate-imports",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-merge-duplicate-imports#readme",
   "main": "lib/merge-duplicate-imports.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

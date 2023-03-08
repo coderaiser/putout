@@ -16,9 +16,22 @@ npm i @putout/plugin-package-json -D
 ```json
 {
     "rules": {
+        "package-json/add-type": "on",
         "package-json/remove-nyc": "on",
-        "package-json/add-type": "on"
+        "package-json/remove-commit-type": "on"
     }
+}
+```
+
+## add-type
+
+Add [`type`](https://nodejs.org/dist/latest-v17.x/docs/api/packages.html#type) field to `package.json`:
+
+```diff
+{
+    "name": "hello",
+    "version": "1.0.0",
++   "type": "commonjs"
 }
 ```
 
@@ -71,15 +84,15 @@ File `.nycrc.json`:
 }
 ```
 
-## add-type
+## remove-commit-type
 
-Add [`type`](https://nodejs.org/dist/latest-v17.x/docs/api/packages.html#type) field to `package.json`:
+Since 🎁**Wisdom** [v14](https://github.com/coderaiser/wisdom/releases/tag/v14.0.0) `commitType` set to `colon` be default, so it can be dropped from `package.json` if it's value not `paren`:
 
 ```diff
 {
     "name": "hello",
     "version": "1.0.0",
-+   "type": "commonjs"
+    "commitType": "colon"
 }
 ```
 

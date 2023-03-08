@@ -6,7 +6,6 @@
   "description": "🐊Putout plugin adds ability to apply template literals",
   "homepage": "http://github.com/coderaiser/putout/tree/master/packages/plugin-apply-template-literals#readme",
   "main": "lib/apply-template-literals.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

@@ -6,7 +6,6 @@
   "description": "🐊Putout processor adds ability to parse markdown files and lint JavaScript, JSX, TypeScript and JSON snippets",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-markdown#readme",
   "main": "./lib/markdown.js",
-  "commitType": "colon",
   "exports": {
     ".": "./lib/markdown.js",
     "./parse-store": "./lib/parse-store.js"

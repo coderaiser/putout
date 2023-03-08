@@ -6,7 +6,6 @@
   "description": "🐊Putout operator adds ability to add args to referenced variables that was not defined",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/operator-add-args#readme",
   "main": "lib/add-args.js",
-  "commitType": "colon",
   "release": false,
   "tag": false,
   "changelog": false,

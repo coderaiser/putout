@@ -22,3 +22,8 @@ test('putout: plugin-package-json: remove-nyc: add-type', (t) => {
     t.end();
 });
 
+test('putout: plugin-package-json: remove-nyc: remove-commit-type', (t) => {
+    t.transform('remove-commit-type');
+    t.end();
+});
+
