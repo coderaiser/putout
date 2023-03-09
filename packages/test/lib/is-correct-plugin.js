@@ -10,12 +10,16 @@ module.exports = (plugin) => {
         include,
         exclude,
         replace,
+        declare,
     } = plugin;
     
     const isFix = isFn(fix);
     const isReplace = isFn(replace);
     
     if (isReplace)
+        return true;
+    
+    if (isFn(declare))
         return true;
     
     if (!isFix)

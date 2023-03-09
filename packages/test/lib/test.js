@@ -438,6 +438,7 @@ function preTest(test, plugin) {
         replace,
         filter,
         match,
+        declare,
     }] = entries(plugin).pop();
     
     const options = {
@@ -461,10 +462,11 @@ function preTest(test, plugin) {
         return;
     }
     
-    test(`${name}: report: is function`, (t) => {
-        t.equal(typeof report, 'function', 'should export "report" function');
-        t.end();
-    }, options);
+    if (!declare)
+        test(`${name}: report: is function`, (t) => {
+            t.equal(typeof report, 'function', 'should export "report" function');
+            t.end();
+        }, options);
     
     test(`${name}: plugins should be of type: replace, template, traverse or find`, (t) => {
         const result = isCorrectPlugin({
@@ -479,9 +481,11 @@ function preTest(test, plugin) {
             filter,
             match,
             replace,
+            
+            declare,
         });
         
-        t.ok(result, 'should export "replace", "find", "traverse", "include", "exclude" function');
+        t.ok(result, 'should export "replace", "find", "traverse", "include", "exclude", or "declare" function');
         t.end();
     }, options);
 }

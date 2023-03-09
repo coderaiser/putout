@@ -78,3 +78,14 @@ test('test: isCorrectPlugin: replace + match', (t) => {
     t.ok(result);
     t.end();
 });
+
+test('test: isCorrectPlugin: declare', (t) => {
+    const result = isCorrectPlugin({
+        declare: () => ({
+            isString: `const isString = (a) => typeof a === 'string'`,
+        }),
+    });
+    
+    t.ok(result);
+    t.end();
+});
