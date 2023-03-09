@@ -882,7 +882,7 @@ import esbuild from 'esbuild';
 
 </details>
 
-<details><summary>declare undefined <code>variables</code></summary>
+<details><summary>declare <code>variables</code></summary>
 
 ```diff
 +const fs = import 'fs/promises';
