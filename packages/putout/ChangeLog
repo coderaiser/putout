@@ -1,3 +1,16 @@
+2023.03.09, v29.0.5
+
+feature:
+- f8d2d4a61 @putout/plugin-apply-at: renamed from @putout/plugin-apply-array-at
+- f1e893dd5 @putout/plugin-declare: move maybe to @putout/plugin-maybe
+- 5a9d4720d @putout/plugin-maybe: add declare
+- f06ae34bc (package) @putout/plugin-math v2.0.0
+- f4f5b8850 @putout/plugin-math: drop support of 🐊 < 29
+- f75bf9d5e @putout/plugin-math: apply-numeric-separators: exclude octal
+- 627f861f6 (package) @putout/plugin-package-json v5.0.0
+- 917b39038 @putout/plugin-package-json: drop support of 🐊 < 29
+- 05b0fd7a8 @putout/plugin-package-json: remove-commit-type: add
+
 2023.03.08, v29.0.4
 
 feature:
