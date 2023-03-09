@@ -9,6 +9,7 @@ const mergeVisitors = require('./merge-visitors');
 const superFind = require('./super-find');
 const include = require('./include');
 const replace = require('./replace');
+const declare = require('./declare');
 
 const {
     getPath,
@@ -50,8 +51,17 @@ module.exports.getPosition = getPosition;
 
 function run({ast, fix, shebang, pluginsFind, pluginsTraverse, template, merge}) {
     return [
-        ...runWithoutMerge({ast, fix, shebang, template, pluginsFind}),
-        ...runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge}),
+        ...runWithoutMerge({ast,
+            fix,
+            shebang,
+            template,
+            pluginsFind}),
+        ...runWithMerge({ast,
+            fix,
+            shebang,
+            template,
+            pluginsTraverse,
+            merge}),
     ];
 }
 
@@ -149,6 +159,11 @@ function splitPlugins(plugins) {
         
         if (plugin.replace) {
             pluginsTraverse.push(include(replace(item)));
+            continue;
+        }
+        
+        if (plugin.declare) {
+            pluginsTraverse.push(include(declare(item)));
             continue;
         }
         

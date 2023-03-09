@@ -15,6 +15,7 @@ npm i @putout/engine-runner
 
 There is a couple plugin types supported by 🐊**Putout**:
 
+- ✅ [**Declarator**](#Declarator)
 - ✅ [**Replacer**](#replacer)
 - ✅ [**Includer**](#includer)
 - ✅ [**Traverser**](#traverser)
@@ -23,6 +24,18 @@ There is a couple plugin types supported by 🐊**Putout**:
 All of them supports subset of **JavaScript** 🦎[**PutoutScript**](https://github.com/coderaiser/putout/blob/master/docs/putout-script.md#-putoutscript) described in [`@putout/compare`](https://github.com/coderaiser/putout/tree/master/packages/compare#readme).
 
 They goes from simplest to hardest. Let's start from **Replacer**.
+
+### Declarator
+
+The simplest possible type of plugin, even simpler then `Replacer`:
+
+```js
+module.exports.declare = () => ({
+    isString: `const isString = (a) => typeof a === 'string'`,
+});
+```
+
+Based on [`@putout/operator-declare`](https://github.com/coderaiser/putout/tree/master/packages/operator-declare#readme), helps to add declaration to any referenced `Identifier`.
 
 ### Replacer
 
