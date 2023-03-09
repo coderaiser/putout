@@ -1,6 +1,6 @@
 'use strict';
 
-const {types, template} = require('putout');
+const {template} = require('@putout/engine-parser');
 const {isESM} = require('@putout/operate');
 const {compare} = require('@putout/compare');
 
@@ -14,7 +14,7 @@ const {
 const {
     isImportDeclaration,
     isVariableDeclaration,
-} = types;
+} = require('@babel/types');
 
 const {keys} = Object;
 const isString = (a) => typeof a === 'string';
