@@ -523,6 +523,27 @@ test('putout: loader: plugin is a function', (t) => {
     t.end();
 });
 
+test('putout: loader: declcarator', (t) => {
+    const {code} = putout(`isString('hello')`, {
+        loadPlugins,
+        plugins: [
+            ['declare', {
+                declare: () => ({
+                    isString: 'const isString = (a) => typeof a === "string"',
+                }),
+            }],
+        ],
+    });
+    
+    const expected = montag`
+        const isString = a => typeof a === 'string';
+        isString('hello')
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: loader: ESM', async (t) => {
     const estrace = await import('estrace/plugin');
     const [e] = tryCatch(putout, 'hello', {
