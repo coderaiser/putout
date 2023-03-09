@@ -1950,6 +1950,7 @@ It has a lot plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
+| [`@putout/plugin-types`](/packages/plugin-types#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-types.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-types) |
 | [`@putout/plugin-math`](/packages/plugin-math#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-math.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-math) |
 | [`@putout/plugin-madrun`](/packages/plugin-madrun#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-madrun.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-madrun) |
 | [`@putout/plugin-strict-mode`](/packages/plugin-strict-mode#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-strict-mode.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-strict-mode) |

@@ -240,7 +240,8 @@
         "nodejs",
         "montag",
         "new",
-        "logical-expressions"
+        "logical-expressions",
+        "types"
     ]
 }
 
