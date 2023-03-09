@@ -1838,7 +1838,7 @@ It has a lot plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
-| [`@putout/plugin-apply-array-at`](/packages/plugin-apply-array-at#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-array-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-array-at) |
+| [`@putout/plugin-apply-at`](/packages/plugin-apply-at#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-at) |
 | [`@putout/plugin-apply-is-array`](/packages/plugin-apply-is-array#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-is-array.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-is-array) |
 | [`@putout/plugin-apply-flat-map`](/packages/plugin-apply-flat-map#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-flat-map.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-flat-map) |
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) |

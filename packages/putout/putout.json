@@ -138,7 +138,7 @@
         "convert-mock-require-to-mock-import": "off"
     },
     "plugins": [
-        "apply-array-at",
+        "apply-at",
         "apply-early-return",
         "apply-flat-map",
         "apply-is-array",

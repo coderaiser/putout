@@ -1,11 +1,11 @@
 {
-  "name": "@putout/plugin-apply-array-at",
-  "version": "2.1.0",
+  "name": "@putout/plugin-apply-at",
+  "version": "1.0.2",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout plugin adds ability apply array.at",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-array-at#readme",
-  "main": "lib/apply-array-at.js",
+  "description": "🐊Putout plugin adds ability apply at()",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-at#readme",
+  "main": "lib/apply-at.js",
   "release": false,
   "tag": false,
   "changelog": false,
@@ -28,7 +28,7 @@
     "putout",
     "putout-plugin",
     "plugin",
-    "array-at"
+    "at"
   ],
   "devDependencies": {
     "@putout/test": "^5.0.0",
@@ -41,7 +41,7 @@
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {
-    "putout": ">=25"
+    "putout": ">=29"
   },
   "license": "MIT",
   "engines": {

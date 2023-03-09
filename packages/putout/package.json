@@ -70,7 +70,7 @@
     "@putout/operator-add-args": "^3.0.0",
     "@putout/operator-declare": "^4.0.0",
     "@putout/operator-regexp": "^1.0.0",
-    "@putout/plugin-apply-array-at": "^2.0.0",
+    "@putout/plugin-apply-at": "^1.0.0",
     "@putout/plugin-apply-comparison-order": "^1.0.0",
     "@putout/plugin-apply-destructuring": "^6.0.0",
     "@putout/plugin-apply-early-return": "^2.0.0",
