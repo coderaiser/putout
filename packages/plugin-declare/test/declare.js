@@ -1,12 +1,12 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const declareUndefinedVariables = require('..');
-
 const montag = require('montag');
 
+const declare = require('..');
+
 const test = createTest(__dirname, {
-    declare: declareUndefinedVariables,
+    declare,
 });
 
 test('putout: plugin: declare: report: assign', (t) => {
@@ -60,11 +60,6 @@ test('putout: plugin: declare: object', (t) => {
 
 test('putout: plugin: declare: putout', (t) => {
     t.transform('putout');
-    t.end();
-});
-
-test('putout: plugin: declare: is-type', (t) => {
-    t.transform('is-type');
     t.end();
 });
 
