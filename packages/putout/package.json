@@ -104,7 +104,7 @@
     "@putout/plugin-convert-to-arrow-function": "^3.0.0",
     "@putout/plugin-convert-typeof-to-is-type": "^2.0.0",
     "@putout/plugin-declare": "^1.0.1",
-    "@putout/plugin-declare-before-reference": "^1.0.0",
+    "@putout/plugin-declare-before-reference": "^2.0.0",
     "@putout/plugin-declare-imports-first": "^2.0.0",
     "@putout/plugin-eslint": "^4.2.0",
     "@putout/plugin-extract-object-properties": "^8.0.0",
