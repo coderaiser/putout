@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/operator-declare.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/operator-declare "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) operator adds ability to declare variable that was not defined before.
+🐊[**Putout**](https://github.com/coderaiser/putout) operator adds ability to declare variables that has references with no definitions.
 
 ## Install
 
