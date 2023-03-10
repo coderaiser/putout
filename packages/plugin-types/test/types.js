@@ -32,5 +32,3 @@ test('putout: plugin: types: declare: transform: remove-useless-typeof', (t) => 
     t.end();
 });
 
-
-
