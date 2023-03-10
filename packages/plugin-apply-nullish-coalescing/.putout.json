@@ -2,7 +2,7 @@
     "match": {
         "*.md": {
             "simplify-ternary": "off",
-            "convert-typeof-to-is-type": "off"
+            "types": "off"
         }
     }
 }
