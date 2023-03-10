@@ -1,3 +1,14 @@
+2023.03.10, v29.0.9
+
+fix:
+- 0d74ddb9d @putout/operator-declare: report
+
+feature:
+- 6b6570a25 package: @putout/plugin-tape v11.0.0
+- 99d951d6d @putout/plugin-tape: declare: migrate to Declaration
+- 4b1fcaae3 package: @putout/plugin-remove-iife v4.0.0
+- 83abe018d @putout/plugin-remove-iife: exclude VariableDeclarator (#133)
+
 2023.03.10, v29.0.8
 
 fix:
