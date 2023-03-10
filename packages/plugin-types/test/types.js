@@ -12,3 +12,7 @@ test('putout: plugin: types: declare: transform', (t) => {
     t.end();
 });
 
+test('putout: plugin: types: declare: transform: convert-typeof-to-is-type', (t) => {
+    t.transform('convert-typeof-to-is-type');
+    t.end();
+});

@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const convertTypeofToIsType = require('..');
+const convertTypeofToIsType = require('.');
 
 const test = createTest(__dirname, {
     'convert-typeof-to-is-type': convertTypeofToIsType,

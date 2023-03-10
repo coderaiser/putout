@@ -1,7 +1,0 @@
-{
-    "match": {
-        "README.md": {
-            "convert-typeof-to-is-type": "off"
-        }
-    }
-}

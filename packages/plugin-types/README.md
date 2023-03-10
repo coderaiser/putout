@@ -16,7 +16,8 @@ npm i putout @putout/plugin-types -D
 ```json
 {
     "rules": {
-        "types/declare": "on"
+        "types/declare": "on",
+        "types/convert-typeof-to-istype": "on"
     }
 }
 ```
@@ -63,6 +64,28 @@ When you want to skip some declaration use `dismiss`:
         }]
     }
 }
+```
+
+### convert-typeof-to-is-type
+
+> The `typeof` operator returns a string indicating the type of the unevaluated operand.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+
+#### ❌ Example of incorrect code
+
+```js
+if (typeof a === 'boolean')
+    return x;
+```
+
+#### ✅ Example of correct code
+
+```js
+const isBool = (a) => typeof a === 'boolean';
+
+if (isBool(a))
+    return x;
 ```
 
 ## License
