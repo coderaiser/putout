@@ -36,7 +36,7 @@
     "declare"
   ],
   "devDependencies": {
-    "@putout/test": "^5.0.0",
+    "@putout/test": "^6.0.0",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
     "eslint-plugin-n": "^15.2.4",

@@ -1,7 +1,6 @@
 'use strict';
 
 const {test, stub} = require('supertape');
-
 const {stopAll, reRequire} = require('mock-require');
 
 test('putout: cli: cache files: is changed: isNodeModulesChanged: cannot find', async (t) => {
