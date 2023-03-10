@@ -1,12 +1,9 @@
 'use strict';
 
-const {
-    entries,
-    assign,
-} = Object;
+const {entries} = Object;
 
 module.exports.report = ({name}) => {
-    return `'${name}' should be declared before referencing to avoid 'ReferenceError'`;
+    return `Declare '${name}' before referencing to avoid 'ReferenceError'`;
 };
 
 module.exports.fix = ({path}) => {
@@ -42,11 +39,11 @@ module.exports.traverse = ({push}) => ({
                 if (referencePath.parentPath.isExportDefaultDeclaration())
                     break;
                 
+                if (referencePath.isExportDeclaration())
+                    break;
+                
                 const [, pathLoc] = getLoc(path);
                 const [referenceOwn, referenceLoc] = getLoc(referencePath);
-                
-                if (path.getAncestry().includes(referencePath))
-                    assign(pathLoc, referenceLoc);
                 
                 const declarationLine = pathLoc.start.line;
                 const referenceLine = referenceLoc.start.line;

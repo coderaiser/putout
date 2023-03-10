@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-declaration-before-reference: report', (t) => {
-    t.report('declaration', `'operator' should be declared before referencing to avoid 'ReferenceError'`);
+    t.report('declaration', `Declare 'operator' before referencing to avoid 'ReferenceError'`);
     t.end();
 });
 
@@ -69,3 +69,9 @@ test('plugin-declaration-before-reference: no report: assign', (t) => {
     t.noReport('assign');
     t.end();
 });
+
+test('plugin-declaration-before-reference: no transform: export-type', (t) => {
+    t.noTransform('export-type');
+    t.end();
+});
+
