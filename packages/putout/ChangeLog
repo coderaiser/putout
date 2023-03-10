@@ -1,3 +1,8 @@
+2023.03.10, v29.0.14
+
+feature:
+- 091532bbf @putout/plugin-types: merge @putout/plugin-remove-useless-typeof
+
 2023.03.10, v29.0.13
 
 feature:
