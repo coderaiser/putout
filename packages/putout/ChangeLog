@@ -1,3 +1,12 @@
+2023.03.10, v29.0.11
+
+fix:
+- 398618f5a @putout/plugin-simplify-assignment: exclude ReturnStatement (#133)
+
+feature:
+- c231ad883 package: @putout/plugin-simplify-assignment v3.0.0
+- fa88a5277 @putout/plugin-simplify-assignment: drop support of 🐊 < 29
+
 2023.03.10, v29.0.10
 
 fix:
