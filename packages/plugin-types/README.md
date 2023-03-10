@@ -17,7 +17,9 @@ npm i putout @putout/plugin-types -D
 {
     "rules": {
         "types/declare": "on",
-        "types/convert-typeof-to-istype": "on"
+        "types/convert-typeof-to-istype": "on",
+        "types/remove-useless-conversion": "on",
+        "types/remove-double-negations": "on"
     }
 }
 ```
@@ -41,7 +43,6 @@ Supported assertions:
 #### ❌ Example of incorrect code
 
 ```js
-const isString = (a) => typeof a === 'string';
 isString('hello');
 ```
 
@@ -87,6 +88,53 @@ const isBool = (a) => typeof a === 'boolean';
 if (isBool(a))
     return x;
 ```
+
+
+### remove-useless-conversion
+
+#### ❌ Example of incorrect code
+
+```js
+const a = !![1].includes(1);
+const b = Boolean([1].includes(1));
+```
+
+#### ✅ Example of correct code
+
+```js
+const a = [1].includes(1);
+```
+
+### remove-double-negations
+
+> It is possible to use a couple of **NOT** operators (`!!`) in series to explicitly force the conversion of any value to the corresponding boolean primitive. The conversion is based on the "truthyness" or "falsyness" of the value.
+>
+> The same conversion can be done through the `Boolean` function.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT)
+
+#### ❌ Example of incorrect code
+
+```js
+if (!!a) {
+    console.log('hi');
+}
+```
+
+#### ✅ Example of correct code
+
+```js
+if (a) {
+    console.log('hi');
+}
+```
+
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`types`](https://github.com/coderaiser/putout/tree/master/packages/plugin-types#readme)| ✅
+⏣ **ESLint** | [`no-implicit-coercion`](https://eslint.org/docs/rules/no-implicit-coercion) | ✅
 
 ## License
 

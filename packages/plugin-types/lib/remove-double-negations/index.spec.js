@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-useless-type-conversion: with-double-negations: transform: report', (t) => {
-    t.report('if', `Avoid using double negations in conditions`);
+    t.report('if', `Avoid double negations in conditions`);
     t.end();
 });
 

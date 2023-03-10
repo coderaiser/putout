@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = () => `Useless type conversion should be avoided`;
+module.exports.report = () => `Avoid useless type conversion`;
 
 module.exports.replace = () => ({
     'Boolean(__a.includes(__b))': '__a.includes(__b)',

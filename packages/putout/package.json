@@ -159,7 +159,6 @@
     "@putout/plugin-remove-useless-return": "^4.0.0",
     "@putout/plugin-remove-useless-spread": "^6.0.0",
     "@putout/plugin-remove-useless-template-expressions": "^1.0.0",
-    "@putout/plugin-remove-useless-type-conversion": "^3.0.0",
     "@putout/plugin-remove-useless-typeof": "^1.0.0",
     "@putout/plugin-remove-useless-variables": "^7.0.0",
     "@putout/plugin-reuse-duplicate-init": "^4.0.0",

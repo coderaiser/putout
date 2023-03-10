@@ -16,3 +16,13 @@ test('putout: plugin: types: declare: transform: convert-typeof-to-is-type', (t)
     t.transform('convert-typeof-to-is-type');
     t.end();
 });
+
+test('putout: plugin: types: declare: transform: remove-useless-conversion', (t) => {
+    t.transform('remove-useless-conversion');
+    t.end();
+});
+
+test('putout: plugin: types: declare: transform: remove-double-negations', (t) => {
+    t.transform('remove-double-negations');
+    t.end();
+});

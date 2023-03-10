@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-useless-type-conversion: named: report', (t) => {
-    t.report('bool', 'Useless type conversion should be avoided');
+    t.report('bool', 'Avoid useless type conversion');
     t.end();
 });
 

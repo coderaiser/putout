@@ -5,7 +5,9 @@
     "overrides": [{
         "files": "*.md{js}",
         "rules": {
-            "n/no-deprecated-api": "off"
+            "n/no-deprecated-api": "off",
+            "no-implicit-coercion": "off",
+            "no-extra-boolean-cast": "off"
         }
     }],
     "extends": [

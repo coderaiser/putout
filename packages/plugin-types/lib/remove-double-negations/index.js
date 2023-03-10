@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = () => `Avoid using double negations in conditions`;
+module.exports.report = () => `Avoid double negations in conditions`;
 
 module.exports.filter = ({parentPath}) => !parentPath.isJSXExpressionContainer();
 
