@@ -25,6 +25,7 @@ npm i putout @putout/plugin-types -D
     }
 }
 ```
+
 ## Rules
 
 ### declare
@@ -186,7 +187,6 @@ Array.isArray(x);
 ## License
 
 MIT
-
 
 ## Comparison
 
