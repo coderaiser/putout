@@ -1,3 +1,9 @@
+2023.03.10, v29.0.12
+
+feature:
+- dabe27086 package: @putout/plugin-types v1.1.0
+- 98a95d13b @putout/plugin-types: merged convert-typeof-to-is-type
+
 2023.03.10, v29.0.11
 
 fix:
