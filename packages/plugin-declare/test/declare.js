@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('putout: plugin: declare: report: assign', (t) => {
-    t.report('assign', `Declare 'assign'`);
+    t.report('assign', `Declare 'assign', it referenced but not defined`);
     t.end();
 });
 

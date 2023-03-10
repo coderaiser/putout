@@ -46,7 +46,7 @@ const report = (path) => {
     const {name} = path.node;
     const peaceOfName = cutName(name);
     
-    return `Declare '${peaceOfName}'`;
+    return `Declare '${peaceOfName}', it referenced but not defined`;
 };
 
 const include = () => ['ReferencedIdentifier'];
