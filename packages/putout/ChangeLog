@@ -1,3 +1,20 @@
+2023.03.10, v29.0.10
+
+fix:
+- 794a3ab73 @putout/plugin-putout: apply-declare: report
+
+feature:
+- ea0a34ad7 package: @putout/plugin-madrun v15.0.0
+- e822a27e1 @putout/plugin-madrun: declare: convert to Declarator
+- 2d8a38028 package: @putout/plugin-nodejs v6.0.0
+- 71eea872c @putout/plugin-nodejs: declare: convert to Declarator
+- abb03a4c7 package: @putout/plugin-montag v2.0.0
+- fad51cfc9 @putout/plugin-montag: declare: convert to Declarator
+- 4a43a3bda package: @putout/plugin-try-catch v2.0.0
+- 47bf644ef @putout/plugin-try-catch: declare: convert to Declarator
+- 8be28e430 @putout/plugin-react-hooks: declare: convert to Declarator
+- d2893125a @putout/plugin-putout: apply-declare: add
+
 2023.03.10, v29.0.9
 
 fix:
