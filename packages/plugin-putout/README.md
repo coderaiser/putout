@@ -97,6 +97,7 @@ export const fix = (path) => {
 ## apply-declare
 
 Better to use [`Declareator`](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#declarator) instead of `operator.declare()`.
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/cf35de5e80e8f7aad866358a50c5eded/0af6142fc9c9e71ac2a2aa96cb85613dd95c9fbf).
 
 ### ❌ Example of incorrect code
 

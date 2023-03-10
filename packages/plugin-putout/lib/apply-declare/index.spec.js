@@ -7,7 +7,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-tape: apply-declare: report', (t) => {
-    t.report('declare', `Use 'Declarator' instead of 'operator.declare'`);
+    t.report('declare', `Use 'Declarator' instead of 'operator.declare()'`);
     t.end();
 });
 
