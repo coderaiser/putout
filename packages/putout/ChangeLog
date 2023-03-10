@@ -1,3 +1,8 @@
+2023.03.10, v29.0.15
+
+feature:
+- 447110c82 @putout/plugin-types: merge apply-is-array
+
 2023.03.10, v29.0.14
 
 feature:
