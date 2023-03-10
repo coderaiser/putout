@@ -20,11 +20,11 @@ npm i putout @putout/plugin-types -D
         "types/convert-typeof-to-istype": "on",
         "types/remove-useless-conversion": "on",
         "types/remove-double-negations": "on",
-        "types/remove-useless-typeof": "on"
+        "types/remove-useless-typeof": "on",
+        "types/apply-is-array": "on"
     }
 }
 ```
-
 ## Rules
 
 ### declare
@@ -146,6 +146,47 @@ typeof typeof 'hello';
 ```js
 typeof 'hello';
 ```
+
+### apply-is-array
+
+> The `Array.isArray()` method determines whether the passed value is an `Array`.
+> When checking for `Array` instance, `Array.isArray()` is preferred over `instanceof` because it works through `iframes`.
+
+#### ❌ Example of incorrect code
+
+```js
+x instanceof Array;
+```
+
+#### ✅ Example of correct code
+
+```js
+const {isArray} = Array;
+isArray(x);
+```
+
+In case of using `inline` option:
+
+```json
+{
+    "rules": {
+        "apply-is-array": ["on", {
+            "inline": true
+        }]
+    }
+}
+```
+
+`Array.isArray` will be inlined:
+
+```js
+Array.isArray(x);
+```
+
+## License
+
+MIT
+
 
 ## Comparison
 

@@ -141,7 +141,6 @@
         "apply-at",
         "apply-early-return",
         "apply-flat-map",
-        "apply-is-array",
         "apply-destructuring",
         "apply-optional-chaining",
         "apply-if-condition",

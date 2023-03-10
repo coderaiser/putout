@@ -32,3 +32,8 @@ test('putout: plugin: types: declare: transform: remove-useless-typeof', (t) => 
     t.end();
 });
 
+test('putout: plugin: types: declare: transform: apply-is-array', (t) => {
+    t.transform('apply-is-array');
+    t.end();
+});
+

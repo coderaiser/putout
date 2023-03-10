@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const applyIsArray = require('..');
+const applyIsArray = require('.');
 
 const test = createTest(__dirname, {
     'apply-is-array': applyIsArray,
