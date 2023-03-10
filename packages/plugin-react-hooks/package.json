@@ -32,7 +32,7 @@
     "react-hooks"
   ],
   "peerDependencies": {
-    "putout": ">=25"
+    "putout": ">=29"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
