@@ -1,3 +1,13 @@
+2023.03.10, v29.0.7
+
+fix:
+- 39a973e5c @putout/plugin-declare-before-reference: exclude ExportNamedDeclaration (#134)
+
+feature:
+- 9eca8816c package: @putout/plugin-declare-before-reference v2.0.0
+- aff993608 @putout/plugin-declare-before-reference: drop support of 🐊 < 29
+- d1743b555 @putout/plugin-declare-before-reference: drop support of node < 16
+
 2023.03.10, v29.0.6
 
 feature:
