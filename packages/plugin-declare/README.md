@@ -170,6 +170,8 @@ noop();
 ## ❌ Example of incorrect code
 
 ```js
+const isFn = (a) => typeof a === 'function';
+
 if (isFn(fn))
     fn();
 ```

@@ -26,7 +26,7 @@ npm i putout @putout/plugin-types -D
 ### declare
 
 Based on [`@putout/operator-declare`](https://github.com/coderaiser/putout/tree/master/packages/operator-declare#putoutoperator-declare-).
-Suported assertions:
+Supported assertions:
 
 - `isString`;
 - `isNumber`;
@@ -40,6 +40,7 @@ Suported assertions:
 #### ❌ Example of incorrect code
 
 ```js
+const isString = (a) => typeof a === 'string';
 isString('hello');
 ```
 

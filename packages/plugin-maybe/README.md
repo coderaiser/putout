@@ -60,12 +60,14 @@ const array = maybeEmptyArray(a);
 ### ❌ Example of incorrect code
 
 ```js
+const isFn = (a) => typeof a === 'function';
 const fn = isFn(a) ? a : () => {};
 ```
 
 ### ✅ Example of correct code
 
 ```js
+const isFn = (a) => typeof a === 'function';
 const noop = () => {};
 const maybeFn = isFn(a) ? a : noop;
 const fn = maybeFn(a);
@@ -97,6 +99,7 @@ const fn = maybeFn(f);
 ### ✅ Example of correct code
 
 ```js
+const isFn = (a) => typeof a === 'function';
 const noop = () => {};
 const maybeFn = isFn(a) ? a : noop;
 const fn = maybeFn(f);
