@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-tape: declare: report', (t) => {
-    t.report('test', `Declare 'test'`);
+    t.report('test', `Declare 'test', it referenced but not defined`);
     t.end();
 });
 
