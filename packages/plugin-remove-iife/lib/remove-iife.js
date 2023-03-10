@@ -20,6 +20,9 @@ module.exports.filter = (path) => {
     if (path.parentPath.isSequenceExpression())
         return false;
     
+    if (path.parentPath.isVariableDeclarator())
+        return false;
+    
     const n = body.length;
     const latest = body[n - 1];
     
