@@ -1,6 +1,6 @@
 {
   "name": "@putout/operator-declare",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout operator adds ability to declare referenced variables that was not defined",
