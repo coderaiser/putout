@@ -147,3 +147,8 @@ test('plugin-putout: transform: convert-number-to-numeric', (t) => {
     t.end();
 });
 
+test('plugin-putout: transform: apply-declare', (t) => {
+    t.transform('apply-declare');
+    t.end();
+});
+

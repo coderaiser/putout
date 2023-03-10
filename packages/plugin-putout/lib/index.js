@@ -9,6 +9,7 @@ module.exports.rules = {
     ...getRule('apply-async-formatter'),
     ...getRule('apply-create-test'),
     ...getRule('apply-remove'),
+    ...getRule('apply-declare'),
     ...getRule('convert-putout-test-to-create-test'),
     ...getRule('convert-to-no-transform-code'),
     ...getRule('convert-find-to-traverse'),

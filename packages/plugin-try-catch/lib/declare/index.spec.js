@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-apply-try-catch: declare: report', (t) => {
-    t.report('try-catch', `Declare 'tryCatch'`);
+    t.report('try-catch', `Declare 'tryCatch', it referenced but not defined`);
     t.end();
 });
 

@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('putout: plugin: nodejs: declare: report: readable-simple', (t) => {
-    t.report('readable-simple', `Declare 'Readable'`);
+    t.report('readable-simple', `Declare 'Readable', it referenced but not defined`);
     t.end();
 });
 

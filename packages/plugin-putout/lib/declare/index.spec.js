@@ -10,7 +10,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-putout: declare: report', (t) => {
-    t.report('compare', `Declare 'compare'`);
+    t.report('compare', `Declare 'compare', it referenced but not defined`);
     t.end();
 });
 

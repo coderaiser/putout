@@ -1,8 +1,12 @@
 'use strict';
 
-const {operator} = require('putout');
-const declarations = require('./declarations');
-const {declare} = operator;
+const types = require('./types');
+const operator = require('./operator');
 
-module.exports = declare(declarations);
+module.exports.declare = () => ({
+    template: `import {template} from 'putout'`,
+    createTest: `import {createTest} from '@putout/test'`,
+    ...operator,
+    ...types,
+});
 

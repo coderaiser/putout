@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-react-hooks: declare: report', (t) => {
-    t.report('use-state', `Declare 'useState'`);
+    t.report('use-state', `Declare 'useState', it referenced but not defined`);
     t.end();
 });
 

@@ -1,9 +1,6 @@
 'use strict';
 
-const {operator} = require('putout');
-const {declare} = operator;
-
-module.exports = declare({
+module.exports.declare = () => ({
     ...require('./modules/events'),
     ...require('./modules/fs'),
     ...require('./modules/fs-promises'),

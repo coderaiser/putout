@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-maybe: declare: report', (t) => {
-    t.report('declare', `Declare 'maybeArray'`);
+    t.report('declare', `Declare 'maybeArray', it referenced but not defined`);
     t.end();
 });
 

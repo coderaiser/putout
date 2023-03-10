@@ -20,6 +20,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-processors-destructuring": "on",
         "putout/apply-async-formatter": "on",
         "putout/apply-remove": "on",
+        "putout/apply-declare": "on",
         "putout/add-args": "on",
         "putout/add-push": "on",
         "putout/convert-putout-test-to-create-test": "on",
@@ -91,6 +92,31 @@ const {remove} = operator;
 export const fix = (path) => {
     remove(path);
 };
+```
+
+## apply-declare
+
+Better to use [`Declareator`](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#declarator) instead of `operator.declare()`.
+
+### ❌ Example of incorrect code
+
+```js
+const {operator} = require('putout');
+const {declare} = operator;
+
+module.exports = declare({
+    tryCatch: `import tryCatch from 'try-catch'`,
+    tryToCatch: `import tryToCatch from 'try-to-catch'`,
+});
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports.declare = () => ({
+    tryCatch: `import tryCatch from 'try-catch'`,
+    tryToCatch: `import tryToCatch from 'try-to-catch'`,
+});
 ```
 
 ## apply-async-formatter

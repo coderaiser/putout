@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-madrun: declare: report', (t) => {
-    t.report('cut-env', `Declare 'cutEnv'`);
+    t.report('cut-env', `Declare 'cutEnv', it referenced but not defined`);
     t.end();
 });
 

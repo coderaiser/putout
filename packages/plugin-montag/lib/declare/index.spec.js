@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-montag: declare: report', (t) => {
-    t.report('montag', `Declare 'montag'`);
+    t.report('montag', `Declare 'montag', it referenced but not defined`);
     t.end();
 });
 
