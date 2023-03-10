@@ -89,7 +89,6 @@ if (isBool(a))
     return x;
 ```
 
-
 ### remove-useless-conversion
 
 #### ❌ Example of incorrect code
