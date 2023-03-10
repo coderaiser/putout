@@ -26,3 +26,11 @@ test('putout: plugin: types: declare: transform: remove-double-negations', (t) =
     t.transform('remove-double-negations');
     t.end();
 });
+
+test('putout: plugin: types: declare: transform: remove-useless-typeof', (t) => {
+    t.transform('remove-useless-typeof');
+    t.end();
+});
+
+
+

@@ -9,5 +9,6 @@ module.exports.rules = {
     ...getRule('convert-typeof-to-is-type'),
     ...getRule('remove-useless-conversion'),
     ...getRule('remove-double-negations'),
+    ...getRule('remove-useless-typeof'),
 };
 

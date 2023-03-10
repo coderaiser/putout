@@ -19,7 +19,8 @@ npm i putout @putout/plugin-types -D
         "types/declare": "on",
         "types/convert-typeof-to-istype": "on",
         "types/remove-useless-conversion": "on",
-        "types/remove-double-negations": "on"
+        "types/remove-double-negations": "on",
+        "types/remove-useless-typeof": "on"
     }
 }
 ```
@@ -126,6 +127,24 @@ if (!!a) {
 if (a) {
     console.log('hi');
 }
+```
+
+### remove-useless-typeof
+
+> The `typeof` operator returns a string indicating the type of the unevaluated operand.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+
+#### ❌ Example of incorrect code
+
+```js
+typeof typeof 'hello';
+```
+
+#### ✅ Example of correct code
+
+```js
+typeof 'hello';
 ```
 
 ## Comparison

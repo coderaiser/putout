@@ -1,7 +1,7 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const removeUselessTypeof = require('..');
+const removeUselessTypeof = require('.');
 
 const test = createTest(__dirname, {
     'remove-useless-typeof': removeUselessTypeof,

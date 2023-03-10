@@ -178,7 +178,6 @@
         "remove-useless-escape",
         "remove-useless-spread",
         "remove-useless-return",
-        "remove-useless-typeof",
         "remove-useless-functions",
         "remove-useless-template-expressions",
         "remove-useless-for-of",
