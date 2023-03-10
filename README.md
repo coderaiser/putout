@@ -1354,6 +1354,19 @@ result = result ?? 'hello';
 
 </details>
 
+<details><summary>merge duplicate functions</summary>
+
+```diff
+const isFn = (a) => typeof a === 'function';
+-const isFn1 = (a) => typeof a === 'function';
+
+isFn(1);
+-isFn1(2);
++isFn(2);
+```
+
+</details>
+
 <details><summary>merge <code>if</code> statements</summary>
 
 ```diff
@@ -1860,6 +1873,7 @@ It has a lot plugins divided by groups:
 |--------|-------|
 | [`@putout/plugin-merge-destructuring-properties`](/packages/plugin-merge-destructuring-properties#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-destructuring-properties.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-destructuring-properties) |
 | [`@putout/plugin-merge-duplicate-imports`](/packages/plugin-merge-duplicate-imports#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-duplicate-imports.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-duplicate-imports) |
+| [`@putout/plugin-merge-duplicate-functions`](/packages/plugin-merge-duplicate-functions#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-duplicate-functions.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-duplicate-functions) |
 | [`@putout/plugin-merge-if-statements`](/packages/plugin-merge-if-statements#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-merge-if-statements.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-merge-if-statements) |
 
 ### Converters

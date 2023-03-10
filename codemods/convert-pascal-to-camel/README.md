@@ -20,7 +20,7 @@ function HelloWorld() {
 const HowCome = () => {};
 const HowCome2 = function WhySo() {};
 const HowCome3 = function properCamelCase() {};
-const howCome4 = function WhySo() {};
+const howCome4 = function WhySo1() {};
 const HowCome5 = function() {};
 
 class SomeClass extends Component {
@@ -43,7 +43,7 @@ HelloWorld();
 const howCome = () => {};
 const howCome2 = function whySo() {};
 const howCome3 = function properCamelCase() {};
-const howCome4 = function whySo() {};
+const howCome4 = function whySo1() {};
 const howCome5 = function() {};
 
 class SomeClass extends Component {

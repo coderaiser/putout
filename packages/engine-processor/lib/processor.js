@@ -3,14 +3,14 @@
 const {loadProcessorsAsync} = require('@putout/engine-loader');
 const picomatch = require('picomatch');
 
+const id = (a) => a;
+const returns = (a) => () => a;
+
 const defaultProcessors = [
     'javascript',
 ];
 
 const addExtension = (name, ext) => !ext ? name : `${name}{${ext}}`;
-const stubFind = () => [];
-const stubSplit = () => [];
-const id = (a) => a;
 
 module.exports.defaultProcessors = defaultProcessors;
 
@@ -113,8 +113,8 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
         
         const {
             isMatch,
-            branch = stubSplit,
-            find = stubFind,
+            branch = returns([]),
+            find = returns([]),
             fix: fixFind = id,
             merge: runnersMerge = id,
             lint,

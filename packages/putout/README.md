@@ -148,6 +148,8 @@ module.exports.replace = () => ({
 - ✅ apply comparison order;
 - ✅ apply `flatMap()`;
 - ✅ apply `template literals`;
+- ✅ merge duplicate `imports`;
+- ✅ merge duplicate `functions`;
 
 ## Install
 
