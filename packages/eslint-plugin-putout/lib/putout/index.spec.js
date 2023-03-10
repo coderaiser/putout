@@ -177,7 +177,7 @@ parserTester.run('putout', rule, {
         errors: [{
             line: 5,
             column: 7,
-            message: `Declare 'reImport' (tape/declare)`,
+            message: `Declare 'reImport', it referenced but not defined (tape/declare)`,
         }],
     }, {
         code: montag`
@@ -246,7 +246,7 @@ parserTester.run('putout', rule, {
         errors: [{
             line: 5,
             column: 7,
-            message: `Declare 'reImport' (tape/declare)`,
+            message: `Declare 'reImport', it referenced but not defined (tape/declare)`,
         }],
     }, {
         code: `a = is() ? a : b`,
@@ -358,7 +358,7 @@ ruleTester.run('putout: declare-before-reference: no loc', rule, {
             hello()
         `,
         errors: [{
-            message: `'hello' should be declared before referencing to avoid 'ReferenceError' (declare-before-reference)`,
+            message: `Declare 'hello' before referencing to avoid 'ReferenceError' (declare-before-reference)`,
         }],
     }],
 });

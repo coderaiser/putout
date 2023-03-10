@@ -26,6 +26,25 @@ test('putout: operator: declare: declare', (t) => {
     t.end();
 });
 
+test('putout: operator: declare: report', (t) => {
+    const declarations = {
+        operator: `import {operator} from 'putout'`,
+    };
+    
+    const {places} = putout('const {compare} = operator;', {
+        fix: false,
+        plugins: [
+            ['declare', declare(declarations)],
+        ],
+    });
+    
+    const [place] = places;
+    const expected = `Declare 'operator', it referenced but not defined`;
+    
+    t.equal(place.message, expected);
+    t.end();
+});
+
 test('putout: operator: declare: declare: spread', (t) => {
     const declarations = {
         maybeArray: `const maybeArray = (a) => isArray(a) ? a : [a]`,

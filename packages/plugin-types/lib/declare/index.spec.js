@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('putout: plugin: types: declare: report', (t) => {
-    t.report('declare', `Declare 'isString'`);
+    t.report('declare', `Declare 'isString', it referenced but not defined`);
     t.end();
 });
 
