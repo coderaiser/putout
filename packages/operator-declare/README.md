@@ -78,6 +78,12 @@ If for some reason you don't need some kind of declaration, add `dismiss` field 
 - ✅ [declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare#readme)
 - ✅ [tape/declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-tape#declare)
 - ✅ [putout/declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-putout#declare)
+- ✅ [nodejs/declare](https://github.com/coderaiser/putout/blob/master/packages/plugin-montag/#declare)
+- ✅ [react-hooks/declare](https://github.com/coderaiser/putout/blob/master/packages/plugin-react-hooks/README.md#declare)
+- ✅ [try-catch/declare](https://github.com/coderaiser/putout/blob/master/packages/plugin-try-catch/#declare)
+- ✅ [montag/declare](https://github.com/coderaiser/putout/blob/master/packages/plugin-montag/#declare)
+- ✅ [madrun/declare](https://github.com/coderaiser/putout/blob/master/packages/plugin-madrun/#declare)
+- ✅ [maybe/declare](https://github.com/coderaiser/putout/tree/master/packages/plugin-maybe#declare)
 
 ### Evaluate
 
