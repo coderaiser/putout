@@ -1,3 +1,19 @@
+2023.03.10, v29.0.6
+
+feature:
+- 0af80e51a package: @putout/operator-declare v5.0.0
+- b306cf6fe package: @putout/operator-declare v5.0.0
+- 62f3355ae package: @putout/engine-loader v8.0.0
+- 3a4a99b07 package: @putout/engine-runner v15.0.0
+- 017bb3ba0 package: @putout/test v6.0.0
+- f89823aab @putout/plugin-declare: convert to Declarator
+- a0c7d1682 @putout/types: add
+- 39901c763 @putout/test: add support of Declarator
+- b5b4d0001 @putout/plugin-declare: move out is-type to types/declare
+- 9fb14536d @putout/operator-declare: require: putout -> @putout/engine-parser, @babel/types
+- d15347e94 @putout/engine-loader: add support of Declarator
+- 3ded80721 @putout/engine-runner: add support of Declarator
+
 2023.03.09, v29.0.5
 
 feature:
