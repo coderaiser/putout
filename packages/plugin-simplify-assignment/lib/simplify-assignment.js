@@ -3,18 +3,9 @@
 module.exports.report = () => 'Simplify assignment';
 
 module.exports.match = () => ({
-    'const __a = (() => __b)()': (vars, path) => {
-        let is = true;
-        
-        path.traverse({
-            VariableDeclaration(path) {
-                is = false;
-                path.stop();
-            },
-        });
-        
-        return is;
-    },
+    'const __a = (() => __b)()': check,
+    '__a = (() => __b)()': check,
+    'var __a = (() => __b)()': check,
 });
 
 module.exports.replace = () => ({
@@ -30,4 +21,21 @@ module.exports.replace = () => ({
     '[__a] = [__b]': '__a = __b',
     '__a = (() => __b)()': '__a = __b',
 });
+
+function check(vars, path) {
+    let is = true;
+    
+    path.traverse({
+        ReturnStatement(path) {
+            is = false;
+            path.stop();
+        },
+        VariableDeclaration(path) {
+            is = false;
+            path.stop();
+        },
+    });
+    
+    return is;
+}
 

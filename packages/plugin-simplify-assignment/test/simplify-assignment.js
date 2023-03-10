@@ -22,3 +22,8 @@ test('plugin-simplify-assignment: no transform: declaration', (t) => {
     t.end();
 });
 
+test('plugin-simplify-assignment: no transform: iife', (t) => {
+    t.noTransform('iife');
+    t.end();
+});
+
