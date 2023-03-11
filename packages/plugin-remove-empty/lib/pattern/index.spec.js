@@ -4,7 +4,7 @@ const {createTest} = require('@putout/test');
 const montag = require('montag');
 const removeEmptyPattern = require('.');
 
-const removeUnusedForOfVariables = require('@putout/plugin-remove-unused-for-of-variables');
+const removeUnusedForOfVariables = require('@putout/plugin-for-of').rules['remove-unused-variables'];
 
 const test = createTest(__dirname, {
     'remove-empty-pattern': removeEmptyPattern,

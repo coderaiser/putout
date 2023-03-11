@@ -53,7 +53,8 @@
   "workspaces": [
     "packages/*",
     "codemods/*",
-    "rules/*"
+    "rules/*",
+    "scripts/*"
   ],
   "dependencies": {}
 }

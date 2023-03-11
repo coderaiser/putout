@@ -13,9 +13,7 @@
             "typescript/remove-unused-types": "off",
             "remove-unused-variables": "off",
             "remove-unused-expressions": "off",
-            "remove-unused-for-of-variables": "off",
             "remove-useless-arguments": "off",
-            "remove-useless-for-of": "off",
             "remove-useless-variables/rename": "off",
             "remove-useless-spread": "off",
             "remove-useless-return": "off",
@@ -25,8 +23,10 @@
             "tape/remove-only": "off",
             "remove-console": "off",
             "remove-debugger": "off",
-            "convert-for-to-for-of": "off",
-            "typescript/remove-useless-types-from-constants": "off"
+            "typescript/remove-useless-types-from-constants": "off",
+            "for-of/for": "off",
+            "for-of/remove-useless": "off",
+            "for-of/remove-unused-variables": "off"
         }
     }
 }

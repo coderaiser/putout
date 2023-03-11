@@ -33,7 +33,7 @@
   ],
   "devDependencies": {
     "@putout/plugin-remove-nested-blocks": "*",
-    "@putout/plugin-remove-unused-for-of-variables": "*",
+    "@putout/plugin-for-of": "*",
     "@putout/test": "^6.0.0",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",

@@ -1,8 +1,0 @@
-{
-    "match": {
-        "*.md": {
-            "remove-useless-for-of": "off",
-            "convert-for-each-to-for-of": "off"
-        }
-    }
-}

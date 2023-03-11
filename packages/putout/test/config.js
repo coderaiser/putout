@@ -92,7 +92,7 @@ test('putout: config: markdown', (t) => {
         'remove-useless-variables': 'off',
         'remove-useless-return': 'off',
         'remove-empty': 'off',
-        'remove-unused-for-of-variables': 'off',
+        'for-of/remove-unused-variables': 'off',
         'conditions/remove-constant': 'off',
         'remove-console': 'off',
         'remove-unreachable-code': 'off',

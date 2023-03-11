@@ -1,20 +1,19 @@
 {
-  "name": "@putout/plugin-conditions",
-  "version": "1.0.2",
+  "name": "@putout/plugin-for-of",
+  "version": "1.0.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout plugin adds support of conditions transformations",
-  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-conditions#readme",
+  "description": "🐊Putout plugin adds ability to apply for...of",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-for-of#readme",
   "main": "lib/index.js",
   "release": false,
   "tag": false,
   "changelog": false,
   "repository": {
     "type": "git",
-    "url": "git://github.com/coderaiser/conditions.git"
+    "url": "git://github.com/coderaiser/putout.git"
   },
   "scripts": {
-    "wisdom": "madrun wisdom",
     "test": "madrun test",
     "watch:test": "madrun watch:test",
     "lint": "madrun lint",
@@ -26,14 +25,21 @@
   },
   "dependencies": {},
   "keywords": [
-    "putout-plugin",
     "putout",
+    "putout-plugin",
     "plugin",
-    "conditions"
+    "for-of",
+    "try-to-catch"
   ],
   "devDependencies": {
-    "@putout/plugin-for-of": "^1.0.0",
-    "@putout/plugin-remove-useless-variables": "^7.3.0",
+    "@putout/plugin-conditions": "*",
+    "@putout/plugin-convert-const-to-let": "*",
+    "@putout/plugin-remove-empty": "*",
+    "@putout/plugin-remove-nested-blocks": "*",
+    "@putout/plugin-remove-unused-variables": "*",
+    "@putout/plugin-remove-useless-arguments": "*",
+    "@putout/plugin-remove-useless-continue": "*",
+    "@putout/plugin-remove-useless-variables": "*",
     "@putout/test": "^6.0.0",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
@@ -41,7 +47,6 @@
     "eslint-plugin-putout": "^16.0.0",
     "lerna": "^6.0.1",
     "madrun": "^9.0.0",
-    "montag": "^1.2.1",
     "nodemon": "^2.0.1"
   },
   "peerDependencies": {

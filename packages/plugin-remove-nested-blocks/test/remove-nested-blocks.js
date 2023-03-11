@@ -3,9 +3,9 @@
 const {createTest} = require('@putout/test');
 
 const {declare} = require('@putout/plugin-tape').rules;
-const convertReduceToForOf = require('@putout/plugin-convert-reduce-to-for-of');
-
 const removeNestedBlocks = require('..');
+
+const convertReduceToForOf = require('@putout/plugin-for-of').rules.reduce;
 
 const test = createTest(__dirname, {
     'remove-nested-blocks': removeNestedBlocks,
