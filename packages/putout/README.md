@@ -58,7 +58,7 @@ module.exports.replace = () => ({
 - ❌ [**Prettier**](https://github.com/prettier/prettier) is a formatter.
 - ❌ [**jscodeshift**](https://github.com/facebook/jscodeshift) has no `config` and `plugins` support.
 
-☝️ *🐊**Putout** on the other hand can make more drastic code transformations that directly affect your codebase making it a better place to code 💻.*
+☝️ *🐊**Putout** on the other hand can make more drastic code transformations that directly affects your codebase making it a better place to code 💻.*
 
 [It can](https://github.com/coderaiser/putout#-built-in-transformations):
 
