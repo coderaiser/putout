@@ -92,19 +92,19 @@ module.exports.replace = () => ({
 >
 > **(c) Isaac Newton**
 
-- [**ESLint**](https://eslint.org) for stable releases and future proof **API**.
-- [**Babel**](https://babeljs.io) for amazing **API** documented in [**Handbook**](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#babel-plugin-handbook) and responsiveness of a team.
-- [**Prettier**](https://github.com/prettier/prettier) for minimalistic options and uniform codestyle.
-- [**JSCodeshift**](https://github.com/facebook/jscodeshift) for making codemods simple and popular.
+- 💪[**ESLint**](https://eslint.org) for stable releases and future proof **API**.
+- 💪[**Babel**](https://babeljs.io) for amazing **API** documented in [**Handbook**](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md#babel-plugin-handbook) and responsiveness of a team.
+- 💪[**Prettier**](https://github.com/prettier/prettier) for minimalistic options and uniform codestyle.
+- 💪[**JSCodeshift**](https://github.com/facebook/jscodeshift) for making codemods simple and popular.
 
 ## 🤷‍♂️ Why does this project exist?
 
-- [**ESLint**](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
-- [**Babel**](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139).
-- [**Prettier**](https://github.com/prettier/prettier) is a formatter.
-- [**JSCodeshift**](https://github.com/facebook/jscodeshift) has no **config** and **plugins** support.
+- ❌[**ESLint**](https://eslint.org) avoids [fixes that could change the runtime behavior](https://eslint.org/docs/developer-guide/working-with-rules#applying-fixes).
+- ❌[**Babel**](https://babeljs.io) produces [throw-away code](https://github.com/babel/babel/issues/5139).
+- ❌[**Prettier**](https://github.com/prettier/prettier) is a formatter.
+- ❌[**JSCodeshift**](https://github.com/facebook/jscodeshift) has no **config** and **plugins** support.
 
-🐊**Putout** on the other hand can make more drastic code transformations that directly affect your codebase making it a better place to code 💻.
+🐊**Putout** on the other hand can make more drastic code transformations that directly affects your codebase making it a better place to code 💻.
 
 ## 🚚 Installation
 
