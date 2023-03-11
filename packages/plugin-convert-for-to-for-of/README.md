@@ -29,8 +29,6 @@ npm i @putout/plugin-convert-for-to-for-of -D
 }
 ```
 
-
-
 ## n
 
 ## ❌ Example of incorrect code
