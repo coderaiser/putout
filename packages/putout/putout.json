@@ -31,7 +31,7 @@
         "*.md": {
             "maybe": "off",
             "convert-quotes-to-backticks": "off",
-            "convert-comparison-to-boolean": "off",
+            "conditions/convert-comparison-to-boolean": "off",
             "remove-unused-expressions": "off",
             "remove-unused-variables": "off",
             "remove-useless-escape": "off",
@@ -39,7 +39,7 @@
             "remove-useless-return": "off",
             "remove-empty": "off",
             "remove-unused-for-of-variables": "off",
-            "remove-constant-conditions": "off",
+            "conditions/remove-constant": "off",
             "remove-console": "off",
             "remove-unreachable-code": "off",
             "declare": "off",
@@ -143,8 +143,6 @@
         "apply-flat-map",
         "apply-destructuring",
         "apply-optional-chaining",
-        "apply-if-condition",
-        "apply-comparison-order",
         "apply-template-literals",
         "extract-object-properties",
         "extract-sequence-expressions",
@@ -171,7 +169,6 @@
         "remove-useless-array-constructor",
         "remove-useless-continue",
         "remove-useless-operand",
-        "remove-useless-conditions",
         "remove-useless-array-from",
         "remove-useless-arguments",
         "remove-useless-escape",
@@ -181,8 +178,6 @@
         "remove-useless-template-expressions",
         "remove-useless-for-of",
         "remove-useless-array-entries",
-        "remove-constant-conditions",
-        "remove-boolean-from-assertions",
         "remove-duplicate-case",
         "remove-nested-blocks",
         "remove-unreachable-code",
@@ -199,7 +194,6 @@
         "convert-concat-to-flat",
         "convert-arguments-to-rest",
         "convert-object-assign-to-merge-spread",
-        "convert-comparison-to-boolean",
         "convert-to-arrow-function",
         "convert-for-to-for-of",
         "convert-for-each-to-for-of",
@@ -208,7 +202,6 @@
         "convert-reduce-to-for-of",
         "convert-array-copy-to-slice",
         "convert-template-to-string",
-        "convert-equal-to-strict-equal",
         "convert-index-of-to-includes",
         "convert-mock-require-to-mock-import",
         "convert-assignment-to-arrow-function",
@@ -238,7 +231,8 @@
         "montag",
         "new",
         "logical-expressions",
-        "types"
+        "types",
+        "conditions"
     ]
 }
 

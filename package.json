@@ -33,7 +33,8 @@
     "fix:lint:slow": "madrun fix:lint:slow",
     "bootstrap": "madrun bootstrap",
     "report": "madrun report",
-    "prepare": "madrun prepare"
+    "prepare": "madrun prepare",
+    "copy": "madrun copy"
   },
   "devDependencies": {
     "c8": "^7.5.0",

@@ -85,7 +85,7 @@ test('putout: config: markdown', (t) => {
     const expected = {
         'maybe': 'off',
         'convert-quotes-to-backticks': 'off',
-        'convert-comparison-to-boolean': 'off',
+        'conditions/convert-comparison-to-boolean': 'off',
         'remove-unused-expressions': 'off',
         'remove-unused-variables': 'off',
         'remove-useless-escape': 'off',
@@ -93,7 +93,7 @@ test('putout: config: markdown', (t) => {
         'remove-useless-return': 'off',
         'remove-empty': 'off',
         'remove-unused-for-of-variables': 'off',
-        'remove-constant-conditions': 'off',
+        'conditions/remove-constant': 'off',
         'remove-console': 'off',
         'remove-unreachable-code': 'off',
         'declare': 'off',

@@ -1,0 +1,5 @@
+{
+    "rules": {
+        "remove-console": "off"
+    }
+}

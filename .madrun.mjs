@@ -64,6 +64,7 @@ export default {
     'bootstrap': () => 'lerna bootstrap',
     'report': () => 'c8 report --reporter=lcov',
     'prepare': () => 'husky install',
+    'copy': () => 'node scripts/copy.mjs',
 };
 
 function getDirs(workspaces) {
