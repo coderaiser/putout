@@ -23,29 +23,24 @@ npm i @putout/plugin-convert-for-to-for-of -D
 {
     "rules": {
         "convert-for-to-for-of/n": "on",
-        "convert-for-to-for-of/length": "on"
+        "convert-for-to-for-of/length": "on",
+        "convert-for-to-for-of/entries": "on"
     }
 }
 ```
 
+
+
+## n
+
 ## ❌ Example of incorrect code
 
 ```js
-for (let i = 0; i < items.length; i++) {
-    const item = items[i];
-    log(item);
-}
-
 const n = items.length;
 
 for (let i = 0; i < n; i++) {
     const item = items[i];
     log(item);
-}
-
-for (let i = 0; i < items.length; i++) {
-    const item = items[i];
-    log(i, item);
 }
 ```
 
@@ -55,9 +50,43 @@ for (let i = 0; i < items.length; i++) {
 for (const item of items) {
     log(item);
 }
+```
 
-for (const [i, item] of items.entries()) {
-    log(i, item);
+## length
+
+## ❌ Example of incorrect code
+
+```js
+for (let i = 0; i < array.length; i++) {
+    const item = array[i];
+    console.log(item);
+}
+```
+
+## ✅ Example of correct code
+
+```js
+for (const item of items) {
+    log(item);
+}
+```
+
+## entries
+
+## ❌ Example of incorrect code
+
+```js
+for (let i = 0; i < array.length; i++) {
+    const item = array[i];
+    console.log(i, item);
+}
+```
+
+## ✅ Example of correct code
+
+```js
+for (const [i, item] of array.entries()) {
+    console.log(i, item);
 }
 ```
 
