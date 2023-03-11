@@ -7,32 +7,32 @@ const test = createTest(__dirname, {
     'try-catch': tryCatch,
 });
 
-test('plugin-apply-try-catch: transform: report', (t) => {
+test('plugin--try-catch: transform: report', (t) => {
     t.report('try-catch', 'Use tryCatch instead of try-catch block');
     t.end();
 });
 
-test('plugin-apply-try-catch: transform: try-catch', (t) => {
+test('plugin--try-catch: transform: try-catch', (t) => {
     t.transform('try-catch');
     t.end();
 });
 
-test('plugin-apply-try-catch: transform: await', (t) => {
+test('plugin--try-catch: transform: await', (t) => {
     t.transform('await');
     t.end();
 });
 
-test('plugin-apply-try-catch: transform: args', (t) => {
+test('plugin--try-catch: transform: args', (t) => {
     t.transform('args');
     t.end();
 });
 
-test('plugin-apply-try-catch: transform: expand-arguments', (t) => {
+test('plugin--try-catch: transform: expand-arguments', (t) => {
     t.transform('expand-arguments');
     t.end();
 });
 
-test('plugin-apply-try-catch: transform: declare', (t) => {
+test('plugin--try-catch: transform: declare', (t) => {
     t.transform('declare');
     t.end();
 });
