@@ -1,10 +1,10 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const applyMaybe = require('..');
+const maybe = require('..');
 
 const test = createTest(__dirname, {
-    applyMaybe,
+    maybe,
 });
 
 test('plugin-maybe: transform: fn', (t) => {
