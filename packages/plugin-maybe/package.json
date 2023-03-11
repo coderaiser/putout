@@ -4,7 +4,7 @@
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin applies Maybe monad",
-  "homepage": "https://github.com/coderaiser/maybe/tree/v28.19.2/packages/plugin-maybe#readme",
+  "homepage": "https://github.com/coderaiser/maybe/tree/master/packages/plugin-maybe#readme",
   "main": "lib/index.js",
   "release": false,
   "tag": false,
