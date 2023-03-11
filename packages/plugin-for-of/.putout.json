@@ -1,0 +1,13 @@
+{
+    "match": {
+        "*.md{js}": {
+            "for-of/for": "off",
+            "for-of/map": "off",
+            "for-of/for-in": "off",
+            "for-of/for-each": "off",
+            "for-of/reduce": "off",
+            "for-of/remove-useless": "off",
+            "for-of/remove-unused-variables": "off"
+        }
+    }
+}

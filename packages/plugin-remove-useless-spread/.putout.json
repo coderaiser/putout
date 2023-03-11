@@ -2,7 +2,7 @@
     "match": {
         "*.md": {
             "remove-useless-spread": "off",
-            "remove-useless-for-of": "off",
+            "for-of/remove-useless": "off",
             "convert-array-copy-to-slice": "off"
         }
     }

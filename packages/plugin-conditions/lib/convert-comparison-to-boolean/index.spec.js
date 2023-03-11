@@ -2,10 +2,10 @@
 
 const {createTest} = require('@putout/test');
 
-const convertForEachToForOf = require('@putout/plugin-convert-for-each-to-for-of');
 const removeUselessVariables = require('@putout/plugin-remove-useless-variables');
-
 const convertComparisonToBoolean = require('.');
+
+const convertForEachToForOf = require('@putout/plugin-for-of').rules['for-each'];
 
 const test = createTest(__dirname, {
     'conditions/convert-comparison-to-boolean': convertComparisonToBoolean,
