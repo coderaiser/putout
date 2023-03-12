@@ -52,9 +52,7 @@ test('@putout/eslint: create-plugin: createGetSpacesBeforeNode', (t) => {
     });
     
     const node = {};
-    const result = fn(node, {
-        text: 'hello',
-    });
+    const result = fn(node, '');
     
     t.equal(result, 'ello');
     t.end();
@@ -77,9 +75,7 @@ test('@putout/eslint: create-plugin: createGetSpacesBeforeNode: first', (t) => {
         expression: node,
     });
     
-    const result = fn(node, {
-        text: 'hello',
-    });
+    const result = fn(node, 'hello');
     
     t.equal(result, '');
     t.end();
@@ -95,9 +91,7 @@ test('@putout/eslint: create-plugin: createGetSpacesAfterNode', (t) => {
         parent: {},
     };
     
-    const result = fn(node, {
-        text: ' hello',
-    });
+    const result = fn(node, ' hello');
     
     t.equal(result, 'hell');
     t.end();
@@ -120,9 +114,7 @@ test('@putout/eslint: create-plugin: createGetSpacesAfterNode: last', (t) => {
     
     body.push(node);
     
-    const result = fn(node, {
-        text: 'hello ',
-    });
+    const result = fn(node);
     
     t.equal(result, '');
     t.end();
