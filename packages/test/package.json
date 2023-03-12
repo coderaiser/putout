@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@putout/engine-processor": "*",
-    "@putout/eslint": "^1.2.0",
+    "@putout/eslint": "^2.0.0",
     "currify": "^4.0.0",
     "putout": "*",
     "supertape": "^8.0.0",
