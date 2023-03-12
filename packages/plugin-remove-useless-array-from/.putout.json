@@ -1,8 +1,0 @@
-{
-    "match": {
-        "*.md": {
-            "for-of/remove-useless": "off",
-            "remove-useless-array-from": "off"
-        }
-    }
-}

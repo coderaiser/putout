@@ -136,7 +136,6 @@
     "@putout/plugin-remove-useless-arguments": "^6.0.0",
     "@putout/plugin-remove-useless-array-constructor": "^1.0.0",
     "@putout/plugin-remove-useless-array-entries": "^1.0.0",
-    "@putout/plugin-remove-useless-array-from": "^2.0.0",
     "@putout/plugin-remove-useless-assign": "^1.0.0",
     "@putout/plugin-remove-useless-constructor": "^1.0.0",
     "@putout/plugin-remove-useless-continue": "^2.0.0",

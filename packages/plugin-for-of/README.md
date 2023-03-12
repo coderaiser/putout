@@ -26,6 +26,7 @@ npm i @putout/plugin-for-of
         "for-of/reduce": "on",
         "for-of/remove-unused-variables": "on",
         "for-of/remove-useless": "on",
+        "for-of/remove-useless-array-from": "on",
         "for-of/for": "on"
     }
 }
@@ -180,6 +181,20 @@ for (const a of ['hello']) {
 
 ```js
 console.log('hello');
+```
+
+## remove-useless-array-from
+
+## ❌ Example of incorrect code
+
+```js
+for (const x of Array.from(y)) {}
+```
+
+## ✅ Example of correct code
+
+```js
+for (const x of y) {}
 ```
 
 ## for

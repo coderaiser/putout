@@ -1,14 +1,14 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-const removeUselessArrayFrom = require('..');
+const removeUselessArrayFrom = require('.');
 
 const test = createTest(__dirname, {
-    'remove-useless-array-from': removeUselessArrayFrom,
+    'for-of/remove-useless-array-from': removeUselessArrayFrom,
 });
 
 test('plugin-remove-useless-array-from: report', (t) => {
-    t.report('array-from', '"Array.from" has no sense inside for-of');
+    t.report('array-from', `'Array.from()' has no sense inside 'for...of'`);
     t.end();
 });
 

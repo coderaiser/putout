@@ -168,7 +168,6 @@
         "remove-useless-array-constructor",
         "remove-useless-continue",
         "remove-useless-operand",
-        "remove-useless-array-from",
         "remove-useless-arguments",
         "remove-useless-escape",
         "remove-useless-spread",
