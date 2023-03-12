@@ -14,7 +14,7 @@ const {isAssignmentPattern} = types;
 const isToManyProperties = (a, {maxProperties}) => a.isObjectPattern() && a.node.properties.length > maxProperties;
 const isAssignment = (a) => isAssignmentPattern(a.value);
 
-module.exports.report = () => `Destructuring should be used in the head of for-of`;
+module.exports.report = () => `Use destructuring in head of 'for...of'`;
 
 module.exports.fix = ({path, varPath}) => {
     replaceWith(varPath, path.node.id);

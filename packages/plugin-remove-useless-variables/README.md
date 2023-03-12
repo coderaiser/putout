@@ -18,10 +18,7 @@ npm i @putout/plugin-remove-useless-variables -D
     "rules": {
         "remove-useless-variables/rename": "on",
         "remove-useless-variables/destruct": "on",
-        "remove-useless-variables/await": "on",
-        "remove-useless-variables/for-of": ["on", {
-            "maxProperties": 4
-        }]
+        "remove-useless-variables/await": "on"
     }
 }
 ```
@@ -113,23 +110,6 @@ async () => {
     
     return result;
 };
-```
-
-## for-of
-
-### ❌ Example of incorrect code
-
-```js
-for (const a of b) {
-    const {c} = a;
-}
-```
-
-### ✅ Example of correct code
-
-```js
-for (const {c} of b) {
-}
 ```
 
 ### remove

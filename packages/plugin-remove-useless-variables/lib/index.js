@@ -9,6 +9,5 @@ module.exports.rules = {
     ...getRule('remove'),
     ...getRule('destruct'),
     ...getRule('await'),
-    ...getRule('for-of'),
 };
 

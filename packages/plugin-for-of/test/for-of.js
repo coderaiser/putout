@@ -46,3 +46,8 @@ test('plugin-for-of: transform: remove-useless-array-from', (t) => {
     t.transform('remove-useless-array-from');
     t.end();
 });
+
+test('plugin-for-of: transform: remove-useless-variables', (t) => {
+    t.transform('remove-useless-variables');
+    t.end();
+});

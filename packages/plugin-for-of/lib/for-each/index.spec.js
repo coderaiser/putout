@@ -3,9 +3,9 @@
 const {createTest} = require('@putout/test');
 const plugin = require('.');
 
-const removeUselessVariables = require('@putout/plugin-remove-useless-variables');
 const convertConstToLet = require('@putout/plugin-convert-const-to-let');
 const removeUselessContinue = require('@putout/plugin-remove-useless-continue');
+const removeUselessVariables = require('../remove-useless-variables');
 const convertComparisonToBoolean = require('@putout/plugin-conditions').rules['convert-comparison-to-boolean'];
 
 const test = createTest(__dirname, {

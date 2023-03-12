@@ -15,6 +15,7 @@ module.exports.rules = {
     ...getRule('for-in-positive'),
     ...getRule('reduce'),
     ...getRule('remove-useless'),
+    ...getRule('remove-useless-variables'),
     ...getRule('remove-useless-array-from'),
     ...getRule('remove-unused-variables'),
 };

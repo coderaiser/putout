@@ -27,6 +27,9 @@ npm i @putout/plugin-for-of
         "for-of/remove-unused-variables": "on",
         "for-of/remove-useless": "on",
         "for-of/remove-useless-array-from": "on",
+        "for-of/remove-useless-variables": ["on", {
+            "maxProperties": 4
+        }],
         "for-of/for": "on"
     }
 }
@@ -183,15 +186,36 @@ for (const a of ['hello']) {
 console.log('hello');
 ```
 
+## remove-useless-variables
+
+### ❌ Example of incorrect code
+
+```js
+for (const a of b) {
+    const {c} = a;
+}
+```
+
+### ✅ Example of correct code
+
+```js
+for (const {c} of b) {
+}
+```
+
 ## remove-useless-array-from
 
-## ❌ Example of incorrect code
+> The `Array.from()` static method creates a new, shallow-copied `Array` instance from an iterable or array-like object.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
+
+### ❌ Example of incorrect code
 
 ```js
 for (const x of Array.from(y)) {}
 ```
 
-## ✅ Example of correct code
+### ✅ Example of correct code
 
 ```js
 for (const x of y) {}
