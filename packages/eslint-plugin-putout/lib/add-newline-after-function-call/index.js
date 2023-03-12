@@ -32,7 +32,7 @@ module.exports.filter = ({node, getCommentsAfter, getSpacesAfterNode}) => {
     if (n < 3)
         return false;
     
-    const spaces = getSpacesAfterNode(node);
+    const spaces = getSpacesAfterNode(node, {text});
     
     if (regExp.test(spaces))
         return false;
@@ -60,7 +60,7 @@ module.exports.filter = ({node, getCommentsAfter, getSpacesAfterNode}) => {
         if (isArrayExpression(init) && init.elements.length)
             return true;
         
-        const spacesAfterNext = getSpacesAfterNode(next);
+        const spacesAfterNext = getSpacesAfterNode(next, {getText});
         
         if (regExp.test(spacesAfterNext))
             break;
@@ -68,7 +68,7 @@ module.exports.filter = ({node, getCommentsAfter, getSpacesAfterNode}) => {
         if (!prev)
             return true;
         
-        const spacesAfterPrev = getSpacesAfterNode(prev);
+        const spacesAfterPrev = getSpacesAfterNode(prev, {getText});
         return !regExp.test(spacesAfterPrev);
     }
     
