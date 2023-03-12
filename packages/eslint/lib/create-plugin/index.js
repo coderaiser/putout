@@ -120,13 +120,33 @@ const createGetSpacesBeforeNode = ({getText}) => (node, text = getText(node)) =>
 module.exports.createGetSpaceBeforeNode = createGetSpacesBeforeNode;
 
 const createGetSpacesAfterNode = ({getText}) => (node, {text = getText(node)}) => {
+    const reg = /^[ \n;]+$/;
+    
+    if (isLastNodeInBody(node))
+        return '';
+    
     let spaces = '';
     let i = 0;
     
-    while (!spaces || /^[ \n;]+$/.test(spaces))
+    while (!spaces || reg.test(spaces))
         spaces = getText(node, 0, ++i)
             .replace(text, '');
     
     return spaces.slice(0, -1);
 };
+
 module.exports.createGetSpacesAfterNode = createGetSpacesAfterNode;
+
+function isLastNodeInBody(node) {
+    if (node.parent.body) {
+        const {length} = node.parent.body;
+        const n = length - 1;
+        
+        if (node === node.parent?.body?.[n]) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+

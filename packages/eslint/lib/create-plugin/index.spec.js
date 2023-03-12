@@ -91,12 +91,40 @@ test('@putout/eslint: create-plugin: createGetSpacesAfterNode', (t) => {
         getText,
     });
     
-    const node = {};
+    const node = {
+        parent: {},
+    };
+    
     const result = fn(node, {
         text: ' hello',
     });
     
     t.equal(result, 'hell');
+    t.end();
+});
+
+test('@putout/eslint: create-plugin: createGetSpacesAfterNode: last', (t) => {
+    const getText = stub().returns('hello ');
+    const fn = createGetSpacesAfterNode({
+        getText,
+    });
+    
+    const body = [];
+    const parent = {
+        body,
+    };
+    
+    const node = {
+        parent,
+    };
+    
+    body.push(node);
+    
+    const result = fn(node, {
+        text: 'hello ',
+    });
+    
+    t.equal(result, '');
     t.end();
 });
 
