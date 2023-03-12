@@ -119,7 +119,7 @@ const createGetSpacesBeforeNode = ({getText}) => (node, text = getText(node)) =>
 };
 module.exports.createGetSpaceBeforeNode = createGetSpacesBeforeNode;
 
-const createGetSpacesAfterNode = ({getText}) => (node, {text = getText(node)}) => {
+const createGetSpacesAfterNode = ({getText}) => (node, text = getText(node)) => {
     const reg = /^[ \n;]+$/;
     
     if (isLastNodeInBody(node))
