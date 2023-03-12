@@ -14,7 +14,7 @@ const regExp = /^;?\n( +)?\n( +)?/;
 module.exports.category = 'layout';
 module.exports.report = () => 'Add newline after function call';
 
-module.exports.filter = ({text, node, getText, getCommentsAfter, getSpacesAfterNode}) => {
+module.exports.filter = ({node, getCommentsAfter, getSpacesAfterNode}) => {
     if (!isExpressionStatement(node.parent))
         return false;
     
