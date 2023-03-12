@@ -1,6 +1,6 @@
 {
   "name": "@putout/eslint",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Wrapper that simplifies ESLint API and makes it compatible with 🐊Putout",
