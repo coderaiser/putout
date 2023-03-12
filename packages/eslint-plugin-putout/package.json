@@ -44,7 +44,7 @@
     "@babel/traverse": "^7.16.3",
     "@eslint/eslintrc": "^1.3.1",
     "@putout/engine-parser": "^5.0.0",
-    "@putout/eslint": "^1.3.0",
+    "@putout/eslint": "^2.0.0",
     "@putout/eslint-config": "^7.0.0",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.4.0",
