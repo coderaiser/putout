@@ -1,3 +1,14 @@
+2023.03.12, v29.1.4
+
+feature:
+- cfccc2c43 package: @putout/eslint v2.0.0
+- e9da39690 package: @putout/eslint v2.0.0
+- 026d81cb3 package: @putout/eslint v2.0.0
+- 037295077 @putout/eslint: getSpacesAfterNode: args
+- cb6e8628b @putout/eslint: getSpacesAfterNode: revert args
+- 11e9d33dd @putout/eslint: getSpacesAfterNode: args
+- 9dfae727d eslint: create-plugin: getSpacesAfterNode: add check for last node in body
+
 2023.03.12, v29.1.3
 
 feature:
