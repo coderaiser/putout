@@ -102,11 +102,13 @@ const safe = {
     ...recommended,
     rules: {
         ...recommended.rules,
+        'no-implicit-coercion': 'off',
         'no-useless-return': 'off',
         'putout/align-spaces': 'off',
         'putout/remove-newline-from-empty-object': 'off',
         'putout/putout': ['error', {
             rules: {
+                'apply-template-literals': 'off',
                 'remove-empty': 'off',
                 'nodejs/remove-process-exit': 'off',
                 'typescript/remove-unused-types': 'off',
