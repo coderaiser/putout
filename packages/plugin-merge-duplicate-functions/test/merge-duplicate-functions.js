@@ -37,3 +37,8 @@ test('merge duplicate functions: no transform: different', (t) => {
     t.noTransform('different');
     t.end();
 });
+
+test('merge duplicate functions: no transform: different body', (t) => {
+    t.noReport('different-body');
+    t.end();
+});
