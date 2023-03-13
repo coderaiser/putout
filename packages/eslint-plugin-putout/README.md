@@ -132,7 +132,7 @@ Disabled **ESLint** rules:
 
 Disabled 🐊**Putout** rules:
 
-- ❌ [`apply-termplate-literals`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-empty#readme);
+- ❌ [`apply-template-literals`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-empty#readme);
 - ❌ [`remove-empty`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-empty#readme);
 - ❌ [`nodejs/remove-process-exit`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-nodejs#remove-process-exit#readme);
 - ❌ [`remove-unused-variables`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-unused-variables#readme);
