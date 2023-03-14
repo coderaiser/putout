@@ -2718,9 +2718,9 @@ import {OK} from 'putout/exit-codes';
 - 🎩[**ESCover**](https://github.com/coderaiser/escover): Coverage for EcmaScript Modules.
 - ♨️ [**Speca**](https://github.com/coderaiser/speca): Write [tape](https://github.com/coderaiser/supertape) tests for you.
 - [**Goldstein**](https://github.com/coderaiser/goldstein): JavaScript with no limits 🤫.
-- [🎬**MadCut**](https://github.com/coderaiser/goldstein): CLI tool to cut markdown into peaces.
+- 🎬[**MadCut**](https://github.com/coderaiser/goldstein): CLI tool to cut markdown into peaces.
 
-Do you use 🐊**Putout** in your application as well? Please open a Pull Request to include it here. We would love to have it in our list.
+Are you also use 🐊**Putout** in your application? Please open a Pull Request to include it here. We would love to have it in our list.
 
 ## 📻 Versioning Policy
 
