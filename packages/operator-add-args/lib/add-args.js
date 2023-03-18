@@ -19,25 +19,27 @@ const SHORTHAND = true;
 
 const report = ({name}) => `Argument "${name}" is missing`;
 
-const maybeObjectPattern = (a) => a || ObjectPattern([]);
-
 module.exports.addArgs = (args) => ({
     report,
     fix,
     traverse: traverse(args),
 });
 
-const fix = ({declaration, path}) => {
+const fix = ({declaration, path, pattern}) => {
     const declarationNode = template.ast.fresh(declaration);
     
     if (isBlockStatement(declarationNode)) {
         const prop = createProperty(declarationNode.body[0]);
         
         const {params} = path.scope.block;
-        const node = maybeObjectPattern(params[0]);
+        pattern.properties.push(prop);
         
-        node.properties.push(prop);
-        params[0] = node;
+        const n = params.length - 1;
+        
+        if (isObjectPattern(params[n]))
+            params[n] = pattern;
+        else
+            params.push(pattern);
         
         return;
     }
@@ -72,14 +74,23 @@ const traverse = (args) => ({push, options}) => {
                     continue;
                 
                 const {params} = path.scope.block;
+                const lastParam = params.at(-1);
                 
-                if (params.length && !isObjectPattern(params[0]))
-                    continue;
+                if (isObjectPattern(lastParam)) {
+                    push({
+                        name,
+                        declaration,
+                        path,
+                        pattern: lastParam,
+                    });
+                    return;
+                }
                 
                 push({
                     name,
                     declaration,
                     path,
+                    pattern: ObjectPattern([]),
                 });
             }
         },

@@ -251,7 +251,7 @@ test('putout: operator: add-argument: arg exist', (t) => {
     
     const source = montag`
         module.exports.traverse = () => ({
-            '__a.replace(/__b/g, __c)': (path) => {
+            '__a.replace(/__b/g, __c)': (path, {push}) => {
                 push(path);
             }
         });
@@ -259,7 +259,7 @@ test('putout: operator: add-argument: arg exist', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['addArgs-undefined-variables', addArgs(args)],
+            ['add-args', addArgs(args)],
         ],
     });
     
@@ -299,7 +299,7 @@ test('putout: operator: add-argument: not called', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['addArgs-undefined-variables', addArgs(args)],
+            ['add-args', addArgs(args)],
         ],
     });
     
@@ -307,3 +307,67 @@ test('putout: operator: add-argument: not called', (t) => {
     t.end();
 });
 
+test('putout: operator: add-argument: second', (t) => {
+    const args = {
+        indent: ['{indent}', 'module.exports.__a = (__args) => __body'],
+    };
+    
+    const source = montag`
+        module.exports.VariableDeclaration = (path) => {
+            indent.inc();
+        };
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    const expected = montag`
+        module.exports.VariableDeclaration = (
+            path,
+            {
+                indent
+            }
+        ) => {
+            indent.inc();
+        };
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: operator: add-argument: property', (t) => {
+    const args = {
+        maybe: ['{maybe}', 'module.exports.__a = (__args) => __body'],
+    };
+    
+    const source = montag`
+        module.exports.VariableDeclaration = (path, {print}) => {
+            maybe.indent(is);
+        };
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    const expected = montag`
+        module.exports.VariableDeclaration = (
+            path,
+            {
+                indent
+            }
+        ) => {
+            indent.inc();
+        };
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

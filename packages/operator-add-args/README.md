@@ -25,6 +25,9 @@ module.exports = addArgs({
         'test("__a", (__args) => __body)',
         'test.only("__a", (__args) => __body)',
     ]],
+    maybe: ['{maybe}', [
+        'module.exports.__a = (__args) => __body',
+    ]],
 });
 ```
 
