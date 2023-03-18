@@ -42,7 +42,7 @@ Plugin supports options, so you can pass it in `.putout.json`:
 ```json
 {
     "rules": {
-        "tape/declare-t": ["on", {
+        "tape/add-args": ["on", {
             "args": {
                 "comparePlaces": ["{comparePlaces}", "test('__a', (__args) => __body)"]
             }
