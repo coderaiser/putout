@@ -25,13 +25,11 @@ module.exports.addArgs = (args) => ({
     traverse: traverse(args),
 });
 
-const fix = ({declaration, path, pattern}) => {
+const fix = ({declaration, path, pattern, params}) => {
     const declarationNode = template.ast.fresh(declaration);
     
     if (isBlockStatement(declarationNode)) {
         const prop = createProperty(declarationNode.body[0]);
-        
-        const {params} = path.scope.block;
         pattern.properties.push(prop);
         
         const n = params.length - 1;
@@ -67,13 +65,17 @@ const traverse = (args) => ({push, options}) => {
                 if (path.scope.hasBinding(name))
                     continue;
                 
-                if (!isFunction(path.scope.block))
+                const fnPath = path.find(isFunction);
+                
+                if (!fnPath)
                     continue;
+                
+                const {block} = fnPath.scope;
                 
                 if (!compareAny(path.scope.path.parentPath, pattern))
                     continue;
                 
-                const {params} = path.scope.block;
+                const {params} = block;
                 const lastParam = params.at(-1);
                 
                 if (isObjectPattern(lastParam)) {
@@ -81,6 +83,7 @@ const traverse = (args) => ({push, options}) => {
                         name,
                         declaration,
                         path,
+                        params,
                         pattern: lastParam,
                     });
                     return;
@@ -90,6 +93,7 @@ const traverse = (args) => ({push, options}) => {
                     name,
                     declaration,
                     path,
+                    params,
                     pattern: ObjectPattern([]),
                 });
             }

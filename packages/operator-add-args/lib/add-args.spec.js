@@ -358,13 +358,46 @@ test('putout: operator: add-argument: property', (t) => {
     });
     
     const expected = montag`
-        module.exports.VariableDeclaration = (
-            path,
-            {
-                indent
+        module.exports.VariableDeclaration = (path, {
+            print,
+            maybe
+        }) => {
+            maybe.indent(is);
+        };
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: operator: add-argument: nested block', (t) => {
+    const args = {
+        maybe: ['{maybe}', 'module.exports.__a = (__args) => __body'],
+    };
+    
+    const source = montag`
+        module.exports.VariableDeclaration = (path, {print}) => {
+            if (a) {
+                maybe.indent(is);
             }
-        ) => {
-            indent.inc();
+        };
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    const expected = montag`
+        module.exports.VariableDeclaration = (path, {
+            print,
+            maybe
+        }) => {
+            if (a) {
+                maybe.indent(is);
+            }
         };
     `;
     
