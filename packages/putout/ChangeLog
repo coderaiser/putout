@@ -1,3 +1,12 @@
+2023.03.18, v29.1.5
+
+feature:
+- 6adc077ac package: @putout/operator-add-args v4.0.0
+- 352439951 @putout/operator-add-args: drop support of 🐊 < 29
+- 1d1d4a847 @putout/operator-add-args: add support of nested blocks
+- 23367b9d7 @putout/operator-add-args: add support of not first ObjectPattern argument
+- ce0207674 eslint-plugin-putout: safe: disable apply-template-literals, no-implicit-coercion
+
 2023.03.12, v29.1.4
 
 feature:
