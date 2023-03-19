@@ -451,3 +451,31 @@ test('putout: operator: add-argument: VariableDeclaration', (t) => {
     t.end();
 });
 
+test('putout: operator: add-argument: AssignmentExpression', (t) => {
+    const args = {
+        process: ['{process}', 'module.exports.__a = (__args) => __body'],
+    };
+    
+    const source = montag`
+        module.exports.VariableDeclaration = (path) => {
+            process.env.PUTOUT_PROGRESS_BAR = '0';
+        };
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    const expected = montag`
+        module.exports.VariableDeclaration = (path) => {
+            process.env.PUTOUT_PROGRESS_BAR = '0';
+        };
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
