@@ -62,7 +62,7 @@ const traverse = (args) => ({push, options}) => {
                 if (path.scope.hasBinding(name))
                     continue;
                 
-                if (isVar(path) || parentPath.parentPath.parentPath.isAssignmentExpression())
+                if (isVar(path) || isUnary(path) || parentPath.parentPath.parentPath.isAssignmentExpression())
                     continue;
                 
                 const fnPath = path.find(isFunction);
@@ -121,3 +121,11 @@ function isVar({parentPath}) {
     
     return false;
 }
+
+function isUnary({parentPath}) {
+    if (parentPath.parentPath.parentPath.isUnaryExpression())
+        return true;
+    
+    return false;
+}
+

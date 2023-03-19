@@ -479,3 +479,25 @@ test('putout: operator: add-argument: AssignmentExpression', (t) => {
     t.end();
 });
 
+test('putout: operator: add-argument: no transform UnaryExpression', (t) => {
+    const args = {
+        process: ['{process}', 'module.exports.__a = (__args) => __body'],
+    };
+    
+    const source = montag`
+        module.exports.VariableDeclaration = (path) => {
+            delete process.env.PUTOUT_PROGRESS_BAR;
+        };
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    t.equal(code, source);
+    t.end();
+});
+
