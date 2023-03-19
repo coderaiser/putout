@@ -53,13 +53,8 @@ const traverse = (args) => ({push, options}) => {
     
     return {
         ReferencedIdentifier(path) {
-            const {parentPath} = path;
-            
             for (const [name, [declaration, pattern]] of entries(allArgs)) {
                 if (path.node.name !== name)
-                    continue;
-                
-                if (!isCall(parentPath))
                     continue;
                 
                 if (path.scope.hasBinding(name))
@@ -110,9 +105,5 @@ function createProperty(node) {
     const {label, body} = node;
     
     return ObjectProperty(label, body.expression, !COMPUTED, SHORTHAND);
-}
-
-function isCall(path) {
-    return path.isCallExpression() || path.parentPath.isCallExpression();
 }
 

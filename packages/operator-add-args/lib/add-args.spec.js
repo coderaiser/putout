@@ -286,27 +286,6 @@ test('putout: operator: add-argument: not a function', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: not called', (t) => {
-    const args = {
-        process: ['process', 'test("__a", (__args) => __body)'],
-    };
-    
-    const source = montag`
-        test('hello', () => {
-            const {a} = process.env;
-        });
-    `;
-    
-    const {code} = putout(source, {
-        plugins: [
-            ['add-args', addArgs(args)],
-        ],
-    });
-    
-    t.equal(code, source);
-    t.end();
-});
-
 test('putout: operator: add-argument: second', (t) => {
     const args = {
         indent: ['{indent}', 'module.exports.__a = (__args) => __body'],
@@ -404,3 +383,41 @@ test('putout: operator: add-argument: nested block', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operator: add-argument: MemberExpression', (t) => {
+    const args = {
+        maybe: ['{maybe}', 'module.exports.__a = (__args) => __body'],
+    };
+    
+    const source = montag`
+        module.exports.VariableDeclaration = (path) => {
+            if (a) {
+                maybe.print.newline(is);
+            }
+        };
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    const expected = montag`
+        module.exports.VariableDeclaration = (
+            path,
+            {
+                maybe
+            }
+        ) => {
+            if (a) {
+                maybe.print.newline(is);
+            }
+        };
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
