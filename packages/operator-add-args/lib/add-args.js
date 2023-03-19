@@ -60,6 +60,9 @@ const traverse = (args) => ({push, options}) => {
                 if (path.scope.hasBinding(name))
                     continue;
                 
+                if (isVar(path) || parentPath.parentPath.parentPath.isAssignmentExpression())
+                    continue;
+                
                 const fnPath = path.find(isFunction);
                 
                 if (!fnPath)
@@ -107,3 +110,12 @@ function createProperty(node) {
     return ObjectProperty(label, body.expression, !COMPUTED, SHORTHAND);
 }
 
+function isVar({parentPath}) {
+    if (parentPath.parentPath.isVariableDeclarator())
+        return true;
+    
+    if (parentPath.isVariableDeclarator())
+        return true;
+    
+    return false;
+}

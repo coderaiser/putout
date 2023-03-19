@@ -421,3 +421,33 @@ test('putout: operator: add-argument: MemberExpression', (t) => {
     t.end();
 });
 
+test('putout: operator: add-argument: VariableDeclaration', (t) => {
+    const args = {
+        process: ['{process}', 'module.exports.__a = (__args) => __body'],
+    };
+    
+    const source = montag`
+        module.exports.VariableDeclaration = (path) => {
+            const {PUTOUT_PROGRESS_BAR} = process.env;
+            const {stderr} = process;
+        };
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    const expected = montag`
+        module.exports.VariableDeclaration = (path) => {
+            const {PUTOUT_PROGRESS_BAR} = process.env;
+            const {stderr} = process;
+        };
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
