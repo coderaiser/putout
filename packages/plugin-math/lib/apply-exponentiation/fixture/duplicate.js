@@ -1,1 +1,2 @@
 const b = a * a;
+

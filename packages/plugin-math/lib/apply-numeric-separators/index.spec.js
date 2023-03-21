@@ -13,7 +13,7 @@ test('plugin-math: apply-numeric-separators: transform: report', (t) => {
     t.end();
 });
 
-test('plugin-math: apply-numeric-separators: transform', (t) => {
+test('plugin-math: apply-numeric-separators: transform: number', (t) => {
     t.transform('number');
     t.end();
 });

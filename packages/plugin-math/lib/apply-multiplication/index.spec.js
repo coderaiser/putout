@@ -12,7 +12,7 @@ test('plugin-math: apply-multiplication: report', (t) => {
     t.end();
 });
 
-test('plugin-math: apply-multiplication: transform', (t) => {
+test('plugin-math: apply-multiplication: transform: imul', (t) => {
     t.transform('imul');
     t.end();
 });
