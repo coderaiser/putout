@@ -601,8 +601,6 @@ const removeArrayPatternElement = (elPath) => {
         
         if (i === n)
             return remove.call(elPath);
-        
-        elements[i] = null;
     };
 };
 
