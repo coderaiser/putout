@@ -890,3 +890,20 @@ test('putout: operate: remove: ArrayPattern', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: operate: remove: ArrayPattern: second', (t) => {
+    const ast = parse('const [a, b] = c;');
+    
+    traverse(ast, {
+        ArrayPattern(path) {
+            operate.remove(path.get('elements.1'));
+            path.stop();
+        },
+    });
+    
+    const result = print(ast);
+    const expected = 'const [a] = c;';
+    
+    t.equal(result, expected);
+    t.end();
+});

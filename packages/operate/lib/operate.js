@@ -18,15 +18,13 @@ const {
 } = require('./get-binding');
 const {extract} = require('./extract');
 const {compute} = require('./compute');
+const {remove} = require('./remove');
 const {getExportDefault} = require('./get-export-default');
 const {
     getProperty,
     getProperties,
 } = require('./properties');
-const {
-    assign,
-    entries,
-} = Object;
+const {assign} = Object;
 
 module.exports.getBinding = getBinding;
 module.exports.getBindingPath = getBindingPath;
@@ -112,52 +110,7 @@ module.exports.findBinding = (path, name) => {
     return referencePath.scope.bindings[name];
 };
 
-const isOneDeclaration = ({node}) => node.declarations.length === 1;
-
-const getComments = (path) => {
-    const {comments} = path.node;
-    
-    if (comments?.length)
-        return comments;
-    
-    const {parentPath} = path;
-    
-    if (path.isVariableDeclarator() && isOneDeclaration(parentPath)) {
-        return parentPath.node.comments;
-    }
-    
-    return [];
-};
-
-const getPrevSibling = (path) => {
-    if (!path.isVariableDeclarator())
-        return path.getPrevSibling();
-    
-    return path.parentPath.getPrevSibling();
-};
-
-module.exports.remove = (path) => {
-    const programBlock = path.scope.getProgramParent().block;
-    const prev = getPrevSibling(path);
-    
-    if (path.scope.block === programBlock && !prev.node)
-        programBlock.comments = getComments(path);
-    
-    if (path.parentPath.isArrayPattern()) {
-        const elements = path.parentPath.get('elements');
-        
-        for (const [index, el] of entries(elements)) {
-            if (el === path) {
-                path.parentPath.node.elements[index] = null;
-                break;
-            }
-        }
-        
-        return;
-    }
-    
-    path.remove();
-};
+module.exports.remove = remove;
 
 module.exports.getPathAfterImports = (body) => {
     const n = body.length;
