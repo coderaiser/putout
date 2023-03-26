@@ -32,7 +32,6 @@
     "empty"
   ],
   "devDependencies": {
-    "@putout/plugin-for-of": "*",
     "@putout/plugin-remove-nested-blocks": "*",
     "@putout/test": "^6.0.0",
     "c8": "^7.5.0",

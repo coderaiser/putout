@@ -1,6 +1,7 @@
 'use strict';
 
 const {types} = require('putout');
+const isNull = (a) => !a && typeof a === 'object';
 const {
     isObjectPattern,
     isArrayPattern,
@@ -9,6 +10,7 @@ const {
 module.exports.report = () => 'Avoid empty patterns';
 
 module.exports.match = () => ({
+    'for (const __array of __a) __body': checkArray,
     '(__array) => __a': check,
     'const __array = __': check,
     'let __array = __': check,
@@ -19,6 +21,7 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
+    'for (const __array of __a) __body': replaceArray,
     'const __array = __': '',
     'let __array = __': '',
     'const {} = __': '',
@@ -66,5 +69,17 @@ const isFixable = (a) => {
         return true;
     
     return false;
+};
+
+function replaceArray({__array}, path) {
+    __array.elements.length = 0;
+    __array.elements.pop();
+    
+    return path;
+}
+
+const checkArray = ({__array}) => {
+    const {elements} = __array;
+    return elements.filter(isNull).length === elements.length;
 };
 

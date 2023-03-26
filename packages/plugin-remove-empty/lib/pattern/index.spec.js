@@ -4,8 +4,6 @@ const {createTest} = require('@putout/test');
 const montag = require('montag');
 const removeEmptyPattern = require('.');
 
-const removeUnusedForOfVariables = require('@putout/plugin-for-of').rules['remove-unused-variables'];
-
 const test = createTest(__dirname, {
     'remove-empty-pattern': removeEmptyPattern,
 });
@@ -106,14 +104,13 @@ test('plugin-remove-empty: pattern: transform: fn', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: pattern: transform: null', (t) => {
+    t.transform('null');
+    t.end();
+});
+
 test('plugin-remove-empty: pattern: no report: no-args', (t) => {
     t.noReport('no-args');
     t.end();
 });
 
-test('plugin-remove-empty: pattern: transform: remove-unused-for-of-variables', (t) => {
-    t.transform('remove-unused-for-of-variables', {
-        removeUnusedForOfVariables,
-    });
-    t.end();
-});
