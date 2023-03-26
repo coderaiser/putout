@@ -1,11 +1,16 @@
 'use strict';
 
-const {types} = require('putout');
+const {
+    types,
+    operator,
+} = require('putout');
+
 const {
     isIdentifier,
     isObjectProperty,
 } = types;
 
+const {remove} = operator;
 const getValue = ({value}) => value;
 
 module.exports.report = (path) => {
@@ -29,9 +34,6 @@ function match(path) {
     const idPath = path.get('left.declarations.0.id');
     const elements = getElements(idPath);
     
-    if (!isAllIdentifiers(elements))
-        return false;
-    
     if (isAllReferenced(idPath, elements))
         return false;
     
@@ -42,7 +44,7 @@ function replace(path) {
     const variables = getVariables(path);
     
     for (const currentPath of variables) {
-        currentPath.remove();
+        remove(currentPath);
     }
     
     return path;
@@ -61,15 +63,6 @@ function getVariables(path) {
     return result;
 }
 
-function isAllIdentifiers(array) {
-    const realArray = array.filter(Boolean);
-    
-    const {length} = realArray;
-    const {length: realLength} = realArray.filter(isIdentifier);
-    
-    return length === realLength;
-}
-
 function isReferenced({scope}, path) {
     const {bindings} = scope;
     
@@ -78,6 +71,10 @@ function isReferenced({scope}, path) {
         const current = bindings[name];
         
         return !current || current.referenced;
+    }
+    
+    if (path.isObjectPattern()) {
+        return true;
     }
     
     const {node} = path;
@@ -90,14 +87,19 @@ function isReferenced({scope}, path) {
     return bindings[name].referenced;
 }
 
-function isAllReferenced(path, array) {
+function isAllReferenced(path, nodes) {
     const {bindings} = path.scope;
     
-    for (const {name} of array) {
-        const current = bindings[name];
-        
-        if (!current.referenced)
-            return false;
+    for (const node of nodes) {
+        if (isIdentifier(node)) {
+            const {name} = node;
+            const current = bindings[name];
+            
+            if (!current.referenced)
+                return false;
+            
+            continue;
+        }
     }
     
     return true;
@@ -136,4 +138,3 @@ function getNames(paths) {
     
     return result;
 }
-
