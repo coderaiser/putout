@@ -1,14 +1,12 @@
 'use strict';
 
 const object = require('./object');
-const isType = require('./is-type');
 const wrap = require('./wrap');
 const freshImport = require('./fresh-import');
 const fixtures = require('./fixtures');
 
 module.exports.declare = () => ({
     ...object,
-    ...isType,
     ...wrap,
     ...freshImport,
     ...fixtures,
