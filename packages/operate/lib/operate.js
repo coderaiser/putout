@@ -12,13 +12,21 @@ const {
     BlockStatement,
 } = require('@babel/types');
 
-const {getBinding, getBindingPath} = require('./get-binding');
+const {
+    getBinding,
+    getBindingPath,
+} = require('./get-binding');
 const {extract} = require('./extract');
 const {compute} = require('./compute');
 const {getExportDefault} = require('./get-export-default');
-const {getProperty, getProperties} = require('./properties');
-
-const {assign} = Object;
+const {
+    getProperty,
+    getProperties,
+} = require('./properties');
+const {
+    assign,
+    entries,
+} = Object;
 
 module.exports.getBinding = getBinding;
 module.exports.getBindingPath = getBindingPath;
@@ -26,13 +34,13 @@ module.exports.extract = extract;
 module.exports.compute = compute;
 module.exports.replaceWith = replaceWith;
 module.exports.getExportDefault = getExportDefault;
-
 module.exports.getProperty = getProperty;
 module.exports.getProperties = getProperties;
-
 module.exports.toExpression = toExpression;
+
 function toExpression(el) {
     const {type} = el;
+    
     const ignore = [
         'ObjectProperty',
     ];
@@ -47,10 +55,13 @@ function toExpression(el) {
 }
 
 function replaceWith(path, node) {
-    if (path?.parentPath?.isExpressionStatement?.() && !path.parentPath.isProgram())
+    if (path?.parentPath?.isExpressionStatement() && !path.parentPath.isProgram())
         path = path.parentPath;
     
-    const {comments, loc} = path.node;
+    const {
+        comments,
+        loc,
+    } = path.node;
     const {currentPath} = maybeBody(path, node);
     
     currentPath.replaceWith(node);
@@ -67,9 +78,7 @@ module.exports.replaceWithMultiple = (path, nodes) => {
     const parentComments = path.parentPath.node.comments;
     const {comments} = path.node;
     
-    const newNodes = nodes
-        .filter(Boolean)
-        .map(toExpression);
+    const newNodes = nodes.filter(Boolean).map(toExpression);
     
     const {currentPath} = maybeBody(path);
     const newPath = currentPath.replaceWithMultiple(newNodes);
@@ -84,7 +93,6 @@ module.exports.replaceWithMultiple = (path, nodes) => {
 
 module.exports.insertAfter = (path, node) => {
     const {comments} = path.node;
-    
     path.insertAfter(node);
     path.node.comments = comments;
 };
@@ -135,6 +143,19 @@ module.exports.remove = (path) => {
     if (path.scope.block === programBlock && !prev.node)
         programBlock.comments = getComments(path);
     
+    if (path.parentPath.isArrayPattern()) {
+        const elements = path.parentPath.get('elements');
+        
+        for (const [index, el] of entries(elements)) {
+            if (el === path) {
+                path.parentPath.node.elements[index] = null;
+                break;
+            }
+        }
+        
+        return;
+    }
+    
     path.remove();
 };
 
@@ -171,10 +192,11 @@ function maybeBody(path, node) {
             currentPath: path,
         };
     
-    parentPath.node.body = BlockStatement([ExpressionStatement(path.node)]);
+    parentPath.node.body = BlockStatement([
+        ExpressionStatement(path.node),
+    ]);
     
     return {
         currentPath: parentPath.get('body.body.0'),
     };
 }
-

@@ -1,14 +1,10 @@
 'use strict';
 
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test, stub} = require('supertape');
+
 const putout = require('putout');
 const montag = require('montag');
-
 const operate = require('..');
-
 const {readFixtures} = require('./fixture');
 
 const {
@@ -18,6 +14,7 @@ const {
     print,
     template,
 } = putout;
+
 const fixture = readFixtures();
 
 const {
@@ -73,6 +70,7 @@ test('putout: operate: replaceWith: result', (t) => {
     const node = {};
     const replaceWith = stub();
     const isExpressionStatement = stub().returns(false);
+    
     const parentPath = {
         isExpressionStatement,
     };
@@ -94,6 +92,7 @@ test('putout: operate: replaceWith: expression', (t) => {
     const replaceWith = stub();
     const isExpressionStatement = stub().returns(true);
     const isProgram = stub().returns(false);
+    
     const parentPath = {
         isExpressionStatement,
         node,
@@ -118,6 +117,7 @@ test('putout: operate: replaceWith: expression: isProgram', (t) => {
     const replaceWith = stub();
     const isExpressionStatement = stub().returns(true);
     const isProgram = stub().returns(true);
+    
     const parentPath = {
         node,
         replaceWith,
@@ -230,7 +230,6 @@ test('putout: operate: insertAfter: comments', (t) => {
 test('putout: operate: replaceWithMultiple', (t) => {
     const nodes = [];
     const comments = [];
-    
     const replaceWithMultiple = stub().returns({});
     
     const parentPath = {
@@ -240,6 +239,7 @@ test('putout: operate: replaceWithMultiple', (t) => {
     };
     
     const node = {};
+    
     const path = {
         node,
         parentPath,
@@ -335,6 +335,7 @@ test('putout: operate: replaceWithMultiple: parent comment', (t) => {
             'split-variable-declarations',
         ],
     });
+    
     const expected = fixture.parentCommentFix;
     
     t.equal(code, expected);
@@ -347,6 +348,7 @@ test('putout: operate: replaceWithMultiple: current comment', (t) => {
             'extract-sequence-expressions',
         ],
     });
+    
     const expected = fixture.currentCommentFix;
     
     t.equal(code, expected);
@@ -356,9 +358,11 @@ test('putout: operate: replaceWithMultiple: current comment', (t) => {
 test('putout: operate: replaceWithMultiple: empty array', (t) => {
     const replaceWithMultiple = stub().returns([]);
     const comments = [];
+    
     const node = {
         comments,
     };
+    
     const parentPath = {
         node: {
             comments,
@@ -384,7 +388,9 @@ test('putout: operate: isModuleExports: path', (t) => {
     traverse(ast, {
         AssignmentExpression(path) {
             const leftPath = path.get('left');
+            
             is = operate.isModuleExports(leftPath);
+            
             path.stop();
         },
     });
@@ -476,14 +482,20 @@ test('operate: replaceWithMultiple: to expressions', (t) => {
             operate.replaceWithMultiple(path, [
                 Identifier('hello'),
                 StringLiteral('world'),
-                SequenceExpression([Identifier('a'), Identifier('b')]),
+                SequenceExpression([
+                    Identifier('a'),
+                    Identifier('b'),
+                ]),
                 CallExpression(Identifier('hello'), []),
-                ObjectExpression([ObjectProperty(StringLiteral('a'), StringLiteral('b'))]),
+                ObjectExpression([
+                    ObjectProperty(StringLiteral('a'), StringLiteral('b')),
+                ]),
             ]);
         },
     });
     
     const result = print(ast);
+    
     const expected = [
         `hello;`,
         `'world';`,
@@ -514,6 +526,7 @@ test('operate: replaceWithMultiple: to expressions: ignore', (t) => {
     });
     
     const result = print(ast);
+    
     const expected = [
         `const t = {`,
         `  'a': 'b',`,
@@ -539,6 +552,7 @@ test('operate: remove', (t) => {
     });
     
     const result = print(ast);
+    
     const expected = montag`
         // hello
         x = 2;
@@ -561,6 +575,7 @@ test('operate: remove: empty', (t) => {
     });
     
     const result = print(ast);
+    
     const expected = montag`
         // hello
     
@@ -583,6 +598,7 @@ test('operate: remove: VariableDeclarator', (t) => {
     });
     
     const result = print(ast);
+    
     const expected = montag`
         // hello
     
@@ -606,6 +622,7 @@ test('operate: remove: VariableDeclarator: a couple', (t) => {
     });
     
     const result = print(ast);
+    
     const expected = montag`
         // hello
         var b = 2;
@@ -632,6 +649,7 @@ test('operate: getPathAfterImports', (t) => {
     });
     
     const result = print(ast);
+    
     const expected = montag`
         import {readFile} from 'fs/promises';
         const x = 5;
@@ -659,6 +677,7 @@ test('operate: getPathAfterImports: couple imports', (t) => {
     });
     
     const result = print(ast);
+    
     const expected = montag`
         import {readFile} from 'fs/promises';
         import {join} from 'path';
@@ -826,7 +845,9 @@ test('putout: operate: replaceWithMultiple: body of ArrowFunctionExpression: Exp
     
     traverse(ast, {
         CallExpression(path) {
-            operate.replaceWithMultiple(path, [ReturnStatement()]);
+            operate.replaceWithMultiple(path, [
+                ReturnStatement(),
+            ]);
             path.stop();
         },
     });
@@ -853,3 +874,19 @@ test('putout: operate: replaceWith: body of ArrowFunctionExpression: BlockStatem
     t.end();
 });
 
+test('putout: operate: remove: ArrayPattern', (t) => {
+    const ast = parse('const [a, b] = c;');
+    
+    traverse(ast, {
+        ArrayPattern(path) {
+            operate.remove(path.get('elements.0'));
+            path.stop();
+        },
+    });
+    
+    const result = print(ast);
+    const expected = 'const [, b] = c;';
+    
+    t.equal(result, expected);
+    t.end();
+});
