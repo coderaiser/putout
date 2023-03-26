@@ -1,3 +1,24 @@
+2023.03.26, v29.1.6
+
+fix:
+- f426420c3 @putout/plugin-declare: is-type moved out to @putout/types
+
+feature:
+- f91242abc package: @putout/plugin-remove-unused-variables v5.0.0
+- 3e3c3cda5 @putout/plugin-remove-unused-variables: drop support of 🐊 < 29
+- 0f1e5dd41 @putout/plugin-remove-unused-variables: simplify
+- 167cde6a3 package: @putout/plugin-remove-empty v10.0.0
+- 0f1b3c5df @putout/plugin-remove-empty: drop support of 🐊 < 29
+- 6c548ab8f @putout/plugin-remove-empty: improve support of nullable ArrayPatterns
+- 4e7233145 @putout/for-of: remove-unused-variaables: improve support of ArrayPattern
+- abb7a2675 @putout/operate: improve support of second argument of ArrayPattern
+- 68920b983 @putout/plugin-for-of: remove-unused-variables: improve support of ArrayPattern
+- 9c0cf5f64 @putout/operate: improve support of removing element from ArrayPattern
+- 66181e20d @putout/operator-add-args: exclude UnaryExpression
+- 090efa26e @putout/operator-add-args: exclude AssignmentExpression
+- 496e0b85d @putout/operator-add-args: exclude VariableDeclarator
+- e15c01803 @putout/operator-add-args: add support of MemberExpression
+
 2023.03.18, v29.1.5
 
 feature:
