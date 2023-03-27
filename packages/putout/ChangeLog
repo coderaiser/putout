@@ -1,3 +1,10 @@
+2023.03.27, v29.1.7
+
+feature:
+- 4b322453b package: @putout/plugin-remove-console v6.0.0
+- d002ee9b5 @putout/plugin-remove-console: report
+- 44a79ead7 @putout/plugin-remove-console: drop support of 🐊 < 29
+
 2023.03.26, v29.1.6
 
 fix:
