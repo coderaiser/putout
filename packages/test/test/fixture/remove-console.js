@@ -6,7 +6,7 @@ const {
     isMemberExpression,
 } = require('@babel/types');
 
-module.exports.report = () => 'Unexpected "console" call';
+module.exports.report = () => `Avoid 'console' call`;
 
 module.exports.fix = (path) => {
     path.remove();

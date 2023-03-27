@@ -10,7 +10,7 @@ const test = require('..')(__dirname, {
 });
 
 test('test: rules: reportCode', (t) => {
-    t.reportCode('console.log()', 'Unexpected "console" call');
+    t.reportCode('console.log()', `Avoid 'console' call`);
     t.end();
 });
 

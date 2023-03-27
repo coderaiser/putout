@@ -3,7 +3,7 @@
 const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => 'Unexpected "console" call';
+module.exports.report = () => `Avoid 'console' call`;
 
 module.exports.fix = (path) => {
     remove(path);
@@ -15,4 +15,3 @@ module.exports.include = () => [
     `console.__a(__args)`,
     `console[__a](__args)`,
 ];
-

@@ -8,20 +8,20 @@ const test = require('..')(__dirname, {
 });
 
 test('test: message', (t) => {
-    t.report('property-identifier', 'Unexpected "console" call');
+    t.report('property-identifier', `Avoid 'console' call`);
     t.end();
 });
 
 test('test: ts', (t) => {
-    t.report('typescript', 'Unexpected "console" call');
+    t.report('typescript', `Avoid 'console' call`);
     t.end();
 });
 
 test('test: message: all messages', (t) => {
     t.report('property-identifier', [
-        'Unexpected "console" call',
-        'Unexpected "console" call',
-        'Unexpected "console" call',
+        `Avoid 'console' call`,
+        `Avoid 'console' call`,
+        `Avoid 'console' call`,
     ]);
     t.end();
 });
@@ -32,7 +32,7 @@ test('test: no report', (t) => {
 });
 
 test('test: reportCode', (t) => {
-    t.reportCode('console.log()', 'Unexpected "console" call');
+    t.reportCode('console.log()', `Avoid 'console' call`);
     t.end();
 });
 

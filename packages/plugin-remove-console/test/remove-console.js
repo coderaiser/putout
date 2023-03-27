@@ -2,12 +2,13 @@
 
 const {createTest} = require('@putout/test');
 const removeConsole = require('..');
+
 const test = createTest(__dirname, {
     'remove-console': removeConsole,
 });
 
 test('plugin-remove-console: report', (t) => {
-    t.report('property-identifier', 'Unexpected "console" call');
+    t.report('property-identifier', `Avoid 'console' call`);
     t.end();
 });
 
@@ -35,4 +36,3 @@ test('plugin-remove-console: dir', (t) => {
     t.transformCode('console.dir()', '');
     t.end();
 });
-
