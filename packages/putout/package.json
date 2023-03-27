@@ -119,7 +119,7 @@
     "@putout/plugin-putout": "^12.0.0",
     "@putout/plugin-putout-config": "^2.0.0",
     "@putout/plugin-regexp": "^6.0.0",
-    "@putout/plugin-remove-console": "^5.0.0",
+    "@putout/plugin-remove-console": "^6.0.0",
     "@putout/plugin-remove-constant-conditions": "^4.0.0",
     "@putout/plugin-remove-debugger": "^5.0.0",
     "@putout/plugin-remove-duplicate-case": "^2.0.0",
