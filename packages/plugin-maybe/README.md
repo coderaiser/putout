@@ -17,6 +17,7 @@ npm i @putout/plugin-maybe -D
 {
     "rules": {
         "maybe/array": "on",
+        "maybe/call": "on",
         "maybe/empty-array": "on",
         "maybe/fn": "on",
         "maybe/noop": "on",
@@ -53,6 +54,37 @@ const array = !a ? [] : a;
 ```js
 const maybeArray = (a) => !a ? [] : a;
 const array = maybeEmptyArray(a);
+```
+
+## call
+
+### ❌ Example of incorrect code
+
+```js
+const {
+    print,
+    newlineBefore,
+} = plugin;
+
+if (typeof newlineBefore === 'function' && newlineBefore()) {
+    printer.print.newline();
+}
+```
+
+### ✅ Example of correct code
+
+```js
+const {
+    print,
+    newlineBefore,
+} = plugin;
+
+const isFn = (fn) => typeof fn === 'function';
+const call = (fn, ...args) =>  isFn(fn) && fn(...args);
+
+if (call(newlineBefore)) {
+    printer.print.newline();
+}
 ```
 
 ## fn
