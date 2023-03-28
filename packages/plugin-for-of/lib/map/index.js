@@ -1,10 +1,6 @@
 'use strict';
 
-const {
-    print,
-    types,
-} = require('putout');
-
+const {types} = require('putout');
 const {
     isReturnStatement,
     isBlockStatement,
@@ -36,9 +32,9 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    '__a.map((__b) => __c)': ({__a, __b}) => {
-        const a = print(__a);
-        const b = print(__b);
+    '__a.map((__b) => __c)': (vars, path) => {
+        const a = path.get('callee.object');
+        const b = path.get('arguments.0.params.0');
         
         return `for (const ${b} of ${a}) __c`;
     },
