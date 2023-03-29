@@ -6,7 +6,7 @@ const {
 } = require('../get');
 const {assign} = Object;
 
-module.exports.report = () => 'Use "n" instead of "node"';
+module.exports.report = () => `Use 'n' instead of 'node'`;
 
 module.exports.match = () => ({
     '__putout_processor_json(__a)': ({__a}) => {

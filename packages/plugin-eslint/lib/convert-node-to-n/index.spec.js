@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('putout: plugin-eslint: convert-node-to-n: report', (t) => {
-    t.report('node', 'Use "n" instead of "node"');
+    t.report('node', `Use 'n' instead of 'node'`);
     t.end();
 });
 

@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('putout: plugin-eslint: convert-require-to-import-in-extends: report', (t) => {
-    t.report('convert-require-to-import', 'Use "import" in ESM');
+    t.report('convert-require-to-import', `Use 'import' in ESM`);
     t.end();
 });
 

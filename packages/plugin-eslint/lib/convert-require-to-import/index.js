@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = () => 'Use "import" in ESM';
+module.exports.report = () => `Use 'import' in ESM`;
 
 module.exports.fix = (path) => {
     path.node.key.value = 'node/no-missing-import';
