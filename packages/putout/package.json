@@ -87,7 +87,7 @@
     "@putout/plugin-convert-concat-to-flat": "^1.0.0",
     "@putout/plugin-convert-const-to-let": "^1.0.0",
     "@putout/plugin-convert-esm-to-commonjs": "^5.0.0",
-    "@putout/plugin-convert-index-of-to-includes": "^1.0.0",
+    "@putout/plugin-convert-index-of-to-includes": "^2.0.0",
     "@putout/plugin-convert-mock-require-to-mock-import": "^4.0.0",
     "@putout/plugin-convert-object-assign-to-merge-spread": "^6.0.0",
     "@putout/plugin-convert-quotes-to-backticks": "^2.0.0",
