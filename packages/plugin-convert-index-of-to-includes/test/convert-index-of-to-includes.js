@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-convert-index-of-to-includes: report', (t) => {
-    t.report('index-of', '"includes" should be used instead of "indexOf"');
+    t.report('index-of', `Use 'includes()' instead of 'indexOf()'`);
     t.end();
 });
 
@@ -27,3 +27,7 @@ test('plugin-convert-index-of-to-includes: transform: not equal', (t) => {
     t.end();
 });
 
+test('plugin-convert-index-of-to-includes: transform: if', (t) => {
+    t.transform('if');
+    t.end();
+});
