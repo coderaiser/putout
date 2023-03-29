@@ -17,3 +17,8 @@ test('putout: plugin: types: declare', (t) => {
     t.end();
 });
 
+test('putout: plugin: types: declare: empty-string', (t) => {
+    t.transform('empty-string');
+    t.end();
+});
+

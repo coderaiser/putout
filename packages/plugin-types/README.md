@@ -34,6 +34,7 @@ Based on [`@putout/operator-declare`](https://github.com/coderaiser/putout/tree/
 Supported assertions:
 
 - `isString`;
+- `isEmptyString`;
 - `isNumber`;
 - `isFn`;
 - `isBool`;

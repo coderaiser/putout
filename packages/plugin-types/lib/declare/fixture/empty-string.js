@@ -1,0 +1,1 @@
+isEmptyString(a);
