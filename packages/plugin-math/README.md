@@ -19,7 +19,8 @@ npm i @putout/plugin-math -D
         "math/apply-exponentiation": "on",
         "math/apply-multiplication": "on",
         "math/apply-numeric-separators": "on",
-        "math/convert-sqrt-to-hypot": "on"
+        "math/convert-sqrt-to-hypot": "on",
+        "math/declare": "on"
     }
 }
 ```
@@ -106,6 +107,25 @@ const t = 10000000;
 
 ```js
 const t = 10_000_000;
+```
+
+## declare
+
+> The `Math.round()` static method returns the value of a number rounded to the nearest integer.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round)
+
+### ❌ Example of incorrect code
+
+```js
+round(bLength / aLength) > 3;
+```
+
+### ✅ Example of correct code
+
+```js
+const {round} = Math;
+round(bLength / aLength) > 3;
 ```
 
 ## License

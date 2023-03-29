@@ -9,5 +9,6 @@ module.exports.rules = {
     ...getRule('apply-multiplication'),
     ...getRule('apply-numeric-separators'),
     ...getRule('convert-sqrt-to-hypot'),
+    ...getRule('declare'),
 };
 

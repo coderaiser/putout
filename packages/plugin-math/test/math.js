@@ -26,3 +26,8 @@ test('plugin-math: transform: apply-numeric-separators', (t) => {
     t.transform('apply-numeric-separators');
     t.end();
 });
+
+test('plugin-math: transform: declare', (t) => {
+    t.transform('declare');
+    t.end();
+});
