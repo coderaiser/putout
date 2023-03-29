@@ -1,6 +1,10 @@
 'use strict';
 
-const {getExtends, getPlugins} = require('../get');
+const {
+    getExtends,
+    getPlugins,
+} = require('../get');
+const {assign} = Object;
 
 module.exports.report = () => 'Use "n" instead of "node"';
 
@@ -32,17 +36,22 @@ module.exports.replace = () => ({
             const {value} = element;
             
             if (value.includes('node/recommended'))
-                element.value = 'plugin:n/recommended';
+                assign(element, {
+                    value: 'plugin:n/recommended',
+                    raw: element.raw.replace('node', 'n'),
+                });
         }
         
         for (const element of plugins) {
             const {value} = element;
             
             if (value === 'node')
-                element.value = 'n';
+                assign(element, {
+                    value: 'n',
+                    raw: element.raw.replace('node', 'n'),
+                });
         }
         
         return path;
     },
 });
-
