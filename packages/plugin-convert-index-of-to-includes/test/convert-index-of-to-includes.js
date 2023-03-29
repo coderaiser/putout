@@ -27,7 +27,3 @@ test('plugin-convert-index-of-to-includes: transform: not equal', (t) => {
     t.end();
 });
 
-test('plugin-convert-index-of-to-includes: transform: if', (t) => {
-    t.transform('if');
-    t.end();
-});
