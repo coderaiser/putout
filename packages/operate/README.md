@@ -77,6 +77,15 @@ Can be used to convert node to `expression` when building new nodes.
 
 Remove `node`, preserve comments.
 
+```js
+path.toString();
+// returns const [a, b] = c;
+remove(path.get('declarations.0.id.0'));
+
+path.toString();
+// returns const [, b] = c;
+```
+
 ### `getPathAfterImports(body)`
 
 Get next `path` after latest `ImportDeclaration`:
