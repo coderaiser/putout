@@ -1,3 +1,14 @@
+2023.03.29, v29.1.10
+
+fix:
+- b48f75885 @putout/plugin-convert-index-of-to-includes: drop if case because of false positives
+
+feature:
+- acf0e05b5 package: @putout/plugin-convert-index-of-to-includes v2.0.0
+- c844f599f @putout/plugin-convert-index-of-to-includes: drop suppor of node < 16
+- d51507434 @putout/plugin-convert-index-of-to-includes: drop suppor of 🐊 < 29
+- 2c07c964d @putout/plugin-convert-index-of-to-includes: add support of IfStatement
+
 2023.03.29, v29.1.9
 
 feature:
