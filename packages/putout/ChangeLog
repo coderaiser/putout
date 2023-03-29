@@ -1,3 +1,14 @@
+2023.03.29, v29.1.8
+
+feature:
+- 933b6e140 package: @putout/plugin-apply-optional-chaining v3.0.0
+- 2c0c05716 @putout/plugin-apply-optional-chaining: improve support of OptionalCallExpression
+- 9e32bcb26 @putout/plugin-apply-optional-chaining: drop support of node < 16
+- 59c9e093c @putout/plugin-apply-optional-chaining: drop support of 🐊 < 29
+- d00e74d0e @putout/plugin-apply-optional-chaining: report
+- e29d8acf6 @putout/plugin-types: add isEmptyString
+- 9242889dc @putout/plugin-for-of: map: print() -> path.toString()
+
 2023.03.27, v29.1.7
 
 feature:
