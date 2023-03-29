@@ -8,7 +8,7 @@ const {jsx} = require('./jsx');
 const commonRules = {
     'no-undef': 'off',
     'no-empty': 'off',
-    'eol-last': 'off',
+    'eol-last': ['error', 'never'],
     'no-unreachable': 'off',
     'no-constant-condition': 'off',
     'n/no-extraneous-require': 'off',

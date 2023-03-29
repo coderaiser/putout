@@ -59,7 +59,6 @@ npm i @putout/plugin-putout -D
 test('', async (t) => {
     await t.process({});
 });
-
 ```
 
 ### ✅ Example of correct code

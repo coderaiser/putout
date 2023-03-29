@@ -31,7 +31,6 @@ npm i @putout/plugin-remove-useless-constructors
 const s = String('hello');
 const b = Boolean(false);
 const n = Number(5);
-
 ```
 
 ## ✅ Example of correct code

@@ -388,7 +388,6 @@ const test = createTest(import.meta.url, {
         'eslint',
     ],
 });
-
 ```
 
 ### `process(filename [, plugins, ])`

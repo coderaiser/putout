@@ -22,7 +22,6 @@ When you want to evaluate expressions `source` of `ImportDeclaration`:
 
 ```js
 import {readFile} from '__putout_evaluate: `./` + basename(__filename).replace(`.spec.js`, `.js`)';
-
 ```
 
 ## ✅ Example of correct code

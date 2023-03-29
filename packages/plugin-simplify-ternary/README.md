@@ -76,7 +76,6 @@ const a = {
         devtool: 'eval',
     },
 };
-
 ```
 
 ## Comparison

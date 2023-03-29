@@ -53,7 +53,6 @@ class SomeClass extends Component {
 class SomeClass2 extends Component {
     howCome = () => {};
 }
-
 ```
 
 ## License

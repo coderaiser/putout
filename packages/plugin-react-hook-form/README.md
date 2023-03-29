@@ -185,7 +185,6 @@ const a = <Controller
     })}
     onChange={onChange}
 />;
-
 ```
 
 ### ✅ Example of correct code

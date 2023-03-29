@@ -107,7 +107,6 @@ module.exports.match = () => ({
         return getBindingPath(path, __a);
     },
 });
-
 ```
 
 ### `compute(path)`

@@ -52,7 +52,6 @@ export default function Nav() {
         </a>
     </Link>;
 }
-
 ```
 
 ### ✅ Example of correct code

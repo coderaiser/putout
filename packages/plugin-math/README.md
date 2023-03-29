@@ -82,7 +82,6 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/cef45d5cc
 
 ```js
 const a = Math.imul(b, c);
-
 ```
 
 ### ✅ Example of correct code

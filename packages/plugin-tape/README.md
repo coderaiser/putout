@@ -775,7 +775,6 @@ t.notCalled(fn);
 test.only('some test', (t) => {
     t.end();
 });
-
 ```
 
 ### ✅ Example of correct code
@@ -815,7 +814,6 @@ test('some test', (t) => {
     stopAll();
     t.end();
 });
-
 ```
 
 ### ✅ Example of correct code

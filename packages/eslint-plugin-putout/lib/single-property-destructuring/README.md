@@ -15,7 +15,6 @@ import {
 const {
     username,
 } = user;
-
 ```
 
 ## ✅ Example of correct code

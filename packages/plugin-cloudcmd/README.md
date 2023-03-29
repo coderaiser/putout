@@ -75,7 +75,6 @@ await IO.copy(dirPath, mp3Dir, mp3Names);
 
 ```js
 await IO.write(`${mp3Dir}?dir`);
-
 ```
 
 ## ✅ Example of correct code
@@ -95,7 +94,6 @@ await CloudCmd.loadDir({
     path: '/',
     panel,
 });
-
 ```
 
 ## ✅ Example of correct code

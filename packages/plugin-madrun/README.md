@@ -271,7 +271,6 @@ export default {
 export default {
     report: () => `c8 report --reporter=text-lcov | coveralls || true`,
 };
-
 ```
 
 ### ✅ Example of correct code
@@ -290,7 +289,6 @@ export default {
 export default {
     test: () => 'tape -d *.js',
 };
-
 ```
 
 ### ✅ Example of correct code
@@ -309,7 +307,6 @@ export default {
 export default {
     coverage: async () => [env, `c8 ${await cutEnv('test')}`],
 };
-
 ```
 
 ### ✅ Example of correct code

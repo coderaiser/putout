@@ -47,7 +47,6 @@ console.log('hello');
 
 fn(value);
 fn(value, value2);
-
 ```
 
 ## License
