@@ -1,3 +1,12 @@
+2023.03.29, v29.1.9
+
+feature:
+- c6688e2cd package: @putout/plugin-eslint v5.0.0
+- 79cccc6e6 @putout/plugin-eslint: report
+- 890555573 @putout/plugin-eslint: drop supprot of 🐊 < 29
+- 05f8d86a2 @putout/plugin-eslint: improve support of @putout/printer
+- ac59d191f eslint-plugin-putout: markdown: eol-last: off -> never
+
 2023.03.29, v29.1.8
 
 feature:
