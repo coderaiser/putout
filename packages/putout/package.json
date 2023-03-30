@@ -90,6 +90,7 @@
     "@putout/plugin-convert-index-of-to-includes": "^2.0.0",
     "@putout/plugin-convert-mock-require-to-mock-import": "^4.0.0",
     "@putout/plugin-convert-object-assign-to-merge-spread": "^6.0.0",
+    "@putout/plugin-convert-object-entries-to-array-entries": "^1.0.0",
     "@putout/plugin-convert-quotes-to-backticks": "^2.0.0",
     "@putout/plugin-convert-template-to-string": "^1.0.0",
     "@putout/plugin-convert-to-arrow-function": "^3.0.0",

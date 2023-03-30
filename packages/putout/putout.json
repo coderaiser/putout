@@ -199,6 +199,7 @@
         "convert-assignment-to-arrow-function",
         "convert-assignment-to-comparison",
         "convert-quotes-to-backticks",
+        "convert-object-entries-to-array-entries",
         "merge-destructuring-properties",
         "merge-duplicate-imports",
         "merge-duplicate-functions",
