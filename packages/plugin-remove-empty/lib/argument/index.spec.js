@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-empty: argument: report', (t) => {
-    t.report('arg', 'Empty argument should be avoided');
+    t.report('arg', 'Avoid empty destructuring argument');
     t.end();
 });
 
@@ -19,6 +19,11 @@ test('plugin-remove-empty: no report: argument: object', (t) => {
 
 test('plugin-remove-empty: no report: argument: array', (t) => {
     t.transform('array');
+    t.end();
+});
+
+test('plugin-remove-empty: no report: argument: object-method', (t) => {
+    t.transform('object-method');
     t.end();
 });
 

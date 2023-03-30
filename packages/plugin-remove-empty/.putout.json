@@ -1,0 +1,7 @@
+{
+    "match": {
+        "*.md": {
+            "putout/convert-method-to-property": "off"
+        }
+    }
+}

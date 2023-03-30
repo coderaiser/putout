@@ -94,10 +94,16 @@ export const func = (param) => {
 
 ## arguments
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2e19524f26b2fb412dd04228cc4a42e1/71b0034c61c33d2f8957b84b4e83d3844aba4f34).
+
 ### ❌ Example of incorrect code
 
 ```js
 module.exports = ({rule, plugin, msg, options}, {}) => {
+};
+
+const a = {
+    EmptyStatement({}) {},
 };
 ```
 
@@ -105,6 +111,10 @@ module.exports = ({rule, plugin, msg, options}, {}) => {
 
 ```js
 module.exports = ({rule, plugin, msg, options}) => {
+};
+
+const a = {
+    EmptyStatement() {},
 };
 ```
 
