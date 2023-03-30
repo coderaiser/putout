@@ -7,7 +7,7 @@ module.exports.match = () => ({
         const {referencePaths} = path.scope.bindings[__i.name];
         
         for (const {parentPath} of referencePaths) {
-            if (parentPath.isBinaryExpression())
+            if (parentPath.isBinaryExpression() && !maybeCompareString(parentPath))
                 return true;
             
             if (parentPath.isUnaryExpression())
@@ -21,3 +21,13 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     'for (const [__i, __a] of entries(__b))__c': 'for (const [__i, __a] of __b.entries()) __c',
 });
+
+function maybeCompareString(path) {
+    const {operator} = path.node;
+    
+    if (operator.includes('=='))
+        return true;
+    
+    return false;
+}
+

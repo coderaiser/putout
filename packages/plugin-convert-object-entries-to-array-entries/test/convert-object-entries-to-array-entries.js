@@ -17,3 +17,8 @@ test('plugin-convert-object-entries-to-array-entries: transform', (t) => {
     t.end();
 });
 
+test('plugin-convert-object-entries-to-array-entries: no transform: not-equal', (t) => {
+    t.noTransform('not-equal');
+    t.end();
+});
+
