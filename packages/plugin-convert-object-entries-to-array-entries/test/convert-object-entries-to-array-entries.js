@@ -27,3 +27,8 @@ test('plugin-convert-object-entries-to-array-entries: no transform: not-index', 
     t.end();
 });
 
+test('plugin-convert-object-entries-to-array-entries: no transform: no-operation', (t) => {
+    t.noTransform('no-operation');
+    t.end();
+});
+

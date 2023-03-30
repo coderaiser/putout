@@ -1,5 +1,7 @@
 'use strict';
 
+const maybeCompareString = (path) => path.node.operator.includes('==');
+
 module.exports.report = () => `Use 'array.entries()' instead of 'Object.entries()'`;
 
 module.exports.match = () => ({
@@ -26,13 +28,4 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     'for (const [__i, __a] of entries(__b))__c': 'for (const [__i, __a] of __b.entries()) __c',
 });
-
-function maybeCompareString(path) {
-    const {operator} = path.node;
-    
-    if (operator.includes('=='))
-        return true;
-    
-    return false;
-}
 
