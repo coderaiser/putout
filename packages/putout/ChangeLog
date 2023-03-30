@@ -1,3 +1,12 @@
+2023.03.30, v29.1.11
+
+feature:
+- a1f3ef403 @putout/plugin-convert-object-entries-to-array-entries: exclude index with different name
+- 3cb0b1a42 @putout/plugin-convert-object-entries-to-array-entries: exclude '=='
+- 1ece7961b @putout/plugin-convert-object-entries-to-array-entries: add
+- 17d9a6968 @putout/plugin-math: declare: add
+- d2e27da98 eslint-plugin-putout: json: eol-last: off -> never
+
 2023.03.29, v29.1.10
 
 fix:
