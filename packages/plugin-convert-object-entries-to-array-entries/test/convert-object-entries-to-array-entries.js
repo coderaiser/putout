@@ -22,3 +22,8 @@ test('plugin-convert-object-entries-to-array-entries: no transform: not-equal', 
     t.end();
 });
 
+test('plugin-convert-object-entries-to-array-entries: no transform: not-index', (t) => {
+    t.noTransform('not-index');
+    t.end();
+});
+

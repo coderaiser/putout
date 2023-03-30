@@ -4,7 +4,12 @@ module.exports.report = () => `Use 'array.entries()' instead of 'Object.entries(
 
 module.exports.match = () => ({
     'for (const [__i, __b] of entries(__c))__d': ({__i}, path) => {
-        const {referencePaths} = path.scope.bindings[__i.name];
+        const {name} = __i;
+        
+        if (name !== 'index' && name !== 'i')
+            return false;
+        
+        const {referencePaths} = path.scope.bindings[name];
         
         for (const {parentPath} of referencePaths) {
             if (parentPath.isBinaryExpression() && !maybeCompareString(parentPath))

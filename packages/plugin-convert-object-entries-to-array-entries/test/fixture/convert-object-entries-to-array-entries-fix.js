@@ -5,8 +5,8 @@ for (const [i, token] of tokens.entries()) {
     fn(token);
 }
 
-for (const [i, token] of tokens.entries()) {
-    if (i > n)
+for (const [index, token] of tokens.entries()) {
+    if (index > n)
         continue;
     
     fn(token);
