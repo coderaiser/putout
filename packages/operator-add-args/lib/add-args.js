@@ -72,7 +72,7 @@ const traverse = (args) => ({push, options}) => {
                 
                 const {block} = fnPath.scope;
                 
-                if (!compareAny(path.scope.path.parentPath, pattern))
+                if (!compareAny(path.scope.path, pattern))
                     continue;
                 
                 const {params} = block;

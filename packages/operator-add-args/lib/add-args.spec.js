@@ -6,7 +6,7 @@ const montag = require('montag');
 
 const {addArgs} = require('./add-args.js');
 
-test('putout: operator: add-argument', (t) => {
+test('putout: operator: add-args', (t) => {
     const args = {
         compare: ['{compare}', 'test("__a", (__args) => __body)'],
     };
@@ -19,7 +19,7 @@ test('putout: operator: add-argument', (t) => {
     
     const {code} = putout(source, {
         plugins: [
-            ['addArgs-undefined-variables', addArgs(args)],
+            ['add-args', addArgs(args)],
         ],
     });
     
@@ -37,7 +37,7 @@ test('putout: operator: add-argument', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: a couple patterns', (t) => {
+test('putout: operator: add-args: a couple patterns', (t) => {
     const args = {
         compare: ['{compare}', [
             'test("__a", (__args) => __body)',
@@ -83,7 +83,7 @@ test('putout: operator: add-argument: a couple patterns', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: when argument already exist', (t) => {
+test('putout: operator: add-args: when argument already exist', (t) => {
     const args = {
         compare: ['{compare}', 'test("__a", (__args) => __body)'],
     };
@@ -112,7 +112,7 @@ test('putout: operator: add-argument: when argument already exist', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: rename', (t) => {
+test('putout: operator: add-args: rename', (t) => {
     const args = {
         superCompare: ['{compare: superCompare}', 'test("__a", (__args) => __body)'],
     };
@@ -141,7 +141,7 @@ test('putout: operator: add-argument: rename', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: identifier', (t) => {
+test('putout: operator: add-args: identifier', (t) => {
     const args = {
         t: ['t', 'test("__a", (__args) => __body)'],
     };
@@ -168,7 +168,7 @@ test('putout: operator: add-argument: identifier', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: options', (t) => {
+test('putout: operator: add-args: options', (t) => {
     const args = {};
     
     const source = montag`
@@ -179,14 +179,14 @@ test('putout: operator: add-argument: options', (t) => {
     
     const {code} = putout(source, {
         rules: {
-            'add-argument': ['on', {
+            'add-args': ['on', {
                 args: {
                     t: ['t', 'test("__a", (__args) => __body)'],
                 },
             }],
         },
         plugins: [
-            ['add-argument', addArgs(args)],
+            ['add-args', addArgs(args)],
         ],
     });
     
@@ -200,7 +200,7 @@ test('putout: operator: add-argument: options', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: has binding', (t) => {
+test('putout: operator: add-args: has binding', (t) => {
     const args = {
         t: ['t', 'test("__a", (__args) => __body)'],
     };
@@ -221,7 +221,7 @@ test('putout: operator: add-argument: has binding', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: wrong place', (t) => {
+test('putout: operator: add-args: wrong place', (t) => {
     const args = {
         t: ['t', 'test("__a", (__args) => __body)'],
     };
@@ -242,7 +242,7 @@ test('putout: operator: add-argument: wrong place', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: arg exist', (t) => {
+test('putout: operator: add-args: arg exist', (t) => {
     const args = {
         push: ['{push}', [
             'module.exports.traverse = (__args) => __a',
@@ -267,7 +267,7 @@ test('putout: operator: add-argument: arg exist', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: not a function', (t) => {
+test('putout: operator: add-args: not a function', (t) => {
     const args = {
         t: ['t', 'test("__a", (__args) => __body)'],
     };
@@ -286,7 +286,7 @@ test('putout: operator: add-argument: not a function', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: second', (t) => {
+test('putout: operator: add-args: second', (t) => {
     const args = {
         indent: ['{indent}', 'module.exports.__a = (__args) => __body'],
     };
@@ -318,7 +318,7 @@ test('putout: operator: add-argument: second', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: property', (t) => {
+test('putout: operator: add-args: property', (t) => {
     const args = {
         maybe: ['{maybe}', 'module.exports.__a = (__args) => __body'],
     };
@@ -349,7 +349,7 @@ test('putout: operator: add-argument: property', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: nested block', (t) => {
+test('putout: operator: add-args: nested block', (t) => {
     const args = {
         maybe: ['{maybe}', 'module.exports.__a = (__args) => __body'],
     };
@@ -384,7 +384,7 @@ test('putout: operator: add-argument: nested block', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: MemberExpression', (t) => {
+test('putout: operator: add-args: MemberExpression', (t) => {
     const args = {
         maybe: ['{maybe}', 'module.exports.__a = (__args) => __body'],
     };
@@ -421,7 +421,7 @@ test('putout: operator: add-argument: MemberExpression', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: VariableDeclaration', (t) => {
+test('putout: operator: add-args: VariableDeclaration', (t) => {
     const args = {
         process: ['{process}', 'module.exports.__a = (__args) => __body'],
     };
@@ -451,7 +451,7 @@ test('putout: operator: add-argument: VariableDeclaration', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: AssignmentExpression', (t) => {
+test('putout: operator: add-args: AssignmentExpression', (t) => {
     const args = {
         process: ['{process}', 'module.exports.__a = (__args) => __body'],
     };
@@ -479,7 +479,7 @@ test('putout: operator: add-argument: AssignmentExpression', (t) => {
     t.end();
 });
 
-test('putout: operator: add-argument: no transform UnaryExpression', (t) => {
+test('putout: operator: add-args: no transform UnaryExpression', (t) => {
     const args = {
         process: ['{process}', 'module.exports.__a = (__args) => __body'],
     };
@@ -488,6 +488,31 @@ test('putout: operator: add-argument: no transform UnaryExpression', (t) => {
         module.exports.VariableDeclaration = (path) => {
             delete process.env.PUTOUT_PROGRESS_BAR;
         };
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    t.equal(code, source);
+    t.end();
+});
+
+test('putout: operator: add-args: FunctionDeclaration', (t) => {
+    const args = {
+        maybe: ['{maybe}', 'function __(path, {print}) {}'],
+    };
+    
+    const source = montag`
+        function BinaryExpression(path, {
+            print,
+            maybe,
+        }) {
+            maybe.print(isLogical, '(');
+        }
     `;
     
     const {code} = putout(source, {
