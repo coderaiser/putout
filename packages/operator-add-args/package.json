@@ -1,6 +1,6 @@
 {
   "name": "@putout/operator-add-args",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout operator adds ability to add args to referenced variables that was not defined",
