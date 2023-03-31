@@ -43,14 +43,14 @@ const readFixture = (name) => {
 };
 
 const writeFixture = ({full, code, isTS}) => {
-    writeAnyFixture({
+    writeSourceFixture({
         full: `${full}-fix`,
         code,
         isTS,
     });
 };
 
-const writeAnyFixture = ({full, code, isTS}) => {
+const writeSourceFixture = ({full, code, isTS}) => {
     const {writeFileSync} = global.__putout_test_fs;
     
     if (!isTS)
@@ -258,7 +258,7 @@ const transform = currify(({dir, plugins, rules}, t, name, transformed = null, a
     });
     
     if (isUpdate() && isStr) {
-        writeFixture({
+        writeSourceFixture({
             full,
             code,
             isTS,
