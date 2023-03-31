@@ -60,12 +60,12 @@ testUpdate('test: formatSave', async ({ok, formatSave}) => {
 
 testUpdate('test: formatSave: success', async ({equal, formatSave}) => {
     const {message} = await formatSave(formatter, 'var');
-    equal(message, 'fixture updated');
+    equal(message, 'fixed fixture updated');
 }, {checkAssertionsCount: false});
 
 testUpdate('test: formatManySave: success', async ({equal, formatManySave}) => {
     const {message} = await formatManySave(formatter, ['var']);
-    equal(message, 'fixture updated');
+    equal(message, 'fixed fixture updated');
 }, {checkAssertionsCount: false});
 
 testUpdate('test: formatManySave: not array', async ({equal, formatManySave}) => {

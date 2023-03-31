@@ -13,7 +13,7 @@ npm i @putout/test -D
 
 ## Autofix
 
-Set environment variable `UPDATE=1` to update `transform` and `format` fixtures.
+Set environment variable `UPDATE=1` to update `transform` and `format` fixtures (both `source` and `fixed`).
 
 ☝️ *Remember that `-fix.js` fixtures will be removed when used in `noReport`, `noTransform` and `noTransformWithOptions`*
 

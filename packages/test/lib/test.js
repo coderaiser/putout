@@ -43,12 +43,20 @@ const readFixture = (name) => {
 };
 
 const writeFixture = ({full, code, isTS}) => {
+    writeAnyFixture({
+        full: `${full}-fix`,
+        code,
+        isTS,
+    });
+};
+
+const writeAnyFixture = ({full, code, isTS}) => {
     const {writeFileSync} = global.__putout_test_fs;
     
     if (!isTS)
-        return writeFileSync(`${full}-fix.js`, code);
+        return writeFileSync(`${full}.js`, code);
     
-    writeFileSync(`${full}-fix.ts`, code);
+    writeFileSync(`${full}.ts`, code);
 };
 
 const rmFixture = (name) => {
@@ -200,7 +208,7 @@ const formatManySave = currify(({dir, plugins, rules}, t) => async (formatter, n
     
     writeFileSync(outputName, result);
     
-    return t.pass('fixture updated');
+    return t.pass('fixed fixture updated');
 });
 
 const formatSave = currify(({dir, plugins, rules}, t) => async (formatter, name, options = {}) => {
@@ -225,7 +233,7 @@ const formatSave = currify(({dir, plugins, rules}, t) => async (formatter, name,
     
     writeFileSync(outputName, result);
     
-    return t.pass('fixture updated');
+    return t.pass('fixed fixture updated');
 });
 
 const transform = currify(({dir, plugins, rules}, t, name, transformed = null, addons = {}) => {
@@ -249,6 +257,16 @@ const transform = currify(({dir, plugins, rules}, t, name, transformed = null, a
         }],
     });
     
+    if (isUpdate() && isStr) {
+        writeFixture({
+            full,
+            code,
+            isTS,
+        });
+        
+        return t.pass('source fixture updated');
+    }
+    
     if (isUpdate() && !isStr) {
         writeFixture({
             full,
@@ -256,7 +274,7 @@ const transform = currify(({dir, plugins, rules}, t, name, transformed = null, a
             isTS,
         });
         
-        return t.pass('fixture updated');
+        return t.pass('fixed fixture updated');
     }
     
     return t.equal(code, output);
@@ -279,7 +297,7 @@ const transformWithOptions = currify(({dir, plugins}, t, name, options) => {
     
     if (isUpdate()) {
         writeFileSync(`${full}-fix.js`, code);
-        return t.pass('fixture updated');
+        return t.pass('fixed fixture updated');
     }
     
     return t.equal(code, output);
