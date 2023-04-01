@@ -1,3 +1,10 @@
+2023.04.01, v29.1.13
+
+feature:
+- 959aa22e0 package: @putout/plugin-logical-expressions v2.0.0
+- 6a608aaf3 @putout/plugin-logical-expressions: drop support of 🐊 < 29
+- 4bc538c94 @putout/plugin-logical-expressions: simplify: add suport of not equal negation
+
 2023.04.01, v29.1.12
 
 fix:
