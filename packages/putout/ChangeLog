@@ -1,3 +1,17 @@
+2023.04.01, v29.1.12
+
+fix:
+- 5dfaf00cc @putout/test: write source fixture
+
+feature:
+- 332aac4ae putout: @putout/plugin-extract-object-properties v9.0.0
+- c25364a05 2putout/plugin-extract-object-properties: report
+- 993f8d41e @putout/plugin-extract-object-property: drop support of 🐊 < 29
+- b60725045 @putout/plugin-extract-object-properties: not-equal-deep: replace with Identifier -> ObjectProperty
+- caa806cde @putout/test: add ability to update source fixtures
+- 217d34d10 @putout/operator-add-args: improve support of FunctionDeclaration pattern
+- d7492eda8 @putout/plugin-remove-empty: argument: add support of ObjectMethod
+
 2023.03.30, v29.1.11
 
 feature:
