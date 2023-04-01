@@ -103,7 +103,7 @@
     "@putout/plugin-for-of": "^1.0.0",
     "@putout/plugin-github": "^4.0.0",
     "@putout/plugin-gitignore": "^3.0.0",
-    "@putout/plugin-logical-expressions": "^1.0.0",
+    "@putout/plugin-logical-expressions": "^2.0.0",
     "@putout/plugin-madrun": "^15.0.0",
     "@putout/plugin-math": "^2.0.0",
     "@putout/plugin-maybe": "^1.0.0",
