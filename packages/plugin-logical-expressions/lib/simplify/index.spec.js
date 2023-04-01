@@ -52,3 +52,8 @@ test('plugin-simplify-logical-expression: transform: same', (t) => {
     t.end();
 });
 
+test('plugin-simplify-logical-expression: transform: not-not-equal', (t) => {
+    t.transform('not-not-equal');
+    t.end();
+});
+

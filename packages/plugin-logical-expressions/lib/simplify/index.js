@@ -5,6 +5,7 @@ module.exports.report = () => 'Simplify logical expression';
 module.exports.replace = () => ({
     '!(__a && !__b)': '!__a || __b',
     '!(!__a && __b)': '__a || !__b',
+    '!(__a !== __b)': '__a === __b',
     '!__a === "__b"': '__a !== "__b"',
     
     '!__a instanceof __b': '!(__a instanceof __b)',
