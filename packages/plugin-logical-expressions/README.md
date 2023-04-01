@@ -133,12 +133,18 @@ Convert `bitwise` to `logical` operator, when one of operands is not a number, s
 
 ```js
 a | !b;
+
+if (!(a !== b))
+    fn();
 ```
 
 ### ✅ Example of correct code
 
 ```js
 a || !b;
+
+if (a === b)
+    fn();
 ```
 
 ## Comparison
