@@ -1,15 +1,26 @@
 'use strict';
 
-const {operator} = require('putout');
+const {
+    operator,
+    types,
+} = require('putout');
+
+const {ObjectProperty} = types;
+
 const {
     replaceWith,
     compare,
 } = operator;
 
+const SHORTHAND = true;
+const COMPUTED = false;
+
 module.exports.report = () => `Object properties should be extracted into variables`;
 
 module.exports.fix = ({path, expandPath, property}) => {
-    expandPath.node.properties.push(property);
+    const newProperty = ObjectProperty(property, property, COMPUTED, SHORTHAND);
+    
+    expandPath.node.properties.push(newProperty);
     replaceWith(path, property);
 };
 
