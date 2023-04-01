@@ -15,7 +15,7 @@ const {
 const SHORTHAND = true;
 const COMPUTED = false;
 
-module.exports.report = () => `Object properties should be extracted into variables`;
+module.exports.report = () => `Extract object properties into variables`;
 
 module.exports.fix = ({path, expandPath, property}) => {
     const newProperty = ObjectProperty(property, property, COMPUTED, SHORTHAND);

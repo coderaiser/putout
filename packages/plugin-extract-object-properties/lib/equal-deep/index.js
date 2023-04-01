@@ -18,7 +18,7 @@ const {
     isCallExpression,
 } = types;
 
-module.exports.report = () => `Object properties should be extracted into variables`;
+module.exports.report = () => `Extract object properties into variables`;
 
 const buildAst = template(`
     const {PROPERTY} = OBJECT;

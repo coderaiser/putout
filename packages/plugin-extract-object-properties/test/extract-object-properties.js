@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-extract-object-properties: report', (t) => {
-    t.report('fn', 'Object properties should be extracted into variables');
+    t.report('fn', 'Extract object properties into variables');
     t.end();
 });
 
