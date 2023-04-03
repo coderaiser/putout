@@ -1,3 +1,11 @@
+2023.04.03, v29.1.14
+
+feature:
+- 7338e39e3 package: @putout/plugin-simplify-ternary v5.0.1
+- 0cb227d0a @putout/plugin-simplify-ternary: exclude fixture
+- 36d691997 @putout/plugin-simplify-ternary: drop support of 🐊 < 29
+- d87230d33 @putout/plugin-simplify-ternary: value: exclude jsx
+
 2023.04.01, v29.1.13
 
 feature:
