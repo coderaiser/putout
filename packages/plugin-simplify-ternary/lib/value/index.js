@@ -2,6 +2,8 @@
 
 module.exports.report = () => 'Simplify ternary';
 
+module.exports.filter = ({parentPath}) => !parentPath.isJSXExpressionContainer();
+
 module.exports.replace = () => ({
     '__a ? __a : __b': '__a || __b',
     '__a ? __b : __a': '__a && __b',
