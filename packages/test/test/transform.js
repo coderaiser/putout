@@ -12,6 +12,21 @@ const test = reRequire('..')(__dirname, {
     'remove-console': require('@putout/plugin-remove-console'),
 });
 
+test('transform: with PUTOUT_PRINTER: env variable', (t) => {
+    const {PUTOUT_PRINTER} = process.env;
+    
+    process.env.PUTOUT_PRINTER = 'putout';
+    
+    t.transform('putout-printer');
+    
+    if (PUTOUT_PRINTER)
+        process.env.PUTOUT_PRINTER = PUTOUT_PRINTER;
+    else
+        delete process.env.PUTOUT_PRINTER;
+    
+    t.end();
+});
+
 test('transform: with UPDATE env variable', (t) => {
     const {UPDATE} = process.env;
     

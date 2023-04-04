@@ -27,6 +27,7 @@ global.__putout_test_fs = {
 };
 
 const isUpdate = () => Boolean(Number(process.env.UPDATE));
+const getPrinter = () => process.env.PUTOUT_PRINTER;
 
 const TS = {
     ENABLED: true,
@@ -249,6 +250,7 @@ const transform = currify(({dir, plugins, rules}, t, name, transformed = null, a
     addons = addons || {};
     
     const {code} = putout(input, {
+        printer: getPrinter(),
         isTS,
         rules,
         plugins: [{
@@ -293,7 +295,12 @@ const transformWithOptions = currify(({dir, plugins}, t, name, options) => {
         [rule]: ['on', options],
     };
     
-    const {code} = putout(input, {isTS, plugins, rules});
+    const {code} = putout(input, {
+        printer: getPrinter(),
+        isTS,
+        plugins,
+        rules,
+    });
     
     if (isUpdate()) {
         writeFileSync(`${full}-fix.js`, code);
