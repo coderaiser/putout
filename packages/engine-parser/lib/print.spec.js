@@ -1,16 +1,8 @@
 'use strict';
 
-const mockRequire = require('mock-require');
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test} = require('supertape');
 const montag = require('montag');
 const putout = require('putout');
-const {
-    stopAll,
-    reRequire,
-} = mockRequire;
 const {
     parse,
     print,
@@ -34,44 +26,6 @@ test('putout: parser: print: long lines', (t) => {
     });
     
     t.equal(code, expected);
-    t.end();
-});
-
-test('putout: parser: print: bad recast output', (t) => {
-    const source = montag`
-        export default () => {
-          return (
-            <h1>hello</h1>
-          );
-        }
-    `;
-    const invalid = montag`
-        export default () => {
-          return (
-            <h1>hello</h1>)
-          );
-        }
-    `;
-    const expected = montag`
-        export default (() => {
-          return <h1>hello</h1>;
-        });
-    
-    `;
-    const recastPrint = stub().returns({
-        code: invalid,
-    });
-    
-    mockRequire('@putout/recast', {
-        print: recastPrint,
-    });
-    const print = reRequire('./print');
-    const ast = parse(source);
-    const result = print(ast);
-    
-    stopAll();
-    
-    t.equal(result, expected);
     t.end();
 });
 
@@ -114,7 +68,7 @@ test('putout: parser: print: balanced braces: string', (t) => {
     t.end();
 });
 
-test('putout: parser: print: recast: disabled', (t) => {
+test('putout: parser: print: printer: babel', (t) => {
     const source = montag`
         export default () => {
           return (
@@ -132,9 +86,33 @@ test('putout: parser: print: recast: disabled', (t) => {
     
     const ast = parse(source);
     const result = print(ast, {
-        recast: false,
+        printer: 'babel',
     });
     
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: parser: print: printer: putout', (t) => {
+    const source = montag`
+        export default ({a, b}) => {
+          return a + b;
+        }
+    `;
+    
+    const expected = montag`
+        export default ({a, b}) => {
+            return a + b;
+        };
+    
+    `;
+    
+    const ast = parse(source);
+    const result = print(ast, {
+        printer: 'putout',
+    });
+    
+    t.equal(result, expected);
+    t.end();
+});
+

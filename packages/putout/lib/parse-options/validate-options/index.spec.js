@@ -217,3 +217,11 @@ test('putout: parse-options: validateOptions: processors', (t) => {
     t.end();
 });
 
+test('putout: parse-options: validateOptions: printer', (t) => {
+    const [error] = tryCatch(validateOptions, {
+        printer: 'putout',
+    });
+    
+    t.notOk(error);
+    t.end();
+});

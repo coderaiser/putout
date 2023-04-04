@@ -71,6 +71,10 @@
             "description": "Tell 🐊Putout which parser to use",
             "type": "string"
         },
+        "printer": {
+            "description": "Tell 🐊Putout which printer to use",
+            "type": "string"
+        },
         "formatter": {
             "description": "Choose the way to show information about errors found",
             "type": ["string", "array"]

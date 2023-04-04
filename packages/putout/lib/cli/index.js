@@ -9,22 +9,23 @@ const tryCatch = require('try-catch');
 const wraptile = require('wraptile');
 const fullstore = require('fullstore');
 
-const keyPress = require('@putout/cli-keypress');
-const {version} = require('../../package.json');
-const {simpleImport} = require('./simple-import');
-const {run} = require('./runner/runner.js');
-
 const {
     getFilePatterns,
     getProcessorRunners,
     defaultProcessors,
 } = require('@putout/engine-processor');
 
-const getFiles = require('./get-files');
+const validateArgs = require('@putout/cli-validate-args');
 const {createCache} = require('@putout/cli-cache');
+const keyPress = require('@putout/cli-keypress');
+
 const supportedFiles = require('./supported-files');
 const getOptions = require('./get-options');
-const validateArgs = require('@putout/cli-validate-args');
+
+const getFiles = require('./get-files');
+const {version} = require('../../package.json');
+const {simpleImport} = require('./simple-import');
+const {run} = require('./runner/runner.js');
 
 const {
     OK,
@@ -45,7 +46,7 @@ const getFormatter = memo(require('./formatter').getFormatter);
 const cwd = process.cwd();
 const {
     PUTOUT_FILES = '',
-    RECAST,
+    PUTOUT_PRINTER,
 } = process.env;
 
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
@@ -278,7 +279,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         write,
         transform,
         plugins,
-        recast: RECAST,
+        printer: PUTOUT_PRINTER,
     };
     
     const {places, exited} = await run({

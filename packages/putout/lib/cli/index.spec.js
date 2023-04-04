@@ -88,8 +88,8 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     t.end();
 });
 
-test('putout: cli: env: RECAST', async (t) => {
-    process.env.RECAST = 1;
+test('putout: cli: env: PUTOUT_PRINTER', async (t) => {
+    process.env.PUTOUT_PRINTER = 'putout';
     
     const argv = [
         __filename,
@@ -118,7 +118,7 @@ test('putout: cli: env: RECAST', async (t) => {
     });
     
     stopAll();
-    delete process.env.RECAST;
+    delete process.env.PUTOUT_PRINTER;
     
     reRequire('./process-file');
     reRequire('./runner/runner.js');
@@ -126,9 +126,9 @@ test('putout: cli: env: RECAST', async (t) => {
     
     const [arg] = putout.args;
     const [, options] = arg;
-    const {recast} = options;
+    const {printer} = options;
     
-    t.ok(recast);
+    t.equal(printer, 'putout');
     t.end();
 });
 

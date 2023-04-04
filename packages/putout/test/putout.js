@@ -42,6 +42,8 @@ const fixture = readFixtures([
     'babel-plugins-fix',
     'no-recast',
     'no-recast-fix',
+    'printer-putout',
+    'printer-putout-fix',
 ]);
 
 test('putout: no vars', (t) => {
@@ -860,9 +862,9 @@ test('putout: no source', (t) => {
     t.end();
 });
 
-test('putout: recast: no', (t) => {
+test('putout: printer: babel', (t) => {
     const {code} = putout(fixture.noRecast, {
-        recast: false,
+        printer: 'babel',
         plugins: [
             'remove-unused-variables',
         ],
@@ -873,3 +875,18 @@ test('putout: recast: no', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: printer: putout', (t) => {
+    const {code} = putout(fixture.printerPutout, {
+        printer: 'putout',
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = fixture.printerPutoutFix;
+    
+    t.equal(code, expected);
+    t.end();
+});
+

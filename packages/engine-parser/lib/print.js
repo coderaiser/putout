@@ -1,51 +1,42 @@
 'use strict';
 
-const {print} = require('@putout/recast');
+const recast = require('@putout/recast');
+const putoutPrinter = require('@putout/printer');
 const generate = require('@babel/generator').default;
-const tryCatch = require('try-catch');
-
-const parse = require('./parse');
 const {stringify} = JSON;
 const btoa = (a) => Buffer.from(a, 'binary').toString('base64');
-const {assign} = Object;
 const addSourceMap = (sourceMapName, {code, map}) => !sourceMapName ? code : `${code}\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,${btoa(stringify(map))}\n`;
 const fixStrictMode = (a) => a.replace(`\n\n\n'use strict'`, `\n\n'use strict'`);
 
 module.exports = (ast, options = {}) => {
     const {
-        recast = true,
         sourceMapName,
+        printer = 'recast',
     } = options;
     
-    const printOptions = {
-        quote: 'single',
-        objectCurlySpacing: false,
-        wrapColumn: Infinity,
-        ...options,
-    };
-    const printed = print(ast, printOptions);
-    
-    if (!recast || !canParse(printed.code))
-        assign(printed, {
-            code: babelPrint(ast),
+    if (printer === 'recast') {
+        const printOptions = {
+            quote: 'single',
+            objectCurlySpacing: false,
+            wrapColumn: Infinity,
+            ...options,
+        };
+        const printed = recast.print(ast, printOptions);
+        
+        const {map} = printed;
+        const code = fixStrictMode(printed.code);
+        
+        return addSourceMap(sourceMapName, {
+            code,
+            map,
         });
+    }
     
-    const {map} = printed;
-    const code = fixStrictMode(printed.code);
+    if (printer === 'babel')
+        return babelPrint(ast);
     
-    return addSourceMap(sourceMapName, {
-        code,
-        map,
-    });
+    return putoutPrinter.print(ast);
 };
-
-function canParse(source) {
-    const [error] = tryCatch(parse, source, {
-        isTS: true,
-    });
-    
-    return !error;
-}
 
 function babelPrint(ast) {
     const {code} = generate(ast, {

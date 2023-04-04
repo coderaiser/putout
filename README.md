@@ -2401,7 +2401,7 @@ const t = [];
 t.push(1);
 t.push(2);
 
-coderaiser@cloudcmd:~$ RECAST=1 putout a.js -f codeframe
+coderaiser@cloudcmd:~$ PUTOUT_PRINTER=babel putout a.js -f codeframe
 /home/coderaiser/a.js:4:0
   2 | t.push(1);
   3 | t.push(2);

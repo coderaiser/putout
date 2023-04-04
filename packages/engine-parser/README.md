@@ -27,11 +27,23 @@ You can avoid using [`recast`](https://github.com/putoutjs/recast) and speed up 
 
 ```js
 const ast = parse(source, {
-    recast: false,
+    printer: 'babel',
 });
 
 const code = print(ast, {
-    recast: false,
+    printer: 'babel',
+});
+```
+
+You can use brand new [`@putout/printer`](https://github.com/putoutjs/printer) which formats code according to [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme) rules but without using **ESLint**.
+
+```js
+const ast = parse(source, {
+    printer: '@putout/printer',
+});
+
+const code = print(ast, {
+    printer: '@putout/printer',
 });
 ```
 

@@ -354,6 +354,20 @@ test('putout: parser: Literal: node.raw', (t) => {
     t.end();
 });
 
+test('putout: parser: printer: putout', (t) => {
+    const {code} = putout('10000', {
+        printer: 'putout',
+        plugins: [
+            ['math'],
+        ],
+    });
+    
+    const expected = '10_000;\n';
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: parser: typescrip with jsx: ambiguity syntax', (t) => {
     const source = `
         const boundaryElement = <HTMLElement1>e.target;
@@ -423,9 +437,9 @@ test('putout: parser: esprima', (t) => {
     t.end();
 });
 
-test('putout: parser: recast: no', (t) => {
+test('putout: parser: printer: babel', (t) => {
     const {code} = putout(fixture.noRecast, {
-        recast: false,
+        printer: 'babel',
         plugins: [
             'remove-unused-variables',
         ],

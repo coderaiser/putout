@@ -45,9 +45,8 @@ module.exports = (source, opts) => {
         isJSX,
         sourceFileName,
         sourceMapName,
+        printer,
     } = opts;
-    
-    const recast = opts.recast ?? opts.fix;
     
     const [clearSource, shebang] = cutShebang(source);
     const ast = parse(clearSource, {
@@ -56,7 +55,7 @@ module.exports = (source, opts) => {
         isTS,
         isFlow,
         isJSX,
-        recast,
+        printer,
     });
     
     const places = transform(ast, source, opts);
@@ -69,7 +68,7 @@ module.exports = (source, opts) => {
     
     const printed = print(ast, {
         sourceMapName,
-        recast,
+        printer,
     });
     const code = `${shebang}${printed}`;
     

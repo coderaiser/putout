@@ -1,18 +1,17 @@
 'use strict';
 
-const {parse} = require('@putout/recast');
+const recast = require('@putout/recast');
 const toBabel = require('estree-to-babel');
-
 const customParser = require('./custom-parser');
 
 module.exports = (source, options) => {
     const {
         parser,
+        printer = 'recast',
         isTS,
         isFlow,
         isJSX,
         sourceFileName,
-        recast = true,
     } = options || {};
     
     const cookedParser = getParser({
@@ -23,10 +22,10 @@ module.exports = (source, options) => {
         sourceFileName,
     });
     
-    if (!recast)
+    if (printer !== 'recast')
         return cookedParser.parse(source);
     
-    return parse(source, {
+    return recast.parse(source, {
         sourceFileName,
         parser: cookedParser,
     });
