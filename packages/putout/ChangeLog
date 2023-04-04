@@ -1,3 +1,9 @@
+2023.04.04, v29.2.0
+
+feature:
+- 94717fe16 package: @putout/engine-parser v6.0.0
+- 875c96303 @putout/egine-parser: add ability to override printer and use: babel or putout instead of recast
+
 2023.04.03, v29.1.14
 
 feature:
