@@ -74,12 +74,20 @@ const rmFixture = (name) => {
 module.exports = createTest;
 module.exports.createTest = createTest;
 
+const parsePlugin = (plugins) => {
+    if (isArray(plugins))
+        return plugins[0];
+    
+    return plugins;
+};
+
 function createTest(dir, maybeOptions) {
     const update = isUpdate();
     
     dir = join(dir, 'fixture');
+    
     const options = parseOptions(maybeOptions);
-    const [plugin] = options.plugins;
+    const plugin = parsePlugin(options.plugins);
     
     preTest(test, plugin);
     
@@ -235,7 +243,7 @@ const formatSave = currify((dir, options, t) => async (formatter, name, options 
 
 const toObject = (array) => {
     const result = {};
-    const [first] = array;
+    const first = parsePlugin(array);
     
     if (isObject(first) && !isArray(first)) {
         return first;
@@ -449,7 +457,7 @@ const noReportCode = currify((options, t, source) => {
 
 const noReportCodeAfterTransform = currify((options, t, source) => {
     const {places} = putout(source, {
-        fix: false,
+        fix: true,
         ...options,
     });
     

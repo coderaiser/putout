@@ -3,8 +3,12 @@
 const removeUnused = require('@putout/plugin-remove-unused-variables');
 const removeConsole = require('./fixture/remove-console');
 
-const test = require('..')(__dirname, {
-    'remove-console': removeConsole,
+const {createTest} = require('..');
+
+const test = createTest(__dirname, {
+    plugins: {
+        'remove-console': removeConsole,
+    },
 });
 
 test('test: addon: transform', (t) => {

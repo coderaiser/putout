@@ -16,6 +16,10 @@ const test = require('..')(__dirname, {
         match: ({options}) => ({
             'import __imports from "__a"'({__a}) {
                 const {cache} = options;
+                
+                if (!cache)
+                    return true;
+                
                 const {value} = __a;
                 
                 return cache.has(value);
@@ -34,6 +38,11 @@ test('putout: test: reportWithOptions', (t) => {
     t.reportWithOptions('remove-import', 'avoid imports', {
         cache,
     });
+    t.end();
+});
+
+test('putout: test: noReportAfterTransform', (t) => {
+    t.noReportAfterTransform('remove-import');
     t.end();
 });
 
@@ -83,7 +92,7 @@ test('putout: test: noReport', (t) => {
     t.end();
 });
 
-test('putout: test: noReportAfterTransform', (t) => {
+test('putout: test: noReportAfterTransform: internal', (t) => {
     const dir = join(__dirname, 'fixture');
     const plugins = [
         ['declare', {
