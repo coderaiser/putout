@@ -3,7 +3,7 @@
 const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => 'Empty import statement';
+module.exports.report = () => `Avoid empty 'import' statement`;
 
 module.exports.fix = (path) => {
     remove(path);

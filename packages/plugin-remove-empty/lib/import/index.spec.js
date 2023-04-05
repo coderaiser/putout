@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-empty: import: report', (t) => {
-    t.report('import', 'Empty import statement');
+    t.report('import', `Avoid empty 'import' statement`);
     t.end();
 });
 
