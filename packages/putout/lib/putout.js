@@ -28,6 +28,7 @@ const defaultOpts = (opts = {}) => {
     return {
         ...opts,
         parser,
+        printer,
         fix,
         fixCount,
         loadPlugins,
