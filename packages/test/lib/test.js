@@ -16,6 +16,7 @@ const currify = require('currify');
 const isCorrectPlugin = require('./is-correct-plugin');
 
 const isString = (a) => typeof a === 'string';
+const isObject = (a) => typeof a === 'object';
 const {isArray} = Array;
 const {keys, entries} = Object;
 
@@ -73,48 +74,50 @@ const rmFixture = (name) => {
 module.exports = createTest;
 module.exports.createTest = createTest;
 
-function createTest(dir, plugin, rules) {
+function createTest(dir, maybeOptions) {
     const update = isUpdate();
     
     dir = join(dir, 'fixture');
-    const plugins = getPlugins(plugin);
+    const options = parseOptions(maybeOptions);
+    const [plugin] = options.plugins;
     
     preTest(test, plugin);
     
     return test.extend({
-        transform: transform({dir, plugins, rules}),
-        noTransform: noTransform({dir, plugins, rules}),
-        transformCode: transformCode({plugins, rules}),
-        noTransformCode: noTransformCode({plugins, rules}),
+        transform: transform(dir, options),
+        noTransform: noTransform(dir, options),
+        transformCode: transformCode(options),
+        noTransformCode: noTransformCode(options),
         
-        transformWithOptions: transformWithOptions({dir, plugins}),
-        noTransformWithOptions: noTransformWithOptions({dir, plugins}),
+        transformWithOptions: transformWithOptions(dir, options),
+        noTransformWithOptions: noTransformWithOptions(dir, options),
         
-        report: report({dir, plugins, rules}),
-        noReport: noReport({dir, plugins, rules}),
-        noReportAfterTransform: noReportAfterTransform({dir, plugins, rules}),
-        reportWithOptions: reportWithOptions({dir, plugins}),
-        noReportWithOptions: noReportWithOptions({dir, plugins}),
-        reportCode: reportCode({
-            plugins,
-            rules,
-        }),
+        report: report(dir, options),
+        noReport: noReport(dir, options),
+        noReportAfterTransform: noReportAfterTransform(dir, options),
+        reportWithOptions: reportWithOptions(dir, options),
+        noReportWithOptions: noReportWithOptions(dir, options),
+        reportCode: reportCode(options),
         
-        formatSave: formatSave({dir, plugins, rules}),
-        format: (update ? formatSave : format)({dir, plugins, rules}),
-        formatManySave: formatManySave({dir, plugins, rules}),
-        formatMany: (update ? formatManySave : formatMany)({dir, plugins, rules}),
-        noFormat: noFormat({dir, plugins, rules}),
+        formatSave: formatSave(dir, options),
+        format: (update ? formatSave : format)(dir, options),
+        formatManySave: formatManySave(dir, options),
+        formatMany: (update ? formatManySave : formatMany)(dir, options),
+        noFormat: noFormat(dir, options),
     });
 }
 
-const format = currify(({dir, plugins, rules}, t) => async (formatter, name, formatterOptions = {}) => {
+const format = currify((dir, options, t) => async (formatter, name, formatterOptions = {}) => {
     const full = join(dir, name);
     const outputName = `${full}-format`;
     const [input, isTS] = readFixture(full);
     const [expected] = readFixture(outputName);
     
-    const {places} = putout(input, {fixCount: 1, isTS, plugins, rules});
+    const {places} = putout(input, {
+        fixCount: 1,
+        isTS,
+        ...options,
+    });
     
     const report = putout.initReport();
     const result = await report(formatter, {
@@ -129,11 +132,10 @@ const format = currify(({dir, plugins, rules}, t) => async (formatter, name, for
     return {is, output, result};
 });
 
-const noFormat = currify(({dir, plugins, rules}, t) => async (formatter, name, formatterOptions = {}) => {
+const noFormat = currify((dir, options, t) => async (formatter, name, formatterOptions = {}) => {
     const full = join(dir, name);
     const [input] = readFixture(full);
-    
-    const {places} = putout(input, {plugins, rules});
+    const {places} = putout(input, options);
     
     const report = putout.initReport();
     const result = await report(formatter, {
@@ -147,7 +149,7 @@ const noFormat = currify(({dir, plugins, rules}, t) => async (formatter, name, f
     return {is, output, result};
 });
 
-const formatMany = currify(({dir, plugins, rules}, t) => async (formatter, names, formatterOptions = {}) => {
+const formatMany = currify((dir, options, t) => async (formatter, names, formatterOptions = {}) => {
     const joinTwo = (a) => (b) => join(a, b);
     
     if (!isArray(names))
@@ -167,8 +169,7 @@ const formatMany = currify(({dir, plugins, rules}, t) => async (formatter, names
         
         const {places} = putout(input, {
             fixCount: 1,
-            plugins,
-            rules,
+            ...options,
         });
         
         result += await report(formatter, {
@@ -189,7 +190,7 @@ const formatMany = currify(({dir, plugins, rules}, t) => async (formatter, names
     return {is, output, result};
 });
 
-const formatManySave = currify(({dir, plugins, rules}, t) => async (formatter, names, options = {}) => {
+const formatManySave = currify((dir, options, t) => async (formatter, names, options = {}) => {
     const {
         existsSync,
         writeFileSync,
@@ -204,7 +205,7 @@ const formatManySave = currify(({dir, plugins, rules}, t) => async (formatter, n
     if (!existsSync(outputName))
         writeFileSync(outputName, '');
     
-    const runFormat = await formatMany({dir, plugins, rules}, t);
+    const runFormat = await formatMany(dir, options, t);
     const {result} = await runFormat(formatter, names, options);
     
     writeFileSync(outputName, result);
@@ -212,7 +213,7 @@ const formatManySave = currify(({dir, plugins, rules}, t) => async (formatter, n
     return t.pass('fixed fixture updated');
 });
 
-const formatSave = currify(({dir, plugins, rules}, t) => async (formatter, name, options = {}) => {
+const formatSave = currify((dir, options, t) => async (formatter, name, options = {}) => {
     const {
         existsSync,
         writeFileSync,
@@ -224,12 +225,7 @@ const formatSave = currify(({dir, plugins, rules}, t) => async (formatter, name,
     if (!existsSync(outputName))
         writeFileSync(outputName, '');
     
-    const runFormat = format({
-        dir,
-        plugins,
-        rules,
-    }, t);
-    
+    const runFormat = format(dir, options, t);
     const {result} = await runFormat(formatter, name, options);
     
     writeFileSync(outputName, result);
@@ -237,7 +233,23 @@ const formatSave = currify(({dir, plugins, rules}, t) => async (formatter, name,
     return t.pass('fixed fixture updated');
 });
 
-const transform = currify(({dir, plugins, rules}, t, name, transformed = null, addons = {}) => {
+const toObject = (array) => {
+    const result = {};
+    const [first] = array;
+    
+    if (isObject(first) && !isArray(first)) {
+        return first;
+    }
+    
+    for (const [name, value] of array) {
+        result[name] = value;
+    }
+    
+    return result;
+};
+
+const transform = currify((dir, options, t, name, transformed = null, addons = {}) => {
+    const {plugins} = options;
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
     const isStr = isString(transformed);
@@ -252,9 +264,9 @@ const transform = currify(({dir, plugins, rules}, t, name, transformed = null, a
     const {code} = putout(input, {
         printer: getPrinter(),
         isTS,
-        rules,
+        ...options,
         plugins: [{
-            ...plugins[0],
+            ...toObject(plugins),
             ...addons,
         }],
     });
@@ -282,24 +294,23 @@ const transform = currify(({dir, plugins, rules}, t, name, transformed = null, a
     return t.equal(code, output);
 });
 
-const transformWithOptions = currify(({dir, plugins}, t, name, options) => {
+const transformWithOptions = currify((dir, options, t, name, additionalOptions) => {
     const {writeFileSync} = global.__putout_test_fs;
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
     
     const [output] = readFixture(`${full}-fix`);
-    const [plugin] = plugins;
-    const [rule] = keys(plugin);
+    const rule = parseRule(options);
     
     const rules = {
-        [rule]: ['on', options],
+        [rule]: ['on', additionalOptions],
     };
     
     const {code} = putout(input, {
         printer: getPrinter(),
         isTS,
-        plugins,
         rules,
+        ...options,
     });
     
     if (isUpdate()) {
@@ -310,107 +321,113 @@ const transformWithOptions = currify(({dir, plugins}, t, name, options) => {
     return t.equal(code, output);
 });
 
-const noTransformWithOptions = currify(({dir, plugins}, t, name, options) => {
+const parseRule = ({plugins}) => {
+    const [plugin] = plugins;
+    
+    return plugin[0] || keys(plugin)[0];
+};
+
+const noTransformWithOptions = currify((dir, options, t, name, ruleOptions) => {
     const full = join(dir, name);
     const [input, isTS] = readFixture(full);
     
     rmFixture(`${full}-fix`);
     
-    const [plugin] = plugins;
-    const [rule] = keys(plugin);
+    const rule = parseRule(options);
     
     const rules = {
-        [rule]: ['on', options],
+        [rule]: ['on', ruleOptions],
     };
     
-    const {code} = putout(input, {isTS, plugins, rules});
+    const {code} = putout(input, {
+        isTS,
+        rules,
+        ...options,
+    });
     
     return t.equal(code, input);
 });
 
-const noTransform = currify(({dir, plugins, rules}, t, name, addons = {}) => {
+const noTransform = currify((dir, options, t, name, addons = {}) => {
     const full = join(dir, name);
     const [fixture] = readFixture(full);
     
     rmFixture(`${full}-fix`);
     
-    return transform({dir, plugins, rules}, t, name, fixture, addons);
+    return transform(dir, options, t, name, fixture, addons);
 });
 
-const transformCode = currify(({plugins, rules}, t, input, output, isTS = false) => {
-    const {code} = putout(input, {isTS, plugins, rules});
+const transformCode = currify((options, t, input, output, isTS = false) => {
+    const {code} = putout(input, {
+        isTS,
+        ...options,
+    });
+    
     return t.equal(code, output);
 });
 
-const noTransformCode = currify(({plugins, rules}, t, input) => {
-    const {code} = putout(input, {plugins, rules});
+const noTransformCode = currify((options, t, input) => {
+    const {code} = putout(input, options);
     return t.equal(code, input);
 });
 
 const getMessage = ({message}) => message;
 
-const report = currify(({dir, plugins, rules}, t, name, message) => {
+const report = currify((dir, options, t, name, message) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
-    return reportCode({plugins, rules, isTS}, t, source, message);
+    return reportCode({isTS, ...options}, t, source, message);
 });
 
-const noReport = currify(({dir, plugins, rules}, t, name) => {
+const noReport = currify((dir, options, t, name) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
     rmFixture(`${full}-fix`);
     
-    return noReportCode({plugins, rules, isTS}, t, source);
+    return noReportCode({isTS, ...options}, t, source);
 });
 module.exports._createNoReport = noReport;
 
-const noReportAfterTransform = currify(({dir, plugins, rules}, t, name) => {
+const noReportAfterTransform = currify((dir, options, t, name) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
-    return noReportCodeAfterTransform({plugins, rules, isTS}, t, source);
+    return noReportCodeAfterTransform({isTS, ...options}, t, source);
 });
 module.exports._createNoReportAfterTransform = noReportAfterTransform;
 
-const reportWithOptions = currify(({dir, plugins}, t, name, message, options) => {
+const reportWithOptions = currify((dir, options, t, name, message, ruleOptions) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
-    const [plugin] = plugins;
-    const [rule] = keys(plugin);
-    
+    const rule = parseRule(options);
     const rules = {
-        [rule]: ['on', options],
+        [rule]: ['on', ruleOptions],
     };
     
-    return reportCode({plugins, rules, isTS}, t, source, message);
+    return reportCode({...options, rules, isTS}, t, source, message);
 });
 
-const noReportWithOptions = currify(({dir, plugins}, t, name, options) => {
+const noReportWithOptions = currify((dir, options, t, name, ruleOptions) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
     rmFixture(`${full}-fix`);
     
-    const [plugin] = plugins;
-    const [rule] = keys(plugin);
-    
+    const rule = parseRule(options);
     const rules = {
-        [rule]: ['on', options],
+        [rule]: ['on', ruleOptions],
     };
     
-    return noReportCode({plugins, rules, isTS}, t, source);
+    return noReportCode({isTS, ...options, rules}, t, source);
 });
 
-const reportCode = currify(({plugins, rules, isTS}, t, source, message) => {
-    const fix = false;
+const reportCode = currify((options, t, source, message) => {
     const {places} = putout(source, {
-        fix,
-        isTS,
-        rules,
-        plugins,
+        fix: false,
+        ...options,
     });
     
     const resultMessages = places.map(getMessage);
@@ -421,34 +438,31 @@ const reportCode = currify(({plugins, rules, isTS}, t, source, message) => {
     return t.equal(resultMessages[0], message);
 });
 
-const noReportCode = currify(({plugins, rules, isTS}, t, source) => {
-    const fix = false;
+const noReportCode = currify((options, t, source) => {
     const {places} = putout(source, {
-        fix,
-        isTS,
-        rules,
-        plugins,
+        fix: false,
+        ...options,
     });
     
     return t.deepEqual(places, [], 'should not report');
 });
 
-const noReportCodeAfterTransform = currify(({plugins, rules, isTS}, t, source) => {
-    const fix = true;
+const noReportCodeAfterTransform = currify((options, t, source) => {
     const {places} = putout(source, {
-        fix,
-        isTS,
-        rules,
-        plugins,
+        fix: false,
+        ...options,
     });
     
     return t.deepEqual(places, [], 'should not report after transform');
 });
 
-function getPlugins(plugin) {
-    return [
-        plugin,
-    ].filter(Boolean);
+function parseOptions(plugin) {
+    if (!plugin.plugins)
+        return {
+            plugins: [plugin],
+        };
+    
+    return plugin;
 }
 
 function preTest(test, plugin) {

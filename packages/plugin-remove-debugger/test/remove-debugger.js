@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const removeDebugger = require('..');
+
 const test = createTest(__dirname, {
-    'remove-debugger': removeDebugger,
+    printer: 'putout',
+    plugins: [
+        ['remove-debugger', removeDebugger],
+    ],
 });
 
 test('remove debugger: report', (t) => {
@@ -12,7 +16,6 @@ test('remove debugger: report', (t) => {
 });
 
 test('remove debugger: transformCode', (t) => {
-    t.transformCode('debugger', '');
+    t.transformCode('debugger', '\n');
     t.end();
 });
-

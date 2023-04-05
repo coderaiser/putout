@@ -2,9 +2,13 @@
 
 const putout = require('@putout/plugin-putout');
 
+const {createTest} = require('..');
 const removeConsole = require('./fixture/remove-console');
-const test = require('..')(__dirname, {
-    'remove-console': removeConsole,
+
+const test = createTest(__dirname, {
+    plugins: [
+        ['remove-console', removeConsole],
+    ],
 });
 
 test('test: message', (t) => {

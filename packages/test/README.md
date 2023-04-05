@@ -47,6 +47,17 @@ const test = createTest(import.meta.url, {
 });
 ```
 
+You can also pass all 🐊**Putout** options:
+
+```js
+const test = createTest(import.meta.url, {
+    printer: 'putout',
+    plugins: [
+        ['remove-unused-variables', rmVars],
+    ],
+});
+```
+
 ### `report(filename, message | []messages)`
 
 Check error message (or messages) of a plugin:

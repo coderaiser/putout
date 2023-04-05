@@ -1,7 +1,9 @@
 {
     "match": {
         "*.md": {
-            "tape/declare": "off"
+            "tape/declare": "off",
+            "putout/declare": "off",
+            "putout/convert-url-to-dirname": "off"
         },
         "test": {
             "promises/apply-top-level-await": "off"

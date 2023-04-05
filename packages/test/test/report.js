@@ -47,15 +47,18 @@ test('putout: test: noReportWithOptions', (t) => {
 });
 
 test('putout: test: noReport', (t) => {
-    const noReport = _createNoReport({
-        dir: join(__dirname, 'fixture'),
-        plugins: [
-            ['remove-import', {
-                report: () => 'hello',
-                include: () => ['ImportDeclaration'],
-            }],
-        ],
-    });
+    const dir = join(__dirname, 'fixture');
+    
+    const plugins = [
+        ['remove-import', {
+            report: () => 'hello',
+            include: () => ['ImportDeclaration'],
+        }],
+    ];
+    const options = {
+        plugins,
+    };
+    const noReport = _createNoReport(dir, options);
     
     const deepEqual = stub();
     const mockTest = {
@@ -81,25 +84,27 @@ test('putout: test: noReport', (t) => {
 });
 
 test('putout: test: noReportAfterTransform', (t) => {
-    const noReportAfterTransform = _createNoReportAfterTransform({
-        dir: join(__dirname, 'fixture'),
-        plugins: [
-            ['declare', {
-                report: () => 'hello',
-                replace: () => ({
-                    'join(__a, __b)': (vars, path) => {
-                        if (path.scope.hasBinding('join'))
-                            return;
-                        
-                        const programPath = path.scope.getProgramParent().path;
-                        programPath.node.body.unshift(template.ast('import {join} from "path"'));
-                        
-                        return path;
-                    },
-                }),
-            }],
-        ],
-    });
+    const dir = join(__dirname, 'fixture');
+    const plugins = [
+        ['declare', {
+            report: () => 'hello',
+            replace: () => ({
+                'join(__a, __b)': (vars, path) => {
+                    if (path.scope.hasBinding('join'))
+                        return;
+                    
+                    const programPath = path.scope.getProgramParent().path;
+                    programPath.node.body.unshift(template.ast('import {join} from "path"'));
+                    
+                    return path;
+                },
+            }),
+        }],
+    ];
+    const options = {
+        plugins,
+    };
+    const noReportAfterTransform = _createNoReportAfterTransform(dir, options);
     
     const deepEqual = stub();
     const mockTest = {
