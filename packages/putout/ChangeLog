@@ -1,3 +1,14 @@
+2023.04.06, v29.2.1
+
+fix:
+- 57300440e putout: printer
+
+feature:
+- ffbc87d77 @putout/test: add ability to pass options
+- ad3d99815 @putout/test: add ability to pass options
+- 339f9e4a5 @putout/plugin-remove-empty: import: report
+- e076e3d45 @putout/test: add support of PUTOUT_PRINTER
+
 2023.04.04, v29.2.0
 
 feature:
