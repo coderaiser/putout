@@ -3,6 +3,7 @@
 const {test} = require('supertape');
 const montag = require('montag');
 const putout = require('putout');
+
 const {
     parse,
     print,
@@ -14,6 +15,7 @@ test('putout: parser: print: long lines', (t) => {
             const empty = {};
         });
     `;
+    
     const expected = montag`
         import {test} from 'supertape';
         test('putout: parseOptions: code mods directory: .putout: exclude node_modules', (t) => {
@@ -21,6 +23,7 @@ test('putout: parser: print: long lines', (t) => {
             t.end();
         });
     `;
+    
     const {code} = putout(source, {
         plugins: ['tape'],
     });
@@ -61,6 +64,7 @@ test('putout: parser: print: balanced braces: string', (t) => {
         
         const {b, c} = y;
     `;
+    
     const ast = parse(source);
     const result = print(ast);
     
@@ -85,6 +89,7 @@ test('putout: parser: print: printer: babel', (t) => {
     `;
     
     const ast = parse(source);
+    
     const result = print(ast, {
         printer: 'babel',
     });
@@ -108,6 +113,7 @@ test('putout: parser: print: printer: putout', (t) => {
     `;
     
     const ast = parse(source);
+    
     const result = print(ast, {
         printer: 'putout',
     });
@@ -115,4 +121,3 @@ test('putout: parser: print: printer: putout', (t) => {
     t.equal(result, expected);
     t.end();
 });
-

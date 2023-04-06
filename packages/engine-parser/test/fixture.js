@@ -2,14 +2,12 @@
 
 const {join} = require('path');
 const {readFileSync} = require('fs');
-
 const tryCatch = require('try-catch');
 const camelCase = require('just-camel-case');
-
 const dirFixture = join(__dirname, 'fixture');
+
 const readFixture = (name) => {
     const longName = join(dirFixture, name);
-    
     const [e, data] = tryCatch(readFileSync, `${longName}.ts`, 'utf8');
     
     if (!e)
@@ -23,6 +21,7 @@ module.exports.readFixtures = (names) => {
     
     for (const name of names) {
         const prop = camelCase(name);
+        
         result[prop] = readFixture(name);
     }
     
@@ -37,4 +36,3 @@ const handler = {
         return obj[prop];
     },
 };
-

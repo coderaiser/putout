@@ -12,6 +12,7 @@ const initAcorn = once(() => {
 
 module.exports.parse = function acornParse(source) {
     const parser = initAcorn();
+    
     const options = {
         locations: true,
         comment: true,
@@ -30,4 +31,3 @@ module.exports.parse = function acornParse(source) {
         tokens: tokensToAvoidEsprima,
     };
 };
-

@@ -78,11 +78,15 @@ You have two ways to benefit from source map generation:
 
 ```js
 const source = `const hello = 'world';`;
+
 const ast = parse(source, {
     sourceFileName: 'hello.js',
 });
 
-print(ast, {sourceMapName: 'hello.map'});
+print(ast, {
+    sourceMapName: 'hello.map',
+});
+
 // returns
 `const hello = 'world';
 {"version":3,"sources":["hello.js"],"names":[],"mappings":"AAAA...","file":"hello.map","sourcesContent":["const hello = 'world';"]}`;
@@ -101,11 +105,17 @@ const ast = babel.parse(source, {
     sourceFilename: 'hello.js',
 });
 
-generate(ast, {sourceMaps: true}, {
+generate(ast, {
+    sourceMaps: true,
+}, {
     'hello.js': source,
 });
+
 // returns
-({code, map});
+({
+    code,
+    map,
+});
 ```
 
 ## Example

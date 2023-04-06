@@ -1,8 +1,8 @@
 'use strict';
 
 const tryCatch = require('try-catch');
-
 const test = require('supertape');
+
 const {
     Identifier,
     StringLiteral,
@@ -12,6 +12,7 @@ const template = require('./template');
 
 test('parser: template', (t) => {
     const buildOnce = template(`await once(%%emitter%%, %%event%%)`);
+    
     const result = buildOnce({
         emitter: Identifier('copymitter'),
         event: StringLiteral('end'),
@@ -37,6 +38,7 @@ test('parser: template: expression', (t) => {
 
 test('parser: template: ast: fresh', (t) => {
     const one = template.ast.fresh('const hello = "world"');
+    
     one.x = 'zzz';
     
     const two = template.ast.fresh('const hello = "world"');
@@ -47,6 +49,7 @@ test('parser: template: ast: fresh', (t) => {
 
 test('parser: template: ast', (t) => {
     const one = template.ast('const hello = "world"');
+    
     one.x = 'zzz';
     
     const two = template.ast('const hello = "world"');
@@ -75,6 +78,7 @@ test('parser: template: import in block', (t) => {
 
 test('parser: template: program: ast', (t) => {
     const one = template.program.ast('const hello = "world"');
+    
     one.x = 'zzz';
     
     const two = template.program.ast('const hello = "world"');

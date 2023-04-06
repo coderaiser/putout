@@ -1,7 +1,6 @@
 'use strict';
 
 const montag = require('montag');
-
 const test = require('supertape');
 const putout = require('putout');
 const tryCatch = require('try-catch');
@@ -243,6 +242,7 @@ test('putout: parser: jsx', (t) => {
     const node = babel.parse(fixture.jsxTemplate, {
         isJSX: true,
     });
+    
     const {code} = generate(node);
     const expected = fixture.jsxTemplateFix;
     
@@ -302,6 +302,7 @@ test('putout: parser: undeclared exports', (t) => {
 
 test('putout: parser: parse: fresh', (t) => {
     const ast = parse('var a');
+    
     ast.x = 1;
     
     const result = parse('var a');
@@ -315,11 +316,14 @@ test('putout: print: recast: object expressions', (t) => {
     
     traverse(ast, {
         Function(path) {
-            path.get('params.0').remove();
+            path
+                .get('params.0')
+                .remove();
         },
     });
     
     const result = print(ast);
+    
     const expected = montag`
         b => ({
           a: 'b'
@@ -450,4 +454,3 @@ test('putout: parser: printer: babel', (t) => {
     t.equal(code, expected);
     t.end();
 });
-

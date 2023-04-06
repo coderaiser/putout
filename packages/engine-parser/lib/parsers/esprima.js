@@ -14,4 +14,3 @@ module.exports.parse = function esprimaParse(source) {
         jsx: true,
     });
 };
-

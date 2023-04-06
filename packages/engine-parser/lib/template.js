@@ -2,7 +2,6 @@
 
 const template = require('@babel/template').default;
 const memo = require('nano-memoize');
-
 const plugins = require('./parsers/babel/plugins');
 const options = require('./parsers/babel/options');
 
@@ -59,4 +58,3 @@ module.exports.ast.fresh = (value, options) => {
     
     return result.expression || result;
 };
-

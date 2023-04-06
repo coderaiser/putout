@@ -19,11 +19,8 @@ module.exports = (ast) => {
     for (const directive of directives) {
         const {value} = directive.value;
         
-        body.unshift(
-            ExpressionStatement(StringLiteral(value)),
-        );
+        body.unshift(ExpressionStatement(StringLiteral(value)));
     }
     
     return ast;
 };
-

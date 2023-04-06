@@ -5,6 +5,7 @@ const initTenko = once(() => require('tenko'));
 
 module.exports.parse = (source) => {
     const {Tenko} = initTenko();
+    
     const {ast} = Tenko(source, {
         goalMode: 'module',
         allowGlobalReturn: true,
@@ -13,4 +14,3 @@ module.exports.parse = (source) => {
     
     return ast;
 };
-

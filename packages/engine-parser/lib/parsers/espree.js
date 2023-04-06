@@ -18,4 +18,3 @@ module.exports.parse = function espreeParse(source) {
         },
     });
 };
-

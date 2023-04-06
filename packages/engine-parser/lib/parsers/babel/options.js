@@ -5,4 +5,3 @@ module.exports = {
     allowUndeclaredExports: true,
     allowImportExportEverywhere: true,
 };
-

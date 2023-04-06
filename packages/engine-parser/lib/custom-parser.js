@@ -7,7 +7,6 @@ const esprima = require('./parsers/esprima');
 const tenko = require('./parsers/tenko');
 const hermes = require('./parsers/hermes');
 const secondChance = require('./second-chance');
-
 const isObject = (a) => typeof a === 'object';
 
 module.exports = (source, parser, {isTS, isFlow, isJSX}) => {
@@ -55,4 +54,3 @@ function customParse(source, {parser, isTS, isFlow, isJSX}) {
     
     return require(parser).parse(source);
 }
-

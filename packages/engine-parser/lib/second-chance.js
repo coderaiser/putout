@@ -15,4 +15,3 @@ module.exports = (fn, source, a, b) => {
     
     throw errorA;
 };
-
