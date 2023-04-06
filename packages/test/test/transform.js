@@ -118,7 +118,7 @@ test('transform: with UPDATE env variable: with arg', (t) => {
     process.env.UPDATE = UPDATE;
     global.__putout_test_fs.writeFileSync = writeFileSync;
     
-    t.calledOnce(writeFileSyncStub);
+    t.notCalled(writeFileSyncStub);
     t.end();
 }, {checkAssertionsCount: false});
 

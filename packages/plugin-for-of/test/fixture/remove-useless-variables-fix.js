@@ -1,3 +1,1 @@
-for (const {
-    b
-} of b) {}
+for (const {b} of b) {}

@@ -279,16 +279,6 @@ const transform = currify((dir, options, t, name, transformed = null, addons = {
         }],
     });
     
-    if (isUpdate() && isStr) {
-        writeSourceFixture({
-            full,
-            code,
-            isTS,
-        });
-        
-        return t.pass('source fixture updated');
-    }
-    
     if (isUpdate() && !isStr) {
         writeFixture({
             full,
@@ -362,7 +352,30 @@ const noTransform = currify((dir, options, t, name, addons = {}) => {
     
     rmFixture(`${full}-fix`);
     
-    return transform(dir, options, t, name, fixture, addons);
+    const {plugins} = options;
+    const [input, isTS] = readFixture(full);
+    
+    const {code} = putout(input, {
+        printer: getPrinter(),
+        isTS,
+        ...options,
+        plugins: [{
+            ...toObject(plugins),
+            ...addons,
+        }],
+    });
+    
+    if (isUpdate()) {
+        writeSourceFixture({
+            full,
+            code,
+            isTS,
+        });
+        
+        return t.pass('source fixture updated');
+    }
+    
+    return t.equal(code, fixture);
 });
 
 const transformCode = currify((options, t, input, output, isTS = false) => {

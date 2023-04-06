@@ -4,11 +4,10 @@ module.exports.isSupported = (name) => {
             dot: true,
             matchBase: true,
         });
-
+        
         if (isMatch(name))
             return true;
     }
-
+    
     return false;
 };
-

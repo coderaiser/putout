@@ -12,4 +12,3 @@ list.map((a) => {
     alert('hello');
     return 5;
 });
-

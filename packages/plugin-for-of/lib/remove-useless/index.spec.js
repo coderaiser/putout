@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessForOf = require('.');
 
 const test = createTest(__dirname, {
-    'for-of/remove-useless': removeUselessForOf,
+    printer: 'putout',
+    plugins: [
+        ['for-of/remove-useless', removeUselessForOf],
+    ],
 });
 
 test('plugin-for-of: remove-useless: report', (t) => {

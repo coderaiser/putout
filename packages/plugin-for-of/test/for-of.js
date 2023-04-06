@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const forOf = require('..');
 
 const test = createTest(__dirname, {
-    'for-of': forOf,
+    printer: 'putout',
+    plugins: [
+        ['for-of', forOf],
+    ],
 });
 
 test('plugin-for-of: transform: for-of', (t) => {
