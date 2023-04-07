@@ -166,7 +166,7 @@
     "@putout/processor-javascript": "^4.0.0",
     "@putout/processor-json": "^6.0.0",
     "@putout/processor-markdown": "^8.0.0",
-    "@putout/processor-yaml": "^4.0.0",
+    "@putout/processor-yaml": "^5.0.0",
     "@putout/traverse": "^5.0.0",
     "ajv": "^8.8.2",
     "chalk": "^4.0.0",
