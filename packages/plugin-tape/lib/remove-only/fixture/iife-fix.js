@@ -1,4 +1,3 @@
-(() => {
-    test('noTransform: with UPDATE env variable', (t) => {
-    });
-})();
+() => {
+    test('noTransform: with UPDATE env variable', (t) => {});
+}();

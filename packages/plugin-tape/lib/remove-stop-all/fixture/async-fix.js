@@ -12,4 +12,3 @@ test.skip('test: remove', async (t) => {
     t.equal(result, expected);
     t.end();
 });
-

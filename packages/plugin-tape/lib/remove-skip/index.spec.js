@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const removeSkip = require('.');
+
 const test = createTest(__dirname, {
-    'tape/remove-skip': removeSkip,
+    printer: 'putout',
+    plugins: [
+        ['tape/remove-skip', removeSkip],
+    ],
 });
 
 test('plugin-remove-skip: report', (t) => {
@@ -25,4 +29,3 @@ test('plugin-remove-skip: transform: not top level', (t) => {
     t.transform('not-top-level');
     t.end();
 });
-

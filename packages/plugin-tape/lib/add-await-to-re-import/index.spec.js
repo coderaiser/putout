@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const addAwaitToReImport = require('.');
 
 const test = createTest(__dirname, {
-    'tape/add-await-to-re-import': addAwaitToReImport,
+    printer: 'putout',
+    plugins: [
+        ['tape/add-await-to-re-import', addAwaitToReImport],
+    ],
 });
 
 test('plugin-tape: add-await-to-re-import: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-tape: add-await-to-re-import: transform: block', (t) => {
     t.transform('block');
     t.end();
 });
-

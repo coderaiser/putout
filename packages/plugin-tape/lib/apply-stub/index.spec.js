@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const applyStub = require('.');
 
 const test = createTest(__dirname, {
-    'tape/apply-stub': applyStub,
+    printer: 'putout',
+    plugins: [
+        ['tape/apply-stub', applyStub],
+    ],
 });
 
 test('plugin-tape: apply-stub: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-tape: apply-stub: no transform: no-test', (t) => {
     t.noTransform('no-var');
     t.end();
 });
-

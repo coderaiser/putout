@@ -12,4 +12,3 @@ test.skip('test: remove', (t) => {
     t.equal(result, expected);
     t.end();
 });
-

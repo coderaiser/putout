@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertEqualToOk = require('.');
 
 const test = createTest(__dirname, {
-    'tape/convert-equal-to-deep-equal': convertEqualToOk,
+    printer: 'putout',
+    plugins: [
+        ['tape/convert-equal-to-deep-equal', convertEqualToOk],
+    ],
 });
 
 test('plugin-tape: convert-equal-to-deep-equal: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-tape: convert-equal-to-deep-equal: transform', (t) => {
     t.transform('equal');
     t.end();
 });
-

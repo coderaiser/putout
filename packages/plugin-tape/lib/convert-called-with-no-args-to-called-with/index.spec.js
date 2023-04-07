@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'tape/convert-called-with-no-args-to-called-with': convert,
+    printer: 'putout',
+    plugins: [
+        ['tape/convert-called-with-no-args-to-called-with', convert],
+    ],
 });
 
 test('plugin-tape: convert-called-with-no-args-to-called-with: report', (t) => {
@@ -20,4 +24,3 @@ test('plugin-tape: convert-called-with-no-args-to-called-with: transform: identi
     t.transform('identifier');
     t.end();
 });
-

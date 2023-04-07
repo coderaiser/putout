@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const addStopAll = require('.');
 
 const test = createTest(__dirname, {
-    'tape/add-stop-all': addStopAll,
+    printer: 'putout',
+    plugins: [
+        ['tape/add-stop-all', addStopAll],
+    ],
 });
 
 test('plugin-tape: add-stop-all: report', (t) => {
@@ -41,4 +44,3 @@ test('plugin-tape: add-stop-all: transform: async', (t) => {
     t.transform('async');
     t.end();
 });
-

@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const removeOnly = require('.');
+
 const test = createTest(__dirname, {
-    'tape/remove-only': removeOnly,
+    printer: 'putout',
+    plugins: [
+        ['tape/remove-only', removeOnly],
+    ],
 });
 
 test('plugin-remove-only: report', (t) => {
@@ -25,4 +29,3 @@ test('plugin-remove-only: transform: iife', (t) => {
     t.transform('iife');
     t.end();
 });
-

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertOkToMatch = require('.');
 
 const test = createTest(__dirname, {
-    'tape/convert-ok-to-match': convertOkToMatch,
+    printer: 'putout',
+    plugins: [
+        ['tape/convert-ok-to-match', convertOkToMatch],
+    ],
 });
 
 test('plugin-tape: convert-ok-to-match: report', (t) => {
@@ -31,4 +34,3 @@ test('plugin-tape: convert-ok-to-match: no transform: keys', (t) => {
     t.noTransform('keys');
     t.end();
 });
-

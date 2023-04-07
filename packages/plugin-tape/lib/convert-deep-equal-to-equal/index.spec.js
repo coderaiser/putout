@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertDeepEqualToEqual = require('.');
 
 const test = createTest(__dirname, {
-    'tape/convert-deep-equal-to-equal': convertDeepEqualToEqual,
+    printer: 'putout',
+    plugins: [
+        ['tape/convert-deep-equal-to-equal', convertDeepEqualToEqual],
+    ],
 });
 
 test('plugin-tape: convert-deep-equal-to-equal: report', (t) => {
@@ -46,4 +49,3 @@ test('plugin-tape: convert-deep-equal-to-equal: no transform: expected', (t) => 
     t.noTransform('expected');
     t.end();
 });
-

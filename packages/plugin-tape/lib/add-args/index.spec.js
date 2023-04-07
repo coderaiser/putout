@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const addArgs = require('.');
 
 const test = createTest(__dirname, {
-    'tape/add-args': addArgs,
+    printer: 'putout',
+    plugins: [
+        ['tape/add-args', addArgs],
+    ],
 });
 
 test('plugin-tape: add-args: transform', (t) => {
@@ -31,4 +34,3 @@ test('plugin-tape: add-args: no transform', (t) => {
     t.noTransform('upper-scope');
     t.end();
 });
-

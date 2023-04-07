@@ -4,12 +4,11 @@ const expected = montag`
 
 t.equal(result, expected);
 
-const template =`
+const template = `
     hello
 `;
 
 t.equal(result, template);
 
 const string = 'hello';
-
 t.equal(result, string);

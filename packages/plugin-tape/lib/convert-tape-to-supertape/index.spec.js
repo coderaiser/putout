@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'tape/convert-tape-to-supertape': convert,
+    printer: 'putout',
+    plugins: [
+        ['tape/convert-tape-to-supertape', convert],
+    ],
 });
 
 test('plugin-tape: convert-tape-to-supertape: report: try-to', (t) => {
@@ -25,4 +29,3 @@ test('plugin-tape: convert-tape-to-supertape: try-to-tape: tape', (t) => {
     t.transform('tape');
     t.end();
 });
-

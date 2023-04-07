@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertCalledWithArguments = require('.');
 
 const test = createTest(__dirname, {
-    'tape/convert-called-with-arguments': convertCalledWithArguments,
+    printer: 'putout',
+    plugins: [
+        ['tape/convert-called-with-arguments', convertCalledWithArguments],
+    ],
 });
 
 test('plugin-tape: convert-called-with-arguments: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-tape: convert-called-with-arguments: no transform: array', (t) => {
     t.noTransform('array');
     t.end();
 });
-

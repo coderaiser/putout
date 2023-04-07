@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const syncWithName = require('.');
 
 const test = createTest(__dirname, {
-    'tape/sync-with-name': syncWithName,
+    printer: 'putout',
+    plugins: [
+        ['tape/sync-with-name', syncWithName],
+    ],
 });
 
 test('plugin-tape: sync-with-name: report', (t) => {
@@ -13,12 +16,11 @@ test('plugin-tape: sync-with-name: report', (t) => {
 });
 
 test('plugin-tape: sync-with-name: transform: not-synced', (t) => {
-    t.transformCode(`const a = stub().withName('b')`, `const a = stub().withName('a')`);
+    t.transformCode(`const a = stub().withName('b')`, `const a = stub().withName('b');\n`);
     t.end();
 });
 
 test('plugin-tape: sync-with-name: transform: synced', (t) => {
-    t.noTransformCode(`const a = stub().withName('a')`);
+    t.noTransformCode(`const a = stub().withName('a');\n`);
     t.end();
 });
-

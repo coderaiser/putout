@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertOkToCalledWith = require('.');
 
 const test = createTest(__dirname, {
-    'tape/convert-ok-to-called-with': convertOkToCalledWith,
+    printer: 'putout',
+    plugins: [
+        ['tape/convert-ok-to-called-with', convertOkToCalledWith],
+    ],
 });
 
 test('plugin-tape: convert-ok-to-called-with: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-tape: convert-ok-to-called-with: transform', (t) => {
     t.transform('ok');
     t.end();
 });
-

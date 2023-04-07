@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'tape/convert-throws-to-try-catch': convert,
+    printer: 'putout',
+    plugins: [
+        ['tape/convert-throws-to-try-catch', convert],
+    ],
 });
 
 test('plugin-tape: convert-throws-to-try-catch: report', (t) => {

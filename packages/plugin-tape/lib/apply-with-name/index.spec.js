@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const applyWithName = require('.');
 
 const test = createTest(__dirname, {
-    'tape/apply-with-name': applyWithName,
+    printer: 'putout',
+    plugins: [
+        ['tape/apply-with-name', applyWithName],
+    ],
 });
 
 test('plugin-tape: apply-with-name: report', (t) => {
@@ -41,4 +44,3 @@ test('plugin-tape: apply-with-name: no report after transform: chain', (t) => {
     t.noReportAfterTransform('chain');
     t.end();
 });
-

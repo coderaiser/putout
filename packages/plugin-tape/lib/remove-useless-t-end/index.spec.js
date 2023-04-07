@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessTEnd = require('.');
 
 const test = createTest(__dirname, {
-    'tape/remove-useless-t-end': removeUselessTEnd,
+    printer: 'putout',
+    plugins: [
+        ['tape/remove-useless-t-end', removeUselessTEnd],
+    ],
 });
 
 test('plugin-tape: remove-useless-t-end: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-tape: remove-useless-t-end: transform', (t) => {
     t.transform('t-end');
     t.end();
 });
-

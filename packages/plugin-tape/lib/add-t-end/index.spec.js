@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const addTEnd = require('.');
 
 const test = createTest(__dirname, {
-    'tape/add-t-end': addTEnd,
+    printer: 'putout',
+    plugins: [
+        ['tape/add-t-end', addTEnd],
+    ],
 });
 
 test('plugin-tape: add-t-end: report', (t) => {

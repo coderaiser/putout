@@ -1,1 +1,3 @@
-t.calledWith(fn, [hello]);
+t.calledWith(fn, [
+    hello,
+]);

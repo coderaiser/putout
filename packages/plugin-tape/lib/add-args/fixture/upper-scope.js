@@ -1,6 +1,5 @@
 test('', (t) => {
-   const fn = () => {
-       t.end();
-   };
+    const fn = () => {
+        t.end();
+    };
 });
-

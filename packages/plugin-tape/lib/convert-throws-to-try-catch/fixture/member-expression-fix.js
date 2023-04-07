@@ -5,4 +5,3 @@ test('readjson.sync: no args', (t) => {
     t.equal(error.message, 'name should be string!', 'NAME check');
     t.end();
 });
-

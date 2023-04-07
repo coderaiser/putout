@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertMatchRegexpToString = require('.');
 
 const test = createTest(__dirname, {
-    'tape/convert-match-regexp-to-string': convertMatchRegexpToString,
+    printer: 'putout',
+    plugins: [
+        ['tape/convert-match-regexp-to-string', convertMatchRegexpToString],
+    ],
 });
 
 test('plugin-tape: convert-match-regexp-to-string: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-tape: convert-match-regexp-to-string: no transform: not-simple', (t
     t.noTransform('not-simple');
     t.end();
 });
-

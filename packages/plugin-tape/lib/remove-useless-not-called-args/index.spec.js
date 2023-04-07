@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'tape/remove-useless-not-called-args': convert,
+    printer: 'putout',
+    plugins: [
+        ['tape/remove-useless-not-called-args', convert],
+    ],
 });
 
 test('plugin-tape: remove-useless-not-called-args: report: args', (t) => {
@@ -15,4 +19,3 @@ test('plugin-tape: remove-useless-not-called-args: transform: args', (t) => {
     t.transform('args');
     t.end();
 });
-

@@ -1,4 +1,3 @@
 var t = () => {
-    test('hello', () => {
-    });
+    test('hello', () => {});
 };

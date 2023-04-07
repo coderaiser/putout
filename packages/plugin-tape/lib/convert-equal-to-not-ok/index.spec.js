@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertEqualToNotOk = require('.');
 
 const test = createTest(__dirname, {
-    'tape/convert-equal-to-not-ok': convertEqualToNotOk,
+    printer: 'putout',
+    plugins: [
+        ['tape/convert-equal-to-not-ok', convertEqualToNotOk],
+    ],
 });
 
 test('plugin-tape: convert-equal-to-not-ok: report', (t) => {

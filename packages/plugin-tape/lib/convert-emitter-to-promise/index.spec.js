@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'tape/convert-emitter-to-promise': convert,
+    printer: 'putout',
+    plugins: [
+        ['tape/convert-emitter-to-promise', convert],
+    ],
 });
 
 test('plugin-tape: convert-emitter-to-promise: class', (t) => {
@@ -45,4 +49,3 @@ test('plugin-tape: convert-emitter-to-promise: template', (t) => {
     t.transform('template');
     t.end();
 });
-

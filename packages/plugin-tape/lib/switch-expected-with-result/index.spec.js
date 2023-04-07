@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const switchExpectedWithResult = require('.');
 
 const test = createTest(__dirname, {
-    'tape/switch-expected-with-result': switchExpectedWithResult,
+    printer: 'putout',
+    plugins: [
+        ['tape/switch-expected-with-result', switchExpectedWithResult],
+    ],
 });
 
 test('plugin-tape: switch-expected-with-result: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-tape: switch-expected-with-result: transform: expected', (t) => {
     t.transform('expected');
     t.end();
 });
-

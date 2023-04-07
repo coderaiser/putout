@@ -6,9 +6,8 @@ test('some test', (t) => {
 
 test('some test', (t) => {
     const fn = () => copymitter('hello');
-
     const [error] = tryCatch(fn);
-
+    
     t.equal(error.message, 'from should be a string!', 'should throw when no args');
     t.end();
 });

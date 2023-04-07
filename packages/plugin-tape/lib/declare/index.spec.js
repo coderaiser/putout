@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const declare = require('.');
 
 const test = createTest(__dirname, {
-    'tape/declare': declare,
+    printer: 'putout',
+    plugins: [
+        ['tape/declare', declare],
+    ],
 });
 
 test('plugin-tape: declare: report', (t) => {
@@ -56,4 +59,3 @@ test('plugin-tape: declare: transform: re-require', (t) => {
     t.transform('re-require');
     t.end();
 });
-
