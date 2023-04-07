@@ -1,3 +1,19 @@
+2023.04.07, v29.2.2
+
+fix:
+- d5cb1718d @putout/plugin-putout: create-test: add: array of tuples
+- 85b44a414 @putout/test: noTransform: update source fixtures
+
+feature:
+- 69324e88f package: @putout/processor-ignore v4.0.0
+- ad4ef3be2 package: @putout/processor-json v6.0.0
+- a4abdc2ac eslint-plugin-putout: json: \n eof, markdown: never \n eof
+- e9b093570 @putout/processor-json: drop support of 🐊 < 29
+- 74889c2a7 @putout/processor-ignore: add \n at eof
+- 892fb2a66 @putout/processor-json: add \n at eof
+- 4f4042b31 @putout/printer: create-test: add
+- df545f3dc @putout/operator-add-args: report quotes
+
 2023.04.06, v29.2.1
 
 fix:
