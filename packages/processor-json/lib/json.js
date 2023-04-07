@@ -1,7 +1,7 @@
 import removeBlankLines from 'remove-blank-lines';
 
 const prefix = '__putout_processor_json(';
-const sufix = ');';
+const sufix = ');\n';
 
 export const files = [
     '*.json',
