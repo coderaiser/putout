@@ -78,7 +78,8 @@ It helps to preserve comments.
 ### ❌ Example of incorrect code
 
 ```js
-export const fix = (path) => {
+export
+const fix = (path) => {
     path.remove();
 };
 ```
@@ -169,7 +170,10 @@ Add properties to `createTest` options, here is exmample of `.putout.json`:
     "rules": {
         "putout/create-test": ["on", {
             "add": [
-                ["printer", "putout"]
+                [
+                    "printer",
+                    "putout"
+                ]
             ]
         }]
     }
@@ -524,6 +528,7 @@ const {
     operator,
     types,
 } = require('putout');
+
 const {compare} = operator;
 const {isIdentifier} = types;
 
@@ -704,9 +709,11 @@ module.exports.include = () => 'cons __a = __b';
 module.exports.exclude = () => 'var __a = __b';
 module.exports.include = 'cons __a = __b';
 module.exports.exclude = 'var __a = __b';
+
 module.exports.include = [
     'cons __a = __b',
 ];
+
 module.exports.exclude = [
     'var __a = __b',
 ];
@@ -718,18 +725,23 @@ module.exports.exclude = [
 module.exports.include = () => [
     'cons __a = __b',
 ];
+
 module.exports.exclude = () => [
     'var __a = __b',
 ];
+
 module.exports.include = () => [
     'cons __a = __b',
 ];
+
 module.exports.exclude = () => [
     'var __a = __b',
 ];
+
 module.exports.include = () => [
     'cons __a = __b',
 ];
+
 module.exports.exclude = () => [
     'var __a = __b',
 ];
