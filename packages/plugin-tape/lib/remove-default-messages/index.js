@@ -13,4 +13,3 @@ module.exports.replace = () => ({
     't.deepEqual(__a, __b, "should equal")': 't.deepEqual(__a, __b)',
     't.notDeepEqual(__a, __b, "should not deep equal")': 't.notDeepEqual(__a, __b)',
 });
-

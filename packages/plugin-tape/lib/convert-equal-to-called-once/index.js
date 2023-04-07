@@ -9,4 +9,3 @@ module.exports.replace = () => ({
     't.equal(__a.callCount, 1)': 't.calledOnce(__a)',
     't.equal(__a.callCount, 1, __b)': 't.calledOnce(__a, __b)',
 });
-

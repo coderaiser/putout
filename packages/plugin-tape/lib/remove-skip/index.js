@@ -15,4 +15,3 @@ module.exports.filter = (path) => {
         name: 'test',
     });
 };
-

@@ -36,9 +36,10 @@ function check({__b}, path) {
     
     const {id, init} = __bDeclaration.path.node;
     
-    if (!isIdentifier(id, {name: 'expected'}))
+    if (!isIdentifier(id, {
+        name: 'expected',
+    }))
         return false;
     
     return isObjectExpression(init) || isArrayExpression(init);
 }
-

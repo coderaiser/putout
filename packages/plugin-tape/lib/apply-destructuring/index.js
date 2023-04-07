@@ -12,4 +12,3 @@ module.exports.replace = () => ({
         return 'const {test, stub} = require("supertape")';
     },
 });
-

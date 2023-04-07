@@ -26,7 +26,6 @@ module.exports.traverse = ({push}) => ({
     [TEST]: createTraverse(push),
     [TEST_ONLY]: createTraverse(push),
     [TEST_SKIP]: createTraverse(push),
-    
     [TEST_ASYNC]: createTraverse(push),
     [TEST_ASYNC_ONLY]: createTraverse(push),
     [TEST_ASYNC_SKIP]: createTraverse(push),
@@ -83,4 +82,3 @@ function check(path) {
         stopAllPath,
     };
 }
-

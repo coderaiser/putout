@@ -13,10 +13,7 @@ const test = createTest(__dirname, {
 test('plugin-putout: create-test: report', (t) => {
     t.reportWithOptions('create-test', `Apply modifications to 'createTest()' options`, {
         add: [
-            [
-                'printer',
-                'putout',
-            ],
+            ['printer', 'putout'],
         ],
     });
     t.end();
@@ -30,10 +27,7 @@ test('plugin-putout: create-test: no options: no transform', (t) => {
 test('plugin-putout: create-test: transform', (t) => {
     t.transformWithOptions('create-test', {
         add: [
-            [
-                'printer',
-                'putout',
-            ],
+            ['printer', 'putout'],
             ['plugins', []],
         ],
     });

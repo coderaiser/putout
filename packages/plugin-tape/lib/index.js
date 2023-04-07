@@ -39,4 +39,3 @@ module.exports.rules = {
     ...getRule('remove-only'),
     ...getRule('remove-skip'),
 };
-

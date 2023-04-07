@@ -21,6 +21,6 @@ function putTryCatch(__a, path) {
     `);
     
     tryCatchNode.declarations[0].init.arguments[0] = __a;
+    
     path.insertBefore(tryCatchNode);
 }
-

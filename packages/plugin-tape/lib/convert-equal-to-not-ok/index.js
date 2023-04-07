@@ -6,9 +6,7 @@ const {
 } = require('putout');
 
 const isNumber = (a) => typeof a === 'number';
-
 const isString = (a) => typeof a === 'string';
-
 const {compute} = operator;
 
 const {
@@ -57,15 +55,12 @@ module.exports.replace = () => ({
     't.equal(__a, null, __b)': 't.notOk(__a, __b)',
     't.equal(__a, false, __b)': 't.notOk(__a, __b)',
     't.equal(__a, undefined, __b)': 't.notOk(__a, __b)',
-    
     't.deepEqual(__a, null)': 't.notOk(__a)',
     't.deepEqual(__a, null, __b)': 't.notOk(__a, __b)',
     't.deepEqual(__a, undefined)': 't.notOk(__a)',
     't.deepEqual(__a, undefined, __b)': 't.notOk(__a, __b)',
     't.deepEqual(__a, false)': 't.notOk(__a)',
     't.deepEqual(__a, false, __b)': 't.notOk(__a, __b)',
-    
     't.equal(__a)': 't.notOk(__a)',
     't.notEqual(__a)': 't.ok(__a)',
 });
-

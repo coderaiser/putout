@@ -170,10 +170,7 @@ Add properties to `createTest` options, here is exmample of `.putout.json`:
     "rules": {
         "putout/create-test": ["on", {
             "add": [
-                [
-                    "printer",
-                    "putout"
-                ]
+                ["printer", "putout"]
             ]
         }]
     }

@@ -11,6 +11,7 @@ module.exports.replace = () => ({
         `);
         
         tryCatchNode.declarations[0].init.arguments[0] = __a;
+        
         path.insertBefore(tryCatchNode);
         
         return `t.notOk(error, __b)`;

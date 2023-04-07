@@ -2,8 +2,8 @@
 
 const {createTest} = require('@putout/test');
 const tape = require('..');
-
 const montag = require('montag');
+
 const test = createTest(__dirname, {
     tape,
 });
@@ -185,4 +185,3 @@ test('plugin-tape: transform: jest', (t) => {
     t.transform('jest');
     t.end();
 });
-

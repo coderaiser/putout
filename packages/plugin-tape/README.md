@@ -63,7 +63,8 @@ npm i @putout/plugin-tape -D
 
 ```js
 it('should equal', () => {
-    expect(a).toEqual(b);
+    expect(a)
+        .toEqual(b);
 });
 ```
 
@@ -183,7 +184,6 @@ const {stub} = test;
 
 test('some message', (t) => {
     const fn = stub();
-    
     fn();
     
     t.calledWith(fn, 'hello');
@@ -199,10 +199,10 @@ const {stub} = test;
 
 test('some message', (t) => {
     const fn = stub();
-    
     fn();
-    
-    t.calledWith(fn, ['hello']);
+    t.calledWith(fn, [
+        'hello',
+    ]);
     t.end();
 });
 ```
@@ -219,7 +219,6 @@ const {stub} = test;
 
 test('some message', (t) => {
     const fn = stub();
-    
     fn();
     
     t.equal(fn.callCount, 1);
@@ -235,7 +234,6 @@ const {stub} = test;
 
 test('some message', (t) => {
     const fn = stub();
-    
     fn();
     
     t.calledOnce(fn);
@@ -281,7 +279,6 @@ const {stub} = test;
 
 test('some message', (t) => {
     const fn = stub();
-    
     fn();
     
     t.calledWith(fn);
@@ -297,7 +294,6 @@ const {stub} = test;
 
 test('some message', (t) => {
     const fn = stub();
-    
     fn();
     
     t.calledWithNoArgs(fn);
@@ -315,7 +311,6 @@ const {stub} = test;
 
 test('some message', (t) => {
     const fn = stub();
-    
     fn();
     
     t.calledWithNoArgs(fn, [1, 2]);
@@ -331,7 +326,6 @@ const {stub} = test;
 
 test('some message', (t) => {
     const fn = stub();
-    
     fn();
     
     t.calledWith(fn, [1, 2]);
@@ -345,7 +339,9 @@ test('some message', (t) => {
 
 ```js
 test('copymitter', (t) => {
-    const cp = copymitter(from, to, ['1']);
+    const cp = copymitter(from, to, [
+        '1',
+    ]);
     
     cp.on('end', (t) => {
         t.end();
@@ -359,9 +355,11 @@ test('copymitter', (t) => {
 const {once} = require('events');
 
 test('copymitter', async (t) => {
-    const cp = copymitter(from, to, ['1']);
-    
+    const cp = copymitter(from, to, [
+        '1',
+    ]);
     await once(cp, 'end');
+    
     t.end();
 });
 ```
@@ -380,10 +378,7 @@ const {stub} = test;
 ### ✅ Example of correct code
 
 ```js
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test, stub} = require('supertape');
 ```
 
 ## apply-stub
@@ -395,8 +390,8 @@ Apply [stub](https://github.com/cloudcmd/stub) functions created. Look how it wo
 ```js
 const a = async () => true;
 const b = async () => {};
+const c = async () => throwError('hello');
 
-const c = async () => throw Error('hello');
 const d = async () => {
     throw Error('hello');
 };
@@ -407,7 +402,6 @@ const d = async () => {
 ```js
 const a = stub().resolves(true);
 const b = stub().resolves();
-
 const c = stub().rejects(Error('hello'));
 const d = stub().rejects(Error('hello'));
 ```
@@ -427,7 +421,9 @@ test('some message', (t) => {
 
 ```js
 test('some message', (t) => {
-    t.calledWith(fn, [a]);
+    t.calledWith(fn, [
+        a,
+    ]);
     t.end();
 });
 ```
@@ -441,7 +437,10 @@ test('should call init before show', (t) => {
     const init = stub();
     const show = stub();
     
-    t.calledInOrder([init, show]);
+    t.calledInOrder([
+        init,
+        show,
+    ]);
     t.end();
 });
 ```
@@ -453,7 +452,10 @@ test('should call init before show', (t) => {
     const init = stub().withName('init');
     const show = stub().withName('show');
     
-    t.calledInOrder([init, show]);
+    t.calledInOrder([
+        init,
+        show,
+    ]);
     t.end();
 });
 ```
@@ -467,7 +469,10 @@ test('should call init before show', (t) => {
     const init = stub().withName('show');
     const show = stub().withName('show');
     
-    t.calledInOrder([init, show]);
+    t.calledInOrder([
+        init,
+        show,
+    ]);
     t.end();
 });
 ```
@@ -479,7 +484,10 @@ test('should call init before show', (t) => {
     const init = stub().withName('init');
     const show = stub().withName('show');
     
-    t.calledInOrder([init, show]);
+    t.calledInOrder([
+        init,
+        show,
+    ]);
     t.end();
 });
 ```
@@ -563,8 +571,7 @@ test('xxx', (t) => {
 ### ❌ Example of incorrect code
 
 ```js
-test('xxx', () => {
-});
+test('xxx', () => {});
 ```
 
 ### ✅ Example of correct code
@@ -606,6 +613,7 @@ test('stop-all: should be called', (t) => {
     mockImport('fs/promises', {
         readFile: stub(),
     });
+    
     t.end();
 });
 ```

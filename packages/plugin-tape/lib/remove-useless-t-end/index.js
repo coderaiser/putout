@@ -28,4 +28,3 @@ module.exports.traverse = ({push}) => ({
             push(paths.pop());
     },
 });
-

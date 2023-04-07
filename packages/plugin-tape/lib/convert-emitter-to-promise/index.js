@@ -13,12 +13,10 @@ const {
 } = operator;
 
 const {isProgram} = types;
-
 const ON_ANY = `__e.on(__o, (__r) => __body)`;
 const ON_ANY_NO_RESULT = `__e.on(__o, () => __body)`;
 const ON_END = `__e.on('end', () => __body)`;
 const ON_ERROR = `__e.on('error', (__r) => __body)`;
-
 const once = template(`const [%%result%%] = await once(%%emitter%%, %%event%%)`);
 const onceEnd = template(`await once(%%emitter%%, 'end')`);
 const onceError = template(`const [%%error%%] = await once(%%emitter%%, 'error')`);
@@ -38,9 +36,7 @@ module.exports.replace = () => ({
 
 function match({__body}) {
     for (const codeLine of __body.body) {
-        const {
-            expression = codeLine,
-        } = codeLine;
+        const {expression = codeLine} = codeLine;
         
         if (compare(expression, ON_END))
             return true;
@@ -58,7 +54,9 @@ function match({__body}) {
 function replace({__a}, path) {
     declareOnce(path);
     
-    const arg = path.get('arguments.1').node;
+    const arg = path
+        .get('arguments.1').node;
+    
     arg.async = true;
     
     const {body} = arg.body;
@@ -66,28 +64,22 @@ function replace({__a}, path) {
     
     for (let i = 0; i < n; i++) {
         let nodes = [];
-        
         const current = body[i];
-        const {
-            expression = current,
-        } = current;
+        
+        const {expression = current} = current;
         
         if (compare(expression, ON_ERROR))
             nodes = getErrorNodes(expression);
-        
         else if (compare(expression, ON_END))
             nodes = getEndNodes(expression);
-        
         else if (compare(expression, ON_ANY))
             nodes = getAnyNodes(expression);
-        
         else if (compare(expression, ON_ANY_NO_RESULT))
             nodes = getAnyNoResultNodes(expression);
-        
         else
             continue;
         
-        body.splice(i, 1, ...nodes) ;
+        body.splice(i, 1, ...nodes);
     }
     
     const {code} = generate(arg.body);
@@ -96,7 +88,10 @@ function replace({__a}, path) {
 }
 
 function getEndNodes(expression) {
-    const {__e, __body} = getTemplateValues(expression, ON_END);
+    const {
+        __e,
+        __body,
+    } = getTemplateValues(expression, ON_END);
     
     const nodes = [
         onceEnd({
@@ -113,10 +108,7 @@ function getErrorNodes(expression) {
         __e,
         __r,
         __body,
-    } = getTemplateValues(
-        expression,
-        ON_ERROR,
-    );
+    } = getTemplateValues(expression, ON_ERROR);
     
     const nodes = [
         onceError({
@@ -166,7 +158,6 @@ function getAnyNoResultNodes(expression) {
     
     return nodes;
 }
-
 const declareOnce = (path) => {
     if (path.scope.bindings.once)
         return;
@@ -176,4 +167,3 @@ const declareOnce = (path) => {
     
     body.unshift(template.ast(`const {once} = require('events')`));
 };
-

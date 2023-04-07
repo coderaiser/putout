@@ -5,7 +5,11 @@ const {
     template,
     operator,
 } = require('putout');
-const {compare, traverse} = operator;
+
+const {
+    compare,
+    traverse,
+} = operator;
 const {ExpressionStatement} = types;
 
 module.exports.report = () => `'t.end()' is missing at the end of the test`;
@@ -33,6 +37,7 @@ function match({__body}, path) {
     }
     
     let found = false;
+    
     traverse(path, {
         't.end()': () => {
             found = true;

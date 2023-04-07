@@ -51,4 +51,3 @@ module.exports.replace = () => ({
         return 'stub().resolves(__a)';
     },
 });
-

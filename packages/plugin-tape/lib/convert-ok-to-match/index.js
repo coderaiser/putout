@@ -12,4 +12,3 @@ module.exports.replace = () => ({
     't.ok(__a.test(__b))': 't.match(__b, __a)',
     't.ok(__a.test(__b), __c)': 't.match(__b, __a, __c)',
 });
-

@@ -6,14 +6,11 @@ const {
 } = require('putout');
 
 const isNull = (a) => !a && typeof a === 'object';
-
 const isUndefined = (a) => typeof a === 'undefined';
 const isBool = (a) => typeof a === 'boolean';
-
 const isNumber = (a) => typeof a === 'number';
 const isString = (a) => typeof a === 'string';
 const isPrimitive = (a) => isString(a) || isNumber(a) || isBool(a) || isNull(a) || isUndefined(a);
-
 const {compute} = operator;
 
 const {

@@ -28,14 +28,15 @@ module.exports.fix = (path) => {
     const assertionPath = getAssertionsPath(path);
     const stopAllNode = template.ast('stopAll()');
     
-    assertionPath.insertBefore(ExpressionStatement(stopAllNode));
+    assertionPath.insertBefore(ExpressionStatement(
+        stopAllNode,
+    ));
 };
 
 module.exports.traverse = ({push}) => ({
     [TEST]: createTraverse(push),
     [TEST_ONLY]: createTraverse(push),
     [TEST_SKIP]: createTraverse(push),
-    
     [TEST_ASYNC]: createTraverse(push),
     [TEST_ASYNC_ONLY]: createTraverse(push),
     [TEST_ASYNC_SKIP]: createTraverse(push),
@@ -100,4 +101,3 @@ function getAssertionsPath(path) {
     
     return resultPath;
 }
-

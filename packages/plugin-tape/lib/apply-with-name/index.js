@@ -22,12 +22,18 @@ module.exports.replace = () => ({
 });
 
 function checkStubs({__a, __b}, path) {
-    const elements = [__a, __b];
+    const elements = [
+        __a,
+        __b,
+    ];
+    
     const __array = {
         elements,
     };
     
-    return checkStubsArray({__array}, path);
+    return checkStubsArray({
+        __array,
+    }, path);
 }
 
 function applyWithName({__a, __b}, path) {
@@ -91,4 +97,3 @@ function applyWithNameToNode(node, path) {
     
     replaceWith(initPath, template.ast(`stub().withName('${name}')`));
 }
-
