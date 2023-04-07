@@ -9,6 +9,7 @@ const {replaceWith} = operator;
 const {ObjectProperty} = types;
 
 module.exports.report = () => 'Object Property should be used instead of Method';
+
 module.exports.include = () => [
     'ObjectMethod',
 ];

@@ -63,6 +63,7 @@ const buildRequire = template(`const NAME = REQUIRE`);
 function declareRequire({__a, __b}, path) {
     const shortName = __a.value || __a.name
         .split('/').pop();
+    
     const name = justCamelCase(shortName);
     
     const requireNode = buildRequire({
@@ -75,6 +76,7 @@ function declareRequire({__a, __b}, path) {
     
     const programPath = path.scope
         .getProgramParent().path;
+    
     programPath.node.body.unshift(requireNode);
     
     return name;

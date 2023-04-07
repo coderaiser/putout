@@ -78,8 +78,7 @@ It helps to preserve comments.
 ### ❌ Example of incorrect code
 
 ```js
-export
-const fix = (path) => {
+export const fix = (path) => {
     path.remove();
 };
 ```
@@ -170,8 +169,7 @@ Add properties to `createTest` options, here is exmample of `.putout.json`:
     "rules": {
         "putout/create-test": ["on", {
             "add": [
-                "printer",
-                "putout"
+                ["printer", "putout"]
             ]
         }]
     }

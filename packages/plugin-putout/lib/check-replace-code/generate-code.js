@@ -3,10 +3,12 @@
 const putout = require('putout');
 const tryCatch = require('try-catch');
 const noop = () => {};
+
 const {
     types,
     operator,
 } = putout;
+
 const {replaceWith} = operator;
 
 const {

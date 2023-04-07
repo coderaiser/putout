@@ -7,8 +7,7 @@
         "*.spec.js": {
             "putout/create-test": ["on", {
                 "add": [
-                    "printer",
-                    "putout"
+                    ["printer", "putout"]
                 ]
             }]
         }
