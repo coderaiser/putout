@@ -7,11 +7,6 @@ const test = createTest(__dirname, {
     'putout/add-args': addArgs,
 });
 
-test('plugin-putout: add-args: report', (t) => {
-    t.report('compare-places', 'Argument "comparePlaces" is missing');
-    t.end();
-});
-
 test('plugin-putout: add-args: transform', (t) => {
     t.transform('compare-places');
     t.end();

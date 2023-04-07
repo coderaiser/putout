@@ -6,6 +6,37 @@ const montag = require('montag');
 
 const {addArgs} = require('./add-args.js');
 
+test('putout: operator: add-args: report', (t) => {
+    const args = {
+        compare: ['{compare}', 'test("__a", (__args) => __body)'],
+    };
+    
+    const source = montag`
+        test('', () => {
+            compare(a, b);
+        });
+    `;
+    
+    const {places} = putout(source, {
+        fix: false,
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    const expected = [{
+        message: `Argument 'compare' is missing`,
+        position: {
+            column: 4,
+            line: 2,
+        },
+        rule: 'add-args',
+    }];
+    
+    t.deepEqual(places, expected);
+    t.end();
+});
+
 test('putout: operator: add-args', (t) => {
     const args = {
         compare: ['{compare}', 'test("__a", (__args) => __body)'],

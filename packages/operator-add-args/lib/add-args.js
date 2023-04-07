@@ -17,7 +17,7 @@ const {entries} = Object;
 const COMPUTED = true;
 const SHORTHAND = true;
 
-const report = ({name}) => `Argument "${name}" is missing`;
+const report = ({name}) => `Argument '${name}' is missing`;
 
 module.exports.addArgs = (args) => ({
     report,
