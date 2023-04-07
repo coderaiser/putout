@@ -50,8 +50,7 @@ module.exports.fix = ({path, calleePath, property, object, program, isInserted})
     const id = Identifier('replaceWith');
     const varPath = getVarPath(bindings);
     
-    varPath.node.id.properties
-        .unshift(ObjectProperty(id, id, false, true));
+    varPath.node.id.properties.unshift(ObjectProperty(id, id, false, true));
 };
 
 function getVarPath(bindings) {
@@ -65,7 +64,6 @@ function getVarPath(bindings) {
     
     return insertAfter.path;
 }
-
 module.exports.traverse = ({push}) => {
     const isInserted = fullstore();
     
@@ -76,7 +74,10 @@ module.exports.traverse = ({push}) => {
             if (!calleePath.isMemberExpression())
                 return;
             
-            const {object, property} = calleePath.node;
+            const {
+                object,
+                property,
+            } = calleePath.node;
             
             if (property.name !== 'replaceWith')
                 return;
@@ -94,4 +95,3 @@ module.exports.traverse = ({push}) => {
         },
     };
 };
-

@@ -44,4 +44,3 @@ const create = (name) => (vars, path) => {
     
     return `await ${name}(__args)`;
 };
-

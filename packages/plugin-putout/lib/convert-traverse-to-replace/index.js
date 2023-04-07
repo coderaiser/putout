@@ -11,6 +11,7 @@ module.exports.report = () => 'Replacer should be used instead of Traverser (htt
 module.exports.match = () => ({
     'module.exports.traverse = (__args) => __a': ({__args}, path) => {
         const program = path.scope.getProgramParent().path;
+        
         const withFix = contains(program, [
             'module.exports.fix = __a',
         ]);
@@ -54,6 +55,7 @@ function check(path) {
                 return;
             
             hasTraverseMethod = true;
+            
             path.stop();
         },
         'push(__a)': (path) => {
@@ -64,4 +66,3 @@ function check(path) {
     
     return hasPushCall || hasTraverseMethod;
 }
-

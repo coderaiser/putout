@@ -2,11 +2,8 @@
 
 const putout = require('putout');
 const tryCatch = require('try-catch');
-
 const generateCode = require('./generate-code');
-
 const noop = () => {};
-
 const {operator} = putout;
 const {
     compare,
@@ -15,7 +12,6 @@ const {
 } = operator;
 
 const name = '__putout_plugin_check_replace_code';
-
 const get = (path) => path[name];
 const set = (path) => path[name] = true;
 
@@ -61,6 +57,7 @@ module.exports.traverse = ({push}) => ({
                     mainPath: path,
                     path: propertyPath,
                 });
+                
                 return;
             }
             
@@ -73,6 +70,7 @@ module.exports.traverse = ({push}) => ({
                     mainPath: path,
                     path: propertyPath,
                 });
+                
                 return;
             }
             
@@ -95,6 +93,7 @@ module.exports.traverse = ({push}) => ({
                     mainPath: path,
                     path: propertyPath,
                 });
+                
                 return;
             }
             
@@ -116,13 +115,19 @@ function parseKey(propertyPath) {
     const [isComputed, key] = compute(keyPath);
     
     if (!isComputed)
-        return [Error(`Replace key cannot be computed: '${keyPath.toString()}'`)];
+        return [
+            Error(`Replace key cannot be computed: '${keyPath.toString()}'`),
+        ];
     
-    return [null, key];
+    return [
+        null,
+        key,
+    ];
 }
 
 function hasMatch(path) {
-    const {body} = path.scope.getProgramParent().path.node;
+    const {body} = path.scope
+        .getProgramParent().path.node;
     
     for (const current of body) {
         if (compare(current, 'module.exports.match = __a'))
@@ -131,4 +136,3 @@ function hasMatch(path) {
     
     return false;
 }
-

@@ -58,16 +58,22 @@ function isCorrect({path, incorrect}) {
     const calleePath = path.findParent(isCallExpression);
     
     if (!calleePath)
-        return [CORRECT];
+        return [
+            CORRECT,
+        ];
     
     const messagePath = calleePath.get('arguments.0');
     
     if (!messagePath.isStringLiteral())
-        return [CORRECT];
+        return [
+            CORRECT,
+        ];
     
     const {value} = messagePath.node;
     const is = !incorrect.test(value);
     
-    return [is, messagePath];
+    return [
+        is,
+        messagePath,
+    ];
 }
-

@@ -28,4 +28,3 @@ module.exports.replace = () => ({
         return 'module.exports.find = __a';
     },
 });
-

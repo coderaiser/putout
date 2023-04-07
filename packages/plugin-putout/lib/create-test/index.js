@@ -48,7 +48,10 @@ module.exports.filter = (path, {options}) => {
 };
 
 function convert(objectPath) {
-    const {key, value} = objectPath.node.properties[0];
+    const {
+        key,
+        value,
+    } = objectPath.node.properties[0];
     
     replaceWith(objectPath, ObjectExpression([
         ObjectProperty(Identifier('plugins'), ArrayExpression([
@@ -59,4 +62,3 @@ function convert(objectPath) {
         ])),
     ]));
 }
-

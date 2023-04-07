@@ -156,4 +156,3 @@ test('plugin-putout: transform: create-test', (t) => {
     t.transform('create-test');
     t.end();
 });
-

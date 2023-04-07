@@ -21,4 +21,3 @@ module.exports = {
     getProperty: `const {getProperty} = operator`,
     getProperties: `const {getProperties} = operator`,
 };
-

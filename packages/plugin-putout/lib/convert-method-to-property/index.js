@@ -9,8 +9,9 @@ const {replaceWith} = operator;
 const {ObjectProperty} = types;
 
 module.exports.report = () => 'Object Property should be used instead of Method';
-
-module.exports.include = () => ['ObjectMethod'];
+module.exports.include = () => [
+    'ObjectMethod',
+];
 
 module.exports.filter = (path) => {
     if (!path.node.params.length)
@@ -26,9 +27,9 @@ module.exports.filter = (path) => {
 
 module.exports.fix = (path) => {
     const keyPath = path.get('key');
+    
     path.node.type = 'ArrowFunctionExpression';
     path.node.id = null;
     
     replaceWith(path, ObjectProperty(keyPath.node, path.node));
 };
-

@@ -38,10 +38,9 @@ module.exports.fix = ({path, calleePath, property, object, program}) => {
         return insertAfter(strictModePath, replaceWithAST);
     
     const id = Identifier('replaceWithMultiple');
-    
     const varPath = getVarPath(bindings);
-    varPath.node.id.properties
-        .push(ObjectProperty(id, id, false, true));
+    
+    varPath.node.id.properties.push(ObjectProperty(id, id, false, true));
 };
 
 function getVarPath(bindings) {
@@ -55,7 +54,6 @@ function getVarPath(bindings) {
     
     return insertAfter.path;
 }
-
 module.exports.traverse = ({push}) => ({
     CallExpression(path) {
         const calleePath = path.get('callee');
@@ -63,7 +61,10 @@ module.exports.traverse = ({push}) => ({
         if (!calleePath.isMemberExpression())
             return;
         
-        const {object, property} = calleePath.node;
+        const {
+            object,
+            property,
+        } = calleePath.node;
         
         if (property.name !== 'replaceWithMultiple')
             return;
@@ -79,4 +80,3 @@ module.exports.traverse = ({push}) => ({
         });
     },
 });
-

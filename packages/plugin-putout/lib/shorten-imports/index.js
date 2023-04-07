@@ -6,4 +6,3 @@ module.exports.replace = () => ({
     'require("putout/lib/cli/process-file")': 'require("putout/process-file")',
     'require("putout/lib/parse-options")': 'require("putout/parse-options")',
 });
-

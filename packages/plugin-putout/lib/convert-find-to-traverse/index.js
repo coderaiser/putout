@@ -1,6 +1,9 @@
 'use strict';
 
-const {types, operator} = require('putout');
+const {
+    types,
+    operator,
+} = require('putout');
 const {replaceWith} = operator;
 
 const {
@@ -24,11 +27,9 @@ module.exports.fix = fixType({
     isMemberExpression: (path) => {
         path.get('property').node.name = 'traverse';
     },
-    
     isFunction: (path) => {
         path.node.params = [path.node.params[1]];
     },
-    
     isCallExpression: (path) => {
         replaceWith(path, ReturnStatement(path.node.arguments[1]));
     },
@@ -46,7 +47,6 @@ module.exports.traverse = ({push}) => ({
             return;
         
         const traverseCallPath = getTraverseCall(rightPath);
-        
         push(traverseCallPath);
         push(leftPath);
         push(rightPath);
@@ -72,14 +72,16 @@ function getTraverseCall(path) {
     
     path.traverse({
         CallExpression(path) {
-            if (!path.get('callee').isIdentifier({name: 'traverse'}))
+            if (!path.get('callee').isIdentifier({
+                name: 'traverse',
+            }))
                 return;
             
             result = path;
+            
             path.stop();
         },
     });
     
     return result;
 }
-

@@ -2,11 +2,13 @@
 
 const putout = require('putout');
 const tryCatch = require('try-catch');
-
 const noop = () => {};
-
-const {types, operator} = putout;
+const {
+    types,
+    operator,
+} = putout;
 const {replaceWith} = operator;
+
 const {
     ArrayPattern,
     ObjectPattern,
@@ -16,6 +18,7 @@ const {
 
 module.exports = (rootPath, key) => {
     const getVar = createVarStore(rootPath);
+    
     const [transformError, result] = tryCatch(putout, key, {
         fix: true,
         isTS: true,
@@ -75,7 +78,10 @@ module.exports = (rootPath, key) => {
         ],
     });
     
-    return [transformError, result?.code];
+    return [
+        transformError,
+        result?.code,
+    ];
 };
 
 function createVarStore(path) {
@@ -102,4 +108,3 @@ function objectify(path) {
     if (isAssign && parentPath.get('right') === path)
         return replaceWith(path, ObjectExpression([]));
 }
-

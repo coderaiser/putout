@@ -16,7 +16,10 @@ module.exports.traverse = ({push}) => ({
         if (!calleePath.isMemberExpression())
             return;
         
-        const {object, property} = calleePath.node;
+        const {
+            object,
+            property,
+        } = calleePath.node;
         
         if (object.name !== 't' || property.name !== 'transformCode')
             return;
@@ -40,4 +43,3 @@ module.exports.fix = ({path, calleePath}) => {
     calleePath.node.property = Identifier('noTransformCode');
     path.node.arguments.pop();
 };
-

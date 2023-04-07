@@ -17,16 +17,17 @@ module.exports.report = () => {
 
 function isRequire(path) {
     return path
-        .get('callee')
-        .isIdentifier({name: 'require'});
+        .get('callee').isIdentifier({
+            name: 'require',
+        });
 }
 
 function isBabelTypes(path) {
     return path
-        .get('arguments.0')
-        .isStringLiteral({value: '@babel/types'});
+        .get('arguments.0').isStringLiteral({
+            value: '@babel/types',
+        });
 }
-
 module.exports.traverse = ({push}) => ({
     CallExpression(path) {
         if (!isRequire(path))
@@ -42,4 +43,3 @@ module.exports.traverse = ({push}) => ({
 module.exports.fix = (path) => {
     replaceWith(path, astRequire);
 };
-

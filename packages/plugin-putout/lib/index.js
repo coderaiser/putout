@@ -41,4 +41,3 @@ module.exports.rules = {
     ...getRule('includer'),
     ...getRule('create-test'),
 };
-

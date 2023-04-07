@@ -35,7 +35,6 @@ module.exports.traverse = ({push}) => ({
     'getTemplateValues(__a, __b)': (path) => {
         const {scope} = path;
         const {bindings} = scope;
-        
         const __aPath = path.get('arguments.0');
         
         if (__aPath.isMemberExpression()) {
@@ -70,4 +69,3 @@ module.exports.traverse = ({push}) => ({
         });
     },
 });
-

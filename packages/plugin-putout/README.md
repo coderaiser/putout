@@ -78,7 +78,8 @@ It helps to preserve comments.
 ### ❌ Example of incorrect code
 
 ```js
-export const fix = (path) => {
+export
+const fix = (path) => {
     path.remove();
 };
 ```
@@ -87,6 +88,7 @@ export const fix = (path) => {
 
 ```js
 import {operator} from 'putout';
+
 const {remove} = operator;
 
 export const fix = (path) => {
@@ -153,6 +155,7 @@ const test = require('@putout/test')({
 
 ```js
 const {createTest} = require('@putout/test');
+
 const test = createTest({
     'remove-debugger': plugin,
 });
@@ -166,7 +169,10 @@ Add properties to `createTest` options, here is exmample of `.putout.json`:
 {
     "rules": {
         "putout/create-test": ["on", {
-            "add": ["printer", "putout"]
+            "add": [
+                "printer",
+                "putout"
+            ]
         }]
     }
 }
@@ -285,7 +291,9 @@ module.exports.fix = (path) => {
 
 ```js
 module.exports.fix = (path) => {
-    path.replaceWithMultiple([Identifier('hello')]);
+    path.replaceWithMultiple([
+        Identifier('hello'),
+    ]);
 };
 ```
 
@@ -295,7 +303,9 @@ module.exports.fix = (path) => {
 const {replaceWithMultiple} = require('putout').operator;
 
 module.exports.fix = (path) => {
-    replaceWithMultiple(path, [Identifier('hello')]);
+    replaceWithMultiple(path, [
+        Identifier('hello'),
+    ]);
 };
 ```
 
@@ -365,10 +375,8 @@ const {
 
 ```js
 module.exports.replace = () => ({
-    'const __a = __b': ({}) => {
-    },
-    'const __c = __d': ({}, path) => {
-    },
+    'const __a = __b': ({}) => {},
+    'const __c = __d': ({}, path) => {},
 });
 ```
 
@@ -376,10 +384,8 @@ module.exports.replace = () => ({
 
 ```js
 module.exports.replace = () => ({
-    'const __a = __b': (vars) => {
-    },
-    'const __c = __d': (vars, path) => {
-    },
+    'const __a = __b': (vars) => {},
+    'const __c = __d': (vars, path) => {},
 });
 ```
 
@@ -474,8 +480,7 @@ module.exports.merge = (processedSource, list) => '';
 
 ```js
 module.exports.match = () => ({
-    'module.exports.traverse = __a'({}, path) {
-    },
+    'module.exports.traverse = __a'({}, path) {},
 });
 ```
 
@@ -483,8 +488,7 @@ module.exports.match = () => ({
 
 ```js
 module.exports.match = () => ({
-    'module.exports.traverse = __a': ({}, path) => {
-    },
+    'module.exports.traverse = __a': ({}, path) => {},
 });
 ```
 
@@ -518,7 +522,10 @@ isIdentifier(a);
 ### ✅ Example of correct code
 
 ```js
-const {operator, types} = require('putout');
+const {
+    operator,
+    types,
+} = require('putout');
 const {compare} = operator;
 const {isIdentifier} = types;
 
@@ -598,6 +605,7 @@ module.exports = addArgs({
 import {createTest} from '@putout/test';
 import plugin from '@putout/plugin-debugger';
 import {createSimport} from 'simport';
+
 const {__dirname} = createSimport(import.meta.url);
 
 const test = createTest(__dirname, {
@@ -675,6 +683,7 @@ test('remove debugger: report', (t) => {
 
 ```js
 const removeDebugger = require('..');
+
 const test = require('@putout/test')(__dirname, {
     'remove-debugger': removeDebugger,
 });
@@ -683,6 +692,7 @@ test('remove debugger: report', (t) => {
     const test = require('@putout/test')(__dirname, {
         'remove-debugger': removeDebugger,
     });
+    
     t.end();
 });
 ```
@@ -694,25 +704,37 @@ test('remove debugger: report', (t) => {
 ```js
 module.exports.include = () => 'cons __a = __b';
 module.exports.exclude = () => 'var __a = __b';
-
 module.exports.include = 'cons __a = __b';
 module.exports.exclude = 'var __a = __b';
-
-module.exports.include = ['cons __a = __b'];
-module.exports.exclude = ['var __a = __b'];
+module.exports.include = [
+    'cons __a = __b',
+];
+module.exports.exclude = [
+    'var __a = __b',
+];
 ```
 
 ### ✅ Example of correct code
 
 ```js
-module.exports.include = () => ['cons __a = __b'];
-module.exports.exclude = () => ['var __a = __b'];
-
-module.exports.include = () => ['cons __a = __b'];
-module.exports.exclude = () => ['var __a = __b'];
-
-module.exports.include = () => ['cons __a = __b'];
-module.exports.exclude = () => ['var __a = __b'];
+module.exports.include = () => [
+    'cons __a = __b',
+];
+module.exports.exclude = () => [
+    'var __a = __b',
+];
+module.exports.include = () => [
+    'cons __a = __b',
+];
+module.exports.exclude = () => [
+    'var __a = __b',
+];
+module.exports.include = () => [
+    'cons __a = __b',
+];
+module.exports.exclude = () => [
+    'var __a = __b',
+];
 ```
 
 ## replace-test-message

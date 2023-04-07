@@ -12,4 +12,3 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     'createTest(__dirname, __a)': 'createTest(import.meta.url, __a)',
 });
-
