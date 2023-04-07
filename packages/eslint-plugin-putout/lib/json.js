@@ -9,7 +9,7 @@ module.exports = [{
         'comma-spacing': 'off',
         'function-paren-newline': 'off',
         'no-undef': 'off',
-        'eol-last': ['error', 'never'],
+        'eol-last': ['error', 'always'],
         'no-multi-spaces': 'off',
     },
 }, {

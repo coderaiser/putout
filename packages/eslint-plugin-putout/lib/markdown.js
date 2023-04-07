@@ -78,5 +78,10 @@ module.exports = [{
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-inferrable-types': 'off',
     },
+}, {
+    files: '*.md{json}',
+    rules: {
+        'eol-last': ['error', 'never'],
+    },
 }];
 
