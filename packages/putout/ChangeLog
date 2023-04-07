@@ -1,3 +1,9 @@
+2023.04.07, v29.2.3
+
+feature:
+- c771cd99a package: @putout/processor-yaml v5.0.0
+- 575f41e09 @putout/processor-yaml: drop support of 🐊 < 29
+
 2023.04.07, v29.2.2
 
 fix:
