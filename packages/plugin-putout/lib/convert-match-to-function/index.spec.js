@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertReplaceToFunction = require('.');
 
 const test = createTest(__dirname, {
-    'putout/convert-match-to-function': convertReplaceToFunction,
+    printer: 'putout',
+    plugins: [
+        ['putout/convert-match-to-function', convertReplaceToFunction],
+    ],
 });
 
 test('plugin-putout: convert-match-to-function: report', (t) => {

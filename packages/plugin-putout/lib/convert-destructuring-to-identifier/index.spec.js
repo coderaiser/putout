@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertDestructuringToIdentifier = require('.');
 
 const test = createTest(__dirname, {
-    'putout/convert-destructuring-to-identifier': convertDestructuringToIdentifier,
+    printer: 'putout',
+    plugins: [
+        ['putout/convert-destructuring-to-identifier', convertDestructuringToIdentifier],
+    ],
 });
 
 test('plugin-putout: convert-destructuring-to-identifier: report: destructuring', (t) => {
@@ -21,4 +24,3 @@ test('plugin-putout: convert-destructuring-to-Identifier: transform: match', (t)
     t.transform('match');
     t.end();
 });
-

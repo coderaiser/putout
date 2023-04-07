@@ -152,3 +152,8 @@ test('plugin-putout: transform: apply-declare', (t) => {
     t.end();
 });
 
+test('plugin-putout: transform: create-test', (t) => {
+    t.transform('create-test');
+    t.end();
+});
+

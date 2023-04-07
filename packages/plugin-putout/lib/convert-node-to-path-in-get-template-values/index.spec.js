@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertNodeToPathInGetTemplateValues = require('.');
 
 const test = createTest(__dirname, {
-    'putout/convert-node-to-path-in-get-template-values': convertNodeToPathInGetTemplateValues,
+    printer: 'putout',
+    plugins: [
+        ['putout/convert-node-to-path-in-get-template-values', convertNodeToPathInGetTemplateValues],
+    ],
 });
 
 test('plugin-putout: convert-node-to-path-in-get-template-values: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-putout: convert-node-to-path-in-get-template-values: no transform: 
     t.noTransform('array-destructuring');
     t.end();
 });
-

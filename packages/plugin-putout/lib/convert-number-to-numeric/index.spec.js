@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'putout/convert-number-to-numeric': plugin,
+    printer: 'putout',
+    plugins: [
+        ['putout/convert-number-to-numeric', plugin],
+    ],
 });
 
 test('plugin-putout: convert-number-to-numeric: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-putout: convert-number-to-numeric: transform: create-node', (t) => 
     t.transform('create-node');
     t.end();
 });
-

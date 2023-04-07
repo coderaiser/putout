@@ -4,4 +4,3 @@ const {
     isObjectExpression,
     isIdentifier,
 } = require('putout').types;
-

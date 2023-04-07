@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertFindToTraverse = require('.');
 
 const test = createTest(__dirname, {
-    'convert-report-to-function': convertFindToTraverse,
+    printer: 'putout',
+    plugins: [
+        ['convert-report-to-function', convertFindToTraverse],
+    ],
 });
 
 test('plugin-putout: convert report to function: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-putout: convert report to function: transform: template', (t) => {
     t.transform('template');
     t.end();
 });
-

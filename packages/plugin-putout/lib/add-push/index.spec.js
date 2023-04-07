@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const addPush = require('.');
 
 const test = createTest(__dirname, {
-    'putout/add-push': addPush,
+    printer: 'putout',
+    plugins: [
+        ['putout/add-push', addPush],
+    ],
 });
 
 test('plugin-putout: add-push: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-putout: add-push: no report: exists', (t) => {
     t.noReport('exists');
     t.end();
 });
-

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertMethodToProperty = require('.');
 
 const test = createTest(__dirname, {
-    'putout/convert-method-to-property': convertMethodToProperty,
+    printer: 'putout',
+    plugins: [
+        ['putout/convert-method-to-property', convertMethodToProperty],
+    ],
 });
 
 test('plugin-putout: convert-method-to-property: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-putout: convert-method-to-property: no transform: no-args', (t) => 
     t.noTransform('no-args');
     t.end();
 });
-

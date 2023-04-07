@@ -1,8 +1,5 @@
 import {operator} from 'putout';
 
-const {
-  declare
-} = operator;
+const {declare} = operator;
 
-declare({
-});
+declare({});

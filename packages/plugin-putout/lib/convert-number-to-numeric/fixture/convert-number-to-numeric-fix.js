@@ -1,2 +1,2 @@
-const {isNumericLiteral} = require('putout').types;
+const {isNumberLiteral} = require('putout').types;
 isNumericLiteral(a);

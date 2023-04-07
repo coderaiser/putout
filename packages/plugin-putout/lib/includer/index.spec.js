@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const addArgs = require('.');
 
 const test = createTest(__dirname, {
-    'putout/includer': addArgs,
+    printer: 'putout',
+    plugins: [
+        ['putout/includer', addArgs],
+    ],
 });
 
 test('plugin-putout: includer: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-putout: includer: transform', (t) => {
     t.transform('includer');
     t.end();
 });
-

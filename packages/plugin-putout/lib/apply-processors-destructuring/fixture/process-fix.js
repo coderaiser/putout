@@ -1,8 +1,3 @@
-test('', async (
-    {
-        process
-    }
-) => {
+test('', async ({process}) => {
     await process();
 });
-

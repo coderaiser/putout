@@ -1,12 +1,14 @@
 'use strict';
 
 const montag = require('montag');
-
 const {createTest} = require('@putout/test');
 const declare = require('.');
 
 const test = createTest(__dirname, {
-    'putout/declare': declare,
+    printer: 'putout',
+    plugins: [
+        ['putout/declare', declare],
+    ],
 });
 
 test('plugin-putout: declare: report', (t) => {
@@ -73,11 +75,8 @@ test('plugin-putout: declare: transform: replaceWith', (t) => {
     t.transformCode('replaceWith(a);', montag`
         import {operator} from 'putout';
         
-        const {
-          replaceWith
-        } = operator;
-        
-        replaceWith(a);
+        const {replaceWith} = operator;
+        replaceWith(a);\n
     `);
     t.end();
 });
@@ -86,11 +85,8 @@ test('plugin-putout: declare: transform: replaceWithMultiple', (t) => {
     t.transformCode('replaceWithMultiple(a);', montag`
         import {operator} from 'putout';
         
-        const {
-          replaceWithMultiple
-        } = operator;
-        
-        replaceWithMultiple(a);
+        const {replaceWithMultiple} = operator;
+        replaceWithMultiple(a);\n
     `);
     t.end();
 });
@@ -99,11 +95,8 @@ test('plugin-putout: declare: transform: getProperties', (t) => {
     t.transformCode('getProperties(a, []);', montag`
         import {operator} from 'putout';
         
-        const {
-          getProperties
-        } = operator;
-        
-        getProperties(a, []);
+        const {getProperties} = operator;
+        getProperties(a, []);\n
     `);
     t.end();
 });
@@ -112,11 +105,8 @@ test('plugin-putout: declare: transform: isESM', (t) => {
     t.transformCode('isESM', montag`
         import {operator} from 'putout';
         
-        const {
-          isESM
-        } = operator;
-        
-        isESM
+        const {isESM} = operator;
+        isESM;\n
     `);
     t.end();
 });
@@ -135,11 +125,8 @@ test('plugin-putout: declare: transform: remove', (t) => {
     t.transformCode('remove();', montag`
         import {operator} from 'putout';
         
-        const {
-          remove
-        } = operator;
-        
-        remove();
+        const {remove} = operator;
+        remove();\n
     `);
     t.end();
 });
@@ -148,11 +135,8 @@ test('plugin-putout: declare: transform: extract', (t) => {
     t.transformCode('extract();', montag`
         import {operator} from 'putout';
         
-        const {
-          extract
-        } = operator;
-        
-        extract();
+        const {extract} = operator;
+        extract();\n
     `);
     t.end();
 });
@@ -161,11 +145,8 @@ test('plugin-putout: declare: transform: getPathAfterImports', (t) => {
     t.transformCode('getPathAfterImports();', montag`
         import {operator} from 'putout';
         
-        const {
-          getPathAfterImports
-        } = operator;
-        
-        getPathAfterImports();
+        const {getPathAfterImports} = operator;
+        getPathAfterImports();\n
     `);
     t.end();
 });
@@ -174,11 +155,8 @@ test('plugin-putout: declare: transform: compute', (t) => {
     t.transformCode('compute();', montag`
         import {operator} from 'putout';
         
-        const {
-          compute
-        } = operator;
-        
-        compute();
+        const {compute} = operator;
+        compute();\n
     `);
     t.end();
 });

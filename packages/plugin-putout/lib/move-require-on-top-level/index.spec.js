@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const moveRequireOnTopLevel = require('.');
 
 const test = createTest(__dirname, {
-    'putout/move-require-on-top-level': moveRequireOnTopLevel,
+    printer: 'putout',
+    plugins: [
+        ['putout/move-require-on-top-level', moveRequireOnTopLevel],
+    ],
 });
 
 test('plugin-putout: move-require-on-top-level: report', (t) => {
@@ -36,4 +39,3 @@ test('plugin-putout: move-require-on-top-level: no transform: not-require', (t) 
     t.noTransform('not-require');
     t.end();
 });
-

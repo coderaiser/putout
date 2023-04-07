@@ -5,8 +5,9 @@ test('plugin-declare-after-require: transform: removed', (t) => {
             include: () => ['const a = 5'],
             fix: (path) => {
                 path.remove(path);
-            }
-        }
+            },
+        },
     });
+    
     t.end();
 });

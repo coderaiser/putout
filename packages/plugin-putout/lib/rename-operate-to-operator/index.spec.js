@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const renameOperateToOperator = require('.');
 
 const test = createTest(__dirname, {
-    'putout/rename-operate-to-operator': renameOperateToOperator,
+    printer: 'putout',
+    plugins: [
+        ['putout/rename-operate-to-operator', renameOperateToOperator],
+    ],
 });
 
 test('plugin-putout: rename-operate-to-operator: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-putout: rename-operate-to-operator: no transform: operator exist', 
     t.noTransform('operator');
     t.end();
 });
-

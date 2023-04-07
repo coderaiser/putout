@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'putout/replace-test-message': plugin,
+    printer: 'putout',
+    plugins: [
+        ['putout/replace-test-message', plugin],
+    ],
 });
 
 test('plugin-putout: replace-test-message: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-putout: replace-test-message: transform: wrong', (t) => {
     t.transform('wrong');
     t.end();
 });
-

@@ -1,8 +1,3 @@
-test('', async (
-    {
-        noProcess
-    }
-) => {
+test('', async ({noProcess}) => {
     await noProcess();
 });
-

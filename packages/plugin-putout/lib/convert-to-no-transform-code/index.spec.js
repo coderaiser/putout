@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertToNoTransformCode = require('.');
 
 const test = createTest(__dirname, {
-    'putout/convert-to-no-transform-code': convertToNoTransformCode,
+    printer: 'putout',
+    plugins: [
+        ['putout/convert-to-no-transform-code', convertToNoTransformCode],
+    ],
 });
 
 test('plugin-putout: convert-to-no-transform-code: transform', (t) => {

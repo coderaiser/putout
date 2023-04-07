@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'tape/apply-async-formatter': convert,
+    printer: 'putout',
+    plugins: [
+        ['tape/apply-async-formatter', convert],
+    ],
 });
 
 test('plugin-tape: apply-async-formatter: report', (t) => {
@@ -15,4 +19,3 @@ test('plugin-tape: apply-async-formatter', (t) => {
     t.transform('formatter');
     t.end();
 });
-

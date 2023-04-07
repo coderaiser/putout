@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertTraverseToInclude = require('.');
 
 const test = createTest(__dirname, {
-    'putout/convert-traverse-to-include': convertTraverseToInclude,
+    printer: 'putout',
+    plugins: [
+        ['putout/convert-traverse-to-include', convertTraverseToInclude],
+    ],
 });
 
 test('plugin-putout: convert-traverse-to-include: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-putout: convert-traverse-to-include: no transform: no properties', 
     t.noTransform('no-properties');
     t.end();
 });
-

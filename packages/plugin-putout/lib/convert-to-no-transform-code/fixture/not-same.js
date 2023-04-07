@@ -5,4 +5,3 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
     t.transformCode(code, fix);
     t.end();
 });
-

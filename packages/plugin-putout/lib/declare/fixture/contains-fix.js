@@ -1,7 +1,4 @@
 import {operator} from 'putout';
 
-const {
-  contains
-} = operator;
-
+const {contains} = operator;
 contains(path, []);

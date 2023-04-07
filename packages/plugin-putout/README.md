@@ -41,6 +41,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-dirname-to-url": "on",
         "putout/convert-url-to-dirname": "on",
         "putout/convert-report-to-function": "on",
+        "putout/create-test": "on",
         "putout/shorten-imports": "on",
         "putout/check-replace-code": "on",
         "putout/declare": "on",
@@ -154,6 +155,41 @@ const test = require('@putout/test')({
 const {createTest} = require('@putout/test');
 const test = createTest({
     'remove-debugger': plugin,
+});
+```
+
+## create-test
+
+Add properties to `createTest` options, here is exmample of `.putout.json`:
+
+```json
+{
+    "rules": {
+        "putout/create-test": ["on", {
+            "add": ["printer", "putout"]
+        }]
+    }
+}
+```
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e2a9f02d352c064ac9a11688feadc923/2a525f0a8a2794c9d26c23914801c512f347abef).
+
+### ❌ Example of incorrect code
+
+```js
+createTest(__dirname, {
+    'putout/create-test': plugin,
+});
+```
+
+### ✅ Example of correct code
+
+```js
+createTest(__dirname, {
+    printer: 'putout',
+    plugins: [
+        ['putout/create-test', plugin],
+    ],
 });
 ```
 

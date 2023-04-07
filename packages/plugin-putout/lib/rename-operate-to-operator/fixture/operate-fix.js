@@ -1,1 +1,1 @@
-const {operator} = require('putout');
+const {operate} = require('putout');

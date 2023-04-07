@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const replaceOperateWithOperator = require('.');
 
 const test = createTest(__dirname, {
-    'putout/replace-operate-with-operator': replaceOperateWithOperator,
+    printer: 'putout',
+    plugins: [
+        ['putout/replace-operate-with-operator', replaceOperateWithOperator],
+    ],
 });
 
 test('plugin-putout: replace-operate-with-operator: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-putout: replace-operate-with-operator: transform', (t) => {
     t.transform('operate');
     t.end();
 });
-

@@ -39,5 +39,6 @@ module.exports.rules = {
     ...getRule('add-push'),
     ...getRule('move-require-on-top-level'),
     ...getRule('includer'),
+    ...getRule('create-test'),
 };
 

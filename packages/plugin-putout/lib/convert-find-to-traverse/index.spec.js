@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertFindToTraverse = require('.');
 
 const test = createTest(__dirname, {
-    'convert-find-to-traverse': convertFindToTraverse,
+    printer: 'putout',
+    plugins: [
+        ['convert-find-to-traverse', convertFindToTraverse],
+    ],
 });
 
 test('plugin-putout: convert find to traverse: report', (t) => {

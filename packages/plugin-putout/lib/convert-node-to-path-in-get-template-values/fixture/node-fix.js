@@ -1,4 +1,3 @@
-
 module.exports.filter = (path) => {
     const {node} = path;
     const {body} = node;

@@ -1,2 +1,1 @@
 const t = 'hi';
-

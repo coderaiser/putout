@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertTraverseToReplace = require('.');
 
 const test = createTest(__dirname, {
-    'putout/convert-traverse-to-replace': convertTraverseToReplace,
+    printer: 'putout',
+    plugins: [
+        ['putout/convert-traverse-to-replace', convertTraverseToReplace],
+    ],
 });
 
 test('plugin-putout: convert-traverse-to-replace: report', (t) => {

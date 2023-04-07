@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const applyProcessorsDestructuring = require('.');
 
 const test = createTest(__dirname, {
-    'putout/apply-processors-destructuring': applyProcessorsDestructuring,
+    printer: 'putout',
+    plugins: [
+        ['putout/apply-processors-destructuring', applyProcessorsDestructuring],
+    ],
 });
 
 test('plugin-putout: apply-processors-destructuring: report', (t) => {
@@ -31,4 +34,3 @@ test('plugin-putout: apply-processors-destructuring: transform: t-end', (t) => {
     t.transform('t-end');
     t.end();
 });
-

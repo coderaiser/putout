@@ -1,7 +1,13 @@
 {
+    "printer": "putout",
     "match": {
         "*.md{js}": {
             "putout": "off"
+        },
+        "*.spec.js": {
+            "putout/create-test": ["on", {
+                "add": ["printer", "putout"]
+            }]
         }
     }
 }

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertPutoutTestToCreateTest = require('.');
 
 const test = createTest(__dirname, {
-    'putout/convert-putout-test-to-create-test': convertPutoutTestToCreateTest,
+    printer: 'putout',
+    plugins: [
+        ['putout/convert-putout-test-to-create-test', convertPutoutTestToCreateTest],
+    ],
 });
 
 test('plugin-putout: convert-putout-test-to-create-test: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-putout: convert-putout-test-to-create-test: no transform: declared'
     t.noTransform('declared');
     t.end();
 });
-

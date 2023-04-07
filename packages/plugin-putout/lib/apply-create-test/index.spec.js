@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'tape/apply-create-test': convert,
+    printer: 'putout',
+    plugins: [
+        ['tape/apply-create-test', convert],
+    ],
 });
 
 test('plugin-tape: apply-create-test: report', (t) => {
@@ -15,4 +19,3 @@ test('plugin-tape: apply-create-test', (t) => {
     t.transform('test');
     t.end();
 });
-

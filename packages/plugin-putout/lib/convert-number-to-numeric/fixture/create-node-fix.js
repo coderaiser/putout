@@ -1,2 +1,2 @@
-const {NumericLiteral} = types;
+const {NumberLiteral} = types;
 NumericLiteral(5);

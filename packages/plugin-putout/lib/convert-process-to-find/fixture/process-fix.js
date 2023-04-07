@@ -1,4 +1,4 @@
-module.exports.find = rawSource => {
+module.exports.find = (rawSource) => {
     const places = [];
     return places;
 };

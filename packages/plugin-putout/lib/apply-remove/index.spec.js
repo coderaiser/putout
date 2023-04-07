@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convert = require('.');
 
 const test = createTest(__dirname, {
-    'tape/apply-remove': convert,
+    printer: 'putout',
+    plugins: [
+        ['tape/apply-remove', convert],
+    ],
 });
 
 test('plugin-tape: apply-remove: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-tape: apply-remove', (t) => {
     t.transform('apply-remove');
     t.end();
 });
-

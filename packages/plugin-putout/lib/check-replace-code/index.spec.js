@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const checkReplaceCode = require('.');
 
 const test = createTest(__dirname, {
-    'putout/check-replace-code': checkReplaceCode,
+    printer: 'putout',
+    plugins: [
+        ['putout/check-replace-code', checkReplaceCode],
+    ],
 });
 
 test('plugin-putout: check-replace-code: report', (t) => {
@@ -121,4 +124,3 @@ test('plugin-putout: check-replace-code: report: mismatch', (t) => {
     t.report('mismatch', 'transform mismatch: "if (__a = __b) __body" -> "if (__a === "__b") __body" !== "if (_temp === _temp2)\n  {}"');
     t.end();
 });
-

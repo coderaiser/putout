@@ -1,7 +1,4 @@
 import {operator} from 'putout';
 
-const {
-  isSimpleRegExp
-} = operator;
-
+const {isSimpleRegExp} = operator;
 isSimpleRegExp(/[a-z]/);

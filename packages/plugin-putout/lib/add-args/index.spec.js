@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const addArgs = require('.');
 
 const test = createTest(__dirname, {
-    'putout/add-args': addArgs,
+    printer: 'putout',
+    plugins: [
+        ['putout/add-args', addArgs],
+    ],
 });
 
 test('plugin-putout: add-args: transform', (t) => {
@@ -31,4 +34,3 @@ test('plugin-putout: add-args: no transform: not-test', (t) => {
     t.noTransform('not-test');
     t.end();
 });
-
