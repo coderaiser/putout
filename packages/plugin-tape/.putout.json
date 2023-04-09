@@ -4,13 +4,6 @@
         "README.md": {
             "declare": "off",
             "regexp/apply-literal-notation": "off"
-        },
-        "*.spec.js": {
-            "putout/create-test": ["on", {
-                "add": [
-                    ["printer", "putout"]
-                ]
-            }]
         }
     }
 }

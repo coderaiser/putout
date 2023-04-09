@@ -15,6 +15,7 @@ test('putout: processor: json: eslintrc', async ({process}) => {
 });
 
 test('putout: processor: json: package', async ({process}) => {
-    await process('package', ['package-json']);
+    await process('package', [
+        'package-json',
+    ]);
 });
-

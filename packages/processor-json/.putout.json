@@ -1,5 +1,3 @@
 {
-    "rules": {
-        "putout": "on"
-    }
+    "printer": "putout"
 }
