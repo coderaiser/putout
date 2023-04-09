@@ -186,7 +186,7 @@ const apply = ({list, visit}) => (node) => {
         
         if (lang === 'json') {
             const code = list.shift();
-            node.value = fromJS(code);
+            node.value = fromJS(code).slice(0, -1);
         }
     });
 };
