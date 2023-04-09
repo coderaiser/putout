@@ -1,3 +1,14 @@
+2023.04.09, v29.2.4
+
+fix:
+- 0b24d68f2 @putout/processor-markdown: drop newline at eof of JSON
+
+feature:
+- e8d1ada1f package: @putout/processor-markdown v9.0.0
+- ef1a5a8ca @putout/processor-markdown: drop support of 🐊 < 29
+- f732db953 package: @putout/processor-json v6.0.1
+- 9a40166c7 @putout/processor-json: add newline at eof when missing
+
 2023.04.07, v29.2.3
 
 feature:
