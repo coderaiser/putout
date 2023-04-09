@@ -27,7 +27,7 @@ They goes from simplest to hardest. Let's start from **Declarator**.
 
 ### Declarator
 
-The simplest possible type of plugin, even simpler then `Replacer`:
+The simplest possible type of plugin, even simpler then [`Replacer`](#replacer):
 
 ```js
 module.exports.declare = () => ({
@@ -158,7 +158,7 @@ module.exports.replace = () => ({
 
 ### Includer
 
-**Includer** is the most preferable format of a plugin, simplest to use (after `Replacer`):
+**Includer** is the most preferable format of a plugin, simplest to use (after [`Replacer`](#replacer)):
 
 ```js
 module.exports.report = () => 'debugger statement should not be used';
