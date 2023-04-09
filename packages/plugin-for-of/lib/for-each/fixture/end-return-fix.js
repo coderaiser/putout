@@ -4,4 +4,3 @@ for (const b of list) {
     a += b;
     a;
 }
-

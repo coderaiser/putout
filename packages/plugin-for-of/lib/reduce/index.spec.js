@@ -2,11 +2,13 @@
 
 const {createTest} = require('@putout/test');
 const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
-
 const convertMapToForOf = require('.');
 
 const test = createTest(__dirname, {
-    'convert-reduce-to-for-of': convertMapToForOf,
+    printer: 'putout',
+    plugins: [
+        ['convert-reduce-to-for-of', convertMapToForOf],
+    ],
 });
 
 test('plugin-convert-reduce-to-for-of: report', (t) => {

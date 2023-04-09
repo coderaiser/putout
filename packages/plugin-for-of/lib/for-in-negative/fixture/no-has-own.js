@@ -1,3 +1,2 @@
 var file;
-for (file in filesToMimes) {
-}
+for (file in filesToMimes) {}

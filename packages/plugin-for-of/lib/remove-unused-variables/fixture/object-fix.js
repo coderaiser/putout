@@ -1,5 +1,3 @@
-for (const {
-    a
-} of c) {
+for (const {a} of c) {
     console.log(a);
 }

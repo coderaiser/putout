@@ -2,11 +2,13 @@
 
 const {createTest} = require('@putout/test');
 const plugin = require('.');
-
 const removeUselessArrayFrom = require('../remove-useless-array-from');
 
 const test = createTest(__dirname, {
-    'for-of/remove-useless-variables': plugin,
+    printer: 'putout',
+    plugins: [
+        ['for-of/remove-useless-variables', plugin],
+    ],
 });
 
 test('putout: plugin-for-of: remove usless variables: report', (t) => {
@@ -62,4 +64,3 @@ test('putout: plugin-for-of: remove-useless-variables transform with options: mu
     });
     t.end();
 });
-

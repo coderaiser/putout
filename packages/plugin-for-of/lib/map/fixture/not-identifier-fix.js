@@ -1,6 +1,3 @@
-for (const {
-    a
-} of fs.readdir()) {
+for (const {a} of fs.readdir()) {
     alert('hello');
 }
-

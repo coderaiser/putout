@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertForInToForOf = require('.');
 
 const test = createTest(__dirname, {
-    'convert-for-in-to-for-of': convertForInToForOf,
+    printer: 'putout',
+    plugins: [
+        ['convert-for-in-to-for-of', convertForInToForOf],
+    ],
 });
 
 test('plugin-convert-for-in-to-for-of: positive: report', (t) => {

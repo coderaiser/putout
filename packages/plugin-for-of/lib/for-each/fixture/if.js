@@ -1,2 +1,1 @@
-if (obj.forEach) {
-}
+if (obj.forEach) {}

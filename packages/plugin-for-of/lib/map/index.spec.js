@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'for-of/map': plugin,
+    printer: 'putout',
+    plugins: [
+        ['for-of/map', plugin],
+    ],
 });
 
 test('plugin-for-of: map: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-for-of: map: no transform: try', (t) => {
     t.noTransform('try');
     t.end();
 });
-

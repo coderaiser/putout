@@ -2,14 +2,16 @@
 
 const {createTest} = require('@putout/test');
 const plugin = require('.');
-
 const convertConstToLet = require('@putout/plugin-convert-const-to-let');
 const removeUselessContinue = require('@putout/plugin-remove-useless-continue');
 const removeUselessVariables = require('../remove-useless-variables');
 const convertComparisonToBoolean = require('@putout/plugin-conditions').rules['convert-comparison-to-boolean'];
 
 const test = createTest(__dirname, {
-    'for-of/each': plugin,
+    printer: 'putout',
+    plugins: [
+        ['for-of/each', plugin],
+    ],
 });
 
 test('plugin-for-of: report', (t) => {
@@ -133,4 +135,3 @@ test('plugin-for-of: transform: with convert-comparison-to-boolean', (t) => {
     });
     t.end();
 });
-

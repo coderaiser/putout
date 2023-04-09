@@ -1,10 +1,14 @@
 'use strict';
 
+const montag = require('montag');
 const {createTest} = require('@putout/test');
 const entriesN = require('./index.js');
 
 const test = createTest(__dirname, {
-    'convert-for-to-for-of/entries-n': entriesN,
+    printer: 'putout',
+    plugins: [
+        ['convert-for-to-for-of/entries-n', entriesN],
+    ],
 });
 
 test('plugin-convert-for-to-for-of: entries-n: report', (t) => {
@@ -28,37 +32,41 @@ test('plugin-convert-for-to-for-of: entries-n: no report: not-declered-n', (t) =
 });
 
 test('plugin-convert-for-to-for-of: entries-n: transform: not block', (t) => {
-    t.noTransformCode(`
+    t.noTransformCode(montag`
         const n = a.length;
-        for (let i = 0; i < n; i++) log();
+        
+        for (let i = 0; i < n; i++)
+            log();\n
     `);
     t.end();
 });
 
 test('plugin-convert-for-to-for-of: entries-n: transform: not assign', (t) => {
-    t.noTransformCode(`
+    t.noTransformCode(montag`
         const n = a.length;
-        for (let i = 0; i < n; i++) {};
+        for (let i = 0; i < n; i++) {};\n
     `);
     t.end();
 });
 
 test('plugin-convert-for-to-for-of: entries-n: transform: no n', (t) => {
-    t.noTransformCode(`
+    t.noTransformCode(montag`
         console.log();
+        
         for (let i = 0; i < n; i++) {
             const element = elements[i];
-        };
+        };\n
     `);
     t.end();
 });
 
 test('plugin-convert-for-to-for-of: entries-n: transform: no references i', (t) => {
-    t.noTransformCode(`
+    t.noTransformCode(montag`
         console.log();
+        
         for (let i = 0; a < n; a++) {
             const element = elements[a];
-        };
+        };\n
     `);
     t.end();
 });

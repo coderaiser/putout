@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const negative = require('.');
 
 const test = createTest(__dirname, {
-    'convert-for-in-to-for-of/negative': negative,
+    printer: 'putout',
+    plugins: [
+        ['convert-for-in-to-for-of/negative', negative],
+    ],
 });
 
 test('plugin-convert-for-in-to-for-of: negative: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-convert-for-in-to-for-of: negative: no transform: no-has-own', (t) 
     t.noTransform('no-has-own');
     t.end();
 });
-

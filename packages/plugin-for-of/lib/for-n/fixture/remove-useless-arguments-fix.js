@@ -1,25 +1,18 @@
 module.exports = async function runTests(tests) {
     const total = tests.length;
-
-    for (const {
-        fn,
-        message,
-    } of tests) {
+    
+    for (const {fn, message} of tests) {
         await runOneTest({
             fn,
-            message
+            message,
         });
     }
-}
+};
 
-async function runOneTest({
-    message,
-    fn
-}) {
+async function runOneTest({message, fn}) {
     formatter.emit('test', {
         message,
     });
     
     await tryToCatch(fn, t);
 }
-

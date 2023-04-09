@@ -1,5 +1,4 @@
 module.exports = class ConfigCommentParser {
-
     /**
      * Parses a list of "name:string_value" or/and "name" options divided by comma or
      * whitespace. Used for "global" and "exported" comments.
@@ -9,22 +8,26 @@ module.exports = class ConfigCommentParser {
      */
     parseStringConfig(string, comment) {
         debug("Parsing String config");
-
+        
         const items = {};
-
+        
         // Collapse whitespace around `:` and `,` to make parsing easier
         const trimmedString = string.replace(/\s*([:,])\s*/gu, "$1");
-
+        
         for (const name of trimmedString.split(/\s|,+/u)) {
             if (!name) {
                 continue;
             }
-
+            
             // value defaults to null (if not provided), e.g: "foo" => ["foo", null]
             const [key, value = null] = name.split(":");
-
-            items[key] = { value, comment };
+            
+            items[key] = {
+                value,
+                comment,
+            };
         }
+        
         return items;
     }
-}
+};

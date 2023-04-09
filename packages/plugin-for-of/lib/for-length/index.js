@@ -5,6 +5,7 @@ const {
     types,
     template,
 } = require('putout');
+
 const {
     compare,
     getTemplateValues,
@@ -50,4 +51,3 @@ module.exports.replace = () => ({
         });
     },
 });
-

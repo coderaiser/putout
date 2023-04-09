@@ -4,13 +4,13 @@ const {
     types,
     operator,
 } = require('putout');
+
 const {
     replaceWith,
     remove,
 } = operator;
 
 const {isAssignmentPattern} = types;
-
 const isToManyProperties = (a, {maxProperties}) => a.isObjectPattern() && a.node.properties.length > maxProperties;
 const isAssignment = (a) => isAssignmentPattern(a.value);
 
@@ -29,7 +29,11 @@ module.exports.traverse = ({push, options}) => ({
         if (!varPath.isIdentifier())
             return;
         
-        const {scope, node} = varPath;
+        const {
+            scope,
+            node,
+        } = varPath;
+        
         const {name} = node;
         
         const {
@@ -42,9 +46,10 @@ module.exports.traverse = ({push, options}) => ({
         
         const [referencePath] = referencePaths;
         const {parentPath} = referencePath;
-        const isSameName = parentPath
-            .get('init')
-            .isIdentifier({name});
+        
+        const isSameName = parentPath.get('init').isIdentifier({
+            name,
+        });
         
         if (!isSameName)
             return;
@@ -66,4 +71,3 @@ module.exports.traverse = ({push, options}) => ({
         });
     },
 });
-

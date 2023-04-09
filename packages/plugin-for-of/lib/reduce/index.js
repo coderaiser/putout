@@ -49,7 +49,6 @@ module.exports.replace = () => ({
             }
         }`;
     },
-    
     'const __a = __b.reduce((__c, __d) => __e, __f)': () => {
         return `{
             let __a = __f;
@@ -61,8 +60,10 @@ module.exports.replace = () => ({
 });
 
 function rename(path, from, to) {
-    const fnScope = path.get('declarations.0.init.arguments.0').scope;
+    const fnScope = path
+        .get('declarations.0.init.arguments.0').scope;
+    
     fnScope.rename(from.name, to.name);
+    
     delete path.scope.bindings[from.name];
 }
-

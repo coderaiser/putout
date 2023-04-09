@@ -35,12 +35,21 @@ module.exports.report = () => `for-of should be used instead of forEach`;
 module.exports.replace = () => ({
     '__.forEach.call(__a, (__b) => __body)': 'for (const __b of __a) __body',
     '__.forEach(__args)': (vars, path) => {
-        const {params, body} = path.node.arguments[0];
+        const {
+            params,
+            body,
+        } = path.node.arguments[0];
+        
         const item = getItem(params);
         
         delete item.typeAnnotation;
+        
         const {length} = params;
-        const thisPassed = isIdentifier(params[0], {name: 'this'});
+        
+        const thisPassed = isIdentifier(params[0], {
+            name: 'this',
+        });
+        
         const items = path.node.callee.object;
         
         if (length === 1 || length === 2 && thisPassed) {
@@ -51,11 +60,13 @@ module.exports.replace = () => ({
             }));
             
             fixReturn(newPath);
+            
             return;
         }
         
         if (params.length === 2) {
             const [, index] = params;
+            
             const newPath = replaceWith(path, forOfEntriesTemplate({
                 index,
                 item,
@@ -88,7 +99,9 @@ module.exports.match = () => ({
             return false;
         
         // this is the case when "i" declared and "this"
-        if (params.length >= 3 && params[0].isIdentifier({name: 'this'}))
+        if (params.length >= 3 && params[0].isIdentifier({
+            name: 'this',
+        }))
             return false;
         
         const [paramPath] = params;
@@ -107,7 +120,10 @@ module.exports.match = () => ({
 
 function isSameNames(paramPath, objectPath) {
     const {name} = paramPath.node;
-    return objectPath.isIdentifier({name});
+    
+    return objectPath.isIdentifier({
+        name,
+    });
 }
 
 function fixReturn(path) {
@@ -184,4 +200,3 @@ function isForBeforeFnUp(path) {
     
     return true;
 }
-

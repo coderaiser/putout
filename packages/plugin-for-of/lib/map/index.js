@@ -39,4 +39,3 @@ module.exports.replace = () => ({
         return `for (const ${b} of ${a}) __c`;
     },
 });
-

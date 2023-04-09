@@ -6,4 +6,3 @@ for (const currentProcessor of loadedProcessors) {
         process = stubProcess,
     } = currentProcessor;
 }
-

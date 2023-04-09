@@ -1,2 +1,1 @@
-for (const def of variable.defs) {
-}
+for (const def of variable.defs) {}

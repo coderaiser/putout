@@ -1,12 +1,14 @@
 'use strict';
 
 const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
-
 const {createTest} = require('@putout/test');
 const convertForToForOf = require('./index.js');
 
 const test = createTest(__dirname, {
-    'for-of/length': convertForToForOf,
+    printer: 'putout',
+    plugins: [
+        ['for-of/length', convertForToForOf],
+    ],
 });
 
 test('plugin-for-of: for-length: transform: remove-useless-arguments', (t) => {

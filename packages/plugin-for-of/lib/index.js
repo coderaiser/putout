@@ -19,4 +19,3 @@ module.exports.rules = {
     ...getRule('remove-useless-array-from'),
     ...getRule('remove-unused-variables'),
 };
-

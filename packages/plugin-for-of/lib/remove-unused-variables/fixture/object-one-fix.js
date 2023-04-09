@@ -1,2 +1,1 @@
-for (const {} of c) {
-}
+for (const {} of c) {}

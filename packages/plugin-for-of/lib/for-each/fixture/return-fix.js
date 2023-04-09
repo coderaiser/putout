@@ -6,4 +6,3 @@ for (const a of []) {
         continue;
     }
 }
-

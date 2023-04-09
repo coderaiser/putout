@@ -1,12 +1,14 @@
 'use strict';
 
 const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
-
 const {createTest} = require('@putout/test');
 const forEntries = require('.');
 
 const test = createTest(__dirname, {
-    'for-of/for-entries': forEntries,
+    printer: 'putout',
+    plugins: [
+        ['for-of/for-entries', forEntries],
+    ],
 });
 
 test('plugin-for-of: for-entries: report', (t) => {
@@ -40,4 +42,3 @@ test('plugin-for-of: for-entries: transform: remove-useless-arguments', (t) => {
     });
     t.end();
 });
-

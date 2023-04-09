@@ -5,6 +5,7 @@ const {
     template,
     types,
 } = require('putout');
+
 const {
     compare,
     getTemplateValues,
@@ -75,4 +76,3 @@ function comparePrevSiblings(prev, node) {
             return true;
     }
 }
-

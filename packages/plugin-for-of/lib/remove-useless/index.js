@@ -1,6 +1,10 @@
 'use strict';
 
-const {types, operator} = require('putout');
+const {
+    types,
+    operator,
+} = require('putout');
+
 const {isIdentifier} = types;
 const {replaceWith} = operator;
 
@@ -13,7 +17,6 @@ module.exports.match = () => ({
         
         return !references;
     },
-    
     'for (const __a of __array) __c': ({__a, __array}, path) => {
         if (__array.elements.length >= 2)
             return false;
@@ -40,6 +43,7 @@ module.exports.replace = () => ({
             return null;
         
         const {name} = __a;
+        
         const {
             references,
             referencePaths,
@@ -57,4 +61,3 @@ module.exports.replace = () => ({
         return path;
     },
 });
-

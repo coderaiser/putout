@@ -33,9 +33,9 @@ module.exports.replace = () => ({
         const condition = getTemplateValues(first, 'if (!__b.hasOwnProperty(__a)) __c');
         
         __body.body.shift();
+        
         const {code} = generate(__body);
         
         return `for (const ${condition.__a.name} of Object.keys(${__b.name})) ${code}`;
     },
 });
-

@@ -49,4 +49,3 @@ test('plugin-for-of: remove-useless: transform: unused', (t) => {
     t.transform('unused');
     t.end();
 });
-

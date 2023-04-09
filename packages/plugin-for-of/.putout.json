@@ -1,4 +1,5 @@
 {
+    "printer": "putout",
     "match": {
         "*.md{js}": {
             "for-of/for": "off",

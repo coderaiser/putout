@@ -97,9 +97,11 @@ for (const item of Object.keys(object)) {
 ### ❌ Example of incorrect code
 
 ```js
-Object.keys(json).forEach((name) => {
-    manage(name, json[name]);
-});
+Object
+    .keys(json)
+    .forEach((name) => {
+        manage(name, json[name]);
+    });
 
 [].forEach.call(arguments, (item) => {
     console.log(item);
@@ -199,8 +201,7 @@ for (const a of b) {
 ### ✅ Example of correct code
 
 ```js
-for (const {c} of b) {
-}
+for (const {c} of b) {}
 ```
 
 ## remove-useless-array-from

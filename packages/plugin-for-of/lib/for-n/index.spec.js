@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const forN = require('.');
 
 const test = createTest(__dirname, {
-    'for-of/n': forN,
+    printer: 'putout',
+    plugins: [
+        ['for-of/n', forN],
+    ],
 });
 
 test('plugin-for-of: for-n: for-no report', (t) => {

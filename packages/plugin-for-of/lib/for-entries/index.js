@@ -5,6 +5,7 @@ const {
     types,
     template,
 } = require('putout');
+
 const {
     compare,
     getTemplateValues,
@@ -28,7 +29,6 @@ module.exports.filter = (path) => {
     
     const [first] = body.body;
     const {__i, __e} = getTemplateValues(path, forLoop);
-    
     const {bindings} = path.scope;
     const iBinding = bindings[__i.name];
     
@@ -58,4 +58,3 @@ module.exports.replace = () => ({
         });
     },
 });
-

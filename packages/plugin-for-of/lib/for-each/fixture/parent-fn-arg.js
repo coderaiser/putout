@@ -1,2 +1,3 @@
-[].map((a) => b).forEach((a) => b);
-
+[]
+    .map((a) => b)
+    .forEach((a) => b);

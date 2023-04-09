@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessArrayFrom = require('.');
 
 const test = createTest(__dirname, {
-    'for-of/remove-useless-array-from': removeUselessArrayFrom,
+    printer: 'putout',
+    plugins: [
+        ['for-of/remove-useless-array-from', removeUselessArrayFrom],
+    ],
 });
 
 test('plugin-remove-useless-array-from: report', (t) => {

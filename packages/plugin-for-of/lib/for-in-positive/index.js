@@ -36,4 +36,3 @@ module.exports.replace = () => ({
         return `for (const ${condition.__a.name} of Object.keys(${__b.name})) ${code}`;
     },
 });
-

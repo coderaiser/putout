@@ -1,2 +1,1 @@
-for (const z of c) {
-}
+for (const z of c) {}
