@@ -13,7 +13,7 @@ npm i @putout/engine-runner
 
 ## Supported Plugin Types
 
-There is a couple plugin types supported by 🐊**Putout**:
+There is a couple plugin types available in 🐊**Putout**:
 
 - ✅ [**Declarator**](#Declarator)
 - ✅ [**Replacer**](#replacer)
