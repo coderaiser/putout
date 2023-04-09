@@ -65,7 +65,6 @@ function replace({__a}, path) {
     for (let i = 0; i < n; i++) {
         let nodes = [];
         const current = body[i];
-        
         const {expression = current} = current;
         
         if (compare(expression, ON_ERROR))

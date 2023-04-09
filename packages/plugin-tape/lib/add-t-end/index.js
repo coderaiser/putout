@@ -10,6 +10,7 @@ const {
     compare,
     traverse,
 } = operator;
+
 const {ExpressionStatement} = types;
 
 module.exports.report = () => `'t.end()' is missing at the end of the test`;

@@ -200,6 +200,7 @@ const {stub} = test;
 test('some message', (t) => {
     const fn = stub();
     fn();
+    
     t.calledWith(fn, [
         'hello',
     ]);
@@ -358,6 +359,7 @@ test('copymitter', async (t) => {
     const cp = copymitter(from, to, [
         '1',
     ]);
+    
     await once(cp, 'end');
     
     t.end();

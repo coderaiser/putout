@@ -88,7 +88,7 @@ module.exports.findPlaces = (ast, source, opts) => {
 };
 
 // why we pass 'source' to 'transform()'?
-// because we need to calcluate position in a right way
+// because we need to calculate position in a right way
 // and determine is shebang is exists
 //
 // 25     return {¬
