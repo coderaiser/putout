@@ -87,6 +87,15 @@ module.exports.findPlaces = (ast, source, opts) => {
     });
 };
 
+// why we pass 'source' to 'transform()'?
+// because we need to calcluate position in a right way
+// and determine is shebang is exists
+//
+// 25     return {¬
+// 26         line: shebang ? line + 1 : line,¬
+// 27         column,¬
+// 28     };¬
+//
 module.exports.transform = transform;
 function transform(ast, source, opts) {
     opts = defaultOpts(opts);
@@ -99,7 +108,6 @@ function transform(ast, source, opts) {
         fixCount,
         loadPlugins,
         runPlugins,
-        recast = true,
     } = opts;
     
     const [, shebang] = cutShebang(source);
@@ -107,7 +115,6 @@ function transform(ast, source, opts) {
         pluginNames,
         cache,
         rules,
-        recast,
     });
     
     const places = runPlugins({
