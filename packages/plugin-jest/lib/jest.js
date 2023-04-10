@@ -7,4 +7,3 @@ module.exports.replace = () => ({
     'jest.resetModuleRegistry(__args)': 'jest.resetModules(__args)',
     'jest.runTimersToTime(__args)': 'jest.advanceTimersByTime(__args)',
 });
-
