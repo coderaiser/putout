@@ -11,6 +11,7 @@ const {
     Identifier,
     ObjectProperty,
     ObjectExpression,
+    isIdentifier,
 } = types;
 
 const {
@@ -55,6 +56,13 @@ module.exports.filter = (path, {options}) => {
     return false;
 };
 
+const maybeLiteral = (a) => {
+    if (isIdentifier(a))
+        return StringLiteral(a.name);
+    
+    return a;
+};
+
 function convert(objectPath) {
     const {
         key,
@@ -64,7 +72,7 @@ function convert(objectPath) {
     replaceWith(objectPath, ObjectExpression([
         ObjectProperty(Identifier('plugins'), ArrayExpression([
             ArrayExpression([
-                key,
+                maybeLiteral(key),
                 value,
             ]),
         ])),

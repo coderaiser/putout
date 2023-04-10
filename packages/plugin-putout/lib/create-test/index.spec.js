@@ -33,3 +33,13 @@ test('plugin-putout: create-test: transform', (t) => {
     });
     t.end();
 });
+
+test('plugin-putout: create-test: transform: id-id', (t) => {
+    t.transformWithOptions('id-id', {
+        add: [
+            ['printer', 'putout'],
+            ['plugins', []],
+        ],
+    });
+    t.end();
+});
