@@ -11,6 +11,8 @@ const parseRules = require('./parse-rules');
 const validateRules = require('./validate-rules');
 const validatePlugin = require('./validate-plugin');
 
+const isString = (a) => typeof a === 'string';
+
 const defaultOptions = () => Object.create(null);
 const mergeRules = ([rule, plugin], rules) => {
     for (const currentRule of rules) {
@@ -119,8 +121,7 @@ function getLoadedRules(rules) {
 }
 
 function splitRule(rule) {
-    const name = rule
-        .replace('babel/', '');
+    const name = rule.replace('babel/', '');
     
     if (rule.startsWith('babel'))
         return [
@@ -140,6 +141,8 @@ function loadPlugins({items, loadedRules}) {
     for (const [rule, itemPlugin] of items) {
         if (!isEnabled(rule, loadedRules))
             continue;
+        
+        checkRule(rule);
         
         const [name, namespace] = splitRule(rule);
         
@@ -183,5 +186,10 @@ function extendRules(rule, plugin) {
 function check(options) {
     if (!options || typeof options !== 'object')
         throw Error('options should be an object!');
+}
+
+function checkRule(rule) {
+    if (!isString(rule))
+        throw Error(`☝️ Looks like plugin name type is not 'string', but: '${typeof rule}'`);
 }
 

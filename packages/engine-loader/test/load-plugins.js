@@ -578,3 +578,18 @@ test('putout: loader: namespace', (t) => {
     t.end();
 });
 
+test('putout: loader: wrong plugin name', (t) => {
+    const source = `const {run} = require('madrun');`;
+    
+    const [error] = tryCatch(putout, source, {
+        plugins: [
+            [putout, putout],
+        ],
+    });
+    
+    const expected = `☝️ Looks like plugin name type is not 'string', but: 'function'`;
+    
+    t.equal(error.message, expected);
+    t.end();
+});
+
