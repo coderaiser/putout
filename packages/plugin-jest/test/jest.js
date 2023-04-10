@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const jest = require('..');
 
 const test = createTest(__dirname, {
-    jest,
+    printer: 'putout',
+    plugins: [
+        ['jest', jest],
+    ],
 });
 
 test('plugin-jest: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-jest: transform', (t) => {
     t.transform('jest');
     t.end();
 });
-

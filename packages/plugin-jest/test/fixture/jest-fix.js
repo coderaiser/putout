@@ -2,8 +2,8 @@ expect.extend({
     fail: (a, b, c) => {
         return {
             pass: false,
-        }
-    }
+        };
+    },
 });
 
 jest.resetModules();
