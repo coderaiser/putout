@@ -89,6 +89,15 @@ test('test: eslint: comparePlaces: overrides', async ({comparePlaces}) => {
     await comparePlaces('operator-linebreak', [], overrides);
 });
 
+test('test: eslint: noProcess: overrides', async ({noProcess}) => {
+    const overrides = {
+        rules: {
+            'operator-linebreak': 'off',
+        },
+    };
+    await noProcess('operator-linebreak', overrides);
+});
+
 test('test: eslint: ts: semi', async ({process}) => {
     await process('semi');
 });

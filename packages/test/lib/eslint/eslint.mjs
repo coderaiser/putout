@@ -90,15 +90,19 @@ export const createTest = (url, plugins = {}) => {
             
             return operator.equal(source, fixture);
         },
-        noProcess: (operator) => async (name) => {
+        noProcess: (operator) => async (name, overrides) => {
             const full = join(fixtureDir, name);
             const [resolvedName, code] = await read(full);
             const fix = true;
             
             const [source] = await eslint({
                 name: resolvedName,
-                config,
+                config: {
+                    ...config,
+                    ...overrides,
+                },
                 code,
+                putout: true,
                 fix,
             });
             

@@ -323,7 +323,7 @@ test('test: eslint: transform', async ({process}) => {
 });
 ```
 
-### `noProcess(filename)`
+### `noProcess(filename [, overrides])`
 
 Check that filename would not be processed.
 
@@ -332,6 +332,16 @@ Example:
 ```js
 test('test: eslint: noProcess', async ({noProcess}) => {
     await noProcess('operator-linebreak-fix');
+});
+
+test('test: eslint: noProcess', async ({noProcess}) => {
+    await noProcess('operator-linebreak-fix', {
+        rules: {
+            'putout/putout': ['error', {
+                printer: 'putout',
+            }],
+        },
+    });
 });
 ```
 
