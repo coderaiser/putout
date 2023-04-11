@@ -184,10 +184,12 @@ import {TextInput} from 'react-native';
 
 const a = (
     <Controller
-        as={<TextInput style={{
-            borderWidth: 2,
-            borderColor: 'black',
-        }}/>}
+        as={<TextInput
+            style={{
+                borderWidth: 2,
+                borderColor: 'black',
+            }}
+        />}
         name="text"
         control={(args) => ({
             value: args[0].nativeEvent.text,
@@ -204,10 +206,12 @@ import {TextInput} from 'react-native';
 
 const a = (
     <Controller
-        as={<TextInput style={{
-            borderWidth: 2,
-            borderColor: 'black',
-        }}/>}
+        as={<TextInput
+            style={{
+                borderWidth: 2,
+                borderColor: 'black',
+            }}
+        />}
         name="text"
         control={(args) => args[0].nativeEvent.text}
         onChange={onChange}

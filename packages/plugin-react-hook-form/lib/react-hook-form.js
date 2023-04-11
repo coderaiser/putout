@@ -12,4 +12,3 @@ module.exports.rules = {
     ...getRule('v6-convert-trigger-validation-to-trigger'),
     ...getRule('v5-remove-value-from-control'),
 };
-

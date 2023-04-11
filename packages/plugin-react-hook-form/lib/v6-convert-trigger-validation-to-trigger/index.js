@@ -11,4 +11,3 @@ module.exports.include = () => [
 ];
 
 module.exports.filter = (path) => path.scope.bindings.triggerValidation;
-

@@ -43,10 +43,12 @@ Here is list of rules:
 ```jsx
 const {Route, Switch} = require('react-router');
 
-const routes = () => <Switch>
-    <Route exact path="/login" component={ Login }/>
-    <Route exact path="/join" component={ Join }/>
-</Switch>;
+const routes = () => (
+    <Switch>
+        <Route exact path="/login" component={ Login }/>
+        <Route exact path="/join" component={ Join }/>
+    </Switch>
+);
 ```
 
 ### ✅ Example of correct code
@@ -54,10 +56,12 @@ const routes = () => <Switch>
 ```jsx
 const {Route, Routes} = require('react-router');
 
-const routes = () => <Routes>
-    <Route exact path="/login" component={ Login }/>
-    <Route exact path="/join" component={ Join }/>
-</Routes>;
+const routes = () => (
+    <Routes>
+        <Route exact path="/login" component={ Login }/>
+        <Route exact path="/join" component={ Join }/>
+    </Routes>
+);
 ```
 
 ## convert-component-to-element

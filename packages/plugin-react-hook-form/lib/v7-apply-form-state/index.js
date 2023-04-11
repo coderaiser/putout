@@ -44,9 +44,10 @@ module.exports.replace = () => ({
             
             if (property.key.name === 'errors') {
                 const key = {
-                    ...property.key,
-                };
+                    ...property.key};
+                
                 property.key.name = 'formState';
+                
                 property.value = ObjectPattern([
                     ObjectProperty(key, key, COMPUTED, SHORTHAND),
                 ]);
@@ -56,4 +57,3 @@ module.exports.replace = () => ({
         return path;
     },
 });
-

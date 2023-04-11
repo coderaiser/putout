@@ -48,9 +48,11 @@ module.exports.replace = () => ({
             
             if (attr.name.name === 'as') {
                 attr.name.name = 'render';
+                
                 const {expression} = attr.value;
                 
                 attr.value.expression = ArrowFunctionExpression([], expression);
+                
                 break;
             }
         }
@@ -58,4 +60,3 @@ module.exports.replace = () => ({
         return path;
     },
 });
-
