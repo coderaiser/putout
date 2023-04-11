@@ -200,3 +200,9 @@ test('eslint-plugin-putout: jsx-parens: ts', async ({process}) => {
     });
 });
 
+test('eslint-plugin-putout: jsx: semi', async ({noProcess}) => {
+    await noProcess('jsx-semi', {
+        extends: ['plugin:putout/jsx'],
+    });
+});
+

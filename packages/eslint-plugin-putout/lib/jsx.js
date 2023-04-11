@@ -2,11 +2,12 @@
 
 const jsx = {
     rules: {
+        'no-extra-parens': 'off',
         'react/jsx-indent': 'error',
         'react/jsx-wrap-multilines': ['error', {
-            arrow: 'ignore',
+            arrow: 'parens-new-line',
             return: 'parens-new-line',
-            declaration: 'ignore',
+            declaration: 'parens-new-line',
         }],
     },
     plugins: ['react'],
