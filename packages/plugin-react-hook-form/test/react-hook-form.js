@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const reactHookForm = require('..');
+
 const test = createTest(__dirname, {
-    'react-hook-form': reactHookForm,
+    printer: 'putout',
+    plugins: [
+        ['react-hook-form', reactHookForm],
+    ],
 });
 
 test('plugin-react-hook-form: transform: v7-apply-form-state', (t) => {
@@ -35,4 +39,3 @@ test('plugin-react-hook-form: transform: v5-remove-value-from-control', (t) => {
     t.transform('v5-remove-value-from-control');
     t.end();
 });
-

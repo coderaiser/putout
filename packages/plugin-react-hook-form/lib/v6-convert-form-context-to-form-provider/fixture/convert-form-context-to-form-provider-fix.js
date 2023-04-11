@@ -1,5 +1,3 @@
-import { FormProvider } from "react-hook-form";
+import {FormContext} from "react-hook-form";
 
-export default () => (
-  <FormProvider></FormProvider>
-);
+export default () => <FormProvider></FormProvider>;

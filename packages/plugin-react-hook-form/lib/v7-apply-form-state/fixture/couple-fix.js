@@ -1,5 +1,6 @@
 import {useForm} from 'react-hook-form';
 
-const {register, formState: {
-  errors
-}} = useForm();
+const {
+    register,
+    formState,
+} = useForm();

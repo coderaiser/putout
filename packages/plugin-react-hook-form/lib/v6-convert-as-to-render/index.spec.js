@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertAsToRender = require('.');
 
 const test = createTest(__dirname, {
-    'convert-as-to-render': convertAsToRender,
+    printer: 'putout',
+    plugins: [
+        ['convert-as-to-render', convertAsToRender],
+    ],
 });
 
 test('plugin-nextjs: convert-as-to-render: report', (t) => {
@@ -36,4 +39,3 @@ test('plugin-nextjs: convert-as-to-render: transform: name-control-rules-as', (t
     t.transform('name-control-rules-as');
     t.end();
 });
-

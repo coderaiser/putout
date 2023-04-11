@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convert = require('.');
 
 const test = createTest(__dirname, {
-    'convert-form-context-to-form-provider': convert,
+    printer: 'putout',
+    plugins: [
+        ['convert-form-context-to-form-provider', convert],
+    ],
 });
 
 test('plugin-nextjs: convert-form-context-to-form-provider: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-nextjs: convert-form-context-to-form-provider: transform: attribute
     t.transform('attributes');
     t.end();
 });
-

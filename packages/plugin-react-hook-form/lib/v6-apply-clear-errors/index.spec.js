@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const applyClearErrors = require('.');
 
 const test = createTest(__dirname, {
-    'apply-clear-errors': applyClearErrors,
+    printer: 'putout',
+    plugins: [
+        ['apply-clear-errors', applyClearErrors],
+    ],
 });
 
 test('plugin-nextjs: apply-clear-errors: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-nextjs: apply-clear-errors: transform', (t) => {
     t.transform('apply-clear-errors');
     t.end();
 });
-

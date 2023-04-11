@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertAsToRender = require('.');
 
 const test = createTest(__dirname, {
-    'convert-trigger-validation-to-trigger': convertAsToRender,
+    printer: 'putout',
+    plugins: [
+        ['convert-trigger-validation-to-trigger', convertAsToRender],
+    ],
 });
 
 test('plugin-nextjs: convert-trigger-validation-to-trigger: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-nextjs: convert-trigger-validation-to-trigger: transform', (t) => {
     t.transform('convert-trigger-validation-to-trigger');
     t.end();
 });
-

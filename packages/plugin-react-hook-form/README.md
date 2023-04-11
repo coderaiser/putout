@@ -95,22 +95,27 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/8493358f36c00
 ### ❌ Example of incorrect code
 
 ```jsx
-const a = <Controller
-    as={CustomInput}
-    valueName="textValue"
-    onChangeName="onTextChange"
-    control={control}
-    name="test"
-/>;
+const a = (
+    <Controller
+        as={CustomInput}
+        valueName="textValue"
+        onChangeName="onTextChange"
+        control={control}
+        name="test"
+    />
+);
 ```
 
 ### ✅ Example of correct code
 
 ```jsx
-const a = <Controller
-    render={({onChange, onBlur, value}) => <CustomInput onTextChange={onChange} onBlur={onBlur} textValue={value} />}
-    control={control}
-    name="test" />;
+const a = (
+    <Controller
+        render={({onChange, onBlur, value}) => <CustomInput onTextChange={onChange} onBlur={onBlur} textValue={value}/>}
+        control={control}
+        name="test"
+    />
+);
 ```
 
 ## v6-convert-form-context-to-form-provider
@@ -123,8 +128,7 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/ff41e995b958c
 ```jsx
 import {FormContext} from 'react-hook-form';
 
-export default () => <FormContext></FormContext>
-;
+export default () => <FormContext></FormContext>;
 ```
 
 ### ✅ Example of correct code
@@ -132,8 +136,7 @@ export default () => <FormContext></FormContext>
 ```jsx
 import {FormProvider} from 'react-hook-form';
 
-export default () => <FormProvider></FormProvider>
-;
+export default () => <FormProvider></FormProvider>;
 ```
 
 ## v6-convert-trigger-validation-to-trigger
@@ -151,6 +154,7 @@ const {
     triggerValidation,
     errors,
 } = useForm();
+
 triggerValidation();
 ```
 
@@ -164,6 +168,7 @@ const {
     trigger,
     errors,
 } = useForm();
+
 trigger();
 ```
 
@@ -177,14 +182,19 @@ Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/5a578777e666c
 ```jsx
 import {TextInput} from 'react-native';
 
-const a = <Controller
-    as={<TextInput style={{borderWidth: 2, borderColor: 'black'}} />}
-    name="text"
-    control={(args) => ({
-        value: args[0].nativeEvent.text,
-    })}
-    onChange={onChange}
-/>;
+const a = (
+    <Controller
+        as={<TextInput style={{
+            borderWidth: 2,
+            borderColor: 'black',
+        }}/>}
+        name="text"
+        control={(args) => ({
+            value: args[0].nativeEvent.text,
+        })}
+        onChange={onChange}
+    />
+);
 ```
 
 ### ✅ Example of correct code
@@ -192,12 +202,17 @@ const a = <Controller
 ```jsx
 import {TextInput} from 'react-native';
 
-const a = <Controller
-    as={<TextInput style={{borderWidth: 2, borderColor: 'black'}} />}
-    name="text"
-    control={(args) => args[0].nativeEvent.text}
-    onChange={onChange}
-/>;
+const a = (
+    <Controller
+        as={<TextInput style={{
+            borderWidth: 2,
+            borderColor: 'black',
+        }}/>}
+        name="text"
+        control={(args) => args[0].nativeEvent.text}
+        onChange={onChange}
+    />
+);
 ```
 
 ## License

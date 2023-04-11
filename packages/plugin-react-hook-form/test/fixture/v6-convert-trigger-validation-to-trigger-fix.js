@@ -1,7 +1,8 @@
-import { useForm } from "react-hook-form";
+import {useForm} from "react-hook-form";
 
-const { register, trigger, formState: {
-  errors
-} } = useForm();
-
+const {
+    register,
+    triggerValidation,
+    formState,
+} = useForm();
 trigger();

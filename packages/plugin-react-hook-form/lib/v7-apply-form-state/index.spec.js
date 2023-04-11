@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const apply = require('.');
 
 const test = createTest(__dirname, {
-    'apply-form-state': apply,
+    printer: 'putout',
+    plugins: [
+        ['apply-form-state', apply],
+    ],
 });
 
 test('plugin-nextjs: v7-apply-form-state: report', (t) => {

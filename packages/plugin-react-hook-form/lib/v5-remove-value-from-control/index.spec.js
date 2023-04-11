@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeValueFromControl = require('.');
 
 const test = createTest(__dirname, {
-    'remove-value-from-control': removeValueFromControl,
+    printer: 'putout',
+    plugins: [
+        ['remove-value-from-control', removeValueFromControl],
+    ],
 });
 
 test('plugin-nextjs: remove-value-from-control: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-nextjs: remove-value-from-control: transform', (t) => {
     t.transform('remove-value-from-control');
     t.end();
 });
-
