@@ -452,7 +452,7 @@ test('putout: operator: add-args: MemberExpression', (t) => {
     t.end();
 });
 
-test('putout: operator: add-args: VariableDeclaration', (t) => {
+test('putout: operator: add-args: AssignmentExpression: no', (t) => {
     const args = {
         process: ['{process}', 'module.exports.__a = (__args) => __body'],
     };
@@ -471,14 +471,7 @@ test('putout: operator: add-args: VariableDeclaration', (t) => {
         ],
     });
     
-    const expected = montag`
-        module.exports.VariableDeclaration = (path) => {
-            const {PUTOUT_PROGRESS_BAR} = process.env;
-            const {stderr} = process;
-        };
-    `;
-    
-    t.equal(code, expected);
+    t.equal(code, source);
     t.end();
 });
 
@@ -557,3 +550,35 @@ test('putout: operator: add-args: FunctionDeclaration', (t) => {
     t.end();
 });
 
+test('putout: operator: add-args: VariableDeclaration', (t) => {
+    const args = {
+        traverse: ['{traverse}', 'const __ = __'],
+    };
+    
+    const source = montag`
+        const CallExpression = {
+            print(path, {indent, print, maybe}) {
+                traverse(path.get('callee'));
+            }
+        };
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        printer: 'putout',
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    const expected = montag`
+        const CallExpression = {
+            print(path, {indent, print, maybe, traverse}) {
+                traverse(path.get('callee'));
+            },
+        };\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
