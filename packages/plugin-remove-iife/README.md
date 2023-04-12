@@ -44,7 +44,6 @@ npm i @putout/plugin-remove-iife
 
 ```js
 console.log('hello');
-
 fn(value);
 fn(value, value2);
 ```
