@@ -1,5 +1,5 @@
 {
-  fn()
+    fn();
 }
 fn(value);
 fn(value, value2);

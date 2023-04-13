@@ -3,4 +3,4 @@
     console.log('world');
     
     return 5;
-}());
+})();
