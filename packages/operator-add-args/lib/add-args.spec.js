@@ -582,3 +582,62 @@ test('putout: operator: add-args: VariableDeclaration', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operator: add-args: call inside call', (t) => {
+    const args = {
+        store: ['{store}', '__ = __'],
+    };
+    
+    const source = montag`
+        module.exports.TSTypeAliasDeclaration = {
+            print(path, {print, maybe}) {
+                const is = store(isLast(path));
+            }
+        };
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        printer: 'putout',
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    const expected = montag`
+        module.exports.TSTypeAliasDeclaration = {
+            print(path, {print, maybe, store}) {
+                const is = store(isLast(path));
+            },
+        };\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: operator: add-args: not call', (t) => {
+    const args = {
+        process: ['{store}', 'const __ = __'],
+    };
+    
+    const source = montag`
+        test('formatter: progress bar: get stream: disable progress bar', async ({notEqual}) => {
+            const {PUTOUT_PROGRESS_BAR} = process.env;
+        });
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        printer: 'putout',
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    const expected = `${source}\n`;
+    
+    t.equal(code, expected);
+    t.end();
+});
+

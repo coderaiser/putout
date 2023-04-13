@@ -10,12 +10,19 @@ const {
     isFunction,
     isLabeledStatement,
     isObjectPattern,
+    isCallExpression,
 } = require('@babel/types');
 
 const {entries} = Object;
 
 const COMPUTED = true;
 const SHORTHAND = true;
+
+const isCallOrStatement = (path) => path.isCallExpression() || path.isStatement();
+
+const isCall = (path) => {
+    return isCallExpression(path.find(isCallOrStatement));
+};
 
 const report = ({name}) => `Argument '${name}' is missing`;
 
@@ -53,8 +60,6 @@ const traverse = (args) => ({push, options}) => {
     
     return {
         ReferencedIdentifier(path) {
-            const {parentPath} = path;
-            
             for (const [name, [declaration, pattern]] of entries(allArgs)) {
                 if (path.node.name !== name)
                     continue;
@@ -62,7 +67,7 @@ const traverse = (args) => ({push, options}) => {
                 if (path.scope.hasBinding(name))
                     continue;
                 
-                if (isVar(path) || isUnary(path) || parentPath.parentPath.parentPath.isAssignmentExpression())
+                if (!isCall(path))
                     continue;
                 
                 const fnPath = path.find(isFunction);
@@ -110,22 +115,5 @@ function createProperty(node) {
     const {label, body} = node;
     
     return ObjectProperty(label, body.expression, !COMPUTED, SHORTHAND);
-}
-
-function isVar({parentPath}) {
-    if (parentPath.parentPath.isVariableDeclarator())
-        return true;
-    
-    if (parentPath.isVariableDeclarator())
-        return true;
-    
-    return false;
-}
-
-function isUnary({parentPath}) {
-    if (parentPath.parentPath.parentPath.isUnaryExpression())
-        return true;
-    
-    return false;
 }
 
