@@ -6,7 +6,6 @@ const {
 } = require('putout');
 
 const {TSAsExpression} = types;
-
 const {replaceWith} = operator;
 
 module.exports.report = () => '"as" should be used for type assertions';
@@ -18,5 +17,6 @@ module.exports.fix = (path) => {
     replaceWith(path, TSAsExpression(expression, typeName));
 };
 
-module.exports.include = () => ['TSTypeAssertion'];
-
+module.exports.include = () => [
+    'TSTypeAssertion',
+];

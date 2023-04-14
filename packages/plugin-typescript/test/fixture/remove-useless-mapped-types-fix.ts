@@ -1,11 +1,8 @@
 type A = Readonly<Type>;
-
 type X = {
     -readonly [Key in keyof Type]: Type[Key];
-}
-
+};
 type Y = Partial<Type>;
-
 type Z = Required<Type>;
 
 const a: A = {};

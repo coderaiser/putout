@@ -16,4 +16,3 @@ test('plugin-apply-as-type-assertiong: transform: object', (t) => {
     t.transform('assertion');
     t.end();
 });
-

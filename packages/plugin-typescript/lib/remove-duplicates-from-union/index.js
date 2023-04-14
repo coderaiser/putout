@@ -43,4 +43,3 @@ function contains(type, types) {
     
     return result;
 }
-

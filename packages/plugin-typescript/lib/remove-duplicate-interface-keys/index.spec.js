@@ -2,6 +2,7 @@
 
 const {createTest} = require('@putout/test');
 const removeDebugger = require('.');
+
 const test = createTest(__dirname, {
     'typescript: remove-duplicate-interface-keys': removeDebugger,
 });
@@ -35,4 +36,3 @@ test('remove duplicate-interface-keys: no transform: method', (t) => {
     t.noTransform('method');
     t.end();
 });
-

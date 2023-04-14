@@ -16,4 +16,3 @@ test('plugin-apply-utility-types: transform: mapped-types', (t) => {
     t.transform('mapped-types');
     t.end();
 });
-

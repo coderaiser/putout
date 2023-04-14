@@ -16,4 +16,3 @@ test('plugin-remove-useless-mapped-types: transform', (t) => {
     t.transform('mapped-types');
     t.end();
 });
-

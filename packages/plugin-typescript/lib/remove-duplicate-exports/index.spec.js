@@ -2,6 +2,7 @@
 
 const {createTest} = require('@putout/test');
 const removeDuplicateExports = require('.');
+
 const test = createTest(__dirname, {
     'remove-duplicate-exports': removeDuplicateExports,
 });
@@ -20,4 +21,3 @@ test('typescript: remove-duplicate-exports: no report: namespace', (t) => {
     t.noReport('namespace');
     t.end();
 });
-

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const typescript = require('..');
 
 const test = createTest(__dirname, {
-    typescript,
+    printer: 'putout',
+    plugins: [
+        ['typescript', typescript],
+    ],
 });
 
 test('putout: plugin: typescript: transform: apply-as-type-assertion', (t) => {
@@ -53,7 +56,7 @@ test('putout: plugin: typescript: transform: remove-useless-types', (t) => {
 });
 
 test('putout: plugin: typescript: transform: remove-unused-types', (t) => {
-    t.transform('remove-unused-types', '\n\n');
+    t.transform('remove-unused-types', '\n');
     t.end();
 });
 
@@ -66,4 +69,3 @@ test('putout: plugin: typescript: transform: remove-useless-parens', (t) => {
     t.transform('remove-useless-parens');
     t.end();
 });
-

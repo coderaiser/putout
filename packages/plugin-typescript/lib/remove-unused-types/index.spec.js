@@ -59,4 +59,3 @@ test('remove unused types: no transform: remove-useless-types', (t) => {
     });
     t.end();
 });
-

@@ -1,9 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-
 const {createTest} = require('@putout/test');
-
 const removeDuplicatesFromUnion = require('.');
 const noop = () => {};
 const {remove} = operator;
@@ -42,4 +40,3 @@ test('plugin-remove-duplicates-from-union: transform: remove', (t) => {
     });
     t.end();
 });
-

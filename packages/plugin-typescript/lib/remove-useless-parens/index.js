@@ -1,6 +1,9 @@
 'use strict';
 
-const {types, operator} = require('putout');
+const {
+    types,
+    operator,
+} = require('putout');
 const {replaceWith} = operator;
 
 const {
@@ -17,13 +20,13 @@ function getTopArrayType(path) {
     
     while (isTSArrayType(path)) {
         ++i;
+        
         prevPath = path;
         path = path.parentPath;
     }
     
     return [i, prevPath];
 }
-
 const createArrayType = (count) => (element) => {
     let i = count;
     
@@ -39,7 +42,9 @@ module.exports.fix = ({path, parentPath, typeAnnotation}) => {
     
     if (isTSArrayType(parentPath) && isTSUnionType(typeAnnotation)) {
         const {types} = typeAnnotation;
+        
         typeAnnotation.types = types.map(createArrayType(count));
+        
         replaceWith(topParentPath, typeAnnotation);
         
         return;
@@ -51,7 +56,9 @@ module.exports.fix = ({path, parentPath, typeAnnotation}) => {
     }
     
     if (parentPath.isTSArrayType()) {
-        replaceWith(path.parentPath, tSArrayType(typeAnnotation));
+        replaceWith(path.parentPath, tSArrayType(
+            typeAnnotation,
+        ));
         return;
     }
     
@@ -74,4 +81,3 @@ module.exports.traverse = ({push}) => ({
         });
     },
 });
-

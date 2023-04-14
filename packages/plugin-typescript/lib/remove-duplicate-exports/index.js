@@ -22,6 +22,7 @@ module.exports.traverse = ({push}) => ({
                 continue;
             
             const {name} = local;
+            
             map[name] = map[name] || {
                 count: 0,
                 path: spec,

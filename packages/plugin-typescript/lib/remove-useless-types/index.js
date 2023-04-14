@@ -38,7 +38,6 @@ module.exports.traverse = ({push, store}) => ({
             });
         }
     },
-    
     TSTypeAnnotation(path) {
         const typePath = path.get('typeAnnotation');
         
@@ -54,7 +53,6 @@ module.exports.traverse = ({push, store}) => ({
         
         current.nodes.push(typeName);
     },
-    
     TSTypeReference(path) {
         const {typeName} = path.node;
         const {name} = typeName;
@@ -65,7 +63,6 @@ module.exports.traverse = ({push, store}) => ({
         
         current.nodes.push(typeName);
     },
-    
     Program: {
         exit() {
             for (const [newName, {name, path, nodes}] of store.entries()) {

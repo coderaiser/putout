@@ -192,10 +192,9 @@ const x: n = 5;
 
 ```ts
 type oldType = {
-    a: number,
-    b: string,
+    a: number;
+    b: string;
 };
-
 type newType = oldType;
 
 const x: newType = {
@@ -208,8 +207,8 @@ const x: newType = {
 
 ```ts
 type oldType = {
-    a: number,
-    b: string,
+    a: number;
+    b: string;
 };
 
 const x: oldType = {
@@ -284,8 +283,8 @@ type SuperType = {
 
 ```ts
 interface Hello {
-    'hello': any
-    'hello': string
+    'hello': any;
+    'hello': string;
 }
 ```
 
@@ -293,7 +292,7 @@ interface Hello {
 
 ```ts
 interface Hello {
-    'hello': string
+    'hello': string;
 }
 ```
 

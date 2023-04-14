@@ -16,4 +16,3 @@ test('plugin-remove-useless-mapping-modifiers: transform', (t) => {
     t.transform('mapping-modifiers');
     t.end();
 });
-

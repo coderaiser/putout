@@ -41,4 +41,3 @@ test('remove useless types: no transform: qualified name', (t) => {
     t.noTransform('qualified-name');
     t.end();
 });
-

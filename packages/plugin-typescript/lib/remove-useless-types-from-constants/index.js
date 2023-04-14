@@ -1,7 +1,11 @@
 'use strict';
 
-const {types, operator} = require('putout');
+const {
+    types,
+    operator,
+} = require('putout');
 const {compare} = operator;
+
 const {
     isNumericLiteral,
     isStringLiteral,
@@ -55,7 +59,6 @@ function getType(node) {
     
     return TSAnyKeyword;
 }
-
 const checkType = ({__a, __b}) => {
     if (!__a.typeAnnotation)
         return false;
@@ -79,4 +82,3 @@ const removeType = ({__a}, path) => {
     delete __a.typeAnnotation;
     return path;
 };
-

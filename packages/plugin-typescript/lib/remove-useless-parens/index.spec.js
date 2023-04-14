@@ -26,4 +26,3 @@ test('plugin-remove-useless-parens: no transform: generic', (t) => {
     t.noTransform('generic');
     t.end();
 });
-

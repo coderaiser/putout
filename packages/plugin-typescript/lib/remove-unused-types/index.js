@@ -18,7 +18,6 @@ module.exports.traverse = ({push, upstore}) => ({
             path,
         });
     },
-    
     TSTypeReference(path) {
         const {typeName} = path.node;
         const {name} = typeName;
@@ -27,24 +26,22 @@ module.exports.traverse = ({push, upstore}) => ({
             used: true,
         });
     },
-    
     ExportSpecifier(path) {
         upstore(path.node.local.name, {
             used: true,
         });
     },
-    
     ExportDefaultDeclaration(path) {
         const declarationPath = path.get('declaration');
         
         if (declarationPath.isIdentifier()) {
             const {name} = path.node.declaration;
+            
             upstore(name, {
                 used: true,
             });
         }
     },
-    
     ObjectProperty(path) {
         const {value} = path.node;
         const {name} = value;
@@ -53,7 +50,6 @@ module.exports.traverse = ({push, upstore}) => ({
             used: true,
         });
     },
-    
     Program: {
         exit() {
             for (const {path, used} of upstore()) {
@@ -68,4 +64,3 @@ module.exports.traverse = ({push, upstore}) => ({
         },
     },
 });
-

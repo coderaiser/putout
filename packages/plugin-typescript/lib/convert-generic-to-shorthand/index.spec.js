@@ -26,4 +26,3 @@ test('plugin-convert-generic-to-shorthand: no transform: no-generic', (t) => {
     t.noTransform('no-generic');
     t.end();
 });
-
