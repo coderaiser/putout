@@ -12,9 +12,7 @@ module.exports.match = () => ({
     'module.exports.traverse = (__args) => __a': ({__args}, path) => {
         const program = path.scope.getProgramParent().path;
         
-        const withFix = contains(program, [
-            'module.exports.fix = __a',
-        ]);
+        const withFix = contains(program, ['module.exports.fix = __a']);
         
         if (withFix)
             return false;
@@ -25,9 +23,7 @@ module.exports.match = () => ({
         if (!__args.length)
             return true;
         
-        const withPush = contains(__args[0], [
-            'push',
-        ]);
+        const withPush = contains(__args[0], ['push']);
         
         if (withPush)
             return false;

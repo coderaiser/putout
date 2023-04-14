@@ -201,9 +201,7 @@ test('some message', (t) => {
     const fn = stub();
     fn();
     
-    t.calledWith(fn, [
-        'hello',
-    ]);
+    t.calledWith(fn, ['hello']);
     t.end();
 });
 ```
@@ -340,9 +338,7 @@ test('some message', (t) => {
 
 ```js
 test('copymitter', (t) => {
-    const cp = copymitter(from, to, [
-        '1',
-    ]);
+    const cp = copymitter(from, to, ['1']);
     
     cp.on('end', (t) => {
         t.end();
@@ -356,9 +352,7 @@ test('copymitter', (t) => {
 const {once} = require('events');
 
 test('copymitter', async (t) => {
-    const cp = copymitter(from, to, [
-        '1',
-    ]);
+    const cp = copymitter(from, to, ['1']);
     
     await once(cp, 'end');
     
@@ -423,9 +417,7 @@ test('some message', (t) => {
 
 ```js
 test('some message', (t) => {
-    t.calledWith(fn, [
-        a,
-    ]);
+    t.calledWith(fn, [a]);
     t.end();
 });
 ```

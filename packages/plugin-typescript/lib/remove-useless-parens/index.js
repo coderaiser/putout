@@ -4,6 +4,7 @@ const {
     types,
     operator,
 } = require('putout');
+
 const {replaceWith} = operator;
 
 const {
@@ -59,6 +60,7 @@ module.exports.fix = ({path, parentPath, typeAnnotation}) => {
         replaceWith(path.parentPath, tSArrayType(
             typeAnnotation,
         ));
+        
         return;
     }
     

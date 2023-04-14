@@ -99,9 +99,7 @@ module.exports.match = () => ({
             return false;
         
         // this is the case when "i" declared and "this"
-        if (params.length >= 3 && params[0].isIdentifier({
-            name: 'this',
-        }))
+        if (params.length >= 3 && params[0].isIdentifier({name: 'this'}))
             return false;
         
         const [paramPath] = params;

@@ -10,9 +10,7 @@ module.exports.match = () => ({
         const attributePath = path.parentPath.parentPath.parentPath;
         const namePath = attributePath.get('name');
         
-        if (!namePath.isJSXIdentifier({
-            name: 'control',
-        }))
+        if (!namePath.isJSXIdentifier({name: 'control'}))
             return false;
         
         return true;

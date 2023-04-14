@@ -20,9 +20,7 @@ module.exports.fix = (path) => {
     const shorthand = true;
     const name = Identifier('push');
     
-    path.node.right.params.push(ObjectPattern([
-        ObjectProperty(name, name, computed, shorthand),
-    ]));
+    path.node.right.params.push(ObjectPattern([ObjectProperty(name, name, computed, shorthand)]));
 };
 
 module.exports.traverse = ({push}) => ({

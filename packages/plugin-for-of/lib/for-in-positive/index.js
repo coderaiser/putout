@@ -21,9 +21,7 @@ module.exports.match = () => ({
         
         const {name} = declaration.__a;
         
-        return contains(__body, [
-            `if (${__b.name}.hasOwnProperty(${name})) __body`,
-        ]);
+        return contains(__body, [`if (${__b.name}.hasOwnProperty(${name})) __body`]);
     },
 });
 

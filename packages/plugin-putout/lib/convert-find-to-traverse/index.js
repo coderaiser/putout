@@ -73,9 +73,7 @@ function getTraverseCall(path) {
     
     path.traverse({
         CallExpression(path) {
-            if (!path.get('callee').isIdentifier({
-                name: 'traverse',
-            }))
+            if (!path.get('callee').isIdentifier({name: 'traverse'}))
                 return;
             
             result = path;

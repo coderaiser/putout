@@ -290,9 +290,7 @@ module.exports.fix = (path) => {
 
 ```js
 module.exports.fix = (path) => {
-    path.replaceWithMultiple([
-        Identifier('hello'),
-    ]);
+    path.replaceWithMultiple([Identifier('hello')]);
 };
 ```
 
@@ -302,9 +300,7 @@ module.exports.fix = (path) => {
 const {replaceWithMultiple} = require('putout').operator;
 
 module.exports.fix = (path) => {
-    replaceWithMultiple(path, [
-        Identifier('hello'),
-    ]);
+    replaceWithMultiple(path, [Identifier('hello')]);
 };
 ```
 

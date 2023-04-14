@@ -33,9 +33,7 @@ const create = (name) => (vars, path) => {
     block.async = true;
     
     block.params = [
-        ObjectPattern([
-            ObjectProperty(nameId, nameId, !computed, shorthand),
-        ]),
+        ObjectPattern([ObjectProperty(nameId, nameId, !computed, shorthand)]),
     ];
     
     if (compare(body[n], 't.end()')) {

@@ -53,9 +53,7 @@ function getBabelLangExts({isTS, isFlow, isJSX}) {
     ];
     
     if (isTS)
-        return langs.concat([
-            'typescript',
-        ]);
+        return langs.concat(['typescript']);
     
     if (isFlow)
         return langs.concat(['flow', 'flowComments']);

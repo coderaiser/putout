@@ -48,9 +48,7 @@ module.exports.replace = () => ({
                 
                 property.key.name = 'formState';
                 
-                property.value = ObjectPattern([
-                    ObjectProperty(key, key, COMPUTED, SHORTHAND),
-                ]);
+                property.value = ObjectPattern([ObjectProperty(key, key, COMPUTED, SHORTHAND)]);
             }
         }
         

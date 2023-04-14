@@ -80,10 +80,7 @@ module.exports = (rootPath, key) => {
         ],
     });
     
-    return [
-        transformError,
-        result?.code,
-    ];
+    return [transformError, result?.code];
 };
 
 function createVarStore(path) {

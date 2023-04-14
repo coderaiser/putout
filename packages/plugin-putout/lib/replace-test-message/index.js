@@ -72,8 +72,5 @@ function isCorrect({path, incorrect}) {
     const {value} = messagePath.node;
     const is = !incorrect.test(value);
     
-    return [
-        is,
-        messagePath,
-    ];
+    return [is, messagePath];
 }
