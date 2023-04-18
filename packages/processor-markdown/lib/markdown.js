@@ -4,14 +4,12 @@ import {
 } from '@putout/processor-json';
 import stringify from 'remark-stringify';
 import preset from 'remark-preset-lint-consistent';
-
 import removeDependenciesStatusBadge from './rules/remove-dependencies-status-badge.js';
 import removeTrailingWhitespacesFromHeading from './rules/remove-trailing-whitespaces-from-heading.js';
 import mergeHeadingSpceces from './rules/merge-heading-spaces.js';
 import {run} from './rules/index.js';
 import {visit} from 'unist-util-visit';
 import {unified} from 'unified';
-
 import {toPlace} from './parse-place.js';
 import {initParseStore} from './parse-store.js';
 
@@ -24,6 +22,7 @@ const plugins = [
 const parseStore = initParseStore();
 
 const text = ({value}) => value;
+
 const stringifyOptions = {
     bullet: '-',
     listItemIndent: 'one',
@@ -37,7 +36,6 @@ const stringifyOptions = {
 export const files = [
     '*.md',
 ];
-
 export const find = async (rawSource, options = {}) => {
     await parseStore.init();
     
@@ -57,10 +55,8 @@ export const find = async (rawSource, options = {}) => {
         .use(stringify, stringifyOptions)
         .process(rawSource);
     
-    return messages
-        .map(toPlace);
+    return messages.map(toPlace);
 };
-
 export const fix = async (rawSource, options = {}) => {
     await parseStore.init();
     
@@ -79,7 +75,6 @@ export const fix = async (rawSource, options = {}) => {
     
     return value;
 };
-
 export const branch = async (rawSource) => {
     const list = [];
     
@@ -94,7 +89,6 @@ export const branch = async (rawSource) => {
     
     return list;
 };
-
 export const merge = async (rawSource, list) => {
     const newList = list.slice();
     
@@ -115,7 +109,10 @@ export const merge = async (rawSource, list) => {
 
 const collect = ({list, visit}) => (node) => {
     visit(node, 'code', (node) => {
-        const {lang, value} = node;
+        const {
+            lang,
+            value,
+        } = node;
         const startLine = node.position.start.line;
         
         if (/^(js|javascript)$/.test(lang)) {
@@ -190,4 +187,3 @@ const apply = ({list, visit}) => (node) => {
         }
     });
 };
-

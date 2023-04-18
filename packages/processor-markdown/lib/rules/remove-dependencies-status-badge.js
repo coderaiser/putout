@@ -11,6 +11,7 @@ export default {
 
 function fix(node, tree) {
     const children = tree.children.filter(isDependencyStatus());
+    
     tree.children = children;
     
     const [heading] = children;
@@ -19,13 +20,13 @@ function fix(node, tree) {
         return;
     
     const headingChildren = heading.children.filter(isDependencyLink);
+    
     tree.children[0].children = headingChildren;
 }
 
 function traverse(tree, {push}) {
     tree.children.filter(isDependencyStatus(push));
 }
-
 const isDependencyStatus = (push = noop) => (child) => {
     if (child.type !== 'definition')
         return true;
@@ -50,4 +51,3 @@ const isDependencyLink = (child) => {
     
     return true;
 };
-

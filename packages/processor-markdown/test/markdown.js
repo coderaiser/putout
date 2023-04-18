@@ -96,6 +96,7 @@ test('putout: processor: markdown: merge-heading-spaces: process', async ({proce
 
 test('putout: processor: markdown: fix: options', async (t) => {
     const {fix} = await import('../lib/markdown.js');
+    
     const source = montag`
         # Hello
         ## World
@@ -122,6 +123,7 @@ test('putout: processor: markdown: fix: options', async (t) => {
 
 test('putout: processor: markdown: find: options', async (t) => {
     const {find} = await import('../lib/markdown.js');
+    
     const source = montag`
         # Hello
         ## World

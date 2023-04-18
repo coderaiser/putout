@@ -1,5 +1,8 @@
 export function toPlace({reason, line, column, source, ruleId}) {
-    const {message, rule} = parseWatermark({
+    const {
+        message,
+        rule,
+    } = parseWatermark({
         reason,
         ruleId,
         source,
@@ -16,7 +19,11 @@ export function toPlace({reason, line, column, source, ruleId}) {
 }
 
 function parseWatermark({reason, ruleId, source}) {
-    const [watermark, remarkRule, message] = reason.split(': ');
+    const [
+        watermark,
+        remarkRule,
+        message,
+    ] = reason.split(': ');
     
     if (watermark === 'putout') {
         const rule = `${remarkRule} (${source})`;
@@ -32,4 +39,3 @@ function parseWatermark({reason, ruleId, source}) {
         rule: `${ruleId} (${source})`,
     };
 }
-
