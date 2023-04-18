@@ -3,8 +3,8 @@
 const {test, stub} = require('supertape');
 const {
     createPlugin,
-    createGetSpaceBeforeNode,
     createGetSpacesAfterNode,
+    createGetSpacesBeforeNode,
 } = require('./index.js');
 
 test('@putout/eslint: create-plugin: filter', (t) => {
@@ -47,7 +47,7 @@ test('@putout/eslint: create-plugin: filter', (t) => {
 
 test('@putout/eslint: create-plugin: createGetSpacesBeforeNode', (t) => {
     const getText = stub().returns('hello');
-    const fn = createGetSpaceBeforeNode({
+    const fn = createGetSpacesBeforeNode({
         getText,
     });
     
@@ -60,7 +60,7 @@ test('@putout/eslint: create-plugin: createGetSpacesBeforeNode', (t) => {
 
 test('@putout/eslint: create-plugin: createGetSpacesBeforeNode: first', (t) => {
     const getText = stub().returns('hello');
-    const fn = createGetSpaceBeforeNode({
+    const fn = createGetSpacesBeforeNode({
         getText,
     });
     
@@ -117,6 +117,35 @@ test('@putout/eslint: create-plugin: createGetSpacesAfterNode: last', (t) => {
     const result = fn(node);
     
     t.equal(result, '');
+    t.end();
+});
+
+test('@putout/eslint: create-plugin: createGetSpacesBeforeNode: no expression inside body', (t) => {
+    const getText = stub().returns('hello');
+    const fn = createGetSpacesBeforeNode({
+        getText,
+        text: 'hello',
+    });
+    
+    const body = {
+        type: 'ReturnStatement',
+        argument: {
+            type: 'Literal',
+            value: false,
+        },
+    };
+    const parent = {
+        type: 'ForOfStatement',
+        body,
+    };
+    
+    const node = {
+        parent,
+    };
+    
+    const result = fn(node, ' hello');
+    
+    t.equal(result, 'ello');
     t.end();
 });
 

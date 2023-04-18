@@ -108,7 +108,7 @@ const createGetSpacesBeforeNode = ({getText}) => (node, text = getText(node)) =>
     let spaces = '';
     let i = 0;
     
-    if (node === node.parent?.body?.[0].expression)
+    if (node === node.parent?.body?.[0]?.expression)
         return '';
     
     while (!spaces || /^[ \n]+$/.test(spaces))
@@ -117,7 +117,7 @@ const createGetSpacesBeforeNode = ({getText}) => (node, text = getText(node)) =>
     
     return spaces.slice(1);
 };
-module.exports.createGetSpaceBeforeNode = createGetSpacesBeforeNode;
+module.exports.createGetSpacesBeforeNode = createGetSpacesBeforeNode;
 
 const createGetSpacesAfterNode = ({getText}) => (node, text = getText(node)) => {
     const reg = /^[ \n;]+$/;
