@@ -113,6 +113,7 @@ const collect = ({list, visit}) => (node) => {
             lang,
             value,
         } = node;
+        
         const startLine = node.position.start.line;
         
         if (/^(js|javascript)$/.test(lang)) {

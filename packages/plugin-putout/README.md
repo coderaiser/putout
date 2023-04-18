@@ -78,8 +78,7 @@ It helps to preserve comments.
 ### ❌ Example of incorrect code
 
 ```js
-export
-const fix = (path) => {
+export const fix = (path) => {
     path.remove();
 };
 ```
