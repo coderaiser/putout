@@ -18,4 +18,3 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     '() => __body': 'noop',
 });
-

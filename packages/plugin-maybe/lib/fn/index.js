@@ -10,4 +10,3 @@ module.exports.exclude = () => [
 module.exports.replace = () => ({
     'isFn(__a) ? __a : noop': 'maybeFn(__a)',
 });
-

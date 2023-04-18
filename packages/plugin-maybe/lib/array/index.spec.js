@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'maybe/array': convert,
+    printer: 'putout',
+    plugins: [
+        ['maybe/array', convert],
+    ],
 });
 
 test('plugin-maybe: array: report', (t) => {

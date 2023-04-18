@@ -1,2 +1,1 @@
-for (const x of maybeEmptyArray(a)) {
-}
+for (const x of maybeEmptyArray(a)) {}

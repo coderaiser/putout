@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'maybe/apply-async-formatter': convert,
+    printer: 'putout',
+    plugins: [
+        ['maybe/apply-async-formatter', convert],
+    ],
 });
 
 test('plugin-maybe: empty-array: report', (t) => {

@@ -1,2 +1,1 @@
 const maybeEmptyArray = () => !a ? [] : a;
-

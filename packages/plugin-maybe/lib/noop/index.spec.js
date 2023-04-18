@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'maybe/noop': convert,
+    printer: 'putout',
+    plugins: [
+        ['maybe/noop', convert],
+    ],
 });
 
 test('plugin-maybe: noop: report', (t) => {

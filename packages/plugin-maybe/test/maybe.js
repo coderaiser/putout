@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const maybe = require('..');
 
 const test = createTest(__dirname, {
-    maybe,
+    printer: 'putout',
+    plugins: [
+        ['maybe', maybe],
+    ],
 });
 
 test('plugin-maybe: transform: fn', (t) => {

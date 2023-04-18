@@ -11,4 +11,3 @@ module.exports.rules = {
     ...getRule('noop'),
     ...getRule('declare'),
 };
-
