@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertClassToFunction = require('.');
 
 const test = createTest(__dirname, {
-    'convert-class-to-function': convertClassToFunction,
+    printer: 'putout',
+    plugins: [
+        ['convert-class-to-function', convertClassToFunction],
+    ],
 });
 
 test('plugin-react-hooks: convert-class-to-function: report', (t) => {

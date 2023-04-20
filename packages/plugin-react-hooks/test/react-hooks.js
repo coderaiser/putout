@@ -3,8 +3,12 @@
 const {createTest} = require('@putout/test');
 const reactHooks = require('..');
 const rmUnused = require('@putout/plugin-remove-unused-variables');
+
 const test = createTest(__dirname, {
-    'react-hooks': reactHooks,
+    printer: 'putout',
+    plugins: [
+        ['react-hooks', reactHooks],
+    ],
 });
 
 test('plugin-react-hooks: transform', (t) => {
@@ -35,4 +39,3 @@ test('plugin-react-hooks: transform: apply-short-fragment', (t) => {
     t.transform('apply-short-fragment');
     t.end();
 });
-

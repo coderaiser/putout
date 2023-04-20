@@ -1,7 +1,8 @@
 import {useCallback} from 'react';
-const memoizedCallback = useCallback(
-  () => {
+
+const memoizedCallback = useCallback(() => {
     doSomething(a, b);
-  },
-  [a, b],
-);
+}, [
+    a,
+    b,
+]);

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertStateToHooks = require('.');
 
 const test = createTest(__dirname, {
-    'convert-state-to-hooks': convertStateToHooks,
+    printer: 'putout',
+    plugins: [
+        ['convert-state-to-hooks', convertStateToHooks],
+    ],
 });
 
 test('plugin-react-hooks: convert state tot hooks: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-react-hooks: convert state to hooks: no transform: declare', (t) =>
     t.noTransform('declare');
     t.end();
 });
-

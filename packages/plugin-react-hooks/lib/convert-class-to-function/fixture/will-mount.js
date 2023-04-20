@@ -48,11 +48,15 @@ class RecursiveElement extends React.Component {
             }
         }
         
-        this.setState({deepOpen, open});
+        this.setState({
+            deepOpen,
+            open,
+        });
     }
     
     render() {
         const {props} = this;
+        
         return (
             <Element
                 {...props}

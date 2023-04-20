@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertComponentToUseState = require('.');
 
 const test = createTest(__dirname, {
-    'convert-component-to-use-state': convertComponentToUseState,
+    printer: 'putout',
+    plugins: [
+        ['convert-component-to-use-state', convertComponentToUseState],
+    ],
 });
 
 test('plugin-react-hooks: convert-component-to-use-state: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-react-hooks: convert-component-to-use-state: transform', (t) => {
     t.transform('component');
     t.end();
 });
-

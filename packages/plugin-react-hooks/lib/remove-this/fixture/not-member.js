@@ -1,6 +1,7 @@
-class RecursiveElement extends React.Component {
+class RecursiveElementextends extends React.Component {
     render() {
         const {props} = this;
+        
         return (
             <Element
                 {...props}
@@ -8,4 +9,3 @@ class RecursiveElement extends React.Component {
         );
     }
 }
-

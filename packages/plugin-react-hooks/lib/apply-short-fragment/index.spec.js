@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'react-hooks/apply-short-fragment': plugin,
+    printer: 'putout',
+    plugins: [
+        ['react-hooks/apply-short-fragment', plugin],
+    ],
 });
 
 test('plugin-react-hooks: apply-short-fragment: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-react-hooks: apply-short-fragment: no transform: member', (t) => {
     t.noTransform('member');
     t.end();
 });
-

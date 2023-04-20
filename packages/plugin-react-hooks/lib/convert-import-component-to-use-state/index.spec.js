@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertImportComponentToUseState = require('.');
 
 const test = createTest(__dirname, {
-    'convert-import-component-to-use-state': convertImportComponentToUseState,
+    printer: 'putout',
+    plugins: [
+        ['convert-import-component-to-use-state', convertImportComponentToUseState],
+    ],
 });
 
 test('plugin-react-hooks: convert-import-component-to-use-state: report', (t) => {
@@ -13,7 +16,7 @@ test('plugin-react-hooks: convert-import-component-to-use-state: report', (t) =>
 });
 
 test('plugin-react-hooks: convert-import-component-to-use-state: transform', (t) => {
-    t.transformCode(`import {Component} from 'react'`, `import {useState} from 'react'`);
+    t.transformCode(`import {Component} from 'react'`, `import {useState} from 'react';\n`);
     t.end();
 });
 
@@ -21,4 +24,3 @@ test('plugin-react-hooks: convert-import-component-to-use-state: transform: comp
     t.transform('component');
     t.end();
 });
-

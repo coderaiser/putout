@@ -18,4 +18,3 @@ class FormLoginContainer extends React.Component {
         );
     }
 }
-

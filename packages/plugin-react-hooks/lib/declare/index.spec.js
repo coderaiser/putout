@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const declare = require('.');
 
 const test = createTest(__dirname, {
-    'react-hooks/declare': declare,
+    printer: 'putout',
+    plugins: [
+        ['react-hooks/declare', declare],
+    ],
 });
 
 test('plugin-react-hooks: declare: report', (t) => {
@@ -36,4 +39,3 @@ test('plugin-react-hooks: declare: transform: use-callback', (t) => {
     t.transform('use-callback');
     t.end();
 });
-

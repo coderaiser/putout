@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeBind = require('.');
 
 const test = createTest(__dirname, {
-    'remove-bind': removeBind,
+    printer: 'putout',
+    plugins: [
+        ['remove-bind', removeBind],
+    ],
 });
 
 test('plugin-react-hooks: remove-bind: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-react-hooks: remove-bind: transform', (t) => {
     t.transform('bind');
     t.end();
 });
-

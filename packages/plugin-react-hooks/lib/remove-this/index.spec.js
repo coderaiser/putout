@@ -1,10 +1,14 @@
 'use strict';
 
+const montag = require('montag');
 const {createTest} = require('@putout/test');
 const removeThis = require('.');
 
 const test = createTest(__dirname, {
-    'remove-this': removeThis,
+    printer: 'putout',
+    plugins: [
+        ['remove-this', removeThis],
+    ],
 });
 
 test('plugin-react-hooks: remove-this: report', (t) => {
@@ -23,7 +27,7 @@ test('plugin-react-hooks: remove-this: no transform: not-member', (t) => {
 });
 
 test('plugin-react-hooks: remove-this: transform: code', (t) => {
-    const from = `
+    const from = montag`
         const {Component} = require('react');
         
         class Hello extends Component {
@@ -35,17 +39,18 @@ test('plugin-react-hooks: remove-this: transform: code', (t) => {
         }
     `;
     
-    const to = `
+    const to = montag`
         const {Component} = require('react');
         
         class Hello extends Component {
             render() {
-                return (<button onClick={setEnabled}/>);
+                return (
+                    <button onClick={setEnabled}/>
+                );
             }
-        }
+        }\n
     `;
     
     t.transformCode(from, to);
     t.end();
 });
-
