@@ -157,6 +157,7 @@ function getAnyNoResultNodes(expression) {
     
     return nodes;
 }
+
 const declareOnce = (path) => {
     if (path.scope.bindings.once)
         return;

@@ -54,6 +54,7 @@ function getVarPath(bindings) {
     
     return insertAfter.path;
 }
+
 module.exports.traverse = ({push}) => ({
     CallExpression(path) {
         const calleePath = path.get('callee');

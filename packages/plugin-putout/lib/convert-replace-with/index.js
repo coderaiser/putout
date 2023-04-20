@@ -64,6 +64,7 @@ function getVarPath(bindings) {
     
     return insertAfter.path;
 }
+
 module.exports.traverse = ({push}) => {
     const isInserted = fullstore();
     

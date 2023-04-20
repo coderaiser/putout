@@ -28,6 +28,7 @@ function isBabelTypes(path) {
             value: '@babel/types',
         });
 }
+
 module.exports.traverse = ({push}) => ({
     CallExpression(path) {
         if (!isRequire(path))

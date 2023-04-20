@@ -28,6 +28,7 @@ function getTopArrayType(path) {
     
     return [i, prevPath];
 }
+
 const createArrayType = (count) => (element) => {
     let i = count;
     

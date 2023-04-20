@@ -27,6 +27,7 @@ function fix(node, tree) {
 function traverse(tree, {push}) {
     tree.children.filter(isDependencyStatus(push));
 }
+
 const isDependencyStatus = (push = noop) => (child) => {
     if (child.type !== 'definition')
         return true;

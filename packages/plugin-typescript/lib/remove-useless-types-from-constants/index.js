@@ -60,6 +60,7 @@ function getType(node) {
     
     return TSAnyKeyword;
 }
+
 const checkType = ({__a, __b}) => {
     if (!__a.typeAnnotation)
         return false;
