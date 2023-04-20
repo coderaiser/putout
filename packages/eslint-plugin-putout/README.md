@@ -151,6 +151,7 @@ Disabled 🐊**Putout** rules:
 - ❌ [`for-of/for`](https://github.com/coderaiser/putout/tree/v29.1.2/packages/plugin-convert-for-to-for-of#readme);
 - ❌ [`for-of/remove-useless`](https://github.com/coderaiser/putout/tree/v29.1.2/packages/plugin-remove-useless-for-of#readme);
 - ❌ [`for-of/remove-unused-variables`](https://github.com/coderaiser/putout/tree/29.1.2/packages/plugin-for-of#remove-unused-variables);
+- ❌ [`maybe/noop`](https://github.com/coderaiser/putout/tree/29.2.4/packages/plugin-maybe#noop);
 
 ### safe+align
 

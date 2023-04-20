@@ -127,6 +127,7 @@ const safe = {
                 'for-of/for': 'off',
                 'for-of/remove-unused-variables': 'off',
                 'for-of/remove-useless': 'off',
+                'maybe/noop': 'off',
             },
         }],
     },

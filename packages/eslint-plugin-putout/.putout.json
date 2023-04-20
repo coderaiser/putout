@@ -27,7 +27,8 @@
             "typescript/remove-useless-types-from-constants": "off",
             "for-of/for": "off",
             "for-of/remove-useless": "off",
-            "for-of/remove-unused-variables": "off"
+            "for-of/remove-unused-variables": "off",
+            "maybe/noop": "off"
         }
     }
 }
