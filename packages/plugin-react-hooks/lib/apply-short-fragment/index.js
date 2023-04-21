@@ -23,11 +23,7 @@ module.exports.fix = (path) => {
     const {parentPath} = path;
     const {children} = path.parentPath.node;
     
-    replaceWith(parentPath, JSXFragment(
-        JSXOpeningFragment(),
-        JSXClosingFragment(),
-        children,
-    ));
+    replaceWith(parentPath, JSXFragment(JSXOpeningFragment(), JSXClosingFragment(), children));
 };
 
 module.exports.filter = (path) => {
@@ -50,4 +46,3 @@ module.exports.filter = (path) => {
     
     return true;
 };
-

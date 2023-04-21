@@ -31,6 +31,7 @@ module.exports = (path) => {
 
 function getSetter(name) {
     const first = name[0].toUpperCase();
+    
     const newName = [
         first,
         name.slice(1),
@@ -38,4 +39,3 @@ function getSetter(name) {
     
     return `set${newName}`;
 }
-

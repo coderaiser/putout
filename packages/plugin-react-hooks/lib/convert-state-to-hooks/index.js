@@ -106,6 +106,7 @@ function isThis(init, name) {
         property,
     } = init;
     
-    return isThisExpression(object) && isIdentifier(property, {name});
+    return isThisExpression(object) && isIdentifier(property, {
+        name,
+    });
 }
-

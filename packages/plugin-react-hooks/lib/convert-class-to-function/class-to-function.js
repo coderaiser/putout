@@ -57,4 +57,3 @@ function createComponentFunction(name, body) {
 function createFunction(name, params, body) {
     return functionDeclaration(name, params, body, false, false);
 }
-

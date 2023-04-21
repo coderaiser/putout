@@ -48,4 +48,3 @@ function hasLifeCycle(path) {
     
     return false;
 }
-

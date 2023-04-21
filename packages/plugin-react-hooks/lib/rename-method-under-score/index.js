@@ -23,4 +23,3 @@ module.exports.find = (ast, {push, traverse}) => {
         },
     });
 };
-

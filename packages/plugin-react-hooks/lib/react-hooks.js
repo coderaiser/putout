@@ -15,4 +15,3 @@ module.exports.rules = {
     ...getRule('convert-component-to-use-state'),
     ...getRule('convert-import-component-to-use-state'),
 };
-

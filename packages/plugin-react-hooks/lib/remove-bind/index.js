@@ -14,9 +14,9 @@ module.exports.fix = (path) => {
 module.exports.find = (ast, {traverse, push}) => {
     traverseClass(traverse, ast, {
         CallExpression(path) {
-            const isBind = path
-                .get('callee.property')
-                .isIdentifier({name: 'bind'});
+            const isBind = path.get('callee.property').isIdentifier({
+                name: 'bind',
+            });
             
             const {parentPath} = path;
             
@@ -25,4 +25,3 @@ module.exports.find = (ast, {traverse, push}) => {
         },
     });
 };
-

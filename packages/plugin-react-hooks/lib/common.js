@@ -12,4 +12,3 @@ function push(visitor) {
         path.traverse(visitor);
     };
 }
-
