@@ -38,8 +38,23 @@ jobs:
 
     strategy:
       matrix:
--       node-version: [16.x, 18.x]
-+       node-version: [16.x, 18.x, 19.x]
+-       node-version: [16.x, 18.x, 19.x]
++       node-version: [16.x, 18.x, 20.x]
+```
+
+You can override versions with:
+
+```json
+{
+    "rules": {
+        "github/set-node-versions": ["on", {
+            "versions": [
+                "18.x",
+                "20.x"
+            ]
+        }]
+    }
+}
 ```
 
 ## set-checkout-version

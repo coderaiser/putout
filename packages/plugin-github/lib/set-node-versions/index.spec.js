@@ -17,6 +17,16 @@ test('plugin-github: set node versions: transform', (t) => {
     t.end();
 });
 
+test('plugin-github: set node versions: transform: options', (t) => {
+    t.transformWithOptions('options', {
+        versions: [
+            '18.x',
+            '22.x',
+        ],
+    });
+    t.end();
+});
+
 test('plugin-github: set node versions: no transform: no version', (t) => {
     t.noTransform('no-version');
     t.end();

@@ -9,23 +9,26 @@ const {
     getTemplateValues,
 } = operator;
 
-const nodeVersions = [
+const defaultVersions = [
     '16.x',
     '18.x',
-    '19.x',
+    '20.x',
 ];
 
 const {parse, stringify} = JSON;
-const nodeVersionsNode = template.ast(stringify(nodeVersions));
 
 module.exports.report = () => 'Latest version of node is missing';
 
-module.exports.fix = (path) => {
+module.exports.fix = (path, {options}) => {
+    const {versions = defaultVersions} = options;
+    const nodeVersionsNode = template.ast(stringify(versions));
+    
     replaceWith(path, nodeVersionsNode);
 };
 
-module.exports.traverse = ({push}) => ({
+module.exports.traverse = ({push, options}) => ({
     '__putout_processor_json(__a)'(path) {
+        const {versions: nodeVersions = defaultVersions} = options;
         const {__a} = getTemplateValues(path, '__putout_processor_json(__a)');
         
         for (const nodeVersionPath of traverseProperty(__a, 'node-version')) {
