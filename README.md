@@ -2166,9 +2166,9 @@ If you want to try brand new `@putout/printer` update `.putout.json` with:
 
 New printer is:
 
-- much simpler in support then recast;
-- it is opinionated and has good defaults;
-- produces code like it was processed by ESLint without involving ESLint at all;
+- ✅ much simpler in support then recast;
+- ✅ opinionated and has good defaults;
+- ✅ produces code like it was processed by ESLint without involving ESLint at all;
 
 ### Plugins
 
