@@ -1,3 +1,25 @@
+2023.04.21, v29.2.5
+
+fix:
+- 903adc958 @putout/eslint: create-plugin: createGetSpaceBeforeNode -> createGetSpacesBeforeNode
+
+feature:
+- b5f7edc97 package: @putout/plugin-github v5.0.0
+- 64492ce4b @putout/plugin-github: use @putout/printer
+- 2194abd6f @putout/plugin-github: drop support of 🐊 < 29
+- 94a047988 @putout/plugin-github: set-node-versions: add support of node v20
+- 115d87438 eslint-plugin-putout: safe: disable maybe/noop
+- 2a8fcf237 @putout/plugin-maybe: apply @putout/printer
+- d21b72024 @putout/processor-markdown: use @putout/printer
+- 8cfba34d8 @putout/plugin-typescript: use @putout/printer
+- 06e5c18fd @putout/operator-add-args: improve declare of arguments
+- c5b045452 eslint-plugin-putout: jsx: disable no-extra-parens
+- 45d2212c0 @putout/plugin-react-hook-form: use @putout/printer
+- e3370c1be package: @putout/engine-parser v6.0.0
+- c3e4e7a33 @putout/test: eslint: noProcess: add ability to override
+- 25351d404 @putout/engine-loaders: improve validation message: ☝️ Looks like plugin name type is not 'string', but: 'function'
+- df76013a0 @putout/plugin-putout: create-test: add support of shorthand property
+
 2023.04.09, v29.2.4
 
 fix:
