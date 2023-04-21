@@ -12,4 +12,3 @@ test('operate: traverseProperty', (t) => {
     t.equal(propertyPath.node.key.value, 'a');
     t.end();
 });
-

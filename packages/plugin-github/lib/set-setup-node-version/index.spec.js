@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const setSetupNodeVersion = require('.');
 
 const test = createTest(__dirname, {
-    'github/set-setup-node-version': setSetupNodeVersion,
+    printer: 'putout',
+    plugins: [
+        ['github/set-setup-node-version', setSetupNodeVersion],
+    ],
 });
 
 test('plugin-github: set-setup-node-versions: report', (t) => {
@@ -31,4 +34,3 @@ test('plugin-github: set-setup-node: no report: no-uses', (t) => {
     t.noReport('no-uses');
     t.end();
 });
-

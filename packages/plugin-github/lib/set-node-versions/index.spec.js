@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const setNodeVersion = require('.');
 
 const test = createTest(__dirname, {
-    'github/set-node-version': setNodeVersion,
+    printer: 'putout',
+    plugins: [
+        ['github/set-node-version', setNodeVersion],
+    ],
 });
 
 test('plugin-github: set node versions: report', (t) => {
@@ -31,4 +34,3 @@ test('plugin-github: set node versions: no transform: no version', (t) => {
     t.noTransform('no-version');
     t.end();
 });
-

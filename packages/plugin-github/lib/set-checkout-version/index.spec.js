@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const setCheckoutVersion = require('.');
 
 const test = createTest(__dirname, {
-    'github/set-checkout-version': setCheckoutVersion,
+    printer: 'putout',
+    plugins: [
+        ['github/set-checkout-version', setCheckoutVersion],
+    ],
 });
 
 test('plugin-github: set checkout versions: report', (t) => {
@@ -31,4 +34,3 @@ test('plugin-github: set checkout versions: no report: no-uses', (t) => {
     t.noReport('no-uses');
     t.end();
 });
-

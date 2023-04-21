@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const setAddAndCommit = require('.');
 
 const test = createTest(__dirname, {
-    'github/set-add-and-commit': setAddAndCommit,
+    printer: 'putout',
+    plugins: [
+        ['github/set-add-and-commit', setAddAndCommit],
+    ],
 });
 
 test('plugin-github: set-set-add-and-commit: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-github: set-set-add-and-commit: no report: more', (t) => {
     t.noReport('more');
     t.end();
 });
-

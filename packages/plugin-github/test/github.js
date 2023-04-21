@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const github = require('..');
 
 const test = createTest(__dirname, {
-    github,
+    printer: 'putout',
+    plugins: [
+        ['github', github],
+    ],
 });
 
 test('plugin-github: transform: set-node-version', (t) => {
