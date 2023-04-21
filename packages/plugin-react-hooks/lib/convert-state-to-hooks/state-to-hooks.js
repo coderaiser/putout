@@ -4,6 +4,7 @@ const {
     template,
     operator,
 } = require('putout');
+
 const {replaceWithMultiple} = operator;
 
 const buildHooks = template(`

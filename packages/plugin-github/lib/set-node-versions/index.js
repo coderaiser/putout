@@ -4,6 +4,7 @@ const {
     operator,
     template,
 } = require('putout');
+
 const deepEqual = require('fast-deep-equal');
 const {traverseProperty} = require('../traverse-property');
 
