@@ -12,7 +12,7 @@ jobs:
         node-version:
           - 16.x
           - 18.x
-          - 19.x
+          - 20.x
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
@@ -46,7 +46,6 @@ jobs:
         with:
           message: "chore: ${{ env.NAME }}: actions: lint ☘️"
           fetch: true
-
       - name: Coverage
         run: redrun coverage:ci report
       - name: Coveralls
