@@ -56,6 +56,13 @@
         },
         ".github/**/*.yml": {
             "github": "on",
+            "github/set-node-versions": ["on", {
+                "versions": [
+                    "16.x",
+                    "18.x",
+                    "20.x"
+                ]
+            }],
             "remove-useless-escape": "off"
         },
         ".gitignore": {
