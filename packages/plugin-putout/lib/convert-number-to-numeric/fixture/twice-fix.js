@@ -9,4 +9,5 @@ const {
 
 isNumericLiteral(a);
 isNumericLiteral(a);
+
 NumericLiteral(a);

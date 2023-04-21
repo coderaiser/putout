@@ -4,7 +4,9 @@ const fn = currify(() => {
         a += b;
 
 });
+
 const fn2 = currify(() => {
     for (const [i, b] of list.entries())
         a += i;
+
 });

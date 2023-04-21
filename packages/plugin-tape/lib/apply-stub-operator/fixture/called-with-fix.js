@@ -1,6 +1,4 @@
-t.calledWith(fn, [
-    a,
-]);
+t.calledWith(fn, [a]);
 t.calledWith(fn, [
     a,
     b,

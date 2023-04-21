@@ -8,6 +8,5 @@ test('remove debugger: report', (t) => {
     t.transform('debugger', {
         'remove': remove,
     });
-    
     t.end();
 });

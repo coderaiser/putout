@@ -8,8 +8,6 @@ test('file: error EACESS', async (t) => {
     
     t.equal(error.code, 'EACCES', error.message);
     cp.abort();
-    
     await once(cp, 'end');
-    
     t.end();
 });

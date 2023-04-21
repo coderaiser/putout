@@ -7,7 +7,6 @@ const initialValue = 0;
         sumWithInitial = previousValue + currentValue;
     }
 }
-
 // .reduceRight();
 {
     let [reduceRight1] = x;
@@ -24,7 +23,6 @@ const reduceRight2 = [1, 2].reduceRight((a, b) => a + b, 1);
         array = accumulator.concat(array);
     }
 }
-
 // member expression: .concat();
 
 const array1 = [

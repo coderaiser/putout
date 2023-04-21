@@ -6,4 +6,5 @@ t.notOk(result);
 
 const expectedUndefined = undefined;
 t.notOk(result);
+
 t.notOk(result);

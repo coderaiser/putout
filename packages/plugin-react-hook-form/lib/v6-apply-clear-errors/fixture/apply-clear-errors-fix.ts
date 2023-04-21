@@ -3,7 +3,8 @@ const {
     setError,
     clearError,
     errors,
-} = useForm();
+} = useForm<{}>();
+
 clearErrors();
 clearErrors();
 clearErrors();

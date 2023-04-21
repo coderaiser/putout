@@ -11,4 +11,5 @@ const template = `
 t.equal(result, template);
 
 const string = 'hello';
+
 t.equal(result, string);
