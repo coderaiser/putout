@@ -2147,10 +2147,11 @@ When you need to ignore some routes no matter what, you can use `ignore` section
     ]
 }
 ```
-    
+
 ### Printer
 
 Now you have ability to define `printer` you want, it can be:
+
 - ✅[`babel`](https://babeljs.io/docs/babel-generator)
 - ✅[`recast`](https://github.com/putoutjs/recast) (default)
 - ✅[`putout`](https://github.com/putoutjs/putout)
@@ -2164,6 +2165,7 @@ If you want to try brand new `@putout/printer` update `.putout.json` with:
 ```
 
 New printer is:
+
 - much simpler in support then recast;
 - it is opinionated and has good defaults;
 - produces code like it was processed by ESLint without involving ESLint at all;

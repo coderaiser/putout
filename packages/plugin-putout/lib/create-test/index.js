@@ -69,8 +69,12 @@ function convert(objectPath) {
         value,
     } = objectPath.node.properties[0];
     
-    replaceWith(objectPath, ObjectExpression([ObjectProperty(Identifier('plugins'), ArrayExpression([ArrayExpression([
-        maybeLiteral(key),
-        value,
-    ])]))]));
+    replaceWith(objectPath, ObjectExpression([
+        ObjectProperty(Identifier('plugins'), ArrayExpression([
+            ArrayExpression([
+                maybeLiteral(key),
+                value,
+            ]),
+        ])),
+    ]));
 }
