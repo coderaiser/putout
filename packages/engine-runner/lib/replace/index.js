@@ -3,15 +3,23 @@
 const {template} = require('@putout/engine-parser');
 
 const {
+    isExpression,
+    isStatement,
+    isExpressionStatement,
+} = require('@babel/types');
+
+const {
     remove,
     replaceWith,
 } = require('@putout/operate');
+
 const {
     compare,
     findVarsWays,
     getValues,
     setValues,
 } = require('@putout/compare');
+
 const debug = require('debug')('putout:runner:replace');
 const maybeArray = require('../maybe-array');
 
@@ -94,6 +102,8 @@ const fix = (from, to, path) => {
         return remove(path);
     }
     
+    checkExpressionStatement(nodeFrom, nodeTo, path);
+    
     const waysTo = findVarsWays(nodeTo);
     const newPath = replaceWith(path, nodeTo);
     
@@ -168,4 +178,17 @@ const validateTemplateValues = (a, b) => {
             throw Error(`☝️ Looks like template values not linked: ${stringify(keys(b))} -> ${stringify(keys(a))}`);
     }
 };
+
+function checkExpressionStatement(nodeFrom, nodeTo, path) {
+    if (!isExpression(nodeFrom))
+        return;
+    
+    if (!isStatement(nodeTo))
+        return;
+    
+    if (isExpressionStatement(path) || isExpressionStatement(path.parentPath))
+        return;
+    
+    throw Error(`☝️ Looks like try to put Statement in place of Expression, use 'match' to filter out such cases`);
+}
 

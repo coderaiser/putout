@@ -765,3 +765,24 @@ test('putout: runner: replace: comments', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: statement in place of expression', (t) => {
+    const hello = {
+        report: () => '',
+        replace: () => ({
+            '__a ? __b : __c;': 'if (__a) __b; else __c;',
+        }),
+    };
+    
+    const message = `☝️ Looks like try to put Statement in place of Expression, use 'match' to filter out such cases`;
+    
+    const [error] = tryCatch(putout, 'fn(a ? b : c)', {
+        runPlugins,
+        plugins: [
+            ['hello', hello],
+        ],
+    });
+    
+    t.equal(error.message, message);
+    t.end();
+});
+
