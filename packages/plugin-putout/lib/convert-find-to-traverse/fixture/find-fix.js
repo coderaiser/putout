@@ -4,5 +4,4 @@ module.exports.traverse = ({push, traverse}) => {
     return {
         FunctionExpression: traverseFn,
         FunctionDeclaration: traverseFn,
-    };
-};
+    };};

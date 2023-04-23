@@ -183,7 +183,7 @@ function checkExpressionStatement(nodeFrom, nodeTo, path) {
     if (!isExpression(nodeFrom))
         return;
     
-    if (!isStatement(nodeTo))
+    if (!isStatement(nodeTo) || isExpressionStatement(nodeTo))
         return;
     
     if (isExpressionStatement(path) || isExpressionStatement(path.parentPath))

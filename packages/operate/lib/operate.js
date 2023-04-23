@@ -60,6 +60,7 @@ function replaceWith(path, node) {
         comments,
         loc,
     } = path.node;
+    
     const {currentPath} = maybeBody(path, node);
     
     currentPath.replaceWith(node);
