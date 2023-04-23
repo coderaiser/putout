@@ -34,10 +34,9 @@ module.exports.replace = () => ({
     '(() => __body)()': '__body',
     '(function() {})()': (vars, path) => {
         const {body} = path.node.callee.body;
-        const [first] = body;
         
         replaceWithMultiple(path.parentPath, body);
         
-        return first;
+        return '';
     },
 });
