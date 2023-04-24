@@ -1,0 +1,85 @@
+# @putout/plugin-printer [![NPM version][NPMIMGURL]][NPMURL]
+
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-printer.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-printer "npm"
+
+🐊[**Putout**](https://github.com/coderaiser/putout) adds support of transformations for [`@putout/printer`](https://github.com/putoutjs/printer).
+
+## Install
+
+```
+npm i @putout/plugin-printer -D
+```
+
+## Rules
+
+```json
+{
+    "rules": {
+        "printer/add-args": "on",
+        "printer/apply-breakline": "on",
+        "printer/apply-linebreak": "on",
+        "printer/apply-computed-print": "on"
+    }
+}
+```
+
+## apply-breakline
+
+```diff
+-print.newline();
+-indent();
+print.breakline();
+```
+
+## apply-linebreak;
+
+```diff
+-indent();
+-print.newline();
+print.linebreak();
+```
+
+## add-args
+
+### ❌ Example of incorrect code
+
+```js
+module.exports = {
+    TSPropertySignature(path) {
+        const {optional} = path.node;
+        print('__key');
+        maybe.print(optional, '?');
+    },
+};
+```
+
+### ✅ Example of correct code
+
+```js
+module.exports = {
+    TSPropertySignature(path, {print, maybe}) {
+        const {optional} = path.node;
+        print('__key');
+        maybe.print(optional, '?');
+    },
+};
+```
+
+## apply-computed-print
+
+### ❌ Example of incorrect code
+
+```js
+print(path.get('block'));
+```
+
+### ✅ Example of correct code
+
+```js
+print('__block');
+```
+
+## License
+
+MIT

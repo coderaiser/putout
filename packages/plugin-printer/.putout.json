@@ -1,0 +1,6 @@
+{
+    "printer": "putout",
+    "rules": {
+        "putout": "on"
+    }
+}

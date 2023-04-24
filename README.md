@@ -2004,6 +2004,7 @@ Next packages not bundled with 🐊**Putout** but can be installed separately.
 | [`@putout/plugin-jest`](/packages/plugin-jest#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-jest.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-jest) |
 | [`@putout/plugin-travis`](/packages/plugin-travis#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-travis.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-travis) |
 | [`@putout/plugin-convert-throw`](/packages/plugin-convert-throw#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-convert-throw.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-convert-throw) |
+| [`@putout/plugin-printer`](/packages/plugin-printer#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-printer.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-printer) |
 
 ## 🦚 Formatters
 
