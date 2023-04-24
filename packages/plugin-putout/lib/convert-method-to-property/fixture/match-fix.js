@@ -3,4 +3,5 @@ module.exports.match = () => ({
         const bodyPath = path.get('right.body');
         
         if (!bodyPath.isBlockStatement()) {}
-    },});
+    },
+});

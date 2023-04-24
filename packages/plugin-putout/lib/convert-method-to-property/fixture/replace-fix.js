@@ -3,4 +3,5 @@ module.exports.replace = () => ({
         const bodyPath = path.get('right.body');
         
         if (!bodyPath.isBlockStatement()) {}
-    },});
+    },
+});
