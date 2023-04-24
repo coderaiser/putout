@@ -786,3 +786,37 @@ test('putout: runner: replace: statement in place of expression', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: statement in place of expression: ExpressionStatement', (t) => {
+    const REJECTS = putout.template('stub().rejects(A)');
+    const hello = {
+        report: () => '',
+        replace: () => ({
+            'async () => __a': ({__a}) => {
+                return REJECTS({
+                    A: __a.argument,
+                });
+            },
+        }),
+    };
+    
+    const source = montag`
+        const d = async () => {
+            throw Error('hello');
+        }
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['hello', hello],
+        ],
+    });
+    
+    const expected = montag`
+        const d = stub().rejects()
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
