@@ -510,6 +510,7 @@ test('putout: engine-processor: getFilePatterns', (t) => {
         js,
         css,
     ];
+    
     const result = getFilePatterns(processors);
     
     const expected = [
