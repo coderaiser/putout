@@ -3,4 +3,3 @@ if (a != false)
 
 if (a !== false)
     alert();
-

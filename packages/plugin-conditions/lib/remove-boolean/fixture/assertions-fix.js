@@ -11,11 +11,12 @@ if (!a)
     alert();
 
 return Boolean(a);
+
 return Boolean(a);
 
 return !a;
-return !a;
 
+return !a;
 if (!a)
     alert();
 

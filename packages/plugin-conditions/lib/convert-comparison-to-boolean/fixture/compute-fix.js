@@ -4,3 +4,4 @@ const a = {
 
 if (true)
     return;
+

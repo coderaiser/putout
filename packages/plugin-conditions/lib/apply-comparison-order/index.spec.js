@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'conditions/apply-comparison-order': plugin,
+    printer: 'putout',
+    plugins: [
+        ['conditions/apply-comparison-order', plugin],
+    ],
 });
 
 test('plugin-conditions: apply-comparison-order: transform: report', (t) => {
@@ -41,4 +44,3 @@ test('plugin-apply-comparison-order: no report: shift', (t) => {
     t.noReport('shift');
     t.end();
 });
-

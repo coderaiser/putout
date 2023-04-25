@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const conditions = require('..');
 
 const test = createTest(__dirname, {
-    conditions,
+    printer: 'putout',
+    plugins: [
+        ['conditions', conditions],
+    ],
 });
 
 test('plugin-conditions: transform: apply-comparison-order', (t) => {

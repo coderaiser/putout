@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const evaluate = require('.');
 
 const test = createTest(__dirname, {
-    'conditions/evaluate': evaluate,
+    printer: 'putout',
+    plugins: [
+        ['conditions/evaluate', evaluate],
+    ],
 });
 
 test('conditions: evaluate: report', (t) => {

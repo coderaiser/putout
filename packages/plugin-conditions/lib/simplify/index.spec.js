@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const simplify = require('.');
 
 const test = createTest(__dirname, {
-    'conditions/simplify': simplify,
+    printer: 'putout',
+    plugins: [
+        ['conditions/simplify', simplify],
+    ],
 });
 
 test('plugin-conditions: simplify: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-conditions: simplify: transform: duplicate', (t) => {
     t.transform('duplicate');
     t.end();
 });
-

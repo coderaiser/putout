@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertEqualToStrictEqual = require('.');
 
 const test = createTest(__dirname, {
-    'conditions/convert-equal-to-strict-equal': convertEqualToStrictEqual,
+    printer: 'putout',
+    plugins: [
+        ['conditions/convert-equal-to-strict-equal', convertEqualToStrictEqual],
+    ],
 });
 
 test('plugin-conditions: convert-equal-to-strict-equal: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-conditions: convert-equal-to-strict-equal: no transform: not null',
     t.noTransform('not-null');
     t.end();
 });
-

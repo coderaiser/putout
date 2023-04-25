@@ -1,12 +1,11 @@
 const ReviewField = forwardRef((props, ref) => {
-    const {
-        errors,
-    } = {
+    const {errors} = {
         ...props,
     };
-
-    if (errors.length > 1) {
-    }
+    
+    if (errors.length > 1) {}
 });
 
-export { ReviewField };
+export {
+    ReviewField,
+}
