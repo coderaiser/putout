@@ -12,7 +12,11 @@ export const files = [
 
 export const lint = async (code, {fix}) => {
     const config = await loadConfig();
-    const {output, results} = await stylelint.lint({
+    
+    const {
+        output,
+        results,
+    } = await stylelint.lint({
         fix,
         code,
         config,
@@ -38,4 +42,3 @@ function toPlace({line, column, rule, text}) {
         },
     };
 }
-

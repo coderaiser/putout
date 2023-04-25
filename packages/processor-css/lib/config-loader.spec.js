@@ -15,6 +15,7 @@ test('putout: processor: css: config-loader: no config found', async (t) => {
     const loadConfig = createConfigLoader({
         cosmiconfig,
     });
+    
     const result = await loadConfig();
     
     t.deepEqual(result, defaultConfig);
@@ -35,10 +36,10 @@ test('putout: processor: css: config-loader: config found', async (t) => {
     const loadConfig = createConfigLoader({
         cosmiconfig,
     });
+    
     const result = await loadConfig();
     const expected = 3;
     
     t.equal(result.rules.indentation, expected);
     t.end();
 });
-
