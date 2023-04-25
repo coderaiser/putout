@@ -45,9 +45,10 @@ function create(from, to, path) {
 
 module.exports.init = init;
 function init({path, program}) {
-    path.node = path.node || {};
+    if (path.node) {
+        path.node[name] = path.node[name] || new Set();
+    }
     
-    path.node[name] = path.node[name] || new Set();
     program.node[name] = program.node[name] || new Set();
 }
 
@@ -55,13 +56,13 @@ module.exports.add = add;
 function add({path, program, watermark, highWatermark}) {
     init({path, program});
     
-    path.node[name].add(watermark);
+    path?.node[name].add(watermark);
     program.node[name].add(highWatermark);
 }
 
 module.exports.has = has;
 function has({path, program, watermark, highWatermark}) {
-    if (path.node[name].has(watermark) || path.findParent(hasWatermark(watermark)))
+    if (path.node?.[name].has(watermark) || path.findParent(hasWatermark(watermark)))
         return true;
     
     if (program.node[name].has(highWatermark))

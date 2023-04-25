@@ -66,3 +66,19 @@ test('merge duplicate imports: transform: remove', (t) => {
     });
     t.end();
 });
+
+test('merge duplicate imports: transform: nested', (t) => {
+    t.transform('remove-replace', {
+        remove: {
+            report: noop,
+            match: () => ({
+                'import __imports from "react"': ({__imports}) => __imports[0].local.name === 'React',
+            }),
+            replace: () => ({
+                'import React from "react"': '',
+                'import __imports from "react"': () => '',
+            }),
+        },
+    });
+    t.end();
+});

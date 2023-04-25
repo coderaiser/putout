@@ -6,7 +6,6 @@ const {
 } = require('putout');
 
 const {remove} = operator;
-
 const {values} = Object;
 
 const {

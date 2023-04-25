@@ -10,6 +10,8 @@ const tryCatch = require('try-catch');
 
 const {runPlugins} = require('..');
 
+const noop = () => {};
+
 const {print, types} = putout;
 const {StringLiteral} = types;
 
@@ -814,6 +816,40 @@ test('putout: runner: replace: statement in place of expression: ExpressionState
     
     const expected = montag`
         const d = stub().rejects()
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: runner: replace: watermark after remove', (t) => {
+    const remove = {
+        report: noop,
+        match: () => ({
+            'import __imports from "react"': ({__imports}) => __imports[0].local.name === 'React',
+        }),
+        replace: () => ({
+            'import React from "react"': '',
+            'import __imports from "react"': () => '',
+        }),
+    };
+    
+    const source = montag`
+        import React from 'react';
+        import {use} from 'react';
+        import {abc} from 'react'
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            'merge-duplicate-imports',
+            ['remove', remove],
+        ],
+    });
+    
+    const expected = montag`
+        import {use, abc} from 'react';
     `;
     
     t.equal(code, expected);
