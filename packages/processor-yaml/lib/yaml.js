@@ -4,7 +4,10 @@ import yaml from 'yaml';
 import * as jsonProcessor from '@putout/processor-json';
 
 const parseRule = (a) => justKebabCase(a.replace('YAML', 'Yaml'));
-const {stringify, parse} = JSON;
+const {
+    stringify,
+    parse,
+} = JSON;
 
 export const files = [
     '*.yml',
@@ -31,6 +34,7 @@ export const branch = (rawSource) => {
 
 export const find = (rawSource) => {
     const [error] = tryCatch(yaml.parse, rawSource);
+    
     const places = parsePlaces({
         error,
     });
@@ -57,18 +61,23 @@ function parsePlaces({error}) {
         message,
         linePos,
     } = error;
+    
     const [rule] = String(error).split(':');
+    
     const place = {
         message: parseMessage(message),
         rule: `${parseRule(rule)} (yaml)`,
         position: parsePosition(linePos),
     };
     
-    return [place];
+    return [
+        place,
+    ];
 }
 
 function parsePosition(linePos) {
     const [{line, col}] = linePos;
+    
     return {
         line,
         column: col,
