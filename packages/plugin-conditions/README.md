@@ -101,15 +101,13 @@ const t = false;
 ### ❌ Example of incorrect code
 
 ```js
-if (a == b) {
-}
+if (a == b) {}
 ```
 
 ### ✅ Example of correct code
 
 ```js
-if (a === b) {
-}
+if (a === b) {}
 ```
 
 ## evaluate
@@ -186,8 +184,7 @@ if (zone?.tooltipCallback) {
 }
 
 if (a)
-    alert('hello');
-else
+    alert('hello');else
     alert('hello');
 ```
 

@@ -13,4 +13,3 @@ module.exports.rules = {
     ...getRule('remove-boolean'),
     ...getRule('simplify'),
 };
-

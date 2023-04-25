@@ -22,4 +22,3 @@ module.exports.replace = () => ({
         return '__b';
     },
 });
-

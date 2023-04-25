@@ -12,6 +12,7 @@ const {
     replaceWithMultiple,
     remove,
 } = operator;
+
 const {isIdentifier} = types;
 
 module.exports.report = () => 'Avoid constant conditions';
@@ -22,9 +23,7 @@ module.exports.fix = ({path, result}) => {
         consequent,
     } = path.node;
     
-    const {
-        body = [consequent],
-    } = consequent;
+    const {body = [consequent]} = consequent;
     
     if (result)
         return replaceWithMultiple(path, body);
@@ -38,6 +37,7 @@ module.exports.fix = ({path, result}) => {
 module.exports.traverse = ({push, generate}) => ({
     IfStatement(path) {
         const testPath = path.get('test');
+        
         const {
             left,
             right,
@@ -78,4 +78,3 @@ function containsIdentifiers(testPath) {
     
     return is;
 }
-

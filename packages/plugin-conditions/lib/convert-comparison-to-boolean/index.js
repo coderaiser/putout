@@ -5,7 +5,11 @@ const {
     operator,
 } = require('putout');
 
-const {replaceWith, compute} = operator;
+const {
+    replaceWith,
+    compute,
+} = operator;
+
 const {
     isIdentifier,
     BooleanLiteral,
