@@ -64,6 +64,7 @@ function processImports(push, imports) {
             continue;
         
         const count = importDefaults.get(value) || 0;
+        
         const importDefaultCount = count + specifiers
             .filter(isImportDefaultSpecifier).length;
         
