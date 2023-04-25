@@ -44,7 +44,8 @@ module.exports.replace = () => ({
             
             if (property.key.name === 'errors') {
                 const key = {
-                    ...property.key};
+                    ...property.key,
+                };
                 
                 property.key.name = 'formState';
                 

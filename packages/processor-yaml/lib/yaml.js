@@ -4,6 +4,7 @@ import yaml from 'yaml';
 import * as jsonProcessor from '@putout/processor-json';
 
 const parseRule = (a) => justKebabCase(a.replace('YAML', 'Yaml'));
+
 const {
     stringify,
     parse,

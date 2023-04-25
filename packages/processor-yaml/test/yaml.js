@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test/processor';
+
 const test = createTest(import.meta.url, {
     processors: [
         'yaml',
@@ -31,4 +32,3 @@ test('putout: processor: yaml: no startLine', async ({comparePlaces}) => {
 test('putout: processor: yaml: duplicate: file content', async ({noProcess}) => {
     await noProcess('duplicate.yml');
 });
-
