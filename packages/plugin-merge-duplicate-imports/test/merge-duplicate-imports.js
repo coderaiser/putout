@@ -11,7 +11,10 @@ const {remove} = operator;
 const noop = () => {};
 
 const test = createTest(__dirname, {
-    'merge-duplicate-imports': mergeDebugger,
+    printer: 'putout',
+    plugins: [
+        ['merge-duplicate-imports', mergeDebugger],
+    ],
 });
 
 test('merge duplicate imports: report', (t) => {
@@ -63,4 +66,3 @@ test('merge duplicate imports: transform: remove', (t) => {
     });
     t.end();
 });
-

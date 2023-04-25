@@ -8,6 +8,7 @@ const {
 const {remove} = operator;
 
 const {values} = Object;
+
 const {
     isImportDefaultSpecifier,
     isImportNamespaceSpecifier,
@@ -16,21 +17,30 @@ const {
 module.exports.report = () => `Avoid duplicate imports`;
 
 module.exports.fix = ({path, imports}) => {
-    const all = path.node.specifiers;
+    const all = [];
     
-    for (const path of imports) {
-        const {specifiers} = path.node;
+    for (const imp of imports) {
+        const {specifiers} = imp.node;
         
-        all.push(...specifiers);
-        remove(path);
+        for (const spec of specifiers) {
+            if (isImportDefaultSpecifier(spec)) {
+                path.node.specifiers.unshift(spec);
+                continue;
+            }
+            
+            all.push(spec);
+        }
+        
+        remove(imp);
     }
+    
+    path.node.specifiers.push(...all);
 };
 
 module.exports.traverse = ({push, pathStore}) => ({
     ImportDeclaration(path) {
         pathStore(path);
     },
-    
     Program: {
         exit: () => {
             processImports(push, pathStore());
@@ -54,7 +64,8 @@ function processImports(push, imports) {
             continue;
         
         const count = importDefaults.get(value) || 0;
-        const importDefaultCount = count + specifiers.filter(isImportDefaultSpecifier).length;
+        const importDefaultCount = count + specifiers
+            .filter(isImportDefaultSpecifier).length;
         
         importDefaults.set(value, importDefaultCount);
     }
@@ -81,6 +92,7 @@ function processImports(push, imports) {
             continue;
         
         const [path, ...imports] = list;
+        
         push({
             path,
             imports,
@@ -92,9 +104,11 @@ function duplicatesStore() {
     const duplicates = [];
     
     const get = () => values(duplicates);
+    
     const add = (value, path) => {
         duplicates[value] = duplicates[value] || [];
-        duplicates[value].push(path);
+        duplicates[value]
+            .push(path);
     };
     
     return {
@@ -102,4 +116,3 @@ function duplicatesStore() {
         add,
     };
 }
-

@@ -1,4 +1,2 @@
 import test, {stub} from 'supertape';
-import putout, {
-    load,
-} from './putout.mjs';
+import putout, {load} from './putout.mjs';
