@@ -1,3 +1,24 @@
+2023.04.25, v29.3.0
+
+feature:
+- b2af4c19b package: @putout/plugin-merge-duplicate-imports v9.0.0
+- 380d7a771 @putout/plugin-merge-duplicate-imports: drop support of 🐊 < 29
+- 8ab240af7 @putout/plugin-merge-duplicate-imports: use @putout/printer
+- 0397f2768 package: @eslint/eslintrc v2.0.2
+- 6371b6c1d package: typescript v5.0.4
+- 4f12e8014 package: @putout/engine-parser v6.0.0
+- 82b651f6a package: @putout/engine-processor v7.0.0
+- a20a5fc94 package: @putout/engine-loader v8.1.0
+- 8506675e8 package: @putout/processor-css v7.0.0
+- ef9019178 @putout/processor-css: drop support of 🐊 < 29
+- ddda321f6 package: stylelint-config-standard v33.0.0
+- 712736d07 package: stylelint v15.6.0
+- a09971b90 @putout/processor-css: use @putout/printer
+- ef4ea8d86 package: yaml v2.2.2 (https://security.snyk.io/vuln/SNYK-JS-YAML-5458867)
+- 2821594aa @putout/plugin-printer: add
+- 1096958c5 @putout/plugin-remove-iife: simplify
+- f78c2dd3b @putout/engine-runner: add ability to handle case where Statement put in place of Expression
+
 2023.04.21, v29.2.5
 
 fix:
