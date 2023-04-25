@@ -3,14 +3,17 @@ import * as css from '@putout/processor-css';
 
 const typos = {
     files: '*.css',
-    lint: (code) => [code, [{
-        rule: 'typo (typos)',
-        message: 'Typo: target -> target',
-        position: {
-            line: 1,
-            column: 0,
-        },
-    }]],
+    lint: (code) => [
+        code,
+        [{
+            rule: 'typo (typos)',
+            message: 'Typo: target -> target',
+            position: {
+                line: 1,
+                column: 0,
+            },
+        }],
+    ],
 };
 
 const test = createTest(import.meta.url, {
@@ -45,4 +48,3 @@ test('putout: engine: processor: couple', async ({comparePlaces}) => {
         rule: 'indentation (stylelint)',
     }]);
 });
-

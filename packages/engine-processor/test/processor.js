@@ -7,6 +7,7 @@ const {join} = require('path');
 
 const {test, stub} = require('supertape');
 const processFile = require('putout/process-file');
+
 const {
     getFilePatterns,
     runProcessors,
@@ -33,6 +34,7 @@ test('putout: engine-processor: javascript', async (t) => {
     const name = 'hello.js';
     const options = {};
     const rawSource = `const a = 'hello'`;
+    
     const processFile = stub().returns({
         source: rawSource,
         places: [],
@@ -61,6 +63,7 @@ test('putout: engine-processor: javascript: load', async (t) => {
     const name = 'hello.js';
     const options = {};
     const rawSource = `const a = 'hello'`;
+    
     const processFile = stub().returns({
         source: rawSource,
         places: [],
@@ -82,12 +85,15 @@ test('putout: engine-processor: javascript: load', async (t) => {
 
 test('putout: engine-processor: markdown: javascript', async (t) => {
     const name = join(__dirname, 'fixture/js.md');
+    
     const options = {
         processors: [
             'markdown',
         ],
     };
+    
     const rawSource = await readFile(name, 'utf8');
+    
     const processFile = stub().returns({
         source: rawSource,
         places: [],
@@ -115,12 +121,14 @@ test('putout: engine-processor: markdown: javascript', async (t) => {
 test('putout: engine-processor: markdown: fix', async (t) => {
     const name = join(__dirname, 'fixture', 'fix.md');
     const outputName = join(__dirname, 'fixture', 'fix-fix.md');
+    
     const options = {
         dir: __dirname,
         processors: [
             'markdown',
         ],
     };
+    
     const rawSource = await readFile(name, 'utf8');
     const output = await readFile(outputName, 'utf8');
     
@@ -141,11 +149,13 @@ test('putout: engine-processor: markdown: fix', async (t) => {
 
 test('putout: engine-processor: markdown: no fix', async (t) => {
     const name = join(__dirname, 'fixture/no-fix.md');
+    
     const options = {
         processors: [
             'markdown',
         ],
     };
+    
     const rawSource = await readFile(name, 'utf8');
     
     const {processedSource} = await runProcessors({
@@ -164,11 +174,13 @@ test('putout: engine-processor: markdown: no fix', async (t) => {
 
 test('putout: engine-processor: markdown: no fix: is processed', async (t) => {
     const name = join(__dirname, 'fixture/no-js.md');
+    
     const options = {
         processors: [
             'markdown',
         ],
     };
+    
     const rawSource = await readFile(name, 'utf8');
     
     const {isProcessed} = await runProcessors({
@@ -187,11 +199,13 @@ test('putout: engine-processor: markdown: no fix: is processed', async (t) => {
 
 test('putout: engine-processor: markdown: fix: do not return processed places', async (t) => {
     const name = join(__dirname, 'fixture/places.md');
+    
     const options = {
         processors: [
             'markdown',
         ],
     };
+    
     const rawSource = await readFile(name, 'utf8');
     const fix = true;
     
@@ -214,11 +228,13 @@ test('putout: engine-processor: markdown: fix: do not return processed places', 
 
 test('putout: engine-processor: markdown: no fix: return processed places', async (t) => {
     const name = join(__dirname, 'fixture/places.md');
+    
     const options = {
         processors: [
             'markdown',
         ],
     };
+    
     const rawSource = await readFile(name, 'utf8');
     const fix = false;
     
@@ -264,6 +280,7 @@ test('putout: engine-processor: markdown: no fix: return processed places', asyn
 // Or hard to maintain one big blob of processing with one message but change only on --fix.
 test('putout: engine-processor: markdown: no places no fix', async (t) => {
     const name = join(__dirname, 'fixture', 'no-places-no-change.md');
+    
     const options = {
         dir: __dirname,
         processors: [
@@ -273,6 +290,7 @@ test('putout: engine-processor: markdown: no places no fix', async (t) => {
     
     const fix = true;
     const rawSource = await readFile(name, 'utf8');
+    
     const {processedSource} = await runProcessors({
         name,
         fix,
@@ -290,14 +308,17 @@ test('putout: engine-processor: markdown: no places no fix', async (t) => {
 
 test('putout: engine-processor: markdown: no fix: processed places', async (t) => {
     const name = join(__dirname, 'fixture/places.md');
+    
     const options = {
         processors: [
             'markdown',
         ],
     };
+    
     const rawSource = await readFile(name, 'utf8');
     
     const fix = false;
+    
     const {places} = await runProcessors({
         name,
         processFile: processFile({
@@ -311,7 +332,10 @@ test('putout: engine-processor: markdown: no fix: processed places', async (t) =
     const expected = [{
         message: 'Code blocks should be fenced',
         rule: 'code-block-style (remark-lint)',
-        position: {line: 11, column: 1},
+        position: {
+            line: 11,
+            column: 1,
+        },
     }];
     
     t.deepEqual(places, expected);
@@ -320,14 +344,17 @@ test('putout: engine-processor: markdown: no fix: processed places', async (t) =
 
 test('putout: engine-processor: markdown: no fix: should not change source', async (t) => {
     const name = join(__dirname, 'fixture/places.md');
+    
     const options = {
         processors: [
             'markdown',
         ],
     };
+    
     const rawSource = await readFile(name, 'utf8');
     
     const fix = false;
+    
     const {processedSource} = await runProcessors({
         fix,
         name,
@@ -345,14 +372,17 @@ test('putout: engine-processor: markdown: no fix: should not change source', asy
 
 test('putout: engine-processor: markdown: fix: no places', async (t) => {
     const name = join(__dirname, 'fixture/places.md');
+    
     const options = {
         processors: [
             'markdown',
         ],
     };
+    
     const rawSource = await readFile(name, 'utf8');
     
     const fix = true;
+    
     const {places} = await runProcessors({
         fix,
         name,
@@ -371,15 +401,18 @@ test('putout: engine-processor: markdown: fix: no places', async (t) => {
 test('putout: engine-processor: markdown: js changed', async (t) => {
     const name = join(__dirname, 'fixture/js-changed.md');
     const fixedName = join(__dirname, 'fixture/js-changed-fix.md');
+    
     const options = {
         processors: [
             'markdown',
         ],
     };
+    
     const rawSource = await readFile(name, 'utf8');
     const expectedSource = await readFile(fixedName, 'utf8');
     
     const fix = true;
+    
     const {processedSource} = await runProcessors({
         fix,
         name,
@@ -397,6 +430,7 @@ test('putout: engine-processor: markdown: js changed', async (t) => {
 
 test('putout: engine-processor: yaml: no startLine', async (t) => {
     const name = join(__dirname, 'fixture/travis.yml');
+    
     const options = {
         plugins: [
             'travis',
@@ -407,6 +441,7 @@ test('putout: engine-processor: yaml: no startLine', async (t) => {
     };
     
     const rawSource = await readFile(name, 'utf8');
+    
     const {places} = await runProcessors({
         name,
         processFile: processFile({
@@ -424,7 +459,6 @@ test('putout: engine-processor: yaml: no startLine', async (t) => {
             line: 1,
         },
         rule: 'travis/disable-cache',
-    
     }];
     
     t.deepEqual(places, expected);
@@ -472,7 +506,10 @@ test('putout: engine-processor: getFilePatterns', (t) => {
         ],
     };
     
-    const processors = [js, css];
+    const processors = [
+        js,
+        css,
+    ];
     const result = getFilePatterns(processors);
     
     const expected = [
@@ -528,6 +565,7 @@ test('putout: engine-processor: css', async (t) => {
     
     const rawSource = await readFile(inputName, 'utf8');
     const output = await readFile(outputName, 'utf8');
+    
     const options = {
         processors: [
             'css',
@@ -535,6 +573,7 @@ test('putout: engine-processor: css', async (t) => {
     };
     
     const fix = true;
+    
     const {processedSource} = await runProcessors({
         fix,
         name: inputName,
@@ -551,6 +590,7 @@ test('putout: engine-processor: css', async (t) => {
 
 test('putout: engine-processor: md: json: options', async (t) => {
     const name = join(__dirname, 'fixture', 'readme.md');
+    
     const options = {
         match: {
             '*.md{json}': {
@@ -569,6 +609,7 @@ test('putout: engine-processor: md: json: options', async (t) => {
     };
     
     const rawSource = await readFile(name, 'utf8');
+    
     const {places} = await runProcessors({
         name,
         processFile: processFile({
@@ -608,6 +649,7 @@ test('putout: engine-processor: lint + js', async (t) => {
     const rawSource = 'hello world';
     
     const fix = true;
+    
     const {processedSource} = await runProcessors({
         fix,
         name: 'hello.md',
@@ -638,6 +680,7 @@ test('putout: engine-processor: no fix', async (t) => {
     const rawSource = 'hello world';
     
     const fix = true;
+    
     const {processedSource} = await runProcessors({
         fix,
         name: 'hello.md',
@@ -662,6 +705,7 @@ test('putout: engine-processor: call merge once', async (t) => {
             'markdown',
         ],
     };
+    
     const rawSource = await readFile(name, 'utf8');
     const fixedSource = await readFile(nameFix, 'utf8');
     
@@ -710,4 +754,3 @@ test('putout: engine-processor: processorRunners', async (t) => {
     t.deepEqual(places, []);
     t.end();
 });
-

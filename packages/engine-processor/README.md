@@ -18,8 +18,8 @@ const {
 } = require('@putout/engine-processor');
 
 const processorRunners = await getProcessorRunners(processors);
-
 const optionalLoader = async (a) => await import(a);
+
 await getProcessorRunners(processors, optionalLoader);
 
 await runProcessors({
@@ -29,9 +29,11 @@ await runProcessors({
     rawSource,
     index,
     length,
-    processorRunners, // optional
+    processorRunners,
+    // optional
     load, // when you need to override 'import()'
 });
+
 // returns
 ({
     isProcessed,
@@ -80,7 +82,9 @@ export const files = [
 ];
 
 export const lint = async (source, {fix}) => {
-    const [code, places] = await eslint(source, {fix});
+    const [code, places] = await eslint(source, {
+        fix,
+    });
     return [code, places];
 };
 ```

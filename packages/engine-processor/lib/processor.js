@@ -25,9 +25,7 @@ module.exports.getFilePatterns = (processors) => {
 };
 
 module.exports.runProcessors = async ({name, fix, processFile, options, rawSource, processorRunners, load}) => {
-    const {
-        processors = defaultProcessors,
-    } = options;
+    const {processors = defaultProcessors} = options;
     
     processorRunners = processorRunners || await getProcessorRunners(processors, load);
     processorRunners = processorRunners.map(addGlobs);
@@ -39,14 +37,23 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
     let allPlaces = [];
     let merge = null;
     
-    ({fileList, merge, isProcessed, processedSource, processedPlaces} = await getFiles({
+    ({
+        fileList,
+        merge,
+        isProcessed,
+        processedSource,
+        processedPlaces,
+    } = await getFiles({
         name,
         fix,
         rawSource,
         processorRunners,
     }));
     
-    ({processedSource, allPlaces} = await iterate({
+    ({
+        processedSource,
+        allPlaces,
+    } = await iterate({
         name,
         merge,
         fileList,
@@ -76,7 +83,11 @@ async function iterate({name, rawSource, fileList, merge, processFile, processed
     
     for (const {source, startLine = 0, extension} of fileList) {
         const processedName = addExtension(name, extension);
-        const {code, places} = await processFile({
+        
+        const {
+            code,
+            places,
+        } = await processFile({
             name: processedName,
             source,
             rawSource,
@@ -128,7 +139,9 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
         isProcessed = true;
         
         if (lint)
-            [processedSource, places] = await lint(rawSource, {fix});
+            [processedSource, places] = await lint(rawSource, {
+                fix,
+            });
         else if (fix)
             processedSource = await fixFind(rawSource);
         else
@@ -173,4 +186,3 @@ function addGlobs(processor) {
         }),
     };
 }
-
