@@ -5,6 +5,7 @@ const getVars = require('./get-vars');
 
 const transform = require('./transform');
 const getUnused = require('./get-unused');
+
 const {
     replaceWith,
     compare,

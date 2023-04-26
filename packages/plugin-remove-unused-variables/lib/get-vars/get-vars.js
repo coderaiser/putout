@@ -28,9 +28,15 @@ const {assign} = Object;
 
 module.exports = ({use, declare, addParams}) => {
     const traverseObj = traverseObjectExpression(use);
-    const processObj = processObjectPattern({use, declare});
+    const processObj = processObjectPattern({
+        use,
+        declare,
+    });
     
-    const traverseAssign = traverseAssignmentExpression({use, declare});
+    const traverseAssign = traverseAssignmentExpression({
+        use,
+        declare,
+    });
     
     const traverseTmpl = traverseTemplateLiteral(use);
     const traverseArray = traverseArrayExpression(use);
@@ -167,6 +173,7 @@ module.exports = ({use, declare, addParams}) => {
         
         'ClassDeclaration|ClassExpression'(path) {
             const {node} = path;
+            
             const {
                 id,
                 superClass,
@@ -246,7 +253,10 @@ module.exports = ({use, declare, addParams}) => {
         },
         
         LogicalExpression(path) {
-            const {left, right} = path.node;
+            const {
+                left,
+                right,
+            } = path.node;
             
             if (isIdentifier(left))
                 use(path, left.name);
@@ -344,7 +354,10 @@ module.exports = ({use, declare, addParams}) => {
         
         ForInStatement(path) {
             const {node} = path;
-            const {left, right} = node;
+            const {
+                left,
+                right,
+            } = node;
             
             if (isIdentifier(left))
                 use(path, left.name);
@@ -356,6 +369,7 @@ module.exports = ({use, declare, addParams}) => {
         
         ForOfStatement(path) {
             const {node} = path;
+            
             const {
                 left,
                 right,
@@ -373,11 +387,13 @@ module.exports = ({use, declare, addParams}) => {
                     },
                 });
             
-            path.get('left').traverse({
-                Identifier(path) {
-                    use(path, path.node.name);
-                },
-            });
+            path
+                .get('left')
+                .traverse({
+                    Identifier(path) {
+                        use(path, path.node.name);
+                    },
+                });
         },
         
         ExpressionStatement(path) {
@@ -453,7 +469,10 @@ module.exports = ({use, declare, addParams}) => {
         },
         
         BinaryExpression(path) {
-            const {left, right} = path.node;
+            const {
+                left,
+                right,
+            } = path.node;
             
             if (isIdentifier(left))
                 use(path, left.name);
@@ -491,6 +510,7 @@ module.exports = ({use, declare, addParams}) => {
         
         ExportNamedDeclaration(path) {
             const declarationPath = path.get('declaration');
+            
             const {
                 declaration,
                 specifiers,
@@ -584,8 +604,14 @@ module.exports = ({use, declare, addParams}) => {
             });
         },
         ...jsx(use),
-        ...flow({use, declare}),
-        ...typescript({use, declare}),
+        ...flow({
+            use,
+            declare,
+        }),
+        ...typescript({
+            use,
+            declare,
+        }),
     };
 };
 
@@ -603,4 +629,3 @@ const removeArrayPatternElement = (elPath) => {
             return remove.call(elPath);
     };
 };
-

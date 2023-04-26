@@ -20,4 +20,3 @@ function transform([name, value]) {
         ...value,
     };
 }
-

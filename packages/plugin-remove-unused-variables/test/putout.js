@@ -63,6 +63,7 @@ const fixture = readFixtures([
 
 test('remove-unused-variables: putout: no vars', (t) => {
     const result = putout(fixture.noVars);
+    
     const expected = {
         code: '',
         places: [],
@@ -266,4 +267,3 @@ test('remove-unused-variables: putout: comments: if', (t) => {
     t.equal(code, expected);
     t.end();
 });
-

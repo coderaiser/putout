@@ -18,7 +18,10 @@ const traverseObjectPattern = ({use, declare}) => {
             if (path.isRestElement())
                 continue;
             
-            const {key, value} = path.node;
+            const {
+                key,
+                value,
+            } = path.node;
             const valuePath = path.get('value');
             
             switch(value.type) {
@@ -51,7 +54,10 @@ const processObjectPattern = ({use, declare}) => (propertiesPaths) => {
         }
         
         if (isObjectPattern(value)) {
-            const process = processObjectPattern({use, declare});
+            const process = processObjectPattern({
+                use,
+                declare,
+            });
             process(path.get('value.properties'));
             continue;
         }
@@ -60,6 +66,7 @@ const processObjectPattern = ({use, declare}) => (propertiesPaths) => {
             const useAssignment = traverseAssignmentPattern({
                 use,
             });
+            
             useAssignment(path.get('value.right'));
             
             const leftPath = path.get('value.left');
@@ -129,7 +136,10 @@ const traverseArrayExpression = (use) => {
 module.exports.traverseArrayExpression = traverseArrayExpression;
 
 const traverseAssignmentExpression = ({use, declare}) => {
-    const traverseObjPattern = traverseObjectPattern({use, declare});
+    const traverseObjPattern = traverseObjectPattern({
+        use,
+        declare,
+    });
     
     return (path) => {
         const leftPath = path.get('left');
@@ -177,4 +187,3 @@ const traverseAssignmentPattern = ({use}) => (path) => {
 };
 
 module.exports.traverseAssignmentPattern = traverseAssignmentPattern;
-

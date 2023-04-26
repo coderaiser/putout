@@ -12,7 +12,8 @@ module.exports = ({use, declare}) => ({
         const {type} = expression;
         
         switch(type) {
-        case 'Identifier': use(path, expression.name);
+        case 'Identifier':
+            use(path, expression.name);
         }
     },
     
@@ -42,7 +43,8 @@ module.exports = ({use, declare}) => ({
         const {type} = typeName;
         
         switch(type) {
-        case 'Identifier': use(path, typeName.name);
+        case 'Identifier':
+            use(path, typeName.name);
         }
     },
     
@@ -52,7 +54,8 @@ module.exports = ({use, declare}) => ({
         const {type} = id;
         
         switch(type) {
-        case 'Identifier': declare(path, id.name);
+        case 'Identifier':
+            declare(path, id.name);
         }
     },
     
@@ -62,7 +65,8 @@ module.exports = ({use, declare}) => ({
         const {type} = exprName;
         
         switch(type) {
-        case 'Identifier': use(path, exprName.name);
+        case 'Identifier':
+            use(path, exprName.name);
         }
     },
     
@@ -72,7 +76,8 @@ module.exports = ({use, declare}) => ({
         const {type} = expression;
         
         switch(type) {
-        case 'Identifier': use(path, expression.name);
+        case 'Identifier':
+            use(path, expression.name);
         }
     },
     
@@ -82,7 +87,8 @@ module.exports = ({use, declare}) => ({
         const {type} = left;
         
         switch(type) {
-        case 'Identifier': use(path, left.name);
+        case 'Identifier':
+            use(path, left.name);
         }
     },
     
@@ -124,4 +130,3 @@ module.exports = ({use, declare}) => ({
             use(firstPath, firstPath.node.argument.name);
     },
 });
-

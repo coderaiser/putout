@@ -8,6 +8,7 @@ const {
     useParamsBeforeLastUsed,
     usePropertiesBeforeRest,
 } = require('./use-params');
+
 const {
     isClassDeclaration,
     isFunctionDeclaration,
@@ -16,7 +17,10 @@ const {
 module.exports = (ast, opts) => {
     const vars = {};
     const allParams = [];
-    const {setPath, traverse} = opts;
+    const {
+        setPath,
+        traverse,
+    } = opts;
     
     const use = useVariable({
         vars,
@@ -74,6 +78,7 @@ function getScopeUID({name, scope}) {
 
 const isUsedVariable = ({vars}) => (path, name) => {
     const {scope} = path;
+    
     const uid = getScopeUID({
         name,
         scope,
@@ -102,6 +107,7 @@ function getScope(path) {
 
 const declareVariable = ({vars, setPath}) => (path, name) => {
     const scope = getScope(path);
+    
     const uid = getScopeUID({
         name,
         scope,
@@ -126,6 +132,7 @@ const declareVariable = ({vars, setPath}) => (path, name) => {
 
 const useVariable = ({vars}) => (path, name) => {
     const {scope} = path;
+    
     const uid = getScopeUID({
         name,
         scope,
@@ -144,4 +151,3 @@ const useVariable = ({vars}) => (path, name) => {
             used: true,
         };
 };
-

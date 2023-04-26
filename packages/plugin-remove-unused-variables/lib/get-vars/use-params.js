@@ -98,4 +98,3 @@ const isUsedObjectPattern = (isUsed, path, node) => {
     
     return false;
 };
-

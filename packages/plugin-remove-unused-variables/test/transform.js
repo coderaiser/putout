@@ -55,4 +55,3 @@ test('transform: couple', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
-

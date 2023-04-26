@@ -25,4 +25,3 @@ module.exports = ({use, declare}) => ({
         declare(path, path.node.id.name);
     },
 });
-

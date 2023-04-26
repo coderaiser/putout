@@ -23,4 +23,3 @@ test('remove-unused-variables: get-unused', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
-

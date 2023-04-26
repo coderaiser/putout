@@ -1,6 +1,7 @@
 'use strict';
 
 const test = require('supertape');
+
 const {
     parse,
     traverse,
@@ -848,6 +849,7 @@ test('remove-unused-variables: get-vars: no root vars', (t) => {
 
 test('remove-unused-variables: get-vars: root vars: setPath', (t) => {
     const ast = parse(fixture.rootVars);
+    
     const result = getVars(ast, {
         setPath: true,
     });
@@ -1498,6 +1500,7 @@ test('remove-unused-variables: get-vars: yield', (t) => {
 
 test('remove-unused-variables: get-vars: template: no loc', (t) => {
     const ast = parse(fixture.noVars);
+    
     const buildRequire = template(`
         function fn() {
             var hello;
@@ -1505,6 +1508,7 @@ test('remove-unused-variables: get-vars: template: no loc', (t) => {
     `);
     
     const variable = buildRequire();
+    
     ast.program.body.push(variable);
     
     const result = getVars(ast).map(dutify);
@@ -1537,7 +1541,9 @@ test('remove-unused-variables: get-vars: flow', (t) => {
 });
 
 test('remove-unused-variables: get-vars: typescript', (t) => {
-    const ast = parse(fixture.typescript, {isTS: true});
+    const ast = parse(fixture.typescript, {
+        isTS: true,
+    });
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -1560,7 +1566,9 @@ test('remove-unused-variables: get-vars: typescript', (t) => {
 });
 
 test('remove-unused-variables: get-vars: typescript: namespace', (t) => {
-    const ast = parse(fixture.typescriptNamespace, {isTS: true});
+    const ast = parse(fixture.typescriptNamespace, {
+        isTS: true,
+    });
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -1572,7 +1580,9 @@ test('remove-unused-variables: get-vars: typescript: namespace', (t) => {
 });
 
 test('remove-unused-variables: get-vars: typescript: module', (t) => {
-    const ast = parse(fixture.typescriptModule, {isTS: true});
+    const ast = parse(fixture.typescriptModule, {
+        isTS: true,
+    });
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -1584,7 +1594,9 @@ test('remove-unused-variables: get-vars: typescript: module', (t) => {
 });
 
 test('remove-unused-variables: get-vars: typescript: as', (t) => {
-    const ast = parse(fixture.typescriptAs, {isTS});
+    const ast = parse(fixture.typescriptAs, {
+        isTS,
+    });
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -1597,7 +1609,9 @@ test('remove-unused-variables: get-vars: typescript: as', (t) => {
 });
 
 test('remove-unused-variables: get-vars: typescript: declare function', (t) => {
-    const ast = parse(fixture.typescriptDeclareFunction, {isTS});
+    const ast = parse(fixture.typescriptDeclareFunction, {
+        isTS,
+    });
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -1609,7 +1623,9 @@ test('remove-unused-variables: get-vars: typescript: declare function', (t) => {
 });
 
 test('remove-unused-variables: get-vars: typescript: type query', (t) => {
-    const ast = parse(fixture.typescriptTypeQuery, {isTS});
+    const ast = parse(fixture.typescriptTypeQuery, {
+        isTS,
+    });
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -1622,7 +1638,9 @@ test('remove-unused-variables: get-vars: typescript: type query', (t) => {
 });
 
 test('remove-unused-variables: get-vars: typescript: function type parameter', (t) => {
-    const ast = parse(fixture.typescriptFunctionTypeParameter, {isTS});
+    const ast = parse(fixture.typescriptFunctionTypeParameter, {
+        isTS,
+    });
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -1636,11 +1654,12 @@ test('remove-unused-variables: get-vars: typescript: function type parameter', (
 });
 
 test('remove-unused-variables: get-vars: typescript: types', (t) => {
-    const ast = parse(fixture.typescriptDts, {isTS});
+    const ast = parse(fixture.typescriptDts, {
+        isTS,
+    });
     const result = getVars(ast).map(dutify);
     const expected = [];
     
     t.deepEqual(result, expected);
     t.end();
 });
-

@@ -3,7 +3,5 @@
 const onlyDeclared = ({declared, used}) => declared && !used;
 
 module.exports = (items) => {
-    return items
-        .filter(onlyDeclared);
+    return items.filter(onlyDeclared);
 };
-

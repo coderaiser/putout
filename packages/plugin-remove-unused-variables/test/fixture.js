@@ -7,6 +7,7 @@ const tryCatch = require('try-catch');
 const camelCase = require('just-camel-case');
 
 const dirFixture = join(__dirname, 'fixture');
+
 const readFixture = (name) => {
     const longName = join(dirFixture, name);
     const [e, data] = tryCatch(readFileSync, `${longName}.ts`, 'utf8');
@@ -36,4 +37,3 @@ const handler = {
         return obj[prop];
     },
 };
-
