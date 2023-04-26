@@ -30,10 +30,11 @@ Here is list of rules:
     "rules": {
         "react-hooks/apply-short-fragment": "on",
         "react-hooks/declare": "on",
-        "react-hooks/remove-bind": "on",
         "react-hooks/rename-method-under-score": "on",
         "react-hooks/convert-state-to-hooks": "on",
+        "react-hooks/remove-bind": "on",
         "react-hooks/remove-this": "on",
+        "react-hooks/remove-react": "on",
         "react-hooks/convert-class-to-function": "on",
         "react-hooks/convert-component-to-use-state": "on",
         "react-hooks/convert-import-component-to-use-state": "on"
@@ -107,6 +108,24 @@ function Example() {
         <div/>
     );
 }
+```
+
+## remove-react
+
+Remove import of `React` in a similar to [react-codemod](https://github.com/reactjs/react-codemod#update-react-imports) way.
+
+### ❌ Example of incorrect code
+
+```jsx
+import React, {
+    useState,
+} from 'react';
+```
+
+### ✅ Example of correct code
+
+```jsx
+import {useState} from 'react';
 ```
 
 ## Example

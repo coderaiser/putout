@@ -10,6 +10,7 @@ module.exports.report = ({correct, operatorPath}) => {
 
 module.exports.fix = ({path, incorrect, correct}) => {
     path.node.value = path.node.value.replace(incorrect, correct);
+    path.node.raw = path.node.raw.replace(incorrect, correct);
 };
 
 module.exports.traverse = ({push}) => ({

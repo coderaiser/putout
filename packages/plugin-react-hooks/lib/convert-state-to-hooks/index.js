@@ -47,6 +47,9 @@ module.exports.find = (ast, {push, traverse}) => {
             
             const {right} = path.node;
             
+            if (!right.properties)
+                return;
+            
             for (const {shorthand} of right.properties) {
                 if (shorthand)
                     return;

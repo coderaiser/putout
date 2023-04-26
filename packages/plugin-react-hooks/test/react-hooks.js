@@ -39,3 +39,8 @@ test('plugin-react-hooks: transform: apply-short-fragment', (t) => {
     t.transform('apply-short-fragment');
     t.end();
 });
+
+test('plugin-react-hooks: transform: remove-react', (t) => {
+    t.transform('remove-react', '\n');
+    t.end();
+});

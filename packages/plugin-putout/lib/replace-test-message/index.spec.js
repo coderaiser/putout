@@ -29,3 +29,8 @@ test('plugin-putout: replace-test-message: transform: wrong', (t) => {
     t.transform('wrong');
     t.end();
 });
+
+test('plugin-putout: replace-test-message: transform: nested', (t) => {
+    t.transform('nested');
+    t.end();
+});
