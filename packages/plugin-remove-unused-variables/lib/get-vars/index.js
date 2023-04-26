@@ -17,6 +17,7 @@ const {
 module.exports = (ast, opts) => {
     const vars = {};
     const allParams = [];
+    
     const {
         setPath,
         traverse,

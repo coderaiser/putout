@@ -1544,6 +1544,7 @@ test('remove-unused-variables: get-vars: typescript', (t) => {
     const ast = parse(fixture.typescript, {
         isTS: true,
     });
+    
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -1569,6 +1570,7 @@ test('remove-unused-variables: get-vars: typescript: namespace', (t) => {
     const ast = parse(fixture.typescriptNamespace, {
         isTS: true,
     });
+    
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -1583,6 +1585,7 @@ test('remove-unused-variables: get-vars: typescript: module', (t) => {
     const ast = parse(fixture.typescriptModule, {
         isTS: true,
     });
+    
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -1597,6 +1600,7 @@ test('remove-unused-variables: get-vars: typescript: as', (t) => {
     const ast = parse(fixture.typescriptAs, {
         isTS,
     });
+    
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -1612,6 +1616,7 @@ test('remove-unused-variables: get-vars: typescript: declare function', (t) => {
     const ast = parse(fixture.typescriptDeclareFunction, {
         isTS,
     });
+    
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -1626,6 +1631,7 @@ test('remove-unused-variables: get-vars: typescript: type query', (t) => {
     const ast = parse(fixture.typescriptTypeQuery, {
         isTS,
     });
+    
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -1641,6 +1647,7 @@ test('remove-unused-variables: get-vars: typescript: function type parameter', (
     const ast = parse(fixture.typescriptFunctionTypeParameter, {
         isTS,
     });
+    
     const result = getVars(ast).map(dutify);
     
     const expected = [{
@@ -1657,6 +1664,7 @@ test('remove-unused-variables: get-vars: typescript: types', (t) => {
     const ast = parse(fixture.typescriptDts, {
         isTS,
     });
+    
     const result = getVars(ast).map(dutify);
     const expected = [];
     

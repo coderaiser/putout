@@ -22,6 +22,7 @@ const traverseObjectPattern = ({use, declare}) => {
                 key,
                 value,
             } = path.node;
+            
             const valuePath = path.get('value');
             
             switch(value.type) {
@@ -58,6 +59,7 @@ const processObjectPattern = ({use, declare}) => (propertiesPaths) => {
                 use,
                 declare,
             });
+            
             process(path.get('value.properties'));
             continue;
         }

@@ -28,6 +28,7 @@ const {assign} = Object;
 
 module.exports = ({use, declare, addParams}) => {
     const traverseObj = traverseObjectExpression(use);
+    
     const processObj = processObjectPattern({
         use,
         declare,
@@ -354,6 +355,7 @@ module.exports = ({use, declare, addParams}) => {
         
         ForInStatement(path) {
             const {node} = path;
+            
             const {
                 left,
                 right,
