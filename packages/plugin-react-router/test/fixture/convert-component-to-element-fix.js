@@ -1,1 +1,1 @@
- <Route path="/" element ={<Home />} />
+<Route path="/" element={<Home/>}/>;

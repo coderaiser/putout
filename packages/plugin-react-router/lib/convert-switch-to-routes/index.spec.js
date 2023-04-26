@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'react-router/convert-switch-to-routes': plugin,
+    printer: 'putout',
+    plugins: [
+        ['react-router/convert-switch-to-routes', plugin],
+    ],
 });
 
 test('plugin-react-router: convert-switch-to-routes: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-react-router: convert-switch-to-routes: transform', (t) => {
     t.transform('convert-switch-to-routes');
     t.end();
 });
-

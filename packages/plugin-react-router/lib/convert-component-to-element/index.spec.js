@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'react-router/convert-component-to-element': plugin,
+    printer: 'putout',
+    plugins: [
+        ['react-router/convert-component-to-element', plugin],
+    ],
 });
 
 test('plugin-react-router: convert-component-to-element: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-react-router: convert-component-to-element: transform', (t) => {
     t.transform('convert-component-to-element');
     t.end();
 });
-
