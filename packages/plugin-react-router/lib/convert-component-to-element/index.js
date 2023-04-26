@@ -19,15 +19,12 @@ module.exports.fix = (path) => {
         attr.name.name = 'element';
         
         const {name} = attr.value.expression;
-        attr.value.expression = JSXElement(
-            JSXOpeningElement(
-                JSXIdentifier(name),
-                [],
-                SELF_CLOSING,
-            ),
-            null,
+        
+        attr.value.expression = JSXElement(JSXOpeningElement(
+            JSXIdentifier(name),
             [],
-        );
+            SELF_CLOSING,
+        ), null, []);
     }
 };
 

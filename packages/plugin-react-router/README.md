@@ -41,12 +41,15 @@ Here is list of rules:
 ### ❌ Example of incorrect code
 
 ```jsx
-const {Route, Switch} = require('react-router');
+const {
+    Route,
+    Switch,
+} = require('react-router');
 
 const routes = () => (
     <Switch>
-        <Route exact path="/login" component={ Login }/>
-        <Route exact path="/join" component={ Join }/>
+        <Route exact path="/login" component={Login}/>
+        <Route exact path="/join" component={Join}/>
     </Switch>
 );
 ```
@@ -54,12 +57,15 @@ const routes = () => (
 ### ✅ Example of correct code
 
 ```jsx
-const {Route, Routes} = require('react-router');
+const {
+    Route,
+    Routes,
+} = require('react-router');
 
 const routes = () => (
     <Routes>
-        <Route exact path="/login" component={ Login }/>
-        <Route exact path="/join" component={ Join }/>
+        <Route exact path="/login" component={Login}/>
+        <Route exact path="/join" component={Join}/>
     </Routes>
 );
 ```
@@ -71,13 +77,13 @@ const routes = () => (
 ### ❌ Example of incorrect code
 
 ```jsx
-<Route path="/" component={Home} />;
+<Route path="/" component={Home}/>;
 ```
 
 ### ✅ Example of correct code
 
 ```jsx
-<Route path="/" element={<Home />} />;
+<Route path="/" element={<Home/>}/>;
 ```
 
 ## License

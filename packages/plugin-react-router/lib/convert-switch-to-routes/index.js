@@ -16,4 +16,3 @@ module.exports.traverse = ({push}) => ({
         push(Switch.path);
     },
 });
-

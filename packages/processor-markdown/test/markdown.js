@@ -103,9 +103,7 @@ test('putout: processor: markdown: fix: options', async (t) => {
     `;
     
     const result = await fix(source, {
-        plugins: [
-            (await import('madcut/plugin')).default,
-        ],
+        plugins: [(await import('madcut/plugin')).default],
     });
     
     const expected = montag`
@@ -130,9 +128,7 @@ test('putout: processor: markdown: find: options', async (t) => {
     `;
     
     const result = await find(source, {
-        plugins: [
-            (await import('madcut/plugin')).default,
-        ],
+        plugins: [(await import('madcut/plugin')).default],
     });
     
     const expected = [{
