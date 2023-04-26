@@ -15,3 +15,5 @@ const rename = ({obj: obj2 = null} = {}) => {
     };
 };
 
+const abc = ({hello, ...world} = {}) => {}
+

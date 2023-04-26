@@ -15,6 +15,9 @@ const traverseObjectPattern = ({use, declare}) => {
     
     return (propertiesPaths) => {
         for (const path of propertiesPaths) {
+            if (path.isRestElement())
+                continue;
+            
             const {key, value} = path.node;
             const valuePath = path.get('value');
             
