@@ -15,6 +15,7 @@ export const fix = async (rawSource) => {
     const {code} = await svelte.preprocess(rawSource, {
         async style({content}) {
             const source = removePrefixSpaces(content);
+            
             const [currentSource, places] = await lint(source, {
                 fix: true,
             });
@@ -45,6 +46,7 @@ export const find = async (rawSource) => {
     await svelte.preprocess(rawSource, {
         async style({content}) {
             const source = removePrefixSpaces(content);
+            
             const [currentSource, places] = await lint(source, {
                 fix: false,
             });
@@ -55,6 +57,7 @@ export const find = async (rawSource) => {
             });
             
             const index = rawSource.indexOf(content);
+            
             const startLine = getStartLine({
                 rawSource,
                 index,
@@ -117,6 +120,7 @@ export const merge = async (rawSource, list) => {
                 return;
             
             const currentSource = list.shift().trim();
+            
             const code = addPrefixSpaces({
                 content,
                 currentSource,
@@ -158,7 +162,7 @@ function removePrefixSpaces(text) {
 function getSpacesCount(text) {
     let i = 0;
     
-    while(/\s/.test(text[i]))
+    while (/\s/.test(text[i]))
         ++i;
     
     return i;
@@ -168,7 +172,7 @@ function getStartLine({index, rawSource}) {
     let i = 0;
     let lines = 0;
     
-    while(i <= index) {
+    while (i <= index) {
         if (rawSource[i] === '\n')
             ++lines;
         
@@ -177,4 +181,3 @@ function getStartLine({index, rawSource}) {
     
     return lines;
 }
-
