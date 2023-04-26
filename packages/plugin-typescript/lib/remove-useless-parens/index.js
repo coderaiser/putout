@@ -58,9 +58,7 @@ module.exports.fix = ({path, parentPath, typeAnnotation}) => {
     }
     
     if (parentPath.isTSArrayType()) {
-        replaceWith(path.parentPath, tSArrayType(
-            typeAnnotation,
-        ));
+        replaceWith(path.parentPath, tSArrayType(typeAnnotation));
         
         return;
     }

@@ -54,8 +54,7 @@ function match({__body}) {
 function replace({__a}, path) {
     declareOnce(path);
     
-    const arg = path
-        .get('arguments.1').node;
+    const arg = path.get('arguments.1').node;
     
     arg.async = true;
     

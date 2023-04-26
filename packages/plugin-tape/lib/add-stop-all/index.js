@@ -28,9 +28,7 @@ module.exports.fix = (path) => {
     const assertionPath = getAssertionsPath(path);
     const stopAllNode = template.ast('stopAll()');
     
-    assertionPath.insertBefore(ExpressionStatement(
-        stopAllNode,
-    ));
+    assertionPath.insertBefore(ExpressionStatement(stopAllNode));
 };
 
 module.exports.traverse = ({push}) => ({

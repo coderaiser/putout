@@ -17,14 +17,16 @@ module.exports.report = () => {
 
 function isRequire(path) {
     return path
-        .get('callee').isIdentifier({
+        .get('callee')
+        .isIdentifier({
             name: 'require',
         });
 }
 
 function isBabelTypes(path) {
     return path
-        .get('arguments.0').isStringLiteral({
+        .get('arguments.0')
+        .isStringLiteral({
             value: '@babel/types',
         });
 }

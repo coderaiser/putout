@@ -14,8 +14,7 @@ module.exports.traverseProperty = (node, name) => {
 
 const collect = (name, collector) => (path) => {
     for (const propertyPath of path.get('properties')) {
-        const {value} = propertyPath
-            .get('key').node;
+        const {value} = propertyPath.get('key').node;
         
         if (name === value)
             collector.push(propertyPath);

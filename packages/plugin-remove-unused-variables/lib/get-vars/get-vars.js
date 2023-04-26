@@ -393,7 +393,8 @@ module.exports = ({use, declare, addParams}) => {
                 .get('left')
                 .traverse({
                     Identifier(path) {
-                        use(path, path.node.name);
+                        use(path, path.node
+                            .name);
                     },
                 });
         },

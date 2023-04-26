@@ -115,7 +115,8 @@ function getElements({node}) {
         return elements.filter(Boolean);
     
     return properties
-        .map(getValue).filter(Boolean);
+        .map(getValue)
+        .filter(Boolean);
 }
 
 function getPathElements(path) {

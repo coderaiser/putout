@@ -10,7 +10,8 @@ const {StringLiteral} = types;
 const {compare} = operator;
 
 const isPush = (path) => path
-    .get('value').isIdentifier({
+    .get('value')
+    .isIdentifier({
         name: 'push',
     });
 

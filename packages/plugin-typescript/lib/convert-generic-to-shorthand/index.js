@@ -25,9 +25,7 @@ module.exports.fix = ({path, typeReference}) => {
         return;
     }
     
-    replaceWith(path, tSArrayType(
-        typeReference,
-    ));
+    replaceWith(path, tSArrayType(typeReference));
 };
 
 module.exports.traverse = ({push}) => ({

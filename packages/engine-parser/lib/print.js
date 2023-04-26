@@ -5,8 +5,7 @@ const putoutPrinter = require('@putout/printer');
 const generate = require('@babel/generator').default;
 const {stringify} = JSON;
 
-const btoa = (a) => Buffer
-    .from(a, 'binary').toString('base64');
+const btoa = (a) => Buffer.from(a, 'binary').toString('base64');
 
 const addSourceMap = (sourceMapName, {code, map}) => !sourceMapName ? code : `${code}\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,${btoa(stringify(map))}\n`;
 const fixStrictMode = (a) => a.replace(`\n\n\n'use strict'`, `\n\n'use strict'`);

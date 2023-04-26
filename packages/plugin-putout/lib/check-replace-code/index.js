@@ -123,8 +123,7 @@ function parseKey(propertyPath) {
 }
 
 function hasMatch(path) {
-    const {body} = path.scope
-        .getProgramParent().path.node;
+    const {body} = path.scope.getProgramParent().path.node;
     
     for (const current of body) {
         if (compare(current, 'module.exports.match = __a'))
