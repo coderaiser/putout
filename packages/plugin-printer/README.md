@@ -19,7 +19,8 @@ npm i @putout/plugin-printer -D
         "printer/add-args": "on",
         "printer/apply-breakline": "on",
         "printer/apply-linebreak": "on",
-        "printer/apply-computed-print": "on"
+        "printer/apply-computed-print": "on",
+        "printer/remove-args": "on"
     }
 }
 ```
@@ -78,6 +79,20 @@ print(path.get('block'));
 
 ```js
 print('__block');
+```
+
+## remove-args
+
+### ❌ Example of incorrect code
+
+```js
+print.indent(is);
+```
+
+### ✅ Example of correct code
+
+```js
+print.indent();
 ```
 
 ## License

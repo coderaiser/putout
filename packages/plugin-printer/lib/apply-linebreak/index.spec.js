@@ -19,3 +19,13 @@ test('rule: apply-linebreak: transform', (t) => {
     t.transform('apply-linebreak');
     t.end();
 });
+
+test('rule: apply-linebreak: transform: indent', (t) => {
+    t.transform('indent');
+    t.end();
+});
+
+test('rule: apply-linebreak: transform: write', (t) => {
+    t.transform('write');
+    t.end();
+});

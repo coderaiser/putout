@@ -18,13 +18,10 @@ const next = (path) => path.parentPath.getNextSibling();
 
 module.exports.fix = (path) => {
     const sibling = next(path);
+    const newNode = choose(path);
+    
     remove(sibling);
-    
-    if (compare(path, 'print.newline()'))
-        return replaceWith(path, template.ast('print.breakline()'));
-    
-    if (compare(path, 'write.newline()'))
-        return replaceWith(path, template.ast('write.breakline()'));
+    replaceWith(path, newNode);
 };
 
 module.exports.filter = (path) => {
@@ -39,3 +36,10 @@ module.exports.include = () => [
     'print.newline()',
     'write.newline()',
 ];
+
+function choose(path) {
+    if (compare(path, 'print.newline()'))
+        return template.ast('print.breakline()');
+    
+    return template.ast('write.breakline()');
+}
