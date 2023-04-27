@@ -9,11 +9,9 @@ const {
 const {StringLiteral} = types;
 const {compare} = operator;
 
-const isPush = (path) => path
-    .get('value')
-    .isIdentifier({
-        name: 'push',
-    });
+const isPush = (path) => path.get('value').isIdentifier({
+    name: 'push',
+});
 
 module.exports.report = () => 'Includer should be used instead of Traverser';
 

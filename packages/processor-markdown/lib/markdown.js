@@ -78,7 +78,8 @@ export const fix = async (rawSource, options = {}) => {
 export const branch = async (rawSource) => {
     const list = [];
     
-    await unified().use(parseStore)
+    await unified()
+        .use(parseStore)
         .use(collect, {
             list,
             visit,
@@ -91,7 +92,8 @@ export const branch = async (rawSource) => {
 export const merge = async (rawSource, list) => {
     const newList = list.slice();
     
-    const {value} = await unified().use(parseStore)
+    const {value} = await unified()
+        .use(parseStore)
         .use(apply, {
             list: newList,
             rawSource,

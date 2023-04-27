@@ -506,10 +506,7 @@ test('putout: engine-processor: getFilePatterns', (t) => {
         ],
     };
     
-    const processors = [
-        js,
-        css,
-    ];
+    const processors = [js, css];
     
     const result = getFilePatterns(processors);
     

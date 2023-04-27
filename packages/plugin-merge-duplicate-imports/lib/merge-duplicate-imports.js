@@ -106,8 +106,7 @@ function duplicatesStore() {
     
     const add = (value, path) => {
         duplicates[value] = duplicates[value] || [];
-        duplicates[value]
-            .push(path);
+        duplicates[value].push(path);
     };
     
     return {

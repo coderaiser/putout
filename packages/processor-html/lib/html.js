@@ -119,7 +119,9 @@ export const merge = async (rawSource, list) => {
             if (!content)
                 return;
             
-            const currentSource = list.shift().trim();
+            const currentSource = list
+                .shift()
+                .trim();
             
             const code = addPrefixSpaces({
                 content,
@@ -137,7 +139,9 @@ export const merge = async (rawSource, list) => {
 
 function addPrefixSpaces({content, currentSource}) {
     const spacesCount = getSpacesCount(content);
-    const lastLine = content.split('\n').pop();
+    const lastLine = content
+        .split('\n')
+        .pop();
     
     const code = '\n' + currentSource
         .split('\n')

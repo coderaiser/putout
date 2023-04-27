@@ -22,10 +22,7 @@ module.exports.replace = () => ({
 });
 
 function checkStubs({__a, __b}, path) {
-    const elements = [
-        __a,
-        __b,
-    ];
+    const elements = [__a, __b];
     
     const __array = {
         elements,

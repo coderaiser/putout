@@ -19,4 +19,3 @@ test('rule: remove-args: transform: traverse', (t) => {
     t.transform('remove-args');
     t.end();
 });
-

@@ -63,8 +63,7 @@ npm i @putout/plugin-tape -D
 
 ```js
 it('should equal', () => {
-    expect(a)
-        .toEqual(b);
+    expect(a).toEqual(b);
 });
 ```
 
@@ -431,10 +430,7 @@ test('should call init before show', (t) => {
     const init = stub();
     const show = stub();
     
-    t.calledInOrder([
-        init,
-        show,
-    ]);
+    t.calledInOrder([init, show]);
     t.end();
 });
 ```
@@ -446,10 +442,7 @@ test('should call init before show', (t) => {
     const init = stub().withName('init');
     const show = stub().withName('show');
     
-    t.calledInOrder([
-        init,
-        show,
-    ]);
+    t.calledInOrder([init, show]);
     t.end();
 });
 ```
@@ -463,10 +456,7 @@ test('should call init before show', (t) => {
     const init = stub().withName('show');
     const show = stub().withName('show');
     
-    t.calledInOrder([
-        init,
-        show,
-    ]);
+    t.calledInOrder([init, show]);
     t.end();
 });
 ```
@@ -478,10 +468,7 @@ test('should call init before show', (t) => {
     const init = stub().withName('init');
     const show = stub().withName('show');
     
-    t.calledInOrder([
-        init,
-        show,
-    ]);
+    t.calledInOrder([init, show]);
     t.end();
 });
 ```

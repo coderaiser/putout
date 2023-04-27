@@ -18,10 +18,7 @@ const typos = {
 
 const test = createTest(import.meta.url, {
     extension: 'css',
-    processorRunners: [
-        typos,
-        css,
-    ],
+    processorRunners: [typos, css],
 });
 
 test('putout: engine: processor: couple', async ({comparePlaces}) => {

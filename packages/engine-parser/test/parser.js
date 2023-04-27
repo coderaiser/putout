@@ -316,7 +316,8 @@ test('putout: print: recast: object expressions', (t) => {
     
     traverse(ast, {
         Function(path) {
-            path.get('params.0')
+            path
+                .get('params.0')
                 .remove();
         },
     });
