@@ -42,6 +42,7 @@ module.exports.traverse = ({push, options}) => ({
             const valueStr = nodeVersionPath
                 .get('value')
                 .toString();
+            
             const versions = parse(valueStr);
             
             if (versions === '${{ matrix.node-version }}')

@@ -139,6 +139,7 @@ export const merge = async (rawSource, list) => {
 
 function addPrefixSpaces({content, currentSource}) {
     const spacesCount = getSpacesCount(content);
+    
     const lastLine = content
         .split('\n')
         .pop();
