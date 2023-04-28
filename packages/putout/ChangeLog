@@ -1,3 +1,21 @@
+2023.04.28, v29.4.0
+
+fix:
+- 3b614c780 @putout/engine-runner: do not recreate missing 'node' in 'path' because it used to determine existense of path in AST
+
+feature:
+- 092c82fb3 package: @putout/engine-runner v16.0.0
+- 8a82eec71 package: @putout/engine-parser v6.0.0
+- 47cb1135d @putout/printer: apply-linebreak: add support of 'indent()', 'write.indent()'
+- 57f285618 @putout/printer: apply-breakline: add support of 'indent()', 'write.indent()'
+- cfb86c9f6 @putout/plugin-react-hooks: remove-react: add
+- 398d0a694 @putout/plugin-putout: improve support of replace-test-message: value -> value, raw
+- 06d07106f @putout/processor-html: use @putout/printer
+- 01888d82d @putout/processor-html: drop support of 🐊 < 29
+- faa704f38 package: @putout/processor-css v7.0.0
+- be7d5da48 @putout/plugin-remove-unused-variables: use @putout/printer
+- a9864ff23 @putout/plugin-remove-unused-variables: improve support of RestElement in ObjectPattern of AssignmentPattern
+
 2023.04.25, v29.3.0
 
 feature:
