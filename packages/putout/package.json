@@ -55,7 +55,7 @@
     "@putout/engine-loader": "^8.0.0",
     "@putout/engine-parser": "^6.0.0",
     "@putout/engine-processor": "^7.0.0",
-    "@putout/engine-runner": "^15.0.0",
+    "@putout/engine-runner": "^16.0.0",
     "@putout/eslint": "^2.0.0",
     "@putout/formatter-codeframe": "^4.0.0",
     "@putout/formatter-dump": "^4.0.0",
