@@ -1,9 +1,7 @@
-# Operate [![NPM version][NPMIMGURL]][NPMURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
+# Operate [![NPM version][NPMIMGURL]][NPMURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
 [NPMURL]: https://npmjs.org/package/putout "npm"
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/operate.svg?style=flat&longCache=true
-[BuildStatusURL]: https://travis-ci.org/coderaiser/putout "Build Status"
-[BuildStatusIMGURL]: https://img.shields.io/travis/coderaiser/putout/master.svg?style=flat&longCache=true
 [CoverageURL]: https://coveralls.io/github/coderaiser/putout?branch=master
 [CoverageIMGURL]: https://coveralls.io/repos/coderaiser/putout/badge.svg?branch=master&service=github
 
