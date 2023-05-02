@@ -35,7 +35,7 @@ export default ({name, source, places, index, count, filesCount, errorsCount}) =
             
             const result = codeFrameColumns(source, location, {
                 highlightCode: true,
-                message: `${message} ${gray('(' + rule + ')')}`,
+                message: `${message} ${gray(`(${rule})`)}`,
             });
             
             output.push(`${name}:${line}:${column}\n${result}\n`);
