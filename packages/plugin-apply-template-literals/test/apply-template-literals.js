@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('..');
 
 const test = createTest(__dirname, {
-    'apply-template-literals': plugin,
+    printer: 'putout',
+    plugins: [
+        ['apply-template-literals', plugin],
+    ],
 });
 
 test('plugin-apply-template-literals: transform: report', (t) => {

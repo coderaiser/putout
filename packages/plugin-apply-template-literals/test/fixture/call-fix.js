@@ -1,1 +1,1 @@
-execute(`"${cmd.join('" "')}"`, exit);
+execute(`"${cmd.join(`" "`)}"`, exit);
