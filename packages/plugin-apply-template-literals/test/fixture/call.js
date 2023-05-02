@@ -1,0 +1,1 @@
+execute('"' + cmd.join(`" "`) + '"', exit);

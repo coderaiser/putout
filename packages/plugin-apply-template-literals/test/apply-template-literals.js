@@ -17,6 +17,11 @@ test('plugin-apply-template-literals: transform: instanceof', (t) => {
     t.end();
 });
 
+test('plugin-apply-template-literals: transform: call', (t) => {
+    t.transform('call');
+    t.end();
+});
+
 test('plugin-apply-template-literals: no transform: nested', (t) => {
     t.noTransform('nested');
     t.end();
