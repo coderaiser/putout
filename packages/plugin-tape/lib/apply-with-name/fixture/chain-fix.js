@@ -3,7 +3,4 @@ const show = stub()
     .returns([])
     .withName('show');
 
-t.calledInOrder([
-    init,
-    show,
-]);
+t.calledInOrder([init, show]);
