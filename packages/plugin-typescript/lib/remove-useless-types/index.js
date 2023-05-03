@@ -24,9 +24,7 @@ module.exports.traverse = ({push, store}) => ({
         if (path.parentPath.isExportNamedDeclaration())
             return;
         
-        if (typePath
-            .get('typeName')
-            .isTSQualifiedName())
+        if (typePath.get('typeName').isTSQualifiedName())
             return;
         
         if (typePath.isTSTypeReference()) {
