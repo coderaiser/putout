@@ -1,3 +1,10 @@
+2023.05.03, v29.4.1
+
+feature:
+- 28d0f1b4e package: @putout/plugin-apply-template-literals v2.0.0
+- 17b92de5f @putout/plugin-apply-termplate-literlas: drop support of 🐊 < 29
+- 88bb5cac1 @putout/plugin-apply-template-literals: add support of CallExpression inside TemplateLiteral
+
 2023.04.28, v29.4.0
 
 fix:
