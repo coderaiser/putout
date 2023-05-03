@@ -43,3 +43,12 @@ test('plugin-putout: create-test: transform: id-id', (t) => {
     });
     t.end();
 });
+
+test('plugin-putout: create-test: transform: esm', (t) => {
+    t.transformWithOptions('esm', {
+        add: [
+            ['printer', 'putout'],
+        ],
+    });
+    t.end();
+});

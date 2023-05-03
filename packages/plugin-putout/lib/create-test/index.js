@@ -19,12 +19,11 @@ const {
     getProperty,
 } = operator;
 
-const selector = 'createTest(__dirname, __object)';
-
 module.exports.report = () => `Apply modifications to 'createTest()' options`;
 
 module.exports.include = () => [
-    selector,
+    'createTest(__dirname, __object)',
+    'createTest(import.meta.url, __object)',
 ];
 
 module.exports.fix = (path, {options}) => {
