@@ -1,0 +1,47 @@
+# @putout/plugin-convert-optional-to-logical [![NPM version][NPMIMGURL]][NPMURL]
+
+[NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-convert-optional-to-logical.svg?style=flat&longCache=true
+[NPMURL]: https://npmjs.org/package/@putout/plugin-convert-optional-to-logical "npm"
+
+> The **optional chaining operator** (`?.`) enables you to read the value of a property located deep within a chain of connected objects without having to check that each reference in the chain is valid.
+>
+> The `?.` operator is like the `.` chaining operator, except that instead of causing an error if a reference is nullish (`null` or `undefined`), the expression short-circuits with a return value of `undefined`. When used with function calls, it returns `undefined` if the given function does not exist.
+>
+> This results in shorter and simpler expressions when accessing chained properties when the possibility exists that a reference may be missing. It can also be helpful while exploring the content of an object when there's no known guarantee as to which properties are required.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert **Optioncal Chaining** to **Logical Expression** (*Not bundled*).
+Like [`apply-optional-chaining`](https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-optional-chaining#readme) but backwards. Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e0a4ccb41708ad37e34d527a978ebb88/482f15c954cdaa35e37da7a1dddb82338d7e93a2).
+
+## Install
+
+```
+npm i @putout/plugin-convert-optional-to-logical
+```
+
+## Configuration
+
+```json
+{
+    "rules": {
+        "convert-optional-to-logical": "on"
+    }
+}
+```
+
+## ❌ Example of incorrect code
+
+```js
+hello?.world?.();
+```
+
+## ✅ Example of correct code
+
+```js
+hello && hello.world && hello.world();
+```
+
+## License
+
+MIT

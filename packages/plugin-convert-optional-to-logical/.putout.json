@@ -1,0 +1,6 @@
+{
+    "printer": "putout",
+    "rules": {
+        "apply-optional-chaining": "off"
+    }
+}
