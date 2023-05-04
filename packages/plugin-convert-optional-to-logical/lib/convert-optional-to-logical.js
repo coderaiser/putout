@@ -28,26 +28,6 @@ module.exports.filter = (path) => {
     return true;
 };
 
-/*
-module.exports.traverse = ({push, listStore}) => ({
-    'OptionalMemberExpression|OptionalCallExpression'(path) {
-        listStore(path);
-    },
-    Program: {
-        exit() {
-            for (const path of listStore().reverse()) {
-                if (path.parentPath.isOptionalMemberExpression())
-                    continue;
-                
-                if (path.parentPath.isOptionalCallExpression())
-                    continue;
-                
-                push(path);
-            }
-        },
-    },
-});
-*/
 function getLogical(path) {
     const list = path
         .toString()
