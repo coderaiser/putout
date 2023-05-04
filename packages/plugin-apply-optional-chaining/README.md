@@ -11,7 +11,8 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin applies **optional chaining**. Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d308302b95800920d324b799f1a948e3/99d03cb297d17446885829e8583b3cc7777367c5).
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin applies **optional chaining**. Backward to [`convert-optional-to-logical`](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-optional-to-logical#readme).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d308302b95800920d324b799f1a948e3/99d03cb297d17446885829e8583b3cc7777367c5).
 
 ## Install
 
