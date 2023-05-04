@@ -50,10 +50,9 @@ function getLogical(path) {
 }
 
 function compute(member, current) {
-    if (current[0] === '(')
-        return current;
+    const [first] = current;
     
-    if (current[0] === '[')
+    if (first === '(')
         return current;
     
     return `.${current}`;
