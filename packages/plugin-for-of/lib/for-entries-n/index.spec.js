@@ -44,7 +44,7 @@ test('plugin-convert-for-to-for-of: entries-n: transform: not block', (t) => {
 test('plugin-convert-for-to-for-of: entries-n: transform: not assign', (t) => {
     t.noTransformCode(montag`
         const n = a.length;
-        for (let i = 0; i < n; i++) {};\n
+        for (let i = 0; i < n; i++) {}\n
     `);
     t.end();
 });
@@ -55,7 +55,7 @@ test('plugin-convert-for-to-for-of: entries-n: transform: no n', (t) => {
         
         for (let i = 0; i < n; i++) {
             const element = elements[i];
-        };\n
+        }\n
     `);
     t.end();
 });
@@ -66,7 +66,7 @@ test('plugin-convert-for-to-for-of: entries-n: transform: no references i', (t) 
         
         for (let i = 0; a < n; a++) {
             const element = elements[a];
-        };\n
+        }\n
     `);
     t.end();
 });

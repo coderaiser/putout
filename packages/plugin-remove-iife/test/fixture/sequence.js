@@ -1,12 +1,12 @@
 function foo(x) {
     (function() {
-        return (function() {
+        return ((function() {
             if (x === 2) {
                 return 2;
             } else {
                 return 3;
             }
-        })(), x += 1;
+        })(), x += 1);
     })();
 }
 
