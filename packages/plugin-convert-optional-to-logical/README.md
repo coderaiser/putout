@@ -11,6 +11,12 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 
+> The logical **AND** (`&&`) (logical conjunction) operator for a set of boolean operands will be true if and only if all the operands are true. Otherwise it will be false.
+>
+> More generally, the operator returns the value of the first falsy operand encountered when evaluating from left to right, or the value of the last operand if they are all truthy.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND)
+
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert **Optioncal Chaining** to **Logical Expression** (*Not bundled*).
 Like [`apply-optional-chaining`](https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-optional-chaining#readme) but backwards. Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e0a4ccb41708ad37e34d527a978ebb88/482f15c954cdaa35e37da7a1dddb82338d7e93a2).
 
