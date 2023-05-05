@@ -81,7 +81,11 @@ function isExtractable(path) {
     if (!path.isIdentifier() && !path.isLiteral())
         return false;
     
-    return parentPath.isObjectProperty({computed});
+    if (parentPath.isObjectProperty({computed})) {
+        return !usedInAssignment(path);
+    }
+    
+    return false;
 }
 
 function isSimpleMemberExpression(path) {
@@ -120,3 +124,19 @@ function parseBinaryExpression(path) {
     return [COMPUTED, fn(left, operator, right)];
 }
 
+function usedInAssignment(path) {
+    const [name] = Object.keys(path.scope.references);
+    const binding = path.scope.bindings[name];
+    
+    if (!binding)
+        return false;
+    
+    const {referencePaths} = binding;
+    
+    for (const ref of referencePaths) {
+        if (ref.parentPath.parentPath?.isAssignmentExpression())
+            return true;
+    }
+    
+    return false;
+}

@@ -460,3 +460,29 @@ test('operate: compute: not path', (t) => {
     t.equal(error.message, `☝️ Looks like argument of 'compute' is not 'path'`);
     t.end();
 });
+
+test('operate: compute: ObjectProperty: no computed', (t) => {
+    let result;
+    
+    const ast = parse(`
+        const obj = {
+            hello: 'world',
+        };
+        
+        return abc;
+        
+        obj.hello = 'xxx';
+    `);
+    
+    traverse(ast, {
+        ObjectProperty: (path) => {
+            result = compute(path.get('key'));
+        },
+    });
+    
+    const expected = [NOT_COMPUTED];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
