@@ -6,12 +6,11 @@ import {
 const testEnv = {
     TERM_PROGRAM: 0,
     TERMINAL_EMULATOR: 0,
-    NODE_OPTIONS: `'--loader escover --no-warnings'`,
 };
 
 export default {
     'wisdom': () => run(['lint', 'coverage']),
-    'test': () => [testEnv, `tape 'test/*.{js,mjs}' '{bin,lib}/**/*.spec.{js,mjs}'`],
+    'test': () => [testEnv, `escover tape 'test/*.{js,mjs}' '{bin,lib}/**/*.spec.{js,mjs}'`],
     'watch:test': async () => [testEnv, `nodemon -w bin -w lib -w test -x "${await cutEnv('test')} -f tap"`],
     'lint': () => `bin/putout.mjs .`,
     'fresh:lint': () => run('lint', '--fresh'),
