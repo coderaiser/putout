@@ -205,7 +205,7 @@
     "babel-plugin-transform-inline-consecutive-adds": "^0.5.0-alpha.9",
     "c8": "^7.5.0",
     "currify": "^4.0.0",
-    "escover": "^2.1.0",
+    "escover": "^3.2.2",
     "eslint": "^8.0.1",
     "eslint-plugin-n": "^15.2.4",
     "eslint-plugin-putout": "^17.0.0",
