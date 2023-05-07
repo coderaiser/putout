@@ -26,6 +26,8 @@ const fixture = readFixtures([
     'export-default-declaration-fix',
     'shebang',
     'shebang-fix',
+    'shebang-printer',
+    'shebang-printer-fix',
     'strict-mode',
     'strict-mode-fix',
     'strict-mode-fix-count',
@@ -276,6 +278,21 @@ test('putout: use strict', (t) => {
     });
     
     const expected = fixture.strictModeFix;
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
+test('putout: use strict: @putout/printer', (t) => {
+    const {code} = putout(fixture.shebangPrinter, {
+        printer: 'putout',
+        fixCount: 1,
+        plugins: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = fixture.shebangPrinterFix;
     
     t.deepEqual(code, expected);
     t.end();
