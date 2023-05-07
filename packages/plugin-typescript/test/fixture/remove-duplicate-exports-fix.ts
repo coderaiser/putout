@@ -2,4 +2,4 @@ export {
     hello,
     a,
     world,
-}
+};

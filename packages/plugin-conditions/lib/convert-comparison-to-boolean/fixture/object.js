@@ -17,4 +17,4 @@ const useStep = (props) => {
 
 export {
     useStep,
-}
+};
