@@ -1,3 +1,16 @@
+2023.05.07, v29.5.0
+
+fix:
+- 1757c6ae1 @putout/plugin-convert-optional-to-logical: rm comment
+
+feature:
+- f60550be7 package: escover v3.2.2
+- 37d740eaa putout: improve support of @putout/printer: shebang
+- 20f19c8ed @putout/operate: compute: exclude reassigned ObjectExpressions (#140)
+- acf836d68 @putout/plugin-convert-optional-to-logical: simplify
+- 7ee4cc264 @putout/plugin-convert-optional-to-logical: add
+- cc80a96c9 @putout/plugin-putout: create-test: add support of ESM
+
 2023.05.03, v29.4.1
 
 feature:
