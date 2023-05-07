@@ -1,6 +1,15 @@
 'use strict';
 
-module.exports = (source) => {
+const maybeNewline = (a) => a[0] === '\n' ? a : `\n${a}`;
+
+module.exports.mergeShebang = (shebang, source) => {
+    if (!shebang)
+        return source;
+    
+    return shebang + maybeNewline(source);
+};
+
+module.exports.cutShebang = (source) => {
     if (source.indexOf('#'))
         return [source, ''];
     

@@ -12,7 +12,7 @@ const {
     template,
 } = require('@putout/engine-parser');
 
-const cutShebang = require('./cut-shebang');
+const {cutShebang, mergeShebang} = require('./shebang');
 const isString = (a) => typeof a === 'string';
 
 const defaultOpts = (opts = {}) => {
@@ -72,7 +72,7 @@ module.exports = (source, opts) => {
         sourceMapName,
         printer,
     });
-    const code = `${shebang}${printed}`;
+    const code = mergeShebang(shebang, printed);
     
     return {
         code,
