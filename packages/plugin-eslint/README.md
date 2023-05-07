@@ -205,7 +205,7 @@ Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/a3f1ac
 
 ## remove-overrides-with-empty-rules
 
-`overrides` with `rules: {}` has no sense. Check out in 🐊[**Putout Editor**]:
+`overrides` with `rules: {}` has no sense. Check out in 🐊**Putout Editor**:
 
 - [remove empty `rules`](https://putout.cloudcmd.io/#/gist/a3f1acad4ce8d999ff9311126c1ed69f/68f98adff1c9b650d51e816e72142b2f86deeb87);
 - [remove empty `overrides`](https://putout.cloudcmd.io/#/gist/46159f43d94f97ecbf131c850a39f711/a1aa918bec1019d7d33996ade0237ee4a5ceb390);
