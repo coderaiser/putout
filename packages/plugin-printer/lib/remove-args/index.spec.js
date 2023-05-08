@@ -11,11 +11,16 @@ const test = createTest(__dirname, {
 });
 
 test('rule: remove-args: transform', (t) => {
+    t.report('remove-args', 'Remove useless argument');
+    t.end();
+});
+
+test('rule: remove-args: transform: remove-args', (t) => {
     t.transform('remove-args');
     t.end();
 });
 
-test('rule: remove-args: transform: traverse', (t) => {
-    t.transform('remove-args');
+test('rule: remove-args: transform: maybe', (t) => {
+    t.transform('maybe');
     t.end();
 });
