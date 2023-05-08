@@ -5,4 +5,3 @@ module.exports.report = () => `Use 'context.sourceCode' instead of 'context.getS
 module.exports.replace = () => ({
     'context.getSourceCode()': 'context.sourceCode',
 });
-

@@ -8,4 +8,3 @@ module.exports.rules = {
     ...getRule('apply-source-code'),
     ...getRule('apply-filename'),
 };
-
