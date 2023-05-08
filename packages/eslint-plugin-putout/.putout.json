@@ -1,7 +1,11 @@
 {
+    "printer": "putout",
     "rules": {
         "putout": "off"
     },
+    "plugins": [
+        "eslint-plugin"
+    ],
     "match": {
         "*.js": {
             "convert-esm-to-commonjs": "on"

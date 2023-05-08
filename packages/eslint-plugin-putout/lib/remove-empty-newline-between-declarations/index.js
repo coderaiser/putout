@@ -16,9 +16,11 @@ module.exports = {
     create(context) {
         return {
             VariableDeclaration(node) {
-                const source = context.getSourceCode();
+                const source = context.sourceCode;
                 const text = source.getText(node);
-                const newline = source.getText(node, 0, 2).replace(text, '');
+                const newline = source
+                    .getText(node, 0, 2)
+                    .replace(text, '');
                 
                 if (newline !== '\n\n')
                     return;
@@ -50,7 +52,10 @@ module.exports = {
                     
                     fix(fixer) {
                         return [
-                            fixer.removeRange([node.range[1], node.range[1] + 1]),
+                            fixer.removeRange([
+                                node.range[1],
+                                node.range[1] + 1,
+                            ]),
                         ];
                     },
                 });

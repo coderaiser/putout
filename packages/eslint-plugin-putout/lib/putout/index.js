@@ -14,6 +14,7 @@ const parseOptions = require('putout/parse-options');
 const {parseError} = require('./parse-error');
 
 const cwd = process.cwd();
+
 const getContextOptions = ({options}) => {
     const [allContextOptions = {}] = options;
     return allContextOptions;
@@ -34,8 +35,9 @@ module.exports = {
     },
     
     create(context) {
-        const name = context.getFilename();
+        const name = context.filename;
         const options = getContextOptions(context);
+        
         const resultOptions = parseOptions({
             name,
             options,
@@ -44,7 +46,7 @@ module.exports = {
         if (ignores(cwd, name, resultOptions))
             return EMPTY_VISITORS;
         
-        const source = context.getSourceCode();
+        const source = context.sourceCode;
         const {text} = source;
         const node = source.ast;
         
@@ -95,6 +97,7 @@ module.exports = {
 
 const fix = ({ast, text, node, source, resultOptions}) => (fixer) => {
     const includeComments = true;
+    
     const lastToken = source.getLastToken(node, {
         includeComments,
     });
@@ -107,4 +110,3 @@ const fix = ({ast, text, node, source, resultOptions}) => (fixer) => {
     
     return fixer.replaceTextRange([0, last], code);
 };
-

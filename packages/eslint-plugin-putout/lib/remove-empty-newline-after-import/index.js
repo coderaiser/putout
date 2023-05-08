@@ -28,9 +28,11 @@ module.exports = {
     create(context) {
         return {
             ImportDeclaration(node) {
-                const source = context.getSourceCode();
+                const source = context.sourceCode;
                 const text = source.getText(node);
-                const newline = source.getText(node, 0, 2).replace(text, '');
+                const newline = source
+                    .getText(node, 0, 2)
+                    .replace(text, '');
                 
                 if (node.specifiers.length > 1)
                     return;
@@ -57,7 +59,10 @@ module.exports = {
                     
                     fix(fixer) {
                         return [
-                            fixer.removeRange([node.range[1], node.range[1] + 1]),
+                            fixer.removeRange([
+                                node.range[1],
+                                node.range[1] + 1,
+                            ]),
                         ];
                     },
                 });
