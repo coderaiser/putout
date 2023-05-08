@@ -1,3 +1,14 @@
+2023.05.08, v29.5.1
+
+feature:
+- 74c8915be eslint-plugin-putout: update API (https://eslint.org/blog/2023/05/eslint-v8.40.0-released/)
+- ee1534466 package: @putout/plugin-eslint-plugin v1.0.0
+- 220500e1a putout: configuration: eslint -> eslint/
+- ee06778c5 package: @putout/plugin-eslint-plugin v1.0.0
+- 3d5c2487a plugin-eslint-plugin: add
+- 61b17bcc9 eslint: add support of new API (https://eslint.org/blog/2023/05/eslint-v8.40.0-released/)
+- fea803ee2 @putout/plugin-eslint-plugin: add
+
 2023.05.07, v29.5.0
 
 fix:
