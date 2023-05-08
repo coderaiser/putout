@@ -31,13 +31,13 @@ npm i @putout/plugin-apply-at
 
 ## ❌ Example of incorrect code
 
-```ts
+```js
 const latest = (a) => a[a.length - 1];
 ```
 
 ## ✅ Example of correct code
 
-```ts
+```js
 const latest = (a) => a.at(-1);
 ```
 
