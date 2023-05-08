@@ -1,6 +1,7 @@
 'use strict';
 
 const {test, stub} = require('supertape');
+
 const {
     createPlugin,
     createGetSpacesAfterNode,
@@ -20,19 +21,20 @@ test('@putout/eslint: create-plugin: filter', (t) => {
     const replaceText = stub();
     
     const result = create({
-        getSourceCode: stub().returns({
+        sourceCode: {
             getText: stub(),
             getCommentsBefore: stub(),
             getCommentsAfter: stub(),
             getCommentsInside: stub(),
-        }),
-        getFilename: stub(),
+        },
+        filename: 'hello.js',
         report: ({fix}) => fix({
             replaceText,
         }),
     });
     
     const node = {};
+    
     result.DebuggerStatement({
         node,
     });
@@ -47,6 +49,7 @@ test('@putout/eslint: create-plugin: filter', (t) => {
 
 test('@putout/eslint: create-plugin: createGetSpacesBeforeNode', (t) => {
     const getText = stub().returns('hello');
+    
     const fn = createGetSpacesBeforeNode({
         getText,
     });
@@ -60,11 +63,13 @@ test('@putout/eslint: create-plugin: createGetSpacesBeforeNode', (t) => {
 
 test('@putout/eslint: create-plugin: createGetSpacesBeforeNode: first', (t) => {
     const getText = stub().returns('hello');
+    
     const fn = createGetSpacesBeforeNode({
         getText,
     });
     
     const body = [];
+    
     const node = {
         parent: {
             body,
@@ -83,6 +88,7 @@ test('@putout/eslint: create-plugin: createGetSpacesBeforeNode: first', (t) => {
 
 test('@putout/eslint: create-plugin: createGetSpacesAfterNode', (t) => {
     const getText = stub().returns('hello');
+    
     const fn = createGetSpacesAfterNode({
         getText,
     });
@@ -99,11 +105,13 @@ test('@putout/eslint: create-plugin: createGetSpacesAfterNode', (t) => {
 
 test('@putout/eslint: create-plugin: createGetSpacesAfterNode: last', (t) => {
     const getText = stub().returns('hello ');
+    
     const fn = createGetSpacesAfterNode({
         getText,
     });
     
     const body = [];
+    
     const parent = {
         body,
     };
@@ -122,6 +130,7 @@ test('@putout/eslint: create-plugin: createGetSpacesAfterNode: last', (t) => {
 
 test('@putout/eslint: create-plugin: createGetSpacesBeforeNode: no expression inside body', (t) => {
     const getText = stub().returns('hello');
+    
     const fn = createGetSpacesBeforeNode({
         getText,
         text: 'hello',
@@ -134,6 +143,7 @@ test('@putout/eslint: create-plugin: createGetSpacesBeforeNode: no expression in
             value: false,
         },
     };
+    
     const parent = {
         type: 'ForOfStatement',
         body,
@@ -148,4 +158,3 @@ test('@putout/eslint: create-plugin: createGetSpacesBeforeNode: no expression in
     t.equal(result, 'ello');
     t.end();
 });
-

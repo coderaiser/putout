@@ -1,13 +1,15 @@
 'use strict';
 
 const mockRequire = require('mock-require');
-const {
-    test,
-    stub,
-} = require('supertape');
+
+const {test, stub} = require('supertape');
 
 const eslint = require('./eslint.js');
-const {reRequire, stopAll} = mockRequire;
+
+const {
+    reRequire,
+    stopAll,
+} = mockRequire;
 
 test('putout: eslint: places', async (t) => {
     const [, result] = await eslint({
@@ -151,6 +153,7 @@ test('putout: eslint: parsing error', async (t) => {
 test('putout: eslint: config error: plugin missing', async (t) => {
     const calculateConfigForFile = async () => {
         const error = Error('hello');
+        
         error.messageTemplate = 'plugin-missing';
         error.messageData = {
             pluginName: 'zzz',
@@ -160,6 +163,7 @@ test('putout: eslint: config error: plugin missing', async (t) => {
     };
     
     const lintText = stub();
+    
     const ESLint = {
         calculateConfigForFile,
         lintText,
@@ -199,6 +203,7 @@ test('putout: eslint: config error: plugin missing', async (t) => {
 test('putout: eslint: config error: no config found', async (t) => {
     const calculateConfigForFile = async () => {
         const error = Error('hello');
+        
         error.messageTemplate = 'no-config-found';
         error.messageData = {
             pluginName: 'zzz',
@@ -208,6 +213,7 @@ test('putout: eslint: config error: no config found', async (t) => {
     };
     
     const lintText = stub();
+    
     const ESLint = {
         calculateConfigForFile,
         lintText,
@@ -240,6 +246,7 @@ test('putout: eslint: config error: no config found', async (t) => {
 test('putout: eslint: config error', async (t) => {
     const calculateConfigForFile = async () => {
         const error = Error('hello');
+        
         error.messageTemplate = 'some error';
         error.messageData = {
             pluginName: 'zzz',
@@ -249,6 +256,7 @@ test('putout: eslint: config error', async (t) => {
     };
     
     const lintText = stub();
+    
     const ESLint = {
         calculateConfigForFile,
         lintText,
@@ -315,6 +323,7 @@ test('putout: eslint: output: config', async (t) => {
             semi: 'off',
         },
     };
+    
     const [source] = await eslint({
         name: 'hello.js',
         code: `var a = 1`,
@@ -332,6 +341,7 @@ test('putout: eslint: enable putout', async (t) => {
             semi: 'off',
         },
     };
+    
     const [source] = await eslint({
         name: 'hello.js',
         code: `var a = 1`,
@@ -355,7 +365,10 @@ test('putout: eslint: convertToPlace: control sequences', async (t) => {
     const expected = {
         rule: '@typescript-eslint/naming-convention (eslint)',
         message: 'Object Literal Property name `. ` must match one of the following formats: camelCase, UPPER_CASE',
-        position: {line: 281, column: 26},
+        position: {
+            line: 281,
+            column: 26,
+        },
     };
     
     t.deepEqual(result, expected);
@@ -386,6 +399,7 @@ test('putout: eslint: get-eslint: config file', async (t) => {
 
 test('putout: eslint: convert places', async (t) => {
     const WARNING = 1;
+    
     const calculateConfigForFile = stub().resolves({
         rules: {
             'no-unused-vars': 'error',
@@ -446,6 +460,7 @@ test('putout: eslint: config: remove putout', async (t) => {
     });
     
     const lintText = stub().resolves([]);
+    
     const ESLint = {
         calculateConfigForFile,
         lintText,
@@ -477,6 +492,7 @@ test('putout: eslint: config: remove putout', async (t) => {
 
 test('putout: eslint: NO_ESLINT_WARNINGS', async (t) => {
     const WARNING = 1;
+    
     const calculateConfigForFile = stub().resolves({
         rules: {
             'no-unused-vars': 'error',
@@ -517,6 +533,7 @@ test('putout: eslint: NO_ESLINT_WARNINGS', async (t) => {
     });
     
     const expected = [];
+    
     delete process.env.NO_ESLINT_WARNINGS;
     
     stopAll();

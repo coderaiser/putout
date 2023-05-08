@@ -13,6 +13,7 @@ test('putout: eslint: get-eslint: config: putout', (t) => {
     });
     
     const lintText = stub().returns([]);
+    
     const ESLintOverride = stub().returns({
         calculateConfigForFile,
         lintText,
@@ -41,6 +42,7 @@ test('putout: eslint: get-eslint: config: putout: new', (t) => {
     const calculateConfigForFile = stub().resolves({});
     
     const lintText = stub().returns([]);
+    
     const ESLintOverride = stub().returns({
         calculateConfigForFile,
         lintText,
@@ -110,6 +112,7 @@ test('putout: eslint: get-eslint: flat: overrideConfigFile', (t) => {
     });
     
     const find = stub().returns('/eslint.config.js');
+    
     getESLint({
         name: 'index.js',
         ESLintOverride,
@@ -121,7 +124,8 @@ test('putout: eslint: get-eslint: flat: overrideConfigFile', (t) => {
     const expected = [{
         fix: false,
         overrideConfig: {
-            ignores: ['!.*',
+            ignores: [
+                '!.*',
             ],
         },
         overrideConfigFile: 'other.config.js',
@@ -130,4 +134,3 @@ test('putout: eslint: get-eslint: flat: overrideConfigFile', (t) => {
     t.calledWith(ESLintOverride, expected);
     t.end();
 });
-

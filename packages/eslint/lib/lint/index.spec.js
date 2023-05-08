@@ -72,4 +72,3 @@ test('@putout/eslint: lint: options', (t) => {
     t.equal(code, expected);
     t.end();
 });
-

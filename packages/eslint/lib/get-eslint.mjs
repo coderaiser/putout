@@ -75,4 +75,3 @@ function getFlatESLint({fix, config, overrideConfigFile, ESLintOverride = FlatES
     
     return eslint;
 }
-

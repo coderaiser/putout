@@ -12,6 +12,7 @@ module.exports.lint = (source, {fix = true, plugins, filename, options = []}) =>
     
     if (plugins) {
         const [name, plugin] = plugins[0];
+        
         allOptions.push({
             rules: {
                 [`${name}/plugin`]: 'error',
@@ -34,12 +35,20 @@ module.exports.lint = (source, {fix = true, plugins, filename, options = []}) =>
         mainOptions.filename = filename;
     
     if (!fix) {
-        const places = linter.verify(source, allOptions, mainOptions).map(convertToPlace);
+        const places = linter
+            .verify(source, allOptions, mainOptions)
+            .map(convertToPlace);
+        
         return [source, places];
     }
     
-    const {output, messages} = linter.verifyAndFix(source, allOptions, mainOptions);
+    const {
+        output,
+        messages,
+    } = linter.verifyAndFix(source, allOptions, mainOptions);
     
-    return [output, messages.map(convertToPlace)];
+    return [
+        output,
+        messages.map(convertToPlace),
+    ];
 };
-

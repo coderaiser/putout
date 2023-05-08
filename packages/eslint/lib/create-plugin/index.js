@@ -1,10 +1,13 @@
 'use strict';
 
 const prepare = (plugin, context, options) => (node) => {
-    const {filter, report} = plugin;
+    const {
+        filter,
+        report,
+    } = plugin;
     
-    const source = context.getSourceCode();
-    const filename = context.getFilename();
+    const source = context.sourceCode;
+    const {filename} = context;
     const getText = source.getText.bind(source);
     const getCommentsBefore = source.getCommentsBefore.bind(source);
     const getCommentsAfter = source.getCommentsAfter.bind(source);
@@ -71,7 +74,10 @@ module.exports.createPlugin = (plugin) => {
         create(context) {
             const {options} = context;
             const prepared = prepare(plugin, context, options);
-            const names = plugin.include({options});
+            
+            const names = plugin.include({
+                options,
+            });
             
             return getTraversers(names, prepared);
         },
@@ -112,11 +118,11 @@ const createGetSpacesBeforeNode = ({getText}) => (node, text = getText(node)) =>
         return '';
     
     while (!spaces || /^[ \n]+$/.test(spaces))
-        spaces = getText(node, ++i)
-            .replace(text, '');
+        spaces = getText(node, ++i).replace(text, '');
     
     return spaces.slice(1);
 };
+
 module.exports.createGetSpacesBeforeNode = createGetSpacesBeforeNode;
 
 const createGetSpacesAfterNode = ({getText}) => (node, text = getText(node)) => {
@@ -129,8 +135,7 @@ const createGetSpacesAfterNode = ({getText}) => (node, text = getText(node)) => 
     let i = 0;
     
     while (!spaces || reg.test(spaces))
-        spaces = getText(node, 0, ++i)
-            .replace(text, '');
+        spaces = getText(node, 0, ++i).replace(text, '');
     
     return spaces.slice(0, -1);
 };
@@ -149,4 +154,3 @@ function isLastNodeInBody(node) {
     
     return false;
 }
-

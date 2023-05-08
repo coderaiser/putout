@@ -43,6 +43,7 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
         return noChanges;
     
     const {getESLint} = ESLint;
+    
     const [eslintError, eslint] = await tryToCatch(getESLint, {
         name,
         fix,
@@ -50,11 +51,12 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
         overrideConfigFile,
     });
     
-    if (eslintError)
-        return [
-            code,
-            [convertToPlace(cutNewLine(eslintError))],
+    if (eslintError) {
+        const places = [
+            convertToPlace(cutNewLine(eslintError)),
         ];
+        return [code, places];
+    }
     
     const [configError, finalConfig] = await tryToCatch(eslint.calculateConfigForFile, name);
     
@@ -62,10 +64,10 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
         return noChanges;
     
     if (configError) {
-        return [
-            code,
-            [convertToPlace(parseError(configError))],
+        const places = [
+            convertToPlace(parseError(configError)),
         ];
+        return [code, places];
     }
     
     !putout && disablePutout(finalConfig);
@@ -81,7 +83,9 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
     
     const [report] = results;
     const {output} = report;
-    const places = report.messages
+    
+    const places = report
+        .messages
         .map(convertToPlace)
         .filter(Boolean);
     
@@ -141,4 +145,3 @@ function parseError(e) {
         message: `Plugin missing: ${messageData.pluginName}`,
     };
 }
-
