@@ -78,7 +78,7 @@
             ".browserlistrc": "on"
         },
         ".eslintrc{*,.json}": {
-            "eslint": "on",
+            "eslint/": "on",
             "eslint/convert-require-to-import": "off"
         },
         "package.json": {
@@ -133,7 +133,7 @@
         "nodejs/convert-top-level-return": "off",
         "putout": "off",
         "putout-config": "off",
-        "eslint": "off",
+        "eslint/": "off",
         "package-json": "off",
         "madrun": "off",
         "webpack": "off",
