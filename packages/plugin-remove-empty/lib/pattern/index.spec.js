@@ -114,3 +114,12 @@ test('plugin-remove-empty: pattern: no report: no-args', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: pattern: transform: var: object', (t) => {
+    t.transformCode('var {} = object', '');
+    t.end();
+});
+
+test('plugin-remove-empty: pattern: transform: var: array', (t) => {
+    t.transformCode('var [] = array', '');
+    t.end();
+});
