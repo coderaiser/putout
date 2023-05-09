@@ -25,6 +25,27 @@ npm i @putout/plugin-merge-duplicate-functions
 }
 ```
 
+## ❌ Example of incorrect code
+
+```js
+const isFn = (a) => typeof a === 'function';
+const isFn1 = (a) => typeof a === 'function';
+const isFn2 = (a) => typeof a === 'function';
+
+isFn(1);
+isFn1(2);
+```
+
+
+## ✅ Example of correct code
+
+```js
+const isFn = (a) => typeof a === 'function';
+
+isFn(1);
+isFn(2);
+```
+
 ## License
 
 MIT
