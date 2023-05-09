@@ -5,6 +5,7 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
+    ...getRule('remove-args'),
     ...getRule('apply-breakline'),
     ...getRule('apply-linebreak'),
     ...getRule('apply-computed-print'),

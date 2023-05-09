@@ -29,3 +29,8 @@ test('printer: apply-computed-print: transform: apply-linebreak', (t) => {
     t.transform('apply-linebreak');
     t.end();
 });
+
+test('printer: apply-computed-print: transform: remove-args', (t) => {
+    t.transform('remove-args');
+    t.end();
+});
