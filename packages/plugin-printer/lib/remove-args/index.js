@@ -38,6 +38,5 @@ module.exports.replace = () => ({
     'print.indent.dec(__args)': 'print.indent.dec()',
     
     'write(__a, __b)': 'write(__b)',
-    'print(__a, __b)': 'print(__b)',
     'maybe.write.space(__a, __b)': 'maybe.write.space(__a)',
 });

@@ -10,7 +10,6 @@ write.indent.inc();
 write.indent.dec();
 
 print.indent();
-print('hello');
 print.indent.inc();
 print.indent.dec();
 
