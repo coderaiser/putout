@@ -15,6 +15,11 @@ test('rule: remove-args: transform', (t) => {
     t.end();
 });
 
+test('rule: remove-args: no report: no-args', (t) => {
+    t.noReport('no-args');
+    t.end();
+});
+
 test('rule: remove-args: transform: remove-args', (t) => {
     t.transform('remove-args');
     t.end();
