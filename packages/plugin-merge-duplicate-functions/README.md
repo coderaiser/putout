@@ -36,7 +36,6 @@ isFn(1);
 isFn1(2);
 ```
 
-
 ## ✅ Example of correct code
 
 ```js

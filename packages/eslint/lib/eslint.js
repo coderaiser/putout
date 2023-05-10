@@ -55,6 +55,7 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
         const places = [
             convertToPlace(cutNewLine(eslintError)),
         ];
+        
         return [code, places];
     }
     
@@ -67,6 +68,7 @@ module.exports = async ({name, code, fix, config, putout = false}) => {
         const places = [
             convertToPlace(parseError(configError)),
         ];
+        
         return [code, places];
     }
     
