@@ -1,6 +1,5 @@
-export const func = (param) => { 
-  const {
-    c
-  } = param;
-  return c;
-}
+export const func = (param) => {
+    const {c} = param;
+    return c;
+};
+

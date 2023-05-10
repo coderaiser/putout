@@ -13,4 +13,3 @@ module.exports.rules = {
     ...getRule('import'),
     ...getRule('export'),
 };
-

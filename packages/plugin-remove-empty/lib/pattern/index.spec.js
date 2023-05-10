@@ -5,7 +5,10 @@ const montag = require('montag');
 const removeEmptyPattern = require('.');
 
 const test = createTest(__dirname, {
-    'remove-empty-pattern': removeEmptyPattern,
+    printer: 'putout',
+    plugins: [
+        ['remove-empty-pattern', removeEmptyPattern],
+    ],
 });
 
 test('plugin-remove-empty: pattern: report: object', (t) => {
@@ -24,12 +27,12 @@ test('plugin-remove-empty: pattern: report: array: many elements', (t) => {
 });
 
 test('plugin-remove-empty: pattern: object', (t) => {
-    t.transformCode('const {} = object', '');
+    t.transformCode('const {} = object', '\n');
     t.end();
 });
 
 test('plugin-remove-empty: pattern: array', (t) => {
-    t.transformCode('const [] = array', '');
+    t.transformCode('const [] = array', '\n');
     t.end();
 });
 
@@ -37,65 +40,67 @@ test('plugin-remove-empty: pattern: let', (t) => {
     t.transformCode(montag`
         let [,,,] = x;
         let {} = y;
-    `, '');
+    `, '\n');
     t.end();
 });
 
 test('plugin-remove-empty: pattern: assignment', (t) => {
-    t.transformCode(montag`
+    const code = montag`
         [,,,] = x;
         ({} = y);
-    `, '');
+    `;
+    
+    t.transformCode(code, '\n');
     t.end();
 });
 
 test('plugin-remove-empty: pattern: transform: array: many elements', (t) => {
-    t.transformCode('const [,,,] = array', '');
+    t.transformCode('const [,,,] = array', '\n');
     t.end();
 });
 
 test('plugin-remove-empty: pattern: argument: object destructuring', (t) => {
-    t.transformCode('({}) => alert()', '() => alert();');
+    t.transformCode('({}) => alert()', '() => alert();\n');
     t.end();
 });
 
 test('plugin-remove-empty: pattern: argument: array destructuring', (t) => {
-    t.transformCode('([]) => alert()', '() => alert();');
+    t.transformCode('([]) => alert()', '() => alert();\n');
     t.end();
 });
 
 test('plugin-remove-empty: pattern: argument: couple-empty', (t) => {
-    t.transformCode('([,,,]) => alert()', '() => alert();');
+    t.transformCode('([,,,]) => alert()', '() => alert();\n');
     t.end();
 });
 
 test('plugin-remove-empty: pattern: argument: object destructuring: not empty', (t) => {
-    t.noTransformCode('({a}) => alert()');
+    t.noTransformCode('({a}) => alert();\n');
     t.end();
 });
 
 test('plugin-remove-empty: pattern: argument: array destructuring: not empty', (t) => {
-    t.noTransformCode('([a]) => alert()');
+    t.noTransformCode('([a]) => alert();\n');
     t.end();
 });
 
 test('plugin-remove-empty: pattern: destructuring: not empty: many', (t) => {
-    t.noTransformCode('const [, b] = alert()');
+    t.noTransformCode('const [, b] = alert();\n');
     t.end();
 });
 
 test('plugin-remove-empty: pattern: transform: nested array destructuring', (t) => {
-    t.transformCode('const [, {}] = getOptions()', '');
+    t.transformCode('const [, {}] = getOptions()', '\n');
     t.end();
 });
 
 test('plugin-remove-empty: pattern: transform: nested array destructuring: array', (t) => {
-    t.transformCode('const [, []] = getOptions()', '');
+    t.transformCode('const [, []] = getOptions()', '\n');
     t.end();
 });
 
 test('plugin-remove-empty: pattern: no transform: nested array destructuring', (t) => {
-    t.noTransformCode('const [{rule}] = options');
+    t.noTransformCode('const [{rule}] = options;\n');
     t.end();
 });
 
@@ -115,11 +120,11 @@ test('plugin-remove-empty: pattern: no report: no-args', (t) => {
 });
 
 test('plugin-remove-empty: pattern: transform: var: object', (t) => {
-    t.transformCode('var {} = object', '');
+    t.transformCode('var {} = object', '\n');
     t.end();
 });
 
 test('plugin-remove-empty: pattern: transform: var: array', (t) => {
-    t.transformCode('var [] = array', '');
+    t.transformCode('var [] = array', '\n');
     t.end();
 });

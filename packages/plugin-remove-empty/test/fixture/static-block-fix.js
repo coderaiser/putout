@@ -1,7 +1,8 @@
-class Hello {}
+class Hello {
+}
 
 class World {
     static {
-        m = 5
+        m = 5;
     }
 }

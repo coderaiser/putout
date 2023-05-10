@@ -10,8 +10,12 @@ module.exports.fix = (path) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    '(__args) => __a': search({push}),
-    'ObjectMethod': search({push}),
+    '(__args) => __a': search({
+        push,
+    }),
+    'ObjectMethod': search({
+        push,
+    }),
 });
 
 const search = ({push}) => (path) => {
@@ -29,4 +33,3 @@ const search = ({push}) => (path) => {
     if (lastPath.isArrayPattern() && !lastPath.node.elements.length)
         push(lastPath);
 };
-

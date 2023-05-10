@@ -2,6 +2,7 @@
 
 const {types} = require('putout');
 const isNull = (a) => !a && typeof a === 'object';
+
 const {
     isObjectPattern,
     isArrayPattern,
@@ -84,4 +85,3 @@ const checkArray = ({__array}) => {
     const {elements} = __array;
     return elements.filter(isNull).length === elements.length;
 };
-

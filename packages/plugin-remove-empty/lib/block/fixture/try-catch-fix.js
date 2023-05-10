@@ -1,5 +1,4 @@
 try {
     console.log('hi');
-} catch(e) {
-}
+} catch (e) {}
 

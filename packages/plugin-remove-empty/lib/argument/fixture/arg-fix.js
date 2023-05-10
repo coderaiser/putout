@@ -1,2 +1,1 @@
-module.exports = ({rule, plugin, msg, options}) => {
-};
+module.exports = ({rule, plugin, msg, options}) => {};

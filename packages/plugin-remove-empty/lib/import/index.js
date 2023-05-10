@@ -40,4 +40,3 @@ module.exports.filter = (path, {options}) => {
     
     return true;
 };
-

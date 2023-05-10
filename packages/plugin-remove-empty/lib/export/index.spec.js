@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeEmptyExport = require('.');
 
 const test = createTest(__dirname, {
-    'remove-empty-export': removeEmptyExport,
+    printer: 'putout',
+    plugins: [
+        ['remove-empty-export', removeEmptyExport],
+    ],
 });
 
 test('plugin-remove-empty: export: report', (t) => {
@@ -13,17 +16,16 @@ test('plugin-remove-empty: export: report', (t) => {
 });
 
 test('plugin-remove-empty: export', (t) => {
-    t.transformCode('export {}', '');
+    t.transformCode('export {}', '\n');
     t.end();
 });
 
 test('plugin-remove-empty: export: no transform: not empty', (t) => {
-    t.noTransformCode('export {a}');
+    t.noTransformCode('export {\n    a,\n};\n');
     t.end();
 });
 
 test('plugin-remove-empty: export: no transform: declaration', (t) => {
-    t.noTransformCode('export const a = 5');
+    t.noTransformCode('export const a = 5;\n');
     t.end();
 });
-

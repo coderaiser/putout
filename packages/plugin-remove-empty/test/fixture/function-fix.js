@@ -1,16 +1,14 @@
 const noop = () => {};
-const _noop = function() {}
+const _noop = function() {};
 
-function __noop() {
-}
+function __noop() {}
 
 function aaa() {}
 
 module.exports = {
-  t() {}
-}
+    t() {},
+};
 
 class H {
-  empty() {}
+    empty() {}
 }
-

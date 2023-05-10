@@ -66,7 +66,10 @@ class Hello {
 
 ```js
 export const func = (param) => {
-    const {a: {}, c} = param;
+    const {
+        a: {
+        }, c} = param;
+    
     return c;
 };
 ```
@@ -99,8 +102,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2e19524f26
 ### ❌ Example of incorrect code
 
 ```js
-module.exports = ({rule, plugin, msg, options}, {}) => {
-};
+module.exports = ({rule, plugin, msg, options}, {}) => {};
 
 const a = {
     EmptyStatement({}) {},
@@ -110,8 +112,7 @@ const a = {
 ### ✅ Example of correct code
 
 ```js
-module.exports = ({rule, plugin, msg, options}) => {
-};
+module.exports = ({rule, plugin, msg, options}) => {};
 
 const a = {
     EmptyStatement() {},

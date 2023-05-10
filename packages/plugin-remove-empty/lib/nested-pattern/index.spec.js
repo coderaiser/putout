@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeNestedPattern = require('.');
 
 const test = createTest(__dirname, {
-    'remove-empty/nested-pattern': removeNestedPattern,
+    printer: 'putout',
+    plugins: [
+        ['remove-empty/nested-pattern', removeNestedPattern],
+    ],
 });
 
 test('plugin-remove-empty: nested-pattern: report', (t) => {
@@ -31,4 +34,3 @@ test('plugin-remove-empty: nested-pattern: no report: not-nested', (t) => {
     t.noReport('not-nested');
     t.end();
 });
-

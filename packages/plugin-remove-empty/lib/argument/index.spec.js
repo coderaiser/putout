@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeEmptyArgument = require('.');
 
 const test = createTest(__dirname, {
-    'remove-empty-argument': removeEmptyArgument,
+    printer: 'putout',
+    plugins: [
+        ['remove-empty-argument', removeEmptyArgument],
+    ],
 });
 
 test('plugin-remove-empty: argument: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-remove-empty: no report: argument: object-method', (t) => {
     t.transform('object-method');
     t.end();
 });
-

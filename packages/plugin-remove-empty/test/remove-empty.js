@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const removeEmpty = require('..');
+
 const test = createTest(__dirname, {
-    'remove-empty': removeEmpty,
+    printer: 'putout',
+    plugins: [
+        ['remove-empty', removeEmpty],
+    ],
 });
 
 test('plugin-remove-empty: complex: report: block', (t) => {
@@ -42,7 +46,6 @@ test('plugin-remove-empty: transform: static-block', (t) => {
 });
 
 test('plugin-remove-empty: transform: export', (t) => {
-    t.transformCode('export {}', '');
+    t.transformCode('export {}', '\n');
     t.end();
 });
-

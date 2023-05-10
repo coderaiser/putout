@@ -103,11 +103,7 @@ module.exports.traverse = ({push}) => ({
 });
 
 function isFunction(node) {
-    return isArrowFunctionExpression(node)
-    || isFunctionExpression(node)
-    || isFunctionDeclaration(node)
-    || isObjectMethod(node)
-    || isClassMethod(node);
+    return isArrowFunctionExpression(node) || isFunctionExpression(node) || isFunctionDeclaration(node) || isObjectMethod(node) || isClassMethod(node);
 }
 
 function blockIsIndependentBody(node, parentNode) {
@@ -162,4 +158,3 @@ function reverse(a) {
         return `!${a}`.replace('=', '');
     }
 }
-

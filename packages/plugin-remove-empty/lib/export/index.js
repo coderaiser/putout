@@ -14,7 +14,10 @@ module.exports.include = () => [
 ];
 
 module.exports.filter = (path) => {
-    const {specifiers, declaration} = path.node;
+    const {
+        specifiers,
+        declaration,
+    } = path.node;
+    
     return !declaration && !specifiers.length;
 };
-

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeEmptyImport = require('.');
 
 const test = createTest(__dirname, {
-    'remove-empty-import': removeEmptyImport,
+    printer: 'putout',
+    plugins: [
+        ['remove-empty-import', removeEmptyImport],
+    ],
 });
 
 test('plugin-remove-empty: import: report', (t) => {
@@ -13,7 +16,7 @@ test('plugin-remove-empty: import: report', (t) => {
 });
 
 test('plugin-remove-empty: import', (t) => {
-    t.transform('import', '\n\n');
+    t.transform('import', '\n');
     t.end();
 });
 
@@ -40,4 +43,3 @@ test('plugin-remove-empty: import: options', (t) => {
     });
     t.end();
 });
-
