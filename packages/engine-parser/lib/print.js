@@ -3,18 +3,20 @@
 const recast = require('@putout/recast');
 const putoutPrinter = require('@putout/printer');
 const generate = require('@babel/generator').default;
-const {stringify} = JSON;
 
+const {stringify} = JSON;
+const {isArray} = Array;
+
+const maybeArray = (a) => isArray(a) ? a : [a, {}];
 const btoa = (a) => Buffer.from(a, 'binary').toString('base64');
 
 const addSourceMap = (sourceMapName, {code, map}) => !sourceMapName ? code : `${code}\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,${btoa(stringify(map))}\n`;
 const fixStrictMode = (a) => a.replace(`\n\n\n'use strict'`, `\n\n'use strict'`);
 
 module.exports = (ast, options = {}) => {
-    const {
-        sourceMapName,
-        printer = 'recast',
-    } = options;
+    const {sourceMapName} = options;
+    
+    const [printer = 'recast', printerOptions] = maybeArray(options.printer);
     
     if (printer === 'recast') {
         const printOptions = {
@@ -37,7 +39,7 @@ module.exports = (ast, options = {}) => {
     if (printer === 'babel')
         return babelPrint(ast);
     
-    return putoutPrinter.print(ast);
+    return putoutPrinter.print(ast, printerOptions);
 };
 
 function babelPrint(ast) {

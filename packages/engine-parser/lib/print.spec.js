@@ -121,3 +121,31 @@ test('putout: parser: print: printer: putout', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: parser: print: printer: putout: options', (t) => {
+    const source = montag`
+        export default ({a, b}) => {
+          return a + b;
+        }
+    `;
+    
+    const expected = montag`
+        export default ({a, b})__=>__{
+            return a__+__b;
+        };
+    
+    `;
+    
+    const ast = parse(source);
+    
+    const result = print(ast, {
+        printer: ['putout', {
+            format: {
+                space: '__',
+            },
+        }],
+    });
+    
+    t.equal(result, expected);
+    t.end();
+});

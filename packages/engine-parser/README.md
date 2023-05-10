@@ -39,11 +39,23 @@ You can use brand new [`@putout/printer`](https://github.com/putoutjs/printer) w
 
 ```js
 const ast = parse(source, {
-    printer: '@putout/printer',
+    printer: 'putout',
 });
 
 const code = print(ast, {
-    printer: '@putout/printer',
+    printer: 'putout',
+});
+```
+
+When you need to pass options, use:
+
+```js
+const code = print(ast, {
+    printer: ['putout', {
+        format: {
+            indent: '    ',
+        },
+    }],
 });
 ```
 
