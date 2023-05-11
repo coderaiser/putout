@@ -110,7 +110,6 @@ module.exports = ({use, declare, addParams}) => {
                     ObjectProperty(propPath) {
                         if (isAssignmentPattern(propPath.node.value)) {
                             traverseAssign(propPath.get('value'));
-                            return;
                         }
                         
                         if (propPath.node.computed && isIdentifier(propPath.node.key))

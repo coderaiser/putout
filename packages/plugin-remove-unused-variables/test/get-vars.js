@@ -636,6 +636,8 @@ test('remove-unused-variables: get-vars: destr-computed', (t) => {
         x: _u,
         y: d_,
         z: _u,
+        abc: d_,
+        world: du,
     }];
     
     t.deepEqual(result, expected);
