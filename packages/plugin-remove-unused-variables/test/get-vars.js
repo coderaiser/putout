@@ -61,6 +61,7 @@ const fixture = readFixtures([
     'member-expression',
     'new-expression',
     'object-expression',
+    'object-expression-computed',
     'object-method',
     'optional-member-expression',
     'optional-call-expression',
@@ -453,6 +454,23 @@ test('remove-unused-variables: get-vars: object expression', (t) => {
     }, {
         computedValue: du,
         computedKey: du,
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('remove-unused-variables: get-vars: object expression computed', (t) => {
+    const ast = parse(fixture.objectExpressionComputed);
+    const result = getVars(ast).map(dutify);
+    
+    const expected = [{
+        hi: d_,
+    }, {
+        world: du,
+        abc: du,
+    }, {
+        x: du,
     }];
     
     t.deepEqual(result, expected);

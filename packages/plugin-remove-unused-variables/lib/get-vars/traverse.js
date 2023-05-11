@@ -47,7 +47,15 @@ module.exports.traverseObjectPattern = traverseObjectPattern;
 
 const processObjectPattern = ({use, declare}) => (propertiesPaths) => {
     for (const path of propertiesPaths) {
-        const {value} = path.node;
+        const {
+            key,
+            value,
+            computed,
+        } = path.node;
+        
+        if (computed && isIdentifier(key)) {
+            use(path, key.name);
+        }
         
         if (isIdentifier(value)) {
             declare(path, value.name);
