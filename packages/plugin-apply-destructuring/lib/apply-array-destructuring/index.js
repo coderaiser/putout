@@ -7,6 +7,7 @@ module.exports.exclude = () => [
     'const __array = __[0]',
     '({__} = __[0])',
     '[__] = __[0]',
+    '__a[0] = __b[0]',
 ];
 
 module.exports.replace = () => ({

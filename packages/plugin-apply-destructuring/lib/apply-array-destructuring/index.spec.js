@@ -57,3 +57,8 @@ test('plugin-apply-destructuring: no transform: array: object', (t) => {
     t.end();
 });
 
+test('plugin-apply-destructuring: no transform: array: first', (t) => {
+    t.noTransform('first');
+    t.end();
+});
+
