@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'promises/convert-new-promise-to-async': convert,
+    printer: 'putout',
+    plugins: [
+        ['promises/convert-new-promise-to-async', convert],
+    ],
 });
 
 test('plugin-convert-new-promise-to-async: exports: transform: report', (t) => {
@@ -30,4 +34,3 @@ test('plugin-convert-new-promise-to-async: transform: callback', (t) => {
     t.transform('callback');
     t.end();
 });
-

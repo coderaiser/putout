@@ -1,7 +1,14 @@
 'use strict';
 
-const {operator, types} = require('putout');
-const {replaceWith, traverse} = operator;
+const {
+    operator,
+    types,
+} = require('putout');
+const {
+    replaceWith,
+    traverse,
+} = operator;
+
 const {
     ReturnStatement,
     ThrowStatement,
@@ -46,6 +53,7 @@ module.exports.replace = () => ({
             return path;
         
         const fn = path.scope.getFunctionParent().path.node;
+        
         fn.async = true;
         
         return __a.body;
@@ -65,4 +73,3 @@ function checkIdentifier(path) {
     
     return false;
 }
-

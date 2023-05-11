@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const promises = require('..');
 
 const test = createTest(__dirname, {
-    promises,
+    printer: 'putout',
+    plugins: [
+        ['promises', promises],
+    ],
 });
 
 test('plugin-promises: transform: report', (t) => {
@@ -41,4 +44,3 @@ test('plugin-promises: transform: apply-await-import', (t) => {
     t.transform('apply-await-import');
     t.end();
 });
-

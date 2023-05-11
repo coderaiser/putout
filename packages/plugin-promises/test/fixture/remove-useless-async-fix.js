@@ -1,3 +1,3 @@
 const hello = () => {
     return 'hello';
-}
+};

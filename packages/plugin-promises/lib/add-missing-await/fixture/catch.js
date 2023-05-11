@@ -1,8 +1,7 @@
 module.exports = (config) => {
-     route({config})
-         .catch(next);
- };
-
-async function route() {
+    route({
+        config,
+    }).catch(next);
 };
 
+async function route() {};

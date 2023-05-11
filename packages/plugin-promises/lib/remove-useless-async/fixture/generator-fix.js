@@ -1,3 +1,3 @@
 var t = async function*() {
-  yield 5
-}
+    yield 5;
+};

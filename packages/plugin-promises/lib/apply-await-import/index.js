@@ -33,4 +33,3 @@ module.exports.replace = () => ({
         return replaceWith(path, AwaitExpression(path.node));
     },
 });
-

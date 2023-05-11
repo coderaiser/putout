@@ -27,4 +27,3 @@ module.exports.filter = (path) => {
     
     return !is;
 };
-

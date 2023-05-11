@@ -4,8 +4,7 @@ const fn = async () => {
     const c = `x`;
     const d = true;
     
-    await f()
+    await f();
     await f.x();
     await z;
 };
-

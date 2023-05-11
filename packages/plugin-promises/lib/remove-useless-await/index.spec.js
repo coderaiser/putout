@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessAwait = require('.');
 
 const test = createTest(__dirname, {
-    'remove-useless-await': removeUselessAwait,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-await', removeUselessAwait],
+    ],
 });
 
 test('plugin-remove-useless-await: report', (t) => {
@@ -86,4 +89,3 @@ test('plugin-remove-useless-await: no transform: optional-chaining', (t) => {
     t.noTransform('optional-chaining');
     t.end();
 });
-

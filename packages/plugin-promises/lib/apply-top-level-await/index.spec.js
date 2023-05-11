@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const applyTopLevelAwait = require('.');
 
 const test = createTest(__dirname, {
-    'apply-top-level-await': applyTopLevelAwait,
+    printer: 'putout',
+    plugins: [
+        ['apply-top-level-await', applyTopLevelAwait],
+    ],
 });
 
 test('plugin-apply-top-level-await: transform: report', (t) => {

@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'promises/add-missing-await': convert,
+    printer: 'putout',
+    plugins: [
+        ['promises/add-missing-await', convert],
+    ],
 });
 
 test('plugin-add-missing-await: exports: transform: report', (t) => {

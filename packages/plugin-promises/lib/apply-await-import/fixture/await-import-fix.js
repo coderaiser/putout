@@ -9,4 +9,3 @@ const z = await import('z');
 const f = async () => {
     const z = await import('b');
 };
-

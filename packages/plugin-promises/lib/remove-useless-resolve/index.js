@@ -14,4 +14,3 @@ module.exports.replace = () => ({
     'return Promise.resolve()': 'return',
     'return Promise.resolve(__a)': `return __a`,
 });
-

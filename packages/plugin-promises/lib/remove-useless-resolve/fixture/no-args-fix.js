@@ -1,4 +1,3 @@
 const get = async () => {
     return;
-}
-
+};

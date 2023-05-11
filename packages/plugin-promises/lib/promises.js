@@ -14,4 +14,3 @@ module.exports.rules = {
     ...getRule('remove-useless-async'),
     ...getRule('remove-useless-await'),
 };
-

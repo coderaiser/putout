@@ -129,8 +129,7 @@ async function hello() {
 ```js
 runCli();
 
-async function runCli() {
-}
+async function runCli() {}
 ```
 
 ### ✅ Example of correct code
@@ -138,8 +137,7 @@ async function runCli() {
 ```js
 await runCli();
 
-async function runCli() {
-}
+async function runCli() {}
 ```
 
 ## convert-new-promise-to-async

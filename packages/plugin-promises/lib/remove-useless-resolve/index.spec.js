@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'promises/remove-useless-resolve': convert,
+    printer: 'putout',
+    plugins: [
+        ['promises/remove-useless-resolve', convert],
+    ],
 });
 
 test('plugin-remove-useless-resolve: exports: transform: report', (t) => {

@@ -1,4 +1,3 @@
-async function x() {
-    for await (const x of y) {
-    }
+function x() {
+    for (const x of y) {}
 }

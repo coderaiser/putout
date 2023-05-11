@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const awaitImport = require('.');
 
 const test = createTest(__dirname, {
-    'await-import': awaitImport,
+    printer: 'putout',
+    plugins: [
+        ['await-import', awaitImport],
+    ],
 });
 
 test('plugin-apply-await-import: transform: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-apply-await-import: no transform: not-declaration', (t) => {
     t.noTransform('not-declaration');
     t.end();
 });
-

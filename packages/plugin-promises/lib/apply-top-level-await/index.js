@@ -27,6 +27,7 @@ module.exports.fix = (path) => {
 module.exports.traverse = ({push}) => {
     const isExports = fullstore();
     const isImports = fullstore();
+    
     const addPath = add({
         push,
         isImports,
@@ -69,4 +70,3 @@ function isAsyncParent(path) {
     
     return true;
 }
-

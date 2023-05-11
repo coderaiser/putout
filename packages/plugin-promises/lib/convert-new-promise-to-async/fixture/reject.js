@@ -1,6 +1,5 @@
 function get() {
-    return new Promise((resolve, reject) => {
+    return     new Promise((resolve, reject) => {
         fn(reject);
     });
 }
-

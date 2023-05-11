@@ -86,4 +86,3 @@ function looksLikePromise(path) {
     
     return is;
 }
-

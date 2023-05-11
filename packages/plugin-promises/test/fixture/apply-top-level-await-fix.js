@@ -12,4 +12,3 @@ if (error)
     return console.error(error.message);
 
 console.log(msg);
-

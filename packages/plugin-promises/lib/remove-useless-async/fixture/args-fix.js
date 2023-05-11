@@ -1,4 +1,3 @@
-var x = a => {
+var x = (a) => {
     console.log(a);
 };
-

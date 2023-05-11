@@ -41,9 +41,9 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     '__a(__args)': (vars, path) => {
         const fnPath = path.getFunctionParent();
+        
         fnPath.node.async = true;
         
         return AwaitExpression(path.node);
     },
 });
-

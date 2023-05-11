@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'promises/convert-reject-to-throw': convert,
+    printer: 'putout',
+    plugins: [
+        ['promises/convert-reject-to-throw', convert],
+    ],
 });
 
 test('plugin-convert-reject-to-throw: transform: report', (t) => {

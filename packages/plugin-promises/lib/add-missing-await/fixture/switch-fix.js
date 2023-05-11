@@ -6,5 +6,4 @@ async function hello(x) {
     }
 }
 
-async function world() {
-}
+async function world() {}

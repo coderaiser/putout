@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessAsync = require('.');
 
 const test = createTest(__dirname, {
-    'remove-useless-async': removeUselessAsync,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-async', removeUselessAsync],
+    ],
 });
 
 test('plugin-remove-useless-async: report', (t) => {
@@ -68,7 +71,6 @@ test('plugin-remove-useless-async: no transform: for await of', (t) => {
 });
 
 test('plugin-remove-useless-async: no transform: noop', (t) => {
-    t.noTransformCode('const a = async () => {}');
+    t.noTransformCode('const a = async () => {};\n');
     t.end();
 });
-
