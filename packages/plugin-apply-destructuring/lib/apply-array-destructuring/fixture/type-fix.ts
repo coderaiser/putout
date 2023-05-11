@@ -1,6 +1,6 @@
 interface Dialog {
-    type: string,
+    type: string;
 }
 
-const dialogProps:Dialog[] = [];
+const dialogProps: Dialog[] = [];
 const [firstDialog] = dialogProps;

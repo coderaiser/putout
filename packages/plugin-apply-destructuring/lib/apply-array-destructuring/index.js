@@ -21,4 +21,3 @@ const convertTo = (template) => ({__a}) => {
     delete __a.typeAnnotation;
     return template;
 };
-

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const applyDestructuring = require('..');
 
 const test = createTest(__dirname, {
-    'apply-destructuring': applyDestructuring,
+    printer: 'putout',
+    plugins: [
+        ['apply-destructuring', applyDestructuring],
+    ],
 });
 
 test('plugin-apply-destructuring: transform: report', (t) => {
@@ -19,14 +22,14 @@ test('plugin-apply-destructuring: transform: object', (t) => {
 
 test('plugin-apply-destructuring: transform: array', (t) => {
     const code = 'const name = array[0];';
-    const fix = 'const [name] = array;';
+    const fix = 'const [name] = array;\n';
     
     t.transformCode(code, fix);
     t.end();
 });
 
 test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
-    const code = 'const {name} = array[0]';
+    const code = 'const {name} = array[0];\n';
     
     t.noTransformCode(code);
     t.end();
@@ -46,4 +49,3 @@ test('plugin-apply-destructuring: transform: multiple', (t) => {
     t.transform('multiple');
     t.end();
 });
-

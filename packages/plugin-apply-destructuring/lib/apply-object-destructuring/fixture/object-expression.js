@@ -1,6 +1,6 @@
 const emitter = options.emitter || createEmitter({
-     format,
-     quiet,
-     getOperators,
-     isStop,
- });
+    format,
+    quiet,
+    getOperators,
+    isStop,
+});

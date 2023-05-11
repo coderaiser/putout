@@ -1,1 +1,4 @@
-const {params, body} = path.node.arguments[0];
+const {
+    params,
+    body,
+} = path.node.arguments[0];

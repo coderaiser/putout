@@ -1,7 +1,3 @@
-const {
-  one
-} = values;
+const {one} = values;
 
-let {
-  two
-} = values;
+let {two} = values;

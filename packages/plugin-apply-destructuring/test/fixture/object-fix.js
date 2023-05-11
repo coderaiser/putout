@@ -1,4 +1,1 @@
-const {
-  value
-} = object;
-
+const {value} = object;

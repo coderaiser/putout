@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const applyDestructuring = require('.');
 
 const test = createTest(__dirname, {
-    'apply-array-destructuring': applyDestructuring,
+    printer: 'putout',
+    plugins: [
+        ['apply-array-destructuring', applyDestructuring],
+    ],
 });
 
 test('plugin-apply-destructuring: report: assignment', (t) => {
@@ -61,4 +64,3 @@ test('plugin-apply-destructuring: no transform: array: first', (t) => {
     t.noTransform('first');
     t.end();
 });
-
