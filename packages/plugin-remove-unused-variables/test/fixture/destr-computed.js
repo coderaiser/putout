@@ -7,3 +7,5 @@ const {
         } = {}
     }
 } = x;
+
+const {[x]: m, ...rest} = z;

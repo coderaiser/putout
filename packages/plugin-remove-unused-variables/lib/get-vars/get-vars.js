@@ -10,6 +10,7 @@ const {
     isFunctionDeclaration,
     isArrayExpression,
     isVariableDeclaration,
+    isRestElement,
 } = require('putout').types;
 
 const {
@@ -121,8 +122,12 @@ module.exports = ({use, declare, addParams}) => {
                         const {properties} = node.id;
                         const isOne = properties.length === 1;
                         const nodePath = isOne ? path : propPath;
+                        const {name} = propPath.node.value;
                         
-                        declare(nodePath, propPath.node.value.name);
+                        declare(nodePath, name);
+                        
+                        if (isRestElement(propPath.parentPath.node.properties.at(-1)))
+                            use(nodePath, name);
                     },
                 });
             } else if (idPath.isArrayPattern()) {
