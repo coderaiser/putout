@@ -1,7 +1,7 @@
 # @putout/plugin-putout [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-putout.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-putout"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-putout "npm"
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin helps with plugins development.
 
