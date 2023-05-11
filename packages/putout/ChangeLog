@@ -1,3 +1,26 @@
+2023.05.11, v29.6.0
+
+fix:
+- 7ea68535e @putout/printer: remove-args: exclude print
+
+feature:
+- 6789b29a2 package: @putout/plugin-promises v10.0.0
+- 02d91f215 @putout/plugin-promises: drop support of 🐊 < 29
+- 73efe5c19 @putout/plugin-promises: use @putout/printer
+- fbd92cdfb @putout/plugin-promises: remove-useless-await: exclude optional chaining
+- ae56b259a package: @putout/plugin-apply-destructuring v7.0.0
+- cf0fee1c3 @putout/plugin-apply-destructuring: drop support of 🐊 < 29
+- 086565a20 @putout/plugin-apply-destructuring: use @putout/printer
+- f3de3bdac @putout/plugin-apply-destructuring: array: exclude first element assignment
+- 0799f46ac @putout/plugin-remove-unused-variables: mark as used all properties before RestElement
+- 4103880ba @putout/plugin-remove-unused-variables: improve support of destructuring assignment
+- b0dbeb0f2 @putout/plugin-minify: add
+- 0600ed687 @putout/engine-parser: add ability to pass options to @putout/printer (#144)
+- 26539236e @putout/plugin-printer: remove-args: improve args check
+- 1eb0b3d9b @putout/plugin-printer: enable remove-args
+- 00b577829 @putout/plugin-remove-empty: pattern: add support of var
+- ca9ddf1ff @putout/plugin-printer: remove-args: add support of maybe
+
 2023.05.08, v29.5.1
 
 feature:
