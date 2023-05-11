@@ -1,0 +1,1 @@
+await hello?.().catch(on);

@@ -9,6 +9,7 @@ module.exports.exclude = () => [
     'await new Promise(__args)',
     'await __a.__b?.(__args)',
     'await __a?.(__args)',
+    'await __a?.(__args).catch(__args)',
 ];
 
 module.exports.replace = () => ({
