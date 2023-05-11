@@ -6,4 +6,5 @@ module.exports.find = (ast, {traverse, push}) => {
         VariableDeclarator(path) {},
     });
     
-    for (const [currentCode, expandPath] of members) {}};
+    for (const [currentCode, expandPath] of members) {}
+};

@@ -10,12 +10,12 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-putout: convert report to function: report', (t) => {
+test('plugin-minify: remove-return-undefined: report', (t) => {
     t.report('remove-return-undefined', `Avoid 'return undefined'`);
     t.end();
 });
 
-test('plugin-putout: convert report to function: transform', (t) => {
+test('plugin-minify: remove-return-undefined: transform', (t) => {
     t.transform('remove-return-undefined');
     t.end();
 });
