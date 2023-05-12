@@ -146,7 +146,7 @@
     "@putout/plugin-remove-useless-map": "^1.0.0",
     "@putout/plugin-remove-useless-operand": "^2.0.0",
     "@putout/plugin-remove-useless-replace": "^1.0.1",
-    "@putout/plugin-remove-useless-return": "^4.0.0",
+    "@putout/plugin-remove-useless-return": "^5.0.0",
     "@putout/plugin-remove-useless-spread": "^6.0.0",
     "@putout/plugin-remove-useless-template-expressions": "^1.0.0",
     "@putout/plugin-remove-useless-variables": "^8.0.0",
