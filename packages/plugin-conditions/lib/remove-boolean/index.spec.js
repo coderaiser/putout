@@ -20,6 +20,11 @@ test('plugin-conditions: remove-boolean: transform', (t) => {
     t.end();
 });
 
+test('plugin-conditions: remove-boolean: no transform: const', (t) => {
+    t.noTransform('const');
+    t.end();
+});
+
 test('plugin-conditions: remove-boolean: no transform: not-equal-false', (t) => {
     t.noTransform('not-equal-false');
     t.end();

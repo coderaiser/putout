@@ -23,8 +23,8 @@ if (!a)
 if (!a)
     alert();
 
-const b = a === Boolean(b);
-const c = a === Boolean(c);
+const b = a;
+const c = a;
 
 d = a === Boolean(d);
 e = a === Boolean(e);
