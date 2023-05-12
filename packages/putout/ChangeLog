@@ -1,3 +1,11 @@
+2023.05.12, v29.7.0
+
+feature:
+- cf3b7a3dc package: @putout/engine-loader v9.0.0
+- 3362cacf8 @putout/engine-loader: add support of globally installed modules (coderaiser/minify#96)
+- 9947bd2f8 package: @putout/engine-parser v6.1.0
+- e71b5a9d4 @putout/plugin-remove-unused-variables: add support of computed ObjectProperty inside Function params ObjectPattern
+
 2023.05.11, v29.6.0
 
 fix:
