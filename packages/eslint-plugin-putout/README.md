@@ -142,7 +142,7 @@ Disabled 🐊**Putout** rules:
 - ❌ [`remove-useless-arguments`](https://github.com/coderaiser/putout/tree/master/packages/plugin-remove-useless-arguments#readme);
 - ❌ [`remove-useless-return`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-useless-return#readme);
 - ❌ [`remove-useless-spread`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-useless-spread/#readme);
-- ❌ [`remove-useless-variables/rename`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-useless-arguments#rename);
+- ❌ [`remove-useless-variables/rename`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-useless-variables#rename);
 - ❌ [`remove-skip`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-tape#remove-skip);
 - ❌ [`remove-only`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-tape#remove-only);
 - ❌ [`remove-console`](https://github.com/coderaiser/putout/tree/v29.0.0/packages/plugin-remove-console#readme);
