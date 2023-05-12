@@ -29,3 +29,8 @@ test('plugin-apply-template-literals: no transform: nested', (t) => {
     t.noTransform('nested');
     t.end();
 });
+
+test('plugin-apply-template-literals: no transform: only-string', (t) => {
+    t.noTransform('only-string');
+    t.end();
+});

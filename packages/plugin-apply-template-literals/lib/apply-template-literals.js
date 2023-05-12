@@ -8,6 +8,10 @@ const {
 
 module.exports.report = () => `Use template literals instead of binary expressions`;
 
+module.exports.exclude = () => [
+    '"__a" + "__b" + "__c"',
+];
+
 module.exports.filter = ({parentPath}) => {
     return !isBinaryExpression(parentPath) && !isTemplateLiteral(parentPath.parentPath);
 };
