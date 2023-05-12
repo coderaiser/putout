@@ -1,3 +1,11 @@
+2023.05.12, v29.7.1
+
+feature:
+- 55956b4f3 package: @putout/plugin-remove-useless-return v5.0.0
+- 1cbf50a95 @putout/plugin-remove-useless-return: drop support of 🐊 < 29
+- ed064bcb5 @putout/plugin-remove-useless-return: drop support of node < 16
+- b8c4473bb @putout/plugin-remove-useless-return: report
+
 2023.05.12, v29.7.0
 
 feature:
