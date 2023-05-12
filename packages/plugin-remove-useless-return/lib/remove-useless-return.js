@@ -12,7 +12,7 @@ const {
     isLiteral,
 } = types;
 
-module.exports.report = () => 'Avoid useless "return"';
+module.exports.report = () => `Avoid useless 'return'`;
 
 module.exports.include = () => [
     'ArrowFunctionExpression',

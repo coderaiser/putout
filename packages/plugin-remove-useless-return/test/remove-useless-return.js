@@ -4,11 +4,13 @@ const {createTest} = require('@putout/test');
 const removeUselessReturn = require('..');
 
 const test = createTest(__dirname, {
-    'remove-useless-return': removeUselessReturn,
+    plugins: [
+        ['remove-useless-return', removeUselessReturn],
+    ],
 });
 
 test('plugin-remove-useless-return: report', (t) => {
-    t.report('return', 'Avoid useless "return"');
+    t.report('return', `Avoid useless 'return'`);
     t.end();
 });
 
@@ -81,4 +83,3 @@ test('plugin-remove-useless-return: no transform: comment', (t) => {
     t.noTransform('comment');
     t.end();
 });
-

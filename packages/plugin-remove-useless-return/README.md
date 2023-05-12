@@ -31,6 +31,7 @@ npm i @putout/plugin-remove-useless-return
 const traverse = ({push}) => {
     return {
         ObjectExpression(path) {
+            push(path);
         },
     };
 };
@@ -41,6 +42,7 @@ const traverse = ({push}) => {
 ```js
 const traverse = ({push}) => ({
     ObjectExpression(path) {
+        push(path);
     },
 });
 ```
