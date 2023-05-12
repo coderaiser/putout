@@ -65,6 +65,6 @@ function getBabelPluginName(name) {
     if (namespaced)
         return namespaced;
     
-    return name;
+    return `babel-plugin-${name}`;
 }
 
