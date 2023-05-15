@@ -34,3 +34,8 @@ test('plugin-apply-template-literals: no transform: only-string', (t) => {
     t.noTransform('only-string');
     t.end();
 });
+
+test('plugin-apply-template-literals: no transform: binary-template', (t) => {
+    t.noTransform('binary-template');
+    t.end();
+});
