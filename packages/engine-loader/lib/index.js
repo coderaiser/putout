@@ -10,6 +10,7 @@ const parseProcessorNames = require('./parse-processor-names');
 const parseRules = require('./parse-rules');
 const validateRules = require('./validate-rules');
 const validatePlugin = require('./validate-plugin');
+const {babelPlugin} = require('./wrap-plugin');
 
 const isString = (a) => typeof a === 'string';
 
@@ -65,6 +66,8 @@ module.exports.loadProcessorsAsync = memo(async (options, load) => {
 });
 
 module.exports.createAsyncLoader = createAsyncLoader;
+
+module.exports.babelPlugin = babelPlugin;
 
 module.exports.loadPlugins = (options) => {
     check(options);

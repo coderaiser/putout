@@ -11,7 +11,7 @@ const putout = require('putout');
 const montag = require('montag');
 
 const {readFixtures} = require('./fixture');
-const {loadPlugins} = require('..');
+const {loadPlugins, babelPlugin} = require('..');
 
 const {
     reRequire,
@@ -203,6 +203,18 @@ test('putout: loader: babelPlugins', (t) => {
     const {code} = putout(fixture.babelPlugin, {
         plugins: [
             'babel/transform-inline-consecutive-adds',
+        ],
+    });
+    
+    t.deepEqual(code, fixture.babelPluginFix);
+    t.end();
+});
+
+test('putout: loader: babelPlugin: implimintation', (t) => {
+    const plugin = require('babel-plugin-transform-inline-consecutive-adds');
+    const {code} = putout(fixture.babelPlugin, {
+        plugins: [
+            ['babel/transform-inline-consecutive-adds', babelPlugin(plugin)],
         ],
     });
     

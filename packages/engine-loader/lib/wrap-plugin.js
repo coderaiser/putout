@@ -59,6 +59,14 @@ const getPlugin = ({name, transform, message}) => ({
     },
 });
 
+module.exports.babelPlugin = (plugin, message) => {
+    return getPlugin({
+        name: plugin,
+        transform: babelTransform,
+        message,
+    });
+};
+
 function getBabelPluginName(name) {
     const namespaced = getModulePath(`@babel/plugin-${name}`);
     

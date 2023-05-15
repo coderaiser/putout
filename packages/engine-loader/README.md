@@ -82,6 +82,19 @@ const plugins = loadPlugins({
 });
 ```
 
+When you need to use imported babel plugin use `babelPlugin`:
+
+```js
+import {babelPlugin} from '@putout/engine-loader';
+import transformBlockScoping from '@babel/plugin-transform-block-scoping';
+
+const plugins = loadPlugins({
+    pluginNames: [
+        ['babel/transform-inline-consecutive-adds', babelPlugin(transformBlockScoping, 'Optional message')],
+    ],
+});
+```
+
 ### loadProcessorsAsync
 
 ```js
