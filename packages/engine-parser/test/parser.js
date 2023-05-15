@@ -25,7 +25,8 @@ const fixture = readFixtures([
     'throw',
     'flow',
     'flow-fix',
-    'flow-watermark',
+    'no-flow',
+    'flow-fix',
     'typescript',
     'typescript-fix',
     'jsx-template',
@@ -183,14 +184,10 @@ test('putout: parser: flow', (t) => {
     t.end();
 });
 
-test('putout: parser: flow-watermark: not first line', (t) => {
-    const {code} = putout(fixture.flowWatermark, {
-        plugins: [
-            'remove-unused-variables',
-        ],
-    });
+test('putout: parser: no-flow', (t) => {
+    const [error] = tryCatch(putout, fixture.noFlow);
     
-    t.equal(code, fixture.flowWatermark);
+    t.ok(error, 'should not parse flow when not at the beginning');
     t.end();
 });
 
