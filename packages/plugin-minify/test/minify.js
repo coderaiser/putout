@@ -11,3 +11,8 @@ test('plugin-minify: transform: remove-return-undefined', (t) => {
     t.transform('remove-return-undefined');
     t.end();
 });
+
+test('plugin-minify: transform: mangle-names', (t) => {
+    t.transform('mangle-names');
+    t.end();
+});

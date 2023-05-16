@@ -16,7 +16,8 @@ npm i @putout/plugin-putout -D
 ```json
 {
     "rules": {
-        "minify/remove-return-undefined": "on"
+        "minify/remove-return-undefined": "on",
+        "minify/mangle-names": "on"
     }
 }
 ```
@@ -41,6 +42,26 @@ const fn = () => {
     if (a)
         return;
 };
+```
+
+## mangle-names
+
+### ❌ Example of incorrect code
+
+```js
+function generate() {
+    const hello = 'hi';
+    return hello;
+}
+```
+
+### ✅ Example of correct code
+
+```js
+function generate() {
+    const a = 'hi';
+    return a;
+}
 ```
 
 ## License

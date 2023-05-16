@@ -6,4 +6,5 @@ const getRule = (a) => ({
 
 module.exports.rules = {
     ...getRule('remove-return-undefined'),
+    ...getRule('mangle-names'),
 };
