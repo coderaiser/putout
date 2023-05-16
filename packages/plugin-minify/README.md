@@ -46,6 +46,8 @@ const fn = () => {
 
 ## mangle-names
 
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e6d28e60dcd6a6a84066136e8856d7d2/530e143bf2ece70938bd970065c28ed0acd6f5a4).
+
 ### ❌ Example of incorrect code
 
 ```js
