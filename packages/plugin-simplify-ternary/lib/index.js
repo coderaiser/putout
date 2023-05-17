@@ -8,4 +8,3 @@ module.exports.rules = {
     ...getRule('value'),
     ...getRule('spread'),
 };
-

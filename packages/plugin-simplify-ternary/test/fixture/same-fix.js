@@ -1,4 +1,5 @@
 if (!isUrl)
-  url = pathToFileURL(url);
+    url = pathToFileURL(url);
+
 if (isUrl)
-  url = pathToFileURL(url);
+    url = pathToFileURL(url);

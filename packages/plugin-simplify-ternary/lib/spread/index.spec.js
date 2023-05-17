@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'simplify-ternary/spread': plugin,
+    printer: 'putout',
+    plugins: [
+        ['simplify-ternary/spread', plugin],
+    ],
 });
 
 test('plugin-simplify-ternary: spread: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-simplify-ternary: spread: transform', (t) => {
     t.transform('spread');
     t.end();
 });
-

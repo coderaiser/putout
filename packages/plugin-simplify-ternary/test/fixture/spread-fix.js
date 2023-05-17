@@ -1,6 +1,5 @@
 const a = {
-    ...(DEV && {
+    ...DEV && {
         devtool: 'eval',
-    })
-}
-
+    }
+};

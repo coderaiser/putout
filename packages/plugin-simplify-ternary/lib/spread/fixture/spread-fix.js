@@ -1,17 +1,17 @@
 const a = {
-    ...(DEV && {
+    ...DEV && {
         devtool: 'eval',
-    })
-}
+    }
+};
 
 const b = {
-    ...(DEV && {
+    ...DEV && {
         devtool: 'eval',
-    })
-}
+    }
+};
 
 const c = {
-    ...(DEV ? {
+    ...DEV ? {
         devtool: 'eval',
-    } : '')
-}
+    } : '',
+};

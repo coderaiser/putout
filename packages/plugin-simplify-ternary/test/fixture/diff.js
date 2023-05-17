@@ -1,1 +1,1 @@
- var c = fs.all ? fs.c :  fs.b;
+var c = fs.all ? fs.c : fs.b;
