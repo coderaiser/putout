@@ -856,3 +856,31 @@ test('putout: runner: replace: watermark after remove', (t) => {
     t.end();
 });
 
+test('putout: runner: replace: EmptyStatement', (t) => {
+    const convert = {
+        report: noop,
+        replace: () => ({
+            'if(__a) __b': '__a && __b',
+        }),
+    };
+    
+    const source = montag`
+        if (a)
+            console.log();
+    `;
+    
+    const {code} = putout(source, {
+        runPlugins,
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    const expected = montag`
+        a && console.log();
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+

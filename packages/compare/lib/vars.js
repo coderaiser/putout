@@ -25,7 +25,7 @@ const {
 const {entries} = Object;
 const isNumber = (a) => typeof a === 'number';
 const isString = (a) => typeof a === 'string';
-const parseExpression = (a) => a.expression || a;
+const parseExpression = (a) => a?.expression || a;
 
 const parseNode = (a) => a.node || a;
 
@@ -100,7 +100,7 @@ function getValues({waysFrom, node}) {
                 way = way.replace(/\.expression$/, '');
             }
             
-            result[name] = result[name] || jessy(way, node);
+            result[name] = result[name] || parseExpression(jessy(way, node));
         }
     }
     
