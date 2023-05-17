@@ -1,3 +1,25 @@
+2023.05.17, v29.8.0
+
+feature:
+- d8b4dea6f @putout/plugin-remove-unused-expressions: use isSimple from operate
+- 08ba21783 @putout/plugin-putout: declare: operate: isSimple: add
+- 78dc29851 @putout/opreate: isSimple: add
+- a88378217 @putout/plugin-logical-expressions: simplify: add support of ExpressionStatement
+- f349bb539 package: @putout/plugin-remove-unused-expressions v6.0.0
+- e8323e469 @putout/plugin-remove-unused-expressions: drop support of 🐊 < 29
+- 9d483a403 @putout/plugin-remove-unused-expressions: add support of LogicalExpressions
+- 9819c33e0 @putout/plugin-minify: add support of couple ExpressionStatements inside IfStatement consequence BlockStatement body
+- da3ba7d76 @putout/plugin-simplify-ternary: value: add support of OptionalChaining
+- ef66d505c @putout/plugin-minify: convert-if-to-logical: add
+- fcc8f3fd2 @putout/compare: vars: improve replacing ExpressionStatement to Expression
+- bd37e8326 @putout/plugin-minify: types: add
+- 315a20b29 @putout/plugin-minify: mangle-names: add
+- 06548d6bf @putout/plugin-apply-template-literals: exclude TemplateLiteral in the middle of BinaryExpression
+- bc067dc3e @putout/engine-parser: flow: autodetect: only on the beginning
+- a7e67d496 @putout/engine-loader: add ability to pass babel plugin implemintation
+- 6acb3e199 @putout/plugin-apply-template-literals: exclude 3 string literals binary expression
+- fc9271ae6 @putout/plugin-conditions: remove-boolean: simplify
+
 2023.05.12, v29.7.1
 
 feature:
