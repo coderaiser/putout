@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertBitwiseToLogical = require('.');
 
 const test = createTest(__dirname, {
-    'convert-bitwise-to-logical': convertBitwiseToLogical,
+    printer: 'putout',
+    plugins: [
+        ['convert-bitwise-to-logical', convertBitwiseToLogical],
+    ],
 });
 
 test('plugin-convert-bitwise-to-logical: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-convert-bitwise-to-logical: transform', (t) => {
     t.transform('bitwise');
     t.end();
 });
-

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const LogicalExpression = require('.');
 
 const test = createTest(__dirname, {
-    '-logical-expression': LogicalExpression,
+    printer: 'putout',
+    plugins: [
+        ['-logical-expression', LogicalExpression],
+    ],
 });
 
 test('plugin-logical-expression: remove-duplicates: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-logical-expression: transform: remove-duplicates: same', (t) => {
     t.transform('same');
     t.end();
 });
-

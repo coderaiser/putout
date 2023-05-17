@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const logicalExpressions = require('..');
 
 const test = createTest(__dirname, {
-    'logical-expressions': logicalExpressions,
+    printer: 'putout',
+    plugins: [
+        ['logical-expressions', logicalExpressions],
+    ],
 });
 
 test('plugin-logical-expressions: transform: simplify', (t) => {
@@ -26,4 +29,3 @@ test('plugin-logical-expressions: convert-bitwise-to-logical', (t) => {
     t.transform('convert-bitwise-to-logical');
     t.end();
 });
-

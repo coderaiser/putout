@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeBooleanFromLogicalExpressions = require('.');
 
 const test = createTest(__dirname, {
-    'remove-boolean-from-logical-expressions': removeBooleanFromLogicalExpressions,
+    printer: 'putout',
+    plugins: [
+        ['remove-boolean-from-logical-expressions', removeBooleanFromLogicalExpressions],
+    ],
 });
 
 test('plugin-remove-boolean-from-logical-expressions: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-remove-boolean-from-logical-expressions: no transform: or', (t) => 
     t.noTransform('or');
     t.end();
 });
-
