@@ -14,6 +14,7 @@ module.exports.fix = (path) => {
         test,
         consequent,
     } = path.node.argument;
+    
     path.node.argument = LogicalExpression('&&', test, consequent);
 };
 module.exports.traverse = ({push}) => ({
