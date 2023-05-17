@@ -10,4 +10,3 @@ module.exports.rules = {
     ...getRule('remove-duplicates'),
     ...getRule('convert-bitwise-to-logical'),
 };
-

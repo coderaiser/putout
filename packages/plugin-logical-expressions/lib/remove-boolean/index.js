@@ -8,4 +8,3 @@ module.exports.replace = () => ({
     '__a && true': 'Boolean(__a)',
     'true && __a': '__a',
 });
-

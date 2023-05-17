@@ -11,4 +11,3 @@ module.exports.replace = () => ({
     
     '__a = __a': '__a',
 });
-
