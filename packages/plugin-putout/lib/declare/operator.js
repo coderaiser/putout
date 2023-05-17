@@ -20,4 +20,5 @@ module.exports = {
     isESM: `const {isESM} = operator`,
     getProperty: `const {getProperty} = operator`,
     getProperties: `const {getProperties} = operator`,
+    isSimple: `const {isSimple} = operator`,
 };
