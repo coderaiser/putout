@@ -68,4 +68,3 @@ function isUselessLogical(path) {
     
     return isSimple(left) && isSimple(right);
 }
-

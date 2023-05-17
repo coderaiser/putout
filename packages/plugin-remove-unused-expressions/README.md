@@ -32,8 +32,7 @@ function show(error) {
 ## ✅ Example of correct code
 
 ```js
-function show(error) {
-}
+function show(error) {}
 ```
 
 ## License
