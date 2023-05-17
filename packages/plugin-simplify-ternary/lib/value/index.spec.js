@@ -17,6 +17,11 @@ test('plugin-simplify-ternary: value: transform', (t) => {
     t.end();
 });
 
+test('plugin-simplify-ternary: value: transform: optional', (t) => {
+    t.transform('optional');
+    t.end();
+});
+
 test('plugin-simplify-ternary: value: no transform: jsx', (t) => {
     t.noTransform('jsx');
     t.end();
