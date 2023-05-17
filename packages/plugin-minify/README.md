@@ -26,19 +26,26 @@ npm i @putout/plugin-putout -D
 
 ## convert-if-to-logical
 
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7e7c679157ba7e3746c581c29f77c58d/6d83dcf3aba4f15db988319cfc422ffc131dbb88).
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7e7c679157ba7e3746c581c29f77c58d/3c726a73315c8511735b7cb2699d54ef1299aede).
 
 ### ❌ Example of incorrect code
 
 ```js
 if (a)
     console.log('hello');
+
+if (b) {
+    console.log('hello');
+    console.log('world');
+}
 ```
 
 ### ✅ Example of correct code
 
 ```js
 a && console.log('hello');
+
+b && (console.log('hello'), console.log('world'));
 ```
 
 ## remove-return-undefined

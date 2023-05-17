@@ -2,9 +2,6 @@ a && console.log('xxx');
 
 a && console.log('xxx');
 
-if (b) {
-    if (c) {}
-}
+b && c;
 
-if (b)
-    if (c) {}
+b && c;
