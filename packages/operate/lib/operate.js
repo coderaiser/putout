@@ -16,6 +16,8 @@ const {
     getBinding,
     getBindingPath,
 } = require('./get-binding');
+
+const {isSimple} = require('./is-simple');
 const {extract} = require('./extract');
 const {compute} = require('./compute');
 const {remove} = require('./remove');
@@ -24,6 +26,7 @@ const {
     getProperty,
     getProperties,
 } = require('./properties');
+
 const {assign} = Object;
 
 module.exports.getBinding = getBinding;
@@ -35,6 +38,7 @@ module.exports.getExportDefault = getExportDefault;
 module.exports.getProperty = getProperty;
 module.exports.getProperties = getProperties;
 module.exports.toExpression = toExpression;
+module.exports.isSimple = isSimple;
 
 function toExpression(el) {
     const {type} = el;

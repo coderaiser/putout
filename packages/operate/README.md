@@ -17,6 +17,15 @@ If you write plugin for `putout` you already have `operator` in `putout`, all ex
 
 ## API
 
+### `isSimple(path | node)`
+
+Check if path is:
+
+- `Literal`;
+- `Identifier`;
+- `MemberExpression`;
+- `OptionalMemberExpression`;
+
 ### `extract(path)`
 
 Extract node value according to it's type::

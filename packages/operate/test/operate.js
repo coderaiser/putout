@@ -907,3 +907,11 @@ test('putout: operate: remove: ArrayPattern: second', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: operate: isSimple', (t) => {
+    const ast = parse('const [a, b] = c;');
+    const result = operate.isSimple(ast);
+    
+    t.notOk(result);
+    t.end();
+});
