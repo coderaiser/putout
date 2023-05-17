@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUnusedExpression = require('..');
 
 const test = createTest(__dirname, {
-    'remove-unused-expression': removeUnusedExpression,
+    printer: 'putout',
+    plugins: [
+        ['remove-unused-expression', removeUnusedExpression],
+    ],
 });
 
 test('remove unused expression: report', (t) => {
@@ -13,12 +16,12 @@ test('remove unused expression: report', (t) => {
 });
 
 test('remove unused expression: transformCode', (t) => {
-    t.transformCode('error;', '');
+    t.transformCode('error;', '\n');
     t.end();
 });
 
 test('remove unused expression: transformCode: used', (t) => {
-    const code = 'fn()';
+    const code = 'fn();\n';
     
     t.noTransformCode(code);
     t.end();
@@ -27,27 +30,27 @@ test('remove unused expression: transformCode: used', (t) => {
 test('remove unused expression: transformCode: string', (t) => {
     const code = '"hello"';
     
-    t.transformCode(code, '');
+    t.transformCode(code, '\n');
     t.end();
 });
 
 test('remove unused expression: transformCode: object', (t) => {
-    t.transformCode('({a: 1})', '');
+    t.transformCode('({a: 1})', '\n');
     t.end();
 });
 
 test('remove unused expression: transformCode: array', (t) => {
-    t.transformCode('[1, 2, 3]', '');
+    t.transformCode('[1, 2, 3]', '\n');
     t.end();
 });
 
 test('remove unused expression: transformCode: member expression', (t) => {
-    t.transformCode('this.hello;', '');
+    t.transformCode('this.hello;', '\n');
     t.end();
 });
 
 test('remove unused expression: transformCode: not', (t) => {
-    t.transformCode('!a;', '');
+    t.transformCode('!a;', '\n');
     t.end();
 });
 
