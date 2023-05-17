@@ -13,6 +13,9 @@ module.exports.traverse = ({push}) => ({
     ExpressionStatement(path) {
         const expressionPath = path.get('expression');
         
+        if (isUselessLogical(expressionPath))
+            return push(expressionPath);
+        
         if (expressionPath.isIdentifier())
             return push(expressionPath);
         
@@ -44,5 +47,25 @@ function isNotDirectiveLiteral(path) {
     const isDirective = parentPath === parentPath.parentPath.get('body.0');
     
     return !isDirective;
+}
+
+function isSimple(path) {
+    if (path.isIdentifier())
+        return true;
+    
+    if (path.isMemberExpression())
+        return true;
+    
+    if (path.isOptionalMemberExpression())
+        return true;
+    
+    return false;
+}
+
+function isUselessLogical(path) {
+    const left = path.get('left');
+    const right = path.get('right');
+    
+    return isSimple(left) && isSimple(right);
 }
 
