@@ -1,7 +1,10 @@
 'use strict';
 
 const {operator} = require('putout');
-const {remove} = operator;
+const {
+    remove,
+    isSimple,
+} = operator;
 
 module.exports.report = () => 'Unused expression statement';
 
@@ -49,20 +52,10 @@ function isNotDirectiveLiteral(path) {
     return !isDirective;
 }
 
-function isSimple(path) {
-    if (path.isIdentifier())
-        return true;
-    
-    if (path.isMemberExpression())
-        return true;
-    
-    if (path.isOptionalMemberExpression())
-        return true;
-    
-    return false;
-}
-
 function isUselessLogical(path) {
+    if (!path.isLogicalExpression())
+        return false;
+    
     const left = path.get('left');
     const right = path.get('right');
     

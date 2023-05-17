@@ -63,3 +63,8 @@ test('remove unused expression: transform: logical', (t) => {
     t.transform('logical');
     t.end();
 });
+
+test('remove unused expression: no transform: assign', (t) => {
+    t.noTransform('assign');
+    t.end();
+});
