@@ -16,11 +16,29 @@ npm i @putout/plugin-putout -D
 ```json
 {
     "rules": {
+        "minify/convert-if-to-logical": "on",
         "minify/remove-return-undefined": "on",
         "minify/mangle-names": "on",
         "minify/types": "on"
     }
 }
+```
+
+## convert-if-to-logical
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/7e7c679157ba7e3746c581c29f77c58d/6d83dcf3aba4f15db988319cfc422ffc131dbb88).
+
+### ❌ Example of incorrect code
+
+```js
+if (a)
+    console.log('hello');
+```
+
+### ✅ Example of correct code
+
+```js
+a && console.log('hello');
 ```
 
 ## remove-return-undefined

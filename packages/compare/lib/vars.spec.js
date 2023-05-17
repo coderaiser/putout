@@ -13,7 +13,11 @@ const {getTemplateValues} = require('./vars');
 const noop = () => {};
 
 const {types, generate} = putout;
-const {RegExpLiteral, StringLiteral} = types;
+const {
+    RegExpLiteral,
+    StringLiteral,
+    isExpression,
+} = types;
 
 test('putout: compare: vars: getTemplateValues', (t) => {
     const addVar = {
@@ -522,5 +526,32 @@ test('putout: compare: vars: EmptyStatement', (t) => {
     `;
     
     t.equal(code, expected);
+    t.end();
+});
+
+test('putout: compare: vars: EmptyStatement: Statement', (t) => {
+    const convert = {
+        report: () => '',
+        match: () => ({
+            'if (__a) __b': ({__b}) => isExpression(__b),
+        }),
+        replace: () => ({
+            'if (__a) __b': '__a && __b',
+        }),
+    };
+    
+    const source = montag`
+        if (a)
+            if (b) {
+            }
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    t.equal(code, source);
     t.end();
 });
