@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-putout.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-putout "npm"
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds support of minifiers.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds support of minifiers used in [`@putout/minify`](https://github.com/putoutjs/minify) and [`minify`](https://github.com/coderaiser/minify).
 
 ## Install
 
@@ -17,7 +17,8 @@ npm i @putout/plugin-putout -D
 {
     "rules": {
         "minify/remove-return-undefined": "on",
-        "minify/mangle-names": "on"
+        "minify/mangle-names": "on",
+        "minify/types": "on"
     }
 }
 ```
@@ -64,6 +65,26 @@ function generate() {
     const a = 'hi';
     return a;
 }
+```
+
+## types
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/208d2f64b68be114e1f9f93cf4b60734/5a0cd97cde7577708aedf13cd80babc04ad4852b).
+
+### ❌ Example of incorrect code
+
+```js
+const a = undefined;
+const b = true;
+const c = false;
+```
+
+### ✅ Example of correct code
+
+```js
+const a = void 0;
+const b = !0;
+const c = !1;
 ```
 
 ## License
