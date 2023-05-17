@@ -19,4 +19,3 @@ test('plugin-minify: convert-if-to-logical: transform', (t) => {
     t.transform('convert-if-to-logical');
     t.end();
 });
-

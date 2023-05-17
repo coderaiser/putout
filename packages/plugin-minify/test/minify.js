@@ -26,4 +26,3 @@ test('plugin-minify: transform: types', (t) => {
     t.transform('types');
     t.end();
 });
-
