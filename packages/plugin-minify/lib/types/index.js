@@ -10,4 +10,5 @@ module.exports.replace = () => ({
     'String(__a)': '"" + __a',
     'Number(__a)': '+__a',
     'typeof __a === "undefined"': '__a == undefined',
+    'typeof __a !== "undefined"': '__a !== undefined',
 });
