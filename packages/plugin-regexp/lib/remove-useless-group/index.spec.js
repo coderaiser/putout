@@ -123,4 +123,3 @@ test('plugin-regexp/remove-useless-group: no report after transform: group', (t)
     t.noReportAfterTransform('group');
     t.end();
 });
-

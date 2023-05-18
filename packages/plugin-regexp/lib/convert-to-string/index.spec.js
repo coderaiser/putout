@@ -41,4 +41,3 @@ test('plugin-regexp/simplify: \\d', (t) => {
     t.noTransform('meta');
     t.end();
 });
-

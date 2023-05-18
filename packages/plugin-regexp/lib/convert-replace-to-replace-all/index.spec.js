@@ -65,4 +65,3 @@ test('plugin-regexp/convert-replace-to-replace-all:: transform: optimize', (t) =
     });
     t.end();
 });
-

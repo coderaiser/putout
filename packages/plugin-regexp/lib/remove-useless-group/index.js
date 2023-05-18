@@ -99,4 +99,3 @@ function getNextSibling(path) {
     
     return null;
 }
-

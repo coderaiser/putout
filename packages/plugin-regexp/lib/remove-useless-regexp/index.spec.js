@@ -31,4 +31,3 @@ test('plugin-regexp/remove-useless-regexp: no transform: decimal', (t) => {
     t.noTransform('decimal');
     t.end();
 });
-

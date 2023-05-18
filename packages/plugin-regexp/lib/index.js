@@ -14,4 +14,3 @@ module.exports.rules = {
     ...getRule('remove-useless-group'),
     ...getRule('remove-useless-regexp'),
 };
-

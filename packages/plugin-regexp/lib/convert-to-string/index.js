@@ -5,7 +5,10 @@ const {
     operator,
 } = require('putout');
 
-const {replaceWith, isSimpleRegExp} = operator;
+const {
+    replaceWith,
+    isSimpleRegExp,
+} = operator;
 const {StringLiteral} = types;
 
 const match = (flags) => ({__b}) => {
@@ -37,4 +40,3 @@ module.exports.replace = () => ({
     '__a.replace(/__b/, __c)': replace,
     '__a.replaceAll(/__b/g, __c)': replace,
 });
-

@@ -21,10 +21,11 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     '__a.test(__b)': ({__a}) => {
-        const str = __a.raw.slice(1, -1)
+        const str = __a
+            .raw
+            .slice(1, -1)
             .replace('^', '');
         
         return `__b.startsWith('${str}')`;
     },
 });
-

@@ -32,8 +32,7 @@ module.exports.replace = () => ({
     'RegExp(__a, __b)': twoArgumentsReplace,
 });
 
-const encode = (a) => a
-    .replaceAll('/', '\\/');
+const encode = (a) => a.replaceAll('/', '\\/');
 
 function oneArgumentReplace({__a}, path) {
     const {value} = __a;
@@ -50,6 +49,7 @@ function oneArgumentReplace({__a}, path) {
 
 function twoArgumentsReplace({__a, __b}, path) {
     const raw = `/${encode(__a.value)}/${__b.value}`;
+    
     return replaceWith(path, {
         ...RegExpLiteral(encode(__a.value), __b.value),
         raw,
@@ -58,4 +58,3 @@ function twoArgumentsReplace({__a, __b}, path) {
         },
     });
 }
-

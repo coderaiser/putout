@@ -45,10 +45,10 @@ test('plugin-regexp/apply-literal-notation: transform: /', (t) => {
 });
 
 test('plugin-regexp/apply-literal-notation: transform: \\', (t) => {
-    t.transformCode(
-        `output.match(new RegExp('<div><span> {10}</span></div>', 'g'))`,
-        `output.match(/<div><span> {10}<\\/span><\\/div>/g)`,
-    );
+    const from = `output.match(new RegExp('<div><span> {10}</span></div>', 'g'))`;
+    const to = `output.match(/<div><span> {10}<\\/span><\\/div>/g)`;
+    
+    t.transformCode(from, to);
     t.end();
 });
 
@@ -65,4 +65,3 @@ test('plugin-regexp/apply-literal-notation: transform: remove-useless-escape', (
     });
     t.end();
 });
-

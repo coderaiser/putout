@@ -21,4 +21,3 @@ test('plugin-regexp/apply-starts-with: transform: slash', (t) => {
     t.transform('slash');
     t.end();
 });
-

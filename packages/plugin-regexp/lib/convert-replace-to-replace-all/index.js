@@ -6,6 +6,7 @@ const {
 } = require('putout');
 
 const {StringLiteral} = types;
+
 const {
     replaceWith,
     getTemplateValues,
@@ -40,6 +41,7 @@ module.exports.fix = ({path, pattern}) => {
 module.exports.traverse = ({push}) => ({
     '__a.replace(/__b/g, __c)': (path) => {
         const {__b} = getTemplateValues(path, '__a.replace(/__b/g, __c)');
+        
         const {
             flags,
             raw,
@@ -60,4 +62,3 @@ module.exports.traverse = ({push}) => ({
         return;
     },
 });
-

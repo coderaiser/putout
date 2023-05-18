@@ -1,6 +1,7 @@
 'use strict';
 
 const regexpTree = require('regexp-tree');
+
 const {
     template,
     types,
@@ -78,4 +79,3 @@ function isOnlyChars(str) {
     
     return is;
 }
-

@@ -49,4 +49,3 @@ test('plugin-regexp/optimize: false positive after fix', (t) => {
     t.noReportAfterTransform('after-fix');
     t.end();
 });
-
