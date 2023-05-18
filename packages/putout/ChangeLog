@@ -1,3 +1,11 @@
+2023.05.18, v29.8.2
+
+feature:
+- 3059b0b13 package: @putout/plugin-regexp v7.0.0
+- a07d4df9a @putout/plugin-regexp: use @putout/printer
+- 32dfe8339 @putout/plugin-regexp: drop support of 🐊 < 29
+- cbfaa37b4 @putout/plugin-regexp: use @putout/printer
+
 2023.05.18, v29.8.1
 
 feature:
