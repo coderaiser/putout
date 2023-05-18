@@ -20,4 +20,3 @@ module.exports.replace = () => ({
     'BigInt64Array(__args)': 'new BigInt64Array(__args)',
     'BigUint64Array(__args)': 'new BigUint64Array(__args)',
 });
-

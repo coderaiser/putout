@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const pluginNew = require('..');
 
 const test = createTest(__dirname, {
-    new: pluginNew,
+    printer: 'putout',
+    plugins: [
+        ['new', pluginNew],
+    ],
 });
 
 test('plugin-new: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-new: transform', (t) => {
     t.transform('new');
     t.end();
 });
-

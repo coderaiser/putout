@@ -22,4 +22,3 @@ module.exports.replace = () => ({
     'new Reflect()': 'Reflect',
     'new Math()': 'Math',
 });
-

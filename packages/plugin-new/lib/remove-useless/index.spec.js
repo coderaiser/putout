@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessNew = require('.');
 
 const test = createTest(__dirname, {
-    'remove-useless-new': removeUselessNew,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-new', removeUselessNew],
+    ],
 });
 
 test('plugin-remove-useless-new: report', (t) => {
@@ -46,4 +49,3 @@ test('plugin-remove-useless-new: transform: math', (t) => {
     t.transform('math');
     t.end();
 });
-

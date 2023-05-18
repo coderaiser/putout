@@ -40,7 +40,7 @@ And [`Symbol`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 
 ```js
 new Error('Something whent wrong');
-new new Boolean();
+new new Boolean()();
 ```
 
 ### ✅ Example of correct code
