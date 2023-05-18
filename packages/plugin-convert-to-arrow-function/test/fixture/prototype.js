@@ -1,2 +1,1 @@
-Story.prototype.getHash = function(a, b) {
-}
+Story.prototype.getHash = function(a, b) {};

@@ -28,8 +28,7 @@ npm i @putout/plugin-convert-to-arrow-function
 ## ❌ Example of incorrect code
 
 ```js
-module.exports = function(a, b) {
-};
+module.exports = function(a, b) {};
 
 function x() {
     return function(a) {
@@ -41,8 +40,7 @@ function x() {
 ## ✅ Example of correct code
 
 ```js
-module.exports = (a, b) => {
-};
+module.exports = (a, b) => {};
 
 function x() {
     return (a) => {

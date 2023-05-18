@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertToArrowFunction = require('..');
 
 const test = createTest(__dirname, {
-    'convert-to-arrow-function': convertToArrowFunction,
+    printer: 'putout',
+    plugins: [
+        ['convert-to-arrow-function', convertToArrowFunction],
+    ],
 });
 
 test('plugin-convert-to-arrow-function: report', (t) => {
@@ -41,4 +44,3 @@ test('plugin-convert-to-arrow-function: no transform: prototype', (t) => {
     t.noTransform('prototype');
     t.end();
 });
-
