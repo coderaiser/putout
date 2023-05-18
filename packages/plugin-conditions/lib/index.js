@@ -11,5 +11,6 @@ module.exports.rules = {
     ...getRule('convert-comparison-to-boolean'),
     ...getRule('convert-equal-to-strict-equal'),
     ...getRule('remove-boolean'),
+    ...getRule('remove-zero'),
     ...getRule('simplify'),
 };

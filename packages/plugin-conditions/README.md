@@ -22,7 +22,8 @@ npm i @putout/plugin-conditions -D
         "conditions/convert-equal-to-strict-equal": "on",
         "conditions/evaluate": "on",
         "conditions/remove-boolean": "on",
-        "conditions/remove-constant": "on"
+        "conditions/remove-constant": "on",
+        "conditions/remove-zero": "on"
     }
 }
 ```
@@ -172,6 +173,24 @@ function hi(b) {
     console.log('hello');
     console.log('world');
 }
+```
+
+## remove-zero-
+
+### ❌ Example of incorrect code
+
+```js
+if (b === 0) {}
+
+if (b !== 0) {}
+```
+
+### ✅ Example of correct code
+
+```js
+if (!b) {}
+
+if (b) {}
 ```
 
 ## simplify

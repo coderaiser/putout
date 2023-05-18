@@ -35,6 +35,11 @@ test('plugin-conditions: transform: remove-boolean', (t) => {
     t.end();
 });
 
+test('plugin-conditions: transform: remove-zero', (t) => {
+    t.transform('remove-zero');
+    t.end();
+});
+
 test('plugin-conditions: transform: evaluate', (t) => {
     t.transform('evaluate');
     t.end();
