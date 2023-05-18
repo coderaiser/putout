@@ -1,0 +1,3 @@
+x(function() {
+    return 'hello';
+});

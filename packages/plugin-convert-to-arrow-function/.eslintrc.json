@@ -1,4 +1,7 @@
 {
+    "rules": {
+        "prefer-arrow-callback": "off"
+    },
     "extends": [
         "plugin:n/recommended",
         "plugin:putout/recommended"

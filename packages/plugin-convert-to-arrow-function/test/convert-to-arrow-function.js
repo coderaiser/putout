@@ -30,6 +30,11 @@ test('plugin-convert-to-arrow-function: transform: return fn', (t) => {
     t.end();
 });
 
+test('plugin-convert-to-arrow-function: transform: arg', (t) => {
+    t.transform('arg');
+    t.end();
+});
+
 test('plugin-convert-to-arrow-function: no transform: this', (t) => {
     t.noTransform('this');
     t.end();

@@ -10,6 +10,7 @@ module.exports.fix = (path) => {
 module.exports.include = () => [
     '__ = function __(__args){}',
     'return function (__args){}',
+    '__(function __(__args){})',
 ];
 
 module.exports.exclude = () => [
@@ -35,6 +36,9 @@ module.exports.filter = (path) => {
 };
 
 function getFnPath(path) {
+    if (path.isCallExpression())
+        return path.get('arguments.0');
+    
     const argumentPath = path.get('argument');
     
     if (argumentPath.isFunction())

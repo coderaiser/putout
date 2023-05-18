@@ -35,6 +35,10 @@ function x() {
         return b;
     };
 }
+
+call(function() {
+    return 'world';
+});
 ```
 
 ## ✅ Example of correct code
@@ -47,6 +51,10 @@ function x() {
         return b;
     };
 }
+
+call(() => {
+    return 'world';
+});
 ```
 
 ## License
