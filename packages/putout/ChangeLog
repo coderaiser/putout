@@ -1,3 +1,13 @@
+2023.05.18, v29.8.3
+
+feature:
+- ad66fa1d8 package: @putout/plugin-convert-to-arrow-function v4.0.0
+- 64a31d1d7 @putout/plugin-convert-to-arrow-function: add support of FunctionExpression used as argument of CallExpression
+- db759c2c1 @putout/plugin-convert-to-arrow-function: use @putout/printer
+- 654ce7a18 @putout/plugin-convert-to-arrow-function: drop support of node < 16
+- b98a62bb7 @putout/plugin-convert-to-arrow-function: report
+- 33064b8c1 @putout/plugin-minify: types: typeof not equal
+
 2023.05.18, v29.8.2
 
 feature:
