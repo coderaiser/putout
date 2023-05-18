@@ -22,6 +22,11 @@ test('plugin-minify: types: transform', (t) => {
     t.end();
 });
 
+test('plugin-minify: types: transform: constructor', (t) => {
+    t.transform('constructor');
+    t.end();
+});
+
 test('plugin-minify: types: transform: binary-expressions', (t) => {
     t.transform('binary-expressions', {
         conditions,

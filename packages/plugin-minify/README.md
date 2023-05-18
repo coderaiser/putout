@@ -94,7 +94,7 @@ function generate() {
 
 ## types
 
-Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/208d2f64b68be114e1f9f93cf4b60734/5a0cd97cde7577708aedf13cd80babc04ad4852b).
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/208d2f64b68be114e1f9f93cf4b60734/bdae9887bbf05719e365920d60f3b0b7ca29702b).
 
 ### ❌ Example of incorrect code
 

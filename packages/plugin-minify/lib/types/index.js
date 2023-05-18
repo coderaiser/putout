@@ -1,16 +1,13 @@
 'use strict';
 
-const check = (vars, path) => !path.parentPath.isBinaryExpression();
-
 module.exports.report = () => `Use minified types`;
 
-module.exports.match = () => ({
-    true: check,
-    false: check,
-});
-
 module.exports.replace = () => ({
-    undefined: 'void 0',
-    true: '!0',
-    false: '!1',
+    'undefined': 'void 0',
+    'true': '!0',
+    'false': '!1',
+    'Boolean(__a)': '!!__a',
+    'String(__a)': '"" + __a',
+    'Number(__a)': '+__a',
+    'typeof __a === "undefined"': '__a == undefined',
 });
