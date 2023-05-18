@@ -47,8 +47,5 @@ module.exports.lint = (source, {fix = true, plugins, filename, options = []}) =>
         messages,
     } = linter.verifyAndFix(source, allOptions, mainOptions);
     
-    return [
-        output,
-        messages.map(convertToPlace),
-    ];
+    return [output, messages.map(convertToPlace)];
 };

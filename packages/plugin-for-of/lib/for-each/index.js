@@ -135,10 +135,7 @@ function fixReturn(path) {
             if (!argument)
                 return replaceWith(path, ContinueStatement());
             
-            replaceWithMultiple(path, [
-                argument,
-                ContinueStatement(),
-            ]);
+            replaceWithMultiple(path, [argument, ContinueStatement()]);
         },
     });
 }

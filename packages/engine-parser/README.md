@@ -98,6 +98,7 @@ const ast = parse(source, {
 print(ast, {
     sourceMapName: 'hello.map',
 });
+
 // returns
 `const hello = 'world';
 {"version":3,"sources":["hello.js"],"names":[],"mappings":"AAAA...","file":"hello.map","sourcesContent":["const hello = 'world';"]}`;
