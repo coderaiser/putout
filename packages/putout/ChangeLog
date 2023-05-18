@@ -1,3 +1,13 @@
+2023.05.18, v29.8.1
+
+feature:
+- 484a810f6 package: @putout/plugin-new v2.0.0
+- 5797255bb @putout/plugin-new: use @putout/printer
+- 637645d4f @putout/plugin-new: new -> index
+- 0c6220887 @putout/plugin-new: drop support of 🐊 < 29
+- 02b24e6dc @putout/plugin-minify: types: add support of constructors
+- a20d1514e @putout/plugin-minify: types: boolean: exclude BinaryExpressions
+
 2023.05.17, v29.8.0
 
 feature:
