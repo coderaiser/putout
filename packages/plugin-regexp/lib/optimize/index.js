@@ -20,7 +20,7 @@ const options = {
 module.exports.report = ({pattern, to}) => `RegExp /${pattern}/ can be optimized to /${to}/`;
 
 module.exports.fix = ({path, to, flags}) => {
-    path.node.raw = `/${to}${flags}/`;
+    path.node.raw = `/${to}/${flags}`;
     path.node.pattern = to;
 };
 
@@ -30,6 +30,7 @@ module.exports.traverse = ({push}) => ({
             pattern,
             flags,
         } = path.node;
+        
         const [error, result] = tryCatch(optimize, RegExp(pattern, flags), whitelist, options);
         
         if (error)
@@ -40,6 +41,7 @@ module.exports.traverse = ({push}) => ({
         if (pattern !== to && pattern.length !== to.length) {
             push({
                 path,
+                flags,
                 pattern,
                 to,
             });

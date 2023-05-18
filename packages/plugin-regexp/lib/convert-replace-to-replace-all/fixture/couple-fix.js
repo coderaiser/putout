@@ -1,5 +1,5 @@
 function fixCatch(text) {
-     return text
+    return text
         .replaceAll('catch{', 'catch {')
         .replaceAll('}catch', '} catch')
         .replaceAll('catch (', 'catch(');

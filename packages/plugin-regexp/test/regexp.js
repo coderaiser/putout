@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const regexp = require('..');
 
 const test = createTest(__dirname, {
-    regexp,
+    printer: 'putout',
+    plugins: [
+        ['regexp', regexp],
+    ],
 });
 
 test('plugin-regexp: optimize: report', (t) => {

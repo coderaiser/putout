@@ -7,7 +7,10 @@ const applyLiteralNotation = require('../apply-literal-notation');
 const optimize = require('../optimize');
 
 const test = createTest(__dirname, {
-    'regexp/remove-useless-group': removeUselessGroup,
+    printer: 'putout',
+    plugins: [
+        ['regexp/remove-useless-group', removeUselessGroup],
+    ],
 });
 
 test('plugin-regexp/remove-useless-group: report', (t) => {
@@ -38,17 +41,17 @@ test('plugin-regexp/remove-useless-group: transform: search', (t) => {
 });
 
 test('plugin-regexp/remove-useless-group: no transform: group alternatives', (t) => {
-    t.transformCode('/^(babel)/.test(x)', '/^babel/.test(x)');
+    t.transformCode('/^(babel)/.test(x)', '/^babel/.test(x);\n');
     t.end();
 });
 
 test('plugin-regexp/remove-useless-group: no transform: group alternatives inside Repetition', (t) => {
-    t.noTransformCode('/^(babel){1,}/.test(x)');
+    t.noTransformCode('/^(babel){1,}/.test(x);\n');
     t.end();
 });
 
 test('plugin-regexp/remove-useless-group: no transform: Alternative inside Assertion', (t) => {
-    t.noTransformCode('/^(babel)\\1{1,}/.test(x)');
+    t.noTransformCode('/^(babel)\\1{1,}/.test(x);\n');
     t.end();
 });
 

@@ -9,6 +9,7 @@ const {
     replaceWith,
     isSimpleRegExp,
 } = operator;
+
 const {StringLiteral} = types;
 
 const match = (flags) => ({__b}) => {

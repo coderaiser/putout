@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const optimize = require('.');
 
 const test = createTest(__dirname, {
-    'regexp/apply-ends-with': optimize,
+    printer: 'putout',
+    plugins: [
+        ['regexp/apply-ends-with', optimize],
+    ],
 });
 
 test('plugin-regexp/apply-ends-with: report', (t) => {

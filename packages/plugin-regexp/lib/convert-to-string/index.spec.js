@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertToString = require('.');
 
 const test = createTest(__dirname, {
-    'regexp/convert-to-string': convertToString,
+    printer: 'putout',
+    plugins: [
+        ['regexp/convert-to-string', convertToString],
+    ],
 });
 
 test('plugin-regexp/convert-to-string: report', (t) => {

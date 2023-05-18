@@ -1,1 +1,1 @@
-str.replace(/\u2026/g, '...') // Ellipsis
+str.replace(/\u2026/g, '...'); // Ellipsis

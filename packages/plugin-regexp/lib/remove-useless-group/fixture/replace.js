@@ -1,1 +1,1 @@
-'lala'.replace(/(a)/g,'-$1-');
+'lala'.replace(/(a)/g, '-$1-');

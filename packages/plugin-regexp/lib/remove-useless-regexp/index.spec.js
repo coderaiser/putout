@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessRegexp = require('.');
 
 const test = createTest(__dirname, {
-    'regexp/remove-useless-regexp': removeUselessRegexp,
+    printer: 'putout',
+    plugins: [
+        ['regexp/remove-useless-regexp', removeUselessRegexp],
+    ],
 });
 
 test('plugin-regexp/remove-useless-regexp: report', (t) => {
