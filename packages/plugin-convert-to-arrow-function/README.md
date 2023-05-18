@@ -57,6 +57,13 @@ call(() => {
 });
 ```
 
+## Comparison
+
+Linter | Rule | Fix
+--------|-------|------------|
+🐊 **Putout** | [`convert-to-arrow-function`](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-to-arrow-function#readme) | ✅
+⏣ **ESLint** | [`prefer-arrow-callback`](https://eslint.org/docs/latest/rules/prefer-arrow-callback) | ✅
+
 ## License
 
 MIT
