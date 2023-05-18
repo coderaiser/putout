@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-convert-to-arrow-function: report', (t) => {
-    t.report('fn', 'Arrow functions should be used');
+    t.report('fn', 'Use arrow function');
     t.end();
 });
 

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.report = () => 'Arrow functions should be used';
+module.exports.report = () => 'Use arrow function';
 
 module.exports.fix = (path) => {
     const fnPath = getFnPath(path);
