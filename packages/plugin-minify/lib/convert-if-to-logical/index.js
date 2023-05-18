@@ -34,7 +34,7 @@ module.exports.replace = () => ({
         if (!isBlockStatement(__b))
             return '__a && __b';
         
-        if (__b.body.length === 0)
+        if (!__b.body.length)
             return '__a';
         
         if (__b.body.length === 1)

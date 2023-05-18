@@ -42,7 +42,7 @@ function split(str) {
     while (--i > -1) {
         const a = n - i;
         
-        if (a && a % 3 === 0)
+        if (a && !(a % 3))
             result.unshift('_');
         
         result.unshift(str.charAt(i));
