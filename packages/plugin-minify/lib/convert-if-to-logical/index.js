@@ -6,17 +6,15 @@ const {
     LogicalExpression,
     isBlockStatement,
     isExpression,
-    isAssignmentExpression,
 } = types;
 
 const getExpression = (a) => a.expression;
-const notAssign = (a) => !isAssignmentExpression(a);
 
 module.exports.report = () => `Use 'logical expressions' instead of 'if conditions'`;
 
 module.exports.match = () => ({
     'if(__a) __b': ({__b}) => {
-        if (isExpression(__b) && !isAssignmentExpression(__b))
+        if (isExpression(__b))
             return true;
         
         if (!isBlockStatement(__b))
@@ -25,7 +23,6 @@ module.exports.match = () => ({
         const expressions = __b
             .body
             .map(getExpression)
-            .filter(notAssign)
             .filter(Boolean);
         
         return expressions.length === __b.body.length;
