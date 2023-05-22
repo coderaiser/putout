@@ -8,6 +8,10 @@ const {writeFileSync} = fs;
 fs.writeFileSync = stub();
 process.env.UPDATE = 1;
 
+const NO_CHECK_ASSERTIONS_COUNT = {
+    checkAssertionsCount: false,
+};
+
 const test = reRequire('..')(__dirname, {
     'remove-console': require('@putout/plugin-remove-console'),
 });
@@ -44,7 +48,7 @@ test('transform: with UPDATE env variable', (t) => {
     
     t.ok(writeFileSyncStub.called, 'should write fixture');
     t.end();
-}, {checkAssertionsCount: false});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
 test('transform: with UPDATE env variable: pass', (t) => {
     const {UPDATE} = process.env;
@@ -63,7 +67,7 @@ test('transform: with UPDATE env variable: pass', (t) => {
     
     t.equal(result.message, 'fixed fixture updated');
     t.end();
-}, {checkAssertionsCount: false});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
 test('test: no transform: with UPDATE env variable: pass', (t) => {
     const {UPDATE} = process.env;
@@ -82,7 +86,7 @@ test('test: no transform: with UPDATE env variable: pass', (t) => {
     
     t.equal(result.message, 'source fixture updated');
     t.end();
-}, {checkAssertionsCount: false});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
 test('transform: with UPDATE env variable: js', (t) => {
     const {UPDATE} = process.env;
@@ -101,7 +105,7 @@ test('transform: with UPDATE env variable: js', (t) => {
     
     t.ok(writeFileSyncStub.called, 'should write fixture');
     t.end();
-}, {checkAssertionsCount: false});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
 test('transform: with UPDATE env variable: with arg', (t) => {
     const {UPDATE} = process.env;
@@ -120,7 +124,7 @@ test('transform: with UPDATE env variable: with arg', (t) => {
     
     t.notCalled(writeFileSyncStub);
     t.end();
-}, {checkAssertionsCount: false});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
 test('noTransform: with UPDATE env variable', (t) => {
     const {UPDATE} = process.env;
@@ -145,7 +149,7 @@ test('noTransform: with UPDATE env variable', (t) => {
     
     t.calledOnce(writeFileSyncStub);
     t.end();
-}, {checkAssertionsCount: false});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
 test('transformWithOptions: with UPDATE env variable', (t) => {
     const {UPDATE} = process.env;
@@ -170,7 +174,7 @@ test('transformWithOptions: with UPDATE env variable', (t) => {
     
     t.ok(writeFileSyncStub.called);
     t.end();
-}, {checkAssertionsCount: false});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
 test('transformWithOptions: with UPDATE env variable: pass', (t) => {
     const {UPDATE} = process.env;
@@ -195,7 +199,7 @@ test('transformWithOptions: with UPDATE env variable: pass', (t) => {
     
     t.equal(result.message, 'fixed fixture updated');
     t.end();
-}, {checkAssertionsCount: false});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
 fs.writeFileSync = writeFileSync;
 
