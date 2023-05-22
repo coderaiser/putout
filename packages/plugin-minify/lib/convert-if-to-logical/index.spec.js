@@ -24,3 +24,8 @@ test('plugin-minify: convert-if-to-logical: transform: couple', (t) => {
     t.transform('couple');
     t.end();
 });
+
+test('plugin-minify: convert-if-to-logical: no transform: assign', (t) => {
+    t.noTransform('assign');
+    t.end();
+});
