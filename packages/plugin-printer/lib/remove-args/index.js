@@ -39,4 +39,5 @@ module.exports.replace = () => ({
     
     'write(__a, __b)': 'write(__b)',
     'maybe.write.space(__a, __b)': 'maybe.write.space(__a)',
+    'maybe.print.space(__a, __b)': 'maybe.print.print(__a)',
 });
