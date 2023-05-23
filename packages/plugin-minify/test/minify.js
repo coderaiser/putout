@@ -12,6 +12,11 @@ test('plugin-minify: transform: convert-if-to-logical', (t) => {
     t.end();
 });
 
+test('plugin-minify: transform: extract-body', (t) => {
+    t.transform('extract-body');
+    t.end();
+});
+
 test('plugin-minify: transform: remove-return-undefined', (t) => {
     t.transform('remove-return-undefined');
     t.end();

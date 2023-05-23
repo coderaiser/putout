@@ -5,6 +5,7 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
+    ...getRule('extract-body'),
     ...getRule('convert-if-to-logical'),
     ...getRule('mangle-names'),
     ...getRule('remove-return-undefined'),

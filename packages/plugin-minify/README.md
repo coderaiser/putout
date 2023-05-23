@@ -17,6 +17,7 @@ npm i @putout/plugin-putout -D
 {
     "rules": {
         "minify/convert-if-to-logical": "on",
+        "minify/extract-body": "on",
         "minify/remove-return-undefined": "on",
         "minify/mangle-names": "on",
         "minify/types": "on"
@@ -46,6 +47,31 @@ if (b) {
 a && console.log('hello');
 
 b && (console.log('hello'), console.log('world'));
+```
+
+## extract-body
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/fc3b90ac00754c99711c316fd632f4d9/443d4c1bc04e6416185d827c1483f1c2fafce88c).
+
+### ❌ Example of incorrect code
+
+```js
+if (x) {
+    return;
+}
+
+const hello = () => {
+    return 'world';
+};
+```
+
+### ✅ Example of correct code
+
+```js
+if (x)
+    return;
+
+const hello = () => 'world';
 ```
 
 ## remove-return-undefined
