@@ -32,4 +32,3 @@ function generateUid(name, scope) {
     
     return uid;
 }
-
