@@ -3,9 +3,9 @@ function hello() {
     const b = 7;
     const c = 8;
     
-    const _temp2 = 'hello';
+    const _temp = 'hello';
     
-    function _d() {
+    function _c() {
         return hello;
     }
     

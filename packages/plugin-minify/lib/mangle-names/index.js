@@ -6,7 +6,7 @@ const A = 97;
 module.exports.report = () => `Mangle name`;
 
 module.exports.include = () => [
-    'BlockStatement',
+    'Statement',
 ];
 
 module.exports.fix = ({scope}) => {
@@ -32,3 +32,4 @@ function generateUid(name, scope) {
     
     return uid;
 }
+
