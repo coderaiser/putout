@@ -24,3 +24,8 @@ test('plugin-minify: extract-body: no transform: arrow-if', (t) => {
     t.noTransform('arrow-if');
     t.end();
 });
+
+test('plugin-minify: extract-body: no transform: try', (t) => {
+    t.noTransform('try');
+    t.end();
+});

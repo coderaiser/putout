@@ -37,21 +37,22 @@ module.exports.include = () => [
     'BlockStatement',
 ];
 
-module.exports.filter = (path) => {
-    const {
-        node,
-        parentPath,
-    } = path;
-    
+module.exports.filter = ({node, parentPath}) => {
     const {body} = node;
     
     if (body.length !== 1)
         return false;
     
-    if (path.parentPath.isFunctionDeclaration())
+    if (parentPath.isFunctionDeclaration())
         return false;
     
-    if (path.parentPath.isFunctionExpression())
+    if (parentPath.isFunctionExpression())
+        return false;
+    
+    if (parentPath.isTryStatement())
+        return false;
+    
+    if (parentPath.isCatchClause())
         return false;
     
     const [first] = body;
