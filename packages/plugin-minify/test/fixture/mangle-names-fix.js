@@ -5,10 +5,10 @@ function hello() {
     
     const _temp = 'hello';
     
-    function _c() {
+function _c() {
         return hello;
     }
-    
+
     const d = 55;
     
     return a;

@@ -4,7 +4,15 @@ const {createTest} = require('@putout/test');
 const minify = require('..');
 
 const test = createTest(__dirname, {
-    minify,
+    printer: 'putout',
+    plugins: [
+        ['minify', minify],
+    ],
+});
+
+test('plugin-minify: transform: apply-ternary', (t) => {
+    t.transform('apply-ternary');
+    t.end();
 });
 
 test('plugin-minify: transform: convert-if-to-logical', (t) => {

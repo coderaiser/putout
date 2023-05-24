@@ -16,6 +16,7 @@ npm i @putout/plugin-putout -D
 ```json
 {
     "rules": {
+        "minify/apply-ternary": "on",
         "minify/convert-if-to-logical": "on",
         "minify/extract-body": "on",
         "minify/remove-return-undefined": "on",
@@ -23,6 +24,25 @@ npm i @putout/plugin-putout -D
         "minify/types": "on"
     }
 }
+```
+
+## apply-ternary
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/69329ca15ca7b13a91caa17bbfd64327/57d98ae86d557596dbab396be3cd2d093b625ec4).
+
+### ❌ Example of incorrect code
+
+```js
+if (a)
+    b();
+else
+    c();
+```
+
+### ✅ Example of correct code
+
+```js
+a ? b() : c();
 ```
 
 ## convert-if-to-logical
