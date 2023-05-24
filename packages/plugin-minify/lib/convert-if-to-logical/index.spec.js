@@ -29,3 +29,8 @@ test('plugin-minify: convert-if-to-logical: no transform: assign', (t) => {
     t.noTransform('assign');
     t.end();
 });
+
+test('plugin-minify: convert-if-to-logical: transform: else', (t) => {
+    t.transform('else');
+    t.end();
+});

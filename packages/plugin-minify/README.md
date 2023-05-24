@@ -59,6 +59,14 @@ if (b) {
     console.log('hello');
     console.log('world');
 }
+
+if (a) {
+    console.log(1);
+    console.log(2);
+} else {
+    console.log(3);
+    console.log(4);
+}
 ```
 
 ### ✅ Example of correct code
@@ -67,6 +75,8 @@ if (b) {
 a && console.log('hello');
 
 b && (console.log('hello'), console.log('world'));
+
+a ? (console.log(1), console.log(2)) : (console.log(3), console.log(4));
 ```
 
 ## extract-body
