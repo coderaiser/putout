@@ -207,7 +207,7 @@
     "currify": "^4.0.0",
     "escover": "^3.2.2",
     "eslint": "^8.0.1",
-    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-n": "^16.0.0",
     "eslint-plugin-putout": "^17.0.0",
     "just-camel-case": "^4.0.2",
     "lerna": "^6.0.1",

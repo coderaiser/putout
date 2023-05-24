@@ -51,7 +51,7 @@
     "babel-plugin-transform-inline-consecutive-adds": "^0.4.3",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
-    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-n": "^16.0.0",
     "eslint-plugin-putout": "^17.0.0",
     "estrace": "*",
     "just-camel-case": "^4.0.2",
