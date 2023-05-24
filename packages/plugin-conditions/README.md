@@ -203,7 +203,8 @@ if (zone?.tooltipCallback) {
 }
 
 if (a)
-    alert('hello');else
+    alert('hello');
+else
     alert('hello');
 ```
 
