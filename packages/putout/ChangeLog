@@ -1,3 +1,21 @@
+2023.05.24, v29.9.0
+
+fix:
+- fca416aac @putout/plugin-printer: remove-args
+- 76ac50697 @putout/plugin-=minify: convert-if-to-logical: AssignmentExpression support
+
+feature:
+- e1857c88c package: @putout/plugin-remove-useless-else v2.0.0
+- d01c45590 @putout/plugin-remove-useless-else: drop support of 🐊 < 19
+- e77a9fa4e @putout/plugin-remove-useless-else: use @putout/printer
+- 217576d50 @putout/plugin-minify: convert-if-to-logical: add support of ternary expression
+- 69fce3014 @putout/plugin-minify: apply-ternary: add
+- e8858e4a8 @putout/plugin-printer: remove-args: add support of maybe.print.space
+- a19fb2ff1 @putout/plugin-minify: extract-body: add
+- e7e7e2fb7 @putout/plugin-minify: add support of ForOfStatement
+- 7f767ef0a @putout/plugin-minify: convert-if-to-logical: exclude AssignmentExpression (coderaiser/minify#100)
+- a20679740 @putout/plugin-conditions: remove-zero: add
+
 2023.05.18, v29.8.3
 
 feature:
