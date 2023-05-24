@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const applyEarlyReturn = require('..');
 
 const test = createTest(__dirname, {
-    'remove-useless-else': applyEarlyReturn,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-else', applyEarlyReturn],
+    ],
 });
 
 test('plugin-remove-useless-else: transform: report', (t) => {
@@ -31,4 +34,3 @@ test('plugin-remove-useless-else: no transform: no-return', (t) => {
     t.noTransform('no-return');
     t.end();
 });
-
