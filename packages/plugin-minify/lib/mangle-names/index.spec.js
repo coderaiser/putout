@@ -24,3 +24,8 @@ test('plugin-minify: mangle-names: transform: for-of', (t) => {
     t.transform('for-of');
     t.end();
 });
+
+test('plugin-minify: mangle-names: transform: destr', (t) => {
+    t.transform('destr');
+    t.end();
+});
