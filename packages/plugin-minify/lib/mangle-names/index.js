@@ -10,25 +10,27 @@ module.exports.include = () => [
 ];
 
 module.exports.fix = ({scope}) => {
+    const all = scope.getAllBindings();
+    
     for (const [name, binding] of entries(scope.bindings)) {
         if (name.length === 1)
             continue;
         
-        scope.rename(name, generateUid(name, scope));
+        scope.rename(name, generateUid(name, all, scope));
         maybeFixObjectProperty(name, binding.path);
     }
 };
 
-function generateUid(name, scope) {
+function generateUid(name, all, scope) {
     const uid = scope.generateUid();
     const number = Number(uid.replace('_temp', '') || 0) + A;
     const short = String.fromCharCode(number);
     const dashed = `_${short}`;
     
-    if (!scope.bindings[short])
+    if (!all[short])
         return short;
     
-    if (!scope.bindings[dashed])
+    if (!all[dashed])
         return dashed;
     
     return uid;
