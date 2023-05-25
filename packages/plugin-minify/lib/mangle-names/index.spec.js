@@ -34,4 +34,3 @@ test('plugin-minify: mangle-names: transform: upper-scope', (t) => {
     t.transform('upper-scope');
     t.end();
 });
-
