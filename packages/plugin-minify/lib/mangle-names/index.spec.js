@@ -34,3 +34,8 @@ test('plugin-minify: mangle-names: transform: upper-scope', (t) => {
     t.transform('upper-scope');
     t.end();
 });
+
+test('plugin-minify: mangle-names: transform: nested', (t) => {
+    t.transform('nested');
+    t.end();
+});

@@ -10,6 +10,9 @@ module.exports.include = () => [
 ];
 
 module.exports.fix = ({scope}) => {
+    if (scope.__putout_minify)
+        return;
+    
     const all = scope.getAllBindings();
     
     for (const [name, binding] of entries(scope.bindings)) {
@@ -19,6 +22,8 @@ module.exports.fix = ({scope}) => {
         scope.rename(name, generateUid(name, all, scope));
         maybeFixObjectProperty(name, binding.path);
     }
+    
+    scope.__putout_minify = true;
 };
 
 function generateUid(name, all, scope) {
