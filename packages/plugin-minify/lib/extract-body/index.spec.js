@@ -29,3 +29,8 @@ test('plugin-minify: extract-body: no transform: try', (t) => {
     t.noTransform('try');
     t.end();
 });
+
+test('plugin-minify: extract-body: no transform: method', (t) => {
+    t.noTransform('method');
+    t.end();
+});

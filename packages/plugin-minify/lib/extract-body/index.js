@@ -20,15 +20,8 @@ module.exports.fix = (path) => {
     const {parentPath} = path;
     const [first] = path.node.body;
     
-    if (parentPath.isArrowFunctionExpression() && isReturnStatement(first)) {
-        replaceWith(path, first.argument);
-        return;
-    }
-    
-    if (parentPath.isArrowFunctionExpression() && isExpressionStatement(first)) {
-        replaceWith(path, first.expression);
-        return;
-    }
+    if (parentPath.isArrowFunctionExpression())
+        return replaceWith(path, parseExpression(first));
     
     replaceWith(path, first);
 };
@@ -43,11 +36,16 @@ module.exports.filter = ({node, parentPath}) => {
     if (body.length !== 1)
         return false;
     
+    if (parentPath.isFunction() && !parentPath.isArrowFunctionExpression())
+        return false;
+    
+    /*
     if (parentPath.isFunctionDeclaration())
         return false;
     
     if (parentPath.isFunctionExpression())
         return false;
+        */
     
     if (parentPath.isTryStatement())
         return false;
@@ -72,3 +70,11 @@ const expressionOrReturn = (node) => {
     
     return false;
 };
+
+function parseExpression(node) {
+    if (isReturnStatement(node))
+        return node.argument;
+    
+    return node.expression;
+}
+
