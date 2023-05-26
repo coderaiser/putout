@@ -46,7 +46,6 @@ module.exports.filter = ({node, parentPath}) => {
     if (parentPath.isFunctionExpression())
         return false;
         */
-    
     if (parentPath.isTryStatement())
         return false;
     
@@ -77,4 +76,3 @@ function parseExpression(node) {
     
     return node.expression;
 }
-
