@@ -19,4 +19,3 @@ test('plugin-github: set coveralls versions: transform: v2', (t) => {
     t.transform('set-coveralls-version');
     t.end();
 });
-
