@@ -14,6 +14,7 @@ const {
 
 const {StringLiteral} = types;
 const cutV = (a) => Number(a.slice(1));
+const cutMaster = (a) => a.replace('master', 'v0');
 
 module.exports.createUsesFixer = (name, version) => {
     const full = `${name}@${version}`;
@@ -26,7 +27,7 @@ module.exports.createUsesFixer = (name, version) => {
     };
 };
 
-const report = (name) => () => `Latest version of ${name} is missing`;
+const report = (name) => () => `Latest version of '${name}' is missing`;
 
 const fix = (checkoutNode) => (path) => {
     replaceWith(path, checkoutNode);
@@ -49,7 +50,7 @@ const traverse = (name, version) => ({push}) => ({
             
             const [, valueVersion] = value.split('@');
             const versionNumber = cutV(version);
-            const valueVersionNumber = cutV(valueVersion);
+            const valueVersionNumber = cutV(cutMaster(valueVersion));
             
             if (versionNumber > valueVersionNumber)
                 push(valuePath);

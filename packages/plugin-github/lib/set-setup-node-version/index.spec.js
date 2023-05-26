@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-github: set-setup-node-versions: report', (t) => {
-    t.report('setup-node', 'Latest version of actions/setup-node is missing');
+    t.report('setup-node', `Latest version of 'actions/setup-node' is missing`);
     t.end();
 });
 

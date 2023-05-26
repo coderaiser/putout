@@ -5,28 +5,13 @@ __putout_processor_json({
         "build": {
             "runs-on": "ubuntu-latest",
             "steps": [{
-                "uses": 'actions/checkout@v3',
+                "uses": "actions/checkout@v3",
             }, {
                 "name": "Use Node.js ${{ matrix.node-version }}",
-                "uses": 'actions/setup-node@v3',
+                "uses": "actions/setup-node@v1",
                 "with": {
                     "node-version": "${{ matrix.node-version }}",
                 },
-            }, {
-                "name": "Install Redrun",
-                "run": "npm i redrun -g",
-            }, {
-                "name": "Install",
-                "run": "npm install",
-            }, {
-                "name": "Bootstrap",
-                "run": "redrun bootstrap",
-            }, {
-                "name": "Lint",
-                "run": "redrun lint",
-            }, {
-                "name": "Coverage",
-                "run": "redrun coverage report",
             }, {
                 "name": "Coveralls",
                 "uses": 'coverallsapp/github-action@v2',

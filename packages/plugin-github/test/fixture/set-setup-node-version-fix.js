@@ -29,7 +29,7 @@ __putout_processor_json({
                 "run": "redrun coverage report",
             }, {
                 "name": "Coveralls",
-                "uses": "coverallsapp/github-action@master",
+                "uses": 'coverallsapp/github-action@v2',
                 "with": {
                     "github-token": "${{ secrets.GITHUB_TOKEN }}",
                 },

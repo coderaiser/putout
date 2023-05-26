@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-github: set checkout versions: report', (t) => {
-    t.report('v2', 'Latest version of actions/checkout is missing');
+    t.report('v2', `Latest version of 'actions/checkout' is missing`);
     t.end();
 });
 

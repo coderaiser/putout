@@ -21,6 +21,7 @@ npm i @putout/plugin-github -D
 {
     "rules": {
         "github/set-node-versions": "on",
+        "github/set-coveralls": "on",
         "github/set-checkout-version": "on",
         "github/set-setup-node-version": "on",
         "github/set-add-and-commit": "on"
@@ -55,6 +56,14 @@ You can override versions with:
         }]
     }
 }
+```
+
+## set-covveralls-versions
+
+```diff
+    - name: Coveralls
+-       uses: coverallsapp/github-action@master
++       uses: coverallsapp/github-action@v2
 ```
 
 ## set-checkout-version

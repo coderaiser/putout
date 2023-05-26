@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-github: set-set-add-and-commit: report', (t) => {
-    t.report('set-add-and-commit', 'Latest version of EndBug/add-and-commit is missing');
+    t.report('set-add-and-commit', `Latest version of 'EndBug/add-and-commit' is missing`);
     t.end();
 });
 
