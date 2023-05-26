@@ -1,7 +1,7 @@
 'use strict';
 
+const {computeName} = require('./compute-name');
 const {entries} = Object;
-const A = 97;
 
 module.exports.report = () => `Mangle name`;
 
@@ -28,8 +28,7 @@ module.exports.fix = ({scope}) => {
 
 function generateUid(name, all, scope) {
     const uid = scope.generateUid();
-    const number = Number(uid.replace('_temp', '') || 0) + A;
-    const short = String.fromCharCode(number);
+    const short = computeName(uid);
     const dashed = `_${short}`;
     
     if (!all[short])
