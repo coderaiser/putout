@@ -23,4 +23,3 @@ module.exports.include = () => [
     'isNumberLiteral(__a)',
     'NumberLiteral(__a)',
 ];
-
