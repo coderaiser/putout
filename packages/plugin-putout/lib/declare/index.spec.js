@@ -160,3 +160,23 @@ test('plugin-putout: declare: transform: compute', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: rename', (t) => {
+    t.transformCode('rename();', montag`
+        import {operator} from 'putout';
+        
+        const {rename} = operator;
+        rename();\n
+    `);
+    t.end();
+});
+
+test('plugin-putout: declare: transform: renameProperty', (t) => {
+    t.transformCode('renameProperty();', montag`
+        import {operator} from 'putout';
+        
+        const {renameProperty} = operator;
+        renameProperty();\n
+    `);
+    t.end();
+});
