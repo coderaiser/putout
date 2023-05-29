@@ -1,5 +1,8 @@
 'use strict';
 
+const {operator} = require('putout');
+const {rename} = operator;
+
 module.exports.report = () => '"operator" should be used instead of "operate"';
 
 module.exports.include = () => [
@@ -14,5 +17,5 @@ module.exports.filter = (path) => {
 };
 
 module.exports.fix = (path) => {
-    path.scope.rename('operate', 'operator');
+    rename(path, 'operate', 'operator');
 };
