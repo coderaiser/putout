@@ -107,6 +107,8 @@ function getValues({waysFrom, node}) {
     return result;
 }
 
+const makeRaw = (a) => a.replace('`', '\\`');
+
 module.exports.setValues = setValues;
 
 function setValues({waysTo, values, path}) {
@@ -127,7 +129,11 @@ function setValues({waysTo, values, path}) {
             
             if (isLiteral(values[name]) && isTemplateLiteral(node)) {
                 const {value} = values[name];
-                nessy(way, TemplateElement({raw: value}), node);
+                const element = TemplateElement({
+                    raw: makeRaw(value),
+                });
+                
+                nessy(way, element, node);
                 continue;
             }
             
