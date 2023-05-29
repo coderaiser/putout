@@ -915,3 +915,20 @@ test('putout: operate: isSimple', (t) => {
     t.notOk(result);
     t.end();
 });
+
+test('putout: operate: renameProperty', (t) => {
+    const ast = parse('const {a, hello: world} = c;');
+    
+    traverse(ast, {
+        VariableDeclaration(path) {
+            operate.renameProperty(path, 'hello', 'world');
+        },
+    });
+    
+    const result = print(ast);
+    const expected = 'const {a, world: world} = c;';
+    
+    t.equal(result, expected);
+    t.end();
+});
+

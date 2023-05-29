@@ -17,6 +17,26 @@ If you write plugin for `putout` you already have `operator` in `putout`, all ex
 
 ## API
 
+### `renameProperty`
+
+Let's suppose you have code
+
+```js
+const {hello: world} = one;
+```
+
+You want to change to:
+
+```js
+const {world} = one;
+```
+
+Use:
+
+```js
+renameProperty(path, 'hello', 'world');
+```
+
 ### `isSimple(path | node)`
 
 Check if path is:

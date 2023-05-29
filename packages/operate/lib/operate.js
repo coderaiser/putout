@@ -22,6 +22,7 @@ const {extract} = require('./extract');
 const {compute} = require('./compute');
 const {remove} = require('./remove');
 const {getExportDefault} = require('./get-export-default');
+const {renameProperty} = require('./rename-property');
 const {
     getProperty,
     getProperties,
@@ -39,6 +40,7 @@ module.exports.getProperty = getProperty;
 module.exports.getProperties = getProperties;
 module.exports.toExpression = toExpression;
 module.exports.isSimple = isSimple;
+module.exports.renameProperty = renameProperty;
 
 function toExpression(el) {
     const {type} = el;
