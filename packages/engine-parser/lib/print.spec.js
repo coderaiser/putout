@@ -130,7 +130,7 @@ test('putout: parser: print: printer: putout: options', (t) => {
     `;
     
     const expected = montag`
-        export default ({a, b})__=>__{
+        export default ({a,__b})__=>__{
             return a__+__b;
         };
     
