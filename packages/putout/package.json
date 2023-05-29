@@ -179,7 +179,7 @@
     "fullstore": "^3.0.0",
     "ignore": "^5.0.4",
     "is-relative": "^1.0.0",
-    "isomorphic-git": "^1.4.0",
+    "isomorphic-git": "1.23.0",
     "nano-memoize": "^2.0.0",
     "once": "^1.4.0",
     "picomatch": "^2.2.2",
