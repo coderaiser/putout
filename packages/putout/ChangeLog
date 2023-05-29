@@ -1,3 +1,31 @@
+2023.05.29, v29.10.0
+
+fix:
+- 6312e790e putout: hang --staged (isomorphic-git/isomorphic-git#1768)
+
+feature:
+- 664e07e20 @putout/plugin-react-router: v2
+- 4c686c97c @putout/plugin-react-router: drop support of 🐊29
+- 118293767 @putout/plugin-react-router: applies changes according to printer
+- e64aa4e0b package: @putout/compare v10.0.0
+- d8ef6f389 package: @putout/traverse v6.0.0
+- 2e0968f95 package: @putout/compare v10.0.0
+- 1b2e2cfb6 package: @putout/compare v10.0.0
+- d753a5a65 package: @putout/compare v10.0.0
+- b939822fa package: @putout/compare v10.0.0
+- c1a8a9eb2 package: @putout/engine-loader v9.2.0
+- 0bdbd751f package: @putout/engine-parser v6.2.0
+- 9da482947 package: @putout/engine-parser v6.2.0
+- 7411ef928 @putout/compare: setValues: improve support of TemplateElement
+- 80a313afb @putout/plugin-minify: mangle-names: add support of a very big count of variables
+- bbf78df1b @putout/plugin-minify: extract-body: improve support of ObjectMethod
+- 2741d1149 @putout/plugin-github: set-coveralls-version: add (coverallsapp/github-action#2)
+- ffdef0444 @putout/plugin-minify: mangle-names: process scope once
+- 516c1e427 @putout/minify: mangle-names: add ability to check upper scope
+- f2e01f9ec @putout/plugin-minify: mangle-names: Identifier inside ObjectProperty (babel/babel#15648)
+- a5c8892d3 @putout/plugin-minify: extract-body: exclude try-catch
+- c3f8b2392 package: eslint-plugin-n v16.0.0
+
 2023.05.24, v29.9.0
 
 fix:
