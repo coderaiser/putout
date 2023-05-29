@@ -39,13 +39,6 @@ module.exports.filter = ({node, parentPath}) => {
     if (parentPath.isFunction() && !parentPath.isArrowFunctionExpression())
         return false;
     
-    /*
-    if (parentPath.isFunctionDeclaration())
-        return false;
-    
-    if (parentPath.isFunctionExpression())
-        return false;
-        */
     if (parentPath.isTryStatement())
         return false;
     
