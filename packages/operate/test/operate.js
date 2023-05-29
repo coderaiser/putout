@@ -932,3 +932,24 @@ test('putout: operate: renameProperty', (t) => {
     t.end();
 });
 
+test('putout: operate: rename', (t) => {
+    const ast = parse('const {hello} = c; hello();');
+    
+    traverse(ast, {
+        VariableDeclaration(path) {
+            operate.rename(path, 'hello', 'world');
+        },
+    });
+    
+    const result = print(ast, {
+        printer: 'putout',
+    });
+    const expected = montag`
+        const {world} = c;
+        world();\n
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
