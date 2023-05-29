@@ -1,7 +1,7 @@
 const {
     register,
     setError,
-    clearError,
+    clearErrors,
     errors,
 } = useForm<{}>();
 
