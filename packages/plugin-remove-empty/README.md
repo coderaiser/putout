@@ -68,7 +68,9 @@ class Hello {
 export const func = (param) => {
     const {
         a: {
-        }, c} = param;
+        },
+        c,
+    } = param;
     
     return c;
 };
