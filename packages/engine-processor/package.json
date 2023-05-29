@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/engine-loader": "^8.1.0",
+    "@putout/engine-loader": "^9.2.0",
     "once": "^1.4.0",
     "picomatch": "^2.2.2",
     "try-to-catch": "^3.0.1"
