@@ -10,6 +10,7 @@
         "packages/*/coverage",
         "packages/*/bin",
         "packages/*/test",
+        "coverage",
         "**/eslint.config.js"
     ],
     "branches": 100,
