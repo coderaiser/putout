@@ -1,6 +1,6 @@
 const {
     Route,
-    Switch,
+    Routes,
 } = require('react-router');
 
 const routes = () => <Routes>
