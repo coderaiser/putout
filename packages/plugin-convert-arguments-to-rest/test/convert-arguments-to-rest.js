@@ -8,7 +8,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-convert-arguments-to-rest: report', (t) => {
-    t.report('arguments', 'rest parameters should be used instead of "arguments"');
+    t.report('arguments', `Use 'rest parameters' instead of 'arguments'`);
     t.end();
 });
 

@@ -5,7 +5,7 @@ const {
     identifier,
 } = require('putout').types;
 
-module.exports.report = () => 'rest parameters should be used instead of "arguments"';
+module.exports.report = () => `Use 'rest parameters' instead of 'arguments'`;
 
 module.exports.fix = ({path, paths}) => {
     path.node.params = [
