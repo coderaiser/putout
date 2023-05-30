@@ -19,3 +19,8 @@ test('plugin-minify: shorten-names: transform', (t) => {
     t.transform('shorten-names');
     t.end();
 });
+
+test('plugin-minify: shorten-names: transform: declared', (t) => {
+    t.transform('declared');
+    t.end();
+});

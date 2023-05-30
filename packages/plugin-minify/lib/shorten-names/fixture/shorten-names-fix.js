@@ -3,7 +3,7 @@ const a = (b) => {
 };
 
 const b = (keys) => {
-    Object.keys(keys);
+    keys(keys);
 };
 
 freeze(a);

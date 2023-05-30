@@ -2,7 +2,14 @@
 
 module.exports.report = () => `Shorten name`;
 
-const notDeclared = (a) => (vars, path) => !path.scope.getAllBindings()[a];
+const notDeclared = (a) => (vars, path) => {
+    const binding = path.scope.getAllBindings()[a];
+    
+    if (!binding)
+        return true;
+    
+    return binding.path.parentPath.toString() !== `const ${a} = Object`;
+};
 
 module.exports.match = () => ({
     'Object.keys(__a)': notDeclared('keys'),
