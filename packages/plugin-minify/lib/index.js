@@ -9,6 +9,7 @@ module.exports.rules = {
     ...getRule('convert-if-to-logical'),
     ...getRule('extract-body'),
     ...getRule('mangle-names'),
+    ...getRule('shorten-names'),
     ...getRule('remove-return-undefined'),
     ...getRule('types'),
 };

@@ -21,6 +21,7 @@ npm i @putout/plugin-putout -D
         "minify/extract-body": "on",
         "minify/remove-return-undefined": "on",
         "minify/mangle-names": "on",
+        "minify/shorten-names": "on",
         "minify/types": "on"
     }
 }
@@ -146,6 +147,40 @@ function generate() {
     const a = 'hi';
     return a;
 }
+```
+
+## shorten-names
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b1cbf117d57db1528bfad90bb4c3c07e/e85216221a1bd9595820ad64640859eec5fd0c3b).
+
+### ❌ Example of incorrect code
+
+```js
+const a = (b) => {
+    Object.keys(b);
+};
+
+const b = (keys) => {
+    Object.keys(keys);
+};
+
+Object.freeze(a);
+Object.defineProperty(b);
+```
+
+### ✅ Example of correct code
+
+```js
+const a = (b) => {
+    keys(b);
+};
+
+const b = (keys) => {
+    Object.keys(keys);
+};
+
+freeze(a);
+defineProperty(b);
 ```
 
 ## types
