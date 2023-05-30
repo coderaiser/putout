@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertIoWriteToIoCreateDirectory = require('.');
 
 const test = createTest(__dirname, {
-    'cloudcmd/convert-io-write-to-io-create-directory': convertIoWriteToIoCreateDirectory,
+    printer: 'putout',
+    plugins: [
+        ['cloudcmd/convert-io-write-to-io-create-directory', convertIoWriteToIoCreateDirectory],
+    ],
 });
 
 test('cloudcmd: convert-io-write-to-io-create-directory: report', (t) => {

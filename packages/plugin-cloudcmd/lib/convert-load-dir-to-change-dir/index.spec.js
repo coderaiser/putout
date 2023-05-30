@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'cloudcmd/convert-load-dir-to-change-dir': plugin,
+    printer: 'putout',
+    plugins: [
+        ['cloudcmd/convert-load-dir-to-change-dir', plugin],
+    ],
 });
 
 test('cloudcmd/convert-load-dir-to-change-dir: report', (t) => {

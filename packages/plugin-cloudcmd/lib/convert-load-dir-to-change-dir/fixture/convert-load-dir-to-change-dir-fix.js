@@ -1,9 +1,9 @@
 await CloudCmd.changeDir(path);
 
 await CloudCmd.changeDir(path, {
-    panel
+    panel,
 });
 
 await CloudCmd.changeDir('/', {
-    panel
+    panel,
 });

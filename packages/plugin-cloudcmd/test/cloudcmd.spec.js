@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const cloudcmd = require('..');
 
 const test = createTest(__dirname, {
-    cloudcmd,
+    printer: 'putout',
+    plugins: [
+        ['cloudcmd', cloudcmd],
+    ],
 });
 
 test('cloudcmd: IO.mv: report', (t) => {

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertIoCpToIoCopy = require('.');
 
 const test = createTest(__dirname, {
-    'cloudcmd/convert-io-cp-to-io-copy': convertIoCpToIoCopy,
+    printer: 'putout',
+    plugins: [
+        ['cloudcmd/convert-io-cp-to-io-copy', convertIoCpToIoCopy],
+    ],
 });
 
 test('cloudcmd: convert-io-cp-to-io-copy: IO.cp: report', (t) => {
