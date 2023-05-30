@@ -31,4 +31,3 @@ test('cloudcmd: convert-io-write-to-io-create-directory: no transform: no suffix
     t.noTransform('no-suffix');
     t.end();
 });
-

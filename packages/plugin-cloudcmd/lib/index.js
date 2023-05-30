@@ -10,4 +10,3 @@ module.exports.rules = {
     ...getRule('convert-io-write-to-io-create-directory'),
     ...getRule('convert-load-dir-to-change-dir'),
 };
-

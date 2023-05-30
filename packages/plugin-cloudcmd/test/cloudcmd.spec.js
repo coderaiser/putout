@@ -36,4 +36,3 @@ test('cloudcmd: convert-load-dir-to-change-dir: transform', (t) => {
     t.transform('convert-load-dir-to-change-dir');
     t.end();
 });
-

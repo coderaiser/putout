@@ -1,6 +1,12 @@
 'use strict';
 
-const rename = (path) => path.scope.rename('loadDir', 'changeDir');
+const {operator} = require('putout');
+const {rename} = operator;
+
+const renameAll = (path) => {
+    const program = path.scope.getProgramParent().path;
+    rename(program, 'loadDir', 'changeDir');
+};
 
 module.exports.report = () => `Use 'CloudCmd.changeDir()' instead of 'CloudCmd.loadDir()'`;
 
@@ -14,16 +20,16 @@ module.exports.replace = () => ({
         return path;
     },
     'loadDir({path: __a})': (vars, path) => {
-        rename(path);
+        renameAll(path);
         return 'changeDir(__a)';
     },
     'loadDir({path})': (vars, path) => {
-        rename(path);
+        renameAll(path);
         return 'changeDir(path)';
     },
     'loadDir(__object)': (vars, path) => {
         convert(vars, path);
-        rename(path);
+        renameAll(path);
         
         return path;
     },
@@ -51,4 +57,3 @@ function convert(vars, path) {
         }
     }
 }
-

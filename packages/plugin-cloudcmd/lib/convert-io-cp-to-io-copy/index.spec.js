@@ -16,4 +16,3 @@ test('cloudcmd: convert-io-cp-to-io-copy: IO.cp: transform: string', (t) => {
     t.transform('cp');
     t.end();
 });
-

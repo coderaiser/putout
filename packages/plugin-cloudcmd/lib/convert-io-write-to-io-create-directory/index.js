@@ -22,4 +22,3 @@ module.exports.replace = () => ({
         return `IO.createDirectory('${value}')`;
     },
 });
-
