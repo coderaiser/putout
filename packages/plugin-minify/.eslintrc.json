@@ -1,4 +1,10 @@
 {
+    "overrides": [{
+        "files": ["README.md{js}"],
+        "rules": {
+            "no-var": "off"
+        }
+    }],
     "extends": [
         "plugin:n/recommended",
         "plugin:putout/safe+align"

@@ -1,3 +1,3 @@
-const a = void 0;
-const b = !0;
-const c = !1;
+var a = void 0;
+var b = !0;
+var c = !1;

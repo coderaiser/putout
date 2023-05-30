@@ -17,6 +17,7 @@ npm i @putout/plugin-putout -D
 {
     "rules": {
         "minify/apply-ternary": "on",
+        "minify/convert-var-to-const": "on",
         "minify/convert-if-to-logical": "on",
         "minify/extract-body": "on",
         "minify/remove-return-undefined": "on",
@@ -78,6 +79,20 @@ a && console.log('hello');
 b && (console.log('hello'), console.log('world'));
 
 a ? (console.log(1), console.log(2)) : (console.log(3), console.log(4));
+```
+
+## convert-const-to-var
+
+### ❌ Example of incorrect code
+
+```js
+const a = 5;
+```
+
+### ✅ Example of correct code
+
+```js
+var a = 5;
 ```
 
 ## extract-body

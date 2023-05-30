@@ -1,15 +1,15 @@
 function hello() {
-    const a = 5;
-    const b = 7;
-    const c = 8;
+    var a = 5;
+    var b = 7;
+    var c = 8;
     
-    const _temp = 'hello';
+    var _temp = 'hello';
     
 function _c() {
         return hello;
     }
 
-    const d = 55;
+    var d = 55;
     
     return a;
 }

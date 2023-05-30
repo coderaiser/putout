@@ -1,14 +1,14 @@
 if (x)
     return;
 
-const x = () => m;
-const y = () => m();
+var x = () => m;
+var y = () => m();
 
 function z() {
     return hello;
 }
 
-const m = function a() {
+var m = function a() {
     return hello;
 };
 
