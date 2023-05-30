@@ -19,4 +19,3 @@ test('plugin-minify: convert-const-to-var: transform', (t) => {
     t.transform('convert-const-to-var');
     t.end();
 });
-
