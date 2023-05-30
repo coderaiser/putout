@@ -15,12 +15,11 @@ module.exports.fix = ({scope}) => {
     
     const all = scope.getAllBindings();
     
-    for (const [name, binding] of entries(scope.bindings)) {
+    for (const [name] of entries(scope.bindings)) {
         if (name.length === 1)
             continue;
         
         scope.rename(name, generateUid(name, all, scope));
-        maybeFixObjectProperty(name, binding.path);
     }
     
     scope.__putout_minify = true;
@@ -38,27 +37,4 @@ function generateUid(name, all, scope) {
         return dashed;
     
     return uid;
-}
-
-function maybeFixObjectProperty(name, path) {
-    path.traverse({
-        ObjectProperty(path) {
-            const {
-                computed,
-                shorthand,
-                key,
-            } = path.node;
-            
-            if (computed)
-                return;
-            
-            if (!shorthand)
-                return;
-            
-            if (name === key.name) {
-                path.node.shorthand = false;
-                path.stop();
-            }
-        },
-    });
 }
