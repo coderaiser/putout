@@ -1,11 +1,12 @@
 'use strict';
 
-const {types: t} = require('putout');
+const {operator, types: t} = require('putout');
+const {rename} = operator;
 
 module.exports.report = () => `"putout" should be used instead of "eslint", when predefined`;
 
-module.exports.fix = ({eslint}) => {
-    eslint.scope.rename('eslint', 'putout');
+module.exports.fix = (path) => {
+    rename(path, 'eslint', 'putout');
 };
 
 module.exports.traverse = ({push}) => ({
@@ -19,10 +20,7 @@ module.exports.traverse = ({push}) => ({
         if (isRulesdir(eslint.scope.bindings))
             return;
         
-        push({
-            eslint,
-            path,
-        });
+        push(path);
     },
 });
 
@@ -43,9 +41,6 @@ function getPredefined(properties) {
 }
 
 function isRulesdir({eslint}) {
-    if (!eslint)
-        return false;
-    
     const {referencePaths} = eslint;
     
     for (const {parentPath} of referencePaths) {
