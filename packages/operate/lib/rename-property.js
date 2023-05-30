@@ -3,10 +3,17 @@
 module.exports.renameProperty = (path, from, to) => {
     path.traverse({
         ObjectProperty(path) {
-            if (path.node.key.name !== from)
+            const {node} = path;
+            const {key, value} = node;
+            
+            if (key.name !== from)
                 return;
             
-            path.node.key.name = to;
+            key.name = to;
+            
+            if (key.name === value.name)
+                node.shorthand = true;
+            
             path.stop();
         },
     });

@@ -926,7 +926,7 @@ test('putout: operate: renameProperty', (t) => {
     });
     
     const result = print(ast);
-    const expected = 'const {a, world: world} = c;';
+    const expected = 'const {a, world} = c;';
     
     t.equal(result, expected);
     t.end();
