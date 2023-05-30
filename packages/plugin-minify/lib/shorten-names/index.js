@@ -1,5 +1,7 @@
 'use strict';
 
+const {print} = require('@putout/printer');
+
 module.exports.report = () => `Shorten name`;
 
 const notDeclared = (a) => (vars, path) => {
@@ -8,7 +10,9 @@ const notDeclared = (a) => (vars, path) => {
     if (!binding)
         return true;
     
-    return binding.path.parentPath.toString() !== `const ${a} = Object`;
+    const source = print(binding.path.parentPath);
+    
+    return source === `const {${a}} = Object;\n`;
 };
 
 module.exports.match = () => ({
