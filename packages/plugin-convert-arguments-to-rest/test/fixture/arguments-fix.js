@@ -5,4 +5,3 @@ module.exports = function(...args) {
 function hello(...args) {
     console.log(args);
 };
-

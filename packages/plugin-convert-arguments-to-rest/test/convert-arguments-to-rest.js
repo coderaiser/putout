@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertArgumentsToRest = require('..');
 
 const test = createTest(__dirname, {
-    'convert-arguments-to-rest': convertArgumentsToRest,
+    printer: 'putout',
+    plugins: [
+        ['convert-arguments-to-rest', convertArgumentsToRest],
+    ],
 });
 
 test('plugin-convert-arguments-to-rest: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-convert-arguments-to-rest: transform: params', (t) => {
     t.transform('params');
     t.end();
 });
-

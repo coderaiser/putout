@@ -1,15 +1,16 @@
 'use strict';
 
+const {types} = require('putout');
 const {
-    spreadElement,
-    identifier,
-} = require('putout').types;
+    Identifier,
+    SpreadElement,
+} = types;
 
 module.exports.report = () => `Use 'rest parameters' instead of 'arguments'`;
 
 module.exports.fix = ({path, paths}) => {
     path.node.params = [
-        spreadElement(identifier('args')),
+        SpreadElement(Identifier('args')),
     ];
     
     for (const path of paths) {
@@ -44,7 +45,9 @@ module.exports.traverse = ({push}) => ({
         if (!paths.length)
             return;
         
-        push({path, paths});
+        push({
+            path,
+            paths,
+        });
     },
 });
-
