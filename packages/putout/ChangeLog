@@ -1,3 +1,23 @@
+2023.05.30, v29.10.1
+
+feature:
+- 6ba50e15b package: @putout/plugin-convert-arguments-to-rest v2.0.0
+- 7b802861c @putout/plugin-convert-arguments-to-reste: use @putout/printer
+- db0627645 @putout/plugin-convert-arguments-to-reste: report
+- f9155a5de @putout/plugin-convert-arguments-to-rest: drop support of 🐊 < 29
+- 280ed412c @putout/plugin-minify: mangle-names: simplify
+- 7ad0230ec @putout/plugin-cloudcmd: use @putout/printer
+- de569a19d @putout/plugin-cloudcmd: drop support of 🐊 < 29
+- bdf015905 @putout/plugin: use operator.rename
+- eba4bf6de @putout/plugin-react-router: convert-switch-to-routes: simplify
+- e25d371ca @putout/operate: rename: apply shorthand
+- 046f4400a @putout/plugin-react-hook-form: drop support of 🐊 < 29
+- c81a3c229 @putout/plugin-react-hook-form: use operator.rename
+- a668addfc @putout/plugin-putout: use rename from operator
+- 2a59b6d64 @putout/plugin-putout: declare: add rename, renameProperty
+- 2cdcd0bb0 @putout/operate: rename: add
+- 4827d77af @putout/operate: renameProperty: add
+
 2023.05.29, v29.10.0
 
 fix:
