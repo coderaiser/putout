@@ -953,3 +953,35 @@ test('putout: operate: rename', (t) => {
     t.end();
 });
 
+test('putout: operate: remove: already removed', (t) => {
+    const source = `
+        let a;
+        let b;
+        
+        a = 5;
+        b = 6;
+        
+        console.log(a);
+    `;
+    
+    const {code} = putout(source, {
+        printer: 'putout',
+        plugins: [
+            'remove-unreferenced-variables',
+            'minify',
+        ],
+    });
+    
+    const expected = montag`
+        let a;
+        
+        a = 5;
+        
+        console.log(a);
+    
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+

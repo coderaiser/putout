@@ -34,6 +34,8 @@
     "unused"
   ],
   "devDependencies": {
+    "@putout/plugin-minify": "*",
+    "@putout/plugin-remove-unreferenced-variables": "*",
     "c8": "^7.5.0",
     "eslint": "^8.0.1",
     "eslint-plugin-n": "^16.0.0",

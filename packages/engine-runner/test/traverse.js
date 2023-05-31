@@ -1,9 +1,12 @@
 'use strict';
 
 const tryCatch = require('try-catch');
+const montag = require('montag');
 
 const test = require('supertape');
 const putout = require('putout');
+const minify = require('@putout/plugin-minify');
+
 const {runPlugins} = require('..');
 
 test('putout: runner: plugins: traverse: listStore', (t) => {
@@ -211,10 +214,12 @@ test('putout: runner: plugins: traverse: store: uplist', (t) => {
             'debugger'() {
                 uplist('x', {
                     hello: 'world',
+                    node: 'a',
                 });
                 
                 uplist('x', {
                     how: 'come',
+                    node: 'b',
                 });
             },
             Program: {
@@ -241,8 +246,10 @@ test('putout: runner: plugins: traverse: store: uplist', (t) => {
     
     const expected = [[{
         hello: 'world',
+        node: 'a',
     }, {
         how: 'come',
+        node: 'b',
     }]];
     
     t.deepEqual(result, expected);
@@ -313,5 +320,37 @@ test('putout: runner: plugins: traverse: pathStore', (t) => {
     const expected = [];
     
     t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: runner: uplist: removed node', (t) => {
+    const mergeVariables = minify.rules['merge-variables'];
+    const source = `
+        let a;
+        let b;
+        
+        a = 5;
+        b = 6;
+        
+        console.log(a);
+    `;
+    
+    const {code} = putout(source, {
+        printer: 'putout',
+        plugins: [
+            'remove-unreferenced-variables',
+            ['merge-variabels', mergeVariables],
+        ],
+    });
+    
+    const expected = montag`
+        let a;
+        
+        a = 5;
+        
+        console.log(a);\n
+    `;
+    
+    t.equal(code, expected);
     t.end();
 });
