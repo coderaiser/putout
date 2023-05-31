@@ -363,12 +363,12 @@ module.exports.traverse = ({push, store}) => ({
 When you need to update already saved values, use `upstore`:
 
 ```js
-module.exports.traverse = ({push, store}) => ({
+module.exports.traverse = ({push, upstore}) => ({
     TSTypeAliasDeclaration(path) {
         if (path.parentPath.isExportNamedDeclaration())
             return;
         
-        store(path.node.id.name, {
+        upstore(path.node.id.name, {
             path,
         });
     },
@@ -384,7 +384,7 @@ module.exports.traverse = ({push, store}) => ({
     
     Program: {
         exit() {
-            for (const {path, used} of store()) {
+            for (const {path, used} of upstore()) {
                 if (used)
                     continue;
                 
