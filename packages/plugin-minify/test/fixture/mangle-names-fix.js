@@ -1,15 +1,9 @@
 function hello() {
-    var a = 5;
-    var b = 7;
-    var c = 8;
-    
-    var _temp = 'hello';
+    var a = 5, b = 7, c = 8, _temp = 'hello', d = 55;
     
 function _c() {
         return hello;
     }
 
-    var d = 55;
-    
     return a;
 }

@@ -35,6 +35,11 @@ test('plugin-minify: transform: mangle-names', (t) => {
     t.end();
 });
 
+test('plugin-minify: transform: merge-variables', (t) => {
+    t.transform('merge-variables');
+    t.end();
+});
+
 test('plugin-minify: transform: shorten-names', (t) => {
     t.transform('shorten-names');
     t.end();

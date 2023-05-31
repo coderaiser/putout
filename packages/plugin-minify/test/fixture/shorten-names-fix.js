@@ -1,6 +1,4 @@
-var a = (b) => keys(b);
-
-var b = (keys) => Object.keys(keys);
+var a = (b) => keys(b), b = (keys) => Object.keys(keys);
 
 freeze(a);
 defineProperty(b);

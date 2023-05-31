@@ -20,8 +20,9 @@ npm i @putout/plugin-putout -D
         "minify/convert-var-to-const": "on",
         "minify/convert-if-to-logical": "on",
         "minify/extract-body": "on",
-        "minify/remove-return-undefined": "on",
         "minify/mangle-names": "on",
+        "minify/merge-variables": "on",
+        "minify/remove-return-undefined": "on",
         "minify/shorten-names": "on",
         "minify/types": "on"
     }
@@ -162,6 +163,23 @@ function generate() {
     const a = 'hi';
     return a;
 }
+```
+
+## merge-variables
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/31255c05343aa1b1c116a6a639a02d13/ba723cfb4abf475cd3f1bc2fe6908638cff92881).
+
+### ❌ Example of incorrect code
+
+```js
+var a, b;
+```
+
+### ✅ Example of correct code
+
+```js
+var a;
+var b;
 ```
 
 ## shorten-names
