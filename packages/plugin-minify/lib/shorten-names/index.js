@@ -1,6 +1,7 @@
 'use strict';
 
-const {print} = require('@putout/printer');
+const {operator} = require('putout');
+const {compareAny} = operator;
 
 module.exports.report = () => `Shorten name`;
 
@@ -10,9 +11,11 @@ const notDeclared = (a) => (vars, path) => {
     if (!binding)
         return true;
     
-    const source = print(binding.path.parentPath);
-    
-    return source.includes(`{${a}} = Object;\n`);
+    return compareAny(binding.path.parentPath.node, [
+        `const {${a}} = Object`,
+        `var {${a}} = Object`,
+        `let {${a}} = Object`,
+    ]);
 };
 
 module.exports.match = () => ({
