@@ -29,3 +29,8 @@ test('plugin-minify: shorten-names: transform: var', (t) => {
     t.transform('var');
     t.end();
 });
+
+test('plugin-minify: shorten-names: transform: freeze', (t) => {
+    t.transform('freeze');
+    t.end();
+});

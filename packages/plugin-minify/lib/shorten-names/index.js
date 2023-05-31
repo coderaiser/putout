@@ -19,13 +19,15 @@ const notDeclared = (a) => (vars, path) => {
 };
 
 module.exports.match = () => ({
-    'Object.keys(__a)': notDeclared('keys'),
-    'Object.assign(__a)': notDeclared('assign'),
+    'Object.keys(__args)': notDeclared('keys'),
+    'Object.assign(__args)': notDeclared('assign'),
+    'Object.defineProperty(__args)': notDeclared('defineProperty'),
+    'Object.freeze(__args)': notDeclared('freeze'),
 });
 
 module.exports.replace = () => ({
-    'Object.keys(__a)': 'keys(__a)',
-    'Object.assign(__a)': 'assign(__a)',
-    'Object.defineProperty(__a)': 'defineProperty(__a)',
-    'Object.freeze(__a)': 'freeze(__a)',
+    'Object.keys(__args)': 'keys(__args)',
+    'Object.assign(__args)': 'assign(__args)',
+    'Object.defineProperty(__args)': 'defineProperty(__args)',
+    'Object.freeze(__args)': 'freeze(__args)',
 });

@@ -1,0 +1,2 @@
+Object.freeze();
+Object.defineProperty();

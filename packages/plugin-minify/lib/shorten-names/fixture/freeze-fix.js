@@ -1,0 +1,2 @@
+freeze();
+defineProperty();
