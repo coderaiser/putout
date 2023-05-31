@@ -12,7 +12,7 @@ const notDeclared = (a) => (vars, path) => {
     
     const source = print(binding.path.parentPath);
     
-    return source === `const {${a}} = Object;\n`;
+    return source.includes(`{${a}} = Object;\n`);
 };
 
 module.exports.match = () => ({
