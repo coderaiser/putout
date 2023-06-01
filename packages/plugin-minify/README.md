@@ -226,6 +226,7 @@ var b;
 
 ## shorten-names
 
+Feats good to [`@putout/plugin-declare`](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare#readme).
 Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b1cbf117d57db1528bfad90bb4c3c07e/e85216221a1bd9595820ad64640859eec5fd0c3b).
 
 ### ❌ Example of incorrect code
