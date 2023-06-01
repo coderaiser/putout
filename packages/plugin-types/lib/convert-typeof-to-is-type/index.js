@@ -57,6 +57,9 @@ function isBind(path, name) {
     if (!bindingPath)
         return false;
     
+    if (!bindingPath.isVariableDeclarator())
+        return false;
+    
     const {body} = bindingPath.node.init;
     
     return !compare(body, fnBody);

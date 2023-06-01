@@ -47,3 +47,8 @@ test('plugin-convert-typeof-to-is-type: no transform: not defined', (t) => {
     t.end();
 });
 
+test('plugin-convert-typeof-to-is-type: no transform: declared-not-var', (t) => {
+    t.noTransform('declared-not-var');
+    t.end();
+});
+
