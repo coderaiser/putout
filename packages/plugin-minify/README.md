@@ -19,6 +19,7 @@ npm i @putout/plugin-putout -D
         "minify/apply-ternary": "on",
         "minify/convert-var-to-const": "on",
         "minify/convert-if-to-logical": "on",
+        "minify/convert-strict-equal-to-equal": "on",
         "minify/extract-body": "on",
         "minify/mangle-names": "on",
         "minify/merge-variables": "on",
@@ -94,6 +95,22 @@ const a = 5;
 
 ```js
 var a = 5;
+```
+
+## convert-strict-equal-to-equal
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2ccbf7da6b22b32c0ba21a39b56ad20a/94664abd32cddc122458f43eb39ce8d776ad08cd).
+
+### ❌ Example of incorrect code
+
+```js
+a === b;
+```
+
+### ✅ Example of correct code
+
+```js
+a === b;
 ```
 
 ## extract-body

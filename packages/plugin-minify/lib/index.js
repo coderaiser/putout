@@ -6,8 +6,9 @@ const getRule = (a) => ({
 
 module.exports.rules = {
     ...getRule('apply-ternary'),
-    ...getRule('convert-if-to-logical'),
     ...getRule('convert-const-to-var'),
+    ...getRule('convert-if-to-logical'),
+    ...getRule('convert-strict-equal-to-equal'),
     ...getRule('extract-body'),
     ...getRule('mangle-names'),
     ...getRule('merge-variables'),

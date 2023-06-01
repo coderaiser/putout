@@ -20,6 +20,11 @@ test('plugin-minify: transform: convert-if-to-logical', (t) => {
     t.end();
 });
 
+test('plugin-minify: transform: convert-strict-equal-to-equal', (t) => {
+    t.transform('convert-strict-equal-to-equal');
+    t.end();
+});
+
 test('plugin-minify: transform: extract-body', (t) => {
     t.transform('extract-body');
     t.end();
