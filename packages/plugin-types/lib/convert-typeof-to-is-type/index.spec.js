@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertTypeofToIsType = require('.');
 
 const test = createTest(__dirname, {
-    'convert-typeof-to-is-type': convertTypeofToIsType,
+    printer: 'putout',
+    plugins: [
+        ['convert-typeof-to-is-type', convertTypeofToIsType],
+    ],
 });
 
 test('plugin-convert-typeof-to-is-type: report', (t) => {
@@ -51,4 +54,3 @@ test('plugin-convert-typeof-to-is-type: no transform: declared-not-var', (t) => 
     t.noTransform('declared-not-var');
     t.end();
 });
-

@@ -1,2 +1,1 @@
-for (let i = 0; a; )
-  {}
+for (let i = 0; a;) {}

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const types = require('..');
 
 const test = createTest(__dirname, {
-    types,
+    printer: 'putout',
+    plugins: [
+        ['types', types],
+    ],
 });
 
 test('putout: plugin: types: declare: transform', (t) => {
@@ -36,4 +39,3 @@ test('putout: plugin: types: declare: transform: apply-is-array', (t) => {
     t.transform('apply-is-array');
     t.end();
 });
-

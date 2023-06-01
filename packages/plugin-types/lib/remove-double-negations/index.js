@@ -13,4 +13,3 @@ module.exports.replace = () => ({
     'do __a; while(!!__b)': 'do __a; while(__b)',
     'for (__a; !!__b; __c) __d': 'for (__a; __b; __c) __d',
 });
-

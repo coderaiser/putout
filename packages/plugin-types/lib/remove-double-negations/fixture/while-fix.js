@@ -1,2 +1,2 @@
 while (x)
-  alert();
+    alert();

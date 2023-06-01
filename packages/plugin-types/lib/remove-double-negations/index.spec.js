@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeDoubleNegations = require('.');
 
 const test = createTest(__dirname, {
-    'remove-useless-type-conversion: with-double-negations': removeDoubleNegations,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-type-conversion: with-double-negations', removeDoubleNegations],
+    ],
 });
 
 test('plugin-remove-useless-type-conversion: with-double-negations: transform: report', (t) => {

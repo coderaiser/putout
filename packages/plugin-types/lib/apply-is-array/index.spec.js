@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const applyIsArray = require('.');
 
 const test = createTest(__dirname, {
-    'apply-is-array': applyIsArray,
+    printer: 'putout',
+    plugins: [
+        ['apply-is-array', applyIsArray],
+    ],
 });
 
 test('plugin-apply-is-array: transform: report', (t) => {
@@ -23,4 +26,3 @@ test('plugin-apply-is-array: transform: inline', (t) => {
     });
     t.end();
 });
-

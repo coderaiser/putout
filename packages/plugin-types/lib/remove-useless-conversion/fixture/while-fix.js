@@ -1,2 +1,1 @@
-while (a)
-  {}
+while (a) {}

@@ -11,4 +11,3 @@ module.exports.declare = () => ({
     isSymbol: `const isSymbol = (a) => typeof a === 'symbol'`,
     isNull: `const isNull = (a) => !a && typeof a === 'object'`,
 });
-

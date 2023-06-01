@@ -13,4 +13,3 @@ module.exports.replace = () => ({
     'for (; Boolean(__b);__c) __d': 'for (; __b; __c) __d',
     'for (; Boolean(__b);) __d': 'for (; __b;) __d',
 });
-

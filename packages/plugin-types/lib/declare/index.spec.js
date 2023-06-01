@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const declare = require('.');
 
 const test = createTest(__dirname, {
-    declare,
+    printer: 'putout',
+    plugins: [
+        ['declare', declare],
+    ],
 });
 
 test('putout: plugin: types: declare: report', (t) => {
@@ -21,4 +24,3 @@ test('putout: plugin: types: declare: empty-string', (t) => {
     t.transform('empty-string');
     t.end();
 });
-

@@ -1,2 +1,3 @@
-do
-  {alert();} while (x);
+do {
+    alert();
+} while (x)

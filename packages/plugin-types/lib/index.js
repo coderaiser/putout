@@ -12,4 +12,3 @@ module.exports.rules = {
     ...getRule('remove-double-negations'),
     ...getRule('remove-useless-typeof'),
 };
-
