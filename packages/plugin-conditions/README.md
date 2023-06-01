@@ -175,7 +175,7 @@ function hi(b) {
 }
 ```
 
-## remove-zero-
+## remove-zero
 
 ### ❌ Example of incorrect code
 
