@@ -1,6 +1,12 @@
 'use strict';
 
-const {operator} = require('putout');
+const {
+    operator,
+    types,
+} = require('putout');
+
+const {isIdentifier} = types;
+
 const {
     remove,
     replaceWith,
@@ -46,6 +52,9 @@ module.exports.traverse = ({push}) => ({
             return;
         
         if (!binding.path.node.init)
+            return;
+        
+        if (!isIdentifier(binding.path.node.id))
             return;
         
         push({

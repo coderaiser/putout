@@ -19,3 +19,8 @@ test('plugin-minify: expand-bindings: transform', (t) => {
     t.transform('expand-bindings');
     t.end();
 });
+
+test('plugin-minify: expand-bindings: no transform: destructuring', (t) => {
+    t.noTransform('destructuring');
+    t.end();
+});
