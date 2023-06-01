@@ -28,7 +28,7 @@ npm i @putout/plugin-new
 
 ## remove-useless
 
-Operator `new` has no sense for `Boolean`, `String`, `Number`, `Object`, `RegExp`, `Math`, `Reflect`, `Error`:
+Operator `new` has no sense for `Boolean`, `String`, `Number`, `Object`, `RegExp`, `Math`, `Reflect`, `Error`, `TypeError`:
 
 > Thus the function call `Error(…)` is equivalent to the object creation expression `new Error(…)` with the same arguments.
 >

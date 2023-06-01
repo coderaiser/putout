@@ -8,6 +8,7 @@ module.exports.report = () => `Avoid useless operator 'new'`;
 module.exports.replace = () => ({
     'new new __a': 'new __a',
     'new Error(__args)': 'Error(__args)',
+    'new TypeError(__args)': 'TypeError(__args)',
     'new Boolean(__a)': 'Boolean(__a)',
     'new Number(__a)': 'Number(__a)',
     'new String(__a)': 'String(__a)',

@@ -49,3 +49,8 @@ test('plugin-remove-useless-new: transform: math', (t) => {
     t.transform('math');
     t.end();
 });
+
+test('plugin-remove-useless-new: transform: type-error', (t) => {
+    t.transform('type-error');
+    t.end();
+});
