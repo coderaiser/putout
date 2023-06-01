@@ -10,6 +10,7 @@ module.exports.rules = {
     ...getRule('convert-if-to-logical'),
     ...getRule('convert-strict-equal-to-equal'),
     ...getRule('extract-body'),
+    ...getRule('expand-bindings'),
     ...getRule('mangle-names'),
     ...getRule('merge-variables'),
     ...getRule('shorten-names'),

@@ -30,6 +30,11 @@ test('plugin-minify: transform: extract-body', (t) => {
     t.end();
 });
 
+test('plugin-minify: transform: expand-body', (t) => {
+    t.transform('expand-bindings');
+    t.end();
+});
+
 test('plugin-minify: transform: remove-return-undefined', (t) => {
     t.transform('remove-return-undefined');
     t.end();

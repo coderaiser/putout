@@ -21,6 +21,7 @@ npm i @putout/plugin-putout -D
         "minify/convert-if-to-logical": "on",
         "minify/convert-strict-equal-to-equal": "on",
         "minify/extract-body": "on",
+        "minify/expand-bindings": "on",
         "minify/mangle-names": "on",
         "minify/merge-variables": "on",
         "minify/remove-return-undefined": "on",
@@ -136,6 +137,30 @@ if (x)
     return;
 
 const hello = () => 'world';
+```
+
+## expand-bindings
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/f181577b923e9a9efca794d9abf1d6c8/1a70c7ebb4af18901ad250c34c8f78ec7519a732).
+
+### ❌ Example of incorrect code
+
+```js
+const y = 'abc';
+const x = y;
+const fn = require(x);
+
+const a = 5;
+const b = a;
+const c = b;
+
+fn(c);
+```
+
+### ✅ Example of correct code
+
+```js
+require('abc')(5);
 ```
 
 ## remove-return-undefined
