@@ -1,7 +1,7 @@
 function hello() {
-    var a = 5, b = 7, c = 8, _temp = 'hello', d = 55;
+    var a = 5, b = 7, c = 8, g = 'hello', k = 55;
     
-function _c() {
+function i() {
         return hello;
     }
 
