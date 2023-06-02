@@ -13,25 +13,21 @@ module.exports.fix = ({scope}) => {
     if (scope.__putout_minify)
         return;
     
-    scope.__putout_minify = true;
     const all = scope.getAllBindings();
-    const names = entries(scope.bindings).flat();
     
-    for (const [index, name] of names.entries()) {
+    for (const [name] of entries(scope.bindings)) {
         if (name.length === 1)
             continue;
         
-        scope.rename(name, generateUid({
-            all,
-            scope,
-            index,
-        }));
+        scope.rename(name, generateUid(name, all, scope));
     }
+    
+    scope.__putout_minify = true;
 };
 
-function generateUid({all, scope, index}) {
+function generateUid(name, all, scope) {
     const uid = scope.generateUid();
-    const short = computeName(index, uid);
+    const short = computeName(uid);
     const dashed = `_${short}`;
     
     if (!all[short])
