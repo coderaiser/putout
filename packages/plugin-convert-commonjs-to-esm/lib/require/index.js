@@ -89,9 +89,10 @@ module.exports.replace = () => ({
         }
         
         // disabled while not supported
+        // https://babeljs.io/blog/2023/05/26/7.22.0#import-attributes-15536-15620
         //
         // const isJSON = /\.json$/.test(value);
-        // const assertion = !isJSON ? '' : 'assert { type: "json" }';
+        // const assertion = !isJSON ? '' : 'with { type: "json" }';
         const assertion = '';
         
         if (isObjectPattern(__a)) {

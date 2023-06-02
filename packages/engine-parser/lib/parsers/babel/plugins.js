@@ -2,7 +2,7 @@
 
 module.exports = [
     'importMeta',
-    'importAssertions',
+    'importAttributes',
     'dynamicImport',
     'bigInt',
     'classProperties',

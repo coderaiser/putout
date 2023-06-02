@@ -333,7 +333,7 @@ test('putout: print: recast: object expressions', (t) => {
 
 test('putout: parser: json modules', (t) => {
     const code = `
-        import json from "./foo.json" assert { type: "json" };
+        import json from "./foo.json" with { type: "json" };
     `;
     
     const [error] = tryCatch(parse, code);
