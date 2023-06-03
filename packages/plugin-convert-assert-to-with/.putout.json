@@ -1,0 +1,10 @@
+{
+    "printer": "putout",
+    "rules": {
+        "putout/create-test": ["on", {
+            "add": [
+                ["printer", "putout"]
+            ]
+        }]
+    }
+}
