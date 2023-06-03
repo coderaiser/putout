@@ -8,6 +8,7 @@
 > (c) [tc39](https://tc39.es/proposal-import-attributes/)
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to convert `assert` to `with`.
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/9f85897b998c6458efc19db6a5414b79/57ef7cdd113c7a0087e0f7a6e70522f60baa04f4).
 
 ## Install
 
