@@ -28,6 +28,9 @@ const findGit = once(async ({findUp}) => {
         type,
     });
     
+    if (!gitDir)
+        throw Error('not git repository');
+    
     const dir = gitDir.replace(/\.git$/, '');
     
     return dir;
@@ -40,10 +43,6 @@ const joinDir = (a) => (b) => join(a, b);
 
 module.exports.get = async function get({findUp}) {
     const dir = await findGit({findUp});
-    
-    if (!dir)
-        return [];
-    
     const status = await git.statusMatrix({
         fs,
         dir,
@@ -72,10 +71,6 @@ async function getStatus(dir, filepath) {
 
 module.exports.set = async function set({findUp}) {
     const dir = await findGit({findUp});
-    
-    if (!dir)
-        return;
-    
     const names = namesStore();
     const statusPromises = [];
     

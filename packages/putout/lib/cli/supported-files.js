@@ -3,13 +3,14 @@
 const {normalize} = require('path');
 const picomatch = require('picomatch');
 
+let isMatch = Boolean;
 let patterns = [];
-let isMatch;
 
 const rmDuplicates = (a) => Array.from(new Set(a));
 
 module.exports.add = (array) => {
     patterns = rmDuplicates(patterns.concat(array));
+    
     isMatch = picomatch(patterns, {
         dot: true,
         matchBase: true,

@@ -39,6 +39,7 @@ const {
     RULLER_WITH_FIX,
     RULLER_NO_FILES,
     INVALID_CONFIG,
+    CANNOT_LINT_STAGED,
 } = require('./exit-codes');
 
 const getFormatter = memo(require('./formatter').getFormatter);
@@ -230,7 +231,10 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (staged) {
         const {get} = require('./staged');
         const {findUp} = await simpleImport('find-up');
-        const names = await get({findUp});
+        const [error, names] = await tryToCatch(get, {findUp});
+        
+        if (error)
+            return exit(CANNOT_LINT_STAGED, `--staged: ${error.message}`);
         
         stagedNames.push(...names);
     }

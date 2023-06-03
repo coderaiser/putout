@@ -1,5 +1,7 @@
 'use strict';
 
+const tryToCatch = require('try-to-catch');
+
 const fs = require('fs');
 
 const {
@@ -9,11 +11,10 @@ const {
 const mockRequire = require('mock-require');
 
 const {isSupported} = require('./supported-files');
-
 const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: staged', async (t) => {
-    const findUp = stub().returns('');
+    const findUp = stub().returns('.');
     
     const {get} = reRequire('./staged');
     await get({findUp});
@@ -136,7 +137,7 @@ test('putout: cli: staged: set: findUp: not found', async (t) => {
     });
     
     const {set} = reRequire('./staged');
-    await set({findUp});
+    await tryToCatch(set, {findUp});
     
     stopAll();
     

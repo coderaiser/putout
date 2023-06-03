@@ -15,5 +15,6 @@ module.exports = {
     RULLER_NO_FILES: 11,
     INVALID_CONFIG: 12,
     UNHANDLED: 13,
+    CANNOT_LINT_STAGED: 14,
 };
 

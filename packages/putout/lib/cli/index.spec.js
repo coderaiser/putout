@@ -30,7 +30,9 @@ const {
     CANNOT_LOAD_PROCESSOR,
     RULLER_WITH_FIX,
     INVALID_CONFIG,
+    CANNOT_LINT_STAGED,
 } = require('./exit-codes');
+
 const {assign} = Object;
 const {parse} = JSON;
 
@@ -1845,6 +1847,61 @@ test('putout: cli: invalid option', async (t) => {
     stopAll();
     
     t.calledWith(halt, [INVALID_OPTION], 'should exit with INVALID_OPTION code');
+    t.end();
+});
+
+test('putout: cli: --staged: error code', async (t) => {
+    const argv = [
+        '--staged',
+    ];
+    
+    const halt = stub();
+    const get = stub().rejects('not git repository');
+    
+    mockRequire('./staged', {
+        get,
+    });
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        halt,
+    });
+    
+    stopAll();
+    
+    t.calledWith(halt, [CANNOT_LINT_STAGED]);
+    t.end();
+});
+
+test('putout: cli: --staged: error message', async (t) => {
+    const argv = [
+        '--staged',
+    ];
+    
+    const halt = stub();
+    const get = stub().rejects(Error('not git repository'));
+    const logError = stub();
+    
+    mockRequire('./staged', {
+        get,
+    });
+    const cli = reRequire('.');
+    
+    await runCli({
+        cli,
+        argv,
+        halt,
+        logError,
+    });
+    
+    stopAll();
+    
+    const {red} = await simpleImport('chalk');
+    const expected = red('🐊 --staged: not git repository');
+    
+    t.calledWith(logError, [expected]);
     t.end();
 });
 
