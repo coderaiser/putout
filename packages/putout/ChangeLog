@@ -1,3 +1,10 @@
+2023.06.03, v29.11.1
+
+feature:
+- b66a2572f package: @putout/plugin-convert-apply-to-spread v4.0.0
+- 05bae2435 @putout/plugin-convert-apply-to-spread: drop support of node < 16
+- 4047516f3 @putout/plugin-convert-assert-to-with
+
 2023.06.03, v29.11.0
 
 feature:
