@@ -331,14 +331,25 @@ test('putout: print: recast: object expressions', (t) => {
     t.end();
 });
 
-test('putout: parser: json modules', (t) => {
+test('putout: parser: json modules: with', (t) => {
     const code = `
         import json from "./foo.json" with { type: "json" };
     `;
     
     const [error] = tryCatch(parse, code);
     
-    t.notOk(error, 'should parse');
+    t.notOk(error);
+    t.end();
+});
+
+test('putout: parser: json modules: assert', (t) => {
+    const code = `
+        import json from "./foo.json" assert { type: "json" };
+    `;
+    
+    const [error] = tryCatch(parse, code);
+    
+    t.notOk(error);
     t.end();
 });
 
