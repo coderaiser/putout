@@ -1,3 +1,28 @@
+2023.06.03, v29.11.0
+
+feature:
+- dea4b68d1 putout: exit-codes: --staged: add CANNOT_LINT_STAGED
+- 31c597a47 @putout/engine-parser: babel plugins: add back support of assert in ImportDeclartations
+- a2e019aab @putout/plugin-minify: mangle-names: get back old behaviour since it is more optimal
+- fd7535350 @putout/plugin-minify: mangle-names: use index of scope instead of global counter
+- 885caad0f @putout/engine-parser: add support of import attributes (https://babeljs.io/blog/2023/05/26/7.22.0#import-attributes-15536-15620)
+- 8b3492fb8 @putout/engine-parser: babel: plugins: remove enabled by default
+- 825f6919a @putout/plugin-new: remove-useless: add TypeError
+- be9c83b11 @putout/plugin-minify: expand-bindings: keep only Identifiers
+- 3b3f6f9c4 @putout/plugin-minify: expand-variables: add
+- 550493d90 @putout/plugin-minify: convert-strict-equal-to-equal: add
+- 9150cce3e @putout/plugin-types: use @putout/printer
+- d29eb0bd7 @putout/plugin-types: convert-typeof-to-is-type: improve support of node var binding
+- 47af1a29a @putout/plugin-minify: shorten-names: improve support of freeze, defineProperty
+- cc6f5f577 @putout/engine-runner: store: uplist: check node
+- 806d1a483 @putout/plugin-minify: shorten-name
+- 41dccd651 @putout/plugin-minify: shorten-names: improve support
+- 72990c057 @putout/plugin-minify: merge-variables: add
+- 0195c179d @putout/plugin-minify: convert-const-to-var: add
+- 9edb1d2c8 @putout/plugin-minify: shorten: add ability to check printed
+- ada9b57a2 @putout/plugin-minify: shorten-names: declared
+- b1ff89935 @putout/plugin-minify: shorten names: add
+
 2023.05.30, v29.10.1
 
 feature:
