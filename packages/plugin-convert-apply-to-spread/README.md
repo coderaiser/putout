@@ -28,7 +28,7 @@ npm i @putout/plugin-convert-apply-to-spread -D
 ## ❌ Example of incorrect code
 
 ```js
-console.log.apply(console, arguments);
+console.apply(null, arguments);
 ```
 
 ## ✅ Example of correct code

@@ -1,6 +1,7 @@
 {
+    "printer": "putout",
     "match": {
-        "README.md": {
+        "*.md": {
             "convert-apply-to-spread": "off"
         }
     }
