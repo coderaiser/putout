@@ -20,4 +20,3 @@ export const run = lintRule('remark-lint:run', (tree, file, options) => {
         }
     }
 });
-

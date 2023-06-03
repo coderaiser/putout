@@ -28,4 +28,3 @@ export const initParseStore = () => {
     
     return fn;
 };
-

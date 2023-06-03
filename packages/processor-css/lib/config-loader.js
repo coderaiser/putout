@@ -14,4 +14,3 @@ export const createConfigLoader = ({cosmiconfig}) => async () => {
     
     return deepmerge.all([defaultConfig, newConfig]);
 };
-

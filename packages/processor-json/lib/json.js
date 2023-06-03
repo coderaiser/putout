@@ -26,4 +26,3 @@ export const merge = (rawSource, list) => {
     const [source] = list;
     return fromJS(source);
 };
-
