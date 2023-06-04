@@ -17,14 +17,18 @@ module.exports.computeName = ({index, all, uid}) => {
     name = uid;
     
     for (let i = SMALL_A; i <= SMALL_Z; i++) {
+        let currentName;
+        
         for (let j = BIG_A; j <= BIG_Z; j++) {
-            name = String.fromCharCode(i) + String.fromCharCode(j);
+            currentName = String.fromCharCode(i) + String.fromCharCode(j);
             
-            if (!all[name])
+            if (!all[currentName]) {
+                name = currentName;
                 break;
+            }
         }
         
-        if (!all[name])
+        if (!all[currentName])
             break;
     }
     

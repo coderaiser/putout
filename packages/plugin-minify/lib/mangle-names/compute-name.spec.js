@@ -79,6 +79,7 @@ test('@putout/plugin-minify: mangle-names: computeName: t500, _t500, _: declared
         _: true,
         a: true,
         A: true,
+        zZ: true,
     };
     
     const result = computeName({
