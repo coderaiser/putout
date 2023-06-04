@@ -1,4 +1,4 @@
-const _t = 'x';
+const b = 'x';
 const a = 1;
 const c = 2;
 const _ = 3;

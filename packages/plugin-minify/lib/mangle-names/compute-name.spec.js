@@ -27,7 +27,7 @@ test('@putout/plugin-minify: mangle-names: computeName: 500', (t) => {
         uid: '_temp500',
     });
     
-    const expected = 't500';
+    const expected = '_';
     
     t.equal(result, expected);
     t.end();
@@ -36,6 +36,7 @@ test('@putout/plugin-minify: mangle-names: computeName: 500', (t) => {
 test('@putout/plugin-minify: mangle-names: computeName: t500: declared', (t) => {
     const all = {
         t500: true,
+        _: true,
     };
     
     const result = computeName({
@@ -44,7 +45,7 @@ test('@putout/plugin-minify: mangle-names: computeName: t500: declared', (t) => 
         uid: '_temp500',
     });
     
-    const expected = '_t500';
+    const expected = 'a';
     
     t.equal(result, expected);
     t.end();
@@ -54,6 +55,9 @@ test('@putout/plugin-minify: mangle-names: computeName: t500, _t500: declared', 
     const all = {
         t500: true,
         _t500: true,
+        _: true,
+        a: true,
+        A: true,
     };
     
     const result = computeName({
@@ -62,7 +66,28 @@ test('@putout/plugin-minify: mangle-names: computeName: t500, _t500: declared', 
         uid: '_temp500',
     });
     
-    const expected = '_temp500';
+    const expected = 'zA';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('@putout/plugin-minify: mangle-names: computeName: t500, _t500, _: declared', (t) => {
+    const all = {
+        t500: true,
+        _t500: true,
+        _: true,
+        a: true,
+        A: true,
+    };
+    
+    const result = computeName({
+        index: 500,
+        all,
+        uid: '_temp500',
+    });
+    
+    const expected = 'zA';
     
     t.equal(result, expected);
     t.end();

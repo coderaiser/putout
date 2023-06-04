@@ -1,17 +1,17 @@
 await b();
 
-function a(_, B) {
+function a(A, _) {
     const {stdin: c} = process;
     let d = '';
     
     const e = () => {
-        const A = c.read();
+        const B = c.read();
         
-        if (A)
-            return d += A;
+        if (B)
+            return d += B;
         
         c.removeListener('readable', e);
-        _(d, B);
+        A(d, _);
     };
     
     c.setEncoding('utf8');
@@ -25,11 +25,11 @@ async function b() {
     if (/^(-v|--version)$/.test(In))
         return log(`v${Version}`);
     
-    const {readOptions: _} = await import('../lib/read-options.mjs');
-    const [B, c] = await tryToCatch(_);
+    const {readOptions: A} = await import('../lib/read-options.mjs');
+    const [_, c] = await tryToCatch(A);
     
-    if (B)
-        return log.error(B.message);
+    if (_)
+        return log.error(_.message);
     
     if (a)
         return a(processStream, c);

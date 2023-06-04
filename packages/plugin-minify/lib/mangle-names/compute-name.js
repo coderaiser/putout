@@ -3,9 +3,10 @@
 const BIG_A = 65;
 const BIG_Z = 90;
 const SMALL_A = 97;
+const SMALL_Z = SMALL_A + (BIG_Z - BIG_A);
 
 module.exports.computeName = ({index, all, uid}) => {
-    const [is, name] = generate({
+    let [is, name] = generate({
         index,
         all,
     });
@@ -13,17 +14,18 @@ module.exports.computeName = ({index, all, uid}) => {
     if (is)
         return name;
     
-    const shortName = uid.replace('_temp', 't');
+    name = uid;
     
-    if (!all[shortName])
-        return shortName;
+    for (let i = SMALL_A; i <= SMALL_Z; i++) {
+        for (let j = BIG_A; j <= BIG_Z; j++) {
+            name = String.fromCharCode(i) + String.fromCharCode(j);
+            
+            if (!all[name])
+                break;
+        }
+    }
     
-    const dashedShortName = uid.replace('temp', 't');
-    
-    if (!all[dashedShortName])
-        return dashedShortName;
-    
-    return uid;
+    return name;
 };
 
 function generate({index, all}) {
@@ -31,7 +33,7 @@ function generate({index, all}) {
     const small = index + SMALL_A;
     
     if (big > BIG_Z)
-        return [false, ''];
+        return loop(all, ['_']);
     
     const nameBig = String.fromCharCode(big);
     const nameSmall = String.fromCharCode(small);
@@ -46,9 +48,23 @@ function generate({index, all}) {
         dashedBig,
     ];
     
-    for (const name of names) {
+    return loop(all, names);
+}
+
+function loop(all, names) {
+    for (const [index, name] of names.entries()) {
         if (!all[name])
             return [true, name];
+        
+        const nameSmall = String.fromCharCode(SMALL_A + index);
+        
+        if (!all[nameSmall])
+            return [true, nameSmall];
+        
+        const nameBig = String.fromCharCode(BIG_A + index);
+        
+        if (!all[nameBig])
+            return [true, nameBig];
     }
     
     return [false, ''];
