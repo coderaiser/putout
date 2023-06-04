@@ -3,13 +3,13 @@ function hello() {
     const b = 7;
     const c = 8;
     
-    const _temp = 'hello';
+    const d = 'hello';
     
-function _c() {
+function e() {
         return hello;
     }
 
-    const d = 55;
+    const f = 55;
     
     return a;
 }

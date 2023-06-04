@@ -1,38 +1,38 @@
-await c();
+await b();
 
-function a(_a, _c) {
-    const {stdin: d} = process;
-    let e = '';
+function a(_, B) {
+    const {stdin: c} = process;
+    let d = '';
     
-    const f = () => {
-        const _temp = d.read();
+    const e = () => {
+        const A = c.read();
         
-        if (_temp)
-            return e += _temp;
+        if (A)
+            return d += A;
         
-        d.removeListener('readable', f);
-        _a(e, _c);
+        c.removeListener('readable', e);
+        _(d, B);
     };
     
-    d.setEncoding('utf8');
-    d.addListener('readable', f);
+    c.setEncoding('utf8');
+    c.addListener('readable', e);
 }
 
-async function c() {
+async function b() {
     if (!In || /^(-h|--help)$/.test(In))
         return help();
     
     if (/^(-v|--version)$/.test(In))
         return log(`v${Version}`);
     
-    const {readOptions: _c} = await import('../lib/read-options.mjs');
-    const [d, e] = await tryToCatch(_c);
+    const {readOptions: _} = await import('../lib/read-options.mjs');
+    const [B, c] = await tryToCatch(_);
     
-    if (d)
-        return log.error(d.message);
+    if (B)
+        return log.error(B.message);
     
     if (a)
-        return a(processStream, e);
+        return a(processStream, c);
     
-    await uglifyFiles(files, e);
+    await uglifyFiles(files, c);
 }

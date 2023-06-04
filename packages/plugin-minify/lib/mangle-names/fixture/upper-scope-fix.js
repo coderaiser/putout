@@ -1,8 +1,8 @@
 import a from 'try-catch';
 
-function c() {
-    const [_a] = a(readOptions);
-    return _a;
+function b() {
+    const [_] = a(readOptions);
+    return _;
 }
 
-c();
+b();

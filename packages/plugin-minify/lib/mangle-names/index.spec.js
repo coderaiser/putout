@@ -39,3 +39,8 @@ test('plugin-minify: mangle-names: transform: nested', (t) => {
     t.transform('nested');
     t.end();
 });
+
+test('plugin-minify: mangle-names: transform: overlap', (t) => {
+    t.transform('overlap');
+    t.end();
+});
