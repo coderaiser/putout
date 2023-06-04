@@ -9,10 +9,9 @@ module.exports.include = () => [
     'Statement',
 ];
 
+module.exports.filter = (path) => !path.scope.__putout_minify;
+
 module.exports.fix = ({scope}) => {
-    if (scope.__putout_minify)
-        return;
-    
     const all = scope.getAllBindings();
     
     for (const [name] of entries(scope.bindings)) {
