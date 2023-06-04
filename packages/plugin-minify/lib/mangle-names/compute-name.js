@@ -23,6 +23,9 @@ module.exports.computeName = ({index, all, uid}) => {
             if (!all[name])
                 break;
         }
+        
+        if (!all[name])
+            break;
     }
     
     return name;

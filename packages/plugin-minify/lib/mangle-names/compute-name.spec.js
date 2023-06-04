@@ -66,7 +66,7 @@ test('@putout/plugin-minify: mangle-names: computeName: t500, _t500: declared', 
         uid: '_temp500',
     });
     
-    const expected = 'zA';
+    const expected = 'aA';
     
     t.equal(result, expected);
     t.end();
@@ -87,7 +87,7 @@ test('@putout/plugin-minify: mangle-names: computeName: t500, _t500, _: declared
         uid: '_temp500',
     });
     
-    const expected = 'zA';
+    const expected = 'aA';
     
     t.equal(result, expected);
     t.end();
