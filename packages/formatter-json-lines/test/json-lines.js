@@ -1,5 +1,4 @@
 import {createTest} from '@putout/test';
-
 import jsonLines from '../lib/json-lines.js';
 import rmVars from '@putout/plugin-remove-unused-variables';
 
@@ -16,6 +15,8 @@ test('formatter: json-lines: no', async ({format}) => {
 });
 
 test('formatter: json-lines: many', async ({formatMany}) => {
-    await formatMany(jsonLines, ['var', 'var']);
+    await formatMany(jsonLines, [
+        'var',
+        'var',
+    ]);
 });
-

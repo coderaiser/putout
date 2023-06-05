@@ -1,6 +1,5 @@
 import {createTest} from '@putout/test';
 import rmUnused from '@putout/plugin-remove-unused-variables';
-
 import progress, {
     maybeZero,
 } from '../lib/memory.js';
@@ -22,7 +21,10 @@ test('formatter: memory: no', async ({format}) => {
 });
 
 test('formatter: memory: many', async ({formatMany}) => {
-    await formatMany(progress, ['var', 'var']);
+    await formatMany(progress, [
+        'var',
+        'var',
+    ]);
 });
 
 test('formatter: memory: minCount', async ({format}) => {
@@ -33,6 +35,7 @@ test('formatter: memory: minCount', async ({format}) => {
 
 test('formatter: memory: color', async ({format}) => {
     const progress = await freshImportDefault('../lib/memory.js');
+    
     await format(progress, 'color', {
         color: 'red',
     });
@@ -61,6 +64,7 @@ test('formatter: memory: get stream', async (t) => {
     const stream = _getStream();
     
     const {stderr} = process;
+    
     process.env.PUTOUT_PROGRESS_BAR = PUTOUT_PROGRESS_BAR;
     
     t.equal(stream, stderr, 'should equal to stderr');
@@ -101,4 +105,3 @@ test('formatter: memory: maybeZero: yes', (t) => {
     t.equal(result, expected);
     t.end();
 });
-

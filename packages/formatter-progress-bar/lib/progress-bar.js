@@ -1,6 +1,5 @@
 import {sep} from 'path';
 import {Writable} from 'stream';
-
 import dump from '@putout/formatter-dump';
 import cliProgress from 'cli-progress';
 import chalk from 'chalk';
@@ -17,12 +16,10 @@ const {stderr} = process;
 const {PUTOUT_PROGRESS_BAR = '1'} = process.env;
 
 export default ({name, options, places, index, count, filesCount, errorsCount}) => {
-    const {
-        color = BLUE,
-        minCount = 0,
-    } = options;
+    const {color = BLUE, minCount = 0} = options;
     
     const naturalIndex = index + 1;
+    
     const result = dump({
         name,
         places,
@@ -65,6 +62,7 @@ export const _getStream = () => PUTOUT_PROGRESS_BAR === '0' ? new Writable() : s
 
 const createProgress = once(({count, color, name}) => {
     const colorFn = getColorFn(color);
+    
     const bar = new cliProgress.SingleBar({
         format: `${colorFn('{bar}')} {percentage}% | {errorsCount} | {value}/{total} | {name}`,
         barCompleteChar: '\u2588',
@@ -82,4 +80,3 @@ const createProgress = once(({count, color, name}) => {
     
     return bar;
 });
-

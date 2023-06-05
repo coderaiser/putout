@@ -2,9 +2,7 @@ import {
     table,
     getBorderCharacters,
 } from 'table';
-
 import chalk from 'chalk';
-
 import {jsonFormatter} from '@putout/formatter-json';
 
 const {
@@ -17,7 +15,12 @@ const {
 
 export default ({name, places, index, count, filesCount, errorsCount}) => {
     const json = jsonFormatter({
-        name, places, index, count, filesCount, errorsCount,
+        name,
+        places,
+        index,
+        count,
+        filesCount,
+        errorsCount,
     });
     
     if (!json)
@@ -64,4 +67,3 @@ function buildLine(places) {
     
     return data;
 }
-

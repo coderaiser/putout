@@ -1,6 +1,5 @@
 import rmVars from '@putout/plugin-remove-unused-variables';
 import {createTest} from '@putout/test';
-
 import progress from '../lib/progress.js';
 
 const test = createTest(import.meta.url, {
@@ -16,7 +15,10 @@ test('formatter: progress: no', async ({format}) => {
 });
 
 test('formatter: progress: many', async ({formatMany}) => {
-    await formatMany(progress, ['var', 'var']);
+    await formatMany(progress, [
+        'var',
+        'var',
+    ]);
 });
 
 test('formatter: progress: minCount', async ({format}) => {
@@ -24,4 +26,3 @@ test('formatter: progress: minCount', async ({format}) => {
         minCount: 10,
     });
 });
-

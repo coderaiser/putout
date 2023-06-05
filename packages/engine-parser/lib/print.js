@@ -7,10 +7,8 @@ const generate = require('@babel/generator').default;
 const {stringify} = JSON;
 const {isArray} = Array;
 
-const maybeArray = (a) => isArray(a) ? a : [
-    a,
-    {},
-];
+const maybeArray = (a) => isArray(a) ? a : [a, {}];
+
 const btoa = (a) => Buffer.from(a, 'binary').toString('base64');
 
 const addSourceMap = (sourceMapName, {code, map}) => !sourceMapName ? code : `${code}\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,${btoa(stringify(map))}\n`;

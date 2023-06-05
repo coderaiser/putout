@@ -1,7 +1,8 @@
 {
+    "printer": "putout",
     "formatter": "stream",
     "rules": {
-        "babel/transform-inline-consecutive-adds": ["on", "Consecutive adds should be avoided"]
+        "babel/transform-inline-consecutive-adds": ["on", "Avoid consecutive adds"]
     },
     "plugins": [
         "babel/transform-inline-consecutive-adds"

@@ -1,6 +1,5 @@
 import strictMode from '@putout/plugin-strict-mode';
 import rmUnused from '@putout/plugin-remove-unused-variables';
-
 import codeframe from '../lib/codeframe.js';
 import {createTest} from '@putout/test';
 
@@ -21,7 +20,10 @@ test('formatter: codeframe: no', async ({noFormat}) => {
 });
 
 test('formatter: codeframe: many', async ({formatMany}) => {
-    await formatMany(codeframe, ['var', 'var']);
+    await formatMany(codeframe, [
+        'var',
+        'var',
+    ]);
 });
 
 testStrict('formatter: zero', async ({format}) => {

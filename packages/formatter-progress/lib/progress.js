@@ -4,6 +4,7 @@ export default ({name, options, places, index, count, filesCount, errorsCount}) 
     const {minCount = 0} = options;
     const naturalIndex = index + 1;
     const str = `\r${progress(naturalIndex, count)}%`;
+    
     const result = dump({
         name,
         places,
@@ -25,4 +26,3 @@ export default ({name, options, places, index, count, filesCount, errorsCount}) 
 function progress(index, count) {
     return Math.round(index / count * 100);
 }
-

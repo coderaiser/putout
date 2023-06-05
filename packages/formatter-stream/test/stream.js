@@ -1,6 +1,5 @@
 import {createTest} from '@putout/test';
 import rmVars from '@putout/plugin-remove-unused-variables';
-
 import stream from '../lib/stream.js';
 
 const test = createTest(import.meta.url, {
@@ -16,6 +15,8 @@ test('formatter: stream: no', async ({noFormat}) => {
 });
 
 test('formatter: stream: many', async ({formatMany}) => {
-    await formatMany(stream, ['var', 'var']);
+    await formatMany(stream, [
+        'var',
+        'var',
+    ]);
 });
-

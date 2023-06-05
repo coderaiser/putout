@@ -1,7 +1,7 @@
 import {createTest} from '@putout/test';
 import rmVars from '@putout/plugin-remove-unused-variables';
-
 import dump from '../lib/dump.js';
+
 const test = createTest(import.meta.url, {
     'remove-unused-variables': rmVars,
 });
@@ -15,6 +15,8 @@ test('formatter: dump: no', async ({noFormat}) => {
 });
 
 test('formatter: dump: many', async ({formatMany}) => {
-    await formatMany(dump, ['var', 'var']);
+    await formatMany(dump, [
+        'var',
+        'var',
+    ]);
 });
-

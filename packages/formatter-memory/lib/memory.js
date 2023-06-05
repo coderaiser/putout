@@ -1,6 +1,5 @@
 import {Writable} from 'stream';
 import {hrtime} from 'process';
-
 import dump from '@putout/formatter-dump';
 import cliProgress from 'cli-progress';
 import chalk from 'chalk';
@@ -12,15 +11,18 @@ const start = once(() => hrtime.bigint());
 const end = once(() => hrtime.bigint());
 
 const OK = '👌';
+
 const {
     green,
     yellow,
     red,
     blueBright,
 } = chalk;
+
 const formatErrorsCount = (a) => a ? red(a) : OK;
 
 const {stderr} = process;
+
 const {
     PUTOUT_PROGRESS_BAR = '1',
     TEST = 0,
@@ -29,10 +31,7 @@ const {
 export default ({name, options, places, index, count, filesCount, errorsCount}) => {
     start();
     
-    const {
-        color = '#ea4336',
-        minCount = 0,
-    } = options;
+    const {color = '#ea4336', minCount = 0} = options;
     
     const memory = process.memoryUsage();
     
@@ -41,6 +40,7 @@ export default ({name, options, places, index, count, filesCount, errorsCount}) 
     const heapTotal = format.size(memory.heapTotal);
     
     const naturalIndex = index + 1;
+    
     const result = dump({
         name,
         places,
@@ -87,6 +87,7 @@ export const _getStream = () => PUTOUT_PROGRESS_BAR !== '1' ? new Writable() : s
 
 const createProgress = once(({count, color, rss}) => {
     const colorFn = getColorFn(color);
+    
     const bar = new cliProgress.SingleBar({
         format: `${colorFn('{bar}')} {percentage}% | {errorsCount} | {value}/{total} | {rss}`,
         barCompleteChar: '\u2588',

@@ -1,6 +1,5 @@
 import {createTest} from '@putout/test';
 import rmVars from '@putout/plugin-remove-unused-variables';
-
 import progress from '../lib/progress-bar.js';
 
 const createFreshImport = (count = 0) => (name) => import(`${name}?count=${++count}`);
@@ -21,7 +20,10 @@ test('formatter: progress bar: no', async ({format}) => {
 });
 
 test('formatter: progress bar: many', async ({formatMany}) => {
-    await formatMany(progress, ['var', 'var']);
+    await formatMany(progress, [
+        'var',
+        'var',
+    ]);
 });
 
 test('formatter: progress bar: minCount', async ({format}) => {
@@ -32,6 +34,7 @@ test('formatter: progress bar: minCount', async ({format}) => {
 
 test('formatter: progress bar: color', async ({format}) => {
     const progress = await freshImportDefault('../lib/progress-bar.js');
+    
     await format(progress, 'color', {
         color: 'red',
     });
@@ -58,8 +61,8 @@ test('formatter: progress bar: get stream', async ({ok}) => {
     const stream = _getStream();
     
     const {stderr} = process;
+    
     process.env.PUTOUT_PROGRESS_BAR = PUTOUT_PROGRESS_BAR;
     
     ok(stream === stderr, 'should equal to stderr');
 });
-

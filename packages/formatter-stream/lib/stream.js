@@ -2,8 +2,8 @@ import {
     table,
     getBorderCharacters,
 } from 'table';
-
 import chalk from 'chalk';
+
 const {
     underline,
     red,
@@ -53,4 +53,3 @@ export default ({name, places, index, count, filesCount, errorsCount}) => {
     
     return output.join('\n') + '\n';
 };
-

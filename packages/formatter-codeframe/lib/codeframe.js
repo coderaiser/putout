@@ -12,7 +12,13 @@ const MOVE_MESSAGE_WHEN_NO_PLACE = 1;
 
 export default ({name, source, places, index, count, filesCount, errorsCount}) => {
     const json = jsonFormatter({
-        name, source, places, index, count, filesCount, errorsCount,
+        name,
+        source,
+        places,
+        index,
+        count,
+        filesCount,
+        errorsCount,
     });
     
     if (!json)
@@ -25,7 +31,11 @@ export default ({name, source, places, index, count, filesCount, errorsCount}) =
     
     for (const {name, places, source} of json.errors) {
         for (const {rule, position, message} of places) {
-            const {line, column} = position;
+            const {
+                line,
+                column,
+            } = position;
+            
             const location = {
                 start: {
                     line,
@@ -47,4 +57,3 @@ export default ({name, source, places, index, count, filesCount, errorsCount}) =
     
     return output.join('\n') + '\n';
 };
-
