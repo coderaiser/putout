@@ -1,3 +1,20 @@
+2023.06.05, v29.12.0
+
+fix:
+- 522a8e577 @putout/pminify: mangle-names
+
+feature:
+- f74bf5401 package: @putout/plugin-remove-useless-arguments v7.0.0
+- 47fff1790 @putout/plugin-remove-useless-arguments: drop support of 🐊 < 29
+- e5ab8cc0d @putout/plugin-remove-useless-arguments: report: Remove -> Avoid
+- 0b8a342c1 @putout/plugin-remove-useless-arguments: destructuring: add support of second ObjectPattern
+- f7f65c68b package: nano-memoize v3.0.11
+- 1a23372f1 @putout/plugin-minify: remove-var-undefined
+- dcbed5aa3 @putout/plugin-minify: mangle-names: imporve compute-name
+- 2088a816a @putout/plugin-minify: mangle-names: shorteer
+- 36384a789 @putout/plugin-minify: mangle-names: improve overlap handling
+- 1c0d2868a @putout/plugin-mangle-names: filter: add
+
 2023.06.03, v29.11.1
 
 feature:
