@@ -24,6 +24,7 @@ npm i @putout/plugin-putout -D
         "minify/expand-bindings": "on",
         "minify/mangle-names": "on",
         "minify/merge-variables": "on",
+        "minify/remove-var-undefined": "on",
         "minify/remove-return-undefined": "on",
         "minify/shorten-names": "on",
         "minify/types": "on"
@@ -161,6 +162,22 @@ fn(c);
 
 ```js
 require('abc')(5);
+```
+
+## remove-var-undefined
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/76ceb3f2604e887d7fe84e4b145db5f3/1be2301c0fa753f77090ca0d09df9a5ba1c0a819).
+
+### ❌ Example of incorrect code
+
+```js
+var a = undefined;
+```
+
+### ✅ Example of correct code
+
+```js
+var a;
 ```
 
 ## remove-return-undefined

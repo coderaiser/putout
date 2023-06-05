@@ -14,6 +14,7 @@ module.exports.rules = {
     ...getRule('mangle-names'),
     ...getRule('merge-variables'),
     ...getRule('shorten-names'),
+    ...getRule('remove-var-undefined'),
     ...getRule('remove-return-undefined'),
     ...getRule('types'),
 };

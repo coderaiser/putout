@@ -35,6 +35,11 @@ test('plugin-minify: transform: expand-body', (t) => {
     t.end();
 });
 
+test('plugin-minify: transform: remove-var-undefined', (t) => {
+    t.transform('remove-var-undefined');
+    t.end();
+});
+
 test('plugin-minify: transform: remove-return-undefined', (t) => {
     t.transform('remove-return-undefined');
     t.end();
