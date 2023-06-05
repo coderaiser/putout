@@ -16,7 +16,7 @@ const {
 } = types;
 
 module.exports.report = ({methodNode}) => {
-    return `Remove useless arguments from method '${methodNode.key.name}()'`;
+    return `Avoid useless arguments from method '${methodNode.key.name}()'`;
 };
 
 module.exports.fix = ({path, methodNode}) => {

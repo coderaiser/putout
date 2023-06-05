@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-useless-arguments: report', (t) => {
-    t.report('call', `Remove useless argument 'generate' of a function 'onIfStatement()'`);
+    t.report('call', `Avoid useless argument 'generate' of a function 'onIfStatement()'`);
     t.end();
 });
 

@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-useless-method: method: report', (t) => {
-    t.report('method', `Remove useless arguments from method 'parseGuard()'`);
+    t.report('method', `Avoid useless arguments from method 'parseGuard()'`);
     t.end();
 });
 

@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-useless-arguments: arguments: report', (t) => {
-    t.report('arg', `Remove useless argument 'callback'`);
+    t.report('arg', `Avoid useless argument 'callback'`);
     t.end();
 });
 
@@ -46,6 +46,6 @@ test('plugin-remove-useless-arguments: arguments: no transform: arguments', (t) 
 });
 
 test('plugin-remove-useless-arguments: arguments: report: fn', (t) => {
-    t.report('fn', 'Remove useless argument');
+    t.report('fn', 'Avoid useless argument');
     t.end();
 });
