@@ -2,4 +2,7 @@
 
 const {recommended} = require('eslint-plugin-putout/config');
 
-module.exports = [...recommended, {}];
+module.exports = [
+    ...recommended,
+    {},
+];

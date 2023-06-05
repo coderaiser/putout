@@ -119,10 +119,7 @@ function parseKey(propertyPath) {
             Error(`Replace key cannot be computed: '${keyPath.toString()}'`),
         ];
     
-    return [
-        null,
-        key,
-    ];
+    return [null, key];
 }
 
 function hasMatch(path) {
