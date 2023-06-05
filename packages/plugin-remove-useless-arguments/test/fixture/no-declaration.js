@@ -5,4 +5,3 @@ onIfStatement({
     generate,
     abc,
 });
-

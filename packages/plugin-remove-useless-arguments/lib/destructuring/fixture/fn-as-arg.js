@@ -1,2 +1,7 @@
-const foo = bar(({ baz }) => ({ baz }));
-foo({ qux: "qux" });
+const foo = bar(({baz}) => ({
+    baz,
+}));
+
+foo({
+    qux: "qux",
+});

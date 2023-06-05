@@ -2,5 +2,4 @@ onIfStatement({
     push,
     generate,
     abc,
-})
-
+});

@@ -1,7 +1,7 @@
 module.exports.traverse = ({push, generate}) => {
     return {
         'if (__) __': onIfStatement({
-            push
+            push,
         }),
     };
 };

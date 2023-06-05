@@ -1,5 +1,9 @@
-function foo({ bar }) {
-  return { bar };
+function foo({bar}) {
+    return {
+        bar,
+    };
 }
 
-foo({ bar: 123 });
+foo({
+    bar: 123,
+});

@@ -1,6 +1,5 @@
 onIfStatement({
-    push
-})
+    push,
+});
 
-function onIfStatement({push}) {
-}
+function onIfStatement({push}) {}

@@ -1,43 +1,39 @@
-return class extends Parser {
-        parseStatement(context, topLevel, exports) {
-            if (this.type === Parser.acorn.keywordTypes.guard) {
-                return this.parseGuard();
-            }
-            
-            this.parseGuard();
-            super.spread(a, b);
-            
-            hello.parseGuard(a, b, c, d);
 
-            return super.parseStatement(context, topLevel, exports);
+return class extends Parser {
+    parseStatement(context, topLevel, exports) {
+        if (this.type === Parser.acorn.keywordTypes.guard) {
+            return this.parseGuard();
         }
         
-        parseGuard() {
-        }
+        this.parseGuard();
+        super.spread(a, b);
+        
+        hello.parseGuard(a, b, c, d);
+        
+        return super.parseStatement(context, topLevel, exports);
+    }
     
-        spread(...a) {
-        }
+    parseGuard() {}
+    
+    spread(...a) {}
 };
-
 fn();
 
 class A extends Parser {
-        parseStatement(context, topLevel, exports) {
-            if (this.type === Parser.acorn.keywordTypes.guard) {
-                return this.parseGuard();
-            }
-            
-            this.parseGuard();
-            super.spread(a, b);
-            
-            hello.parseGuard(a, b, c, d);
-
-            return super.parseStatement(context, topLevel, exports);
+    parseStatement(context, topLevel, exports) {
+        if (this.type === Parser.acorn.keywordTypes.guard) {
+            return this.parseGuard();
         }
         
-        parseGuard() {
-        }
+        this.parseGuard();
+        super.spread(a, b);
+        
+        hello.parseGuard(a, b, c, d);
+        
+        return super.parseStatement(context, topLevel, exports);
+    }
     
-        spread(...a) {
-        }
+    parseGuard() {}
+    
+    spread(...a) {}
 }

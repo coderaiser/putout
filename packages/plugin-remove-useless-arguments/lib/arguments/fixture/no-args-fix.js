@@ -1,4 +1,3 @@
 applyNames();
 
-function applyNames() {
-}
+function applyNames() {}

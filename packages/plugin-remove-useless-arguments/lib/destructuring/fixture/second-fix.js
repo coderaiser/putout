@@ -1,8 +1,8 @@
 printAttributes(path, {
-        write,
-        traverse,
-        keyword: 'with'
+    write,
+    traverse,
+    
+    keyword: 'with',
 });
 
-function printAttributes(path, {write, traverse, keyword}) {
-}
+function printAttributes(path, {write, traverse, keyword}) {}

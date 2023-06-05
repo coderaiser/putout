@@ -10,4 +10,3 @@ log({
 function log({set, a}) {
     set(a);
 }
-

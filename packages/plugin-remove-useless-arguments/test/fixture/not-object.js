@@ -2,7 +2,6 @@ onIfStatement({
     push,
     generate,
     abc,
-})
+});
 
-function onIfStatement(prop) {
-}
+function onIfStatement(prop) {}

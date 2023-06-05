@@ -2,7 +2,10 @@ onIfStatement({
     push,
     generate,
     abc,
-})
+});
 
-function onIfStatement({push: {a: b}}) {
-}
+function onIfStatement({
+    push: {
+        a: b,
+    }
+}) {}

@@ -1,11 +1,9 @@
 const m = {
-    onIfStatement: ({push}) => {
-    }
-}
+    onIfStatement: ({push}) => {},
+};
 
 m.onIfStatement({
     push,
     generate,
     abc,
-})
-
+});
