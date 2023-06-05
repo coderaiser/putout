@@ -49,6 +49,7 @@ module.exports.traverse = ({push}) => ({
             return false;
         
         const count = args.length - params.length;
+        
         args
             .slice(-count)
             .map(push);

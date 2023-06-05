@@ -70,6 +70,7 @@ function getUseless({path, index}) {
     };
     
     const {name} = path.node.callee;
+    
     const argument = path
         .get('arguments')
         .at(index);
