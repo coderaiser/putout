@@ -132,6 +132,7 @@ test('putout: cli: on halt: onKeyPress: not Ctrl+C', (t) => {
 
 function createStream(stream) {
     const read = stub();
+    
     const readableStream = new Readable({
         read,
     });
