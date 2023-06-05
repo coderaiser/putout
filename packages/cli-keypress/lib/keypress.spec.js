@@ -13,6 +13,7 @@ const {assign} = Object;
 
 test('putout: cli: on halt: no isTTY', (t) => {
     const {isTTY} = process.stdin;
+    
     process.stdin.isTTY = false;
     
     const onHalt = reRequire('./keypress');
@@ -26,6 +27,7 @@ test('putout: cli: on halt: no isTTY', (t) => {
 
 test('putout: cli: on halt: isTTY', (t) => {
     const {CI} = process.env;
+    
     process.env.CI = true;
     
     mockRequire('ci-info', {
@@ -47,6 +49,7 @@ test('putout: cli: on halt: isTTY', (t) => {
 
 test('putout: cli: on halt: isTTY: duble call', (t) => {
     const {CI} = process.env;
+    
     process.env.CI = true;
     
     mockRequire('ci-info', {
@@ -96,6 +99,7 @@ test('putout: cli: on halt: onKeyPress: Ctrl+C', (t) => {
     const fn = _onKeyPress(isStop);
     
     const str = '^c';
+    
     const key = {
         ctrl: true,
         name: 'c',
@@ -114,6 +118,7 @@ test('putout: cli: on halt: onKeyPress: not Ctrl+C', (t) => {
     const fn = _onKeyPress(isStop);
     
     const str = 'a';
+    
     const key = {
         ctrl: false,
         name: 'a',
@@ -127,11 +132,13 @@ test('putout: cli: on halt: onKeyPress: not Ctrl+C', (t) => {
 
 function createStream(stream) {
     const read = stub();
+    const readableStream = new Readable({
+        read,
+    });
     
-    return assign(new Readable({read}), {
+    return assign(readableStream, {
         isTTY: true,
         setRawMode: stub(),
         ...stream,
     });
 }
-
