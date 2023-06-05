@@ -4,7 +4,7 @@ const tryToCatch = require('try-to-catch');
 
 const yargsParser = require('yargs-parser');
 const {isCI} = require('ci-info');
-const memo = require('nano-memoize');
+const {nanomemoize} = require('nano-memoize');
 const tryCatch = require('try-catch');
 const wraptile = require('wraptile');
 const fullstore = require('fullstore');
@@ -42,7 +42,7 @@ const {
     CANNOT_LINT_STAGED,
 } = require('./exit-codes');
 
-const getFormatter = memo(require('./formatter').getFormatter);
+const getFormatter = nanomemoize(require('./formatter').getFormatter);
 
 const cwd = process.cwd();
 const {

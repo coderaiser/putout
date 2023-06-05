@@ -1,7 +1,7 @@
 'use strict';
 
 const template = require('@babel/template').default;
-const memo = require('nano-memoize');
+const {nanomemoize} = require('nano-memoize');
 const plugins = require('./parsers/babel/plugins');
 const options = require('./parsers/babel/options');
 
@@ -14,7 +14,7 @@ const defaults = {
     ],
 };
 
-module.exports = memo((value, options) => {
+module.exports = nanomemoize((value, options) => {
     const fn = template(value, {
         ...defaults,
         ...options,
@@ -23,7 +23,7 @@ module.exports = memo((value, options) => {
     return fn;
 });
 
-module.exports.ast = memo((value, options) => {
+module.exports.ast = nanomemoize((value, options) => {
     const result = template.ast(value, {
         ...defaults,
         ...options,
@@ -32,7 +32,7 @@ module.exports.ast = memo((value, options) => {
     return result.expression || result;
 });
 
-module.exports.program = memo((value, options) => {
+module.exports.program = nanomemoize((value, options) => {
     const result = template.program(value, {
         ...defaults,
         ...options,
@@ -41,7 +41,7 @@ module.exports.program = memo((value, options) => {
     return result;
 });
 
-module.exports.program.ast = memo((value, options) => {
+module.exports.program.ast = nanomemoize((value, options) => {
     const result = template.program.ast(value, {
         ...defaults,
         ...options,

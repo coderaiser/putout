@@ -1,6 +1,6 @@
 'use strict';
 
-const memo = require('nano-memoize');
+const {nanomemoize} = require('nano-memoize');
 
 const isEnabled = require('./is-enabled');
 const {loadPlugin} = require('./load');
@@ -42,7 +42,7 @@ const mergeRules = ([rule, plugin], rules) => {
     };
 };
 
-module.exports.loadProcessorsAsync = memo(async (options, load) => {
+module.exports.loadProcessorsAsync = nanomemoize(async (options, load) => {
     check(options);
     
     const {processors = []} = options;

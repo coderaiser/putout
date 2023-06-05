@@ -40,7 +40,7 @@
     "@putout/printer": "^1.20.0",
     "@putout/recast": "^1.12.1",
     "estree-to-babel": "^5.0.0",
-    "nano-memoize": "^2.0.0",
+    "nano-memoize": "^3.0.11",
     "once": "^1.4.0",
     "try-catch": "^3.0.0"
   },
