@@ -1,4 +1,4 @@
 const places = [
     ...a,
-    ...b
+    ...b,
 ];

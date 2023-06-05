@@ -2,5 +2,6 @@ const errorObjectParameters = new Set([
     'hello',
 ]);
 
-[...errorObjectParameters].map(key => `'${key}'`)
-
+[
+    ...errorObjectParameters,
+].map((key) => `'${key}'`);
