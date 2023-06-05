@@ -5,7 +5,9 @@ const convertArrayCopyToSlice = require('..');
 
 const test = createTest(__dirname, {
     printer: 'putout',
-    plugins: [['convert-array-copy-to-slice', convertArrayCopyToSlice]],
+    plugins: [
+        ['convert-array-copy-to-slice', convertArrayCopyToSlice],
+    ],
 });
 
 test('plugin-convert-array-copy-to-slice: report', (t) => {

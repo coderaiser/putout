@@ -1,11 +1,15 @@
 'use strict';
 
-const {types, operator} = require('putout');
+const {
+    types,
+    operator,
+} = require('putout');
 
 const {
     isIdentifier,
     isCallExpression,
 } = types;
+
 const {compare} = operator;
 
 module.exports.report = () => `Array should be copied using slice`;
@@ -38,4 +42,3 @@ module.exports.replace = () => ({
     '[...__a]': '__a.slice()',
     '__a.map((a) => a)': '__a.slice()',
 });
-
