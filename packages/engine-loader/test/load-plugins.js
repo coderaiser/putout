@@ -10,6 +10,7 @@ const putout = require('putout');
 const montag = require('montag');
 
 const {readFixtures} = require('./fixture');
+
 const {
     loadPlugins,
     babelPlugin,

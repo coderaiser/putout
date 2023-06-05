@@ -10,6 +10,7 @@ const {
     reRequire,
     stopAll,
 } = mockRequire;
+
 const {assign} = Object;
 
 test('putout: loader: async-loader: none', async (t) => {

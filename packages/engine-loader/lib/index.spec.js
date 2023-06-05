@@ -2,6 +2,7 @@
 
 const test = require('supertape');
 const mockRequire = require('mock-require');
+
 const {
     reRequire,
     stopAll,

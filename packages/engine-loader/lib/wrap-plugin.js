@@ -7,7 +7,9 @@ const getPositions = require('./get-positions-by-diff');
 
 const babelTransform = require('./transforms/babel');
 
-const getMessage = (a) => a.replace(/@babel\/plugin-|babel-plugin-/, '').replaceAll('-', ' ');
+const BABEL_REG = /@babel\/plugin-|babel-plugin-/;
+
+const getMessage = (a) => a.replace(BABEL_REG, '').replaceAll('-', ' ');
 
 const getModulePath = (name) => {
     const [, path] = tryCatch(require.resolve, name);

@@ -6,6 +6,7 @@ module.exports = (path) => {
     const names = path
         .split('/')
         .slice(1);
+    
     const result = [
         '',
     ];
