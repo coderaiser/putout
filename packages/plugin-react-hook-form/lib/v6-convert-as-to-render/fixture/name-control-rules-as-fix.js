@@ -4,4 +4,3 @@ export const a = () => <Controller
     rules={rules}
     render={() => <Input/>}
 />;
-

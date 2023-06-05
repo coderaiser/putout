@@ -6,4 +6,3 @@ export const devLogger = (() => {
     }
     // return { log: loop, warn: loop, error: loop }
 })();
-

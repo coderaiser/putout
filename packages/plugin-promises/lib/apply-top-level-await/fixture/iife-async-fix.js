@@ -9,4 +9,3 @@ export const hello = () => {
         const t = await fs.promises.readFile('hello');
     });
 };
-
