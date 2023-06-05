@@ -2,13 +2,14 @@
 
 const tryToCatch = require('try-to-catch');
 
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test, stub} = require('supertape');
+
 const mockRequire = require('mock-require');
 
-const {reRequire, stopAll} = mockRequire;
+const {
+    reRequire,
+    stopAll,
+} = mockRequire;
 const {assign} = Object;
 
 test('putout: loader: async-loader: none', async (t) => {
@@ -22,10 +23,9 @@ test('putout: loader: async-loader: none', async (t) => {
 });
 
 test('putout: loader: async-loader: calls', async (t) => {
-    const simpleImport = stub()
-        .rejects(assign(Error('not found'), {
-            code: 'ERR_MODULE_NOT_FOUND',
-        }));
+    const simpleImport = stub().rejects(assign(Error('not found'), {
+        code: 'ERR_MODULE_NOT_FOUND',
+    }));
     
     mockRequire('./simple-import', {
         simpleImport,
@@ -36,8 +36,12 @@ test('putout: loader: async-loader: calls', async (t) => {
     
     await tryToCatch(loadAsync, 'xxx');
     const expected = [
-        ['@putout/formatter-xxx'],
-        ['putout-formatter-xxx'],
+        [
+            '@putout/formatter-xxx',
+        ],
+        [
+            'putout-formatter-xxx',
+        ],
     ];
     
     stopAll();
@@ -48,10 +52,9 @@ test('putout: loader: async-loader: calls', async (t) => {
 });
 
 test('putout: loader: async-loader: rejects', async (t) => {
-    const simpleImport = stub()
-        .rejects(assign(Error('not found'), {
-            code: 'Syntax Error',
-        }));
+    const simpleImport = stub().rejects(assign(Error('not found'), {
+        code: 'Syntax Error',
+    }));
     
     mockRequire('./simple-import', {
         simpleImport,

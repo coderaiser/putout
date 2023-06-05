@@ -6,6 +6,7 @@ const isEnabled = require('./is-enabled');
 
 test('putout: get-plugins: is-enabled', (t) => {
     const name = 'madrun/add-function';
+    
     const rules = [{
         rule: 'remove-unused-variables',
         state: true,
@@ -22,6 +23,7 @@ test('putout: get-plugins: is-enabled', (t) => {
 
 test('putout: get-plugins: is-enabled: not found', (t) => {
     const name = 'madrun/add-function';
+    
     const rules = parseRules({
         'madrun/add-function': false,
     });
@@ -34,6 +36,7 @@ test('putout: get-plugins: is-enabled: not found', (t) => {
 
 test('putout: get-plugins: is-enabled: rule names cross', (t) => {
     const name = 'eslint/move-putout-to-end-of-list';
+    
     const rules = [{
         rule: 'putout',
         state: false,

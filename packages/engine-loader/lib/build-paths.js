@@ -3,8 +3,12 @@
 const addNodeModules = (a) => `${a}/node_modules`;
 
 module.exports = (path) => {
-    const names = path.split('/').slice(1);
-    const result = [''];
+    const names = path
+        .split('/')
+        .slice(1);
+    const result = [
+        '',
+    ];
     
     let current = '';
     
@@ -13,7 +17,5 @@ module.exports = (path) => {
         result.push(current);
     }
     
-    return result
-        .map(addNodeModules);
+    return result.map(addNodeModules);
 };
-

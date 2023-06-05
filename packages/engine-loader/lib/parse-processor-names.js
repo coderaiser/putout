@@ -34,4 +34,3 @@ module.exports = (plugins) => {
     
     return result;
 };
-

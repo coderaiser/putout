@@ -32,7 +32,7 @@ test('putout: engine-loader: load processors: no processors', async (t) => {
 test('putout: engine-loader: load processors: function', async (t) => {
     const throwProcessor = {
         preProcess() {
-            throw'Preprocess error';
+            throw 'Preprocess error';
         },
     };
     
@@ -57,8 +57,7 @@ test('putout: engine-loader: load processors: off', async (t) => {
         ],
     });
     
-    const expected = [
-    ];
+    const expected = [];
     
     t.deepEqual(list, expected);
     t.end();
@@ -66,6 +65,7 @@ test('putout: engine-loader: load processors: off', async (t) => {
 
 test('putout: engine-loader: load processors: on', async (t) => {
     const markdown = await import('@putout/processor-markdown');
+    
     const list = await loadProcessorsAsync({
         processors: [
             ['markdown', 'on'],
@@ -82,6 +82,7 @@ test('putout: engine-loader: load processors: on', async (t) => {
 
 test('putout: engine-loader: load processors: load', async (t) => {
     const load = stub().rejects(Error('LOAD USED'));
+    
     const [error] = await tryToCatch(loadProcessorsAsync, {
         processors: [
             'markdown',
@@ -91,4 +92,3 @@ test('putout: engine-loader: load processors: load', async (t) => {
     t.deepEqual(error, Error('@putout/processor-markdown: LOAD USED'));
     t.end();
 });
-

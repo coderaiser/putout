@@ -2,7 +2,10 @@
 
 const test = require('supertape');
 const mockRequire = require('mock-require');
-const {reRequire, stopAll} = mockRequire;
+const {
+    reRequire,
+    stopAll,
+} = mockRequire;
 
 test('engine-loader: load-plugins', (t) => {
     mockRequire('module', {
@@ -13,6 +16,7 @@ test('engine-loader: load-plugins', (t) => {
     });
     
     const {loadPlugins} = reRequire('.');
+    
     const result = loadPlugins({
         pluginNames: [
             'remove-unused-variables',
@@ -24,4 +28,3 @@ test('engine-loader: load-plugins', (t) => {
     t.equal(result.length, 1);
     t.end();
 });
-

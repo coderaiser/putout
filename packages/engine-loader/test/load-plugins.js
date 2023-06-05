@@ -1,17 +1,19 @@
 'use strict';
 
 const Module = require('module');
-const {
-    test,
-    stub,
-} = require('supertape');
+
+const {test, stub} = require('supertape');
+
 const tryCatch = require('try-catch');
 const mockRequire = require('mock-require');
 const putout = require('putout');
 const montag = require('montag');
 
 const {readFixtures} = require('./fixture');
-const {loadPlugins, babelPlugin} = require('..');
+const {
+    loadPlugins,
+    babelPlugin,
+} = require('..');
 
 const {
     reRequire,
@@ -212,6 +214,7 @@ test('putout: loader: babelPlugins', (t) => {
 
 test('putout: loader: babelPlugin: implimintation', (t) => {
     const plugin = require('babel-plugin-transform-inline-consecutive-adds');
+    
     const {code} = putout(fixture.babelPlugin, {
         plugins: [
             ['babel/transform-inline-consecutive-adds', babelPlugin(plugin)],
@@ -307,6 +310,7 @@ test('putout: loader: babelPlugins: position: shebang', (t) => {
 test('putout: loader: babelPlugins: custom message', (t) => {
     const message = 'hello world';
     const enabled = true;
+    
     const {places} = putout(fixture.babelPlugin, {
         fix: false,
         recast: true,
@@ -334,6 +338,7 @@ test('putout: loader: babelPlugins: custom message', (t) => {
 test('putout: loader: babelPlugins: custom message: on', (t) => {
     const message = 'hello world';
     const enabled = 'on';
+    
     const {places} = putout(fixture.babelPlugin, {
         fix: false,
         recast: true,
@@ -360,6 +365,7 @@ test('putout: loader: babelPlugins: custom message: on', (t) => {
 
 test('putout: loader: babelPlugins: no message: first options', (t) => {
     const message = 'transform inline consecutive adds';
+    
     const {places} = putout(fixture.babelPlugin, {
         fix: false,
         recast: true,
@@ -416,8 +422,7 @@ test('putout: loader: no plugin for a rule', (t) => {
         rules: {
             abcd: 'off',
         },
-        plugins: [
-        ],
+        plugins: [],
     });
     
     t.equal(e.message, 'No plugin found for a rule: "abcd"');
@@ -558,6 +563,7 @@ test('putout: loader: declcarator', (t) => {
 
 test('putout: loader: ESM', async (t) => {
     const estrace = await import('estrace/plugin');
+    
     const [e] = tryCatch(putout, 'hello', {
         loadPlugins,
         rules: {
@@ -604,4 +610,3 @@ test('putout: loader: wrong plugin name', (t) => {
     t.equal(error.message, expected);
     t.end();
 });
-

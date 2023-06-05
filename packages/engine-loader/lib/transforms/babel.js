@@ -20,4 +20,3 @@ module.exports = (ast, code, name) => {
     
     return ast;
 };
-

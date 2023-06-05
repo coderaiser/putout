@@ -66,4 +66,3 @@ function diffLineMode(text1, text2) {
     
     return diffs;
 }
-

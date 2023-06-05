@@ -5,7 +5,9 @@ const parse = (rule) => {
         return rule;
     
     if (rule.includes('/'))
-        return rule.split('/').shift();
+        return rule
+            .split('/')
+            .shift();
     
     return rule;
 };
@@ -32,4 +34,3 @@ module.exports = ({items, rules}) => {
             throw Error(`No plugin found for a rule: "${rule}"`);
     }
 };
-

@@ -117,13 +117,12 @@ Gives ability to create loader for `processor` or `formatter`.
 const {createAsyncLoader} = require('@putout/engine-loader');
 const {loadProcessor} = createAsyncLoader('processor');
 
+// load @putout/processor-markdown
 await loadProcessors('markdown');
-// loads @putout/processor-markdown
-
+// load @putout/processor-json using custom loader
 await loadProcess('json', () => {
     return Promise.resolve(`will be called instead of 'import'`);
 });
-// loads @putout/processor-json using custom loader
 ```
 
 ## License

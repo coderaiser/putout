@@ -47,4 +47,3 @@ async function cleverLoad(names, load = simpleImport) {
     
     return [e];
 }
-

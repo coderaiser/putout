@@ -5,6 +5,7 @@ const buildPaths = require('./build-paths');
 
 test('get-plugins: build-paths', (t) => {
     const result = buildPaths('/hello/world');
+    
     const expected = [
         '/node_modules',
         '/hello/node_modules',
@@ -14,4 +15,3 @@ test('get-plugins: build-paths', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
-

@@ -15,6 +15,7 @@ const {babelPlugin} = require('./wrap-plugin');
 const isString = (a) => typeof a === 'string';
 
 const defaultOptions = () => Object.create(null);
+
 const mergeRules = ([rule, plugin], rules) => {
     for (const currentRule of rules) {
         if (currentRule.rule !== rule)
@@ -44,9 +45,7 @@ const mergeRules = ([rule, plugin], rules) => {
 module.exports.loadProcessorsAsync = memo(async (options, load) => {
     check(options);
     
-    const {
-        processors = [],
-    } = options;
+    const {processors = []} = options;
     
     const parsedProcessors = parseProcessorNames(processors);
     const loadProcessor = createAsyncLoader('processor');
@@ -72,15 +71,13 @@ module.exports.babelPlugin = babelPlugin;
 module.exports.loadPlugins = (options) => {
     check(options);
     
-    const {
-        pluginNames = [],
-        rules = {},
-    } = options;
+    const {pluginNames = [], rules = {}} = options;
     
     const cookedRules = parseRules(rules);
     const loadedRules = getLoadedRules(cookedRules);
     
     const items = parsePluginNames(pluginNames);
+    
     const plugins = loadPlugins({
         items,
         loadedRules,
@@ -102,7 +99,10 @@ module.exports.loadPlugins = (options) => {
         if (!isEnabled(name, cookedRules))
             continue;
         
-        result.push(mergeRules([name, plugin], cookedRules));
+        result.push(mergeRules(
+            [name, plugin],
+            cookedRules,
+        ));
     }
     
     return result;
@@ -154,7 +154,10 @@ function loadPlugins({items, loadedRules}) {
             namespace,
         });
         
-        validatePlugin({plugin, rule});
+        validatePlugin({
+            plugin,
+            rule,
+        });
         
         const {rules} = plugin;
         
@@ -163,10 +166,7 @@ function loadPlugins({items, loadedRules}) {
             continue;
         }
         
-        plugins.push([
-            rule,
-            plugin,
-        ]);
+        plugins.push([rule, plugin]);
     }
     
     return plugins;
@@ -195,4 +195,3 @@ function checkRule(rule) {
     if (!isString(rule))
         throw Error(`☝️ Looks like plugin name type is not 'string', but: '${typeof rule}'`);
 }
-

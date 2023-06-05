@@ -13,4 +13,3 @@ module.exports = (name, rules) => {
     
     return true;
 };
-

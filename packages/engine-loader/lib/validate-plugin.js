@@ -20,4 +20,3 @@ module.exports = ({plugin, rule}) => {
     
     throw Error(`☝️ Cannot determine type of plugin '${rule}'. Here is list of supported plugins: https://git.io/JqcMn`);
 };
-

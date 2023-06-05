@@ -25,6 +25,7 @@ test('putout: engine-loader: load: yarn PnP support', (t) => {
     });
     
     const {loadPlugin} = reRequire('./load.js');
+    
     const result = loadPlugin({
         name: 'hello',
         namespace: 'putout',
@@ -54,6 +55,7 @@ test('putout: engine-loader: load: env: PUTOUT_YARN_PNP', (t) => {
     process.env.PUTOUT_YARN_PNP = 'hello';
     
     const {loadPlugin} = reRequire('./load.js');
+    
     const [error] = tryCatch(loadPlugin, {
         name: 'hello',
         namespace: 'putout',
@@ -92,4 +94,3 @@ test('putout: engine-loader: load: createRequire', (t) => {
     t.calledCount(createRequire, 2, 'should call for "putout" and PUTOUT_YARN_PNP');
     t.end();
 });
-

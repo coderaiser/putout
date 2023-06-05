@@ -10,4 +10,3 @@ test('putout: loader: wrap plugins: wrong namespace', (t) => {
     t.notOk(result, 'should return null');
     t.end();
 });
-
