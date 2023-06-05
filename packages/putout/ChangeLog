@@ -1,3 +1,11 @@
+2023.06.05, v29.12.1
+
+feature:
+- a70c3d9eb package: @putout/plugin-convert-array-copy-to-slice v3.0.0
+- f22597d5d @putout/plugin-convert-array-copy-to-slice: drop support of node < 16
+- 8c84d5a91 @putout/plugin-convert-array-copy-to-slice: use @putout/printer
+- d3e57f1b0 @putout/plugin-minify: mangle-names: add ability to configure with mangleClassNames
+
 2023.06.05, v29.12.0
 
 fix:
