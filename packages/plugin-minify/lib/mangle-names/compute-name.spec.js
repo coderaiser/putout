@@ -93,3 +93,22 @@ test('@putout/plugin-minify: mangle-names: computeName: t500, _t500, _: declared
     t.equal(result, expected);
     t.end();
 });
+
+test('@putout/plugin-minify: mangle-names: computeName: aa-zZ_: declared', (t) => {
+    const all = new Proxy({}, {
+        get() {
+            return true;
+        },
+    });
+    
+    const result = computeName({
+        index: 500,
+        all,
+        uid: '_temp500',
+    });
+    
+    const expected = '_temp500';
+    
+    t.equal(result, expected);
+    t.end();
+});
