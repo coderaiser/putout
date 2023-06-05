@@ -44,3 +44,10 @@ test('plugin-minify: mangle-names: transform: overlap', (t) => {
     t.transform('overlap');
     t.end();
 });
+
+test('plugin-minify: mangle-names: transform: mangleClassNames', (t) => {
+    t.transformWithOptions('mangle-class-names', {
+        mangleClassNames: false,
+    });
+    t.end();
+});

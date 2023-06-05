@@ -22,7 +22,9 @@ npm i @putout/plugin-putout -D
         "minify/convert-strict-equal-to-equal": "on",
         "minify/extract-body": "on",
         "minify/expand-bindings": "on",
-        "minify/mangle-names": "on",
+        "minify/mangle-names": ["on", {
+            "mangleClassNames": true
+        }],
         "minify/merge-variables": "on",
         "minify/remove-var-undefined": "on",
         "minify/remove-return-undefined": "on",
@@ -221,6 +223,42 @@ function generate() {
 function generate() {
     const a = 'hi';
     return a;
+}
+```
+
+When you want to preserve class names use
+
+```json
+{
+    "rules": {
+        "minify/mangle-names": ["on", {
+            "mangleClassNames": false
+        }]
+    }
+}
+```
+
+In this case you will see:
+
+### ❌ Example of incorrect code
+
+```js
+class Hello {
+    world() {
+        const hello = 'hello';
+        return hello;
+    }
+}
+```
+
+### ✅ Example of correct code
+
+```js
+class Hello {
+    world() {
+        const a = 'hello';
+        return a;
+    }
 }
 ```
 

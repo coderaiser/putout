@@ -1,7 +1,7 @@
 'use strict';
 
 const {computeName} = require('./compute-name');
-const {keys} = Object;
+const {entries} = Object;
 
 module.exports.report = () => `Mangle name`;
 
@@ -11,10 +11,14 @@ module.exports.include = () => [
 
 module.exports.filter = (path) => !path.scope.__putout_minify;
 
-module.exports.fix = ({scope}) => {
-    const names = keys(scope.bindings);
+module.exports.fix = ({scope}, options) => {
+    const {mangleClassNames} = options;
+    const names = entries(scope.bindings);
     
-    for (const [index, name] of names.entries()) {
+    for (const [index, [name, binding]] of names.entries()) {
+        if (!mangleClassNames && binding.path.isClassDeclaration())
+            continue;
+        
         const all = scope.getAllBindings();
         
         if (name.length === 1)
