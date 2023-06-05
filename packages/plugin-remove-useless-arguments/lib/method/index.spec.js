@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'remove-useless-method/method': plugin,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-method/method', plugin],
+    ],
 });
 
 test('plugin-remove-useless-method: method: report', (t) => {

@@ -9,6 +9,7 @@ const {
     isIdentifier,
     isObjectProperty,
 } = types;
+
 const {
     compareAny,
     findBinding,
@@ -29,50 +30,99 @@ module.exports.fix = ({path}) => {
 };
 
 module.exports.traverse = ({push}) => ({
-    '__(__object)'(path) {
-        const {name} = path.node.callee;
-        const [argument] = path.get('arguments');
-        const argProps = argument.get('properties')
-            .filter(isObjectProperty);
-        
-        const refPath = findBinding(path, name);
-        
-        if (!refPath)
-            return;
-        
-        const binding = refPath.scope.bindings[name];
-        const params = getParams(binding.path);
-        
-        if (!params.length)
-            return;
-        
-        const [param] = params;
-        
-        if (!param.isObjectPattern())
-            return;
-        
-        const {properties} = param.node;
-        
-        for (const prop of properties) {
-            if (!isIdentifier(prop.value))
-                return;
-        }
-        
-        const propKeys = properties
-            .map(getKey);
-        
-        for (const propPath of argProps) {
-            const {key} = propPath.node;
-            const is = compareAny(key, propKeys);
-            
-            if (!is)
-                push({
-                    name,
-                    path: propPath,
-                });
-        }
-    },
+    '__(__object)': processUseless({
+        push,
+        index: 0,
+    }),
+    '__(__, __object)': processUseless({
+        push,
+        index: 1,
+    }),
 });
+
+function processUseless({push, index}) {
+    return (path) => {
+        const {
+            is,
+            name,
+            argProps,
+            param,
+        } = getUseless({
+            path,
+            index,
+        });
+        
+        if (!is)
+            return;
+        
+        removeUseless({
+            push,
+            name,
+            param,
+            argProps,
+        });
+    };
+}
+
+function getUseless({path, index}) {
+    const NOT_OK = {
+        is: false,
+    };
+    
+    const {name} = path.node.callee;
+    const argument = path
+        .get('arguments')
+        .at(index);
+    
+    const argProps = argument
+        .get('properties')
+        .filter(isObjectProperty);
+    
+    const refPath = findBinding(path, name);
+    
+    if (!refPath)
+        return NOT_OK;
+    
+    const binding = refPath.scope.bindings[name];
+    const params = getParams(binding.path);
+    
+    if (!params.length)
+        return NOT_OK;
+    
+    const param = params.at(index);
+    
+    return {
+        is: true,
+        name,
+        param,
+        argProps,
+    };
+}
+
+function removeUseless({push, name, param, argProps}) {
+    if (!param.isObjectPattern())
+        return;
+    
+    const {properties} = param.node;
+    
+    for (const prop of properties) {
+        if (!isIdentifier(prop.value))
+            return;
+    }
+    
+    const propKeys = properties.map(getKey);
+    
+    for (const propPath of argProps) {
+        const {key} = propPath.node;
+        const is = compareAny(key, propKeys);
+        
+        if (!is)
+            push({
+                name,
+                path: propPath,
+            });
+    }
+}
 
 function getParams(path) {
     if (path.isFunction())

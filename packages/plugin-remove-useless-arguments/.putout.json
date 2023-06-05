@@ -1,4 +1,12 @@
 {
+    "printer": "putout",
+    "rules": {
+        "putout/create-test": ["on", {
+            "add": [
+                ["printer", "putout"]
+            ]
+        }]
+    },
     "match": {
         "*.md": {
             "remove-useless-arguments": "off"

@@ -9,4 +9,3 @@ module.exports.rules = {
     ...getRule('destructuring'),
     ...getRule('method'),
 };
-

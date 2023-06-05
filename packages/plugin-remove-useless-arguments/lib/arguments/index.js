@@ -6,6 +6,7 @@ const {
 } = require('putout');
 
 const {isFunction} = types;
+
 const {
     findBinding,
     remove,
@@ -48,7 +49,9 @@ module.exports.traverse = ({push}) => ({
             return false;
         
         const count = args.length - params.length;
-        args.slice(-count).map(push);
+        args
+            .slice(-count)
+            .map(push);
     },
 });
 

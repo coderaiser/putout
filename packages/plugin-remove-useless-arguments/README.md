@@ -28,7 +28,7 @@ npm i @putout/plugin-remove-useless-arguments
 ### ❌ Example of incorrect code
 
 ```js
-const sum = (a, b) => {};// destructuring
+const sum = (a, b) => {}; // destructuring
 sum(a, b, c);
 ```
 
@@ -51,8 +51,7 @@ onIfStatement({
     helloworld,
 });
 
-function onIfStatement({push}) {
-}
+function onIfStatement({push}) {}
 ```
 
 ### ✅ Example of correct code
@@ -62,8 +61,7 @@ onIfStatement({
     push,
 });
 
-function onIfStatement({push}) {
-}
+function onIfStatement({push}) {}
 ```
 
 ### method
@@ -77,8 +75,8 @@ class Parser {
     parseStatement(context, topLevel, exports) {
         this.parseGuard(a, b);
     }
-    parseGuard() {
-    }
+    
+    parseGuard() {}
 }
 ```
 
@@ -89,8 +87,8 @@ class Parser {
     parseStatement(context, topLevel, exports) {
         this.parseGuard();
     }
-    parseGuard() {
-    }
+    
+    parseGuard() {}
 }
 ```
 

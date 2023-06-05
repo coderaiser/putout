@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'remove-useless-arguments/arguments': plugin,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-arguments/arguments', plugin],
+    ],
 });
 
 test('plugin-remove-useless-arguments: arguments: report', (t) => {

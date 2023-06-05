@@ -4,7 +4,15 @@ const {createTest} = require('@putout/test');
 const destructuring = require('.');
 
 const test = createTest(__dirname, {
-    'remove-useless-arguments/destructuring': destructuring,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-arguments/destructuring', destructuring],
+    ],
+});
+
+test('plugin-remove-useless-arguments: transform: second', (t) => {
+    t.transform('second');
+    t.end();
 });
 
 test('plugin-remove-useless-arguments: no report', (t) => {
