@@ -5,24 +5,24 @@ const {compareAny} = operator;
 
 module.exports.report = () => `Shorten name`;
 
-const notDeclared = (a) => (vars, path) => {
-    const binding = path.scope.getAllBindings()[a];
+const notDeclared = (a, b) => (vars, path) => {
+    const binding = path.scope.getAllBindings()[b];
     
     if (!binding)
         return true;
     
     return compareAny(binding.path.parentPath.node, [
-        `const {${a}} = Object`,
-        `var {${a}} = Object`,
-        `let {${a}} = Object`,
+        `const {${b}} = ${a}`,
+        `var {${b}} = ${a}`,
+        `let {${b}} = ${a}`,
     ]);
 };
 
 module.exports.match = () => ({
-    'Object.keys(__args)': notDeclared('keys'),
-    'Object.assign(__args)': notDeclared('assign'),
-    'Object.defineProperty(__args)': notDeclared('defineProperty'),
-    'Object.freeze(__args)': notDeclared('freeze'),
+    'Object.keys(__args)': notDeclared('Object', 'keys'),
+    'Object.assign(__args)': notDeclared('Object', 'assign'),
+    'Object.defineProperty(__args)': notDeclared('Object', 'defineProperty'),
+    'Object.freeze(__args)': notDeclared('Object', 'freeze'),
 });
 
 module.exports.replace = () => ({
@@ -30,4 +30,6 @@ module.exports.replace = () => ({
     'Object.assign(__args)': 'assign(__args)',
     'Object.defineProperty(__args)': 'defineProperty(__args)',
     'Object.freeze(__args)': 'freeze(__args)',
+    
+    'Array.isArray(__args)': 'isArray(__args)',
 });

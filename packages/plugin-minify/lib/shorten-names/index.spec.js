@@ -34,3 +34,8 @@ test('plugin-minify: shorten-names: transform: freeze', (t) => {
     t.transform('freeze');
     t.end();
 });
+
+test('plugin-minify: shorten-names: transform: is-array', (t) => {
+    t.transform('is-array');
+    t.end();
+});
