@@ -1,5 +1,1 @@
-const {
-  getValue: get,
-  set: set
-} = require('./hi');
-
+const {getValue: get, set: set} = require('./hi');

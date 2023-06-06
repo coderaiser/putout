@@ -1,6 +1,10 @@
 'use strict';
 
-const {types, template} = require('putout');
+const {
+    types,
+    template,
+} = require('putout');
+
 const {isImportDefaultSpecifier} = types;
 
 module.exports.report = () => `Use 'CommonJS' instead of 'ESM'`;
@@ -20,7 +24,10 @@ module.exports.replace = () => ({
         let hasSpecifiers = false;
         
         for (const currentImport of __imports) {
-            const {imported, local} = currentImport;
+            const {
+                imported,
+                local,
+            } = currentImport;
             
             if (isImportDefaultSpecifier(currentImport)) {
                 assignment = `const ${local.name} = require("__a")`;

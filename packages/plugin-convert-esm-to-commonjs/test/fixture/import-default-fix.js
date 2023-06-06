@@ -1,2 +1,1 @@
 const hi = require('./hi');
-

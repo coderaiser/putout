@@ -13,4 +13,5 @@ module.exports.findMadrun = async function findMadrun(cwd) {
     }
     
     return '';
-};
+}
+;

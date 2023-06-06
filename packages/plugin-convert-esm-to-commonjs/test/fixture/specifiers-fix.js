@@ -1,8 +1,4 @@
 {
-  const hi = require('./hi');
-
-  const {
-    world: world
-  } = require('./hi');
-}
-
+    const hi = require('./hi');
+    const {world: world} = require('./hi');
+;}

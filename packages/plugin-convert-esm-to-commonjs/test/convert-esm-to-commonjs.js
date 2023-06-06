@@ -4,8 +4,12 @@ const {createTest} = require('@putout/test');
 const convert = require('..');
 
 const nodejsDeclare = require('@putout/plugin-nodejs').rules.declare;
+
 const test = createTest(__dirname, {
-    'convert-esm-to-commonjs': convert,
+    printer: 'putout',
+    plugins: [
+        ['convert-esm-to-commonjs', convert],
+    ],
 });
 
 test('plugin-convert-esm-to-commonjs: transform: report', (t) => {
@@ -79,4 +83,3 @@ test('plugin-convert-esm-to-commonjs: transform: declare', (t) => {
     });
     t.end();
 });
-

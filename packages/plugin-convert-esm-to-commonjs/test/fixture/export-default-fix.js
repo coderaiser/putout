@@ -1,2 +1,1 @@
-module.exports = function hello() {
-};
+module.exports = function hello() {};

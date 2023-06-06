@@ -1,2 +1,2 @@
-module.exports.Hi = class Hi {};
-
+module.exports.Hi = class Hi {
+};;
