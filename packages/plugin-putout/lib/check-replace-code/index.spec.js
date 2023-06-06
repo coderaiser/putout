@@ -120,6 +120,11 @@ test('plugin-putout: check-replace-code: no report: literal-vars', (t) => {
     t.end();
 });
 
+test('plugin-putout: check-replace-code: no report: identifier', (t) => {
+    t.noReport('identifier');
+    t.end();
+});
+
 test('plugin-putout: check-replace-code: report: mismatch', (t) => {
     t.report('mismatch', 'transform mismatch: "if (__a = __b) __body" -> "if (__a === "__b") __body" !== "if (_temp === _temp2)\n  {}"');
     t.end();

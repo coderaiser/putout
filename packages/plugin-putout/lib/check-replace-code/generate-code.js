@@ -54,6 +54,11 @@ module.exports = (rootPath, key) => {
                         return;
                     }
                     
+                    if (/__args/.test(name)) {
+                        path.node.name = getVar(name);
+                        return;
+                    }
+                    
                     if (name === '__array') {
                         if (path.parentPath.isVariableDeclarator())
                             return replaceWith(path, ArrayPattern([]));
