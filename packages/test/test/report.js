@@ -64,12 +64,15 @@ test('putout: test: noReport', (t) => {
             include: () => ['ImportDeclaration'],
         }],
     ];
+    
     const options = {
         plugins,
     };
+    
     const noReport = _createNoReport(dir, options);
     
     const deepEqual = stub();
+    
     const mockTest = {
         deepEqual,
     };
@@ -86,7 +89,13 @@ test('putout: test: noReport', (t) => {
     };
     
     const message = 'should not report';
-    const expected = [[place], [], message];
+    const expected = [
+        [
+            place,
+        ],
+        [],
+        message,
+    ];
     
     t.calledWith(deepEqual, expected);
     t.end();
@@ -94,6 +103,7 @@ test('putout: test: noReport', (t) => {
 
 test('putout: test: noReportAfterTransform: internal', (t) => {
     const dir = join(__dirname, 'fixture');
+    
     const plugins = [
         ['declare', {
             report: () => 'hello',
@@ -110,12 +120,15 @@ test('putout: test: noReportAfterTransform: internal', (t) => {
             }),
         }],
     ];
+    
     const options = {
         plugins,
     };
+    
     const noReportAfterTransform = _createNoReportAfterTransform(dir, options);
     
     const deepEqual = stub();
+    
     const mockTest = {
         deepEqual,
     };
@@ -132,9 +145,14 @@ test('putout: test: noReportAfterTransform: internal', (t) => {
     };
     
     const message = 'should not report after transform';
-    const expected = [[place], [], message];
+    const expected = [
+        [
+            place,
+        ],
+        [],
+        message,
+    ];
     
     t.calledWith(deepEqual, expected);
     t.end();
 });
-

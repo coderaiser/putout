@@ -135,6 +135,7 @@ test('noTransform: with UPDATE env variable', (t) => {
         writeFileSync,
         unlinkSync,
     } = global.__putout_test_fs;
+    
     const writeFileSyncStub = stub();
     const unlinkSyncStub = stub();
     
@@ -160,6 +161,7 @@ test('transformWithOptions: with UPDATE env variable', (t) => {
         writeFileSync,
         unlinkSync,
     } = global.__putout_test_fs;
+    
     const unlinkSyncStub = stub();
     const writeFileSyncStub = stub();
     
@@ -185,6 +187,7 @@ test('transformWithOptions: with UPDATE env variable: pass', (t) => {
         writeFileSync,
         unlinkSync,
     } = global.__putout_test_fs;
+    
     const unlinkSyncStub = stub();
     const writeFileSyncStub = stub();
     

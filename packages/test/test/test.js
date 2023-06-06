@@ -85,4 +85,3 @@ test('test: transform: rule of a plugin: remove-unused-variables', (t) => {
     });
     t.end();
 });
-

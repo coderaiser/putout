@@ -5,6 +5,7 @@ import {
 import {fileURLToPath} from 'url';
 import {stub} from 'supertape';
 import {createTest} from './eslint.mjs';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const test = createTest(import.meta.url);
@@ -24,7 +25,9 @@ test('test: eslint: process: UPDATE', async ({process}) => {
     global.process.env.UPDATE = '1';
     await process('operator-linebreak');
     delete global.process.env.UPDATE;
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 test('test: eslint: process: UPDATE: stub', async ({process, calledWith}) => {
     global.process.env.UPDATE = '1';
@@ -41,13 +44,17 @@ test('test: eslint: process: UPDATE: stub', async ({process, calledWith}) => {
     const data = 'const a = 5;\n\n';
     
     calledWith(writeFileSync, [name, data]);
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 test('test: eslint: noProcess: UPDATE', async ({noProcess}) => {
     global.process.env.UPDATE = '1';
     await noProcess('operator-linebreak-fix');
     delete global.process.env.UPDATE;
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 test('test: eslint: noProcess: UPDATE: stub', async ({noProcess, calledWith}) => {
     global.process.env.UPDATE = '1';
@@ -63,7 +70,9 @@ test('test: eslint: noProcess: UPDATE: stub', async ({noProcess, calledWith}) =>
     const name = join(__dirname, 'fixture', 'operator-linebreak-fix-fix.js');
     
     calledWith(unlinkSync, [name]);
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 test('test: eslint: noProcess', async ({noProcess}) => {
     await noProcess('operator-linebreak-fix');
@@ -86,6 +95,7 @@ test('test: eslint: comparePlaces: overrides', async ({comparePlaces}) => {
             'operator-linebreak': 'off',
         },
     };
+    
     await comparePlaces('operator-linebreak', [], overrides);
 });
 
@@ -95,6 +105,7 @@ test('test: eslint: noProcess: overrides', async ({noProcess}) => {
             'operator-linebreak': 'off',
         },
     };
+    
     await noProcess('operator-linebreak', overrides);
 });
 
@@ -115,7 +126,9 @@ test('test: eslint: report: no plugins', (t) => {
     
     t.calledWith(failStub, expected);
     t.end();
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 test('test: eslint: transform: no plugins', (t) => {
     const failStub = stub().returns({
@@ -130,5 +143,6 @@ test('test: eslint: transform: no plugins', (t) => {
     
     t.calledWith(failStub, expected);
     t.end();
-}, {checkAssertionsCount: false});
-
+}, {
+    checkAssertionsCount: false,
+});

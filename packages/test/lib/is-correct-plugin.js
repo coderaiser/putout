@@ -39,4 +39,3 @@ module.exports = (plugin) => {
     
     return isInclude || isExclude;
 };
-

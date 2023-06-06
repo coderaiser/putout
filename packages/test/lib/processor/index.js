@@ -4,6 +4,7 @@ const {
     readFile,
     writeFile,
 } = require('fs/promises');
+
 const {
     join,
     extname,
@@ -16,6 +17,7 @@ const {runProcessors} = require('@putout/engine-processor');
 
 const isStr = (a) => typeof a === 'string';
 const isUpdate = () => Number(global.process.env.UPDATE);
+
 const update = async (a, b) => {
     const write = global.writeFile || writeFile;
     await write(a, b);
@@ -28,6 +30,7 @@ const buildOptions = ({options, plugins, processors}) => ({
 });
 
 const addDot = (a) => a ? `.${a}` : '';
+
 module.exports._addDot = addDot;
 
 module.exports.createTest = (dir, options) => {
@@ -81,6 +84,7 @@ const createNoProcess = (dir, options) => (operator) => async (filename, plugins
     
     return operator.equal(processedSource, rawSource, 'fixtures should equal');
 };
+
 module.exports._createNoProcess = createNoProcess;
 
 const createComparePlaces = (dir, options) => (operator) => async (filename, expectedPlaces) => {
@@ -94,6 +98,7 @@ const createComparePlaces = (dir, options) => (operator) => async (filename, exp
     
     return operator.deepEqual(places, expectedPlaces, 'places should equal');
 };
+
 module.exports._createComparePlaces = createComparePlaces;
 
 async function process(filename, dir, {processors, plugins, extension, fix = true, noChange = false, processorRunners}) {
@@ -105,6 +110,7 @@ async function process(filename, dir, {processors, plugins, extension, fix = tru
     
     const rawSource = await readFile(inputName, 'utf8');
     const output = !fix || noChange ? '' : await readFile(outputName, 'utf8');
+    
     const options = {
         dir,
         processors,
@@ -117,7 +123,9 @@ async function process(filename, dir, {processors, plugins, extension, fix = tru
     } = await runProcessors({
         fix,
         name: inputName,
-        processFile: processFile({fix}),
+        processFile: processFile({
+            fix,
+        }),
         options,
         rawSource,
         processorRunners,
@@ -133,4 +141,3 @@ async function process(filename, dir, {processors, plugins, extension, fix = tru
         rawSource,
     };
 }
-

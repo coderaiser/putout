@@ -37,9 +37,7 @@ test('putout: test: processor: process', async ({process}) => {
 });
 
 test('putout: test: processor: no process', async ({noProcess}) => {
-    await noProcess('empty-script.html', null, [
-        'html',
-    ]);
+    await noProcess('empty-script.html', null, ['html']);
 });
 
 test('putout: test: processor: UPDATE', async ({process, calledWith}) => {
@@ -62,7 +60,9 @@ test('putout: test: processor: UPDATE', async ({process, calledWith}) => {
     const data = await readFile(name, 'utf8');
     
     calledWith(writeFile, [name, data]);
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 test('putout: test: processor: UPDATE: no global', async ({process}) => {
     const {env} = global.process;
@@ -73,7 +73,9 @@ test('putout: test: processor: UPDATE: no global', async ({process}) => {
     await process('eslintrc');
     
     getBackEnv(UPDATE);
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 test('putout: test: processor: UPDATE: not a number', async ({process, notCalled}) => {
     const {env} = global.process;
@@ -91,16 +93,20 @@ test('putout: test: processor: UPDATE: not a number', async ({process, notCalled
     delete global.writeFile;
     
     notCalled(writeFile);
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 test('putout: test: processor: process: no filename', (t) => {
     const fail = stub();
     const createRunner = _createProcess();
+    
     const operator = {
         fail,
     };
     
     const runner = createRunner(operator);
+    
     runner();
     
     t.calledWith(fail, [`Expected filename to be string!`]);
@@ -110,11 +116,13 @@ test('putout: test: processor: process: no filename', (t) => {
 test('putout: test: processor: no process: no filename', (t) => {
     const fail = stub();
     const createRunner = _createNoProcess();
+    
     const operator = {
         fail,
     };
     
     const runner = createRunner(operator);
+    
     runner();
     
     t.calledWith(fail, [`Expected filename to be string!`]);
@@ -128,11 +136,13 @@ test('putout: test: processor: comparePlaces', async ({comparePlaces}) => {
 test('putout: test: processor: comparePlaces: no filename', (t) => {
     const fail = stub();
     const createRunner = _createComparePlaces();
+    
     const operator = {
         fail,
     };
     
     const runner = createRunner(operator);
+    
     runner();
     
     t.calledWith(fail, [`Expected filename to be string!`]);
@@ -143,4 +153,3 @@ test('putout: test: processor: addDot', (t) => {
     t.equal(_addDot(''), '');
     t.end();
 });
-

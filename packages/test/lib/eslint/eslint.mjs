@@ -9,18 +9,17 @@ import {
     extname,
     basename,
 } from 'path';
-
 import eslint from '@putout/eslint';
 import tryToCatch from 'try-to-catch';
 import {extend} from 'supertape';
 import {lint} from '@putout/eslint/lint';
-
 import tryCatch from 'try-catch';
 
 const {keys} = Object;
 const {isArray} = Array;
 
 const isUpdate = () => process.env.UPDATE === '1';
+
 const update = (name, data) => {
     const fn = global.writeFileSync || writeFileSync;
     fn(name, data);
@@ -32,10 +31,12 @@ const remove = (name) => {
     const fixtureName = name.replace(base, `${base}-fix`);
     
     const fn = global.unlinkSync || unlinkSync;
+    
     tryCatch(fn, String(fixtureName));
 };
 
 const getMessage = ({message}) => message;
+
 const config = {
     extends: [
         'plugin:n/recommended',
@@ -48,7 +49,10 @@ const readSync = (name) => {
     const [, data] = tryCatch(readFileSync, `${name}.js`, 'utf8');
     
     if (data)
-        return [`${name}.js`, data];
+        return [
+            `${name}.js`,
+            data,
+        ];
     
     return [`${name}.ts`, readFileSync(`${name}.ts`, 'utf8')];
 };
@@ -57,9 +61,15 @@ const read = async (name) => {
     const [, data] = await tryToCatch(readFile, `${name}.js`, 'utf8');
     
     if (data)
-        return [`${name}.js`, data];
+        return [
+            `${name}.js`,
+            data,
+        ];
     
-    return [`${name}.ts`, await readFile(`${name}.ts`, 'utf8')];
+    return [
+        `${name}.ts`,
+        await readFile(`${name}.ts`, 'utf8'),
+    ];
 };
 
 export const createTest = (url, plugins = {}) => {
@@ -164,4 +174,3 @@ export const createTest = (url, plugins = {}) => {
         },
     });
 };
-

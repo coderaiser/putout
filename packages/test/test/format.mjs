@@ -1,12 +1,9 @@
 import fs from 'fs';
 import {stub} from 'supertape';
 import tryToCatch from 'try-to-catch';
-
 import removeConsole from '@putout/plugin-remove-console';
-
 import removeConsoleFixture from './fixture/remove-console.js';
 import {createTest} from '../lib/test.mjs';
-
 import formatter from '@putout/formatter-dump';
 import formatterProgress from '@putout/formatter-progress';
 
@@ -29,7 +26,10 @@ test('test: no format', async ({noFormat}) => {
 });
 
 test('test: formatMany', async ({formatMany}) => {
-    await formatMany(formatter, ['var', 'var']);
+    await formatMany(formatter, [
+        'var',
+        'var',
+    ]);
 });
 
 const {
@@ -56,27 +56,37 @@ testUpdate('test: formatSave', async ({ok, formatSave}) => {
     await formatSave(formatter, 'var');
     
     ok(writeFileSyncStub.called);
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 testUpdate('test: formatSave: success', async ({equal, formatSave}) => {
     const {message} = await formatSave(formatter, 'var');
     equal(message, 'fixed fixture updated');
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 testUpdate('test: formatManySave: success', async ({equal, formatManySave}) => {
     const {message} = await formatManySave(formatter, ['var']);
     equal(message, 'fixed fixture updated');
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 testUpdate('test: formatManySave: not array', async ({equal, formatManySave}) => {
     const [error] = await tryToCatch(formatManySave, formatter, 'var');
     equal(error.message, `☝️ Looks like 'formatManySave()' received 'names' with type: 'string', expected: 'array'`);
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 testUpdate('test: formatMany: not array', async ({equal, formatMany}) => {
     const [error] = await tryToCatch(formatMany, formatter, 'var');
     equal(error.message, `☝️ Looks like 'formatMany()' received 'names' with type: 'string', expected: 'array'`);
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 testUpdate('test: format: with UPDATE env variable', async ({ok, format}) => {
     global.__putout_test_update = true;
@@ -84,20 +94,32 @@ testUpdate('test: format: with UPDATE env variable', async ({ok, format}) => {
     
     global.__putout_test_update = false;
     ok(writeFileSyncStub.called);
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 testUpdate('test: formatManySave', async ({ok, formatManySave}) => {
-    await formatManySave(formatter, ['var', 'var']);
+    await formatManySave(formatter, [
+        'var',
+        'var',
+    ]);
     ok(writeFileSyncStub.called);
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 testUpdate('test: formatMany: with UPDATE env variable', async ({ok, formatMany}) => {
     global.__putout_test_update = true;
-    await formatMany(formatter, ['var', 'var']);
+    await formatMany(formatter, [
+        'var',
+        'var',
+    ]);
     
     global.__putout_test_update = false;
     ok(writeFileSyncStub.called);
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 testUpdate('test: formatSave: exists', async ({ok, formatSave}) => {
     existsSyncStub.returns(true);
@@ -105,15 +127,22 @@ testUpdate('test: formatSave: exists', async ({ok, formatSave}) => {
     await formatSave(formatter, 'var');
     
     ok(writeFileSyncStub.called);
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 testUpdate('test: formatManySave: exists', async ({ok, formatManySave}) => {
     existsSyncStub.returns(true);
     
-    await formatManySave(formatter, ['var', 'var']);
+    await formatManySave(formatter, [
+        'var',
+        'var',
+    ]);
     
     ok(writeFileSyncStub.called);
-}, {checkAssertionsCount: false});
+}, {
+    checkAssertionsCount: false,
+});
 
 fs.existsSync = existsSync;
 fs.writeFileSync = writeFileSync;

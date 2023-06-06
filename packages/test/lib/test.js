@@ -1,6 +1,7 @@
 'use strict';
 
 const {join} = require('path');
+
 const {
     readFileSync,
     writeFileSync,
@@ -18,7 +19,10 @@ const isCorrectPlugin = require('./is-correct-plugin');
 const isString = (a) => typeof a === 'string';
 const isObject = (a) => typeof a === 'object';
 const {isArray} = Array;
-const {keys, entries} = Object;
+const {
+    keys,
+    entries,
+} = Object;
 
 global.__putout_test_fs = {
     readFileSync,
@@ -39,9 +43,15 @@ const readFixture = (name) => {
     const [e, data] = tryCatch(readFileSync, `${name}.ts`, 'utf8');
     
     if (!e)
-        return [data, TS.ENABLED];
+        return [
+            data,
+            TS.ENABLED,
+        ];
     
-    return [readFileSync(`${name}.js`, 'utf8'), TS.DISABLED];
+    return [
+        readFileSync(`${name}.js`, 'utf8'),
+        TS.DISABLED,
+    ];
 };
 
 const writeFixture = ({full, code, isTS}) => {
@@ -108,9 +118,9 @@ function createTest(dir, maybeOptions) {
         reportCode: reportCode(options),
         
         formatSave: formatSave(dir, options),
-        format: (update ? formatSave : format)(dir, options),
+        format: update ? formatSave : format(dir, options),
         formatManySave: formatManySave(dir, options),
-        formatMany: (update ? formatManySave : formatMany)(dir, options),
+        formatMany: update ? formatManySave : formatMany(dir, options),
         noFormat: noFormat(dir, options),
     });
 }
@@ -128,6 +138,7 @@ const format = currify((dir, options, t) => async (formatter, name, formatterOpt
     });
     
     const report = putout.initReport();
+    
     const result = await report(formatter, {
         formatterOptions,
         name,
@@ -135,9 +146,16 @@ const format = currify((dir, options, t) => async (formatter, name, formatterOpt
         places,
     });
     
-    const {is, output} = t.equal(result, expected);
+    const {
+        is,
+        output,
+    } = t.equal(result, expected);
     
-    return {is, output, result};
+    return {
+        is,
+        output,
+        result,
+    };
 });
 
 const noFormat = currify((dir, options, t) => async (formatter, name, formatterOptions = {}) => {
@@ -146,15 +164,23 @@ const noFormat = currify((dir, options, t) => async (formatter, name, formatterO
     const {places} = putout(input, options);
     
     const report = putout.initReport();
+    
     const result = await report(formatter, {
         name,
         places,
         formatterOptions,
     });
     
-    const {is, output} = t.equal(result, '', 'should not format');
+    const {
+        is,
+        output,
+    } = t.equal(result, '', 'should not format');
     
-    return {is, output, result};
+    return {
+        is,
+        output,
+        result,
+    };
 });
 
 const formatMany = currify((dir, options, t) => async (formatter, names, formatterOptions = {}) => {
@@ -193,9 +219,16 @@ const formatMany = currify((dir, options, t) => async (formatter, names, formatt
     const outputName = join(dir, `${names.join('-')}-format`);
     const [expected] = readFixture(outputName);
     
-    const {is, output} = t.equal(result, expected);
+    const {
+        is,
+        output,
+    } = t.equal(result, expected);
     
-    return {is, output, result};
+    return {
+        is,
+        output,
+        result,
+    };
 });
 
 const formatManySave = currify((dir, options, t) => async (formatter, names, options = {}) => {
@@ -262,7 +295,9 @@ const transform = currify((dir, options, t, name, transformed = null, addons = {
     const [input, isTS] = readFixture(full);
     const isStr = isString(transformed);
     
-    const [output] = isStr ? [transformed] : readFixture(`${full}-fix`);
+    const [output] = isStr ? [
+        transformed,
+    ] : readFixture(`${full}-fix`);
     
     if (!isStr)
         addons = transformed;
@@ -398,7 +433,10 @@ const report = currify((dir, options, t, name, message) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
-    return reportCode({isTS, ...options}, t, source, message);
+    return reportCode({
+        isTS,
+        ...options,
+    }, t, source, message);
 });
 
 const noReport = currify((dir, options, t, name) => {
@@ -407,16 +445,24 @@ const noReport = currify((dir, options, t, name) => {
     
     rmFixture(`${full}-fix`);
     
-    return noReportCode({isTS, ...options}, t, source);
+    return noReportCode({
+        isTS,
+        ...options,
+    }, t, source);
 });
+
 module.exports._createNoReport = noReport;
 
 const noReportAfterTransform = currify((dir, options, t, name) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
-    return noReportCodeAfterTransform({isTS, ...options}, t, source);
+    return noReportCodeAfterTransform({
+        isTS,
+        ...options,
+    }, t, source);
 });
+
 module.exports._createNoReportAfterTransform = noReportAfterTransform;
 
 const reportWithOptions = currify((dir, options, t, name, message, ruleOptions) => {
@@ -424,11 +470,13 @@ const reportWithOptions = currify((dir, options, t, name, message, ruleOptions) 
     const [source, isTS] = readFixture(full);
     
     const rule = parseRule(options);
+    
     const rules = {
         [rule]: ['on', ruleOptions],
     };
     
-    return reportCode({...options, rules, isTS}, t, source, message);
+    return reportCode({...options,
+        rules, isTS}, t, source, message);
 });
 
 const noReportWithOptions = currify((dir, options, t, name, ruleOptions) => {
@@ -438,11 +486,16 @@ const noReportWithOptions = currify((dir, options, t, name, ruleOptions) => {
     rmFixture(`${full}-fix`);
     
     const rule = parseRule(options);
+    
     const rules = {
         [rule]: ['on', ruleOptions],
     };
     
-    return noReportCode({isTS, ...options, rules}, t, source);
+    return noReportCode({
+        isTS,
+        ...options,
+        rules,
+    }, t, source);
 });
 
 const reportCode = currify((options, t, source, message) => {
@@ -549,4 +602,3 @@ function preTest(test, plugin) {
         t.end();
     }, options);
 }
-

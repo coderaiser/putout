@@ -29,4 +29,3 @@ const testProcessor = createTest(import.meta.url, {
 testProcessor('test: processor: processorRunners', async ({process}) => {
     await process('typos', []);
 });
-

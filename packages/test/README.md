@@ -151,7 +151,10 @@ Check transform of `filename.js` with `options`:
 ```js
 test('putout: plugin: declare-undefined-variables: transform: parse', (t) => {
     t.transformWithOptions('parse', {
-        dismiss: ['assign', 'stringify'],
+        dismiss: [
+            'assign',
+            'stringify',
+        ],
     });
     t.end();
 });
@@ -175,7 +178,10 @@ Check transform of `filename.js` with `options`:
 ```js
 test('putout: plugin: declare-undefined-variables: transform: assign: dismiss', (t) => {
     t.noTransformWithOptions('assign', {
-        dismiss: ['assign', 'stringify'],
+        dismiss: [
+            'assign',
+            'stringify',
+        ],
     });
     t.end();
 });
@@ -253,7 +259,10 @@ Check file name formatting (pass `process.env.UPDATE=1` to save `fixture`):
 
 ```js
 test('formatter: dump: many', async ({formatMany}) => {
-    await formatMany(dump, ['var', 'var']);
+    await formatMany(dump, [
+        'var',
+        'var',
+    ]);
 });
 ```
 
@@ -292,6 +301,7 @@ First you need to create test with:
 
 ```js
 import {createTest} from '@putout/test/eslint';
+
 const test = createTest(import.meta.url);
 ```
 
