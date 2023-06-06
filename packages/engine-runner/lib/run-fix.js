@@ -12,6 +12,7 @@ const tryToFix = (fix, {path, position, options}) => {
     const [e] = tryCatch(fix, path, {
         options,
     });
+    
     const {scope} = path.path || path;
     
     if (!e && scope)

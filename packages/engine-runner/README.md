@@ -173,7 +173,6 @@ module.exports.include = () => [
 
 // optional
 module.exports.exclude = () => {};
-
 // optional
 module.exports.filter = (path) => {
     return true;
@@ -298,6 +297,7 @@ module.exports.traverse = ({listStore}) => ({
             }, {
                 type: 'DebuggerStatement',
             }];
+            
             // for code
             'debugger; debugger';
         },

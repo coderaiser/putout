@@ -34,6 +34,7 @@ const {
     keys,
     entries,
 } = Object;
+
 const {stringify} = JSON;
 
 const stub = () => [];
@@ -52,6 +53,7 @@ module.exports = ({rule, plugin, msg, options}) => {
     const replaceItems = replace({
         options,
     });
+    
     const fix = getFix(replaceItems);
     const include = packKeys(replaceItems);
     

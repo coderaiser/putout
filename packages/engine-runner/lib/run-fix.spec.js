@@ -29,6 +29,7 @@ test('fix: error', (t) => {
     };
     
     const is = true;
+    
     const [e] = tryCatch(fix, is, fn, {
         path,
         position,
@@ -63,6 +64,7 @@ test('fix: error: nested path: debug', (t) => {
     
     const is = true;
     const fix = reRequire('./run-fix');
+    
     const [e] = tryCatch(fix, is, fn, {
         path,
         position,
@@ -101,6 +103,7 @@ test('fix: error: nested path: debug: nested path', (t) => {
     
     const is = true;
     const fix = reRequire('./run-fix');
+    
     const [e] = tryCatch(fix, is, fn, {
         path,
         position,

@@ -11,6 +11,7 @@ const mockRequire = require('mock-require');
 const {readFixtures} = require('./fixture');
 
 const {runPlugins} = require('..');
+
 const {
     reRequire,
     stopAll,
