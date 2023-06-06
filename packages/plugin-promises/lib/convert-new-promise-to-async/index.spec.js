@@ -10,27 +10,27 @@ const test = createTest(__dirname, {
     ],
 });
 
-test('plugin-convert-new-promise-to-async: exports: transform: report', (t) => {
+test('plugin-promises: convert-new-promise-to-async: exports: transform: report', (t) => {
     t.report('new-promise', 'Async functions should be used instead of new Promise');
     t.end();
 });
 
-test('plugin-convert-new-promise-to-async: transform', (t) => {
+test('plugin-promises: convert-new-promise-to-async: transform', (t) => {
     t.transform('new-promise');
     t.end();
 });
 
-test('plugin-convert-new-promise-to-async: transform: resolve', (t) => {
+test('plugin-promises: convert-new-promise-to-async: transform: resolve', (t) => {
     t.transform('resolve');
     t.end();
 });
 
-test('plugin-convert-new-promise-to-async: no transform: reject', (t) => {
+test('plugin-promises: convert-new-promise-to-async: no transform: reject', (t) => {
     t.noTransform('reject');
     t.end();
 });
 
-test('plugin-convert-new-promise-to-async: transform: callback', (t) => {
+test('plugin-promises: convert-new-promise-to-async: transform: callback', (t) => {
     t.transform('callback');
     t.end();
 });

@@ -1,7 +1,7 @@
 await fn();
 
 function fn() {
-    return     new Promise((resolve) => {
+    return new Promise((resolve) => {
         resolve('x');
     });
 }
