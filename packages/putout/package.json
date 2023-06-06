@@ -107,7 +107,7 @@
     "@putout/plugin-madrun": "^15.0.0",
     "@putout/plugin-math": "^2.0.0",
     "@putout/plugin-maybe": "^1.0.0",
-    "@putout/plugin-merge-destructuring-properties": "^7.0.0",
+    "@putout/plugin-merge-destructuring-properties": "^8.0.0",
     "@putout/plugin-merge-duplicate-functions": "^1.0.0",
     "@putout/plugin-merge-duplicate-imports": "^9.0.0",
     "@putout/plugin-merge-if-statements": "^3.0.0",
