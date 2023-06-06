@@ -95,6 +95,7 @@ test('putout: compare: vars: getTemplateValues: setValues: Statement', (t) => {
         parse,
         transform,
     } = putout;
+    
     const ast = parse(input);
     
     transform(ast, input, {

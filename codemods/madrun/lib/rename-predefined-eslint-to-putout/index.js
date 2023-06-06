@@ -4,6 +4,7 @@ const {
     operator,
     types: t,
 } = require('putout');
+
 const {rename} = operator;
 
 module.exports.report = () => `"putout" should be used instead of "eslint", when predefined`;
@@ -15,6 +16,7 @@ module.exports.fix = (path) => {
 module.exports.traverse = ({push}) => ({
     'const __object = predefined'(path) {
         const properties = path.get('declarations.0.id.properties');
+        
         const {
             eslint,
             putout,

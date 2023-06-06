@@ -8,6 +8,7 @@ const {Identifier} = require('putout').types;
 const {_parseValue} = require('./log');
 
 const {assign} = Object;
+
 const {
     reRequire,
     stopAll,

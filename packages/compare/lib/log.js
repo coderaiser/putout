@@ -23,6 +23,7 @@ function parseValue(a) {
             name,
             value,
         }] = a;
+        
         return `${type}: ["${name || value}"]`;
     }
     

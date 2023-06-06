@@ -1,7 +1,11 @@
 'use strict';
 
-const {types, operator} = require('putout');
+const {
+    types,
+    operator,
+} = require('putout');
 const {compare} = operator;
+
 const {
     isNumericLiteral,
     isStringLiteral,
@@ -71,4 +75,3 @@ function getType(node) {
     
     return 'Any';
 }
-

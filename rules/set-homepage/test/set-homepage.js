@@ -2,9 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const setHomepage = require('..');
+
 const test = createTest(__dirname, {
     printer: 'putout',
-    plugins: [['set-homepage', setHomepage]],
+    plugins: [
+        ['set-homepage', setHomepage],
+    ],
 });
 
 test('rules: set-hompage: report', (t) => {
@@ -31,4 +34,3 @@ test('rules: set-hompeage: no transform: rule', (t) => {
     t.noTransform('rule');
     t.end();
 });
-

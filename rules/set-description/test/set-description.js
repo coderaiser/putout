@@ -2,9 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const setHomepage = require('..');
+
 const test = createTest(__dirname, {
     printer: 'putout',
-    plugins: [['set-description', setHomepage]],
+    plugins: [
+        ['set-description', setHomepage],
+    ],
 });
 
 test('rules: set-description: report', (t) => {
@@ -21,4 +24,3 @@ test('rules: set-description: no report', (t) => {
     t.noReport('no-description');
     t.end();
 });
-

@@ -8,7 +8,11 @@ module.exports.report = () => 'Set homepage';
 module.exports.traverse = ({push}) => ({
     '__putout_processor_json(__a)': (path) => {
         const __aPath = path.get('arguments.0');
-        const {namePath, homepagePath} = getProperties(__aPath, [
+        
+        const {
+            namePath,
+            homepagePath,
+        } = getProperties(__aPath, [
             'name',
             'homepage',
         ]);
@@ -45,4 +49,3 @@ module.exports.fix = ({name, homepage}) => {
     const dir = parseName(name);
     homepage.value = `https://github.com/coderaiser/putout/tree/master/packages/${dir}`;
 };
-
