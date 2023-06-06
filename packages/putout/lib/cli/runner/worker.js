@@ -1,18 +1,19 @@
 'use strict';
 
 const {resolve} = require('path');
-const {
-    cwd,
-    env,
-} = require('process');
+
+const {cwd, env} = require('process');
+
 const tryCatch = require('try-catch');
 const {readFileSync} = require('fs');
 
 const getOptions = require('../get-options.js');
+
 const {
     INVALID_CONFIG,
     NO_PROCESSORS,
 } = require('../exit-codes.js');
+
 const {lint} = require('./lint.js');
 
 const isParser = (rule) => rule.startsWith('parser');
@@ -33,8 +34,7 @@ const createFormatterProxy = (options) => {
 };
 
 module.exports = async ({readFile, report, writeFile, exit, raw, write, log, currentFormat, rulesdir, formatterOptions, noConfig, transform, plugins, index, fix, processFile, processorRunners, fileCache, name, count}) => {
-    const resolvedName = resolve(name)
-        .replace(/^\./, cwd);
+    const resolvedName = resolve(name).replace(/^\./, cwd);
     
     const [configError, options] = tryCatch(getOptions, {
         name: resolvedName,
@@ -48,6 +48,7 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
         return exit(INVALID_CONFIG, configError);
     
     const {dir} = options;
+    
     const success = await runCache({
         options,
         fileCache,
@@ -119,6 +120,7 @@ async function runCache({fileCache, report, write, formatterOptions, currentForm
         return false;
     
     const places = fileCache.getPlaces(name);
+    
     const formatterProxy = createFormatterProxy({
         report,
         formatterOptions,
@@ -134,4 +136,3 @@ async function runCache({fileCache, report, write, formatterOptions, currentForm
     
     return true;
 }
-

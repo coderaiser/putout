@@ -4,14 +4,15 @@ const {env} = require('process');
 
 process.env.CI = process.env.CI || 'true';
 
-const {join, basename} = require('path');
+const {
+    join,
+    basename,
+} = require('path');
 const {readFile} = require('fs/promises');
 const {EventEmitter} = require('events');
 
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test, stub} = require('supertape');
+
 const mockRequire = require('mock-require');
 const tryCatch = require('try-catch');
 const tryToCatch = require('try-to-catch');
@@ -36,16 +37,21 @@ const {
 const {assign} = Object;
 const {parse} = JSON;
 
-const {reRequire, stopAll} = mockRequire;
+const {
+    reRequire,
+    stopAll,
+} = mockRequire;
 
 test('putout: cli: --raw', async (t) => {
     const logError = stub();
+    
     const argv = [
         'xx',
         '--raw',
     ];
     
     const error = Error('No files matching the pattern "xx" were found');
+    
     mockRequire('./get-files', stub().returns([error]));
     
     const cli = reRequire('.');
@@ -66,11 +72,13 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     process.env.PUTOUT_FILES = 'xx';
     
     const logError = stub();
+    
     const argv = [
         '--raw',
     ];
     
     const error = Error('No files matching the pattern "xx" were found');
+    
     mockRequire('./get-files', stub().returns([error]));
     
     const cli = reRequire('.');
@@ -136,6 +144,7 @@ test('putout: cli: env: PUTOUT_PRINTER', async (t) => {
 
 test('putout: cli: --raw: parse error', async (t) => {
     const logError = stub();
+    
     const argv = [
         join(__dirname, 'fixture/parse-error.js'),
         '--raw',
@@ -158,6 +167,7 @@ test('putout: cli: --raw: parse error', async (t) => {
     });
     
     const error = SyntaxError('Unexpected token (2:0)');
+    
     assign(error, {
         pos: 11,
         loc: {
@@ -190,15 +200,15 @@ test('putout: cli: --format: ci', async (t) => {
     });
     
     const processFile = stub().returns(process);
-    const getFormatter = stub().returns([
-        'dump',
-        {},
-    ]);
+    
+    const getFormatter = stub().returns(['dump', {}]);
     
     const report = stub().returns(stub);
     
     mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {getFormatter});
+    mockRequire('./formatter', {
+        getFormatter,
+    });
     mockRequire('./report', report);
     mockRequire('ci-info', {
         isCI: true,
@@ -237,15 +247,15 @@ test('putout: cli: --format: specified twice', async (t) => {
     });
     
     const processFile = stub().returns(process);
-    const getFormatter = stub().returns([
-        'dump',
-        {},
-    ]);
+    
+    const getFormatter = stub().returns(['dump', {}]);
     
     const report = stub().returns(stub);
     
     mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {getFormatter});
+    mockRequire('./formatter', {
+        getFormatter,
+    });
     mockRequire('./report', report);
     
     reRequire('./runner/worker.js');
@@ -268,6 +278,7 @@ test('putout: cli: --format: specified twice', async (t) => {
 
 test('putout: cli: no ide', async (t) => {
     const name = basename(__filename);
+    
     const argv = [
         name,
         '--fresh',
@@ -278,15 +289,14 @@ test('putout: cli: no ide', async (t) => {
         code: '',
     }));
     
-    const getFormatter = stub().returns([
-        'dump',
-        {},
-    ]);
+    const getFormatter = stub().returns(['dump', {}]);
     
     const report = stub();
-    const getFiles = stub().returns([null, [
-        name,
-    ]]);
+    
+    const getFiles = stub().returns([
+        null,
+        [name],
+    ]);
     
     const canUseCache = stub().returns(false);
     const getPlaces = stub().returns([]);
@@ -301,11 +311,15 @@ test('putout: cli: no ide', async (t) => {
     });
     
     mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {getFormatter});
+    mockRequire('./formatter', {
+        getFormatter,
+    });
     mockRequire('./report', stub().returns(report));
     mockRequire('./get-files', getFiles);
     
-    mockRequire('@putout/cli-cache', {createCache});
+    mockRequire('@putout/cli-cache', {
+        createCache,
+    });
     
     const {
         TERMINAL_EMULATOR,
@@ -345,12 +359,14 @@ test('putout: cli: no ide', async (t) => {
 
 test('putout: cli: ide: web storm', async (t) => {
     const name = basename(__filename);
+    
     const argv = [
         name,
         '--fresh',
     ];
     
     const {TERMINAL_EMULATOR} = process.env;
+    
     process.env.TERMINAL_EMULATOR = 'JetBrains-JediTerm';
     
     const processFile = stub().returns(stub().returns({
@@ -358,16 +374,14 @@ test('putout: cli: ide: web storm', async (t) => {
         code: '',
     }));
     
-    const getFormatter = stub().returns([
-        'dump',
-        {},
-    ]);
+    const getFormatter = stub().returns(['dump', {}]);
     
     const report = stub();
     
-    const getFiles = stub().returns([null, [
-        name,
-    ]]);
+    const getFiles = stub().returns([
+        null,
+        [name],
+    ]);
     
     const canUseCache = stub().returns(false);
     const getPlaces = stub().returns([]);
@@ -382,10 +396,14 @@ test('putout: cli: ide: web storm', async (t) => {
     });
     
     mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {getFormatter});
+    mockRequire('./formatter', {
+        getFormatter,
+    });
     mockRequire('./report', stub().returns(report));
     mockRequire('./get-files', getFiles);
-    mockRequire('@putout/cli-cache', {createCache});
+    mockRequire('@putout/cli-cache', {
+        createCache,
+    });
     
     const simpleImport = async (url) => {
         /*
@@ -394,7 +412,6 @@ test('putout: cli: ide: web storm', async (t) => {
                 ruler,
             };
             */
-        
         if (url === 'chalk')
             return {
                 red: stub(),
@@ -436,12 +453,14 @@ test('putout: cli: ide: web storm', async (t) => {
 
 test('putout: cli: ide: vs code', async (t) => {
     const name = basename(__filename);
+    
     const argv = [
         name,
         '--fresh',
     ];
     
     const {TERM_PROGRAM} = process.env;
+    
     process.env.TERM_PROGRAM = 'vscode';
     
     const processFile = stub().returns(stub().returns({
@@ -449,16 +468,14 @@ test('putout: cli: ide: vs code', async (t) => {
         code: '',
     }));
     
-    const getFormatter = stub().returns([
-        'dump',
-        {},
-    ]);
+    const getFormatter = stub().returns(['dump', {}]);
     
     const report = stub();
     
-    const getFiles = stub().returns([null, [
-        name,
-    ]]);
+    const getFiles = stub().returns([
+        null,
+        [name],
+    ]);
     
     const canUseCache = stub().returns(false);
     const getPlaces = stub().returns([]);
@@ -473,10 +490,14 @@ test('putout: cli: ide: vs code', async (t) => {
     });
     
     mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {getFormatter});
+    mockRequire('./formatter', {
+        getFormatter,
+    });
     mockRequire('./report', stub().returns(report));
     mockRequire('./get-files', getFiles);
-    mockRequire('@putout/cli-cache', {createCache});
+    mockRequire('@putout/cli-cache', {
+        createCache,
+    });
     
     reRequire('./runner/worker.js');
     reRequire('./runner/runner.js');
@@ -506,12 +527,14 @@ test('putout: cli: ide: vs code', async (t) => {
 
 test('putout: cli: ide: vs code: cache', async (t) => {
     const name = basename(__filename);
+    
     const argv = [
         name,
         '--cache',
     ];
     
     const {TERM_PROGRAM} = process.env;
+    
     process.env.TERM_PROGRAM = 'vscode';
     
     const processFile = stub().returns(stub().returns({
@@ -519,16 +542,14 @@ test('putout: cli: ide: vs code: cache', async (t) => {
         code: '',
     }));
     
-    const getFormatter = stub().returns([
-        'dump',
-        {},
-    ]);
+    const getFormatter = stub().returns(['dump', {}]);
     
     const report = stub();
     
-    const getFiles = stub().returns([null, [
-        name,
-    ]]);
+    const getFiles = stub().returns([
+        null,
+        [name],
+    ]);
     
     const canUseCache = stub().returns(false);
     const getPlaces = stub().returns([]);
@@ -543,10 +564,14 @@ test('putout: cli: ide: vs code: cache', async (t) => {
     });
     
     mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {getFormatter});
+    mockRequire('./formatter', {
+        getFormatter,
+    });
     mockRequire('./report', stub().returns(report));
     mockRequire('./get-files', getFiles);
-    mockRequire('@putout/cli-cache', {createCache});
+    mockRequire('@putout/cli-cache', {
+        createCache,
+    });
     
     reRequire('./runner/worker.js');
     reRequire('./runner/runner.js');
@@ -576,12 +601,14 @@ test('putout: cli: ide: vs code: cache', async (t) => {
 
 test('putout: cli: no ide: cache', async (t) => {
     const name = basename(__filename);
+    
     const argv = [
         name,
         '--cache',
     ];
     
     const {TERMINAL_EMULATOR} = process.env;
+    
     process.env.TERMINAL_EMULATOR = 'none';
     
     const processFile = stub().returns(stub().returns({
@@ -589,16 +616,14 @@ test('putout: cli: no ide: cache', async (t) => {
         code: '',
     }));
     
-    const getFormatter = stub().returns([
-        'dump',
-        {},
-    ]);
+    const getFormatter = stub().returns(['dump', {}]);
     
     const report = stub();
     
-    const getFiles = stub().returns([null, [
-        name,
-    ]]);
+    const getFiles = stub().returns([
+        null,
+        [name],
+    ]);
     
     const canUseCache = stub().returns(false);
     const getPlaces = stub().returns([]);
@@ -613,10 +638,14 @@ test('putout: cli: no ide: cache', async (t) => {
     });
     
     mockRequire('./process-file', processFile);
-    mockRequire('./formatter', {getFormatter});
+    mockRequire('./formatter', {
+        getFormatter,
+    });
     mockRequire('./report', stub().returns(report));
     mockRequire('./get-files', getFiles);
-    mockRequire('@putout/cli-cache', {createCache});
+    mockRequire('@putout/cli-cache', {
+        createCache,
+    });
     
     reRequire('./runner/worker.js');
     reRequire('./runner/runner.js');
@@ -646,6 +675,7 @@ test('putout: cli: no ide: cache', async (t) => {
 
 test('putout: cli: --fresh', async (t) => {
     const file = join(__dirname, 'fixture/parse-error.js');
+    
     const argv = [
         file,
         '--no-config',
@@ -655,6 +685,7 @@ test('putout: cli: --fresh', async (t) => {
     
     const {_defaultCache} = require('@putout/cli-cache');
     const createCache = stub().returns(_defaultCache);
+    
     const getOptions = stub().returns({
         formatter: 'dump',
         dir: '.',
@@ -663,7 +694,9 @@ test('putout: cli: --fresh', async (t) => {
         ],
     });
     
-    mockRequire('@putout/cli-cache', {createCache});
+    mockRequire('@putout/cli-cache', {
+        createCache,
+    });
     mockRequire('./get-options', getOptions);
     
     reRequire('./get-files');
@@ -689,6 +722,7 @@ test('putout: cli: --fresh', async (t) => {
 
 test('putout: cli: --raw: halt', async (t) => {
     const halt = stub();
+    
     const argv = [
         'xx',
         '--raw',
@@ -705,6 +739,7 @@ test('putout: cli: --raw: halt', async (t) => {
 
 test('putout: cli: --version', async (t) => {
     const log = stub();
+    
     const argv = [
         '--version',
     ];
@@ -722,6 +757,7 @@ test('putout: cli: --version', async (t) => {
 
 test('putout: cli: -v', async (t) => {
     const log = stub();
+    
     const argv = [
         '-v',
     ];
@@ -753,12 +789,10 @@ test('putout: cli: no files', async (t) => {
 test('putout: cli: --fix --staged: set', async (t) => {
     const name = './xxx.js';
     const logError = stub();
-    const get = stub().returns([
-        name,
-    ]);
-    const set = stub().returns([
-        'hello.txt',
-    ]);
+    
+    const get = stub().returns([name]);
+    
+    const set = stub().returns(['hello.txt']);
     
     const argv = [
         '--staged',
@@ -766,9 +800,10 @@ test('putout: cli: --fix --staged: set', async (t) => {
         '--no-cache',
     ];
     
-    const getFiles = stub().returns([null, [
-        name,
-    ]]);
+    const getFiles = stub().returns([
+        null,
+        [name],
+    ]);
     
     const process = stub().returns({
         places: [],
@@ -797,19 +832,19 @@ test('putout: cli: --fix --staged: set', async (t) => {
     
     const {findUp} = await import('find-up');
     
-    t.calledWith(set, [{findUp}]);
+    t.calledWith(set, [{
+        findUp,
+    }]);
     t.end();
 });
 
 test('putout: cli: --fix --staged: get', async (t) => {
     const name = './xxx.js';
     const logError = stub();
-    const get = stub().returns([
-        name,
-    ]);
-    const set = stub().returns([
-        'hello.txt',
-    ]);
+    
+    const get = stub().returns([name]);
+    
+    const set = stub().returns(['hello.txt']);
     
     const argv = [
         '--staged',
@@ -817,9 +852,10 @@ test('putout: cli: --fix --staged: get', async (t) => {
         '--no-cache',
     ];
     
-    const getFiles = stub().returns([null, [
-        name,
-    ]]);
+    const getFiles = stub().returns([
+        null,
+        [name],
+    ]);
     
     const process = stub().returns({
         places: [],
@@ -848,7 +884,9 @@ test('putout: cli: --fix --staged: get', async (t) => {
     
     const {findUp} = await import('find-up');
     
-    t.calledWith(get, [{findUp}]);
+    t.calledWith(get, [{
+        findUp,
+    }]);
     t.end();
 });
 
@@ -857,9 +895,9 @@ test('putout: cli: --fix --staged: exit code', async (t) => {
     const name = './xxx.js';
     const logError = stub();
     const halt = stub();
-    const get = stub().returns([
-        name,
-    ]);
+    
+    const get = stub().returns([name]);
+    
     const set = stub().returns([]);
     
     const argv = [
@@ -867,21 +905,25 @@ test('putout: cli: --fix --staged: exit code', async (t) => {
         '--fix',
     ];
     
-    const getFiles = stub().returns([null, [
-        name,
-    ]]);
+    const getFiles = stub().returns([
+        null,
+        [name],
+    ]);
     
     const process = stub().returns({
         places: [],
         code: '',
     });
+    
     const processFile = stub().returns(process);
     const {_defaultCache} = require('@putout/cli-cache');
     const createCache = stub().returns(_defaultCache);
     
     mockRequire('./get-files', getFiles);
     mockRequire('./process-file', processFile);
-    mockRequire('@putout/cli-cache', {createCache});
+    mockRequire('@putout/cli-cache', {
+        createCache,
+    });
     
     mockRequire('./staged', {
         get,
@@ -906,9 +948,8 @@ test('putout: cli: --fix --staged: exit code', async (t) => {
 test('putout: cli: --staged --fix', async (t) => {
     const logError = stub();
     const get = stub().returns(['./xxx.js']);
-    const set = stub().returns([
-        'hello.txt',
-    ]);
+    
+    const set = stub().returns(['hello.txt']);
     
     const argv = [
         '--staged',
@@ -947,6 +988,7 @@ test('putout: cli: ruler: --enable', async (t) => {
     const readFile = stub();
     const writeFile = stub();
     const ruler = stub();
+    
     const argv = [
         '--enable',
         'convert-index-of-to-includes',
@@ -972,6 +1014,7 @@ test('putout: cli: ruler: --enable', async (t) => {
     });
     
     const cli = reRequire('.');
+    
     await runCli({
         cli,
         argv,
@@ -983,6 +1026,7 @@ test('putout: cli: ruler: --enable', async (t) => {
     stopAll();
     
     const places = [];
+    
     const args = {
         disable: '',
         enable: 'convert-index-of-to-includes',
@@ -997,10 +1041,8 @@ test('putout: cli: ruler: --enable', async (t) => {
 test('putout: cli: ruler: --enable-all', async (t) => {
     const logError = stub();
     const ruler = stub();
-    const argv = [
-        '--enable-all',
-        __filename,
-    ];
+    
+    const argv = ['--enable-all', __filename];
     
     const simpleImport = async (url) => {
         if (url.includes('ruler'))
@@ -1022,6 +1064,7 @@ test('putout: cli: ruler: --enable-all', async (t) => {
     });
     
     const cli = reRequire('.');
+    
     await runCli({
         cli,
         argv,
@@ -1037,10 +1080,8 @@ test('putout: cli: ruler: --enable-all', async (t) => {
 test('putout: cli: ruler processor: --disable-all', async (t) => {
     const name = join(__dirname, 'fixture/plugins.js');
     const logError = stub();
-    const argv = [
-        '--disable-all',
-        name,
-    ];
+    
+    const argv = ['--disable-all', name];
     
     const rulerError = Error('should call ruler with await');
     const ruler = stub().rejects(rulerError);
@@ -1080,6 +1121,7 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
 
 test('putout: cli: ruler processor: --enable-all: no path', async (t) => {
     const logError = stub();
+    
     const argv = [
         '--enable-all',
     ];
@@ -1104,11 +1146,13 @@ test('putout: cli: ruler processor: --enable-all: no path', async (t) => {
 test('putout: cli: ruler processor: --enable-all: no path: code', async (t) => {
     const name = join(__dirname, 'fixture/plugins.js');
     const logError = stub();
+    
     const argv = [
         '--enable-all',
         '--fix',
         name,
     ];
+    
     const halt = stub();
     
     const cli = reRequire('.');
@@ -1129,11 +1173,13 @@ test('putout: cli: ruler processor: --enable-all: no path: code', async (t) => {
 test('putout: cli: ruler processor: --enable-all --fix: code', async (t) => {
     const name = join(__dirname, 'fixture/plugins.js');
     const logError = stub();
+    
     const argv = [
         '--enable-all',
         '--fix',
         name,
     ];
+    
     const halt = stub();
     
     const cli = reRequire('.');
@@ -1154,12 +1200,14 @@ test('putout: cli: ruler processor: --enable-all --fix: code', async (t) => {
 test('putout: cli: ruler processor: --enable --fix: log', async (t) => {
     const name = join(__dirname, 'fixture/plugins.js');
     const logError = stub();
+    
     const argv = [
         '--enable',
         'hello',
         '--fix',
         name,
     ];
+    
     const cli = reRequire('.');
     
     await tryToCatch(runCli, {
@@ -1180,11 +1228,13 @@ test('putout: cli: ruler processor: --enable --fix: log', async (t) => {
 test('putout: cli: ruler processor: --enable-all --fix', async (t) => {
     const name = join(__dirname, 'fixture/plugins.js');
     const logError = stub();
+    
     const argv = [
         '--enable-all',
         '--fix',
         name,
     ];
+    
     const halt = stub();
     
     const cli = reRequire('.');
@@ -1204,6 +1254,7 @@ test('putout: cli: ruler processor: --enable-all --fix', async (t) => {
 
 test('putout: cli: --match', async (t) => {
     const logError = stub();
+    
     const argv = [
         '--match',
         '*.md',
@@ -1214,8 +1265,12 @@ test('putout: cli: --match', async (t) => {
     const writeFile = stub();
     const halt = stub();
     
-    const {matchErrors, READ_ERROR} = await import('@putout/cli-match');
+    const {
+        matchErrors,
+        READ_ERROR,
+    } = await import('@putout/cli-match');
     const cli = reRequire('.');
+    
     await runCli({
         cli,
         halt,
@@ -1239,6 +1294,7 @@ test('putout: cli: tsx', async (t) => {
     ];
     
     const eslint = stub().returns(['', []]);
+    
     const getOptions = stub().returns({
         dir: '.',
         formatter: 'dump',
@@ -1269,11 +1325,10 @@ test('putout: cli: d.ts', async (t) => {
     const name = join(__dirname, 'fixture', 'types.d.ts');
     const halt = stub();
     
-    const argv = [
-        name,
-    ];
+    const argv = [name];
     
     const parseOptions = require('../parse-options');
+    
     const options = parseOptions({
         name,
     });
@@ -1444,6 +1499,7 @@ test('putout: cli: fix', async (t) => {
     
     const processFile = stub().returns(process);
     const writeFile = stub();
+    
     const getOptions = stub().returns({
         dir: __dirname,
         formatter: 'dump',
@@ -1467,7 +1523,10 @@ test('putout: cli: fix', async (t) => {
     
     stopAll();
     
-    t.calledWith(writeFile, [__filename, 'hello']);
+    t.calledWith(writeFile, [
+        __filename,
+        'hello',
+    ]);
     t.end();
 });
 
@@ -1486,11 +1545,11 @@ test('putout: cli: no processors', async (t) => {
     
     const halt = stub();
     const processFile = stub().returns(process);
+    
     const getOptions = stub().returns({
         dir: __dirname,
         formatter: 'dump',
-        processors: [
-        ],
+        processors: [],
     });
     
     mockRequire('./get-options', getOptions);
@@ -1523,8 +1582,7 @@ test('putout: cli: not fixable', async (t) => {
     const getOptions = stub().returns({
         dir: __dirname,
         formatter: 'dump',
-        processors: [
-        ],
+        processors: [],
     });
     
     const runProcessors = stub().returns({
@@ -1540,9 +1598,11 @@ test('putout: cli: not fixable', async (t) => {
     
     const setInfo = stub();
     const getFilePatterns = stub().returns([]);
+    
     const fileCache = stub().returns({
         setInfo,
     });
+    
     const {getProcessorRunners} = reRequire('@putout/engine-processor');
     
     mockRequire('./get-options', getOptions);
@@ -1577,8 +1637,7 @@ test('putout: cli: setInfo: crash', async (t) => {
     const getOptions = stub().returns({
         dir: __dirname,
         formatter: 'dump',
-        processors: [
-        ],
+        processors: [],
     });
     
     const runProcessors = stub().returns({
@@ -1594,6 +1653,7 @@ test('putout: cli: setInfo: crash', async (t) => {
     
     const setInfo = stub();
     const getFilePatterns = stub().returns([]);
+    
     const fileCache = stub().returns({
         setInfo,
     });
@@ -1639,6 +1699,7 @@ test('putout: cli: fileCache: canUseCache', async (t) => {
     const canUseCache = stub().returns(true);
     const getPlaces = stub().returns([]);
     const reconcile = stub();
+    
     const createCache = stub().returns({
         canUseCache,
         getPlaces,
@@ -1646,7 +1707,9 @@ test('putout: cli: fileCache: canUseCache', async (t) => {
     });
     
     mockRequire('./get-options', getOptions);
-    mockRequire('@putout/cli-cache', {createCache});
+    mockRequire('@putout/cli-cache', {
+        createCache,
+    });
     
     reRequire('./runner/worker.js');
     reRequire('./runner/runner.js');
@@ -1659,10 +1722,7 @@ test('putout: cli: fileCache: canUseCache', async (t) => {
     
     stopAll();
     
-    const expected = [
-        __filename,
-        options,
-    ];
+    const expected = [__filename, options];
     
     t.calledWith(canUseCache, expected);
     t.end();
@@ -1677,6 +1737,7 @@ test('putout: cli: exit code: PLACE', async (t) => {
     ];
     
     const halt = stub();
+    
     const getOptions = stub().returns({
         dir: __dirname,
         formatter: 'dump',
@@ -1713,7 +1774,10 @@ test('putout: cli: get files: called with ignore option', async (t) => {
         '--no-cache',
     ];
     
-    const ignore = ['xxx'];
+    const ignore = [
+        'xxx',
+    ];
+    
     const getOptions = stub().returns({
         dir: __dirname,
         formatter: 'dump',
@@ -1735,7 +1799,10 @@ test('putout: cli: get files: called with ignore option', async (t) => {
     stopAll();
     
     const expected = [
-        [__filename], {
+        [
+            __filename,
+        ],
+        {
             ignore,
         },
     ];
@@ -1750,19 +1817,24 @@ test('putout: cli: get files: was stop', async (t) => {
         '--no-config',
     ];
     
-    const ignore = ['xxx'];
+    const ignore = [
+        'xxx',
+    ];
+    
     const getOptions = stub().returns({
         dir: __dirname,
         formatter: 'dump',
         ignore,
     });
     
-    const getFiles = stub().returns([null, [
-        __filename,
-        __filename,
-    ]]);
+    const getFiles = stub().returns([
+        null,
+        [__filename, __filename],
+    ]);
+    
     const halt = stub();
     const isStop = stub().returns(true);
+    
     const keypress = stub().returns({
         isStop,
     });
@@ -1794,18 +1866,26 @@ test('putout: cli: get files: was stop: no', async (t) => {
         '--no-config',
     ];
     
-    const ignore = ['xxx'];
+    const ignore = [
+        'xxx',
+    ];
+    
     const getOptions = stub().returns({
         dir: __dirname,
         formatter: 'dump',
         ignore,
     });
     
-    const getFiles = stub().returns([null, [
-        __filename,
-    ]]);
+    const getFiles = stub().returns([
+        null,
+        [
+            __filename,
+        ],
+    ]);
+    
     const halt = stub();
     const isStop = stub().returns(false);
+    
     const onHalt = stub().returns({
         isStop,
     });
@@ -2025,6 +2105,7 @@ test('putout: cli: addOnce', (t) => {
 test('putout: processor throw', async (t) => {
     const file = join(__dirname, 'fixture/processor.throw');
     const throwProcessor = require('./fixture/processor-throw');
+    
     const argv = [
         file,
         '--no-config',
@@ -2070,6 +2151,7 @@ test('putout: processor throw', async (t) => {
 test('putout: processor throw: raw', async (t) => {
     const file = join(__dirname, 'fixture/processor.throw');
     const throwProcessor = require('./fixture/processor-throw');
+    
     const argv = [
         file,
         '--no-config',
@@ -2164,6 +2246,7 @@ test('putout: processor: invalid config: message', async (t) => {
     reRequire('../parse-options');
     
     const getOptions = reRequire('./get-options');
+    
     mockRequire('./get-options', (args) => {
         const {name} = args;
         
@@ -2225,4 +2308,3 @@ async function runCli(options) {
         writeFile,
     });
 }
-

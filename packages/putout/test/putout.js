@@ -2,10 +2,8 @@
 
 const montag = require('montag');
 
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test, stub} = require('supertape');
+
 const tryCatch = require('try-catch');
 
 const putout = require('..');
@@ -52,6 +50,7 @@ const fixture = readFixtures([
 
 test('putout: no vars', (t) => {
     const result = putout(fixture.noVars);
+    
     const expected = {
         code: '',
         places: [],
@@ -173,6 +172,7 @@ test('putout: shebang', (t) => {
             'remove-unused-variables',
         ],
     });
+    
     const expected = fixture.shebangFix;
     
     t.deepEqual(code, expected);
@@ -213,6 +213,7 @@ test('putout: shebang: message', (t) => {
     });
     
     const {position} = places[0];
+    
     const expected = {
         line: 8,
         column: 4,
@@ -567,6 +568,7 @@ test('putout: babelPlugins: position: shebang', (t) => {
 test('putout: babelPlugins: custom message', (t) => {
     const message = 'hello world';
     const enabled = true;
+    
     const {places} = putout(fixture.babelPlugins, {
         fix: false,
         recast: true,
@@ -620,6 +622,7 @@ test('putout: transform', (t) => {
 
 test('putout: plugin: no options (find, push)', (t) => {
     const ast = putout.parse('var id = 5');
+    
     const plugin = {
         report: () => 'Identifier found',
         find(ast, {push, traverse}) {
@@ -652,6 +655,7 @@ test('putout: plugin: no options (find, push)', (t) => {
 
 test('putout: plugin: options', (t) => {
     const ast = putout.parse('var id = 5');
+    
     const plugin = {
         report: () => 'Identifier found',
         find(ast, {push, traverse, options}) {
@@ -685,6 +689,7 @@ test('putout: plugin: options', (t) => {
 
 test('putout: plugin: options: off', (t) => {
     const ast = putout.parse('var id = 5');
+    
     const plugin = {
         report: () => 'Identifier found',
         find(ast, {push, traverse, options}) {
@@ -701,8 +706,7 @@ test('putout: plugin: options: off', (t) => {
     
     const places = putout.findPlaces(ast, fixture.comment, {
         rules: {
-            'find/push': ['off', {
-            }],
+            'find/push': ['off', {}],
         },
         plugins: [
             ['find/push', plugin],
@@ -860,6 +864,7 @@ test('putout: source map', (t) => {
     const source = montag`
         const a = b;
     `;
+    
     const {code} = putout(source, {
         sourceFileName: 'hello',
         sourceMapName: 'world',
@@ -926,4 +931,3 @@ test('putout: printer: putout: options', (t) => {
     t.equal(code, expected);
     t.end();
 });
-

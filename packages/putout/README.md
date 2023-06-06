@@ -289,6 +289,7 @@ putout(source, {
         'remove-unused-variables',
     ],
 });
+
 // returns
 `
 const t = 'hello';

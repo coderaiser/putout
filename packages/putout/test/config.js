@@ -82,6 +82,7 @@ test('putout: config: eslint', (t) => {
 test('putout: config: markdown', (t) => {
     const {match} = putoutConfig;
     const result = match['*.md'];
+    
     const expected = {
         'maybe': 'off',
         'convert-quotes-to-backticks': 'off',

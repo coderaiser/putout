@@ -16,7 +16,10 @@ const maybeConfig = {
     plugins: [],
 };
 
-PUTOUT_CONFIG_FILE && assign(maybeConfig, require(join(process.cwd(), PUTOUT_CONFIG_FILE)));
+PUTOUT_CONFIG_FILE && assign(maybeConfig, require(join(
+    process.cwd(),
+    PUTOUT_CONFIG_FILE,
+)));
 
 module.exports = ({noConfig, plugins, name, transform, rulesdir}) => {
     const transformPlugins = buildPlugins(transform);
@@ -47,4 +50,3 @@ module.exports = ({noConfig, plugins, name, transform, rulesdir}) => {
         ],
     };
 };
-

@@ -3,15 +3,16 @@
 const {join} = require('path');
 const fs = require('fs/promises');
 
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test, stub} = require('supertape');
+
 const mockRequire = require('mock-require');
 
 const getFiles = require('./get-files');
 
-const {reRequire, stopAll} = mockRequire;
+const {
+    reRequire,
+    stopAll,
+} = mockRequire;
 
 const rmStart = (a) => a.replace('lib/', '');
 
@@ -23,7 +24,10 @@ test('putout: getFiles: error', async (t) => {
 });
 
 test('putout: getFiles: error: not first', async (t) => {
-    const [e] = await getFiles(['**/*.js', '*.xxx']);
+    const [e] = await getFiles([
+        '**/*.js',
+        '*.xxx',
+    ]);
     
     t.equal(e.message, `No files matching the pattern '*.xxx' were found`);
     t.end();
@@ -47,6 +51,7 @@ test('putout: getFiles', async (t) => {
     
     const [, files] = await getFiles(['**/get-files*.js']);
     const result = files.map(rmStart);
+    
     const expected = [
         'get-files.js',
         'get-files.spec.js',
@@ -77,6 +82,7 @@ test('putout: getFiles: normalize', async (t) => {
     
     const [, files] = await getFiles(['**/get-files*.js']);
     const result = files.map(rmStart);
+    
     const expected = [
         'get-files.js',
         'get-files.spec.js',
@@ -96,9 +102,7 @@ test('putout: getFiles: name', async (t) => {
         isDirectory: stub().returns(false),
     });
     
-    const fastGlob = stub().returns([
-        'get-files.js',
-    ]);
+    const fastGlob = stub().returns(['get-files.js']);
     
     mockRequire('fast-glob', fastGlob);
     
@@ -106,6 +110,7 @@ test('putout: getFiles: name', async (t) => {
     
     const [, files] = await getFiles(['lib/get-files.js']);
     const result = files.map(rmStart);
+    
     const expected = [
         'get-files.js',
     ];
@@ -124,15 +129,14 @@ test('putout: getFiles: dir', async (t) => {
         isDirectory: stub().returns(false),
     });
     
-    const fastGlob = stub().returns([
-        'bin/putout.js',
-    ]);
+    const fastGlob = stub().returns(['bin/putout.js']);
     
     mockRequire('fast-glob', fastGlob);
     
     const getFiles = reRequire('./get-files');
     const [, files] = await getFiles(['bin']);
     const result = files.map(rmStart);
+    
     const expected = [
         'bin/putout.js',
     ];
@@ -148,6 +152,7 @@ test('putout: getFiles: glob', async (t) => {
     const dir = join(__dirname, '..', '..');
     const [, files] = await getFiles([`${dir}/.madrun.mjs`]);
     const result = files.map(rmStart);
+    
     const expected = [
         join(dir, '.madrun.mjs'),
     ];
@@ -164,9 +169,8 @@ test('putout: getFiles: getSupportedGlob: call', async (t) => {
     });
     
     const getSupportedGlob = stub();
-    const fastGlob = stub().returns([
-        'get-files',
-    ]);
+    
+    const fastGlob = stub().returns(['get-files']);
     
     mockRequire('./supported-files', {
         getSupportedGlob,
@@ -193,9 +197,8 @@ test('putout: getFiles: getSupportedGlob: result', async (t) => {
     });
     
     const getSupportedGlob = stub().returns('get-files/some-glob');
-    const fastGlob = stub().returns([
-        'get-files',
-    ]);
+    
+    const fastGlob = stub().returns(['get-files']);
     
     mockRequire('./supported-files', {
         getSupportedGlob,
@@ -227,20 +230,21 @@ test('putout: getFiles: options', async (t) => {
     
     mockRequire('fast-glob', fastGlob);
     
-    const ignore = ['*.js'];
+    const ignore = [
+        '*.js',
+    ];
     const getFiles = reRequire('./get-files');
+    
     await getFiles(['lib/get-files.js'], {
         ignore,
     });
     
-    const expected = [
-        'lib/get-files.js', {
-            dot: true,
-            onlyFiles: false,
-            unique: true,
-            ignore,
-        },
-    ];
+    const expected = ['lib/get-files.js', {
+        dot: true,
+        onlyFiles: false,
+        unique: true,
+        ignore,
+    }];
     
     fs.lstat = lstat;
     stopAll();
@@ -261,20 +265,21 @@ test('putout: getFiles: windows', async (t) => {
     
     mockRequire('fast-glob', fastGlob);
     
-    const ignore = ['*.js'];
+    const ignore = [
+        '*.js',
+    ];
     const getFiles = reRequire('./get-files');
+    
     await getFiles(['lib\\get-files.js'], {
         ignore,
     });
     
-    const expected = [
-        'lib/get-files.js', {
-            dot: true,
-            onlyFiles: false,
-            unique: true,
-            ignore,
-        },
-    ];
+    const expected = ['lib/get-files.js', {
+        dot: true,
+        onlyFiles: false,
+        unique: true,
+        ignore,
+    }];
     
     fs.lstat = lstat;
     stopAll();

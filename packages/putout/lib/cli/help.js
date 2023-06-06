@@ -3,6 +3,7 @@
 module.exports = () => {
     const bin = require('../../help.json');
     const usage = 'Usage: putout [options] [path]';
+    
     const result = [
         usage,
         'Options: ',
@@ -14,4 +15,3 @@ module.exports = () => {
     
     return result.join('\n');
 };
-

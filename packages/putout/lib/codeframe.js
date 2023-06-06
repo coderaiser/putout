@@ -3,7 +3,10 @@
 const {codeFrameColumns} = require('@babel/code-frame');
 
 module.exports = ({source, error, highlightCode = true}) => {
-    const {message, loc} = error;
+    const {
+        message,
+        loc,
+    } = error;
     
     if (!loc)
         return message;
@@ -17,4 +20,3 @@ module.exports = ({source, error, highlightCode = true}) => {
         message,
     });
 };
-

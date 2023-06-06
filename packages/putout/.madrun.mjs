@@ -22,4 +22,3 @@ export default {
     'coverage': async () => [testEnv, `c8 ${await cutEnv('test:raw')}`],
     'report': () => 'c8 report --reporter=lcov',
 };
-

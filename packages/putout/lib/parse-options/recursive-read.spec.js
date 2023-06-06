@@ -82,4 +82,3 @@ test('putout: parse-options: recursive read: read options only once', (t) => {
     t.deepEqual(options, expected);
     t.end();
 });
-

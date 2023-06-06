@@ -22,6 +22,7 @@ test('putout: cli: parse error', (t) => {
 
 test('putout: cli: parse error: rule', (t) => {
     const e = Error('hello');
+    
     e.rule = 'remove-debugger';
     const result = parseError(e);
     

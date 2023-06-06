@@ -4,7 +4,10 @@ const test = require('supertape');
 const {reRequire} = require('mock-require');
 
 test('putout: supported files isSupported', (t) => {
-    const {add, isSupported} = reRequire('./supported-files');
+    const {
+        add,
+        isSupported,
+    } = reRequire('./supported-files');
     add(['*.tsx']);
     
     const result = isSupported('index.tsx');
@@ -14,7 +17,10 @@ test('putout: supported files isSupported', (t) => {
 });
 
 test('putout: supported files isSupported: dot', (t) => {
-    const {add, isSupported} = reRequire('./supported-files');
+    const {
+        add,
+        isSupported,
+    } = reRequire('./supported-files');
     add(['*.tsx']);
     
     const result = isSupported('.index.tsx');
@@ -24,7 +30,10 @@ test('putout: supported files isSupported: dot', (t) => {
 });
 
 test('putout: supported files isSupported: dir', (t) => {
-    const {add, isSupported} = reRequire('./supported-files');
+    const {
+        add,
+        isSupported,
+    } = reRequire('./supported-files');
     add(['*.tsx']);
     
     const result = isSupported('/.index.tsx');
@@ -34,7 +43,10 @@ test('putout: supported files isSupported: dir', (t) => {
 });
 
 test('putout: supported files isSupported: no', (t) => {
-    const {add, isSupported} = reRequire('./supported-files');
+    const {
+        add,
+        isSupported,
+    } = reRequire('./supported-files');
     add(['*.tsx']);
     
     const result = isSupported('index.js');
@@ -48,6 +60,7 @@ test('putout: supported files: getSupportedGlob: mjs, tsx', (t) => {
         add,
         getSupportedGlob,
     } = reRequire('./supported-files');
+    
     const expected = 'get-files/**/{*.js,*.mjs,*.cjs,*.jsx,*.ts,*.tsx}';
     
     add([
@@ -70,8 +83,15 @@ test('putout: supported files: add: multiple', (t) => {
         '*.extjs',
     ];
     
-    const {add, getPatterns} = reRequire('./supported-files');
-    add(['*.xjs', '*.extjs']);
+    const {
+        add,
+        getPatterns,
+    } = reRequire('./supported-files');
+    
+    add([
+        '*.xjs',
+        '*.extjs',
+    ]);
     
     t.deepEqual(getPatterns(), expected);
     t.end();

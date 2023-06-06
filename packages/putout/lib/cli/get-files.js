@@ -20,8 +20,7 @@ async function getFiles(args, options) {
     const files = await Promise.all(promises);
     const mergedFiles = files.flat();
     
-    return rmDuplicates(mergedFiles)
-        .map(normalize);
+    return rmDuplicates(mergedFiles).map(normalize);
 }
 
 const globOptions = {

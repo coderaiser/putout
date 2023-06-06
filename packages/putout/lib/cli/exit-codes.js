@@ -17,4 +17,3 @@ module.exports = {
     UNHANDLED: 13,
     CANNOT_LINT_STAGED: 14,
 };
-

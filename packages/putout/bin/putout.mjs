@@ -4,7 +4,6 @@ import {
     readFile,
     writeFile,
 } from 'fs/promises';
-
 import cli from '../lib/cli/index.js';
 
 const {stdout} = process;
@@ -20,4 +19,3 @@ await cli({
     readFile,
     writeFile,
 });
-

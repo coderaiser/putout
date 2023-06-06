@@ -15,4 +15,3 @@ test('putout: cut-shebang', (t) => {
     t.equal(shebang, expected);
     t.end();
 });
-

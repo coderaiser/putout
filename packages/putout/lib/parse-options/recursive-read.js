@@ -12,6 +12,7 @@ module.exports = (name, configName, overrides) => {
     
     const customRequire = overrides?.require || require;
     const dir = dirname(name);
+    
     const [mainDir, optionsList] = getOptionsList({
         dir,
         configName,
@@ -47,4 +48,3 @@ function getOptionsList({dir, configName, customRequire}) {
     
     return [mainDir, optionsList.reverse()];
 }
-

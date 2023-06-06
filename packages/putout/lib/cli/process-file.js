@@ -69,4 +69,3 @@ function formatPlaces(line = 1, places) {
     
     return newPlaces;
 }
-

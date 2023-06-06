@@ -7,4 +7,3 @@ test('putout: cli: exit-codes: mjs', async (t) => {
     t.deepEqual(cjs.default, exitCodes);
     t.end();
 });
-

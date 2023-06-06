@@ -1,18 +1,20 @@
 'use strict';
 
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test, stub} = require('supertape');
+
 const mockRequire = require('mock-require');
 
 const {
     NO_FORMATTER,
     CANNOT_LOAD_FORMATTER,
 } = require('./exit-codes');
+
 const {getFormatter} = require('./formatter');
 
-const {reRequire, stopAll} = mockRequire;
+const {
+    reRequire,
+    stopAll,
+} = mockRequire;
 
 test('putout: cli: formatter: get formatter', async (t) => {
     const exit = stub();
@@ -45,12 +47,10 @@ test('putout: cli: formatter: get formatter: options', async (t) => {
 test('putout: cli: formatter: get reporter: exit: NO_FORMATTER', async (t) => {
     const exit = stub();
     const {getFormatter} = reRequire('./formatter');
+    
     await getFormatter('xxx', exit);
     
-    const expected = [
-        NO_FORMATTER,
-        Error(`Cannot find package 'putout-formatter-xxx'`),
-    ];
+    const expected = [NO_FORMATTER, Error(`Cannot find package 'putout-formatter-xxx'`)];
     
     stopAll();
     reRequire('./formatter');
@@ -70,10 +70,7 @@ test('putout: cli: formatter: get reporter: exit: CANNOT_LOAD_FORMATTER', async 
     const {getFormatter} = reRequire('./formatter');
     await getFormatter('xxx', exit);
     
-    const expected = [
-        CANNOT_LOAD_FORMATTER,
-        Error(`@putout/formatter-xxx: Syntax error`),
-    ];
+    const expected = [CANNOT_LOAD_FORMATTER, Error(`@putout/formatter-xxx: Syntax error`)];
     
     stopAll();
     reRequire('./formatter');
@@ -93,10 +90,7 @@ test('putout: cli: formatter: get reporter: pass load', async (t) => {
     const {getFormatter} = reRequire('./formatter');
     await getFormatter('xxx', exit);
     
-    const expected = [
-        CANNOT_LOAD_FORMATTER,
-        Error(`@putout/formatter-xxx: simple import`),
-    ];
+    const expected = [CANNOT_LOAD_FORMATTER, Error(`@putout/formatter-xxx: simple import`)];
     
     stopAll();
     reRequire('./formatter');
@@ -104,4 +98,3 @@ test('putout: cli: formatter: get reporter: pass load', async (t) => {
     t.calledWith(exit, expected, 'should call exit');
     t.end();
 });
-

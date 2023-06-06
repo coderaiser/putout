@@ -9,6 +9,7 @@ module.exports = (line) => {
     
     const [from, to] = line.split('->');
     const report = returns(line);
+    
     const replace = returns({
         [from]: to,
     });
@@ -18,6 +19,7 @@ module.exports = (line) => {
         replace,
     }];
     
-    return [plugin];
+    return [
+        plugin,
+    ];
 };
-

@@ -1,10 +1,9 @@
 'use strict';
 
 const montag = require('montag');
-const {
-    test,
-    stub,
-} = require('supertape');
+
+const {test, stub} = require('supertape');
+
 const {simpleImport} = require('./simple-import');
 
 const {initReport} = require('../putout');
@@ -12,6 +11,7 @@ const {initReport} = require('../putout');
 test('putout: report: no places', async (t) => {
     const reporter = stub();
     const report = initReport();
+    
     const formatterOptions = {
         hello: 'world',
     };
@@ -41,6 +41,7 @@ test('putout: report: no places', async (t) => {
 test('putout: report: dump', async (t) => {
     const line = 1;
     const column = 1;
+    
     const position = {
         line,
         column,
@@ -58,6 +59,7 @@ test('putout: report: dump', async (t) => {
     const formatter = await simpleImport('@putout/formatter-dump');
     
     const report = initReport();
+    
     const formatted = await report(formatter, {
         name: 'hello',
         places,
@@ -78,4 +80,3 @@ test('putout: report: dump', async (t) => {
     t.equal(result, expected);
     t.end();
 });
-

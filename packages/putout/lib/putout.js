@@ -5,6 +5,7 @@ const types = require('@babel/types');
 
 const loader = require('@putout/engine-loader');
 const runner = require('@putout/engine-runner');
+
 const {
     parse,
     print,
@@ -12,7 +13,10 @@ const {
     template,
 } = require('@putout/engine-parser');
 
-const {cutShebang, mergeShebang} = require('./shebang');
+const {
+    cutShebang,
+    mergeShebang,
+} = require('./shebang');
 const isString = (a) => typeof a === 'string';
 
 const defaultOpts = (opts = {}) => {
@@ -51,6 +55,7 @@ module.exports = (source, opts) => {
     } = opts;
     
     const [clearSource, shebang] = cutShebang(source);
+    
     const ast = parse(clearSource, {
         sourceFileName,
         parser,
@@ -72,6 +77,7 @@ module.exports = (source, opts) => {
         sourceMapName,
         printer,
     });
+    
     const code = mergeShebang(shebang, printed);
     
     return {
@@ -111,6 +117,7 @@ function transform(ast, source, opts) {
     } = opts;
     
     const [, shebang] = cutShebang(source);
+    
     const plugins = loadPlugins({
         pluginNames,
         cache,

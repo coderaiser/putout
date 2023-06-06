@@ -28,4 +28,3 @@ function mergeIgnores(ignores) {
     
     return Array.from(noDuplicates);
 }
-

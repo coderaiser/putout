@@ -18,4 +18,3 @@ function wild(str) {
     
     return wildcard;
 }
-

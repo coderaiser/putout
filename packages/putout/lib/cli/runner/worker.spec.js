@@ -4,10 +4,8 @@ const tryToCatch = require('try-to-catch');
 
 const mockRequire = require('mock-require');
 
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test, stub} = require('supertape');
+
 const {join} = require('path');
 
 const {simpleImport} = require('../simple-import');
@@ -106,7 +104,9 @@ test('putout: cli: runner: processor: load', async (t) => {
         ],
     }));
     
-    const runProcessors = stub().resolves([Error('test')]);
+    const runProcessors = stub().resolves([
+        Error('test'),
+    ]);
     
     mockRequire('@putout/engine-processor', {
         runProcessors,
@@ -133,7 +133,8 @@ async function runWorker(options) {
     const {
         raw = false,
         rulesdir = '',
-        formatterOptions = {},
+        formatterOptions = {
+        },
         noConfig = false,
         transform = '',
         plugins = [],
@@ -151,8 +152,7 @@ async function runWorker(options) {
         readFile = stub().returns(''),
         writeFile = stub(),
         report = stub(),
-        fileCache = getFileCache(),
-    } = options;
+        fileCache = getFileCache()} = options;
     
     const run = reRequire('./worker.js');
     
@@ -196,4 +196,3 @@ function getFileCache() {
     
     return fileCache;
 }
-

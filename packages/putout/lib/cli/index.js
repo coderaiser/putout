@@ -45,6 +45,7 @@ const {
 const getFormatter = nanomemoize(require('./formatter').getFormatter);
 
 const cwd = process.cwd();
+
 const {
     PUTOUT_FILES = '',
     PUTOUT_PRINTER,
@@ -146,6 +147,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     } = args;
     
     const {red} = await simpleImport('chalk');
+    
     const exit = getExit({
         red,
         raw,
@@ -180,7 +182,11 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     if (isStr(args.match)) {
         const {match} = await simpleImport('@putout/cli-match');
-        const {code, message} = await match({
+        
+        const {
+            code,
+            message,
+        } = await match({
             pattern: args.match,
             cwd,
             readFile,
@@ -195,10 +201,16 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     if (enable || disable) {
         const {ruler} = await simpleImport('@putout/cli-ruler');
-        ruler({enable, disable, readFile, writeFile}, []);
+        ruler({
+            enable,
+            disable,
+            readFile,
+            writeFile,
+        }, []);
     }
     
     const noConfig = !args.config;
+    
     const [configError, config] = tryCatch(getOptions, {
         name: `${cwd}/*`,
         rulesdir,
@@ -231,7 +243,9 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (staged) {
         const {get} = require('./staged');
         const {findUp} = await simpleImport('find-up');
-        const [error, names] = await tryToCatch(get, {findUp});
+        const [error, names] = await tryToCatch(get, {
+            findUp,
+        });
         
         if (error)
             return exit(CANNOT_LINT_STAGED, `--staged: ${error.message}`);
@@ -286,7 +300,10 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         printer: PUTOUT_PRINTER,
     };
     
-    const {places, exited} = await run({
+    const {
+        places,
+        exited,
+    } = await run({
         fix,
         exit,
         readFile,
@@ -314,13 +331,20 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     if (enableAll || disableAll) {
         const {ruler} = await simpleImport('@putout/cli-ruler');
-        await ruler({enableAll, disableAll, readFile, writeFile}, places);
+        await ruler({
+            enableAll,
+            disableAll,
+            readFile,
+            writeFile,
+        }, places);
     }
     
     if (fix && staged) {
         const {set} = require('./staged');
         const {findUp} = await simpleImport('find-up');
-        const stagedNames = await set({findUp});
+        const stagedNames = await set({
+            findUp,
+        });
         
         if (!stagedNames.length)
             return exit(STAGE);
@@ -356,4 +380,3 @@ function addOnce(emitter, name, fn) {
     if (!emitter.listenerCount(name))
         emitter.on(name, fn);
 }
-

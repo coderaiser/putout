@@ -1,12 +1,13 @@
 'use strict';
 
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test, stub} = require('supertape');
+
 const mockRequire = require('mock-require');
 
-const {reRequire, stopAll} = mockRequire;
+const {
+    reRequire,
+    stopAll,
+} = mockRequire;
 const {stringify} = JSON;
 
 test('putout: cli: process-file: eslint', async (t) => {
@@ -25,6 +26,7 @@ test('putout: cli: process-file: eslint', async (t) => {
     };
     
     const processFile = reRequire('./process-file');
+    
     const fn = processFile({
         fix,
         log,
@@ -67,6 +69,7 @@ test('putout: cli: process-file: ts from preProcessor', async (t) => {
     };
     
     const processFile = reRequire('./process-file');
+    
     const fn = processFile({
         fix,
         log,
@@ -105,6 +108,7 @@ test('putout: cli: process-file: tsx from preProcessor', async (t) => {
     };
     
     const processFile = reRequire('./process-file');
+    
     const fn = processFile({
         fix,
         log,
@@ -129,6 +133,7 @@ test('putout: cli: process-file: options for inner data', async (t) => {
             'putout-config': true,
         },
     })})`;
+    
     const fix = false;
     const name = 'example.md{json}';
     const log = stub();
@@ -153,6 +158,7 @@ test('putout: cli: process-file: options for inner data', async (t) => {
     mockRequire('@putout/eslint', eslint);
     
     const processFile = reRequire('./process-file');
+    
     const fn = processFile({
         fix,
         log,
@@ -193,6 +199,7 @@ test('putout: cli: process-file: ruler', async (t) => {
     const name = 'example.md{json}';
     const log = stub();
     const write = stub();
+    
     const eslint = stub().returns(['', [{
         message: 'Missing semicolon.',
         position: {
@@ -224,6 +231,7 @@ test('putout: cli: process-file: ruler', async (t) => {
     };
     
     const processFile = reRequire('./process-file');
+    
     const fn = processFile({
         fix,
         log,

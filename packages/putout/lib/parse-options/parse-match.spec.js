@@ -17,11 +17,13 @@ test('putout: parse-match: empty', (t) => {
 
 test('putout: parse-match: find', (t) => {
     const rules = {};
+    
     const match = {
         'test/fixtures': rules,
     };
     
     const result = parseMatch('test/fixtures/1.js', match);
+    
     const expected = {
         rules,
     };
@@ -32,11 +34,13 @@ test('putout: parse-match: find', (t) => {
 
 test('putout: parse-match: not found', (t) => {
     const rules = {};
+    
     const match = {
         'test/fixtures': rules,
     };
     
     const result = parseMatch('lib/putout.js', match);
+    
     const expected = {
         rules,
     };
@@ -74,9 +78,11 @@ test('putout: parse-match: merge', (t) => {
 
 test('putout: parse-match: linux', (t) => {
     const name = '\\bin\\putout.js';
+    
     const rules = {
         'remove-console': 'on',
     };
+    
     const match = {
         bin: rules,
     };
@@ -106,9 +112,11 @@ test('putout: parse-match: linux', (t) => {
 
 test('putout: parse-match: linux: match', (t) => {
     const name = 'bin/putout.js';
+    
     const rules = {
         'remove-console': 'on',
     };
+    
     const match = {
         bin: rules,
     };
@@ -146,6 +154,7 @@ test('putout: parse-match: encoding', (t) => {
     };
     
     const result = parseMatch('lib/madrun.js', match);
+    
     const expected = {
         rules: {},
     };
@@ -164,6 +173,7 @@ test('putout: parse-match: couple', (t) => {
     };
     
     const result = parseMatch('lib/madrun.ts', match);
+    
     const expected = {
         rules,
     };
@@ -182,6 +192,7 @@ test('putout: parse-match: extension', (t) => {
     };
     
     const result = parseMatch('.madrun.js', match);
+    
     const expected = {
         rules,
     };
@@ -200,6 +211,7 @@ test('putout: parse-match: extension: long path', (t) => {
     };
     
     const result = parseMatch('packages/putout/.madrun.js', match);
+    
     const expected = {
         rules,
     };
@@ -248,4 +260,3 @@ test('putout: parse-match: absolute', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
-

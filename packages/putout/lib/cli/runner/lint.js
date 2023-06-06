@@ -50,7 +50,11 @@ module.exports.lint = async ({raw, log, dir, resolvedName, options, readFile, fi
         };
     }
     
-    ({isProcessed, places, processedSource} = result);
+    ({
+        isProcessed,
+        places,
+        processedSource,
+    } = result);
     
     return {
         isProcessed,
@@ -59,4 +63,3 @@ module.exports.lint = async ({raw, log, dir, resolvedName, options, readFile, fi
         rawSource,
     };
 };
-

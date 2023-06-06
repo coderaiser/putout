@@ -11,10 +11,15 @@ module.exports.mergeShebang = (shebang, source) => {
 
 module.exports.cutShebang = (source) => {
     if (source.indexOf('#'))
-        return [source, ''];
+        return [
+            source,
+            '',
+        ];
     
     const lines = source.split('\n');
-    const result = lines.slice(1).join('\n');
+    const result = lines
+        .slice(1)
+        .join('\n');
     const [shebang] = lines;
     
     return [
@@ -22,4 +27,3 @@ module.exports.cutShebang = (source) => {
         `${shebang}\n`,
     ];
 };
-

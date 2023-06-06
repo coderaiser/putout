@@ -26,4 +26,3 @@ test('putout: merge', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
-

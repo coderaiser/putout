@@ -135,8 +135,7 @@ test('putout: parse-options: validateOptions: rules: item', (t) => {
 test('putout: parse-options: validateOptions: rules: item: options', (t) => {
     const [error] = tryCatch(validateOptions, {
         rules: {
-            'remove-unused-variables': ['on', {
-            }],
+            'remove-unused-variables': ['on', {}],
         },
     });
     
@@ -158,8 +157,7 @@ test('putout: parse-options: validateOptions: rules: item: message', (t) => {
 test('putout: parse-options: validateOptions: rules: item: message, options', (t) => {
     const [error] = tryCatch(validateOptions, {
         rules: {
-            'remove-unused-variables': ['on', 'hello', {
-            }],
+            'remove-unused-variables': ['on', 'hello', {}],
         },
     });
     
@@ -171,10 +169,8 @@ test('putout: parse-options: validateOptions: rules: item: boolean', (t) => {
     const [error] = tryCatch(validateOptions, {
         rules: {
             'remove-debugger': false,
-            'tape': [true, {
-            }],
-            'remove-unused-variables': [true, 'hello', {
-            }],
+            'tape': [true, {}],
+            'remove-unused-variables': [true, 'hello', {}],
         },
     });
     

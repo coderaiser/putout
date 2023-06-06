@@ -2,7 +2,10 @@
 
 const picomatch = require('picomatch');
 
-const {keys, assign} = Object;
+const {
+    keys,
+    assign,
+} = Object;
 
 module.exports = (name, match) => {
     if (!match || !name)
@@ -32,4 +35,3 @@ module.exports = (name, match) => {
         rules,
     };
 };
-

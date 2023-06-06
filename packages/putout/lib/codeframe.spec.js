@@ -8,7 +8,8 @@ const codeframe = require('./codeframe');
 
 test('putout: codeframe: undefined', (t) => {
     const result = codeframe({
-        source: '', error: {},
+        source: '',
+        error: {},
     });
     
     t.notOk(result);
@@ -19,6 +20,7 @@ test('putout: codeframe: should return message', (t) => {
     const error = {
         message: 'some error is here',
     };
+    
     const source = `
         function(a) {
             return a;
@@ -26,8 +28,10 @@ test('putout: codeframe: should return message', (t) => {
     `;
     
     const result = codeframe({
-        source, error,
+        source,
+        error,
     });
+    
     const expected = error.message;
     
     t.equal(result, expected);
@@ -44,6 +48,7 @@ test('putout: codeframe: not highlited', async (t) => {
         message: 'some error is here',
         loc,
     };
+    
     const source = `
       function(a) {
         return a;
@@ -51,7 +56,9 @@ test('putout: codeframe: not highlited', async (t) => {
     `;
     
     const result = codeframe({
-        source, error, highlightCode: false,
+        source,
+        error,
+        highlightCode: false,
     });
     
     const expected = await readFile(join(__dirname, 'fixture', 'codeframe'), 'utf8');

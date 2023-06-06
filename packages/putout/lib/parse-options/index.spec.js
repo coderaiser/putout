@@ -6,15 +6,16 @@ const fs = require('fs');
 const os = require('os');
 const {join} = require('path');
 
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test, stub} = require('supertape');
+
 const mockRequire = require('mock-require');
 
 const parseOptions = require('.');
 
-const {reRequire, stopAll} = mockRequire;
+const {
+    reRequire,
+    stopAll,
+} = mockRequire;
 
 test('putout: parse-options: custom options rules overrides default match', (t) => {
     const customOptions = {
@@ -68,18 +69,13 @@ test('putout: parse-options: options rules overrides default match', (t) => {
 });
 
 test('putout: parseOptions: readHomeOptions: __dirname', (t) => {
-    const readCodeMods = stub().returns([
-        __dirname, {
-        },
+    const readCodeMods = stub().returns([__dirname, {}]);
     
-    ]);
-    const readOptions = stub().returns([
-        __dirname, {
-            rules: {
-                'remove-console': 'off',
-            },
+    const readOptions = stub().returns([__dirname, {
+        rules: {
+            'remove-console': 'off',
         },
-    ]);
+    }]);
     
     const readHomeOptions = stub().returns({
         rules: {
@@ -217,6 +213,7 @@ test('putout: parseOptions: no code mods directory: .putout', (t) => {
     mockRequire('../../putout.json', empty);
     
     const {readdirSync} = fs;
+    
     fs.readdirSync = () => {
         throw 'error';
     };
@@ -268,9 +265,7 @@ test('putout: parseOptions: code mods directory: .putout: exclude node_modules',
     
     mockRequire('../../putout.json', empty);
     mockRequire('fs', {
-        readdirSync: stub().returns([
-            'node_modules',
-        ]),
+        readdirSync: stub().returns(['node_modules']),
     });
     
     const parseOptions = reRequire('.');
@@ -325,9 +320,7 @@ test('putout: parseOptions: read rules: putout-plugin', (t) => {
     mockRequire(join(process.cwd(), 'putout-plugin-hello'), plugin);
     
     mockRequire('fs', {
-        readdirSync: stub().returns([
-            'putout-plugin-hello',
-        ]),
+        readdirSync: stub().returns(['putout-plugin-hello']),
     });
     
     const parseOptions = reRequire('.');
@@ -382,9 +375,7 @@ test('putout: parseOptions: read rules', (t) => {
     
     mockRequire('../../putout.json', empty);
     mockRequire('fs', {
-        readdirSync: stub().returns([
-            'hello',
-        ]),
+        readdirSync: stub().returns(['hello']),
     });
     
     const plugin = stub();
@@ -560,6 +551,7 @@ test('putout: parseOptions: readOptions: do not returns dir, load rules can not 
     mockRequire('../../putout.json', empty);
     
     const {readdirSync} = fs;
+    
     fs.readdirSync = () => {
         throw 'error';
     };
@@ -615,6 +607,7 @@ test('putout: parseOptions: readOptions: .putout.json', (t) => {
     mockRequire('../../putout.json', empty);
     
     const {readdirSync} = fs;
+    
     fs.readdirSync = () => {
         throw 'error';
     };
@@ -670,6 +663,7 @@ test('putout: parseOptions: can not readd dir', (t) => {
     mockRequire('../../putout.json', empty);
     
     const {readdirSync} = fs;
+    
     fs.readdirSync = () => {
         throw 'error';
     };
@@ -717,13 +711,12 @@ test('putout: parseOptions: can not readd dir', (t) => {
 
 test('putout: parseOptions: readHomeOptions: .', (t) => {
     const empty = {};
-    const readOptions = stub().returns([
-        '.', {
-            rules: {
-                'remove-console': 'off',
-            },
+    
+    const readOptions = stub().returns(['.', {
+        rules: {
+            'remove-console': 'off',
         },
-    ]);
+    }]);
     
     const readCodeMods = stub().returns(empty);
     
@@ -975,9 +968,7 @@ test('putout: parseOptions: rules dir: no dir options', (t) => {
     
     mockRequire('../../putout.json', empty);
     
-    const readdirSync = stub().returns([
-        'world',
-    ]);
+    const readdirSync = stub().returns(['world']);
     
     mockRequire('fs', {
         readdirSync,

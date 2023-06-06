@@ -84,6 +84,7 @@ test('putout: parse-options: apply module type rules: match exists', (t) => {
             },
         },
     };
+    
     const info = {};
     
     applyModuleTypeRules(info, options);
@@ -104,4 +105,3 @@ test('putout: parse-options: apply module type rules: match exists', (t) => {
     t.deepEqual(options, expected);
     t.end();
 });
-

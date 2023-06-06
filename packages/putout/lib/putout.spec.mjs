@@ -1,7 +1,6 @@
 import test, {
     stub,
 } from 'supertape';
-
 import putout, {
     load,
 } from './putout.mjs';
@@ -12,11 +11,11 @@ test('putout: esm: load', async (t) => {
     });
     
     const url = 'file://hello.js';
-    const context = {
-    };
+    
+    const context = {};
     
     const {source} = await load(url, context, defaultLoad);
-    const expected = `'use strict';`;
+    const expected = `'use strict';\n`;
     
     t.equal(source, expected);
     t.end();
@@ -32,4 +31,3 @@ test('putout: esm', (t) => {
     t.notOk(code);
     t.end();
 });
-

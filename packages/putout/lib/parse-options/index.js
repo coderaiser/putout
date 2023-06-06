@@ -2,6 +2,7 @@
 
 const {homedir} = require('os');
 const {readdirSync} = require('fs');
+
 const {
     dirname,
     join,
@@ -43,9 +44,13 @@ module.exports = (info = {}) => {
     ];
     
     const mergedOptions = merge(...optionsList);
+    
     const mergedDefaultsMatch = merge(
         mergedOptions,
-        parseMatch(name, mergedOptions.match),
+        parseMatch(
+            name,
+            mergedOptions.match,
+        ),
         options,
     );
     
@@ -55,13 +60,13 @@ module.exports = (info = {}) => {
         parseMatch(name, options.match),
     ]);
     
-    const resultOptions = merge(
+    const resultOptions = merge(...[
         readCodeMods(),
         readRules('./', rulesdir),
         mergedOptions,
         mergedDefaultsMatch,
         mergedMatch,
-    );
+    ]);
     
     validateOptions(resultOptions);
     
@@ -85,16 +90,14 @@ function _readOptions(name) {
     
     if (packagePath)
         return [
-            dirname(packagePath), {
+            dirname(packagePath),
+            {
                 ...options,
                 ...require(packagePath).putout,
             },
         ];
     
-    return [
-        '',
-        {},
-    ];
+    return ['', {}];
 }
 
 const isInclude = (a) => !/(^not-rule-.*|^node_modules$)/.test(a);
@@ -136,4 +139,3 @@ const _readHomeOptions = once(() => {
 });
 
 const _readCodeMods = once(() => readRules(home, '.putout'));
-

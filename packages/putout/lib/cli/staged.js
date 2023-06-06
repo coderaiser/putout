@@ -42,7 +42,10 @@ const head = ([a]) => a;
 const joinDir = (a) => (b) => join(a, b);
 
 module.exports.get = async function get({findUp}) {
-    const dir = await findGit({findUp});
+    const dir = await findGit({
+        findUp,
+    });
+    
     const status = await git.statusMatrix({
         fs,
         dir,
@@ -70,7 +73,9 @@ async function getStatus(dir, filepath) {
 }
 
 module.exports.set = async function set({findUp}) {
-    const dir = await findGit({findUp});
+    const dir = await findGit({
+        findUp,
+    });
     const names = namesStore();
     const statusPromises = [];
     
@@ -93,4 +98,3 @@ module.exports.set = async function set({findUp}) {
     
     return staged;
 };
-

@@ -26,4 +26,3 @@ module.exports.getFormatter = async (formatterOptional, exit) => {
     
     exit(CANNOT_LOAD_FORMATTER, error);
 };
-

@@ -26,6 +26,7 @@ export const transformSource = (source, context) => {
     const {url} = context;
     
     const name = url.replace('file://', '');
+    
     const options = parseOptions({
         name,
     });
@@ -44,4 +45,3 @@ export const transformSource = (source, context) => {
 };
 
 export const load = toLoad(transformSource);
-
