@@ -3,7 +3,8 @@
 const {createTest} = require('@putout/test');
 const setHomepage = require('..');
 const test = createTest(__dirname, {
-    'set-homepage': setHomepage,
+    printer: 'putout',
+    plugins: [['set-homepage', setHomepage]],
 });
 
 test('rules: set-hompage: report', (t) => {

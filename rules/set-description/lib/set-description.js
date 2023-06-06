@@ -25,5 +25,6 @@ module.exports.traverse = ({push}) => ({
 
 module.exports.fix = (path) => {
     path.node.value.value = path.node.value.value.replace('putout', '🐊Putout');
+    path.node.value.raw = path.node.value.raw.replace('putout', '🐊Putout');
 };
 

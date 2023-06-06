@@ -8,4 +8,3 @@ module.exports.replace = () => ({
         return 'const {createPlugin} = require("@putout/eslint/create-plugin")';
     },
 });
-

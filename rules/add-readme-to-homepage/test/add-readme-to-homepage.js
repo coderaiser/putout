@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const setHomepage = require('..');
+
 const test = createTest(__dirname, {
-    'add-readme-to-homepage': setHomepage,
+    printer: 'putout',
+    plugins: [
+        ['add-readme-to-homepage', setHomepage],
+    ],
 });
 
 test('rules: add-readme-to-homepage: report', (t) => {
@@ -15,4 +19,3 @@ test('rules: add-readme-to-homepage: transform', (t) => {
     t.transform('homepage');
     t.end();
 });
-

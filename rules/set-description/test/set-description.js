@@ -3,7 +3,8 @@
 const {createTest} = require('@putout/test');
 const setHomepage = require('..');
 const test = createTest(__dirname, {
-    'set-description': setHomepage,
+    printer: 'putout',
+    plugins: [['set-description', setHomepage]],
 });
 
 test('rules: set-description: report', (t) => {

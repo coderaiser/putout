@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertTraverseToInclude = require('..');
 
 const test = createTest(__dirname, {
-    'convert-wrap-to-create-plugin': convertTraverseToInclude,
+    printer: 'putout',
+    plugins: [
+        ['convert-wrap-to-create-plugin', convertTraverseToInclude],
+    ],
 });
 
 test('putout: rules: convert-wrap-to-create-plugin: report', (t) => {
@@ -16,4 +19,3 @@ test('putout: rules: convert-wrap-to-create-plugin: transform', (t) => {
     t.transform('convert-wrap-to-create-plugin');
     t.end();
 });
-
