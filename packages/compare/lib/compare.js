@@ -25,6 +25,7 @@ const {
     isEqualAnyObject,
     isEqualAnyArray,
     isLinkedNode,
+    isLinkedId,
     isEqualNop,
     isTemplate,
     parseTemplate,
@@ -98,6 +99,9 @@ function compare(path, template, options = {}, equal = noop) {
         return true;
     
     if (isIdentifier(node) && isLinkedNode(templateNode))
+        return true;
+    
+    if (isLinkedId(node, templateNode))
         return true;
     
     if (isStringLiteral(node) && isLinkedNode(templateNode))
