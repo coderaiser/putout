@@ -1,7 +1,13 @@
 'use strict';
 
-const test = require('@putout/test')(__dirname, {
-    'apply-replace-all': require('..'),
+const {createTest} = require('@putout/test');
+const applyReplaceAll = require('..');
+
+const test = createTest(__dirname, {
+    printer: 'putout',
+    plugins: [
+        ['apply-replace-all', applyReplaceAll],
+    ],
 });
 
 test('apply replace all: report', (t) => {
@@ -18,4 +24,3 @@ test('apply replace all: no transform: regexp', (t) => {
     t.noTransform('regexp');
     t.end();
 });
-

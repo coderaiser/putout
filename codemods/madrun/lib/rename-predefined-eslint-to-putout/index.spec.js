@@ -1,7 +1,14 @@
 'use strict';
 
-const test = require('@putout/test')(__dirname, {
-    'madrun/rename-predefined-eslint-to-putout': require('.'),
+const {createTest} = require('@putout/test');
+
+const madrunRenamePredefinedEslintToPutout = require('.');
+
+const test = createTest(__dirname, {
+    printer: 'putout',
+    plugins: [
+        ['madrun/rename-predefined-eslint-to-putout', madrunRenamePredefinedEslintToPutout],
+    ],
 });
 
 test('madrun: rename-predefined-eslint-to-putout: report', (t) => {
@@ -23,4 +30,3 @@ test('madrun: rename-predefined-eslint-to-putout: no transform: eslint-rulesdir'
     t.noTransform('eslint-rulesdir');
     t.end();
 });
-

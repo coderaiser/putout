@@ -12,47 +12,45 @@ module.exports.fix = (path) => {
     path.scope.rename(name, toCamel(name));
 };
 
-module.exports.find = (ast, {push, traverse}) => {
-    traverse(ast, {
-        ClassProperty: checkBig('key', push),
-        ClassMethod: checkBig('key', push),
-        FunctionDeclaration: checkBig('id', push),
+module.exports.traverse = ({push}) => ({
+    ClassProperty: checkBig('key', push),
+    ClassMethod: checkBig('key', push),
+    FunctionDeclaration: checkBig('id', push),
+    
+    FunctionExpression(path) {
+        const idPath = path.get('id');
         
-        FunctionExpression(path) {
-            const idPath = path.get('id');
-            
-            if (!isBig(idPath))
-                return;
-            
-            push(idPath);
-        },
+        if (!isBig(idPath))
+            return;
         
-        VariableDeclarator(path) {
-            let isJSX = false;
-            const idPath = path.get('id');
-            const initPath = path.get('init');
-            
-            if (!isBig(idPath))
-                return;
-            
-            path.traverse({
-                JSXElement(path) {
-                    isJSX = true;
-                    path.stop();
-                },
-            });
-            
-            if (isJSX)
-                return;
-            
-            if (initPath.isArrowFunctionExpression())
-                return push(idPath);
-            
-            if (initPath.isFunctionExpression())
-                return push(idPath);
-        },
-    });
-};
+        push(idPath);
+    },
+    
+    VariableDeclarator(path) {
+        let isJSX = false;
+        const idPath = path.get('id');
+        const initPath = path.get('init');
+        
+        if (!isBig(idPath))
+            return;
+        
+        path.traverse({
+            JSXElement(path) {
+                isJSX = true;
+                path.stop();
+            },
+        });
+        
+        if (isJSX)
+            return;
+        
+        if (initPath.isArrowFunctionExpression())
+            return push(idPath);
+        
+        if (initPath.isFunctionExpression())
+            return push(idPath);
+    },
+});
 
 function toCamel(name) {
     const newName = name.slice(1);
@@ -82,4 +80,3 @@ function checkBig(query, push) {
         push(keyPath);
     };
 }
-

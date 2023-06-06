@@ -1,8 +1,14 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
+
 const convert = require('..');
-const test = require('@putout/test')(__dirname, {
-    'convert-pascal-to-camel': convert,
+
+const test = createTest(__dirname, {
+    printer: 'putout',
+    plugins: [
+        ['convert-pascal-to-camel', convert],
+    ],
 });
 
 test('plugin-convert-pascal-to-camel: function', (t) => {
@@ -34,4 +40,3 @@ test('plugin-convert-pascal-to-camel: literal', (t) => {
     t.noTransform('literal');
     t.end();
 });
-

@@ -1,5 +1,4 @@
-function helloWorld() {
-}
+function helloWorld() {}
 
 const howCome = () => {};
 
@@ -9,5 +8,4 @@ const howCome3 = function properCamelCase() {};
 
 const howCome4 = function whySo() {};
 
-const howCome5 = function () {};
-
+const howCome5 = function() {};

@@ -1,4 +1,3 @@
 class SomeClass extends Component {
-    'hello' = () => {}
+    'hello' = () => {};
 }
-

@@ -1,7 +1,14 @@
 'use strict';
 
-const test = require('@putout/test')(__dirname, {
-    'cut-useless-functions': require('..'),
+const {createTest} = require('@putout/test');
+
+const cutUselessFunctions = require('..');
+
+const test = createTest(__dirname, {
+    printer: 'putout',
+    plugins: [
+        ['cut-useless-functions', cutUselessFunctions],
+    ],
 });
 
 test('cut usless functions: report', (t) => {
@@ -58,4 +65,3 @@ test('cut usless functions: transform: call', (t) => {
     t.transform('call');
     t.end();
 });
-

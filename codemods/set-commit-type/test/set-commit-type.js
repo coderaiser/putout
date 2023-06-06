@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const setHomepage = require('..');
+
 const test = createTest(__dirname, {
-    'set-commit-type': setHomepage,
+    printer: 'putout',
+    plugins: [
+        ['set-commit-type', setHomepage],
+    ],
 });
 
 test('rules: set-commit-type: report', (t) => {
@@ -20,4 +24,3 @@ test('rules: set-commit-type: no report: no-main', (t) => {
     t.noReport('no-main');
     t.end();
 });
-

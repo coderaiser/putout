@@ -1,7 +1,14 @@
 'use strict';
 
-const test = require('@putout/test')(__dirname, {
-    'add-madrun-to-lint': require('.'),
+const {createTest} = require('@putout/test');
+
+const addMadrunToLint = require('.');
+
+const test = createTest(__dirname, {
+    printer: 'putout',
+    plugins: [
+        ['add-madrun-to-lint', addMadrunToLint],
+    ],
 });
 
 test('madrun: add madrun to lint: report', (t) => {
@@ -68,4 +75,3 @@ test('madrun: add madrun to lint: no transform: fn', (t) => {
     t.noTransform('fn');
     t.end();
 });
-

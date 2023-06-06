@@ -1,4 +1,7 @@
-const {eslint, putout} = predefined;
+const {
+    eslint,
+    putout,
+} = predefined;
 
 module.exports = {
     'lint': () => {
@@ -8,7 +11,9 @@ module.exports = {
             'test',
             'madrun.js',
         ];
-
-        return eslint({names});
+        
+        return eslint({
+            names,
+        });
     },
-}
+};

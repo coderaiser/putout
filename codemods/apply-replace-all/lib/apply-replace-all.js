@@ -13,10 +13,13 @@ module.exports.report = () => `Replace regexp should be used instead of string`;
 module.exports.replace = () => ({
     '__a.replace("__b", __c)': ({__b}, path) => {
         const value = __b.raw.slice(1, -1);
+        const raw = `/${escape(value)}/g`;
+        
         const regexp = {
             ...RegExpLiteral(escape(value), 'g'),
+            raw,
             extra: {
-                raw: `/${escape(value)}/g`,
+                raw,
             },
         };
         

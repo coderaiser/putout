@@ -1,9 +1,14 @@
 'use strict';
 
+const {createTest} = require('@putout/test');
+
 const applyFilterBoolean = require('..');
 
-const test = require('@putout/test')(__dirname, {
-    'apply-filter-boolean': applyFilterBoolean,
+const test = createTest(__dirname, {
+    printer: 'putout',
+    plugins: [
+        ['apply-filter-boolean', applyFilterBoolean],
+    ],
 });
 
 test('plugin-apply-filter-boolean: transform: report', (t) => {
@@ -20,4 +25,3 @@ test('plugin-apply-filter-boolean: transform: find', (t) => {
     t.transform('find');
     t.end();
 });
-

@@ -59,7 +59,9 @@ module.exports = {
             'madrun.js',
         ];
         
-        return eslint({names});
+        return eslint({
+            names,
+        });
     },
 };
 ```
@@ -78,7 +80,9 @@ module.exports = {
             'madrun.js',
         ];
         
-        return putout({names});
+        return putout({
+            names,
+        });
     },
 };
 ```

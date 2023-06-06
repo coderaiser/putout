@@ -15,11 +15,13 @@ module.exports = (path, name) => {
 };
 
 function isKey(name, key) {
-    const isId = key.isIdentifier({name});
+    const isId = key.isIdentifier({
+        name,
+    });
+    
     const isStr = key.isStringLiteral({
         value: name,
     });
     
     return isStr || isId;
 }
-

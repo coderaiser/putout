@@ -56,7 +56,12 @@ but there is also cases like:
 
 ```js
 const one = (f) => (a) => f(a);
-[1, 2, 3, 4].map(one(console.log));
+[
+    1,
+    2,
+    3,
+    4,
+].map(one(console.log));
 // output
 1;
 2;
@@ -67,7 +72,12 @@ And if it will be simplified:
 
 ```js
 const one = (f) => f;
-[1, 2, 3, 4].map(one(console.log));
+[
+    1,
+    2,
+    3,
+    4,
+].map(one(console.log));
 // output
 1, 0, [1, 2, 3];
 2, 1, [1, 2, 3];
@@ -77,7 +87,12 @@ const one = (f) => f;
 So behaviour is totally different. The same result for:
 
 ```js
-[1, 2, 3, 4].map(console.log);
+[
+    1,
+    2,
+    3,
+    4,
+].map(console.log);
 ```
 
 Because `map` calls a function with 3 arguments, and `console.log` receives any count of arguments,

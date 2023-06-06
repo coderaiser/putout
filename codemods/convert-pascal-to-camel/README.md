@@ -14,8 +14,7 @@ ln -s ~/putout/codemods/convert-tape-to-supertape ~/.putout/convert-tape-to-supe
 ## ❌ Example of incorrect code
 
 ```js
-function HelloWorld() {
-}
+function HelloWorld() {}
 
 const HowCome = () => {};
 const HowCome2 = function WhySo() {};
@@ -35,8 +34,7 @@ class SomeClass2 extends Component {
 ## ✅ Example of correct code
 
 ```js
-function helloWorld() {
-}
+function helloWorld() {}
 
 HelloWorld();
 

@@ -8,7 +8,9 @@ module.exports = {
             'test',
             'madrun.js',
         ];
-
-        return putout({names});
+        
+        return putout({
+            names,
+        });
     },
-}
+};

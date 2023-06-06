@@ -1,3 +1,3 @@
 module.exports = {
-    'lint': () => 'putout *.js'
-}
+    'lint': () => 'putout *.js',
+};

@@ -1,1 +1,3 @@
-const y = (a) => {m.test(a);};
+const y = (a) => {
+    m.test(a);
+};

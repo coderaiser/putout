@@ -9,4 +9,3 @@ module.exports.rules = {
     ...getRule('add-fresh-lint'),
     ...getRule('rename-predefined-eslint-to-putout'),
 };
-

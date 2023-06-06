@@ -2,6 +2,7 @@
 
 const {types} = require('putout');
 const getProperty = require('../get-property');
+
 const {
     isStringLiteral,
     isTemplateLiteral,
@@ -31,17 +32,29 @@ module.exports.fix = ({node}) => {
 
 function getValue(body) {
     if (isStringLiteral(body))
-        return [body, body.value];
+        return [
+            body,
+            body.value,
+        ];
     
     if (!isTemplateLiteral(body))
-        return [body, ''];
+        return [
+            body,
+            '',
+        ];
     
     if (body.expressions.length)
-        return [body, ''];
+        return [
+            body,
+            '',
+        ];
     
     const [line] = body.quasis;
     
-    return [line, line.value.raw];
+    return [
+        line,
+        line.value.raw,
+    ];
 }
 
 module.exports.traverse = ({push}) => ({
@@ -74,4 +87,3 @@ function addMadrun(a) {
     
     return `${a} madrun.js`;
 }
-

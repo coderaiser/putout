@@ -17,7 +17,11 @@ module.exports.report = () => `Set 'commitType'`;
 module.exports.traverse = ({push}) => ({
     '__putout_processor_json(__a)': (path) => {
         const __aPath = path.get('arguments.0');
-        const {commitTypePath, mainPath} = getProperties(__aPath, [
+        
+        const {
+            commitTypePath,
+            mainPath,
+        } = getProperties(__aPath, [
             'commitType',
             'main',
         ]);

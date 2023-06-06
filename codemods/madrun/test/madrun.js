@@ -1,7 +1,14 @@
 'use strict';
 
-const test = require('@putout/test')(__dirname, {
-    'codemod-madrun': require('..'),
+const {createTest} = require('@putout/test');
+
+const codemodMadrun = require('..');
+
+const test = createTest(__dirname, {
+    printer: 'putout',
+    plugins: [
+        ['codemod-madrun', codemodMadrun],
+    ],
 });
 
 test('codemod-madrun: transform', (t) => {
@@ -9,7 +16,7 @@ test('codemod-madrun: transform', (t) => {
     t.end();
 });
 
-test('codemod-madrun: transform: no module.exports', (t) => {
+test('codemod-madrun: no transform: no module.exports', (t) => {
     t.noTransform('no-module-exports');
     t.end();
 });

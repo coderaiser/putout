@@ -18,10 +18,8 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     '__putout_processor_ignore(__a)': ({__a}, path) => {
-        __a.elements = __a.elements
-            .filter(notValue('.putoutcache'));
+        __a.elements = __a.elements.filter(notValue('.putoutcache'));
         
         return path;
     },
 });
-

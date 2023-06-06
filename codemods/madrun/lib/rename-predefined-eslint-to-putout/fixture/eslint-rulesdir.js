@@ -8,10 +8,10 @@ module.exports = {
             'test',
             'madrun.js',
         ];
-
+        
         return eslint({
             names,
             rulesdir,
         });
     },
-}
+};

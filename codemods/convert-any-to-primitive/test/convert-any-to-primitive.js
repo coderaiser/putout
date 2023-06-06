@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertAnyToPrimitive = require('..');
 
 const test = createTest(__dirname, {
-    'convert-any-to-primitive': convertAnyToPrimitive,
+    printer: 'putout',
+    plugins: [
+        ['convert-any-to-primitive', convertAnyToPrimitive],
+    ],
 });
 
 test('plugin-convert-any-to-primitive: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-convert-any-to-primitive: transform', (t) => {
     t.transform('any');
     t.end();
 });
-

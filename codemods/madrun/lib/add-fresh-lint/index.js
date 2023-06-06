@@ -22,11 +22,7 @@ const freshLintScript = template.ast(`
 module.exports.report = () => `fresh:lint should exist`;
 
 module.exports.fix = (path) => {
-    replaceWithMultiple(path, [
-        path.node,
-        ObjectProperty(StringLiteral('fresh:lint'), freshLintScript),
-        ObjectProperty(StringLiteral('lint:fresh'), freshLintScript),
-    ]);
+    replaceWithMultiple(path, [path.node, ObjectProperty(StringLiteral('fresh:lint'), freshLintScript), ObjectProperty(StringLiteral('lint:fresh'), freshLintScript)]);
 };
 
 module.exports.traverse = ({push}) => ({

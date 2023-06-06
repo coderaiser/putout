@@ -1,7 +1,14 @@
 'use strict';
 
-const test = require('@putout/test')(__dirname, {
-    'cut-legacy': require('..'),
+const {createTest} = require('@putout/test');
+
+const cutLegacy = require('..');
+
+const test = createTest(__dirname, {
+    printer: 'putout',
+    plugins: [
+        ['cut-legacy', cutLegacy],
+    ],
 });
 
 test('codemod-cut-legacy: report', (t) => {

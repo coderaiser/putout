@@ -1,7 +1,14 @@
 'use strict';
 
-const test = require('@putout/test')(__dirname, {
-    'add-fresh-lint': require('.'),
+const {createTest} = require('@putout/test');
+
+const addFreshLint = require('.');
+
+const test = createTest(__dirname, {
+    printer: 'putout',
+    plugins: [
+        ['add-fresh-lint', addFreshLint],
+    ],
 });
 
 test('madrun: add fresh:lint: report', (t) => {
@@ -19,8 +26,7 @@ test('madrun: add fresh:lint: transform: lint-esm', (t) => {
     t.end();
 });
 
-test('madrun: add fresh:lint: transform: exists', (t) => {
+test('madrun: add fresh:lint: no transform: exists', (t) => {
     t.noTransform('exists');
     t.end();
 });
-

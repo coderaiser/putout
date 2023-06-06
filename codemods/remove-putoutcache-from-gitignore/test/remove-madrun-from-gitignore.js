@@ -1,7 +1,14 @@
 'use strict';
 
-const test = require('@putout/test')(__dirname, {
-    'remove-madrun-from-gitignore': require('..'),
+const {createTest} = require('@putout/test');
+
+const removeMadrunFromGitignore = require('..');
+
+const test = createTest(__dirname, {
+    printer: 'putout',
+    plugins: [
+        ['remove-madrun-from-gitignore', removeMadrunFromGitignore],
+    ],
 });
 
 test('plugin-remove-madrun-from-gitignore: report', (t) => {
@@ -18,4 +25,3 @@ test('plugin-remove-madrun-from-gitignore: no transform: present', (t) => {
     t.noTransform('not-present');
     t.end();
 });
-
