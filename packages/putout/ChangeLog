@@ -1,3 +1,9 @@
+2023.06.06, v29.12.3
+
+feature:
+- cbbdbb1fc package: @putout/plugin-merge-destructuring-properties v8.0.0
+- 092a973e4 @putout/plugin-merge-destructuring-properties: drop support of 🐊 < 29
+
 2023.06.06, v29.12.2
 
 feature:
