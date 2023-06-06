@@ -200,6 +200,7 @@ putout('isFn(fn, "hello"); debugger', {
         ['declare', declare],
     ],
 });
+
 // returns
 ({
     code: `const isFn = a => typeof a === 'function';\nisFn(fn, "hello");`,
@@ -528,6 +529,7 @@ putout(source, {
         'remove-unused-variables',
     ],
 });
+
 // returns
 ({
     code: `\n    const hello = 'world';\n\n    console.log(hello);\n`,
@@ -550,17 +552,17 @@ putout(source, {
         'remove-unused-variables',
     ],
 });
+
 // returns
 ({
-    code: '\n' +
-    `    const hello = 'world';\n` +
-    `    const hi = 'there';\n` +
-    '    \n' +
-    '    console.log(hello);\n',
+    code: '\n' + `    const hello = 'world';\n` + `    const hi = 'there';\n` + '    \n' + '    console.log(hello);\n',
     places: [{
         rule: 'remove-unused-variables',
         message: '"hi" is defined but never used',
-        position: {line: 3, column: 10},
+        position: {
+            line: 3,
+            column: 10,
+        },
     }],
 });
 ```
@@ -578,8 +580,16 @@ In our case `Data URL` used. Here is an example of source map:
     "version": 3,
     "file": "out.js",
     "sourceRoot": "",
-    "sources": ["foo.js", "bar.js"],
-    "names": ["src", "maps", "are", "fun"],
+    "sources": [
+        "foo.js",
+        "bar.js"
+    ],
+    "names": [
+        "src",
+        "maps",
+        "are",
+        "fun"
+    ],
     "mappings": "AAgBC,SAAQ,CAAEA"
 }
 ```
@@ -598,18 +608,22 @@ putout(source, {
         'remove-unused-variables',
     ],
 });
+
 // returns
 ({
-    code: '\n' +
-    `    const hello = 'world';\n` +
-    `    const hi = 'there';\n` +
-    '    \n' +
-    '    console.log(hello);\n' +
-    '   //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJ...',
+    code: `
+        const hello = 'world';
+        const hi = 'there';
+        console.log(hello);
+        //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJ...
+    `,
     places: [{
         rule: 'remove-unused-variables',
         message: '"hi" is defined but never used',
-        position: {line: 3, column: 10},
+        position: {
+            line: 3,
+            column: 10,
+        },
     }],
 });
 ```
@@ -2272,7 +2286,10 @@ const {
 When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, please use [`operator`](https://github.com/coderaiser/putout/tree/master/packages/operate#readme) instead of `path`-methods.
 
 ```js
-const {template, operator} = require('putout');
+const {
+    template,
+    operator,
+} = require('putout');
 const {replaceWith} = operator;
 
 const ast = template.ast(`
@@ -2282,7 +2299,6 @@ const ast = template.ast(`
 module.exports.fix = (path) => {
     // wrong
     path.replaceWith(ast);
-    
     // correct
     replaceWith(path, ast);
 };
@@ -2312,7 +2328,6 @@ Let's consider simplest possible plugin for removing `debugger statements` [@put
 ```js
 // this is a message to show in putout cli
 module.exports.report = () => 'Unexpected "debugger" statement';
-
 // let's find all "debugger" statements and replace them with ""
 module.exports.replace = () => ({
     debugger: '',
@@ -2368,6 +2383,7 @@ That was the simplest module to remove `debugger` statements in your code. Let's
 
 ```js
 const removeDebugger = require('..');
+
 const test = require('@putout/test')(__dirname, {
     'remove-debugger': removeDebugger,
 });
