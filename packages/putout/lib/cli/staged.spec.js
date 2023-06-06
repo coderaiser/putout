@@ -9,6 +9,7 @@ const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');
 
 const {isSupported} = require('./supported-files');
+
 const {
     reRequire,
     stopAll,
@@ -46,6 +47,7 @@ test('putout: cli: staged: get: statusMatrix: empty', async (t) => {
     });
     
     const {get} = reRequire('./staged');
+    
     await get({
         findUp,
     });
@@ -86,6 +88,7 @@ test('putout: cli: staged: get: statusMatrix', async (t) => {
     });
     
     const {get} = reRequire('./staged');
+    
     await get({
         findUp,
     });
@@ -118,6 +121,7 @@ test('putout: cli: staged: get: statusMatrix: result', async (t) => {
     });
     
     const {get} = reRequire('./staged');
+    
     const names = await get({
         findUp,
     });
@@ -148,6 +152,7 @@ test('putout: cli: staged: set: findUp', async (t) => {
     });
     
     const {set} = reRequire('./staged');
+    
     await set({
         findUp,
     });
@@ -178,6 +183,7 @@ test('putout: cli: staged: set: findUp: not found', async (t) => {
     });
     
     const {set} = reRequire('./staged');
+    
     await tryToCatch(set, {
         findUp,
     });

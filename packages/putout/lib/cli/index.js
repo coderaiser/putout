@@ -201,6 +201,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     if (enable || disable) {
         const {ruler} = await simpleImport('@putout/cli-ruler');
+        
         ruler({
             enable,
             disable,
@@ -243,6 +244,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (staged) {
         const {get} = require('./staged');
         const {findUp} = await simpleImport('find-up');
+        
         const [error, names] = await tryToCatch(get, {
             findUp,
         });
@@ -331,6 +333,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     if (enableAll || disableAll) {
         const {ruler} = await simpleImport('@putout/cli-ruler');
+        
         await ruler({
             enableAll,
             disableAll,
@@ -342,6 +345,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (fix && staged) {
         const {set} = require('./staged');
         const {findUp} = await simpleImport('find-up');
+        
         const stagedNames = await set({
             findUp,
         });

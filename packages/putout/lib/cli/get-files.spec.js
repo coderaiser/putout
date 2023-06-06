@@ -233,6 +233,7 @@ test('putout: getFiles: options', async (t) => {
     const ignore = [
         '*.js',
     ];
+    
     const getFiles = reRequire('./get-files');
     
     await getFiles(['lib/get-files.js'], {
@@ -268,6 +269,7 @@ test('putout: getFiles: windows', async (t) => {
     const ignore = [
         '*.js',
     ];
+    
     const getFiles = reRequire('./get-files');
     
     await getFiles(['lib\\get-files.js'], {

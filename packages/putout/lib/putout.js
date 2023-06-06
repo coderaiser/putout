@@ -17,6 +17,7 @@ const {
     cutShebang,
     mergeShebang,
 } = require('./shebang');
+
 const isString = (a) => typeof a === 'string';
 
 const defaultOpts = (opts = {}) => {

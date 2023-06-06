@@ -8,6 +8,7 @@ const {
     reRequire,
     stopAll,
 } = mockRequire;
+
 const {stringify} = JSON;
 
 test('putout: cli: process-file: eslint', async (t) => {

@@ -76,6 +76,7 @@ module.exports.set = async function set({findUp}) {
     const dir = await findGit({
         findUp,
     });
+    
     const names = namesStore();
     const statusPromises = [];
     

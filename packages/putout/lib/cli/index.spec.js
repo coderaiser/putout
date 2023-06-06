@@ -8,6 +8,7 @@ const {
     join,
     basename,
 } = require('path');
+
 const {readFile} = require('fs/promises');
 const {EventEmitter} = require('events');
 
@@ -1269,6 +1270,7 @@ test('putout: cli: --match', async (t) => {
         matchErrors,
         READ_ERROR,
     } = await import('@putout/cli-match');
+    
     const cli = reRequire('.');
     
     await runCli({

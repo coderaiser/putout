@@ -17,9 +17,11 @@ module.exports.cutShebang = (source) => {
         ];
     
     const lines = source.split('\n');
+    
     const result = lines
         .slice(1)
         .join('\n');
+    
     const [shebang] = lines;
     
     return [
