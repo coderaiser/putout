@@ -1,3 +1,11 @@
+2023.06.06, v29.12.2
+
+feature:
+- 2fa1f0396 package: @putout/plugin-convert-esm-to-commonjs v6.0.0
+- 445b85b77 @putout/plugin-convert-esm-to-commonjs: drop support of 🐊 < 29
+- f1776923a @putout/plugin-putout: check-replace-code: add support of __args__a
+- 3102231e5 @putout/compare: isLinkedId: improve support
+
 2023.06.05, v29.12.1
 
 feature:
