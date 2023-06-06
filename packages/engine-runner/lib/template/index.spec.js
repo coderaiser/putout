@@ -1,15 +1,16 @@
 'use strict';
 
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test, stub} = require('supertape');
+
 const putout = require('putout');
 const mockRequire = require('mock-require');
 
 const {runPlugins} = require('..');
 
-const {reRequire, stopAll} = mockRequire;
+const {
+    reRequire,
+    stopAll,
+} = mockRequire;
 
 test('putout: plugin: traverse: template', (t) => {
     const exp = {
@@ -475,6 +476,7 @@ test('putout: engine: runner: template: log', (t) => {
 
 test('putout: engine: runner: template: log: enabled', (t) => {
     const debug = stub();
+    
     debug.enabled = true;
     
     mockRequire('debug', stub().returns(debug));

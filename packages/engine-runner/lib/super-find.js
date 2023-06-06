@@ -8,12 +8,17 @@ const {merge} = babelTraverse.visitors;
 
 module.exports = function superFind({rule, find, ast, options, template}) {
     const pushItems = [];
+    
     const push = (a) => {
         pushItems.push(a);
     };
     
     const returnItems = find(ast, {
-        traverse: traverse({rule, options, template}),
+        traverse: traverse({
+            rule,
+            options,
+            template,
+        }),
         generate,
         types,
         push,

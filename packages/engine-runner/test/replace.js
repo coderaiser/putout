@@ -12,7 +12,10 @@ const {runPlugins} = require('..');
 
 const noop = () => {};
 
-const {print, types} = putout;
+const {
+    print,
+    types,
+} = putout;
 const {StringLiteral} = types;
 
 const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');
@@ -190,6 +193,7 @@ test('putout: runner: replace: remove: comments', (t) => {
         // some loop
         for (const a of []) {}
     `;
+    
     const {code} = putout(source, {
         runPlugins,
         plugins: [
@@ -284,6 +288,7 @@ test('putout: runner: replace: match: options', (t) => {
 
 test('putout: runner: replace: same function: should produce same result', (t) => {
     const getValue = (a) => a.value;
+    
     const push = (pattern) => {
         const fn = ({__a}, path) => {
             __a.elements.push(StringLiteral(pattern));
@@ -311,6 +316,7 @@ test('putout: runner: replace: same function: should produce same result', (t) =
         match: match('hello'),
         replace: push('hello'),
     };
+    
     const world = {
         report: () => '',
         match: match('world'),
@@ -562,6 +568,7 @@ test('putout: runner: replace: fix: crawl', (t) => {
 
 test('putout: runner: replace: fix: crawl: block', (t) => {
     const source = readFixture('crawl-block');
+    
     const {code} = putout(source, {
         runPlugins,
         plugins: [
@@ -577,6 +584,7 @@ test('putout: runner: replace: fix: crawl: block', (t) => {
 
 test('putout: runner: replace: return: not path, node and string', (t) => {
     const source = `const hello = 'world'`;
+    
     const [error] = tryCatch(putout, source, {
         plugins: [{
             hello: {
@@ -599,6 +607,7 @@ test('putout: runner: replace: return: not path, node and string', (t) => {
 
 test('putout: runner: replace: match not function', (t) => {
     const source = `const hello = 'world'`;
+    
     const [error] = tryCatch(putout, source, {
         plugins: [{
             hello: {
@@ -623,8 +632,7 @@ test('putout: runner: replace: return nothing', (t) => {
     const addVar = {
         report: () => {},
         replace: () => ({
-            Program() {
-            },
+            Program() {},
         }),
     };
     
@@ -790,6 +798,7 @@ test('putout: runner: replace: statement in place of expression', (t) => {
 
 test('putout: runner: replace: statement in place of expression: ExpressionStatement', (t) => {
     const REJECTS = putout.template('stub().rejects(A)');
+    
     const hello = {
         report: () => '',
         replace: () => ({
@@ -842,10 +851,7 @@ test('putout: runner: replace: watermark after remove', (t) => {
     
     const {code} = putout(source, {
         runPlugins,
-        plugins: [
-            'merge-duplicate-imports',
-            ['remove', remove],
-        ],
+        plugins: ['merge-duplicate-imports', ['remove', remove]],
     });
     
     const expected = montag`
@@ -883,4 +889,3 @@ test('putout: runner: replace: EmptyStatement', (t) => {
     t.equal(code, expected);
     t.end();
 });
-

@@ -4,16 +4,17 @@ const montag = require('montag');
 
 const tryCatch = require('try-catch');
 
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test, stub} = require('supertape');
+
 const putout = require('putout');
 const mockRequire = require('mock-require');
 const {readFixtures} = require('./fixture');
 
 const {runPlugins} = require('..');
-const {reRequire, stopAll} = mockRequire;
+const {
+    reRequire,
+    stopAll,
+} = mockRequire;
 
 const fixture = readFixtures([
     'import',
@@ -540,7 +541,9 @@ test('putout: runner: plugins: replace: path', (t) => {
         report: () => '',
         replace: () => ({
             'return x': (vars, path) => {
-                path.getPrevSibling().remove();
+                path
+                    .getPrevSibling()
+                    .remove();
                 return 'return x';
             },
         }),
@@ -673,6 +676,7 @@ test('putout: runner: shebang', (t) => {
             'remove-unused-variables',
         ],
     });
+    
     const expected = fixture.shebangFix;
     
     t.deepEqual(code, expected);
@@ -681,9 +685,11 @@ test('putout: runner: shebang', (t) => {
 
 test('putout: runner: debug', (t) => {
     const {DEBUG} = process.env;
+    
     process.env.DEBUG = 'putout:runner:fix';
     
     const debugFn = stub();
+    
     debugFn.enabled = true;
     const debug = stub().returns(debugFn);
     
@@ -700,6 +706,7 @@ test('putout: runner: debug', (t) => {
             'remove-unused-variables',
         ],
     });
+    
     const expected = '\n';
     
     process.env.DEBUG = DEBUG;
@@ -712,9 +719,11 @@ test('putout: runner: debug', (t) => {
 
 test('putout: runner: debug: replace', (t) => {
     const {DEBUG} = process.env;
+    
     process.env.DEBUG = 'putout:runner:fix';
     
     const debugFn = stub();
+    
     debugFn.enabled = true;
     const debug = stub().returns(debugFn);
     
@@ -732,7 +741,10 @@ test('putout: runner: debug: replace', (t) => {
         ],
     });
     
-    const expected = [`debugger -> ''\n`];
+    const expected = [
+        `debugger -> ''\n`,
+    ];
+    
     process.env.DEBUG = DEBUG;
     
     stopAll();
@@ -778,6 +790,7 @@ test('putout: runner: nested: options', (t) => {
         include: [],
         exclude: [],
     };
+    
     const first = {
         report: () => '',
         fix: stub(),
@@ -791,6 +804,7 @@ test('putout: runner: nested: options', (t) => {
     };
     
     const code = 'debugger';
+    
     const nested = {
         rules: {
             first,
@@ -872,12 +886,10 @@ test('putout: runner: fix: crawl', (t) => {
         
         log(readFile, writeFile);
     `;
+    
     const {code} = putout(source, {
         runPlugins,
-        plugins: [
-            'declare',
-            'merge-duplicate-imports',
-        ],
+        plugins: ['declare', 'merge-duplicate-imports'],
     });
     
     const expected = montag`

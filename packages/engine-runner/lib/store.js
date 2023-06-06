@@ -81,6 +81,7 @@ function createListStore(returns = id) {
         
         fn.clear = () => {
             const a = list;
+            
             list = new Set();
             
             return returns(toArray(a));

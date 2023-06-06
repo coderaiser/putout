@@ -30,7 +30,10 @@ const log = (from, path) => {
     debug.enabled && debug(`${from} -> ${path}\n`);
 };
 
-const {keys, entries} = Object;
+const {
+    keys,
+    entries,
+} = Object;
 const {stringify} = JSON;
 
 const stub = () => [];
@@ -46,7 +49,9 @@ module.exports = ({rule, plugin, msg, options}) => {
         filter = getFilter(plugin.match, options),
     } = plugin;
     
-    const replaceItems = replace({options});
+    const replaceItems = replace({
+        options,
+    });
     const fix = getFix(replaceItems);
     const include = packKeys(replaceItems);
     
@@ -116,7 +121,10 @@ const fix = (from, to, path) => {
     });
     
     mark.add();
-    path.scope.getBlockParent().crawl();
+    path
+        .scope
+        .getBlockParent()
+        .crawl();
     
     log(from, newPath);
 };
@@ -127,7 +135,9 @@ const getFix = (items) => (path) => {
 };
 
 const getFilter = (match = stubMatch, options) => (path) => {
-    const all = entries(match({options}));
+    const all = entries(match({
+        options,
+    }));
     
     for (const [from, matchProperty] of all) {
         const nodeFrom = template.ast(from);
@@ -193,4 +203,3 @@ function checkExpressionStatement(nodeFrom, nodeTo, path) {
     
     throw Error(`☝️ Looks like try to put Statement in place of Expression, use 'match' to filter out such cases`);
 }
-

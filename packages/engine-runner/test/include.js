@@ -85,6 +85,7 @@ test('putout: runner: include: fix: options', (t) => {
 
 test('putout: runner: include: no report ', (t) => {
     const source = `import type { Query } from 'assets/core_api/types/query'`;
+    
     const [error] = tryCatch(putout, source, {
         isTS: true,
         plugins: [{
@@ -104,6 +105,7 @@ test('putout: runner: include: no report ', (t) => {
 
 test('putout: runner: include: no fix', (t) => {
     const source = `import type { Query } from 'assets/core_api/types/query'`;
+    
     const [error] = tryCatch(putout, source, {
         isTS: true,
         fix: true,
@@ -122,4 +124,3 @@ test('putout: runner: include: no fix', (t) => {
     t.equal(error.message, expected);
     t.end();
 });
-

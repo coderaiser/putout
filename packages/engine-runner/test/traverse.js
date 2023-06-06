@@ -116,7 +116,9 @@ test('putout: runner: plugins: traverse: store: entries', (t) => {
         }],
     });
     
-    const expected = [['x', 'hello']];
+    const expected = [
+        ['x', 'hello'],
+    ];
     
     t.deepEqual(result, expected);
     t.end();
@@ -153,7 +155,9 @@ test('putout: runner: plugins: traverse: store: values', (t) => {
         }],
     });
     
-    const expected = ['hello'];
+    const expected = [
+        'hello',
+    ];
     
     t.deepEqual(result, expected);
     t.end();
@@ -244,13 +248,15 @@ test('putout: runner: plugins: traverse: store: uplist', (t) => {
         }],
     });
     
-    const expected = [[{
-        hello: 'world',
-        node: 'a',
-    }, {
-        how: 'come',
-        node: 'b',
-    }]];
+    const expected = [
+        [{
+            hello: 'world',
+            node: 'a',
+        }, {
+            how: 'come',
+            node: 'b',
+        }],
+    ];
     
     t.deepEqual(result, expected);
     t.end();
@@ -325,6 +331,7 @@ test('putout: runner: plugins: traverse: pathStore', (t) => {
 
 test('putout: runner: uplist: removed node', (t) => {
     const mergeVariables = minify.rules['merge-variables'];
+    
     const source = `
         let a;
         let b;
@@ -335,12 +342,14 @@ test('putout: runner: uplist: removed node', (t) => {
         console.log(a);
     `;
     
+    const remove = 'remove-unreferenced-variables';
+    const merge = ['merge-variabels', mergeVariables];
+    
+    const plugins = [remove, merge];
+    
     const {code} = putout(source, {
         printer: 'putout',
-        plugins: [
-            'remove-unreferenced-variables',
-            ['merge-variabels', mergeVariables],
-        ],
+        plugins,
     });
     
     const expected = montag`

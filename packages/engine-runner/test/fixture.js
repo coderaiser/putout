@@ -7,6 +7,7 @@ const tryCatch = require('try-catch');
 const camelCase = require('just-camel-case');
 
 const dirFixture = join(__dirname, 'fixture');
+
 const readFixture = (name) => {
     const longName = join(dirFixture, name);
     
@@ -37,4 +38,3 @@ const handler = {
         return obj[prop];
     },
 };
-

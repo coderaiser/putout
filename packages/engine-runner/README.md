@@ -172,8 +172,7 @@ module.exports.include = () => [
 ];
 
 // optional
-module.exports.exclude = () => {
-};
+module.exports.exclude = () => {};
 
 // optional
 module.exports.filter = (path) => {
@@ -246,6 +245,7 @@ const plugins = [{
 }];
 
 const ast = parse('const m = "hi"; debugger');
+
 const places = runPlugins({
     ast,
     shebang: false, // default
@@ -293,7 +293,11 @@ module.exports.traverse = ({listStore}) => ({
         exit() {
             console.log(listStore());
             // returns
-            [{type: 'DebuggerStatement'}, {type: 'DebuggerStatement'}];
+            [{
+                type: 'DebuggerStatement',
+            }, {
+                type: 'DebuggerStatement',
+            }];
             // for code
             'debugger; debugger';
         },

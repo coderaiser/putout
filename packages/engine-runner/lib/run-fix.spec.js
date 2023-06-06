@@ -2,10 +2,7 @@
 
 const mockRequire = require('mock-require');
 
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test, stub} = require('supertape');
 
 const tryCatch = require('try-catch');
 const fix = require('./run-fix');
@@ -32,7 +29,10 @@ test('fix: error', (t) => {
     };
     
     const is = true;
-    const [e] = tryCatch(fix, is, fn, {path, position});
+    const [e] = tryCatch(fix, is, fn, {
+        path,
+        position,
+    });
     
     t.equal(e.loc, position);
     t.end();
@@ -40,6 +40,7 @@ test('fix: error', (t) => {
 
 test('fix: error: nested path: debug', (t) => {
     const debugFn = stub();
+    
     debugFn.enabled = true;
     const debug = stub().returns(debugFn);
     
@@ -62,7 +63,10 @@ test('fix: error: nested path: debug', (t) => {
     
     const is = true;
     const fix = reRequire('./run-fix');
-    const [e] = tryCatch(fix, is, fn, {path, position});
+    const [e] = tryCatch(fix, is, fn, {
+        path,
+        position,
+    });
     
     stopAll();
     
@@ -72,6 +76,7 @@ test('fix: error: nested path: debug', (t) => {
 
 test('fix: error: nested path: debug: nested path', (t) => {
     const debugFn = stub();
+    
     debugFn.enabled = true;
     const debug = stub().returns(debugFn);
     
@@ -96,7 +101,10 @@ test('fix: error: nested path: debug: nested path', (t) => {
     
     const is = true;
     const fix = reRequire('./run-fix');
-    const [e] = tryCatch(fix, is, fn, {path, position});
+    const [e] = tryCatch(fix, is, fn, {
+        path,
+        position,
+    });
     
     stopAll();
     
@@ -121,9 +129,12 @@ test('fix: is: false', (t) => {
     };
     
     const is = false;
-    fix(is, fn, {path, position});
+    
+    fix(is, fn, {
+        path,
+        position,
+    });
     
     t.notOk(fn.called, 'should not call fn');
     t.end();
 });
-

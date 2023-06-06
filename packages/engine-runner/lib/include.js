@@ -51,6 +51,7 @@ const prePush = ({rule, filter, push, options}) => (path) => {
 
 const getTraverse = (include, filter, rule) => ({push, options}) => {
     const result = {};
+    
     const visitor = prePush({
         rule,
         filter,

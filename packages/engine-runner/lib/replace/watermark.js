@@ -54,7 +54,10 @@ function init({path, program}) {
 
 module.exports.add = add;
 function add({path, program, watermark, highWatermark}) {
-    init({path, program});
+    init({
+        path,
+        program,
+    });
     
     path?.node[name].add(watermark);
     program.node[name].add(highWatermark);
@@ -70,4 +73,3 @@ function has({path, program, watermark, highWatermark}) {
     
     return false;
 }
-

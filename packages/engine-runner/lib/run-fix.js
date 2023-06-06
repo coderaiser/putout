@@ -9,11 +9,15 @@ const isFn = (a) => typeof a === 'function';
 const getPath = (path) => path.path || path;
 
 const tryToFix = (fix, {path, position, options}) => {
-    const [e] = tryCatch(fix, path, {options});
+    const [e] = tryCatch(fix, path, {
+        options,
+    });
     const {scope} = path.path || path;
     
     if (!e && scope)
-        scope.getProgramParent().crawl();
+        scope
+            .getProgramParent()
+            .crawl();
     
     if (!e) {
         return;
@@ -44,4 +48,3 @@ function validate(name, fn) {
     if (!isFn(fn))
         throw Error(`☝️ Looks like '${name}' is not a 'function' but '${typeof fn}' with value: '${stringify(fn)}'. More on writing 🐊Putout Plugins: https://git.io/JqcMn`);
 }
-

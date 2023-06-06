@@ -39,4 +39,3 @@ test('engine-runner: declare: not fn', (t) => {
     t.deepEqual(error, expected);
     t.end();
 });
-

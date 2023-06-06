@@ -9,4 +9,3 @@ module.exports = (a) => {
     
     return maybeArray(a);
 };
-

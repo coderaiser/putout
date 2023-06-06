@@ -20,4 +20,3 @@ function validateDeclare(declare) {
     if (!isFn(declare))
         throw Error(`☝️ Looks like 'declare' property value is not a 'function', but '${typeof declare}' with value '${stringify(declare)}'.`);
 }
-

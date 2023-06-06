@@ -6,6 +6,7 @@ const {generate} = require('@putout/engine-parser');
 const runFix = require('./run-fix');
 const {getPosition} = require('./get-position');
 const maybeArray = require('./maybe-array');
+
 const {
     listStore,
     mapStore,
@@ -18,6 +19,7 @@ const shouldSkip = (a) => !a.parent;
 const {merge} = traverse.visitors;
 
 const {assign} = Object;
+
 const parse = (name, plugin, options) => {
     const list = [];
     
@@ -80,6 +82,7 @@ module.exports = (pluginsToMerge, {fix, shebang, template}) => {
     }
     
     const entries = Object.entries(pushed);
+    
     const visitor = {
         shouldSkip,
         ...merge(mergeItems),
@@ -136,4 +139,3 @@ function getStore(plugin, {fix, rule, shebang, msg, options}) {
         pathStore: paths,
     };
 }
-

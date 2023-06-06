@@ -61,6 +61,7 @@ module.exports = ({rule, visitor, options}) => {
         }
         
         const [node, type] = parseTemplate(tmpl);
+        
         const visit = wrapWithCheck({
             rule,
             fn,
@@ -102,4 +103,3 @@ function wrapWithCheck({rule, nodesInclude, nodesExclude, fn}) {
         }
     };
 }
-

@@ -22,6 +22,7 @@ module.exports.runPlugins = ({ast, shebang, fix, fixCount, plugins, template = r
     let places = [];
     
     const merge = once(mergeVisitors);
+    
     const {
         pluginsFind,
         pluginsTraverse,
@@ -51,22 +52,29 @@ module.exports.getPosition = getPosition;
 
 function run({ast, fix, shebang, pluginsFind, pluginsTraverse, template, merge}) {
     return [
-        ...runWithoutMerge({ast,
+        ...runWithoutMerge({
+            ast,
             fix,
             shebang,
             template,
-            pluginsFind}),
-        ...runWithMerge({ast,
+            pluginsFind,
+        }),
+        ...runWithMerge({
+            ast,
             fix,
             shebang,
             template,
             pluginsTraverse,
-            merge}),
+            merge,
+        }),
     ];
 }
 
 function runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge}) {
-    const {entries, visitor} = merge(pluginsTraverse, {
+    const {
+        entries,
+        visitor,
+    } = merge(pluginsTraverse, {
         fix,
         shebang,
         template,
@@ -96,6 +104,7 @@ function runWithoutMerge({ast, fix, shebang, template, pluginsFind}) {
     
     for (const {rule, plugin, msg, options} of pluginsFind) {
         debug(`find: ${rule}`);
+        
         const {
             report,
             find,
@@ -178,4 +187,3 @@ function splitPlugins(plugins) {
         pluginsTraverse,
     };
 }
-

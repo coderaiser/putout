@@ -7,6 +7,7 @@ module.exports = (parentPath) => {
     let current = {
         parentPath,
     };
+    
     const path = [];
     
     while (current = current.parentPath) {
@@ -32,4 +33,3 @@ function findKey(path, parent) {
             return key;
     }
 }
-

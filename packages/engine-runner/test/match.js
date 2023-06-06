@@ -32,6 +32,7 @@ test('putout: runner: match', (t) => {
 
 test('putout: runner: match: avoid move top while compare', (t) => {
     const types = [];
+    
     const rm = {
         report: () => '',
         match: () => ({
@@ -61,4 +62,3 @@ test('putout: runner: match: avoid move top while compare', (t) => {
     t.deepEqual(types, expected);
     t.end();
 });
-
