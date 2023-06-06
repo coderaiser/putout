@@ -1,6 +1,7 @@
 'use strict';
 
 const {template} = require('@putout/engine-parser');
+
 const {
     isBlockStatement,
     isIdentifier,
@@ -104,9 +105,20 @@ module.exports.isId = isId;
 module.exports.isEqualType = isEqualType;
 module.exports.isStr = (a) => typeof a === 'string';
 module.exports.isAny = (a) => {
-    return isIdentifier(a, {name: ANY}) || isJSXText(a, {value: ANY});
+    if (isIdentifier(a, {name: ANY}))
+        return true;
+    
+    if (isJSXText(a, {value: ANY}))
+        return true;
+    
+    return false;
 };
-module.exports.isAnyLiteral = (a, b) => isLiteral(b, {value: ANY}) && isEqualType(a, b);
+module.exports.isAnyLiteral = (a, b) => {
+    if (!isLiteral(b, {value: ANY}))
+        return false;
+    
+    return isEqualType(a, b);
+};
 module.exports.isArgs = (a) => {
     const b = !isArray(a) ? a : a[0];
     
@@ -195,6 +207,7 @@ module.exports.isEqualAnyArray = (node, templateNode) => {
         return false;
     
     const {type} = node;
+    
     return __ARRAY_TYPE.includes(type);
 };
 
@@ -203,6 +216,7 @@ module.exports.isEqualAnyObject = (node, templateNode) => {
         return false;
     
     const {type} = node;
+    
     return __OBJECT_TYPE.includes(type);
 };
 
@@ -264,4 +278,3 @@ module.exports.parseTemplate = (tmpl, {program} = {}) => {
     
     return [node, type];
 };
-

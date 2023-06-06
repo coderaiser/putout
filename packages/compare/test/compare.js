@@ -3,8 +3,15 @@
 const test = require('supertape');
 const montag = require('montag');
 
-const {template, parse} = require('@putout/engine-parser');
-const {traverse, types} = require('putout');
+const {
+    template,
+    parse,
+} = require('@putout/engine-parser');
+const {
+    traverse,
+    types,
+} = require('putout');
+
 const {
     compare,
     compareAll,
@@ -59,7 +66,9 @@ test('compare: base is string: path', (t) => {
     const node = template.ast('const a = "hello"');
     const b = template.ast('const a = "__"');
     
-    const result = compare({node}, b);
+    const result = compare({
+        node,
+    }, b);
     
     t.ok(result);
     t.end();
@@ -139,9 +148,7 @@ test('compare: strings', (t) => {
 });
 
 test('compare: all: base is all', (t) => {
-    const result = compareAll('const a = {}', [
-        'const a  = __',
-    ]);
+    const result = compareAll('const a = {}', ['const a  = __']);
     
     t.ok(result);
     t.end();
@@ -186,9 +193,7 @@ test('compare: any: not an array', (t) => {
 test('compare: any: no path find', (t) => {
     const path = getProgramPath(`const t = 'hello'`);
     
-    const result = compareAny(path, [
-        '[__] = __[0]',
-    ]);
+    const result = compareAny(path, ['[__] = __[0]']);
     
     t.notOk(result);
     t.end();
@@ -466,6 +471,7 @@ test('compare: object: template: comments', (t) => {
 
 test('compare: __args', (t) => {
     const b = '__.forEach(__args)';
+    
     const a = `
         Object.keys(a).forEach((x) => {
             console.log(x);
@@ -643,6 +649,7 @@ test('compare: innerComments', (t) => {
         value: 'hello',
         innerComments: [],
     };
+    
     const result = compare(from, '"hello"');
     
     t.ok(result);
@@ -827,6 +834,7 @@ test('compare: jsx: JSXText: whitespaces', (t) => {
           <a>About</a>
         </Link>
     `;
+    
     const result = compare(node, template);
     
     t.ok(result);

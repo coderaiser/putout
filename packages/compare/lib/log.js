@@ -18,7 +18,11 @@ module.exports = (a, b) => {
 module.exports._parseValue = parseValue;
 function parseValue(a) {
     if (isArray(a) && a[0]) {
-        const [{type, name, value}] = a;
+        const [{
+            type,
+            name,
+            value,
+        }] = a;
         return `${type}: ["${name || value}"]`;
     }
     
@@ -34,4 +38,3 @@ function parseValue(a) {
     
     return `${typeof a}: "${a}"`;
 }
-

@@ -1,16 +1,17 @@
 'use strict';
 
-const {
-    test,
-    stub,
-} = require('supertape');
+const {test, stub} = require('supertape');
+
 const mockRequire = require('mock-require');
 const {Identifier} = require('putout').types;
 
 const {_parseValue} = require('./log');
 
 const {assign} = Object;
-const {reRequire, stopAll} = mockRequire;
+const {
+    reRequire,
+    stopAll,
+} = mockRequire;
 
 test('putout: compare: log', (t) => {
     const namespace = stub();
@@ -47,7 +48,9 @@ test('putout: compare: run-plugins: template: log: array', (t) => {
     
     const log = reRequire('./log');
     
-    log([Identifier('hello')], [Identifier('world')]);
+    log([Identifier('hello')], [
+        Identifier('world'),
+    ]);
     const expected = `Identifier: ["hello"] = Identifier: ["world"]`;
     
     stopAll();

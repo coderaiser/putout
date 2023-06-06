@@ -3,6 +3,7 @@
 const tryCatch = require('try-catch');
 
 const test = require('supertape');
+
 const {
     parseTemplate,
     isNameStr,
@@ -100,4 +101,3 @@ test('compare: is: isTemplate: "."', (t) => {
     t.ok(result);
     t.end();
 });
-

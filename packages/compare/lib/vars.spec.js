@@ -12,7 +12,11 @@ const {getTemplateValues} = require('./vars');
 
 const noop = () => {};
 
-const {types, generate} = putout;
+const {
+    types,
+    generate,
+} = putout;
+
 const {
     RegExpLiteral,
     StringLiteral,
@@ -87,7 +91,10 @@ test('putout: compare: vars: getTemplateValues: setValues: Statement', (t) => {
     
     const input = 'if (1) if (2) 3';
     
-    const {parse, transform} = putout;
+    const {
+        parse,
+        transform,
+    } = putout;
     const ast = parse(input);
     
     transform(ast, input, {
@@ -118,6 +125,7 @@ test('putout: compare: vars: getTemplateValues: __array', (t) => {
 
 test('putout: compare: vars: getTemplateValues: path', (t) => {
     const node = template.ast('const [] = array');
+    
     const path = {
         node,
     };
@@ -430,6 +438,7 @@ test('putout: compare: vars: "__a"', (t) => {
         replace: () => ({
             '__a.replace("__b", __c)': ({__b}, path) => {
                 const value = __b.raw.slice(1, -1);
+                
                 const regexp = {
                     ...RegExpLiteral('xx', 'g'),
                     extra: {
@@ -437,7 +446,9 @@ test('putout: compare: vars: "__a"', (t) => {
                     },
                 };
                 
-                path.get('arguments.0').replaceWith(regexp);
+                path
+                    .get('arguments.0')
+                    .replaceWith(regexp);
                 return path.node;
             },
         }),

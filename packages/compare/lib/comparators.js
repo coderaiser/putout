@@ -2,6 +2,7 @@
 
 const log = require('./log');
 const link = require('./link');
+
 const {
     is,
     isId,
@@ -22,6 +23,7 @@ const {
     isLinkedNode,
     isLinkedRegExp,
 } = require('./is');
+
 const {
     isClassBody,
     isBlock,
@@ -62,10 +64,7 @@ module.exports.runComparators = (node, template, {add, templateStore}) => {
     log(template, node);
     
     for (const compare of comparators) {
-        if (compare(node, template, {
-            add,
-            templateStore,
-        })) {
+        if (compare(node, template, {add, templateStore})) {
             return true;
         }
     }
@@ -128,4 +127,3 @@ function compareJSXTexts(node, template) {
     
     return /^\s+$/.test(template.value) && /^\s+$/.test(node.value);
 }
-

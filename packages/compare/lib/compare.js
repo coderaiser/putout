@@ -141,6 +141,7 @@ module.exports.compareAll = (path, templateNodes, options) => {
     
     return true;
 };
+
 // @babel/template creates empty array directives
 // extra duplicate value
 const ignore = [
@@ -192,4 +193,3 @@ function superCompareIterate(node, template) {
     
     return true;
 }
-

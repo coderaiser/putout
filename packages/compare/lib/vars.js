@@ -4,7 +4,11 @@ const traverse = require('@babel/traverse').default;
 const jessy = require('jessy');
 const nessy = require('nessy');
 const {template} = require('@putout/engine-parser');
-const {replaceWith, extract} = require('@putout/operate');
+const {
+    replaceWith,
+    extract,
+} = require('@putout/operate');
+
 const {
     isIdentifier,
     isStatement,
@@ -92,7 +96,6 @@ function getValues({waysFrom, node}) {
         for (let way of ways) {
             if (isImportsStr(name))
                 way = way.replace(/\.0.local$/, '');
-            
             else if (isArgsStr(name) || isJSXChildrenStr(name) || isJSXAttributesStr(name))
                 way = way.replace(/\.0$/, '');
             
@@ -129,6 +132,7 @@ function setValues({waysTo, values, path}) {
             
             if (isLiteral(values[name]) && isTemplateLiteral(node)) {
                 const {value} = values[name];
+                
                 const element = TemplateElement({
                     raw: makeRaw(value),
                 });
@@ -141,4 +145,3 @@ function setValues({waysTo, values, path}) {
         }
     }
 }
-

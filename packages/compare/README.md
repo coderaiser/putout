@@ -30,7 +30,6 @@ getTemplateValues(node, 'const __array = array');
 ({
     __array: {
         type: 'ArrayPattern',
-        //...etc
     },
 });
 ```
