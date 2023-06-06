@@ -6,10 +6,12 @@ const {
 } = require('putout');
 
 const {compare} = operator;
+
 const {
     isObjectPattern,
     isRestElement,
 } = types;
+
 const notEmptyPlaces = (a) => a.places.length;
 
 module.exports.report = () => 'Object properties should be merged when destructuring';
@@ -34,10 +36,7 @@ module.exports.traverse = ({push, store}) => {
     
     return {
         VariableDeclarator(path) {
-            const {
-                id,
-                init,
-            } = path.node;
+            const {id, init} = path.node;
             
             if (!isObjectPattern(id))
                 return;
@@ -61,7 +60,10 @@ module.exports.traverse = ({push, store}) => {
 
 const createUID = (path) => {
     const {uid} = path.scope;
-    const str = `${uid}-${path.get('init').toString()}`;
+    
+    const str = `${uid}-${path
+        .get('init')
+        .toString()}`;
     
     return str.replace(/['"`]/g, '*');
 };

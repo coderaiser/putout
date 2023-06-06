@@ -74,4 +74,3 @@ test('plugin-merge-destructuring-properties: no transform: removed variable', (t
     });
     t.end();
 });
-

@@ -37,10 +37,7 @@ const {two} = require('numbers');
 ### ✅ Example of correct code
 
 ```js
-const {
-    one,
-    two,
-} = require('numbers');
+const {one, two} = require('numbers');
 ```
 
 ## License
