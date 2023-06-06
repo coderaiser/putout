@@ -89,6 +89,7 @@ test('putout: test: noReport', (t) => {
     };
     
     const message = 'should not report';
+    
     const expected = [
         [
             place,
@@ -145,6 +146,7 @@ test('putout: test: noReportAfterTransform: internal', (t) => {
     };
     
     const message = 'should not report after transform';
+    
     const expected = [
         [
             place,

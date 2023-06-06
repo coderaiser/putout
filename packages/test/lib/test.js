@@ -19,6 +19,7 @@ const isCorrectPlugin = require('./is-correct-plugin');
 const isString = (a) => typeof a === 'string';
 const isObject = (a) => typeof a === 'object';
 const {isArray} = Array;
+
 const {
     keys,
     entries,
@@ -475,8 +476,11 @@ const reportWithOptions = currify((dir, options, t, name, message, ruleOptions) 
         [rule]: ['on', ruleOptions],
     };
     
-    return reportCode({...options,
-        rules, isTS}, t, source, message);
+    return reportCode({
+        ...options,
+        rules,
+        isTS,
+    }, t, source, message);
 });
 
 const noReportWithOptions = currify((dir, options, t, name, ruleOptions) => {
