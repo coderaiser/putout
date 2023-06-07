@@ -17,7 +17,7 @@ const getExpression = (a) => a.expression;
 module.exports.report = () => `Use 'logical expressions' instead of 'if conditions'`;
 
 module.exports.match = () => ({
-    'if(__a) __b; else __c': ({__b, __c}) => {
+    'if (__a) __b; else __c': ({__b, __c}) => {
         if (!isBlockStatement(__b))
             return false;
         
@@ -35,7 +35,7 @@ module.exports.match = () => ({
         
         return true;
     },
-    'if(__a) __b': ({__b}) => {
+    'if (__a) __b': ({__b}) => {
         if (isExpression(__b))
             return true;
         

@@ -23,6 +23,8 @@ npm i @putout/plugin-putout -D
         "putout/apply-declare": "on",
         "putout/add-args": "on",
         "putout/add-push": "on",
+        "putout/check-match": "on",
+        "putout/check-replace-code": "on",
         "putout/convert-putout-test-to-create-test": "on",
         "putout/convert-to-no-transform-code": "on",
         "putout/convert-number-to-numeric": "on",
@@ -43,7 +45,6 @@ npm i @putout/plugin-putout -D
         "putout/convert-report-to-function": "on",
         "putout/create-test": "on",
         "putout/shorten-imports": "on",
-        "putout/check-replace-code": "on",
         "putout/declare": "on",
         "putout/includer": "on",
         "putout/move-require-on-top-level": "on",
@@ -502,8 +503,28 @@ module.exports.replace = () => ({
 });
 ```
 
-There is no `fix` for this rule, it used internally to be more confident about `test coverage`, because of declaration form, transforms cannon be checked by `nyc` and `c8`, and uncovered lines can find unfixable false positives when running on code.
-This is additional tests, if you forget to test some case (from a big list of rules that is supported) it will be checked with this `rule` and make transforms more stable.
+☝️ *There is no `fix` for this rule, it used internally to be more confident about `test coverage`, because of declaration form, transforms cannon be checked by `nyc` and `c8`, and uncovered lines can find unfixable false positives when running on code.
+This is additional tests, if you forget to test some case (from a big list of rules that is supported) it will be checked with this `rule` and make transforms more stable.*
+
+## check-match
+
+Checks that [Replacer](https://github.com/coderaiser/putout/tree/master/packages/engine-runner#replacer) `match()` keys exists in `replace`.
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c245bee6b129614b2f68c2e89fc3b101/d9f935ccd7f41ff166111cd62277f3244b1d526e).
+
+### ❌ Example of incorrect code
+
+```js
+module.exports.match = () => ({
+    '__a = __b': (vars, path) => {},
+});
+
+module.exports.replace = () => ({
+    '__a = __': '__a',
+});
+```
+
+☝️ *There is no `fix` for this rule, it used internally to be more confident about `test coverage`, because of declaration form, transforms cannon be checked by `nyc` and `c8`, and uncovered lines can find unfixable false positives when running on code.
+This is additional tests, if you forget to test some case (from a big list of rules that is supported) it will be checked with this `rule` and make transforms more stable.*
 
 ## declare
 

@@ -72,6 +72,11 @@ test('plugin-putout: check-replace-code: complex: report', (t) => {
     t.end();
 });
 
+test('plugin-putout: check-match: complex: report', (t) => {
+    t.report('check-match', `☝️ Looks like 'match()' template absent in 'replace()'`);
+    t.end();
+});
+
 test('plugin-putout: convert-method-to-property: complex: transform: declare', (t) => {
     t.transform('declare');
     t.end();
