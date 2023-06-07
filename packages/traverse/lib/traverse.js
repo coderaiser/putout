@@ -48,6 +48,7 @@ function traverse(path, visitor) {
         }
         
         const [node, type] = parseTemplate(tmpl);
+        
         const visit = getVisit({
             fn,
             node,
@@ -76,9 +77,7 @@ const getVisit = ({fn, node, tmpl}) => (path) => {
 module.exports.contains = (path, items) => {
     let found = false;
     
-    const {
-        node = path,
-    } = path;
+    const {node = path} = path;
     
     const visit = (path) => {
         found = true;
@@ -95,4 +94,3 @@ module.exports.contains = (path, items) => {
     
     return found;
 };
-

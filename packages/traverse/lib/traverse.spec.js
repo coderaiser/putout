@@ -1,9 +1,15 @@
 'use strict';
 
 const test = require('supertape');
-const {template, parse} = require('putout');
+const {
+    template,
+    parse,
+} = require('putout');
 
-const {traverse, contains} = require('./traverse');
+const {
+    traverse,
+    contains,
+} = require('./traverse');
 
 test('putout: traverse', (t) => {
     const node = template.ast(`
@@ -74,6 +80,7 @@ test('putout: traverse: program: path', (t) => {
     const node = parse('const x = 5');
     
     let found = false;
+    
     const path = {
         node,
     };
@@ -96,6 +103,7 @@ test('putout: traverse: program: template variables', (t) => {
     };
     
     let a;
+    
     traverse(path, {
         'const __a = __b'(path, {__b}) {
             a = __b;
@@ -133,4 +141,3 @@ test('putout: traverse: contains: found', (t) => {
     t.ok(result, 'should found');
     t.end();
 });
-

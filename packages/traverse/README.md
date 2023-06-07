@@ -53,6 +53,7 @@ contains(node, [
     'await __',
     'for await (__ of __) __',
 ]);
+
 // returns
 true;
 ```
