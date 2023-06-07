@@ -12,6 +12,7 @@ module.exports.replace = () => ({
     'const {__a} = {__a: __b}': 'const __a = __b',
     'const [__a] = [__b]': 'const __a = __b',
     'const __a = (() => __b)()': 'const __a = __b',
+    'var __a = (() => __b)()': 'var __a = __b',
     
     'let {__a} = {__a: __b}': 'let __a = __b',
     'let [__a] = [__b]': 'let __a = __b',

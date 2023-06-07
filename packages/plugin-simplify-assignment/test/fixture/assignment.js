@@ -1,6 +1,7 @@
 const {a} = {a: 5};
 const [b] = [5];
 const c = (() => 7)();
+var c1 = (() => 7)();
 
 let {d} = {d: 5};
 let [e] = [5];
