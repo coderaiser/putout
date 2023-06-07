@@ -1,3 +1,26 @@
+2023.06.08, v29.12.4
+
+feature:
+- bc8b5dfbb @putout/plugin-convert-typeof-to-is-type: GENERAL
+- 06e1b7ed6 @putout/plugin-putout: check-match: add
+- 30a84b007 @putout/plugin-simplify-assignment: var support
+- 2046af850 package: @putout/plugin-convert-object-entries-to-array-entries v2.0.0
+- 8c9700b4e @putout/plugin-convert-object-entries-to-array-entries: use @putout/printer
+- 8c3a8ecb6 @putout/plugin-convert-object-entries-to-array-entries: drop support of 🐊 < 29
+- cd10d2f1f @putout/plugin-convert-object-entries-to-array-entries: templates
+- a51fc987f @putout/plugin-putout: check-match: add
+- b79256872 @putout/engine-parser: template: add ability to parse expression
+- 2b26b974b @putout/plugin-react-hook-form: v6-convert-as-to-render: add support of name, onChange
+- cf35764c6 @putout/plugin-appy-destructuring: falsy: add
+- eaa6c501c @putout/plugin-react-hook-form: v7-apply-form-state: false positives
+- fb36bf49d @putout/plugin-cloudcmd: convert-load-dir-to-change-dir: simplify
+- d4d7bf1c3 @putout/opreate: rename: add support of no bindings
+- 5823233ab @putout/plugin-react-hook: v6-convert-trigger-validation-to-trigger: improve
+- 8dbdeafd9 @putout/operate: rename: improve support of deep rename
+- b6fb17155 @putout/plugin-react-hook-form: improve support of v6-convert-trigger-validation-to-trigger
+- c0b21210f eslint-plugin-putout: multiple-properties-destructuring: do not count ImportDefaultSpecifier
+- d8aa5f4bc @putout/eslint: create-plugin: add ability to pass 'options' to 'filter()'
+
 2023.06.06, v29.12.3
 
 feature:
