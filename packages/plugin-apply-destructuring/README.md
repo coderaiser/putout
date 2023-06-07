@@ -21,23 +21,56 @@ npm i @putout/plugin-apply-destructuring
 {
     "rules": {
         "apply-destructuring/object": "on",
-        "apply-destructuring/array": "on"
+        "apply-destructuring/array": "on",
+        "apply-destructuring/falsy": "on"
     }
 }
 ```
+
+## array
 
 ## ❌ Example of incorrect code
 
 ```js
 const first = array[0];
-const name = user.name;
 ```
 
 ## ✅ Example of correct code
 
 ```js
 const [first] = array;
+```
+
+## object
+
+## ❌ Example of incorrect code
+
+```js
+const name = user.name;
+```
+
+## ✅ Example of correct code
+
+```js
 const {name} = user;
+```
+
+## falsy
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c9ed04b421d75ae39e58038fa6e14630/4c097e3173990ec7e5ebabbe2cedf8e952092ebf).
+
+## ❌ Example of incorrect code
+
+```js
+const {maxElementsInOneLine} = {
+    options,
+};
+```
+
+## ✅ Example of correct code
+
+```js
+const {maxElementsInOneLine} = options;
 ```
 
 ## License

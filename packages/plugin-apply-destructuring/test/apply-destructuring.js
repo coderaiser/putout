@@ -49,3 +49,8 @@ test('plugin-apply-destructuring: transform: multiple', (t) => {
     t.transform('multiple');
     t.end();
 });
+
+test('plugin-apply-destructuring: transform: falsy', (t) => {
+    t.transform('falsy');
+    t.end();
+});

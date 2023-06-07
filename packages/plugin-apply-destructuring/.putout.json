@@ -2,8 +2,7 @@
     "printer": "putout",
     "match": {
         "README.md": {
-            "apply-destructuring/object": "off",
-            "apply-destructuring/array": "off"
+            "apply-destructuring": "off"
         }
     }
 }
