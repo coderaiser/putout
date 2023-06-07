@@ -852,7 +852,9 @@ test('putout: runner: replace: watermark after remove', (t) => {
     
     const {code} = putout(source, {
         runPlugins,
-        plugins: ['merge-duplicate-imports', ['remove', remove]],
+        plugins: ['merge-duplicate-imports',
+            ['remove', remove],
+        ],
     });
     
     const expected = montag`

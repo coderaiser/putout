@@ -4,7 +4,6 @@ const {operator} = require('putout');
 const {rename} = operator;
 
 const renameAll = (path) => {
-    debugger;
     rename(path, 'loadDir', 'changeDir');
 };
 
