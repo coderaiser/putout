@@ -15,6 +15,8 @@ const NAMES = {
     symbol: 'isSymbol',
 };
 
+const GENERAL = 'typeof __a === "__b"';
+
 const BODIES = {
     function: `typeof __a === 'function'`,
     string: `typeof __a === 'string'`,
@@ -26,7 +28,7 @@ const BODIES = {
 
 module.exports.report = () => `Use function to check type instead of 'typeof'`;
 module.exports.match = () => ({
-    'typeof __a === "__b"': ({__a, __b}, path) => {
+    [GENERAL]: ({__a, __b}, path) => {
         if (path.parentPath.isFunction())
             return false;
         
