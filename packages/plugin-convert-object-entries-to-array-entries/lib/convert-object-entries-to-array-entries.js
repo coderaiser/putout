@@ -5,7 +5,7 @@ const maybeCompareString = (path) => path.node.operator.includes('==');
 module.exports.report = () => `Use 'array.entries()' instead of 'Object.entries()'`;
 
 module.exports.match = () => ({
-    'for (const [__i, __b] of entries(__c))__d': ({__i}, path) => {
+    'for (const [__i, __a] of entries(__b))__c': ({__i}, path) => {
         const {name} = __i;
         
         if (name !== 'index' && name !== 'i')
