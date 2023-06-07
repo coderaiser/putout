@@ -37,7 +37,7 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    'const __object = __': ({__object}, path) => {
+    'const __object = __a': ({__object}, path) => {
         for (const property of __object.properties) {
             if (isRestElement(property))
                 continue;

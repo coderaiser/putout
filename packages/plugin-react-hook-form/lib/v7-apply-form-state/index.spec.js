@@ -39,3 +39,8 @@ test('plugin-nextjs: v7-apply-form-state: no transform: form-state', (t) => {
     t.noTransform('form-state');
     t.end();
 });
+
+test('plugin-nextjs: v7-apply-form-state: no report: no-init', (t) => {
+    t.noReport('no-init');
+    t.end();
+});
