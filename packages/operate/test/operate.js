@@ -953,6 +953,40 @@ test('putout: operate: rename', (t) => {
     t.end();
 });
 
+test('putout: operate: rename: deep', (t) => {
+    const ast = parse(montag`
+        function main() {
+            const {hello} = c;
+            
+            f(() => {
+                hello();
+            });
+        }
+    `);
+    
+    putout.operator.traverse(ast, {
+        'hello()'(path) {
+            operate.rename(path, 'hello', 'world');
+        },
+    });
+    
+    const result = print(ast, {
+        printer: 'putout',
+    });
+    const expected = montag`
+        function main() {
+            const {world} = c;
+            
+            f(() => {
+                world();
+            });
+        }\n
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
 test('putout: operate: remove: already removed', (t) => {
     const source = `
         let a;

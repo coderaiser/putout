@@ -6,8 +6,9 @@ const {rename} = operator;
 module.exports.report = () => `Use 'trigger()' instead of 'triggerValidation()'`;
 
 module.exports.fix = (path) => {
-    const program = path.scope.getProgramParent().path;
-    rename(program, 'triggerValidation', 'trigger');
+    //const program = path.scope.getProgramParent().path;
+    const bindingPath = path.scope.getAllBindings().triggerValidation.path;
+    rename(bindingPath, 'triggerValidation', 'trigger');
 };
 
 module.exports.include = () => [

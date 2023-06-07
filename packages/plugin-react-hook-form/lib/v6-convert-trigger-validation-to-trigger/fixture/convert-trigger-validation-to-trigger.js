@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
 
-const { register, triggerValidation, errors } = useFormContext();
+function main() {
+    const { register, triggerValidation, errors } = useFormContext();
 
-async function main() {
-    await triggerValidation();
+    useMemo(async () => {
+        await triggerValidation();
+    }, [triggerValidation]);
 }
