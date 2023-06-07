@@ -32,8 +32,8 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    'const __a: __ = __c': removeType,
-    'let __a: __ = __c': removeType,
+    'const __a: __ = __b': removeType,
+    'let __a: __ = __b': removeType,
 });
 
 function getType(node) {

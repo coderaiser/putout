@@ -25,8 +25,8 @@ const onceAnyNoResult = template(`await once(%%emitter%%, %%event%%)`);
 module.exports.report = () => '"await once" should be used';
 
 module.exports.match = () => ({
-    'test(__a, (__args) => __body )': match,
-    'test(__a, async (__args) => __body )': match,
+    'test(__a, (__args) => __body)': match,
+    'test(__a, async (__args) => __body)': match,
 });
 
 module.exports.replace = () => ({
