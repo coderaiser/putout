@@ -19,11 +19,7 @@ export function toPlace({reason, line, column, source, ruleId}) {
 }
 
 function parseWatermark({reason, ruleId, source}) {
-    const [
-        watermark,
-        remarkRule,
-        message,
-    ] = reason.split(': ');
+    const [watermark, remarkRule, message] = reason.split(': ');
     
     if (watermark === 'putout') {
         const rule = `${remarkRule} (${source})`;

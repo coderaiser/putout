@@ -67,11 +67,7 @@ function parseArray(rule, args) {
     const state = parseState(rule, rawState);
     
     if (args.length === 3) {
-        const [
-            ,
-            msg,
-            options,
-        ] = args;
+        const [, msg, options] = args;
         
         return {
             rule,
@@ -82,11 +78,7 @@ function parseArray(rule, args) {
         };
     }
     
-    const [
-        ,
-        msg = '',
-        options = defaultOptions(),
-    ] = args;
+    const [, msg = '', options = defaultOptions()] = args;
     
     if (args.length === 2 && !isStr(msg)) {
         return {
