@@ -1,10 +1,22 @@
 'use strict';
 
-const {types} = require('putout');
 const {
-    ArrowFunctionExpression,
+    types,
+    template,
+} = require('putout');
+
+const {
+    Identifier,
+    JSXExpressionContainer,
+    JSXIdentifier,
     isJSXSpreadAttribute,
+    JSXAttribute,
 } = types;
+
+const ARROW = template(`({fieldset}) => {
+    const {value, onChange} = fieldset;
+    return (%%expression%%);
+}`);
 
 module.exports.report = () => `Use 'render' instead of 'as' in '<Control/>' elements`;
 
@@ -51,7 +63,14 @@ module.exports.replace = () => ({
                 
                 const {expression} = attr.value;
                 
-                attr.value.expression = ArrowFunctionExpression([], expression);
+                const onChangeAttribute = JSXAttribute(JSXIdentifier('onChange'), JSXExpressionContainer(Identifier('onChange')));
+                const nameAttribute = JSXAttribute(JSXIdentifier('name'), JSXExpressionContainer(Identifier('name')));
+                
+                expression.openingElement.attributes.unshift(...[nameAttribute, onChangeAttribute]);
+                
+                attr.value.expression = ARROW({
+                    expression,
+                });
                 
                 break;
             }

@@ -4,14 +4,30 @@ const a = (
 
 const b = (
     <Controller
-        render={() => <CustomInput/>}
+        render={({fieldset}) => {
+            const {
+                value,
+                onChange,
+            } = fieldset;
+            return (
+                <CustomInput name={name} onChange={onChange}/>
+            );
+        }}
         name={name}
     />
 );
 
 const c = (
     <Controller
-        render={() => <CustomInput/>}
+        render={({fieldset}) => {
+            const {
+                value,
+                onChange,
+            } = fieldset;
+            return (
+                <CustomInput name={name} onChange={onChange}/>
+            );
+        }}
         rules={rules}
         name={name}
     />
@@ -19,7 +35,15 @@ const c = (
 
 const d = (
     <Controller
-        render={() => <CustomInput/>}
+        render={({fieldset}) => {
+            const {
+                value,
+                onChange,
+            } = fieldset;
+            return (
+                <CustomInput name={name} onChange={onChange}/>
+            );
+        }}
         rules={rules}
         name={name}
         onChange={onChange}
@@ -28,7 +52,15 @@ const d = (
 
 const e = (
     <Controller
-        render={() => <CustomInput/>}
+        render={({fieldset}) => {
+            const {
+                value,
+                onChange,
+            } = fieldset;
+            return (
+                <CustomInput name={name} onChange={onChange}/>
+            );
+        }}
         rules={rules}
         name={name}
         onChange={onChange}

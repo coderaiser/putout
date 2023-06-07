@@ -1,10 +1,18 @@
 import {TextInput} from 'react-native';
 
 <Controller
-    render={() => <TextInput style={{
-        borderWidth: 2,
-        borderColor: 'black',
-    }}/>}
+    render={({fieldset}) => {
+        const {
+            value,
+            onChange,
+        } = fieldset;
+        return (
+            <TextInput name={name} onChange={onChange} style={{
+                borderWidth: 2,
+                borderColor: 'black',
+            }}/>
+        );
+    }}
     name="text"
     control={(args) => args[0].nativeEvent.text}
     onChange={onChange}
