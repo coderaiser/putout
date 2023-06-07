@@ -14,4 +14,7 @@ module.exports.include = () => [
     'triggerValidation(__args)',
 ];
 
-module.exports.filter = (path) => path.scope.bindings.triggerValidation;
+module.exports.filter = ({scope}) => {
+    const bindings = scope.getAllBindings();
+    return bindings.triggerValidation;
+};

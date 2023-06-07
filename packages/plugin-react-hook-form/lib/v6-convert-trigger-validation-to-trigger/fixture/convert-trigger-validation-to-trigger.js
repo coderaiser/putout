@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 
-const { register, triggerValidation, errors } = useForm();
+const { register, triggerValidation, errors } = useFormContext();
 
-triggerValidation();
+async function main() {
+    await triggerValidation();
+}

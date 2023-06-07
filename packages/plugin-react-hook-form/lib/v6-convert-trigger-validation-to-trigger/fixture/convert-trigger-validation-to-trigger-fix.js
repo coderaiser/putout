@@ -4,6 +4,8 @@ const {
     register,
     trigger,
     errors,
-} = useForm();
+} = useFormContext();
 
-trigger();
+async function main() {
+    await trigger();
+}
