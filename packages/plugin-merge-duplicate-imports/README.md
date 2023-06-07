@@ -35,9 +35,7 @@ import {stub} from 'supertape';
 ## ✅ Example of correct code
 
 ```js
-import test, {
-    stub,
-} from 'supertape';
+import test, {stub} from 'supertape';
 ```
 
 ## License

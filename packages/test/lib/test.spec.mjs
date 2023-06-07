@@ -1,7 +1,5 @@
 import removeConsoleFixture from '../test/fixture/remove-console.js';
-import _createTest, {
-    createTest,
-} from './test.mjs';
+import _createTest, {createTest} from './test.mjs';
 import cjsTest from './test.js';
 import formatter from '@putout/formatter-dump';
 

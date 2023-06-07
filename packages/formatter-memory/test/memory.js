@@ -1,8 +1,6 @@
 import {createTest} from '@putout/test';
 import rmUnused from '@putout/plugin-remove-unused-variables';
-import progress, {
-    maybeZero,
-} from '../lib/memory.js';
+import progress, {maybeZero} from '../lib/memory.js';
 
 const test = createTest(import.meta.url, {
     'remove-unused-variables': rmUnused,

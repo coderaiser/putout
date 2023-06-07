@@ -117,9 +117,7 @@ Remove import of `React` in a similar to [react-codemod](https://github.com/reac
 ### ❌ Example of incorrect code
 
 ```jsx
-import React, {
-    useState,
-} from 'react';
+import React, {useState} from 'react';
 ```
 
 ### ✅ Example of correct code
@@ -133,9 +131,7 @@ import {useState} from 'react';
 Consider example using `class`:
 
 ```jsx
-import React, {
-    Component,
-} from 'react';
+import React, {Component} from 'react';
 
 export default class Button extends Component {
     constructor() {
@@ -170,9 +166,7 @@ export default class Button extends Component {
 After `putout --fix` transform, you will receive:
 
 ```jsx
-import React, {
-    useState,
-} from 'react';
+import React, {useState} from 'react';
 
 export default function Button() {
     const [enabled, setEnabled] = useState(true);
