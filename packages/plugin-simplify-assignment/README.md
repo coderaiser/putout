@@ -27,6 +27,7 @@ npm i @putout/plugin-simplify-assignment -D
 const {a} = {
     a: 5,
 };
+
 const [b] = [5];
 const c = (() => 7)();
 ```

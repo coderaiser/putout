@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const simplifyAssignment = require('..');
 
 const test = createTest(__dirname, {
-    'simplify-assignment': simplifyAssignment,
+    printer: 'putout',
+    plugins: [
+        ['simplify-assignment', simplifyAssignment],
+    ],
 });
 
 test('plugin-simplify-assignment: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-simplify-assignment: no transform: iife', (t) => {
     t.noTransform('iife');
     t.end();
 });
-

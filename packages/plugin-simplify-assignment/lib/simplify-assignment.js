@@ -39,4 +39,3 @@ function check(vars, path) {
     
     return is;
 }
-
