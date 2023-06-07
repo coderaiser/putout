@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('..');
 
 const test = createTest(__dirname, {
-    'convert-object-entries-to-array-entries': plugin,
+    printer: 'putout',
+    plugins: [
+        ['convert-object-entries-to-array-entries', plugin],
+    ],
 });
 
 test('plugin-convert-object-entries-to-array-entries: report', (t) => {
@@ -31,4 +34,3 @@ test('plugin-convert-object-entries-to-array-entries: no transform: no-operation
     t.noTransform('no-operation');
     t.end();
 });
-

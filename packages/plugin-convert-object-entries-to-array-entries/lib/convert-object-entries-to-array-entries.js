@@ -28,4 +28,3 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     'for (const [__i, __a] of entries(__b))__c': 'for (const [__i, __a] of __b.entries()) __c',
 });
-

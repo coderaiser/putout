@@ -1,3 +1,1 @@
-for (const [index, fn] of entries(visitor)) {
-}
-
+for (const [index, fn] of entries(visitor)) {}
