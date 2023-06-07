@@ -1,9 +1,5 @@
-import test, {
-    stub,
-} from 'supertape';
-import putout, {
-    load,
-} from './putout.mjs';
+import test, {stub} from 'supertape';
+import putout, {load} from './putout.mjs';
 
 test('putout: esm: load', async (t) => {
     const defaultLoad = stub().returns({

@@ -37,7 +37,10 @@ export const transformSource = (source, context) => {
         };
     }
     
-    const {code} = putout(source, options);
+    const {code} = putout(source, {
+        printer: 'putout',
+        ...options,
+    });
     
     return {
         source: code,
