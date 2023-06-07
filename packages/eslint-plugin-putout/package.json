@@ -51,6 +51,7 @@
     "align-spaces": "^1.0.0",
     "eslint-plugin-n": "^16.0.0",
     "eslint-plugin-react": "^7.32.2",
+    "parse-import-specifiers": "^1.0.1",
     "try-catch": "^3.0.0",
     "typescript": "^5.0.4"
   },

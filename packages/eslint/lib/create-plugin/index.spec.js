@@ -47,6 +47,47 @@ test('@putout/eslint: create-plugin: filter', (t) => {
     t.end();
 });
 
+test('@putout/eslint: create-plugin: filter: options', (t) => {
+    const {create} = createPlugin({
+        include: () => [
+            'DebuggerStatement',
+        ],
+        filter: (path, options) => options,
+        report: () => `Avoid 'debugger'`,
+        fix: () => '',
+    });
+    
+    const replaceText = stub();
+    
+    const context = {
+        options: {},
+        sourceCode: {
+            getText: stub(),
+            getCommentsBefore: stub(),
+            getCommentsAfter: stub(),
+            getCommentsInside: stub(),
+        },
+        filename: 'hello.js',
+        report: ({fix}) => fix({
+            replaceText,
+        }),
+    };
+    
+    const result = create(context);
+    const node = {};
+    
+    result.DebuggerStatement({
+        node,
+    });
+    
+    const expected = [{
+        node,
+    }, ''];
+    
+    t.calledWith(replaceText, expected);
+    t.end();
+});
+
 test('@putout/eslint: create-plugin: createGetSpacesBeforeNode', (t) => {
     const getText = stub().returns('hello');
     

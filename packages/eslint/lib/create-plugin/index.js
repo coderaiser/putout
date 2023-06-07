@@ -34,7 +34,7 @@ const prepare = (plugin, context, options) => (node) => {
         getSpacesBeforeNode,
         getSpacesAfterNode,
         filename,
-    });
+    }, options);
     
     if (!result)
         return;

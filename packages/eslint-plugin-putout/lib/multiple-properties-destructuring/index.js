@@ -1,6 +1,7 @@
 'use strict';
 
 const {isImportDeclaration} = require('putout').types;
+const {parseImportSpecifiers} = require('parse-import-specifiers');
 const {
     isCorrectLoc,
     isCorrectImportLoc,
@@ -26,8 +27,14 @@ module.exports.filter = ({node}) => {
     } = node;
     const {line} = node.loc.start;
     
-    if (isImportDeclaration(node))
+    if (isImportDeclaration(node)) {
+        const {defaults, imports} = parseImportSpecifiers(node.specifiers);
+        
+        if (defaults.length === 1 && imports.length > 2)
+            return false;
+        
         return !isCorrectImportLoc(line, specifiers);
+    }
     
     if (parent.parent && parent.parent.type === 'ForOfStatement')
         return false;

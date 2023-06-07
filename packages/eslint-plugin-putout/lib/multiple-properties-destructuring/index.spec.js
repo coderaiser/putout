@@ -36,6 +36,7 @@ ruleTester.run('multiple-properties-destructuring', rule, {
             m as b,
             z
         } from 'y';
+        import test, {stub} from 'supertape';
     `],
     invalid: [{
         code: `const {x, y} = screen;`,
