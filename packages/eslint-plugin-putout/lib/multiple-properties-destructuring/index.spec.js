@@ -16,6 +16,7 @@ const message = 'Keep each property on separate lines when using multiple destru
 
 ruleTester.run('multiple-properties-destructuring', rule, {
     valid: [
+        `import test, {stub} from 'supertape';`,
         `const {
             a,
             b,
@@ -36,7 +37,6 @@ ruleTester.run('multiple-properties-destructuring', rule, {
             m as b,
             z
         } from 'y';
-        import test, {stub} from 'supertape';
     `],
     invalid: [{
         code: `const {x, y} = screen;`,

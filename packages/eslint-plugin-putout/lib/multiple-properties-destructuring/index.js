@@ -10,8 +10,15 @@ const {
 module.exports.category = 'destructuring';
 module.exports.report = () => 'Keep each property on separate lines when using multiple destructuring properties';
 
-module.exports.include = ({options}) => {
+const parseOptions = (options) => {
     const {minProperties = 2} = options[0] || {};
+    return {
+        minProperties,
+    };
+};
+
+module.exports.include = ({options}) => {
+    const {minProperties} = parseOptions(options);
     
     return [
         `VariableDeclarator[id.type="ObjectPattern"][id.properties.length>${minProperties}]`,
@@ -19,18 +26,19 @@ module.exports.include = ({options}) => {
     ];
 };
 
-module.exports.filter = ({node}) => {
+module.exports.filter = ({node}, options) => {
+    const {minProperties} = parseOptions(options);
+    const {line} = node.loc.start;
     const {
         id,
         specifiers,
         parent,
     } = node;
-    const {line} = node.loc.start;
     
     if (isImportDeclaration(node)) {
         const {defaults, imports} = parseImportSpecifiers(node.specifiers);
         
-        if (defaults.length === 1 && imports.length > 2)
+        if (defaults.length === 1 && imports.length < minProperties)
             return false;
         
         return !isCorrectImportLoc(line, specifiers);
