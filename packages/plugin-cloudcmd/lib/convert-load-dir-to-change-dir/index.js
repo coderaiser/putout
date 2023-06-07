@@ -4,8 +4,8 @@ const {operator} = require('putout');
 const {rename} = operator;
 
 const renameAll = (path) => {
-    const program = path.scope.getProgramParent().path;
-    rename(program, 'loadDir', 'changeDir');
+    debugger;
+    rename(path, 'loadDir', 'changeDir');
 };
 
 module.exports.report = () => `Use 'CloudCmd.changeDir()' instead of 'CloudCmd.loadDir()'`;
