@@ -987,6 +987,23 @@ test('putout: operate: rename: deep', (t) => {
     t.end();
 });
 
+test('putout: operate: rename: no bindings', (t) => {
+    const ast = parse('hello();');
+    
+    putout.operator.traverse(ast, {
+        'hello()'(path) {
+            operate.rename(path, 'hello', 'world');
+        },
+    });
+    
+    const result = print(ast, {
+        printer: 'putout',
+    });
+    
+    t.equal(result, 'hello();\n');
+    t.end();
+});
+
 test('putout: operate: remove: already removed', (t) => {
     const source = `
         let a;
