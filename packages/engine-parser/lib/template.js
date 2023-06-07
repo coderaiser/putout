@@ -20,7 +20,10 @@ module.exports = nanomemoize((value, options) => {
         ...options,
     });
     
-    return fn;
+    return (...a) => {
+        const result = fn(...a);
+        return result.expression || result;
+    };
 });
 
 module.exports.ast = nanomemoize((value, options) => {

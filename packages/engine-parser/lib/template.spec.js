@@ -18,11 +18,11 @@ test('parser: template', (t) => {
         event: StringLiteral('end'),
     });
     
-    t.equal(result.type, 'ExpressionStatement');
+    t.equal(result.type, 'AwaitExpression');
     t.end();
 });
 
-test('parser: template: expression', (t) => {
+test('parser: template: statement', (t) => {
     const buildRequire = template(`
       var %%importName%% = require(%%source%%);
     `);
@@ -112,5 +112,16 @@ test('parser: template: program', (t) => {
     });
     
     t.equal(ast.type, 'Program');
+    t.end();
+});
+
+test('parser: template: expression', (t) => {
+    const buildArrow = template('() => %%x%%');
+    
+    const ast = buildArrow({
+        x: StringLiteral('my-module'),
+    });
+    
+    t.equal(ast.type, 'ArrowFunctionExpression');
     t.end();
 });
