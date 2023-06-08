@@ -20,7 +20,7 @@ const TO = `{
 }`;
 
 module.exports.match = () => ({
-    [FROM]({__b}, path) {
+    FROM({__b}, path) {
         const nextNode = path.getNextSibling();
         return compare(nextNode, `return ${__b.name}`);
     },
@@ -28,8 +28,9 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     [FROM]: (vars, path) => {
-        path.getNextSibling().remove();
+        path
+            .getNextSibling()
+            .remove();
         return TO;
     },
 });
-
