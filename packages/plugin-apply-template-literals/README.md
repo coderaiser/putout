@@ -29,7 +29,8 @@ npm i @putout/plugin-apply-template-literals
 ## ❌ Example of incorrect code
 
 ```js
-const line = '("' + name + '")';
+const line = '("' + name +
+    '")';
 ```
 
 ## ✅ Example of correct code

@@ -52,10 +52,7 @@ export function disable(rule, config) {
         return config;
     
     if (isTuple(config.rules[rule]))
-        config.rules[rule] = [
-            'off',
-            config.rules[rule][1],
-        ];
+        config.rules[rule] = ['off', config.rules[rule][1]];
     else
         config.rules[rule] = 'off';
     
