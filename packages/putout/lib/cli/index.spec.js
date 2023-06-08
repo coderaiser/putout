@@ -182,11 +182,7 @@ test('putout: cli: --raw: parse error', async (t) => {
 });
 
 test('putout: cli: --format: ci', async (t) => {
-    const argv = [
-        __filename,
-        '--no-config',
-        '--ci',
-    ];
+    const argv = [__filename, '--no-config', '--ci'];
     
     const process = stub().returns({
         places: [{
@@ -280,10 +276,7 @@ test('putout: cli: --format: specified twice', async (t) => {
 test('putout: cli: no ide', async (t) => {
     const name = basename(__filename);
     
-    const argv = [
-        name,
-        '--fresh',
-    ];
+    const argv = [name, '--fresh'];
     
     const processFile = stub().returns(stub().returns({
         places: [],
@@ -361,10 +354,7 @@ test('putout: cli: no ide', async (t) => {
 test('putout: cli: ide: web storm', async (t) => {
     const name = basename(__filename);
     
-    const argv = [
-        name,
-        '--fresh',
-    ];
+    const argv = [name, '--fresh'];
     
     const {TERMINAL_EMULATOR} = process.env;
     
@@ -455,10 +445,7 @@ test('putout: cli: ide: web storm', async (t) => {
 test('putout: cli: ide: vs code', async (t) => {
     const name = basename(__filename);
     
-    const argv = [
-        name,
-        '--fresh',
-    ];
+    const argv = [name, '--fresh'];
     
     const {TERM_PROGRAM} = process.env;
     
@@ -529,10 +516,7 @@ test('putout: cli: ide: vs code', async (t) => {
 test('putout: cli: ide: vs code: cache', async (t) => {
     const name = basename(__filename);
     
-    const argv = [
-        name,
-        '--cache',
-    ];
+    const argv = [name, '--cache'];
     
     const {TERM_PROGRAM} = process.env;
     
@@ -603,10 +587,7 @@ test('putout: cli: ide: vs code: cache', async (t) => {
 test('putout: cli: no ide: cache', async (t) => {
     const name = basename(__filename);
     
-    const argv = [
-        name,
-        '--cache',
-    ];
+    const argv = [name, '--cache'];
     
     const {TERMINAL_EMULATOR} = process.env;
     
@@ -1525,10 +1506,7 @@ test('putout: cli: fix', async (t) => {
     
     stopAll();
     
-    t.calledWith(writeFile, [
-        __filename,
-        'hello',
-    ]);
+    t.calledWith(writeFile, [__filename, 'hello']);
     t.end();
 });
 
@@ -1770,11 +1748,7 @@ test('putout: cli: exit code: PLACE', async (t) => {
 });
 
 test('putout: cli: get files: called with ignore option', async (t) => {
-    const argv = [
-        __filename,
-        '--no-ci',
-        '--no-cache',
-    ];
+    const argv = [__filename, '--no-ci', '--no-cache'];
     
     const ignore = [
         'xxx',
@@ -1862,11 +1836,7 @@ test('putout: cli: get files: was stop', async (t) => {
 });
 
 test('putout: cli: get files: was stop: no', async (t) => {
-    const argv = [
-        __filename,
-        '--no-cache',
-        '--no-config',
-    ];
+    const argv = [__filename, '--no-cache', '--no-config'];
     
     const ignore = [
         'xxx',
@@ -2231,11 +2201,7 @@ test('putout: processor: invalid config', async (t) => {
 });
 
 test('putout: processor: invalid config: message', async (t) => {
-    const argv = [
-        __filename,
-        '-f',
-        'dump',
-    ];
+    const argv = [__filename, '-f', 'dump'];
     
     const logError = stub();
     

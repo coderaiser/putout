@@ -127,15 +127,9 @@ function splitRule(rule) {
     const name = rule.replace('babel/', '');
     
     if (rule.startsWith('babel'))
-        return [
-            name,
-            'babel',
-        ];
+        return [name, 'babel'];
     
-    return [
-        name,
-        'putout',
-    ];
+    return [name, 'putout'];
 }
 
 function loadPlugins({items, loadedRules}) {

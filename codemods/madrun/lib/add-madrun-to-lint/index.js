@@ -38,16 +38,10 @@ function getValue(body) {
         ];
     
     if (!isTemplateLiteral(body))
-        return [
-            body,
-            '',
-        ];
+        return [body, ''];
     
     if (body.expressions.length)
-        return [
-            body,
-            '',
-        ];
+        return [body, ''];
     
     const [line] = body.quasis;
     

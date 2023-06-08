@@ -11,10 +11,7 @@ module.exports.mergeShebang = (shebang, source) => {
 
 module.exports.cutShebang = (source) => {
     if (source.indexOf('#'))
-        return [
-            source,
-            '',
-        ];
+        return [source, ''];
     
     const lines = source.split('\n');
     
