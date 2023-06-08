@@ -397,12 +397,6 @@ test('putout: cli: ide: web storm', async (t) => {
     });
     
     const simpleImport = async (url) => {
-        /*
-        if (url.includes('ruler'))
-            return {
-                ruler,
-            };
-            */
         if (url === 'chalk')
             return {
                 red: stub(),
@@ -1016,7 +1010,7 @@ test('putout: cli: ruler: --enable', async (t) => {
         writeFile,
     };
     
-    t.calledWith(ruler, [args, places]);
+    t.calledWith(ruler, [places, args]);
     t.end();
 });
 

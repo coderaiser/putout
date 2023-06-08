@@ -202,12 +202,12 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (enable || disable) {
         const {ruler} = await simpleImport('@putout/cli-ruler');
         
-        ruler({
+        ruler([], {
             enable,
             disable,
             readFile,
             writeFile,
-        }, []);
+        });
     }
     
     const noConfig = !args.config;
@@ -334,12 +334,12 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (enableAll || disableAll) {
         const {ruler} = await simpleImport('@putout/cli-ruler');
         
-        await ruler({
+        await ruler(places, {
             enableAll,
             disableAll,
             readFile,
             writeFile,
-        }, places);
+        });
     }
     
     if (fix && staged) {
