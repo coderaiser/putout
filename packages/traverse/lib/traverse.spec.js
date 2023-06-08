@@ -1,6 +1,7 @@
 'use strict';
 
 const test = require('supertape');
+
 const {
     template,
     parse,
