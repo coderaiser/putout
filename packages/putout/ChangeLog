@@ -1,3 +1,12 @@
+2023.06.08, v29.12.5
+
+feature:
+- 7f14546b5 package: @putout/plugin-apply-early-return v3.0.0
+- ce901bbe8 @putout/printer: filter out Identifiers
+- 8637da9d4 @putout/plugin-apply-early-return: drop support of 🐊 < 29
+- 0ecf64c9b @putout/plugin-apply-eary-return: use @putout/printer
+- 1ee397bac @putout/plugin-react-hook-form: v6-convert-as-to-render: fieldset -> field
+
 2023.06.08, v29.12.4
 
 feature:
