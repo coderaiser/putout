@@ -19,3 +19,8 @@ test('plugin-apply-early-return: transform: else', (t) => {
     t.transform('else');
     t.end();
 });
+
+test('plugin-apply-early-return: no transform: no-return', (t) => {
+    t.noTransform('no-return');
+    t.end();
+});

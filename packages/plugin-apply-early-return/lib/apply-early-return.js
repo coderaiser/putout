@@ -1,6 +1,11 @@
 'use strict';
 
-const {operator} = require('putout');
+const {
+    operator,
+    types,
+} = require('putout');
+
+const {isIdentifier} = types;
 const {compare} = operator;
 
 module.exports.report = () => `Apply early return`;
@@ -20,8 +25,12 @@ const TO = `{
 }`;
 
 module.exports.match = () => ({
-    FROM({__b}, path) {
+    [FROM]: ({__b}, path) => {
+        if (!isIdentifier(__b))
+            return;
+        
         const nextNode = path.getNextSibling();
+        
         return compare(nextNode, `return ${__b.name}`);
     },
 });
@@ -31,6 +40,7 @@ module.exports.replace = () => ({
         path
             .getNextSibling()
             .remove();
+        
         return TO;
     },
 });
