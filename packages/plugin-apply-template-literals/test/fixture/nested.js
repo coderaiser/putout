@@ -1,1 +1,3 @@
-`${message} ${gray('(' + rule + ')')}`;
+`${message} ${gray(
+    '(' + rule +
+    ')')}`;
