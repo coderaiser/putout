@@ -1,3 +1,10 @@
+2023.06.08, v29.12.6
+
+feature:
+- 7278b3551 package: @putout/cli-ruler v3.0.0
+- 9d838b92d @putout/cli-ruler: drop support of node < 16
+- 57e02838f @putout/cli-ruler: change args
+
 2023.06.08, v29.12.5
 
 feature:
