@@ -61,7 +61,7 @@ export default {
     'fix:lint:fresh': async () => await run('fix:lint', '--fresh'),
     'fix:lint:cache': async () => await run('lint:cache', '--fix'),
     'fix:lint:slow': () => 'lerna run --no-bail fix:lint',
-    'bootstrap': () => 'lerna bootstrap',
+    'bootstrap': () => 'npm install',
     'report': () => 'c8 report --reporter=lcov',
     'prepare': () => 'husky install',
     'copy': () => 'node scripts/copy.js',

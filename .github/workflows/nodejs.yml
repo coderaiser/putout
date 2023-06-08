@@ -19,10 +19,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install Redrun, Lerna
-        run: npm i redrun lerna -g
-      - name: Bootstrap
-        run: lerna bootstrap
+      - name: Install Redrun
+        run: npm i npm redrun -g
+      - name: Install
+        run: npm i
       - name: Lint
         run: redrun fix:lint
       - uses: actions-rs/toolchain@v1
