@@ -13,7 +13,7 @@ const {
     JSXAttribute,
 } = types;
 
-const ARROW = template(`({fieldset}) => {
+const ARROW = template(`({field}) => {
     const {value, onChange} = fieldset;
     return (%%expression%%);
 }`);
@@ -46,9 +46,12 @@ module.exports.replace = () => ({
     />
     `]: ({__a, __b, __c}) => `
         <Controller
-            render={({onChange, onBlur, value}) => (
-                <${__a.name} ${__c.value}={onChange} onBlur={onBlur} ${__b.value}={value} />
-            )}
+            render={({field}) => {
+                const {value, onChange} = field;
+                return (
+                    <${__a.name} ${__c.value}={onChange} onBlur={onBlur} ${__b.value}={value} />
+                )
+            }}
           control={__d}
           name="__e"
         />

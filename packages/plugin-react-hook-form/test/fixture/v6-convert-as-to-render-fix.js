@@ -1,10 +1,18 @@
 const a = (
-    <Controller render={({onChange, onBlur, value}) => <CustomInput onTextChange={onChange} onBlur={onBlur} textValue={value}/>} control={control} name="test"/>
+    <Controller render={({field}) => {
+        const {
+            value,
+            onChange,
+        } = field;
+        return (
+            <CustomInput onTextChange={onChange} onBlur={onBlur} textValue={value}/>
+        );
+    }} control={control} name="test"/>
 );
 
 const b = (
     <Controller
-        render={({fieldset}) => {
+        render={({field}) => {
             const {
                 value,
                 onChange,
@@ -19,7 +27,7 @@ const b = (
 
 const c = (
     <Controller
-        render={({fieldset}) => {
+        render={({field}) => {
             const {
                 value,
                 onChange,
@@ -35,7 +43,7 @@ const c = (
 
 const d = (
     <Controller
-        render={({fieldset}) => {
+        render={({field}) => {
             const {
                 value,
                 onChange,
@@ -52,7 +60,7 @@ const d = (
 
 const e = (
     <Controller
-        render={({fieldset}) => {
+        render={({field}) => {
             const {
                 value,
                 onChange,

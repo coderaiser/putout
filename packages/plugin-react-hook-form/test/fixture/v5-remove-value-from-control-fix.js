@@ -1,7 +1,7 @@
 import {TextInput} from 'react-native';
 
 <Controller
-    render={({fieldset}) => {
+    render={({field}) => {
         const {
             value,
             onChange,
