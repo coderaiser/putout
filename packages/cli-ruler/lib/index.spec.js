@@ -2,7 +2,6 @@ import {
     test,
     stub,
 } from 'supertape';
-
 import {ruler} from './index.js';
 
 const {stringify} = JSON;
@@ -15,7 +14,11 @@ test('putout: cli: ruler-processor: read', async (t) => {
     const readFile = stub().returns('{}');
     const writeFile = stub();
     
-    await ruler({enable, readFile, writeFile}, places);
+    await ruler(places, {
+        enable,
+        readFile,
+        writeFile,
+    });
     
     const name = `${process.cwd()}/.putout.json`;
     
@@ -30,9 +33,14 @@ test('putout: cli: ruler-processor: read: error', async (t) => {
     const readFile = stub().returns(reject('no file'));
     const writeFile = stub();
     
-    await ruler({enable, readFile, writeFile}, places);
+    await ruler(places, {
+        enable,
+        readFile,
+        writeFile,
+    });
     
     const name = `${process.cwd()}/.putout.json`;
+    
     const expected = stringify({
         rules: {
             'remove-unused-variables': 'on',
@@ -50,9 +58,14 @@ test('putout: cli: ruler-processor: write', async (t) => {
     const enable = 'remove-unused-variables';
     const places = [];
     
-    await ruler({enable, readFile, writeFile}, places);
+    await ruler(places, {
+        enable,
+        readFile,
+        writeFile,
+    });
     
     const name = `${process.cwd()}/.putout.json`;
+    
     const expected = stringify({
         rules: {
             'remove-unused-variables': 'on',
@@ -70,9 +83,14 @@ test('putout: cli: ruler-processor: disable', async (t) => {
     const disable = 'remove-unused-variables';
     const places = [];
     
-    await ruler({disable, readFile, writeFile}, places);
+    await ruler(places, {
+        disable,
+        readFile,
+        writeFile,
+    });
     
     const name = `${process.cwd()}/.putout.json`;
+    
     const expected = stringify({
         rules: {
             'remove-unused-variables': 'off',
@@ -85,6 +103,7 @@ test('putout: cli: ruler-processor: disable', async (t) => {
 
 test('putout: cli: ruler-processor: enable all', async (t) => {
     const writeFile = stub();
+    
     const readFile = stub().returns(stringify({
         rules: {
             'remove-debugger': 'off',
@@ -93,15 +112,21 @@ test('putout: cli: ruler-processor: enable all', async (t) => {
     }));
     
     const enableAll = true;
+    
     const places = [{
         rule: 'remove-unused-variables',
     }, {
         rule: 'remove-debugger',
     }];
     
-    await ruler({enableAll, readFile, writeFile}, places);
+    await ruler(places, {
+        enableAll,
+        readFile,
+        writeFile,
+    });
     
     const name = `${process.cwd()}/.putout.json`;
+    
     const expected = stringify({
         rules: {
             'remove-debugger': 'on',
@@ -120,18 +145,24 @@ test('putout: cli: ruler-processor: disable all', async (t) => {
             'remove-unused-variables': 'off',
         },
     }));
-    const writeFile = stub();
     
+    const writeFile = stub();
     const disableAll = true;
+    
     const places = [{
         rule: 'remove-unused-variables',
     }, {
         rule: 'remove-debugger',
     }];
     
-    await ruler({disableAll, readFile, writeFile}, places);
+    await ruler(places, {
+        disableAll,
+        readFile,
+        writeFile,
+    });
     
     const name = `${process.cwd()}/.putout.json`;
+    
     const expected = stringify({
         rules: {
             'remove-debugger': 'off',
@@ -150,16 +181,17 @@ test('putout: cli: ruler-processor: no option', async (t) => {
             'remove-unused-variables': 'off',
         },
     }));
+    
     const writeFile = stub();
     const places = [];
     
-    const options = {
+    await ruler(places, {
         readFile,
         writeFile,
-    };
-    await ruler(options, places);
+    });
     
     const name = `${process.cwd()}/.putout.json`;
+    
     const expected = stringify({
         rules: {
             'remove-debugger': 'on',
@@ -170,4 +202,3 @@ test('putout: cli: ruler-processor: no option', async (t) => {
     t.calledWith(writeFile, [name, expected], 'should enable all');
     t.end();
 });
-

@@ -1,4 +1,5 @@
 const getRule = (a) => a.rule;
+
 const initRules = (config) => {
     config.rules = config.rules || {};
 };
@@ -18,22 +19,22 @@ const isPutoutRule = (rule) => {
     return true;
 };
 
-export const disableAll = (config, places) => {
+export const disableAll = (places, config) => {
     initRules(config);
     
     const rules = parseRules(places);
     const existingRules = keys(config.rules);
     
     for (const rule of existingRules)
-        disable(config, rule);
+        disable(rule, config);
     
     for (const rule of rules)
-        disable(config, rule);
+        disable(rule, config);
     
     return config;
 };
 
-export function enable(config, rule) {
+export function enable(rule, config) {
     initRules(config);
     
     if (!isPutoutRule(rule))
@@ -44,7 +45,7 @@ export function enable(config, rule) {
     return config;
 }
 
-export function disable(config, rule) {
+export function disable(rule, config) {
     initRules(config);
     
     if (!isPutoutRule(rule))
@@ -58,15 +59,15 @@ export function disable(config, rule) {
     return config;
 }
 
-export const enableAll = (config, places) => {
+export const enableAll = (places, config) => {
     initRules(config);
     const rules = parseRules(places);
     
     for (const rule of Object.keys(config.rules))
-        enable(config, rule);
+        enable(rule, config);
     
     for (const rule of rules)
-        enable(config, rule);
+        enable(rule, config);
     
     return config;
 };
@@ -74,4 +75,3 @@ export const enableAll = (config, places) => {
 function parseRules(places) {
     return places.map(getRule);
 }
-

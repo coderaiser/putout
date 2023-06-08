@@ -1,4 +1,5 @@
 {
+    "printer": "putout",
     "rules": {
         "convert-commonjs-to-esm": "on",
         "convert-mock-require-to-mock-import": "on"
