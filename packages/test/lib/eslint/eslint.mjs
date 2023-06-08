@@ -66,10 +66,7 @@ const read = async (name) => {
             data,
         ];
     
-    return [
-        `${name}.ts`,
-        await readFile(`${name}.ts`, 'utf8'),
-    ];
+    return [`${name}.ts`, await readFile(`${name}.ts`, 'utf8')];
 };
 
 export const createTest = (url, plugins = {}) => {
