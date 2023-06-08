@@ -12,27 +12,35 @@ const ruleTester = new RuleTester({
 });
 
 ruleTester.run('keyword-spacing', rule, {
-    valid: [`
+    valid: [
+        `
         try {
         } catch {
-        }`, `
+        }`,
+        `
         try {
         } catch(e) {
         }
-    `, `
+    `,
+        `
         switch(x) {
         case 1:
             break;
         }
-    `, `
+    `,
+        `
         if (true) {}
-    `, `
+    `,
+        `
         for (i = 0; i < n; i++) {}
-    `, `
+    `,
+        `
         for (x of y) {}
-    `, `
+    `,
+        `
         const a = async () => {for await (x of y) {}}
-    `],
+    `,
+    ],
     
     invalid: [{
         code: `try {}catch{}`,
@@ -92,4 +100,3 @@ ruleTester.run('keyword-spacing', rule, {
         }],
     }],
 });
-

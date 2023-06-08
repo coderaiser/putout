@@ -30,7 +30,8 @@ ruleTester.run('add-newline-before-function-call', rule, {
             const b = 6;
             
             fn(a, b);
-    `, montag`
+    `,
+        montag`
             test('hello: world', (t) => {
                 const a = 5;
                 twoStatements();
@@ -48,14 +49,16 @@ ruleTester.run('add-newline-before-function-call', rule, {
                 
                 newlineBeforeCall();
             });
-        `, montag`
+        `,
+        montag`
             test('hello: world', (t) => {
                 const a = 5;
                 
                 const b = 4;
                 newlineBeforeVar(b);
             });
-        `, montag`
+        `,
+        montag`
             {
                 const a = 5;
                 const fullText = getText(node, 10).replace(text, '');
@@ -63,7 +66,8 @@ ruleTester.run('add-newline-before-function-call', rule, {
                 if (/^\\n +\\n +$/.test(fullText)) 
                     fn();
             }
-        `, montag`
+        `,
+        montag`
             test('putout: cli: addOnce', (t) => {
                 const fn = stub();
                 const {_addOnce} = reRequire('.');
@@ -77,7 +81,8 @@ ruleTester.run('add-newline-before-function-call', rule, {
                 t.equal(result, 1);
                 t.end();
             });
-        `, montag`
+        `,
+        montag`
             test('hello: world', (t) => {
                 const a = 5;
                 const b = 4;
@@ -172,4 +177,3 @@ ruleTester.run('add-newline-before-function-call', rule, {
         }],
     }],
 });
-

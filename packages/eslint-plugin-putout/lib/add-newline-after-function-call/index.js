@@ -69,6 +69,7 @@ module.exports.filter = ({node, getCommentsAfter, getSpacesAfterNode}) => {
             return true;
         
         const spacesAfterPrev = getSpacesAfterNode(prev);
+        
         return !regExp.test(spacesAfterPrev);
     }
     
@@ -82,4 +83,3 @@ module.exports.fix = ({text}) => {
 module.exports.include = () => [
     'CallExpression',
 ];
-

@@ -18,20 +18,24 @@ const ruleTester = new RuleTester({
 });
 
 ruleTester.run('keyword-spacing', rule, {
-    valid: [`
+    valid: [
+        `
         function hello({a, b, c}) {
         }
-    `, `
+    `,
+        `
         ({a, b, c}) => {
         }
-    `, `
+    `,
+        `
         ({a, b, c}) => {
             return x(
                 a,
                 b,
             );
         }
-    `],
+    `,
+    ],
     
     invalid: [{
         code: `function hello(
@@ -85,4 +89,3 @@ ruleTester.run('keyword-spacing', rule, {
         }],
     }],
 });
-

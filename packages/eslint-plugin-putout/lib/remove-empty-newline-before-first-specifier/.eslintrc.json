@@ -1,6 +1,9 @@
 {
     "overrides": [{
-        "files": ["*.spec.js", "*.md{js}"],
+        "files": [
+            "*.spec.js",
+            "*.md{js}"
+        ],
         "rules": {
             "putout/remove-empty-newline-before-first-specifier": "off"
         }

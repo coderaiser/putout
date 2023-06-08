@@ -72,4 +72,3 @@ ruleTester.run('add-newlines-between-specifiers', rule, {
         }],
     }],
 });
-

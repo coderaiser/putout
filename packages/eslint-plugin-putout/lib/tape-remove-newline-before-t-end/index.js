@@ -38,7 +38,10 @@ module.exports.filter = ({text, node}) => {
             break;
         
         const {callee} = prev.expression;
-        return isIdentifier(callee.object, {name: 't'});
+        
+        return isIdentifier(callee.object, {
+            name: 't',
+        });
     }
     
     return false;
@@ -51,4 +54,3 @@ module.exports.fix = ({text}) => {
 module.exports.include = () => [
     'CallExpression',
 ];
-

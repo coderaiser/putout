@@ -36,4 +36,3 @@ module.exports.safeAlign = [
     ...getPutoutConfig('safe+align'),
     ...plugins,
 ];
-

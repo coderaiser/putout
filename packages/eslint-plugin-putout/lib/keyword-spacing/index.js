@@ -52,7 +52,10 @@ module.exports.fix = ({node, text}) => {
     if (isSwitchStatement(node))
         return fixSwitch(text);
     
-    return fixNodeSpace({node, text});
+    return fixNodeSpace({
+        node,
+        text,
+    });
 };
 
 module.exports.include = () => [
@@ -70,7 +73,10 @@ module.exports.filter = ({node, text}) => {
     if (isSwitchStatement(node))
         return checkSwitch(text);
     
-    return checkNodeSpace({node, text});
+    return checkNodeSpace({
+        node,
+        text,
+    });
 };
 
 function checkCatch(text) {
@@ -93,7 +99,5 @@ function fixCatch(text) {
 }
 
 function fixSwitch(text) {
-    return text
-        .replaceAll('switch (', 'switch(');
+    return text.replaceAll('switch (', 'switch(');
 }
-

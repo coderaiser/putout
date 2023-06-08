@@ -55,4 +55,3 @@ ruleTester.run('add-newlines-between-types-in-union', rule, {
         }],
     }],
 });
-

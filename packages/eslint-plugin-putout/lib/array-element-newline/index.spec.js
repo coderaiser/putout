@@ -4,6 +4,7 @@ const {RuleTester} = require('eslint');
 const montag = require('montag');
 const {createPlugin} = require('@putout/eslint/create-plugin');
 const rule = createPlugin(require('.'));
+
 const ruleTester = new RuleTester({
     parserOptions: {
         ecmaVersion: 2023,
@@ -15,34 +16,42 @@ ruleTester.run('array-element-newline', rule, {
     valid: [
         montag`
             const a = [1, 2, 3, 'pipe'];
-        `, montag`
+        `,
+        montag`
             const a = ['a', 'b', 'c', 'd'];
-        `, montag` 
+        `,
+        montag` 
             const a = ['a', 'b', 'c', 'd',,,];
-        `, montag`
+        `,
+        montag`
             ['a', 'b', 'c', 'd', 'e'].map();
-        `, montag`
+        `,
+        montag`
             const a = [{
                 hello: 'world',
             }, {
                 word: 'hello',
             }];
-        `, montag`
+        `,
+        montag`
             const a = [
                 1,
                 2,
                 3,
                 4,
             ];
-        `, montag`
+        `,
+        montag`
             export default {
                 'wisdom': () => run(['lint:all', 'coverage']),
             }
-        `, montag`
+        `,
+        montag`
             export default {
                 'test': () => [env, 'test:only'],
             }
-        `, montag`
+        `,
+        montag`
             const argv = [
                 join(__dirname, 'fixture/parse-error.js'),
                 '--raw',
@@ -50,34 +59,42 @@ ruleTester.run('array-element-newline', rule, {
                 '--format',
                 'none',
             ];
-        `, montag`
+        `,
+        montag`
             module.exports = {
                 files: ['*.json', '*{json}'],
                 rules: {
                     'quotes': ['error', 'double'],
                 }
             }
-        `, montag`
+        `,
+        montag`
             for (const ext of ['js', 'mjs', 'cjs']) {}
-        `, montag`
+        `,
+        montag`
              const expected = [COMPUTED, 'debugger'];
-        `, montag`
+        `,
+        montag`
              const expected = [true, 'hello'];
-        `, montag`
+        `,
+        montag`
              const expected = ['Only one assertion per test allowed, looks like you have more', 'at'];
-         `, montag`
+         `,
+        montag`
              const statusMatrix = stub().returns([
                  ['packages/putout/lib/cli/index.js', 1, 2, 2],
                  ['packages/putout/lib/cli/staged.js', 1, 2, 3],
              ]);
-        `, montag`
+        `,
+        montag`
             putout('isFn(fn, "hello"); debugger', {
                 plugins: [
                     ['remove-debugger', removeDebugger],
                     ['declare', declare],
                 ],
             });
-        `],
+        `,
+    ],
     invalid: [{
         code: montag`
             const a = [1, 2, 3, 4, 5];

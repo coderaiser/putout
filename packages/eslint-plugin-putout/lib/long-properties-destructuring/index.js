@@ -11,7 +11,9 @@ module.exports.include = () => [
 
 module.exports.fix = ({text}) => {
     const end = text.indexOf('}') + 1;
-    const startText = text.slice(0, end)
+    
+    const startText = text
+        .slice(0, end)
         .replace(/,/g, ',\n   ')
         .replace('{', '{\n    ')
         .replace('}', '\n}');
@@ -49,4 +51,3 @@ function isCorrectLength(properties) {
     
     return true;
 }
-

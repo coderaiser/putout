@@ -19,21 +19,17 @@ ruleTester.run('long-properties-destructuring', rule, {
         `const {
             isIdentifier,
         } = world;`,
-        
         `
         const {a} = world
         `,
-        
         `
         const {
             ...a
         } = b
         `,
-        
         `
         for (const {Hello, HelloWorld} of Words) {}
         `,
-        
         `
         const {a, b, c, d} = e;
         `,
@@ -89,4 +85,3 @@ ruleTester.run('long-properties-destructuring', rule, {
         }],
     }],
 });
-

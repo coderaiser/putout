@@ -7,4 +7,3 @@ module.exports = [{
         'putout/objects-braces-inside-array': 'off',
     },
 }];
-

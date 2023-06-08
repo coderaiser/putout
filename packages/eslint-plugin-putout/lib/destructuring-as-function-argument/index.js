@@ -21,4 +21,3 @@ module.exports.include = () => [
     'FunctionExpression > .params[type=ObjectPattern]',
     'FunctionDeclaration > .params[type=ObjectPattern]',
 ];
-

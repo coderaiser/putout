@@ -7,9 +7,11 @@ const yaml = require('./yaml');
 const html = require('./html');
 const ts = require('./ts');
 const jsx = require('./jsx');
+
 const getRule = (a) => ({
     [a]: require(`./${a}`),
 });
+
 const getWrapRule = (a) => ({
     [a]: createPlugin(require(`./${a}`)),
 });
@@ -51,6 +53,7 @@ module.exports.rules = {
 };
 const config = require('@putout/eslint-config');
 const {rules} = config;
+
 const recommended = {
     ...config,
     rules: {
@@ -95,9 +98,17 @@ const recommended = {
         'n/no-missing-require': 'off',
         'n/no-process-exit': 'off',
     },
-    overrides: [...markdown, ...json, ...yaml, ...html, ...ts, ...jsx],
+    overrides: [
+        ...markdown,
+        ...json,
+        ...yaml,
+        ...html,
+        ...ts,
+        ...jsx,
+    ],
     plugins: ['n'],
 };
+
 const safe = {
     ...recommended,
     rules: {

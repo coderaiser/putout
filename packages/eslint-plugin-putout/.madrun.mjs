@@ -14,4 +14,3 @@ export default {
     'coverage': async () => `c8 ${await run('test:all')}`,
     'debug': () => 'mocha --inspect-brk --inspect=0.0.0.0',
 };
-

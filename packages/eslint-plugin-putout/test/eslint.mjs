@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test/eslint';
+
 const test = createTest(import.meta.url);
 
 test('eslint-plugin-putout: no-resolve: places', async ({comparePlaces}) => {
@@ -205,4 +206,3 @@ test('eslint-plugin-putout: jsx: semi', async ({noProcess}) => {
         extends: ['plugin:putout/jsx'],
     });
 });
-

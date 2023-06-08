@@ -12,22 +12,22 @@ const ruleTester = new RuleTester({
 });
 
 ruleTester.run('new-line-function-call-arguments', rule, {
-    valid: [`
+    valid: [
+        `
          const f = () => {
                 return {
                     ...pick(a, b, c)
                 }
             };
         `,
-    
-    `console.log('a', 'b', 'c');`,
-    `const onConnectError = squad(
+        `console.log('a', 'b', 'c');`,
+        `const onConnectError = squad(
             superFn('connect_error'),
             logWrapped(isLog, importStr),
             addUrl(colorUrl),
             getDescription,
         );`,
-    `
+        `
         test('should be some test', (t) => {
             t.equal();
             t.equal();
@@ -36,7 +36,7 @@ ruleTester.run('new-line-function-call-arguments', rule, {
             t.equal();
             t.end();
         });`,
-    `
+        `
     report(formatter, {
         name,
         source: input,
@@ -46,7 +46,7 @@ ruleTester.run('new-line-function-call-arguments', rule, {
         length,
     });
     `,
-    `
+        `
      clean([
         !isDev && {
             test: /.js$/,
@@ -60,7 +60,7 @@ ruleTester.run('new-line-function-call-arguments', rule, {
             options: babelDev,
         }]);
      `,
-    `
+        `
      sendIndex(p, buildIndex(config, html, {
             ...dir,
             path: format.addSlashToEnd(rootName),
@@ -68,7 +68,8 @@ ruleTester.run('new-line-function-call-arguments', rule, {
             directory,
             something,
      }));
-     `, `
+     `,
+        `
          join(source, '\\n', stringify({
             //mappings: 'AAAA,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC',
          }));
@@ -83,16 +84,15 @@ ruleTester.run('new-line-function-call-arguments', rule, {
         getDescription);
         `,
         output:
-        '\n        const onConnectError = squad(\n' +
-        `superFn(connect_error),
+            '\n        const onConnectError = squad(\n' +
+            `superFn(connect_error),
         logWrapped(isLog,
 ` +
-        'importStr),\n        addUrl(colorUrl),\n        ' +
-        'getDescription\n);\n        ',
+            'importStr),\n        addUrl(colorUrl),\n        ' +
+            'getDescription\n);\n        ',
         errors: [{
             message: 'Add new line before and after arguments in a function call',
             type: 'CallExpression',
         }],
     }],
 });
-

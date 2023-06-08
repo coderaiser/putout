@@ -15,6 +15,7 @@ module.exports.category = 'array';
 module.exports.report = () => 'Add newlines between array elements';
 
 const regexp = /['"\da-zA-Z]+, ['"\da-zA-Z]/;
+
 const isSupportedNode = (a) => {
     if (!a)
         return false;
@@ -67,10 +68,14 @@ module.exports.filter = ({text, node}) => {
     return false;
 };
 module.exports.fix = ({text}) => {
-    return text.replace(/\[/g, '[\n').replace(/\]/g, '\n]')
+    return text
+        .replace(/\[/g, '[\n')
+        .replace(/\]/g, '\n]')
         .replace(/,/g, ',\n');
 };
-module.exports.include = () => ['ArrayExpression'];
+module.exports.include = () => [
+    'ArrayExpression',
+];
 
 function isShortValues(elements) {
     for (const {type, value} of elements) {
@@ -126,4 +131,3 @@ function differentTypes({elements}) {
     
     return false;
 }
-

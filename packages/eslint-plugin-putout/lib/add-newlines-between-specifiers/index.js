@@ -24,4 +24,3 @@ module.exports.filter = ({text, node}) => {
     
     return regExp.test(text);
 };
-

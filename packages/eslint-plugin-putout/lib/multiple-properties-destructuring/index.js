@@ -2,6 +2,7 @@
 
 const {isImportDeclaration} = require('putout').types;
 const {parseImportSpecifiers} = require('parse-import-specifiers');
+
 const {
     isCorrectLoc,
     isCorrectImportLoc,
@@ -12,6 +13,7 @@ module.exports.report = () => 'Keep each property on separate lines when using m
 
 const parseOptions = (options) => {
     const {minProperties = 2} = options[0] || {};
+    
     return {
         minProperties,
     };
@@ -29,6 +31,7 @@ module.exports.include = ({options}) => {
 module.exports.filter = ({node}, options) => {
     const {minProperties} = parseOptions(options);
     const {line} = node.loc.start;
+    
     const {
         id,
         specifiers,
@@ -36,7 +39,10 @@ module.exports.filter = ({node}, options) => {
     } = node;
     
     if (isImportDeclaration(node)) {
-        const {defaults, imports} = parseImportSpecifiers(node.specifiers);
+        const {
+            defaults,
+            imports,
+        } = parseImportSpecifiers(node.specifiers);
         
         if (defaults.length === 1 && imports.length < minProperties)
             return false;
@@ -59,4 +65,3 @@ module.exports.fix = ({text}) => {
         .replace('}', '\n}')
         .replace(/\n\s*?\n/g, '\n');
 };
-

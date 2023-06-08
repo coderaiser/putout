@@ -8,7 +8,10 @@ const {jsx} = require('./jsx');
 const commonRules = {
     'no-undef': 'off',
     'no-empty': 'off',
-    'eol-last': ['error', 'never'],
+    'eol-last': [
+        'error',
+        'never',
+    ],
     'no-unreachable': 'off',
     'no-constant-condition': 'off',
     'n/no-extraneous-require': 'off',
@@ -21,6 +24,7 @@ const commonRules = {
     'n/no-unsupported-features/n-builtins': 'off',
     'n/no-process-exit': 'off',
 };
+
 const parserOptions = {
     requireConfigFile: false,
     babelOptions: {
@@ -81,7 +85,9 @@ module.exports = [{
 }, {
     files: '*.md{json}',
     rules: {
-        'eol-last': ['error', 'never'],
+        'eol-last': [
+            'error',
+            'never',
+        ],
     },
 }];
-

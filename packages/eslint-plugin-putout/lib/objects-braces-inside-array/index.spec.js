@@ -15,17 +15,20 @@ const ruleTester = new RuleTester({
 const message = 'Keep braces on the same line with brackets';
 
 ruleTester.run('objects-braces-inside-array', rule, {
-    valid: [`
+    valid: [
+        `
         const expected = [{
             hello: 'world',
         }];
-    `, `
+    `,
+        `
         const expected = [
             [__filename], {
                 ignore,
             },
         ];
-    `],
+    `,
+    ],
     
     invalid: [{
         code: montag`
@@ -169,4 +172,3 @@ ruleTester.run('objects-braces-inside-array', rule, {
         }],
     }],
 });
-

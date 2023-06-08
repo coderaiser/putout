@@ -50,4 +50,3 @@ ruleTester.run('remove-empty-empty-specifiers', rule, {
         }],
     }],
 });
-

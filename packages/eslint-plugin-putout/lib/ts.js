@@ -8,25 +8,16 @@ const warnOnUnsupportedTypeScriptVersion = false;
 const extensionRules = {
     'no-undef': 'off',
     'no-var': 'off',
-    
-    // putout/object-property-newline instead
-    '@typescript-eslint/brace-style': 'off',
-    
+    '@typescript-eslint/brace-style': 'off', // putout/object-property-newline instead
     'comma-dangle': 'off',
     '@typescript-eslint/comma-dangle': rules['comma-dangle'],
     
     'comma-spacing': 'off',
     '@typescript-eslint/comma-spacing': 'error',
-    
-    // requires type information
-    '@typescript-eslint/dot-notation': 'off',
-    
+    '@typescript-eslint/dot-notation': 'off', // requires type information
     'func-call-spacing': 'off',
     '@typescript-eslint/func-call-spacing': 'error',
-    
-    // broken
-    '@typescript-eslint/indent': 'off',
-    
+    '@typescript-eslint/indent': 'off', // broken
     '@typescript-eslint/lines-between-class-members': 'off',
     '@typescript-eslint/no-array-constructor': 'off',
     
@@ -59,7 +50,7 @@ const extensionRules = {
     '@typescript-eslint/space-before-function-paren': rules['space-before-function-paren'],
     
     'space-infix-ops': 'off',
-    '@typescript-eslint/space-infix-ops': rules[ 'space-infix-ops'],
+    '@typescript-eslint/space-infix-ops': rules['space-infix-ops'],
     
     'no-redecalre': 'off',
     '@typescript-eslint/no-redeclare': 'error',
@@ -90,19 +81,17 @@ const ts = {
     },
 };
 
-module.exports = [
-    ts, {
-        ...ts,
-        ...jsx.jsx,
-        files: '*.tsx',
-        parserOptions: {
-            warnOnUnsupportedTypeScriptVersion,
-            ecmaFeatures: {
-                jsx: true,
-            },
+module.exports = [ts, {
+    ...ts,
+    ...jsx.jsx,
+    files: '*.tsx',
+    parserOptions: {
+        warnOnUnsupportedTypeScriptVersion,
+        ecmaFeatures: {
+            jsx: true,
         },
     },
-];
+}];
 
 function convertPaddingLines([state, ...lines]) {
     const newLines = [];
@@ -123,6 +112,8 @@ function convertPaddingLines([state, ...lines]) {
         });
     }
     
-    return [state, ...newLines];
+    return [
+        state,
+        ...newLines,
+    ];
 }
-

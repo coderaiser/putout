@@ -23,4 +23,3 @@ module.exports.filter = ({text}) => {
     
     return true;
 };
-

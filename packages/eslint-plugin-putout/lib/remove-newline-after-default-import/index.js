@@ -10,11 +10,9 @@ module.exports.filter = ({text}) => {
 };
 
 module.exports.fix = ({text}) => {
-    return text
-        .replace(regExp, ', {');
+    return text.replace(regExp, ', {');
 };
 
 module.exports.include = () => [
     'ImportDeclaration',
 ];
-

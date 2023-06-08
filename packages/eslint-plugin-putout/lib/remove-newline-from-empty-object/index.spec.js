@@ -51,4 +51,3 @@ ruleTester.run('remove-empty-newline-from-empty-object', rule, {
         }],
     }],
 });
-

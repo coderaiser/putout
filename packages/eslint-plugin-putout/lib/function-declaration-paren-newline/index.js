@@ -6,6 +6,7 @@ module.exports.report = () => {
 
 module.exports.fix = ({text, node, getText}) => {
     const {body} = node.body;
+    
     node.body.body = [];
     
     const paramsText = getText(node);
@@ -41,4 +42,3 @@ function checkFunction(text) {
     
     return before || after;
 }
-

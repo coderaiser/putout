@@ -43,4 +43,3 @@ ruleTester.run('remove-empty-newline-after-last-element', rule, {
         }],
     }],
 });
-

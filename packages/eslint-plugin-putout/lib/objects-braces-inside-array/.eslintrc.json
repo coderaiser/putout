@@ -1,6 +1,9 @@
 {
     "overrides": [{
-        "files": ["*.spec.js", "*.md{js}"],
+        "files": [
+            "*.spec.js",
+            "*.md{js}"
+        ],
         "rules": {
             "putout/objects-braces-inside-array": "off"
         }

@@ -13,9 +13,11 @@ const ruleTester = new RuleTester({
 });
 
 ruleTester.run('evaluate', rule, {
-    valid: [`
+    valid: [
+        `
         import a from 'a';
-    `],
+    `,
+    ],
     
     invalid: [{
         code: `import a from '__putout_evaluate: join(basename(__filename), ".js")'`,
@@ -33,4 +35,3 @@ ruleTester.run('evaluate', rule, {
         }],
     }],
 });
-

@@ -19,7 +19,8 @@ ruleTester.run('remove-empty-newline-before-first-specifier', rule, {
             import {
                 y
             } from 'z'
-        `, montag`
+        `,
+        montag`
             import {y} from 'z';
         `,
         montag`
@@ -71,4 +72,3 @@ ruleTester.run('remove-empty-newline-before-first-specifier', rule, {
         }],
     }],
 });
-

@@ -17,7 +17,9 @@ import React from 'react';
 const a: number = 5;
 
 const PipelineIndicator = (props) => {
-    return <div>hello</div>;
+    return (
+        <div>hello</div>
+    );
 };
 
 export default PipelineIndicator;

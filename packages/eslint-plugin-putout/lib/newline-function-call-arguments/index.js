@@ -43,4 +43,3 @@ module.exports.fix = ({text}) => {
         .replace(/,\s?/g, ',\n')
         .replace(/\)$/, '\n)');
 };
-

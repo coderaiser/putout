@@ -60,4 +60,3 @@ module.exports.fix = ({text}) => {
         .replace(/}/g, '\n}')
         .replace(/\n(\s+)?\n/g, '\n');
 };
-

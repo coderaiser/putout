@@ -22,4 +22,3 @@ module.exports.isCorrectImportLoc = (line, specifiers) => {
     
     return true;
 };
-

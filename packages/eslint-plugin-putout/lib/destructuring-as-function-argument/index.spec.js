@@ -59,4 +59,3 @@ ruleTester.run('destructuring-as-function-argument', rule, {
         }],
     }],
 });
-

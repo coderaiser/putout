@@ -25,7 +25,8 @@ ruleTester.run('object-property-newline', rule, {
         `const b = {
             value,
         };
-    `],
+    `,
+    ],
     invalid: [{
         code: `const a = {b}`,
         output: `const a = {\n    b\n}`,
@@ -74,7 +75,8 @@ babelParserTester.run('object-property-newline: babel: ts', rule, {
             b,
             c,
         };
-    `],
+    `,
+    ],
     invalid: [{
         code: `type a = {b}`,
         output: `type a = {\n    b\n}`,
@@ -111,7 +113,8 @@ tsParserTester.run('object-property-newline: typescript', rule, {
             b,
             c,
         };
-    `],
+    `,
+    ],
     invalid: [{
         code: `type a = {b}`,
         output: `type a = {\n    b\n}`,
@@ -128,4 +131,3 @@ tsParserTester.run('object-property-newline: typescript', rule, {
         }],
     }],
 });
-

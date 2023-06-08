@@ -27,7 +27,7 @@ module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) =
     let i = n - 1;
     let count = 0;
     
-    while(--i) {
+    while (--i) {
         const prevA = body[i];
         const spaces = getSpacesBeforeNode(prevA);
         

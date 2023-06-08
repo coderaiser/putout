@@ -54,4 +54,3 @@ ruleTester.run('remove-empty-newline-between-declarations', rule, {
         }],
     }],
 });
-

@@ -14,17 +14,21 @@ const ruleTester = new RuleTester({
 });
 
 ruleTester.run('nonblock-statement-body-newline', rule, {
-    valid: [`
+    valid: [
+        `
         if (a)
             b();
-    `, `
+    `,
+        `
         if (a) {
         }
-    `, `
+    `,
+        `
         for (a of b) {
             a();
         }
-    `],
+    `,
+    ],
     
     invalid: [{
         code: montag`
@@ -80,4 +84,3 @@ ruleTester.run('nonblock-statement-body-newline', rule, {
         }],
     }],
 });
-

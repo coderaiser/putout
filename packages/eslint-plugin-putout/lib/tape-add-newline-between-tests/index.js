@@ -24,4 +24,3 @@ module.exports.fix = ({text}) => {
 module.exports.include = () => [
     'CallExpression ',
 ];
-

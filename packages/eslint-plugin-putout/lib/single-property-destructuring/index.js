@@ -15,9 +15,7 @@ const {
 const NewLinesReg = /([\s,]+)?\n(\s+)?/g;
 const AssignRegExp = /{\n?.*=.*\n?.*}/;
 
-const {
-    compare,
-} = operator;
+const {compare} = operator;
 
 module.exports.category = 'destructuring';
 module.exports.report = () => 'Keep curly braces on one line when you have one destructuring property';
@@ -69,11 +67,13 @@ module.exports.fix = ({text, node, getText}) => {
         return text.replace(idText, `{...${name}}`);
     }
     
-    const {key, value} = property;
+    const {
+        key,
+        value,
+    } = property;
     
     if (key.name === value.name)
         return text.replace(idText, `{${key.name}}`);
     
     return text.replace(idText, `{${key.name}: ${value.name}}`);
 };
-

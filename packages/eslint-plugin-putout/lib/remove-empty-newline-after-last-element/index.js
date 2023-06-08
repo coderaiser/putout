@@ -10,11 +10,9 @@ module.exports.filter = ({text}) => {
 };
 
 module.exports.fix = ({text}) => {
-    return text
-        .replace(regExp, '\n]');
+    return text.replace(regExp, '\n]');
 };
 
 module.exports.include = () => [
     'ArrayExpression',
 ];
-

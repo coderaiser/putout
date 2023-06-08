@@ -21,4 +21,3 @@ module.exports.fix = ({text}) => {
 module.exports.include = () => [
     'ImportDeclaration',
 ];
-

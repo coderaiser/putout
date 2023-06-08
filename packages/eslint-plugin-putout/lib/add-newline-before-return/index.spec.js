@@ -39,14 +39,16 @@ ruleTester.run('add-newline-before-return', rule, {
                 
                 return a + b;
             });
-        `, montag`
+        `,
+        montag`
             test('hello: world', (t) => {
                 const a = 5;
                 const b = 4;
                 // hello world
                 return a + b;
             });
-        `, montag`
+        `,
+        montag`
             test('hello: world', (t) => {
                 const a = 5;
                 const x = 6;
@@ -56,7 +58,8 @@ ruleTester.run('add-newline-before-return', rule, {
                 const b = 4;
                 return a + b;
             });
-        `, montag`
+        `,
+        montag`
             function x() {
                 const a = 5;
                 const b = 6;
@@ -83,4 +86,3 @@ ruleTester.run('add-newline-before-return', rule, {
         }],
     }],
 });
-

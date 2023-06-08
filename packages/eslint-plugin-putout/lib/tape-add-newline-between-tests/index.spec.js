@@ -77,4 +77,3 @@ ruleTester.run('remove-newline-after-default-import', rule, {
         }],
     }],
 });
-

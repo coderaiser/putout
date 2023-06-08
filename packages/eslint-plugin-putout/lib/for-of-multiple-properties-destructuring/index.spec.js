@@ -27,7 +27,9 @@ ruleTester.run('multiple-properties-destructuring', rule, {
     invalid: [{
         code: `for (const {\nx,\ny\n} of screen){}`,
         output: `for (const {x, y} of screen){}`,
-        options: [{maxProperties: 3}],
+        options: [{
+            maxProperties: 3,
+        }],
         errors: [{
             message,
             type: 'VariableDeclarator',
@@ -35,11 +37,12 @@ ruleTester.run('multiple-properties-destructuring', rule, {
     }, {
         code: `for (const { \nx,\ny\n } of screen){}`,
         output: `for (const {x, y} of screen){}`,
-        options: [{maxProperties: 3}],
+        options: [{
+            maxProperties: 3,
+        }],
         errors: [{
             message,
             type: 'VariableDeclarator',
         }],
     }],
 });
-

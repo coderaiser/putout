@@ -197,7 +197,11 @@ The time is came for a [FlatConfig](https://eslint.org/blog/2022/08/new-config-s
 
 ```js
 const {recommended} = require('eslint-plugin-putout/config');
-module.exports = [...recommended, {}];
+
+module.exports = [
+    ...recommended,
+    {},
+];
 ```
 
 `safe` and `safeAlign` supported as well.

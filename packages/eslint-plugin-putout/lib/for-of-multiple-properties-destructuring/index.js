@@ -28,4 +28,3 @@ module.exports.fix = ({text}) => {
         .replace(/{\s*/g, '{')
         .replace(/\s*}/g, '}');
 };
-

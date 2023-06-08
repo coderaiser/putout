@@ -17,17 +17,20 @@ ruleTester.run('remove-empty-newline-after-import', rule, {
         montag`
             import fs from 'fs';
             import index1 from './index.js';
-        `, montag`
+        `,
+        montag`
             import fs from 'fs';
             import {promisify} from 'util';
             
             import index1 from './index.js';
-        `, montag`
+        `,
+        montag`
             import fs from 'fs';
             import {promisify} from 'util';
             
             import chalk from 'chalk';
-        `, montag`
+        `,
+        montag`
             import abc from './abc.js';
             
             import _createTest, {
@@ -35,7 +38,8 @@ ruleTester.run('remove-empty-newline-after-import', rule, {
             } from './test.mjs';
             
             import cjsTest from './test.js';
-        `, montag`
+        `,
+        montag`
             import {
                 readFile,
                 writeFile,
@@ -93,4 +97,3 @@ ruleTester.run('remove-empty-newline-after-import', rule, {
         }],
     }],
 });
-

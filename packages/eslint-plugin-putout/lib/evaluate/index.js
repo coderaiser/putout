@@ -5,7 +5,9 @@ const putout = require('putout');
 
 module.exports.category = 'evaluate';
 module.exports.report = () => 'Evaluate expression';
-module.exports.include = () => ['ImportDeclaration'];
+module.exports.include = () => [
+    'ImportDeclaration',
+];
 
 module.exports.filter = ({node}) => {
     const {value} = node.source;
@@ -42,5 +44,6 @@ function evaluate({value, filename}) {
     });
     
     const fn = Function('__filename', '__dirname', 'require', code);
+    
     return fn(filename, dirname(filename), require);
 }

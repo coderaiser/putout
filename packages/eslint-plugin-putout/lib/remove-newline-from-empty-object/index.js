@@ -28,4 +28,3 @@ module.exports.fix = () => '{}';
 module.exports.include = () => [
     'ObjectExpression',
 ];
-

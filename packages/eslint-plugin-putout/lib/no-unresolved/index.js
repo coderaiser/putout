@@ -75,4 +75,3 @@ function resolveSource({dir, value}) {
     
     return `${value}.js`;
 }
-

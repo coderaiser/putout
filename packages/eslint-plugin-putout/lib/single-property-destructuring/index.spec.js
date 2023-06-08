@@ -3,9 +3,8 @@
 const {RuleTester} = require('eslint');
 const montag = require('montag');
 
-const {
-    createPlugin,
-} = require('@putout/eslint/create-plugin');
+const {createPlugin} = require('@putout/eslint/create-plugin');
+
 const rule = createPlugin(require('.'));
 
 const ruleTester = new RuleTester({
@@ -33,7 +32,8 @@ ruleTester.run('single-property-destructuring', rule, {
             //  parentPath,
                 node,
             } = path;
-        `, montag`
+        `,
+        montag`
             const noop = () => {};
             
             const {
@@ -110,4 +110,3 @@ ruleTester.run('single-property-destructuring', rule, {
         }],
     }],
 });
-

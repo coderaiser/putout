@@ -51,4 +51,3 @@ ruleTester.run('no-unresolved', rule, {
         }],
     }],
 });
-

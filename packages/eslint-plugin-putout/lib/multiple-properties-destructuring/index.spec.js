@@ -29,19 +29,24 @@ ruleTester.run('multiple-properties-destructuring', rule, {
             // world
             c,
         } = world;
-        `, `
+        `,
+        `
         for (const {a, b, c, d} of items) {
         }
-        `, `
+        `,
+        `
         import x, {
             m as b,
             z
         } from 'y';
-    `],
+    `,
+    ],
     invalid: [{
         code: `const {x, y} = screen;`,
         output: `const {\nx,\n y\n} = screen;`,
-        options: [{minProperties: 1}],
+        options: [{
+            minProperties: 1,
+        }],
         errors: [{
             message,
             type: 'VariableDeclarator',
@@ -93,4 +98,3 @@ ruleTester.run('multiple-properties-destructuring', rule, {
         }],
     }],
 });
-

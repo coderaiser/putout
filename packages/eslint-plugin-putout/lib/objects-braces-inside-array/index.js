@@ -36,4 +36,3 @@ module.exports.fix = ({text}) => {
         .replace(/},\n(\s+)?{/g, '}, {')
         .replace(badEndReg, '}]');
 };
-

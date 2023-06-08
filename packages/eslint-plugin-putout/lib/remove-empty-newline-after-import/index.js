@@ -30,6 +30,7 @@ module.exports = {
             ImportDeclaration(node) {
                 const source = context.sourceCode;
                 const text = source.getText(node);
+                
                 const newline = source
                     .getText(node, 0, 2)
                     .replace(text, '');

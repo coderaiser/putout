@@ -12,11 +12,13 @@ const ruleTester = new RuleTester({
 
 ruleTester.run('align-spaces', rule, {
     valid: [
-        ['function hello() {',
+        [
+            'function hello() {',
             '    const result = [];',
             '    ',
             '    return resutl;',
-            '}'].join('\n'),
+            '}',
+        ].join('\n'),
     ],
     invalid: [{
         code: [
@@ -39,4 +41,3 @@ ruleTester.run('align-spaces', rule, {
         }],
     }],
 });
-
