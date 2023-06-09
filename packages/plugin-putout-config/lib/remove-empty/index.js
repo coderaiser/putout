@@ -11,8 +11,14 @@ module.exports.include = () => [
     'ArrayExpression',
 ];
 module.exports.filter = (path) => {
-    const {parentPath, node} = path;
-    const {properties, elements} = node;
+    const {
+        parentPath,
+        node,
+    } = path;
+    const {
+        properties,
+        elements,
+    } = node;
     
     if (!parentPath.isObjectProperty())
         return false;
@@ -27,4 +33,3 @@ module.exports.filter = (path) => {
     
     return !elements.length;
 };
-

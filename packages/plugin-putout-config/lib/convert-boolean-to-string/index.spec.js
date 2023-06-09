@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertBooleanToString = require('.');
 
 const test = createTest(__dirname, {
-    'putout-config/convert-boolean-to-string': convertBooleanToString,
+    printer: 'putout',
+    plugins: [
+        ['putout-config/convert-boolean-to-string', convertBooleanToString],
+    ],
 });
 
 test('plugin-putout-config: convert-boolean-to-string: report', (t) => {
@@ -31,4 +34,3 @@ test('plugin-putout-config: convert-boolean-to-string: no transform: options', (
     t.noTransform('options');
     t.end();
 });
-

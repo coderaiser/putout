@@ -8,4 +8,3 @@ module.exports.rules = {
     ...getRule('convert-boolean-to-string'),
     ...getRule('remove-empty'),
 };
-
