@@ -1,3 +1,10 @@
+2023.06.09, v29.12.7
+
+feature:
+- 9a6c6e77f package: @putout/plugin-putout-config v3.0.0
+- 210289bf1 @putout/plugin-config: drop support of node < 16
+- cc12ea0cd @putout/processor-wasm: drop support of 🐊 < 29
+
 2023.06.08, v29.12.6
 
 feature:
