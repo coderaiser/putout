@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessVariables = require('..');
 
 const test = createTest(__dirname, {
-    'remove-useless-variables': removeUselessVariables,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-variables', removeUselessVariables],
+    ],
 });
 
 test('remove usless variables: report', (t) => {
@@ -66,4 +69,3 @@ test('remove usless variables: transform: destruct', (t) => {
     t.transform('destruct');
     t.end();
 });
-

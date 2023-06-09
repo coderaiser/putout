@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const plugin = require('.');
+
 const test = createTest(__dirname, {
-    'remove-useless-variables/await': plugin,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-variables/await', plugin],
+    ],
 });
 
 test('remove usless variables: await: report', (t) => {
@@ -35,4 +39,3 @@ test('remove usless variables: await: no transform: no resolve', (t) => {
     t.noTransform('no-resolve');
     t.end();
 });
-

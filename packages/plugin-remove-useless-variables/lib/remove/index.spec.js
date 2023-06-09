@@ -4,8 +4,12 @@ const {createTest} = require('@putout/test');
 const remove = require('.');
 
 const reuseDuplicateInit = require('@putout/plugin-reuse-duplicate-init');
+
 const test = createTest(__dirname, {
-    'remove-useless-variables/remove': remove,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-variables/remove', remove],
+    ],
 });
 
 test('remove usless variables: remove: report', (t) => {
@@ -44,4 +48,3 @@ test('plugin-reuse-duplicate-init: transform: with-remove-useless', (t) => {
     });
     t.end();
 });
-

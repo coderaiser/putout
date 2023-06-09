@@ -10,12 +10,16 @@ const {
     isRestElement,
     isAssignmentPattern,
 } = types;
+
 const {replaceWith} = operator;
 
 const MAX_LENGTH = 20;
 
 const getKeyLength = (a) => {
-    const {key, value} = a;
+    const {
+        key,
+        value,
+    } = a;
     
     if (!isAssignmentPattern(value) && isIdentifier(key))
         return a.key.name.length;
@@ -75,4 +79,3 @@ module.exports.replace = () => ({
         replaceWith(path.parentPath.parentPath.get('params.0'), __object);
     },
 });
-

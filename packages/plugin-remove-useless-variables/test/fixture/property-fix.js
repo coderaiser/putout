@@ -1,7 +1,3 @@
-const {
-    id,
-    init,
-} = node;
+const {id, init} = node;
 
 const PROPERTY = id;
-

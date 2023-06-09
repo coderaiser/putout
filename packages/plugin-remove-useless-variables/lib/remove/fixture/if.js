@@ -20,13 +20,4 @@ const {
     programCode,
 } = linkProps;
 
-f(
-    actionUrl,
-    birthDate,
-    cardId,
-    number,
-    destinationUrl,
-    injuredDate,
-    userType,
-    programCode,
-);
+f(actionUrl, birthDate, cardId, number, destinationUrl, injuredDate, userType, programCode);

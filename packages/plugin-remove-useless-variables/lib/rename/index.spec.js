@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const rename = require('.');
 
 const test = createTest(__dirname, {
-    'remove-useless-variables/rename': rename,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-variables/rename', rename],
+    ],
 });
 
 test('remove-useless-variables: rename: report', (t) => {
@@ -61,4 +64,3 @@ test('remove-useless-variables: rename: no transform: var', (t) => {
     t.noTransform('var');
     t.end();
 });
-

@@ -7,4 +7,3 @@ function getImportDefaultVar(name, node) {
         NAME,
     });
 }
-

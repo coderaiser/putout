@@ -1,20 +1,24 @@
-function hello(
-    {
-        a,
-        b
-    }
-) {}
+function hello({a, b}) {}
 
 function no([args]) {
     const {a, b} = args;
 }
 
 function many(args) {
-    const {hello, world, and, more, words} = args;
+    const {
+        hello,
+        world,
+        and,
+        more,
+        words,
+    } = args;
 }
 
 function long(args) {
-    const {helloWorld, WorldHello} = args;
+    const {
+        helloWorld,
+        WorldHello,
+    } = args;
 }
 
 const {a, b} = c;

@@ -1,9 +1,4 @@
-module.exports = (
-    {
-        tokens,
-        ...program
-    }
-) => {
+module.exports = ({tokens, ...program}) => {
     const ast = {
         type: 'File',
         program: {
@@ -13,7 +8,6 @@ module.exports = (
         comments: [],
         tokens,
     };
-
+    
     return ast;
 };
-

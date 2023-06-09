@@ -1,3 +1,3 @@
 function hi(b) {
-  const c = b + 1;
+    const c = b + 1;
 };

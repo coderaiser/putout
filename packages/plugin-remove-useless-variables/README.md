@@ -36,8 +36,7 @@ function hi(a) {
 ### ✅ Example of correct code
 
 ```js
-function hi(b) {
-}
+function hi(b) {}
 ```
 
 ## destruct
@@ -53,8 +52,7 @@ function hi(c) {
 ### ✅ Example of correct code
 
 ```js
-function hi({a, b}) {
-}
+function hi({a, b}) {}
 ```
 
 ## remove
@@ -63,6 +61,7 @@ function hi({a, b}) {
 
 ```js
 const child_process = require('child_process');
+
 const {
     exec,
     spawn,
@@ -84,12 +83,7 @@ const {
 
 ```js
 async () => {
-    const result = transformer.transform(
-        realTransformer,
-        transformCode,
-        code,
-        parser,
-    );
+    const result = transformer.transform(realTransformer, transformCode, code, parser);
     
     const result2 = await Promise.resolve(result);
     
@@ -101,12 +95,7 @@ async () => {
 
 ```js
 async () => {
-    const result = transformer.transform(
-        realTransformer,
-        transformCode,
-        code,
-        parser,
-    );
+    const result = transformer.transform(realTransformer, transformCode, code, parser);
     
     return result;
 };
@@ -123,6 +112,7 @@ const a = 5;
 const b = a;
 
 const c = 5;
+
 d = c;
 ```
 

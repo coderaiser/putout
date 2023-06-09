@@ -38,4 +38,3 @@ function parseParent(path) {
         path.parentPath.parentPath,
     ];
 }
-

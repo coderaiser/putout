@@ -1,7 +1,10 @@
 'use strict';
 
 const {operator} = require('putout');
-const {remove, compare} = operator;
+const {
+    remove,
+    compare,
+} = operator;
 
 const isNestedMemberExpression = (path) => {
     return path.isMemberExpression() && path.get('object').isMemberExpression();
@@ -79,6 +82,7 @@ function check({mainPath, leftPath, rightPath, push}) {
         return;
     
     const idName = binding.path.node.id.name;
+    
     push({
         mainPath,
         idName,
