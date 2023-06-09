@@ -1,9 +1,7 @@
 import tryCatch from 'try-catch';
-
 import {traverse} from '@webassemblyjs/ast';
 import {parse} from '@webassemblyjs/wast-parser';
 import {print} from '@webassemblyjs/wast-printer';
-
 import {rules} from './rules/index.js';
 
 export const lint = (source, {fix} = {}) => {
@@ -22,7 +20,9 @@ export const lint = (source, {fix} = {}) => {
         const places = [];
         const push = places.push.bind(places);
         
-        traverse(ast, plugin.traverse({push}));
+        traverse(ast, plugin.traverse({
+            push,
+        }));
         
         if (!places.length)
             continue;
@@ -58,7 +58,10 @@ function convertPlaces(rule, rawPlaces, plugin) {
     const places = [];
     
     for (const path of rawPlaces) {
-        const {line, column} = path.node.loc.start;
+        const {
+            line,
+            column,
+        } = path.node.loc.start;
         
         places.push({
             rule: `${rule} (wasm)`,

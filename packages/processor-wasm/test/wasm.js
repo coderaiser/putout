@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test/processor';
+
 const test = createTest(import.meta.url, {
     processors: [
         'wasm',
@@ -63,4 +64,3 @@ test('putout: processor: wasm: places: get-local', async ({comparePlaces}) => {
         rule: 'convert-get-local-to-local-get (wasm)',
     }]);
 });
-

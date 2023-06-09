@@ -11,4 +11,3 @@ export const traverse = ({push}) => ({
             push(path);
     },
 });
-
