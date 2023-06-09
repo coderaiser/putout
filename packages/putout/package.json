@@ -118,7 +118,7 @@
     "@putout/plugin-package-json": "^5.0.0",
     "@putout/plugin-promises": "^10.0.0",
     "@putout/plugin-putout": "^12.0.0",
-    "@putout/plugin-putout-config": "^2.0.0",
+    "@putout/plugin-putout-config": "^3.0.0",
     "@putout/plugin-regexp": "^7.0.0",
     "@putout/plugin-remove-console": "^6.0.0",
     "@putout/plugin-remove-constant-conditions": "^4.0.0",
