@@ -15,6 +15,7 @@ module.exports.filter = (path) => {
         parentPath,
         node,
     } = path;
+    
     const {
         properties,
         elements,
