@@ -3,13 +3,13 @@ __putout_processor_json({
     "script": [
         "npm run lint",
         "npm run coverage",
-        "npm run report"
+        "npm run report",
     ],
     "notifications": {
         "email": {
             "on_success": "never",
-            "on_failure": "change"
-        }
+            "on_failure": "change",
+        },
     },
-    "sudo": false
+    "sudo": false,
 });

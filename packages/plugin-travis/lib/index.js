@@ -8,4 +8,3 @@ module.exports.rules = {
     ...getRule('set-node-versions'),
     ...getRule('disable-cache'),
 };
-

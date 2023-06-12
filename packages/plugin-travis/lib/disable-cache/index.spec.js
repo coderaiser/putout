@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const disableNpmCache = require('.');
 
 const test = createTest(__dirname, {
-    'travis/disable-npm-cache': disableNpmCache,
+    printer: 'putout',
+    plugins: [
+        ['travis/disable-npm-cache', disableNpmCache],
+    ],
 });
 
 test('plugin-travis: disable-npm-cache: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-travis: disable-npm-cache: no transform: cache exists', (t) => {
     t.noTransform('cache-exists');
     t.end();
 });
-

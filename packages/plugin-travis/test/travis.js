@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const travis = require('..');
 
 const test = createTest(__dirname, {
-    travis,
+    printer: 'putout',
+    plugins: [
+        ['travis', travis],
+    ],
 });
 
 test('plugin-travis: transform', (t) => {
@@ -16,4 +19,3 @@ test('plugin-travis: transform: disable npm cache', (t) => {
     t.transform('cache');
     t.end();
 });
-

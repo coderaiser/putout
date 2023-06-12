@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const setNodeVersion = require('.');
 
 const test = createTest(__dirname, {
-    'travis/set-node-version': setNodeVersion,
+    printer: 'putout',
+    plugins: [
+        ['travis/set-node-version', setNodeVersion],
+    ],
 });
 
 test('plugin-travis: set node versions: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-travis: set node versions: no transform: no versions', (t) => {
     t.noTransform('no-versions');
     t.end();
 });
-
