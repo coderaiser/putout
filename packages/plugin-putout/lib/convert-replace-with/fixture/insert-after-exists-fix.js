@@ -15,8 +15,6 @@ module.exports.fix = ({name, path, rightPath}) => {
         VariableDeclarator(Identifier(name), node),
     ]);
     
-    insertAfter(parentPath, [
-        ExportNamedDeclaration(declarator, specifiers),
-    ]);
+    insertAfter(parentPath, [ExportNamedDeclaration(declarator, specifiers)]);
     replaceWith(path, ExportNamedDeclaration(declarator, specifiers));
 };

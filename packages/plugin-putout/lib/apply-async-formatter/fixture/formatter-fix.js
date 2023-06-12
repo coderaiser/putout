@@ -7,10 +7,7 @@ test('formatter: codeframea', async ({format}) => {
 });
 
 test('formatter: dump: many', async ({formatMany}) => {
-    await formatMany(dump, [
-        'var',
-        'var',
-    ]);
+    await formatMany(dump, ['var', 'var']);
 });
 
 test('formatter: codeframe: no', async ({noFormat}) => {
