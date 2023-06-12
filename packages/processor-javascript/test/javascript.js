@@ -17,4 +17,3 @@ test('putout: processor: javascript: cts', async ({process}) => {
 test('putout: processor: javascript: mts', async ({process}) => {
     await process('simple.mts', ['remove-unused-variables']);
 });
-

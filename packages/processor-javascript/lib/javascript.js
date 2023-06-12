@@ -15,4 +15,3 @@ export const branch = (source) => [{
 }];
 
 export const merge = (source, list) => list[0];
-
