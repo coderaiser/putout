@@ -16,6 +16,9 @@ module.exports.match = () => ({
     'write.indent.inc(__args)': checkArgs,
     'write.indent.dec(__args)': checkArgs,
     
+    'write.newline(__args)': checkArgs,
+    'write.breakline(__args)': checkArgs,
+    
     'print.indent(__args)': checkArgs,
     'print.indent.inc(__args)': checkArgs,
     'print.indent.dec(__args)': checkArgs,
