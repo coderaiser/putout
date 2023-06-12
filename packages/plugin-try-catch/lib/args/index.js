@@ -7,6 +7,7 @@ const {
 } = types;
 
 const checkIdentifier = ({__a}) => isIdentifier(__a);
+
 const checkMemberExpression = ({__b}) => {
     if (isIdentifier(__b, {name: 'bind'}))
         return false;
@@ -49,4 +50,3 @@ function convertMemberExpressionCallee({__a, __b, __args}, path) {
     
     return path;
 }
-

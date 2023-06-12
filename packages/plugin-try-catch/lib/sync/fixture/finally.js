@@ -5,4 +5,3 @@ const f = () => {
         __estrace.exit('<anonymous:1>', 'trace.js:1');
     }
 };
-

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const args = require('.');
 
 const test = createTest(__dirname, {
-    args,
+    printer: 'putout',
+    plugins: [
+        ['args', args],
+    ],
 });
 
 test('plugin-apply-args: args: transform: report', (t) => {

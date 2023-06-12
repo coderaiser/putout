@@ -42,14 +42,14 @@ npm i @putout/plugin-try-catch
 ```js
 try {
     log('hello');
-} catch(error) {
-}
+} catch(error) {}
 ```
 
 ### ✅ Example of correct code
 
 ```js
 import tryCatch from 'try-catch';
+
 const [error] = tryCatch(log, 'hello');
 ```
 
@@ -60,14 +60,14 @@ const [error] = tryCatch(log, 'hello');
 ```js
 try {
     await send('hello');
-} catch(error) {
-}
+} catch(error) {}
 ```
 
 ### ✅ Example of correct code
 
 ```js
 import tryToCatch from 'try-catch';
+
 const [error] = await tryToCatch(send, 'hello');
 ```
 
@@ -112,6 +112,7 @@ const [error] = tryCatch(fs.readFileSync, 'hello.txt');
 
 ```js
 import tryCatch from 'try-catch';
+
 const [error] = tryCatch(fs.readFileSync, 'hello.txt');
 ```
 

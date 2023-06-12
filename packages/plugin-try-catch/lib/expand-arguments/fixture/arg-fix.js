@@ -1,1 +1,3 @@
-const [, data] = tryCatch(JSON.stringify, {a: 'b'});
+const [, data] = tryCatch(JSON.stringify, {
+    a: 'b',
+});

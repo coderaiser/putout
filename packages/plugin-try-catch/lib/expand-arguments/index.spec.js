@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'tape/expand-try-catch-arguments': convert,
+    printer: 'putout',
+    plugins: [
+        ['tape/expand-try-catch-arguments', convert],
+    ],
 });
 
 test('plugin-tape: expand-try-catch-arguments: report', (t) => {
@@ -30,4 +34,3 @@ test('plugin-tape: expand-try-catch-arguments: not call', (t) => {
     t.noTransform('not-call');
     t.end();
 });
-

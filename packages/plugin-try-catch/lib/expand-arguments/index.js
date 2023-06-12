@@ -30,6 +30,7 @@ module.exports.replace = () => ({
         
         const fnPath = bindings[name].path;
         const {node} = fnPath.get('init.body');
+        
         const newArgs = [
             node.callee,
             ...node.arguments,

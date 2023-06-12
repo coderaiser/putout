@@ -5,6 +5,7 @@ const {types} = require('putout');
 const applyTryCatch = require('../apply-try-catch');
 
 const {isCallExpression} = types;
+
 module.exports.report = () => 'Use tryCatch instead of try-catch block';
 
 module.exports.fix = applyTryCatch('tryCatch');
@@ -15,6 +16,7 @@ module.exports.include = () => [
 
 module.exports.filter = (path) => {
     const {node} = path;
+    
     const {
         block,
         finalizer,
@@ -34,4 +36,3 @@ module.exports.filter = (path) => {
     
     return isCallExpression(first.expression);
 };
-

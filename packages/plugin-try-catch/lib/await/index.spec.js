@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const tryCatch = require('.');
 
 const test = createTest(__dirname, {
-    await: tryCatch,
+    printer: 'putout',
+    plugins: [
+        ['await', tryCatch],
+    ],
 });
 
 test('plugin-apply-await: await: transform: report', (t) => {

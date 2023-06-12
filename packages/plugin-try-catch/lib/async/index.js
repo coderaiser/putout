@@ -16,6 +16,7 @@ module.exports.include = () => [
 
 module.exports.filter = (path) => {
     const {node} = path;
+    
     const {
         block,
         finalizer,
@@ -35,4 +36,3 @@ module.exports.filter = (path) => {
     
     return isAwaitExpression(first.expression);
 };
-

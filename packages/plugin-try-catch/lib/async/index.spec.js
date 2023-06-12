@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const tryToCatch = require('.');
 
 const test = createTest(__dirname, {
-    'try-to-catch': tryToCatch,
+    printer: 'putout',
+    plugins: [
+        ['try-to-catch', tryToCatch],
+    ],
 });
 
 test('plugin-apply-try-catch: try-to-catch: transform: report', (t) => {
@@ -36,4 +39,3 @@ test('plugin-apply-try-catch: try-to-catch: no report: finalizer', (t) => {
     t.noReport('finalizer');
     t.end();
 });
-

@@ -12,4 +12,3 @@ module.exports.rules = {
     ...getRule('sync'),
     ...getRule('async'),
 };
-

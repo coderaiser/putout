@@ -28,10 +28,16 @@ module.exports = (tryName) => (path) => {
     const {param} = path.node.handler;
     
     const {body} = path.get('handler').node;
-    const ifNode = body.body.length ? [IfStatement(param, body)] : body.body;
+    
+    const ifNode = body.body.length ? [
+        IfStatement(param, body),
+    ] : body.body;
     
     if (!param) {
-        replaceWithMultiple(path, [maybeAwait(path, callNode), ...ifNode]);
+        replaceWithMultiple(path, [
+            maybeAwait(path, callNode),
+            ...ifNode,
+        ]);
         return;
     }
     
@@ -39,7 +45,10 @@ module.exports = (tryName) => (path) => {
         VariableDeclarator(ArrayPattern([param]), maybeAwait(path, callNode)),
     ]);
     
-    replaceWithMultiple(path, [varNode, ...ifNode]);
+    replaceWithMultiple(path, [
+        varNode,
+        ...ifNode,
+    ]);
 };
 
 function parseExpression(path) {
@@ -59,4 +68,3 @@ function maybeAwait(path, node) {
     
     return node;
 }
-

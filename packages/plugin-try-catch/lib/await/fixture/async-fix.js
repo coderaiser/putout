@@ -5,4 +5,3 @@ async function hello() {
     
     const [x] = await tryToCatch();
 }
-
