@@ -28,6 +28,7 @@ module.exports.traverse = ({push}) => ({
             parent,
             parentPath,
         } = path;
+        
         const {declarations} = node;
         
         if (parentPath.isExportDeclaration())
@@ -61,4 +62,3 @@ function getVarNodes({kind, declarations}) {
     
     return result;
 }
-

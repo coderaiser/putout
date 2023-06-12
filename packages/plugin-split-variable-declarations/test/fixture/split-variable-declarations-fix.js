@@ -16,7 +16,7 @@ for (const s of j) {
     const b = 3;
 }
 
-while(a > 3) {
+while (a > 3) {
     var d = 1;
     var b = 2;
 }
@@ -27,4 +27,3 @@ class Hello {
         var b;
     }
 }
-
