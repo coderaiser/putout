@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const webpack = require('..');
 
 const test = createTest(__dirname, {
-    webpack,
+    printer: 'putout',
+    plugins: [
+        ['webpack', webpack],
+    ],
 });
 
 test('plugin-webpack: transform', (t) => {

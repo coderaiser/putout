@@ -133,8 +133,7 @@ module.exports = {
     ],
 };
 
-function externals(context, request, callback) {
-}
+function externals(context, request, callback) {}
 ```
 
 ### ✅ Example of correct code
@@ -146,8 +145,7 @@ module.exports = {
     ],
 };
 
-function externals({context, request}, callback) {
-}
+function externals({context, request}, callback) {}
 ```
 
 ## License

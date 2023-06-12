@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertNodeToResolveFallback = require('.');
 
 const test = createTest(__dirname, {
-    'webpack/convert-node-to-resolve-fallback': convertNodeToResolveFallback,
+    printer: 'putout',
+    plugins: [
+        ['webpack/convert-node-to-resolve-fallback', convertNodeToResolveFallback],
+    ],
 });
 
 test('plugin-webpack: convert-node-to-resolve-fallback: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-webpack: convert-node-to-resolve-fallback: no transform: no-node', 
     t.noTransform('no-node');
     t.end();
 });
-

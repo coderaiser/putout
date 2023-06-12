@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertQueryLoaderToUse = require('.');
 
 const test = createTest(__dirname, {
-    'webpack/convert-query-loader-to-use': convertQueryLoaderToUse,
+    printer: 'putout',
+    plugins: [
+        ['webpack/convert-query-loader-to-use', convertQueryLoaderToUse],
+    ],
 });
 
 test('plugin-webpack: convert-query-loader-to-use: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-webpack: convert-query-loader-to-use: transform: couple-queries', (
     t.transform('couple-queries');
     t.end();
 });
-

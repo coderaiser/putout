@@ -27,9 +27,9 @@ module.exports.replace = () => ({
         }
         
         const fn = path.node.params.pop();
+        
         path.node.params = [node, fn];
         
         return path;
     },
 });
-

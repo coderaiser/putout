@@ -18,6 +18,7 @@ module.exports.report = () => `"use" should be used instead of exclamation mark 
 
 module.exports.fix = (path) => {
     const {node} = path;
+    
     node.key.name = 'use';
     
     const valuePath = path.get('value');
@@ -37,8 +38,16 @@ module.exports.traverse = ({push}) => ({
         
         for (const propPath of properties) {
             const {node} = propPath;
-            const {key, value} = node;
-            const isLoader = isIdentifier(key, {name: 'loader'});
+            
+            const {
+                key,
+                value,
+            } = node;
+            
+            const isLoader = isIdentifier(key, {
+                name: 'loader',
+            });
+            
             const isExclamation = isStringLiteral(value) && value.value.includes('!');
             
             if (isLoader && isExclamation)

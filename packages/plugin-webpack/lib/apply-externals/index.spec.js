@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'webpack/apply-externals': plugin,
+    printer: 'putout',
+    plugins: [
+        ['webpack/apply-externals', plugin],
+    ],
 });
 
 test('plugin-webpack: apply-externals: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-webpack: apply-externals: no transform', (t) => {
     t.noTransform('two-args');
     t.end();
 });
-

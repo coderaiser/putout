@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertLoaderToUse = require('.');
 
 const test = createTest(__dirname, {
-    'webpack/convert-loader-to-use': convertLoaderToUse,
+    printer: 'putout',
+    plugins: [
+        ['webpack/convert-loader-to-use', convertLoaderToUse],
+    ],
 });
 
 test('plugin-webpack: convert-loader-to-use: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-webpack: convert-loader-to-use: no transform: query', (t) => {
     t.noTransform('query');
     t.end();
 });
-

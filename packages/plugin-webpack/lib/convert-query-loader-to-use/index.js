@@ -38,8 +38,16 @@ module.exports.traverse = ({push}) => ({
         
         for (const propPath of properties) {
             const {node} = propPath;
-            const {key, value} = node;
-            const isLoader = isIdentifier(key, {name: 'loader'});
+            
+            const {
+                key,
+                value,
+            } = node;
+            
+            const isLoader = isIdentifier(key, {
+                name: 'loader',
+            });
+            
             const isQuery = isStringLiteral(value) && value.value.includes('?');
             
             if (isLoader && isQuery)
@@ -69,11 +77,7 @@ function buildObject(name, options) {
     const loaderProp = ObjectProperty(Identifier('loader'), StringLiteral(name));
     const optionsProp = ObjectProperty(Identifier('options'), ObjectExpression(properties));
     
-    const object = ObjectExpression([
-        loaderProp,
-        optionsProp,
-    ]);
+    const object = ObjectExpression([loaderProp, optionsProp]);
     
     return object;
 }
-
