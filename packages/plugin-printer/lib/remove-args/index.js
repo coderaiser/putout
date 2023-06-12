@@ -18,6 +18,7 @@ module.exports.match = () => ({
     
     'write.newline(__args)': checkArgs,
     'write.breakline(__args)': checkArgs,
+    'write.space(__args)': checkArgs,
     
     'print.indent(__args)': checkArgs,
     'print.indent.inc(__args)': checkArgs,
@@ -37,6 +38,7 @@ module.exports.replace = () => ({
     'write.indent.dec(__args)': 'write.indent.dec()',
     'write.newline(__args)': 'write.newline()',
     'write.breakline(__args)': 'write.breakline()',
+    'write.space(__args)': 'write.space()',
     
     'print.indent(__args)': 'print.indent()',
     'print.indent.inc(__args)': 'print.indent.inc()',
