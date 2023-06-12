@@ -8,4 +8,3 @@ module.exports.rules = {
     ...getRule('add-missing'),
     ...getRule('remove-useless'),
 };
-

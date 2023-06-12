@@ -32,29 +32,31 @@ npm i @putout/plugin-strict-mode -D
 
 ## ❌ Example of incorrect code
 
-```js
-// ESM
+ESM:
 
+```js
 'strict mode';
 
 import a from 'b';
 ```
 
+CommonJS:
+
 ```js
-// CommonJS
 const a = require('b');
 ```
 
 ## ✅ Example of correct code
 
+ESM:
+
 ```js
-// ESM
 import a from 'b';
 ```
 
-```js
-// CommonJS
+CommonJS:
 
+```js
 'strict mode';
 
 const a = require('b');

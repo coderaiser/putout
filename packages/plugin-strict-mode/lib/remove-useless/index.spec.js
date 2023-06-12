@@ -6,7 +6,10 @@ const typescript = require('@putout/plugin-typescript');
 const remove = require('.');
 
 const test = createTest(__dirname, {
-    'strict-mode/remove': remove,
+    printer: 'putout',
+    plugins: [
+        ['strict-mode/remove', remove],
+    ],
 });
 
 test('plugin-strict-mode: remove: report', (t) => {
@@ -45,4 +48,3 @@ test('plugin-strict-mode: remove: transform: typescript', (t) => {
     });
     t.end();
 });
-

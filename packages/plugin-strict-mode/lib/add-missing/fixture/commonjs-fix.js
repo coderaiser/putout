@@ -1,3 +1,3 @@
 'use strict';
-const t = 'hi';
 
+const t = 'hi';

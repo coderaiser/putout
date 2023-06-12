@@ -6,7 +6,10 @@ const declare = require('@putout/plugin-declare');
 const add = require('.');
 
 const test = createTest(__dirname, {
-    'strict-mode/add': add,
+    printer: 'putout',
+    plugins: [
+        ['strict-mode/add', add],
+    ],
 });
 
 test('plugin-strict-mode: add: report', (t) => {
