@@ -269,9 +269,7 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/31255c053
 ### ❌ Example of incorrect code
 
 ```js
-var
-    a,
-    b;
+var a, b;
 ```
 
 ### ✅ Example of correct code
