@@ -1,3 +1,11 @@
+2023.06.12, v29.12.10
+
+feature:
+- 542966eff package: @putout/plugin-strict-mode v6.0.0
+- 0f738821e @putout/plugin-strict-mode: drop support of 🐊 < 29
+- d1d5b4ad9 @putout/plugin-strict-mode: use @putout/printer
+- 9bd1c651d @putout/plugin-travis: drop support of 🐊 < 29
+
 2023.06.12, v29.12.9
 
 feature:
