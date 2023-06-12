@@ -1,3 +1,16 @@
+2023.06.12, v29.12.11
+
+fix:
+- 4ce5182fb @putout/plugin-printer: remove-args: no report
+
+feature:
+- c93a6b29c package: @putout/plugin-split-variable-declarations v3.0.0
+- 836c270f3 @putout/printer: split-variable-declarations: drop support of 🐊 < 29
+- efbcc26c7 @putout/plugin-split-variable-declarations: use @putout/printer
+- 8e409ea10 @putout/plugin-printer: remove-args: write.space
+- 49ed8cf0c package: @putout/printer v2.0.0
+- e84d4834c @putout/plugin-printer: remove-args: add support of write.breakline
+
 2023.06.12, v29.12.10
 
 feature:
