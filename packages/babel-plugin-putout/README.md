@@ -4,17 +4,8 @@ Use 🐊[**Putout**](https://github.com/coderaiser/putout) as `babel plugin`.
 
 ## Example
 
-**In**
-
-```js
-// input code
-const s = 'hi';
-```
-
-**Out**
-
-```js
-// output code
+```diff
+-const s = 'hi';
 ```
 
 ## Installation

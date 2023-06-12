@@ -16,15 +16,12 @@ module.exports = () => {
         visitor: {
             Program(path, {filename, opts}) {
                 const options = parseOptions({
+                    printer: 'putout',
                     filename,
                     options: opts,
                 });
                 
-                transform(
-                    path.container,
-                    code,
-                    options,
-                );
+                transform(path.container, code, options);
             },
         },
         
@@ -35,10 +32,13 @@ module.exports = () => {
         
         generatorOverride(ast) {
             ast.program.directives = [];
-            const code = print(ast);
+            const code = print(ast, {
+                printer: 'putout',
+            });
             
-            return {code};
+            return {
+                code,
+            };
         },
     };
 };
-
