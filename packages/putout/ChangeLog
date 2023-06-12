@@ -1,3 +1,8 @@
+2023.06.12, v29.12.8
+
+feature:
+- 43e643207 package: @putout/plugin-webpack v3.0.0
+
 2023.06.09, v29.12.7
 
 feature:
