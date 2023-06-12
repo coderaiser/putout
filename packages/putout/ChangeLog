@@ -1,3 +1,12 @@
+2023.06.12, v29.12.9
+
+feature:
+- cb79135b4 package: @putout/processor-javascript v5.0.0
+- 2cdca8684 @putout/processor-javascript: drop support of 🐊 < 29
+- 9b39e5f81 @putout/plugin-madrun: use @putout/printer
+- 42d67623a babel-plugin-putout: drop support of node < 16
+- 9e1963c97 @babel-plugin-putout: use @putout/printer
+
 2023.06.12, v29.12.8
 
 feature:
