@@ -24,10 +24,7 @@ test('putout: getFiles: error', async (t) => {
 });
 
 test('putout: getFiles: error: not first', async (t) => {
-    const [e] = await getFiles([
-        '**/*.js',
-        '*.xxx',
-    ]);
+    const [e] = await getFiles(['**/*.js', '*.xxx']);
     
     t.equal(e.message, `No files matching the pattern '*.xxx' were found`);
     t.end();
@@ -40,10 +37,7 @@ test('putout: getFiles', async (t) => {
         isDirectory: stub().returns(false),
     });
     
-    const fastGlob = stub().returns([
-        'get-files.js',
-        'get-files.spec.js',
-    ]);
+    const fastGlob = stub().returns(['get-files.js', 'get-files.spec.js']);
     
     mockRequire('fast-glob', fastGlob);
     
@@ -71,10 +65,7 @@ test('putout: getFiles: normalize', async (t) => {
         isDirectory: stub().returns(false),
     });
     
-    const fastGlob = stub().returns([
-        './/get-files.js',
-        './/get-files.spec.js',
-    ]);
+    const fastGlob = stub().returns(['.//get-files.js', './/get-files.spec.js']);
     
     mockRequire('fast-glob', fastGlob);
     

@@ -20,10 +20,7 @@ test('formatter: progress bar: no', async ({format}) => {
 });
 
 test('formatter: progress bar: many', async ({formatMany}) => {
-    await formatMany(progress, [
-        'var',
-        'var',
-    ]);
+    await formatMany(progress, ['var', 'var']);
 });
 
 test('formatter: progress bar: minCount', async ({format}) => {

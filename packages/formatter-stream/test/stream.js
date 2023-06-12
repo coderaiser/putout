@@ -15,8 +15,5 @@ test('formatter: stream: no', async ({noFormat}) => {
 });
 
 test('formatter: stream: many', async ({formatMany}) => {
-    await formatMany(stream, [
-        'var',
-        'var',
-    ]);
+    await formatMany(stream, ['var', 'var']);
 });

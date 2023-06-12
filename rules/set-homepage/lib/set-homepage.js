@@ -12,10 +12,7 @@ module.exports.traverse = ({push}) => ({
         const {
             namePath,
             homepagePath,
-        } = getProperties(__aPath, [
-            'name',
-            'homepage',
-        ]);
+        } = getProperties(__aPath, ['name', 'homepage']);
         
         if (!namePath || !homepagePath)
             return;

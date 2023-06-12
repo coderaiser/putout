@@ -22,11 +22,7 @@ test('test: ts', (t) => {
 });
 
 test('test: message: all messages', (t) => {
-    t.report('property-identifier', [
-        `Avoid 'console' call`,
-        `Avoid 'console' call`,
-        `Avoid 'console' call`,
-    ]);
+    t.report('property-identifier', [`Avoid 'console' call`, `Avoid 'console' call`, `Avoid 'console' call`]);
     t.end();
 });
 

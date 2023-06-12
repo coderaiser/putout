@@ -11,11 +11,7 @@ const notDeclared = (a, b) => (vars, path) => {
     if (!binding)
         return true;
     
-    return compareAny(binding.path.parentPath.node, [
-        `const {${b}} = ${a}`,
-        `var {${b}} = ${a}`,
-        `let {${b}} = ${a}`,
-    ]);
+    return compareAny(binding.path.parentPath.node, [`const {${b}} = ${a}`, `var {${b}} = ${a}`, `let {${b}} = ${a}`]);
 };
 
 module.exports.match = () => ({

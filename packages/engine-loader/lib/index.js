@@ -171,10 +171,7 @@ function extendRules(rule, plugin) {
     const entries = Object.entries(plugin);
     
     for (const [name, plugin] of entries) {
-        result.push([
-            `${rule}/${name}`,
-            plugin,
-        ]);
+        result.push([`${rule}/${name}`, plugin]);
     }
     
     return result;

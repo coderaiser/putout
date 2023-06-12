@@ -21,10 +21,7 @@ module.exports.traverse = ({push}) => ({
         const {
             commitTypePath,
             mainPath,
-        } = getProperties(__aPath, [
-            'commitType',
-            'main',
-        ]);
+        } = getProperties(__aPath, ['commitType', 'main']);
         
         if (commitTypePath)
             return;

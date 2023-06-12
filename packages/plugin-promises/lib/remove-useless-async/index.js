@@ -19,11 +19,7 @@ module.exports.include = () => [
 ];
 
 module.exports.filter = (path) => {
-    const is = contains(path, [
-        'throw __',
-        'await __',
-        'for await (__ of __) __',
-    ]);
+    const is = contains(path, ['throw __', 'await __', 'for await (__ of __) __']);
     
     return !is;
 };

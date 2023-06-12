@@ -26,10 +26,7 @@ test('test: no format', async ({noFormat}) => {
 });
 
 test('test: formatMany', async ({formatMany}) => {
-    await formatMany(formatter, [
-        'var',
-        'var',
-    ]);
+    await formatMany(formatter, ['var', 'var']);
 });
 
 const {
@@ -99,10 +96,7 @@ testUpdate('test: format: with UPDATE env variable', async ({ok, format}) => {
 });
 
 testUpdate('test: formatManySave', async ({ok, formatManySave}) => {
-    await formatManySave(formatter, [
-        'var',
-        'var',
-    ]);
+    await formatManySave(formatter, ['var', 'var']);
     ok(writeFileSyncStub.called);
 }, {
     checkAssertionsCount: false,
@@ -110,10 +104,7 @@ testUpdate('test: formatManySave', async ({ok, formatManySave}) => {
 
 testUpdate('test: formatMany: with UPDATE env variable', async ({ok, formatMany}) => {
     global.__putout_test_update = true;
-    await formatMany(formatter, [
-        'var',
-        'var',
-    ]);
+    await formatMany(formatter, ['var', 'var']);
     
     global.__putout_test_update = false;
     ok(writeFileSyncStub.called);
@@ -134,10 +125,7 @@ testUpdate('test: formatSave: exists', async ({ok, formatSave}) => {
 testUpdate('test: formatManySave: exists', async ({ok, formatManySave}) => {
     existsSyncStub.returns(true);
     
-    await formatManySave(formatter, [
-        'var',
-        'var',
-    ]);
+    await formatManySave(formatter, ['var', 'var']);
     
     ok(writeFileSyncStub.called);
 }, {

@@ -21,10 +21,7 @@ test('putout: operator: compareAll', (t) => {
 });
 
 test('putout: operator: compare: any', (t) => {
-    const result = operator.compareAny('const a = {}', [
-        'const __ = {}',
-        'abc',
-    ]);
+    const result = operator.compareAny('const a = {}', ['const __ = {}', 'abc']);
     
     t.ok(result);
     t.end();

@@ -433,10 +433,7 @@ test('putout: parseOptions: read rules: not-rule-', (t) => {
     
     mockRequire('../../putout.json', empty);
     mockRequire('fs', {
-        readdirSync: stub().returns([
-            'not-rule-world',
-            'hello',
-        ]),
+        readdirSync: stub().returns(['not-rule-world', 'hello']),
     });
     
     const plugin = stub();

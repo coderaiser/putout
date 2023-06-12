@@ -15,8 +15,5 @@ test('formatter: dump: no', async ({noFormat}) => {
 });
 
 test('formatter: dump: many', async ({formatMany}) => {
-    await formatMany(dump, [
-        'var',
-        'var',
-    ]);
+    await formatMany(dump, ['var', 'var']);
 });

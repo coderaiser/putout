@@ -20,10 +20,7 @@ test('formatter: codeframe: no', async ({noFormat}) => {
 });
 
 test('formatter: codeframe: many', async ({formatMany}) => {
-    await formatMany(codeframe, [
-        'var',
-        'var',
-    ]);
+    await formatMany(codeframe, ['var', 'var']);
 });
 
 testStrict('formatter: zero', async ({format}) => {

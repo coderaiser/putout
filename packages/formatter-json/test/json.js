@@ -15,8 +15,5 @@ test('formatter: json: no', async ({format}) => {
 });
 
 test('formatter: json: many', async ({formatMany}) => {
-    await formatMany(json, [
-        'var',
-        'var',
-    ]);
+    await formatMany(json, ['var', 'var']);
 });

@@ -30,11 +30,7 @@ module.exports.include = () => [
 ];
 
 module.exports.filter = (path) => {
-    return compareAny(prev(path), [
-        'indent()',
-        'print.indent()',
-        'write.indent()',
-    ]);
+    return compareAny(prev(path), ['indent()', 'print.indent()', 'write.indent()']);
 };
 
 function choose(path) {

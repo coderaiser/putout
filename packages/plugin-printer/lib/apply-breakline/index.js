@@ -25,11 +25,7 @@ module.exports.fix = (path) => {
 };
 
 module.exports.filter = (path) => {
-    return compareAny(next(path), [
-        'indent()',
-        'print.indent()',
-        'write.indent()',
-    ]);
+    return compareAny(next(path), ['indent()', 'print.indent()', 'write.indent()']);
 };
 
 module.exports.include = () => [

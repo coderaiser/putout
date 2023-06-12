@@ -10,10 +10,7 @@ module.exports.createAsyncLoader = (type) => async (name, load) => {
     if (name === 'none')
         return stub();
     
-    const [e, reporter] = await cleverLoad([
-        `@putout/${type}-${name}`,
-        `putout-${type}-${name}`,
-    ], load);
+    const [e, reporter] = await cleverLoad([`@putout/${type}-${name}`, `putout-${type}-${name}`], load);
     
     if (e)
         throw e;

@@ -259,10 +259,7 @@ Check file name formatting (pass `process.env.UPDATE=1` to save `fixture`):
 
 ```js
 test('formatter: dump: many', async ({formatMany}) => {
-    await formatMany(dump, [
-        'var',
-        'var',
-    ]);
+    await formatMany(dump, ['var', 'var']);
 });
 ```
 
