@@ -32,6 +32,8 @@ module.exports.replace = () => ({
     'write.indent(__args)': 'write.indent()',
     'write.indent.inc(__args)': 'write.indent.inc()',
     'write.indent.dec(__args)': 'write.indent.dec()',
+    'write.newline(__args)': 'write.newline()',
+    'write.breakline(__args)': 'write.breakline()',
     
     'print.indent(__args)': 'print.indent()',
     'print.indent.inc(__args)': 'print.indent.inc()',

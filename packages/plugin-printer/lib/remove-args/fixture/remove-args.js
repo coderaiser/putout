@@ -9,6 +9,9 @@ write.indent(is);
 write.indent.inc(is);
 write.indent.dec(is);
 
+write.newline(is);
+write.breakline(is);
+
 print.indent(is);
 print.indent.inc(is);
 print.indent.dec(is);
