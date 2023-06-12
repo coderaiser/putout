@@ -117,9 +117,7 @@ const ast = babel.parse(source, {
     sourceFilename: 'hello.js',
 });
 
-generate(ast, {
-    sourceMaps: true,
-}, {
+generate(ast, {sourceMaps: true}, {
     'hello.js': source,
 });
 

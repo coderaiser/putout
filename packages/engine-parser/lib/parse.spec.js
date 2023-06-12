@@ -13,9 +13,7 @@ test('putout: engina-parser: parse + generate = sourcemap', (t) => {
         sourceFilename: 'hello.js',
     });
     
-    const {map} = generate(ast, {
-        sourceMaps: true,
-    }, {
+    const {map} = generate(ast, {sourceMaps: true}, {
         'hello.js': source,
     });
     

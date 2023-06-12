@@ -67,9 +67,7 @@ test('compare: base is string: path', (t) => {
     const node = template.ast('const a = "hello"');
     const b = template.ast('const a = "__"');
     
-    const result = compare({
-        node,
-    }, b);
+    const result = compare({node}, b);
     
     t.ok(result);
     t.end();

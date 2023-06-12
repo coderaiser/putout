@@ -101,12 +101,10 @@ const plugins = loadPlugins({
 const {loadProcessors} = require('@putout/engine-loader');
 const optionalLoad = async (a) => await import(a);
 
-const plugins = await loadProcessorsAsync({
-    processors: [
-        ['javascript', 'on'],
-        ['markdown', 'off'],
-    ],
-}, optionalLoad);
+const plugins = await loadProcessorsAsync({processors: [
+    ['javascript', 'on'],
+    ['markdown', 'off'],
+]}, optionalLoad);
 ```
 
 ### createAsyncLoader

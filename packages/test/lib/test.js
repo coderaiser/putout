@@ -434,9 +434,7 @@ const report = currify((dir, options, t, name, message) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
-    return reportCode({
-        isTS,
-        ...options,
+    return reportCode({isTS, ...options,
     }, t, source, message);
 });
 
@@ -446,9 +444,7 @@ const noReport = currify((dir, options, t, name) => {
     
     rmFixture(`${full}-fix`);
     
-    return noReportCode({
-        isTS,
-        ...options,
+    return noReportCode({isTS, ...options,
     }, t, source);
 });
 
@@ -458,9 +454,7 @@ const noReportAfterTransform = currify((dir, options, t, name) => {
     const full = join(dir, name);
     const [source, isTS] = readFixture(full);
     
-    return noReportCodeAfterTransform({
-        isTS,
-        ...options,
+    return noReportCodeAfterTransform({isTS, ...options,
     }, t, source);
 });
 
@@ -476,11 +470,8 @@ const reportWithOptions = currify((dir, options, t, name, message, ruleOptions) 
         [rule]: ['on', ruleOptions],
     };
     
-    return reportCode({
-        ...options,
-        rules,
-        isTS,
-    }, t, source, message);
+    return reportCode({...options,
+        rules, isTS}, t, source, message);
 });
 
 const noReportWithOptions = currify((dir, options, t, name, ruleOptions) => {
@@ -495,11 +486,8 @@ const noReportWithOptions = currify((dir, options, t, name, ruleOptions) => {
         [rule]: ['on', ruleOptions],
     };
     
-    return noReportCode({
-        isTS,
-        ...options,
-        rules,
-    }, t, source);
+    return noReportCode({isTS, ...options,
+        rules}, t, source);
 });
 
 const reportCode = currify((options, t, source, message) => {

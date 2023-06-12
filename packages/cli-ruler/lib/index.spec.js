@@ -41,11 +41,9 @@ test('putout: cli: ruler-processor: read: error', async (t) => {
     
     const name = `${process.cwd()}/.putout.json`;
     
-    const expected = stringify({
-        rules: {
-            'remove-unused-variables': 'on',
-        },
-    }, null, 4);
+    const expected = stringify({rules: {
+        'remove-unused-variables': 'on',
+    }}, null, 4);
     
     t.calledWith(writeFile, [name, expected], 'should write config');
     t.end();
@@ -66,11 +64,9 @@ test('putout: cli: ruler-processor: write', async (t) => {
     
     const name = `${process.cwd()}/.putout.json`;
     
-    const expected = stringify({
-        rules: {
-            'remove-unused-variables': 'on',
-        },
-    }, null, 4);
+    const expected = stringify({rules: {
+        'remove-unused-variables': 'on',
+    }}, null, 4);
     
     t.calledWith(writeFile, [name, expected], 'should write config');
     t.end();
@@ -91,11 +87,9 @@ test('putout: cli: ruler-processor: disable', async (t) => {
     
     const name = `${process.cwd()}/.putout.json`;
     
-    const expected = stringify({
-        rules: {
-            'remove-unused-variables': 'off',
-        },
-    }, null, 4);
+    const expected = stringify({rules: {
+        'remove-unused-variables': 'off',
+    }}, null, 4);
     
     t.calledWith(writeFile, [name, expected], 'should write config');
     t.end();
@@ -127,12 +121,10 @@ test('putout: cli: ruler-processor: enable all', async (t) => {
     
     const name = `${process.cwd()}/.putout.json`;
     
-    const expected = stringify({
-        rules: {
-            'remove-debugger': 'on',
-            'remove-unused-variables': 'on',
-        },
-    }, null, 4);
+    const expected = stringify({rules: {
+        'remove-debugger': 'on',
+        'remove-unused-variables': 'on',
+    }}, null, 4);
     
     t.calledWith(writeFile, [name, expected], 'should enable all');
     t.end();
@@ -163,12 +155,10 @@ test('putout: cli: ruler-processor: disable all', async (t) => {
     
     const name = `${process.cwd()}/.putout.json`;
     
-    const expected = stringify({
-        rules: {
-            'remove-debugger': 'off',
-            'remove-unused-variables': 'off',
-        },
-    }, null, 4);
+    const expected = stringify({rules: {
+        'remove-debugger': 'off',
+        'remove-unused-variables': 'off',
+    }}, null, 4);
     
     t.calledWith(writeFile, [name, expected], 'should enable all');
     t.end();
@@ -192,12 +182,10 @@ test('putout: cli: ruler-processor: no option', async (t) => {
     
     const name = `${process.cwd()}/.putout.json`;
     
-    const expected = stringify({
-        rules: {
-            'remove-debugger': 'on',
-            'remove-unused-variables': 'off',
-        },
-    }, null, 4);
+    const expected = stringify({rules: {
+        'remove-debugger': 'on',
+        'remove-unused-variables': 'off',
+    }}, null, 4);
     
     t.calledWith(writeFile, [name, expected], 'should enable all');
     t.end();

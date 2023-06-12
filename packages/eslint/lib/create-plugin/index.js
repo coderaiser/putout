@@ -23,18 +23,7 @@ const prepare = (plugin, context, options) => (node) => {
     
     const text = getText(node);
     
-    const result = filter({
-        text,
-        node,
-        options,
-        getText,
-        getCommentsBefore,
-        getCommentsAfter,
-        getCommentsInside,
-        getSpacesBeforeNode,
-        getSpacesAfterNode,
-        filename,
-    }, options);
+    const result = filter({text, node, options, getText, getCommentsBefore, getCommentsAfter, getCommentsInside, getSpacesBeforeNode, getSpacesAfterNode, filename}, options);
     
     if (!result)
         return;

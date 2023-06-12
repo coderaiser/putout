@@ -28,9 +28,7 @@ function checkStubs({__a, __b}, path) {
         elements,
     };
     
-    return checkStubsArray({
-        __array,
-    }, path);
+    return checkStubsArray({__array}, path);
 }
 
 function applyWithName({__a, __b}, path) {

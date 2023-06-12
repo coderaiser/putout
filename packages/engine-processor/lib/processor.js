@@ -168,9 +168,7 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
 
 module.exports.getProcessorRunners = getProcessorRunners;
 async function getProcessorRunners(processors, load) {
-    const readyProcessors = await loadProcessorsAsync({
-        processors,
-    }, load);
+    const readyProcessors = await loadProcessorsAsync({processors}, load);
     
     return readyProcessors;
 }
