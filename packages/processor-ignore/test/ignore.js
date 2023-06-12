@@ -36,4 +36,3 @@ test('putout: processor: ignore: rc: eslintrc: no crash', async ({comparePlaces}
 test('putout: processor: ignore: no new line', async ({process}) => {
     await process('no-new-line-ignore');
 });
-
