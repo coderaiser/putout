@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test/processor';
+
 const test = createTest(import.meta.url, {
     processors: [
         'typescript',
@@ -15,4 +16,3 @@ test('putout: processor: typescript', async ({comparePlaces}) => {
         rule: 'type-check (typescript)',
     }]);
 });
-
