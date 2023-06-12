@@ -4,4 +4,3 @@ module.exports = {
     'hello': () => 'world',
     'how': () => 'come',
 };
-

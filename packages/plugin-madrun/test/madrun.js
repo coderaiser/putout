@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const madrun = require('..');
 
 const test = createTest(__dirname, {
-    madrun,
+    printer: 'putout',
+    plugins: [
+        ['madrun', madrun],
+    ],
 });
 
 test('plugin-madrun: transform', (t) => {
@@ -56,4 +59,3 @@ test('plugin-madrun: transform: add cut-env', (t) => {
     t.transform('add-cut-env');
     t.end();
 });
-

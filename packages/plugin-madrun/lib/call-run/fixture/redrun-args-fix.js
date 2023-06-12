@@ -5,6 +5,5 @@ module.exports = {
     'test': () => 'tape test',
     'big': () => {
         return 'tape test';
-    }
+    },
 };
-

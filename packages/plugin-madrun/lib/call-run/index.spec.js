@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const callRun = require('.');
 
 const test = createTest(__dirname, {
-    'call-run': callRun,
+    printer: 'putout',
+    plugins: [
+        ['call-run', callRun],
+    ],
 });
 
 test('madrun: call run: report', (t) => {
@@ -26,4 +29,3 @@ test('madrun: call run: transform: npm: args', (t) => {
     t.transform('npm-args');
     t.end();
 });
-

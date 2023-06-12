@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertNycToC8 = require('.');
 
 const test = createTest(__dirname, {
-    'convert-nyc-to-c8': convertNycToC8,
+    printer: 'putout',
+    plugins: [
+        ['convert-nyc-to-c8', convertNycToC8],
+    ],
 });
 
 test('madrun: convert-nyc-to-c8: report', (t) => {

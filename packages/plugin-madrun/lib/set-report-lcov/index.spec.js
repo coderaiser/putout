@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const setReportLcov = require('.');
 
 const test = createTest(__dirname, {
-    'set-report-lcov': setReportLcov,
+    printer: 'putout',
+    plugins: [
+        ['set-report-lcov', setReportLcov],
+    ],
 });
 
 test('madrun: set-report-lcov: report', (t) => {
@@ -21,4 +24,3 @@ test('madrun: set-report-lcov: no report', (t) => {
     t.noReport('no-report');
     t.end();
 });
-

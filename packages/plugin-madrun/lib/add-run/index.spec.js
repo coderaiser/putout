@@ -5,8 +5,12 @@ const addRun = require('.');
 
 const strictMode = require('@putout/plugin-strict-mode');
 const removeUnusedExpressions = require('@putout/plugin-remove-unused-expressions');
+
 const test = createTest(__dirname, {
-    'add-run': addRun,
+    printer: 'putout',
+    plugins: [
+        ['add-run', addRun],
+    ],
 });
 
 const {'add-missing': addMissing} = strictMode.rules;
@@ -38,4 +42,3 @@ test('madrun: add run: transform: strict', (t) => {
     });
     t.end();
 });
-

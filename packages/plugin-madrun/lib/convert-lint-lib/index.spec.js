@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertLintLib = require('.');
 
 const test = createTest(__dirname, {
-    'convert-lint-lib': convertLintLib,
+    printer: 'putout',
+    plugins: [
+        ['convert-lint-lib', convertLintLib],
+    ],
 });
 
 test('madrun: convert lint:lib: report', (t) => {
@@ -16,4 +19,3 @@ test('madrun: convert: lint: lib: transform', (t) => {
     t.transform('lint');
     t.end();
 });
-

@@ -1,7 +1,12 @@
 'use strict';
 
-const {types, operator} = require('putout');
+const {
+    types,
+    operator,
+} = require('putout');
+
 const {isArrayExpression} = types;
+
 const {
     getExportDefault,
     getProperty,
@@ -31,4 +36,3 @@ module.exports.match = () => ({
         return !isArrayExpression(body);
     },
 });
-

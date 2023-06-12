@@ -1,3 +1,3 @@
 module.exports = {
-    'lint': () => 'putout bin lib test'
-}
+    'lint': () => 'eslint bin lib test --ignore test/fixture',
+};

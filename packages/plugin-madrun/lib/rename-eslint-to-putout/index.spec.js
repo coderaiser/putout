@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const renameEsilntToPutout = require('.');
 
 const test = createTest(__dirname, {
-    'madrun/rename-esilnt-to-putout': renameEsilntToPutout,
+    printer: 'putout',
+    plugins: [
+        ['madrun/rename-esilnt-to-putout', renameEsilntToPutout],
+    ],
 });
 
 test('madrun: rename-eslint-to-putout: report', (t) => {
@@ -41,4 +44,3 @@ test('madrun: rename-eslint-to-putout: no transform: not str', (t) => {
     t.noTransform('not-str');
     t.end();
 });
-

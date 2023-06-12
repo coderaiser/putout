@@ -10,7 +10,10 @@ const {
     TemplateLiteral,
 } = types;
 
-const {replaceWith, getProperty} = operator;
+const {
+    replaceWith,
+    getProperty,
+} = operator;
 
 const dotLine = 'putout .';
 const isDot = (a) => a.includes(dotLine);
@@ -37,13 +40,19 @@ function getValue(bodyPath) {
     const {node} = bodyPath;
     
     if (bodyPath.isStringLiteral())
-        return [bodyPath, node.value];
+        return [
+            bodyPath,
+            node.value,
+        ];
     
     if (bodyPath.isTemplateLiteral()) {
         const linePath = bodyPath.get('quasis.0');
         const line = linePath.node;
         
-        return [linePath, line.value.raw];
+        return [
+            linePath,
+            line.value.raw,
+        ];
     }
     
     return [bodyPath, ''];

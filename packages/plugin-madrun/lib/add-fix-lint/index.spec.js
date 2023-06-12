@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const addFixLint = require('.');
 
 const test = createTest(__dirname, {
-    'add-fix-lint': addFixLint,
+    printer: 'putout',
+    plugins: [
+        ['add-fix-lint', addFixLint],
+    ],
 });
 
 test('madrun: add fix:lint: report', (t) => {
@@ -21,4 +24,3 @@ test('madrun: add fix:lint: no transform: exists', (t) => {
     t.noTransform('exists');
     t.end();
 });
-

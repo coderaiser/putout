@@ -9,4 +9,3 @@ export default {
     'fix:lint': () => run('lint', '--fix'),
     'prepublishOnly': () => run('lint'),
 };
-

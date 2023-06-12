@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertRunArgument = require('.');
 
 const test = createTest(__dirname, {
-    'madrun/convert-run-argument': convertRunArgument,
+    printer: 'putout',
+    plugins: [
+        ['madrun/convert-run-argument', convertRunArgument],
+    ],
 });
 
 test('madrun: convert run argument: report', (t) => {
@@ -26,4 +29,3 @@ test('madrun: convert run argument: no transform: not-run', (t) => {
     t.noTransform('not-run');
     t.end();
 });
-

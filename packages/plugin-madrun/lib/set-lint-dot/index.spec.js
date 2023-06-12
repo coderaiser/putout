@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const setLintDot = require('.');
 
 const test = createTest(__dirname, {
-    'set-lint-dot': setLintDot,
+    printer: 'putout',
+    plugins: [
+        ['set-lint-dot', setLintDot],
+    ],
 });
 
 test('madrun: set lint dot: report', (t) => {
@@ -41,4 +44,3 @@ test('madrun: set lint dot: no transform: no lint', (t) => {
     t.noTransform('no-lint');
     t.end();
 });
-

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertToAsync = require('.');
 
 const test = createTest(__dirname, {
-    'convert-to-async': convertToAsync,
+    printer: 'putout',
+    plugins: [
+        ['convert-to-async', convertToAsync],
+    ],
 });
 
 test('madrun: convert to async: report', (t) => {

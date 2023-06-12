@@ -1,3 +1,3 @@
 module.exports = {
-    'lint': () => lint()
+    'lint': () => lint(),
 };

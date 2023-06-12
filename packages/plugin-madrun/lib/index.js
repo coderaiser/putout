@@ -24,4 +24,3 @@ module.exports.rules = {
     ...getRule('remove-check-duplicates-from-test'),
     ...getRule('declare'),
 };
-

@@ -1,10 +1,15 @@
 'use strict';
 
-const {types, operator} = require('putout');
+const {
+    types,
+    operator,
+} = require('putout');
+
 const {
     isArrayExpression,
     ArrayExpression,
 } = types;
+
 const {
     getExportDefault,
     getProperty,
@@ -48,4 +53,3 @@ function getTuple({__a}, path) {
     
     return body;
 }
-

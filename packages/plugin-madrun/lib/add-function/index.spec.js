@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const addFunction = require('.');
+
 const test = createTest(__dirname, {
-    'add-function': addFunction,
+    printer: 'putout',
+    plugins: [
+        ['add-function', addFunction],
+    ],
 });
 
 test('madrun: add function: report', (t) => {
@@ -40,4 +44,3 @@ test('madrun: add function: transform: identifier', (t) => {
     t.report('identifier', 'function should be used instead of string in script "build');
     t.end();
 });
-

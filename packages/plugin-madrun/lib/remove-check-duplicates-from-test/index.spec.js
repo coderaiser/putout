@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeCheckDuplicatesFromTest = require('.');
 
 const test = createTest(__dirname, {
-    'remove-check-duplicates-from-test': removeCheckDuplicatesFromTest,
+    printer: 'putout',
+    plugins: [
+        ['remove-check-duplicates-from-test', removeCheckDuplicatesFromTest],
+    ],
 });
 
 test('madrun: remove-check-duplicates-from-test: report', (t) => {
@@ -26,4 +29,3 @@ test('madrun: remove-check-duplicates-from-test: no transform: no -d', (t) => {
     t.noTransform('no-check-duplicates');
     t.end();
 });
-

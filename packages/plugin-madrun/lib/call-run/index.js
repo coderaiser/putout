@@ -67,4 +67,3 @@ function getScripts(line) {
     
     return scripts.slice(2);
 }
-

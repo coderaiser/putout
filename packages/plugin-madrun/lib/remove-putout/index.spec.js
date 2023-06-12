@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removePutout = require('.');
 
 const test = createTest(__dirname, {
-    'madrun/remove-putout': removePutout,
+    printer: 'putout',
+    plugins: [
+        ['madrun/remove-putout', removePutout],
+    ],
 });
 
 test('madrun: remove putout: report', (t) => {
@@ -26,4 +29,3 @@ test('madrun: remove putout: no transform: computed', (t) => {
     t.noTransform('computed');
     t.end();
 });
-

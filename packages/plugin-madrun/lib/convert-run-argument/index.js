@@ -24,10 +24,10 @@ module.exports.traverse = ({push}) => ({
             return;
         
         const [element] = arg.elements;
+        
         push({
             element,
             path: argPath,
         });
     },
 });
-

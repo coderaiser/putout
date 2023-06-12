@@ -16,4 +16,3 @@ module.exports.traverse = ({push}) => ({
 module.exports.fix = (path) => {
     path.node.callee.name = 'run';
 };
-

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const declare = require('.');
 
 const test = createTest(__dirname, {
-    'madrun/declare': declare,
+    printer: 'putout',
+    plugins: [
+        ['madrun/declare', declare],
+    ],
 });
 
 test('plugin-madrun: declare: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-madrun: declare: transform', (t) => {
     t.transform('cut-env');
     t.end();
 });
-

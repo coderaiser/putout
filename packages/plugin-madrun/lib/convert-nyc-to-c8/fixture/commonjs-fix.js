@@ -10,4 +10,3 @@ module.exports = {
     'coverage': async () => `c8 ${await run('test')}`,
     'report': () => `c8 report --reporter=text-lcov | coveralls || true`,
 };
-

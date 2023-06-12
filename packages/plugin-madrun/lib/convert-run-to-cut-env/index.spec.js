@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convert = require('.');
 
 const test = createTest(__dirname, {
-    'madrun/convert-run-to-cut-env': convert,
+    printer: 'putout',
+    plugins: [
+        ['madrun/convert-run-to-cut-env', convert],
+    ],
 });
 
 test('madrun: convert-run-to-cut-env: report', (t) => {
@@ -23,7 +26,7 @@ test('madrun: convert-run-to-cut-env: transform: no-env', (t) => {
 });
 
 test('madrun: convert-run-to-cut-env: no transform: no export default', (t) => {
-    t.noTransformCode(`export const hello = 'world'; run('hello')`);
+    t.noTransformCode(`export const hello = 'world';\nrun('hello');\n`);
     t.end();
 });
 
@@ -31,4 +34,3 @@ test('madrun: convert-run-to-cut-env: no transform: no property', (t) => {
     t.noTransform('no-property');
     t.end();
 });
-

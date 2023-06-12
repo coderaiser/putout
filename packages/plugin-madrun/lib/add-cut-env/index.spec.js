@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convert = require('.');
 
 const test = createTest(__dirname, {
-    'madrun/add-cut-env': convert,
+    printer: 'putout',
+    plugins: [
+        ['madrun/add-cut-env', convert],
+    ],
 });
 
 test('madrun: add-cut-env: report', (t) => {
@@ -31,4 +34,3 @@ test('madrun: add-cut-env: no report: no-export-default', (t) => {
     t.noReport('no-export-default');
     t.end();
 });
-

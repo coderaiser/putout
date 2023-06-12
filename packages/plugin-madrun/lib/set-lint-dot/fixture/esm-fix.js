@@ -1,3 +1,3 @@
 export default {
-    'lint': () => 'putout .'
+    'lint': () => putout .,
 };

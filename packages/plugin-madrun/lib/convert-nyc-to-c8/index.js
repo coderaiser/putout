@@ -5,7 +5,10 @@ const {
     operator,
 } = require('putout');
 
-const {replaceWith, getProperty} = operator;
+const {
+    replaceWith,
+    getProperty,
+} = operator;
 
 module.exports.report = () => {
     return `coverage should use "c8" instead of "nyc"`;
@@ -27,8 +30,12 @@ const addAll = (name, push) => (path) => {
     const coveragePath = getProperty(rightPath, 'coverage');
     const reportPath = getProperty(rightPath, 'report');
     
-    add(coveragePath, {push});
-    add(reportPath, {push});
+    add(coveragePath, {
+        push,
+    });
+    add(reportPath, {
+        push,
+    });
 };
 
 function add(currentPath, {push}) {
@@ -46,4 +53,3 @@ function add(currentPath, {push}) {
         line,
     });
 }
-

@@ -28,4 +28,3 @@ module.exports.match = () => ({
         return Boolean(property);
     },
 });
-

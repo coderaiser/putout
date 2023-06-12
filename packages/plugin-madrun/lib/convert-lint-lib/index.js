@@ -5,7 +5,11 @@ const {
     operator,
 } = require('putout');
 
-const {replaceWith, getProperty} = operator;
+const {
+    replaceWith,
+    getProperty,
+} = operator;
+
 const {StringLiteral} = types;
 
 module.exports.report = () => `'lint' should be used instead of 'lint:lib'`;
@@ -38,4 +42,3 @@ module.exports.traverse = ({push}) => ({
         });
     },
 });
-

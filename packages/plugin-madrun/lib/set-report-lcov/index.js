@@ -23,7 +23,9 @@ module.exports.traverse = ({push}) => ({
         const rightPath = path.get('declaration');
         const reportPath = getProperty(rightPath, 'report');
         
-        add(reportPath, {push});
+        add(reportPath, {
+            push,
+        });
     },
 });
 
@@ -42,4 +44,3 @@ function add(currentPath, {push}) {
         line,
     });
 }
-

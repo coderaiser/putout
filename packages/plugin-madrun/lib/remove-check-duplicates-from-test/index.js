@@ -22,7 +22,9 @@ module.exports.traverse = ({push}) => ({
         const declarationPath = path.get('declaration');
         const testPath = getProperty(declarationPath, 'test');
         
-        add(testPath, {push});
+        add(testPath, {
+            push,
+        });
     },
 });
 
@@ -41,4 +43,3 @@ function add(currentPath, {push}) {
         line,
     });
 }
-
