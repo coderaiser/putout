@@ -1,3 +1,10 @@
+2023.06.13, v29.13.0
+
+feature:
+- fa0df1d32 @putout/plugin-simplify-boolean-return: add
+- 2bccf0897 @putout/compare: add support of __bool
+- 520a68081 @putout/compare: vars: add support of extra parenthesized
+
 2023.06.13, v29.12.12
 
 feature:
