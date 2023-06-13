@@ -6,6 +6,7 @@ const link = require('./link');
 const {
     is,
     isId,
+    isBool,
     isObject,
     isArrays,
     isAny,
@@ -15,6 +16,7 @@ const {
     isJSXAttributes,
     isLinkedArgs,
     isLinkedId,
+    isLinkedBool,
     isImports,
     isEqualAnyObject,
     isEqualAnyArray,
@@ -45,6 +47,7 @@ const comparators = [
     second(isEmptyBlock),
     second(isAny),
     isId,
+    isBool,
     isEqualAnyArray,
     isEqualAnyObject,
     isEqualBody,
@@ -101,7 +104,7 @@ function compareTemplateElements(node, template) {
 }
 
 function linkNodes(node, template, {add, templateStore}) {
-    if (node && isLinkedNode(template) || isLinkedArgs(template) || isLinkedId(node, template))
+    if (node && isLinkedNode(template) || isLinkedArgs(template) || isLinkedId(node, template) || isLinkedBool(node, template))
         return link({
             add,
             value: template,

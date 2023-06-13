@@ -63,7 +63,7 @@ function findVarsWays(node) {
     
     traverse(node, {
         noScope: true,
-        'Identifier|StringLiteral|TemplateElement|RegExpLiteral|JSXText|JSXAttribute'(path) {
+        'Identifier|BooleanLiteral|StringLiteral|TemplateElement|RegExpLiteral|JSXText|JSXAttribute'(path) {
             const {node} = path;
             const way = [];
             const name = extract(node);

@@ -221,6 +221,16 @@ compare('const a = 5', 'const __identifier = 5');
 true;
 ```
 
+##### __boolean
+
+Any `Boolean`
+
+```js
+compare('const a = true', 'const a = __boolean');
+// returns
+true;
+```
+
 ##### /__a/
 
 Any `regexp`

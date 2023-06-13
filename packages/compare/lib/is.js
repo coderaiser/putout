@@ -4,6 +4,7 @@ const {template} = require('@putout/engine-parser');
 
 const {
     isBlockStatement,
+    isBooleanLiteral,
     isIdentifier,
     isLiteral,
     isTemplateElement,
@@ -28,15 +29,18 @@ const JSX_ATTRIBUTES = '__jsx_attributes';
 const NOP = '__nop';
 const ANY = '__';
 const ID = '__identifier';
+const BOOL = '__bool';
 
 const LINKED_NODE = /^__[a-z]$/;
 const LINKED_ARGS = /__args__[a-z]$/;
 const LINKED_ID = /^__identifier__[a-z]$/;
+const LINKED_BOOL = /^__bool__[a-z]$/;
 
 const ALL = [
     ANY_OBJECT,
     ANY_ARRAY,
     ARGS,
+    BOOL,
     JSX_CHILDREN,
     JSX_ATTRIBUTES,
     IMPORTS,
@@ -46,6 +50,7 @@ const ALL = [
     LINKED_NODE,
     LINKED_ARGS,
     LINKED_ID,
+    LINKED_BOOL,
 ];
 
 module.exports.isTemplate = (a) => /[(;={.\s]/.test(a) || !/^[A-Z]/.test(a);
@@ -98,10 +103,18 @@ const isId = (a, b) => {
     return isIdentifier(a);
 };
 
+const isBool = (a, b) => {
+    if (!isIdentifier(b, {name: BOOL}))
+        return false;
+    
+    return isBooleanLiteral(a);
+};
+
 const isEqualType = (a, b) => a.type === b.type;
 const {isArray} = Array;
 
 module.exports.isId = isId;
+module.exports.isBool = isBool;
 module.exports.isEqualType = isEqualType;
 module.exports.isStr = (a) => typeof a === 'string';
 module.exports.isAny = (a) => {
@@ -156,6 +169,13 @@ module.exports.isLinkedId = (a, b) => {
         return false;
     
     return isIdentifier(a);
+};
+
+module.exports.isLinkedBool = (a, b) => {
+    if (!isIdentifier(b) || !LINKED_BOOL.test(b.name))
+        return false;
+    
+    return isBooleanLiteral(a);
 };
 
 module.exports.isLinkedRegExp = (a, b) => {

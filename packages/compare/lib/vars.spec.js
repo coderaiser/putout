@@ -620,3 +620,26 @@ test('putout: compare: vars: parens', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: compare: vars: getTemplateValues: setValues: __bool', (t) => {
+    const plugin = {
+        report: () => '',
+        replace: () => ({
+            'const __a = __bool__a': 'var __a = __bool__a || true',
+        }),
+    };
+    
+    const input = 'const x = false;';
+    
+    const {code} = putout(input, {
+        printer: 'putout',
+        plugins: [{
+            plugin,
+        }],
+    });
+    
+    const expected = 'var x = false || true;\n';
+    
+    t.equal(code, expected);
+    t.end();
+});

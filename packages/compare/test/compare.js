@@ -617,6 +617,20 @@ test('compare: __identifier__a: only', (t) => {
     t.end();
 });
 
+test('compare: __boolean', (t) => {
+    const result = compare('const a = true', 'const a = __bool');
+    
+    t.ok(result);
+    t.end();
+});
+
+test('compare: __boolean__a', (t) => {
+    const result = compare('const a = true', 'const a = __bool__a');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: __identifier__a', (t) => {
     const result = compare('console.log("hello")', '__identifier__a.log(__args)');
     
