@@ -6,7 +6,10 @@ const declare = require('.');
 const montag = require('montag');
 
 const test = createTest(__dirname, {
-    'nodejs/declare': declare,
+    printer: 'putout',
+    plugins: [
+        ['nodejs/declare', declare],
+    ],
 });
 
 test('putout: plugin: nodejs: declare: report: readable-simple', (t) => {
@@ -72,7 +75,9 @@ test('putout: plugin: nodejs: declare: stream', (t) => {
 test('putout: plugin: nodejs: declare: nodejs: url', (t) => {
     t.transformCode(`pathToFileURL(path);`, montag`
         import {pathToFileURL} from 'url';
+        
         pathToFileURL(path);
+    
     `);
     t.end();
 });
@@ -80,7 +85,9 @@ test('putout: plugin: nodejs: declare: nodejs: url', (t) => {
 test('putout: plugin: nodejs: declare: nodejs: util', (t) => {
     t.transformCode(`promisify(fn);`, montag`
         import {promisify} from 'util';
+        
         promisify(fn);
+    
     `);
     t.end();
 });
@@ -88,30 +95,34 @@ test('putout: plugin: nodejs: declare: nodejs: util', (t) => {
 test('putout: plugin: nodejs: declare: node-js: process', (t) => {
     t.transformCode(`cwd();`, montag`
         import {cwd} from 'process';
+        
         cwd();
+    
     `);
     t.end();
 });
 
 test('putout: plugin: nodejs: declare: no transform: promises', (t) => {
-    t.noTransformCode(`promises.filter();`);
+    t.noTransformCode(`promises.filter();\n`);
     t.end();
 });
 
 test('putout: plugin: nodejs: declare: node-js: no transform: version', (t) => {
-    t.noTransformCode(`version;`);
+    t.noTransformCode(`version;\n`);
     t.end();
 });
 
 test('putout: plugin: nodejs: declare: node-js: no transform: env', (t) => {
-    t.noTransformCode(`env;`);
+    t.noTransformCode(`env;\n`);
     t.end();
 });
 
 test('putout: plugin: nodejs: declare: node-js: events', (t) => {
     t.transformCode(`new EventEmitter();`, montag`
         import {EventEmitter} from 'events';
+        
         new EventEmitter();
+    
     `);
     t.end();
 });

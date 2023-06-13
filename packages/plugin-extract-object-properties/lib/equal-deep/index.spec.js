@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const equalDeep = require('.');
 
 const test = createTest(__dirname, {
-    'extract-object-properties/equal-deep': equalDeep,
+    printer: 'putout',
+    plugins: [
+        ['extract-object-properties/equal-deep', equalDeep],
+    ],
 });
 
 test('plugin-extract-object-properties: equal-deep: report', (t) => {

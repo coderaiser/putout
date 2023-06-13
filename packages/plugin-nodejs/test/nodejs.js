@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const nodejs = require('..');
 
 const test = createTest(__dirname, {
-    nodejs,
+    printer: 'putout',
+    plugins: [
+        ['nodejs', nodejs],
+    ],
 });
 
 test('putout: plugin: nodejs: convert-fs-promises: transform', (t) => {
@@ -48,7 +51,7 @@ test('putout: plugin: nodejs: transform: convert-top-level-return', (t) => {
 });
 
 test('putout: plugin: nodejs: no transform: type', (t) => {
-    t.noTransformCode('type()');
+    t.noTransformCode('type();\n');
     t.end();
 });
 

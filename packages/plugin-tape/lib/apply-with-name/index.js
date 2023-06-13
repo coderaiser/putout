@@ -67,10 +67,7 @@ function checkStub(node, path) {
     const calleePath = initPath.get('callee');
     const str = initPath.toString();
     
-    if (calleePath.isMemberExpression() && str.includes('withName'))
-        return false;
-    
-    return true;
+    return !(calleePath.isMemberExpression() && str.includes('withName'));
 }
 
 function applyWithNameToNode(node, path) {

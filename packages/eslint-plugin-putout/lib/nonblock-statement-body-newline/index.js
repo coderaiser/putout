@@ -27,10 +27,7 @@ module.exports.filter = ({text, node}) => {
     if (isIf(text, node))
         return true;
     
-    if (isBody(text, node))
-        return true;
-    
-    return false;
+    return isBody(text, node);
 };
 
 function isIf(text, node) {

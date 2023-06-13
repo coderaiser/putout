@@ -192,6 +192,7 @@ await readFile('hello.txt', 'utf8');
 
 ```js
 import {readFile} from 'fs/promises';
+
 await readFile('hello.txt', 'utf8');
 ```
 

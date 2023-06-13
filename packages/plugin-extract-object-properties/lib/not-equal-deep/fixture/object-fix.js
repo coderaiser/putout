@@ -1,13 +1,10 @@
 const {
-  buffer,
-  charset,
-  cols,
-  wraparoundMode,
-  insertMode,
-  options
+    buffer,
+    charset,
+    cols,
+    wraparoundMode,
+    insertMode,
+    options,
 } = this._terminal;
 
-const {
-  screenReaderMode
-} = options;
-
+const {screenReaderMode} = options;

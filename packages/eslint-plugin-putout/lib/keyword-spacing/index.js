@@ -20,10 +20,7 @@ const checkNodeSpace = ({text, node}) => {
     if (text.includes(`${key}(`))
         return true;
     
-    if (key_ && text.includes(`${key_}(`))
-        return true;
-    
-    return false;
+    return key_ && text.includes(`${key_}(`);
 };
 
 const fixNodeSpace = ({node, text}) => {

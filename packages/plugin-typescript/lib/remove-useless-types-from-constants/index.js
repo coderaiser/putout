@@ -74,10 +74,7 @@ const checkType = ({__a, __b}) => {
 const isPrimitiveType = (node) => {
     const type = getType(node);
     
-    if (type === TSAnyKeyword)
-        return false;
-    
-    return true;
+    return !(type === TSAnyKeyword);
 };
 
 const removeType = ({__a}, path) => {

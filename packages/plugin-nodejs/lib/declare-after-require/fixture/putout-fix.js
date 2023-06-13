@@ -1,12 +1,6 @@
-const {
-    operator: operator
-} = require('putout');
-
+const {operator: operator} = require('putout');
 const {test} = require('supertape');
-
-const {
-    remove
-} = operator;
+const {remove} = operator;
 
 test('plugin-declare-after-require: transform: removed', (t) => {
     t.transform('removed', {

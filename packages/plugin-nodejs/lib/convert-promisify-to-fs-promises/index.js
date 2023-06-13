@@ -22,11 +22,17 @@ module.exports.fix = ({path, promisified}) => {
         const [declarator] = path.node.declarations;
         const {name} = declarator.id;
         
-        props.push(t.ObjectProperty(t.Identifier(name), t.Identifier(name), NOT_COMPUTED, SHORTHAND));
+        props.push(t.ObjectProperty(
+            t.Identifier(name),
+            t.Identifier(name),
+            NOT_COMPUTED,
+            SHORTHAND,
+        ));
         remove(path);
     }
     
     const {init} = path.node;
+    
     init.arguments[0].value = 'fs/promises';
     
     replaceWith(path.get('id'), t.ObjectPattern(props));
@@ -58,4 +64,3 @@ module.exports.find = (ast, {push, traverse}) => {
         promisified,
     });
 };
-

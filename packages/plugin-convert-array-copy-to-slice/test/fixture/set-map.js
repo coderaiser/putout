@@ -1,6 +1,4 @@
-const errorObjectParameters = new Set([
-    'hello',
-]);
+const errorObjectParameters = new Set(['hello']);
 
 [
     ...errorObjectParameters,

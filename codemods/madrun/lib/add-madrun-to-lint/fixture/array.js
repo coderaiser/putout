@@ -1,6 +1,4 @@
-const names = [
-    'madrun.js',
-];
+const names = ['madrun.js'];
 
 module.exports = {
     'lint': () => `putout ${names.join(' ')}`,

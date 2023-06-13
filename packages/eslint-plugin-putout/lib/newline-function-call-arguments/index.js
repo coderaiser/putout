@@ -31,10 +31,7 @@ module.exports.filter = ({node, text}) => {
     const isOpenBracket = /^\(\n/.test(textPeace);
     const isCloseBracket = /\n\s*\)$/.test(textPeace);
     
-    if (isOpenBracket && isCloseBracket)
-        return false;
-    
-    return true;
+    return !(isOpenBracket && isCloseBracket);
 };
 
 module.exports.fix = ({text}) => {

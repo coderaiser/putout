@@ -65,8 +65,5 @@ function isAsyncParent(path) {
     if (!parentPath)
         return true;
     
-    if (parentPath.isFunction() && !parentPath.node.async)
-        return false;
-    
-    return true;
+    return !parentPath.isFunction() || parentPath.node.async;
 }

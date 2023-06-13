@@ -13,10 +13,7 @@ module.exports.match = () => ({
         if (isIdentifier(__b))
             return false;
         
-        if (isArrayExpression(__b))
-            return false;
-        
-        return true;
+        return !isArrayExpression(__b);
     },
 });
 

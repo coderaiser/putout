@@ -28,14 +28,15 @@ module.exports.fix = ({items}) => {
     const names = [];
     
     for (const item of items) {
-        const {object, property} = item.node;
+        const {
+            object,
+            property,
+        } = item.node;
         
         if (isIdentifier(property) && !names.includes(property.name)) {
             names.push(property.name);
             
-            const {
-                body = item.scope.block.body,
-            } = item.scope.block.body;
+            const {body = item.scope.block.body} = item.scope.block.body;
             
             body.unshift(buildAst({
                 PROPERTY: property,
@@ -81,4 +82,3 @@ module.exports.traverse = ({uplist, push}) => ({
         },
     },
 });
-

@@ -1,1 +1,1 @@
-declare function parse(title: Title): void
+function parse(title: Title): void

@@ -35,10 +35,7 @@ module.exports.filter = ({node}) => {
     const isLoc = isCorrectLoc(line, properties);
     const isLength = isCorrectLength(properties);
     
-    if (isLoc || isLength)
-        return false;
-    
-    return true;
+    return !(isLoc || isLength);
 };
 
 function isCorrectLength(properties) {

@@ -27,10 +27,7 @@ module.exports.match = () => ({
         const {name} = __a;
         const {references} = path.scope.bindings[name];
         
-        if (references >= 2)
-            return false;
-        
-        return true;
+        return !(references >= 2);
     },
 });
 

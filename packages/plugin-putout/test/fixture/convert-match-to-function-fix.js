@@ -1,3 +1,3 @@
 module.exports.match = () => ({
-    'let __a = __b': () => false
+    'let __a = __b': () => false,
 });

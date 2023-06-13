@@ -79,10 +79,7 @@ function includes({parentPath}) {
     if (compare(parentPath.parentPath, '/__a/.test(__b)'))
         return true;
     
-    if (compare(parentPath, '__.search(/__a/)'))
-        return true;
-    
-    return false;
+    return compare(parentPath, '__.search(/__a/)');
 }
 
 function getNextSibling(path) {

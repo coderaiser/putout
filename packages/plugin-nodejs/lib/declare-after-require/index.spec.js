@@ -14,7 +14,10 @@ const noop = () => {};
 const {remove} = operator;
 
 const test = createTest(__dirname, {
-    'declare-after-require': plugin,
+    printer: 'putout',
+    plugins: [
+        ['declare-after-require', plugin],
+    ],
 });
 
 test('plugin-declare-after-require: report', (t) => {
@@ -59,7 +62,7 @@ test('plugin-declare-after-require: no report: create-require', (t) => {
     t.end();
 });
 
-test('plugin-declare-after-require: no report after transform', (t) => {
+test('plugin-declare-after-require: no report after transform: require', (t) => {
     t.noReportAfterTransform('require');
     t.end();
 });
@@ -107,4 +110,3 @@ test('plugin-declare-after-require: transform: removed', (t) => {
     });
     t.end();
 });
-

@@ -3,4 +3,3 @@ test('plugin-apply-destructuring: transform: array: destructuring', (t) => {
     t.noTransformCode(code);
     t.end();
 });
-

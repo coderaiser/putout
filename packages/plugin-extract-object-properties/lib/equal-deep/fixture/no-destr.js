@@ -1,3 +1,2 @@
 const a = e.file;
-const b = e.link
-
+const b = e.link;

@@ -15,10 +15,7 @@ module.exports.filter = ({node, text}) => {
     if (node.parent.parent.type !== 'ForOfStatement')
         return false;
     
-    if (!text.includes('\n'))
-        return false;
-    
-    return true;
+    return text.includes('\n');
 };
 
 module.exports.fix = ({text}) => {

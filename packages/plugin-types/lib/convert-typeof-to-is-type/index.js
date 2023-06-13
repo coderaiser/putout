@@ -38,10 +38,7 @@ module.exports.match = () => ({
         if (isBind(path, __b.value))
             return false;
         
-        if (!getBindingPath(path, __a))
-            return false;
-        
-        return true;
+        return Boolean(getBindingPath(path, __a));
     },
 });
 

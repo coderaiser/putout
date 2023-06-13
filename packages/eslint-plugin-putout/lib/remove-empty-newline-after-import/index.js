@@ -8,10 +8,7 @@ const isSameGroup = (a, b) => {
     if (isLocal(a) && isLocal(b))
         return true;
     
-    if (isNode(a) && isNode(b))
-        return true;
-    
-    return false;
+    return isNode(a) && isNode(b);
 };
 
 module.exports = {

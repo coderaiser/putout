@@ -8,7 +8,10 @@ const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
 const putout = require('@putout/plugin-putout');
 
 const test = createTest(__dirname, {
-    'extract-object-properties': extractObjectProperties,
+    printer: 'putout',
+    plugins: [
+        ['extract-object-properties', extractObjectProperties],
+    ],
 });
 
 test('plugin-extract-object-properties: not-equal-deep: report', (t) => {
@@ -67,4 +70,3 @@ test('plugin-extract-object-properties: not-equal-deep: transform: remove unused
     });
     t.end();
 });
-

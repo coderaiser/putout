@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convert = require('.');
 
 const test = createTest(__dirname, {
-    'nodejs/convert-url-to-dirname': convert,
+    printer: 'putout',
+    plugins: [
+        ['nodejs/convert-url-to-dirname', convert],
+    ],
 });
 
 test('nodejs: convert-url-to-dirname: report', (t) => {
@@ -16,4 +19,3 @@ test('nodejs: convert-url-to-dirname: transform', (t) => {
     t.transform('common');
     t.end();
 });
-

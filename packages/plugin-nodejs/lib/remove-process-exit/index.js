@@ -6,4 +6,3 @@ module.exports.replace = () => ({
     'process.exit()': '',
     'process["exit"]()': '',
 });
-

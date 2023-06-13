@@ -30,4 +30,3 @@ function transform(vars, path) {
     
     return 'Buffer.from(__a)';
 }
-

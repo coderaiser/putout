@@ -69,8 +69,5 @@ function checkIdentifier(path) {
     
     const calleePath = parentPath.get('callee');
     
-    if (parentPath.isCallExpression() && calleePath !== path)
-        return true;
-    
-    return false;
+    return parentPath.isCallExpression() && calleePath !== path;
 }

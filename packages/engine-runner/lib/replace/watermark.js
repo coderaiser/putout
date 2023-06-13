@@ -68,8 +68,5 @@ function has({path, program, watermark, highWatermark}) {
     if (path.node?.[name].has(watermark) || path.findParent(hasWatermark(watermark)))
         return true;
     
-    if (program.node[name].has(highWatermark))
-        return true;
-    
-    return false;
+    return program.node[name].has(highWatermark);
 }

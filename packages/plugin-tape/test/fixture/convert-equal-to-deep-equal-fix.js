@@ -13,4 +13,3 @@ t.equal(result, a.b);
 
 t.notDeepEqual(result, {});
 t.notDeepEqual(result, []);
-

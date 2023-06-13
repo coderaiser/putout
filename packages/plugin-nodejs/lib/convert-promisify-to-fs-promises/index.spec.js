@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertPromisifyToFsPromises = require('.');
 
 const test = createTest(__dirname, {
-    'convert-promisify-to-fs-promises': convertPromisifyToFsPromises,
+    printer: 'putout',
+    plugins: [
+        ['convert-promisify-to-fs-promises', convertPromisifyToFsPromises],
+    ],
 });
 
 test('plugin-convert-fs-to-promises: report', (t) => {

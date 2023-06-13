@@ -24,10 +24,7 @@ module.exports.match = () => ({
         if (isTryStatement(last))
             return false;
         
-        if (isReturnStatement(last))
-            return false;
-        
-        return true;
+        return !isReturnStatement(last);
     },
 });
 

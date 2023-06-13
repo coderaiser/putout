@@ -23,10 +23,7 @@ const isSupportedNode = (a) => {
     if (a.type === 'Literal')
         return true;
     
-    if (a.type === 'Identifier')
-        return true;
-    
-    return false;
+    return a.type === 'Identifier';
 };
 
 module.exports.filter = ({text, node}) => {
@@ -62,10 +59,7 @@ module.exports.filter = ({text, node}) => {
     if (node.elements.length < 5 && isShortValues(node.elements))
         return false;
     
-    if (regexp.test(text))
-        return true;
-    
-    return false;
+    return regexp.test(text);
 };
 module.exports.fix = ({text}) => {
     return text

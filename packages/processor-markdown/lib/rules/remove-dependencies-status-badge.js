@@ -37,18 +37,12 @@ const isDependencyStatus = (push = noop) => (child) => {
         return false;
     }
     
-    if (child.label === 'DependencyStatusIMGURL')
-        return false;
-    
-    return true;
+    return !(child.label === 'DependencyStatusIMGURL');
 };
 
 const isDependencyLink = (child) => {
     if (child.type !== 'linkReference')
         return true;
     
-    if (child.children[0].label === 'DependencyStatusIMGURL')
-        return false;
-    
-    return true;
+    return !(child.children[0].label === 'DependencyStatusIMGURL');
 };

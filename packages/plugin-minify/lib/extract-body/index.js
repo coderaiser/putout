@@ -47,20 +47,14 @@ module.exports.filter = ({node, parentPath}) => {
     
     const [first] = body;
     
-    if (isArrow(parentPath) && !expressionOrReturn(first))
-        return false;
-    
-    return true;
+    return !isArrow(parentPath) || expressionOrReturn(first);
 };
 
 const expressionOrReturn = (node) => {
     if (isExpressionStatement(node))
         return true;
     
-    if (isReturnStatement(node))
-        return true;
-    
-    return false;
+    return isReturnStatement(node);
 };
 
 function parseExpression(node) {

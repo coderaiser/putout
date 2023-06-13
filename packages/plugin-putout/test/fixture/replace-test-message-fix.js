@@ -9,16 +9,16 @@ test('plugin-putout: convert-traverse-to-include: transform', (t) => {
 });
 
 test('plugin-putout: rename-operate-to-operator: no transform: operator exist', (t) => {
-     t.noTransform('operator');
-     t.end();
+    t.noTransform('operator');
+    t.end();
 });
 
 test('plugin-putout: rename-operate-to-operator: no report: operator exist', (t) => {
-     t.noReport('operator');
-     t.end();
+    t.noReport('operator');
+    t.end();
 });
 
 test('plugin-putout: rename-operate-to-operator: report: operator exist', (t) => {
-     t.report('operator');
-     t.end();
+    t.report('operator');
+    t.end();
 });

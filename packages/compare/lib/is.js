@@ -121,10 +121,9 @@ module.exports.isAny = (a) => {
     if (isIdentifier(a, {name: ANY}))
         return true;
     
-    if (isJSXText(a, {value: ANY}))
-        return true;
-    
-    return false;
+    return isJSXText(a, {
+        value: ANY,
+    });
 };
 module.exports.isAnyLiteral = (a, b) => {
     if (!isLiteral(b, {value: ANY}))
@@ -202,10 +201,7 @@ module.exports.isArrays = (a, b) => {
     if (!isArray(a) || !isArray(b))
         return false;
     
-    if (a.length !== b.length)
-        return false;
-    
-    return true;
+    return a.length === b.length;
 };
 
 module.exports.isImports = (a) => {
@@ -278,10 +274,7 @@ module.exports.isLinkedNode = (a) => {
     if (isTemplateElement(a) && LINKED_NODE.test(a.value.raw))
         return true;
     
-    if (isTSTypeParameter(a) && LINKED_NODE.test(a.name))
-        return true;
-    
-    return false;
+    return isTSTypeParameter(a) && LINKED_NODE.test(a.name);
 };
 
 module.exports.parseTemplate = (tmpl, {program} = {}) => {

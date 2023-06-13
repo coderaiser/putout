@@ -45,10 +45,7 @@ const check = ({__b}, path) => {
     
     const [is, value] = compute(expectedPath);
     
-    if (is && isPrimitive(value))
-        return true;
-    
-    return false;
+    return is && isPrimitive(value);
 };
 
 module.exports.match = () => ({
@@ -76,8 +73,5 @@ function checkExpected(path) {
     
     const initPath = binding.path.get('init');
     
-    if (initPath.isTaggedTemplateExpression())
-        return true;
-    
-    return false;
+    return initPath.isTaggedTemplateExpression();
 }

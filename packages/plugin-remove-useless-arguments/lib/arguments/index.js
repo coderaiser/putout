@@ -67,10 +67,7 @@ function checkParams(path) {
     
     const last = params.length - 1;
     
-    if (params[last].isRestElement())
-        return false;
-    
-    return true;
+    return !params[last].isRestElement();
 }
 
 function isArguments(path) {

@@ -44,10 +44,7 @@ module.exports.filter = ({node, text, getText, getCommentsInside}) => {
         const [property] = node.id.properties;
         const {value} = property;
         
-        if (isAssignmentPattern(value))
-            return false;
-        
-        return true;
+        return !isAssignmentPattern(value);
     }
     
     return false;

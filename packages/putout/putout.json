@@ -190,6 +190,7 @@
         "split-variable-declarations",
         "split-nested-destructuring",
         "simplify-assignment",
+        "simplify-boolean-return",
         "simplify-ternary",
         "convert-const-to-let",
         "convert-esm-to-commonjs",

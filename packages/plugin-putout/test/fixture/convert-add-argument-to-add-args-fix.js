@@ -1,4 +1,5 @@
 import {operator} from 'putout';
+
 const {addArgs} = operator;
 
 module.exports = addArgs({

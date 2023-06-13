@@ -13,10 +13,7 @@ module.exports.match = () => ({
         if (path.parentPath.isVariableDeclarator())
             return true;
         
-        if (path.parentPath.isExpressionStatement())
-            return true;
-        
-        return false;
+        return path.parentPath.isExpressionStatement();
     },
 });
 

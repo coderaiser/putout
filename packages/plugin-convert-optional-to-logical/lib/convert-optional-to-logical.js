@@ -22,10 +22,7 @@ module.exports.filter = (path) => {
     if (path.parentPath.isOptionalMemberExpression())
         return false;
     
-    if (path.parentPath.isOptionalCallExpression())
-        return false;
-    
-    return true;
+    return !path.parentPath.isOptionalCallExpression();
 };
 
 function getLogical(path) {

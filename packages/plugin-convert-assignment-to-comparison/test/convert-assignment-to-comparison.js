@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertAssignmentToComparison = require('..');
 
 const test = createTest(__dirname, {
-    'convert-assignment-to-comparison': convertAssignmentToComparison,
+    printer: 'putout',
+    plugins: [
+        ['convert-assignment-to-comparison', convertAssignmentToComparison],
+    ],
 });
 
 test('plugin-convert-assignment-to-comparison: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-convert-assignment-to-comparison: transform', (t) => {
     t.transform('assignment');
     t.end();
 });
-

@@ -1,1 +1,4 @@
-module.exports.include = () => ['Identifier', 'TSTypeAssertion'];
+module.exports.include = () => [
+    'Identifier',
+    'TSTypeAssertion',
+];

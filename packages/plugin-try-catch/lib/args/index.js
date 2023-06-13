@@ -8,12 +8,9 @@ const {
 
 const checkIdentifier = ({__a}) => isIdentifier(__a);
 
-const checkMemberExpression = ({__b}) => {
-    if (isIdentifier(__b, {name: 'bind'}))
-        return false;
-    
-    return true;
-};
+const checkMemberExpression = ({__b}) => !isIdentifier(__b, {
+    name: 'bind',
+});
 
 module.exports.report = () => `Pass 'fn', then 'args' splited by coma`;
 

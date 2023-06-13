@@ -15,10 +15,7 @@ module.exports.match = () => ({
         const {length} = __b.body;
         const latest = __b.body[length - 1];
         
-        if (isReturnStatement(latest))
-            return true;
-        
-        return false;
+        return isReturnStatement(latest);
     },
 });
 

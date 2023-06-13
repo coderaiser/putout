@@ -1,7 +1,4 @@
 'use strict';
 
-const {
-  readFileSync: readFileSync
-} = require('fs');
-
+const {readFileSync: readFileSync} = require('fs');
 readFileSync();

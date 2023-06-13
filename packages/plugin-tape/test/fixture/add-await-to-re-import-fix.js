@@ -1,8 +1,6 @@
 import {createMockImport} from 'mock-import';
 
-const {
-    reImport
-} = createMockImport(import.meta.url);
+const {reImport} = createMockImport(import.meta.url);
 
 async () => {
     await reImport('x');

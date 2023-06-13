@@ -68,10 +68,7 @@ const isFixable = (a) => {
     if (isObjectPattern(a) && !a.properties.length)
         return true;
     
-    if (isArrayPattern(a) && !a.elements.length)
-        return true;
-    
-    return false;
+    return isArrayPattern(a) && !a.elements.length;
 };
 
 function replaceArray({__array}, path) {

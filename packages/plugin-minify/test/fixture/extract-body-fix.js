@@ -2,8 +2,8 @@ if (x)
     return;
 
 var x = () => m, y = () => m(), m = function a() {
-    return hello;
-};
+        return hello;
+    };
 
 function z() {
     return hello;

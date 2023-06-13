@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const putout = require('..');
 
 const test = createTest(__dirname, {
-    putout,
+    printer: 'putout',
+    plugins: [
+        ['putout', putout],
+    ],
 });
 
 test('plugin-putout: transform', (t) => {

@@ -9,10 +9,7 @@ module.exports.match = () => ({
     '__putout_processor_ignore(__a)': ({__a}) => {
         const list = __a.elements.map(getValue);
         
-        if (list.includes('.putoutcache'))
-            return true;
-        
-        return false;
+        return list.includes('.putoutcache');
     },
 });
 

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const extractObjectProperties = require('..');
 
 const test = createTest(__dirname, {
-    'extract-object-properties': extractObjectProperties,
+    printer: 'putout',
+    plugins: [
+        ['extract-object-properties', extractObjectProperties],
+    ],
 });
 
 test('plugin-extract-object-properties: report', (t) => {
@@ -56,4 +59,3 @@ test('plugin-extract-object-properties: transform: same', (t) => {
     t.transform('same');
     t.end();
 });
-

@@ -51,10 +51,7 @@ function isLeftValid(leftPath) {
     if (leftPath.isIdentifier() || leftPath.isMemberExpression() || leftPath.isCallExpression())
         return false;
     
-    if (leftPath.isOptionalMemberExpression())
-        return false;
-    
-    return true;
+    return !leftPath.isOptionalMemberExpression();
 }
 
 function convertOperator(operator) {

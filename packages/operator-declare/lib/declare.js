@@ -78,10 +78,7 @@ const filter = (declarations) => (path, {options}) => {
     
     const code = parseCode(type, allDeclarations[name]);
     
-    if (!code)
-        return false;
-    
-    return true;
+    return !!code;
 };
 
 const fix = (declarations) => (path, {options}) => {

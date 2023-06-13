@@ -54,12 +54,7 @@ module.exports.match = () => ({
         
         return value && confident;
     },
-    'require("__a")': (vars, path) => {
-        if (!path.parentPath.parentPath.isProgram())
-            return false;
-        
-        return true;
-    },
+    'require("__a")': (vars, path) => Boolean(path.parentPath.parentPath.isProgram()),
     'const __a = __b(require(__c))': ({__a, __c}) => {
         return isIdentifier(__a) && isStringLiteral(__c);
     },

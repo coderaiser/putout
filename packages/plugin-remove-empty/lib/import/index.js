@@ -35,8 +35,5 @@ module.exports.filter = (path, {options}) => {
     if (isCSS(value))
         return false;
     
-    if (isMin(value))
-        return false;
-    
-    return true;
+    return !isMin(value);
 };

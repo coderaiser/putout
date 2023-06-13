@@ -12,10 +12,7 @@ module.exports.include = () => [
 module.exports.filter = ({node}) => {
     const {value} = node.source;
     
-    if (!value.startsWith('__putout_evaluate:'))
-        return false;
-    
-    return true;
+    return !!value.startsWith('__putout_evaluate:');
 };
 
 module.exports.fix = ({text, node, filename}) => {

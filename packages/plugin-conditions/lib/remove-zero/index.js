@@ -6,10 +6,7 @@ const check = (vars, path) => {
     if (parentPath.isAssignmentExpression())
         return false;
     
-    if (parentPath.isVariableDeclarator())
-        return false;
-    
-    return true;
+    return !parentPath.isVariableDeclarator();
 };
 
 module.exports.report = () => 'Avoid zero in assertions';

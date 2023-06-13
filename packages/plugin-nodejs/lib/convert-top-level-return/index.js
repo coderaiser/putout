@@ -12,4 +12,3 @@ module.exports.replace = () => ({
     'return __a': 'process.exit()',
     'return': 'process.exit()',
 });
-

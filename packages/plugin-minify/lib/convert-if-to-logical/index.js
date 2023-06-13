@@ -30,10 +30,7 @@ module.exports.match = () => ({
         if (expressionsB.length !== __b.body.length)
             return false;
         
-        if (expressionsC.length !== __c.body.length)
-            return false;
-        
-        return true;
+        return expressionsC.length === __c.body.length;
     },
     'if (__a) __b': ({__b}) => {
         if (isExpression(__b))

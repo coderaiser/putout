@@ -18,10 +18,7 @@ const noConfigFound = (config, configError) => {
     if (configError)
         return false;
     
-    if (!keys(config.rules).length)
-        return true;
-    
-    return false;
+    return !keys(config.rules).length;
 };
 
 const cutNewLine = ({message}) => ({

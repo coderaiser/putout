@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertFsPromises = require('.');
 
 const test = createTest(__dirname, {
-    'nodejs/convert-fs-promises': convertFsPromises,
+    printer: 'putout',
+    plugins: [
+        ['nodejs/convert-fs-promises', convertFsPromises],
+    ],
 });
 
 test('nodejs: convert-fs-promises: report', (t) => {
@@ -16,4 +19,3 @@ test('nodejs: convert-fs-promises: transform', (t) => {
     t.transform('fs');
     t.end();
 });
-

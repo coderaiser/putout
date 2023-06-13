@@ -54,10 +54,7 @@ module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) =
         
         const spaces = getSpacesBeforeNode(prevA);
         
-        if (regExp.test(spaces))
-            return false;
-        
-        return true;
+        return !regExp.test(spaces);
     }
     
     return false;

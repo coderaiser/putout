@@ -5,4 +5,3 @@ module.exports.report = () => '"fs/promises" should be used instead of "fs.promi
 module.exports.replace = () => ({
     'const __a = require("fs").promises': 'const __a = require("fs/promises")',
 });
-

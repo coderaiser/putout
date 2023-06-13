@@ -117,10 +117,7 @@ function isEscaped(raw) {
     if (hasA(raw))
         return true;
     
-    if (hasComa(raw))
-        return true;
-    
-    return false;
+    return hasComa(raw);
 }
 
 const createEncodedRegExp = (a) => RegExp(`\\\\${a}`, 'g');

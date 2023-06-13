@@ -59,10 +59,7 @@ module.exports.filter = (path) => {
     if (argPath.isTemplateLiteral())
         return false;
     
-    if (argPath.isLogicalExpression())
-        return false;
-    
-    return true;
+    return !argPath.isLogicalExpression();
 };
 
 const isChainCall = (path) => {

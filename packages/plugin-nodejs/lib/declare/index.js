@@ -14,4 +14,3 @@ module.exports.declare = () => ({
     ...require('./modules/util'),
     ...require('./modules/child_process'),
 });
-

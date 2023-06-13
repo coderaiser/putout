@@ -5,7 +5,10 @@ const tape = require('..');
 const montag = require('montag');
 
 const test = createTest(__dirname, {
-    tape,
+    printer: 'putout',
+    plugins: [
+        ['tape', tape],
+    ],
 });
 
 test('plugin-tape: report', (t) => {
@@ -146,7 +149,9 @@ test('plugin-tape: transform: convert-deep-equal-to-equal', (t) => {
 test('plugin-tape: transform: sync-with-name', (t) => {
     t.transformCode(`const a = stub().withName('b');`, montag`
         import {stub} from 'supertape';
-        const a = stub().withName('a');
+        
+        const a = stub().withName('b');
+    
     `);
     t.end();
 });

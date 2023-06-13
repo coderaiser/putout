@@ -36,10 +36,7 @@ function matchConst({__a, __c}, path) {
     if (bindings[__a.name])
         return false;
     
-    if (isObjectPattern(__c))
-        return false;
-    
-    return true;
+    return !isObjectPattern(__c);
 }
 
 function replaceArg({__a, __b, __c}, path) {

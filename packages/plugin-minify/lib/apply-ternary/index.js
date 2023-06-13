@@ -10,10 +10,7 @@ module.exports.match = () => ({
         if (!isExpression(__b))
             return false;
         
-        if (!isExpression(__c))
-            return false;
-        
-        return true;
+        return !!isExpression(__c);
     },
 });
 

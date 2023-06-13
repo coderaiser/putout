@@ -9,10 +9,7 @@ module.exports.match = () => ({
     'reImport(__a)': (vars, path) => {
         const {parentPath} = path;
         
-        if (parentPath.isAwaitExpression())
-            return false;
-        
-        return true;
+        return !parentPath.isAwaitExpression();
     },
 });
 

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convert = require('.');
 
 const test = createTest(__dirname, {
-    'nodejs/convert-buffer-to-buffer-alloc': convert,
+    printer: 'putout',
+    plugins: [
+        ['nodejs/convert-buffer-to-buffer-alloc', convert],
+    ],
 });
 
 test('nodejs: convert-buffer-to-buffer-alloc: report', (t) => {
@@ -16,4 +19,3 @@ test('nodejs: convert-buffer-to-buffer-alloc: transform', (t) => {
     t.transform('convert-buffer-to-buffer-alloc');
     t.end();
 });
-

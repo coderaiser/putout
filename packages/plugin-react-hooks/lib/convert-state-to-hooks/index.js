@@ -86,10 +86,7 @@ function isVarFromState(path) {
     if (!init)
         return false;
     
-    if (isThisState(init))
-        return true;
-    
-    return false;
+    return isThisState(init);
 }
 
 function isThisState(init) {

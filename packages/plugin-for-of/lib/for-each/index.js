@@ -109,10 +109,7 @@ module.exports.match = () => ({
         
         const rootPath = path.findParent(isRoot);
         
-        if (isBoundVars(rootPath, fnPath))
-            return false;
-        
-        return true;
+        return !isBoundVars(rootPath, fnPath);
     },
 });
 

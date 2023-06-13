@@ -6,4 +6,3 @@ test('cloudcmd: server: env: bool: upper case first', (t) => {
     
     const result = env.bool('terminal');
 });
-

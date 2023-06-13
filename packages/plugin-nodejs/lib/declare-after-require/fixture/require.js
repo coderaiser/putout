@@ -1,5 +1,3 @@
-// declare-after-require
-
 'use strict';
 
 const isObject = (a) => a && typeof a === 'object';

@@ -1,7 +1,4 @@
 import {operator} from 'putout';
 
-const {
-  compare
-} = operator;
-
+const {compare} = operator;
 compare(node, 'const __a = __b');

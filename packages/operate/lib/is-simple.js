@@ -17,8 +17,5 @@ module.exports.isSimple = (a) => {
     if (isMemberExpression(a))
         return true;
     
-    if (isOptionalMemberExpression(a))
-        return true;
-    
-    return false;
+    return isOptionalMemberExpression(a);
 };

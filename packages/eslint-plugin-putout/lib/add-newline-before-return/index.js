@@ -37,10 +37,7 @@ module.exports.filter = ({text, node, getCommentsBefore, getSpacesBeforeNode}) =
         ++count;
     }
     
-    if (count < 1)
-        return false;
-    
-    return true;
+    return !(count < 1);
 };
 
 module.exports.fix = ({text}) => {

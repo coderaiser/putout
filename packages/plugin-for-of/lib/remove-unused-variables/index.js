@@ -34,10 +34,7 @@ function match(path) {
     const idPath = path.get('left.declarations.0.id');
     const elements = getElements(idPath);
     
-    if (isAllReferenced(idPath, elements))
-        return false;
-    
-    return true;
+    return !isAllReferenced(idPath, elements);
 }
 
 function replace(path) {

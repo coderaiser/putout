@@ -41,8 +41,5 @@ module.exports.filter = (path) => {
     if (namePath.node.object.name !== 'React')
         return false;
     
-    if (namePath.node.property.name !== 'Fragment')
-        return false;
-    
-    return true;
+    return namePath.node.property.name === 'Fragment';
 };

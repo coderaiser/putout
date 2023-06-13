@@ -13,10 +13,7 @@ const isPutoutRule = (rule) => {
     if (rule.startsWith('parser'))
         return false;
     
-    if (rule.includes('('))
-        return false;
-    
-    return true;
+    return !rule.includes('(');
 };
 
 export const disableAll = (places, config) => {

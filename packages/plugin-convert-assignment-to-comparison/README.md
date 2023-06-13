@@ -28,15 +28,13 @@ npm i @putout/plugin-convert-assignment-to-comparison -D
 ## ❌ Example of incorrect code
 
 ```js
-if (a = b) {
-}
+if (a = b) {}
 ```
 
 ## ✅ Example of correct code
 
 ```js
-if (a === b) {
-}
+if (a === b) {}
 ```
 
 ## License

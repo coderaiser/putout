@@ -15,4 +15,3 @@ module.exports.rules = {
     ...getRule('declare-after-require'),
     ...getRule('remove-process-exit'),
 };
-

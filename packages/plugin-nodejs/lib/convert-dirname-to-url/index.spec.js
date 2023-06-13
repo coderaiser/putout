@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convert = require('.');
 
 const test = createTest(__dirname, {
-    'nodejs/convert-dirname-to-url': convert,
+    printer: 'putout',
+    plugins: [
+        ['nodejs/convert-dirname-to-url', convert],
+    ],
 });
 
 test('nodejs: convert-dirname-to-url: report', (t) => {
@@ -16,4 +19,3 @@ test('nodejs: convert-dirname-to-url: transform', (t) => {
     t.transform('esm');
     t.end();
 });
-
