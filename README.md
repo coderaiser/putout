@@ -1149,6 +1149,20 @@ function hi() {
 
 </details>
 
+<details><summary>simplify <code>boolean return</code></summary>
+
+```diff
+function isA(a, b) {
+-    if (a.length === b.length)
+-        return true;
+-
+-   return false;
++   return a.length === b.length;
+}
+```
+
+</details>
+
 <details><summary>simplify <code>logical expressions</code></summary>
 
 ```diff
@@ -1948,6 +1962,7 @@ It has a lot plugins divided by groups:
 |--------|-------|
 | [`@putout/plugin-simplify-assignment`](/packages/plugin-simplify-assignment#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-assignment.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-assignment) |
 | [`@putout/plugin-simplify-ternary`](/packages/plugin-simplify-ternary#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-ternary) |
+| [`@putout/plugin-simplify-boolearn-return`](/packages/plugin-simplify-boolearn-return#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-boolearn-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-boolearn-return) |
 
 ### Declarators
 
