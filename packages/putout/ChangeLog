@@ -1,3 +1,9 @@
+2023.06.13, v29.12.12
+
+feature:
+- e028f142f package: @putout/plugin-split-nested-destructuring v3.0.0
+- d5fcd28e1 @putout/plugin-split-nested-destructuring: drop support of 🐊 < 29
+
 2023.06.12, v29.12.11
 
 fix:
