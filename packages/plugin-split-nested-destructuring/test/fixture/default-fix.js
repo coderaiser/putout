@@ -1,6 +1,1 @@
-const {
-          hello
-      } = y,
-      {
-          world = 0
-      } = hello;
+const {hello} = y, {world = 0} = hello;

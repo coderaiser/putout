@@ -1,15 +1,6 @@
-function f({ a: a }) {
-  const {
-    b: x
-  } = a;
-
-  console.log(x);
+function f({a: a}) {
+    const {b: x} = a;
+    console.log(x);
 }
 
-const {
-        a
-      } = x,
-      {
-        b: c
-      } = a;
-
+const {a} = x, {b: c} = a;

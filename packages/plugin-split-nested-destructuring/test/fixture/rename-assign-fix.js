@@ -1,6 +1,1 @@
-const {
-          a
-      } = getA(),
-      {
-          b: c = {}
-      } = a;
+const {a} = getA(), {b: c = {}} = a;

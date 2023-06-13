@@ -30,8 +30,12 @@ npm i @putout/plugin-split-nested-destructuring -D
 
 ```js
 const {
-    a: {b},
-    a: {b: x},
+    a: {
+        b,
+    },
+    a: {
+        b: x,
+    },
 } = c;
 
 function f({a: {b}}) {
@@ -43,10 +47,7 @@ function f({a: {b}}) {
 
 ```js
 const {a} = c;
-const {
-    b,
-    b: x,
-} = a;
+const {b, b: x} = a;
 
 function f({a}) {
     const {b} = a;

@@ -1,6 +1,10 @@
 'use strict';
 
-const {types, template} = require('putout');
+const {
+    types,
+    template,
+} = require('putout');
+
 const {
     ObjectPattern,
     ObjectProperty,

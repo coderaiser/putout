@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const splitDestructuring = require('..');
 
 const test = createTest(__dirname, {
-    'split-destructuring': splitDestructuring,
+    printer: 'putout',
+    plugins: [
+        ['split-destructuring', splitDestructuring],
+    ],
 });
 
 test('plugin-split-destructuring: report', (t) => {
@@ -51,4 +54,3 @@ test('plugin-split-destructuring: no transform: computed', (t) => {
     t.noTransform('computed');
     t.end();
 });
-

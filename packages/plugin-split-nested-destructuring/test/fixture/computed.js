@@ -1,6 +1,6 @@
 const {
     [hello]: {
-        world
+        world,
     }
 } = abc;
 
