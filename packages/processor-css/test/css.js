@@ -2,9 +2,7 @@ import {createTest} from '@putout/test/processor';
 
 const test = createTest(import.meta.url, {
     extension: 'css',
-    processors: [
-        'css',
-    ],
+    processors: ['css'],
 });
 
 test('putout: processor: css', async ({process}) => {

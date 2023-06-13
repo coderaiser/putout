@@ -67,9 +67,7 @@ test('putout: runner: filter: options', (t) => {
     const addVar = {
         report: () => '',
         fix: stub(),
-        include: () => [
-            'debugger',
-        ],
+        include: () => ['debugger'],
         filter: (path, {options}) => options.ok,
     };
     
@@ -104,9 +102,7 @@ test('putout: runner: filter: options: no filter call', (t) => {
     const addVar = {
         report: () => '',
         fix: stub(),
-        include: () => [
-            'debugger',
-        ],
+        include: () => ['debugger'],
         filter: (path, {options}) => options.ok,
     };
     
@@ -636,9 +632,7 @@ module.exports.replace = () => ({
 
 test('putout: runner: root vars: no parent', (t) => {
     const result = putout(fixture.noParent, {
-        plugins: [
-            'remove-unused-variables',
-        ],
+        plugins: ['remove-unused-variables'],
     });
     
     const expected = {
@@ -683,9 +677,7 @@ test('putout: runner: parser: no loc', (t) => {
 
 test('putout: runner: shebang', (t) => {
     const {code} = putout(fixture.shebang, {
-        plugins: [
-            'remove-unused-variables',
-        ],
+        plugins: ['remove-unused-variables'],
     });
     
     const expected = fixture.shebangFix;
@@ -713,9 +705,7 @@ test('putout: runner: debug', (t) => {
     const {code} = putout(fixture.debug, {
         fix: true,
         runPlugins,
-        plugins: [
-            'remove-unused-variables',
-        ],
+        plugins: ['remove-unused-variables'],
     });
     
     const expected = '\n';
@@ -747,14 +737,10 @@ test('putout: runner: debug: replace', (t) => {
     putout('debugger', {
         fix: true,
         runPlugins,
-        plugins: [
-            'remove-debugger',
-        ],
+        plugins: ['remove-debugger'],
     });
     
-    const expected = [
-        `debugger -> ''\n`,
-    ];
+    const expected = [`debugger -> ''\n`];
     
     process.env.DEBUG = DEBUG;
     
@@ -767,9 +753,7 @@ test('putout: runner: debug: replace', (t) => {
 test('putout: runner: babel', (t) => {
     const {code} = putout(fixture.babel, {
         runPlugins,
-        plugins: [
-            'babel/codemod-optional-catch-binding',
-        ],
+        plugins: ['babel/codemod-optional-catch-binding'],
     });
     
     t.deepEqual(code, fixture.babelFix);

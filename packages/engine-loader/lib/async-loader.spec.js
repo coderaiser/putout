@@ -37,12 +37,8 @@ test('putout: loader: async-loader: calls', async (t) => {
     
     await tryToCatch(loadAsync, 'xxx');
     const expected = [
-        [
-            '@putout/formatter-xxx',
-        ],
-        [
-            'putout-formatter-xxx',
-        ],
+        ['@putout/formatter-xxx'],
+        ['putout-formatter-xxx'],
     ];
     
     stopAll();

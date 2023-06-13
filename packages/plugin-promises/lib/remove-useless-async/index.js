@@ -9,9 +9,7 @@ module.exports.fix = (path) => {
     path.node.async = false;
 };
 
-module.exports.exclude = () => [
-    '__nop',
-];
+module.exports.exclude = () => ['__nop'];
 
 module.exports.include = () => [
     'async function __(__args) {}',

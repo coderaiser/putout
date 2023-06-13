@@ -36,9 +36,7 @@ ruleTester.run('putout', rule, {
         },
         {
             options: [{
-                ignore: [
-                    '<input>',
-                ],
+                ignore: ['<input>'],
             }],
             code: `const t = 'hi';`,
         },
@@ -267,13 +265,11 @@ parserTester.run('putout', rule, {
 });
 
 tsParserTester.run('typescript-eslint: comments', rule, {
-    valid: [
-        `
+    valid: [`
         // valid case
         const noop = () => {};
         noop();
-    `,
-    ],
+    `],
     invalid: [{
         code: readFixture('typescript-eslint-comments'),
         output: readFixture('typescript-eslint-comments-fix'),
@@ -301,14 +297,12 @@ tsParserTester.run('typescript-eslint: comments', rule, {
 });
 
 tsParserTester.run('typescript-eslint-parser-error', rule, {
-    valid: [
-        `
+    valid: [`
         import {Stub} from 'supertape';
         const a: Stub = {};
         
         alert(a);
-    `,
-    ],
+    `],
     invalid: [{
         code: `
             import {Stub} from 'supertape';
@@ -327,14 +321,12 @@ tsParserTester.run('typescript-eslint-parser-error', rule, {
 });
 
 tsParserTester.run('typescript-eslint-parser-error', rule, {
-    valid: [
-        `
+    valid: [`
         import {Stub} from 'supertape';
         const a: Stub = {};
         
         alert(a);
-    `,
-    ],
+    `],
     invalid: [{
         code: 'const a = 5',
         output: null,
@@ -350,12 +342,10 @@ tsParserTester.run('typescript-eslint-parser-error', rule, {
 });
 
 ruleTester.run('putout: declare-before-reference: no loc', rule, {
-    valid: [
-        `
+    valid: [`
         const hello = () => 'world'
         hello()
-    `,
-    ],
+    `],
     invalid: [{
         code: montag`
             hello()

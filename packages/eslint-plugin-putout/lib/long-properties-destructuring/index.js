@@ -5,9 +5,7 @@ const {isCorrectLoc} = require('../common');
 module.exports.category = 'destructuring';
 module.exports.report = () => 'Keep each property on separate lines when destructuring long properties';
 
-module.exports.include = () => [
-    'VariableDeclarator[id.type="ObjectPattern"][id.properties.length>=2]',
-];
+module.exports.include = () => ['VariableDeclarator[id.type="ObjectPattern"][id.properties.length>=2]'];
 
 module.exports.fix = ({text}) => {
     const end = text.indexOf('}') + 1;

@@ -6,8 +6,6 @@ module.exports.fix = (path) => {
     path.scope.rename('FormContext', 'FormProvider');
 };
 
-module.exports.include = () => [
-    '<FormContext __jsx_attributes>__jsx_children</FormContext>',
-];
+module.exports.include = () => ['<FormContext __jsx_attributes>__jsx_children</FormContext>'];
 
 module.exports.filter = (path) => path.scope.getAllBindings().FormContext;

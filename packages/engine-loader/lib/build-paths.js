@@ -7,9 +7,7 @@ module.exports = (path) => {
         .split('/')
         .slice(1);
     
-    const result = [
-        '',
-    ];
+    const result = [''];
     
     let current = '';
     

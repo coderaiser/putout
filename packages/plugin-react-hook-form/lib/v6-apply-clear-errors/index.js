@@ -10,6 +10,4 @@ module.exports.fix = (path) => {
     rename(program, 'clearError', 'clearErrors');
 };
 
-module.exports.include = () => [
-    'clearError(__args)',
-];
+module.exports.include = () => ['clearError(__args)'];

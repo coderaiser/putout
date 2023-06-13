@@ -5,9 +5,7 @@ const alignedMap = new Map();
 
 module.exports.report = () => 'Spaces should be aligned on empty lines';
 
-module.exports.include = () => [
-    'Program',
-];
+module.exports.include = () => ['Program'];
 
 module.exports.fix = ({text}) => {
     return alignedMap.get(text);

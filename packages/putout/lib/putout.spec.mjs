@@ -19,9 +19,7 @@ test('putout: esm: load', async (t) => {
 
 test('putout: esm', (t) => {
     const {code} = putout('const a = 5', {
-        plugins: [
-            'remove-unused-variables',
-        ],
+        plugins: ['remove-unused-variables'],
     });
     
     t.notOk(code);

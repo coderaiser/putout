@@ -80,6 +80,4 @@ module.exports.fix = ({text}) => {
     return `${text};\n`;
 };
 
-module.exports.include = () => [
-    'CallExpression',
-];
+module.exports.include = () => ['CallExpression'];

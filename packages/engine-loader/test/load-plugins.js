@@ -73,9 +73,7 @@ test('putout: loader: user plugin', (t) => {
 
 test('putout: loader: can not find', (t) => {
     const [e] = tryCatch(putout, `const t = 'hello'`, {
-        plugins: [
-            'xxx',
-        ],
+        plugins: ['xxx'],
     });
     
     const expected = 'Plugin "putout-plugin-xxx" could not be found!';
@@ -167,9 +165,7 @@ test('putout: loader: disabled rule from multi rule plugin', (t) => {
             'promises/remove-useless-async': 'off',
             'promises/remove-useless-resolve': 'on',
         },
-        plugins: [
-            'promises',
-        ],
+        plugins: ['promises'],
     });
     
     const expected = [];
@@ -204,9 +200,7 @@ test('putout: loader: plugins: array', (t) => {
 
 test('putout: loader: babelPlugins', (t) => {
     const {code} = putout(fixture.babelPlugin, {
-        plugins: [
-            'babel/transform-inline-consecutive-adds',
-        ],
+        plugins: ['babel/transform-inline-consecutive-adds'],
     });
     
     t.deepEqual(code, fixture.babelPluginFix);
@@ -228,9 +222,7 @@ test('putout: loader: babelPlugin: implimintation', (t) => {
 
 test('putout: loader: babelPlugins: angularjs annotate', (t) => {
     const {code} = putout(fixture.babelPluginAngularjsAnnotate, {
-        plugins: [
-            'babel/angularjs-annotate',
-        ],
+        plugins: ['babel/angularjs-annotate'],
     });
     
     t.deepEqual(code, fixture.babelPluginAngularjsAnnotateFix);
@@ -240,9 +232,7 @@ test('putout: loader: babelPlugins: angularjs annotate', (t) => {
 test('putout: loader: babelPlugins: namespace', (t) => {
     const {code} = putout(fixture.babelPluginNamespace, {
         loadPlugins,
-        plugins: [
-            'babel/codemod-object-assign-to-object-spread',
-        ],
+        plugins: ['babel/codemod-object-assign-to-object-spread'],
     });
     
     t.deepEqual(code, fixture.babelPluginNamespaceFix);
@@ -252,9 +242,7 @@ test('putout: loader: babelPlugins: namespace', (t) => {
 test('putout: loader: babelPlugins: namespace: no change', (t) => {
     const {code} = putout(fixture.babelPluginNoChange, {
         loadPlugins,
-        plugins: [
-            'babel/codemod-object-assign-to-object-spread',
-        ],
+        plugins: ['babel/codemod-object-assign-to-object-spread'],
     });
     
     t.deepEqual(code, fixture.babelPluginNoChangeFix);
@@ -264,9 +252,7 @@ test('putout: loader: babelPlugins: namespace: no change', (t) => {
 test('putout: loader: babelPlugins: espree', (t) => {
     const {code} = putout(fixture.babelPlugin, {
         parser: 'espree',
-        plugins: [
-            'babel/transform-inline-consecutive-adds',
-        ],
+        plugins: ['babel/transform-inline-consecutive-adds'],
     });
     
     t.deepEqual(code, fixture.babelPluginFix);
@@ -290,9 +276,7 @@ test('putout: loader: babelPlugins: position: shebang', (t) => {
     const {places} = putout(fixture.babelPlugin, {
         fix: false,
         recast: true,
-        plugins: [
-            'babel/transform-inline-consecutive-adds',
-        ],
+        plugins: ['babel/transform-inline-consecutive-adds'],
     });
     
     const expected = [{
@@ -318,9 +302,7 @@ test('putout: loader: babelPlugins: custom message', (t) => {
         rules: {
             'babel/transform-inline-consecutive-adds': [enabled, message],
         },
-        plugins: [
-            'babel/transform-inline-consecutive-adds',
-        ],
+        plugins: ['babel/transform-inline-consecutive-adds'],
     });
     
     const expected = [{
@@ -346,9 +328,7 @@ test('putout: loader: babelPlugins: custom message: on', (t) => {
         rules: {
             'babel/transform-inline-consecutive-adds': [enabled, message],
         },
-        plugins: [
-            'babel/transform-inline-consecutive-adds',
-        ],
+        plugins: ['babel/transform-inline-consecutive-adds'],
     });
     
     const expected = [{
@@ -373,9 +353,7 @@ test('putout: loader: babelPlugins: no message: first options', (t) => {
         rules: {
             'babel/transform-inline-consecutive-adds': [{}],
         },
-        plugins: [
-            'babel/transform-inline-consecutive-adds',
-        ],
+        plugins: ['babel/transform-inline-consecutive-adds'],
     });
     
     const expected = [{
@@ -393,9 +371,7 @@ test('putout: loader: babelPlugins: no message: first options', (t) => {
 
 test('putout: loader: babelPlugins: shebang', (t) => {
     const {code} = putout(fixture.shebang, {
-        plugins: [
-            'babel/transform-inline-consecutive-adds',
-        ],
+        plugins: ['babel/transform-inline-consecutive-adds'],
     });
     
     t.deepEqual(code, fixture.shebang);
@@ -435,9 +411,7 @@ test('putout: loader: nested rule: one', (t) => {
         rules: {
             'putout/convert-babel-types': 'off',
         },
-        plugins: [
-            'putout',
-        ],
+        plugins: ['putout'],
     });
     
     t.notOk(e);
@@ -449,9 +423,7 @@ test('putout: loader: nested rule: babel', (t) => {
         rules: {
             'babel/convert': 'off',
         },
-        plugins: [
-            'babel/convert',
-        ],
+        plugins: ['babel/convert'],
     });
     
     t.notOk(e);
@@ -483,9 +455,7 @@ test('putout: loader: enable part of rule', (t) => {
             'convert-commonjs-to-esm': 'off',
             'convert-commonjs-to-esm/require': 'on',
         },
-        plugins: [
-            'convert-commonjs-to-esm',
-        ],
+        plugins: ['convert-commonjs-to-esm'],
     });
     
     const expected = `import {run} from 'madrun';`;
@@ -511,9 +481,7 @@ test('putout: loader: disabled part of rule', (t) => {
             'madrun/add-madrun-to-lint': 'off',
             'madrun/add-fresh-lint': 'off',
         },
-        plugins: [
-            'madrun',
-        ],
+        plugins: ['madrun'],
     });
     
     const expected = [{
@@ -586,9 +554,7 @@ test('putout: loader: namespace', (t) => {
     
     const {code} = putout(source, {
         fix: true,
-        plugins: [
-            '@putout/plugin-convert-commonjs-to-esm',
-        ],
+        plugins: ['@putout/plugin-convert-commonjs-to-esm'],
     });
     
     const expected = `import {run} from 'madrun';`;

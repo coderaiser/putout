@@ -15,9 +15,7 @@ npm i @putout/processor-javascript -D
 
 ```json
 {
-    "processors": [
-        "javascript"
-    ]
+    "processors": ["javascript"]
 }
 ```
 

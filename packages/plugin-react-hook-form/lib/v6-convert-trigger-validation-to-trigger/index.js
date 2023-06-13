@@ -9,9 +9,7 @@ module.exports.fix = (path) => {
     rename(path, 'triggerValidation', 'trigger');
 };
 
-module.exports.include = () => [
-    'triggerValidation(__args)',
-];
+module.exports.include = () => ['triggerValidation(__args)'];
 
 module.exports.filter = ({scope}) => {
     const bindings = scope.getAllBindings();

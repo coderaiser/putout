@@ -151,9 +151,7 @@ test('putout: cli: process-file: options for inner data', async (t) => {
         rules: {
             'putout-config': 'off',
         },
-        plugins: [
-            'putout-config',
-        ],
+        plugins: ['putout-config'],
     };
     
     mockRequire('@putout/eslint', eslint);
@@ -220,9 +218,7 @@ test('putout: cli: process-file: ruler', async (t) => {
         rules: {
             'putout-config': 'off',
         },
-        plugins: [
-            'putout-config',
-        ],
+        plugins: ['putout-config'],
     };
     
     mockRequire('@putout/eslint', eslint);

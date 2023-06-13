@@ -431,9 +431,7 @@ module.exports.traverse = ({push}) => ({
 ### ✅ Example of correct code
 
 ```js
-module.exports.include = () => [
-    'TSTypeAssertion',
-];
+module.exports.include = () => ['TSTypeAssertion'];
 ```
 
 ## convert-traverse-to-replace
@@ -727,41 +725,25 @@ module.exports.exclude = () => 'var __a = __b';
 module.exports.include = 'cons __a = __b';
 module.exports.exclude = 'var __a = __b';
 
-module.exports.include = [
-    'cons __a = __b',
-];
+module.exports.include = ['cons __a = __b'];
 
-module.exports.exclude = [
-    'var __a = __b',
-];
+module.exports.exclude = ['var __a = __b'];
 ```
 
 ### ✅ Example of correct code
 
 ```js
-module.exports.include = () => [
-    'cons __a = __b',
-];
+module.exports.include = () => ['cons __a = __b'];
 
-module.exports.exclude = () => [
-    'var __a = __b',
-];
+module.exports.exclude = () => ['var __a = __b'];
 
-module.exports.include = () => [
-    'cons __a = __b',
-];
+module.exports.include = () => ['cons __a = __b'];
 
-module.exports.exclude = () => [
-    'var __a = __b',
-];
+module.exports.exclude = () => ['var __a = __b'];
 
-module.exports.include = () => [
-    'cons __a = __b',
-];
+module.exports.include = () => ['cons __a = __b'];
 
-module.exports.exclude = () => [
-    'var __a = __b',
-];
+module.exports.exclude = () => ['var __a = __b'];
 ```
 
 ## replace-test-message

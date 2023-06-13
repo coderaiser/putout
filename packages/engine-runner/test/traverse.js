@@ -40,9 +40,7 @@ test('putout: runner: plugins: traverse: listStore', (t) => {
         }],
     });
     
-    const expected = [
-        'x',
-    ];
+    const expected = ['x'];
     
     t.deepEqual(result, expected);
     t.end();
@@ -155,9 +153,7 @@ test('putout: runner: plugins: traverse: store: values', (t) => {
         }],
     });
     
-    const expected = [
-        'hello',
-    ];
+    const expected = ['hello'];
     
     t.deepEqual(result, expected);
     t.end();

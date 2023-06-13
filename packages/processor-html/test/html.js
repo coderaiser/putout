@@ -2,9 +2,7 @@ import {createTest} from '@putout/test/processor';
 
 const test = createTest(import.meta.url, {
     extension: 'html',
-    processors: [
-        'html',
-    ],
+    processors: ['html'],
 });
 
 test('putout: processor: html', async ({process}) => {

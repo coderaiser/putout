@@ -7,9 +7,7 @@ const {lint} = require('./index.js');
 
 test('@putout/eslint: lint: fix', (t) => {
     const plugin = createPlugin({
-        include: () => [
-            'DebuggerStatement',
-        ],
+        include: () => ['DebuggerStatement'],
         filter: () => true,
         report: () => `Avoid 'debugger'`,
         fix: () => '',
@@ -29,9 +27,7 @@ test('@putout/eslint: lint: fix', (t) => {
 
 test('@putout/eslint: lint', (t) => {
     const plugin = createPlugin({
-        include: () => [
-            'DebuggerStatement',
-        ],
+        include: () => ['DebuggerStatement'],
         filter: () => true,
         report: () => `Avoid 'debugger'`,
         fix: () => '',

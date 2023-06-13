@@ -87,9 +87,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             'config',
             'staged',
         ],
-        number: [
-            'fix-count',
-        ],
+        number: ['fix-count'],
         string: [
             'format',
             'disable',

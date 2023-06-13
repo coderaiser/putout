@@ -372,9 +372,7 @@ with `overrides`:
 ```js
 test('eslint-config: operator-line-break', async ({comparePlaces}) => {
     const overrides = {
-        extends: [
-            'plugin:putout/safe',
-        ],
+        extends: ['plugin:putout/safe'],
     };
     
     await comparePlaces('operator-linebreak', [{
@@ -417,12 +415,8 @@ import {createTest} from '@putout/test/processor';
 
 const test = createTest(import.meta.url, {
     extension: 'json',
-    processors: [
-        'json',
-    ],
-    plugins: [
-        'eslint',
-    ],
+    processors: ['json'],
+    plugins: ['eslint'],
 });
 ```
 

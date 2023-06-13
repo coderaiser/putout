@@ -1,9 +1,7 @@
 import {createTest} from '@putout/test/processor';
 
 const test = createTest(import.meta.url, {
-    processors: [
-        'yaml',
-    ],
+    processors: ['yaml'],
 });
 
 test('putout: processor: yaml', async ({process}) => {

@@ -12,9 +12,7 @@ const ruleTester = new RuleTester({
 });
 
 ruleTester.run('destructuring-as-function-argument', rule, {
-    valid: [
-        `function set({user, password}) {}`,
-    ],
+    valid: [`function set({user, password}) {}`],
     
     invalid: [{
         code: `

@@ -19,9 +19,7 @@ npm i @putout/processor-yaml -D
 
 ```json
 {
-    "processors": [
-        "yaml"
-    ]
+    "processors": ["yaml"]
 }
 ```
 

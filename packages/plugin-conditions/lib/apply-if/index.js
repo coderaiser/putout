@@ -15,9 +15,7 @@ module.exports.filter = (path) => {
         .isEmptyStatement();
 };
 
-module.exports.include = () => [
-    'IfStatement',
-];
+module.exports.include = () => ['IfStatement'];
 
 module.exports.fix = (path) => {
     const nextPath = path.getNextSibling();

@@ -74,9 +74,7 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     
     const logError = stub();
     
-    const argv = [
-        '--raw',
-    ];
+    const argv = ['--raw'];
     
     const error = Error('No files matching the pattern "xx" were found');
     
@@ -665,9 +663,7 @@ test('putout: cli: --fresh', async (t) => {
     const getOptions = stub().returns({
         formatter: 'dump',
         dir: '.',
-        processors: [
-            'javascript',
-        ],
+        processors: ['javascript'],
     });
     
     mockRequire('@putout/cli-cache', {
@@ -716,9 +712,7 @@ test('putout: cli: --raw: halt', async (t) => {
 test('putout: cli: --version', async (t) => {
     const log = stub();
     
-    const argv = [
-        '--version',
-    ];
+    const argv = ['--version'];
     
     await runCli({
         log,
@@ -734,9 +728,7 @@ test('putout: cli: --version', async (t) => {
 test('putout: cli: -v', async (t) => {
     const log = stub();
     
-    const argv = [
-        '-v',
-    ];
+    const argv = ['-v'];
     
     await runCli({
         log,
@@ -1098,9 +1090,7 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
 test('putout: cli: ruler processor: --enable-all: no path', async (t) => {
     const logError = stub();
     
-    const argv = [
-        '--enable-all',
-    ];
+    const argv = ['--enable-all'];
     
     const cli = reRequire('.');
     
@@ -1275,9 +1265,7 @@ test('putout: cli: tsx', async (t) => {
     const getOptions = stub().returns({
         dir: '.',
         formatter: 'dump',
-        processors: [
-            'javascript',
-        ],
+        processors: ['javascript'],
     });
     
     mockRequire('./eslint', eslint);
@@ -1480,9 +1468,7 @@ test('putout: cli: fix', async (t) => {
     const getOptions = stub().returns({
         dir: __dirname,
         formatter: 'dump',
-        processors: [
-            'javascript',
-        ],
+        processors: ['javascript'],
     });
     
     mockRequire('./get-options', getOptions);
@@ -1744,9 +1730,7 @@ test('putout: cli: exit code: PLACE', async (t) => {
 test('putout: cli: get files: called with ignore option', async (t) => {
     const argv = [__filename, '--no-ci', '--no-cache'];
     
-    const ignore = [
-        'xxx',
-    ];
+    const ignore = ['xxx'];
     
     const getOptions = stub().returns({
         dir: __dirname,
@@ -1787,9 +1771,7 @@ test('putout: cli: get files: was stop', async (t) => {
         '--no-config',
     ];
     
-    const ignore = [
-        'xxx',
-    ];
+    const ignore = ['xxx'];
     
     const getOptions = stub().returns({
         dir: __dirname,
@@ -1832,9 +1814,7 @@ test('putout: cli: get files: was stop', async (t) => {
 test('putout: cli: get files: was stop: no', async (t) => {
     const argv = [__filename, '--no-cache', '--no-config'];
     
-    const ignore = [
-        'xxx',
-    ];
+    const ignore = ['xxx'];
     
     const getOptions = stub().returns({
         dir: __dirname,
@@ -1877,9 +1857,7 @@ test('putout: cli: get files: was stop: no', async (t) => {
 });
 
 test('putout: cli: invalid option', async (t) => {
-    const argv = [
-        '--hello-world',
-    ];
+    const argv = ['--hello-world'];
     
     const halt = stub();
     const cli = reRequire('.');
@@ -1897,9 +1875,7 @@ test('putout: cli: invalid option', async (t) => {
 });
 
 test('putout: cli: --staged: error code', async (t) => {
-    const argv = [
-        '--staged',
-    ];
+    const argv = ['--staged'];
     
     const halt = stub();
     const get = stub().rejects('not git repository');
@@ -1922,9 +1898,7 @@ test('putout: cli: --staged: error code', async (t) => {
 });
 
 test('putout: cli: --staged: error message', async (t) => {
-    const argv = [
-        '--staged',
-    ];
+    const argv = ['--staged'];
     
     const halt = stub();
     const get = stub().rejects(Error('not git repository'));
@@ -1952,9 +1926,7 @@ test('putout: cli: --staged: error message', async (t) => {
 });
 
 test('putout: cli: invalid option: message', async (t) => {
-    const argv = [
-        '--hello-world',
-    ];
+    const argv = ['--hello-world'];
     
     const logError = stub();
     const cli = reRequire('.');
@@ -1975,9 +1947,7 @@ test('putout: cli: invalid option: message', async (t) => {
 });
 
 test('putout: cli: invalid option: message: one char', async (t) => {
-    const argv = [
-        '-z',
-    ];
+    const argv = ['-z'];
     
     const logError = stub();
     const cli = reRequire('.');
@@ -2170,9 +2140,7 @@ test('putout: processor: invalid config', async (t) => {
     const halt = stub();
     
     mockRequire('../../putout.json', {
-        exclude: [
-            '.md',
-        ],
+        exclude: ['.md'],
     });
     
     reRequire('../parse-options');
@@ -2200,9 +2168,7 @@ test('putout: processor: invalid config: message', async (t) => {
     const logError = stub();
     
     mockRequire('../../putout.json', {
-        exclude: [
-            '.md',
-        ],
+        exclude: ['.md'],
     });
     
     reRequire('../parse-options');

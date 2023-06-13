@@ -9,9 +9,7 @@ module.exports.fix = (path) => {
     remove(path);
 };
 
-module.exports.include = () => [
-    'ExportNamedDeclaration',
-];
+module.exports.include = () => ['ExportNamedDeclaration'];
 
 module.exports.filter = (path) => {
     const {

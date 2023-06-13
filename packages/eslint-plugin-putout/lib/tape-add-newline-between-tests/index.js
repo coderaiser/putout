@@ -21,6 +21,4 @@ module.exports.fix = ({text}) => {
     return `\n${text}`;
 };
 
-module.exports.include = () => [
-    'CallExpression ',
-];
+module.exports.include = () => ['CallExpression '];

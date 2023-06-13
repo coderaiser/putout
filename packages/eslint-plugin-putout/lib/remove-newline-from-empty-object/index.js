@@ -25,6 +25,4 @@ module.exports.filter = ({text, node, getCommentsInside}) => {
 
 module.exports.fix = () => '{}';
 
-module.exports.include = () => [
-    'ObjectExpression',
-];
+module.exports.include = () => ['ObjectExpression'];

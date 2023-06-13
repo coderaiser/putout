@@ -2,12 +2,8 @@ import {createTest} from '@putout/test/processor';
 
 const test = createTest(import.meta.url, {
     extension: '',
-    processors: [
-        'ignore',
-    ],
-    plugins: [
-        'gitignore',
-    ],
+    processors: ['ignore'],
+    plugins: ['gitignore'],
 });
 
 test('putout: processor: ignore', async ({process}) => {

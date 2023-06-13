@@ -5,9 +5,7 @@ const {rename} = operator;
 
 module.exports.report = () => '"operator" should be used instead of "operate"';
 
-module.exports.include = () => [
-    'Program',
-];
+module.exports.include = () => ['Program'];
 
 module.exports.filter = (path) => {
     const noOperator = !path.scope.bindings.operator;

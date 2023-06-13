@@ -25,6 +25,4 @@ module.exports.fix = ({text}) => {
     return text.replace(/\s\|/g, '\n    |');
 };
 
-module.exports.include = () => [
-    'TSUnionType',
-];
+module.exports.include = () => ['TSUnionType'];

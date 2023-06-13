@@ -19,9 +19,7 @@ npm i @putout/processor-wasm -D
 
 ```json
 {
-    "processors": [
-        "wasm"
-    ]
+    "processors": ["wasm"]
 }
 ```
 

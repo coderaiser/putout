@@ -313,9 +313,7 @@ test('putout: plugin: find: template: exclude: node type', (t) => {
         runPlugins,
         rules: {
             exp: ['on', {
-                exclude: [
-                    'AssignmentExpression',
-                ],
+                exclude: ['AssignmentExpression'],
             }],
         },
         plugins: [{
@@ -335,14 +333,10 @@ test('putout: plugin: traverse: template: exclude: places', (t) => {
         fix: false,
         rules: {
             'remove-unused-variables': ['on', {
-                exclude: [
-                    'const t = __',
-                ],
+                exclude: ['const t = __'],
             }],
         },
-        plugins: [
-            'remove-unused-variables',
-        ],
+        plugins: ['remove-unused-variables'],
     });
     
     const expected = [{
@@ -370,9 +364,7 @@ test('putout: plugin: traverse: template: exclude: multiple', (t) => {
                 ],
             }],
         },
-        plugins: [
-            'remove-unused-variables',
-        ],
+        plugins: ['remove-unused-variables'],
     });
     
     const expected = [];
@@ -387,14 +379,10 @@ test('putout: plugin: traverse: template: exclude: fn', (t) => {
         fix: false,
         rules: {
             'remove-unused-variables': ['on', {
-                exclude: [
-                    'const __ = () => {}',
-                ],
+                exclude: ['const __ = () => {}'],
             }],
         },
-        plugins: [
-            'remove-unused-variables',
-        ],
+        plugins: ['remove-unused-variables'],
     });
     
     const expected = [];
@@ -409,14 +397,10 @@ test('putout: plugin: traverse: template: exclude: fn: FunctionDeclaration', (t)
         fix: false,
         rules: {
             'remove-unused-variables': ['on', {
-                exclude: [
-                    'function __() {}',
-                ],
+                exclude: ['function __() {}'],
             }],
         },
-        plugins: [
-            'remove-unused-variables',
-        ],
+        plugins: ['remove-unused-variables'],
     });
     
     const expected = [{
@@ -438,14 +422,10 @@ test('putout: plugin: traverse: template: log', (t) => {
         fix: false,
         rules: {
             'remove-unused-variables': ['on', {
-                exclude: [
-                    'function __() {}',
-                ],
+                exclude: ['function __() {}'],
             }],
         },
-        plugins: [
-            'remove-unused-variables',
-        ],
+        plugins: ['remove-unused-variables'],
     });
     
     const expected = [{

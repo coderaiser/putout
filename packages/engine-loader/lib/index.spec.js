@@ -19,9 +19,7 @@ test('engine-loader: load-plugins', (t) => {
     const {loadPlugins} = reRequire('.');
     
     const result = loadPlugins({
-        pluginNames: [
-            'remove-unused-variables',
-        ],
+        pluginNames: ['remove-unused-variables'],
     });
     
     stopAll();

@@ -242,9 +242,7 @@ When you need to ignore some routes no metter what, you can use `ignore` section
 
 ```json
 {
-    "ignore": [
-        "test/fixture"
-    ]
+    "ignore": ["test/fixture"]
 }
 ```
 
@@ -261,9 +259,7 @@ For example if you need to `remove-something` create 🐊[**Putout**](https://gi
 
 ```json
 {
-    "plugins": [
-        "remove-something"
-    ]
+    "plugins": ["remove-something"]
 }
 ```
 
@@ -285,9 +281,7 @@ const source = `
 `;
 
 putout(source, {
-    plugins: [
-        'remove-unused-variables',
-    ],
+    plugins: ['remove-unused-variables'],
 });
 
 // returns

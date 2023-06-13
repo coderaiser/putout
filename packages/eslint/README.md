@@ -55,9 +55,7 @@ const [source, places] = await eslint({
     code: `const t = 'hi'\n`,
     fix: false,
     config: {
-        extends: [
-            'plugin:putout/recommended',
-        ],
+        extends: ['plugin:putout/recommended'],
     },
 });
 ```
@@ -71,9 +69,7 @@ const [source, places] = await eslint({
     fix: true,
     putout: true,
     config: {
-        extends: [
-            'plugin:putout/recommended',
-        ],
+        extends: ['plugin:putout/recommended'],
     },
 });
 ```
@@ -94,9 +90,7 @@ module.exports.fix = (path) => {
     return '';
 };
 
-module.exports.include = () => [
-    'DebuggerStatement',
-];
+module.exports.include = () => ['DebuggerStatement'];
 
 module.exports.filter = (path) => {
     return true;

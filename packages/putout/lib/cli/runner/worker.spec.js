@@ -73,9 +73,7 @@ test('putout: cli: runner: ignores', async (t) => {
     mockRequire('../get-options', stub().returns({
         formatter: await simpleImport('@putout/formatter-json'),
         dir: '.',
-        ignore: [
-            'fixture',
-        ],
+        ignore: ['fixture'],
     }));
     
     const {places} = await runWorker({

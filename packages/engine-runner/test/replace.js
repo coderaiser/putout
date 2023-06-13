@@ -544,9 +544,7 @@ test('putout: runner: replace: fix: crawl', (t) => {
     
     const {code} = putout(source, {
         runPlugins,
-        plugins: [
-            'tape',
-        ],
+        plugins: ['tape'],
     });
     
     const expected = montag`
@@ -572,9 +570,7 @@ test('putout: runner: replace: fix: crawl: block', (t) => {
     
     const {code} = putout(source, {
         runPlugins,
-        plugins: [
-            'convert-commonjs-to-esm',
-        ],
+        plugins: ['convert-commonjs-to-esm'],
     });
     
     const expected = readFixture('crawl-block-fix');

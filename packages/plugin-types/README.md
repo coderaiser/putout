@@ -62,9 +62,7 @@ When you want to skip some declaration use `dismiss`:
 {
     "rules": {
         "types/declare": ["on", {
-            "dismiss": [
-                "isString"
-            ]
+            "dismiss": ["isString"]
         }]
     }
 }

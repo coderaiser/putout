@@ -1037,9 +1037,7 @@ test('putout: parse-options: defaults: strict-mode off', (t) => {
 
 test('putout: parse-options: invalid', (t) => {
     const options = {
-        exclude: [
-            '.md',
-        ],
+        exclude: ['.md'],
     };
     
     const [error] = tryCatch(parseOptions, {

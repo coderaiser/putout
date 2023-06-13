@@ -4,9 +4,7 @@ const prefix = '__putout_processor_json(';
 const sufix = ');\n';
 const maybeNewline = (a) => a.at(-1) === '\n' ? a : `${a}\n`;
 
-export const files = [
-    '*.json',
-];
+export const files = ['*.json'];
 export const toJS = (source) => `${prefix}${source}${sufix}`;
 export const fromJS = (source) => {
     const length = source.length - sufix.length;

@@ -47,9 +47,7 @@ Simplest possible processor example can be written in both
 **CommonJS** or **ESM** and look like this:
 
 ```js
-export const files = [
-    '*.js',
-];
+export const files = ['*.js'];
 
 export const find = (source) => {
     return places;
@@ -76,9 +74,7 @@ Instead of `find` and `fix` you can export `lint`:
 ```js
 import eslint from '@putout/eslint';
 
-export const files = [
-    '*.js',
-];
+export const files = ['*.js'];
 
 export const lint = async (source, {fix}) => {
     const [code, places] = await eslint(source, {

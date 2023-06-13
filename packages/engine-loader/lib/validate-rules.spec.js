@@ -6,9 +6,7 @@ const tryCatch = require('try-catch');
 
 test('engine-runner: validate-rules', (t) => {
     const items = [
-        [
-            'remove-empty',
-        ],
+        ['remove-empty'],
     ];
     
     const rules = {
@@ -26,9 +24,7 @@ test('engine-runner: validate-rules', (t) => {
 
 test('engine-runner: validate-rules: plugin name with slash', (t) => {
     const items = [
-        [
-            'remove-empty/import',
-        ],
+        ['remove-empty/import'],
     ];
     
     const rules = {

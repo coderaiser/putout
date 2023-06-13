@@ -36,9 +36,7 @@ const parserOptions = {
                 ...parserPlugins,
             ],
         },
-        plugins: [
-            '@babel/plugin-syntax-class-properties',
-        ],
+        plugins: ['@babel/plugin-syntax-class-properties'],
     },
 };
 

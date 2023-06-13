@@ -202,9 +202,7 @@ When you want to skip some declaration use `dismiss`:
 {
     "rules": {
         "nodejs/declare": ["on", {
-            "dismiss": [
-                "readFile"
-            ]
+            "dismiss": ["readFile"]
         }]
     }
 }

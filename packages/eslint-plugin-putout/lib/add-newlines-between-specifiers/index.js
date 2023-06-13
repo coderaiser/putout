@@ -3,9 +3,7 @@
 module.exports.category = 'layout';
 module.exports.report = () => 'Add newlines between specifiers';
 
-module.exports.include = () => [
-    'ExportNamedDeclaration',
-];
+module.exports.include = () => ['ExportNamedDeclaration'];
 
 module.exports.fix = ({text}) => {
     return text

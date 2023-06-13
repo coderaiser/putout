@@ -5,9 +5,7 @@ const {entries} = Object;
 
 module.exports.report = () => `Mangle name`;
 
-module.exports.include = () => [
-    'Statement',
-];
+module.exports.include = () => ['Statement'];
 
 module.exports.filter = (path) => !path.scope.__putout_minify;
 

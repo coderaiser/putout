@@ -15,9 +15,7 @@ npm i @putout/processor-html -D
 
 ```json
 {
-    "processors": [
-        "html"
-    ]
+    "processors": ["html"]
 }
 ```
 

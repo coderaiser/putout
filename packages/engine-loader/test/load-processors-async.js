@@ -9,9 +9,7 @@ test('putout: engine-loader: load processors', async (t) => {
     const processorJavascript = await import('@putout/processor-javascript');
     
     const list = await loadProcessorsAsync({
-        processors: [
-            'javascript',
-        ],
+        processors: ['javascript'],
     });
     
     const expected = [
@@ -83,9 +81,7 @@ test('putout: engine-loader: load processors: on', async (t) => {
 test('putout: engine-loader: load processors: load', async (t) => {
     const load = stub().rejects(Error('LOAD USED'));
     
-    const [error] = await tryToCatch(loadProcessorsAsync, {processors: [
-        'markdown',
-    ]}, load);
+    const [error] = await tryToCatch(loadProcessorsAsync, {processors: ['markdown']}, load);
     
     t.deepEqual(error, Error('@putout/processor-markdown: LOAD USED'));
     t.end();

@@ -5,9 +5,7 @@ const putout = require('putout');
 
 module.exports.category = 'evaluate';
 module.exports.report = () => 'Evaluate expression';
-module.exports.include = () => [
-    'ImportDeclaration',
-];
+module.exports.include = () => ['ImportDeclaration'];
 
 module.exports.filter = ({node}) => {
     const {value} = node.source;

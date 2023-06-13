@@ -1,9 +1,7 @@
 import {createTest} from '@putout/test/processor';
 
 const test = createTest(import.meta.url, {
-    processors: [
-        'wasm',
-    ],
+    processors: ['wasm'],
 });
 
 test('putout: processor: wasm: get-local', async ({process}) => {

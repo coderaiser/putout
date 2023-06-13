@@ -167,9 +167,7 @@ module.exports.fix = (path) => {
     path.remove();
 };
 
-module.exports.include = () => [
-    'debugger',
-];
+module.exports.include = () => ['debugger'];
 
 // optional
 module.exports.exclude = () => {};

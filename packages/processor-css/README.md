@@ -15,9 +15,7 @@ npm i @putout/processor-css -D
 
 ```json
 {
-    "processors": [
-        "css"
-    ]
+    "processors": ["css"]
 }
 ```
 

@@ -10,9 +10,7 @@ const {ObjectProperty} = types;
 
 module.exports.report = () => 'Object Property should be used instead of Method';
 
-module.exports.include = () => [
-    'ObjectMethod',
-];
+module.exports.include = () => ['ObjectMethod'];
 
 module.exports.filter = (path) => {
     if (!path.node.params.length)

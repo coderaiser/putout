@@ -3,7 +3,5 @@
     "rules": {
         "putout/convert-babel-types": "off"
     },
-    "plugins": [
-        "eslint-plugin"
-    ]
+    "plugins": ["eslint-plugin"]
 }

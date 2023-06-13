@@ -15,9 +15,7 @@ Add `.putout.json` with:
 
 ```json
 {
-    "plugins": [
-        "react-hooks"
-    ]
+    "plugins": ["react-hooks"]
 }
 ```
 

@@ -5,15 +5,11 @@ const merge = require('./merge');
 
 test('putout: merge', (t) => {
     const defaultConfig = {
-        plugins: [
-            'remove-unused-variables',
-        ],
+        plugins: ['remove-unused-variables'],
     };
     
     const result = merge(defaultConfig, {
-        plugins: [
-            'extract-sequence-expressions',
-        ],
+        plugins: ['extract-sequence-expressions'],
     });
     
     const expected = {

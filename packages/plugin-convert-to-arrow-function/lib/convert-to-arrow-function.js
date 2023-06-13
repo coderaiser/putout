@@ -13,9 +13,7 @@ module.exports.include = () => [
     '__(function __(__args){})',
 ];
 
-module.exports.exclude = () => [
-    '__.prototype.__ = function __(__args){}',
-];
+module.exports.exclude = () => ['__.prototype.__ = function __(__args){}'];
 
 module.exports.filter = (path) => {
     const fnPath = getFnPath(path);

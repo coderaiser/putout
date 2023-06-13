@@ -15,9 +15,7 @@ Update `.putout.json` with:
 
 ```json
 {
-    "plugins": [
-        "react-router"
-    ]
+    "plugins": ["react-router"]
 }
 ```
 

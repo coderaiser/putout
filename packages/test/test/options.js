@@ -8,9 +8,7 @@ const test = require('..')(__dirname, {
 
 test('test: options', (t) => {
     t.transformWithOptions('transform-options', {
-        ignore: [
-            'hello',
-        ],
+        ignore: ['hello'],
     });
     t.end();
 });

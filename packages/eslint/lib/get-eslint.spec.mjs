@@ -28,9 +28,7 @@ test('putout: eslint: get-eslint: config: putout', (t) => {
     const expected = [{
         fix: false,
         overrideConfig: {
-            ignorePatterns: [
-                '!.*',
-            ],
+            ignorePatterns: ['!.*'],
         },
     }];
     
@@ -124,9 +122,7 @@ test('putout: eslint: get-eslint: flat: overrideConfigFile', (t) => {
     const expected = [{
         fix: false,
         overrideConfig: {
-            ignores: [
-                '!.*',
-            ],
+            ignores: ['!.*'],
         },
         overrideConfigFile: 'other.config.js',
     }];

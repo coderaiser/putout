@@ -18,6 +18,4 @@ module.exports.fix = ({text}) => {
         .replace(/,? {}/, '');
 };
 
-module.exports.include = () => [
-    'ImportDeclaration',
-];
+module.exports.include = () => ['ImportDeclaration'];

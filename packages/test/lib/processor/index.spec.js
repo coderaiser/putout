@@ -13,12 +13,8 @@ const {
 
 const test = createTest(__dirname, {
     extension: 'json',
-    processors: [
-        'json',
-    ],
-    plugins: [
-        'eslint',
-    ],
+    processors: ['json'],
+    plugins: ['eslint'],
 });
 
 const getBackEnv = (update) => {

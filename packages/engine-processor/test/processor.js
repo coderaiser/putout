@@ -87,9 +87,7 @@ test('putout: engine-processor: markdown: javascript', async (t) => {
     const name = join(__dirname, 'fixture/js.md');
     
     const options = {
-        processors: [
-            'markdown',
-        ],
+        processors: ['markdown'],
     };
     
     const rawSource = await readFile(name, 'utf8');
@@ -124,9 +122,7 @@ test('putout: engine-processor: markdown: fix', async (t) => {
     
     const options = {
         dir: __dirname,
-        processors: [
-            'markdown',
-        ],
+        processors: ['markdown'],
     };
     
     const rawSource = await readFile(name, 'utf8');
@@ -151,9 +147,7 @@ test('putout: engine-processor: markdown: no fix', async (t) => {
     const name = join(__dirname, 'fixture/no-fix.md');
     
     const options = {
-        processors: [
-            'markdown',
-        ],
+        processors: ['markdown'],
     };
     
     const rawSource = await readFile(name, 'utf8');
@@ -176,9 +170,7 @@ test('putout: engine-processor: markdown: no fix: is processed', async (t) => {
     const name = join(__dirname, 'fixture/no-js.md');
     
     const options = {
-        processors: [
-            'markdown',
-        ],
+        processors: ['markdown'],
     };
     
     const rawSource = await readFile(name, 'utf8');
@@ -201,9 +193,7 @@ test('putout: engine-processor: markdown: fix: do not return processed places', 
     const name = join(__dirname, 'fixture/places.md');
     
     const options = {
-        processors: [
-            'markdown',
-        ],
+        processors: ['markdown'],
     };
     
     const rawSource = await readFile(name, 'utf8');
@@ -230,9 +220,7 @@ test('putout: engine-processor: markdown: no fix: return processed places', asyn
     const name = join(__dirname, 'fixture/places.md');
     
     const options = {
-        processors: [
-            'markdown',
-        ],
+        processors: ['markdown'],
     };
     
     const rawSource = await readFile(name, 'utf8');
@@ -283,9 +271,7 @@ test('putout: engine-processor: markdown: no places no fix', async (t) => {
     
     const options = {
         dir: __dirname,
-        processors: [
-            'markdown',
-        ],
+        processors: ['markdown'],
     };
     
     const fix = true;
@@ -310,9 +296,7 @@ test('putout: engine-processor: markdown: no fix: processed places', async (t) =
     const name = join(__dirname, 'fixture/places.md');
     
     const options = {
-        processors: [
-            'markdown',
-        ],
+        processors: ['markdown'],
     };
     
     const rawSource = await readFile(name, 'utf8');
@@ -346,9 +330,7 @@ test('putout: engine-processor: markdown: no fix: should not change source', asy
     const name = join(__dirname, 'fixture/places.md');
     
     const options = {
-        processors: [
-            'markdown',
-        ],
+        processors: ['markdown'],
     };
     
     const rawSource = await readFile(name, 'utf8');
@@ -374,9 +356,7 @@ test('putout: engine-processor: markdown: fix: no places', async (t) => {
     const name = join(__dirname, 'fixture/places.md');
     
     const options = {
-        processors: [
-            'markdown',
-        ],
+        processors: ['markdown'],
     };
     
     const rawSource = await readFile(name, 'utf8');
@@ -403,9 +383,7 @@ test('putout: engine-processor: markdown: js changed', async (t) => {
     const fixedName = join(__dirname, 'fixture/js-changed-fix.md');
     
     const options = {
-        processors: [
-            'markdown',
-        ],
+        processors: ['markdown'],
     };
     
     const rawSource = await readFile(name, 'utf8');
@@ -432,12 +410,8 @@ test('putout: engine-processor: yaml: no startLine', async (t) => {
     const name = join(__dirname, 'fixture/travis.yml');
     
     const options = {
-        plugins: [
-            'travis',
-        ],
-        processors: [
-            'yaml',
-        ],
+        plugins: ['travis'],
+        processors: ['yaml'],
     };
     
     const rawSource = await readFile(name, 'utf8');
@@ -474,9 +448,7 @@ test('putout: engine: processor: yaml: duplicate: file content', async (t) => {
     
     const options = {
         dir: __dirname,
-        processors: [
-            'yaml',
-        ],
+        processors: ['yaml'],
     };
     
     const {processedSource} = await runProcessors({
@@ -501,9 +473,7 @@ test('putout: engine-processor: getFilePatterns', (t) => {
     };
     
     const css = {
-        files: [
-            '*.css',
-        ],
+        files: ['*.css'],
     };
     
     const processors = [js, css];
@@ -529,9 +499,7 @@ test('putout: engine-processor: yaml: duplicate', async (t) => {
     
     const options = {
         dir: __dirname,
-        processors: [
-            'yaml',
-        ],
+        processors: ['yaml'],
     };
     
     const {places} = await runProcessors({
@@ -565,9 +533,7 @@ test('putout: engine-processor: css', async (t) => {
     const output = await readFile(outputName, 'utf8');
     
     const options = {
-        processors: [
-            'css',
-        ],
+        processors: ['css'],
     };
     
     const fix = true;
@@ -598,12 +564,8 @@ test('putout: engine-processor: md: json: options', async (t) => {
         rules: {
             'putout-config': 'off',
         },
-        plugins: [
-            'putout-config',
-        ],
-        processors: [
-            'markdown',
-        ],
+        plugins: ['putout-config'],
+        processors: ['markdown'],
     };
     
     const rawSource = await readFile(name, 'utf8');
@@ -699,9 +661,7 @@ test('putout: engine-processor: call merge once', async (t) => {
     const nameFix = join(__dirname, 'fixture/call-merge-once-fix.md');
     
     const options = {
-        processors: [
-            'markdown',
-        ],
+        processors: ['markdown'],
     };
     
     const rawSource = await readFile(name, 'utf8');
@@ -726,9 +686,7 @@ test('putout: engine-processor: processorRunners', async (t) => {
     const name = join(__dirname, 'fixture/call-merge-once.md');
     
     const typos = {
-        files: [
-            '*.*',
-        ],
+        files: ['*.*'],
         
         lint: (code) => [code, []],
     };

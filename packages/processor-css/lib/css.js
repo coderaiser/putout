@@ -6,9 +6,7 @@ const loadConfig = createConfigLoader({
     cosmiconfig,
 });
 
-export const files = [
-    '*.css',
-];
+export const files = ['*.css'];
 
 export const lint = async (code, {fix}) => {
     const config = await loadConfig();

@@ -65,12 +65,8 @@ const ts = {
             jsx: false,
         },
     },
-    plugins: [
-        '@typescript-eslint',
-    ],
-    extends: [
-        'plugin:@typescript-eslint/recommended',
-    ],
+    plugins: ['@typescript-eslint'],
+    extends: ['plugin:@typescript-eslint/recommended'],
     rules: {
         ...extensionRules,
         'putout/no-unresolved': 'off',

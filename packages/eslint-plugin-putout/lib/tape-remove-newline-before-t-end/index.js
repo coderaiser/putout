@@ -51,6 +51,4 @@ module.exports.fix = ({text}) => {
     return text.replace(newlineReg, '\n    t.end()');
 };
 
-module.exports.include = () => [
-    'CallExpression',
-];
+module.exports.include = () => ['CallExpression'];

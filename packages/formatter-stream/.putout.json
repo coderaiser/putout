@@ -4,7 +4,5 @@
     "rules": {
         "babel/transform-inline-consecutive-adds": ["on", "Avoid consecutive adds"]
     },
-    "plugins": [
-        "babel/transform-inline-consecutive-adds"
-    ]
+    "plugins": ["babel/transform-inline-consecutive-adds"]
 }

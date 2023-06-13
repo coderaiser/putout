@@ -109,12 +109,14 @@ test('putout: cli: staged: get: statusMatrix: result', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     
-    const statusMatrix = stub().returns([[
-        'packages/putout/lib/cli/index.js',
-        1,
-        2,
-        2,
-    ]]);
+    const statusMatrix = stub().returns([
+        [
+            'packages/putout/lib/cli/index.js',
+            1,
+            2,
+            2,
+        ],
+    ]);
     
     mockRequire('isomorphic-git', {
         statusMatrix,
@@ -128,9 +130,7 @@ test('putout: cli: staged: get: statusMatrix: result', async (t) => {
     
     stopAll();
     
-    const expected = [
-        '/putout/packages/putout/lib/cli/index.js',
-    ];
+    const expected = ['/putout/packages/putout/lib/cli/index.js'];
     
     t.deepEqual(names, expected);
     t.end();
@@ -140,12 +140,14 @@ test('putout: cli: staged: set: findUp', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     
-    const statusMatrix = stub().returns([[
-        'packages/putout/lib/cli/index.js',
-        1,
-        2,
-        2,
-    ]]);
+    const statusMatrix = stub().returns([
+        [
+            'packages/putout/lib/cli/index.js',
+            1,
+            2,
+            2,
+        ],
+    ]);
     
     mockRequire('isomorphic-git', {
         statusMatrix,
@@ -171,12 +173,14 @@ test('putout: cli: staged: set: findUp: not found', async (t) => {
     const dir = '';
     const findUp = stub().returns(dir);
     
-    const statusMatrix = stub().returns([[
-        'packages/putout/lib/cli/index.js',
-        1,
-        2,
-        2,
-    ]]);
+    const statusMatrix = stub().returns([
+        [
+            'packages/putout/lib/cli/index.js',
+            1,
+            2,
+            2,
+        ],
+    ]);
     
     mockRequire('isomorphic-git', {
         statusMatrix,
@@ -202,12 +206,14 @@ test('putout: cli: staged: add', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     
-    const statusMatrix = stub().returns([[
-        'packages/putout/lib/cli/index.js',
-        1,
-        2,
-        2,
-    ]]);
+    const statusMatrix = stub().returns([
+        [
+            'packages/putout/lib/cli/index.js',
+            1,
+            2,
+            2,
+        ],
+    ]);
     
     const add = stub();
     const status = stub().returns('modified');

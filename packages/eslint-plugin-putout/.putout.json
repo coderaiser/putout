@@ -3,9 +3,7 @@
     "rules": {
         "putout": "off"
     },
-    "plugins": [
-        "eslint-plugin"
-    ],
+    "plugins": ["eslint-plugin"],
     "match": {
         "*.js": {
             "convert-esm-to-commonjs": "on"
@@ -35,7 +33,5 @@
             "maybe/noop": "off"
         }
     },
-    "ignore": [
-        "*.md"
-    ]
+    "ignore": ["*.md"]
 }

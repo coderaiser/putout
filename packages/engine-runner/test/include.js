@@ -10,9 +10,7 @@ test('putout: runner: include', (t) => {
     const include = {
         report: () => 'debugger found',
         fix: () => {},
-        include: () => [
-            'debugger',
-        ],
+        include: () => ['debugger'],
     };
     
     const {places} = putout('debugger', {
@@ -39,9 +37,7 @@ test('putout: runner: include: not a function', (t) => {
     const include = {
         report: () => 'debugger found',
         fix: () => {},
-        include: [
-            'debugger',
-        ],
+        include: ['debugger'],
     };
     
     const [error] = tryCatch(putout, 'debugger', {
@@ -62,9 +58,7 @@ test('putout: runner: include: fix: options', (t) => {
             const {value} = options;
             path.node.value = value;
         },
-        include: () => [
-            '"hello"',
-        ],
+        include: () => ['"hello"'],
     };
     
     const {code} = putout('"hello"', {
@@ -90,9 +84,7 @@ test('putout: runner: include: no report ', (t) => {
         isTS: true,
         plugins: [{
             hello: {
-                include: () => [
-                    'import type {Query} from "assets/core_api/types/query"',
-                ],
+                include: () => ['import type {Query} from "assets/core_api/types/query"'],
             },
         }],
     });
@@ -112,9 +104,7 @@ test('putout: runner: include: no fix', (t) => {
         plugins: [{
             hello: {
                 report: () => {},
-                include: () => [
-                    'import type {Query} from "assets/core_api/types/query"',
-                ],
+                include: () => ['import type {Query} from "assets/core_api/types/query"'],
             },
         }],
     });

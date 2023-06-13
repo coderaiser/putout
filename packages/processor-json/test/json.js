@@ -2,12 +2,8 @@ import {createTest} from '@putout/test/processor';
 
 const test = createTest(import.meta.url, {
     extension: 'json',
-    processors: [
-        'json',
-    ],
-    plugins: [
-        'eslint',
-    ],
+    processors: ['json'],
+    plugins: ['eslint'],
 });
 
 test('putout: processor: json: eslintrc', async ({process}) => {

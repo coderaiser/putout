@@ -19,9 +19,7 @@ npm i @putout/processor-json -D
 
 ```json
 {
-    "processors": [
-        "json"
-    ]
+    "processors": ["json"]
 }
 ```
 

@@ -19,9 +19,7 @@ npm i @putout/processor-markdown -D
 
 ```json
 {
-    "processors": [
-        "markdown"
-    ]
+    "processors": ["markdown"]
 }
 ```
 

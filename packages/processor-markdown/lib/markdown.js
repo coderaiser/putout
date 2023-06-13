@@ -33,9 +33,7 @@ const stringifyOptions = {
     },
 };
 
-export const files = [
-    '*.md',
-];
+export const files = ['*.md'];
 export const find = async (rawSource, options = {}) => {
     await parseStore.init();
     

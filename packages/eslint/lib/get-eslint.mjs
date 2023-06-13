@@ -45,9 +45,7 @@ function getOldESLint({fix, config, overrideConfigFile, ESLintOverride = ESLint}
     const eslint = new ESLintOverride({
         fix,
         overrideConfig: {
-            ignorePatterns: [
-                '!.*',
-            ],
+            ignorePatterns: ['!.*'],
             ...config,
         },
         ...overrideConfigFile && {
@@ -63,9 +61,7 @@ function getFlatESLint({fix, config, overrideConfigFile, ESLintOverride = FlatES
     const eslint = new ESLintOverride({
         fix,
         overrideConfig: {
-            ignores: [
-                '!.*',
-            ],
+            ignores: ['!.*'],
             ...config,
         },
         ...overrideConfigFile && {

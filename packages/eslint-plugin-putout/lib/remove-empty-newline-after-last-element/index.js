@@ -13,6 +13,4 @@ module.exports.fix = ({text}) => {
     return text.replace(regExp, '\n]');
 };
 
-module.exports.include = () => [
-    'ArrayExpression',
-];
+module.exports.include = () => ['ArrayExpression'];

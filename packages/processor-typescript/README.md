@@ -15,9 +15,7 @@ npm i @putout/processor-typescript -D
 
 ```json
 {
-    "processors": [
-        "typescript"
-    ]
+    "processors": ["typescript"]
 }
 ```
 

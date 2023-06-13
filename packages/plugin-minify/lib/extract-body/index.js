@@ -26,9 +26,7 @@ module.exports.fix = (path) => {
     replaceWith(path, first);
 };
 
-module.exports.include = () => [
-    'BlockStatement',
-];
+module.exports.include = () => ['BlockStatement'];
 
 module.exports.filter = ({node, parentPath}) => {
     const {body} = node;

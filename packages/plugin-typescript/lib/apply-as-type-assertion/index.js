@@ -17,6 +17,4 @@ module.exports.fix = (path) => {
     replaceWith(path, TSAsExpression(expression, typeName));
 };
 
-module.exports.include = () => [
-    'TSTypeAssertion',
-];
+module.exports.include = () => ['TSTypeAssertion'];
