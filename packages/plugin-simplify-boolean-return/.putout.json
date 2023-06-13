@@ -1,0 +1,10 @@
+{
+    "printer": "putout",
+    "match": {
+        "*.md": {
+            "simplify-ternary": "off",
+            "remove-useless-spread/object": "off",
+            "putout/declare": "off"
+        }
+    }
+}
