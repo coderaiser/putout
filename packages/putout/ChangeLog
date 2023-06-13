@@ -1,3 +1,9 @@
+2023.06.13, v29.13.1
+
+feature:
+- 7eb70588a package: @putout/plugin-convert-assignment-to-comparison v2.0.0
+- f77a5eaf7 @putout/plugin-convert-assignment-to-comparison: drop support of 🐊 < 29
+
 2023.06.13, v29.13.0
 
 feature:
