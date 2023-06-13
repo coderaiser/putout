@@ -12,7 +12,9 @@ module.exports.report = () => `Use 'formState.errors' instead of 'errors'`;
 const COMPUTED = false;
 const SHORTHAND = true;
 
-module.exports.exclude = () => ['const __object = formState'];
+module.exports.exclude = () => [
+    'const __object = formState',
+];
 
 module.exports.match = () => ({
     'const __object = __a': ({__object}, path) => {

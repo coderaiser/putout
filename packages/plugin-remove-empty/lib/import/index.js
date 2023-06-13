@@ -12,7 +12,9 @@ module.exports.fix = (path) => {
 const isCSS = (a) => /\.css/.test(a);
 const isMin = (a) => /\.min\./.test(a);
 
-module.exports.include = () => ['ImportDeclaration'];
+module.exports.include = () => [
+    'ImportDeclaration',
+];
 
 module.exports.filter = (path, {options}) => {
     const {

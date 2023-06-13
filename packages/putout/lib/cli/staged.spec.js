@@ -130,7 +130,9 @@ test('putout: cli: staged: get: statusMatrix: result', async (t) => {
     
     stopAll();
     
-    const expected = ['/putout/packages/putout/lib/cli/index.js'];
+    const expected = [
+        '/putout/packages/putout/lib/cli/index.js',
+    ];
     
     t.deepEqual(names, expected);
     t.end();

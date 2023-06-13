@@ -44,4 +44,6 @@ module.exports.fix = ({text}) => {
     return `\n${text}`;
 };
 
-module.exports.include = () => ['ReturnStatement'];
+module.exports.include = () => [
+    'ReturnStatement',
+];

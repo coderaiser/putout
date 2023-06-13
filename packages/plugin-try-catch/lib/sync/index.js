@@ -10,7 +10,9 @@ module.exports.report = () => 'Use tryCatch instead of try-catch block';
 
 module.exports.fix = applyTryCatch('tryCatch');
 
-module.exports.include = () => ['TryStatement'];
+module.exports.include = () => [
+    'TryStatement',
+];
 
 module.exports.filter = (path) => {
     const {node} = path;

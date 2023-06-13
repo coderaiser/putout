@@ -9,4 +9,6 @@ module.exports.fix = (path) => remove(path);
 
 module.exports.filter = (path) => !path.node.body.length;
 
-module.exports.include = () => ['StaticBlock'];
+module.exports.include = () => [
+    'StaticBlock',
+];

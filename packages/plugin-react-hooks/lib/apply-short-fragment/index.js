@@ -15,7 +15,9 @@ const {replaceWith} = operator;
 
 module.exports.report = () => `Apply shorthand syntax for 'Fragment'`;
 
-module.exports.include = () => ['JSXOpeningElement'];
+module.exports.include = () => [
+    'JSXOpeningElement',
+];
 
 module.exports.fix = (path) => {
     const {parentPath} = path;

@@ -10,7 +10,9 @@ module.exports.report = () => `Use 'await tryToCatch()' instead of 'await' in 't
 
 module.exports.fix = applyTryCatch('tryToCatch');
 
-module.exports.include = () => ['TryStatement'];
+module.exports.include = () => [
+    'TryStatement',
+];
 
 module.exports.filter = (path) => {
     const {node} = path;

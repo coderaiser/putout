@@ -2,7 +2,9 @@
 
 module.exports.report = () => `Use 't.match()' instead of 't.ok()'`;
 
-module.exports.exclude = () => ['t.ok(keys(__a).includes(__b))'];
+module.exports.exclude = () => [
+    't.ok(keys(__a).includes(__b))',
+];
 
 module.exports.replace = () => ({
     't.ok(__a.includes(__b))': 't.match(__a, __b)',

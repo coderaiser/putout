@@ -67,7 +67,9 @@ module.exports.fix = ({text}) => {
         .replace(/\]/g, '\n]')
         .replace(/,/g, ',\n');
 };
-module.exports.include = () => ['ArrayExpression'];
+module.exports.include = () => [
+    'ArrayExpression',
+];
 
 function isShortValues(elements) {
     for (const {type, value} of elements) {

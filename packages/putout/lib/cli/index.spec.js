@@ -1090,7 +1090,9 @@ test('putout: cli: ruler processor: --disable-all', async (t) => {
 test('putout: cli: ruler processor: --enable-all: no path', async (t) => {
     const logError = stub();
     
-    const argv = ['--enable-all'];
+    const argv = [
+        '--enable-all',
+    ];
     
     const cli = reRequire('.');
     
@@ -1857,7 +1859,9 @@ test('putout: cli: get files: was stop: no', async (t) => {
 });
 
 test('putout: cli: invalid option', async (t) => {
-    const argv = ['--hello-world'];
+    const argv = [
+        '--hello-world',
+    ];
     
     const halt = stub();
     const cli = reRequire('.');
@@ -1926,7 +1930,9 @@ test('putout: cli: --staged: error message', async (t) => {
 });
 
 test('putout: cli: invalid option: message', async (t) => {
-    const argv = ['--hello-world'];
+    const argv = [
+        '--hello-world',
+    ];
     
     const logError = stub();
     const cli = reRequire('.');

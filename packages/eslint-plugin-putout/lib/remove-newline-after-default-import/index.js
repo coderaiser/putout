@@ -13,4 +13,6 @@ module.exports.fix = ({text}) => {
     return text.replace(regExp, ', {');
 };
 
-module.exports.include = () => ['ImportDeclaration'];
+module.exports.include = () => [
+    'ImportDeclaration',
+];

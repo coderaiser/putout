@@ -102,7 +102,9 @@ test('putout: getFiles: name', async (t) => {
     const [, files] = await getFiles(['lib/get-files.js']);
     const result = files.map(rmStart);
     
-    const expected = ['get-files.js'];
+    const expected = [
+        'get-files.js',
+    ];
     
     fs.lstat = lstat;
     stopAll();
@@ -126,7 +128,9 @@ test('putout: getFiles: dir', async (t) => {
     const [, files] = await getFiles(['bin']);
     const result = files.map(rmStart);
     
-    const expected = ['bin/putout.js'];
+    const expected = [
+        'bin/putout.js',
+    ];
     
     stopAll();
     fs.lstat = lstat;

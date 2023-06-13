@@ -44,7 +44,9 @@ When you need to get things working with Yarn PnP, and using custom `plugins` `f
 ```js
 const {loadPlugins} = require('@putout/engine-loader');
 
-const pluginNames = ['remove-unusede-variables'];
+const pluginNames = [
+    'remove-unusede-variables',
+];
 
 const rules = {
     'remove-unused-variables': 'on',

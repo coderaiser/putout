@@ -9,7 +9,9 @@ module.exports.fix = (path) => {
     nameNode.raw = nameNode.raw.replace('/legacy', '');
 };
 
-module.exports.include = () => ['require("__")'];
+module.exports.include = () => [
+    'require("__")',
+];
 
 module.exports.filter = (path) => {
     const [nameNode] = path.node.arguments;

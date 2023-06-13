@@ -25,4 +25,6 @@ module.exports.fix = ({text}) => {
     return text.replace(assertion, `\n${assertion}`);
 };
 
-module.exports.include = () => ['CallExpression'];
+module.exports.include = () => [
+    'CallExpression',
+];

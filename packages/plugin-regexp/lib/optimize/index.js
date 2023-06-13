@@ -9,7 +9,9 @@ const cutSlashes = (a) => a.split('/').slice(1, -1)
 
 const whitelist = [];
 
-const blacklist = ['charEscapeUnescape'];
+const blacklist = [
+    'charEscapeUnescape',
+];
 
 const options = {
     blacklist,

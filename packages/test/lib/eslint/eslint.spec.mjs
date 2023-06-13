@@ -120,7 +120,9 @@ test('test: eslint: report: no plugins', (t) => {
     
     t.report('report', 'message', failStub);
     
-    const expected = ['☝️ Looks like plugins not passed'];
+    const expected = [
+        '☝️ Looks like plugins not passed',
+    ];
     
     t.calledWith(failStub, expected);
     t.end();
@@ -135,7 +137,9 @@ test('test: eslint: transform: no plugins', (t) => {
     
     t.transform('transform', failStub);
     
-    const expected = ['☝️ Looks like plugins not passed'];
+    const expected = [
+        '☝️ Looks like plugins not passed',
+    ];
     
     t.calledWith(failStub, expected);
     t.end();

@@ -2,7 +2,9 @@
 
 module.exports.report = () => 'Add new line before and after arguments in a function call';
 
-module.exports.include = () => ['CallExpression'];
+module.exports.include = () => [
+    'CallExpression',
+];
 
 module.exports.filter = ({node, text}) => {
     if (node.callee.type !== 'Identifier')

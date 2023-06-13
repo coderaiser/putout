@@ -55,7 +55,9 @@ test('putout: runner: match: avoid move top while compare', (t) => {
         }],
     });
     
-    const expected = ['VariableDeclaration'];
+    const expected = [
+        'VariableDeclaration',
+    ];
     
     t.deepEqual(types, expected);
     t.end();

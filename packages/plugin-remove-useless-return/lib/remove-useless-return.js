@@ -14,7 +14,9 @@ const {
 
 module.exports.report = () => `Avoid useless 'return'`;
 
-module.exports.include = () => ['ArrowFunctionExpression'];
+module.exports.include = () => [
+    'ArrowFunctionExpression',
+];
 
 module.exports.fix = (path) => {
     const bodyPath = path.get('body');
