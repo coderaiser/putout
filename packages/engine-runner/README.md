@@ -168,7 +168,6 @@ module.exports.fix = (path) => {
 };
 
 module.exports.include = () => ['debugger'];
-
 // optional
 module.exports.exclude = () => {};
 // optional
