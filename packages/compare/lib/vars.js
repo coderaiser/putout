@@ -142,6 +142,13 @@ function setValues({waysTo, values, path}) {
                 continue;
             }
             
+            const {extra} = jessy(way, node);
+            const valueExtra = values[name].extra;
+            
+            values[name].extra = {
+                ...extra,
+                ...valueExtra,
+            };
             nessy(way, values[name], node);
         }
     }

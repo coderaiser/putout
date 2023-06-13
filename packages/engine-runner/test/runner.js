@@ -340,6 +340,7 @@ test('putout: runner: plugins: replace: template: ifCondition: body', (t) => {
     };
     
     const {code} = putout('if (!!y) {fn()}', {
+        printer: 'putout',
         fixCount: 1,
         runPlugins,
         plugins: [{
@@ -347,7 +348,11 @@ test('putout: runner: plugins: replace: template: ifCondition: body', (t) => {
         }],
     });
     
-    const expected = 'if (y)\n  {fn()}';
+    const expected = montag`
+        if (y) {
+            fn();
+        }\n
+    `;
     
     t.equal(code, expected);
     t.end();
@@ -504,12 +509,17 @@ test('putout: runner: plugins: replace: template: expression', (t) => {
     
     const {code} = putout(`if (!!true) {console.log('sh');}`, {
         runPlugins,
+        printer: 'putout',
         plugins: [
             ['rm', rm],
         ],
     });
     
-    const expected = `if (true)\n  {console.log('sh');}`;
+    const expected = montag`
+        if (true) {
+            console.log('sh');
+        }\n
+    `;
     
     t.equal(code, expected);
     t.end();

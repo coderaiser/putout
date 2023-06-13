@@ -893,3 +893,31 @@ test('putout: runner: replace: EmptyStatement', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: runner: replace: parens', (t) => {
+    const convert = {
+        report: noop,
+        replace: () => ({
+            'return __b': 'return (__b)',
+        }),
+    };
+    
+    const source = montag`
+        return hello;
+    `;
+    
+    const {code} = putout(source, {
+        printer: 'putout',
+        runPlugins,
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    const expected = montag`
+        return (hello);\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

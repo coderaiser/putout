@@ -70,12 +70,18 @@ test('putout: compare: vars: getTemplateValues: setValues: BlockStatement', (t) 
     const input = 'if (1) {hello();}';
     
     const {code} = putout(input, {
+        printer: 'putout',
         plugins: [{
             'convert-for-to-for-of': addVar,
         }],
     });
     
-    const expected = 'if (1) if (1)\n  {hello();}';
+    const expected = montag`
+         if (1)
+             if (1) {
+                 hello();
+             }\n
+      `;
     
     t.equal(code, expected);
     t.end();
@@ -585,5 +591,32 @@ test('putout: compare: vars: EmptyStatement: Statement', (t) => {
     });
     
     t.equal(code, source);
+    t.end();
+});
+
+test('putout: compare: vars: parens', (t) => {
+    const convert = {
+        report: noop,
+        replace: () => ({
+            'return __b': 'return (__b)',
+        }),
+    };
+    
+    const source = montag`
+        return hello;
+    `;
+    
+    const {code} = putout(source, {
+        printer: 'putout',
+        plugins: [
+            ['convert', convert],
+        ],
+    });
+    
+    const expected = montag`
+        return (hello);\n
+    `;
+    
+    t.equal(code, expected);
     t.end();
 });
