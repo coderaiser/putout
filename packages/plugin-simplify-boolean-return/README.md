@@ -27,7 +27,10 @@ Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/304035b95
 
 ```js
 function isA(a, b) {
-    return a.length === b.length;
+    if (a.length === b.length)
+        return true;
+    
+    return false;
 }
 ```
 
