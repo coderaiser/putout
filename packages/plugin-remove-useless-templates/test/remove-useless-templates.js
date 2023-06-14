@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessTemplates = require('..');
 
 const test = createTest(__dirname, {
-    'remove-useless-templates': removeUselessTemplates,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-templates', removeUselessTemplates],
+    ],
 });
 
 test('plugin-remove-useless-templates: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-remove-useless-templates: transform', (t) => {
     t.transform('template');
     t.end();
 });
-
