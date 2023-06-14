@@ -1,6 +1,7 @@
 'use strict';
 
 const emojiRegex = require('emoji-regex');
+
 const {
     types,
     operator,
@@ -15,13 +16,18 @@ module.exports.report = () => 'Unnecessary escape character';
 module.exports.fix = (path) => {
     if (path.isStringLiteral()) {
         const {raw} = path.node;
+        
         path.node.raw = unEscape(raw);
         
         return;
     }
     
     if (path.isRegExpLiteral()) {
-        const {pattern, flags} = path.node;
+        const {
+            pattern,
+            flags,
+        } = path.node;
+        
         const unescaped = unescapeRegExp(pattern);
         const raw = `/${unescaped}/`;
         
@@ -124,7 +130,7 @@ const createEncodedRegExp = (a) => RegExp(`\\\\${a}`, 'g');
 
 function unEscape(raw) {
     raw = raw
-        .replaceAll('\\\'', `'`)
+        .replaceAll(`\\'`, `'`)
         .replaceAll('\\/', '/')
         .replaceAll('\\+', '+')
         .replace(createEncodedRegExp(`"`), '"')
@@ -156,4 +162,3 @@ function isEscapedRegExp(raw) {
     
     return isRegExpColon(raw) || isRegExpSlash(raw) || isComa(raw);
 }
-

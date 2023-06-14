@@ -9,7 +9,10 @@ const regexp = require('@putout/plugin-regexp');
 const addFixLint = madrun.rules['add-fix-lint'];
 
 const test = createTest(__dirname, {
-    'remove-useless-escape': removeUselessEscape,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-escape', removeUselessEscape],
+    ],
 });
 
 test('plugin-remove-useless-escape: report', (t) => {
@@ -115,4 +118,3 @@ test('plugin-remove-useless-escape: transform: regexp', (t) => {
     });
     t.end();
 });
-

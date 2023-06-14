@@ -1,2 +1,1 @@
-path.node.raw.includes(`'`)
-
+path.node.raw.includes(`'`);
