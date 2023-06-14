@@ -7,7 +7,10 @@ const removeUselessVariables = require('@putout/plugin-remove-useless-variables'
 const declareStub = require('@putout/plugin-tape').rules.declare;
 
 const test = createTest(__dirname, {
-    'reuse-duplicate-init': reuseDuplicateInit,
+    printer: 'putout',
+    plugins: [
+        ['reuse-duplicate-init', reuseDuplicateInit],
+    ],
 });
 
 test('plugin-reuse-duplicate-init: report', (t) => {
@@ -48,4 +51,3 @@ test('plugin-reuse-duplicate-init: transform: declare', (t) => {
     });
     t.end();
 });
-

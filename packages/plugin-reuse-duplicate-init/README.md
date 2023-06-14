@@ -29,6 +29,7 @@ npm i @putout/plugin-reuse-duplicate-init -D
 
 ```js
 const putout = require('putout');
+
 const {
     a,
     b,
@@ -42,6 +43,7 @@ const {replaceWith} = operator;
 
 ```js
 const putout = require('putout');
+
 const {
     a,
     b,
