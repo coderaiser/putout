@@ -14,4 +14,3 @@ test('plugin-remove-useless-spread: object: recast: no transform: comment', (t) 
     t.noTransform('comment');
     t.end();
 });
-

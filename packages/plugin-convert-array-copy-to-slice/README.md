@@ -30,9 +30,7 @@ npm i @putout/plugin-convert-array-copy-to-slice -D
 ## ❌ Example of incorrect code
 
 ```js
-const places = [
-    ...items,
-];
+const places = [...items];
 ```
 
 ## ✅ Example of correct code

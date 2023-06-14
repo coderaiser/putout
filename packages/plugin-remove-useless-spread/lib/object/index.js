@@ -7,6 +7,7 @@ module.exports.report = () => `Avoid useless spread '...'`;
 
 module.exports.filter = (path) => {
     const [first] = path.node.properties;
+    
     const {
         comments,
         trailingComments,
