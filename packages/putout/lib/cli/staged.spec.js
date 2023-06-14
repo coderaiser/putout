@@ -2,13 +2,9 @@
 
 const tryToCatch = require('try-to-catch');
 
-const fs = require('fs');
-
 const {test, stub} = require('supertape');
 
 const mockRequire = require('mock-require');
-
-const {isSupported} = require('./supported-files');
 
 const {
     reRequire,
@@ -36,31 +32,27 @@ test('putout: cli: staged', async (t) => {
     t.end();
 });
 
-test('putout: cli: staged: get: statusMatrix: empty', async (t) => {
+test('putout: cli: staged: set: porcelain', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     
-    const statusMatrix = stub().returns([]);
+    const porcelain = stub().returns(['packages/putout/lib/cli/index.js']);
     
-    mockRequire('isomorphic-git', {
-        statusMatrix,
-    });
+    mockRequire('@putout/git-status-porcelain', porcelain);
     
-    const {get} = reRequire('./staged');
+    const {set} = reRequire('./staged');
     
-    await get({
+    await set({
         findUp,
     });
     
     stopAll();
     
-    const expected = {
-        fs,
-        dir,
-        filter: isSupported,
-    };
+    const expected = [{
+        unstaged: true,
+    }];
     
-    t.calledWith(statusMatrix, [expected]);
+    t.calledWith(porcelain, expected);
     t.end();
 });
 
@@ -68,24 +60,9 @@ test('putout: cli: staged: get: statusMatrix', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     
-    const statusMatrix = stub().returns([
-        [
-            'packages/putout/lib/cli/index.js',
-            1,
-            2,
-            2,
-        ],
-        [
-            'packages/putout/lib/cli/staged.js',
-            1,
-            2,
-            3,
-        ],
-    ]);
+    const porcelain = stub().returns(['packages/putout/lib/cli/index.js']);
     
-    mockRequire('isomorphic-git', {
-        statusMatrix,
-    });
+    mockRequire('@putout/git-status-porcelain', porcelain);
     
     const {get} = reRequire('./staged');
     
@@ -96,12 +73,11 @@ test('putout: cli: staged: get: statusMatrix', async (t) => {
     stopAll();
     
     const expected = {
-        fs,
-        dir,
-        filter: isSupported,
+        added: true,
+        modified: true,
     };
     
-    t.calledWith(statusMatrix, [expected]);
+    t.calledWith(porcelain, [expected]);
     t.end();
 });
 
@@ -109,19 +85,9 @@ test('putout: cli: staged: get: statusMatrix: result', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     
-    const statusMatrix = stub().returns([
-        [
-            'packages/putout/lib/cli/index.js',
-            1,
-            2,
-            2,
-        ],
-    ]);
+    const porcelain = stub().returns(['packages/putout/lib/cli/index.js']);
     
-    mockRequire('isomorphic-git', {
-        statusMatrix,
-    });
-    
+    mockRequire('@putout/git-status-porcelain', porcelain);
     const {get} = reRequire('./staged');
     
     const names = await get({
@@ -142,18 +108,9 @@ test('putout: cli: staged: set: findUp', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     
-    const statusMatrix = stub().returns([
-        [
-            'packages/putout/lib/cli/index.js',
-            1,
-            2,
-            2,
-        ],
-    ]);
+    const porcelain = stub().returns(['packages/putout/lib/cli/index.js']);
     
-    mockRequire('isomorphic-git', {
-        statusMatrix,
-    });
+    mockRequire('@putout/git-status-porcelain', porcelain);
     
     const {set} = reRequire('./staged');
     
@@ -208,30 +165,31 @@ test('putout: cli: staged: add', async (t) => {
     const dir = '/putout';
     const findUp = stub().returns(dir);
     
-    const statusMatrix = stub().returns([
-        [
+    let called = false;
+    const porcelain = () => {
+        if (called)
+            return [];
+        
+        called = true;
+        
+        return [
             'packages/putout/lib/cli/index.js',
-            1,
-            2,
-            2,
-        ],
-    ]);
+        ];
+    };
     
-    const add = stub();
-    const status = stub().returns('modified');
+    const spawnSync = stub();
     
-    mockRequire('fs', {});
-    mockRequire('isomorphic-git', {
-        add,
-        status,
-        statusMatrix,
+    mockRequire('child_process', {
+        spawnSync,
     });
+    mockRequire('@putout/git-status-porcelain', porcelain);
     
     const {get, set} = reRequire('./staged');
     
     await get({
         findUp,
     });
+    
     await set({
         findUp,
     });
@@ -239,14 +197,12 @@ test('putout: cli: staged: add', async (t) => {
     stopAll();
     
     const filepath = 'packages/putout/lib/cli/index.js';
-    const fs = {};
     
-    const args = [{
-        fs,
-        dir,
-        filepath,
-    }];
+    const args = ['git', [
+        'add',
+        `${dir}/${filepath}`,
+    ]];
     
-    t.calledWith(add, args);
+    t.calledWith(spawnSync, args);
     t.end();
 });
