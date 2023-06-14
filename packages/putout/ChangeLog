@@ -1,3 +1,9 @@
+2023.06.14, v29.13.2
+
+feature:
+- d1d31b4cb package: @putout/plugin-reuse-duplicate-init v5.0.0
+- 711024a22 @putout/plugin-reuse-duplicate-init: drop support of 🐊 < 29
+
 2023.06.13, v29.13.1
 
 feature:
