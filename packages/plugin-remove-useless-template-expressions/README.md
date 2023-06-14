@@ -3,6 +3,10 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-remove-useless-template-expressions.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/plugin-remove-useless-template-expressions"npm"
 
+> Template literals are literals delimited with backtick (`) characters, allowing for multi-line strings, string interpolation with embedded expressions, and special constructs called tagged templates.
+>
+> (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to remove useless `template expressions`.
 
 ## Install
