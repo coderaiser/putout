@@ -1,4 +1,4 @@
-const id = a => a;
+const id = (a) => a;
 filter((a) => a);
 x[name]((a) => a);
 x['name']((a) => a);

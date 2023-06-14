@@ -1,1 +1,3 @@
-const y = (a) => {/hello/.test('world');};
+const y = (a) => {
+    /hello/.test('world');
+};

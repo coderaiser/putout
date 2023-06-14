@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessFunctions = require('..');
 
 const test = createTest(__dirname, {
-    'remove-useless-functions': removeUselessFunctions,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-functions', removeUselessFunctions],
+    ],
 });
 
 test('remove usless functions: report', (t) => {
@@ -51,4 +54,3 @@ test('remove usless functions: no transform: different args', (t) => {
     t.noTransform('different-args');
     t.end();
 });
-
