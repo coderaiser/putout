@@ -1,3 +1,12 @@
+2023.06.14, v29.13.3
+
+feature:
+- c004b1746 package: @putout/plugin-remove-useless-template-expressions v2.0.0
+- 9aa82b10f @putout/plugin-remove-useless-template-expressions: drop support of 🐊 < 29
+- bbd78527e @putout/plugin-remove-useless-template-expressions: comments support using @putout/printer
+- 8f73dcaca @putout/plugin-types: remove-double-negations: add support of startsWith
+- 7d333d735 @putout/plugin-simplify-boolean-return: add support of UnaryExpression: !
+
 2023.06.14, v29.13.2
 
 feature:
