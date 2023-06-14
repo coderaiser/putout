@@ -1,3 +1,10 @@
+2023.06.14, v29.13.4
+
+feature:
+- cf40b4a52 package: @putout/plugin-remove-useless-spread v7.0.0
+- 116f948ef @putout/plugin-remove-useless-spread: drop support of 🐊 < 29
+- a64051bb7 @putout/plugin-remove-useless-spread: use @putout/printer
+
 2023.06.14, v29.13.3
 
 feature:
