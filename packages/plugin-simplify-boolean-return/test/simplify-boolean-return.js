@@ -19,3 +19,8 @@ test('plugin-simplify-boolean-return: transform', (t) => {
     t.transform('simplify-boolean-return');
     t.end();
 });
+
+test('plugin-simplify-boolean-return: transform: not', (t) => {
+    t.transform('not');
+    t.end();
+});

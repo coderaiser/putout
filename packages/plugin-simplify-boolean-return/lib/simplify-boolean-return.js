@@ -3,6 +3,7 @@
 const {
     operator,
     types,
+    template,
 } = require('putout');
 
 const {
@@ -10,7 +11,12 @@ const {
     replaceWith,
 } = operator;
 
-const {UnaryExpression} = types;
+const {
+    UnaryExpression,
+    isUnaryExpression,
+} = types;
+
+const RETURN = template('return %%argument%%');
 
 module.exports.report = () => `Simplify boolean return`;
 
@@ -27,6 +33,14 @@ module.exports.replace = () => ({
         if (__bool__a.value)
             return 'return __a';
         
+        if (isUnaryExpression(__a, {operator: '!'})) {
+            const {argument} = __a;
+            
+            return RETURN({
+                argument,
+            });
+        }
+        
         const unary = UnaryExpression('!', __a);
         replaceWith(path.get('test'), unary);
         
@@ -36,6 +50,5 @@ module.exports.replace = () => ({
 
 function checkNext(vars, path) {
     const next = path.getNextSibling();
-    
     return compareAny(next, ['return true', 'return false']);
 }
