@@ -19,11 +19,17 @@ module.exports.report = ({path}) => {
     return `Declare '${id}' after last 'require()'`;
 };
 
-module.exports.fix = ({path, lastRequire}) => {
+module.exports.fix = ({path, firstRequire, lastRequire}) => {
     const {node} = path;
+    const {comments} = node;
     
     delete node.loc;
     node.__putoutNodeDeclareAfterRequire = true;
+    
+    if (comments) {
+        firstRequire.node.comments = comments;
+        delete path.node.comments;
+    }
     
     remove(path);
     lastRequire.insertAfter(node);

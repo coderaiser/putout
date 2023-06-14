@@ -1,13 +1,13 @@
-// hello
+// hello world
 
 'use strict';
 
-const isObject = (a) => a && typeof a === 'object';
-const isString = 'x';
-
 const fs = require('fs');
-const abc = 'b';
 const m = require('m');
+
+const abc = 'b';
+const isString = 'x';
+const isObject = (a) => a && typeof a === 'object';
 
 fs.writeFile(isObject());
 
