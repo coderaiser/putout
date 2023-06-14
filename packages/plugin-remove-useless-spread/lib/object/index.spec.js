@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const object = require('.');
 
 const test = createTest(__dirname, {
-    'remove-useless-spread/object': object,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-spread/object', object],
+    ],
 });
 
 test('plugin-remove-useless-spread: object: report', (t) => {

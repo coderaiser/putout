@@ -8,4 +8,3 @@ module.exports.rules = {
     ...getRule('array'),
     ...getRule('object'),
 };
-

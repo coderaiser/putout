@@ -7,12 +7,18 @@ module.exports.report = () => `Avoid useless spread '...'`;
 
 module.exports.filter = (path) => {
     const [first] = path.node.properties;
-    const {comments} = first;
+    const {
+        comments,
+        trailingComments,
+    } = first;
     
     if (!isCallExpression(first.argument))
         return false;
     
-    return !comments?.length;
+    if (comments?.length)
+        return false;
+    
+    return !trailingComments?.length;
 };
 
 module.exports.exclude = () => [

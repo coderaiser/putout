@@ -41,7 +41,9 @@ Also sometimes there is no need on any of this operations, and we can drop `spre
 ```js
 for (const a of [...b]) {}
 
-const places = [...getPlaces()];
+const places = [
+    ...getPlaces(),
+];
 ```
 
 ### ✅ Example of correct code
@@ -52,7 +54,9 @@ for (const a of b) {}
 const places = getPlaces();
 
 // Array constructor creates sparse array
-[...Array(5)].map(Number);
+[
+    ...Array(5),
+].map(Number);
 ```
 
 ## object

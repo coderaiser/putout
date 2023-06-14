@@ -16,4 +16,3 @@ module.exports.replace = () => ({
     '[...__a(__args)]': '__a(__args)',
     'new Set([...__a])': 'new Set(__a)',
 });
-

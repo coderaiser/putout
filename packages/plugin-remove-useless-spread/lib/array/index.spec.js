@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const array = require('.');
 
 const test = createTest(__dirname, {
-    'remove-useless-spread/array': array,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-spread/array', array],
+    ],
 });
 
 test('plugin-remove-useless-spread: array: report', (t) => {
@@ -56,4 +59,3 @@ test('plugin-remove-useless-spread: array: transform: set', (t) => {
     t.transform('set');
     t.end();
 });
-
