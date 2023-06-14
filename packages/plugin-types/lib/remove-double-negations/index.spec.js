@@ -6,41 +6,41 @@ const removeDoubleNegations = require('.');
 const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
-        ['remove-useless-type-conversion: with-double-negations', removeDoubleNegations],
+        ['types: remove-double-negations', removeDoubleNegations],
     ],
 });
 
-test('plugin-remove-useless-type-conversion: with-double-negations: transform: report', (t) => {
+test('plugin-types: remove-double-negations: transform: report', (t) => {
     t.report('if', `Avoid double negations in conditions`);
     t.end();
 });
 
-test('plugin-remove-useless-type-conversion: with-double-negations: transform: if', (t) => {
+test('plugin-types: remove-double-negations: transform: if', (t) => {
     t.transform('if');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversion: with-double-negations: no transform: var', (t) => {
+test('plugin-types: remove-double-negations: no transform: var', (t) => {
     t.noTransform('var');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversion: with-double-negations: no transform: bitwise', (t) => {
+test('plugin-types: remove-double-negations: no transform: bitwise', (t) => {
     t.noTransform('bitwise');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversion: with-double-negations: no transform: not bitwise', (t) => {
+test('plugin-types: remove-double-negations: no transform: not bitwise', (t) => {
     t.noTransform('not-bitwise');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversion: with-double-negations: transform: logical', (t) => {
+test('plugin-types: remove-double-negations: transform: logical', (t) => {
     t.transform('logical');
     t.end();
 });
 
-test('plugin-remove-useless-type-conversion: with-double-negations: transform: conditional', (t) => {
+test('plugin-types: remove-double-negations: transform: conditional', (t) => {
     t.transform('conditional');
     t.end();
 });
@@ -62,6 +62,11 @@ test('plugin-remove-useless-type-conversions: with-double-negations: transform: 
 
 test('plugin-remove-useless-type-conversions: with-double-negations: transform: for', (t) => {
     t.transform('for');
+    t.end();
+});
+
+test('plugin-remove-useless-type-conversions: with-double-negations: transform: starts-with', (t) => {
+    t.transform('starts-with');
     t.end();
 });
 
