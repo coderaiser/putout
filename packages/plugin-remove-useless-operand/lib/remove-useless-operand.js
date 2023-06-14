@@ -49,4 +49,3 @@ function check({__b}, path) {
     
     return isNumericLiteral(binding.path.node.init);
 }
-

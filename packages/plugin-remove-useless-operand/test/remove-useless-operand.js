@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessOperand = require('..');
 
 const test = createTest(__dirname, {
-    'remove-useless-operand': removeUselessOperand,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-operand', removeUselessOperand],
+    ],
 });
 
 test('plugin-remove-useless-operand: report', (t) => {
@@ -41,4 +44,3 @@ test('plugin-remove-useless-operand: transform: declaration', (t) => {
     t.transform('declaration');
     t.end();
 });
-
