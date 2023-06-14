@@ -1,3 +1,1 @@
-const a = [
-    ...maybeArray(b),
-];
+const a = [...maybeArray(b)];
