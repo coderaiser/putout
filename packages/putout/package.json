@@ -150,7 +150,7 @@
     "@putout/plugin-remove-useless-spread": "^6.0.0",
     "@putout/plugin-remove-useless-template-expressions": "^1.0.0",
     "@putout/plugin-remove-useless-variables": "^8.0.0",
-    "@putout/plugin-reuse-duplicate-init": "^4.0.0",
+    "@putout/plugin-reuse-duplicate-init": "^5.0.0",
     "@putout/plugin-simplify-assignment": "^3.0.0",
     "@putout/plugin-simplify-boolean-return": "^1.0.0",
     "@putout/plugin-simplify-ternary": "^5.0.1",
