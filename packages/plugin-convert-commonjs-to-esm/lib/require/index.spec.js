@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'convert-commonjs-to-esm/require': convert,
+    printer: 'putout',
+    plugins: [
+        ['convert-commonjs-to-esm/require', convert],
+    ],
 });
 
 test('plugin-convert-commonjs-to-esm: require: transform: report', (t) => {
@@ -160,4 +164,3 @@ test('plugin-convert-commonjs-to-esm: require: transform: dot-dot', (t) => {
     t.transform('dot-dot');
     t.end();
 });
-

@@ -1,6 +1,7 @@
 'use strict';
 
 const justCamelCase = require('just-camel-case');
+
 const {
     types,
     operator,
@@ -47,7 +48,11 @@ module.exports.match = () => ({
             return false;
         
         const __bPath = path.get(__B);
-        const {confident, value} = __bPath.evaluate();
+        
+        const {
+            confident,
+            value,
+        } = __bPath.evaluate();
         
         if (isPackage(__b))
             return false;
@@ -71,7 +76,9 @@ module.exports.replace = () => ({
     }`,
     'require("__a")': 'import("__a")',
     'const __a = require(__b)': ({__a}, path) => {
-        let {value} = path.get(__B).evaluate();
+        let {value} = path
+            .get(__B)
+            .evaluate();
         
         if (value.includes('./') && !/\.js(on)?$/.test(value) && !value.endsWith('..'))
             value += '.js';
@@ -105,19 +112,19 @@ module.exports.replace = () => ({
     },
     'const __a = __b(require(__c))': ({__a, __b, __c}, path) => {
         const name = `_${__a.name}`;
+        
         const importNode = createImport({
             name: Identifier(name),
             source: __c,
         });
+        
         const declarationNode = createFnDeclaration({
             NAME1: __a,
             FN: __b,
             NAME2: Identifier(name),
         });
         
-        path.insertBefore([
-            importNode,
-        ]);
+        path.insertBefore([importNode]);
         
         return declarationNode;
     },
@@ -157,4 +164,3 @@ function applyDynamicImport(path) {
     
     return path;
 }
-

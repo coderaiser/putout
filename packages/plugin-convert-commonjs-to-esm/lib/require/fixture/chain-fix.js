@@ -1,4 +1,5 @@
 {
-  import os from 'os';
-  const HOME = os.homedir();
+    import os from 'os';
+
+    const HOME = os.homedir();
 }

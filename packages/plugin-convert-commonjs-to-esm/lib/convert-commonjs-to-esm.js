@@ -9,4 +9,3 @@ module.exports.rules = {
     ...getRule('require'),
     ...getRule('commons'),
 };
-

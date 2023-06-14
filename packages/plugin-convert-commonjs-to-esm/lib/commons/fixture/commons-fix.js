@@ -1,4 +1,4 @@
-import {readFile, readDir}  from 'fs';
+import {readFile, readDir} from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

@@ -36,4 +36,3 @@ module.exports.filter = ({scope}) => {
     
     return !isDirname && !isFilename && !isRequire;
 };
-

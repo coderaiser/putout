@@ -3,6 +3,6 @@
 
     const {
         replaceWith,
-        replaceWithMultiple
+        replaceWithMultiple,
     } = operator;
 }

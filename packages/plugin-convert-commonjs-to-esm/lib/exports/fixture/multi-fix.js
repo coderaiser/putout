@@ -1,19 +1,13 @@
 'use strict';
 
 /* hello */
-export const remove = () => {
-};
+export const remove = () => {};
 
 // hi
-export const removeMatch = () => {
-};
+export const removeMatch = () => {};
 
-export const set = () => {
-};
+export const set = () => {};
 
-export const get = () => {
-};
+export const get = () => {};
 
-export const clear = () => {
-};
-
+export const clear = () => {};

@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'convert-commonjs-to-esm/commons': convert,
+    printer: 'putout',
+    plugins: [
+        ['convert-commonjs-to-esm/commons', convert],
+    ],
 });
 
 test('plugin-convert-commonjs-to-esm: commons: report', (t) => {
@@ -32,7 +36,6 @@ test('plugin-convert-commonjs-to-esm: commons: no transform: declared require', 
 });
 
 test('plugin-convert-commonjs-to-esm: commons: no transform', (t) => {
-    t.noTransformCode('const a = 5');
+    t.noTransformCode('const a = 5;\n');
     t.end();
 });
-

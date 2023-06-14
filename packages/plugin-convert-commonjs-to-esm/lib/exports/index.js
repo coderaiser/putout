@@ -14,9 +14,7 @@ const {
 
 module.exports.report = () => `Use 'ESM' instead of 'CommonJS'`;
 
-module.exports.exclude = () => [
-    '__, __',
-];
+module.exports.exclude = () => ['__, __'];
 
 module.exports.replace = () => ({
     'module.exports = __a': 'export default __a',
@@ -46,4 +44,3 @@ function parseBindingPath(path) {
     
     return path;
 }
-

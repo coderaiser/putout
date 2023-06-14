@@ -57,15 +57,13 @@ const args = minimist({
 ## ❌ Example of incorrect code
 
 ```js
-module.exports = () => {
-};
+module.exports = () => {};
 ```
 
 ## ✅ Example of correct code
 
 ```js
-export default () => {
-};
+export default () => {};
 ```
 
 # Commons

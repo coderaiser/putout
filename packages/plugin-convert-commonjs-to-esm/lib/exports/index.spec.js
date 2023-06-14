@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const convert = require('.');
+
 const test = createTest(__dirname, {
-    'convert-commonjs-to-esm/exports': convert,
+    printer: 'putout',
+    plugins: [
+        ['convert-commonjs-to-esm/exports', convert],
+    ],
 });
 
 test('plugin-convert-commonjs-to-esm: exports: transform: report', (t) => {
@@ -55,4 +59,3 @@ test('plugin-convert-commonjs-to-esm: exports: no transform: sequance', (t) => {
     t.noTransform('sequence');
     t.end();
 });
-
