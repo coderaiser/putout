@@ -166,6 +166,7 @@ test('putout: cli: staged: add', async (t) => {
     const findUp = stub().returns(dir);
     
     let called = false;
+    
     const porcelain = () => {
         if (called)
             return [];
