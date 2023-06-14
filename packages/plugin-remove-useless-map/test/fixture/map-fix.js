@@ -1,4 +1,4 @@
 {
-  const [line] = lines;
-  const str = `hello ${line}`;
+    const [line] = lines;
+    const str = `hello ${line}`;
 }

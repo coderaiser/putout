@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessMap = require('..');
 
 const test = createTest(__dirname, {
-    'remove-useless-map': removeUselessMap,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-map', removeUselessMap],
+    ],
 });
 
 test('plugin-remove-useless-map: report', (t) => {
@@ -41,4 +44,3 @@ test('plugin-remove-useless-map: no transform: bindings', (t) => {
     t.noTransform('bindings');
     t.end();
 });
-

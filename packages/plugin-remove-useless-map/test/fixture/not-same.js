@@ -1,1 +1,1 @@
-const newArray = array.map(a => b);
+const newArray = array.map((a) => b);
