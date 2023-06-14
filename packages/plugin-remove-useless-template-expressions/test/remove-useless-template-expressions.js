@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessTemplateExpressions = require('..');
 
 const test = createTest(__dirname, {
-    'remove-useless-template-expressions': removeUselessTemplateExpressions,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-template-expressions', removeUselessTemplateExpressions],
+    ],
 });
 
 test('plugin-remove-useless-template-expressions: report', (t) => {
@@ -36,4 +39,3 @@ test('plugin-remove-useless-template-expressions: no transform: contains quasis'
     t.noTransform('contains-quasis');
     t.end();
 });
-

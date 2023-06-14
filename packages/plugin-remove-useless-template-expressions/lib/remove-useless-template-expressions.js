@@ -33,7 +33,7 @@ module.exports.traverse = ({push}) => ({
             return;
         
         for (const expr of expressions) {
-            if (expr.node.comments)
+            if (expr.node.leadingComments)
                 continue;
             
             if (expr.isLiteral() && !expr.isTemplateLiteral()) {
@@ -43,4 +43,3 @@ module.exports.traverse = ({push}) => ({
         }
     },
 });
-
