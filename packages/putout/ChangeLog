@@ -1,3 +1,11 @@
+2023.06.14, v29.13.5
+
+feature:
+- b40f60d93 package: @putout/plugin-convert-commonjs-to-esm v10.0.0
+- d7fec8229 @putout/plugin-convert-commonjs-to-esm: drop support of 🐊
+- c6b1ed02b @putout/plugin-convert-commonjs-to-esm
+- 76dd62b5c @putout/plugin-nodejs: declare-after-require: get back comments support when recast used
+
 2023.06.14, v29.13.4
 
 feature:
