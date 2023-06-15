@@ -34,6 +34,7 @@ module.exports.get = async function get({findUp, isSupported}) {
     const names = porcelain({
         modified: true,
         added: true,
+        renamed: true,
     }).filter(isSupported);
     
     namesStore(names);

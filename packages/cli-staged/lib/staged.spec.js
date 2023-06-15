@@ -75,6 +75,7 @@ test('putout: cli: staged: get: statusMatrix', async (t) => {
     const expected = {
         added: true,
         modified: true,
+        renamed: true,
     };
     
     t.calledWith(porcelain, [expected]);
