@@ -2,7 +2,6 @@ import {
     stub,
     test,
 } from 'supertape';
-
 import {
     NO_PATTERN,
     READ_ERROR,
@@ -10,7 +9,6 @@ import {
     WRITE_ERROR,
     NO_RULES,
 } from './codes.js';
-
 import {
     match,
     runMatch,
@@ -79,8 +77,8 @@ test('putout: match: no rules', async (t) => {
 
 test('putout: match: write error', async (t) => {
     const writeError = Error('Write error');
-    
     const writeFile = stub().rejects(writeError);
+    
     const readFile = stub().resolves(stringify({
         rules: {
             'remove-debugger': 'on',
@@ -100,6 +98,7 @@ test('putout: match: write error', async (t) => {
 
 test('putout: match: success', async (t) => {
     const writeFile = stub().resolves();
+    
     const readFile = stub().resolves(stringify({
         rules: {
             'remove-debugger': 'on',
@@ -127,6 +126,7 @@ test('putout: match: success', async (t) => {
 
 test('putout: match: exist', async (t) => {
     const writeFile = stub().resolves();
+    
     const readFile = stub().resolves(stringify({
         match: {
             '*.js': {
@@ -162,6 +162,7 @@ test('putout: match: exist', async (t) => {
 
 test('putout: match: exist: with same pattern', async (t) => {
     const writeFile = stub().resolves();
+    
     const readFile = stub().resolves(stringify({
         match: {
             '*.md': {
@@ -195,6 +196,7 @@ test('putout: match: exist: with same pattern', async (t) => {
 
 test('putout: match: pass readFile and writeFile', async (t) => {
     const writeFile = stub().resolves();
+    
     const readFile = stub().resolves(stringify({
         match: {
             '*.js': {
@@ -227,4 +229,3 @@ test('putout: match: pass readFile and writeFile', async (t) => {
     t.calledWith(writeFile, ['/.putout.json', expected]);
     t.end();
 });
-

@@ -31,10 +31,12 @@ import {
     readFile,
     writeFile,
 } from 'fs/promises';
-
 import match from '@putout/cli-match';
 
-const {code, message} = await match({
+const {
+    code,
+    message,
+} = await match({
     pattern,
     cwd: cwd(),
     readFile, // optional
