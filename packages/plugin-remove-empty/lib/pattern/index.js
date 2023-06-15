@@ -17,6 +17,8 @@ module.exports.match = () => ({
     'let __array = __': check,
     '__array = __': check,
     'function __a(__args) {}': checkArgs,
+    '(function __b(__args) {})': checkArgs,
+    '(async function __b(__args) {})': checkArgs,
     '(__args) => __a': checkArgs,
     'async (__args) => __a': checkArgs,
 });
@@ -33,6 +35,8 @@ module.exports.replace = () => ({
     '({} = __)': '',
     '(__array) => __a': '() => __a',
     'function __a(__args) {}': replaceArgs,
+    '(function __b(__args) {})': replaceArgs,
+    '(async function __b(__args) {})': replaceArgs,
     '(__args) => __a': replaceArgs,
     'async (__args) => __a': replaceArgs,
 });

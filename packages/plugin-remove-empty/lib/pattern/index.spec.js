@@ -114,6 +114,11 @@ test('plugin-remove-empty: pattern: transform: null', (t) => {
     t.end();
 });
 
+test('plugin-remove-empty: pattern: transform: arg', (t) => {
+    t.transform('arg');
+    t.end();
+});
+
 test('plugin-remove-empty: pattern: no report: no-args', (t) => {
     t.noReport('no-args');
     t.end();
