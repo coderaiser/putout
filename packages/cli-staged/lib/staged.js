@@ -6,7 +6,6 @@ const {spawnSync} = require('child_process');
 const porcelain = require('@putout/git-status-porcelain');
 const once = require('once');
 const fullstore = require('fullstore');
-const {isSupported} = require('./supported-files');
 
 const namesStore = fullstore([]);
 
@@ -27,7 +26,7 @@ const findGit = once(async ({findUp}) => {
 
 const joinDir = (a) => (b) => join(a, b);
 
-module.exports.get = async function get({findUp}) {
+module.exports.get = async function get({findUp, isSupported}) {
     const dir = await findGit({
         findUp,
     });
@@ -60,7 +59,8 @@ module.exports.set = async function set({findUp}) {
             namesToAdd.push(filepath);
     }
     
-    add(namesToAdd.map(joinDir(dir)));
+    if (namesToAdd.length)
+        add(namesToAdd.map(joinDir(dir)));
     
     return staged;
 };

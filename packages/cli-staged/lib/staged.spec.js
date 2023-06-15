@@ -1,9 +1,7 @@
 'use strict';
 
 const tryToCatch = require('try-to-catch');
-
 const {test, stub} = require('supertape');
-
 const mockRequire = require('mock-require');
 
 const {
@@ -18,6 +16,7 @@ test('putout: cli: staged', async (t) => {
     
     await get({
         findUp,
+        isSupported: Boolean,
     });
     
     stopAll();
@@ -68,6 +67,7 @@ test('putout: cli: staged: get: statusMatrix', async (t) => {
     
     await get({
         findUp,
+        isSupported: Boolean,
     });
     
     stopAll();
@@ -92,6 +92,7 @@ test('putout: cli: staged: get: statusMatrix: result', async (t) => {
     
     const names = await get({
         findUp,
+        isSupported: Boolean,
     });
     
     stopAll();
@@ -189,6 +190,7 @@ test('putout: cli: staged: add', async (t) => {
     
     await get({
         findUp,
+        isSupported: Boolean,
     });
     
     await set({
@@ -205,5 +207,47 @@ test('putout: cli: staged: add', async (t) => {
     ]];
     
     t.calledWith(spawnSync, args);
+    t.end();
+});
+
+test('putout: cli: staged: no files', async (t) => {
+    const dir = '/putout';
+    const findUp = stub().returns(dir);
+    
+    let called = false;
+    
+    const porcelain = () => {
+        if (called)
+            return [];
+        
+        called = true;
+        
+        return [
+            'packages/putout/lib/cli/index.js',
+        ];
+    };
+    
+    const spawnSync = stub();
+    const isSupported = stub().returns(false);
+    
+    mockRequire('child_process', {
+        spawnSync,
+    });
+    mockRequire('@putout/git-status-porcelain', porcelain);
+    
+    const {get, set} = reRequire('./staged');
+    
+    await get({
+        findUp,
+        isSupported,
+    });
+    
+    await set({
+        findUp,
+    });
+    
+    stopAll();
+    
+    t.notCalled(spawnSync);
     t.end();
 });

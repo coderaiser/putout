@@ -1,0 +1,57 @@
+{
+  "name": "@putout/cli-staged",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "handle staged",
+  "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-staged#readme",
+  "main": "lib/staged.js",
+  "release": false,
+  "tag": false,
+  "changelog": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/putout.git"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
+  },
+  "dependencies": {
+    "@putout/git-status-porcelain": "^3.0.0",
+    "fullstore": "^3.0.0",
+    "once": "^1.4.0",
+    "try-to-catch": "^3.0.1"
+  },
+  "keywords": [
+    "putout",
+    "putout-plugin",
+    "plugin",
+    "gitignore"
+  ],
+  "devDependencies": {
+    "c8": "^7.5.0",
+    "eslint": "^8.0.1",
+    "eslint-plugin-n": "^16.0.0",
+    "eslint-plugin-putout": "^17.0.0",
+    "lerna": "^6.0.1",
+    "madrun": "^9.0.0",
+    "mock-require": "^3.0.3",
+    "nodemon": "^2.0.1",
+    "putout": "*",
+    "supertape": "^8.0.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

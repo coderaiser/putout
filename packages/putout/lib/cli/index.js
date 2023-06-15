@@ -42,6 +42,7 @@ const {
     CANNOT_LINT_STAGED,
 } = require('./exit-codes');
 
+const {isSupported} = supportedFiles;
 const getFormatter = nanomemoize(require('./formatter').getFormatter);
 
 const cwd = process.cwd();
@@ -240,11 +241,12 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     const stagedNames = [];
     
     if (staged) {
-        const {get} = require('./staged');
+        const {get} = require('@putout/cli-staged');
         const {findUp} = await simpleImport('find-up');
         
         const [error, names] = await tryToCatch(get, {
             findUp,
+            isSupported,
         });
         
         if (error)
@@ -341,7 +343,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     }
     
     if (fix && staged) {
-        const {set} = require('./staged');
+        const {set} = require('@putout/cli-staged');
         const {findUp} = await simpleImport('find-up');
         
         const stagedNames = await set({

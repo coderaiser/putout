@@ -759,7 +759,6 @@ test('putout: cli: --fix --staged: set', async (t) => {
     const logError = stub();
     
     const get = stub().returns([name]);
-    
     const set = stub().returns(['hello.txt']);
     
     const argv = [
@@ -783,7 +782,7 @@ test('putout: cli: --fix --staged: set', async (t) => {
     mockRequire('./get-files', getFiles);
     mockRequire('./process-file', processFile);
     
-    mockRequire('./staged', {
+    mockRequire('@putout/cli-staged', {
         get,
         set,
     });
@@ -811,7 +810,6 @@ test('putout: cli: --fix --staged: get', async (t) => {
     const logError = stub();
     
     const get = stub().returns([name]);
-    
     const set = stub().returns(['hello.txt']);
     
     const argv = [
@@ -831,11 +829,12 @@ test('putout: cli: --fix --staged: get', async (t) => {
     });
     
     const processFile = stub().returns(process);
+    const {isSupported} = require('./supported-files');
     
     mockRequire('./get-files', getFiles);
     mockRequire('./process-file', processFile);
     
-    mockRequire('./staged', {
+    mockRequire('@putout/cli-staged', {
         get,
         set,
     });
@@ -854,6 +853,7 @@ test('putout: cli: --fix --staged: get', async (t) => {
     
     t.calledWith(get, [{
         findUp,
+        isSupported,
     }]);
     t.end();
 });
@@ -893,7 +893,7 @@ test('putout: cli: --fix --staged: exit code', async (t) => {
         createCache,
     });
     
-    mockRequire('./staged', {
+    mockRequire('@putout/cli-staged', {
         get,
         set,
     });
@@ -924,7 +924,7 @@ test('putout: cli: --staged --fix', async (t) => {
         '--fix',
     ];
     
-    mockRequire('./staged', {
+    mockRequire('@putout/cli-staged', {
         get,
         set,
     });
@@ -1884,7 +1884,7 @@ test('putout: cli: --staged: error code', async (t) => {
     const halt = stub();
     const get = stub().rejects('not git repository');
     
-    mockRequire('./staged', {
+    mockRequire('@putout/cli-staged', {
         get,
     });
     const cli = reRequire('.');
@@ -1908,7 +1908,7 @@ test('putout: cli: --staged: error message', async (t) => {
     const get = stub().rejects(Error('not git repository'));
     const logError = stub();
     
-    mockRequire('./staged', {
+    mockRequire('@putout/cli-staged', {
         get,
     });
     const cli = reRequire('.');
