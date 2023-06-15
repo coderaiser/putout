@@ -38,4 +38,3 @@ test('putout: cli: validate args: invalid', async (t) => {
     t.equal(error.message, `Invalid option '-f'`);
     t.end();
 });
-

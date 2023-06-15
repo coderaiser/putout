@@ -19,22 +19,18 @@ npm i @putout/cli-validate-args
 
 ```js
 // validate-args.js
-
 import validateArgs from '@putout/cli-validate-args';
 import parse from 'yargs-parser';
 
 const argv = process.argv.slice(2);
+
 const yargsConfig = {
     configuration: {
         'strip-aliased': true,
         'strip-dashed': true,
     },
-    number: [
-        'fix-count',
-    ],
-    boolean: [
-        'fix',
-    ],
+    number: ['fix-count'],
+    boolean: ['fix'],
 };
 
 const args = parse(argv, yargsConfig);
