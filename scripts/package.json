@@ -16,5 +16,8 @@
   },
   "devDependencies": {
     "try-to-catch": "^3.0.1"
+  },
+  "dependencies": {
+    "try-catch": "^3.0.1"
   }
 }

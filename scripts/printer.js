@@ -4,10 +4,15 @@ import {
     writeFileSync,
     readFileSync,
 } from 'fs';
-const {stringify, parse} = JSON;
+import tryCatch from 'try-catch';
 
-const putoutConfig = parse(readFileSync('./.putout.json', 'utf8'));
-const [cmd = 'add'] = process.argv.slice(2);
+const {
+    stringify,
+    parse,
+} = JSON;
+const [, rawConfig = '{}'] = tryCatch(readFileSync, './.putout.json', 'utf8');
+
+const putoutConfig = parse(rawConfig);
 
 const additional = {
     printer: 'putout',
@@ -25,7 +30,7 @@ const result = {
     ...putoutConfig,
 };
 
-if (cmd === 'drop') {
+if (putoutConfig.rules?.['putout/create-test']) {
     delete result.rules;
 }
 
