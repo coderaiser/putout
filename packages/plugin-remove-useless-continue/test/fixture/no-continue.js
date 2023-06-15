@@ -1,2 +1,2 @@
-while(x)
+while (x)
     fn();

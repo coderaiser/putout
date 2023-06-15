@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessContinue = require('..');
 
 const test = createTest(__dirname, {
-    'remove-useless-continue': removeUselessContinue,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-continue', removeUselessContinue],
+    ],
 });
 
 test('plugin-remove-useless-continue: report', (t) => {
@@ -31,4 +34,3 @@ test('plugin-remove-useless-continue: no transform: no-continue', (t) => {
     t.noTransform('no-continue');
     t.end();
 });
-
