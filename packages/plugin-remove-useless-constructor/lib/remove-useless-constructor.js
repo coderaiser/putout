@@ -18,4 +18,3 @@ module.exports.replace = () => ({
     'Boolean(__a)': '__a',
     'Number(__a)': '__a',
 });
-
