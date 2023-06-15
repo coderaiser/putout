@@ -3,7 +3,7 @@
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/cli-staged.svg?style=flat&longCache=true
 [NPMURL]: https://npmjs.org/package/@putout/cli-staged "npm"
 
-🐊**Putout** get list of staged by `git` files.
+Get list of staged by `git` files for 🐊[**Putout**](https://github.com/coderaiser/putout).
 
 ## Install
 
