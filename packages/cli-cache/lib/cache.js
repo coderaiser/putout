@@ -38,6 +38,7 @@ module.exports.createCache = async ({cache, fresh, version}) => {
         return defaultCache;
     
     const fileCache = fileEntryCache.createFromFile(name);
+    
     const getOptionsHash = createGetOptionsCache({
         version,
     });
