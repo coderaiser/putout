@@ -14,4 +14,3 @@ module.exports = (places) => {
     
     return false;
 };
-

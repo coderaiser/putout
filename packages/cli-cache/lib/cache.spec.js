@@ -11,7 +11,10 @@ const {
     _defaultCache,
 } = require('./cache');
 
-const {reRequire, stopAll} = mockRequire;
+const {
+    reRequire,
+    stopAll,
+} = mockRequire;
 
 test('putout: cli: cache: disabled: fileCache', async (t) => {
     const fileCache = await createCache({
@@ -94,12 +97,15 @@ test('putout: cli: cache: enabled: setInfo', async (t) => {
     });
     
     const name = 'hello';
+    
     const place = {
         rule: 'hello',
         message: 'hello world',
     };
     
-    fileCache.setInfo(name, [place], {hello: 'world'});
+    fileCache.setInfo(name, [place], {
+        hello: 'world',
+    });
     stopAll();
     
     t.calledWith(getFileDescriptor, [name], 'should call getFileDescriptor');
@@ -135,12 +141,15 @@ test('putout: cli: cache: setInfo: definition not found', async (t) => {
     });
     
     const name = 'hello';
+    
     const place = {
         rule: 'hello',
         message: `Definition for rule 'hello' was not found.`,
     };
     
-    fileCache.setInfo(name, [place], {hello: 'world'});
+    fileCache.setInfo(name, [place], {
+        hello: 'world',
+    });
     stopAll();
     
     t.notOk(getFileDescriptor.called, 'should not call getFileDescriptor');
@@ -176,12 +185,15 @@ test('putout: cli: cache: setInfo: eslint parser error', async (t) => {
     });
     
     const name = 'hello';
+    
     const place = {
         rule: 'eslint/parser',
         message: `Can't find parser`,
     };
     
-    fileCache.setInfo(name, [place], {hello: 'world'});
+    fileCache.setInfo(name, [place], {
+        hello: 'world',
+    });
     stopAll();
     
     t.notOk(getFileDescriptor.called, 'should not call getFileDescriptor');
@@ -190,6 +202,7 @@ test('putout: cli: cache: setInfo: eslint parser error', async (t) => {
 
 test('putout: cli: cache: enabled: setInfo: not set', async (t) => {
     const places = [];
+    
     const meta = {
         optionsHash: 'hello',
         places,
@@ -218,11 +231,14 @@ test('putout: cli: cache: enabled: setInfo: not set', async (t) => {
     });
     
     const name = 'hello';
+    
     const place = {
         rule: 'node/missing-require (eslint)',
     };
     
-    fileCache.setInfo(name, [place], {hello: 'world'});
+    fileCache.setInfo(name, [place], {
+        hello: 'world',
+    });
     stopAll();
     
     t.notOk(getFileDescriptor.called, 'should not call getFileDescriptor');
@@ -302,6 +318,7 @@ test('putout: cli: cache: enabled: canUseCache: no meta', async (t) => {
     const options = {};
     
     const result = fileCache.canUseCache(name, options);
+    
     stopAll();
     
     t.notOk(result);
@@ -419,6 +436,7 @@ test('putout: cli: cache: enabled: canUseCache: not fix', async (t) => {
     const options = {};
     
     const result = fileCache.canUseCache(name, options);
+    
     stopAll();
     
     t.notOk(result);
@@ -464,6 +482,7 @@ test('putout: cli: cache: enabled: canUseCache: fix, no places', async (t) => {
     const options = {};
     
     const result = fileCache.canUseCache(name, options);
+    
     stopAll();
     
     t.ok(result);
@@ -472,6 +491,7 @@ test('putout: cli: cache: enabled: canUseCache: fix, no places', async (t) => {
 
 test('putout: cli: cache: enabled: getPlaces: isChanged: no', async (t) => {
     const places = [];
+    
     const meta = {
         optionsHash: '1cnbekx',
         places,
@@ -485,6 +505,7 @@ test('putout: cli: cache: enabled: getPlaces: isChanged: no', async (t) => {
     });
     
     const reconcile = stub();
+    
     const createFromFile = stub().returns({
         getFileDescriptor,
         reconcile,
@@ -504,6 +525,7 @@ test('putout: cli: cache: enabled: getPlaces: isChanged: no', async (t) => {
     });
     
     const result = fileCache.getPlaces();
+    
     stopAll();
     
     t.equal(result, places, 'should places equal');
@@ -512,6 +534,7 @@ test('putout: cli: cache: enabled: getPlaces: isChanged: no', async (t) => {
 
 test('putout: cli: cache: enabled: getPlaces: isChanged: yes', async (t) => {
     const places = [];
+    
     const meta = {
         optionsHash: '1cnbekx',
         places,
@@ -525,6 +548,7 @@ test('putout: cli: cache: enabled: getPlaces: isChanged: yes', async (t) => {
     });
     
     const reconcile = stub();
+    
     const createFromFile = stub().returns({
         getFileDescriptor,
         reconcile,
@@ -544,9 +568,9 @@ test('putout: cli: cache: enabled: getPlaces: isChanged: yes', async (t) => {
     });
     
     const result = fileCache.getPlaces();
+    
     stopAll();
     
     t.equal(result, places, 'should places equal');
     t.end();
 });
-

@@ -1,7 +1,10 @@
 'use strict';
 
 const {test, stub} = require('supertape');
-const {stopAll, reRequire} = require('mock-require');
+const {
+    stopAll,
+    reRequire,
+} = require('mock-require');
 
 test('putout: cli: cache files: is changed: isNodeModulesChanged: cannot find', async (t) => {
     const fileCache = {
@@ -13,7 +16,9 @@ test('putout: cli: cache files: is changed: isNodeModulesChanged: cannot find', 
     const findUp = stub();
     
     const {isNodeModulesChanged} = reRequire('./is-changed');
-    const result = await isNodeModulesChanged(fileCache, {findUp});
+    const result = await isNodeModulesChanged(fileCache, {
+        findUp,
+    });
     
     stopAll();
     
@@ -31,7 +36,9 @@ test('putout: cli: cache files: is changed: isNodeModulesChanged', async (t) => 
     const findUp = stub().returns('xx');
     
     const {isNodeModulesChanged} = reRequire('./is-changed');
-    const result = await isNodeModulesChanged(fileCache, {findUp});
+    const result = await isNodeModulesChanged(fileCache, {
+        findUp,
+    });
     
     stopAll();
     
@@ -49,7 +56,9 @@ test('putout: cli: cache files: is changed: isEslintChanged: cannot find', async
     const findUp = stub();
     
     const {isEslintChanged} = reRequire('./is-changed');
-    const result = await isEslintChanged(fileCache, {findUp});
+    const result = await isEslintChanged(fileCache, {
+        findUp,
+    });
     
     stopAll();
     
@@ -67,7 +76,9 @@ test('putout: cli: cache files: is changed: isEslintChanged', async (t) => {
     const findUp = stub().returns('xxx');
     
     const {isEslintChanged} = reRequire('./is-changed');
-    const result = await isEslintChanged(fileCache, {findUp});
+    const result = await isEslintChanged(fileCache, {
+        findUp,
+    });
     
     stopAll();
     
@@ -85,11 +96,12 @@ test('putout: cli: cache files: is changed', async (t) => {
     const findUp = stub();
     
     const isChanged = reRequire('./is-changed');
-    const result = await isChanged(fileCache, {findUp});
+    const result = await isChanged(fileCache, {
+        findUp,
+    });
     
     stopAll();
     
     t.notOk(result);
     t.end();
 });
-

@@ -29,4 +29,3 @@ test('putout: cli: cache-files: contain-eslint-plugin: eslint-plugin-putout', (t
     t.notOk(result, 'should ignore eslint-plugin-putout');
     t.end();
 });
-

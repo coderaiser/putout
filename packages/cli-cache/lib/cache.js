@@ -38,10 +38,14 @@ module.exports.createCache = async ({cache, fresh, version}) => {
         return defaultCache;
     
     const fileCache = fileEntryCache.createFromFile(name);
-    const getOptionsHash = createGetOptionsCache({version});
+    const getOptionsHash = createGetOptionsCache({
+        version,
+    });
     
     assign(fileCache, {
-        getPlaces: getPlaces({fileCache}),
+        getPlaces: getPlaces({
+            fileCache,
+        }),
         getOptionsHash,
         setInfo: setInfo({
             fileCache,
@@ -88,7 +92,10 @@ const canUseCache = ({fileCache, getOptionsHash}) => (name, options) => {
     if (!descriptor)
         return false;
     
-    const {changed, meta} = descriptor;
+    const {
+        changed,
+        meta,
+    } = descriptor;
     
     if (!meta)
         return false;
@@ -129,4 +136,3 @@ async function findCachePath() {
     
     return CACHE_FILE;
 }
-

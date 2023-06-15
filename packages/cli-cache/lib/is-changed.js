@@ -1,11 +1,18 @@
 'use strict';
 
-const {dirname, join} = require('path');
+const {
+    dirname,
+    join,
+} = require('path');
 
 module.exports = async (fileCache, {findUp}) => {
     const result = await Promise.all([
-        isNodeModulesChanged(fileCache, {findUp}),
-        isEslintChanged(fileCache, {findUp}),
+        isNodeModulesChanged(fileCache, {
+            findUp,
+        }),
+        isEslintChanged(fileCache, {
+            findUp,
+        }),
     ]);
     
     const trueCount = result.filter(Boolean).length;
@@ -55,4 +62,3 @@ function isChanged(name, fileCache) {
     
     return !can;
 }
-
