@@ -75,4 +75,3 @@ test('operate: properties: getProperty: not found', (t) => {
     t.notOk(result);
     t.end();
 });
-

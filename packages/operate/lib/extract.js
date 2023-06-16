@@ -42,4 +42,3 @@ function extract(node) {
     
     throw Error(`"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral, JSXAttribute and JSXText 🤷, found: ${node.type}`);
 }
-

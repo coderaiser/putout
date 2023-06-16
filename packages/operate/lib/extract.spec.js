@@ -38,7 +38,9 @@ test('operate: extract: path', (t) => {
         name,
     };
     
-    const value = extract({node});
+    const value = extract({
+        node,
+    });
     
     t.equal(name, value);
     t.end();

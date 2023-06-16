@@ -12,10 +12,7 @@ const {
     BlockStatement,
 } = require('@babel/types');
 
-const {
-    getBinding,
-    getBindingPath,
-} = require('./get-binding');
+const {getBinding, getBindingPath} = require('./get-binding');
 
 const {isSimple} = require('./is-simple');
 const {extract} = require('./extract');
@@ -24,10 +21,8 @@ const {remove} = require('./remove');
 const {getExportDefault} = require('./get-export-default');
 const {rename} = require('./rename');
 const {renameProperty} = require('./rename-property');
-const {
-    getProperty,
-    getProperties,
-} = require('./properties');
+
+const {getProperty, getProperties} = require('./properties');
 
 const {assign} = Object;
 
@@ -64,10 +59,7 @@ function replaceWith(path, node) {
     if (path?.parentPath?.isExpressionStatement() && !path.parentPath.isProgram())
         path = path.parentPath;
     
-    const {
-        comments,
-        loc,
-    } = path.node;
+    const {comments, loc} = path.node;
     
     const {currentPath} = maybeBody(path, node);
     
@@ -85,7 +77,9 @@ module.exports.replaceWithMultiple = (path, nodes) => {
     const parentComments = path.parentPath.node.comments;
     const {comments} = path.node;
     
-    const newNodes = nodes.filter(Boolean).map(toExpression);
+    const newNodes = nodes
+        .filter(Boolean)
+        .map(toExpression);
     
     const {currentPath} = maybeBody(path);
     const newPath = currentPath.replaceWithMultiple(newNodes);

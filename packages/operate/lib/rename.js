@@ -14,4 +14,3 @@ module.exports.rename = (path, from, to) => {
     bindingPath.scope.rename(from, to);
     renameProperty(bindingPath, from, to);
 };
-

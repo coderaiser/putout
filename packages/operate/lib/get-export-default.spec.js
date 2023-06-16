@@ -41,4 +41,3 @@ test('operate: getExportDefault: not found', (t) => {
     t.notOk(result);
     t.end();
 });
-

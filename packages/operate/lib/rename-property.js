@@ -18,4 +18,3 @@ module.exports.renameProperty = (path, from, to) => {
         },
     });
 };
-

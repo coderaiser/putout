@@ -4,6 +4,7 @@ const {
     isIdentifier,
     isMemberExpression,
 } = require('@babel/types');
+
 const isString = (a) => typeof a === 'string';
 
 module.exports.getBinding = getBinding;
@@ -38,4 +39,3 @@ const parseName = (node) => {
     
     return '';
 };
-

@@ -276,10 +276,7 @@ test('putout: operate: replaceWithMultiple: for-of: empty return', (t) => {
     
     traverse(ast, {
         ReturnStatement(path) {
-            operate.replaceWithMultiple(path, [
-                path.node.argument,
-                ContinueStatement(),
-            ]);
+            operate.replaceWithMultiple(path, [path.node.argument, ContinueStatement()]);
         },
     });
     
@@ -944,6 +941,7 @@ test('putout: operate: rename', (t) => {
     const result = print(ast, {
         printer: 'putout',
     });
+    
     const expected = montag`
         const {world} = c;
         world();\n
@@ -973,6 +971,7 @@ test('putout: operate: rename: deep', (t) => {
     const result = print(ast, {
         printer: 'putout',
     });
+    
     const expected = montag`
         function main() {
             const {world} = c;
@@ -1035,4 +1034,3 @@ test('putout: operate: remove: already removed', (t) => {
     t.equal(code, expected);
     t.end();
 });
-

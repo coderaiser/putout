@@ -33,6 +33,7 @@ module.exports.remove = (path) => {
         }
     }
 };
+
 const getComments = (path) => {
     const {comments} = path.node;
     
@@ -54,4 +55,3 @@ const getPrevSibling = (path) => {
     
     return path.parentPath.getPrevSibling();
 };
-

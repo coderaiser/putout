@@ -485,4 +485,3 @@ test('operate: compute: ObjectProperty: no computed', (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
-

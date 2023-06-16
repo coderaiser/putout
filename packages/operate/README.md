@@ -83,10 +83,7 @@ Extract node value according to it's type::
 ### `replaceWith(path, node)`
 
 ```js
-const {
-    operator,
-    types,
-} = require('putout');
+const {operator, types} = require('putout');
 
 const {replaceWith} = operator;
 const {ContinueStatement} = types;
@@ -97,10 +94,7 @@ replaceWith(path, ContinueStatement());
 ### `replaceWithMultiple(path, nodes)`
 
 ```js
-const {
-    operator,
-    types,
-} = require('putout');
+const {operator, types} = require('putout');
 
 const {replaceWithMultiple} = operator;
 const {
@@ -131,8 +125,7 @@ path.toString();
 // returns const [a, b] = c;
 remove(path.get('declarations.0.id.0'));
 
-path.toString();
-// returns const [, b] = c;
+path.toString();// returns const [, b] = c;
 ```
 
 ### `getPathAfterImports(body)`
@@ -192,6 +185,7 @@ const {traverse, compute} = operator;
 traverse({
     '__a.__b': (path) => {
         const [computed, value] = compute(path);
+        
         // returns
         [true, `typeof __a === 'function'`];
     },

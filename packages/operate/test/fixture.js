@@ -1,15 +1,14 @@
 'use strict';
 
 const {join} = require('path');
-const {
-    readFileSync,
-    readdirSync,
-} = require('fs');
+
+const {readFileSync, readdirSync} = require('fs');
 
 const tryCatch = require('try-catch');
 const camelCase = require('just-camel-case');
 
 const dirFixture = join(__dirname, 'fixture');
+
 const readFixture = (name) => {
     const longName = join(dirFixture, name);
     
@@ -24,8 +23,7 @@ const readFixture = (name) => {
 const rmExt = (a) => a.replace('.js', '');
 
 module.exports.readFixtures = () => {
-    const names = readdirSync(join(__dirname, 'fixture'))
-        .map(rmExt);
+    const names = readdirSync(join(__dirname, 'fixture')).map(rmExt);
     
     const result = {};
     
@@ -45,4 +43,3 @@ const handler = {
         return obj[prop];
     },
 };
-

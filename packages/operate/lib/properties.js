@@ -11,6 +11,7 @@ module.exports.getProperties = (path, names) => {
         
         if (names.includes(currentName)) {
             const name = `${currentName}Path`;
+            
             result[name] = propertyPath;
             continue;
         }
@@ -32,4 +33,3 @@ module.exports.getProperty = (path, name) => {
     
     return null;
 };
-
