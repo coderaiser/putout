@@ -2,7 +2,13 @@ import {jsonFormatter} from '@putout/formatter-json';
 
 export default async ({name, source, places, index, count, filesCount, errorsCount}) => {
     const json = jsonFormatter({
-        name, source, places, index, count, filesCount, errorsCount,
+        name,
+        source,
+        places,
+        index,
+        count,
+        filesCount,
+        errorsCount,
     });
     
     if (!json)
@@ -55,4 +61,3 @@ function convertPlace({rule, message, position}) {
         nodeType: '',
     };
 }
-

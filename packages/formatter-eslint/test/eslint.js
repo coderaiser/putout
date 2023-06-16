@@ -1,6 +1,5 @@
 import {createTest} from '@putout/test';
 import rmUnused from '@putout/plugin-remove-unused-variables';
-
 import eslint from '../lib/eslint.js';
 
 const test = createTest(import.meta.url, {
@@ -26,4 +25,3 @@ test('formatter: eslint: no', async ({noFormat}) => {
 test('formatter: eslint: many', async ({formatMany}) => {
     await formatMany(eslint, ['var', 'var']);
 });
-
