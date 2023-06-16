@@ -1,4 +1,5 @@
 import codeframe from '@putout/formatter-codeframe';
+
 const {round} = Math;
 
 export default ({name, places, index, count, filesCount, source, errorsCount}) => {
@@ -24,4 +25,3 @@ export default ({name, places, index, count, filesCount, source, errorsCount}) =
 function progress(index, count) {
     return round(index / count * 100);
 }
-

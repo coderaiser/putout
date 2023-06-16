@@ -1,6 +1,5 @@
 import {createTest} from '@putout/test';
 import rmVars from '@putout/plugin-remove-unused-variables';
-
 import progress from '../lib/frame.js';
 
 const test = createTest(import.meta.url, {
@@ -18,4 +17,3 @@ test('formatter: frame: no', async ({format}) => {
 test('formatter: frame: many', async ({formatMany}) => {
     await formatMany(progress, ['var', 'var']);
 });
-
