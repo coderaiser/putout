@@ -1,12 +1,6 @@
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 const {replaceWith} = operator;
-const {
-    ObjectExpression,
-    ObjectProperty,
-} = types;
+const {ObjectExpression, ObjectProperty} = types;
 
 module.exports.fix = (path) => {
     replaceWith(path, ObjectExpression([

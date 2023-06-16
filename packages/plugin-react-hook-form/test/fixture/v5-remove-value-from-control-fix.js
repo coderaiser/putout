@@ -2,10 +2,7 @@ import {TextInput} from 'react-native';
 
 <Controller
     render={({field}) => {
-        const {
-            value,
-            onChange,
-        } = fieldset;
+        const {value, onChange} = fieldset;
         return (
             <TextInput name={name} onChange={onChange} style={{
                 borderWidth: 2,

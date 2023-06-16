@@ -2,7 +2,4 @@
 
 const {stub} = require('supertape');
 
-const {
-    createTest,
-    _createProcess,
-} = require('./processor');
+const {createTest, _createProcess} = require('./processor');

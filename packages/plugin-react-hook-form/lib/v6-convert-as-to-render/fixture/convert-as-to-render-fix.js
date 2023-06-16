@@ -1,9 +1,6 @@
 const a = (
     <Controller render={({field}) => {
-        const {
-            value,
-            onChange,
-        } = field;
+        const {value, onChange} = field;
         return (
             <CustomInput onTextChange={onChange} onBlur={onBlur} textValue={value}/>
         );
@@ -13,10 +10,7 @@ const a = (
 const b = (
     <Controller
         render={({field}) => {
-            const {
-                value,
-                onChange,
-            } = fieldset;
+            const {value, onChange} = fieldset;
             return (
                 <CustomInput name={name} onChange={onChange}/>
             );
@@ -28,10 +22,7 @@ const b = (
 const c = (
     <Controller
         render={({field}) => {
-            const {
-                value,
-                onChange,
-            } = fieldset;
+            const {value, onChange} = fieldset;
             return (
                 <CustomInput name={name} onChange={onChange}/>
             );
@@ -44,10 +35,7 @@ const c = (
 const d = (
     <Controller
         render={({field}) => {
-            const {
-                value,
-                onChange,
-            } = fieldset;
+            const {value, onChange} = fieldset;
             return (
                 <CustomInput name={name} onChange={onChange}/>
             );
@@ -61,10 +49,7 @@ const d = (
 const e = (
     <Controller
         render={({field}) => {
-            const {
-                value,
-                onChange,
-            } = fieldset;
+            const {value, onChange} = fieldset;
             return (
                 <CustomInput name={name} onChange={onChange}/>
             );

@@ -1,7 +1,6 @@
 import {createTest} from '@putout/test';
 
 const removeDebugger = require('..');
-
 const test = createTest(import.meta.url, {
     'remove-debugger': removeDebugger,
 });

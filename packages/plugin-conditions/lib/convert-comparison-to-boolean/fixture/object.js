@@ -3,10 +3,7 @@ const STEP_STATE = {
 };
 
 const useStep = (props) => {
-    const {
-        state,
-        navEnabled,
-    } = {...props};
+    const {state, navEnabled} = {...props};
     
     const isNavEnabled = navEnabled && state === STEP_STATE.ENABLED;
     

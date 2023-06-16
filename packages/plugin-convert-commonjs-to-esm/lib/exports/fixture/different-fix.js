@@ -1,6 +1,3 @@
-const {
-    createConfig,
-    configPath,
-} = require('config');
+const {createConfig, configPath} = require('config');
 
 export const createConfigManager = createConfig;

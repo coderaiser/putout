@@ -15,10 +15,7 @@ function many(args) {
 }
 
 function long(args) {
-    const {
-        helloWorld,
-        WorldHello,
-    } = args;
+    const {helloWorld, WorldHello} = args;
 }
 
 const {a, b} = c;

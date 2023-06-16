@@ -1,7 +1,6 @@
 'use strict';
 
 const {createTest} = require('@putout/test');
-
 const madrunRenamePredefinedEslintToPutout = require('.');
 
 const test = createTest(__dirname, {

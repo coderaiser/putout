@@ -1,8 +1,5 @@
 module.exports = (node) => {
-    const {
-        tokens,
-        hello = 'world',
-    } = node;
+    const {tokens, hello = 'world'} = node;
     
     const ast = {
         type: 'File',

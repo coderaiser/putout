@@ -2,10 +2,7 @@ const b = (
     <Hello>
         <Controller
             render={({field}) => {
-                const {
-                    value,
-                    onChange,
-                } = fieldset;
+                const {value, onChange} = fieldset;
                 return (
                     <CustomInput name={name} onChange={onChange}/>
                 );

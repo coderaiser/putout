@@ -1,7 +1,4 @@
-const {
-    generate,
-    operate,
-} = require('putout');
+const {generate, operate} = require('putout');
 const {replaceWith} = operate;
 
 const {rep} = op;

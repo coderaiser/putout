@@ -1,5 +1,4 @@
 const remove = require('..');
-
 const test = require('@putout/test')(__dirname, {
     'remove': remove,
 });

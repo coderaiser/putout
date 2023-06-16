@@ -1,7 +1,4 @@
-const {
-    Route,
-    Routes,
-} = require('react-router');
+const {Route, Routes} = require('react-router');
 
 const routes = () => <Routes>
     <Route exact path="/login" component={Login}/>

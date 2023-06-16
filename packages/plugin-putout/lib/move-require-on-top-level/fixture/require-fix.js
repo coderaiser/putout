@@ -1,5 +1,4 @@
 const removeDebugger = require('..');
-
 const test = require('@putout/test')(__dirname, {
     'remove-debugger': removeDebugger,
 });

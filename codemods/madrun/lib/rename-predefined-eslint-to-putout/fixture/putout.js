@@ -1,7 +1,4 @@
-const {
-    eslint,
-    putout,
-} = predefined;
+const {eslint, putout} = predefined;
 
 module.exports = {
     'lint': () => {

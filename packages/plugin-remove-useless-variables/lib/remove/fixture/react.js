@@ -1,6 +1,3 @@
 const React = require('react');
 
-const {
-    exec,
-    spawn,
-} = React;
+const {exec, spawn} = React;

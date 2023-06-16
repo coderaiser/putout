@@ -1,4 +1,1 @@
-const {
-    exec,
-    spawn,
-} = require('child_process');
+const {exec, spawn} = require('child_process');
