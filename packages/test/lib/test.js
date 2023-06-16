@@ -278,9 +278,7 @@ const transform = currify((dir, options, t, name, transformed = null, addons = {
     const [input, isTS] = readFixture(full);
     const isStr = isString(transformed);
     
-    const [output] = isStr ? [
-        transformed,
-    ] : readFixture(`${full}-fix`);
+    const [output] = isStr ? [transformed] : readFixture(`${full}-fix`);
     
     if (!isStr)
         addons = transformed;

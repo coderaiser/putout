@@ -125,7 +125,7 @@ path.toString();
 // returns const [a, b] = c;
 remove(path.get('declarations.0.id.0'));
 
-path.toString();// returns const [, b] = c;
+path.toString(); // returns const [, b] = c;
 ```
 
 ### `getPathAfterImports(body)`

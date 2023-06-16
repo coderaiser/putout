@@ -128,9 +128,7 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/23655fb64d
 
 ```js
 module.exports = {
-    externals: [
-        externals,
-    ],
+    externals: [externals],
 };
 
 function externals(context, request, callback) {}
@@ -140,9 +138,7 @@ function externals(context, request, callback) {}
 
 ```js
 module.exports = {
-    externals: [
-        externals,
-    ],
+    externals: [externals],
 };
 
 function externals({context, request}, callback) {}

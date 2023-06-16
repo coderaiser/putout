@@ -702,9 +702,7 @@ test('putout: engine-processor: processorRunners', async (t) => {
         }),
         rawSource,
         options: {},
-        processorRunners: [
-            typos,
-        ],
+        processorRunners: [typos],
     });
     
     t.deepEqual(places, []);

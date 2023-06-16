@@ -19,7 +19,5 @@ module.exports = (line) => {
         replace,
     }];
     
-    return [
-        plugin,
-    ];
+    return [plugin];
 };

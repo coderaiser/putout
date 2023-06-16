@@ -40,9 +40,7 @@ test('putout: engine-loader: load processors: function', async (t) => {
         ],
     });
     
-    const expected = [
-        throwProcessor,
-    ];
+    const expected = [throwProcessor];
     
     t.deepEqual(list, expected);
     t.end();
@@ -70,9 +68,7 @@ test('putout: engine-loader: load processors: on', async (t) => {
         ],
     });
     
-    const expected = [
-        markdown,
-    ];
+    const expected = [markdown];
     
     t.deepEqual(list, expected);
     t.end();

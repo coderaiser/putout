@@ -1746,9 +1746,7 @@ test('putout: cli: get files: called with ignore option', async (t) => {
     stopAll();
     
     const expected = [
-        [
-            __filename,
-        ],
+        [__filename],
         {
             ignore,
         },
@@ -1817,9 +1815,7 @@ test('putout: cli: get files: was stop: no', async (t) => {
     
     const getFiles = stub().returns([
         null,
-        [
-            __filename,
-        ],
+        [__filename],
     ]);
     
     const halt = stub();
@@ -2130,9 +2126,7 @@ test('putout: processor throw: raw', async (t) => {
 });
 
 test('putout: processor: invalid config', async (t) => {
-    const argv = [
-        __filename,
-    ];
+    const argv = [__filename];
     
     const halt = stub();
     

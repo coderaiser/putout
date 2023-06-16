@@ -21,9 +21,7 @@ const typos = {
 
 const testProcessor = createTest(import.meta.url, {
     extension: 'md',
-    processorRunners: [
-        typos,
-    ],
+    processorRunners: [typos],
 });
 
 testProcessor('test: processor: processorRunners', async ({process}) => {

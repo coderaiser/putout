@@ -65,9 +65,7 @@ function parsePlaces({error}) {
         position: parsePosition(linePos),
     };
     
-    return [
-        place,
-    ];
+    return [place];
 }
 
 function parsePosition(linePos) {

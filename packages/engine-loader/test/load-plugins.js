@@ -53,9 +53,7 @@ test('putout: loader: user plugin', (t) => {
     
     const {code} = putout(`const t = 'hello'`, {
         loadPlugins,
-        plugins: [
-            rmVars,
-        ],
+        plugins: [rmVars],
     });
     
     stopAll();

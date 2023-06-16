@@ -31,9 +31,7 @@ function getLogical(path) {
     let [member] = list;
     let i = 0;
     
-    const logical = [
-        member,
-    ];
+    const logical = [member];
     
     while (++i < n) {
         member += compute(member, list[i]);
