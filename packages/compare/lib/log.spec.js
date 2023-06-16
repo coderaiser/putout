@@ -9,10 +9,7 @@ const {_parseValue} = require('./log');
 
 const {assign} = Object;
 
-const {
-    reRequire,
-    stopAll,
-} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: compare: log', (t) => {
     const namespace = stub();

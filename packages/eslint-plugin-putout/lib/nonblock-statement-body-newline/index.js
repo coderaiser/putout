@@ -34,10 +34,7 @@ function isIf(text, node) {
     if (!isIfStatement(node))
         return false;
     
-    const {
-        consequent,
-        alternate,
-    } = node;
+    const {consequent, alternate} = node;
     
     if (!isExpressionStatement(alternate) && !isExpressionStatement(consequent))
         return false;

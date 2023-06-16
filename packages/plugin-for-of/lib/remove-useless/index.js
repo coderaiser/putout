@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
 const {isIdentifier} = types;
 const {replaceWith} = operator;
@@ -41,10 +38,7 @@ module.exports.replace = () => ({
         
         const {name} = __a;
         
-        const {
-            references,
-            referencePaths,
-        } = path.scope.bindings[name];
+        const {references, referencePaths} = path.scope.bindings[name];
         
         if (!references)
             return replaceWith(path, __c);

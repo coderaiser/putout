@@ -1,10 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {
-    compare,
-    getBindingPath,
-} = operator;
+const {compare, getBindingPath} = operator;
 
 const NAMES = {
     function: 'isFn',

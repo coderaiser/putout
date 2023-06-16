@@ -12,10 +12,7 @@ const {runPlugins} = require('..');
 
 const noop = () => {};
 
-const {
-    print,
-    types,
-} = putout;
+const {print, types} = putout;
 
 const {StringLiteral} = types;
 

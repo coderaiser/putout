@@ -1,14 +1,8 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
-const {
-    StringLiteral,
-    ObjectProperty,
-} = types;
+const {StringLiteral, ObjectProperty} = types;
 
 const {getProperties} = operator;
 
@@ -18,10 +12,7 @@ module.exports.traverse = ({push}) => ({
     '__putout_processor_json(__a)': (path) => {
         const __aPath = path.get('arguments.0');
         
-        const {
-            commitTypePath,
-            mainPath,
-        } = getProperties(__aPath, ['commitType', 'main']);
+        const {commitTypePath, mainPath} = getProperties(__aPath, ['commitType', 'main']);
         
         if (commitTypePath)
             return;

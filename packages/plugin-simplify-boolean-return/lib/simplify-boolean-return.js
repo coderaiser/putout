@@ -6,10 +6,7 @@ const {
     template,
 } = require('putout');
 
-const {
-    compareAny,
-    replaceWith,
-} = operator;
+const {compareAny, replaceWith} = operator;
 
 const {
     UnaryExpression,

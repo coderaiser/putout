@@ -4,10 +4,7 @@ const tryCatch = require('try-catch');
 const mockRequire = require('mock-require');
 const {test, stub} = require('supertape');
 
-const {
-    stopAll,
-    reRequire,
-} = mockRequire;
+const {stopAll, reRequire} = mockRequire;
 
 const {assign} = Object;
 

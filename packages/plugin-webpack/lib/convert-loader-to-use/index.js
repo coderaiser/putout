@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
 const {replaceWith} = operator;
 
@@ -39,10 +36,7 @@ module.exports.traverse = ({push}) => ({
         for (const propPath of properties) {
             const {node} = propPath;
             
-            const {
-                key,
-                value,
-            } = node;
+            const {key, value} = node;
             
             const isLoader = isIdentifier(key, {
                 name: 'loader',

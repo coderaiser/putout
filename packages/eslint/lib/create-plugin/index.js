@@ -1,10 +1,7 @@
 'use strict';
 
 const prepare = (plugin, context, options) => (node) => {
-    const {
-        filter,
-        report,
-    } = plugin;
+    const {filter, report} = plugin;
     
     const source = context.sourceCode;
     const {filename} = context;

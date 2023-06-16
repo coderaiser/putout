@@ -1,10 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {
-    compare,
-    remove,
-} = operator;
+const {compare, remove} = operator;
 
 module.exports.report = () => `Avoid using 'undefined' in variable declaration`;
 

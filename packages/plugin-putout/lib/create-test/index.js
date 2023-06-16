@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    operator,
-    types,
-} = require('putout');
+const {operator, types} = require('putout');
 
 const {
     StringLiteral,
@@ -14,10 +11,7 @@ const {
     isIdentifier,
 } = types;
 
-const {
-    replaceWith,
-    getProperty,
-} = operator;
+const {replaceWith, getProperty} = operator;
 
 module.exports.report = () => `Apply modifications to 'createTest()' options`;
 
@@ -63,10 +57,7 @@ const maybeLiteral = (a) => {
 };
 
 function convert(objectPath) {
-    const {
-        key,
-        value,
-    } = objectPath.node.properties[0];
+    const {key, value} = objectPath.node.properties[0];
     
     replaceWith(objectPath, ObjectExpression([
         ObjectProperty(Identifier('plugins'), ArrayExpression([

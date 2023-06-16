@@ -12,10 +12,7 @@ const {readFixtures} = require('./fixture');
 
 const {runPlugins} = require('..');
 
-const {
-    reRequire,
-    stopAll,
-} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 const fixture = readFixtures([
     'import',

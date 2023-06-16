@@ -86,10 +86,7 @@ function replace({__a}, path) {
 }
 
 function getEndNodes(expression) {
-    const {
-        __e,
-        __body,
-    } = getTemplateValues(expression, ON_END);
+    const {__e, __body} = getTemplateValues(expression, ON_END);
     
     const nodes = [
         onceEnd({

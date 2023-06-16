@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    operator,
-    types: t,
-} = require('putout');
+const {operator, types: t} = require('putout');
 
 const {rename} = operator;
 
@@ -17,10 +14,7 @@ module.exports.traverse = ({push}) => ({
     'const __object = predefined'(path) {
         const properties = path.get('declarations.0.id.properties');
         
-        const {
-            eslint,
-            putout,
-        } = getPredefined(properties);
+        const {eslint, putout} = getPredefined(properties);
         
         if (!eslint || putout)
             return;

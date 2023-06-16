@@ -1,16 +1,10 @@
 'use strict';
 
-const {
-    operator,
-    types,
-} = require('putout');
+const {operator, types} = require('putout');
 
 const {isIdentifier} = types;
 
-const {
-    remove,
-    replaceWith,
-} = operator;
+const {remove, replaceWith} = operator;
 
 module.exports.report = () => `Expand bindings`;
 

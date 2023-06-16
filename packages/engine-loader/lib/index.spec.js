@@ -3,10 +3,7 @@
 const test = require('supertape');
 const mockRequire = require('mock-require');
 
-const {
-    reRequire,
-    stopAll,
-} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 test('engine-loader: load-plugins', (t) => {
     mockRequire('module', {

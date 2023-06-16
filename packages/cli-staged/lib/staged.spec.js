@@ -4,10 +4,7 @@ const tryToCatch = require('try-to-catch');
 const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');
 
-const {
-    reRequire,
-    stopAll,
-} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: staged', async (t) => {
     const findUp = stub().returns('.');

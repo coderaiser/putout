@@ -2,15 +2,9 @@
 
 const test = require('supertape');
 
-const {
-    template,
-    parse,
-} = require('putout');
+const {template, parse} = require('putout');
 
-const {
-    traverse,
-    contains,
-} = require('./traverse');
+const {traverse, contains} = require('./traverse');
 
 test('putout: traverse', (t) => {
     const node = template.ast(`

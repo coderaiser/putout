@@ -1,10 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {
-    contains,
-    traverse,
-} = operator;
+const {contains, traverse} = operator;
 
 module.exports.report = () => 'Replacer should be used instead of Traverser (https://git.io/JqcMn)';
 

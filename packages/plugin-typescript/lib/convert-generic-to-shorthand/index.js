@@ -1,16 +1,10 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
 const {replaceWith} = operator;
 
-const {
-    tSArrayType,
-    isTSUnionType,
-} = types;
+const {tSArrayType, isTSUnionType} = types;
 
 module.exports.report = () => `Use shorthand '[]' instead of generic 'Array'`;
 

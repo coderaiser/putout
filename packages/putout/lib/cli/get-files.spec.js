@@ -9,10 +9,7 @@ const mockRequire = require('mock-require');
 
 const getFiles = require('./get-files');
 
-const {
-    reRequire,
-    stopAll,
-} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 const rmStart = (a) => a.replace('lib/', '');
 

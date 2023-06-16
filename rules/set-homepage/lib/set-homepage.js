@@ -9,10 +9,7 @@ module.exports.traverse = ({push}) => ({
     '__putout_processor_json(__a)': (path) => {
         const __aPath = path.get('arguments.0');
         
-        const {
-            namePath,
-            homepagePath,
-        } = getProperties(__aPath, ['name', 'homepage']);
+        const {namePath, homepagePath} = getProperties(__aPath, ['name', 'homepage']);
         
         if (!namePath || !homepagePath)
             return;

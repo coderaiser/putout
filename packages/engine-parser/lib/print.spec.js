@@ -4,10 +4,7 @@ const {test} = require('supertape');
 const montag = require('montag');
 const putout = require('putout');
 
-const {
-    parse,
-    print,
-} = putout;
+const {parse, print} = putout;
 
 test('putout: parser: print: long lines', (t) => {
     const source = montag`

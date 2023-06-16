@@ -3,15 +3,9 @@
 const test = require('supertape');
 const montag = require('montag');
 
-const {
-    template,
-    parse,
-} = require('@putout/engine-parser');
+const {template, parse} = require('@putout/engine-parser');
 
-const {
-    traverse,
-    types,
-} = require('putout');
+const {traverse, types} = require('putout');
 
 const {
     compare,

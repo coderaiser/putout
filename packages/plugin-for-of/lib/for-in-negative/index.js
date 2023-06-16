@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    generate,
-    operator,
-} = require('putout');
+const {generate, operator} = require('putout');
 
 const {
     contains,

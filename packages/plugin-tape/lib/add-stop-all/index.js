@@ -15,10 +15,7 @@ const {
     TEST_ASYNC_SKIP,
 } = require('../test-signatures');
 
-const {
-    traverse,
-    compare,
-} = operator;
+const {traverse, compare} = operator;
 
 const {ExpressionStatement} = types;
 

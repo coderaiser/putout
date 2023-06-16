@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    operator,
-    types,
-} = require('putout');
+const {operator, types} = require('putout');
 
 const {remove} = operator;
 const {isIdentifier} = types;
@@ -17,10 +14,7 @@ module.exports.fix = ({path, bindingPath, initName, idName}) => {
 
 module.exports.traverse = ({push}) => ({
     VariableDeclarator(path) {
-        const {
-            node,
-            parentPath,
-        } = path;
+        const {node, parentPath} = path;
         
         const {id, init} = node;
         

@@ -2,10 +2,7 @@
 
 const babelTraverse = require('@babel/traverse').default;
 
-const {
-    isFile,
-    isProgram,
-} = require('@babel/types');
+const {isFile, isProgram} = require('@babel/types');
 
 const {
     compare,

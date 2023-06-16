@@ -3,10 +3,7 @@
 const tryCatch = require('try-catch');
 const test = require('supertape');
 
-const {
-    Identifier,
-    StringLiteral,
-} = require('@babel/types');
+const {Identifier, StringLiteral} = require('@babel/types');
 
 const template = require('./template');
 

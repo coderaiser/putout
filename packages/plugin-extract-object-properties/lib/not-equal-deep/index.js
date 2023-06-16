@@ -1,16 +1,10 @@
 'use strict';
 
-const {
-    operator,
-    types,
-} = require('putout');
+const {operator, types} = require('putout');
 
 const {ObjectProperty} = types;
 
-const {
-    replaceWith,
-    compare,
-} = operator;
+const {replaceWith, compare} = operator;
 
 const SHORTHAND = true;
 const COMPUTED = false;

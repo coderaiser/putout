@@ -11,15 +11,9 @@ const montag = require('montag');
 
 const {readFixtures} = require('./fixture');
 
-const {
-    loadPlugins,
-    babelPlugin,
-} = require('..');
+const {loadPlugins, babelPlugin} = require('..');
 
-const {
-    reRequire,
-    stopAll,
-} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 const fixture = readFixtures([
     'shebang',

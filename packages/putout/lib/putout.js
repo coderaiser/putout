@@ -13,10 +13,7 @@ const {
     template,
 } = require('@putout/engine-parser');
 
-const {
-    cutShebang,
-    mergeShebang,
-} = require('./shebang');
+const {cutShebang, mergeShebang} = require('./shebang');
 
 const isString = (a) => typeof a === 'string';
 

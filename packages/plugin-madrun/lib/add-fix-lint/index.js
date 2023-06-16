@@ -11,10 +11,7 @@ const {
     replaceWithMultiple,
 } = operator;
 
-const {
-    ObjectProperty,
-    StringLiteral,
-} = types;
+const {ObjectProperty, StringLiteral} = types;
 
 const fixLintScript = template.ast(`
     () => run('lint', '--fix')

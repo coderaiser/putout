@@ -16,10 +16,7 @@ import matchErrors, {
 
 export * from './codes.js';
 
-const {
-    parse,
-    stringify,
-} = JSON;
+const {parse, stringify} = JSON;
 
 const superStringify = (a) => `${stringify(a, null, 4)}\n`;
 

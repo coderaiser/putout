@@ -6,10 +6,7 @@ const {
 } = require('@babel/types');
 
 module.exports = (ast) => {
-    const {
-        body,
-        directives,
-    } = ast.program;
+    const {body, directives} = ast.program;
     
     if (!directives.length)
         return ast;

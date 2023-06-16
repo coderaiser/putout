@@ -4,10 +4,7 @@ const {env} = require('process');
 
 process.env.CI = process.env.CI || 'true';
 
-const {
-    join,
-    basename,
-} = require('path');
+const {join, basename} = require('path');
 
 const {readFile} = require('fs/promises');
 const {EventEmitter} = require('events');
@@ -38,10 +35,7 @@ const {
 const {assign} = Object;
 const {parse} = JSON;
 
-const {
-    reRequire,
-    stopAll,
-} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: --raw', async (t) => {
     const logError = stub();
@@ -1233,10 +1227,7 @@ test('putout: cli: --match', async (t) => {
     const writeFile = stub();
     const halt = stub();
     
-    const {
-        matchErrors,
-        READ_ERROR,
-    } = await import('@putout/cli-match');
+    const {matchErrors, READ_ERROR} = await import('@putout/cli-match');
     
     const cli = reRequire('.');
     

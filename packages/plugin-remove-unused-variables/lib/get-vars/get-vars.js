@@ -179,10 +179,7 @@ module.exports = ({use, declare, addParams}) => {
         'ClassDeclaration|ClassExpression'(path) {
             const {node} = path;
             
-            const {
-                id,
-                superClass,
-            } = node;
+            const {id, superClass} = node;
             
             if (superClass)
                 use(path, superClass.name);
@@ -258,10 +255,7 @@ module.exports = ({use, declare, addParams}) => {
         },
         
         LogicalExpression(path) {
-            const {
-                left,
-                right,
-            } = path.node;
+            const {left, right} = path.node;
             
             if (isIdentifier(left))
                 use(path, left.name);
@@ -360,10 +354,7 @@ module.exports = ({use, declare, addParams}) => {
         ForInStatement(path) {
             const {node} = path;
             
-            const {
-                left,
-                right,
-            } = node;
+            const {left, right} = node;
             
             if (isIdentifier(left))
                 use(path, left.name);
@@ -376,10 +367,7 @@ module.exports = ({use, declare, addParams}) => {
         ForOfStatement(path) {
             const {node} = path;
             
-            const {
-                left,
-                right,
-            } = node;
+            const {left, right} = node;
             
             if (isIdentifier(right))
                 use(path, right.name);
@@ -477,10 +465,7 @@ module.exports = ({use, declare, addParams}) => {
         },
         
         BinaryExpression(path) {
-            const {
-                left,
-                right,
-            } = path.node;
+            const {left, right} = path.node;
             
             if (isIdentifier(left))
                 use(path, left.name);
@@ -519,10 +504,7 @@ module.exports = ({use, declare, addParams}) => {
         ExportNamedDeclaration(path) {
             const declarationPath = path.get('declaration');
             
-            const {
-                declaration,
-                specifiers,
-            } = path.node;
+            const {declaration, specifiers} = path.node;
             
             if (declarationPath.isFunctionDeclaration())
                 return use(path, declaration.id.name);
@@ -562,10 +544,7 @@ module.exports = ({use, declare, addParams}) => {
         },
         
         Function(path) {
-            const {
-                node,
-                parentPath,
-            } = path;
+            const {node, parentPath} = path;
             
             const {
                 id,

@@ -10,10 +10,7 @@ const {join} = require('path');
 
 const {simpleImport} = require('../simple-import');
 
-const {
-    reRequire,
-    stopAll,
-} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: runner: processor throw: raw', async (t) => {
     const name = join(__dirname, 'fixture/processor.throw');

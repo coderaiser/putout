@@ -9,10 +9,7 @@ const {readFileSync} = require('fs');
 
 const getOptions = require('../get-options.js');
 
-const {
-    INVALID_CONFIG,
-    NO_PROCESSORS,
-} = require('../exit-codes.js');
+const {INVALID_CONFIG, NO_PROCESSORS} = require('../exit-codes.js');
 
 const {lint} = require('./lint.js');
 

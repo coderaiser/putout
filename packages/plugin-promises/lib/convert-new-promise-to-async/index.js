@@ -1,14 +1,8 @@
 'use strict';
 
-const {
-    operator,
-    types,
-} = require('putout');
+const {operator, types} = require('putout');
 
-const {
-    replaceWith,
-    traverse,
-} = operator;
+const {replaceWith, traverse} = operator;
 
 const {
     ReturnStatement,

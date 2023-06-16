@@ -12,10 +12,7 @@ const {getTemplateValues} = require('./vars');
 
 const noop = () => {};
 
-const {
-    types,
-    generate,
-} = putout;
+const {types, generate} = putout;
 
 const {
     RegExpLiteral,
@@ -97,10 +94,7 @@ test('putout: compare: vars: getTemplateValues: setValues: Statement', (t) => {
     
     const input = 'if (1) if (2) 3';
     
-    const {
-        parse,
-        transform,
-    } = putout;
+    const {parse, transform} = putout;
     
     const ast = parse(input);
     

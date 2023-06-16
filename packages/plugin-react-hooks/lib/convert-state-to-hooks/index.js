@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    operator,
-    types,
-} = require('putout');
+const {operator, types} = require('putout');
 
 const {traverseClass} = require('../common');
 
@@ -101,10 +98,7 @@ function isThis(init, name) {
     if (!isMemberExpression(init))
         return;
     
-    const {
-        object,
-        property,
-    } = init;
+    const {object, property} = init;
     
     return isThisExpression(object) && isIdentifier(property, {
         name,

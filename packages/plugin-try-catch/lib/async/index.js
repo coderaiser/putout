@@ -17,10 +17,7 @@ module.exports.include = () => [
 module.exports.filter = (path) => {
     const {node} = path;
     
-    const {
-        block,
-        finalizer,
-    } = node;
+    const {block, finalizer} = node;
     
     const {length} = block.body;
     const [first] = block.body;

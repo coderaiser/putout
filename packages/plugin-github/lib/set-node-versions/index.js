@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    operator,
-    template,
-} = require('putout');
+const {operator, template} = require('putout');
 
 const deepEqual = require('fast-deep-equal');
 const {traverseProperty} = require('../traverse-property');
@@ -19,10 +16,7 @@ const defaultVersions = [
     '20.x',
 ];
 
-const {
-    parse,
-    stringify,
-} = JSON;
+const {parse, stringify} = JSON;
 
 module.exports.report = () => 'Latest version of node is missing';
 

@@ -8,10 +8,7 @@ const replace = (a) => a.replace('eslint', 'putout').replace(/\s--ignore.*/, '')
 module.exports.report = () => `"putout" should be used instead of "eslint"`;
 
 module.exports.fix = ({node}) => {
-    const {
-        type,
-        value,
-    } = node;
+    const {type, value} = node;
     
     switch(type) {
     case 'StringLiteral':

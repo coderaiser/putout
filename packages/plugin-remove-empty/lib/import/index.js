@@ -17,10 +17,7 @@ module.exports.include = () => [
 ];
 
 module.exports.filter = (path, {options}) => {
-    const {
-        specifiers,
-        source,
-    } = path.node;
+    const {specifiers, source} = path.node;
     
     const {ignore = []} = options;
     const {value} = source;

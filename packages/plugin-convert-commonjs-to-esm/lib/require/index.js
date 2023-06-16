@@ -49,10 +49,7 @@ module.exports.match = () => ({
         
         const __bPath = path.get(__B);
         
-        const {
-            confident,
-            value,
-        } = __bPath.evaluate();
+        const {confident, value} = __bPath.evaluate();
         
         if (isPackage(__b))
             return false;

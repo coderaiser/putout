@@ -2,10 +2,7 @@
 
 const emojiRegex = require('emoji-regex');
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
 const {replaceWith} = operator;
 const {RegExpLiteral} = types;
@@ -23,10 +20,7 @@ module.exports.fix = (path) => {
     }
     
     if (path.isRegExpLiteral()) {
-        const {
-            pattern,
-            flags,
-        } = path.node;
+        const {pattern, flags} = path.node;
         
         const unescaped = unescapeRegExp(pattern);
         const raw = `/${unescaped}/`;

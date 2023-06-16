@@ -1,14 +1,8 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
-const {
-    replaceWith,
-    isSimpleRegExp,
-} = operator;
+const {replaceWith, isSimpleRegExp} = operator;
 
 const {StringLiteral} = types;
 

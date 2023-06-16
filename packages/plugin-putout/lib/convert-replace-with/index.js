@@ -8,15 +8,9 @@ const {
 
 const fullstore = require('fullstore');
 
-const {
-    Identifier,
-    ObjectProperty,
-} = types;
+const {Identifier, ObjectProperty} = types;
 
-const {
-    replaceWith,
-    insertAfter,
-} = operator;
+const {replaceWith, insertAfter} = operator;
 
 module.exports.report = () => {
     return `"operator.replaceWith" should be called instead of "path.replaceWith"`;
@@ -75,10 +69,7 @@ module.exports.traverse = ({push}) => {
             if (!calleePath.isMemberExpression())
                 return;
             
-            const {
-                object,
-                property,
-            } = calleePath.node;
+            const {object, property} = calleePath.node;
             
             if (property.name !== 'replaceWith')
                 return;

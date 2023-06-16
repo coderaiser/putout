@@ -10,10 +10,7 @@ const {
 module.exports.report = () => 'Simplify ternary';
 
 module.exports.fix = (path) => {
-    const {
-        test,
-        consequent,
-    } = path.node.argument;
+    const {test, consequent} = path.node.argument;
     
     path.node.argument = LogicalExpression('&&', test, consequent);
 };

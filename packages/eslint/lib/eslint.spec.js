@@ -6,10 +6,7 @@ const {test, stub} = require('supertape');
 
 const eslint = require('./eslint.js');
 
-const {
-    reRequire,
-    stopAll,
-} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: eslint: places', async (t) => {
     const [, result] = await eslint({

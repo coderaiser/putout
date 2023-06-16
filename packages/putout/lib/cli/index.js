@@ -47,10 +47,7 @@ const getFormatter = nanomemoize(require('./formatter').getFormatter);
 
 const cwd = process.cwd();
 
-const {
-    PUTOUT_FILES = '',
-    PUTOUT_PRINTER,
-} = process.env;
+const {PUTOUT_FILES = '', PUTOUT_PRINTER} = process.env;
 
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
@@ -182,10 +179,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     if (isStr(args.match)) {
         const {match} = await simpleImport('@putout/cli-match');
         
-        const {
-            code,
-            message,
-        } = await match({
+        const {code, message} = await match({
             pattern: args.match,
             cwd,
             readFile,
@@ -302,10 +296,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
         printer: PUTOUT_PRINTER,
     };
     
-    const {
-        places,
-        exited,
-    } = await run({
+    const {places, exited} = await run({
         fix,
         exit,
         readFile,

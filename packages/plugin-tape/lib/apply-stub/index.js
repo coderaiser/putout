@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    template,
-    types,
-} = require('putout');
+const {template, types} = require('putout');
 
 const {
     isUnaryExpression,

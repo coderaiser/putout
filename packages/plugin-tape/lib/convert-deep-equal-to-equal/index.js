@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
 const isNull = (a) => !a && typeof a === 'object';
 const isUndefined = (a) => typeof a === 'undefined';

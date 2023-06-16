@@ -21,10 +21,7 @@ const mergeRules = ([rule, plugin], rules) => {
         if (currentRule.rule !== rule)
             continue;
         
-        const {
-            msg,
-            options,
-        } = currentRule;
+        const {msg, options} = currentRule;
         
         return {
             rule,

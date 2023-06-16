@@ -58,10 +58,7 @@ function convertPlaces(rule, rawPlaces, plugin) {
     const places = [];
     
     for (const path of rawPlaces) {
-        const {
-            line,
-            column,
-        } = path.node.loc.start;
+        const {line, column} = path.node.loc.start;
         
         places.push({
             rule: `${rule} (wasm)`,

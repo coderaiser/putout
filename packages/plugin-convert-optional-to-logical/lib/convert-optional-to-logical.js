@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    template,
-    operator,
-} = require('putout');
+const {template, operator} = require('putout');
 
 module.exports.report = () => `Use Logical Expression instead of Optional Chaining`;
 const {replaceWith} = operator;

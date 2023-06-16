@@ -541,10 +541,7 @@ isIdentifier(a);
 ### ✅ Example of correct code
 
 ```js
-const {
-    operator,
-    types,
-} = require('putout');
+const {operator, types} = require('putout');
 
 const {compare} = operator;
 const {isIdentifier} = types;

@@ -1,16 +1,10 @@
 'use strict';
 
-const {
-    operator,
-    types,
-} = require('putout');
+const {operator, types} = require('putout');
 
 const {isFunction} = types;
 
-const {
-    findBinding,
-    remove,
-} = operator;
+const {findBinding, remove} = operator;
 
 module.exports.report = ({node}) => {
     if (isFunction(node))

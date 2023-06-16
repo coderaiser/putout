@@ -20,10 +20,7 @@ module.exports.include = () => [
 ];
 
 module.exports.filter = ({node}) => {
-    const {
-        loc,
-        right,
-    } = node;
+    const {loc, right} = node;
     
     if (isVariableDeclarator(node)) {
         const {init} = node;

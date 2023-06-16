@@ -5,10 +5,7 @@ const {join} = require('path');
 const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');
 
-const {
-    reRequire,
-    stopAll,
-} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: get-options: PUTOUT_CONFIG_FILE', (t) => {
     const {PUTOUT_CONFIG_FILE} = process.env;

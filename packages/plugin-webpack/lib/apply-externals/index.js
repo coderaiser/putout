@@ -1,10 +1,7 @@
 'use strict';
 
 const {types} = require('putout');
-const {
-    ObjectProperty,
-    ObjectPattern,
-} = types;
+const {ObjectProperty, ObjectPattern} = types;
 
 const COMPUTED = false;
 const SHORTHAND = true;

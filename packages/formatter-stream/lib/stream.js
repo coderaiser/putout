@@ -17,10 +17,7 @@ export default ({name, places, index, count, filesCount, errorsCount}) => {
     const output = [];
     
     for (const {message, position, rule} of places) {
-        const {
-            line,
-            column,
-        } = position;
+        const {line, column} = position;
         
         data.push([
             grey(`${line}:${column}`),

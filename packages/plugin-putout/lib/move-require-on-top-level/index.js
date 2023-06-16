@@ -2,10 +2,7 @@
 
 const justCamelCase = require('just-camel-case');
 
-const {
-    types,
-    template,
-} = require('putout');
+const {types, template} = require('putout');
 
 const TEST = `
     const test = require('@putout/test')(__dirname, {

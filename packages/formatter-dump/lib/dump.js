@@ -53,10 +53,7 @@ function buildLine(places) {
     const data = [];
     
     for (const {message, position, rule} of places) {
-        const {
-            line,
-            column,
-        } = position;
+        const {line, column} = position;
         
         data.push([
             grey(`${line}:${column}`),

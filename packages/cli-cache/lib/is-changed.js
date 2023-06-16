@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    dirname,
-    join,
-} = require('path');
+const {dirname, join} = require('path');
 
 module.exports = async (fileCache, {findUp}) => {
     const result = await Promise.all([

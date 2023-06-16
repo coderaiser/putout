@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
 const {
     isIdentifier,
@@ -103,10 +100,7 @@ function isAllReferenced(path, nodes) {
 }
 
 function getElements({node}) {
-    const {
-        properties,
-        elements,
-    } = node;
+    const {properties, elements} = node;
     
     if (elements)
         return elements.filter(Boolean);

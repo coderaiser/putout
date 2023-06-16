@@ -4,10 +4,7 @@ const putout = require('putout');
 const tryCatch = require('try-catch');
 const noop = () => {};
 
-const {
-    types,
-    operator,
-} = putout;
+const {types, operator} = putout;
 
 const {replaceWith} = operator;
 
@@ -34,10 +31,7 @@ module.exports = (rootPath, key) => {
                 fix: (path) => {
                     const {node} = path;
                     
-                    const {
-                        value,
-                        name,
-                    } = node;
+                    const {value, name} = node;
                     
                     if (path.isStringLiteral() && /^__[a-z]$/.test(value)) {
                         path.node.value = getVar(name);

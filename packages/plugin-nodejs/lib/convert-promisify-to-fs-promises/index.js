@@ -1,14 +1,8 @@
 'use strict';
 
-const {
-    types: t,
-    operator,
-} = require('putout');
+const {types: t, operator} = require('putout');
 
-const {
-    replaceWith,
-    remove,
-} = operator;
+const {replaceWith, remove} = operator;
 
 const NOT_COMPUTED = false;
 const SHORTHAND = true;

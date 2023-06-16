@@ -1,8 +1,5 @@
 export function toPlace({reason, line, column, source, ruleId}) {
-    const {
-        message,
-        rule,
-    } = parseWatermark({
+    const {message, rule} = parseWatermark({
         reason,
         ruleId,
         source,

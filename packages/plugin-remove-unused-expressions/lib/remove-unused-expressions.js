@@ -1,10 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {
-    remove,
-    isSimple,
-} = operator;
+const {remove, isSimple} = operator;
 
 module.exports.report = () => 'Unused expression statement';
 

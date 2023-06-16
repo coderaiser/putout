@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    operator,
-    types,
-} = require('putout');
+const {operator, types} = require('putout');
 
 const isBool = (a) => typeof a === 'boolean';
 const {compute} = operator;

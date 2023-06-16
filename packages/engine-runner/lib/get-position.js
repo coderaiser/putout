@@ -17,10 +17,7 @@ module.exports.getPosition = (path, shebang) => {
             column: 0,
         };
     
-    const {
-        line,
-        column,
-    } = node.loc.start;
+    const {line, column} = node.loc.start;
     
     return {
         line: shebang ? line + 1 : line,

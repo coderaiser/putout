@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
 const {
     isIdentifier,
@@ -16,10 +13,7 @@ const {replaceWith} = operator;
 const MAX_LENGTH = 20;
 
 const getKeyLength = (a) => {
-    const {
-        key,
-        value,
-    } = a;
+    const {key, value} = a;
     
     if (!isAssignmentPattern(value) && isIdentifier(key))
         return a.key.name.length;

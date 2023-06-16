@@ -18,10 +18,7 @@ const traverseObjectPattern = ({use, declare}) => {
             if (path.isRestElement())
                 continue;
             
-            const {
-                key,
-                value,
-            } = path.node;
+            const {key, value} = path.node;
             
             const valuePath = path.get('value');
             

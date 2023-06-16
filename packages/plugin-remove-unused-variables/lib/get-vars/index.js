@@ -18,10 +18,7 @@ module.exports = (ast, opts) => {
     const vars = {};
     const allParams = [];
     
-    const {
-        setPath,
-        traverse,
-    } = opts;
+    const {setPath, traverse} = opts;
     
     const use = useVariable({
         vars,
@@ -92,10 +89,7 @@ const isUsedVariable = ({vars}) => (path, name) => {
 };
 
 function getScope(path) {
-    const {
-        node,
-        scope,
-    } = path;
+    const {node, scope} = path;
     
     if (isFunctionDeclaration(node))
         return path.parentPath.scope;

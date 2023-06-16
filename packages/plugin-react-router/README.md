@@ -39,10 +39,7 @@ Here is list of rules:
 ### ❌ Example of incorrect code
 
 ```jsx
-const {
-    Route,
-    Switch,
-} = require('react-router');
+const {Route, Switch} = require('react-router');
 
 const routes = () => (
     <Switch>
@@ -55,10 +52,7 @@ const routes = () => (
 ### ✅ Example of correct code
 
 ```jsx
-const {
-    Route,
-    Routes,
-} = require('react-router');
+const {Route, Routes} = require('react-router');
 
 const routes = () => (
     <Routes>

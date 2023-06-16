@@ -11,10 +11,7 @@ const {
     _defaultCache,
 } = require('./cache');
 
-const {
-    reRequire,
-    stopAll,
-} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: cache: disabled: fileCache', async (t) => {
     const fileCache = await createCache({

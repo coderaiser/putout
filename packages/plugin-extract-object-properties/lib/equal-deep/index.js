@@ -28,10 +28,7 @@ module.exports.fix = ({items}) => {
     const names = [];
     
     for (const item of items) {
-        const {
-            object,
-            property,
-        } = item.node;
+        const {object, property} = item.node;
         
         if (isIdentifier(property) && !names.includes(property.name)) {
             names.push(property.name);

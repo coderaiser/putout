@@ -1,10 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {
-    traverse,
-    remove,
-} = operator;
+const {traverse, remove} = operator;
 
 module.exports.report = () => `Avoid useless 't.end()'`;
 

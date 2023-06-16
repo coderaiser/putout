@@ -11,10 +11,7 @@ const {
 
 const {getFormatter} = require('./formatter');
 
-const {
-    reRequire,
-    stopAll,
-} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: cli: formatter: get formatter', async (t) => {
     const exit = stub();

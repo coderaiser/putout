@@ -5,10 +5,7 @@ const jessy = require('jessy');
 const nessy = require('nessy');
 const {template} = require('@putout/engine-parser');
 
-const {
-    replaceWith,
-    extract,
-} = require('@putout/operate');
+const {replaceWith, extract} = require('@putout/operate');
 
 const {
     isIdentifier,

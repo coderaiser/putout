@@ -62,19 +62,13 @@ function hi({a, b}) {}
 ```js
 const child_process = require('child_process');
 
-const {
-    exec,
-    spawn,
-} = child_process;
+const {exec, spawn} = child_process;
 ```
 
 ### ✅ Example of correct code
 
 ```js
-const {
-    exec,
-    spawn,
-} = require('child_process');
+const {exec, spawn} = require('child_process');
 ```
 
 ## await

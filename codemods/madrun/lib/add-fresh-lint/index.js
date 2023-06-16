@@ -10,10 +10,7 @@ const getProperty = require('../get-property');
 
 const {replaceWithMultiple} = operator;
 
-const {
-    ObjectProperty,
-    StringLiteral,
-} = types;
+const {ObjectProperty, StringLiteral} = types;
 
 const freshLintScript = template.ast(`
     () => run('lint', '--fresh')

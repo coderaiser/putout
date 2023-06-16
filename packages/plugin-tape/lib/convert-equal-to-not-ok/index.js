@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    operator,
-    types,
-} = require('putout');
+const {operator, types} = require('putout');
 
 const isNumber = (a) => typeof a === 'number';
 const isString = (a) => typeof a === 'string';

@@ -5,10 +5,7 @@ const {types} = require('putout');
 const classToFunction = require('./class-to-function');
 const {traverseClass} = require('../common');
 
-const {
-    isIdentifier,
-    isClassMethod,
-} = types;
+const {isIdentifier, isClassMethod} = types;
 
 module.exports.report = ({name}) => {
     return `class ${name} should be a function`;

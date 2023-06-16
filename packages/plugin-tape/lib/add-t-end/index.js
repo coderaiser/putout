@@ -6,10 +6,7 @@ const {
     operator,
 } = require('putout');
 
-const {
-    compare,
-    traverse,
-} = operator;
+const {compare, traverse} = operator;
 
 const {ExpressionStatement} = types;
 

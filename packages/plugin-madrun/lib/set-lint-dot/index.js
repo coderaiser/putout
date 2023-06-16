@@ -1,19 +1,13 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
 const {
     isStringLiteral,
     TemplateLiteral,
 } = types;
 
-const {
-    replaceWith,
-    getProperty,
-} = operator;
+const {replaceWith, getProperty} = operator;
 
 const dotLine = 'putout .';
 const isDot = (a) => a.includes(dotLine);

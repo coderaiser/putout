@@ -20,10 +20,7 @@ const isString = (a) => typeof a === 'string';
 const isObject = (a) => typeof a === 'object';
 const {isArray} = Array;
 
-const {
-    keys,
-    entries,
-} = Object;
+const {keys, entries} = Object;
 
 global.__putout_test_fs = {
     readFileSync,
@@ -147,10 +144,7 @@ const format = currify((dir, options, t) => async (formatter, name, formatterOpt
         places,
     });
     
-    const {
-        is,
-        output,
-    } = t.equal(result, expected);
+    const {is, output} = t.equal(result, expected);
     
     return {
         is,
@@ -172,10 +166,7 @@ const noFormat = currify((dir, options, t) => async (formatter, name, formatterO
         formatterOptions,
     });
     
-    const {
-        is,
-        output,
-    } = t.equal(result, '', 'should not format');
+    const {is, output} = t.equal(result, '', 'should not format');
     
     return {
         is,
@@ -220,10 +211,7 @@ const formatMany = currify((dir, options, t) => async (formatter, names, formatt
     const outputName = join(dir, `${names.join('-')}-format`);
     const [expected] = readFixture(outputName);
     
-    const {
-        is,
-        output,
-    } = t.equal(result, expected);
+    const {is, output} = t.equal(result, expected);
     
     return {
         is,
@@ -233,10 +221,7 @@ const formatMany = currify((dir, options, t) => async (formatter, names, formatt
 });
 
 const formatManySave = currify((dir, options, t) => async (formatter, names, options = {}) => {
-    const {
-        existsSync,
-        writeFileSync,
-    } = global.__putout_test_fs;
+    const {existsSync, writeFileSync} = global.__putout_test_fs;
     
     if (!isArray(names))
         throw Error(`☝️ Looks like 'formatManySave()' received 'names' with type: '${typeof names}', expected: 'array'`);
@@ -256,10 +241,7 @@ const formatManySave = currify((dir, options, t) => async (formatter, names, opt
 });
 
 const formatSave = currify((dir, options, t) => async (formatter, name, options = {}) => {
-    const {
-        existsSync,
-        writeFileSync,
-    } = global.__putout_test_fs;
+    const {existsSync, writeFileSync} = global.__putout_test_fs;
     
     const full = join(dir, name);
     const outputName = `${full}-format.js`;

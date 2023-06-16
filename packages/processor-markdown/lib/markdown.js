@@ -107,10 +107,7 @@ export const merge = async (rawSource, list) => {
 
 const collect = ({list, visit}) => (node) => {
     visit(node, 'code', (node) => {
-        const {
-            lang,
-            value,
-        } = node;
+        const {lang, value} = node;
         
         const startLine = node.position.start.line;
         

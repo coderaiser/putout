@@ -4,10 +4,7 @@ const {Readable} = require('stream');
 const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');
 
-const {
-    reRequire,
-    stopAll,
-} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 const {assign} = Object;
 

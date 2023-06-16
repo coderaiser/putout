@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    template,
-    operator,
-} = require('putout');
+const {template, operator} = require('putout');
 
 const {replaceWith} = operator;
 

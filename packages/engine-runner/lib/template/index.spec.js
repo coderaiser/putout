@@ -7,10 +7,7 @@ const mockRequire = require('mock-require');
 
 const {runPlugins} = require('..');
 
-const {
-    reRequire,
-    stopAll,
-} = mockRequire;
+const {reRequire, stopAll} = mockRequire;
 
 test('putout: plugin: traverse: template', (t) => {
     const exp = {

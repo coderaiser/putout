@@ -6,15 +6,9 @@ const {
     types,
 } = require('putout');
 
-const {
-    insertAfter,
-    replaceWith,
-} = operator;
+const {insertAfter, replaceWith} = operator;
 
-const {
-    Identifier,
-    ObjectProperty,
-} = types;
+const {Identifier, ObjectProperty} = types;
 
 module.exports.report = () => {
     return `"operate.replaceWithMultiple" should be called instead of "path.replaceWithMultiple"`;
@@ -44,10 +38,7 @@ module.exports.fix = ({path, calleePath, property, object, program}) => {
 };
 
 function getVarPath(bindings) {
-    const {
-        replaceWith,
-        insertAfter,
-    } = bindings;
+    const {replaceWith, insertAfter} = bindings;
     
     if (replaceWith)
         return replaceWith.path;
@@ -62,10 +53,7 @@ module.exports.traverse = ({push}) => ({
         if (!calleePath.isMemberExpression())
             return;
         
-        const {
-            object,
-            property,
-        } = calleePath.node;
+        const {object, property} = calleePath.node;
         
         if (property.name !== 'replaceWithMultiple')
             return;

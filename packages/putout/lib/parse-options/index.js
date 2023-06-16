@@ -3,10 +3,7 @@
 const {homedir} = require('os');
 const {readdirSync} = require('fs');
 
-const {
-    dirname,
-    join,
-} = require('path');
+const {dirname, join} = require('path');
 
 const once = require('once');
 const tryCatch = require('try-catch');

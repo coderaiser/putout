@@ -1,10 +1,7 @@
 'use strict';
 
 module.exports = (e) => {
-    const {
-        line,
-        column,
-    } = e.loc || {
+    const {line, column} = e.loc || {
         line: 1,
         column: 1,
     };

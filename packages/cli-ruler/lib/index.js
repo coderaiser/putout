@@ -4,10 +4,7 @@ import * as ruleProcessor from './rule-processor.js';
 
 const cwd = process.cwd();
 
-const {
-    parse,
-    stringify,
-} = JSON;
+const {parse, stringify} = JSON;
 
 export async function ruler(places, {disable, disableAll, enable, enableAll, readFile, writeFile}) {
     const name = join(cwd, '.putout.json');

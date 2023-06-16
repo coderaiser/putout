@@ -9,10 +9,7 @@ const {
 
 const parseName = (node) => {
     node = node[0] || node;
-    const {
-        name,
-        value,
-    } = node;
+    const {name, value} = node;
     
     if (isIdentifier(node))
         return name;

@@ -8,10 +8,7 @@ const {
     isExpressionStatement,
 } = require('@babel/types');
 
-const {
-    remove,
-    replaceWith,
-} = require('@putout/operate');
+const {remove, replaceWith} = require('@putout/operate');
 
 const {
     compare,
@@ -30,10 +27,7 @@ const log = (from, path) => {
     debug.enabled && debug(`${from} -> ${path}\n`);
 };
 
-const {
-    keys,
-    entries,
-} = Object;
+const {keys, entries} = Object;
 
 const {stringify} = JSON;
 

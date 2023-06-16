@@ -93,18 +93,12 @@ const canUseCache = ({fileCache, getOptionsHash}) => (name, options) => {
     if (!descriptor)
         return false;
     
-    const {
-        changed,
-        meta,
-    } = descriptor;
+    const {changed, meta} = descriptor;
     
     if (!meta)
         return false;
     
-    const {
-        places,
-        optionsHash,
-    } = meta;
+    const {places, optionsHash} = meta;
     
     if (changed)
         return false;

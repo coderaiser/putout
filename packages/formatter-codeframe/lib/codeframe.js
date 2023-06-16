@@ -31,10 +31,7 @@ export default ({name, source, places, index, count, filesCount, errorsCount}) =
     
     for (const {name, places, source} of json.errors) {
         for (const {rule, position, message} of places) {
-            const {
-                line,
-                column,
-            } = position;
+            const {line, column} = position;
             
             const location = {
                 start: {

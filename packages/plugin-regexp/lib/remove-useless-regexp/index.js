@@ -8,10 +8,7 @@ const {
     operator,
 } = require('putout');
 
-const {
-    isAlternative,
-    isChar,
-} = require('../types');
+const {isAlternative, isChar} = require('../types');
 
 const {replaceWith} = operator;
 const {StringLiteral} = types;

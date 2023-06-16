@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
 const {runInNewContext} = require('vm');
 
@@ -18,10 +15,7 @@ const {isIdentifier} = types;
 module.exports.report = () => 'Avoid constant conditions';
 
 module.exports.fix = ({path, result}) => {
-    const {
-        alternate,
-        consequent,
-    } = path.node;
+    const {alternate, consequent} = path.node;
     
     const {body = [consequent]} = consequent;
     

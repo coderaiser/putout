@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    readFile,
-    writeFile,
-} = require('fs/promises');
+const {readFile, writeFile} = require('fs/promises');
 
 const {
     join,

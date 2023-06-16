@@ -1,19 +1,10 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
-const {
-    replaceWith,
-    compute,
-} = operator;
+const {replaceWith, compute} = operator;
 
-const {
-    isIdentifier,
-    BooleanLiteral,
-} = types;
+const {isIdentifier, BooleanLiteral} = types;
 
 module.exports.report = () => 'Avoid constant conditions';
 

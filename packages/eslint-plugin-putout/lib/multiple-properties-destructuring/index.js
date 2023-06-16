@@ -39,10 +39,7 @@ module.exports.filter = ({node}, options) => {
     } = node;
     
     if (isImportDeclaration(node)) {
-        const {
-            defaults,
-            imports,
-        } = parseImportSpecifiers(node.specifiers);
+        const {defaults, imports} = parseImportSpecifiers(node.specifiers);
         
         if (defaults.length === 1 && imports.length < minProperties)
             return false;

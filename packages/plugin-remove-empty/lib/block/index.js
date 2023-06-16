@@ -1,14 +1,8 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
-const {
-    replaceWith,
-    remove,
-} = operator;
+const {replaceWith, remove} = operator;
 
 const {
     UnaryExpression,
@@ -62,10 +56,7 @@ module.exports.fix = (path) => {
 
 module.exports.traverse = ({push}) => ({
     BlockStatement(path) {
-        const {
-            node,
-            parentPath,
-        } = path;
+        const {node, parentPath} = path;
         
         const {body} = node;
         

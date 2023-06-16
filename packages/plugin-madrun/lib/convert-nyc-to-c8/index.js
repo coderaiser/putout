@@ -1,14 +1,8 @@
 'use strict';
 
-const {
-    template,
-    operator,
-} = require('putout');
+const {template, operator} = require('putout');
 
-const {
-    replaceWith,
-    getProperty,
-} = operator;
+const {replaceWith, getProperty} = operator;
 
 module.exports.report = () => {
     return `coverage should use "c8" instead of "nyc"`;

@@ -7,10 +7,7 @@ const {test, stub} = require('supertape');
 const tryCatch = require('try-catch');
 const fix = require('./run-fix');
 
-const {
-    stopAll,
-    reRequire,
-} = mockRequire;
+const {stopAll, reRequire} = mockRequire;
 
 test('fix: error', (t) => {
     const remove = () => {

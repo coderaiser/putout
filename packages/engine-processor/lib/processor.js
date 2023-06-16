@@ -48,10 +48,7 @@ module.exports.runProcessors = async ({name, fix, processFile, options, rawSourc
         processorRunners,
     }));
     
-    ({
-        processedSource,
-        allPlaces,
-    } = await iterate({
+    ({processedSource, allPlaces} = await iterate({
         name,
         merge,
         fileList,
@@ -82,10 +79,7 @@ async function iterate({name, rawSource, fileList, merge, processFile, processed
     for (const {source, startLine = 0, extension} of fileList) {
         const processedName = addExtension(name, extension);
         
-        const {
-            code,
-            places,
-        } = await processFile({
+        const {code, places} = await processFile({
             name: processedName,
             source,
             rawSource,

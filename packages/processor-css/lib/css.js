@@ -11,10 +11,7 @@ export const files = ['*.css'];
 export const lint = async (code, {fix}) => {
     const config = await loadConfig();
     
-    const {
-        output,
-        results,
-    } = await stylelint.lint({
+    const {output, results} = await stylelint.lint({
         fix,
         code,
         config,

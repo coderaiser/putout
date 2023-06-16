@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    operator,
-    types,
-} = require('putout');
+const {operator, types} = require('putout');
 
 const {
     isRestElement,
@@ -64,10 +61,7 @@ module.exports.fix = ({text, node, getText}) => {
         return text.replace(idText, `{...${name}}`);
     }
     
-    const {
-        key,
-        value,
-    } = property;
+    const {key, value} = property;
     
     if (key.name === value.name)
         return text.replace(idText, `{${key.name}}`);

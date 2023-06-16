@@ -29,10 +29,7 @@ test('test: formatMany', async ({formatMany}) => {
     await formatMany(formatter, ['var', 'var']);
 });
 
-const {
-    existsSync,
-    writeFileSync,
-} = fs;
+const {existsSync, writeFileSync} = fs;
 
 const existsSyncStub = stub().returns(false);
 const writeFileSyncStub = stub();

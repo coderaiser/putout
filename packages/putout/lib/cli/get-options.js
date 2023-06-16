@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    join,
-    dirname,
-} = require('path');
+const {join, dirname} = require('path');
 
 const buildPlugins = require('./build-plugins');
 const parseOptions = require('../parse-options');

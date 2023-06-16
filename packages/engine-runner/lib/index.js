@@ -11,10 +11,7 @@ const include = require('./include');
 const replace = require('./replace');
 const declare = require('./declare');
 
-const {
-    getPath,
-    getPosition,
-} = require('./get-position');
+const {getPath, getPosition} = require('./get-position');
 
 const isRemoved = (a) => a?.removed;
 
@@ -71,10 +68,7 @@ function run({ast, fix, shebang, pluginsFind, pluginsTraverse, template, merge})
 }
 
 function runWithMerge({ast, fix, shebang, template, pluginsTraverse, merge}) {
-    const {
-        entries,
-        visitor,
-    } = merge(pluginsTraverse, {
+    const {entries, visitor} = merge(pluginsTraverse, {
         fix,
         shebang,
         template,
@@ -105,10 +99,7 @@ function runWithoutMerge({ast, fix, shebang, template, pluginsFind}) {
     for (const {rule, plugin, msg, options} of pluginsFind) {
         debug(`find: ${rule}`);
         
-        const {
-            report,
-            find,
-        } = plugin;
+        const {report, find} = plugin;
         
         const items = superFind({
             rule,

@@ -1,14 +1,8 @@
 'use strict';
 
-const {
-    template,
-    operator,
-} = require('putout');
+const {template, operator} = require('putout');
 
-const {
-    getProperty,
-    replaceWith,
-} = operator;
+const {getProperty, replaceWith} = operator;
 
 const REPORT_SCRIPT = '"c8 report --reporter=lcov"';
 

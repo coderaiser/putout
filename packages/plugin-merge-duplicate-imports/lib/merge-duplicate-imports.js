@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
 const {remove} = operator;
 const {values} = Object;
@@ -52,10 +49,7 @@ function processImports(push, imports) {
     const importDefaults = new Map();
     
     for (const path of imports) {
-        const {
-            source,
-            specifiers,
-        } = path.node;
+        const {source, specifiers} = path.node;
         
         const {value} = source;
         
@@ -70,10 +64,7 @@ function processImports(push, imports) {
     }
     
     for (const path of imports) {
-        const {
-            source,
-            specifiers,
-        } = path.node;
+        const {source, specifiers} = path.node;
         
         const {value} = source;
         

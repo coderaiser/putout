@@ -1,14 +1,8 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
-const {
-    replaceWith,
-    remove,
-} = operator;
+const {replaceWith, remove} = operator;
 
 const {isAssignmentPattern} = types;
 const isToManyProperties = (a, {maxProperties}) => a.isObjectPattern() && a.node.properties.length > maxProperties;
@@ -29,17 +23,11 @@ module.exports.traverse = ({push, options}) => ({
         if (!varPath.isIdentifier())
             return;
         
-        const {
-            scope,
-            node,
-        } = varPath;
+        const {scope, node} = varPath;
         
         const {name} = node;
         
-        const {
-            references,
-            referencePaths,
-        } = scope.bindings[name];
+        const {references, referencePaths} = scope.bindings[name];
         
         if (references !== 1)
             return;

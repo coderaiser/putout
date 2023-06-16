@@ -1,16 +1,10 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
 const {replaceWith} = operator;
 
-const {
-    isIdentifier,
-    isLiteral,
-} = types;
+const {isIdentifier, isLiteral} = types;
 
 module.exports.report = () => `Avoid useless 'return'`;
 

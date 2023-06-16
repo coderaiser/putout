@@ -5,10 +5,7 @@ import * as jsonProcessor from '@putout/processor-json';
 
 const parseRule = (a) => justKebabCase(a.replace('YAML', 'Yaml'));
 
-const {
-    stringify,
-    parse,
-} = JSON;
+const {stringify, parse} = JSON;
 
 export const files = [
     '*.yml',
@@ -58,10 +55,7 @@ function parsePlaces({error}) {
     if (!error)
         return [];
     
-    const {
-        message,
-        linePos,
-    } = error;
+    const {message, linePos} = error;
     
     const [rule] = String(error).split(':');
     

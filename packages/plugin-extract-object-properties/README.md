@@ -38,10 +38,7 @@ const {isIdentifier} = a.types;
 ### ✅ Example of correct code
 
 ```js
-const {
-    operator,
-    types,
-} = a;
+const {operator, types} = a;
 
 const {replaceWith} = operator;
 const {isIdentifier} = types;
@@ -59,10 +56,7 @@ const {isIdentifier} = a.types;
 ### ✅ Example of correct code
 
 ```js
-const {
-    replaceWith,
-    types,
-} = a;
+const {replaceWith, types} = a;
 
 const {isIdentifier} = types;
 ```
