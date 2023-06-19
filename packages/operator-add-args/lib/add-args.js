@@ -49,7 +49,9 @@ const fix = ({declaration, path, pattern, params}) => {
         return;
     }
     
-    path.scope.block.params = [declarationNode];
+    path.scope.block.params = [
+        declarationNode,
+    ];
 };
 
 const traverse = (args) => ({push, options}) => {
@@ -116,4 +118,3 @@ function createProperty(node) {
     
     return ObjectProperty(label, body.expression, !COMPUTED, SHORTHAND);
 }
-

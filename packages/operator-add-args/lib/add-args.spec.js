@@ -640,4 +640,3 @@ test('putout: operator: add-args: not call', (t) => {
     t.equal(code, expected);
     t.end();
 });
-
