@@ -16,4 +16,3 @@ test('putout: plugin-eslint: remove-no-unpublished-require: transform', (t) => {
     t.transform('remove-no-unpublished-require');
     t.end();
 });
-

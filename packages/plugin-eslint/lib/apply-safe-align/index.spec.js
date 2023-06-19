@@ -21,4 +21,3 @@ test('putout: plugin-eslint: convert-safe-to-safe-align: no transform: no-extend
     t.noTransform('no-safe');
     t.end();
 });
-

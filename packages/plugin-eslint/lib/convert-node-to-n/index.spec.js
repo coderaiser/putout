@@ -21,4 +21,3 @@ test('putout: plugin-eslint: convert-node-to-n: transform: plugins', (t) => {
     t.transform('plugins');
     t.end();
 });
-

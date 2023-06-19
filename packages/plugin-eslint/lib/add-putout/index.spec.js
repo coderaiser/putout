@@ -26,4 +26,3 @@ test('putout: plugin-eslint: add-putout: no report: no-plugins', (t) => {
     t.noReport('no-plugins');
     t.end();
 });
-

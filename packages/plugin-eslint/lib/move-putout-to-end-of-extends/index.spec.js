@@ -36,4 +36,3 @@ test('putout: plugin-eslint: move-putout-to-end-in-extends: no transform: extend
     t.noTransform('extends-not-array');
     t.end();
 });
-

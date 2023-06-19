@@ -21,9 +21,11 @@ module.exports.match = () => ({
 });
 
 function isRules(path) {
-    return path.get('key').isStringLiteral({
-        value: 'rules',
-    });
+    return path
+        .get('key')
+        .isStringLiteral({
+            value: 'rules',
+        });
 }
 
 module.exports.replace = () => ({
@@ -56,4 +58,3 @@ module.exports.replace = () => ({
         return path;
     },
 });
-

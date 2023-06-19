@@ -42,4 +42,3 @@ function is(name) {
         });
     };
 }
-

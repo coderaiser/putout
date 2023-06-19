@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const eslint = require('..');
 
 const test = createTest(__dirname, {
-    eslint,
+    printer: 'putout',
+    plugins: [
+        ['eslint', eslint],
+    ],
 });
 
 test('putout: plugin-eslint: report: move-putout-to-end-in-extends', (t) => {
@@ -61,4 +64,3 @@ test('putout: plugin-eslint: transform: convert-node-to-n', (t) => {
     t.transform('convert-node-to-n');
     t.end();
 });
-

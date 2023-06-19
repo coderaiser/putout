@@ -16,4 +16,3 @@ test('putout: plugin-eslint: remove-no-missing: transform', (t) => {
     t.transform('remove-no-missing');
     t.end();
 });
-

@@ -21,4 +21,3 @@ test('putout: plugin-eslint: convert-ide-to-safe: no transform: no-extends', (t)
     t.noTransform('no-extends');
     t.end();
 });
-

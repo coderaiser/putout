@@ -21,4 +21,3 @@ test('putout: plugin-eslint: remove-overrides-with-empty-rules: transform: coupl
     t.transform('couple-overrides');
     t.end();
 });
-

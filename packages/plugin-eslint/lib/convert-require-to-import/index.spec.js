@@ -16,4 +16,3 @@ test('putout: plugin-eslint: convert-require-to-import-in-extends: transform', (
     t.transform('convert-require-to-import');
     t.end();
 });
-

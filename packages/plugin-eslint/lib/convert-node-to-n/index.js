@@ -1,9 +1,7 @@
 'use strict';
 
-const {
-    getExtends,
-    getPlugins,
-} = require('../get');
+const {getExtends, getPlugins} = require('../get');
+
 const {assign} = Object;
 
 module.exports.report = () => `Use 'n' instead of 'node'`;

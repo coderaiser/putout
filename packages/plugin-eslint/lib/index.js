@@ -16,4 +16,3 @@ module.exports.rules = {
     ...getRule('remove-overrides-with-empty-rules'),
     ...getRule('remove-no-missing'),
 };
-

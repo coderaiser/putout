@@ -16,4 +16,3 @@ test('putout: plugin-eslint: remove-no-unsupported-features: transform', (t) => 
     t.transform('remove-no-unsupported-features');
     t.end();
 });
-
