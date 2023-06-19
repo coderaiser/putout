@@ -16,4 +16,3 @@ test('putout: operator: regexp: is-simple-regexp: not simple regexp', (t) => {
     t.notOk(result);
     t.end();
 });
-

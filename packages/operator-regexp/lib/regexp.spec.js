@@ -9,4 +9,3 @@ test('putout: operator: regexp: is-simple-regexp', (t) => {
     t.ok(result);
     t.end();
 });
-
