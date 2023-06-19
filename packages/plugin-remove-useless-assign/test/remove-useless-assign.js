@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessAssign = require('..');
 
 const test = createTest(__dirname, {
-    'remove-useless-assign': removeUselessAssign,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-assign', removeUselessAssign],
+    ],
 });
 
 test('plugin-remove-useless-assign: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-remove-useless-assign: no transform: spread', (t) => {
     t.noTransform('spread');
     t.end();
 });
-

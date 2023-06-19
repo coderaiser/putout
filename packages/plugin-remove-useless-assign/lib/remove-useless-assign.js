@@ -16,4 +16,3 @@ module.exports.replace = () => ({
     'assign(__a)': '__a',
     'assign(__a, {})': '__a',
 });
-
