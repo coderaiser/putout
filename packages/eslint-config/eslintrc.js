@@ -18,13 +18,19 @@ module.exports = {
     rules: {
         ...js.configs.recommended.rules,
         'array-bracket-spacing': 'error',
-        'arrow-parens': ['error', 'always'],
+        'arrow-parens': [
+            'error',
+            'always',
+        ],
         'arrow-spacing': 'error',
         'brace-style': 'error',
         'comma-dangle': ['error', 'always-multiline'],
         'comma-spacing': 'error',
         'dot-notation': 'error',
-        'eol-last': ['error', 'always'],
+        'eol-last': [
+            'error',
+            'always',
+        ],
         'func-call-spacing': 'error',
         'operator-linebreak': ['error', 'after', {
             overrides: {
@@ -58,7 +64,10 @@ module.exports = {
                 object: false,
             },
         }],
-        'indent': ['error', 4],
+        'indent': [
+            'error',
+            4,
+        ],
         'implicit-arrow-linebreak': 'error',
         'quotes': ['error', 'single', {
             allowTemplateLiterals: true,
@@ -95,19 +104,28 @@ module.exports = {
             defaultAssignment: false,
         }],
         'no-useless-return': 'error',
-        'nonblock-statement-body-position': ['error', 'below'],
+        'nonblock-statement-body-position': [
+            'error',
+            'below',
+        ],
         'lines-around-directive': 'error',
         'lines-between-class-members': 'off',
-        'linebreak-style': ['error', 'unix'],
-        'padded-blocks': ['error', 'never'],
-        'padding-line-between-statements': ['error',
+        'linebreak-style': [
+            'error',
+            'unix',
+        ],
+        'padded-blocks': [
+            'error',
+            'never',
+        ],
+        'padding-line-between-statements': [
+            'error',
             ...getPaddingExport(),
             ...getPaddingCjsExport(),
             ...getPaddingImport(),
             ...getPaddingCjsImport(),
             ...getPaddingIf(),
-            ...getPaddingFor(),
-            {
+            ...getPaddingFor(), {
                 blankLine: 'always',
                 prev: 'while',
                 next: 'return',
@@ -200,7 +218,10 @@ function getPaddingFor() {
         next: 'for',
     }, {
         blankLine: 'always',
-        prev: ['const', 'let'],
+        prev: [
+            'const',
+            'let',
+        ],
         next: 'for',
     }, {
         blankLine: 'always',
@@ -226,4 +247,3 @@ function addCJS({blankLine, prev, next}) {
         next,
     };
 }
-

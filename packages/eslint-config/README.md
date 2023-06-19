@@ -17,9 +17,7 @@ Create file `.eslintrc.json` in root of your project with content:
 
 ```json
 {
-    "extends": [
-        "@putout"
-    ]
+    "extends": ["@putout"]
 }
 ```
 

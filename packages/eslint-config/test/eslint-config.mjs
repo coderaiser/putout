@@ -1,4 +1,5 @@
 import {createTest} from '@putout/test/eslint';
+
 const test = createTest(import.meta.url);
 
 test('eslint-config: operator-linebreak', async ({process}) => {
@@ -40,4 +41,3 @@ test('eslint-config: no-unsafe-negation', async ({comparePlaces}) => {
 test('eslint-config: array-bracket-spacing', async ({process}) => {
     await process('array-bracket-spacing');
 });
-
