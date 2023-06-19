@@ -278,9 +278,7 @@ test('putout: operator: declare: dismiss', (t) => {
     const {code} = putout(source, {
         rules: {
             declare: ['on', {
-                dismiss: [
-                    'assign',
-                ],
+                dismiss: ['assign'],
             }],
         },
         plugins: [
@@ -758,6 +756,7 @@ test('putout: operator: declare: ts', (t) => {
     const declarations = {
         open: 'const open = () => {}',
     };
+    
     const source = montag`
         export interface IPublicTerminal extends IDisposable {
           open(parent: HTMLElement): void;
@@ -782,6 +781,7 @@ test('putout: operator: declare: TSParameterProperty', (t) => {
     const declarations = {
         type: 'const type = () => {}',
     };
+    
     const source = montag`
         export class BufferApiView implements IBufferApi {
             constructor(
@@ -808,6 +808,7 @@ test('putout: operator: declare: TSFunctionType', (t) => {
     const declarations = {
         id: 'const id = () => {}',
     };
+    
     const source = montag`
         class X {
             public forEach(callback: (id: IServiceIdentifier<any>, instance: any) => any): void {}
@@ -832,6 +833,7 @@ test('putout: operator: declare: TSDeclareMethod', (t) => {
     const declarations = {
         write: 'const write = () => {}',
     };
+    
     const source = montag`
         class X {
             write(data: string | Uint8Array, callback?: () => void): void
@@ -856,6 +858,7 @@ test('putout: operator: declare: TSDeclareFunction', (t) => {
     const declarations = {
         title: `import {title} from 'process'`,
     };
+    
     const source = montag`
         declare function parse(title: Title): void
     `;
@@ -878,6 +881,7 @@ test('putout: operator: declare: export type: TSTypeAliasDeclaration', (t) => {
     const declarations = {
         Transform: `import {Transform} from 'abc'`,
     };
+    
     const source = montag`
         export type Transform = (
           fileInfo: FileInfo,
@@ -908,6 +912,7 @@ test('putout: operator: declare: export type: get while find', (t) => {
             commonjs: `const {stopAll} = mockRequire`,
         },
     };
+    
     const source = montag`
         test('hello', (t) => {
             mockRequire('hello', world);

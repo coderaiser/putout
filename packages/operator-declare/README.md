@@ -65,9 +65,7 @@ If for some reason you don't need some kind of declaration, add `dismiss` field 
             "declarations": {
                 "fs": "import fs from 'fs/promises'"
             },
-            "dismiss": [
-                "fs"
-            ]
+            "dismiss": ["fs"]
         }]
     }
 }

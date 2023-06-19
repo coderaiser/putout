@@ -34,4 +34,3 @@ module.exports.getModuleType = (path) => {
     
     return programPath[prefix].__putout_module_type;
 };
-

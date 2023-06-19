@@ -49,20 +49,25 @@ const report = (path) => {
     return `Declare '${peaceOfName}', it referenced but not defined`;
 };
 
-const include = () => ['ReferencedIdentifier'];
+const include = () => [
+    'ReferencedIdentifier',
+];
 
 const filter = (declarations) => (path, {options}) => {
     if (TS_EXCLUDE.includes(path.parentPath.type))
         return false;
     
     const {dismiss = []} = options;
+    
     const allDeclarations = {
         ...declarations,
         ...options.declarations,
     };
     
     const names = keys(allDeclarations);
+    
     const {scope, node} = path;
+    
     const {name} = node;
     
     const type = getModuleType(path) || setModuleType(parseType(path), path);
@@ -179,4 +184,3 @@ const getLastImportPath = (bodyPath) => {
     
     return imports.pop() || localImports.pop();
 };
-
