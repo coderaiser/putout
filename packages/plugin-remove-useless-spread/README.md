@@ -33,7 +33,7 @@ The thing is `[...b]` can be used for:
 - copying an array;
 - converting different value type like `string` to an `array`.
 
-So better to be more concrete in and use `slice` for copying and `Array()` for converting to decrease cognitive load.
+So better to be more concrete and use `slice` for copying and `Array()`/`Array.from()` for converting to decrease cognitive load.
 Also sometimes there is no need on any of this operations, and we can drop `spread`.
 
 ### ❌ Example of incorrect code
