@@ -47,4 +47,3 @@ async function copyNestedPlugin(from, to) {
         recursive: true,
     });
 }
-
