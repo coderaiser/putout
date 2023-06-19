@@ -6,13 +6,22 @@ const {
     LogicalExpression,
     isBlockStatement,
     isExpression,
+    isYieldExpression,
     ConditionalExpression,
     UnaryExpression,
 } = types;
 
 const parseExpressions = ({body}) => body.map(getExpression).filter(Boolean);
 
-const getExpression = (a) => a.expression;
+const getExpression = ({expression}) => {
+    if (!expression)
+        return null;
+    
+    if (isYieldExpression(expression))
+        return null;
+    
+    return expression;
+};
 
 module.exports.report = () => `Use 'logical expressions' instead of 'if conditions'`;
 

@@ -34,3 +34,8 @@ test('plugin-minify: convert-if-to-logical: transform: else', (t) => {
     t.transform('else');
     t.end();
 });
+
+test('plugin-minify: convert-if-to-logical: transform: yield', (t) => {
+    t.transform('yield');
+    t.end();
+});
