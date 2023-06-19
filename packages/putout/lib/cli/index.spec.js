@@ -1746,11 +1746,9 @@ test('putout: cli: get files: called with ignore option', async (t) => {
     stopAll();
     
     const expected = [
-        [__filename],
-        {
+        [__filename], {
             ignore,
-        },
-    ];
+        }];
     
     t.calledWith(getFiles, expected);
     t.end();

@@ -25,22 +25,19 @@ ruleTester.run('putout', rule, {
         }
         
         foo({ bar: 123 });`,
-        'fn(/(?<foo>a)/)',
-        {
+        'fn(/(?<foo>a)/)', {
             options: [{
                 rules: {
                     'remove-unused-variables': 'off',
                 },
             }],
             code: `const t = 'hi';`,
-        },
-        {
+        }, {
             options: [{
                 ignore: ['<input>'],
             }],
             code: `const t = 'hi';`,
-        },
-    ],
+        }],
     invalid: [{
         code: `const m = 'hi'`,
         output: '',
