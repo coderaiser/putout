@@ -28,15 +28,13 @@ npm i @putout/plugin-convert-index-of-to-includes -D
 ## ❌ Example of incorrect code
 
 ```js
-if (~array.indexOf(element)) {
-}
+if (~array.indexOf(element)) {}
 ```
 
 ## ✅ Example of correct code
 
 ```js
-if (array.includes(element)) {
-}
+if (array.includes(element)) {}
 ```
 
 ## License
