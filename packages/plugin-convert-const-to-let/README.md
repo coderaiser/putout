@@ -30,6 +30,7 @@ npm i @putout/plugin-convert-const-to-let -D
 
 ```js
 const a = 5;
+
 a = 3;
 ```
 
@@ -37,6 +38,7 @@ a = 3;
 
 ```js
 let a = 5;
+
 a = 3;
 ```
 

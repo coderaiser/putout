@@ -6,7 +6,10 @@ const splitVariableDeclarations = require('@putout/plugin-split-variable-declara
 const plugin = require('..');
 
 const test = createTest(__dirname, {
-    'convert-const-to-let': plugin,
+    printer: 'putout',
+    plugins: [
+        ['convert-const-to-let', plugin],
+    ],
 });
 
 test('plugin-convert-const-to-let: report', (t) => {
@@ -45,4 +48,3 @@ test('plugin-convert-const-to-let: transform: split-variable-declarations', (t) 
     });
     t.end();
 });
-
