@@ -7,4 +7,3 @@ const getRule = (a) => ({
 module.exports.rules = {
     ...getRule('remove-node-versions'),
 };
-

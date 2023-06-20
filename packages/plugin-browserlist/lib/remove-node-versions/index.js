@@ -40,4 +40,3 @@ module.exports.replace = () => ({
         return path;
     },
 });
-
