@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeConsole = require('..');
 
 const test = createTest(__dirname, {
-    'remove-console': removeConsole,
+    printer: 'putout',
+    plugins: [
+        ['remove-console', removeConsole],
+    ],
 });
 
 test('plugin-remove-console: report', (t) => {
@@ -18,7 +21,7 @@ test('plugin-remove-console: property identifier', (t) => {
 });
 
 test('plugin-remove-console: property literal', (t) => {
-    t.transform('property-literal', '\n\n');
+    t.transform('property-literal', '\n');
     t.end();
 });
 
@@ -28,11 +31,11 @@ test('plugin-remove-console: declared', (t) => {
 });
 
 test('plugin-remove-console: time', (t) => {
-    t.transform('time', '\n\n');
+    t.transform('time', '\n');
     t.end();
 });
 
 test('plugin-remove-console: dir', (t) => {
-    t.transformCode('console.dir()', '');
+    t.transformCode('console.dir()', '\n');
     t.end();
 });
