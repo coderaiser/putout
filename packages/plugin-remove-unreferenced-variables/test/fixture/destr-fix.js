@@ -1,7 +1,3 @@
-const fn = ({
-    x,
-    b
-}) => {
+const fn = ({x, b}) => {
     return b;
 };
-

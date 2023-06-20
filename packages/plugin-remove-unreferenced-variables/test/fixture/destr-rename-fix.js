@@ -1,5 +1,3 @@
-let {
-  b: x
-} = z;
+let {b: x} = z;
 
 alert(x);

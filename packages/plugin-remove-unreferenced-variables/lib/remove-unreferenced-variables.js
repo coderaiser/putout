@@ -49,10 +49,7 @@ function getPropertyPath(path, name) {
     let propPath;
     
     for (propPath of path.get('properties')) {
-        const {
-            key,
-            shorthand,
-        } = propPath.node;
+        const {key, shorthand} = propPath.node;
         
         if (shorthand && key.name !== name)
             continue;
@@ -62,4 +59,3 @@ function getPropertyPath(path, name) {
     
     return propPath;
 }
-

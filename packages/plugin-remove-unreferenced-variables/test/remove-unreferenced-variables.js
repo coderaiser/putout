@@ -5,7 +5,10 @@ const removeUnreferencedVariables = require('..');
 const mergeVariables = require('@putout/plugin-minify').rules['merge-variables'];
 
 const test = createTest(__dirname, {
-    'remove-unreferenced-variables': removeUnreferencedVariables,
+    printer: 'putout',
+    plugins: [
+        ['remove-unreferenced-variables', removeUnreferencedVariables],
+    ],
 });
 
 test('plugin-remove-unreferenced-variables: report', (t) => {
@@ -49,4 +52,3 @@ test('plugin-remove-unreferenced-variables: transform: merge-variables', (t) => 
     });
     t.end();
 });
-
