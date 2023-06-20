@@ -1,4 +1,5 @@
 import montag from 'montag';
+
 const expected = montag`
     hello
      1:1  error   hello  remove-hello 

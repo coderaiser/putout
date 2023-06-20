@@ -8,4 +8,3 @@ module.exports.rules = {
     ...getRule('apply'),
     ...getRule('declare'),
 };
-

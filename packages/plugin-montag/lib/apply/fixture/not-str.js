@@ -3,4 +3,3 @@ const a = [
     'world',
     x,
 ].join('\n');
-

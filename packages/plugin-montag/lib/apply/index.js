@@ -14,7 +14,9 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     '__array.join("\\n")': ({__array}, path) => {
-        const [value, aligner] = evaluate({__array}, path);
+        const [value, aligner] = evaluate({
+            __array,
+        }, path);
         
         return `montag\`\n${value}\n${aligner}\``;
     },
@@ -24,7 +26,10 @@ const createAligner = (i) => Array(i + 1).join(' ');
 const getValue = (a) => a.value;
 
 function evaluate({__array}, path) {
-    const str = __array.elements.map(getValue).join('\n');
+    const str = __array
+        .elements
+        .map(getValue)
+        .join('\n');
     
     const lines = str.split('\n');
     const column = getColumn(path);
@@ -35,7 +40,8 @@ function evaluate({__array}, path) {
         aligned.push(`${aligner}${line}`.replace(/\n/g, '\\n'));
     }
     
-    const alignedStr = aligned.join('\n')
+    const alignedStr = aligned
+        .join('\n')
         .replace(/\`/g, '\\`');
     
     return [alignedStr, createAligner(column - 4)];
@@ -46,4 +52,3 @@ function getColumn(path) {
     
     return column;
 }
-

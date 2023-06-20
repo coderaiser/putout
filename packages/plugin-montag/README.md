@@ -61,6 +61,7 @@ const a = montag`
 
 ```js
 import montag from 'montag';
+
 const a = montag`
     hello
     world

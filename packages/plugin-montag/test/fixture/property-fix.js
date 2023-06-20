@@ -1,4 +1,5 @@
 import montag from 'montag';
+
 const obj = [{
     code: montag`
         function hello() {
@@ -6,6 +7,5 @@ const obj = [{
         
             return resutl;
         }
-    `
+    `,
 }];
-

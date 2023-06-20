@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const declare = require('.');
 
 const test = createTest(__dirname, {
-    'montag/declare': declare,
+    printer: 'putout',
+    plugins: [
+        ['montag/declare', declare],
+    ],
 });
 
 test('plugin-montag: declare: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-montag: declare: transform', (t) => {
     t.transform('montag');
     t.end();
 });
-

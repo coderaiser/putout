@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const montag = require('.');
 
 const test = createTest(__dirname, {
-    montag,
+    printer: 'putout',
+    plugins: [
+        ['montag', montag],
+    ],
 });
 
 test('plugin-montag: apply: transform: report', (t) => {
@@ -31,4 +34,3 @@ test('plugin-montag: apply: no transform: not-str', (t) => {
     t.noTransform('not-str');
     t.end();
 });
-

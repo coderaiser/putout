@@ -5,6 +5,5 @@ const obj = [{
         
             return resutl;
         }
-    `
+    `,
 }];
-
