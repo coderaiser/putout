@@ -17,8 +17,7 @@ module.exports.fix = ({path, consequentPath}) => {
     
     replaceWith(testPath, LogicalExpression('&&', left, right));
     
-    replaceWith(path
-        .get('consequent'), consequentPath.get('consequent'));
+    replaceWith(path.get('consequent'), consequentPath.get('consequent'));
 };
 
 const getConsequent = (path) => {
@@ -61,4 +60,3 @@ const onIfStatement = ({push}) => (path) => {
         consequentPath,
     });
 };
-
