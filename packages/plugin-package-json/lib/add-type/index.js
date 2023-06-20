@@ -1,14 +1,8 @@
 'use strict';
 
-const {
-    operator,
-    types,
-} = require('putout');
+const {operator, types} = require('putout');
 
-const {
-    ObjectProperty,
-    StringLiteral,
-} = types;
+const {ObjectProperty, StringLiteral} = types;
 
 const {getProperties} = operator;
 
@@ -33,4 +27,3 @@ module.exports.fix = (path) => {
     const node = ObjectProperty(StringLiteral('type'), StringLiteral('commonjs'));
     path.insertAfter(node);
 };
-

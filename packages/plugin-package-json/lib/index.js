@@ -9,4 +9,3 @@ module.exports.rules = {
     ...getRule('remove-nyc'),
     ...getRule('remove-commit-type'),
 };
-

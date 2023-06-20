@@ -1,10 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {
-    getProperties,
-    remove,
-} = operator;
+const {getProperties, remove} = operator;
 
 module.exports.report = () => `Remove 'commitType=colon' field of 'package.json', it is 'colon' by default`;
 

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeNyc = require('.');
 
 const test = createTest(__dirname, {
-    'package-json/add-type': removeNyc,
+    printer: 'putout',
+    plugins: [
+        ['package-json/add-type', removeNyc],
+    ],
 });
 
 test('putout: plugin-package-json: add-type: report', (t) => {

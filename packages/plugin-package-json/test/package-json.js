@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const packageJson = require('..');
 
 const test = createTest(__dirname, {
-    'package-json': packageJson,
+    printer: 'putout',
+    plugins: [
+        ['package-json', packageJson],
+    ],
 });
 
 test('putout: plugin-package-json: remove-nyc: complex: report', (t) => {
@@ -26,4 +29,3 @@ test('putout: plugin-package-json: remove-nyc: remove-commit-type', (t) => {
     t.transform('remove-commit-type');
     t.end();
 });
-
