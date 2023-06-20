@@ -1,10 +1,10 @@
 const {b} = value;
 const obj = {
-    a: b
+    a: b,
 };
 
 function xxx({b}) {
     return {
-        a: b
+        a: b,
     };
 }

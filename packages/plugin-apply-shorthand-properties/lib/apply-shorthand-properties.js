@@ -41,10 +41,7 @@ module.exports.traverse = ({push, options}) => ({
             if (bindingTo || !bindingFrom)
                 continue;
             
-            const {
-                references,
-                path,
-            } = bindingFrom;
+            const {references, path} = bindingFrom;
             
             // scope.rename doesn't handle AssignmentPattern
             if (path.isAssignmentPattern())
@@ -73,4 +70,3 @@ function getName(path) {
     
     return '';
 }
-

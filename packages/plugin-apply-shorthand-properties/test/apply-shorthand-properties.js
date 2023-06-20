@@ -6,7 +6,10 @@ const applyShorthandProperties = require('..');
 const removeUnusedVariables = require('@putout/plugin-remove-unused-variables');
 
 const test = createTest(__dirname, {
-    'apply-shorthand-properties': applyShorthandProperties,
+    printer: 'putout',
+    plugins: [
+        ['apply-shorthand-properties', applyShorthandProperties],
+    ],
 });
 
 test('plugin-apply-shorthand-properties: report', (t) => {
@@ -26,9 +29,7 @@ test('plugin-apply-shorthand-properties: transform', (t) => {
 
 test('plugin-apply-shorthand-properties: transform: options', (t) => {
     t.noTransformWithOptions('options', {
-        ignore: [
-            'plugin',
-        ],
+        ignore: ['plugin'],
     });
     t.end();
 });
@@ -80,4 +81,3 @@ test('plugin-apply-shorthand-properties: no transform: assign', (t) => {
     });
     t.end();
 });
-

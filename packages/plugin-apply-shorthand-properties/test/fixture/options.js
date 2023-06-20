@@ -1,6 +1,5 @@
 const plugin = {};
 
 const object = {
-    include: plugin
+    include: plugin,
 };
-

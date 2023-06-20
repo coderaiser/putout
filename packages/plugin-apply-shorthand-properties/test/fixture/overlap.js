@@ -1,8 +1,7 @@
 const config = require('../config').createConfig();
 
 test('distribute: export', async (t) => {
-    const defaultConfig = {
-    };
+    const defaultConfig = {};
     
     const {port, done} = await connect({
         config: defaultConfig,

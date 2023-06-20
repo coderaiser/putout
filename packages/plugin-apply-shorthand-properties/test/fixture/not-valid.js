@@ -1,3 +1,3 @@
-export const setSession = session => ({
-    'pay-load': session
+export const setSession = (session) => ({
+    'pay-load': session,
 });
