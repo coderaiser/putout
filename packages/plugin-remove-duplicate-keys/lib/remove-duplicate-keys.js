@@ -2,6 +2,7 @@
 
 const {types} = require('putout');
 const fullstore = require('fullstore');
+
 const {
     isSpreadElement,
     isIdentifier,
@@ -9,9 +10,19 @@ const {
     isStringLiteral,
 } = types;
 
-const isSpreadId = (name) => (a) => isSpreadElement(a) && isIdentifier(a.argument, {name});
-const isObjectPropertyId = (name, computed) => (a) => isObjectProperty(a, {computed}) && isIdentifier(a.key, {name});
-const isObjectPropertyLiteral = (value) => (a) => isObjectProperty(a) && isStringLiteral(a.key, {value});
+const isSpreadId = (name) => (a) => isSpreadElement(a) && isIdentifier(a.argument, {
+    name,
+});
+
+const isObjectPropertyId = (name, computed) => (a) => isObjectProperty(a, {
+    computed,
+}) && isIdentifier(a.key, {
+    name,
+});
+
+const isObjectPropertyLiteral = (value) => (a) => isObjectProperty(a) && isStringLiteral(a.key, {
+    value,
+});
 
 const store = fullstore([]);
 
@@ -31,7 +42,10 @@ module.exports.match = () => ({
         let is = false;
         const newProperties = [];
         const {properties} = __object;
-        const reversed = properties.slice().reverse();
+        
+        const reversed = properties
+            .slice()
+            .reverse();
         
         for (const prop of reversed) {
             if (isSpreadElement(prop) && isIdentifier(prop.argument)) {
@@ -87,4 +101,3 @@ function checkIfFirst(properties, newProperties, isFn, str, {computed} = {}) {
     
     return !newLength || oldLength <= 1;
 }
-

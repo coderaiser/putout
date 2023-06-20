@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const removeDuplicateKeys = require('..');
+
 const test = createTest(__dirname, {
-    'remove-duplicate-keys': removeDuplicateKeys,
+    printer: 'putout',
+    plugins: [
+        ['remove-duplicate-keys', removeDuplicateKeys],
+    ],
 });
 
 test('remove duplicate-keys: report', (t) => {
@@ -35,4 +39,3 @@ test('remove duplicate-keys: no transform: rename', (t) => {
     t.noTransform('rename');
     t.end();
 });
-

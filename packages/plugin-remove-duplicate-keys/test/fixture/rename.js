@@ -1,4 +1,1 @@
-const {
-    a,
-    a: b,
-} = c;
+const {a, a: b} = c;
