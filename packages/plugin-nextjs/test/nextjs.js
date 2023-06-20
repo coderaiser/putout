@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const nextjs = require('..');
+
 const test = createTest(__dirname, {
-    nextjs,
+    printer: 'putout',
+    plugins: [
+        ['nextjs', nextjs],
+    ],
 });
 
 test('plugin-nextjs: transform: remove-a-from-link', (t) => {

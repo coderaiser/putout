@@ -1,3 +1,3 @@
 <Link href="/about">
-  About
+    About
 </Link>;

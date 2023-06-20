@@ -1,10 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {
-    remove,
-    traverse,
-} = operator;
+const {remove, traverse} = operator;
 
 module.exports.report = () => `Use 'Head' instead of 'Page'`;
 
@@ -18,10 +15,12 @@ module.exports.fix = (path) => {
     node.children = path.node.children;
     path.scope.block.id.name = 'Head';
     
-    traverse(path.scope.getProgramParent().path, {
+    traverse(path
+        .scope
+        .getProgramParent()
+        .path, {
         'import Head from "next/head"': (path) => {
             remove(path);
         },
     });
 };
-

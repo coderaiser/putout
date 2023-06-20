@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeAFromLink = require('.');
 
 const test = createTest(__dirname, {
-    'convert-page-to-head': removeAFromLink,
+    printer: 'putout',
+    plugins: [
+        ['convert-page-to-head', removeAFromLink],
+    ],
 });
 
 test('plugin-nextjs: convert-page-to-head: report', (t) => {

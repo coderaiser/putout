@@ -1,4 +1,6 @@
 export default function Head() {
-  return (<><title>My page title</title></>);
+    return (
+        <><title>My page title</title></>
+    );
 }
 

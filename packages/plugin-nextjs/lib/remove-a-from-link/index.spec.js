@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeAFromLink = require('.');
 
 const test = createTest(__dirname, {
-    'remove-a-from-link': removeAFromLink,
+    printer: 'putout',
+    plugins: [
+        ['remove-a-from-link', removeAFromLink],
+    ],
 });
 
 test('plugin-nextjs: remove-a-from-link: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-nextjs: remove-a-from-link: no transform: no link', (t) => {
     t.noTransform('no-link');
     t.end();
 });
-

@@ -1,3 +1,3 @@
 <Link href="/about">
-  <div>About</div>
+    <div>About</div>
 </Link>;

@@ -15,9 +15,7 @@ Add `.putout.json` with:
 
 ```json
 {
-    "plugins": [
-        "nextjs"
-    ]
+    "plugins": ["nextjs"]
 }
 ```
 
