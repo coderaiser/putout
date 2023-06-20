@@ -30,8 +30,7 @@ npm i @putout/plugin-extract-sequence-expressions -D
 ## ❌ Example of incorrect code
 
 ```js
-module.exports.x = 1,
-module.exports.y = 2;
+module.exports.x = 1, module.exports.y = 2;
 
 fn((a, b));
 fn(a), 'hello';

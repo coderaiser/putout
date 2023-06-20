@@ -1,4 +1,5 @@
 {
+    "printer": "putout",
     "match": {
         "*.md": {
             "extract-sequence-expressions": "off"

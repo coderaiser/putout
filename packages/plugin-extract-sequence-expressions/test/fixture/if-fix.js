@@ -4,6 +4,6 @@ for (const b of c) {
     console.log('one');
     console.log('two');
     if ((a)) {
-        console.log('three')
+        console.log('three');
     }
 }

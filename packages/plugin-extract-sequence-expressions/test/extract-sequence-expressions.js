@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const extractSequenceExpressions = require('..');
 
 const test = createTest(__dirname, {
-    'extract-sequence-expressions': extractSequenceExpressions,
+    printer: 'putout',
+    plugins: [
+        ['extract-sequence-expressions', extractSequenceExpressions],
+    ],
 });
 
 test('plugin-extract-sequence-expressions: report', (t) => {

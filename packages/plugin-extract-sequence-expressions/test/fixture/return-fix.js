@@ -1,6 +1,7 @@
 function t() {
-  a;
-  b;
-  c;
-  return d;
+    a;
+    b;
+    c;
+    
+    return d;
 }
