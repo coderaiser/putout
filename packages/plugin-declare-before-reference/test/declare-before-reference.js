@@ -7,7 +7,10 @@ const tryCatch = require('@putout/plugin-try-catch');
 const promises = require('@putout/plugin-promises');
 
 const test = createTest(__dirname, {
-    'declaration-before-reference': apply,
+    printer: 'putout',
+    plugins: [
+        ['declaration-before-reference', apply],
+    ],
 });
 
 test('plugin-declaration-before-reference: report', (t) => {
@@ -74,4 +77,3 @@ test('plugin-declaration-before-reference: no transform: export-type', (t) => {
     t.noTransform('export-type');
     t.end();
 });
-

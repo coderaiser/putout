@@ -39,19 +39,13 @@ npm i @putout/plugin-declare-before-reference
 ```js
 const {remove} = operator;
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 ```
 
 ## ✅ Example of correct code
 
 ```js
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
 const {remove} = operator;
 ```

@@ -1,2 +1,2 @@
-const hello = () => 'world'
-hello()
+const hello = () => 'world';
+hello();

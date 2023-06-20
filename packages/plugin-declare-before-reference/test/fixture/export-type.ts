@@ -1,5 +1,5 @@
-export type GetA = typeof getA
+export type GetA = typeof getA;
 
 export const getA = () => {
-  return false
-}
+    return false;
+};

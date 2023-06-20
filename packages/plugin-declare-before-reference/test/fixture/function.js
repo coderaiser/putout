@@ -1,4 +1,3 @@
 const {remove} = operate();
 
-function operate() {
-}
+function operate() {}
