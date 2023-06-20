@@ -20,6 +20,7 @@ npm i @putout/plugin-putout -D
         "minify/convert-var-to-const": "on",
         "minify/convert-if-to-logical": "on",
         "minify/convert-strict-equal-to-equal": "on",
+        "minify/convert-array-from-to-spread": "on",
         "minify/extract-body": "on",
         "minify/expand-bindings": "on",
         "minify/mangle-names": ["on", {
@@ -115,6 +116,22 @@ a === b;
 
 ```js
 a === b;
+```
+
+## convert-array-from-to-spread
+
+### ❌ Example of incorrect code
+
+```js
+Array
+    .from(a)
+    .map((x, i) => `${i}: ${x}`);
+```
+
+### ✅ Example of correct code
+
+```js
+[...a].map((x, i) => `${i}: ${x}`);
 ```
 
 ## extract-body
