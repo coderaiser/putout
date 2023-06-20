@@ -29,4 +29,3 @@ module.exports.replace = () => ({
         return '[__args]';
     },
 });
-

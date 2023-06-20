@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessArrayConstructor = require('..');
 
 const test = createTest(__dirname, {
-    'remove-useless-array-constructor': removeUselessArrayConstructor,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-array-constructor', removeUselessArrayConstructor],
+    ],
 });
 
 test('plugin-remove-useless-array-constructor: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-remove-useless-array-constructor: transform: of', (t) => {
     t.transform('of');
     t.end();
 });
-
