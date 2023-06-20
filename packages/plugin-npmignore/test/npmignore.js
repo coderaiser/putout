@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const npmignore = require('..');
 
 const test = createTest(__dirname, {
-    npmignore,
+    printer: 'putout',
+    plugins: [
+        ['npmignore', npmignore],
+    ],
 });
 
 test('plugin-npmignore: transform', (t) => {
@@ -14,9 +17,7 @@ test('plugin-npmignore: transform', (t) => {
 
 test('plugin-npmignore: transform: options', (t) => {
     t.transformWithOptions('options', {
-        dismiss: [
-            'coverage',
-        ],
+        dismiss: ['coverage'],
     });
     t.end();
 });

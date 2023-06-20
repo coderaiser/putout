@@ -60,4 +60,3 @@ function filterNames(names, dismiss) {
     
     return newNames;
 }
-
