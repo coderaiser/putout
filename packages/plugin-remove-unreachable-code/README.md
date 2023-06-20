@@ -35,6 +35,7 @@ function hi() {
 
 function log() {
     throw Error('error');
+    
     console.log('hello');
 }
 ```
