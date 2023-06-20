@@ -1,10 +1,7 @@
-const {
-    stopAll
-} = createMockImport(import.meta.url);
-
+const {stopAll} = createMockImport(import.meta.url);
 const mockRequire = require('mock-require');
 
-test('', async t => {
+test('', async (t) => {
     mockImport('fs/promises', {
         unlink: stub(),
     });
@@ -16,7 +13,7 @@ test('', async t => {
     t.end();
 });
 
-test('', async t => {
+test('', async (t) => {
     mockImport('fs/promises', {
         unlink: stub(),
     });

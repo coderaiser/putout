@@ -1,9 +1,7 @@
 'use strict';
 
-const {
-    operator,
-    template,
-} = require('putout');
+const {operator, template} = require('putout');
+
 const {
     remove,
     getPathAfterImports,

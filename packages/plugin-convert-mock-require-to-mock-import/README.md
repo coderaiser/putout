@@ -28,6 +28,7 @@ Good complement of [@putout/plugin-tape](https://github.com/coderaiser/putout/tr
 
 ```js
 const mockRequire = require('mock-require');
+
 const {reRequire, stopAll} = mockRequire;
 
 test('', (t) => {
