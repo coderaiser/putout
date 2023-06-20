@@ -1,5 +1,4 @@
-const {
-  parse
-} = JSON;
-
-parse({hello: 'world'});
+const {parse} = JSON;
+parse({
+    hello: 'world',
+});

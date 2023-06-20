@@ -1,5 +1,2 @@
-const {
-  values
-} = Object;
-
+const {values} = Object;
 values(object);

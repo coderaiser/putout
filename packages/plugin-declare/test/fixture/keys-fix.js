@@ -1,7 +1,4 @@
-const {
-    keys
-} = Object;
-
+const {keys} = Object;
 const object = {};
 
 function hello() {

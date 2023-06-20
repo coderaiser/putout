@@ -1,10 +1,5 @@
-const {
-    freeze
-} = Object;
-
-const {
-    defineProperty
-} = Object;
+const {freeze} = Object;
+const {defineProperty} = Object;
 
 defineProperty(fn, 'name', {
     value: 'hello',

@@ -1,5 +1,2 @@
-const {
-  isArray
-} = Array;
-
+const {isArray} = Array;
 isArray(array);
