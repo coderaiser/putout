@@ -50,6 +50,25 @@ test('transform: with UPDATE env variable', (t) => {
     t.end();
 }, NO_CHECK_ASSERTIONS_COUNT);
 
+test('transform: noTransformWithOptions: with UPDATE env variable', (t) => {
+    const {UPDATE} = process.env;
+    
+    process.env.UPDATE = 1;
+    
+    const {writeFileSync} = global.__putout_test_fs;
+    const writeFileSyncStub = stub();
+    
+    global.__putout_test_fs.writeFileSync = writeFileSyncStub;
+    
+    t.noTransformWithOptions('no-transform-with-options', {});
+    
+    process.env.UPDATE = UPDATE;
+    global.__putout_test_fs.writeFileSync = writeFileSync;
+    
+    t.ok(writeFileSyncStub.called, 'should write fixture');
+    t.end();
+}, NO_CHECK_ASSERTIONS_COUNT);
+
 test('transform: with UPDATE env variable: pass', (t) => {
     const {UPDATE} = process.env;
     

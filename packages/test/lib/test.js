@@ -348,7 +348,6 @@ const noTransformWithOptions = currify((dir, options, t, name, ruleOptions) => {
     rmFixture(`${full}-fix`);
     
     const rule = parseRule(options);
-    
     const rules = {
         [rule]: ['on', ruleOptions],
     };
@@ -358,6 +357,16 @@ const noTransformWithOptions = currify((dir, options, t, name, ruleOptions) => {
         rules,
         ...options,
     });
+    
+    if (isUpdate()) {
+        writeSourceFixture({
+            full,
+            code,
+            isTS,
+        });
+        
+        return t.pass('source fixture updated');
+    }
     
     return t.equal(code, input);
 });
