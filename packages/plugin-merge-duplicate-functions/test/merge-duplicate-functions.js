@@ -5,7 +5,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('..');
 
 const test = createTest(__dirname, {
-    'merge-duplicate-functions': plugin,
+    printer: 'putout',
+    plugins: [
+        ['merge-duplicate-functions', plugin],
+    ],
 });
 
 test('merge duplicate functions: report', (t) => {
@@ -37,4 +40,3 @@ test('merge duplicate functions: no transform: different', (t) => {
     t.noTransform('different');
     t.end();
 });
-

@@ -3,10 +3,7 @@
 const {operator} = require('putout');
 const {compare} = operator;
 
-const {
-    entries,
-    keys,
-} = Object;
+const {entries, keys} = Object;
 
 module.exports.report = () => 'Avoid duplicate functions';
 
@@ -60,7 +57,10 @@ module.exports.traverse = ({push}) => ({
                     continue;
                 
                 if (compare(initPath1, initPath2)) {
-                    bodies.push({path: fnPath1, duplicatePath: fnPath2});
+                    bodies.push({
+                        path: fnPath1,
+                        duplicatePath: fnPath2,
+                    });
                 }
             }
         }
@@ -76,4 +76,3 @@ module.exports.traverse = ({push}) => ({
         }
     },
 });
-
