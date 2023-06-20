@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const gitignore = require('..');
 
 const test = createTest(__dirname, {
-    gitignore,
+    printer: 'putout',
+    plugins: [
+        ['gitignore', gitignore],
+    ],
 });
 
 test('plugin-gitignore: report', (t) => {
@@ -29,10 +32,7 @@ test('plugin-gitignore: transform: vim-files', (t) => {
 
 test('plugin-gitignore: transform: options', (t) => {
     t.transformWithOptions('options', {
-        dismiss: [
-            'coverage',
-        ],
+        dismiss: ['coverage'],
     });
     t.end();
 });
-
