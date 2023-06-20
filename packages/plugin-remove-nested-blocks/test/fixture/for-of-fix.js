@@ -1,5 +1,6 @@
 for (const x of Object.keys(a)) {
-  console.log(x);
-  console.log(xxx);
-  console.log(y);
+    console.log(x);
+    console.log(xxx);
+    
+    console.log(y);
 }

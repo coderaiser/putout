@@ -8,7 +8,10 @@ const removeNestedBlocks = require('..');
 const convertReduceToForOf = require('@putout/plugin-for-of').rules.reduce;
 
 const test = createTest(__dirname, {
-    'remove-nested-blocks': removeNestedBlocks,
+    printer: 'putout',
+    plugins: [
+        ['remove-nested-blocks', removeNestedBlocks],
+    ],
 });
 
 test('plugin-remove-nested-blocks: report', (t) => {
@@ -54,4 +57,3 @@ test('plugin-remove-nested-blocks: no transform: declared', (t) => {
     t.noTransform('declared');
     t.end();
 });
-

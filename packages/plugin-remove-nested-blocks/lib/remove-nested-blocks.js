@@ -46,4 +46,3 @@ module.exports.filter = (path) => {
     
     return is && (parentPath.isBlockStatement() || parentPath.isProgram());
 };
-

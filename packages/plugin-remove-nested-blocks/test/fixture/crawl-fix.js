@@ -1,3 +1,3 @@
 import {test} from 'supertape';
-test('', () => {
-});
+
+test('', () => {});
