@@ -11,4 +11,3 @@ module.exports.rules = {
     ...getRule('convert-sqrt-to-hypot'),
     ...getRule('declare'),
 };
-

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertMathPow = require('.');
 
 const test = createTest(__dirname, {
-    'apply-exponentiation': convertMathPow,
+    printer: 'putout',
+    plugins: [
+        ['apply-exponentiation', convertMathPow],
+    ],
 });
 
 test('plugin-math: apply-exponentiation: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-math: apply-exponentiation: transform: duplicate', (t) => {
     t.transform('duplicate');
     t.end();
 });
-

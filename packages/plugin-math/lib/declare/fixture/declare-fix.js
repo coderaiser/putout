@@ -1,5 +1,2 @@
-const {
-  round
-} = Math;
-
+const {round} = Math;
 round(bLength / aLength) > 3;

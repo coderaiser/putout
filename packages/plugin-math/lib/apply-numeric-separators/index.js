@@ -12,6 +12,7 @@ module.exports.fix = ({node}) => {
 module.exports.traverse = ({push}) => ({
     NumericLiteral(path) {
         const {node} = path;
+        
         node.raw = node.raw || String(node.value);
         const {raw} = path.node;
         
@@ -50,4 +51,3 @@ function split(str) {
     
     return result.join('');
 }
-

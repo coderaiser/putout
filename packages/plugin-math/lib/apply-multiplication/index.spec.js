@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'math/apply-multiplication': plugin,
+    printer: 'putout',
+    plugins: [
+        ['math/apply-multiplication', plugin],
+    ],
 });
 
 test('plugin-math: apply-multiplication: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-math: apply-multiplication: transform: imul', (t) => {
     t.transform('imul');
     t.end();
 });
-

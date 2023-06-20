@@ -4,8 +4,12 @@ const {createTest} = require('@putout/test');
 const applyNumericSeparators = require('.');
 
 const webpack = require('@putout/plugin-webpack');
+
 const test = createTest(__dirname, {
-    'math/apply-numeric-separators': applyNumericSeparators,
+    printer: 'putout',
+    plugins: [
+        ['math/apply-numeric-separators', applyNumericSeparators],
+    ],
 });
 
 test('plugin-math: apply-numeric-separators: transform: report', (t) => {

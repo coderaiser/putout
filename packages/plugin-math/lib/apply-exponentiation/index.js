@@ -6,4 +6,3 @@ module.exports.replace = () => ({
     'Math.pow(__a, __b)': '__a ** __b',
     '__a * __a': '__a ** 2',
 });
-

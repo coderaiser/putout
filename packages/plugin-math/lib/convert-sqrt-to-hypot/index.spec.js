@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertMathPow = require('.');
 
 const test = createTest(__dirname, {
-    'math/convert-sqrt-to-hypot': convertMathPow,
+    printer: 'putout',
+    plugins: [
+        ['math/convert-sqrt-to-hypot', convertMathPow],
+    ],
 });
 
 test('plugin-math: convert-sqrt-to-hypot: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-math: convert-sqrt-to-hypot: transform', (t) => {
     t.transform('sqrt');
     t.end();
 });
-
