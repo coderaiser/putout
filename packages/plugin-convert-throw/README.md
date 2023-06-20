@@ -31,13 +31,15 @@ npm i @putout/plugin-convert-throw -D
 ## ❌ Example of incorrect code
 
 ```js
-const fn = () => {throw Error('hello');};
+const fn = () => {
+    throw Error('hello');
+};
 ```
 
 ## ✅ Example of correct code
 
 ```js
-const fn = () => throw Error('hello');
+const fn = () => throwError('hello');
 ```
 
 ## License

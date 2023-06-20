@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertThrow = require('..');
 
 const test = createTest(__dirname, {
-    'convert-throw': convertThrow,
+    printer: 'putout',
+    plugins: [
+        ['convert-throw', convertThrow],
+    ],
 });
 
 test('plugin-convert-throw: report', (t) => {

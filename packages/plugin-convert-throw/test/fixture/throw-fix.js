@@ -1,2 +1,1 @@
-const check = (a, b, c) => throw "hello";
-
+const check = (a, b, c) => throw"hello";
