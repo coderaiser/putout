@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    traverse,
-    operator,
-} = require('putout');
+const {traverse, operator} = require('putout');
 
 const {remove} = operator;
 
@@ -92,4 +89,3 @@ function traverseClass(ast, visitor) {
         },
     });
 }
-

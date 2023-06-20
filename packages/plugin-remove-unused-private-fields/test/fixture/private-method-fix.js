@@ -1,9 +1,7 @@
 class User {
-    #get() {
-    }
-
+    #get() {}
+    
     get() {
         return this.#get();
     }
 }
-

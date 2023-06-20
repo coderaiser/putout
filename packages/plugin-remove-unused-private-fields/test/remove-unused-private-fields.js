@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const rm = require('..');
+
 const test = createTest(__dirname, {
-    'remove-unused-private-fields': rm,
+    printer: 'putout',
+    plugins: [
+        ['remove-unused-private-fields', rm],
+    ],
 });
 
 test('plugin-remove-unused-private-fields: transform: report', (t) => {
@@ -35,4 +39,3 @@ test('plugin-remove-unused-private-fields: no transform: no destructuring', (t) 
     t.noTransform('destructuring');
     t.end();
 });
-
