@@ -7,6 +7,7 @@ const {
 } = require('putout');
 
 const {traverse} = operator;
+
 const {
     ObjectProperty,
     ObjectMethod,
@@ -28,10 +29,7 @@ module.exports.replace = () => ({
         const nameProp = ObjectProperty(Identifier('postcssPlugin'), __a);
         const onceProp = ObjectMethod('method', Identifier('Once'), onceFn.params, onceFn.body);
         
-        const object = ObjectExpression([
-            nameProp,
-            onceProp,
-        ]);
+        const object = ObjectExpression([nameProp, onceProp]);
         
         returnPath.node.argument = object;
         path.insertAfter(booleanExport);
@@ -51,4 +49,3 @@ function getReturnPath(node) {
     
     return returnPath;
 }
-

@@ -5,4 +5,3 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = getRule('replace-plugin-with-creator');
-

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const replacePluginWithCreator = require('.');
 
 const test = createTest(__dirname, {
-    'postcss/replace-plugin-with-creator': replacePluginWithCreator,
+    printer: 'putout',
+    plugins: [
+        ['postcss/replace-plugin-with-creator', replacePluginWithCreator],
+    ],
 });
 
 test('plugin-postcss: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-postcss: transform', (t) => {
     t.transform('export');
     t.end();
 });
-

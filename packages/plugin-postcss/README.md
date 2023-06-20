@@ -30,8 +30,7 @@ module.exports = postcss.plugin('postcss-dark-theme-class', (opts = {}) => {
     checkOpts(opts);
     
     return (root, result) => {
-        root.walkAtRules((atrule) => {
-        });
+        root.walkAtRules((atrule) => {});
     };
 });
 ```
