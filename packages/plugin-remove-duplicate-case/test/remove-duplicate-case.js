@@ -2,8 +2,12 @@
 
 const {createTest} = require('@putout/test');
 const removeDebugger = require('..');
+
 const test = createTest(__dirname, {
-    'remove-duplicate-case': removeDebugger,
+    printer: 'putout',
+    plugins: [
+        ['remove-duplicate-case', removeDebugger],
+    ],
 });
 
 test('remove duplicate-case: report', (t) => {
@@ -20,4 +24,3 @@ test('remove duplicate-case: no transform: no-duplicate', (t) => {
     t.noTransform('no-duplicate');
     t.end();
 });
-
