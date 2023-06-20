@@ -29,7 +29,9 @@ npm i @putout/plugin-apply-flat-map
 ## ❌ Example of incorrect code
 
 ```js
-array.map(getId).flat();
+array
+    .map(getId)
+    .flat();
 ```
 
 ## ✅ Example of correct code

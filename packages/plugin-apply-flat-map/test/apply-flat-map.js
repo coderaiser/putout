@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const applyFlatMap = require('..');
 
 const test = createTest(__dirname, {
-    'apply-flat-map': applyFlatMap,
+    printer: 'putout',
+    plugins: [
+        ['apply-flat-map', applyFlatMap],
+    ],
 });
 
 test('plugin-apply-flat-map: transform: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-apply-flat-map: transform: instanceof', (t) => {
     t.transform('map');
     t.end();
 });
-
