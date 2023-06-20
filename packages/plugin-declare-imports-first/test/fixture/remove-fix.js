@@ -1,8 +1,8 @@
 const [arg] = process.argv;
 fn();
 
-export {x};
+export {
+    x,
+};
 
-if (a > 5) {
-}
-
+if (a > 5) {}

@@ -38,6 +38,7 @@ import esbuild from 'esbuild';
 
 ```js
 import esbuild from 'esbuild';
+
 const [arg] = process.argv;
 ```
 

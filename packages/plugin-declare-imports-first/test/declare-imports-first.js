@@ -8,7 +8,10 @@ const plugin = require('..');
 const {remove} = operator;
 
 const test = createTest(__dirname, {
-    'declaration-imports-first': plugin,
+    printer: 'putout',
+    plugins: [
+        ['declaration-imports-first', plugin],
+    ],
 });
 
 test('plugin-declaration-imports-first: report', (t) => {
@@ -46,4 +49,3 @@ test('plugin-declaration-imports-first: transform: remove', (t) => {
     });
     t.end();
 });
-

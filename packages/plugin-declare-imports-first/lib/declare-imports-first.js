@@ -8,7 +8,7 @@ module.exports.fix = ({path, importPath}) => {
     let prev = path;
     let preventInfiniteLoop = 500;
     
-    while(--preventInfiniteLoop) {
+    while (--preventInfiniteLoop) {
         const {node} = importPath;
         
         replaceWith(importPath, prev.node);
@@ -61,4 +61,3 @@ module.exports.traverse = ({push, pathStore}) => ({
         },
     },
 });
-
