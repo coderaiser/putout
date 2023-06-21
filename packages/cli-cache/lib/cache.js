@@ -3,7 +3,6 @@
 const {unlink} = require('fs/promises');
 
 const fileEntryCache = require('file-entry-cache');
-const findCacheDir = require('find-cache-dir');
 const murmur = require('imurmurhash');
 const stringify = require('json-stable-stringify-without-jsonify');
 const tryToCatch = require('try-to-catch');
@@ -12,6 +11,7 @@ const isNoDefinition = require('./is-no-definition');
 const isParserError = require('./is-parser-error');
 const containEslintPlugin = require('./contain-eslint-plugin');
 const isChanged = require('./is-changed');
+const {simpleImport} = require('./simple-import');
 
 const optionsHashCache = new WeakMap();
 const nodeVersion = process.version;
@@ -121,6 +121,7 @@ const createGetOptionsCache = ({version}) => (options) => {
 };
 
 async function findCachePath() {
+    const findCacheDir = await simpleImport('find-cache-dir');
     const cacheDir = await findCacheDir({
         name: 'putout',
         create: true,

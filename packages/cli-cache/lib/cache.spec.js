@@ -30,7 +30,13 @@ test('putout: cli: cache: fileCache: fresh', async (t) => {
         unlink,
     });
     
-    mockRequire('find-cache-dir', stub().returns('node_modules/.cache'));
+    const findCacheDir = stub().returns('node_modules/.cache');
+    const simpleImport = stub().returns(findCacheDir);
+    
+    mockRequire('./simple-import', {
+        simpleImport,
+    });
+    
     const {createCache} = reRequire('./cache');
     
     await createCache({
@@ -52,7 +58,13 @@ test(`putout: cli: cache: find up can't find`, async (t) => {
         unlink,
     });
     
-    mockRequire('find-cache-dir', stub());
+    const findCacheDir = stub();
+    const simpleImport = stub().returns(findCacheDir);
+    
+    mockRequire('./simple-import', {
+        simpleImport,
+    });
+    
     const {createCache} = reRequire('./cache');
     
     await createCache({
