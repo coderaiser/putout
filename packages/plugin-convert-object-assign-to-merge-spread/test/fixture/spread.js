@@ -1,5 +1,1 @@
-return Object.assign(
-    {},
-    ...enabledEnvironments,
-    providedGlobals
-);
+return Object.assign({}, ...enabledEnvironments, providedGlobals);

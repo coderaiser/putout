@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertObjectAssignToMergeSpread = require('..');
 
 const test = createTest(__dirname, {
-    'convert-object-assign-to-merge-spread': convertObjectAssignToMergeSpread,
+    printer: 'putout',
+    plugins: [
+        ['convert-object-assign-to-merge-spread', convertObjectAssignToMergeSpread],
+    ],
 });
 
 test('plugin-convert-object-assign-to-merge-spread: report', (t) => {
@@ -41,4 +44,3 @@ test('plugin-convert-object-assign-to-merge-spread: no transform: empty', (t) =>
     t.noTransform('empty');
     t.end();
 });
-

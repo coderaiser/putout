@@ -1,14 +1,8 @@
 'use strict';
 
-const {
-    types,
-    operator,
-} = require('putout');
+const {types, operator} = require('putout');
 
-const {
-    compare,
-    replaceWith,
-} = operator;
+const {compare, replaceWith} = operator;
 
 const {
     ObjectExpression,
@@ -56,4 +50,3 @@ module.exports.filter = ({node}) => {
     
     return true;
 };
-
