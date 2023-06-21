@@ -62,7 +62,7 @@
     "@putout/plugin-remove-console": "*",
     "@putout/plugin-remove-empty": "*",
     "@putout/plugin-remove-unused-variables": "*",
-    "c8": "^7.5.0",
+    "c8": "^8.0.0",
     "eslint": "^8.0.1",
     "eslint-plugin-n": "^16.0.0",
     "eslint-plugin-putout": "^17.0.0",
