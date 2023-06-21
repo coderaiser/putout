@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const applyNullishCoalescing = require('..');
 
 const test = createTest(__dirname, {
-    'apply-nullish-coalescing': applyNullishCoalescing,
+    printer: 'putout',
+    plugins: [
+        ['apply-nullish-coalescing', applyNullishCoalescing],
+    ],
 });
 
 test('plugin-apply-nullish-coalescing: transform: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-apply-nullish-coalescing: transform: undefined', (t) => {
     t.transform('undefined');
     t.end();
 });
-

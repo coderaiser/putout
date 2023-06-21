@@ -7,4 +7,3 @@ module.exports.replace = () => ({
     '__a = typeof __a === "undefined" ? __b : __a': '__a = __a ?? __b',
     '__a = __a === undefined ? __b : __a': '__a = __a ?? __b',
 });
-
