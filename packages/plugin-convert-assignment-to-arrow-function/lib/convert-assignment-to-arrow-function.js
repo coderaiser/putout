@@ -20,4 +20,3 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     'const __a = __b = __c': 'const __a = __b => __c',
 });
-

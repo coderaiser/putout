@@ -1,2 +1,1 @@
-const createRegExp = a => RegExp(a, 'g');
-
+const createRegExp = ((a)) => RegExp(a, 'g');
