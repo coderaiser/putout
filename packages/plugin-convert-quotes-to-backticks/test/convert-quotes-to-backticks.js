@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertQuotesToBacktics = require('..');
 
 const test = createTest(__dirname, {
-    'convert-quotes-to-backtics': convertQuotesToBacktics,
+    printer: 'putout',
+    plugins: [
+        ['convert-quotes-to-backtics', convertQuotesToBacktics],
+    ],
 });
 
 test('plugin-convert-quotes-to-backtics: report', (t) => {
@@ -26,4 +29,3 @@ test('plugin-convert-quotes-to-backtics: transform: backslash', (t) => {
     t.transform('backslash');
     t.end();
 });
-
