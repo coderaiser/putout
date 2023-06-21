@@ -14,4 +14,3 @@ module.exports.filter = (path) => {
 module.exports.replace = () => ({
     '__a[__a.length - __b]': '__a.at(-__b)',
 });
-

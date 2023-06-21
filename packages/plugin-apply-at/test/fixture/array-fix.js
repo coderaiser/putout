@@ -1,1 +1,1 @@
-const latest = (a) => a.at(-1)
+const latest = (a) => a.at(-1);
