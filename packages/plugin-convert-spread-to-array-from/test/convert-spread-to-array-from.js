@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertSpreadToArrayFrom = require('..');
 
 const test = createTest(__dirname, {
-    'convert-spread-to-array-from': convertSpreadToArrayFrom,
+    printer: 'putout',
+    plugins: [
+        ['convert-spread-to-array-from', convertSpreadToArrayFrom],
+    ],
 });
 
 test('plugin-convert-spread-to-array-from: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-convert-spread-to-array-from: no transform: elements', (t) => {
     t.noTransform('elements');
     t.end();
 });
-

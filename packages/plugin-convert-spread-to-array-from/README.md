@@ -24,9 +24,7 @@ npm i @putout/plugin-convert-spread-to-array-from
 ## ❌ Example of incorrect code
 
 ```js
-const places = [
-    ...runPlugins(),
-];
+const places = [...runPlugins()];
 ```
 
 ## ✅ Example of correct code
