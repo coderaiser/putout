@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertTemplateToString = require('..');
 
 const test = createTest(__dirname, {
-    'convert-template-to-string': convertTemplateToString,
+    printer: 'putout',
+    plugins: [
+        ['convert-template-to-string', convertTemplateToString],
+    ],
 });
 
 test('plugin-template-to-string: report', (t) => {
