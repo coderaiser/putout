@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertIsNanToNumberIsNan = require('..');
 
 const test = createTest(__dirname, {
-    'convert-is-nan-to-number-is-nan': convertIsNanToNumberIsNan,
+    printer: 'putout',
+    plugins: [
+        ['convert-is-nan-to-number-is-nan', convertIsNanToNumberIsNan],
+    ],
 });
 
 test('plugin-convert-is-nan-to-number-is-nan: report', (t) => {
@@ -21,4 +24,3 @@ test('plugin-convert-is-nan-to-number-is-nan: no transform: declared', (t) => {
     t.noTransform('declared');
     t.end();
 });
-

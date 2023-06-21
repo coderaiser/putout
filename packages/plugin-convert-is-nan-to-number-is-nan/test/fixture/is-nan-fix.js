@@ -1,3 +1,3 @@
-  if (Number.isNaN(x)) {
+if (Number.isNaN(x)) {
     return 'NaN';
-  }
+}

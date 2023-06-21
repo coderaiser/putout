@@ -9,4 +9,3 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     'isNaN(__a)': 'Number.isNaN(__a)',
 });
-
