@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const convertConcatToFlat = require('..');
 
 const test = createTest(__dirname, {
-    'convert-concat-to-flat': convertConcatToFlat,
+    printer: 'putout',
+    plugins: [
+        ['convert-concat-to-flat', convertConcatToFlat],
+    ],
 });
 
 test('plugin-convert-concat-to-flat: report', (t) => {
@@ -16,4 +19,3 @@ test('plugin-convert-concat-to-flat: transform', (t) => {
     t.transform('concat');
     t.end();
 });
-
