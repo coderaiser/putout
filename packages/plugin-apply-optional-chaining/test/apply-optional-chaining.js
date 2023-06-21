@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const applyOptionalChaining = require('..');
 
 const test = createTest(__dirname, {
-    'apply-optional-chaining': applyOptionalChaining,
+    printer: 'putout',
+    plugins: [
+        ['apply-optional-chaining', applyOptionalChaining],
+    ],
 });
 
 test('plugin-apply-optional-chaining: transform: report', (t) => {
@@ -56,4 +59,3 @@ test('plugin-apply-optional-chaining: transform: call-expression', (t) => {
     t.transform('call-expression');
     t.end();
 });
-

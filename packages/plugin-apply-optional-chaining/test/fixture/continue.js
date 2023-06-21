@@ -1,5 +1,5 @@
 for (;;)
-if (typeof show === 'function') {
-    continue;
-}
+    if (typeof show === 'function') {
+        continue;
+    }
 
