@@ -2365,7 +2365,6 @@ You can also use `include` and/or `exclude` instead of `traverse` and `filter` (
 ```js
 // should be always used include/or exclude, when traverse not used
 module.exports.include = () => ['debugger'];
-
 // optional
 module.exports.exclude = () => [
     'console.log',
