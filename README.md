@@ -2271,9 +2271,7 @@ and one or more of this:
 
 ```js
 module.exports.report = () => 'use optional chaining';
-module.exports.include = () => [
-    'debugger',
-];
+module.exports.include = () => ['debugger'];
 
 module.exports.fix = (path) => {
     path.remove(path);
@@ -2301,10 +2299,8 @@ const {
 When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, please use [`operator`](https://github.com/coderaiser/putout/tree/master/packages/operate#readme) instead of `path`-methods.
 
 ```js
-const {
-    template,
-    operator,
-} = require('putout');
+const {template, operator} = require('putout');
+
 const {replaceWith} = operator;
 
 const ast = template.ast(`
@@ -2368,9 +2364,7 @@ You can also use `include` and/or `exclude` instead of `traverse` and `filter` (
 
 ```js
 // should be always used include/or exclude, when traverse not used
-module.exports.include = () => [
-    'debugger',
-];
+module.exports.include = () => ['debugger'];
 
 // optional
 module.exports.exclude = () => [
@@ -2582,9 +2576,7 @@ Then create `.eslintrc.json`:
     "extends": [
         "plugin:putout/recommended"
     ],
-    "plugins": [
-        "putout"
-    ]
+    "plugins": ["putout"]
 }
 ```
 

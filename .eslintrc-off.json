@@ -1,7 +1,3 @@
 {
-    "ignorePatterns": [
-        "*.*",
-        "!**/eslint-plugin-putout"
-    ]
+    "ignorePatterns": ["*.*", "!**/eslint-plugin-putout"]
 }
-

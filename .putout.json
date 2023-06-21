@@ -1,11 +1,25 @@
 {
+    "printer": "putout",
     "match": {
-        "**/{packages,codemods}/{test,engine-processor,eslint-config,{plugin,formatter,processor}-*}": {
+        "**/codemods": {
+            "putout": "on"
+        },
+        "**/{packages}/{test,engine-processor,eslint-config,{plugin,formatter,processor}-*}": {
             "putout": "on",
-            "nodejs": "off"
+            "nodejs": "off",
+            "putout/create-test": ["on", {
+                "add": [
+                    ["printer", "putout"]
+                ]
+            }]
         },
         "**/rules": {
-            "putout": "on"
+            "putout": "on",
+            "putout/create-test": ["on", {
+                "add": [
+                    ["printer", "putout"]
+                ]
+            }]
         },
         "**/packages/plugin-*/*.md{json}": {
             "putout-config": "on"
@@ -23,6 +37,7 @@
         }]
     },
     "ignore": [
+        "docs",
         ".husky"
     ]
 }
