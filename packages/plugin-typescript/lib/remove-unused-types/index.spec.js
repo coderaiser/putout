@@ -5,7 +5,10 @@ const removeUnusedTypes = require('.');
 const removeUselessTypes = require('..').rules['remove-useless-types'];
 
 const test = createTest(__dirname, {
-    'typescript/remove-unused-types': removeUnusedTypes,
+    printer: 'putout',
+    plugins: [
+        ['typescript/remove-unused-types', removeUnusedTypes],
+    ],
 });
 
 test('remove unused types: report', (t) => {
@@ -14,7 +17,7 @@ test('remove unused types: report', (t) => {
 });
 
 test('remove unused types: transform', (t) => {
-    t.transform('unused', '\n\n');
+    t.transform('unused', '\n');
     t.end();
 });
 

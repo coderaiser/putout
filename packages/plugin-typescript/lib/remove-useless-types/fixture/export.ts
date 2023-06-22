@@ -1,8 +1,8 @@
 type oldType = {
-    a: number,
-    b: string,
+    a: number;
+    b: string;
 };
 
 export type newType = oldType;
 
-const x:newType = 5;
+const x: newType = 5;

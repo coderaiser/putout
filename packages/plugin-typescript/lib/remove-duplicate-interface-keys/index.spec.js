@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeDebugger = require('.');
 
 const test = createTest(__dirname, {
-    'typescript: remove-duplicate-interface-keys': removeDebugger,
+    printer: 'putout',
+    plugins: [
+        ['typescript: remove-duplicate-interface-keys', removeDebugger],
+    ],
 });
 
 test('remove duplicate-interface-keys: report', (t) => {

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const plugin = require('.');
 
 const test = createTest(__dirname, {
-    'remove-useless-parens': plugin,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-parens', plugin],
+    ],
 });
 
 test('plugin-remove-useless-parens: report', (t) => {

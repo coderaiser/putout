@@ -1,3 +1,3 @@
- interface Hello {
-     [a: string]: boolean;
- }
+interface Hello {
+    [a: string]: boolean;
+}

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessMappedTypes = require('.');
 
 const test = createTest(__dirname, {
-    'remove-useless-mapped-types': removeUselessMappedTypes,
+    printer: 'putout',
+    plugins: [
+        ['remove-useless-mapped-types', removeUselessMappedTypes],
+    ],
 });
 
 test('plugin-remove-useless-mapped-types: report', (t) => {

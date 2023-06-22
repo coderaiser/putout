@@ -1,8 +1,8 @@
 type oldType = {
-    a: number,
-    b: string,
+    a: number;
+    b: string;
 };
 
-const x:oldType = 5;
+const x: oldType = 5;
 
 fn<oldType>(a);

@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessMappingModifiers = require('.');
 
 const test = createTest(__dirname, {
-    'typescript/remove-useless-mapping-modifiers': removeUselessMappingModifiers,
+    printer: 'putout',
+    plugins: [
+        ['typescript/remove-useless-mapping-modifiers', removeUselessMappingModifiers],
+    ],
 });
 
 test('plugin-remove-useless-mapping-modifiers: report', (t) => {

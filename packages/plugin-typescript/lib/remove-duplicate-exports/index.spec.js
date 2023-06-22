@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeDuplicateExports = require('.');
 
 const test = createTest(__dirname, {
-    'remove-duplicate-exports': removeDuplicateExports,
+    printer: 'putout',
+    plugins: [
+        ['remove-duplicate-exports', removeDuplicateExports],
+    ],
 });
 
 test('typescript: remove-duplicate-exports: report', (t) => {

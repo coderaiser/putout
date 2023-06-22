@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const removeUselessTypes = require('.');
 
 const test = createTest(__dirname, {
-    'typescript/remove-useless-types': removeUselessTypes,
+    printer: 'putout',
+    plugins: [
+        ['typescript/remove-useless-types', removeUselessTypes],
+    ],
 });
 
 test('remove useless types: report', (t) => {

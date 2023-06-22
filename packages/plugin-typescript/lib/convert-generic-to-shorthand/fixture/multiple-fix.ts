@@ -1,5 +1,5 @@
 interface A {
-    x: Array<X, Z>;
+    x: Array<XZ>;
 }
 
 interface B {

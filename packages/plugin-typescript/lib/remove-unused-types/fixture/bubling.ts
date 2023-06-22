@@ -1,6 +1,3 @@
 export interface User {
     contacts: Contacts;
-}
-
-type Contacts = 'string';
-
+}type Contacts = 'string';

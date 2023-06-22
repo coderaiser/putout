@@ -7,7 +7,10 @@ const noop = () => {};
 const {remove} = operator;
 
 const test = createTest(__dirname, {
-    'remove-duplicates-from-union': removeDuplicatesFromUnion,
+    printer: 'putout',
+    plugins: [
+        ['remove-duplicates-from-union', removeDuplicatesFromUnion],
+    ],
 });
 
 test('plugin-remove-duplicates-from-union: report', (t) => {

@@ -1,3 +1,2 @@
 type Y = () => void;
-
-type X = Z
+type X = Z;

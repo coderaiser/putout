@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const applyUtilityTypes = require('.');
 
 const test = createTest(__dirname, {
-    'apply-utility-types': applyUtilityTypes,
+    printer: 'putout',
+    plugins: [
+        ['apply-utility-types', applyUtilityTypes],
+    ],
 });
 
 test('plugin-apply-utility-types: transform: report: mapped-types', (t) => {

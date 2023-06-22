@@ -4,5 +4,5 @@ const nullLiteral = null;
 const undefinedLiteral = undefined;
 const string = 'hello';
 const boolean = true;
-const symbol = Symbol()
+const symbol = Symbol();
 const object: any = {};

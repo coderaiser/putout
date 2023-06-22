@@ -1,8 +1,8 @@
 type Point = {
-    a: number,
-    b: string,
+    a: number;
+    b: string;
 };
 
 export {
-    Point as X
-}
+    Point as X,
+};

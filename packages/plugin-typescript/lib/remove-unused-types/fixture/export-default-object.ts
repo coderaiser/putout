@@ -1,6 +1,8 @@
 type Point = {
-    a: number,
-    b: string,
+    a: number;
+    b: string;
 };
 
-export default {Point};
+export default {
+    Point,
+};

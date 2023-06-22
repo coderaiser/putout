@@ -1,14 +1,14 @@
-interface LabelledContainer<T> {
+interface LabelledContainer {
     label: string;
     content: T;
     option?: boolean;
-    readonly x: number;
+    x: number;
     [index: number]: string;
     [propName: string]: any;
-    readonly [index: number]: string;
-    (source: string, subString: string): boolean;
+    [index: number]: string;
+    (source: string): boolean;
     (start: number): string;
     reset(): void;
     reset(): any;
-    a(c: (this: void, e: E) => void): void;
+    a(c: () => void): void;
 }

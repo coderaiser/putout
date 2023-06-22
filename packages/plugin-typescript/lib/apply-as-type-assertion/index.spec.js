@@ -4,7 +4,10 @@ const {createTest} = require('@putout/test');
 const applyAsTypeAssertions = require('.');
 
 const test = createTest(__dirname, {
-    'typescript/apply-as-type-assertions': applyAsTypeAssertions,
+    printer: 'putout',
+    plugins: [
+        ['typescript/apply-as-type-assertions', applyAsTypeAssertions],
+    ],
 });
 
 test('plugin-apply-as-type-assertiong: transform: report', (t) => {
