@@ -22,6 +22,6 @@ test('putout: esm', (t) => {
         plugins: ['remove-unused-variables'],
     });
     
-    t.notOk(code);
+    t.equal(code, '\n');
     t.end();
 });

@@ -20,7 +20,7 @@ const isString = (a) => typeof a === 'string';
 const defaultOpts = (opts = {}) => {
     const {
         parser = 'babel',
-        printer = opts.printer || 'recast',
+        printer = opts.printer || 'putout',
         fix = true,
         fixCount = 2,
         loadPlugins = loader.loadPlugins,

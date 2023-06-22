@@ -3,10 +3,6 @@
 'use strict';
 
 const t = {};
-const {
-    a,
-    b,
-} = t;
+const {a, b} = t;
 
 logger.log(a);
-

@@ -1,3 +1,3 @@
 let str = 'hello';
-str += '!';
 
+str += '!';

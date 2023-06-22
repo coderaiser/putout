@@ -3,9 +3,6 @@
 'use strict';
 
 const t = {};
-const {
-    a
-} = t;
+const {a} = t;
 
 logger.log(a);
-

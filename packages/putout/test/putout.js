@@ -1,9 +1,7 @@
 'use strict';
 
 const montag = require('montag');
-
 const {test, stub} = require('supertape');
-
 const tryCatch = require('try-catch');
 
 const putout = require('..');
@@ -52,7 +50,7 @@ test('putout: no vars', (t) => {
     const result = putout(fixture.noVars);
     
     const expected = {
-        code: '',
+        code: '\n',
         places: [],
     };
     
@@ -171,6 +169,7 @@ test('putout: shebang', (t) => {
 
 test('putout: flow', (t) => {
     const {places} = putout(fixture.flow, {
+        printer: 'recast',
         plugins: ['remove-unused-variables'],
     });
     
@@ -199,8 +198,8 @@ test('putout: shebang: message', (t) => {
     const {position} = places[0];
     
     const expected = {
-        line: 8,
-        column: 4,
+        line: 6,
+        column: 10,
     };
     
     t.deepEqual(position, expected);
@@ -241,8 +240,8 @@ test('putout: export default declaration: espree: places: shebang', (t) => {
         rule: 'remove-unused-variables',
         message: `'b' is defined but never used`,
         position: {
-            line: 8,
-            column: 4,
+            line: 6,
+            column: 10,
         },
     }];
     
@@ -434,6 +433,7 @@ test('putout: plugin: return push in traverse', (t) => {
 
 test('putout: recast destructuring assign', (t) => {
     const result = putout(fixture.recastDestructuringAssign, {
+        printer: 'recast',
         plugins: [
             ['apply-destructuring', {
                 report: noop,
@@ -512,7 +512,6 @@ test('putout: babelPlugins: espree: shebang', (t) => {
 test('putout: babelPlugins: position: shebang', (t) => {
     const {places} = putout(fixture.babelPlugins, {
         fix: false,
-        recast: true,
         plugins: ['babel/transform-inline-consecutive-adds'],
     });
     
@@ -520,7 +519,7 @@ test('putout: babelPlugins: position: shebang', (t) => {
         rule: 'babel/transform-inline-consecutive-adds',
         message: 'transform inline consecutive adds',
         position: {
-            line: 4,
+            line: 2,
             column: 0,
         },
     }];
@@ -535,7 +534,6 @@ test('putout: babelPlugins: custom message', (t) => {
     
     const {places} = putout(fixture.babelPlugins, {
         fix: false,
-        recast: true,
         rules: {
             'babel/transform-inline-consecutive-adds': [enabled, message],
         },
@@ -546,7 +544,7 @@ test('putout: babelPlugins: custom message', (t) => {
         rule: 'babel/transform-inline-consecutive-adds',
         message,
         position: {
-            line: 4,
+            line: 2,
             column: 0,
         },
     }];
@@ -572,7 +570,7 @@ test('putout: transform', (t) => {
     });
     
     const result = putout.print(ast);
-    const expected = fixture.commentFix;
+    const expected = fixture.commentFix + '\n';
     
     t.deepEqual(result, expected);
     t.end();
@@ -820,6 +818,7 @@ test('putout: source map', (t) => {
     `;
     
     const {code} = putout(source, {
+        printer: 'recast',
         sourceFileName: 'hello',
         sourceMapName: 'world',
     });

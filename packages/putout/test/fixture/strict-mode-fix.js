@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
 'use strict';
-const m = 5;
 
+const m = 5;

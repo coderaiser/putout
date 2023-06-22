@@ -44,7 +44,9 @@ test('putout: operator: declare', (t) => {
     
     const expected = montag`
         import fs from 'fs/promises';
+        
         await fs.readFile('./.putout.json', 'utf8');
+    
     `;
     
     t.equal(code, expected);
@@ -69,13 +71,10 @@ test('putout: operator: addArgs', (t) => {
     });
     
     const expected = montag`
-        test('', (
-            {
-                compare
-            }
-        ) => {
+        test('', ({compare}) => {
             compare(a, b);
         });
+    
     `;
     
     t.equal(code, expected);

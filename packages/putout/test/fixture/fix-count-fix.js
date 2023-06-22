@@ -1,7 +1,4 @@
 const item = {};
-// hello
-const {
-  username,
-  password
-} = item;
 
+// hello
+const {username, password} = item;
