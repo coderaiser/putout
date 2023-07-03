@@ -290,7 +290,7 @@ So, if you want to convert it to [`ESM`](https://developer.mozilla.org/en-US/doc
 
 It will create config file `.putout.json`:
 
-```
+```json
 {
     "rules": {
         "remove-unused-variables": "off",
