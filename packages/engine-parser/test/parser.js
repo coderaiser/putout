@@ -124,7 +124,7 @@ test('putout: parser: babel: optional chaining', (t) => {
         ],
     });
     
-    const expected = 'hello?.world;';
+    const expected = 'hello?.world;\n';
     
     t.equal(code, expected);
     t.end();
@@ -144,7 +144,7 @@ test('putout: parser: babel: nullish coalescing operator', (t) => {
         ],
     });
     
-    const expected = 'const hello = world ?? "world";';
+    const expected = 'const hello = world ?? "world";\n';
     
     t.equal(code, expected);
     t.end();
@@ -161,6 +161,7 @@ test('putout: parser: generate', (t) => {
 
 test('putout: parser: flow', (t) => {
     const {code} = putout(fixture.flow, {
+        printer: 'recast',
         plugins: ['remove-unused-variables'],
     });
     
@@ -338,7 +339,7 @@ test('putout: parser: Literal: node.raw', (t) => {
         ],
     });
     
-    const expected = '10_000';
+    const expected = '10_000;\n';
     
     t.equal(code, expected);
     t.end();
