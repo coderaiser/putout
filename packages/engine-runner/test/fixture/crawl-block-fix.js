@@ -1,8 +1,5 @@
 {
     import {operator} from 'putout';
 
-    const {
-        replaceWith,
-        replaceWithMultiple
-    } = operator;
+    const {replaceWith, replaceWithMultiple} = operator;
 }

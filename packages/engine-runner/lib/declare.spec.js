@@ -17,8 +17,9 @@ test('engine-runner: declare', (t) => {
     });
     
     const expected = montag`
-        const isString = a => typeof a === 'string';
-        isString('hello')
+        const isString = (a) => typeof a === 'string';
+        isString('hello');
+    
     `;
     
     t.equal(code, expected);

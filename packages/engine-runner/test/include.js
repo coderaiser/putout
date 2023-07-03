@@ -73,7 +73,7 @@ test('putout: runner: include: fix: options', (t) => {
         ],
     });
     
-    t.equal(code, `'world';`);
+    t.equal(code, `'world';\n`);
     t.end();
 });
 

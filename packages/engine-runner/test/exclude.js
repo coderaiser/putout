@@ -19,8 +19,7 @@ test('putout: runner: traverse: exclude', (t) => {
         },
     };
     
-    const input = `const x = y`;
-    
+    const input = `const x = y;\n`;
     const {code} = putout(input, {
         runPlugins,
         plugins: [
@@ -46,7 +45,7 @@ test('putout: runner: traverse: exclude: not an array', (t) => {
         },
     };
     
-    const input = `const x = y`;
+    const input = `const x = y;\n`;
     
     const {code} = putout(input, {
         runPlugins,

@@ -138,7 +138,7 @@ test('putout: runner: plugins: replace', (t) => {
         }],
     });
     
-    const expected = 'const a = 1;';
+    const expected = 'const a = 1;\n';
     
     t.equal(code, expected);
     t.end();
@@ -160,7 +160,7 @@ test('putout: runner: plugins: replace: a couple', (t) => {
         }],
     });
     
-    const expected = 'const x = 1;';
+    const expected = 'const x = 1;\n';
     
     t.equal(code, expected);
     t.end();
@@ -181,7 +181,7 @@ test('putout: runner: plugins: replace: remove', (t) => {
         }],
     });
     
-    const expected = '';
+    const expected = '\n';
     
     t.equal(code, expected);
     t.end();
@@ -207,7 +207,7 @@ test('putout: runner: plugins: replace: remove: exclude', (t) => {
         }],
     });
     
-    const expected = 'debugger';
+    const expected = 'debugger;\n';
     
     t.equal(code, expected);
     t.end();
@@ -229,7 +229,7 @@ test('putout: runner: plugins: replace: template', (t) => {
         }],
     });
     
-    const expected = 'const hello = 5;';
+    const expected = 'const hello = 5;\n';
     
     t.equal(code, expected);
     t.end();
@@ -252,7 +252,7 @@ test('putout: runner: plugins: replace: template: a couple vars', (t) => {
         }],
     });
     
-    const expected = 'const world = hello;';
+    const expected = 'const world = hello;\n';
     
     t.equal(code, expected);
     t.end();
@@ -274,7 +274,7 @@ test('putout: runner: plugins: replace: template: array', (t) => {
         }],
     });
     
-    const expected = 'const [first] = elements;';
+    const expected = 'const [first] = elements;\n';
     
     t.equal(code, expected);
     t.end();
@@ -296,7 +296,7 @@ test('putout: runner: plugins: replace: template: identifier', (t) => {
         }],
     });
     
-    const expected = 'if (y) fn()';
+    const expected = 'if (y)\n    fn();\n';
     
     t.equal(code, expected);
     t.end();
@@ -318,7 +318,11 @@ test('putout: runner: plugins: replace: template: ifCondition', (t) => {
         }],
     });
     
-    const expected = 'if (y)\n  fn();';
+    const expected = montag`
+        if (y)
+            fn();
+    
+    `;
     
     t.equal(code, expected);
     t.end();
@@ -367,7 +371,7 @@ test('putout: runner: plugins: replace: template: object pattern', (t) => {
         }],
     });
     
-    const expected = 'const {\n  hello\n} = world;';
+    const expected = 'const {hello} = world;\n';
     
     t.equal(code, expected);
     t.end();
@@ -390,7 +394,7 @@ test('putout: runner: plugins: replace: template: infinite loop', (t) => {
         }],
     });
     
-    const expected = 'const world = hello;';
+    const expected = 'const world = hello;\n';
     
     t.equal(code, expected);
     t.end();
@@ -412,7 +416,7 @@ test('putout: runner: plugins: replace: template: same', (t) => {
         }],
     });
     
-    const expected = 'console.log(...lines)';
+    const expected = 'console.log(...lines);\n';
     
     t.equal(code, expected);
     t.end();
@@ -434,7 +438,7 @@ test('putout: runner: plugins: replace: template: linked literal node', (t) => {
         }],
     });
     
-    const expected = 'const hello = require("world");';
+    const expected = 'const hello = require("world");\n';
     
     t.equal(code, expected);
     t.end();
@@ -465,7 +469,7 @@ test('putout: runner: plugins: replace: template: function: __imports', (t) => {
         }],
     });
     
-    const expected = `const {\n  hello\n} = require('world');`;
+    const expected = `const {hello} = require('world');\n`;
     
     t.equal(code, expected);
     t.end();
@@ -486,7 +490,7 @@ test('putout: runner: plugins: replace: template: function: __args', (t) => {
         }],
     });
     
-    const expected = 'const hello = (a, b, c) => {};';
+    const expected = 'const hello = (a, b, c) => {};\n';
     
     t.equal(code, expected);
     t.end();
@@ -534,7 +538,7 @@ test('putout: runner: plugins: replace: template: filter', (t) => {
         }],
     });
     
-    const expected = 'return x';
+    const expected = 'return x;\n';
     
     t.equal(code, expected);
     t.end();
@@ -560,7 +564,7 @@ test('putout: runner: plugins: replace: path', (t) => {
         }],
     });
     
-    const expected = 'return x;';
+    const expected = 'return x;\n';
     
     t.equal(code, expected);
     t.end();
@@ -587,7 +591,7 @@ test('putout: runner: plugins: replace: match', (t) => {
         }],
     });
     
-    const expected = '';
+    const expected = '\n';
     
     t.equal(code, expected);
     t.end();
@@ -614,7 +618,7 @@ test('putout: runner: plugins: replace: match: not found', (t) => {
         }],
     });
     
-    const expected = '';
+    const expected = '\n';
     
     t.equal(code, expected);
     t.end();
@@ -867,7 +871,7 @@ test('putout: runner: traverse: Program: exit + exclude', (t) => {
         ],
     });
     
-    t.equal(result.code, '');
+    t.equal(result.code, '\n');
     t.end();
 });
 
@@ -888,6 +892,7 @@ test('putout: runner: fix: crawl', (t) => {
         import {readFile, writeFile} from 'fs/promises';
         
         log(readFile, writeFile);
+    
     `;
     
     t.equal(code, expected);

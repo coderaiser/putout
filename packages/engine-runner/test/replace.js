@@ -11,9 +11,7 @@ const tryCatch = require('try-catch');
 const {runPlugins} = require('..');
 
 const noop = () => {};
-
 const {print, types} = putout;
-
 const {StringLiteral} = types;
 
 const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.js`), 'utf8');
@@ -33,7 +31,7 @@ test('putout: runner: replace: same', (t) => {
         }],
     });
     
-    const expected = `test('', t => {});`;
+    const expected = `test('', (t) => {});\n`;
     
     t.equal(code, expected);
     t.end();
@@ -63,11 +61,10 @@ test('putout: runner: replace: same path, new transform', (t) => {
     });
     
     const expected = montag`
-        export const set = () => {
-        };
+        export const set = () => {};
         
-        export const get = () => {
-        };
+        export const get = () => {};
+    
     `;
     
     t.equal(code, expected);
@@ -94,7 +91,8 @@ test('putout: runner: replace: recursive overflow', (t) => {
     });
     
     const expected = montag`
-        test.only()
+        test.only();
+    
     `;
     
     t.equal(code, expected);
@@ -118,10 +116,10 @@ test('putout: runner: replace: __object', (t) => {
     
     const expected = montag`
         fn({
-          a,
-          b,
-          c
-        })
+            a,
+            b,
+            c,
+        });\n
     `;
     
     const {code} = putout(source, {
@@ -144,7 +142,11 @@ test('putout: runner: replace: return __object', (t) => {
     };
     
     const source = montag`
-        fn({a, b, c})
+        fn({
+            a,
+            b,
+            c,
+        });\n
     `;
     
     const {code} = putout(source, {
@@ -173,7 +175,7 @@ test('putout: runner: replace: remove', (t) => {
         ],
     });
     
-    const expected = '';
+    const expected = '\n';
     
     t.equal(code, expected);
     t.end();
@@ -199,8 +201,7 @@ test('putout: runner: replace: remove: comments', (t) => {
         ],
     });
     
-    const expected = montag`
-    `;
+    const expected = '\n';
     
     t.equal(code, expected);
     t.end();
@@ -222,7 +223,7 @@ test('putout: runner: replace: remove: no node', (t) => {
         ],
     });
     
-    const expected = 'const a = 5;';
+    const expected = 'const a = 5;\n';
     
     t.equal(code, expected);
     t.end();
@@ -248,7 +249,7 @@ test('putout: runner: replace: options', (t) => {
         ],
     });
     
-    const expected = 'const a = 5;debugger;';
+    const expected = 'const a = 5;\ndebugger;\n';
     
     t.equal(code, expected);
     t.end();
@@ -278,7 +279,7 @@ test('putout: runner: replace: match: options', (t) => {
         ],
     });
     
-    const expected = 'const a = 5;debugger;';
+    const expected = 'const a = 5;\ndebugger;\n';
     
     t.equal(code, expected);
     t.end();
@@ -329,7 +330,7 @@ test('putout: runner: replace: same function: should produce same result', (t) =
         ],
     });
     
-    const expected = `__putout_processor_ignore(['hello']);`;
+    const expected = `__putout_processor_ignore(['hello']);\n`;
     
     t.equal(code, expected);
     t.end();
@@ -354,7 +355,7 @@ test('putout: runner: replace: ts', (t) => {
         ],
     });
     
-    const expected = 'const a: number = 5';
+    const expected = 'const a: number = 5;\n';
     
     t.equal(code, expected);
     t.end();
@@ -397,7 +398,7 @@ test('putout: runner: replace: template identifiers: instanceof', (t) => {
         ],
     });
     
-    const expected = 'Array.isArray([1, 2]);';
+    const expected = 'Array.isArray([1, 2]);\n';
     
     t.equal(code, expected);
     t.end();
@@ -429,6 +430,7 @@ test('putout: runner: replace: import', (t) => {
     const expected = montag`
         import {parse, transform} from 'putout';
         import compare from '@putout/compare';
+    
     `;
     
     t.equal(code, expected);
@@ -444,7 +446,7 @@ test('putout: runner: replace: empty', (t) => {
     };
     
     const source = montag`
-        import {parse, compare, transform} from 'putout';
+        import {parse, compare, transform} from 'putout';\n
     `;
     
     const {code} = putout(source, {
@@ -474,20 +476,13 @@ test('putout: runner: replace: watermark: when function used', (t) => {
     });
     
     const expected = montag`
-       const {
-         types: types
-       } = require('putout');
-       
-       const {
-         template: template
-       } = require('putout');
-       
-       const {
-         NumericLiteral
-       } = types;
+       const {types: types} = require('putout');
+       const {template: template} = require('putout');
+       const {NumericLiteral} = types;
        
        template('hello');
        NumericLiteral(5);
+    
     `;
     
     t.equal(code, expected);
@@ -497,7 +492,12 @@ test('putout: runner: replace: watermark: when function used', (t) => {
 test('putout: runner: replace: fix: options', (t) => {
     const instance = {
         report: () => '',
-        fix: (path, {options}) => path.get('declarations.0').node.init.value = options.value,
+        fix: (path, {options}) => {
+            const declaration = path.get('declarations.0').node;
+            
+            declaration.init.value = options.value;
+            declaration.init.raw = options.value;
+        },
         find: (ast, {traverse, push}) => {
             traverse(ast, {
                 'const __a = __b'(path) {
@@ -523,7 +523,7 @@ test('putout: runner: replace: fix: options', (t) => {
         ],
     });
     
-    const expected = 'const a = 3;';
+    const expected = 'const a = 3;\n';
     
     t.equal(code, expected);
     t.end();
@@ -547,15 +547,14 @@ test('putout: runner: replace: fix: crawl', (t) => {
     const expected = montag`
         import {test} from 'supertape';
         
-        const {
-            once
-        } = require('events');
+        const {once} = require('events');
         
-        test('hello world', async t => {
+        test('hello world', async (t) => {
             await once(emitter, 'progress');
             t.equal(progress, 100);
             t.end();
         });
+    
     `;
     
     t.equal(code, expected);
@@ -657,7 +656,7 @@ test('putout: runner: replace: **', (t) => {
         ],
     });
     
-    const expected = 'Math.hypot(1, 2);';
+    const expected = 'Math.hypot(1, 2);\n';
     
     t.equal(code, expected);
     t.end();
@@ -678,7 +677,7 @@ test('putout: runner: replace: jsx', (t) => {
         ],
     });
     
-    const expected = '<h2>hello</h2>;';
+    const expected = '<h2>hello</h2>;\n';
     
     t.equal(code, expected);
     t.end();
@@ -699,7 +698,7 @@ test('putout: runner: replace: jsx: children', (t) => {
         ],
     });
     
-    const expected = `<h1 class='y'>hello</h1>;`;
+    const expected = `<h1 class='y'>hello</h1>;\n`;
     
     t.equal(code, expected);
     t.end();
@@ -735,7 +734,7 @@ test('putout: runner: replace: jsx: attribute', (t) => {
         ],
     });
     
-    const expected = `'About';`;
+    const expected = `'About';\n`;
     
     t.equal(code, expected);
     t.end();
@@ -763,7 +762,7 @@ test('putout: runner: replace: comments', (t) => {
         ],
     });
     
-    const expected = `testFunc(b, /** @type {string} */ a, b);`;
+    const expected = `testFunc(b, /** @type {string} */(a), b);\n`;
     
     t.equal(code, expected);
     t.end();
@@ -818,7 +817,7 @@ test('putout: runner: replace: statement in place of expression: ExpressionState
     });
     
     const expected = montag`
-        const d = stub().rejects()
+        const d = stub().rejects();\n
     `;
     
     t.equal(code, expected);
@@ -852,7 +851,7 @@ test('putout: runner: replace: watermark after remove', (t) => {
     });
     
     const expected = montag`
-        import {use, abc} from 'react';
+        import {use, abc} from 'react';\n
     `;
     
     t.equal(code, expected);
@@ -880,7 +879,7 @@ test('putout: runner: replace: EmptyStatement', (t) => {
     });
     
     const expected = montag`
-        a && console.log();
+        a && console.log();\n
     `;
     
     t.equal(code, expected);
