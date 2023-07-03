@@ -1,7 +1,4 @@
 import {types} from 'putout';
 
-const {
-  isIdentifier
-} = types;
-
+const {isIdentifier} = types;
 isIdentifier(node);

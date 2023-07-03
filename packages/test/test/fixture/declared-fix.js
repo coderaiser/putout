@@ -1,6 +1,5 @@
 const console = {
-    log: () => {}
+    log: () => {},
 };
 
 console.log();
-

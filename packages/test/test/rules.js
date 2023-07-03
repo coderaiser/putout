@@ -16,6 +16,6 @@ test('test: rules: reportCode', (t) => {
 });
 
 test('test: rules: transformCode', (t) => {
-    t.transformCode('console.log()', '');
+    t.transformCode('console.log()', '\n');
     t.end();
 });

@@ -37,12 +37,12 @@ test('test: reportCode', (t) => {
 });
 
 test('test: transformCode', (t) => {
-    t.transformCode('console.log()', '');
+    t.transformCode('console.log()', '\n');
     t.end();
 });
 
 test('test: noTransformCode', (t) => {
-    t.noTransformCode('alert()');
+    t.noTransformCode('alert();\n');
     t.end();
 });
 
@@ -52,7 +52,7 @@ test('test: property identifier', (t) => {
 });
 
 test('test: property literal', (t) => {
-    t.transform('property-literal', '\n\n');
+    t.transform('property-literal', '\n');
     t.end();
 });
 
