@@ -44,7 +44,7 @@ test('putout: cli: on halt: isTTY', (t) => {
     t.end();
 });
 
-test('putout: cli: on halt: isTTY: duble call', (t) => {
+test('putout: cli: on halt: isTTY: double call', (t) => {
     const {CI} = process.env;
     
     process.env.CI = true;

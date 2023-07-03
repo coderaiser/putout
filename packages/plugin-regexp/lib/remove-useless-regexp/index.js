@@ -13,7 +13,7 @@ const {isAlternative, isChar} = require('../types');
 const {replaceWith} = operator;
 const {StringLiteral} = types;
 
-module.exports.report = () => `Remove useless RegExp, use strict equal operator insead`;
+module.exports.report = () => `Remove useless RegExp, use strict equal operator instead`;
 
 const build = template(`A === B`);
 

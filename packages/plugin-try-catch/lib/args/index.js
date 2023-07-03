@@ -12,7 +12,7 @@ const checkMemberExpression = ({__b}) => !isIdentifier(__b, {
     name: 'bind',
 });
 
-module.exports.report = () => `Pass 'fn', then 'args' splited by coma`;
+module.exports.report = () => `Pass 'fn', then 'args' split by coma`;
 
 module.exports.match = () => ({
     'tryCatch(__a.__b(__args))': checkMemberExpression,

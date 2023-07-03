@@ -5,7 +5,7 @@ const obj = [{
         function hello() {
             const result = [];
         
-            return resutl;
+            return result;
         }
     `,
 }];

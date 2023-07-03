@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-apply-args: args: transform: report', (t) => {
-    t.report('args', `Pass 'fn', then 'args' splited by coma`);
+    t.report('args', `Pass 'fn', then 'args' split by coma`);
     t.end();
 });
 

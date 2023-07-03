@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-regexp/remove-useless-regexp: report', (t) => {
-    t.report('regexp', 'Remove useless RegExp, use strict equal operator insead');
+    t.report('regexp', 'Remove useless RegExp, use strict equal operator instead');
     t.end();
 });
 
