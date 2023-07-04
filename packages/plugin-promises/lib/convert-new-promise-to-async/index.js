@@ -1,7 +1,6 @@
 'use strict';
 
 const {operator, types} = require('putout');
-
 const {replaceWith, traverse} = operator;
 
 const {
@@ -9,7 +8,7 @@ const {
     ThrowStatement,
 } = types;
 
-module.exports.report = () => 'Async functions should be used instead of new Promise';
+module.exports.report = () => `Async functions should be used instead of 'new Promise()'`;
 
 module.exports.replace = () => ({
     'return new Promise(__a)'({__a}, path) {
@@ -31,7 +30,7 @@ module.exports.replace = () => ({
                     replaceWith(resolvePath.parentPath, ReturnStatement(node));
             },
             'resolve()': (resolvePath) => {
-                if (scope === resolvePath.scope.getFunctionParent())
+                if (scope === resolvePath.scope?.getFunctionParent())
                     resolvePath.parentPath.remove();
             },
             'resolve': (path) => {

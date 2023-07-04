@@ -1,3 +1,4 @@
 world();
 
-async function world() {}
+async function world() {
+}

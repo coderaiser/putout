@@ -71,6 +71,6 @@ test('plugin-remove-useless-async: no transform: for await of', (t) => {
 });
 
 test('plugin-remove-useless-async: no transform: noop', (t) => {
-    t.noTransformCode('const a = async () => {};\n');
+    t.noTransformCode('const a = async () => {\n};\n');
     t.end();
 });

@@ -44,3 +44,8 @@ test('plugin-promises: transform: apply-await-import', (t) => {
     t.transform('apply-await-import');
     t.end();
 });
+
+test('plugin-promises: transform: convert-new-promise-to-async', (t) => {
+    t.transform('convert-new-promise-to-async');
+    t.end();
+});

@@ -4,4 +4,5 @@ module.exports = (config) => {
     }).catch(next);
 };
 
-async function route() {};
+async function route() {
+};

@@ -2,4 +2,5 @@ async function fn() {
     await runCli();
 }
 
-async function runCli() {}
+async function runCli() {
+}
