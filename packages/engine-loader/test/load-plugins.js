@@ -3,18 +3,15 @@
 const Module = require('module');
 
 const {test, stub} = require('supertape');
-
 const tryCatch = require('try-catch');
 const mockRequire = require('mock-require');
 const putout = require('putout');
 const montag = require('montag');
 
 const {readFixtures} = require('./fixture');
-
 const {loadPlugins, babelPlugin} = require('..');
 
 const {reRequire, stopAll} = mockRequire;
-
 const fixture = readFixtures([
     'shebang',
     'shebang-fix',
@@ -59,7 +56,7 @@ test('putout: loader: user plugin', (t) => {
     stopAll();
     Module._findPath = _findPath;
     
-    t.equal(code, '');
+    t.equal(code, '\n');
     t.end();
 });
 
@@ -91,7 +88,7 @@ test('putout: loader: function', (t) => {
     
     stopAll();
     
-    t.equal(code, '');
+    t.equal(code, '\n');
     t.end();
 });
 
@@ -116,7 +113,7 @@ test('putout: loader: function: rules', (t) => {
     
     stopAll();
     
-    t.equal(code, '');
+    t.equal(code, '\n');
     t.end();
 });
 
@@ -140,7 +137,7 @@ test('putout: loader: disabled rule', (t) => {
     
     stopAll();
     
-    t.equal(code, `const t = 'hello'`);
+    t.equal(code, `const t = 'hello';\n`);
     t.end();
 });
 
@@ -186,7 +183,7 @@ test('putout: loader: plugins: array', (t) => {
     
     stopAll();
     
-    t.equal(code, `const t = 'hello'`);
+    t.equal(code, `const t = 'hello';\n`);
     t.end();
 });
 
@@ -341,7 +338,6 @@ test('putout: loader: babelPlugins: no message: first options', (t) => {
     
     const {places} = putout(fixture.babelPlugin, {
         fix: false,
-        recast: true,
         rules: {
             'babel/transform-inline-consecutive-adds': [{}],
         },
@@ -450,7 +446,7 @@ test('putout: loader: enable part of rule', (t) => {
         plugins: ['convert-commonjs-to-esm'],
     });
     
-    const expected = `import {run} from 'madrun';`;
+    const expected = `import {run} from 'madrun';\n`;
     
     t.equal(code, expected, 'should enable one of rules in plugin');
     t.end();
@@ -514,8 +510,8 @@ test('putout: loader: declcarator', (t) => {
     });
     
     const expected = montag`
-        const isString = a => typeof a === 'string';
-        isString('hello')
+        const isString = (a) => typeof a === 'string';
+        isString('hello');\n
     `;
     
     t.equal(code, expected);
@@ -549,7 +545,7 @@ test('putout: loader: namespace', (t) => {
         plugins: ['@putout/plugin-convert-commonjs-to-esm'],
     });
     
-    const expected = `import {run} from 'madrun';`;
+    const expected = `import {run} from 'madrun';\n`;
     
     t.equal(code, expected, 'should enable one of rules in plugin');
     t.end();

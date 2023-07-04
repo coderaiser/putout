@@ -32,11 +32,16 @@ module.exports = (name, namespace) => {
 const getPlugin = ({name, transform, message}) => ({
     report: () => message,
     fix: () => {},
-    
     find(ast, {push}) {
-        const oldCode = print(ast);
+        const oldCode = print(ast, {
+            printer: 'putout',
+        });
+        
         transform(ast, oldCode, name);
-        const newCode = print(ast);
+        
+        const newCode = print(ast, {
+            printer: 'putout',
+        });
         
         if (newCode === oldCode)
             return;
