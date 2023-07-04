@@ -1,7 +1,4 @@
-const {
-    test,
-    stub
-} = require('supertape');
+const {test, stub} = require('supertape');
 
 test('', (t) => {
     const a = stub();

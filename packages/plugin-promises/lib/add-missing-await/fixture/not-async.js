@@ -2,5 +2,4 @@ function run() {
     runCli();
 }
 
-function runCli() {
-}
+function runCli() {}

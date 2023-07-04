@@ -1,7 +1,6 @@
 if (a > b) {
-  if (2 < 3)
-    console.log('hi');
+    if (2 < 3)
+        console.log('hi');
 } else {
-  console.log('world');
+    console.log('world');
 }
-

@@ -4,5 +4,4 @@ async function run() {
     ]);
 }
 
-async function runCli() {
-}
+async function runCli() {}

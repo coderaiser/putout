@@ -1,2 +1,1 @@
-if (array.includes(a)) {
-}
+if (array.includes(a)) {}

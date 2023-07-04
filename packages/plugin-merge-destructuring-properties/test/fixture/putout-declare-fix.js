@@ -1,7 +1,7 @@
 const {
     types,
     operator,
-    template
+    template,
 } = require('putout');
 
 const {compare, traverse} = operator;

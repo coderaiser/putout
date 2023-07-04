@@ -3,7 +3,6 @@ function parse(params) {
         panel,
         history,
         noCurrent,
-        currentName
+        currentName,
     } = params;
 }
-

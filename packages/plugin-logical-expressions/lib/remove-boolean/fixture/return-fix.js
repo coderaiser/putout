@@ -3,5 +3,4 @@ function isJson(str) {
         return Boolean(JSON.parse(str));
     } catch (ex) {
         return false;
-    }
-}
+    }}

@@ -1,19 +1,12 @@
 const item = getItem();
 
-const {
-    username,
-    password
-} = item;
+const {username, password} = item;
 
 function hello() {
     const item = {
         username: 'hello',
-        password: 'world'
+        password: 'world',
     };
-
-    const {
-        username,
-        password
-    } = item;
+    
+    const {username, password} = item;
 }
-

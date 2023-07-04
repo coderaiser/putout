@@ -1,9 +1,7 @@
 await hello();
 
-async function hello() {
-}
+async function hello() {}
 
 world();
 
-function world() {
-}
+function world() {}
