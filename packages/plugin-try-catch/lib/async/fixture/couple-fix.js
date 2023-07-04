@@ -10,4 +10,3 @@ try {
     // @ts-ignore
     expect(error.message).toMatch('No package name provided in package.json');
 }
-

@@ -1,4 +1,3 @@
 module.exports.traverse = ({push}) => ({
-    ObjectExpression(path) {
-    }
+    ObjectExpression(path) {},
 });

@@ -88,10 +88,6 @@ const isSimpleArgs = (path) => {
 };
 
 function hasComments(path) {
-    const {comments} = path.node;
-    
-    if (!comments)
-        return false;
-    
-    return comments.length;
+    const {leadingComments} = path.node;
+    return leadingComments?.length;
 }

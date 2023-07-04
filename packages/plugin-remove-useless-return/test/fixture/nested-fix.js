@@ -1,6 +1,5 @@
-const a = (b) => c => x(e, 'f');
+const a = (b) => (c) => x(e, 'f');
 
 const m = (b) => (c) => {
-    return x(e, 'f', {
-    });
+    return x(e, 'f', {});
 };

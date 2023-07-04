@@ -1,4 +1,3 @@
 export const traverse = ({push}) => ({
-    ObjectExpression: (path) => {
-    }
+    ObjectExpression: (path) => {},
 });

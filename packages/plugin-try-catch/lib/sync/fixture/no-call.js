@@ -5,4 +5,3 @@ try {
 } catch (e) {
     // swallow as changing branches can leave folders around
 }
-

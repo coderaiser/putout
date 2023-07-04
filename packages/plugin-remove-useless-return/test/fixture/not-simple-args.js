@@ -1,4 +1,3 @@
 const a = () => {
-    return b.replace('x', {
-    });
-}
+    return b.replace('x', {});
+};

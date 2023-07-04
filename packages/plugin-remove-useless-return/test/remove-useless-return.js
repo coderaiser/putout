@@ -4,6 +4,7 @@ const {createTest} = require('@putout/test');
 const removeUselessReturn = require('..');
 
 const test = createTest(__dirname, {
+    printer: 'putout',
     plugins: [
         ['remove-useless-return', removeUselessReturn],
     ],
