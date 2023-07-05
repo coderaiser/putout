@@ -2191,11 +2191,11 @@ Now you have ability to define `printer` you want, it can be:
 - ✅[`babel`](https://babeljs.io/docs/babel-generator)
 - ✅[`recast`](https://github.com/putoutjs/recast)
 
-If you want to try brand new `@putout/printer` update `.putout.json` with:
+`@putout/printer` used by default, if you want set any other update `.putout.json` with:
 
 ```json
 {
-    "printer": "putout"
+    "printer": "recast"
 }
 ```
 
