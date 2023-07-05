@@ -1,3 +1,9 @@
+2023.07.05, v30.0.1
+
+feature:
+- 193b30bd3 package: @putout/plugin-promises v11.0.0
+- c77ac8e69 @putout/plugin-promises: drop support of 🐊 < 30
+
 2023.07.05, v30.0.0
 
 feature:
