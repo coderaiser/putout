@@ -27,7 +27,7 @@
     "@babel/traverse": "^7.12.7",
     "@babel/types": "^7.12.7",
     "@putout/compare": "^10.0.0",
-    "@putout/engine-parser": "^6.0.0",
+    "@putout/engine-parser": "^7.0.0",
     "@putout/operate": "^8.0.0",
     "@putout/operator-declare": "^5.0.0",
     "debug": "^4.1.1",

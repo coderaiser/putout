@@ -103,10 +103,7 @@ test('putout: runner: replace: __object', (t) => {
     const convert = {
         report: () => '',
         replace: () => ({
-            __object: ({__object}) => {
-                const code = print(__object);
-                return `(${code})`;
-            },
+            __object: ({__object}) => print(__object),
         }),
     };
     
