@@ -29,7 +29,7 @@
     "@putout/compare": "^11.0.0",
     "@putout/engine-parser": "^7.0.0",
     "@putout/operate": "^8.0.0",
-    "@putout/operator-declare": "^5.0.0",
+    "@putout/operator-declare": "^6.0.1",
     "debug": "^4.1.1",
     "jessy": "^3.0.0",
     "nessy": "^4.0.0",
