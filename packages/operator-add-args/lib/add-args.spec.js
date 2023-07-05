@@ -55,13 +55,9 @@ test('putout: operator: add-args', (t) => {
     });
     
     const expected = montag`
-        test('', (
-            {
-                compare
-            }
-        ) => {
+        test('', ({compare}) => {
             compare(a, b);
-        });
+        });\n
     `;
     
     t.equal(code, expected);
@@ -93,21 +89,13 @@ test('putout: operator: add-args: a couple patterns', (t) => {
     });
     
     const expected = montag`
-        test('', (
-            {
-                compare
-            }
-        ) => {
+        test('', ({compare}) => {
             compare(a, b);
         });
         
-        test.only('', (
-            {
-                compare
-            }
-        ) => {
+        test.only('', ({compare}) => {
             compare(a, b);
-        });
+        });\n
     `;
     
     t.equal(code, expected);
@@ -136,7 +124,7 @@ test('putout: operator: add-args: when argument already exist', (t) => {
         test('', ({compare, comparePlaces}) => {
             compare(a, b);
             comparePlaces(a, b);
-        });
+        });\n
     `;
     
     t.equal(code, expected);
@@ -161,11 +149,9 @@ test('putout: operator: add-args: rename', (t) => {
     });
     
     const expected = montag`
-        test('', ({
-            compare: superCompare
-        }) => {
+        test('', ({compare: superCompare}) => {
             superCompare(a, b);
-        });
+        });\n
     `;
     
     t.equal(code, expected);
@@ -180,7 +166,7 @@ test('putout: operator: add-args: identifier', (t) => {
     const source = montag`
         test('', () => {
             t.end();
-        });
+        });\n
     `;
     
     const {code} = putout(source, {
@@ -190,9 +176,9 @@ test('putout: operator: add-args: identifier', (t) => {
     });
     
     const expected = montag`
-        test('', t => {
+        test('', (t) => {
             t.end();
-        });
+        });\n
     `;
     
     t.equal(code, expected);
@@ -205,7 +191,7 @@ test('putout: operator: add-args: options', (t) => {
     const source = montag`
         test('', () => {
             t.end();
-        });
+        });\n
     `;
     
     const {code} = putout(source, {
@@ -222,9 +208,9 @@ test('putout: operator: add-args: options', (t) => {
     });
     
     const expected = montag`
-        test('', t => {
+        test('', (t) => {
             t.end();
-        });
+        });\n
     `;
     
     t.equal(code, expected);
@@ -239,7 +225,7 @@ test('putout: operator: add-args: has binding', (t) => {
     const source = montag`
         test('', (t) => {
             t.end();
-        });
+        });\n
     `;
     
     const {code} = putout(source, {
@@ -260,7 +246,7 @@ test('putout: operator: add-args: wrong place', (t) => {
     const source = montag`
         const a = () => {
             t();
-        };
+        };\n
     `;
     
     const {code} = putout(source, {
@@ -284,8 +270,8 @@ test('putout: operator: add-args: arg exist', (t) => {
         module.exports.traverse = () => ({
             '__a.replace(/__b/g, __c)': (path, {push}) => {
                 push(path);
-            }
-        });
+            },
+        });\n
     `;
     
     const {code} = putout(source, {
@@ -304,7 +290,7 @@ test('putout: operator: add-args: not a function', (t) => {
     };
     
     const source = montag`
-        t();
+        t();\n
     `;
     
     const {code} = putout(source, {
@@ -335,14 +321,9 @@ test('putout: operator: add-args: second', (t) => {
     });
     
     const expected = montag`
-        module.exports.VariableDeclaration = (
-            path,
-            {
-                indent
-            }
-        ) => {
+        module.exports.VariableDeclaration = (path, {indent}) => {
             indent.inc();
-        };
+        };\n
     `;
     
     t.equal(code, expected);
@@ -368,12 +349,9 @@ test('putout: operator: add-args: property', (t) => {
     });
     
     const expected = montag`
-        module.exports.VariableDeclaration = (path, {
-            print,
-            maybe
-        }) => {
+        module.exports.VariableDeclaration = (path, {print, maybe}) => {
             maybe.indent(is);
-        };
+        };\n
     `;
     
     t.equal(code, expected);
@@ -401,14 +379,11 @@ test('putout: operator: add-args: nested block', (t) => {
     });
     
     const expected = montag`
-        module.exports.VariableDeclaration = (path, {
-            print,
-            maybe
-        }) => {
+        module.exports.VariableDeclaration = (path, {print, maybe}) => {
             if (a) {
                 maybe.indent(is);
             }
-        };
+        };\n
     `;
     
     t.equal(code, expected);
@@ -436,16 +411,11 @@ test('putout: operator: add-args: MemberExpression', (t) => {
     });
     
     const expected = montag`
-        module.exports.VariableDeclaration = (
-            path,
-            {
-                maybe
-            }
-        ) => {
+        module.exports.VariableDeclaration = (path, {maybe}) => {
             if (a) {
                 maybe.print.newline(is);
             }
-        };
+        };\n
     `;
     
     t.equal(code, expected);
@@ -461,7 +431,7 @@ test('putout: operator: add-args: AssignmentExpression: no', (t) => {
         module.exports.VariableDeclaration = (path) => {
             const {PUTOUT_PROGRESS_BAR} = process.env;
             const {stderr} = process;
-        };
+        };\n
     `;
     
     const {code} = putout(source, {
@@ -483,7 +453,7 @@ test('putout: operator: add-args: AssignmentExpression', (t) => {
     const source = montag`
         module.exports.VariableDeclaration = (path) => {
             process.env.PUTOUT_PROGRESS_BAR = '0';
-        };
+        };\n
     `;
     
     const {code} = putout(source, {
@@ -496,7 +466,7 @@ test('putout: operator: add-args: AssignmentExpression', (t) => {
     const expected = montag`
         module.exports.VariableDeclaration = (path) => {
             process.env.PUTOUT_PROGRESS_BAR = '0';
-        };
+        };\n
     `;
     
     t.equal(code, expected);
@@ -511,7 +481,7 @@ test('putout: operator: add-args: no transform UnaryExpression', (t) => {
     const source = montag`
         module.exports.VariableDeclaration = (path) => {
             delete process.env.PUTOUT_PROGRESS_BAR;
-        };
+        };\n
     `;
     
     const {code} = putout(source, {
@@ -531,12 +501,9 @@ test('putout: operator: add-args: FunctionDeclaration', (t) => {
     };
     
     const source = montag`
-        function BinaryExpression(path, {
-            print,
-            maybe,
-        }) {
+        function BinaryExpression(path, {print, maybe}) {
             maybe.print(isLogical, '(');
-        }
+        }\n
     `;
     
     const {code} = putout(source, {
