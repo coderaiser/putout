@@ -13,4 +13,5 @@ module.exports = [
     'exportDefaultFrom',
     'throwExpressions',
     'recordAndTuple',
+    'explicitResourceManagement',
 ];

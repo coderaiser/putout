@@ -6,6 +6,15 @@ const generate = require('./generate');
 const babel = require('./parsers/babel');
 const print = require('./print');
 
+test('putout: engina-parser: using', (t) => {
+    const source = 'await using obj = g();\n';
+    const ast = parse(source);
+    const code = print(ast);
+    
+    t.equal(code, source);
+    t.end();
+});
+
 test('putout: engina-parser: parse + generate = sourcemap', (t) => {
     const source = `const hello = 'world';`;
     
