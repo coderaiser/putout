@@ -584,7 +584,7 @@ test('putout: transform', (t) => {
     });
     
     const result = putout.print(ast);
-    const expected = fixture.commentFix + '\n';
+    const expected = fixture.commentFix;
     
     t.deepEqual(result, expected);
     t.end();
