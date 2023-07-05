@@ -6,9 +6,6 @@ const obj = {
     c: 3,
 };
 
-const {
-    b
-} = obj;
+const {b} = obj;
 
 console.log(b);
-

@@ -1,9 +1,6 @@
-module.exports = () => {
-};
+module.exports = () => {};
 
-module.exports = ({
-    link = {},
-} = {}) => {
+module.exports = ({link = {}} = {}) => {
     return {
         link,
     };
@@ -18,10 +15,10 @@ terminal.on('key', (char, {absent} = {}) => {
     return absent;
 });
 
-const getParser = parser => ({
+const getParser = (parser) => ({
     parse(source) {
         return parser(source);
-    }
+    },
 });
 
 getParser();

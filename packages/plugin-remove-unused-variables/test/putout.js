@@ -65,7 +65,7 @@ test('remove-unused-variables: putout: no vars', (t) => {
     const result = putout(fixture.noVars);
     
     const expected = {
-        code: '',
+        code: '\n',
         places: [],
     };
     
@@ -99,7 +99,7 @@ test('remove-unused-variables: putout: assignment pattern', (t) => {
 
 test('remove-unused-variables: putout: arrow vars', (t) => {
     const {code} = putout(fixture.arrowVars);
-    const expected = '\n\n';
+    const expected = '\n';
     
     t.equal(code, expected);
     t.end();
@@ -163,7 +163,7 @@ test('remove-unused-variables: putout: fn destr args vars', (t) => {
 
 test('remove-unused-variables: putout: return statement', (t) => {
     const {code} = putout(fixture.returnStatement);
-    const expected = '\n\n';
+    const expected = '\n';
     
     t.equal(code, expected);
     t.end();
@@ -253,7 +253,9 @@ test('remove-unused-variables: putout: exports', (t) => {
 });
 
 test('remove-unused-variables: putout: comments', (t) => {
-    const {code} = putout(fixture.comments);
+    const {code} = putout(fixture.comments, {
+        printer: 'recast',
+    });
     const expected = fixture.commentsFix;
     
     t.equal(code, expected);

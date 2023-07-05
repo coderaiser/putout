@@ -5,4 +5,3 @@ const [c] = array;
 console.log(c);
 
 const [] = array;
-

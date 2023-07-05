@@ -5,4 +5,3 @@ fs.realpath = (name, fn) => {
 };
 
 f3({}, 2);
-

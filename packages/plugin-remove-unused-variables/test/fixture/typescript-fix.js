@@ -1,10 +1,5 @@
-export interface IInputHandlingTerminal {
-}
-
+export interface IInputHandlingTerminal {}
 export class Lines {
-    toString() {
-  }
+    toString() {}
 }
-
-export class Viewport implements IViewport {
-}
+export class Viewport implements IViewport {}

@@ -298,7 +298,7 @@ test('putout: use strict: no fix', (t) => {
 });
 
 test('putout: traverse: shebang', (t) => {
-    const addVar = {
+    const findDebugger = {
         report: () => '',
         fix: stub(),
         include: () => ['debugger'],
@@ -311,12 +311,12 @@ test('putout: traverse: shebang', (t) => {
     
     const {places} = putout(code, {
         plugins: [{
-            'add-variable': addVar,
+            'find-debugger': findDebugger,
         }],
     });
     
     const expected = [{
-        rule: 'add-variable',
+        rule: 'find-debugger',
         message: '',
         position: {
             line: 2,
@@ -519,7 +519,7 @@ test('putout: babelPlugins: position: shebang', (t) => {
         rule: 'babel/transform-inline-consecutive-adds',
         message: 'transform inline consecutive adds',
         position: {
-            line: 2,
+            line: 4,
             column: 0,
         },
     }];
@@ -544,7 +544,7 @@ test('putout: babelPlugins: custom message', (t) => {
         rule: 'babel/transform-inline-consecutive-adds',
         message,
         position: {
-            line: 2,
+            line: 4,
             column: 0,
         },
     }];
