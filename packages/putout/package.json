@@ -52,7 +52,7 @@
     "@putout/cli-ruler": "^3.0.0",
     "@putout/cli-staged": "^1.0.0",
     "@putout/cli-validate-args": "^1.0.0",
-    "@putout/compare": "^10.0.0",
+    "@putout/compare": "^11.0.0",
     "@putout/engine-loader": "^9.0.0",
     "@putout/engine-parser": "^7.0.0",
     "@putout/engine-processor": "^7.0.0",
