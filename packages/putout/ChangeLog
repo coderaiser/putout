@@ -1,3 +1,23 @@
+2023.07.05, v30.0.0
+
+feature:
+- 57c5aef40 @putout/test: processor: add ability to pass printer
+- 40fa46cc0 @putout/plugin-promises: enable convert-new-promise-to-async
+- 7875b0233 putout: use @putout/printer by default
+- 8fc9dd688 package: cosmiconfig v8.2.0
+- 9f1749ad3 package: hermes-parser v0.12.1
+- 0ff502529 package: c8 v8.0.0
+- 44f032f72 package: find-cache-dir v4.0.0
+- 9038588c6 @putout/plugin-declare-before-reference: use @putout/printer
+- 6d3f961dd @putout/plugin-npmignore: use @putout/printer
+- 74726fa72 @putout/plugin-declare: use @putout/printer
+- 652ffb21c @putout/test: noTransformWithOptions: UPDATE
+- 23858f1b7 @putout/plugin-minify: convert-array-from-to-spread: add (coderaiser/minify#107)
+- d576f572a @putout/plugin-minify: convert-if-to-logical: improve support of generators (coderaiser/minify#108)
+- a21a45e2a scripts: printer: remove drop
+- bbae438d0 @putout/plugin-remove-empty: pattern: FunctionExpression: async: add
+- e84a46600 @putout/cli-staged: add support of renamed files
+
 2023.06.15, v29.15.0
 
 feature:
