@@ -22,7 +22,7 @@ test('operate: getExportDefault', (t) => {
     });
     
     const result = print(ast);
-    const expected = '';
+    const expected = '\n';
     
     t.equal(result, expected);
     t.end();

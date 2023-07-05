@@ -1,4 +1,5 @@
 async function get() {
     {
-        if (a > b) {}    }
+        if (a > b) {}
+    }
 }

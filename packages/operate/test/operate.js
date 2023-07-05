@@ -7,6 +7,10 @@ const montag = require('montag');
 const operate = require('..');
 const {readFixtures} = require('./fixture');
 
+const RECAST = {
+    printer: 'recast',
+};
+
 const {
     traverse,
     parse,
@@ -496,12 +500,11 @@ test('operate: replaceWithMultiple: to expressions', (t) => {
     const expected = [
         `hello;`,
         `'world';`,
-        `a, b;`,
+        `(a, b);`,
         `hello();`,
-        ``,
         `({`,
-        `  'a': 'b'`,
-        `});`,
+        `    'a': 'b',`,
+        `});\n`,
     ].join('\n');
     
     t.equal(result, expected);
@@ -524,12 +527,12 @@ test('operate: replaceWithMultiple: to expressions: ignore', (t) => {
     
     const result = print(ast);
     
-    const expected = [
-        `const t = {`,
-        `  'a': 'b',`,
-        `  'c': 'd'`,
-        `}`,
-    ].join('\n');
+    const expected = montag`
+        const t = {
+            'a': 'b',
+            'c': 'd',
+        };\n
+    `;
     
     t.equal(result, expected);
     t.end();
@@ -552,7 +555,7 @@ test('operate: remove', (t) => {
     
     const expected = montag`
         // hello
-        x = 2;
+        x = 2;\n
     `;
     
     t.equal(result, expected);
@@ -563,7 +566,7 @@ test('operate: remove: empty', (t) => {
     const ast = parse(montag`
         // hello
         var a = 1;
-    `);
+    `, RECAST);
     
     traverse(ast, {
         VariableDeclaration(path) {
@@ -571,7 +574,7 @@ test('operate: remove: empty', (t) => {
         },
     });
     
-    const result = print(ast);
+    const result = print(ast, RECAST);
     
     const expected = montag`
         // hello
@@ -586,7 +589,7 @@ test('operate: remove: VariableDeclarator', (t) => {
     const ast = parse(montag`
         // hello
         var a = 1;
-    `);
+    `, RECAST);
     
     traverse(ast, {
         VariableDeclarator(path) {
@@ -594,7 +597,7 @@ test('operate: remove: VariableDeclarator', (t) => {
         },
     });
     
-    const result = print(ast);
+    const result = print(ast, RECAST);
     
     const expected = montag`
         // hello
@@ -622,7 +625,7 @@ test('operate: remove: VariableDeclarator: a couple', (t) => {
     
     const expected = montag`
         // hello
-        var b = 2;
+        var b = 2;\n
     `;
     
     t.equal(result, expected);
@@ -649,7 +652,8 @@ test('operate: getPathAfterImports', (t) => {
     
     const expected = montag`
         import {readFile} from 'fs/promises';
-        const x = 5;
+        
+        const x = 5;\n
     `;
     
     t.equal(result, expected);
@@ -678,7 +682,8 @@ test('operate: getPathAfterImports: couple imports', (t) => {
     const expected = montag`
         import {readFile} from 'fs/promises';
         import {join} from 'path';
-        const x = 5;
+        
+        const x = 5;\n
     `;
     
     t.equal(result, expected);
@@ -882,7 +887,7 @@ test('putout: operate: remove: ArrayPattern', (t) => {
     });
     
     const result = print(ast);
-    const expected = 'const [, b] = c;';
+    const expected = 'const [, b] = c;\n';
     
     t.equal(result, expected);
     t.end();
@@ -899,7 +904,7 @@ test('putout: operate: remove: ArrayPattern: second', (t) => {
     });
     
     const result = print(ast);
-    const expected = 'const [a] = c;';
+    const expected = 'const [a] = c;\n';
     
     t.equal(result, expected);
     t.end();
@@ -923,7 +928,7 @@ test('putout: operate: renameProperty', (t) => {
     });
     
     const result = print(ast);
-    const expected = 'const {a, world} = c;';
+    const expected = 'const {a, world} = c;\n';
     
     t.equal(result, expected);
     t.end();
