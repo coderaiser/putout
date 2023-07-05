@@ -1,3 +1,28 @@
+2023.07.05, v30.0.2
+
+feature:
+- df1157183 package: @putout/traverse v7.0.0
+- a2c5dd3b4 package: @putout/operator-declare v6.0.1
+- 216ac14b1 package: @putout/operator-declare v6.0.1
+- b00932964 @putout/operator-declare: drop support of 🐊 < 30
+- dca08be14 package: @putout/engine-parser v7.0.0
+- 92f16e9d5 package: @putout/operator-add-args v5.0.0
+- bc413cbab package: @putout/engine-parser v7.0.0
+- d041537e1 @putout/operator-add-args: drop support of 🐊 < 30
+- dc709ddc9 package: @putout/engine-runner v17.0.0
+- 0b9150e9b package: @putout/compare v11.0.0
+- 932bdd0f5 package: @putout/compare v11.0.0
+- eac3c05e3 package: @putout/compare v11.0.0
+- 4ea8a0616 package: @putout/compare v11.0.0
+- 1506b30d6 package: @putout/compare v11.0.0
+- d854492cc package: @putout/engine-parser v7.0.0
+- b36c50245 package: @putout/engine-parser v7.0.0
+- f7111df33 package: @putout/engine-parser v7.0.0
+- 059bc4f7c package: @putout/engine-parser v7.0.0
+- 642d38cb5 package: @putout/engine-parser v7.0.0
+- 5f5056621 package: hermes-parser v0.14.0
+- 3f47af6fa @putout/engine-parser: use @putout/printer by default
+
 2023.07.05, v30.0.1
 
 feature:
