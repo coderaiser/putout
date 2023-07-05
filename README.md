@@ -2187,9 +2187,9 @@ When you need to ignore some routes no matter what, you can use `ignore` section
 
 Now you have ability to define `printer` you want, it can be:
 
+- ✅[`putout`](https://github.com/putoutjs/putout) (*default*)
 - ✅[`babel`](https://babeljs.io/docs/babel-generator)
-- ✅[`recast`](https://github.com/putoutjs/recast) (default)
-- ✅[`putout`](https://github.com/putoutjs/putout)
+- ✅[`recast`](https://github.com/putoutjs/recast)
 
 If you want to try brand new `@putout/printer` update `.putout.json` with:
 
