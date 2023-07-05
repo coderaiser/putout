@@ -1962,7 +1962,7 @@ It has a lot plugins divided by groups:
 |--------|-------|
 | [`@putout/plugin-simplify-assignment`](/packages/plugin-simplify-assignment#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-assignment.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-assignment) |
 | [`@putout/plugin-simplify-ternary`](/packages/plugin-simplify-ternary#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-ternary.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-ternary) |
-| [`@putout/plugin-simplify-boolearn-return`](/packages/plugin-simplify-boolearn-return#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-boolearn-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-boolearn-return) |
+| [`@putout/plugin-simplify-boolean-return`](/packages/plugin-simplify-boolean-return#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-simplify-boolean-return.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-simplify-boolean-return) |
 
 ### Declarators
 
