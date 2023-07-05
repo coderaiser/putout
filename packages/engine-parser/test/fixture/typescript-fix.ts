@@ -1,5 +1,4 @@
-export interface IInputHandlingTerminal {
-}
+export interface IInputHandlingTerminal {}
 export class Lines {
     toString() {}
 }

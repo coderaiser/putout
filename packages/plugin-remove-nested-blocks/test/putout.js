@@ -17,7 +17,7 @@ test('putout: plugin: remove-nested-blocks: remove-empty', (t) => {
         ],
     });
     
-    const expected = 'export default () => {}';
+    const expected = 'export default () => {};\n';
     
     t.equal(code, expected);
     t.end();
