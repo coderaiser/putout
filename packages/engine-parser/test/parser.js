@@ -242,6 +242,7 @@ test('putout: parser: babel: record', (t) => {
     const code = print(node, {
         printer: 'babel',
     });
+    
     const expected = fixture.babelRecord;
     
     t.equal(`${code}\n`, expected);

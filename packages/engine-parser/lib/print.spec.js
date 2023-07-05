@@ -46,6 +46,7 @@ test('putout: parser: print: balanced braces', (t) => {
     const ast = parse(source, {
         printer: 'recast',
     });
+    
     const result = print(ast, {
         printer: 'recast',
     });
@@ -71,6 +72,7 @@ test('putout: parser: print: balanced braces: string', (t) => {
     const ast = parse(source, {
         printer: 'recast',
     });
+    
     const result = print(ast, {
         printer: 'recast',
     });
