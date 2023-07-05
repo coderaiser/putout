@@ -9,5 +9,6 @@ Run scripts by a name or regexp parallel.
 
 ```js
 const a = 5;
+
 log(a);
 ```

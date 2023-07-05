@@ -13,6 +13,7 @@ module.exports = () => {
 
 ```tsx
 const a = 5;
+
 log(a);
 
 module.exports = () => {
