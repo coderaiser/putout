@@ -12,7 +12,7 @@ const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.ts`), '
 
 const ruleTester = new RuleTester({
     parserOptions: {
-        ecmaVersion: 2022,
+        ecmaVersion: 2023,
     },
 });
 
@@ -40,7 +40,7 @@ ruleTester.run('putout', rule, {
         }],
     invalid: [{
         code: `const m = 'hi'`,
-        output: '',
+        output: '\n',
         errors: [{
             message: `'m' is defined but never used (remove-unused-variables)`,
         }],
@@ -51,7 +51,7 @@ ruleTester.run('putout', rule, {
                 'strict-mode': 'on',
             },
         }],
-        output: `'use strict';`,
+        output: `'use strict';\n`,
         errors: [{
             message: `'use strict' directive should be on top of CommonJS (strict-mode/add-missing)`,
         }, {
@@ -72,7 +72,7 @@ ruleTester.run('putout', rule, {
         output: montag`
             // hello
             const t = 'world';
-            log(t);
+            log(t);\n
         `,
         errors: [{
             line: 2,
@@ -99,7 +99,7 @@ const tsParserTester = new RuleTester({
     },
 });
 
-parserTester.run('putout', rule, {
+parserTester.run('putout: typescript', rule, {
     valid: [{
         options: [{
             rules: {
@@ -121,7 +121,7 @@ parserTester.run('putout', rule, {
                 x: Array<X>;
             }
         `,
-        output: '',
+        output: '\n',
         errors: [{
             line: 1,
             column: 1,
@@ -134,7 +134,7 @@ parserTester.run('putout', rule, {
     }],
 });
 
-parserTester.run('putout', rule, {
+parserTester.run('putout: tape', rule, {
     valid: [{
         options: [{
             rules: {
@@ -159,18 +159,16 @@ parserTester.run('putout', rule, {
             import {createMockImport} from 'mock-import';
             const {mockImport} = createMockImport(import.meta.url);
             
-            mockImport('hello', world);
+            mockImport('tape', check);
             await reImport('./index.js');
         `,
         output: montag`
             import {createMockImport} from 'mock-import';
-            const {
-              mockImport,
-              reImport
-            } = createMockImport(import.meta.url);
             
-            mockImport('hello', world);
-            await reImport('./index.js');
+            const {mockImport, reImport} = createMockImport(import.meta.url);
+            
+            mockImport('tape', check);
+            await reImport('./index.js');\n
         `,
         errors: [{
             line: 5,
@@ -189,14 +187,10 @@ parserTester.run('putout', rule, {
         `,
         output: montag`
             parse1({
-                exit(
-                    {
-                        node
-                    }
-                ) {
+                exit({node}) {
                     convertNodeComments(node);
-                }
-            });
+                },
+            });\n
         `,
         errors: [{
             message: `Remove useless variable 'path' (remove-useless-variables/destruct)`,
@@ -234,13 +228,11 @@ parserTester.run('putout', rule, {
         `,
         output: montag`
             import {createMockImport} from 'mock-import';
-            const {
-              mockImport,
-              reImport
-            } = createMockImport(import.meta.url);
+            
+            const {mockImport, reImport} = createMockImport(import.meta.url);
             
             mockImport('hello', world);
-            await reImport('./index.js');
+            await reImport('./index.js');\n
         `,
         errors: [{
             line: 5,
@@ -251,7 +243,7 @@ parserTester.run('putout', rule, {
         code: `a = is() ? a : b`,
         output: montag`
             if (!is())
-              a = b;
+                a = b;\n
         `,
         errors: [{
             line: 1,
@@ -349,8 +341,8 @@ ruleTester.run('putout: declare-before-reference: no loc', rule, {
             const hello = () => 'world'
         `,
         output: montag`
-            const hello = () => 'world'
-            hello()
+            const hello = () => 'world';
+            hello();\n
         `,
         errors: [{
             message: `Declare 'hello' before referencing to avoid 'ReferenceError' (declare-before-reference)`,
