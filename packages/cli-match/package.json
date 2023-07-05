@@ -27,13 +27,15 @@
     "try-catch": "^3.0.0",
     "try-to-catch": "^3.0.0"
   },
-  "keywords": ["putout"],
+  "keywords": [
+    "putout"
+  ],
   "devDependencies": {
     "c8": "^8.0.0",
     "escover": "^3.2.3",
     "eslint": "^8.0.1",
     "eslint-plugin-n": "^16.0.0",
-    "eslint-plugin-putout": "^17.0.0",
+    "eslint-plugin-putout": "^18.0.0",
     "lerna": "^6.0.1",
     "madrun": "^9.0.0",
     "nodemon": "^2.0.1",
