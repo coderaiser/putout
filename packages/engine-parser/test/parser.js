@@ -15,6 +15,7 @@ const {readFixtures} = require('./fixture');
 const {traverse} = putout;
 
 const fixture = readFixtures([
+    'babel-record',
     'export-default-declaration',
     'export-default-declaration-fix',
     'debugger',
@@ -35,6 +36,7 @@ const fixture = readFixtures([
     'no-recast',
     'no-recast-fix',
     'record',
+    'recast-record',
     'strict-mode',
     'strict-mode-fix',
     'destructuring-private',
@@ -235,12 +237,29 @@ test('putout: parser: jsx: not react', (t) => {
     t.end();
 });
 
-test('putout: parser: record', (t) => {
-    const node = parse(fixture.record);
-    const {code} = generate(node);
-    const expected = fixture.record;
+test('putout: parser: babel: record', (t) => {
+    const node = parse(fixture.babelRecord);
+    const code = print(node, {
+        printer: 'babel',
+    });
+    const expected = fixture.babelRecord;
     
     t.equal(`${code}\n`, expected);
+    t.end();
+});
+
+test('putout: parser: recast: record: print', (t) => {
+    const node = parse(fixture.recastRecord, {
+        printer: 'recast',
+    });
+    
+    const code = print(node, {
+        printer: 'recast',
+    });
+    
+    const expected = fixture.recastRecord;
+    
+    t.equal(code, expected);
     t.end();
 });
 
@@ -288,7 +307,9 @@ test('putout: parser: parse: fresh', (t) => {
 });
 
 test('putout: print: recast: object expressions', (t) => {
-    const ast = parse(`(a, b) => ({a: 'b'})`);
+    const ast = parse(`(a, b) => ({a: 'b'})`, {
+        printer: 'recast',
+    });
     
     traverse(ast, {
         Function(path) {
@@ -298,7 +319,9 @@ test('putout: print: recast: object expressions', (t) => {
         },
     });
     
-    const result = print(ast);
+    const result = print(ast, {
+        printer: 'recast',
+    });
     
     const expected = montag`
         b => ({

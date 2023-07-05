@@ -17,7 +17,7 @@ const fixStrictMode = (a) => a.replace(`\n\n\n'use strict'`, `\n\n'use strict'`)
 module.exports = (ast, options = {}) => {
     const {sourceMapName} = options;
     
-    const [printer = 'recast', printerOptions] = maybeArray(options.printer);
+    const [printer = 'putout', printerOptions] = maybeArray(options.printer);
     
     if (printer === 'recast') {
         const printOptions = {

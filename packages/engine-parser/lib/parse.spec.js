@@ -32,14 +32,16 @@ test('putout: engina-parser: parse: sourceFilename passed', (t) => {
     t.end();
 });
 
-test('putout: engina-parser: parse + print = sourcemap', (t) => {
+test('putout: engina-parser: recast: parse + print = sourcemap', (t) => {
     const source = `const hello = 'world';`;
     
     const ast = parse(source, {
+        printer: 'recast',
         sourceFileName: 'hello.js',
     });
     
     const code = print(ast, {
+        printer: 'recast',
         sourceMapName: 'hello.map',
     });
     

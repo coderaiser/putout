@@ -1,3 +1,4 @@
 const record = #{
-    a: "b",
+  a: "b"
 };
+

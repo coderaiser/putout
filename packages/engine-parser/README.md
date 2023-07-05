@@ -23,27 +23,17 @@ Any parser should be installed before use, but you can be sure that `@babel/pars
 
 ## API
 
-You can avoid using [`recast`](https://github.com/putoutjs/recast) and speed up parsing and printing a bit using only Babel using:
+By default [`@putout/printer`](https://github.com/putoutjs/printer) used. It formats code according to [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme) rules but without using **ESLint**.
+
+But you can also use [`recast`](https://github.com/putoutjs/recast) or `babel` with:
 
 ```js
 const ast = parse(source, {
-    printer: 'babel',
+    printer: 'recast',
 });
 
 const code = print(ast, {
-    printer: 'babel',
-});
-```
-
-You can use brand new [`@putout/printer`](https://github.com/putoutjs/printer) which formats code according to [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme) rules but without using **ESLint**.
-
-```js
-const ast = parse(source, {
-    printer: 'putout',
-});
-
-const code = print(ast, {
-    printer: 'putout',
+    printer: 'recast',
 });
 ```
 
@@ -92,10 +82,12 @@ You have two ways to benefit from source map generation:
 const source = `const hello = 'world';`;
 
 const ast = parse(source, {
+    printer: 'recast',
     sourceFileName: 'hello.js',
 });
 
 print(ast, {
+    printer: 'recast',
     sourceMapName: 'hello.map',
 });
 

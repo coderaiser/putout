@@ -35,7 +35,7 @@ test('putout: parser: print: empty', (t) => {
     const source = '';
     const ast = parse(source);
     const result = print(ast);
-    const expected = '';
+    const expected = '\n';
     
     t.equal(result, expected);
     t.end();
@@ -43,8 +43,12 @@ test('putout: parser: print: empty', (t) => {
 
 test('putout: parser: print: balanced braces', (t) => {
     const source = '((a) => fn(42))(value)';
-    const ast = parse(source);
-    const result = print(ast);
+    const ast = parse(source, {
+        printer: 'recast',
+    });
+    const result = print(ast, {
+        printer: 'recast',
+    });
     
     t.equal(result, source);
     t.end();
@@ -64,8 +68,12 @@ test('putout: parser: print: balanced braces: string', (t) => {
         const {b, c} = y;
     `;
     
-    const ast = parse(source);
-    const result = print(ast);
+    const ast = parse(source, {
+        printer: 'recast',
+    });
+    const result = print(ast, {
+        printer: 'recast',
+    });
     
     t.equal(result, source);
     t.end();

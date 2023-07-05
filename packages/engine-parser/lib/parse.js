@@ -7,7 +7,7 @@ const customParser = require('./custom-parser');
 module.exports = (source, options) => {
     const {
         parser,
-        printer = 'recast',
+        printer = 'putout',
         isTS,
         isFlow,
         isJSX,
