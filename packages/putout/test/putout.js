@@ -22,6 +22,8 @@ const fixture = readFixtures([
     'export-default-declaration-fix',
     'shebang',
     'shebang-fix',
+    'shebang-recast',
+    'shebang-recast-fix',
     'shebang-printer',
     'shebang-printer-fix',
     'strict-mode',
@@ -162,6 +164,18 @@ test('putout: shebang', (t) => {
     });
     
     const expected = fixture.shebangFix;
+    
+    t.deepEqual(code, expected);
+    t.end();
+});
+
+test('putout: shebang: recast', (t) => {
+    const {code} = putout(fixture.shebangRecast, {
+        printer: 'recast',
+        plugins: ['remove-unused-variables'],
+    });
+    
+    const expected = fixture.shebangRecastFix;
     
     t.deepEqual(code, expected);
     t.end();

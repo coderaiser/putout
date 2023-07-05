@@ -98,7 +98,7 @@ const createComparePlaces = (dir, options) => (operator) => async (filename, exp
 
 module.exports._createComparePlaces = createComparePlaces;
 
-async function process(filename, dir, {processors, plugins, extension, fix = true, noChange = false, processorRunners}) {
+async function process(filename, dir, {printer, processors, plugins, extension, fix = true, noChange = false, processorRunners}) {
     extension = addDot(extname(filename).slice(1) || extension);
     filename = basename(filename, String(extension));
     
@@ -121,6 +121,7 @@ async function process(filename, dir, {processors, plugins, extension, fix = tru
         fix,
         name: inputName,
         processFile: processFile({
+            printer,
             fix,
         }),
         options,
