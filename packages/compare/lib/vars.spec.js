@@ -50,7 +50,7 @@ test('putout: compare: vars: getTemplateValues', (t) => {
         }],
     });
     
-    const expected = 'for (const item of items) {\n  log(item);\n}';
+    const expected = 'for (const item of items) {\n    log(item);\n}\n';
     
     t.equal(code, expected);
     t.end();
@@ -167,7 +167,7 @@ test('putout: compare: vars: vars: setValues : __args', (t) => {
         }],
     });
     
-    const expected = 'const hello = (a, b, c) => {};';
+    const expected = 'const hello = (a, b, c) => {};\n';
     
     t.equal(code, expected);
     t.end();
@@ -197,7 +197,7 @@ test('putout: compare: vars: vars: __imports', (t) => {
         }],
     });
     
-    const expected = `const {\n  hello\n} = require('world');`;
+    const expected = `const {hello} = require('world');\n`;
     
     t.equal(code, expected);
     t.end();
@@ -218,7 +218,7 @@ test('putout: compare: vars: vars: identifier', (t) => {
         }],
     });
     
-    const expected = 'if (y) fn()';
+    const expected = 'if (y)\n    fn();\n';
     
     t.equal(code, expected);
     t.end();
@@ -241,10 +241,10 @@ test('putout: compare: vars: findVarsWays: __object', (t) => {
     
     const expected = montag`
         fn({
-          a,
-          b,
-          c
-        })
+            a,
+            b,
+            c,
+        });\n
     `;
     
     const {code} = putout(source, {
@@ -266,7 +266,7 @@ test('putout: compare: vars: findVarsWays: jsx: JSXName', (t) => {
     };
     
     const source = '<h1>hello</h1>;';
-    const expected = '<h2>hello</h2>;';
+    const expected = '<h2>hello</h2>;\n';
     
     const {code} = putout(source, {
         plugins: [
@@ -287,7 +287,7 @@ test('putout: compare: vars: findVarsWays: jsx: JSXAttribute', (t) => {
     };
     
     const source = '<h1 className="abc">hello</h1>;';
-    const expected = '<h1 class="abc">hello</h1>;';
+    const expected = '<h1 class="abc">hello</h1>;\n';
     
     const {code} = putout(source, {
         plugins: [
@@ -308,7 +308,7 @@ test('putout: compare: vars: findVarsWays: jsx: children: JSXText', (t) => {
     };
     
     const source = '<h1 className="abc">hello</h1>;';
-    const expected = '<h1 class="abc">hello</h1>;';
+    const expected = '<h1 class="abc">hello</h1>;\n';
     
     const {code} = putout(source, {
         plugins: [
@@ -329,7 +329,7 @@ test('putout: compare: vars: findVarsWays: jsx: attributes', (t) => {
     };
     
     const source = '<div className="abc" name="hello"/>;';
-    const expected = '<span className="abc" name="hello" />;';
+    const expected = '<span className="abc" name="hello"/>;\n';
     
     const {code} = putout(source, {
         plugins: [
@@ -349,8 +349,19 @@ test('putout: compare: vars: findVarsWays: jsx: children', (t) => {
         }),
     };
     
-    const source = '<h1 className="abc"><a>hello</a> <a>world</a></h1>;';
-    const expected = '<h1 class="abc"><a>hello</a> <a>world</a></h1>;';
+    const source = montag`
+        <h1 className="abc">
+            <a>hello</a>
+            <a>world</a>
+        </h1>;
+    `;
+    
+    const expected = montag`
+        <h1 class="abc">
+            <a>hello</a>
+            <a>world</a>
+        </h1>;\n
+    `;
     
     const {code} = putout(source, {
         plugins: [
@@ -371,7 +382,7 @@ test('putout: compare: vars: findVarsWays: jsx: expression', (t) => {
     };
     
     const source = '<h1 className={name}>{hello}</h1>;';
-    const expected = '<h1 className={name}></h1>;';
+    const expected = '<h1 className={name}></h1>;\n';
     
     const {code} = putout(source, {
         plugins: [
@@ -392,7 +403,7 @@ test('putout: compare: vars: __args__a', (t) => {
     };
     
     const input = 'const y = (a, b) => alert(a, b)';
-    const expected = 'const y = alert';
+    const expected = 'const y = alert;\n';
     
     const {code} = putout(input, {
         fixCount: 1,
@@ -421,7 +432,7 @@ test('putout: compare: vars: regexp', (t) => {
     };
     
     const input = `'hello'.replace(/xxx/, 'world');`;
-    const expected = `'hello'.replace('xxx', 'world');`;
+    const expected = `'hello'.replace('xxx', 'world');\n`;
     
     const {code} = putout(input, {
         plugins: [{
@@ -455,7 +466,7 @@ test('putout: compare: vars: "__a"', (t) => {
         }),
     };
     
-    const input = '"hello".replace(/l/g, "x")';
+    const input = '"hello".replace(/l/g, "x");\n';
     
     const {code} = putout(input, {
         fixCount: 1,
@@ -480,7 +491,6 @@ test('putout: compare: vars: `__a`', (t) => {
     };
     
     const input = 'const x = `hello`';
-    
     const {code} = putout(input, {
         fixCount: 1,
         plugins: [{
@@ -488,7 +498,7 @@ test('putout: compare: vars: `__a`', (t) => {
         }],
     });
     
-    const expected = `const x = 'hello';`;
+    const expected = `const x = 'hello';\n`;
     
     t.equal(code, expected);
     t.end();
@@ -508,7 +518,7 @@ test('putout: compare: vars: template literal', (t) => {
         }],
     });
     
-    const expected = '`${a}hello`;';
+    const expected = '`${a}hello`;\n';
     
     t.equal(code, expected);
     t.end();
@@ -528,7 +538,7 @@ test('putout: compare: vars: template literal: raw', (t) => {
         }],
     });
     
-    const expected = '`${a}hello\\``;';
+    const expected = '`${a}hello\\``;\n';
     
     t.equal(code, expected);
     t.end();
@@ -554,7 +564,7 @@ test('putout: compare: vars: EmptyStatement', (t) => {
     });
     
     const expected = montag`
-        a && console.log();
+        a && console.log();\n
     `;
     
     t.equal(code, expected);
@@ -574,8 +584,7 @@ test('putout: compare: vars: EmptyStatement: Statement', (t) => {
     
     const source = montag`
         if (a)
-            if (b) {
-            }
+            if (b) {}\n
     `;
     
     const {code} = putout(source, {
