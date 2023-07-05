@@ -75,6 +75,7 @@ module.exports.traverse = ({push}) => ({
             }
             
             const [transformError, result] = tryCatch(putout, keyCode, {
+                printer: 'putout',
                 fix: true,
                 isTS: true,
                 plugins: [
@@ -97,7 +98,7 @@ module.exports.traverse = ({push}) => ({
                 return;
             }
             
-            const {code} = result;
+            const code = result.code.slice(0, -1);
             const [error, is] = tryCatch(compare, rmSemi(code), template);
             
             if (error || !is)

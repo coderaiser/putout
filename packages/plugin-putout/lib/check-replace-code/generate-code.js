@@ -5,7 +5,6 @@ const tryCatch = require('try-catch');
 const noop = () => {};
 
 const {types, operator} = putout;
-
 const {replaceWith} = operator;
 
 const {
@@ -19,6 +18,7 @@ module.exports = (rootPath, key) => {
     const getVar = createVarStore(rootPath);
     
     const [transformError, result] = tryCatch(putout, key, {
+        printer: 'putout',
         fix: true,
         isTS: true,
         plugins: [
