@@ -18,8 +18,8 @@ test('putout: operator: declare: declare', (t) => {
     });
     
     const expected = montag`
-        import {operator} from 'putout';
-        const {compare} = operator;
+        import {operator} from 'putout';\n
+        const {compare} = operator;\n
     `;
     
     t.equal(code, expected);
@@ -57,8 +57,8 @@ test('putout: operator: declare: declare: spread', (t) => {
     });
     
     const expected = montag`
-        const maybeArray = a => isArray(a) ? a : [a];
-        const a = [...maybeArray(b)];
+        const maybeArray = (a) => isArray(a) ? a : [a];
+        const a = [...maybeArray(b)];\n
     `;
     
     t.equal(code, expected);
@@ -88,15 +88,13 @@ test('putout: operator: declare: declare: variable', (t) => {
     const expected = montag`
         import {operator} from 'putout';
         
-        const {
-            getTemplateValues
-        } = operator;
+        const {getTemplateValues} = operator;
         
         module.exports.traverse = () => ({
             'const __a = __b': (path) => {
                 const {__a} = getTemplateValues(path, 'const __a = __b');
             },
-        });
+        });\n
     `;
     
     t.equal(code, expected);
@@ -126,11 +124,12 @@ test('putout: operator: declare: cache', (t) => {
     
     const expected = montag`
         import {test, stub} from 'supertape';
+        
         test('', (t) => {
             const fn = stub();
             fn();
             t.end();
-        });
+        });\n
     `;
     
     t.equal(secondAttempt, expected);
@@ -150,7 +149,7 @@ test('putout: operator: declare: strict mode', (t) => {
             const fn = stub();
             fn();
             t.end();
-        });
+        });\n
     `;
     
     const {code: secondAttempt} = putout(source, {
@@ -162,13 +161,14 @@ test('putout: operator: declare: strict mode', (t) => {
     
     const expected = montag`
         'use strict';
+        
         import {test, stub} from 'supertape';
         
         test('', (t) => {
             const fn = stub();
             fn();
             t.end();
-        });
+        });\n
     `;
     
     t.equal(secondAttempt, expected);
@@ -188,7 +188,7 @@ test('putout: operator: declare: VariableDeclaration', (t) => {
         await reImport('world');
         
         mockImport('a', b);
-        stopAll();
+        stopAll();\n
     `;
     
     const {code: secondAttempt} = putout(source, {
@@ -200,23 +200,15 @@ test('putout: operator: declare: VariableDeclaration', (t) => {
     const expected = montag`
             import {createMockImport} from 'mock-import';
             
-            const {
-              stopAll
-            } = createMockImport(import.meta.url);
-            
-            const {
-              mockImport
-            } = createMockImport(import.meta.url);
-            
-            const {
-              reImport
-            } = createMockImport(import.meta.url);
+            const {stopAll} = createMockImport(import.meta.url);
+            const {mockImport} = createMockImport(import.meta.url);
+            const {reImport} = createMockImport(import.meta.url);
             
             await reImport('hello');
             await reImport('world');
             
             mockImport('a', b);
-            stopAll();
+            stopAll();\n
     `;
     
     t.equal(secondAttempt, expected);
@@ -234,7 +226,7 @@ test('putout: operator: declare: ImportDeclaration', (t) => {
         
         function hello() {
             assign('xxx');
-        }
+        }\n
     `;
     
     const {code: secondAttempt} = putout(source, {
@@ -246,15 +238,12 @@ test('putout: operator: declare: ImportDeclaration', (t) => {
     const expected = montag`
         import a1 from 'b';
         
-        const {
-            assign
-        } = Object;
-        
+        const {assign} = Object;
         const a = require('x');
         
         function hello() {
             assign('xxx');
-        }
+        }\n
 `;
     
     t.equal(secondAttempt, expected);
@@ -268,11 +257,12 @@ test('putout: operator: declare: dismiss', (t) => {
     
     const source = montag`
         import a1 from 'b';
+        
         const a = require('x');
         
         function hello() {
             assign('xxx');
-        }
+        }\n
     `;
     
     const {code} = putout(source, {
@@ -318,15 +308,12 @@ test('putout: operator: declare: options', (t) => {
     const expected = montag`
         import a1 from 'b';
         
-        const {
-            assign
-        } = Object;
-        
+        const {assign} = Object;
         const a = require('x');
         
         function hello() {
             assign('xxx');
-        }
+        }\n
     `;
     
     t.equal(code, expected);
@@ -358,12 +345,12 @@ test('putout: operator: declare: vars', (t) => {
     });
     
     const expected = montag`
-        const maybeFn = a => isFn(a) ? a : noop;
-        const maybeArray = a => isArray(a) ? a : [a];
+        const maybeFn = (a) => isFn(a) ? a : noop;
+        const maybeArray = (a) => isArray(a) ? a : [a];
         const b = [
             ...maybeArray(a),
             maybeFn(b),
-        ];
+        ];\n
     `;
     
     t.equal(code, expected);
@@ -395,7 +382,7 @@ test('putout: operator: declare: dual: commonjs', (t) => {
     
     const expected = montag`
         const simport = createSimport(__filename);
-        simport('fs');
+        simport('fs');\n
     `;
     
     t.equal(code, expected);
@@ -425,7 +412,7 @@ test('putout: operator: declare: esm for commonjs', (t) => {
     });
     
     const expected = montag`
-        simport('fs');
+        simport('fs');\n
     `;
     
     t.equal(code, expected);
@@ -458,7 +445,7 @@ test('putout: operator: declare: esm for esm', (t) => {
     const expected = montag`
         const simport = createSimport(import.meta.url);
         export const hi = 'world';
-        simport('fs');
+        simport('fs');\n
     `;
     
     t.equal(code, expected);
@@ -491,8 +478,9 @@ test('putout: operator: declare: dual: esm', (t) => {
     
     const expected = montag`
         import {readFile} from 'fs';
+        
         const simport = createSimport(import.meta.url);
-        simport('fs');
+        simport('fs');\n
     `;
     
     t.equal(code, expected);
@@ -520,11 +508,8 @@ test('putout: operator: declare: MemberExpression', (t) => {
     });
     
     const expected = montag`
-        const {
-          __c4
-        } = global;
-        
-        __c4.mark();
+        const {__c4} = global;
+        __c4.mark();\n
     `;
     
     t.equal(code, expected);
@@ -551,8 +536,9 @@ test('putout: operator: declare: imports order', (t) => {
     const expected = montag`
         import {readFile} from 'fs/promises';
         import {operator} from 'putout';
+        
         readFile();
-        operator();
+        operator();\n
     `;
     
     t.equal(code, expected);
@@ -578,9 +564,9 @@ test('putout: operator: declare: vars order', (t) => {
     
     const expected = montag`
         const id = () => a;
-        const not = fn => (...a) => !fn(...a);
+        const not = (fn) => (...a) => !fn(...a);
         const notOK = not(isOK);
-        const a = id('hello');
+        const a = id('hello');\n
     `;
     
     t.equal(code, expected);
@@ -616,7 +602,7 @@ test('putout: operator: declare: require', (t) => {
         async function hello() {
             await fs.readFile(a);
             return process.cwd();
-        }
+        }\n
     `;
     
     t.equal(secondAttempt, expected);
@@ -642,7 +628,8 @@ test('putout: operator: declare: local import', (t) => {
     const expected = montag`
         import {operator} from 'putout';
         import a from './a.js';
-        operator();
+        
+        operator();\n
     `;
     
     t.equal(code, expected);
@@ -679,13 +666,11 @@ test('putout: operator: declare: couple imports', (t) => {
     
     const expected = montag`
         import a from 'a';
-        
         import {operator} from 'putout';
-        
         import {compare} from '@putout/compare';
         
         operator();
-        compare();
+        compare();\n
     `;
     
     t.equal(code, expected);
@@ -709,12 +694,9 @@ test('putout: operator: declare: couple consts', (t) => {
     });
     
     const expected = montag`
-        const {
-          isArray
-        } = Array;
-        
-        const maybeArray = a => isArray(a) ? a : [a];
-        maybeArray(x);
+        const {isArray} = Array;
+        const maybeArray = (a) => isArray(a) ? a : [a];
+        maybeArray(x);\n
     `;
     
     t.equal(code, expected);
@@ -741,11 +723,8 @@ test('putout: operator: declare: merge', (t) => {
     });
     
     const expected = montag`
-       const {
-         join,
-         dirname: dirname
-       } = require('path');
-       join(dirname('/package.json', 'node_modules'));
+       const {join, dirname: dirname} = require('path');
+       join(dirname('/package.json', 'node_modules'));\n
     `;
     
     t.equal(code, expected);
@@ -929,21 +908,15 @@ test('putout: operator: declare: export type: get while find', (t) => {
     });
     
     const expected = montag`
-        const {
-            test: test
-        } = require('supertape');
-        
+        const {test: test} = require('supertape');
         const mockRequire = require('mock-require');
-        
-        const {
-            stopAll
-        } = mockRequire;
+        const {stopAll} = mockRequire;
         
         test('hello', (t) => {
             mockRequire('hello', world);
             stopAll();
             t.end();
-        });
+        });\n
     `;
     
     t.equal(code, expected);
