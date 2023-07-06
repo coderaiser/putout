@@ -26,6 +26,11 @@ module.exports.replace = () => ({
             'resolve(__)': (resolvePath) => {
                 const {node} = resolvePath.get('arguments.0');
                 
+                if (resolvePath.parentPath.parentPath.isExpression()) {
+                    replaceWith(resolvePath, ReturnStatement(node));
+                    return;
+                }
+                
                 if (scope === resolvePath.scope.getFunctionParent())
                     replaceWith(resolvePath.parentPath, ReturnStatement(node));
             },

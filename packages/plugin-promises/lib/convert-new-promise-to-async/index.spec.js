@@ -34,3 +34,8 @@ test('plugin-promises: convert-new-promise-to-async: transform: callback', (t) =
     t.transform('callback');
     t.end();
 });
+
+test('plugin-promises: convert-new-promise-to-async: transform: arrow', (t) => {
+    t.transform('arrow');
+    t.end();
+});
