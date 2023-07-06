@@ -1,6 +1,6 @@
 {
   "name": "putout",
-  "version": "30.0.3",
+  "version": "30.1.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊 Pluggable and configurable code transformer with built-in ESLint, Babel and support of js, jsx, typescript, flow, markdown, yaml and json",
