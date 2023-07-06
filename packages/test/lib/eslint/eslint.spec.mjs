@@ -25,12 +25,12 @@ test('test: eslint: export', async ({equal}) => {
 });
 
 test('test: eslint: process', async ({process}) => {
-    await process('operator-linebreak');
+    await process('process');
 });
 
 test('test: eslint: process: UPDATE', async ({process}) => {
     update(1);
-    await process('operator-linebreak');
+    await process('process');
     update();
 }, NOT_CHECK_ASSERTIONS_COUNT);
 
@@ -40,21 +40,30 @@ test('test: eslint: process: UPDATE: stub', async ({process, calledWith}) => {
     
     global.writeFileSync = writeFileSync;
     
-    await process('operator-linebreak');
+    await process('process');
     
     update();
     delete global.writeFileSync;
     
-    const name = join(__dirname, 'fixture', 'operator-linebreak-fix.js');
+    const name = join(__dirname, 'fixture', 'process-fix.js');
     const data = 'const a = 5;\n\n';
     
     calledWith(writeFileSync, [name, data]);
 }, NOT_CHECK_ASSERTIONS_COUNT);
 
-test('test: eslint: noProcess: UPDATE', async ({noProcess}) => {
+test('test: eslint: noProcess: UPDATE', async ({noProcess, calledWith}) => {
+    const {unlinkSync} = global;
+    const unlinkStub = stub();
+    
+    global.unlinkSync = unlinkStub();
+    
     update(1);
-    await noProcess('operator-linebreak-fix');
+    await noProcess('no-process');
     update();
+    
+    global.unlinkSync = unlinkSync;
+    
+    calledWith(unlinkStub, []);
 }, NOT_CHECK_ASSERTIONS_COUNT);
 
 test('test: eslint: noProcess: UPDATE: stub', async ({noProcess, calledWith}) => {
@@ -63,18 +72,18 @@ test('test: eslint: noProcess: UPDATE: stub', async ({noProcess, calledWith}) =>
     
     global.unlinkSync = unlinkSync;
     
-    await noProcess('operator-linebreak-fix');
+    await noProcess('no-process');
     
     update();
     delete global.unlinkSync;
     
-    const name = join(__dirname, 'fixture', 'operator-linebreak-fix-fix.js');
+    const name = join(__dirname, 'fixture', 'no-process-fix.js');
     
     calledWith(unlinkSync, [name]);
 }, NOT_CHECK_ASSERTIONS_COUNT);
 
 test('test: eslint: noProcess', async ({noProcess}) => {
-    await noProcess('operator-linebreak-fix');
+    await noProcess('no-process');
 });
 
 test('test: eslint: comparePlaces', async ({comparePlaces}) => {

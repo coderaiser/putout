@@ -111,8 +111,8 @@ function createTest(dir, maybeOptions) {
         noReportAfterTransform: noReportAfterTransform(dir, options),
         reportWithOptions: reportWithOptions(dir, options),
         noReportWithOptions: noReportWithOptions(dir, options),
-        reportCode: reportCode(options), //formatSave: formatSave(dir, options),
-        format: formatSave(dir, options), //formatManySave: formatManySave(dir, options),
+        reportCode: reportCode(options),
+        format: formatSave(dir, options),
         formatMany: formatManySave(dir, options),
         noFormat: noFormat(dir, options),
     });
@@ -215,11 +215,11 @@ const formatMany = currify((dir, options, t) => async (formatter, names, formatt
     };
 });
 
-const formatManySave = currify((dir, options, t) => async (formatter, names, options = {}) => {
+const formatManySave = currify((dir, options, t) => async (formatter, names, formatterOptions = {}) => {
     const runFormat = await formatMany(dir, options, t);
     
     if (!isUpdate())
-        return await runFormat(formatter, names, options);
+        return await runFormat(formatter, names, formatterOptions);
     
     const {existsSync, writeFileSync} = global.__putout_test_fs;
     
@@ -239,11 +239,11 @@ const formatManySave = currify((dir, options, t) => async (formatter, names, opt
     return t.pass('fixed fixture updated');
 });
 
-const formatSave = currify((dir, options, t) => async (formatter, name, options = {}) => {
+const formatSave = currify((dir, options, t) => async (formatter, name, formatterOptions = {}) => {
     const runFormat = format(dir, options, t);
     
     if (!isUpdate())
-        return await runFormat(formatter, name, options);
+        return await runFormat(formatter, name, formatterOptions);
     
     const {existsSync, writeFileSync} = global.__putout_test_fs;
     
