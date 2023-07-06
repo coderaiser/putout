@@ -3,10 +3,12 @@
 const {stub} = require('supertape');
 const fs = require('fs');
 const {reRequire} = require('mock-require');
+
+const {createUpdate} = require('./update');
 const {writeFileSync} = fs;
 
 fs.writeFileSync = stub();
-process.env.UPDATE = 1;
+const update = createUpdate();
 
 const NO_CHECK_ASSERTIONS_COUNT = {
     checkAssertionsCount: false,
@@ -32,9 +34,7 @@ test('transform: with PUTOUT_PRINTER: env variable', (t) => {
 });
 
 test('transform: with UPDATE env variable', (t) => {
-    const {UPDATE} = process.env;
-    
-    process.env.UPDATE = 1;
+    update(1);
     
     const {writeFileSync} = global.__putout_test_fs;
     const writeFileSyncStub = stub();
@@ -43,7 +43,7 @@ test('transform: with UPDATE env variable', (t) => {
     
     t.transform('typescript');
     
-    process.env.UPDATE = UPDATE;
+    update();
     global.__putout_test_fs.writeFileSync = writeFileSync;
     
     t.ok(writeFileSyncStub.called, 'should write fixture');
@@ -51,9 +51,7 @@ test('transform: with UPDATE env variable', (t) => {
 }, NO_CHECK_ASSERTIONS_COUNT);
 
 test('transform: noTransformWithOptions: with UPDATE env variable', (t) => {
-    const {UPDATE} = process.env;
-    
-    process.env.UPDATE = 1;
+    update(1);
     
     const {writeFileSync} = global.__putout_test_fs;
     const writeFileSyncStub = stub();
@@ -62,7 +60,7 @@ test('transform: noTransformWithOptions: with UPDATE env variable', (t) => {
     
     t.noTransformWithOptions('no-transform-with-options', {});
     
-    process.env.UPDATE = UPDATE;
+    update();
     global.__putout_test_fs.writeFileSync = writeFileSync;
     
     t.ok(writeFileSyncStub.called, 'should write fixture');
@@ -70,9 +68,7 @@ test('transform: noTransformWithOptions: with UPDATE env variable', (t) => {
 }, NO_CHECK_ASSERTIONS_COUNT);
 
 test('transform: with UPDATE env variable: pass', (t) => {
-    const {UPDATE} = process.env;
-    
-    process.env.UPDATE = 1;
+    update(1);
     
     const {writeFileSync} = global.__putout_test_fs;
     const writeFileSyncStub = stub();
@@ -81,7 +77,7 @@ test('transform: with UPDATE env variable: pass', (t) => {
     
     const result = t.transform('typescript');
     
-    process.env.UPDATE = UPDATE;
+    update();
     global.__putout_test_fs.writeFileSync = writeFileSync;
     
     t.equal(result.message, 'fixed fixture updated');
@@ -89,9 +85,7 @@ test('transform: with UPDATE env variable: pass', (t) => {
 }, NO_CHECK_ASSERTIONS_COUNT);
 
 test('test: no transform: with UPDATE env variable: pass', (t) => {
-    const {UPDATE} = process.env;
-    
-    process.env.UPDATE = 1;
+    update(1);
     
     const {writeFileSync} = global.__putout_test_fs;
     const writeFileSyncStub = stub();
@@ -100,7 +94,7 @@ test('test: no transform: with UPDATE env variable: pass', (t) => {
     
     const result = t.noTransform('no-transform');
     
-    process.env.UPDATE = UPDATE;
+    update();
     global.__putout_test_fs.writeFileSync = writeFileSync;
     
     t.equal(result.message, 'source fixture updated');
@@ -108,9 +102,7 @@ test('test: no transform: with UPDATE env variable: pass', (t) => {
 }, NO_CHECK_ASSERTIONS_COUNT);
 
 test('transform: with UPDATE env variable: js', (t) => {
-    const {UPDATE} = process.env;
-    
-    process.env.UPDATE = 1;
+    update(1);
     
     const {writeFileSync} = global.__putout_test_fs;
     const writeFileSyncStub = stub();
@@ -119,7 +111,7 @@ test('transform: with UPDATE env variable: js', (t) => {
     
     t.transform('update');
     
-    process.env.UPDATE = UPDATE;
+    update();
     global.__putout_test_fs.writeFileSync = writeFileSync;
     
     t.ok(writeFileSyncStub.called, 'should write fixture');
@@ -127,9 +119,7 @@ test('transform: with UPDATE env variable: js', (t) => {
 }, NO_CHECK_ASSERTIONS_COUNT);
 
 test('transform: with UPDATE env variable: with arg', (t) => {
-    const {UPDATE} = process.env;
-    
-    process.env.UPDATE = 1;
+    update(1);
     
     const {writeFileSync} = global.__putout_test_fs;
     const writeFileSyncStub = stub();
@@ -138,7 +128,7 @@ test('transform: with UPDATE env variable: with arg', (t) => {
     
     t.transform('typescript', '\n');
     
-    process.env.UPDATE = UPDATE;
+    update();
     global.__putout_test_fs.writeFileSync = writeFileSync;
     
     t.notCalled(writeFileSyncStub);
@@ -146,9 +136,7 @@ test('transform: with UPDATE env variable: with arg', (t) => {
 }, NO_CHECK_ASSERTIONS_COUNT);
 
 test('noTransform: with UPDATE env variable', (t) => {
-    const {UPDATE} = process.env;
-    
-    process.env.UPDATE = 1;
+    update(1);
     
     const {writeFileSync, unlinkSync} = global.__putout_test_fs;
     
@@ -160,7 +148,7 @@ test('noTransform: with UPDATE env variable', (t) => {
     
     t.noTransform('const');
     
-    process.env.UPDATE = UPDATE;
+    update();
     global.__putout_test_fs.writeFileSync = writeFileSync;
     global.__putout_test_fs.unlinkSync = unlinkSync;
     
@@ -169,9 +157,7 @@ test('noTransform: with UPDATE env variable', (t) => {
 }, NO_CHECK_ASSERTIONS_COUNT);
 
 test('transformWithOptions: with UPDATE env variable', (t) => {
-    const {UPDATE} = process.env;
-    
-    process.env.UPDATE = 1;
+    update(1);
     
     const {writeFileSync, unlinkSync} = global.__putout_test_fs;
     
@@ -183,7 +169,7 @@ test('transformWithOptions: with UPDATE env variable', (t) => {
     
     t.transformWithOptions('const', {});
     
-    process.env.UPDATE = UPDATE;
+    update();
     global.__putout_test_fs.writeFileSync = writeFileSync;
     global.__putout_test_fs.unlinkSync = unlinkSync;
     
@@ -192,10 +178,7 @@ test('transformWithOptions: with UPDATE env variable', (t) => {
 }, NO_CHECK_ASSERTIONS_COUNT);
 
 test('transformWithOptions: with UPDATE env variable: pass', (t) => {
-    const {UPDATE} = process.env;
-    
-    process.env.UPDATE = 1;
-    
+    update(1);
     const {writeFileSync, unlinkSync} = global.__putout_test_fs;
     
     const unlinkSyncStub = stub();
@@ -206,7 +189,7 @@ test('transformWithOptions: with UPDATE env variable: pass', (t) => {
     
     const result = t.transformWithOptions('const', {});
     
-    process.env.UPDATE = UPDATE;
+    update();
     global.__putout_test_fs.writeFileSync = writeFileSync;
     global.__putout_test_fs.unlinkSync = unlinkSync;
     
@@ -215,5 +198,3 @@ test('transformWithOptions: with UPDATE env variable: pass', (t) => {
 }, NO_CHECK_ASSERTIONS_COUNT);
 
 fs.writeFileSync = writeFileSync;
-
-delete process.env.UPDATE;

@@ -6,27 +6,34 @@ import removeConsoleFixture from './fixture/remove-console.js';
 import {createTest} from '../lib/test.mjs';
 import formatter from '@putout/formatter-dump';
 import formatterProgress from '@putout/formatter-progress';
+import {createUpdate} from './update.js';
+
+const update = createUpdate();
+
+const NO_CHECK_ASSERTIONS_COUNT = {
+    checkAssertionsCount: false,
+};
 
 const test = createTest(import.meta.url, {
     'remove-console': removeConsoleFixture,
 });
 
-test('test: format', async ({format}) => {
-    await format(formatter, 'var');
+test('test: format: no update', async ({format}) => {
+    update(0);
+    await format(formatter, 'empty');
+    update();
 });
 
 test('test: format: options', async ({format}) => {
+    update(1);
     await format(formatterProgress, 'var', {
         minCount: 10,
     });
+    update();
 });
 
 test('test: no format', async ({noFormat}) => {
     await noFormat(formatter, 'declared');
-});
-
-test('test: formatMany', async ({formatMany}) => {
-    await formatMany(formatter, ['var', 'var']);
 });
 
 const {existsSync, writeFileSync} = fs;
@@ -46,88 +53,105 @@ global.__putout_test_fs = {
     writeFileSync: writeFileSyncStub,
 };
 
-testUpdate('test: formatSave', async ({ok, formatSave}) => {
-    await formatSave(formatter, 'var');
+testUpdate('test: formatSave', async ({ok, format}) => {
+    update(1);
+    await format(formatter, 'var');
+    update();
     
     ok(writeFileSyncStub.called);
-}, {
-    checkAssertionsCount: false,
-});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
-testUpdate('test: formatSave: success', async ({equal, formatSave}) => {
-    const {message} = await formatSave(formatter, 'var');
+testUpdate('test: formatSave: success', async ({equal, format}) => {
+    update(1);
+    
+    const {message} = await format(formatter, 'var');
+    
+    update();
     equal(message, 'fixed fixture updated');
-}, {
-    checkAssertionsCount: false,
-});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
-testUpdate('test: formatManySave: success', async ({equal, formatManySave}) => {
-    const {message} = await formatManySave(formatter, ['var']);
+testUpdate('test: formatManySave: success', async ({equal, formatMany}) => {
+    update(1);
+    
+    const {message} = await formatMany(formatter, ['var']);
+    
+    update();
     equal(message, 'fixed fixture updated');
-}, {
-    checkAssertionsCount: false,
-});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
-testUpdate('test: formatManySave: not array', async ({equal, formatManySave}) => {
-    const [error] = await tryToCatch(formatManySave, formatter, 'var');
-    equal(error.message, `☝️ Looks like 'formatManySave()' received 'names' with type: 'string', expected: 'array'`);
-}, {
-    checkAssertionsCount: false,
-});
+testUpdate('test: formatManySave: not array', async ({equal, formatMany}) => {
+    update(1);
+    
+    const [error] = await tryToCatch(formatMany, formatter, 'var');
+    
+    update();
+    equal(error.message, `☝️ Looks like 'formatMany()' received 'names' with type: 'string', expected: 'array'`);
+}, NO_CHECK_ASSERTIONS_COUNT);
 
 testUpdate('test: formatMany: not array', async ({equal, formatMany}) => {
     const [error] = await tryToCatch(formatMany, formatter, 'var');
     equal(error.message, `☝️ Looks like 'formatMany()' received 'names' with type: 'string', expected: 'array'`);
-}, {
-    checkAssertionsCount: false,
-});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
 testUpdate('test: format: with UPDATE env variable', async ({ok, format}) => {
-    global.__putout_test_update = true;
+    update(1);
     await format(formatter, 'var');
+    update();
     
-    global.__putout_test_update = false;
     ok(writeFileSyncStub.called);
-}, {
-    checkAssertionsCount: false,
-});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
-testUpdate('test: formatManySave', async ({ok, formatManySave}) => {
-    await formatManySave(formatter, ['var', 'var']);
+testUpdate('test: format: with UPDATE=0 env variable', async ({ok, format}) => {
+    update(1);
+    await format(formatter, 'var');
+    update();
+    
+    global.__putout_test_update = true;
     ok(writeFileSyncStub.called);
-}, {
-    checkAssertionsCount: false,
-});
+}, NO_CHECK_ASSERTIONS_COUNT);
+
+testUpdate('test: format: with UPDATE=1 env variable', async ({ok, format}) => {
+    update(1);
+    await format(formatter, 'var');
+    update();
+    
+    ok(writeFileSyncStub.called);
+}, NO_CHECK_ASSERTIONS_COUNT);
+
+testUpdate('test: formatMany: update', async ({ok, formatMany}) => {
+    update(1);
+    await formatMany(formatter, ['var', 'var']);
+    update();
+    ok(writeFileSyncStub.called);
+}, NO_CHECK_ASSERTIONS_COUNT);
 
 testUpdate('test: formatMany: with UPDATE env variable', async ({ok, formatMany}) => {
-    global.__putout_test_update = true;
+    update(1);
     await formatMany(formatter, ['var', 'var']);
+    update();
     
-    global.__putout_test_update = false;
     ok(writeFileSyncStub.called);
-}, {
-    checkAssertionsCount: false,
-});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
-testUpdate('test: formatSave: exists', async ({ok, formatSave}) => {
+testUpdate('test: formatSave: exists', async ({ok, format}) => {
     existsSyncStub.returns(true);
     
-    await formatSave(formatter, 'var');
+    update(1);
+    await format(formatter, 'var');
+    update(0);
     
     ok(writeFileSyncStub.called);
-}, {
-    checkAssertionsCount: false,
-});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
-testUpdate('test: formatManySave: exists', async ({ok, formatManySave}) => {
+testUpdate('test: formatManySave: exists', async ({ok, formatMany}) => {
     existsSyncStub.returns(true);
     
-    await formatManySave(formatter, ['var', 'var']);
+    update(1);
+    await formatMany(formatter, ['var', 'var']);
+    update();
     
     ok(writeFileSyncStub.called);
-}, {
-    checkAssertionsCount: false,
-});
+}, NO_CHECK_ASSERTIONS_COUNT);
 
 fs.existsSync = existsSync;
 fs.writeFileSync = writeFileSync;
