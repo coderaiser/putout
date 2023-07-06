@@ -46,9 +46,7 @@ const {isSupported} = supportedFiles;
 const getFormatter = nanomemoize(require('./formatter').getFormatter);
 
 const cwd = process.cwd();
-
 const {PUTOUT_FILES = '', PUTOUT_PRINTER} = process.env;
-
 const envNames = !PUTOUT_FILES ? [] : PUTOUT_FILES.split(',');
 
 const maybeFirst = (a) => isArray(a) ? a.pop() : a;
@@ -78,6 +76,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             'help',
             'fix',
             'fresh',
+            'force',
             'raw',
             'enable-all',
             'disable-all',
@@ -114,6 +113,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             disableAll: false,
             enableAll: false,
             plugins: [],
+            force: true,
         },
     };
     
@@ -126,6 +126,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     const {
         fix,
+        force,
         fixCount,
         raw,
         rulesdir,
@@ -278,6 +279,7 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     const options = {
         fix,
+        force,
         isFlow,
         fixCount,
         raw,

@@ -146,6 +146,7 @@ Options:
    --no-config                 avoid reading '.putout.json'
    --no-ci                     disable the CI detection
    --no-cache                  disable the cache
+   --no-force                  avoid source change when no places found
 ```
 
 To find possible transform places in a folder named `lib`, run:

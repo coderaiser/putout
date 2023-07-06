@@ -25,6 +25,7 @@ const defaultOpts = (opts = {}) => {
         fixCount = 2,
         loadPlugins = loader.loadPlugins,
         runPlugins = runner.runPlugins,
+        force = true,
     } = opts;
     
     return {
@@ -32,6 +33,7 @@ const defaultOpts = (opts = {}) => {
         parser,
         printer,
         fix,
+        force,
         fixCount,
         loadPlugins,
         runPlugins,
@@ -50,6 +52,7 @@ module.exports = (source, opts) => {
         sourceFileName,
         sourceMapName,
         printer,
+        force,
     } = opts;
     
     const [clearSource, shebang] = cutShebang(source);
@@ -64,6 +67,12 @@ module.exports = (source, opts) => {
     });
     
     const places = transform(ast, source, opts);
+    
+    if (!places.length && !force)
+        return {
+            code: source,
+            places: [],
+        };
     
     if (!opts.fix)
         return {

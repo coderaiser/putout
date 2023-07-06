@@ -1960,7 +1960,6 @@ test('putout: cli: invalid option: message: one char', async (t) => {
 
 test('putout: cli: cannot load processor', async (t) => {
     const argv = [];
-    
     const halt = stub();
     
     const putoutConfig = require('../../putout.json');
@@ -2098,7 +2097,6 @@ test('putout: processor throw: raw', async (t) => {
     });
     
     reRequire('@putout/engine-processor');
-    
     mockRequire('./get-options', getOptions);
     
     reRequire('./runner/worker.js');
@@ -2125,7 +2123,6 @@ test('putout: processor throw: raw', async (t) => {
 
 test('putout: processor: invalid config', async (t) => {
     const argv = [__filename];
-    
     const halt = stub();
     
     mockRequire('../../putout.json', {
@@ -2200,6 +2197,45 @@ test('putout: processor: invalid config: message', async (t) => {
     const expected = '🐊 .putout.json: exclude: must NOT have additional properties';
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('putout: processor: --no-force', async (t) => {
+    const argv = [
+        __filename,
+        '-f',
+        'dump',
+        '--no-force',
+        '--fix',
+    ];
+    const {NO_ESLINT} = process.env;
+    
+    process.env.NO_ESLINT = 1;
+    
+    reRequire('@putout/eslint');
+    // reRequire('./process-file.js');
+    // reRequire('./runner/runner.js');
+    const cli = reRequire('.');
+    const readFile = stub().returns('const a = 5');
+    const writeFile = stub();
+    
+    await runCli({
+        argv,
+        cli,
+        readFile,
+        writeFile,
+    });
+    
+    stopAll();
+    
+    if (NO_ESLINT)
+        process.env.NO_ESLINT = NO_ESLINT;
+    else
+        delete process.env.NO_ESLINT;
+    
+    reRequire('@putout/eslint');
+    
+    t.notCalled(writeFile);
     t.end();
 });
 

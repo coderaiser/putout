@@ -16,12 +16,13 @@ const getMatchedOptions = (name, options) => {
     return merge(options, parseMatch(name, options.match));
 };
 
-module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async ({name, source, startLine, options}) => {
+module.exports = ({fix, force, fixCount, isFlow, logError, raw, printer}) => async ({name, source, startLine, options}) => {
     const isTS = /\.tsx?$/.test(name) || /{tsx?}$/.test(name);
     const matchedOptions = getMatchedOptions(name, options);
     
     const [e, result] = tryCatch(putout, source, {
         fix,
+        force,
         fixCount,
         isTS,
         isFlow,

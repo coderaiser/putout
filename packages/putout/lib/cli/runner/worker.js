@@ -1,16 +1,12 @@
 'use strict';
 
 const {resolve} = require('path');
-
 const {cwd, env} = require('process');
-
-const tryCatch = require('try-catch');
 const {readFileSync} = require('fs');
 
+const tryCatch = require('try-catch');
 const getOptions = require('../get-options.js');
-
 const {INVALID_CONFIG, NO_PROCESSORS} = require('../exit-codes.js');
-
 const {lint} = require('./lint.js');
 
 const isParser = (rule) => rule.startsWith('parser');
@@ -30,7 +26,7 @@ const createFormatterProxy = (options) => {
     });
 };
 
-module.exports = async ({readFile, report, writeFile, exit, raw, write, log, currentFormat, rulesdir, formatterOptions, noConfig, transform, plugins, index, fix, processFile, processorRunners, fileCache, name, count}) => {
+module.exports = async ({readFile, report, writeFile, exit, raw, write, log, currentFormat, rulesdir, formatterOptions, noConfig, transform, plugins, index, fix, force, processFile, processorRunners, fileCache, name, count}) => {
     const resolvedName = resolve(name).replace(/^\./, cwd);
     
     const [configError, options] = tryCatch(getOptions, {
@@ -73,6 +69,7 @@ module.exports = async ({readFile, report, writeFile, exit, raw, write, log, cur
         raw,
         dir,
         fix,
+        force,
         options,
         processorRunners,
         log,

@@ -174,13 +174,14 @@ Options:
    --enable [rule]             enable the rule and save it to '.putout.json' walking up parent directories
    --disable [rule]            disable the rule and save it to '.putout.json' walking up parent directories
    --enable-all                enable all found rules and save them to '.putout.json' walking up parent directories
-   --disable-all               disable all found rules (set baseline) and save them '.putout.json' walking up parent directories
+   --disable-all               disable all found rules (set baseline) and save them to '.putout.json' walking up parent directories
    --match [pattern]           read '.putout.json' and convert 'rules' to 'match' according to 'pattern'
    --flow                      enable flow
    --fresh                     generate a fresh cache
    --no-config                 avoid reading '.putout.json'
    --no-ci                     disable the CI detection
    --no-cache                  disable the cache
+   --no-force                  avoid source change when no places found
 ```
 
 To find errors:
