@@ -1,3 +1,12 @@
+2023.07.06, v30.0.3
+
+feature:
+- f0e9054b0 package: @putout/engine-loader v10.0.0
+- daf5b7fd9 package: @putout/engine-parser v7.1.0
+- 1fc9ff504 @putout/engine-parser: add support of Explicit Resource Management (https://github.com/tc39/proposal-explicit-resource-management)
+- 42b95219c package: eslint-plugin-putout v18.0.0
+- 6ba4a3b38 eslint-plugin-putout: drop support of 🐊 < 30
+
 2023.07.05, v30.0.2
 
 feature:
