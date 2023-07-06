@@ -12,6 +12,8 @@ module.exports = [
     'destructuringPrivate',
     'exportDefaultFrom',
     'throwExpressions',
-    'recordAndTuple',
+    ['recordAndTuple', {
+        syntaxType: 'hash',
+    }],
     'explicitResourceManagement',
 ];

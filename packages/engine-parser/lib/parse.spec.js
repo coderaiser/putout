@@ -15,6 +15,15 @@ test('putout: engina-parser: using', (t) => {
     t.end();
 });
 
+test('putout: engina-parser: tuple', (t) => {
+    const source = 'const a = #[1];\n';
+    const ast = parse(source);
+    const code = print(ast);
+    
+    t.equal(code, source);
+    t.end();
+});
+
 test('putout: engina-parser: parse + generate = sourcemap', (t) => {
     const source = `const hello = 'world';`;
     
