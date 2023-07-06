@@ -2208,6 +2208,7 @@ test('putout: processor: --no-force', async (t) => {
         '--no-force',
         '--fix',
     ];
+    
     const {NO_ESLINT} = process.env;
     
     process.env.NO_ESLINT = 1;
