@@ -20,6 +20,7 @@ const test = createTest(__dirname, {
 });
 
 const update = createUpdate();
+
 const CHECK_ASSERTIONS_COUNT = {
     checkAssertionsCount: false,
 };
@@ -62,6 +63,7 @@ test('putout: test: processor: UPDATE: not a number', async ({process, notCalled
     update('hello');
     
     const writeFile = stub();
+    
     global.writeFile = writeFile;
     
     await process('eslintrc');
