@@ -1,3 +1,12 @@
+2023.07.07, v30.1.1
+
+fix:
+- a85468f84 putout: --no-force -> --soft
+- 349b3f37d @putout/test: UPDATE
+
+feature:
+- d2a54529b @putout/test: drop formatSave, formatManySave
+
 2023.07.06, v30.1.0
 
 feature:
