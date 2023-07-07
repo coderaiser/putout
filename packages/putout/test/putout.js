@@ -896,7 +896,7 @@ test('putout: printer: putout: options', (t) => {
 test('putout: printer: putout: options: no force', (t) => {
     const source = 'const a = 5';
     const {code} = putout(source, {
-        force: false,
+        soft: true,
     });
     
     t.equal(code, source);

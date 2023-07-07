@@ -2200,12 +2200,12 @@ test('putout: processor: invalid config: message', async (t) => {
     t.end();
 });
 
-test('putout: processor: --no-force', async (t) => {
+test('putout: processor: --soft', async (t) => {
     const argv = [
         __filename,
         '-f',
         'dump',
-        '--no-force',
+        '--soft',
         '--fix',
     ];
     
@@ -2214,8 +2214,6 @@ test('putout: processor: --no-force', async (t) => {
     process.env.NO_ESLINT = 1;
     
     reRequire('@putout/eslint');
-    // reRequire('./process-file.js');
-    // reRequire('./runner/runner.js');
     const cli = reRequire('.');
     const readFile = stub().returns('const a = 5');
     const writeFile = stub();
