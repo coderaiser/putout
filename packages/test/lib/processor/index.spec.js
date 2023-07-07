@@ -11,21 +11,17 @@ const {
     _addDot,
 } = require('.');
 
+const {createUpdate} = require('../../test/update');
+
 const test = createTest(__dirname, {
     extension: 'json',
     processors: ['json'],
     plugins: ['eslint'],
 });
 
-const getBackEnv = (update) => {
-    const {env} = global.process;
-    
-    if (update) {
-        env.UPDATE = update;
-        return;
-    }
-    
-    delete env.UPDATE;
+const update = createUpdate();
+const CHECK_ASSERTIONS_COUNT = {
+    checkAssertionsCount: false,
 };
 
 test('putout: test: processor: process', async ({process}) => {
@@ -37,10 +33,7 @@ test('putout: test: processor: no process', async ({noProcess}) => {
 });
 
 test('putout: test: processor: UPDATE', async ({process, calledWith}) => {
-    const {env} = global.process;
-    const {UPDATE} = env;
-    
-    env.UPDATE = 1;
+    update(1);
     
     const {readFile} = require('fs/promises');
     const writeFile = stub();
@@ -49,49 +42,35 @@ test('putout: test: processor: UPDATE', async ({process, calledWith}) => {
     
     await process('eslintrc');
     
-    getBackEnv(UPDATE);
     delete global.writeFile;
+    update();
     
     const name = join(__dirname, 'fixture/eslintrc-fix.json');
     const data = await readFile(name, 'utf8');
     
     calledWith(writeFile, [name, data]);
-}, {
-    checkAssertionsCount: false,
-});
+}, CHECK_ASSERTIONS_COUNT);
 
 test('putout: test: processor: UPDATE: no global', async ({process}) => {
-    const {env} = global.process;
-    const {UPDATE} = env;
-    
-    env.UPDATE = 1;
-    
+    update(1);
     await process('eslintrc');
     
-    getBackEnv(UPDATE);
-}, {
-    checkAssertionsCount: false,
-});
+    update();
+}, CHECK_ASSERTIONS_COUNT);
 
 test('putout: test: processor: UPDATE: not a number', async ({process, notCalled}) => {
-    const {env} = global.process;
-    const {UPDATE} = env;
-    
-    env.UPDATE = 'hello';
+    update('hello');
     
     const writeFile = stub();
-    
     global.writeFile = writeFile;
     
     await process('eslintrc');
     
-    getBackEnv(UPDATE);
     delete global.writeFile;
+    update();
     
     notCalled(writeFile);
-}, {
-    checkAssertionsCount: false,
-});
+}, CHECK_ASSERTIONS_COUNT);
 
 test('putout: test: processor: process: no filename', (t) => {
     const fail = stub();
