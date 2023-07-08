@@ -32,6 +32,9 @@ module.exports.traverse = ({push, store}) => ({
             if (store('is-module'))
                 return;
             
+            if (path.node.directives.length)
+                return;
+            
             push(path);
         },
     },
