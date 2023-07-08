@@ -1,3 +1,5 @@
+// declare-after-require
+
 'use strict';
 
 const fs = require('fs');

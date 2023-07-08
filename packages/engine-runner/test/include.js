@@ -53,19 +53,21 @@ test('putout: runner: include: not a function', (t) => {
 
 test('putout: runner: include: fix: options', (t) => {
     const include = {
-        report: () => 'debugger found',
+        report: () => '',
         fix: (path, {options}) => {
             const {value} = options;
+            
             path.node.value = value;
+            path.node.raw = value;
         },
-        include: () => ['"hello"'],
+        include: () => ['5'],
     };
     
-    const {code} = putout('"hello"', {
+    const {code} = putout('5', {
         runPlugins,
         rules: {
             include: ['on', {
-                value: 'world',
+                value: 3,
             }],
         },
         plugins: [
@@ -73,7 +75,7 @@ test('putout: runner: include: fix: options', (t) => {
         ],
     });
     
-    t.equal(code, `'world';\n`);
+    t.equal(code, `3;\n`);
     t.end();
 });
 

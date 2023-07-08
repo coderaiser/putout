@@ -42,7 +42,7 @@ test('plugin-declare-after-require: transform: destructuring-require', (t) => {
     t.end();
 });
 
-test('plugin-declare-after-require: transform', (t) => {
+test('plugin-declare-after-require: transform: require', (t) => {
     t.transform('require');
     t.end();
 });
