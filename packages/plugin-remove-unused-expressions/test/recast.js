@@ -16,4 +16,3 @@ test('remove unused expression: transformCode: recast: string', (t) => {
     t.transformCode(code, '');
     t.end();
 });
-

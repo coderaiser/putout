@@ -44,4 +44,3 @@ test('putout: operator: declare: recast: strict mode', (t) => {
     t.equal(secondAttempt, expected);
     t.end();
 });
-
