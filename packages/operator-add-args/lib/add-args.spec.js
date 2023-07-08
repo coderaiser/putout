@@ -607,3 +607,31 @@ test('putout: operator: add-args: not call', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operator: add-args: three args', (t) => {
+    const args = {
+        maybe: ['{maybe}', 'module.exports.__a = (__args) => __body'],
+    };
+    
+    const source = montag`
+        module.exports.VariableDeclaration = (path, {print}, semantics) => {
+            maybe.indent(is);
+        };
+    `;
+    
+    const {code} = putout(source, {
+        fixCount: 1,
+        plugins: [
+            ['add-args', addArgs(args)],
+        ],
+    });
+    
+    const expected = montag`
+        module.exports.VariableDeclaration = (path, {print, maybe}, semantics) => {
+            maybe.indent(is);
+        };\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

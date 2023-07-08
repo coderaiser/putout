@@ -32,19 +32,15 @@ module.exports.addArgs = (args) => ({
     traverse: traverse(args),
 });
 
-const fix = ({declaration, path, pattern, params}) => {
+const fix = ({declaration, path, pattern, params, index}) => {
     const declarationNode = template.ast.fresh(declaration);
     
     if (isBlockStatement(declarationNode)) {
         const prop = createProperty(declarationNode.body[0]);
         pattern.properties.push(prop);
         
-        const n = params.length - 1;
-        
-        if (isObjectPattern(params[n]))
-            params[n] = pattern;
-        else
-            params.push(pattern);
+        if (!isObjectPattern(params[index]))
+            return params.push(pattern);
         
         return;
     }
@@ -83,11 +79,12 @@ const traverse = (args) => ({push, options}) => {
                     continue;
                 
                 const {params} = block;
-                const lastParam = params.at(-1);
+                const [index, lastParam] = getObjectPattern(params);
                 
                 if (isObjectPattern(lastParam)) {
                     push({
                         name,
+                        index,
                         declaration,
                         path,
                         params,
@@ -98,6 +95,7 @@ const traverse = (args) => ({push, options}) => {
                 
                 push({
                     name,
+                    index,
                     declaration,
                     path,
                     params,
@@ -117,4 +115,16 @@ function createProperty(node) {
     const {label, body} = node;
     
     return ObjectProperty(label, body.expression, !COMPUTED, SHORTHAND);
+}
+
+function getObjectPattern(params) {
+    for (const [i, param] of params.entries()) {
+        if (isObjectPattern(param))
+            return [i, param];
+    }
+    
+    return [
+        -1,
+        null,
+    ];
 }

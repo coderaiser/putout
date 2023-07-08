@@ -29,3 +29,8 @@ test('rule: add-args: transform: const', (t) => {
     t.transform('const');
     t.end();
 });
+
+test('rule: add-args: transform: semantics', (t) => {
+    t.transform('semantics');
+    t.end();
+});
