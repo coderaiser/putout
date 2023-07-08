@@ -10,6 +10,12 @@ module.exports.fix = (path) => {
 };
 
 module.exports.traverse = ({push}) => ({
+    DirectiveLiteral(path) {
+        if (path.node.value === 'use strict')
+            return;
+        
+        push(path.parentPath);
+    },
     ExpressionStatement(path) {
         const expressionPath = path.get('expression');
         
