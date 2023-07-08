@@ -1,3 +1,15 @@
+2023.07.08, v30.2.0
+
+feature:
+- 2989df2d6 package: @putout/plugin-strict-mode v7.0.0
+- 1fa43e078 package: @putout/plugin-putout v13.0.0
+- ca3aac450 package: @putout/plugin-remove-unused-expressions v7.0.0
+- f5fbabe8c @putout/plugin-remove-unused-expressions: drop support of 🐊 < 30
+- d28a985ce @putout/engine-parser: use directives for @putout/printer
+- 3e98931c4 @putout/plugin-putout: drop support of 🐊 < 30
+- 3b6348134 @putout/plugin-strict-mode: drop support of 🐊 < 30
+- 6ae6ec300 @putout/plugin-strict-mode: add support of directives
+
 2023.07.07, v30.1.1
 
 fix:
