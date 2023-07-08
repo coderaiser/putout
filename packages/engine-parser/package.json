@@ -39,7 +39,7 @@
     "@babel/types": "^7.19.0",
     "@putout/printer": "^2.0.0",
     "@putout/recast": "^1.12.1",
-    "estree-to-babel": "^5.0.0",
+    "estree-to-babel": "^6.0.0",
     "nano-memoize": "^3.0.11",
     "once": "^1.4.0",
     "try-catch": "^3.0.0"
