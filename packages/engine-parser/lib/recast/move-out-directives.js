@@ -5,6 +5,8 @@ const {
     ExpressionStatement,
 } = require('@babel/types');
 
+const {assign} = Object;
+
 module.exports = (ast) => {
     const {body, directives} = ast.program;
     
@@ -14,8 +16,13 @@ module.exports = (ast) => {
     ast.program.directives = [];
     
     for (const directive of directives) {
+        const {leadingComments} = directive;
         const {value} = directive.value;
-        body.unshift(ExpressionStatement(StringLiteral(value)));
+        const expression = assign(ExpressionStatement(StringLiteral(value)), {
+            leadingComments,
+        });
+        
+        body.unshift(expression);
     }
     
     return ast;

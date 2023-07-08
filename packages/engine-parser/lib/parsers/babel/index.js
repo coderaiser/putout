@@ -11,7 +11,6 @@ process.env.BABEL_TYPES_8_BREAKING = true;
 
 const plugins = require('./plugins');
 const options = require('./options');
-const moveOutDirectives = require('./move-out-directives');
 const getFlow = (a) => !a.indexOf('// @flow');
 const clean = (a) => a.filter(Boolean);
 const initBabel = once(() => require('@babel/parser'));
@@ -42,7 +41,6 @@ module.exports.parse = function babelParse(source, {sourceFilename, isTS, isJSX 
     });
     
     const ast = parse(source, parserOptions);
-    moveOutDirectives(ast);
     
     return ast;
 };

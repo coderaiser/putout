@@ -40,6 +40,7 @@ const fixture = readFixtures([
     'strict-mode',
     'strict-mode-fix',
     'destructuring-private',
+    'directive-comment',
 ]);
 
 test('putout: parser: export default declaration: acorn', (t) => {
@@ -459,6 +460,28 @@ test('putout: parser: printer: babel', (t) => {
     });
     
     const expected = fixture.noRecastFix;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: parser: recast: directive: comment', (t) => {
+    const {code} = putout(fixture.directiveComment, {
+        printer: 'recast',
+    });
+    
+    const expected = fixture.directiveComment;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: parser: putout: directive: comment', (t) => {
+    const {code} = putout(fixture.directiveComment, {
+        printer: 'putout',
+    });
+    
+    const expected = fixture.directiveComment;
     
     t.equal(code, expected);
     t.end();
