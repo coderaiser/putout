@@ -9,8 +9,11 @@ const {
 const fullstore = require('fullstore');
 
 const {Identifier, ObjectProperty} = types;
-
 const {replaceWith, insertAfter} = operator;
+
+const isRecast = (program) => program.get('body.0.expression').isStringLiteral({
+    value: 'use strict',
+});
 
 module.exports.report = () => {
     return `"operator.replaceWith" should be called instead of "path.replaceWith"`;
@@ -18,9 +21,7 @@ module.exports.report = () => {
 
 module.exports.fix = ({path, calleePath, property, object, program, isInserted}) => {
     replaceWith(calleePath, property);
-    
-    const strictModePath = program.get('body.0');
-    const {bindings} = strictModePath.scope;
+    const {bindings} = program.scope;
     
     path.node.arguments.unshift(object);
     
@@ -33,10 +34,17 @@ module.exports.fix = ({path, calleePath, property, object, program, isInserted})
         `);
         
         const {types} = bindings;
-        const pathToInsertAfter = types ? types.path.parentPath : strictModePath;
+        const first = program.get('body.0');
+        const pathToInsert = types ? types.path.parentPath : first;
+        
+        if (isRecast(program))
+            insertAfter(pathToInsert, replaceWithAST);
+        else if (types)
+            insertAfter(pathToInsert, replaceWithAST);
+        else
+            pathToInsert.insertBefore(replaceWithAST);
         
         isInserted(true);
-        insertAfter(pathToInsertAfter, replaceWithAST);
         
         return;
     }
@@ -74,7 +82,7 @@ module.exports.traverse = ({push}) => {
             if (property.name !== 'replaceWith')
                 return;
             
-            const program = path.findParent((path) => path.isProgram());
+            const program = path.scope.getProgramParent().path;
             
             push({
                 isInserted,

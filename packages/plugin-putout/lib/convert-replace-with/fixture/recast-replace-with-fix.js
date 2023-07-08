@@ -1,12 +1,8 @@
 'use strict';
 
-import {types} from 'putout';
-
-const {ExportNamedDeclaration} = types;
-const {replaceWith} = require('putout').operator;
-const {Identifier} = types;
-const {VariableDeclarator} = types;
-const {VariableDeclaration} = types;
+const {
+    replaceWith
+} = require('putout').operator;
 
 module.exports.fix = ({name, path, rightPath}) => {
     const {parentPath} = path;
@@ -20,3 +16,4 @@ module.exports.fix = ({name, path, rightPath}) => {
     replaceWith(parentPath, ExportNamedDeclaration(declarator, specifiers));
     replaceWith(path, ExportNamedDeclaration(declarator, specifiers));
 };
+

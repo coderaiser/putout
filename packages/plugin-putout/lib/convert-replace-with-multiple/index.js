@@ -7,8 +7,12 @@ const {
 } = require('putout');
 
 const {insertAfter, replaceWith} = operator;
-
 const {Identifier, ObjectProperty} = types;
+
+const isRecast = (program) => program.get('body.0').get('expression')
+    .isStringLiteral({
+        value: 'use strict',
+    });
 
 module.exports.report = () => {
     return `"operate.replaceWithMultiple" should be called instead of "path.replaceWithMultiple"`;
@@ -19,8 +23,8 @@ const replaceWithAST = template.ast(`
 `);
 
 module.exports.fix = ({path, calleePath, property, object, program}) => {
-    const strictModePath = program.get('body.0');
-    const {bindings} = strictModePath.scope;
+    const first = program.get('body.0');
+    const {bindings} = program.scope;
     
     replaceWith(calleePath, property);
     path.node.arguments.unshift(object);
@@ -28,8 +32,12 @@ module.exports.fix = ({path, calleePath, property, object, program}) => {
     if (bindings.replaceWithMultiple)
         return;
     
-    if (!bindings.replaceWith && !bindings.insertAfter)
-        return insertAfter(strictModePath, replaceWithAST);
+    if (!bindings.replaceWith && !bindings.insertAfter) {
+        if (isRecast(program))
+            return insertAfter(first, replaceWithAST);
+        
+        return first.insertBefore(replaceWithAST);
+    }
     
     const id = Identifier('replaceWithMultiple');
     const varPath = getVarPath(bindings);
@@ -58,7 +66,7 @@ module.exports.traverse = ({push}) => ({
         if (property.name !== 'replaceWithMultiple')
             return;
         
-        const program = path.findParent((path) => path.isProgram());
+        const program = path.scope.getProgramParent().path;
         
         push({
             path,
