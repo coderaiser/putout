@@ -2200,44 +2200,6 @@ test('putout: processor: invalid config: message', async (t) => {
     t.end();
 });
 
-test('putout: processor: --soft', async (t) => {
-    const argv = [
-        __filename,
-        '-f',
-        'dump',
-        '--soft',
-        '--fix',
-    ];
-    
-    const {NO_ESLINT} = process.env;
-    
-    process.env.NO_ESLINT = 1;
-    
-    reRequire('@putout/eslint');
-    const cli = reRequire('.');
-    const readFile = stub().returns('const a = 5');
-    const writeFile = stub();
-    
-    await runCli({
-        argv,
-        cli,
-        readFile,
-        writeFile,
-    });
-    
-    stopAll();
-    
-    if (NO_ESLINT)
-        process.env.NO_ESLINT = NO_ESLINT;
-    else
-        delete process.env.NO_ESLINT;
-    
-    reRequire('@putout/eslint');
-    
-    t.notCalled(writeFile);
-    t.end();
-});
-
 async function runCli(options) {
     const {
         halt = stub(),

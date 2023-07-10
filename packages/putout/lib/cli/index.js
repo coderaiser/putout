@@ -76,7 +76,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             'help',
             'fix',
             'fresh',
-            'soft',
             'raw',
             'enable-all',
             'disable-all',
@@ -113,7 +112,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
             disableAll: false,
             enableAll: false,
             plugins: [],
-            soft: false,
         },
     };
     
@@ -126,7 +124,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     const {
         fix,
-        soft,
         fixCount,
         raw,
         rulesdir,
@@ -279,7 +276,6 @@ module.exports = async ({argv, halt, log, write, logError, readFile, writeFile})
     
     const options = {
         fix,
-        soft,
         isFlow,
         fixCount,
         raw,

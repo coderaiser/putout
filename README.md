@@ -143,7 +143,6 @@ Options:
    --match [pattern]           read '.putout.json' and convert 'rules' to 'match' according to 'pattern'
    --flow                      enable flow
    --fresh                     generate a fresh cache
-   --soft                      avoid source change when no places found
    --no-config                 avoid reading '.putout.json'
    --no-ci                     disable the CI detection
    --no-cache                  disable the cache
