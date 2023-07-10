@@ -15,10 +15,10 @@ module.exports.match = () => ({
         const {scope} = path.get('argument.arguments.0');
         const {resolve, reject} = scope.bindings;
         
-        if (resolve.references)
+        if (resolve?.references)
             return resolve.referencePaths[0].scope.uid === scope.uid;
         
-        return reject.referencePaths[0].scope.uid === scope.uid;
+        return reject?.referencePaths[0].scope.uid === scope.uid;
     },
 });
 

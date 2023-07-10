@@ -44,3 +44,8 @@ test('plugin-promises: convert-new-promise-to-async: no report: different-scopes
     t.noReport('different-scopes');
     t.end();
 });
+
+test('plugin-promises: convert-new-promise-to-async: no report: different-names', (t) => {
+    t.noReport('different-names');
+    t.end();
+});
