@@ -3,6 +3,7 @@
 const {createTest} = require('@putout/test');
 const removeUnreferencedVariables = require('..');
 const mergeVariables = require('@putout/plugin-minify').rules['merge-variables'];
+const forOfReduce = require('@putout/plugin-for-of').rules.reduce;
 
 const test = createTest(__dirname, {
     printer: 'putout',
@@ -49,6 +50,13 @@ test('plugin-remove-unreferenced-variables: no transform: not declared', (t) => 
 test('plugin-remove-unreferenced-variables: transform: merge-variables', (t) => {
     t.transform('merge-variables', {
         'minify/merge-variables': mergeVariables,
+    });
+    t.end();
+});
+
+test('plugin-remove-unreferenced-variables: transform: for-of/reduce', (t) => {
+    t.transform('for-of-reduce', {
+        'for-of/reduce': forOfReduce,
     });
     t.end();
 });

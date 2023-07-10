@@ -15,6 +15,9 @@ module.exports.traverse = ({push}) => ({
         if (!binding)
             return;
         
+        if (path.find(isInsideForOf))
+            return;
+        
         const {referenced} = binding;
         
         if (referenced)
@@ -58,4 +61,8 @@ function getPropertyPath(path, name) {
     }
     
     return propPath;
+}
+
+function isInsideForOf(path) {
+    return path.__putout_for_of_reduce;
 }
