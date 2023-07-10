@@ -3,7 +3,7 @@
 const {types} = require('putout');
 const {isIdentifier} = types;
 
-module.exports.report = () => 'Useless functions should be avoided';
+module.exports.report = () => 'Avoid useless functions';
 
 module.exports.exclude = () => [
     '(__args__a) => __a.__b(__args__a)',

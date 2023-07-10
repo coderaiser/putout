@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('remove usless functions: report', (t) => {
-    t.report('block', 'Useless functions should be avoided');
+    t.report('block', 'Avoid useless functions');
     t.end();
 });
 
