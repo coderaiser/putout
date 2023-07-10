@@ -17,8 +17,7 @@ module.exports.fix = (path) => {
     
     traverse(path
         .scope
-        .getProgramParent()
-        .path, {
+        .getProgramParent().path, {
         'import Head from "next/head"': (path) => {
             remove(path);
         },
