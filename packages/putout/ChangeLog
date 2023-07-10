@@ -1,3 +1,12 @@
+2023.07.10, v30.2.1
+
+feature:
+- e5edb5389 package: @putout/plugin-remove-useless-functions v3.0.0
+- f1c7edb07 @putout/plugin-remove-useless-functions: report
+- 9f4667994 @putout/plugin-promises: convert-new-promise-to-async: different scopes
+- a1ea8101b package: estree-to-babel v6.0.0
+- 6f1f0a97a @putout/operator-add-args: improve support of more then two params
+
 2023.07.08, v30.2.0
 
 feature:
