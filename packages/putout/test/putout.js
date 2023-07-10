@@ -892,4 +892,3 @@ test('putout: printer: putout: options', (t) => {
     t.equal(code, expected);
     t.end();
 });
-
