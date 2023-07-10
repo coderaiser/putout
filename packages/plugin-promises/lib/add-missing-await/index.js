@@ -57,5 +57,7 @@ function isInsideUseEffect(path) {
     
     const callee = path.get('callee');
     
-    return callee.isIdentifier({name: 'useEffect'});
+    return callee.isIdentifier({
+        name: 'useEffect',
+    });
 }
