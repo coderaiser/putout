@@ -39,3 +39,8 @@ test('plugin-promises: convert-new-promise-to-async: transform: arrow', (t) => {
     t.transform('arrow');
     t.end();
 });
+
+test('plugin-promises: convert-new-promise-to-async: no report: different-scopes', (t) => {
+    t.noReport('different-scopes');
+    t.end();
+});

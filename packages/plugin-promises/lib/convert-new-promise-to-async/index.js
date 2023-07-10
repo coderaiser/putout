@@ -10,6 +10,18 @@ const {
 
 module.exports.report = () => `Async functions should be used instead of 'new Promise()'`;
 
+module.exports.match = () => ({
+    'return new Promise(__a)'({}, path) {
+        const {scope} = path.get('argument.arguments.0');
+        const {resolve, reject} = scope.bindings;
+        
+        if (resolve.references)
+            return resolve.referencePaths[0].scope.uid === scope.uid;
+        
+        return reject.referencePaths[0].scope.uid === scope.uid;
+    },
+});
+
 module.exports.replace = () => ({
     'return new Promise(__a)'({__a}, path) {
         const {scope} = path.get('argument.arguments.0');
