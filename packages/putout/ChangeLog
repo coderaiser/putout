@@ -1,3 +1,8 @@
+2023.07.10, v30.2.2
+
+fix:
+- b12de56b3 putout: --soft: has no sense, since after fix places.length always none
+
 2023.07.10, v30.2.1
 
 feature:
