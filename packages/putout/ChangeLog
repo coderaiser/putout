@@ -1,3 +1,15 @@
+2023.07.10, v30.2.3
+
+feature:
+- 830e1b0d4 package: @putout/plugin-remove-unreferenced-variables v3.0.0
+- 699b8f2c7 package: @putout/plugin-for-of v2.0.0
+- 3fc4a114c @putout/plugin-for-of: drop support of 🐊 < 30
+- 58b201cd1 @putout/plugin-for-of: improve support of @putout/plugin-remove-unreferenced-variables
+- b1e7d140c @putout/plugin-remove-unreferenced-variables: drop support of 🐊 < 30
+- 54bbefbf3 @putout/plugin-remove-unreferenced-variables: improve support of @putout/plugin-for-of
+- fb9b9df38 @putout/plugin-promises: add-missing-await: react: exclude useEffect
+- 80bf66dc5 @putout/plugin-promises: convert-new-promise-to-async: exclude names other then resolve, reject
+
 2023.07.10, v30.2.2
 
 fix:
