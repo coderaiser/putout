@@ -2,6 +2,8 @@
 
 const {createTest} = require('@putout/test');
 const removeNestedBlocks = require('@putout/plugin-remove-nested-blocks');
+const removeUnreferencedVariables = require('@putout/plugin-remove-unreferenced-variables');
+
 const convertMapToForOf = require('.');
 
 const test = createTest(__dirname, {
@@ -35,5 +37,12 @@ test('plugin-convert-reduce-to-for-of: transform: initial', (t) => {
 
 test('plugin-convert-reduce-to-for-of: no transform: call-expression', (t) => {
     t.noTransform('call-expression');
+    t.end();
+});
+
+test('plugin-convert-reduce-to-for-of: no transform: remove-unrefererenced-variables', (t) => {
+    t.transform('remove-unreferenced-variables', {
+        'remove-unreferenced-variables': removeUnreferencedVariables,
+    });
     t.end();
 });

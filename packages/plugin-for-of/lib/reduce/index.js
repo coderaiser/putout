@@ -30,6 +30,7 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     'const __a = __b.reduce((__c, __d) => __e)': ({__a, __d}, path) => {
+        path.__putout_for_of_reduce = true;
         rename(path, __d, __a);
         
         return `{
@@ -40,6 +41,7 @@ module.exports.replace = () => ({
         }`;
     },
     'const __a = __b.reduceRight((__c, __d) => __e)': ({__a, __d}, path) => {
+        path.__putout_for_of_reduce = true;
         rename(path, __d, __a);
         
         return `{
@@ -49,7 +51,8 @@ module.exports.replace = () => ({
             }
         }`;
     },
-    'const __a = __b.reduce((__c, __d) => __e, __f)': () => {
+    'const __a = __b.reduce((__c, __d) => __e, __f)': (vars, path) => {
+        path.__putout_for_of_reduce = true;
         return `{
             let __a = __f;
             for (const __d of __b) {

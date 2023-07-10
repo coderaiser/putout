@@ -36,6 +36,7 @@
     "@putout/plugin-convert-const-to-let": "*",
     "@putout/plugin-remove-empty": "*",
     "@putout/plugin-remove-nested-blocks": "*",
+    "@putout/plugin-remove-unreferenced-variables": "*",
     "@putout/plugin-remove-unused-variables": "*",
     "@putout/plugin-remove-useless-arguments": "*",
     "@putout/plugin-remove-useless-continue": "*",
