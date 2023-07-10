@@ -54,3 +54,8 @@ test('plugin-add-missing-await: no transform: catch', (t) => {
     t.noTransform('catch');
     t.end();
 });
+
+test('plugin-add-missing-await: no transform: react', (t) => {
+    t.noTransform('react');
+    t.end();
+});

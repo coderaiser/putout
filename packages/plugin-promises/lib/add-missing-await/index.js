@@ -22,6 +22,9 @@ module.exports.match = () => ({
         if (path.parentPath.isMemberExpression())
             return false;
         
+        if (path.find(isInsideUseEffect))
+            return false;
+        
         const {name} = __a;
         const binding = path.scope.getAllBindings()[name];
         
@@ -47,3 +50,12 @@ module.exports.replace = () => ({
         return AwaitExpression(path.node);
     },
 });
+
+function isInsideUseEffect(path) {
+    if (!path.isCallExpression())
+        return false;
+    
+    const callee = path.get('callee');
+    
+    return callee.isIdentifier({name: 'useEffect'});
+}
