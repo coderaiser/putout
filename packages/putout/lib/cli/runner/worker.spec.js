@@ -128,8 +128,7 @@ async function runWorker(options) {
     const {
         raw = false,
         rulesdir = '',
-        formatterOptions = {
-        },
+        formatterOptions = {},
         noConfig = false,
         transform = '',
         plugins = [],
@@ -147,7 +146,8 @@ async function runWorker(options) {
         readFile = stub().returns(''),
         writeFile = stub(),
         report = stub(),
-        fileCache = getFileCache()} = options;
+        fileCache = getFileCache(),
+    } = options;
     
     const run = reRequire('./worker.js');
     
