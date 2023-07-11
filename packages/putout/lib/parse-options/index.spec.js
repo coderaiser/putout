@@ -1,14 +1,12 @@
 'use strict';
 
-const tryCatch = require('try-catch');
-
 const fs = require('fs');
 const os = require('os');
 const {join} = require('path');
 
 const {test, stub} = require('supertape');
-
 const mockRequire = require('mock-require');
+const tryCatch = require('try-catch');
 
 const parseOptions = require('.');
 
@@ -431,6 +429,64 @@ test('putout: parseOptions: read rules: not-rule-', (t) => {
     mockRequire('../../putout.json', empty);
     mockRequire('fs', {
         readdirSync: stub().returns(['not-rule-world', 'hello']),
+    });
+    
+    const plugin = stub();
+    mockRequire(join(process.cwd(), 'hello'), plugin);
+    
+    const parseOptions = reRequire('.');
+    
+    const options = {
+        rules: {
+            'remove-only': 'off',
+        },
+        match: {
+            '*.spec.js': {
+                'remove-only': 'on',
+            },
+        },
+    };
+    
+    const result = parseOptions({
+        name: 'parse-options.spec.js',
+        options,
+        readOptions,
+        readHomeOptions,
+        readCodeMods,
+        rulesdir: '.',
+    });
+    
+    const expected = {
+        dir: __dirname,
+        match: {
+            '*.spec.js': {
+                'remove-only': 'on',
+            },
+        },
+        rules: {
+            'remove-only': 'on',
+        },
+        plugins: [
+            ['hello', plugin],
+        ],
+    };
+    
+    stopAll();
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('putout: parseOptions: read rules: .', (t) => {
+    const empty = {};
+    
+    const readOptions = stub().returns([__dirname, empty]);
+    const readHomeOptions = stub().returns(empty);
+    const readCodeMods = stub().returns(empty);
+    
+    mockRequire('../../putout.json', empty);
+    mockRequire('fs', {
+        readdirSync: stub().returns(['.rule-world', 'hello']),
     });
     
     const plugin = stub();
