@@ -1,1 +1,1 @@
-declare function hello(world: string | Array): void
+declare function hello(world: string | Array): void;

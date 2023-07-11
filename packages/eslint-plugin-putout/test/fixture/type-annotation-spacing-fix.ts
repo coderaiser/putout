@@ -1,5 +1,5 @@
 // with no spaces
-const foo = 'bar';
+const foo: string = 'bar';
 
 // with spaces before and after the fat arrow (default if no option is specified)
 type Foo = (string: name) => string;

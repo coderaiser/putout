@@ -10,5 +10,5 @@ interface LabelledContainer {
     (start: number): string;
     reset(): void;
     reset(): any;
-    a(c: () => void): void;
+    a(c: (this: void, e: E) => void): void;
 }
