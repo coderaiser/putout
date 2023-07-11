@@ -1,3 +1,10 @@
+2023.07.11, v30.3.0
+
+feature:
+- 3df1f30b6 package: @typescript-eslint/eslint-plugin v6.0.0
+- 92c747b33 putout: codemods: exclude files/directories started with "."
+- f248abd67 package: @typescript-eslint/parser v6.0.0 (https://typescript-eslint.io/blog/announcing-typescript-eslint-v6/)
+
 2023.07.10, v30.2.3
 
 feature:
