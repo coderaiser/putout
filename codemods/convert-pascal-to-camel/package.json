@@ -41,7 +41,7 @@
     "eslint-plugin-putout": "^18.0.0",
     "just-camel-case": "^4.0.2",
     "madrun": "^9.0.0",
-    "nodemon": "^2.0.2"
+    "nodemon": "^3.0.1"
   },
   "peerDependencies": {
     "putout": ">=3.15"
