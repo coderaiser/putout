@@ -47,7 +47,7 @@
     "@putout/eslint": "^2.0.0",
     "@putout/eslint-config": "^7.0.0",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
-    "@typescript-eslint/parser": "^5.4.0",
+    "@typescript-eslint/parser": "^6.0.0",
     "align-spaces": "^1.0.0",
     "eslint-plugin-n": "^16.0.0",
     "eslint-plugin-react": "^7.32.2",
