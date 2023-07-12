@@ -2322,7 +2322,6 @@ When you need to use `replaceWith`, `replaceWithMultiple`, or `insertAfter`, ple
 
 ```js
 const {template, operator} = require('putout');
-
 const {replaceWith} = operator;
 
 const ast = template.ast(`
