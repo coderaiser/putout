@@ -161,7 +161,7 @@
     "@putout/plugin-tape": "^11.0.0",
     "@putout/plugin-try-catch": "^2.0.0",
     "@putout/plugin-types": "^2.0.0",
-    "@putout/plugin-typescript": "^3.0.0",
+    "@putout/plugin-typescript": "^4.0.0",
     "@putout/plugin-webpack": "^3.0.0",
     "@putout/processor-css": "^7.0.0",
     "@putout/processor-ignore": "^4.0.0",
