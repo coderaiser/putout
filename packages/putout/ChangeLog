@@ -1,3 +1,20 @@
+2023.07.12, v30.4.0
+
+feature:
+- d3579eedf package: @putout/plugin-remove-useless-array-constructor v2.0.0
+- ecfe465a6 @putout/plugin-remove-useless-array-constructor: drop support of 🐊 < 30
+- 98170e84f @putout/plugin-remove-useless-array-constructor: report
+- 701e0aabf package: @putout/plugin-remove-duplicate-case v3.0.0
+- e792f8309 @putout/plugin-remove-duplicate-case: drop support of 🐊 < 30
+- f14120595 @putout/plugin-remove-duplicate-case: report
+- 168d5308c package: @putout/plugin-typescript v4.0.0
+- 3f0a3e034 @putout/plugin-typescript: drop support of 🐊 < 30
+- c9772e64a @putout/plugin-typescript: remove-duplicate-interface-keys: report
+- 8d341536d package: @putout/plugin-types v2.0.0
+- 9758ef3fe @putout/plugin-types: drop support of 🐊 < 30
+- 0027cacd5 @putout/plugin-types: remove-useless-typeof: report
+- 983ed74fe package: unist-util-visit v5.0.0
+
 2023.07.11, v30.3.1
 
 feature:
