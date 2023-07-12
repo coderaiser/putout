@@ -218,7 +218,7 @@ isNumericLiteral(node);
 
 ## convert-putout-test-to-create-test
 
-Fixes results of [@putout/convert-commonjs-to-esm](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-commonjs-to-esm) work.
+Fixes results of [@putout/convert-commonjs-to-esm](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-commonjs-to-esm#readme) work.
 
 ### ❌ Example of incorrect code
 
