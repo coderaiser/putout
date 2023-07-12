@@ -42,6 +42,7 @@ jobs:
       - name: Typos
         run: typos --write-changes
       - name: Commit fixes
+        continue-on-error: true
         uses: EndBug/add-and-commit@v9
         with:
           fetch: --force
@@ -50,6 +51,7 @@ jobs:
       - name: Coverage
         run: redrun coverage:ci report
       - name: Coveralls
+        continue-on-error: true
         uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
