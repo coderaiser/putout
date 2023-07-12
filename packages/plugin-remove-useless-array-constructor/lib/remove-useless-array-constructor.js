@@ -3,7 +3,7 @@
 const {types} = require('putout');
 const {isSpreadElement} = types;
 
-module.exports.report = () => 'Array constructor should be avoided';
+module.exports.report = () => `Avoid array constructor, use '[]' instead`;
 
 module.exports.match = () => ({
     'Array(__args)': ({__args}) => {

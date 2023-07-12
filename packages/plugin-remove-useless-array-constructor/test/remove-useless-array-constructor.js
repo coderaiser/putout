@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-useless-array-constructor: report', (t) => {
-    t.report('array', 'Array constructor should be avoided');
+    t.report('array', `Avoid array constructor, use '[]' instead`);
     t.end();
 });
 
