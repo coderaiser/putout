@@ -44,6 +44,7 @@ jobs:
       - name: Commit fixes
         uses: EndBug/add-and-commit@v9
         with:
+          fetch: --force
           message: "chore: ${{ env.NAME }}: actions: lint ☘️"
           pull: --rebase --autostash
       - name: Coverage
