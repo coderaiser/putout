@@ -2205,7 +2205,7 @@ You have also ability to define `printer` of your choose, it can be:
 
 `@putout/printer`:
 
-- ✅ much simpler in support then recast;
+- ✅ much simpler in support then `recast`;
 - ✅ opinionated and has good defaults;
 - ✅ produces code like it was processed by **ESLint**;
 - ✅ twice faster then `recast`;
