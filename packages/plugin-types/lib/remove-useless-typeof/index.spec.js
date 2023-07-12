@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-useless-typeof: report', (t) => {
-    t.report('typeof-typeof', 'Useless typeof should be avoided');
+    t.report('typeof-typeof', `Avoid useless 'typeof'`);
     t.end();
 });
 
