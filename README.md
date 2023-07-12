@@ -2185,13 +2185,13 @@ When you need to ignore some routes no matter what, you can use `ignore` section
 
 ### Printer
 
-Now you have ability to define `printer` you want, it can be:
+You have also ability to define `printer` of your choose, it can be:
 
 - ✅[`putout`](https://github.com/putoutjs/putout) (*default*)
 - ✅[`babel`](https://babeljs.io/docs/babel-generator)
 - ✅[`recast`](https://github.com/putoutjs/recast)
 
-`@putout/printer` used by default, if you want set any other update `.putout.json` with:
+`@putout/printer` used by default, if you want to set any other update `.putout.json` with:
 
 ```json
 {
@@ -2199,11 +2199,27 @@ Now you have ability to define `printer` you want, it can be:
 }
 ```
 
-New printer is:
+`@putout/printer`:
 
 - ✅ much simpler in support then recast;
 - ✅ opinionated and has good defaults;
-- ✅ produces code like it was processed by ESLint without involving ESLint at all;
+- ✅ produces code like it was processed by **ESLint**;
+- ✅ twice faster then `recast`;
+
+`recast`:
+- ✅ tryies to preserve formating, and in 70% succeeded;
+- ❌ for other cases you need [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme);
+- ✅ has support of `flow`;
+- ✅ has support of sourcemaps;
+- ❌ slowest printer: involves additional parser + sophisticated printer;
+
+`babel`:
+- ✅ faster then `recast`;
+- ❌ [produces throw away code](https://github.com/babel/babel/issues/5139);
+- ✅ has support of `flow`;
+- ✅ has support of sourcemaps;
+
+You can choose any of them, but prefered is *[default printer](https://github.com/putoutjs/putout)*.
 
 ### Plugins
 
