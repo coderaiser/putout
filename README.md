@@ -2185,6 +2185,10 @@ When you need to ignore some routes no matter what, you can use `ignore` section
 
 ### Printer
 
+> **In the eyes of mercy, no one should have hateful thoughts. Feel pity for the man who is even more at fault. The area and size of mercy is limitless.**
+>
+> **(c) Yamamoto Tsunetomo "Hagakure"**
+
 You have also ability to define `printer` of your choose, it can be:
 
 - ✅[`putout`](https://github.com/putoutjs/putout) (*default*)
