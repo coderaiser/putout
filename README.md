@@ -284,8 +284,8 @@ So, if you want to convert it to [`ESM`](https://developer.mozilla.org/en-US/doc
  3:0   error   Arrow functions should be used                            convert-to-arrow-function
  1:0   error   'use strict' directive should be on top of commonjs file  strict-mode/add-missing
  8:4   error   Reject is useless in async functions, use throw instead   promises/convert-reject-to-throw
- 4:11  error   Async functions should be called using await              promises/add-missing-await
- 7:0   error   Useless async should be avoided                           promises/remove-useless-async
+ 4:11  error   Async functions should be called using 'await'            promises/add-missing-await
+ 7:0   error   Avoid useless async                                       promises/remove-useless-async
 ```
 
 It will create config file `.putout.json`:
