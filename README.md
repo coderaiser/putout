@@ -2207,19 +2207,21 @@ You have also ability to define `printer` of your choose, it can be:
 - ✅ twice faster then `recast`;
 
 `recast`:
-- ✅ tryies to preserve formating, and in 70% succeeded;
+
+- ✅ tryies to preserve formatting, and in 70% succeeded;
 - ❌ for other cases you need [`eslint-plugin-putout`](https://github.com/coderaiser/putout/tree/master/packages/eslint-plugin-putout#readme);
 - ✅ has support of `flow`;
 - ✅ has support of sourcemaps;
 - ❌ slowest printer: involves additional parser + sophisticated printer;
 
 `babel`:
+
 - ✅ faster then `recast`;
 - ❌ [produces throw away code](https://github.com/babel/babel/issues/5139);
 - ✅ has support of `flow`;
 - ✅ has support of sourcemaps;
 
-You can choose any of them, but prefered is *[default printer](https://github.com/putoutjs/putout)*.
+You can choose any of them, but preferred is *[default printer](https://github.com/putoutjs/putout)*.
 
 ### Plugins
 
