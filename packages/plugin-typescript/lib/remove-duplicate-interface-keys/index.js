@@ -3,7 +3,7 @@
 const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => 'Duplicate interface keys should be avoided';
+module.exports.report = () => 'Avoid duplicate interface keys';
 
 module.exports.fix = (path) => {
     remove(path);

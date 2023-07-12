@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('remove duplicate-interface-keys: report', (t) => {
-    t.report('duplicate', 'Duplicate interface keys should be avoided');
+    t.report('duplicate', `Avoid duplicate interface keys`);
     t.end();
 });
 
