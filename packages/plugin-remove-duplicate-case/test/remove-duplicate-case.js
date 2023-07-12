@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('remove duplicate-case: report', (t) => {
-    t.report('case', 'Duplicate case should be avoided');
+    t.report('case', `Avoid duplicate 'case'`);
     t.end();
 });
 

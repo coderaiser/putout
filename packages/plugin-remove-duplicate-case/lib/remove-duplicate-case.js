@@ -3,7 +3,7 @@
 const {operator} = require('putout');
 const {compare, remove} = operator;
 
-module.exports.report = () => 'Duplicate case should be avoided';
+module.exports.report = () => `Avoid duplicate 'case'`;
 
 module.exports.fix = (path) => {
     remove(path);
