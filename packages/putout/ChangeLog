@@ -1,3 +1,12 @@
+2023.07.13, v30.4.1
+
+feature:
+- 5f1993c4f package: @putout/plugin-github v6.0.0
+- e083d0791 @putout/plugin-github: createUsesFixer -> setVersion
+- d3c2517b9 @putout/plugin-github: drop support of 🐊 < 30
+- 6bfe1c4ce @putout/plugin-github: add-continue-on-error: coveralls, add-and-commit
+- b3e64ff7e eslint-plugin-putout: single-property-destructuring: exclude computed
+
 2023.07.12, v30.4.0
 
 feature:
