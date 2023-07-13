@@ -1,7 +1,7 @@
 # @putout/plugin-github [![NPM version][NPMIMGURL]][NPMURL]
 
 [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-github.svg?style=flat&longCache=true
-[NPMURL]: https://npmjs.org/package/@putout/plugin-github"npm"
+[NPMURL]: https://npmjs.org/package/@putout/plugin-github "npm"
 
 > Automate, customize, and execute your software development workflows right in your repository with **GitHub Actions**.
 >
@@ -20,6 +20,8 @@ npm i @putout/plugin-github -D
 ```json
 {
     "rules": {
+        "github/add-continue-on-error-to-coveralls": "on",
+        "github/add-continue-on-error-to-add-and-commit": "on",
         "github/set-node-versions": "on",
         "github/set-coveralls": "on",
         "github/set-checkout-version": "on",
@@ -27,6 +29,33 @@ npm i @putout/plugin-github -D
         "github/set-add-and-commit": "on"
     }
 }
+```
+
+## add-continue-on-error-to-coveralls
+
+Add ability to continue when cannot submit coverage to Coveralls using [`continue-on-error`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error).
+
+```diff
+  - name: Commit fixes
+    continue-on-error: true
+    uses: EndBug/add-and-commit@v9
+    with:
+      fetch: --force
+      message: "chore: ${{ env.NAME }}: actions: lint ☘️"
+      pull: --rebase --autostash
++   continue-on-error: true
+```
+
+## add-continue-on-error-to-coveralls
+
+Add ability to continue when cannot submit coverage to Coveralls using [`continue-on-error`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error).
+
+```diff
+  - name: Coveralls
+    uses: coverallsapp/github-action@v2
+    with:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
++   continue-on-error: true
 ```
 
 ## set-node-versions

@@ -1,8 +1,8 @@
 __putout_processor_json({
-    "name": "Node CI",
-    "on": ["push", "pull_request"],
-    "jobs": {
-        "build": {
+    name: "Node CI",
+    on: ["push", "pull_request"],
+    jobs: {
+        build: {
             "runs-on": "ubuntu-latest",
             "steps": [{
                 "uses": "actions/checkout@v3",
@@ -13,11 +13,8 @@ __putout_processor_json({
                     "node-version": "${{ matrix.node-version }}",
                 },
             }, {
-                "name": "Coveralls",
-                "uses": 'coverallsapp/github-action@v2',
-                "with": {
-                    "github-token": "${{ secrets.GITHUB_TOKEN }}",
-                },
+                "name": "Commit fixes",
+                "uses": "EndBug/add-and-commit@v9",
                 'continue-on-error': true,
             }],
         },

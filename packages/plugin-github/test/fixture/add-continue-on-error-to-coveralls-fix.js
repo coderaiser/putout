@@ -14,7 +14,7 @@ __putout_processor_json({
                 },
             }, {
                 "name": "Coveralls",
-                "uses": 'coverallsapp/github-action@v2',
+                "uses": "coverallsapp/github-action@v2",
                 "with": {
                     "github-token": "${{ secrets.GITHUB_TOKEN }}",
                 },

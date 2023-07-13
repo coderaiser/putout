@@ -34,3 +34,13 @@ test('plugin-github: transform: set-add-and-commit', (t) => {
     t.transform('set-add-and-commit');
     t.end();
 });
+
+test('plugin-github: transform: add-continue-on-error-to-coveralls', (t) => {
+    t.transform('add-continue-on-error-to-coveralls');
+    t.end();
+});
+
+test('plugin-github: transform: add-continue-on-error-to-add-and-commit', (t) => {
+    t.transform('add-continue-on-error-to-add-and-commit');
+    t.end();
+});

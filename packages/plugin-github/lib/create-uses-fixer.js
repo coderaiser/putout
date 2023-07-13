@@ -1,9 +1,7 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
 const {traverseProperty} = require('./traverse-property');
-
 const {
     replaceWith,
     getTemplateValues,

@@ -5,6 +5,8 @@ const getRule = (a) => ({
 });
 
 module.exports.rules = {
+    ...getRule('add-continue-on-error-to-coveralls'),
+    ...getRule('add-continue-on-error-to-add-and-commit'),
     ...getRule('set-node-versions'),
     ...getRule('set-checkout-version'),
     ...getRule('set-coveralls-version'),

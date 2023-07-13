@@ -33,6 +33,7 @@ __putout_processor_json({
                 "with": {
                     "github-token": "${{ secrets.GITHUB_TOKEN }}",
                 },
+                'continue-on-error': true,
             }],
         },
     },

@@ -8,13 +8,13 @@ __putout_processor_json({
                 "uses": "actions/checkout@v3",
             }, {
                 "name": "Use Node.js ${{ matrix.node-version }}",
-                "uses": 'actions/setup-node@v3',
+                "uses": "actions/setup-node@v1",
                 "with": {
                     "node-version": "${{ matrix.node-version }}",
                 },
             }, {
                 "name": "Coveralls",
-                "uses": 'coverallsapp/github-action@v2',
+                "uses": "coverallsapp/github-action@v2",
                 "with": {
                     "github-token": "${{ secrets.GITHUB_TOKEN }}",
                 },
