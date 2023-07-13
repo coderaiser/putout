@@ -1,5 +1,5 @@
 'use strict';
 
-const {createUsesFixer} = require('../create-uses-fixer');
+const {setVersion} = require('../set-version');
 
-module.exports = createUsesFixer('coverallsapp/github-action', 'v2');
+module.exports = setVersion('coverallsapp/github-action', 'v2');

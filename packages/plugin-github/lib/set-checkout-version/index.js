@@ -1,5 +1,5 @@
 'use strict';
 
-const {createUsesFixer} = require('../create-uses-fixer');
+const {setVersion} = require('../set-version');
 
-module.exports = createUsesFixer('actions/checkout', 'v3');
+module.exports = setVersion('actions/checkout', 'v3');

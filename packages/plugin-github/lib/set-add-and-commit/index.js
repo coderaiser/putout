@@ -1,5 +1,5 @@
 'use strict';
 
-const {createUsesFixer} = require('../create-uses-fixer');
+const {setVersion} = require('../set-version');
 
-module.exports = createUsesFixer('EndBug/add-and-commit', 'v9');
+module.exports = setVersion('EndBug/add-and-commit', 'v9');

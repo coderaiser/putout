@@ -11,7 +11,7 @@ const {StringLiteral} = types;
 const cutV = (a) => Number(a.slice(1));
 const cutMaster = (a) => a.replace('master', 'v0');
 
-module.exports.createUsesFixer = (name, version) => {
+module.exports.setVersion = (name, version) => {
     const full = `${name}@${version}`;
     const checkoutNode = StringLiteral(full);
     
