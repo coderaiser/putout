@@ -26,7 +26,7 @@ const fix = (property, value) => (path) => {
     const valueNode = BooleanLiteral(value);
     const node = ObjectProperty(keyNode, valueNode);
     
-    path.node.properties.push(node);
+    path.node.properties.splice(2, 0, node);
 };
 
 const traverse = (name, property) => ({push}) => ({

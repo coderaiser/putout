@@ -15,10 +15,10 @@ __putout_processor_json({
             }, {
                 "name": "Coveralls",
                 "uses": 'coverallsapp/github-action@v2',
+                'continue-on-error': true,
                 "with": {
                     "github-token": "${{ secrets.GITHUB_TOKEN }}",
                 },
-                'continue-on-error': true,
             }],
         },
     },
