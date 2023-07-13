@@ -39,9 +39,9 @@ module.exports.filter = ({node, text, getText, getCommentsInside}) => {
     
     if (isVariableDeclarator(node) && /(const|let|var) {\n/.test(parentText)) {
         const [property] = node.id.properties;
-        const {value} = property;
+        const {value, computed} = property;
         
-        return !isAssignmentPattern(value);
+        return !computed && !isAssignmentPattern(value);
     }
     
     return false;

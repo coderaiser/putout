@@ -23,6 +23,12 @@ ruleTester.run('single-property-destructuring', rule, {
         } = world;`,
         `import {x} from 'y';`,
         montag`
+            const {
+                ['propertyPath']: current,
+            } = getProperties(parentPath, [property]);
+        `,
+        
+        montag`
             import {
                 helloWorld as simpleHello,
             } from './user.js';
