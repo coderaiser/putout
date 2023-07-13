@@ -27,7 +27,6 @@ ruleTester.run('single-property-destructuring', rule, {
                 ['propertyPath']: current,
             } = getProperties(parentPath, [property]);
         `,
-        
         montag`
             import {
                 helloWorld as simpleHello,
