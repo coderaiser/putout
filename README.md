@@ -194,7 +194,7 @@ import putout from 'https://esm.sh/@putout/bundle';
 import removeDebugger from 'https://esm.sh/@putout/plugin-remove-debugger?alias=putout:@putout/bundle';
 import declare from 'https://esm.sh/@putout/plugin-declare?alias=putout:@putout/bundle';
 
-putout('isFn(fn, "hello"); debugger', {
+putout('isFn(fn); debugger', {
     plugins: [
         ['remove-debugger', removeDebugger],
         ['declare', declare],
@@ -203,7 +203,7 @@ putout('isFn(fn, "hello"); debugger', {
 
 // returns
 ({
-    code: `const isFn = a => typeof a === 'function';\nisFn(fn, "hello");`,
+    code: `const isFn = a => typeof a === 'function';\nisFn(fn);`,
     places: [],
 });
 ```
