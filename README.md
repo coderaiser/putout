@@ -2191,7 +2191,7 @@ When you need to ignore some routes no matter what, you can use `ignore` section
 
 You have also ability to define `printer` of your choose, it can be:
 
-- ✅[`putout`](https://github.com/putoutjs/putout) (*default*)
+- ✅[`putout`](https://github.com/putoutjs/printer) (*default*)
 - ✅[`babel`](https://babeljs.io/docs/babel-generator)
 - ✅[`recast`](https://github.com/putoutjs/recast)
 
@@ -2221,7 +2221,7 @@ You have also ability to define `printer` of your choose, it can be:
 - ✅ faster then `recast`;
 - ❌ [produces throw away code](https://github.com/babel/babel/issues/5139);
 
-You can choose any of them, but preferred is *[default printer](https://github.com/putoutjs/putout)*.
+You can choose any of them, but preferred is *[default printer](https://github.com/putoutjs/printer)*.
 
 ### Plugins
 
@@ -2332,7 +2332,7 @@ module.exports.fix = (path) => {
 };
 ```
 
-This should be done to preserve `loc` and `comments` information, which is different in **Babel** and **[Recast](https://github.com/putoutjs/putout)**. 🐊**Putout** will handle this case for you :),
+This should be done to preserve `loc` and `comments` information, which is different in **Babel** and **[Recast](https://github.com/putoutjs/recast)**. 🐊**Putout** will handle this case for you :),
 just use the methods of `operator`.
 
 ### 🐊 Putout Plugin
