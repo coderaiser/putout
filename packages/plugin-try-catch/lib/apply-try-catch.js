@@ -1,7 +1,6 @@
 'use strict';
 
 const {types, operator} = require('putout');
-
 const {replaceWithMultiple} = operator;
 
 const {
@@ -23,20 +22,19 @@ module.exports = (tryName) => (path) => {
     ]);
     
     const {param} = path.node.handler;
-    
     const {body} = path.get('handler').node;
-    
-    const ifNode = body.body.length ? [
-        IfStatement(param, body),
-    ] : body.body;
     
     if (!param) {
         replaceWithMultiple(path, [
             maybeAwait(path, callNode),
-            ...ifNode,
+            ...body.body,
         ]);
         return;
     }
+    
+    const ifNode = body.body.length ? [
+        IfStatement(param, body),
+    ] : body.body;
     
     const varNode = VariableDeclaration('const', [
         VariableDeclarator(ArrayPattern([param]), maybeAwait(path, callNode)),
