@@ -1,3 +1,13 @@
+2023.07.15, v30.4.2
+
+fix:
+- 7a0dbcb07 @putout/plugin-github: add-continue-on-error: push -> splice
+
+feature:
+- 7649469b4 package: @putout/plugin-try-catch v3.0.0
+- fd83b0085 @putout/plugin-try-catch: drop support of 🐊 < 30
+- f0828b475 @putout/plugin-try-catch: sync: improve support of no error
+
 2023.07.13, v30.4.1
 
 feature:
