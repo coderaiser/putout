@@ -1,10 +1,10 @@
 await hello();
 world();
 
-function hello() {
+function hello(): Promise<Response> {
     return fetch('/');
 }
 
-function world() {
+function world(): Promise.x<string> {
     return 'hello';
 }
