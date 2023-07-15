@@ -17,6 +17,8 @@ npm i @putout/plugin-promises -D
 
 ## Rule
 
+Default options looks this way:
+
 ```json
 {
     "rules": {
@@ -31,6 +33,10 @@ npm i @putout/plugin-promises -D
     }
 }
 ```
+
+☝️ If you want to override any of it, update `.putout.json` in the root directory of your project.
+
+[🦉 Configuration](https://github.com/coderaiser/putout#-configuration) section of 🐊**Putout** documentation tell you more about all configuration options supported.
 
 ## apply-await-import
 
