@@ -8,6 +8,11 @@ const {
     ThrowStatement,
 } = types;
 
+const isPassedToFn = (path) => {
+    const {parentPath} = path;
+    return parentPath.get('callee') !== path;
+};
+
 module.exports.report = () => `Async functions should be used instead of 'new Promise()'`;
 
 module.exports.match = () => ({
@@ -15,8 +20,14 @@ module.exports.match = () => ({
         const {scope} = path.get('argument.arguments.0');
         const {resolve, reject} = scope.bindings;
         
-        if (resolve?.references)
+        if (resolve?.references) {
+            const [referencePath] = resolve.referencePaths;
+            
+            if (isPassedToFn(referencePath))
+                return false;
+            
             return resolve.referencePaths[0].scope.uid === scope.uid;
+        }
         
         return reject?.referencePaths[0].scope.uid === scope.uid;
     },
@@ -50,10 +61,6 @@ module.exports.replace = () => ({
                 if (scope === resolvePath.scope?.getFunctionParent())
                     resolvePath.parentPath.remove();
             },
-            'resolve': (path) => {
-                if (checkIdentifier(path))
-                    exclude = true;
-            },
             'reject': (path) => {
                 if (checkIdentifier(path))
                     exclude = true;
@@ -73,10 +80,6 @@ module.exports.replace = () => ({
 
 function checkIdentifier(path) {
     const {parentPath} = path;
-    
-    if (parentPath.isFunction() && path === parentPath.get('params.0'))
-        return false;
-    
     const calleePath = parentPath.get('callee');
     
     return parentPath.isCallExpression() && calleePath !== path;

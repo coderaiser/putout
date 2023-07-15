@@ -49,3 +49,8 @@ test('plugin-promises: convert-new-promise-to-async: no report: different-names'
     t.noReport('different-names');
     t.end();
 });
+
+test('plugin-promises: convert-new-promise-to-async: no report: resolve-passed', (t) => {
+    t.noReport('resolve-passed');
+    t.end();
+});
