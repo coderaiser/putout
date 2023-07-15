@@ -1,3 +1,11 @@
+2023.07.15, v30.4.3
+
+feature:
+- f54ce7750 package: @putout/plugin-logical-expressions v3.0.0
+- 381d2055b @putout/plugin-logical-expressions: drop support of 🐊 < 30
+- 5a266af6b @putout/plugin-logical-expressions: simplify: Boolean constructor
+- 2bb7b219a @putout/plugin-promises: convert-new-promise-to-async: passed resolve
+
 2023.07.15, v30.4.2
 
 fix:
