@@ -18,9 +18,19 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    '__a(__args) && __b': '__a(__args)',
-    
     'Boolean(__a) && __b': '__a && __b',
+    '__a(__args) && __b': ({__a}, path) => {
+        if (__a.name === 'Boolean') {
+            const leftPath = path.get('left');
+            const [node] = leftPath.node.arguments;
+            
+            leftPath.replaceWith(node);
+            
+            return path;
+        }
+        
+        return '__a(__args)';
+    },
     '!(__a && !__b)': '!__a || __b',
     '!(!__a && __b)': '__a || !__b',
     '!(__a !== __b)': '__a === __b',
