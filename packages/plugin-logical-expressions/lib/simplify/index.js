@@ -6,7 +6,10 @@ const {isSimple} = operator;
 module.exports.report = () => 'Simplify logical expression';
 
 module.exports.match = () => ({
-    '__a(__args) && __b': ({__b}, path) => {
+    '__a(__args) && __b': ({__a, __b}, path) => {
+        if (__a.name === 'Boolean')
+            return true;
+        
         if (!path.parentPath.isExpressionStatement())
             return false;
         
@@ -17,6 +20,7 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     '__a(__args) && __b': '__a(__args)',
     
+    'Boolean(__a) && __b': '__a && __b',
     '!(__a && !__b)': '!__a || __b',
     '!(!__a && __b)': '__a || !__b',
     '!(__a !== __b)': '__a === __b',

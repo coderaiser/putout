@@ -64,3 +64,8 @@ test('plugin-simplify-logical-expression: transform: block', (t) => {
     t.transform('block');
     t.end();
 });
+
+test('plugin-simplify-logical-expression: transform: constructor', (t) => {
+    t.transform('constructor');
+    t.end();
+});
