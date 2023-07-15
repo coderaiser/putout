@@ -11,7 +11,7 @@
 >
 > (c) [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to work with promises.
+🐊[**Putout**](https://github.com/coderaiser/putout) plugin improves `Promise`-related code.
 
 ## Install
 

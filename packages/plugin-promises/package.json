@@ -3,7 +3,7 @@
   "version": "11.5.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "🐊Putout plugin helps with Promises",
+  "description": "🐊Putout plugin improves Promise-related code",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-promises#readme",
   "main": "lib/promises.js",
   "release": false,
