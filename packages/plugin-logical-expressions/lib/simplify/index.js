@@ -18,7 +18,7 @@ module.exports.match = () => ({
 });
 
 module.exports.replace = () => ({
-    'Boolean(__a) && __b': '__a && __b',
+    'Boolean(__a) || __b': '__a || __b',
     '__a(__args) && __b': ({__a}, path) => {
         if (__a.name === 'Boolean') {
             const leftPath = path.get('left');
