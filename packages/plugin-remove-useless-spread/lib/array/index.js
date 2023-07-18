@@ -1,13 +1,27 @@
 'use strict';
 
 const {types} = require('putout');
-const {isNumericLiteral} = types;
+const {
+    isNumericLiteral,
+    isMemberExpression,
+    isIdentifier,
+} = types;
 
 module.exports.report = () => `Avoid useless spread '...'`;
 
 module.exports.match = () => ({
     '[...Array(__a)]': ({__a}) => !isNumericLiteral(__a),
+    '[...__a(__args)]': ({__a}) => {
+        if (!isMemberExpression(__a))
+            return true;
+        
+        return !isIdentifier(__a.property, {
+            name: 'values',
+        });
+    },
 });
+
+module.exports.exclude = () => [];
 
 module.exports.replace = () => ({
     '[...Array(__a)]': 'Array(__a)',
