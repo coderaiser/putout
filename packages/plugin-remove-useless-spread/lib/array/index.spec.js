@@ -64,4 +64,3 @@ test('plugin-remove-useless-spread: array: no transform: values', (t) => {
     t.noTransform('values');
     t.end();
 });
-
