@@ -1,3 +1,12 @@
+2023.07.18, v30.4.4
+
+feature:
+- cf3753919 package: @putout/plugin-remove-useless-spread v8.0.0
+- a7bf33d1e @putout/plugin-remove-useless-spread: array
+- faec6bbc6 @putout/plugin-remove-useless-spread: array: exclude "__.values()" (#148)
+- d7bcb7406 @putout/plugin-logical-expressions: simplify: constructor: or
+- a7c72715d @putout/plugin-logical-expressions: simplify: constructor
+
 2023.07.15, v30.4.3
 
 feature:
