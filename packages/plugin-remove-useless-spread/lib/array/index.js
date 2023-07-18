@@ -15,13 +15,20 @@ module.exports.match = () => ({
         if (!isMemberExpression(__a))
             return true;
         
-        return !isIdentifier(__a.property, {
+        const isValues = isIdentifier(__a.property, {
             name: 'values',
         });
+        
+        const isObject = isIdentifier(__a.object, {
+            name: 'Object',
+        });
+        
+        if (isObject)
+            return true;
+        
+        return !isValues;
     },
 });
-
-module.exports.exclude = () => [];
 
 module.exports.replace = () => ({
     '[...Array(__a)]': 'Array(__a)',
