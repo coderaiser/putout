@@ -19,6 +19,8 @@ module.exports.report = () => 'Avoid zero in assertions';
 module.exports.match = () => ({
     '__a !== 0': check,
     '__a != 0': check,
+    '__a === 0': check,
+    '__a == 0': check,
 });
 
 module.exports.replace = () => ({

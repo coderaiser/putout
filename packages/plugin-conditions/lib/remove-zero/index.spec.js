@@ -29,3 +29,8 @@ test('plugin-conditions: remove-zero: no transform: jsx', (t) => {
     t.noTransform('jsx');
     t.end();
 });
+
+test('plugin-conditions: remove-zero: no transform: jsx-equal', (t) => {
+    t.noTransform('jsx-equal');
+    t.end();
+});
