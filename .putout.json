@@ -4,11 +4,11 @@
         "**/codemods": {
             "putout": "on"
         },
-        "**/packages/{formatter-*,plugin-*}": {
+        "**/packages/{formatter-*,plugin-*,processor-*}": {
             "putout": "on",
             "nodejs": "off"
         },
-        "**/packages/{test,engine-processor,eslint-config,processor-*}": {
+        "**/packages/{test,engine-processor,eslint-config}": {
             "putout": "on",
             "nodejs": "off"
         },
