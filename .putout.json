@@ -4,14 +4,13 @@
         "**/codemods": {
             "putout": "on"
         },
-        "**/{packages}/{test,engine-processor,eslint-config,plugin-*,formatter-*,processor-*}": {
+        "**/packages/{formatter-*,plugin-*}": {
             "putout": "on",
-            "nodejs": "off",
-            "putout/create-test": ["on", {
-                "add": [
-                    ["printer", "putout"]
-                ]
-            }]
+            "nodejs": "off"
+        },
+        "**/packages/{test,engine-processor,eslint-config,processor-*}": {
+            "putout": "on",
+            "nodejs": "off"
         },
         "**/rules": {
             "putout": "on",

@@ -1,8 +1,5 @@
 {
     "printer": "putout",
-    "rules": {
-        "putout": "on"
-    },
     "match": {
         "README.md": {
             "apply-starts-with": "off"
