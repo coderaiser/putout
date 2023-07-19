@@ -1,3 +1,11 @@
+2023.07.19, v30.4.5
+
+feature:
+- d9758f507 package: @putout/plugin-conditions v2.0.0
+- b34acc1ad @putout/plugin-conditions: drop support of 🐊 < 30
+- af1d63c5b @putout/plugin-conditions: remove-zero: exclude jsx
+- d7a9bf6b0 @putout/plugin-remove-useless-spread: array: include "Object.values()"
+
 2023.07.18, v30.4.4
 
 feature:
