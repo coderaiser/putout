@@ -1285,6 +1285,16 @@ function world(a) {
 
 </details>
 
+<details><summary>apply <code>.startsWith()</code></summary>
+
+```diff
+const {a = ''} = b;
+-!a.indexOf('>');
++a.startsWith('>');
+```
+
+</details>
+
 <details><summary>apply <code>template literals</code></summary>
 
 ```diff
@@ -1880,6 +1890,7 @@ It has a lot plugins divided by groups:
 | Package | Version |
 |--------|-------|
 | [`@putout/plugin-apply-at`](/packages/plugin-apply-at#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-at) |
+| [`@putout/plugin-apply-starts-with`](/packages/plugin-apply-starts-with#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-starts-with.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-starts-with) |
 | [`@putout/plugin-apply-flat-map`](/packages/plugin-apply-flat-map#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-flat-map.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-flat-map) |
 | [`@putout/plugin-apply-destructuring`](/packages/plugin-apply-destructuring#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-destructuring.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-destructuring) |
 | [`@putout/plugin-apply-optional-chaining`](/packages/plugin-apply-optional-chaining#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-optional-chaining.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-optional-chaining) |

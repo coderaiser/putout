@@ -151,6 +151,7 @@
         "apply-flat-map",
         "apply-destructuring",
         "apply-optional-chaining",
+        "apply-starts-with",
         "apply-template-literals",
         "extract-object-properties",
         "extract-sequence-expressions",
