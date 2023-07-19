@@ -1,7 +1,12 @@
 'use strict';
 
+const {isJSXExpressionContainer} = require('putout').types;
+
 const check = (vars, path) => {
     const {parentPath} = path;
+    
+    if (parentPath.find(isJSXExpressionContainer))
+        return false;
     
     if (parentPath.isAssignmentExpression())
         return false;

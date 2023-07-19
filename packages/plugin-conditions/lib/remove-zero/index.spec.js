@@ -24,3 +24,8 @@ test('plugin-conditions: remove-zero: no transform: assign', (t) => {
     t.noTransform('assign');
     t.end();
 });
+
+test('plugin-conditions: remove-zero: no transform: jsx', (t) => {
+    t.noTransform('jsx');
+    t.end();
+});
