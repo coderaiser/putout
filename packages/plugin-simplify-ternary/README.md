@@ -37,6 +37,7 @@ module.exports = fs.copyFileSync ? fs.copyFileSync : copyFileSync;
 
 x = y ? y : z;
 x = y ? z : y;
+x = y ? z : false;
 
 m = is ? a && b : a && c;
 ```
