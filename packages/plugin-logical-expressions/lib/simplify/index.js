@@ -1,7 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {isSimple} = operator;
+const {isSimple, replaceWith} = operator;
 
 module.exports.report = () => 'Simplify logical expression';
 
@@ -24,7 +24,7 @@ module.exports.replace = () => ({
             const leftPath = path.get('left');
             const [node] = leftPath.node.arguments;
             
-            leftPath.replaceWith(node);
+            replaceWith(leftPath, node);
             
             return path;
         }

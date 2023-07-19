@@ -16,7 +16,7 @@ const isPassedToFn = (path) => {
 module.exports.report = () => `Async functions should be used instead of 'new Promise()'`;
 
 module.exports.match = () => ({
-    'return new Promise(__a)'({}, path) {
+    'return new Promise(__a)': (vars, path) => {
         const {scope} = path.get('argument.arguments.0');
         const {resolve, reject} = scope.bindings;
         
