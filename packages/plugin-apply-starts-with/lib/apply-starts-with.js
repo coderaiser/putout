@@ -21,8 +21,11 @@ module.exports.replace = () => ({
 
 function checkIndex({__a}, path) {
     const {name} = __a;
+    const binding = path.scope.getAllBindings()[name];
     
-    const binding = path.scope.bindings[name];
+    if (!binding)
+        return false;
+    
     const bindingNode = binding.path.node;
     
     if (isAssignmentPattern(bindingNode))

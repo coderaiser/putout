@@ -20,7 +20,17 @@ test('plugin-apply-starts-with: transform: object', (t) => {
     t.end();
 });
 
+test('plugin-apply-starts-with: transform: upper-scope', (t) => {
+    t.transform('upper-scope');
+    t.end();
+});
+
 test('plugin-apply-starts-with: no transform: not-assign', (t) => {
     t.noTransform('not-assign');
+    t.end();
+});
+
+test('plugin-apply-starts-with: no transform: not-declared', (t) => {
+    t.noTransform('not-declared');
     t.end();
 });
