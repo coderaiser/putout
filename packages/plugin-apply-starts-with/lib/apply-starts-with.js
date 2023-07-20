@@ -6,7 +6,6 @@ const {
     isObjectPattern,
     isAssignmentPattern,
 } = types;
-
 const {compare} = operator;
 
 module.exports.report = () => `Use '.startsWith()' instead of '.indexOf()'`;
