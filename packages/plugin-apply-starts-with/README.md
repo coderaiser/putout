@@ -9,6 +9,8 @@
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply `.startsWith()`.
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/cf2892d814886a8faf4497abb76e5939/ca92bbe553079063473e8836b602f4c547b364d4).
+
 ## Install
 
 ```
