@@ -1,3 +1,3 @@
 export class GridCache<T> {
-    cache;
+    public cache: T[][] | undefined[][];
 }
