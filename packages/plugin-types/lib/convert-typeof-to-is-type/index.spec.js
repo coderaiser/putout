@@ -40,6 +40,11 @@ test('plugin-convert-typeof-to-is-type: transform: member', (t) => {
     t.end();
 });
 
+test('plugin-convert-typeof-to-is-type: transform: bigint', (t) => {
+    t.transform('bigint');
+    t.end();
+});
+
 test('plugin-convert-typeof-to-is-type: no transform: bind', (t) => {
     t.noTransform('bind');
     t.end();

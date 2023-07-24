@@ -10,6 +10,7 @@ const NAMES = {
     boolean: 'isBool',
     undefined: 'isUndefined',
     symbol: 'isSymbol',
+    bigint: 'isBigInt',
 };
 
 const GENERAL = 'typeof __a === "__b"';
@@ -21,6 +22,7 @@ const BODIES = {
     boolean: `typeof __a === 'boolean'`,
     undefined: `typeof __a === 'undefined'`,
     symbol: `typeof __a === 'symbol'`,
+    bigint: `typeof __a === 'bigint'`,
 };
 
 module.exports.report = () => `Use function to check type instead of 'typeof'`;
@@ -46,6 +48,7 @@ module.exports.replace = () => ({
     [BODIES.boolean]: 'isBool(__a)',
     [BODIES.undefined]: 'isUndefined(__a)',
     [BODIES.symbol]: 'isSymbol(__a)',
+    [BODIES.bigint]: 'isBigInt(__a)',
 });
 
 function isBind(path, name) {
