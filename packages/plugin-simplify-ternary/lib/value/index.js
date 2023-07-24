@@ -1,8 +1,21 @@
 'use strict';
 
+const {operator} = require('putout');
+const {compare} = operator;
+
 module.exports.report = () => 'Simplify ternary';
 
-module.exports.filter = ({parentPath}) => !parentPath.isJSXExpressionContainer();
+module.exports.filter = (path) => {
+    const {parentPath} = path;
+    
+    if (compare(path, '__a = __b ? __a : __d'))
+        return parentPath.isExpressionStatement();
+    
+    if (compare(path, '__a = __b ? __d : __a'))
+        return parentPath.isExpressionStatement();
+    
+    return !parentPath.isJSXExpressionContainer();
+};
 
 module.exports.replace = () => ({
     '__a ? __a : __b': '__a || __b',
