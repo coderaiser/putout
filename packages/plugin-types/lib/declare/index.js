@@ -9,5 +9,6 @@ module.exports.declare = () => ({
     isObject: `const isObject = (a) => a && typeof a === 'object'`,
     isUndefined: `const isUndefined = (a) => typeof a === 'undefined'`,
     isSymbol: `const isSymbol = (a) => typeof a === 'symbol'`,
+    isBigInt: `const isBigInt = (a) => typeof a === 'bigint'`,
     isNull: `const isNull = (a) => !a && typeof a === 'object'`,
 });
