@@ -28,6 +28,7 @@ const PRINT_OPTIONS = {
         },
     }],
 };
+
 const isString = (a) => typeof a === 'string';
 
 const log = (from, path) => {
