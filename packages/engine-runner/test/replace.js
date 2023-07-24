@@ -773,7 +773,7 @@ test('putout: runner: replace: statement in place of expression', (t) => {
         }),
     };
     
-    const message = `☝️ Looks like try to put Statement in place of Expression, use 'match' to filter out such cases`;
+    const message = `☝️ Looks like a try to put Statement in place of Expression, use 'match' to filter out such cases: '__a ? __b : __c; -> if (__a)__b;else __c;'. For code: 'a ? b : c'`;
     
     const [error] = tryCatch(putout, 'fn(a ? b : c)', {
         runPlugins,

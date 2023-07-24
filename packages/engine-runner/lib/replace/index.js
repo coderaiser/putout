@@ -1,14 +1,12 @@
 'use strict';
 
-const {template} = require('@putout/engine-parser');
-
+const {template, print} = require('@putout/engine-parser');
+const {remove, replaceWith} = require('@putout/operate');
 const {
     isExpression,
     isStatement,
     isExpressionStatement,
 } = require('@babel/types');
-
-const {remove, replaceWith} = require('@putout/operate');
 
 const {
     compare,
@@ -21,6 +19,15 @@ const debug = require('debug')('putout:runner:replace');
 const maybeArray = require('../maybe-array');
 
 const watermark = require('./watermark');
+const PRINT_OPTIONS = {
+    printer: ['putout', {
+        format: {
+            newline: '',
+            indent: '',
+            splitter: ' ',
+        },
+    }],
+};
 const isString = (a) => typeof a === 'string';
 
 const log = (from, path) => {
@@ -197,5 +204,5 @@ function checkExpressionStatement(nodeFrom, nodeTo, path) {
     if (isExpressionStatement(path) || isExpressionStatement(path.parentPath))
         return;
     
-    throw Error(`☝️ Looks like try to put Statement in place of Expression, use 'match' to filter out such cases`);
+    throw Error(`☝️ Looks like a try to put Statement in place of Expression, use 'match' to filter out such cases: '${print(nodeFrom, PRINT_OPTIONS)} -> ${print(nodeTo, PRINT_OPTIONS)}'. For code: '${path}'`);
 }
