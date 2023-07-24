@@ -20,6 +20,11 @@ test('plugin-conditions: remove-zero: transform', (t) => {
     t.end();
 });
 
+test('plugin-conditions: remove-zero: transform: parens', (t) => {
+    t.transform('parens');
+    t.end();
+});
+
 test('plugin-conditions: remove-zero: no transform: assign', (t) => {
     t.noTransform('assign');
     t.end();

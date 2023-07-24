@@ -1,6 +1,10 @@
 'use strict';
 
-const {isJSXExpressionContainer} = require('putout').types;
+const {types} = require('putout');
+const {
+    isBinaryExpression,
+    isJSXExpressionContainer,
+} = types;
 
 const check = (vars, path) => {
     const {parentPath} = path;
@@ -26,6 +30,13 @@ module.exports.match = () => ({
 module.exports.replace = () => ({
     '__a !== 0': '__a',
     '__a != 0': '__a',
-    '__a === 0': '!__a',
-    '__a == 0': '!__a',
+    '__a === 0': maybeParens,
+    '__a == 0': maybeParens,
 });
+
+function maybeParens({__a}) {
+    if (isBinaryExpression(__a))
+        return '!(__a)';
+    
+    return '!__a';
+}
