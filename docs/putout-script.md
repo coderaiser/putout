@@ -17,7 +17,7 @@ Pattern matching searches code for a given pattern. For example, the expression 
 
 `loud(say('hello 🐊'))`
 
-In the same way, the statement pattern `return __` can match a top `statement` in a `function` or any nested `statement`:
+In the same way, the **Statement Pattern** `return __` can match a [**Statement**](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#expression-and-statement) in a `function` or on any level of nesting:
 
 ```js
 const when = () => {
