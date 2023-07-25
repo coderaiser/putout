@@ -1,3 +1,19 @@
+2023.07.25, v30.6.0
+
+feature:
+- 2e6d87400 package: @putout/operate v9.0.0
+- 71a38af4c package: @putout/operate v9.0.0
+- 77652d3ef package: @putout/operate v9.0.0
+- d3119103f @putout/operator-declare: imporve support of comments (#164)
+- e834e40b2 @putout/operate: insertAfter: improve (#164)
+- 3461301ea @putout/plugin-putout: declare: operator: insertAfter (#164)
+- b00f54ae9 @putout/engine-runner: replace: Statement in place of Expression: improve message (#156)
+- 7b7e4c38f @putout/plugin-simplify-ternary: value: when converting to IfStatement filter out by parentPath.type === ExpressionStatement (#156)
+- dfc595439 @putout/plugin-types: declare: isBigInt (#158)
+- c23fa1ea9 @putout/plugin-types: convert-typeof-to-is-type (#158)
+- 4fa8f58bb @putout/plugin-conditions: remove-zero: improve support of parens (#157)
+- 8644df78a @putout/plugin-apply-starts-with: add case with where no binding found
+
 2023.07.19, v30.5.0
 
 feature:
