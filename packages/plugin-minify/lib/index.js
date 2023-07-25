@@ -16,5 +16,6 @@ module.exports.rules = {
     ...getRule('shorten-names'),
     ...getRule('remove-var-undefined'),
     ...getRule('remove-return-undefined'),
+    ...getRule('inline'),
     ...getRule('types'),
 };

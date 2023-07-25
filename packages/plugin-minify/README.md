@@ -30,6 +30,7 @@ npm i @putout/plugin-putout -D
         "minify/remove-var-undefined": "on",
         "minify/remove-return-undefined": "on",
         "minify/shorten-names": "on",
+        "minify/inline": "on",
         "minify/types": "on"
     }
 }
@@ -349,6 +350,29 @@ const c = false;
 const a = void 0;
 const b = !0;
 const c = !1;
+```
+
+## inline
+
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/1b0ad2900f604352697e8edc9f2be61b/d60caae865597b4cb99dce5f95158ff26ae74e20).
+
+### ❌ Example of incorrect code
+
+```js
+let x = 1;
+--x;
+
+if (!x)
+    console.log('hello');
+```
+
+### ✅ Example of correct code
+
+```js
+let x = 1;
+
+if (!--x)
+    console.log('hello');
 ```
 
 ## License
