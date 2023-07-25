@@ -4,6 +4,7 @@ function get(a) {
     {
         if (a > 0)
             return 5;
+        
         return 7;
     }
 }
