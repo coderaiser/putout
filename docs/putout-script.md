@@ -46,7 +46,7 @@ The `__args` value abstracts away a sequence of zero or more arguments, for `(__
 
 ## `__args__a`
 
-`__args` can be linked. **Linked args** can be used to link to values with the same [`Expressions`](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#expression-and-statement), `Identifiers`(https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#identifier) or [`Literals`](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#literal)): `((__args__a) => __c(__args__a))(__args__b)` will find:
+`__args` can be linked. **Linked args** can be used to link to values with the same [`Expressions`](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#expression-and-statement), [`Identifiers`](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#identifier) or [`Literals`](https://github.com/coderaiser/putout/blob/master/docs/the-book-of-ast.md#literal)): `((__args__a) => __c(__args__a))(__args__b)` will find:
 
 ```js
 fn(value);
