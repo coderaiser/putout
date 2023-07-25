@@ -289,7 +289,7 @@ for (const [i, item] of array.entries()) {
 
 ### for-entries-n
 
-##### ❌ Example of incorrect code
+#### ❌ Example of incorrect code
 
 ```js
 const n = array.length;
