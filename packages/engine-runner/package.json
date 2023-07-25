@@ -57,6 +57,9 @@
     "putout": "*",
     "supertape": "^8.0.0"
   },
+  "peerDependencies": {
+    "putout": "*"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=16"
