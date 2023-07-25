@@ -1,7 +1,7 @@
 'use strict';
 
 const {template} = require('@putout/engine-parser');
-const {isESM} = require('@putout/operate');
+const {isESM, insertAfter} = require('@putout/operate');
 const {compare} = require('@putout/compare');
 
 const {
@@ -149,13 +149,13 @@ function insert(node, bodyPath) {
     const [first] = bodyPath;
     
     if (isVariableDeclaration(node) && isImportDeclaration(insertionPath))
-        return insertionPath.insertAfter(node);
+        return insertAfter(insertionPath, node);
     
     if (isVariableDeclaration(node))
         return first.insertBefore(node);
     
     if (!insertionPath && isUseStrict(first))
-        return first.insertAfter(node);
+        return insertAfter(first, node);
     
     if (!insertionPath && !isUseStrict(first))
         return first.insertBefore(node);
@@ -163,7 +163,7 @@ function insert(node, bodyPath) {
     if (insertionPath.isImportDeclaration() && isLocalImport(insertionPath))
         return insertionPath.insertBefore(node);
     
-    return insertionPath.insertAfter(node);
+    return insertAfter(insertionPath, node);
 }
 
 const getLastImportPath = (bodyPath) => {

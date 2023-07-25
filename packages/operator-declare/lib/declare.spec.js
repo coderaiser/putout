@@ -922,3 +922,37 @@ test('putout: operator: declare: export type: get while find', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operator: declare: comment', (t) => {
+    const declarations = {
+        isNumber: `const isNumber = (a) => typeof a === 'number'`,
+    };
+    
+    const source = montag`
+        import a from 'b';
+        // hello world
+        export function x() {
+            return isNumber(a);
+        }
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['declare', declare(declarations)],
+        ],
+    });
+    
+    const expected = montag`
+        import a from 'b';
+        
+        const isNumber = (a) => typeof a === 'number';
+        
+        // hello world
+        export function x() {
+            return isNumber(a);
+        }\n\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
