@@ -77,7 +77,7 @@ type SuperType1 = Partial<Type>;
 >
 > (c) [typescript.org](https://www.typescriptlang.org/docs/handbook/advanced-types.html#user-defined-type-guards)
 
-Check out in 🐊[**Putout Editor](https://putout.cloudcmd.io/#/gist/5ac4459242197c4820b331f19d3681eb/4b66175c486ee8e865aee9645bf4e5fffc664e01).
+Check out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/5ac4459242197c4820b331f19d3681eb/4b66175c486ee8e865aee9645bf4e5fffc664e01).
 
 #### ❌ Example of incorrect code
 
