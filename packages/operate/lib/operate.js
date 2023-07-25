@@ -94,6 +94,10 @@ module.exports.replaceWithMultiple = (path, nodes) => {
 
 module.exports.insertAfter = (path, node) => {
     const {comments} = path.node;
+    
+    if (path.node.trailingComments?.length && path.getNextSibling()?.node?.leadingComments)
+        delete path.node.trailingComments;
+    
     path.insertAfter(node);
     path.node.comments = comments;
 };

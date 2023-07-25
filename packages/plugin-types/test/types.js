@@ -39,3 +39,8 @@ test('putout: plugin: types: declare: transform: apply-is-array', (t) => {
     t.transform('apply-is-array');
     t.end();
 });
+
+test('putout: plugin: types: transform: comment', (t) => {
+    t.transform('comment');
+    t.end();
+});

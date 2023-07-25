@@ -80,6 +80,10 @@ Extract node value according to it's type::
 - if it is `ClassMethod` return `key`;
 - `throw` in other cases
 
+### `insertAfter(path, node)`
+
+Safe way to insert `node` after `path` without duplicating comments.
+
 ### `replaceWith(path, node)`
 
 ```js

@@ -24,3 +24,8 @@ test('putout: plugin: types: declare: empty-string', (t) => {
     t.transform('empty-string');
     t.end();
 });
+
+test('putout: plugin: types: declare: comment', (t) => {
+    t.transform('comment');
+    t.end();
+});

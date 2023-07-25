@@ -32,6 +32,7 @@ const {
     CallExpression,
     ObjectExpression,
     ObjectProperty,
+    DebuggerStatement,
 } = types;
 
 test('putout: operate: replaceWith', (t) => {
@@ -206,11 +207,44 @@ test('putout: operate: insertAfter', (t) => {
     
     operate.insertAfter(path, node);
     
-    t.calledWith(insertAfter, [node], 'should call reporter');
+    t.calledWith(insertAfter, [node], 'should call insertAfter');
     t.end();
 });
 
-test('putout: operate: insertAfter: comments', (t) => {
+test('putout: operate: insertAfter: trailingComments', (t) => {
+    const source = `
+        import a from 'b';
+        // hello
+        export function x() {
+            return isNumber(a);
+        }
+    `;
+    
+    const ast = parse(source);
+    
+    traverse(ast, {
+        ImportDeclaration(path) {
+            operate.insertAfter(path, DebuggerStatement());
+        },
+    });
+    
+    const code = print(ast);
+    
+    const expected = montag`
+        import a from 'b';
+        
+        debugger;
+        // hello
+        export function x() {
+            return isNumber(a);
+        }\n\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: operate: insertAfter: recast: comments', (t) => {
     const comments = [];
     const insertAfter = stub();
     
