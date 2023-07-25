@@ -16,10 +16,13 @@ module.exports.traverse = ({push}) => ({
         for (const [, bind] of entries(path.scope.bindings)) {
             const [unary, statement] = bind.referencePaths;
             
-            if (!unary?.parentPath.parentPath.isExpressionStatement())
+            const unaryParent = unary?.parentPath;
+            const statementParent = statement?.parentPath.parentPath;
+            
+            if (!unaryParent?.isUpdateExpression())
                 return;
             
-            if (!statement?.parentPath.parentPath.isStatement())
+            if (!statementParent?.isStatement())
                 return;
             
             push({
