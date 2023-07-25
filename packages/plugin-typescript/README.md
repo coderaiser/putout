@@ -22,6 +22,7 @@ npm i putout @putout/plugin-typescript -D
     "rules": {
         "typescript/apply-as-type-assertion": "on",
         "typescript/apply-utility-types": "on",
+        "typescript/apply-type-guards": "on",
         "typescript/convert-generic-to-shorthand": "on",
         "typescript/remove-duplicates-from-union": "on",
         "typescript/remove-duplicates-interface-keys": "on",
@@ -67,6 +68,27 @@ type SuperType1 = {
 
 ```ts
 type SuperType1 = Partial<Type>;
+```
+
+### apply-type-guards
+
+> It just so happens that TypeScript has something called a `type guard`.
+> A `type guard` is some expression that performs a runtime check that guarantees the type in some scope.
+>
+> (c) [typescript.org](https://www.typescriptlang.org/docs/handbook/advanced-types.html#user-defined-type-guards)
+
+Check out in 🐊[**Putout Editor](https://putout.cloudcmd.io/#/gist/5ac4459242197c4820b331f19d3681eb/4b66175c486ee8e865aee9645bf4e5fffc664e01).
+
+#### ❌ Example of incorrect code
+
+```ts
+const isNumber = (a) => typeof a === 'number';
+```
+
+#### ✅ Example of correct code
+
+```ts
+const isNumber = (a): a is number => typeof a === 'number';
 ```
 
 ### convert-generic-to-shorthand

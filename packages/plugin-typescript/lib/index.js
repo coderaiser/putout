@@ -6,6 +6,7 @@ const getRule = (a) => ({
 
 module.exports.rules = {
     ...getRule('apply-as-type-assertion'),
+    ...getRule('apply-type-guards'),
     ...getRule('apply-utility-types'),
     ...getRule('convert-generic-to-shorthand'),
     ...getRule('remove-duplicates-from-union'),

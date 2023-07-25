@@ -15,6 +15,11 @@ test('putout: plugin: typescript: transform: apply-as-type-assertion', (t) => {
     t.end();
 });
 
+test('putout: plugin: typescript: transform: apply-type-guards', (t) => {
+    t.transform('apply-type-guards');
+    t.end();
+});
+
 test('putout: plugin: typescript: transform: apply-utility-types', (t) => {
     t.transform('apply-utility-types');
     t.end();
