@@ -1,3 +1,27 @@
+2023.07.26, v30.7.0
+
+fix:
+- 81aabefc9 engine-*: Add missing peerDependencies (#168)
+- dadb3aaaa @putout/plugin-minify: remove-var-undefined: drop empty index.
+- 3f0719cca @putout/plugin-minify: inline: Expression -> UpdateExpression
+
+feature:
+- 53ccc3894 package: @putout/plugin-remove-useless-variables v9.0.0
+- 86c816d2d @putout/plugin-remove-useless-variables: declaration: add
+- 7b5a075d7 @putout/plugin-promises: remove-unused-variables: add from @putout/plugin-remove-unused-variables
+- ada2c87c5 @putout/plugin-remove-useless-variables: drop support of 🐊 < 30
+- 66098ee4d @putout/operate: extract: TSTypeReference
+- 890c72be1 @putout/compare: __a: TSTypeReference
+- 749666168 @putout/plugin-promises: remove-useless-async: report
+- f7b49b276 @putout/operate: getBinding: simplify (#154)
+- b6e5d6b3c @putout/plugin-types: convert-typeof-to-is-type: declared (#154)
+- 34218b06a @putout/plugin-logical-expressions: simplify: !(__a === __b) -> __a !== __b (#162)
+- e987ddcc7 @putout/plugin-types: convert-typeof-to-is-type: not (#162)
+- 5af3e3033 @putout/plugin-typescript: convert-generic-to-shorthand: TSFunctionType (#170)
+- 05f1d25f1 @putout/plugin-minify: drop support of 🐊 < 30
+- f79bc8e16 @putout/plugin-minify: inline (#161)
+- 864436d68 @putout/plugin-typescript: apply-type-guards: add (#165)
+
 2023.07.25, v30.6.0
 
 feature:
