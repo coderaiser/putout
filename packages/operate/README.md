@@ -78,6 +78,7 @@ Extract node value according to it's type::
 - if it is `TemplateLiteral` return `qusis[0].value.raw`;
 - if it is `TemplateElement` return `value.raw`;
 - if it is `ClassMethod` return `key`;
+- if it is `TSTypeReference` return `typeName.name`;
 - `throw` in other cases
 
 ### `insertAfter(path, node)`

@@ -137,6 +137,22 @@ test('operate: extract: ClassMethod: Literal', (t) => {
     t.end();
 });
 
+test('operate: extract: TSTypeReference', (t) => {
+    const value = 'hello';
+    const node = {
+        type: 'TSTypeReference',
+        typeName: {
+            type: 'Identifier',
+            name: 'hello',
+        },
+    };
+    
+    const result = extract(node);
+    
+    t.equal(result, value);
+    t.end();
+});
+
 test('operate: extract: JSXAttribute: name', (t) => {
     const name = 'hello';
     const node = {
@@ -161,7 +177,7 @@ test('operate: extract: unknown', (t) => {
     };
     
     const [error] = tryCatch(extract, node);
-    const expected = '"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral, JSXAttribute and JSXText 🤷, found: UnknownStatement';
+    const expected = '"operator.extract(node)" understands only Literals, Identifiers, TemplateLiteral, TemplateElement, RegExpLiteral, JSXAttribute, JSXText and TSTypeReference🤷, found: UnknownStatement';
     
     t.equal(error.message, expected);
     t.end();
