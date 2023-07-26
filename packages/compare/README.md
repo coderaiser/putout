@@ -135,7 +135,7 @@ compare('const a = "hello"', 'const __ = "__"');
 
 ##### __a
 
-Linked literal
+Linked node.
 
 ```js
 compare('const __a = "hello"', 'const __a = "hello"');

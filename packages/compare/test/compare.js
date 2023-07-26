@@ -876,6 +876,15 @@ test('compare: typescript: arrow function type', (t) => {
     t.end();
 });
 
+test('compare: typescript: type reference: TSTypeReference ~> Identifier <--> TSStringKeyword', (t) => {
+    const node = `async function isString(): Promise<string> {}`;
+    const template = `async function __a(): Promise<__b> {}`;
+    const result = compare(node, template);
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: typescript: arrow function type: no args', (t) => {
     const node = `(): boolean => name.startsWith()`;
     const template = `() => __a.__b()`;

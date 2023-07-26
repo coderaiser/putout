@@ -15,6 +15,7 @@ const {
     isJSXText,
     isJSXIdentifier,
     isJSXAttribute,
+    isTSTypeReference,
 } = require('@babel/types');
 
 const isStr = (a) => typeof a === 'string';
@@ -274,6 +275,10 @@ module.exports.isLinkedNode = (a) => {
     if (isTemplateElement(a) && LINKED_NODE.test(a.value.raw))
         return true;
     
+    if (isTSTypeReference(a) && LINKED_NODE.test(a.typeName.name)) {
+        return true;
+    }
+    
     return isTSTypeParameter(a) && LINKED_NODE.test(a.name);
 };
 
@@ -291,3 +296,5 @@ module.exports.parseTemplate = (tmpl, {program} = {}) => {
     
     return [node, type];
 };
+
+module.exports.isInsideTypeReference = (path) => path.isIdentifier() && path.parentPath?.isTSTypeReference();

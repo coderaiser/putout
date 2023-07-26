@@ -11,7 +11,6 @@ const {compare} = require('./compare');
 const {getTemplateValues} = require('./vars');
 
 const noop = () => {};
-
 const {types, generate} = putout;
 
 const {
@@ -642,6 +641,54 @@ test('putout: compare: vars: getTemplateValues: setValues: __bool', (t) => {
     });
     
     const expected = 'var x = false || true;\n';
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: compare: vars: getTemplateValues: TSTypeReference', (t) => {
+    const plugin = {
+        report: () => '',
+        replace: () => ({
+            'async function __a(): Promise<__b> {}': 'const __a = async (): Promise<__b> => {}',
+        }),
+    };
+    
+    const input = 'async function get(): Promise<string>{}';
+    
+    const {code} = putout(input, {
+        printer: 'putout',
+        isTS: true,
+        plugins: [{
+            plugin,
+        }],
+    });
+    
+    const expected = 'const get = async (): Promise<string> => {};\n';
+    
+    t.equal(code, expected);
+    t.end();
+});
+
+test('putout: compare: vars: getTemplateValues: TSTypeReference 2', (t) => {
+    const plugin = {
+        report: () => '',
+        replace: () => ({
+            'async function __a(): Promise<__b> {}': 'async function __a(): __b {}',
+        }),
+    };
+    
+    const input = 'async function get(): Promise<string>{}';
+    
+    const {code} = putout(input, {
+        printer: 'putout',
+        isTS: true,
+        plugins: [{
+            plugin,
+        }],
+    });
+    
+    const expected = 'async function get(): string {}\n';
     
     t.equal(code, expected);
     t.end();

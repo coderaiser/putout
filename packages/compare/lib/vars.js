@@ -22,6 +22,7 @@ const {
     isJSXChildrenStr,
     isJSXAttributesStr,
     isImportsStr,
+    isInsideTypeReference,
 } = require('./is');
 
 const {entries} = Object;
@@ -60,8 +61,12 @@ function findVarsWays(node) {
     
     traverse(node, {
         noScope: true,
-        'Identifier|BooleanLiteral|StringLiteral|TemplateElement|RegExpLiteral|JSXText|JSXAttribute'(path) {
+        'Identifier|BooleanLiteral|StringLiteral|TemplateElement|RegExpLiteral|JSXText|JSXAttribute|TSTypeReference'(path) {
             const {node} = path;
+            
+            if (isInsideTypeReference(path))
+                return;
+            
             const way = [];
             const name = extract(node);
             
