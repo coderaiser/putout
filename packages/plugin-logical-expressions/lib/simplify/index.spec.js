@@ -65,6 +65,11 @@ test('plugin-simplify-logical-expression: transform: block', (t) => {
     t.end();
 });
 
+test('plugin-simplify-logical-expression: transform: not-condition', (t) => {
+    t.transform('not-condition');
+    t.end();
+});
+
 test('plugin-simplify-logical-expression: transform: constructor', (t) => {
     t.transform('constructor');
     t.end();
