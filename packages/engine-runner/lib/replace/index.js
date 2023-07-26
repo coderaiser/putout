@@ -178,9 +178,7 @@ function parseTo(to, values, path) {
     if (!isString(toStr))
         throw Error(`☝️ Looks like you passed 'replace' value with a wrong type. Allowed: 'string', 'node' and 'path'. Received: '${typeof toStr}' with value '${toStr}'.`);
     
-    const node = template.ast.fresh(toStr);
-    
-    return node;
+    return template.ast.fresh(toStr);
 }
 
 function validateMatchProperty(match) {

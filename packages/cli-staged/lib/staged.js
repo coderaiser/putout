@@ -19,9 +19,7 @@ const findGit = once(async ({findUp}) => {
     if (!gitDir)
         throw Error('not git repository');
     
-    const dir = gitDir.replace(/\.git$/, '');
-    
-    return dir;
+    return gitDir.replace(/\.git$/, '');
 });
 
 const joinDir = (a) => (b) => join(a, b);

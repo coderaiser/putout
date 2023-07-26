@@ -69,3 +69,8 @@ test('remove usless variables: transform: destruct', (t) => {
     t.transform('destruct');
     t.end();
 });
+
+test('remove usless variables: transform: useless-declarations', (t) => {
+    t.transform('declaration');
+    t.end();
+});

@@ -40,9 +40,7 @@ module.exports.parse = function babelParse(source, {sourceFilename, isTS, isJSX 
         sourceFilename,
     });
     
-    const ast = parse(source, parserOptions);
-    
-    return ast;
+    return parse(source, parserOptions);
 };
 
 function getBabelLangExts({isTS, isFlow, isJSX}) {

@@ -17,8 +17,10 @@ npm i @putout/plugin-remove-useless-variables -D
 {
     "rules": {
         "remove-useless-variables/rename": "on",
+        "remove-useless-variables/remove": "on",
         "remove-useless-variables/destruct": "on",
-        "remove-useless-variables/await": "on"
+        "remove-useless-variables/await": "on",
+        "remove-useless-variables/declaration": "on"
     }
 }
 ```
@@ -92,6 +94,27 @@ d = c;
 const b = 5;
 
 d = 5;
+```
+
+### declaration
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/32177535829956ef4c7b51587a8853c3/52f19ab0e467ad7cc54fa8c554c3b0804de9d1ca).
+
+### ❌ Example of incorrect code
+
+```js
+function x() {
+    const a = 5;
+    return a;
+}
+```
+
+### ✅ Example of correct code
+
+```js
+function x() {
+    return 5;
+}
 ```
 
 ## License

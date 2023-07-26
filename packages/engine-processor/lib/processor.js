@@ -160,9 +160,7 @@ async function getFiles({name, fix, rawSource, processorRunners}) {
 
 module.exports.getProcessorRunners = getProcessorRunners;
 async function getProcessorRunners(processors, load) {
-    const readyProcessors = await loadProcessorsAsync({processors}, load);
-    
-    return readyProcessors;
+    return await loadProcessorsAsync({processors}, load);
 }
 
 function addGlobs(processor) {

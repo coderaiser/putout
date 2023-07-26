@@ -71,7 +71,5 @@ function buildObject(name, options) {
     const loaderProp = ObjectProperty(Identifier('loader'), StringLiteral(name));
     const optionsProp = ObjectProperty(Identifier('options'), ObjectExpression(properties));
     
-    const object = ObjectExpression([loaderProp, optionsProp]);
-    
-    return object;
+    return ObjectExpression([loaderProp, optionsProp]);
 }

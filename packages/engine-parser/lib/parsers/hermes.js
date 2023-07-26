@@ -14,7 +14,5 @@ module.exports.parse = function hermesParse(source) {
         tokens: true,
     };
     
-    const result = parser.parse(source, options);
-    
-    return result;
+    return parser.parse(source, options);
 };

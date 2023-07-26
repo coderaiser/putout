@@ -31,9 +31,8 @@ module.exports.find = (ast, {traverse}) => {
     });
     
     const transformed = transform(vars);
-    const unused = getUnused(transformed);
     
-    return unused;
+    return getUnused(transformed);
 };
 
 function isOneImport({parentPath}) {

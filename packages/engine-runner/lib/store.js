@@ -35,9 +35,7 @@ module.exports.upStore = createStore({
 
 module.exports.upListStore = createStore({
     get(map) {
-        const result = values(map).map(notRemoved);
-        
-        return result;
+        return values(map).map(notRemoved);
     },
     set(map, name, data) {
         map[name] = map[name] || new Set();

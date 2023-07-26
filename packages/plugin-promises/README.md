@@ -217,7 +217,6 @@ async () => {
 };
 ```
 
-
 ## License
 
 MIT

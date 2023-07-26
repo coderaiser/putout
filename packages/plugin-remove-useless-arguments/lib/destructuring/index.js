@@ -17,9 +17,8 @@ const getKey = ({key}) => key;
 
 module.exports.report = ({path, name}) => {
     const {key} = path.node;
-    const message = `Avoid useless argument '${key.name}' of a function '${name}()'`;
     
-    return message;
+    return `Avoid useless argument '${key.name}' of a function '${name}()'`;
 };
 
 module.exports.fix = ({path}) => {

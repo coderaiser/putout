@@ -12,8 +12,7 @@ const reg = /\)\n(\s+)?\n/;
 module.exports.report = () => `Remove useless newline`;
 
 module.exports.fix = ({text}) => {
-    const result = text.replace(reg, ')\n');
-    return result;
+    return text.replace(reg, ')\n');
 };
 
 module.exports.include = () => [

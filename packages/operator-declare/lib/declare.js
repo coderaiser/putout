@@ -81,9 +81,7 @@ const filter = (declarations) => (path, {options}) => {
     if (dismiss.includes(name))
         return false;
     
-    const code = parseCode(type, allDeclarations[name]);
-    
-    return code;
+    return parseCode(type, allDeclarations[name]);
 };
 
 const fix = (declarations) => (path, {options}) => {
@@ -121,9 +119,7 @@ const parseCode = (type, current) => {
     if (isString(current))
         return current;
     
-    const result = current[type];
-    
-    return result;
+    return current[type];
 };
 
 function getInsertionPath(node, bodyPath) {

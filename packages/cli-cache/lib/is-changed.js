@@ -13,9 +13,8 @@ module.exports = async (fileCache, {findUp}) => {
     ]);
     
     const trueCount = result.filter(Boolean).length;
-    const is = Boolean(trueCount);
     
-    return is;
+    return Boolean(trueCount);
 };
 
 module.exports.isNodeModulesChanged = isNodeModulesChanged;

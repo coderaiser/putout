@@ -10,9 +10,7 @@ export const find = async (rawSource) => {
     const sourceFile = project.createSourceFile('__putout_processor_typescript.ts', rawSource);
     const diagnostics = sourceFile.getPreEmitDiagnostics();
     
-    const places = diagnostics.map(toPlace);
-    
-    return places;
+    return diagnostics.map(toPlace);
 };
 
 function toPlace(diagnostic) {
