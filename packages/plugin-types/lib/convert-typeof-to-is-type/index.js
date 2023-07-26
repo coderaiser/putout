@@ -25,6 +25,16 @@ const BODIES = {
     bigint: `typeof __a === 'bigint'`,
 };
 
+const NOT_BODIES = {
+    function: `typeof __a !== 'function'`,
+    string: `typeof __a !== 'string'`,
+    number: `typeof __a !== 'number'`,
+    boolean: `typeof __a !== 'boolean'`,
+    undefined: `typeof __a !== 'undefined'`,
+    symbol: `typeof __a !== 'symbol'`,
+    bigint: `typeof __a !== 'bigint'`,
+};
+
 module.exports.report = () => `Use function to check type instead of 'typeof'`;
 module.exports.match = () => ({
     [GENERAL]: ({__a, __b}, path) => {
@@ -49,6 +59,13 @@ module.exports.replace = () => ({
     [BODIES.undefined]: 'isUndefined(__a)',
     [BODIES.symbol]: 'isSymbol(__a)',
     [BODIES.bigint]: 'isBigInt(__a)',
+    [NOT_BODIES.function]: '!isFn(__a)',
+    [NOT_BODIES.string]: '!isString(__a)',
+    [NOT_BODIES.number]: '!isNumber(__a)',
+    [NOT_BODIES.boolean]: '!isBool(__a)',
+    [NOT_BODIES.undefined]: '!isUndefined(__a)',
+    [NOT_BODIES.symbol]: '!isSymbol(__a)',
+    [NOT_BODIES.bigint]: '!isBigInt(__a)',
 });
 
 function isBind(path, name) {
