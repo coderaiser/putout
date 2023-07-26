@@ -49,3 +49,8 @@ test('plugin-promises: transform: convert-new-promise-to-async', (t) => {
     t.transform('convert-new-promise-to-async');
     t.end();
 });
+
+test('plugin-promises: transform: remove-useless-variables', (t) => {
+    t.transform('remove-useless-variables');
+    t.end();
+});

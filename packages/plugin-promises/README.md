@@ -32,6 +32,7 @@ Default options looks this way:
         "promises/remove-useless-resolve": "on",
         "promises/remove-useless-async": "on",
         "promises/remove-useless-await": "on",
+        "promises/remove-useless-variables": "on",
         "promises/convert-reject-to-throw": "on",
         "promises/convert-new-promise-to-async": "on"
     }
@@ -191,6 +192,31 @@ import {readFile} from 'fs/promises';
 
 await readFile('./README.md', 'utf8');
 ```
+
+## remove-useless-variables
+
+### ❌ Example of incorrect code
+
+```js
+async () => {
+    const result = transformer.transform(realTransformer, transformCode, code, parser);
+    
+    const result2 = await Promise.resolve(result);
+    
+    return result2;
+};
+```
+
+### ✅ Example of correct code
+
+```js
+async () => {
+    const result = transformer.transform(realTransformer, transformCode, code, parser);
+    
+    return result;
+};
+```
+
 
 ## License
 

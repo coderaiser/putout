@@ -71,30 +71,6 @@ const {exec, spawn} = child_process;
 const {exec, spawn} = require('child_process');
 ```
 
-## await
-
-### ❌ Example of incorrect code
-
-```js
-async () => {
-    const result = transformer.transform(realTransformer, transformCode, code, parser);
-    
-    const result2 = await Promise.resolve(result);
-    
-    return result2;
-};
-```
-
-### ✅ Example of correct code
-
-```js
-async () => {
-    const result = transformer.transform(realTransformer, transformCode, code, parser);
-    
-    return result;
-};
-```
-
 ### remove
 
 Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/041767876a6d41c82260b293a06c2b6b/addf2b49cf9235d9b7a1017065cec5dece232660).

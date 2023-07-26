@@ -13,4 +13,5 @@ module.exports.rules = {
     ...getRule('apply-top-level-await'),
     ...getRule('remove-useless-async'),
     ...getRule('remove-useless-await'),
+    ...getRule('remove-useless-variables'),
 };
