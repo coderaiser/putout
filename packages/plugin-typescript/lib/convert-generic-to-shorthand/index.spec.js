@@ -6,26 +6,31 @@ const convertGenericToShorthand = require('.');
 const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
-        ['convert-generic-to-shorthand', convertGenericToShorthand],
+        ['typescript/convert-generic-to-shorthand', convertGenericToShorthand],
     ],
 });
 
-test('plugin-promises: convert-generic-to-shorthand: report', (t) => {
+test('plugin-typescript: convert-generic-to-shorthand: report', (t) => {
     t.report('array', `Use shorthand '[]' instead of generic 'Array'`);
     t.end();
 });
 
-test('plugin-promises: convert-generic-to-shorthand: transform: array', (t) => {
+test('plugin-typescript: convert-generic-to-shorthand: transform: array', (t) => {
     t.transform('array');
     t.end();
 });
 
-test('plugin-promises: convert-generic-to-shorthand: transform: multiple', (t) => {
+test('plugin-typescript: convert-generic-to-shorthand: transform: multiple', (t) => {
     t.transform('multiple');
     t.end();
 });
 
-test('plugin-promises: convert-generic-to-shorthand: no transform: no-generic', (t) => {
+test('plugin-typescript: convert-generic-to-shorthand: transform: fn', (t) => {
+    t.transform('fn');
+    t.end();
+});
+
+test('plugin-typescript: convert-generic-to-shorthand: no transform: no-generic', (t) => {
     t.noTransform('no-generic');
     t.end();
 });
