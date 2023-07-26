@@ -3,7 +3,7 @@
 const {operator} = require('putout');
 const {contains} = operator;
 
-module.exports.report = () => `Avoid useless async`;
+module.exports.report = () => `Avoid useless 'async'`;
 
 module.exports.fix = (path) => {
     path.node.async = false;
@@ -16,8 +16,4 @@ module.exports.include = () => [
     'async (__args) => __body',
 ];
 
-module.exports.filter = (path) => {
-    const is = contains(path, ['throw __', 'await __', 'for await (__ of __) __']);
-    
-    return !is;
-};
+module.exports.filter = (path) => !contains(path, ['throw __', 'await __', 'for await (__ of __) __']);
