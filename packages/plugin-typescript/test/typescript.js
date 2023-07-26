@@ -74,3 +74,8 @@ test('putout: plugin: typescript: transform: remove-useless-parens', (t) => {
     t.transform('remove-useless-parens');
     t.end();
 });
+
+test('putout: plugin: typescript: transform: remove-useless-promise', (t) => {
+    t.transform('remove-useless-promise');
+    t.end();
+});

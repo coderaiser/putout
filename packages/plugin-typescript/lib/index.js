@@ -18,4 +18,5 @@ module.exports.rules = {
     ...getRule('remove-useless-mapped-types'),
     ...getRule('remove-useless-mapping-modifiers'),
     ...getRule('remove-useless-parens'),
+    ...getRule('remove-useless-promise'),
 };

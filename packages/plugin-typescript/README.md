@@ -31,6 +31,7 @@ npm i putout @putout/plugin-typescript -D
         "typescript/remove-unused-types": "on",
         "typescript/remove-useless-types": "on",
         "typescript/remove-useless-parens": "on",
+        "typescript/remove-useless-promise": "on",
         "typescript/remove-useless-mapped-types": "on"
     }
 }
@@ -259,6 +260,26 @@ const x: X[] | Y[] = [];
 const m: X[] = [];
 const z: X | Y = 5;
 const f: X = 5;
+```
+
+### remove-useless-promise
+
+Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/5fd13c0510571b45884dfddbc8b83bb4/5ca97c4021b197822ef73418796513fe6d891239).
+
+#### ❌ Example of incorrect code
+
+```ts
+function doStuff(): Promise<string> {
+    return 'hello';
+}
+```
+
+#### ✅ Example of correct code
+
+```ts
+function doStuff(): string {
+    return 'hello';
+}
 ```
 
 ### remove-useless-mapped-types
