@@ -10,19 +10,7 @@ const isString = (a) => typeof a === 'string';
 module.exports.getBinding = getBinding;
 function getBinding(path, node) {
     const name = parseName(node);
-    const binding = path.scope.bindings[name];
-    
-    if (binding)
-        return binding;
-    
-    while (path = path.parentPath) {
-        const binding = path.scope.bindings[name];
-        
-        if (binding)
-            return binding;
-    }
-    
-    return null;
+    return path.scope.getAllBindings()[name];
 }
 
 module.exports.getBindingPath = (path, name) => getBinding(path, name)?.path;
