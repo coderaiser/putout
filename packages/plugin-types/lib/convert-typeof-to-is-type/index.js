@@ -76,10 +76,10 @@ function isBind(path, name) {
     if (!bindingPath)
         return false;
     
-    if (!bindingPath.isVariableDeclarator())
-        return false;
+    if (bindingPath.isVariableDeclarator()) {
+        const {body} = bindingPath.node.init;
+        return !compare(body, fnBody);
+    }
     
-    const {body} = bindingPath.node.init;
-    
-    return !compare(body, fnBody);
+    return bindingPath.isFunctionDeclaration();
 }
