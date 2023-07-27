@@ -611,14 +611,14 @@ test('compare: __identifier__a: only', (t) => {
     t.end();
 });
 
-test('compare: __boolean', (t) => {
+test('compare: __bool', (t) => {
     const result = compare('const a = true', 'const a = __bool');
     
     t.ok(result);
     t.end();
 });
 
-test('compare: __boolean__a', (t) => {
+test('compare: __bool__a', (t) => {
     const result = compare('const a = true', 'const a = __bool__a');
     
     t.ok(result);
