@@ -1,9 +1,12 @@
 'use strict';
 
+const {operator} = require('putout');
+const {remove} = operator;
+
 module.exports.report = () => 'Avoid empty property values';
 
 module.exports.fix = (path) => {
-    path.parentPath.remove();
+    remove(path.parentPath);
 };
 
 module.exports.include = () => [

@@ -1,7 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {compare} = operator;
+const {compare, remove} = operator;
 
 const {entries, keys} = Object;
 
@@ -12,7 +12,7 @@ module.exports.fix = ({path, duplicatePath}) => {
     const {name: duplicateName} = duplicatePath.get('id').node;
     
     path.scope.rename(duplicateName, name);
-    duplicatePath.remove();
+    remove(duplicatePath);
 };
 
 module.exports.traverse = ({push}) => ({

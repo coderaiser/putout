@@ -19,7 +19,7 @@ module.exports.fix = ({path}) => {
         return replaceWith(path.parentPath, path.node.init);
     
     if (isOneImport(path))
-        return path.parentPath.remove();
+        return remove(path.parentPath);
     
     remove(path);
 };

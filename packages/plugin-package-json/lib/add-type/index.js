@@ -4,7 +4,7 @@ const {operator, types} = require('putout');
 
 const {ObjectProperty, StringLiteral} = types;
 
-const {getProperties} = operator;
+const {getProperties, insertAfter} = operator;
 
 module.exports.report = () => `Add 'type' of module to 'package.json'`;
 
@@ -25,5 +25,5 @@ module.exports.traverse = ({push}) => ({
 
 module.exports.fix = (path) => {
     const node = ObjectProperty(StringLiteral('type'), StringLiteral('commonjs'));
-    path.insertAfter(node);
+    insertAfter(path, node);
 };

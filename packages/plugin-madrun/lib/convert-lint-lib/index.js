@@ -2,7 +2,11 @@
 
 const {types, operator} = require('putout');
 
-const {replaceWith, getProperty} = operator;
+const {
+    replaceWith,
+    getProperty,
+    remove,
+} = operator;
 
 const {StringLiteral} = types;
 
@@ -10,7 +14,7 @@ module.exports.report = () => `'lint' should be used instead of 'lint:lib'`;
 
 module.exports.fix = ({lintLib, fixLint, lint}) => {
     replaceWith(lintLib.get('key'), lint.node.key);
-    lint.remove();
+    remove(lint);
     
     const {body} = fixLint.node.value;
     

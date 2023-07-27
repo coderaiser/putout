@@ -6,7 +6,11 @@ const {
     template,
 } = require('putout');
 
-const {compareAny, replaceWith} = operator;
+const {
+    compareAny,
+    replaceWith,
+    remove,
+} = operator;
 
 const {
     UnaryExpression,
@@ -25,7 +29,7 @@ module.exports.replace = () => ({
     'if (__a) return __bool__a;'({__a, __bool__a}, path) {
         const next = path.getNextSibling();
         
-        next.remove();
+        remove(next);
         
         if (__bool__a.value)
             return 'return __a';

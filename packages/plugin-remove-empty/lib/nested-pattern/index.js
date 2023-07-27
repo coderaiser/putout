@@ -1,8 +1,11 @@
 'use strict';
 
+const {operator} = require('putout');
+const {remove} = operator;
+
 module.exports.report = () => `Avoid empty nested patterns`;
 
-module.exports.fix = (path) => path.parentPath.remove();
+module.exports.fix = (path) => remove(path.parentPath);
 
 module.exports.filter = (path) => {
     if (path.isArrayPattern() && path.node.elements.length)

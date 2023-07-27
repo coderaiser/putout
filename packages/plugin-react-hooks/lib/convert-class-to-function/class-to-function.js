@@ -2,7 +2,7 @@
 
 const {types, operator} = require('putout');
 
-const {replaceWith} = operator;
+const {replaceWith, remove} = operator;
 
 const {
     isIdentifier,
@@ -22,7 +22,7 @@ module.exports = (path) => {
         if (isIdentifier(item.key, {name: 'constructor'})) {
             path.traverse({
                 Super(path) {
-                    path.parentPath.remove();
+                    remove(path.parentPath);
                 },
             });
             

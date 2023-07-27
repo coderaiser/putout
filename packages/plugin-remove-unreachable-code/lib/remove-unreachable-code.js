@@ -1,13 +1,14 @@
 'use strict';
 
-const {types} = require('putout');
+const {types, operator} = require('putout');
+const {remove} = operator;
 const {isFunctionDeclaration} = types;
 
 module.exports.report = () => `Unreachable code`;
 
 module.exports.fix = ({siblings}) => {
     for (const sibling of siblings) {
-        sibling.remove();
+        remove(sibling);
     }
 };
 

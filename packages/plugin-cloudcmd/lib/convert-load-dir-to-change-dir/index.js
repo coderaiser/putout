@@ -1,7 +1,7 @@
 'use strict';
 
 const {operator} = require('putout');
-const {rename} = operator;
+const {rename, remove} = operator;
 
 const renameAll = (path) => {
     rename(path, 'loadDir', 'changeDir');
@@ -51,7 +51,7 @@ function convert(vars, path) {
         
         if (keyPath.isIdentifier({name: 'path'})) {
             args.unshift(property.node.value);
-            property.remove();
+            remove(property);
             break;
         }
     }

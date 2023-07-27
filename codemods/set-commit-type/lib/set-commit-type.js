@@ -4,7 +4,7 @@ const {types, operator} = require('putout');
 
 const {StringLiteral, ObjectProperty} = types;
 
-const {getProperties} = operator;
+const {getProperties, insertAfter} = operator;
 
 module.exports.report = () => `Set 'commitType'`;
 
@@ -29,5 +29,5 @@ module.exports.traverse = ({push}) => ({
 
 module.exports.fix = ({mainPath}) => {
     const commitTypeNode = ObjectProperty(StringLiteral('commitType'), StringLiteral('colon'));
-    mainPath.insertAfter(commitTypeNode);
+    insertAfter(mainPath, commitTypeNode);
 };

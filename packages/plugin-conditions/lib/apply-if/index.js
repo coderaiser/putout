@@ -1,6 +1,7 @@
 'use strict';
 
-const {replaceWith} = require('putout').operator;
+const {operator} = require('putout');
+const {remove, replaceWith} = operator;
 
 module.exports.report = () => 'Avoid empty statement in if condition';
 
@@ -24,5 +25,5 @@ module.exports.fix = (path) => {
     const consequentPath = path.get('consequent');
     
     replaceWith(consequentPath, nextPath);
-    nextPath.remove();
+    remove(nextPath);
 };

@@ -1,5 +1,7 @@
 'use strict';
 
+const {operator} = require('putout');
+const {remove} = operator;
 const {getRules, getExtends} = require('../get');
 
 module.exports.report = () => 'Use "putout/safe+align" instead of "putout/safe"';
@@ -53,7 +55,7 @@ module.exports.replace = () => ({
         const rulesPath = properties.find(isRules);
         
         if (rulesPath && !rules.length)
-            rulesPath.remove();
+            remove(rulesPath);
         
         return path;
     },

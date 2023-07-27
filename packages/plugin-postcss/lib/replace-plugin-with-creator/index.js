@@ -6,7 +6,7 @@ const {
     types,
 } = require('putout');
 
-const {traverse} = operator;
+const {traverse, insertAfter} = operator;
 
 const {
     ObjectProperty,
@@ -32,7 +32,7 @@ module.exports.replace = () => ({
         const object = ObjectExpression([nameProp, onceProp]);
         
         returnPath.node.argument = object;
-        path.insertAfter(booleanExport);
+        insertAfter(path, booleanExport);
         
         return path;
     },

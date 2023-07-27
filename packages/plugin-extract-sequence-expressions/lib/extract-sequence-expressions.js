@@ -6,6 +6,7 @@ const {
     replaceWithMultiple,
     toExpression,
     compare,
+    remove,
 } = operator;
 
 const {
@@ -60,7 +61,7 @@ module.exports.fix = (path) => {
     
     if (isExpressionAfterCall && argPath.isLiteral()) {
         callPath.node.arguments.push(argPath.node);
-        argPath.remove();
+        remove(argPath);
         
         return;
     }

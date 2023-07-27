@@ -1,5 +1,8 @@
 'use strict';
 
+const {operator} = require('putout');
+const {remove} = operator;
+
 module.exports.report = () => `Avoid useless template expressions`;
 
 module.exports.fix = (path) => {
@@ -16,8 +19,8 @@ module.exports.fix = (path) => {
             const {value} = exprPath.node;
             const result = `${a}${value}${b}`;
             
-            quasis[i].remove();
-            exprPath.remove();
+            remove(quasis[i]);
+            remove(exprPath);
             
             quasis[i + 1].node.value.raw = result;
         }

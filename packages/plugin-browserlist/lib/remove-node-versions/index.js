@@ -1,5 +1,7 @@
 'use strict';
 
+const {operator} = require('putout');
+const {remove} = operator;
 const getValue = ({value}) => value;
 
 module.exports.report = () => 'remove node from .browserlist';
@@ -32,7 +34,7 @@ module.exports.replace = () => ({
         
         for (const elementPath of elementsPath) {
             if (elementPath.node.value === LINE) {
-                elementPath.remove();
+                remove(elementPath);
                 break;
             }
         }

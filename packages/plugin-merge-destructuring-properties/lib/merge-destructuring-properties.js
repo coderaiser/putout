@@ -2,7 +2,7 @@
 
 const {types, operator} = require('putout');
 
-const {compare} = operator;
+const {compare, remove} = operator;
 
 const {
     isObjectPattern,
@@ -22,7 +22,7 @@ module.exports.fix = ({path, places}) => {
             ...place.node.id.properties,
         ];
         
-        place.remove();
+        remove(place);
     }
 };
 

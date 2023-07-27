@@ -1,7 +1,11 @@
 'use strict';
 
 const {operator, types} = require('putout');
-const {replaceWith, traverse} = operator;
+const {
+    replaceWith,
+    traverse,
+    remove,
+} = operator;
 
 const {
     ReturnStatement,
@@ -59,7 +63,7 @@ module.exports.replace = () => ({
             },
             'resolve()': (resolvePath) => {
                 if (scope === resolvePath.scope?.getFunctionParent())
-                    resolvePath.parentPath.remove();
+                    remove(resolvePath.parentPath);
             },
             'reject': (path) => {
                 if (checkIdentifier(path))

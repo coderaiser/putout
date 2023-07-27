@@ -3,7 +3,7 @@
 const {operator, types} = require('putout');
 
 const {isIdentifier} = types;
-const {compare} = operator;
+const {compare, remove} = operator;
 
 module.exports.report = () => `Apply early return`;
 
@@ -34,9 +34,7 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     [FROM]: (vars, path) => {
-        path
-            .getNextSibling()
-            .remove();
+        remove(path.getNextSibling());
         
         return TO;
     },

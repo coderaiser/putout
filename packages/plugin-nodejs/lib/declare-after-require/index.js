@@ -1,7 +1,11 @@
 'use strict';
 
 const {operator} = require('putout');
-const {remove, compareAny} = operator;
+const {
+    remove,
+    compareAny,
+    insertAfter,
+} = operator;
 
 const REQUIRE_LIST = [
     'const __a = require(__b)',
@@ -29,7 +33,7 @@ module.exports.fix = ({path, firstRequire, lastRequire}) => {
     }
     
     remove(path);
-    lastRequire.insertAfter(node);
+    insertAfter(lastRequire, node);
 };
 
 module.exports.traverse = ({push, pathStore}) => ({

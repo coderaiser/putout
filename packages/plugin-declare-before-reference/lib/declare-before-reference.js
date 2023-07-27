@@ -1,5 +1,7 @@
 'use strict';
 
+const {operator} = require('putout');
+const {remove} = operator;
 const {entries} = Object;
 
 module.exports.report = ({name}) => {
@@ -12,7 +14,7 @@ module.exports.fix = ({path}) => {
     
     delete node.loc;
     
-    path.parentPath.remove();
+    remove(path.parentPath);
     
     path.__putout_declare_before_reference = true;
     programPath.node.body.unshift(node);

@@ -1,5 +1,8 @@
 'use strict';
 
+const {operator} = require('putout');
+const {remove} = operator;
+
 module.exports.report = () => 'try-catch arguments should be expanded';
 
 module.exports.match = () => ({
@@ -41,7 +44,7 @@ module.exports.replace = () => ({
         else
             path.node.arguments[0] = node.callee;
         
-        fnPath.remove();
+        remove(fnPath);
         
         return path;
     },

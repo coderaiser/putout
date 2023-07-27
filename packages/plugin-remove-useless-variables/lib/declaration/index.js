@@ -1,6 +1,7 @@
 'use strict';
 
-const {replaceWith} = require('putout').operator;
+const {operator} = require('putout');
+const {remove, replaceWith} = operator;
 
 module.exports.report = () => `Avoid useless declarations`;
 
@@ -40,7 +41,7 @@ module.exports.replace = () => ({
         const [ref] = binding.referencePaths;
         
         replaceWith(ref, binding.path.node.init);
-        binding.path.remove();
+        remove(binding.path);
         
         return path;
     },
