@@ -64,3 +64,8 @@ test('plugin-convert-typeof-to-is-type: no transform: export', (t) => {
     t.noTransform('export');
     t.end();
 });
+
+test('plugin-convert-typeof-to-is-type: no transform: not-declared', (t) => {
+    t.noTransform('not-declared');
+    t.end();
+});

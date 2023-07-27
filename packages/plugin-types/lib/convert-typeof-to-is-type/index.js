@@ -13,7 +13,8 @@ const NAMES = {
     bigint: 'isBigInt',
 };
 
-const GENERAL = 'typeof __a === "__b"';
+const EQUAL = 'typeof __a === "__b"';
+const NOT_EQUAL = 'typeof __a !== "__b"';
 
 const BODIES = {
     function: `typeof __a === 'function'`,
@@ -37,18 +38,8 @@ const NOT_BODIES = {
 
 module.exports.report = () => `Use function to check type instead of 'typeof'`;
 module.exports.match = () => ({
-    [GENERAL]: ({__a, __b}, path) => {
-        if (path.parentPath.isFunction())
-            return false;
-        
-        if (path.parentPath.isVariableDeclarator())
-            return false;
-        
-        if (isBind(path, __b.value))
-            return false;
-        
-        return Boolean(getBindingPath(path, __a));
-    },
+    [EQUAL]: check,
+    [NOT_EQUAL]: check,
 });
 
 module.exports.replace = () => ({
@@ -67,6 +58,19 @@ module.exports.replace = () => ({
     [NOT_BODIES.symbol]: '!isSymbol(__a)',
     [NOT_BODIES.bigint]: '!isBigInt(__a)',
 });
+
+function check({__a, __b}, path) {
+    if (path.parentPath.isFunction())
+        return false;
+    
+    if (path.parentPath.isVariableDeclarator())
+        return false;
+    
+    if (isBind(path, __b.value))
+        return false;
+    
+    return getBindingPath(path, __a);
+}
 
 function isBind(path, name) {
     const fnName = NAMES[name];
