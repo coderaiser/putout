@@ -42,6 +42,7 @@ Supported assertions:
 - `isUndefined`;
 - `isSymbol`;
 - `isNull`;
+- `isBigInt`;
 
 #### ❌ Example of incorrect code
 
