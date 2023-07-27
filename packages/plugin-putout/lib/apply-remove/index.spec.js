@@ -19,3 +19,8 @@ test('plugin-tape: apply-remove', (t) => {
     t.transform('apply-remove');
     t.end();
 });
+
+test('plugin-tape: apply-remove: other-name', (t) => {
+    t.transform('other-name');
+    t.end();
+});
