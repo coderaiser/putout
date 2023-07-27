@@ -7,7 +7,7 @@ const {
 } = require('putout');
 
 const {StringLiteral} = types;
-const {compare} = operator;
+const {compare, remove} = operator;
 
 const isPush = (path) => path.get('value').isIdentifier({
     name: 'push',
@@ -42,7 +42,7 @@ module.exports.replace = () => ({
             
             if (isPush(propertyPath) || isBlock(propertyPath)) {
                 node.right.body.elements.push(StringLiteral(name));
-                propertyPath.remove();
+                remove(propertyPath);
             }
         }
         

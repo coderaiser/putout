@@ -65,6 +65,11 @@ test('plugin-putout: convert-method-to-property: complex: transform: apply-proce
     t.end();
 });
 
+test('plugin-putout: transform: apply-insert-after', (t) => {
+    t.transform('apply-insert-after');
+    t.end();
+});
+
 test('plugin-putout: convert-method-to-property: complex: transform: apply-async-formatter', (t) => {
     t.transform('apply-async-formatter');
     t.end();

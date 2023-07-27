@@ -19,8 +19,9 @@ npm i @putout/plugin-putout -D
         "putout/apply-create-test": "on",
         "putout/apply-processors-destructuring": "on",
         "putout/apply-async-formatter": "on",
-        "putout/apply-remove": "on",
         "putout/apply-declare": "on",
+        "putout/apply-remove": "on",
+        "putout/apply-insert-after": "on",
         "putout/add-args": "on",
         "putout/add-push": "on",
         "putout/check-match": "on",
@@ -93,6 +94,31 @@ const {remove} = operator;
 
 export const fix = (path) => {
     remove(path);
+};
+```
+
+## apply-insert-after
+
+Better to use [`insertAfter(a, b)`](https://github.com/coderaiser/putout/tree/master/packages/operate#insert-after) method of `operator`.
+It helps to avoid duplication of comments.
+
+### ❌ Example of incorrect code
+
+```js
+export const fix = (path) => {
+    path.insertAfter(path.get('init'));
+};
+```
+
+### ✅ Example of correct code
+
+```js
+import {operator} from 'putout';
+
+const {insertAfter} = operator;
+
+export const fix = (path) => {
+    insertAfter(path, path.get('init'));
 };
 ```
 
