@@ -30,6 +30,11 @@ test('plugin-typescript: convert-generic-to-shorthand: transform: fn', (t) => {
     t.end();
 });
 
+test('plugin-typescript: convert-generic-to-shorthand: transform: overlap', (t) => {
+    t.transform('overlap');
+    t.end();
+});
+
 test('plugin-typescript: convert-generic-to-shorthand: no transform: no-generic', (t) => {
     t.noTransform('no-generic');
     t.end();

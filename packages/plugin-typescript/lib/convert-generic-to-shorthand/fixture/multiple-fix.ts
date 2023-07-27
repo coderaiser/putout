@@ -3,5 +3,5 @@ interface A {
 }
 
 interface B {
-    y: X[] | Z[];
+    y: (X | Z)[];
 }
