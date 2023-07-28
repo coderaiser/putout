@@ -29,6 +29,7 @@ npm i @putout/plugin-putout -D
         "minify/merge-variables": "on",
         "minify/remove-var-undefined": "on",
         "minify/remove-return-undefined": "on",
+        "minify/simplify-floor": "on",
         "minify/shorten-names": "on",
         "minify/inline": "on",
         "minify/types": "on"
@@ -295,6 +296,32 @@ var a, b;
 ```js
 var a;
 var b;
+```
+
+## simplify-floor
+
+Not only shorter, but faster:
+
+```js
+// 5.027ms
+for (let i = 0; i < 1_000_000; i++)
+    Math.floor(i + 0.5);
+
+// 3.493ms
+for (let i = 0; i < 1_000_000; i++)
+    ~~(i + 0.5);
+```
+
+### ❌ Example of incorrect code
+
+```js
+Math.floor(x);
+```
+
+### ✅ Example of correct code
+
+```js
+~~x;
 ```
 
 ## shorten-names

@@ -70,6 +70,11 @@ test('plugin-minify: transform: inline', (t) => {
     t.end();
 });
 
+test('plugin-minify: transform: simplify-floor', (t) => {
+    t.transform('simplify-floor');
+    t.end();
+});
+
 test('plugin-minify: transform: convert-const-to-var', (t) => {
     t.transform('convert-const-to-var');
     t.end();

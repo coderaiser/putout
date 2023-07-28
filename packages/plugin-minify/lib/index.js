@@ -17,5 +17,6 @@ module.exports.rules = {
     ...getRule('remove-var-undefined'),
     ...getRule('remove-return-undefined'),
     ...getRule('inline'),
+    ...getRule('simplify-floor'),
     ...getRule('types'),
 };
