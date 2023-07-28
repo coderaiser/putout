@@ -1,0 +1,2 @@
+x.toString();
+String(x);

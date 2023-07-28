@@ -17,6 +17,7 @@ npm i @putout/plugin-putout -D
 {
     "rules": {
         "minify/apply-ternary": "on",
+        "minify/apply-template-literal": "on",
         "minify/convert-var-to-const": "on",
         "minify/convert-if-to-logical": "on",
         "minify/convert-strict-equal-to-equal": "on",
@@ -54,6 +55,37 @@ else
 
 ```js
 a ? b() : c();
+```
+
+## apply-template-literal
+
+Not only short, but also fast:
+
+```js
+// 34.795ms
+for (let i = 0; i < 1_000_000; i++)
+    String(i);
+
+// 28.302ms
+for (let i = 0; i < 1_000_000; i++)
+    i.toString();
+
+// 24.818ms
+for (let i = 0; i < 1_000_000; i++)
+    `${i}`;
+```
+
+### ❌ Example of incorrect code
+
+```js
+x.toString();
+String(x);
+```
+
+### ✅ Example of correct code
+
+```js
+String(x);
 ```
 
 ## convert-if-to-logical

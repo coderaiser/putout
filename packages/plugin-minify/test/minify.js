@@ -15,6 +15,11 @@ test('plugin-minify: transform: apply-ternary', (t) => {
     t.end();
 });
 
+test('plugin-minify: transform: apply-template-literal', (t) => {
+    t.transform('apply-template-literal');
+    t.end();
+});
+
 test('plugin-minify: transform: convert-if-to-logical', (t) => {
     t.transform('convert-if-to-logical');
     t.end();

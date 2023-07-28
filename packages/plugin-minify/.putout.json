@@ -3,7 +3,8 @@
     "match": {
         "README.md": {},
         "*.md": {
-            "split-variable-declarations": "off"
+            "split-variable-declarations": "off",
+            "convert-template-to-string": "off"
         }
     }
 }
