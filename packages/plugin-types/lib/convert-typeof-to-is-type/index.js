@@ -63,9 +63,6 @@ function check({__a, __b}, path) {
     if (path.parentPath.isFunction())
         return false;
     
-    if (path.parentPath.isVariableDeclarator())
-        return false;
-    
     if (isBind(path, __b.value))
         return false;
     

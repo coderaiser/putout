@@ -45,6 +45,11 @@ test('plugin-convert-typeof-to-is-type: transform: bigint', (t) => {
     t.end();
 });
 
+test('plugin-convert-typeof-to-is-type: transform: assign', (t) => {
+    t.transform('assign');
+    t.end();
+});
+
 test('plugin-convert-typeof-to-is-type: no transform: bind', (t) => {
     t.noTransform('bind');
     t.end();
