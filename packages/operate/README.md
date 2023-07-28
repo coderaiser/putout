@@ -85,6 +85,10 @@ Extract node value according to it's type::
 
 Safe way to insert `node` after `path` without duplicating comments.
 
+### `insertBefore(path, node)`
+
+Safe way to insert `node` before `path`.
+
 ### `replaceWith(path, node)`
 
 ```js

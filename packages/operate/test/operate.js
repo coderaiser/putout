@@ -211,6 +211,21 @@ test('putout: operate: insertAfter', (t) => {
     t.end();
 });
 
+test('putout: operate: insertBefore', (t) => {
+    const node = {};
+    const insertBefore = stub();
+    
+    const path = {
+        node,
+        insertBefore,
+    };
+    
+    operate.insertBefore(path, node);
+    
+    t.calledWith(insertBefore, [node]);
+    t.end();
+});
+
 test('putout: operate: insertAfter: trailingComments', (t) => {
     const source = `
         import a from 'b';

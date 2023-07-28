@@ -92,6 +92,10 @@ module.exports.replaceWithMultiple = (path, nodes) => {
     return newPath;
 };
 
+module.exports.insertBefore = (path, node) => {
+    path.insertBefore(node);
+};
+
 module.exports.insertAfter = (path, node) => {
     const {comments} = path.node;
     
