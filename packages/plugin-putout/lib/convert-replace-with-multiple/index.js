@@ -11,6 +11,7 @@ const {
     replaceWith,
     insertBefore,
 } = operator;
+
 const {Identifier, ObjectProperty} = types;
 
 const isRecast = (program) => program.get('body.0').get('expression')
