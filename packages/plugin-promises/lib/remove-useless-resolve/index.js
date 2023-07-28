@@ -3,7 +3,7 @@
 const {types} = require('putout');
 const {isFunction} = types;
 
-module.exports.report = () => `Resolve is useless in async functions, use return value instead`;
+module.exports.report = () => `'resolve()' is useless in 'async' functions, use 'return' instead`;
 
 module.exports.filter = (path) => {
     const fnPath = path.find(isFunction);
@@ -13,4 +13,5 @@ module.exports.filter = (path) => {
 module.exports.replace = () => ({
     'return Promise.resolve()': 'return',
     'return Promise.resolve(__a)': `return __a`,
+    'await Promise.resolve(__a)': `__a`,
 });

@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('plugin-remove-useless-resolve: exports: transform: report', (t) => {
-    t.report('resolve', 'Resolve is useless in async functions, use return value instead');
+    t.report('resolve', `'resolve()' is useless in 'async' functions, use 'return' instead`);
     t.end();
 });
 
@@ -22,6 +22,11 @@ test('plugin-remove-useless-resolve: transform', (t) => {
 
 test('plugin-remove-useless-resolve: transform: no args', (t) => {
     t.transform('no-args');
+    t.end();
+});
+
+test('plugin-remove-useless-resolve: transform: await', (t) => {
+    t.transform('await');
     t.end();
 });
 
