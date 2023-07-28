@@ -65,6 +65,11 @@ test('plugin-putout: convert-method-to-property: complex: transform: apply-proce
     t.end();
 });
 
+test('plugin-putout: transform: apply-insert-before', (t) => {
+    t.transform('apply-insert-before');
+    t.end();
+});
+
 test('plugin-putout: transform: apply-insert-after', (t) => {
     t.transform('apply-insert-after');
     t.end();

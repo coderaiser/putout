@@ -9,6 +9,7 @@ module.exports.rules = {
     ...getRule('apply-async-formatter'),
     ...getRule('apply-create-test'),
     ...getRule('apply-remove'),
+    ...getRule('apply-insert-before'),
     ...getRule('apply-insert-after'),
     ...getRule('apply-declare'),
     ...getRule('check-replace-code'),

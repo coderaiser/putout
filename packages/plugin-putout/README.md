@@ -21,6 +21,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-async-formatter": "on",
         "putout/apply-declare": "on",
         "putout/apply-remove": "on",
+        "putout/apply-insert-before": "on",
         "putout/apply-insert-after": "on",
         "putout/add-args": "on",
         "putout/add-push": "on",
@@ -94,6 +95,30 @@ const {remove} = operator;
 
 export const fix = (path) => {
     remove(path);
+};
+```
+
+## apply-insert-before
+
+Better to use [`insertBefore(a, b)`](https://github.com/coderaiser/putout/tree/master/packages/operate#insert-before) method of `operator`.
+
+### ❌ Example of incorrect code
+
+```js
+export const fix = (path) => {
+    path.insertBefore(path.get('init'));
+};
+```
+
+### ✅ Example of correct code
+
+```js
+import {operator} from 'putout';
+
+const {insertBefore} = operator;
+
+export const fix = (path) => {
+    insertBefore(path, path.get('init'));
 };
 ```
 
