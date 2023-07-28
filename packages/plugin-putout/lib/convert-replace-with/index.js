@@ -9,7 +9,11 @@ const {
 const fullstore = require('fullstore');
 
 const {Identifier, ObjectProperty} = types;
-const {replaceWith, insertAfter} = operator;
+const {
+    replaceWith,
+    insertAfter,
+    insertBefore,
+} = operator;
 
 const isRecast = (program) => program.get('body.0.expression').isStringLiteral({
     value: 'use strict',
@@ -42,7 +46,7 @@ module.exports.fix = ({path, calleePath, property, object, program, isInserted})
         else if (types)
             insertAfter(pathToInsert, replaceWithAST);
         else
-            pathToInsert.insertBefore(replaceWithAST);
+            insertBefore(pathToInsert, replaceWithAST);
         
         isInserted(true);
         

@@ -6,7 +6,11 @@ const {
     types,
 } = require('putout');
 
-const {insertAfter, replaceWith} = operator;
+const {
+    insertAfter,
+    replaceWith,
+    insertBefore,
+} = operator;
 const {Identifier, ObjectProperty} = types;
 
 const isRecast = (program) => program.get('body.0').get('expression')
@@ -36,7 +40,7 @@ module.exports.fix = ({path, calleePath, property, object, program}) => {
         if (isRecast(program))
             return insertAfter(first, replaceWithAST);
         
-        return first.insertBefore(replaceWithAST);
+        return insertBefore(first, replaceWithAST);
     }
     
     const id = Identifier('replaceWithMultiple');

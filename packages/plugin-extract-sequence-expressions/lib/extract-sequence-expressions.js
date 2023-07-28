@@ -7,6 +7,7 @@ const {
     toExpression,
     compare,
     remove,
+    insertBefore,
 } = operator;
 
 const {
@@ -49,7 +50,7 @@ module.exports.fix = (path) => {
     
     if (isIfTest(path)) {
         while (path.node.expressions.length > 1) {
-            path.parentPath.insertBefore(ExpressionStatement(path.node.expressions.shift()));
+            insertBefore(path.parentPath, ExpressionStatement(path.node.expressions.shift()));
         }
         
         return;

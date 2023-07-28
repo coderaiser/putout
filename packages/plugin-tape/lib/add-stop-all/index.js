@@ -15,7 +15,11 @@ const {
     TEST_ASYNC_SKIP,
 } = require('../test-signatures');
 
-const {traverse, compare} = operator;
+const {
+    traverse,
+    compare,
+    insertBefore,
+} = operator;
 
 const {ExpressionStatement} = types;
 
@@ -25,7 +29,7 @@ module.exports.fix = (path) => {
     const assertionPath = getAssertionsPath(path);
     const stopAllNode = template.ast('stopAll()');
     
-    assertionPath.insertBefore(ExpressionStatement(stopAllNode));
+    insertBefore(assertionPath, ExpressionStatement(stopAllNode));
 };
 
 module.exports.traverse = ({push}) => ({

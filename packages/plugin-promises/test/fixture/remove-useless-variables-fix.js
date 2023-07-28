@@ -1,5 +1,7 @@
 () => {
     const result = transformer.transform(realTransformer, transformCode, code, parser);
     
-    return result;
+    let result2 = result;
+    
+    return result2;
 };

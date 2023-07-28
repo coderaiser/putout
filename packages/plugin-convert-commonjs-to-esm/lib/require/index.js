@@ -8,7 +8,7 @@ const {
     template,
 } = require('putout');
 
-const {replaceWith} = operator;
+const {replaceWith, insertBefore} = operator;
 
 const {
     isFunction,
@@ -121,7 +121,7 @@ module.exports.replace = () => ({
             NAME2: Identifier(name),
         });
         
-        path.insertBefore([importNode]);
+        insertBefore(path, [importNode]);
         
         return declarationNode;
     },

@@ -1,6 +1,7 @@
 'use strict';
 
-const {template} = require('putout');
+const {template, operator} = require('putout');
+const {insertBefore} = operator;
 
 module.exports.report = () => 'try-catch should be used instead of t.doesNotThrow';
 
@@ -12,7 +13,7 @@ module.exports.replace = () => ({
         
         tryCatchNode.declarations[0].init.arguments[0] = __a;
         
-        path.insertBefore(tryCatchNode);
+        insertBefore(path, tryCatchNode);
         
         return `t.notOk(error, __b)`;
     },

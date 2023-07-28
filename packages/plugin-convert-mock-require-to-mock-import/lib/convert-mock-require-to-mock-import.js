@@ -5,6 +5,7 @@ const {operator, template} = require('putout');
 const {
     remove,
     getPathAfterImports,
+    insertBefore,
 } = operator;
 
 const initStopAll = template.ast(`const {stopAll} = createMockImport(import.meta.url)`);
@@ -27,7 +28,7 @@ module.exports.replace = () => ({
             maybeRemoveOldStopAll(scope);
             
             const endOfImportPath = getPathAfterImports(programPath.get('body'));
-            endOfImportPath.insertBefore(initStopAll);
+            insertBefore(endOfImportPath, initStopAll);
         }
         
         return 'await reImport(__a)';

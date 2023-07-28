@@ -2,7 +2,10 @@
 
 const {template, operator} = require('putout');
 
-const {getPathAfterImports} = operator;
+const {
+    getPathAfterImports,
+    insertBefore,
+} = operator;
 
 const initCommons = template.ast(`
     const __filename = fileURLToPath(import.meta.url);
@@ -17,7 +20,7 @@ module.exports.fix = ({scope}) => {
     const body = programScope.path.get('body');
     const afterImportPath = getPathAfterImports(body);
     
-    afterImportPath.insertBefore(initCommons);
+    insertBefore(afterImportPath, initCommons);
 };
 
 module.exports.include = () => [
