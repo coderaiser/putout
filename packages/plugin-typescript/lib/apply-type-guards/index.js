@@ -9,7 +9,7 @@ const {
 const {replaceWith} = operator;
 const {Identifier} = types;
 
-const create = template('(__a): __a is __c => typeof "__b"', {
+const create = template('(__a): __a is __c => typeof __a === "__b"', {
     placeholderPattern: /__/,
 });
 

@@ -19,3 +19,4 @@ test('plugin-apply-guards: transform: apply-type-guards', (t) => {
     t.transform('apply-type-guards');
     t.end();
 });
+
