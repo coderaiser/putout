@@ -16,6 +16,7 @@ module.exports = {
     isSimpleRegExp: `const {isSimpleRegExp} = operator`,
     getTemplateValues: `const {getTemplateValues} = operator`,
     addArgs: `const {addArgs} = operator`,
+    insertBefore: 'const {insertBefore} = operator',
     insertAfter: 'const {insertAfter} = operator',
     replaceWith: `const {replaceWith} = operator`,
     replaceWithMultiple: `const {replaceWithMultiple} = operator`,

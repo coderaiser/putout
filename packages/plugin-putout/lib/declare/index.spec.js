@@ -181,6 +181,16 @@ test('plugin-putout: declare: transform: renameProperty', (t) => {
     t.end();
 });
 
+test('plugin-putout: declare: transform: insertBefore', (t) => {
+    t.transformCode('insertBefore(a, b);', montag`
+        import {operator} from 'putout';
+        
+        const {insertBefore} = operator;
+        insertBefore(a, b);\n
+    `);
+    t.end();
+});
+
 test('plugin-putout: declare: transform: insertAfter', (t) => {
     t.transformCode('insertAfter(a, b);', montag`
         import {operator} from 'putout';
