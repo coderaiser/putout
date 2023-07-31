@@ -37,6 +37,11 @@ test('plugin-remove-unreferenced-variables: transform: upper-scope', (t) => {
     t.end();
 });
 
+test('plugin-remove-unreferenced-variables: transform: no-init', (t) => {
+    t.transform('no-init');
+    t.end();
+});
+
 test('plugin-remove-unreferenced-variables: no transform', (t) => {
     t.noTransform('referenced');
     t.end();

@@ -8,6 +8,31 @@ module.exports.report = () => 'Avoid unreferenced variables';
 module.exports.fix = (path) => remove(path);
 
 module.exports.traverse = ({push}) => ({
+    'return __a'(path) {
+        const arg = path.get('argument');
+        
+        if (!arg.isIdentifier())
+            return false;
+        
+        const binding = path.scope.bindings[arg.node.name];
+        
+        if (!binding)
+            return false;
+        
+        if (binding.constantViolations.length)
+            return false;
+        
+        if (binding.referencePaths.length !== 1)
+            return false;
+        
+        if (!binding.path.isVariableDeclarator())
+            return false;
+        
+        if (binding.path.node.init)
+            return false;
+        
+        push(path);
+    },
     '__identifier = __a'(path) {
         const {name} = path.node.left;
         const binding = path.scope.getAllBindings()[name];
