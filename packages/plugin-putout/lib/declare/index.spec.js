@@ -200,3 +200,13 @@ test('plugin-putout: declare: transform: insertAfter', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: setLiteralValue', (t) => {
+    t.transformCode(`setLiteralValue(path, 'hello');`, montag`
+        import {operator} from 'putout';
+        
+        const {setLiteralValue} = operator;
+        setLiteralValue(path, 'hello');\n
+    `);
+    t.end();
+});
