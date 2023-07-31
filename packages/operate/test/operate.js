@@ -1088,3 +1088,24 @@ test('putout: operate: remove: already removed', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operate: setLiteralValue', (t) => {
+    const ast = parse(`({"hello": 'world'})`);
+    
+    traverse(ast, {
+        StringLiteral: (path) => {
+            operate.setLiteralValue(path, 'hello');
+        },
+    });
+    
+    const result = print(ast);
+    
+    const expected = montag`
+        ({
+            "hello": 'hello',
+        });\n
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});

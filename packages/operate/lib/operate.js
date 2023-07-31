@@ -21,6 +21,7 @@ const {remove} = require('./remove');
 const {getExportDefault} = require('./get-export-default');
 const {rename} = require('./rename');
 const {renameProperty} = require('./rename-property');
+const {setLiteralValue} = require('./set-literal-value');
 
 const {getProperty, getProperties} = require('./properties');
 
@@ -38,6 +39,7 @@ module.exports.toExpression = toExpression;
 module.exports.isSimple = isSimple;
 module.exports.rename = rename;
 module.exports.renameProperty = renameProperty;
+module.exports.setLiteralValue = setLiteralValue;
 
 function toExpression(el) {
     const {type} = el;

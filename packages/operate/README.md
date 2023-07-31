@@ -59,6 +59,10 @@ Use:
 renameProperty(path, 'hello', 'world');
 ```
 
+### `setLiteralValue(path | node)`
+
+Set `raw` and `value` of a literal.
+
 ### `isSimple(path | node)`
 
 Check if path is:
