@@ -1,0 +1,2 @@
+if (isSymbol(a))
+    fn();

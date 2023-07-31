@@ -1,0 +1,2 @@
+if (isBigInt(a))
+    fn();

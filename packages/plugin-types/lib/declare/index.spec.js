@@ -29,3 +29,13 @@ test('putout: plugin: types: declare: comment', (t) => {
     t.transform('comment');
     t.end();
 });
+
+test('putout: plugin: types: declare: is-bigint', (t) => {
+    t.transform('is-bigint');
+    t.end();
+});
+
+test('putout: plugin: types: declare: is-symbol', (t) => {
+    t.transform('is-symbol');
+    t.end();
+});
