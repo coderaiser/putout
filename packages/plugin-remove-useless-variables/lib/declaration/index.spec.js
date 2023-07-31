@@ -35,6 +35,11 @@ test('remove usless variables: declaration: no transform: object', (t) => {
     t.end();
 });
 
+test('remove usless variables: declaration: no transform: no-init', (t) => {
+    t.noTransform('no-init');
+    t.end();
+});
+
 test('remove usless variables: declaration: no transform: couple-lines', (t) => {
     t.noTransform('couple-lines');
     t.end();

@@ -48,6 +48,10 @@ module.exports.replace = () => ({
 });
 
 function isTakesOneLine(binding) {
+    if (!binding.path.node.init)
+        return false;
+    
     const {start, end} = binding.path.node.init.loc;
+    
     return start.line === end.line;
 }
