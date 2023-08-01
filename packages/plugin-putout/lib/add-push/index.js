@@ -12,27 +12,44 @@ const {
 
 module.exports.report = () => `Add 'push' argument to 'traverse'`;
 
-module.exports.fix = (path) => {
+module.exports.fix = ({fn}) => {
     const computed = false;
     const shorthand = true;
     const name = Identifier('push');
     
-    path.node.right.params.push(ObjectPattern([
+    fn.params.push(ObjectPattern([
         ObjectProperty(name, name, computed, shorthand),
     ]));
 };
 
-module.exports.traverse = ({push}) => ({
-    'module.exports.traverse = (__args) => __': (traversePath) => {
-        const paramsPaths = traversePath.get('right.params');
-        
-        if (paramsPaths.length)
-            return;
-        
-        traverse(traversePath, {
-            'push(__)': () => {
-                push(traversePath);
-            },
-        });
-    },
-});
+module.exports.traverse = ({push}) => {
+    const check = checkArgs(push);
+    
+    return {
+        'export const traverse = (__args) => __': check,
+        'module.exports.traverse = (__args) => __': check,
+    };
+};
+
+const checkArgs = (push) => (path) => {
+    const fn = parseFn(path);
+    
+    if (fn.params.length)
+        return;
+    
+    traverse(path, {
+        'push(__)': () => {
+            push({
+                path,
+                fn,
+            });
+        },
+    });
+};
+
+function parseFn(path) {
+    if (path.isAssignmentExpression())
+        return path.get('right').node;
+    
+    return path.get('declaration.declarations.0.init').node;
+}

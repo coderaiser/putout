@@ -20,6 +20,11 @@ test('plugin-putout: add-push: transform', (t) => {
     t.end();
 });
 
+test('plugin-putout: add-push: transform: esm', (t) => {
+    t.transform('esm');
+    t.end();
+});
+
 test('plugin-putout: add-push: no report: exists', (t) => {
     t.noReport('exists');
     t.end();
