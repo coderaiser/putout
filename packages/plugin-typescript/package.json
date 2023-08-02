@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-typescript",
-  "version": "4.4.1",
+  "version": "4.5.0",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin for transforming TypeScript code ",
