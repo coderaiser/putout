@@ -20,12 +20,17 @@ test('plugin-typescript: remove-useless-parens: transform', (t) => {
     t.end();
 });
 
-test('plugin-typescript: remove-useless-parens: transform: nested', (t) => {
-    t.transform('nested');
+test('plugin-typescript: remove-useless-parens: no transform: nested', (t) => {
+    t.noTransform('nested');
     t.end();
 });
 
 test('plugin-typescript: remove-useless-parens: no transform: generic', (t) => {
     t.noTransform('generic');
+    t.end();
+});
+
+test('plugin-typescript: remove-useless-parens: no transform: overlap', (t) => {
+    t.noTransform('overlap');
     t.end();
 });
