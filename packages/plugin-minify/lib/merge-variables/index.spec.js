@@ -22,6 +22,11 @@ test('plugin-minify: merge-variables: transform', (t) => {
     t.end();
 });
 
+test('plugin-minify: merge-variables: no transform: let', (t) => {
+    t.noTransform('let');
+    t.end();
+});
+
 test('plugin-minify: merge-variables: transform: remove-unreferenced-variables', (t) => {
     t.transform('remove-unreferenced-variables', {
         'remove-unreferenced-variables': removeUnreferencedVariables,

@@ -20,6 +20,9 @@ module.exports.traverse = ({push, uplist}) => ({
         if (path.parentPath.node.declarations.length !== 1)
             return;
         
+        if (path.parentPath.node.kind === 'let')
+            return;
+        
         uplist(path.scope.uid, path);
     },
     Program: {
