@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/formatter-codeframe": "^4.0.0"
+    "@putout/formatter-codeframe": "^5.0.2"
   },
   "keywords": [
     "putout",
