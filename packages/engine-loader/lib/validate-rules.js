@@ -1,9 +1,6 @@
 'use strict';
 
 const parse = (rule) => {
-    if (rule.startsWith('babel/'))
-        return rule;
-    
     if (rule.includes('/'))
         return rule
             .split('/')

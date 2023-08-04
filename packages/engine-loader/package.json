@@ -24,7 +24,6 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@babel/core": "^8.0.0-alpha.1",
     "@putout/engine-parser": "^8.0.0",
     "diff-match-patch": "^1.0.4",
     "nano-memoize": "^3.0.11",
@@ -41,14 +40,11 @@
     "putout": "*"
   },
   "devDependencies": {
-    "@babel/plugin-codemod-object-assign-to-object-spread": "^7.7.4",
     "@putout/formatter-progress": "*",
     "@putout/plugin-convert-commonjs-to-esm": "*",
     "@putout/plugin-remove-unused-variables": "*",
     "@putout/processor-javascript": "*",
     "@putout/processor-markdown": "*",
-    "babel-plugin-angularjs-annotate": "https://github.com/putoutjs/babel-plugin-angularjs-annotate",
-    "babel-plugin-transform-inline-consecutive-adds": "^0.4.3",
     "c8": "^8.0.0",
     "eslint": "^8.0.1",
     "eslint-plugin-n": "^16.0.0",

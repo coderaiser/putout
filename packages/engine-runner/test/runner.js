@@ -19,8 +19,6 @@ const fixture = readFixtures([
     'no-parent',
     'shebang',
     'shebang-fix',
-    'babel',
-    'babel-fix',
     'debug',
 ]);
 
@@ -748,16 +746,6 @@ test('putout: runner: debug: replace', (t) => {
     stopAll();
     
     t.calledWith(debugFn, expected);
-    t.end();
-});
-
-test('putout: runner: babel', (t) => {
-    const {code} = putout(fixture.babel, {
-        runPlugins,
-        plugins: ['babel/codemod-optional-catch-binding'],
-    });
-    
-    t.deepEqual(code, fixture.babelFix);
     t.end();
 });
 

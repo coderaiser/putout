@@ -9,21 +9,10 @@ const putout = require('putout');
 const montag = require('montag');
 
 const {readFixtures} = require('./fixture');
-const {loadPlugins, babelPlugin} = require('..');
+const {loadPlugins} = require('..');
 
 const {reRequire, stopAll} = mockRequire;
-const fixture = readFixtures([
-    'shebang',
-    'shebang-fix',
-    'babel-plugin',
-    'babel-plugin-fix',
-    'babel-plugin-angularjs-annotate',
-    'babel-plugin-angularjs-annotate-fix',
-    'babel-plugin-namespace',
-    'babel-plugin-namespace-fix',
-    'babel-plugin-no-change',
-    'babel-plugin-no-change-fix',
-]);
+const fixture = readFixtures(['shebang', 'shebang-fix']);
 
 test('putout: loader: user plugin', (t) => {
     const {_findPath} = Module;
@@ -187,185 +176,6 @@ test('putout: loader: plugins: array', (t) => {
     t.end();
 });
 
-test('putout: loader: babelPlugins', (t) => {
-    const {code} = putout(fixture.babelPlugin, {
-        plugins: ['babel/transform-inline-consecutive-adds'],
-    });
-    
-    t.deepEqual(code, fixture.babelPluginFix);
-    t.end();
-});
-
-test('putout: loader: babelPlugin: implimintation', (t) => {
-    const plugin = require('babel-plugin-transform-inline-consecutive-adds');
-    
-    const {code} = putout(fixture.babelPlugin, {
-        plugins: [
-            ['babel/transform-inline-consecutive-adds', babelPlugin(plugin)],
-        ],
-    });
-    
-    t.deepEqual(code, fixture.babelPluginFix);
-    t.end();
-});
-
-test('putout: loader: babelPlugins: angularjs annotate', (t) => {
-    const {code} = putout(fixture.babelPluginAngularjsAnnotate, {
-        plugins: ['babel/angularjs-annotate'],
-    });
-    
-    t.deepEqual(code, fixture.babelPluginAngularjsAnnotateFix);
-    t.end();
-});
-
-test('putout: loader: babelPlugins: namespace', (t) => {
-    const {code} = putout(fixture.babelPluginNamespace, {
-        loadPlugins,
-        plugins: ['babel/codemod-object-assign-to-object-spread'],
-    });
-    
-    t.deepEqual(code, fixture.babelPluginNamespaceFix);
-    t.end();
-});
-
-test('putout: loader: babelPlugins: namespace: no change', (t) => {
-    const {code} = putout(fixture.babelPluginNoChange, {
-        loadPlugins,
-        plugins: ['babel/codemod-object-assign-to-object-spread'],
-    });
-    
-    t.deepEqual(code, fixture.babelPluginNoChangeFix);
-    t.end();
-});
-
-test('putout: loader: babelPlugins: espree', (t) => {
-    const {code} = putout(fixture.babelPlugin, {
-        parser: 'espree',
-        plugins: ['babel/transform-inline-consecutive-adds'],
-    });
-    
-    t.deepEqual(code, fixture.babelPluginFix);
-    t.end();
-});
-
-test('putout: loader: babelPlugins: espree: shebang', (t) => {
-    const {code} = putout(fixture.shebang, {
-        parser: 'espree',
-        plugins: [
-            'remove-unused-variables',
-            'babel/transform-inline-consecutive-adds',
-        ],
-    });
-    
-    t.deepEqual(code, fixture.shebangFix);
-    t.end();
-});
-
-test('putout: loader: babelPlugins: position: shebang', (t) => {
-    const {places} = putout(fixture.babelPlugin, {
-        fix: false,
-        recast: true,
-        plugins: ['babel/transform-inline-consecutive-adds'],
-    });
-    
-    const expected = [{
-        rule: 'babel/transform-inline-consecutive-adds',
-        message: 'transform inline consecutive adds',
-        position: {
-            line: 4,
-            column: 0,
-        },
-    }];
-    
-    t.deepEqual(places, expected);
-    t.end();
-});
-
-test('putout: loader: babelPlugins: custom message', (t) => {
-    const message = 'hello world';
-    const enabled = true;
-    
-    const {places} = putout(fixture.babelPlugin, {
-        fix: false,
-        recast: true,
-        rules: {
-            'babel/transform-inline-consecutive-adds': [enabled, message],
-        },
-        plugins: ['babel/transform-inline-consecutive-adds'],
-    });
-    
-    const expected = [{
-        rule: 'babel/transform-inline-consecutive-adds',
-        message,
-        position: {
-            line: 4,
-            column: 0,
-        },
-    }];
-    
-    t.deepEqual(places, expected);
-    t.end();
-});
-
-test('putout: loader: babelPlugins: custom message: on', (t) => {
-    const message = 'hello world';
-    const enabled = 'on';
-    
-    const {places} = putout(fixture.babelPlugin, {
-        fix: false,
-        recast: true,
-        rules: {
-            'babel/transform-inline-consecutive-adds': [enabled, message],
-        },
-        plugins: ['babel/transform-inline-consecutive-adds'],
-    });
-    
-    const expected = [{
-        rule: 'babel/transform-inline-consecutive-adds',
-        message,
-        position: {
-            line: 4,
-            column: 0,
-        },
-    }];
-    
-    t.deepEqual(places, expected);
-    t.end();
-});
-
-test('putout: loader: babelPlugins: no message: first options', (t) => {
-    const message = 'transform inline consecutive adds';
-    
-    const {places} = putout(fixture.babelPlugin, {
-        fix: false,
-        rules: {
-            'babel/transform-inline-consecutive-adds': [{}],
-        },
-        plugins: ['babel/transform-inline-consecutive-adds'],
-    });
-    
-    const expected = [{
-        rule: 'babel/transform-inline-consecutive-adds',
-        message,
-        position: {
-            line: 4,
-            column: 0,
-        },
-    }];
-    
-    t.deepEqual(places, expected);
-    t.end();
-});
-
-test('putout: loader: babelPlugins: shebang', (t) => {
-    const {code} = putout(fixture.shebang, {
-        plugins: ['babel/transform-inline-consecutive-adds'],
-    });
-    
-    t.deepEqual(code, fixture.shebang);
-    t.end();
-});
-
 test('putout: loader: nested rules', (t) => {
     const {code} = putout(fixture.shebang, {
         rules: {
@@ -400,18 +210,6 @@ test('putout: loader: nested rule: one', (t) => {
             'putout/convert-babel-types': 'off',
         },
         plugins: ['putout'],
-    });
-    
-    t.notOk(e);
-    t.end();
-});
-
-test('putout: loader: nested rule: babel', (t) => {
-    const [e] = tryCatch(putout, 'hello', {
-        rules: {
-            'babel/convert': 'off',
-        },
-        plugins: ['babel/convert'],
     });
     
     t.notOk(e);

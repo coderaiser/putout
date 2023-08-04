@@ -59,42 +59,6 @@ const plugins = loadPlugins({
 });
 ```
 
-#### Babel Plugins
-
-You can use `babel plugins` with help of `babel/` prefix.
-
-*Example*
-Let's use two plugins:
-
-- `babel-plugin-transform-inline-consecutive-adds`
-- `@babel/plugin-codemod-object-assign-to-object-spread`
-
-`@putout/engine-loader` will gues the prefix of `plugin` :).
-
-```js
-const pluginNames = [
-    'babel/transform-inline-consecutive-adds',
-    'babel/codemod-object-assign-to-object-spread',
-];
-
-const plugins = loadPlugins({
-    pluginNames,
-});
-```
-
-When you need to use imported babel plugin use `babelPlugin`:
-
-```js
-import {babelPlugin} from '@putout/engine-loader';
-import transformBlockScoping from '@babel/plugin-transform-block-scoping';
-
-const plugins = loadPlugins({
-    pluginNames: [
-        ['babel/transform-inline-consecutive-adds', babelPlugin(transformBlockScoping, 'Optional message')],
-    ],
-});
-```
-
 ### loadProcessorsAsync
 
 ```js

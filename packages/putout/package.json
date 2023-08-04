@@ -201,7 +201,6 @@
     "unused"
   ],
   "devDependencies": {
-    "babel-plugin-transform-inline-consecutive-adds": "^0.5.0-alpha.9",
     "c8": "^8.0.0",
     "currify": "^4.0.0",
     "escover": "^3.2.2",

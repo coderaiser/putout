@@ -78,34 +78,14 @@ function parseArray(rule, args) {
         };
     }
     
-    const [, msg = '', options = defaultOptions()] = args;
-    
-    if (args.length === 2 && !isStr(msg)) {
-        return {
-            rule,
-            state,
-            plugin,
-            msg: '',
-            options: msg,
-        };
-    }
-    
-    if (args.length === 1 && isObj(rawState)) {
-        return {
-            rule,
-            state,
-            plugin,
-            msg,
-            options: rawState,
-        };
-    }
+    const [, msg = ''] = args;
     
     return {
         rule,
         state,
         plugin,
-        msg,
-        options,
+        msg: '',
+        options: msg,
     };
 }
 

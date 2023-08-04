@@ -9,11 +9,7 @@
             "madrun/set-lint-dot": "off"
         },
         "/Users/coderaiser/putout/packages/putout/lib/cli/fixture/plugins.js": {
-            "putout": "off",
-            "babel/transform-inline-consecutive-adds": "off"
+            "putout": "off"
         }
-    },
-    "plugins": [
-        "babel/transform-inline-consecutive-adds"
-    ]
+    }
 }

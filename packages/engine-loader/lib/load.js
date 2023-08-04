@@ -5,14 +5,9 @@ const {createRequire} = require('module');
 const tryCatch = require('try-catch');
 const once = require('once');
 
-const wrapPlugin = require('./wrap-plugin');
-
 const bigFirst = (a) => `${a[0].toUpperCase()}${a.slice(1)}`;
 
 const load = (type) => ({name, namespace}) => {
-    if (namespace !== 'putout')
-        return wrapPlugin(name, namespace);
-    
     const [pluginPath, customRequire] = getPath(namespace, type, name);
     
     if (!pluginPath)

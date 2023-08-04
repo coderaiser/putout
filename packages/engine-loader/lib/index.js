@@ -10,10 +10,8 @@ const parseProcessorNames = require('./parse-processor-names');
 const parseRules = require('./parse-rules');
 const validateRules = require('./validate-rules');
 const validatePlugin = require('./validate-plugin');
-const {babelPlugin} = require('./wrap-plugin');
 
 const isString = (a) => typeof a === 'string';
-
 const defaultOptions = () => Object.create(null);
 
 const mergeRules = ([rule, plugin], rules) => {
@@ -62,8 +60,6 @@ module.exports.loadProcessorsAsync = nanomemoize(async (options, load) => {
 });
 
 module.exports.createAsyncLoader = createAsyncLoader;
-
-module.exports.babelPlugin = babelPlugin;
 
 module.exports.loadPlugins = (options) => {
     check(options);
@@ -121,12 +117,7 @@ function getLoadedRules(rules) {
 }
 
 function splitRule(rule) {
-    const name = rule.replace('babel/', '');
-    
-    if (rule.startsWith('babel'))
-        return [name, 'babel'];
-    
-    return [name, 'putout'];
+    return [rule, 'putout'];
 }
 
 function loadPlugins({items, loadedRules}) {
@@ -139,7 +130,6 @@ function loadPlugins({items, loadedRules}) {
         checkRule(rule);
         
         const [name, namespace] = splitRule(rule);
-        
         const plugin = itemPlugin || loadPlugin({
             name,
             namespace,

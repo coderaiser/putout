@@ -38,8 +38,6 @@ const fixture = readFixtures([
     'overlap',
     'overlap-fix',
     'jsx',
-    'babel-plugins',
-    'babel-plugins-fix',
     'no-recast',
     'no-recast-fix',
     'printer-putout',
@@ -491,91 +489,6 @@ test('putout: isJSX: disabled', (t) => {
     t.end();
 });
 
-test('putout: babelPlugins', (t) => {
-    const {code} = putout(fixture.babelPlugins, {
-        plugins: ['babel/transform-inline-consecutive-adds'],
-    });
-    
-    t.deepEqual(code, fixture.babelPluginsFix);
-    t.end();
-});
-
-test('putout: babelPlugins: espree', (t) => {
-    const {code} = putout(fixture.babelPlugins, {
-        parser: 'espree',
-        plugins: ['babel/transform-inline-consecutive-adds'],
-    });
-    
-    t.deepEqual(code, fixture.babelPluginsFix);
-    t.end();
-});
-
-test('putout: babelPlugins: espree: shebang', (t) => {
-    const {code} = putout(fixture.shebang, {
-        parser: 'espree',
-        plugins: [
-            'remove-unused-variables',
-            'babel/transform-inline-consecutive-adds',
-        ],
-    });
-    
-    t.deepEqual(code, fixture.shebangFix);
-    t.end();
-});
-
-test('putout: babelPlugins: position: shebang', (t) => {
-    const {places} = putout(fixture.babelPlugins, {
-        fix: false,
-        plugins: ['babel/transform-inline-consecutive-adds'],
-    });
-    
-    const expected = [{
-        rule: 'babel/transform-inline-consecutive-adds',
-        message: 'transform inline consecutive adds',
-        position: {
-            line: 4,
-            column: 0,
-        },
-    }];
-    
-    t.deepEqual(places, expected);
-    t.end();
-});
-
-test('putout: babelPlugins: custom message', (t) => {
-    const message = 'hello world';
-    const enabled = true;
-    
-    const {places} = putout(fixture.babelPlugins, {
-        fix: false,
-        rules: {
-            'babel/transform-inline-consecutive-adds': [enabled, message],
-        },
-        plugins: ['babel/transform-inline-consecutive-adds'],
-    });
-    
-    const expected = [{
-        rule: 'babel/transform-inline-consecutive-adds',
-        message,
-        position: {
-            line: 4,
-            column: 0,
-        },
-    }];
-    
-    t.deepEqual(places, expected);
-    t.end();
-});
-
-test('putout: babelPlugins: shebang', (t) => {
-    const {code} = putout(fixture.shebang, {
-        plugins: ['babel/transform-inline-consecutive-adds'],
-    });
-    
-    t.deepEqual(code, fixture.shebang);
-    t.end();
-});
-
 test('putout: transform', (t) => {
     const ast = putout.parse(fixture.comment);
     
@@ -850,18 +763,6 @@ test('putout: no source', (t) => {
     const [error] = tryCatch(putout);
     
     t.equal(error.message, `☝️ Looks like 'source' has type 'undefined', expected: 'string'`);
-    t.end();
-});
-
-test('putout: printer: babel', (t) => {
-    const {code} = putout(fixture.noRecast, {
-        printer: 'babel',
-        plugins: ['remove-unused-variables'],
-    });
-    
-    const expected = fixture.noRecastFix;
-    
-    t.equal(code, expected);
     t.end();
 });
 
