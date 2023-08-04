@@ -26,7 +26,7 @@ for (const caseName of fs.readdirSync(fixturesDir)) {
         
         const {code} = transformFileSync(actualPath, {
             code: true,
-            plugins: ['transform-inline-consecutive-adds', createConfigItemSync([plugin, {
+            plugins: [createConfigItemSync([plugin, {
                 rules: {
                     'strict-mode': 'on',
                 },

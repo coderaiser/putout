@@ -1,4 +1,5 @@
 'use strict';
 
-const a = [1, 2];
-
+const a = [];
+a.push(1);
+a.push(2);
