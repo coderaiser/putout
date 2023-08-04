@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@putout/babel": "^1.0.5",
-    "@putout/compare": "^11.0.0",
+    "@putout/compare": "^12.0.0",
     "@putout/engine-parser": "^7.0.0",
     "@putout/operate": "^9.0.0",
     "@putout/operator-declare": "^6.0.1",
