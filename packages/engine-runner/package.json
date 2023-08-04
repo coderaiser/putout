@@ -1,6 +1,6 @@
 {
   "name": "@putout/engine-runner",
-  "version": "18.0.4",
+  "version": "18.0.5",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "Run 🐊Putout plugins",
