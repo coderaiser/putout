@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@babel/core": "^7.12.3",
+    "@babel/core": "^8.0.0-alpha.1",
     "@putout/engine-parser": "^7.1.0",
     "diff-match-patch": "^1.0.4",
     "nano-memoize": "^3.0.11",

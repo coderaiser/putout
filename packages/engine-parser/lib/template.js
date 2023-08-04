@@ -1,6 +1,6 @@
 'use strict';
 
-const template = require('@babel/template').default;
+const {template} = require('@putout/babel');
 const {nanomemoize} = require('nano-memoize');
 const plugins = require('./parsers/babel/plugins');
 const options = require('./parsers/babel/options');

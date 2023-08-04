@@ -26,12 +26,13 @@ const {
     isLinkedRegExp,
 } = require('./is');
 
+const {types} = require('@putout/babel');
 const {
     isClassBody,
     isBlock,
     isJSXText,
     isTemplateElement,
-} = require('@babel/types');
+} = types;
 
 const isEmptyBlock = (a) => isBlock(a) && !a.body.length;
 const isPrimitive = (a) => typeof a !== 'object' || a === null;

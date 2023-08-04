@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@babel/types": "^7.21.2",
+    "@putout/babel": "^1.0.0",
     "@putout/compare": "^11.0.0",
     "@putout/engine-parser": "^7.0.0",
     "@putout/operate": "^9.0.0"
