@@ -1,3 +1,15 @@
+2023.08.04, v31.0.2
+
+feature:
+- 1e81ca569 package: @putout/engine-processor v9.0.0
+- 62f10be89 package: @putout/engine-loader v11.0.1
+- ff0690655 package: @putout/engine-parser v8.0.1
+- 655ae835d package: @putout/engine-parser v8.0.1
+- 0e1c1beac package: @putout/engine-parser v8.0.1
+- 120d402dc package: @putout/engine-parser v8.0.1
+- edef2ceab package: @putout/engine-parser v8.0.1
+- 832b9d9db @putout/engine-loader: drop support of Babel Plugins (babel/babel#15835)
+
 2023.08.04, v31.0.0
 
 fix:
