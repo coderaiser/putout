@@ -49,7 +49,7 @@
     "escover": "^3.2.3",
     "eslint": "^8.0.1",
     "eslint-plugin-n": "^16.0.0",
-    "eslint-plugin-putout": "^18.0.0",
+    "eslint-plugin-putout": "^19.0.0",
     "lerna": "^6.0.1",
     "madcut": "^1.0.0",
     "madrun": "^9.0.0",
