@@ -67,7 +67,7 @@
     "@putout/formatter-stream": "^4.0.0",
     "@putout/operate": "^9.0.0",
     "@putout/operator-add-args": "^5.0.0",
-    "@putout/operator-declare": "^6.0.1",
+    "@putout/operator-declare": "^7.0.0",
     "@putout/operator-regexp": "^1.0.0",
     "@putout/plugin-apply-at": "^1.0.0",
     "@putout/plugin-apply-destructuring": "^7.0.0",
