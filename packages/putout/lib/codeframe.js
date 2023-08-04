@@ -1,6 +1,6 @@
 'use strict';
 
-const {codeFrameColumns} = require('@putout/babel');
+const {codeFrameColumns} = require('@babel/code-frame');
 
 module.exports = ({source, error, highlightCode = true}) => {
     const {message, loc} = error;

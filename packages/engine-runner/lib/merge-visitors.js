@@ -1,6 +1,6 @@
 'use strict';
 
-const {traverse} = require('@putout/babel');
+const traverse = require('@babel/traverse').default;
 const {generate} = require('@putout/engine-parser');
 
 const runFix = require('./run-fix');

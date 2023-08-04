@@ -1,11 +1,20 @@
 'use strict';
 
+const traverse = require('@babel/traverse').default;
 const jessy = require('jessy');
 const nessy = require('nessy');
-const {traverse, types} = require('@putout/babel');
 const {template} = require('@putout/engine-parser');
 
 const {replaceWith, extract} = require('@putout/operate');
+
+const {
+    isIdentifier,
+    isStatement,
+    isJSXElement,
+    isLiteral,
+    isTemplateLiteral,
+    TemplateElement,
+} = require('@babel/types');
 
 const {
     is,
@@ -15,15 +24,6 @@ const {
     isImportsStr,
     isInsideTypeReference,
 } = require('./is');
-
-const {
-    isIdentifier,
-    isStatement,
-    isJSXElement,
-    isLiteral,
-    isTemplateLiteral,
-    TemplateElement,
-} = types;
 
 const {entries} = Object;
 const isNumber = (a) => typeof a === 'number';
@@ -62,10 +62,10 @@ function findVarsWays(node) {
     traverse(node, {
         noScope: true,
         'Identifier|BooleanLiteral|StringLiteral|TemplateElement|RegExpLiteral|JSXText|JSXAttribute|TSTypeReference'(path) {
+            const {node} = path;
+            
             if (isInsideTypeReference(path))
                 return;
-            
-            const {node} = path;
             
             const way = [];
             const name = extract(node);

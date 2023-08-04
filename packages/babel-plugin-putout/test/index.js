@@ -6,7 +6,7 @@ const test = require('supertape');
 
 const {
     transformFileSync,
-    createConfigItemSync,
+    createConfigItem,
 } = require('@babel/core');
 
 const plugin = require('..');
@@ -26,7 +26,7 @@ for (const caseName of fs.readdirSync(fixturesDir)) {
         
         const {code} = transformFileSync(actualPath, {
             code: true,
-            plugins: ['transform-inline-consecutive-adds', createConfigItemSync([plugin, {
+            plugins: ['transform-inline-consecutive-adds', createConfigItem([plugin, {
                 rules: {
                     'strict-mode': 'on',
                 },

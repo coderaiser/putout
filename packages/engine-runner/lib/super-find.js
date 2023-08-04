@@ -1,6 +1,7 @@
 'use strict';
 
-const {traverse: babelTraverse, types} = require('@putout/babel');
+const babelTraverse = require('@babel/traverse').default;
+const {types} = require('@babel/types');
 
 const {generate} = require('@putout/engine-parser');
 const {merge} = babelTraverse.visitors;

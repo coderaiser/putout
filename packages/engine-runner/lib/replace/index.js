@@ -2,7 +2,11 @@
 
 const {template, print} = require('@putout/engine-parser');
 const {remove, replaceWith} = require('@putout/operate');
-const {types} = require('@putout/babel');
+const {
+    isExpression,
+    isStatement,
+    isExpressionStatement,
+} = require('@babel/types');
 
 const {
     compare,
@@ -15,12 +19,6 @@ const debug = require('debug')('putout:runner:replace');
 const maybeArray = require('../maybe-array');
 
 const watermark = require('./watermark');
-const {
-    isExpression,
-    isStatement,
-    isExpressionStatement,
-} = types;
-
 const PRINT_OPTIONS = {
     printer: ['putout', {
         format: {

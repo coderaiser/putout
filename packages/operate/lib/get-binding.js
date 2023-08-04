@@ -1,10 +1,9 @@
 'use strict';
 
-const {types} = require('@putout/babel');
 const {
     isIdentifier,
     isMemberExpression,
-} = types;
+} = require('@babel/types');
 
 const isString = (a) => typeof a === 'string';
 

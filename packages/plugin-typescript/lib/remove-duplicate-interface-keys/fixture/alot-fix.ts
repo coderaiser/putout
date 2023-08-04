@@ -6,7 +6,7 @@ interface LabelledContainer {
     [index: number]: string;
     [propName: string]: any;
     [index: number]: string;
-    (source: string, subString: string): boolean;
+    (source: string): boolean;
     (start: number): string;
     reset(): void;
     reset(): any;

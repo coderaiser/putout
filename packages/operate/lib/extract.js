@@ -1,6 +1,5 @@
 'use strict';
 
-const {types} = require('@putout/babel');
 const {
     isLiteral,
     isIdentifier,
@@ -11,7 +10,7 @@ const {
     isJSXText,
     isJSXAttribute,
     isTSTypeReference,
-} = types;
+} = require('@babel/types');
 
 module.exports.extract = extract;
 

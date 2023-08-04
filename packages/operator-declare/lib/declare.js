@@ -11,11 +11,10 @@ const {
     setModuleType,
 } = require('./record');
 
-const {types} = require('@putout/babel');
 const {
     isImportDeclaration,
     isVariableDeclaration,
-} = types;
+} = require('@babel/types');
 
 const {keys} = Object;
 const isString = (a) => typeof a === 'string';

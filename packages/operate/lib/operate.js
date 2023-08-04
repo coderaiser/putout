@@ -1,6 +1,16 @@
 'use strict';
 
-const {types} = require('@putout/babel');
+const {
+    ExpressionStatement,
+    toStatement,
+    matchesPattern,
+    isBlockStatement,
+    isImportDeclaration,
+    isExportDeclaration,
+    isExpression,
+    isStatement,
+    BlockStatement,
+} = require('@babel/types');
 
 const {getBinding, getBindingPath} = require('./get-binding');
 
@@ -14,18 +24,6 @@ const {renameProperty} = require('./rename-property');
 const {setLiteralValue} = require('./set-literal-value');
 
 const {getProperty, getProperties} = require('./properties');
-const {
-    ExpressionStatement,
-    toStatement,
-    matchesPattern,
-    isBlockStatement,
-    isImportDeclaration,
-    isExportDeclaration,
-    isExpression,
-    isStatement,
-    BlockStatement,
-} = types;
-
 const {assign} = Object;
 
 module.exports.getBinding = getBinding;

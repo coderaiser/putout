@@ -1,5 +1,5 @@
 import {jsonFormatter} from '@putout/formatter-json';
-import {codeFrameColumns} from '@putout/babel';
+import {codeFrameColumns} from '@babel/code-frame';
 import chalk from 'chalk';
 
 const {
@@ -42,7 +42,6 @@ export default ({name, source, places, index, count, filesCount, errorsCount}) =
             
             const result = codeFrameColumns(source, location, {
                 highlightCode: true,
-                forceColor: true,
                 message: `${message} ${gray(`(${rule})`)}`,
             });
             

@@ -1,12 +1,11 @@
 'use strict';
 
-const {types} = require('@putout/babel');
 const {
     isOptionalMemberExpression,
     isMemberExpression,
     isIdentifier,
     isLiteral,
-} = types;
+} = require('@babel/types');
 
 module.exports.isSimple = (a) => {
     if (isLiteral(a))

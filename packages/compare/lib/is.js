@@ -1,7 +1,7 @@
 'use strict';
 
 const {template} = require('@putout/engine-parser');
-const {types} = require('@putout/babel');
+
 const {
     isBlockStatement,
     isBooleanLiteral,
@@ -16,7 +16,7 @@ const {
     isJSXIdentifier,
     isJSXAttribute,
     isTSTypeReference,
-} = types;
+} = require('@babel/types');
 
 const isStr = (a) => typeof a === 'string';
 
@@ -275,8 +275,9 @@ module.exports.isLinkedNode = (a) => {
     if (isTemplateElement(a) && LINKED_NODE.test(a.value.raw))
         return true;
     
-    if (isTSTypeReference(a) && LINKED_NODE.test(a.typeName.name))
+    if (isTSTypeReference(a) && LINKED_NODE.test(a.typeName.name)) {
         return true;
+    }
     
     return isTSTypeParameter(a) && LINKED_NODE.test(a.name);
 };

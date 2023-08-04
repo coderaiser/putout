@@ -2,7 +2,7 @@
 
 const recast = require('@putout/recast');
 const putoutPrinter = require('@putout/printer');
-const {generate} = require('@putout/babel');
+const generate = require('@babel/generator').default;
 
 const {stringify} = JSON;
 const {isArray} = Array;

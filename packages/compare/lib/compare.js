@@ -1,7 +1,12 @@
 'use strict';
 
 const {template} = require('@putout/engine-parser');
-const {types} = require('@putout/babel');
+
+const {
+    isIdentifier,
+    isExpressionStatement,
+    isStringLiteral,
+} = require('@babel/types');
 
 const {
     findVarsWays,
@@ -25,12 +30,6 @@ const {
     isTemplate,
     parseTemplate,
 } = require('./is');
-
-const {
-    isIdentifier,
-    isExpressionStatement,
-    isStringLiteral,
-} = types;
 
 const {keys} = Object;
 const {isArray} = Array;

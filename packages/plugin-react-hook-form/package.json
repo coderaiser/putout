@@ -36,6 +36,7 @@
     "putout": ">=29"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
     "@putout/test": "^7.0.0",
     "c8": "^8.0.0",
     "eslint": "^8.0.1",

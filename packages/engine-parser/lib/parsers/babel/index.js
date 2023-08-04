@@ -13,7 +13,7 @@ const plugins = require('./plugins');
 const options = require('./options');
 const getFlow = (a) => !a.indexOf('// @flow');
 const clean = (a) => a.filter(Boolean);
-const initBabel = once(() => require('@putout/babel'));
+const initBabel = once(() => require('@babel/parser'));
 const {assign} = Object;
 
 // There is a difference in options naming for babel and recast

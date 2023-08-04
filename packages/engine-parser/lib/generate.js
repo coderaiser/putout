@@ -1,6 +1,6 @@
 'use strict';
 
-const {generate} = require('@putout/babel');
+const generate = require('@babel/generator').default;
 
 module.exports = (node, options, sourceMaps) => {
     return generate(node, {

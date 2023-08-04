@@ -2,7 +2,7 @@
 
 const {compareAny} = require('@putout/compare');
 const {template} = require('@putout/engine-parser');
-const {types} = require('@putout/babel');
+
 const {
     ObjectPattern,
     ObjectProperty,
@@ -11,7 +11,7 @@ const {
     isLabeledStatement,
     isObjectPattern,
     isCallExpression,
-} = types;
+} = require('@babel/types');
 
 const {entries} = Object;
 

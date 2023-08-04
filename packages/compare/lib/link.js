@@ -1,13 +1,12 @@
 'use strict';
 
-const {types} = require('@putout/babel');
 const {
     isIdentifier,
     isLiteral,
     isStringLiteral,
     isTemplateElement,
     isTSTypeReference,
-} = types;
+} = require('@babel/types');
 
 const parseName = (node) => {
     node = node[0] || node;
@@ -36,9 +35,6 @@ module.exports = ({add, value, nodeValue, templateStore}) => {
         templateStore[name] = nodeValue;
         return true;
     }
-    
-    if (isTSTypeReference(templateStore[name]) && isIdentifier(nodeValue))
-        return true;
     
     add(templateStore[name], nodeValue);
     
