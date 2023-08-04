@@ -1,8 +1,6 @@
 'use strict';
 
-const babelTraverse = require('@babel/traverse').default;
-
-const {isFile, isProgram} = require('@babel/types');
+const {types, traverse: babelTraverse} = require('@putout/babel');
 
 const {
     compare,
@@ -11,6 +9,7 @@ const {
     getTemplateValues,
 } = require('@putout/compare');
 
+const {isFile, isProgram} = types;
 const {merge} = babelTraverse.visitors;
 const {entries} = Object;
 

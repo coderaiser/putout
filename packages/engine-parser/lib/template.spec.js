@@ -2,10 +2,10 @@
 
 const tryCatch = require('try-catch');
 const test = require('supertape');
-
-const {Identifier, StringLiteral} = require('@babel/types');
-
+const {types} = require('@putout/babel');
 const template = require('./template');
+
+const {Identifier, StringLiteral} = types;
 
 test('parser: template', (t) => {
     const buildOnce = template(`await once(%%emitter%%, %%event%%)`);

@@ -1,9 +1,10 @@
 'use strict';
 
+const {types} = require('@putout/babel');
 const {
     StringLiteral,
     ExpressionStatement,
-} = require('@babel/types');
+} = types;
 
 const {assign} = Object;
 

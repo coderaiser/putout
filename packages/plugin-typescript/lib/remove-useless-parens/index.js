@@ -1,48 +1,30 @@
 'use strict';
 
-const {types, operator} = require('putout');
-
-const {replaceWith} = operator;
-
-const {
-    tSArrayType,
-    isTSUnionType,
-    isTSArrayType,
-} = types;
-
 module.exports.report = () => 'Avoid useless parens';
 
-module.exports.fix = ({path, parentPath, typeAnnotation}) => {
-    if (isTSUnionType(typeAnnotation)) {
-        replaceWith(path, typeAnnotation);
-        return;
-    }
-    
-    if (parentPath.isTSArrayType()) {
-        replaceWith(path.parentPath, tSArrayType(typeAnnotation));
-        
-        return;
-    }
-    
-    replaceWith(path, typeAnnotation);
+module.exports.fix = ({path}) => {
+    path.node.extra.parenthesized = false;
+    return;
 };
 
 module.exports.traverse = ({push}) => ({
-    TSParenthesizedType(path) {
-        const {parentPath} = path;
-        
-        if (!parentPath.isTSTypeAnnotation() && !parentPath.isTSArrayType())
-            return;
-        
-        const typeAnnotation = path.get('typeAnnotation').node;
-        
-        if (isTSArrayType(path.parentPath) && isTSUnionType(typeAnnotation))
+    TSTypeReference(path) {
+        if (!path.node.extra?.parenthesized)
             return;
         
         push({
             path,
-            parentPath,
-            typeAnnotation,
+        });
+    },
+    TSUnionType(path) {
+        if (!path.node.extra?.parenthesized)
+            return;
+        
+        if (path.parentPath.isTSArrayType())
+            return;
+        
+        push({
+            path,
         });
     },
 });

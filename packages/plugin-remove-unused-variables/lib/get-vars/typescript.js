@@ -19,9 +19,9 @@ module.exports = ({use, declare}) => ({
     
     TSFunctionType(path) {
         const {node} = path;
-        const {parameters} = node;
+        const {params} = node;
         
-        for (const param of parameters) {
+        for (const param of params) {
             const {type} = param;
             
             switch(type) {
@@ -31,8 +31,10 @@ module.exports = ({use, declare}) => ({
                 break;
             
             case 'RestElement':
-                if (isIdentifier(param.argument))
+                if (isIdentifier(param.argument)) {
+                    declare(path, param.argument.name);
                     use(path, param.argument.name);
+                }
             }
         }
     },
@@ -100,9 +102,9 @@ module.exports = ({use, declare}) => ({
     },
     
     TSMethodSignature(path) {
-        const parametersPath = path.get('parameters');
+        const params = path.get('params');
         
-        for (const paramPath of parametersPath) {
+        for (const paramPath of params) {
             if (paramPath.isIdentifier()) {
                 declare(paramPath, paramPath.node.name);
                 use(paramPath, paramPath.node.name);
@@ -113,6 +115,7 @@ module.exports = ({use, declare}) => ({
             
             switch(type) {
             case 'RestElement':
+                declare(paramPath, paramPath.node.argument.name);
                 use(paramPath, paramPath.node.argument.name);
                 continue;
             }

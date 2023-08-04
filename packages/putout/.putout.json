@@ -14,7 +14,6 @@
         }
     },
     "plugins": [
-        "babel/transform-inline-consecutive-adds",
-        "babel/transform-react-jsx"
+        "babel/transform-inline-consecutive-adds"
     ]
 }

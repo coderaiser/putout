@@ -1,6 +1,6 @@
 'use strict';
 
-const traverse = require('@babel/traverse').default;
+const {traverse} = require('@putout/babel');
 const once = require('once');
 const debug = require('debug')('putout:runner:find');
 

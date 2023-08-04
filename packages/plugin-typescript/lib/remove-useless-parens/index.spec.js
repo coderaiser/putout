@@ -25,8 +25,8 @@ test('plugin-typescript: remove-useless-parens: no transform: nested', (t) => {
     t.end();
 });
 
-test('plugin-typescript: remove-useless-parens: no transform: generic', (t) => {
-    t.noTransform('generic');
+test('plugin-typescript: remove-useless-parens: transform: generic', (t) => {
+    t.transform('generic');
     t.end();
 });
 
