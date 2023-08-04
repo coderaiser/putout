@@ -26,11 +26,13 @@ for (const caseName of fs.readdirSync(fixturesDir)) {
         
         const {code} = transformFileSync(actualPath, {
             code: true,
-            plugins: [createConfigItemSync([plugin, {
-                rules: {
-                    'strict-mode': 'on',
-                },
-            }])],
+            plugins: [
+                createConfigItemSync([plugin, {
+                    rules: {
+                        'strict-mode': 'on',
+                    },
+                }]),
+            ],
         });
         
         const expected = fs.readFileSync(path.join(fixtureDir, 'expected.js'), 'utf8');
