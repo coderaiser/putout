@@ -1,3 +1,52 @@
+2023.08.04, v31.0.0
+
+fix:
+- 7c5637f68 @putout/plugin-typescript: apply-type-guards (#176)
+
+feature:
+- 9a46f39bb package: @putout/compare v12.0.0
+- b55031eff package: @putout/compare v12.0.0
+- 368552cc2 package: @putout/compare v12.0.0
+- 586366234 package: @putout/compare v12.0.0
+- fd1d1fa97 package: @putout/compare v12.0.0
+- 1328d7774 package: @putout/engine-loader v11.0.0
+- 50a9c7af5 package: @putout/engine-parser v8.0.0
+- 33fb3f9aa package: @putout/engine-runner v18.0.0
+- ddea821fc package: eslint-plugin-putout v19.0.0
+- c6febe13e package: @putout/formatter-codeframe v5.0.0
+- 7c54502ac @putout/formatter-codeframe: drop support of 🐊 < 31
+- 6cec945bc package: @putout/operate v10.0.0
+- 41c1152a5 package: @putout/operator-add-args v6.0.0
+- 19a814bd4 @putout/operator-add-args: drop support of 🐊 < 31
+- 0ad3167c2 package: @putout/operator-declare v7.0.0
+- c2476b02a @putout/operator-declare: drop support of 🐊 < 31
+- ffb42e0bd package: @putout/plugin-remove-unused-variables v6.0.0
+- d5918ab4f @putout/plugin-remove-unused-variables: drop support of 🐊 < 31
+- c3300375e package: @putout/plugin-typescript v5.0.0
+- 5168bc391 package: @putout/traverse v8.0.0
+- a114f95f3 putout: migrate to Babel 8 (https://babeljs.io/docs/v8-migration-api)
+- 53bb6f244 @putout/plugin-minify: merge-variables: exclude let (coderaiser/minify#111)
+- e48d236b5 @putout/plugin-typescript: remove-useless-parens: exclude types overlap
+- ab589d31f @putout/plugin-putout: add-push: esm
+- f206c507b @putout/plugin-putout: declare: setLiteralValue: add
+- 655cea260 @putout/operate: setLiteralValue: add
+- 4cdf9b013 @putout/plugin-remove-unreferenced-variables: add support of "return __a"
+- fce2b8c0d @putout/plugin-remove-useless-variables: declaration: no init
+- 542cd4559 @putout/plugin-types: converty-typeof-to-is-type: declaration (#166)
+- 20a015fbc @putout/plugin-minify: apply-template-literal (#174)
+- c9f22f9ee @putout/plugin-minify: simplify-floor (#174)
+- 5ffcf9cf4 @putout/plugin-putout: apply-insert-before
+- 012f3c81b @putout/plugin-putout: declare: insertBefore
+- 0cd83c6cf @putout/operate: insertBefore
+- a7399c1c1 @putout/plugin-remove-useless-resolve: await
+- c00b03260 @putout/plugin-promises: improve support of @putout/minify
+- 9889996b3 @putout/plugin-putout: apply-insert-after: add (#164)
+- a6c3878ff @putout/plugin-putout: apply-remove: path.remove() -> __a.remove()
+- b4e845ec7 @putout/plugin-minify: types: Array.from (#160)
+- e6d48f022 @putout/plugin-types: convert-typeof-to-is-type: not equal: not declared
+- 6c2c477c6 @putout/plugin-typescript: convert-generic-to-shorthand: types overlap (#173)
+- 0e2a983dc @putout/plugin-typescript: remove-useless-promise: add (#155)
+
 2023.07.26, v30.7.0
 
 fix:
