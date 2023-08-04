@@ -51,7 +51,7 @@
     "@putout/cli-staged": "^1.0.0",
     "@putout/cli-validate-args": "^1.0.0",
     "@putout/compare": "^11.0.0",
-    "@putout/engine-loader": "^10.0.0",
+    "@putout/engine-loader": "^11.0.0",
     "@putout/engine-parser": "^8.0.0",
     "@putout/engine-processor": "^8.0.0",
     "@putout/engine-runner": "^18.0.0",
