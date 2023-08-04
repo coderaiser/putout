@@ -24,6 +24,7 @@ const {
     isTemplateLiteral,
     TemplateElement,
 } = types;
+
 const {entries} = Object;
 const isNumber = (a) => typeof a === 'number';
 const isString = (a) => typeof a === 'string';

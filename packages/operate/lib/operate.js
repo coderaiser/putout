@@ -25,6 +25,7 @@ const {
     isStatement,
     BlockStatement,
 } = types;
+
 const {assign} = Object;
 
 module.exports.getBinding = getBinding;

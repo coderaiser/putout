@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-    traverse,
-    types,
-} = require('@putout/babel');
+const {traverse, types} = require('@putout/babel');
 
 const loader = require('@putout/engine-loader');
 const runner = require('@putout/engine-runner');

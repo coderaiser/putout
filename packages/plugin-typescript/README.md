@@ -247,9 +247,9 @@ Check it out in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/6c8717
 #### ❌ Example of incorrect code
 
 ```ts
-const m: (X)[] = [];
+const m: X[] = [];
 const z: (X | Y) = 5;
-const f: (X) = 5;
+const f: X = 5;
 ```
 
 #### ✅ Example of correct code
