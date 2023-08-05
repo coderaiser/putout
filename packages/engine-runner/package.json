@@ -41,7 +41,6 @@
     "putout-engine"
   ],
   "devDependencies": {
-    "@babel/plugin-codemod-optional-catch-binding": "^7.7.4",
     "@putout/plugin-minify": "*",
     "c8": "^8.0.0",
     "eslint": "^8.0.1",
