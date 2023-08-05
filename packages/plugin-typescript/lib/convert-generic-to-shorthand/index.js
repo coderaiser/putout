@@ -6,15 +6,18 @@ const {
     tSArrayType,
     isTSUnionType,
     isTSFunctionType,
-    TSParenthesizedType,
 } = types;
 
 module.exports.report = () => `Use shorthand '[]' instead of generic 'Array'`;
 
 module.exports.fix = ({path, typeReference}) => {
     if (isTSFunctionType(typeReference) || isTSUnionType(typeReference)) {
-        const ref = TSParenthesizedType(typeReference);
-        replaceWith(path, tSArrayType(ref));
+        const ref = tSArrayType(typeReference);
+        
+        typeReference.extra = typeReference.extra || {};
+        typeReference.extra.parenthesized = true;
+        
+        replaceWith(path, ref);
         
         return;
     }
