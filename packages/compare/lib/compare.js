@@ -11,27 +11,17 @@ const {
 } = require('./vars');
 
 const {runComparators} = require('./comparators');
+const {runTopLevelComparators} = require('./top-level-comparators');
 
 const {
     isStr,
     isPath,
     isEqualType,
-    isEqualBody,
-    isEqualAnyObject,
-    isEqualAnyArray,
-    isLinkedNode,
-    isLinkedId,
-    isLinkedRegExp,
-    isEqualNop,
     isTemplate,
     parseTemplate,
 } = require('./is');
 
-const {
-    isIdentifier,
-    isExpressionStatement,
-    isStringLiteral,
-} = types;
+const {isExpressionStatement} = types;
 
 const {keys} = Object;
 const {isArray} = Array;
@@ -91,28 +81,7 @@ function compare(path, template, options = {}, equal = noop) {
     if (node.type === template)
         return true;
     
-    if (isEqualAnyObject(node, templateNode))
-        return true;
-    
-    if (isEqualAnyArray(node, templateNode))
-        return true;
-    
-    if (isEqualNop(node, templateNode))
-        return true;
-    
-    if (isIdentifier(node) && isLinkedNode(templateNode))
-        return true;
-    
-    if (isLinkedId(node, templateNode))
-        return true;
-    
-    if (isLinkedRegExp(node, templateNode))
-        return true;
-    
-    if (isStringLiteral(node) && isLinkedNode(templateNode))
-        return true;
-    
-    if (isEqualBody(node, templateNode))
+    if (runTopLevelComparators(node, templateNode))
         return true;
     
     if (findUp && isPath(path) && !isEqualType(node, templateNode)) {
