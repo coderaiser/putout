@@ -21,6 +21,7 @@ const {
     isEqualAnyArray,
     isLinkedNode,
     isLinkedId,
+    isLinkedRegExp,
     isEqualNop,
     isTemplate,
     parseTemplate,
@@ -105,6 +106,9 @@ function compare(path, template, options = {}, equal = noop) {
     if (isLinkedId(node, templateNode))
         return true;
     
+    if (isLinkedRegExp(node, templateNode))
+        return true;
+    
     if (isStringLiteral(node) && isLinkedNode(templateNode))
         return true;
     
@@ -160,6 +164,7 @@ const ignore = [
     'trailingComments',
     'importKind',
     'exportKind',
+    'pattern',
 ];
 
 function superCompareIterate(node, template) {

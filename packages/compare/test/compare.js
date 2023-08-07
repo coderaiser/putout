@@ -638,6 +638,13 @@ test('compare: __regexp: inner', (t) => {
     t.end();
 });
 
+test('compare: __regexp: top level', (t) => {
+    const result = compare('/hello/u', '/__a/');
+    
+    t.ok(result);
+    t.end();
+});
+
 test('compare: innerComments', (t) => {
     const from = {
         type: 'StringLiteral',

@@ -443,6 +443,27 @@ test('putout: compare: vars: regexp', (t) => {
     t.end();
 });
 
+test('putout: compare: vars: regexp: top level', (t) => {
+    const regexp = {
+        report: () => '',
+        replace: () => ({
+            '/__b/': '',
+        }),
+    };
+    
+    const input = `let a = /hello/u;`;
+    const expected = 'let a;\n';
+    
+    const {code} = putout(input, {
+        plugins: [{
+            regexp,
+        }],
+    });
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: compare: vars: "__a"', (t) => {
     const convertReplace = {
         report: () => '',
