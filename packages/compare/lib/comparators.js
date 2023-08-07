@@ -65,9 +65,14 @@ const comparators = [
 ];
 
 module.exports.runComparators = (node, template, {add, templateStore}) => {
+    let i = -1;
+    const n = comparators.length;
+    
     log(template, node);
     
-    for (const compare of comparators) {
+    while (++i < n) {
+        const compare = comparators[i];
+        
         if (compare(node, template, {add, templateStore})) {
             return true;
         }

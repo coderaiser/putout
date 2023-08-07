@@ -16,27 +16,35 @@ const {
     isStringLiteral,
 } = types;
 
+const comparators = [
+    isEqualAnyObject,
+    isEqualAnyArray,
+    isEqualNop,
+    isLinkedAndIdentifier,
+    isLinkedAndStringLiteral,
+    isLinkedId,
+    isLinkedRegExp,
+    isEqualBody,
+];
+
 module.exports.runTopLevelComparators = (node, templateNode) => {
-    if (isEqualAnyObject(node, templateNode))
-        return true;
+    let i = -1;
+    const n = comparators.length;
     
-    if (isEqualAnyArray(node, templateNode))
-        return true;
+    while (++i < n) {
+        const compare = comparators[i];
+        
+        if (compare(node, templateNode))
+            return true;
+    }
     
-    if (isEqualNop(node, templateNode))
-        return true;
-    
-    if (isIdentifier(node) && isLinkedNode(templateNode))
-        return true;
-    
-    if (isLinkedId(node, templateNode))
-        return true;
-    
-    if (isLinkedRegExp(node, templateNode))
-        return true;
-    
-    if (isStringLiteral(node) && isLinkedNode(templateNode))
-        return true;
-    
-    return isEqualBody(node, templateNode);
+    return false;
 };
+
+function isLinkedAndIdentifier(node, templateNode) {
+    return isIdentifier(node) && isLinkedNode(templateNode);
+}
+
+function isLinkedAndStringLiteral(node, templateNode) {
+    return isStringLiteral(node) && isLinkedNode(templateNode);
+}
