@@ -88,6 +88,11 @@ test('plugin-declare-after-require: transform: reference', (t) => {
     t.end();
 });
 
+test('plugin-declare-after-require: transform: comment', (t) => {
+    t.transform('comment');
+    t.end();
+});
+
 test('plugin-declare-after-require: no transform: call', (t) => {
     t.noTransform('call');
     t.end();

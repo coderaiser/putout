@@ -280,6 +280,41 @@ test('putout: operate: insertAfter: recast: comments', (t) => {
     t.end();
 });
 
+test('putout: operate: insertAfter: trailingComments: node', (t) => {
+    const source = `
+        const isString = (a) => typeof a === 'string';
+        /* global CloudCmd */
+        const Util = require('../../common/util');
+    `;
+    
+    const ast = parse(source);
+    
+    traverse(ast, {
+        VariableDeclaration(path) {
+            if (!path.get('declarations.0.init').isCallExpression())
+                return;
+            
+            const prev = path.getPrevSibling();
+            const {node} = prev;
+            
+            prev.remove();
+            
+            operate.insertAfter(path, node);
+        },
+    });
+    
+    const code = print(ast);
+    
+    const expected = montag`
+        /* global CloudCmd */
+        const Util = require('../../common/util');
+        const isString = (a) => typeof a === 'string';\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});
+
 test('putout: operate: replaceWithMultiple', (t) => {
     const nodes = [];
     const comments = [];

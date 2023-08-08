@@ -105,6 +105,9 @@ module.exports.insertAfter = (path, node) => {
     if (path.node.trailingComments?.length && path.getNextSibling()?.node?.leadingComments)
         delete path.node.trailingComments;
     
+    if (node.trailingComments)
+        delete node.trailingComments;
+    
     path.insertAfter(node);
     path.node.comments = comments;
 };
