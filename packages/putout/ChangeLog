@@ -1,3 +1,21 @@
+2023.08.08, v31.0.4
+
+fix:
+- fca64a926 @putout/compare: ignore: drop pattern
+
+feature:
+- cad218775 package: @putout/plugin-nodejs v7.0.0
+- df60b2b40 @putout/plugin-nodejs: drop support of 🐊 < 31
+- bb252688d @putout/operate: insertAfter: comments
+- 7973ea898 @putout/compare: top-level-comparators: simplify
+- c7cde3a5e @putout/compare: top-level-comparators
+- be73a28ac @putout/compare: add support of top level regexp (#179)
+- 86e565165 @putout/plugin-typescript: convert-generic-to-shorthand: parens
+- c5103a1d9 package: @putout/printer v3.0.0
+- b5b396a47 package: @putout/operator-declare v7.0.4
+- 61e5a2d62 package: @putout/operate v10.0.2
+- 0ce6200c8 package: @putout/operate v10.0.2
+
 2023.08.04, v31.0.3
 
 fix:
