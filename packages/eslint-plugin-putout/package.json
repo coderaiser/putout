@@ -38,8 +38,8 @@
     "debug": "madrun debug"
   },
   "dependencies": {
-    "@babel/core": "8.0.0-alpha.1",
-    "@babel/eslint-parser": "8.0.0-alpha.1",
+    "@babel/core": "^8.0.0-alpha.1",
+    "@babel/eslint-parser": "^8.0.0-alpha.1",
     "@eslint/eslintrc": "^2.0.2",
     "@putout/engine-parser": "^8.0.1",
     "@putout/eslint": "^2.0.0",
