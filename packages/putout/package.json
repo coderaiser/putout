@@ -104,7 +104,7 @@
     "@putout/plugin-github": "^6.0.0",
     "@putout/plugin-gitignore": "^3.0.0",
     "@putout/plugin-logical-expressions": "^3.0.0",
-    "@putout/plugin-madrun": "^15.0.0",
+    "@putout/plugin-madrun": "^16.0.0",
     "@putout/plugin-math": "^2.0.0",
     "@putout/plugin-maybe": "^1.0.0",
     "@putout/plugin-merge-destructuring-properties": "^8.0.0",
