@@ -39,7 +39,7 @@
   "devDependencies": {
     "@putout/plugin-eslint-plugin": "*",
     "c8": "^8.0.0",
-    "eslint": "^8.0.1",
+    "eslint": "^8.45.0",
     "eslint-plugin-n": "^16.0.0",
     "eslint-plugin-putout": "^19.0.0",
     "just-camel-case": "^4.0.2",

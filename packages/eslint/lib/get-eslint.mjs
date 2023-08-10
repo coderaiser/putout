@@ -1,8 +1,7 @@
-import {ESLint} from 'eslint';
-import FlatESLintExports from 'eslint/use-at-your-own-risk';
+import eslint from 'eslint/use-at-your-own-risk';
 import {findUpSync} from 'find-up';
 
-const {FlatESLint} = FlatESLintExports;
+const {FlatESLint, LegacyESLint} = eslint;
 
 export const getESLint = ({name, fix, config, overrideConfigFile, ESLintOverride, find = findUpSync}) => {
     const eslint = chooseESLint({
@@ -41,7 +40,7 @@ function chooseESLint({name, config, fix, overrideConfigFile, ESLintOverride, fi
     });
 }
 
-function getOldESLint({fix, config, overrideConfigFile, ESLintOverride = ESLint}) {
+function getOldESLint({fix, config, overrideConfigFile, ESLintOverride = LegacyESLint}) {
     const eslint = new ESLintOverride({
         fix,
         overrideConfig: {
