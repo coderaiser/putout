@@ -18,10 +18,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install Redrun, Lerna
-        run: npm i redrun lerna@6 -g
-      - name: Bootstrap
-        run: lerna bootstrap
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+      - name: Install Redrun
+        run: bun install redrun -g --no-save
+      - name: Install
+        run: bun install --no-save
       - name: Lint
         run: redrun lint
       - uses: actions-rs/toolchain@v1
