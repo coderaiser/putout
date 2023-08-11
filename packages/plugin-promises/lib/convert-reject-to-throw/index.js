@@ -7,7 +7,7 @@ module.exports.report = () => 'Reject is useless in async functions, use throw i
 
 module.exports.filter = (path) => {
     const fnPath = path.find(isFunction);
-    return fnPath && fnPath.node.async;
+    return fnPath?.node.async;
 };
 
 module.exports.replace = () => ({

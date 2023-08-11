@@ -55,6 +55,11 @@ test('plugin-apply-optional-chaining: transform: nested', (t) => {
     t.end();
 });
 
+test('plugin-apply-optional-chaining: transform: property', (t) => {
+    t.transform('property');
+    t.end();
+});
+
 test('plugin-apply-optional-chaining: transform: call-expression', (t) => {
     t.transform('call-expression');
     t.end();

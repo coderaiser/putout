@@ -1,0 +1,1 @@
+fnPath && fnPath.node.async;
