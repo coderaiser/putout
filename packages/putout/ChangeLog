@@ -1,3 +1,9 @@
+2023.08.12, v31.0.8
+
+feature:
+- dd3ef8f23 package: @putout/processor-markdown v10.0.0
+- 5bfc98892 @putout/processor-markdown: drop support of 🐊 < 31
+
 2023.08.12, v31.0.7
 
 feature:
