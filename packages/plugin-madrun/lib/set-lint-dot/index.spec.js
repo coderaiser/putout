@@ -11,7 +11,7 @@ const test = createTest(__dirname, {
 });
 
 test('madrun: set lint dot: report', (t) => {
-    t.report('lint', '"lint" should check current directory');
+    t.report('lint', `Check current drectory with 'lint'`);
     t.end();
 });
 

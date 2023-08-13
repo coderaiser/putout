@@ -7,22 +7,22 @@ const {
     TemplateLiteral,
 } = types;
 
-const {replaceWith, getProperty} = operator;
+const {
+    replaceWith,
+    getProperty,
+    setLiteralValue,
+} = operator;
 
 const dotLine = 'putout .';
 const isDot = (a) => a.includes(dotLine);
 
-module.exports.report = () => '"lint" should check current directory';
+module.exports.report = () => `Check current drectory with 'lint'`;
 
 module.exports.fix = ({lintPath}) => {
     const {node} = lintPath;
     
-    if (isStringLiteral(node)) {
-        node.value = dotLine;
-        node.raw = `'${dotLine}'`;
-        
-        return;
-    }
+    if (isStringLiteral(node))
+        return setLiteralValue(node, dotLine);
     
     node.value.raw = dotLine;
     node.value.cooked = dotLine;
