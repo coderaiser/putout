@@ -1,6 +1,9 @@
 'use strict';
 
-const {extract} = require('./extract');
+const {extract} = require('../extract');
+const {traverseProperties} = require('./traverse-properties');
+
+module.exports.traverseProperties = traverseProperties;
 
 module.exports.getProperties = (path, names) => {
     const result = {};

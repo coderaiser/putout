@@ -4,10 +4,15 @@ const {
     parse,
     operator,
     print,
+    template,
 } = require('putout');
 
 const {test} = require('supertape');
-const {getProperty, getProperties} = require('./properties');
+const {
+    getProperty,
+    getProperties,
+    traverseProperties,
+} = require('.');
 
 const {traverse} = operator;
 
@@ -73,5 +78,13 @@ test('operate: properties: getProperty: not found', (t) => {
     });
     
     t.notOk(result);
+    t.end();
+});
+
+test('operate: properties: traverse-properties', (t) => {
+    const object = template.ast('x({"a": "b"})');
+    const [propertyPath] = traverseProperties(object, 'a');
+    
+    t.equal(propertyPath.node.key.value, 'a');
     t.end();
 });

@@ -1144,3 +1144,11 @@ test('putout: operate: setLiteralValue', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: operate: traverseProperty', (t) => {
+    const object = template.ast('x({"a": "b"})');
+    const [propertyPath] = putout.operator.traverseProperties(object, 'a');
+    
+    t.equal(propertyPath.node.key.value, 'a');
+    t.end();
+});

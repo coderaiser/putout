@@ -59,11 +59,11 @@ Use:
 renameProperty(path, 'hello', 'world');
 ```
 
-### `setLiteralValue(path | node, value)`
+### `setLiteralValue(path: Path | Node, value: string)`
 
 Set `raw` and `value` of a literal.
 
-### `isSimple(path | node)`
+### `isSimple(path: Path | Node)`
 
 Check if path is:
 
@@ -227,6 +227,15 @@ Get properties from `ObjectExpression` path and add a `Path` suffix to each resu
 
 ```js
 const {homepagePath} = getProperties(__aPath, ['homepage']);
+```
+
+### `traverseProperties(path: Path | Node, name: string)`
+
+Traverse list of properties from `ObjectExpression`.
+
+```js
+const object = template.ast('x({"a": "b"})');
+const [propertyPath] = traverseProperties(object, 'a');
 ```
 
 ## License

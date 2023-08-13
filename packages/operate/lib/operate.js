@@ -3,7 +3,6 @@
 const {types} = require('@putout/babel');
 
 const {getBinding, getBindingPath} = require('./get-binding');
-
 const {isSimple} = require('./is-simple');
 const {extract} = require('./extract');
 const {compute} = require('./compute');
@@ -13,7 +12,11 @@ const {rename} = require('./rename');
 const {renameProperty} = require('./rename-property');
 const {setLiteralValue} = require('./set-literal-value');
 
-const {getProperty, getProperties} = require('./properties');
+const {
+    getProperty,
+    getProperties,
+    traverseProperties,
+} = require('./properties');
 const {
     ExpressionStatement,
     toStatement,
@@ -34,13 +37,15 @@ module.exports.extract = extract;
 module.exports.compute = compute;
 module.exports.replaceWith = replaceWith;
 module.exports.getExportDefault = getExportDefault;
-module.exports.getProperty = getProperty;
-module.exports.getProperties = getProperties;
 module.exports.toExpression = toExpression;
 module.exports.isSimple = isSimple;
 module.exports.rename = rename;
 module.exports.renameProperty = renameProperty;
 module.exports.setLiteralValue = setLiteralValue;
+
+module.exports.getProperty = getProperty;
+module.exports.getProperties = getProperties;
+module.exports.traverseProperties = traverseProperties;
 
 function toExpression(el) {
     const {type} = el;
