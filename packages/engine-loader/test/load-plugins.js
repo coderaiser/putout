@@ -271,7 +271,7 @@ test('putout: loader: disabled part of rule', (t) => {
     });
     
     const expected = [{
-        message: '"lint" should check current directory',
+        message: `Check current drectory using 'lint'`,
         position: {
             column: 17,
             line: 3,
