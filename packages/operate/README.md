@@ -59,7 +59,7 @@ Use:
 renameProperty(path, 'hello', 'world');
 ```
 
-### `setLiteralValue(path | node)`
+### `setLiteralValue(path | node, value)`
 
 Set `raw` and `value` of a literal.
 
