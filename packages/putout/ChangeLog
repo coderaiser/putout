@@ -1,3 +1,16 @@
+2023.08.13, v31.1.0
+
+feature:
+- 42ee1f5f5 package: @putout/plugin-github v7.0.0
+- e6f68b0ef @putout/plugin-github: drop support of 🐊 < 31
+- 78a4419b6 @putout/plugin-github: use traverseProperties from @putout/operate
+- 49e299be6 package: @putout/plugin-putout v14.0.0
+- 6fd1c6232 @putout/plugin-putout: drop support of 🐊 < 31
+- 90135988c @putout/plugin-putout: declare: add traverseProperties
+- 41df7e405 @putout/operate: traverseProperties: add
+- f1365ddef @putout/plugin-madrun: set-lint-dot: report: using -> with
+- 691bf3b61 @putout/plugin-madrun: set-lint-dot: report
+
 2023.08.12, v31.0.8
 
 feature:
