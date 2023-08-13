@@ -17,6 +17,7 @@ const {
     getProperties,
     traverseProperties,
 } = require('./properties');
+
 const {
     ExpressionStatement,
     toStatement,
