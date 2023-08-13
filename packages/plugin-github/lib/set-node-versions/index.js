@@ -1,13 +1,12 @@
 'use strict';
 
 const {operator, template} = require('putout');
-
 const deepEqual = require('fast-deep-equal');
-const {traverseProperty} = require('../traverse-property');
 
 const {
     replaceWith,
     getTemplateValues,
+    traverseProperties,
 } = operator;
 
 const defaultVersions = [
@@ -32,7 +31,7 @@ module.exports.traverse = ({push, options}) => ({
         const {versions: nodeVersions = defaultVersions} = options;
         const {__a} = getTemplateValues(path, '__putout_processor_json(__a)');
         
-        for (const nodeVersionPath of traverseProperty(__a, 'node-version')) {
+        for (const nodeVersionPath of traverseProperties(__a, 'node-version')) {
             const valueStr = nodeVersionPath
                 .get('value')
                 .toString();

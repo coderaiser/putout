@@ -1,10 +1,10 @@
 'use strict';
 
 const {types, operator} = require('putout');
-const {traverseProperty} = require('./traverse-property');
 const {
     getTemplateValues,
     getProperties,
+    traverseProperties,
 } = operator;
 
 const {
@@ -33,7 +33,7 @@ const traverse = (name, property) => ({push}) => ({
     '__putout_processor_json(__a)'(path) {
         const {__a} = getTemplateValues(path, '__putout_processor_json(__a)');
         
-        for (const propertyPath of traverseProperty(__a, 'uses')) {
+        for (const propertyPath of traverseProperties(__a, 'uses')) {
             const valuePath = propertyPath.get('value');
             const {value} = valuePath.node;
             
