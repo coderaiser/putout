@@ -22,6 +22,7 @@
     "isESM": "const {isESM} = operator",
     "getProperty": "const {getProperty} = operator",
     "getProperties": "const {getProperties} = operator",
+    "traverseProperties": "const {traverseProperties} = operator",
     "isSimple": "const {isSimple} = operator",
     "setLiteralValue": "const {setLiteralValue} = operator"
 }

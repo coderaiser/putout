@@ -210,3 +210,13 @@ test('plugin-putout: declare: transform: setLiteralValue', (t) => {
     `);
     t.end();
 });
+
+test('plugin-putout: declare: transform: traverseProperties', (t) => {
+    t.transformCode(`traverseProperties(path, 'hello');`, montag`
+        import {operator} from 'putout';
+        
+        const {traverseProperties} = operator;
+        traverseProperties(path, 'hello');\n
+    `);
+    t.end();
+});
