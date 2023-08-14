@@ -6,9 +6,6 @@ module.exports.report = () => `Use 'array.entries()' instead of 'Object.entries(
 
 module.exports.match = () => ({
     'for (const [__i, __a] of entries(__b))__c': ({__i}, path) => {
-        if (path.scope.getAllBindings().entries)
-            return;
-        
         const {name} = __i;
         
         if (name !== 'index' && name !== 'i')
