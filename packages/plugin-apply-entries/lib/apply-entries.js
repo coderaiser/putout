@@ -3,7 +3,7 @@
 module.exports.report = () => `Use 'entries()' instead of '.entries()`;
 
 module.exports.exclude = () => [
-    'const entries = __'
+    'const entries = __',
 ];
 
 module.exports.replace = () => ({
