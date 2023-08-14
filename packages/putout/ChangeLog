@@ -1,3 +1,19 @@
+2023.08.14, v31.2.0
+
+feature:
+- a19eac4b1 @putout/plugin-declare: get back Object.entries()
+- 609e959ff package: @putout/plugin-convert-object-entries-to-array-entries v3.0.0
+- 99609d78b @putout/plugin-convert-object-entries-to-array-entries: drop support of 🐊 < 31
+- 523c9d105 @putout/plugin-entries: exclude part of declaration
+- 0cd04a1c1 package: @putout/plugin-declare v2.0.0
+- 26130877e package: @putout/plugin-apply-entries v1.0.0
+- da810e278 @putout/plugin-declare: drop support of 🐊 < 31
+- 11f68e09d @putout/plugin-declare: entries: auto check passed type
+- 940f0660d @putout/plugin-apply-entries: add
+- a6cd9361d eslint-plugin-putout: array-element-newline: null
+- ae84b1d59 @putout/engine-parser: printer: recast: options
+- 88c3a2f76 @putout/plugin-github: install-bun: add
+
 2023.08.13, v31.1.0
 
 feature:
