@@ -44,7 +44,6 @@ function traverse(path, visitor) {
         }
         
         const [node, type] = parseTemplate(tmpl);
-        
         const visit = getVisit({
             fn,
             node,
