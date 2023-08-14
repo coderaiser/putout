@@ -1888,6 +1888,7 @@ It has a lot plugins divided by groups:
 
 | Package | Version |
 |--------|-------|
+| [`@putout/plugin-apply-entries`](/packages/plugin-apply-entries#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-entries.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-entries) |
 | [`@putout/plugin-apply-at`](/packages/plugin-apply-at#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-at.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-at) |
 | [`@putout/plugin-apply-starts-with`](/packages/plugin-apply-starts-with#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-starts-with.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-starts-with) |
 | [`@putout/plugin-apply-flat-map`](/packages/plugin-apply-flat-map#readme) | [![npm](https://img.shields.io/npm/v/@putout/plugin-apply-flat-map.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/plugin-apply-flat-map) |
