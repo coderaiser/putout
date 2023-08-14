@@ -158,3 +158,28 @@ test('putout: parser: print: printer: putout: options', (t) => {
     t.equal(result, expected);
     t.end();
 });
+
+test('putout: parser: print: printer: recast: options', (t) => {
+    const source = montag`
+        export default () => {
+          return a + b;
+        }
+    `;
+    
+    const expected = montag`
+        export default () => {
+          return a + b;
+        };
+    `;
+    
+    const ast = parse(source);
+    
+    const result = print(ast, {
+        printer: ['recast', {
+            tabWidth: 2,
+        }],
+    });
+    
+    t.equal(result, expected);
+    t.end();
+});

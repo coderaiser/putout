@@ -24,6 +24,7 @@ module.exports = (ast, options = {}) => {
             objectCurlySpacing: false,
             wrapColumn: Infinity,
             ...options,
+            ...printerOptions,
         };
         
         const printed = recast.print(ast, printOptions);
