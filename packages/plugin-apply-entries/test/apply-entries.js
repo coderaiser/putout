@@ -19,3 +19,8 @@ test('putout: apply-entries: transform', (t) => {
     t.transform('apply-entries');
     t.end();
 });
+
+test('putout: apply-entries: no transform: declared', (t) => {
+    t.noTransform('declared');
+    t.end();
+});
