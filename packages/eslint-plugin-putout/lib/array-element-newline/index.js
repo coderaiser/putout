@@ -73,6 +73,9 @@ module.exports.include = () => [
 
 function isShortValues(elements) {
     for (const {type, value} of elements) {
+        if (!value)
+            return true;
+        
         if (type === 'Literal' && value.length > 1)
             return false;
     }

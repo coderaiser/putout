@@ -15,6 +15,9 @@ const ruleTester = new RuleTester({
 ruleTester.run('array-element-newline', rule, {
     valid: [
         montag`
+            const a = [null, 'Done'];
+        `,
+        montag`
             const a = [1, 2, 3, 'pipe'];
         `,
         montag`
