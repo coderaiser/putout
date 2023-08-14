@@ -26,7 +26,8 @@ npm i @putout/plugin-github -D
         "github/set-coveralls": "on",
         "github/set-checkout-version": "on",
         "github/set-setup-node-version": "on",
-        "github/set-add-and-commit": "on"
+        "github/set-add-and-commit": "on",
+        "github/install-bun": "on"
     }
 }
 ```
@@ -117,6 +118,26 @@ You can override versions with:
   steps:
 -      uses: EndBug/add-and-commit@v7
 +      uses: EndBug/add-and-commit@v9
+```
+
+## install-bun
+
+> Bun is an all-in-one toolkit for JavaScript and TypeScript apps. It ships as a single executable called bun.
+>
+> At its core is the Bun runtime, a fast JavaScript runtime designed as a drop-in replacement for Node.js. It's written in Zig and powered by JavaScriptCore under the hood, dramatically reducing startup times and memory usage.
+>
+> (c) [bun.sh](https://bun.sh).
+
+```diff
+steps:
+  - uses: actions/checkout@v3
+  - name: Use Node.js ${{ matrix.node-version }}
+    uses: actions/setup-node@v3
+    with:
+      node-version: ${{ matrix.node-version }}
++  - uses: oven-sh/setup-bun@v1
++    with:
++      bun-version: latest
 ```
 
 ## License
