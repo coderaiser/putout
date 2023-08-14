@@ -32,6 +32,7 @@ const prepare = (plugin, context, options) => (node) => {
         getSpacesAfterNode,
         filename,
     };
+    
     const result = filter(path, options);
     
     if (!result)
