@@ -14,6 +14,7 @@
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to apply `entries()`.
 
 While `entries()` does the same for `Object` and `Array`, if you for some reason confuse this to methods, and use `Object.entries()` on array, you will have `string`-indexes.
+☝️ *Not bundled since it most likely will be bad for coverage*
 
 ```js
 for (const [index, value] of Object.entries(['a', 'b', 'c'])) {

@@ -1,5 +1,4 @@
-const {isArray} = Array;
-const entries = (a) => isArray(a) ? a.entries() : Object.entries(a);
+const {entries} = Object;
 const {freeze} = Object;
 const {defineProperty} = Object;
 

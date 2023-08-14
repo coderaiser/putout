@@ -5,8 +5,6 @@ const ignore = require('ignore');
 
 const isNegative = (a) => !a.indexOf('!');
 const positive = (a) => a.replace(/^!/, '');
-const {isArray} = Array;
-const entries = (a) => isArray(a) ? a.entries() : Object.entries(a);
 
 module.exports = (dirOpt, resolvedName, options = {}) => {
     const relativeName = relative(dirOpt, resolvedName);
@@ -19,7 +17,7 @@ module.exports = (dirOpt, resolvedName, options = {}) => {
 };
 
 function mergeIgnores(ignores) {
-    for (const [i, str] of entries(ignores)) {
+    for (const [i, str] of ignores.entries()) {
         const positiveIndex = ignores.indexOf(positive(str));
         
         if (isNegative(str) && positiveIndex > i)

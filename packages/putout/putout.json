@@ -147,7 +147,6 @@
     },
     "plugins": [
         "apply-at",
-        "apply-entries",
         "apply-early-return",
         "apply-flat-map",
         "apply-destructuring",

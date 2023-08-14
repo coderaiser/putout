@@ -4,5 +4,5 @@
     "values": "const {values} = Object",
     "freeze": "const {freeze} = Object",
     "defineProperty": "const {defineProperty} = Object",
-    "entries": "const entries = (a) => isArray(a) ? a.entries() : Object.entries(a)"
+    "entries": "const {entries} = Object"
 }
