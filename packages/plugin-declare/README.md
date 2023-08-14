@@ -202,6 +202,23 @@ const maybeArray = (a) => isArray(a) ? a : [a];
 const a = [...maybeArray(b)];
 ```
 
+# `entries`
+
+## ❌ Example of incorrect code
+
+```js
+entries([1, 2, 3]);
+```
+
+## ✅ Example of correct code
+
+```js
+const {isArray} = Array;
+const entries = (a) => isArray(a) ? a.entries() : Object.entries();
+
+entries([1, 2, 3]);
+```
+
 ## License
 
 MIT
