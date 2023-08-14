@@ -49,7 +49,7 @@ for (const [i, token] of entries(tokens)) {
 ## ✅ Example of correct code
 
 ```js
-for (const [i, token] of tokens.entries()) {
+for (const [i, token] of entries(tokens)) {
     if (!i)
         continue;
     

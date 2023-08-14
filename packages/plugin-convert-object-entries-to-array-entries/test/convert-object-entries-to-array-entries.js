@@ -34,3 +34,8 @@ test('plugin-convert-object-entries-to-array-entries: no transform: no-operation
     t.noTransform('no-operation');
     t.end();
 });
+
+test('plugin-convert-object-entries-to-array-entries: no transform: declared', (t) => {
+    t.noTransform('declared');
+    t.end();
+});
