@@ -128,6 +128,8 @@ You can override versions with:
 >
 > (c) [bun.sh](https://bun.sh).
 
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e03cc6ff4d9927568dc4f6f608be10ef/52146f4cbbc02c5bc8d7242af94d37f8734b3b36).
+
 ```diff
 steps:
   - uses: actions/checkout@v3
