@@ -33,6 +33,11 @@ module.exports.traverse = ({push}) => ({
         const stepsPathValue = stepsPath.get('value');
         const steps = stepsPathValue.get('elements');
         
+        for (const step of steps) {
+            if (compare(step, BUN))
+                return;
+        }
+        
         for (const [index, step] of steps.entries()) {
             const prop = step.get('properties.0');
             const valueStr = prop
@@ -41,11 +46,6 @@ module.exports.traverse = ({push}) => ({
             
             if (!valueStr.includes('actions/checkout'))
                 continue;
-            
-            const next = step.getNextSibling();
-            
-            if (compare(next, BUN))
-                return;
             
             push({
                 index,

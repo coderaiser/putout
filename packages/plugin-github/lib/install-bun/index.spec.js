@@ -29,3 +29,8 @@ test('packages: install-bun: no report: exists', (t) => {
     t.noReport('exists');
     t.end();
 });
+
+test('packages: install-bun: no report: wrong-place', (t) => {
+    t.noReport('wrong-place');
+    t.end();
+});
