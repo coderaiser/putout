@@ -88,7 +88,7 @@ You can override versions with:
 }
 ```
 
-## set-covveralls-versions
+## set-coveralls-versions
 
 ```diff
     - name: Coveralls
