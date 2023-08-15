@@ -27,7 +27,8 @@ npm i @putout/plugin-github -D
         "github/set-checkout-version": "on",
         "github/set-setup-node-version": "on",
         "github/set-add-and-commit": "on",
-        "github/install-bun": "on"
+        "github/install-bun": "on",
+        "github/convert-npm-to-bun": "on"
     }
 }
 ```
@@ -141,6 +142,7 @@ steps:
 +    with:
 +      bun-version: latest
 ```
+
 ## install-bun
 
 > Bun is an all-in-one toolkit for JavaScript and TypeScript apps. It ships as a single executable called bun.
@@ -153,7 +155,7 @@ Bun install works much faster: 40s before - 2s after.
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e03cc6ff4d9927568dc4f6f608be10ef/52146f4cbbc02c5bc8d7242af94d37f8734b3b36).
 
-```diff
+````diff
 ```diff
 - name: Install Redrun
 -    run: npm i redrun -g
@@ -161,9 +163,11 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e03cc6ff4d
 - name: Install
 -    run: npm install
 +    run: bun i --no-save
-```
+````
+
 ```
 
 ## License
 
 MIT
+```

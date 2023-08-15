@@ -5,7 +5,7 @@ __putout_processor_json({
         "build": {
             "runs-on": "ubuntu-latest",
             "steps": [{
-                "uses": 'actions/checkout@v3',
+                "uses": "actions/checkout@v1",
             }, {
                 "uses": "oven-sh/setup-bun@v1",
                 "with": {
@@ -13,13 +13,13 @@ __putout_processor_json({
                 },
             }, {
                 "name": "Use Node.js ${{ matrix.node-version }}",
-                "uses": 'actions/setup-node@v3',
+                "uses": "actions/setup-node@v1",
                 "with": {
                     "node-version": "${{ matrix.node-version }}",
                 },
             }, {
-                "name": "Install Redrun",
-                "run": "bun i redrun -g --no-save",
+                "name": "Bootstrap",
+                "run": "redrun bootstrap",
             }],
         },
     },
@@ -32,21 +32,16 @@ __putout_processor_json({
         "build": {
             "runs-on": "ubuntu-latest",
             "steps": [{
-                "uses": 'actions/checkout@v3',
-            }, {
-                'uses': 'oven-sh/setup-bun@v1',
-                'with': {
-                    'bun-version': 'latest',
-                },
+                "uses": "actions/checkout@v1",
             }, {
                 "name": "Use Node.js ${{ matrix.node-version }}",
-                "uses": 'actions/setup-node@v3',
+                "uses": "actions/setup-node@v1",
                 "with": {
                     "node-version": "${{ matrix.node-version }}",
                 },
             }, {
                 "name": "Install Redrun",
-                "run": "bun i redrun -g --no-save",
+                "run": "bun i redrun -g --no-save --no-save",
             }],
         },
     },

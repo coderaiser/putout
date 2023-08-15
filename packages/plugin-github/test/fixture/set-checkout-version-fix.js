@@ -19,10 +19,10 @@ __putout_processor_json({
                 },
             }, {
                 "name": "Install Redrun",
-                "run": "npm i redrun -g",
+                "run": "bun i redrun -g --no-save",
             }, {
                 "name": "Install",
-                "run": "npm install",
+                "run": "bun i --no-save",
             }, {
                 "name": "Bootstrap",
                 "run": "redrun bootstrap",
