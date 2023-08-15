@@ -7,6 +7,11 @@ __putout_processor_json({
             "steps": [{
                 "uses": 'actions/checkout@v3',
             }, {
+                'uses': 'oven-sh/setup-bun@v1',
+                'with': {
+                    'bun-version': 'latest',
+                },
+            }, {
                 "name": "Use Node.js ${{ matrix.node-version }}",
                 "uses": 'actions/setup-node@v3',
                 "with": {

@@ -12,4 +12,5 @@ module.exports.rules = {
     ...getRule('set-coveralls-version'),
     ...getRule('set-setup-node-version'),
     ...getRule('set-add-and-commit'),
+    ...getRule('install-bun'),
 };

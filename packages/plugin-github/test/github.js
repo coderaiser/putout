@@ -44,3 +44,8 @@ test('plugin-github: transform: add-continue-on-error-to-add-and-commit', (t) =>
     t.transform('add-continue-on-error-to-add-and-commit');
     t.end();
 });
+
+test('plugin-github: transform: install-bun', (t) => {
+    t.transform('install-bun');
+    t.end();
+});
