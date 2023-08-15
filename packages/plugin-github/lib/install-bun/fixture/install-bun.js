@@ -14,7 +14,7 @@ __putout_processor_json({
             {
              "uses": "oven-sh/setup-bun@v1",
              "with": {
-             	"bun-version": "latest"
+                 "bun-version": "latest"
              },
             },
             {

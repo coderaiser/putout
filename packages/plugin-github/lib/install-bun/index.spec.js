@@ -24,3 +24,8 @@ test('packages: install-bun: no transform: no-checkout', (t) => {
     t.noTransform('no-checkout');
     t.end();
 });
+
+test('packages: install-bun: no report: exists', (t) => {
+    t.noReport('exists');
+    t.end();
+});

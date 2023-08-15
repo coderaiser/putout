@@ -15,13 +15,13 @@ jobs:
           - 20.x
     steps:
       - uses: actions/checkout@v3
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
       - name: Install Redrun
         run: bun install redrun -g --no-save
       - name: Install
