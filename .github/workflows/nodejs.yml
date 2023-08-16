@@ -28,9 +28,8 @@ jobs:
         run: bun install --no-save
       - name: Lint
         run: redrun fix:lint
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
+      - name: Install Rust
+        run: rustup update
       - uses: actions/cache@v3
         with:
           path: |

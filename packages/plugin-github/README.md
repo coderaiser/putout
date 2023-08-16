@@ -28,6 +28,7 @@ npm i @putout/plugin-github -D
         "github/set-setup-node-version": "on",
         "github/set-add-and-commit": "on",
         "github/install-bun": "on",
+        "github/install-rust": "on",
         "github/convert-npm-to-bun": "on"
     }
 }
@@ -129,7 +130,7 @@ You can override versions with:
 >
 > (c) [bun.sh](https://bun.sh).
 
-Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e03cc6ff4d9927568dc4f6f608be10ef/52146f4cbbc02c5bc8d7242af94d37f8734b3b36).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/2d10cb903c532df454a8dfd6de2780c3/ee6b347faef340f20b7c1aa53564f72572c493df).
 
 ```diff
 steps:
@@ -141,6 +142,23 @@ steps:
 +  - uses: oven-sh/setup-bun@v1
 +    with:
 +      bun-version: latest
+```
+
+## install-rust
+
+> A language empowering everyone to build reliable and efficient software.
+>
+> (c) [Rust](https://rust-lang.orgh).
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/ad1fbd14cf16ce2e0ebf768fbfc07387/ec47bc0fe622b0001070c871e423979f7d29cbfb).
+
+```diff
+steps:
+  - uses: actions-rs/toolchain@v1
+    with:
+      toolchain: stable
++  - name: Install Rust
++    run: runstup update
 ```
 
 ## install-bun

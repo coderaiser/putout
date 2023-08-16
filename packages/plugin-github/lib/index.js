@@ -14,4 +14,5 @@ module.exports.rules = {
     ...getRule('set-add-and-commit'),
     ...getRule('install-bun'),
     ...getRule('convert-npm-to-bun'),
+    ...getRule('insert-rust'),
 };
