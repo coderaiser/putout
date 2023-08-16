@@ -38,7 +38,10 @@ const checkArgs = (push) => (path) => {
         return;
     
     traverse(path, {
-        'push(__)': () => {
+        'push(__)': (currentPath) => {
+            if (currentPath.scope.getAllBindings().push)
+                return;
+            
             push({
                 path,
                 fn,

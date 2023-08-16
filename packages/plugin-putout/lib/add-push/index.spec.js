@@ -29,3 +29,8 @@ test('plugin-putout: add-push: no report: exists', (t) => {
     t.noReport('exists');
     t.end();
 });
+
+test('plugin-putout: add-push: no report: couple', (t) => {
+    t.transform('couple');
+    t.end();
+});
