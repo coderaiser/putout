@@ -11,11 +11,16 @@ const test = createTest(__dirname, {
 });
 
 test('packages: apply-namaspace-specifier: report', (t) => {
-    t.report('apply-namaspace-specifier', `Use 'if condition' instead of 'ternary expression'`);
+    t.report('apply-namaspace-specifier', `Use 'import * as plugin' instead of 'import plugin'`);
     t.end();
 });
 
 test('packages: apply-namaspace-specifier: transform', (t) => {
     t.transform('apply-namaspace-specifier');
+    t.end();
+});
+
+test('packages: apply-namaspace-specifier: no report: exists', (t) => {
+    t.noReport('exists');
     t.end();
 });
