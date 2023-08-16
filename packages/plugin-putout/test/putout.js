@@ -174,3 +174,8 @@ test('plugin-putout: transform: create-test', (t) => {
     t.transform('create-test');
     t.end();
 });
+
+test('plugin-putout: transform: apply-namaspace-specifier', (t) => {
+    t.transform('apply-namaspace-specifier');
+    t.end();
+});

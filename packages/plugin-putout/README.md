@@ -23,6 +23,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-remove": "on",
         "putout/apply-insert-before": "on",
         "putout/apply-insert-after": "on",
+        "putout/apply-namaspace-specifier": "on",
         "putout/add-args": "on",
         "putout/add-push": "on",
         "putout/check-match": "on",
@@ -210,6 +211,24 @@ const {createTest} = require('@putout/test');
 const test = createTest({
     'remove-debugger': plugin,
 });
+```
+
+## apply-namaspace-specifier
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/c8ccc07044299e463807773705aec583/71722e57f2b0b03eb8300ab6fe268251dc696629).
+
+### ❌ Example of incorrect code
+
+```js
+import a from './index.js';
+import b from '../lib/index.js';
+```
+
+### ✅ Example of correct code
+
+```js
+import * as a from './index.js';
+import * as b from '../lib/index.js';
 ```
 
 ## create-test

@@ -43,4 +43,5 @@ module.exports.rules = {
     ...getRule('move-require-on-top-level'),
     ...getRule('includer'),
     ...getRule('create-test'),
+    ...getRule('apply-namaspace-specifier'),
 };
