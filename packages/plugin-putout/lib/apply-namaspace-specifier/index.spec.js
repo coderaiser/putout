@@ -24,3 +24,8 @@ test('packages: apply-namaspace-specifier: no report: exists', (t) => {
     t.noReport('exists');
     t.end();
 });
+
+test('packages: apply-namaspace-specifier: no report: no-spec', (t) => {
+    t.noReport('no-spec');
+    t.end();
+});

@@ -1,0 +1,1 @@
+import 'supertape/bin/supertape';

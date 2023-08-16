@@ -11,9 +11,11 @@ module.exports.traverse = ({push}) => ({
         const {value} = path.node.source;
         const first = path.get('specifiers.0');
         
-        if (first.isImportNamespaceSpecifier()) {
+        if (!first)
             return;
-        }
+        
+        if (first.isImportNamespaceSpecifier())
+            return;
         
         if (value === './index.js') {
             push({
