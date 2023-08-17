@@ -72,8 +72,19 @@
             "type": "string"
         },
         "printer": {
-            "description": "Tell 🐊Putout which printer to use",
-            "type": "string"
+            "oneOf": [{
+                "description": "Tell 🐊Putout which printer to use",
+                "type": "string"
+            }, {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": [{
+                    "type": "string"
+                }, {
+                    "type": "object"
+                }]
+            }]
         },
         "formatter": {
             "description": "Choose the way to show information about errors found",

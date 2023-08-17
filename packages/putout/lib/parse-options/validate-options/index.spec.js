@@ -221,3 +221,16 @@ test('putout: parse-options: validateOptions: printer', (t) => {
     t.notOk(error);
     t.end();
 });
+
+test('putout: parse-options: validateOptions: printer: options', (t) => {
+    const [error] = tryCatch(validateOptions, {
+        printer: ['putout', {
+            format: {
+                indent: '[tab-character-here]',
+            },
+        }],
+    });
+    
+    t.notOk(error);
+    t.end();
+});
