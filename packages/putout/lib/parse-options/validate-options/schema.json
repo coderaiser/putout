@@ -72,8 +72,8 @@
             "type": "string"
         },
         "printer": {
+            "description": "Tell 🐊Putout which printer to use",
             "oneOf": [{
-                "description": "Tell 🐊Putout which printer to use",
                 "type": "string"
             }, {
                 "type": "array",
