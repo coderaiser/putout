@@ -1,3 +1,19 @@
+2023.08.17, v31.2.1
+
+fix:
+- 4e7221606 putout: validate-options: pass printer options (#180)
+- 331446897 @putout/plugin-putout: apply-namespace-specifier: no specifier
+- 47de2534a @putout/plugin-putout: apply-namaspace-specifier: report: exists
+- f9a5a9eb8 @putout/plugin-putout: add-push: couple usages
+
+feature:
+- 3cc868239 @putout/plugin-github: install-rust: add
+- 1bb5dd527 @putout/plugin-putout: apply-namaspace-specifier: add
+- b734569f3 @putout/plugin-github: install-bun: check if exists
+- 42772336a @putout/plugin-github: convert-npm-to-bun: add
+- 8520afe54 @putout/plugin-github: install-bun
+- 59614627a @putout/plugin: convert-object-entries-to-array-entries: get back old behavior
+
 2023.08.14, v31.2.0
 
 feature:
