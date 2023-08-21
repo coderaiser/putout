@@ -84,3 +84,8 @@ test('plugin-minify: transform: convert-const-to-var', (t) => {
     t.transform('convert-const-to-var');
     t.end();
 });
+
+test('plugin-minify: transform: arrow', (t) => {
+    t.transform('arrow');
+    t.end();
+});

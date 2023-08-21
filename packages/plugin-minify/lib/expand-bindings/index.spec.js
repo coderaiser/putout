@@ -20,6 +20,11 @@ test('plugin-minify: expand-bindings: transform', (t) => {
     t.end();
 });
 
+test('plugin-minify: expand-bindings: transform: arrow', (t) => {
+    t.transform('arrow');
+    t.end();
+});
+
 test('plugin-minify: expand-bindings: no transform: destructuring', (t) => {
     t.noTransform('destructuring');
     t.end();

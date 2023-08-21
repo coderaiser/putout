@@ -1,15 +1,22 @@
 'use strict';
 
 const {operator, types} = require('putout');
-
+const {assign} = Object;
 const {isIdentifier} = types;
-
 const {remove, replaceWith} = operator;
 
 module.exports.report = () => `Expand bindings`;
 
 module.exports.fix = ({path, ref, parentPath}) => {
     const bindingInit = path.get('init');
+    
+    if (bindingInit.isArrowFunctionExpression()) {
+        assign(bindingInit.node, {
+            extra: {
+                parenthesized: true,
+            },
+        });
+    }
     
     if (parentPath.isVariableDeclarator()) {
         const refInit = ref.parentPath.get('init');
