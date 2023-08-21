@@ -956,3 +956,39 @@ test('putout: operator: declare: comment', (t) => {
     t.equal(code, expected);
     t.end();
 });
+
+test('putout: operator: declare: under require', (t) => {
+    const declarations = {
+        isNumber: `const isNumber = (a) => typeof a === 'number'`,
+    };
+    
+    const source = montag`
+        const addFunction = require('./add-function');
+        const hello = require('./hello');
+        
+        module.exports.rules = {
+            'add-function': isNumber(),
+            'hello': hello,
+        };
+    `;
+    
+    const {code} = putout(source, {
+        plugins: [
+            ['declare', declare(declarations)],
+        ],
+    });
+    
+    const expected = montag`
+        const addFunction = require('./add-function');
+        const hello = require('./hello');
+        const isNumber = (a) => typeof a === 'number';
+        
+        module.exports.rules = {
+            'add-function': isNumber(),
+            'hello': hello,
+        };\n
+    `;
+    
+    t.equal(code, expected);
+    t.end();
+});

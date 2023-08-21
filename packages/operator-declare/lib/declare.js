@@ -145,7 +145,7 @@ function insert(node, bodyPath) {
     const insertionPath = getInsertionPath(node, bodyPath);
     const [first] = bodyPath;
     
-    if (isVariableDeclaration(node) && isImportDeclaration(insertionPath))
+    if (isVariableDeclaration(node) && isImportDeclaration(insertionPath) || isRequire(insertionPath))
         return insertAfter(insertionPath, node);
     
     if (isVariableDeclaration(node))
