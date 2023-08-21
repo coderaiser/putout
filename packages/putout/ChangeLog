@@ -1,3 +1,10 @@
+2023.08.21, v31.2.2
+
+feature:
+- d6b8d6706 package: @putout/plugin-declare-before-reference v3.0.0
+- 64ddc72fe @putout/plugin-declare-before-reference: drop support of 🐊 < 31
+- 443182ca9 @putout/plugin-declare-before-reference: improve order
+
 2023.08.17, v31.2.1
 
 fix:
