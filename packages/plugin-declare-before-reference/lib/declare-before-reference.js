@@ -6,6 +6,7 @@ const {
     compare,
     insertBefore,
 } = operator;
+
 const {entries} = Object;
 
 module.exports.report = ({name}) => {
