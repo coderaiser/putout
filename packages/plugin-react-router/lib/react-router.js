@@ -1,10 +1,9 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const convertSwitchToRoutes = require('./convert-switch-to-routes');
+const convertComponentToElement = require('./convert-component-to-element');
 
 module.exports.rules = {
-    ...getRule('convert-switch-to-routes'),
-    ...getRule('convert-component-to-element'),
+    'convert-switch-to-routes': convertSwitchToRoutes,
+    'convert-component-to-element': convertComponentToElement,
 };

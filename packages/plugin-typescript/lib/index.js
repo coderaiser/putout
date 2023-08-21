@@ -1,22 +1,33 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const applyAsTypeAssertion = require('./apply-as-type-assertion');
+const applyTypeGuards = require('./apply-type-guards');
+const applyUtilityTypes = require('./apply-utility-types');
+const convertGenericToShorthand = require('./convert-generic-to-shorthand');
+const removeDuplicatesFromUnion = require('./remove-duplicates-from-union');
+const removeDuplicateInterfaceKeys = require('./remove-duplicate-interface-keys');
+const removeDuplicateExports = require('./remove-duplicate-exports');
+const removeUselessTypesFromConstants = require('./remove-useless-types-from-constants');
+const removeUselessTypes = require('./remove-useless-types');
+const removeUnusedTypes = require('./remove-unused-types');
+const removeUselessMappedTypes = require('./remove-useless-mapped-types');
+const removeUselessMappingModifiers = require('./remove-useless-mapping-modifiers');
+const removeUselessParens = require('./remove-useless-parens');
+const removeUselessPromise = require('./remove-useless-promise');
 
 module.exports.rules = {
-    ...getRule('apply-as-type-assertion'),
-    ...getRule('apply-type-guards'),
-    ...getRule('apply-utility-types'),
-    ...getRule('convert-generic-to-shorthand'),
-    ...getRule('remove-duplicates-from-union'),
-    ...getRule('remove-duplicate-interface-keys'),
-    ...getRule('remove-duplicate-exports'),
-    ...getRule('remove-useless-types-from-constants'),
-    ...getRule('remove-useless-types'),
-    ...getRule('remove-unused-types'),
-    ...getRule('remove-useless-mapped-types'),
-    ...getRule('remove-useless-mapping-modifiers'),
-    ...getRule('remove-useless-parens'),
-    ...getRule('remove-useless-promise'),
+    'apply-as-type-assertion': applyAsTypeAssertion,
+    'apply-type-guards': applyTypeGuards,
+    'apply-utility-types': applyUtilityTypes,
+    'convert-generic-to-shorthand': convertGenericToShorthand,
+    'remove-duplicates-from-union': removeDuplicatesFromUnion,
+    'remove-duplicate-interface-keys': removeDuplicateInterfaceKeys,
+    'remove-duplicate-exports': removeDuplicateExports,
+    'remove-useless-types-from-constants': removeUselessTypesFromConstants,
+    'remove-useless-types': removeUselessTypes,
+    'remove-unused-types': removeUnusedTypes,
+    'remove-useless-mapped-types': removeUselessMappedTypes,
+    'remove-useless-mapping-modifiers': removeUselessMappingModifiers,
+    'remove-useless-parens': removeUselessParens,
+    'remove-useless-promise': removeUselessPromise,
 };

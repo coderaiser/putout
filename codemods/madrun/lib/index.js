@@ -1,11 +1,11 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const addMadrunToLint = require('./add-madrun-to-lint');
+const addFreshLint = require('./add-fresh-lint');
+const renamePredefinedEslintToPutout = require('./rename-predefined-eslint-to-putout');
 
 module.exports.rules = {
-    ...getRule('add-madrun-to-lint'),
-    ...getRule('add-fresh-lint'),
-    ...getRule('rename-predefined-eslint-to-putout'),
+    'add-madrun-to-lint': addMadrunToLint,
+    'add-fresh-lint': addFreshLint,
+    'rename-predefined-eslint-to-putout': renamePredefinedEslintToPutout,
 };

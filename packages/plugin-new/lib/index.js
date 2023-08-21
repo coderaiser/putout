@@ -1,10 +1,9 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const addMissing = require('./add-missing');
+const removeUseless = require('./remove-useless');
 
 module.exports.rules = {
-    ...getRule('add-missing'),
-    ...getRule('remove-useless'),
+    'add-missing': addMissing,
+    'remove-useless': removeUseless,
 };

@@ -1,11 +1,11 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const exportsRule = require('./exports');
+const commonsRule = require('./commons');
+const requireRule = require('./require');
 
 module.exports.rules = {
-    ...getRule('exports'),
-    ...getRule('require'),
-    ...getRule('commons'),
+    exports: exportsRule,
+    require: requireRule,
+    commons: commonsRule,
 };

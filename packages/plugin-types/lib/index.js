@@ -1,14 +1,17 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const applyIsArray = require('./apply-is-array');
+const declare = require('./declare');
+const convertTypeofToIsType = require('./convert-typeof-to-is-type');
+const removeUselessConversion = require('./remove-useless-conversion');
+const removeDoubleNegations = require('./remove-double-negations');
+const removeUselessTypeof = require('./remove-useless-typeof');
 
 module.exports.rules = {
-    ...getRule('apply-is-array'),
-    ...getRule('declare'),
-    ...getRule('convert-typeof-to-is-type'),
-    ...getRule('remove-useless-conversion'),
-    ...getRule('remove-double-negations'),
-    ...getRule('remove-useless-typeof'),
+    'apply-is-array': applyIsArray,
+    declare,
+    'convert-typeof-to-is-type': convertTypeofToIsType,
+    'remove-useless-conversion': removeUselessConversion,
+    'remove-double-negations': removeDoubleNegations,
+    'remove-useless-typeof': removeUselessTypeof,
 };

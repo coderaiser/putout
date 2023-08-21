@@ -1,13 +1,15 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const applyExponentiation = require('./apply-exponentiation');
+const applyMultiplication = require('./apply-multiplication');
+const applyNumericSeparators = require('./apply-numeric-separators');
+const convertSqrtToHypot = require('./convert-sqrt-to-hypot');
+const declare = require('./declare');
 
 module.exports.rules = {
-    ...getRule('apply-exponentiation'),
-    ...getRule('apply-multiplication'),
-    ...getRule('apply-numeric-separators'),
-    ...getRule('convert-sqrt-to-hypot'),
-    ...getRule('declare'),
+    'apply-exponentiation': applyExponentiation,
+    'apply-multiplication': applyMultiplication,
+    'apply-numeric-separators': applyNumericSeparators,
+    'convert-sqrt-to-hypot': convertSqrtToHypot,
+    declare,
 };

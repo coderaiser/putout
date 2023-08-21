@@ -179,3 +179,8 @@ test('plugin-putout: transform: apply-namaspace-specifier', (t) => {
     t.transform('apply-namaspace-specifier');
     t.end();
 });
+
+test('plugin-putout: transform: convert-get-rule-to-require', (t) => {
+    t.transform('convert-get-rule-to-require');
+    t.end();
+});

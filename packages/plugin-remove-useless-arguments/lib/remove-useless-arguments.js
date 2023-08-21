@@ -1,11 +1,11 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const argumentsRule = require('./arguments');
+const destructuring = require('./destructuring');
+const method = require('./method');
 
 module.exports.rules = {
-    ...getRule('arguments'),
-    ...getRule('destructuring'),
-    ...getRule('method'),
+    arguments: argumentsRule,
+    destructuring,
+    method,
 };

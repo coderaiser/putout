@@ -1,14 +1,17 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const awaitRule = require('./await');
+const asyncRule = require('./async');
+const args = require('./args');
+const declare = require('./declare');
+const expandArguments = require('./expand-arguments');
+const sync = require('./sync');
 
 module.exports.rules = {
-    ...getRule('await'),
-    ...getRule('args'),
-    ...getRule('declare'),
-    ...getRule('expand-arguments'),
-    ...getRule('sync'),
-    ...getRule('async'),
+    'await': awaitRule,
+    'async': asyncRule,
+    args,
+    declare,
+    'expand-arguments': expandArguments,
+    sync,
 };

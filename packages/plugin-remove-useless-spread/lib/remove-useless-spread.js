@@ -1,10 +1,9 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const array = require('./array');
+const object = require('./object');
 
 module.exports.rules = {
-    ...getRule('array'),
-    ...getRule('object'),
+    array,
+    object,
 };

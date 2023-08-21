@@ -10,6 +10,7 @@
         "packages/*/coverage",
         "packages/*/bin",
         "packages/*/test",
+        "packages/plugin-putout/lib/declare/index.js",
         "coverage",
         "**/eslint.config.js"
     ],

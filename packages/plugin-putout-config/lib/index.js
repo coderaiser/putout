@@ -1,10 +1,9 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const convertBooleanToString = require('./convert-boolean-to-string');
+const removeEmpty = require('./remove-empty');
 
 module.exports.rules = {
-    ...getRule('convert-boolean-to-string'),
-    ...getRule('remove-empty'),
+    'convert-boolean-to-string': convertBooleanToString,
+    'remove-empty': removeEmpty,
 };

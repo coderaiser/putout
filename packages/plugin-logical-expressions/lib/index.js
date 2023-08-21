@@ -1,12 +1,13 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const simplify = require('./simplify');
+const removeBoolean = require('./remove-boolean');
+const removeDuplicates = require('./remove-duplicates');
+const convertBitwiseToLogical = require('./convert-bitwise-to-logical');
 
 module.exports.rules = {
-    ...getRule('simplify'),
-    ...getRule('remove-boolean'),
-    ...getRule('remove-duplicates'),
-    ...getRule('convert-bitwise-to-logical'),
+    simplify,
+    'remove-boolean': removeBoolean,
+    'remove-duplicates': removeDuplicates,
+    'convert-bitwise-to-logical': convertBitwiseToLogical,
 };

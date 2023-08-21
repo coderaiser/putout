@@ -1,17 +1,23 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const removeUselessResolve = require('./remove-useless-resolve');
+const convertRejectToThrow = require('./convert-reject-to-throw');
+const convertNewPromiseToAsync = require('./convert-new-promise-to-async');
+const addMissingAwait = require('./add-missing-await');
+const applyAwaitImport = require('./apply-await-import');
+const applyTopLevelAwait = require('./apply-top-level-await');
+const removeUselessAsync = require('./remove-useless-async');
+const removeUselessAwait = require('./remove-useless-await');
+const removeUselessVariables = require('./remove-useless-variables');
 
 module.exports.rules = {
-    ...getRule('remove-useless-resolve'),
-    ...getRule('convert-reject-to-throw'),
-    ...getRule('convert-new-promise-to-async'),
-    ...getRule('add-missing-await'),
-    ...getRule('apply-await-import'),
-    ...getRule('apply-top-level-await'),
-    ...getRule('remove-useless-async'),
-    ...getRule('remove-useless-await'),
-    ...getRule('remove-useless-variables'),
+    'remove-useless-resolve': removeUselessResolve,
+    'convert-reject-to-throw': convertRejectToThrow,
+    'convert-new-promise-to-async': convertNewPromiseToAsync,
+    'add-missing-await': addMissingAwait,
+    'apply-await-import': applyAwaitImport,
+    'apply-top-level-await': applyTopLevelAwait,
+    'remove-useless-async': removeUselessAsync,
+    'remove-useless-await': removeUselessAwait,
+    'remove-useless-variables': removeUselessVariables,
 };

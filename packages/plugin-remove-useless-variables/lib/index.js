@@ -1,12 +1,13 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const rename = require('./rename');
+const remove = require('./remove');
+const destruct = require('./destruct');
+const declaration = require('./declaration');
 
 module.exports.rules = {
-    ...getRule('rename'),
-    ...getRule('remove'),
-    ...getRule('destruct'),
-    ...getRule('declaration'),
+    rename,
+    remove,
+    destruct,
+    declaration,
 };

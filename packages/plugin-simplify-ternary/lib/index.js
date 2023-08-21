@@ -1,10 +1,9 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const value = require('./value');
+const spread = require('./spread');
 
 module.exports.rules = {
-    ...getRule('value'),
-    ...getRule('spread'),
+    value,
+    spread,
 };

@@ -1,9 +1,7 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const removeNodeVersions = require('./remove-node-versions');
 
 module.exports.rules = {
-    ...getRule('remove-node-versions'),
+    'remove-node-versions': removeNodeVersions,
 };

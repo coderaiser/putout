@@ -1,12 +1,13 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const applyExternals = require('./apply-externals');
+const convertLoaderToUse = require('./convert-loader-to-use');
+const convertQueryLoaderToUse = require('./convert-query-loader-to-use');
+const convertNodeToResolveFallback = require('./convert-node-to-resolve-fallback');
 
 module.exports.rules = {
-    ...getRule('apply-externals'),
-    ...getRule('convert-loader-to-use'),
-    ...getRule('convert-query-loader-to-use'),
-    ...getRule('convert-node-to-resolve-fallback'),
+    'apply-externals': applyExternals,
+    'convert-loader-to-use': convertLoaderToUse,
+    'convert-query-loader-to-use': convertQueryLoaderToUse,
+    'convert-node-to-resolve-fallback': convertNodeToResolveFallback,
 };

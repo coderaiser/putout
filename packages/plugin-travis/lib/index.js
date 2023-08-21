@@ -1,10 +1,9 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const setNodeVersions = require('./set-node-versions');
+const disableCache = require('./disable-cache');
 
 module.exports.rules = {
-    ...getRule('set-node-versions'),
-    ...getRule('disable-cache'),
+    'set-node-versions': setNodeVersions,
+    'disable-cache': disableCache,
 };

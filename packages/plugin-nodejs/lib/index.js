@@ -1,17 +1,23 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const convertBufferToBufferAlloc = require('./convert-buffer-to-buffer-alloc');
+const convertFsPromises = require('./convert-fs-promises');
+const convertPromisifyToFsPromises = require('./convert-promisify-to-fs-promises');
+const convertDirnameToUrl = require('./convert-dirname-to-url');
+const convertUrlToDirname = require('./convert-url-to-dirname');
+const convertTopLevelReturn = require('./convert-top-level-return');
+const declare = require('./declare');
+const declareAfterRequire = require('./declare-after-require');
+const removeProcessExit = require('./remove-process-exit');
 
 module.exports.rules = {
-    ...getRule('convert-buffer-to-buffer-alloc'),
-    ...getRule('convert-fs-promises'),
-    ...getRule('convert-promisify-to-fs-promises'),
-    ...getRule('convert-dirname-to-url'),
-    ...getRule('convert-url-to-dirname'),
-    ...getRule('convert-top-level-return'),
-    ...getRule('declare'),
-    ...getRule('declare-after-require'),
-    ...getRule('remove-process-exit'),
+    'convert-buffer-to-buffer-alloc': convertBufferToBufferAlloc,
+    'convert-fs-promises': convertFsPromises,
+    'convert-promisify-to-fs-promises': convertPromisifyToFsPromises,
+    'convert-dirname-to-url': convertDirnameToUrl,
+    'convert-url-to-dirname': convertUrlToDirname,
+    'convert-top-level-return': convertTopLevelReturn,
+    declare,
+    'declare-after-require': declareAfterRequire,
+    'remove-process-exit': removeProcessExit,
 };

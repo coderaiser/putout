@@ -1,13 +1,15 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const removeArgs = require('./remove-args');
+const applyBreakline = require('./apply-breakline');
+const applyLinebreak = require('./apply-linebreak');
+const applyComputedPrint = require('./apply-computed-print');
+const addArgs = require('./add-args');
 
 module.exports.rules = {
-    ...getRule('remove-args'),
-    ...getRule('apply-breakline'),
-    ...getRule('apply-linebreak'),
-    ...getRule('apply-computed-print'),
-    ...getRule('add-args'),
+    'remove-args': removeArgs,
+    'apply-breakline': applyBreakline,
+    'apply-linebreak': applyLinebreak,
+    'apply-computed-print': applyComputedPrint,
+    'add-args': addArgs,
 };

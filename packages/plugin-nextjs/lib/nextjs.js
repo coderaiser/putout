@@ -1,10 +1,9 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const removeAFromLink = require('./remove-a-from-link');
+const convertPageToHead = require('./convert-page-to-head');
 
 module.exports.rules = {
-    ...getRule('remove-a-from-link'),
-    ...getRule('convert-page-to-head'),
+    'remove-a-from-link': removeAFromLink,
+    'convert-page-to-head': convertPageToHead,
 };

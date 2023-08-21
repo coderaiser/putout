@@ -46,6 +46,7 @@ npm i @putout/plugin-putout -D
         "putout/convert-dirname-to-url": "on",
         "putout/convert-url-to-dirname": "on",
         "putout/convert-report-to-function": "on",
+        "putout/convert-get-rule-to-require": "on",
         "putout/create-test": "on",
         "putout/shorten-imports": "on",
         "putout/declare": "on",
@@ -747,6 +748,28 @@ module.exports.report = `'report' should be a 'function'`;
 
 ```js
 module.exports.report = () => `'report' should be a 'function'`;
+```
+
+## convert-get-rule-to-require
+
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/38336fcc5b5ae6e441697e098067319c/dd98578c9554b7bd5dceee0499118f7d8216e1da).
+
+### ❌ Example of incorrect code
+
+```js
+module.exports.rules = {
+    ...getRule('remove-unused-variables'),
+};
+```
+
+### ✅ Example of correct code
+
+```js
+const removeUnusedVariables = require('./remove-unused-variables');
+
+module.exports.rules = {
+    'remove-unused-variables': removeUnusedVariables,
+};
 ```
 
 ## move-require-on-top-level

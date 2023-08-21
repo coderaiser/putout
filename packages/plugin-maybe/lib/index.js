@@ -1,13 +1,15 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const array = require('./array');
+const emptyArray = require('./empty-array');
+const fn = require('./fn');
+const noop = require('./noop');
+const declare = require('./declare');
 
 module.exports.rules = {
-    ...getRule('array'),
-    ...getRule('empty-array'),
-    ...getRule('fn'),
-    ...getRule('noop'),
-    ...getRule('declare'),
+    array,
+    'empty-array': emptyArray,
+    fn,
+    noop,
+    declare,
 };

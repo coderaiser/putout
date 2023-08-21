@@ -1,16 +1,21 @@
 'use strict';
 
-const getRule = (a) => ({
-    [a]: require(`./${a}`),
-});
+const applyLiteralNotation = require('./apply-literal-notation');
+const applyStartsWith = require('./apply-starts-with');
+const applyEndsWith = require('./apply-ends-with');
+const optimize = require('./optimize');
+const convertToString = require('./convert-to-string');
+const convertReplaceToReplaceAll = require('./convert-replace-to-replace-all');
+const removeUselessGroup = require('./remove-useless-group');
+const removeUselessRegexp = require('./remove-useless-regexp');
 
 module.exports.rules = {
-    ...getRule('apply-literal-notation'),
-    ...getRule('apply-starts-with'),
-    ...getRule('apply-ends-with'),
-    ...getRule('optimize'),
-    ...getRule('convert-to-string'),
-    ...getRule('convert-replace-to-replace-all'),
-    ...getRule('remove-useless-group'),
-    ...getRule('remove-useless-regexp'),
+    'apply-literal-notation': applyLiteralNotation,
+    'apply-starts-with': applyStartsWith,
+    'apply-ends-with': applyEndsWith,
+    optimize,
+    'convert-to-string': convertToString,
+    'convert-replace-to-replace-all': convertReplaceToReplaceAll,
+    'remove-useless-group': removeUselessGroup,
+    'remove-useless-regexp': removeUselessRegexp,
 };

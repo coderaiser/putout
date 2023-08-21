@@ -4,6 +4,7 @@
     "exclude": [
         "**/*.spec.*",
         "**/fixture",
+        "**/lib/declare/index.js",
         "test",
         ".*.*"
     ],
