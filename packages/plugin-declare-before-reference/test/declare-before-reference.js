@@ -33,6 +33,11 @@ test('plugin-declaration-before-reference: transform: no lock', (t) => {
     t.end();
 });
 
+test('plugin-declaration-before-reference: transform: order', (t) => {
+    t.transform('order');
+    t.end();
+});
+
 test('plugin-declaration-before-reference: transform: putout', (t) => {
     t.transform('putout', {
         putout,

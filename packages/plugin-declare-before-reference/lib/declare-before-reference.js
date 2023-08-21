@@ -1,7 +1,11 @@
 'use strict';
 
 const {operator} = require('putout');
-const {remove} = operator;
+const {
+    remove,
+    compare,
+    insertBefore,
+} = operator;
 const {entries} = Object;
 
 module.exports.report = ({name}) => {
@@ -15,6 +19,16 @@ module.exports.fix = ({path}) => {
     delete node.loc;
     
     remove(path.parentPath);
+    
+    const body = programPath.get('body');
+    const [first] = body;
+    
+    if (compare(first, 'const __a = require(__b)')) {
+        const latest = getLatest(body.slice(1));
+        insertBefore(latest, node);
+        
+        return;
+    }
     
     path.__putout_declare_before_reference = true;
     programPath.node.body.unshift(node);
@@ -78,4 +92,15 @@ function getLoc(path) {
     }
     
     return [own, loc];
+}
+
+function getLatest(body) {
+    let path;
+    
+    for (path of body) {
+        if (!compare(path, 'const __a = require(__b)'))
+            break;
+    }
+    
+    return path;
 }
