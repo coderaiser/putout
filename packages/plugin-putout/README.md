@@ -712,7 +712,7 @@ const test = createTest(import.meta.url, {
 });
 ```
 
-## convert-url-to-dirname-
+## convert-url-to-dirname
 
 ### ❌ Example of incorrect code
 
