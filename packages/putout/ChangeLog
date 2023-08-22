@@ -1,3 +1,14 @@
+2023.08.22, v31.2.3
+
+feature:
+- 43deeffeb package: @putout/plugin-promises v12.0.0
+- e1e32b16c @putout/plugin-promises: drop support of 🐊 < 31
+- dff6c8a99 @putout/plugin-minify: expand-bindings: arrow
+- ac4ecf335 @putout/plugin-minify: drop support of 🐊 < 31
+- 697e41646 @putout/plugin-putotu: declare: getRules
+- 6c99c86e2 @putout/plugin-putout: convert-get-rule-to-require: add
+- 6dafc7f91 @putout/operator-declare: declare under require
+
 2023.08.21, v31.2.2
 
 feature:
