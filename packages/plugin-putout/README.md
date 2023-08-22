@@ -803,10 +803,9 @@ const test = require('@putout/test')(__dirname, {
 });
 
 test('remove debugger: report', (t) => {
-     t.transform('debugger', {
+    t.transform('debugger', {
         'remove-debugger': removeDebugger,
     });
-    
     t.end();
 });
 ```
