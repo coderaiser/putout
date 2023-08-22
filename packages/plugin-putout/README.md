@@ -752,6 +752,10 @@ module.exports.report = () => `'report' should be a 'function'`;
 
 ## convert-get-rule-to-require
 
+- ✅ import [Nested plugins](https://github.com/coderaiser/putout/tree/master/packages/engine-loader#nested-plugin) in [**Deno** and **Browser**](https://github.com/putoutjs/bundle/);
+- ✅ easier bundle with rollup without [`dynamicRequireTargets`](https://github.com/rollup/plugins/tree/master/packages/commonjs/#dynamicrequiretargets);
+- ✅ easier to migrate to **ESM**;
+
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/38336fcc5b5ae6e441697e098067319c/dd98578c9554b7bd5dceee0499118f7d8216e1da).
 
 ### ❌ Example of incorrect code
