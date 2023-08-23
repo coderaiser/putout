@@ -59,6 +59,28 @@ const plugins = loadPlugins({
 });
 ```
 
+### loadPluginsAsync
+
+Load **ESM** plugins:
+
+```js
+const {loadPluginsAsync} = require('@putout/engine-loader');
+
+const pluginNames = [
+    'remove-unusede-variables',
+];
+
+const rules = {
+    'remove-unused-variables': 'on',
+};
+
+const plugins = await loadPluginsAsync({
+    cache: true, //default
+    pluginNames,
+    rules,
+});
+```
+
 ### loadProcessorsAsync
 
 ```js

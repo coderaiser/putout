@@ -1,45 +1,17 @@
 'use strict';
 
-const {nanomemoize} = require('nano-memoize');
-
 const isEnabled = require('./is-enabled');
-const {loadPlugin} = require('./load');
+const parseRules = require('./parse-rules');
+const {nanomemoize} = require('nano-memoize');
 const {createAsyncLoader} = require('./async-loader');
 const parsePluginNames = require('./parse-plugin-names');
-const parseProcessorNames = require('./parse-processor-names');
-const parseRules = require('./parse-rules');
 const validateRules = require('./validate-rules');
 const validatePlugin = require('./validate-plugin');
 const {mergeRules} = require('./merge-rules');
-const {loadPluginsAsync} = require('./load-plugins-async');
 
 const isString = (a) => typeof a === 'string';
 
-module.exports.loadPluginsAsync = loadPluginsAsync;
-module.exports.loadProcessorsAsync = nanomemoize(async (options, load) => {
-    check(options);
-    
-    const {processors = []} = options;
-    const parsedProcessors = parseProcessorNames(processors);
-    const loadProcessor = createAsyncLoader('processor');
-    
-    const list = [];
-    
-    for (const [name, fn] of parsedProcessors) {
-        if (fn) {
-            list.push(fn);
-            continue;
-        }
-        
-        list.push(loadProcessor(name, load));
-    }
-    
-    return await Promise.all(list);
-});
-
-module.exports.createAsyncLoader = createAsyncLoader;
-
-module.exports.loadPlugins = (options) => {
+module.exports.loadPluginsAsync = nanomemoize(async (options) => {
     check(options);
     
     const {pluginNames = [], rules = {}} = options;
@@ -49,7 +21,7 @@ module.exports.loadPlugins = (options) => {
     
     const items = parsePluginNames(pluginNames);
     
-    const plugins = loadPlugins({
+    const plugins = await loadPlugins({
         items,
         loadedRules,
     });
@@ -77,29 +49,15 @@ module.exports.loadPlugins = (options) => {
     }
     
     return result;
-};
-
-function getLoadedRules(rules) {
-    const loadedRules = [];
-    
-    for (const item of rules) {
-        const {rule} = item;
-        
-        if (rule.includes('/'))
-            continue;
-        
-        loadedRules.push(item);
-    }
-    
-    return loadedRules;
-}
+});
 
 function splitRule(rule) {
     return [rule, 'putout'];
 }
 
-function loadPlugins({items, loadedRules}) {
-    const plugins = [];
+async function loadPlugins({items, loadedRules}) {
+    const loadPlugin = createAsyncLoader('plugin');
+    const promises = [];
     
     for (const [rule, itemPlugin] of items) {
         if (!isEnabled(rule, loadedRules))
@@ -107,11 +65,17 @@ function loadPlugins({items, loadedRules}) {
         
         checkRule(rule);
         
-        const [name, namespace] = splitRule(rule);
-        const plugin = itemPlugin || loadPlugin({
-            name,
-            namespace,
-        });
+        const [name] = splitRule(rule);
+        const plugin = itemPlugin || loadPlugin(name);
+        
+        promises.push(plugin);
+    }
+    
+    const resolvedPlugins = await Promise.all(promises);
+    const plugins = [];
+    
+    for (const [i, [rule]] of items.entries()) {
+        const plugin = resolvedPlugins[i];
         
         validatePlugin({
             plugin,
@@ -129,6 +93,21 @@ function loadPlugins({items, loadedRules}) {
     }
     
     return plugins;
+}
+
+function getLoadedRules(rules) {
+    const loadedRules = [];
+    
+    for (const item of rules) {
+        const {rule} = item;
+        
+        if (rule.includes('/'))
+            continue;
+        
+        loadedRules.push(item);
+    }
+    
+    return loadedRules;
 }
 
 function extendRules(rule, plugin) {
