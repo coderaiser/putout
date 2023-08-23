@@ -1,3 +1,14 @@
+2023.08.23, v31.3.0
+
+feature:
+- 783861f83 package: @putout/plugin-apply-entries v2.0.0
+- 137145031 putout: add putoutAsync
+- 347e572ad @putout/plugin-apply-entries: ESM
+- 66aecbf55 @putout/plugin-apply-namespace-specifier: create-test
+- e0be94d96 @putout/plugin-putout: apply-namespace-specifier: rules
+- 66434fb93 @putout/engine-loader: add loadPluginsAsync
+- 890558e38 eslint-plugin-putout: putout: esm
+
 2023.08.22, v31.2.4
 
 feature:
