@@ -20,6 +20,11 @@ test('packages: apply-namaspace-specifier: transform', (t) => {
     t.end();
 });
 
+test('packages: apply-namaspace-specifier: transform: rules', (t) => {
+    t.transform('rules');
+    t.end();
+});
+
 test('packages: apply-namaspace-specifier: no report: exists', (t) => {
     t.noReport('exists');
     t.end();

@@ -6,7 +6,31 @@ module.exports.fix = ({first}) => {
     first.node.type = 'ImportNamespaceSpecifier';
 };
 
-module.exports.traverse = ({push}) => ({
+module.exports.traverse = ({push, listStore}) => ({
+    'export const rules = __object': listStore,
+    ...createImportVisitor({
+        push,
+        names: [
+            './index.js',
+            '../lib/index.js',
+        ],
+    }),
+    'Program': {
+        exit(path) {
+            const rules = listStore();
+            
+            if (!rules.length)
+                return;
+            
+            path.traverse(createImportVisitor({
+                push,
+                names: ['any'],
+            }));
+        },
+    },
+});
+
+const createImportVisitor = ({push, names}) => ({
     ImportDeclaration(path) {
         const {value} = path.node.source;
         const first = path.get('specifiers.0');
@@ -17,20 +41,14 @@ module.exports.traverse = ({push}) => ({
         if (first.isImportNamespaceSpecifier())
             return;
         
-        if (value === './index.js') {
-            push({
-                path,
-                first,
-            });
-            return;
-        }
-        
-        if (value === '../lib/index.js') {
-            push({
-                path,
-                first,
-            });
-            return;
+        for (const name of names) {
+            if (value === name || name === 'any') {
+                push({
+                    path,
+                    first,
+                });
+                return;
+            }
         }
     },
 });
