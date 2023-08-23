@@ -13,7 +13,6 @@ const {
 } = require('@putout/engine-parser');
 
 const {cutShebang, mergeShebang} = require('./shebang');
-const {putoutAsync} = require('./putout-async');
 
 const isString = (a) => typeof a === 'string';
 
@@ -24,6 +23,7 @@ const defaultOpts = (opts = {}) => {
         fix = true,
         fixCount = 2,
         loadPlugins = loader.loadPlugins,
+        loadPluginsAsync = loader.loadPluginsAsync,
         runPlugins = runner.runPlugins,
     } = opts;
     
@@ -34,11 +34,12 @@ const defaultOpts = (opts = {}) => {
         fix,
         fixCount,
         loadPlugins,
+        loadPluginsAsync,
         runPlugins,
     };
 };
 
-module.exports = (source, opts) => {
+module.exports.putoutAsync = async (source, opts) => {
     check(source);
     opts = defaultOpts(opts);
     
@@ -63,7 +64,7 @@ module.exports = (source, opts) => {
         printer,
     });
     
-    const places = transform(ast, source, opts);
+    const places = await transform(ast, source, opts);
     
     if (!opts.fix)
         return {
@@ -84,10 +85,8 @@ module.exports = (source, opts) => {
     };
 };
 
-module.exports.putoutAsync = putoutAsync;
-
-module.exports.findPlaces = (ast, source, opts) => {
-    return transform(ast, source, {
+module.exports.findPlaces = async (ast, source, opts) => {
+    return await transform(ast, source, {
         ...opts,
         fix: false,
     });
@@ -103,7 +102,7 @@ module.exports.findPlaces = (ast, source, opts) => {
 // 28     };¬
 //
 module.exports.transform = transform;
-function transform(ast, source, opts) {
+async function transform(ast, source, opts) {
     opts = defaultOpts(opts);
     
     const {
@@ -112,13 +111,13 @@ function transform(ast, source, opts) {
         rules,
         fix,
         fixCount,
-        loadPlugins,
+        loadPluginsAsync,
         runPlugins,
     } = opts;
     
     const [, shebang] = cutShebang(source);
     
-    const plugins = loadPlugins({
+    const plugins = await loadPluginsAsync({
         pluginNames,
         cache,
         rules,

@@ -291,6 +291,28 @@ console.log(t);
 `;
 ```
 
+### putoutAsync(source, options)
+
+```js
+const {putoutAsync} = require('putout');
+
+const source = `
+    const t = 'hello';
+    const m = t + '!';
+    console.log(t);
+`;
+
+await putoutAsync(source, {
+    plugins: ['remove-unused-variables'],
+});
+
+// returns
+`
+const t = 'hello';
+console.log(t);
+`;
+```
+
 ## License
 
 MIT

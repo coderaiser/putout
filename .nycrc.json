@@ -13,7 +13,8 @@
         "packages/plugin-putout/lib/declare/index.js",
         "coverage",
         "**/eslint.config.js",
-        "**/load-plugins-async.js"
+        "**/load-plugins-async.js",
+        "**/putout-async.js"
     ],
     "branches": 100,
     "lines": 100,
