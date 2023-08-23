@@ -201,6 +201,7 @@
     "unused"
   ],
   "devDependencies": {
+    "@putout/plugin-apply-entries": "^2.0.0",
     "c8": "^8.0.0",
     "currify": "^4.0.0",
     "escover": "^3.2.2",
