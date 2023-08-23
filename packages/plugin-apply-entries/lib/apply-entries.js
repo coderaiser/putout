@@ -1,11 +1,9 @@
-'use strict';
+export const report = () => `Use 'entries()' instead of '.entries()`;
 
-module.exports.report = () => `Use 'entries()' instead of '.entries()`;
-
-module.exports.exclude = () => [
+export const exclude = () => [
     'const entries = __',
 ];
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a.entries()': 'entries(__a)',
 });
