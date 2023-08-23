@@ -8,6 +8,7 @@ module.exports.fix = ({first}) => {
 
 module.exports.traverse = ({push, listStore}) => ({
     'export const rules = __object': listStore,
+    'import {createTest} from "@putout/test"': listStore,
     ...createImportVisitor({
         push,
         names: [
@@ -39,6 +40,9 @@ const createImportVisitor = ({push, names}) => ({
             return;
         
         if (first.isImportNamespaceSpecifier())
+            return;
+        
+        if (first.isImportSpecifier())
             return;
         
         for (const name of names) {
