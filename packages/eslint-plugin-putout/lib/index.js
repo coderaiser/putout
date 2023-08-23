@@ -109,6 +109,29 @@ const recommended = {
     plugins: ['n'],
 };
 
+const safeRules = {
+    'apply-template-literals': 'off',
+    'remove-empty': 'off',
+    'nodejs/remove-process-exit': 'off',
+    'typescript/remove-unused-types': 'off',
+    'remove-unused-variables': 'off',
+    'remove-unused-expressions': 'off',
+    'remove-unreachable-code': 'off',
+    'remove-useless-arguments': 'off',
+    'remove-useless-variables/rename': 'off',
+    'remove-useless-return': 'off',
+    'remove-useless-spread': 'off',
+    'remove-unreferenced-variables': 'off',
+    'tape/remove-skip': 'off',
+    'tape/remove-only': 'off',
+    'remove-console': 'off',
+    'remove-debugger': 'off',
+    'for-of/for': 'off',
+    'for-of/remove-unused-variables': 'off',
+    'for-of/remove-useless': 'off',
+    'maybe/noop': 'off',
+};
+
 const safe = {
     ...recommended,
     rules: {
@@ -118,28 +141,27 @@ const safe = {
         'putout/align-spaces': 'off',
         'putout/remove-newline-from-empty-object': 'off',
         'putout/putout': ['error', {
-            rules: {
-                'apply-template-literals': 'off',
-                'remove-empty': 'off',
-                'nodejs/remove-process-exit': 'off',
-                'typescript/remove-unused-types': 'off',
-                'remove-unused-variables': 'off',
-                'remove-unused-expressions': 'off',
-                'remove-unreachable-code': 'off',
-                'remove-useless-arguments': 'off',
-                'remove-useless-variables/rename': 'off',
-                'remove-useless-return': 'off',
-                'remove-useless-spread': 'off',
-                'remove-unreferenced-variables': 'off',
-                'tape/remove-skip': 'off',
-                'tape/remove-only': 'off',
-                'remove-console': 'off',
-                'remove-debugger': 'off',
-                'for-of/for': 'off',
-                'for-of/remove-unused-variables': 'off',
-                'for-of/remove-useless': 'off',
-                'maybe/noop': 'off',
-            },
+            esm: false,
+            rules: safeRules,
+        }],
+    },
+};
+
+const safeAlign = {
+    ...safe,
+    rules: {
+        ...safe.rules,
+        'putout/align-spaces': 'error',
+    },
+};
+
+const esm = {
+    ...safeAlign,
+    rules: {
+        ...safeAlign.rules,
+        'putout/putout': ['error', {
+            esm: true,
+            rules: safeRules,
         }],
     },
 };
@@ -148,11 +170,6 @@ module.exports.configs = {
     recommended,
     'jsx': jsx.jsx,
     safe,
-    'safe+align': {
-        ...safe,
-        rules: {
-            ...safe.rules,
-            'putout/align-spaces': 'error',
-        },
-    },
+    'safe+align': safeAlign,
+    esm,
 };

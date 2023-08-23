@@ -6,7 +6,7 @@ const {readFileSync} = require('fs');
 const {RuleTester} = require('eslint');
 const montag = require('montag');
 
-const rule = require('.');
+const rule = require('./index');
 
 const readFixture = (a) => readFileSync(join(__dirname, 'fixture', `${a}.ts`), 'utf8');
 
@@ -346,6 +346,96 @@ ruleTester.run('putout: declare-before-reference: no loc', rule, {
         `,
         errors: [{
             message: `Declare 'hello' before referencing to avoid 'ReferenceError' (declare-before-reference)`,
+        }],
+    }],
+});
+
+ruleTester.run('putout: async', rule, {
+    valid: [`
+        const hello = () => 'world'
+        hello()
+    `],
+    invalid: [{
+        options: [{
+            esm: true,
+        }],
+        code: montag`
+            hello()
+            const hello = () => 'world'
+        `,
+        output: montag`
+            const hello = () => 'world';
+            hello();\n
+        `,
+        errors: [{
+            message: `Declare 'hello' before referencing to avoid 'ReferenceError' (declare-before-reference)`,
+        }],
+    }],
+});
+
+tsParserTester.run('putout: async: typescript-eslint-parser-error', rule, {
+    valid: [`
+        import {Stub} from 'supertape';
+        const a: Stub = {};
+        
+        alert(a);
+    `],
+    invalid: [{
+        options: [{
+            esm: true,
+        }],
+        code: `
+            import {Stub} from 'supertape';
+            import {Stub} from 'supertape';
+            
+            const a: Stub = {};
+            
+            alert(a);
+        `,
+        errors: [{
+            message: `Identifier 'Stub' has already been declared. (3:20) (putout)`,
+            line: 2,
+            column: 13,
+        }],
+    }],
+});
+
+tsParserTester.run('putout: async: typescript-eslint-parser-error', rule, {
+    valid: [`
+        import {Stub} from 'supertape';
+        const a: Stub = {};
+        
+        alert(a);
+    `],
+    invalid: [{
+        code: 'const a = 5',
+        output: null,
+        options: [{
+            esm: true,
+            plugins: [
+                ['throw', {}],
+            ],
+        }],
+        errors: [{
+            message: `☝️ Cannot determine type of plugin 'throw'. Here is list of supported plugins: https://git.io/JqcMn (putout)`,
+        }],
+    }],
+});
+
+ruleTester.run('putout: async: ignore', rule, {
+    valid: [
+        `const bar = foo?.bar; log(bar);`, {
+            options: [{
+                esm: true,
+                ignore: ['<input>'],
+            }],
+            code: `const t = 'hi';`,
+        }],
+    invalid: [{
+        code: `const m = 'hi'`,
+        output: '\n',
+        errors: [{
+            message: `'m' is defined but never used (remove-unused-variables)`,
         }],
     }],
 });
