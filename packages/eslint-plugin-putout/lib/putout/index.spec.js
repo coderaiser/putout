@@ -423,14 +423,13 @@ tsParserTester.run('putout: async: typescript-eslint-parser-error', rule, {
 });
 
 ruleTester.run('putout: async: ignore', rule, {
-    valid: [
-        `const bar = foo?.bar; log(bar);`, {
-            options: [{
-                esm: true,
-                ignore: ['<input>'],
-            }],
-            code: `const t = 'hi';`,
+    valid: [`const bar = foo?.bar; log(bar);`, {
+        options: [{
+            esm: true,
+            ignore: ['<input>'],
         }],
+        code: `const t = 'hi';`,
+    }],
     invalid: [{
         code: `const m = 'hi'`,
         output: '\n',
