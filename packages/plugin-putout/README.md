@@ -26,6 +26,7 @@ npm i @putout/plugin-putout -D
         "putout/apply-namaspace-specifier": "on",
         "putout/add-args": "on",
         "putout/add-push": "on",
+        "putout/add-index-to-import": "on",
         "putout/check-match": "on",
         "putout/check-replace-code": "on",
         "putout/convert-putout-test-to-create-test": "on",
@@ -659,6 +660,29 @@ module.exports.traverse = ({push}) => ({
         push(path);
     },
 });
+```
+
+## add-index-to-import
+
+ESM doesn't add `index.js`, so it can be left after [`@putout/plugin-convert-esm-to-commonjs`](https://github.com/coderaiser/putout/blob/master/packages/plugin-convert-esm-to-commonjs#readme).
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/b7c489710767efee95ecf3dd16e232a2/9f974f0a345ef4d0cb39b011097dff82e6c32b75).
+
+### ❌ Example of incorrect code
+
+```js
+import insertRust from './insert-rust.js';
+import addAction from './add-action.js';
+
+export const rules = {};
+```
+
+### ✅ Example of correct code
+
+```js
+import insertRust from './insert-rust/index.js';
+import addAction from './add-action/index.js';
+
+export const rules = {};
 ```
 
 ## convert-add-argument-to-add-args

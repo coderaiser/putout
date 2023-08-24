@@ -40,6 +40,7 @@ const includer = require('./includer');
 const createTest = require('./create-test');
 const applyNamaspaceSpecifier = require('./apply-namaspace-specifier');
 const convertGetRuleToRequire = require('./convert-get-rule-to-require');
+const addIndexToImport = require('./add-index-to-import');
 
 module.exports.rules = {
     'apply-processors-destructuring': applyProcessorsDestructuring,
@@ -82,4 +83,5 @@ module.exports.rules = {
     'create-test': createTest,
     'apply-namaspace-specifier': applyNamaspaceSpecifier,
     'convert-get-rule-to-require': convertGetRuleToRequire,
+    'add-index-to-import': addIndexToImport,
 };
