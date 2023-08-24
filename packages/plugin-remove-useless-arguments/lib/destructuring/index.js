@@ -86,6 +86,9 @@ function getUseless({path, index}) {
     if (!params.length)
         return NOT_OK;
     
+    if (params.length <= index)
+        return NOT_OK;
+    
     const param = params.at(index);
     
     return {
