@@ -40,7 +40,7 @@ To write test for your plugins you need initialize `test` using `createTest`:
 
 ```js
 import {createTest} from '@putout/test';
-import rmVars from '@putout/plugin-remove-unused-variables';
+import * as rmVars from '@putout/plugin-remove-unused-variables';
 
 const test = createTest(import.meta.url, {
     'remove-unused-variables': rmVars,
@@ -226,7 +226,7 @@ First you need to create test with:
 
 ```js
 import {createTest} from '@putout/test';
-import rmVars from '@putout/plugin-remove-unused-variables';
+import * as rmVars from '@putout/plugin-remove-unused-variables';
 
 const test = createTest(import.meta.url, {
     'remove-unused-variables': rmVars,

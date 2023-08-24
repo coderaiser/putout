@@ -1,15 +1,19 @@
 'use strict';
 
+const {parseImportSpecifiers} = require('parse-import-specifiers');
+const noop = () => {};
+
 module.exports.report = () => `Use 'import * as plugin' instead of 'import plugin'`;
 
 module.exports.fix = ({first}) => {
     first.node.type = 'ImportNamespaceSpecifier';
 };
 
-module.exports.traverse = ({push, listStore}) => ({
+module.exports.traverse = ({push, listStore, pathStore}) => ({
     'export const rules = __object': listStore,
     'import {createTest} from "@putout/test"': listStore,
     ...createImportVisitor({
+        pathStore,
         push,
         names: [
             './index.js',
@@ -20,7 +24,10 @@ module.exports.traverse = ({push, listStore}) => ({
         exit(path) {
             const rules = listStore();
             
-            if (!rules.length)
+            if (rules.length !== 1)
+                return;
+            
+            if (pathStore().length > 2)
                 return;
             
             path.traverse(createImportVisitor({
@@ -31,10 +38,13 @@ module.exports.traverse = ({push, listStore}) => ({
     },
 });
 
-const createImportVisitor = ({push, names}) => ({
+const createImportVisitor = ({push, names, pathStore = noop}) => ({
     ImportDeclaration(path) {
+        pathStore(path);
+        
         const {value} = path.node.source;
-        const first = path.get('specifiers.0');
+        const specifiers = path.get('specifiers');
+        const [first] = specifiers;
         
         if (!first)
             return;
@@ -44,6 +54,12 @@ const createImportVisitor = ({push, names}) => ({
         
         if (first.isImportSpecifier())
             return;
+        
+        const {defaults, imports} = parseImportSpecifiers(specifiers);
+        
+        if (defaults.length && imports.length) {
+            return;
+        }
         
         for (const name of names) {
             if (value === name || name === 'any') {
