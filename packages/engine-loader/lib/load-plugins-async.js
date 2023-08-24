@@ -58,6 +58,7 @@ function splitRule(rule) {
 async function loadPlugins({items, loadedRules}) {
     const loadPlugin = createAsyncLoader('plugin');
     const promises = [];
+    const enabledRules = [];
     
     for (const [rule, itemPlugin] of items) {
         if (!isEnabled(rule, loadedRules))
@@ -68,13 +69,14 @@ async function loadPlugins({items, loadedRules}) {
         const [name] = splitRule(rule);
         const plugin = itemPlugin || loadPlugin(name);
         
+        enabledRules.push(rule);
         promises.push(plugin);
     }
     
     const resolvedPlugins = await Promise.all(promises);
     const plugins = [];
     
-    for (const [i, [rule]] of items.entries()) {
+    for (const [i, rule] of enabledRules.entries()) {
         const plugin = resolvedPlugins[i];
         
         validatePlugin({

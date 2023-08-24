@@ -21,3 +21,19 @@ test('@putout/engine-loader: loadPluginsAsync', async (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('@putout/engine-loader: loadPluginsAsync: disabled: rule', async (t) => {
+    const result = await loadPluginsAsync({
+        rules: {
+            'remove-unused-variables': 'off',
+        },
+        pluginNames: [
+            'remove-unused-variables',
+        ],
+    });
+    
+    const expected = [];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
