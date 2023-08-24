@@ -1,7 +1,5 @@
-'use strict';
-
-const {types} = require('putout');
-const deepEqual = require('fast-deep-equal');
+import {types} from 'putout';
+import deepEqual from 'fast-deep-equal';
 
 const {NumericLiteral} = types;
 
@@ -14,9 +12,9 @@ const defaultVersions = [
     18,
 ];
 
-module.exports.report = () => 'Latest version of node is missing';
+export const report = () => 'Latest version of node is missing';
 
-module.exports.match = () => ({
+export const match = () => ({
     '__putout_processor_json(__a)'({__a}) {
         const nodeJS = __a.properties.find(isNodeJS);
         
@@ -30,7 +28,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__putout_processor_json(__a)'({__a}, path) {
         const nodeJS = __a.properties.find(isNodeJS);
         

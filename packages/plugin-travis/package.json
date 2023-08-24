@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-travis",
   "version": "3.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin helps with Travis CI",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-travis#readme",
@@ -43,7 +43,7 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=29"
+    "putout": ">=31"
   },
   "license": "MIT",
   "engines": {

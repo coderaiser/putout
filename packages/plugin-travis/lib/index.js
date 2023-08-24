@@ -1,9 +1,7 @@
-'use strict';
+import * as setNodeVersions from './set-node-versions/index.js';
+import * as disableCache from './disable-cache/index.js';
 
-const setNodeVersions = require('./set-node-versions');
-const disableCache = require('./disable-cache');
-
-module.exports.rules = {
+export const rules = {
     'set-node-versions': setNodeVersions,
     'disable-cache': disableCache,
 };

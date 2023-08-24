@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as disableNpmCache from './index.js';
 
-const {createTest} = require('@putout/test');
-const disableNpmCache = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['travis/disable-npm-cache', disableNpmCache],
