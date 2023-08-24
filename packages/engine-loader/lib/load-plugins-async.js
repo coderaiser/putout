@@ -2,16 +2,16 @@
 
 const isEnabled = require('./is-enabled');
 const parseRules = require('./parse-rules');
-const {nanomemoize} = require('nano-memoize');
 const {createAsyncLoader} = require('./async-loader');
 const parsePluginNames = require('./parse-plugin-names');
 const validateRules = require('./validate-rules');
 const validatePlugin = require('./validate-plugin');
 const {mergeRules} = require('./merge-rules');
 
+const loadPluginAsync = createAsyncLoader('plugin');
 const isString = (a) => typeof a === 'string';
 
-module.exports.loadPluginsAsync = nanomemoize(async (options) => {
+module.exports.loadPluginsAsync = async (options) => {
     check(options);
     
     const {pluginNames = [], rules = {}} = options;
@@ -49,14 +49,13 @@ module.exports.loadPluginsAsync = nanomemoize(async (options) => {
     }
     
     return result;
-});
+};
 
 function splitRule(rule) {
     return [rule, 'putout'];
 }
 
 async function loadPlugins({items, loadedRules}) {
-    const loadPlugin = createAsyncLoader('plugin');
     const promises = [];
     const enabledRules = [];
     
@@ -67,7 +66,7 @@ async function loadPlugins({items, loadedRules}) {
         checkRule(rule);
         
         const [name] = splitRule(rule);
-        const plugin = itemPlugin || loadPlugin(name);
+        const plugin = itemPlugin || loadPluginAsync(name);
         
         enabledRules.push(rule);
         promises.push(plugin);

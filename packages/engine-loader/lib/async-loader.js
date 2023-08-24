@@ -1,12 +1,13 @@
 'use strict';
 
+const {nanomemoize} = require('nano-memoize');
 const tryToCatch = require('try-to-catch');
 const {simpleImport} = require('./simple-import');
 
 const {assign} = Object;
 const stub = () => () => {};
 
-module.exports.createAsyncLoader = (type) => async (name, load) => {
+module.exports.createAsyncLoader = (type) => nanomemoize(async (name, load) => {
     if (name === 'none')
         return stub();
     
@@ -16,7 +17,7 @@ module.exports.createAsyncLoader = (type) => async (name, load) => {
         throw e;
     
     return reporter;
-};
+});
 
 async function cleverLoad(names, load = simpleImport) {
     let e;
