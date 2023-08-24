@@ -91,7 +91,7 @@ test('putout: cli: --raw: PUTOUT_FILES', async (t) => {
     t.end();
 });
 
-test('putout: cli: env: PUTOUT_PRINTER', async (t) => {
+test('putout: cli: async: env: PUTOUT_PRINTER', async (t) => {
     process.env.PUTOUT_PRINTER = 'putout';
     
     const argv = [
@@ -103,12 +103,14 @@ test('putout: cli: env: PUTOUT_PRINTER', async (t) => {
         '--no-cache',
     ];
     
-    const putout = stub().returns({
+    const putoutAsync = stub().resolves({
         code: '',
         places: [],
     });
     
-    mockRequire('../..', putout);
+    mockRequire('../..', {
+        putoutAsync,
+    });
     
     reRequire('./process-file');
     reRequire('./runner/runner.js');
@@ -127,7 +129,7 @@ test('putout: cli: env: PUTOUT_PRINTER', async (t) => {
     reRequire('./runner/runner.js');
     reRequire('.');
     
-    const [arg] = putout.args;
+    const [arg] = putoutAsync.args;
     const [, options] = arg;
     const {printer} = options;
     

@@ -1,8 +1,8 @@
 'use strict';
 
-const tryCatch = require('try-catch');
+const tryToCatch = require('try-to-catch');
 
-const putout = require('../..');
+const {putoutAsync} = require('../..');
 const merge = require('../merge');
 const parseMatch = require('../parse-options/parse-match');
 
@@ -20,7 +20,7 @@ module.exports = ({fix, fixCount, isFlow, logError, raw, printer}) => async ({na
     const isTS = /\.tsx?$/.test(name) || /{tsx?}$/.test(name);
     const matchedOptions = getMatchedOptions(name, options);
     
-    const [e, result] = tryCatch(putout, source, {
+    const [e, result] = await tryToCatch(putoutAsync, source, {
         fix,
         fixCount,
         isTS,
