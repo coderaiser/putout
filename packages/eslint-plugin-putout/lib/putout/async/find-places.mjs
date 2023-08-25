@@ -1,10 +1,7 @@
-'use strict';
-
-const {findPlacesAsync} = require('putout');
-
-const tryToCatch = require('try-to-catch');
-const {runAsWorker} = require('synckit');
-const parseOptions = require('putout/parse-options');
+import {findPlacesAsync} from 'putout';
+import tryToCatch from 'try-to-catch';
+import {runAsWorker} from 'synckit';
+import parseOptions from 'putout/parse-options';
 
 runAsWorker(async ({name, options, ast, text}) => {
     const resultOptions = parseOptions({

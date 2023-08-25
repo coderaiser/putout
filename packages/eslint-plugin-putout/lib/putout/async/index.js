@@ -14,8 +14,8 @@ const {parseError} = require('../parse-error');
 
 const cwd = process.cwd();
 
-const findPlacesSync = createSyncFn(require.resolve('./find-places'));
-const transformSync = createSyncFn(require.resolve('./transform'));
+const findPlacesSync = createSyncFn(require.resolve('./find-places.mjs'));
+const transformSync = createSyncFn(require.resolve('./transform.mjs'));
 
 const EMPTY_VISITORS = {};
 
