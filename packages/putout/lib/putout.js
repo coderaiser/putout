@@ -13,7 +13,11 @@ const {
 } = require('@putout/engine-parser');
 
 const {cutShebang, mergeShebang} = require('./shebang');
-const {putoutAsync} = require('./putout-async');
+const {
+    putoutAsync,
+    transformAsync,
+    findPlacesAsync,
+} = require('./putout-async');
 
 const isString = (a) => typeof a === 'string';
 
@@ -85,8 +89,8 @@ module.exports = (source, opts) => {
 };
 
 module.exports.putoutAsync = putoutAsync;
-
-module.exports.findPlaces = (ast, source, opts) => {
+module.exports.findPlacesAsync = findPlacesAsync;
+module.exports.transformAsync = transformAsync;module.exports.findPlaces = (ast, source, opts) => {
     return transform(ast, source, {
         ...opts,
         fix: false,

@@ -64,7 +64,7 @@ module.exports.putoutAsync = async (source, opts) => {
         printer,
     });
     
-    const places = await transform(ast, source, opts);
+    const places = await transformAsync(ast, source, opts);
     
     if (!opts.fix)
         return {
@@ -85,8 +85,8 @@ module.exports.putoutAsync = async (source, opts) => {
     };
 };
 
-module.exports.findPlaces = async (ast, source, opts) => {
-    return await transform(ast, source, {
+module.exports.findPlacesAsync = async (ast, source, opts) => {
+    return await transformAsync(ast, source, {
         ...opts,
         fix: false,
     });
@@ -101,8 +101,8 @@ module.exports.findPlaces = async (ast, source, opts) => {
 // 27         column,¬
 // 28     };¬
 //
-module.exports.transform = transform;
-async function transform(ast, source, opts) {
+module.exports.transformAsync = transformAsync;
+async function transformAsync(ast, source, opts) {
     opts = defaultOpts(opts);
     
     const {

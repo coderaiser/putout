@@ -1,29 +1,26 @@
-'use strict';
-
-const test = require('supertape');
-const {
+import test from 'supertape';
+import {
     parse,
     print,
     putoutAsync,
     transformAsync,
     findPlacesAsync,
-} = require('..');
+} from './putout-async.js';
 
-test('putout: exports: putoutAsync', async (t) => {
-    const source = 'for (const a of b.entries()) {}';
-    const {code} = await putoutAsync(source, {
+test('putout: async', async (t) => {
+    const {code} = await putoutAsync('const a = 5', {
         plugins: [
-            'apply-entries',
+            'remove-unused-variables',
         ],
     });
     
-    const expected = 'for (const a of entries(b)) {}\n';
+    const expected = '\n';
     
     t.equal(code, expected);
     t.end();
 });
 
-test('putout: exports: transformAsync', async (t) => {
+test('putout: async: transformAsync', async (t) => {
     const source = 'const a = 5';
     const ast = parse(source);
     
@@ -40,7 +37,7 @@ test('putout: exports: transformAsync', async (t) => {
     t.end();
 });
 
-test('putout: exports: findPlacesAsync', async (t) => {
+test('putout: async: findPlacesAsync', async (t) => {
     const source = 'const a = 5';
     const ast = parse(source);
     
