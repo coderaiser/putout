@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-apply-nullish-coalescing",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin add ability to apply nullish coalescing operator (??)",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-nullish-coalescing#readme",
@@ -41,11 +41,11 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=7"
+    "putout": ">=31"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=16"
   },
   "publishConfig": {
     "access": "public"
