@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-apply-shorthand-properties",
   "version": "3.0.2",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to apply shorthand properties",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-apply-shorthand-properties#readme",
@@ -43,11 +43,11 @@
     "madrun": "^9.0.0"
   },
   "peerDependencies": {
-    "putout": ">=7.17"
+    "putout": ">=31"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=16"
   },
   "publishConfig": {
     "access": "public"

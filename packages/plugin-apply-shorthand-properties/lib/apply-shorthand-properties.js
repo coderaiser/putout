@@ -1,16 +1,15 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {findBinding} = operator;
 
-module.exports.report = () => `Shorthand properties should be used`;
+export const report = () => `Shorthand properties should be used`;
 
-module.exports.fix = ({path, from, to}) => {
+export const fix = ({path, from, to}) => {
     path.scope.rename(from, to);
     path.node.shorthand = true;
 };
 
-module.exports.traverse = ({push, options}) => ({
+export const traverse = ({push, options}) => ({
     '__object'(path) {
         for (const propPath of path.get('properties')) {
             const {shorthand} = propPath.node;
