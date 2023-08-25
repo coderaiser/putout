@@ -52,6 +52,7 @@
     "parse-import-specifiers": "^1.0.1",
     "synckit": "^0.8.5",
     "try-catch": "^3.0.0",
+    "try-to-catch": "^3.0.1",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
@@ -65,8 +66,7 @@
     "mocha": "^10.0.0",
     "montag": "^1.0.0",
     "simport": "^1.2.0",
-    "supertape": "^8.0.0",
-    "try-to-catch": "^3.0.0"
+    "supertape": "^8.0.0"
   },
   "engines": {
     "node": ">=16"
