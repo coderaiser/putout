@@ -1,3 +1,11 @@
+2023.08.25, v31.5.0
+
+feature:
+- 2958ef1d7 eslint-plugin-putout: putout: esm
+- cf5712aea eslint-plugin-putout: esm: use async
+- 58a165199 putout: export findPlacesAsync, transformAsync
+- e0ebe4ff0 @putout/plugin-putout: add-index-to-import: add
+
 2023.08.24, v31.4.0
 
 fix:
