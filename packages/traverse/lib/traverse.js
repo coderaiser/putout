@@ -16,13 +16,26 @@ const {entries} = Object;
 module.exports.traverse = traverse;
 
 const isPath = (path) => Boolean(path.node);
-const parsePath = (path) => isPath(path) ? path.node : path;
+const createTraverse = (path) => {
+    if (isPath(path)) {
+        return path.traverse.bind(path);
+    }
+    
+    const noScope = !isFile(path) && !isProgram(path);
+    
+    return (visitors) => {
+        babelTraverse(path, {
+            noScope,
+            ...visitors,
+        });
+    };
+};
+
 const getTemplate = ([a]) => a;
 
-function traverse(path, visitor) {
-    path = parsePath(path);
+function traverse(basePath, visitor) {
+    const traverse = createTraverse(basePath);
     const items = [];
-    const noScope = !isFile(path) && !isProgram(path);
     const parsedVisitors = entries(visitor);
     
     const withTemplates = parsedVisitors
@@ -30,10 +43,7 @@ function traverse(path, visitor) {
         .find(isTemplate);
     
     if (!withTemplates)
-        return babelTraverse(path, {
-            noScope,
-            ...visitor,
-        });
+        return traverse(visitor);
     
     for (const [tmpl, fn] of parsedVisitors) {
         if (!isTemplate(tmpl)) {
@@ -55,10 +65,7 @@ function traverse(path, visitor) {
         });
     }
     
-    babelTraverse(path, {
-        noScope,
-        ...merge(items),
-    });
+    traverse(merge(items));
 }
 
 const getVisit = ({fn, node, tmpl}) => (path) => {

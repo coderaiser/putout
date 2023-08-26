@@ -1,9 +1,7 @@
 'use strict';
 
-const test = require('supertape');
-
+const {test, stub} = require('supertape');
 const {template, parse} = require('putout');
-
 const {traverse, contains} = require('./traverse');
 
 test('putout: traverse', (t) => {
@@ -71,16 +69,12 @@ test('putout: traverse: identifier', (t) => {
     t.end();
 });
 
-test('putout: traverse: program: path', (t) => {
+test('putout: traverse: program', (t) => {
     const node = parse('const x = 5');
     
     let found = false;
     
-    const path = {
-        node,
-    };
-    
-    traverse(path, {
+    traverse(node, {
         Identifier(path) {
             found = Boolean(path.scope);
         },
@@ -90,16 +84,28 @@ test('putout: traverse: program: path', (t) => {
     t.end();
 });
 
-test('putout: traverse: program: template variables', (t) => {
+test('putout: traverse: program: path', (t) => {
     const node = parse('const x = 5');
+    const traverse = stub();
     
     const path = {
         node,
+        traverse,
     };
     
+    traverse(path, {
+        Identifier() {},
+    });
+    
+    t.calledOnce(traverse);
+    t.end();
+});
+
+test('putout: traverse: program: template variables', (t) => {
+    const node = parse('const x = 5');
     let a;
     
-    traverse(path, {
+    traverse(node, {
         'const __a = __b'(path, {__b}) {
             a = __b;
         },
