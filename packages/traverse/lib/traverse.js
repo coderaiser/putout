@@ -79,8 +79,6 @@ const getVisit = ({fn, node, tmpl}) => (path) => {
 module.exports.contains = (path, items) => {
     let found = false;
     
-    const {node = path} = path;
-    
     const visit = (path) => {
         found = true;
         path.stop();
@@ -92,7 +90,7 @@ module.exports.contains = (path, items) => {
         visitors[item] = visit;
     }
     
-    traverse(node, visitors);
+    traverse(path, visitors);
     
     return found;
 };
