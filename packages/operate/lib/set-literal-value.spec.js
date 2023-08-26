@@ -4,6 +4,7 @@ const {
     parse,
     operator,
     print,
+    template,
 } = require('putout');
 
 const {test} = require('supertape');
@@ -48,6 +49,20 @@ test('operate: setLiteralValue: node', (t) => {
         ({
             "hello": 'hello',
         });\n
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('operate: setLiteralValue: no raw', (t) => {
+    const node = template.ast('import z from "y"');
+    setLiteralValue(node.source, 'hello');
+    
+    const result = print(node);
+    
+    const expected = montag`
+        import z from "hello";\n
     `;
     
     t.equal(result, expected);
