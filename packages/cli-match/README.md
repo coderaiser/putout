@@ -26,11 +26,11 @@ npm i @putout/cli-match
 ## Example
 
 ```js
-import {cwd} from 'process';
+import {cwd} from 'node:process';
 import {
     readFile,
     writeFile,
-} from 'fs/promises';
+} from 'node:fs/promises';
 import match from '@putout/cli-match';
 
 const {code, message} = await match({

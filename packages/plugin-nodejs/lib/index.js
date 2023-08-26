@@ -9,6 +9,7 @@ const convertTopLevelReturn = require('./convert-top-level-return');
 const declare = require('./declare');
 const declareAfterRequire = require('./declare-after-require');
 const removeProcessExit = require('./remove-process-exit');
+const addNodePrefix = require('./add-node-prefix');
 
 module.exports.rules = {
     'convert-buffer-to-buffer-alloc': convertBufferToBufferAlloc,
@@ -20,4 +21,5 @@ module.exports.rules = {
     declare,
     'declare-after-require': declareAfterRequire,
     'remove-process-exit': removeProcessExit,
+    'add-node-prefix': addNodePrefix,
 };

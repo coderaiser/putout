@@ -1,3 +1,3 @@
-import {freemem} from 'os';
+import {freemem} from 'node:os';
 
 freemem();

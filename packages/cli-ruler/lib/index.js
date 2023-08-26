@@ -1,4 +1,4 @@
-import {join} from 'path';
+import {join} from 'node:path';
 import tryToCatch from 'try-to-catch';
 import * as ruleProcessor from './rule-processor.js';
 

@@ -20,6 +20,7 @@ npm i putout @putout/plugin-nodejs -D
 ```json
 {
     "rules": {
+        "nodejs/add-node-prefix": "on",
         "nodejs/convert-buffer-to-buffer-alloc": "on",
         "nodejs/convert-fs-promises": "on",
         "nodejs/convert-promisify-to-fs-promises": "on",
@@ -34,6 +35,26 @@ npm i putout @putout/plugin-nodejs -D
 ```
 
 ## Rules
+
+### add-node-prefix
+
+> `Deno` supports using Node.js built-in modules such as `fs`, `path`, `process`, and many more via `node`: specifiers.
+>
+> (c) [deno.land](https://deno.land/manual@v1.36.3/node/node_specifiers)
+
+Check out in 🐊[Putout Editor](https://putout.cloudcmd.io/#/gist/534093e0bf0a4407796c08d62bcbcb92/766a1d608f155920b21aa1f53a8e33280a664309).
+
+#### ❌ Example of incorrect code
+
+```js
+import fs from 'fs';
+```
+
+#### ✅ Example of correct code
+
+```js
+import fs from 'node:fs';
+```
 
 ### convert-buffer-to-buffer-alloc
 

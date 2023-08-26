@@ -1,5 +1,5 @@
-import {createRequire} from 'module';
-import {spawnSync} from 'child_process';
+import {createRequire} from 'node:module';
+import {spawnSync} from 'node:child_process';
 import {test} from 'supertape';
 
 const require = createRequire(import.meta.url);

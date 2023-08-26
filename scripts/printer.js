@@ -3,7 +3,7 @@
 import {
     writeFileSync,
     readFileSync,
-} from 'fs';
+} from 'node:fs';
 import tryCatch from 'try-catch';
 
 const {stringify, parse} = JSON;

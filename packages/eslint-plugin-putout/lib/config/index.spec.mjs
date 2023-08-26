@@ -1,6 +1,6 @@
 import {test} from 'supertape';
 import {lint} from '@putout/eslint/lint';
-import {readFileSync} from 'fs';
+import {readFileSync} from 'node:fs';
 import {
     recommended,
     safe,

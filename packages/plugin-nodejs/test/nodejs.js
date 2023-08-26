@@ -59,3 +59,8 @@ test('putout: plugin: nodejs: transform: convert-buffer-to-buffer-alloc', (t) =>
     t.transform('convert-buffer-to-buffer-alloc');
     t.end();
 });
+
+test('plugin-nodejs: transform: add-node-prefix', (t) => {
+    t.transform('add-node-prefix');
+    t.end();
+});

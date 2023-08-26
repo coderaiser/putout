@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {cp} from 'fs/promises';
+import {cp} from 'node:fs/promises';
 import tryToCatch from 'try-to-catch';
 
 const {argv, exit} = process;
