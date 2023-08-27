@@ -1,3 +1,16 @@
+2023.08.27, v31.6.0
+
+fix:
+- f252148df @putout/traverse: contains
+- e762ba09e feature: @putout/plugin-nodejs: add-node-preadd
+
+feature:
+- b259bf667 @putout/traverse: reuse path.traverse when possible
+- e762ba09e @putout/plugin-nodejs: add-node-prefix: add
+- 0930cf863 @putout/operate: setLiteralValue: improve support of template
+- a6f8c7d3f @putout/plugin-apply-nullish-coalescing: drop support of 🐊 < 31
+- d7ab0933a @putout/plugin-apply-shorthand-properties: drop support of 🐊 < 31
+
 2023.08.25, v31.5.0
 
 feature:
