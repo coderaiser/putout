@@ -30,7 +30,6 @@
   "keywords": ["putout"],
   "devDependencies": {
     "c8": "^8.0.0",
-    "escover": "^3.2.3",
     "eslint": "^8.0.1",
     "eslint-plugin-n": "^16.0.0",
     "eslint-plugin-putout": "^19.0.0",
