@@ -1,6 +1,6 @@
 {
   "name": "@putout/plugin-convert-optional-to-logical",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability convert Optional Chaining to Logical Expression",
