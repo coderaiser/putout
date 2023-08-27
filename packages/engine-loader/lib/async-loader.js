@@ -11,12 +11,13 @@ module.exports.createAsyncLoader = (type) => nanomemoize(async (name, load) => {
     if (name === 'none')
         return stub();
     
-    const [e, reporter] = await cleverLoad([`@putout/${type}-${name}`, `putout-${type}-${name}`], load);
+    if (name.startsWith('import:')) {
+        const shortName = name.replace('import:', '');
+        
+        return await cleverLoad([shortName], load);
+    }
     
-    if (e)
-        throw e;
-    
-    return reporter;
+    return await cleverLoad([`@putout/${type}-${name}`, `putout-${type}-${name}`], load);
 });
 
 async function cleverLoad(names, load = simpleImport) {
@@ -27,7 +28,7 @@ async function cleverLoad(names, load = simpleImport) {
         [e, reporter] = await tryToCatch(load, name);
         
         if (!e)
-            return [null, reporter];
+            return reporter;
         
         if (e.code === 'ERR_MODULE_NOT_FOUND')
             continue;
@@ -36,12 +37,12 @@ async function cleverLoad(names, load = simpleImport) {
             message: `${name}: ${e.message}`,
         });
         
-        return [e];
+        throw e;
     }
     
     assign(e, {
         message: e.message.replace(/\simported.*/, ''),
     });
     
-    return [e];
+    throw e;
 }

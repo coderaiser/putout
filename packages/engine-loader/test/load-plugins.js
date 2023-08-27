@@ -11,6 +11,8 @@ const montag = require('montag');
 const {readFixtures} = require('./fixture');
 const {loadPlugins} = require('..');
 
+const {putoutAsync} = putout;
+
 const {reRequire, stopAll} = mockRequire;
 const fixture = readFixtures(['shebang', 'shebang-fix']);
 
@@ -361,5 +363,17 @@ test('putout: loader: wrong plugin name', (t) => {
     const expected = `☝️ Looks like plugin name type is not 'string', but: 'function'`;
     
     t.equal(error.message, expected);
+    t.end();
+});
+
+test('putout: loader: async: import', async (t) => {
+    const source = `const {run} = require('madrun');`;
+    const {code} = await putoutAsync(source, {
+        plugins: ['import:@putout/plugin-convert-commonjs-to-esm'],
+    });
+    
+    const expected = `import {run} from 'madrun';\n`;
+    
+    t.equal(code, expected, 'should enable one of rules in plugin');
     t.end();
 });

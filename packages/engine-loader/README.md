@@ -81,6 +81,57 @@ const plugins = await loadPluginsAsync({
 });
 ```
 
+#### `import`
+
+You can also use schema like this one:
+
+```
+import:escover/plugin
+```
+
+```js
+const plugins = await loadPluginsAsync({
+    pluginNames: [
+        'import:escover/plugin',
+    ],
+});
+```
+
+Or when used `putoutAsync`:
+
+```js
+import {putoutAsync} from 'putout';
+
+await putoutAsync(`module.exports.hello = 'world'`, {
+    plugins: [
+        'import:escover/plugin',
+    ],
+});
+```
+
+Which is the same as:
+
+```js
+import {putoutAsync} from 'putout';
+import * as plugin from 'escover/plugin';
+
+await putoutAsync(`module.exports.hello = 'world'`, {
+    plugins: [
+        ['escover/plugin', plugin],
+    ],
+});
+```
+
+Or used inside `.putout.json`:
+
+```json
+{
+    "plugins": [
+        "import:escover/plugin"
+    ]
+}
+```
+
 ### loadProcessorsAsync
 
 ```js
