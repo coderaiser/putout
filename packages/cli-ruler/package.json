@@ -1,6 +1,6 @@
 {
   "name": "@putout/cli-ruler",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "toggle rules in .putout.json",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/cli-ruler#readme",
@@ -26,7 +26,9 @@
   "dependencies": {
     "try-to-catch": "^3.0.0"
   },
-  "keywords": ["putout"],
+  "keywords": [
+    "putout"
+  ],
   "devDependencies": {
     "c8": "^8.0.0",
     "eslint": "^8.0.1",
