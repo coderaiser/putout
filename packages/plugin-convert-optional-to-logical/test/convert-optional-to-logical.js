@@ -17,3 +17,8 @@ test('plugin-for-of: transform: convert-optional-to-logical', (t) => {
     t.transform('convert-optional-to-logical');
     t.end();
 });
+
+test('plugin-for-of: transform: convert-optional-to-logical: squire', (t) => {
+    t.transform('squire');
+    t.end();
+});

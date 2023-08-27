@@ -46,7 +46,7 @@ function getLogical(path) {
 function compute(member, current) {
     const [first] = current;
     
-    if (first === '(')
+    if (first === '(' || first === '[')
         return current;
     
     return `.${current}`;
