@@ -1,3 +1,13 @@
+2023.08.28, v31.7.0
+
+feature:
+- 2a375c896 putout: parseOptions: require -> add prefix "import:"
+- e7693f971 @putout/engine-loader: loadPlugins: add support of 'import:'
+- 40bbe3a6a @putout/plugin-putout: apply-namespace-specifiers: improve support of couple imports in Nested Plugin
+- ed61c1b25 @putout/engine-loader: add support of 'import:'
+- b4d482c56 @putout/plugin-convert-optional-to-logical: squire brace
+- 6ba8e145d @putout/plugin-convert-optional-to-logical: convert to ESM
+
 2023.08.27, v31.6.0
 
 fix:
