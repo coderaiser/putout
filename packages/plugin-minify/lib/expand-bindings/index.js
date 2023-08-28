@@ -1,13 +1,15 @@
-'use strict';
+import {
+    operator,
+    types,
+} from 'putout';
 
-const {operator, types} = require('putout');
 const {assign} = Object;
 const {isIdentifier} = types;
 const {remove, replaceWith} = operator;
 
-module.exports.report = () => `Expand bindings`;
+export const report = () => `Expand bindings`;
 
-module.exports.fix = ({path, ref, parentPath}) => {
+export const fix = ({path, ref, parentPath}) => {
     const bindingInit = path.get('init');
     
     if (bindingInit.isArrowFunctionExpression()) {
@@ -35,7 +37,7 @@ module.exports.fix = ({path, ref, parentPath}) => {
     }
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ReferencedIdentifier(path) {
         const {name} = path.node;
         const binding = path.scope.bindings[name];

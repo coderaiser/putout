@@ -1,6 +1,5 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {
     SequenceExpression,
     LogicalExpression,
@@ -23,9 +22,9 @@ const getExpression = ({expression}) => {
     return expression;
 };
 
-module.exports.report = () => `Use 'logical expressions' instead of 'if conditions'`;
+export const report = () => `Use 'logical expressions' instead of 'if conditions'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'if (__a) __b; else __c': ({__b, __c}) => {
         if (!isBlockStatement(__b))
             return false;
@@ -54,7 +53,7 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'if (__a) __b': ({__a, __b}) => {
         if (!isBlockStatement(__b))
             return '__a && __b';

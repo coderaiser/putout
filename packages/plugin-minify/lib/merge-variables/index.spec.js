@@ -1,11 +1,8 @@
-'use strict';
+import {createTest} from '@putout/test';
+import removeUnreferencedVariables from '@putout/plugin-remove-unreferenced-variables';
+import * as plugin from './index.js';
 
-const {createTest} = require('@putout/test');
-const removeUnreferencedVariables = require('@putout/plugin-remove-unreferenced-variables');
-
-const plugin = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['merge-variables', plugin],

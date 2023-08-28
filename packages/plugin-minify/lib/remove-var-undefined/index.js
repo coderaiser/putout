@@ -1,15 +1,14 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {compare, remove} = operator;
 
-module.exports.report = () => `Avoid using 'undefined' in variable declaration`;
+export const report = () => `Avoid using 'undefined' in variable declaration`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     VariableDeclarator(path) {
         const init = path.get('init');
         

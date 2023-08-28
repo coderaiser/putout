@@ -5,7 +5,6 @@ const montag = require('montag');
 
 const test = require('supertape');
 const putout = require('putout');
-const minify = require('@putout/plugin-minify');
 
 const {runPlugins} = require('..');
 
@@ -325,7 +324,8 @@ test('putout: runner: plugins: traverse: pathStore', (t) => {
     t.end();
 });
 
-test('putout: runner: uplist: removed node', (t) => {
+test('putout: runner: uplist: removed node', async (t) => {
+    const minify = await import('@putout/plugin-minify');
     const mergeVariables = minify.rules['merge-variables'];
     
     const source = `

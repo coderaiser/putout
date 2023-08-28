@@ -1,7 +1,7 @@
 {
   "name": "@putout/plugin-minify",
   "version": "3.1.0",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin contains minifiers",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/plugin-minify#readme",

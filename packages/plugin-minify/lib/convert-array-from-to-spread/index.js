@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports.report = () => `Use 'spread' instead of 'Array.from()'`;
-module.exports.replace = () => ({
+export const report = () => `Use 'spread' instead of 'Array.from()'`;
+export const replace = () => ({
     'Array.from(__a)': '[...__a]',
 });

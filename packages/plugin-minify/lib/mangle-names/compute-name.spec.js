@@ -1,7 +1,5 @@
-'use strict';
-
-const {test} = require('supertape');
-const {computeName} = require('./compute-name');
+import {test} from 'supertape';
+import {computeName} from './compute-name.js';
 
 test('@putout/plugin-minify: mangle-names: computeName: 10', (t) => {
     const all = {};

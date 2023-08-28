@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => `Use minified types`;
 
-module.exports.report = () => `Use minified types`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'undefined': 'void 0',
     'true': '!0',
     'false': '!1',

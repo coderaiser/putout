@@ -1,13 +1,12 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {remove} = operator;
 
-module.exports.report = () => `Merge variables`;
+export const report = () => `Merge variables`;
 
 const getNode = (a) => a.node;
 
-module.exports.fix = ({path, vars}) => {
+export const fix = ({path, vars}) => {
     path.node.declarations = vars.map(getNode);
     
     for (const path of vars.slice(1)) {
@@ -15,7 +14,7 @@ module.exports.fix = ({path, vars}) => {
     }
 };
 
-module.exports.traverse = ({push, uplist}) => ({
+export const traverse = ({push, uplist}) => ({
     VariableDeclarator: (path) => {
         if (path.parentPath.node.declarations.length !== 1)
             return;

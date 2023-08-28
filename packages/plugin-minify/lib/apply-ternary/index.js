@@ -1,11 +1,10 @@
-'use strict';
+import {types} from 'putout';
 
-const {types} = require('putout');
 const {isExpression} = types;
 
-module.exports.report = () => `Use 'ternary' instead of 'if condition'`;
+export const report = () => `Use 'ternary' instead of 'if condition'`;
 
-module.exports.match = () => ({
+export const match = () => ({
     'if (__a) __b; else __c;': ({__b, __c}) => {
         if (!isExpression(__b))
             return false;
@@ -14,6 +13,6 @@ module.exports.match = () => ({
     },
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'if (__a) __b; else __c;': '__a ? __b : __c',
 });

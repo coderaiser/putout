@@ -1,22 +1,20 @@
-'use strict';
+import * as applyTernary from './apply-ternary/index.js';
+import * as applyTemplateLiteral from './apply-template-literal/index.js';
+import * as convertConstToVar from './convert-const-to-var/index.js';
+import * as convertIfToLogical from './convert-if-to-logical/index.js';
+import * as convertStrictEqualToEqual from './convert-strict-equal-to-equal/index.js';
+import * as extractBody from './extract-body/index.js';
+import * as expandBindings from './expand-bindings/index.js';
+import * as mangleNames from './mangle-names/index.js';
+import * as mergeVariables from './merge-variables/index.js';
+import * as shortenNames from './shorten-names/index.js';
+import * as removeVarUndefined from './remove-var-undefined/index.js';
+import * as removeReturnUndefined from './remove-return-undefined/index.js';
+import * as inline from './inline/index.js';
+import * as simplifyFloor from './simplify-floor/index.js';
+import * as types from './types/index.js';
 
-const applyTernary = require('./apply-ternary');
-const applyTemplateLiteral = require('./apply-template-literal');
-const convertConstToVar = require('./convert-const-to-var');
-const convertIfToLogical = require('./convert-if-to-logical');
-const convertStrictEqualToEqual = require('./convert-strict-equal-to-equal');
-const extractBody = require('./extract-body');
-const expandBindings = require('./expand-bindings');
-const mangleNames = require('./mangle-names');
-const mergeVariables = require('./merge-variables');
-const shortenNames = require('./shorten-names');
-const removeVarUndefined = require('./remove-var-undefined');
-const removeReturnUndefined = require('./remove-return-undefined');
-const inline = require('./inline');
-const simplifyFloor = require('./simplify-floor');
-const types = require('./types');
-
-module.exports.rules = {
+export const rules = {
     'apply-ternary': applyTernary,
     'apply-template-literal': applyTemplateLiteral,
     'convert-const-to-var': convertConstToVar,

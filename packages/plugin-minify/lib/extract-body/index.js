@@ -1,6 +1,7 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {
+    types,
+    operator,
+} from 'putout';
 
 const {
     isExpressionStatement,
@@ -11,9 +12,9 @@ const {
 const {replaceWith} = operator;
 const isArrow = isArrowFunctionExpression;
 
-module.exports.report = () => `Avoid blocks with one statement`;
+export const report = () => `Avoid blocks with one statement`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {parentPath} = path;
     const [first] = path.node.body;
     
@@ -23,11 +24,11 @@ module.exports.fix = (path) => {
     replaceWith(path, first);
 };
 
-module.exports.include = () => [
+export const include = () => [
     'BlockStatement',
 ];
 
-module.exports.filter = ({node, parentPath}) => {
+export const filter = ({node, parentPath}) => {
     const {body} = node;
     
     if (body.length !== 1)

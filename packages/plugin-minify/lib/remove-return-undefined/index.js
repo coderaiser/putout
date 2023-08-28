@@ -1,12 +1,10 @@
-'use strict';
+export const report = () => `Avoid 'return undefined'`;
 
-module.exports.report = () => `Avoid 'return undefined'`;
-
-module.exports.match = () => ({
+export const match = () => ({
     return: check,
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'return': '',
     'return undefined': 'return',
     'return void 0': 'return',

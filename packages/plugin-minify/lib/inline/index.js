@@ -1,17 +1,16 @@
-'use strict';
+import {operator} from 'putout';
 
-const {operator} = require('putout');
 const {entries} = Object;
 const {remove, replaceWith} = operator;
 
-module.exports.report = () => `Inline expressions`;
+export const report = () => `Inline expressions`;
 
-module.exports.fix = ({path, statement}) => {
+export const fix = ({path, statement}) => {
     replaceWith(statement, path);
     remove(path);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'Program|BlockStatement'(path) {
         for (const [, bind] of entries(path.scope.bindings)) {
             const [unary, statement] = bind.referencePaths;

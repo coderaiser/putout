@@ -1,15 +1,14 @@
-'use strict';
+import {computeName} from './compute-name.js';
 
-const {computeName} = require('./compute-name');
 const {entries} = Object;
 
-module.exports.report = () => `Mangle name`;
+export const report = () => `Mangle name`;
 
-module.exports.include = () => ['Statement'];
+export const include = () => ['Statement'];
 
-module.exports.filter = (path) => !path.scope.__putout_minify;
+export const filter = (path) => !path.scope.__putout_minify;
 
-module.exports.fix = ({scope}, options) => {
+export const fix = ({scope}, options) => {
     const {mangleClassNames} = options;
     const names = entries(scope.bindings);
     

@@ -1,11 +1,9 @@
-'use strict';
-
 const BIG_A = 65;
 const BIG_Z = 90;
 const SMALL_A = 97;
 const SMALL_Z = SMALL_A + (BIG_Z - BIG_A);
 
-module.exports.computeName = ({index, all, uid}) => {
+export const computeName = ({index, all, uid}) => {
     let [is, name] = generate({
         index,
         all,
