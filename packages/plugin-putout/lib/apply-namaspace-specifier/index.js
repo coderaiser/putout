@@ -1,5 +1,7 @@
 'use strict';
 
+const {types} = require('putout');
+const {isImportDeclaration} = types;
 const {parseImportSpecifiers} = require('parse-import-specifiers');
 const noop = () => {};
 
@@ -27,7 +29,9 @@ module.exports.traverse = ({push, listStore, pathStore}) => ({
             if (rules.length !== 1)
                 return;
             
-            if (pathStore().length > 2)
+            const [first] = rules;
+            
+            if (isImportDeclaration(first) && pathStore().length > 2)
                 return;
             
             path.traverse(createImportVisitor({
