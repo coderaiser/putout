@@ -1,4 +1,4 @@
-# Putout ![NPM version][NPMIMGURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL] [![DeepScan][DeepScanIMGURL]][DeepScanURL]
+# Putout [![NPM version][NPMIMGURL]][NPMURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL] [![DeepScan][DeepScanIMGURL]][DeepScanURL]
 
 [NPMURL]: https://npmjs.org/package/putout "npm"
 [NPMIMGURL]: https://img.shields.io/npm/v/putout.svg?style=flat&longCache=true
