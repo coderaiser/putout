@@ -12,6 +12,8 @@ const parseOptions = require('.');
 
 const {reRequire, stopAll} = mockRequire;
 
+const CWD = process.cwd();
+
 test('putout: parse-options: custom options rules overrides default match', (t) => {
     const customOptions = {
         rules: {
@@ -352,9 +354,7 @@ test('putout: parseOptions: read rules: putout-plugin', (t) => {
         rules: {
             'remove-only': 'on',
         },
-        plugins: [
-            ['hello', plugin],
-        ],
+        plugins: [`import:${CWD}/putout-plugin-hello`],
     };
     
     t.deepEqual(result, expected);
@@ -408,9 +408,7 @@ test('putout: parseOptions: read rules', (t) => {
         rules: {
             'remove-only': 'on',
         },
-        plugins: [
-            ['hello', plugin],
-        ],
+        plugins: [`import:${CWD}/hello`],
     };
     
     stopAll();
@@ -466,9 +464,7 @@ test('putout: parseOptions: read rules: not-rule-', (t) => {
         rules: {
             'remove-only': 'on',
         },
-        plugins: [
-            ['hello', plugin],
-        ],
+        plugins: [`import:${CWD}/hello`],
     };
     
     stopAll();
@@ -524,9 +520,7 @@ test('putout: parseOptions: read rules: .', (t) => {
         rules: {
             'remove-only': 'on',
         },
-        plugins: [
-            ['hello', plugin],
-        ],
+        plugins: [`import:${CWD}/hello`],
     };
     
     stopAll();
@@ -1006,49 +1000,6 @@ test('putout: parseOptions: rules dir: no once', (t) => {
     fs.readdirSync = readdirSync;
     
     t.calledTwice(readdirSyncStub);
-    t.end();
-});
-
-test('putout: parseOptions: rules dir: no dir options', (t) => {
-    const empty = {};
-    
-    const readOptions = stub().returns(['', empty]);
-    const readHomeOptions = stub().returns(empty);
-    const readCodeMods = stub().returns(empty);
-    
-    mockRequire('../../putout.json', empty);
-    
-    const readdirSync = stub().returns(['world']);
-    
-    mockRequire('fs', {
-        readdirSync,
-    });
-    
-    const parseOptions = reRequire('.');
-    
-    const options = {
-        rules: {
-            'remove-only': 'off',
-        },
-        match: {
-            '*.spec.js': {
-                'remove-only': 'on',
-            },
-        },
-    };
-    
-    const [error] = tryCatch(parseOptions, {
-        name: 'parse-options.spec.js',
-        options,
-        readOptions,
-        readHomeOptions,
-        readCodeMods,
-        rulesdir: 'hello',
-    });
-    
-    stopAll();
-    
-    t.match(error.message, `Cannot find module '${join(process.cwd(), 'hello/world')}'`);
     t.end();
 });
 
