@@ -1,7 +1,7 @@
 {
   "name": "@putout/rule-add-readme-to-homepage",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "private": true,
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "🐊Putout plugin adds ability to add anchor #readme to homepage",
@@ -40,11 +40,11 @@
     "nodemon": "^3.0.1"
   },
   "peerDependencies": {
-    "putout": ">=23"
+    "putout": ">=31"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "publishConfig": {
     "access": "public"

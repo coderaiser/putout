@@ -1,10 +1,10 @@
-'use strict';
+import {operator} from 'putout';
 
-const {getProperties} = require('putout').operator;
+const {getProperties} = operator;
 
-module.exports.report = () => 'Set 🐊 in description';
+export const report = () => 'Set 🐊 in description';
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     '__putout_processor_json(__a)': (path) => {
         const __aPath = path.get('arguments.0');
         
@@ -22,7 +22,7 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     path.node.value.value = path.node.value.value.replace('putout', '🐊Putout');
     path.node.value.raw = path.node.value.raw.replace('putout', '🐊Putout');
 };

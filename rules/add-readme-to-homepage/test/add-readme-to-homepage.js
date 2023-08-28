@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as setHomepage from '../lib/add-readme-to-homepage.js';
 
-const {createTest} = require('@putout/test');
-const setHomepage = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['add-readme-to-homepage', setHomepage],

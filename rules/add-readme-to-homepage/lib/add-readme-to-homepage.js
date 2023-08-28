@@ -1,17 +1,17 @@
-'use strict';
+import {operator} from 'putout';
 
-const {getProperties} = require('putout').operator;
+const {getProperties} = operator;
 
-module.exports.report = () => `Add anchor '#readme' to 'homepage' in package.json`;
+export const report = () => `Add anchor '#readme' to 'homepage' in package.json`;
 
-module.exports.fix = ({homepage}) => {
+export const fix = ({homepage}) => {
     const {raw} = homepage;
     
     homepage.value += '#readme';
     homepage.raw = raw.slice(0, -1) + '#readme' + raw.at(-1);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     '__putout_processor_json(__a)': (path) => {
         const __a = path.get('arguments.0');
         

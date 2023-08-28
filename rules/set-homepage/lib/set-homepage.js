@@ -1,11 +1,11 @@
-'use strict';
+import {operator} from 'putout';
 
-const {getProperties} = require('putout').operator;
+const {getProperties} = operator;
 const parseName = (a) => a.value.replace('@putout/', '');
 
-module.exports.report = () => 'Set homepage';
+export const report = () => 'Set homepage';
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     '__putout_processor_json(__a)': (path) => {
         const __aPath = path.get('arguments.0');
         
@@ -39,7 +39,7 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-module.exports.fix = ({name, homepage}) => {
+export const fix = ({name, homepage}) => {
     const dir = parseName(name);
     homepage.value = `https://github.com/coderaiser/putout/tree/master/packages/${dir}`;
 };
