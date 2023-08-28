@@ -14,4 +14,4 @@ const json = parse(data);
 
 json.engines.node = '>=16';
 
-await writeFile('./package.json', stringify(json, null, 2));
+await writeFile('./package.json', stringify(json, null, 2) + '\n');
