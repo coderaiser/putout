@@ -37,3 +37,4 @@ test('@putout/engine-loader: loadPluginsAsync: disabled: rule', async (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+

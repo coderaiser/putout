@@ -1,9 +1,11 @@
 'use strict';
 
+const {basename} = require('path');
+
 const isEnabled = require('./is-enabled');
 const parseRules = require('./parse-rules');
 const {createAsyncLoader} = require('./async-loader');
-const parsePluginNames = require('./parse-plugin-names');
+const {parsePluginNames} = require('./parse-plugin-names');
 const validateRules = require('./validate-rules');
 const validatePlugin = require('./validate-plugin');
 const {mergeRules} = require('./merge-rules');
@@ -68,7 +70,7 @@ async function loadPlugins({items, loadedRules}) {
         const [name] = splitRule(rule);
         const plugin = itemPlugin || loadPluginAsync(name);
         
-        enabledRules.push(rule);
+        enabledRules.push(parseRuleName(rule));
         promises.push(plugin);
     }
     
@@ -130,4 +132,14 @@ function check(options) {
 function checkRule(rule) {
     if (!isString(rule))
         throw Error(`☝️ Looks like plugin name type is not 'string', but: '${typeof rule}'`);
+}
+
+function parseRuleName(rule) {
+    if (rule.startsWith('import:')) {
+        const shortName = basename(rule.replace('import:', ''));
+        
+        return shortName.replace('plugin-', '');
+    }
+    
+    return rule;
 }
