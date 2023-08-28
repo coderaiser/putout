@@ -6,7 +6,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "madrun test",
+    "watch:test": "madrun watch:test",
+    "lint": "madrun lint",
+    "fresh:lint": "madrun fresh:lint",
+    "lint:fresh": "madrun lint:fresh",
+    "fix:lint": "madrun fix:lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
   },
   "keywords": [],
   "author": "",
@@ -15,9 +22,11 @@
     "node": ">=16"
   },
   "devDependencies": {
-    "try-to-catch": "^3.0.1"
+    "madrun": "^9.3.1"
   },
   "dependencies": {
-    "try-catch": "^3.0.1"
+    "montag": "^1.2.1",
+    "try-catch": "^3.0.1",
+    "try-to-catch": "^3.0.1"
   }
 }
