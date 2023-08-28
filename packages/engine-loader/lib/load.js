@@ -20,6 +20,9 @@ module.exports.loadPlugin = load('plugin');
 module.exports.loadProcessor = load('processor');
 
 function getPath(namespace, type, name) {
+    if (name.startsWith('import:'))
+        return getModulePath(name.replace('import:', ''));
+    
     let [path, customRequire] = getModulePath(`@${namespace}/${type}-${name}`);
     
     if (!path)

@@ -14,7 +14,7 @@ module.exports.createAsyncLoader = (type) => nanomemoize(async (name, load) => {
     if (name.startsWith('import:')) {
         const shortName = name.replace('import:', '');
         
-        return await cleverLoad([shortName], load);
+        return await cleverLoad([require.resolve(shortName)], load);
     }
     
     return await cleverLoad([`@putout/${type}-${name}`, `putout-${type}-${name}`], load);

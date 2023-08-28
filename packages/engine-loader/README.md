@@ -59,6 +59,22 @@ const plugins = loadPlugins({
 });
 ```
 
+#### `import`
+
+You can also use schema like this one:
+
+```
+import:escover/plugin
+```
+
+```js
+const plugins = loadPlugins({
+    pluginNames: [
+        'import:commonjs-putout-plugin',
+    ],
+});
+```
+
 ### loadPluginsAsync
 
 Load **ESM** plugins:

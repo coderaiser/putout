@@ -377,3 +377,15 @@ test('putout: loader: async: import', async (t) => {
     t.equal(code, expected, 'should enable one of rules in plugin');
     t.end();
 });
+
+test('putout: loader: sync: import', (t) => {
+    const source = `const {run} = require('madrun');`;
+    const {code} = putout(source, {
+        plugins: ['import:@putout/plugin-convert-commonjs-to-esm'],
+    });
+    
+    const expected = `import {run} from 'madrun';\n`;
+    
+    t.equal(code, expected, 'should enable one of rules in plugin');
+    t.end();
+});
