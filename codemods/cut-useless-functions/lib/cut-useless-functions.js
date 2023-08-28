@@ -1,12 +1,10 @@
-'use strict';
+export const report = () => 'Useless functions should be avoided';
 
-module.exports.report = () => 'Useless functions should be avoided';
-
-module.exports.exclude = () => [
+export const exclude = () => [
     '(__args__a) => __args__a()',
 ];
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '(__args__a) => __identifier__a(__args__a)': '__identifier__a',
     '(__args__a) => {__identifier__a(__args__a)}': '__identifier__a',
 });

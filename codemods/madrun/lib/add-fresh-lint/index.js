@@ -1,12 +1,9 @@
-'use strict';
-
-const {
+import {
     types,
     operator,
     template,
-} = require('putout');
-
-const getProperty = require('../get-property');
+} from 'putout';
+import getProperty from '../get-property.js';
 
 const {replaceWithMultiple} = operator;
 
@@ -16,13 +13,13 @@ const freshLintScript = template.ast(`
     () => run('lint', '--fresh')
 `);
 
-module.exports.report = () => `fresh:lint should exist`;
+export const report = () => `fresh:lint should exist`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     replaceWithMultiple(path, [path.node, ObjectProperty(StringLiteral('fresh:lint'), freshLintScript), ObjectProperty(StringLiteral('lint:fresh'), freshLintScript)]);
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'export default  __object': pushLint('declaration', push),
     'module.exports = __object': pushLint('right', push),
 });

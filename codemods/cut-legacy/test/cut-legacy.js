@@ -1,10 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as cutLegacy from '../lib/cut-legacy.js';
 
-const {createTest} = require('@putout/test');
-
-const cutLegacy = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['cut-legacy', cutLegacy],

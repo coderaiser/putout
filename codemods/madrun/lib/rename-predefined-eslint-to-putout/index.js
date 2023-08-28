@@ -1,16 +1,17 @@
-'use strict';
-
-const {operator, types: t} = require('putout');
+import {
+    operator,
+    types as t,
+} from 'putout';
 
 const {rename} = operator;
 
-module.exports.report = () => `"putout" should be used instead of "eslint", when predefined`;
+export const report = () => `"putout" should be used instead of "eslint", when predefined`;
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     rename(path, 'eslint', 'putout');
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'const __object = predefined'(path) {
         const properties = path.get('declarations.0.id.properties');
         

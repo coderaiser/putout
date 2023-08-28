@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as madrunRenamePredefinedEslintToPutout from './index.js';
 
-const {createTest} = require('@putout/test');
-const madrunRenamePredefinedEslintToPutout = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['madrun/rename-predefined-eslint-to-putout', madrunRenamePredefinedEslintToPutout],

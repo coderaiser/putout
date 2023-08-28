@@ -1,10 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as addFreshLint from './index.js';
 
-const {createTest} = require('@putout/test');
-
-const addFreshLint = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['add-fresh-lint', addFreshLint],

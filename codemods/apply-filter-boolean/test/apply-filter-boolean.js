@@ -1,10 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as applyFilterBoolean from '../lib/apply-filter-boolean.js';
 
-const {createTest} = require('@putout/test');
-
-const applyFilterBoolean = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['apply-filter-boolean', applyFilterBoolean],

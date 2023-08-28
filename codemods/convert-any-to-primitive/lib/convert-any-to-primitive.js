@@ -1,6 +1,7 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {
+    types,
+    operator,
+} from 'putout';
 
 const {compare} = operator;
 
@@ -18,18 +19,18 @@ const {
 
 const isPrimitiveType = (node) => getType(node) !== TSAnyKeyword;
 
-module.exports.report = (path) => {
+export const report = (path) => {
     const {node} = path.get('declarations.0.init');
     const type = getType(node).toLowerCase();
     
     return `Type "${type}" should be used instead of "any"`;
 };
 
-module.exports.match = () => ({
+export const match = () => ({
     'const __a: any = __b': ({__b}) => isPrimitiveType(__b),
 });
 
-module.exports.replace = () => ({
+export const replace = () => ({
     'const __a: any = __b': ({__a, __b}, path) => {
         __a.typeAnnotation.typeAnnotation = getTypeAnnotation(__b);
         return path;

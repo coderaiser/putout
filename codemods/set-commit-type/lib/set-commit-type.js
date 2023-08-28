@@ -1,14 +1,15 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {
+    types,
+    operator,
+} from 'putout';
 
 const {StringLiteral, ObjectProperty} = types;
 
 const {getProperties, insertAfter} = operator;
 
-module.exports.report = () => `Set 'commitType'`;
+export const report = () => `Set 'commitType'`;
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     '__putout_processor_json(__a)': (path) => {
         const __aPath = path.get('arguments.0');
         
@@ -27,7 +28,7 @@ module.exports.traverse = ({push}) => ({
     },
 });
 
-module.exports.fix = ({mainPath}) => {
+export const fix = ({mainPath}) => {
     const commitTypeNode = ObjectProperty(StringLiteral('commitType'), StringLiteral('colon'));
     insertAfter(mainPath, commitTypeNode);
 };

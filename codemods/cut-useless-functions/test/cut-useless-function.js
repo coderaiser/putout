@@ -1,10 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as cutUselessFunctions from '../lib/cut-useless-functions.js';
 
-const {createTest} = require('@putout/test');
-
-const cutUselessFunctions = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['cut-useless-functions', cutUselessFunctions],

@@ -1,10 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as convert from '../lib/pascal-to-camel.js';
 
-const {createTest} = require('@putout/test');
-
-const convert = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['convert-pascal-to-camel', convert],

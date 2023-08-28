@@ -1,7 +1,5 @@
-'use strict';
-
-const {types} = require('putout');
-const getProperty = require('../get-property');
+import {types} from 'putout';
+import getProperty from '../get-property.js';
 
 const {
     isStringLiteral,
@@ -12,9 +10,9 @@ const isUM = (a) => a.includes(' -um');
 const isDot = (a) => a === 'putout .';
 const isJS = (a) => a.includes('*.js');
 
-module.exports.report = () => '"lint" should check ".madrun.js"';
+export const report = () => '"lint" should check ".madrun.js"';
 
-module.exports.fix = ({node}) => {
+export const fix = ({node}) => {
     if (isStringLiteral(node)) {
         const result = addMadrun(node.value);
         
@@ -51,7 +49,7 @@ function getValue(body) {
     ];
 }
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     'module.exports = __object'(path) {
         const rightPath = path.get('right');
         const lint = getProperty(rightPath, 'lint');

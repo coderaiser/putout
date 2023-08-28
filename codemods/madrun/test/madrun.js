@@ -1,10 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as codemodMadrun from '../lib/index.js';
 
-const {createTest} = require('@putout/test');
-
-const codemodMadrun = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['codemod-madrun', codemodMadrun],

@@ -1,9 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as applyReplaceAll from '../lib/apply-replace-all.js';
 
-const {createTest} = require('@putout/test');
-const applyReplaceAll = require('..');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['apply-replace-all', applyReplaceAll],

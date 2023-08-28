@@ -1,10 +1,7 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as addMadrunToLint from './index.js';
 
-const {createTest} = require('@putout/test');
-
-const addMadrunToLint = require('.');
-
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['add-madrun-to-lint', addMadrunToLint],

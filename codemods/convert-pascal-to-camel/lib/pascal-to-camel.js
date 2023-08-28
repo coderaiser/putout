@@ -1,10 +1,8 @@
-'use strict';
-
-module.exports.report = (path) => {
+export const report = (path) => {
     return `Should be used camelCase instead of PascalCase in functions ${path.node.name}`;
 };
 
-module.exports.fix = (path) => {
+export const fix = (path) => {
     const {name} = path.node;
     const camel = toCamel(name);
     
@@ -12,7 +10,7 @@ module.exports.fix = (path) => {
     path.scope.rename(name, toCamel(name));
 };
 
-module.exports.traverse = ({push}) => ({
+export const traverse = ({push}) => ({
     ClassProperty: checkBig('key', push),
     ClassMethod: checkBig('key', push),
     FunctionDeclaration: checkBig('id', push),

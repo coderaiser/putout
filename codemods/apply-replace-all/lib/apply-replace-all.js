@@ -1,13 +1,14 @@
-'use strict';
-
-const {types, operator} = require('putout');
+import {
+    types,
+    operator,
+} from 'putout';
 
 const {replaceWith} = operator;
 const {RegExpLiteral} = types;
 
-module.exports.report = () => `Replace regexp should be used instead of string`;
+export const report = () => `Replace regexp should be used instead of string`;
 
-module.exports.replace = () => ({
+export const replace = () => ({
     '__a.replace("__b", __c)': ({__b}, path) => {
         const value = __b.raw.slice(1, -1);
         const raw = `/${escape(value)}/g`;
