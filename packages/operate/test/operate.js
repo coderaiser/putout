@@ -1092,7 +1092,8 @@ test('putout: operate: rename: no bindings', (t) => {
     t.end();
 });
 
-test('putout: operate: remove: already removed', (t) => {
+test('putout: operate: remove: already removed', async (t) => {
+    const minify = await import('@putout/plugin-minify');
     const source = `
         let a;
         let b;
@@ -1107,7 +1108,7 @@ test('putout: operate: remove: already removed', (t) => {
         printer: 'putout',
         plugins: [
             'remove-unreferenced-variables',
-            'minify',
+            ['minify', minify],
         ],
     });
     
