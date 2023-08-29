@@ -14,12 +14,6 @@ const {
 
 const {cutShebang, mergeShebang} = require('./shebang');
 
-const {
-    putoutAsync,
-    transformAsync,
-    findPlacesAsync,
-} = require('./putout-async');
-
 const isString = (a) => typeof a === 'string';
 
 const defaultOpts = (opts = {}) => {
@@ -29,6 +23,7 @@ const defaultOpts = (opts = {}) => {
         fix = true,
         fixCount = 2,
         loadPlugins = loader.loadPlugins,
+        loadPluginsAsync = loader.loadPluginsAsync,
         runPlugins = runner.runPlugins,
     } = opts;
     
@@ -39,6 +34,7 @@ const defaultOpts = (opts = {}) => {
         fix,
         fixCount,
         loadPlugins,
+        loadPluginsAsync,
         runPlugins,
     };
 };
@@ -89,8 +85,52 @@ module.exports = (source, opts) => {
     };
 };
 
-module.exports.putoutAsync = putoutAsync;
-module.exports.findPlacesAsync = findPlacesAsync;
+module.exports.putoutAsync = async (source, opts) => {
+    check(source);
+    opts = defaultOpts(opts);
+    
+    const {
+        parser,
+        isTS,
+        isFlow,
+        isJSX,
+        sourceFileName,
+        sourceMapName,
+        printer,
+    } = opts;
+    
+    const [clearSource, shebang] = cutShebang(source);
+    
+    const ast = parse(clearSource, {
+        sourceFileName,
+        parser,
+        isTS,
+        isFlow,
+        isJSX,
+        printer,
+    });
+    
+    const places = await transformAsync(ast, source, opts);
+    
+    if (!opts.fix)
+        return {
+            code: source,
+            places,
+        };
+    
+    const printed = print(ast, {
+        sourceMapName,
+        printer,
+    });
+    
+    const code = mergeShebang(shebang, printed);
+    
+    return {
+        code,
+        places,
+    };
+};
+
 module.exports.transformAsync = transformAsync;
 module.exports.findPlaces = (ast, source, opts) => {
     return transform(ast, source, {
@@ -98,6 +138,44 @@ module.exports.findPlaces = (ast, source, opts) => {
         fix: false,
     });
 };
+module.exports.findPlacesAsync = async (ast, source, opts) => {
+    return await transformAsync(ast, source, {
+        ...opts,
+        fix: false,
+    });
+};
+
+async function transformAsync(ast, source, opts) {
+    opts = defaultOpts(opts);
+    
+    const {
+        plugins: pluginNames,
+        cache,
+        rules,
+        fix,
+        fixCount,
+        loadPluginsAsync,
+        runPlugins,
+    } = opts;
+    
+    const [, shebang] = cutShebang(source);
+    
+    const plugins = await loadPluginsAsync({
+        pluginNames,
+        cache,
+        rules,
+    });
+    
+    const places = runPlugins({
+        ast,
+        shebang,
+        fix,
+        fixCount,
+        plugins,
+    });
+    
+    return places;
+}
 
 // why we pass 'source' to 'transform()'?
 // because we need to calculate position in a right way

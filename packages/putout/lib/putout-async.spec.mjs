@@ -5,7 +5,7 @@ import {
     putoutAsync,
     transformAsync,
     findPlacesAsync,
-} from './putout-async.js';
+} from './putout.js';
 
 test('putout: async', async (t) => {
     const {code} = await putoutAsync('const a = 5', {
