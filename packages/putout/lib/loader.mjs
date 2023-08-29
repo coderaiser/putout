@@ -1,5 +1,4 @@
 import process from 'node:process';
-
 import putout from './putout.js';
 import ignores from './ignores.js';
 import parseOptions from './parse-options/index.js';
