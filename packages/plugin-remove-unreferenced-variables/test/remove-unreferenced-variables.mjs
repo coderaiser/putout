@@ -1,11 +1,12 @@
-'use strict';
+import {createTest} from '@putout/test';
+import * as removeUnreferencedVariables from '../lib/remove-unreferenced-variables.js';
+import * as minify from '@putout/plugin-minify';
+import * as forOf from '@putout/plugin-for-of';
 
-const {createTest} = require('@putout/test');
-const removeUnreferencedVariables = require('..');
-const mergeVariables = require('@putout/plugin-minify').rules['merge-variables'];
-const forOfReduce = require('@putout/plugin-for-of').rules.reduce;
+const mergeVariables = minify.rules['merge-variables'];
+const forOfReduce = forOf.rules.reduce;
 
-const test = createTest(__dirname, {
+const test = createTest(import.meta.url, {
     printer: 'putout',
     plugins: [
         ['remove-unreferenced-variables', removeUnreferencedVariables],
