@@ -1,12 +1,14 @@
-#!/usr/bin/env node
+#!/usr/bin/env deno run --allow-read
 
 import {readdir} from 'node:fs/promises';
+import process from 'node:process';
 import montag from 'montag';
 
 const [plugin] = process.argv.slice(2);
 
 if (!plugin) {
     console.log('generate-schema [plugin]');
+    process.exit();
 }
 
 const names = await readdir(process.cwd());

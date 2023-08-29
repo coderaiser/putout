@@ -1,0 +1,5 @@
+{
+    "imports": {
+        "montag": "npm:montag"
+    }
+}

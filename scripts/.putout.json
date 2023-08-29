@@ -1,6 +1,7 @@
 {
     "printer": "putout",
     "rules": {
-        "remove-console": "off"
+        "remove-console": "off",
+        "nodejs/remove-process-exit": "off"
     }
 }
