@@ -1,3 +1,12 @@
+2023.08.29, v31.8.0
+
+feature:
+- 182b6aaf7 @putout/engine-loader: re-structure
+- 3ded6f846 putout: putoutAsync: simplify
+- 06c131ab6 @putout/engine-loader: import: shorten
+- d79e746e8 scripts: generate-schema: add
+- 57d3261e4 @putout/plugin-minify: convert to ESM
+
 2023.08.28, v31.7.0
 
 feature:
