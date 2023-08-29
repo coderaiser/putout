@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (name, rules) => {
+module.exports.isEnabled = (name, rules) => {
     for (const {rule, state} of rules) {
         if (rule === name)
             return state;

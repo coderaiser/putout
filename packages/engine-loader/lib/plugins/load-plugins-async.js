@@ -2,16 +2,21 @@
 
 const {basename} = require('path');
 
-const isEnabled = require('./is-enabled');
-const parseRules = require('./parse-rules');
-const {createAsyncLoader} = require('./async-loader');
+const {
+    parseRules,
+    validateRules,
+    isEnabled,
+    getLoadedRules,
+} = require('../rules');
+
+const {createAsyncLoader} = require('../load/async-loader');
 const {parsePluginNames} = require('./parse-plugin-names');
-const validateRules = require('./validate-rules');
 const validatePlugin = require('./validate-plugin');
-const {mergeRules} = require('./merge-rules');
+const {filterEnabledPlugins} = require('./filter-enabled-plugins');
+
+const {check, checkRule} = require('../check');
 
 const loadPluginAsync = createAsyncLoader('plugin');
-const isString = (a) => typeof a === 'string';
 
 module.exports.loadPluginsAsync = async (options) => {
     check(options);
@@ -33,24 +38,10 @@ module.exports.loadPluginsAsync = async (options) => {
         items,
     });
     
-    const result = [];
-    
-    // Would be great to have ability to filter
-    // disabled plugins and prevent them from loading
-    // but we can't because of a way multi-rule plugins
-    // works. We can't determine count and names of all
-    // rules of a plugin before load.
-    for (const [name, plugin] of plugins) {
-        if (!isEnabled(name, cookedRules))
-            continue;
-        
-        result.push(mergeRules(
-            [name, plugin],
-            cookedRules,
-        ));
-    }
-    
-    return result;
+    return filterEnabledPlugins({
+        plugins,
+        cookedRules,
+    });
 };
 
 function splitRule(rule) {
@@ -98,21 +89,6 @@ async function loadPlugins({items, loadedRules}) {
     return plugins;
 }
 
-function getLoadedRules(rules) {
-    const loadedRules = [];
-    
-    for (const item of rules) {
-        const {rule} = item;
-        
-        if (rule.includes('/'))
-            continue;
-        
-        loadedRules.push(item);
-    }
-    
-    return loadedRules;
-}
-
 function extendRules(rule, plugin) {
     const result = [];
     const entries = Object.entries(plugin);
@@ -122,16 +98,6 @@ function extendRules(rule, plugin) {
     }
     
     return result;
-}
-
-function check(options) {
-    if (!options || typeof options !== 'object')
-        throw Error('options should be an object!');
-}
-
-function checkRule(rule) {
-    if (!isString(rule))
-        throw Error(`☝️ Looks like plugin name type is not 'string', but: '${typeof rule}'`);
 }
 
 function parseRuleName(rule) {

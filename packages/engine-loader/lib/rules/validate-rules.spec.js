@@ -1,8 +1,8 @@
 'use strict';
 
 const test = require('supertape');
-const validateRules = require('./validate-rules');
 const tryCatch = require('try-catch');
+const {validateRules} = require('./validate-rules');
 
 test('engine-runner: validate-rules', (t) => {
     const items = [

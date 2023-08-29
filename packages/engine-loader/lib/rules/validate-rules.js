@@ -9,7 +9,7 @@ const parse = (rule) => {
     return rule;
 };
 
-module.exports = ({items, rules}) => {
+module.exports.validateRules = ({items, rules}) => {
     const ruleItems = Object.keys(rules);
     
     for (const rule of ruleItems) {

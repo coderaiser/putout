@@ -13,7 +13,7 @@ const stateOptionError = ({rule, value}) => Error(`☝️ ${rule}: state option 
 const defaultOptions = () => Object.create(null);
 const parseState = (rule, value) => validateState(rule, value) && value === 'on' || value !== 'off';
 
-module.exports = (rules) => {
+module.exports.parseRules = (rules) => {
     rules = parseSubrules(rules);
     
     const result = [];

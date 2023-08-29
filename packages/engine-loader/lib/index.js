@@ -2,18 +2,23 @@
 
 const {nanomemoize} = require('nano-memoize');
 
-const isEnabled = require('./is-enabled');
-const {loadPlugin} = require('./load');
-const {createAsyncLoader} = require('./async-loader');
-const {parsePluginNames} = require('./parse-plugin-names');
-const parseProcessorNames = require('./parse-processor-names');
-const parseRules = require('./parse-rules');
-const validateRules = require('./validate-rules');
-const validatePlugin = require('./validate-plugin');
-const {mergeRules} = require('./merge-rules');
-const {loadPluginsAsync} = require('./load-plugins-async');
+const {loadPlugin} = require('./load/load');
+const {createAsyncLoader} = require('./load/async-loader');
+const {parsePluginNames} = require('./plugins/parse-plugin-names');
+const parseProcessorNames = require('./processors/parse-processor-names');
+const validatePlugin = require('./plugins/validate-plugin');
+const {loadPluginsAsync} = require('./plugins/load-plugins-async');
 
-const isString = (a) => typeof a === 'string';
+const {
+    parseRules,
+    validateRules,
+    isEnabled,
+    getLoadedRules,
+} = require('./rules');
+
+const {filterEnabledPlugins} = require('./plugins/filter-enabled-plugins');
+
+const {check, checkRule} = require('./check');
 
 module.exports.loadPluginsAsync = loadPluginsAsync;
 module.exports.loadProcessorsAsync = nanomemoize(async (options, load) => {
@@ -59,40 +64,11 @@ module.exports.loadPlugins = (options) => {
         items,
     });
     
-    const result = [];
-    
-    // Would be great to have ability to filter
-    // disabled plugins and prevent them from loading
-    // but we can't because of a way multi-rule plugins
-    // works. We can't determine count and names of all
-    // rules of a plugin before load.
-    for (const [name, plugin] of plugins) {
-        if (!isEnabled(name, cookedRules))
-            continue;
-        
-        result.push(mergeRules(
-            [name, plugin],
-            cookedRules,
-        ));
-    }
-    
-    return result;
+    return filterEnabledPlugins({
+        plugins,
+        cookedRules,
+    });
 };
-
-function getLoadedRules(rules) {
-    const loadedRules = [];
-    
-    for (const item of rules) {
-        const {rule} = item;
-        
-        if (rule.includes('/'))
-            continue;
-        
-        loadedRules.push(item);
-    }
-    
-    return loadedRules;
-}
 
 function splitRule(rule) {
     return [rule, 'putout'];
@@ -140,14 +116,4 @@ function extendRules(rule, plugin) {
     }
     
     return result;
-}
-
-function check(options) {
-    if (!options || typeof options !== 'object')
-        throw Error('options should be an object!');
-}
-
-function checkRule(rule) {
-    if (!isString(rule))
-        throw Error(`☝️ Looks like plugin name type is not 'string', but: '${typeof rule}'`);
 }

@@ -4,7 +4,6 @@
     "exclude": [
         "**/*.spec.*",
         "**/fixture",
-        "**/load-plugins-async.js",
         "test",
         "coverage",
         ".*.*"
