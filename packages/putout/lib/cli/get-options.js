@@ -1,5 +1,6 @@
 'use strict';
 
+const process = require('process');
 const {join, dirname} = require('path');
 
 const buildPlugins = require('./build-plugins');

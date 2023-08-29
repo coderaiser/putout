@@ -1,5 +1,6 @@
 'use strict';
 
+const process = require('process');
 const {simpleImport} = require('./simple-import.js');
 const tryToCatch = require('try-to-catch');
 

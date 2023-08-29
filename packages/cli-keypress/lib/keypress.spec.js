@@ -1,5 +1,6 @@
 'use strict';
 
+const process = require('process');
 const {Readable} = require('stream');
 const {test, stub} = require('supertape');
 const mockRequire = require('mock-require');

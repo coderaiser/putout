@@ -1,5 +1,6 @@
 'use strict';
 
+const process = require('process');
 const once = require('once');
 
 // stricter validation to prevent even more invalid ASTs: not only

@@ -1,6 +1,6 @@
 'use strict';
 
-const {env} = require('process');
+const process = require('process');
 
 process.env.CI = process.env.CI || 'true';
 
@@ -32,6 +32,7 @@ const {
     CANNOT_LINT_STAGED,
 } = require('./exit-codes');
 
+const {env} = process;
 const {assign} = Object;
 const {parse} = JSON;
 

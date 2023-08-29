@@ -1,5 +1,6 @@
 'use strict';
 
+const process = require('process');
 const tryToCatch = require('try-to-catch');
 
 const yargsParser = require('yargs-parser');

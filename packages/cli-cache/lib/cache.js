@@ -1,5 +1,6 @@
 'use strict';
 
+const process = require('process');
 const {unlink} = require('fs/promises');
 
 const fileEntryCache = require('file-entry-cache');

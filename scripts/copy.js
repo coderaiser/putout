@@ -2,6 +2,7 @@
 
 import {cp} from 'node:fs/promises';
 import tryToCatch from 'try-to-catch';
+import process from 'node:process';
 
 const {argv, exit} = process;
 const [from, to, type] = argv.slice(2);

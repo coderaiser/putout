@@ -2,6 +2,7 @@ import {
     test,
     stub,
 } from 'supertape';
+import process from 'node:process';
 import {ruler} from './index.js';
 
 const {stringify} = JSON;

@@ -1,5 +1,6 @@
 'use strict';
 
+const process = require('process');
 const {homedir} = require('os');
 const {readdirSync} = require('fs');
 

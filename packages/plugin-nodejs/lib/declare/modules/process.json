@@ -1,4 +1,5 @@
 {
+    "process": "import process from 'process'",
     "arch": "import {arch} from 'process'",
     "platform": "import {platform} from 'process'",
     "release": "import {release} from 'process'",

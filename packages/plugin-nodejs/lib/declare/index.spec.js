@@ -126,3 +126,13 @@ test('putout: plugin: nodejs: declare: node-js: events', (t) => {
     `);
     t.end();
 });
+
+test('putout: plugin: nodejs: declare: process', (t) => {
+    t.transformCode(`process.exit();`, montag`
+        import process from 'process';
+        
+        process.exit();
+    
+    `);
+    t.end();
+});

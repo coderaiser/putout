@@ -1,5 +1,6 @@
 'use strict';
 
+const process = require('process');
 const fs = require('fs');
 const os = require('os');
 const {join} = require('path');

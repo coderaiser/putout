@@ -1,5 +1,6 @@
 'use strict';
 
+const process = require('process');
 const montag = require('montag');
 
 const tryCatch = require('try-catch');
