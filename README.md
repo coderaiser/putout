@@ -104,6 +104,7 @@ module.exports.replace = () => ({
 - ❌[**JSCodeshift**](https://github.com/facebook/jscodeshift) has no **config** and **plugins** support.
 
 🐊**Putout** on the other hand can make more drastic code transformations that directly affects your codebase making it a better place to code 💻:
+
 - ✅ [fixes Reference Errors](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare-before-reference#readme);
 - ✅ [declares variables](https://github.com/coderaiser/putout/tree/master/packages/plugin-declare#readme);
 - ✅ [convert CommonJS to ESM](https://github.com/coderaiser/putout/tree/master/packages/plugin-convert-commonjs-to-esm#readme);
