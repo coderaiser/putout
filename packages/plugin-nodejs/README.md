@@ -5,7 +5,7 @@
 
 > **Node.js** is an open-source, cross-platform, **JavaScript** runtime environment.
 >
-> (c) [nodejs.org](https://nodejs.org/en/)
+> (c) [Nodejs.org](https://nodejs.org/en/)
 
 🐊[**Putout**](https://github.com/coderaiser/putout) plugin adds ability to transform to new **Node.js** API and apply best practices.
 
