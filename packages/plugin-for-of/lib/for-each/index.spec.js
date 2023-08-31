@@ -10,12 +10,12 @@ const convertComparisonToBoolean = require('@putout/plugin-conditions').rules['c
 const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
-        ['for-of/each', plugin],
+        ['for-of/for-each', plugin],
     ],
 });
 
 test('plugin-for-of: report', (t) => {
-    t.report('keys', 'for-of should be used instead of forEach');
+    t.report('keys', `Use 'for-of' instead of 'forEach()'`);
     t.end();
 });
 

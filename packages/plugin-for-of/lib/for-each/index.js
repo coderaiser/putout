@@ -30,7 +30,7 @@ const forOfEntriesTemplate = template(`
 const {keys} = Object;
 const isRoot = (path) => path.isFunction() || path.isProgram();
 
-module.exports.report = () => `for-of should be used instead of forEach`;
+module.exports.report = () => `Use 'for-of' instead of 'forEach()'`;
 
 module.exports.replace = () => ({
     '__.forEach.call(__a, (__b) => __body)': 'for (const __b of __a) __body',
