@@ -34,3 +34,8 @@ test('rule: remove-args: transform: maybe', (t) => {
     t.transform('maybe');
     t.end();
 });
+
+test('rule: remove-args: transform: linebreak', (t) => {
+    t.transform('linebreak');
+    t.end();
+});
