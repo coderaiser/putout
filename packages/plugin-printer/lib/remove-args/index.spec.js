@@ -39,3 +39,8 @@ test('rule: remove-args: transform: linebreak', (t) => {
     t.transform('linebreak');
     t.end();
 });
+
+test('rule: remove-args: transform: breakline', (t) => {
+    t.transform('breakline');
+    t.end();
+});

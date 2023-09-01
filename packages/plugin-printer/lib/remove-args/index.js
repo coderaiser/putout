@@ -27,6 +27,7 @@ module.exports.match = () => ({
 
 module.exports.replace = () => ({
     'print.newline(__args)': 'print.newline()',
+    'print.breakline(__a)': 'print.breakline()',
     'print.linebreak(__a)': 'print.linebreak()',
     'print.space(__args)': 'print.space()',
     
