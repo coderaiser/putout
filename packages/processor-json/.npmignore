@@ -1,5 +1,6 @@
 .*
 *.spec.js
+*.spec.cjs
 test
 yarn-error.log
 

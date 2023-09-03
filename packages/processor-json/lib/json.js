@@ -1,6 +1,6 @@
 import removeBlankLines from 'remove-blank-lines';
+import {prefix} from './prefix.cjs';
 
-const prefix = '__putout_processor_json(';
 const sufix = ');\n';
 const maybeNewline = (a) => a.at(-1) === '\n' ? a : `${a}\n`;
 

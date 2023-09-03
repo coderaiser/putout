@@ -6,6 +6,10 @@
   "description": "🐊Putout processor adds ability to lint json",
   "homepage": "https://github.com/coderaiser/putout/tree/master/packages/processor-json#readme",
   "main": "lib/json.js",
+  "exports": {
+    ".": "./lib/json.js",
+    "./is-json": "./lib/is-json.cjs"
+  },
   "release": false,
   "tag": false,
   "changelog": false,
@@ -40,8 +44,10 @@
     "eslint-plugin-putout": "^19.0.0",
     "lerna": "^6.0.1",
     "madrun": "^9.0.0",
+    "montag": "^1.2.1",
     "nodemon": "^3.0.1",
-    "putout": "*"
+    "putout": "*",
+    "supertape": "^8.5.0"
   },
   "peerDependencies": {
     "putout": ">=29"
