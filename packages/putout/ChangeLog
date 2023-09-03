@@ -1,3 +1,13 @@
+2023.09.03, v31.8.2
+
+feature:
+- 0fabbcfa0 package: @putout/processor-json v7.0.0
+- 8ecdff05c @putout/processor-json: rm peerDependencies
+- 8c83f79f1 @putout/processor-json: add is-json
+- 4e6f75057 @putout/plugin-printer: remove-args: print.breakline()
+- e20da190d @putout/plugin-printer: drop support of 🐊 < 31
+- c4da43a67 @putout/plugin-printer: remove-args: print.linebreak()
+
 2023.08.31, v31.8.1
 
 feature:
