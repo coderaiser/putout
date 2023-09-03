@@ -165,7 +165,7 @@
     "@putout/processor-css": "^7.0.0",
     "@putout/processor-ignore": "^4.0.0",
     "@putout/processor-javascript": "^5.0.0",
-    "@putout/processor-json": "^6.0.0",
+    "@putout/processor-json": "^7.0.0",
     "@putout/processor-markdown": "^10.0.0",
     "@putout/processor-yaml": "^5.0.0",
     "@putout/traverse": "^8.0.0",
