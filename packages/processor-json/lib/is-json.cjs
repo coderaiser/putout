@@ -1,5 +1,5 @@
 'use strict';
 
-const {prefix} = require('./prefix.cjs');
+const {name} = require('./name.cjs');
 
-module.exports.isJSON = (source) => !source.indexOf(prefix);
+module.exports.isJSON = (source) => !source.indexOf(name);
