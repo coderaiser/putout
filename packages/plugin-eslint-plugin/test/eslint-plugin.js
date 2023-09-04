@@ -19,3 +19,8 @@ test('putout: plugin-eslint: transform: apply-filename', (t) => {
     t.transform('apply-filename');
     t.end();
 });
+
+test('plugin-eslint-plugin: transform: convert-context-to-source', (t) => {
+    t.transform('convert-context-to-source');
+    t.end();
+});

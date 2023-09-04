@@ -21,7 +21,8 @@ npm i @putout/plugin-eslint-plugin -D
 {
     "rules": {
         "eslint/apply-source-code": "on",
-        "eslint/apply-filename": "on"
+        "eslint/apply-filename": "on",
+        "eslint/convert-context-to-source": "on"
     }
 }
 ```
@@ -56,6 +57,36 @@ context.getFilename();
 
 ```js
 context.filename;
+```
+
+## convert-context-to-source
+
+Replace deprated versions of ESLint v8 to equalent API of v9.
+Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d9dda4953b53340d4f54483ee3bbf2d5/d7182394c3b1a2b52e4c489b60da7365a9c94e09).
+
+### ❌ Example of incorrect code
+
+```js
+context.parserServices;
+context.getAncestors(node);
+context.getDeclaredVariables(node);
+context.getScope();
+context.getCwd();
+context.markVariableAsUsed(name);
+context.getPhysicalFilename();
+```
+
+### ✅ Example of correct code
+
+```js
+sourceCode.parserServices;
+sourceCode.getAncestors(node);
+
+sourceCode.getDeclaredVariables(node);
+sourceCode.getScope();
+context.cwd;
+sourceCode.markVariableAsUsed(name);
+context.physicalFilename;
 ```
 
 ## License
