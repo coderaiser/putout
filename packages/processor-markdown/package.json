@@ -29,7 +29,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/processor-json": "^6.0.1",
+    "@putout/processor-json": "^7.0.1",
     "once": "^1.4.0",
     "remark-parse": "^10.0.0",
     "remark-preset-lint-consistent": "^5.0.0",
@@ -57,9 +57,6 @@
     "nodemon": "^3.0.1",
     "putout": "*",
     "supertape": "^8.0.0"
-  },
-  "peerDependencies": {
-    "putout": ">=31"
   },
   "engines": {
     "node": ">=16"
