@@ -33,7 +33,7 @@ import json from './foo.json' with { type: 'json' };
 
 import('foo.json', {
     assert: {
-    type: "json",
+    type: 'json',
     },
     });
 ```
@@ -45,7 +45,7 @@ import json from './foo.json' with { type: 'json' };
 
 import('foo.json', {
     with: {
-    type: "json",
+    type: 'json',
     },
     });
 ```
