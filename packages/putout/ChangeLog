@@ -1,3 +1,14 @@
+2023.09.04, v31.8.3
+
+fix:
+- cbbfda598 @putout/processor-json: prefix -> name
+
+feature:
+- 95130e258 package: @putout/processor-json v7.0.1
+- 5deaf9283 package: @putout/processor-yaml v6.0.0
+- 95183baac package: @putout/processor-json v7.0.1
+- 759ca9f15 package: @putout/printer v4.1.0
+
 2023.09.03, v31.8.2
 
 feature:
