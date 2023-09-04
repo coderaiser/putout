@@ -1,2 +1,2 @@
 const r = /(a)/g;
-"lala".split(r);
+'lala'.split(r);

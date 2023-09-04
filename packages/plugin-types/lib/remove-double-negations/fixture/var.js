@@ -1,1 +1,1 @@
-var t = !!"hello";
+var t = !!'hello';

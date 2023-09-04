@@ -1,9 +1,9 @@
 const objectA = {
-    property: "",
+    property: '',
 };
 
 const objectB = {
-    property: "foo",
+    property: 'foo',
 };
 
 const property = objectA.property || objectB.property;

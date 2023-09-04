@@ -2,15 +2,15 @@ __putout_processor_json({
     "overrides": [{
         "files": ["server/**/*.js"],
         "rules": {
-            "node/no-unsupported-features/node-builtins": "off",
+            "node/no-unsupported-features/node-builtins": "off"
         },
         "extends": [
-            "plugin:node/recommended",
+            "plugin:node/recommended"
         ],
-        "plugins": ["node"],
+        "plugins": ["node"]
     }],
     "extends": [
-        "plugin:putout/recommended",
+        "plugin:putout/recommended"
     ],
-    "plugins": ["putout"],
+    "plugins": ["putout"]
 });

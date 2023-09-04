@@ -8,12 +8,12 @@ __putout_processor_json({
                 "name": "Use Node.js ${{ matrix.node-version }}",
                 "uses": "actions/setup-node@v1",
                 "with": {
-                    "node-version": "${{ matrix.node-version }}",
-                },
+                    "node-version": "${{ matrix.node-version }}"
+                }
             }, {
                 "name": "Install Redrun",
-                "run": "npm i redrun -g",
-            }],
-        },
-    },
+                "run": "npm i redrun -g"
+            }]
+        }
+    }
 });

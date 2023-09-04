@@ -1,5 +1,5 @@
 // Before
-/(a)/g.exec("haha");
+/(a)/g.exec('haha');
 // Output: ["a", "a"]
 // After
-/a/g.exec("haha"); // Output: ["a"]
+/a/g.exec('haha'); // Output: ["a"]

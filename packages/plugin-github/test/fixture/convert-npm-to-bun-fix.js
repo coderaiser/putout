@@ -6,11 +6,11 @@ __putout_processor_json({
             "runs-on": "ubuntu-latest",
             "steps": [{
                 "name": "Install Redrun",
-                "run": "bun i redrun -g --no-save",
+                "run": "bun i redrun -g --no-save"
             }, {
                 "name": "Install Redrun",
-                "run": "bun i --no-save",
-            }],
-        },
-    },
+                "run": "bun i --no-save"
+            }]
+        }
+    }
 });

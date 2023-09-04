@@ -147,7 +147,7 @@ test('putout: parser: babel: nullish coalescing operator', (t) => {
         ],
     });
     
-    const expected = 'const hello = world ?? "world";\n';
+    const expected = `const hello = world ?? 'world';\n`;
     
     t.equal(code, expected);
     t.end();

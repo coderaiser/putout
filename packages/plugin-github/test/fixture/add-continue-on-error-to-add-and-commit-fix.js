@@ -5,23 +5,23 @@ __putout_processor_json({
         build: {
             "runs-on": "ubuntu-latest",
             "steps": [{
-                "uses": "actions/checkout@v3",
+                "uses": "actions/checkout@v3"
             }, {
-                'uses': 'oven-sh/setup-bun@v1',
-                'with': {
-                    'bun-version': 'latest',
-                },
+                "uses": "oven-sh/setup-bun@v1",
+                "with": {
+                    "bun-version": "latest"
+                }
             }, {
                 "name": "Use Node.js ${{ matrix.node-version }}",
-                "uses": 'actions/setup-node@v3',
+                "uses": "actions/setup-node@v3",
                 "with": {
-                    "node-version": "${{ matrix.node-version }}",
-                },
+                    "node-version": "${{ matrix.node-version }}"
+                }
             }, {
                 "name": "Commit fixes",
                 "uses": "EndBug/add-and-commit@v9",
-                'continue-on-error': true,
-            }],
-        },
-    },
+                "continue-on-error": true
+            }]
+        }
+    }
 });
