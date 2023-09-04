@@ -24,7 +24,7 @@
     "report": "madrun report"
   },
   "dependencies": {
-    "@putout/processor-json": "^6.0.0",
+    "@putout/processor-json": "^7.0.1",
     "just-kebab-case": "^4.0.2",
     "try-catch": "^3.0.0",
     "yaml": "^2.2.2"
@@ -44,9 +44,6 @@
     "madrun": "^9.0.0",
     "nodemon": "^3.0.1",
     "putout": "*"
-  },
-  "peerDependencies": {
-    "putout": ">=29"
   },
   "license": "MIT",
   "engines": {
