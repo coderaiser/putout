@@ -10,5 +10,7 @@ source.getDeclaredVariables(node);
 sourceCode.getScope();
 context.cwd;
 
+context.sourceCode;
 sourceCode.markVariableAsUsed(name);
+context.filename;
 context.physicalFilename;

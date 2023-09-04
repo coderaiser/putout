@@ -20,59 +20,34 @@ npm i @putout/plugin-eslint-plugin -D
 ```json
 {
     "rules": {
-        "eslint/apply-source-code": "on",
-        "eslint/apply-filename": "on",
         "eslint/convert-context-to-source": "on"
     }
 }
 ```
 
-## apply-source-code
-
-According to [v8.40](https://eslint.org/blog/2023/05/eslint-v8.40.0-released/), `context.getSourceCode()` is deprecated in favour of `context.sourceCode`.
-
-### ❌ Example of incorrect code
-
-```js
-context.getSourceCode();
-```
-
-### ✅ Example of correct code
-
-```js
-context.sourceCode;
-```
-
-## apply-filename
-
-According to [v8.40](https://eslint.org/blog/2023/05/eslint-v8.40.0-released/), `context.getFilename()` is deprecated in favour of `context.filename`.
-
-### ❌ Example of incorrect code
-
-```js
-context.getFilename();
-```
-
-### ✅ Example of correct code
-
-```js
-context.filename;
-```
-
 ## convert-context-to-source
 
-Replace deprated versions of ESLint v8 to equalent API of v9.
+
+According to [v8.40](https://eslint.org/blog/2023/05/eslint-v8.40.0-released/):
+
+- `context.getSourceCode()` is deprecated in favour of `context.sourceCode`;
+- `context.getFilename()` is deprecated in favour of `context.filename`;
+- etc;
+
+So is better to replace deprecated API of ESLint v8 to equalent future proof API for v9.
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/d9dda4953b53340d4f54483ee3bbf2d5/d7182394c3b1a2b52e4c489b60da7365a9c94e09).
 
 ### ❌ Example of incorrect code
 
 ```js
+context.getSourceCode();
 context.parserServices;
 context.getAncestors(node);
 context.getDeclaredVariables(node);
 context.getScope();
 context.getCwd();
 context.markVariableAsUsed(name);
+context.getFilename();
 context.getPhysicalFilename();
 ```
 
@@ -81,11 +56,12 @@ context.getPhysicalFilename();
 ```js
 sourceCode.parserServices;
 sourceCode.getAncestors(node);
-
 sourceCode.getDeclaredVariables(node);
 sourceCode.getScope();
-context.cwd;
 sourceCode.markVariableAsUsed(name);
+context.cwd;
+context.sourceCode;
+context.filename;
 context.physicalFilename;
 ```
 
