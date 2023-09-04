@@ -3,5 +3,5 @@ const foo = bar(({baz}) => ({
 }));
 
 foo({
-    qux: "qux",
+    qux: 'qux',
 });

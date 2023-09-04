@@ -1,1 +1,1 @@
-/(.)\1{3,}/gi.test("abcccc");
+/(.)\1{3,}/gi.test('abcccc');

@@ -7,12 +7,12 @@ module.exports = class ConfigCommentParser {
      * @returns {Object} Result map object of names and string values, or null values if no value was provided
      */
     parseStringConfig(string, comment) {
-        debug("Parsing String config");
+        debug('Parsing String config');
         
         const items = {};
         
         // Collapse whitespace around `:` and `,` to make parsing easier
-        const trimmedString = string.replace(/\s*([:,])\s*/gu, "$1");
+        const trimmedString = string.replace(/\s*([:,])\s*/gu, '$1');
         
         for (const name of trimmedString.split(/\s|,+/u)) {
             if (!name) {
@@ -20,7 +20,7 @@ module.exports = class ConfigCommentParser {
             }
             
             // value defaults to null (if not provided), e.g: "foo" => ["foo", null]
-            const [key, value = null] = name.split(":");
+            const [key, value = null] = name.split(':');
             
             items[key] = {
                 value,

@@ -26,7 +26,7 @@ test('operate: setLiteralValue', (t) => {
     
     const expected = montag`
         ({
-            "hello": 'hello',
+            'hello': 'hello',
         });\n
     `;
     
@@ -47,7 +47,7 @@ test('operate: setLiteralValue: node', (t) => {
     
     const expected = montag`
         ({
-            "hello": 'hello',
+            'hello': 'hello',
         });\n
     `;
     
@@ -62,7 +62,7 @@ test('operate: setLiteralValue: no raw', (t) => {
     const result = print(node);
     
     const expected = montag`
-        import z from "hello";\n
+        import z from 'hello';\n
     `;
     
     t.equal(result, expected);

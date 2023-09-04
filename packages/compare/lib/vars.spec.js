@@ -486,7 +486,7 @@ test('putout: compare: vars: "__a"', (t) => {
         }),
     };
     
-    const input = '"hello".replace(/l/g, "x");\n';
+    const input = `'hello'.replace(/l/g, 'x');\n`;
     
     const {code} = putout(input, {
         fixCount: 1,

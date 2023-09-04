@@ -1,5 +1,10 @@
-import {types} from 'putout';
+import {
+    types,
+    operator,
+} from 'putout';
 import getProperty from '../get-property.js';
+
+const {setLiteralValue} = operator;
 
 const {
     isStringLiteral,
@@ -15,9 +20,7 @@ export const report = () => '"lint" should check ".madrun.js"';
 export const fix = ({node}) => {
     if (isStringLiteral(node)) {
         const result = addMadrun(node.value);
-        
-        node.value = result;
-        node.raw = result;
+        setLiteralValue(node, result);
         
         return;
     }

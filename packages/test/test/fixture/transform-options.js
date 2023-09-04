@@ -1,2 +1,2 @@
-import "hello";
-import "world";
+import 'hello';
+import 'world';

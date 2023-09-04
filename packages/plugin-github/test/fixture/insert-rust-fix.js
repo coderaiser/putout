@@ -5,9 +5,9 @@ __putout_processor_json({
         "build": {
             "runs-on": "ubuntu-latest",
             "steps": [{
-                'name': 'Install Rust',
-                'run': 'rustup update',
-            }],
-        },
-    },
+                "name": "Install Rust",
+                "run": "rustup update"
+            }]
+        }
+    }
 });

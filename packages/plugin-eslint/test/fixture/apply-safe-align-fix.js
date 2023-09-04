@@ -1,21 +1,21 @@
 __putout_processor_json({
     "extends": [
         "plugin:n/recommended",
-        'plugin:putout/safe',
+        "plugin:putout/safe"
     ],
     "plugins": [
         "putout",
-        "n",
-    ],
+        "n"
+    ]
 });
 
 __putout_processor_json({
     "extends": [
         "plugin:n/recommended",
-        'plugin:putout/safe',
+        "plugin:putout/safe"
     ],
     "plugins": [
         "putout",
-        "n",
-    ],
+        "n"
+    ]
 });

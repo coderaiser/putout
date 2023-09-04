@@ -1,6 +1,6 @@
 __putout_processor_json({
     "version": "1.0.0",
     "main": "",
-    'commitType': 'colon',
-    "exports": {},
+    "commitType": "colon",
+    "exports": {}
 });

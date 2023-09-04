@@ -437,7 +437,7 @@ test('putout: runner: plugins: replace: template: linked literal node', (t) => {
         }],
     });
     
-    const expected = 'const hello = require("world");\n';
+    const expected = `const hello = require('world');\n`;
     
     t.equal(code, expected);
     t.end();

@@ -5,35 +5,35 @@ __putout_processor_json({
         "build": {
             "runs-on": "ubuntu-latest",
             "steps": [{
-                "uses": "actions/checkout@v1",
+                "uses": "actions/checkout@v1"
             }, {
                 "name": "Use Node.js ${{ matrix.node-version }}",
                 "uses": "actions/setup-node@v1",
                 "with": {
-                    "node-version": "${{ matrix.node-version }}",
-                },
+                    "node-version": "${{ matrix.node-version }}"
+                }
             }, {
                 "name": "Install Redrun",
-                "run": "npm i redrun -g",
+                "run": "npm i redrun -g"
             }, {
                 "name": "Install",
-                "run": "npm install",
+                "run": "npm install"
             }, {
                 "name": "Bootstrap",
-                "run": "redrun bootstrap",
+                "run": "redrun bootstrap"
             }, {
                 "name": "Lint",
-                "run": "redrun lint",
+                "run": "redrun lint"
             }, {
                 "name": "Coverage",
-                "run": "redrun coverage report",
+                "run": "redrun coverage report"
             }, {
                 "name": "Coveralls",
                 "uses": "coverallsapp/github-action@master",
                 "with": {
-                    "github-token": "${{ secrets.GITHUB_TOKEN }}",
-                },
-            }],
-        },
-    },
+                    "github-token": "${{ secrets.GITHUB_TOKEN }}"
+                }
+            }]
+        }
+    }
 });

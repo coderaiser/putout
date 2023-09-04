@@ -5,12 +5,12 @@ __putout_processor_json({
             "strategy": {
                 "matrix": {
                     "node-version": [
-                        '16.x',
-                        '18.x',
-                        '20.x',
-                    ],
-                },
-            },
-        },
-    },
+                        "16.x",
+                        "18.x",
+                        "20.x"
+                    ]
+                }
+            }
+        }
+    }
 });

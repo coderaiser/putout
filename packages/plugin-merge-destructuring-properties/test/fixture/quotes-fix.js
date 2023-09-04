@@ -1,1 +1,1 @@
-const {dirname: dirname, join} = require("path");
+const {dirname: dirname, join} = require('path');

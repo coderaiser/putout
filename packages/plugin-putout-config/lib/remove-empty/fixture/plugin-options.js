@@ -1,10 +1,10 @@
 ({
-    "rules": {
-        "apply-shorthand-properties": ["on", {
-            "ignore": [],
+    'rules': {
+        'apply-shorthand-properties': ['on', {
+            'ignore': [],
         }],
     },
-    "plugins": [
-        "apply-shorthand-properties",
+    'plugins': [
+        'apply-shorthand-properties',
     ],
 });

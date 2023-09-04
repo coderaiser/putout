@@ -5,41 +5,41 @@ __putout_processor_json({
         "build": {
             "runs-on": "ubuntu-latest",
             "steps": [{
-                "uses": 'actions/checkout@v3',
+                "uses": "actions/checkout@v3"
             }, {
-                'uses': 'oven-sh/setup-bun@v1',
-                'with': {
-                    'bun-version': 'latest',
-                },
+                "uses": "oven-sh/setup-bun@v1",
+                "with": {
+                    "bun-version": "latest"
+                }
             }, {
                 "name": "Use Node.js ${{ matrix.node-version }}",
-                "uses": 'actions/setup-node@v3',
+                "uses": "actions/setup-node@v3",
                 "with": {
-                    "node-version": "${{ matrix.node-version }}",
-                },
+                    "node-version": "${{ matrix.node-version }}"
+                }
             }, {
                 "name": "Install Redrun",
-                "run": "bun i redrun -g --no-save",
+                "run": "bun i redrun -g --no-save"
             }, {
                 "name": "Install",
-                "run": "bun i --no-save",
+                "run": "bun i --no-save"
             }, {
                 "name": "Bootstrap",
-                "run": "redrun bootstrap",
+                "run": "redrun bootstrap"
             }, {
                 "name": "Lint",
-                "run": "redrun lint",
+                "run": "redrun lint"
             }, {
                 "name": "Coverage",
-                "run": "redrun coverage report",
+                "run": "redrun coverage report"
             }, {
                 "name": "Coveralls",
-                "uses": 'coverallsapp/github-action@v2',
-                'continue-on-error': true,
+                "uses": "coverallsapp/github-action@v2",
+                "continue-on-error": true,
                 "with": {
-                    "github-token": "${{ secrets.GITHUB_TOKEN }}",
-                },
-            }],
-        },
-    },
+                    "github-token": "${{ secrets.GITHUB_TOKEN }}"
+                }
+            }]
+        }
+    }
 });

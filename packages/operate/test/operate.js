@@ -1138,7 +1138,7 @@ test('putout: operate: setLiteralValue', (t) => {
     
     const expected = montag`
         ({
-            "hello": 'hello',
+            'hello': 'hello',
         });\n
     `;
     
