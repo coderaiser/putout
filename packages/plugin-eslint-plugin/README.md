@@ -27,7 +27,6 @@ npm i @putout/plugin-eslint-plugin -D
 
 ## convert-context-to-source
 
-
 According to [v8.40](https://eslint.org/blog/2023/05/eslint-v8.40.0-released/):
 
 - `context.getSourceCode()` is deprecated in favour of `context.sourceCode`;
