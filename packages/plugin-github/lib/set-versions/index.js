@@ -8,6 +8,6 @@ module.exports = setVersions({
     'docker/setup-buildx-action': 'v2',
     'docker/build-push-action': 'v4',
     'coverallsapp/github-action': 'v2',
-    'setup-quemu-action': 'v2',
+    'setup-qemu-action': 'v2',
     'EndBug/add-and-commit': 'v9',
 });

@@ -13,7 +13,7 @@ __putout_processor_json({
                 }
             }, {
                 "name": "Set up QEMU",
-                "uses": "setup-quemu-action@v2",
+                "uses": "setup-qemu-action@v2",
                 "with": {
                     "node-version": "${{ matrix.node-version }}"
                 }
