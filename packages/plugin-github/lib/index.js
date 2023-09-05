@@ -12,6 +12,7 @@ const installBun = require('./install-bun');
 const convertNpmToBun = require('./convert-npm-to-bun');
 const insertRust = require('./insert-rust');
 const setSetupQuemuVersion = require('./set-setup-quemu-version');
+const setDockerSetupBuildxVersion = require('./set-docker-setup-buildx-version');
 
 module.exports.rules = {
     'add-continue-on-error-to-coveralls': addContinueOnErrorToCoveralls,
@@ -26,4 +27,5 @@ module.exports.rules = {
     'convert-npm-to-bun': convertNpmToBun,
     'insert-rust': insertRust,
     'set-setup-quemu-version': setSetupQuemuVersion,
+    'set-docker-setup-buildx-version': setDockerSetupBuildxVersion,
 };

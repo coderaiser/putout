@@ -25,6 +25,7 @@ npm i @putout/plugin-github -D
         "github/set-node-versions": "on",
         "github/set-coveralls-version": "on",
         "github/set-docker-build-push-version": "on",
+        "github/set-docker-setup-buildx-version": "on",
         "github/set-checkout-version": "on",
         "github/set-setup-node-version": "on",
         "github/set-setup-quemu-version": "on",
@@ -92,20 +93,28 @@ You can override versions with:
 }
 ```
 
-## set-coveralls-versions
+## set-coveralls-version
 
 ```diff
-    - name: Coveralls
+      - name: Coveralls
 -       uses: coverallsapp/github-action@master
 +       uses: coverallsapp/github-action@v2
 ```
 
-## set-docker-build-push-versions
+## set-docker-build-push-version
 
 ```diff
-   - name: Build and push alpine-image
+      - name: Build and push alpine-image
 -       uses: docker/build-push-action@v2
 +       uses: docker/build-push-action@v4
+```
+
+## set-docker-setup-buildx-version
+
+```diff
+      - name: Set up Docker Buildx
+-       uses: docker/setup-buildx-action@v1
++       uses: docker/setup-buildx-action@v2
 ```
 
 ## set-checkout-version

@@ -69,3 +69,8 @@ test('plugin-github: transform: set-setup-quemu-version', (t) => {
     t.transform('set-setup-quemu-version');
     t.end();
 });
+
+test('plugin-github: transform: set-docker-setup-buildx-version', (t) => {
+    t.transform('set-docker-setup-buildx-version');
+    t.end();
+});
