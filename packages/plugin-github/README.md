@@ -27,6 +27,7 @@ npm i @putout/plugin-github -D
         "github/set-docker-build-push-version": "on",
         "github/set-checkout-version": "on",
         "github/set-setup-node-version": "on",
+        "github/set-setup-quemu-version": "on",
         "github/set-add-and-commit": "on",
         "github/install-bun": "on",
         "github/install-rust": "on",
@@ -121,6 +122,15 @@ You can override versions with:
   steps:
 -      - uses: actions/setup-node@v2
 +      - uses: actions/setup-node@v3
+```
+
+## set-setup-quemu-version
+
+```diff
+  steps:
+        - name: Set up QEMU
+-         uses: docker/setup-qemu-action@v1
++         uses: docker/setup-qemu-action@v2
 ```
 
 ## set-add-and-commit

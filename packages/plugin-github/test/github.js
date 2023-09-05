@@ -64,3 +64,8 @@ test('plugin-github: transform: insert-rust', (t) => {
     t.transform('insert-rust');
     t.end();
 });
+
+test('plugin-github: transform: set-setup-quemu-version', (t) => {
+    t.transform('set-setup-quemu-version');
+    t.end();
+});
