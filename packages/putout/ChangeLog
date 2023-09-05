@@ -1,3 +1,19 @@
+2023.09.05, v31.8.4
+
+feature:
+- 991d24bae package: @putout/plugin-github v8.0.0
+- b11b9077b @putout/plugin-github: set-versions: add
+- d1240765e @putout/plugin-github: set-docker-setup-buildx-version: add
+- 188ef5123 @putout/plugin-github: set-setup-quemu-action-version: add
+- c1ec32298 @putout/plugin-github: set-docker-build-push-version: add
+- fc194a55c @putout/eslint-plugin: drop useless rules
+- 3586e7a13 @putout/plugin-eslint-plugin: drop support of 🐊 < 31
+- db7f163c2 @putout/plugin-eslint-plugin: convert-context-to-source
+- 73f628e0d package: @putout/processor-json v7.0.1
+- 384d8e9ef package: @putout/processor-yaml v6.0.0
+- caa6783db package: @putout/processor-json v7.0.1
+- 9c40e9da0 package: @putout/printer v4.1.0
+
 2023.09.04, v31.8.3
 
 fix:
