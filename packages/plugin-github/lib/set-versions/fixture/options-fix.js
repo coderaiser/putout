@@ -7,14 +7,14 @@ __putout_processor_json({
             "steps": [{
                 "uses": "actions/checkout@v3"
             }, {
-                "name": "Set up QEMU",
-                "uses": "setup-qemu-action@v1",
+                "name": "Use Node.js ${{ matrix.node-version }}",
+                "uses": "actions/setup-node@v3",
                 "with": {
                     "node-version": "${{ matrix.node-version }}"
                 }
             }, {
-                "name": "Set up Docker Buildx",
-                "uses": "docker/setup-buildx-action@v2"
+                "name": "Hello",
+                "uses": "hello@v13"
             }]
         }
     }

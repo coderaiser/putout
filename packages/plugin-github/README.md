@@ -22,14 +22,8 @@ npm i @putout/plugin-github -D
     "rules": {
         "github/add-continue-on-error-to-coveralls": "on",
         "github/add-continue-on-error-to-add-and-commit": "on",
+        "github/set-versions": "on",
         "github/set-node-versions": "on",
-        "github/set-coveralls-version": "on",
-        "github/set-docker-build-push-version": "on",
-        "github/set-docker-setup-buildx-version": "on",
-        "github/set-checkout-version": "on",
-        "github/set-setup-node-version": "on",
-        "github/set-setup-quemu-version": "on",
-        "github/set-add-and-commit": "on",
         "github/install-bun": "on",
         "github/install-rust": "on",
         "github/convert-npm-to-bun": "on"
@@ -93,7 +87,9 @@ You can override versions with:
 }
 ```
 
-## set-coveralls-version
+## set-versions
+
+`coverallsapp/github-action@master`:
 
 ```diff
       - name: Coveralls
@@ -101,7 +97,7 @@ You can override versions with:
 +       uses: coverallsapp/github-action@v2
 ```
 
-## set-docker-build-push-version
+`docker/build-push-version`:
 
 ```diff
       - name: Build and push alpine-image
@@ -109,7 +105,7 @@ You can override versions with:
 +       uses: docker/build-push-action@v4
 ```
 
-## set-docker-setup-buildx-version
+`docker/setup-buildx-version`:
 
 ```diff
       - name: Set up Docker Buildx
@@ -117,7 +113,7 @@ You can override versions with:
 +       uses: docker/setup-buildx-action@v2
 ```
 
-## set-checkout-version
+`actions/checkout`:
 
 ```diff
   steps:
@@ -125,7 +121,7 @@ You can override versions with:
 +      - uses: actions/checkout@v3
 ```
 
-## set-setup-node-version
+`actions/setup-node`:
 
 ```diff
   steps:
@@ -133,7 +129,7 @@ You can override versions with:
 +      - uses: actions/setup-node@v3
 ```
 
-## set-setup-quemu-version
+`docker/setup-quemu`:
 
 ```diff
   steps:
@@ -142,7 +138,7 @@ You can override versions with:
 +         uses: docker/setup-qemu-action@v2
 ```
 
-## set-add-and-commit
+`EndBug/add-and-commit`:
 
 ```diff
   steps:
@@ -201,7 +197,6 @@ Bun install works much faster: 40s before - 2s after.
 
 Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e03cc6ff4d9927568dc4f6f608be10ef/52146f4cbbc02c5bc8d7242af94d37f8734b3b36).
 
-````diff
 ```diff
 - name: Install Redrun
 -    run: npm i redrun -g
@@ -209,11 +204,6 @@ Checkout in 🐊[**Putout Editor**](https://putout.cloudcmd.io/#/gist/e03cc6ff4d
 - name: Install
 -    run: npm install
 +    run: bun i --no-save
-````
-
 ```
-
-## License
 
 MIT
-```

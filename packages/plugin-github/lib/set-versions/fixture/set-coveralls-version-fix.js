@@ -7,16 +7,16 @@ __putout_processor_json({
             "steps": [{
                 "uses": "actions/checkout@v3"
             }, {
-                "name": "Set up QEMU",
-                "uses": "setup-quemu-action@v2",
+                "name": "Use Node.js ${{ matrix.node-version }}",
+                "uses": "actions/setup-node@v3",
                 "with": {
                     "node-version": "${{ matrix.node-version }}"
                 }
             }, {
-                "name": "Build and push base-image",
-                "uses": "docker/build-push-action@v2",
+                "name": "Coveralls",
+                "uses": "coverallsapp/github-action@v2",
                 "with": {
-                    "context": "."
+                    "github-token": "${{ secrets.GITHUB_TOKEN }}"
                 }
             }]
         }

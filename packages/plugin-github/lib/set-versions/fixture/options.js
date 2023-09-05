@@ -12,18 +12,15 @@ __putout_processor_json({
                "uses": "actions/checkout@v3"
             },
             {
-               "name": "Set up QEMU",
-               "uses": "setup-quemu-action@v1",
+               "name": "Use Node.js ${{ matrix.node-version }}",
+               "uses": "actions/setup-node@v1",
                "with": {
                   "node-version": "${{ matrix.node-version }}"
                }
             },
             {
-               "name": "Build and push base-image",
-               "uses": "docker/build-push-action@v2",
-               "with": {
-                  "context": "."
-               }
+               "name": "Hello",
+               "uses": "hello@v1"
             }
          ]
       }
