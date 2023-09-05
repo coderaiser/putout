@@ -23,7 +23,8 @@ npm i @putout/plugin-github -D
         "github/add-continue-on-error-to-coveralls": "on",
         "github/add-continue-on-error-to-add-and-commit": "on",
         "github/set-node-versions": "on",
-        "github/set-coveralls": "on",
+        "github/set-coveralls-version": "on",
+        "github/set-docker-build-push-version": "on",
         "github/set-checkout-version": "on",
         "github/set-setup-node-version": "on",
         "github/set-add-and-commit": "on",
@@ -96,6 +97,14 @@ You can override versions with:
     - name: Coveralls
 -       uses: coverallsapp/github-action@master
 +       uses: coverallsapp/github-action@v2
+```
+
+## set-docker-build-push-versions
+
+```diff
+   - name: Build and push alpine-image
+-       uses: docker/build-push-action@v2
++       uses: docker/build-push-action@v4
 ```
 
 ## set-checkout-version

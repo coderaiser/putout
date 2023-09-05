@@ -25,6 +25,11 @@ test('plugin-github: transform: set-coveralls-version', (t) => {
     t.end();
 });
 
+test('plugin-github: transform: set-docker-build-push-version', (t) => {
+    t.transform('set-docker-build-push-version');
+    t.end();
+});
+
 test('plugin-github: transform: set-setup-node-version', (t) => {
     t.transform('set-setup-node-version');
     t.end();

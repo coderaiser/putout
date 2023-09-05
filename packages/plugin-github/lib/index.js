@@ -5,6 +5,7 @@ const addContinueOnErrorToAddAndCommit = require('./add-continue-on-error-to-add
 const setNodeVersions = require('./set-node-versions');
 const setCheckoutVersion = require('./set-checkout-version');
 const setCoverallsVersion = require('./set-coveralls-version');
+const setDockerBuildPushVersion = require('./set-docker-build-push-version');
 const setSetupNodeVersion = require('./set-setup-node-version');
 const setAddAndCommit = require('./set-add-and-commit');
 const installBun = require('./install-bun');
@@ -17,6 +18,7 @@ module.exports.rules = {
     'set-node-versions': setNodeVersions,
     'set-checkout-version': setCheckoutVersion,
     'set-coveralls-version': setCoverallsVersion,
+    'set-docker-build-push-version': setDockerBuildPushVersion,
     'set-setup-node-version': setSetupNodeVersion,
     'set-add-and-commit': setAddAndCommit,
     'install-bun': installBun,
