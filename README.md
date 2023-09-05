@@ -2702,8 +2702,8 @@ Are you also use 🐊**Putout** in your application? Please open a Pull Request 
 **Putout** follows semantic versioning ([semver](https://semver.org)) principles, with version numbers being on the format **major**.**minor**.**patch**:
 
 - **patch**: `bug fix`, `dependency update` (`17.0.0 -> 17.0.1`).
-- **minor**: `new features`, `new rules` or `fixes` (`17.0.0 -> 17.1.0`).
-- **major** `breaking changes`, `removing rules` (`17.0.0 -> 18.0.0`).
+- **minor**: `new features`, `new plugins` or `fixes` (`17.0.0 -> 17.1.0`).
+- **major** `breaking changes`, `plugins remove` (`17.0.0 -> 18.0.0`).
 
 ## 🚀 I want contribute
 
