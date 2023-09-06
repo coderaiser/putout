@@ -20,6 +20,11 @@ test('plugin-github: update-actions: transform: v2', (t) => {
     t.end();
 });
 
+test('plugin-github: update-actions: transform: docker-login', (t) => {
+    t.transform('docker-login');
+    t.end();
+});
+
 test('plugin-github: update-actions: transform: options', (t) => {
     t.transformWithOptions('options', {
         actions: {
