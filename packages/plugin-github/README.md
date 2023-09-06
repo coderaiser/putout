@@ -97,7 +97,15 @@ You can override versions with:
 +       uses: coverallsapp/github-action@v2
 ```
 
-`docker/build-push-version`:
+`docker/login-action`:
+
+```diff
+      - name: Login to Docker Hub
+-       uses: docker/login-action@v1
++       uses: docker/login-action@v2
+```
+
+`docker/build-push`:
 
 ```diff
       - name: Build and push alpine-image
@@ -105,7 +113,7 @@ You can override versions with:
 +       uses: docker/build-push-action@v4
 ```
 
-`docker/setup-buildx-version`:
+`docker/setup-buildx`:
 
 ```diff
       - name: Set up Docker Buildx
