@@ -13,13 +13,13 @@ const {StringLiteral} = types;
 const cutV = (a) => Number(a.slice(1));
 const cutMaster = (a) => a.replace('master', 'v0');
 
-module.exports.setVersions = (actions) => ({
+module.exports.updateActions = (actions) => ({
     traverse: traverse(actions),
     fix,
     report,
 });
 
-const report = ({name}) => `Latest version of '${name}' is missing`;
+const report = ({name}) => `Update action '${name}' to latest version`;
 
 const fix = ({full, path}) => {
     const checkoutNode = StringLiteral(full);

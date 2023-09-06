@@ -22,11 +22,11 @@ npm i @putout/plugin-github -D
     "rules": {
         "github/add-continue-on-error-to-coveralls": "on",
         "github/add-continue-on-error-to-add-and-commit": "on",
-        "github/set-versions": "on",
         "github/set-node-versions": "on",
         "github/install-bun": "on",
         "github/install-rust": "on",
-        "github/convert-npm-to-bun": "on"
+        "github/convert-npm-to-bun": "on",
+        "github/update-actions": "on"
     }
 }
 ```
@@ -87,7 +87,7 @@ You can override versions with:
 }
 ```
 
-## set-versions
+## update-actions
 
 `coverallsapp/github-action@master`:
 

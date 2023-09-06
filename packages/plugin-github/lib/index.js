@@ -6,12 +6,12 @@ const setNodeVersions = require('./set-node-versions');
 const installBun = require('./install-bun');
 const convertNpmToBun = require('./convert-npm-to-bun');
 const insertRust = require('./insert-rust');
-const setVersions = require('./set-versions');
+const updateActions = require('./update-actions');
 
 module.exports.rules = {
     'add-continue-on-error-to-coveralls': addContinueOnErrorToCoveralls,
     'add-continue-on-error-to-add-and-commit': addContinueOnErrorToAddAndCommit,
-    'set-versions': setVersions,
+    'update-actions': updateActions,
     'set-node-versions': setNodeVersions,
     'install-bun': installBun,
     'convert-npm-to-bun': convertNpmToBun,

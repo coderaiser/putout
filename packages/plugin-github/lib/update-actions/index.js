@@ -1,8 +1,8 @@
 'use strict';
 
-const {setVersions} = require('./set-versions');
+const {updateActions} = require('./update-actions');
 
-module.exports = setVersions({
+module.exports = updateActions({
     'actions/checkout': 'v3',
     'actions/setup-node': 'v3',
     'docker/setup-buildx-action': 'v2',

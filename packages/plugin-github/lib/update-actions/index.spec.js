@@ -6,21 +6,21 @@ const plugin = require('.');
 const test = createTest(__dirname, {
     printer: 'putout',
     plugins: [
-        ['github/set-coveralls-version', plugin],
+        ['github/update-actions', plugin],
     ],
 });
 
-test('plugin-github: set coveralls versions: report', (t) => {
-    t.report('set-coveralls-version', `Latest version of 'actions/setup-node' is missing`);
+test('plugin-github: update-actions: report', (t) => {
+    t.report('set-coveralls-version', `Update action 'actions/setup-node' to latest version`);
     t.end();
 });
 
-test('plugin-github: set coveralls versions: transform: v2', (t) => {
+test('plugin-github: update-actions: transform: v2', (t) => {
     t.transform('set-coveralls-version');
     t.end();
 });
 
-test('plugin-github: set-versions: transform: options', (t) => {
+test('plugin-github: update-actions: transform: options', (t) => {
     t.transformWithOptions('options', {
         actions: {
             hello: 'v13',
