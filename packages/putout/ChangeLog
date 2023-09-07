@@ -1,3 +1,16 @@
+2023.09.07, v31.8.5
+
+fix:
+- 8251b3118 @putout/plugin-github: set-versions -> update-actions
+- ef5c19f45 @putout/plugin-github: set-versions
+- f7abaf567 @putout/plugin-github: quemu -> qemu
+
+feature:
+- ecfa5ebe1 package: @putout/plugin-strict-mode v8.0.0
+- a63e7236c @putout/plugin-strict-mode: drop support of 🐊 < 31
+- 10a79aa15 @putout/plugin-strict-mode: remove-useless: exclude "use client" (#182)
+- a035efbf4 @putout/plugin-github: update-actions: docker/login-action: add
+
 2023.09.05, v31.8.4
 
 feature:
