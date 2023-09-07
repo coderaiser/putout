@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "@putout/formatter-progress": "*",
+    "@putout/plugin-apply-nullish-coalescing": "*",
     "@putout/plugin-convert-commonjs-to-esm": "*",
     "@putout/plugin-remove-unused-variables": "*",
     "@putout/processor-javascript": "*",

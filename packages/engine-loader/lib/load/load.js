@@ -5,6 +5,7 @@ const {createRequire} = require('module');
 
 const tryCatch = require('try-catch');
 const once = require('once');
+const {assign} = Object;
 
 const bigFirst = (a) => `${a[0].toUpperCase()}${a.slice(1)}`;
 
@@ -14,7 +15,18 @@ const load = (type) => ({name, namespace}) => {
     if (!pluginPath)
         throw Error(`${bigFirst(type)} "${namespace}-${type}-${name}" could not be found!`);
     
-    return customRequire(pluginPath);
+    const [error, result] = tryCatch(customRequire, pluginPath);
+    
+    if (error?.code === 'ERR_REQUIRE_ESM')
+        assign(error, {
+            message: `☝️ Looks like '${name}' is ESM, use 'await putoutAsync()' instead`,
+            name,
+        });
+    
+    if (error)
+        throw error;
+    
+    return result;
 };
 
 module.exports.loadPlugin = load('plugin');

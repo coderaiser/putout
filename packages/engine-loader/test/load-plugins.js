@@ -416,3 +416,33 @@ test('putout: loader: sync: import: shorten', async (t) => {
     t.deepEqual(places, expected);
     t.end();
 });
+
+test('putout: loader: sync: load ESM: code', (t) => {
+    const source = `const {run} = require('madrun');`;
+    const [error] = tryCatch(putout, source, {
+        plugins: ['@putout/plugin-apply-nullish-coalescing'],
+    });
+    
+    t.equal(error.code, 'ERR_REQUIRE_ESM');
+    t.end();
+});
+
+test('putout: loader: sync: load ESM: message', (t) => {
+    const source = `const {run} = require('madrun');`;
+    const [error] = tryCatch(putout, source, {
+        plugins: ['@putout/plugin-apply-nullish-coalescing'],
+    });
+    
+    t.equal(error.message, `☝️ Looks like '@putout/plugin-apply-nullish-coalescing' is ESM, use 'await putoutAsync()' instead`);
+    t.end();
+});
+
+test('putout: loader: sync: load ESM: name', (t) => {
+    const source = `const {run} = require('madrun');`;
+    const [error] = tryCatch(putout, source, {
+        plugins: ['apply-nullish-coalescing'],
+    });
+    
+    t.equal(error.name, 'apply-nullish-coalescing');
+    t.end();
+});
